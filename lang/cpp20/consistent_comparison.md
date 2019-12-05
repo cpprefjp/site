@@ -95,7 +95,7 @@ bool is_equal = comp == 0.0;
 |[`weak_ordering`](/reference/compare/weak_ordering.md)|弱順序|`== != < <= > >=`|
 |[`strong_ordering`](/reference/compare/strong_ordering.md)|全順序|`== != < <= > >=`|
 
-表にあるように5つの比較カテゴリ型はそれぞれ数学的な2項関係の一つと対応している。また、それによって（orderingでないカテゴリでは）、順序の4つの演算子が導出されない。
+表にあるように3つの比較カテゴリ型はそれぞれ数学的な2項関係（順序関係）の一つと対応している。
 
 三方比較演算子による比較の結果となる値は、これら比較カテゴリ型のいずれかの`prvalue`オブジェクトとなる。  
 全てのカテゴリにおいてそのようなオブジェクトの`0`リテラル以外との比較は未定義動作となる。
@@ -105,7 +105,6 @@ bool is_equal = comp == 0.0;
 #### 比較カテゴリ間の順序関係
 
 各比較カテゴリ型はその条件の強いものから弱いものへの暗黙変換が定義される。この方向は各カテゴリに対応する数学的な関係の包含関係によって定義されている。  
-ordering -> equalityに変換できてもequality -> orderingに変換できないのは、同値関係を満たしていても順序関係を満たさないような関係を考えることができるため。
 
 ![]( https://raw.githubusercontent.com/cpprefjp/image/master/lang/cpp20/consistent_comparison_01.png)  
 図1 比較カテゴリ間の変換関係（[P0515R3](http://wg21.link/p0515)より引用）
