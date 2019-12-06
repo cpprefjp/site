@@ -19,7 +19,7 @@ constexpr explicit operator local_days() const noexcept; // (1) C++20
 return local_days{sys_days{*this}.time_since_epoch()};
 ```
 * local_days[link /reference/chrono/local_time.md]
-* sys_days[link /reference/chrono/sys_titme.md]
+* sys_days[link /reference/chrono/sys_time.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 
 

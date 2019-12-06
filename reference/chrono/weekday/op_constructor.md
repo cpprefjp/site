@@ -15,7 +15,7 @@ weekday(const weekday&) = default;                         // (5) C++20
 weekday(weekday&&) = default;                              // (6) C++20
 ```
 * sys_days[link /reference/chrono/sys_time.md]
-* local_days[link /reference/chrono/local_time.md.nolink]
+* local_days[link /reference/chrono/local_time.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ
@@ -70,7 +70,7 @@ int main() {
 * Thursday[link /reference/chrono/weekday_constants.md]
 * January[link /reference/chrono/month_constants.md]
 * sys_days[link /reference/chrono/sys_time.md]
-* local_days[link /reference/chrono/local_time.md.nolink]
+* local_days[link /reference/chrono/local_time.md]
 * 1970y[link /reference/chrono/year/op_y.md]
 
 ### 出力
