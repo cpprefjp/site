@@ -190,7 +190,7 @@ int main()
 * std::to_chars[color ff0000]
 * std::string_view[link /reference/string_view/basic_string_view.md]
 
-### 出力例（VS2019 preview4.1）
+### 出力例（VS2019 16.6 preview 1）
 ```
 10
 1111111111111111
@@ -199,12 +199,10 @@ z
 1.10001e-01
 0.110001
 1.c29068986fcdfp-4
-conversion failed.
-conversion failed.
+1.1000100000000000e-01
+0.1100010000000000
 1.c29068986fcdf000p-4
 ```
-
-精度指定した16進指数表記以外の浮動小数点数変換に失敗するのはMSVC（VS2019 preview4.1）のバグと思われる。
 
 ## バージョン
 ### 言語
