@@ -8,6 +8,8 @@
 namespace std {
   //整数型用
   to_chars_result to_chars(char* first, char* last, /*see below*/ value,  int base = 10); // (1)
+  //boolの変換は禁止
+  to_chars_result to_chars(char* first, char* last, bool value,  int base = 10) = delete; // C++20
 
   //精度、フォーマット指定なし
   to_chars_result to_chars(char* first, char* last, float value);        // (2)
@@ -221,4 +223,5 @@ conversion failed.
 ## 参照
 - [P0067R5: Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)
 - [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)
+- [LWG Issue 3266. `to_chars(bool)` should be deleted](https://wg21.cmeerw.net/lwg/issue3266)
 - [Visual Studio 2017 version 15.9.0 - Visual Studio 2017 version 15.9 Release Notes](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes#-c)
