@@ -10,7 +10,13 @@ namespace std{
   T transform_reduce(InputIterator1 first1,
                      InputIterator1 last1,
                      InputIterator2 first2,
-                     T init);                      // (1)
+                     T init);                      // (1) C++17
+  template <class InputIterator1, class InputIterator2, class T>
+  constexpr T
+    transform_reduce(InputIterator1 first1,
+                     InputIterator1 last1,
+                     InputIterator2 first2,
+                     T init);                      // (1) C++20
 
   template <class InputIterator1, class InputIterator2, class T,
             class BinaryOperation1, class BinaryOperation2>
@@ -19,7 +25,16 @@ namespace std{
                      InputIterator2 first2,
                      T init,
                      BinaryOperation1 binary_op1,
-                     BinaryOperation2 binary_op2); // (2)
+                     BinaryOperation2 binary_op2); // (2) C++17
+  template <class InputIterator1, class InputIterator2, class T,
+            class BinaryOperation1, class BinaryOperation2>
+  constexpr T
+    transform_reduce(InputIterator1 first1,
+                     InputIterator1 last1,
+                     InputIterator2 first2,
+                     T init,
+                     BinaryOperation1 binary_op1,
+                     BinaryOperation2 binary_op2); // (2) C++20
 
   template <class InputIterator, class T,
             class BinaryOperation, class UnaryOperation>
@@ -27,7 +42,15 @@ namespace std{
                      InputIterator last,
                      T init,
                      BinaryOperation binary_op,
-                     UnaryOperation unary_op);     // (3)
+                     UnaryOperation unary_op);     // (3) C++17
+  template <class InputIterator, class T,
+            class BinaryOperation, class UnaryOperation>
+  constexpr T
+    transform_reduce(InputIterator first,
+                     InputIterator last,
+                     T init,
+                     BinaryOperation binary_op,
+                     UnaryOperation unary_op);     // (3) C++20
 
   template <class ExecutionPolicy,
             class ForwardIterator1, class ForwardIterator2, class T>
@@ -35,7 +58,7 @@ namespace std{
                      ForwardIterator1 first1,
                      ForwardIterator1 last1,
                      ForwardIterator2 first2,
-                     T init);                      // (4)
+                     T init);                      // (4) C++17
 
   template <class ExecutionPolicy,
             class ForwardIterator1, class ForwardIterator2, class T,
@@ -46,7 +69,7 @@ namespace std{
                      ForwardIterator2 first2,
                      T init,
                      BinaryOperation1 binary_op1,
-                     BinaryOperation2 binary_op2); // (5)
+                     BinaryOperation2 binary_op2); // (5) C++17
 
   template <class ExecutionPolicy,
             class ForwardIterator, class T,
@@ -56,7 +79,7 @@ namespace std{
                      ForwardIterator last,
                      T init,
                      BinaryOperation binary_op,
-                     UnaryOperation unary_op);     // (6)
+                     UnaryOperation unary_op);     // (6) C++17
 }
 ```
 
@@ -180,3 +203,5 @@ sum3 : 30
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [P0623R0 Final C++17 Parallel Algorithms Fixes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0623r0.html)
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した

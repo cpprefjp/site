@@ -8,33 +8,43 @@
 namespace std{
   template <class InputIterator>
   typename iterator_traits<InputIterator>::value_type
-    reduce(InputIterator first, InputIterator last);         // (1)
+    reduce(InputIterator first, InputIterator last);         // (1) C++17
+  template <class InputIterator>
+  constexpr typename iterator_traits<InputIterator>::value_type
+    reduce(InputIterator first, InputIterator last);         // (1) C++20
 
   template <class InputIterator, class T>
-  T reduce(InputIterator first, InputIterator last, T init); // (2)
+  T reduce(InputIterator first, InputIterator last, T init); // (2) C++17
+  template <class InputIterator, class T>
+  constexpr T
+    reduce(InputIterator first, InputIterator last, T init); // (2) C++20
 
   template <class InputIterator, class T, class BinaryOperation>
   T reduce(InputIterator first, InputIterator last, T init,
-           BinaryOperation binary_op);                       // (3)
+           BinaryOperation binary_op);                       // (3) C++17
+  template <class InputIterator, class T, class BinaryOperation>
+  constexpr T
+    reduce(InputIterator first, InputIterator last, T init,
+           BinaryOperation binary_op);                       // (3) C++20
 
   template <class ExecutionPolicy, class ForwardIterator>
   typename iterator_traits<ForwardIterator>::value_type
     reduce(ExecutionPolicy&& exec,
            ForwardIterator first,
-           ForwardIterator last);                            // (4)
+           ForwardIterator last);                            // (4) C++17
 
   template <class ExecutionPolicy, class ForwardIterator, class T>
   T reduce(ExecutionPolicy&& exec,
            ForwardIterator first,
            ForwardIterator last,
-           T init);                                          // (5)
+           T init);                                          // (5) C++17
 
   template <class ExecutionPolicy, class ForwardIterator, class T, class BinaryOperation>
   T reduce(ExecutionPolicy&& exec,
            ForwardIterator first,
            ForwardIterator last,
            T init,
-           BinaryOperation binary_op);                       // (6)
+           BinaryOperation binary_op);                       // (6) C++17
 }
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]
@@ -153,3 +163,5 @@ product : 120
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した

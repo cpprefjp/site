@@ -234,6 +234,18 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### 数値計算
 - 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
 - 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
+- 以下のアルゴリズムを`constexpr`対応
+    - [`std::accumulate()`](/reference/numeric/accumulate.md)
+    - [`std::reduce()`](/reference/numeric/reduce.md)
+    - [`std::inner_product()`](/reference/numeric/inner_product.md)
+    - [`std::transform_reduce()`](/reference/numeric/transform_reduce.md)
+    - [`std::partial_sum()`](/reference/numeric/partial_sum.md)
+    - [`std::exclusive_scan()`](/reference/numeric/exclusive_scan.md)
+    - [`std::inclusive_scan()`](/reference/numeric/inclusive_scan.md)
+    - [`std::transform_exclusive_scan()`](/reference/numeric/transform_exclusive_scan.md)
+    - [`std::transform_inclusive_scan()`](/reference/numeric/transform_inclusive_scan.md)
+    - [`std::adjacent_difference()`](/reference/numeric/adjacent_difference.md)
+    - [`std::iota()`](/reference/numeric/iota.md)
 
 
 ### 文字列

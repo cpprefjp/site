@@ -14,7 +14,16 @@ namespace std{
                              OutputIterator result,
                              T init,
                              BinaryOperation binary_op,
-                             UnaryOperation unary_op);  // (1)
+                             UnaryOperation unary_op);  // (1) C++17
+  template <class InputIterator, class OutputIterator, class T,
+            class BinaryOperation, class UnaryOperation>
+  constexpr OutputIterator
+    transform_exclusive_scan(InputIterator first,
+                             InputIterator last,
+                             OutputIterator result,
+                             T init,
+                             BinaryOperation binary_op,
+                             UnaryOperation unary_op);  // (1) C++20
 
   template <class ExecutionPolicy,
             class ForwardIterator1, class ForwardIterator2, class T,
@@ -26,7 +35,7 @@ namespace std{
                              ForwardIterator2 result,
                              T init,
                              BinaryOperation binary_op,
-                             UnaryOperation unary_op);  // (2)
+                             UnaryOperation unary_op);  // (2) C++17
 }
 ```
 
@@ -131,3 +140,5 @@ int main()
 - [P0452R1 Unifying `<numeric>` Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0452r1.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した

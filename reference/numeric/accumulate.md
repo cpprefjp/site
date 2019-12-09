@@ -6,11 +6,16 @@
 ```cpp
 namespace std{
   template <class InputIterator, class T>
-  T accumulate(InputIterator first, InputIterator last, T init); // (1)
+  T accumulate(InputIterator first, InputIterator last, T init);           // (1) C++03
+  template <class InputIterator, class T>
+  constexpr T accumulate(InputIterator first, InputIterator last, T init); // (1) C++20
 
   template <class InputIterator, class T, class BinaryOperation>
   T accumulate(InputIterator first, InputIterator last, T init,
-               BinaryOperation binary_op);                       // (2)
+               BinaryOperation binary_op);                                 // (2) C++03
+  template <class InputIterator, class T, class BinaryOperation>
+  constexpr T accumulate(InputIterator first, InputIterator last, T init,
+                         BinaryOperation binary_op);                       // (2) C++20
 }
 ```
 
@@ -123,3 +128,5 @@ T accumulate(InputIterator first, InputIterator last, T init,
 
 ## 参照
 - [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した
