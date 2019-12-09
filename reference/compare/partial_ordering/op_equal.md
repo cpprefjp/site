@@ -1,0 +1,102 @@
+# operator==
+
+* compare[meta header]
+* function[meta id-type]
+* std[meta namespace]
+* partial_ordering[meta class]
+* cpp20[meta cpp]
+
+```cpp
+friend constexpr bool operator==(partial_ordering v, partial_ordering w) noexcept = default; // (1)
+
+friend constexpr bool operator==(partial_ordering v, /*unspecified*/) noexcept;   // (2)
+
+// (2)により、以下のオーバーロードが使用可能になる
+friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept;   // (3)
+```
+
+## 概要
+
+- (1) : `partial_ordering`同士の等値比較を行う
+- (1)(2) : `partial_ordering`の値が`partial_ordering::equivalent`であるかを調べる。
+
+## 戻り値
+
+`int`型のメンバ変数`value`に各有効値に対応する値、`bool`型メンバ変数`is_ordered`に順序付けされているかどうかを保持しているとして、以下と等価
+
+- (1) : `return v.value == w.value && v.is_ordered == w.is_ordered` 
+- (2) : `return v.is_ordered && v.value == 0` 
+- (3) : `return v == 0` 
+
+## 例外
+投げない。
+
+## 備考
+この演算子により、以下の演算子が使用可能になる：
+  - `bool operator!=(partial_ordering v, partial_ordering w) noexcept;`
+  - `bool operator!=(partial_ordering v, /*unspecified*/) noexcept;`
+  - `bool operator!=(/*unspecified*/, partial_ordering w) noexcept;`
+
+*unspecified*となっている片側の引数には`0`リテラルのみが使用できる。それ以外の物を渡した場合、動作は未定義。
+
+## 例
+```cpp example
+#include <iostream>
+#include <compare>
+
+int main()
+{
+  std::partial_ordering comp1 = 1 <=> 2;
+  std::partial_ordering comp2 = 1 <=> 1;
+  std::partial_ordering comp3 = -0.0 <=> +0.0;
+  
+  constexpr auto qnan = std::numeric_limits<double>::quiet_NaN();
+  std::partial_ordering comp4 = qnan <=> qnan;
+
+  std::cout << std::boolalpha;
+
+  // (1)
+  std::cout << (comp1 == comp2) << std::endl;
+
+  // (2) 
+  std::cout << (comp1 == 0) << std::endl;
+  std::cout << (comp3 == 0) << std::endl;
+  std::cout << (comp4 == 0) << std::endl;
+
+  // (3)
+  std::cout << (0 == comp1) << std::endl;
+  std::cout << (0 == comp3) << std::endl;
+  std::cout << (0 == comp4) << std::endl;
+}
+```
+
+### 出力
+```
+false
+false
+true
+false
+false
+true
+false
+```
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): 8.0(1が未実装)
+- [GCC](/implementation.md#gcc): 10.1(full support)
+- [Visual C++](/implementation.md#visual_cpp): 2019(1が未実装)、2019 16.4(full support)
+
+## 関連項目
+
+- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+
+
+## 参照
+
+- [P0515R3 Consistent comparison](http://wg21.link/p0515)
+- [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
+- [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
