@@ -67,6 +67,7 @@ int main()
   std::cout << ((0 <=> comp4) == 0) << std::endl;
 }
 ```
+
 ### 出力
 ```
 true

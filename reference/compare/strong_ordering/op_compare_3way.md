@@ -56,6 +56,7 @@ int main()
   std::cout << ((0 <=> comp2) == 0) << std::endl;
 }
 ```
+
 ### 出力
 ```
 true
