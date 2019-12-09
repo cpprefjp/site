@@ -18,7 +18,7 @@ friend constexpr bool operator!=(/*unspecified*/, partial_ordering v) noexcept; 
 ## 概要
 
 - (1) : `partial_ordering`同士の非等値比較を行う
-- (1)(2) : `partial_ordering`の値が`partial_ordering::equivalent`で無いことを調べる。
+- (2)(3) : `partial_ordering`の値が`partial_ordering::equivalent`で無いことを調べる。
 
 ## 戻り値
 

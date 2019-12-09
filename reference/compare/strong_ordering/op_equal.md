@@ -18,7 +18,7 @@ friend constexpr bool operator==(/*unspecified*/, strong_ordering v) noexcept;  
 ## 概要
 
 - (1) : `strong_ordering`同士の等値比較を行う
-- (1)(2) : `strong_ordering`の値が`strong_ordering::equal`であるかを調べる。
+- (2)(3) : `strong_ordering`の値が`strong_ordering::equal`であるかを調べる。
 
 ## 戻り値
 
@@ -33,6 +33,7 @@ friend constexpr bool operator==(/*unspecified*/, strong_ordering v) noexcept;  
 
 ## 備考
 この演算子により、以下の演算子が使用可能になる：
+
   - `bool operator!=(strong_ordering v, strong_ordering w) noexcept;`
   - `bool operator!=(strong_ordering v, /*unspecified*/) noexcept;`
   - `bool operator!=(/*unspecified*/, strong_ordering w) noexcept;`

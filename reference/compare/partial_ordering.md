@@ -55,7 +55,7 @@ namespace std {
 | 名前                                       | 説明                             | 対応バージョン |
 | ------------------------------------------ | -------------------------------- | -------------- |
 | [`operator==`](partial_ordering/op_equal.md)         | 等値比較                         | C++20          |
-| [`operator!=`](partial_ordering/op_not_equal.md)     | 非等値比較                       | C++20          |
+| [`operator!=`](partial_ordering/op_not_equal.md)     | 非等値比較 (`==`により使用可能)                       | C++20          |
 | [`operator<`](partial_ordering/op_less.md)           | 左辺が右辺より小さいかを判定する | C++20          |
 | [`operator<=`](partial_ordering/op_less_equal.md)    | 左辺が右辺以下かを判定する       | C++20          |
 | [`operator>`](partial_ordering/op_greater.md)        | 左辺が右辺より大きいかを判定する | C++20          |

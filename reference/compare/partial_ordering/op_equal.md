@@ -18,7 +18,7 @@ friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept; 
 ## 概要
 
 - (1) : `partial_ordering`同士の等値比較を行う
-- (1)(2) : `partial_ordering`の値が`partial_ordering::equivalent`であるかを調べる。
+- (2)(3) : `partial_ordering`の値が`partial_ordering::equivalent`であるかを調べる。
 
 ## 戻り値
 
@@ -33,6 +33,7 @@ friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept; 
 
 ## 備考
 この演算子により、以下の演算子が使用可能になる：
+
   - `bool operator!=(partial_ordering v, partial_ordering w) noexcept;`
   - `bool operator!=(partial_ordering v, /*unspecified*/) noexcept;`
   - `bool operator!=(/*unspecified*/, partial_ordering w) noexcept;`
