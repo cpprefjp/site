@@ -11,7 +11,13 @@ namespace std{
     exclusive_scan(InputIterator first,
                    InputIterator last,
                    OutputIterator result,
-                   T init);                    // (1)
+                   T init);                    // (1) C++17
+  template <class InputIterator, class OutputIterator, class T>
+  constexpr OutputIterator
+    exclusive_scan(InputIterator first,
+                   InputIterator last,
+                   OutputIterator result,
+                   T init);                    // (1) C++20
 
   template <class InputIterator, class OutputIterator, class T, class BinaryOperation>
   OutputIterator
@@ -19,7 +25,14 @@ namespace std{
                    InputIterator last,
                    OutputIterator result,
                    T init,
-                   BinaryOperation binary_op); // (2)
+                   BinaryOperation binary_op); // (2) C++17
+  template <class InputIterator, class OutputIterator, class T, class BinaryOperation>
+  constexpr OutputIterator
+    exclusive_scan(InputIterator first,
+                   InputIterator last,
+                   OutputIterator result,
+                   T init,
+                   BinaryOperation binary_op); // (2) C++20
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2, class T>
   ForwardIterator2
@@ -27,7 +40,7 @@ namespace std{
                    ForwardIterator1 first,
                    ForwardIterator1 last,
                    ForwardIterator2 result,
-                   T init);                    // (3)
+                   T init);                    // (3) C++17
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2, class T,
             class BinaryOperation>
@@ -37,7 +50,7 @@ namespace std{
                    ForwardIterator1 last,
                    ForwardIterator2 result,
                    T init,
-                   BinaryOperation binary_op); // (4)
+                   BinaryOperation binary_op); // (4) C++17
 }
 ```
 
@@ -174,3 +187,5 @@ int main()
 - [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [Finding the number of occurrences of keys and the positions of first occurrences of keys by CUDA Thrust - StackOverflow](https://stackoverflow.com/questions/8792926/finding-the-number-of-occurrences-of-keys-and-the-positions-of-first-occurrences/)
     - この関数の用途として、[`std::multiset`](/reference/set/multiset.md)のような構成になっているシーケンスから、それぞれのキーがはじまるインデックスのリストを取得するために使用できる
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した

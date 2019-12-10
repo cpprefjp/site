@@ -7,7 +7,11 @@
 ```cpp
 namespace std{
   template <class ForwardIterator, class T>
-  void iota(ForwardIterator first, ForwardIterator last, T value);
+  void
+    iota(ForwardIterator first, ForwardIterator last, T value); // (1) C++11
+  template <class ForwardIterator, class T>
+  constexpr void
+    iota(ForwardIterator first, ForwardIterator last, T value); // (1) C++20
 }
 ```
 
@@ -105,4 +109,5 @@ void iota(ForwardIterator first, ForwardIterator last, T value)
 ## 参照
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
-
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した

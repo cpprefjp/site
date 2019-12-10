@@ -10,6 +10,11 @@ namespace std {
     adjacent_difference(InputIterator first,
                         InputIterator last,
                         OutputIterator result);     // (1) C++03
+  template <class InputIterator, class OutputIterator>
+  constexpr OutputIterator
+    adjacent_difference(InputIterator first,
+                        InputIterator last,
+                        OutputIterator result);     // (1) C++20
 
   template <class InputIterator, class OutputIterator, class BinaryOperation>
   OutputIterator
@@ -17,6 +22,12 @@ namespace std {
                         InputIterator last,
                         OutputIterator result,
                         BinaryOperation binary_op); // (2) C++03
+  template <class InputIterator, class OutputIterator, class BinaryOperation>
+  constexpr OutputIterator
+    adjacent_difference(InputIterator first,
+                        InputIterator last,
+                        OutputIterator result,
+                        BinaryOperation binary_op); // (2) C++20
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
   ForwardIterator2
@@ -191,3 +202,5 @@ OutputIterator adjacent_difference(InputIterator first, InputIterator last, Outp
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0623R0 Final C++17 Parallel Algorithms Fixes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0623r0.html)
 - [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した

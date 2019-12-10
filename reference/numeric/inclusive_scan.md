@@ -10,14 +10,25 @@ namespace std{
   OutputIterator
     inclusive_scan(InputIterator first,
                    InputIterator last,
-                   OutputIterator result);     // (1)
+                   OutputIterator result);     // (1) C++17
+  template <class InputIterator, class OutputIterator>
+  constexpr OutputIterator
+    inclusive_scan(InputIterator first,
+                   InputIterator last,
+                   OutputIterator result);     // (1) C++20
 
   template <class InputIterator, class OutputIterator, class BinaryOperation>
   OutputIterator
     inclusive_scan(InputIterator first,
                    InputIterator last,
                    OutputIterator result,
-                   BinaryOperation binary_op); // (2)
+                   BinaryOperation binary_op); // (2) C++17
+  template <class InputIterator, class OutputIterator, class BinaryOperation>
+  constexpr OutputIterator
+    inclusive_scan(InputIterator first,
+                   InputIterator last,
+                   OutputIterator result,
+                   BinaryOperation binary_op); // (2) C++20
 
   template <class InputIterator, class OutputIterator, class BinaryOperation, class T>
   OutputIterator
@@ -25,14 +36,21 @@ namespace std{
                    InputIterator last,
                    OutputIterator result,
                    BinaryOperation binary_op,
-                   T init);                    // (3)
+                   T init);                    // (3) C++17
+  template <class InputIterator, class OutputIterator, class BinaryOperation, class T>
+  constexpr OutputIterator
+    inclusive_scan(InputIterator first,
+                   InputIterator last,
+                   OutputIterator result,
+                   BinaryOperation binary_op,
+                   T init);                    // (3) C++20
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2>
   ForwardIterator2
     inclusive_scan(ExecutionPolicy&& exec,
                    ForwardIterator1 first,
                    ForwardIterator1 last,
-                   ForwardIterator2 result);   // (4)
+                   ForwardIterator2 result);   // (4) C++17
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
             class BinaryOperation>
@@ -41,7 +59,7 @@ namespace std{
                    ForwardIterator1 first,
                    ForwardIterator1 last,
                    ForwardIterator2 result,
-                   BinaryOperation binary_op); // (5)
+                   BinaryOperation binary_op); // (5) C++17
 
   template <class ExecutionPolicy, class ForwardIterator1, class ForwardIterator2,
             class BinaryOperation, class T>
@@ -51,7 +69,7 @@ namespace std{
                    ForwardIterator1 last,
                    ForwardIterator2 result,
                    BinaryOperation binary_op,
-                   T init);                    // (6)
+                   T init);                    // (6) C++17
 }
 ```
 
@@ -214,3 +232,5 @@ int main()
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
+- [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
+    - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した
