@@ -129,7 +129,7 @@ int main()
   std::cout << (std::strong_order(-0.0, +0.0) < 0) << std::endl;
   std::cout << (std::strong_order(-qnan, +qnan) < 0) << std::endl;
   std::cout << (std::strong_order(+snan, +qnan) < 0) << std::endl;
-  std::cout << (std::strong_order(-snan, -qnan) < 0) << std::endl;
+  std::cout << (std::strong_order(-qnan, -snan) < 0) << std::endl;
 
   std::cout << "\n";
 
