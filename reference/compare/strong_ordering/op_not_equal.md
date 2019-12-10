@@ -73,7 +73,7 @@ false
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0(1が未実装)
 - [GCC](/implementation.md#gcc): 10.1(full support)
-- [Visual C++](/implementation.md#visual_cpp): 2019(1が未実装)、2019 16.4(full support)
+- [Visual C++](/implementation.md#visual_cpp): 2019(1が未実装)
 
 ## 関連項目
 
