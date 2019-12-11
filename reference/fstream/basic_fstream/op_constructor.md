@@ -46,7 +46,7 @@ int main()
   try
   {
     std::fstream s2("internal.dat", std::ios_base::in | std::ios_base::out | std::ios_base::binary);
-    s2.exception(std::ios_base::failbit);
+    s2.exceptions(std::ios_base::failbit);
   } catch (const std::exception& e) {
     std::cerr << "ファイルを開けませんでした。" << std::endl;
   }
