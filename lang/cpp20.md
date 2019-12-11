@@ -208,7 +208,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - 各コンテナの非メンバ関数として、要素を削除する`std::erase()`関数と`std::erase_if()`関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
 - [`std::array`](/reference/array/array.md)クラスの比較演算子、[`fill()`](/reference/array/array/fill.md)メンバ関数、[`swap()`](/reference/array/array/swap.md)メンバ関数、[`swap()`](/reference/array/array/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した
-- 組み込み配列を[`std::array`](/reference/array/array.md)に変換する関数として[`std::to_array()`](/reference/array/to_array.md.nolink)を追加
+- 組み込み配列を[`std::array`](/reference/array/array.md)に変換する関数として[`std::to_array()`](/reference/array/to_array.md)を追加
 - [`<iterator>`](/reference/iterator.md)に、符号付き整数としてコンテナの要素数を取得する[`std::ssize()`](/reference/iterator/ssize.md)関数を追加
 - [`std::allocator`](/reference/memory/allocator.md)、および[`std::vector`](/reference/vector/vector.md)と[`std::basic_string`](/reference/string/basic_string.md)を`constexpr`対応
 
