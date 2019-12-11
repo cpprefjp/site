@@ -19,7 +19,7 @@ basic_filebuf* open(const filesystem::path::value_type* s,
 
 まず`mode & ~ios_­base​::​ate`の結果からファイルの開くモードが決定される。`fopen`のモード文字列との対応は以下の通り。
 
-| `binary` | `in` | `out` | `trunc` | `ate` | `stdio` equivalent |
+| `binary` | `in` | `out` | `trunc` | `ate` | 対応する`fopen`のモード文字列 |
 |----------|------|-------|---------|-------|--------------------|
 |          |      | ○     |         |       | `"w"`              |
 |          |      | ○     |         | ○     | `"a"`              |
