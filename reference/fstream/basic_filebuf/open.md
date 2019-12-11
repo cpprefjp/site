@@ -19,14 +19,30 @@ basic_filebuf* open(const filesystem::path::value_type* s,
 
 まず`mode & ~ios_­base​::​ate`の結果からファイルの開くモードが決定される。`fopen`のモード文字列との対応は以下の通り。
 
-<!--
-TODO: Table 117 — File open modes を引っ張ってくる
-https://timsong-cpp.github.io/cppwp/n4659/filebuf.members#tab:iostreams.file.open.modes
--->
+| `binary` | `in` | `out` | `trunc` | `ate` | `stdio` equivalent |
+|----------|------|-------|---------|-------|--------------------|
+|          |      | ○     |         |       | `"w"`              |
+|          |      | ○     |         | ○     | `"a"`              |
+|          |      |       |         | ○     | `"a"`              |
+|          |      | ○     | ○       |       | `"w"`              |
+|          | ○    |       |         |       | `"r"`              |
+|          | ○    | ○     |         |       | `"r+"`             |
+|          | ○    | ○     | ○       |       | `"w+"`             |
+|          | ○    | ○     |         | ○     | `"a+"`             |
+|          | ○    |       |         | ○     | `"a+"`             |
+| ○        |      | ○     |         |       |  `"wb"`                |
+| ○        |      | ○     |         | ○     | `"ab"`             |
+| ○        |      |       |         | ○     | `"ab"`             |
+| ○        |      | ○     | ○       |       | `"wb"`             |
+| ○        | ○    |       |         |       | `"rb"`             |
+| ○        | ○    | ○     |         |       | `"r+b"`            |
+| ○        | ○    | ○     | ○       |       | `"w+b"`            |
+| ○        | ○    | ○     |         | ○     | `"a+b"`            |
+| ○        | ○    |       |         | ○     | `"a+b"`            |
 
-このようにしてあたかも`fopen`がこのモード文字列を第二引数に指定して呼び出されたかのように振る舞う。
+そしてあたかも`fopen`がこのモード文字列を第二引数に指定して呼び出されたかのように振る舞う。
 
-ファイルを開くのに成功して、`(mode & ios_­base​::​ate) != 0`の場合、ファイル終端にseekする(`fseek(file, 0, SEEK_­END)`したかのように振る舞う)
+ファイルを開くのに成功して、`(mode & ios_base::​ate) != 0`の場合、ファイル終端にseekする(`fseek(file, 0, SEEK_­END)`したかのように振る舞う)
 
 ファイルを開くのに失敗した場合`close()`を呼び出す。
 
@@ -50,7 +66,7 @@ int main()
   std::fstream fs("foo");
   std::filebuf* buf = fs.rdbuf();
 
-  if (buf->open()) {
+  if (buf->open("foo", std::ios_base::out)) {
       std::cout << "opened" << std::endl;
   }
 }
