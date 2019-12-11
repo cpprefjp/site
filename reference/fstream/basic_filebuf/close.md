@@ -1,4 +1,4 @@
-# open
+# close
 * fstream[meta header]
 * std[meta namespace]
 * basic_filebuf[meta class]
