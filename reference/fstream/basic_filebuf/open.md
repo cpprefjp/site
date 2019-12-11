@@ -34,7 +34,7 @@ basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) 
 |          | ○    | ○     | ○       |       | `"w+"`             |
 |          | ○    | ○     |         | ○     | `"a+"`             |
 |          | ○    |       |         | ○     | `"a+"`             |
-| ○        |      | ○     |         |       |  `"wb"`                |
+| ○        |      | ○     |         |       |  `"wb"`            |
 | ○        |      | ○     |         | ○     | `"ab"`             |
 | ○        |      |       |         | ○     | `"ab"`             |
 | ○        |      | ○     | ○       |       | `"wb"`             |
