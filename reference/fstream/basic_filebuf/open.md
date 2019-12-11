@@ -48,7 +48,7 @@ basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) 
 
 ファイルを開くのに成功して、`(mode & ios_base::​ate) != 0`の場合、ファイル終端にseekする(`fseek(file, 0, SEEK_­END)`したかのように振る舞う)
 
-ファイルを開くのに失敗した場合`close()`を呼び出す。
+ファイルを開くのに失敗した場合[`close()`](close.md)を呼び出す。
 
 ## 戻り値
 
