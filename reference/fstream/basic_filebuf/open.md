@@ -58,9 +58,6 @@ basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) 
 
 ## 例
 
-<!-- TODO: 例を差し替える -->
-
-
 ```cpp example
 #include <iostream>
 #include <fstream>
