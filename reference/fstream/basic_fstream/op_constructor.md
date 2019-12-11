@@ -8,7 +8,7 @@
 basic_fstream(); // (1)
 explicit basic_fstream(const char* s, ios_base::openmode mode = ios_base::in | ios_base::out); // (2)
 explicit basic_fstream(const string& s, ios_base::openmode mode = ios_base::in | ios_base::out); // (3)
-explicit basic_fstream(const std::filesystem::path::value_type* s,
+explicit basic_fstream(const filesystem::path::value_type* s,
                        ios_base::openmode mode = ios_base::in|ios_base::out); // (4) C++17
 explicit basic_fstream(const filesystem::path& s,
                        ios_base::openmode mode = ios_base::in | ios_base::out); // (5) C++17
@@ -26,7 +26,7 @@ basic_fstream(basic_fstream&& rhs); // (7) C++11
     - `rdbuf()->open(s, mode)`を呼び出す。その結果が失敗だった（戻り値がヌルポインタだった）場合、`setstate(failbit)`を呼び出す。
 - (3) : ファイルを指定する引数の型が`std::string`である点を除き、(2)と同じ。
 - (4) : [`std::filesystem​::​path​::​value_­type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(2)と同じ。
-- (5) : ファイルを指定する引数の型が`std::filesystem::path`である点を除き、(2)と同じ。
+- (5) : ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(2)と同じ。
 - (6) : コピーコンストラクタ。コピー不可。
 - (7) : ムーブコンストラクタ。ファイルストリームの所有権を移動する。
 
