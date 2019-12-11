@@ -27,7 +27,7 @@ namespace std {
 | `operator=`                                      | ムーブ代入                           | C++11 |
 | `swap`                                           | 値の交換                             | C++11 |
 | [`rdbuf`](basic_fstream/rdbuf.md)                | ストリームバッファオブジェクトの取得 | |
-| `is_open`                                        | ファイルを開いているかの判定         | |
+| [`is_open`](basic_fstream/is_open.md)            | ファイルを開いているかの判定         | |
 | `open`                                           | ファイルを開く                       | |
 | `close`                                          | ファイルを閉じる                     | |
 

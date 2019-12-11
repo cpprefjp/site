@@ -80,3 +80,8 @@ int main()
 ## バージョン
 ### 言語
 - C++98
+- C++17: `std::filesystem::path`への対応
+
+## 参照
+
+- [LGW issue 2676. Provide filesystem::path overloads for File-based streams](https://wg21.cmeerw.net/lwg/issue2676)
