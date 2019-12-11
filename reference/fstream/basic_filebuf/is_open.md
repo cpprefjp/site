@@ -23,7 +23,7 @@ bool is_open() const;
 
 int main()
 {
-  std::fstream fs("foo");
+  std::fstream fs("foo", std::ios_base::out);
   std::filebuf* buf = fs.rdbuf();
 
   if (buf->is_open()) {
@@ -35,6 +35,12 @@ int main()
 * std::filebuf[link /reference/fstream/basic_filebuf.md]
 * rdbuf()[link /reference/fstream/basic_fstream/rdbuf.md]
 * is_open()[link ff0000]
+
+### 出力
+
+```
+opened
+```
 
 ## バージョン
 ### 言語
