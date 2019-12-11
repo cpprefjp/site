@@ -8,12 +8,16 @@
 basic_filebuf* open(const char* s, ios_base::openmode mode); // (1)
 basic_filebuf* open(const filesystem::path::value_type* s,
                     ios_base::openmode mode); // (2) C++17
+basic_filebuf* open(const string& s, ios_base::openmode mode); // (3)
+basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) C++17
 ```
 
 ## 概要
 
 - (1): `s`で指定されたファイルを開く。`s`はヌル終端文字列。
 - (2): [`std::filesystem​::​path​::​value_­type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(1)と同じ。
+- (3): ファイルを指定する引数の型が`std::string`である点を除き、(1)と同じ。
+- (4): ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(1)と同じ。
 
 ## 効果
 
