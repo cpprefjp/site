@@ -7,7 +7,7 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 
 `char8_t`型は`unsigned char`型と同じ大きさ、アライメント、整数変換順位であるが、独立した型となっており、`char`や`unsigned char`とはオーバーロードで区別される。
 
-`u8`プレフィックスの付いた文字/文字列リテラルの型も`char`/`const char [n]`から`char8_t`/`const char8_t [n]`に変更になる。
+`u8`プレフィックスの付いた文字/（生）文字列リテラルの型も`char`/`const char [n]`から`char8_t`/`const char8_t [n]`に変更になる。
 
 [`<string>`](/reference/string.md)ヘッダには[`std::basic_string`](/reference/string/basic_string.md)`<char8_t>`の別名である[`std::u8string`](/reference/string/basic_string.md)型が追加される。同様にして[`<string_view>`](/reference/string_view.md)ヘッダには[`std::basic_string_view`](/reference/string_view/basic_string_view.md)`<char8_t>`の別名である[`std::u8string_view`](/reference/string_view/basic_string_view.md)型が追加される。
 
@@ -43,6 +43,9 @@ int main()
 
   const auto *u8s = u8"text";   // u8sの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる
   const char *ps = u8s;         // C++17までは適格だったがC++20からは不適格
+
+  const auto *u8rs = u8R"(text)";   // u8rsの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる
+  const char *prs = u8rs;           // C++17までは適格だったがC++20からは不適格
 
   auto u8c = u8'c';             // u8cの型はC++17まではcharだったが、C++20からはchar8_tになる
   char *pc = &u8c;              // C++17までは適格だったがC++20からは不適格
