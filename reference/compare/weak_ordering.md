@@ -81,7 +81,7 @@ struct insensitive_string {
 
     for (std::size_t i = 0; i < length; ++i) {
       char c1, c2;
-      if (std::isalpha(unsigned char(str[i])) && std::isalpha(unsigned char(that.str[i]))) {
+      if (std::isalpha(static_cast<unsigned char>(cl)) && std::isalpha(static_cast<unsigned char>(cr))) {
         c1 = std::tolower(str[i]);
         c2 = std::tolower(that.str[i]);
       } else {

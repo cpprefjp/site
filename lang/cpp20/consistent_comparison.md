@@ -627,7 +627,7 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
 * rhs.size()[link /reference/vector/vector/size.md]
 * size_t[link /reference/cstddef/size_t.md]
 * strong_ordering[link /reference/compare/strong_ordering.md]
-* std::compare_three_way[link /reference/algorithm/compare_three_way.md.nolink]
+* std::compare_three_way[link /reference/compare/compare_three_way.md]
 
 これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。  
 実際の比較は[`compare_three_way`](/reference/algorithm/compare_three_way.md.nolink)に移譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
@@ -746,13 +746,17 @@ struct has_vector {
         - [`partial_ordering`](/reference/compare/partial_ordering.md)
         - [`weak_ordering`](/reference/compare/weak_ordering.md)
         - [`strong_ordering`](/reference/compare/strong_ordering.md)
+    - コンセプト
+        - [`three_way_comparable`](/reference/compare/three_way_comparable.md)
+        - [`three_way_comparable_with`](/reference/compare/three_way_comparable.md)
     - [`common_comparison_category`](/reference/compare/common_comparison_category.md)
-    - 比較関数
+    - 比較関数オブジェクト
         - [`strong_order`](/reference/compare/strong_order.md)
         - [`weak_order`](/reference/compare/weak_order.md)
         - [`partial_order`](/reference/compare/partial_order.md)
-- [`compare_three_way`](/reference/algorithm/compare_three_way.md.nolink)
-- [`lexicographical_compare_three_way`](/reference/algorithm/lexicographical_compare_three_way.md.nolink)
+        - [`compare_three_way`](/reference/compare/compare_three_way.md)
+- [`<algorithm>`](/reference/algorithm.md)
+    - [`lexicographical_compare_three_way`](/reference/algorithm/lexicographical_compare_three_way.md)
 
 ## 参照
 
