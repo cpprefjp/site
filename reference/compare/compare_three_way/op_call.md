@@ -21,7 +21,7 @@ constexpr auto operator()(T&& t, U&& u) const;
 少なくともどちらかを満たしていること。
 
 - `three_way_comparable_with<T, U>`
-    - `T, U`が`<=>`による比較を使用可能であり、戻り値型が`ordering`な比較カテゴリ型を返すこと
+    - `T, U`が`<=>`による比較を使用可能であり、戻り値型は比較カテゴリ型であること
 - `declval<T>() <=> declval<U>()`が組み込みのポインタ比較`<=>`演算子に解決されること
     - `BUILTIN-PTR-THREE-WAY(T, U)`はその場合にのみ`true`を返す定数式
 
