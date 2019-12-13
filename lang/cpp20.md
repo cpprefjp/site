@@ -216,7 +216,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)の多くの関数に`constexpr`を追加
 - [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md)、[`std::shift_right()`](/reference/algorithm/shift_right.md)を追加
-- 一貫比較への対応のため、[`<algorithm>`](/reference/algorithm.md)に[`std::lexicographical_compare_three_way()`](/reference/algorithm/lexicographical_compare_three_way.md)を追加
+- [`<algorithm>`](/reference/algorithm.md)に三方比較による辞書順比較アルゴリズム[`std::lexicographical_compare_three_way()`](/reference/algorithm/lexicographical_compare_three_way.md)を追加
 - 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
 - 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
@@ -302,7 +302,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 機能の非推奨化
-- 一貫比較機能にとって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
+- 一貫比較非機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
 - [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
 
 
