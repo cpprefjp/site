@@ -217,7 +217,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<algorithm>`](/reference/algorithm.md)の多くの関数に`constexpr`を追加
 - [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md)、[`std::shift_right()`](/reference/algorithm/shift_right.md)を追加
 - 一貫比較への対応のため、[`<algorithm>`](/reference/algorithm.md)に[`std::lexicographical_compare_three_way()`](/reference/algorithm/lexicographical_compare_three_way.md)を追加
+- 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
+- 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
+- [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムに`constexpr`を追加
 
 
 ### イテレータ
@@ -229,23 +232,6 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
 - メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
 - [`std::invoke()`](/reference/functional/invoke.md)、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)の各操作、[`std::not_fn()`](/reference/functional/not_fn.md)、[`std::bind()`](/reference/functional/bind.md)、[`std::mem_fn()`](/reference/functional/mem_fn.md)を`constexpr`対応
-
-
-### 数値計算
-- 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
-- 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
-- 以下のアルゴリズムを`constexpr`対応
-    - [`std::accumulate()`](/reference/numeric/accumulate.md)
-    - [`std::reduce()`](/reference/numeric/reduce.md)
-    - [`std::inner_product()`](/reference/numeric/inner_product.md)
-    - [`std::transform_reduce()`](/reference/numeric/transform_reduce.md)
-    - [`std::partial_sum()`](/reference/numeric/partial_sum.md)
-    - [`std::exclusive_scan()`](/reference/numeric/exclusive_scan.md)
-    - [`std::inclusive_scan()`](/reference/numeric/inclusive_scan.md)
-    - [`std::transform_exclusive_scan()`](/reference/numeric/transform_exclusive_scan.md)
-    - [`std::transform_inclusive_scan()`](/reference/numeric/transform_inclusive_scan.md)
-    - [`std::adjacent_difference()`](/reference/numeric/adjacent_difference.md)
-    - [`std::iota()`](/reference/numeric/iota.md)
 
 
 ### 文字列
