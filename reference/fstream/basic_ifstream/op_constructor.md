@@ -9,7 +9,7 @@ basic_ifstream(); // (1)
 explicit basic_ifstream(const char* s, ios_base::openmode mode = ios_base::in); // (2)
 explicit basic_ifstream(const string& s, ios_base::openmode mode = ios_base::in); // (3)
 explicit basic_ifstream(const filesystem::path::value_type* s,
-                       ios_base::openmode mode = ios_base::in|ios_base::out); // (4) C++17
+                       ios_base::openmode mode = ios_base::in); // (4) C++17
 explicit basic_ifstream(const filesystem::path& s,
                        ios_base::openmode mode = ios_base::in); // (5) C++17
 basic_ifstream(const basic_ifstream& rhs) = delete; // (6) C++11
