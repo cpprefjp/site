@@ -28,8 +28,8 @@ namespace std {
 | `swap`                                           | 値の交換                             | C++11 |
 | [`rdbuf`](basic_fstream/rdbuf.md)                | ストリームバッファオブジェクトの取得 | |
 | [`is_open`](basic_fstream/is_open.md)            | ファイルを開いているかの判定         | |
-| [`open`](basic_fstream/open.md)                                           | ファイルを開く                       | |
-| `close`                                          | ファイルを閉じる                     | |
+| [`open`](basic_fstream/open.md)                  | ファイルを開く                       | |
+| [`close`](basic_fstream/close.md)                | ファイルを閉じる                     | |
 
 
 ## 非メンバ関数
