@@ -8,8 +8,8 @@ namespace std {
   template <class CharT, class Traits = char_traits<CharT>>
   class basic_ifstream : public basic_iostream<CharT, Traits>;
 
-  using fstream  = basic_ifstream<char>;
-  using wfstream = basic_ifstream<wchar_t>;
+  using ifstream  = basic_ifstream<char>;
+  using wifstream = basic_ifstream<wchar_t>;
 }
 ```
 * char_traits[link /reference/string/char_traits.md]
