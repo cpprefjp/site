@@ -24,7 +24,7 @@ bool is_open() const;
 
 int main()
 {
-  std::ifstream fs("foo", std::ios_base::out);
+  std::ifstream fs("foo", std::ios_base::in);
   if (fs.is_open()) {
       std::cout << "opened" << std::endl;
   }
@@ -36,7 +36,6 @@ int main()
 ### 出力
 
 ```
-opened
 ```
 
 ## バージョン
