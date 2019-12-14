@@ -85,3 +85,4 @@ int main()
 ## 参照
 
 - [LGW issue 2676. Provide filesystem::path overloads for File-based streams](https://wg21.cmeerw.net/lwg/issue2676)
+- [LGW issue 2943. Problematic specification of the wide version of basic_filebuf::open](https://wg21.cmeerw.net/lwg/issue2943)
