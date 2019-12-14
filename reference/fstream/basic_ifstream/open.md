@@ -55,6 +55,9 @@ int main()
   }
 }
 ```
+* std::ifstream[link /reference/fstream/basic_ifstream.md]
+* exceptions[link /reference/ios/basic_ios/exceptions.md]
+* open()[color ff0000]
 
 ### 出力
 ```

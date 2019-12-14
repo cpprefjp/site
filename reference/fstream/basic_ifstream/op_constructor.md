@@ -52,6 +52,7 @@ int main()
   }
 }
 ```
+* exceptions[link /reference/ios/basic_ios/exceptions.md]
 
 ### 出力
 ```
