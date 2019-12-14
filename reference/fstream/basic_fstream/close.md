@@ -12,9 +12,9 @@ void close();
 
 ファイルを閉じる
 
-## 戻り値
+## 効果
 
-[`rdbuf()->close()`](/reference/fstream/basic_filebuf/close.md)
+[`rdbuf()->close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値が戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
 
 ## 例
 
