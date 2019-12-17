@@ -94,7 +94,7 @@ int main()
 * intervals.begin()[link /reference/array/array/begin.md]
 * intervals.end()[link /reference/array/array/end.md]
 * densities.begin()[link /reference/array/array/begin.md]
-* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link piecewise_linear_distribution/op_call.md]
 
 ### 出力

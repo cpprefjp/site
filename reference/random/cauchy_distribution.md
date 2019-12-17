@@ -100,7 +100,7 @@ int main()
 }
 ```
 * std::cauchy_distribution[color ff0000]
-* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link cauchy_distribution/op_call.md]
 
 ### 出力

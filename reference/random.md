@@ -174,7 +174,7 @@ int main()
 * seed_gen()[link random/random_device/op_call.md]
 * std::uniform_real_distribution[link random/uniform_real_distribution.md]
 * std::normal_distribution[link random/normal_distribution.md]
-* std::ofstream[link fstream/basic_ofstream.md.nolink]
+* std::ofstream[link fstream/basic_ofstream.md]
 * dist1(engine)[link random/uniform_real_distribution/op_call.md]
 * dist2(engine)[link random/normal_distribution/op_call.md]
 

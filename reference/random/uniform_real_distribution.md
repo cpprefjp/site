@@ -89,7 +89,7 @@ int main()
 }
 ```
 * std::uniform_real_distribution[color ff0000]
-* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link uniform_real_distribution/op_call.md]
 
 ### 出力

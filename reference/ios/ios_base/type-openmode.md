@@ -108,7 +108,7 @@ int main()
 ```
 * std::ios_base[link ../ios_base.md]
 * std::fstream[link ../../fstream/basic_fstream.md]
-* std::ofstream[link ../../fstream/basic_ofstream.md.nolink]
+* std::ofstream[link ../../fstream/basic_ofstream.md]
 * seekp[link ../../ostream/basic_ostream/seekp.md]
 * std::flush[link ../../ostream/flush.md]
 * openmode[color ff0000]
