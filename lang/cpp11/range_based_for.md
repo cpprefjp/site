@@ -169,6 +169,114 @@ For my_container:
   25
 ```
 
+## 使用上の注意
+
+Range-based forを使う際はイテレータが無効にならないように気をつけなければならない。
+
+例えば、Range-based forでまさにイテレートしているコンテナに要素を追加/削除するなどして、イテレータが無効となる場合がある。
+
+```cpp example
+#include <vector>
+#include <iostream>
+int main()
+{
+  std::vector<int> v{ 5, 5, 0, 5, 1 };
+  //v.size() == v.capacity() にする
+  v.shrink_to_fit();
+  for(auto&& i : v) {
+    std::cout << ' ' << i;
+    if (5 == i) {
+      //要素を追加するとき、capacityを超えるので再アロケーションが発生し、イテレータが無効になる
+      v.emplace_back(123);
+    }
+  }
+}
+```
+* size() [link /reference/vector/vector/size.md]
+* capacity() [link /reference/vector/vector/capacity.md]
+* shrink_to_fit() [link /reference/vector/vector/shrink_to_fit.md]
+* emplace_back() [link /reference/vector/vector/emplace_back.md]
+
+```cpp example
+#include <iostream>
+#include <string>
+#include <unordered_map>
+int main()
+{
+    std::unordered_map<std::string, int> m{
+        { "ajjnr", 3 },
+        { "kjngs@mgg", 9 },
+        { "sdjvnmwb", 12 },
+        { "kgf", 64 }
+    };
+    for(auto&& kv : m) {
+        std::cout << kv.first << ',' << kv.second << std::endl;
+        if (kv.first.size() < 4) {
+            // 現在の要素のkeyを使って削除
+            // → 範囲forのイテレート中のイテレータが無効になる
+            m.erase(kv.first);
+        }
+    }
+}
+```
+* size() [link /reference/string/basic_string/size.md]
+* erase() [link /reference/unordered_map/unordered_map/erase.md]
+
+for-range-initializerに渡したものの寿命が切れてイテレータが無効になるケースもある。
+
+下の例では`something { 1,2,3,4,5,6,7,8,9,0 }`のようにして生成された一時オブジェクトが`__range`によって束縛されていないため、直ちに寿命が尽きてしまう。
+
+```cpp example
+#include <initializer_list>
+#include <iostream>
+#include <vector>
+
+struct something
+{
+  std::vector<int> v;
+
+  something(const std::initializer_list<int>& l ) : v(l) {}
+  std::vector<int>& get_vector() { return v; }
+  ~something() noexcept { std::cout << "destructor" << std::endl; }
+};
+
+int main()
+{
+  // get_vectorは内部に持つvectorへの参照を返す
+  for( auto e : something { 1,2,3,4,5,6,7,8,9,0 }.get_vector() )
+  { // 破棄されたオブジェクトへの参照
+    std::cout << e;
+  }
+  std::cout << std::endl;
+}
+```
+
+ただしこのバグはコンテナの参照を返すメンバー関数(上記では`get_vector`)に[左辺値修飾](./ref_qualifier_for_this.md)することで防げる場合もある
+
+```cpp example
+#include <initializer_list>
+#include <iostream>
+#include <vector>
+
+struct something
+{
+  std::vector<int> v;
+
+  something(const std::initializer_list<int>& l ) : v(l) {}
+  std::vector<int>& get_vector() & { return v; }
+  ~something() noexcept { std::cout << "destructor" << std::endl; }
+};
+
+int main()
+{
+  // get_vectorを呼び出せないので不適格→バグに気がつく
+  for( auto e : something { 1,2,3,4,5,6,7,8,9,0 }.get_vector() )
+  {
+    std::cout << e;
+  }
+  std::cout << std::endl;
+}
+```
 
 ## 関連項目
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
@@ -178,4 +286,5 @@ For my_container:
 ## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
 - [N3337 Working Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf)
-
+- [一時オブジェクトの寿命と右辺値参照、ムーブセマンティクスのお話 - Qiita](https://qiita.com/rinse_/items/ad0cc7e351e836595c94)
+- [rforでバグる対処　※for( T aaa : vvv ) - Qiita](https://qiita.com/loppta/items/69a0ed56ff12d2c0261c)
