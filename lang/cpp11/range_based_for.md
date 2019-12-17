@@ -192,10 +192,9 @@ int main()
   }
 }
 ```
-* size() [link /reference/vector/vector/size.md]
 * capacity() [link /reference/vector/vector/capacity.md]
 * shrink_to_fit() [link /reference/vector/vector/shrink_to_fit.md]
-* emplace_back() [link /reference/vector/vector/emplace_back.md]
+* emplace_back [link /reference/vector/vector/emplace_back.md]
 
 ```cpp example
 #include <iostream>
