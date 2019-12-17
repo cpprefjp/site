@@ -34,7 +34,7 @@ int main()
 * std::fstream[link /reference/fstream/basic_fstream.md]
 * std::filebuf[link /reference/fstream/basic_filebuf.md]
 * rdbuf()[link /reference/fstream/basic_fstream/rdbuf.md]
-* is_open()[link ff0000]
+* is_open()[color ff0000]
 
 ### 出力
 

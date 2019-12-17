@@ -31,7 +31,7 @@ int main()
 }
 ```
 * std::ofstream[link /reference/fstream/basic_ofstream.md]
-* is_open()[link ff0000]
+* is_open()[color ff0000]
 
 ### 出力
 

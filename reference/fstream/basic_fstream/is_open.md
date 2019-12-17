@@ -31,7 +31,7 @@ int main()
 }
 ```
 * std::fstream[link /reference/fstream/basic_fstream.md]
-* is_open()[link ff0000]
+* is_open()[color ff0000]
 
 ### 出力
 
