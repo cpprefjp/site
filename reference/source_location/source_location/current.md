@@ -8,7 +8,7 @@
 ```cpp
 static consteval source_location current() noexcept;
 ```
-* source_location [link ../source_location.md]
+* source_location[link ../source_location.md]
 
 ## 概要
 

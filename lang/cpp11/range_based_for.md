@@ -192,9 +192,9 @@ int main()
   }
 }
 ```
-* capacity() [link /reference/vector/vector/capacity.md]
-* shrink_to_fit() [link /reference/vector/vector/shrink_to_fit.md]
-* emplace_back [link /reference/vector/vector/emplace_back.md]
+* capacity()[link /reference/vector/vector/capacity.md]
+* shrink_to_fit()[link /reference/vector/vector/shrink_to_fit.md]
+* emplace_back[link /reference/vector/vector/emplace_back.md]
 
 ```cpp example
 #include <iostream>
@@ -218,7 +218,7 @@ int main()
     }
 }
 ```
-* size() [link /reference/string/basic_string/size.md]
+* size()[link /reference/string/basic_string/size.md]
 * erase[link /reference/unordered_map/unordered_map/erase.md]
 
 for-range-initializerに渡したものの寿命が切れてイテレータが無効になるケースもある。

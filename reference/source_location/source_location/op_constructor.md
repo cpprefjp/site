@@ -8,7 +8,6 @@
 ```cpp
 constexpr source_location() noexcept;
 ```
-* uint_least32_t [link /reference/cstdint/uint_least32_t.md]
 
 ## 概要
 
