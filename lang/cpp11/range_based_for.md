@@ -219,7 +219,7 @@ int main()
 }
 ```
 * size() [link /reference/string/basic_string/size.md]
-* erase() [link /reference/unordered_map/unordered_map/erase.md]
+* erase[link /reference/unordered_map/unordered_map/erase.md]
 
 for-range-initializerに渡したものの寿命が切れてイテレータが無効になるケースもある。
 
