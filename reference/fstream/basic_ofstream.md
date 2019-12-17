@@ -1,4 +1,4 @@
-# basic_fstream
+# basic_ofstream
 * fstream[meta header]
 * std[meta namespace]
 * class[meta id-type]
@@ -6,10 +6,10 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits = char_traits<CharT>>
-  class basic_fstream : public basic_iostream<CharT, Traits>;
+  class basic_ofstream : public basic_iostream<CharT, Traits>;
 
-  using fstream  = basic_fstream<char>;
-  using wfstream = basic_fstream<wchar_t>;
+  using ofstream  = basic_ofstream<char>;
+  using wofstream = basic_ofstream<wchar_t>;
 }
 ```
 * char_traits[link /reference/string/char_traits.md]
@@ -17,19 +17,20 @@ namespace std {
 
 ## 概要
 
+少なくとも書き込み操作のできるファイルストリーム
 
 ## メンバ関数
 
 | 名前                                             | 説明                                 | 対応バージョン |
 |--------------------------------------------------|--------------------------------------|----------------|
-| [(constructor)](basic_fstream/op_constructor.md) | コンストラクタ                       | |
+| [(constructor)](basic_ofstream/op_constructor.md) | コンストラクタ                       | |
 | (destructor)                                     | デストラクタ                         | |
 | `operator=`                                      | ムーブ代入                           | C++11 |
 | `swap`                                           | 値の交換                             | C++11 |
-| [`rdbuf`](basic_fstream/rdbuf.md)                | ストリームバッファオブジェクトの取得 | |
-| [`is_open`](basic_fstream/is_open.md)            | ファイルを開いているかの判定         | |
-| [`open`](basic_fstream/open.md)                  | ファイルを開く                       | |
-| [`close`](basic_fstream/close.md)                | ファイルを閉じる                     | |
+| [`rdbuf`](basic_ofstream/rdbuf.md)                | ストリームバッファオブジェクトの取得 | |
+| [`is_open`](basic_ofstream/is_open.md)            | ファイルを開いているかの判定         | |
+| [`open`](basic_ofstream/open.md)                  | ファイルを開く                       | |
+| [`close`](basic_ofstream/close.md)                | ファイルを閉じる                     | |
 
 
 ## 非メンバ関数
