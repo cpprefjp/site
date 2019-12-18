@@ -241,6 +241,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 並行・並列処理
+- [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが、値初期化するよう動作変更。これまではC言語との互換性のために未初期化となっていた
 - [`<memory>`](/reference/memory.md)に、[`std::atomic`](/reference/memory/atomic.md)クラスの[`std::shared_ptr`](/reference/memory/shared_ptr.md)と[`std::weak_ptr`](/reference/memory/weak_ptr.md)に対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
 - アトミッククラスに対するブロッキング同期の機能として[`wait()`](/reference/atomic/atomic/wait.md)、[`notify_one()`](/reference/atomic/atomic/notify_one.md)、[`notify_all()`](/reference/atomic/atomic/notify_all.md)を追加
@@ -304,6 +305,10 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### 機能の非推奨化
 - 一貫比較非機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
 - [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
+- [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：
+    - [`std::atomic_init()`](/reference/atomic/atomic_init.md)関数
+    - [`ATOMIC_VAR_INIT`](/reference/atomic/atomic_var_init.md)マクロ
+    - [`ATOMIC_FLAG_INIT`](/reference/atomic/atomic_flag_init.md)マクロ
 
 
 ### 機能の削除
