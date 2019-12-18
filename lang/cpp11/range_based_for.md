@@ -202,20 +202,21 @@ int main()
 #include <unordered_map>
 int main()
 {
-    std::unordered_map<std::string, int> m{
-        { "ajjnr", 3 },
-        { "kjngs@mgg", 9 },
-        { "sdjvnmwb", 12 },
-        { "kgf", 64 }
-    };
-    for(auto&& kv : m) {
-        std::cout << kv.first << ',' << kv.second << std::endl;
-        if (kv.first.size() < 4) {
-            // 現在の要素のkeyを使って削除
-            // → 範囲forのイテレート中のイテレータが無効になる
-            m.erase(kv.first);
-        }
+  std::unordered_map<std::string, int> m{
+    { "ajjnr", 3 },
+    { "kjngs@mgg", 9 },
+    { "sdjvnmwb", 12 },
+    { "kgf", 64 }
+  };
+
+  for(auto&& kv : m) {
+    std::cout << kv.first << ',' << kv.second << std::endl;
+    if (kv.first.size() < 4) {
+      // 現在の要素のkeyを使って削除
+      // → 範囲forのイテレート中のイテレータが無効になる
+      m.erase(kv.first);
     }
+  }
 }
 ```
 * size()[link /reference/string/basic_string/size.md]
