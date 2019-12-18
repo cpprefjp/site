@@ -171,9 +171,12 @@ For my_container:
 
 ## 使用上の注意
 
-範囲for文を使う際はイテレータが無効にならないように気をつけなければならない。
+範囲for文を使う際はイテレータが無効にならないように気をつけなければならない。  
+なぜなら、範囲for文が展開されたときの`for-range-declaration = *__begin;`の部分で無効になったイテレータの間接参照が行われた場合、それは[未定義動作](/implementation-compliance.md#behavior)だからである。
 
-例えば、範囲for文でまさにイテレートしているコンテナに要素を追加/削除するなどして、イテレータが無効となる場合がある。
+### コンテナの要素追加/削除をしてしまう場合
+
+例えば、範囲for文でまさにイテレートしているコンテナに要素を追加/削除するなどして、イテレータが無効となる場合がある。この場合は範囲for文を使ってはいけない。
 
 ```cpp example
 #include <vector>
@@ -222,9 +225,12 @@ int main()
 * size()[link /reference/string/basic_string/size.md]
 * erase[link /reference/unordered_map/unordered_map/erase.md]
 
+
+### for-range-initializerに渡したものの寿命が切れてしまう場合
+
 for-range-initializerに渡したものの寿命が切れてイテレータが無効になるケースもある。
 
-下の例では`something { 1,2,3,4,5,6,7,8,9,0 }`のようにして生成された一時オブジェクトが`__range`によって束縛されていないため、直ちに寿命が尽きてしまう。
+下の例では`something { 1,2,3,4,5,6,7,8,9,0 }`のようにして生成された一時オブジェクトが`__range`によって束縛されていないため、直ちに寿命が尽きてしまう。このような場合、寿命が切れないようにしなければならない。
 
 ```cpp example
 #include <initializer_list>
@@ -264,6 +270,8 @@ struct something
 
   something(const std::initializer_list<int>& l ) : v(l) {}
   std::vector<int>& get_vector() & { return v; }
+  // これを実装すれば実行効率を損なわず、安全にいつでもget_vectorを呼び出せる
+  //std::vector<int> get_vector() && { return std::move(v); }
   ~something() noexcept { std::cout << "destructor" << std::endl; }
 };
 
@@ -279,9 +287,10 @@ int main()
 ```
 
 ## 関連項目
+
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
 - [C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)
-
+- [メンバ関数の左辺値／右辺値修飾](./ref_qualifier_for_this.md)
 
 ## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
