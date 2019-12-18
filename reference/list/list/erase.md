@@ -39,7 +39,7 @@ iterator erase(const_iterator position,
 
 
 ## 例
-### 基本的な使い方 (C++03)
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <list>
@@ -80,7 +80,7 @@ int main()
 1 2 
 ```
 
-### イテレート中に要素を削除する (C++03)
+### イテレート中に要素を削除する (C++11)
 ```cpp example
 #include <iostream>
 #include <list>
@@ -107,6 +107,12 @@ int main()
     std::cout << x << std::endl;
   }
 }
+```
+
+#### 出力
+```
+3
+4
 ```
 
 

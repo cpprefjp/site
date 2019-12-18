@@ -32,6 +32,7 @@ iterator erase(const_iterator first, const_iterator last); // (2) C++11
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <deque>
@@ -63,11 +64,46 @@ int main()
 * erase[color ff0000]
 * c.begin()[link begin.md]
 
-### 出力
+#### 出力
 ```
 1
 4
 
+4
+```
+
+### イテレート中に要素を削除する (C++11)
+```cpp example
+#include <iostream>
+#include <deque>
+
+int main()
+{
+  std::deque<int> d = {3, 1, 4};
+
+  // イテレート中に要素削除をするような場合には、
+  // 範囲for文は使用できない
+  for (auto it = d.begin(); it != d.end();) {
+    // 条件一致した要素を削除する
+    if (*it == 1) {
+      // 削除された要素の次を指すイテレータが返される。
+      it = d.erase(it);
+    }
+    // 要素削除をしない場合に、イテレータを進める
+    else {
+      ++it;
+    }
+  }
+
+  for (const auto& x : d) {
+    std::cout << x << std::endl;
+  }
+}
+```
+
+#### 出力
+```
+3
 4
 ```
 
