@@ -57,3 +57,7 @@ int main()
 - [Clang](/implementation.md#clang): 8.0
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [LWG Issue 3209. Expression in `year::ok()` returns clause is ill-formed](https://wg21.cmeerw.net/lwg/issue3209)
