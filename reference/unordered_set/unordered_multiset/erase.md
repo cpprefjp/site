@@ -55,6 +55,7 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <unordered_set>
@@ -121,7 +122,7 @@ int main()
 * std::next[link /reference/iterator/next.md]
 * ums.cbegin()[link cbegin.md]
 
-### 出力
+#### 出力例
 ```
 (1) erase(const_iterator) before : 9 7 5 1 3 3
 argument: 1
@@ -142,12 +143,47 @@ after : 9 1 3 3
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
+### イテレート中に要素を削除する (C++11)
+```cpp example
+#include <iostream>
+#include <unordered_set>
+
+int main()
+{
+  std::unordered_multiset<int> ums = {3, 1, 4};
+
+  // イテレート中に要素削除をするような場合には、
+  // 範囲for文は使用できない
+  for (auto it = ums.begin(); it != ums.end();) {
+    // 条件一致した要素を削除する
+    if (*it == 1) {
+      // 削除された要素の次を指すイテレータが返される
+      it = ums.erase(it);
+    }
+    // 要素削除をしない場合に、イテレータを進める
+    else {
+      ++it;
+    }
+  }
+
+  for (const auto& x : ums) {
+    std::cout << x << std::endl;
+  }
+}
+```
+
+#### 出力例
+```
+4
+3
+```
+
+
 ## バージョン
 ### 言語
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ?

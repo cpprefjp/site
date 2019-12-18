@@ -40,37 +40,32 @@ size_type erase(const key_type& x);                        // (3)
 
 
 ## 備考
-ループ中で `multiset` の要素を削除するためには、C++03 までは以下のようなコードを書く必要があった。
+- ループ中で `multiset` の要素を削除するためには、C++03 までは以下のようなコードを書く必要があった。
+    ```cpp
+    while (it != set_object.end()) {
+      if (条件) {
+        set_object.erase(it++);
+      }
+      else {
+        ++it;
+      }
+    }
+    ```
 
-```cpp
-while (it != set_object.end()) {
-  if (条件) {
+    - これは、`erase` で指定したイテレータが、対象となる要素が削除されることによって無効になるため、後置インクリメント `it++` を使用することで要素が削除されるより先に削除対象の次の要素を指すようにするためである。
+    - このような書き方は C++11 以降でも依然として有効だが、`erase` が削除された次の要素を指すイテレータを返すようになったため、以下のようなコードを
+    ```cpp
     set_object.erase(it++);
-  }
-  else {
-    ++it;
-  }
-}
-```
+    ```
 
-これは、`erase` で指定したイテレータが、対象となる要素が削除される事によって無効になるため、後置インクリメント `it++` を使用する事で要素が削除されるより先に削除対象の次の要素を指すようにするためである。
-
-このような書き方は C++11 以降でも依然として有効だが、`erase` が削除された次の要素を指すイテレータを返すようになったため、  
-
-```cpp
-set_object.erase(it++);
-```
-
-の部分を
-
-```cpp
-it = set_object.erase(it);
-```
-
-のような書き方をすることも可能となった。
+    - 以下のように書くこともできるようになった
+    ```cpp
+    it = set_object.erase(it);
+    ```
 
 
 ## 例
+### 基本的な使い方 (C++03)
 ```cpp example
 #include <iostream>
 #include <set>
@@ -100,12 +95,48 @@ int main()
 * c.begin()[link begin.md]
 * c.end()[link end.md]
 
-### 出力
+#### 出力
 ```
 3
 1
 1
 0
+```
+
+### イテレート中に要素を削除する (C++11)
+```cpp example
+#include <iostream>
+#include <set>
+
+int main()
+{
+  std::multiset<int> c = {3, 1, 4};
+
+  // イテレート中に要素削除をするような場合には、
+  // 範囲for文は使用できない
+  for (auto it = c.begin(); it != c.end();) {
+    // 条件一致した要素を削除する
+    if (*it == 1) {
+      // 削除された要素の次を指すイテレータが返される。
+      // C++03では、erase()の戻り値を使用せず、 c.erase(it++); のように書く
+      it = c.erase(it);
+    }
+    // 要素削除をしない場合に、イテレータを進める
+    else {
+      ++it;
+    }
+  }
+
+  for (const auto& x : c) {
+    std::cout << x << std::endl;
+  }
+}
+```
+
+#### 出力
+```
+3
+4
 ```
 
 

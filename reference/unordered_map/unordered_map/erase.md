@@ -55,6 +55,7 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <unordered_map>
@@ -127,7 +128,7 @@ int main()
 * cbegin()[link cbegin.md]
 * cend()[link cend.md]
 
-### 出力
+#### 出力例
 ```
 (1) erase(const_iterator) before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
 argument: (3rd, 3)
@@ -148,12 +149,51 @@ after : (9th, 9), (3rd, 3), (1st, 1),
 注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
+### イテレート中に要素を削除する (C++11)
+```cpp example
+#include <iostream>
+#include <unordered_map>
+
+int main()
+{
+  std::unordered_map<int, char> um = {
+    {3, 'a'},
+    {1, 'b'},
+    {4, 'c'}
+  };
+
+  // イテレート中に要素削除をするような場合には、
+  // 範囲for文は使用できない
+  for (auto it = um.begin(); it != um.end();) {
+    // 条件一致した要素を削除する
+    if (it->first == 1) {
+      // 削除された要素の次を指すイテレータが返される
+      it = um.erase(it);
+    }
+    // 要素削除をしない場合に、イテレータを進める
+    else {
+      ++it;
+    }
+  }
+
+  for (const auto& x : um) {
+    std::cout << x.first << ':' << x.second << std::endl;
+  }
+}
+```
+
+#### 出力例
+```
+4:c
+3:a
+```
+
+
 ## バージョン
 ### 言語
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ?
