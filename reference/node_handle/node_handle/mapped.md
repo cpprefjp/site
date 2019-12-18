@@ -18,7 +18,7 @@ mapped_type& mapped() const; // set コンテナには存在ない
 
 
 ## 戻り値
-`ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトの `mapped_type` メンバーへの参照。
+`ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトの `mapped_type` メンバへの参照。
 
 
 ## 例外

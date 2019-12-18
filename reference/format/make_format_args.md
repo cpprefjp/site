@@ -63,8 +63,8 @@ return {basic_format_arg<Context>(args)...}
 ```
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 
-ただし、便宜上、[`basic_format_arg`](/reference/format/basic_format_arg.md)は次のprivateメンバーを持つとする。
-(これらのprivateメンバーは規格に含まれない)
+ただし、便宜上、[`basic_format_arg`](/reference/format/basic_format_arg.md)は次のprivateメンバを持つとする。
+(これらのprivateメンバは規格に含まれない)
 
 ```cpp
 namespace std {

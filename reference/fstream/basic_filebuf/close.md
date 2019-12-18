@@ -16,9 +16,9 @@ put領域をクリアし、ファイルを閉じる
 
 [`is_open()`](is_open.md)の呼び出し結果が`false`の場合、`nullptr`を返す。
 
-put領域が存在する場合(ファイルを開いているなどして)、`overflow(traits​::​​eof())`を呼び出してフラッシュする。
+put領域が存在する場合(ファイルを開いているなどして)、`overflow(traits::eof())`を呼び出してフラッシュする。
 
-仮想メンバー関数`underflow`, `overflow`, `seekoff`,  `seekpos`のうち、最後に呼ばれたのが`overflow`の場合、`std::codecvt::unshift()`を呼び出し、再び`overflow(traits​::​​eof())`を呼び出してフラッシュする。
+仮想メンバ関数`underflow`, `overflow`, `seekoff`,  `seekpos`のうち、最後に呼ばれたのが`overflow`の場合、`std::codecvt::unshift()`を呼び出し、再び`overflow(traits::eof())`を呼び出してフラッシュする。
 
 最後にあたかも`fclose`を呼び出したかのように振る舞う。
 

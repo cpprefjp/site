@@ -28,8 +28,8 @@ return visit(forward<Visitor>(vis), arg.value);
 * visit[link /reference/variant/visit.md]
 * forward[link /reference/utility/forward.md]
 
-ただし、便宜上、`basic_format_arg`は次のprivateメンバーを持つとする。
-(これらのprivateメンバーは規格に含まれない)
+ただし、便宜上、`basic_format_arg`は次のprivateメンバを持つとする。
+(これらのprivateメンバは規格に含まれない)
 
 ```cpp
 namespace std {

@@ -251,7 +251,7 @@ int main()
 }
 ```
 
-ただしこのバグはコンテナの参照を返すメンバー関数(上記では`get_vector`)に[左辺値修飾](./ref_qualifier_for_this.md)することで防げる場合もある
+ただしこのバグはコンテナの参照を返すメンバ関数(上記では`get_vector`)に[左辺値修飾](./ref_qualifier_for_this.md)することで防げる場合もある
 
 ```cpp example
 #include <initializer_list>

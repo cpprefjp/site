@@ -11,7 +11,7 @@ constexpr source_location() noexcept;
 
 ## 概要
 
-[`source_location`](../source_location.md)オブジェクトを構築する。各メンバーの初期値は未規定。
+[`source_location`](../source_location.md)オブジェクトを構築する。各メンバの初期値は未規定。
 
 ## 事後条件
 

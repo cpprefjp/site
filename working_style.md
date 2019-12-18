@@ -86,6 +86,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | load factor                        | 負荷率                       |
 | lvalue reference                   | 左辺値参照                   |
 | max load factor                    | 最大負荷率                   |
+| member                             | メンバ                       |
 | move                               | (std::move 的な意味で)ムーブ |
 | move assignment                    | ムーブ代入                   |
 | move constructor                   | ムーブコンストラクタ         |
@@ -96,6 +97,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | overload                           | オーバーロード               |
 | partial ordering                   | 半順序                       |
 | partition                          | 区分化                       |
+| pointer                            | ポインタ                     |
 | polymorphic                        | 多相的                       |
 | power of N                         | Nの累乗                      |
 | predicate                          | 述語                         |
