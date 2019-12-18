@@ -8,10 +8,10 @@
 ```cpp
 template <std::size_t Offset, std::size_t Count = dynamic_extent>
 constexpr span<element_type, see below>
-  subspan() const;                                                     // (1)
+  subspan() const;                                                   // (1)
 
 constexpr span<element_type, dynamic_extent>
-  subspan(index_type offset, index_type count = dynamic_extent) const; // (2)
+  subspan(size_type offset, size_type count = dynamic_extent) const; // (2)
 ```
 * dynamic_extent[link /reference/span/dynamic_extent.md]
 
@@ -108,3 +108,7 @@ int main()
 - [Clang](/implementation.md#clang): 9.0
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
