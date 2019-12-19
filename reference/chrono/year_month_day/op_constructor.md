@@ -21,6 +21,9 @@ constexpr explicit year_month_day(const local_days& dp) noexcept;   // (5) C++20
 year_month_day(const year_month_day&) = default;                    // (6) C++20
 year_month_day(year_month_day&&) = default;                         // (7) C++20
 ```
+* chrono::year[link /reference/chrono/year.md]
+* chrono::month[link /reference/chrono/month.md]
+* chrono::day[link /reference/chrono/day.md]
 * year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
 * sys_days[link /reference/chrono/sys_time.md]
 * local_days[link /reference/chrono/local_time.md]
@@ -88,9 +91,12 @@ int main()
   std::cout << date5 << std::endl;
 }
 ```
-* 2020y[link year/op_y.md]
-* chrono::March[month_constants.md]
-* 1d[link day/op_d.md]
+* 2020y[link /reference/chrono/year/op_y.md]
+* chrono::March[link /reference/chrono/month_constants.md]
+* 1d[link /reference/chrono/day/op_d.md]
+* chrono::year[link /reference/chrono/year.md]
+* chrono::month[link /reference/chrono/month.md]
+* chrono::day[link /reference/chrono/day.md]
 * chrono::last[link /reference/chrono/last_spec.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
