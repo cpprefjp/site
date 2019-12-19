@@ -114,8 +114,14 @@ int main()
   // 指定順は年、月、日で決まっているが、int値は指定できない
   chrono::year_month_day date8{2020y, chrono::March, 1d};
   chrono::year_month_day date9{chrono::year{2020}, chrono::month{3}, chrono::day{1}};
-
   std::cout << date9 << std::endl;
+
+  // 年、月、月の最終日の組み合わせから、年、月、日に変換。
+  // 以下はすべて2020年2月29日を表す
+  chrono::year_month_day date10 = 2020y/3/chrono::last;
+  chrono::year_month_day date11 = 3/chrono::last/2020;
+  chrono::year_month_day date12 = chrono::last/3/2020;
+  std::cout << date12 << std::endl;
 
   // 日単位のシステム時間に変換
   chrono::sys_days sd{date9};
@@ -140,6 +146,7 @@ int main()
 ### 出力例
 ```
 2020-03-01
+2020-02-29
 2020-03-01
 18322
 1583020800
