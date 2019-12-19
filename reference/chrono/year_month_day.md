@@ -25,7 +25,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](year_month_day/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](year_month_day/op_constructor.md) | コンストラクタ | C++20 |
 | `year_month_day& operator=(const year_month_day&) = default;`<br/> `year_month_day& operator=(year_month_day&&) = default;` | 代入演算子 | C++20 |
 
 
@@ -111,11 +111,12 @@ int main()
   chrono::year_month_day date6 = chrono::March/1/2020;
   chrono::year_month_day date7{2020y, chrono::March, 1d}; // 各カレンダー要素のコンストラクタはexplicitなので、
                                                           // 指定順は年、月、日で決まっているが、int値は指定できない
+  chrono::year_month_day date8{chrono::year{2020}, chrono::month{3}, chrono::day{1}};
 
-  std::cout << date7 << std::endl;
+  std::cout << date8 << std::endl;
 
   // 日単位のシステム時間に変換
-  chrono::sys_days sd{date7};
+  chrono::sys_days sd{date8};
   std::cout << sd << std::endl;
   std::cout << sd.time_since_epoch().count() << std::endl; // 1970年1月1日からの経過日
   std::cout <<
