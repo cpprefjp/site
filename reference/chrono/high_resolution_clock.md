@@ -84,7 +84,7 @@ int main()
 - [GCC](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 2015で`steady_clock`の別名に実装が変更された。これはWindows APIの`QueryPerformanceCounter`関数を使用した実装である。
-		- MSDNライブラリ: [QueryPerformanceCounter](https://msdn.microsoft.com/en-us/library/windows/desktop/ms644904.aspx)
+		- MSDNライブラリ: [QueryPerformanceCounter](https://docs.microsoft.com/ja-jp/windows/win32/api/profileapi/nf-profileapi-queryperformancecounter)
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)

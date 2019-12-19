@@ -82,5 +82,5 @@ S::print() : print
 ## 参照
 - [N1534 Proposed addition of `__func__` predefined identifier from C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1534.txt)
 - [5.41 Function Names as Strings - GCC](https://gcc.gnu.org/onlinedocs/gcc-3.3.5/gcc/Function-Names.html)
-- [Predefined Macros - MSDN](https://msdn.microsoft.com/library/b0084kay.aspx)
+- [Predefined macros | Microsoft Docs](https://docs.microsoft.com/ja-JP/cpp/preprocessor/predefined-macros?view=vs-2019)
 
