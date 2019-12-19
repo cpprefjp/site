@@ -93,10 +93,50 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
-```
+#include <iostream>
+#include <chrono>
 
-### 出力
+namespace chrono = std::chrono;
+using namespace std::chrono_literals;
+
+int main()
+{
+  // すべて2020年3月1日を表す。
+  // 先頭要素はカレンダー要素の型でなければならない (intは先頭に指定するのはだめ)
+  chrono::year_month_day date1 = 2020y/3/1;
+  chrono::year_month_day date2 = 2020y/chrono::March/1;
+  chrono::year_month_day date3 = 2020y/chrono::March/1d;
+  chrono::year_month_day date4 = 1d/chrono::March/2020;
+  chrono::year_month_day date5 = 1d/3/2020;
+  chrono::year_month_day date6 = chrono::March/1/2020;
+  chrono::year_month_day date7{2020y, chrono::March, 1d}; // 各カレンダー要素のコンストラクタはexplicitなので、
+                                                          // 指定順は年、月、日で決まっているが、int値は指定できない
+
+  std::cout << date7 << std::endl;
+
+  // 日単位のシステム時間に変換
+  chrono::sys_days sd{date7};
+  std::cout << sd << std::endl;
+  std::cout << sd.time_since_epoch().count() << std::endl; // 1970年1月1日からの経過日
+  std::cout <<
+    chrono::time_point_cast<chrono::seconds>(sd).time_since_epoch().count()
+  << std::endl; // 1970年1月1日からの経過秒
+}
 ```
+* 2020y[link year/op_y.md]
+* chrono::March[month_constants.md]
+* 1d[link day/op_d.md]
+* chrono::sys_days[link sys_time.md]
+* chrono::time_point_cast[link time_point_cast.md]
+* time_since_epoch()[link time_point/time_since_epoch.md]
+* count()[link duration/count.md]
+
+### 出力例
+```
+2020-03-01
+2020-03-01
+18322
+1583020800
 ```
 
 ## バージョン
