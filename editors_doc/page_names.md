@@ -52,6 +52,7 @@ cpprefjpサイトでは、ページファイル名の付け方について、い
 | `operator*` (二項) | 乗算演算子  | `op_multiply`      | |
 | `operator/` (二項) | 除算演算子  | `op_divide`        | |
 | `operator/` (二項) | パス要素加算の演算子  | `op_append` | この演算子はファイルシステムの文脈で特殊な意味を持つ |
+| `operator/` (二項) | カレンダー構文の演算子  | `op_append` | 時間・日付ライブラリにおいて、この演算子はカレンダーの`YYYY/MM/DD`のような表記をできるようにする意味をもつ |
 | `operator%` (二項) | 剰余演算子  | `op_modulo`        | |
 | `operator&` | ビット論理積演算子 | `op_and` | |
 | `operator`<code>&#x7C;</code> | ビット論理和演算子 | `op_or` | |

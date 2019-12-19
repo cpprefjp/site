@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr index_type size_bytes() const noexcept;
+constexpr size_type size_bytes() const noexcept;
 ```
 
 ## 概要
@@ -59,3 +59,7 @@ int main()
 - [Clang](/implementation.md#clang): 9.0
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)

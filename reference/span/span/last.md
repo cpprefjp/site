@@ -11,7 +11,7 @@ constexpr span<element_type, Count>
    last() const;                             // (1)
 
 constexpr span<element_type, dynamic_extent>
-  last(index_type count) const;              // (2)
+  last(size_type count) const;               // (2)
 ```
 * dynamic_extent[link /reference/span/dynamic_extent.md]
 
@@ -20,6 +20,10 @@ constexpr span<element_type, dynamic_extent>
 
 - (1) : テンプレートパラメータ`Count`で指定された要素数だけ末尾から取り出す
 - (2) : パラメータ`count`で指定された要素数だけ末尾から取り出す
+
+
+## 適格要件
+- (1) : `Count <= Extent`が`true`であること
 
 
 ## 事前条件
@@ -91,3 +95,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
+- [LWG Issue 3103. Errors in taking subview of `span` should be ill-formed where possible](https://wg21.cmeerw.net/lwg/issue3103)

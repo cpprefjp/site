@@ -8,12 +8,12 @@
 namespace std::chrono {
   template <class charT, class traits>
   std::basic_ostream<charT, traits>&
-    operator<<(bstd::asic_ostream<charT, traits>& os, const day& d); // (1) C++20
+    operator<<(bstd::asic_ostream<charT, traits>& os, const year_month_day& ymd); // (1) C++20
 }
 ```
 
 ## 概要
-`day`オブジェクトを出力ストリームに出力する。
+`year_month_day`オブジェクトを出力ストリームに出力する。
 
 
 ## 戻り値
@@ -21,15 +21,15 @@ namespace std::chrono {
 
 - (1) : 以下と等価：
     ```cpp
-    return os << (d.ok() ?
-      format(STATICALLY-WIDEN<charT>("{:%d}"), d) :
-      format(STATICALLY-WIDEN<charT>("{:%d} is not a valid day"), d));
+    return os << (ymd.ok() ?
+      format(STATICALLY-WIDEN<charT>("{:%F}"), ymd) :
+      format(STATICALLY-WIDEN<charT>("{:%F} is not a valid date"), ymd));
     ```
     * format[link /reference/format/format.md]
 
 
 ## 備考
-- このフォーマットでは、2桁ゼロ埋めで日の整数値が出力される。1桁の日を出力する場合、`01`のように先頭にゼロがつく
+- フォーマット指定子`"%F"`は`"%Y-%m-%d"`と等価であり、4桁ゼロ埋め整数値の年、2桁ゼロ埋め整数値の月、2桁ゼロ埋め整数値の日が、ハイフン区切りで出力される
 
 
 ## 例
@@ -37,19 +37,18 @@ namespace std::chrono {
 #include <iostream>
 #include <chrono>
 
-namespace chrono = std::chrono;
+using namespace std::chrono_literals;
 
 int main()
 {
-  std::cout << chrono::day{1} << std::endl;
-  std::cout << chrono::day{15} << std::endl;
+  std::cout << 2020y/3/1 << std::endl;
 }
 ```
+* 2020y[link /reference/chrono/year/op_y.md]
 
 ### 出力
 ```
-01
-15
+2020-03-01
 ```
 
 ## バージョン

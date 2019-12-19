@@ -8,10 +8,10 @@
 ```cpp
 template <std::size_t Offset, std::size_t Count = dynamic_extent>
 constexpr span<element_type, see below>
-  subspan() const;                                                     // (1)
+  subspan() const;                                                   // (1)
 
 constexpr span<element_type, dynamic_extent>
-  subspan(index_type offset, index_type count = dynamic_extent) const; // (2)
+  subspan(size_type offset, size_type count = dynamic_extent) const; // (2)
 ```
 * dynamic_extent[link /reference/span/dynamic_extent.md]
 
@@ -22,10 +22,14 @@ constexpr span<element_type, dynamic_extent>
 - (2) : パラメータで指定された任意の開始位置`offset`と要素数`count`にしたがって要素を取り出す
 
 
+## 適格要件
+- (1) : `Offset <= Extent && (Count ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Count <= Extent - Offset)`が`true`であること
+
+
 ## 事前条件
 (1)であれば`Offset`を`i`、`Count`を`N`とし、(2)であれば`offset`を`i`、`count`を`N`として、
 
-- `i <=` [`size()`](size.md) `&& (N ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| i + N <=` [`size()`](size.md)`)`が`true`であること
+- `i <=` [`size()`](size.md) `&& (N ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| N <=` [`size()`](size.md) `- i)`が`true`であること
 
 
 ## 戻り値
@@ -108,3 +112,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
+- [LWG Issue 3103. Errors in taking subview of `span` should be ill-formed where possible](https://wg21.cmeerw.net/lwg/issue3103)

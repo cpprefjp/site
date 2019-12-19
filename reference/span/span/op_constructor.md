@@ -7,7 +7,7 @@
 
 ```cpp
 constexpr span() noexcept;                                             // (1)
-constexpr span(pointer ptr, index_type count);                         // (2)
+constexpr span(pointer ptr, size_type count);                          // (2)
 constexpr span(pointer first, pointer last);                           // (3)
 
 template <size_t N>
@@ -293,4 +293,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3101. `span`'s Container constructors need another constraint](https://wg21.cmeerw.net/lwg/issue3101)
 - [LWG Issue 3198. Bad constraint on `std::span::span()`](https://cplusplus.github.io/LWG/issue3198)
+- [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
