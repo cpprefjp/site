@@ -138,6 +138,7 @@ int main()
 * chrono::year[link year.md]
 * chrono::month[link month.md]
 * chrono::day[link day.md]
+* chrono::last[link last_spec.md]
 * chrono::sys_days[link sys_time.md]
 * chrono::time_point_cast[link time_point_cast.md]
 * time_since_epoch()[link time_point/time_since_epoch.md]
