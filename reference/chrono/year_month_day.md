@@ -182,6 +182,45 @@ int main()
 ```
 ```
 
+
+### UNIX時間からyear_month_dayオブジェクトに変換する (C++20)
+```cpp example
+#include <iostream>
+#include <chrono>
+
+namespace chrono = std::chrono;
+
+chrono::year_month_day unix_time_to_ymd(std::time_t unixtime) {
+  // システム時間の時間点に変換
+  auto tp = chrono::system_clock::from_time_t(unixtime);
+
+  // 時間点を日単位に変換
+  chrono::sys_days sd = chrono::floor<chrono::days>(tp);
+
+  // 日付に変換
+  return chrono::year_month_day{sd};
+}
+
+int main()
+{
+  // UNIX時間での現在日時を取得　
+  std::time_t now = std::time(nullptr);
+  chrono::year_month_day date = unix_time_to_ymd(now);
+
+  std::cout << date << std::endl;
+}
+```
+* std::time_t[link /reference/ctime/time_t.md.nolink]
+* std::time[link /reference/ctime/time.md.nolink]
+* chrono::system_clock[link system_clock.md]
+* from_time_t[link system_clock/from_time_t.md]
+* chrono::floor[link time_point/floor.md]
+
+#### 出力例
+```
+2019-12-20
+```
+
 ## バージョン
 ### 言語
 - C++20
