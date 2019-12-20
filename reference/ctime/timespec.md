@@ -12,6 +12,7 @@ namespace std {
   };
 }
 ```
+* time_t[link time_t.md]
 
 ## 概要
 `timespec`は、[`timespec_get()`](timespec_get.md)関数によって返される、エポックからの経過時間を表す型である。各メンバ変数は、以下を意味する：

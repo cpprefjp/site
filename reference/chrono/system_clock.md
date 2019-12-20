@@ -14,7 +14,7 @@ namespace chrono {
 ## 概要
 `system_clock`は、システム時間を表現するためのクロックである。
 
-このクラスは、`time_t`型と互換性がある。
+このクラスは、[`time_t`](/reference/ctime/time_t.md)型と互換性がある。
 
 システム時間では、うるう秒が除外されて (うるう秒が挿入された分だけ値が引かれる) 時間がカウントされる。
 
@@ -76,6 +76,8 @@ int main()
 ```
 * now()[link system_clock/now.md]
 * to_time_t[link system_clock/to_time_t.md]
+* std::time_t[link /reference/ctime/time_t.md]
+* std::ctime[link /reference/ctime/ctime.md.nolink]
 
 ### 出力例
 ```

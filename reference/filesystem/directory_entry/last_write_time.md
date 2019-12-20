@@ -43,7 +43,7 @@ std::string datetime_to_string(fs::file_time_type tp)
   auto sec = chrono::duration_cast<chrono::seconds>(tp.time_since_epoch());
 
   std::time_t t = sec.count();
-  const tm* lt = std::localtime(&t);
+  const std::tm* lt = std::localtime(&t);
 
   std::ostringstream ss;
   ss << std::put_time(lt, "%c");
@@ -68,6 +68,9 @@ int main()
 * fs::file_time_type[link /reference/filesystem/file_time_type.md]
 * tp.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * sec.count()[link /reference/chrono/duration/count.md]
+* std::time_t[link /reference/ctime/time_t.md]
+* std::tm[link /reference/ctime/tm.md.nolink]
+* std::localtime[link /reference/ctime/localtime.md.nolink]
 
 ### 出力例
 ```

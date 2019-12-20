@@ -35,15 +35,17 @@ int main()
   system_clock::time_point p = system_clock::now();
 
   std::time_t t = system_clock::to_time_t(p);
-  std::cout << std::time(&t) << std::endl;
+  std::cout << std::ctime(&t) << std::endl;
 }
 ```
 * system_clock::now()[color ff0000]
 * to_time_t[link to_time_t.md]
+* std::time_t[link /reference/ctime/time_t.md]
+* std::ctime[link /reference/ctime/ctime.md.nolink]
 
 ### 出力例
 ```
-1374586804
+Fri Dec 20 16:32:56 2019
 ```
 
 ## バージョン

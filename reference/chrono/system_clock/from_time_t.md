@@ -9,15 +9,16 @@
 static time_point from_time_t(time_t t) noexcept;
 ```
 * time_point[link /reference/chrono/time_point.md]
+* time_t[link /reference/ctime/time_t.md]
 
 ## 概要
-`time_t`から`system_clock`の`time_point`に変換する。
+[`time_t`](/reference/ctime/time_t.md)から`system_clock`の`time_point`に変換する。
 
 
 ## 戻り値
 パラメータtと同じ時間を指す[`time_point`](/reference/chrono/time_point.md)を返す。
 
-`time_t`の分解能が[`time_point`](/reference/chrono/time_point.md)よりも高い場合は、[`time_point`](/reference/chrono/time_point.md)の分解能に切り捨てられる。
+[`time_t`](/reference/ctime/time_t.md)の分解能が[`time_point`](/reference/chrono/time_point.md)よりも高い場合は、[`time_point`](/reference/chrono/time_point.md)の分解能に切り捨てられる。
 
 
 ## 例外
@@ -45,6 +46,9 @@ int main()
 ```
 * system_clock::from_time_t(t)[color ff0000]
 * to_time_t[link to_time_t.md]
+* std::time_t[link /reference/ctime/time_t.md]
+* std::time[link /reference/ctime/time.md.nolink]
+* std::ctime[link /reference/ctime/ctime.md.nolink]
 
 ### 出力例
 ```

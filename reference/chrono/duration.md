@@ -189,6 +189,7 @@ int main()
 * system_clock[link system_clock.md]
 * to_time_t[link system_clock/to_time_t.md]
 * now()[link system_clock/now.md]
+* std::time_t[link /reference/ctime/time_t.md]
 
 ### 出力例
 ```

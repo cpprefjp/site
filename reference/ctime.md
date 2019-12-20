@@ -18,7 +18,7 @@
 |------|------|----------------|
 | [`size_t`](/reference/cstddef/size_t.md) | 符号なし整数型 | |
 | `clock_t` | `clock()`関数が返すプロセッサ時間を表す型 | |
-| `time_t` | 時間を表す型 | |
+| [`time_t`](/reference/ctime/time_t.md) | 時間を表す型 | |
 
 
 ## 構造体

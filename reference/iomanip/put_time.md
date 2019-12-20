@@ -64,7 +64,7 @@ int main() {
 
   // 出力
   std::time_t t = system_clock::to_time_t(p);
-  const tm* lt = std::localtime(&t);
+  const std::tm* lt = std::localtime(&t);
   std::cout << std::put_time(lt, "%c") << std::endl;
 }
 ```
@@ -72,8 +72,11 @@ int main() {
 * system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 * to_time_t[link /reference/chrono/system_clock/to_time_t.md]
+* std::time_t[link /reference/ctime/time_t.md]
+* std::tm[link /reference/ctime/tm.md.nolink]
+* std::localtime[link /reference/ctime/localtime.md.nolink]
 
-### 出力
+### 出力例
 ```
 Thu Dec 25 15:12:30 2014
 ```
