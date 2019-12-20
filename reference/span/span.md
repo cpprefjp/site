@@ -103,7 +103,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
-| `static constexpr index_type extent = Extent;` | 要素数。値が`-1`であれば動的な要素数、そうでなければ静的な固定要素数 | C++20 |
+| `static constexpr size_type extent = Extent;` | 要素数。値が`-1`であれば動的な要素数、そうでなければ静的な固定要素数 | C++20 |
 
 
 ### メンバ型
@@ -112,7 +112,7 @@ namespace std {
 |---------------------|----------------|------|
 | `element_type` | 要素型 `ElementType` | C++20 |
 | `value_type` | CV修飾を除いた要素型 [`remove_cv_t`](/reference/type_traits/remove_cv.md)`<ElementType>` | C++20 |
-| `index_type` | インデックスを表す符号なし整数型 [`size_t`](/reference/cstddef/size_t.md) | C++20 |
+| `size_type` | インデックスを表す符号なし整数型 [`size_t`](/reference/cstddef/size_t.md) | C++20 |
 | `difference_type` | イテレータの差を表す符号付き整数型 [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) | C++20 |
 | `pointer` | ポインタ型 `element_type*` | C++20 |
 | `const_pointer` | `const`ポインタ型 `const element_type*` | C++20 |
@@ -270,4 +270,6 @@ int main()
 - [P1085R2 Should `span` be regular?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1085r2.md)
 - [P1227R2 Signed `ssize()` functions, unsigned `size()` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1227r2.html)
 - [P1024R3 Usability enhancements for `std::span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1024r3.pdf)
+- [LWG Issue 3144. `span` does not have a `const_pointer` typedef](https://wg21.cmeerw.net/lwg/issue3144)
 - [LWG Issue 3203. `span` element access invalidation](https://cplusplus.github.io/LWG/lwg-active.html#3203)
+- [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)

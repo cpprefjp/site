@@ -13,6 +13,8 @@
 
 擬似乱数生成器は、ソフトウェアで乱雑な値のシーケンスを生成するクラスである。
 
+擬似乱数生成器は、環境によらず同じシードを与えれば同じ乱数列が生成される。
+
 多くのユーザーにとっては、以下に挙げる生の乱数生成器テンプレートクラスそのものよりも、後述するパラメータ定義済みの乱数生成器の型を使用すれば十分である。
 
 | 名前 | 説明 | 対応バージョン |
@@ -76,6 +78,10 @@
 
 
 ## 分布生成器
+分布生成器は、乱数生成器のよって生成される値の範囲や分布を調整するクラスである。
+
+分布生成器は、環境によって異なるアルゴリズムで実装される可能性がある。擬似乱数生成器は環境によらず同じシードを与えれば同じ乱数列が生成されるが、分布生成器を介して乱数生成する場合、環境によって異なる乱数列が生成される場合がある。
+
 ### 一様分布
 
 | 名前 | 説明 | 対応バージョン |
@@ -168,7 +174,7 @@ int main()
 * seed_gen()[link random/random_device/op_call.md]
 * std::uniform_real_distribution[link random/uniform_real_distribution.md]
 * std::normal_distribution[link random/normal_distribution.md]
-* std::ofstream[link fstream/basic_ofstream.md.nolink]
+* std::ofstream[link fstream/basic_ofstream.md]
 * dist1(engine)[link random/uniform_real_distribution/op_call.md]
 * dist2(engine)[link random/normal_distribution/op_call.md]
 

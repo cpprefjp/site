@@ -122,6 +122,7 @@
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
+| 2019 Update 4 | Visual Studio 2019 バージョン 16.4.0   | 14.24           | 1924       | 192428314       |
 | 2019 Update 3 | Visual Studio 2019 バージョン 16.3.2   | 14.23           | 1923       | 192328105       |
 | 2019 Update 2 | Visual Studio 2019 バージョン 16.2.3   | 14.22           | 1922       | 192227905       |
 | 2019 Update 1 | Visual Studio 2019 バージョン 16.1.2   | 14.21           | 1921       | 192127702       |
@@ -204,7 +205,7 @@
   [Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”](https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/)
 
 - 2015以降、Visual Studioの既定のインストールではVisual C++は入らなくなった。Visual StudioのインストーラでVisual C++コンポーネントを選択する必要がある。
-  [Visual Studio 2015 の Visual C++](https://msdn.microsoft.com/ja-jp/library/60k1461a.aspx) の [警告] を参照。
+  [Visual Studio 2015 の Visual C++](https://docs.microsoft.com/ja-JP/previous-versions/60k1461a(v=vs.140)?redirectedfrom=MSDN) の [警告] を参照。
 - 2017 Update 5からside-by-sideがサポートされ、一つの製品内で同時に複数のVisual C++ツールセットを選択できるようになった。
   [Side-by-side minor version MSVC toolsets in Visual Studio 2017 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/11/15/side-by-side-minor-version-msvc-toolsets-in-visual-studio-2017/)
 

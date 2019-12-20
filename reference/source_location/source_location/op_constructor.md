@@ -8,11 +8,10 @@
 ```cpp
 constexpr source_location() noexcept;
 ```
-* uint_least32_t [link /reference/cstdint/uint_least32_t.md]
 
 ## 概要
 
-[`source_location`](../source_location.md)オブジェクトを構築する。各メンバーの初期値は未規定。
+[`source_location`](../source_location.md)オブジェクトを構築する。各メンバの初期値は未規定。
 
 ## 事後条件
 

@@ -401,7 +401,9 @@ int main() {
 
 ### requires式
 - 「requires式 (Requires expressions)」は、「型`T`がメンバ関数`f()`を持っていなければならない」「型`T`がメンバ型`value_type`を持っていなければならない」といったテンプレートパラメータの型がもつプロパティを検査し、要件を定義するための機能である
+
 - requires式の結果は、`bool`型のprvalueを持つ定数式である
+
 - requires式のサンプルをいくつか示す：
     ```cpp
     template <typename T>
@@ -415,12 +417,18 @@ int main() {
 
     - ここでは、関数形式でローカルパラメータをひとつ (`T i`) とるrequires式によってコンセプト`R`を定義している
     - ローカルパラメータである`T i`の変数定義では、`T`型に対して「コピー構築可能であること」といった要求は行わず、そのような評価はコンパイル時にも行われない。これは[`std::declval()`](/reference/utility/declval.md)関数と同様に、「`T`型のなんらかの値」であることのみを表し、特定の値は持たず、構築もされない
+
 - パラメータリスト後の波括弧 { } で囲まれた本体中には、要件のシーケンスをセミコロン区切りで記述する。各要件は、ローカルパラメータ、テンプレートパラメータ、およびその文脈から見えるほかの宣言を参照できる
+
 - ローカルパラメータは、リンケージ、記憶域、生存期間をもたない
+
 - ローカルパラメータのスコープは、名前が導入されてから本体の閉じカッコまでである
+
 - ローカルパラメータはデフォルト引数を持ってはならず、パラメータリストの最後が `...` であってはならない
+
 - 型`T`がrequires式で列挙された要件は定義順に検査され、全ての要件を満たす場合、`bool`型の定数`true`が返る。requires式内では、無効な型や式が形成されたり、意味論的な制約に違反する場合があるが、そういった場合はプログラムが不適格にはならず、`false`が返る
     - テンプレートパラメータに関わらず無効になる型や式が現れた場合、プログラムは不適格となる
+
 - 対象となる型がひとつである場合でも、requires式のパラメータは複数とることができる：
     ```cpp
     template <typename T>
@@ -456,6 +464,7 @@ int main() {
 
 #### 型要件
 - 「型要件 (Type requirements)」は、型の妥当性を表明する要件である。テンプレート引数で型を置き換えた結果として型が無効な場合、`false`に評価される
+
 - 型要件の構文は以下のようになる：
     ```cpp
     typename 入れ子指定(省略可) 要求する型名;
@@ -463,18 +472,18 @@ int main() {
 
     - つまり、先頭に`typename`が記述されていれば型要件である。テンプレートパラメータの型が保持するメンバ型を`typename T::nested_type;`のように要求することもできるが、特定のクラステンプレートにテンプレート引数を渡した結果が妥当であること、というような要求もできる
 
-    ```cpp
-    template <typename T, typename T::type = 0> struct S;
-    template <typename T> using Ref = T&;
+        ```cpp
+        template <typename T, typename T::type = 0> struct S;
+        template <typename T> using Ref = T&;
 
-    template <typename T>
-    concept C = requires {
-      typename T::inner; // メンバ型innerの存在を要求
-      typename S<T>;     // クラステンプレートの特殊化を要求
-      typename Ref<T>;   // エイリアステンプレートRefに型Tを渡せることを要求
-                         // (Tがvoidだったら失敗することを意図)
-    };
-    ```
+        template <typename T>
+        concept C = requires {
+          typename T::inner; // メンバ型innerの存在を要求
+          typename S<T>;     // クラステンプレートの特殊化を要求
+          typename Ref<T>;   // エイリアステンプレートRefに型Tを渡せることを要求
+                             // (Tがvoidだったら失敗することを意図)
+        };
+        ```
 
 - ただし特殊化の要求は、テンプレート引数を渡した結果として完全型になること、という要求ではない
     - そのため、宣言のみのプライマリテンプレートと、定義をもつ特殊化、という構成になっているクラステンプレートは、特殊化されていないテンプレート引数に対しては不完全型になるのみで非妥当ではない
@@ -482,6 +491,7 @@ int main() {
 
 #### 複合要件
 - 「複合要件 (Compound requirements)」は、式のプロパティを表明する要件である。式の妥当性、`noexcept`、式の戻り値型に対する要件を順に検査する
+
 - 複合要件の構文は以下のようになる：
     ```cpp
     { 妥当性を検査する式 } noexcept(省略可) -> 戻り値型の制約(省略可);
@@ -493,6 +503,7 @@ int main() {
     - 戻り値の型要件が指定された場合、
         - テンプレート引数で型を置き換えて型を評価し、妥当でなければ`false`に評価される
         - 戻り値型の制約が指定された場合、その要件を満たすこと。満たさなければ`false`に評価される。制約として制約名のみが指定された場合、`{E} -> Concept;`は`E; Concept<decltype((E))>;`と等価であり、唯一の制約引数として式の型が渡される。制約として引数付きの制約が指定された場合、`{E} -> Concept<Args...>;`は`E; Concept<decltype((E)), Args...>;`と等価となり、先頭の制約引数として式の型が渡される
+
 - 例として、式のみを指定する場合、単純要件と等価である：
     ```cpp
     template <typename T>
@@ -533,24 +544,24 @@ int main() {
 
 #### 入れ子要件
 - 「入れ子要件 (Nested requirements)」は、requires式内で`bool`型の定数式で制約する要件である。コンセプトには`bool`型の定数式を直接指定できるため入れ子要件と等価な指定ができるが、こちらは先に述べた単純要件、型要件、複合要件に対する追加の制約として使用する。要件は定義順に検査されるため、要件Aが成り立たなければ要件Bを検査しない、というような状況で入れ子要件を使用できるだろう
+
 - 入れ子要件の構文は以下のようになる：
     ```cpp
     requires 制約式;
     ```
 
     - ここでの制約式とは、`concept C = 制約定数式;`のようになっているコンセプト定義に指定する`bool`型の定数式と同じである
+        ```cpp
+        template <typename U>
+        concept C = sizeof(U) == 1;
 
-    ```cpp
-    template <typename U>
-    concept C = sizeof(U) == 1;
-
-    template <typename T>
-    concept D = requires (T t) {
-      requires C<decltype (+t)>;                   // コンセプトを指定できる
-      requires std::is_default_constructible_v<T>; // 判定系の型特性も指定できる
-    };
-    ```
-    * std::is_default_constructible_v[link /reference/type_traits/is_default_constructible.md]
+        template <typename T>
+        concept D = requires (T t) {
+          requires C<decltype (+t)>;                   // コンセプトを指定できる
+          requires std::is_default_constructible_v<T>; // 判定系の型特性も指定できる
+        };
+        ```
+        * std::is_default_constructible_v[link /reference/type_traits/is_default_constructible.md]
 
 - 入れ子要件では、requires式で導入したローカルパラメータを使用できる。ただし、ローカルパラメータは特定の値を意味しない「その型のなんらかの値をもつオブジェクト」でしかないため、ローカルパラメータの値を参照しようとする式は不適格となる。ローカルパラメータを使用できるのは、値が評価されない文脈のみである (`sizeof`、`decltype`、`alignof`など)
     ```cpp
@@ -576,56 +587,56 @@ int main() {
     ```
 
     - コンセプト名を指定した場合、指定されたテンプレート引数が自動的にコンセプトの第1テンプレート引数として渡される：
-    ```cpp
-    template <std::move_constructible T>
-    class X;
+        ```cpp
+        template <std::move_constructible T>
+        class X;
 
-    // 以下と等価
-    template <class T>
-    requires std::move_constructible<T>
-    class X;
-    ```
-    * std::move_constructible[link /reference/concepts/move_constructible.md]
+        // 以下と等価
+        template <class T>
+        requires std::move_constructible<T>
+        class X;
+        ```
+        * std::move_constructible[link /reference/concepts/move_constructible.md]
 
     - 第1テンプレート引数を除いたコンセプトを制約パラメータとして指定することで、第1テンプレート引数以外のテンプレート引数を任意に指定することができる：
-    ```cpp
-    // 2つのテンプレートパラメータをもつコンセプト
-    template <class T, class U>
-    concept Addable = requires(T x, U y) {
-      x + y;
-    };
+        ```cpp
+        // 2つのテンプレートパラメータをもつコンセプト
+        template <class T, class U>
+        concept Addable = requires(T x, U y) {
+          x + y;
+        };
 
-    // Addableコンセプトの第1テンプレート引数としてTが渡され、
-    // 第2テンプレート引数としてintが渡される
-    template <Addable<int> T> // requires Addable<T, int> と等価
-    struct X {};
+        // Addableコンセプトの第1テンプレート引数としてTが渡され、
+        // 第2テンプレート引数としてintが渡される
+        template <Addable<int> T> // requires Addable<T, int> と等価
+        struct X {};
 
-    X<char> x; // requires Addable<char, int>
-    ```
+        X<char> x; // requires Addable<char, int>
+        ```
 
     - コンセプトのテンプレートパラメータが非型である場合、そのコンセプトを使用した制約テンプレートパラメータは非型になる：
-    ```cpp
-    template <int N>
-    concept C = N >= 0;
+        ```cpp
+        template <int N>
+        concept C = N >= 0;
 
-    template <C N>
-    struct X {};
+        template <C N>
+        struct X {};
 
-    X<1> x;
-    //X<-1> y; // コンパイルエラー！制約を満たさない
-    ```
+        X<1> x;
+        //X<-1> y; // コンパイルエラー！制約を満たさない
+        ```
 
     - 制約パラメータに省略記号がついている場合、パラメータパックと見なされる。単一パラメータのコンセプトをパラメータパックにした場合、パラメータパックの各テンプレートパラメータがそのコンセプトを満たすべきという制約になる。複数パラメータをとるコンセプトをパラメータパックにした場合、そのパラメータパックに渡された引数列がコンセプトに渡される：
-    ```cpp
-    template<typename T> concept C1 = true;
-    template<typename... Ts> concept C2 = true;
-    template<typename T, typename U> concept C3 = true;
+        ```cpp
+        template<typename T> concept C1 = true;
+        template<typename... Ts> concept C2 = true;
+        template<typename T, typename U> concept C3 = true;
 
-    template<C1 T> struct s1;      // requires C1<T>
-    template<C1... T> struct s2;   // requires (C1<T> && ...)
-    template<C2... T> struct s3;   // requires C2<T...>
-    template<C3<int> T> struct s4; // requires C3<T, int>
-    ```
+        template<C1 T> struct s1;      // requires C1<T>
+        template<C1... T> struct s2;   // requires (C1<T> && ...)
+        template<C2... T> struct s3;   // requires C2<T...>
+        template<C3<int> T> struct s4; // requires C3<T, int>
+        ```
 
 - 制約された関数以外のテンプレート、もしくは制約されたテンプレートテンプレートパラメータ、ただし不明な特殊化のメンバテンプレート以外で、全てのテンプレート引数が依存名でない場合、その制約テンプレートの関連制約は全て満たされなければならない
     ```cpp
@@ -682,22 +693,22 @@ int main() {
     ```
 
     - メンバテンプレートも同様に、テンプレート宣言が宣言と定義で等価でなければならない：
-    ```cpp
-    template<typename T> concept C1 = true;
-    template<typename T> concept C2 = sizeof(T) <= 4;
+        ```cpp
+        template<typename T> concept C1 = true;
+        template<typename T> concept C2 = sizeof(T) <= 4;
 
-    template<C1 T>
-    struct S {
-      template<C2 U> void f(U);
-      template<C2 U> void g(U);
-    };
+        template<C1 T>
+        struct S {
+          template<C2 U> void f(U);
+          template<C2 U> void g(U);
+        };
 
-    template<C1 T> template<C2 U>
-    void S<T>::f(U) { } // OK。テンプレート宣言が一致している
+        template<C1 T> template<C2 U>
+        void S<T>::f(U) { } // OK。テンプレート宣言が一致している
 
-    template<C1 T> template<typename U>
-    void S<T>::g(U) { } // コンパイルエラー！テンプレート宣言が一致していない
-    ```
+        template<C1 T> template<typename U>
+        void S<T>::g(U) { } // コンパイルエラー！テンプレート宣言が一致していない
+        ```
 
 - クラステンプレートおよび変数テンプレートの部分特殊化も制約できる：
     ```cpp
@@ -716,17 +727,17 @@ int main() {
     ```
 
     - この例において、#1 と #2 の部分特殊化はどちらも、プライマリテンプレートよりも特殊化されている。#1 の部分特殊化は成功するが、コンセプトによる制約の方がより特殊化されるため、`int*`型をテンプレート引数とした場合、#2 が選択される
-    ```cpp
-    template<typename T> concept C = requires (T t) { t.f(); };
+        ```cpp
+        template<typename T> concept C = requires (T t) { t.f(); };
 
-    template<typename T> struct S { }; // #1
-    template<C T> struct S<T> { };     // #2
+        template<typename T> struct S { }; // #1
+        template<C T> struct S<T> { };     // #2
 
-    struct Arg { void f(); };
+        struct Arg { void f(); };
 
-    S<int> s1; // #1 が選択される。#2 の制約を満たさない
-    S<Arg> s2; // #2 が選択される。両方の制約を満たすが、#2 の方がより特殊化されている
-    ```
+        S<int> s1; // #1 が選択される。#2 の制約を満たさない
+        S<Arg> s2; // #2 が選択される。両方の制約を満たすが、#2 の方がより特殊化されている
+        ```
 
 - ラムダ式においても、テンプレートパラメータを個別に制約できる：
     ```cpp
@@ -745,6 +756,7 @@ int main() {
 
 ### requires節
 - 「requires節 (Requires clauses)」は、テンプレートパラメータに対する制約を表明する構文である
+
 - requires節は、`&&` (AND条件、conjunction、連言)、`||` (OR条件、disjunction、選言) の論理演算子によって複合的に制約を指定できる
     ```cpp
     template <class T>
@@ -755,67 +767,68 @@ int main() {
     * std::copy_constructible[link /reference/concepts/copy_constructible.md]
 
 - `&&`と`||`でつなげる個々の制約を「原子制約 (Atomic constraints)」という。制約単体、もしくは`&&`と`||`を含まない定数条件式が原子制約となる
+
 - requires節は、非テンプレートの関数宣言にも記述できる。これは、クラステンプレートの非テンプレートメンバ関数に対する制約として使用できる
     - requires節は関数宣言のみに現れ、定義には現れてはならない
     - 戻り値の型を前置する構文では、CV修飾や`noexcept`のうしろに記述する
     - 戻り値の型を後置する構文では、戻り値型のうしろに記述する
-    ```cpp
-    void f1(int a) requires true;         // OK
-    auto f2(int a) -> bool requires true; // OK
-    auto f3(int a) requires true -> bool; // コンパイルエラー！requires節は戻り値型のうしろに記述すること
+        ```cpp
+        void f1(int a) requires true;         // OK
+        auto f2(int a) -> bool requires true; // OK
+        auto f3(int a) requires true -> bool; // コンパイルエラー！requires節は戻り値型のうしろに記述すること
 
-    void (*pf)() requires true;      // コンパイルエラー！変数は制約できない
-    void g(int (*)() requires true); // コンパイルエラー！パラメータ宣言は制約できない
+        void (*pf)() requires true;      // コンパイルエラー！変数は制約できない
+        void g(int (*)() requires true); // コンパイルエラー！パラメータ宣言は制約できない
 
-    auto* p = new void(*)(char) requires true; // コンパイルエラー！関数宣言ではない
-                                               // (関数シグニチャの一部ではないため関数ポインタの宣言には現れない)
-    ```
+        auto* p = new void(*)(char) requires true; // コンパイルエラー！関数宣言ではない
+                                                   // (関数シグニチャの一部ではないため関数ポインタの宣言には現れない)
+        ```
 
     - 非テンプレートの関数宣言に対するrequires節は、仮想関数に対しては記述できない
-    ```cpp
-    struct A {
-      virtual void f() requires true; // コンパイルエラー！仮想関数は制約できない
-    };
-    ```
+        ```cpp
+        struct A {
+          virtual void f() requires true; // コンパイルエラー！仮想関数は制約できない
+        };
+        ```
 
     - 非テンプレートの関数宣言に対するrequires節は、クラステンプレートの非テンプレートメンバ関数に対する制約として使用する
-    ```cpp
-    template <class T>
-    class MyVector {
-    public:
-      void push_back(const T&)
-        requires std::is_copy_constructible_v<T>;
+        ```cpp
+        template <class T>
+        class MyVector {
+        public:
+          void push_back(const T&)
+            requires std::is_copy_constructible_v<T>;
 
-      void push_back(T&&)
-        requires std::move_constructible<T>;
-    };
-    ```
-    * std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
-    * std::move_constructible[link /reference/concepts/move_constructible.md]
+          void push_back(T&&)
+            requires std::move_constructible<T>;
+        };
+        ```
+        * std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
+        * std::move_constructible[link /reference/concepts/move_constructible.md]
 
     - 関数宣言と関数定義を分ける場合、非テンプレートの関数宣言に対するrequires節は宣言と定義は等価でなければならない
-    ```cpp
-    template <class T>
-    class MyVector {
-    public:
-      void push_back(const T&)
-        requires std::copy_constructible<T>;
+        ```cpp
+        template <class T>
+        class MyVector {
+        public:
+          void push_back(const T&)
+            requires std::copy_constructible<T>;
 
-      void push_back(T&&)
-        requires std::move_constructible<T>;
-    };
+          void push_back(T&&)
+            requires std::move_constructible<T>;
+        };
 
-    template <class T>
-    void MyVector<T>::push_back(const T&)
-      requires copy_constructible<T>
-    {}                                    // OK
+        template <class T>
+        void MyVector<T>::push_back(const T&)
+          requires copy_constructible<T>
+        {}                                    // OK
 
-    template <class T>
-    void MyVector<T>::push_back(T&&)
-    {}                                    // コンパイルエラー！宣言と一致していない
-    ```
-    * std::copy_constructible[link /reference/concepts/copy_constructible.md]
-    * std::move_constructible[link /reference/concepts/move_constructible.md]
+        template <class T>
+        void MyVector<T>::push_back(T&&)
+        {}                                    // コンパイルエラー！宣言と一致していない
+        ```
+        * std::copy_constructible[link /reference/concepts/copy_constructible.md]
+        * std::move_constructible[link /reference/concepts/move_constructible.md]
 
 - requires節は、requires式を持てる
     ```cpp

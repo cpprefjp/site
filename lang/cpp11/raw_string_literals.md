@@ -225,7 +225,7 @@ int main()
 ```
 * std::regex[link /reference/regex/basic_regex.md]
 * std::regex_replace[link /reference/regex/regex_replace.md]
-* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* std::ofstream[link /reference/fstream/basic_ofstream.md]
 * file.write[link /reference/ostream/basic_ostream/write.md]
 * html.data()[link /reference/string/basic_string/data.md]
 * html.size()[link /reference/string/basic_string/size.md]

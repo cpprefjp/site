@@ -104,5 +104,5 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 
 
 ## 参照
-- [`GetFullPathName` function (Windows)](https://msdn.microsoft.com/ja-jp/library/windows/desktop/aa364963(v=vs.85).aspx)
-- [Naming Files, Paths, and Namespaces (Windows)](https://msdn.microsoft.com/ja-jp/library/aa365247(v=vs.85).aspx)
+- [`GetFullPathName` function (Windows)](https://docs.microsoft.com/ja-jp/windows/win32/api/fileapi/nf-fileapi-getfullpathnamea)
+- [Naming Files, Paths, and Namespaces (Windows)](https://docs.microsoft.com/ja-jp/windows/win32/fileio/naming-a-file)

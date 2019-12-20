@@ -107,7 +107,7 @@ int main()
 * std::discrete_distribution[color ff0000]
 * probabilities.begin()[link /reference/vector/vector/begin.md]
 * probabilities.end()[link /reference/vector/vector/end.md]
-* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link discrete_distribution/op_call.md]
 
 ### 出力

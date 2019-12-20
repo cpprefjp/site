@@ -632,7 +632,7 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
 * std::compare_three_way[link /reference/compare/compare_three_way.md]
 
 これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。  
-実際の比較は[`compare_three_way`](/reference/algorithm/compare_three_way.md.nolink)に移譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
+実際の比較は[`compare_three_way`](/reference/compare/compare_three_way.md)に移譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
 
 これは順序付けにおいては問題ないが、同値比較を行おうとすると非効率な点がある。それは、長さ（サイズ）を一番最後に比較していることで、同値比較の場合は一番最初に`vector`の長さをチェックし異なっていれば、その時点で結果が`false`になると分かり処理を終えることができる。  
 従って、`vector`における`==`の効率的な実装は以下のようになる。
@@ -729,8 +729,8 @@ struct has_vector {
 
 |比較カテゴリ型|対応する数学的な関係|導出される演算子|
 |:---|:---:|:---:|
-|[`weak_equality`](/reference/compare/weak_equality.md.nolink)|同値関係|`== !=`|
-|[`strong_equality`](/reference/compare/strong_equality.md.nolink)|相等関係：最も細かい同値関係|`== !=`|
+|`weak_equality`|同値関係|`== !=`|
+|`strong_equality`|相等関係：最も細かい同値関係|`== !=`|
 
 しかし、前項の変更によってこれらの型はほとんどその役割を失い、またそのカテゴリ付けにも問題があったため、残しておくのは混乱やバグのものとであるとして削除された。
 

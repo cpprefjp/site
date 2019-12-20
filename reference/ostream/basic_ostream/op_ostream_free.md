@@ -159,8 +159,8 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* std::ofstream[link ../../fstream/basic_ofstream.md.nolink]
-* std::ifstream[link ../../fstream/basic_ifstream.md.nolink]
+* std::ofstream[link ../../fstream/basic_ofstream.md]
+* std::ifstream[link ../../fstream/basic_ifstream.md]
 
 ### 出力
 ```

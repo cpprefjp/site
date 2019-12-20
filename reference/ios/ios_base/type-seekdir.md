@@ -99,8 +99,8 @@ int main()
 ```
 * std::ios_base[link ../ios_base.md]
 * std::fstream[link ../../fstream/basic_fstream.md]
-* std::ofstream[link ../../fstream/basic_ofstream.md.nolink]
-* std::ifstream[link ../../fstream/basic_ifstream.md.nolink]
+* std::ofstream[link ../../fstream/basic_ofstream.md]
+* std::ifstream[link ../../fstream/basic_ifstream.md]
 * seekp[link ../../ostream/basic_ostream/seekp.md]
 * std::flush[link ../../ostream/flush.md]
 * in[link type-openmode.md]

@@ -2,11 +2,15 @@
 * atomic[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
+* cpp20deprecated[meta cpp]
 
 ```cpp
 # define ATOMIC_VAR_INIT(value) see below
 ```
 * see below[italic]
+
+この機能はC++20で非推奨となった。[`std::atomic`](atomic.md)クラスのデフォルトコンストラクタが値初期化するようになったため、初期化のためにこの機能を使用する必要はない。
+
 
 ## 概要
 アトミック変数の初期化
@@ -18,6 +22,10 @@
 
 ## 備考
 このマクロは、`atomic`オブジェクトに対しては`atomic<int> x(value);`と書くのと等価である。C言語との互換性のために存在している。
+
+
+## 非推奨の詳細 (C++20)
+C言語との互換性のために、`std::atomic`クラスのデフォルトコンストラクタは自明定義され、初期値は未規定となっていた。そのためこの機能を介して`std::atomic`オブジェクトを初期化する必要があったが、C++20からデフォルトコンストラクタが値初期化を行うようになったため、初期化のためにこの機能を使用する必要はなくなった。
 
 
 ## 例
@@ -59,5 +67,4 @@ int main()
 ```
 
 ## 参照
-
-
+- [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)

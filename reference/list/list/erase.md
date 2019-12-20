@@ -39,6 +39,7 @@ iterator erase(const_iterator position,
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <list>
@@ -73,10 +74,45 @@ int main()
 * ls.begin()[link begin.md]
 * ls.end()[link end.md]
 
-### 出力
+#### 出力
 ```
 1 2 3 5 
 1 2 
+```
+
+### イテレート中に要素を削除する (C++11)
+```cpp example
+#include <iostream>
+#include <list>
+
+int main()
+{
+  std::list<int> ls = {3, 1, 4};
+
+  // イテレート中に要素削除をするような場合には、
+  // 範囲for文は使用できない
+  for (auto it = ls.begin(); it != ls.end();) {
+    // 条件一致した要素を削除する
+    if (*it == 1) {
+      // 削除された要素の次を指すイテレータが返される。
+      it = ls.erase(it);
+    }
+    // 要素削除をしない場合に、イテレータを進める
+    else {
+      ++it;
+    }
+  }
+
+  for (const auto& x : ls) {
+    std::cout << x << std::endl;
+  }
+}
+```
+
+#### 出力
+```
+3
+4
 ```
 
 

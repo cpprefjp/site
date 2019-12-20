@@ -18,7 +18,7 @@ key_type& key() const; // set コンテナには存在ない
 
 
 ## 戻り値
-`ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトの `key_type` メンバーへの非`const`参照。
+`ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトの `key_type` メンバへの非`const`参照。
 
 
 ## 備考

@@ -39,6 +39,7 @@ iterator erase(const_iterator first, const_iterator last); // (2) C++11
 コピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入演算子が例外を投げる場合を除いて、この関数は例外を投げない。
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -84,10 +85,46 @@ int main()
 ```
 * erase[color ff0000]
 
-### 出力
+#### 出力
 ```
 (1) : {1, 2, 4, 5}
 (2) : {3, 4, 5}
+```
+
+
+### イテレート中に要素を削除する (C++11)
+```cpp example
+#include <iostream>
+#include <vector>
+
+int main()
+{
+  std::vector<int> v = {3, 1, 4};
+
+  // イテレート中に要素削除をするような場合には、
+  // 範囲for文は使用できない
+  for (auto it = v.begin(); it != v.end();) {
+    // 条件一致した要素を削除する
+    if (*it == 1) {
+      // 削除された要素の次を指すイテレータが返される。
+      it = v.erase(it);
+    }
+    // 要素削除をしない場合に、イテレータを進める
+    else {
+      ++it;
+    }
+  }
+
+  for (const auto& x : v) {
+    std::cout << x << std::endl;
+  }
+}
+```
+
+#### 出力
+```
+3
+4
 ```
 
 

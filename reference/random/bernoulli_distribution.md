@@ -92,7 +92,7 @@ int main()
 ```
 * std::bernoulli_distribution[color ff0000]
 * seed_gen()[link random_device/op_call.md]
-* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link bernoulli_distribution/op_call.md]
 
 ### 出力

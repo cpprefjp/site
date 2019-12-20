@@ -4,7 +4,7 @@
 
 ## Visual C++
 
-MSDNライブラリの[setlocale、_wsetlocale](https://msdn.microsoft.com/ja-jp/library/x99tb11d%28v=vs.100%29.aspx)では、以下の形式の文字列が指定できると記述されている。`[]`で囲っている部分は省略可能であることを意味する。
+MSDNライブラリの[setlocale、_wsetlocale](https://docs.microsoft.com/ja-jp/previous-versions/visualstudio/visual-studio-2010/x99tb11d(v=vs.100))では、以下の形式の文字列が指定できると記述されている。`[]`で囲っている部分は省略可能であることを意味する。
 
 - `"lang[_country_region[.code_page]]"`
 - `".code_page"`

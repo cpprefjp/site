@@ -216,8 +216,11 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 ### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)の多くの関数に`constexpr`を追加
 - [`<algorithm>`](/reference/algorithm.md)に、要素位置をシフトする[`std::shift_left()`](/reference/algorithm/shift_left.md)、[`std::shift_right()`](/reference/algorithm/shift_right.md)を追加
-- 一貫比較への対応のため、[`<algorithm>`](/reference/algorithm.md)に[`std::lexicographical_compare_3way()`](/reference/algorithm/lexicographical_compare_3way.md.nolink)および[`std::compare_3way()`](/reference/algorithm/compare_3way.md.nolink)を追加
+- [`<algorithm>`](/reference/algorithm.md)に三方比較による辞書順比較アルゴリズム[`std::lexicographical_compare_three_way()`](/reference/algorithm/lexicographical_compare_three_way.md)を追加
+- 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
+- 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
 - [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムをムーブに対応
+- [`<numeric>`](/reference/numeric.md)の数値計算アルゴリズムに`constexpr`を追加
 
 
 ### イテレータ
@@ -231,23 +234,6 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::invoke()`](/reference/functional/invoke.md)、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)の各操作、[`std::not_fn()`](/reference/functional/not_fn.md)、[`std::bind()`](/reference/functional/bind.md)、[`std::mem_fn()`](/reference/functional/mem_fn.md)を`constexpr`対応
 
 
-### 数値計算
-- 数値とポインタの中点を求める関数として、[`<numeric>`](/reference/numeric.md)に[`std::midpoint()`](/reference/numeric/midpoint.md)関数を追加
-- 浮動小数点数を線形補間する関数として、[`<cmath>`](/reference/cmath.md)に[`std::lerp()`](/reference/cmath/lerp.md)関数を追加
-- 以下のアルゴリズムを`constexpr`対応
-    - [`std::accumulate()`](/reference/numeric/accumulate.md)
-    - [`std::reduce()`](/reference/numeric/reduce.md)
-    - [`std::inner_product()`](/reference/numeric/inner_product.md)
-    - [`std::transform_reduce()`](/reference/numeric/transform_reduce.md)
-    - [`std::partial_sum()`](/reference/numeric/partial_sum.md)
-    - [`std::exclusive_scan()`](/reference/numeric/exclusive_scan.md)
-    - [`std::inclusive_scan()`](/reference/numeric/inclusive_scan.md)
-    - [`std::transform_exclusive_scan()`](/reference/numeric/transform_exclusive_scan.md)
-    - [`std::transform_inclusive_scan()`](/reference/numeric/transform_inclusive_scan.md)
-    - [`std::adjacent_difference()`](/reference/numeric/adjacent_difference.md)
-    - [`std::iota()`](/reference/numeric/iota.md)
-
-
 ### 文字列
 - [`std::basic_string`](/reference/string/basic_string.md)クラスと[`std::basic_string_view`](/reference/string_view/basic_string_view.md)クラスに、先頭の部分文字列を判定する`starts_with()`メンバ関数、末尾の部分文字列を判定する`ends_with()`メンバ関数を追加
 - [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数の、メモリの縮小機能を削除し、伸長のみとする。
@@ -255,6 +241,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 並行・並列処理
+- [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが、値初期化するよう動作変更。これまではC言語との互換性のために未初期化となっていた
 - [`<memory>`](/reference/memory.md)に、[`std::atomic`](/reference/memory/atomic.md)クラスの[`std::shared_ptr`](/reference/memory/shared_ptr.md)と[`std::weak_ptr`](/reference/memory/weak_ptr.md)に対する特殊化を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスの浮動小数点数型に対する特殊化を追加
 - アトミッククラスに対するブロッキング同期の機能として[`wait()`](/reference/atomic/atomic/wait.md)、[`notify_one()`](/reference/atomic/atomic/notify_one.md)、[`notify_all()`](/reference/atomic/atomic/notify_all.md)を追加
@@ -316,8 +303,12 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 機能の非推奨化
-- 一貫比較機能にとって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
+- 一貫比較非機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
 - [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
+- [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：
+    - [`std::atomic_init()`](/reference/atomic/atomic_init.md)関数
+    - [`ATOMIC_VAR_INIT`](/reference/atomic/atomic_var_init.md)マクロ
+    - [`ATOMIC_FLAG_INIT`](/reference/atomic/atomic_flag_init.md)マクロ
 
 
 ### 機能の削除

@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `random_device`クラスは、非決定論的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。
 
-`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
+`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
 実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは**擬似乱数生成器で定義される可能性がある**ため、特にクロスプラットフォームなコードを書く場合は注意すること。
 
 予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといった環境ノイズをエントロピープールとして乱数を生成する。
@@ -179,12 +179,13 @@ GCC (MinGW, libstdc++) 9.2からは、この問題は解決されている。[PR
     - CPU が提供する [`RDRAND`, `RDSEED` 命令](https://www.cryptopp.com/wiki/RDRAND)
 - Windows
     - [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) (`CryptGenRandom` のラッパー)
-    - [`RtlGenRandom`](https://msdn.microsoft.com/en-us/library/aa387694.aspx) 関数 (替わりに `CryptGenRandom` を使用することを推奨)
-    - [`CryptGenRandom`](https://msdn.microsoft.com/en-us/library/aa379942.aspx) 関数
+    - [`RtlGenRandom`](https://docs.microsoft.com/ja-jp/windows/win32/api/ntsecapi/nf-ntsecapi-rtlgenrandom) 関数 (替わりに `CryptGenRandom` を使用することを推奨)
+    - [`CryptGenRandom`](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom) 関数(Windows XP/Windows Server 2003以降。非推奨)
+    - [`BCryptGenRandom`](https://docs.microsoft.com/ja-jp/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) 関数(Windows Vista/Windows Server 2008以降)
 
 ##### Workaround
 
-ワークアラウンドとして次のコードが利用できる。`rand_s`ではなく`CryptGenRandom`を用いているのは、`rand_s`を利用するには`Windows.h`をincludeする前に`_CRT_RAND_S`のdefineが必要でworkaroundには向かないため。
+ワークアラウンドとして次のコードが利用できる。`rand_s`ではなく`CryptGenRandom`を用いているのは、`rand_s`を利用するには`Windows.h`をincludeする前に`_CRT_RAND_S`のdefineが必要でworkaroundには向かないため。また`BCryptGenRandom`を用いていないのは、対象としている環境では`CryptGenRandom`は利用可能であり、`BCryptGenRandom`より使える環境が広いためである。
 
 ```cpp
 //! @file random_device.hpp
@@ -192,7 +193,7 @@ GCC (MinGW, libstdc++) 9.2からは、この問題は解決されている。[PR
 
 #include <random>
 
-#if defined(__MINGW32__) && defined(__GNUC__) && !defined(__clang__)
+#if defined(__MINGW32__) && defined(__GNUC__) && !defined(__clang__) && (__GNUC__ < 9 || (__GNUC__ == 9 && __GNUC_MINOR__ <2))
 
 #include <system_error>
 #include <limits>
@@ -263,16 +264,16 @@ using std::random_device;
 
 #endif //defined(__MINGW32__) && defined(__GNUC__) && !defined(__clang__)
 ```
-* HCRYPTPROV[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa382471%28v=vs.85%29.aspx]
-* BYTE[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#BYTE]
-* DWORD[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#DWORD]
-* LPCTSTR[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx#LPCTSTR]
-* PROV_RSA_FULL[link https://msdn.microsoft.com/en-us/library/windows/desktop/aa387448(v=vs.85).aspx]
-* <wincrypt.h>[link https://msdn.microsoft.com/en-us/library/ms867086.aspx]
-* CryptAcquireContext[link https://msdn.microsoft.com/en-us/library/aa379886.aspx]
-* GetLastError[link https://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx]
-* CryptReleaseContext[link https://msdn.microsoft.com/en-us/library/aa380268.aspx]
-* CryptGenRandom[link https://msdn.microsoft.com/en-us/library/aa379942.aspx]
+* HCRYPTPROV[link https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov]
+* BYTE[link https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#BYTE]
+* DWORD[link https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#DWORD]
+* LPCTSTR[link https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#LPCTSTR]
+* PROV_RSA_FULL[link https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/prov-rsa-full]
+* <wincrypt.h>[link https://docs.microsoft.com/en-us/previous-versions/ms867086(v=msdn.10)]
+* CryptAcquireContext[link https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta]
+* GetLastError[link https://docs.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror]
+* CryptReleaseContext[link https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptreleasecontext]
+* CryptGenRandom[link https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom]
 * std::system_category[link /reference/system_error/system_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
 * std::error_code[link /reference/system_error/error_code.md]
@@ -326,7 +327,7 @@ int main()
 - Microdoft Visual Studio 2017: [random\_device Class](https://docs.microsoft.com/en-us/cpp/standard-library/random-device-class)
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
 - [Man page of RANDOM](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
-- [CryptGenRandom function - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379942.aspx)
+- [CryptGenRandom function (wincrypt.h) - Win32 apps | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)
 - [random_deviceの実装（再訪） - 煙人計画](http://vaporoid.hateblo.jp/entry/2014/07/25/154852)
 - [Replacing `/dev/urandom` May 4, 2016 - Security](https://lwn.net/Articles/685371/)
 - [gccをwindowsで使うならstd::random_deviceを使ってはいけない - Qiita](http://qiita.com/nanashi/items/f94b78398a6c79d939e1)

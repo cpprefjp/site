@@ -99,7 +99,7 @@ int main()
 }
 ```
 * std::student_t_distribution[color ff0000]
-* std::ofstream[link /reference/fstream/basic_ofstream.md.nolink]
+* std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link student_t_distribution/op_call.md]
 
 ### 出力

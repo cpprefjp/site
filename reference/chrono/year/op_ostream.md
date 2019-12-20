@@ -13,7 +13,7 @@ namespace std::chrono {
 ```
 
 ## 概要
-`day`オブジェクトを出力ストリームに出力する。
+`year`オブジェクトを出力ストリームに出力する。
 
 
 ## 戻り値
@@ -22,11 +22,10 @@ namespace std::chrono {
 - (1) : 以下と等価：
     ```cpp
     return os << (y.ok() ?
-      format(os.getloc(), STATICALLY-WIDEN<charT>("{:%Y}"), y) :
-      format(os.getloc(), STATICALLY-WIDEN<charT>("{:%Y} is not a valid year"), y));
+      format(STATICALLY-WIDEN<charT>("{:%Y}"), y) :
+      format(STATICALLY-WIDEN<charT>("{:%Y} is not a valid year"), y));
     ```
     * format[link /reference/format/format.md]
-    * os.getloc()[link /reference/ios/ios_base/getloc.md]
 
 
 ## 備考

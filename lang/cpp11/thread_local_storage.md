@@ -94,7 +94,7 @@ thread2 : 4
 | [IBM](http://www.ibm.com/) | Thread-Local Storage in [What's New in XL C/C++ V9.0](http://www-1.ibm.com/support/docview.wss?uid=swg27007322&aid=1) |
 | [IBM](http://www.ibm.com/) | [__thread ストレージ・クラス指定子](https://www.ibm.com/support/knowledgecenter/ja/ssw_ibm_i_71/rzarg/thread.htm?view=embed) |
 | [Intel](http://www.intel.com/) | GCC互換の`__thread`キーワードが存在した。 |
-| [Microsoft](https://www.microsoft.com/) | [__declspec thread](https://msdn.microsoft.com/en-us/library/9w1sdazb.aspx) |
+| [Microsoft](https://www.microsoft.com/) | [__declspec thread](https://docs.microsoft.com/ja-JP/cpp/cpp/thread?view=vs-2019) |
 | [Oracle](https://www.oracle.com/)（旧Sun Microsystems） | [Thread-Local Storage](https://docs.oracle.com/cd/E37069_01/html/E37075/bkaeg.html) |
 
 各ベンダーのこれらの経験を標準C++に導入することとなった。

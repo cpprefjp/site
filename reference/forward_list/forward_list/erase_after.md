@@ -12,16 +12,19 @@ iterator erase_after(const_iterator position,
 ```
 
 ## 概要
-指定された要素をコンテナから削除する
+指定されたイテレータの次の要素をコンテナから削除する
 
 
 ## 要件
 第1引数`position`の次が間接参照可能なイテレータであること
 
+- (1) : `position`イテレータが指す次の要素単体を削除する
+- (2) : 範囲`(position, last)`の要素を削除する
+
 
 ## 効果
-- (1) : `position`が指す次の要素が削除される。  
-- (2) : `(position, last)`で示される範囲の要素が削除される。
+- (1) : `position`が指す次の要素が削除される
+- (2) : `(position, last)`で示される範囲の要素が削除される
 
 
 ## 戻り値
@@ -37,6 +40,7 @@ iterator erase_after(const_iterator position,
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <forward_list>
@@ -46,11 +50,16 @@ int main()
 {
   // 1引数版
   {
-    std::forward_list<int> ls = {1, 2, 3, 4, 5};
-
     // 4を削除
+    std::forward_list<int> ls = {1, 2, 3, 4, 5};
     ls.erase_after(std::next(ls.before_begin(), 3));
+    for (int x : ls) { std::cout << x << ' '; }
 
+    std::cout << std::endl;
+
+    // 先頭要素を削除
+    ls = {1, 2, 3, 4, 5};
+    ls.erase_after(ls.before_begin());
     for (int x : ls) { std::cout << x << ' '; }
   }
   std::cout << std::endl;
@@ -72,10 +81,51 @@ int main()
 * ls.end()[link end.md]
 * std::next[link /reference/iterator/next.md]
 
-### 出力
+#### 出力
 ```
 1 2 3 5 
+2 3 4 5 
 1 2 
+```
+
+
+### イテレート中に要素を削除する (C++11)
+```cpp example
+#include <iostream>
+#include <forward_list>
+
+int main()
+{
+  std::forward_list<int> ls = {3, 1, 4};
+
+  // イテレート中に要素削除をするような場合には、
+  // 範囲for文は使用できない
+  for (auto it = ls.before_begin();;) {
+    auto next = std::next(it);
+    if (next == ls.end())
+      break;
+
+    // 条件一致した要素を削除する
+    if (*next == 1) {
+      // 削除された要素の次を指すイテレータが返される。
+      it = ls.erase_after(it);
+    }
+    // 要素削除をしない場合に、イテレータを進める
+    else {
+      ++it;
+    }
+  }
+
+  for (const auto& x : ls) {
+    std::cout << x << std::endl;
+  }
+}
+```
+
+#### 出力
+```
+3
+4
 ```
 
 ## バージョン
