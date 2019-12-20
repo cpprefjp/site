@@ -55,7 +55,7 @@ namespace std::chrono {
 - (1) : `return {m, d};`
 - (2) : `return m /` [`day`](/reference/chrono/day.md)`{d};`
 - (3) : `return` [`month`](/reference/chrono/month.md)`{m} / d;`
-- (4) : `return `[`month_day_last`](/reference/chrono/month_day_last.md)`{m};`
+- (4) : `return `[`month_day_last`](/reference/chrono/month_day_last.md.nolink)`{m};`
 - (5) : `return` [`month`](/reference/chrono/month.md)`{m} /` [`last`](/reference/chrono/last_spec.md)`;`
 - (6) : `return {m, wdi};`
 - (7) : `return` [`month`](/reference/chrono/month.md)`{m} / wdi;`
@@ -116,7 +116,7 @@ int main()
 * chrono::last[link /reference/chrono/last_spec.md]
 * chrono::month_day_last[link /reference/chrono/month_day_last.md.nolink]
 * mdl1.month()[link /reference/chrono/month_day_last/month.md.nolink]
-* chrono::Sunday[link /reference/chrno/weekday_constants.md]
+* chrono::Sunday[link /reference/chrono/weekday_constants.md]
 * chrono::month_weekday[link /reference/chrono/month_weekday.md.nolink]
 * mw1.month()[link /reference/chrono/month_weekday/month.md.nolink]
 * mw1.weekday_indexed()[link /reference/chrono/month_weekday/weekday_indexed.md.nolink]
