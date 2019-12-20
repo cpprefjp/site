@@ -92,6 +92,7 @@ namespace std::chrono {
 
 
 ## 例
+### 基本的な使い方 (C++20)
 ```cpp example
 #include <iostream>
 #include <chrono>
@@ -144,13 +145,41 @@ int main()
 * time_since_epoch()[link time_point/time_since_epoch.md]
 * count()[link duration/count.md]
 
-### 出力例
+#### 出力例
 ```
 2020-03-01
 2020-02-29
 2020-03-01
 18322
 1583020800
+```
+
+### 前月の末日を求める (C++20)
+```cpp example
+#include <cassert>
+#include <chrono>
+
+namespace chrono = std::chrono;
+using namespace std::chrono_literals;
+
+int main()
+{
+  chrono::year_month_day base_date = 2020y/3/1;
+
+  // year_month_dayオブジェクトに対して直接1日減算はできないので、
+  // 前月の末日を表すyear_month_day_lastオブジェクトを作ってから、
+  // year_month_dayオブジェクトに変換する
+  chrono::year_month_day date{base_date.year()/(base_date.month() - chrono::months{1})/chrono::last};
+
+  assert(date == 2020y/2/29);
+}
+```
+* base_date.year()[link year_month_day/year.md]
+* base_date.month()[link year_month_day/month.md]
+* chrono::last[link last_spec.md]
+
+#### 出力
+```
 ```
 
 ## バージョン
