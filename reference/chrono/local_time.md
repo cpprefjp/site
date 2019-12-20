@@ -9,7 +9,7 @@ namespace std::chrono {
   struct local_t {};                                   // (1) C++20
 
   template <class Duration>
-  using sys_time = time_point<local_t, Duration>;      // (2) C++20
+  using local_time = time_point<local_t, Duration>;    // (2) C++20
 
   using local_seconds = local_time<seconds>;           // (3) C++20
   using local_days    = local_time<days>;              // (4) C++20
