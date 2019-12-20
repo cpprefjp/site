@@ -292,18 +292,20 @@ bool eq2 = a == category::C;  //ok
 ここまでにも説明せずに登場していたが、あるクラス型に対する`<=>`および`==`演算子は`default`指定することができる。  
 そうした場合、コンパイラによってそのクラスの基底及び全メンバの宣言順の辞書式比較を行う実装が暗黙に定義される。
 
-あるクラス`C`に対する`<=> ==`の`default`指定できる宣言は、`C`の関数テンプレートでないメンバとして宣言されていて、かつ`const C&`型の1つの引数をもつ非静的constメンバ関数であるか、`const C&`型の2つの引数を持つ`C`の`friend`関数、である必要がある。  
+あるクラス`C`に対する`<=> ==`の`default`指定できる宣言は、`C`の関数テンプレートでないメンバとして宣言されていて、かつ`const C&`型の1つの引数をもつ非静的constメンバ関数であるか、`const C&`型か`const C`型の2つの引数を持つ`C`の`friend`関数、である必要がある。  
 つまり以下の様な宣言が有効である。
 
 ```cpp
 struct C {
-  //有効な<=>のdefault宣言
+  //有効な<=>のdefault宣言（3つのうちいずれか）
   auto operator<=>(const C&) const = default;
   friend auto operator<=>(const C&, const C&) = default;
+  friend auto operator<=>(const C, const C) = default;
 
-  //有効な==のdefault宣言
+  //有効な==のdefault宣言（3つのうちいずれか）
   bool operator==(const C&) const = default;
   friend bool operator==(const C&, const C&) = default;
+  friend bool operator==(const C, const C) = default;
 };
 ```
 
@@ -778,7 +780,9 @@ struct has_vector {
     8. [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
         - 標準ライブラリで提供されるクラスへの一貫比較仕様をベースとした`<=> ==`導入
     9. [P1959R0 Remove `std::weak_equality` and `std::strong_equality`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1959r0.html)
-        - 不要になった`_equality`な比較カテゴリ型の削除  
+        - 不要になった`_equality`な比較カテゴリ型の削除
+    10. [P1946R0 Allow defaulting comparisons by value](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1946r0.html)
+        - `<=> ==`の`friend`な`default`宣言の調整
 - 以前に検討されていた提案文書
     - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
     - [N4114 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm)
