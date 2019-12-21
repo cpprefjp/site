@@ -18,7 +18,7 @@ static time_t to_time_t(const time_point& t) noexcept;
 ## 戻り値
 パラメータ`t`と同じ時間を指す[`time_t`](/reference/ctime/time_t.md)を返す。
 
-[`time_point`](/reference/chrono/time_point.md)の分解能が[`time_t`](/reference/ctime/time_t.md)よりも高い場合は、[`time_t`](/reference/chrono/time_t.md)の分解能に切り捨てられる。
+[`time_point`](/reference/chrono/time_point.md)の分解能が[`time_t`](/reference/ctime/time_t.md)よりも高い場合は、[`time_t`](/reference/ctime/time_t.md)の分解能に切り捨てられる。
 
 
 ## 例外
