@@ -39,6 +39,7 @@ constexpr if文を用いれば特定の条件を満たした時にだけコー�
 #include <vector>
 #include <string>
 #include <iostream>
+#include <type_traits>
 
 template <typename Out, typename A1, typename A2>
 void f(Out& o, A1 const& a1, A2 const& a2)
