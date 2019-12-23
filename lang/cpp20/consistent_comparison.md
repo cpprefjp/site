@@ -292,7 +292,7 @@ bool eq2 = a == category::C;  //ok
 ここまでにも説明せずに登場していたが、あるクラス型に対する`<=>`および`==`演算子は`default`指定することができる。  
 そうした場合、コンパイラによってそのクラスの基底及び全メンバの宣言順の辞書式比較を行う実装が暗黙に定義される。
 
-あるクラス`C`に対する`<=> ==`の`default`指定できる宣言は、`C`の関数テンプレートでないメンバとして宣言されていて、かつ`const C&`型の1つの引数をもつ非静的constメンバ関数であるか、`const C&`型か`const C`型の2つの引数を持つ`C`の`friend`関数、である必要がある。  
+あるクラス`C`に対する`<=> ==`の`default`指定できる宣言は、`C`の関数テンプレートでないメンバとして宣言されていて、かつ`const C&`型の1つの引数をもつ非静的constメンバ関数であるか、`const C&`型か`C`型の2つの引数を持つ`C`の`friend`関数、である必要がある。  
 つまり以下の様な宣言が有効である。
 
 ```cpp
@@ -300,12 +300,12 @@ struct C {
   //有効な<=>のdefault宣言（3つのうちいずれか）
   auto operator<=>(const C&) const = default;
   friend auto operator<=>(const C&, const C&) = default;
-  friend auto operator<=>(const C, const C) = default;
+  friend auto operator<=>(C, C) = default;
 
   //有効な==のdefault宣言（3つのうちいずれか）
   bool operator==(const C&) const = default;
   friend bool operator==(const C&, const C&) = default;
-  friend bool operator==(const C, const C) = default;
+  friend bool operator==(C, C) = default;
 };
 ```
 
