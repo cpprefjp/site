@@ -21,7 +21,7 @@ auto f(auto a, auto b) { return a + b; }
 
 // 以下と同じ意味になる：
 // template <class T, class U>
-// auto f(T a, T b) { return a + b; }
+// auto f(T a, U b) { return a + b; }
 
 int main()
 {
