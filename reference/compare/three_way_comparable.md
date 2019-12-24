@@ -46,7 +46,7 @@ concept partially-ordered-with =
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * boolean[link /reference/concepts/boolean.md.nolink]
 
-- (1) : 次のように定義される。
+- (1) : 以下のように定義される。
 
 ```cpp
 template<class T, class Cat = partial_ordering>
@@ -62,7 +62,7 @@ concept three_way_comparable =
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * convertible_to[link /reference/concepts/convertible_to.md.nolink]
 
-- (2) : 次のように定義される。
+- (2) : 以下のように定義される。
 
 ```cpp
 template<class T, class U, class Cat = partial_ordering>
@@ -88,7 +88,7 @@ concept three_way_comparable_with =
 
 ## モデル
 
-- (1) : `const remove_reference_t<T>`の左辺値`a, b`について次の条件を満たす場合に限って、2つ組`T, Cat`は`three_way_comparable`のモデルである
+- (1) : `const remove_reference_t<T>`の左辺値`a, b`について次の条件を満たす場合に限って、型`T, Cat`は`three_way_comparable`のモデルである
     - `(a <=> b == 0) == bool(a == b)`が`true`であること
     - `(a <=> b != 0) == bool(a != b)`が`true`であること
     - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が等値
@@ -99,7 +99,7 @@ concept three_way_comparable_with =
     - `Cat`が`strong_ordering`に変換可能ならば
         - `T`は`totally_orderd`のモデルである
   
-- (2) : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`、`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、3つ組`T, U, Cat`は`three_way_comparable_with`のモデルである
+- (2) : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`、`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U, Cat`は`three_way_comparable_with`のモデルである
     - `t <=> u`と`u <=> t`が同じ定義域を持つ（それぞれの引数型がその順番によらず同一である）
     - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が等値
     - `(t <=> u == 0) == bool(t == u)`が`true`であること
@@ -112,13 +112,145 @@ concept three_way_comparable_with =
     - `Cat`が`strong_ordering`に変換可能ならば
         - `T, U`は`totally_orderd_with`のモデルである
 
-- `partially-ordered-with` : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`について次の条件を満たす場合に限って、3つ組`T, U, Cat`は`partially-ordered-with`のモデルである
+- `partially-ordered-with` : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`について次の条件を満たす場合に限って、型`T, U, Cat`は`partially-ordered-with`のモデルである
     - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ定義域を持つ
-    - `bool(t < u) == bool(u > t)`が`true`
-    - `bool(u < t) == bool(t > u)`が`true`
-    - `bool(t <= u) == bool(u >= t)`が`true`
-    - `bool(u <= t) == bool(t >= u)`が`true`
+    - `bool(t < u) == bool(u > t)`が`true`であること
+    - `bool(u < t) == bool(t > u)`が`true`であること
+    - `bool(t <= u) == bool(u >= t)`が`true`であること
+    - `bool(u <= t) == bool(t >= u)`が`true`であること
 
+
+## 例
+
+### three_way_comparable
+
+```cpp example
+#include <iostream>
+#include <compare>
+
+//<=>が使用可能ならそれを使用して比較結果を出力
+template<std::three_way_comparable T>
+void print_is_less(const T& t, const T& u) {
+  std::cout << "<=> : " << ((t <=> u) < 0) << std::endl;
+}
+
+//<=>が使用可能でないなら<演算子を使用
+template<typename T>
+void print_is_less(const T& t, const T& u) {
+  std::cout << "<   : " << (t < u) << std::endl;
+}
+
+
+//<演算子だけが使用可能
+struct L {
+  int n;
+  friend bool operator<(const L& a, const L& b) { return a.n < b.n;}
+};
+
+//<=>演算子含め、全ての比較演算が可能
+struct S {
+  int n;
+
+  friend auto operator<=>(const S& a, const S& b) = default;
+  //friend bool operator== (const S& a, const S& b) = default;
+};
+
+
+int main() {
+  std::cout << std::boolalpha;
+  L l1{1}, l2{2};
+  S s1{1}, s2{2};
+
+  print_is_less(1, 2);
+  print_is_less(-0.0, +0.0);
+  print_is_less(l1, l2);
+  print_is_less(s1, s2);
+}
+```
+* std::three_way_comparable[color ff0000]
+
+#### 出力
+```
+<=> : true
+<=> : false
+<   : true
+<=> : true
+```
+
+### three_way_comparable_with
+
+```cpp example
+#include <iostream>
+#include <compare>
+
+//<=>が使用可能ならそれを使用して比較結果を出力
+template<typename T, typename U>
+requires std::three_way_comparable_with<T, U>
+void print_is_less(const T& t, const U& u) {
+  std::cout << "<=> : " << ((t <=> u) < 0) << std::endl;
+}
+
+//<=>が使用可能でないなら<演算子を使用
+template<typename T, typename U>
+void print_is_less(const T& t, const U& u) {
+  std::cout << "<   : " << (t < u) << std::endl;
+}
+
+//共通の参照型を作るために必要
+struct B {
+  friend auto operator<=>(const B&, const B&) = default;
+  //friend bool operator== (const B&, const B&) = default;
+};
+
+struct S1 : B {
+  std::size_t s;
+
+  friend auto operator<=>(const S1&, const S1&) = default;
+  //friend bool operator== (const S1&, const S1&) = default;
+};
+
+struct S2 : B {
+  std::size_t s;
+
+  friend auto operator<=>(const S2&, const S2&) = default;
+  friend bool operator== (const S2&, const S2&) = default;  //この宣言は必要
+
+  friend bool operator== (const S1& a, const S2& b) { return a.s ==  b.s;}
+  friend auto operator<=>(const S1& a, const S2& b) { return a.s <=> b.s;}
+};
+
+//std::common_referenceおよびstd::common_reference_withにアダプトする
+namespace std {
+  template<template<class> class TQual, template<class> class UQual>
+  struct basic_common_reference<S1, S2, TQual, UQual> {
+    using type = const B&;  //const必須
+  };
+
+  //対称性のために引数順を逆にしたものも定義する
+  template<template<class> class TQual, template<class> class UQual>
+  struct basic_common_reference<S2, S1, TQual, UQual> {
+    using type = const B&;  //const必須
+  };
+}
+
+
+int main() {
+  std::cout << std::boolalpha;
+  S1 s1{{}, 0u};
+  S2 s2{{}, 2u};
+
+  print_is_less(s1, s2);
+  print_is_less(s2, s1);
+}
+```
+* std::three_way_comparable_with[color ff0000]
+* basic_common_reference[link /reference/type_traits/basic_common_reference.md.nolink]
+
+#### 出力
+```
+<=> : true
+<=> : false
+```
 
 ## バージョン
 ### 言語
