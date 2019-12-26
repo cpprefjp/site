@@ -39,8 +39,9 @@ namespace chrono {
 ### 分解能
 このクロックの分解能は未規定。実装では以下のようになっている：
 
-- GCC (libstdc++) : マイクロ秒
 - Clang (libc++) : ナノ秒
+- GCC (libstdc++) : マイクロ秒
+- Visual C++ : ナノ秒
 
 
 ## メンバ関数
