@@ -50,7 +50,9 @@ int main()
   // 地名内のスペースは、アンダースコアに変換されている
   std::cout << chrono::locate_zone("America/New_York")->name() << std::endl;
 
-  // 標準時のタイムゾーン
+  // 標準時のタイムゾーン。
+  // 正式なタイムゾーン名は "Etc/UTC" と "Etc/GMT" だが、
+  // より短い名前が (リンクとして) 定義されている
   std::cout << chrono::locate_zone("UTC")->name() << std::endl;
   std::cout << chrono::locate_zone("GMT")->name() << std::endl;
 
