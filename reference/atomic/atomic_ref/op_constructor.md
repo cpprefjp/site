@@ -6,15 +6,13 @@
 * cpp20[meta cpp]
 
 ```cpp
-atomic_ref() = delete;                        // (1) C++20
-explicit atomic_ref(T& obj);                  // (2) C++20
-atomic_ref(const atomic_ref& other) noexcept; // (3) C++20
+explicit atomic_ref(T& obj);                  // (1) C++20
+atomic_ref(const atomic_ref& other) noexcept; // (2) C++20
 ```
 
 ## 概要
-- (1) : デフォルト構築禁止
-- (2) : `obj`を参照して`*this`にポインタとして保持する
-- (3) : コピーコンストラクタ。`other`が参照するオブジェクトを`*this`もまた参照する
+- (1) : `obj`を参照して`*this`にポインタとして保持する
+- (2) : コピーコンストラクタ。`other`が参照するオブジェクトを`*this`もまた参照する
 
 
 ## 事前条件
@@ -23,6 +21,10 @@ atomic_ref(const atomic_ref& other) noexcept; // (3) C++20
 
 ## 例外
 投げない
+
+
+## 備考
+- デフォルトコンストラクタは定義されない
 
 
 ## 例
@@ -59,3 +61,6 @@ int main()
 - [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [LWG issue 3160. `atomic_ref() = delete;` should be deleted](https://wg21.cmeerw.net/lwg/issue3160)
