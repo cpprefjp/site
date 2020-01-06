@@ -42,9 +42,13 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  // 日本のタイムゾーン
+  // 日本のタイムゾーン (UTC + 9時間)
   const chrono::time_zone* tz = chrono::locate_zone("Asia/Tokyo");
   std::cout << tz->name() << std::endl;
+
+  // アメリカのタイムゾーン。
+  // 地名内のスペースは、アンダースコアに変換されている
+  std::cout << chrono::locate_zone("America/New_York")->name() << std::endl;
 
   // 標準時のタイムゾーン
   std::cout << chrono::locate_zone("Etc/UTC")->name() << std::endl;
@@ -65,6 +69,7 @@ int main()
 ### 出力
 ```
 Asia/Tokyo
+America/New_York
 Etc/UTC
 Etc/GMT
 Asia/Nicosia
