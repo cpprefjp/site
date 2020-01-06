@@ -62,7 +62,7 @@ int main()
   std::cout << linked_tz->name() << std::endl;
 }
 ```
-* chrono::locate_zone()[color ff0000]
+* chrono::locate_zone[color ff0000]
 * chrono::time_zone[link time_zone.md.nolink]
 * name()[link time_zone/name.md.nolink]
 
