@@ -51,8 +51,8 @@ int main()
   std::cout << chrono::locate_zone("America/New_York")->name() << std::endl;
 
   // 標準時のタイムゾーン
-  std::cout << chrono::locate_zone("Etc/UTC")->name() << std::endl;
-  std::cout << chrono::locate_zone("Etc/GMT")->name() << std::endl;
+  std::cout << chrono::locate_zone("UTC")->name() << std::endl;
+  std::cout << chrono::locate_zone("GMT")->name() << std::endl;
 
   // キプロス共和国の首都ニコシアはアジアに属するが、
   // 多くのユーザーはヨーロッパで見つかることを期待している。
