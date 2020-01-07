@@ -221,6 +221,50 @@ int main()
 2019-12-20
 ```
 
+### 生年月日から年齢を求める (C++20)
+```cpp example
+#include <iostream>
+#include <chrono>
+
+int calc_age(const std::chrono::year_month_day& date) {
+  if (!date.ok()) {
+    throw std::invalid_argument("invalid date");
+  }
+
+  namespace chrono = std::chrono;
+  chrono::year_month_day now {chrono::floor<chrono::days>(chrono::system_clock::now())};
+  int age = (now.year() - date.year()).count();
+  if (now.month() < date.month()) {
+    return age - 1;
+  }
+  else if (now.month() == date.month()) {
+    if (now.day() < date.day()) {
+      return age - 1;
+    }
+  }
+  return age;
+}
+
+int main()
+{
+  using namespace std::chrono_literals;
+
+  std::cout << calc_age(1985y/3/1) << std::endl;
+  std::cout << calc_age(1954y/10/30) << std::endl; // 1970年未満も扱える
+  std::cout << calc_age(2000y/2/29) << std::endl;  // うるう年
+}
+```
+
+#### 出力例
+```
+34
+65
+19
+```
+
+2020年1月7日に実行した。
+
+
 ## バージョン
 ### 言語
 - C++20
