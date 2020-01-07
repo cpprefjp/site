@@ -225,6 +225,7 @@ int main()
 ```cpp example
 #include <iostream>
 #include <chrono>
+#include <stdexcept>
 
 int calc_age(const std::chrono::year_month_day& date) {
   if (!date.ok()) {
@@ -245,15 +246,38 @@ int calc_age(const std::chrono::year_month_day& date) {
   return age;
 }
 
+int calc_age(int year, int month, int day) {
+  namespace chrono = std::chrono;
+  return calc_age(chrono::year_month_day{
+           chrono::year{year},
+           chrono::month{static_cast<unsigned int>(month)},
+           chrono::day{static_cast<unsigned int>(day)}});
+}
+
 int main()
 {
   using namespace std::chrono_literals;
 
   std::cout << calc_age(1985y/3/1) << std::endl;
   std::cout << calc_age(1954y/10/30) << std::endl; // 1970年未満も扱える
-  std::cout << calc_age(2000y/2/29) << std::endl;  // うるう年
+  std::cout << calc_age(2000, 2, 29) << std::endl; // うるう年
 }
 ```
+* 1985y[link year/op_y.md]
+* 1954y[link year/op_y.md]
+* 2000y[link year/op_y.md]
+* date.ok()[link year_month_day/ok.md]
+* year()[link year_month_day/year.md]
+* month()[link year_month_day/month.md]
+* day()[link year_month_day/day.md]
+* chrono::year[link year.md]
+* chrono::month[link month.md]
+* chrono::day[link day.md]
+* chrono::system_clock[link system_clock.md]
+* now()[link system_clock/now.md]
+* chrono::floor[link time_point/floor.md]
+* count()[link duration/count.md]
+* std::invalid_argument[link /reference/stdexcept.md]
 
 #### 出力例
 ```
