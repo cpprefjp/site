@@ -42,17 +42,17 @@ concept C2 = requires(const T a) {
 ```cpp
 // このCコンセプトは
 template<typename T>
-concept C = requires(const T a) {
-  a + a;
+concept C = requires(const T a, T b) {
+  a + b;
 };
 
-// 以下のようなバリエーションを暗黙的に含んでいる（実際にこのように検証されるかは未規定）
+// 以下のようなバリエーションが全て有効であることを暗黙的に要求している（実際にこのように検証されるかは未規定）
 template<typename T>
 concept C =
-  requires(const T a) { a + a } &&
-  requires(T a) { a + a; } &&
-  requires(T&& a) { a + a; } &&
-  requires(const T&& a) { a + a; };
+  requires(const T a, T b) { a + b } &&
+  requires(T a, T b) { a + b; } &&
+  requires(T&& a, T b) { std::move(a) + b; } &&
+  requires(const T&& a, T b) { std::move(a) + b; };
 ```
 
 ## 型の関係
