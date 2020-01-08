@@ -70,7 +70,7 @@ concept C =
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `same_as` | 2つの型が同じ | C++20 |
+| [`same_as`](concepts/same_as.md) | 2つの型が同じ | C++20 |
 | `derived_from` | 継承関係にある | C++20 |
 | `convertible_to` | 変換可能 | C++20 |
 | `common_reference_with` | 共通の参照型 | C++20 |
@@ -154,6 +154,12 @@ concept C =
 | [`CopyAssignable`](concepts/CopyAssignable.md.nolink)      | コピー代入可能 | C++20 |
 | [`MoveAssignable`](concepts/MoveAssignable.md.nolink)      | ムーブ代入可能 | C++20 |
 
+## 関連項目
+
+- [C++20 コンセプト](/lang/cpp20/concepts.md)
 
 ## 参照
+
 - [C++標準コンセプトの名前付けガイドライン - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190826/p1)
+- [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
+- [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
