@@ -521,7 +521,7 @@ int main() {
                                                // std::same_as<decltype(*x), typename T::inner>制約を意味する
     };
     ```
-    * std::same_as[link /reference/concepts/same_as.md.nolink]
+    * std::same_as[link /reference/concepts/same_as.md]
 
 - 式と`noexcept`を指定した場合、指定した式`g(x)`が例外送出の可能性がないことが検査される：
     ```cpp
