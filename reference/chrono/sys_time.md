@@ -83,6 +83,7 @@ namespace std::chrono {
 ## 備考
 - (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であり、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 - [`year`](year.md)クラスの制限により、年の値としては`[-32767, 32767]`の範囲までしか入出力できないことに注意 (その範囲外は未規定の値となる)
+- (4), (5) : 出力ストリームの演算子は、ローカルのタイムゾーンへの変換を行わない。そのため、システム時間をそのまま出力すると、デフォルトではUTCタイムゾーンの日時が出力される。日本のタイムゾーンで出力したい場合は、[`zoned_time`](zoned_time.md)クラスを介して出力するか、9時間を加算して出力すること
 
 
 ## 例
@@ -96,27 +97,37 @@ namespace chrono = std::chrono;
 int main()
 {
   // 未規定の時間間隔単位をもつ時間点
-  chrono::system_clock::time_point tp = chrono::system_clock::now();
+  chrono::system_clock::time_point now = chrono::system_clock::now();
 
-  // 秒単位の時間点 (日付と時間が出力される)
-  chrono::sys_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
-  std::cout << sec_p << std::endl;
+  // 秒単位の時間点 (UTCタイムゾーンで日付と時間が出力される)
+  chrono::sys_seconds sec_tp = chrono::floor<chrono::seconds>(now);
+  std::cout << sec_tp << std::endl;
 
-  // 日単位の時間点 (日付が出力される)
-  chrono::sys_days day_p = chrono::time_point_cast<chrono::days>(tp);
-  std::cout << day_p << std::endl;
+  // 日単位の時間点 (UTCタイムゾーンで日付が出力される)
+  chrono::sys_days day_tp = chrono::floor<chrono::days>(now);
+  std::cout << day_tp << std::endl;
+
+  // 以下は、日本のタイムゾーンで日時を出力する方法：
+  // 1. コンピュータに設定されたタイムゾーンで日時を出力
+  std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
+  // 2. 日本のタイムゾーン (UTC + 9時間) で日時を出力
+  std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;
 }
 ```
 * chrono::sys_seconds[color ff0000]
 * chrono::sys_days[color ff0000]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
-* chrono::time_point_cast[link time_point_cast.md]
+* chrono::floor[link time_point/floor.md]
+* chrono::zoned_time[link zoned_time.md]
+* chrono::current_zone()[link current_zone.md]
 
 #### 出力例
 ```
 2019-10-24 11:15:10
 2019-10-24
+2019-10-24 11:15:10.330140 JST
+2019-10-24 11:15:10.330140 JST
 ```
 
 ### 入力の例
