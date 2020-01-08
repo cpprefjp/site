@@ -35,6 +35,8 @@ namespace std::chrono {
 
 `local_t`は擬似的なクロックであるため、現在日時を取得する`now()`関数は持っていない。しかし、それによってパラメータ化された`local_time`は、まだタイムゾーンを指定されていないローカル時間を表す役割を持つ。
 
+ローカル時間とは、コンピュータに設定されたローカルのタイムゾーンを表す時間点ではないことに注意。システム時間のエポックからの経過時間からローカル時間に変換した場合、それはUTCタイムゾーンをもつことになる。
+
 - (1) : ローカル時間の擬似的なクロック
 - (2) : `local_t`の[`time_point`](time_point.md)に対する別名。時間間隔を表す型はパラメータ化されている
 - (3) : 秒単位でローカル時間の一点を指す[`time_point`](time_point.md)に対する別名
@@ -63,6 +65,7 @@ namespace std::chrono {
 ## 備考
 - (2) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`local_time`がもつ時間間隔の単位は未規定 (実装定義) であり、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 - [`year`](year.md)クラスの制限により、年の値としては`[-32767, 32767]`の範囲までしか入出力できないことに注意 (その範囲外は未規定の値となる)
+- (5) : 出力ストリームの演算子は、ローカルのタイムゾーンへの変換を行わない。そのため、システム時間から変換したローカル時間をそのまま出力すると、デフォルトではUTCタイムゾーンの日時が出力される。日本のタイムゾーンで出力したい場合は、[`zoned_time`](zoned_time.md)クラスを介して出力するか、9時間を加算して出力すること
 
 
 ## 例
@@ -76,15 +79,21 @@ namespace chrono = std::chrono;
 int main()
 {
   // local_timeは、システム時間のエポックからの経過時間によって構築できる
-  chrono::local_time<chrono::system_clock::duration> tp {chrono::system_clock::now().time_since_epoch()};
+  chrono::local_time<chrono::system_clock::duration> now {chrono::system_clock::now().time_since_epoch()};
 
   // 秒単位の時間点 (日付と時間が出力される)
-  chrono::local_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
-  std::cout << sec_p << std::endl;
+  chrono::local_seconds sec_tp = chrono::floor<chrono::seconds>(now);
+  std::cout << sec_tp << std::endl;
 
-  // 日単位の時間点 (日付と、値ゼロの時間が出力される)
-  chrono::local_days day_p = chrono::time_point_cast<chrono::days>(tp);
-  std::cout << day_p << std::endl;
+  // 日単位の時間点 (日付と、値ゼロの時間が出力される。sys_timeとは挙動が違うので注意)
+  chrono::local_days day_tp = chrono::floor<chrono::days>(now);
+  std::cout << day_tp << std::endl;
+
+  // 以下は、日本のタイムゾーンで日時を出力する方法：
+  // 1. コンピュータに設定されたタイムゾーンで日時を出力
+  std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
+  // 2. 日本のタイムゾーン (UTC + 9時間) で日時を出力
+  std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;
 }
 ```
 * chrono::local_time[color ff0000]
@@ -93,12 +102,17 @@ int main()
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * time_since_epoch()[link time_point/time_since_epoch.md]
-* chrono::time_point_cast[link time_point_cast.md]
+* chrono::floor[link time_point/floor.md]
+* sys_time[link sys_time.md]
+* chrono::zoned_time[link zoned_time.md]
+* chrono::current_zone()[link current_zone.md]
 
 #### 出力例
 ```
 2019-10-24 11:15:10
 2019-10-24 00:00:00
+2019-10-24 20:15:10.330140 JST
+2019-10-24 20:15:10.330140 JST
 ```
 
 ### 入力の例
@@ -133,7 +147,7 @@ int main()
 
 #### 出力例
 ```
-2019-10-24 11:15:10
+2019-10-24 20:15:10
 ```
 
 ## バージョン
