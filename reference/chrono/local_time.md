@@ -89,10 +89,11 @@ int main()
   chrono::local_days day_tp = chrono::floor<chrono::days>(now);
   std::cout << day_tp << std::endl;
 
-  // 以下は、日本のタイムゾーンで日時を出力する方法：
-  // 1. コンピュータに設定されたタイムゾーンで日時を出力
+  // 以下は、タイムゾーン情報を付加する例。
+  // sys_timeと違って、local_timeはタイムゾーンを付加しても時間は変わらない。
+  // 1. コンピュータに設定されたタイムゾーンとして日時を出力
   std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
-  // 2. 日本のタイムゾーン (UTC + 9時間) で日時を出力
+  // 2. 日本のタイムゾーンとして日時を出力
   std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;
 }
 ```
@@ -111,8 +112,8 @@ int main()
 ```
 2019-10-24 11:15:10
 2019-10-24 00:00:00
-2019-10-24 20:15:10.330140 JST
-2019-10-24 20:15:10.330140 JST
+2019-10-24 11:15:10.330140 JST
+2019-10-24 11:15:10.330140 JST
 ```
 
 ### 入力の例
