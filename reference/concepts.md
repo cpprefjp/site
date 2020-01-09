@@ -72,7 +72,7 @@ concept C =
 |------|------|----------------|
 | [`same_as`](concepts/same_as.md) | 2つの型が同じ | C++20 |
 | [`derived_from`](concepts/derived_from.md) | 継承関係にある | C++20 |
-| `convertible_to` | 変換可能 | C++20 |
+| [`convertible_to`](concepts/convertible_to.md) | 変換可能 | C++20 |
 | `common_reference_with` | 共通の参照型 | C++20 |
 | `common_with` | 共通の型 | C++20 |
 
