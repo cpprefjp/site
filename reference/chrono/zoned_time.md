@@ -21,14 +21,14 @@ namespace std::chrono {
 
 `zoned_time`は[`time_point`](time_point.md)と[`time_zone`](time_zone.md.nolink)の組である。有効なタイムゾーンを常にもち、あいまいなタイムゾーンを参照するようなことにはならないという不変条件をもつ。
 
-このクラスを介することで、日時を、タイムゾーンを考慮した日時に変換できる。具体的な変換方法は、以下のようになる：　
+このクラスを介することで、日時を、タイムゾーンを考慮した日時に変換できる。このクラスでは、タイムゾーンを考慮した日時への変換は、[`local_time`](local_time.md)への変換時に行われる。具体的には以下のような操作で、タイムゾーンを考慮した日時に変換もしくは出力できる：　
 
 - [`sys_time`](sys_time.md)もしくは[`local_time`](local_time.md)にタイムゾーンを付加し、本クラスの出力ストリームで出力すると、タイムゾーンを考慮した日時が出力される
 - [`sys_time`](sys_time.md)もしくは[`local_time`](local_time.md)にタイムゾーンを付加し、[`local_time`](local_time.md)に変換すると、タイムゾーンを考慮した日時が取得できる
 
 注意点として、以下のような方法をとった場合は、タイムゾーンを考慮した日時には変換されない：
 
-- [`sys_time`](sys_time.md)にタイムゾーンを付加して、[`sys_time`](sys_time.md)に変換
+- [`sys_time`](sys_time.md)もしくは[`local_time`](local_time.md)にタイムゾーンを付加して、[`sys_time`](sys_time.md)に変換
 
 
 ## 適格要件
