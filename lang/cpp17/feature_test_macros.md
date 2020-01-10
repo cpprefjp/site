@@ -86,7 +86,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_filesystem`                        | `201703` | ファイルシステムライブラリ | [`<filesystem>`](/reference/filesystem.md) |
 | `__cpp_lib_atomic_is_always_lock_free`        | `201603` | [`std::atomic`](/reference/atomic/atomic.md)クラスの静的メンバ定数`is_always_lock_free` | [`<atomic>`](/reference/atomic.md) |
 | `__cpp_lib_shared_mutex`                      | `201505` | [`std::shared_mutex`](/reference/shared_mutex/shared_mutex.md) | [`<shared_mutex>`](/reference/shared_mutex.md) |
-| `__cpp_lib_scoped_lock`                       | `201703` | 可変個のミューテックスのロック管理するで[`std::scoped_lock`](/reference/mutex/scoped_lock.md) | [`<mutex>`](/reference/mutex.md) |
+| `__cpp_lib_scoped_lock`                       | `201703` | 可変個のミューテックスのロックを管理する[`std::scoped_lock`](/reference/mutex/scoped_lock.md) | [`<mutex>`](/reference/mutex.md) |
 
 
 ## 参照
