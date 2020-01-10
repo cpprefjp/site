@@ -101,7 +101,7 @@ int main() {
 }
 ```
 * std::is_integral_v[link /reference/type_traits/is_integral.md]
-* std::convertible_to[link /reference/concepts/convertible_to.md.nolink]
+* std::convertible_to[link /reference/concepts/convertible_to.md]
 * std::common_with[link /reference/concepts/common_with.md.nolink]
 * std::size[link /reference/iterator/size.md]
 * std::declval[link /reference/utility/declval.md]
@@ -413,7 +413,7 @@ int main() {
                                                             // その式の戻り値型としてconst typename T::type&に変換可能な型が返ること
     };
     ```
-    * std::convertible_to[link /reference/concepts/convertible_to.md.nolink]
+    * std::convertible_to[link /reference/concepts/convertible_to.md]
 
     - ここでは、関数形式でローカルパラメータをひとつ (`T i`) とるrequires式によってコンセプト`R`を定義している
     - ローカルパラメータである`T i`の変数定義では、`T`型に対して「コピー構築可能であること」といった要求は行わず、そのような評価はコンパイル時にも行われない。これは[`std::declval()`](/reference/utility/declval.md)関数と同様に、「`T`型のなんらかの値」であることのみを表し、特定の値は持たず、構築もされない
