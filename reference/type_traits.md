@@ -201,6 +201,8 @@
 | [`common_type`](type_traits/common_type.md) | 変換可能な共通の型を取得する (class template) | C++11 |
 | [`underlying_type`](type_traits/underlying_type.md) | 列挙型の基底型を取得する (class template) | C++11 |
 | [`void_t`](type_traits/void_t.md) | 任意の型をvoidへ変換する (type-alias) | C++17 |
+| [`common_reference`](type_traits/common_reference.md) | 共通の参照型を取得する (class template) | C++20 |
+| [`basic_common_reference`](type_traits/basic_common_reference.md) | `common_reference`へアダプトする (class template) | C++20 |
 
 
 ## コンパイル時評価
@@ -211,7 +213,7 @@
 
 
 ## 備考
-- このヘッダで定義されるテンプレートは、[`std::common_type`](type_traits/common_type.md)を除いて、ユーザーが特殊化を追加することを禁止している
+- このヘッダで定義されるテンプレートは、[`std::common_type`](type_traits/common_type.md)、[`std::basic_common_reference`](type_traits/basic_common_reference.md)を除いて、ユーザーが特殊化を追加することを禁止している
 
 
 ## バージョン

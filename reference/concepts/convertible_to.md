@@ -95,7 +95,7 @@ int main()
   std::cout << std::convertible_to<vague_convert, double> << std::endl;
 }
 ```
-* std::same_as[color ff0000]
+* std::convertible_to[color ff0000]
 
 ### 出力
 ```
