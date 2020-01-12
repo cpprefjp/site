@@ -7,31 +7,61 @@
 namespace std {
   // 文字の書式化出力
   template<class CharT, class Traits>
-  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, CharT c);              // (1)
+  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, CharT c);                    // (1)
   template<class CharT, class Traits>
-  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, char c);               // (2)
+  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, char c);                     // (2)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, char c);                 // (3)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, char c);                       // (3)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, unsigned char c);        // (4)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, unsigned char c);              // (4)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, signed char c);          // (5)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, signed char c);                // (5)
+  // The following deleted overloads prevent formatting character values as numeric values.
+  template<class traits>
+  basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, wchar_t) = delete;                // (6) C++20から
+  template<class traits>
+  basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, char8_t) = delete;                // (7) C++20から
+  template<class traits>
+  basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, char16_t) = delete;               // (8) C++20から
+  template<class traits>
+  basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, char32_t) = delete;               // (9) C++20から
+  template<class traits>
+  basic_ostream<wchar_t, traits>& operator<<(basic_ostream<wchar_t, traits>&, char8_t) = delete;          // (10) C++20から
+  template<class traits>
+  basic_ostream<wchar_t, traits>& operator<<(basic_ostream<wchar_t, traits>&, char16_t) = delete;         // (11) C++20から
+  template<class traits>
+  basic_ostream<wchar_t, traits>& operator<<(basic_ostream<wchar_t, traits>&, char32_t) = delete;         // (12) C++20から
 
   // 文字列の書式化出力
   template<class CharT, class Traits>
-  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, const CharT* s);       // (6)
+  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, const CharT* s);             // (13)
   template<class CharT, class Traits>
-  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, const char* s);        // (7)
+  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, const char* s);              // (14)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const char* s);          // (8)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const char* s);                // (15)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const unsigned char* s); // (9)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const unsigned char* s);       // (16)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const signed char* s);   // (10)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const signed char* s);         // (17)
+  // The following deleted overloads prevent formatting strings as pointer values.
+  template<class traits>
+    basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, const wchar_t*) = delete;       // (18) C++20から
+  template<class traits>
+    basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, const char8_t*) = delete;       // (19) C++20から
+  template<class traits>
+    basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, const char16_t*) = delete;      // (20) C++20から
+  template<class traits>
+    basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, const char32_t*) = delete;      // (21) C++20から
+  template<class traits>
+    basic_ostream<wchar_t, traits>& operator<<(basic_ostream<wchar_t, traits>&, const char8_t*) = delete; // (22) C++20から
+  template<class traits>
+    basic_ostream<wchar_t, traits>& operator<<(basic_ostream<wchar_t, traits>&, const char16_t*) = delete;// (23) C++20から
+  template<class traits>
+    basic_ostream<wchar_t, traits>& operator<<(basic_ostream<wchar_t, traits>&, const char32_t*) = delete;// (24) C++20から
 
   // 右辺値参照ストリームへの出力 (C++11)
   template<class CharT, class Traits, class T>
-  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>&& os, const T& x);          // (11) C++11 から
+  basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>&& os, const T& x);                // (25) C++11 から
 }
 ```
 
@@ -50,39 +80,46 @@ namespace std {
 なお、(2) の形式（`os` の文字型（`char_type`）が `char` 以外で `c` が `char` ）の時は、`c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
-### (6)～(10) 文字列の書式化出力
+### (6)～(12) 文字の書式化出力 (C++20)
+
+これらの関数は削除されている
+
+### (13)～(17) 文字列の書式化出力
 
 ヌル終端文字列 `s` を出力ストリーム `os` に出力する。この際、`os` に設定されている幅、埋め文字、および、整列方向に従う。  
 出力する文字列の長さは以下で求める。
 
-- (6) と (8) の形式：`Traits::length(s)`
-- (7) の形式：`std::`[`char_traits`](../../string/char_traits.md)`<char>::`[`length`](../../string/char_traits/length.md)`(s)`
-- (9) と (10) の形式：`Traits::length(reinterpret_cast<const char*>(s))`
+- (13) と (15) の形式：`Traits::length(s)`
+- (14) の形式：`std::`[`char_traits`](../../string/char_traits.md)`<char>::`[`length`](../../string/char_traits/length.md)`(s)`
+- (16) と (17) の形式：`Traits::length(reinterpret_cast<const char*>(s))`
 
-なお、(7) の形式（`os` の文字型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文字 `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
+なお、(14) の形式（`os` の文字型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文字 `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
-### (11) 右辺値参照ストリームへの出力 (C++11)
+### (18)～(24) 文字列の書式化出力
+
+これらの関数は削除されている
+
+### (25) 右辺値参照ストリームへの出力 (C++11)
 
 `os << x`を実行する。  
 このオーバーロードは、一時オブジェクトなどに対して`<<`演算子を利用可能にするためのものである。
-
 
 ## 戻り値
 
 `os`
 
-
 ## 備考
-- (11) の形式は C++11 から追加されたが、より使いやすくするための変更が提案されている。  
-	[LWG1203. More useful rvalue stream insertion](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#1203)
-- (3)、および、(8) の形式は、オーバーロード解決時の曖昧さ解消のために存在する。  
-	（これらが存在しないと、`CharT` が `char` 型の場合に、(1) と (2)、あるいは (6) と (7) が同じ優先順位となりオーバーロード解決に失敗してしまう）
+
+- (25) の形式は C++11 から追加されたが、より使いやすくするための変更が提案されている。  
+	[LWG1203. More useful rvalue stream insertion](https://wg21.cmeerw.net/lwg/issue1203)
+- (3)、および、(15) の形式は、オーバーロード解決時の曖昧さ解消のために存在する。  
+	（これらが存在しないと、`CharT` が `char` 型の場合に、(1) と (2)、あるいは (13) と (14) が同じ優先順位となりオーバーロード解決に失敗してしまう）
 
 
 ## 例
 
-### (1)、(2)、(6)、(7) の例
+### (1)、(2)、(13)、(14) の例
 ```cpp example
 #include <iostream>
 #include <iomanip>
@@ -111,7 +148,7 @@ cpprefjp++
 cpprefjp++
 ```
 
-### (3)～(5)、(8)～(10) の例
+### (3)～(5)、(15)～(17) の例
 ```cpp example
 #include <iostream>
 #include <iomanip>
@@ -143,7 +180,7 @@ cpprefjp++
 cpprefjp++
 ```
 
-### (11) の例
+### (25) の例
 ```cpp example
 #include <fstream>
 #include <string>
@@ -179,6 +216,7 @@ TBD
 ### 言語
 - C++98
 - C++11: ストリームへの右辺値参照を実引数として受け取るものが追加された
+- C++20: `char8_t`等への対応の一環として`delete`指定されたoverloadが追加された
 
 
 ## 関連項目
