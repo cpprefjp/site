@@ -111,6 +111,8 @@ C++11以降対応については対応バージョンを明記します。バー
 | rvalue reference                   | 右辺値参照                   |
 | sequence container(s)              | シーケンスコンテナ           |
 | signed                             | 符号付き                     |
+| stop request                       | 停止要求                     |
+| stop state                         | 停止状態                     |
 | Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |
 | strict weak ordering               | 狭義の弱順序                 |
 | strong ordering                    | 全順序                       |
