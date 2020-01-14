@@ -18,9 +18,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|--------------------------------------------------------------------|-------|
-| [`(constructor)`](stop_callback/op_constructor.md)| コンストラクタ | C++20 |
-| [`(destructor)`](stop_callback/op_destructor.md)  | デストラクタ | C++20 |
-| [`operator=`](stop_callback/op_assign.md)         | 代入演算子 | C++20 |
+| [`(constructor)`](stop_callback/op_constructor.md.nolink)| コンストラクタ | C++20 |
+| [`(destructor)`](stop_callback/op_destructor.md.nolink)  | デストラクタ | C++20 |
+| [`operator=`](stop_callback/op_assign.md.nolink)         | 代入演算子 | C++20 |
 
 ## メンバ型
 
@@ -32,7 +32,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
-| [`(deduction_guide)`](stop_callback/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
+| [`(deduction_guide)`](stop_callback/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20 |
 
 ## 適格条件
 テンプレート引数の`Callback`は`invocable`と`destructible`制約を満たさなければならい。
@@ -72,8 +72,8 @@ int main()
 * stop_token[link stop_token.md]
 * stop_source[link stop_source.md]
 * stop_callback[link stop_callback.md]
-* request_stop()[link stop_source/request_stop.md]
-* get_token()[link stop_source/get_token.md]
+* request_stop()[link stop_source/request_stop.md.nolink]
+* get_token()[link stop_source/get_token.md.nolink]
 
 ### 出力
 ```

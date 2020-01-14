@@ -18,19 +18,19 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|--------------------------------------------------------------------|-------|
-| [`(constructor)`](stop_token/op_constructor.md) | コンストラクタ | C++20 |
-| [`(destructor)`](stop_token/op_destructor.md)   | デストラクタ | C++20 |
-| [`operator=`](stop_token/op_assign.md)          | 代入演算子 | C++20 |
-| [`swap`](stop_token/swap.md)                    | 別の`stop_token`と交換する | C++20 |
-| [`stop_requested`](stop_token/stop_requested.md)| 停止要求が作成されたかどうかを取得する | C++20 |
-| [`stop_possible`](stop_token/stop_possible.md)  | 停止要求が作成されうるかどうかを取得する | C++20 |
+| [`(constructor)`](stop_token/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(destructor)`](stop_token/op_destructor.md.nolink)   | デストラクタ | C++20 |
+| [`operator=`](stop_token/op_assign.md.nolink)          | 代入演算子 | C++20 |
+| [`swap`](stop_token/swap.md.nolink)                    | 別の`stop_token`と交換する | C++20 |
+| [`stop_requested`](stop_token/stop_requested.md.nolink)| 停止要求が作成されたかどうかを取得する | C++20 |
+| [`stop_possible`](stop_token/stop_possible.md.nolink)  | 停止要求が作成されうるかどうかを取得する | C++20 |
 
 ## 非メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|---------------------------------------|-------|
-| [`operator==`](stop_token/op_equal.md)         | 等値演算子 | C++20 |
-| [`operator!=`](stop_token/op_not_equal.md)     | 非等値演算子 | C++20 |
-| [`swap`](stop_token/swap_free.md)              | 2つの`stop_token`オブジェクトを入れ替える | C++20 |
+| [`operator==`](stop_token/op_equal.md.nolink)         | 等値演算子 | C++20 |
+| [`operator!=`](stop_token/op_not_equal.md.nolink)     | 非等値演算子 | C++20 |
+| [`swap`](stop_token/swap_free.md.nolink)              | 2つの`stop_token`オブジェクトを入れ替える | C++20 |
 
 
 ## 例
@@ -56,9 +56,9 @@ int main()
 ```
 * stop_token[link stop_token.md]
 * stop_source[link stop_source.md]
-* stop_requested()[link stop_token/stop_requested.md]
-* request_stop()[link stop_source/request_stop.md]
-* get_token()[link stop_source/get_token.md]
+* stop_requested()[link stop_token/stop_requested.md.nolink]
+* request_stop()[link stop_source/request_stop.md.nolink]
+* get_token()[link stop_source/get_token.md.nolink]
 
 ### 出力
 ```
