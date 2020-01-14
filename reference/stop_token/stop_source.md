@@ -1,5 +1,5 @@
 # stop_source
-* stop_source[meta header]
+* stop_token[meta header]
 * std[meta namespace]
 * class[meta id-type]
 * cpp20[meta cpp]
