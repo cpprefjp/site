@@ -84,7 +84,7 @@ concept three_way_comparable_with =
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * convertible_to[link /reference/concepts/convertible_to.md.nolink]
 * common_reference_with[link /reference/concepts/common_reference_with.md.nolink]
-* common_reference_t[link /reference/type_traits/common_reference.md.nolink]
+* common_reference_t[link /reference/type_traits/common_reference.md]
 
 ## モデル
 
@@ -244,7 +244,7 @@ int main() {
 }
 ```
 * std::three_way_comparable_with[color ff0000]
-* basic_common_reference[link /reference/type_traits/basic_common_reference.md.nolink]
+* basic_common_reference[link /reference/type_traits/basic_common_reference.md]
 
 #### 出力
 ```

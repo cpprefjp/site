@@ -38,7 +38,7 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose);   // (15) 
 ```
 * sys_time[link /reference/chrono/sys_time.md]
 * local_time[link /reference/chrono/local_time.md]
-* string_view[link /reference/string_view/string_view.md]
+* string_view[link /reference/string_view/basic_string_view.md]
 * choose[link /reference/chrono/choose.md.nolink]
 
 ## 概要
