@@ -61,7 +61,24 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose);   // (16) 
 - (16) : (15)と等価。丸めオプションは使われない
 
 
+## テンプレートパラメータ制約
+- (1), (3) :
+    - 式`traits::default_zone()`が妥当であること
+- (5) :
+    - 式`traits::locate_zone(`[`string_view`](/reference/string_view/basic_string_view.md)`{})`が有効であること
+    - その戻り値を引数にして`zoned_time`オブジェクトが構築可能であること
+
+
+## 事前条件
+- `z`が有効なタイムゾーンを参照していること
+
+
 ## 効果
+- (1) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md.nolink)によって得られたタイムゾーンオブジェクトへのポインタと、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
+- (3) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md.nolink)によって得られた[`time_zone`](/reference/chrono/time_zone.md.nolink)オブジェクトへのポインタと`st`を、メンバ変数として保持する
+- (4) : [`std::move`](/reference/utility/move.md)`(z)`をタイムゾーンオブジェクトへのポインタとして、メンバ変数に保持する
+- (5) : [`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md.nolink)`(name)`と、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
+
 
 (執筆中)
 
