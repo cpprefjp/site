@@ -91,7 +91,7 @@ int main()
 ## 関連項目
 
 - [`common_reference`](common_reference.md)
-- [`common_reference_with`](/reference/concepts/common_reference_with.md.nolink)
+- [`common_reference_with`](/reference/concepts/common_reference_with.md)
 
 ## 参照
 

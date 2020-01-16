@@ -113,7 +113,7 @@ int main()
 ## 関連項目
 
 - [`basic_common_reference`](basic_common_reference.md)
-- [`common_reference_with`](/reference/concepts/common_reference_with.md.nolink)
+- [`common_reference_with`](/reference/concepts/common_reference_with.md)
 
 ## 参照
 

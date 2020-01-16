@@ -60,7 +60,7 @@ concept three_way_comparable =
 * partial_ordering[link /reference/compare/partial_ordering.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* convertible_to[link /reference/concepts/convertible_to.md.nolink]
+* convertible_to[link /reference/concepts/convertible_to.md]
 
 - (2) : 以下のように定義される。
 
@@ -82,8 +82,8 @@ concept three_way_comparable_with =
 * partial_ordering[link /reference/compare/partial_ordering.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* convertible_to[link /reference/concepts/convertible_to.md.nolink]
-* common_reference_with[link /reference/concepts/common_reference_with.md.nolink]
+* convertible_to[link /reference/concepts/convertible_to.md]
+* common_reference_with[link /reference/concepts/common_reference_with.md]
 * common_reference_t[link /reference/type_traits/common_reference.md]
 
 ## モデル
