@@ -75,7 +75,7 @@ namespace std {
 
 このような関係性を持つ型があるとジェネリックなアルゴリズムをより簡易に書くことができるようになるなどメリットがあるため、そのような型を求めるために`common_reference`が導入された。
 
-他にも、2つの型の間で定義されるコンセプトにおいて、その2つの型の間で上記のような関係性が自然に要求される場合に、[`common_reference_with`](/reference/concepts/common_reference_with.md.nolink)コンセプトを通じて利用される。
+他にも、2つの型の間で定義されるコンセプトにおいて、その2つの型の間で上記のような関係性が自然に要求される場合に、[`common_reference_with`](/reference/concepts/common_reference_with.md)コンセプトを通じて利用される。
 
 ## 例
 

@@ -102,7 +102,7 @@ int main() {
 ```
 * std::is_integral_v[link /reference/type_traits/is_integral.md]
 * std::convertible_to[link /reference/concepts/convertible_to.md]
-* std::common_with[link /reference/concepts/common_with.md.nolink]
+* std::common_with[link /reference/concepts/common_with.md]
 * std::size[link /reference/iterator/size.md]
 * std::declval[link /reference/utility/declval.md]
 
