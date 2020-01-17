@@ -34,6 +34,7 @@ namespace std {
 ```cpp example
 #include <valarray>
 #include <iostream>
+#include <numeric>
 
 auto main()
   -> int
