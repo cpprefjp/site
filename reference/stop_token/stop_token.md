@@ -11,8 +11,17 @@ namespace std {
 ```
 
 ## 概要
-クラス`stop_token`は、停止要求が作成されたかどうか、あるいは停止要求が作成されうるかどうかなど、停止状態を問い合わせるためのインターフェースを提供する。  
-またこのクラスは、停止要求に応じて呼び出されるコールバックを登録する`stop_callback`クラスのコンストラクタへ渡される。
+`stop_token`クラスは、停止要求が作成されたかどうか、あるいは停止要求が作成されうるかどうかなど、停止状態を問い合わせるためのインターフェースを提供する。
+
+[`stop_source`](stop_source.md)クラスの[`get_token()`](./stop_source/get_token.md.nolink)メンバ関数を呼び出すと、その`stop_source`クラスのオブジェクトと停止状態を共有する`stop_token`クラスのオブジェクトを構築できる。これによって、`stop_source`側から停止要求を作成したときに、この`stop_token`を通じて停止状態を問い合わせられるようになる。
+
+また、`stop_token`クラスは以下のクラスでも利用される：
+
+- [`stop_callback`](stop_callback.md)
+    - 停止要求に応じて呼び出されるコールバックを登録する際に、コンストラクタで`stop_token`を受け取る。
+- [`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)
+    - 割り込み可能な待機処理を行う際に、[`wait()`](/reference/condition_variable/condition_variable_any/wait.md)メンバ関数で`stop_token`を受け取る。
+
 
 ## メンバ関数
 
