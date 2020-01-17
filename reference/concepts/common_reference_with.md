@@ -44,6 +44,8 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <concepts>
+#include <vector>
+#include <string>
 
 template<typename T, typename U>
 requires std::common_reference_with<T, U>

@@ -74,7 +74,7 @@ concept C =
 | [`derived_from`](concepts/derived_from.md) | 継承関係にある | C++20 |
 | [`convertible_to`](concepts/convertible_to.md) | 変換可能 | C++20 |
 | [`common_reference_with`](concepts/common_reference_with.md) | 共通の参照型 | C++20 |
-| `common_with` | 共通の型 | C++20 |
+| [`common_with`](concepts/common_with.md) | 共通の型 | C++20 |
 
 
 ## 型の種類
