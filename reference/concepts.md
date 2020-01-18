@@ -81,10 +81,10 @@ concept C =
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `integral` | 整数型 | C++20 |
-| `signed_integral` | 符号付き整数型 | C++20 |
-| `unsigned_integral` | 符号なし整数型 | C++20 |
-| `boolean` | 真理値型 | C++20 |
+| [`integral`](concepts/integral.md) | 整数型 | C++20 |
+| [`signed_integral`](concepts/signed_integral.md) | 符号付き整数型 | C++20 |
+| [`unsigned_integral`](concepts/unsigned_integral.md) | 符号なし整数型 | C++20 |
+| [`boolean`](concepts/boolean.md) | 真理値型 | C++20 |
 | [`floating_point`](concepts/floating_point.md) | 浮動小数点数型 | C++20 |
 
 
