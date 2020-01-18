@@ -154,7 +154,7 @@ int main() {
   std::cout << pi<int> << std::endl;    // 3
 }
 ```
-* std::integral[link /reference/concepts/integral.md.nolink]
+* std::integral[link /reference/concepts/integral.md]
 * std::floating_point[link /reference/concepts/floating_point.md]
 * std::abs[link /reference/cmath/abs.md]
 * std::numeric_limits[link /reference/limits/numeric_limits.md]
@@ -170,7 +170,7 @@ void f(T x) {
   static_assert(std::integral<T>);
 }
 ```
-* std::integral[link /reference/concepts/integral.md.nolink]
+* std::integral[link /reference/concepts/integral.md]
 
 
 ### テンプレートパラメータを制約する複数の方法
@@ -363,7 +363,7 @@ int main() {
   assert(equal(0.1 + 0.2, 0.3));
 }
 ```
-* std::integral[link /reference/concepts/integral.md.nolink]
+* std::integral[link /reference/concepts/integral.md]
 * std::floating_point[link /reference/concepts/floating_point.md]
 * std::common_type_t[link /reference/type_traits/common_type.md]
 * std::abs[link /reference/cmath/abs.md]

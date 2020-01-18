@@ -44,7 +44,7 @@ concept partially-ordered-with =
 ```
 * common_comparison_category_t[link /reference/compare/common_comparison_category.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* boolean[link /reference/concepts/boolean.md.nolink]
+* boolean[link /reference/concepts/boolean.md]
 
 - (1) : 以下のように定義される。
 

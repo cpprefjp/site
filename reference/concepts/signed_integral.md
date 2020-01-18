@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * integral[link /reference/concepts/integral.md]
-* is_signed_v[link /reference/concepts/is_signed.md]
+* is_signed_v[link /reference/type_traits/is_signed.md]
 
 ## 概要
 `signed_integral`は、任意の型`T`が符号付き整数型であることを表すコンセプトである。
