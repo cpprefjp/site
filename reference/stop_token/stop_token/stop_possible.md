@@ -84,9 +84,3 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-
-## 参照
-
-
-
-
