@@ -11,26 +11,35 @@ namespace std {
 ```
 
 ## 概要
-クラス`stop_token`は、停止要求が作成されたかどうか、あるいは停止要求が作成されうるかどうかなど、停止状態を問い合わせるためのインターフェースを提供する。  
-またこのクラスは、停止要求に応じて呼び出されるコールバックを登録する`stop_callback`クラスのコンストラクタへ渡される。
+`stop_token`クラスは、停止要求が作成されたかどうか、あるいは停止要求が作成されうるかどうかなど、停止状態を問い合わせるためのインターフェースを提供する。
+
+[`stop_source`](stop_source.md)クラスの[`get_token()`](./stop_source/get_token.md.nolink)メンバ関数を呼び出すと、その`stop_source`クラスのオブジェクトと停止状態を共有する`stop_token`クラスのオブジェクトを構築できる。これによって、`stop_source`側から停止要求を作成したときに、この`stop_token`を通じて停止状態を問い合わせられるようになる。
+
+また、`stop_token`クラスは以下のクラスでも利用される：
+
+- [`stop_callback`](stop_callback.md)
+    - 停止要求に応じて呼び出されるコールバックを登録する際に、コンストラクタで`stop_token`を受け取る。
+- [`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)
+    - 割り込み可能な待機処理を行う際に、[`wait()`](/reference/condition_variable/condition_variable_any/wait.md)メンバ関数で`stop_token`を受け取る。
+
 
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|--------------------------------------------------------------------|-------|
-| [`(constructor)`](stop_token/op_constructor.md.nolink) | コンストラクタ | C++20 |
-| [`(destructor)`](stop_token/op_destructor.md.nolink)   | デストラクタ | C++20 |
-| [`operator=`](stop_token/op_assign.md.nolink)          | 代入演算子 | C++20 |
-| [`swap`](stop_token/swap.md.nolink)                    | 別の`stop_token`と交換する | C++20 |
-| [`stop_requested`](stop_token/stop_requested.md.nolink)| 停止要求が作成されたかどうかを取得する | C++20 |
-| [`stop_possible`](stop_token/stop_possible.md.nolink)  | 停止要求が作成されうるかどうかを取得する | C++20 |
+| [`(constructor)`](stop_token/op_constructor.md) | コンストラクタ | C++20 |
+| [`(destructor)`](stop_token/op_destructor.md)   | デストラクタ | C++20 |
+| [`operator=`](stop_token/op_assign.md)          | 代入演算子 | C++20 |
+| [`swap`](stop_token/swap.md)                    | 別の`stop_token`と交換する | C++20 |
+| [`stop_requested`](stop_token/stop_requested.md)| 停止要求が作成されたかどうかを取得する | C++20 |
+| [`stop_possible`](stop_token/stop_possible.md)  | 停止要求が作成されうるかどうかを取得する | C++20 |
 
 ## 非メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|---------------------------------------|-------|
-| [`operator==`](stop_token/op_equal.md.nolink)         | 等値演算子 | C++20 |
-| [`operator!=`](stop_token/op_not_equal.md.nolink)     | 非等値演算子 | C++20 |
-| [`swap`](stop_token/swap_free.md.nolink)              | 2つの`stop_token`オブジェクトを入れ替える | C++20 |
+| [`operator==`](stop_token/op_equal.md)         | 等値演算子 | C++20 |
+| [`operator!=`](stop_token/op_not_equal.md)     | 非等値演算子 | C++20 |
+| [`swap`](stop_token/swap_free.md)              | 2つの`stop_token`オブジェクトを入れ替える | C++20 |
 
 
 ## 例
@@ -41,22 +50,17 @@ namespace std {
 int main()
 {
   std::stop_source ss;
-
-  assert(ss.stop_possible() == true);
-  assert(ss.stop_requested() == false);
-
   std::stop_token st = ss.get_token();
   assert(st.stop_requested() == false);
 
   ss.request_stop();
 
-  assert(ss.stop_requested() == true);
   assert(st.stop_requested() == true);
 }
 ```
 * stop_token[link stop_token.md]
 * stop_source[link stop_source.md]
-* stop_requested()[link stop_token/stop_requested.md.nolink]
+* stop_requested()[link stop_token/stop_requested.md]
 * request_stop()[link stop_source/request_stop.md.nolink]
 * get_token()[link stop_source/get_token.md.nolink]
 
