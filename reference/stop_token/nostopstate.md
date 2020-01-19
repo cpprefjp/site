@@ -42,7 +42,7 @@ int main()
 * std::stop_token[link stop_token.md]
 * std::stop_source[link stop_source.md]
 * std::nostopstate[link nostopstate.md]
-* stop_possible()[link stop_token/stop_possible.md.nolink]
+* stop_possible()[link stop_token/stop_possible.md]
 * get_token()[link stop_source/get_token.md.nolink]
 
 ### 出力
