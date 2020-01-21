@@ -70,16 +70,16 @@ int main()
 
 ### 出力例
 ```
-isless(1, 2) = true
-isless(2, 1) = false
-isless(2, 2) = false
-isless(-0, 0) = false
-isless(1, inf) = true
-isless(inf, 1) = false
-isless(inf, inf) = false
-isless(1, nan) = false
-isless(nan, 1) = false
-isless(nan, nan) = false
+islessgreater(1, 2) = true
+islessgreater(2, 1) = true
+islessgreater(2, 2) = false
+islessgreater(-0, 0) = false
+islessgreater(1, inf) = true
+islessgreater(inf, 1) = true
+islessgreater(inf, inf) = false
+islessgreater(1, nan) = false
+islessgreater(nan, 1) = false
+islessgreater(nan, nan) = false
 ```
 
 ## バージョン
