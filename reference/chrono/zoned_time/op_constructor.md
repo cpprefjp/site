@@ -32,10 +32,10 @@ zoned_time(TimeZonePtr z,
 template <class Duration2, class TimeZonePtr2>
 zoned_time(TimeZonePtr z,
            const zoned_time<Duration2, TimeZonePtr2>& zt,
-           choose);                                                     // (14) C++20
+           choose c);                                                   // (14) C++20
 
 zoned_time(string_view name, const zoned_time<Duration>& zt);           // (15) C++20
-zoned_time(string_view name, const zoned_time<Duration>& zt, choose);   // (16) C++20
+zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) C++20
 ```
 * sys_time[link /reference/chrono/sys_time.md]
 * local_time[link /reference/chrono/local_time.md]
@@ -67,10 +67,24 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose);   // (16) 
 - (5) :
     - 式`traits::locate_zone(`[`string_view`](/reference/string_view/basic_string_view.md)`{})`が有効であること
     - その戻り値を引数にして`zoned_time`オブジェクトが構築可能であること
+- (6), (13), (14) :
+    - [`sys_time`](/reference/chrono/sys_time.md)`<Duration2>`が[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`に暗黙変換可能であること
+- (8), (10) :
+    - `traits::locate_zone(name)`と`tp`を引数にして`zoned_time`オブジェクトが構築可能であること
+- (9) :
+    - 型`decltype(declval<TimeZonePtr&>()->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(`[`local_time`](/reference/chrono/local_time.md)`<Duration>{}))`が[`sys_time`](/reference/chrono/sys_time.md)`<duration>`に変換可能であること
+- (11) :
+    - 型`decltype(declval<TimeZonePtr&>()->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(`[`local_time`](/reference/chrono/local_time.md)`<Duration>{},` [`choose::earliest`](/reference/chrono/choose.md.nolink)`))`が[`sys_time`](/reference/chrono/sys_time.md)`<duration>`に変換可能であること
+- (12) :
+    - `traits::locate_zone(name)`、`tp`、`c`を引数にして`zoned_time`オブジェクトが構築可能であること
+- (15) :
+    - `traits::locate_zone(name)`と`zt`を引数にして`zoned_time`オブジェクトが構築可能であること
+- (16) :
+    - `traits::locate_zone(name)`、`zt`、`c`を引数にして`zoned_time`オブジェクトが構築可能であること
 
 
 ## 事前条件
-- `z`が有効なタイムゾーンを参照していること
+- (4), (7), (9), (11), (13), (14) : `z`が有効なタイムゾーンを参照していること
 
 
 ## 効果
@@ -78,14 +92,21 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose);   // (16) 
 - (3) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md.nolink)によって得られた[`time_zone`](/reference/chrono/time_zone.md.nolink)オブジェクトへのポインタと`st`を、メンバ変数として保持する
 - (4) : [`std::move`](/reference/utility/move.md)`(z)`をタイムゾーンオブジェクトへのポインタとして、メンバ変数に保持する
 - (5) : [`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md.nolink)`(name)`と、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
-
-
-(執筆中)
-
-## 例外
+- (6) : `zt`がもつタイムゾーンオブジェクトへのポインタと時間点をメンバ変数として保持する
+- (7) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`st`をメンバ変数に保持する
+- (8) : タイムゾーンオブジェクトへのポインタ[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md.nolink)`(name)`、および時間点`st`をメンバ変数として保持する
+- (9) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp)`をメンバ変数に保持する
+- (10) : 式`{traits::locate_zone(name), tp}`で(9)を呼び出すことと等価
+- (11) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp, c)`をメンバ変数に保持する
+- (12) : 式`{traits::locate_zone(name), tp, c}`で(11)を呼び出すことと等価
+- (13) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および`zt`がもつ時間点をメンバ変数に保持する
+- (14) : 式`{z, zt}`で(13)を呼び出すことと等価。`c`は使われない
+- (15) : 式`{traits::locate_zone(name), zt}`で(13)を呼び出すことと等価
+- (16) : 式`{traits::locate_zone(name), zt, c}`で(14)を呼び出すことと等価
 
 
 ## 備考
+- [`local_time`](/reference/chrono/local_time.md)型のローカル時間を受け取るコンストラクタでは、[`sys_time`](/reference/chrono/sys_time.md)型のシステム時間への変換が行われ、システム時間としてメンバ変数に保持される
 
 
 
