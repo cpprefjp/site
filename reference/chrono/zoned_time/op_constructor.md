@@ -183,7 +183,7 @@ int main()
 * get_local_time()[link get_local_time.md.nolink]
 * chrono::locate_zone[link /reference/chrono/locate_zone.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
-* time_since_epoch()[link /reference/time_point/time_since_epoch.md]
+* time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 
