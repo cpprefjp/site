@@ -119,12 +119,82 @@ namespace chrono = std::chrono;
 
 int main()
 {
+  auto now = chrono::system_clock::now();
+  auto now_sec = chrono::floor<chrono::seconds>(now);
+  chrono::local_time local_now{now.time_since_epoch()};
+  chrono::local_time local_jst_now = now - chrono::hours{9};
+
+  // デフォルト構築
+  chrono::zoned_time<chrono::seconds> zt1{};
+  assert(zt.get_time_zone() == chrono::locate_zone("UTC"));
+
+  // コピー構築
+  chrono::zoned_time zt2 = zt1;
+  assert(zt1.get_time_zone() == zt2.get_time_zone());
+  assert(zt1.get_sys_time() == zt2.get_sys_time());
+
+  // デフォルトのタイムゾーン (UTC) とシステム時間から構築
+  chrono::zoned_time zt3{now};
+  assert(zt3.get_time_zone() == chrono::locate_zone("UTC"));
+  assert(zt3.get_sys_time() == now);
+  assert(zt3.get_local_time() == local_now);
+  std::cout << "(3) : " << zt3 << std::endl;
+
+  // タイムゾーンのみ指定して構築。時間はあとで代入できる
+  chrono::zoned_time<chrono::seconds> zt4{chrono::locate_zone("Asia/Tokyo")};
+  chrono::zoned_time<chrono::seconds> zt5{"Asia/Tokyo"};
+  assert(zt4.get_time_zone() == zt5.get_time_zone());
+  zt4 = now_sec;
+  assert(zt4.get_sys_time() == now_sec);
+
+  // 時間間隔の単位を変換 (精度を損なわない変換のみ)
+  chrono::zoned_time<chrono::seconds> zt6_sec{"Asia/Tokyo", now_sec};
+  chrono::zoned_time<chrono::milliseconds> zt6_ms = zt6_sec;
+  assert(zt6_ms.get_time_zone() == zt6_sec.get_time_zone());
+  assert(chrono::floor<chrono::seconds>(zt6_ms.get_sys_time()) == zt6_sec.get_sys_time());
+
+  // タイムゾーンとシステム時間を指定して構築
+  chrono::zoned_time zt7{chrono::locate_zone("Asia/Tokyo"), now};
+  chrono::zoned_time zt8{"Asia/Tokyo", now};
+  assert(zt7.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
+  assert(zt8.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
+  assert(zt7.get_sys_time() == now);
+  assert(zt8.get_sys_time() == now);
+  assert(zt7.get_local_time() == local_jst_now);
+  assert(zt8.get_local_time() == local_jst_now);
+  std::cout << "(7) : " << zt7 << std::endl;
+  std::cout << "(8) : " << zt8 << std::endl;
+
+  // タイムゾーンとローカル時間を指定して構築
+  chrono::zoned_time zt9{chrono::locate_zone("Asia/Tokyo"), local_now};
+  chrono::zoned_time zt10{"Asia/Tokyo", local_now};
+  assert(zt9.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
+  assert(zt10.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
+  assert(zt9.get_sys_time() == now);
+  assert(zt10.get_sys_time() == now);
+  assert(zt9.get_local_time() == local_jst_now);
+  assert(zt10.get_local_time() == local_jst_now);
+  std::cout << "(9) : " << zt9 << std::endl;
+  std::cout << "(10) : " << zt10 << std::endl;
 }
 ```
+* get_time_zone()[link get_time_zone.md.nolink]
+* get_sys_time()[link get_sys_time.md.nolink]
+* get_local_time()[link get_local_time.md.nolink]
+* chrono::locate_zone[link /reference/chrono/locate_zone.md]
+* chrono::floor[link /reference/chrono/time_point/floor.md]
+* time_since_epoch()[link /reference/time_point/time_since_epoch.md]
+* chrono::system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
 
 
 ### 出力例
 ```
+(3) : 2020-01-21 05:10:15.330140 UTC
+(7) : 2020-01-21 14:10:15.330140 JST
+(8) : 2020-01-21 14:10:15.330140 JST
+(9) : 2020-01-21 14:10:15.330140 JST
+(10) : 2020-01-21 14:10:15.330140 JST
 ```
 
 ## バージョン
