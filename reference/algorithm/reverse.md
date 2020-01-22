@@ -10,7 +10,7 @@ namespace std {
                BidirectionalIterator last); // (1) C++03
 
   template <class BidirectionalIterator>
-  void reverse(BidirectionalIterator first,
+  constexpr void reverse(BidirectionalIterator first,
                BidirectionalIterator last); // (1) C++20
 
   template <class ExecutionPolicy, class BidirectionalIterator>
