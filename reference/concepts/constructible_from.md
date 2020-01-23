@@ -20,7 +20,6 @@ namespace std {
 ## 例
 
 ```cpp example
-
 #include <iostream>
 #include <concepts>
 #include <vector>
@@ -44,7 +43,7 @@ int main() {
   f<std::vector<int>, std::initializer_list<int>>("std::vector<int>", "std::initializer_list<int>");
   f<std::optional<std::vector<int>>, std::in_place_t, std::initializer_list<int>, std::allocator<int>>("std::optional<std::vector<int>>", "std::in_place_t, std::initializer_list<int>, std::allocator<int>");
   f<std::unique_ptr<const int>, std::unique_ptr<int>>("std::unique_ptr<const int>", "std::unique_ptr<int>");
-  f<std::span<const int, 4>, std::array<int, 4>>("std::span<const int, 4>", "std::array<int, 4>");
+  f<std::span<int, 4>, std::array<int, 4>&>("std::span<int, 4>", "std::array<int, 4>&");
 
   std::cout << "\n";
 
@@ -62,7 +61,7 @@ int main() {
 std::vector<int> is constructible from std::initializer_list<int>
 std::optional<std::vector<int>> is constructible from std::in_place_t, std::initializer_list<int>, std::allocator<int>
 std::unique_ptr<const int> is constructible from std::unique_ptr<int>
-std::span<const int, 4> is constructible from std::array<int, 4>
+std::span<int, 4> is constructible from std::array<int, 4>&
 
 std::vector<int> is not constructible from std::vector<double>
 std::optional<std::vector<int>> is not constructible from std::optional<std::vector<double>>
