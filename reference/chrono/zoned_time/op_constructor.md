@@ -186,6 +186,7 @@ int main()
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
+* chrono::local_time[link /reference/chrono/local_time.md]
 
 
 ### 出力例

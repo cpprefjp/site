@@ -43,6 +43,7 @@ int main()
 }
 ```
 * get_sys_time()[color ff0000]
+* chrono::local_time[link /reference/chrono/local_time.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
