@@ -188,7 +188,7 @@ void f(T x) {
 
 もう少し詳細な仕様を紹介すると、この構文の場合、コンセプトの第1テンプレート引数がテンプレートパラメータで置き換えられる。`template <std::integral T>`の場合、`std::integral<T>`のようにテンプレートパラメータ`T`を`std::integral`コンセプトに自動的に指定される。
 
-この方法では、複数のテンプレートパラメータをとるコンセプトを使用する場合に注意する必要がある。たとえば任意の引数型から型`T`を構築できることを要求する[`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)コンセプトの場合、`template <std::constructible_from<int> T>`のように指定すると、`std::constructible_from<T, int>`を意味し、「型`T`が`int`から構築できること」を要求する制約となる。
+この方法では、複数のテンプレートパラメータをとるコンセプトを使用する場合に注意する必要がある。たとえば任意の引数型から型`T`を構築できることを要求する[`std::constructible_from`](/reference/concepts/constructible_from.md)コンセプトの場合、`template <std::constructible_from<int> T>`のように指定すると、`std::constructible_from<T, int>`を意味し、「型`T`が`int`から構築できること」を要求する制約となる。
 
 ```cpp example
 #include <concepts>
@@ -208,7 +208,7 @@ int main() {
   assert(b.size() == 3);
 }
 ```
-* std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
+* std::constructible_from[link /reference/concepts/constructible_from.md]
 * b.size()[link /reference/vector/vector/size.md]
 
 
@@ -239,7 +239,7 @@ int main() {
   assert(b.size() == 3);
 }
 ```
-* std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
+* std::constructible_from[link /reference/concepts/constructible_from.md]
 * std::move_constructible[link /reference/concepts/move_constructible.md]
 * b.size()[link /reference/vector/vector/size.md]
 
@@ -946,7 +946,7 @@ int main() {
     void g(std::constructible_from<int> auto x);
     ```
     * std::copy_constructible[link /reference/concepts/copy_constructible.md]
-    * std::constructible_from[link /reference/concepts/constructible_from.md.nolink]
+    * std::constructible_from[link /reference/concepts/constructible_from.md]
 
 ## 備考
 - GCC 9.1では、コンセプトが正式サポートされていないため、コンパイルオプションとして`-fconcepts`を付ける必要がある
