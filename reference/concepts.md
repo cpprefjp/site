@@ -92,7 +92,7 @@ concept C =
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `constructible_from` | 構築可能 | C++20 |
+| [`constructible_from`](concepts/constructible_from.md) | 構築可能 | C++20 |
 | [`default_constructible`](concepts/default_constructible.md) | デフォルト構築可能 | C++20 |
 | [`copy_constructible`](concepts/copy_constructible.md)       | コピー構築可能 | C++20 |
 | [`move_constructible`](concepts/move_constructible.md)       | ムーブ構築可能 | C++20 |
