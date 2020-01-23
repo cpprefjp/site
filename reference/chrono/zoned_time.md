@@ -58,7 +58,7 @@ namespace std::chrono {
 |------|------|----------------|
 | [`get_time_zone`](zoned_time/get_time_zone.md.nolink)   | タイムゾーンを取得する | C++20 |
 | [`get_local_time`](zoned_time/get_local_time.md.nolink) | ローカル時間を取得する | C++20 |
-| [`get_sys_time`](zoned_time/get_sys_time.md.nolink)     | システム時間を取得する | C++20 |
+| [`get_sys_time`](zoned_time/get_sys_time.md)     | システム時間を取得する | C++20 |
 | [`get_info`](zoned_time/get_info.md.nolink)             | 設定されたタイムゾーンの情報を取得する | C++20 |
 
 
