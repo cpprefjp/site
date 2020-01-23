@@ -49,7 +49,7 @@ int main() {
   f<double&>("double&");
 }
 ```
-* std::integral[color ff0000]
+* std::floating_point[color ff0000]
 
 ### 出力
 ```
@@ -73,7 +73,7 @@ double& is not floating point
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5
 
 ## 関連項目
 
