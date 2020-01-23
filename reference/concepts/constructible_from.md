@@ -47,14 +47,15 @@ int main() {
   f<std::span<const int, 4>, std::array<int, 4>>("std::span<const int, 4>", "std::array<int, 4>");
 
   std::cout << "\n";
-  
+
   f<std::vector<int>, std::vector<double>>("std::vector<int>", "std::vector<double>");
   f<std::optional<std::vector<int>>, std::optional<std::vector<double>>>("std::optional<std::vector<int>>", "std::optional<std::vector<double>>");
   f<std::unique_ptr<int>, std::unique_ptr<const int>>("std::unique_ptr<int>", "std::unique_ptr<const int>");
   f<std::span<int, 4>, std::array<int, 4>>("std::span<int, 4>", "std::array<int, 4>");
 }
 ```
-* std::integral[color ff0000]
+* std::constructible_from[color ff0000]
+* std::span[link /reference/span/span.md]
 
 ### 出力
 ```
