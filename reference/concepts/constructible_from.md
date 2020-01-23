@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * is_constructible_v[link /reference/type_traits/is_constructible.md]
-* same_as[link /reference/concepts/destructible.md]
+* destructible[link /reference/concepts/destructible.md]
 
 ## 概要
 
