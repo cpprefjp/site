@@ -40,7 +40,7 @@ int main()
   std::cout << info.abbrev << std::endl; // タイムゾーンの略称
 }
 ```
-* get_sys_info()[color ff0000]
+* get_info()[color ff0000]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 * count()[link /reference/chrono/duration/count.md]
