@@ -178,7 +178,7 @@ int main()
   std::cout << "(10) : " << zt10 << std::endl;
 }
 ```
-* get_time_zone()[link get_time_zone.md.nolink]
+* get_time_zone()[link get_time_zone.md]
 * get_sys_time()[link get_sys_time.md]
 * get_local_time()[link get_local_time.md.nolink]
 * chrono::locate_zone[link /reference/chrono/locate_zone.md]
