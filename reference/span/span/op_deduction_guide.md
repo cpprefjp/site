@@ -34,13 +34,13 @@ namespace std {
 - (2) : 組み込み配列への参照から、要素型と静的な要素数を推論する
 - (3) : `std::array`型オブジェクトから、要素型と静的な要素数を推論する
 - (4) : `const`の`std::array`型オブジェクトから、要素型と静的な要素数を推論する
-- (5) : メモリ連続性をもつ型のオブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
+- (5) : メモリ連続性をもつイテレータを持つ型のオブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
 
 なお、ポインタと要素数の組、およびポインタ範囲を指定するコンストラクタからは推論できない。
 
 ## テンプレートパラメーター制約
-- (1) : 型`It`はコンセプト`std::contiguous_­iterator`を満たすこと
-- (5) : 型`R`はコンセプト`std::ranges​::​contiguous_­range`を満たすこと
+- (1) : 型`It`はコンセプト`std::contiguous_iterator`を満たすこと
+- (5) : 型`R`はコンセプト`std::ranges::contiguous_range`を満たすこと
 
 ## 例
 ```cpp example
