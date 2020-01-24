@@ -48,8 +48,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator sys_time`](zoned_time/op_sys_time.md.nolink)     | [`sys_time`](sys_time.md)型への変換演算子 | C++20 |
-| [`operator local_time`](zoned_time/op_local_time.md.nolink) | [`local_time`](local_time.md)型への変換演算子 | C++20 |
+| [`operator sys_time`](zoned_time/op_sys_time.md)     | [`sys_time`](sys_time.md)型への変換演算子 | C++20 |
+| [`operator local_time`](zoned_time/op_local_time.md) | [`local_time`](local_time.md)型への変換演算子 | C++20 |
 
 
 ### 観測
