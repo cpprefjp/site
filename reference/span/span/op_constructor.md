@@ -43,7 +43,7 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9)
 - (4) : 指定された組み込み配列の全体を参照する`span`オブジェクトを構築する
 - (5) : 指定された非`const`左辺値参照の[`std::array`](/reference/array/array.md)の全体を参照する`span`オブジェクトを構築する
 - (6) : 指定された`const`左辺値参照の[`std::array`](/reference/array/array.md)の全体を参照する`span`オブジェクトを構築する
-- (7) : 指定された、メモリ連続性をもつ型の全体を参照する`span`オブジェクトを構築する
+- (7) : 指定された、メモリ連続性をもつイテレータを持つオブジェクトの要素全体を参照する`span`オブジェクトを構築する
 - (8) : コピーコンストラクタ。`other`と同じ範囲を参照する`span`オブジェクトを構築する
 - (9) : テンプレートパラメータの異なる`span`オブジェクトを変換する。以下のような変換ができる：
     - 静的な要素数をもつ`span`から動的な要素数をもつ`span`への変換。
@@ -57,27 +57,27 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9)
     - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == 0`が`true`であること
         - 値`-1`はオーバーフローによって正の最大値になるので`false`
 - (2) :
-    - 型 `U` を `std::remove_­reference_­t<std::iter_­reference_­t<It>>`とするとき
+    - 型 `U` を `std::remove_reference_t<std::iter_reference_t<It>>`とするとき
         - 型 `It` はコンセプト `std::contiguous_iterator` を満たしていること
-        - `std::is_­convertible_­v<U(*)[], element_­type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_­type` への `qualification conversions`のみを許可することである。)
+        - `std::is_convertible_v<U(*)[], element_type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_type` への `qualification conversions`のみを許可することである。)
 - (3) :
-    - 型 `U` を `std::remove_­reference_­t<std::iter_­reference_­t<It>>`とするとき
+    - 型 `U` を `std::remove_reference_t<std::iter_reference_t<It>>`とするとき
         - 型 `It` はコンセプト `std::contiguous_iterator` を満たしていること
-        - `std::is_­convertible_­v<U(*)[], element_­type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_­type` への `qualification conversions`のみを許可することである。)
-        - 型 `End` はコンセプト `std::sized_­sentinel_­for<It>` を満たしていること
-        - `std::is_­convertible_­v<End, size_­t>` が `false`であること
+        - `std::is_convertible_v<U(*)[], element_type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_type` への `qualification conversions`のみを許可することである。)
+        - 型 `End` はコンセプト `std::sized_sentinel_for<It>` を満たしていること
+        - `std::is_convertible_v<End, size_t>` が `false`であること
 - (4), (5), (6) :
     - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| N == extent`が`true`であること
     - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>(*)[]`型が`ElementType(*)[]`型に変換可能であること
 - (7) :
-    - 型 `U` を `std::remove_­reference_­t<std::iter_­reference_­t<R>>`とするとき
+    - 型 `U` を `std::remove_reference_t<std::iter_reference_t<R>>`とするとき
         - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)が`true`であること
-        - 型 `R` はコンセプト `std::ranges​::​contiguous_­range` 及び `std::ranges​::​sized_­range` を満たしていること
-        - 型 `R` がコンセプト `std::ranges::safe_­range` を満たすか、`std::is_­const_­v<element_­type>` が`true`であること
-        - `std::remove_­cvref_­t<R>`が`std::span`の特殊化ではないこと
-        - `std::remove_­cvref_­t<R>`が`std::array`の特殊化ではないこと
-        - `std::is_­array_­v<std::remove_­cvref_­t<R>>` が `false` であること
-        - `std::is_­convertible_­v<U(*)[], element_­type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_­type` への `qualification conversions`のみを許可することである。)
+        - 型 `R` はコンセプト `std::ranges::contiguous_range` 及び `std::ranges::sized_range` を満たしていること
+        - 型 `R` がコンセプト `std::ranges::safe_range` を満たすか、`std::is_const_v<element_type>` が`true`であること
+        - `std::remove_cvref_t<R>`が`std::span`の特殊化ではないこと
+        - `std::remove_cvref_t<R>`が`std::array`の特殊化ではないこと
+        - `std::is_array_v<std::remove_cvref_t<R>>` が `false` であること
+        - `std::is_convertible_v<U(*)[], element_type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_type` への `qualification conversions`のみを許可することである。)
 - (9) :
     - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == OtherExtent`が`true`であること (受け取り側が[`dynamic_extent`](/reference/span/dynamic_extent.md)を持っていれば任意の`Extent`から変換できる)
     - `OtherElementType(*)[]`型が`ElementType(*)[]`型に変換可能であること
@@ -92,10 +92,10 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9)
     - `[first, last)`が妥当な範囲であること
     - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`last - first`と`extent`が等値であること
     - 型 `It` はコンセプト `std::contiguous_iterator` のモデルであること
-    - 型 `End` はコンセプト `std::sized_­sentinel_­for<It>` のモデルであること
+    - 型 `End` はコンセプト `std::sized_sentinel_for<It>` のモデルであること
 - (7) :
-    - 型 `R` はコンセプト `std::ranges​::​contiguous_­range` 及び `std::ranges​::​sized_­range` のモデルであること
-    - `std::is_­const_­v<element_­type>` が `false`であるとき、型 `R` は `std::ranges​::​safe_­range` のモデルであること
+    - 型 `R` はコンセプト `std::ranges::contiguous_range` 及び `std::ranges::sized_range` のモデルであること
+    - `std::is_const_v<element_type>` が `false`であるとき、型 `R` は `std::ranges::safe_range` のモデルであること
 
 
 ## 効果
@@ -194,7 +194,7 @@ int main()
     assert(s.data() == car.data());
   }
 
-  // (7) メモリの連続性をもつ型を参照させる
+  // (7) メモリの連続性をもつイテレータをもつオブジェクトの要素全体を参照させる
   {
     std::span<int> s1{v};
     assert(s1.size() == v.size());
