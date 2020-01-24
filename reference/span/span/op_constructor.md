@@ -7,8 +7,12 @@
 
 ```cpp
 constexpr span() noexcept;                                             // (1)
-constexpr span(pointer ptr, size_type count);                          // (2)
-constexpr span(pointer first, pointer last);                           // (3)
+
+template<class It>
+constexpr span(It first, size_type count);                             // (2)
+
+template<class It, class End>
+constexpr span(It first, End last);                                    // (3)
 
 template <size_t N>
 constexpr span(element_type (&arr)[N]) noexcept;                       // (4)
@@ -19,17 +23,13 @@ constexpr span(array<value_type, N>& arr) noexcept;                    // (5)
 template <size_t N>
 constexpr span(const array<value_type, N>& arr) noexcept;              // (6)
 
-template <class Container>
-constexpr span(Container& cont);                                       // (7)
+template<class R>
+constexpr span(R&& r);                                                 // (7)
 
-template <class Container>
-constexpr span(const Container& cont);                                 // (8)
-
-constexpr span(const span& other) noexcept = default;                  // (9)
-constexpr span(const span&& other) noexcept = default;                 // (10)
+constexpr span(const span& other) noexcept = default;                  // (8)
 
 template <class OtherElementType, size_t OtherExtent>
-constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
+constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9)
 ```
 * size_t[link /reference/cstddef/size_t.md]
 * array[link /reference/array/array.md]
@@ -38,16 +38,14 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
 `span`オブジェクトを構築する。
 
 - (1) : デフォルトコンストラクタ。空の`span`オブジェクトを構築する
-- (2) : 参照範囲として先頭要素を指すポインタと、そこからの要素数を指定して、それらの要素を参照する`span`オブジェクトを構築する
-- (3) : 参照範囲として先頭要素を指すポインタと、末尾要素の次を指すポインタを指定して、それらの要素を参照する`span`オブジェクトを構築する
+- (2) : 参照範囲として先頭要素を指すイテレータと、そこからの要素数を指定して、それらの要素を参照する`span`オブジェクトを構築する
+- (3) : 参照範囲として先頭要素を指すイテレータと、末尾要素の次を指すイテレータを指定して、それらの要素を参照する`span`オブジェクトを構築する
 - (4) : 指定された組み込み配列の全体を参照する`span`オブジェクトを構築する
 - (5) : 指定された非`const`左辺値参照の[`std::array`](/reference/array/array.md)の全体を参照する`span`オブジェクトを構築する
 - (6) : 指定された`const`左辺値参照の[`std::array`](/reference/array/array.md)の全体を参照する`span`オブジェクトを構築する
-- (7) : 指定された、非`const`左辺値参照のメモリ連続性をもつコンテナの全体を参照する`span`オブジェクトを構築する
-- (8) : 指定された、`const`左辺値参照のメモリ連続性をもつコンテナの全体を参照する`span`オブジェクトを構築する
-- (9) : コピーコンストラクタ。`other`と同じ範囲を参照する`span`オブジェクトを構築する
-- (10) : ムーブコンストラクタ。`other`と同じ範囲を参照する`span`オブジェクトを構築する。コピーコンストラクタと同じ
-- (11) : テンプレートパラメータの異なる`span`オブジェクトを変換する。以下のような変換ができる：
+- (7) : 指定された、メモリ連続性をもつ型の全体を参照する`span`オブジェクトを構築する
+- (8) : コピーコンストラクタ。`other`と同じ範囲を参照する`span`オブジェクトを構築する
+- (9) : テンプレートパラメータの異なる`span`オブジェクトを変換する。以下のような変換ができる：
     - 静的な要素数をもつ`span`から動的な要素数をもつ`span`への変換。
     - 動的な要素数をもつ`span`同士の変換
     - `span<T>`から`span<const T>`への変換
@@ -58,71 +56,70 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (11)
 - (1) :
     - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == 0`が`true`であること
         - 値`-1`はオーバーフローによって正の最大値になるので`false`
+- (2) :
+    - 型 `U` を `std::remove_­reference_­t<std::iter_­reference_­t<It>>`とするとき
+        - 型 `It` はコンセプト `std::contiguous_iterator` を満たしていること
+        - `std::is_­convertible_­v<U(*)[], element_­type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_­type` への `qualification conversions`のみを許可することである。)
+- (3) :
+    - 型 `U` を `std::remove_­reference_­t<std::iter_­reference_­t<It>>`とするとき
+        - 型 `It` はコンセプト `std::contiguous_iterator` を満たしていること
+        - `std::is_­convertible_­v<U(*)[], element_­type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_­type` への `qualification conversions`のみを許可することである。)
+        - 型 `End` はコンセプト `std::sized_­sentinel_­for<It>` を満たしていること
+        - `std::is_­convertible_­v<End, size_­t>` が `false`であること
 - (4), (5), (6) :
     - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| N == extent`が`true`であること
     - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>(*)[]`型が`ElementType(*)[]`型に変換可能であること
-- (7), (8) :
-    - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)が`true`であること
-    - `Container`が`span`型ではないこと
-    - `Container`が[`array`](/reference/array/array.md)型ではないこと
-    - [`is_array_v`](/reference/type_traits/is_array.md)`<Container>`が`false`であること (`Container`が組み込み配列型ではないこと)
-    - 式[`data`](/reference/iterator/data.md)`(cont)`と式[`size`](/reference/iterator/size.md)`(size)`が妥当であること (メモリの連続性をもつコンテナであること)
-    - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>(*)[]`型が`ElementType(*)[]`型に変換可能であること
-- (11) :
+- (7) :
+    - 型 `U` を `std::remove_­reference_­t<std::iter_­reference_­t<R>>`とするとき
+        - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)が`true`であること
+        - 型 `R` はコンセプト `std::ranges​::​contiguous_­range` 及び `std::ranges​::​sized_­range` を満たしていること
+        - 型 `R` がコンセプト `std::ranges::safe_­range` を満たすか、`std::is_­const_­v<element_­type>` が`true`であること
+        - `std::remove_­cvref_­t<R>`が`std::span`の特殊化ではないこと
+        - `std::remove_­cvref_­t<R>`が`std::array`の特殊化ではないこと
+        - `std::is_­array_­v<std::remove_­cvref_­t<R>>` が `false` であること
+        - `std::is_­convertible_­v<U(*)[], element_­type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_­type` への `qualification conversions`のみを許可することである。)
+- (9) :
     - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == OtherExtent`が`true`であること (受け取り側が[`dynamic_extent`](/reference/span/dynamic_extent.md)を持っていれば任意の`Extent`から変換できる)
     - `OtherElementType(*)[]`型が`ElementType(*)[]`型に変換可能であること
 
 
 ## 事前条件
 - (2) :
-    - `[ptr, ptr + count)`が妥当な範囲であること
+    - `[first, first + count)`が妥当な範囲であること
+    - 型 `It` はコンセプト `std::contiguous_iterator` のモデルであること
     - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`count`と`extent`が等値であること
 - (3) :
     - `[first, last)`が妥当な範囲であること
     - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`last - first`と`extent`が等値であること
-- (7), (8) :
-    - `[`[`data`](/reference/iterator/data.md)`(cont),` [`data`](/reference/iterator/data.md)`(cont) +` [`size`](/reference/iterator/size.md)`(cont))`が妥当な範囲であること
+    - 型 `It` はコンセプト `std::contiguous_iterator` のモデルであること
+    - 型 `End` はコンセプト `std::sized_­sentinel_­for<It>` のモデルであること
+- (7) :
+    - 型 `R` はコンセプト `std::ranges​::​contiguous_­range` 及び `std::ranges​::​sized_­range` のモデルであること
+    - `std::is_­const_­v<element_­type>` が `false`であるとき、型 `R` は `std::ranges​::​safe_­range` のモデルであること
 
 
 ## 効果
-- (2) : 範囲`[ptr, ptr + count)`を参照する`span`オブジェクトを構築する
+- (2) : 範囲`[first, first + count)`を参照する`span`オブジェクトを構築する
 - (3) : 範囲`[first, last)`を参照する`span`オブジェクトを構築する
 - (4), (5), (6) : 範囲`[`[`data`](/reference/iterator/data.md)`(arr),` [`data`](/reference/iterator/data.md)`(arr) + N)`を参照する`span`オブジェクトを構築する
-- (7), (8) : 範囲`[`[`data`](/reference/iterator/data.md)`(cont),` [`data`](/reference/iterator/data.md)`(cont) +` [`size`](/reference/iterator/size.md)`(cont))`を参照する`span`オブジェクトを構築する
-- (11) : 範囲`[s.`[`data()`](data.md)`, s.`[`data()`](data.md) `+ s.`[`size()`](size.md)`)`を参照する`span`オブジェクトを構築する
+- (7) : 範囲`[std::ranges::data(r), std::ranges::data(r) + std::ranges::size(r))`を参照する`span`オブジェクトを構築する
+- (9) : 範囲`[s.`[`data()`](data.md)`, s.`[`data()`](data.md) `+ s.`[`size()`](size.md)`)`を参照する`span`オブジェクトを構築する
 
 
 ## 事後条件
 - (1) : [`size()`](size.md) `== 0 &&` [`data()`](data.md) `== nullptr`
-- (2) : [`size()`](size.md) `== count &&` [`data()`](data.md) `== ptr`
-- (3) : [`size()`](size.md) `== (last - first) &&` [`data()`](data.md) `== first`
 - (4), (5), (6) : [`size()`](size.md) `== N &&` [`data()`](data.md) `==` [`data`](/reference/iterator/data.md)`(arr)`
-- (7), (8) : [`size()`](size.md) `==` [`size`](/reference/iterator/size.md)`(cont) &&` [`data()`](data.md) `==` [`data`](/reference/iterator/data.md)`(cont)`
-- (11) : [`size()`](size.md) `== s.`[`size()`](size.md) `&&` [`data()`](data.md) `== s.`[`data()`](data.md)
+- (8) : [`size()`](size.md) `==` [`size`](/reference/iterator/size.md)`(cont) &&` [`data()`](data.md) `==` [`data`](/reference/iterator/data.md)`(cont)`
+- (9) : [`size()`](size.md) `== s.`[`size()`](size.md) `&&` [`data()`](data.md) `== s.`[`data()`](data.md)
 
 
 ## 例外
 - (1), (2), (3), (4), (5), (6) : 投げない
-- (7), (8) : コンテナ型によっては、[`data`](/reference/iterator/data.md)`(cont)`と[`size`](/reference/iterator/size.md)`(cont)`の呼び出しがなんらかの例外を送出する可能性がある
+- (7) : コンテナ型によっては、`std::ranges::data(r)`と`std::ranges::size(r)`の呼び出しがなんらかの例外を送出する可能性がある
 
 
 ## 計算量
-- (1)-(11) : 定数時間
-
-
-## 備考
-- (2) : イテレータと要素数の組ではなく、ポインタと要素数の組であることに注意
-    - 例として、[`std::vector`](/reference/vector/vector.md)や[`std::array`](/reference/array/array.md)のイテレータが環境・状況によってはポインタとして定義されるかもしれないため、イテレータを指定しても動作する可能性はある。しかし、それでは他の環境では動作しない可能性が高いため、イテレータではなくポインタを指定すること
-- (2) : 第2引数の要素数は、(3)とのオーバーロードをあいまいにしないために、[`std::size_t`](/reference/cstddef/size_t.md)型にキャストして渡したほうがよい
-    - 例として、整数リテラル`0`はヌルポインタとみなされるため、(2)と(3)があいまいになる。
-    ```cpp
-    std::vector<int> v = {1, 2, 3, 4, 5};
-    //std::span<int, 3> s1{v.data(), 0};  // コンパイルエラー : (2)と(3)があいまい
-    std::span<int, 3> s2{v.data(), static_cast<std::size_t>(0)}; // OK
-    ```
-    * v.data()[link /reference/vector/vector/data.md]
-
-- (3) : イテレータ範囲ではなく、ポインタ範囲であることに注意。(2)と同様に、イテレータを指定してはならない
+- (1)-(9) : 定数時間
 
 
 ## 例
@@ -149,25 +146,22 @@ int main()
 
     // 以下はコンパイルエラーになる。
     // 長さ1以上のspanは、参照範囲を設定しなければならない
-    //std::span<int, 1> s3{};
+    // std::span<int, 1> s3{};
   }
 
-  // (2) ポインタと要素数の組を指定
+  // (2) イテレータと要素数の組を指定
   {
     // vの先頭3要素を参照する。
-    // {v.begin(), 3}と書いてはならない
-    std::span<int> s{v.data(), 3};
+    std::span<int> s{v.begin(), 3};
     assert(s.size() == 3);
     assert(s[0] == 1);
     assert(s[1] == 2);
     assert(s[2] == 3);
   }
 
-  // (3) ポインタ範囲を指定
+  // (3) 範囲を指定
   {
-    // vの先頭3要素を参照する。
-    // {v.begin(), v.begin() + 3}と書いてはならない
-    std::span<int> s{v.data(), v.data() + 3};
+    std::span<int> s{v.begin(), v.begin() + 3};
     assert(s.size() == 3);
     assert(s[0] == 1);
     assert(s[1] == 2);
@@ -200,7 +194,7 @@ int main()
     assert(s.data() == car.data());
   }
 
-  // (7) メモリの連続性をもつコンテナを参照させる
+  // (7) メモリの連続性をもつ型を参照させる
   {
     std::span<int> s1{v};
     assert(s1.size() == v.size());
@@ -213,15 +207,7 @@ int main()
     assert(s2.data() == str.data());
   }
 
-  // (8) メモリの連続性をもつconstコンテナを参照させる
-  {
-    const auto& cv = v;
-    std::span<const int> s{cv};
-    assert(s.size() == cv.size());
-    assert(s.data() == cv.data());
-  }
-
-  // (9) コピーコンストラクタ
+  // (8) コピーコンストラクタ
   {
     std::span<int> s1{v};
     std::span<int> s2 = s1;
@@ -231,17 +217,7 @@ int main()
     assert(s2.data() == v.data());
   }
 
-  // (10) ムーブコンストラクタ。コピーと同じ
-  {
-    std::span<int> s1{v};
-    std::span<int> s2 = std::move(s1);
-
-    // ムーブ元とムーブ先が同じ範囲を参照する
-    assert(s1.data() == v.data());
-    assert(s2.data() == v.data());
-  }
-
-  // (11) 変換コンストラクタ
+  // (9) 変換コンストラクタ
   {
     int ar[] = {1, 2, 3};
 
@@ -287,8 +263,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
-- [GCC](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): (10.0.0 現在、実装は P1394R4 以前の不完全なものである)
+- [GCC](/implementation.md#gcc): 10.0.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
@@ -296,3 +272,4 @@ int main()
 - [LWG Issue 3101. `span`'s Container constructors need another constraint](https://wg21.cmeerw.net/lwg/issue3101)
 - [LWG Issue 3198. Bad constraint on `std::span::span()`](https://cplusplus.github.io/LWG/issue3198)
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
+- [P1394R4 Range constructor forstd::span](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1394r4.pdf)

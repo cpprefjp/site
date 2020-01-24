@@ -6,22 +6,22 @@
 
 ```cpp
 namespace std {
-  template <class T, size_t N>
-  span(T (&)[N]) -> span<T, N>;                     // (1)
+
+  template<class It, class End>
+  span(It, End) -> span<remove_reference_t<iter_reference_t<It>>>;     // (1)
 
   template <class T, size_t N>
-  span(array<T, N>&) -> span<T, N>;                 // (2)
+  span(T (&)[N]) -> span<T, N>;                                        // (2)
 
   template <class T, size_t N>
-  span(const array<T, N>&) -> span<const T, N>;     // (3)
+  span(array<T, N>&) -> span<T, N>;                                    // (3)
 
-  template <class Container>
-  span(Container&)
-    -> span<typename Container::value_type>;        // (4)
+  template <class T, size_t N>
+  span(const array<T, N>&) -> span<const T, N>;                        // (4)
 
-  template <class Container>
-  span(const Container&)
-    -> span<const typename Container::value_type>;  // (5)
+  template<class R>
+  span(R&&) -> span<remove_reference_t<ranges::range_reference_t<R>>>; // (5)
+
 }
 ```
 * array[link /reference/array/array.md]
@@ -30,14 +30,17 @@ namespace std {
 ## 概要
 `std::span`クラステンプレートの型推論補助。
 
-- (1) : 組み込み配列への参照から、要素型と静的な要素数を推論する
-- (2) : `std::array`型オブジェクトから、要素型と静的な要素数を推論する
-- (3) : `const`の`std::array`型オブジェクトから、要素型と静的な要素数を推論する
-- (4) : メモリ連続性をもつコンテナ型オブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
-- (5) : メモリ連続性をもつ`const`のコンテナ型オブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
+- (1) : メモリ連続性をもつイテレータから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
+- (2) : 組み込み配列への参照から、要素型と静的な要素数を推論する
+- (3) : `std::array`型オブジェクトから、要素型と静的な要素数を推論する
+- (4) : `const`の`std::array`型オブジェクトから、要素型と静的な要素数を推論する
+- (5) : メモリ連続性をもつ型のオブジェクトから、要素型を推論する。要素数はデフォルトの[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を使用する
 
 なお、ポインタと要素数の組、およびポインタ範囲を指定するコンストラクタからは推論できない。
 
+## テンプレートパラメーター制約
+- (1) : 型`It`はコンセプト`std::contiguous_­iterator`を満たすこと
+- (5) : 型`R`はコンセプト`std::ranges​::​contiguous_­range`を満たすこと
 
 ## 例
 ```cpp example
@@ -50,15 +53,15 @@ int main()
 {
   // (1)
   {
-    int ar[] = {1, 2, 3, 4, 5};
-    std::span s{ar}; // std::span<int, 5>
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    std::span s{v.begin(), v.end()}; // std::span<int, std::dynamic_extent>
 
     static_assert(std::is_same_v<
       decltype(s)::element_type,
       int
     >);
 
-    static_assert(decltype(s)::extent == 5);
+    static_assert(decltype(s)::extent == std::dynamic_extent);
   }
 
   // (2)
