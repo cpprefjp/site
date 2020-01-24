@@ -180,7 +180,7 @@ int main()
 ```
 * get_time_zone()[link get_time_zone.md]
 * get_sys_time()[link get_sys_time.md]
-* get_local_time()[link get_local_time.md.nolink]
+* get_local_time()[link get_local_time.md]
 * chrono::locate_zone[link /reference/chrono/locate_zone.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]

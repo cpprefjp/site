@@ -19,7 +19,7 @@ sys_time<duration> get_sys_time() const; // (1) C++20
 
 このシステム時間は、指定されたタイムゾーンの時間には変換されていない、UTCタイムゾーンの時間である。
 
-指定されたタイムゾーンに変換された時間は、[`get_local_time()`](get_local_time.md.nolink)関数で取得できる。
+指定されたタイムゾーンに変換された時間は、[`get_local_time()`](get_local_time.md)関数で取得できる。
 
 
 ## 例
