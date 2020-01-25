@@ -14,7 +14,7 @@ stop_token(stop_token&& rhs) noexcept;      // (3)
 
 ## 概要
 - (1) : デフォルトコンストラクタ。  
-  [`stop_source`](../stop_source.md)と停止状態を共有していない[`stop_token`](../stop_token.md)を構築する。このとき、停止状態を扱うためのリソースは確保せず、停止要求を決して受け取らない状態になる。（停止要求を受け取れる`stop_token`を構築するには、`stop_source`の[`get_token()`](../stop_source/get_token.md.nolink)メンバ関数を呼び出して、`stop_source`と停止状態を共有する`stop_token`を構築する必要がある）
+  [`stop_source`](../stop_source.md)と停止状態を共有していない[`stop_token`](../stop_token.md)を構築する。このとき、停止状態を扱うためのリソースは確保せず、停止要求を決して受け取らない状態になる。（停止要求を受け取れる`stop_token`を構築するには、`stop_source`の[`get_token()`](../stop_source/get_token.md)メンバ関数を呼び出して、`stop_source`と停止状態を共有する`stop_token`を構築する必要がある）
 - (2) : コピーコンストラクタ。
 - (3) : ムーブコンストラクタ。
 
@@ -62,8 +62,8 @@ int main()
 * stop_source[link ../stop_source.md]
 * stop_requested()[link stop_requested.md]
 * stop_possible()[link stop_possible.md]
-* request_stop()[link ../stop_source/request_stop.md.nolink]
-* get_token()[link ../stop_source/get_token.md.nolink]
+* request_stop()[link ../stop_source/request_stop.md]
+* get_token()[link ../stop_source/get_token.md]
 
 ### 出力
 ```

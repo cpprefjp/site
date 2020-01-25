@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `stop_token`クラスは、停止要求が作成されたかどうか、あるいは停止要求が作成されうるかどうかなど、停止状態を問い合わせるためのインターフェースを提供する。
 
-[`stop_source`](stop_source.md)クラスの[`get_token()`](./stop_source/get_token.md.nolink)メンバ関数を呼び出すと、その`stop_source`クラスのオブジェクトと停止状態を共有する`stop_token`クラスのオブジェクトを構築できる。これによって、`stop_source`側から停止要求を作成したときに、この`stop_token`を通じて停止状態を問い合わせられるようになる。
+[`stop_source`](stop_source.md)クラスの[`get_token()`](./stop_source/get_token.md)メンバ関数を呼び出すと、その`stop_source`クラスのオブジェクトと停止状態を共有する`stop_token`クラスのオブジェクトを構築できる。これによって、`stop_source`側から停止要求を作成したときに、この`stop_token`を通じて停止状態を問い合わせられるようになる。
 
 また、`stop_token`クラスは以下のクラスでも利用される：
 
@@ -61,8 +61,8 @@ int main()
 * stop_token[link stop_token.md]
 * stop_source[link stop_source.md]
 * stop_requested()[link stop_token/stop_requested.md]
-* request_stop()[link stop_source/request_stop.md.nolink]
-* get_token()[link stop_source/get_token.md.nolink]
+* request_stop()[link stop_source/request_stop.md]
+* get_token()[link stop_source/get_token.md]
 
 ### 出力
 ```

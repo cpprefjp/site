@@ -43,7 +43,7 @@ int main()
 ```
 * stop_token[link ../stop_token.md]
 * stop_source[link ../stop_source.md]
-* get_token()[link ../stop_source/get_token.md.nolink]
+* get_token()[link ../stop_source/get_token.md]
 
 ### 出力
 ```

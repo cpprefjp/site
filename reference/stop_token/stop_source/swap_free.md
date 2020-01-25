@@ -6,13 +6,12 @@
 
 ```cpp
 namespace std {
-  friend
-  void swap(stop_token& x, stop_token& y) noexcept;
+  void swap(stop_source& x, stop_source& y) noexcept;
 }
 ```
 
 ## 概要
-2つの`stop_token`オブジェクトを入れ替える。
+2つの`stop_source`オブジェクトを入れ替える。
 
 
 ## 効果
@@ -39,26 +38,23 @@ x.swap(y);
 
 int main()
 {
-  std::stop_source ss;
-  std::stop_token st1 = ss.get_token();
-  std::stop_token st2;
+  std::stop_source ss1;
+  std::stop_source ss2(std::nostopstate);
 
-  assert(st1.stop_possible() == true);
-  assert(st2.stop_possible() == false);
+  assert(ss1.stop_possible() == true);
+  assert(ss2.stop_possible() == false);
 
-  std::swap(st1, st2);
+  std::swap(ss1, ss2);
 
-  assert(st1.stop_possible() == false);
-  assert(st2.stop_possible() == true);
+  assert(ss1.stop_possible() == false);
+  assert(ss2.stop_possible() == true);
 }
 ```
-* std::swap[color ff0000]
-* std::swap[link swap.md]
-* stop_token[link ../stop_token.md]
+* swap[color ff0000]
+* swap[link swap.md]
 * stop_source[link ../stop_source.md]
-* request_stop()[link ../stop_source/request_stop.md]
+* nostopstate[link ../nostopstate.md]
 * stop_possible()[link stop_possible.md]
-* stop_requested()[link stop_requested.md]
 
 ### 出力
 ```

@@ -67,8 +67,8 @@ int main()
 * std::stop_token[link ../stop_token.md]
 * std::stop_source[link ../stop_source.md]
 * stop_possible()[link stop_possible.md]
-* request_stop()[link ../stop_source/request_stop.md.nolink]
-* get_token()[link ../stop_source/get_token.md.nolink]
+* request_stop()[link ../stop_source/request_stop.md]
+* get_token()[link ../stop_source/get_token.md]
 
 ### 出力
 ```
