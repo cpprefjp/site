@@ -73,7 +73,7 @@ int main()
       f.get();
     }
     catch (std::runtime_error& e) {
-      // タスク内で送出された例外を補足
+      // タスク内で送出された例外を捕捉
       std::cout << e.what() << std::endl;
     }
   }
