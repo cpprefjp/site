@@ -50,7 +50,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 
 - (4)の形式では、`value_type` はコンテナに対してコピー挿入可能でなければならない。
 
-- (5), (6)の形式では、 `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`でなければならない。
+- (5), (6)の形式では、 `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`でなければならない。
 
 
 ## 効果

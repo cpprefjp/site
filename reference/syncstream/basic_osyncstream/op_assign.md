@@ -22,7 +22,7 @@ basic_osyncstream& operator=(basic_osyncstream&& rhs) noexcept;
 
 
 ## 事後条件
-- `nullptr == rhs.get_­wrapped()`は`true`である。
+- `nullptr == rhs.get_wrapped()`は`true`である。
 - `get_wrapped()`は、以前に`rhs.get_wrapped()`によって返されていた値を返す。
 
 

@@ -30,7 +30,7 @@ void deallocate_bytes(void* p, size_t nbytes, size_t alignment = alignof(max_ali
 利用する`memory_resource`のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と等価。
 
 ```cpp
-memory_­rsrc->deallocate(p, nbytes, alignment);
+memory_rsrc->deallocate(p, nbytes, alignment);
 ```
 * deallocate[link /reference/memory_resource/memory_resource/deallocate.md]
 

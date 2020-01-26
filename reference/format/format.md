@@ -148,7 +148,7 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
 
 | type       | 意味               | 効果                                                                                                            |
 |:-----------|:-------------------|:----------------------------------------------------------------------------------------------------------------|
-| p (省略可) | アドレスを出力する | `"0x" + `to_­chars(first, last, reinterpret_cast<uintptr_t>(value), 16)`  |
+| p (省略可) | アドレスを出力する | `"0x" + `to_chars(first, last, reinterpret_cast<uintptr_t>(value), 16)`  |
 
 ### 例([P0645R10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)より)
 

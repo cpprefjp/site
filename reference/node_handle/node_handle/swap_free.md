@@ -13,7 +13,7 @@ friend void swap(node_handle& x, node_handle& y) noexcept(noexcept(x.swap(y)));
 
 
 ## 要件
-一方のノードハンドルが空である。または、`allocator_traits<allocator_type>::propagate_­on_­container_­swap`が`true`である。または、両方のアロケータが等値である。
+一方のノードハンドルが空である。または、`allocator_traits<allocator_type>::propagate_on_container_swap`が`true`である。または、両方のアロケータが等値である。
 
 
 ## 効果

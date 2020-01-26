@@ -23,9 +23,9 @@ basic_syncbuf& operator=(basic_syncbuf&& rhs) noexcept;
 
 
 ## 事後条件
-- `rhs.get_­wrapped() == nullptr`は`true`である。
+- `rhs.get_wrapped() == nullptr`は`true`である。
 - `allocator_traits<Allocator>::propagate_on_container_move_assignment::value`が`true`のとき、
-  `this->get_­allocator() == rhs.get_­allocator()`は`true`である。 
+  `this->get_allocator() == rhs.get_allocator()`は`true`である。 
 - そうではなく、`allocator_traits<Allocator>::propagate_on_container_move_assignment::value`が`false`のときは、
   アロケータは変更されない。
 

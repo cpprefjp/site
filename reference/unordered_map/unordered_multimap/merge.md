@@ -22,7 +22,7 @@ template<class H2, class P2>
 
 
 ## 要件
-`source.get_­allocator() == (*this).get_­allocator()`
+`source.get_allocator() == (*this).get_allocator()`
 
 
 ## 戻り値

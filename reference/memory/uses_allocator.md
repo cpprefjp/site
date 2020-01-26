@@ -34,7 +34,7 @@ namespace std {
 - `T` がアロケータを利用しない場合（`uses_allocator<T, Alloc>::value == false`かつ、[`is_constructible`](/reference/type_traits/is_constructible.md)`<T, V1, V2, ..., VN>::value == true`ならば）  
 `obj(v1, v2, ..., vN);` の形でコンストラクタを呼び出す。
 
-- `T` がアロケータを利用し、アロケータをコンストラクタ引数の先頭で受け取る場合（`uses_allocator<T, Alloc>::value == true`かつ、[`is_constructible`](/reference/type_traits/is_constructible.md)`<T,` [`allocator_­arg_­t`](/reference/memory/allocator_arg_t.md)`, Alloc, V1, V2, ..., VN>::value == true`ならば）  
+- `T` がアロケータを利用し、アロケータをコンストラクタ引数の先頭で受け取る場合（`uses_allocator<T, Alloc>::value == true`かつ、[`is_constructible`](/reference/type_traits/is_constructible.md)`<T,` [`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, Alloc, V1, V2, ..., VN>::value == true`ならば）  
 `obj(allocator_arg, alloc, v1, v2, ..., vN);` の形でコンストラクタを呼び出す。
 
 - `T` がアロケータを利用し、アロケータをコンストラクタ引数の末尾で受け取る場合（`uses_allocator<T, Alloc>::value == true`かつ、[`is_constructible`](/reference/type_traits/is_constructible.md)`<T, V1, V2, ..., VN, Alloc>::value == true`ならば）  

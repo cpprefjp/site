@@ -50,8 +50,8 @@ iterator           insert(const_iterator hint, node_type&& nh); // (8) C++17か�
 - (4) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
 - (5) : 範囲`[first, last)`の各イテレータが、`*this`の要素を指さないこと。
 - (6) : (5)の要件と同じである。
-- (7) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
-- (8) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_­allocator()`である。
+- (7) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
+- (8) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
 
 
 ## 効果
