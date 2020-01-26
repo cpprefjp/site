@@ -116,11 +116,9 @@ int main()
 * condition_variable_any[link /reference/condition_variable/condition_variable_any.md]
 * wait()[link /reference/condition_variable/condition_variable_any/wait.md]
 * thread[link /reference/thread/thread.md]
-* this_thread[link /reference/thread/this_thread.md]
-* chrono[link /reference/chrono.md]
 * milliseconds()[link /reference/chrono/duration/milliseconds.md]
 * join()[link /reference/thread/thread/join.md]
-* sleep_for()[link /reference/thread/this_thread/sleep_for.md]
+* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * mutex[link /reference/mutex/mutex.md]
 * unique_lock[link /reference/mutex/unique_lock.md]
 

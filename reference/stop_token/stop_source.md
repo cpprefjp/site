@@ -66,8 +66,8 @@ int main()
 * stop_source[link stop_source.md]
 * stop_callback[link stop_callback.md]
 * stop_requested()[link stop_token/stop_requested.md]
-* request_stop()[link request_stop.md]
-* get_token()[link get_token.md]
+* request_stop()[link stop_source/request_stop.md]
+* get_token()[link stop_source/get_token.md]
 
 ### 出力
 ```
