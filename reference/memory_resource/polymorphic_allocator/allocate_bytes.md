@@ -29,7 +29,7 @@ void* allocate_bytes(size_t nbytes, size_t alignment = alignof(max_align_t));
 利用する[`memory_resource`](/reference/memory_resource/memory_resource.md)のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と等価。
 
 ```cpp
-return memory_­rsrc->allocate(nbytes, alignment);
+return memory_rsrc->allocate(nbytes, alignment);
 ```
 * allocate[link /reference/memory_resource/memory_resource/allocate.md]
 

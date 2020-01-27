@@ -45,7 +45,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
     - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` がこのコンテナ **以外を指す** 有効な範囲であること
     - このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能であること
 - (8) : `value_type` はこのコンテナに対してコピー挿入可能であること
-- (9), (10) : `nh` は空である、または、`(*this).get_­allocator() == nh.get_allocator()`でなければならない
+- (9), (10) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`でなければならない
 
 
 ## 効果

@@ -18,8 +18,8 @@ namespace std {
 
 
 ## 適格要件
-- (1) : `std::is_­array_­v<T>` が `false` かつ `is_­constructible_­v<T, T&>` が `true` であること。
-- (2) : `std::is_­array_­v<T>` が `false` かつ `is_­move_­constructible_­v<T>` が `true` であること。
+- (1) : `std::is_array_v<T>` が `false` かつ `is_constructible_v<T, T&>` が `true` であること。
+- (2) : `std::is_array_v<T>` が `false` かつ `is_move_constructible_v<T>` が `true` であること。
 
 
 ## 事前条件

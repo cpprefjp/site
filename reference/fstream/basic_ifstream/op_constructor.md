@@ -25,7 +25,7 @@ basic_ifstream(basic_ifstream&& rhs); // (7) C++11
 - (2) : 仮引数`s`で指定したファイルを開く。
     - [`rdbuf()->open(s, mode | std::ios_base::in)`](/reference/fstream/basic_filebuf/open.md)を呼び出す(少なくとも読み取り操作ができる)。その結果が失敗だった（戻り値がヌルポインタだった）場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
 - (3) : ファイルを指定する引数の型が`std::string`である点を除き、(2)と同じ。
-- (4) : [`std::filesystem​::​path​::​value_­type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(2)と同じ。
+- (4) : [`std::filesystem​::​path​::​value_type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(2)と同じ。
 - (5) : ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(2)と同じ。
 - (6) : コピーコンストラクタ。コピー不可。
 - (7) : ムーブコンストラクタ。ファイルストリームの所有権を移動する。

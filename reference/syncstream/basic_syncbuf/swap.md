@@ -15,8 +15,8 @@ void swap(basic_syncbuf& other) noexcept;
 
 
 ## 事前条件
-`allocator_­traits<Allocator>::propagate_­on_­container_­swap::value`が`true`であるか、または
-`this->get_­allocator() == other.get_­allocator()`が`true`である。
+`allocator_traits<Allocator>::propagate_on_container_swap::value`が`true`であるか、または
+`this->get_allocator() == other.get_allocator()`が`true`である。
 
 
 ## 効果

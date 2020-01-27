@@ -14,7 +14,7 @@ bool is_open() const;
 
 ## 戻り値
 
-[`rdbuf()->is_­open()`](/reference/fstream/basic_filebuf/is_open.md)
+[`rdbuf()->is_open()`](/reference/fstream/basic_filebuf/is_open.md)
 
 ## 例
 
