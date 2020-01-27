@@ -41,7 +41,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](zoned_time/op_constructor.md) | コンストラクタ | C++20 |
-| [`operator=`](zoned_time/op_assign.md.nolink) | 代入演算子 | C++20 |
+| [`operator=`](zoned_time/op_assign.md) | 代入演算子 | C++20 |
 
 
 ### 変換
