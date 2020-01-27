@@ -15,13 +15,13 @@ basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) 
 ## 概要
 
 - (1): `s`で指定されたファイルを開く。`s`はヌル終端文字列。
-- (2): [`std::filesystem​::​path​::​value_type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(1)と同じ。
+- (2): [`std::filesystem::path::value_type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(1)と同じ。
 - (3): ファイルを指定する引数の型が`std::string`である点を除き、(1)と同じ。
 - (4): ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(1)と同じ。
 
 ## 効果
 
-まず`mode & ~ios_base​::​ate`の結果からファイルの開くモードが決定される。`fopen`のモード文字列との対応は以下の通り。
+まず`mode & ~ios_base::ate`の結果からファイルの開くモードが決定される。`fopen`のモード文字列との対応は以下の通り。
 
 | `binary` | `in` | `out` | `trunc` | `ate` | 対応する`fopen`のモード文字列 |
 |----------|------|-------|---------|-------|--------------------|
@@ -46,7 +46,7 @@ basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) 
 
 そしてあたかも`fopen`がこのモード文字列を第二引数に指定して呼び出されたかのように振る舞う。
 
-ファイルを開くのに成功して、`(mode & ios_base::​ate) != 0`の場合、ファイル終端にseekする(`fseek(file, 0, SEEK_END)`したかのように振る舞う)
+ファイルを開くのに成功して、`(mode & ios_base::ate) != 0`の場合、ファイル終端にseekする(`fseek(file, 0, SEEK_END)`したかのように振る舞う)
 
 ファイルを開くのに失敗した場合[`close()`](close.md)を呼び出す。
 
