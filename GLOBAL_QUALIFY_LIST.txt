@@ -146,6 +146,7 @@
 * <sstream>[link /reference/sstream.md]
 * <stack>[link /reference/stack.md]
 * <stdexcept>[link /reference/stdexcept.md]
+* <stop_token>[link /reference/stop_token.md]
 * <streambuf>[link /reference/streambuf.md]
 * <string>[link /reference/string.md]
     * std::basic_string[link /reference/string/basic_string.md]
