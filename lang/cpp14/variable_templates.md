@@ -22,7 +22,7 @@ T area_of_circle_with_radius(T r)
 
 従来であれば、このような目的には、関数テンプレートが使用されていた。型`T`の円周率を返す関数`pi()`を定義すればよかった。しかし、多倍長整数のように、コピーのコストが高いものについては、関数テンプレートよりも、変数テンプレートを使用した方が効率がよくなる。
 
-そのほかの用途としては、関数呼び出しの丸カッコを省略できるため、2文字ではあるがより短いコードを書けるようにできる、というものもある。たとえば、型`T`が整数型か判定する[`std::is_integral`](/reference/type_traits/is_integral.md)型特性は、以下のように、`::value`を付けるか、クラスのインスタンスを作成して`bool`への変換演算子を呼び出す必要がある：
+そのほかの用途としては、関数呼び出しの丸カッコを省略できるため、2文�ではあるがより�いコードを書けるようにできる、というものもある。たとえば、型`T`が整数型か判定する[`std::is_integral`](/reference/type_traits/is_integral.md)型特性は、以下のように、`::value`を付けるか、クラスのインスタンスを作成して`bool`への変換演算�を呼び出す必要がある：
 
 ```cpp example
 #include <type_traits>
@@ -121,8 +121,8 @@ auto main() -> int
 - C++11規格の範囲内でも対応は出来たが煩雑で扱い難い方法を取る必要があるため簡潔に扱えるようにしたい。（N3651）
 
 ## 検討されたほかの選択肢
-- `const`または`constexpr`と組み合わせて用いる提案があったが、ワーキンググループの多数意見によりC++14の対象では制限しない事にした。（N3651）
-- テンプレートテンプレートについても提案があったが、ワーキンググループで複数の不要論がありC++14では含めない事にした。（N3651）
+- `const`または`constexpr`と組み合わせて用いる提案があったが、ワー�ンググループの多数意見によりC++14の対象では制限しない事にした。（N3651）
+- テンプレートテンプレートについても提案があったが、ワー�ンググループで複数の不要論がありC++14では含めない事にした。（N3651）
 
 ## 関連項目
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
@@ -131,5 +131,5 @@ auto main() -> int
 ## 参照
 - [N3651 Variable Templates (Revision 1)](http://open-std.org/JTC1/SC22/WG21/docs/papers/2013/n3651.pdf)
 - [Trip Report: ISO C++ Spring 2013 Meeting](https://isocpp.org/blog/2013/04/trip-report-iso-c-spring-2013-meeting)
-- [変数テンプレートをラムダ式でキャプチャするときの注意 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/2014/01/21/162701)
+- [変数テンプレートをラムダ式で�ャプチャするときの注意 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/2014/01/21/162701)
 

@@ -12,13 +12,13 @@ namespace std {
 ```
 
 ## 概要
-`lock_guard`は、ミューテックスの`lock()`/`unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、ブロックスコープの先頭で`lock()`を呼び出し、同ブロックスコープを抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
+`lock_guard`は、ミューテックスの`lock()`/`unlock()`処理をコンストラクタとデストラクタで確実に実行するためのクラスである。このクラスは通常、メンバ変数もしくはグ�ーバル変数としてもつミューテックスオブジェクトに対し、ブ�ックスコープの先�で`lock()`を呼び出し、同ブ�ックスコープを抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
 
 テンプレートパラメータ`Mutex`は、`lock()`/`unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
 
-`lock_guard`は、非常にシンプルな機能「コンストラクタでロックを取得/ロック済みミューテックスを受け取る」「デストラクタでロックを手放す」しか提供しないが、使用メモリや実行時処理に関するオーバーヘッドは小さい（ほぼゼロ）。一方で、より高度なミューテックスのロック操作が必要な場合は[`unique_lock`](/reference/mutex/unique_lock.md)を利用する。
+`lock_guard`は、非常にシンプルな機能「コンストラクタで�ックを取得/�ック済みミューテックスを受け取る」「デストラクタで�ックを手放す」しか提供しないが、使用メモリや実行時処理に関するオーバーヘッドは小さい（ほぼゼ�）。一方で、より高度なミューテックスの�ック操作が必要な場合は[`unique_lock`](/reference/mutex/unique_lock.md)を利用する。
 
-なお、C++17では複数のミューテックスを正しく簡便に扱うために[`scoped_lock`](/reference/mutex/scoped_lock.md)が追加されている。
+なお、C++17では複数のミューテックスを�しく簡便に扱うために[`scoped_lock`](/reference/mutex/scoped_lock.md)が追加されている。
 
 ## メンバ関数
 
@@ -26,7 +26,7 @@ namespace std {
 |-----------------------------------------------|----------------|-------|
 | [`(constructor)`](lock_guard/op_constructor.md) | コンストラクタ | C++11 |
 | [`(destructor)`](lock_guard/op_destructor.md) | デストラクタ   | C++11 |
-| `operator=(const lock_guard&) = delete`       | 代入演算子     | C++11 |
+| `operator=(const lock_guard&) = delete`       | 代入演算�     | C++11 |
 
 
 ## メンバ型
@@ -58,9 +58,9 @@ public:
   // vectorオブジェクトへのアクセスを排他的にする
   void add_value(int value)
   {
-    std::lock_guard<std::mutex> lock(mtx_); // ロックを取得する(lock_guardのコンストラクタ)
+    std::lock_guard<std::mutex> lock(mtx_); // �ックを取得する(lock_guardのコンストラクタ)
     data_.push_back(value);
-  } // ロックを手放す(lock_guardのデストラクタ)
+  } // �ックを手放す(lock_guardのデストラクタ)
 
   void print()
   {

@@ -12,7 +12,7 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 * time_point[link /reference/chrono/time_point.md]
 
 ## 概要
-タイムアウトする絶対時間を指定して排他ロックの取得を試みる
+タイムアウトする絶対時間を指定して排他�ックの取得を試みる
 
 
 ## 要件
@@ -22,9 +22,9 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 ## 効果
 `abs_time`パラメータで指定された絶対時間に到達するまで、ミューテックスの排他所有権の取得を試みる。
 
-排他所有権が取得できるまで、もしくは`abs_time`時間に到達するまでこの関数はブロッキングする。
+排他所有権が取得できるまで、もしくは`abs_time`時間に到達するまでこの関数はブ�ッ�ングする。
 
-`abs_timeにすでに到達していた場合`、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの排他所有の権取得を試みる。
+`abs_timeにすでに到達していた場合`、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブ�ッ�ングせずにミューテックスの排他所有の権取得を試みる。
 
 
 ## 戻り値
@@ -57,24 +57,24 @@ public:
 
     chrono::steady_clock::time_point tp = chrono::steady_clock::now();
 
-    // 排他ロックの取得を試みる(3秒後にタイムアウト)
+    // 排他�ックの取得を試みる(3秒後にタイムアウト)
     if (!mtx_.try_lock_until(tp + std::chrono::seconds(3))) {
-      // 排他ロックの取得に失敗
+      // 排他�ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }
 
     value_ = value;
-    mtx_.unlock(); // 排他ロックを手放す
+    mtx_.unlock(); // 排他�ックを手放す
   }
 
-  // メンバ変数value_の値を読み込む
+  // メンバ変数value_の値を�み込む
   int get_value() const
   {
     int result = 0;
-    mtx_.lock_shared(); // 共有ロックを取得する
+    mtx_.lock_shared(); // 共有�ックを取得する
     result = value_;
-    mtx_.unlock_shared(); // 共有ロックを手放す
+    mtx_.unlock_shared(); // 共有�ックを手放す
     return result;
   }
 };

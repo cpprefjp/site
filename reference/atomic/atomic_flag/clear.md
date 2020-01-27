@@ -47,7 +47,7 @@ int main()
 
   std::cout << std::boolalpha;
   {
-    // 値をtrueに設定する(変更前の値はfalse)
+    // 値をtrueに�定する(変更前の値はfalse)
     bool result = x.test_and_set();
     std::cout << result << std::endl;
   }
@@ -56,7 +56,7 @@ int main()
   x.clear();
 
   {
-    // 値をtrueに設定する(変更前の値はfalse)
+    // 値をtrueに�定する(変更前の値はfalse)
     bool result = x.test_and_set();
     std::cout << result << std::endl;
   }

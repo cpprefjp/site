@@ -36,12 +36,12 @@ int compare(size_type pos1,
 ```
 
 ## 概要
-他の文字列との比較を行う。
+他の文�列との比較を行う。
 
 
 ## 効果
-- (1) 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
-- (7) 自身の文字列長とパラメータ`sv`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](/reference/string_view/basic_string_view/data.md)`, rlen)`を呼び出す。
+- (1) 自身の文�列長とパラメータ`str`の文�列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
+- (7) 自身の文�列長とパラメータ`sv`の文�列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](/reference/string_view/basic_string_view/data.md)`, rlen)`を呼び出す。
 
 
 ## 戻り値
@@ -53,14 +53,14 @@ int compare(size_type pos1,
 	| [`size()`](size.md) `==` `str.`[`size()`](size.md) | `0`を返す             |
 	| [`size()`](size.md) `>` `str.`[`size()`](size.md)  | `0`より大きい値を返す |
 
-- (2) `basic_string(*this, pos1, n1).compare(str)` と等価
-- (3) `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))` と等価
-- (4) `compare(basic_string(s))` と等価
-- (5) `basic_string(*this, pos, n1).compare(basic_string(s))` と等価
-- (6) `basic_string(*this, pos, n1).compare(basic_string(s, n2))` と等価
+- (2) `basic_string(*this, pos1, n1).compare(str)` と�価
+- (3) `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))` と�価
+- (4) `compare(basic_string(s))` と�価
+- (5) `basic_string(*this, pos, n1).compare(basic_string(s))` と�価
+- (6) `basic_string(*this, pos, n1).compare(basic_string(s, n2))` と�価
 - (7) (1)と同様の結果を返す。
-- (8) `basic_string_view<charT, traits>(`[`this.data()`](data.md)`, pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(sv)` と等価
-- (9) `basic_string_view<charT, traits>(`[`this.data()`](data.md)`, pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(sv, pos1, n2)` と等価
+- (8) `basic_string_view<charT, traits>(`[`this.data()`](data.md)`, pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(sv)` と�価
+- (9) `basic_string_view<charT, traits>(`[`this.data()`](data.md)`, pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(sv, pos1, n2)` と�価
 
 
 ## 例
@@ -88,5 +88,5 @@ int main()
 
 ## 参照
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
-    - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
+    - C++14から(2)のオーバー�ードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)

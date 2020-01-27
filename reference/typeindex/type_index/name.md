@@ -11,7 +11,7 @@ const char* name() const noexcept; // C++14
 ```
 
 ## 概要
-型名を表す文字列を返す
+型名を表す文�列を返す
 
 
 ## 戻り値

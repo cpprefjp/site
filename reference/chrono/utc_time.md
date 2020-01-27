@@ -38,9 +38,9 @@ UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
 
 ## 効果
-便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
+便宜上のリテラル�ャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 
-- (3) : 以下と等価：
+- (3) : 以下と�価：
     ```cpp
     return os << format(STATICALLY-WIDEN<charT>("{:%F %T}"), tp);
     ```

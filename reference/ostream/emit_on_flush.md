@@ -12,8 +12,8 @@ namespace std {
 ```
 
 ## 概要
-このマニピュレータは、実際には[`std::basic_osyncstream`](../syncstream/basic_osyncstream.md)に対して使用されることが期待される。`std::basic_osyncstream`のベースとなる[`std::basic_syncbuf`](../syncstream/basic_syncbuf.md)の同期時排出ポリシーを`true`に変更する。つまり、`std::basic_osyncstream`のオブジェクトに`flush()`が呼ばれた際、文字が転送されるようになる。  
-また、対になるマニピュレータとして、[`noemit_on_flush`](noemit_on_flush.md)が存在する。
+このマニピュレータは、実際には[`std::basic_osyncstream`](../syncstream/basic_osyncstream.md)に対して使用されることが期待される。`std::basic_osyncstream`のベースとなる[`std::basic_syncbuf`](../syncstream/basic_syncbuf.md)の同期時排出ポリシーを`true`に変更する。つまり、`std::basic_osyncstream`のオブジェクトに`flush()`が呼ばれた際、文�が転送されるようになる。  
+また、対になるマニピュレータとして、[`noemit_on_flush`](noemit_on_flush.md)が�在する。
 
 
 ## 効果
@@ -25,7 +25,7 @@ namespace std {
 `os`
 
 ## 備考
-本関数は、直接呼ぶのではなく、マニピュレータ関数へのポインタを引数に取る出力演算子（[`operator<<`](basic_ostream/op_ostream.md)、挿入演算子、インサータとも呼ばれる）を通じて呼び出されるのが一般的である。
+本関数は、直接呼ぶのではなく、マニピュレータ関数へのポインタを引数に取る出力演算�（[`operator<<`](basic_ostream/op_ostream.md)、挿入演算�、インサータとも呼ばれる）を通じて呼び出されるのが一般的である。
 
 ## 例
 ```cpp example
@@ -39,9 +39,9 @@ int main()
 
   bout << std::emit_on_flush;
 
-  bout << std::flush; // 通常はここで保留中の文字は転送されないが、
+  bout << std::flush; // 通常はここで保留�の文�は転送されないが、
                       // emit_on_flush を呼び出し、同期時排出ポリシーが true となっているため、
-                      // ここで文字が転送される。
+                      // ここで文�が転送される。
 }
 ```
 * emit_on_flush[color ff0000]

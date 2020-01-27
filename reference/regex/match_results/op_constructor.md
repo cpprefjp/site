@@ -54,7 +54,7 @@ match_results(match_results&& m) noexcept;          // (3)
 ## 備考
 規格では明確ではないものの、(2) の形式でも以下の事後条件を満たすべきであると思われる。
 
-- (3) の事後条件のアロケータ以外のもの
+- (3) の事後条件のア�ケータ以外のもの
 - [`get_allocator`](get_allocator.md)`() ==` [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](../../memory/allocator_traits/select_on_container_copy_construction.md)`(m.`[`get_allocator`](get_allocator.md)`())`
 
 
@@ -146,4 +146,4 @@ suffix:' '
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-GCC(libstdc++) の 4.9.2 までは、[`regex_iterator`](../regex_iterator.md) を間接参照した結果から (2)、あるいは、(3) の形式で構築した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
+GCC(libstdc++) の 4.9.2 までは、[`regex_iterator`](../regex_iterator.md) を間接参照した結果から (2)、あるいは、(3) の形式で構築した場合に [`position`](position.md) の結果が�しくコピーされない。これは、4.9.3 以降で修�される予定である。

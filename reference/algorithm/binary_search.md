@@ -60,7 +60,7 @@ namespace std {
 int main()
 {
   // binary_search で 4 を検索する場合、
-  // 4 より小さい物、4 と等しい物、4 より大きい物がその順に並んでいれば、
+  // 4 より小さい物、4 と�しい物、4 より大きい物がその順に並んでいれば、
   // 必ずしもソートされている必要はない。
   std::vector<int> v = {3, 1, 4, 6, 5};
 
@@ -103,5 +103,5 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 
 ## 参照
 - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
-    - C++03までの計算量が間違っていたので、C++11で修正。
+    - C++03までの計算量が間違っていたので、C++11で修�。
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

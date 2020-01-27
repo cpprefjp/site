@@ -21,7 +21,7 @@ namespace std::chrono {
 ## 戻り値
 - (1) :
 
-ユークリッド除法 (Euclidean division) による除算関数`modulo(a, b)`、および`weekday`オブジェクト`x`がコンストラクタで設定された曜日を表す値`wd`を持っているとして、
+ユークリッド除法 (Euclidean division) による除算関数`modulo(a, b)`、および`weekday`オブジェクト`x`がコンストラクタで�定された曜日を表す値`wd`を持っているとして、
 
 ```cpp
 return weekday{modulo(static_cast<long long>(x.wd) + y.count(), 7)};

@@ -14,7 +14,7 @@ result_type lambda() const;
 
 
 ## 戻り値
-構築時に設定された、`lambda`の値を返す。
+構築時に�定された、`lambda`の値を返す。
 
 
 ## 例

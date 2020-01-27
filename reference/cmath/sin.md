@@ -19,11 +19,11 @@ namespace std {
 * Integral[italic]
 
 ## 概要
-算術型の正弦（サイン）を求める。
+算術型の�弦（サイン）を求める。
 
 
 ## 戻り値
-引数 `x` の正弦を返す(`x`の単位はラジアン)。
+引数 `x` の�弦を返す(`x`の単位はラジアン)。
 
 
 ## 備考
@@ -82,7 +82,7 @@ int main()
 
 ![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/cmath/sin/sin.png)
 
-このような値の遷移は、[正弦波, サインカーブ](https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%BC%A6%E6%B3%A2)として知られている。
+このような値の遷移は、[�弦波, サインカーブ](https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%BC%A6%E6%B3%A2)として知られている。
 
 
 ## バージョン
@@ -102,6 +102,6 @@ int main()
 
 
 ## 実装例
-以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
+以下のマク�ーリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
 $$ \sin x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{(2n + 1)!} x^{2n + 1} \quad \mathrm{for~all} \; x $$

@@ -14,7 +14,7 @@ int compare(const value_type* s) const;  // (3)
 ```
 
 ## 概要
-マッチした文字列を比較する。
+マッチした文�列を比較する。
 
 
 ## 戻り値
@@ -23,7 +23,7 @@ int compare(const value_type* s) const;  // (3)
 - (3) `str().`[`compare`](../../string/basic_string/compare.md)`(s)`
 
 ## 備考
-(1) の形式でもマッチした文字列のみが比較され、マッチした位置は考慮されない。（例を参照）
+(1) の形式でもマッチした文�列のみが比較され、マッチした位置は考慮されない。（例を参照）
 
 
 ## 例
@@ -61,7 +61,7 @@ int main()
 -1
 ```
 
-注：比較結果が等しくない時の戻り値は符号のみが規定されているため、出力は上記とは異なる可能性がある。（[`basic_string`](../../string/basic_string.md)`::`[`compare`](../../string/basic_string/compare.md) 参照）
+注：比較結果が�しくない時の戻り値は符号のみが規定されているため、出力は上記とは異なる可能性がある。（[`basic_string`](../../string/basic_string.md)`::`[`compare`](../../string/basic_string/compare.md) 参照）
 
 
 ## バージョン

@@ -59,7 +59,7 @@ namespace std {
 
 ## 備考
 - この関数には、特定のアルゴリズムで実装すべきという規定はない
-- 実装のアルゴリズムとしては、クイックソートの改良版であるイントロソートが使われることが多い
+- 実装のアルゴリズムとしては、クイックソートの改良版であるイント�ソートが使われることが多い
 - クイックソートは平均計算量がO(N Log N)だが、最悪計算量がO(n<sup>2</sup>)である。そのため、C++03の計算量要件には合致するが、C++11の要件には合致しない
 
 
@@ -95,5 +95,5 @@ int main()
 
 ## 参照
 - [LWG Issue 713. `sort()` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713)
-    - C++11で、イントロソートアルゴリズムを考慮して、計算量の規定が見直された経緯のレポート
+    - C++11で、イント�ソートアルゴリズムを考慮して、計算量の規定が見直された経緯のレポート
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

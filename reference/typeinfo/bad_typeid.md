@@ -11,7 +11,7 @@ namespace std {
 * exception[link /reference/exception/exception.md]
 
 ## 概要
-`bad_typeid`クラスは、ヌルポインタを指すオブジェクトを間接参照して`typeid`演算子に渡された場合に送出される例外である。
+`bad_typeid`クラスは、ヌルポインタを指すオブジェクトを間接参照して`typeid`演算�に渡された場合に送出される例外である。
 
 
 ## メンバ関数
@@ -20,7 +20,7 @@ namespace std {
 |-------------------------------------------------------------------------|--------------------|---|
 | `bad_typeid() noexcept;`<br/> `bad_typeid(const bad_typeid&) noexcept;` | コンストラクタ | |
 | `virtual ~bad_typeid() = default;`                                      | デストラクタ | |
-| `bad_typeid& operator=(const bad_typeid&) noexcept;`                    | 代入演算子 | |
+| `bad_typeid& operator=(const bad_typeid&) noexcept;`                    | 代入演算� | |
 | `virtual const char* what() const noexcept;`                            | 実装定義のエラー内容を取得する | |
 
 
@@ -39,7 +39,7 @@ int main()
     // オブジェクトpは Polymorphic* 型
     std::cout << "1: " << typeid(p).name() << std::endl;
 
-    // ヌルポインタを指すオブジェクトを間接参照してtypeid演算子に渡す…
+    // ヌルポインタを指すオブジェクトを間接参照してtypeid演算�に渡す…
     std::cout << "2: " << typeid(*p).name() << std::endl;
   }
   catch (std::bad_typeid& e) {

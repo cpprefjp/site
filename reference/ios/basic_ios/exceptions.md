@@ -11,11 +11,11 @@ void exceptions(iostate except);    // (2)
 ```
 
 ## 概要
-例外マスク（特定の状態時に例外を投げる指定）の設定・取得を行う。
+例外マスク（特定の状態時に例外を投げる指定）の�定・取得を行う。
 
 ## 効果
 - (1) -
-- (2) 例外マスクを引数 `except` に設定する（`exceptions() == except` となる）。  
+- (2) 例外マスクを引数 `except` に�定する（`exceptions() == except` となる）。  
     その後、[`clear`](clear.md)`(`[`rdstate`](rdstate.md)`())` を実行する（結果として、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md) 例外が送出される可能性がある）。
 
 ## 戻り値
@@ -69,7 +69,7 @@ end
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)
-- 状態値の読み取り
+- 状態値の�み取り
     - [`rdstate`](rdstate.md)
     - [`good`](good.md)
     - [`eof`](eof.md)

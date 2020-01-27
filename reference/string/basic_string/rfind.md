@@ -18,7 +18,7 @@ size_type rfind(std::basic_string_view<charT, traits> sv,
 ```
 
 ## 概要
-最後に現れる指定文字列を検索する。
+最後に現れる指定文�列を検索する。
 
 
 ## 要件
@@ -27,8 +27,8 @@ size_type rfind(std::basic_string_view<charT, traits> sv,
 
 ## 効果
 - (1) `pos` より前で最後に `str` と一致する位置を返す。
-- (2) `pos` より前で最後に `s` と一致する位置を返す。`s` は長さ `n` の文字列へのポインタである。
-- (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
+- (2) `pos` より前で最後に `s` と一致する位置を返す。`s` は長さ `n` の文�列へのポインタである。
+- (3) (2) と同様だが、こちらは NULL 終端の文�列を扱う。
 - (4) `pos` より前で最後に `c` と一致する位置を返す。
 - (5) `pos` より前で最後に `sv` と一致する位置を返す。
 
@@ -43,12 +43,12 @@ size_type rfind(std::basic_string_view<charT, traits> sv,
 
 
 ## 備考
-- `pos` は比較対象となる最後の文字位置では無いことに注意。（例を参照）
-- 文字列の一致は、文字列の各文字について `traits_type::eq` を用いて検査される。  
+- `pos` は比較対象となる最後の文�位置では無いことに注意。（例を参照）
+- 文�列の一致は、文�列の各文�について `traits_type::eq` を用いて検査される。  
 	例えば、(1) の形式の場合、以下のような条件を満たす最大の `xpos` を求める。
 	* `xpos <= pos` かつ `xpos + str.size() <= size()`
 	* `0 <= I` かつ `I < str.size()` を満たす全ての `I` について、`traits_type::eq(at(xpos + I), str.at(I))`
-- (3) の形式の場合、`s` の文字列長は `traits_type::length(s)` で求められる。
+- (3) の形式の場合、`s` の文�列長は `traits_type::length(s)` で求められる。
 
 
 ## 例
@@ -67,7 +67,7 @@ int main()
   // pos を後ろの "world" の "w" の一つ前にすると、後ろの "world" は見つからずに前の "world" が見つかる
   std::cout << s.rfind("world", 28) << std::endl;
 
-  // 標準の char_traits では大文字と小文字は区別されるため、"world" の "w" は見つからずに "Welcome" の "W" が見つかる
+  // 標準の char_traits では大文�と小文�は区別されるため、"world" の "w" は見つからずに "Welcome" の "W" が見つかる
   std::cout << s.rfind('W', 29) << std::endl;
 }
 ```

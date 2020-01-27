@@ -9,7 +9,7 @@ basic_istream<CharT, Traits>& unget();
 ```
 
 ## 概要
-（非書式化入力関数）最後に読み取った1文字をストリームバッファの入力に戻す。
+（非書式化入力関数）最後に�み取った1文�をストリームバッファの入力に戻す。
 
 非書式化入力関数であるが、初めに`eofbit`を消去する点が通常と異なる。
 
@@ -24,7 +24,7 @@ basic_istream<CharT, Traits>& unget();
 `*this`。
 
 ## 備考
-この関数は1文字も入力を行わないため、この後の`gcount()`は`0`を返す。
+この関数は1文�も入力を行わないため、この後の`gcount()`は`0`を返す。
 
 ## 例
 ```cpp example
@@ -33,12 +33,12 @@ basic_istream<CharT, Traits>& unget();
 #include <sstream>
 #include <string>
 
-// isからアルファベットだけを読み込んで返す関数。
+// isからアルファベットだけを�み込んで返す関数。
 std::string input_alphabet(std::istream& is) {
   std::string s;
   char c;
   while (is.get(c)) {
-    // getで得た文字がアルファベットではなかったら、ungetでストリームに戻す。
+    // getで得た文�がアルファベットではなかったら、ungetでストリームに戻す。
     if (!std::isalpha(c, is.getloc())) {
       is.unget();
       break;
@@ -84,7 +84,7 @@ basic_istream<CharT, Traits>& unget() {
       setstate(badbit);
     }
   } catch (...) {
-    例外を投げずにbadbitを設定する;
+    例外を投げずにbadbitを�定する;
     if ((exceptions() & badbit) != 0) {
       throw;
     }

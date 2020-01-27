@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  // 文字の書式化出力
+  // 文�の書式化出力
   template<class CharT, class Traits>
   basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, CharT c);                    // (1)
   template<class CharT, class Traits>
@@ -32,7 +32,7 @@ namespace std {
   template<class traits>
   basic_ostream<wchar_t, traits>& operator<<(basic_ostream<wchar_t, traits>&, char32_t) = delete;         // (12) C++20から
 
-  // 文字列の書式化出力
+  // 文�列の書式化出力
   template<class CharT, class Traits>
   basic_ostream<CharT, Traits>& operator<<(basic_ostream<CharT, Traits>& os, const CharT* s);             // (13)
   template<class CharT, class Traits>
@@ -69,41 +69,41 @@ namespace std {
 
 ストリームへの出力を行う。
 
-- 文字に対するオーバーロードは、書式化出力関数である。
-- 文字列に対するオーバーロードは、書式化出力関数である。
+- 文�に対するオーバー�ードは、書式化出力関数である。
+- 文�列に対するオーバー�ードは、書式化出力関数である。
 
 ## 効果
 
-### (1)～(5) 文字の書式化出力
+### (1)～(5) 文�の書式化出力
 
-文字 `c` を出力ストリーム `os` に出力する。この際、`os` に設定されている幅、埋め文字、および、整列方向に従う。  
-なお、(2) の形式（`os` の文字型（`char_type`）が `char` 以外で `c` が `char` ）の時は、`c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
+文� `c` を出力ストリーム `os` に出力する。この際、`os` に�定されている幅、埋め文�、および、整列方向に従う。  
+なお、(2) の形式（`os` の文�型（`char_type`）が `char` 以外で `c` が `char` ）の時は、`c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
-### (6)～(12) 文字の書式化出力 (C++20)
+### (6)～(12) 文�の書式化出力 (C++20)
 
 これらの関数は削除されている
 
-### (13)～(17) 文字列の書式化出力
+### (13)～(17) 文�列の書式化出力
 
-ヌル終端文字列 `s` を出力ストリーム `os` に出力する。この際、`os` に設定されている幅、埋め文字、および、整列方向に従う。  
-出力する文字列の長さは以下で求める。
+ヌル終端文�列 `s` を出力ストリーム `os` に出力する。この際、`os` に�定されている幅、埋め文�、および、整列方向に従う。  
+出力する文�列の長さは以下で求める。
 
 - (13) と (15) の形式：`Traits::length(s)`
 - (14) の形式：`std::`[`char_traits`](../../string/char_traits.md)`<char>::`[`length`](../../string/char_traits/length.md)`(s)`
 - (16) と (17) の形式：`Traits::length(reinterpret_cast<const char*>(s))`
 
-なお、(14) の形式（`os` の文字型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文字 `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
+なお、(14) の形式（`os` の文�型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文� `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
-### (18)～(24) 文字列の書式化出力
+### (18)～(24) 文�列の書式化出力
 
 これらの関数は削除されている
 
 ### (25) 右辺値参照ストリームへの出力 (C++11)
 
 `os << x`を実行する。  
-このオーバーロードは、一時オブジェクトなどに対して`<<`演算子を利用可能にするためのものである。
+このオーバー�ードは、一時オブジェクトなどに対して`<<`演算�を利用可能にするためのものである。
 
 ## 戻り値
 
@@ -113,8 +113,8 @@ namespace std {
 
 - (25) の形式は C++11 から追加されたが、より使いやすくするための変更が提案されている。  
 	[LWG1203. More useful rvalue stream insertion](https://wg21.cmeerw.net/lwg/issue1203)
-- (3)、および、(15) の形式は、オーバーロード解決時の曖昧さ解消のために存在する。  
-	（これらが存在しないと、`CharT` が `char` 型の場合に、(1) と (2)、あるいは (13) と (14) が同じ優先順位となりオーバーロード解決に失敗してしまう）
+- (3)、および、(15) の形式は、オーバー�ード解決時の曖昧さ解消のために�在する。  
+	（これらが�在しないと、`CharT` が `char` 型の場合に、(1) と (2)、あるいは (13) と (14) が同じ優先順位となりオーバー�ード解決に失敗してしまう）
 
 
 ## 例
@@ -216,12 +216,12 @@ TBD
 ### 言語
 - C++98
 - C++11: ストリームへの右辺値参照を実引数として受け取るものが追加された
-- C++20: `char8_t`等への対応の一環として`delete`指定されたoverloadが追加された
+- C++20: `char8_t`�への対応の一環として`delete`指定されたoverloadが追加された
 
 
 ## 関連項目
 
-- このほかの`<<`演算子関数
+- このほかの`<<`演算�関数
     - [`bool`値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの](op_ostream.md)
 	- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
 	- [`std::error_code`に関するもの](../../system_error/error_code/op_ostream.md)

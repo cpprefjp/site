@@ -17,7 +17,7 @@ iterator emplace(Args&&... args);
 ## 要件
 このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。
 
-ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をア�ケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
@@ -55,8 +55,8 @@ iterator emplace(Args&&... args);
 	| コンテナ                                                              | シグネチャ                                                                         |
 	|-----------------------------------------------------------------------|------------------------------------------------------------------------------------|
 	| シーケンスコンテナ                                                    | `template <class... Args>`<br/> `iterator emplace(const_iterator, Args&&...)`      |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
 	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
 
@@ -86,7 +86,7 @@ namespace std {
   };
 }
 
-// サンプル用クラスのための挿入演算子
+// サンプル用クラスのための挿入演算�
 std::ostream& operator<<(std::ostream& os, const is& p)
 {
   return os << '(' << p.first << ',' << p.second << ')';
@@ -154,7 +154,7 @@ int main()
 | [`swap`](swap.md)                       | 内容の交換                                             |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                       |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、設定                                 |
+| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、�定                                 |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 

@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 効果
-以下と等価：
+以下と�価：
 
 ```
 erase_if(c, [&](auto& elem) { return elem == value; });

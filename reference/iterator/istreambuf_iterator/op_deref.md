@@ -13,7 +13,7 @@ CharT operator*() const
 
 
 ## 戻り値
-`sbuf_->sgetc()`で文字を読み込んで返す。
+`sbuf_->sgetc()`で文�を�み込んで返す。
 
 ※`sbuf_`はメンバ変数として保持している`streambuf_type`オブジェクトへのポインタ
 

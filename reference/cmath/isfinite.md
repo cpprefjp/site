@@ -20,11 +20,11 @@ namespace std {
 
 
 ## 戻り値
-パラメータ`x`がゼロ、非正規化数、正規化数のいずれかであり、無限大とNaNのいずれでもない場合に有限値であると見なし、`true`を返す。そうでない場合、`false`を返す。
+パラメータ`x`がゼ�、非�規化数、�規化数のいずれかであり、無限大とNaNのいずれでもない場合に有限値であると見なし、`true`を返す。そうでない場合、`false`を返す。
 
 
 ## 備考
-C標準ライブラリでは`isfinite`は関数マクロとして定義されるが、C++標準ライブラリでは関数として定義される。
+C標準ライブラリでは`isfinite`は関数マク�として定義されるが、C++標準ライブラリでは関数として定義される。
 
 
 ## 例
@@ -36,21 +36,21 @@ C標準ライブラリでは`isfinite`は関数マクロとして定義される
 
 int main()
 {
-  // 正規化数は有限値
+  // �規化数は有限値
   bool result_normal = std::isfinite(3.0f);
   assert(result_normal);
 
-  // ゼロは有限値
+  // ゼ�は有限値
   bool result_zero = std::isfinite(0.0f);
   assert(result_zero);
 
   if (std::numeric_limits<float>::has_denorm) {
-    // 非正規化数は有限値
+    // 非�規化数は有限値
     bool result_denorm = std::isfinite(std::numeric_limits<float>::denorm_min());
     assert(result_denorm);
   }
   else {
-    std::cout << "非正規化数を持たない環境です" << std::endl;
+    std::cout << "非�規化数を持たない環境です" << std::endl;
   }
 
   // 無限大は有限値ではない

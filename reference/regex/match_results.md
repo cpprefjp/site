@@ -36,7 +36,7 @@ namespace std {
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
-`match_results` は正規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（[`sub_match`](sub_match.md)）である。  
+`match_results` は�規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（[`sub_match`](sub_match.md)）である。  
 コンテナとは言っても [`regex_match`](regex_match.md) や [`regex_search`](regex_search.md) のマッチ結果を格納することを目的としているため、
 一般的なコンテナのように通常の操作でコンテナに要素を格納したり変更したりすることはできない。
 
@@ -45,13 +45,13 @@ namespace std {
 なお、[`regex_iterator`](regex_iterator.md) を間接参照した際の `match_results` オブジェクトは常にマッチ結果を格納している（[`ready`](match_results/ready.md)`() == true`）。
 
 マッチ結果を格納した `match_results` オブジェクトは、マッチが成功した場合には 1 つ以上の要素を格納しているため、[`empty`](match_results/empty.md)`() == false` となる。  
-マッチに成功し [`empty`](match_results/empty.md)`() == false` となった `match_results` オブジェクトに格納されている各要素（サブマッチ：[`sub_match`](sub_match.md)）には、標準シーケンスコンテナの [`vector`](../vector.md) 等と同様に [`operator[]`](match_results/op_at.md) で直接アクセスすることができるだけでなく、
+マッチに成功し [`empty`](match_results/empty.md)`() == false` となった `match_results` オブジェクトに格納されている各要素（サブマッチ：[`sub_match`](sub_match.md)）には、標準シーケンスコンテナの [`vector`](../vector.md) �と同様に [`operator[]`](match_results/op_at.md) で直接アクセスすることができるだけでなく、
 [`str`](match_results/str.md)、[`position`](match_results/position.md)、[`length`](match_results/length.md) といったメンバ関数で各要素の内容にアクセスすることもできる。  
-最初の要素には、マッチした文字列全体を表すサブマッチが格納され、以降に各キャプチャグループ（正規表現内の括弧で囲まれた部分に対応する）が続く。  
-また、マッチした文字列だけでなく、マッチした文字列の前（[`prefix`](match_results/prefix.md)）、および、後（[`suffix`](match_results/suffix.md)）を指すサブマッチも保持している。
+最初の要素には、マッチした文�列全体を表すサブマッチが格納され、以降に各�ャプチャグループ（�規表現内の括弧で囲まれた部分に対応する）が続く。  
+また、マッチした文�列だけでなく、マッチした文�列の前（[`prefix`](match_results/prefix.md)）、および、後（[`suffix`](match_results/suffix.md)）を指すサブマッチも保持している。
 さらに、マッチした結果を用いた書式出力機能も有する（[`format`](match_results/format.md)）。
 
-`match_results` はアロケータ対応コンテナの要件のすべて、および、シーケンスコンテナの要件のうち読み取り専用の操作をサポートしている。  
+`match_results` はア�ケータ対応コンテナの要件のすべて、および、シーケンスコンテナの要件のうち�み取り専用の操作をサポートしている。  
 `match_results` オブジェクトからメンバ関数で取得できるイテレータについて規格では特に言及されていないが、[`operator[]`](match_results/op_at.md) が使用できることから通常ランダムアクセスイテレータであるもの考えても差し支えないものと思われる。
 
 
@@ -62,7 +62,7 @@ namespace std {
 |---------------------------------------------------|----------------|----------------|
 | [`(constructor)`](match_results/op_constructor.md) | コンストラクタ | C++11          |
 | [`(destructor)`](match_results/op_destructor.md) | デストラクタ   | C++11          |
-| [`operator=`](match_results/op_assign.md)         | 代入演算子     | C++11          |
+| [`operator=`](match_results/op_assign.md)         | 代入演算�     | C++11          |
 
 ### 状態
 
@@ -84,24 +84,24 @@ namespace std {
 |-----------------------------------------|----------------------------------------------------|----------------|
 | [`length`](match_results/length.md)     | 指定されたサブマッチの長さを返す                   | C++11          |
 | [`position`](match_results/position.md) | 指定されたサブマッチの位置を返す                   | C++11          |
-| [`str`](match_results/str.md)           | 指定されたサブマッチを文字列の形で返す             | C++11          |
+| [`str`](match_results/str.md)           | 指定されたサブマッチを文�列の形で返す             | C++11          |
 | [`operator[]`](match_results/op_at.md)  | 指定されたサブマッチを返す                         | C++11          |
-| [`prefix`](match_results/prefix.md)     | マッチした文字列の前の文字列を示すサブマッチを返す | C++11          |
-| [`suffix`](match_results/suffix.md)     | マッチした文字列の後の文字列を示すサブマッチを返す | C++11          |
-| [`begin`](match_results/begin.md)       | 先頭のサブマッチを指すイテレータを取得する         | C++11          |
+| [`prefix`](match_results/prefix.md)     | マッチした文�列の前の文�列を示すサブマッチを返す | C++11          |
+| [`suffix`](match_results/suffix.md)     | マッチした文�列の後の文�列を示すサブマッチを返す | C++11          |
+| [`begin`](match_results/begin.md)       | 先�のサブマッチを指すイテレータを取得する         | C++11          |
 | [`end`](match_results/end.md)           | 末尾のサブマッチの次を指すイテレータを取得する     | C++11          |
-| [`cbegin`](match_results/cbegin.md)     | 先頭のサブマッチを指すイテレータを取得する         | C++11          |
+| [`cbegin`](match_results/cbegin.md)     | 先�のサブマッチを指すイテレータを取得する         | C++11          |
 | [`cend`](match_results/cend.md)         | 末尾のサブマッチの次を指すイテレータを取得する     | C++11          |
 
 ### フォーマット
 | 名前                                | 説明                                                     | 対応バージョン |
 |-------------------------------------|----------------------------------------------------------|----------------|
-| [`format`](match_results/format.md) | `match_results` オブジェクトを書式文字列に従って出力する | C++11          |
+| [`format`](match_results/format.md) | `match_results` オブジェクトを書式文�列に従って出力する | C++11          |
 
-### アロケータ
+### ア�ケータ
 | 名前                                              | 説明                             | 対応バージョン |
 |---------------------------------------------------|----------------------------------|----------------|
-| [`get_allocator`](match_results/get_allocator.md) | アロケータオブジェクトを取得する | C++11          |
+| [`get_allocator`](match_results/get_allocator.md) | ア�ケータオブジェクトを取得する | C++11          |
 
 ### 交換
 | 名前                            | 説明                         | 対応バージョン |
@@ -114,21 +114,21 @@ namespace std {
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------------|
 | `value_type`      | 要素の型。[`sub_match`](sub_match.md)`<BidirectionalIterator>` の別名                                                                     | C++11          |
 | `const_reference` | `const` 参照の型。`const value_type&` の別名                                                                                              | C++11          |
-| `reference`       | 参照の型。`value_type&` の別名（C++11 では `const value_type&` となっていたが、規格のバグとして C++14 で修正された）                      | C++11          |
-| `const_iterator`  | 読み取り専用イテレータの型。実装依存の型の別名                                                                                            | C++11          |
+| `reference`       | 参照の型。`value_type&` の別名（C++11 では `const value_type&` となっていたが、規格のバグとして C++14 で修�された）                      | C++11          |
+| `const_iterator`  | �み取り専用イテレータの型。実装依�の型の別名                                                                                            | C++11          |
 | `iterator`        | イテレータの型。`const_iterator`                                                                                                          | C++11          |
 | `difference_type` | 2 つのイテレータの差の型。`typename` [`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::difference_type` の別名 | C++11          |
 | `size_type`       | `typename` [`allocator_traits`](../memory/allocator_traits.md)`<Allocator>::size_type` の別名                                             | C++11          |
-| `allocator_type`  | アロケータオブジェクトの型。`Allocator` の別名                                                                                            | C++11          |
-| `char_type`       | 文字の型。`typename` [`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::value_type` の別名                      | C++11          |
-| `string_type`     | 文字列の型。[`basic_string`](../string/basic_string.md)`<char_type>` の別名                                                               | C++11          |
+| `allocator_type`  | ア�ケータオブジェクトの型。`Allocator` の別名                                                                                            | C++11          |
+| `char_type`       | 文�の型。`typename` [`iterator_traits`](../iterator/iterator_traits.md)`<BidirectionalIterator>::value_type` の別名                      | C++11          |
+| `string_type`     | 文�列の型。[`basic_string`](../string/basic_string.md)`<char_type>` の別名                                                               | C++11          |
 
 ## 非メンバ関数
 
 | 名前                                          | 説明                                                | 対応バージョン |
 |-----------------------------------------------|-----------------------------------------------------|----------------|
-| [`operator==`](match_results/op_equal.md)     | 等値比較を行う                                      | C++11          |
-| [`operator!=`](match_results/op_not_equal.md) | 非等値比較を行う                                    | C++11          |
+| [`operator==`](match_results/op_equal.md)     | �値比較を行う                                      | C++11          |
+| [`operator!=`](match_results/op_not_equal.md) | 非�値比較を行う                                    | C++11          |
 | [`swap`](match_results/swap_free.md)          | 2 つの `match_results` オブジェクトの内容を交換する | C++11          |
 
 ## 例

@@ -11,7 +11,7 @@ void pop(std::error_code& ec);
 ```
 
 ## 概要
-そのディレクトリの走査を中断する。
+そのディレクトリの走査を��する。
 
 
 ## 戻り値
@@ -36,7 +36,7 @@ int main()
   fs::recursive_directory_iterator it{"dir"};
   fs::recursive_directory_iterator last{};
   for (; it != last; ++it) {
-    // エラーが発生したと想定し、inner_dirディレクトリの走査を中断する
+    // エラーが発生したと想定し、inner_dirディレクトリの走査を��する
     if (it->path().filename() == "b.txt") {
       it.pop(); // 親ディレクトリを指す (continueしてはいけない)
     }

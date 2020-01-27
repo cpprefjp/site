@@ -15,15 +15,15 @@ namespace std {
 この機能はC++17から非推奨となり、C++20で削除された。代わりに[`std::uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)を使用すること。
 
 ## 概要
-キャッチされていない例外があるかどうかを判定する。
+�ャッチされていない例外があるかどうかを判定する。
 
 
 ## 戻り値
-例外オブジェクトが生成され、スローされてからキャッチするまでの間に`true`を返す。
+例外オブジェクトが生成され、ス�ーされてから�ャッチするまでの間に`true`を返す。
 
 また、明示的に[`terminate()`](/reference/exception/terminate.md)を呼び出し、実際に呼び出されるまでの間に`true`を返す。
 
-具体的には、`try`ブロック中で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)中のデストラクタ、[`terminate()`](/reference/exception/terminate.md)の場合は生存している全てのオブジェクトのデストラクタで`true`になる。
+具体的には、`try`ブ�ック�で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)�のデストラクタ、[`terminate()`](/reference/exception/terminate.md)の場合は生�している全てのオブジェクトのデストラクタで`true`になる。
 
 
 ## 例外

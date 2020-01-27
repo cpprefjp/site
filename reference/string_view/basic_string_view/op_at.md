@@ -10,7 +10,7 @@ constexpr const_reference operator[](size_type pos) const;
 ```
 
 ## 概要
-任意の位置の文字を取得する。
+任意の位置の文�を取得する。
 
 
 ## 要件
@@ -29,7 +29,7 @@ return data()[pos];
 
 
 ## 備考
-[`std::basic_string`](/reference/string/basic_string.md)`::`[`operator[]`](/reference/string/basic_string/op_at.md)は`s[s.size()]`で`CharT()`を返すが、`std::basic_string_view`クラスのこの演算子では未定義動作となる
+[`std::basic_string`](/reference/string/basic_string.md)`::`[`operator[]`](/reference/string/basic_string/op_at.md)は`s[s.size()]`で`CharT()`を返すが、`std::basic_string_view`クラスのこの演算�では未定義動作となる
 
 
 ## 例

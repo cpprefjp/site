@@ -11,7 +11,7 @@ explicit operator local_time<duration>() const; // (1) C++20
 * local_time[link /reference/chrono/local_time.md]
 
 ## 概要
-ローカル時間[`local_time`](/reference/chrono/local_time.md)に明示的に型変換する。
+�ーカル時間[`local_time`](/reference/chrono/local_time.md)に明示的に型変換する。
 
 この関数によって、タイムゾーンを考慮した時間への変換が行われる (UTC -> 日本時間であれば9時間が加算される)。
 
@@ -37,12 +37,12 @@ int main()
   chrono::local_time local_now{now.time_since_epoch()};
   chrono::local_time local_jst_now = now - chrono::hours{9};
 
-  // UTCタイムゾーンのシステム時間から、Asia/Tokyoタイムゾーンのローカル時間に変換する
+  // UTCタイムゾーンのシステム時間から、Asia/Tokyoタイムゾーンの�ーカル時間に変換する
   chrono::zoned_time zt1{"Asia/Tokyo", now};
   chrono::local_time lt1{zt1};
   assert(lt1 == local_jst_now);
 
-  // UTCタイムゾーンのローカル時間から、Asia/Tokyoタイムゾーンのローカル時間に変換する
+  // UTCタイムゾーンの�ーカル時間から、Asia/Tokyoタイムゾーンの�ーカル時間に変換する
   chrono::zoned_time zt2{"Asia/Tokyo", local_now};
   chrono::local_time lt2{zt2};
   assert(lt2 == local_jst_now);

@@ -11,8 +11,8 @@ stop_token& operator=(stop_token&& r) noexcept;      // (2)
 ```
 
 ## 概要
-- (1) : コピー代入演算子。
-- (2) : ムーブ代入演算子。
+- (1) : コピー代入演算�。
+- (2) : ムーブ代入演算�。
 
 
 ## 効果
@@ -44,13 +44,13 @@ int main()
   assert(st1.stop_requested() == false);
   assert(st2.stop_requested() == false);
 
-  // (1) コピー代入演算子
+  // (1) コピー代入演算�
   st2 = st1;
   assert(st2 == st1);
   assert(st1.stop_possible() == true);
   assert(st2.stop_possible() == true);
 
-  // (2) ムーブ代入演算子
+  // (2) ムーブ代入演算�
   st3 = std::move(st1);
   assert(st1.stop_possible() == false);
   assert(st3.stop_possible() == true);

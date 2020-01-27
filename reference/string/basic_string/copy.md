@@ -9,7 +9,7 @@ size_type copy(charT* s, size_type n, size_type pos = 0) const;
 ```
 
 ## 概要
-他の文字列に、自身の文字列をコピーする。
+他の文�列に、自身の文�列をコピーする。
 
 
 ## 要件
@@ -17,10 +17,10 @@ size_type copy(charT* s, size_type n, size_type pos = 0) const;
 
 
 ## 効果
-`n`と[`size()`](size.md) `- pos`のうち、小さい方をコピーする長さとして、自身の文字列をパラメータ`s`にコピーする。  
-`pos`はコピーを開始する、自身の文字列の開始位置。  
+`n`と[`size()`](size.md) `- pos`のうち、小さい方をコピーする長さとして、自身の文�列をパラメータ`s`にコピーする。  
+`pos`はコピーを開始する、自身の文�列の開始位置。  
 
-この関数は、文字列`s`にヌルオブジェクトを追加しない。
+この関数は、文�列`s`にヌルオブジェクトを追加しない。
 
 
 ## 戻り値
@@ -48,7 +48,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // 先頭3要素だけコピーする
+  // 先�3要素だけコピーする
   {
     char result[3 + 1] = {};
     s.copy(result, 3);

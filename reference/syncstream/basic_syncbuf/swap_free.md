@@ -19,7 +19,7 @@ template<class charT, class traits, class Allocator>
 
 
 ## 効果
-`a.`[`swap`](swap.md)`(b);`と等価である。
+`a.`[`swap`](swap.md)`(b);`と�価である。
 
 
 ## 戻り値

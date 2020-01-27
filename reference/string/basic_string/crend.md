@@ -9,7 +9,7 @@ const_reverse_iterator crend() const noexcept;
 ```
 
 ## 概要
-先頭の前を指す逆イテレータを取得する。
+先�の前を指す逆イテレータを取得する。
 
 
 ## 戻り値
@@ -30,7 +30,7 @@ int main()
 {
   std::string s = "hello";
 
-  // 文字列オブジェクトsに含まれる、全ての要素を逆順に出力
+  // 文�列オブジェクトsに含まれる、全ての要素を逆順に出力
   std::for_each(s.crbegin(), s.crend(), [](char c) {
     std::cout << c << std::endl;
   });

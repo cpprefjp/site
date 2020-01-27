@@ -9,7 +9,7 @@ namespace std {
   template <class T>
   complex<T> proj(const complex<T>& x);
 
-  complex<Promoted> proj(Arithmetic x);	// 追加のオーバーロード：C++11 から
+  complex<Promoted> proj(Arithmetic x);	// 追加のオーバー�ード：C++11 から
 }
 ```
 * Promoted[italic]
@@ -18,26 +18,26 @@ namespace std {
 ## 概要
 リーマン球面への射影（備考参照）を得る。proj は projection（射影、投射）の略。
 
-なお、C++11 で追加されたオーバーロードは、以下のように規定されている。
+なお、C++11 で追加されたオーバー�ードは、以下のように規定されている。
 
-- 実引数の型が `long double` の場合、`complex<long double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `double` か整数型の場合、`complex<double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `float` の場合、`complex<float>` にキャストされているかのように振る舞う。
+- 実引数の型が `long double` の場合、`complex<long double>` に�ャストされているかのように振る舞う。
+- そうでなくて、実引数の型が `double` か整数型の場合、`complex<double>` に�ャストされているかのように振る舞う。
+- そうでなくて、実引数の型が `float` の場合、`complex<float>` に�ャストされているかのように振る舞う。
 
-また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない。
+また、これらの追加のオーバー�ードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない。
 
 ## 戻り値
 引数 `x` のリーマン球面への射影
 
 
 ## 備考
-- 本関数は、C99 の規格にある `cproj`（より正確には `complex.h` ヘッダの `cproj`、`cprojf`、`cprojl` の 3 つ。それぞれ C++ の `proj<double>`、`proj<float>`、`proj<long double>` に相当）と等価である。  
+- 本関数は、C99 の規格にある `cproj`（より�確には `complex.h` ヘッダの `cproj`、`cprojf`、`cprojl` の 3 つ。それぞれ C++ の `proj<double>`、`proj<float>`、`proj<long double>` に相当）と�価である。  
 - 本関数は、`x` が無限大ではない場合、`x` そのものを返す。ここで「無限大ではない」とは、`!`[`isinf`](/reference/cmath/isinf.md)`(`[`real`](real.md)`(x)) && !`[`isinf`](/reference/cmath/isinf.md)`(`[`imag`](imag.md)`(x))` である。  
 	`x` が無限大の場合、[`complex`](op_constructor.md)`<T>(`[`numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`infinity`](/reference/limits/numeric_limits/infinity.md)`(),` [`copysign`](/reference/cmath/copysign.md)`(T(),` [`imag`](imag.md)`(x)))` を返す。
 
 ## リーマン球面上の複素数値
 複素数は複素平面上に表示することで2次元平面上の1点とみなすことができる。  
-二次元平面はその原点から遠ざかる方向に無限の広がりを持っており、その無限遠点は原点を中心に360°の自由度を持つ。すなわち、複素数値の無限遠点は無数に存在している。
+二次元平面はその原点から遠ざかる方向に無限の広がりを持っており、その無限遠点は原点を�心に360°の自由度を持つ。すなわち、複素数値の無限遠点は無数に�在している。
 
 ここに新しく1つの無限遠点を導入し、そのほかの無限遠点をそこにまとめることを考える。この時、二次元平面はその外縁部を1点にまとめるように織り込まれる（風呂敷包みのようなイメージ）。  
 その1点を例えば天頂（北極点）にとり、元の平面の原点を天底（南極点）に取って織り込まれた平面を球としてみると、元の複素平面（二次元平面）はその球面上に自然に展開される。元の複素平面からこの球面上に写された複素数値は明らかに元の複素数値と同一となるが、原点（南極点）から無限に遠ざかった無限遠点だけは異なり、必ず1点（北極点）に収束するようになる。  

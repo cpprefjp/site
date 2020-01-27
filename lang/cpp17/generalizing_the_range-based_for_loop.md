@@ -127,7 +127,7 @@ for.cpp:42:41: error: conversion from ‘EndOfDelimitedString<'|'>’ to non-sca
 
 ## この機能が必要になった背景・経緯
 
-Range TS (technical specification) では `Sentinel` (番兵) 等の範囲の終端を表すコンセプトが提案されているが、
+Range TS (technical specification) では `Sentinel` (番兵) �の範囲の終端を表すコンセプトが提案されているが、
 型が `begin` イテレータと異なるため範囲 for 文で使用できなかった
 ([N4128R1 §3.3.5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4128.html#an-iterables-end-may-have-a-different-type-than-its-begin))。
 
@@ -135,7 +135,7 @@ Range TS (technical specification) では `Sentinel` (番兵) 等の範囲の終
 
 ## 検討されたほかの選択肢
 
-[Boost.Foreach](http://boost.org/libs/foreach) のようなマクロは避けるべきだとされた。
+[Boost.Foreach](http://boost.org/libs/foreach) のようなマク�は避けるべきだとされた。
 
 
 ## 関連項目

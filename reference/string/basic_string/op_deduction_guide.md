@@ -52,25 +52,25 @@ using namespace std::string_view_literals;
 
 int main()
 {
-  // 文字列リテラルからの推論
+  // 文�列リテラルからの推論
   std::basic_string s1 = "Hello";
   static_assert(std::is_same_v<decltype(s1), std::basic_string<char>>);
 
-  // パラメータ設定済みbasic_stringからの推論
+  // パラメータ�定済みbasic_stringからの推論
   std::string s2_org = "Hello";
   std::basic_string s2 = s2_org;
   static_assert(std::is_same_v<decltype(s2), std::basic_string<char>>);
 
-  // 文字をN回繰り返すコンストラクタからの推論
+  // 文�をN回繰り返すコンストラクタからの推論
   std::basic_string s3 {3, 'a'};
   static_assert(std::is_same_v<decltype(s3), std::basic_string<char>>);
 
-  // 初期化子リストからの推論
+  // 初期化�リストからの推論
   std::basic_string s4 = {'H', 'e', 'l', 'l', 'o'};
   static_assert(std::is_same_v<decltype(s4), std::basic_string<char>>);
 
   // イテレータ範囲からの推論。
-  // {s1.begin(), s1.end()} とすると、イテレータの初期化子リストと見なされてしまい、
+  // {s1.begin(), s1.end()} とすると、イテレータの初期化�リストと見なされてしまい、
   // basic_string<decltype(s1)::iterator>型に推論されてしまうので注意
   std::basic_string s5(s1.begin(), s1.end());
   static_assert(std::is_same_v<decltype(s5), std::basic_string<char>>);

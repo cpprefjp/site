@@ -19,11 +19,11 @@ namespace std {
 ```
 
 ## 概要
-数値`val`を`string`型文字列に変換する。
+数値`val`を`string`型文�列に変換する。
 
 
 ## 戻り値
-各数値型に対して、`sprintf(buf, fmt, val)`によって生成された文字列の`string`オブジェクトを返す。使用されるバッファサイズは未規定。
+各数値型に対して、`sprintf(buf, fmt, val)`によって生成された文�列の`string`オブジェクトを返す。使用されるバッファサイズは未規定。
 
 各型で使用されるフォーマットは以下のようになる：
 
@@ -166,7 +166,7 @@ std::string to_string(long double val)
 | 名前                            | 参照                      |
 |---------------------------------|---------------------------|
 | [`to_wstring`](to_wstring.md) | 数値を`wstring`に変換する |
-| [`to_chars`](/reference/charconv.md) | ロケール依存しない高速な変換 |
+| [`to_chars`](/reference/charconv.md) | �ケール依�しない高速な変換 |
 
 
 ## 参照

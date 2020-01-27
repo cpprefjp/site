@@ -11,9 +11,9 @@ namespace std {
 ```
 
 ## 概要
-`recursive_timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、再帰的なロックと、ロック取得のタイムアウト機能をサポートする。[`lock()`](recursive_timed_mutex/lock.md)メンバ関数によってリソースのロックを取得し、[`unlock()`](recursive_timed_mutex/unlock.md)メンバ関数でリソースのロックを手放す。
+`recursive_timed_mutex`は、スレッド間で使用する共有リソースを排他制御するためのクラスであり、再帰的な�ックと、�ック取得のタイムアウト機能をサポートする。[`lock()`](recursive_timed_mutex/lock.md)メンバ関数によってリソースの�ックを取得し、[`unlock()`](recursive_timed_mutex/unlock.md)メンバ関数でリソースの�ックを手放す。
 
-このクラスのデストラクタは自動的に[`unlock()`](recursive_timed_mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といったロック管理クラスと併用する。
+このクラスのデストラクタは自動的に[`unlock()`](recursive_timed_mutex/unlock.md)メンバ関数を呼び出すことはないため、通常このクラスのメンバ関数は直接は呼び出さず、[`lock_guard`](/reference/mutex/lock_guard.md)や[`unique_lock`](/reference/mutex/unique_lock.md)といった�ック管理クラスと併用する。
 
 
 ## メンバ関数
@@ -22,12 +22,12 @@ namespace std {
 |---------------------------------------------------------------------|--------------------------------------------------------|-------|
 | [`(constructor)`](recursive_timed_mutex/op_constructor.md) | コンストラクタ | C++11 |
 | [`(destructor)`](recursive_timed_mutex/op_destructor.md) | デストラクタ | C++11 |
-| `operator=(const recursive_timed_mutex&) = delete`                  | 代入演算子 | C++11 |
-| [`lock`](recursive_timed_mutex/lock.md)                           | ロックを取得する | C++11 |
-| [`try_lock`](recursive_timed_mutex/try_lock.md)                   | ロックの取得を試みる | C++11 |
-| [`try_lock_for`](recursive_timed_mutex/try_lock_for.md)           | タイムアウトする相対時間を指定してロックの取得を試みる | C++11 |
-| [`try_lock_until`](recursive_timed_mutex/try_lock_until.md)       | タイムアウトする絶対時間を指定してロックの取得を試みる | C++11 |
-| [`unlock`](recursive_timed_mutex/unlock.md)                       | ロックを手放す | C++11 |
+| `operator=(const recursive_timed_mutex&) = delete`                  | 代入演算� | C++11 |
+| [`lock`](recursive_timed_mutex/lock.md)                           | �ックを取得する | C++11 |
+| [`try_lock`](recursive_timed_mutex/try_lock.md)                   | �ックの取得を試みる | C++11 |
+| [`try_lock_for`](recursive_timed_mutex/try_lock_for.md)           | タイムアウトする相対時間を指定して�ックの取得を試みる | C++11 |
+| [`try_lock_until`](recursive_timed_mutex/try_lock_until.md)       | タイムアウトする絶対時間を指定して�ックの取得を試みる | C++11 |
+| [`unlock`](recursive_timed_mutex/unlock.md)                       | �ックを手放す | C++11 |
 | [`native_handle`](recursive_timed_mutex/native_handle.md)         | ミューテックスのハンドルを取得する | C++11 |
 
 
@@ -35,7 +35,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|----------------------|-------|
-| `native_handle_type` | 実装依存のハンドル型 | C++11 |
+| `native_handle_type` | 実装依�のハンドル型 | C++11 |
 
 
 ## 例
@@ -52,9 +52,9 @@ class counter {
 public:
   int add(int value)
   {
-    // ロックを取得する(3秒でタイムアウト)
+    // �ックを取得する(3秒でタイムアウト)
     if (!mtx_.try_lock_for(std::chrono::seconds(3))) {
-      // ロック取得がタイムアウト
+      // �ック取得がタイムアウト
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }
@@ -68,14 +68,14 @@ public:
 
   int increment()
   {
-    // ロックを取得する(3秒でタイムアウト)
+    // �ックを取得する(3秒でタイムアウト)
     if (!mtx_.try_lock_for(std::chrono::seconds(3))) {
-      // ロック取得がタイムアウト
+      // �ック取得がタイムアウト
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }
 
-    int result = add(1); // add()関数内でも同じミューテックスからロックを取得する
+    int result = add(1); // add()関数内でも同じミューテックスから�ックを取得する
 
     mtx_.unlock();
 

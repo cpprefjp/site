@@ -15,7 +15,7 @@ constexpr source_location() noexcept;
 
 ## 事後条件
 
-[`file_name`](file_name.md)`()`、[`function_name`](function_name.md)`()`の値は有効なヌル終端バイト文字列(NTBS)である。
+[`file_name`](file_name.md)`()`、[`function_name`](function_name.md)`()`の値は有効なヌル終端バイト文�列(NTBS)である。
 
 ## 例外
 投げない。

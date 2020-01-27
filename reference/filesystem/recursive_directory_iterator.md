@@ -25,7 +25,7 @@ namespace std::filesystem {
 |------|------|-------|
 | [`(constructor)`](recursive_directory_iterator/op_constructor.md) | コンストラクタ | C++17 |
 | `~recursive_directory_iterator();`                                | デストラクタ | C++17 |
-| [`operator=`](recursive_directory_iterator/op_assign.md)          | 代入演算子 | C++17 |
+| [`operator=`](recursive_directory_iterator/op_assign.md)          | 代入演算� | C++17 |
 
 
 ### 観測
@@ -41,12 +41,12 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`operator*`](recursive_directory_iterator/op_deref.md)      | 間接参照演算子 | C++17 |
-| [`operator->`](recursive_directory_iterator/op_arrow.md)     | メンバアクセス演算子 | C++17 |
+| [`operator*`](recursive_directory_iterator/op_deref.md)      | 間接参照演算� | C++17 |
+| [`operator->`](recursive_directory_iterator/op_arrow.md)     | メンバアクセス演算� | C++17 |
 | [`operator++`](recursive_directory_iterator/op_increment.md) | イテレータを進める | C++17 |
 | [`increment`](recursive_directory_iterator/increment.md)     | イテレータを進める | C++17 |
-| [`pop`](recursive_directory_iterator/pop.md)                 | そのディレクトリの走査を中断する | C++17 |
-| [`disable_recursion_pending`](recursive_directory_iterator/disable_recursion_pending.md) | 再帰を止める | C++17 |
+| [`pop`](recursive_directory_iterator/pop.md)                 | そのディレクトリの走査を��する | C++17 |
+| [`disable_recursion_pending`](recursive_directory_iterator/disable_recursion_pending.md) | 再帰を�める | C++17 |
 
 
 ## メンバ型
@@ -65,15 +65,15 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`begin`](recursive_directory_iterator/begin_free.md) | 先頭要素へのイテレータを取得する | C++17 |
+| [`begin`](recursive_directory_iterator/begin_free.md) | 先�要素へのイテレータを取得する | C++17 |
 | [`end`](recursive_directory_iterator/end_free.md)     | 最後尾要素の次を指すイテレータを取得する | C++17 |
 
-### 比較演算子
+### 比較演算�
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| [`operator==`](recursive_directory_iterator/op_equal.md)     | 等値比較 | C++17 |
-| [`operator!=`](recursive_directory_iterator/op_not_equal.md) | 非等値比較 | C++17 |
+| [`operator==`](recursive_directory_iterator/op_equal.md)     | �値比較 | C++17 |
+| [`operator!=`](recursive_directory_iterator/op_not_equal.md) | 非�値比較 | C++17 |
 
 
 ## 例

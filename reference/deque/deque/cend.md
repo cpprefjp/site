@@ -10,7 +10,7 @@ const_iterator cend() const noexcept;
 ```
 
 ## 概要
-末尾要素の次を指す読み取り専用イテレータを取得する。
+末尾要素の次を指す�み取り専用イテレータを取得する。
 
 [`end()`](end.md)は非`const`な`deque`オブジェクトに対して`iterator`を返し、`const`な`deque`オブジェクトに対しては`const_iterator`を返すが、`cend()`は`const_iterator`を返すバージョンのみが提供されている。
 
@@ -18,7 +18,7 @@ const_iterator cend() const noexcept;
 
 
 ## 戻り値
-末尾要素の次を指す読み取り専用イテレータ
+末尾要素の次を指す�み取り専用イテレータ
 
 
 ## 例外
@@ -30,7 +30,7 @@ const_iterator cend() const noexcept;
 
 
 ## 備考
-- この関数によって返されるイテレータは、`*this`が保持するいずれの要素も参照しない。その指す先は、不正な範囲となるだろう
+- この関数によって返されるイテレータは、`*this`が保持するいずれの要素も参照しない。その指す先は、不�な範囲となるだろう
 
 
 ## 例

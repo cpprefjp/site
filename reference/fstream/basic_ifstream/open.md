@@ -26,7 +26,7 @@ void open(
 ## 効果
 
 - (1) : 仮引数`s`で指定したファイルを開く。
-    - [`rdbuf()->open(s, mode | std::ios_base::in)`](/reference/fstream/basic_filebuf/open.md)を呼び出す(少なくとも読み取り操作ができる)。その結果が成功だった（戻り値がヌルポインタではなかった）場合、[`clear()`](/reference/ios/basic_ios/clear.md)を呼び出す。その結果が失敗だった（戻り値がヌルポインタだった）場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
+    - [`rdbuf()->open(s, mode | std::ios_base::in)`](/reference/fstream/basic_filebuf/open.md)を呼び出す(少なくとも�み取り操作ができる)。その結果が成功だった（戻り値がヌルポインタではなかった）場合、[`clear()`](/reference/ios/basic_ios/clear.md)を呼び出す。その結果が失敗だった（戻り値がヌルポインタだった）場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
 - (2) : [`std::filesystem​::​path​::​value_type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(1)と同じ。
 - (3) : ファイルを指定する引数の型が`std::string`である点を除き、(1)と同じ。
 - (4) : ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(1)と同じ。

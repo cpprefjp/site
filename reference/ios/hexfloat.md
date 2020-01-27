@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-浮動小数点数を十六進法で出力することを指示するマニピュレータ。
+浮動小数点数を十�進法で出力することを指示するマニピュレータ。
 
 [`printf()`](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/printf.3.html)関数の`%a`／`%A`相当。
 

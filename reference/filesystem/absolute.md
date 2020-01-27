@@ -29,14 +29,14 @@ namespace std::filesystem {
 
 
 ## 例外
-- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、指定されたファイルが存在しない場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、指定されたファイルが�在しない場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
 - (2) : 仕様上は未規定だが、パスのメモリ確保で例外が発生する可能性がある
 
 
 ## 備考
 - エラーが発生しない限り、この関数によって返されたパス`rp`は、`rp.`[`is_absolute()`](path/is_absolute.md) `== true`である
 - シンボリックリンクの解決や、セカンダリ・ハードディスクへのクエリが必要な場合には、[`canonical()`](canonical.md)関数の使用を検討すること
-- 実装に対して、パス`p`にファイルが存在することをチェックしないよう強く推奨しており、`!`[`exists`](exists.md)`(p)`であってもエラーにはならない
+- 実装に対して、パス`p`にファイルが�在することをチェックしないよう強く推奨しており、`!`[`exists`](exists.md)`(p)`であってもエラーにはならない
 - POSIXベースシステムでの実装は、単純に[`current_path()`](current_path.md)`/p`となる。Windowsの場合は、`GetFullPathNameW()`関数と同じ意味論となる
 
 
@@ -49,7 +49,7 @@ namespace fs = std::filesystem;
 
 int main()
 {
-  // 現在の作業ディレクトリ直下の (存在しない) ファイル"a.txt"の、絶対パスを取得する
+  // 現在の作�ディレクトリ直下の (�在しない) ファイル"a.txt"の、絶対パスを取得する
   fs::path p = fs::absolute("a.txt");
   std::cout << p << std::endl;
 }

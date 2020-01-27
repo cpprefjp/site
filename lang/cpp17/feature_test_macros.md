@@ -1,15 +1,15 @@
-# 機能テストマクロ
+# 機能テストマク�
 * cpp17[meta cpp]
 
 ## 概要
 
-SD-6 は C++17 の機能について以下のテストマクロを定義することを推奨している：
+SD-6 は C++17 の機能について以下のテストマク�を定義することを推奨している：
 
 ### 言語機能
 
-| マクロ名 | 値 | 機能 |
+| マク�名 | 値 | 機能 |
 |----------|----|------|
-| `__cpp_hex_float`                            | `201603` | [十六進浮動小数点数リテラル](hexadecimal_floating_literals.md) |
+| `__cpp_hex_float`                            | `201603` | [十�進浮動小数点数リテラル](hexadecimal_floating_literals.md) |
 | `__cpp_inline_variables`                     | `201606` | [インライン変数](inline_variables.md) |
 | `__cpp_aligned_new`                          | `201606` | [アライメント指定されたデータの動的メモリ確保](dynamic_memory_allocation_for_over-aligned_data.md) |
 | `__cpp_guaranteed_copy_elision`              | `201606` | [値のコピー省略を保証](guaranteed_copy_elision.md) |
@@ -22,7 +22,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_deduction_guides`                     | `201606`<br/> `201611` | [クラステンプレートのテンプレート引数推論](type_deduction_for_class_templates.md) |
 | `__cpp_nontype_template_parameter_auto`      | `201606` | [非型テンプレートパラメータの`auto`宣言](declaring_non-type_template_arguments_with_auto.md) |
 | `__cpp_namespace_attributes`                 | `201411` | [名前空間への属性付加を許可](attributes_for_namespaces_and_enumerators.md) |
-| `__cpp_enumerator_attributes`                | `201411` | [列挙子への属性付加を許可](attributes_for_namespaces_and_enumerators.md) |
+| `__cpp_enumerator_attributes`                | `201411` | [列挙�への属性付加を許可](attributes_for_namespaces_and_enumerators.md) |
 | `__cpp_inheriting_constructors`              | `201511` | 継承コンストラクタの新仕様 |
 | `__cpp_variadic_using`                       | `201611` | [`using`宣言のパック展開](pack_expansions_in_using.md) |
 | `__has_cpp_attribute(fallthrough)`           | `true`   | [`[[fallthrough]]`属性](fallthrough.md) |
@@ -31,12 +31,12 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_structured_bindings`                  | `201606` | [構造化束縛](structured_bindings.md) |
 | `__cpp_aggregate_bases`                      | `201603` | [集成体初期化の拡張](extension_to_aggregate_initialization.md) |
 | `__cpp_nontype_template_args`                | `201411` | [非型テンプレートパラメータの定数式を評価](allow_constant_evaluation_for_all_non-type_template_arguments.md) |
-| `__cpp_nested_namespace_definitions`         | `201411` | [入れ子名前空間の定義](nested_namespace.md) |
+| `__cpp_nested_namespace_definitions`         | `201411` | [入れ�名前空間の定義](nested_namespace.md) |
 
 
 ### ライブラリ
 
-| マクロ名 | 値 | 機能 | ヘッダ |
+| マク�名 | 値 | 機能 | ヘッダ |
 |----------|----|------|--------|
 | `__cpp_lib_byte`                              | `201603` | [`std::byte`](/reference/cstddef/byte.md) | [`<cstddef>`](/reference/cstddef.md) |
 | `__cpp_lib_hardware_interference_size`        | `201703` | [`std::hardware_destructive_interference_size`](/reference/new/hardware_destructive_interference_size.md)と[`std::hardware_constructive_interference_size`](/reference/new/hardware_constructive_interference_size.md) | [`<new>`](/reference/new.md) |
@@ -63,7 +63,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_void_t`                            | `201411` | [`std::void_t`](/reference/type_traits/void_t.md) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_bool_constant`                     | `201505` | [`std::bool_constant`](/reference/type_traits/bool_constant.md) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_type_trait_variable_templates`     | `201510` | 型トレイト変数テンプレート (`some_trait_v<T> = some_trait<T>::value`) | [`<type_traits>`](/reference/type_traits.md) |
-| `__cpp_lib_logical_traits`                    | `201510` | 論理演算子型トレイト ([`std::conjunction`](/reference/type_traits/conjunction.md), [`std::disjunction`](/reference/type_traits/disjunction.md), [`std::negation`](/reference/type_traits/negation.md)) | [`<type_traits>`](/reference/type_traits.md) |
+| `__cpp_lib_logical_traits`                    | `201510` | 論理演算�型トレイト ([`std::conjunction`](/reference/type_traits/conjunction.md), [`std::disjunction`](/reference/type_traits/disjunction.md), [`std::negation`](/reference/type_traits/negation.md)) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_is_swappable`                      | `201603` | [`std::is_swappable`](/reference/type_traits/is_swappable.md)と関連する機能 | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_is_invocable`                      | `201703` | [`std::is_invocable`](/reference/type_traits/is_invocable.md)と関連する機能 | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_has_unique_object_representations` | `201606` | [`std::has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md) | [`<type_traits>`](/reference/type_traits.md) |
@@ -82,11 +82,11 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_clamp`                             | `201603` | [`std::clamp()`](/reference/algorithm/clamp.md) | [`<algorithm>`](/reference/algorithm.md) |
 | `__cpp_lib_gcd_lcm`                           | `201606` | [`std::gcd()`](/reference/numeric/gcd.md)と[`std::lcm()`](/reference/numeric/lcm.md) | [`<numeric>`](/reference/numeric.md) |
 | `__cpp_lib_hypot`                             | `201603` | 3引数版の[`std::hypot()`](/reference/cmath/hypot.md) | [`<cmath>`](/reference/cmath.md) |
-| `__cpp_lib_math_special_functions`            | `201603` | 数学の特殊関数 | [`<cmath>`](/reference/cmath.md) |
+| `__cpp_lib_math_special_functions`            | `201603` | 数�の特殊関数 | [`<cmath>`](/reference/cmath.md) |
 | `__cpp_lib_filesystem`                        | `201703` | ファイルシステムライブラリ | [`<filesystem>`](/reference/filesystem.md) |
 | `__cpp_lib_atomic_is_always_lock_free`        | `201603` | [`std::atomic`](/reference/atomic/atomic.md)クラスの静的メンバ定数`is_always_lock_free` | [`<atomic>`](/reference/atomic.md) |
 | `__cpp_lib_shared_mutex`                      | `201505` | [`std::shared_mutex`](/reference/shared_mutex/shared_mutex.md) | [`<shared_mutex>`](/reference/shared_mutex.md) |
-| `__cpp_lib_scoped_lock`                       | `201703` | 可変個のミューテックスのロックを管理する[`std::scoped_lock`](/reference/mutex/scoped_lock.md) | [`<mutex>`](/reference/mutex.md) |
+| `__cpp_lib_scoped_lock`                       | `201703` | 可変個のミューテックスの�ックを管理する[`std::scoped_lock`](/reference/mutex/scoped_lock.md) | [`<mutex>`](/reference/mutex.md) |
 
 
 ## 参照

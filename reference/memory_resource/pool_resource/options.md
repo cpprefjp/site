@@ -11,13 +11,13 @@ pool_options options() const;
 * pool_options[link /reference/memory_resource/pool_options.md]
 
 ## 概要
-内部のメモリプールの設定を取得する。
+内部のメモリプールの�定を取得する。
 
 ## 戻り値
 内部のメモリプールを調整している値を保持した[`pool_options`](/reference/memory_resource/pool_options.md)。
 
-返される値はコンストラクタで設定した値と異なる可能性がある。  
-ゼロの値は実装定義のデフォルト値に置き換えられて返され、各サイズ指定は指定していない端数を持つ可能性がある（例えば、2の累乗等）。
+返される値はコンストラクタで�定した値と異なる可能性がある。  
+ゼ�の値は実装定義のデフォルト値に置き換えられて返され、各サイズ指定は指定していない端数を持つ可能性がある（例えば、2の累乗�）。
 
 ## 例
 以下では`synchronized_pool_resource`で書いてあるが、`unsynchronized_pool_resource`も同様。

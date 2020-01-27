@@ -11,7 +11,7 @@ int value(char_type ch, int radix) const;
 
 
 ## 概要
-文字の整数表現を取得する。
+文�の整数表現を取得する。
 
 
 ## 要件
@@ -19,7 +19,7 @@ int value(char_type ch, int radix) const;
 
 
 ## 戻り値
-基数`radix`の数字文字`ch`に対応する数値を返す。対応する数値がない場合は`-1`を返す。
+基数`radix`の数�文�`ch`に対応する数値を返す。対応する数値がない場合は`-1`を返す。
 
 
 ## 例
@@ -31,7 +31,7 @@ int main()
 {
   std::regex_traits<char> traits;
 
-  // 10進数の数字文字'1'の数値表現を取得
+  // 10進数の数�文�'1'の数値表現を取得
   int value = traits.value('1', 10);
   assert(value == 1);
 }

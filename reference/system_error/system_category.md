@@ -22,7 +22,7 @@ namespace std {
 
 この関数によって返されるオブジェクトのクラスは以下の特徴を持つ：
 
-- [`name()`](error_category/name.md)関数によって返される文字列は`"system"`
+- [`name()`](error_category/name.md)関数によって返される文�列は`"system"`
 - [`equivalent()`](error_category/equivalent.md)仮想関数の挙動は、基底クラスである[`error_category`](error_category.md)と同じである
 - [`default_error_condition()`](error_category/default_error_condition.md)仮想関数は、パラメータ`ev`がPOSIXの`errno`であった場合 [`error_condition`](error_condition.md)`(ev,` [`generic_category()`](generic_category.md)`);` を返し、そうでない場合は[`error_condition`](error_condition.md)`(ev, system_category());` を返す。特定のOSに関する処理は未規定。ただし、POSIXのエラー値に対応していない場合がありえるため、環境によっては[`generic_category()`](generic_category.md)が返される挙動はサポートされない。
 

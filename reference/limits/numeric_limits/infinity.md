@@ -13,13 +13,13 @@ static constexpr T infinity() noexcept;
 ```
 
 ## 概要
-浮動小数点数型における、正の無限表現を取得する。  
+浮動小数点数型における、�の無限表現を取得する。  
 
-`numeric_limits<float>::`[`has_infinity`](has_infinity.md)`()`が`true`のとき、`numeric_limits<float>::infinity()`は[`INFINITY`](../../cmath/infinity.md)マクロの値と等しい。
+`numeric_limits<float>::`[`has_infinity`](has_infinity.md)`()`が`true`のとき、`numeric_limits<float>::infinity()`は[`INFINITY`](../../cmath/infinity.md)マク�の値と�しい。
 
 
 ## 戻り値
-[`has_infinity`](has_infinity.md)`() != false` の場合、正の無限表現。
+[`has_infinity`](has_infinity.md)`() != false` の場合、�の無限表現。
 
 [`has_infinity`](has_infinity.md)`() == false` の場合、有意な値を返さない。
 
@@ -29,7 +29,7 @@ static constexpr T infinity() noexcept;
 
 
 ## 備考
-[`is_iec559`](is_iec559.md)`() != false` の場合、必ず [`has_infinity`](has_infinity.md)`() != false` であるため、本関数の戻り値も必ず有意である（正の無限大を返す）。
+[`is_iec559`](is_iec559.md)`() != false` の場合、必ず [`has_infinity`](has_infinity.md)`() != false` であるため、本関数の戻り値も必ず有意である（�の無限大を返す）。
 
 
 ## 例

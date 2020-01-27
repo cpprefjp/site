@@ -38,12 +38,12 @@ namespace std {
 | [`operator()`](discrete_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|--------------------------------------------|-------|
 | [`probabilities`](discrete_distribution/probabilities.md) | インデックスに対応する確率の数列を取得する | C++11 |
-| [`param`](discrete_distribution/param.md)                 | 分布のパラメータを取得／設定する           | C++11 |
+| [`param`](discrete_distribution/param.md)                 | 分布のパラメータを取得／�定する           | C++11 |
 | [`min`](discrete_distribution/min.md)                     | 下限を取得する                           | C++11 |
 | [`max`](discrete_distribution/max.md)                     | 上限を取得する                           | C++11 |
 
@@ -60,8 +60,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|----------------------|-------|
-| [`operator==`](discrete_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](discrete_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](discrete_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](discrete_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](discrete_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](discrete_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -114,7 +114,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（;[discrete_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution.tsv.7z)）を図示する。
+このプ�グラムによってある時に得られた結果（;[discrete_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution.tsv.7z)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution.png) 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution-hist.png)

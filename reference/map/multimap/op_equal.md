@@ -9,7 +9,7 @@ bool operator==(const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 ```
 
 ## 概要
-`x` が `y` と等しいかどうかの判定を行う。
+`x` が `y` と�しいかどうかの判定を行う。
 
 
 ## 戻り値

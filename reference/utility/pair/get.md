@@ -74,7 +74,7 @@ namespace std {
 ## 概要
 タプルと見なせる型から指定した位置の要素を取得する。
 
-`<utility>`ヘッダでは、[`pair`](/reference/utility/pair.md)に関するオーバーロードを提供する。
+`<utility>`ヘッダでは、[`pair`](/reference/utility/pair.md)に関するオーバー�ードを提供する。
 
 
 ## 要件

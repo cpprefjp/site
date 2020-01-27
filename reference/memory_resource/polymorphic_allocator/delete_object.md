@@ -26,7 +26,7 @@ void delete_object(T* p);
 
 ## 効果
 
-以下と等価。
+以下と�価。
 
 ```cpp
 this->destroy(p);

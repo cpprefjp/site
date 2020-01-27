@@ -10,11 +10,11 @@ static constexpr T denorm_min() noexcept; // (1) C++11
 ```
 
 ## 概要
-浮動小数点数型において、最小の正の非正規化数(denormalized value)を取得する。
+浮動小数点数型において、最小の�の非�規化数(denormalized value)を取得する。
 
-対応するマクロを次の表に挙げる。
+対応するマク�を次の表に挙げる。
 
-| 型            | 対応するマクロ |
+| 型            | 対応するマク� |
 |---------------|----------------|
 | `float`       | [`FLT_TRUE_MIN`](/reference/cfloat/flt_true_min.md)  |
 | `double`      | [`DBL_TRUE_MIN`](/reference/cfloat/dbl_true_min.md)  |
@@ -22,7 +22,7 @@ static constexpr T denorm_min() noexcept; // (1) C++11
 
 
 ## 戻り値
-最小の正の非正規化数
+最小の�の非�規化数
 
 
 ## 例外

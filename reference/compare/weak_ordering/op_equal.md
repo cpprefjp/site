@@ -11,18 +11,18 @@ friend constexpr bool operator==(weak_ordering v, weak_ordering w) noexcept = de
 
 friend constexpr bool operator==(weak_ordering v, /*unspecified*/) noexcept;   // (2)
 
-// (2)により、以下のオーバーロードが使用可能になる
+// (2)により、以下のオーバー�ードが使用可能になる
 friend constexpr bool operator==(/*unspecified*/, weak_ordering v) noexcept;   // (3)
 ```
 
 ## 概要
 
-- (1) : `weak_ordering`同士の等値比較を行う
+- (1) : `weak_ordering`同士の�値比較を行う
 - (2)(3) : `weak_ordering`の値が`weak_ordering::equivalent`であるかを調べる。
 
 ## 戻り値
 
-`int`型のメンバ変数`value`に各有効値に対応する値を保持しているとして、以下と等価
+`int`型のメンバ変数`value`に各有効値に対応する値を保持しているとして、以下と�価
 
 - (1) : `return v.value == w.value` 
 - (2) : `return v.value == 0` 
@@ -32,7 +32,7 @@ friend constexpr bool operator==(/*unspecified*/, weak_ordering v) noexcept;   /
 投げない。
 
 ## 備考
-この演算子により、以下の演算子が使用可能になる：
+この演算�により、以下の演算�が使用可能になる：
 
   - `bool operator!=(weak_ordering v, weak_ordering w) noexcept;`
   - `bool operator!=(weak_ordering v, /*unspecified*/) noexcept;`

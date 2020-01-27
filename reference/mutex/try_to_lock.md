@@ -13,7 +13,7 @@ namespace std {
 ```
 
 ## 概要
-`try_to_lock_t`型とその値`try_to_lock`は、遅延ロックのためのタグである。
+`try_to_lock_t`型とその値`try_to_lock`は、遅延�ックのためのタグである。
 
 `lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](unique_lock.md)クラスのコンストラクタで`lock()`の代わりに`try_lock()`を呼び出すために使用する。
 
@@ -29,7 +29,7 @@ int main()
   {
     std::unique_lock<std::mutex> lk(mtx, std::try_to_lock); // lock()の代わりにtry_lock()を呼び出す
     if (!lk) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

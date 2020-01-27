@@ -22,7 +22,7 @@ void rehash(size_type n);
 
 
 ## 例外
-ハッシュ関数、および、キー比較用関数以外から例外が投げられた場合、コンテナは変更されない。
+ハッシュ関数、および、�ー比較用関数以外から例外が投げられた場合、コンテナは変更されない。
 
 
 ## 計算量
@@ -36,7 +36,7 @@ void rehash(size_type n);
 	- 要素の格納されているバケットが変更になる。
 	- 要素へのポインタや参照は無効に**ならない**。
 - 現在のバケット数が `n` 以上の場合の動作は、標準では特に規定されていない。
-- 標準では、事後条件が [`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` となっている（等号がない）が、[`load_factor`](load_factor.md)`()`（`=` [`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）の条件は [`max_load_factor`](max_load_factor.md)`() >=` [`load_factor`](load_factor.md)`()` である（等号がある）ため、[`bucket_count`](bucket_count.md)`() >=` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` の（等号がある）方が適切であると思われる。
+- 標準では、事後条件が [`bucket_count`](bucket_count.md)`() >` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` となっている（�号がない）が、[`load_factor`](load_factor.md)`()`（`=` [`size`](size.md)`() /` [`bucket_count`](bucket_count.md)`()`）の条件は [`max_load_factor`](max_load_factor.md)`() >=` [`load_factor`](load_factor.md)`()` である（�号がある）ため、[`bucket_count`](bucket_count.md)`() >=` [`size`](size.md)`() /` [`max_load_factor`](max_load_factor.md)`()` の（�号がある）方が適切であると思われる。
 
 
 ## 例
@@ -97,6 +97,6 @@ bucket_count is 13
 | [`size`](size.md)                       | 要素数の取得 |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得 |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、�定 |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整 |
 

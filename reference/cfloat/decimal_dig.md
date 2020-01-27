@@ -9,8 +9,8 @@
 ```
 
 ## 概要
-精度が一番高い浮動小数点型の数値を10進数で正確に表すのに必要な有効数字の桁数を表すマクロ。  
-より正確には、精度が一番高い浮動小数点型のあらゆる数値を、$n$ 桁の10進数に変換し、また元に戻した場合に値が変わらないような最小の整数値 $n$ を表すマクロ。  
+精度が一番高い浮動小数点型の数値を10進数で�確に表すのに必要な有効数�の桁数を表すマク�。  
+より�確には、精度が一番高い浮動小数点型のあらゆる数値を、$n$ 桁の10進数に変換し、また元に戻した場合に値が変わらないような最小の整数値 $n$ を表すマク�。  
 以下の式で表される。
 
 $$
@@ -25,13 +25,13 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p_{\rm max}$ は精度が一番高い浮動小数点型の精度（基数 $b$ での仮数部の桁数）である。  
 $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-`T` を精度が一番高い浮動小数点型とすると、[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`max_digits10`](/reference/limits/numeric_limits/max_digits10.md) と等しい。
+`T` を精度が一番高い浮動小数点型とすると、[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`max_digits10`](/reference/limits/numeric_limits/max_digits10.md) と�しい。
 
 ## 備考
 - 規格で 10 以上であることが規定されている。
-- 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
+- 本マク�は `#if` プリプ�セッサディレクティブに使用可能な定数式である。
 - `DECIMAL_DIG` は DECIMAL DIGits（decimal：10進数、digit：桁）に由来する。
-- 各型毎の桁数を示すマクロも定義されている
+- 各型毎の桁数を示すマク�も定義されている
     - [`DBL_DECIMAL_DIG`](dbl_decimal_dig.md)
     - [`FLT_DECILAL_DIG`](flt_decimal_dig.md)
     - [`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)
@@ -47,7 +47,7 @@ int main()
 {
   std::cout << DECIMAL_DIG << '\n';
 
-  // 精度が一番高い浮動小数点型が long double の場合、以下の式と等価
+  // 精度が一番高い浮動小数点型が long double の場合、以下の式と�価
   long double log10b = std::log10(FLT_RADIX);
   long double intpart;
   if (std::modf(log10b, &intpart) == 0.0) {
@@ -79,5 +79,5 @@ int main()
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
-	- 2013は、正しく実装されていない。C++11での最低値である10と定義されている。しかし、`double`および`long double`がIEEE 754倍精度で実装されているため、少なくとも17以上でなければならない。
-	- 2015は、正しく17と定義されている。
+	- 2013は、�しく実装されていない。C++11での最低値である10と定義されている。しかし、`double`および`long double`がIEEE 754倍精度で実装されているため、少なくとも17以上でなければならない。
+	- 2015は、�しく17と定義されている。

@@ -27,7 +27,7 @@ namespace std {
 引数の最小値を返す。
 
 ## 備考
-- 戻り値は正確で、現在の丸めモードに依存しない。
+- 戻り値は�確で、現在の丸めモードに依�しない。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - 引数の1つが NaN の場合 NaN でない方を返す。
     - 引数が2つとも NaN の場合 NaN を返す。

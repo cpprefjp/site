@@ -15,7 +15,7 @@ namespace std {
 
 
 ## 戻り値
-現在設定されている浮動小数点数の丸め方式を返す。
+現在�定されている浮動小数点数の丸め方式を返す。
 
 
 ## 例
@@ -38,7 +38,7 @@ int main()
   // デフォルト (FE_TONEAREST)
   print_round_mode(std::fegetround());
 
-  // 切り下げに設定する
+  // 切り下げに�定する
   std::fesetround(FE_DOWNWARD);
   print_round_mode(std::fegetround());
 }
@@ -66,5 +66,5 @@ downward
 - [GCC](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
-	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、�しく動作しないおそれがある。
 

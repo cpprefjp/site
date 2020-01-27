@@ -10,13 +10,13 @@ template<class T, class Alloc, class... Args>
 ```
 
 ## 概要
-`Alloc` 型のアロケータオブジェクト `alloc`、および、コンストラクタ引数 `args` を用いて、`T` 型のオブジェクトを uses-allocator 構築する。
+`Alloc` 型のア�ケータオブジェクト `alloc`、および、コンストラクタ引数 `args` を用いて、`T` 型のオブジェクトを uses-allocator 構築する。
 
 構築対象の型 `T` は関数引数からは推論できないため、明示的に指定する必要がある。
 
 
 ## 戻り値
-以下と同等
+以下と同�
 
 ```cpp
 make_from_tuple<T>(uses_allocator_construction_args<T>(alloc, std::forward<Args>(args)...))
@@ -27,8 +27,8 @@ make_from_tuple<T>(uses_allocator_construction_args<T>(alloc, std::forward<Args>
 
 
 ## 備考
-- [`uses_allocator_construction_args`](uses_allocator_construction_args.md) を見ればわかる通り、uses-allocator 構築は、その名前に反して必ずしもアロケータオブジェクトを使うとは限らないので注意。  
-	（[`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `false` の場合、アロケータオブジェクト `alloc` は無視される）
+- [`uses_allocator_construction_args`](uses_allocator_construction_args.md) を見ればわかる通り、uses-allocator 構築は、その名前に反して必ずしもア�ケータオブジェクトを使うとは限らないので注意。  
+	（[`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `false` の場合、ア�ケータオブジェクト `alloc` は無視される）
 
 
 ## 例
@@ -39,7 +39,7 @@ make_from_tuple<T>(uses_allocator_construction_args<T>(alloc, std::forward<Args>
 #include <memory>
 #include <new>
 
-// 状態付きアロケータ
+// 状態付きア�ケータ
 template <typename T>
 class MyAlloc {
 public:

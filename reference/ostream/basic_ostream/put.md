@@ -9,7 +9,7 @@ basic_ostream<CharT, Traits>& put(char_type c);
 ```
 
 ## 概要
-（非書式化出力関数）ストリームへ文字を出力する。
+（非書式化出力関数）ストリームへ文�を出力する。
 
 ## 効果
 1. [`sentry`](sentry.md) オブジェクトを構築する。[`sentry`](sentry.md) オブジェクトが失敗を示した場合、何もしない。

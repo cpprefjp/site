@@ -24,9 +24,9 @@ static constexpr int digits; // C++11
 ## 備考
 `is_specialized == false`の場合は`0`
 
-対応するマクロを次の表に挙げる。
+対応するマク�を次の表に挙げる。
 
-| 型            | 対応するマクロ                                      |
+| 型            | 対応するマク�                                      |
 |---------------|-----------------------------------------------------|
 | `float`       | [`FLT_MANT_DIG`](/reference/cfloat/flt_mant_dig.md) |
 | `double`      | [`DBL_MANT_DIG`](/reference/cfloat/dbl_mant_dig.md) |

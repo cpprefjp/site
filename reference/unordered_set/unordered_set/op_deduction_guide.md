@@ -54,10 +54,10 @@ namespace std {
 `std::unordered_set`クラステンプレートの型推論補助。
 
 - (1) : イテレータ範囲からの推論
-- (2) : 初期化子リスト、ハッシュ関数、比較関数オブジェクトからの推論
-- (3) : イテレータ範囲とアロケータからの推論
-- (4) : イテレータ範囲、ハッシュ関数、アロケータからの推論
-- (5) : 初期化子リストとアロケータからの推論
+- (2) : 初期化�リスト、ハッシュ関数、比較関数オブジェクトからの推論
+- (3) : イテレータ範囲とア�ケータからの推論
+- (4) : イテレータ範囲、ハッシュ関数、ア�ケータからの推論
+- (5) : 初期化�リストとア�ケータからの推論
 
 
 ## 備考
@@ -73,17 +73,17 @@ namespace std {
 int main()
 {
   // (2)
-  // 初期化子リストから推論
+  // 初期化�リストから推論
   std::unordered_set us1 = {1, 2, 3};
   static_assert(std::is_same_v<decltype(us1), std::unordered_set<int>>);
 
-  // パラメータ設定済みのsetからの推論
+  // パラメータ�定済みのsetからの推論
   std::unordered_set us2 = us1;
   static_assert(std::is_same_v<decltype(us2), std::unordered_set<int>>);
 
   // (1)
   // イテレータ範囲からの推論。
-  // us3{us1.begin(), us1.end()} とすると、イテレータの初期化子リストと見なされてしまうので注意
+  // us3{us1.begin(), us1.end()} とすると、イテレータの初期化�リストと見なされてしまうので注意
   std::unordered_set us3(us1.begin(), us1.end());
   static_assert(std::is_same_v<decltype(us3), std::unordered_set<int>>);
   assert(us3.size() == 3);

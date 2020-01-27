@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`stack` の等値比較を行う。
+`stack` の�値比較を行う。
 
 
 ## 戻り値

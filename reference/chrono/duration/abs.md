@@ -23,7 +23,7 @@ return d >= d.zero() ? d : -d;
 
 
 ## 備考
-- [`numeric_limits`](/reference/limits/numeric_limits.md)`<Rep>::is_signed == true`でない場合、この関数はオーバーロード解決の候補から外れる
+- [`numeric_limits`](/reference/limits/numeric_limits.md)`<Rep>::is_signed == true`でない場合、この関数はオーバー�ード解決の候補から外れる
 
 
 ## 例

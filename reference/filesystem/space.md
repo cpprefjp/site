@@ -22,10 +22,10 @@ namespace std::filesystem {
     - [`space_info::capacity`](space_info.md)の値は`statvfs::f_blocks * statvfs::f_frsize`
     - [`space_info::free`](space_info.md)の値は`statvfs::f_bfree * statvfs::f_frsize`
     - [`space_info::available`](space_info.md)の値は`statvfs::f_bavail * statvfs::f_frsize`
-- 容量を決定できない場合、[`space_info`](space_info.md)クラスのそのメンバ変数の値としては、`static_cast<`[`uintmax_t`](/reference/cstdint/uintmax_t.md)`>(-1)`を設定する
+- 容量を決定できない場合、[`space_info`](space_info.md)クラスのそのメンバ変数の値としては、`static_cast<`[`uintmax_t`](/reference/cstdint/uintmax_t.md)`>(-1)`を�定する
 - 容量をすべて取得できなかった場合は、
     - (1) : [`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
-    - (2) : `ec`にエラー情報を設定し、[`space_info`](space_info.md)クラスの全てのメンバ変数に、値として`static_cast<`[`uintmax_t`](/reference/cstdint/uintmax_t.md)`>(-1)`を設定する
+    - (2) : `ec`にエラー情報を�定し、[`space_info`](space_info.md)クラスの全てのメンバ変数に、値として`static_cast<`[`uintmax_t`](/reference/cstdint/uintmax_t.md)`>(-1)`を�定する
 
 
 ## 例外

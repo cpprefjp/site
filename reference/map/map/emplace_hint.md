@@ -43,7 +43,7 @@ int main()
 
   m.emplace( 1, 'A' );
 
-  // キー2の要素が最後尾に追加されることが事前にわかっているので、m.end()をヒントとして与える
+  // �ー2の要素が最後尾に追加されることが事前にわかっているので、m.end()をヒントとして与える
   m.emplace_hint( m.end(), 2, 'B' );
 
   for( const auto& pr : m ) {
@@ -83,7 +83,7 @@ int main()
 | [`map::insert`](insert.md)                     | 要素を挿入する                             |
 | [`map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
 | [`map::emplace`](emplace.md)                   | 要素を直接構築する                         |
-| [`map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
+| [`map::try_emplace`](try_emplace.md)           | �ーが�在しない場合のみ要素を直接構築する |
 
 
 ## 参照

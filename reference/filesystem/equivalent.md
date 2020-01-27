@@ -14,19 +14,19 @@ namespace std::filesystem {
 * std::uintmax_t[link /reference/cstdint/uintmax_t.md]
 
 ## 概要
-2つのエンティティが等価かを確認する。
+2つのエンティティが�価かを確認する。
 
-2つのエンティティが、ファイルシステムとして等価かを確認する。2つが同じパスの場合は等価、それに加えてシンボリックリンクと元のファイルも等価、同じinodeを参照するハードリンクも等価と判断される。
+2つのエンティティが、ファイルシステムとして�価かを確認する。2つが同じパスの場合は�価、それに加えてシンボリックリンクと元のファイルも�価、同じinodeを参照するハードリンクも�価と判�される。
 
 
 ## 戻り値
 - [`status`](status.md)`(p1)`を`s1`、[`status`](status.md)`(p2)`を`s2`として、
-- `s1 == s2`かつ`p1`と`p2`がファイルシステムとして等価のエンティティに解決される場合、`true`を返し、そうでなければ`false`を返す
-- `p1`と`p2`両方のエンティティが存在しない、`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合、およびファイルシステムでエラーが発生した場合、 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が設定されて`false`が返る
+- `s1 == s2`かつ`p1`と`p2`がファイルシステムとして�価のエンティティに解決される場合、`true`を返し、そうでなければ`false`を返す
+- `p1`と`p2`両方のエンティティが�在しない、`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合、およびファイルシステムでエラーが発生した場合、 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が�定されて`false`が返る
 
 
 ## 例外
-- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、`p1`と`p2`両方のエンティティが存在しない、`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、`p1`と`p2`両方のエンティティが�在しない、`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
 - (2) : 投げない
 
 
@@ -47,15 +47,15 @@ int main()
   fs::create_directory("dir");
   fs::create_directory_symlink("dir", "dir_symlink");
 
-  // パスを正規化した結果として等価のパスを指している
+  // パスを�規化した結果として�価のパスを指している
   assert(fs::equivalent("regular.txt", "./regular.txt"));
 
-  // シンボリックリンクとその元は等価
+  // シンボリックリンクとその元は�価
   assert(fs::equivalent("regular.txt", "regular.symlink"));
   assert(fs::equivalent("regular-2.txt", "regular.symlink"));
   assert(fs::equivalent("dir", "dir_symlink"));
 
-  // 同じinodeを参照するハードリンクは等価
+  // 同じinodeを参照するハードリンクは�価
   assert(fs::equivalent("regular.txt", "regular-2.txt"));
 }
 ```

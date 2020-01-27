@@ -26,7 +26,7 @@ inline namespace string_view_literals {
 ## 概要
 `basic_string_view`型のリテラル。
 
-文字列リテラルを受け取り、各文字型の`basic_string_view`オブジェクトを構築する。
+文�列リテラルを受け取り、各文�型の`basic_string_view`オブジェクトを構築する。
 
 - (1) : `string_view`型のリテラル
 - (2) : `u8string_view`型のリテラル
@@ -44,9 +44,9 @@ inline namespace string_view_literals {
 
 
 ## 備考
-- 中間にヌル文字を含む文字列リテラルから`basic_string_view`オブジェクトを構築する場合、コンストラクタを使用するよりもこちらの関数を使用したほうがよい。
-    - `const char*`をとるコンストラクタは[`std::char_traits`](/reference/string/char_traits.md)`::`[`length()`](/reference/string/char_traits/length.md)関数を使用して文字列長を計算するため、ヌル終端となってしまう
-    - こちらの関数は文字列リテラルの長さを直接扱うため、文字列全体を参照する`basic_string_view`オブジェクトを構築できる
+- �間にヌル文�を含む文�列リテラルから`basic_string_view`オブジェクトを構築する場合、コンストラクタを使用するよりもこちらの関数を使用したほうがよい。
+    - `const char*`をとるコンストラクタは[`std::char_traits`](/reference/string/char_traits.md)`::`[`length()`](/reference/string/char_traits/length.md)関数を使用して文�列長を計算するため、ヌル終端となってしまう
+    - こちらの関数は文�列リテラルの長さを直接扱うため、文�列全体を参照する`basic_string_view`オブジェクトを構築できる
 
 
 ## 例
@@ -101,4 +101,4 @@ Hel
 
 
 ## 参照
-- [文字列リテラルからの`std::string_view`構築 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20171115/p1)
+- [文�列リテラルからの`std::string_view`構築 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20171115/p1)

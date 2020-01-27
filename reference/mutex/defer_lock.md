@@ -13,7 +13,7 @@ namespace std {
 ```
 
 ## 概要
-`defer_lock_t`型とその値`defer_lock`は、遅延ロックのためのタグである。
+`defer_lock_t`型とその値`defer_lock`は、遅延�ックのためのタグである。
 
 `lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](unique_lock.md)クラスのコンストラクタで`lock()`を呼び出させないために使用する。
 
@@ -28,7 +28,7 @@ int main()
   std::mutex mtx;
   {
     std::unique_lock<std::mutex> lk(mtx, std::defer_lock); // ここではlock()されない
-    lk.lock(); // あとからロックする
+    lk.lock(); // あとから�ックする
 
     // ...共有リソースにアクセスする...
 

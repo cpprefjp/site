@@ -38,16 +38,16 @@ list オブジェクトの構築
 
 
 ## 効果
-- (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して、空のコンテナを作る。
-- (2) : アロケータを指定して空のコンテナを作る。
+- (1) : デフォルトコンストラクタ。ア�ケータをデフォルト構築して、空のコンテナを作る。
+- (2) : ア�ケータを指定して空のコンテナを作る。
 - (3) : `value` のコピーを `n` 個要素として保持した `list` を構築する。
 - (4) : `n` 個の `T()` 初期化された要素を保持した `list` を構築する。
 - (5) : `[first, last)` の範囲を要素としてコピーした `list` を構築する。
 - (6) : コピーコンストラクタ。`x` と同じ要素を保持した `list` を構築する。
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `list` を構築する。
-- (8) : アロケータを指定したコピーコンストラクタ。
-- (9) : アロケータを指定したムーブコンストラクタ。
-- (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と等価。
+- (8) : ア�ケータを指定したコピーコンストラクタ。
+- (9) : ア�ケータを指定したムーブコンストラクタ。
+- (10) : 初期化�リストを受け取るコンストラクタ。`list(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と�価。
 
 
 ## 計算量
@@ -60,11 +60,11 @@ list オブジェクトの構築
 
 
 ## 備考
-- (5) の形式は、C++03 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- (5) の形式は、C++03 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と�価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバー�ード解決に参加しないように変更された。
 - C++11 では、(3) の形式の引数 `value` に関するデフォルト引数が削除され、新たに (4) の形式が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`list` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `list` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 
-- C++14 では、(1) の形式と (2) の形式がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
+- C++14 では、(1) の形式と (2) の形式がデフォルト引数を使用しない 2 つのオーバー�ードに分割された。  
 	これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
@@ -74,7 +74,7 @@ list オブジェクトの構築
 	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 - C++14 では、(4) の形式に引数が追加された。  
-	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+	これは、変更されないと `n` のみを引数にとるア�ケータ使用構築（uses-allocator construction）に失敗してしまうためである。
 	具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
     ```cpp example
@@ -137,7 +137,7 @@ int main ()
   std::list<int> ls6 = std::move(ls5);
   print("ls6", ls6);
 
-  // 初期化子リストで構築
+  // 初期化�リストで構築
   std::list<int> ls7 = { 1, 2, 3 };
   print("ls7", ls7);
 }
@@ -162,7 +162,7 @@ ls7 : 1 2 3
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
-	`explicit list(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
+	`explicit list(const Allocator& a = Allocator())` を 2 つのオーバー�ードに分割するきっかけとなったレポート
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-	`explicit list(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
-	なお、Discussion の例はアロケータの型が誤っているので注意
+	`explicit list(size_type n)` にア�ケータ引数を追加するきっかけとなったレポート  
+	なお、Discussion の例はア�ケータの型が誤っているので注意

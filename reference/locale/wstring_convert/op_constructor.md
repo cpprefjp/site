@@ -27,7 +27,7 @@ wstring_convert(const wstring_convert&) = delete;      // (4) C++14
 ## 概要
 - (1) : デフォルトコンストラクタ。
 - (2) : コード変換機、および変換状態を受け取るコンストラクタ。
-- (3) : 変換に失敗した際に返す文字列を受け取るコンストラクタ。
+- (3) : 変換に失敗した際に返す文�列を受け取るコンストラクタ。
 - (4) : コピーコンストラクタ。コピー不可。これによりムーブも不可。
 
 
@@ -37,12 +37,12 @@ wstring_convert(const wstring_convert&) = delete;      // (4) C++14
 
 ## 効果
 - (1) : コード変換機のインスタンス`pcvt`をメンバ変数として保持し、[`from_bytes()`](from_bytes.md)および[`to_bytes()`](to_bytes.md)関数でのコード変換に使用する。
-    - [`from_bytes()`](from_bytes.md)メンバ関数での変換失敗時に返されるワイド文字列は未設定となる。
-    - [`to_bytes()`](to_bytes.md)メンバ関数での変換失敗時に返されるバイト文字列は未設定となる。
+    - [`from_bytes()`](from_bytes.md)メンバ関数での変換失敗時に返されるワイド文�列は未�定となる。
+    - [`to_bytes()`](to_bytes.md)メンバ関数での変換失敗時に返されるバイト文�列は未�定となる。
     - [`state()`](state.md)メンバ関数で返される状態は、初期状態となる。
 - (2) : コード変換機のインスタンス`pcvt`をメンバ変数として保持し、[`from_bytes()`](from_bytes.md)および[`to_bytes()`](to_bytes.md)関数でのコード変換に使用する。[`state()`](state.md)メンバ関数で返される値として、パラメータ`state`を保持する。
-    - [`from_bytes()`](from_bytes.md)メンバ関数での変換失敗時に返されるワイド文字列は未設定となる。
-    - [`to_bytes()`](to_bytes.md)メンバ関数での変換失敗時に返されるバイト文字列は未設定となる。
+    - [`from_bytes()`](from_bytes.md)メンバ関数での変換失敗時に返されるワイド文�列は未�定となる。
+    - [`to_bytes()`](to_bytes.md)メンバ関数での変換失敗時に返されるバイト文�列は未�定となる。
 - (3) : [`to_bytes()`](to_bytes.md)メンバ関数での変換失敗時に`byte_err`が返されるようになり、[`from_bytes()`](from_bytes.md)メンバ関数での変換失敗時に`wide_err`が返されるようになる。
     - 式`new Codecvt`で生成したコード変換機のインスタンスを、メンバ変数として保持する。
     - [`state()`](state.md)メンバ関数で返される状態は、初期状態となる。
@@ -70,7 +70,7 @@ int main()
   converter_t converter2(new cvt_t(), state);
     
   // (3)
-  // 変換失敗時に返す文字列を受け取るコンストラクタ
+  // 変換失敗時に返す文�列を受け取るコンストラクタ
   converter_t converter3(u8"convert error", U"convert error");
 }
 ```

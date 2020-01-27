@@ -47,13 +47,13 @@ $$ p(x \mid m, n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \le
 | [`operator()`](fisher_f_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------|-------|
 | [`m`](fisher_f_distribution/m.md)         | 分布の自由度mを取得する          | C++11 |
 | [`n`](fisher_f_distribution/n.md)         | 分布の自由度nを取得する          | C++11 |
-| [`param`](fisher_f_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](fisher_f_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](fisher_f_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](fisher_f_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -70,8 +70,8 @@ $$ p(x \mid m, n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \le
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------|----------------------|-------|
-| [`operator==`](fisher_f_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](fisher_f_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](fisher_f_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](fisher_f_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](fisher_f_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](fisher_f_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -102,7 +102,7 @@ int main()
 * dist(engine)[link fisher_f_distribution/op_call.md]
 
 ### 出力
-このプログラムによってある時に得られた結果（[fisher_f_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.tsv)）を図示する。
+このプ�グラムによってある時に得られた結果（[fisher_f_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.png)
 

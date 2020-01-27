@@ -20,23 +20,23 @@ attribute-using-prefix:
     using attribute-namespace :
 ```
 
-属性の先頭部分に`using`、名前空間、コロン`:`の順に記述し、その後に続けて属性の名前を記述する。
+属性の先�部分に`using`、名前空間、コ�ン`:`の順に記述し、その後に続けて属性の名前を記述する。
 
 `using`で名前空間を指定した場合は、続く属性の名前に名前空間は指定できない。`using`で複数の名前空間を指定することもできない。
 
 ## 例
 ```cpp example
 [[CC::opt(1)]] [[CC::debug]] void f() {}
-  //正しい
+  //�しい
 
 [[CC::opt(1), CC::debug]] void g() {}
-  //正しい
+  //�しい
 
 [[using CC: opt(1), debug]] void h() {}
-  //正しい、上記の [[CC::opt(1), CC::debug]] と同じ意味になる
+  //�しい、上記の [[CC::opt(1), CC::debug]] と同じ意味になる
 
 [[using CC: opt(1)]] [[CC::debug]] void i() {}
-  //正しい、上記と同じ意味になる
+  //�しい、上記と同じ意味になる
 
 [[using CC: CC::opt(1)]] void j() {}
   //間違い、usingと名前空間の指定は混在できない
@@ -47,7 +47,7 @@ int main() {}
 ### 出力
 不適格。
 
-### 警告例
+### �告例
 clang++ 5.0.0 にてコンパイルした場合。
 
 ```

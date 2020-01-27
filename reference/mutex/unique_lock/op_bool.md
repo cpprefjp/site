@@ -10,11 +10,11 @@ explicit operator bool() const noexcept;
 ```
 
 ## 概要
-ロックを取得しているかを確認する
+�ックを取得しているかを確認する
 
 
 ## 戻り値
-ロックが取得済みであれば`true`、そうでなければ`false`を返す。
+�ックが取得済みであれば`true`、そうでなければ`false`を返す。
 
 
 ## 例外
@@ -33,7 +33,7 @@ int main()
   {
     std::unique_lock<std::mutex> lk(mtx);
 
-    // コンストラクタでロック取得されるので、boolへの変換はtrueとなる
+    // コンストラクタで�ック取得されるので、boolへの変換はtrueとなる
     if (lk) {
       std::cout << "locked" << std::endl;
     }
@@ -45,7 +45,7 @@ int main()
   {
     std::unique_lock<std::mutex> lk(mtx, std::defer_lock);
 
-    // 遅延ロックのためコンストラクタでロック取得されないので、
+    // 遅延�ックのためコンストラクタで�ック取得されないので、
     // boolへの変換はfalseとなる
     if (!lk) {
       std::cout << "unlocked" << std::endl;
@@ -56,7 +56,7 @@ int main()
 
     lk.lock();
 
-    // ロック取得後なので、boolへの変換はtrueとなる
+    // �ック取得後なので、boolへの変換はtrueとなる
     if (lk) {
       std::cout << "locked" << std::endl;
     }

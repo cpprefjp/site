@@ -22,7 +22,7 @@ namespace std {
 | `round_indeterminate`       | 丸めスタイルが確定しない         |
 | `round_toward_zero`         | 0に向かって丸められる            |
 | `round_to_nearest`          | 最も近い表現可能な値に丸められる |
-| `round_toward_infinity`     | 正の無限表現に向かって丸められる |
+| `round_toward_infinity`     | �の無限表現に向かって丸められる |
 | `round_toward_neg_infinity` | 負の無限表現に向かって丸められる |
 
 

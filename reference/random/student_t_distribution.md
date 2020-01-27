@@ -47,12 +47,12 @@ $$ p(x \mid n) = \frac{1}{\sqrt{n \pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)
 | [`operator()`](student_t_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
 | [`n`](student_t_distribution/n.md)         | 分布の自由度を取得する           | C++11 |
-| [`param`](student_t_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](student_t_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](student_t_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](student_t_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -69,8 +69,8 @@ $$ p(x \mid n) = \frac{1}{\sqrt{n \pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------|-------|
-| [`operator==`](student_t_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](student_t_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](student_t_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](student_t_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](student_t_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](student_t_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -106,7 +106,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[student_t_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.tsv)）を図示する。
+このプ�グラムによってある時に得られた結果（[student_t_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.png)
 
@@ -123,6 +123,6 @@ int main()
 
 ### 参考
 - [t分布 - Wikipedia](https://ja.wikipedia.org/wiki/T%E5%88%86%E5%B8%83)
-- [t分布 統計学入門](http://www.tamagaki.com/math/Statistics402.html)
+- [t分布 統計�入門](http://www.tamagaki.com/math/Statistics402.html)
 - [第８回　ｔ分布とｔ検定](http://www.ipc.shimane-u.ac.jp/food/kobayasi/biometry8_2011.html)
 

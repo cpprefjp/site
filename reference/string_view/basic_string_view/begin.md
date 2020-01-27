@@ -10,7 +10,7 @@ constexpr const_iterator begin() const noexcept;
 ```
 
 ## 概要
-先頭の要素を指すイテレータを取得する。
+先�の要素を指すイテレータを取得する。
 
 
 ## 戻り値

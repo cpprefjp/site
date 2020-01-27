@@ -21,13 +21,13 @@ namespace std {
 ```
 
 ## 概要
-未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してコピー出力する。
+未初期化領域の範囲のうち、先�`N`個の要素を配置`new`で初期化してコピー出力する。
 
 入力範囲`[first, first + n)`のコピーを未初期化出力範囲`[result, result + n)`に書き込む。
 
 
 ## 効果
-- C++11 : 以下と等価
+- C++11 : 以下と�価
     ```cpp
     for ( ; n > 0; ++result, ++first, --n) {
       ::new (static_cast<void*>(&*result))
@@ -36,7 +36,7 @@ namespace std {
     ```
     * iterator_traits[link /reference/iterator/iterator_traits.md]
 
-- C++17 : 以下と等価
+- C++17 : 以下と�価
     ```cpp
     for ( ; n > 0; ++result, ++first, --n) {
       ::new (static_cast<void*>(addressof(*result)))

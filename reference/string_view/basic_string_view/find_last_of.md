@@ -13,12 +13,12 @@ constexpr size_type find_last_of(const CharT* s, size_type pos = npos) const;   
 ```
 
 ## 概要
-指定された文字列中のいずれかの文字が出現する最後の場所を検索する。
+指定された文�列�のいずれかの文�が出現する最後の場所を検索する。
 
-- (1) : 指定した位置`pos`から、文字列`sv`内のいずれかの文字が最後に現れる位置を検索する
-- (2) : 指定した位置`pos`から、文字`c`が最後に現れる位置を検索する
-- (3) : 指定した位置`pos`から、文字列`s`の先頭`n`文字のいずれかの文字が最後に現れる位置を検索する
-- (4) : 指定した位置`pos`から、文字列`s`内のいずれかの文字が最後に現れる位置を検索する
+- (1) : 指定した位置`pos`から、文�列`sv`内のいずれかの文�が最後に現れる位置を検索する
+- (2) : 指定した位置`pos`から、文�`c`が最後に現れる位置を検索する
+- (3) : 指定した位置`pos`から、文�列`s`の先�`n`文�のいずれかの文�が最後に現れる位置を検索する
+- (4) : 指定した位置`pos`から、文�列`s`内のいずれかの文�が最後に現れる位置を検索する
 
 
 ## 戻り値
@@ -33,11 +33,11 @@ constexpr size_type find_last_of(const CharT* s, size_type pos = npos) const;   
 
 
 ## 備考
-- 文字列の一致は、文字列の各文字について `traits_type::eq()` を用いて検査される。  
+- 文�列の一致は、文�列の各文�について `traits_type::eq()` を用いて検査される。  
     例えば、(1) の形式の場合、以下のような条件を満たす最小の `xpos` を求める。
     * `pos <= xpos` かつ `xpos + sv.size() <= size()`
     * `0 <= I` かつ `I < sv.size()` を満たす全ての `I` について、`traits_type::eq(at(xpos + I), sv.at(I))`
-- (4) の形式の場合、`s` の文字列長は `traits_type::length(s)` で求められる。
+- (4) の形式の場合、`s` の文�列長は `traits_type::length(s)` で求められる。
 
 
 ## 例
@@ -50,7 +50,7 @@ int main()
   const std::string_view sv = "Hello, world. Welcome to C++ world.";
 
   // (1)
-  // "C++" の "C" 以前で "world" を検索すると、"to" の 2 文字目の "o" が見つかる
+  // "C++" の "C" 以前で "world" を検索すると、"to" の 2 文�目の "o" が見つかる
   {
     const std::string_view target = "world";
     std::size_t pos = sv.find_last_of(target, 25);
@@ -61,7 +61,7 @@ int main()
 
   // (2)
   {
-    // 標準の char_traits では大文字と小文字は区別されるため、
+    // 標準の char_traits では大文�と小文�は区別されるため、
     // "world" の "w" は見つからずに "Welcome" の "W" が見つかる
     std::size_t pos = sv.find_last_of('W');
     if (pos != std::string_view::npos) {

@@ -18,7 +18,7 @@ const_iterator end() const;
 
 
 ## 備考
-- 本メンバ関数で返されるイテレータも、読み取り専用イテレータ（`const_iterator`）である。
+- 本メンバ関数で返されるイテレータも、�み取り専用イテレータ（`const_iterator`）である。
 
 
 ## 例

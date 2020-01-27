@@ -13,8 +13,8 @@ namespace std {
 ```
 
 ## 概要
-`cauchy_distribution`は、連絡確率分布の一種であるコーシー分布(ローレンツ分布とも呼ばれる)を生成するクラスである。  
-正規分布([`normal_distribution`](normal_distribution.md))と違い、平均も分散も定義されない、という特徴を持つ。  
+`cauchy_distribution`は、連絡確率分布の一種であるコーシー分布(�ーレンツ分布とも呼ばれる)を生成するクラスである。  
+�規分布([`normal_distribution`](normal_distribution.md))と違い、平均も分散も定義されない、という特徴を持つ。  
 以下の確率密度関数に基いて、浮動小数点数の乱数を生成する：
 
 $$ p(x \mid a, b) = \left( \pi b \left(1 + \left( \frac{x-a}{b} \right) ^2 \right) \right) ^{-1}$$
@@ -23,8 +23,8 @@ $$ p(x \mid a, b) = \left( \pi b \left(1 + \left( \frac{x-a}{b} \right) ^2 \righ
 
 コーシー分布は、以下のような用途に使用できる：
 
-- 正規分布に比べて外れ値(outliers)が非常に多い場合の分布のモデル
-- 原子核物理の分野において、放射線の線スペクトルの強度分布などの共鳴現象(この分野では、ブライト・ウィグナー分布とも呼ばれている)
+- �規分布に比べて外れ値(outliers)が非常に多い場合の分布のモデル
+- 原�核物理の分野において、放射線の線スペクトルの強度分布などの共鳴現象(この分野では、ブライト・ウィグナー分布とも呼ばれている)
 
 
 テンプレートパラメータは、以下を意味する：
@@ -49,13 +49,13 @@ $$ p(x \mid a, b) = \left( \pi b \left(1 + \left( \frac{x-a}{b} \right) ^2 \righ
 | [`operator()`](cauchy_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|----------------------------------|-------|
 | [`a`](cauchy_distribution/a.md)         | 分布の位置母数を取得する               | C++11 |
 | [`b`](cauchy_distribution/b.md)         | 分布の尺度母数を取得する               | C++11 |
-| [`param`](cauchy_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](cauchy_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](cauchy_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](cauchy_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -72,8 +72,8 @@ $$ p(x \mid a, b) = \left( \pi b \left(1 + \left( \frac{x-a}{b} \right) ^2 \righ
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------|----------------------|-------|
-| [`operator==`](cauchy_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](cauchy_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](cauchy_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](cauchy_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](cauchy_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](cauchy_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -107,7 +107,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[cauchy_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.tsv)）を図示する。
+このプ�グラムによってある時に得られた結果（[cauchy_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/cauchy_distribution/cauchy_distribution.png)
 

@@ -7,7 +7,7 @@
 
 
 ## 分布クラスのサンプルコード
-分布クラスのサンプルコードは、生成された乱数の値を、TSV(タブ区切り)テキストとして出力する形にします。`std::uniform_int_distribution`のサンプルコードは、例として以下のようになっています。
+分布クラスのサンプルコードは、生成された乱数の値を、TSV(タブ区切り)テ�ストとして出力する形にします。`std::uniform_int_distribution`のサンプルコードは、例として以下のようになっています。
 
 ```cpp example
 #include <random>
@@ -18,7 +18,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // 0以上9以下の値を等確率で発生させる
+  // 0以上9以下の値を�確率で発生させる
   std::uniform_int_distribution<> dist(0, 9);
 
   std::ofstream result_file("uniform_int_distribution.tsv");
@@ -60,36 +60,36 @@ int main()
 公式サイト： https://www.r-project.org/
 
 
-各種環境向けにインストーラが提供されているので、公式サイトからダウンロードして、ご自分の環境にインストールしてください。
+各種環境向けにインストーラが提供されているので、公式サイトからダウン�ードして、ご自分の環境にインストールしてください。
 
 
 ## 図の作成
 Rは、GUIツールを使用しての図の作成はもちろん、Rスクリプトを使用してコマンドラインでも図を作成できます。  
 今回は、自動化のためにRスクリプトの方法を主に紹介します。  
   
-以下のRスクリプトを、「random_stats.R」という名前でファイルに保存してください。
+以下のRスクリプトを、「random_stats.R」という名前でファイルに保�してください。
 ```
 # 乱数の分布クラスを使用した結果の出力を、図に変換するRスクリプト
 
 # png形式で出力する
 png("uniform_int_distribution.png")
 
-# TSV形式になっている乱数の出力データを読み込む
+# TSV形式になっている乱数の出力データを�み込む
 x <- read.table("uniform_int_distribution.tsv")
 
 # 1列目だけを抜き出す
 value = x$V1
 
-# 以下、データの特性に合わせて、ヒストグラムかプロットかを選択してください。
+# 以下、データの特性に合わせて、ヒストグラムかプ�ットかを選択してください。
 
 # ヒストグラムとして出力
 # hist(value)
 
-# プロットとして出力
+# プ�ットとして出力
 plot(value)
 ```
 
-出力する画像ファイル名と、入力のtsvファイル名を、分布クラスの名前に合わせて修正してください。  
+出力する画像ファイル名と、入力のtsvファイル名を、分布クラスの名前に合わせて修�してください。  
 そして、コマンドラインで以下のコマンドを実行してください。
 
 ```
@@ -101,12 +101,12 @@ rscript random_stats.R
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/random/uniform_int_distribution/uniform_int_distribution.png)
 
-この図は「プロット」と呼ばれる種類の図ですが、そのほか「ヒストグラム」等、いろいろな種類の図を出力できます。先ほどのrandom_stats.Rスクリプトに、ヒストグラムの図出力をコメントアウトしてあるので、分布クラスの特性に合わせて、図の種類を使い分けてください。
+この図は「プ�ット」と呼ばれる種類の図ですが、そのほか「ヒストグラム」�、いろいろな種類の図を出力できます。先ほどのrandom_stats.Rスクリプトに、ヒストグラムの図出力をコメントアウトしてあるので、分布クラスの特性に合わせて、図の種類を使い分けてください。
 
 
 ## 参考
-* [とりあえずプロットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/48.html)
-* [ヒストグラムをプロットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/61.html)
+* [とりあえずプ�ットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/48.html)
+* [ヒストグラムをプ�ットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/61.html)
 
 
 ## 数式エディタ

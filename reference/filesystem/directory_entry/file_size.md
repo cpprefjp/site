@@ -16,7 +16,7 @@ std::uintmax_t file_size(std::error_code& ec) const noexcept; // (2)
 
 
 ## 戻り値
-値がキャッシュされている場合は、それを返す。キャッシュされていない場合は、
+値が�ャッシュされている場合は、それを返す。�ャッシュされていない場合は、
 
 - (1) : [`std::filesystem::file_size`](/reference/filesystem/file_size.md)`(`[`path()`](path.md)`)`を返す
 - (2) : [`std::filesystem::file_size`](/reference/filesystem/file_size.md)`(`[`path()`](path.md)`, ec)`を返す

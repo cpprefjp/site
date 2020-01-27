@@ -12,14 +12,14 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 * time_point[link /reference/chrono/time_point.md]
 
 ## 概要
-タイムアウトする絶対時間を指定してロックの取得を試みる
+タイムアウトする絶対時間を指定して�ックの取得を試みる
 
 ## 効果
 `abs_time`パラメータで指定された絶対時間に到達するまで、ミューテックスの所有権取得を試みる。
 
-所有権が取得できるまで、もしくは`abs_time`時間に到達するまでこの関数はブロッキングする。
+所有権が取得できるまで、もしくは`abs_time`時間に到達するまでこの関数はブ�ッ�ングする。
 
-`abs_timeにすでに到達していた場合`、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
+`abs_timeにすでに到達していた場合`、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブ�ッ�ングせずにミューテックスの所有権取得を試みる。
 
 
 ## 戻り値
@@ -57,9 +57,9 @@ public:
 
     chrono::system_clock::time_point tp = chrono::system_clock::now();
 
-    // ロックの取得を試みる(3秒後にタイムアウト)
+    // �ックの取得を試みる(3秒後にタイムアウト)
     if (!mtx_.try_lock_until(tp + std::chrono::seconds(3))) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

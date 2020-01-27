@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-指定された浮動小数点例外が設定されるかを判定する。
+指定された浮動小数点例外が�定されるかを判定する。
 
 この関数は、現在発生している浮動小数点例外のうち、指定された例外の集合のみを抽出して返す。
 
@@ -30,12 +30,12 @@ namespace std {
 int main()
 {
     // ひとつの浮動小数点例外が発生しているかを確認する。
-    // ここでは、FE_DIVBYZERO (ゼロ除算)の状態のみを取得している。
-    // 指定した浮動小数点例外がひとつであれば、戻り値が0でないことが例外発生中と判断できる
+    // ここでは、FE_DIVBYZERO (ゼ�除算)の状態のみを取得している。
+    // 指定した浮動小数点例外がひとつであれば、戻り値が0でないことが例外発生�と判�できる
     {
       float result = 1.0f / 0.0f;
       if (std::fetestexcept(FE_DIVBYZERO)) {
-        // 浮動小数点数に対してゼロ除算が行われた
+        // 浮動小数点数に対してゼ�除算が行われた
         std::cout << "zero divided" << std::endl;
       }
       std::feclearexcept(FE_ALL_EXCEPT);
@@ -96,6 +96,6 @@ overflow
 - [GCC](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
-	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、�しく動作しないおそれがある。
 
 

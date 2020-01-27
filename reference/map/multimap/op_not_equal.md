@@ -9,7 +9,7 @@ bool operator!=(const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 ```
 
 ## 概要
-`x` と `y` が等しくないかどうかの判定を行う。
+`x` と `y` が�しくないかどうかの判定を行う。
 
 
 ## パラメータ
@@ -18,7 +18,7 @@ bool operator!=(const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 
 
 ## 戻り値
-二つのコンテナが等しくない場合に `true`, そうでない場合に `false`。
+二つのコンテナが�しくない場合に `true`, そうでない場合に `false`。
 
 
 ## 計算量

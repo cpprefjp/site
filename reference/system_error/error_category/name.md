@@ -14,7 +14,7 @@ virtual const char* name() const noexcept = 0;
 
 
 ## 戻り値
-エラーの分類を示す文字列を返す
+エラーの分類を示す文�列を返す
 
 
 ## 例外

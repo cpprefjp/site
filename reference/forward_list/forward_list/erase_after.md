@@ -28,7 +28,7 @@ iterator erase_after(const_iterator position,
 
 
 ## 戻り値
-削除された要素の次の要素を指すイテレータを返す。そのような要素が存在しない場合は、[`end()`](end.md)を返す。
+削除された要素の次の要素を指すイテレータを返す。そのような要素が�在しない場合は、[`end()`](end.md)を返す。
 
 
 ## 例外
@@ -57,7 +57,7 @@ int main()
 
     std::cout << std::endl;
 
-    // 先頭要素を削除
+    // 先�要素を削除
     ls = {1, 2, 3, 4, 5};
     ls.erase_after(ls.before_begin());
     for (int x : ls) { std::cout << x << ' '; }
@@ -89,7 +89,7 @@ int main()
 ```
 
 
-### イテレート中に要素を削除する (C++11)
+### イテレート�に要素を削除する (C++11)
 ```cpp example
 #include <iostream>
 #include <forward_list>
@@ -98,7 +98,7 @@ int main()
 {
   std::forward_list<int> ls = {3, 1, 4};
 
-  // イテレート中に要素削除をするような場合には、
+  // イテレート�に要素削除をするような場合には、
   // 範囲for文は使用できない
   for (auto it = ls.before_begin();;) {
     auto next = std::next(it);

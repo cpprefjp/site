@@ -10,7 +10,7 @@ constexpr const_reverse_iterator rend() const noexcept;
 ```
 
 ## 概要
-先頭の前を指す逆イテレータを取得する。
+先�の前を指す逆イテレータを取得する。
 
 
 ## 戻り値

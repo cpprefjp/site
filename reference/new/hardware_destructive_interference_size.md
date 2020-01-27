@@ -20,9 +20,9 @@ struct keep_apart {
 };
 ```
 
-このような構造体がある場合、`cat`と`dog`が同じキャッシュラインに乗ることがある。スレッド1では`cat`変数、スレッド2では`dog`変数を操作するような状況で、それぞれが共通のキャッシュを無効化してしまうパフォーマンス劣化の問題が起こりえる。こういった状況を「false sharing」という。
+このような構造体がある場合、`cat`と`dog`が同じ�ャッシュラインに乗ることがある。スレッド1では`cat`変数、スレッド2では`dog`変数を操作するような状況で、それぞれが共通の�ャッシュを無効化してしまうパフォーマンス劣化の問題が起こりえる。こういった状況を「false sharing」という。
 
-`hardware_destructive_interference_size`は、false sharingを回避するための、変数ごとにキャッシュラインを分けられる最小アライメントサイズである。
+`hardware_destructive_interference_size`は、false sharingを回避するための、変数ごとに�ャッシュラインを分けられる最小アライメントサイズである。
 
 ```cpp
 struct keep_apart {
@@ -60,7 +60,7 @@ int main()
             << std::hardware_destructive_interference_size
             << std::endl;
 
-  // 構造体内のメンバ変数aとbを、それぞれ別なキャッシュラインに乗せる
+  // 構造体内のメンバ変数aとbを、それぞれ別な�ャッシュラインに乗せる
   {
     X x;
     x.a = 0;
@@ -81,7 +81,7 @@ int main()
     t2.join();
   }
 
-  // 連続したメモリの各要素を、個別のキャッシュに乗せる
+  // 連続したメモリの各要素を、個別の�ャッシュに乗せる
   {
     std::vector<IndivisualCacheInt> v{10};
     std::vector<std::thread> threads;
@@ -121,9 +121,9 @@ int main()
 - [N4523 `constexpr std::thread::hardware_{true,false}_sharing_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4523.html)
 - [P0154R0 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0154r0.html)
 - [P0154R1 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0154r1.html)
-- [今さら聞けないマルチプロセッサの基礎教えます　――キャッシュの共有，割り込みの共有，OSによる制御 - ページ11 キャッシュの利用にも注意が必要](http://www.kumikomi.net/archives/2005/02/02multi.php?page=11)
+- [今さら聞けないマルチプ�セッサの基礎教えます　――�ャッシュの共有，割り込みの共有，OSによる制御 - ページ11 �ャッシュの利用にも注意が必要](http://www.kumikomi.net/archives/2005/02/02multi.php?page=11)
 - [false sharingの整理 - yoskhdia’s diary](http://yoskhdia.hatenablog.com/entry/2016/06/03/191329)
 - [Understanding `std::hardware_destructive_interference_size` and `std::hardware_constructive_interference_size` - Stack Overflow](https://stackoverflow.com/questions/39680206/understanding-stdhardware-destructive-interference-size-and-stdhardware-cons)
-    - 設計についての作者JF Bastien氏からのコメントがある
-    - WebAssemblyなどの仮想環境ではターゲットアーキテクチャが実行時に決まるため、実行時の値もあるとよいだろう、とのコメントもある
+    - �計についての作者JF Bastien氏からのコメントがある
+    - WebAssemblyなどの仮想環境ではターゲットアー�テクチャが実行時に決まるため、実行時の値もあるとよいだろう、とのコメントもある
 - [[RFC] C++17 hardware constructive / destructive interference size - Clang Developers Mailing list](http://clang-developers.42468.n3.nabble.com/RFC-C-17-hardware-constructive-destructive-interference-size-td4060786.html)

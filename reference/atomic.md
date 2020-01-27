@@ -5,30 +5,30 @@
 `<atomic>`ヘッダでは、アトミック操作(atomic operation ： 不可分操作とも呼ばれる)のライブラリを提供する。
 
 アトミック操作は、スレッド間でデータをやり取りするための最も基本的な同期プリミティブであり、
-変数への不可分(atomic)な読み込みや書き込み、および読み書きを同時に行う操作(Read-Modify-Write operation)を提供する。
+変数への不可分(atomic)な�み込みや書き込み、および�み書きを同時に行う操作(Read-Modify-Write operation)を提供する。
 
 ## 順序と一貫性
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|---------------------------------------------|-------|
 | [`memory_order`](atomic/memory_order.md) | メモリオーダーの種類(enum) | C++11 |
-| [`kill_dependency`](atomic/kill_dependency.md) | データ依存性を切る(function template) | C++11 |
+| [`kill_dependency`](atomic/kill_dependency.md) | データ依�性を切る(function template) | C++11 |
 
 
-## ロックフリープロパティ
+## �ックフリープ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------|------------------------------------------------------------|-------|
-| [`ATOMIC_BOOL_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<bool>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_CHAR_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_CHAR16_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char16_t>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_CHAR32_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char32_t>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_WCHAR_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<wchar_t>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_SHORT_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<short>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_INT_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<int>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_LONG_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<long>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_LLONG_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<long long>`に対する操作がロックフリーかを調べる(define) | C++11 |
-| [`ATOMIC_POINTER_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<T*>`に対する操作がロックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_BOOL_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<bool>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_CHAR_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_CHAR16_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char16_t>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_CHAR32_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char32_t>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_WCHAR_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<wchar_t>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_SHORT_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<short>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_INT_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<int>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_LONG_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<long>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_LLONG_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<long long>`に対する操作が�ックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_POINTER_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<T*>`に対する操作が�ックフリーかを調べる(define) | C++11 |
 
 
 ## 汎用型
@@ -43,12 +43,12 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|--------------------------------------------------------------|-------|
-| [`atomic_is_lock_free`](atomic/atomic_is_lock_free.md) | 指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる(function template) | C++11 |
+| [`atomic_is_lock_free`](atomic/atomic_is_lock_free.md) | 指定されたオブジェクトが�ックフリーに振る舞うことができるかを調べる(function template) | C++11 |
 | [`atomic_init`](atomic/atomic_init.md) | 初期化(function template) | C++11 |
 | [`atomic_store`](atomic/atomic_store.md) | 値を書き込む(function template) | C++11 |
 | [`atomic_store_explicit`](atomic/atomic_store_explicit.md) | メモリオーダーを指定して値を書き込む(function template) | C++11 |
-| [`atomic_load`](atomic/atomic_load.md) | 値を読み込む(function template) | C++11 |
-| [`atomic_load_explicit`](atomic/atomic_load_explicit.md) | メモリオーダーを指定して値を読み込む(function template) | C++11 |
+| [`atomic_load`](atomic/atomic_load.md) | 値を�み込む(function template) | C++11 |
+| [`atomic_load_explicit`](atomic/atomic_load_explicit.md) | メモリオーダーを指定して値を�み込む(function template) | C++11 |
 | [`atomic_exchange`](atomic/atomic_exchange.md) | 値を入れ替える(function template) | C++11 |
 | [`atomic_exchange_explicit`](atomic/atomic_exchange_explicit.md) | メモリオーダーを指定して値を入れ替える(function template) | C++11 |
 | [`atomic_compare_exchange_weak`](atomic/atomic_compare_exchange_weak.md) | 弱い比較で値の入れ替えを行う(function template) | C++11 |
@@ -73,7 +73,7 @@
 | [`atomic_fetch_xor_explicit`](atomic/atomic_fetch_xor_explicit.md) | メモリオーダーを指定してXOR演算(function template) | C++11 |
 
 
-## アトミック型に対するブロッキング同期操作
+## アトミック型に対するブ�ッ�ング同期操作
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -112,8 +112,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|------------------------------------------------|-------|
-| [`atomic_thread_fence`](atomic/atomic_thread_fence.md) | スレッド間で有効なフェンスを設定する(function) | C++11 |
-| [`atomic_signal_fence`](atomic/atomic_signal_fence.md) | スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ有効なフェンスを設定する(function) | C++11 |
+| [`atomic_thread_fence`](atomic/atomic_thread_fence.md) | スレッド間で有効なフェンスを�定する(function) | C++11 |
+| [`atomic_signal_fence`](atomic/atomic_signal_fence.md) | スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ有効なフェンスを�定する(function) | C++11 |
 
 
 ## バージョン

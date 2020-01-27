@@ -25,17 +25,17 @@ namespace std {
 
 
 ## 戻り値
-`|x| *` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<code><sup>-logb(x)</sup></code> が範囲 `[1,` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)`)` に収まるように指数を求めて返す。（非正規化数の場合でも正しい値が返る）
+`|x| *` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<code><sup>-logb(x)</sup></code> が範囲 `[1,` [`FLT_RADIX`](/reference/cfloat/flt_radix.md)`)` に収まるように指数を求めて返す。（非�規化数の場合でも�しい値が返る）
 
-`x`がゼロの場合には、処理系によっては定義域エラーか極エラーが発生する。（備考参照）
+`x`がゼ�の場合には、処理系によっては定義域エラーか極エラーが発生する。（備考参照）
 
 
 ## 備考
 - 定義域エラー、極エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
-	- `x = ±0` の場合、戻り値は `-∞` となり、[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
+	- `x = ±0` の場合、戻り値は `-∞` となり、[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼ�除算浮動小数点例外）が発生する。
 	- `x = ±∞` の場合、戻り値は `+∞` となる。
-	- 戻り値は正確で、現在の丸め方式に依存しない。
+	- 戻り値は�確で、現在の丸め方式に依�しない。
 
 
 ## 例

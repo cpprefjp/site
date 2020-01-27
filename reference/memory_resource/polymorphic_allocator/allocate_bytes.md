@@ -26,7 +26,7 @@ void* allocate_bytes(size_t nbytes, size_t alignment = alignof(max_align_t));
 
 ## 効果
 
-利用する[`memory_resource`](/reference/memory_resource/memory_resource.md)のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と等価。
+利用する[`memory_resource`](/reference/memory_resource/memory_resource.md)のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と�価。
 
 ```cpp
 return memory_rsrc->allocate(nbytes, alignment);
@@ -35,7 +35,7 @@ return memory_rsrc->allocate(nbytes, alignment);
 
 ## 戻り値
 
-確保した領域の先頭へのポインタ。
+確保した領域の先�へのポインタ。
 
 ## 例外
 
@@ -54,7 +54,7 @@ int main() {
   //int型10個分の領域をデフォルトアライメントで確保
   void* vp = alloc.allocate_bytes(sizeof(int) * N, alignof(int));
 
-  //確保したメモリ領域へのポインタを所望の型のものにキャスト
+  //確保したメモリ領域へのポインタを所望の型のものに�ャスト
   int* p = static_cast<int*>(vp);
 
   //確保したメモリ領域にintのオブジェクトを構築（コンストラクタ呼び出し）

@@ -24,8 +24,8 @@ namespace std {
 
 
 ## 備考
-- [機能テストマクロ](../../lang/cpp17/feature_test_macros.md)は`__cpp_lib_nonmember_container_access`で値は`201411`
-- `<iterator>`ヘッダを読み込む以外では、以下のヘッダが読み込まれている場合に、この関数を使用できる：
+- [機能テストマク�](../../lang/cpp17/feature_test_macros.md)は`__cpp_lib_nonmember_container_access`で値は`201411`
+- `<iterator>`ヘッダを�み込む以外では、以下のヘッダが�み込まれている場合に、この関数を使用できる：
      - [`<array>`](../array.md)
      - [`<deque>`](../deque.md)
      - [`<forward_list>`](../forward_list.md)
@@ -74,7 +74,7 @@ int main()
 ```
 
 ## 詳細
-これまで[`_countof`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/countof-macro)や`numof`, `arraySizeOf`, `ARRAY_SIZE`, `ARRAY_LENGTH`等の名前で配列の要素数を求めるために、概ね次のようなマクロが利用されてきた。
+これまで[`_countof`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/countof-macro)や`numof`, `arraySizeOf`, `ARRAY_SIZE`, `ARRAY_LENGTH`�の名前で配列の要素数を求めるために、概�次のようなマク�が利用されてきた。
 
 ```cpp
 #define COUNTOF(array) (sizeof(array) / sizeof(array[0]))

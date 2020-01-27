@@ -10,7 +10,7 @@ constexpr const_iterator cbegin() const noexcept;
 ```
 
 ## 概要
-先頭の要素を指す読み取り専用イテレータを取得する。
+先�の要素を指す�み取り専用イテレータを取得する。
 
 
 ## 戻り値

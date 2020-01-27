@@ -10,11 +10,11 @@ scoped_allocator_adaptor select_on_container_copy_construction() const;
 ```
 
 ## 概要
-コンテナのコピー構築に必要なアロケータを取得する。
+コンテナのコピー構築に必要なア�ケータを取得する。
 
 
 ## 戻り値
-`scoped_allocator_adaptor`の各アロケータ`A`について、[`allocator_traits`](/reference/memory/allocator_traits.md)`<A>::`[`select_on_container_copy_construction`](/reference/memory/allocator_traits/select_on_container_copy_construction.md)`()`が返すアロケータオブジェクトからなる`scoped_allocator_adaptor`オブジェクトを返す。
+`scoped_allocator_adaptor`の各ア�ケータ`A`について、[`allocator_traits`](/reference/memory/allocator_traits.md)`<A>::`[`select_on_container_copy_construction`](/reference/memory/allocator_traits/select_on_container_copy_construction.md)`()`が返すア�ケータオブジェクトからなる`scoped_allocator_adaptor`オブジェクトを返す。
 
 
 ## 例
@@ -45,8 +45,8 @@ using vector = std::vector<
 int main()
 {
   vector<string>::allocator_type alloc {
-    alloc_t<string>(), // vector自体のアロケータオブジェクト
-    alloc_t<char>()    // vectorの全ての要素に使用するアロケータオブジェクト
+    alloc_t<string>(), // vector自体のア�ケータオブジェクト
+    alloc_t<char>()    // vectorの全ての要素に使用するア�ケータオブジェクト
   };
 
   vector<string>::allocator_type for_copy_alloc = alloc.select_on_container_copy_construction();

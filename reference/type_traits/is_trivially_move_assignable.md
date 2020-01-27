@@ -41,19 +41,19 @@ namespace std {
 #include <string>
 
 struct X {
-  // トリビアルなムーブ代入演算子を持っている
+  // トリビアルなムーブ代入演算�を持っている
 };
 
 struct Y {
-  // 非トリビアルなムーブ代入演算子を持っている
+  // 非トリビアルなムーブ代入演算�を持っている
   Y& operator=(Y&&) { return *this; }
 };
 
 struct Z {
-  // 非トリビアルなムーブ代入演算子を持つ型を包含している
+  // 非トリビアルなムーブ代入演算�を持つ型を包含している
   std::string s;
 
-  // Z型は非トリビアルなムーブ代入演算子を持つ
+  // Z型は非トリビアルなムーブ代入演算�を持つ
 };
 
 // 組み込み型は全てトリビアルにムーブ代入可能
@@ -61,17 +61,17 @@ static_assert(
   std::is_trivially_move_assignable<int>::value == true,
   "int is trivially move assignable");
 
-// トリビアルなムーブ代入演算子を持っている型
+// トリビアルなムーブ代入演算�を持っている型
 static_assert(
   std::is_trivially_move_assignable<X>::value == true,
   "X is trivially move assignable");
 
-// 非トリビアルなムーブ代入演算子を持っている型
+// 非トリビアルなムーブ代入演算�を持っている型
 static_assert(
   std::is_trivially_move_assignable<Y>::value == false,
   "Y isn't trivially move assignable");
 
-// 非トリビアルなムーブ代入演算子を持つ型を包含する型
+// 非トリビアルなムーブ代入演算�を持つ型を包含する型
 static_assert(
   std::is_trivially_move_assignable<Z>::value == false,
   "Z isn't trivially move assignable");
@@ -94,7 +94,7 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 ### 備考
-Clang 3.0から3.2は、上記例の`Y`クラスがトリビアルにムーブ代入可能と判定される。Clang 3.3から修正されている。
+Clang 3.0から3.2は、上記例の`Y`クラスがトリビアルにムーブ代入可能と判定される。Clang 3.3から修�されている。
 
 
 ## 参照

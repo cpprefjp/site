@@ -39,7 +39,7 @@ int main()
   }
   std::cout << std::endl;
   {
-    // ハッシュ表であるunordered_mapでtype_indexをキーにできる
+    // ハッシュ表であるunordered_mapでtype_indexを�ーにできる
     std::unordered_map<std::type_index, int> m = {
       { typeid(int),    3},
       { typeid(double), 1},

@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 効果
-型`T`が[*TriviallyCopyable*](is_trivially_copyable.md)であり、`T`の任意の2つの値が等価（equivalent）であるならバイト表現が等値（equal）となる場合に
+型`T`が[*TriviallyCopyable*](is_trivially_copyable.md)であり、`T`の任意の2つの値が�価（equivalent）であるならバイト表現が�値（equal）となる場合に
 [`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 以下、もう少し詳細な解説。
@@ -33,7 +33,7 @@ namespace std {
 次に、型`T`の値表現とは、`T`の値を保持するビット列のことである。  
 そして、`T`が[*TriviallyCopyable*](is_trivially_copyable.md)であれば、値表現はオブジェクト表現内に含まれる。
 
-この時、`T`の値表現とオブジェクト表現がビット単位で正確に一致していれば`has_unique_object_representations<T>::value == true`となる。  
+この時、`T`の値表現とオブジェクト表現がビット単位で�確に一致していれば`has_unique_object_representations<T>::value == true`となる。  
 構造体のパディングはオブジェクト表現に含まれるが、値表現には含まれない。したがって、パディングを持つ構造体は値が同じでもバイト表現が同じとは限らない（結果は`false`となる）。
 
 [スカラー型](is_scalar.md)がこの性質を満たすかは処理系定義となるが、符号なし整数型は一意なオブジェクト表現を持つ。  

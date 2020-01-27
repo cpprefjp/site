@@ -33,7 +33,7 @@ void reset();
 ## 例外
 この関数は、以下の例外を送出する可能性がある：
 
-- [`bad_alloc`](/reference/new/bad_alloc.md) ： 新たな共有状態のアロケートに失敗
+- [`bad_alloc`](/reference/new/bad_alloc.md) ： 新たな共有状態のア�ケートに失敗
 - タスク`f`のムーブコンストラクタが送出するあらゆる例外
 - [`future_error`](../future_error.md) ： 共有状態を持っていない状態でこの関数を呼び出した場合、[`no_state`](../future_errc.md)をerror conditionにして送出する
 

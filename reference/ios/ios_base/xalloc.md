@@ -11,7 +11,7 @@ static int xalloc();
 ## 概要
 私用記憶域を予約する。
 
-この関数は、呼び出すたびに一意な整数値を返す。この関数は、IOマニピュレータ単位の設定状態を管理するために使用する。
+この関数は、呼び出すたびに一意な整数値を返す。この関数は、IOマニピュレータ単位の�定状態を管理するために使用する。
 
 
 ## 戻り値
@@ -50,7 +50,7 @@ int hex_index()
 // 16進数マニピュレータ
 std::ostream& hex_manip(std::ostream& os)
 {
-  // 16進数用のIDをキーとして、状態を設定する
+  // 16進数用のIDを�ーとして、状態を�定する
   static bool state = false;
   state = true;
   os.pword(hex_index()) = &state;

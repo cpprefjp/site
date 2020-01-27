@@ -35,7 +35,7 @@ int main()
   std::cin >> s;     // std::cout を明示的に flush しなくても
                      // 上記の出力が flush されることが保証されている
 
-  std::cout << "あなたの名前は「" << s << "」ですね。" << std::endl;
+  std::cout << "あなたの名前は「" << s << "」です�。" << std::endl;
 }
 ```
 * std::cin[color ff0000]

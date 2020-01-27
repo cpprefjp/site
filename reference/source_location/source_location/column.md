@@ -11,7 +11,7 @@ constexpr uint_least32_t column() const noexcept;
 * uint_least32_t[link /reference/cstdint/uint_least32_t.md]
 
 ## 概要
-[`source_location`](../source_location.md)オブジェクトが保持する列番号(行頭からの文字数)を返す。
+[`source_location`](../source_location.md)オブジェクトが保持する列番号(行�からの文�数)を返す。
 
 ## 戻り値
 [`source_location`](../source_location.md)オブジェクトが保持する列番号。

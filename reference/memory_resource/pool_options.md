@@ -14,17 +14,17 @@ namespace std::pmr {
 ```
 
 ## 概要
-このクラスは[`synchronized_pool_resource`](pool_resource.md)及び[`unsynchronized_pool_resource`](pool_resource.md)のコンストラクタに渡し、その内部メモリプールの設定を行うためのクラスである。
+このクラスは[`synchronized_pool_resource`](pool_resource.md)及び[`unsynchronized_pool_resource`](pool_resource.md)のコンストラクタに渡し、その内部メモリプールの�定を行うためのクラスである。
 
 ## メンバ変数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `max_blocks_per_chunk` | メモリプールを補充する際に上流`memory_resource`から1度に取得するブロックサイズの最大値。<br/>すなわち、サイズ毎のプール内の1チャンク辺りの最大ブロック数。<br/>各メモリプールを補充する際はチャンク単位で補充されチャンクサイズはそのたびに増加するが、この値よりは大きくならない。 | C++17 |
-| `largest_required_pool_block` | 各メモリプールの最も大きなブロックのサイズ。<br/>この値より大きなメモリの割り当て要求は上流の`memory_resource`から直接割り当てられる。 | C++17 |
+| `max_blocks_per_chunk` | メモリプールを補充する際に上流`memory_resource`から1度に取得するブ�ックサイズの最大値。<br/>すなわち、サイズ毎のプール内の1チャンク辺りの最大ブ�ック数。<br/>各メモリプールを補充する際はチャンク単位で補充されチャンクサイズはそのたびに増加するが、この値よりは大きくならない。 | C++17 |
+| `largest_required_pool_block` | 各メモリプールの最も大きなブ�ックのサイズ。<br/>この値より大きなメモリの割り当て要求は上流の`memory_resource`から直接割り当てられる。 | C++17 |
 
-両変数共に、設定値が0もしくは実装定義の最大値を上回る場合は実装定義の最大値が利用される。  
-また、それが各[`pool_resource`](pool_resource.md)のデフォルト設定となる。
+両変数共に、�定値が0もしくは実装定義の最大値を上回る場合は実装定義の最大値が利用される。  
+また、それが各[`pool_resource`](pool_resource.md)のデフォルト�定となる。
 
 ## 備考
 
@@ -48,7 +48,7 @@ namespace std::pmr {
 
 ## 参照
 
-- [C++1z 多相アロケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
+- [C++1z 多相ア�ケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
 - [memory_resourceについて - 本の虫](https://cpplover.blogspot.com/2015/09/memoryresource.html)
 - [Polymorphic Allocator in C++17 - Qita](https://qiita.com/MitsutakaTakeda/items/48980faa9498c46b15b2)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)

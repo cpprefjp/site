@@ -16,7 +16,7 @@ struct doubler {
 
 - 状態を保持できる
 - (特にアルゴリズムにファンクタとして渡した場合)インライン展開が容易である
-- 多相(オーバーロードやテンプレート)にしても関数へのポインタのように曖昧にならない
+- 多相(オーバー�ードやテンプレート)にしても関数へのポインタのように曖昧にならない
 
 
 ## 多相的な関数オブジェクト
@@ -24,7 +24,7 @@ struct doubler {
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
 | [`function`](functional/function.md) | 関数・関数オブジェクトの多相的なラッパー(class template) | C++11 |
-| [`bad_function_call`](functional/bad_function_call.md) | 不正な関数呼び出しに関する例外(class)  | C++11 |
+| [`bad_function_call`](functional/bad_function_call.md) | 不�な関数呼び出しに関する例外(class)  | C++11 |
 
 
 ## 統一的な関数呼び出し
@@ -38,7 +38,7 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
-| [`bind_front`](functional/bind_front.md) | 関数の引数を先頭から順に部分適用する(function template) | C++20 |
+| [`bind_front`](functional/bind_front.md) | 関数の引数を先�から順に部分適用する(function template) | C++20 |
 | [`bind`](functional/bind.md) | 関数の引数を部分適用する(function template) | C++11 |
 | [`is_bind_expression`](functional/is_bind_expression.md) | 型を`bind`の式と見なすか判定する(class template) | C++11 |
 | [`is_placeholder`](functional/is_placeholder.md) | 型がプレースホルダーかどうかを判定する(class template) | C++11 |
@@ -80,8 +80,8 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------|-------|
-| [`equal_to`](functional/equal_to.md)           | 等値比較(class template) | |
-| [`not_equal_to`](functional/not_equal_to.md)   | 非等値比較(class template) | |
+| [`equal_to`](functional/equal_to.md)           | �値比較(class template) | |
+| [`not_equal_to`](functional/not_equal_to.md)   | 非�値比較(class template) | |
 | [`less`](functional/less.md)                   | 左辺が右辺より小さいかの比較(class template) | |
 | [`less_equal`](functional/less_equal.md)       | 左辺が右辺以下かの比較(class template) | |
 | [`greater`](functional/greater.md)             | 左辺が右辺より大きいかの比較(class template) | |

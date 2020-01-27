@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std::filesystem {
-  using file_time_type = chrono::time_point<実装定義のクロック型>;
+  using file_time_type = chrono::time_point<実装定義のク�ック型>;
 }
 ```
 * chrono::time_point[link /reference/chrono/time_point.md]
@@ -14,7 +14,7 @@ namespace std::filesystem {
 ## 概要
 ファイル情報で使用する時間の型。
 
-時間の分解能はOS依存。
+時間の分解能はOS依�。
 
 
 ## 例
@@ -49,7 +49,7 @@ int main()
   print_datetime("file time", file_time);
   print_datetime("dir time", dir_time);
 
-  // ファイルの最終更新日時として、現在日時を設定
+  // ファイルの最終更新日時として、現在日時を�定
   fs::last_write_time("regular.txt", fs::file_time_type::clock::now());
 }
 ```

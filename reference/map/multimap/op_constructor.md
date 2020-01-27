@@ -51,18 +51,18 @@ multimap(initializer_list<value_type> init,
 
 
 ## 効果
-- (1) デフォルトコンストラクタ。空の `multimap` オブジェクトを構築する。`multimap(Compare())` と等価。（C++14 から）
-- (2) 比較オブジェクト `comp` とアロケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++14 から）
-- (1) + (2) デフォルトコンストラクタ。比較オブジェクト `comp` とアロケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++11 まで）
-- (3) アロケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++11 から）
-- (4) イテレータ範囲コンストラクタ。比較オブジェクト `comp`、アロケータ `alloc`、および範囲 `[first, last)` の要素で `multimap` オブジェクトを構築する。
-- (5) イテレータ範囲コンストラクタ。アロケータ `alloc`、および範囲 `[first, last)` の要素で `multimap` オブジェクトを構築する。（C++14 から）
-- (6) コピーコンストラクタ。`x` の要素のコピーで `multimap` オブジェクトを構築する。アロケータは `std::`[`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](../../memory/allocator_traits/select_on_container_copy_construction.md)`(x)` の呼び出しによって取得する。
-- (7) アロケータ `alloc` を指定したコピーコンストラクタ。`x` の要素のコピーで `multimap` オブジェクトを構築する。（C++11 から）
-- (8) ムーブコンストラクタ。`y` の要素をムーブすることで `multimap` オブジェクトを構築する。アロケータは `y` に属しているアロケータをムーブして取得する。（C++11 から）
-- (9) アロケータ `alloc` を指定したムーブコンストラクタ。`y` の要素をムーブすることでコンテナを構築する。（C++11 から）
-- (10) 比較オブジェクト `comp`、アロケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init.`[`begin`](../../initializer_list/initializer_list/begin.md)`, init.`[`end`](../../initializer_list/initializer_list/end.md)`, comp, alloc)` と等価。（C++11 から）
-- (11) アロケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init, Compare(), alloc)` と等価。（C++14 から）
+- (1) デフォルトコンストラクタ。空の `multimap` オブジェクトを構築する。`multimap(Compare())` と�価。（C++14 から）
+- (2) 比較オブジェクト `comp` とア�ケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++14 から）
+- (1) + (2) デフォルトコンストラクタ。比較オブジェクト `comp` とア�ケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++11 まで）
+- (3) ア�ケータ `alloc` で空の `multimap` オブジェクトを構築する。（C++11 から）
+- (4) イテレータ範囲コンストラクタ。比較オブジェクト `comp`、ア�ケータ `alloc`、および範囲 `[first, last)` の要素で `multimap` オブジェクトを構築する。
+- (5) イテレータ範囲コンストラクタ。ア�ケータ `alloc`、および範囲 `[first, last)` の要素で `multimap` オブジェクトを構築する。（C++14 から）
+- (6) コピーコンストラクタ。`x` の要素のコピーで `multimap` オブジェクトを構築する。ア�ケータは `std::`[`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](../../memory/allocator_traits/select_on_container_copy_construction.md)`(x)` の呼び出しによって取得する。
+- (7) ア�ケータ `alloc` を指定したコピーコンストラクタ。`x` の要素のコピーで `multimap` オブジェクトを構築する。（C++11 から）
+- (8) ムーブコンストラクタ。`y` の要素をムーブすることで `multimap` オブジェクトを構築する。ア�ケータは `y` に属しているア�ケータをムーブして取得する。（C++11 から）
+- (9) ア�ケータ `alloc` を指定したムーブコンストラクタ。`y` の要素をムーブすることでコンテナを構築する。（C++11 から）
+- (10) 比較オブジェクト `comp`、ア�ケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init.`[`begin`](../../initializer_list/initializer_list/begin.md)`, init.`[`end`](../../initializer_list/initializer_list/end.md)`, comp, alloc)` と�価。（C++11 から）
+- (11) ア�ケータ `alloc`、および初期化リスト `init` の要素で `multimap` オブジェクトを構築する。`multimap(init, Compare(), alloc)` と�価。（C++14 から）
 
 
 ## 計算量
@@ -85,7 +85,7 @@ multimap(initializer_list<value_type> init,
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 - C++14 では、(5) の形式が新たに追加された。
-    これは、イテレータ範囲 `[first, last)` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+    これは、イテレータ範囲 `[first, last)` のみを引数にとるア�ケータ使用構築（uses-allocator construction）に失敗してしまうためである。
     具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
     ```cpp example
@@ -108,7 +108,7 @@ multimap(initializer_list<value_type> init,
     * std::allocator[link ../../memory/allocator.md]
     * ls.emplace_back[link ../../list/list/emplace_back.md]
 
-    なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
+    なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは�在しなくてもエラーとはならない。  
     （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
 
 
@@ -146,7 +146,7 @@ Size of m2: 3
 
 | 名前                                                | 説明           |
 |-----------------------------------------------------|----------------|
-| [`operator=`](/reference/map/multimap/op_assign.md) | 代入演算子     |
+| [`operator=`](/reference/map/multimap/op_assign.md) | 代入演算�     |
 | [`insert`](/reference/map/multimap/insert.md)       | 要素を挿入する |
 
 
@@ -154,7 +154,7 @@ Size of m2: 3
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
-    (1) + (2) の形式を 2 つのオーバーロードに分割するきっかけとなったレポート
+    (1) + (2) の形式を 2 つのオーバー�ードに分割するきっかけとなったレポート
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     (5)、(11) の形式を追加するきっかけとなったレポート  
-    なお、Discussion の例はアロケータの型が誤っているので注意
+    なお、Discussion の例はア�ケータの型が誤っているので注意

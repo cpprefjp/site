@@ -14,16 +14,16 @@ static constexpr int max_digits10;
 
 基数`radix`の浮動小数点数を、仮数部がn桁で基数10の浮動小数点数に変換してまた元の基数`radix`の浮動小数点数に変換することを考える。  
 `max_digits10`は、上の変換によって元の浮動小数点数の値が変化しないようなnのうち、最小のものを表す。  
-したがって、浮動小数点数を文字列などに変換する場合に、正確な値を保持するために使用できる。  
+したがって、浮動小数点数を文�列などに変換する場合に、�確な値を保持するために使用できる。  
 
 `max_digits10`は [`digits`](digits.md) を用いて次のように計算できる：  
 
   `(Is radix power of 10) ? digits * log10(radix) : ceil(1 + digits * log10(radix))`
 
 
-対応するマクロを次の表に挙げる。
+対応するマク�を次の表に挙げる。
 
-| 型            | 対応するマクロ |
+| 型            | 対応するマク� |
 |---------------|----------------|
 | `float`       | [`FLT_DECIMAL_DIG`](/reference/cfloat/flt_decimal_dig.md)  |
 | `double`      | [`DBL_DECIMAL_DIG`](/reference/cfloat/dbl_decimal_dig.md)  |

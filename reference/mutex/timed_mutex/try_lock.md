@@ -10,7 +10,7 @@ bool try_lock();
 ```
 
 ## 概要
-ロックの取得を試みる
+�ックの取得を試みる
 
 
 ## 要件
@@ -18,7 +18,7 @@ bool try_lock();
 
 
 ## 効果
-ブロッキングせずに、この関数を呼び出したスレッドがミューテックスの所有権を取得する
+ブ�ッ�ングせずに、この関数を呼び出したスレッドがミューテックスの所有権を取得する
 
 
 ## 戻り値
@@ -50,7 +50,7 @@ public:
   void add_value(int value)
   {
     if (!mtx_.try_lock()) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

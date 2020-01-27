@@ -9,7 +9,7 @@ char narrow(char_type c, char def) const;
 ```
 
 ## 概要
-`char_type` 型の文字を `char` 型の文字に変換する。
+`char_type` 型の文�を `char` 型の文�に変換する。
 
 
 ## 戻り値
@@ -17,7 +17,7 @@ char narrow(char_type c, char def) const;
 
 
 ## 備考
-ストリームに設定されているロケールに従って、`char_type` 型の文字 `c` を対応する `char` 型の文字に変換する。変換できなかった場合には `def` を返す。  
+ストリームに�定されている�ケールに従って、`char_type` 型の文� `c` を対応する `char` 型の文�に変換する。変換できなかった場合には `def` を返す。  
 詳細は [`ctype`](../../locale/ctype.md)`::`[`narrow`](../../locale/ctype/narrow.md.nolink) を参照。
 
 

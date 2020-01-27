@@ -12,8 +12,8 @@ namespace std::pmr {
 ```
 
 ## 概要
-`pool_resource`は幾つかのブロックサイズ毎のメモリプールを管理し、要求サイズ毎に最適なプールからメモリを割り当てる[`memory_resource`](memory_resource.md)実装である。  
-メモリ割り当て要求に内部のメモリプールから応えられない場合（最大のブロックサイズを超える要求があった場合）は、上流のメモリリソースからメモリを割り当てる。ほとんどの場合、上流メモリリソースへの割り当て要求は内部プールへの割り当て要求よりも少ない。
+`pool_resource`は幾つかのブ�ックサイズ毎のメモリプールを管理し、要求サイズ毎に最適なプールからメモリを割り当てる[`memory_resource`](memory_resource.md)実装である。  
+メモリ割り当て要求に内部のメモリプールから応えられない場合（最大のブ�ックサイズを超える要求があった場合）は、上流のメモリリソースからメモリを割り当てる。ほとんどの場合、上流メモリリソースへの割り当て要求は内部プールへの割り当て要求よりも少ない。
 
 以下2つの`pool_resource`が提供される。
 
@@ -29,17 +29,17 @@ namespace std::pmr {
 
 ## `pool_resource`の性質
 
-- 内部管理メモリ領域は様々なブロックサイズのメモリプールに分かれている。
-- それぞれのブロックサイズ毎のメモリプールは幾つかのチャンクの集まりであり、各チャンクは均一なサイズ（ブロックサイズ）のブロックに順番に分割されている。
-- `do_allocate`によって返されるメモリはブロック単位で割り当てられる。
-- `do_allocate(bytes, alignment)`は、`bytes`以上で最小のブロックサイズのプールからメモリを割り当てる。
-    - `bytes`が最大ブロックサイズを超える場合、上流メモリリソースから直接割り当てられる。
+- 内部管理メモリ領域は様々なブ�ックサイズのメモリプールに分かれている。
+- それぞれのブ�ックサイズ毎のメモリプールは幾つかのチャンクの集まりであり、各チャンクは均一なサイズ（ブ�ックサイズ）のブ�ックに順番に分割されている。
+- `do_allocate`によって返されるメモリはブ�ック単位で割り当てられる。
+- `do_allocate(bytes, alignment)`は、`bytes`以上で最小のブ�ックサイズのプールからメモリを割り当てる。
+    - `bytes`が最大ブ�ックサイズを超える場合、上流メモリリソースから直接割り当てられる。
 - あるプールが枯渇した場合、次の`do_allocate`時に上流メモリリソースからチャンク単位でプールを補充する。
-    - 補充の度に補充されるチャンクサイズは等比数列に従って増加する（上限有）。
+    - 補充の度に補充されるチャンクサイズは�比数列に従って増加する（上限有）。
     - 一定のチャンク毎に補充を行うことで連続した割り当てにおける参照局所性を高める狙いがある。
-- 最大チャンクサイズ及び最大ブロックサイズは[`pool_options`](pool_options.md)構造体をコンストラクタに渡して調整可能。
+- 最大チャンクサイズ及び最大ブ�ックサイズは[`pool_options`](pool_options.md)構造体をコンストラクタに渡して調整可能。
     - `max_blocks_per_chunk` : チャンクサイズの上限値、この値よりは大きくならない
-    - `largest_required_pool_block` : ブロックサイズの最大値、この値を超える割り当て要求は上流メモリリソースから直接割り当てる
+    - `largest_required_pool_block` : ブ�ックサイズの最大値、この値を超える割り当て要求は上流メモリリソースから直接割り当てる
 - 管理メモリの解放時は`deallocate`が呼び出されていない領域があっても全てのメモリを解放する。
 
 ## メンバ関数
@@ -50,7 +50,7 @@ namespace std::pmr {
 |-----------------|----------------|----------------|
 | [`(constructor)`](pool_resource/op_constructor.md) | コンストラクタ | C++17 |
 | [`(destructor)`](pool_resource/op_destructor.md)  | デストラクタ   | C++17 |
-| `operator=(const pool_resource&) = delete;`     | コピー代入演算子（コピー禁止）     | C++17 |
+| `operator=(const pool_resource&) = delete;`     | コピー代入演算�（コピー禁�）     | C++17 |
 
 クラス名を`pool_resource`としているのは説明のためのプレースホルダで、`synchronized_pool_resource`と`unsynchronized_pool_resource`で共通ということである。
 
@@ -60,7 +60,7 @@ namespace std::pmr {
 |-----------------|----------------|----------------|
 | [`release`](pool_resource/release.md) | 割り当てられている全てのメモリを解放する | C++17 |
 | [`upstream_resource`](pool_resource/upstream_resource.md) | 利用している上流`memory_resource`を取得する | C++17 |
-| [`options`](pool_resource/options.md) | 適用されているプール設定を`pool_options`として取得する | C++17 |
+| [`options`](pool_resource/options.md) | 適用されているプール�定を`pool_options`として取得する | C++17 |
 
 ### 非仮想インターフェース（NVI）
 
@@ -81,8 +81,8 @@ namespace std::pmr {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator==`](memory_resource/op_equal.md) | 等値比較 | C++17 |
-| [`operator!=`](memory_resource/op_not_equal.md) | 非等値比較 | C++17 |
+| [`operator==`](memory_resource/op_equal.md) | �値比較 | C++17 |
+| [`operator!=`](memory_resource/op_not_equal.md) | 非�値比較 | C++17 |
 
 ## `synchronized_pool_resource`の処理系毎の実装
 
@@ -108,7 +108,7 @@ namespace std::pmr {
 
 
 ## 参照
-- [C++1z 多相アロケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
+- [C++1z 多相ア�ケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
 - [memory_resourceについて - 本の虫](https://cpplover.blogspot.com/2015/09/memoryresource.html)
 - [Polymorphic Allocator in C++17 - Qita](https://qiita.com/MitsutakaTakeda/items/48980faa9498c46b15b2)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)

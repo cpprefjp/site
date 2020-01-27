@@ -19,13 +19,13 @@ namespace std {
 $$ p(x \mid \alpha, \beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\alpha) } \cdot x^{\alpha - 1} $$
 
 この数式においてα(alpha)は形状母数(shape parameter)、β(beta)は尺度母数(scale parameter)を表す。  
-形状母数に正の整数を与えれば、アーラン分布(Erlang distribution)としても使用できる。  
+形状母数に�の整数を与えれば、アーラン分布(Erlang distribution)としても使用できる。  
 
 
 ガンマ分布は、以下のような用途に使用できる：
 
 - 均一に忙しいコールセンターに10回電話をかけ、つながるまでの時間の統計を求める
-- 放射性物質の大きなボディが、1000回原子核崩壊するのを観察する
+- 放射性物質の大きなボディが、1000回原�核崩壊するのを観察する
 
 
 テンプレートパラメータは、以下を意味する：
@@ -50,13 +50,13 @@ $$ p(x \mid \alpha, \beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\al
 | [`operator()`](gamma_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|----------------------------------|-------|
 | [`alpha`](gamma_distribution/alpha.md) | 形状母数を取得する   | C++11 |
 | [`beta`](gamma_distribution/beta.md)   | 尺度母数を取得する | C++11 |
-| [`param`](gamma_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](gamma_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](gamma_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](gamma_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -73,8 +73,8 @@ $$ p(x \mid \alpha, \beta) = \frac{x^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\al
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|----------------------|-------|
-| [`operator==`](gamma_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](gamma_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](gamma_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](gamma_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](gamma_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](gamma_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -108,7 +108,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[gamma_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma_distribution.tsv)）を図示する。 
+このプ�グラムによってある時に得られた結果（[gamma_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma_distribution.tsv)）を図示する。 
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma_distribution.png)
 

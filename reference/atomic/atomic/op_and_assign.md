@@ -15,7 +15,7 @@ AND演算を行う
 
 
 ## 戻り値
-以下と等価の式により、演算結果の値が返る：
+以下と�価の式により、演算結果の値が返る：
 
 ```cpp
 return fetch_and(operand) & operand;

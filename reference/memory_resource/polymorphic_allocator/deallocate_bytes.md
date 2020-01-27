@@ -27,7 +27,7 @@ void deallocate_bytes(void* p, size_t nbytes, size_t alignment = alignof(max_ali
 
 ## 効果
 
-利用する`memory_resource`のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と等価。
+利用する`memory_resource`のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と�価。
 
 ```cpp
 memory_rsrc->deallocate(p, nbytes, alignment);
@@ -47,7 +47,7 @@ int main() {
   //int型10個分の領域をデフォルトアライメントで確保
   void* vp = alloc.allocate_bytes(sizeof(int) * N, alignof(int));
 
-  //確保したメモリ領域へのポインタを所望の型のものにキャスト
+  //確保したメモリ領域へのポインタを所望の型のものに�ャスト
   int* p = static_cast<int*>(vp);
 
   //確保したメモリ領域にintのオブジェクトを構築（コンストラクタ呼び出し）

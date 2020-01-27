@@ -24,7 +24,7 @@ const char* name() const noexcept;
 ## 備考
 GCC(libstdc++)は、少なくても4.7時点まではマングリングされた名前を返す。完全な型名を取得するには、デマングルする必要がある。参照：
 
-[C++ のシンボルをデマングルする - bkブログ](http://0xcc.net/blog/archives/000095.html)
+[C++ のシンボルをデマングルする - bkブ�グ](http://0xcc.net/blog/archives/000095.html)
 
 
 ## 例

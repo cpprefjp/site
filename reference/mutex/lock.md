@@ -20,9 +20,9 @@ namespace std {
 
 
 ## 効果
-各ミューテックスオブジェクトに対して、`lock()`、`try_lock()`、あるいは`unlock()`メンバ関数を順次呼び出すことで、デッドロックを引き起こさずに全ミューテックスをロックする。
+各ミューテックスオブジェクトに対して、`lock()`、`try_lock()`、あるいは`unlock()`メンバ関数を順次呼び出すことで、デッド�ックを引き起こさずに全ミューテックスを�ックする。
 
-いずれかの`lock()`/`try_lock()`が例外を送出した場合、以降の`lock()`/`try_lock()`呼び出しを行わず、それより前にロック取得したミューテックスオブジェクトに対して`unlock()`メンバ関数を呼び出す。
+いずれかの`lock()`/`try_lock()`が例外を送出した場合、以降の`lock()`/`try_lock()`呼び出しを行わず、それより前に�ック取得したミューテックスオブジェクトに対して`unlock()`メンバ関数を呼び出す。
 
 
 ## 戻り値
@@ -40,7 +40,7 @@ int main()
   std::mutex mtx1;
   std::recursive_mutex mtx2;
 
-  // 複数のミューテックスオブジェクトのロック取得を行う
+  // 複数のミューテックスオブジェクトの�ック取得を行う
   {
     std::lock(mtx1, mtx2);
 
@@ -48,7 +48,7 @@ int main()
     mtx2.unlock();
   }
 
-  // unique_lockに対してロック取得を行う
+  // unique_lockに対して�ック取得を行う
   {
     std::unique_lock<std::mutex> lk1(mtx1, std::defer_lock);
     std::unique_lock<std::recursive_mutex> lk2(mtx2, std::defer_lock);
@@ -61,7 +61,7 @@ int main()
     std::unique_lock<std::mutex> lk1(mtx1, std::defer_lock);
     std::unique_lock<std::recursive_mutex> lk2(mtx2, std::defer_lock);
 
-    lk2.lock(); // ロック取得済みにしてlock()に渡す
+    lk2.lock(); // �ック取得済みにしてlock()に渡す
 
     try {
       std::lock(lk1, lk2);
@@ -70,11 +70,11 @@ int main()
       std::cout << e.what() << std::endl;
     }
 
-    // lk2が失敗したので、std::lock()内でlk2より前にロック取得が
+    // lk2が失敗したので、std::lock()内でlk2より前に�ック取得が
     // 成功した全てのミューテックスオブジェクトがunlock()される
     assert(!lk1.owns_lock());
 
-    // lk2はロック取得済みで渡したので、ロック取得済み状態のまま
+    // lk2は�ック取得済みで渡したので、�ック取得済み状態のまま
     assert(lk2.owns_lock());
   }
 }
@@ -94,7 +94,7 @@ int main()
 Resource deadlock avoided
 ```
 
-Visual C++ 11.0, 12.0では、このコードは正常に動作せず、1件目の`assert`で動作を停止してしまう。[`unique_lock::lock()`](unique_lock/lock.md)のバグのためである。
+Visual C++ 11.0, 12.0では、このコードは�常に動作せず、1件目の`assert`で動作を停�してしまう。[`unique_lock::lock()`](unique_lock/lock.md)のバグのためである。
 
 ## バージョン
 ### 言語

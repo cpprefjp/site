@@ -10,7 +10,7 @@ string_type str() const;
 ```
 
 ## 概要
-マッチした文字列を `string_type` 型で返す。キャストと同じ。
+マッチした文�列を `string_type` 型で返す。�ャストと同じ。
 
 
 ## 戻り値

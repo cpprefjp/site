@@ -1,8 +1,8 @@
 # スタイル
-本サイトで作業を行う上でのスタイルです。
+本サイトで作�を行う上でのスタイルです。
 
 - 「である」調
-- 句読点は「、」「。」
+- 句�点は「、」「。」
 
 
 型修飾のスタイル：
@@ -31,7 +31,7 @@ C++11以降対応については対応バージョンを明記します。バー
 
 ### 処理系
 開発環境の表記がない場合は、C++98対応のあらゆる環境で使用できるものとします。 
-処理系の記載は、作業者が確認できたものを記載します。
+処理系の記載は、作�者が確認できたものを記載します。
 
 #### 例
 - Clang: 2.1, 2.8
@@ -60,8 +60,8 @@ C++11以降対応については対応バージョンを明記します。バー
 | bucket                             | バケット                     |
 | complexity                         | 計算量                       |
 | compound type                      | 複合型                       |
-| const iterator                     | 読み取り専用イテレータ       |
-| const reverse iterator             | 読み取り専用逆イテレータ     |
+| const iterator                     | �み取り専用イテレータ       |
+| const reverse iterator             | �み取り専用逆イテレータ     |
 | covariant                          | 共変的                       |
 | dereference                        | 間接参照                     |
 | dereferenceable                    | 間接参照可能                 |
@@ -70,10 +70,10 @@ C++11以降対応については対応バージョンを明記します。バー
 | effects                            | 効果                         |
 | emplace                            | 直接構築                     |
 | empty                              | 空                           |
-| equal                              | 等値                         |
-| equivalence class                  | 同値分類 (数学的文脈)        |
-| equivalence relation               | 同値関係 (数学的文脈)        |
-| equivalent                         | 同値 (数学的文脈)、等価 (その他文脈) |
+| equal                              | �値                         |
+| equivalence class                  | 同値分類 (数�的文脈)        |
+| equivalence relation               | 同値関係 (数�的文脈)        |
+| equivalent                         | 同値 (数�的文脈)、�価 (その他文脈) |
 | forward iterator                   | 前方向イテレータ             |
 | fundamental type                   | 単純型                       |
 | ill-formed                         | 不適格                       |
@@ -94,7 +94,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | non-virtual base class             | 非仮想基底クラス             |
 | note                               | 注                           |
 | output iterator                    | 出力イテレータ               |
-| overload                           | オーバーロード               |
+| overload                           | オーバー�ード               |
 | partial ordering                   | 半順序                       |
 | partition                          | 区分化                       |
 | pointer                            | ポインタ                     |
@@ -111,10 +111,10 @@ C++11以降対応については対応バージョンを明記します。バー
 | rvalue reference                   | 右辺値参照                   |
 | sequence container(s)              | シーケンスコンテナ           |
 | signed                             | 符号付き                     |
-| stop request                       | 停止要求                     |
-| stop state                         | 停止状態                     |
+| stop request                       | 停�要求                     |
+| stop state                         | 停�状態                     |
 | Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |
-| strict weak ordering               | 狭義の弱順序                 |
+| strict weak ordering               | �義の弱順序                 |
 | strong ordering                    | 全順序                       |
 | synchronization                    | 同期                         |
 | total ordering relationalship      | 全順序関係                   |

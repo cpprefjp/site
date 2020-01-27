@@ -13,7 +13,7 @@ decltype(auto)  d = a + b; // dの型もint。autoが式「a + b」で置き換�
 ```
 
 
-参照の変数を`auto`キーワードで型推論した場合は`T`となるが、`decltype(auto)`で型推論した場合は`T&`となる。
+参照の変数を`auto`�ーワードで型推論した場合は`T`となるが、`decltype(auto)`で型推論した場合は`T&`となる。
 
 ```cpp
 int x = 3;

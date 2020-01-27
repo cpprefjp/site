@@ -17,29 +17,29 @@ byte_string to_bytes(const Elem* first,
 このクラスはC++17から非推奨となった。
 
 ## 概要
-ワイド文字列からバイト文字列に変換する。
+ワイド文�列からバイト文�列に変換する。
 
 
 ## 効果
-変換前に、[`state()`](state.md)メンバ関数が返す状態値が、コンストラクタで明示的に指定されていなかった場合、デフォルト値を設定する。
+変換前に、[`state()`](state.md)メンバ関数が返す状態値が、コンストラクタで明示的に指定されていなかった場合、デフォルト値を�定する。
 
-- (1) : 1つのワイド文字を、バイト文字列に変換する。
-- (2) : ワイド文字配列を、バイト文字列に変換する。
-- (3) : ワイド文字列を、バイト文字列に変換する。
-- (4) : ワイド文字の範囲`[first, last)`を、バイト文字列に変換する。
+- (1) : 1つのワイド文�を、バイト文�列に変換する。
+- (2) : ワイド文�配列を、バイト文�列に変換する。
+- (3) : ワイド文�列を、バイト文�列に変換する。
+- (4) : ワイド文�の範囲`[first, last)`を、バイト文�列に変換する。
 
-変換に成功した場合、成功した要素数が、[`converted()`](converted.md)メンバ関数が返す変数に設定される。
+変換に成功した場合、成功した要素数が、[`converted()`](converted.md)メンバ関数が返す変数に�定される。
 
 
 
 ## 戻り値
-変換結果のバイト文字列を返す。
+変換結果のバイト文�列を返す。
 
-変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文字列)が設定された場合、そのパラメータを返す。
+変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文�列)が�定された場合、そのパラメータを返す。
 
 
 ## 例外
-変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文字列)が設定されていなかった場合、[`std::range_error`](/reference/stdexcept.md)例外を送出する。
+変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文�列)が�定されていなかった場合、[`std::range_error`](/reference/stdexcept.md)例外を送出する。
 
 
 ## 例
@@ -56,7 +56,7 @@ int main()
   std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> converter;
 
   // (1)
-  // 1つのワイド文字からバイト文字列に変換
+  // 1つのワイド文�からバイト文�列に変換
   {
     char32_t input = U'あ';
     std::string u8result = converter.to_bytes(input);
@@ -64,7 +64,7 @@ int main()
   }
 
   // (2)
-  // ワイド文字配列からバイト文字列に変換
+  // ワイド文�配列からバイト文�列に変換
   {
     const char32_t input[] = U"あいうえお";
     std::string u8result = converter.to_bytes(input);
@@ -72,7 +72,7 @@ int main()
   }
 
   // (3)
-  // ワイド文字列からバイト文字列に変換
+  // ワイド文�列からバイト文�列に変換
   {
     std::u32string input = U"あいうえお";
     std::string u8result = converter.to_bytes(input);
@@ -80,7 +80,7 @@ int main()
   }
 
   // (4)
-  // ワイド文字の範囲からバイト文字列に変換
+  // ワイド文�の範囲からバイト文�列に変換
   {
     const char32_t input[] = U"あいうえお";
     std::string u8result = converter.to_bytes(std::begin(input), std::end(input) - 1);

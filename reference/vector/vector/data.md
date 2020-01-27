@@ -11,13 +11,13 @@ const T* data() const noexcept;
 ```
 
 ## 概要
-配列の先頭へのポインタを返す。
+配列の先�へのポインタを返す。
 
 `vector`が空の場合であっても、この関数の呼び出し自体は問題なく行える。ただし、その戻り値については規定されていないため、間接参照を行うと未定義動作になる。
 
 
 ## 戻り値
-`[data(), data() + size())` が適正な範囲になるようなポインタ。
+`[data(), data() + size())` が適�な範囲になるようなポインタ。
 
 - C++11 : 空ではない`vector`に対しては`data() == &`[`front()`](front.md)となる
 - C++17 : 空ではない`vector`に対しては`data() ==` [`addressof`](/reference/memory/addressof.md)`(`[`front()`](front.md)`)`となる
@@ -64,7 +64,7 @@ int main()
 
 
 ### 備考
-gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が空の場合に `data()` を呼び出すと未定義動作になる。([Bug 59829](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=59829))。gcc 4.9.0で修正されている。
+gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が空の場合に `data()` を呼び出すと未定義動作になる。([Bug 59829](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=59829))。gcc 4.9.0で修�されている。
 
 
 ## 参照

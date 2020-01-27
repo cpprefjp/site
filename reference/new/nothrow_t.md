@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `nothrow_t`は、`new`失敗時に例外を送出させないための型である。
 
-`nothrow`は、`std::nothrow_t`型の定数であり、`new`キーワードに指定するタグとして使用する。
+`nothrow`は、`std::nothrow_t`型の定数であり、`new`�ーワードに指定するタグとして使用する。
 
 
 ```cpp example
@@ -35,7 +35,7 @@ int main()
   int* p = new(std::nothrow) int[3];
 
   // ただし、オブジェクトのコンストラクタが例外を投げる場合は
-  // 例外がスローされることに注意
+  // 例外がス�ーされることに注意
   try
   {
     ThrowObj* obj = new(std::nothrow) ThrowObj();

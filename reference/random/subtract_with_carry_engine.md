@@ -21,20 +21,20 @@ namespace std {
 * ranlux48_base[link ranlux48_base.md]
 
 ## 概要
-`subtract_with_carry_engine`クラスは、[キャリー付き減算法](https://en.wikipedia.org/wiki/Subtract_with_carry)による擬似乱数生成エンジンである。
+`subtract_with_carry_engine`クラスは、[�ャリー付き減算法](https://en.wikipedia.org/wiki/Subtract_with_carry)による擬似乱数生成エンジンである。
 
 テンプレートパラメータの意味は以下の通り:
 
 * `UIntType`: 生成する符号なし整数の型。
 * `w`: ワードサイズ。`0 < w <= `[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md) でなければならない。
-* `s`: 短いラグ。`0 < s < r` でなければならない。
+* `s`: �いラグ。`0 < s < r` でなければならない。
 * `r`: 長いラグ。
 
-キャリー付き減算法は、以下の特徴を持つ：
+�ャリー付き減算法は、以下の特徴を持つ：
 
-* [メルセンヌ・ツイスター](mersenne_twister_engine.md)より周期が短い(10<sup>171</sup>)が軽量。
+* [メルセンヌ・ツイスター](mersenne_twister_engine.md)より周期が�い(10<sup>171</sup>)が軽量。
 * シードを系統的に選ぶ (例えばスレッド ID) と、特に初期において生成した値の間に線型の相関 (nearly affine dependence) がみられる。これを避けるには
-    * [`random_device`](random_device.md) 等の非決定論的な乱数をシードとして使う
+    * [`random_device`](random_device.md) �の非決定論的な乱数をシードとして使う
     * [最初の方の値を捨てる](subtract_with_carry_engine/discard.md)
 
 
@@ -48,7 +48,7 @@ namespace std {
 |-------------------------------------------------------------------------------|------------------|-------|
 | [`(constructor)`](subtract_with_carry_engine/op_constructor.md)             | コンストラクタ   | C++11 |
 | `~subtract_with_carry_engine() = default;`                                    | デストラクタ     | C++11 |
-| [`seed`](subtract_with_carry_engine/seed.md)                                | シードを設定する | C++11 |
+| [`seed`](subtract_with_carry_engine/seed.md)                                | シードを�定する | C++11 |
 
 
 ### 生成
@@ -80,7 +80,7 @@ namespace std {
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
 | `static constexpr size_t word_size` | ワードサイズ。状態シーケンス内での各ワードのビット数。テンプレートパラメータ`w`。 | C++11 |
-| `static constexpr size_t short_lag` | 短いラグ。進める要素数。テンプレートパラメータ`s`。 | C++11 |
+| `static constexpr size_t short_lag` | �いラグ。進める要素数。テンプレートパラメータ`s`。 | C++11 |
 | `static constexpr size_t long_lag`  | 長いラグ。オペランドの値間の距離。テンプレートパラメータ`r`。 | C++11 |
 | `static constexpr result_type default_seed` | デフォルトのシード値。`19780503u` | C++11 |
 
@@ -89,8 +89,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](subtract_with_carry_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](subtract_with_carry_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](subtract_with_carry_engine/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](subtract_with_carry_engine/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](subtract_with_carry_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](subtract_with_carry_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -105,7 +105,7 @@ int main()
 {
   std::random_device seed_gen;
 
-  // subtract_with_carry_engineのパラメータ設定済み別名であるranlux24_baseを使用する。
+  // subtract_with_carry_engineのパラメータ�定済み別名であるranlux24_baseを使用する。
   // ランダムなシードを使用して初期化
   std::ranlux24_base engine(seed_gen());
 
@@ -144,7 +144,7 @@ int main()
 - [GCC](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
-	- 2008には、`std::tr1::subtract_with_carry`が存在する。
+	- 2008には、`std::tr1::subtract_with_carry`が�在する。
 
 ## 参照
 - [Subtract with carry - Wikipedia](https://en.wikipedia.org/wiki/Subtract_with_carry)

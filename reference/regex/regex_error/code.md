@@ -15,7 +15,7 @@ regex_constants::error_type code() const;
 
 
 ## 戻り値
-コンストラクタで設定されたエラーコードを返す。
+コンストラクタで�定されたエラーコードを返す。
 
 
 ## 例
@@ -25,7 +25,7 @@ regex_constants::error_type code() const;
 int main()
 {
   try {
-    std::regex re("("); // 開きカッコに対応する閉じカッコがない正規表現を指定
+    std::regex re("("); // 開きカッコに対応する閉じカッコがない�規表現を指定
   }
   catch (std::regex_error& e) {
     // エラーコードを取得

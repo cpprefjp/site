@@ -11,14 +11,14 @@ constexpr const_reverse_iterator crbegin() const noexcept; // C++17
 ```
 
 ## 概要
-最後尾の要素を指す読み取り専用逆イテレータを取得する。
+最後尾の要素を指す�み取り専用逆イテレータを取得する。
 
 [`rbegin()`](rbegin.md)は非`const`な`array`オブジェクトに対して`reverse_iterator`を返し、`const`な`array`オブジェクトに対しては`const_reverse_iterator`を返すが、`crbegin()`は`const_reverse_iterator`を返すバージョンのみが提供されている。
 アルゴリズムにイテレータの組を渡す際、アルゴリズム内でデータの書き換えが起こらないというユーザーの意図を示す場合などに有用である。
 
 
 ## 戻り値
-最後尾の要素を指す読み取り専用逆イテレータ
+最後尾の要素を指す�み取り専用逆イテレータ
 
 
 ## 例外

@@ -1,43 +1,43 @@
 # locale
 * locale[meta header]
 
-`<locale>`ヘッダでは、ローカライゼーション（地域化）に関するクラス・関数を定義する。このヘッダに含まれるクラス・関数は`std`名前空間で定義される。
+`<locale>`ヘッダでは、�ーカライゼーション（地域化）に関するクラス・関数を定義する。このヘッダに含まれるクラス・関数は`std`名前空間で定義される。
 
 
-## ロケール
+## �ケール
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|-----------------------------|-------|
-| [`locale`](locale/locale.md) | ロケール(class) | |
-| `use_facet` | ロケールが持つファセットの取得(function) | |
-| `has_facet` | ロケールがファセットを持っているか判定(function) | |
+| [`locale`](locale/locale.md) | �ケール(class) | |
+| `use_facet` | �ケールが持つファセットの取得(function) | |
+| `has_facet` | �ケールがファセットを持っているか判定(function) | |
 
 
 ## 利便性インタフェース
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|-----------------------------|-------|
-| `isspace` | 空白類文字の判定(function) | |
-| `isprint` | 印字可能文字の判定(function) | |
-| `iscntrl` | 制御文字の判定(function) | |
-| `isupper` | 英大文字の判定(function) | |
-| `islower` | 英小文字の判定(function) | |
-| `isalpha` | 英字の判定(function) | |
-| `isdigit` | 数字の判定(function) | |
-| `ispunct` | 区切り文字の判定(function) | |
-| `isxdigit` | 十六進数字の判定(function) | |
-| `isalnum` | 英字・数字の判定(function) | |
-| `isgraph` | 図形文字の判定(function) | |
-| [`toupper`](locale/toupper.md) | 英大文字への変換(function) | |
-| [`tolower`](locale/tolower.md) | 英子文字への変換(function) | |
-| [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文字列変換(class template) | C++11<br/> C++17から非推奨 |
+| `isspace` | 空白類文�の判定(function) | |
+| `isprint` | 印�可能文�の判定(function) | |
+| `iscntrl` | 制御文�の判定(function) | |
+| `isupper` | 英大文�の判定(function) | |
+| `islower` | 英小文�の判定(function) | |
+| `isalpha` | 英�の判定(function) | |
+| `isdigit` | 数�の判定(function) | |
+| `ispunct` | 区切り文�の判定(function) | |
+| `isxdigit` | 十�進数�の判定(function) | |
+| `isalnum` | 英�・数�の判定(function) | |
+| `isgraph` | 図形文�の判定(function) | |
+| [`toupper`](locale/toupper.md) | 英大文�への変換(function) | |
+| [`tolower`](locale/tolower.md) | 英�文�への変換(function) | |
+| [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文�列変換(class template) | C++11<br/> C++17から非推奨 |
 | [`wbuffer_convert`](locale/wbuffer_convert.md) | `codecvt`によるストリームバッファ変換(class template) | C++11<br/> C++17から非推奨 |
-| [`ctype_base`](locale/ctype_base.md) | 文字分類のための基底クラス(class) | |
-| [`ctype`](locale/ctype.md) | 文字の分類(class template) | |
-| [`ctype_byname`](locale/ctype_byname.md) | 名前による文字の分類(class template) | |
-| [`codecvt_base`](locale/codecvt_base.md) | 文字コード変換のための基底クラス(class) | |
-| [`codecvt`](locale/codecvt.md) | 文字コード変換(class template) | |
-| [`codevt_byname`](locale/codecvt_byname.md) | 名前による文字コード変換(class template) | |
+| [`ctype_base`](locale/ctype_base.md) | 文�分類のための基底クラス(class) | |
+| [`ctype`](locale/ctype.md) | 文�の分類(class template) | |
+| [`ctype_byname`](locale/ctype_byname.md) | 名前による文�の分類(class template) | |
+| [`codecvt_base`](locale/codecvt_base.md) | 文�コード変換のための基底クラス(class) | |
+| [`codecvt`](locale/codecvt.md) | 文�コード変換(class template) | |
+| [`codevt_byname`](locale/codecvt_byname.md) | 名前による文�コード変換(class template) | |
 
 
 ## 数値
@@ -46,16 +46,16 @@
 |------------------------------------|----------------------------|-------|
 | [`num_get`](locale/num_get.md)   | 数値の解析(class template) | |
 | [`num_put`](locale/num_put.md)   | 数値の出力(class template) | |
-| [`numpunct`](locale/numpunct.md) | 数値の区切り文字に関する情報(class template) | |
-| [`numpunct_byname`](locale/numpunct_byname.md) | 名前による数値の区切り文字情報(class template) | |
+| [`numpunct`](locale/numpunct.md) | 数値の区切り文�に関する情報(class template) | |
+| [`numpunct_byname`](locale/numpunct_byname.md) | 名前による数値の区切り文�情報(class template) | |
 
 
 ## 照合
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------|----------------------------|-------|
-| [`collate`](locale/collate.md) | 文字列の照合(class template) | |
-| [`collate_byname`](locale/collate_byname.md) | 名前による文字列の照合(class template) | |
+| [`collate`](locale/collate.md) | 文�列の照合(class template) | |
+| [`collate_byname`](locale/collate_byname.md) | 名前による文�列の照合(class template) | |
 
 
 ## 日付と時間
@@ -85,7 +85,7 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
 | [`messages_base`](locale/messages_base.md) | メッセージ取得のための基底クラス(class) | |
-| [`messages`](locale/messages.md) | メッセージカタログから対応する翻訳メッセージの取得(class template) | |
+| [`messages`](locale/messages.md) | メッセージカタ�グから対応する翻訳メッセージの取得(class template) | |
 | [`messages_byname`](locale/messages_byname.md) | 名前による翻訳メッセージの取得(class template) | |
 
 

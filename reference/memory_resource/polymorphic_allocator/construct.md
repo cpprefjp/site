@@ -37,8 +37,8 @@ void construct(pair<T1, T2>* p, pair<U, V>&& pr);       //(6) C++17 まで
 ## 適格要件
 
 - (1) : `*this` と `args...` をコンストラクタ引数とした [uses-allocator 構築](/reference/memory/uses_allocator.md)が可能であること。  
-アロケータを受け取るコンストラクタを持たない型については、（`args..` が適切ならば）この要件を常に満たしている。  
-C++17までは、この関数は `T` が [`pair`](/reference/utility/pair.md) の特殊化でない場合に限りオーバーロード解決に参加する。
+ア�ケータを受け取るコンストラクタを持たない型については、（`args..` が適切ならば）この要件を常に満たしている。  
+C++17までは、この関数は `T` が [`pair`](/reference/utility/pair.md) の特殊化でない場合に限りオーバー�ード解決に参加する。
 
 
 ## 引数
@@ -70,8 +70,8 @@ C++17までは、この関数は `T` が [`pair`](/reference/utility/pair.md) �
 			`::new(static_cast<void*>(p)) T(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, *this,` [`forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
 		- [`uses_allocator_v`](/reference/memory/uses_allocator.md)`<T, polymorphic_allocator> == true` かつ [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, Args..., polymorphic_allocator> == true` の場合  
 			`::new(static_cast<void*>(p)) T(`[`forward`](/reference/utility/forward.md)`<Args>(args)..., *this)`
-		- それ以外の場合、プログラムは不適格となる。
-	- C++20 から : 以下と等価の動作を行う。
+		- それ以外の場合、プ�グラムは不適格となる。
+	- C++20 から : 以下と�価の動作を行う。
 
 		```cpp
 uninitialized_construct_using_allocator(p, *this, forward<Args>(args)...)
@@ -79,7 +79,7 @@ uninitialized_construct_using_allocator(p, *this, forward<Args>(args)...)
 * uninitialized_construct_using_allocator[link /reference/memory/uninitialized_construct_using_allocator.md]
 * forward[link /reference/utility/forward.md]
 
-- (2) : 以下と等価
+- (2) : 以下と�価
 	```cpp
 ::new(static_cast<void*>(p)) pair<T1, T2>(piecewise_construct, xprime, yprime)
 ```
@@ -94,16 +94,16 @@ uninitialized_construct_using_allocator(p, *this, forward<Args>(args)...)
 		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`make_tuple`](/reference/tuple/make_tuple.md)`(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, *this),` [`move`](/reference/utility/move.md)`(x))` を `xprime` とする。
 	- [`uses_allocator_v`](/reference/memory/uses_allocator.md)`<T1, polymorphic_allocator> == true` かつ [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T1, Args1..., polymorphic_allocator> == true` の場合  
 		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`move`](/reference/utility/move.md)`(x),` [`make_tuple`](/reference/tuple/make_tuple.md)`(*this))` を `xprime` とする。
-	- それ以外の場合、プログラムは不適格となる。
+	- それ以外の場合、プ�グラムは不適格となる。
 
-- (3) : 以下と等価、すなわち(2)に移譲
+- (3) : 以下と�価、すなわち(2)に移�
 	```cpp
 construct(p, piecewise_construct, tuple<>(), tuple<>());
 ```
 * piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * tuple[link /reference/tuple/tuple.md]
 
-- (4) : 以下と等価、すなわち(2)に移譲
+- (4) : 以下と�価、すなわち(2)に移�
 	```cpp
 construct(p, piecewise_construct,
           forward_as_tuple(forward<U>(x)),
@@ -113,7 +113,7 @@ construct(p, piecewise_construct,
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * forward[link /reference/utility/forward.md]
 
-- (5) : 以下と等価、すなわち(2)に移譲
+- (5) : 以下と�価、すなわち(2)に移�
 	```cpp
 construct(p, piecewise_construct,
           forward_as_tuple(pr.first),
@@ -122,7 +122,7 @@ construct(p, piecewise_construct,
 * piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
-- (6) : 以下と等価、すなわち(2)に移譲
+- (6) : 以下と�価、すなわち(2)に移�
 	```cpp
 construct(p, piecewise_construct,
           forward_as_tuple(forward<U>(pr.first)),
@@ -182,7 +182,7 @@ int main()
 3
 ```
 
-## `pair`関連のオーバーロードの例
+## `pair`関連のオーバー�ードの例
 ```cpp example
 #include <iostream>
 #include <memory_resource>
@@ -208,12 +208,12 @@ int main()
 
     alloc.construct(p, std::piecewise_construct
         , std::make_tuple(128)         //intを128で初期化
-        , std::make_tuple("string", 3) //string("string", 3)で初期化（最初の3文字を保持する）
+        , std::make_tuple("string", 3) //string("string", 3)で初期化（最初の3文�を保持する）
     );
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //ア�ケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -227,7 +227,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //ア�ケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -241,7 +241,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //ア�ケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -256,7 +256,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //ア�ケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -270,7 +270,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //ア�ケータが伝搬している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 }
@@ -367,7 +367,7 @@ true
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6
-    - 2017, 2019共に(1)以外のオーバーロードを提供していないが、[`pair`](/reference/utility/pair.md) の各要素に対する [uses-allocator 構築](/reference/memory/uses_allocator.md)をサポートしている。（ただし、C++20 モードでもネストした [`pair`](/reference/utility/pair.md) はサポートされていない）
+    - 2017, 2019共に(1)以外のオーバー�ードを提供していないが、[`pair`](/reference/utility/pair.md) の各要素に対する [uses-allocator 構築](/reference/memory/uses_allocator.md)をサポートしている。（ただし、C++20 モードでもネストした [`pair`](/reference/utility/pair.md) はサポートされていない）
 
 ## 関連項目
 - [`construct`](/reference/memory/allocator_traits/construct.md)

@@ -17,12 +17,12 @@ basic_osyncstream(basic_osyncstream&& other) noexcept;                          
 ```
 
 ## 概要
-- (1) から (4) : ラップするストリーム、アロケータ（もしあれば）を受け取るコンストラクタ。
+- (1) から (4) : ラップするストリーム、ア�ケータ（もしあれば）を受け取るコンストラクタ。
 - (5) : ムーブコンストラクタ。
 
 
 ## 効果
-- (1) から (4) : 提供されるストリームバッファ、アロケータを使用してプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)を初期化し、そのポインタを用いて基底クラスである[`std::basic_ostream`](../../ostream/basic_ostream.md)を初期化する。
+- (1) から (4) : 提供されるストリームバッファ、ア�ケータを使用してプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)を初期化し、そのポインタを用いて基底クラスである[`std::basic_ostream`](../../ostream/basic_ostream.md)を初期化する。
 - (5) : 対応する`other`のサブオブジェクトから基底クラスとプライベートメンバの`std::basic_syncbuf`をムーブ構築し、基底クラスの初期化を完了するために`std::basic_ostream<charT、traits>::set_rdbuf(addressof(sb))`を呼び出す。
 
 

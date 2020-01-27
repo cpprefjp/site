@@ -44,7 +44,7 @@ namespace std {
 
 
 ## 計算量
-正確に `last1 - first1` 回のスワップが行われる
+�確に `last1 - first1` 回のスワップが行われる
 
 
 

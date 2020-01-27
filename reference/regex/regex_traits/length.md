@@ -11,7 +11,7 @@ static std::size_t length(const char_type* p);
 
 
 ## 概要
-文字列の長さを取得する。
+文�列の長さを取得する。
 
 
 ## 戻り値

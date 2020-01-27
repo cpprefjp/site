@@ -10,7 +10,7 @@ void unlock();
 ```
 
 ## 概要
-ロックを手放す
+�ックを手放す
 
 
 ## 要件
@@ -43,17 +43,17 @@ class counter {
 public:
   int add(int value)
   {
-    mtx_.lock(); // 2.ロックを再帰的に取得する
+    mtx_.lock(); // 2.�ックを再帰的に取得する
     int result = count_ += value;
-    mtx_.unlock(); // 3.ロックを手放す(まだロックを取得しているユーザーがいるので、まだ所有権を手放さない)
+    mtx_.unlock(); // 3.�ックを手放す(まだ�ックを取得しているユーザーがいるので、まだ所有権を手放さない)
     return result;
   }
 
   int increment()
   {
-    mtx_.lock(); // 1.ロックを取得する
-    int result = add(1); // add()関数内でも同じミューテックスからロックを取得する
-    mtx_.unlock(); // 4.ロックを手放す(再帰的にロックを取得しているユーザーがいなくなったので、所有権を手放す)
+    mtx_.lock(); // 1.�ックを取得する
+    int result = add(1); // add()関数内でも同じミューテックスから�ックを取得する
+    mtx_.unlock(); // 4.�ックを手放す(再帰的に�ックを取得しているユーザーがいなくなったので、所有権を手放す)
     return result;
   }
 };

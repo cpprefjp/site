@@ -19,24 +19,24 @@ namespace std {
 * Integral[italic]
 
 ## 概要
-引数 `x` をゼロ方向に丸めた整数値を得る。  
-ゼロ方向への丸めた整数値とは、絶対値が引数 `x` の絶対値以下で、かつ、引数 `x` に最も近い整数値である。
+引数 `x` をゼ�方向に丸めた整数値を得る。  
+ゼ�方向への丸めた整数値とは、絶対値が引数 `x` の絶対値以下で、かつ、引数 `x` に最も近い整数値である。
 
 
 ## 戻り値
-引数 `x` をゼロ方向に丸めた整数値
+引数 `x` をゼ�方向に丸めた整数値
 
 
 ## 備考
-- 本関数は、C99 の規格にある `trunc`（より正確には `math.h` ヘッダの `trunc`、`truncf`、`truncl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
+- 本関数は、C99 の規格にある `trunc`（より�確には `math.h` ヘッダの `trunc`、`truncf`、`truncl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と�価である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 
 	- `x = ±0` の場合、`±0` を返す。
 	- `x = ±∞` の場合、`±∞` を返す。
 
-	また、本関数の挙動は、丸めモードが [`FE_TOWARDZERO`](/reference/cfenv/fe_towardzero.md) に設定されている時の [`rint`](rint.md)、あるいは [`nearbyint`](nearbyint.md) のいずれかと等価である。  
-	したがって、本関数において戻り値が引数 `x` と異なる場合に例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依存である。  
-	なお、本関数の挙動は、現在の丸めモードには依存しない。
+	また、本関数の挙動は、丸めモードが [`FE_TOWARDZERO`](/reference/cfenv/fe_towardzero.md) に�定されている時の [`rint`](rint.md)、あるいは [`nearbyint`](nearbyint.md) のいずれかと�価である。  
+	したがって、本関数において戻り値が引数 `x` と異なる場合に例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依�である。  
+	なお、本関数の挙動は、現在の丸めモードには依�しない。
 
 
 ## 例

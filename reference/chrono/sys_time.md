@@ -50,9 +50,9 @@ namespace std::chrono {
 
 
 ## 効果
-便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
+便宜上のリテラル�ャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 
-- (4) : 以下と等価：
+- (4) : 以下と�価：
     ```cpp
     auto const dp = floor<days>(tp);
     return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{} {}"),
@@ -65,7 +65,7 @@ namespace std::chrono {
     * year_month_day[link year_month_day.md]
     * hh_mm_ss[link hh_mm_ss.md.nolink]
 
-- (5) : 以下と等価：
+- (5) : 以下と�価：
     ```cpp
     return os << year_month_day{dp};
     ```
@@ -83,7 +83,7 @@ namespace std::chrono {
 ## 備考
 - (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であり、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 - [`year`](year.md)クラスの制限により、年の値としては`[-32767, 32767]`の範囲までしか入出力できないことに注意 (その範囲外は未規定の値となる)
-- (4), (5) : 出力ストリームの演算子は、ローカルのタイムゾーンへの変換を行わない。そのため、システム時間をそのまま出力すると、デフォルトではUTCタイムゾーンの日時が出力される。日本のタイムゾーンで出力したい場合は、[`zoned_time`](zoned_time.md)クラスを介して出力するか、9時間を加算して出力すること
+- (4), (5) : 出力ストリームの演算�は、�ーカルのタイムゾーンへの変換を行わない。そのため、システム時間をそのまま出力すると、デフォルトではUTCタイムゾーンの日時が出力される。日本のタイムゾーンで出力したい場合は、[`zoned_time`](zoned_time.md)クラスを介して出力するか、9時間を加算して出力すること
 
 
 ## 例
@@ -108,7 +108,7 @@ int main()
   std::cout << day_tp << std::endl;
 
   // 以下は、日本のタイムゾーンで日時を出力する方法：
-  // 1. コンピュータに設定されたタイムゾーンで日時を出力
+  // 1. コンピュータに�定されたタイムゾーンで日時を出力
   std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
   // 2. 日本のタイムゾーン (UTC + 9時間) で日時を出力
   std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;

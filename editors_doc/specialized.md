@@ -4,7 +4,7 @@
 
 Markdownだけだと表現力が足りないため、cpprefjpでは構文を拡張しています。
 
-## コードブロック
+## コードブ�ック
 
 \`\`\` と \`\`\` で挟むことで、複数行に渡るコードを書けます。
 
@@ -34,7 +34,7 @@ int main() {
 
 ## シンタックスハイライト
 
-コードブロック開始側の \`\`\` の後ろに言語名を書くことで、その言語に対応したハイライトが行われます。
+コードブ�ック開始側の \`\`\` の後ろに言語名を書くことで、その言語に対応したハイライトが行われます。
 
 Markdown:
 
@@ -62,8 +62,8 @@ int main() {
 
 ## exampleタグ
 
-includeとmain関数を含む**原則すべてのC/C++言語のコードブロック**には`example`タグをつけてください。  
-`example`タグが付いたコードブロックはその場で実際にコンパイル・実行することができるようになります。  
+includeとmain関数を含む**原則すべてのC/C++言語のコードブ�ック**には`example`タグをつけてください。  
+`example`タグが付いたコードブ�ックはその場で実際にコンパイル・実行することができるようになります。  
 たとえコンパイルエラーになる場合でも、利用者がその場でコードを書き換えて試行することを容易にするために原則つけてください。
 
 ````
@@ -86,9 +86,9 @@ namespace std {
 }
 ```
 
-## プログラムの修飾
+## プ�グラムの修飾
 
-コードブロックの直後に特定の構文で記述することで、コードブロックの一部を修飾できます。
+コードブ�ックの直後に特定の構文で記述することで、コードブ�ックの一部を修飾できます。
 
 Markdown:
 
@@ -118,32 +118,32 @@ int main() {
 * <iostream>[link /reference/iostream.md]
 * std[color ff0000]
 
-修飾の範囲は、コードブロックの直後から空行が続くまで、です。
-空行があるとコードブロックに対する修飾を終わります。
-構文は、`* ＜対象文字列＞[＜命令＞ ＜引数＞]` です。
+修飾の範囲は、コードブ�ックの直後から空行が続くまで、です。
+空行があるとコードブ�ックに対する修飾を終わります。
+構文は、`* ＜対象文�列＞[＜命令＞ ＜引数＞]` です。
 現在用意されている命令は３つです。
 
 - `link`
-    - `＜対象文字列＞`にリンクを張ります。
+    - `＜対象文�列＞`にリンクを張ります。
     - `＜引数＞`にはリンク先のURLを指定します。
     - 指定可能なURLの形式は以下の3種類です。
         - 絶対リンク: `http://example.com/foo/bar` のような形式
         - サイト内絶対リンク: `/reference/iostream.md` のような形式
         - サイト内相対リンク: `../reference/vector.md` のような形式
-    - サイト内へのリンクの場合、リンク先の存在チェックも行います。下記セクション参照。
+    - サイト内へのリンクの場合、リンク先の�在チェックも行います。下記セクション参照。
 - `color`
-    - `＜対象文字列＞`に色を付けます。
+    - `＜対象文�列＞`に色を付けます。
     - `＜引数＞`には色を`RRGGBB`（16進数）の形式で指定します。
 - `italic`
-    - `＜対象文字列＞`をイタリック体にします。
+    - `＜対象文�列＞`をイタリック体にします。
     - `＜引数＞`はありません。
 
-### グローバル修飾
+### グ�ーバル修飾
 
-全てのコードブロックでは、デフォルトの修飾が実行されます。
-これを **グローバル修飾** と呼びます。
+全てのコードブ�ックでは、デフォルトの修飾が実行されます。
+これを **グ�ーバル修飾** と呼びます。
 
-例えば `<vector>`, `<iostream>`, `<algorithm>`, `<iterator>`, `std::vector`, `v.begin()`, `v.end()`, `std::copy`, `std::ostream_iterator` 等はグローバル修飾されるため、特に修飾を書かなくてもリンクになります。
+例えば `<vector>`, `<iostream>`, `<algorithm>`, `<iterator>`, `std::vector`, `v.begin()`, `v.end()`, `std::copy`, `std::ostream_iterator` �はグ�ーバル修飾されるため、特に修飾を書かなくてもリンクになります。
 
 ```cpp example
 #include <vector>
@@ -157,19 +157,19 @@ int main() {
 }
 ```
 
-グローバル修飾の一覧は [GLOBAL_QUALIFY_LIST.txt](https://github.com/cpprefjp/site/blob/master/GLOBAL_QUALIFY_LIST.txt) にあります。
+グ�ーバル修飾の一覧は [GLOBAL_QUALIFY_LIST.txt](https://github.com/cpprefjp/site/blob/master/GLOBAL_QUALIFY_LIST.txt) にあります。
 
-## リンクの存在チェック
+## リンクの�在チェック
 
-CommonMark形式のリンクや独自拡張のプログラムの修飾`link`などで生成されるHTMLにリンクが埋め込まれるとき、リンク先がサイト内へのリンクだった場合、リンク先の存在チェックも行います。
+CommonMark形式のリンクや独自拡張のプ�グラムの修飾`link`などで生成されるHTMLにリンクが埋め込まれるとき、リンク先がサイト内へのリンクだった場合、リンク先の�在チェックも行います。
 
-リンク先が存在しなかった場合、変換時に以下の様なメッセージが **標準エラーに** 出力されます。
+リンク先が�在しなかった場合、変換時に以下の様なメッセージが **標準エラーに** 出力されます。
 
 ```
 Warning: [editors_doc/specialized.md] href "/reference/foobar.md (/reference/foobar.html)" not found.
 ```
 
-このメッセージが出た場合、リンクが切れているため、編集して修正して下さい。
+このメッセージが出た場合、リンクが切れているため、編集して修�して下さい。
 
 ただ「今後そのリンク先を作る予定なので、このリンクは残しておきたい」ということもあります。
 そのような場合には `.nolink` が使えます。
@@ -181,7 +181,7 @@ Warning: [editors_doc/specialized.md] href "/reference/foobar.md (/reference/foo
 * <iostream>[link /reference/iostream.md.nolink]
 ````
 
-このように`link`のURLの最後に `.nolink` を指定すると、リンク先が存在しなかった場合には、以下の様なメッセージが **標準出力に** 出力されます。
+このように`link`のURLの最後に `.nolink` を指定すると、リンク先が�在しなかった場合には、以下の様なメッセージが **標準出力に** 出力されます。
 
 ```
 Note: You can create /reference/foobar.md for editors_doc/specialized.md.
@@ -203,8 +203,8 @@ Warning: [nolinked editors_doc/specialized.md] href "/reference/foobar.md.nolink
 
 * `[meta header]`: 所属ヘッダを表すメタ情報
     * 例: `* chrono[meta header]`
-* `[meta id-type]`: 識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, macro, namespace
-* `[meta namespace]`: 所属する名前空間を表すメタ情報。マクロを考慮して省略可。名前空間の区切りは`::`
+* `[meta id-type]`: �別�の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, macro, namespace
+* `[meta namespace]`: 所属する名前空間を表すメタ情報。マク�を考慮して省略可。名前空間の区切りは`::`
     * 例: `* std[meta namespace]`
     * 例: `* std::chrono[meta namespace]`
 * `[meta class]`: 所属するクラスを表すメタ情報。クラスページでは省略する。structとは書けない
@@ -244,7 +244,7 @@ $x = \frac{ -b \pm \sqrt{ b^{2} - 4 a c } }{2 a}$
 
 $x = \frac{ -b \pm \sqrt{ b^{2} - 4 a c } }{2 a}$
 
-ブロック用は以下のように書きます。
+ブ�ック用は以下のように書きます。
 
 Markdown:
 

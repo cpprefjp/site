@@ -14,7 +14,7 @@ basic_filebuf<CharT, Traits>* rdbuf() const;
 
 `basic_fstream`は内部に`basic_filebuf`オブジェクトを保有しているため、基底クラス`basic_ios`の同名のメンバ関数と以下の点で異なる。
 
-- 値を取得するための関数のみ存在する。これに対して、`basic_ios::rdbuf`関数では、値の取得・設定でオーバーロードされている。
+- 値を取得するための関数のみ�在する。これに対して、`basic_ios::rdbuf`関数では、値の取得・�定でオーバー�ードされている。
 - 戻り値の型が`basic_filebuf`へのポインタに変更されている。
 
 ## 戻り値
@@ -50,4 +50,4 @@ int main()
 - C++98
 
 ## 参照
-- [`basic_ios::rdbuf`](../../ios/basic_ios/rdbuf.md): 基底クラスに存在する同名のメンバ関数。
+- [`basic_ios::rdbuf`](../../ios/basic_ios/rdbuf.md): 基底クラスに�在する同名のメンバ関数。

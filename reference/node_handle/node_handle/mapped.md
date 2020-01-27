@@ -6,11 +6,11 @@
 * [meta namespace]
 
 ```cpp
-mapped_type& mapped() const; // set コンテナには存在ない
+mapped_type& mapped() const; // set コンテナには�在ない
 ```
 
 ## 概要
-このノードハンドルによって管理されている `map` コンテナ要素の `mapped_type` メンバ（キーではない方）を指す参照を返す。
+このノードハンドルによって管理されている `map` コンテナ要素の `mapped_type` メンバ（�ーではない方）を指す参照を返す。
 
 
 ## 要件

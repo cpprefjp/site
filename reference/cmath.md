@@ -1,7 +1,7 @@
 # cmath
 * cmath[meta header]
 
-`<cmath>`ヘッダでは、一般的な数学関数および各種マクロを提供する。
+`<cmath>`ヘッダでは、一般的な数�関数および各種マク�を提供する。
 
 - [標準Cライブラリとの差異](#difference-from-c)
 - [エラーの扱い](#error-handling)
@@ -16,15 +16,15 @@
 - [最近傍整数](#nearest-integer-functions)
 - [剰余](#remainder-functions)
 - [浮動小数点操作](#manipulation-functions)
-- [最大値・最小値と正の差](#maximum-minimum-and-positive-difference-functions)
+- [最大値・最小値と�の差](#maximum-minimum-and-positive-difference-functions)
 - [乗算・加算](#floating-multiply-add)
 - [線形補完](#linear-interpolation)
 - [数値分類](#classification-functions)
 - [数値比較](#comparison-functions)
 - [型](#types)
-- [数値のマクロ](#value-macros)
-- [数値分類のマクロ](#classification-macros)
-- [その他のマクロ](#other-macros)
+- [数値のマク�](#value-macros)
+- [数値分類のマク�](#classification-macros)
+- [その他のマク�](#other-macros)
 
 
 ## <a id="difference-from-c" href="#difference-from-c">標準Cライブラリとの差異</a>
@@ -32,37 +32,37 @@
 
 ### C++03のC90との差異
 - 各関数は std 名前空間に定義されている。
-- `fabs` と等価の関数 `abs` を追加している。
-- `pow` の第 2 引数が `int` のオーバーロードを追加している。
-- 各関数（上記 2 関数を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` および `long double` になっているオーバーロードバージョンを追加している。
+- `fabs` と�価の関数 `abs` を追加している。
+- `pow` の第 2 引数が `int` のオーバー�ードを追加している。
+- 各関数（上記 2 関数を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` および `long double` になっているオーバー�ードバージョンを追加している。
 
 
 ### C++11のC99との差異
 - 各関数は std 名前空間に定義されている。
-- `fabs` と等価の関数 `abs` を追加している。
-- 引数に `double` を含む各関数（上記 `abs` を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` と `long double` のオーバーロードバージョンを追加している。  
-	なお、C99 にも同様の関数（接尾辞が `f` および `l` のもの）が存在するが、それらについては規格書では言及されていない。  
+- `fabs` と�価の関数 `abs` を追加している。
+- 引数に `double` を含む各関数（上記 `abs` を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` と `long double` のオーバー�ードバージョンを追加している。  
+	なお、C99 にも同様の関数（接尾辞が `f` および `l` のもの）が�在するが、それらについては規格書では言及されていない。  
 	ただし、`nan` については、引数の型では区別がつかないため、C99 の `nanf` および `nanl` をそのまま使用する。
-- 数値分類、および、数値比較の各マクロの替わりに、引数が各浮動小数点型で、戻り値が `bool` の関数を追加している。
-- 上記に加えて、以下のようなオーバーロード解決ができるように、更にオーバーロードを追加している。
+- 数値分類、および、数値比較の各マク�の替わりに、引数が各浮動小数点型で、戻り値が `bool` の関数を追加している。
+- 上記に加えて、以下のようなオーバー�ード解決ができるように、更にオーバー�ードを追加している。
 
-	1. `double` 型の仮引数に対応する実引数のいずれかが `long double` である場合、`double` 型の仮引数に対応する全ての実引数を `long double` にキャストしてからオーバーロード解決を行う。
-	2. 上記以外で、`double` 型の仮引数に対応する実引数のいずれかが `double` 型または整数型である場合、`double` 型の仮引数に対応する全ての実引数を `double` にキャストしてからオーバーロード解決を行う。
-	3. 上記以外の場合、`double` 型の仮引数に対応する全ての実引数を `float` にキャストしてからオーバーロード解決を行う。
+	1. `double` 型の仮引数に対応する実引数のいずれかが `long double` である場合、`double` 型の仮引数に対応する全ての実引数を `long double` に�ャストしてからオーバー�ード解決を行う。
+	2. 上記以外で、`double` 型の仮引数に対応する実引数のいずれかが `double` 型または整数型である場合、`double` 型の仮引数に対応する全ての実引数を `double` に�ャストしてからオーバー�ード解決を行う。
+	3. 上記以外の場合、`double` 型の仮引数に対応する全ての実引数を `float` に�ャストしてからオーバー�ード解決を行う。
 
-	これらの規則は、C99 で導入された <tgmath.h> の type-generic マクロとほぼ等価であるが、以下の点が異なる。
+	これらの規則は、C99 で導入された <tgmath.h> の type-generic マク�とほぼ�価であるが、以下の点が異なる。
 
-	- C99 では `modf` は type-generic マクロの対象ではないが、C++11 ではオーバーロード解決の対象である。
+	- C99 では `modf` は type-generic マク�の対象ではないが、C++11 ではオーバー�ード解決の対象である。
 	- C99 では列挙型も整数型とみなされるが、C++11 では列挙型は（スコープ付き・スコープ無し共に）整数型とはみなされない。  
-	- C++ のクラス型は変換演算子を持つことができるため、実引数の型が変換演算子を持つクラス型の場合も上記に従ってオーバーロード解決が行われる。  
+	- C++ のクラス型は変換演算�を持つことができるため、実引数の型が変換演算�を持つクラス型の場合も上記に従ってオーバー�ード解決が行われる。  
 
-	しかし、上記のオーバーロード解決の規則に厳密に従うと、列挙型や変換演算子を持つクラス型の引数が `float` と等価の扱いになってしまう。  
-	このため、上記に記載のある無条件の「キャスト」は、C++14 ではその対象が「算術型」のみに限られることになり、列挙型や変換演算子を持つクラス型は上記の「キャスト」の対象とはならなくなった。  
-	（もちろん、オーバーロード解決の後の暗黙の変換は依然として有効であるため、スコープ無し列挙型や `explicit` でない変換演算子を持つクラス型は、明示的なキャスト無しで実引数になり得る。）  
-	なお、C++11 の記載にある無条件のキャストは規格のバグとされたため、C++11 であってもスコープ付き列挙型や explicit な変換演算子のあるクラス型に、上記規則にある無条件のキャストが適用されると想定すべきではない。  
+	しかし、上記のオーバー�ード解決の規則に厳密に従うと、列挙型や変換演算�を持つクラス型の引数が `float` と�価の扱いになってしまう。  
+	このため、上記に記載のある無条件の「�ャスト」は、C++14 ではその対象が「算術型」のみに限られることになり、列挙型や変換演算�を持つクラス型は上記の「�ャスト」の対象とはならなくなった。  
+	（もちろん、オーバー�ード解決の後の暗黙の変換は依然として有効であるため、スコープ無し列挙型や `explicit` でない変換演算�を持つクラス型は、明示的な�ャスト無しで実引数になり得る。）  
+	なお、C++11 の記載にある無条件の�ャストは規格のバグとされたため、C++11 であってもスコープ付き列挙型や explicit な変換演算�のあるクラス型に、上記規則にある無条件の�ャストが適用されると想定すべきではない。  
 	（[LWG 2086. Overly generic type support for math functions](http://cplusplus.github.io/LWG/lwg-defects.html#2086) 参照）
 
-	各関数の個別ページでは、上記のオーバーロード関数をコードで示す際には、引数や返値の型を斜体で示す。
+	各関数の個別ページでは、上記のオーバー�ード関数をコードで示す際には、引数や返値の型を斜体で示す。
     ```cpp
     Integral      // 任意の整数型
     Arithmetic    // 任意の算術型
@@ -72,7 +72,7 @@
     * Arithmetic[italic]
     * Promoted[italic]
 
-	複数の引数がある場合には、数字のサフィックスで区別する。
+	複数の引数がある場合には、数�のサフィックスで区別する。
 	例を以下に示す。
     ```cpp
     double atan(Integral x);
@@ -87,110 +87,110 @@
 
 ## <a id="error-handling" href="#error-handling">エラーの扱い</a>
 `<cmath>` で提供される各関数は、特に明記されていない限り、引数の型が表現できる全ての値についての挙動が定義されている。
-なお、ここで言う「挙動が定義されている」とは、未定義動作を引き起こさないというだけで、エラーが発生したり、実装依存の挙動となる場合がある事に注意。
+なお、ここで言う「挙動が定義されている」とは、未定義動作を引き起こさないというだけで、エラーが発生したり、実装依�の挙動となる場合がある事に注意。
 
 `<cmath>` で提供される各関数においてエラーが発生した場合、[`errno`](cerrno/errno.md)、あるいは、浮動小数点例外のいずれか、もしくは両方によってエラーが通知される。  
 C++11 以降の場合、どちらの方法によって通知されるかは [`math_errhandling`](cmath/math_errhandling.md) の値によって判別可能である。（利用者が選択する事はできない）  
 C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない。
 
 ### [`errno`](cerrno/errno.md) によるエラーの通知
-[`errno`](cerrno/errno.md) によってエラーが通知される場合、エラー内容は [`errno`](cerrno/errno.md) に設定された値によって判別可能である。  
-なお、エラーが発生しなかった場合でも [`errno`](cerrno/errno.md) がクリアされる事は無いので、エラー発生の有無を [`errno`](cerrno/errno.md) で判断するためにはあらかじめ [`errno`](cerrno/errno.md) にゼロを設定しておく必要がある。
+[`errno`](cerrno/errno.md) によってエラーが通知される場合、エラー内容は [`errno`](cerrno/errno.md) に�定された値によって判別可能である。  
+なお、エラーが発生しなかった場合でも [`errno`](cerrno/errno.md) がクリアされる事は無いので、エラー発生の有無を [`errno`](cerrno/errno.md) で判�するためにはあらかじめ [`errno`](cerrno/errno.md) にゼ�を�定しておく必要がある。
 
 
 ### 浮動小数点例外によるエラーの通知（C++11 以降）
 名称に「例外」と付いているが、C++ の例外とは全く関係ないため注意。  
-浮動小数点例外によってエラーが通知される場合、エラー内容は浮動小数点状態フラグに設定されるため、[`fetestexcept`](cfenv/fetestexcept.md) によって判別可能である。  
-なお、エラーが発生しなかった場合でも浮動小数点状態フラグがクリアされる事は無いので、エラー発生の有無を浮動小数点状態フラグで判断するためにはあらかじめ [`feclearexcept`](cfenv/feclearexcept.md) で浮動小数点状態フラグをクリアしておく必要がある。
+浮動小数点例外によってエラーが通知される場合、エラー内容は浮動小数点状態フラグに�定されるため、[`fetestexcept`](cfenv/fetestexcept.md) によって判別可能である。  
+なお、エラーが発生しなかった場合でも浮動小数点状態フラグがクリアされる事は無いので、エラー発生の有無を浮動小数点状態フラグで判�するためにはあらかじめ [`feclearexcept`](cfenv/feclearexcept.md) で浮動小数点状態フラグをクリアしておく必要がある。
 
 
 ## <a id="error-kind" href="#error-kind">エラーの種類</a>
 `<cmath>` で提供される各関数で発生するエラーは、以下の 5 種類ある。
 
 ### 定義域エラー（domain error）
-引数の値が、関数の数学的な定義域の範囲外であることを示すエラー。（例：[`sqrt`](cmath/sqrt.md)`(-1.0)` や、[`asin`](cmath/asin.md)`(2.0)` 等）
+引数の値が、関数の数�的な定義域の範囲外であることを示すエラー。（例：[`sqrt`](cmath/sqrt.md)`(-1.0)` や、[`asin`](cmath/asin.md)`(2.0)` �）
 
-定義域エラーが発生しなければならない条件は関数毎に規格で規定されているが、数学的な定義と整合的である場合には追加の条件で定義域エラーが発生する事が処理系に許されている。
+定義域エラーが発生しなければならない条件は関数毎に規格で規定されているが、数�的な定義と整合的である場合には追加の条件で定義域エラーが発生する事が処理系に許されている。
 
 定義域エラーが発生した場合、通知は以下のように行われる。
 
-- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`EDOM`](cerrno.md)（定義域エラー、Error DOMain）が設定される。  
-- 浮動小数点例外によってエラーが通知される場合、[`FE_INVALID`](cfenv/fe_invalid.md)（無効演算浮動小数点例外）が設定される。  
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`EDOM`](cerrno.md)（定義域エラー、Error DOMain）が�定される。  
+- 浮動小数点例外によってエラーが通知される場合、[`FE_INVALID`](cfenv/fe_invalid.md)（無効演算浮動小数点例外）が�定される。  
 
 定義域エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が quiet NaN（quiet Not a Number：静かな非数）を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_quiet_NaN`](limits/numeric_limits/has_quiet_nan.md)`()` が真）の場合、一般的には quiet NaN が返る。
 
 ### 極エラー（pole error）
-引数の値が有限値である場合に、関数の当該値に対する数学的な極限値が無限大であることを示すエラー。（例：[`log`](cmath/log.md)`(0.0)` や、[`atanh`](cmath/atanh.md)`(1.0)` 等）  
+引数の値が有限値である場合に、関数の当該値に対する数�的な極限値が無限大であることを示すエラー。（例：[`log`](cmath/log.md)`(0.0)` や、[`atanh`](cmath/atanh.md)`(1.0)` �）  
 引数の値が無限大の場合には、極エラーではないので注意。
 
-極エラーが発生しなければならない条件は関数毎に規格で規定されているが、数学的な定義と整合的である場合には追加の条件で極エラーが発生する事が処理系に許されている。  
+極エラーが発生しなければならない条件は関数毎に規格で規定されているが、数�的な定義と整合的である場合には追加の条件で極エラーが発生する事が処理系に許されている。  
 
 極エラーが発生した場合、通知は以下のように行われる。
 
-- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が設定される。
-- 浮動小数点例外によってエラーが通知される場合、[`FE_DIVBYZERO`](cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が設定される（注：「ゼロ除算浮動小数点例外」は誤記では無い）。
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が�定される。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_DIVBYZERO`](cfenv/fe_divbyzero.md)（ゼ�除算浮動小数点例外）が�定される（注：「ゼ�除算浮動小数点例外」は誤記では無い）。
 
-極エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が浮動小数点数の場合、一般的には [`HUGE_VAL`](cmath/huge_val.md)（`double`）、[`HUGE_VALF`](cmath/huge_valf.md)（`float` 、C++11 以降のみ）、[`HUGE_VALL`](cmath/huge_vall.md)（`long double`、C++11 以降のみ）に正しい符号を付加した値が返る。
+極エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が浮動小数点数の場合、一般的には [`HUGE_VAL`](cmath/huge_val.md)（`double`）、[`HUGE_VALF`](cmath/huge_valf.md)（`float` 、C++11 以降のみ）、[`HUGE_VALL`](cmath/huge_vall.md)（`long double`、C++11 以降のみ）に�しい符号を付加した値が返る。
 また、戻り値の型が無限大を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_infinity`](limits/numeric_limits/has_infinity.md)`()` が真）の場合、一般的には無限大（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`infinity`](limits/numeric_limits/infinity.md)`()`）が返る。
-なお、マクロ [`INFINITY`](cmath/infinity.md) も、定義されている場合には無限大を表すものではあるが、`float` 型であることに注意。
+なお、マク� [`INFINITY`](cmath/infinity.md) も、定義されている場合には無限大を表すものではあるが、`float` 型であることに注意。
 
-### オーバーフローエラー（overflow error）
+### オーバーフ�ーエラー（overflow error）
 戻り値が有限だが大きすぎるため、余分な丸め誤差無しでは戻り値の型で表す事が出来ないことを示すエラー。
 
-オーバーフローエラーが発生した場合、通知は以下のように行われる。
+オーバーフ�ーエラーが発生した場合、通知は以下のように行われる。
 
-- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が設定される。
-- 浮動小数点例外によってエラーが通知される場合、[`FE_OVERFLOW`](cfenv/fe_overflow.md)（オーバーフロー浮動小数点例外）が設定される。
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が�定される。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_OVERFLOW`](cfenv/fe_overflow.md)（オーバーフ�ー浮動小数点例外）が�定される。
 
-オーバーフローエラーが発生した場合、戻り値の型が浮動小数点型でデフォルトの丸めモードが有効であれば、[`HUGE_VAL`](cmath/huge_val.md)（`double`）、[`HUGE_VALF`](cmath/huge_valf.md)（`float` 、C++11 以降のみ）、[`HUGE_VALL`](cmath/huge_vall.md)（`long double`、C++11 以降のみ）に正しい符号を付加した値が返る。
+オーバーフ�ーエラーが発生した場合、戻り値の型が浮動小数点型でデフォルトの丸めモードが有効であれば、[`HUGE_VAL`](cmath/huge_val.md)（`double`）、[`HUGE_VALF`](cmath/huge_valf.md)（`float` 、C++11 以降のみ）、[`HUGE_VALL`](cmath/huge_vall.md)（`long double`、C++11 以降のみ）に�しい符号を付加した値が返る。
 
 
-### アンダーフローエラー（underflow error）
+### アンダーフ�ーエラー（underflow error）
 戻り値の絶対値が小さすぎるため、余分な丸め誤差無しでは戻り値の型で表す事が出来ないことを示すエラー。
 
-アンダーフローエラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。
+アンダーフ�ーエラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。
 
-- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が設定される。
-- 浮動小数点例外によってエラーが通知される場合、[`FE_UNDERFLOW`](cfenv/fe_underflow.md)（アンダーフロー浮動小数点例外）が設定される。
+- [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`ERANGE`](cerrno.md)（値域エラー、Error RANGE）が�定される。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_UNDERFLOW`](cfenv/fe_underflow.md)（アンダーフ�ー浮動小数点例外）が�定される。
 
-アンダーフローエラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の絶対値はその型における最小の正の正規化数（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`min`](limits/numeric_limits/min.md)`()`）以下である。（非正規化数、あるいは、ゼロを含む）
+アンダーフ�ーエラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の絶対値はその型における最小の�の�規化数（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`min`](limits/numeric_limits/min.md)`()`）以下である。（非�規化数、あるいは、ゼ�を含む）
 
 
-### 不正確エラー（inexact error）
-戻り値が戻り値の型では正確に表す事が出来ないことを示すエラー。（例：[`exp`](cmath/exp.md)`(1.0)` や、[`sqrt`](cmath/sqrt.md)`(2.0)` 等）  
+### 不�確エラー（inexact error）
+戻り値が戻り値の型では�確に表す事が出来ないことを示すエラー。（例：[`exp`](cmath/exp.md)`(1.0)` や、[`sqrt`](cmath/sqrt.md)`(2.0)` �）  
 浮動小数点演算ではほとんどの場合に発生する。
 
-不正確エラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。
+不�確エラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。
 
 - [`errno`](cerrno/errno.md) によるエラーの通知は行われない。
-- 浮動小数点例外によってエラーが通知される場合、[`FE_INEXACT`](cfenv/fe_inexact.md)（不正確浮動小数点例外）が設定される。
+- 浮動小数点例外によってエラーが通知される場合、[`FE_INEXACT`](cfenv/fe_inexact.md)（不�確浮動小数点例外）が�定される。
 
-不正確エラーが発生した場合、関数の戻り値は真の値を丸めた値となるが、その際の丸め方式は処理系定義である。（関数に特別に規定がある場合を除く）  
-特に、[`fesetround`](cfenv/fesetround.md) で設定した丸め方式に従うとは限らないため、注意が必要である。
+不�確エラーが発生した場合、関数の戻り値は真の値を丸めた値となるが、その際の丸め方式は処理系定義である。（関数に特別に規定がある場合を除く）  
+特に、[`fesetround`](cfenv/fesetround.md) で�定した丸め方式に従うとは限らないため、注意が必要である。
 
 
 ## <a id="trigonometric-functions" href="#trigonometric-functions">三角関数</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|----------------------------------------------|-------|
-| [`sin`](cmath/sin.md)     | 正弦関数（サイン） | |
+| [`sin`](cmath/sin.md)     | �弦関数（サイン） | |
 | [`cos`](cmath/cos.md)     | 余弦関数（コサイン） | |
-| [`tan`](cmath/tan.md)     | 正接関数（タンジェント） | |
-| [`asin`](cmath/asin.md)   | 逆正弦関数（アークサイン） | |
+| [`tan`](cmath/tan.md)     | �接関数（タンジェント） | |
+| [`asin`](cmath/asin.md)   | 逆�弦関数（アークサイン） | |
 | [`acos`](cmath/acos.md)   | 逆余弦関数（アークコサイン） | |
-| [`atan`](cmath/atan.md)   | 逆正接関数（アークタンジェント） | |
-| [`atan2`](cmath/atan2.md) | 対辺と隣辺からの逆正接関数（アークタンジェント） | |
+| [`atan`](cmath/atan.md)   | 逆�接関数（アークタンジェント） | |
+| [`atan2`](cmath/atan2.md) | 対辺と隣辺からの逆�接関数（アークタンジェント） | |
 
 ## <a id="hyperbolic-functions" href="#hyperbolic-functions">双曲線関数</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------|----------------------------------------------|-------|
-| [`sinh`](cmath/sinh.md)   | 双曲線正弦関数（ハイパボリックサイン） | |
+| [`sinh`](cmath/sinh.md)   | 双曲線�弦関数（ハイパボリックサイン） | |
 | [`cosh`](cmath/cosh.md)   | 双曲線余弦関数（ハイパボリックコサイン） | |
-| [`tanh`](cmath/tanh.md)   | 双曲線正接関数（ハイパボリックタンジェント） | |
-| [`asinh`](cmath/asinh.md) | 逆双曲線正弦関数（エリアハイパボリックサイン）       | C++11 |
+| [`tanh`](cmath/tanh.md)   | 双曲線�接関数（ハイパボリックタンジェント） | |
+| [`asinh`](cmath/asinh.md) | 逆双曲線�弦関数（エリアハイパボリックサイン）       | C++11 |
 | [`acosh`](cmath/acosh.md) | 逆双曲線余弦関数（エリアハイパボリックコサイン）     | C++11 |
-| [`atanh`](cmath/atanh.md) | 逆双曲線正接関数（エリアハイパボリックタンジェント） | C++11 |
+| [`atanh`](cmath/atanh.md) | 逆双曲線�接関数（エリアハイパボリックタンジェント） | C++11 |
 
 
 ## <a id="exponential-and-logarithmic-functions" href="#exponential-and-logarithmic-functions">指数関数と対数関数</a>
@@ -247,15 +247,15 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 引数が NaN ではないが次の条件を一つでも満たす場合、定義域エラーを報告しなければならない:
 
 * 規格が関数の定義域を明示していて (各解説ページを参照)、その定義域内にない
-* 数学関数の値の虚部が 0 でない
-* 数学関数が数学的に定義されていない
+* 数�関数の値の虚部が 0 でない
+* 数�関数が数�的に定義されていない
 
-数学関数が数学的に定義されるのは以下のいずれかの場合である:
+数�関数が数�的に定義されるのは以下のいずれかの場合である:
 
 * ある集合において明示的に定義されている
-* 極限が存在する (右極限と左極限が存在し、一致する)
+* 極限が�在する (右極限と左極限が�在し、一致する)
 
-特記のない限り、以下の関数は全ての有限値と正負の無限大において定義される。
+特記のない限り、以下の関数は全ての有限値と�負の無限大において定義される。
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -287,7 +287,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 |-----------------------------------|----------------------------------------------|----------------|
 | [`ceil`](cmath/ceil.md)           | 天井関数（引数より小さくない最近傍の整数）   |                |
 | [`floor`](cmath/floor.md)         | 床関数（引数より大きくない最近傍の整数）     |                |
-| [`trunc`](cmath/trunc.md)         | ゼロ方向への丸め                             | C++11          |
+| [`trunc`](cmath/trunc.md)         | ゼ�方向への丸め                             | C++11          |
 | [`round`](cmath/round.md)         | 四捨五入による丸め                           | C++11          |
 | [`lround`](cmath/lround.md)       | `long` 型への四捨五入による丸め              | C++11          |
 | [`llround`](cmath/llround.md)     | `long long` 型への四捨五入による丸め         | C++11          |
@@ -311,20 +311,20 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | 名前 | 説明 | 対応バージョン |
 |--------------|-------------------------------|-------|
 | [`copysign`](cmath/copysign.md)     | 符号のコピー                  | C++11 |
-| [`nan`](cmath/nanf.md)              | 文字列から quiet NaN への変換 | C++11 |
-| [`nanf`](cmath/nanf.md)             | 文字列から quiet NaN への変換 | C++11 |
-| [`nanl`](cmath/nanf.md)             | 文字列から quiet NaN への変換 | C++11 |
+| [`nan`](cmath/nanf.md)              | 文�列から quiet NaN への変換 | C++11 |
+| [`nanf`](cmath/nanf.md)             | 文�列から quiet NaN への変換 | C++11 |
+| [`nanl`](cmath/nanf.md)             | 文�列から quiet NaN への変換 | C++11 |
 | [`nextafter`](cmath/nextafter.md)   | 指定方向への次の表現可能な値  | C++11 |
 | [`nexttoward`](cmath/nexttoward.md) | 指定方向への次の表現可能な値  | C++11 |
 
 
-## <a id="maximum-minimum-and-positive-difference-functions" href="#maximum-minimum-and-positive-difference-functions">最大値・最小値と正の差</a>
+## <a id="maximum-minimum-and-positive-difference-functions" href="#maximum-minimum-and-positive-difference-functions">最大値・最小値と�の差</a>
 
 | 名前 | 説明 | 対応バージョン |
 |--------|--------|-------|
 | [`fmax`](cmath/fmax.md) | 最大値 | C++11 |
 | [`fmin`](cmath/fmin.md) | 最小値 | C++11 |
-| [`fdim`](cmath/fdim.md) | 正の差 | C++11 |
+| [`fdim`](cmath/fdim.md) | �の差 | C++11 |
 
 
 ## <a id="floating-multiply-add" href="#floating-multiply-add">乗算-加算</a>
@@ -345,11 +345,11 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|------------------|-------|
-| [`fpclassify`](cmath/fpclassify.md) | 数値を NaN、無限大、正規化数、非正規化数、0 または他の処理系定義のカテゴリに分類 | C++11 |
+| [`fpclassify`](cmath/fpclassify.md) | 数値を NaN、無限大、�規化数、非�規化数、0 または他の処理系定義のカテゴリに分類 | C++11 |
 | [`isfinite`](cmath/isfinite.md) | 数値が有限であるか判定      | C++11 |
 | [`isinf`](cmath/isinf.md)       | 数値が無限大であるか判定    | C++11 |
 | [`isnan`](cmath/isnan.md)       | 数値が NaN であるか判定     | C++11 |
-| [`isnormal`](cmath/isnormal.md) | 数値が正規化数であるか判定  | C++11 |
+| [`isnormal`](cmath/isnormal.md) | 数値が�規化数であるか判定  | C++11 |
 | [`signbit`](cmath/signbit.md)   | 数値の符号が負であるか判定  | C++11 |
 
 
@@ -373,29 +373,29 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`double_t`](cmath/double_t.md) | `double` 以上の浮動小数点数型 | C++11 |
 
 
-## <a id="value-macros" href="#value-macros">数値のマクロ</a>
+## <a id="value-macros" href="#value-macros">数値のマク�</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------|------------------------------|-------|
-| [`HUGE_VAL`](cmath/huge_val.md)   | `double` 型の正の巨大値      | |
-| [`HUGE_VALF`](cmath/huge_valf.md) | `float` 型の正の巨大値       | C++11 |
-| [`HUGE_VALL`](cmath/huge_vall.md) | `long double` 型の正の巨大値 | C++11 |
-| [`INFINITY`](cmath/infinity.md)   | `float` 型の正の無限大       | C++11 |
+| [`HUGE_VAL`](cmath/huge_val.md)   | `double` 型の�の巨大値      | |
+| [`HUGE_VALF`](cmath/huge_valf.md) | `float` 型の�の巨大値       | C++11 |
+| [`HUGE_VALL`](cmath/huge_vall.md) | `long double` 型の�の巨大値 | C++11 |
+| [`INFINITY`](cmath/infinity.md)   | `float` 型の�の無限大       | C++11 |
 | [`NAN`](cmath/nan.md)             | `float` 型の `quiet NaN`     | C++11 |
 
 
-## <a id="classification-macros" href="#classification-macros">数値分類のマクロ</a>
+## <a id="classification-macros" href="#classification-macros">数値分類のマク�</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|---------------------------------------------|-------|
 | [`FP_INFINITE`](cmath/fp_infinite.md)   | 数値分類で無限大を表す整数定数式            | C++11 |
 | [`FP_NAN`](cmath/fp_nan.md)             | 数値分類で `NaN` を表す整数定数式           | C++11 |
-| [`FP_NORMAL`](cmath/fp_normal.md)       | 数値分類で正規化数を表す整数定数式          | C++11 |
-| [`FP_SUBNORMAL`](cmath/fp_subnormal.md) | 数値分類で非正規化数を表す整数定数式        | C++11 |
+| [`FP_NORMAL`](cmath/fp_normal.md)       | 数値分類で�規化数を表す整数定数式          | C++11 |
+| [`FP_SUBNORMAL`](cmath/fp_subnormal.md) | 数値分類で非�規化数を表す整数定数式        | C++11 |
 | [`FP_ZERO`](cmath/fp_zero.md)           | 数値分類で浮動小数点数の 0 を表す整数定数式 | C++11 |
 
 
-## <a id="other-macros" href="#other-macros">その他のマクロ</a>
+## <a id="other-macros" href="#other-macros">その他のマク�</a>
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|---------------------------------------------|-------|
@@ -404,9 +404,9 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`FP_FAST_FMAL`](cmath/fp_fast_fmal.md) | `long double` 型の `fma` 関数がより高速な実装であるか | C++11 |
 | [`FP_ILOGB0`](cmath/fp_ilogb0.md)       | `ilogb(0)` の返値を表す整数定数式 | C++11 |
 | [`FP_ILOGBNAN`](cmath/fp_ilogbnan.md)   | `ilogb(NaN)` の返値を表す整数定数式 | C++11 |
-| [`MATH_ERRNO`](cmath/math_errno.md)             | 数学ライブラリ内で`errno`にエラーが設定されたかを表す整数定数 | C++11 |
-| [`MATH_ERREXCEPT`](cmath/math_errexcept.md)     | 数学ライブラリ内で浮動小数点例外が発生したかを表す整数定数 | C++11 |
-| [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ | C++11 |
+| [`MATH_ERRNO`](cmath/math_errno.md)             | 数�ライブラリ内で`errno`にエラーが�定されたかを表す整数定数 | C++11 |
+| [`MATH_ERREXCEPT`](cmath/math_errexcept.md)     | 数�ライブラリ内で浮動小数点例外が発生したかを表す整数定数 | C++11 |
+| [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマク� | C++11 |
 
 
 ## 関連項目

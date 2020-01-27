@@ -19,9 +19,9 @@ protected:
 
 
 ## 効果
-- (1) コピー代入演算子。コピー代入不可。  
+- (1) コピー代入演算�。コピー代入不可。  
     [`basic_ostream`](../basic_ostream.md) オブジェクトをコピー代入することはできない。
-- (2) ムーブ代入演算子。  
+- (2) ムーブ代入演算�。  
     [`basic_ios`](../../ios/basic_ios.md)`<char_type, traits_type>::`[`swap`](../../ios/basic_ios/swap.md)`(rhs)` を呼び出す。
 
 
@@ -31,7 +31,7 @@ protected:
 
 ## 備考
 - [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()` は交換されない。
-- コピー代入演算子は C++03 までは未宣言だったため、コピー代入を行おうとするとコンパイラがコピー代入演算子を自動生成しようとするが、基底クラスのコピー代入演算子 [`basic_ios`](../../ios/basic_ios.md)`::`[`operator=`](../../ios/basic_ios/op_assign.md)`()` が `private` であるため、エラーとなっていた。  
+- コピー代入演算�は C++03 までは未宣言だったため、コピー代入を行おうとするとコンパイラがコピー代入演算�を自動生成しようとするが、基底クラスのコピー代入演算� [`basic_ios`](../../ios/basic_ios.md)`::`[`operator=`](../../ios/basic_ios/op_assign.md)`()` が `private` であるため、エラーとなっていた。  
     （いずれにせよコピーすることはできないが、`delete` の方が誤ってコピーしようとした際のエラーメッセージが分かりやすいため、変更されている）
 
 

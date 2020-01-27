@@ -12,7 +12,7 @@ bool bad() const;
 現在の状態値のうち`badbit`を判定する。
 
 ## 戻り値
-`badbit`が設定されていれば`true`、さもなくば`false`。
+`badbit`が�定されていれば`true`、さもなくば`false`。
 
 ## 実装例
 ```cpp
@@ -30,7 +30,7 @@ bool bad() const {
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)
-- 状態値の読み取り
+- 状態値の�み取り
     - [`rdstate`](rdstate.md)
     - [`good`](good.md)
     - [`eof`](eof.md)

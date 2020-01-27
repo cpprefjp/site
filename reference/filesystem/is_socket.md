@@ -63,7 +63,7 @@ namespace fs = std::filesystem;
 
 int main()
 {
-  // プロセス間通信用に、ポート番号の代わりにファイル名でソケットを区別する。
+  // プ�セス間通信用に、ポート番号の代わりにファイル名でソケットを区別する。
   // (UNIXドメインソケット)
   sockaddr_un addr;
   addr.sun_family = AF_UNIX;

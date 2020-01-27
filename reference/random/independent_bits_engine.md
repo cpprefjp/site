@@ -33,7 +33,7 @@ namespace std {
 |-------------------------------------------------------------------------|------------------|-------|
 | [`(constructor)`](independent_bits_engine/op_constructor.md)          | コンストラクタ   | C++11 |
 | `~independent_bits_engine() = default;`                                 | デストラクタ     | C++11 |
-| [`seed`](independent_bits_engine/seed.md)                             | シードを設定する | C++11 |
+| [`seed`](independent_bits_engine/seed.md)                             | シードを�定する | C++11 |
 
 
 ### 生成
@@ -71,8 +71,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](independent_bits_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](independent_bits_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](independent_bits_engine/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](independent_bits_engine/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](independent_bits_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](independent_bits_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 

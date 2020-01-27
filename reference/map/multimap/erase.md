@@ -23,7 +23,7 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 
 ## パラメータ
 - `position` : `multimap` から削除する単一要素を指すイテレータ。`iterator` はメンバ型であり、双方向イテレータとして定義される。
-- `x` : `multimap` から削除される値のキー。`key_type` はメンバ型であり、`multimap` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータであり、コンテナに格納される要素のキーの型である。
+- `x` : `multimap` から削除される値の�ー。`key_type` はメンバ型であり、`multimap` コンテナの�で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータであり、コンテナに格納される要素の�ーの型である。
 - `first, last` : `multimap` コンテナ内の、削除される範囲 `[first, last)` を指定するイテレータ。ここでいう範囲は `first` と `last` の間の全ての要素を含み、`first` が指す要素を含むが `last` が指す要素は含まない。
 
 
@@ -41,7 +41,7 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 
 
 ## 備考
-- ループ中で `multimap` の要素を削除するためには、C++03 までは以下のようなコードを書く必要があった。
+- ループ�で `multimap` の要素を削除するためには、C++03 までは以下のようなコードを書く必要があった。
     ```cpp
     while (it != map_object.end()) {
       if (条件) {
@@ -106,7 +106,7 @@ int main()
 0
 ```
 
-### イテレート中に要素を削除する (C++11)
+### イテレート�に要素を削除する (C++11)
 ```cpp example
 #include <iostream>
 #include <map>
@@ -119,7 +119,7 @@ int main()
     {4, 'c'}
   };
 
-  // イテレート中に要素削除をするような場合には、
+  // イテレート�に要素削除をするような場合には、
   // 範囲for文は使用できない
   for (auto it = m.begin(); it != m.end();) {
     // 条件一致した要素を削除する
@@ -153,7 +153,7 @@ int main()
 |---------------------------------------------------------------------------------------|--------------------------------------|
 | [`multimap::clear`](/reference/map/multimap/clear.md) | 全ての要素を削除する |
 | [`multimap::insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
-| [`multimap::find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
+| [`multimap::find`](/reference/map/multimap/find.md) | 指定した�ーで要素を探す |
 
 
 ## 参照

@@ -11,7 +11,7 @@ constexpr void swap(tuple& rhs) noexcept(see below); // (1) C++20
 ```
 
 ## 概要
-他の`tuple`オブジェクトと中身を入れ替える。
+他の`tuple`オブジェクトと�身を入れ替える。
 
 
 ## 要件

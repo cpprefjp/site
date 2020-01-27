@@ -19,20 +19,20 @@ namespace std {
 ```
 
 ## 概要
-`allocator`は、標準ライブラリ内でデフォルト使用されるメモリアロケータクラスである。
+`allocator`は、標準ライブラリ内でデフォルト使用されるメモリア�ケータクラスである。
 
-標準ライブラリ内では、主にコンテナがメモリの確保と解放を行っているが、コンテナ内で使用するメモリアロケータは、ユーザーが独自に実装したものを`allocator`クラスの代わりに使用することもできる。例：
+標準ライブラリ内では、主にコンテナがメモリの確保と解放を行っているが、コンテナ内で使用するメモリア�ケータは、ユーザーが独自に実装したものを`allocator`クラスの代わりに使用することもできる。例：
 
 ```cpp
-std::vector<int> v1;                   // std::allocatorクラスでメモリアロケートされる。
-std::vector<int, MyAllocator<int>> v2; // 自分が用意したアロケータを使用する。
+std::vector<int> v1;                   // std::allocatorクラスでメモリア�ケートされる。
+std::vector<int, MyAllocator<int>> v2; // 自分が用意したア�ケータを使用する。
 ```
 
 
 ### 備考
 C++11から：
 
-デストラクタを除く、`allocator`クラスのメンバ関数は、データ競合を引き起こさない。そのため、複数スレッドから同時に`allocator`クラスのメンバ関数が呼ばれたとしても、正しくメモリ確保・解放される。
+デストラクタを除く、`allocator`クラスのメンバ関数は、データ競合を引き起こさない。そのため、複数スレッドから同時に`allocator`クラスのメンバ関数が呼ばれたとしても、�しくメモリ確保・解放される。
 
 
 ## メンバ関数
@@ -41,7 +41,7 @@ C++11から：
 |---------------------------------------------|----------------------------------------------|-------|
 | [`(constructor)`](allocator/op_constructor.md) | コンストラクタ                          | |
 | [`(destructor)`](allocator/op_destructor.md) | デストラクタ                              | |
-| `operator=(const allocator&) = default`   | 代入演算子                                   | |
+| `operator=(const allocator&) = default`   | 代入演算�                                   | |
 | [`allocate`](allocator/allocate.md)       | メモリを確保する                             | |
 | [`deallocate`](allocator/deallocate.md)   | メモリを解放する                             | |
 | [`address`](allocator/address.md)         | 変数のアドレスを取得する                     | C++17から非推奨<br/> C++20で削除 |
@@ -55,23 +55,23 @@ C++11から：
 | 名前 | 説明 | 対応バージョン |
 |-------------------|----------------------------------------------|-------|
 | `value_type`      | 要素の型 `T`                                 | |
-| `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/true_type.md) | C++14 |
+| `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、ア�ケータの状態を伝搬するか。 [`true_type`](/reference/type_traits/true_type.md) | C++14 |
 | `size_type`       | 要素数を表す符号なし整数型 `size_t`          | C++17から非推奨<br/> C++20で削除 |
 | `difference_type` | ポインタの差を表す符号付き整数型 `ptrdiff_t` | C++17から非推奨<br/> C++20で削除 |
 | `pointer`         | 要素のポインタ型 `T*`                        | C++17から非推奨<br/> C++20で削除 |
-| `const_pointer`   | 読み取り専用の要素のポインタ型 `const T*`    | C++17から非推奨<br/> C++20で削除 |
+| `const_pointer`   | �み取り専用の要素のポインタ型 `const T*`    | C++17から非推奨<br/> C++20で削除 |
 | `reference`       | 要素の参照型 `T&`                            | C++17から非推奨<br/> C++20で削除 |
-| `const_reference` | 読み取り専用の要素の参照型 `const T&`        | C++17から非推奨<br/> C++20で削除 |
+| `const_reference` | �み取り専用の要素の参照型 `const T&`        | C++17から非推奨<br/> C++20で削除 |
 | `rebind<U>`       | 型`U`を確保するように再束縛する              | C++17から非推奨<br/> C++20で削除 |
-| `is_always_equal` | 同じ型のアロケータオブジェクトが2つある場合、それらが常に同値であるか。[`true_type`](/reference/type_traits/true_type.md) | C++17 |
+| `is_always_equal` | 同じ型のア�ケータオブジェクトが2つある場合、それらが常に同値であるか。[`true_type`](/reference/type_traits/true_type.md) | C++17 |
 
 
 ## 非メンバ関数
 
 | 名前                                        | 説明                          | 対応バージョン |
 |---------------------------------------------|-------------------------------|-------|
-| [`operator==`](allocator/op_equal.md)     | 等値比較。常に`true`を返す    | |
-| [`operator!=`](allocator/op_not_equal.md) | 非等値比較。常に`false`を返す | |
+| [`operator==`](allocator/op_equal.md)     | �値比較。常に`true`を返す    | |
+| [`operator!=`](allocator/op_not_equal.md) | 非�値比較。常に`false`を返す | |
 
 
 ## 非推奨・削除の詳細

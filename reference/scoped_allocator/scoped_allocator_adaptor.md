@@ -12,30 +12,30 @@ namespace std {
 ```
 
 ## 概要
-`scoped_allocator_adaptor`は、[`vector`](/reference/vector.md)`<`[`string`](/reference/string/basic_string.md)`>`のように、メモリ確保を行う型が入れ子になっているような場合に、外側と内側でアロケータオブジェクトを共有するための、アロケータクラスのアダプタである。
+`scoped_allocator_adaptor`は、[`vector`](/reference/vector.md)`<`[`string`](/reference/string/basic_string.md)`>`のように、メモリ確保を行う型が入れ�になっているような場合に、外側と内側でア�ケータオブジェクトを共有するための、ア�ケータクラスのアダプタである。
 
 以下は、このアダプタクラスを使用することによって変化する、コンテナのメモリイメージである。
 
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
 
-図1 コンテナ、および各要素がそれぞれに別個のアロケータオブジェクトを持つ
+図1 コンテナ、および各要素がそれぞれに別個のア�ケータオブジェクトを持つ
 
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
 
-図2 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる(例1)
+図2 コンテナとその要素で、ア�ケータオブジェクトの状態を伝搬させる(例1)
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
 
-図3 全ての要素にアロケータオブジェクトの状態を伝搬させる(例2)
+図3 全ての要素にア�ケータオブジェクトの状態を伝搬させる(例2)
 
 
 
 テンプレートパラメータは、以下を意味する：
 
-- `OuterAlloc` : 外側のアロケータ。(たとえばコンテナのアロケータ)
-- `InnerAlloc...` : 内側のアロケータ。(たとえばコンテナの要素に対するアロケータ)
+- `OuterAlloc` : 外側のア�ケータ。(たとえばコンテナのア�ケータ)
+- `InnerAlloc...` : 内側のア�ケータ。(たとえばコンテナの要素に対するア�ケータ)
 
 
 ## メンバ関数
@@ -44,14 +44,14 @@ namespace std {
 |-----------------------------------------|----------------------------------------------|-------|
 | [`(constructor)`][constructor]          | コンストラクタ                               | C++11 |
 | `~scoped_allocator_adaptor() = default` | デストラクタ                                 | C++11 |
-| [`inner_allocator`][inner_allocator]    | 内側のアロケータを取得する                   | C++11 |
-| [`outer_allocator`][outer_allocator]    | 外側のアロケータを取得する                   | C++11 |
+| [`inner_allocator`][inner_allocator]    | 内側のア�ケータを取得する                   | C++11 |
+| [`outer_allocator`][outer_allocator]    | 外側のア�ケータを取得する                   | C++11 |
 | [`allocate`][allocate]                  | メモリを確保する                             | C++11 |
 | [`deallocate`][deallocate]              | メモリを解放する                             | C++11 |
 | [`max_size`][max_size]                  | 一度に確保可能なメモリの最大サイズを取得する | C++11 |
 | [`construct`][construct]                | オブジェクトを構築する                       | C++11 |
 | [`destroy`][destroy]                    | オブジェクトを破棄する                       | C++11 |
-| [`select_on_container_copy_construction`][select] | コンテナのコピー構築に必要なアロケータを取得する | C++11 |
+| [`select_on_container_copy_construction`][select] | コンテナのコピー構築に必要なア�ケータを取得する | C++11 |
 
 [constructor]: ./scoped_allocator_adaptor/op_constructor.md
 [inner_allocator]: ./scoped_allocator_adaptor/inner_allocator.md
@@ -68,19 +68,19 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|------------------------------|-------|
-| `outer_allocator_type` | 外側のアロケータ`OuterAlloc` | C++11 |
-| `inner_allocator_type` | 内側のアロケータ。 `InnerAllocs`が空だったら`scoped_allocator_adaptor<OuterAlloc>`。空じゃなければ`scoped_allocator_adaptor<InnerAllocs...>`。 | C++11 |
+| `outer_allocator_type` | 外側のア�ケータ`OuterAlloc` | C++11 |
+| `inner_allocator_type` | 内側のア�ケータ。 `InnerAllocs`が空だったら`scoped_allocator_adaptor<OuterAlloc>`。空じゃなければ`scoped_allocator_adaptor<InnerAllocs...>`。 | C++11 |
 | `value_type`           | 要素型` allocator_traits<OuterAlloc>::value_type` | C++11 |
 | `size_type`            | 要素数を表す符号なし整数型 `allocator_traits<OuterAlloc>::size_type` | C++11 |
 | `difference_type`      | ポインタの差を表す符号付き整数型` allocator_traits<OuterAlloc>::difference_type` | C++11 |
 | `pointer`              | 要素のポインタ型` allocator_traits<OuterAlloc>::pointer` | C++11 |
-| `const_pointer`        | 読み取り専用の要素のポインタ型 `allocator_traits<OuterAlloc>::const_pointer` | C++11 |
+| `const_pointer`        | �み取り専用の要素のポインタ型 `allocator_traits<OuterAlloc>::const_pointer` | C++11 |
 | `void_pointer`         | `void`ポインタ型 `allocator_traits<OuterAlloc>::void_pointer` | C++11 |
-| `const_void_pointer`   | 読み取り専用の`void`ポインタ型 `allocator_traits<OuterAlloc>::const_void_pointer` | C++11 |
-| `propagate_on_container_copy_assignment` | コンテナのコピー代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_copy_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
-| `propagate_on_container_move_assignment` | コンテナのムーブ代入でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_move_assignment`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
-| `propagate_on_container_swap`            | コンテナの`swap`操作でアロケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_swap`が存在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
-| `is_always_equal` | OuterAlloc および InnerAlloc... のすべてのアロケータ A について `std::allocator_traits<A>::is_always_equal::value` が `true` であれば `std::true_type`。そうでなければ`std::false_type`。 | C++17 |
+| `const_void_pointer`   | �み取り専用の`void`ポインタ型 `allocator_traits<OuterAlloc>::const_void_pointer` | C++11 |
+| `propagate_on_container_copy_assignment` | コンテナのコピー代入でア�ケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_copy_assignment`が�在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
+| `propagate_on_container_move_assignment` | コンテナのムーブ代入でア�ケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_move_assignment`が�在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
+| `propagate_on_container_swap`            | コンテナの`swap`操作でア�ケータを置き換えるかどうかを示す論理型。<br/> `OuterAlloc::propagate_on_container_swap`が�在する場合はその型が使用され、そうでなければ[`false_type`](/reference/type_traits/false_type.md)が使用される。 | C++11 |
+| `is_always_equal` | OuterAlloc および InnerAlloc... のすべてのア�ケータ A について `std::allocator_traits<A>::is_always_equal::value` が `true` であれば `std::true_type`。そうでなければ`std::false_type`。 | C++17 |
 | `rebind<U>` | 型`U`を確保するように再束縛する | C++11 |
 
 
@@ -88,8 +88,8 @@ namespace std {
 
 | 名前                                                       | 説明       | 対応バージョン |
 |------------------------------------------------------------|------------|-------|
-| [`operator==`](scoped_allocator_adaptor/op_equal.md)     | 等値比較   | C++11 |
-| [`operator!=`](scoped_allocator_adaptor/op_not_equal.md) | 非等値比較 | C++11 |
+| [`operator==`](scoped_allocator_adaptor/op_equal.md)     | �値比較   | C++11 |
+| [`operator!=`](scoped_allocator_adaptor/op_not_equal.md) | 非�値比較 | C++11 |
 
 
 ## 推論補助
@@ -99,7 +99,7 @@ namespace std {
 | [`(deduction_guide)`](scoped_allocator_adaptor/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
 
 
-## 例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる
+## 例1 コンテナとその要素で、ア�ケータオブジェクトの状態を伝搬させる
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -150,7 +150,7 @@ using vector = std::vector<
 
 int main()
 {
-  // stringで使用するアロケータオブジェクトを、
+  // stringで使用するア�ケータオブジェクトを、
   // vectorでも使用する
   int state = 5;
   MyAlloc<forward_list> alloc(state);
@@ -159,7 +159,7 @@ int main()
   v.push_back(forward_list{100});
   v.push_back(forward_list{200});
 
-  // 同じアロケータオブジェクトが使われていることを確認する。
+  // 同じア�ケータオブジェクトが使われていることを確認する。
   // getState()の値が、どちらも5になる。
   std::cout << v.get_allocator().getState() << std::endl;
   std::cout << v.front().get_allocator().getState() << std::endl;
@@ -177,7 +177,7 @@ int main()
 5
 ```
 
-## 例2 全ての要素にアロケータオブジェクトの状態を伝搬させる
+## 例2 全ての要素にア�ケータオブジェクトの状態を伝搬させる
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -230,20 +230,20 @@ int main()
   int outer_state = 5;
   int inner_state = 2;
   vector<forward_list>::allocator_type alloc {
-    (MyAlloc<forward_list>(outer_state)), // vector自体のアロケータオブジェクト
-    (MyAlloc<int>(inner_state))    // vectorの全ての要素に使用するアロケータオブジェクト
+    (MyAlloc<forward_list>(outer_state)), // vector自体のア�ケータオブジェクト
+    (MyAlloc<int>(inner_state))    // vectorの全ての要素に使用するア�ケータオブジェクト
   };
   vector<forward_list> v(alloc);
 
   v.push_back(forward_list{100});
   v.push_back(forward_list{200});
 
-  // コンテナに使用されるアロケータの状態を確認
+  // コンテナに使用されるア�ケータの状態を確認
   // 5になる(outer_state)
   std::cout << "container allocator : " << v.get_allocator().getState() << std::endl;
 
-  // 要素に使用されるアロケータの状態を確認
-  // 全ての要素に、アロケータの状態が伝搬される
+  // 要素に使用されるア�ケータの状態を確認
+  // 全ての要素に、ア�ケータの状態が伝搬される
   for (const forward_list& x : v) {
     std::cout << "element allocator : " << x.get_allocator().getState() << std::endl;
   }

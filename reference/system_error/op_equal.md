@@ -16,7 +16,7 @@ namespace std {
 * error_condition[link /reference/system_error/error_condition.md]
 
 ## 概要
-`error_code`, `error_condition`の等値比較を行う
+`error_code`, `error_condition`の�値比較を行う
 
 
 ## 戻り値

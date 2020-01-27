@@ -14,7 +14,7 @@ namespace std {
 ```
 
 ## 概要
-`match_results` オブジェクトを非等値比較する。
+`match_results` オブジェクトを非�値比較する。
 
 
 ## 戻り値

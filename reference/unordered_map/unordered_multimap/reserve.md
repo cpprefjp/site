@@ -14,7 +14,7 @@ void reserve(size_type n);
 
 
 ## 効果
-引数を [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](max_load_factor.md)`())` にした [`rehash`](rehash.md)`()` と等価である。  
+引数を [`ceil`](/reference/cmath/ceil.md)`(n /` [`max_load_factor`](max_load_factor.md)`())` にした [`rehash`](rehash.md)`()` と�価である。  
 ( Visual C++ 2012の実装では `n /` [`max_load_factor`](max_load_factor.md)`() + 0.5f` で呼んでいる)
 
 
@@ -23,7 +23,7 @@ void reserve(size_type n);
 
 
 ## 例外
-ハッシュ関数、および、キー比較用関数以外から例外が投げられた場合、コンテナは変更されない。
+ハッシュ関数、および、�ー比較用関数以外から例外が投げられた場合、コンテナは変更されない。
 
 
 ## 計算量
@@ -32,7 +32,7 @@ void reserve(size_type n);
 
 ## 備考
 - C++14 までの規格の記載では、要素挿入時のリハッシュ条件に誤りがあったため、効果に記載の処理内容では `n - 1` 要素しか格納することができない場合があった。  
-	C++17 でリハッシュ条件が修正され、確実に `n` 要素格納できるようになったが、処理系によっては現在でも `n - 1` 要素しか格納できない可能性があるため、注意が必要である。  
+	C++17 でリハッシュ条件が修�され、確実に `n` 要素格納できるようになったが、処理系によっては現在でも `n - 1` 要素しか格納できない可能性があるため、注意が必要である。  
 	下記のバージョンの記載も参照のこと。
 - リハッシュされる条件については、[`insert`](insert.md)`()`、[`emplace`](emplace.md)`()`、[`emplace_hint`](emplace_hint.md)`()` も参照。
 - リハッシュが行われた場合、
@@ -123,7 +123,7 @@ new load_factor: 0.363636
 | [`size`](size.md)                       | 要素数の取得 |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得 |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、�定 |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
 | [`insert`](insert.md)                   | 要素の追加 |
 | [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築 |

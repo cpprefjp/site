@@ -10,12 +10,12 @@
 ## 概要
 浮動小数点型の指数表現の基数を表す。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`radix`](/reference/limits/numeric_limits/radix.md) と等しい。  
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<T>::`[`radix`](/reference/limits/numeric_limits/radix.md) と�しい。  
 （`T` は `float`、`double`、`long double` のいずれか）
 
 
 ## 備考
-浮動小数点型の各種パラメータを表す他の多くのマクロと異なり、型毎に分かれていないため注意。
+浮動小数点型の各種パラメータを表す他の多くのマク�と異なり、型毎に分かれていないため注意。
 
 
 ## 例

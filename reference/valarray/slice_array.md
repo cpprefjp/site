@@ -30,7 +30,7 @@ namespace std {
 |-------------------------------------------------|----------------|----------------|
 | [`(constructor)`](slice_array/op_constructor.md) | コンストラクタ | |
 | `~slice_array() = default;`                     | デストラクタ   | |
-| [`operator=`](slice_array/op_assign.md)       | 代入演算子     | |
+| [`operator=`](slice_array/op_assign.md)       | 代入演算�     | |
 
 
 ### 四則演算

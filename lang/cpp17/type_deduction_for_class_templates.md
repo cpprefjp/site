@@ -6,7 +6,7 @@
 
 ```cpp
 // std::vectorクラステンプレートのテンプレート引数を省略。
-// 初期化時に代入される初期化子リストの要素型が、std::vectorの要素型となる
+// 初期化時に代入される初期化�リストの要素型が、std::vectorの要素型となる
 std::vector v = {1, 2, 3}; // 変数vの型はstd::vector<int>
 ```
 
@@ -112,7 +112,7 @@ int main()
 
 - 推論補助宣言は、パラメータにデフォルト引数を持ってはならない
 - 同じ翻訳単位に2つの推論補助がある場合、それらの推論補助は、同じパラメータリストを持ってはならない
-- 推論補助には、先頭に`explicit`を任意に付けられる。しかし、`noexcept`や属性といった修飾は付けられない
+- 推論補助には、先�に`explicit`を任意に付けられる。しかし、`noexcept`や属性といった修飾は付けられない
 - コンストラクタの引数を、コンストラクタに渡される前の状態 (配列からポインタへの変換などが行われる前の状態) で推論補助に転送したとして推論が行われる。そのため、推論補助はクラスのコンストラクタと同一のシグニチャである必要はない
 - この機能にともなって、デフォルトテンプレート引数のみを持つクラステンプレートは、インスタンス化時に山カッコを省略できる
     ```cpp
@@ -138,7 +138,7 @@ int main()
 
 int main()
 {
-  // 初期化子リストからコンテナの要素型を推論
+  // 初期化�リストからコンテナの要素型を推論
   {
     std::vector v = {1, 2, 3}; // std::vector<int>に推論される
     std::array ar = {4, 5, 6}; // std::array<int, 3>に推論される
@@ -260,9 +260,9 @@ int main()
 この機能は、以下のような問題を解決するために導入された：
 
 - `make_*()`のような生成関数は、冗長で、かつ標準ライブラリの非クラステンプレートの構築方法と一貫性がなかった
-- 生成関数の設計が標準ライブラリ内で一貫しておらず、[`std::make_pair()`](/reference/utility/make_pair.md)や[`make_tuple()`](/reference/tuple/make_tuple.md)といった`make_`接頭辞が付く場合もあれば、[`std::back_insert_iterator`](/reference/iterator/back_insert_iterator.md)に対する[`std::back_inserter()`](/reference/iterator/back_inserter.md)関数のように、`make_`接頭辞が付かない場合があった。そのために、ユーザーは生成関数の細かな違いをドキュメントで調べながら使用する必要があった
+- 生成関数の�計が標準ライブラリ内で一貫しておらず、[`std::make_pair()`](/reference/utility/make_pair.md)や[`make_tuple()`](/reference/tuple/make_tuple.md)といった`make_`接�辞が付く場合もあれば、[`std::back_insert_iterator`](/reference/iterator/back_insert_iterator.md)に対する[`std::back_inserter()`](/reference/iterator/back_inserter.md)関数のように、`make_`接�辞が付かない場合があった。そのために、ユーザーは生成関数の細かな違いをド�ュメントで調べながら使用する必要があった
 - 関数テンプレートでは引数の型からテンプレートパラメータの型を推論できるにも関わらず、クラステンプレートのコンストラクタでは`pair<int, double>(2, 4.5)`の`<int, double>`のように冗長な指定をする必要があった
-- 生成関数は、単に引数の型を推論するだけではない場合があった。例として、[`std::make_pair()`](/reference/utility/make_pair.md)や[`make_tuple()`](/reference/tuple/make_tuple.md)といった関数は、型が[`std::reference_wrapper<T>`](/reference/functional/reference_wrapper.md)であった場合に、それを`T&`に展開する機能がある。単に引数の型を推論するだけの生成関数なのか、より複雑なことをする生成関数なのかをドキュメントで調査する必要があり、そうしない場合に予期せぬバグが発生することがあった
+- 生成関数は、単に引数の型を推論するだけではない場合があった。例として、[`std::make_pair()`](/reference/utility/make_pair.md)や[`make_tuple()`](/reference/tuple/make_tuple.md)といった関数は、型が[`std::reference_wrapper<T>`](/reference/functional/reference_wrapper.md)であった場合に、それを`T&`に展開する機能がある。単に引数の型を推論するだけの生成関数なのか、より複雑なことをする生成関数なのかをド�ュメントで調査する必要があり、そうしない場合に予期せぬバグが発生することがあった
 - 生成関数を持たない場合、たとえばラムダ式を使用する際に、その型を記述できない問題があった
 - [`std::lock_guard`](/reference/mutex/lock_guard.md)のようにコピーもムーブもできない型は、生成関数を作るために「[コピー省略](guaranteed_copy_elision.md)」のような難解な機能を使用する必要があった
 - 循環的な複雑さ (Cyclomatic complexity) を軽減するために大きな関数をクラスで置き換える便利な手法が、関数テンプレートでは使用できなかった

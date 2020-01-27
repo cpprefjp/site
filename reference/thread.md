@@ -9,7 +9,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|------------------------------|-------|
 | [`thread`](thread/thread.md)           | スレッド クラス(class)       | C++11 |
-| [`thread::id`](thread/thread/id.md)    | スレッド識別子 クラス(class) | C++11 |
+| [`thread::id`](thread/thread/id.md)    | スレッド�別� クラス(class) | C++11 |
 | [`this_thread`](thread/this_thread.md) | 現スレッドの制御機能を提供する名前空間 (namespace) | C++11 |
 
 
@@ -24,5 +24,5 @@
 
 ## 参照
 - [The cpp-threads Archives](https://www.decadent.org.uk/pipermail/cpp-threads/)
-    - C++11の策定時に、C++標準の言語とライブラリに並行プログラミングの提案を行うため使用されていたメーリングリストのアーカイブです。
+    - C++11の�定時に、C++標準の言語とライブラリに並行プ�グラミングの提案を行うため使用されていたメーリングリストのアーカイブです。
 

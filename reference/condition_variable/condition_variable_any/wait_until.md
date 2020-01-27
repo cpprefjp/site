@@ -23,7 +23,7 @@ bool wait_until(Lock& lock,
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
 
-述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブ�ッ�ングが解除される。
 
 述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
@@ -31,11 +31,11 @@ bool wait_until(Lock& lock,
 ## 効果
 - (1) :
     - アトミックに`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`する
-    - [`notify_one()`](notify_one.md)/[`notify_all()`](notify_all.md)による通知、`abs_time`によって指定された時間に到達したことによる期限切れ、もしくはなんらかの理由によって失敗するまでブロッキングする
+    - [`notify_one()`](notify_one.md)/[`notify_all()`](notify_all.md)による通知、`abs_time`によって指定された時間に到達したことによる期限切れ、もしくはなんらかの理由によって失敗するまでブ�ッ�ングする
     - この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
     - この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
 
-- (2) : 以下と等価の処理を行う
+- (2) : 以下と�価の処理を行う
 
 ```cpp
 while (!pred()) {
@@ -54,7 +54,7 @@ return true;
 
 
 ## 事後条件
-`lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
+`lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドで�ック取得されていること
 
 
 ## 例外
@@ -63,7 +63,7 @@ return true;
 
 
 ## 備考
-- C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プログラムを異常終了させる。これは、ミューテックスの再ロック取得が例外を送出した場合に発生する。
+- C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プ�グラムを異常終了させる。これは、ミューテックスの再�ック取得が例外を送出した場合に発生する。
 
 
 ## 例

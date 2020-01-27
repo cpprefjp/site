@@ -10,17 +10,17 @@
 ```
 
 ## 概要
-停止要求が作成されたかどうかを返す。
+停�要求が作成されたかどうかを返す。
 
 
 ## 戻り値
-自身が停止状態を所有していて、その停止状態が停止要求を受け取っている場合は`true`を返す。それ以外の場合は`false`を返す。
+自身が停�状態を所有していて、その停�状態が停�要求を受け取っている場合は`true`を返す。それ以外の場合は`false`を返す。
 
 ## 例外
 投げない。
 
 ## 備考
-一度[`stop_requested()`](stop_requested.md) `==` `true`となった[`stop_token`](../stop_token.md)は、自身と停止状態を共有する[`stop_source`](../stop_source.md)が破棄されても[`stop_requested()`](stop_requested.md) `==` `true`かつ[`stop_possible()`](stop_possible.md) `==` `true`の状態のままになる。
+一度[`stop_requested()`](stop_requested.md) `==` `true`となった[`stop_token`](../stop_token.md)は、自身と停�状態を共有する[`stop_source`](../stop_source.md)が破棄されても[`stop_requested()`](stop_requested.md) `==` `true`かつ[`stop_possible()`](stop_possible.md) `==` `true`の状態のままになる。
 
 ## 例
 ```cpp example
@@ -40,7 +40,7 @@ int main()
   assert(st2.stop_requested() == false);
   assert(st3.stop_requested() == false);
 
-  // 停止要求を作成する
+  // 停�要求を作成する
   ss1.request_stop();
 
   assert(st1.stop_requested() == true);
@@ -48,7 +48,7 @@ int main()
   // stop_token に紐づく stop_source を破棄する
   ss1 = std::stop_source{};
 
-  // 停止状態が停止要求を受け取った場合は、
+  // 停�状態が停�要求を受け取った場合は、
   // その後で stop_source が破棄されても stop_requested() == true のままになる。
   assert(st1.stop_requested() == true);
 }

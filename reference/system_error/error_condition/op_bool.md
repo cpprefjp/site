@@ -12,9 +12,9 @@ explicit operator bool() const noexcept;
 ## 概要
 `error_condition`オブジェクトがエラー状態であるかを判定する。
 
-`error_condition`クラスのデフォルトエラー値である`0`が正常と見なされる。
+`error_condition`クラスのデフォルトエラー値である`0`が�常と見なされる。
 
-`true`の場合はエラーであることを意味し、`false`の場合は正常を意味する。
+`true`の場合はエラーであることを意味し、`false`の場合は�常を意味する。
 
 
 ## 戻り値

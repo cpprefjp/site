@@ -14,12 +14,12 @@ constexpr const_iterator begin() const noexcept; // (2) C++17
 ```
 
 ## 概要
-先頭要素を指すイテレータを取得する。
+先�要素を指すイテレータを取得する。
 
 
 ## 戻り値
-非`const`な文脈では`iterator`型で先頭要素へのイテレータを返し、
-`const`な文脈では`const_iterator`型で先頭要素へのイテレータを返す。
+非`const`な文脈では`iterator`型で先�要素へのイテレータを返し、
+`const`な文脈では`const_iterator`型で先�要素へのイテレータを返す。
 
 
 ## 例外

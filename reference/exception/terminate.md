@@ -10,7 +10,7 @@ namespace std {
 ```
 
 ## 概要
-`terminate()`は、プログラムを異常終了させる関数である。
+`terminate()`は、プ�グラムを異常終了させる関数である。
 
 この関数は、特定の状況で呼び出されることが規定されている。
 
@@ -23,17 +23,17 @@ namespace std {
 	- 例外オブジェクトの初期化完了後～`catch`節に突入する前の間に呼び出される関数
 	- `noexcept`または`noexcept(trueに評価される定数式)`が指定されている関数
 	- 例外処理に伴う自動変数（スタック上のオブジェクト）のデストラクタ
-	- 非ローカル変数の初期化
+	- 非�ーカル変数の初期化
 	- 静的記憶期間・スレッド静的記憶期間のオブジェクトのデストラクタ
 	- [`exit()`](/reference/cstdlib/exit.md)や[`quick_exit()`](/reference/cstdlib/quick_exit.md)内で呼び出される[`atexit()`](/reference/cstdlib/atexit.md)や[`at_quick_exit()`](/reference/cstdlib/at_quick_exit.md)で登録した関数
 	- [`set_unexpected()`](set_unexpected.md)で登録したハンドラで以下すべてを満たす場合
 		- 発端となった例外指定に含まれない例外がハンドラから送出された
 		- 発端となった例外指定に[`bad_exception`](bad_exception.md)が含まれない
 	- スレッドの開始関数（[`thread`のコンストラクタ](../thread/thread/op_constructor.md)で渡した関数）
-- 例外処理中でないのに式を持たない`throw`式を実行しようとした
+- 例外処理�でないのに式を持たない`throw`式を実行しようとした
 - デフォルトの予想外の例外のハンドラ（[`set_unexpected()`](set_unexpected.md)が呼び出されていない状況でのハンドラ）が呼び出された
 - [`nested_exception::rethrow_nested()`](nested_exception/rethrow_nested.md)が例外を捕捉していない状況で呼び出された
-- join可能な`thread`（[`thread::joinable()`](../thread/thread/joinable.md)が`true`であるもの）に対して、デストラクタまたは代入演算子が実行された
+- join可能な`thread`（[`thread::joinable()`](../thread/thread/joinable.md)が`true`であるもの）に対して、デストラクタまたは代入演算�が実行された
 
 
 ## 効果
@@ -61,7 +61,7 @@ int main()
 {
   std::cout << "before terminate" << std::endl;
 
-  std::terminate(); // プログラムを終了させる
+  std::terminate(); // プ�グラムを終了させる
 
   std::cout << "after terminate" << std::endl; // 実行されない
 }

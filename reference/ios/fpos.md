@@ -31,7 +31,7 @@ using u32streampos = fpos<char_traits<char32_t>::state_type>;
 
 | 名前                      | 説明             | 対応バージョン |
 |---------------------------|------------------|----------------|
-| [`state`](fpos/state.md.nolink) | 状態の取得・設定 |                |
+| [`state`](fpos/state.md.nolink) | 状態の取得・�定 |                |
 
 ## 要件
 `fpos`に関連して、以下の操作が可能であることが要求される。
@@ -45,7 +45,7 @@ using u32streampos = fpos<char_traits<char32_t>::state_type>;
 | `O(p)`          | オフセットへの変換                         | `P(O(p)) == p`                 |
 | `p == q`        | 比較                                       | 結果の型はboolに変換可能である |
 | `p != q`        | 〃                                         | 〃                             |
-| `q = p + o`     | 正値のオフセット                           | `q - o == p`                   |
+| `q = p + o`     | �値のオフセット                           | `q - o == p`                   |
 | `p += o`        | 〃                                         | 〃                             |
 | `q = p - o`     |                                            | `q + o == p`                   |
 | `q -= o`        |                                            | 〃                             |

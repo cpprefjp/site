@@ -9,8 +9,8 @@
 ```
 
 ## 概要
-`long double`型の数値を10進数で正確に表すのに必要な有効数字の桁数を表すマクロ。  
-より正確には、`long double`型のあらゆる数値を、$n$ 桁の10進数に変換し、また元に戻した場合に値が変わらないような最小の整数値 $n$ を表すマクロ。  
+`long double`型の数値を10進数で�確に表すのに必要な有効数�の桁数を表すマク�。  
+より�確には、`long double`型のあらゆる数値を、$n$ 桁の10進数に変換し、また元に戻した場合に値が変わらないような最小の整数値 $n$ を表すマク�。  
 以下の式で表される。
 
 $$
@@ -25,11 +25,11 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は`long double`型の精度（基数 $b$ での仮数部の桁数）である。  
 $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max_digits10`](/reference/limits/numeric_limits/max_digits10.md) と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max_digits10`](/reference/limits/numeric_limits/max_digits10.md) と�しい。
 
 ## 備考
 - 規格で 10 以上であることが規定されている。
-- 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
+- 本マク�は `#if` プリプ�セッサディレクティブに使用可能な定数式である。
 - `LDBL_DECIMAL_DIG` は Long DouBLe DECIMAL DIGits（decimal：10進数、digit：桁）に由来する。
 
 
@@ -43,7 +43,7 @@ int main()
 {
   std::cout << LDBL_DECIMAL_DIG << '\n';
 
-  // 以下の式と等価
+  // 以下の式と�価
   long double log10b = std::log10(FLT_RADIX);
   long double intpart;
   if (std::modf(log10b, &intpart) == 0.0) {

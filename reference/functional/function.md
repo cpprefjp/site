@@ -30,7 +30,7 @@ int result = f(1); // result == 2
 
 `function`のテンプレート引数には、「戻り値の型(引数の型リスト...)」という形式で、型で関数のシグニチャを指定する。
 
-`function`クラスは具体的な関数・関数オブジェクトの型には依存しない。シグニチャが一致していればあらゆる型の関数、関数オブジェクトを代入できる。
+`function`クラスは具体的な関数・関数オブジェクトの型には依�しない。シグニチャが一致していればあらゆる型の関数、関数オブジェクトを代入できる。
 
 
 ## メンバ関数
@@ -39,9 +39,9 @@ int result = f(1); // result == 2
 |--------------------------------------------|----------------------------------------------|-------|
 | [`(constructor)`](function/op_constructor.md)  | コンストラクタ                         | C++11 |
 | [`(destructor)`](function/op_destructor.md)  | デストラクタ                             | C++11 |
-| [`operator=`](function/op_assign.md)     | 代入演算子                                   | C++11 |
-| [`swap`](function/swap.md)               | 他の`function`オブジェクトと中身を入れ替える | C++11 |
-| [`assign`](function/assign.md)           | 関数オブジェクトとアロケータを再代入する     | C++11<br/> C++17で削除 |
+| [`operator=`](function/op_assign.md)     | 代入演算�                                   | C++11 |
+| [`swap`](function/swap.md)               | 他の`function`オブジェクトと�身を入れ替える | C++11 |
+| [`assign`](function/assign.md)           | 関数オブジェクトとア�ケータを再代入する     | C++11<br/> C++17で削除 |
 | [`operator bool`](function/op_bool.md)   | 関数呼び出しが可能か調べる                   | C++11 |
 | [`operator()`](function/op_call.md)      | 関数呼び出し                                 | C++11 |
 | [`target_type`](function/target_type.md) | 元となる関数の型情報を取得する               | C++11 |
@@ -62,8 +62,8 @@ int result = f(1); // result == 2
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|-----------------------------------------|-------|
-| [`operator==`](function/op_equal.md)     | 等値比較                                | C++11 |
-| [`operator!=`](function/op_not_equal.md) | 非等値比較                              | C++11 |
+| [`operator==`](function/op_equal.md)     | �値比較                                | C++11 |
+| [`operator!=`](function/op_not_equal.md) | 非�値比較                              | C++11 |
 | [`swap`](function/swap_free.md)          | 2つの`function`オブジェクトを入れ替える | C++11 |
 
 

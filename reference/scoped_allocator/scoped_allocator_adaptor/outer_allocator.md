@@ -11,7 +11,7 @@ const outer_allocator_type& outer_allocator() const noexcept; // (2)
 ```
 
 ## 概要
-外側のアロケータを取得する。
+外側のア�ケータを取得する。
 
 
 ## 戻り値
@@ -77,11 +77,11 @@ int main()
   int outer_state = 5;
   int inner_state = 2;
   vector<string>::allocator_type alloc {
-    alloc_t<string>(outer_state), // vector自体のアロケータオブジェクト
-    alloc_t<char>(inner_state)    // vectorの全ての要素に使用するアロケータオブジェクト
+    alloc_t<string>(outer_state), // vector自体のア�ケータオブジェクト
+    alloc_t<char>(inner_state)    // vectorの全ての要素に使用するア�ケータオブジェクト
   };
 
-  // 外側(vector自体)のアロケータオブジェクトを取得
+  // 外側(vector自体)のア�ケータオブジェクトを取得
   alloc_t<string> outer_alloc = alloc.outer_allocator();
   std::cout << outer_alloc.getState() << std::endl;
 }

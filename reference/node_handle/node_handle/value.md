@@ -6,7 +6,7 @@
 * [meta namespace]
 
 ```cpp
-value_type& value() const; // map コンテナには存在ない
+value_type& value() const; // map コンテナには�在ない
 ```
 
 ## 概要

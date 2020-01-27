@@ -10,11 +10,11 @@ bool try_lock();
 ```
 
 ## 概要
-ロックの取得を試みる
+�ックの取得を試みる
 
 
 ## 効果
-ブロッキングせずに、この関数を呼び出したスレッドがミューテックスの所有権を取得する。この関数を呼び出したスレッドが新たに所有権を取得した場合は、所有権カウントを1とする。すでにミューテックスの所有権を保持していた場合は、所有権カウントを1増加する。
+ブ�ッ�ングせずに、この関数を呼び出したスレッドがミューテックスの所有権を取得する。この関数を呼び出したスレッドが新たに所有権を取得した場合は、所有権カウントを1とする。すでにミューテックスの所有権を保持していた場合は、所有権カウントを1増加する。
 
 
 ## 戻り値
@@ -43,7 +43,7 @@ public:
   int add(int value)
   {
     if (!mtx_.try_lock()) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }
@@ -54,12 +54,12 @@ public:
 
   int increment()
   {
-    if (!mtx_.try_lock()) { // ロックを取得する
-      // ロックの取得に失敗
+    if (!mtx_.try_lock()) { // �ックを取得する
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }
-    int result = add(1); // add()関数内でも同じミューテックスからロックを取得する
+    int result = add(1); // add()関数内でも同じミューテックスから�ックを取得する
     mtx_.unlock();
     return result;
   }

@@ -11,9 +11,9 @@ const_local_iterator begin(size_type n) const;
 ```
 
 ## 概要
-インデックス（添え字）で指定したバケット内の先頭の要素を指すイテレータを取得する。
+インデックス（添え�）で指定したバケット内の先�の要素を指すイテレータを取得する。
 
-`unordered_multiset` は非順序連想コンテナであるため「先頭」に特に意味はないが、`begin(size_type)` で得られたイテレータを [`end(size_type)`](end-size_type.md) まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
+`unordered_multiset` は非順序連想コンテナであるため「先�」に特に意味はないが、`begin(size_type)` で得られたイテレータを [`end(size_type)`](end-size_type.md) まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
 
 
 ## 要件
@@ -21,7 +21,7 @@ const_local_iterator begin(size_type n) const;
 
 
 ## 戻り値
-インデックス（添え字） `n` で指定したバケット内の先頭の要素を指すイテレータ
+インデックス（添え�） `n` で指定したバケット内の先�の要素を指すイテレータ
 
 
 ## 計算量
@@ -29,7 +29,7 @@ const_local_iterator begin(size_type n) const;
 
 
 ## 備考
-`const` 版ではない `begin` が返す `local_iterator` も読み取り専用イテレータである。
+`const` 版ではない `begin` が返す `local_iterator` も�み取り専用イテレータである。
 
 （が、`local_iterator` と `const_local_iterator` が同じ型とは限らないと思われる）
 
@@ -93,11 +93,11 @@ bucket = 10, bucket_size = 0, keys = { }
 
 | 名前 | 説明 |
 |----------------------------------------------|------------------------------------|
-| [`begin`](begin.md)                        | 先頭要素を指すイテレータの取得     |
+| [`begin`](begin.md)                        | 先�要素を指すイテレータの取得     |
 | [`end`](end.md)                            | 最終要素の次を指すイテレータの取得 |
-| [`cbegin`](cbegin.md)                      | 先頭要素を指す読み取り専用イテレータの取得 |
-| [`cend`](cend.md)                          | 最終要素の次を指す読み取り専用イテレータの取得 |
-| [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
-| [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
-| [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
+| [`cbegin`](cbegin.md)                      | 先�要素を指す�み取り専用イテレータの取得 |
+| [`cend`](cend.md)                          | 最終要素の次を指す�み取り専用イテレータの取得 |
+| [`end(size_type)`](end-size_type.md)       | インデックス（添え�）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+| [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え�）で指定したバケット内の先�要素を指す�み取り専用イテレータを取得 |
+| [`cend(size_type)`](cend-size_type.md)     | インデックス（添え�）で指定したバケット内の最終要素の次を指す�み取り専用イテレータを取得 |
 

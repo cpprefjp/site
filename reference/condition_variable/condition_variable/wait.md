@@ -20,26 +20,26 @@ void wait(unique_lock<mutex>& lock, Predicate pred); // (2)
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
 
-述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブ�ッ�ングが解除される。
 
 述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
 
 ## 要件
 - `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`であること
-- `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
+- `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドで�ック取得されていること
 - `*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
 
 
 ## 効果
 - (1) :
-    1. アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)し、`*this`に対してブロッキングする
-    2. [`notify_one()`](notify_one.md)/[`notify_all()`](notify_all.md)もしくはそれ以外の理由で通知があるまでブロッキングされる
+    1. アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)し、`*this`に対してブ�ッ�ングする
+    2. [`notify_one()`](notify_one.md)/[`notify_all()`](notify_all.md)もしくはそれ以外の理由で通知があるまでブ�ッ�ングされる
     3. この関数を抜ける際に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
     4. この関数が例外送出によって終了する場合、関数を抜ける前に`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)する
 
 
-- (2) : 以下と等価の処理を行う
+- (2) : 以下と�価の処理を行う
 
 ```cpp
 while (!pred()) {
@@ -50,7 +50,7 @@ while (!pred()) {
 
 ## 事後条件
 - `lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`であること
-- `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
+- `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドで�ック取得されていること
 
 
 ## 戻り値
@@ -67,7 +67,7 @@ while (!pred()) {
 
 
 ## 備考
-- C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プログラムを異常終了させる。これは、ミューテックスの再ロック取得が例外を送出した場合に発生する。
+- C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プ�グラムを異常終了させる。これは、ミューテックスの再�ック取得が例外を送出した場合に発生する。
 
 
 ## 例

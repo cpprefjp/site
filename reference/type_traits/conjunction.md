@@ -27,12 +27,12 @@ Traits内の全ての型は基底クラスとして使用可能で（final指定
 
 `sizeof...(Traits) > 1`ならば`Traits::value == false`となる最初の型か、Traits列の一番最後の型から派生する。
 
-すなわち、（結果だけを見れば）全てのTraits::valueを&&演算子で結合した結果に等しい（`(... && Traits::value)`）。
+すなわち、（結果だけを見れば）全てのTraits::valueを&&演算�で結合した結果に�しい（`(... && Traits::value)`）。
 
 ## 備考
-`conjunction`は短絡評価される。
+`conjunction`は�絡評価される。
 
-&&演算子を用いると&&で連結されているすべてのメタ関数のインスタンス化が行われるのに対して、`conjunction`では::value==falseとなるメタ関数が出現した時点で処理は終了し、後続のメタ関数のインスタンス化は行われない。
+&&演算�を用いると&&で連結されているすべてのメタ関数のインスタンス化が行われるのに対して、`conjunction`では::value==falseとなるメタ関数が出現した時点で処理は終了し、後続のメタ関数のインスタンス化は行われない。
 
 ## 例
 ```cpp example
@@ -88,5 +88,5 @@ Tはムーブ構築/代入どちらかが不可
 
 ## 参照
 - [C++17 で追加された std::conjunction/std::disjunction メタ関数 - Secret Garden(Instrumental)](http://secret-garden.hatenablog.com/entry/2017/08/13/203150)
-- [conjunction/disjunctionと短絡インスタンス化 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20171103/p1)
+- [conjunction/disjunctionと�絡インスタンス化 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20171103/p1)
 - [Logical Operator Type Traits (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0013r1.html)

@@ -13,7 +13,7 @@ namespace std {
 ```
 
 ## 概要
-`basic_string_view`オブジェクトの非等値比較を行う。
+`basic_string_view`オブジェクトの非�値比較を行う。
 
 
 ## 戻り値

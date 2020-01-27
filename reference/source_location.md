@@ -21,7 +21,7 @@
 
 ## 関連項目
 
-- [事前定義識別子`__func__`](/lang/cpp11/func.md)
+- [事前定義�別�`__func__`](/lang/cpp11/func.md)
 
 ## 参照
 

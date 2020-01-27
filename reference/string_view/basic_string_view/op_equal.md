@@ -13,7 +13,7 @@ namespace std {
 ```
 
 ## 概要
-`basic_string_view`オブジェクトの等値比較を行う。
+`basic_string_view`オブジェクトの�値比較を行う。
 
 
 ## 戻り値
@@ -31,7 +31,7 @@ return x.compare(y) == 0;
 int main()
 {
   std::string_view a = "aaa";
-  std::string_view b {"aaaBB", 3}; // 先頭3文字を参照
+  std::string_view b {"aaaBB", 3}; // 先�3文�を参照
 
   if (a == b) {
     std::cout << "equal" << std::endl;

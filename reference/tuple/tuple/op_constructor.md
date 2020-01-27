@@ -64,7 +64,7 @@ EXPLICIT constexpr tuple(pair<U1, U2>&&);                 // (9) C++17
 template <class U1, class U2>
 explicit(see below) constexpr tuple(pair<U1, U2>&&);      // (9) C++20
 
-// アロケータによる構築
+// ア�ケータによる構築
 template <class Alloc>
 tuple(allocator_arg_t, const Alloc& a);                   // (10) C++11
 template <class Alloc>
@@ -183,15 +183,15 @@ explicit(see below) constexpr
 - (7) : 変換可能な型からのムーブコンストラクタ
 - (8) : テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからコピー構築する
 - (9) : テンプレートパラメータ数が2の場合に、`std::pair`オブジェクトからムーブ構築する
-- (10) : アロケータを指定してデフォルト構築する
-- (11) : アロケータを指定して可変テンプレートパラメータの型の値によってコピー構築する
-- (12) : アロケータを指定して可変テンプレートパラメータの型の値によってムーブ構築する
-- (13) : アロケータを指定してコピー構築
-- (14) : アロケータを指定してムーブ構築
-- (15) : アロケータを指定して変換可能な他の`tuple`オブジェクトからコピー構築
-- (16) : アロケータを指定して変換可能な他の`tuple`オブジェクトからムーブ構築
-- (17) : テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからコピー構築する
-- (18) : テンプレートパラメータ数が2の場合、アロケータを指定して`std::pair`オブジェクトからムーブ構築する
+- (10) : ア�ケータを指定してデフォルト構築する
+- (11) : ア�ケータを指定して可変テンプレートパラメータの型の値によってコピー構築する
+- (12) : ア�ケータを指定して可変テンプレートパラメータの型の値によってムーブ構築する
+- (13) : ア�ケータを指定してコピー構築
+- (14) : ア�ケータを指定してムーブ構築
+- (15) : ア�ケータを指定して変換可能な他の`tuple`オブジェクトからコピー構築
+- (16) : ア�ケータを指定して変換可能な他の`tuple`オブジェクトからムーブ構築
+- (17) : テンプレートパラメータ数が2の場合、ア�ケータを指定して`std::pair`オブジェクトからコピー構築する
+- (18) : テンプレートパラメータ数が2の場合、ア�ケータを指定して`std::pair`オブジェクトからムーブ構築する
 
 
 ## テンプレートパラメータ制約
@@ -210,13 +210,13 @@ explicit(see below) constexpr
 - (6), (15) :
     - `sizeof...(Types) == sizeof...(UTypes)`であること
     - `Types...`の全ての型`Ti`と、`UTypes...`の全ての型`Ui`について、[`is_constructible`](/reference/type_traits/is_constructible.md)`<Ti, const Ui&>::value == true`であること
-    - C++17 : `sizeof(Types...) != 1`であるか、そうでなければ`Types...`の先頭を`T`、`UTypes...`の先頭をUとして、`!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const tuple<U>&, T> && !`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const tuple<U>&> && !`[`is_same_v`](/reference/type_traits/is_same.md)`<T, U>`が`true`であること
-        - コピーコンストラクタとのオーバーロードが成立することを意図している
+    - C++17 : `sizeof(Types...) != 1`であるか、そうでなければ`Types...`の先�を`T`、`UTypes...`の先�をUとして、`!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const tuple<U>&, T> && !`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const tuple<U>&> && !`[`is_same_v`](/reference/type_traits/is_same.md)`<T, U>`が`true`であること
+        - コピーコンストラクタとのオーバー�ードが成立することを意図している
 - (7), (16) :
     - `sizeof...(Types) == sizeof...(UTypes)`であること
     - `Types...`の全ての型`Ti`と、`UTypes...`の全ての型`Ui`について、[`is_constructible`](/reference/type_traits/is_constructible.md)`<Ti, Ui&&>::value == true`であること
-    - C++17 : `sizeof(Types...) != 1`であるか、そうでなければ`Types...`の先頭を`T`、`UTypes...`の先頭をUとして、`!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<tuple<U>, T> && !`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, tuple<U>> && !`[`is_same_v`](/reference/type_traits/is_same.md)`<T, U>`が`true`であること
-        - ムーブコンストラクタとのオーバーロードが成立することを意図している
+    - C++17 : `sizeof(Types...) != 1`であるか、そうでなければ`Types...`の先�を`T`、`UTypes...`の先�をUとして、`!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<tuple<U>, T> && !`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, tuple<U>> && !`[`is_same_v`](/reference/type_traits/is_same.md)`<T, U>`が`true`であること
+        - ムーブコンストラクタとのオーバー�ードが成立することを意図している
 - (8), (17) :
     - `Types...`の0番目の型を`T0`、1番目の型を`T1`であるとする
     - `sizeof...(Types) == 2`であること
@@ -255,7 +255,7 @@ explicit(see below) constexpr
     - C++17 : (8)と同じ条件で`explicit`となる
 - (18) :
     - C++17 : (9)と同じ条件で`explicit`となる
-- C++17では、コンストラクタの各オーバーロードが条件付きで`explicit`となるよう規定された。これは、以下のような初期化子リストを使用したC++17での初期化が不適格になっていたため、適格になるようにするための変更である：
+- C++17では、コンストラクタの各オーバー�ードが条件付きで`explicit`となるよう規定された。これは、以下のような初期化�リストを使用したC++17での初期化が不適格になっていたため、適格になるようにするための変更である：
     ```cpp
     std::tuple<int, int> pixel_coordinates()
     {
@@ -293,8 +293,8 @@ int main()
   // pairから構築(2要素の場合のみ)
   std::tuple<int, char> t5 = std::make_pair(1, 'a');
 
-  // アロケータを指定して構築。
-  // std::allocator_argを第1引数にすると、第2引数がアロケータと見なされ、
+  // ア�ケータを指定して構築。
+  // std::allocator_argを第1引数にすると、第2引数がア�ケータと見なされ、
   // 第3引数以降がtupleの要素となる
   std::tuple<int, char, std::string> t6(std::allocator_arg,
                                         std::allocator<std::tuple<int, char, std::string>>(),

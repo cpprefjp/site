@@ -15,12 +15,12 @@ static constexpr char_type* move(char_type* s1,
 ```
 
 ## 概要
-文字列`s1`に文字列`s2`をコピーする。
+文�列`s1`に文�列`s2`をコピーする。
 
 
 ## 効果
 範囲`[0, n)`の各`i`について、[`assign`](assign.md)`(s1[i], s2[i])`を実行する。  
-この関数は、範囲`[s1, s1+n)`と範囲`[s2, s2+n)`が重なっていても正しくコピーされる。
+この関数は、範囲`[s1, s1+n)`と範囲`[s2, s2+n)`が重なっていても�しくコピーされる。
 
 
 ## 戻り値
@@ -48,7 +48,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // 範囲が重なっていた場合でも正しくコピーされる
+  // 範囲が重なっていた場合でも�しくコピーされる
   {
     std::char_traits<char>::move(s, s, n);
     std::cout << s << std::endl;

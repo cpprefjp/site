@@ -11,21 +11,21 @@ fmtflags flags(fmtflags fmtfl);     // (2)
 * fmtflags[link type-fmtflags.md]
 
 ## 概要
-書式フラグを取得・設定する。
+書式フラグを取得・�定する。
 
 
 ## 効果
 - (1) なし。
-- (2) 書式フラグを引数 `fmtfl` に設定する。
+- (2) 書式フラグを引数 `fmtfl` に�定する。
 
 
 ## 戻り値
 - (1) 現在の書式フラグ
-- (2) 設定される前の書式フラグ
+- (2) �定される前の書式フラグ
 
 
 ## 備考
-(2) の形式ではすべての書式フラグの設定を行ってしまうため、特定の書式フラグを変更するのにはあまり向かないが、書式フラグを一時的に変更した後に元に戻す際には便利である。  
+(2) の形式ではすべての書式フラグの�定を行ってしまうため、特定の書式フラグを変更するのにはあまり向かないが、書式フラグを一時的に変更した後に元に戻す際には便利である。  
 それ以外の用途では、一般的に [`setf`](setf.md)、[`unsetf`](unsetf.md) を使用したり、各種マニピュレータを使用する方が便利である。
 
 
@@ -37,7 +37,7 @@ int main()
 {
   std::cout << 100 << '\n';
 
-  // 16 進数に設定して出力
+  // 16 進数に�定して出力
   std::ios_base::fmtflags old1 = std::cout.flags();
   std::cout.flags((old1 & ~std::ios_base::basefield) | std::ios_base::hex);
   std::cout << 100 << '\n';
@@ -46,7 +46,7 @@ int main()
   std::cout.flags(old1);
   std::cout << 100 << '\n';
 
-  // 16 進数に設定して出力（setf を使用）
+  // 16 進数に�定して出力（setf を使用）
   std::ios_base::fmtflags old2 = std::cout.setf(std::ios_base::hex, std::ios_base::basefield);
   std::cout << 100 << '\n';
 
@@ -54,7 +54,7 @@ int main()
   std::cout.flags(old2);
   std::cout << 100 << '\n';
 
-  // 16 進数に設定して出力（マニピュレータを使用）
+  // 16 進数に�定して出力（マニピュレータを使用）
   std::ios_base::fmtflags old3 = std::cout.flags();
   std::cout << std::hex << 100 << '\n';
 

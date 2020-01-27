@@ -9,7 +9,7 @@ bool equal(const istreambuf_iterator& b) const;
 ```
 
 ## 概要
-他の`istreambuf_iterator`オブジェクトと等値比較する
+他の`istreambuf_iterator`オブジェクトと�値比較する
 
 
 ## 戻り値

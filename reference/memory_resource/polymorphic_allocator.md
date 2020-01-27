@@ -16,10 +16,10 @@ namespace std::pmr {
 * byte[link /reference/cstddef/byte.md]
 
 ## 概要
-`polymorphic_allocator`は任意の[`memory_resource`](memory_resource.md)実装によりメモリ確保・解放戦略に関わる実際の処理を動的に切り替えることのできるアロケータである。この様な設計は一般にStrategyパターンというデザインパターンの一つとして知られている。   
-このクラスと[`memory_resource`](memory_resource.md)の利用により、同じ静的型`polymorphic_allocator<Tp>`で実行時に異なるメモリの確保・解放戦略をとるアロケータの利用が可能になる。
+`polymorphic_allocator`は任意の[`memory_resource`](memory_resource.md)実装によりメモリ確保・解放戦略に関わる実際の処理を動的に切り替えることのできるア�ケータである。この様な�計は一般にStrategyパターンというデザインパターンの一つとして知られている。   
+このクラスと[`memory_resource`](memory_resource.md)の利用により、同じ静的型`polymorphic_allocator<Tp>`で実行時に異なるメモリの確保・解放戦略をとるア�ケータの利用が可能になる。
 
-C++20にてC++プログラミングにおいての基礎部品となる型（*vocabulary type*）となるように改修され、`polymorphic_allocator<>`の形で幅広く利用できるようになった。
+C++20にてC++プ�グラミングにおいての基礎部品となる型（*vocabulary type*）となるように改修され、`polymorphic_allocator<>`の形で幅広く利用できるようになった。
 
 ## メンバ関数
 
@@ -28,7 +28,7 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`(constructor)`](polymorphic_allocator/op_constructor.md) | コンストラクタ | C++17 |
-| `operator=(const polymorphic_allocator& rhs) = delete;`     | コピー代入演算子（コピー禁止）     | C++17 |
+| `operator=(const polymorphic_allocator& rhs) = delete;`     | コピー代入演算�（コピー禁�）     | C++17 |
 
 ### メモリ確保・解放のみを行う関数
 
@@ -67,8 +67,8 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator==`](polymorphic_allocator/op_equal.md) | 等値比較 | C++17 |
-| [`operator!=`](polymorphic_allocator/op_not_equal.md) | 非等値比較 | C++17 |
+| [`operator==`](polymorphic_allocator/op_equal.md) | �値比較 | C++17 |
+| [`operator!=`](polymorphic_allocator/op_not_equal.md) | 非�値比較 | C++17 |
 
 ## バージョン
 ### 言語
@@ -84,7 +84,7 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 
 
 ## 参照
-- [C++1z 多相アロケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
+- [C++1z 多相ア�ケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
 - [memory_resourceについて - 本の虫](https://cpplover.blogspot.com/2015/09/memoryresource.html)
 - [Polymorphic Allocator in C++17 - Qita](https://qiita.com/MitsutakaTakeda/items/48980faa9498c46b15b2)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)

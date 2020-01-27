@@ -17,14 +17,14 @@ Tp* allocate(std::size_t n);               // (1) C++17
 - `n` -- 確保する領域の数、バイト数ではなく配列の要素数相当
 
 ## 効果
-利用する`memory_resource`のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と等価である。
+利用する`memory_resource`のポインタを`memory_rsrc`というメンバに保持しているとすると、以下と�価である。
 
 ```cpp
 return static_cast<Tp*>(memory_rsrc->allocate(n * sizeof(Tp), alignof(Tp)));
 ```
 
 ## 戻り値
-確保した領域の先頭へのポインタ。
+確保した領域の先�へのポインタ。
 
 ## 例外
 - [`SIZE_MAX`](/reference/cstdint/size_max.md) `/ sizeof(Tp) < n`である場合、[`std::length_error`](/reference/stdexcept.md)例外を送出する

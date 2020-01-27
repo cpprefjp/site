@@ -20,7 +20,7 @@ namespace std {
 
 ### 備考
 - `monostate`は、唯一の状態としてデフォルト構築状態をもつことを意味する
-- [Boost Variant Library](https://boost.org/libs/variant)では、これと等価な型が`blank`という名前で定義される
+- [Boost Variant Library](https://boost.org/libs/variant)では、これと�価な型が`blank`という名前で定義される
 
 
 ## メンバ関数
@@ -30,16 +30,16 @@ namespace std {
 |------|------|----------------|
 | `monostate() = default;` | コンストラクタ | C++17 |
 | `~monostate() = default;` | デストラクタ | C++17 |
-| `monostate& operator=(const monostate&) = default;`<br/> `monostate& operator=(monostate&&) = default;` | 代入演算子 | C++17 |
+| `monostate& operator=(const monostate&) = default;`<br/> `monostate& operator=(monostate&&) = default;` | 代入演算� | C++17 |
 
 
 ## 非メンバ関数
-### 比較演算子
+### 比較演算�
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `constexpr bool operator==(monostate, monostate) noexcept;` | 等値比較。`true`を返す | C++17 |
-| `constexpr bool operator!=(monostate, monostate) noexcept;` | 非等値比較。`false`を返す | C++17 |
+| `constexpr bool operator==(monostate, monostate) noexcept;` | �値比較。`true`を返す | C++17 |
+| `constexpr bool operator!=(monostate, monostate) noexcept;` | 非�値比較。`false`を返す | C++17 |
 | `constexpr bool operator<(monostate, monostate) noexcept;`  | 左辺が右辺より小さいかを判定する。`false`を返す | C++17 |
 | `constexpr bool operator<=(monostate, monostate) noexcept;` | 左辺が右辺以下かを判定する。`true`を返す | C++17 |
 | `constexpr bool operator>(monostate, monostate) noexcept;`  | 左辺が右辺より大きいかを判定する。`false`を返す | C++17 |

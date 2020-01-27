@@ -20,7 +20,7 @@ size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5
 ```
 
 ## 概要
-指定した文字列を検索する。
+指定した文�列を検索する。
 
 
 ## テンプレートパラメータ制約
@@ -35,8 +35,8 @@ size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5
 
 ## 効果
 - (1) `pos` 以降で最初に `str` と一致する位置を返す。
-- (2) `pos` 以降で最初に `s` と一致する位置を返す。`s` は長さ `n` の文字列へのポインタである。
-- (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
+- (2) `pos` 以降で最初に `s` と一致する位置を返す。`s` は長さ `n` の文�列へのポインタである。
+- (3) (2) と同様だが、こちらは NULL 終端の文�列を扱う。
 - (4) `pos` 以降で最初に `c` と一致する位置を返す。
 - (5) :
     - C++17 : `pos` 以降で最初に `sv` と一致する位置を返す。
@@ -51,7 +51,7 @@ size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5
 - (1) 投げない
 - (5) :
     - C++17 : 投げない
-    - C++20 : `noexcept`内の式は、以下と等価である
+    - C++20 : `noexcept`内の式は、以下と�価である
         ```cpp
         is_nothrow_convertible_v<const T&, basic_string_view<charT, traits>>
         ```
@@ -60,11 +60,11 @@ size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5
 
 
 ## 備考
-- 文字列の一致は、文字列の各文字について `traits_type::eq()` を用いて検査される。  
+- 文�列の一致は、文�列の各文�について `traits_type::eq()` を用いて検査される。  
 	例えば、(1) の形式の場合、以下のような条件を満たす最小の `xpos` を求める。
 	* `pos <= xpos` かつ `xpos + str.size() <= size()`
 	* `0 <= I` かつ `I < str.size()` を満たす全ての `I` について、`traits_type::eq(at(xpos + I), str.at(I))`
-- (3) の形式の場合、`s` の文字列長は `traits_type::length(s)` で求められる。
+- (3) の形式の場合、`s` の文�列長は `traits_type::length(s)` で求められる。
 
 
 ## 例

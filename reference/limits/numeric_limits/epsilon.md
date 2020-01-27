@@ -13,12 +13,12 @@ static constexpr T epsilon() noexcept;
 ```
 
 ## 概要
-機械イプシロンを取得する。  
+機械イプシ�ンを取得する。  
 これは浮動小数点数の比較のために誤差幅を評価するのに使用できる。  
 
-対応するマクロを次の表に挙げる。
+対応するマク�を次の表に挙げる。
 
-| 型            | 対応するマクロ                                      |
+| 型            | 対応するマク�                                      |
 |---------------|-----------------------------------------------------|
 | `float`       | [`FLT_EPSILON`](/reference/cfloat/flt_epsilon.md)   |
 | `double`      | [`DBL_EPSILON`](/reference/cfloat/dbl_epsilon.md)   |

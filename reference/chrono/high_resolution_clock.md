@@ -12,7 +12,7 @@ namespace chrono {
 ```
 
 ## 概要
-`high_resolution_clock`は、そのプラットフォームでの最も短い間隔のクロックである。
+`high_resolution_clock`は、そのプラットフォームでの最も�い間隔のク�ックである。
 
 このクラスは、[`system_clock`](/reference/chrono/system_clock.md)か[`steady_clock`](/reference/chrono/steady_clock.md)の別名として定義される場合がある。
 
@@ -39,8 +39,8 @@ namespace chrono {
 
 | 名前        | 説明 | 対応バージョン |
 |-------------|--------------------------------------------------------|-------|
-| `static const bool is_steady` | 逆行しないクロックかどうかを表す`bool`値。値は未規定。 | C++11まで |
-| `static constexpr bool is_steady` | 逆行しないクロックかどうかを表す`bool`値。値は未規定。 | C++14から |
+| `static const bool is_steady` | 逆行しないク�ックかどうかを表す`bool`値。値は未規定。 | C++11まで |
+| `static constexpr bool is_steady` | 逆行しないク�ックかどうかを表す`bool`値。値は未規定。 | C++14から |
 
 
 ## 例

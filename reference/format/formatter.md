@@ -13,7 +13,7 @@ namespace std {
 ```
 
 ## 概要
-フォーマット引数の個々の型に対応する書式文字列の解析と値のフォーマットを担うクラス。
+フォーマット引数の個々の型に対応する書式文�列の解析と値のフォーマットを担うクラス。
 
 `charT`を`char`または`wchar_t`とすると、標準で次の特殊化が有効である。
 
@@ -44,7 +44,7 @@ struct formatter<basic_string_view<charT, traits>, charT>;
 
 標準でもユーザー定義でも特殊化されない場合、その型に対する`formatter`は無効であり、そのような型はフォーマット関数の引数にできない。
 
-ワイド文字列とマルチバイト文字列を相互に変換するような特殊化は意図的に用意されていないが、ユーザーが用意することは禁止していない。
+ワイド文�列とマルチバイト文�列を相互に変換するような特殊化は意図的に用意されていないが、ユーザーが用意することは禁�していない。
 
 ## Formatter要件
 
@@ -52,7 +52,7 @@ struct formatter<basic_string_view<charT, traits>, charT>;
 
 型`F`がFormatter要件を満たすとは、次のことをいう。
 
-* `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること (注: ここはC++20の策定までにコンセプトで書き換えられるかもしれない)
+* `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること (注: ここはC++20の�定までにコンセプトで書き換えられるかもしれない)
 
 さらに、
 
@@ -62,16 +62,16 @@ struct formatter<basic_string_view<charT, traits>, charT>;
 2. 式 `f.format(t, fc)` が有効であり、
     * 戻り値の型が`FC::iterator`である
     * フォーマット結果を`fc.out()`へ出力し、出力後のイテレーターを返す
-    * 出力は`t`、グローバルロケール、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
+    * 出力は`t`、グ�ーバル�ケール、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依�しない
 3. 式 `f.format(u, fc)` が有効であり、
     * 戻り値が`FC::iterator`である
     * フォーマット結果を`fc.out()`へ出力し、出力後のイテレーターを返す
-    * 出力は`t`、グローバルロケール、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
+    * 出力は`t`、グ�ーバル�ケール、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依�しない
     * `u`を変更しない
 
 ただし、
 
-* 文字の型を`charT`
+* 文�の型を`charT`
 * 出力イテレーターの型を`Out`
 * フォーマット引数の型を`T`
 * `f`を`F`のオブジェクト
@@ -81,7 +81,7 @@ struct formatter<basic_string_view<charT, traits>, charT>;
 * `FC`を`basic_format_context<Out, charT>`
 * `pc`を`PC`のlvalue
 * `fc`を`FC`のlvalue
-* `pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す
+* `pc.begin()`は書式文�列�の対応する置換フィールドのオプションの先�を指す
 * オプションが空なら、`pc.begin() == pc.end()`または`*pc.begin() == '}'`である
 
 とする。

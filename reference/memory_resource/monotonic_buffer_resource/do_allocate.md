@@ -12,7 +12,7 @@ void* do_allocate(std::size_t bytes, std::size_t alignment) override;
 ## 概要
 要求されたサイズおよびアライメントでメモリを割り当てる。
 
-割り当てられた領域のサイズと配置・要件等は[`memory_resource::do_allocate()`](/reference/memory_resource/memory_resource/do_allocate.md)に従う。
+割り当てられた領域のサイズと配置・要件�は[`memory_resource::do_allocate()`](/reference/memory_resource/memory_resource/do_allocate.md)に従う。
 
 ## 事前条件
 `alignment`は2の累乗であること
@@ -33,7 +33,7 @@ void* do_allocate(std::size_t bytes, std::size_t alignment) override;
 少なくとも`bytes`のメモリを割り当て、`alignment`にアラインする。
 
 ## 戻り値
-割り当てた領域の先頭へのポインタ
+割り当てた領域の先�へのポインタ
 
 ## 例外
 [`this->upstream_resource()`](upstream_resource.md)[`->allocate()`](/reference/memory_resource/memory_resource/allocate.md)が例外を投げないのならば、この関数も例外を投げない。

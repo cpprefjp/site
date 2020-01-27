@@ -10,9 +10,9 @@ path lexically_relative(const path& base) const;
 ```
 
 ## 概要
-文字列レベルで相対パスに変換する。
+文�列レベルで相対パスに変換する。
 
-この関数は、`*this`が保持するパス文字列を、パス`base`からの相対パスに変換する。ただし、この関数ではファイルシステムを介さず文字列レベルで相対パスへの変換をするため、相対パスを解決できない場合がある。相対パスが解決できなかった場合は、空のパスが返る。ファイルシステムを介した相対パスへの変換を行う場合は、[`std::filesystem::relative()`](/reference/filesystem/relative.md)関数を使用すること。
+この関数は、`*this`が保持するパス文�列を、パス`base`からの相対パスに変換する。ただし、この関数ではファイルシステムを介さず文�列レベルで相対パスへの変換をするため、相対パスを解決できない場合がある。相対パスが解決できなかった場合は、空のパスが返る。ファイルシステムを介した相対パスへの変換を行う場合は、[`std::filesystem::relative()`](/reference/filesystem/relative.md)関数を使用すること。
 
 
 ## 効果
@@ -31,7 +31,7 @@ path lexically_relative(const path& base) const;
 
 
 ## 備考
-- この関数は、`*this`と`base`のどちらに対してもパスの正規化を行わない。必要であれば、どちらか、もしくは両方に[`lexically_normal()`](lexically_normal.md)メンバ関数を適用すること
+- この関数は、`*this`と`base`のどちらに対してもパスの�規化を行わない。必要であれば、どちらか、もしくは両方に[`lexically_normal()`](lexically_normal.md)メンバ関数を適用すること
 
 
 ## 例

@@ -8,23 +8,23 @@
 ```
 
 ## 概要
-`FLT_HAS_SUBNORM` は、`float`型における非正規化数のサポート状況を表すマクロである。
+`FLT_HAS_SUBNORM` は、`float`型における非�規化数のサポート状況を表すマク�である。
 
-| 値   | 名前 | 非正規化数のサポート状況 |
+| 値   | 名前 | 非�規化数のサポート状況 |
 |------|------|--------------------------|
 | `-1` | indeterminable | 許可するか判定できない   |
 | `0`  | absent         | 許可しない               |
 | `1`  | present        | 許可する                 |
 
-値`-1`は、浮動小数点操作が、非正規化数の表現をゼロか非ゼロかで一貫して解釈しない場合に、判定不能として表される。
+値`-1`は、浮動小数点操作が、非�規化数の表現をゼ�か非ゼ�かで一貫して解釈しない場合に、判定不能として表される。
 
-値`0`は、型のフォーマットに非正規化数が含まれる場合でも、正規化されていない浮動小数点数の入力から結果として非正規化数を生成しない場合に、サポートされていないと判定される。
+値`0`は、型のフォーマットに非�規化数が含まれる場合でも、�規化されていない浮動小数点数の入力から結果として非�規化数を生成しない場合に、サポートされていないと判定される。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`has_denorm`](/reference/limits/numeric_limits/has_denorm.md)と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`has_denorm`](/reference/limits/numeric_limits/has_denorm.md)と�しい。
 
 
 ## 備考
-- このマクロは、非正規化数を表現できる場合の、浮動小数点数の正の最小値を表す[`FLT_TRUE_MIN`](flt_true_min.md)のために定義された
+- このマク�は、非�規化数を表現できる場合の、浮動小数点数の�の最小値を表す[`FLT_TRUE_MIN`](flt_true_min.md)のために定義された
 
 
 ## 例

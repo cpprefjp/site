@@ -10,13 +10,13 @@ static constexpr int compare(const char_type* s1, const char_type* s2, std::size
 ```
 
 ## 概要
-2つの文字列を比較する。
+2つの文�列を比較する。
 
 
 ## 戻り値
 - 範囲`[0, n)`の各値`i`全てに対して[`eq`](eq.md)`(s1[i], s2[i]) == true`ならば`0`を返す。
 - 範囲`[0, n)`のいずれかの`i`に対して[`lt`](lt.md)`(s1[i], s2[i]) == true`ならば負の値を返す。
-- それ以外の場合は、正の値を返す。
+- それ以外の場合は、�の値を返す。
 
 
 ## 計算量

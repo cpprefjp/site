@@ -89,7 +89,7 @@ int main()
 ```
 
 ## 実装例
-- [inplace_merge を読んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
+- [inplace_merge を�んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
 
 
 

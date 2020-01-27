@@ -50,7 +50,7 @@ int main()
   std::shared_ptr<int> x(new int(3));
   std::atomic_store_explicit(&p, x, std::memory_order_release);
 
-  // pが指すshared_ptrオブジェクトを、アトミックに読み込む
+  // pが指すshared_ptrオブジェクトを、アトミックに�み込む
   std::shared_ptr<int> result = std::atomic_load_explicit(
                                     &p, std::memory_order_acquire);
   std::cout << *result << std::endl;

@@ -48,7 +48,7 @@ namespace std {
 * std::forward[link ../utility/forward.md]
 
 ## 概要
-`equal_to`クラスは、等値比較を行う関数オブジェクトである。
+`equal_to`クラスは、�値比較を行う関数オブジェクトである。
 
 この関数オブジェクトは一切のメンバ変数を持たず、状態を保持しない。
 
@@ -57,17 +57,17 @@ namespace std {
 
 | 名前 | 説明 |
 |---------------|-----------------|
-| `operator ()` | `x == y` と等価 |
+| `operator ()` | `x == y` と�価 |
 
 
 ## メンバ型
 
 | 名前 | 説明 |
 |------------------------|-------------------------------|
-| `first_argument_type`  | `operator()` の最初の引数の型。`T` と等価（`T` が `void` 以外の場合のみ）  | C++17から非推奨<br/> C++20で削除 |
-| `second_argument_type` | `operator()` の２番目の引数の型。`T` と等価（`T` が `void` 以外の場合のみ）| C++17から非推奨<br/> C++20で削除 |
-| `result_type`          | `operator()` の戻り値の型。`bool` と等価（`T` が `void` 以外の場合のみ）   | C++17から非推奨<br/> C++20で削除 |
-| `is_transparent`       | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依存の型であるがあくまでタグ型であり、型そのものには意味はない。（`T` が `void` の場合のみ） | C++14 |
+| `first_argument_type`  | `operator()` の最初の引数の型。`T` と�価（`T` が `void` 以外の場合のみ）  | C++17から非推奨<br/> C++20で削除 |
+| `second_argument_type` | `operator()` の２番目の引数の型。`T` と�価（`T` が `void` 以外の場合のみ）| C++17から非推奨<br/> C++20で削除 |
+| `result_type`          | `operator()` の戻り値の型。`bool` と�価（`T` が `void` 以外の場合のみ）   | C++17から非推奨<br/> C++20で削除 |
+| `is_transparent`       | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依�の型であるがあくまでタグ型であり、型そのものには意味はない。（`T` が `void` の場合のみ） | C++14 |
 
 
 ## 例

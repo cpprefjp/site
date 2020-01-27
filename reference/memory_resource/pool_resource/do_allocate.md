@@ -12,7 +12,7 @@ void* do_allocate(std::size_t bytes, std::size_t alignment) override;
 ## 概要
 要求されたサイズおよびアライメントでメモリを割り当てる。
 
-割り当てられた領域のサイズと配置・要件等は[`memory_resource::do_allocate()`](/reference/memory_resource/memory_resource/do_allocate.md)に従う。
+割り当てられた領域のサイズと配置・要件�は[`memory_resource::do_allocate()`](/reference/memory_resource/memory_resource/do_allocate.md)に従う。
 
 ## 事前条件
 `alignment`は2の累乗であること
@@ -23,16 +23,16 @@ void* do_allocate(std::size_t bytes, std::size_t alignment) override;
 - `alignment` -- 割り当てる領域へのアライメント要求
 
 ## 効果
-`bytes`以上で最小のブロックサイズの内部メモリプールからメモリを割り当てる。  
-そのようなブロックサイズのプールが枯渇している場合、上流メモリリソースからプールを補充しメモリ割り当てを行う。  
-プールの補充はチャンク単位で行われ、補充の度にチャンクサイズは増加する。その上限はコンストラクタで渡した[`pool_options::max_blocks_per_chunk`](/reference/memory_resource/pool_options.md)か、実装定義の最大値が設定される。
+`bytes`以上で最小のブ�ックサイズの内部メモリプールからメモリを割り当てる。  
+そのようなブ�ックサイズのプールが枯渇している場合、上流メモリリソースからプールを補充しメモリ割り当てを行う。  
+プールの補充はチャンク単位で行われ、補充の度にチャンクサイズは増加する。その上限はコンストラクタで渡した[`pool_options::max_blocks_per_chunk`](/reference/memory_resource/pool_options.md)か、実装定義の最大値が�定される。
 
-また、`bytes`が設定されている最大のブロックサイズを超える場合は上流メモリリソースから直接メモリを割り当てる。
+また、`bytes`が�定されている最大のブ�ックサイズを超える場合は上流メモリリソースから直接メモリを割り当てる。
 
 少なくとも`bytes`のメモリを割り当て、`alignment`にアラインする。
 
 ## 戻り値
-割り当てた領域の先頭へのポインタ
+割り当てた領域の先�へのポインタ
 
 ## 例外
 [`this->upstream_resource()`](upstream_resource.md)[`->allocate()`](/reference/memory_resource/memory_resource/allocate.md)が例外を投げないのならば、この関数も例外を投げない。

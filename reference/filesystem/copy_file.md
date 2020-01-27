@@ -22,7 +22,7 @@ namespace std::filesystem {
 
 
 ## 要件
-- `options`は、各グループのオプションが最大ひとつまで設定されていること
+- `options`は、各グループのオプションが最大ひとつまで�定されていること
 
 
 ## 効果
@@ -30,16 +30,16 @@ namespace std::filesystem {
 - (2) : `return copy_file(from, to,` [`copy_options::none`](copy_options.md)`, ec);`
 - (3) :
     - 以下のいずれか場合にエラーとなる：
-        - `!`[`is_regular_file`](is_regular_file.md)`(from)` (コピー元のファイルが存在しない)
-        - [`exists`](exists.md)`(to) && !`[`is_regular_file`](is_regular_file.md)`(to)` (コピー先に、通常ファイルではないファイルが存在している)
-        - [`exists`](exists.md)`(to) &&` [`equivalent`](equivalent.md)`(from, to)` (コピー先にファイルが存在しており、それがコピー元と等価)
-        - [`exists`](exists.md)`(to) && (options & (`[`copy_optons::skip_existing`](copy_options.md) `|` [`copy_optons::overwrite_existing`](copy_options.md) `|` [`copy_optons::update_existing`](copy_options.md)`)) ==` [`copy_optons::none`](copy_options.md) (コピー先にファイルが存在しており、その場合にエラーにならないオプションが指定されていない)
+        - `!`[`is_regular_file`](is_regular_file.md)`(from)` (コピー元のファイルが�在しない)
+        - [`exists`](exists.md)`(to) && !`[`is_regular_file`](is_regular_file.md)`(to)` (コピー先に、通常ファイルではないファイルが�在している)
+        - [`exists`](exists.md)`(to) &&` [`equivalent`](equivalent.md)`(from, to)` (コピー先にファイルが�在しており、それがコピー元と�価)
+        - [`exists`](exists.md)`(to) && (options & (`[`copy_optons::skip_existing`](copy_options.md) `|` [`copy_optons::overwrite_existing`](copy_options.md) `|` [`copy_optons::update_existing`](copy_options.md)`)) ==` [`copy_optons::none`](copy_options.md) (コピー先にファイルが�在しており、その場合にエラーにならないオプションが指定されていない)
     - 以下の条件のいずれかに合致する場合、パス`from`が解決したファイルを、パス`to`が解決した先にコピーする
         - `!`[`exists`](exists.md)`(to)`
         - `(options &` [`copy_options::overwrite_existing`](copy_options.md)`) !=` [`copy_options::none`](copy_options.md)
         - `(options &` [`copy_options::update_existing`](copy_options.md)`) !=` [`copy_options::none`](copy_options.md)、かつパス`from`のファイルが、パス`to`のファイルよりも最終更新日時が新しい
     - そうでない場合、なにもしない
-- (4) : (3)でエラーが発生した場合に、`false`を返し、エラー情報を`ec`に設定する
+- (4) : (3)でエラーが発生した場合に、`false`を返し、エラー情報を`ec`に�定する
 
 
 ## 戻り値
@@ -75,7 +75,7 @@ int main()
   assert(fs::exists("regular.txt"));
   assert(fs::exists("copy.txt"));
 
-  // 同じパスではなく、シンボリックリンク／ハードリンクでもないので、等価ではない
+  // 同じパスではなく、シンボリックリンク／ハードリンクでもないので、�価ではない
   assert(!fs::equivalent("regular.txt", "copy.txt"));
 }
 ```

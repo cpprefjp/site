@@ -26,7 +26,7 @@ namespace std {
 |----------------------------------|-----------------------|---|
 | [`(constructor)`](ostreambuf_iterator/op_constructor.md) | コンストラクタ | |
 | `~ostream_iterator() = default` | デストラクタ | |
-| [`operator=`](ostreambuf_iterator/op_assign.md) | 代入演算子 | |
+| [`operator=`](ostreambuf_iterator/op_assign.md) | 代入演算� | |
 | [`operator*`](ostreambuf_iterator/op_deref.md) | 間接参照 | |
 | [`operator++`](ostreambuf_iterator/op_increment.md) | インクリメント | |
 | [`failed`](ostreambuf_iterator/failed.md) | 書き込みが失敗したかを判定する | |
@@ -58,7 +58,7 @@ int main()
 {
   const std::string s = "Hello";
 
-  // 文字列"Hello"を標準出力に出力する
+  // 文�列"Hello"を標準出力に出力する
   std::copy(s.begin(), s.end(), std::ostreambuf_iterator<char>(std::cout));
 }
 ```

@@ -10,7 +10,7 @@ bool operator!=(const type_index& rhs) const noexcept;
 ```
 
 ## 概要
-非等値の判定を行う
+非�値の判定を行う
 
 
 ## 戻り値

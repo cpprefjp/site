@@ -13,7 +13,7 @@
 | [`holds_alternative`](variant/holds_alternative.md) | `variant`オブジェクトが指定の候補型を現在保持しているかを判定する (function template) | C++17 |
 | [`visit`](variant/visit.md) | `variant`オブジェクトが現在保持している型に対応する関数を呼び出す (function template) | C++17 |
 | [`monostate`](variant/monostate.md) | 空の状態を持つ型 (class) | C++17 |
-| [`bad_variant_access`](variant/bad_variant_access.md) | `variant`オブジェクトが現在保持していない候補型に不正アクセスした際に発生する例外型 (class) | C++17 |
+| [`bad_variant_access`](variant/bad_variant_access.md) | `variant`オブジェクトが現在保持していない候補型に不�アクセスした際に発生する例外型 (class) | C++17 |
 
 ## バージョン
 ### 言語

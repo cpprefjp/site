@@ -43,14 +43,14 @@ namespace std {
 `const remove_reference_t<B>`型の左辺値`b1, b2`について以下の条件を満たす場合に限って、型`B`は`boolean`のモデルである。
 
 - `bool(b1) == !bool(!b1)`
-- `(b1 && b2)`, `(b1 && bool(b2))`及び`(bool(b1) && b2)`は`(bool(b1) && bool(b2))`と等値であり、短絡評価されるかも同一である
-- `(b1 || b2)`, `(b1 || bool(b2))`及び`(bool(b1) || b2)`は`(bool(b1) || bool(b2))`と等値であり、短絡評価されるかも同一である
-- `bool(b1 == b2)`, `bool(b1 == bool(b2))`及び`bool(bool(b1) == b2)`は`(bool(b1) == bool(b2))`と等値である
-- `bool(b1 != b2)`, `bool(b1 != bool(b2))`及び`bool(bool(b1) != b2)`は`(bool(b1) != bool(b2))`と等値である
+- `(b1 && b2)`, `(b1 && bool(b2))`及び`(bool(b1) && b2)`は`(bool(b1) && bool(b2))`と�値であり、�絡評価されるかも同一である
+- `(b1 || b2)`, `(b1 || bool(b2))`及び`(bool(b1) || b2)`は`(bool(b1) || bool(b2))`と�値であり、�絡評価されるかも同一である
+- `bool(b1 == b2)`, `bool(b1 == bool(b2))`及び`bool(bool(b1) == b2)`は`(bool(b1) == bool(b2))`と�値である
+- `bool(b1 != b2)`, `bool(b1 != bool(b2))`及び`bool(bool(b1) != b2)`は`(bool(b1) != bool(b2))`と�値である
 
 ## 備考
 
-`bool`, [`std::true_type`](/reference/type_traits/true_type.md), [`std::bitset<N>::reference`](https://cpprefjp.github.io/reference/bitset/bitset/reference.html)等の型は真理値型として`boolean`コンセプトのモデルであるが、ポインタ型やスマートポインタ等の明示的に`bool`へ変換できるだけの型は真理値型ではなく`boolean`コンセプトのモデルとならない。
+`bool`, [`std::true_type`](/reference/type_traits/true_type.md), [`std::bitset<N>::reference`](https://cpprefjp.github.io/reference/bitset/bitset/reference.html)�の型は真理値型として`boolean`コンセプトのモデルであるが、ポインタ型やスマートポインタ�の明示的に`bool`へ変換できるだけの型は真理値型ではなく`boolean`コンセプトのモデルとならない。
 
 ## 例
 ```cpp example

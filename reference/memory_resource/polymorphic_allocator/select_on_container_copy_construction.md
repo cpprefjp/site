@@ -16,7 +16,7 @@ polymorphic_allocator select_on_container_copy_construction() const;
 `return` [`polymorphic_allocator();`](op_constructor.md)
 
 ## 備考
-すなわち、標準の`polymorphic_allocator`を利用しているクラス（主にコンテナ）のコピー構築時に、利用している`memory_resource`がコピーされる（伝播する）事は無い。
+すなわち、標準の`polymorphic_allocator`を利用しているクラス（主にコンテナ）のコピー構築時に、利用している`memory_resource`がコピーされる（伝�する）事は無い。
 
 ## 例
 ```cpp example

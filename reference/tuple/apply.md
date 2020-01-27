@@ -32,7 +32,7 @@ constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>)
 * std::invoke[link /reference/functional/invoke.md]
 * std::forward[link /reference/utility/forward.md]
 
-次と等価である。
+次と�価である。
 
 ```cpp
 return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),

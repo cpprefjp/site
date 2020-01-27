@@ -17,7 +17,7 @@ namespace std {
 ## 概要
 [`io_errc`](io_errc.md)に対する`is_error_code_enum`の特殊化。
 [`error_code`](/reference/system_error/error_code.md)のコンストラクタに`io_errc`の列挙値を指定するために使用する。
-それによって`make_error_code()`の`io_errc`に対するオーバーロードが呼び出され、[`iostream_category()`](iostream_category.md)の`error_code`オブジェクトが生成される。
+それによって`make_error_code()`の`io_errc`に対するオーバー�ードが呼び出され、[`iostream_category()`](iostream_category.md)の`error_code`オブジェクトが生成される。
 
 
 ## 例

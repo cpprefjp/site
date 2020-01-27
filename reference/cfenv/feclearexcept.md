@@ -16,7 +16,7 @@ namespace std {
 
 ## 戻り値
 - `excepts`が`0`であった場合、この関数は`0`を返す
-- 指定された全ての浮動小数点例外を正しくクリアできた場合、この関数は`0`を返す
+- 指定された全ての浮動小数点例外を�しくクリアできた場合、この関数は`0`を返す
 - それ以外の場合、この関数は`0`以外を返す
 
 
@@ -62,6 +62,6 @@ int main()
 - [GCC](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
-	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、�しく動作しないおそれがある。
 
 

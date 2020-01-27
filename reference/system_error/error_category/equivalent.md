@@ -13,7 +13,7 @@ virtual bool equivalent(const error_code& code, int condition) const noexcept;  
 * error_code[link ../error_code.md]
 
 ## 概要
-エラーコードとエラー状態の等値比較を行う。
+エラーコードとエラー状態の�値比較を行う。
 
 
 ## 戻り値

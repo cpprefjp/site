@@ -20,7 +20,7 @@ namespace std {
 
 ## 効果
 
-次と等しい。
+次と�しい。
 
 ```cpp
 return visit(forward<Visitor>(vis), arg.value);

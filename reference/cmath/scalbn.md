@@ -31,25 +31,25 @@ namespace std {
 ## 概要
 `x` に、浮動小数点数の内部表現の基数 [`FLT_RADIX`](/reference/cfloat/flt_radix.md) の `n` 乗を掛けた値を効率的に（通常は [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup> を明示的には計算せずに）計算する。scalbは「scale binary」を意味する。
 
-この関数は、[`FLT_RADIX`](/reference/cfloat/flt_radix.md) が `2` であるシステム上では、[`ldexp()`](ldexp.md) 関数と等価である。
+この関数は、[`FLT_RADIX`](/reference/cfloat/flt_radix.md) が `2` であるシステム上では、[`ldexp()`](ldexp.md) 関数と�価である。
 
 
 ## 戻り値
 <code>x * [FLT_RADIX](/reference/cfloat/flt_radix.md)<sup>n</sup></code>
 
-オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
+オーバーフ�ーエラー、アンダーフ�ーエラーが発生する可能性がある。
 
 
 ## 備考
 - この関数は元々 `scalb()` という名前で提案されていたが、非標準の同名関数が広く実装されていた。そのため、`new` の意味を持つ `n` を関数名の末尾に付けて `scalbn()` 関数として標準ライブラリに定義された。
-- オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
+- オーバーフ�ーエラー、アンダーフ�ーエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
 	- `x = ±0` の場合、戻り値は `±0` となる。
 	- `n = 0` の場合、戻り値は `x` となる。
 	- `x = ±∞` の場合、戻り値は `±∞` となる。
-	- もしオーバーフローエラーやアンダーフローエラーを起こさなければ、結果は正確で現在の丸め方式には依存しない。
+	- もしオーバーフ�ーエラーやアンダーフ�ーエラーを起こさなければ、結果は�確で現在の丸め方式には依�しない。
 
-- `scalbln()` 関数は、パラメータ `n` の型が `long int` であることを除いて、`scalbn()` 関数と等価である。
+- `scalbln()` 関数は、パラメータ `n` の型が `long int` であることを除いて、`scalbn()` 関数と�価である。
 
 
 ## 例

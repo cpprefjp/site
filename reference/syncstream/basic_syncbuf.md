@@ -17,8 +17,8 @@ namespace std {
 
 
 ## 概要
-クラステンプレート`basic_syncbuf`は、書き込まれた文字データをオブジェクトのアロケータを使って割り当てられた内部バッファに格納する。
-格納された文字データは、`emit()`が呼び出されたとき、または`basic_syncbuf`オブジェクトが破棄されたときに、ラップされたストリームバッファオブジェクトに転送される。
+クラステンプレート`basic_syncbuf`は、書き込まれた文�データをオブジェクトのア�ケータを使って割り当てられた内部バッファに格納する。
+格納された文�データは、`emit()`が呼び出されたとき、または`basic_syncbuf`オブジェクトが破棄されたときに、ラップされたストリームバッファオブジェクトに転送される。
 このような転送は、同じラップストリームバッファオブジェクトを持つ他の`basic_syncbuf`オブジェクトによる転送に関してアトミックである。
 
 | エイリアス | 説明 | 対応バージョン |
@@ -43,7 +43,7 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator=`](basic_syncbuf/op_assign.md) | 代入演算子 | C++20 |
+| [`operator=`](basic_syncbuf/op_assign.md) | 代入演算� | C++20 |
 | [`swap`](basic_syncbuf/swap.md) | 他の`basic_syncbuf`オブジェクトと状態を交換する | C++20 |
 
 ### その他パブリックメンバ関数
@@ -52,10 +52,10 @@ namespace std {
 |-----------------|----------------|----------------|
 | [`emit`](basic_syncbuf/emit.md) | ラップされたストリームバッファに出力をアトミックに転送する | C++20 |
 | [`get_wrapped`](basic_syncbuf/get_wrapped.md) | ラップされた streambuf のポインタを取得する | C++20 |
-| [`get_allocator`](basic_syncbuf/get_allocator.md) | アロケータを取得する | C++20 |
-| [`set_emit_on_sync`](basic_syncbuf/set_emit_on_sync.md) | `sync()`が呼ばれたとき`emit()`を呼び出すかどうかを設定する | C++20 |
+| [`get_allocator`](basic_syncbuf/get_allocator.md) | ア�ケータを取得する | C++20 |
+| [`set_emit_on_sync`](basic_syncbuf/set_emit_on_sync.md) | `sync()`が呼ばれたとき`emit()`を呼び出すかどうかを�定する | C++20 |
 
-### プロテクテッドなオーバーライドされた仮想メンバ関数
+### プ�テクテッドなオーバーライドされた仮想メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
@@ -66,7 +66,7 @@ namespace std {
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | `char_type` | `charT` | C++20 |
-| `traits_type` | `Traits` `Traits::char_type`が`CharT`でない場合、プログラムは不適格である | C++20 |
+| `traits_type` | `Traits` `Traits::char_type`が`CharT`でない場合、プ�グラムは不適格である | C++20 |
 | `int_type` | `Traits::int_type` | C++20 |
 | `pos_type` | `Traits::pos_type` | C++20 |
 | `off_type` | `Traits::off_type` | C++20 |
@@ -96,7 +96,7 @@ void thread1()
     bout << "World!";
     bout << std::endl; // フラッシュがノートされる
     bout << "and more!\n";
-  }   // 文字が転送され、cout はフラッシュする
+  }   // 文�が転送され、cout はフラッシュする
 }
 
 void thread2()

@@ -20,9 +20,9 @@ namespace std {
 ## 概要
 変数のアドレスを必ず取得する。
 
-`operator&()` をオーバーロードしたクラスであっても、正しくそのオブジェクトのアドレスが欲しいという要求がある。
+`operator&()` をオーバー�ードしたクラスであっても、�しくそのオブジェクトのアドレスが欲しいという要求がある。
 
-`addressof()`関数は、`operator&()` がオーバーロードされていても、変数のアドレスを取得できる。
+`addressof()`関数は、`operator&()` がオーバー�ードされていても、変数のアドレスを取得できる。
 
 
 ## 戻り値
@@ -34,7 +34,7 @@ namespace std {
 
 
 ## 備考
-- (2) : このオーバーロードは、`addressof<const int>(0)`のような明示的型指定によって一時オブジェクトのアドレス取得ができてしまう問題を回避するためのもの
+- (2) : このオーバー�ードは、`addressof<const int>(0)`のような明示的型指定によって一時オブジェクトのアドレス取得ができてしまう問題を回避するためのもの
 
 
 ## 例
@@ -44,7 +44,7 @@ namespace std {
 
 struct useless_type {};
 
-// operator&がオーバーロードされたクラス
+// operator&がオーバー�ードされたクラス
 class nonaddressable {
 public:
   useless_type operator&() const { return useless_type(); }

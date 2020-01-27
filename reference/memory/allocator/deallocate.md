@@ -14,7 +14,7 @@ constexpr void deallocate(pointer p, size_type n);      // C++20 から
 
 
 ## 要件
-`p`は、[`allocate()`](allocate.md)によって確保されたポインタ値であること。`n`は、アロケートされた`p`のサイズと同じであること。
+`p`は、[`allocate()`](allocate.md)によって確保されたポインタ値であること。`n`は、ア�ケートされた`p`のサイズと同じであること。
 
 
 ## 効果
@@ -49,5 +49,5 @@ int main()
 
 
 ## 参照
-- [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
+- [C++14 サイズ付きデア�ケーション](/lang/cpp14/sized_deallocation.md)
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

@@ -21,7 +21,7 @@ namespace std {
 ```
 
 ## 概要
-与えられた`[fisrt, last)`内の文字列から、オーバーロードと基数・フォーマット指定によって決まるパターンにマッチングする最初の数字文字列を見つけて、数値へ変換する。  
+与えられた`[fisrt, last)`内の文�列から、オーバー�ードと基数・フォーマット指定によって決まるパターンにマッチングする最初の数�文�列を見つけて、数値へ変換する。  
 変換に際し、メモリ確保を行わず例外を投げることもない。
 
 C++標準はこれら関数の実装の詳細について何も規定しない。これは、各実装において可能な最も高速なアルゴリズムが選択されることを意図しての事である。
@@ -32,53 +32,53 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 - (2)～(4)  : `fmt`は[`chars_format`](../charconv/chars_format.md)の列挙値のうちの一つであること。
 
 ## 引数
-- `first` -- 入力文字列の先頭のポインタ。
-- `last` -- 入力文字列の終端の次を指すポインタ。
+- `first` -- 入力文�列の先�のポインタ。
+- `last` -- 入力文�列の終端の次を指すポインタ。
 - `value` -- 変換結果を出力する変数。
-- `base` -- 入力文字列の整数の基数（n進数のn）指定、2進数から36進数まで。
-- `fmt` -- 入力文字列の浮動小数点数のフォーマット指定、[`chars_format`](../charconv/chars_format.md)のいずれか。
+- `base` -- 入力文�列の整数の基数（n進数のn）指定、2進数から36進数まで。
+- `fmt` -- 入力文�列の浮動小数点数のフォーマット指定、[`chars_format`](../charconv/chars_format.md)のいずれか。
 
 ## 効果
-- 全て : `[fisrt, last)`からパターンにマッチする文字列を探し、それを変換した数値を`value`に書き込む。  
-    数字列の前にあって良いのは`-`符号のみである（`+`やスペース含めてその他の文字から始まる場合は必ず失敗する）。  
-    数字列の途中でスペースが現れた場合、そこでマッチングは終了する（数字列中のスペース読み飛ばしをしない）。
+- 全て : `[fisrt, last)`からパターンにマッチする文�列を探し、それを変換した数値を`value`に書き込む。  
+    数�列の前にあって良いのは`-`符号のみである（`+`やスペース含めてその他の文�から始まる場合は必ず失敗する）。  
+    数�列の途�でスペースが現れた場合、そこでマッチングは終了する（数�列�のスペース�み飛ばしをしない）。
     
-- (1) : `base`の値をnとすると、n進数の数字列を10進整数値へ変換する。  
-    nを基数としたCロケールによる`strtol`で変換する際と同様のパターンを用いる。  
-    ただし、`value`の型が符号付である場合にのみ`-`は考慮され、`+`や16進数の`0x`等の他の記号は考慮されない。
+- (1) : `base`の値をnとすると、n進数の数�列を10進整数値へ変換する。  
+    nを基数としたC�ケールによる`strtol`で変換する際と同様のパターンを用いる。  
+    ただし、`value`の型が符号付である場合にのみ`-`は考慮され、`+`や16進数の`0x`�の他の記号は考慮されない。
     
-- (2)～(4) : 浮動小数点数字列を浮動小数点数へ変換する。  
-    Cロケールによる`strtod`で変換する際と同様のパターンを用いる。ただし、以下の違いがある。  
-    数字の先頭の符号は`-`のみが考慮され、`+`等は考慮されない。  
-    また、`fmt`に`chars_format::general`が設定されておらず（`scientific`と`fixed`が同時に設定されておらず）
-    - `fmt`に`chars_format::scientific`が設定されているなら指数部は必須。そうでないならあっても無くてもいい。
-    - `fmt`に`chars_format::fixed`が設定されているなら指数部は現れてはならない。
-    - `fmt`に`chars_format::hex`が設定されている場合に数字列の先頭に`0x, 0X`があると正しく変換されない  
-        - `0x123`という文字列が値`0`と残りの文字列`x123`としてパースされる。
+- (2)～(4) : 浮動小数点数�列を浮動小数点数へ変換する。  
+    C�ケールによる`strtod`で変換する際と同様のパターンを用いる。ただし、以下の違いがある。  
+    数�の先�の符号は`-`のみが考慮され、`+`�は考慮されない。  
+    また、`fmt`に`chars_format::general`が�定されておらず（`scientific`と`fixed`が同時に�定されておらず）
+    - `fmt`に`chars_format::scientific`が�定されているなら指数部は必須。そうでないならあっても無くてもいい。
+    - `fmt`に`chars_format::fixed`が�定されているなら指数部は現れてはならない。
+    - `fmt`に`chars_format::hex`が�定されている場合に数�列の先�に`0x, 0X`があると�しく変換されない  
+        - `0x123`という文�列が値`0`と残りの文�列`x123`としてパースされる。
   
   結果の値は[`std::round_to_nearest`](/reference/limits/float_round_style.md)に従った丸めによって一つの値が選択される。
 
-なお、[`to_chars`](../charconv/to_chars.md)関数によって値を正確に復元できるのは両関数が同じ処理系で提供されているときにのみ保証される。
+なお、[`to_chars`](../charconv/to_chars.md)関数によって値を�確に復元できるのは両関数が同じ処理系で提供されているときにのみ保証される。
 
-全てのオーバーロードにおいて、変換に失敗した場合に`value`の値は変更されない。
+全てのオーバー�ードにおいて、変換に失敗した場合に`value`の値は変更されない。
 
 ## 戻り値
 [`from_chars_result`](../charconv/from_chars_result.md)の値。
 
 - 成功した場合
-    - `ptr` : 指定されたパターンに一致しなかった最初の文字の位置。全てが一致した場合は`ptr == last`
+    - `ptr` : 指定されたパターンに一致しなかった最初の文�の位置。全てが一致した場合は`ptr == last`
     - `ec` : `ec == errc{}`
 - 失敗した場合
     - `ptr` : `ptr == first`
     - `ec` : 
-        - パターンにマッチする文字列が見つからない場合、`ec == ` [`errc::invalid_argument`](/reference/system_error/errc.md)
+        - パターンにマッチする文�列が見つからない場合、`ec == ` [`errc::invalid_argument`](/reference/system_error/errc.md)
         - 変換した結果の値が`value`の型では表現できない場合、`ec == ` [`errc::result_out_of_range`](/reference/system_error/errc.md)
 
 ## 例外
 投げない。
 
 ## 備考
-(1)の関数は実装によって全ての整数型（符号付、無し）および`char`の参照型のオーバーロードが提供される。
+(1)の関数は実装によって全ての整数型（符号付、無し）および`char`の参照型のオーバー�ードが提供される。
 
 ## 例
 
@@ -92,7 +92,7 @@ int main()
     const char str[] = "00000123456789 is decimal";
     int value{};
 
-    //(1) 10進数文字列からintへ変換
+    //(1) 10進数文�列からintへ変換
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -105,7 +105,7 @@ int main()
     const char str[] = "1111111111111111 is (65535)_10";
     int value{};
 
-    //(1) 2進数文字列からintへ変換
+    //(1) 2進数文�列からintへ変換
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, 2); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -118,7 +118,7 @@ int main()
     const char str[] = "Z is (35)_10";
     int value{};
 
-    //(1) 36進数文字列からintへ変換
+    //(1) 36進数文�列からintへ変換
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, 36); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -146,7 +146,7 @@ int main()
     const char str[] = "3.1415926535897932384626433832795 is pi";
     double value{};
 
-    //(3) 固定小数表記文字列からdoubleへ変換
+    //(3) 固定小数表記文�列からdoubleへ変換
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -159,7 +159,7 @@ int main()
     const char str[] = "1.10001e-01 is Liouville number";
     double value{};
 
-    //(3) 指数表記文字列からdoubleへ変換
+    //(3) 指数表記文�列からdoubleへ変換
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -172,7 +172,7 @@ int main()
     const char str[] = "1.c29068986fcdf000p-4 is Liouville number";
     double value{};
 
-    //(3) 16進指数表記文字列からdoubleへ変換
+    //(3) 16進指数表記文�列からdoubleへ変換
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, std::chars_format::hex); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -185,7 +185,7 @@ int main()
     const char str[] = " 3.1415926535897932384626433832795 is pi";
     double value{};
 
-    //(3) 失敗する例 ホワイトスペース読み飛ばし
+    //(3) 失敗する例 ホワイトスペース�み飛ばし
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -198,7 +198,7 @@ int main()
     const char str[] = "NaN";
     double value{};
 
-    //(3) NaNの読み取り
+    //(3) NaNの�み取り
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
       std::cout << value << std::endl;
     }
@@ -211,7 +211,7 @@ int main()
     const char str[] = "-INF";
     double value{};
 
-    //(3) INFの読み取り
+    //(3) INFの�み取り
     if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {
       std::cout << value << std::endl;
     }

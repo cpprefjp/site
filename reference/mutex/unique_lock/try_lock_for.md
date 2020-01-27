@@ -11,7 +11,7 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 ```
 
 ## 概要
-タイムアウトする相対時間を指定してロックの取得を試みる
+タイムアウトする相対時間を指定して�ックの取得を試みる
 
 
 ## 要件
@@ -61,9 +61,9 @@ public:
   {
     std::unique_lock<std::timed_mutex> lk(mtx_, std::defer_lock);
 
-    // ロックの取得を試みる(3秒でタイムアウト)
+    // �ックの取得を試みる(3秒でタイムアウト)
     if (!lk.try_lock_for(std::chrono::seconds(3))) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

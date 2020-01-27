@@ -30,7 +30,7 @@ namespace std {
 |-------------------------------------------------|----------------|----------------|
 | [`(constructor)`](gslice_array/op_constructor.md) | コンストラクタ | |
 | `~gslice_array() = default;`                     | デストラクタ   | |
-| [`operator=`](gslice_array/op_assign.md)       | 代入演算子     | |
+| [`operator=`](gslice_array/op_assign.md)       | 代入演算�     | |
 
 
 ### 四則演算

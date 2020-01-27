@@ -19,7 +19,7 @@ namespace std {
 `p`が非ヌルである場合：
 
 - `p`の参照するオブジェクトは到達可能であると既に宣言されている。
-- 最後の`undeclare_reachable(p)`の呼び出しまで生存している。
+- 最後の`undeclare_reachable(p)`の呼び出しまで生�している。
 
 
 ## 効果
@@ -29,9 +29,9 @@ namespace std {
 
 
 ## 戻り値
-`p`と等しい[Safely-derived](pointer_safety.md)な`p`の複製。
+`p`と�しい[Safely-derived](pointer_safety.md)な`p`の複製。
 
-`p`に対する宣言が取り消されば場合、戻り値のポインタは[Safely-derived](pointer_safety.md)なので、たとえ[Safely-derived](pointer_safety.md)なポインタが存在しなくとも、戻り値からは`p`の参照するオブジェクトにアクセスできる。
+`p`に対する宣言が取り消されば場合、戻り値のポインタは[Safely-derived](pointer_safety.md)なので、たとえ[Safely-derived](pointer_safety.md)なポインタが�在しなくとも、戻り値からは`p`の参照するオブジェクトにアクセスできる。
 
 
 ## 例外
@@ -40,7 +40,7 @@ namespace std {
 
 ## 備考
 - `declare_reachable()`で確保されたメモリは、その宣言の取り消しまで解放されない。
-- 長時間稼働するプログラムは、２つの関数の呼び出しがそれぞれ対応するように整えるべきである。
+- 長時間稼働するプ�グラムは、２つの関数の呼び出しがそれぞれ対応するように整えるべきである。
 - この関数がテンプレート引数を取るのは、戻り値が使用されることを想定しているためである。
 
 

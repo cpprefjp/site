@@ -17,9 +17,9 @@ namespace std::chrono {
 
 
 ## 戻り値
-便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
+便宜上のリテラル�ャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 
-- (1) : 以下と等価：
+- (1) : 以下と�価：
     ```cpp
     return os << (m.ok() ?
       format(os.getloc(), STATICALLY-WIDEN<charT>("{:%a}"), m) :
@@ -31,9 +31,9 @@ namespace std::chrono {
 
 
 ## 備考
-- このフォーマットでは、ロケール規定の曜日の短縮名が出力される。デフォルトのCロケールでは、以下のように出力される：
+- このフォーマットでは、�ケール規定の曜日の�縮名が出力される。デフォルトのC�ケールでは、以下のように出力される：
 
-| 曜日の定数  | 出力される曜日名 (Cロケール) |
+| 曜日の定数  | 出力される曜日名 (C�ケール) |
 |-------------|------------------------------|
 | `Sunday`    | Sun |
 | `Monday`    | Mon |

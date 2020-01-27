@@ -10,7 +10,7 @@ locale_type getloc() const;
 ```
 
 ## 概要
-現在のロケールを取得する。
+現在の�ケールを取得する。
 
 
 ## 効果
@@ -18,12 +18,12 @@ locale_type getloc() const;
 
 
 ## 戻り値
-現在設定されているロケール
+現在�定されている�ケール
 
 
 ## 備考
 - `traits_inst` はデフォルト初期化されたオブジェクトである。
-- `locale_type` は、ロケールに関する型であり、`traits_type::locale_type` の別名である。
+- `locale_type` は、�ケールに関する型であり、`traits_type::locale_type` の別名である。
 - `traits_type` は、クラステンプレート [`basic_regex`](../basic_regex.md) の 2 番目のテンプレート引数で、デフォルトでは [`regex_traits`](../regex_traits.md)`<char_type>` である。  
     その場合、`locale_type` は [`locale`](../../locale/locale.md) である。
 

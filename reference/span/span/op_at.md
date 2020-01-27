@@ -18,7 +18,7 @@ constexpr reference operator[](size_type i) const;
 
 
 ## 戻り値
-以下と等価：
+以下と�価：
 
 ```cpp
 return *(data() + i);

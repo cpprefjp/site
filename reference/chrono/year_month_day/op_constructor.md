@@ -33,7 +33,7 @@ year_month_day(year_month_day&&) = default;                         // (7) C++20
 - (2) : 年、月、日の値をそれぞれ指定して構築する
 - (3) : `year_month_day_last`オブジェクトから変換し、日の値を求めて構築する
 - (4) : 日単位のシステム時間から変換して構築
-- (5) : 日単位のローカル時間から変換して構築
+- (5) : 日単位の�ーカル時間から変換して構築
 - (6) : コピーコンストラクタ
 - (7) : ムーブコンストラクタ
 
@@ -56,7 +56,7 @@ year_month_day(year_month_day&&) = default;                         // (7) C++20
 ## 備考
 - (3) : `year_month_day_last`から`sys_days`に一旦変換し、そこから`year_month_day`へ変換した方がより効率がよい可能性がある
 - (4) : `year_month_day`型オブジェクト`ymd`において`ymd.`[`ok()`](ok.md)である場合、`ymd == year_month_day{sys_days{ymd}}`は常に`true`となる
-- (5) : `sys_days{dp.`[`time_since_epoch()`](/reference/chrono/time_point/time_since_epoch.md)`}`からの構築と等価
+- (5) : `sys_days{dp.`[`time_since_epoch()`](/reference/chrono/time_point/time_since_epoch.md)`}`からの構築と�価
 
 
 ### 例
@@ -85,7 +85,7 @@ int main()
   chrono::year_month_day date4 {dp};
   std::cout << date4 << std::endl;
 
-  // ローカル時間から変換
+  // �ーカル時間から変換
   chrono::local_days lp {dp.time_since_epoch()};
   chrono::year_month_day date5 {lp};
   std::cout << date5 << std::endl;

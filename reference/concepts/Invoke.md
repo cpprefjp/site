@@ -5,10 +5,10 @@
 * [meta namespace]
 
 ## 用語定義
-- *call-signature* とは、戻り値型に続けて丸括弧の中に0個以上の引数型を並べたものである。 *cf.* `int ( std::string, int )`
-- *callable-type* とは、関数呼び出し演算子を適用できる型 ( 関数、関数への参照、関数へのポインタ、`operator ()` をオーバーロードした型もしくはそれを(直接または間接的に) `public` 継承した型 ) もしくはメンバへのポインタ型を指す。
+- *call-signature* とは、戻り値型に続けて丸括弧の�に0個以上の引数型を並べたものである。 *cf.* `int ( std::string, int )`
+- *callable-type* とは、関数呼び出し演算�を適用できる型 ( 関数、関数への参照、関数へのポインタ、`operator ()` をオーバー�ードした型もしくはそれを(直接または間接的に) `public` 継承した型 ) もしくはメンバへのポインタ型を指す。
 - *callable-object* は、 *callable-type* 型のオブジェクトである。
-- *call-wrapper-type* は、 *callable-object* を保持し、自身に対する関数呼び出し操作が行われたとき、保持しているオブジェクトに委譲する。
+- *call-wrapper-type* は、 *callable-object* を保持し、自身に対する関数呼び出し操作が行われたとき、保持しているオブジェクトに委�する。
 - *call-wrapper* は、 *call-wrapper-type* 型のオブジェクトである。
 - *target-object* とは、 *callable-object* に保持されているオブジェクトのことである。
 
@@ -21,9 +21,9 @@
 	- 上記の条件のどれにも当てはまらない場合、 `f(t1, t2, ..., tN)` と同じ効果を持つ。
 2. *INVOKE*`(f, t1, t2, ..., tN, R)` を、 *INVOKE*`(f, t1, t2, ..., tN)` の実行結果の戻り値が型 `R` に暗黙的に変換されること、と定義する。
 3. *call-wrapper* が *weak-result-type* を用意している場合、メンバ型 `result_type` は*target-object* の型 `T` に応じて次のように定義される。
-	- `T` が関数へのポインタ型であるとき、 `result_type` は `T` の戻り値型と等しい。
-	- `T` がメンバ関数へのポインタ型であるとき、 `result_type` は `T` の戻り値型と等しい。
-	- `T` が `result_type` という名前のメンバ型を持つとき、 `result_type` は `T::result_type` と等しい。
+	- `T` が関数へのポインタ型であるとき、 `result_type` は `T` の戻り値型と�しい。
+	- `T` がメンバ関数へのポインタ型であるとき、 `result_type` は `T` の戻り値型と�しい。
+	- `T` が `result_type` という名前のメンバ型を持つとき、 `result_type` は `T::result_type` と�しい。
 	- どの条件にも当てはまらない場合、 `result_type` は定義されない。
 4. すべての *call-wrapper* は、*MoveAssignable* でなければならない。
 

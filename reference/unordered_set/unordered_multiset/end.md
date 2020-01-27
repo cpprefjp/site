@@ -29,7 +29,7 @@ const_iterator end() const noexcept;
 
 
 ## 備考
-`const` 版ではない `end` が返す `iterator` も読み取り専用イテレータである。
+`const` 版ではない `end` が返す `iterator` も�み取り専用イテレータである。
 
 （が、`iterator` と `const_iterator` が同じ型とは限らない）
 
@@ -80,11 +80,11 @@ int main()
 
 | 名前 | 説明 |
 |----------------------------------------------|--------------------------------|
-| [`begin`](begin.md)                        | 先頭要素を指すイテレータの取得 |
-| [`cbegin`](cbegin.md)                      | 先頭要素を指す読み取り専用イテレータの取得 |
-| [`cend`](cend.md)                          | 最終要素の次を指す読み取り専用イテレータの取得 |
-| [`begin(size_type)`](begin-size_type.md)   | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
-| [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
-| [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
-| [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
+| [`begin`](begin.md)                        | 先�要素を指すイテレータの取得 |
+| [`cbegin`](cbegin.md)                      | 先�要素を指す�み取り専用イテレータの取得 |
+| [`cend`](cend.md)                          | 最終要素の次を指す�み取り専用イテレータの取得 |
+| [`begin(size_type)`](begin-size_type.md)   | インデックス（添え�）で指定したバケット内の先�要素を指すイテレータを取得 |
+| [`end(size_type)`](end-size_type.md)       | インデックス（添え�）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+| [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え�）で指定したバケット内の先�要素を指す�み取り専用イテレータを取得 |
+| [`cend(size_type)`](cend-size_type.md)     | インデックス（添え�）で指定したバケット内の最終要素の次を指す�み取り専用イテレータを取得 |
 

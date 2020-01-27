@@ -36,7 +36,7 @@ namespace std {
 
 
 ## 計算量
-正確に `last - first` 回の `gen` の呼び出しと代入が行われる。
+�確に `last - first` 回の `gen` の呼び出しと代入が行われる。
 
 
 ## 例

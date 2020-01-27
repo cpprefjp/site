@@ -10,7 +10,7 @@ const_reference prefix() const;
 ```
 
 ## 概要
-マッチした文字列の前の文字列を指すサブマッチを返す。
+マッチした文�列の前の文�列を指すサブマッチを返す。
 
 
 ## 要件
@@ -18,17 +18,17 @@ const_reference prefix() const;
 
 
 ## 戻り値
-マッチした文字列の前の文字列を指すサブマッチ。ただし、マッチが失敗した場合は未規定。  
-具体的なサブマッチの各メンバ変数の設定内容は以下の通り。
+マッチした文�列の前の文�列を指すサブマッチ。ただし、マッチが失敗した場合は未規定。  
+具体的なサブマッチの各メンバ変数の�定内容は以下の通り。
 
-- [`regex_match`](../regex_match.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.prefix().first` と `m.prefix().second` は共に検索対象文字列の先頭となる。  
+- [`regex_match`](../regex_match.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.prefix().first` と `m.prefix().second` は共に検索対象文�列の先�となる。  
     また、`m.prefix().matched` は `false` となる。  
     戻り値が `false` の場合は未規定である。
-- [`regex_search`](../regex_search.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.prefix().first` は検索対象文字列の先頭となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文字列の先頭）と等しくなる。  
-    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` の結果となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。  
+- [`regex_search`](../regex_search.md) の引数に [`match_results`](../match_results.md) オブジェクト `m` を渡した場合、戻り値が `true` であれば、`m.prefix().first` は検索対象文�列の先�となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文�列の先�）と�しくなる。  
+    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` の結果となる（つまり、`m.prefix()` が空文�であれば `false`、そうでなければ `true`）。  
     戻り値が `false` の場合は未規定である。
-- [`regex_iterator`](../regex_iterator.md) を間接参照したオブジェクトの場合、当該オブジェクトを `m` とすると、`m.prefix().first` は最初のマッチでなければ直前のマッチの際の `m[0].second`（つまり直前にマッチした文字列の末尾）、最初のマッチであれば検索対象文字列の先頭となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文字列の先頭）と等しくなる。  
-    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` となる（つまり、`m.prefix()` が空文字であれば `false`、そうでなければ `true`）。
+- [`regex_iterator`](../regex_iterator.md) を間接参照したオブジェクトの場合、当該オブジェクトを `m` とすると、`m.prefix().first` は最初のマッチでなければ直前のマッチの際の `m[0].second`（つまり直前にマッチした文�列の末尾）、最初のマッチであれば検索対象文�列の先�となり、`m.prefix().second` は `m[0].first`（つまり、マッチした文�列の先�）と�しくなる。  
+    また、`m.prefix().matched` は `m.prefix().first != m.prefix().second` となる（つまり、`m.prefix()` が空文�であれば `false`、そうでなければ `true`）。
 
 
 ## 例

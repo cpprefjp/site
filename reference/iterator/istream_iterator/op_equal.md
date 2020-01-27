@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-2つの`istream_iterator`オブジェクトを等値比較する
+2つの`istream_iterator`オブジェクトを�値比較する
 
 
 ## 戻り値
@@ -41,7 +41,7 @@ int main()
 
   ++it1;
 
-  // it1は入力ストリームから要素を読み取り終わっているので終端となる
+  // it1は入力ストリームから要素を�み取り終わっているので終端となる
   std::cout << "it1 == last : " << (it1 == last) << std::endl;
 }
 ```

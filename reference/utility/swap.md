@@ -33,7 +33,7 @@ namespace std {
 
 
 ## 効果
-値版の振る舞いは、以下のコードと等価である：
+値版の振る舞いは、以下のコードと�価である：
 
 ```cpp
 template <class T>
@@ -45,7 +45,7 @@ void swap(T& a, T& b) {
 ```
 * std::move[link move.md]
 
-配列版の振る舞いは、以下のコードと等価である：
+配列版の振る舞いは、以下のコードと�価である：
 ```cpp
 template <class T, size_t N>
 void swap(T (&a)[N], T (&b)[N]) {
@@ -57,7 +57,7 @@ void swap(T (&a)[N], T (&b)[N]) {
 
 つまり、範囲`[0, N)`内の全ての`i`について、 `swap(a[i], b[i]);` を呼び出す。
 
-この関数の内部における`swap()`呼び出しは、 `std::swap(a[i], b[i]);` という形ではなく、 `swap(a[i], b[i]); `という形で行われる。すなわち、`T`型に対してオーバーロードされた`swap()`関数がある場合には、常にそちらが呼ばれる。
+この関数の内部における`swap()`呼び出しは、 `std::swap(a[i], b[i]);` という形ではなく、 `swap(a[i], b[i]); `という形で行われる。すなわち、`T`型に対してオーバー�ードされた`swap()`関数がある場合には、常にそちらが呼ばれる。
 
 そのため、`swap()`関数を呼び出す場合は、直接`std::swap(a, b);`と呼び出すのではなく、
 
@@ -74,7 +74,7 @@ swap(a, b);
 
 
 ## 例外
-- 値版：`noexcept`中の式は、以下と等価である：`is_nothrow_move_constructible<T>::value && is_nothrow_move_assignable<T>::value`
+- 値版：`noexcept`�の式は、以下と�価である：`is_nothrow_move_constructible<T>::value && is_nothrow_move_assignable<T>::value`
 - 配列版：配列の要素型`T`に対する`swap()`操作が例外を投げない場合、この関数もまた例外を投げない
 
 
@@ -149,5 +149,5 @@ int main()
 
 ## 参照
 - [LWG Issue 809. `std::swap` should be overloaded for array types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#809)
-    - C++11で、配列に対するオーバーロードが追加された経緯のレポート
+    - C++11で、配列に対するオーバー�ードが追加された経緯のレポート
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

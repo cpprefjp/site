@@ -50,8 +50,8 @@ int main() {}
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
-	- 2008には、名前空間`std::tr1`に同じ効果の`add_reference`が存在する。これは提案時の名前である。
-	- 2010～2013にも、名前空間`std`および`std::tr1`に`add_reference`が存在する。
+	- 2008には、名前空間`std::tr1`に同じ効果の`add_reference`が�在する。これは提案時の名前である。
+	- 2010～2013にも、名前空間`std`および`std::tr1`に`add_reference`が�在する。
 	- `add_lvalue_reference_t`は2013から
 
 

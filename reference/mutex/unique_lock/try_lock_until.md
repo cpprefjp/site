@@ -12,7 +12,7 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 * time_point[link /reference/chrono/time_point.md]
 
 ## 概要
-タイムアウトする絶対時間を指定してロックの取得を試みる
+タイムアウトする絶対時間を指定して�ックの取得を試みる
 
 
 ## 要件
@@ -65,9 +65,9 @@ public:
     namespace chrono = std::chrono;
     chrono::system_clock::time_point tp = chrono::system_clock::now();
 
-    // ロックの取得を試みる(3秒後にタイムアウト)
+    // �ックの取得を試みる(3秒後にタイムアウト)
     if (!lk.try_lock_until(tp + chrono::seconds(3))) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

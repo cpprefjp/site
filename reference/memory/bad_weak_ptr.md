@@ -22,8 +22,8 @@ namespace std {
 |----------------------------------------------------------|--------------------------------------------------------|-------|
 | `bad_weak_ptr() noexcept;`<br/>`bad_weak_ptr(const bad_weak_ptr&) noexcept;` | コンストラクタ | C++11 |
 | `virtual ~bad_weak_ptr() = default;`                     | デストラクタ | C++11 |
-| `bad_weak_ptr& operator=(const bad_weak_ptr&) noexcept;` | 代入演算子 | C++11 |
-| `virtual const char* what() const noexcept;`             | エラー内容を取得する。文字列`"bad_weak_ptr"`が返される | C++11 |
+| `bad_weak_ptr& operator=(const bad_weak_ptr&) noexcept;` | 代入演算� | C++11 |
+| `virtual const char* what() const noexcept;`             | エラー内容を取得する。文�列`"bad_weak_ptr"`が返される | C++11 |
 
 ## 例
 ```cpp example
@@ -47,7 +47,7 @@ int main() {
 * sp.reset[link shared_ptr/reset.md]
 * std::exception[link /reference/exception/exception.md]
 
-### 出力(GCC 4.7での出力。規格上は"bad_weak_ptr"と出力されるのが正しい)
+### 出力(GCC 4.7での出力。規格上は"bad_weak_ptr"と出力されるのが�しい)
 ```
 std::bad_weak_ptr
 ```

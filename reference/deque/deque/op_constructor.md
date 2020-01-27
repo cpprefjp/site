@@ -42,19 +42,19 @@ deque(initializer_list<T> il,
 ## 効果
 `deque` コンテナオブジェクトを構築し、コンストラクタの種類に応じて要素を初期化する。
 
-- (1) : デフォルトコンストラクタ。サイズがゼロで要素を持たない空の `deque` を構築する。
-- (2) : アロケータに `a` を使用して、サイズがゼロで要素を持たない空の `deque` を構築する。
-- (1) + (2) : デフォルトコンストラクタ。アロケータに `a` を使用して、サイズがゼロで要素を持たない空の `deque` を構築する。
-- (3) : 繰り返しシーケンスコンストラクタ。アロケータに `a` を使用して、`value` のコピーを `n` 個要素として保持した `deque` を構築する。
+- (1) : デフォルトコンストラクタ。サイズがゼ�で要素を持たない空の `deque` を構築する。
+- (2) : ア�ケータに `a` を使用して、サイズがゼ�で要素を持たない空の `deque` を構築する。
+- (1) + (2) : デフォルトコンストラクタ。ア�ケータに `a` を使用して、サイズがゼ�で要素を持たない空の `deque` を構築する。
+- (3) : 繰り返しシーケンスコンストラクタ。ア�ケータに `a` を使用して、`value` のコピーを `n` 個要素として保持した `deque` を構築する。
 - (4)
 	- C++11 : 繰り返しシーケンスコンストラクタ。値初期化されたオブジェクトを `n` 個要素として保持した `deque` を構築する。
-	- C++14 : 繰り返しシーケンスコンストラクタ。アロケータに `a` を使用して、値初期化されたオブジェクトを `n` 個要素として保持した `deque` を構築する。
-- (5) : イテレータ範囲コンストラクタ。アロケータに `a` を使用して、`[first, last)` の範囲を要素としてコピーした `deque` を構築する。
+	- C++14 : 繰り返しシーケンスコンストラクタ。ア�ケータに `a` を使用して、値初期化されたオブジェクトを `n` 個要素として保持した `deque` を構築する。
+- (5) : イテレータ範囲コンストラクタ。ア�ケータに `a` を使用して、`[first, last)` の範囲を要素としてコピーした `deque` を構築する。
 - (6) : コピーコンストラクタ。`x` と同じ要素を保持した `deque` を構築する。
 - (7) : ムーブコンストラクタ。ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
-- (8) : コピーコンストラクタ。アロケータに `a` を使用して、`x` と同じ要素を保持した `deque` を構築する。
-- (9) : ムーブコンストラクタ。アロケータに `a` を使用して、ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
-- (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と等価。
+- (8) : コピーコンストラクタ。ア�ケータに `a` を使用して、`x` と同じ要素を保持した `deque` を構築する。
+- (9) : ムーブコンストラクタ。ア�ケータに `a` を使用して、ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
+- (10) : 初期化�リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と�価。
 
 
 ## 計算量
@@ -72,11 +72,11 @@ deque(initializer_list<T> il,
 
 
 ## 備考
-- イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++03 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++03 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と�価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバー�ード解決に参加しないように変更された。
 - C++11 では、`explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit deque(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`deque` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `deque` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 
-- C++14 では、`explicit deque(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
+- C++14 では、`explicit deque(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバー�ードに分割された。  
 	これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
@@ -86,7 +86,7 @@ deque(initializer_list<T> il,
 	のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
 - C++14 では、`explicit deque(size_type n)` に引数が追加され、`explicit deque(size_type n, const Allocator& a = Allocator())` に変更された。  
-	これは、変更されないと `n` のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+	これは、変更されないと `n` のみを引数にとるア�ケータ使用構築（uses-allocator construction）に失敗してしまうためである。
 	具体的には、C++11 では以下のようなコードがエラーになってしまう。
 
     ```cpp example
@@ -144,7 +144,7 @@ int main ()
   std::deque<int> c60 = {1, 2, 3}; // 構築用の一時オブジェクト(説明用)
   std::deque<int> c6(std::move(c60));
 
-  // (10) : 初期化子リストによる構築
+  // (10) : 初期化�リストによる構築
   std::deque<int> c7 = {1, 2, 3};
 
   print("c1", c1);
@@ -175,7 +175,7 @@ c7 : {1 2 3 }
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (10)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
-	`explicit deque(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
+	`explicit deque(const Allocator& a = Allocator())` を 2 つのオーバー�ードに分割するきっかけとなったレポート
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-	`explicit deque(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
-	なお、Discussion の例はアロケータの型が誤っているので注意
+	`explicit deque(size_type n)` にア�ケータ引数を追加するきっかけとなったレポート  
+	なお、Discussion の例はア�ケータの型が誤っているので注意

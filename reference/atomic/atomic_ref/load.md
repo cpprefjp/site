@@ -12,7 +12,7 @@ T load(memory_order order = memory_order_seq_cst) const noexcept;
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ## 概要
-値を読み込む
+値を�み込む
 
 
 ## 要件
@@ -23,11 +23,11 @@ T load(memory_order order = memory_order_seq_cst) const noexcept;
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、値を読み込む
+`order`で指定されたメモリオーダーにしたがって、値を�み込む
 
 
 ## 戻り値
-`*this`が参照するオブジェクトをアトミックに読み込んで返す
+`*this`が参照するオブジェクトをアトミックに�み込んで返す
 
 
 ## 例外

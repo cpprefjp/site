@@ -35,7 +35,7 @@ namespace chrono {
 さまざまな日付・時間単位をの時間間隔を表現する[`duration`](duration.md)型の別名。
 
 - (1) : ナノ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
-- (2) : マイクロ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
+- (2) : マイク�秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
 - (3) : ミリ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
 - (4) : 秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
 - (5) : 分単位で時間間隔を表現する[`duration`](duration.md)型の別名

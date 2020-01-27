@@ -34,7 +34,7 @@ reference emplace_back(Args&&... args); // C++17 から
 
 ## 備考
 - この関数の呼び出し後、全てのイテレータは無効化されるが、参照は無効化されない。
-- 操作中に例外が発生した場合、副作用は発生しない。
+- 操作�に例外が発生した場合、副作用は発生しない。
 
 
 ## 例
@@ -74,15 +74,15 @@ int main()
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-    - 2010にも`emplace_back`は存在するが、`push_back`相当の機能しかない。
+    - 2010にも`emplace_back`は�在するが、`push_back`相当の機能しかない。
 
 
 ## 関連項目
 
 | 名前                                | 説明                           |
 |-------------------------------------|--------------------------------|
-| [`emplace_front`](emplace_front.md) | 先頭に要素を直接構築で追加する |
-| [`push_front`](push_front.md)       | 先頭に要素を追加する           |
+| [`emplace_front`](emplace_front.md) | 先�に要素を直接構築で追加する |
+| [`push_front`](push_front.md)       | 先�に要素を追加する           |
 | [`push_back`](push_back.md)         | 末尾に要素を追加する           |
 | [`insert`](insert.md)               | 任意の位置に要素を追加する     |
 

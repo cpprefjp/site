@@ -1,10 +1,10 @@
-# スレッドローカルストレージ
+# スレッド�ーカルストレージ
 * cpp11[meta cpp]
 
 ## 概要
-変数宣言の際に、記憶域として`thread_local`キーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。
+変数宣言の際に、記憶域として`thread_local`�ーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。
 
-`static`キーワードを記憶域として使用した変数は、プログラムを通してひとつの状態を持ち、プログラム終了時に変数が破棄される。`thread_local`キーワードの場合はスレッドごとに状態を持ち、スレッド終了時に変数が破棄される。
+`static`�ーワードを記憶域として使用した変数は、プ�グラムを通してひとつの状態を持ち、プ�グラム終了時に変数が破棄される。`thread_local`�ーワードの場合はスレッドごとに状態を持ち、スレッド終了時に変数が破棄される。
 
 ```cpp
 // スレッドごとに、0から始まるIDを生成して返す関数
@@ -31,11 +31,11 @@ t2.join();
 
 
 ## 仕様
-- `thread_local`キーワードを記憶域として指定された変数は、「スレッド記憶域の有効期間 (thread storage duration)」を持つ。この記憶域を持つ変数は、スレッドの開始から終了までの有効期間を持つ。
-- `thread_local`キーワードは、`static`と`extern`を除き、`register`といった他の記憶域キーワードと同時には使用できない。
+- `thread_local`�ーワードを記憶域として指定された変数は、「スレッド記憶域の有効期間 (thread storage duration)」を持つ。この記憶域を持つ変数は、スレッドの開始から終了までの有効期間を持つ。
+- `thread_local`�ーワードは、`static`と`extern`を除き、`register`といった他の記憶域�ーワードと同時には使用できない。
 - スレッド終了時には、スレッド記憶域を持つ変数のデストラクタが呼び出される。
-- スレッド記憶域を持つ変数のデストラクタ、もしくは名前空間スコープを持つスレッド記憶域変数のコンストラクタで例外が送出された場合、スレッドを初期化する関数の関数tryブロックでは、その例外を捕捉できない。
-- プログラム終了時の動作は、[`std::exit()`](/reference/cstdlib/exit.md)関数と[`std::quick_exit()`](/reference/cstdlib/quick_exit.md)関数のページを参照。
+- スレッド記憶域を持つ変数のデストラクタ、もしくは名前空間スコープを持つスレッド記憶域変数のコンストラクタで例外が送出された場合、スレッドを初期化する関数の関数tryブ�ックでは、その例外を捕捉できない。
+- プ�グラム終了時の動作は、[`std::exit()`](/reference/cstdlib/exit.md)関数と[`std::quick_exit()`](/reference/cstdlib/quick_exit.md)関数のページを参照。
 
 
 ## 例
@@ -85,15 +85,15 @@ thread2 : 4
 
 
 ## この機能が必要になった背景・経緯
-マルチスレッドアプリケーションでは、スレッドごとにデータを一意に維持することがたびたび必要となる。これはスレッドローカルストレージと呼ばれ、多くのベンダーがスレッド記憶域の言語拡張を用意していた：
+マルチスレッドアプリケーションでは、スレッドごとにデータを一意に�持することがたびたび必要となる。これはスレッド�ーカルストレージと呼ばれ、多くのベンダーがスレッド記憶域の言語拡張を用意していた：
 
 | ベンダー | 機能 |
 |----------|------|
 | [GNU](https://www.gnu.org/) | [Thread-Local Storage](https://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/Thread-Local.html#Thread-Local) |
-| [HP](http://www.hp.com/)   | スレッドローカルストレージを指定する記憶クラス指定子が存在した。 例: `__declspec(__thread) int x = 0;` |
+| [HP](http://www.hp.com/)   | スレッド�ーカルストレージを指定する記憶クラス指定�が�在した。 例: `__declspec(__thread) int x = 0;` |
 | [IBM](http://www.ibm.com/) | Thread-Local Storage in [What's New in XL C/C++ V9.0](http://www-1.ibm.com/support/docview.wss?uid=swg27007322&aid=1) |
-| [IBM](http://www.ibm.com/) | [__thread ストレージ・クラス指定子](https://www.ibm.com/support/knowledgecenter/ja/ssw_ibm_i_71/rzarg/thread.htm?view=embed) |
-| [Intel](http://www.intel.com/) | GCC互換の`__thread`キーワードが存在した。 |
+| [IBM](http://www.ibm.com/) | [__thread ストレージ・クラス指定�](https://www.ibm.com/support/knowledgecenter/ja/ssw_ibm_i_71/rzarg/thread.htm?view=embed) |
+| [Intel](http://www.intel.com/) | GCC互換の`__thread`�ーワードが�在した。 |
 | [Microsoft](https://www.microsoft.com/) | [__declspec thread](https://docs.microsoft.com/ja-JP/cpp/cpp/thread?view=vs-2019) |
 | [Oracle](https://www.oracle.com/)（旧Sun Microsystems） | [Thread-Local Storage](https://docs.oracle.com/cd/E37069_01/html/E37075/bkaeg.html) |
 
@@ -103,7 +103,7 @@ thread2 : 4
 ## 関連項目
 - [`exit`](/reference/cstdlib/exit.md)
 - [`quick_exit`](/reference/cstdlib/quick_exit.md)
-- [`_at_thread_exit`系の関数が存在している理由](/article/lib/at_thread_exit.md)
+- [`_at_thread_exit`系の関数が�在している理由](/article/lib/at_thread_exit.md)
 
 
 ## 参照

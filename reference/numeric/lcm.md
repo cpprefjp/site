@@ -19,7 +19,7 @@ namespace std {
 
 ## 要件
 - 型`M` および `N` が `bool` 以外の整数型であること  
-  この要件を満たさない場合、プログラムは不適格となる
+  この要件を満たさない場合、プ�グラムは不適格となる
 - `|m|` および `|n|` が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
   この要件を満たさない場合の動作は未定義
 - `|m|` と `|n|` の最小公倍数が [`common_type_t`](/reference/type_traits/common_type.md)`<M, N>` の値として表現できること  
@@ -46,7 +46,7 @@ int main() {
   static_assert(std::lcm(0, 1) == 0);
   static_assert(std::lcm(4u, -6l) == 12);
 
-  // オーバーフローする例
+  // オーバーフ�ーする例
   auto m = std::numeric_limits<uint32_t>::max();
   auto n = m - 1;
   std::cout << "lcm(" << m << ", " << n << ")      " << std::lcm(m, n) << std::endl;
@@ -79,14 +79,14 @@ true lcm(4294967295, 4294967294) 1.84467e+19
 #### Clang (libc++)
 要件 2 を満たすかどうかチェックしない。
 
-[`_LIBCPP_DEBUG`](http://releases.llvm.org/5.0.0/projects/libcxx/docs/DesignDocs/DebugMode.html#using-debug-mode) マクロが
+[`_LIBCPP_DEBUG`](http://releases.llvm.org/5.0.0/projects/libcxx/docs/DesignDocs/DebugMode.html#using-debug-mode) マク�が
 `0` 以上の場合、要件 3 を満たさなければ [`abort`](/reference/cstdlib/abort.md) する。
 ただし 4 系では [`<limits>`](/reference/limits.md) を `<numeric>` より先に include しなければならない。
-それ以外の場合（デフォルト）、オーバーフローにより戻り値が不正になることがある。
+それ以外の場合（デフォルト）、オーバーフ�ーにより戻り値が不�になることがある。
 
 #### GCC (libstdc++)
 要件 2, 3 を満たすかどうかチェックしない。
-要件 3 を満たさない場合、オーバーフローにより戻り値が不正になることがある。
+要件 3 を満たさない場合、オーバーフ�ーにより戻り値が不�になることがある。
 
 
 ## 参照

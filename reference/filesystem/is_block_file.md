@@ -15,9 +15,9 @@ namespace std::filesystem {
 * path[link path.md]
 
 ## 概要
-指定されたパスがブロックデバイスのスペシャルファイルを指しているかを確認する。
+指定されたパスがブ�ックデバイスのスペシャルファイルを指しているかを確認する。
 
-Linux環境においては、`/dev/disk0`、`/dev/sda`、`/dev/loop0`などがブロックデバイスに該当する。
+Linux環境においては、`/dev/disk0`、`/dev/sda`、`/dev/loop0`などがブ�ックデバイスに該当する。
 
 
 ## 戻り値
@@ -63,11 +63,11 @@ namespace fs = std::filesystem;
 int main()
 {
   // (1)
-  // 取得済みのファイル状態を使用して、ブロックスペシャルファイルかを確認
+  // 取得済みのファイル状態を使用して、ブ�ックスペシャルファイルかを確認
   assert(fs::is_block_file(fs::status("/dev/disk0")));
 
   // (2)
-  // パスを指定して、ブロックスペシャルファイルかを確認。
+  // パスを指定して、ブ�ックスペシャルファイルかを確認。
   assert(fs::is_block_file("/dev/disk0"));
   assert(fs::is_block_file("/dev/sda"));
   assert(fs::is_block_file("/dev/loop0"));

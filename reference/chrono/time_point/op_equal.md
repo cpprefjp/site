@@ -19,7 +19,7 @@ namespace chrono {
 * time_point[link /reference/chrono/time_point.md]
 
 ## 概要
-等値比較を行う
+�値比較を行う
 
 
 ## 戻り値

@@ -10,7 +10,7 @@ size_type copy(CharT* s, size_type n, size_type pos = 0) const;
 ```
 
 ## 概要
-他の文字列に、自身の文字列をコピーする。
+他の文�列に、自身の文�列をコピーする。
 
 
 ## 要件
@@ -20,7 +20,7 @@ size_type copy(CharT* s, size_type n, size_type pos = 0) const;
 
 
 ## 効果
-以下と等価の処理を行う：
+以下と�価の処理を行う：
 
 ```cpp
 Traits::copy(s, data() + pos, rlen);
@@ -54,7 +54,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // 先頭3要素だけコピーする
+  // 先�3要素だけコピーする
   {
     char result[3 + 1] = {};
     sv.copy(result, 3);

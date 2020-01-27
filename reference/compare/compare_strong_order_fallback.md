@@ -17,18 +17,18 @@ namespace std {
 ## 概要
 
 `compare_strong_order_fallback`は2つの引数を受け取り、それらを全順序の上で比較する関数オブジェクトである。  
-[`strong_order`](strong_order.md)が使用できない場合でも、引数型が`< ==`両演算子を使用可能であればそれを用いて比較を行う。
+[`strong_order`](strong_order.md)が使用できない場合でも、引数型が`< ==`両演算�を使用可能であればそれを用いて比較を行う。
 
 
 ## 効果
 
-`compare_strong_order_fallback(a, b)`のように呼び出された時、以下のいずれかと等価（上から順に考慮される）
+`compare_strong_order_fallback(a, b)`のように呼び出された時、以下のいずれかと�価（上から順に考慮される）
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
 2. [`strong_order`](strong_order.md)`(a, b)`が呼び出し可能ならば`strong_order(a, b)`
 
-3. `a == b`、`a < b`の両方の演算子が使用可能でありその戻り値型が`bool`へ変換可能ならば、以下の式
+3. `a == b`、`a < b`の両方の演算�が使用可能でありその戻り値型が`bool`へ変換可能ならば、以下の式
    ```cpp
    a == b ? strong_ordering::equal :
    a <  b ? strong_ordering::less :
@@ -60,11 +60,11 @@ namespace std {
 
 ## カスタマイゼーションポイント
 
-上記「効果」節2,3のケースでは、ユーザー定義の`< ==`演算子を定義、もしくは`strong_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
+上記「効果」節2,3のケースでは、ユーザー定義の`< ==`演算�を定義、もしくは`strong_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
 
 1. --
 2. 引数`a, b`の型`T`を[`strong_order`](weak_order.md)にアダプトしておく。
-3. 引数`a, b`の型`T`に対して、使用可能な`< ==`演算子を定義しておく。
+3. 引数`a, b`の型`T`に対して、使用可能な`< ==`演算�を定義しておく。
 
 ただし、どのケースにおいてもその戻り値型は[`strong_ordering`](weak_ordering.md)に変換可能でなければならない。
 

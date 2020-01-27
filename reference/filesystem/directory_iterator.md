@@ -24,9 +24,9 @@ namespace std::filesystem {
 |------|------|-------|
 | [`(constructor)`](directory_iterator/op_constructor.md) | コンストラクタ | C++17 |
 | `~directory_iterator();`                                | デストラクタ | C++17 |
-| [`operator=`](directory_iterator/op_assign.md)          | 代入演算子 | C++17 |
-| [`operator*`](directory_iterator/op_deref.md)           | 間接参照演算子 | C++17 |
-| [`operator->`](directory_iterator/op_arrow.md)          | メンバアクセス演算子 | C++17 |
+| [`operator=`](directory_iterator/op_assign.md)          | 代入演算� | C++17 |
+| [`operator*`](directory_iterator/op_deref.md)           | 間接参照演算� | C++17 |
+| [`operator->`](directory_iterator/op_arrow.md)          | メンバアクセス演算� | C++17 |
 | [`operator++`](directory_iterator/op_increment.md)      | イテレータを進める | C++17 |
 | [`increment`](directory_iterator/increment.md)          | イテレータを進める | C++17 |
 
@@ -47,15 +47,15 @@ namespace std::filesystem {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`begin`](directory_iterator/begin_free.md) | 先頭要素へのイテレータを取得する | C++17 |
+| [`begin`](directory_iterator/begin_free.md) | 先�要素へのイテレータを取得する | C++17 |
 | [`end`](directory_iterator/end_free.md)     | 最後尾要素の次を指すイテレータを取得する | C++17 |
 
-### 比較演算子
+### 比較演算�
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| [`operator==`](directory_iterator/op_equal.md)     | 等値比較 | C++17 |
-| [`operator!=`](directory_iterator/op_not_equal.md) | 非等値比較 | C++17 |
+| [`operator==`](directory_iterator/op_equal.md)     | �値比較 | C++17 |
+| [`operator!=`](directory_iterator/op_not_equal.md) | 非�値比較 | C++17 |
 
 
 ## 例

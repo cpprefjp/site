@@ -26,7 +26,7 @@ shared_ptr<const T> shared_from_this() const;
 要件を満たしていない場合は未定義動作となる。
 
 ### C++17
-保持する`this`を指すポインタを`weak_this`（`weak_ptr<T>`）とすると、以下と等価。
+保持する`this`を指すポインタを`weak_this`（`weak_ptr<T>`）とすると、以下と�価。
 
 `return shared_ptr<T>(weak_this);`
 
@@ -36,7 +36,7 @@ shared_ptr<const T> shared_from_this() const;
 この動作が望ましくない場合は、代わりに[`weak_from_this()`](/reference/memory/enable_shared_from_this/weak_from_this.md)`.lock()`を用いることができる。この場合、例外を投げる代わりに空の`shared_ptr`オブジェクトを返す。
 
 ## 備考
-`enable_shared_from_this<T>`の派生クラス型`T`のコンストラクタ内ではまだ`enable_shared_from_this`の保持する`this`を指すポインタが設定されていないので、本関数によって`this`を指す`shared_ptr`を取得することはできない。
+`enable_shared_from_this<T>`の派生クラス型`T`のコンストラクタ内ではまだ`enable_shared_from_this`の保持する`this`を指すポインタが�定されていないので、本関数によって`this`を指す`shared_ptr`を取得することはできない。
 
 その場合、C++14までならば未定義動作となり、C++17以降は例外を送出する。
 

@@ -46,7 +46,7 @@ struct bound_function_type {
 
 1. 型`Ti` が `std::`[`reference_wrapper`](reference_wrapper.md)`<X>` である場合、`ti.`[`get()`](reference_wrapper/get.md) が `ti` の代わりに使用される。
 2. `std::`[`is_bind_expression`](is_bind_expression.md)`<TiD>::value`が `true` に評価される場合、`ti(unbound_args...)` の結果が `ti` の代わりに使用される(これは、ネストされた `bind()` が一度の呼び出しで再帰的に全て評価されることを示す)。
-3. `std::`[`is_placeholder`](is_placeholder.md)`<TiD>::value`が非ゼロに評価される場合、`uj` (ただし `j = std::`[`is_placeholder`](is_placeholder.md)`<Ti>::value+1`) が `ti` の代わりに使用される。
+3. `std::`[`is_placeholder`](is_placeholder.md)`<TiD>::value`が非ゼ�に評価される場合、`uj` (ただし `j = std::`[`is_placeholder`](is_placeholder.md)`<Ti>::value+1`) が `ti` の代わりに使用される。
 4. その他の場合、`ti` がそのまま使用される。
 上記の置換を行った後、 `f(ti...)` を呼び出した結果が <i>`bound_function_type`</i>`::operator ()()` の呼出し結果として返される。
 

@@ -19,16 +19,16 @@ namespace std {
 `basic_ostream` は、出力ストリームを表現するクラスである。
 すなわち、[`rdbuf()`](../ios/basic_ios/rdbuf.md) が指し示すストリームバッファオブジェクトに対する書き込み操作を提供する。
 
-各種の出力関数——特に`<<`演算子——がクラスのメンバ関数・非メンバ関数として定義されている。
+各種の出力関数——特に`<<`演算�——がクラスのメンバ関数・非メンバ関数として定義されている。
 このため、ユーザーコードで入力処理を実装する際には、`basic_ostream`、あるいはそれに対する別名である`ostream`や`wostream`などの型への参照を実引数として受け取るようにすると良い。
 
-テンプレートパラメータとして文字型を受け取るようになっており、使用を容易にするため、以下のパラメータ設定済みエイリアスが定義されている。
+テンプレートパラメータとして文�型を受け取るようになっており、使用を容易にするため、以下のパラメータ�定済みエイリアスが定義されている。
 このエイリアスは`<ostream>`ヘッダと`<iosfwd>`ヘッダで定義されている。
 
 | エイリアス | 説明 | 対応バージョン |
 |------------|------|----------------|
-| `ostream`  | `char`型。ASCII、UTF-8等のマルチバイト文字列や、バイナリデータとして使用する。 | |
-| `wostream` | `wchar_t`型。ワイド文字列として使用する。                                      | |
+| `ostream`  | `char`型。ASCII、UTF-8�のマルチバイト文�列や、バイナリデータとして使用する。 | |
+| `wostream` | `wchar_t`型。ワイド文�列として使用する。                                      | |
 
 ## 書式化出力関数と非書式化出力関数
 
@@ -43,7 +43,7 @@ namespace std {
 
 （書式化出力関数のみ）[`operator bool`](basic_ostream/sentry/op_bool.md) 関数の結果が `false` であったら、[`setstate`](../ios/basic_ios/setstate.md)`(ios_base::badbit)` を呼び出す。
 
-関数内部で例外が送出された場合、`ios_base::badbit` を設定する。
+関数内部で例外が送出された場合、`ios_base::badbit` を�定する。
 そして、`(`[`exceptions`](../ios/basic_ios/exceptions.md)`() &` [`badbit`](../ios/ios_base/type-iostate.md)`) != 0` であれば例外を再送出する。
 
 ## メンバ
@@ -63,26 +63,26 @@ namespace std {
 | [`(constructor)`](basic_ostream/op_constructor.md) | コンストラクタ |                |
 | [`(destructor)`](basic_ostream/op_destructor.md)   | デストラクタ   |                |
 
-- コピーコンストラクタとコピー代入演算子はdelete定義されている。
-- ムーブコンストラクタ・ムーブ代入演算子と`swap`はprotectedで定義されている。
+- コピーコンストラクタとコピー代入演算�はdelete定義されている。
+- ムーブコンストラクタ・ムーブ代入演算�と`swap`はprotectedで定義されている。
 
 ### 出力処理
 
 | 名前                                        | 説明                             | 対応バージョン |
 |---------------------------------------------|----------------------------------|----------------|
 | [`operator<<`](basic_ostream/op_ostream.md) | 書式化出力・マニピュレータの実行 |                |
-| [`put`](basic_ostream/put.md)               | 文字の出力                       |                |
-| [`write`](basic_ostream/write.md)           | 文字列・バイト列の出力           |                |
+| [`put`](basic_ostream/put.md)               | 文�の出力                       |                |
+| [`write`](basic_ostream/write.md)           | 文�列・バイト列の出力           |                |
 | [`flush`](basic_ostream/flush.md)           | ストリームバッファのフラッシュ   |                |
 
-`<<`演算子のほとんどは書式化出力関数である。
+`<<`演算�のほとんどは書式化出力関数である。
 その他のメンバ関数は非書式化出力関数である。
 
 ### シーク
 | 名前                              | 説明                         | 対応バージョン |
 |-----------------------------------|------------------------------|----------------|
-| [`tellp`](basic_ostream/tellp.md) | 現在の読み取り位置を取得する |                |
-| [`seekp`](basic_ostream/seekp.md) | 読み取り位置を移動する       |                |
+| [`tellp`](basic_ostream/tellp.md) | 現在の�み取り位置を取得する |                |
+| [`seekp`](basic_ostream/seekp.md) | �み取り位置を移動する       |                |
 
 ### protectedメンバ関数
 
@@ -96,7 +96,7 @@ namespace std {
 
 | 名前                                             | 説明                                                       | 対応バージョン |
 |--------------------------------------------------|------------------------------------------------------------|----------------|
-| [`operator<<`](basic_ostream/op_ostream_free.md) | 文字・文字列の書式化出力、および、右辺値ストリームへの出力 |                |
+| [`operator<<`](basic_ostream/op_ostream_free.md) | 文�・文�列の書式化出力、および、右辺値ストリームへの出力 |                |
 
 ## 参照
 

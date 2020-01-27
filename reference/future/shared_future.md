@@ -21,7 +21,7 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](shared_future/op_constructor.md) | コンストラクタ | C++11 |
 | [`(destructor)`](shared_future/op_destructor.md) | デストラクタ | C++11 |
-| [`operator=`](shared_future/op_assign.md) | 代入演算子 | C++11 |
+| [`operator=`](shared_future/op_assign.md) | 代入演算� | C++11 |
 
 
 ### 値の取得
@@ -77,7 +77,7 @@ int main()
   std::thread t2(process, f);
 
   int value = 3; // 何らかの計算
-  p.set_value(value);  // 計算結果を設定する
+  p.set_value(value);  // 計算結果を�定する
 
   t1.join();
   t2.join();

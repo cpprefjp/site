@@ -17,9 +17,9 @@ namespace std::chrono {
 
 
 ## 戻り値
-便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
+便宜上のリテラル�ャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 
-- (1) : 以下と等価：
+- (1) : 以下と�価：
     ```cpp
     return os << (ymd.ok() ?
       format(STATICALLY-WIDEN<charT>("{:%F}"), ymd) :
@@ -29,7 +29,7 @@ namespace std::chrono {
 
 
 ## 備考
-- フォーマット指定子`"%F"`は`"%Y-%m-%d"`と等価であり、4桁ゼロ埋め整数値の年、2桁ゼロ埋め整数値の月、2桁ゼロ埋め整数値の日が、ハイフン区切りで出力される
+- フォーマット指定�`"%F"`は`"%Y-%m-%d"`と�価であり、4桁ゼ�埋め整数値の年、2桁ゼ�埋め整数値の月、2桁ゼ�埋め整数値の日が、ハイフン区切りで出力される
 
 
 ## 例

@@ -11,7 +11,7 @@ namespace std::pmr {
 ```
 
 ## 概要
-標準コンテナ等で、[`polymorphic_allocator`](polymorphic_allocator.md)を使用するが`memory_resource`が指定されない場合に利用されるデフォルトの`memory_resource`のポインタを取得する。
+標準コンテナ�で、[`polymorphic_allocator`](polymorphic_allocator.md)を使用するが`memory_resource`が指定されない場合に利用されるデフォルトの`memory_resource`のポインタを取得する。
 
 ## スレッドセーフ
 この関数はスレッドセーフである。
@@ -20,9 +20,9 @@ namespace std::pmr {
 すなわち、この関数と[`set_default_resource()`](set_default_resource.md)の呼び出しはデータ競合を起こさない。
 
 ## 戻り値
-現在設定されているデフォルトの`memory_resource`のポインタ。
+現在�定されているデフォルトの`memory_resource`のポインタ。
 
-`set_default_resource`によって何も設定されていない場合、[`new_delete_resource()`](new_delete_resource.md)を返す。
+`set_default_resource`によって何も�定されていない場合、[`new_delete_resource()`](new_delete_resource.md)を返す。
 
 ## 例外
 投げない。

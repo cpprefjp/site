@@ -46,12 +46,12 @@ namespace std {
 | [`operator()`](geometric_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
 | [`p`](geometric_distribution/p.md)         | 確率を取得する                   | C++11 |
-| [`param`](geometric_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](geometric_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](geometric_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](geometric_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -68,8 +68,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------|-------|
-| [`operator==`](geometric_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](geometric_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](geometric_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](geometric_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](geometric_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](geometric_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 

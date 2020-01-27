@@ -15,7 +15,7 @@ syncbuf_type* rdbuf() const noexcept;
 
 
 ## 戻り値
-ベースとなるプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)を`sb`とすると、次と等価である。  `const_cast<syncbuf_type*>(std::addressof(sb));`
+ベースとなるプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)を`sb`とすると、次と�価である。  `const_cast<syncbuf_type*>(std::addressof(sb));`
 
 
 ## 例外
@@ -33,7 +33,7 @@ int main()
   bout1 << "Hello, ";
   
   auto syncbuf_ptr = bout.rdbuf();
-  syncbuf_ptr->emit(); // 文字が転送される
+  syncbuf_ptr->emit(); // 文�が転送される
   
   bout << "World!" << '\n';
 }

@@ -10,15 +10,15 @@ enum event { erase_event, imbue_event, copyfmt_event };
 
 ## 概要
 `event` は　[`register_callback`](register_callback.md) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  
-`event` には以下の表のような列挙子値が存在する。
+`event` には以下の表のような列挙�値が�在する。
 
-| 列挙子          | 発生したイベント |
+| 列挙�          | 発生したイベント |
 |-----------------|----------------------|
 | `erase_event`   | [`ios_base`](../ios_base.md)`::`[`~ios_base`](op_destructor.md) が呼び出されてオブジェクトの破棄を開始した。または、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) が呼び出された。 |
-| `imbue_event`   | [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md) が呼び出されて [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md) が新しく設定されたロケールオブジェクトを返すようになった。 |
-| `copyfmt_event` | [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) が呼び出されて [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md) 以外の設定がコピーされた。 |
+| `imbue_event`   | [`ios_base`](../ios_base.md)`::`[`imbue`](imbue.md) が呼び出されて [`ios_base`](../ios_base.md)`::`[`getloc`](getloc.md) が新しく�定された�ケールオブジェクトを返すようになった。 |
+| `copyfmt_event` | [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) が呼び出されて [`basic_ios`](../basic_ios.md)`::`[`exceptions`](../basic_ios/exceptions.md) 以外の�定がコピーされた。 |
 
-なお、各イベントが発生する正確なタイミングは、それぞれの関数を参照。
+なお、各イベントが発生する�確なタイミングは、それぞれの関数を参照。
 
 
 ## 例
@@ -91,8 +91,8 @@ block end
 event = erase_event, str = ss1, index = 0, getloc.name = C
 ```
 
-なお、ロケールの名称（ここでは `en_US.UTF-8`）は環境依存のため、上記の例は動作しないこともある。  
-その場合でも、ロケールの名称を当該環境で適切なものに変更すれば動作するはずである。
+なお、�ケールの名称（ここでは `en_US.UTF-8`）は環境依�のため、上記の例は動作しないこともある。  
+その場合でも、�ケールの名称を当該環境で適切なものに変更すれば動作するはずである。
 
 
 ## バージョン

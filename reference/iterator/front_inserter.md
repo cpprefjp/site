@@ -37,7 +37,7 @@ int main()
   std::deque<int> src = {1, 2, 3};
   std::deque<int> dest;
 
-  // srcの要素をdestの先頭に追加しながらコピー
+  // srcの要素をdestの先�に追加しながらコピー
   std::copy(src.begin(), src.end(), std::front_inserter(dest));
 
   for (int x : dest) {

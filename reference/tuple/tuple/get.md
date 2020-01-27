@@ -56,7 +56,7 @@ namespace std {
 
 ## 要件
 - (1), (2), (3), (4) : テンプレートパラメータ`I`が`tuple`の要素数よりも小さいこと。この要件を満たさない場合は、コンパイルエラーとなる。
-- (5), (6), (7) : 型`T`が`Types...`の中にひとつだけ含まれること。この要件を満たさない場合は、コンパイルエラーとなる。
+- (5), (6), (7) : 型`T`が`Types...`の�にひとつだけ含まれること。この要件を満たさない場合は、コンパイルエラーとなる。
 
 
 ## 戻り値
@@ -69,7 +69,7 @@ namespace std {
 
 
 ## 備考
-- この関数がメンバ関数ではなく非メンバ関数として定義されているのは、ユーザーにtemplate限定子を指定させるのを避けるためである。メンバ関数にした場合、テンプレート内でその関数を使用すると、`t.template get<I>()`のようにtemplateキーワードをユーザーが指定しなければならない
+- この関数がメンバ関数ではなく非メンバ関数として定義されているのは、ユーザーにtemplate限定�を指定させるのを避けるためである。メンバ関数にした場合、テンプレート内でその関数を使用すると、`t.template get<I>()`のようにtemplate�ーワードをユーザーが指定しなければならない
 
 
 ## 例
@@ -134,7 +134,7 @@ const std::tuple<int, std::string, double> f()
 int main()
 {
   // f()の戻り値型がconst tuple&&となるので、
-  // tuple&&をとるオーバーロードでは受け取れない
+  // tuple&&をとるオーバー�ードでは受け取れない
   std::string s = std::get<1>(f());
 
   std::cout << s << std::endl;
@@ -168,4 +168,4 @@ Hello
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
 - [N3670 Wording for Addressing Tuples by Type: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3670.html)
 - [LWG Issue 2485. `get()` should be overloaded for `const tuple&&`](https://wg21.cmeerw.net/lwg/issue2485)
-    - C++17で`const tuple&&`をとるオーバーロードが追加された。このようなオーバーロードはほかでは用意していないが、`tuple`は基本的(fundamental)な型であるために用意された
+    - C++17で`const tuple&&`をとるオーバー�ードが追加された。このようなオーバー�ードはほかでは用意していないが、`tuple`は基本的(fundamental)な型であるために用意された

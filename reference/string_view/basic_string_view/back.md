@@ -10,7 +10,7 @@ constexpr const_reference back() const;
 ```
 
 ## 概要
-末尾文字を取得する。
+末尾文�を取得する。
 
 
 ## 要件

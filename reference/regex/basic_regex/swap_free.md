@@ -11,7 +11,7 @@ void swap(basic_regex<charT, traits>& lhs, basic_regex<charT, traits>& rhs);
 * basic_regex[link ../basic_regex.md]
 
 ## 概要
-2 つの正規表現オブジェクトを交換する。
+2 つの�規表現オブジェクトを交換する。
 
 
 ## 効果

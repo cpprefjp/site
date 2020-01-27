@@ -9,8 +9,8 @@ value_compare value_comp() const;
 ```
 
 ## 概要
-コンテナに関連づけられた比較オブジェクトを返す。これはコンテナ内の二つの要素のキー部分を比較するために利用できる。 
-この比較オブジェクトはオブジェクトの構築時にセットされ、関数ポインタであっても関数オブジェクトであっても良い。いずれにせよこれは同じ型の 2 つの引数をとり、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。 
+コンテナに関連づけられた比較オブジェクトを返す。これはコンテナ内の二つの要素の�ー部分を比較するために利用できる。 
+この比較オブジェクトはオブジェクトの構築時にセットされ、関数ポインタであっても関数オブジェクトであっても良い。いずれにせよこれは同じ型の 2 つの引数をとり、[�義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。 
 
 
 
@@ -61,9 +61,9 @@ int main()
 
 | 名前 | 説明|
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`key_comp`](/reference/map/multimap/key_comp.md) | キーを比較した結果を返す |
-| [`find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
-| [`count`](/reference/map/multimap/count.md) | 指定したキーにマッチする要素の数を返す |
+| [`key_comp`](/reference/map/multimap/key_comp.md) | �ーを比較した結果を返す |
+| [`find`](/reference/map/multimap/find.md) | 指定した�ーで要素を探す |
+| [`count`](/reference/map/multimap/count.md) | 指定した�ーにマッチする要素の数を返す |
 | [`lower_bound`](/reference/map/multimap/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
 | [`upper_bound`](/reference/map/multimap/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
 

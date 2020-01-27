@@ -51,7 +51,7 @@ int main()
 ### 備考
 Boost.Randomとlibc++(Clang)の実装では、`-`[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`infinity()`](/reference/limits/numeric_limits/infinity.md)を返す。
 
-GCC 4.8.1時点でのlibstdc++の実装では、[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`min()`](/reference/limits/numeric_limits/min.md)を返す。これはつまり`0.0`を意味するが、実際には`0.0`未満の値を生成するため、これはバグである[Bug 58098 - wrong return value of normal_distribution::min()](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58098)。この問題は、GCC 4.8.2で修正された。
+GCC 4.8.1時点でのlibstdc++の実装では、[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`min()`](/reference/limits/numeric_limits/min.md)を返す。これはつまり`0.0`を意味するが、実際には`0.0`未満の値を生成するため、これはバグである[Bug 58098 - wrong return value of normal_distribution::min()](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58098)。この問題は、GCC 4.8.2で修�された。
 
 
 ## 参照

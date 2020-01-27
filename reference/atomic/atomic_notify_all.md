@@ -17,7 +17,7 @@ namespace std {
 ## 概要
 待機している全てのスレッドを起床させる。
 
-この関数は、[`atomic_wait()`](atomic_wait.md)関数によるブロッキング待機を解除する。
+この関数は、[`atomic_wait()`](atomic_wait.md)関数によるブ�ッ�ング待機を解除する。
 
 
 ## 効果

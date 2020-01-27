@@ -20,8 +20,8 @@ shared_mutex(const shared_mutex&) = delete; // (2)
 
 - [`resource_unavailable_try_again`](/reference/system_error/errc.md): native handle型の計算ができない
 - [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
-- [`device_or_resource_busy`](/reference/system_error/errc.md) : native handle型の計算がロックされている
-- [`invalid_argument`](/reference/system_error/errc.md) : ミューテックスを構築する一部のnative handle型計算が正しくない
+- [`device_or_resource_busy`](/reference/system_error/errc.md) : native handle型の計算が�ックされている
+- [`invalid_argument`](/reference/system_error/errc.md) : ミューテックスを構築する一部のnative handle型計算が�しくない
 
 
 ## 例

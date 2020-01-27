@@ -22,7 +22,7 @@ template <class U> constexpr T value_or(U&& v) &&;     // (2)
 
 
 ## 効果
-以下の式と等価の効果を持つ：
+以下の式と�価の効果を持つ：
 
 ```cpp
 return has_value() ? value() : static_cast<T>(std::forward<U>(v));

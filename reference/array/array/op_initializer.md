@@ -8,7 +8,7 @@
 namespace std {
   template <class T, size_t N >
   struct array {
-    T elems[N]; // public。変数名は実装依存。
+    T elems[N]; // public。変数名は実装依�。
 
     // コンストラクタの定義なし
   };
@@ -28,7 +28,7 @@ namespace std {
 
 int main()
 {
-  // int型を3要素持つ配列型オブジェクトの初期値を設定
+  // int型を3要素持つ配列型オブジェクトの初期値を�定
   std::array<int, 3> ar = {1, 2, 3};
 
   for (std::size_t i = 0; i < ar.size(); ++i) {

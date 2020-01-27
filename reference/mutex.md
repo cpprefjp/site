@@ -2,7 +2,7 @@
 * mutex[meta header]
 * cpp11[meta cpp]
 
-`<mutex>`ヘッダは、排他制御（ミューテックス）、ロック、およびcall onceに関するクラス・関数を定義する。
+`<mutex>`ヘッダは、排他制御（ミューテックス）、�ック、およびcall onceに関するクラス・関数を定義する。
 
 
 ## ミューテックス型
@@ -10,21 +10,21 @@
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------------------|----------------------------|-------|
 | [`mutex`](mutex/mutex.md) | ミューテックス (mutex) | C++11 |
-| [`recursive_mutex`](mutex/recursive_mutex.md) | 再帰ロック可能なミューテックス (class) | C++11 |
+| [`recursive_mutex`](mutex/recursive_mutex.md) | 再帰�ック可能なミューテックス (class) | C++11 |
 | [`timed_mutex`](mutex/timed_mutex.md) | タイムアウト指定可能なミューテックス (class) | C++11 |
-| [`recursive_timed_mutex`](mutex/recursive_timed_mutex.md) | 再帰ロック可能かつタイムアウト指定可能なミューテックス (class) | C++11 |
+| [`recursive_timed_mutex`](mutex/recursive_timed_mutex.md) | 再帰�ック可能かつタイムアウト指定可能なミューテックス (class) | C++11 |
 
 
-## ロック管理
+## �ック管理
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|--------------------------------|-------|
-| [`defer_lock`](mutex/defer_lock.md)   | 遅延ロックのためのタグ (class) | C++11 |
+| [`defer_lock`](mutex/defer_lock.md)   | 遅延�ックのためのタグ (class) | C++11 |
 | [`try_to_lock`](mutex/try_to_lock.md) | `try_lock`のためのタグ (class) | C++11 |
-| [`adopt_lock`](mutex/adopt_lock.md)   | ロック済みミューテックスを受け取るためのタグ (class) | C++11 |
-| [`lock_guard`](mutex/lock_guard.md)   | スコープロック (class template) | C++11 |
-| [`scoped_lock`](mutex/scoped_lock.md) | 可変個のミューテックスを管理するスコープロック (class template) | C++17 |
-| [`unique_lock`](mutex/unique_lock.md) | 単一ロック (class template) | C++11 |
+| [`adopt_lock`](mutex/adopt_lock.md)   | �ック済みミューテックスを受け取るためのタグ (class) | C++11 |
+| [`lock_guard`](mutex/lock_guard.md)   | スコープ�ック (class template) | C++11 |
+| [`scoped_lock`](mutex/scoped_lock.md) | 可変個のミューテックスを管理するスコープ�ック (class template) | C++17 |
+| [`unique_lock`](mutex/unique_lock.md) | 単一�ック (class template) | C++11 |
 | [`try_lock`](mutex/try_lock.md)       | 複数ミューテックスに対する`try_lock`操作 (function template) | C++11 |
 | [`lock`](mutex/lock.md)               | 複数ミューテックスに対する`lock`操作 (function template) | C++11 |
 

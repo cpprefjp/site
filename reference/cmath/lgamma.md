@@ -32,8 +32,8 @@ namespace std {
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - `x = 1` の場合、戻り値は `+0` となる。
     - `x = 2` の場合、戻り値は `+0` となる。
-    - `x` が非正整数の場合、戻り値は `±∞` となり、
-    [`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
+    - `x` が非�整数の場合、戻り値は `±∞` となり、
+    [`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼ�除算浮動小数点例外）が発生する。
     - `x = -∞` の場合、戻り値は `+∞` となる。
     - `x = +∞` の場合、戻り値は `+∞` となる。
 

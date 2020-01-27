@@ -13,7 +13,7 @@ namespace std::filesystem {
 ## 概要
 `directory_entry`は、[`directory_iterator`](directory_iterator.md)クラスもしくは[`recursive_directory_iterator`](recursive_directory_iterator.md)クラスによってディレクトリ走査をした際に取得できる、ディレクトリ内要素を表すクラスである。
 
-ディレクトリの走査では、オペレーティングシステムのファイルシステムごとに、異なる追加の属性が取得できる。このクラスは、オペレーティングシステムごとの差異を吸収し、ディレクトリ走査を効率的に行えるようさまざまな属性をキャッシュする。
+ディレクトリの走査では、オペレーティングシステムのファイルシステムごとに、異なる追加の属性が取得できる。このクラスは、オペレーティングシステムごとの差異を吸収し、ディレクトリ走査を効率的に行えるようさまざまな属性を�ャッシュする。
 
 
 ## メンバ関数
@@ -23,7 +23,7 @@ namespace std::filesystem {
 |------|------|-------|
 | [`(constructor)`](directory_entry/op_constructor.md) | コンストラクタ | C++17 |
 | `~directory_entry();` | デストラクタ | C++17 |
-| `directory_entry& operator=(const directory_entry&) = default;`<br/> `directory_entry& operator=(directory_entry&&) noexcept = default;` | 代入演算子 | C++17 |
+| `directory_entry& operator=(const directory_entry&) = default;`<br/> `directory_entry& operator=(directory_entry&&) noexcept = default;` | 代入演算� | C++17 |
 
 
 ### 変更
@@ -32,7 +32,7 @@ namespace std::filesystem {
 |------|------|-------|
 | [`assign`](directory_entry/assign.md) | パスを再代入する | C++17 |
 | [`replace_filename`](directory_entry/replace_filename.md) | ファイル名を置き換える | C++17 |
-| [`refresh`](directory_entry/refresh.md) | キャッシュを更新する | C++17 |
+| [`refresh`](directory_entry/refresh.md) | �ャッシュを更新する | C++17 |
 
 
 ### 観測
@@ -41,28 +41,28 @@ namespace std::filesystem {
 |------|------|-------|
 | [`path`](directory_entry/path.md) | パスを取得する | C++17 |
 | [`operator path`](directory_entry/op_path.md) | `path`型に変換する | C++17 |
-| [`exists`](directory_entry/exists.md) | パスが存在するか確認する | C++17 |
+| [`exists`](directory_entry/exists.md) | パスが�在するか確認する | C++17 |
 | [`file_size`](directory_entry/file_size.md) | ファイルサイズを取得する | C++17 |
 | [`hard_link_count`](directory_entry/hard_link_count.md) | ハードリンク数を取得する | C++17 |
 | [`is_regular_file`](directory_entry/is_regular_file.md) | 通常ファイルを指しているか確認する | C++17 |
 | [`is_directory`](directory_entry/is_directory.md) | ディレクトリを指しているか確認する | C++17 |
 | [`is_symlink`](directory_entry/is_symlink.md) | シンボリックリンクを指しているか確認する | C++17 |
-| [`is_block_file`](directory_entry/is_block_file.md) | ブロックデバイスのスペシャルファイルを指しているか確認する | C++17 |
-| [`is_character_file`](directory_entry/is_character_file.md) | キャラクタデバイスのスペシャルファイル指しているか確認する | C++17 |
+| [`is_block_file`](directory_entry/is_block_file.md) | ブ�ックデバイスのスペシャルファイルを指しているか確認する | C++17 |
+| [`is_character_file`](directory_entry/is_character_file.md) | �ャラクタデバイスのスペシャルファイル指しているか確認する | C++17 |
 | [`is_fifo`](directory_entry/is_fifo.md) | FIFOまたはパイプを指しているか確認する | C++17 |
 | [`is_socket`](directory_entry/is_socket.md) | ソケットを指しているか確認する | C++17 |
-| [`is_other`](directory_entry/is_other.md) | パスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する | C++17 |
+| [`is_other`](directory_entry/is_other.md) | パスが�在していない、もしくはシステム依�の種別のファイルを指しているかを確認する | C++17 |
 | [`last_write_time`](directory_entry/last_write_time.md) | 最終更新日時を取得する | C++17 |
 | [`status`](directory_entry/status.md) | ファイル状態を取得する | C++17 |
 | [`symlink_status`](directory_entry/symlink_status.md) | シンボリックリンクの状態を取得する | C++17 |
 
 
-### 比較演算子
+### 比較演算�
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| [`operator==`](directory_entry/op_equal.md)         | 等値比較 | C++17 |
-| [`operator!=`](directory_entry/op_not_equal.md)     | 非等値比較 | C++17 |
+| [`operator==`](directory_entry/op_equal.md)         | �値比較 | C++17 |
+| [`operator!=`](directory_entry/op_not_equal.md)     | 非�値比較 | C++17 |
 | [`operator<`](directory_entry/op_less.md)           | 左辺が右辺より小さいかの判定を行う | C++17 |
 | [`operator<=`](directory_entry/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++17 |
 | [`operator>`](directory_entry/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++17 |

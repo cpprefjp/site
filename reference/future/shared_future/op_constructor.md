@@ -23,7 +23,7 @@ shared_future(shared_future&& rhs) noexcept; // (4)
 - (1) :  [`valid()`](valid.md) `== false`
 - (2) : [`valid()`](valid.md) `== rhs.`[`valid()`](valid.md)
 - (3), (4) :
-    - [`valid()`](valid.md)が、この関数実行前の`rhs.`[`valid()`](valid.md)と等価になること。
+    - [`valid()`](valid.md)が、この関数実行前の`rhs.`[`valid()`](valid.md)と�価になること。
     - `rhs.`[`valid()`](valid.md) `== false`になること。
 
 
@@ -48,7 +48,7 @@ int main()
     std::shared_future<int> f2 = f1; // コピー
 
     // 1つのpromiseによって書き込まれた結果値を、
-    // 複数のshared_futureオブジェクトで読み取る
+    // 複数のshared_futureオブジェクトで�み取る
     p.set_value(3);
 
     assert(f1.get() == 3);

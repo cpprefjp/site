@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 2つのオブジェクトに一時局所的にアクセスできる最大サイズ。
 
-この変数と対になる[`hardware_destructive_interference_size`](hardware_destructive_interference_size.md)は、各変数がそれぞれ別なキャッシュラインに乗るようアライメントを調整するものだが、この変数は、複数の変数を意図的に同じキャッシュラインに乗せるためのアライメントサイズである。
+この変数と対になる[`hardware_destructive_interference_size`](hardware_destructive_interference_size.md)は、各変数がそれぞれ別な�ャッシュラインに乗るようアライメントを調整するものだが、この変数は、複数の変数を意図的に同じ�ャッシュラインに乗せるためのアライメントサイズである。
 
 
 ## 備考
@@ -31,7 +31,7 @@ struct X {
   int b;
 };
 
-// Xクラスのメンバ変数aとbが、同じキャッシュラインに乗ることを意図する
+// Xクラスのメンバ変数aとbが、同じ�ャッシュラインに乗ることを意図する
 static_assert(sizeof(X) <= std::hardware_constructive_interference_size);
 
 int main()
@@ -64,6 +64,6 @@ int main()
 - [P0154R0 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0154r0.html)
 - [P0154R1 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0154r1.html)
 - [Understanding `std::hardware_destructive_interference_size` and `std::hardware_constructive_interference_size` - Stack Overflow](https://stackoverflow.com/questions/39680206/understanding-stdhardware-destructive-interference-size-and-stdhardware-cons)
-    - 設計についての作者JF Bastien氏からのコメントがある
-    - WebAssemblyなどの仮想環境ではターゲットアーキテクチャが実行時に決まるため、実行時の値もあるとよいだろう、とのコメントもある
+    - �計についての作者JF Bastien氏からのコメントがある
+    - WebAssemblyなどの仮想環境ではターゲットアー�テクチャが実行時に決まるため、実行時の値もあるとよいだろう、とのコメントもある
 - [[RFC] C++17 hardware constructive / destructive interference size - Clang Developers Mailing list](http://clang-developers.42468.n3.nabble.com/RFC-C-17-hardware-constructive-destructive-interference-size-td4060786.html)

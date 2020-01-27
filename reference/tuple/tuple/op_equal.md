@@ -18,7 +18,7 @@ namespace std {
 * tuple[link ../tuple.md]
 
 ## 概要
-2つの[`tuple`](../tuple.md)オブジェクトの等値比較を行う。
+2つの[`tuple`](../tuple.md)オブジェクトの�値比較を行う。
 
 
 ## 要件
@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 効果
-0番目の要素から順に等値比較を行う。
+0番目の要素から順に�値比較を行う。
 
 
 ## 戻り値

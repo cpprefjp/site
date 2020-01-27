@@ -18,7 +18,7 @@ locale(const locale&, const locale&, category);
 
 ## localeオブジェクトの構築
 
-- `locale() noexcept;`<br/>デフォルトコンストラクタ。呼び出した時点のグローバル`locale`のコピーを作成する。
+- `locale() noexcept;`<br/>デフォルトコンストラクタ。呼び出した時点のグ�ーバル`locale`のコピーを作成する。
 - `locale(const locale&) noexcept;`<br/>コピーコンストラクタ。
 - `explicit locale(const char* name);`<br/>名前からの構築。
 - `explicit locale(const` [`string`](/reference/string/basic_string.md)`& name);`<br/>名前からの構築。

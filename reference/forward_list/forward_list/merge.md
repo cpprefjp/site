@@ -21,7 +21,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ## 要件
-- `comp`が[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)として定義されていること。`*this`と`x`がその順序でソートされていること。
+- `comp`が[�義の弱順序](/reference/algorithm.md#strict-weak-ordering)として定義されていること。`*this`と`x`がその順序でソートされていること。
 - [`get_allocator()`](get_allocator.md) `== x.`[`get_allocator()`](get_allocator.md)であること。(C++14)
 
 

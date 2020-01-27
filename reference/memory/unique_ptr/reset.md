@@ -17,7 +17,7 @@ template <class U> void reset(U p) noexcept;  // (3) C++17
 ```
 
 ## 概要
-リソースの所有権を放棄し、新たなリソースの所有権を設定する。
+リソースの所有権を放棄し、新たなリソースの所有権を�定する。
 
 
 ## 効果
@@ -25,11 +25,11 @@ template <class U> void reset(U p) noexcept;  // (3) C++17
     代入前に保持していたポインタ変数を`old_p`とし、それが`nullptr`でなければ、[`get_deleter()`](get_deleter.md)`(old_p)`によって、保持していたポインタを解放する。
 
 - (2) :
-    - `reset(pointer())`と等価の効果を持つ。
+    - `reset(pointer())`と�価の効果を持つ。
 
 - (3) : 
-    - C++14まで : 他のポインタ型から`pointer`型への変換を禁止する。
-    - C++17 : (1)と等価、ただし以下のどちらかの場合にのみオーバーロード解決に参加する。
+    - C++14まで : 他のポインタ型から`pointer`型への変換を禁�する。
+    - C++17 : (1)と�価、ただし以下のどちらかの場合にのみオーバー�ード解決に参加する。
         - `U`はメンバ型`pointer`と同じ型
         - `pointer`は`element_type*`と同じ型かつ`U`は何らかのポインタ型`V*`であり、`V(*)[]`は`element_type(*)[]`に変換可能である
 
@@ -53,7 +53,7 @@ int main()
     std::cout << "p doesn't have resource" << std::endl;
   }
 
-  // リソースを再設定
+  // リソースを再�定
   p.reset(new int(2));
   std::cout << *p << std::endl;
 }

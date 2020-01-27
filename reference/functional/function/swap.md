@@ -10,7 +10,7 @@ void swap(function& other) noexcept;
 ```
 
 ## 概要
-他の`function`オブジェクトと中身を入れ替える。
+他の`function`オブジェクトと�身を入れ替える。
 
 
 ## 効果

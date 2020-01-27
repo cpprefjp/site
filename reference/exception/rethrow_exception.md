@@ -9,7 +9,7 @@
 ```
 
 ## 概要
-`exception_ptr`が指す例外オブジェクトを再スローする。
+`exception_ptr`が指す例外オブジェクトを再ス�ーする。
 
 
 ## 要件
@@ -35,12 +35,12 @@ int main()
   }
   catch (...) {
     std::cout << "catch" << std::endl;
-    ep = std::current_exception(); // 処理中の例外ポインタを取得
+    ep = std::current_exception(); // 処理�の例外ポインタを取得
   }
 
   if (ep) {
     std::cout << "rethrow" << std::endl;
-    std::rethrow_exception(ep); // 再スロー
+    std::rethrow_exception(ep); // 再ス�ー
   }
 }
 ```

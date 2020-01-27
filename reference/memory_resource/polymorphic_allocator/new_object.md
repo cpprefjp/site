@@ -22,7 +22,7 @@ T* new_object(CtorArgs&&... ctor_args);
 
 ## 効果
 
-以下と等価。
+以下と�価。
 
 ```cpp
 T* p = this->allocate_object<T>();

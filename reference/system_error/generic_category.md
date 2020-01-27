@@ -14,7 +14,7 @@ namespace std {
 ## 概要
 汎用エラーに関する`error_category`を返す。
 
-ここでの「汎用」とは、[`<cerrno>`](/reference/cerrno.md)ヘッダで定義される環境依存しないエラー値、およびそれに対応する[`std::errc`](errc.md)列挙値によるエラー情報を指す。
+ここでの「汎用」とは、[`<cerrno>`](/reference/cerrno.md)ヘッダで定義される環境依�しないエラー値、およびそれに対応する[`std::errc`](errc.md)列挙値によるエラー情報を指す。
 
 
 ## 戻り値
@@ -24,7 +24,7 @@ namespace std {
 
 この関数によって返されるオブジェクトのクラスは以下の特徴を持つ：
 
-- [`name()`](error_category/name.md)関数によって返される文字列は`"generic"`
+- [`name()`](error_category/name.md)関数によって返される文�列は`"generic"`
 - [`default_error_condition()`](error_category/default_error_condition.md)仮想関数および[`equivalent()`](error_category/equivalent.md)仮想関数の挙動は、基底クラスである[`error_category`](error_category.md)と同じである
 
 

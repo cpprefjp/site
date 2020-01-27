@@ -17,13 +17,13 @@ pair<iterator, bool> emplace(Args&&... args);
 ## 要件
 このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。
 
-ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をア�ケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
 
 ## 効果
-`std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...` から構築された `value_type` のオブジェクトを `t` とすると、`t` と等価なキーがコンテナに既に存在していなければ、`t` をコンテナに挿入する。
+`std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...` から構築された `value_type` のオブジェクトを `t` とすると、`t` と�価な�ーがコンテナに既に�在していなければ、`t` をコンテナに挿入する。
 
 なお、オブジェクト `t` は、構築後にコンテナにコピー、あるいはムーブされるわけではなく、コンテナ内に直接構築される。
 
@@ -50,16 +50,16 @@ pair<iterator, bool> emplace(Args&&... args);
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、
 
-	* 追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった（つまり、戻り値の `pair` の `bool` 部分が、`false` だった）。
+	* 追加しようとした要素と�価な�ーの要素が既にコンテナに�在したため、要素が追加されなかった（つまり、戻り値の `pair` の `bool` 部分が、`false` だった）。
 	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
 
 	のいずれかである。  
 	なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
 
-- 単一要素の追加の場合、通常は [`insert`](insert.md) を使用するよりも本関数を使用した方が効率が良い。しかし、実際は実装によって、[`insert`](insert.md) を使用した方が効率が良い場合が存在する。  
-	例としては、引数の型が `value_type` と同一であり、かつ、引数と等価な要素が既に存在するため要素の追加が行われないケースがある。  
+- 単一要素の追加の場合、通常は [`insert`](insert.md) を使用するよりも本関数を使用した方が効率が良い。しかし、実際は実装によって、[`insert`](insert.md) を使用した方が効率が良い場合が�在する。  
+	例としては、引数の型が `value_type` と同一であり、かつ、引数と�価な要素が既に�在するため要素の追加が行われないケースがある。  
 	そのケースの場合、引数と当該コンテナ内の要素を直接比較することができるため、コンテナ内での新規要素のためのメモリ割り当て、および、要素の構築（この場合はコピー・ムーブ）を行う必要は無いが、実際のところは構築してしまってから比較する実装が多いようである。このため、本来不必要なメモリ割り当て、構築、破棄、メモリ解放が行われてしまう。  
-	一方で、[`insert`](insert.md) では、引数と当該コンテナ内の要素を直接比較できることは自明であるため、まず先に比較して等価な要素の存在が確認されるとそれらの処理は行われない実装が一般的である。
+	一方で、[`insert`](insert.md) では、引数と当該コンテナ内の要素を直接比較できることは自明であるため、まず先に比較して�価な要素の�在が確認されるとそれらの処理は行われない実装が一般的である。
 
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace_hint` も含めた一覧を以下に示す。
@@ -67,8 +67,8 @@ pair<iterator, bool> emplace(Args&&... args);
 	| コンテナ                                                              | シグネチャ                                                                         |
 	|-----------------------------------------------------------------------|------------------------------------------------------------------------------------|
 	| シーケンスコンテナ                                                    | `template <class... Args>`<br/> `iterator emplace(const_iterator, Args&&...)`      |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
 	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
 
@@ -98,7 +98,7 @@ namespace std {
   };
 }
 
-// サンプル用クラスのための挿入演算子
+// サンプル用クラスのための挿入演算�
 std::ostream& operator<<(std::ostream& os, const is& p)
 {
   return os << '(' << p.first << ',' << p.second << ')';
@@ -169,7 +169,7 @@ int main()
 | [`swap`](swap.md)                       | 内容の交換                                             |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                       |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、設定                                 |
+| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、�定                                 |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 

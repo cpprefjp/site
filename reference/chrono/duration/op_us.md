@@ -27,10 +27,10 @@ using namespace literals::chrono_literals;
 * unspecified[italic]
 
 ## 概要
-マイクロ秒単位の値を表す[`duration`](/reference/chrono/duration.md)クラスのリテラル。
+マイク�秒単位の値を表す[`duration`](/reference/chrono/duration.md)クラスのリテラル。
 
-- (1) : 整数型のマイクロ秒リテラル
-- (2) : 浮動小数点型のマイクロ秒リテラル
+- (1) : 整数型のマイク�秒リテラル
+- (2) : 浮動小数点型のマイク�秒リテラル
 
 
 ## 戻り値
@@ -47,8 +47,8 @@ int main()
 {
   using namespace std::literals::chrono_literals;
 
-  auto microseconds_i = 3us;   // 整数型の3マイクロ秒
-  auto microseconds_f = 3.1us; // 浮動小数点型の3.1マイクロ秒
+  auto microseconds_i = 3us;   // 整数型の3マイク�秒
+  auto microseconds_f = 3.1us; // 浮動小数点型の3.1マイク�秒
 
   std::cout << microseconds_i.count() << std::endl;
   std::cout << microseconds_f.count() << std::endl;

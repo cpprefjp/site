@@ -11,7 +11,7 @@ void clear(iostate state = goodbit);
 * goodbit[link ../ios_base/type-iostate.md]
 
 ## 概要
-現在の状態値を消去し、実引数で指定した状態に設定する。
+現在の状態値を消去し、実引数で指定した状態に�定する。
 
 ## 効果
 状態値を`state`にする。
@@ -19,7 +19,7 @@ void clear(iostate state = goodbit);
 
 ## 例外
 
-変更後の状態値のビットと[`exceptions`](exceptions.md)`()`で設定した値でビットごとのANDを行って非0になれば、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md)型の例外を送出する。  
+変更後の状態値のビットと[`exceptions`](exceptions.md)`()`で�定した値でビットごとのANDを行って非0になれば、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md)型の例外を送出する。  
 その際、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md)の[コンストラクタ](../ios_base/failure/op_constructor.md)に渡される引数は、処理系定義である。
 
 ## 実装例
@@ -29,7 +29,7 @@ void clear(iostate state = goodbit) {
     ? state
     : state | badbit;
 
-  // 後でrdstate()から読み取れるよう、ここでbasic_iosのメンバ変数にnewstateを書き込む。
+  // 後でrdstate()から�み取れるよう、ここでbasic_iosのメンバ変数にnewstateを書き込む。
 
   if ((newstate & exceptions()) != 0) {
     throw failure("basic_ios::clear");
@@ -57,7 +57,7 @@ void clear(iostate state = goodbit) {
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - `clear`（この関数）
-- 状態値の読み取り
+- 状態値の�み取り
     - [`rdstate`](rdstate.md)
     - [`good`](good.md)
     - [`eof`](eof.md)
@@ -66,5 +66,5 @@ void clear(iostate state = goodbit) {
     - [`operator bool`](op_bool.md)
     - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)
-- 例外マスクの取得・設定
+- 例外マスクの取得・�定
     - [`exceptions`](exceptions.md)

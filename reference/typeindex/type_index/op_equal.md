@@ -10,7 +10,7 @@ bool operator==(const type_index& rhs) const noexcept;
 ```
 
 ## 概要
-等値比較を行う
+�値比較を行う
 
 
 ## 戻り値

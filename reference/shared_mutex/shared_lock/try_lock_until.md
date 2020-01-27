@@ -12,7 +12,7 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 * time_point[link /reference/chrono/time_point.md]
 
 ## 概要
-タイムアウトする絶対時間を指定して共有ロックの取得を試みる
+タイムアウトする絶対時間を指定して共有�ックの取得を試みる
 
 
 ## 効果
@@ -51,15 +51,15 @@ int main()
 {
   std::shared_timed_mutex mtx;
   {
-    // 遅延ロックする(ここではロックを取得しない)
+    // 遅延�ックする(ここでは�ックを取得しない)
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
 
     namespace chrono = std::chrono;
     chrono::steady_clock::time_point tp = chrono::steady_clock::now();
 
-    // 共有ロックの取得を試みる(3秒でタイムアウト)
+    // 共有�ックの取得を試みる(3秒でタイムアウト)
     if (!lock.try_lock_until(tp + std::chrono::seconds(3))) {
-      // 共有ロックの取得に失敗
+      // 共有�ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

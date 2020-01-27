@@ -13,20 +13,20 @@ namespace std {
 ```
 
 ## 概要
-文字列から quiet NaN へ変換する。
+文�列から quiet NaN へ変換する。
 
-この関数は、パラメータ`tagp`としてNaNのペイロードを受け取る。これは、診断用の付加情報としてユーザーが任意の値をNaNに持たせるものである。
+この関数は、パラメータ`tagp`としてNaNのペイ�ードを受け取る。これは、診�用の付加情報としてユーザーが任意の値をNaNに持たせるものである。
 
 
 ## 効果
-- `nan("文字列")`は`strtod("NAN(文字列)", (char**)NULL)`と等価である
-- `nan("")`は`strtod("NAN()", (char**)NULL)`と等価である
+- `nan("文�列")`は`strtod("NAN(文�列)", (char**)NULL)`と�価である
+- `nan("")`は`strtod("NAN()", (char**)NULL)`と�価である
 
 
 ## 戻り値
 シグナルを発生させないNaNを返す。利用可能であれば、`tagp`を通じた内容を付加する。
 
-実装がシグナルを発生させないNaNをサポートしていない場合、ゼロを返す。
+実装がシグナルを発生させないNaNをサポートしていない場合、ゼ�を返す。
 
 
 ## 例
@@ -38,14 +38,14 @@ namespace std {
 
 int main()
 {
-  // シグナルを発生させないNaNを生成する。ペイロードなし
+  // シグナルを発生させないNaNを生成する。ペイ�ードなし
   double result1 = std::nan("");
   // 浮動小数点例外を発生させずにNaN値を持つ変数を整数に変換して出力
   std::uint64_t result1n = 0;
   std::memcpy(&result1n, &result1, sizeof(result1));
   std::cout << result1 << "(" << std::hex << result1n << ")" << std::endl;
 
-  // ペイロード付きのシグナルを発生させないNaNを生成する
+  // ペイ�ード付きのシグナルを発生させないNaNを生成する
   double result2 = std::nan("0xF");
   std::uint64_t result2n = 0;
   std::memcpy(&result2n, &result2, sizeof(result2));

@@ -48,7 +48,7 @@ int main()
 
   std::cout << std::boolalpha;
   {
-    // 値をtrueに設定する(変更前の値はfalse)
+    // 値をtrueに�定する(変更前の値はfalse)
     bool result = std::atomic_flag_test_and_set_explicit(&x, std::memory_order_acq_rel);
     std::cout << result << std::endl;
   }
@@ -57,7 +57,7 @@ int main()
   std::atomic_flag_clear_explicit(&x, std::memory_order_release);
 
   {
-    // 値をtrueに設定する(変更前の値はfalse)
+    // 値をtrueに�定する(変更前の値はfalse)
     bool result = std::atomic_flag_test_and_set_explicit(&x, std::memory_order_acq_rel);
     std::cout << result << std::endl;
   }

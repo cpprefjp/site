@@ -11,7 +11,7 @@ std::u8string u8string() const; // (1) C++20
 ```
 
 ## 概要
-UTF-8エンコードで、パス文字列を取得する。
+UTF-8エンコードで、パス文�列を取得する。
 
 
 ## 戻り値
@@ -19,7 +19,7 @@ UTF-8エンコードで、パス文字列を取得する。
 
 
 ## 備考
-- C++20から、破壊的変更として戻り値の型が[`std::string`](/reference/string/basic_string.md)から[`std::u8string`](/reference/string/basic_string.md)に変更となっている。これは、UTF-8エンコードされた文字型として`char8_t`が追加され、`char`型と型レベルで区別できるようにしたためである
+- C++20から、破壊的変更として戻り値の型が[`std::string`](/reference/string/basic_string.md)から[`std::u8string`](/reference/string/basic_string.md)に変更となっている。これは、UTF-8エンコードされた文�型として`char8_t`が追加され、`char`型と型レベルで区別できるようにしたためである
 
 
 ## 例
@@ -35,7 +35,7 @@ int main()
   fs::path p = "/usr/bin/clang";
   auto s = p.u8string();
 
-  // システムのマルチバイト文字コードからUTF-8に変換されたパス文字列が返される
+  // システムのマルチバイト文�コードからUTF-8に変換されたパス文�列が返される
   assert(s == u8"/usr/bin/clang");
 }
 ```
@@ -58,7 +58,7 @@ int main()
   fs::path p = "foo/bar";
   auto s = p.u8string();
 
-  // システムのマルチバイト文字コードからUTF-8に変換されたパス文字列が返される
+  // システムのマルチバイト文�コードからUTF-8に変換されたパス文�列が返される
   assert(s == u8"foo\\bar");
 }
 ```
@@ -68,7 +68,7 @@ int main()
 ```
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
+Windowsでの例は、Visual C++が�式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン

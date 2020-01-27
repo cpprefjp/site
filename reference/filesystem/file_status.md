@@ -21,15 +21,15 @@ namespace std::filesystem {
 |------|------|-------|
 | [`(constructor)`](file_status/op_constructor.md) | コンストラクタ | C++17 |
 | `~file_status();`                                | デストラクタ | C++17 |
-| `file_status& operator=(const file_status&) noexcept = default;`<br/> `file_status& operator=(file_status&&) noexcept = default;` | 代入演算子 | C++17 |
+| `file_status& operator=(const file_status&) noexcept = default;`<br/> `file_status& operator=(file_status&&) noexcept = default;` | 代入演算� | C++17 |
 
 
 ### 変更・観測
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`type`](file_status/type.md)               | ファイル種別を設定・取得する | C++17 |
-| [`permissions`](file_status/permissions.md) | ファイルの権限を設定・取得する | C++17 |
+| [`type`](file_status/type.md)               | ファイル種別を�定・取得する | C++17 |
+| [`permissions`](file_status/permissions.md) | ファイルの権限を�定・取得する | C++17 |
 
 
 ## 例

@@ -15,14 +15,14 @@ namespace std {
 ## 概要
 `std::default_searcher`は、[`std::search()`](/reference/algorithm/search.md)のデフォルトの検索法で、シーケンス (text) からサブシーケンス (pattern) を検索する関数オブジェクトである。このクラスは、検索器 (searcher) を指定する`[`std::search()`](/reference/algorithm/search.md)のインタフェースに、デフォルトの検索方法を指定するために定義されている。
 
-このクラスは、コンストラクタおよびクラステンプレートのテンプレート引数で、検索対象となるサブシーケンス (pattern) を登録し、関数呼び出し演算子で全体のシーケンス (text) を指定して検索を実行する。
+このクラスは、コンストラクタおよびクラステンプレートのテンプレート引数で、検索対象となるサブシーケンス (pattern) を登録し、関数呼び出し演算�で全体のシーケンス (text) を指定して検索を実行する。
 
-このアルゴリズムは本来、文字列から部分文字列を検索するためのアルゴリズムであるが、仕様として対象を文字列に限定してはいない。
+このアルゴリズムは本来、文�列から部分文�列を検索するためのアルゴリズムであるが、仕様として対象を文�列に限定してはいない。
 
 
 ## 備考
 - このクラステンプレートは複数のテンプレート引数をもつが、それを容易に使用するためのヘルパ関数 (`make_default_searcher()`) は定義されていない。これは、C++17で導入された[クラステンプレートパラメータの推論](/lang/cpp17/type_deduction_for_class_templates.md)機能と併用することを意図したものである
-- このクラスは[`std::search()`](/reference/algorithm/search.md)アルゴリズムと併用することを意図して設計されているが、このクラス単体で使用できる
+- このクラスは[`std::search()`](/reference/algorithm/search.md)アルゴリズムと併用することを意図して�計されているが、このクラス単体で使用できる
 
 
 ## メンバ関数
@@ -63,7 +63,7 @@ int main()
     // 見つかった位置を取得
     std::ptrdiff_t n = std::distance(text.cbegin(), result);
 
-    // 見つかった文字列 (pattern) を取得
+    // 見つかった文�列 (pattern) を取得
     std::string s {result, result + pattern.size()};
 
     std::cout << n << std::endl;

@@ -11,13 +11,13 @@ const inner_allocator_type& inner_allocator() const noexcept; // (2)
 ```
 
 ## 概要
-内側のアロケータを取得する。
+内側のア�ケータを取得する。
 
 
 ## 戻り値
-内側のアロケータオブジェクトを返す。
+内側のア�ケータオブジェクトを返す。
 
-このクラスのテンプレートパラメータ`InnerAlloc...`が空の場合は、外側と同じアロケータを内側でも使用するものと見なし、`*this`を返す。
+このクラスのテンプレートパラメータ`InnerAlloc...`が空の場合は、外側と同じア�ケータを内側でも使用するものと見なし、`*this`を返す。
 
 
 ## 例
@@ -77,11 +77,11 @@ int main()
   int outer_state = 5;
   int inner_state = 2;
   vector<string>::allocator_type alloc {
-    alloc_t<string>(outer_state), // vector自体のアロケータオブジェクト
-    alloc_t<char>(inner_state)    // vectorの全ての要素に使用するアロケータオブジェクト
+    alloc_t<string>(outer_state), // vector自体のア�ケータオブジェクト
+    alloc_t<char>(inner_state)    // vectorの全ての要素に使用するア�ケータオブジェクト
   };
 
-  // 内側(vectorの全ての要素)のアロケータオブジェクトを取得
+  // 内側(vectorの全ての要素)のア�ケータオブジェクトを取得
   alloc_t<char> inner_alloc = alloc.inner_allocator();
   std::cout << inner_alloc.getState() << std::endl;
 }

@@ -37,9 +37,9 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (2), (5) : `value_type` はこのコンテナに対してムーブ挿入可能であること
 - (3), (6) :
     - `value_type` は引数 `obj` からこのコンテナに対して直接構築可能であること
-    - 引数 `position` は、このコンテナの有効な読み取り専用イテレータであること
+    - 引数 `position` は、このコンテナの有効な�み取り専用イテレータであること
     - [`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)`<value_type, P&&>`要件を満たすこと
-        - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
+        - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修�されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
 - (7) :
     - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` が当該コンテナ **以外を指す** 有効な範囲であること
     - このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能であること
@@ -52,26 +52,26 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
     - 引数 `v` で指定した値の要素を追加する
 - (3) :
     - 引数 `obj` から構築されたオブジェクト `v` を追加する
-    - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
+    - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と�価である
 - (4), (5) :
     - 引数 `v` で指定した値の要素を追加する
     - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
 - (6) :
     - 引数 `obj` から構築されたオブジェクト `v` を追加する
     - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
-    - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
+    - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と�価である
 - (7) :
-    - 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）
+    - 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と�価である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）
 - (8) :
-    - (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価である
+    - (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と�価である
 - (9) :
     - `nh`が空の場合、効果はない
     - そうでなければ、`nh`が所有する要素を挿入し、新しく挿入された要素を指すイテレータを返す
-    - `nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される
+    - `nh.key()` と�価な�ーを持つ要素を含む範囲がコンテナ内に�在する場合、要素はその範囲の終端に挿入される
 - (10) :
     - `nh`が空の場合、効果はなく、`(*this).end()`を返す
-    - そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と等価なキーを持つ要素を指すイテレータを返す
-    - `nh.key()` と等しいキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。要素は、`p`の直前の位置のできるだけ近くに挿入される
+    - そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と�価な�ーを持つ要素を指すイテレータを返す
+    - `nh.key()` と�しい�ーを持つ要素を含む範囲がコンテナ内に�在する場合、要素はその範囲の終端に挿入される。要素は、`p`の直前の位置のできるだけ近くに挿入される
 
 
 ## 戻り値
@@ -87,7 +87,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 ## 計算量
 - (1)から(6) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (7) : 平均的なケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size`](size.md)`()` に 1 加えたものの積に比例（O([`std::distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
-- (8) : (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価。
+- (8) : (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と�価。
 - (9), (10) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
 
 
@@ -103,12 +103,12 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 
 	となっている。  
 	なお、この条件は C++14 までは「以下」ではなく「よりも小さい」だったため、最大負荷率の定義と不整合だった。  
-	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
+	これは規格の誤りとして C++17 で修�されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
 
-- これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、等価なキーの要素同士の相対的な順序は変わらない。
+- これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、�価な�ーの要素同士の相対的な順序は変わらない。
 - (4)、(5), (6) :
-    - 本関数呼び出しで構築されるオブジェクトを `t` とすると、`t.first` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。従って、そのような期待はすべきではない。[`emplace_hint`](emplace_hint.md) も参照。
-    - 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修正された。
+    - 本関数呼び出しで構築されるオブジェクトを `t` とすると、`t.first` と�価な�ーの要素が既に�在する場合、`position` に応じて既�の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は�在しない。従って、そのような期待はすべきではない。[`emplace_hint`](emplace_hint.md) も参照。
+    - 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修�された。
 - 上記の要件に示したように、`first`、および、`last` の参照先の要素は `value_type` 型でなければならないとされているが、その要件を満たさなくてももう一つの要件である直接構築可能を満たすだけで十分にライブラリを実装可能と思われる。  
 	実際、Clang(libc++) は `first`、および、`last` の参照先の要素が `value_type` 型でなくとも (7) の形式を使用可能である。
 - (9), (10) の場合、要素はコピーもムーブもされない。
@@ -292,7 +292,7 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
 | [`swap`](swap.md)                       | 内容の交換                                             |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                       |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定                             |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、�定                             |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 

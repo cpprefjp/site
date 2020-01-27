@@ -8,9 +8,9 @@
 ```
 
 ## 概要
-`MATH_ERREXCEPT`は、[`<cmath>`](../cmath.md)内で浮動小数点例外が発生したかを表す整数定数マクロである。
+`MATH_ERREXCEPT`は、[`<cmath>`](../cmath.md)内で浮動小数点例外が発生したかを表す整数定数マク�である。
 
-この定数と[`math_errhandling`](math_errhandling.md)でビットANDをとった結果がゼロでないか比較することにより、浮動小数点例外が発生したか否かを判定できる。
+この定数と[`math_errhandling`](math_errhandling.md)でビットANDをとった結果がゼ�でないか比較することにより、浮動小数点例外が発生したか否かを判定できる。
 
 
 ## 例

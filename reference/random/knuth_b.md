@@ -27,7 +27,7 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 
 
 ## 乱数列の周期
-不明(Boost.Randomのドキュメントより)
+不明(Boost.Randomのド�ュメントより)
 
 
 ## サイズ

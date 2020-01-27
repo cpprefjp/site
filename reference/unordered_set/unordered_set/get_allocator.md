@@ -10,11 +10,11 @@ allocator_type get_allocator() const noexcept;
 ```
 
 ## 概要
-このコンテナで使用されているアロケータオブジェクトを取得する。
+このコンテナで使用されているア�ケータオブジェクトを取得する。
 
 
 ## 戻り値
-このコンテナで使用されているアロケータオブジェクト
+このコンテナで使用されているア�ケータオブジェクト
 
 
 ## 例外
@@ -68,12 +68,12 @@ int main()
   swap(us1, us2);
 
   // my_alloc は propagate_on_container_swap を true_type としているので、
-  // アロケータも swap される。
+  // ア�ケータも swap される。
   std::cout << us1.get_allocator().no << ',' << us2.get_allocator().no << std::endl;
   us1 = us2;
 
   // my_alloc は propagate_on_container_copy_assignment を true_type としていないので、
-  // アロケータは copy されない。
+  // ア�ケータは copy されない。
   std::cout << us1.get_allocator().no << ',' << us2.get_allocator().no << std::endl;
 }
 ```
@@ -106,7 +106,7 @@ int main()
 	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。
 
 ### 備考
-libstdc++ の `unordered_set` では、アロケータの `select_on_container_copy_construction`、`propagate_on_container_copy_assignment`、`propagate_on_container_move_assignment`、および、`propagate_on_container_swap` を正しく扱っていないため、`get_allocator` で返されるアロケータオブジェクトは予期せぬものになる可能性がある。
+libstdc++ の `unordered_set` では、ア�ケータの `select_on_container_copy_construction`、`propagate_on_container_copy_assignment`、`propagate_on_container_move_assignment`、および、`propagate_on_container_swap` を�しく扱っていないため、`get_allocator` で返されるア�ケータオブジェクトは予期せぬものになる可能性がある。
 
 
 ## 関連項目
@@ -114,8 +114,8 @@ libstdc++ の `unordered_set` では、アロケータの `select_on_container_c
 | 名前                                                        | 説明                       |
 |-------------------------------------------------------------|----------------------------|
 | [`(constructor)`](op_constructor.md)                      | コンストラクタ             |
-| [`operator=`](op_assign.md)                               | 代入演算子                 |
+| [`operator=`](op_assign.md)                               | 代入演算�                 |
 | [`swap`](swap_free.md)                                    | 内容の交換（非メンバ関数） |
-| [`allocator`](/reference/memory/allocator.md)               | デフォルトのアロケータ     |
-| [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ       |
+| [`allocator`](/reference/memory/allocator.md)               | デフォルトのア�ケータ     |
+| [`allocator_traits`](/reference/memory/allocator_traits.md) | ア�ケータのトレイツ       |
 

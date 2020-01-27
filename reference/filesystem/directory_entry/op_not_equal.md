@@ -10,7 +10,7 @@ bool operator!=(const directory_entry& rhs) const noexcept;
 ```
 
 ## 概要
-`directory_entry`オブジェクトを非等値比較する。
+`directory_entry`オブジェクトを非�値比較する。
 
 
 ## 戻り値

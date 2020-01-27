@@ -39,8 +39,8 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (3), (6) :
     - `value_type` は引数 `obj` からこのコンテナに対して直接構築可能であること
     - [`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)`<value_type, P&&>`要件を満たすこと
-        - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
-- (4), (6) : `position` は、このコンテナの有効な読み取り専用イテレータであること
+        - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修�されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
+- (4), (6) : `position` は、このコンテナの有効な�み取り専用イテレータであること
 - (7) :
     - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` がこのコンテナ **以外を指す** 有効な範囲であること
     - このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能であること
@@ -50,27 +50,27 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 
 ## 効果
 - (1), (2) :
-    - `v.first` と等価なキーがこのコンテナに存在していなければ、当該要素を追加する
+    - `v.first` と�価な�ーがこのコンテナに�在していなければ、当該要素を追加する
 - (3) :
-    - 引数 `obj` から構築されたオブジェクトを `v` とすると、`v.first` と等価なキーがこのコンテナに存在していなければ、当該要素を追加する
-    - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
+    - 引数 `obj` から構築されたオブジェクトを `v` とすると、`v.first` と�価な�ーがこのコンテナに�在していなければ、当該要素を追加する
+    - このバージョンの動作は、[`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と�価である
 - (4), (5) :
-    - `v.first` と等価なキーがこのコンテナに存在していなければ、当該要素を追加する
+    - `v.first` と�価な�ーがこのコンテナに�在していなければ、当該要素を追加する
     - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
 - (6) :
-    - 引数 `obj` から構築されたオブジェクトを `v` とすると、`v.first` と等価なキーがこのコンテナに存在していなければ、当該要素を追加する
+    - 引数 `obj` から構築されたオブジェクトを `v` とすると、`v.first` と�価な�ーがこのコンテナに�在していなければ、当該要素を追加する
     - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
-    - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
+    - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と�価である
 - (7) :
-    - 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(3)の形式が呼び出される）。
+    - 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と�価である（`*first` の型によって (1)、あるいは(3)の形式が呼び出される）。
 - (8) :
-    - (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価である
+    - (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と�価である
 - (9) :
     - `nh`が空の場合、効果はない
-    - それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する
+    - それ以外の場合、`nh.key()`と�価の�ーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する
 - (10) :
     - `nh`が空の場合、効果はなく、`(*this).end()`を返す
-    - それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と等価のキーの要素を指すイテレータを常に返す
+    - それ以外の場合、`nh.key()`と�価の�ーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と�価の�ーの要素を指すイテレータを常に返す
     - 要素は、`p`の直前の位置のできるだけ近くに挿入される
 
 
@@ -86,7 +86,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
     - [`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2), (3)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
         - 挿入された場合には、空の[ノードハンドル](/reference/node_handle/node_handle.md)
         - 挿入されなかった場合には、`nh`の値である
-- (8) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と等価のキーの要素を指すイテレータを常に返す
+- (8) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と�価の�ーの要素を指すイテレータを常に返す
 
 
 ## 例外
@@ -96,7 +96,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 ## 計算量
 - (1)から(6) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (7) : 平均的なケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 [`std::distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size`](size.md)`()` に 1 加えたものの積に比例（O([`std::distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
-- (8) : (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価。
+- (8) : (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と�価。
 - (9), (10) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
 
 
@@ -112,15 +112,15 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 
 	となっている。  
 	なお、この条件は C++14 までは「以下」ではなく「よりも小さい」だったため、最大負荷率の定義と不整合だった。  
-	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
-- `unordered_map` では、キーのハッシュ値に基づいて要素を格納するバケットを決定するため、`position` を有効に使用することはできないものと思われる。  
+	これは規格の誤りとして C++17 で修�されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
+- `unordered_map` では、�ーのハッシュ値に基づいて要素を格納するバケットを決定するため、`position` を有効に使用することはできないものと思われる。  
 	実際、GCC(libstdc++)、および、Clang(libc++) では `position` は単に無視される。  
 	通常は、`position` の無いバージョンを使用した方が良いだろう。
-- 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修正された。  
+- 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修�された。  
 	しかし、上記の通り `position` は実際には使用されていない可能性が高く、この変更による影響はほぼないと思われる。
 - 上記の要件に示したように、`first`、および、`last` の参照先の要素は `value_type` 型でなければならないとされているが、その要件を満たさなくてももう一つの要件である直接構築可能を満たすだけで十分にライブラリを実装可能と思われる。  
 	実際、Clang(libc++) は `first`、および、`last` の参照先の要素が `value_type` 型でなくとも (7) の形式を使用可能である。
-- C++17 で追加された [`try_emplace`](try_emplace.md) と異なり、これらの関数ではキー重複によって要素の挿入が行われなかった場合に引数が不変である（引数からのムーブが発生しない）という**保証はない**ので、注意すること。
+- C++17 で追加された [`try_emplace`](try_emplace.md) と異なり、これらの関数では�ー重複によって要素の挿入が行われなかった場合に引数が不変である（引数からのムーブが発生しない）という**保証はない**ので、注意すること。
 - (9), (10) の場合、要素はコピーもムーブもされない。
 
 
@@ -303,7 +303,7 @@ inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 | [`swap`](swap.md)                       | 内容の交換                                             |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                       |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定                             |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、�定                             |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 

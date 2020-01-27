@@ -14,12 +14,12 @@ constexpr const_reverse_iterator rend() const noexcept; // (2) C++17
 ```
 
 ## 概要
-先頭要素の前を指す逆イテレータを取得する。
+先�要素の前を指す逆イテレータを取得する。
 
 
 ## 戻り値
-非`const`な文脈では`reverse_iterator`型で先頭要素の前を指す逆イテレータを返し、
-`const`な文脈では`const_reverse_iterator`型で 先頭要素の前を指す逆イテレータを返す。
+非`const`な文脈では`reverse_iterator`型で先�要素の前を指す逆イテレータを返し、
+`const`な文脈では`const_reverse_iterator`型で 先�要素の前を指す逆イテレータを返す。
 
 
 ## 例外

@@ -14,17 +14,17 @@ static constexpr float_denorm_style has_denorm;
 * float_denorm_style[link /reference/limits/float_denorm_style.md]
 
 ## 概要
-浮動小数点数型において、型`T`の非正規化数(Denormal Number)のサポート状況を判定する。
+浮動小数点数型において、型`T`の非�規化数(Denormal Number)のサポート状況を判定する。
 
-| 値                                                      | 非正規化数のサポート状況 |
+| 値                                                      | 非�規化数のサポート状況 |
 |---------------------------------------------------------|--------------------------|
 | [`std::denorm_indeterminate`](../float_denorm_style.md) | 許可するか判定できない   |
 | [`std::denorm_absent`](../float_denorm_style.md)        | 許可しない               |
 | [`std::denorm_present`](../float_denorm_style.md)       | 許可する                 |
 
-対応するマクロを次の表に挙げる。
+対応するマク�を次の表に挙げる。
 
-| 型            | 対応するマクロ |
+| 型            | 対応するマク� |
 |---------------|----------------|
 | `float`       | [`FLT_HAS_SUBNORM`](/reference/cfloat/flt_has_subnorm.md)  |
 | `double`      | [`DBL_HAS_SUBNORM`](/reference/cfloat/dbl_has_subnorm.md)  |

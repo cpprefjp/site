@@ -13,15 +13,15 @@ namespace std {
 ```
 
 ## 概要
-`lognormal_distribution`は、乱数を対数正規分布させるクラスである。 
-対数正規分布はその名のとおり、正規分布に対数を付けたものである。以下の確率密度関数に基いて、浮動小数点数の乱数を生成する：  
+`lognormal_distribution`は、乱数を対数�規分布させるクラスである。 
+対数�規分布はその名のとおり、�規分布に対数を付けたものである。以下の確率密度関数に基いて、浮動小数点数の乱数を生成する：  
 
 $$ p(x \mid m, s) = \frac{1}{sx \sqrt{2 \pi} } \cdot \exp \left( - \frac{(\ln x - m)^2}{2s^2} \right) $$
 
 この確率密度関数において、mは平均(mean)、sは標準偏差(standard deviation)を表す。
 
 
-対数正規分布は、以下のような用途に使用できる：
+対数�規分布は、以下のような用途に使用できる：
 
 - 株価
 - 社員の給与アップ(スタートは同じでも、給与が上がる人数は減少していく)
@@ -49,13 +49,13 @@ $$ p(x \mid m, s) = \frac{1}{sx \sqrt{2 \pi} } \cdot \exp \left( - \frac{(\ln x 
 | [`operator()`](lognormal_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
 | [`m`](lognormal_distribution/m.md)         | 分布の平均値を取得する   | C++11 |
 | [`s`](lognormal_distribution/s.md)         | 分布の標準偏差を取得する | C++11 |
-| [`param`](lognormal_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](lognormal_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](lognormal_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](lognormal_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -72,8 +72,8 @@ $$ p(x \mid m, s) = \frac{1}{sx \sqrt{2 \pi} } \cdot \exp \left( - \frac{(\ln x 
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------|-------|
-| [`operator==`](lognormal_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](lognormal_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](lognormal_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](lognormal_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](lognormal_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](lognormal_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -93,7 +93,7 @@ int main()
 
   std::ofstream file("lognormal_distribution.tsv");
   for (std::size_t n = 0; n < 256; ++n) {
-    // 対数正規分布で乱数を生成する
+    // 対数�規分布で乱数を生成する
     double result = dist(engine);
     file << result << "\n";
   }
@@ -107,7 +107,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[lognormal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/lognormal_distribution/lognormal_distribution.tsv.7z)）を図示する。 
+このプ�グラムによってある時に得られた結果（[lognormal_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/lognormal_distribution/lognormal_distribution.tsv.7z)）を図示する。 
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/lognormal_distribution/lognormal_distribution.png)
 
@@ -122,6 +122,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ### 参考
-- [対数正規分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%AF%BE%E6%95%B0%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
-- [対数正規分布 - NtRand](http://www.ntrand.com/jp/log-normal-distribution/)
-- [対数正規分布の仕組み - 小人さんの妄想](http://d.hatena.ne.jp/rikunora/20100418/p1)
+- [対数�規分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%AF%BE%E6%95%B0%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83)
+- [対数�規分布 - NtRand](http://www.ntrand.com/jp/log-normal-distribution/)
+- [対数�規分布の仕組み - 小人さんの妄想](http://d.hatena.ne.jp/rikunora/20100418/p1)

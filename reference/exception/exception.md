@@ -21,7 +21,7 @@ namespace std {
 |----------------------------------------|---------------------------------------------|-------|
 | `exception() noexcept;`<br/>`exception(const exception&) noexcept;` | コンストラクタ | |
 | `virtual ~exception();` | デストラクタ | |
-| `exception& operator=(const exception&) noexcept;` | 代入演算子 | |
+| `exception& operator=(const exception&) noexcept;` | 代入演算� | |
 | `virtual const char* what() const noexcept;` | 実装定義のエラー内容を取得する | |
 
 

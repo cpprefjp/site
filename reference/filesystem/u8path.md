@@ -16,27 +16,27 @@ namespace std::filesystem {
 ```
 * path[link path.md]
 
-この関数は、C++20で非推奨となった。UTF-8エンコードされたパス文字列は[`char8_t`](/lang/cpp20/char8_t.md)型文字列として`path`クラスのコンストラクタに、指定すること。
+この関数は、C++20で非推奨となった。UTF-8エンコードされたパス文�列は[`char8_t`](/lang/cpp20/char8_t.md)型文�列として`path`クラスのコンストラクタに、指定すること。
 
 
 ## 概要
-UTF-8エンコードされた文字列からパスオブジェクトを構築する。
+UTF-8エンコードされた文�列からパスオブジェクトを構築する。
 
 - (1) : UTF-8エンコードされた`char`配列、[`std::string`](/reference/string/basic_string.md)、[`std::string_view`](/reference/string_view/basic_string_view.md)オブジェクトからパスオブジェクトを構築する
 - (2) : UTF-8エンコードされた`char`要素の範囲から、パスオブジェクトを構築する
 
 
 ## 要件
-- `source`および文字範囲`[first, last)`がUTF-8エンコードされていること
-- 文字列の要素となる文字型が`char`であること
+- `source`および文�範囲`[first, last)`がUTF-8エンコードされていること
+- 文�列の要素となる文�型が`char`であること
 
 
 ## 効果
-- `path`クラスの`value_type`が`char`であれば (POSIX)、文字コード変換せずに`path`オブジェクトを構築して返す
-- そうでなければ、OSのファイルシステムが扱う文字コードに変換し (WindowsならUTF-16)、`path`オブジェクトを構築して返す
+- `path`クラスの`value_type`が`char`であれば (POSIX)、文�コード変換せずに`path`オブジェクトを構築して返す
+- そうでなければ、OSのファイルシステムが扱う文�コードに変換し (WindowsならUTF-16)、`path`オブジェクトを構築して返す
 
 ## 非推奨の詳細 (C++20)
-C++20ではUTF-8エンコードされた文字には[`char8_t`](/lang/cpp20/char8_t.md)が型付けられ、`char`型とオーバーロードできるようになった。[`path`クラスのコンストラクタ](/reference/filesystem/path/op_constructor.md)に`char8_t`版のオーバーロードが追加されたため、この関数は不要になった。
+C++20ではUTF-8エンコードされた文�には[`char8_t`](/lang/cpp20/char8_t.md)が型付けられ、`char`型とオーバー�ードできるようになった。[`path`クラスのコンストラクタ](/reference/filesystem/path/op_constructor.md)に`char8_t`版のオーバー�ードが追加されたため、この関数は不要になった。
 
 
 ## 例

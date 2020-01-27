@@ -13,7 +13,7 @@ namespace std {
 ```
 
 ## 概要
-2つの`scoped_allocator_adaptor`オブジェクトを等値比較する。
+2つの`scoped_allocator_adaptor`オブジェクトを�値比較する。
 
 
 ## 戻り値

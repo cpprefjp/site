@@ -10,7 +10,7 @@ size_type bucket_size(size_type n) const;
 ```
 
 ## 概要
-インデックス（添え字）で指定したバケット内に格納されている要素の数を取得する。
+インデックス（添え�）で指定したバケット内に格納されている要素の数を取得する。
 
 
 ## 要件
@@ -86,9 +86,9 @@ bucket = 10, bucket_size = 0, keys = { }
 |----------------------------------------------|------------------|
 | [`bucket_count`](bucket_count.md)          | バケット数の取得 |
 | [`max_bucket_count`](max_bucket_count.md)  | 最大バケット数の取得 |
-| [`bucket`](bucket.md)                      | キーで指定したバケットのインデックス（添え字）を取得 |
-| [`begin(size_type)`](begin-size_type.md)   | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
-| [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
-| [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
-| [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
+| [`bucket`](bucket.md)                      | �ーで指定したバケットのインデックス（添え�）を取得 |
+| [`begin(size_type)`](begin-size_type.md)   | インデックス（添え�）で指定したバケット内の先�要素を指すイテレータを取得 |
+| [`end(size_type)`](end-size_type.md)       | インデックス（添え�）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+| [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え�）で指定したバケット内の先�要素を指す�み取り専用イテレータを取得 |
+| [`cend(size_type)`](cend-size_type.md)     | インデックス（添え�）で指定したバケット内の最終要素の次を指す�み取り専用イテレータを取得 |
 

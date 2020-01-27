@@ -53,13 +53,13 @@ namespace std {
 
 
 ## 効果
-現在の値`*object`と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値`*object`を`desired`で置き換え、`false`である場合は`*expected`を現在の値`*object`で置き換える。
+現在の値`*object`と`expected`をバイトレベルで�値比較を行い、`true`である場合は現在の値`*object`を`desired`で置き換え、`false`である場合は`*expected`を現在の値`*object`で置き換える。
 
-バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。
+バイト�値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。
 
 
 ## 戻り値
-等値比較の結果が返される
+�値比較の結果が返される
 
 
 ## 例外
@@ -71,7 +71,7 @@ namespace std {
 
 [`atomic_compare_exchange_strong_explicit()`](atomic_compare_exchange_strong_explicit.md)はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 
-アーキテクチャによっては、この関数は[`atomic_compare_exchange_strong_explicit()`](atomic_compare_exchange_strong_explicit.md)と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](https://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](https://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
+アー�テクチャによっては、この関数は[`atomic_compare_exchange_strong_explicit()`](atomic_compare_exchange_strong_explicit.md)と�価だが、PowerPCやARMなどLL/SC命令を提供するアー�テクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](https://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](https://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
 
 通常、CAS操作は、CASが成功するまでループさせる。
 

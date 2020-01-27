@@ -8,7 +8,7 @@
 ```
 
 ## 概要
-`long double` の最大の有限値を表すマクロ。  
+`long double` の最大の有限値を表すマク�。  
 以下の式で表される。
 
 $$
@@ -18,7 +18,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`LDBL_MANT_DIG`](ldbl_mant_dig.md)）、$e_{\rm max}$ は指数の最大値（[`LDBL_MAX_EXP`](ldbl_max_exp.md)）である。  
 $b$ や $p$、$e_{\rm max}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max`](/reference/limits/numeric_limits/max.md)`()` と�しい。
 
 
 ## 備考
@@ -37,7 +37,7 @@ int main()
   std::cout << std::setprecision(LDBL_DIG);
   std::cout << LDBL_MAX << '\n';
 
-  // 以下の式と等価（std::pow((long double)FLT_RADIX, LDBL_MAX_EXP) は long double の最大値を超えてしまうため、式を調整してある）
+  // 以下の式と�価（std::pow((long double)FLT_RADIX, LDBL_MAX_EXP) は long double の最大値を超えてしまうため、式を調整してある）
   std::cout << (1 - std::pow((long double)FLT_RADIX, -LDBL_MANT_DIG)) * std::pow((long double)FLT_RADIX, LDBL_MAX_EXP - 1) * FLT_RADIX << '\n';
 }
 ```

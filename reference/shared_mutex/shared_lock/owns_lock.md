@@ -10,11 +10,11 @@ bool owns_lock() const noexcept;
 ```
 
 ## 概要
-共有ロックを取得しているかを確認する。
+共有�ックを取得しているかを確認する。
 
 
 ## 戻り値
-共有ロックを取得済みであれば`true`、そうでなければ`false`を返す。
+共有�ックを取得済みであれば`true`、そうでなければ`false`を返す。
 
 
 ## 例外
@@ -32,24 +32,24 @@ int main()
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx);
 
-    // コンストラクタで共有ロックが取得されるので、
+    // コンストラクタで共有�ックが取得されるので、
     // owns_lock() == true
     assert(lock.owns_lock());
-  } // 共有ロックを手放す(shared_lockのデストラクタ)
+  } // 共有�ックを手放す(shared_lockのデストラクタ)
 
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
 
-    // 遅延ロックのため、コンストラクタで共有ロックが取得されないので、
+    // 遅延�ックのため、コンストラクタで共有�ックが取得されないので、
     // owns_lock() == false
     assert(!lock.owns_lock());
 
     lock.lock();
 
-    // 共有ロック取得後なので、
+    // 共有�ック取得後なので、
     // owns_lock() == true
     assert(lock.owns_lock());
-  } // 共有ロックを手放す(shared_lockのデストラクタ)
+  } // 共有�ックを手放す(shared_lockのデストラクタ)
 }
 ```
 * owns_lock()[color ff0000]

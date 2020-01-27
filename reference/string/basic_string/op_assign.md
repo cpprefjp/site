@@ -20,10 +20,10 @@ basic_string& operator=(std::basic_string_view<charT, traits> sv); // (6) C++17
 ## 概要
 - (1) : `str` を `*this` へコピーする。`*this` と `str` が同一オブジェクトである場合は何も行わない。
 - (2) : `str` から `*this` へデータの所有権を移動する。`*this` と `str` が同一オブジェクトである場合は何も行わない。
-- (3) : `*this = basic_string(s);` と等価。
-- (4) : `*this = basic_string(1, c);` と等価。
-- (5) : `*this = basic_string(il);` と等価。
-- (6) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換。`return` [`assign`](assign.md)`(sv)` と等価。
+- (3) : `*this = basic_string(s);` と�価。
+- (4) : `*this = basic_string(1, c);` と�価。
+- (5) : `*this = basic_string(il);` と�価。
+- (6) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換。`return` [`assign`](assign.md)`(sv)` と�価。
 
 
 ## 効果
@@ -31,7 +31,7 @@ basic_string& operator=(std::basic_string_view<charT, traits> sv); // (6) C++17
 
 | メンバ関数                    | コピーの場合                                | ムーブ代入の場合  |
 |-------------------------------|---------------------------------------------|------------------------------|
-| `data()`                      | `str.data()` をコピーした領域の先頭ポインタ | `str.data()` |
+| `data()`                      | `str.data()` をコピーした領域の先�ポインタ | `str.data()` |
 | [`size()`](size.md)         | `str.`[`size()`](size.md) と同じ値        | `str.`[`size()`](size.md)と同じ値 |
 | [`capacity()`](capacity.md) | [`size()`](size.md) 以上の値              | [`size()`](size.md) 以上の値 |
 
@@ -64,17 +64,17 @@ int main()
     s = std::string("hello");
   }
 
-  // (3) 文字配列の代入
+  // (3) 文�配列の代入
   {
     s = "hello";
   }
 
-  // (4) 文字の代入
+  // (4) 文�の代入
   {
     s = 'a';
   }
 
-  // (5) 文字の初期化子リストを代入
+  // (5) 文�の初期化�リストを代入
   {
     s = {'h', 'e', 'l', 'l', 'o'};
   }

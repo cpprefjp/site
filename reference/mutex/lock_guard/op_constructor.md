@@ -14,8 +14,8 @@ lock_guard(lock_guard const&) = delete;  // (3)
 * adopt_lock_t[link /reference/mutex/adopt_lock.md]
 
 ## 概要
-- (1) : 非ロック状態のミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
-- (2) : ロック取得済みミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
+- (1) : 非�ック状態のミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
+- (2) : �ック取得済みミューテックスオブジェクトへの参照を受け取り、メンバ変数として参照を保持する。
 - (3) : コピーコンストラクタ。コピー不可。非自明なコンストラクタが定義されているため、ムーブコンストラクタは定義されない
 
 
@@ -37,19 +37,19 @@ int main()
   std::mutex mtx;
 
   {
-    std::lock_guard<std::mutex> lk(mtx); // ロックを取得する
+    std::lock_guard<std::mutex> lk(mtx); // �ックを取得する
 
     // ...共有リソースにアクセス...
 
-  } // ロックを手放す
+  } // �ックを手放す
 
   {
     mtx.lock();
-    std::lock_guard<std::mutex> lk(mtx, std::adopt_lock); // ロック済みミューテックスを渡す
+    std::lock_guard<std::mutex> lk(mtx, std::adopt_lock); // �ック済みミューテックスを渡す
 
     // ...共有リソースにアクセス...
 
-  } // ロックを手放す
+  } // �ックを手放す
 }
 ```
 * mtx.lock()[link /reference/mutex/mutex/lock.md]

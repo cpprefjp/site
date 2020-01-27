@@ -8,11 +8,11 @@
 ```
 
 ## 概要
-浮動小数点数に対してゼロで除算されたことを表す浮動小数点例外の種類。
+浮動小数点数に対してゼ�で除算されたことを表す浮動小数点例外の種類。
 
-「DIVBYZERO」は「divide-by-zero (ゼロによる除算)」の略称である。
+「DIVBYZERO」は「divide-by-zero (ゼ�による除算)」の略称である。
 
-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+このマク�は、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マク�とAND (`&`) や OR (`|`)を使用して、複数のマク�を組み合わせて使用できる。
 
 ## 例
 ```cpp example
@@ -23,7 +23,7 @@ int main()
 {
   float result = 1.0f / 0.0f;
   if (std::fetestexcept(FE_DIVBYZERO)) {
-    // 浮動小数点数に対してゼロ除算が行われた
+    // 浮動小数点数に対してゼ�除算が行われた
     std::cout << "zero divided" << std::endl;
   }
   else {
@@ -51,6 +51,6 @@ zero divided
 - [GCC](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
-	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、�しく動作しないおそれがある。
 
 

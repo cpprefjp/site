@@ -22,7 +22,7 @@ bool wait_for(Lock& lock,
 
 この関数は、処理をするための準備ができたことを`notify_one()`/`notify_all()`によって通知されるまでスレッドを待機するために使用する。
 
-述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブロッキングが解除される。
+述語を指定しない場合、`notify_one()`/`notify_all()`が呼び出された時点でこの関数のブ�ッ�ングが解除される。
 
 述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
@@ -50,11 +50,11 @@ return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred))
 * now()[link /reference/chrono/steady_clock/now.md]
 * std::move[link /reference/utility/move.md]
 
-`pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブロッキングしない
+`pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブ�ッ�ングしない
 
 
 ## 事後条件
-`lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
+`lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドで�ック取得されていること
 
 
 ## 例外
@@ -63,7 +63,7 @@ return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred))
 
 
 ## 備考
-- C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プログラムを異常終了させる。これは、ミューテックスの再ロック取得が例外を送出した場合に発生する。
+- C++14 : 事後条件を満たさない場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出して、プ�グラムを異常終了させる。これは、ミューテックスの再�ック取得が例外を送出した場合に発生する。
 
 
 ## 例

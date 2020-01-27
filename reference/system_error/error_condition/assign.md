@@ -11,7 +11,7 @@ void assign(int val, const error_category& cat) noexcept;
 * error_category[link assign.md]
 
 ## 概要
-エラー値とエラーカテゴリを再設定する。
+エラー値とエラーカテゴリを再�定する。
 
 
 ## 要件

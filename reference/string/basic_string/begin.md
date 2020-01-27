@@ -10,11 +10,11 @@ const_iterator begin() const noexcept;
 ```
 
 ## 概要
-文字列の先頭を指すイテレータを取得する。
+文�列の先�を指すイテレータを取得する。
 
 
 ## 戻り値
-先頭を指すイテレータ。
+先�を指すイテレータ。
 
 
 ## 例外
@@ -30,7 +30,7 @@ int main()
 {
   std::string s = "hello";
 
-  // 先頭へのイテレータを取得
+  // 先�へのイテレータを取得
   decltype(s)::iterator it = s.begin();
 
   // イテレータが指している要素を参照

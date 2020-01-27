@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 効果
-以下のいずれかの形式の`complex`オブジェクトを読み込む：
+以下のいずれかの形式の`complex`オブジェクトを�み込む：
 
 - `u`
 - `(u)`
@@ -28,7 +28,7 @@ namespace std {
 
 `u`は実部の値、`v`は虚部の値である。
 
-読み込みに失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
+�み込みに失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
 
 
 ## 例

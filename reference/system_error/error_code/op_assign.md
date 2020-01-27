@@ -17,7 +17,7 @@ error_code& operator=(ErrorCodeEnum e) noexcept;
 ## 要件
 [`is_error_code_enum`](../is_error_code_enum.md)`<ErrorCodeEnum>::value == true`であること。
 
-`false`だった場合、この関数はオーバーロード解決から除外される。
+`false`だった場合、この関数はオーバー�ード解決から除外される。
 
 
 ## 効果

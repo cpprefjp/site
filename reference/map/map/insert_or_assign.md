@@ -21,7 +21,7 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` の値として要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。
+引数 `k` で指定された�ーが�在しなければ対応する値を引数 `obj` の値として要素を挿入し（`insert`）、さもなければ（`or`）、その�ーに対応する値に引数 `obj` を代入する（`assign`）。
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。
 
@@ -30,18 +30,18 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 - (1)、(3) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
 - (2)、(4) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
 
-なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
+なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な�み取り専用イテレータである必要があるものと思われる。
 
 
 ## 効果
-- (1)、(3) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
-- (2)、(4) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (1)、(3) : `map` が `k` と同値の�ーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (2)、(4) : `map` が `k` と同値の�ーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
 
 
 ## 戻り値
 - (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
-    - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
-    - 代入された場合には、`first` に代入された要素へのイテレータ、`second` に `false` が設定される。
+    - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が�定される。
+    - 代入された場合には、`first` に代入された要素へのイテレータ、`second` に `false` が�定される。
 - (3)、(4) :
     - 挿入された場合には、挿入された要素へのイテレータを返す。
     - 代入された場合には、代入された要素へのイテレータを返す。
@@ -53,9 +53,9 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 
 
 ## 備考
-このメンバ関数の機能テストマクロは以下の通り。
+このメンバ関数の機能テストマク�は以下の通り。
 
-| マクロ名                    | 値       |
+| マク�名                    | 値       |
 |-----------------------------|----------|
 | `__cpp_lib_map_try_emplace` | `201411` |
 
@@ -103,7 +103,7 @@ int main()
 | [`map::insert`](insert.md)                     | 要素を挿入する                             |
 | [`map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
-| [`map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
+| [`map::try_emplace`](try_emplace.md)           | �ーが�在しない場合のみ要素を直接構築する |
 
 
 ## 参照

@@ -15,7 +15,7 @@ void deallocate(void* p, std::size_t bytes, std::size_t alignment = alignof(std:
 
 ## 事前条件
 呼び出す`do_deallocate`の要件として  
-`p`の指すサイズ`bytes`のメモリ領域は、`*this`もしくは等しい`memory_resource`オブジェクト（`this->is_equal(other) == true`となるような`other`）の[`allocate`](allocate.md)`(bytes, alignment)`によって事前に確保された領域であること。  
+`p`の指すサイズ`bytes`のメモリ領域は、`*this`もしくは�しい`memory_resource`オブジェクト（`this->is_equal(other) == true`となるような`other`）の[`allocate`](allocate.md)`(bytes, alignment)`によって事前に確保された領域であること。  
 かつ、そのメモリ領域は未解放であること。
 
 ## 引数
@@ -24,7 +24,7 @@ void deallocate(void* p, std::size_t bytes, std::size_t alignment = alignof(std:
 - `alignment` -- `p`の確保時アライメント要求
 
 ## 効果
-`return this->do_deallocate(p, bytes, alignment);` と等価。
+`return this->do_deallocate(p, bytes, alignment);` と�価。
 
 ## 例外
 投げない

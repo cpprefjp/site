@@ -11,16 +11,16 @@ namespace std::pmr {
 ```
 
 ## 概要
-[`polymorphic_allocator`](polymorphic_allocator.md)のコンストラクタ等で、`memory_resource`が指定されない場合に利用されるデフォルトの`memory_resource`を設定する。
+[`polymorphic_allocator`](polymorphic_allocator.md)のコンストラクタ�で、`memory_resource`が指定されない場合に利用されるデフォルトの`memory_resource`を�定する。
 
 ## 引数
 
-- `r` -- 設定する`memory_resource`のポインタ
+- `r` -- �定する`memory_resource`のポインタ
 
 ## 効果
-`r`がnullでなければ、デフォルトの`memory_resource`のポインタを`r`に設定する。
+`r`がnullでなければ、デフォルトの`memory_resource`のポインタを`r`に�定する。
 
-`r`がnullならば、デフォルトの`memory_resource`のポインタを[`new_delete_resource()`](new_delete_resource.md)に設定する。
+`r`がnullならば、デフォルトの`memory_resource`のポインタを[`new_delete_resource()`](new_delete_resource.md)に�定する。
 
 ## スレッドセーフ
 この関数はスレッドセーフである。
@@ -29,14 +29,14 @@ namespace std::pmr {
 すなわち、この関数自身と[`get_default_resource()`](get_default_resource.md)の呼び出しはデータ競合を起こさない。
 
 ## 戻り値
-以前に設定されていたデフォルトの`memory_resource`のポインタ。
+以前に�定されていたデフォルトの`memory_resource`のポインタ。
 
 ## 例外
 投げない。
 
 ## 備考
 この関数は受け取る`memory_resource`の所有権を保持しない。
-そのため、設定する`memory_resource`オブジェクトの寿命には注意する必要がある。
+そのため、�定する`memory_resource`オブジェクトの寿命には注意する必要がある。
 
 ## 例
 ```cpp example
@@ -50,7 +50,7 @@ int main()
   std::cout << std::boolalpha;
   std::cout << (mr == std::pmr::new_delete_resource()) << std::endl;
 
-  //monotonic_buffer_resourceを設定
+  //monotonic_buffer_resourceを�定
   std::pmr::monotonic_buffer_resource mono_mr{};
   auto* befor_mr = std::pmr::set_default_resource(&mono_mr);
 

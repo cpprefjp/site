@@ -51,14 +51,14 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 - (6) : 異なる時間間隔をもつ`zoned_time`から変換する
 - (7) : タイムゾーンとシステム時間を保持する
 - (8) : 指定した名前のタイムゾーンとシステム時間を保持する
-- (9) : タイムゾーンと、ローカル時間をシステム時間に変換して (丸め方向は東) 保持する
-- (10) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して (丸め方向は東) 保持する
-- (11) : タイムゾーンと、ローカル時間をシステム時間に変換して保持する。変換時の丸め方向は指定したものを使用する
-- (12) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して (丸め方向は東) 保持する。変換時の丸め方向は指定したものを使用する
+- (9) : タイムゾーンと、�ーカル時間をシステム時間に変換して (丸め方向は東) 保持する
+- (10) : 指定した名前のタイムゾーンと、�ーカル時間をシステム時間に変換して (丸め方向は東) 保持する
+- (11) : タイムゾーンと、�ーカル時間をシステム時間に変換して保持する。変換時の丸め方向は指定したものを使用する
+- (12) : 指定した名前のタイムゾーンと、�ーカル時間をシステム時間に変換して (丸め方向は東) 保持する。変換時の丸め方向は指定したものを使用する
 - (13) : タイムゾーン`z`と`zt`がもつ[`sys_time`](/reference/chrono/sys_time.md)型の時間点を保持する
-- (14) : (13)と等価。丸めオプションは使われない
+- (14) : (13)と�価。丸めオプションは使われない
 - (15) : 指定した名前のタイムゾーンと、`zt`がもつ[`sys_time`](/reference/chrono/sys_time.md)型の時間点を保持する
-- (16) : (15)と等価。丸めオプションは使われない
+- (16) : (15)と�価。丸めオプションは使われない
 
 
 ## テンプレートパラメータ制約
@@ -96,17 +96,17 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 - (7) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`st`をメンバ変数に保持する
 - (8) : タイムゾーンオブジェクトへのポインタ[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md.nolink)`(name)`、および時間点`st`をメンバ変数として保持する
 - (9) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp)`をメンバ変数に保持する
-- (10) : 式`{traits::locate_zone(name), tp}`で(9)を呼び出すことと等価
+- (10) : 式`{traits::locate_zone(name), tp}`で(9)を呼び出すことと�価
 - (11) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp, c)`をメンバ変数に保持する
-- (12) : 式`{traits::locate_zone(name), tp, c}`で(11)を呼び出すことと等価
+- (12) : 式`{traits::locate_zone(name), tp, c}`で(11)を呼び出すことと�価
 - (13) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および`zt`がもつ時間点をメンバ変数に保持する
-- (14) : 式`{z, zt}`で(13)を呼び出すことと等価。`c`は使われない
-- (15) : 式`{traits::locate_zone(name), zt}`で(13)を呼び出すことと等価
-- (16) : 式`{traits::locate_zone(name), zt, c}`で(14)を呼び出すことと等価
+- (14) : 式`{z, zt}`で(13)を呼び出すことと�価。`c`は使われない
+- (15) : 式`{traits::locate_zone(name), zt}`で(13)を呼び出すことと�価
+- (16) : 式`{traits::locate_zone(name), zt, c}`で(14)を呼び出すことと�価
 
 
 ## 備考
-- [`local_time`](/reference/chrono/local_time.md)型のローカル時間を受け取るコンストラクタでは、[`sys_time`](/reference/chrono/sys_time.md)型のシステム時間への変換が行われ、システム時間としてメンバ変数に保持される
+- [`local_time`](/reference/chrono/local_time.md)型の�ーカル時間を受け取るコンストラクタでは、[`sys_time`](/reference/chrono/sys_time.md)型のシステム時間への変換が行われ、システム時間としてメンバ変数に保持される
 
 
 
@@ -165,7 +165,7 @@ int main()
   std::cout << "(7) : " << zt7 << std::endl;
   std::cout << "(8) : " << zt8 << std::endl;
 
-  // タイムゾーンとローカル時間を指定して構築
+  // タイムゾーンと�ーカル時間を指定して構築
   chrono::zoned_time zt9{chrono::locate_zone("Asia/Tokyo"), local_now};
   chrono::zoned_time zt10{"Asia/Tokyo", local_now};
   assert(zt9.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));

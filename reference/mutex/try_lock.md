@@ -22,7 +22,7 @@ namespace std {
 ## 効果
 各ミューテックスオブジェクトに、引数の順に`try_lock()`メンバ関数を呼び出す。
 
-いずれかの`try_lock()`が`false`を返すか、もしくは例外を送出した場合、以降の`try_lock()`呼び出しを行わず、それより前にロック取得したミューテックスオブジェクトに対して`unlock()`メンバ関数を呼び出す。
+いずれかの`try_lock()`が`false`を返すか、もしくは例外を送出した場合、以降の`try_lock()`呼び出しを行わず、それより前に�ック取得したミューテックスオブジェクトに対して`unlock()`メンバ関数を呼び出す。
 
 
 ## 戻り値
@@ -63,7 +63,7 @@ int main()
 
   // 一部のtry_lock()が失敗する場合
   {
-    // mtx2をロックしておく。
+    // mtx2を�ックしておく。
     std::lock_guard<std::recursive_mutex> lk2_main_thread(mtx2);
 
     std::thread th([&]
@@ -71,7 +71,7 @@ int main()
       std::unique_lock<std::mutex> lk1(mtx1, std::defer_lock);
       std::unique_lock<std::recursive_mutex> lk2(mtx2, std::defer_lock);
 
-      // 他のスレッドでmtx2をロックしているため、lk2のロックに失敗する。
+      // 他のスレッドでmtx2を�ックしているため、lk2の�ックに失敗する。
       int result = std::try_lock(lk1, lk2);
 
       // lk2が失敗したので第2引数を示す1が返る(0始まり)

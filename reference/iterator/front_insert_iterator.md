@@ -24,8 +24,8 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](front_insert_iterator/op_constructor.md) | コンストラクタ | |
 | `~front_insert_iterator() = default` | デストラクタ | |
-| [`operator=`](front_insert_iterator/op_assign.md) | 代入演算子 | |
-| [`operator*`](front_insert_iterator/op_deref.md) | 間接参照演算子 | |
+| [`operator=`](front_insert_iterator/op_assign.md) | 代入演算� | |
+| [`operator*`](front_insert_iterator/op_deref.md) | 間接参照演算� | |
 | [`operator++`](front_insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 
@@ -67,7 +67,7 @@ int main()
   std::deque<int> src = {1, 2, 3};
   std::deque<int> dest;
 
-  // srcの要素をdestの先頭に追加しながらコピー
+  // srcの要素をdestの先�に追加しながらコピー
   std::copy(src.begin(), src.end(), std::front_inserter(dest));
 
   for (int x : dest) {

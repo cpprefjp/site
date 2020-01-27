@@ -13,21 +13,21 @@ namespace std {
 ## 概要
 `random_device`クラスは、非決定論的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。
 
-`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
-実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは**擬似乱数生成器で定義される可能性がある**ため、特にクロスプラットフォームなコードを書く場合は注意すること。
+`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を�み取る形で定義される場合がある。
+実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは**擬似乱数生成器で定義される可能性がある**ため、特にク�スプラットフォームなコードを書く場合は注意すること。
 
-予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといった環境ノイズをエントロピープールとして乱数を生成する。
-非決定論的な乱数生成器のパフォーマンスは擬似乱数生成器よりも悪く、特にエントロピープールが枯渇すると著しく悪化する。
+予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといった環境ノイズをエント�ピープールとして乱数を生成する。
+非決定論的な乱数生成器のパフォーマンスは擬似乱数生成器よりも悪く、特にエント�ピープールが枯渇すると著しく悪化する。
 再現性が必要なく、速度が遅くても問題ない状況で使用すること。
 
 ## 実装
 - Windows
-    - Visual C++: 外部デバイスを用いており、暗号学的に安全で非決定論的 ([`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s))
+    - Visual C++: 外部デバイスを用いており、暗号�的に安全で非決定論的 ([`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s))
     - Clang: 暗号論的な乱数である [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する
     - GCC (MinGW): GCC 9.1までは擬似乱数生成器 [`mt19937`](mt19937.md) を用いるため**使用を推奨しない**。詳細は備考欄を参照。GCC 9.2からは暗号論的な乱数である [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) を使用する。
 - UNIX 系
-    - Clang (libc++): `/dev/urandom` (デフォルト) または `/dev/random` から値を読み取る
-    - GCC (libstdc++): CPU の `RDRAND` 命令を使う (デフォルト) か、`/dev/urandom` (`RDRAND` が使用できないときのデフォルト) または `/dev/random` から値を読み取る
+    - Clang (libc++): `/dev/urandom` (デフォルト) または `/dev/random` から値を�み取る
+    - GCC (libstdc++): CPU の `RDRAND` 命令を使う (デフォルト) か、`/dev/urandom` (`RDRAND` が使用できないときのデフォルト) または `/dev/random` から値を�み取る
 
 
 ## メンバ関数
@@ -37,7 +37,7 @@ namespace std {
 |----------------------------------------------------|----------------|-------|
 | [`(constructor)`](random_device/op_constructor.md) | コンストラクタ | C++11 |
 | `~random_device() = default;`                      | デストラクタ   | C++11 |
-| `void operator=(const random_device& ) = delete;`  | 代入演算子。代入不可 | C++11 |
+| `void operator=(const random_device& ) = delete;`  | 代入演算�。代入不可 | C++11 |
 
 
 ### 生成
@@ -51,7 +51,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|------------------------|-------|
-| [`entropy`](random_device/entropy.md) | エントロピーを取得する | C++11 |
+| [`entropy`](random_device/entropy.md) | エント�ピーを取得する | C++11 |
 
 
 ## 静的メンバ関数
@@ -113,7 +113,7 @@ int main()
 #include <string>
 #include <random>
 
-// candidate_chars : パスワードに含める文字の集合
+// candidate_chars : パスワードに含める文�の集合
 // length : パスワードの長さ
 std::string create_password(const std::string& candidate_chars, std::size_t length)
 {
@@ -122,16 +122,16 @@ std::string create_password(const std::string& candidate_chars, std::size_t leng
   // 非決定論的な乱数生成器を使用する
   std::random_device engine;
 
-  // パスワード候補となる文字集合の範囲を一様分布させる
+  // パスワード候補となる文�集合の範囲を一様分布させる
   std::uniform_int_distribution<std::size_t> dist(0, candidate_chars.size() - 1);
 
   std::string password;
   for (std::size_t i = 0; i < length; ++i) {
-    // パスワード候補の文字集合から、ランダムな一文字を選択する
+    // パスワード候補の文�集合から、ランダムな一文�を選択する
     std::size_t random_index = dist(engine);
     char random_char = candidate_chars[random_index];
 
-    // 選択した文字を、パスワード文字列に追加する
+    // 選択した文�を、パスワード文�列に追加する
     password += random_char;
   }
   return password;
@@ -170,12 +170,12 @@ jyiasder
 ## 備考
 ### MinGW GCC(libstdc++)
 
-Windows版のGCC (MinGW, libstdc++) 9.1まででは、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば`mt19937`のシードとして扱われるが、非決定論的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
+Windows版のGCC (MinGW, libstdc++) 9.1まででは、`random_device`クラスは擬似乱数生成器である[`mt19937`](mt19937.md)で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文�列化して渡せば`mt19937`のシードとして扱われるが、非決定論的な乱数として振る舞わないことは変わらない。この環境では`random_device`の使用は推奨しない
 
-GCC (MinGW, libstdc++) 9.2からは、この問題は解決されている。[PR libstdc++/85494 use rdseed and rand_s in std::random_device](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=91df033fd775060adde6f78fd4a0a7d744032910)により、暗号学的に安全で非決定論的な乱数を生成する`rand_s`関数での実装になるためである。
+GCC (MinGW, libstdc++) 9.2からは、この問題は解決されている。[PR libstdc++/85494 use rdseed and rand_s in std::random_device](https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=91df033fd775060adde6f78fd4a0a7d744032910)により、暗号�的に安全で非決定論的な乱数を生成する`rand_s`関数での実装になるためである。
 
 ##### 代替
-- クロスプラットフォーム
+- ク�スプラットフォーム
     - CPU が提供する [`RDRAND`, `RDSEED` 命令](https://www.cryptopp.com/wiki/RDRAND)
 - Windows
     - [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) (`CryptGenRandom` のラッパー)
@@ -279,7 +279,7 @@ using std::random_device;
 * std::error_code[link /reference/system_error/error_code.md]
 * std::to_string[link /reference/string/to_string.md]
 
-使用例は次の通り。上記コードを`random_device.hpp`というファイル名で保存していると仮定する。`cpprefjp::random_device`が`std::random_device`のworkaroundで、C++11標準規格の要求を満たしたクラス。
+使用例は次の通り。上記コードを`random_device.hpp`というファイル名で保�していると仮定する。`cpprefjp::random_device`が`std::random_device`のworkaroundで、C++11標準規格の要求を満たしたクラス。
 
 ```cpp
 #include "random_device.hpp"
@@ -332,5 +332,5 @@ int main()
 - [Replacing `/dev/urandom` May 4, 2016 - Security](https://lwn.net/Articles/685371/)
 - [gccをwindowsで使うならstd::random_deviceを使ってはいけない - Qiita](http://qiita.com/nanashi/items/f94b78398a6c79d939e1)
 - [MSC30-C. 疑似乱数の生成に rand() 関数を使用しない](https://www.jpcert.or.jp/sc-rules/c-msc30-c.html)
-- `CryptGenRandom`のエントロピー源(2005年時点): [Cryptographically Secure Random number on Windows without using CryptoAPI – Michael Howard's Web Log](https://blogs.msdn.microsoft.com/michael_howard/2005/01/14/cryptographically-secure-random-number-on-windows-without-using-cryptoapi/#div-comment-5543)
+- `CryptGenRandom`のエント�ピー源(2005年時点): [Cryptographically Secure Random number on Windows without using CryptoAPI – Michael Howard's Web Log](https://blogs.msdn.microsoft.com/michael_howard/2005/01/14/cryptographically-secure-random-number-on-windows-without-using-cryptoapi/#div-comment-5543)
 

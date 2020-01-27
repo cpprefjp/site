@@ -4,16 +4,16 @@
 
 - [言語サポートライブラリ](#language-support)
 - [コンセプトライブラリ](#concepts)
-- [診断ライブラリ](#diagnostics)
+- [診�ライブラリ](#diagnostics)
 - [汎用的なユーティリティライブラリ](#general-utils)
-- [文字列ライブラリ](#strings)
-- [ローカライズライブラリ](#localization)
+- [文�列ライブラリ](#strings)
+- [�ーカライズライブラリ](#localization)
 - [コンテナライブラリ](#container)
 - [イテレータライブラリ](#iterator)
 - [アルゴリズムライブラリ](#algorithm)
 - [数値ライブラリ](#numerics)
 - [入出力ライブラリ](#io)
-- [正規表現ライブラリ](#regular-expressions)
+- [�規表現ライブラリ](#regular-expressions)
 - [アトミック操作ライブラリ](#atomic-operations)
 - [スレッドサポートライブラリ](#thread-support)
 - [C言語互換ライブラリ](#clib-facilities)
@@ -24,14 +24,14 @@
 
 | ヘッダ                                                 | 説明                     | 対応バージョン |
 |--------------------------------------------------------|--------------------------|----------------|
-| [`<limits>`](/reference/limits.md)                     | 実装プロパティ           |                |
-| [`<version>`](/reference/version.md)                   | 実装依存のバージョン情報 | C++20          |
+| [`<limits>`](/reference/limits.md)                     | 実装プ�パティ           |                |
+| [`<version>`](/reference/version.md)                   | 実装依�のバージョン情報 | C++20          |
 | [`<new>`](/reference/new.md)                           | 動的メモリ管理           |                |
 | [`<typeinfo>`](/reference/typeinfo.md)                 | 型情報                   |                |
 | [`<source_location>`](/reference/source_location.md)   | ソースコード上の位置     | C++20          |
 | [`<contract>`](/reference/contract.md)                 | 契約違反のハンドリング   | C++23          |
 | [`<exception>`](/reference/exception.md)               | 例外ハンドリング         |                |
-| [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト           | C++11          |
+| [`<initializer_list>`](/reference/initializer_list.md) | 初期化�リスト           | C++11          |
 | [`<compare>`](/reference/compare.md)                   | 比較演算                 | C++20          |
 
 
@@ -42,7 +42,7 @@
 | [`<concepts>`](/reference/concepts.md) | 言語関係のコンセプト | C++20 |
 
 
-## <a id="diagnostics" href="#diagnostics">診断ライブラリ</a>
+## <a id="diagnostics" href="#diagnostics">診�ライブラリ</a>
 
 | ヘッダ                                         | 説明                          | 対応バージョン |
 |------------------------------------------------|-------------------------------|----------------|
@@ -64,28 +64,28 @@
 | [`<type_traits>`](/reference/type_traits.md) | 型特性                       | C++11          |
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
-| [`<scoped_allocator>`](/reference/scoped_allocator.md) | スコープ付きアロケータ        | C++11          |
-| [`<memory_resource>`](/reference/memory_resource.md) | 多相アロケータ        | C++17          |
+| [`<scoped_allocator>`](/reference/scoped_allocator.md) | スコープ付きア�ケータ        | C++11          |
+| [`<memory_resource>`](/reference/memory_resource.md) | 多相ア�ケータ        | C++17          |
 | [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ           | C++11          |
 | [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス             | C++11          |
 | [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
-| [`<charconv>`](/reference/charconv.md)       | 高速な文字列 ⇔ 数値変換     | C++17          |
-| [`<format>`](/reference/format.md)           | 文字列フォーマット           | C++20          |
+| [`<charconv>`](/reference/charconv.md)       | 高速な文�列 ⇔ 数値変換     | C++17          |
+| [`<format>`](/reference/format.md)           | 文�列フォーマット           | C++20          |
 
 
-## <a id="strings" href="#strings">文字列ライブラリ</a>
+## <a id="strings" href="#strings">文�列ライブラリ</a>
 
 | ヘッダ                             | 説明                     | 対応バージョン |
 |------------------------------------|--------------------------|----------------|
-| [`<string>`](/reference/string.md) | 文字列クラスと、文字特性 |                |
-| [`<string_view>`](/reference/string_view.md) | 所有権を持たず文字列を参照する文字列クラス | C++17 |
+| [`<string>`](/reference/string.md) | 文�列クラスと、文�特性 |                |
+| [`<string_view>`](/reference/string_view.md) | 所有権を持たず文�列を参照する文�列クラス | C++17 |
 
 
-## <a id="localization" href="#localization">ローカライズライブラリ</a>
+## <a id="localization" href="#localization">�ーカライズライブラリ</a>
 
 | ヘッダ                               | 説明                 | 対応バージョン |
 |--------------------------------------|----------------------|----------------|
-| [`<locale>`](/reference/locale.md)   | ロケール             |                |
+| [`<locale>`](/reference/locale.md)   | �ケール             |                |
 | [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨 |
 
 
@@ -94,10 +94,10 @@
 | ヘッダ                                           | 説明                  | 対応バージョン |
 |--------------------------------------------------|-----------------------|----------------|
 | [`<array>`](/reference/array.md)                 | 配列                  | C++11          |
-| [`<deque>`](/reference/deque.md)                 | 両端キュー            |                |
+| [`<deque>`](/reference/deque.md)                 | 両端�ュー            |                |
 | [`<forward_list>`](/reference/forward_list.md)   | 単方向リスト          | C++11          |
 | [`<list>`](/reference/list.md)                   | 双方向リスト          |                |
-| [`<queue>`](/reference/queue.md)                 | FIFOキュー            |                |
+| [`<queue>`](/reference/queue.md)                 | FIFO�ュー            |                |
 | [`<stack>`](/reference/stack.md)                 | LIFOスタック          |                |
 | [`<vector>`](/reference/vector.md)               | ベクタ配列            |                |
 | [`<map>`](/reference/map.md)                     | 連想配列              |                |
@@ -144,17 +144,17 @@
 | [`<istream>`](/reference/istream.md)       | 入力ストリーム               |                |
 | [`<ostream>`](/reference/ostream.md)       | 出力ストリーム               |                |
 | [`<iomanip>`](/reference/iomanip.md)       | フォーマットとマニピュレータ |                |
-| [`<sstream>`](/reference/sstream.md)       | 文字列ストリーム             |                |
+| [`<sstream>`](/reference/sstream.md)       | 文�列ストリーム             |                |
 | [`<fstream>`](/reference/fstream.md)       | ファイルストリーム           |                |
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 | [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー   | C++20          |
 
 
-## <a id="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
+## <a id="regular-expressions" href="#regular-expressions">�規表現ライブラリ</a>
 
 | ヘッダ                           | 説明            | 対応バージョン |
 |----------------------------------|-----------------|----------------|
-| [`<regex>`](/reference/regex.md) | 正規表現        | C++11          |
+| [`<regex>`](/reference/regex.md) | �規表現        | C++11          |
 
 
 ## <a id="atomic-operations" href="#atomic-operations">アトミック操作ライブラリ</a>
@@ -173,7 +173,7 @@
 | [`<shared_mutex>`](/reference/shared_mutex.md)             | 共有ミューテックス    | C++14          |
 | [`<condition_variable>`](/reference/condition_variable.md) | 条件変数              | C++11          |
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
-| [`<stop_token>`](/reference/stop_token.md)                 | 停止状態              | C++20          |
+| [`<stop_token>`](/reference/stop_token.md)                 | 停�状態              | C++20          |
 
 
 ## <a id="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>
@@ -182,27 +182,27 @@
 |--------------------------------------|-------------------------------------|----------------|
 | [`<cassert>`](/reference/cassert.md) | アサート                            |                |
 | `<ccomplex>`                         | 複素数                              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
-| `<cctype>`                           | 文字種別の判定と変換                |                |
+| `<cctype>`                           | 文�種別の判定と変換                |                |
 | [`<cerrno>`](/reference/cerrno.md)   | エラー番号                          |                |
 | [`<cfenv>`](/reference/cfenv.md)     | 浮動小数点環境へのアクセス          | C++11 (C99)    |
 | [`<cfloat>`](/reference/cfloat.md)   | 浮動小数点数の定数                  |                |
-| `<cinttypes>`                        | 固定精度整数のための書式指定マクロ  | C++11 (C99)    |
-| `<ciso646>`                          | `&&`に対する別名`and`のような、各種演算子に対するマクロを定義する。<br/> ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。 | C++20で削除               |
-| [`<climits>`](/reference/climits.md) | 整数型の最小値、最大値を表すマクロ  |                |
-| `<clocale>`                          | ロケール                            |                |
-| [`<cmath>`](/reference/cmath.md)     | 数学関数                            |                |
+| `<cinttypes>`                        | 固定精度整数のための書式指定マク�  | C++11 (C99)    |
+| `<ciso646>`                          | `&&`に対する別名`and`のような、各種演算�に対するマク�を定義する。<br/> ただしC++ではこれらの別名は�ーワードとして定義されるため、このヘッダでは何も定義されない。 | C++20で削除               |
+| [`<climits>`](/reference/climits.md) | 整数型の最小値、最大値を表すマク�  |                |
+| `<clocale>`                          | �ケール                            |                |
+| [`<cmath>`](/reference/cmath.md)     | 数�関数                            |                |
 | `<csetjmp>`                          | ジャンプ処理                        |                |
 | `<csignal>`                          | シグナル                            |                |
-| `<cstdalign>`                        | アライメント操作のマクロ            | C++17で非推奨<br/> C++20で削除    |
+| `<cstdalign>`                        | アライメント操作のマク�            | C++17で非推奨<br/> C++20で削除    |
 | `<cstdarg>`                          | 可変引数操作                        |                |
 | `<cstdbool>`                         | 真理値型の定義                      | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
-| [`<cstddef>`](/reference/cstddef.md) | 基本的な型、値、マクロの定義        |                |
+| [`<cstddef>`](/reference/cstddef.md) | 基本的な型、値、マク�の定義        |                |
 | [`<cstdint>`](/reference/cstdint.md) | 大きさが規定されている整数型        | C++11 (C99)    |
 | [`<cstdio>`](/reference/cstdio.md)   | 入出力                              |                |
 | [`<cstdlib>`](/reference/cstdlib.md) | ユーティリティ関数                  |                |
-| `<cstring>`                          | 文字列操作                          |                |
-| `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
+| `<cstring>`                          | 文�列操作                          |                |
+| `<ctgmath>`                          | ジェネリックな数�関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<ctime>`](/reference/ctime.md)     | 日付・時間                          |                |
-| `<cuchar>`                           | ユニコード文字型                    | C++11 (C11)    |
-| `<cwchar>`                           | ワイド文字型                        |                |
-| `<cwctype>`                          | ワイド文字の種別と判定              |                |
+| `<cuchar>`                           | ユニコード文�型                    | C++11 (C11)    |
+| `<cwchar>`                           | ワイド文�型                        |                |
+| `<cwctype>`                          | ワイド文�の種別と判定              |                |

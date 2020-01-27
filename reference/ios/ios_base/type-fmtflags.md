@@ -12,26 +12,26 @@ using fmtflags = T1;
 *`T1`* は処理系定義の型。
 
 ## 概要
-`fmtflags` はロケールに依存しないストリームの書式に関するフラグを保持するためのビットマスク型である。  
-`fmtflags` には以下の表のようなビットマスク値が存在し、全て [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
+`fmtflags` は�ケールに依�しないストリームの書式に関するフラグを保持するためのビットマスク型である。  
+`fmtflags` には以下の表のようなビットマスク値が�在し、全て [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
 
-| 定数 | 設定された場合の効果 |
+| 定数 | �定された場合の効果 |
 |------|----------------------|
 | `boolalpha` | `bool` 型の入出力をアルファベット形式（`true`、`false`）で行う。 |
 | `dec` | 整数の入出力を 10 進数で行う。 |
 | `fixed` | 浮動小数点数の出力を固定表記（`12.345670` のような形式）で行う。 |
 | `hex` | 整数の入出力を 16 進数で行う。 |
-| `internal` | 中央揃え。埋め文字を出力の内側に追加する。出力の内側に追加する適切な場所が無ければ `right` と等価。 |
-| `left` | 左寄せ。埋め文字を出力の右側に追加する。 |
+| `internal` | �央揃え。埋め文�を出力の内側に追加する。出力の内側に追加する適切な場所が無ければ `right` と�価。 |
+| `left` | 左寄せ。埋め文�を出力の右側に追加する。 |
 | `oct` | 整数の入出力を 8 進数で行う。 |
-| `right` | 右寄せ。埋め文字を出力の左側に追加する。 |
-| `scientific` | 浮動小数点数の出力を科学表記（`1.234567e+01` のような形式）で行う。 |
-| `showbase` | 整数の出力時に先頭に基数を表す出力（8 進数だと `0`、16 進数だと `0x`）を追加する。 |
+| `right` | 右寄せ。埋め文�を出力の左側に追加する。 |
+| `scientific` | 浮動小数点数の出力を科�表記（`1.234567e+01` のような形式）で行う。 |
+| `showbase` | 整数の出力時に先�に基数を表す出力（8 進数だと `0`、16 進数だと `0x`）を追加する。 |
 | `showpoint` | 浮動小数点数の出力時に必ず小数点を出力する。 |
 | `showpos` | 負でない数値の出力時に `+` 符号を出力する。 |
-| `skipws` | 特定の入力処理の際に、先行する空白文字をスキップする。 |
+| `skipws` | 特定の入力処理の際に、先行する空白文�をス�ップする。 |
 | `unitbuf` | 各出力処理の後、毎回バッファをフラッシュする。 |
-| `uppercase` | 特定の小文字の出力を大文字の出力にする。（`scientific` の `E` や <code>hex &#124; showbase</code> の `0X` など） |
+| `uppercase` | 特定の小文�の出力を大文�の出力にする。（`scientific` の `E` や <code>hex &#124; showbase</code> の `0X` など） |
 
 
 また、上記に加えて、[`setf`](setf.md)`()` の第 2 引数や　[`unsetf`](unsetf.md)`()` の引数に使用するため、 以下のように組み合わせた定数も [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
@@ -42,7 +42,7 @@ using fmtflags = T1;
 | `basefield`   | <code>dec &#124; oct &#124; hex</code>         |
 | `floatfield`  | <code>scientific &#124; fixed</code>           |
 
-さらに、直接の定数は存在しないが、C++11 からは `fixed | scientific` の組み合わせで 16 進浮動小数点出力を行う。  
+さらに、直接の定数は�在しないが、C++11 からは `fixed | scientific` の組み合わせで 16 進浮動小数点出力を行う。  
 （16 進浮動小数点出力が、より直観的な `hex` との組み合わせを使用しないのは、C++03 までとの互換性のため）
 
 
@@ -56,10 +56,10 @@ using fmtflags = T1;
 
 int main()
 {
-  std::cout.setf(std::ios_base::boolalpha);   // std::boolalpha マニピュレータと等価
+  std::cout.setf(std::ios_base::boolalpha);   // std::boolalpha マニピュレータと�価
   std::cout << true << ", " << false << "\n";
 
-  std::cout.unsetf(std::ios_base::boolalpha); // std::noboolalpha マニピュレータと等価
+  std::cout.unsetf(std::ios_base::boolalpha); // std::noboolalpha マニピュレータと�価
   std::cout << true << ", " << false << "\n";
 }
 ```
@@ -78,10 +78,10 @@ true, false
 
 int main()
 {
-  std::cout.setf(std::ios_base::showpos);   // std::showpos マニピュレータと等価
+  std::cout.setf(std::ios_base::showpos);   // std::showpos マニピュレータと�価
   std::cout << 10 << '\n';
 
-  std::cout.unsetf(std::ios_base::showpos); // std::noshowpos マニピュレータと等価
+  std::cout.unsetf(std::ios_base::showpos); // std::noshowpos マニピュレータと�価
   std::cout << 10 << "\n";
 }
 ```
@@ -102,10 +102,10 @@ int main()
 
 int main()
 {
-  std::cout.setf(std::ios_base::showpoint);   // std::showpoint マニピュレータと等価
+  std::cout.setf(std::ios_base::showpoint);   // std::showpoint マニピュレータと�価
   std::cout << 10.0 << '\n';
 
-  std::cout.unsetf(std::ios_base::showpoint); // std::noshowpoint マニピュレータと等価
+  std::cout.unsetf(std::ios_base::showpoint); // std::noshowpoint マニピュレータと�価
   std::cout << 10.0 << "\n";
 }
 ```
@@ -126,20 +126,20 @@ int main()
 
 int main()
 {
-  std::cout.setf(std::ios_base::showbase);                      // std::showbase マニピュレータと等価
-  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex マニピュレータと等価
+  std::cout.setf(std::ios_base::showbase);                      // std::showbase マニピュレータと�価
+  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex マニピュレータと�価
   std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct マニピュレータと等価
+  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct マニピュレータと�価
   std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec マニピュレータと等価
+  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec マニピュレータと�価
   std::cout << 10 << "\n\n";
 
-  std::cout.unsetf(std::ios_base::showbase);                    // std::noshowbase マニピュレータと等価
-  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex マニピュレータと等価
+  std::cout.unsetf(std::ios_base::showbase);                    // std::noshowbase マニピュレータと�価
+  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex マニピュレータと�価
   std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct マニピュレータと等価
+  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct マニピュレータと�価
   std::cout << 10 << '\n';
-  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec マニピュレータと等価
+  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec マニピュレータと�価
   std::cout << 10 << "\n";
 }
 ```
@@ -172,26 +172,26 @@ a
 
 int main()
 {
-  std::cout.setf(std::ios_base::uppercase);                                 // std::uppercase マニピュレータと等価
-  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed マニピュレータと等価
+  std::cout.setf(std::ios_base::uppercase);                                 // std::uppercase マニピュレータと�価
+  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed マニピュレータと�価
   std::cout << 12.34567 << '\n';
-  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::fixed マニピュレータと等価
+  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::fixed マニピュレータと�価
   std::cout << 12.34567 << '\n';
   std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);  // C++11 から
-                                                                            // std::hexfloat マニピュレータと等価
+                                                                            // std::hexfloat マニピュレータと�価
   std::cout << 12.34567 << '\n';
-  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat マニピュレータと等価
+  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat マニピュレータと�価
   std::cout << 12.34567 << "\n\n";
 
-  std::cout.unsetf(std::ios_base::uppercase);                               // std::nouppercase マニピュレータと等価
-  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed マニピュレータと等価
+  std::cout.unsetf(std::ios_base::uppercase);                               // std::nouppercase マニピュレータと�価
+  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed マニピュレータと�価
   std::cout << 12.34567 << '\n';
-  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::scientific マニピュレータと等価
+  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::scientific マニピュレータと�価
   std::cout << 12.34567 << '\n';
   std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);  // C++11 から
-                                                                            // std::hexfloat マニピュレータと等価
+                                                                            // std::hexfloat マニピュレータと�価
   std::cout << 12.34567 << '\n';
-  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat マニピュレータと等価
+  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat マニピュレータと�価
   std::cout << 12.34567 << "\n\n";
 }
 ```
@@ -225,15 +225,15 @@ int main()
 int main()
 {
   std::cout.width(10);
-  std::cout.setf(std::ios_base::right, std::ios_base::adjustfield);    // std::right マニピュレータと等価
+  std::cout.setf(std::ios_base::right, std::ios_base::adjustfield);    // std::right マニピュレータと�価
   std::cout << -10 << "|\n";
 
   std::cout.width(10);
-  std::cout.setf(std::ios_base::internal, std::ios_base::adjustfield); // std::internal マニピュレータと等価
+  std::cout.setf(std::ios_base::internal, std::ios_base::adjustfield); // std::internal マニピュレータと�価
   std::cout << -10 << "|\n";
 
   std::cout.width(10);
-  std::cout.setf(std::ios_base::left, std::ios_base::adjustfield);     // std::left マニピュレータと等価
+  std::cout.setf(std::ios_base::left, std::ios_base::adjustfield);     // std::left マニピュレータと�価
   std::cout << -10 << "|\n";
 }
 ```

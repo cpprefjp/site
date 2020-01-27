@@ -19,7 +19,7 @@
 - [Visual C++](/implementation.md#visual_cpp): 未実装
 
 ## 関連項目
-- [契約に基づくプログラミング](/lang/cpp23/contract-based_programming.md)
+- [契約に基づくプ�グラミング](/lang/cpp23/contract-based_programming.md)
 
 ## 参照
 - [P0542R5 Support for contract based programming in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html)

@@ -27,7 +27,7 @@ namespace std {
 ## 効果
 `is_nothrow_constructible`は、型`T`が例外を投げない保証のもとに構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
-[`is_constructible`](is_constructible.md)`<T, Args...>::value == true`かつ、いかなる例外を投げないならば、例外を投げない構築が可能であると判断される。
+[`is_constructible`](is_constructible.md)`<T, Args...>::value == true`かつ、いかなる例外を投げないならば、例外を投げない構築が可能であると判�される。
 
 
 ## 例

@@ -10,11 +10,11 @@ explicit operator bool() const noexcept;
 ```
 
 ## 概要
-共有ロックを取得しているかを確認する
+共有�ックを取得しているかを確認する
 
 
 ## 戻り値
-共有ロックを取得済みであれば`true`、そうでなければ`false`を返す。
+共有�ックを取得済みであれば`true`、そうでなければ`false`を返す。
 
 ## 例外
 投げない
@@ -32,7 +32,7 @@ int main()
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx);
 
-    // コンストラクタで共有ロックが取得されるので、
+    // コンストラクタで共有�ックが取得されるので、
     // boolへの変換はtrueとなる
     if (lock) {
       std::cout << "locked" << std::endl;
@@ -40,12 +40,12 @@ int main()
     else {
       assert(false);
     }
-  } // 共有ロックを手放す(shared_lockのデストラクタ)
+  } // 共有�ックを手放す(shared_lockのデストラクタ)
 
   {
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
 
-    // 遅延ロックのため、コンストラクタで共有ロックが取得されないので、
+    // 遅延�ックのため、コンストラクタで共有�ックが取得されないので、
     // boolへの変換はfalseとなる
     if (!lock) {
       std::cout << "unlocked" << std::endl;
@@ -56,7 +56,7 @@ int main()
 
     lock.lock();
 
-    // 共有ロック取得後なので、
+    // 共有�ック取得後なので、
     // boolへの変換はtrueとなる
     if (lock) {
       std::cout << "locked" << std::endl;
@@ -64,7 +64,7 @@ int main()
     else {
       assert(false);
     }
-  } // 共有ロックを手放す(shared_lockのデストラクタ)
+  } // 共有�ックを手放す(shared_lockのデストラクタ)
 }
 ```
 * if (lock)[color ff0000]

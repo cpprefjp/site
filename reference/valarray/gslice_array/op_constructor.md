@@ -24,9 +24,9 @@ public:
 
 
 ## 備考
-- (2) このオーバーロードには仕様がなかったため、問題を報告中(どこかに掲載されたらリンクを貼る)。
-	- ここに記載している仕様は、[libstdc++のドキュメント](https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-4.3/a00937.html#9fbd1eb3ba4bb015446ecdc29692e658)およびlibc++とVisual C++の実装で確認できた挙動である。
-- これらオーバーロードのほかに、 [`valarray`](../valarray.md) オブジェクトからスライスするためのコンストラクタが実装として用意されるが、このクラスのユーザーはそれを使用することはできない。
+- (2) このオーバー�ードには仕様がなかったため、問題を報告�(どこかに掲載されたらリンクを貼る)。
+	- ここに記載している仕様は、[libstdc++のド�ュメント](https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-4.3/a00937.html#9fbd1eb3ba4bb015446ecdc29692e658)およびlibc++とVisual C++の実装で確認できた挙動である。
+- これらオーバー�ードのほかに、 [`valarray`](../valarray.md) オブジェクトからスライスするためのコンストラクタが実装として用意されるが、このクラスのユーザーはそれを使用することはできない。
 
 
 ## 例
@@ -71,7 +71,7 @@ int main()
 
 
 ### 備考
-- GCC 4.9.0時点のlibstdc++は、(2)のオーバーロードにおいて、ぶら下がり参照の問題が発生する実装のバグがある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119))
+- GCC 4.9.0時点のlibstdc++は、(2)のオーバー�ードにおいて、ぶら下がり参照の問題が発生する実装のバグがある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119))
 
 
 ## 参照

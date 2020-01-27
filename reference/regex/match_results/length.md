@@ -10,7 +10,7 @@ difference_type length(size_type sub = 0) const;
 ```
 
 ## 概要
-指定されたサブマッチが指す文字列の長さを返す。
+指定されたサブマッチが指す文�列の長さを返す。
 
 
 ## 要件

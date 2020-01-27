@@ -11,15 +11,15 @@ bool try_lock_for(const chrono::duration<Rep, Period>& rel_time);
 ```
 
 ## 概要
-タイムアウトする相対時間を指定してロックの取得を試みる
+タイムアウトする相対時間を指定して�ックの取得を試みる
 
 
 ## 効果
 `rel_time`パラメータで指定された相対時間の間、ミューテックスの所有権取得を試みる。
 
-所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブロッキングする。
+所有権が取得できるまで、もしくは`rel_time`時間が経過するまでこの関数はブ�ッ�ングする。
 
-`rel_time`が`rel_time.`[`zero()`](/reference/chrono/duration/zero.md)より小さい場合、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブロッキングせずにミューテックスの所有権取得を試みる。
+`rel_time`が`rel_time.`[`zero()`](/reference/chrono/duration/zero.md)より小さい場合、この関数は[`try_lock()`](try_lock.md)と同じ効果をもち、ブ�ッ�ングせずにミューテックスの所有権取得を試みる。
 
 
 ## 戻り値
@@ -53,9 +53,9 @@ public:
   // メンバ変数value_への書き込みを排他的にする
   void add_value(int value)
   {
-    // ロックの取得を試みる(3秒でタイムアウト)
+    // �ックの取得を試みる(3秒でタイムアウト)
     if (!mtx_.try_lock_for(std::chrono::seconds(3))) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

@@ -46,7 +46,7 @@ int main()
   // std::array mixed_ar = {1, 0u}; // コンパイルエラー！すべての要素型は同じ型となるべき
 
   // 受け付けない例3
-  // 文字列リテラルの代入
+  // 文�列リテラルの代入
   // std::array s = "Hello"; // コンパイルエラー！std::array<char, 6>を意図していたが、ポインタに変換されて推論できない
   // std::array s {"Hello"}; // OKだが、std::array<const char*, 1>となる
 }

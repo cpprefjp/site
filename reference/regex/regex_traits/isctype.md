@@ -11,11 +11,11 @@ bool isctype(char_type c, char_class_type f) const;
 
 
 ## 概要
-文字`c`がクラス`f`に属しているかを判定する。
+文�`c`がクラス`f`に属しているかを判定する。
 
 
 ## 戻り値
-ビットマスクのクラス値`f`に含まれるいずれかのクラスに文字`c`が属していれば`true`、そうでなければ`false`を返す。
+ビットマスクのクラス値`f`に含まれるいずれかのクラスに文�`c`が属していれば`true`、そうでなければ`false`を返す。
 
 
 ## 例
@@ -28,9 +28,9 @@ int main()
 {
   std::regex_traits<char> traits;
 
-  std::string class_name = "alnum"; // 正規表現中で[[:alnum:]]のように入力するクラス名
+  std::string class_name = "alnum"; // �規表現�で[[:alnum:]]のように入力するクラス名
 
-  // 文字'a'がアルファベットと数字のクラスに含まれているかを判定する
+  // 文�'a'がアルファベットと数�のクラスに含まれているかを判定する
   std::regex_traits<char>::char_class_type class_value =
     traits.lookup_classname(class_name.begin(), class_name.end());
   if (traits.isctype('a', class_value)) {

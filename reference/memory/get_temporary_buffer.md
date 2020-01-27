@@ -17,11 +17,11 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 * pair[link /reference/utility/pair.md]
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
-この機能は、C++17から非推奨となり、C++20で削除された。短期的な用途のメモリ領域確保には、[`alloca()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)のようなスタックからメモリを確保するなど、他の機能を使用すること。
+この機能は、C++17から非推奨となり、C++20で削除された。�期的な用途のメモリ領域確保には、[`alloca()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)のようなスタックからメモリを確保するなど、他の機能を使用すること。
 
 
 ## 概要
-短期的なメモリ領域を確保する。
+�期的なメモリ領域を確保する。
 
 
 ## 効果
@@ -41,7 +41,7 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 ## 備考
 例えば[`stable_sort()`](/reference/algorithm/stable_sort.md) など、アルゴリズムによっては追加のメモリ領域を利用することで計算量を低減できるものがあり、この関数は主にそういったアルゴリズムの実装内で使用される。
 
-この関数は、短期的なメモリ領域のため、たとえば実装が保持している空き領域リストからサイズの照合を省いて領域を返すなど、実装が最適化されている可能性がある。[`std::allocator`](allocator.md)`::`[`allocate()`](allocator/allocate.md)を長期的に使用するメモリとして使用することで、この関数との使い分けができるだろう。
+この関数は、�期的なメモリ領域のため、たとえば実装が保持している空き領域リストからサイズの照合を省いて領域を返すなど、実装が最適化されている可能性がある。[`std::allocator`](allocator.md)`::`[`allocate()`](allocator/allocate.md)を長期的に使用するメモリとして使用することで、この関数との使い分けができるだろう。
 
 ただし、Visual C++ 2013、GCC 4.8 (libstdc++)、Clang 3.4 (libc++)は単に[`new`](/reference/new/op_new.md)を呼んでいるだけで、最適化はとくに行っていない。
 
@@ -49,7 +49,7 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 ## 非推奨・削除の詳細
 `std::get_temporary_buffer()`関数と[`std::return_temporary_buffer()`](return_temporary_buffer.md)関数は、関数内での一時的なメモリ確保のために、最適化されたメモリ確保の仕組みを提供することを期待して定義されたが、実際にはどの実装も特別なメモリ確保を行わず、そのために使われてこなかった。
 
-将来的にスタックからメモリ確保をする仕組みが検討されているが、これらの関数は設計として例外安全性やRAIIといったものが考慮されていない。スタックからメモリ確保する機能が入ったとしても、これらの関数の内部を改善することはできないと判断され、非推奨となった。
+将来的にスタックからメモリ確保をする仕組みが検討されているが、これらの関数は�計として例外安全性やRAIIといったものが考慮されていない。スタックからメモリ確保する機能が入ったとしても、これらの関数の内部を改善することはできないと判�され、非推奨となった。
 
 スタックからメモリ確保する機能は、現在の標準ライブラリにはない。そのため、代わりとしては、配置new構文や、標準外の[`alloca()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)関数のような機能を使用すること。
 

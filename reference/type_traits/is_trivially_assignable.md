@@ -26,7 +26,7 @@ namespace std {
 ## 効果
 `is_trivially_assignable`は、型`T`が型`U`からトリビアルに代入可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
-「トリビアルに代入可能」とは、ユーザー定義されない代入演算子を持っているということを意味する。
+「トリビアルに代入可能」とは、ユーザー定義されない代入演算�を持っているということを意味する。
 
 
 ## 例
@@ -35,19 +35,19 @@ namespace std {
 #include <string>
 
 struct X {
-  // トリビアルな代入演算子を持っている
+  // トリビアルな代入演算�を持っている
 };
 
 struct Y {
-  // 非トリビアルな代入演算子を持っている
+  // 非トリビアルな代入演算�を持っている
   Y& operator=(const Y&) { return *this; }
 };
 
 struct Z {
-  // 非トリビアルな代入演算子を持つ型を包含している
+  // 非トリビアルな代入演算�を持つ型を包含している
   std::string s;
 
-  // Z型は非トリビアルな代入演算子を持つ
+  // Z型は非トリビアルな代入演算�を持つ
 };
 
 // 組み込み型は全てトリビアルに代入可能
@@ -55,17 +55,17 @@ static_assert(
   std::is_trivially_assignable<int&, const int&>::value == true,
   "int is trivially assignable");
 
-// トリビアルな代入演算子を持っている型
+// トリビアルな代入演算�を持っている型
 static_assert(
   std::is_trivially_assignable<X&, const X&>::value == true,
   "X is trivially assignable");
 
-// 非トリビアルな代入演算子を持っている型
+// 非トリビアルな代入演算�を持っている型
 static_assert(
   std::is_trivially_assignable<Y&, const Y&>::value == false,
   "Y isn't trivially assignable");
 
-// 非トリビアルな代入演算子を持つ型を包含する型
+// 非トリビアルな代入演算�を持つ型を包含する型
 static_assert(
   std::is_trivially_assignable<Z&, const Z&>::value == false,
   "Z isn't trivially assignable");

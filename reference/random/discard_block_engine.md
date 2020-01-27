@@ -17,8 +17,8 @@ namespace std {
 * ranlux48[link ranlux48.md]
 
 ## 概要
-`discard_block_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、捨てるブロックと使用するブロックに分ける生成器アダプタである。  
-テンプレートパラメータ`p`はブロックの全体サイズ、`r`は使用するブロックサイズである。`p - r`が破棄するブロックサイズとなる。  
+`discard_block_engine`クラスは、乱数生成エンジンが生成する乱数を調整し、捨てるブ�ックと使用するブ�ックに分ける生成器アダプタである。  
+テンプレートパラメータ`p`はブ�ックの全体サイズ、`r`は使用するブ�ックサイズである。`p - r`が破棄するブ�ックサイズとなる。  
 
 この生成器アダプタは、標準内においては[`subtract_with_carry_engine`](subtract_with_carry_engine.md)クラスと組み合わせて、RANLUX(LUXury RANdom numbers)法を実装するために使われる。RANLUX法は、重複のない独立した乱数列を生成することで知られている。
 
@@ -34,7 +34,7 @@ namespace std {
 |-------------------------------------------------------------------|------------------|-------|
 | [`(constructor)`](discard_block_engine/op_constructor.md)       | コンストラクタ   | C++11 |
 | `~discard_block_engine() = default;`                              | デストラクタ     | C++11 |
-| [`seed`](discard_block_engine/seed.md)                          | シードを設定する | C++11 |
+| [`seed`](discard_block_engine/seed.md)                          | シードを�定する | C++11 |
 
 
 ### 生成
@@ -72,16 +72,16 @@ namespace std {
 
 | 定数 | 説明 | 対応バージョン |
 |---------------|-------------------|-------|
-| `static constexpr size_t block_size` | ブロックサイズ。テンプレートパラメータ`p`。 | C++11 |
-| `static constexpr size_t used_size`  | 使用するブロックサイズ。テンプレートパラメータ`r`。 | C++11 |
+| `static constexpr size_t block_size` | ブ�ックサイズ。テンプレートパラメータ`p`。 | C++11 |
+| `static constexpr size_t used_size`  | 使用するブ�ックサイズ。テンプレートパラメータ`r`。 | C++11 |
 
 
 ## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------|----------------------|-------|
-| [`operator==`](discard_block_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](discard_block_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](discard_block_engine/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](discard_block_engine/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](discard_block_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](discard_block_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -118,7 +118,7 @@ public:
 
 int main()
 {
-  // ブロック全体のサイズp : 3
+  // ブ�ック全体のサイズp : 3
   // 使用するサイズr : 2
   // 破棄するサイズ : p - r == 1
   std::discard_block_engine<sequence_generator, 3, 2> engine;
@@ -145,7 +145,7 @@ int main()
 13
 ```
 
-出力結果から、使用するブロック(0, 1)が選択されたあと、破棄するブロック(2)が出力されず、そのあと使用するブロック、破棄するブロック・・・のようにサイクルしていることがわかる。
+出力結果から、使用するブ�ック(0, 1)が選択されたあと、破棄するブ�ック(2)が出力されず、そのあと使用するブ�ック、破棄するブ�ック・・・のようにサイクルしていることがわかる。
 
 
 ## バージョン

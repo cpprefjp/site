@@ -17,7 +17,7 @@ void(*p2)() = f;            // OK : noexceptから非noexceptへの変換
 
 これは、メンバ関数ポインタも同様である。
 
-例外仕様は、[`noexcept`](/lang/cpp11/noexcept.md)キーワードによるもののみで、`throw`キーワードによる例外仕様は含まない。
+例外仕様は、[`noexcept`](/lang/cpp11/noexcept.md)�ーワードによるもののみで、`throw`�ーワードによる例外仕様は含まない。
 
 この仕様は、ラムダ式も同様である。
 
@@ -27,7 +27,7 @@ void(*p2)() = []() noexcept {};          // OK
 //void(*p3)() noexcept = [](){};         // コンパイルエラー
 ```
 
-`noexcept`の違いによる関数のオーバーロードはできない。
+`noexcept`の違いによる関数のオーバー�ードはできない。
 
 
 ## 備考

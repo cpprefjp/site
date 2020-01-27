@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS) 機能を提供し、有効値の設定とクリアの2状態のみを持つ。このクラスに対する操作はロックフリーであることが保証される。（機能的には[`atomic<bool>`](atomic.md)クラスよりも貧弱だが、`atomic_flag`クラスの操作は必ずロックフリーである点が異なる。）
+`atomic_flag`クラスは、フラグを表現するためのアトミッククラスである。このクラスは、シンプルなtest-and-set (TAS) 機能を提供し、有効値の�定とクリアの2状態のみを持つ。このクラスに対する操作は�ックフリーであることが保証される。（機能的には[`atomic<bool>`](atomic.md)クラスよりも貧弱だが、`atomic_flag`クラスの操作は必ず�ックフリーである点が異なる。）
 
 
 ### メンバ関数
@@ -19,7 +19,7 @@ namespace std {
 |-------------------------------------------------|--------------------------|-------|
 | [`(constructor)`](atomic_flag/op_constructor.md) | コンストラクタ           | C++11 |
 | `~atomic_flag() = default`                      | デストラクタ             | C++11 |
-| `operator=(const atomic_flag&) = delete`<br/>`operator=(const atomic_flag&) volatile = delete` | 代入演算子 | C++11 |
+| `operator=(const atomic_flag&) = delete`<br/>`operator=(const atomic_flag&) volatile = delete` | 代入演算� | C++11 |
 | [`test`](atomic_flag/test.md) | 現在の値をbool値として取得する | C++20 |
 | [`test_and_set`](atomic_flag/test_and_set.md) | テストしてフラグを立てる | C++11 |
 | [`clear`](atomic_flag/clear.md)               | フラグをクリアする       | C++11 |
@@ -30,7 +30,7 @@ namespace std {
 
 ### 例
 ```cpp example
-// スピンロックの実装
+// スピン�ックの実装
 #include <iostream>
 #include <atomic>
 #include <thread>
@@ -45,15 +45,15 @@ public:
 
   void lock()
   {
-    // 現在の状態をロック状態にする
+    // 現在の状態を�ック状態にする
     while (state_.test_and_set(std::memory_order_acquire)) {
-      // busy-wait...アンロックされるまで待機
+      // busy-wait...アン�ックされるまで待機
     }
   }
 
   void unlock()
   {
-    // 値をアンロック状態にする
+    // 値をアン�ック状態にする
     state_.clear(std::memory_order_release);
   }
 };
@@ -108,7 +108,7 @@ int main()
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-	- 2012はコピーコンストラクタと代入演算子のdelete宣言が存在しない。
+	- 2012はコピーコンストラクタと代入演算�のdelete宣言が�在しない。
 
 
 ### 参照

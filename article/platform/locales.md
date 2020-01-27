@@ -1,10 +1,10 @@
-# 使用できるロケール文字列
-この記事では、使用できるロケール文字列の一覧をまとめる。ここでいうロケール文字列とは、`setlocale()`関数、`_wsetlocale()`関数、`std::locale`コンストラクタで指定する文字列である。 
+# 使用できる�ケール文�列
+この記事では、使用できる�ケール文�列の一覧をまとめる。ここでいう�ケール文�列とは、`setlocale()`関数、`_wsetlocale()`関数、`std::locale`コンストラクタで指定する文�列である。 
 
 
 ## Visual C++
 
-MSDNライブラリの[setlocale、_wsetlocale](https://docs.microsoft.com/ja-jp/previous-versions/visualstudio/visual-studio-2010/x99tb11d(v=vs.100))では、以下の形式の文字列が指定できると記述されている。`[]`で囲っている部分は省略可能であることを意味する。
+MSDNライブラリの[setlocale、_wsetlocale](https://docs.microsoft.com/ja-jp/previous-versions/visualstudio/visual-studio-2010/x99tb11d(v=vs.100))では、以下の形式の文�列が指定できると記述されている。`[]`で囲っている部分は省略可能であることを意味する。
 
 - `"lang[_country_region[.code_page]]"`
 - `".code_page"`
@@ -13,12 +13,12 @@ MSDNライブラリの[setlocale、_wsetlocale](https://docs.microsoft.com/ja-jp
 
 `lang`（言語）、`country_region`（地域）、`code_page`（コードページ）の3要素として指定できる項目を明確にすることが本記事の目的である。
 
-（以下、制作中につき、構成が変化する可能性があります）
+（以下、制作�につき、構成が変化する可能性があります）
 
 
 ## Windows 8 / Visual C++ 2012 Update 1 無印
 
-| 3文字表記（言語`_`地域） | 長い表記（言語`_`地域）                      |
+| 3文�表記（言語`_`地域） | 長い表記（言語`_`地域）                      |
 |--------------------------|----------------------------------------------|
 | `AFK_ZAF`                | `Afrikaans_South Africa`                     |
 | `AMH_ETH`                | `Amharic_Ethiopia`                           |
@@ -174,7 +174,7 @@ MSDNライブラリの[setlocale、_wsetlocale](https://docs.microsoft.com/ja-jp
 | `YOR_NGA`                | `Yoruba_Nigeria`                             |
 | `ZUL_ZAF`                | `isiZulu_South Africa`                       |
 
-使用したプログラム
+使用したプ�グラム
 
 ```cpp example
 #include <array>

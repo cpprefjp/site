@@ -14,7 +14,7 @@ ValOrProxy<bool> operator!() const;
 
 
 ## 戻り値
-以下のコードと等価のことを行う：
+以下のコードと�価のことを行う：
 
 ```cpp
 valarray<bool> result(size());

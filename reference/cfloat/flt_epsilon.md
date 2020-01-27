@@ -8,7 +8,7 @@
 ```
 
 ## 概要
-`float` における、$1$ と $1$ より大きい最小の数との差（機械イプシロン）を表すマクロ。  
+`float` における、$1$ と $1$ より大きい最小の数との差（機械イプシ�ン）を表すマク�。  
 以下の式で表される。
 
 $$
@@ -18,7 +18,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`FLT_MANT_DIG`](flt_mant_dig.md)）である。  
 $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`epsilon`](/reference/limits/numeric_limits/epsilon.md)`()` と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<float>::`[`epsilon`](/reference/limits/numeric_limits/epsilon.md)`()` と�しい。
 
 ## 備考
 規格で `1E-5`（$10^{-5}$）以下であることが規定されている。
@@ -36,7 +36,7 @@ int main()
   std::cout << std::setprecision(FLT_DIG);
   std::cout << FLT_EPSILON << '\n';
 
-  // 以下の式と等価
+  // 以下の式と�価
   std::cout << std::pow(FLT_RADIX, 1 - FLT_MANT_DIG) << '\n';
 }
 ```

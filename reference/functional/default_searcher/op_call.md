@@ -24,7 +24,7 @@ constexpr std::pair<ForwardIterator2, ForwardIterator2>
 
 
 ## 効果
-シーケンス内の部分シーケンスと等値になる範囲を検索する。
+シーケンス内の部分シーケンスと�値になる範囲を検索する。
 
 
 ## 戻り値
@@ -65,7 +65,7 @@ int main()
     // 見つかった位置を取得
     std::ptrdiff_t n = std::distance(text.cbegin(), result);
 
-    // 見つかった文字列 (pattern) を取得
+    // 見つかった文�列 (pattern) を取得
     std::string s {result, result + pattern.size()};
 
     std::cout << n << std::endl;

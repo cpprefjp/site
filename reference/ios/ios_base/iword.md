@@ -23,7 +23,7 @@ long& iword(int idx);
 
 ## 備考
 - 引数 `idx` には、[`xalloc`](xalloc.md) で取得した値を渡すことが想定されている。
-    そうすることによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `long` 型の私用記憶域を確保することが可能となる。
+    そうすることによって、各プ�グラムが他のプ�グラムと競合すること無く各ストリームオブジェクト内に `long` 型の私用記憶域を確保することが可能となる。
 - 本関数で取得した `long` への参照は、本オブジェクトの他の操作によって無効になる可能性がある。  
     しかし、その場合でも引数 `idx` で指定した記憶域の内容は依然として有効である。
 - 本関数で取得した `long` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) でコピーされる。
@@ -50,10 +50,10 @@ private:
   static const int index;
 };
 
-// 記憶域用の添え字を取得
+// 記憶域用の添え�を取得
 const int setradix::index = std::ios_base::xalloc();
 
-// MyUnsigned 用の出力演算子
+// MyUnsigned 用の出力演算�
 std::ostream& operator<<(std::ostream& os, const MyUnsigned& x)
 {
   long radix = os.iword(setradix::index);
@@ -71,7 +71,7 @@ std::ostream& operator<<(std::ostream& os, const MyUnsigned& x)
   return os << s;
 }
 
-// マニピュレータ用の出力演算子
+// マニピュレータ用の出力演算�
 std::ostream& operator<<(std::ostream& os, const setradix& manip)
 {
   long& radix = os.iword(setradix::index);
@@ -89,7 +89,7 @@ int main()
   std::cout << setradix(7) << x << std::endl;       // 7 進数として出力
 
   std::stringstream ss;
-  ss << setradix(3);                                // ss に基数 3 を設定
+  ss << setradix(3);                                // ss に基数 3 を�定
   std::cout.copyfmt(ss);                            // ss から std::cout にフォーマットをコピー
   std::cout << x << std::endl;                      // 3 進数として出力
 }

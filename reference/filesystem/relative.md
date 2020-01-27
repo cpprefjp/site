@@ -15,9 +15,9 @@ namespace std::filesystem {
 * current_path()[link current_path.md]
 
 ## 概要
-パスを現在の作業ディレクトリからの相対パスに変換する。
+パスを現在の作�ディレクトリからの相対パスに変換する。
 
-- (1) : 現在の作業ディレクトリからパス`p`への相対パスを構築する
+- (1) : 現在の作�ディレクトリからパス`p`への相対パスを構築する
 - (2), (3) : パス`base`からパス`p`への相対パスを構築する
 
 
@@ -31,7 +31,7 @@ namespace std::filesystem {
 
 ## 例外
 - (1), (3) : 仕様上は未規定だが、パスのメモリ確保で例外が発生する可能性がある
-- (2) : ファイルシステムがエラーを報告する場合がある。それに加えて、指定されたパス`p`と`base`のいずれの部分パスも存在しない場合でもエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (2) : ファイルシステムがエラーを報告する場合がある。それに加えて、指定されたパス`p`と`base`のいずれの部分パスも�在しない場合でもエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
 
 
 ## 例
@@ -44,11 +44,11 @@ namespace fs = std::filesystem;
 
 int main()
 {
-  // 現在の作業ディレクトリからの相対パスに変換する
+  // 現在の作�ディレクトリからの相対パスに変換する
   fs::path p1 = fs::relative("/a.txt");
   std::cout << p1 << std::endl;
 
-  // 現在の作業ディレクトリからひとつ上の階層からの相対パスに変換する
+  // 現在の作�ディレクトリからひとつ上の階層からの相対パスに変換する
   fs::path p2 = fs::relative("/a.txt", "../");
   std::cout << p2 << std::endl;
 }

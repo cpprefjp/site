@@ -40,7 +40,7 @@ int main()
   que.push(20);
   que.push(30);
 
-  // 中身の出力
+  // �身の出力
   while(!que.empty()) {
     std::cout << que.front() << std::endl;
     que.pop();

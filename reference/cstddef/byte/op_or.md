@@ -15,7 +15,7 @@ namespace std {
 
 
 ## 効果
-以下の式と等価の効果をもつ：
+以下の式と�価の効果をもつ：
 
 ```cpp
 return static_cast<byte>(static_cast<unsigned char>(static_cast<unsigned int>(l) | static_cast<unsigned int>(r)));

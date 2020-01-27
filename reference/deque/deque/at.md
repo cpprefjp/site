@@ -12,7 +12,7 @@ const_reference at(size_type n) const;
 ## 概要
 任意位置の要素への参照を取得する。
 
-この関数は、`deque`コンテナオブジェクト中の位置`n`にある要素への参照を返す。
+この関数は、`deque`コンテナオブジェクト�の位置`n`にある要素への参照を返す。
 
 [`operator[]`](op_at.md)メンバ関数は範囲外アクセスの動作が未規定だが、この関数は範囲外アクセスの場合に [`out_of_range`](/reference/stdexcept.md) 例外を送出する。
 

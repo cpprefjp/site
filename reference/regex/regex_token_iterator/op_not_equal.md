@@ -10,7 +10,7 @@ bool operator!=(const regex_token_iterator& right) const;
 ```
 
 ## 概要
-`regex_token_iterator` の非等値比較を行う。
+`regex_token_iterator` の非�値比較を行う。
 
 
 ## 戻り値
@@ -18,7 +18,7 @@ bool operator!=(const regex_token_iterator& right) const;
 
 
 ## 備考
-- 本メンバ関数が `true` を返したとしても、イテレータの指す文字列が等しくないとは限らないことに注意すること。（下記の例を参照）
+- 本メンバ関数が `true` を返したとしても、イテレータの指す文�列が�しくないとは限らないことに注意すること。（下記の例を参照）
 
 
 ## 例
@@ -31,9 +31,9 @@ bool operator!=(const regex_token_iterator& right) const;
 
 int main()
 {
-  // 検索対象は 1 番目の列挙子と 2 番目の列挙子が同じ文字列になっている
+  // 検索対象は 1 番目の列挙�と 2 番目の列挙�が同じ文�列になっている
   const std::string s("enum E { enumerator1 = value1, enumerator1 = value1, enumerator3 = value3, };");
-  const std::regex re(R"((\w+)\s*=\s*(\w+))"); // 列挙子とその値をグループ化
+  const std::regex re(R"((\w+)\s*=\s*(\w+))"); // 列挙�とその値をグループ化
 
   // 同一の引数で 2 つのイテレータを構築する
   std::sregex_token_iterator it1(std::begin(s), std::end(s), re, { 1, 2 });
@@ -83,4 +83,4 @@ match range = (31, 42), str = 'enumerator1'
 | [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)            | インクリメント | C++11          |
-| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+| [`operator==`](op_equal.md)                | �値比較       | C++11          |

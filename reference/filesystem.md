@@ -37,14 +37,14 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`current_path`](filesystem/current_path.md) | 現在の作業ディレクトリを取得・設定する (function) | C++17 |
+| [`current_path`](filesystem/current_path.md) | 現在の作�ディレクトリを取得・�定する (function) | C++17 |
 | [`temp_directory_path`](filesystem/temp_directory_path.md) | 一時ファイル用ディレクトリのパスを取得する (function) | C++17 |
 | [`absolute`](filesystem/absolute.md) | パスを絶対パスに変換する (function) | C++17 |
-| [`canonical`](filesystem/canonical.md) | パスを正規化する (function) | C++17 |
-| [`weakly_canonical`](filesystem/weakly_canonical.md) | `canonical`よりも弱い要件でパスを正規化する (function) | C++17 |
+| [`canonical`](filesystem/canonical.md) | パスを�規化する (function) | C++17 |
+| [`weakly_canonical`](filesystem/weakly_canonical.md) | `canonical`よりも弱い要件でパスを�規化する (function) | C++17 |
 | [`read_symlink`](filesystem/read_symlink.md) | シンボリックリンクが指すパスを取得する (function) | C++17 |
-| [`relative`](filesystem/relative.md) | パスを現在の作業ディレクトリからの相対パスに変換する (function) | C++17 |
-| [`proximate`](filesystem/proximate.md) | パスを現在の作業ディレクトリからの相対パスに変換する (function) | C++17 |
+| [`relative`](filesystem/relative.md) | パスを現在の作�ディレクトリからの相対パスに変換する (function) | C++17 |
+| [`proximate`](filesystem/proximate.md) | パスを現在の作�ディレクトリからの相対パスに変換する (function) | C++17 |
 
 
 ### エンティティ操作
@@ -59,7 +59,7 @@
 | [`create_directory_symlink`](filesystem/create_directory_symlink.md) | ディレクトリに対するシンボリックリンクを作成する (function) | C++17 |
 | [`create_hard_link`](filesystem/create_hard_link.md) | ハードリンクを作成する (function) | C++17 |
 | [`create_symlink`](filesystem/create_symlink.md) | シンボリックリンクを作成する (function) | C++17 |
-| [`permissions`](filesystem/permissions.md) | 権限を設定する (function) | C++17 |
+| [`permissions`](filesystem/permissions.md) | 権限を�定する (function) | C++17 |
 | [`remove`](filesystem/remove.md) | ファイル・ディレクトリを削除する (function) | C++17 |
 | [`remove_all`](filesystem/remove_all.md) | 再帰的にファイル・ディレクトリを削除する (function) | C++17 |
 | [`rename`](filesystem/rename.md) | ファイル・ディレクトリを名称変更・移動する (function) | C++17 |
@@ -70,18 +70,18 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`exists`](filesystem/exists.md) | ファイルが存在するか確認する (function) | C++17 |
-| [`equivalent`](filesystem/equivalent.md) | 2つのエンティティが等価かを確認する (function) | C++17 |
+| [`exists`](filesystem/exists.md) | ファイルが�在するか確認する (function) | C++17 |
+| [`equivalent`](filesystem/equivalent.md) | 2つのエンティティが�価かを確認する (function) | C++17 |
 | [`file_size`](filesystem/file_size.md) | ファイルサイズを取得する (function) | C++17 |
 | [`hard_link_count`](filesystem/hard_link_count.md) | ハードリンク数を取得する (function) | C++17 |
 | [`is_regular_file`](filesystem/is_regular_file.md) | 指定されたパスが通常ファイルを指しているかを確認する (function) | C++17 |
 | [`is_directory`](filesystem/is_directory.md) | 指定されたパスがディレクトリを指しているかを確認する (function) | C++17 |
 | [`is_symlink`](filesystem/is_symlink.md) | 指定されたパスがシンボリックリンクを指しているかを確認する (function) | C++17 |
-| [`is_block_file`](filesystem/is_block_file.md) | 指定されたパスがブロックデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
-| [`is_character_file`](filesystem/is_character_file.md) | 指定されたパスがキャラクタデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
+| [`is_block_file`](filesystem/is_block_file.md) | 指定されたパスがブ�ックデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
+| [`is_character_file`](filesystem/is_character_file.md) | 指定されたパスが�ャラクタデバイスのスペシャルファイルを指しているかを確認する (function) | C++17 |
 | [`is_fifo`](filesystem/is_fifo.md) | 指定されたパスがFIFOもしくはパイプを指しているかを確認する (function) | C++17 |
 | [`is_socket`](filesystem/is_socket.md) | 指定されたパスがソケットを指しているかを確認する (function) | C++17 |
-| [`is_other`](filesystem/is_other.md) | 指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する (function) | C++17 |
+| [`is_other`](filesystem/is_other.md) | 指定されたパスが�在していない、もしくはシステム依�の種別のファイルを指しているかを確認する (function) | C++17 |
 | [`is_empty`](filesystem/is_empty.md) | 指定されたパスが空のファイル・ディレクトリかを確認する (function) | C++17 |
 | [`last_write_time`](filesystem/last_write_time.md) | エンティティの最終更新日を取得・更新する (function) | C++17 |
 | [`space`](filesystem/space.md) | 指定されたパスの残り容量を取得する (function) | C++17 |

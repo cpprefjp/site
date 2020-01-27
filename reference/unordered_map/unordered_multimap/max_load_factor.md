@@ -12,11 +12,11 @@ void max_load_factor(float z);          // (2)
 
 ## 概要
 - (1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。
-- (2) : 負荷率（バケットあたりの要素数の平均）の最大値を設定する。
+- (2) : 負荷率（バケットあたりの要素数の平均）の最大値を�定する。
 
 
 ## 要件
-`z` は正の数であること。
+`z` は�の数であること。
 
 
 ## 効果
@@ -44,8 +44,8 @@ void max_load_factor(float z);          // (2)
 	なお、`min_load_factor` のようなものはないので、[`erase`](erase.md) で要素が削除された際にも、バケット数の調整は行われない。  
 	（標準では、[`erase`](erase.md) が呼び出された際に、削除された要素を指すイテレータ、および、参照以外は無効にならないと規定されているため、調整できないと思われる）
 
-- (2) の形式では、効果にもある通り引数 `z` は「ヒント」であり、設定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも [`load_factor`](load_factor.md)`() <= z` が満たされていれば `z` に従って設定されると考えてよいと思われる。  
-	一方、[`load_factor`](load_factor.md)`() > z` の場合、単純に無視するか [`load_factor`](load_factor.md)`()` に設定するのが適切と思われるが、`z` をそのまま設定する実装もある。  
+- (2) の形式では、効果にもある通り引数 `z` は「ヒント」であり、�定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも [`load_factor`](load_factor.md)`() <= z` が満たされていれば `z` に従って�定されると考えてよいと思われる。  
+	一方、[`load_factor`](load_factor.md)`() > z` の場合、単純に無視するか [`load_factor`](load_factor.md)`()` に�定するのが適切と思われるが、`z` をそのまま�定する実装もある。  
 	なお、計算量が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、[`load_factor`](load_factor.md)`() > z` の場合に [`load_factor`](load_factor.md)`() <= z` を満たすようにリハッシュされる実装も多い）。
 
 
@@ -75,7 +75,7 @@ int main()
   // 初期化
   um.clear();
 
-  // max_load_factor を 上記の load_factor()より大きな値に設定する
+  // max_load_factor を 上記の load_factor()より大きな値に�定する
   um.max_load_factor(2.5f);                       // (2)
   um.emplace(1, 1);
   for( int n=0; n<c; n++ )
@@ -141,6 +141,6 @@ new load_factor: 1.125
 | [`emplace`](emplace.md) | コンテナ内への要素の直接構築 |
 | [`size`](size.md) | 要素数の取得 |
 | [`bucket_count`](bucket_count.md) | バケット数の取得 |
-| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、�定 |
 | [`clear`](clear.md) | 全要素の削除 |
 

@@ -9,14 +9,14 @@ value_compare value_comp() const;
 ```
 
 ## 概要
-コンテナに関連づけられた要素比較用の関数オブジェクトを返す。これはコンテナ内の二つの要素のキー部分を比較するために利用できる。
-これは同じ型の 2 つの引数をとり、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。
+コンテナに関連づけられた要素比較用の関数オブジェクトを返す。これはコンテナ内の二つの要素の�ー部分を比較するために利用できる。
+これは同じ型の 2 つの引数をとり、[�義の弱順序](/reference/algorithm.md#strict-weak-ordering)に従って一つ目の引数が二つ目の引数の前になる場合に `true`、そうでない場合に `false` を返す。
 
 
 
 ## 戻り値
 要素比較用の関数オブジェクト。
-[`value_compare`](value_compare.md) はメンバ型である。`key_compare` とは異なり、単なる型の別名ではなく入れ子クラスである。
+[`value_compare`](value_compare.md) はメンバ型である。`key_compare` とは異なり、単なる型の別名ではなく入れ�クラスである。
 
 
 ## 計算量
@@ -60,8 +60,8 @@ int main()
 
 | 名前                                               | 説明                                                     |
 |----------------------------------------------------|----------------------------------------------------------|
-| [`key_comp`](/reference/map/map/key_comp.md)       | キー比較用の関数オブジェクトを返す                       |
-| [`find`](/reference/map/map/find.md)               | 指定したキーで要素を探す                                 |
-| [`count`](/reference/map/map/count.md)             | 指定したキーにマッチする要素の数を返す                   |
+| [`key_comp`](/reference/map/map/key_comp.md)       | �ー比較用の関数オブジェクトを返す                       |
+| [`find`](/reference/map/map/find.md)               | 指定した�ーで要素を探す                                 |
+| [`count`](/reference/map/map/count.md)             | 指定した�ーにマッチする要素の数を返す                   |
 | [`lower_bound`](/reference/map/map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
 | [`upper_bound`](/reference/map/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |

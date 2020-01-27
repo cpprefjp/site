@@ -15,7 +15,7 @@ namespace std::chrono {
 
 このクラスは、年、および月に関する演算に対応している。ただし、日に関する演算はできない。
 
-このクラスは等値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)およびLessThanComparableの要件を満たす。
+このクラスは�値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)およびLessThanComparableの要件を満たす。
 
 このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)で、かつ[スタンダードレイアウト型](/reference/type_traits/is_standard_layout.md)である。
 
@@ -26,7 +26,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](year_month_day/op_constructor.md) | コンストラクタ | C++20 |
-| `year_month_day& operator=(const year_month_day&) = default;`<br/> `year_month_day& operator=(year_month_day&&) = default;` | 代入演算子 | C++20 |
+| `year_month_day& operator=(const year_month_day&) = default;`<br/> `year_month_day& operator=(year_month_day&&) = default;` | 代入演算� | C++20 |
 
 
 ### 算術演算
@@ -50,8 +50,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator sys_days`](year_month_day/op_sys_days.md)     | システム時間の日付への型変換演算子 | C++20 |
-| [`operator local_days`](year_month_day/op_local_days.md) | ローカル時間の日付への型変換演算子 | C++20 |
+| [`operator sys_days`](year_month_day/op_sys_days.md)     | システム時間の日付への型変換演算� | C++20 |
+| [`operator local_days`](year_month_day/op_local_days.md) | �ーカル時間の日付への型変換演算� | C++20 |
 
 
 ### 検証
@@ -74,8 +74,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](year_month_day/op_equal.md) | 等値比較を行う | C++20 |
-| `bool operator!=(const year_month_day&, const year_month_day&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
+| [`operator==`](year_month_day/op_equal.md) | �値比較を行う | C++20 |
+| `bool operator!=(const year_month_day&, const year_month_day&) noexcept;` | 非�値比較を行う (`==`により使用可能) | C++20 |
 | [`operator<=>`](year_month_day/op_compare_3way.md) | 三方比較を行う | C++20 |
 | `bool operator<(const year_month_day&, const year_month_day&) noexcept;` | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | C++20 |
 | `bool operator<=(const year_month_day&, const year_month_day&) noexcept;` | 左辺が右辺以下を判定する (`<=>`により使用可能) | C++20 |

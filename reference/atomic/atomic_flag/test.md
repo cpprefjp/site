@@ -27,7 +27,7 @@ bool test(memory_order order = memory_order::seq_cst) const noexcept;
 
 
 ## 戻り値
-アトミックに読み込まれた`*this`が指している値を返す
+アトミックに�み込まれた`*this`が指している値を返す
 
 
 ## 例外

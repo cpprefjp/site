@@ -20,7 +20,7 @@ namespace std::chrono {
 
 
 ## 備考
-- [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<typename ToDuration::rep>::value == true`である場合、この関数はオーバーロード解決の候補から外れる
+- [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<typename ToDuration::rep>::value == true`である場合、この関数はオーバー�ード解決の候補から外れる
 
 
 ## 例
@@ -60,9 +60,9 @@ int main()
 
 | 名前 | 説明 |
 |------|------|
-| [`duration_cast`](/reference/chrono/duration_cast.md) | ゼロ方向への丸め |
+| [`duration_cast`](/reference/chrono/duration_cast.md) | ゼ�方向への丸め |
 | [`floor`](floor.md)                                   | 負の無限大方向への丸め |
-| [`ceil`](ceil.md)                                     | 正の無限大方向への丸め |
+| [`ceil`](ceil.md)                                     | �の無限大方向への丸め |
 
 
 ## 参照

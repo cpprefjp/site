@@ -18,8 +18,8 @@ namespace std {
 
 
 ## 効果
-分布オブジェクトのパラメータを読み取り、オブジェクト`x`に格納する。  
-不正な入力だった場合、`is.setstate(ios::failbit)`を呼び出し、ストリームを失敗状態にする。
+分布オブジェクトのパラメータを�み取り、オブジェクト`x`に格納する。  
+不�な入力だった場合、`is.setstate(ios::failbit)`を呼び出し、ストリームを失敗状態にする。
 
 
 ## 事後条件
@@ -50,7 +50,7 @@ int main()
   // 出力結果を確認
   std::cout << ss.str() << std::endl;
 
-  // 出力したストリームから読み込む
+  // 出力したストリームから�み込む
   {
     std::cauchy_distribution<> dist;
     ss >> dist;

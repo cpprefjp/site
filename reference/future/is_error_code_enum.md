@@ -17,7 +17,7 @@ namespace std {
 ## 概要
 [`future_errc`](future_errc.md)に対する`is_error_code_enum`の特殊化。
 
-[`error_code`](/reference/system_error/error_code.md)のコンストラクタに[`future_errc`](future_errc.md)の列挙値を指定するために使用する。それによって`make_error_code()`の[`future_errc`](future_errc.md)に対するオーバーロードが呼び出され、[`future_category()`](future_category.md)の[`error_code`](/reference/system_error/error_code.md)オブジェクトが生成される。
+[`error_code`](/reference/system_error/error_code.md)のコンストラクタに[`future_errc`](future_errc.md)の列挙値を指定するために使用する。それによって`make_error_code()`の[`future_errc`](future_errc.md)に対するオーバー�ードが呼び出され、[`future_category()`](future_category.md)の[`error_code`](/reference/system_error/error_code.md)オブジェクトが生成される。
 
 
 ## 例

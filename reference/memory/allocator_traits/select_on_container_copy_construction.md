@@ -11,7 +11,7 @@ static constexpr Alloc select_on_container_copy_construction(const Alloc& a);   
 ```
 
 ## 概要
-コンテナのコピー構築に使用するアロケータオブジェクトを取得する。
+コンテナのコピー構築に使用するア�ケータオブジェクトを取得する。
 
 
 ## 戻り値
@@ -19,7 +19,7 @@ static constexpr Alloc select_on_container_copy_construction(const Alloc& a);   
 
 
 ## 備考
-この関数は、標準コンテナのコピーコンストラクタで呼び出され、この関数の戻り値であるアロケータオブジェクトを、コピーに必要なメモリ確保・解放、オブジェクトの構築・破棄に使用する。
+この関数は、標準コンテナのコピーコンストラクタで呼び出され、この関数の戻り値であるア�ケータオブジェクトを、コピーに必要なメモリ確保・解放、オブジェクトの構築・破棄に使用する。
 
 
 ## 例
@@ -50,9 +50,9 @@ public:
 
   MyVector(const MyVector& other, Alloc alloc)
   {
-    alloc_ = alloc; // 受け取ったアロケータをメンバ変数に保持する
+    alloc_ = alloc; // 受け取ったア�ケータをメンバ変数に保持する
 
-    // 受け取ったアロケータでメモリ確保
+    // 受け取ったア�ケータでメモリ確保
     using traits = std::allocator_traits<Alloc>;
     size_ = other.size_;
     data_ = traits::allocate(alloc_, size_);
@@ -62,8 +62,8 @@ public:
     }
   }
 
-  // コピー構築に使用するアロケータオブジェクトを取得し、
-  // アロケータを受け取るコピーコンストラクタに移譲
+  // コピー構築に使用するア�ケータオブジェクトを取得し、
+  // ア�ケータを受け取るコピーコンストラクタに移�
   MyVector(const MyVector& other)
     : MyVector(
         other,

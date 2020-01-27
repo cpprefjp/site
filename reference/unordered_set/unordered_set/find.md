@@ -14,14 +14,14 @@ template <class K> const_iterator find(const K& k) const;  // (4) C++20
 ```
 
 ## 概要
-コンテナ内で指定されたキーに合致する要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](end.md) （コンテナの最後の要素の次）を指すイテレータを返す。
+コンテナ内で指定された�ーに合致する要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](end.md) （コンテナの最後の要素の次）を指すイテレータを返す。
 
 - (1) : 非`const`な`*this`オブジェクトに対する検索
 - (2) : `const`な`*this`オブジェクトに対する検索
 - (3) : 非`const`な`*this`オブジェクトに対する透過的な検索
 - (4) : `const`な`*this`オブジェクトに対する透過的な検索
 
-(3)、(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.find("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+(3)、(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.find("key");`のように`string`型の�ーを持つ連想コンテナの検索インタフェースに文�列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## テンプレートパラメータ制約
@@ -29,7 +29,7 @@ template <class K> const_iterator find(const K& k) const;  // (4) C++20
 
 
 ## 戻り値
-指定されたキーと等価なキーの要素を指すイテレータを返す。そのような要素がない場合には、[`end`](end.md)`()`を返す。
+指定された�ーと�価な�ーの要素を指すイテレータを返す。そのような要素がない場合には、[`end`](end.md)`()`を返す。
 
 
 ## 計算量
@@ -38,7 +38,7 @@ template <class K> const_iterator find(const K& k) const;  // (4) C++20
 
 
 ## 備考
-- コンテナが `const` の場合には `const_iterator`、そうでない場合には `iterator` が返るが、`unordered_set` の場合には、いずれにせよ読み取り専用イテレータである。
+- コンテナが `const` の場合には `const_iterator`、そうでない場合には `iterator` が返るが、`unordered_set` の場合には、いずれにせよ�み取り専用イテレータである。
 
 
 ## 例
@@ -96,8 +96,8 @@ not found
 
 | 名前 | 説明 |
 |-----------------------------------|----------------------------|
-| [`count`](count.md)             | 指定したキーの要素数を取得 |
-| [`equal_range`](equal_range.md) | 指定したキーの範囲を取得   |
+| [`count`](count.md)             | 指定した�ーの要素数を取得 |
+| [`equal_range`](equal_range.md) | 指定した�ーの範囲を取得   |
 
 
 ## 参照

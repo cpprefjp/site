@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-文字列`str`を数値として読み取って、`int`型の値に変換する。
+文�列`str`を数値として�み取って、`int`型の値に変換する。
 
 
 ## 効果
@@ -20,10 +20,10 @@ namespace std {
 
 パラメータ`idx`が非`nullptr`の場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
 
-パラメータ`base`は、整数文字列`str`の基数を表す。デフォルトでは`10`進数として文字列を整数に変換する。基数は`2`から`36`(`36`含む)進数を指定できる。基数を`0`とした場合は、文字列のプレフィックスから基数が自動的に選択される。自動的な選択のルールは、以下のようになる：
+パラメータ`base`は、整数文�列`str`の基数を表す。デフォルトでは`10`進数として文�列を整数に変換する。基数は`2`から`36`(`36`含む)進数を指定できる。基数を`0`とした場合は、文�列のプレフィックスから基数が自動的に選択される。自動的な選択のルールは、以下のようになる：
 
-- 先頭が`0`：`8`進数
-- 先頭が`0x`もしくは`0X`：`16`進数
+- 先�が`0`：`8`進数
+- 先�が`0x`もしくは`0X`：`16`進数
 
 
 ## 戻り値
@@ -33,7 +33,7 @@ namespace std {
 ## 例外
 - 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
 - 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
-    - `std::strtol()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合 (C++14)
+    - `std::strtol()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を�定した場合 (C++14)
     - 結果が範囲外の値になった場合
 
 
@@ -42,10 +42,10 @@ namespace std {
 - Visual C++ 11やGCC (libstdc++) 4.8.2では、この関数を呼び出すと`errno`の値が変更される。
 - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
 
-### グローバルロケールの影響
+### グ�ーバル�ケールの影響
 この関数は、`setlocale()`関数により挙動が変化する。
 
-`strtol()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用されるためである。
+`strtol()`関数での文�列先�の空白を�み飛ばす処理に、`<cctype>`の`isspace()`関数が使用されるためである。
 
 
 ## 例
@@ -73,7 +73,7 @@ int main()
     int x = std::stoi("1001", nullptr, 2);
     std::cout << x << std::endl;
 
-    int xw = std::stoi(L"01001", nullptr, 2); // 先頭に0が付いていてもよい
+    int xw = std::stoi(L"01001", nullptr, 2); // 先�に0が付いていてもよい
     std::cout << xw << std::endl;
   }
 
@@ -136,7 +136,7 @@ int main()
     std::cout << xw << ' ' << wi << std::endl;
   }
 
-  // 文字列先頭に空白がある場合
+  // 文�列先�に空白がある場合
   {
     std::cout << "---- space character before number" << std::endl;
     std::cout << std::stoi("    -1") << std::endl;
@@ -247,7 +247,7 @@ int stoi(const std::wstring& str, std::size_t* idx = nullptr, int base = 10) {
 - [`stod`](stod.md): 戻り値の型が`double`となったもの。
 - [`stold`](stold.md): 戻り値の型が`long double`となったもの。
 
-### ロケール依存しない高速な変換関数
+### �ケール依�しない高速な変換関数
 - [`from_chars`](/reference/charconv/from_chars.md)
 
 

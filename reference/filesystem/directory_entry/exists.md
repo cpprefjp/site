@@ -11,7 +11,7 @@ bool exists(std::error_code& ec) const noexcept; // (2)
 ```
 
 ## 概要
-パスが存在するか確認する。
+パスが�在するか確認する。
 
 
 ## 戻り値

@@ -29,21 +29,21 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 
 ## 要件
 - `v` を引数にとる形式（(1)、(2)の上側）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
-	コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+	コンテナに対してコピー挿入可能とは、`m` をア�ケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
 
 - `rv` を引数にとる形式（(1)、(2)の下側）では、`value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。  
-	コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+	コンテナに対してムーブ挿入可能とは、`m` をア�ケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
 
-- 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。  
+- 引数 `position` は、コンテナの有効な�み取り専用イテレータでなければならない。  
 	なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
 
 - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
 	また、引数 `first`、および、`last` を引数にとる形式（(3)）では、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
-	ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+	ここで、コンテナに対して `*first` から直接構築可能とは、`m` をア�ケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
 
@@ -55,15 +55,15 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 
 
 ## 効果
-- (1) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-- (2) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
+- (1) : 引数 `v`、あるいは `rv` で指定した値と�価な�ーがコンテナに�在していなければ、当該要素を追加する。
+- (2) : 引数 `v`、あるいは `rv` で指定した値と�価な�ーがコンテナに�在していなければ、当該要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
-- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
+- (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と�価である。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と�価である。
 - (5) : `nh`が空の場合、効果はない。
-それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
+それ以外の場合、`nh.key()`と�価の�ーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
 - (6) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。
-それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と等価のキーの要素を指すイテレータを常に返す。
+それ以外の場合、`nh.key()`と�価の�ーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と�価の�ーの要素を指すイテレータを常に返す。
 要素は、`p`の直前の位置のできるだけ近くに挿入される。
 
 
@@ -77,7 +77,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 - (5) : 戻り値としては、[`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
     - 挿入された場合には、空の[ノードハンドル](/reference/node_handle/node_handle.md)。
     - 挿入されなかった場合には、`nh`の値である。 
-- (6) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と等価のキーの要素を指すイテレータを常に返す。
+- (6) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と�価の�ーの要素を指すイテレータを常に返す。
 
 
 ## 例外
@@ -88,7 +88,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 - (1) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (2) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (3) : 平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
-- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価。
+- (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と�価。
 
 - (5), (6) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
 
@@ -100,7 +100,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 	それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
 	コンテナのバケット数が変わらない場合とは、
 
-	* 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
+	* 追加しようとした要素と�価な�ーの要素が全て既にコンテナに�在したため、要素が追加されなかった。
 	* 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
 
 	のいずれかである。  
@@ -251,7 +251,7 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 | [`swap`](swap.md)                       | 内容の交換                                             |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                       |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定                             |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、�定                             |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 

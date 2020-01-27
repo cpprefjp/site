@@ -10,7 +10,7 @@ const string_type& native() const noexcept;
 ```
 
 ## 概要
-システムの文字コードとしてパス文字列を取得する。
+システムの文�コードとしてパス文�列を取得する。
 
 
 ## 戻り値
@@ -53,7 +53,7 @@ int main()
 {
   fs::path p = "foo/bar";
 
-  // ディレクトリ区切り文字が"/"から"\\"に変換され、
+  // ディレクトリ区切り文�が"/"から"\\"に変換され、
   // UTF-16エンコーディングで返る
   const std::wstring& s = p.native();
   std::wcout << s << std::endl;

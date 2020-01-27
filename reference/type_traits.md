@@ -90,9 +90,9 @@
 | [`is_nothrow_default_constructible`](type_traits/is_nothrow_default_constructible.md) | 型がデフォルト構築でき、かつそのデフォルトコンストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_copy_constructible`](type_traits/is_nothrow_copy_constructible.md) | 型がコピー構築でき、かつそのコピーコンストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_move_constructible`](type_traits/is_nothrow_move_constructible.md) | 型がムーブ構築でき、かつそのムーブコンストラクタが例外を投げないか調べる (class template) | C++11 |
-| [`is_nothrow_assignable`](type_traits/is_nothrow_assignable.md) | 型の代入演算子呼び出しが適格であり、かつその代入演算子が例外を投げないか調べる (class template) | C++11 |
-| [`is_nothrow_copy_assignable`](type_traits/is_nothrow_copy_assignable.md) | 型がコピー代入でき、かつそのコピー代入演算子が例外を投げないか調べる (class template) | C++11 |
-| [`is_nothrow_move_assignable`](type_traits/is_nothrow_move_assignable.md) | 型がムーブ代入でき、かつそのムーブ代入演算子が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_assignable`](type_traits/is_nothrow_assignable.md) | 型の代入演算�呼び出しが適格であり、かつその代入演算�が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_copy_assignable`](type_traits/is_nothrow_copy_assignable.md) | 型がコピー代入でき、かつそのコピー代入演算�が例外を投げないか調べる (class template) | C++11 |
+| [`is_nothrow_move_assignable`](type_traits/is_nothrow_move_assignable.md) | 型がムーブ代入でき、かつそのムーブ代入演算�が例外を投げないか調べる (class template) | C++11 |
 | [`is_nothrow_destructible`](type_traits/is_nothrow_destructible.md) | 型が破棄でき、かつそのデストラクタが例外を投げないか調べる (class template) | C++11 |
 | [`has_virtual_destructor`](type_traits/has_virtual_destructor.md) | 型が仮想デストラクタを持っているか調べる (class template) | C++11 |
 | [`is_swappable_with`](type_traits/is_swappable_with.md) | ある型とほかの型の値とがswap関数で入れ替え可能かを調べる (class template) | C++17 |
@@ -213,7 +213,7 @@
 
 
 ## 備考
-- このヘッダで定義されるテンプレートは、[`std::common_type`](type_traits/common_type.md)、[`std::basic_common_reference`](type_traits/basic_common_reference.md)を除いて、ユーザーが特殊化を追加することを禁止している
+- このヘッダで定義されるテンプレートは、[`std::common_type`](type_traits/common_type.md)、[`std::basic_common_reference`](type_traits/basic_common_reference.md)を除いて、ユーザーが特殊化を追加することを禁�している
 
 
 ## バージョン
@@ -226,4 +226,4 @@
 - [Boost Type Traits Library](http://www.boost.org/doc/libs/release/libs/type_traits/doc/html/index.html)
 - [型特性 - Boost逆引きリファレンス](https://boostjp.github.io/tips/type_traits.html)
 - [LWG Issue 2581. Specialization of `<type_traits>` variable templates should be prohibited](https://wg21.cmeerw.net/lwg/issue2581)
-    - C++14までは`<type_traits>`で定義されるクラステンプレートの特殊化を禁止していたが、C++17で定義される変数テンプレートも特殊化の禁止対象とされた
+    - C++14までは`<type_traits>`で定義されるクラステンプレートの特殊化を禁�していたが、C++17で定義される変数テンプレートも特殊化の禁�対象とされた

@@ -9,11 +9,11 @@ static bool sync_with_stdio(bool sync = true);
 ```
 
 ## 概要
-標準ストリームオブジェクトと C 言語ライブラリの標準ストリーム（stdio）との同期状態を設定する。
+標準ストリームオブジェクトと C 言語ライブラリの標準ストリーム（stdio）との同期状態を�定する。
 
 
 ## 効果
-もし、本関数が呼び出される前に標準ストリームで入出力が行われていた場合、効果は実装依存である。  
+もし、本関数が呼び出される前に標準ストリームで入出力が行われていた場合、効果は実装依�である。  
 そうでなくて、もし引数 `sync` が `false` であれば、標準ストリームオブジェクトは C 言語ライブラリの標準ストリームと独立で動作してよい。
 
 
@@ -25,9 +25,9 @@ static bool sync_with_stdio(bool sync = true);
 ## 備考
 標準ストリーム `str` が C 言語ライブラリの標準ストリーム `f` と同期している場合、
 
-- 文字 `c` のストリームへの出力 [`fputc`](../../cstdio/fputc.md.nolink)`(f, c);` は `str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sputc`](../../streambuf/basic_streambuf/sputc.md.nolink)`(c);` と等価であり、
-- 文字 `c` のストリームからの入力 `c =` [`fgetc`](../../cstdio/fgetc.md.nolink)`(f);` は `c = str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sbumpc`](../../streambuf/basic_streambuf/sbumpc.md.nolink)`();` と等価であり、
-- 文字 `c` のストリームへの戻し [`ungetc`](../../cstdio/ungetc.md.nolink)`(c, f)` は `str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sputbackc`](../../streambuf/basic_streambuf/sputbackc.md.nolink)`(c);` と等価である。
+- 文� `c` のストリームへの出力 [`fputc`](../../cstdio/fputc.md.nolink)`(f, c);` は `str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sputc`](../../streambuf/basic_streambuf/sputc.md.nolink)`(c);` と�価であり、
+- 文� `c` のストリームからの入力 `c =` [`fgetc`](../../cstdio/fgetc.md.nolink)`(f);` は `c = str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sbumpc`](../../streambuf/basic_streambuf/sbumpc.md.nolink)`();` と�価であり、
+- 文� `c` のストリームへの戻し [`ungetc`](../../cstdio/ungetc.md.nolink)`(c, f)` は `str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sputbackc`](../../streambuf/basic_streambuf/sputbackc.md.nolink)`(c);` と�価である。
 
 
 ## 例

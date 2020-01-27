@@ -11,7 +11,7 @@ void release();
 
 ## 概要
 
-管理中の全てのメモリを解放する。
+管理�の全てのメモリを解放する。
 
 ## 効果
 必要に応じて[`this->upstream_resource()`](upstream_resource.md)[`->deallocate()`](/reference/memory_resource/memory_resource/deallocate.md)を呼び出し、内部のメモリプール及び上流メモリリソースから割り当てた全てのメモリを解放する。  

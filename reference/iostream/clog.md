@@ -45,14 +45,14 @@ int main(int argc, char** argv)
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 
 ### 出力
-（コマンドラインを`_program_ foo.txt`としてプログラムを起動した場合）
+（コマンドラインを`_program_ foo.txt`としてプ�グラムを起動した場合）
 
 ```
 ファイル名: foo.txt
 （foo.txtの内容）
 ```
 
-（コマンドラインを`_program_ foo.txt > /dev/null` (Unix系OS), `_program_ foo.txt > NUL` (Win32, DOS), `_program_ foo.txt > $null` (Win32 PowerShell)などとしてプログラムを起動した場合）
+（コマンドラインを`_program_ foo.txt > /dev/null` (Unix系OS), `_program_ foo.txt > NUL` (Win32, DOS), `_program_ foo.txt > $null` (Win32 PowerShell)などとしてプ�グラムを起動した場合）
 
 ```
 ファイル名: foo.txt

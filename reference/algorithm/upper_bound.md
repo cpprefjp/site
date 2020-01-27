@@ -42,7 +42,7 @@ namespace std {
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
 	- `T` は `LessThanComparable` であること。
-	- `operator<` または `comp` は「[狭義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
+	- `operator<` または `comp` は「[�義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
 	- 範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
 - C++11 から
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
@@ -64,10 +64,10 @@ namespace std {
 
 
 ## 備考
-- 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と等価である。  
-	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return !bool(value < e); })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return !bool(comp(value, e)); })` とすることで等価の結果が得られる。
+- 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と�価である。  
+	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return !bool(value < e); })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return !bool(comp(value, e)); })` とすることで�価の結果が得られる。
 - 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。  
-	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。
+	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても�常に動作する可能性は高いものと思われる。
 
 
 ## 例
@@ -77,11 +77,11 @@ namespace std {
 #include <algorithm>
 
 struct X {
-  int key;    // プライマリキー
+  int key;    // プライマリ�ー
   int value;  // 補助的な値
 
   bool operator<(const X& rhs) const {
-    // 型Xはプライマリキーでのみ順序付けされる。
+    // 型Xはプライマリ�ーでのみ順序付けされる。
     return key < rhs.key;
   }
 };
@@ -109,7 +109,7 @@ int main()
     std::cout << *it << std::endl;
   }
 
-  // 応用例：安定順序・優先順位付きキューの実装
+  // 応用例：安定順序・優先順位付き�ューの実装
   {
     std::vector<X> queue;
     push_stable(queue, {100, 1});
@@ -119,8 +119,8 @@ int main()
     push_stable(queue, {200, 2});
     push_stable(queue, {100, 2});
 
-    // プライマリキー key は同値だが異なる値 value を持つ要素間では
-    // キュー queue への要素挿入順序が維持されている。
+    // プライマリ�ー key は同値だが異なる値 value を持つ要素間では
+    // �ュー queue への要素挿入順序が�持されている。
     // （std::priority_queue クラスでは挿入順序は保持されない。）
     for (const auto& e: queue) {
       std::cout << e.key << ':' << e.value << ' ';

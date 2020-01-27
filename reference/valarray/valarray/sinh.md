@@ -12,11 +12,11 @@ namespace std {
 * ValOrProxy[italic]
 
 ## 概要
-双曲線正弦（ハイパボリックサイン：hyperbolic sine）を得る。
+双曲線�弦（ハイパボリックサイン：hyperbolic sine）を得る。
 
 
 ## 戻り値
-以下のコードと等価のことを行う：
+以下のコードと�価のことを行う：
 
 ```cpp
 return v.apply(static_cast<T(*)(T)>(std::sinh));

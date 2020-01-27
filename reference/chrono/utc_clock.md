@@ -11,15 +11,15 @@ namespace std::chrono {
 ```
 
 ## 概要
-`utc_clock`は、UTC時間 (協定世界時、Coordinated Universal Time) を表現するためのクロックである。
+`utc_clock`は、UTC時間 (協定世界時、Coordinated Universal Time) を表現するためのク�ックである。
 
-うるう秒を考慮しないシステム時間のクロック[`system_clock`](system_clock.md)とその時間点[`sys_time`](sys_time.md)と違い、`utc_clock`とその時間点[`utc_time`](utc_time.md)は、エポック以降のうるう秒を含む時間をカウントする。
+うるう秒を考慮しないシステム時間のク�ック[`system_clock`](system_clock.md)とその時間点[`sys_time`](sys_time.md)と違い、`utc_clock`とその時間点[`utc_time`](utc_time.md)は、エポック以降のうるう秒を含む時間をカウントする。
 
-他のクロッククラスとは違い、このクラスの[`now()`](utc_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
+他のク�ッククラスとは違い、このクラスの[`now()`](utc_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
 
 ### エポック
-クロックごとの初期時間 (内部的にカウンタがあれば値ゼロ) をエポックと呼ぶ。
+ク�ックごとの初期時間 (内部的にカウンタがあれば値ゼ�) をエポックと呼ぶ。
 
 `utc_clock`のエポックは、1970年1月1日0時0分0秒である。
 
@@ -48,7 +48,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------|--------------------------------------------------------|-------|
-| `static constexpr bool is_steady` | 逆行しないクロックかどうかを表す`bool`値。値は未規定。 | C++20 |
+| `static constexpr bool is_steady` | 逆行しないク�ックかどうかを表す`bool`値。値は未規定。 | C++20 |
 
 
 ## 例

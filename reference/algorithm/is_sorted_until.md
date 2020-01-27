@@ -48,7 +48,7 @@ namespace std {
 
 
 ## 戻り値
-[`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、`[first,last]` の中でソートされている範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。
+[`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、`[first,last]` の�でソートされている範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。
 
 
 ## 計算量

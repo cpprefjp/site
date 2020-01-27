@@ -25,7 +25,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 ポワソン分布は、以下のような用途に使用できる：
 
 - ある交差点で1時間に起きる事故の件数
-- 国道1キロメートル当たりのレストランの数
+- 国道1��メートル当たりのレストランの数
 - この原稿を書いている間に変換間違えをする数
 
 
@@ -51,12 +51,12 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 | [`operator()`](poisson_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------------------|-------|
 | [`mean`](poisson_distribution/mean.md)   | 分布の平均値を取得する           | C++11 |
-| [`param`](poisson_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](poisson_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](poisson_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](poisson_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -73,8 +73,8 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------|----------------------|-------|
-| [`operator==`](poisson_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](poisson_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](poisson_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](poisson_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](poisson_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](poisson_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -108,7 +108,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[poisson_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/poisson_distribution/poisson_distribution.tsv)）を図示する。 
+このプ�グラムによってある時に得られた結果（[poisson_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/poisson_distribution/poisson_distribution.tsv)）を図示する。 
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/poisson_distribution/poisson_distribution.png)
 

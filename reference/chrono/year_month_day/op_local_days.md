@@ -11,7 +11,7 @@ constexpr explicit operator local_days() const noexcept; // (1) C++20
 * local_days[link /reference/chrono/local_time.md]
 
 ## 概要
-`year_month_day`オブジェクトをローカル時間の日付に、明示的に型変換する。
+`year_month_day`オブジェクトを�ーカル時間の日付に、明示的に型変換する。
 
 
 ## 戻り値
@@ -24,7 +24,7 @@ return local_days{sys_days{*this}.time_since_epoch()};
 
 
 ## 備考
-- 日のみ範囲外の場合、以下のように、表そうとしている日付はそのままにしてシステム時間のエポックからの経過時間を求めて、ローカル時間に変換される
+- 日のみ範囲外の場合、以下のように、表そうとしている日付はそのままにしてシステム時間のエポックからの経過時間を求めて、�ーカル時間に変換される
     - (うるう年以外の年)年2月29日は、(そのままの年)年3月1日に変換される
     - xxxx年1月0日は、xxxx - 1年12月31日に変換される
 

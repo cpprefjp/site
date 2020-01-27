@@ -10,7 +10,7 @@ void unlock();
 ```
 
 ## 概要
-共有ロックを手放す
+共有�ックを手放す
 
 
 ## 効果
@@ -44,14 +44,14 @@ int main()
 {
   std::shared_timed_mutex mtx;
   {
-    // 共有ロックを取得する
+    // 共有�ックを取得する
     std::shared_lock<std::shared_timed_mutex> lock(mtx);
 
-    // 共有ロックを手放す
+    // 共有�ックを手放す
     lock.unlock();
 
     assert(lock.owns_lock() == false);
-  } // すでに共有ロックを手放しているので、
+  } // すでに共有�ックを手放しているので、
     // デストラクタではunlock_sharedされない
 }
 ```

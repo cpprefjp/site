@@ -10,16 +10,16 @@ locale getloc();
 * locale[link ../../locale/locale.md]
 
 ## 概要
-ロケールを取得する。
+�ケールを取得する。
 
 
 ## 戻り値
-[`imbue`](imbue.md) で設定されたロケール。  
-オブジェクトが構築されてから一度も [`imbue`](imbue.md) が呼び出されていない場合には、オブジェクトが構築された際のグローバル C++ ロケール（つまり、[`locale`](../../locale/locale.md)`()`）。
+[`imbue`](imbue.md) で�定された�ケール。  
+オブジェクトが構築されてから一度も [`imbue`](imbue.md) が呼び出されていない場合には、オブジェクトが構築された際のグ�ーバル C++ �ケール（つまり、[`locale`](../../locale/locale.md)`()`）。
 
 
 ## 備考
-- 設定されたロケールは、ロケール依存の入出力に使用される。ただし、[`ios_base`](../ios_base.md) 自体にはロケール依存の入出力関数は存在しない。実際にロケール依存の入出力を行うのは、派生クラスである [`basic_istream`](../../istream/basic_istream.md) と [`basic_ostream`](../../ostream/basic_ostream.md)（および、それらの派生クラス [`basic_iostream`](../../istream/basic_iostream.md)）である。
+- �定された�ケールは、�ケール依�の入出力に使用される。ただし、[`ios_base`](../ios_base.md) 自体には�ケール依�の入出力関数は�在しない。実際に�ケール依�の入出力を行うのは、派生クラスである [`basic_istream`](../../istream/basic_istream.md) と [`basic_ostream`](../../ostream/basic_ostream.md)（および、それらの派生クラス [`basic_iostream`](../../istream/basic_iostream.md)）である。
 
 
 ## 例
@@ -47,8 +47,8 @@ C
 en_US.UTF-8
 ```
 
-2 行目の出力は環境依存のため、上記の出力とは異なる可能性がある。  
-しかし、グローバル C++ ロケールはプログラム実行開始時には "C" ロケールであるため、1 行目の出力は必ず上記のようになるはずである。
+2 行目の出力は環境依�のため、上記の出力とは異なる可能性がある。  
+しかし、グ�ーバル C++ �ケールはプ�グラム実行開始時には "C" �ケールであるため、1 行目の出力は必ず上記のようになるはずである。
 
 
 ## バージョン

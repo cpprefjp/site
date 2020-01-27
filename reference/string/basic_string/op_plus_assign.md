@@ -16,7 +16,7 @@ basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-指定された文字列、文字、あるいは初期化リストを追加する。
+指定された文�列、文�、あるいは初期化リストを追加する。
 
 
 ## 要件
@@ -25,17 +25,17 @@ basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
 
 ## 効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。  
-	[`append`](append.md)`(str)` と等価。
+	[`append`](append.md)`(str)` と�価。
 
-- (2) 対象オブジェクトの末尾に `s` から始まる NULL で終端された文字列が追加される。  
-	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++03 まで）、あるいは、[`append`](append.md)`(s)`（C++11 から）と等価。  
-	なお、`s` から始まる NULL 終端された文字列の長さは、`traits_type::length(s)` で求められる。
+- (2) 対象オブジェクトの末尾に `s` から始まる NULL で終端された文�列が追加される。  
+	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++03 まで）、あるいは、[`append`](append.md)`(s)`（C++11 から）と�価。  
+	なお、`s` から始まる NULL 終端された文�列の長さは、`traits_type::length(s)` で求められる。
 
-- (3) 対象オブジェクトの末尾に文字 `c` が追加される。  
-	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(1, c))` と等価。
+- (3) 対象オブジェクトの末尾に文� `c` が追加される。  
+	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(1, c))` と�価。
 
-- (4) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。  
-	[`append`](append.md)`(il)` と等価。
+- (4) 対象オブジェクトの末尾に初期化リスト `il` で表された文�列が追加される。  
+	[`append`](append.md)`(il)` と�価。
 
 
 ## 戻り値
@@ -95,10 +95,10 @@ Hello, world! :)
 
 | 名前                          | 説明                   |
 |-------------------------------|------------------------|
-| [`append`](append.md)       | 文字／文字列を追加する |
-| [`push_back`](push_back.md) | 文字を追加する         |
-| [`insert`](insert.md)       | 文字／文字列を挿入する |
-| [`operator+`](op_plus.md)   | 文字列を連結する       |
+| [`append`](append.md)       | 文�／文�列を追加する |
+| [`push_back`](push_back.md) | 文�を追加する         |
+| [`insert`](insert.md)       | 文�／文�列を挿入する |
+| [`operator+`](op_plus.md)   | 文�列を連結する       |
 
 
 ## 参照

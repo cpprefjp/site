@@ -14,7 +14,7 @@
 
 
 ## 効果
-デストラクタ呼び出し時点で`thread`オブジェクトにスレッドが関連付けられている場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプログラムを終了する。既にjoin操作またはdetach操作済みの（つまり、`thread`オブジェクトが既にスレッドと関連付けられていない）場合は何もしない。
+デストラクタ呼び出し時点で`thread`オブジェクトにスレッドが関連付けられている場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプ�グラムを終了する。既にjoin操作またはdetach操作済みの（つまり、`thread`オブジェクトが既にスレッドと関連付けられていない）場合は何もしない。
 
 
 ## 例
@@ -27,7 +27,7 @@ int main()
     std::thread t([]{ /*...*/ });
     // thdに対してjoin()もdetach()も行わない。
 
-    // thdのデストラクタ呼び出しでプログラム終了!
+    // thdのデストラクタ呼び出しでプ�グラム終了!
   }
 
   return 0;

@@ -48,9 +48,9 @@ iterator emplace(Args&&... args);
 
 	となっている。  
 	なお、この条件は C++14 までは「以下」ではなく「よりも小さい」だったため、最大負荷率の定義と不整合だった。  
-	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
+	これは規格の誤りとして C++17 で修�されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
 
-- これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、等価なキーの要素同士の相対的な順序は変わらない。
+- これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、�価な�ーの要素同士の相対的な順序は変わらない。
 
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace_hint` も含めた一覧を以下に示す。
@@ -58,8 +58,8 @@ iterator emplace(Args&&... args);
 	| コンテナ                                                              | シグネチャ                                                                         |
 	|-----------------------------------------------------------------------|------------------------------------------------------------------------------------|
 	| シーケンスコンテナ                                                    | `template <class... Args>`<br/> `iterator emplace(const_iterator, Args&&...)`      |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
 	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
 
@@ -74,7 +74,7 @@ iterator emplace(Args&&... args);
 // サンプルで使用する型の別名
 using is = std::pair<const int, std::string>;
 
-// サンプルで使用する型の別名のための挿入演算子
+// サンプルで使用する型の別名のための挿入演算�
 std::ostream& operator<<(std::ostream& os, const is& p)
 {
   return os << '(' << p.first << ',' << p.second << ')';
@@ -140,7 +140,7 @@ int main()
 | [`swap`](swap.md)                       | 内容の交換                                             |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                       |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定                             |
+| [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、�定                             |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整                   |
 

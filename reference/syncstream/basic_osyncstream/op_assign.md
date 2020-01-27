@@ -10,11 +10,11 @@ basic_osyncstream& operator=(basic_osyncstream&& rhs) noexcept;
 ```
 
 ## 概要
-ムーブ代入を行う。このとき、保留中の出力はラップされたストリームへ転送される。
+ムーブ代入を行う。このとき、保留�の出力はラップされたストリームへ転送される。
 
 
 ## 効果
-保留中の出力を転送するために[`emit()`](emit.md)を呼び出した後、ラップされたストリームであり、プライベートメンバである[`std::basic_syncbuf`](../basic_syncbuf.md)を、`rhs`のものからムーブ代入する。  
+保留�の出力を転送するために[`emit()`](emit.md)を呼び出した後、ラップされたストリームであり、プライベートメンバである[`std::basic_syncbuf`](../basic_syncbuf.md)を、`rhs`のものからムーブ代入する。  
 
 
 ## 戻り値
@@ -31,7 +31,7 @@ basic_osyncstream& operator=(basic_osyncstream&& rhs) noexcept;
 
 
 ## 備考
-この代入演算子は、`rhs`をそのラップされたストリームバッファから切り離し、`rhs`を破棄しても出力が生成されないようにする。
+この代入演算�は、`rhs`をそのラップされたストリームバッファから切り離し、`rhs`を破棄しても出力が生成されないようにする。
 
 
 ## 例

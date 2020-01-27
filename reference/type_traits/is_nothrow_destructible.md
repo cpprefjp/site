@@ -75,7 +75,7 @@ int main() {}
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 4.8.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-	- 2012は、正しく実装されていない。常に`true_type`になっている。
+	- 2012は、�しく実装されていない。常に`true_type`になっている。
 
 
 ## 参照

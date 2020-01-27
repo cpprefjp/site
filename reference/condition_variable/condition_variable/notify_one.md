@@ -14,7 +14,7 @@ void notify_one() noexcept;
 
 
 ## 効果
-`*this`の`condition_variable`オブジェクトを待機しているスレッドがある場合、その一つをブロッキング解除する。
+`*this`の`condition_variable`オブジェクトを待機しているスレッドがある場合、その一つをブ�ッ�ング解除する。
 
 
 ## 戻り値

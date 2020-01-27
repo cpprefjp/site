@@ -34,7 +34,7 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 - (4) : デフォルトコンストラクタ、
 - (5) : 内部メモリ領域の初期サイズを指定し構築
 - (6) : 別に確保されたメモリ領域を初期メモリ領域として使用し構築
-- (7) : コピーコンストラクタ、コピー禁止
+- (7) : コピーコンストラクタ、コピー禁�
 
 ## 要件
 
@@ -51,17 +51,17 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 
 ## 効果
 
-- (1) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを実装定義の値に設定
+- (1) : `upstream`を上流`memory_resource`として�定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを実装定義の値に�定
 
-- (2) : `upstream`を上流`memory_resource`として設定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを`initial_size`に設定
+- (2) : `upstream`を上流`memory_resource`として�定し、初期メモリ領域を空（`nullptr`）、次に補充するメモリサイズを`initial_size`に�定
 
-- (3) : `upstream`を上流`memory_resource`として設定し、`buffer`を初期メモリ領域、`buffer_size`に実装定義の増加分を足した値（整数とは限らない）を次に補充するメモリサイズに設定
+- (3) : `upstream`を上流`memory_resource`として�定し、`buffer`を初期メモリ領域、`buffer_size`に実装定義の増加分を足した値（整数とは限らない）を次に補充するメモリサイズに�定
 
-- (4) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(1)に渡し移譲
+- (4) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(1)に渡し移�
 
-- (5) : `initial_size`と[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(2)に渡し移譲
+- (5) : `initial_size`と[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(2)に渡し移�
 
-- (6) : `buffer`と`buffer_size`及び[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(3)に渡し移譲
+- (6) : `buffer`と`buffer_size`及び[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(3)に渡し移�
 
 (4)(5)(6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
 

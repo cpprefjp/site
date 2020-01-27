@@ -26,7 +26,7 @@ namespace std{
 
 他の言語でこのような処理は、`foldL` (Haskell)、`reduce` (Common Lisp, Ruby)、`aggregate` (C#)などと呼ばれている。
 
-- (1) : 二項演算をデフォルトで`operator+`とする。それによって、このオーバーロードは、範囲の合計値を求める処理となる
+- (1) : 二項演算をデフォルトで`operator+`とする。それによって、このオーバー�ードは、範囲の合計値を求める処理となる
 - (2) : 任意の二項演算関数を受け取って集計処理を行う
 
 
@@ -76,12 +76,12 @@ int main()
   std::cout << "sum : " << sum << std::endl;
 
   // (1) : 合計値をlong long型として求める
-  // accumulateの第3引数がlong long型のゼロを表す0LLになっていることに注意
+  // accumulateの第3引数がlong long型のゼ�を表す0LLになっていることに注意
   // accumulateの戻り値型は、第3引数の型となるため、変数sum_llの型はlong long
   auto sum_ll = std::accumulate(v.begin(), v.end(), 0LL);
   std::cout << "sum_ll : " << sum_ll << std::endl;
 
-  // (1) : 文字列のリストを連結する
+  // (1) : 文�列のリストを連結する
   std::string concatenate = std::accumulate(v2.begin(), v2.end(), std::string());
   std::cout << "concat : " << concatenate << std::endl;
 

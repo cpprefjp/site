@@ -41,15 +41,15 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](zoned_time/op_constructor.md) | コンストラクタ | C++20 |
-| [`operator=`](zoned_time/op_assign.md) | 代入演算子 | C++20 |
+| [`operator=`](zoned_time/op_assign.md) | 代入演算� | C++20 |
 
 
 ### 変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator sys_time`](zoned_time/op_sys_time.md)     | [`sys_time`](sys_time.md)型への変換演算子 | C++20 |
-| [`operator local_time`](zoned_time/op_local_time.md) | [`local_time`](local_time.md)型への変換演算子 | C++20 |
+| [`operator sys_time`](zoned_time/op_sys_time.md)     | [`sys_time`](sys_time.md)型への変換演算� | C++20 |
+| [`operator local_time`](zoned_time/op_local_time.md) | [`local_time`](local_time.md)型への変換演算� | C++20 |
 
 
 ### 観測
@@ -57,9 +57,9 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`get_time_zone`](zoned_time/get_time_zone.md)   | タイムゾーンを取得する | C++20 |
-| [`get_local_time`](zoned_time/get_local_time.md) | ローカル時間を取得する | C++20 |
+| [`get_local_time`](zoned_time/get_local_time.md) | �ーカル時間を取得する | C++20 |
 | [`get_sys_time`](zoned_time/get_sys_time.md)     | システム時間を取得する | C++20 |
-| [`get_info`](zoned_time/get_info.md)             | 設定されたタイムゾーンの情報を取得する | C++20 |
+| [`get_info`](zoned_time/get_info.md)             | �定されたタイムゾーンの情報を取得する | C++20 |
 
 
 ## 非メンバ関数
@@ -67,8 +67,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](zoned_time/op_equal.md.nolink)         | 等値比較を行う | C++20 |
-| `template<class Duration1, class Duration2, class TimeZonePtr>`<br/> `bool operator==(const zoned_time<Duration1, TimeZonePtr>& x, const zoned_time<Duration2, TimeZonePtr>& y);` | 非等値比較を行う (`==`により使用可能) | C++20 |
+| [`operator==`](zoned_time/op_equal.md.nolink)         | �値比較を行う | C++20 |
+| `template<class Duration1, class Duration2, class TimeZonePtr>`<br/> `bool operator==(const zoned_time<Duration1, TimeZonePtr>& x, const zoned_time<Duration2, TimeZonePtr>& y);` | 非�値比較を行う (`==`により使用可能) | C++20 |
 
 
 ### 入出力
@@ -97,7 +97,7 @@ int main()
   auto now = chrono::system_clock::now();
 
   // タイムゾーンなしで日時を出力する
-  // (ローカルタイムゾーンへの変換はしてくれないので、デフォルトではUTCタイムゾーンで出力される)
+  // (�ーカルタイムゾーンへの変換はしてくれないので、デフォルトではUTCタイムゾーンで出力される)
   std::cout << now << std::endl;
 
   // タイムゾーン付きで日時を出力する
@@ -105,7 +105,7 @@ int main()
   std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl; // 日本 (UTC + 9時間)
   std::cout << chrono::zoned_time{"UTC", now} << std::endl;        // UTC
 
-  // コンピュータに設定されているタイムゾーンで、日時を出力する
+  // コンピュータに�定されているタイムゾーンで、日時を出力する
   std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
 }
 ```

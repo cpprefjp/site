@@ -6,7 +6,7 @@ site
 このリポジトリにあるMarkdownファイルを編集することで、cpprefjpサイトに自動的に反映されます。
 
 
-cpprefjpへのコントリビュート方法や各ファイル編集方法については、以下のドキュメントを参照してください。
+cpprefjpへのコントリビュート方法や各ファイル編集方法については、以下のド�ュメントを参照してください。
 
 * [cpprefjpへのコントリビュート方法](CONTRIBUTING.md)
 * [cpprefjpを編集するには](/editors_doc/start_editing.md)

@@ -42,8 +42,8 @@ namespace std::pmr {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator==`](memory_resource/op_equal.md) | 等値比較 | C++17 |
-| [`operator!=`](memory_resource/op_not_equal.md) | 非等値比較 | C++17 |
+| [`operator==`](memory_resource/op_equal.md) | �値比較 | C++17 |
+| [`operator!=`](memory_resource/op_not_equal.md) | 非�値比較 | C++17 |
 
 ## 実装する例
 ```cpp example
@@ -56,7 +56,7 @@ template<std::size_t N>
 struct stack_resource : public std::pmr::memory_resource {
 
   stack_resource() = default;
-  //コピーに意味がないので禁止
+  //コピーに意味がないので禁�
   stack_resource(const stack_resource&) = delete;
   stack_resource& operator=(const stack_resource&) = delete;
 
@@ -99,7 +99,7 @@ struct stack_resource : public std::pmr::memory_resource {
     auto end = std::end(m_buffer);
 
     if (m_buffer <= addr && addr < end) {
-      //当てた領域をゼロ埋めするだけ
+      //当てた領域をゼ�埋めするだけ
       for (std::size_t i = 0; i < bytes; ++i) {
         if ((addr + i) < end) {
           addr[i] = std::byte(0);
@@ -181,7 +181,7 @@ false
 - [`null_memory_resource`](/reference/memory_resource/null_memory_resource.md)
 
 ## 参照
-- [C++1z 多相アロケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
+- [C++1z 多相ア�ケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
 - [memory_resourceについて - 本の虫](https://cpplover.blogspot.com/2015/09/memoryresource.html)
 - [Polymorphic Allocator in C++17 - Qita](https://qiita.com/MitsutakaTakeda/items/48980faa9498c46b15b2)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)

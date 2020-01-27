@@ -47,14 +47,14 @@ indirect_array<T> operator[](const ValOrProxy<std::size_t>& mask);      // (10)
 
 `n >=` [`size()`](size.md)の場合、その挙動は未定義。
 
-- (3) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
-- (4) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素への参照を管理する[`slice_array`](/reference/valarray/slice_array.md)オブジェクトを返す。
-- (5) : `*this`に含まれる要素を、[`gslice`](/reference/valarray/gslice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
-- (6) : `*this`に含まれる要素を、[`gslice`](/reference/valarray/gslice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素への参照を管理する[`gslice_array`](/reference/valarray/gslice_array.md)オブジェクトを返す。
-- (7) : `*this`に含まれる、`mask`の`true`となっている要素のみを抽出する。このオーバーロードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
-- (8) : `*this`に含まれる、`mask`の`true`となっている要素のみを抽出する。このオーバーロードでは、条件一致した要素への参照を管理する[`mask_array`](/reference/valarray/mask_array.md)オブジェクトを返す。
-- (9) : `*this`に含まれる、`mask`に含まれるインデックス値の要素のみを抽出する。このオーバーロードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
-- (10) : `*this`に含まれる、`mask`に含まれるインデックス値の要素のみを抽出する。このオーバーロードでは、条件一致した要素への参照を管理する[`indirect_array`](/reference/valarray/indirect_array.md)オブジェクトを返す。
+- (3) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバー�ードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
+- (4) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバー�ードでは、条件一致した要素への参照を管理する[`slice_array`](/reference/valarray/slice_array.md)オブジェクトを返す。
+- (5) : `*this`に含まれる要素を、[`gslice`](/reference/valarray/gslice.md)の条件に基いてスライスする。このオーバー�ードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
+- (6) : `*this`に含まれる要素を、[`gslice`](/reference/valarray/gslice.md)の条件に基いてスライスする。このオーバー�ードでは、条件一致した要素への参照を管理する[`gslice_array`](/reference/valarray/gslice_array.md)オブジェクトを返す。
+- (7) : `*this`に含まれる、`mask`の`true`となっている要素のみを抽出する。このオーバー�ードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
+- (8) : `*this`に含まれる、`mask`の`true`となっている要素のみを抽出する。このオーバー�ードでは、条件一致した要素への参照を管理する[`mask_array`](/reference/valarray/mask_array.md)オブジェクトを返す。
+- (9) : `*this`に含まれる、`mask`に含まれるインデックス値の要素のみを抽出する。このオーバー�ードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
+- (10) : `*this`に含まれる、`mask`に含まれるインデックス値の要素のみを抽出する。このオーバー�ードでは、条件一致した要素への参照を管理する[`indirect_array`](/reference/valarray/indirect_array.md)オブジェクトを返す。
 
 
 ## 備考
@@ -271,7 +271,7 @@ int main()
 ```
 
 ### 備考
-- GCC 4.8.2時点のlibstdc++において、(8)と(10)のオーバーロードにおいて、一時オブジェクトのマスク配列を渡すと、ぶら下がり参照が発生する問題がある([#Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))
+- GCC 4.8.2時点のlibstdc++において、(8)と(10)のオーバー�ードにおいて、一時オブジェクトのマスク配列を渡すと、ぶら下がり参照が発生する問題がある([#Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))
 
 
 ## 参照

@@ -11,11 +11,11 @@ const directory_entry& operator*() const;
 * directory_entry[link /reference/filesystem/directory_entry.md]
 
 ## 概要
-間接参照演算子。
+間接参照演算�。
 
 
 ## 戻り値
-`*this`によってキャッシュされたファイルの各種属性を付加した[`directory_entry`](/reference/filesystem/directory_entry.md)オブジェクトを返す。
+`*this`によって�ャッシュされたファイルの各種属性を付加した[`directory_entry`](/reference/filesystem/directory_entry.md)オブジェクトを返す。
 
 
 ## 例

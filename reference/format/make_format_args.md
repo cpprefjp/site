@@ -49,14 +49,14 @@ string format(string_view fmt, const Args&... args)
 
 ## 効果
 
-(2)は次と等しい。
+(2)は次と�しい。
 
 ```cpp
 return make_format_args<wformat_context>(args...);
 ```
 * wformat_context[link /reference/format/basic_format_context.md]
 
-(1)は次と等しい。
+(1)は次と�しい。
 
 ```cpp
 return {basic_format_arg<Context>(args)...}
@@ -114,7 +114,7 @@ namespace std {
 * basic_string_view[link /reference/string_view/basic_string_view.md]
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 
-ここで、それぞれの効果は次と等しい。
+ここで、それぞれの効果は次と�しい。
 
 * (a):
     * `T`が`bool`または`charT`なら、`value`を`v`で初期化
@@ -125,7 +125,7 @@ namespace std {
     * または、`T`が符号なし整数型かつ`sizeof(T) <= sizeof(unsigned long long int)`なら、`value`を`static_cast<unsigned long long int>(v)`で初期化
     * または、`value`を`handle(v)`で初期化
 * (b),(c),(d): `value`を`n`で初期化
-* (e): `value`を`s`で初期化 (`s`は有効なC文字列であること)
+* (e): `value`を`s`で初期化 (`s`は有効なC文�列であること)
 * (f): `value`を`s`で初期化
 * (g): `value`を`basic_string_view<charT>(s.data(), s.size())`で初期化
 * (h): `value`を`static_cast<const void*>(nullptr)`で初期化

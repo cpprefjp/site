@@ -23,7 +23,7 @@ namespace std {
 	実際、本関数の逆関数（の片割れ）とも言える [`arg`](arg.md) の戻り値はラジアンである。
 - コンストラクタのデフォルト引数を踏まえると、偏角 `theta` のデフォルト引数が `T()` ではなく `0` であるのは、規格の誤りであるように思われる。
 - `rho` と `theta` に現れる型 `T` は（残念ながら）同じ型でなければならない。（`int` と `double` を渡すなどといったことはできない）  
-	同じ [`<complex>`](/reference/complex.md) ヘッダの [`pow`](pow.md) や、[`cmath`](/reference/cmath.md) ヘッダの [`atan2`](/reference/cmath/atan2.md) などの関数群は、引数の型が異なっていても簡単に呼び出せるように C++11 でオーバーロードが追加されているため、単なる規格の考慮漏れかもしれない。
+	同じ [`<complex>`](/reference/complex.md) ヘッダの [`pow`](pow.md) や、[`cmath`](/reference/cmath.md) ヘッダの [`atan2`](/reference/cmath/atan2.md) などの関数群は、引数の型が異なっていても簡単に呼び出せるように C++11 でオーバー�ードが追加されているため、単なる規格の考慮漏れかもしれない。
 
 
 ## 例

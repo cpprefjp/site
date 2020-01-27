@@ -38,9 +38,9 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-文字列の再代入を行う。
+文�列の再代入を行う。
 
-この関数は、アロケータを除き、`basic_string`クラスのコンストラクタと同様のパラメータを受け取り、再代入を行う。代入演算子が一つのパラメータしか扱えないため、複数パラメータによる代入として使用する。
+この関数は、ア�ケータを除き、`basic_string`クラスのコンストラクタと同様のパラメータを受け取り、再代入を行う。代入演算�が一つのパラメータしか扱えないため、複数パラメータによる代入として使用する。
 
 
 ## 要件
@@ -50,25 +50,25 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
 
 
 ## 効果
-- (1) : コピー代入。`str`オブジェクトと同じ文字列を構築する。
-    - `assign(str, 0, npos)`と等価。
+- (1) : コピー代入。`str`オブジェクトと同じ文�列を構築する。
+    - `assign(str, 0, npos)`と�価。
 - (2) : ムーブ代入。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
-- (3) : `str`オブジェクトの部分文字列のコピーから構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
-    - 文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
+- (3) : `str`オブジェクトの部分文�列のコピーから構築する。`str`オブジェクトの`pos`番目から`n`文�の部分文�列がコピーされる。
+    - 文�列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
     - `assign(str.data() + pos, rlen)`を呼び出す。
-- (4) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから構築する。
-- (5) : 文字配列`s`のコピーから構築する。
+- (4) : 文�配列`s`の先�`n`文�からなる部分文�列のコピーから構築する。
+- (5) : 文�配列`s`のコピーから構築する。
     - `assign(s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
-- (6) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
-    - `assign(basic_string(n, c))`と等価。
-- (7) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
-    - `assign(basic_string(first, last))`と等価。
-- (8) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
+- (6) : 文�`c`の`n`回繰り返した文�列からなる`basic_string`オブジェクトを構築する。
+    - `assign(basic_string(n, c))`と�価。
+- (7) : 文�列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
+    - `assign(basic_string(first, last))`と�価。
+- (8) : 文�の初期化�リストから`basic_string`オブジェクトを構築する。
     - `assign(il.begin(), il.end())`を呼び出す。
 - (9) : `std::basic_string_view`オブジェクトが参照する範囲をコピーして、`basic_string`オブジェクトを構築する。
-    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と等価。
-- (10) : `std::basic_string_view`オブジェクトが参照する文字列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。
-    - 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
+    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と�価。
+- (10) : `std::basic_string_view`オブジェクトが参照する文�列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。
+    - 文�列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
     - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
 
 
@@ -101,33 +101,33 @@ int main()
   s2.assign(std::string("hello"));
   std::cout << "s2 : " << s2 << std::endl;
 
-  // (3) 部分文字列のコピーを代入
-  // s2文字列オブジェクトの1番目の文字から3文字
+  // (3) 部分文�列のコピーを代入
+  // s2文�列オブジェクトの1番目の文�から3文�
   std::string s3;
   s3.assign(s2, 1, 3);
   std::cout << "s3 : " << s3 << std::endl;
 
-  // (4) 文字配列の先頭N文字を代入
+  // (4) 文�配列の先�N文�を代入
   std::string s4;
   s4.assign("hello", 3);
   std::cout << "s4 : " << s4 << std::endl;
 
-  // (5) 文字配列を代入
+  // (5) 文�配列を代入
   std::string s5;
   s5.assign("hello");
   std::cout << "s5 : " << s5 << std::endl;
 
-  // (6) 文字をN回繰り返して代入
+  // (6) 文�をN回繰り返して代入
   std::string s6;
   s6.assign(3, 'a');
   std::cout << "s6 : " << s6 << std::endl;
 
-  // (7) 文字列の範囲を代入
+  // (7) 文�列の範囲を代入
   std::string s7;
   s7.assign(s1.begin(), s1.end());
   std::cout << "s7 : " << s7 << std::endl;
 
-  // (8) 文字の初期化子リストを代入
+  // (8) 文�の初期化�リストを代入
   std::string s8;
   s8.assign({'h', 'e', 'l', 'l', 'o'});
   std::cout << "s8 : " << s8 << std::endl;
@@ -163,5 +163,5 @@ s10 : Hello
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (7)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
-    - C++14から(3)のオーバーロードに、`n = npos`のデフォルト引数を追加。
+    - C++14から(3)のオーバー�ードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)

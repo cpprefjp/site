@@ -15,7 +15,7 @@ namespace std {
 * iterator[link /reference/iterator/iterator.md]
 * output_iterator_tag[link /reference/iterator/iterator_tag.md]
 
-この機能は、C++17から非推奨となり、C++20で削除された。未初期化メモリをイテレートしながら構築する場合は、アロケータと適切に連携するプログラムを組むこと。
+この機能は、C++17から非推奨となり、C++20で削除された。未初期化メモリをイテレートしながら構築する場合は、ア�ケータと適切に連携するプ�グラムを組むこと。
 
 
 ## 概要
@@ -36,8 +36,8 @@ namespace std {
 |--------------------------------------|-------------------------------|
 | [`(constructor)`](raw_storage_iterator/op_constructor.md) | コンストラクタ |
 | `~raw_storage_iterator() = default;` | デストラクタ |
-| [`operator=`](raw_storage_iterator/op_assign.md)     | 代入演算子 |
-| [`operator*`](raw_storage_iterator/op_deref.md)      | 間接参照演算子 |
+| [`operator=`](raw_storage_iterator/op_assign.md)     | 代入演算� |
+| [`operator*`](raw_storage_iterator/op_deref.md)      | 間接参照演算� |
 | [`operator++`](raw_storage_iterator/op_increment.md) | イテレータをインクリメントする |
 
 
@@ -53,7 +53,7 @@ namespace std {
 
 
 ## 非推奨・削除の詳細
-未初期化メモリからオブジェクトを構築していくのであれば、アロケータとの連携ができることが重要となるが、このクラスはその用途に適さなかったため、非推奨となった。
+未初期化メモリからオブジェクトを構築していくのであれば、ア�ケータとの連携ができることが重要となるが、このクラスはその用途に適さなかったため、非推奨となった。
 
 
 ## 例

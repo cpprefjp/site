@@ -2,7 +2,7 @@
 * cpp11[meta cpp]
 
 ## 概要
-C++11 から、変数宣言時に具体的な型名のかわりに `auto` キーワードを指定する事によって、変数の型を初期化子から推論できるようになった。
+C++11 から、変数宣言時に具体的な型名のかわりに `auto` �ーワードを指定する事によって、変数の型を初期化�から推論できるようになった。
 
 ```cpp
 auto i = 0;                         // i は int 型
@@ -12,25 +12,25 @@ auto s = "";                        // s は const char* 型
 auto p = std::make_pair(1, 'c');    // p は std::pair<int, char> 型
 auto q = std::make_shared<int>(42); // q は std::shared_ptr<int> 型
 auto z = { 1.0, 2.0, 3.0, };        // z は std::initializer_list<double> 型
-auto f = []{};                      // f は 引数を取らずに値を返さない operator() を持つユニークなクロージャ型
+auto f = []{};                      // f は 引数を取らずに値を返さない operator() を持つユニークなク�ージャ型
 ```
 * auto[color ff0000]
 * std::make_shared[link ../../reference/memory/make_shared.md]
 
-型推論のための `auto` は、基本的には糖衣構文であり具体的な型で書き替えることが可能であるが、上記のクロージャ型のように書き換えが不可能なケースも存在する。  
-この機能の追加に伴って、C++03 までの `auto` に存在した、自動変数である事を意味する記憶クラス指定子としての使用はできなくなった。
+型推論のための `auto` は、基本的には糖衣構文であり具体的な型で書き替えることが可能であるが、上記のク�ージャ型のように書き換えが不可能なケースも�在する。  
+この機能の追加に伴って、C++03 までの `auto` に�在した、自動変数である事を意味する記憶クラス指定�としての使用はできなくなった。
 
 なお、`auto` は[戻り値の型を後置する関数宣言構文](trailing_return_types.md)でも使用されるが、その場合の `auto` には型推論の意味は無い。  
-さらに、C++14 では `auto` キーワードを使用する機能として、[ユーザ定義変換関数の型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダ](../cpp14/generic_lambdas.md)、および、[`decltype(auto)`](../cpp14/decltype_auto.md) が追加されている。  
+さらに、C++14 では `auto` �ーワードを使用する機能として、[ユーザ定義変換関数の型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダ](../cpp14/generic_lambdas.md)、および、[`decltype(auto)`](../cpp14/decltype_auto.md) が追加されている。  
 それぞれの機能については、各解説を参照。
 
 
 ## 仕様
 ### 使用可能な場所
 
-`auto` による型推論は、以下の場所で初期化子がある場合のみ使用可能である。
+`auto` による型推論は、以下の場所で初期化�がある場合のみ使用可能である。
 
-- ブロックスコープでの変数宣言
+- ブ�ックスコープでの変数宣言
 - 名前空間スコープでの変数宣言
 - `for` 文の初期化文部での変数宣言
 - `if` 文、`switch` 文、`for` 文、`while` 文の条件部での変数宣言
@@ -40,7 +40,7 @@ auto f = []{};                      // f は 引数を取らずに値を返さ�
 これら以外の場所では `auto` による型推論は使用できない。  
 なお、C++14 ではこれらのほか、[ユーザ定義変換関数](../cpp14/return_type_deduction_for_normal_functions.md)、[通常関数の戻り値型](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダの引数](../cpp14/generic_lambdas.md)でも使用可能になっている。
 
-`auto` は単独での指定だけではなく、CV修飾（`const`、`volatile`）やポインタ・参照修飾（`*`、`&`、`&&`）等と共に指定する事が可能である。
+`auto` は単独での指定だけではなく、CV修飾（`const`、`volatile`）やポインタ・参照修飾（`*`、`&`、`&&`）�と共に指定する事が可能である。
 
 ```cpp
 auto i = 10;                // i は int 型
@@ -84,14 +84,14 @@ void f(const U& p);
 なお、`const auto& p(式リスト);` のような直接初期化を伴う変数宣言の場合の推論も同様であるが、変数の型を式リストから推論する関係で（当然ではあるが）式リストに複数の式を書くことはできない。  
 （通常の直接初期化のような `auto s('c', 42);` といった書き方では型推論ができないのでエラーとなる）
 
-変数宣言がコピーリスト初期化を伴う、例えば `auto p = { 初期化子1, 初期化子2, ... 初期化子n };` の場合、`auto` をテンプレート型パラメータ `U` そのものへ置き換えたものではなく、`std::`[`initializer_list`](../../reference/initializer_list/initializer_list.md)`<U>` へ置き換えた以下のような関数を考えて、上記と同様の型推論を行う。  
+変数宣言がコピーリスト初期化を伴う、例えば `auto p = { 初期化�1, 初期化�2, ... 初期化�n };` の場合、`auto` をテンプレート型パラメータ `U` そのものへ置き換えたものではなく、`std::`[`initializer_list`](../../reference/initializer_list/initializer_list.md)`<U>` へ置き換えた以下のような関数を考えて、上記と同様の型推論を行う。  
 
 ```cpp
 template <typename U>
 void f(std::initializer_list<U> p);
 ```
 
-なお、`auto p{ 初期化子1, 初期化子2, ... 初期化子n };` のような直接リスト初期化の場合、C++11 ではコピーリスト初期化と同様とされている。  
+なお、`auto p{ 初期化�1, 初期化�2, ... 初期化�n };` のような直接リスト初期化の場合、C++11 ではコピーリスト初期化と同様とされている。  
 しかし、この（直接リスト初期化の）挙動は C++17 で変更される予定であるため、注意が必要である。  
 （gcc 5.1.0 以降、clang 3.8.0 以降では既に変更されており、たとえ C++11 モードを使用しても元の挙動にはならない）
 
@@ -135,13 +135,13 @@ int main()
 1, 7, 3, 2, null, 5, null, 8, 
 ```
 
-### 例２（ブロックスコープ、for 文の初期化文、および、条件部）
+### 例２（ブ�ックスコープ、for 文の初期化文、および、条件部）
 ```cpp example
 #include <iostream>
 
 int main()
 {
-  // ブロックスコープでの変数宣言
+  // ブ�ックスコープでの変数宣言
   static auto s = "C++";                                        // s は const char* 型
 
   // `for` 文の初期化文、および、条件部での変数宣言
@@ -196,7 +196,7 @@ struct T {
   static constexpr auto m = S(42);                              // m は S 型
 };
 
-// 静的メンバの定義（初期化子が無いため、auto は使えない）
+// 静的メンバの定義（初期化�が無いため、auto は使えない）
 S constexpr T::m;
 
 void f(const S& s)
@@ -254,12 +254,12 @@ int foo(const std::unordered_map<T, std::unordered_map<T, T>>& m) {
 
 
 ## 検討されたほかの選択肢
-### 記憶クラス指定子としての `auto`
-自動変数である事を意味する記憶クラス指定子としての `auto` を残す案も考えられた。
+### 記憶クラス指定�としての `auto`
+自動変数である事を意味する記憶クラス指定�としての `auto` を残す案も考えられた。
 
 - [N1706 Decltype and auto (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf)（「1.1 Changes from N1607」の 5 番目の項目）
 
-しかし、その場合に発生する新たな曖昧性や混乱を回避するため、および、記憶クラス指定子としての `auto` の使用が非常に少ないとの調査結果などから、当該用途は直ちに廃止となった。
+しかし、その場合に発生する新たな曖昧性や混乱を回避するため、および、記憶クラス指定�としての `auto` の使用が非常に少ないとの調査結果などから、当該用途は直ちに廃�となった。
 
 - [N2337 The Syntax of auto Declarations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2337.pdf)
 
@@ -273,7 +273,7 @@ void f(auto lhs, auto rhs)
 }
 ```
 
-これは、以下のようなテンプレート宣言と等価である。
+これは、以下のようなテンプレート宣言と�価である。
 
 ```cpp
 template <typename T, typename U>
@@ -304,8 +304,8 @@ void f(T lhs, U rhs)
 
 なお、この機能は C++14 で規格入りした。（[通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)）
 
-### 複数の変数宣言の禁止
-`auto` を使用した場合に、以下のような複数の変数を同時に宣言することを禁止すべきではないかとの検討が行われた。
+### 複数の変数宣言の禁�
+`auto` を使用した場合に、以下のような複数の変数を同時に宣言することを禁�すべきではないかとの検討が行われた。
 
 - [N1705 Decltype and auto (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf)（「1.1 Changes from N1607」の 4 番目の項目）
 
@@ -348,7 +348,7 @@ std::pair<T, T>& p = foo();
 * std::pair[link /reference/utility/pair.md]
 
 この場合、`foo()` の戻り値型が `std::pair` のインスタンスで、かつ、二つのテンプレート引数が同一でない時にはエラーとするような表明（アサーション）の役割を担うものとしていた。  
-この文法を使用すると、テンプレート引数として `auto` を使用する場合の例は、以下と等価となる。
+この文法を使用すると、テンプレート引数として `auto` を使用する場合の例は、以下と�価となる。
 
 ```cpp
 template <typename T, typename U>

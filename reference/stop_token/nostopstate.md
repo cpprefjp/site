@@ -15,8 +15,8 @@ namespace std {
 ```
 
 ## 概要
-`nostopstate_t`型とその値`nostopstate`は、停止状態を扱わない[`stop_source`](stop_source.md)を構築するためのタグである。  
-`stop_source`クラスのコンストラクタに`nostopstate`を渡すと、その`stop_source`は停止要求を扱うためのリソースを確保せず、停止要求を作成したり`stop_token`クラスと停止状態を共有したりできない状態になる。
+`nostopstate_t`型とその値`nostopstate`は、停�状態を扱わない[`stop_source`](stop_source.md)を構築するためのタグである。  
+`stop_source`クラスのコンストラクタに`nostopstate`を渡すと、その`stop_source`は停�要求を扱うためのリソースを確保せず、停�要求を作成したり`stop_token`クラスと停�状態を共有したりできない状態になる。
 
 
 ## 例

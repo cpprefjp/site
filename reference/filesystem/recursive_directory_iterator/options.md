@@ -15,7 +15,7 @@ directory_options options() const;
 
 
 ## 戻り値
-コンストラクタで設定されたオプションを返す。コンストラクタで明示的にオプションを指定していない場合は、[`directory_options::none`](/reference/filesystem/directory_options.md)を返す。
+コンストラクタで�定されたオプションを返す。コンストラクタで明示的にオプションを指定していない場合は、[`directory_options::none`](/reference/filesystem/directory_options.md)を返す。
 
 
 ## 例

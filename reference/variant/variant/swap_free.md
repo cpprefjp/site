@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 効果
-以下と等価：
+以下と�価：
 
 ```cpp
 x.swap(y);
@@ -33,7 +33,7 @@ x.swap(y);
 
 
 ## 例外
-- `noexcept`内の式は、`noexcept(x.`[`swap`](swap.md)`(y))`と等価
+- `noexcept`内の式は、`noexcept(x.`[`swap`](swap.md)`(y))`と�価
 
 
 ## 例

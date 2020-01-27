@@ -81,8 +81,8 @@ namespace std {
 
 
 ## 計算量
-- (1) : 正確に `last - first` 回の `op` の適用が行われる。
-- (2) : 正確に `last - first` 回の `binary_op` の適用が行われる。
+- (1) : �確に `last - first` 回の `op` の適用が行われる。
+- (2) : �確に `last - first` 回の `binary_op` の適用が行われる。
 
 
 ## 備考
@@ -102,7 +102,7 @@ int main() {
   std::vector<int> v = { 3,1,4 };
   std::vector<std::string> result;
 
-  // 2倍してから文字列に変換する
+  // 2倍してから文�列に変換する
   std::transform(v.begin(), v.end(), std::back_inserter(result),
     [](int x) { return std::to_string(x * 2); });
 
@@ -134,7 +134,7 @@ int main() {
   std::vector<int> v2 = { 3,1,4 };
   std::vector<std::string> result;
 
-  // v1[n] の文字を v2[n] 回繰り返した文字列を返す
+  // v1[n] の文�を v2[n] 回繰り返した文�列を返す
   std::transform(v1.begin(), v1.end(), v2.begin(), std::back_inserter(result),
     [](char a, int b) { return std::string(b, a); });
 

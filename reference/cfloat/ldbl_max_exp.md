@@ -8,14 +8,14 @@
 ```
 
 ## 概要
-[`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`long double` の有限の値として表現可能であるような、最大の整数値 $n$ を表すマクロ。  
+[`FLT_RADIX`](flt_radix.md) の $n - 1$ 乗が、`long double` の有限の値として表現可能であるような、最大の整数値 $n$ を表すマク�。  
 [`<cfloat>`](../cfloat.md) のモデルにおける $e_{\rm max}$。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max_exponent`](/reference/limits/numeric_limits/max_exponent.md) と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`max_exponent`](/reference/limits/numeric_limits/max_exponent.md) と�しい。
 
 
 ## 備考
-- 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
+- 本マク�は `#if` プリプ�セッサディレクティブに使用可能な定数式である。
 - `LDBL_MAX_EXP` は Long DouBLe MAXimum EXPonent（maximum：最大値、exponent：指数）に由来する。
 
 

@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 効果
-- C++03 : 以下と等価
+- C++03 : 以下と�価
     ```cpp
     for (; first != last; ++result, ++first)
       ::new (static_cast<void*>(&*result))
@@ -35,7 +35,7 @@ namespace std {
     ```
     * iterator_traits[link /reference/iterator/iterator_traits.md]
 
-- C++17 : 以下と等価
+- C++17 : 以下と�価
     ```cpp
     for (; first != last; ++result, ++first)
       ::new (static_cast<void*>(addressof(*result)))

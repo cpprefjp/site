@@ -12,18 +12,18 @@ namespace std {
 * fexcept_t[link fexcept_t.md]
 
 ## 概要
-浮動小数点例外を発生させずに、浮動小数点例外の状態を設定する。
+浮動小数点例外を発生させずに、浮動小数点例外の状態を�定する。
 
 
 ## 効果
-`flagp`が指す浮動小数点例外の状態のうち、`excepts`で指定された種類の浮動小数点例外のみを、現在の浮動小数点例外の状態として設定する。
+`flagp`が指す浮動小数点例外の状態のうち、`excepts`で指定された種類の浮動小数点例外のみを、現在の浮動小数点例外の状態として�定する。
 
 この関数は、浮動小数点例外を発生させない。
 
 
 ## 戻り値
 - `excepts`が`0`であった場合、この関数は`0`を返す
-- 指定された浮動小数点例外を正しく設定できた場合、この関数は`0`を返す
+- 指定された浮動小数点例外を�しく�定できた場合、この関数は`0`を返す
 - それ以外の場合、この関数は`0`以外を返す
 
 
@@ -34,7 +34,7 @@ namespace std {
 
 int main()
 {
-  // ゼロ割りを発生させる
+  // ゼ�割りを発生させる
   float result = 1.0f / 0.0f;
 
   // 現在の浮動小数点例外の状態を取得
@@ -48,7 +48,7 @@ int main()
   assert(std::fetestexcept(FE_DIVBYZERO) == 0);
 
   // 保持しておいた浮動小数点例外の状態のうち、
-  // ゼロ除算の状態のみを復旧させる
+  // ゼ�除算の状態のみを復旧させる
   std::fesetexceptflag(&excepts, FE_DIVBYZERO);
   assert(div_by_zero_state == std::fetestexcept(FE_DIVBYZERO));
 }
@@ -75,6 +75,6 @@ int main()
 - [GCC](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
-	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、�しく動作しないおそれがある。
 
 

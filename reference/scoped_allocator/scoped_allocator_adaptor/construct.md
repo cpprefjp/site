@@ -48,9 +48,9 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6) C++17 ま�
 			`CONSTRUCT(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`,` [`inner_allocator`](inner_allocator.md)`(),` [`forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
 		- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T, inner_allocator_type>::value == true` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T, Args..., inner_allocator_type>::value == true` の場合  
 			`CONSTRUCT(`[`forward`](/reference/utility/forward.md)`<Args>(args)...,` [`inner_allocator`](inner_allocator.md)`())`を呼び出す。
-		- それ以外の場合、プログラムは不適格となる。
-		- この関数は `T` が [`pair`](/reference/utility/pair.md) の特殊化でない場合に限りオーバーロード解決に参加する。
-	- C++20 から : 以下と等価の動作を行う。
+		- それ以外の場合、プ�グラムは不適格となる。
+		- この関数は `T` が [`pair`](/reference/utility/pair.md) の特殊化でない場合に限りオーバー�ード解決に参加する。
+	- C++20 から : 以下と�価の動作を行う。
 
 		```cpp
 apply(
@@ -65,7 +65,7 @@ apply(
 * uses_allocator_construction_args[link /reference/memory/uses_allocator_construction_args.md]
 * inner_allocator[link inner_allocator.md]
 
-- (2) : 以下と等価の動作を行う。  
+- (2) : 以下と�価の動作を行う。  
 	`CONSTRUCT(`[`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`move`](/reference/utility/move.md)`(xprime),` [`move`](/reference/utility/move.md)`(yprime))`  
 	ここで、`xprime` は以下のルールに従って `x` から構築された [`tuple`](/reference/tuple/tuple.md) とする。（`yprime` も `y` から同様に構築されるものとする）
 
@@ -75,18 +75,18 @@ apply(
 		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`tuple`](/reference/tuple/tuple.md)`<`[`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type&>(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type()), x)` を `xprime` とする。
 	- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T1, inner_allocator_type>::value == true` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T1, Args1..., inner_allocator_type>::value == true` の場合  
 		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(x,` [`tuple`](/reference/tuple/tuple.md)`<inner_allocator_type&>(inner_allocator_type()))` を `xprime` とする。
-	- それ以外の場合、プログラムは不適格となる。
+	- それ以外の場合、プ�グラムは不適格となる。
 
-- (3) : 以下と等価の動作を行う。  
+- (3) : 以下と�価の動作を行う。  
 	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`tuple`](/reference/tuple/tuple.md)`<>(),` [`tuple`](/reference/tuple/tuple.md)`<>())`
 
-- (4) : 以下と等価の動作を行う。  
+- (4) : 以下と�価の動作を行う。  
 	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<U>(x)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<V>(y)))`
 
-- (5) : 以下と等価の動作を行う。  
+- (5) : 以下と�価の動作を行う。  
 	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(x.first),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(x.second))`
 
-- (6) : 以下と等価の動作を行う。  
+- (6) : 以下と�価の動作を行う。  
 	`construct(p,` [`piecewise_construct`](/reference/utility/piecewise_construct_t.md)`,` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`(x.first)),` [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`(x.second)))`
 
 
@@ -129,15 +129,15 @@ using pair_of_vector = std::vector<
 void construct_propagate_alloc()
 {
   vector<string>::allocator_type alloc {
-    alloc_t<string>(), // vector自体のアロケータオブジェクト
-    alloc_t<char>()    // vectorの全ての要素に使用するアロケータオブジェクト
+    alloc_t<string>(), // vector自体のア�ケータオブジェクト
+    alloc_t<char>()    // vectorの全ての要素に使用するア�ケータオブジェクト
   };
 
-  // 外側のアロケータを使用し、stringが1要素入るメモリを確保
+  // 外側のア�ケータを使用し、stringが1要素入るメモリを確保
   const std::size_t n = 1;
   string* p = alloc.allocate(n);
 
-  // (1) 以下のコンストラクタを呼び出し、アロケータオブジェクトを伝搬させる
+  // (1) 以下のコンストラクタを呼び出し、ア�ケータオブジェクトを伝搬させる
   // basic_string(const char*, Allocator)
   alloc.construct(p, "hello");
 
@@ -157,7 +157,7 @@ void construct_pair()
 
   // (2)
   // pairの各要素に対して以下のコンストラクタを呼び出し、
-  // アロケータオブジェクトを伝搬させる。
+  // ア�ケータオブジェクトを伝搬させる。
   // basic_string(const char*, Allocator)
   std::pair<string, string>* pair_p = p;
   alloc.construct(p, std::piecewise_construct,

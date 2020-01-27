@@ -32,7 +32,7 @@ namespace std {
 ## 概要
 [`ios_base`](../ios_base.md)`::failure` は、ストリームライブラリ内の関数で、ストリームバッファ操作の間に検出したエラーを報告するために、例外として送出される全てのオブジェクトの型の基底クラスとして定義されている。  
 C++11 からは、エラー内容としてメッセージだけではなく、[`error_code`](../../system_error/error_code.md) を指定出来るようになった。  
-これによって、ストリームの操作で発生したエラーをプログラムから判別することが容易になる。  
+これによって、ストリームの操作で発生したエラーをプ�グラムから判別することが容易になる。  
 例えば、C++ 標準規格には、ストリームライブラリ内部で発生したエラーの [`error_code`](../../system_error/error_code.md) は [`io_errc`](../io_errc.md)`::stream` と [`iostream_category`](../iostream_category.md)`()` で、OS レイヤで発生したエラーの [`error_code`](../../system_error/error_code.md) は [`system_category`](../../system_error/system_category.md)`()` で例外を送出するのが一般的だろうとの記載がある。  
 しかし、少なくとも現時点では [`error_code`](../../system_error/error_code.md) はあまり有効に機能していないようである。
 
@@ -49,7 +49,7 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 
 ## 備考
 - [`ios_base`](../ios_base.md)`::failure` は、C++11 から基底クラスが変更になっている。  
-    このため、C++03 まででも使用可能とするためには、基底クラスが [`system_error`](../../system_error/system_error.md) であることに依存しないようにする必要がある。  
+    このため、C++03 まででも使用可能とするためには、基底クラスが [`system_error`](../../system_error/system_error.md) であることに依�しないようにする必要がある。  
     なお、C++ 標準規格では、ライブラリの各クラスは基底クラスを直接継承しなくても（間接的に継承していれば）良いことになっている。  
     このため、C++03 でも [`exception`](../../exception/exception.md) から直接派生していないかもしれないので、注意。  
     （当然 C++11 でも [`system_error`](../../system_error/system_error.md) を直接継承していない可能性がある）
@@ -68,10 +68,10 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 
 ### 備考
 - GCC は 4.9.x までは C++11 モードでも [`system_error`](../../system_error/system_error.md) を継承していないので、注意が必要である。
-- GCC 5.1.0 以降は現時点では `_GLIBCXX_USE_CXX11_ABI` マクロが `1` の場合（通常のビルドでは `1` がデフォルト）、C++03 モードでも C++11 モードでもライブラリ内から送出された例外を [`ios_base`](../ios_base.md)`::failure` 型では `catch` できない。  
+- GCC 5.1.0 以降は現時点では `_GLIBCXX_USE_CXX11_ABI` マク�が `1` の場合（通常のビルドでは `1` がデフォルト）、C++03 モードでも C++11 モードでもライブラリ内から送出された例外を [`ios_base`](../ios_base.md)`::failure` 型では `catch` できない。  
     [`exception`](../../exception/exception.md) 型であれば `catch` することができるが、いずれにせよストリーム系の例外とそれ以外の例外を区別することができなくなってしまう。  
-    したがって、少なくともこの問題が解決されるまでは、`_GLIBCXX_USE_CXX11_ABI` マクロを `0` にする他ないだろう。（C++03 モードにおける [コンストラクタ](failure/op_constructor.md)の事後条件の違いも参照）  
-    なお、`_GLIBCXX_USE_CXX11_ABI` マクロを `0` にしてしまうと、4.9.x までと同様、モードにかかわらず [`system_error`](../../system_error/system_error.md) を継承しなくなってしまうので、注意すること。
+    したがって、少なくともこの問題が解決されるまでは、`_GLIBCXX_USE_CXX11_ABI` マク�を `0` にする他ないだろう。（C++03 モードにおける [コンストラクタ](failure/op_constructor.md)の事後条件の違いも参照）  
+    なお、`_GLIBCXX_USE_CXX11_ABI` マク�を `0` にしてしまうと、4.9.x までと同様、モードにかかわらず [`system_error`](../../system_error/system_error.md) を継承しなくなってしまうので、注意すること。
 - Clang では、C++03 モードでも [`strcmp`](../../cstring/strcmp.md.nolink)`(`[`what`](failure/what.md)`(), msg.`[`c_str`](../../string/basic_string/c_str.md)`()) == 0` にはならない。  
 
 

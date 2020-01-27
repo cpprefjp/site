@@ -10,7 +10,7 @@ size_type bucket(const key_type& k) const;
 ```
 
 ## 概要
-指定したキーと等価な要素が格納されている場合、そのバケットのインデックス（添え字）を取得する。
+指定した�ーと�価な要素が格納されている場合、そのバケットのインデックス（添え�）を取得する。
 
 
 ## 要件
@@ -18,7 +18,7 @@ size_type bucket(const key_type& k) const;
 
 
 ## 戻り値
-パラメータ `k` と等価なキーの要素が格納されているバケットのインデックス（添え字）
+パラメータ `k` と�価な�ーの要素が格納されているバケットのインデックス（添え�）
 
 戻り値は `[0,` [`bucket_count`](bucket_count.md)`())` の範囲である。
 
@@ -28,7 +28,7 @@ size_type bucket(const key_type& k) const;
 
 
 ## 備考
-指定したキーと等価な要素が格納されていない場合、そのキーを挿入した際に [`rehash`](rehash.md) が発生しなければ格納されるバケットのインデックス（添え字）が返る。
+指定した�ーと�価な要素が格納されていない場合、その�ーを挿入した際に [`rehash`](rehash.md) が発生しなければ格納されるバケットのインデックス（添え�）が返る。
 
 
 ## 例
@@ -49,7 +49,7 @@ int main()
   decltype(um)::size_type c = um.bucket_count();
   std::cout << "bucket_count() = " << c << std::endl;
 
-  // 全てのキーに対するバケットのインデックスとそのバケットの要素数を取得
+  // 全ての�ーに対するバケットのインデックスとそのバケットの要素数を取得
   for (decltype(um)::const_reference x : um) {
     decltype(um)::key_type k = x.first;
     decltype(um)::size_type b = um.bucket(k);
@@ -57,7 +57,7 @@ int main()
     std::cout << "key = " << k << ", bucket = " << b << ", bucket_size = " << s << std::endl;
   }
 
-  // 存在しないキーに対するバケットのインデックスとそのバケットの要素数を取得
+  // �在しない�ーに対するバケットのインデックスとそのバケットの要素数を取得
   decltype(um)::key_type k = 'H';
   decltype(um)::size_type b = um.bucket(k);
   decltype(um)::size_type s = um.bucket_size(b);

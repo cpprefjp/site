@@ -49,7 +49,7 @@ int main()
     std::cout << "3. null" << std::endl;
   }
 
-  // 例外処理中ではないためcurrent_exceptionはヌル値を指すexception_ptrを返す
+  // 例外処理�ではないためcurrent_exceptionはヌル値を指すexception_ptrを返す
   ep1 = std::current_exception();
   if (!ep1) {
     std::cout << "4. null" << std::endl;
@@ -59,7 +59,7 @@ int main()
     throw std::runtime_error("error!");
   }
   catch (...) {
-    // 処理中の例外を取得
+    // 処理�の例外を取得
     ep1 = std::current_exception();
   }
 

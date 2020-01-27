@@ -36,7 +36,7 @@ regex_token_iterator& operator=(const regex_token_iterator& rhs);
 int main()
 {
   const std::string s("enum E { enumerator1 = value1, enumerator2 = value2, enumerator3 = value3, };");
-  const std::regex re(R"((\w+)\s*=\s*(\w+))"); // 列挙子とその値をグループ化
+  const std::regex re(R"((\w+)\s*=\s*(\w+))"); // 列挙�とその値をグループ化
 
   std::sregex_token_iterator it1;
   // 1 番目と 2 番目のサブマッチを順に繰り返す
@@ -50,7 +50,7 @@ int main()
   }
   std::cout << std::endl;
 
-  // it2 を途中でコピーしたイテレータで、1 番目と 2 番目のサブマッチを順に繰り返す
+  // it2 を途�でコピーしたイテレータで、1 番目と 2 番目のサブマッチを順に繰り返す
   for (std::sregex_token_iterator end; it1 != end; ++it1) {
     std::cout << "match range = (" << it1->first - std::begin(s) << ", " << it1->second - std::begin(s) << "), "
                  "str = '" << it1->str() << '\'' << std::endl;
@@ -95,5 +95,5 @@ GCC & libstdc++ では、コピー直後のオブジェクトの参照先が誤�
 | 名前                                       | 説明           | 対応バージョン |
 |--------------------------------------------|----------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
-| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+| [`operator==`](op_equal.md)                | �値比較       | C++11          |
 | [`operator++`](op_increment.md)            | インクリメント | C++11          |

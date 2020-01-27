@@ -18,7 +18,7 @@ constexpr reference back() const;
 
 
 ## 戻り値
-以下と等価：
+以下と�価：
 
 ```cpp
 return *(data() + (size() - 1));

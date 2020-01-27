@@ -15,7 +15,7 @@ namespace std::chrono {
 
 
 ## 戻り値
-- (1) : 以下と等価：
+- (1) : 以下と�価：
 
 ```cpp
 if (auto c = x.year() <=> y.year(); c != 0) return c;
@@ -32,7 +32,7 @@ return x.day() <=> y.day();
 
 
 ## 備考
-- この演算子により、`operator<`、`operator<=`、`operator>`、`operator>=`が使用可能になる
+- この演算�により、`operator<`、`operator<=`、`operator>`、`operator>=`が使用可能になる
 
 
 ## 例

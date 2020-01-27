@@ -32,8 +32,8 @@ bool compare_exchange_weak(T& expected,
 ## 概要
 弱い比較で値を入れ替える。
 
-- (1), (2) : 現在の値と`expected`が等値である場合に、`success`メモリオーダーで現在の値を`desired`で置き換え、そうでなければ`failure`メモリオーダーで`expected`を現在の値で置き換える
-- (3), (4) : 現在の値と`expected`が等値である場合に、現在の値を`desired`で置き換え、そうでなければ`expected`を現在の値で置き換える。どちらの値置き換えの場合でも`order`メモリオーダーが使用される
+- (1), (2) : 現在の値と`expected`が�値である場合に、`success`メモリオーダーで現在の値を`desired`で置き換え、そうでなければ`failure`メモリオーダーで`expected`を現在の値で置き換える
+- (3), (4) : 現在の値と`expected`が�値である場合に、現在の値を`desired`で置き換え、そうでなければ`expected`を現在の値で置き換える。どちらの値置き換えの場合でも`order`メモリオーダーが使用される
 
 
 ## 要件
@@ -41,14 +41,14 @@ bool compare_exchange_weak(T& expected,
 
 
 ## 効果
-現在の値と`expected`をバイトレベルで等値比較を行い、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
+現在の値と`expected`をバイトレベルで�値比較を行い、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値で置き換える。
 
-- (1), (2) : バイト等値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる
+- (1), (2) : バイト�値比較が`true`の場合は`success`メモリオーダー、`false`の場合は`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる
 - (3), (4) : アトミックな値置き換えでは`order`メモリオーダーが使用される
 
 
 ## 戻り値
-この関数を呼び出す前の`*this`が保持する値と`expected`の等値比較の結果が返される。等値であれば`true`、そうでなければ`false`が返る。
+この関数を呼び出す前の`*this`が保持する値と`expected`の�値比較の結果が返される。�値であれば`true`、そうでなければ`false`が返る。
 
 
 ## 例外
@@ -60,7 +60,7 @@ bool compare_exchange_weak(T& expected,
 
 [`compare_exchange_strong()`](compare_exchange_strong.md)はより強い命令であり、交換可能な場合はCAS操作が常に成功する。
 
-アーキテクチャによっては、この関数は[`compare_exchange_strong()`](compare_exchange_strong.md)と等価だが、PowerPCやARMなどLL/SC命令を提供するアーキテクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](https://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](https://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
+アー�テクチャによっては、この関数は[`compare_exchange_strong()`](compare_exchange_strong.md)と�価だが、PowerPCやARMなどLL/SC命令を提供するアー�テクチャの場合、この関数はハードウェアの“弱いLL/SC命令”にて実装されうる。[wikipedia:en:Load-link/store-conditional](https://en.wikipedia.org/wiki/Load-link%2Fstore-conditional), [wikipedia:Load-Link/Store-Conditional](https://ja.wikipedia.org/wiki/Load-Link%2FStore-Conditional) などを参照のこと。
 
 通常、CAS操作は、CASが成功するまでループさせる。
 
@@ -126,10 +126,10 @@ public:
     // 他のスレッドによってvalue_の値が書き換わっている可能性があるため、
     // value_ != expectedだったらexpected = value_に更新する。
     // value_ == expectedだったらその値に+1して値更新する。
-    // 変更前の値に依存して変更後の値が必要な場合に、このようなdo/whileループが必要となる
+    // 変更前の値に依�して変更後の値が必要な場合に、このようなdo/whileループが必要となる
     while (!value_.compare_exchange_weak(expected, desired));
 
-    // 変更前の値に依存した値更新のパターンは、以下のようになる：
+    // 変更前の値に依�した値更新のパターンは、以下のようになる：
     // expected = current.load();
     // do {
     //   desired = function(expected); // expectedに何らかの変換を行う
@@ -139,7 +139,7 @@ public:
 
   // 値の上書き
   void store(int new_value) {
-    // 変更前の値に依存しない場合は、Spurious Failureを回避するためのwhile文のみ必要となる
+    // 変更前の値に依�しない場合は、Spurious Failureを回避するためのwhile文のみ必要となる
     int expected = value_.load();
     while (!value_.compare_exchange_weak(expected, new_value)) {}
   }

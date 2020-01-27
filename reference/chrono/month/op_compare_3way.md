@@ -23,7 +23,7 @@ namespace std::chrono {
 
 
 ## 備考
-- この演算子により、`operator<`、`operator<=`、`operator>`、`operator>=`が使用可能になる
+- この演算�により、`operator<`、`operator<=`、`operator>`、`operator>=`が使用可能になる
 
 
 ## 例

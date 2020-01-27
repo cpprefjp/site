@@ -18,13 +18,13 @@ const_reference operator[](size_type n) const;
 
 
 ## 戻り値
-`n` 番目のキャプチャグループ（正規表現内の括弧で囲まれた部分）に対応する [`sub_match`](../sub_match.md) オブジェクトへの参照。  
-`n == 0` の場合、マッチした文字列全体に対応する [`sub_match`](../sub_match.md) オブジェクトへの参照を返す。  
+`n` 番目の�ャプチャグループ（�規表現内の括弧で囲まれた部分）に対応する [`sub_match`](../sub_match.md) オブジェクトへの参照。  
+`n == 0` の場合、マッチした文�列全体に対応する [`sub_match`](../sub_match.md) オブジェクトへの参照を返す。  
 `n >=` [`size`](size.md)`()` の場合、マッチしていないことを表す [`sub_match`](../sub_match.md) オブジェクト（備考参照）への参照を返す。
 
 
 ## 備考
-マッチしていないことを表す [`sub_match`](../sub_match.md) オブジェクトとは、`first` と `second` が検索対象文字列の末尾を指し、`match == false` であるようなオブジェクトである。
+マッチしていないことを表す [`sub_match`](../sub_match.md) オブジェクトとは、`first` と `second` が検索対象文�列の末尾を指し、`match == false` であるようなオブジェクトである。
 
 
 ## 例

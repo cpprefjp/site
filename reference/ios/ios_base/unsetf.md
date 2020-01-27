@@ -14,7 +14,7 @@ fmtflags unsetf(fmtflags mask);
 
 
 ## 効果
-[`flags`](flags.md)`()` から引数 `mask` をクリアする。[`flags`](flags.md)`(`[`flags`](flags.md)`() & ~mask)` と等価。
+[`flags`](flags.md)`()` から引数 `mask` をクリアする。[`flags`](flags.md)`(`[`flags`](flags.md)`() & ~mask)` と�価。
 
 
 ## 戻り値
@@ -22,9 +22,9 @@ fmtflags unsetf(fmtflags mask);
 
 
 ## 備考
-- 本関数は、単独のビットで意味のあるフィールド、および、複数ビットのいずれも設定されていないことに意味のあるフィールドに用いる。（例を参照）
+- 本関数は、単独のビットで意味のあるフィールド、および、複数ビットのいずれも�定されていないことに意味のあるフィールドに用いる。（例を参照）
     複数のビットで排他的に使用するフィールドには、本関数ではなく [`setf`](setf.md) の 2引数バージョンを使用する。
-- 設定後に戻す必要が無いような場合には、本関数より各種マニピュレータを使用した方が便利だろう。
+- �定後に戻す必要が無いような場合には、本関数より各種マニピュレータを使用した方が便利だろう。
 
 
 ## 例
@@ -41,7 +41,7 @@ int main()
   std::cout.unsetf(std::ios_base::boolalpha);
   std::cout << true << '\n';
 
-  // 浮動小数点を科学表記で出力
+  // 浮動小数点を科�表記で出力
   std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);
   std::cout << 123.456 << '\n';
 
@@ -53,7 +53,7 @@ int main()
   std::cout.unsetf(std::ios_base::floatfield);
   std::cout << 123.456 << '\n';
 
-  // マニピュレータを使用して上記と等価の設定をした例
+  // マニピュレータを使用して上記と�価の�定をした例
   std::cout << std::boolalpha << true << '\n';
   std::cout << std::noboolalpha << true << '\n';
   std::cout << std::scientific << 123.456 << '\n';

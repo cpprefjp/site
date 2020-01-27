@@ -8,7 +8,7 @@
 ```
 
 ## 概要
-`long double` の正の正規化数のうち最小のものを表すマクロ。  
+`long double` の�の�規化数のうち最小のものを表すマク�。  
 以下の式で表される。
 
 $$
@@ -18,7 +18,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$e_{\rm min}$ は指数の最小値（[`LDBL_MIN_EXP`](ldbl_min_exp.md)）である。  
 $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
+`std::`[`numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と�しい。
 
 
 ## 備考
@@ -37,7 +37,7 @@ int main()
   std::cout << std::setprecision(LDBL_DIG);
   std::cout << LDBL_MIN << '\n';
 
-  // 以下の式と等価
+  // 以下の式と�価
   std::cout << std::pow((long double)FLT_RADIX, LDBL_MIN_EXP - 1) << '\n';
 }
 ```

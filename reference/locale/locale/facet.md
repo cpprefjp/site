@@ -19,7 +19,7 @@ namespace std {
 |-------------------------------------------------------|-----------------------|
 | `(constructor)` | コンストラクタ |
 | `(destructor)` | デストラクタ |
-| `facet& operator=(const facet&) = delete;` | 代入演算子 |
+| `facet& operator=(const facet&) = delete;` | 代入演算� |
 
 ### 例
 ```cpp

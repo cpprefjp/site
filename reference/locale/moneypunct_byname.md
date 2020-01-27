@@ -31,7 +31,7 @@ namespace std {
 | 名前 | 説明 |
 |-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | 金額のフォーマット型 [`money_base`](/reference/locale/money_base.md)`::pattern` |
-| `string_type` | 文字列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
+| `string_type` | 文�列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
 
 ### 例
 ```cpp

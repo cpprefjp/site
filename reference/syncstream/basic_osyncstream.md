@@ -41,7 +41,7 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator=`](basic_osyncstream/op_assign.md) | 代入演算子 | C++20 |
+| [`operator=`](basic_osyncstream/op_assign.md) | 代入演算� | C++20 |
 
 ### その他メンバ関数
 
@@ -57,7 +57,7 @@ namespace std {
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | `char_type` | `charT` | C++20 |
-| `traits_type` | `Traits` `Traits::char_type`が`CharT`でない場合、プログラムは不適格である | C++20 |
+| `traits_type` | `Traits` `Traits::char_type`が`CharT`でない場合、プ�グラムは不適格である | C++20 |
 | `int_type` | `Traits::int_type` | C++20 |
 | `pos_type` | `Traits::pos_type` | C++20 |
 | `off_type` | `Traits::off_type` | C++20 |
@@ -80,7 +80,7 @@ void thread1()
     bout << "World!";
     bout << std::endl; // フラッシュがノートされる
     bout << "and more!\n";
-  }   // 文字が転送され、cout はフラッシュする
+  }   // 文�が転送され、cout はフラッシュする
 }
 
 void thread2()

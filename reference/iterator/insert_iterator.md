@@ -24,8 +24,8 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](insert_iterator/op_constructor.md) | コンストラクタ | |
 | `~insert_iterator() = default` | デストラクタ | |
-| [`operator=`](insert_iterator/op_assign.md) | 代入演算子 | |
-| [`operator*`](insert_iterator/op_deref.md) | 間接参照演算子 | |
+| [`operator=`](insert_iterator/op_assign.md) | 代入演算� | |
+| [`operator*`](insert_iterator/op_deref.md) | 間接参照演算� | |
 | [`operator++`](insert_iterator/op_increment.md) | イテレータをインクリメントする | |
 
 

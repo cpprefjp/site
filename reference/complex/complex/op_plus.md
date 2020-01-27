@@ -42,7 +42,7 @@ namespace std {
 
 ## 備考
 `lhs` と `rhs` の両辺に現れる型 `T` は（残念ながら）同じ型でなければならない。（`complex<double>` と `complex<float>` の加算や、`complex<double>` と `float` の加算などを行うことはできない。）  
-特に、これらの演算子は関数テンプレートであるため、[`operator+=`](op_plus_assign.md) の場合と異なり、暗黙の型変換は行われないことに注意。
+特に、これらの演算�は関数テンプレートであるため、[`operator+=`](op_plus_assign.md) の場合と異なり、暗黙の型変換は行われないことに注意。
 
 
 ## 例

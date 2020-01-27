@@ -22,11 +22,11 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](error_category/op_constructor.md) | コンストラクタ | C++11 |
 | [`(destructor)`](error_category/op_destructor.md)   | デストラクタ | C++11 |
-| `operator=(const error_category&) = delete`           | 代入演算子(使用不可) | C++11 |
+| `operator=(const error_category&) = delete`           | 代入演算�(使用不可) | C++11 |
 | [`default_error_condition`](error_category/default_error_condition.md) | エラー値と自身のカテゴリから`error_condition`を生成 | C++11 |
-| [`equivalent`](error_category/equivalent.md) | エラーコードとエラー状態の等値比較 | C++11 |
-| [`operator==`](error_category/op_equal.md) | 等値比較 | C++11 |
-| [`operator!=`](error_category/op_not_equal.md) | 非等値比較 | C++11 |
+| [`equivalent`](error_category/equivalent.md) | エラーコードとエラー状態の�値比較 | C++11 |
+| [`operator==`](error_category/op_equal.md) | �値比較 | C++11 |
+| [`operator!=`](error_category/op_not_equal.md) | 非�値比較 | C++11 |
 | [`operator<`](error_category/op_less.md) | 小なり比較 | C++11 |
 
 ### 純粋仮想関数

@@ -10,7 +10,7 @@ namespace std {
 ```
 
 ## 概要
-整数を十六進法で出力することを指示するマニピュレータ。
+整数を十�進法で出力することを指示するマニピュレータ。
 
 ## 効果
 `str.setf(ios_base::hex, ios_base::basefield)`を実行する。

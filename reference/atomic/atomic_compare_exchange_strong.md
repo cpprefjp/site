@@ -39,11 +39,11 @@ namespace std {
 
 
 ## 効果
-[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって現在の値`object`と`expected`をバイトレベルで等値比較を行う、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値`object`で置き換える。
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって現在の値`object`と`expected`をバイトレベルで�値比較を行う、`true`である場合は現在の値を`desired`で置き換え、`false`である場合は`expected`を現在の値`object`で置き換える。
 
 
 ## 戻り値
-等値比較の結果が返される
+�値比較の結果が返される
 
 
 ## 例外

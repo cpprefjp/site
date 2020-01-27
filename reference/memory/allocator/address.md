@@ -23,11 +23,11 @@ const_pointer address(const_reference x) const noexcept; // (2) C++11
 
 ## 戻り値
 - C++03 : `&x`
-- C++11 : `operator&`がオーバーロードされていたとしても、`x`が参照するオブジェクトのアドレスを返す。
+- C++11 : `operator&`がオーバー�ードされていたとしても、`x`が参照するオブジェクトのアドレスを返す。
 
 
 ## 非推奨・削除の詳細
-オブジェクトからのアドレス取得は、アロケータの実装に依存せず、オブジェクト`x`に対して式`&x`もしくは[`std::addressof`](/reference/memory/addressof.md)`(x)`の方法を使用すればよかった。
+オブジェクトからのアドレス取得は、ア�ケータの実装に依�せず、オブジェクト`x`に対して式`&x`もしくは[`std::addressof`](/reference/memory/addressof.md)`(x)`の方法を使用すればよかった。
 
 この関数は必要なかったため、非推奨となった。
 

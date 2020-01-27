@@ -44,13 +44,13 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 | [`operator()`](weibull_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|----------------------------------|-------|
 | [`a`](weibull_distribution/a.md)         | 形状母数を取得する   | C++11 |
 | [`b`](weibull_distribution/b.md)         | 尺度母数を取得する | C++11 |
-| [`param`](weibull_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](weibull_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](weibull_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](weibull_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -67,8 +67,8 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------|----------------------|-------|
-| [`operator==`](weibull_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](weibull_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](weibull_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](weibull_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](weibull_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](weibull_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -108,7 +108,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[weibull_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull_distribution.tsv)）を図示する。 
+このプ�グラムによってある時に得られた結果（[weibull_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull_distribution.tsv)）を図示する。 
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull_distribution.png)
 

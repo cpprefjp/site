@@ -13,7 +13,7 @@ static constexpr bool is_exact;
 ```
 
 ## 概要
-型`T`が正確(exact)な表現を持つ場合、`is_exact`は`true`となり、そうでない場合`false`となる。  
+型`T`が�確(exact)な表現を持つ場合、`is_exact`は`true`となり、そうでない場合`false`となる。  
 `is_specialized == false`の場合は`false`となる。
 
 

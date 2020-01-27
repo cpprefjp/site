@@ -40,12 +40,12 @@ int main()
 
   std::cout << std::boolalpha;
   {
-    // 値をtrueに設定する(変更前の値はfalse)
+    // 値をtrueに�定する(変更前の値はfalse)
     bool result = std::atomic_flag_test_and_set(&x);
     std::cout << result << std::endl;
   }
   {
-    // 値をtrueに設定する(変更前の値はtrue)
+    // 値をtrueに�定する(変更前の値はtrue)
     bool result = std::atomic_flag_test_and_set(&x);
     std::cout << result << std::endl;
   }

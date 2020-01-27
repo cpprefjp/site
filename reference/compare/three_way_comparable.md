@@ -28,7 +28,7 @@ namespace std {
 template<class T, class Cat>
 concept compares-as = same_as<common_comparison_category_t<T, Cat>, Cat>;
 
-//順序付けの4種×2方向の比較演算子が使用可能であり、戻り値型がbooleanコンセプトを満たす
+//順序付けの4種×2方向の比較演算�が使用可能であり、戻り値型がbooleanコンセプトを満たす
 template<class T, class U>
 concept partially-ordered-with =
   requires(const remove_reference_t<T>& t, const remove_reference_t<U>& u) {
@@ -91,7 +91,7 @@ concept three_way_comparable_with =
 - (1) : `const remove_reference_t<T>`の左辺値`a, b`について次の条件を満たす場合に限って、型`T, Cat`は`three_way_comparable`のモデルである
     - `(a <=> b == 0) == bool(a == b)`が`true`であること
     - `(a <=> b != 0) == bool(a != b)`が`true`であること
-    - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が等値
+    - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が�値
     - `(a <=> b < 0) == bool(a < b)`が`true`であること
     - `(a <=> b > 0) == bool(a > b)`が`true`であること
     - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
@@ -101,7 +101,7 @@ concept three_way_comparable_with =
   
 - (2) : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`、`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U, Cat`は`three_way_comparable_with`のモデルである
     - `t <=> u`と`u <=> t`が同じ定義域を持つ（それぞれの引数型がその順番によらず同一である）
-    - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が等値
+    - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が�値
     - `(t <=> u == 0) == bool(t == u)`が`true`であること
     - `(t <=> u != 0) == bool(t != u)`が`true`であること
     - `Cat(t <=> u) == Cat(C(t) <=> C(u))`が`true`であること
@@ -134,20 +134,20 @@ void print_is_less(const T& t, const T& u) {
   std::cout << "<=> : " << ((t <=> u) < 0) << std::endl;
 }
 
-//<=>が使用可能でないなら<演算子を使用
+//<=>が使用可能でないなら<演算�を使用
 template<typename T>
 void print_is_less(const T& t, const T& u) {
   std::cout << "<   : " << (t < u) << std::endl;
 }
 
 
-//<演算子だけが使用可能
+//<演算�だけが使用可能
 struct L {
   int n;
   friend bool operator<(const L& a, const L& b) { return a.n < b.n;}
 };
 
-//<=>演算子含め、全ての比較演算が可能
+//<=>演算�含め、全ての比較演算が可能
 struct S {
   int n;
 
@@ -190,7 +190,7 @@ void print_is_less(const T& t, const U& u) {
   std::cout << "<=> : " << ((t <=> u) < 0) << std::endl;
 }
 
-//<=>が使用可能でないなら<演算子を使用
+//<=>が使用可能でないなら<演算�を使用
 template<typename T, typename U>
 void print_is_less(const T& t, const U& u) {
   std::cout << "<   : " << (t < u) << std::endl;

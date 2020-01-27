@@ -20,22 +20,22 @@ namespace std {
 
 
 ## 備考
-- 本関数は実軸の `1` 未満の領域を分岐截断とする。
-- 本関数は、C99 の規格にある `cacosh`（より正確には `complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl` の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）と等価である。  
+- 本関数は実軸の `1` 未満の領域を分岐截�とする。
+- 本関数は、C99 の規格にある `cacosh`（より�確には `complex.h` ヘッダの `cacosh`、`cacoshf`、`cacoshl` の 3 つ。それぞれ C++ の `acosh<double>`、`acosh<float>`、`acosh<long double>` に相当）と�価である。  
 	C99 では、処理系が ISO IEC 60559（IEEE 754 と同一）に準拠している場合、以下のように規定されている。
 	- `acosh(`[`conj`](conj.md)`(x)) = ` [`conj`](conj.md)`(acosh(x))`
 	- `acosh(complex(±0, +0))` は `complex(+0, π/2)` を返す。
 	- 有限の `x` について、`acosh(complex(x, +∞))` は `complex(+∞, π/2)` を返す。
 	- 有限の `x` について、`acosh(complex(x, NaN))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
-	- 有限で正の符号を持つ（`+0` を含む）`y` について、`acosh(complex(-∞, y))` は `complex(+∞, π)` を返す。
-	- 有限で正の符号を持つ（`+0` を含む）`y` について、`acosh(complex(+∞, y))` は `complex(+∞, +0)` を返す。
+	- 有限で�の符号を持つ（`+0` を含む）`y` について、`acosh(complex(-∞, y))` は `complex(+∞, π)` を返す。
+	- 有限で�の符号を持つ（`+0` を含む）`y` について、`acosh(complex(+∞, y))` は `complex(+∞, +0)` を返す。
 	- `acosh(complex(-∞, +∞))` は `complex(+∞, 3π/4)` を返す。
 	- `acosh(complex(+∞, +∞))` は `complex(+∞, π/4)` を返す。
 	- `acosh(complex(±∞, NaN))` は `complex(+∞, NaN)` を返す。
 	- 有限の `y` について、`acosh(complex(NaN, y))` は `complex(NaN, NaN)` を返すとともに、無効演算の浮動小数点例外（`FE_INVALID`）を引き起こす可能性がある。
 	- `acosh(complex(NaN, +∞))` は `complex(+∞, NaN)` を返す。
 	- `acosh(complex(NaN, NaN))` は `complex(NaN, NaN)` を返す。
-- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
+- 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマク� `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
 - 逆双曲線余弦の算出については、一部の算術型に対しても、他のヘッダで定義されている。  
 
 	| 引数の型                                  | 関数                                             | ヘッダ                               | 備考       |
@@ -92,19 +92,19 @@ acosh( (1,2) ) = (1.52857,1.14372)
 | 名前                                 | 説明                                      |
 |--------------------------------------|-------------------------------------------|
 | [`acos`](acos.md)                    | 複素数の逆余弦を求める。                  |
-| [`asin`](asin.md)                    | 複素数の逆正弦を求める。                  |
-| [`atan`](atan.md)                    | 複素数の逆正接を求める。                  |
-| [`asinh`](asinh.md)                  | 複素数の逆双曲線正弦を求める。            |
-| [`atanh`](atanh.md)                  | 複素数の逆双曲線正接を求める。            |
+| [`asin`](asin.md)                    | 複素数の逆�弦を求める。                  |
+| [`atan`](atan.md)                    | 複素数の逆�接を求める。                  |
+| [`asinh`](asinh.md)                  | 複素数の逆双曲線�弦を求める。            |
+| [`atanh`](atanh.md)                  | 複素数の逆双曲線�接を求める。            |
 | [`cos`](cos.md)                      | 複素数の余弦を求める。                    |
 | [`cosh`](cosh.md)                    | 複素数の双曲線余弦を求める。              |
 | [`exp`](exp.md)                      | 自然対数の底 e の累乗（複素数）を求める。 |
 | [`log`](log.md)                      | 複素数の自然対数を求める。                |
 | [`log10`](log10.md)                  | 複素数の常用対数を求める。                |
 | [`pow`](pow.md)                      | 複素数の累乗を求める。                    |
-| [`sin`](sin.md)                      | 複素数の正弦を求める。                    |
-| [`sinh`](sinh.md)                    | 複素数の双曲線正弦を求める。              |
+| [`sin`](sin.md)                      | 複素数の�弦を求める。                    |
+| [`sinh`](sinh.md)                    | 複素数の双曲線�弦を求める。              |
 | [`sqrt`](sqrt.md)                    | 複素数の平方根を求める。                  |
-| [`tan`](tan.md)                      | 複素数の正接を求める。                    |
-| [`tanh`](tanh.md)                    | 複素数の双曲線正接を求める。              |
+| [`tan`](tan.md)                      | 複素数の�接を求める。                    |
+| [`tanh`](tanh.md)                    | 複素数の双曲線�接を求める。              |
 | [`acosh`](/reference/cmath/acosh.md) | 実数の逆双曲線余弦を求める。              |

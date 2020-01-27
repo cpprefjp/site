@@ -19,7 +19,7 @@ inline namespace string_literals {
 ## 概要
 `basic_string`型のリテラル。
 
-文字列リテラルを受け取り、各文字型の`basic_string`オブジェクトを構築する。
+文�列リテラルを受け取り、各文�型の`basic_string`オブジェクトを構築する。
 
 - (1) : `string`型のリテラル
 - (2) : `u8string`型のリテラル
@@ -44,7 +44,7 @@ int main()
 {
   using namespace std::literals::string_literals;
 
-  std::string s1 = "hello"s;   // 文字コード未規定のstringリテラル
+  std::string s1 = "hello"s;   // 文�コード未規定のstringリテラル
 #if defined(__cpp_char8_t) && 201803L <= __cpp_char8_t
   std::u8string s2 = u8"hello"s; // UTF-8のstringリテラル(C++20)
 #else
@@ -53,7 +53,7 @@ int main()
   std::u16string s3 = u"hello"s; // u16stringリテラル
   std::u32string s4 = U"hello"s; // u32stringリテラル
 
-  std::wstring s5 = L"hello"s; // 文字コード未規定のwstringリテラル
+  std::wstring s5 = L"hello"s; // 文�コード未規定のwstringリテラル
 }
 ```
 * "hello"s[color ff0000]

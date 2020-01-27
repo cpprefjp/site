@@ -21,7 +21,7 @@ namespace std {
 
 1. 有効な`void`へのポインタから`uintptr_t`型への変換
 2. `uintptr_t`型のポインタ値から`void`へのポインタへの逆変換
-3. 変換前と逆変換のポインタ値が等値となる
+3. 変換前と逆変換のポインタ値が�値となる
 
 
 コード例は、[`intptr_t`](intptr_t.md)を参照。
@@ -36,4 +36,4 @@ namespace std {
 - [GCC](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
-	- 2005, 2008では、`<stdlib.h>`にグローバル名前空間で定義されている。
+	- 2005, 2008では、`<stdlib.h>`にグ�ーバル名前空間で定義されている。

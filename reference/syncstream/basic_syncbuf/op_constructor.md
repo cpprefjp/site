@@ -15,19 +15,19 @@ basic_syncbuf(basic_syncbuf&& other);                             // (3)
 
 ## 概要
 - (1) : デフォルトコンストラクタ。ラップする[`std::basic_streambuf`](../../streambuf/basic_streambuf.md)へのポインタを受け取る。
-- (2) : ラップする`std::basic_streambuf`へのポインタ、アロケータを受け取る。
+- (2) : ラップする`std::basic_streambuf`へのポインタ、ア�ケータを受け取る。
 - (3) : ムーブコンストラクタ。
 
 ただし、これらは通常[`std::basic_osyncstream`](../basic_osyncstream.md)から呼ばれる。
 
 
 ## 効果
-- (1), (2) : 同期時排出ポリシー([`sync()`](sync.md)が呼ばれたとき[`emit()`](emit.md)を呼び出すかどうか)を`false`に設定し、`std::basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に設定する。`obuf`が、関連する出力の最終的な宛先になる。
+- (1), (2) : 同期時排出ポリシー([`sync()`](sync.md)が呼ばれたとき[`emit()`](emit.md)を呼び出すかどうか)を`false`に�定し、`std::basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に�定する。`obuf`が、関連する出力の最終的な宛先になる。
 - (3) : 他のオブジェクトからムーブコンストラクトする。
 
 
 ## 例外
-- (1), (2) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外がスローされる可能性がある。
+- (1), (2) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外がス�ーされる可能性がある。
 
 
 ## 事後条件
@@ -38,7 +38,7 @@ basic_syncbuf(basic_syncbuf&& other);                             // (3)
 
 
 ## 備考
-- (1), (2) : アロケータのコピーは、関連する出力を保持する内部バッファにメモリを割り当てるために使用される。
+- (1), (2) : ア�ケータのコピーは、関連する出力を保持する内部バッファにメモリを割り当てるために使用される。
 - (3) : このコンストラクタは、`other`をそのラップされたストリームバッファから切り離し、`other`の破棄によって出力がされないようにする。
 
 

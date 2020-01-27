@@ -45,7 +45,7 @@ namespace std {
 	- `common_type_t<T1, T2>`が有効ならば、`type = common_type_t<T1, T2>;`
 	- そうでなければ、メンバ型`type`は定義されない。
 - `N >= 3` : `Types...`の１、2番目の型を`T1, T2`、残りのパラメータパックを`Rest`、`C = common_reference<T1, T2>`とすると
-    - 型`C`が存在する場合、`type = common_reference<C, Rest...>;`のようにメンバ型``type`を定義。
+    - 型`C`が�在する場合、`type = common_reference<C, Rest...>;`のようにメンバ型``type`を定義。
     - そうでなければ、メンバ型`type`は定義されない。
 
 `COMMON-REF`や`XREF`はそれぞれ次のように定義される型を表す説明専用のものである
@@ -60,9 +60,9 @@ namespace std {
 - `COMMON-REF(A, B)`
     - `X = remove_reference_t<A>, Y = remove_reference_t<B>`として、以下のように定義される
         1. `A, B`が共に左辺値参照型の場合、`COND-RES(COPYCV(X, Y) &, COPYCV(​Y, X) &)`が有効であり参照型ならばその型
-        2. `A, B`が共に右辺値参照型の場合、`C = remove_reference_t<COMMON-REF(X, Y)>&&`（1に移譲）が有効であり、`is_convertible_v<A, C> && is_convertible_v<B, C> == true`ならば、型`C`
-        3. `A`が右辺値参照型で`B`が左辺値参照型の場合、`D = COMMON-REF(const X&, Y&)`（1に移譲）が有効であり、`is_convertible_v<A, D> == true`ならば、型`D`
-        4. `B`が右辺値参照型で`A`が左辺値参照型の場合、`COMMON-REF(B, A)`として3に移譲
+        2. `A, B`が共に右辺値参照型の場合、`C = remove_reference_t<COMMON-REF(X, Y)>&&`（1に移�）が有効であり、`is_convertible_v<A, C> && is_convertible_v<B, C> == true`ならば、型`C`
+        3. `A`が右辺値参照型で`B`が左辺値参照型の場合、`D = COMMON-REF(const X&, Y&)`（1に移�）が有効であり、`is_convertible_v<A, D> == true`ならば、型`D`
+        4. `B`が右辺値参照型で`A`が左辺値参照型の場合、`COMMON-REF(B, A)`として3に移�
         5. それ以外の場合及び、上位のいずれかによる結果として不適格な型が生成された場合は、`COMMON-REF(A, B)`は不適格
 
 ## 備考
@@ -71,7 +71,7 @@ namespace std {
 
 ポインタ型やC++17までの標準ライブラリにおける普通のイテレータ型では、その`value_type`と`reference`の間には自明な関係性があり、どちらの型も`const value_type&`へ変換することができる（ことが期待される）。
 
-しかし、C++20から追加される`range`ライブラリの元となった`range-v3`ライブラリにおける`zip_view`（C++20には導入されていない）のプロクシイテレータのように、特殊なイテレータではそのような関係性が必ずしも成り立つとは限らない。
+しかし、C++20から追加される`range`ライブラリの元となった`range-v3`ライブラリにおける`zip_view`（C++20には導入されていない）のプ�クシイテレータのように、特殊なイテレータではそのような関係性が必ずしも成り立つとは限らない。
 
 このような関係性を持つ型があるとジェネリックなアルゴリズムをより簡易に書くことができるようになるなどメリットがあるため、そのような型を求めるために`common_reference`が導入された。
 

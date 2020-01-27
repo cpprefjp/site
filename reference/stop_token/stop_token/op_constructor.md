@@ -14,14 +14,14 @@ stop_token(stop_token&& rhs) noexcept;      // (3)
 
 ## 概要
 - (1) : デフォルトコンストラクタ。  
-  [`stop_source`](../stop_source.md)と停止状態を共有していない[`stop_token`](../stop_token.md)を構築する。このとき、停止状態を扱うためのリソースは確保せず、停止要求を決して受け取らない状態になる。（停止要求を受け取れる`stop_token`を構築するには、`stop_source`の[`get_token()`](../stop_source/get_token.md)メンバ関数を呼び出して、`stop_source`と停止状態を共有する`stop_token`を構築する必要がある）
+  [`stop_source`](../stop_source.md)と停�状態を共有していない[`stop_token`](../stop_token.md)を構築する。このとき、停�状態を扱うためのリソースは確保せず、停�要求を決して受け取らない状態になる。（停�要求を受け取れる`stop_token`を構築するには、`stop_source`の[`get_token()`](../stop_source/get_token.md)メンバ関数を呼び出して、`stop_source`と停�状態を共有する`stop_token`を構築する必要がある）
 - (2) : コピーコンストラクタ。
 - (3) : ムーブコンストラクタ。
 
 ## 事後条件
 - (1) : [`stop_possible()`](stop_possible.md) `==` `false` かつ [`stop_requested()`](stop_requested.md) `==` `false`。
-- (2) : `*this` `==` `rhs`。（`rhs`が停止状態を所有していれば、`*this`と`rhs`は同じ停止状態を共有するようになる）
-- (3) : もし`rhs`が停止状態を所有していればその所有権が`*this`へ移動し、`rhs.`[`stop_possible()`](stop_possible.md) `==` `false`となる。
+- (2) : `*this` `==` `rhs`。（`rhs`が停�状態を所有していれば、`*this`と`rhs`は同じ停�状態を共有するようになる）
+- (3) : もし`rhs`が停�状態を所有していればその所有権が`*this`へ移動し、`rhs.`[`stop_possible()`](stop_possible.md) `==` `false`となる。
 
 ## 例外
 投げない。

@@ -27,7 +27,7 @@ iterator emplace(const_iterator position, Args&&... args);
 
 
 ## 計算量
-`deque`の要素数に対して線形時間、先頭もしくは末尾への挿入は定数時間
+`deque`の要素数に対して線形時間、先�もしくは末尾への挿入は定数時間
 
 
 ## 備考
@@ -71,7 +71,7 @@ int main()
 - [GCC](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
-    - 2010にも`emplace`は存在するが、`insert`相当の機能しかない。
+    - 2010にも`emplace`は�在するが、`insert`相当の機能しかない。
 
 
 ## 関連項目

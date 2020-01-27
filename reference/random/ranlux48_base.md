@@ -13,7 +13,7 @@ namespace std {
 * subtract_with_carry_engine[link subtract_with_carry_engine.md]
 
 ## 概要
-パラメータ設定済みの[`subtract_with_carry_engine`](subtract_with_carry_engine.md)。  
+パラメータ�定済みの[`subtract_with_carry_engine`](subtract_with_carry_engine.md)。  
 `ranlux48_base`は、贅沢さレベル4のRANLUX法エンジンである[`ranlux48`](ranlux48.md)を定義するために使用する型である。  
   
 ## 要件

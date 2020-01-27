@@ -10,7 +10,7 @@ constexpr const_reverse_iterator crbegin() const noexcept;
 ```
 
 ## 概要
-末尾を指す読み取り専用逆イテレータを取得する。
+末尾を指す�み取り専用逆イテレータを取得する。
 
 
 ## 戻り値

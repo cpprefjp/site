@@ -10,7 +10,7 @@ bool operator==(const regex_token_iterator& right) const;
 ```
 
 ## 概要
-`regex_token_iterator` の等値比較を行う。
+`regex_token_iterator` の�値比較を行う。
 
 
 ## 戻り値
@@ -39,9 +39,9 @@ bool operator==(const regex_token_iterator& right) const;
 
 int main()
 {
-  // 検索対象は 2 番目の列挙子と 3 番目の列挙子が同じ文字列になっている
+  // 検索対象は 2 番目の列挙�と 3 番目の列挙�が同じ文�列になっている
   const std::string s("enum E { enumerator1 = value1, enumerator2 = value2, enumerator2 = value2, };");
-  const std::regex re(R"((\w+)\s*=\s*(\w+))"); // 列挙子とその値をグループ化
+  const std::regex re(R"((\w+)\s*=\s*(\w+))"); // 列挙�とその値をグループ化
 
   // 同一の引数で 2 つのイテレータを構築する
   std::sregex_token_iterator it1(std::begin(s), std::end(s), re, { 1, 2 });
@@ -92,4 +92,4 @@ match range = (53, 64), str = 'enumerator2'
 | [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)            | インクリメント | C++11          |
-| [`operator!=`](op_not_equal.md)            | 非等値比較     | C++11          |
+| [`operator!=`](op_not_equal.md)            | 非�値比較     | C++11          |

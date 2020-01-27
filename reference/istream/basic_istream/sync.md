@@ -36,7 +36,7 @@ int sync() {
       }
     }
   } catch (...) {
-    例外を投げずにbadbitを設定する;
+    例外を投げずにbadbitを�定する;
     if ((exceptions() & badbit) != 0) {
       throw;
     }

@@ -23,7 +23,7 @@ namespace chrono {
 | 型の別名 | 説明 | 対応バージョン |
 |----------|------|----------------|
 | [`nanoseconds`](/reference/chrono/duration_aliases.md)  | ナノ秒     | C++11          |
-| [`microseconds`](/reference/chrono/duration_aliases.md) | マイクロ秒 | C++11          |
+| [`microseconds`](/reference/chrono/duration_aliases.md) | マイク�秒 | C++11          |
 | [`milliseconds`](/reference/chrono/duration_aliases.md) | ミリ秒     | C++11          |
 | [`seconds`](/reference/chrono/duration_aliases.md)      | 秒         | C++11          |
 | [`minutes`](/reference/chrono/duration_aliases.md)      | 分         | C++11          |
@@ -41,7 +41,7 @@ namespace chrono {
 |-------------------------------------------|-----------------------|----------------|
 | [`(constructor)`](duration/op_constructor.md) | コンストラクタ        | C++11          |
 | `~duration() = default;`                  | デストラクタ          | C++11          |
-| `operator=(const duration&) = default;`   | 代入演算子            | C++11          |
+| `operator=(const duration&) = default;`   | 代入演算�            | C++11          |
 
 ### 観測
 
@@ -54,7 +54,7 @@ namespace chrono {
 
 | 名前                                             | 説明                     | 対応バージョン |
 |--------------------------------------------------|--------------------------|----------------|
-| [`operator+`](duration/op_unary_plus.md)       | 正の符号                 | C++11          |
+| [`operator+`](duration/op_unary_plus.md)       | �の符号                 | C++11          |
 | [`operator-`](duration/op_unary_minus.md)      | 負の符号 (符号反転する)  | C++11          |
 | [`operator++`](duration/op_increment.md)       | 値をインクリメントする   | C++11          |
 | [`operator--`](duration/op_decrement.md)       | 値をデクリメントする     | C++11          |
@@ -88,13 +88,13 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`duration_cast`](duration_cast.md) | ゼロ方向への丸め       | C++11 |
+| [`duration_cast`](duration_cast.md) | ゼ�方向への丸め       | C++11 |
 | [`floor`](duration/floor.md)        | 負の無限大方向への丸め | C++17 |
-| [`ceil`](duration/ceil.md)          | 正の無限大方向への丸め | C++17 |
+| [`ceil`](duration/ceil.md)          | �の無限大方向への丸め | C++17 |
 | [`round`](duration/round.md)        | 偶数方向への丸め       | C++17 |
 
 
-### その他数学関数
+### その他数�関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -115,8 +115,8 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------|-------|
-| [`operator==`](duration/op_equal.md)         | 等値判定を行う | C++11 |
-| [`operator!=`](duration/op_not_equal.md)     | 非等値判定を行う | C++11 |
+| [`operator==`](duration/op_equal.md)         | �値判定を行う | C++11 |
+| [`operator!=`](duration/op_not_equal.md)     | 非�値判定を行う | C++11 |
 | [`operator<`](duration/op_less.md)           | 左辺が右辺より小さいか判定を行う | C++11 |
 | [`operator<=`](duration/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
 | [`operator>`](duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
@@ -137,7 +137,7 @@ namespace chrono {
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
 | [`ns`](duration/op_ns.md)   | ナノ秒リテラル     | C++14 |
-| [`us`](duration/op_us.md)   | マイクロ秒リテラル | C++14 |
+| [`us`](duration/op_us.md)   | マイク�秒リテラル | C++14 |
 | [`ms`](duration/op_ms.md)   | ミリ秒リテラル     | C++14 |
 | [`s`](duration/op_s.md)     | 秒リテラル         | C++14 |
 | [`min`](duration/op_min.md) | 分リテラル         | C++14 |
@@ -170,7 +170,7 @@ void print(const system_clock::time_point& p)
   // ctime()のリエントラント版
   ctime_r(&t, buf);
 # endif
-  // 出力された文字列には改行が含まれていることに注意
+  // 出力された文�列には改行が含まれていることに注意
   std::cout << buf;
 }
 

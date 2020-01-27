@@ -39,9 +39,9 @@ namespace std {
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `char_type` | 文字型 `charT` |
+| `char_type` | 文�型 `charT` |
 | `iter_type` | 入力のイテレータ型 `InputIterator` |
-| `string_type` | 文字列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
+| `string_type` | 文�列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
 
 ### 例
 ```cpp

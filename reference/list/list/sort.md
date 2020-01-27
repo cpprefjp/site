@@ -16,7 +16,7 @@ void sort(Compare comp); // (2)
 
 
 ## 要件
-型`T`の`operator<`もしくは`comp`が、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されること。
+型`T`の`operator<`もしくは`comp`が、[�義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されること。
 
 
 ## 効果

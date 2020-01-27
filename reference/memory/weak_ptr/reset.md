@@ -14,7 +14,7 @@ void reset() noexcept;
 
 
 ## 効果
-[`weak_ptr()`](op_constructor.md)`.`[`swap`](swap.md)`(*this)`と等価の効果を持つ。
+[`weak_ptr()`](op_constructor.md)`.`[`swap`](swap.md)`(*this)`と�価の効果を持つ。
 
 
 ## 戻り値

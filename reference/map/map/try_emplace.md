@@ -21,8 +21,8 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-引数 `k` と等価のキーを持つ要素が存在しない場合、コンテナに新しい要素を挿入する。要素は引数からコンテナ内に直接構築されるため、構築されたオブジェクトはコピーもムーブもされない。  
-なお、本メンバ関数は [`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) 等と異なり、引数 `k` と等価のキーを持つ要素が既に存在する場合には、`k` や `args` がムーブされてしまうことはない。
+引数 `k` と�価の�ーを持つ要素が�在しない場合、コンテナに新しい要素を挿入する。要素は引数からコンテナ内に直接構築されるため、構築されたオブジェクトはコピーもムーブもされない。  
+なお、本メンバ関数は [`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) �と異なり、引数 `k` と�価の�ーを持つ要素が既に�在する場合には、`k` や `args` がムーブされてしまうことはない。
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。
 
@@ -31,21 +31,21 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 - (1)、(3) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から `map` に直接構築可能であること
 - (2)、(4) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から `map` に直接構築可能であること
 
-なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
+なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な�み取り専用イテレータである必要があるものと思われる。
 
 
 ## 効果
-- (1)、(3) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
-- (2)、(4) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (1)、(3) : `map` が `k` と同値の�ーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (2)、(4) : `map` が `k` と同値の�ーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
 
 
 ## 戻り値
 - (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
-    - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
-    - 挿入されなかった場合には、`first` に `k` と等価のキーを持つ既存の要素へのイテレータ、`second` に `false` が設定される。
+    - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が�定される。
+    - 挿入されなかった場合には、`first` に `k` と�価の�ーを持つ既�の要素へのイテレータ、`second` に `false` が�定される。
 - (3)、(4) :
     - 挿入された場合には、挿入された要素へのイテレータを返す。
-    - 挿入されなかった場合には、`k` と等価のキーを持つ既存の要素へのイテレータを返す。
+    - 挿入されなかった場合には、`k` と�価の�ーを持つ既�の要素へのイテレータを返す。
 
 
 ## 計算量
@@ -54,12 +54,12 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 
 
 ## 備考
-- 概要に記載されているように、本メンバ関数は指定されたキーと等価の要素が既に存在する場合には、引数に副作用が発生しない。  
+- 概要に記載されているように、本メンバ関数は指定された�ーと�価の要素が既に�在する場合には、引数に副作用が発生しない。  
     一方、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md)、[`insert`](insert.md) にはそのような規定は無く、挿入がされなかった場合でも引数に副作用（引数からのムーブ）が発生してしまう可能性があるため、注意が必要である。
 
-- このメンバ関数の機能テストマクロは以下の通り。  
+- このメンバ関数の機能テストマク�は以下の通り。  
 
-    | マクロ名                    | 値       |
+    | マク�名                    | 値       |
     |-----------------------------|----------|
     | `__cpp_lib_map_try_emplace` | `201411` |
 

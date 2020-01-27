@@ -17,7 +17,7 @@ namespace std {
 
 ## 効果
 この関数は、弱い[`memory_order`](memory_order.md)が指定されたアトミック操作の前後に指定することで、より強い`memory_order`を指定した場合と似たような振る舞いをさせる効果を持つ。
-たとえば、`a`を[`atomic`](atomic.md)`<int>`型の変数とするとき、下記2種類の処理はほぼ等価の振る舞いをする。
+たとえば、`a`を[`atomic`](atomic.md)`<int>`型の変数とするとき、下記2種類の処理はほぼ�価の振る舞いをする。
 
 ```cpp
 // relaxed操作 + releaseフェンス
@@ -30,8 +30,8 @@ a.store(42, std::memory_order_release);
 * std::atomic_thread_fence[color ff0000]
 * a.store[link atomic/store.md]
 
-ただし、後者のほうがより効率的な機械語命令へとコンパイルされる可能性が高い。より詳しい議論については[N2176](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2176.html#integrated)などを参照のこと。
-同様に、下記2種類の処理はほぼ等価の振る舞いをする。
+ただし、後者のほうがより効率的な機械語命令へとコンパイルされる可能性が高い。より詳しい�論については[N2176](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2176.html#integrated)などを参照のこと。
+同様に、下記2種類の処理はほぼ�価の振る舞いをする。
 
 ```cpp
 // relaxed操作 + acquireフェンス

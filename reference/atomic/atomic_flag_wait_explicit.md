@@ -18,17 +18,17 @@ namespace std {
 ## 概要
 起床されるまで待機する。
 
-この関数は、ブロッキング同期を行うための機能であり、ビジーループによるポーリングよりもエネルギー消費が低く効率的な待機を実現できる。アトミック操作版の[`std::condition_variable`](/reference/condition_variable/condition_variable.md)であると言える。
+この関数は、ブ�ッ�ング同期を行うための機能であり、ビジーループによるポーリングよりもエネルギー消費が低く効率的な待機を実現できる。アトミック操作版の[`std::condition_variable`](/reference/condition_variable/condition_variable.md)であると言える。
 
-この関数によってブロッキング待機をしたら、対応する起床関数である[`atomic_flag_notify_one()`](atomic_flag_notify_one.md)、[`atomic_flag_notify_all()`](atomic_flag_notify_all.md)によってブロッキング待機を解除できる。
+この関数によってブ�ッ�ング待機をしたら、対応する起床関数である[`atomic_flag_notify_one()`](atomic_flag_notify_one.md)、[`atomic_flag_notify_all()`](atomic_flag_notify_all.md)によってブ�ッ�ング待機を解除できる。
 
 
 ## 効果
 - 以下のステップを順に繰り返し実行する：
     - 式[`atomic_flag_test_explicit`](atomic_flag_test_explicit.md)`(object, order) != old`を評価する
     - 比較結果が`true`に評価された場合、関数を`return`する
-    - アトミック起床操作が呼ばれてアンロックされるまで、この関数の実行をブロックする
-        - ただし、起床操作が呼ばれていなくても、アンロックされる場合がある (spuriously unblock)
+    - アトミック起床操作が呼ばれてアン�ックされるまで、この関数の実行をブ�ックする
+        - ただし、起床操作が呼ばれていなくても、アン�ックされる場合がある (spuriously unblock)
 
 
 ## 戻り値

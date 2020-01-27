@@ -20,7 +20,7 @@ namespace std {
 
 ## 概要
 引数 `x` を四捨五入により丸めた整数値を[`long long`型](/lang/cpp11/long_long_type.md)として得る。  
-ここで引数 `x` の四捨五入とは、`x` を最も近い整数に丸めるが、`x` の小数部分が `0.5` の場合には、`x` の符号が正負のいずれであってもゼロから遠い方向に丸めることを指す。  
+ここで引数 `x` の四捨五入とは、`x` を最も近い整数に丸めるが、`x` の小数部分が `0.5` の場合には、`x` の符号が�負のいずれであってもゼ�から遠い方向に丸めることを指す。  
 具体例は下記の出力例を参照。
 
 
@@ -29,10 +29,10 @@ namespace std {
 
 
 ## 備考
-- 本関数は、C99 の規格にある `llround`（より正確には `math.h` ヘッダの `llround`、`llroundf`、`llroundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
+- 本関数は、C99 の規格にある `llround`（より�確には `math.h` ヘッダの `llround`、`llroundf`、`llroundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と�価である。
 - [`round`](round.md)関数と違い、本関数において戻り値が非整数型引数 `x` と異なる場合に、例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) を発生させる必要はない。
 - 戻り値が[`long long`型](/lang/cpp11/long_long_type.md)型の範囲を超えた場合、定義域エラーが起こる可能性がある。その際の挙動については、[`<cmath>`](../cmath.md) を参照。
-- なお、本関数の挙動は、現在の丸めモードには依存しない。
+- なお、本関数の挙動は、現在の丸めモードには依�しない。
 
 
 ## 例

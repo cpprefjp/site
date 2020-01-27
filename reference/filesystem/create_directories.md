@@ -15,11 +15,11 @@ namespace std::filesystem {
 ## 概要
 ディレクトリ階層を作成する。
 
-[`create_directory()`](create_directory.md)関数は、指定されたパスの単一ディレクトリを作成するが、間のディレクトリが存在しない場合はエラーとなる。この関数は、間のディレクトリも作成する。
+[`create_directory()`](create_directory.md)関数は、指定されたパスの単一ディレクトリを作成するが、間のディレクトリが�在しない場合はエラーとなる。この関数は、間のディレクトリも作成する。
 
 
 ## 効果
-- パス`p`に含まれるディレクトリのうち、存在しないディレクトリを全て作成する
+- パス`p`に含まれるディレクトリのうち、�在しないディレクトリを全て作成する
 
 
 ## 戻り値
@@ -47,7 +47,7 @@ int main()
   assert(fs::exists("a/b/c"));
   assert(fs::is_directory("a/b/c"));
 
-  // すでに存在するディレクトリを指定した場合、falseは返るがエラーにはならない
+  // すでに�在するディレクトリを指定した場合、falseは返るがエラーにはならない
   bool result2 = fs::create_directories("a/b/c");
   assert(!result2);
 }

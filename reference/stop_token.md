@@ -2,14 +2,14 @@
 * stop_token[meta header]
 * cpp20[meta cpp]
 
-`<stop_token>`ヘッダはマルチスレッド処理に対する停止要求の状態 `停止状態` を扱うクラスを定義する。
+`<stop_token>`ヘッダはマルチスレッド処理に対する停�要求の状態 `停�状態` を扱うクラスを定義する。
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------|------------------------------|-------|
-| [`stop_token`](stop_token/stop_token.md)      | 停止状態を表すクラス(class) | C++20 |
-| [`stop_source`](stop_token/stop_source.md)    | 停止要求を発生させるクラス(class) | C++20 |
-| [`stop_callback`](stop_token/stop_callback.md)| 停止要求に応じて呼び出されるコールバックを表すクラステンプレート (class template) | C++20 |
-| [`nostopstate`](stop_token/nostopstate.md)    | 停止状態を扱わない[`stop_source`](stop_token/stop_source.md)を構築するためのタグ (class) | C++20 |
+| [`stop_token`](stop_token/stop_token.md)      | 停�状態を表すクラス(class) | C++20 |
+| [`stop_source`](stop_token/stop_source.md)    | 停�要求を発生させるクラス(class) | C++20 |
+| [`stop_callback`](stop_token/stop_callback.md)| 停�要求に応じて呼び出されるコールバックを表すクラステンプレート (class template) | C++20 |
+| [`nostopstate`](stop_token/nostopstate.md)    | 停�状態を扱わない[`stop_source`](stop_token/stop_source.md)を構築するためのタグ (class) | C++20 |
 
 ## バージョン
 ### 言語

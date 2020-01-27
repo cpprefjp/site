@@ -34,13 +34,13 @@ namespace std {
 |------------------------------------------------|--------------------------------------------------|-------|
 | [`(constructor)`](shared_ptr/op_constructor.md) | コンストラクタ                                | C++11 |
 | [`(destructor)`](shared_ptr/op_destructor.md) | デストラクタ                                    | C++11 |
-| [`operator=`](shared_ptr/op_assign.md)       | 代入演算子                                       | C++11 |
-| [`reset`](shared_ptr/reset.md)               | 所有権を放棄し、新たな所有権を設定する           | C++11 |
+| [`operator=`](shared_ptr/op_assign.md)       | 代入演算�                                       | C++11 |
+| [`reset`](shared_ptr/reset.md)               | 所有権を放棄し、新たな所有権を�定する           | C++11 |
 | [`swap`](shared_ptr/swap.md)                 | 他の`shared_ptr`オブジェクトとデータを入れ替える | C++11 |
 | [`get`](shared_ptr/get.md)                   | リソースを取得する                               | C++11 |
 | [`operator*`](shared_ptr/op_deref.md)        | 間接参照                                         | C++11 |
 | [`operator->`](shared_ptr/op_arrow.md)       | メンバアクセス                                   | C++11 |
-| [`operator[]`](shared_ptr/op_at.md)          | 添字による要素アクセス                           | C++17 |
+| [`operator[]`](shared_ptr/op_at.md)          | 添�による要素アクセス                           | C++17 |
 | [`use_count`](shared_ptr/use_count.md)       | 所有権を持つユーザー数を取得する                 | C++11 |
 | [`unique`](shared_ptr/unique.md)             | 所有権を持つユーザーが一人だけかを判定する       | C++11<br/> C++17から非推奨<br/> C++20で削除 |
 | [`operator bool`](shared_ptr/op_bool.md)     | 有効なリソースを所有しているかを判定する         | C++11 |
@@ -59,8 +59,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------------|-------------------------------------------|-------|
-| [`operator==`](shared_ptr/op_equal.md)                       | 等値比較                                  | C++11 |
-| [`operator!=`](shared_ptr/op_not_equal.md)                   | 非等値比較                                | C++11 |
+| [`operator==`](shared_ptr/op_equal.md)                       | �値比較                                  | C++11 |
+| [`operator!=`](shared_ptr/op_not_equal.md)                   | 非�値比較                                | C++11 |
 | [`operator<`](shared_ptr/op_less.md)                         | 左辺が右辺より小さいかを判定する          | C++11 |
 | [`operator<=`](shared_ptr/op_less_equal.md)                  | 左辺が右辺以下かを判定する                | C++11 |
 | [`operator>`](shared_ptr/op_greater.md)                      | 左辺が右辺より大きいかを判定する          | C++11 |
@@ -68,23 +68,23 @@ namespace std {
 | [`swap`](shared_ptr/swap_free.md)                            | 2つの`shared_ptr`オブジェクトを入れ替える | C++11 |
 | [`get_deleter`](shared_ptr/get_deleter.md)                   | デリータを取得する                        | C++11 |
 | [`operator<<`](shared_ptr/op_ostream.md)                     | ストリームへの出力                        | C++11 |
-| [`static_pointer_cast`](shared_ptr/static_pointer_cast.md)   | `shared_ptr`の静的キャスト                | C++11 |
-| [`dynamic_pointer_cast`](shared_ptr/dynamic_pointer_cast.md) | `shared_ptr`の動的キャスト                | C++11 |
-| [`const_pointer_cast`](shared_ptr/const_pointer_cast.md)     | `shared_ptr`の`const`修飾キャスト         | C++11 |
-| [`reinterpret_pointer_cast`](shared_ptr/reinterpret_pointer_cast.md) | `shared_ptr`の再解釈キャスト      | C++17 |
+| [`static_pointer_cast`](shared_ptr/static_pointer_cast.md)   | `shared_ptr`の静的�ャスト                | C++11 |
+| [`dynamic_pointer_cast`](shared_ptr/dynamic_pointer_cast.md) | `shared_ptr`の動的�ャスト                | C++11 |
+| [`const_pointer_cast`](shared_ptr/const_pointer_cast.md)     | `shared_ptr`の`const`修飾�ャスト         | C++11 |
+| [`reinterpret_pointer_cast`](shared_ptr/reinterpret_pointer_cast.md) | `shared_ptr`の再解釈�ャスト      | C++17 |
 | [`make_shared`](make_shared.md)                              | `shared_ptr`を構築するヘルパ関数          | C++11 |
-| [`allocate_shared`](allocate_shared.md)                      | アロケータを指定して`shared_ptr`を構築するヘルパ関数 | C++11 |
+| [`allocate_shared`](allocate_shared.md)                      | ア�ケータを指定して`shared_ptr`を構築するヘルパ関数 | C++11 |
 
 
 ## アトミックアクセス(非メンバ関数)
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------------------------|-------|
-| [`atomic_is_lock_free`][is_lock_free]     | 指定されたオブジェクトがロックフリーに振る舞えるかを調べる | C++11 |
+| [`atomic_is_lock_free`][is_lock_free]     | 指定されたオブジェクトが�ックフリーに振る舞えるかを調べる | C++11 |
 | [`atomic_store`][store]                   | 値を書き込む | C++11 |
 | [`atomic_store_explicit`][store_ex]       | メモリオーダーを指定して値を書き込む | C++11 |
-| [`atomic_load`][load]                     | 値を読み込む | C++11 |
-| [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を読み込む | C++11 |
+| [`atomic_load`][load]                     | 値を�み込む | C++11 |
+| [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を�み込む | C++11 |
 | [`atomic_exchange`][exchange]             | 値を入れ替える | C++11 |
 | [`atomic_exchange_explicit`][exchange_ex] | メモリオーダーを指定して値を入れ替える | C++11 |
 | [`atomic_compare_exchange_weak`][exchange_weak] | 弱い比較で値の入れ替えを行う | C++11 |
@@ -159,7 +159,7 @@ int main()
 
 
 ### shared_ptr<void>に、あらゆる型のポインタを格納する
-`void`をテンプレート引数とする`shared_ptr`に対してどんな型のポインタを代入したとしても、代入した型のデストラクタは、正しく実行される。通常、`void*`に型変換して代入されたポインタは、`delete`演算子を呼んだとしても元の型のデストラクタは呼び出されない。しかし`shared_ptr`の場合は、代入されたポインタの型が持つデストラクタが正しく実行されることが保証される。保証の文面は[デストラクタ](shared_ptr/op_destructor.md)のページを参照。
+`void`をテンプレート引数とする`shared_ptr`に対してどんな型のポインタを代入したとしても、代入した型のデストラクタは、�しく実行される。通常、`void*`に型変換して代入されたポインタは、`delete`演算�を呼んだとしても元の型のデストラクタは呼び出されない。しかし`shared_ptr`の場合は、代入されたポインタの型が持つデストラクタが�しく実行されることが保証される。保証の文面は[デストラクタ](shared_ptr/op_destructor.md)のページを参照。
 
 ```cpp example
 #include <iostream>
@@ -220,7 +220,7 @@ Y dtor
 
 
 ## 参照
-- [動的削除子 (dynamic deleter) - 意外と知られていない？ `boost::shared_ptr` の側面](http://d.hatena.ne.jp/Cryolite/20060108#p1)
+- [動的削除� (dynamic deleter) - 意外と知られていない？ `boost::shared_ptr` の側面](http://d.hatena.ne.jp/Cryolite/20060108#p1)
 - [P0163R0 `shared_ptr::weak_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0163r0.html)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)

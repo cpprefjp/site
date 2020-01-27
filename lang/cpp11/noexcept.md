@@ -2,9 +2,9 @@
 * cpp11[meta cpp]
 
 ## 概要
-C++11で導入された`noexcept`キーワードには、以下の2つの意味がある：
+C++11で導入された`noexcept`�ーワードには、以下の2つの意味がある：
 
-ひとつは、`throw`キーワードによる例外仕様の代替。関数がどの例外を送出する可能性があるかを列挙するのではなく、例外を送出する可能性があるかないかのみを指定する。例外を送出する可能性がある関数には`noexcept(false)`を指定し、例外を送出する可能性がない関数には`noexcept(true)`もしくは`noexcept`を指定する：
+ひとつは、`throw`�ーワードによる例外仕様の代替。関数がどの例外を送出する可能性があるかを列挙するのではなく、例外を送出する可能性があるかないかのみを指定する。例外を送出する可能性がある関数には`noexcept(false)`を指定し、例外を送出する可能性がない関数には`noexcept(true)`もしくは`noexcept`を指定する：
 
 ```cpp
 class Integer {
@@ -19,7 +19,7 @@ public:
 };
 ```
 
-`noexcept`キーワードのもうひとつの意味は、式が例外を送出する可能性があるかどうかを判定する演算子である。`noexcept(f(arg))`のように`noexcept`演算子に式を指定することで、その式が例外を送出する可能性があるかどうかを、コンパイル時定数の`bool`値として取得できる。つまり、関数に対して指定された`noexcept`の情報を取得する：
+`noexcept`�ーワードのもうひとつの意味は、式が例外を送出する可能性があるかどうかを判定する演算�である。`noexcept(f(arg))`のように`noexcept`演算�に式を指定することで、その式が例外を送出する可能性があるかどうかを、コンパイル時定数の`bool`値として取得できる。つまり、関数に対して指定された`noexcept`の情報を取得する：
 
 ```cpp
 Integer x;
@@ -42,7 +42,7 @@ static_assert(noexcept(x.getValue()), "getValue() function never throw exception
 - `noexcept`例外仕様に対して`false`に評価される整数定数式を指定した関数は、あらゆる例外を送出する可能性がある。
 - `noexcept`例外仕様に対して`true`に評価される整数定数式を指定した関数、もしくは引数なしで`noexcept`を指定した関数は、いかなる例外も送出してはならない。
 - `noexcept`例外仕様を指定しない関数は、一部の例外を除いて、`noexcept(false)`を意味する。
-    - デストラクタと`delete`演算子は、明示的に`noexcept(falseに評価される整数定数式)`を指定しない限り、デフォルトで`noexcept`である。
+    - デストラクタと`delete`演算�は、明示的に`noexcept(falseに評価される整数定数式)`を指定しない限り、デフォルトで`noexcept`である。
 
 ```cpp
 struct X {
@@ -60,18 +60,18 @@ struct X {
 ```
 * noexcept[color ff0000]
 
-- `noexcept`もしくは`noexcept(trueに評価される整数定数式)`が指定された関数が例外を送出した場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出してプログラムを異常終了させる。その際、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出される前に、スタックの巻き戻しは起こらない可能性がある。
-- 従来の`throw`キーワードによる例外仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。
+- `noexcept`もしくは`noexcept(trueに評価される整数定数式)`が指定された関数が例外を送出した場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出してプ�グラムを異常終了させる。その際、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出される前に、スタックの巻き戻しは起こらない可能性がある。
+- 従来の`throw`�ーワードによる例外仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。
 
 
-### 式が例外を送出する可能性があるか判定するnoexcept演算子
-- 演算子としての`noexcept`は、引数として指定した定数式が例外を送出する可能性があるかどうかをコンパイル時に判定し、`bool`型の定数値を返す
+### 式が例外を送出する可能性があるか判定するnoexcept演算�
+- 演算�としての`noexcept`は、引数として指定した定数式が例外を送出する可能性があるかどうかをコンパイル時に判定し、`bool`型の定数値を返す
 
 ```cpp
 struct X {
   int f() const noexcept; // noexcept例外仕様
 
-  // 外側はnoexcept例外仕様、内側はnoexcept演算子。
+  // 外側はnoexcept例外仕様、内側はnoexcept演算�。
   // メンバ関数関数f()が例外を送出しない場合、関数g()もまた例外を送出しない
   int g() const noexcept(noexcept(f()))
   { return f(); }
@@ -83,9 +83,9 @@ X x;
 constexpr bool isNoexprF = noexcept(x.f());
 ```
 
-- この演算子は`sizeof`や[`decltype`](decltype.md)と同じく、引数として指定された式は、実行時には評価されない
+- この演算�は`sizeof`や[`decltype`](decltype.md)と同じく、引数として指定された式は、実行時には評価されない
     - 上記コードの場合、`x.f()`は実行時には呼び出されない
-- `noexcept`演算子は、以下の状況で`false`を返す：
+- `noexcept`演算�は、以下の状況で`false`を返す：
     - `noexcept(false)`が指定されているもしくは`noexcept`が指定されていない関数、メンバ関数、関数ポインタ、メンバ関数ポインタの呼び出し。(例として、`new`式からの確保関数の呼び出しといった、暗黙の呼び出し)
     - `throw`式
     - 実行時型チェックが行われる式として、参照型を引数とする`dynamic_cast`式の呼び出し、および多態的に振る舞う型の左辺値に対する`typeid`式の呼び出し
@@ -159,7 +159,7 @@ int main()
 
 ムーブ操作は基本的には例外を送出しない。そのため、例外を送出しないという、例外安全性の強い保証がしやすい仕組みと言える。ムーブに例外を送出しない保証があれば、より最適化された実装を選択できるだろう。しかし、ムーブ操作が例外を送出する可能性があるのであれば、例外を送出しないムーブ操作のための最適化された実装とそれ以外を呼び分ける仕組みが必要となる。
 
-そういった例外を送出しない判定や指定は、従来の`throw`キーワードによる例外仕様の範囲を超えていた。そのために、`noexcept`という機能が新設され、その機能で必要十分となったために従来の例外仕様は非推奨となった。
+そういった例外を送出しない判定や指定は、従来の`throw`�ーワードによる例外仕様の範囲を超えていた。そのために、`noexcept`という機能が新�され、その機能で必要十分となったために従来の例外仕様は非推奨となった。
 
 
 ## 関連項目

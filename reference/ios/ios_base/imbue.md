@@ -10,11 +10,11 @@ locale imbue(const locale& loc);
 * locale[link ../../locale/locale.md]
 
 ## 概要
-ロケールを設定する。
+�ケールを�定する。
 
 
 ## 効果
-`*this` で使用するロケールを引数 `loc` に設定した後、[`register_callback`](register_callback.md) で登録されたペア `(fn, index)` を `(*fn)(`[`imbue_event`](type-event.md)`, *this, index)` として呼び出す。
+`*this` で使用する�ケールを引数 `loc` に�定した後、[`register_callback`](register_callback.md) で登録されたペア `(fn, index)` を `(*fn)(`[`imbue_event`](type-event.md)`, *this, index)` として呼び出す。
 
 
 ## 戻り値
@@ -22,8 +22,8 @@ locale imbue(const locale& loc);
 
 
 ## 備考
-- 呼び出されたコールバック関数の内部で [`getloc`](getloc.md)`()` を呼び出した場合、新たに設定されたロケール（つまり引数 `loc` で指定されたロケール）が返される。
-- 設定されたロケールは、ロケール依存の入出力に使用される。ただし、[`ios_base`](../ios_base.md) 自体にはロケール依存の入出力関数は存在しない。実際にロケール依存の入出力を行うのは、派生クラスである [`basic_istream`](../../istream/basic_istream.md) と [`basic_ostream`](../../ostream/basic_ostream.md)（および、それらの派生クラス [`basic_iostream`](../../istream/basic_iostream.md)）である。
+- 呼び出されたコールバック関数の内部で [`getloc`](getloc.md)`()` を呼び出した場合、新たに�定された�ケール（つまり引数 `loc` で指定された�ケール）が返される。
+- �定された�ケールは、�ケール依�の入出力に使用される。ただし、[`ios_base`](../ios_base.md) 自体には�ケール依�の入出力関数は�在しない。実際に�ケール依�の入出力を行うのは、派生クラスである [`basic_istream`](../../istream/basic_istream.md) と [`basic_ostream`](../../ostream/basic_ostream.md)（および、それらの派生クラス [`basic_iostream`](../../istream/basic_iostream.md)）である。
 
 
 ## 例
@@ -52,9 +52,9 @@ int main()
 1.234,5
 ```
 
-なお、ロケールの名称（ここでは `en_US` と `de_DE`）は環境依存のため、上記の例は動作しないこともある。  
-その場合でも、ロケールの名称を当該環境で適切なものに変更すれば動作するはずである。  
-また、最初の行（`C` ロケール）以外の出力はロケール依存のため、たとえこれらのロケールが使用できたとしても上記のようには出力されない可能性もある（が、一般的にはこのように出力される）。
+なお、�ケールの名称（ここでは `en_US` と `de_DE`）は環境依�のため、上記の例は動作しないこともある。  
+その場合でも、�ケールの名称を当該環境で適切なものに変更すれば動作するはずである。  
+また、最初の行（`C` �ケール）以外の出力は�ケール依�のため、たとえこれらの�ケールが使用できたとしても上記のようには出力されない可能性もある（が、一般的にはこのように出力される）。
 
 
 ## バージョン

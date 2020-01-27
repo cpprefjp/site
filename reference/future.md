@@ -2,9 +2,9 @@
 * future[meta header]
 * cpp11[meta cpp]
 
-`<future>`ヘッダでは、並行プログラミングのためのデザインパターンのひとつであるFutureパターンに関するクラス・関数を提供する。
+`<future>`ヘッダでは、並行プ�グラミングのためのデザインパターンのひとつであるFutureパターンに関するクラス・関数を提供する。
 
-[`future`](future/future.md)はデータの準備ができるまで待機してからデータを読み取る。  
+[`future`](future/future.md)はデータの準備ができるまで待機してからデータを�み取る。  
 [`promise`](future/promise.md)はデータを書き込み、準備ができたことを[`future`](future.md)に通知する。  
 [`packaged_task`](future/packaged_task.md)は関数の戻り値をデータの書き込みと見なし、関数終了時に[`future`](future/future.md)に通知する。さらにこのパターンを容易に扱うための[`async()`](future/async.md)関数を提供する。
 
@@ -19,7 +19,7 @@
 | [`future_category`](future/future_category.md)           | `future_errc`のためのエラーカテゴリを取得する(function) | C++11 |
 | [`future_error`](future/future_error.md)                 | `future`のエラーに関する例外クラス(class) | C++11 |
 | [`promise`](future/promise.md)                           | データを書き込み、データの準備ができたことを通知する(class template) | C++11 |
-| [`future`](future/future.md)                             | データの準備ができるまで待機し、データを読み取る(class template) | C++11 |
+| [`future`](future/future.md)                             | データの準備ができるまで待機し、データを�み取る(class template) | C++11 |
 | [`shared_future`](future/shared_future.md)               | 共有方式の`future`(class template) | C++11 |
 | [`packaged_task`](future/packaged_task.md)               | 非同期タスクの管理(class template) | C++11 |
 | [`async`](future/async.md)                               | 処理の非同期実行(function template) | C++11 |

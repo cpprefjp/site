@@ -21,16 +21,16 @@ pair<const_iterator, const_iterator>
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-コンテナ内の、指定されたキーと等しい全てのキー要素を含む範囲の境界を返す。`unordered_set` コンテナではキーの重複は無いため、この範囲は最大一つの要素を含む。 
+コンテナ内の、指定された�ーと�しい全ての�ー要素を含む範囲の境界を返す。`unordered_set` コンテナでは�ーの重複は無いため、この範囲は最大一つの要素を含む。 
 
-もし指定されたキーがコンテナ内のどのキーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
+もし指定された�ーがコンテナ内のどの�ーともマッチしなかった場合、戻り値の範囲は長さ 0 になり、両方のイテレータは [`end`](end.md) を指す。
 
-- (1) : 非`const`な`this`に対してキー`x`を検索し、合致する全ての要素を含む範囲を取得する
-- (2) : `const`な`this`に対してキー`x`を検索し、合致する全ての要素を含む範囲を取得する
-- (3) : 非`const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
-- (4) : `const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+- (1) : 非`const`な`this`に対して�ー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (2) : `const`な`this`に対して�ー`x`を検索し、合致する全ての要素を含む範囲を取得する
+- (3) : 非`const`な`this`に対して�ー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
+- (4) : `const`な`this`に対して�ー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
 
-(3)、(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.equal_range("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+(3)、(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.equal_range("key");`のように`string`型の�ーを持つ連想コンテナの検索インタフェースに文�列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## テンプレートパラメータ制約
@@ -49,7 +49,7 @@ pair<const_iterator, const_iterator>
 
 
 ## 備考
-- [`unordered_set`](/reference/unordered_set/unordered_set.md) の場合には、等価なキーはたかだか1つであるため、[`find()`](find.md) ほど有用ではないと考えられる
+- [`unordered_set`](/reference/unordered_set/unordered_set.md) の場合には、�価な�ーはたかだか1つであるため、[`find()`](find.md) ほど有用ではないと考えられる
 
 
 ## 例
@@ -110,8 +110,8 @@ equal_range(8): [5, 5)
 
 | 名前 | 説明 |
 |------|------|
-| [`find`](find.md) | 指定したキーの位置を検索 |
-| [`count`](count.md) | 指定したキーの要素数を取得 |
+| [`find`](find.md) | 指定した�ーの位置を検索 |
+| [`count`](count.md) | 指定した�ーの要素数を取得 |
 
 
 ## 参照

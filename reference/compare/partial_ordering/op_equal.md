@@ -11,18 +11,18 @@ friend constexpr bool operator==(partial_ordering v, partial_ordering w) noexcep
 
 friend constexpr bool operator==(partial_ordering v, /*unspecified*/) noexcept;   // (2)
 
-// (2)により、以下のオーバーロードが使用可能になる
+// (2)により、以下のオーバー�ードが使用可能になる
 friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept;   // (3)
 ```
 
 ## 概要
 
-- (1) : `partial_ordering`同士の等値比較を行う
+- (1) : `partial_ordering`同士の�値比較を行う
 - (2)(3) : `partial_ordering`の値が`partial_ordering::equivalent`であるかを調べる。
 
 ## 戻り値
 
-`int`型のメンバ変数`value`に各有効値に対応する値、`bool`型メンバ変数`is_ordered`に順序付けされているかどうかを保持しているとして、以下と等価
+`int`型のメンバ変数`value`に各有効値に対応する値、`bool`型メンバ変数`is_ordered`に順序付けされているかどうかを保持しているとして、以下と�価
 
 - (1) : `return v.value == w.value && v.is_ordered == w.is_ordered` 
 - (2) : `return v.is_ordered && v.value == 0` 
@@ -32,7 +32,7 @@ friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept; 
 投げない。
 
 ## 備考
-この演算子により、以下の演算子が使用可能になる：
+この演算�により、以下の演算�が使用可能になる：
 
   - `bool operator!=(partial_ordering v, partial_ordering w) noexcept;`
   - `bool operator!=(partial_ordering v, /*unspecified*/) noexcept;`

@@ -13,13 +13,13 @@ char_class_type lookup_classname(ForwardIterator first,
 ```
 
 ## 概要
-与えられた文字の範囲に対応するクラス名を取得する。
+与えられた文�の範囲に対応するクラス名を取得する。
 
 
 ## 戻り値
-文字の範囲`[first, last)`からなるクラス名文字列に対応する、未規定のクラス値を返す。
+文�の範囲`[first, last)`からなるクラス名文�列に対応する、未規定のクラス値を返す。
 
-パラメータ`icase`が`true`である場合は、大文字・小文字を無視してクラス名の比較が行われる。
+パラメータ`icase`が`true`である場合は、大文�・小文�を無視してクラス名の比較が行われる。
 
 与えられたクラス名に対応する値がない場合、`char_class_type()`を返す。
 
@@ -29,21 +29,21 @@ char_class_type lookup_classname(ForwardIterator first,
 
 | クラス名 | クラスを表すビットマスク値 | 説明 |
 |----------|----------------------------|------|
-| `"alnum"`/`L"alnum"`   | [`ctype_base::alnum`][ctype_base] | 英字・数字にマッチする |
-| `"alpha"`/`L"alpha"`   | [`ctype_base::alpha`][ctype_base] | 英字にマッチする |
-| `"blank"`/`L"blank"`   | [`ctype_base::blank`][ctype_base] | ブランク文字にマッチする |
-| `"cntrl"`/`L"cntrl"`   | [`ctype_base::cntrl`][ctype_base] | 制御文字にマッチする |
-| `"digit"`/`L"digit"`   | [`ctype_base::digit`][ctype_base] | 数字にマッチする |
-| `"d"`/`L"d"`           | [`ctype_base::digit`][ctype_base] | 数字にマッチする |
-| `"graph"`/`L"graph"`   | [`ctype_base::graph`][ctype_base] | 図形文字にマッチする |
-| `"lower"`/`L"lower"`   | [`ctype_base::lower`][ctype_base] | 英小文字にマッチする |
-| `"print"`/`L"print"`   | [`ctype_base::print`][ctype_base] | 印字可能文字にマッチする |
-| `"punct"`/`L"punct"`   | [`ctype_base::punct`][ctype_base] | 区切り文字にマッチする |
-| `"space"`/`L"space"`   | [`ctype_base::space`][ctype_base] | 空白類文字にマッチする |
-| `"s"`/`L"s"`           | [`ctype_base::space`][ctype_base] | 空白類文字にマッチする |
-| `"upper"`/`L"upper"`   | [`ctype_base::upper`][ctype_base] | 英大文字にマッチする |
-| `"w"`/`L"w"`           | [`ctype_base::alnum`][ctype_base] | 英字・数字にマッチする |
-| `"xdigit"`/`L"xdigit"` | [`ctype_base::xdigit`][ctype_base] | 十六進数字にマッチする |
+| `"alnum"`/`L"alnum"`   | [`ctype_base::alnum`][ctype_base] | 英�・数�にマッチする |
+| `"alpha"`/`L"alpha"`   | [`ctype_base::alpha`][ctype_base] | 英�にマッチする |
+| `"blank"`/`L"blank"`   | [`ctype_base::blank`][ctype_base] | ブランク文�にマッチする |
+| `"cntrl"`/`L"cntrl"`   | [`ctype_base::cntrl`][ctype_base] | 制御文�にマッチする |
+| `"digit"`/`L"digit"`   | [`ctype_base::digit`][ctype_base] | 数�にマッチする |
+| `"d"`/`L"d"`           | [`ctype_base::digit`][ctype_base] | 数�にマッチする |
+| `"graph"`/`L"graph"`   | [`ctype_base::graph`][ctype_base] | 図形文�にマッチする |
+| `"lower"`/`L"lower"`   | [`ctype_base::lower`][ctype_base] | 英小文�にマッチする |
+| `"print"`/`L"print"`   | [`ctype_base::print`][ctype_base] | 印�可能文�にマッチする |
+| `"punct"`/`L"punct"`   | [`ctype_base::punct`][ctype_base] | 区切り文�にマッチする |
+| `"space"`/`L"space"`   | [`ctype_base::space`][ctype_base] | 空白類文�にマッチする |
+| `"s"`/`L"s"`           | [`ctype_base::space`][ctype_base] | 空白類文�にマッチする |
+| `"upper"`/`L"upper"`   | [`ctype_base::upper`][ctype_base] | 英大文�にマッチする |
+| `"w"`/`L"w"`           | [`ctype_base::alnum`][ctype_base] | 英�・数�にマッチする |
+| `"xdigit"`/`L"xdigit"` | [`ctype_base::xdigit`][ctype_base] | 十�進数�にマッチする |
 
 [ctype_base]: /reference/locale/ctype_base.md
 
@@ -57,9 +57,9 @@ int main()
 {
   std::regex_traits<char> traits;
 
-  std::string class_name = "alnum"; // 正規表現中で[[:alnum:]]のように入力するクラス名
+  std::string class_name = "alnum"; // �規表現�で[[:alnum:]]のように入力するクラス名
 
-  // 文字'a'がアルファベットと数字のクラスに含まれているかを判定する
+  // 文�'a'がアルファベットと数�のクラスに含まれているかを判定する
   std::regex_traits<char>::char_class_type class_value =
     traits.lookup_classname(class_name.begin(), class_name.end());
   if (traits.isctype('a', class_value)) {

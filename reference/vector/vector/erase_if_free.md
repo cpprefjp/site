@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 効果
-以下と等価：
+以下と�価：
 
 ```
 c.erase(remove_if(c.begin(), c.end(), pred), c.end());

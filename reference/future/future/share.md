@@ -58,7 +58,7 @@ int main()
   std::thread t2(process, f);
 
   int value = 3; // 何らかの計算
-  p.set_value(value);  // 計算結果を設定する
+  p.set_value(value);  // 計算結果を�定する
 
   t1.join();
   t2.join();

@@ -10,7 +10,7 @@ double entropy() const noexcept;
 ```
 
 ## 概要
-エントロピー(乱数の乱雑さの度合い)を取得する。
+エント�ピー(乱数の乱雑さの度合い)を取得する。
 
 
 ## 戻り値
@@ -19,7 +19,7 @@ double entropy() const noexcept;
 
 
 ## 備考
-- GCC (libstdc++) は、バージョン7系までは常に`0.0`を返す。8.1からは、GNU/Linux環境でカーネルのエントロピー数にアクセスできればその値を返す
+- GCC (libstdc++) は、バージョン7系までは常に`0.0`を返す。8.1からは、GNU/Linux環境でカーネルのエント�ピー数にアクセスできればその値を返す
 - Clang (libc++) は、常に`0.0`を返す。
 - Visual C++は、常に`32`を返す。
 - Boost.Randomの`random_device::entropy()`は常に`10`を返す。

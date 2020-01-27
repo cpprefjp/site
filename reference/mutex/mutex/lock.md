@@ -10,7 +10,7 @@ void lock();
 ```
 
 ## 概要
-ロックを取得する
+�ックを取得する
 
 
 ## 要件
@@ -18,7 +18,7 @@ void lock();
 
 
 ## 効果
-この関数を呼び出したスレッドがミューテックスの所有権を取得できるまでブロックする
+この関数を呼び出したスレッドがミューテックスの所有権を取得できるまでブ�ックする
 
 
 ## 戻り値
@@ -29,8 +29,8 @@ void lock();
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
-- [`resource_deadlock_would_occur`](/reference/system_error/errc.md) : デッドロックが発生することを検出した(実装依存)
-- C++14まで : [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでにロックされていて、ブロッキングできない
+- [`resource_deadlock_would_occur`](/reference/system_error/errc.md) : デッド�ックが発生することを検出した(実装依�)
+- C++14まで : [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでに�ックされていて、ブ�ッ�ングできない
 
 
 ## 例
@@ -45,9 +45,9 @@ public:
   // メンバ変数value_への書き込みを排他的にする
   void add_value(int value)
   {
-    mtx_.lock(); // ロックを取得する
+    mtx_.lock(); // �ックを取得する
     value_ = value;
-    mtx_.unlock(); // ロックを手放す
+    mtx_.unlock(); // �ックを手放す
   }
 };
 
@@ -82,4 +82,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2309. `mutex::lock()` should not throw `device_or_resource_busy`](https://wg21.cmeerw.net/lwg/issue2309)
-    - C++17以降、この関数から`device_or_resource_busy`が送出される可能性がなくなった。デッドロックが検出できればbusyではなく`resource_deadlock_would_occur`が送出されるべき。busyの検出は`mutex`クラスではなく[`condition_variable`](/reference/condition_variable/condition_variable.md)`::`[`wait()`](/reference/condition_variable/condition_variable/wait.md)で行うこと
+    - C++17以降、この関数から`device_or_resource_busy`が送出される可能性がなくなった。デッド�ックが検出できればbusyではなく`resource_deadlock_would_occur`が送出されるべき。busyの検出は`mutex`クラスではなく[`condition_variable`](/reference/condition_variable/condition_variable.md)`::`[`wait()`](/reference/condition_variable/condition_variable/wait.md)で行うこと

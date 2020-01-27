@@ -18,7 +18,7 @@ namespace std {
 * locale[link /reference/locale/locale.md]
 
 ## 概要
-ストリームバッファのロケールを変更する。
+ストリームバッファの�ケールを変更する。
 
 ## 効果
 `imbue`を呼び出す。

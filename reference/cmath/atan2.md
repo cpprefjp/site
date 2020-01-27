@@ -21,7 +21,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-算術型の逆正接（アークタンジェント）を対辺と隣辺から求める。
+算術型の逆�接（アークタンジェント）を対辺と隣辺から求める。
 
 ![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/cmath/atan2/atan2.jpg)
 
@@ -29,7 +29,7 @@ namespace std {
 
 
 ## 戻り値
-`y / x` の逆正接を `[-π, π]` の範囲で返す。（単位はラジアン）
+`y / x` の逆�接を `[-π, π]` の範囲で返す。（単位はラジアン）
 
 象限は引数の符号から適切に求められる。
 
@@ -52,7 +52,7 @@ namespace std {
 	- `y = ±∞` で `x = -∞` の場合、戻り値は `±3π/4` となる。
 	- `y = ±∞` で `x = +∞` の場合、戻り値は `±π/4` となる。
 
-	特に、`y` と `x` の両方がゼロの場合に定義域エラー（[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外））となったり、`y` が非ゼロで `x` がゼロの場合に極エラー（[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外））となったりは**しない**事に注意。
+	特に、`y` と `x` の両方がゼ�の場合に定義域エラー（[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外））となったり、`y` が非ゼ�で `x` がゼ�の場合に極エラー（[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼ�除算浮動小数点例外））となったりは**しない**事に注意。
 
 
 ## 例

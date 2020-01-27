@@ -10,11 +10,11 @@ bool operator==(const bitset<N>& rhs) const noexcept; // C++11
 ```
 
 ## 概要
-`*this`と`rhs`を等値比較する。
+`*this`と`rhs`を�値比較する。
 
 
 ## 戻り値
-`*this`と`rhs`の全てのビット値が等しければ`true`、そうでなければ`false`を返す。
+`*this`と`rhs`の全てのビット値が�しければ`true`、そうでなければ`false`を返す。
 
 
 ## 例外

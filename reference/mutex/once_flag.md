@@ -20,7 +20,7 @@ namespace std {
 |---------------------------------------------|----------------|-------|
 | [`(constructor)`](once_flag/op_constructor.md) | コンストラクタ | C++11 |
 | `~once_flag() = default`                    | デストラクタ   | C++11 |
-| `operator=(const once_flag&) = delete`      | 代入演算子     | C++11 |
+| `operator=(const once_flag&) = delete`      | 代入演算�     | C++11 |
 
 
 ## 例

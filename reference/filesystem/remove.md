@@ -52,7 +52,7 @@ int main()
   fs::remove("regular.txt");
   fs::remove("empty_dir");
 
-  // 存在しないファイルを削除。
+  // �在しないファイルを削除。
   // エラーにはならず、falseが返る
   bool result = fs::remove("not_exist.file");
   assert(!result);

@@ -43,8 +43,8 @@ Hello world
 
 `wcout`は規格上実装しなければならないが、実装されていなかったり、期待どおりに動作しない事がある。
 
-#### localeの設定
-望む出力を得るためにlocaleを再設定しなければならない場合がある。
+#### localeの�定
+望む出力を得るためにlocaleを再�定しなければならない場合がある。
 
 例えばVisual Studioでは
 
@@ -62,11 +62,11 @@ int main()
 * std::wcout[color ff0000]
 * imbue[link /reference/ios/basic_ios/imbue.md]
 
-のようにして設定しないと何も表示されない。
+のようにして�定しないと何も表示されない。
 
-`std::locale("")`とすると本来はOSに設定されたロケールが設定されるはずが、MinGWやLinux環境で実行すると、"C"ロケールになってしまう問題がある。
+`std::locale("")`とすると本来はOSに�定された�ケールが�定されるはずが、MinGWやLinux環境で実行すると、"C"�ケールになってしまう問題がある。
 
-また、上記プログラムで`std::locale("ja")`の行のコメントアウトを外してを実行すると、以下のようなエラーが出力されてしまう。
+また、上記プ�グラムで`std::locale("ja")`の行のコメントアウトを外してを実行すると、以下のようなエラーが出力されてしまう。
 
 ```
 terminate called after throwing an instance of 'std::runtime_error'
@@ -93,14 +93,14 @@ int main()
 * std::wcout[color ff0000]
 * imbue[link /reference/ios/basic_ios/imbue.md]
 
-このように求める結果を得るためのlocaleの設定は処理系によって大きく異なる。
+このように求める結果を得るためのlocaleの�定は処理系によって大きく異なる。
 
-#### 端末のロケールなど
+#### 端末の�ケールなど
 
-`wcout`自体はUnicodeを扱うが、結局`stdout`に出力するので、その標準出力を受け取って表示する端末のロケールやフォントなどの設定も考える必要がある。
+`wcout`自体はUnicodeを扱うが、結局`stdout`に出力するので、その標準出力を受け取って表示する端末の�ケールやフォントなどの�定も考える必要がある。
 
 ##### Windows
-WindowsではコマンドプロンプトのデフォルトのロケールがUTF-8(65001)ではない事が多い(日本語利用者なら932になっている事が多い)ため、そのロケールで対応していないUnicodeコードポイントは当然変換できないので文字化けする。
+Windowsではコマンドプ�ンプトのデフォルトの�ケールがUTF-8(65001)ではない事が多い(日本語利用者なら932になっている事が多い)ため、その�ケールで対応していないUnicodeコードポイントは当然変換できないので文�化けする。
 
 またWindows10 1709より前では、`chcp 65001`などでUTF-8にしたときのフォントの指定に制約があり、実質日本語を表示することは不可能だった。
 
@@ -110,7 +110,7 @@ WindowsではコマンドプロンプトのデフォルトのロケールがUTF-
 
 ## 参照
 
-- [使用できるロケール文字列](../../article/platform/locales.md)
-- [標準出力に書き込む | 株式会社きじねこ](http://www.kijineko.co.jp/tech/cppsamples/stdout.html)
-- [c++で日本語の処理（ロケール周り） 7/8追記 - nullnull7の日記](http://nullnull.hatenablog.com/entry/20120629/1340935277)
+- [使用できる�ケール文�列](../../article/platform/locales.md)
+- [標準出力に書き込む | 株式会社きじ�こ](http://www.kijineko.co.jp/tech/cppsamples/stdout.html)
+- [c++で日本語の処理（�ケール周り） 7/8追記 - nullnull7の日記](http://nullnull.hatenablog.com/entry/20120629/1340935277)
 - [std::locale constructor modifies global locale via "setlocale()" | Microsoft Connect](http://web.archive.org/web/20100328154628/http://connect.microsoft.com:80/VisualStudio/feedback/details/492128/std-locale-constructor-modifies-global-locale-via-setlocale)

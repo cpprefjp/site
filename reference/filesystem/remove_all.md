@@ -55,7 +55,7 @@ int main()
   fs::remove_all("empty_dir");
   fs::remove_all("non_empty_dir");
 
-  // 存在しないファイルを削除。
+  // �在しないファイルを削除。
   // エラーにはならず、0が返る
   std::uintmax_t result = fs::remove_all("not_exist.file");
   assert(result == 0);

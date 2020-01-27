@@ -12,7 +12,7 @@ namespace std {
 * exception[link /reference/exception/exception.md]
 
 ## 概要
-`std::bad_variant_access`は、[`std::variant`](/reference/variant/variant.md)オブジェクトが現在保持していない候補型に不正アクセスした際に発生する例外型である。
+`std::bad_variant_access`は、[`std::variant`](/reference/variant/variant.md)オブジェクトが現在保持していない候補型に不�アクセスした際に発生する例外型である。
 
 
 ## メンバ関数
@@ -20,7 +20,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `bad_variant_access() noexcept;` | デフォルトコンストラクタ | C++17 |
-| `const char* what() const noexcept override;` | エラー理由となる実装依存文字列 | C++17 |
+| `const char* what() const noexcept override;` | エラー理由となる実装依�文�列 | C++17 |
 
 
 ## 例

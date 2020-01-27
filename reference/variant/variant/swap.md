@@ -29,9 +29,9 @@ void swap(variant& rhs) noexcept(see below);
 
 ## 例外
 - [`index()`](index.md) `== rhs.`[`index()`](index.md)である場合、そのインデックスの型を`Ti`として、`Ti`型同士の`swap`操作が任意の例外を送出する可能性がある。そうでない場合、`*this`が保持する型を`Ti`、`rhs`が保持する型を`Tj`として、`Ti`と`Tj`のムーブコンストラクタが任意の例外を送出する可能性がある
-- `swap(`[`get`](get.md)`<I>(*this),` [`get`](get.md)`<I>(rhs))`の呼び出し中に例外が発生した場合、`*this`と`rhs`は、`Ti`型の`swap`操作がもつ例外安全性が保証する状態となる
-- それ以外の状態での`*this`と`rhs`の入れ替え中に例外が発生した場合、`*this`と`rhs`の状態は、`variant`のムーブコンストラクタの例外安全保証によって決まる
-- `noexcept`内の式は、`Types...`の全ての型`Ti`について、[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Ti> &&` [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<Ti>`を論理積としたものと等価になる
+- `swap(`[`get`](get.md)`<I>(*this),` [`get`](get.md)`<I>(rhs))`の呼び出し�に例外が発生した場合、`*this`と`rhs`は、`Ti`型の`swap`操作がもつ例外安全性が保証する状態となる
+- それ以外の状態での`*this`と`rhs`の入れ替え�に例外が発生した場合、`*this`と`rhs`の状態は、`variant`のムーブコンストラクタの例外安全保証によって決まる
+- `noexcept`内の式は、`Types...`の全ての型`Ti`について、[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Ti> &&` [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<Ti>`を論理積としたものと�価になる
 
 
 ## 例

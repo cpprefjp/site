@@ -9,7 +9,7 @@ char_type widen(char c) const;
 ```
 
 ## 概要
-`char` 型の文字を `char_type` 型の文字に変換する。
+`char` 型の文�を `char_type` 型の文�に変換する。
 
 
 ## 戻り値
@@ -17,7 +17,7 @@ char_type widen(char c) const;
 
 
 ## 備考
-ストリームに設定されているロケールに従って、`char` 型の文字 `c` を対応する `char_type` 型の文字に変換する。
+ストリームに�定されている�ケールに従って、`char` 型の文� `c` を対応する `char_type` 型の文�に変換する。
 詳細は [`ctype`](../../locale/ctype.md)`::`[`widen`](../../locale/ctype/widen.md.nolink) を参照。
 
 

@@ -82,7 +82,7 @@ int main(){}
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-	- 2012～2013には、提案時の名前である`has_copy_constructor`も存在する。
+	- 2012～2013には、提案時の名前である`has_copy_constructor`も�在する。
 	- 2012は、`is_copy_constructible<void>`が誤って`true_type`になっている。
 	- 2012～2013は、C++11の定義に基づく実装となっている。
 		- 2012～2013は、上記例のうち`is_copy_constructible<s>`に関するものにおいて、誤った結果になる。これは、[`is_constructible`](is_constructible.md)の不具合に由来する。

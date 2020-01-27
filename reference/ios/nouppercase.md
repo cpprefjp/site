@@ -10,7 +10,7 @@ namespace std {
 ```
 
 ## 概要
-出力時に英小文字を使用することを指示するマニピュレータ。
+出力時に英小文�を使用することを指示するマニピュレータ。
 [`hex`](hex.md)や[`scientific`](scientific.md)、[`hexfloat`](hexfloat.md)などと組み合わせることで効果がある。
 
 ## 効果

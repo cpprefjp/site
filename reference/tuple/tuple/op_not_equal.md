@@ -18,7 +18,7 @@ namespace std {
 * tuple[link ../tuple.md]
 
 ## 概要
-2つの`tuple`オブジェクトの非等値比較を行う。
+2つの`tuple`オブジェクトの非�値比較を行う。
 
 
 ## 要件

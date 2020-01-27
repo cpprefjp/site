@@ -64,18 +64,18 @@ priority_queue(priority_queue&& que,
 - (2) : 比較関数と、元となるコンテナのコピーから構築するコンストラクタ。
 - (3) : デフォルトコンストラクタ。比較関数のコピーと、元となるコンテナをムーブして構築する。
 - (4) : コピーコンストラクタ
-- (5), (6), (7) : イテレータ範囲で優先順位付きキューを構築する。
+- (5), (6), (7) : イテレータ範囲で優先順位付き�ューを構築する。
 - (8) : ムーブコンストラクタ
-- (9) : アロケータを受け取るコンストラクタ
-- (10) : 比較関数とアロケータを受け取るコンストラクタ
-- (11) : 比較関数、元となるコンテナのコピー、アロケータを受け取るコンストラクタ
-- (12) : 比較関数、元となるコンテナの一時オブジェクト、アロケータを受け取るコンストラクタ
-- (13) : アロケータ指定でコピー構築する
-- (14) : アロケータ指定でムーブ構築する
+- (9) : ア�ケータを受け取るコンストラクタ
+- (10) : 比較関数とア�ケータを受け取るコンストラクタ
+- (11) : 比較関数、元となるコンテナのコピー、ア�ケータを受け取るコンストラクタ
+- (12) : 比較関数、元となるコンテナの一時オブジェクト、ア�ケータを受け取るコンストラクタ
+- (13) : ア�ケータ指定でコピー構築する
+- (14) : ア�ケータ指定でムーブ構築する
 
 
 ## 要件
-`Compare`型パラメータ`x`が、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されていること。
+`Compare`型パラメータ`x`が、[�義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されていること。
 
 
 ## 効果
@@ -105,30 +105,30 @@ priority_queue(priority_queue&& que,
     3. `c.insert(c.end(), first, last)`を呼び出す。
     4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 - (9) :
-    1. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    1. メンバ変数`c`のメモリア�ケートに`alloc`を使用する。
     2. メンバ変数`comp`を値初期化する。
 - (10) :
-    1. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    1. メンバ変数`c`のメモリア�ケートに`alloc`を使用する。
     2. メンバ変数`comp`を`x`で初期化する。
 - (11) :
     1. メンバ変数`comp`を`x`でコピー構築する。
     2. メンバ変数`c`を`other`でコピー構築する。
-    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    3. メンバ変数`c`のメモリア�ケートに`alloc`を使用する。
     4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 - (12) :
     1. メンバ変数`comp`を`x`でコピー構築する。
     2. メンバ変数`c`を`other`でムーブ構築する。
-    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    3. メンバ変数`c`のメモリア�ケートに`alloc`を使用する。
     4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 - (13) :
     1. メンバ変数`comp`を`que.comp`でコピー構築する。
     2. メンバ変数`c`を`que.c`でコピー構築する。
-    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    3. メンバ変数`c`のメモリア�ケートに`alloc`を使用する。
     4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 - (14) :
     1. メンバ変数`comp`を`que.comp`でムーブ構築する。
     2. メンバ変数`c`を`que.c`でムーブ構築する。
-    3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    3. メンバ変数`c`のメモリア�ケートに`alloc`を使用する。
     4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 
 
@@ -188,7 +188,7 @@ que5 : 5 4 3 2 1
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0(アロケータ付き初期化以外は使用可能)
+- [GCC](/implementation.md#gcc): 4.7.0(ア�ケータ付き初期化以外は使用可能)
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -4,7 +4,7 @@
 
 `<chrono>`ヘッダは、時間に関するユーティリティとして機能する関数・クラスを提供する。このヘッダに含まれる関数・クラスは、`std::chrono`名前空間で定義される。
 
-このライブラリは、タイムアウト、操作間隔、スケジューリングといった短期間の操作を主な用途として想定している。そのためカレンダー機能としては遥かな過去・未来を扱えるようにはなっていない。
+このライブラリは、タイムアウト、操作間隔、スケジューリングといった�期間の操作を主な用途として想定している。そのためカレンダー機能としては遥かな過去・未来を扱えるようにはなっていない。
 
 
 ## 時間を表す型
@@ -22,7 +22,7 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
 | [`nanoseconds`](chrono/duration_aliases.md)  | ナノ秒を表現するためのdurationの別名(type-alias) | C++11 |
-| [`microseconds`](chrono/duration_aliases.md) | マイクロ秒を表現するためのdurationの別名(type-alias) | C++11 |
+| [`microseconds`](chrono/duration_aliases.md) | マイク�秒を表現するためのdurationの別名(type-alias) | C++11 |
 | [`milliseconds`](chrono/duration_aliases.md) | ミリ秒を表現するためのdurationの別名(type-alias) | C++11 |
 | [`seconds`](chrono/duration_aliases.md)      | 秒を表現するためのdurationの別名(type-alias) | C++11 |
 | [`minutes`](chrono/duration_aliases.md)      | 分を表現するためのdurationの別名(type-alias) | C++11 |
@@ -37,14 +37,14 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`is_clock`](chrono/is_clock.md.nolink) | クロック型かを判定する (class template) | C++20 |
-| [`system_clock`](chrono/system_clock.md)       | システム時間のクロック(class) | C++11 |
-| [`steady_clock`](chrono/steady_clock.md)       | 時間が逆行しないクロック(class) | C++11 |
-| [`high_resolution_clock`](chrono/high_resolution_clock.md) | 高分解能クロック(class) | C++11 |
-| [`utc_clock`](chrono/utc_clock.md) | UTC時間 (協定世界時) のクロック (class) | C++20 |
-| [`tai_clock`](chrono/tai_clock.md.nolink) | TAI時間 (国際原子時) のクロック (class) | C++20 |
-| [`gps_clock`](chrono/gps_clock.md.nolink) | GPS時間のクロック (class) | C++20 |
-| [`file_clock`](chrono/file_clock.md.nolink) | ファイル時間を作るために使用されるクロック (class) | C++20 |
+| [`is_clock`](chrono/is_clock.md.nolink) | ク�ック型かを判定する (class template) | C++20 |
+| [`system_clock`](chrono/system_clock.md)       | システム時間のク�ック(class) | C++11 |
+| [`steady_clock`](chrono/steady_clock.md)       | 時間が逆行しないク�ック(class) | C++11 |
+| [`high_resolution_clock`](chrono/high_resolution_clock.md) | 高分解能ク�ック(class) | C++11 |
+| [`utc_clock`](chrono/utc_clock.md) | UTC時間 (協定世界時) のク�ック (class) | C++20 |
+| [`tai_clock`](chrono/tai_clock.md.nolink) | TAI時間 (国際原�時) のク�ック (class) | C++20 |
+| [`gps_clock`](chrono/gps_clock.md.nolink) | GPS時間のク�ック (class) | C++20 |
+| [`file_clock`](chrono/file_clock.md.nolink) | ファイル時間を作るために使用されるク�ック (class) | C++20 |
 
 ### システム時間用の機能
 
@@ -55,14 +55,14 @@
 | [`sys_days`](chrono/sys_time.md) | 日単位でシステム時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 
 
-### ローカル時間用の機能
+### �ーカル時間用の機能
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`local_t`](chrono/local_time.md) | ローカル時間を表す擬似的なクロック (class) | C++20 |
-| [`local_time`](chrono/local_time.md) | ローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
-| [`local_seconds`](chrono/local_time.md) | 秒単位でローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
-| [`local_days`](chrono/local_time.md) | 日単位でローカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`local_t`](chrono/local_time.md) | �ーカル時間を表す擬似的なク�ック (class) | C++20 |
+| [`local_time`](chrono/local_time.md) | �ーカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`local_seconds`](chrono/local_time.md) | 秒単位で�ーカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`local_days`](chrono/local_time.md) | 日単位で�ーカル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 
 
 ### UTC時間用の機能
@@ -152,7 +152,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`tzdb`](chrono/tzdb.md.nolink) | タイムゾーンのデータベース型 (class) | C++20 |
-| [`get_tzdb`](chrono/get_tzdb.md.nolink) | 先頭のタイムゾーンを取得する (function) | C++20 |
+| [`get_tzdb`](chrono/get_tzdb.md.nolink) | 先�のタイムゾーンを取得する (function) | C++20 |
 | [`get_tzdb_list`](chrono/get_tzdb_list.md.nolink) | タイムゾーンのリストを取得する (function) | C++20 |
 | [`locate_zone`](chrono/locate_zone.md) | 指定した名前のタイムゾーンを取得する (function) | C++20 |
 | [`current_zone`](chrono/current_zone.md) | 現在のタイムゾーンを取得する (function) | C++20 |
@@ -161,7 +161,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`reload_tzdb`](chrono/reload_tzdb.md.nolink) | リモートタイムゾーンを再読み込みする (function) | C++20 |
+| [`reload_tzdb`](chrono/reload_tzdb.md.nolink) | リモートタイムゾーンを再�み込みする (function) | C++20 |
 | [`remote_version`](chrono/remote_version.md.nolink) | リモートタイムゾーンの最新バージョン番号を取得する | C++20 |
 
 
@@ -169,8 +169,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`nonexistent_local_time`](chrono/nonexistent_local_time.md.nolink) | 存在しないローカル時間をシステム時間に変換しようとした (class) | C++20 |
-| [`ambiguous_local_time`](chrono/ambiguous_local_time.md.nolink) | ローカル時間があいまい (class) | C++20 |
+| [`nonexistent_local_time`](chrono/nonexistent_local_time.md.nolink) | �在しない�ーカル時間をシステム時間に変換しようとした (class) | C++20 |
+| [`ambiguous_local_time`](chrono/ambiguous_local_time.md.nolink) | �ーカル時間があいまい (class) | C++20 |
 
 
 ### 情報クラス
@@ -205,11 +205,11 @@
 | [`link`](chrono/link.md.nolink) | タイムゾーンの代替名を表す型 (class) | C++20 |
 
 
-## 文字列フォーマット
+## 文�列フォーマット
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`local_time_format`](chrono/local_time_format.md.nolink) | ローカル時間の文字列フォーマット用オブジェクトを生成する (function template) | C++20 |
+| [`local_time_format`](chrono/local_time_format.md.nolink) | �ーカル時間の文�列フォーマット用オブジェクトを生成する (function template) | C++20 |
 | `template<class Rep, class Period, class charT>`<br/> `struct formatter<chrono::duration<Rep, Period>, charT>;` | `duration`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
 | `template<class Duration, class charT>`<br/> `struct formatter<chrono::sys_time<Duration>, charT>;` | `sys_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
 | `template<class Duration, class charT>`<br/> `struct formatter<chrono::utc_time<Duration>, charT>;` | `utc_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
@@ -238,11 +238,11 @@
 | `template<class Duration, class TimeZonePtr, class charT>`<br/> `struct formatter<chrono::zoned_time<Duration, TimeZonePtr>, charT>;` | `zoned_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
 
 
-## 文字列解析
+## 文�列解析
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`parse`](chrono/parse.md.nolink) | 日時文字列を解析する (function template) | C++20 |
+| [`parse`](chrono/parse.md.nolink) | 日時文�列を解析する (function template) | C++20 |
 
 
 ## カレンダー定数

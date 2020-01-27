@@ -12,11 +12,11 @@ string_type transform_primary(ForwardIterator first, ForwardIterator last) const
 
 
 ## 概要
-与えられた文字範囲`[first, last)`を、並べ替えのキーとして使用する、大文字・小文字を区別しない文字のシーケンスに変換する。結果のシーケンスは、ロケールごとの照合順序となる。
+与えられた文�範囲`[first, last)`を、並べ替えの�ーとして使用する、大文�・小文�を区別しない文�のシーケンスに変換する。結果のシーケンスは、�ケールごとの照合順序となる。
 
 
 ## 戻り値
-`typeid(use_facet<collate<char_type>>) == typeid(collate_byname<char_type>)`であり、`collate_byname<char_type>::transform(first, last)`が優先順位付きキーに変換できる場合はそのキーを返し、そうでない場合は空文字列を返す。
+`typeid(use_facet<collate<char_type>>) == typeid(collate_byname<char_type>)`であり、`collate_byname<char_type>::transform(first, last)`が優先順位付き�ーに変換できる場合はその�ーを返し、そうでない場合は空文�列を返す。
 
 
 ## 例

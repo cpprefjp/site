@@ -214,7 +214,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 ## バージョン
 ### 言語
 - C++11
-- C++14: 2つ目の終端のイテレータ`last2`を実引数に取るオーバーロードの追加。
+- C++14: 2つ目の終端のイテレータ`last2`を実引数に取るオーバー�ードの追加。
 
 
 ### 処理系
@@ -222,9 +222,9 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
-    - C++14で追加されたオーバーロードは2015から実装されている。
+    - C++14で追加されたオーバー�ードは2015から実装されている。
 
 ## 参照
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
-    - C++14から追加された、`last2`を受け取るオーバーロードの提案文書
+    - C++14から追加された、`last2`を受け取るオーバー�ードの提案文書
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)

@@ -16,11 +16,11 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 ## 要件
 - このコンテナの要素型 `value_type` は、コンテナに対して引数 `args` から直接構築可能（EmplaceConstructible）でなければならない。  
-	ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+	ここで、コンテナに対して引数 `args` から直接構築可能とは、`m` をア�ケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`forward`](/reference/utility/forward.md)`<Args>(args)...);`
 
-- 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、最終要素の次を指すイテレータでも良い）
+- 引数 `position` は、コンテナの有効な�み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、最終要素の次を指すイテレータでも良い）
 
 
 ## 効果
@@ -58,11 +58,11 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 	| コンテナ                                                              | シグネチャ                                                                         |
 	|-----------------------------------------------------------------------|------------------------------------------------------------------------------------|
 	| シーケンスコンテナ                                                    | `template <class... Args>`<br/> `iterator emplace(const_iterator, Args&&...)`      |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
 	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
-- 本関数呼び出しで構築されるオブジェクト `t` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。
+- 本関数呼び出しで構築されるオブジェクト `t` と�価な�ーの要素が既に�在する場合、`position` に応じて既�の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は�在しない。
 	従って、そのような期待はすべきではない。（下記の出力例も参照）
 
 ## 例
@@ -79,7 +79,7 @@ struct is : std::pair<int, std::string> {
   is(int i, const char* s) : std::pair<int, std::string>(i, s) {}
 };
 
-// サンプル用クラスの比較演算子（first のみを比較）
+// サンプル用クラスの比較演算�（first のみを比較）
 bool operator==(const is& t, const is& u)
 {
   return t.first == u.first;
@@ -90,7 +90,7 @@ bool operator!=(const is& t, const is& u)
   return t.first != u.first;
 }
 
-// サンプル用クラスのために std::hash を特殊化（first のみに依存）
+// サンプル用クラスのために std::hash を特殊化（first のみに依�）
 namespace std {
   template <>
   struct hash<is> : private hash<int> {
@@ -98,7 +98,7 @@ namespace std {
   };
 }
 
-// サンプル用クラスのための挿入演算子
+// サンプル用クラスのための挿入演算�
 std::ostream& operator<<(std::ostream& os, const is& p)
 {
   return os << '(' << p.first << ',' << p.second << ')';
@@ -120,11 +120,11 @@ int main()
   // 初期状態の出力
   print("before", ums.cbegin(), ums.cend());
 
-  // 追加するデータと等価な範囲を取得
+  // 追加するデータと�価な範囲を取得
   auto p = ums.equal_range(is(1, "4th"));
   print("equal_range", p.first, p.second);
 
-  // 等価な要素の間に emplace_hint でデータを追加
+  // �価な要素の間に emplace_hint でデータを追加
   auto it = ums.emplace_hint(std::next(p.first), 1, "4th");
   std::cout << "emplace_hint : " << *it << '\n';
 
@@ -188,7 +188,7 @@ int main()
 | [`swap`](swap.md)                       | 内容の交換                                         |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                   |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、設定                             |
+| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、�定                             |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整           |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整               |
 

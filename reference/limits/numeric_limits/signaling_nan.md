@@ -52,5 +52,5 @@ double : 1.#QNAN
 
 ## 参照
 * [`numeric_limits::has_quiet_NaN`](signaling_nan.md)
-* [NANの定義について - ぴょぴょぴょ？ - Linuxとかプログラミングの覚え書き](http://d.hatena.ne.jp/pyopyopyo/20100330/p1)
+* [NANの定義について - ぴょぴょぴょ？ - Linuxとかプ�グラミングの覚え書き](http://d.hatena.ne.jp/pyopyopyo/20100330/p1)
 

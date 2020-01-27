@@ -11,7 +11,7 @@ char_type translate(char_type c) const;
 
 
 ## 概要
-与えられた文字と等価の文字を取得する。
+与えられた文�と�価の文�を取得する。
 
 
 ## 戻り値

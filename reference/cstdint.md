@@ -2,7 +2,7 @@
 * cstdint[meta header]
 * cpp11[meta cpp]
 
-`<cstdint>`ヘッダでは、ビット数が規定された整数型の別名、およびマクロを提供する。これらの機能は、`std`名前空間に属することを除いてC言語の標準ライブラリ`<stdint.h>`ヘッダと同じである。
+`<cstdint>`ヘッダでは、ビット数が規定された整数型の別名、およびマク�を提供する。これらの機能は、`std`名前空間に属することを除いてC言語の標準ライブラリ`<stdint.h>`ヘッダと同じである。
 
 ## 符号付き整数型
 
@@ -43,10 +43,10 @@
 | [`uintptr_t`](cstdint/uintptr_t.md)           | ポインタサイズの符号なし整数型(実装するかどうかは処理系定義) | C++11 |
 
 
-以下のマクロは、整数型の限界値を表す。
-## 符号付き整数型用の限界値マクロ
+以下のマク�は、整数型の限界値を表す。
+## 符号付き整数型用の限界値マク�
 
-| マクロ | 説明 | 対応バージョン |
+| マク� | 説明 | 対応バージョン |
 |-------------------------------------------------|-----------------------|-------|
 | [`INT8_MIN`](cstdint/int8_min.md)               | `int8_t`の最小値(実装するかどうかは処理系定義) | C++11 |
 | [`INT8_MAX`](cstdint/int8_max.md)               | `int8_t`の最大値(実装するかどうかは処理系定義) | C++11 |
@@ -86,9 +86,9 @@
 | [`WINT_MAX`](cstdint/wint_max.md)               | `wint_t`の最大値 | C++11 |
 
 
-## 符号なし整数型用の限界値マクロ
+## 符号なし整数型用の限界値マク�
 
-| マクロ | 説明 | 対応バージョン |
+| マク� | 説明 | 対応バージョン |
 |---------------------------------------------------|-----------------------|-------|
 | [`UINT8_MAX`](cstdint/uint8_max.md)               | `uint8_t`の最大値(実装するかどうかは処理系定義) | C++11 |
 | [`UINT16_MAX`](cstdint/uint16_max.md)             | `uint16_t`の最大値(実装するかどうかは処理系定義) | C++11 |
@@ -107,12 +107,12 @@
 | [`SIZE_MAX`](cstdint/size_max.md)                 | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
 
 
-## 符号付き整数型用の定数値マクロ
+## 符号付き整数型用の定数値マク�
 
-以下のマクロは、各整数型の定数値を表す関数マクロである。  
+以下のマク�は、各整数型の定数値を表す関数マク�である。  
 例：) `int8_t x = INT8_C(1);`  
 
-| マクロ | 説明 | 対応バージョン |
+| マク� | 説明 | 対応バージョン |
 |---------------|------------------------------------------|-------|
 | `INT8_C(n)`   | 8ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは処理系定義)  | C++11 |
 | `INT16_C(n)`  | 16ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは処理系定義) | C++11 |
@@ -121,9 +121,9 @@
 | `INTMAX_C(n)` | 最も大きい符号付き整数型の定数値 | C++11 |
 
 
-## 符号なし整数型用の定数値マクロ
+## 符号なし整数型用の定数値マク�
 
-| マクロ | 説明 | 対応バージョン |
+| マク� | 説明 | 対応バージョン |
 |----------------|------------------------------------------|-------|
 | `UINT8_C(n)`   | 8ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは処理系定義)  | C++11 |
 | `UINT16_C(n)`  | 16ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは処理系定義) | C++11 |
@@ -132,20 +132,20 @@
 | `UINTMAX_C(n)` | 最も大きい符号なし整数型の定数値 | C++11 |
 
 ## 備考
-### <a id="stdc-macros"></a>`__STDC_LIMIT_MACROS`, `__STDC_CONSTANT_MACROS` マクロについて
-C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ でコンパイルする場合に限界値マクロ、定数値マクロを得るためにはこれらのマクロを事前に定義する必要があるものとされていた。
+### <a id="stdc-macros"></a>`__STDC_LIMIT_MACROS`, `__STDC_CONSTANT_MACROS` マク�について
+C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ でコンパイルする場合に限界値マク�、定数値マク�を得るためにはこれらのマク�を事前に定義する必要があるものとされていた。
 > Footnote 219, 220: C++ implementations should define these macros only when `__STDC_LIMIT_MACROS` is defined before `<stdint.h>` is included.
 
 > Footnote 222: C++ implementations should define these macros only when `__STDC_CONSTANT_MACROS` is defined before `<stdint.h>` is included.
 
-しかしその後の C 規格改定でこの脚注は削除され、 C11 では触れられていない。 C++11 は（ C++14 も） C99 を参照規格としているが、 [18.4.1 [cstdint.syn] p2](https://github.com/cplusplus/draft/blob/0b7593f0e716910bab7c1511533b2f9b5a886de1/source/support.tex#L1263) に注釈として、これらのマクロは採用されていないことが明記されている。
+しかしその後の C 規格改定でこの脚注は削除され、 C11 では触れられていない。 C++11 は（ C++14 も） C99 を参照規格としているが、 [18.4.1 [cstdint.syn] p2](https://github.com/cplusplus/draft/blob/0b7593f0e716910bab7c1511533b2f9b5a886de1/source/support.tex#L1263) に注釈として、これらのマク�は採用されていないことが明記されている。
 > The macros defined by `<cstdint>` are provided unconditionally. In particular, the symbols `__STDC_LIMIT_MACROS` and
 > `__STDC_CONSTANT_MACROS` (mentioned in footnotes 219, 220, and 222 in
 > the C standard) play no role in C++.
 
-おそらく上記 C99 の脚注のため、 C++ 処理系によってはヘッダ `<stdint.h>` および `<cstdint>` での限界値マクロ、定数値マクロの提供にこれらマクロの定義が必要となっているかもしれない。（特に C++03 対応の処理系が拡張として C99 由来のこれらヘッダを提供していた場合など。）
+おそらく上記 C99 の脚注のため、 C++ 処理系によってはヘッダ `<stdint.h>` および `<cstdint>` での限界値マク�、定数値マク�の提供にこれらマク�の定義が必要となっているかもしれない。（特に C++03 対応の処理系が拡張として C99 由来のこれらヘッダを提供していた場合など。）
 
-- glibc に対するバグ報告（修正は 2013/05/21 ）
+- glibc に対するバグ報告（修�は 2013/05/21 ）
   [Bug 15366 – Per C11 and C++11, `<stdint.h>` should not look at `__STDC_LIMIT_MACROS` or `__STDC_CONSTANT_MACROS`](https://sourceware.org/bugzilla/show_bug.cgi?id=15366)
 - [What do __STDC_LIMIT_MACROS and __STDC_CONSTANT_MACROS mean? - Stack Overflow](https://stackoverflow.com/questions/986426/what-do-stdc-limit-macros-and-stdc-constant-macros-mean)
 

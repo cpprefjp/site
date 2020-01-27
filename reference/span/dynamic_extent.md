@@ -46,7 +46,7 @@ int main()
 
     static_assert(decltype(s)::extent == 5);
 
-    // 先頭3要素を参照する。
+    // 先�3要素を参照する。
     // 1. 動的な要素数を指定する
     std::span r1 = s.first(3);
     static_assert(decltype(r1)::extent == std::dynamic_extent);

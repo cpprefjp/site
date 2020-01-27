@@ -7,7 +7,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-//operator==により、以下のオーバーロードが使用可能になる        
+//operator==により、以下のオーバー�ードが使用可能になる        
 friend constexpr bool operator!=(strong_ordering v, strong_ordering w) noexcept; // (1)
 
 friend constexpr bool operator!=(strong_ordering v, /*unspecified*/) noexcept;   // (2)
@@ -17,7 +17,7 @@ friend constexpr bool operator!=(/*unspecified*/, strong_ordering v) noexcept;  
 
 ## 概要
 
-- (1) : `strong_ordering`同士の非等値比較を行う
+- (1) : `strong_ordering`同士の非�値比較を行う
 - (2)(3) : `strong_ordering`の値が`strong_ordering::equal`で無いことを調べる。
 
 ## 戻り値
@@ -32,7 +32,7 @@ friend constexpr bool operator!=(/*unspecified*/, strong_ordering v) noexcept;  
 
 ## 備考
 
-これらの演算子は全て[`operator==`](op_equal.md)によって使用可能になる。
+これらの演算�は全て[`operator==`](op_equal.md)によって使用可能になる。
 
 *unspecified*となっている片側の引数には`0`リテラルのみが使用できる。それ以外の物を渡した場合、動作は未定義。
 

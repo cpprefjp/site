@@ -2,14 +2,14 @@
 * memory_resource[meta header]
 * cpp17[meta cpp]
 
-`<memory_resource>`ヘッダでは、ポリモルフィックなアロケータ（多相アロケータ、型に依存しないアロケータ）とそれを実装するためのインターフェース、及びその標準実装を提供する。
+`<memory_resource>`ヘッダでは、ポリモルフィックなア�ケータ（多相ア�ケータ、型に依�しないア�ケータ）とそれを実装するためのインターフェース、及びその標準実装を提供する。
 
-## インターフェースと多相アロケータ
+## インターフェースと多相ア�ケータ
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-|[`memory_resource`](memory_resource/memory_resource.md) | アロケータ実装を抽象化するためのインターフェース | C++17 |
-|[`polymorphic_allocator`](memory_resource/polymorphic_allocator.md) | 型によらないアロケータ実装を利用可能なアロケータ | C++17 |
+|[`memory_resource`](memory_resource/memory_resource.md) | ア�ケータ実装を抽象化するためのインターフェース | C++17 |
+|[`polymorphic_allocator`](memory_resource/polymorphic_allocator.md) | 型によらないア�ケータ実装を利用可能なア�ケータ | C++17 |
 
 ## 標準`memory_resource`実装
 
@@ -26,15 +26,15 @@
 |-----------------|----------------|----------------|
 |[`new_delete_resource`](memory_resource/new_delete_resource.md) | `operator new`、`operator delete`を利用する`memory_resource`を取得 | C++17 |
 |[`null_memory_resource`](memory_resource/null_memory_resource.md) | 確保も開放も行わない`memory_resource`を取得 | C++17 |
-|[`set_default_resource`](memory_resource/set_default_resource.md) | デフォルトで使用される`memory_resource`の設定 | C++17 |
+|[`set_default_resource`](memory_resource/set_default_resource.md) | デフォルトで使用される`memory_resource`の�定 | C++17 |
 |[`get_default_resource`](memory_resource/get_default_resource.md) | デフォルトで使用される`memory_resource`の取得 | C++17 |
 
 ## 導入された経緯
 
-このクラス導入以前のアロケータはPolicyベースデザインというパターンに基づく設計であったため、アロケータの型がそれを利用する型にも表れてしまっていた。  
-それによって、利用するアロケータが異なる型は異なるクラスとして扱われてしまいいくつか不便なところがあった。
+このクラス導入以前のア�ケータはPolicyベースデザインというパターンに基づく�計であったため、ア�ケータの型がそれを利用する型にも表れてしまっていた。  
+それによって、利用するア�ケータが異なる型は異なるクラスとして扱われてしまいいくつか不便なところがあった。
 
-例えば自作のアロケータ`original_allocator`を作り、利用しようとすると以下のような問題が生じる。
+例えば自作のア�ケータ`original_allocator`を作り、利用しようとすると以下のような問題が生じる。
 ```cpp
 std::string str1 = "string";
 std::basic_string<char, std::char_traits<char>, original_allocator<char>> str2 = "string";
@@ -53,12 +53,12 @@ std::vector<int, original_allocator<int>> v2 = v1;
 auto r = v1 == v2;
 ```
 
-これらの問題の解決の必要性は認識されていたが、従来のアロケータの改修は互換性の問題等から難しいために新しく多相アロケータ（`polymorphic_allocator`）が導入された。  
-多相アロケータはアロケータの実装を型に出さずに動的に切り替えることのできるアロケータであり、上記の問題を解決することができる。ただし、従来のアロケータを利用するクラスとの間では相変わらず上記の問題が残り続ける。
+これらの問題の解決の必要性は認�されていたが、従来のア�ケータの改修は互換性の問題�から難しいために新しく多相ア�ケータ（`polymorphic_allocator`）が導入された。  
+多相ア�ケータはア�ケータの実装を型に出さずに動的に切り替えることのできるア�ケータであり、上記の問題を解決することができる。ただし、従来のア�ケータを利用するクラスとの間では相変わらず上記の問題が残り続ける。
 
-本ヘッダにはその多相アロケータに関連するクラスや関数群が定義されている。
+本ヘッダにはその多相ア�ケータに関連するクラスや関数群が定義されている。
 
-またこれらの追加に伴い、標準ライブラリ内でアロケータを用いるクラスにデフォルトで`polymorphic_allocator`を利用するエイリアスが導入された。これは各クラスのヘッダ毎に宣言される。
+またこれらの追加に伴い、標準ライブラリ内でア�ケータを用いるクラスにデフォルトで`polymorphic_allocator`を利用するエイリアスが導入された。これは各クラスのヘッダ毎に宣言される。
 
 ## `polymorphic_allocator`を用いるエイリアスが提供されるクラス
 
@@ -100,10 +100,10 @@ auto r = v1 == v2;
 [`<scoped_allocator>`](scoped_allocator.md)
 
 ## 参照
-- [C++1z 多相アロケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
+- [C++1z 多相ア�ケータとメモリプール - Faith and Brave - C++で遊ぼう ](https://faithandbrave.hateblo.jp/entry/2016/08/08/170454)
 - [memory_resourceについて - 本の虫](https://cpplover.blogspot.com/2015/09/memoryresource.html)
 - [Polymorphic Allocator in C++17 - Qita](https://qiita.com/MitsutakaTakeda/items/48980faa9498c46b15b2)
-- [C++17の新機能 アロケータ編 / new features of C++17 - allocator](https://speakerdeck.com/kariyamitsuru/new-features-of-c-plus-plus-17-allocator)
+- [C++17の新機能 ア�ケータ編 / new features of C++17 - allocator](https://speakerdeck.com/kariyamitsuru/new-features-of-c-plus-plus-17-allocator)
 - [Allocators@C++11 - Cryolite](http://www.slideshare.net/Cryolite/allocator11final)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)

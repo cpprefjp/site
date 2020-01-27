@@ -19,11 +19,11 @@ namespace std {
 ```
 
 ## 概要
-数値`val`を`wstring`型文字列に変換する。
+数値`val`を`wstring`型文�列に変換する。
 
 
 ## 戻り値
-各数値型に対して、`swprintf(buf, buffsize, fmt, val)`によって生成された文字列の`wstring`オブジェクトを返す。使用されるバッファサイズは未規定。
+各数値型に対して、`swprintf(buf, buffsize, fmt, val)`によって生成された文�列の`wstring`オブジェクトを返す。使用されるバッファサイズは未規定。
 
 各型で使用されるフォーマットは以下のようになる：
 

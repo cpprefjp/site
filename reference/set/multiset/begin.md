@@ -11,19 +11,19 @@ const_iterator begin() const noexcept;
 
 
 ## 概要
-`miltiset` コンテナの先頭要素を参照するイテレータを返す。
+`miltiset` コンテナの先�要素を参照するイテレータを返す。
 
-内部的に、`multiset`コンテナは要素を下位から上位へと並べており、従って `begin()` は `miltiset` 内の最下位のキーにあたる値を返す。
+内部的に、`multiset`コンテナは要素を下位から上位へと並べており、従って `begin()` は `miltiset` 内の最下位の�ーにあたる値を返す。
 
 
 ## 戻り値
-コンテナの先頭要素へのイテレータ。
+コンテナの先�要素へのイテレータ。
 
 `iterator` と `const_iterator` はともにメンバ型である。`miltiset` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
 ## 備考
-`const` 版ではない `begin` が返す `iterator` も読み取り専用イテレータである。
+`const` 版ではない `begin` が返す `iterator` も�み取り専用イテレータである。
 
 （が、`iterator` と `const_iterator` が同じ型とは限らない）
 
@@ -69,4 +69,4 @@ int main()
 |----------------------------|----------------------------------|
 | [`multiset::end`](end.md)       | 末尾を指すイテレータを取得する   |
 | [`multiset::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`multiset::rend`](rend.md)     | 先頭を指す逆イテレータを取得する |
+| [`multiset::rend`](rend.md)     | 先�を指す逆イテレータを取得する |

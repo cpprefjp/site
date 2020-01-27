@@ -30,7 +30,7 @@ namespace std {
 |-----------------------------------------------|----------------|----------------|
 | [`(constructor)`](mask_array/op_constructor.md) | コンストラクタ | |
 | `~mask_array() = default;`                    | デストラクタ   | |
-| [`operator=`](mask_array/op_assign.md)      | 代入演算子     | |
+| [`operator=`](mask_array/op_assign.md)      | 代入演算�     | |
 
 
 ### 四則演算

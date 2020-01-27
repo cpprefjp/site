@@ -15,7 +15,7 @@ namespace std::chrono {
 
 通常は値の範囲として`[1, 12]`を扱うが、このクラスではその範囲外の値として`[0, 255]`まで扱える。
 
-このクラスは等値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)およびLessThanComparableの要件を満たす。
+このクラスは�値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)およびLessThanComparableの要件を満たす。
 
 このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)で、かつ[スタンダードレイアウト型](/reference/type_traits/is_standard_layout.md)である。
 
@@ -30,7 +30,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](month/op_constructor.md) | コンストラクタ | C++20 |
-| `month& operator=(const month&) = default;`<br/> `month& operator=(month&&) = default;` | 代入演算子 | C++20 |
+| `month& operator=(const month&) = default;`<br/> `month& operator=(month&&) = default;` | 代入演算� | C++20 |
 
 
 ### 算術演算
@@ -47,7 +47,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator unsigned int`](month/op_unsigned_int.md) | `unsigned int`型への変換演算子 | C++20 |
+| [`operator unsigned int`](month/op_unsigned_int.md) | `unsigned int`型への変換演算� | C++20 |
 
 
 ### 検証
@@ -66,7 +66,7 @@ namespace std::chrono {
 | [`operator-`](month/op_minus.md) | 減算 | C++20 |
 
 
-### カレンダー構文演算子
+### カレンダー構文演算�
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -77,8 +77,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](month/op_equal.md)         | 等値比較を行う | C++20 |
-| `bool operator!=(const month&, const month&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
+| [`operator==`](month/op_equal.md)         | �値比較を行う | C++20 |
+| `bool operator!=(const month&, const month&) noexcept;` | 非�値比較を行う (`==`により使用可能) | C++20 |
 | [`operator<=>`](month/op_compare_3way.md) | 三方比較を行う | C++20 |
 | `bool operator<(const month&, const month&) noexcept;` | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | C++20 |
 | `bool operator<=(const month&, const month&) noexcept;` | 左辺が右辺以下を判定する (`<=>`により使用可能) | C++20 |

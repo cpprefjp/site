@@ -17,9 +17,9 @@ namespace std::chrono {
 
 
 ## 戻り値
-便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
+便宜上のリテラル�ャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 
-- (1) : 以下と等価：
+- (1) : 以下と�価：
     ```cpp
     return os << (d.ok() ?
       format(STATICALLY-WIDEN<charT>("{:%d}"), d) :
@@ -29,7 +29,7 @@ namespace std::chrono {
 
 
 ## 備考
-- このフォーマットでは、2桁ゼロ埋めで日の整数値が出力される。1桁の日を出力する場合、`01`のように先頭にゼロがつく
+- このフォーマットでは、2桁ゼ�埋めで日の整数値が出力される。1桁の日を出力する場合、`01`のように先�にゼ�がつく
 
 
 ## 例

@@ -11,17 +11,17 @@ namespace std {
 ```
 
 ## 概要
-浮動小数点数の丸め方式を設定する。
+浮動小数点数の丸め方式を�定する。
 
 
 ## 効果
-パラメータ`round`で渡された丸め方式を、標準ライブラリの丸め方式として設定する。
+パラメータ`round`で渡された丸め方式を、標準ライブラリの丸め方式として�定する。
 
-パラメータ`round`の値が標準ライブラリで定義される丸め方式のマクロ値と異なる場合、丸め方式は変更されない。
+パラメータ`round`の値が標準ライブラリで定義される丸め方式のマク�値と異なる場合、丸め方式は変更されない。
 
 
 ## 戻り値
-丸め方式を正しく設定できた場合、この関数は`0`を返す。そうでなければ、`0`以外の値を返す。
+丸め方式を�しく�定できた場合、この関数は`0`を返す。そうでなければ、`0`以外の値を返す。
 
 
 ## 例
@@ -58,7 +58,7 @@ int main()
   std::fesetround(FE_TONEAREST);
   round_values("to nearest");
 
-  // ゼロ方向への丸め
+  // ゼ�方向への丸め
   std::fesetround(FE_TOWARDZERO);
   round_values("toward zero");
 
@@ -98,7 +98,7 @@ upward
 - [GCC](/implementation.md#gcc): 4.3.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015
-	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、�しく動作しないおそれがある。
 
 
 ## 関連項目

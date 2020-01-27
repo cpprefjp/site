@@ -13,10 +13,10 @@ namespace std {
 
 ## 概要
 `piecewise_constant_distribution`は、区間ごとの重み付けを定数値とした分布を生成するクラスである。  
-このクラスはコンストラクタに、値の区間を表す数列と、区間ごとに線形に変化する重みの数列を設定する。重み数列の要素数は、区間数列の要素数 - 1個である。  
+このクラスはコンストラクタに、値の区間を表す数列と、区間ごとに線形に変化する重みの数列を�定する。重み数列の要素数は、区間数列の要素数 - 1個である。  
 
 
-パラメータを、区間 `{0.0, 1.0, 2.0}`、重み `{0.3, 0.5}`のように設定した場合、区間`[0.0, 1.0)`の値が出現する確率は`0.3`、区間`[1.0, 2.0)`の値が出現する確率は`0.5`となる。  
+パラメータを、区間 `{0.0, 1.0, 2.0}`、重み `{0.3, 0.5}`のように�定した場合、区間`[0.0, 1.0)`の値が出現する確率は`0.3`、区間`[1.0, 2.0)`の値が出現する確率は`0.5`となる。  
 
 
 テンプレートパラメータは、以下を意味する。
@@ -41,13 +41,13 @@ namespace std {
 | [`operator()`](piecewise_constant_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------|----------------------------------|-------|
 | [`intervals`](piecewise_constant_distribution/intervals.md) | 区間の数列を取得する             | C++11 |
 | [`densities`](piecewise_constant_distribution/densities.md) | 重み付けの数列を取得する         | C++11 |
-| [`param`](piecewise_constant_distribution/param.md)         | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](piecewise_constant_distribution/param.md)         | 分布のパラメータを取得／�定する | C++11 |
 | [`mix`](piecewise_constant_distribution/min.md)             | 下限を取得する                 | C++11 |
 | [`max`](piecewise_constant_distribution/max.md)             | 上限を取得する                 | C++11 |
 
@@ -100,7 +100,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[piecewise_constant_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv)）を図示する。
+このプ�グラムによってある時に得られた結果（[piecewise_constant_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.png)
 

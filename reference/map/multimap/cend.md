@@ -23,7 +23,7 @@ const_iterator cend() const noexcept;
 
 
 ## 備考
-- この関数によって返されるイテレータは、`*this`が保持するいずれの要素も参照しない。その指す先は、不正な範囲となるだろう
+- この関数によって返されるイテレータは、`*this`が保持するいずれの要素も参照しない。その指す先は、不�な範囲となるだろう
 
 
 ## 例
@@ -82,13 +82,13 @@ int main()
 
 | 名前 | 説明 |
 |------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`multimap::begin`](/reference/map/multimap/begin.md) | 先頭を指すイテレータを取得する |
+| [`multimap::begin`](/reference/map/multimap/begin.md) | 先�を指すイテレータを取得する |
 | [`multimap::end`](/reference/map/multimap/end.md) | 末尾を指すイテレータを取得する |
-| [`multimap::cbegin`](/reference/map/multimap/cbegin.md) | 先頭を指すconstイテレータを取得する |
+| [`multimap::cbegin`](/reference/map/multimap/cbegin.md) | 先�を指すconstイテレータを取得する |
 | [`multimap::rbegin`](/reference/map/multimap/rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`multimap::rend`](/reference/map/multimap/rend.md) | 先頭を指す逆イテレータを取得する |
+| [`multimap::rend`](/reference/map/multimap/rend.md) | 先�を指す逆イテレータを取得する |
 | [`multimap::crbegin`](/reference/map/multimap/rbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`multimap::crend`](/reference/map/multimap/rend.md) | 先頭を指す逆constイテレータを取得する |
+| [`multimap::crend`](/reference/map/multimap/rend.md) | 先�を指す逆constイテレータを取得する |
 
 
 

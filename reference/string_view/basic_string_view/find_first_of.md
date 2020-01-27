@@ -13,12 +13,12 @@ constexpr size_type find_first_of(const CharT* s, size_type pos = 0) const;     
 ```
 
 ## 概要
-指定された文字列中のいずれかの文字が出現する最初の場所を検索する。
+指定された文�列�のいずれかの文�が出現する最初の場所を検索する。
 
-- (1) : 指定した位置`pos`から、文字列`sv`内のいずれかの文字が最初に現れる位置を検索する
-- (2) : 指定した位置`pos`から、文字`c`が最初に現れる位置を検索する
-- (3) : 指定した位置`pos`から、文字列`s`の先頭`n`文字のいずれかの文字が最初に現れる位置を検索する
-- (4) : 指定した位置`pos`から、文字列`s`内のいずれかの文字が最初に現れる位置を検索する
+- (1) : 指定した位置`pos`から、文�列`sv`内のいずれかの文�が最初に現れる位置を検索する
+- (2) : 指定した位置`pos`から、文�`c`が最初に現れる位置を検索する
+- (3) : 指定した位置`pos`から、文�列`s`の先�`n`文�のいずれかの文�が最初に現れる位置を検索する
+- (4) : 指定した位置`pos`から、文�列`s`内のいずれかの文�が最初に現れる位置を検索する
 
 
 ## 戻り値
@@ -33,11 +33,11 @@ constexpr size_type find_first_of(const CharT* s, size_type pos = 0) const;     
 
 
 ## 備考
-- 文字列の一致は、文字列の各文字について `traits_type::eq()` を用いて検査される。  
+- 文�列の一致は、文�列の各文�について `traits_type::eq()` を用いて検査される。  
 	例えば、(1) の形式の場合、以下のような条件を満たす最小の `xpos` を求める。
 	* `pos <= xpos` かつ `xpos + sv.size() <= size()`
 	* `0 <= I` かつ `I < sv.size()` を満たす全ての `I` について、`traits_type::eq(at(xpos + I), sv.at(I))`
-- (4) の形式の場合、`s` の文字列長は `traits_type::length(s)` で求められる。
+- (4) の形式の場合、`s` の文�列長は `traits_type::length(s)` で求められる。
 
 
 ## 例
@@ -51,7 +51,7 @@ int main()
   const std::string_view target = "world";
 
   // (1)
-  // "Welcome" 以降で "world" を検索すると、"Welcome" の 3 文字目の "l" が見つかる
+  // "Welcome" 以降で "world" を検索すると、"Welcome" の 3 文�目の "l" が見つかる
   {
     std::size_t pos = sv.find_first_of(target, 14);
     if (pos != std::string_view::npos) {

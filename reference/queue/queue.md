@@ -12,7 +12,7 @@ namespace std {
 * deque[link /reference/deque/deque.md]
 
 ## 概要
-`queue`はコンテナアダプタであり、FIFO (first-in first-out) の動作――コンテナの一方から要素が挿入され、反対側から要素を取り出す――を実現する目的で設計されている。要素をコンテナの `back()` 側から挿入し、`front()` 側から取り出す。
+`queue`はコンテナアダプタであり、FIFO (first-in first-out) の動作――コンテナの一方から要素が挿入され、反対側から要素を取り出す――を実現する目的で�計されている。要素をコンテナの `back()` 側から挿入し、`front()` 側から取り出す。
 
 `queue` は、所定のメンバ関数を持つコンテナのオブジェクトを内部実装として用いており、標準のコンテナ、もしくは独自に実装したコンテナを指定することができる。
 
@@ -31,7 +31,7 @@ namespace std {
 - `T`: 要素の型
 - `Container`: 内部実装のコンテナクラス
 
-以下のリファレンス中では、テンプレート引数として同じ名前を用いる。
+以下のリファレンス�では、テンプレート引数として同じ名前を用いる。
 
 
 ## メンバ関数
@@ -71,8 +71,8 @@ namespace std {
 
 | 名前                                        | 説明                                 | 対応バージョン |
 |---------------------------------------------|--------------------------------------|----------------|
-| [`operator==`](queue/op_equal.md)         | 等値比較                             |                |
-| [`operator!=`](queue/op_not_equal.md)     | 非等値比較                           |                |
+| [`operator==`](queue/op_equal.md)         | �値比較                             |                |
+| [`operator!=`](queue/op_not_equal.md)     | 非�値比較                           |                |
 | [`operator<`](queue/op_less.md)           | 左辺が右辺より小さいかの判定を行う   |                |
 | [`operator<=`](queue/op_less_equal.md)    | 左辺が右辺以下かの判定を行う         |                |
 | [`operator>`](queue/op_greater.md)        | 左辺が右辺より大きいかの判定を行う   |                |
@@ -102,8 +102,8 @@ int main()
   que.push(3);
 
   while (!que.empty()) {
-    std::cout << que.front() << " "; // 先頭要素を参照する
-    que.pop(); // 先頭要素を削除
+    std::cout << que.front() << " "; // 先�要素を参照する
+    que.pop(); // 先�要素を削除
   }
 }
 ```

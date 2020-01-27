@@ -21,7 +21,7 @@ namespace std {
 ## 効果
 第1パラメータ`obj`で受け取った変数への参照に、第2パラメータ`new_val`の値をムーブ代入し、代入前の`obj`の状態を返す。
 
-以下と等価の効果を持つ：
+以下と�価の効果を持つ：
 
 ```cpp
 T old_val = std::move(obj);
@@ -73,8 +73,8 @@ template <class T>
 void print_1(const std::vector<T>& v)
 {
   // カンマ区切りでvectorを出力する。
-  // 区切り文字は、各要素の後ではなく、前に置くと考える。
-  // 最初の要素のみ区切り文字を出力しない。
+  // 区切り文�は、各要素の後ではなく、前に置くと考える。
+  // 最初の要素のみ区切り文�を出力しない。
 
   bool first = true;
 
@@ -129,7 +129,7 @@ int main()
 
 ## 関連項目
 
-- [非推奨だった bool 型に対するインクリメント演算子を削除](/lang/cpp17/remove_deprecated_increment_of_bool.md)
+- [非推奨だった bool 型に対するインクリメント演算�を削除](/lang/cpp17/remove_deprecated_increment_of_bool.md)
 
 ## 参照
 - [N3511 exchange() utility function](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3511.html)

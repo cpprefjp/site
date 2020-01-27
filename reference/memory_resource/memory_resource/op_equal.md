@@ -11,7 +11,7 @@ namespace std::pmr {
 ```
 
 ## 概要
-2つの`memory_resource`オブジェクトを等値比較する。
+2つの`memory_resource`オブジェクトを�値比較する。
 
 
 ## 戻り値

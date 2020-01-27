@@ -18,7 +18,7 @@ namespace std {
 * ECMAScript[link /reference/regex/regex_constants/syntax_option_type.md]
 
 ## 概要
-`std::basic_regex`クラステンプレートの型推論補助。イテレータ範囲から文字型を推論する。
+`std::basic_regex`クラステンプレートの型推論補助。イテレータ範囲から文�型を推論する。
 
 
 ## 例
@@ -30,7 +30,7 @@ int main()
 {
   std::string re_str = R"(^\d+$)";
 
-  // 文字列から推論
+  // 文�列から推論
   std::basic_regex re1(re_str);
   static_assert(std::is_same_v<decltype(re1), std::regex>);
 

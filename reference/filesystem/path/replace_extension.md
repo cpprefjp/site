@@ -10,15 +10,15 @@ path& replace_extension(const path& replacement = path());
 ```
 
 ## 概要
-パスに含まれる拡張子を置き換える。
+パスに含まれる拡張�を置き換える。
 
 この関数は、ファイルシステム上のファイル名は変更しない。そのようなことをする場合は、[`std::filesystem::rename()`](/reference/filesystem/rename.md)関数を使用すること。
 
 
 ## 効果
-- 現在のパスから拡張子を削除する
+- 現在のパスから拡張�を削除する
 - `replacement`が空の場合は、それ以上の処理はしない
-- `replacement`が `"."` (ドット) で始まらない場合は、先頭に `"."` を付加して `operator+=` で拡張子文字列を加算する
+- `replacement`が `"."` (ドット) で始まらない場合は、先�に `"."` を付加して `operator+=` で拡張�文�列を加算する
 
 
 ## 戻り値
@@ -40,10 +40,10 @@ int main()
   std::cout << "p1 : " << p1 << std::endl;
 
   fs::path p2 = "/foo.txt";
-  p2.replace_extension("md"); // ドットなしで拡張子を指定しても、ドットが付加される
+  p2.replace_extension("md"); // ドットなしで拡張�を指定しても、ドットが付加される
   std::cout << "p2 : " << p2 << std::endl;
 
-  fs::path p3 = "/foo"; // 拡張子がないファイル名に拡張子を付加する
+  fs::path p3 = "/foo"; // 拡張�がないファイル名に拡張�を付加する
   p3.replace_extension(".md");
   std::cout << "p3 : " << p3 << std::endl;
 }

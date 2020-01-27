@@ -22,7 +22,7 @@ iostate rdstate() const;
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)
-- 状態値の読み取り
+- 状態値の�み取り
     - `rdstate`（この関数）
     - [`good`](good.md)
     - [`eof`](eof.md)

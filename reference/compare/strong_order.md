@@ -20,13 +20,13 @@ namespace std {
 
 ## 効果
 
-`strong_order(a, b)`のように呼び出された時、以下のいずれかと等価（上から順に考慮される）
+`strong_order(a, b)`のように呼び出された時、以下のいずれかと�価（上から順に考慮される）
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
-2. `std::strong_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`strong_ordering`](strong_ordering.md)`(strong_order(a, b))`が呼び出し可能ならば`strong_ordering(strong_order(a, b))`
+2. `std::strong_order`（本関数オブジェクト）の宣言を含まないコンテ�ストで、[`strong_ordering`](strong_ordering.md)`(strong_order(a, b))`が呼び出し可能ならば`strong_ordering(strong_order(a, b))`
 
-3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算子による順序と一貫する[`strong_ordering`](strong_ordering.md)の値を返す。  
+3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算�による順序と一貫する[`strong_ordering`](strong_ordering.md)の値を返す。  
    さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)` == true`の場合、その順序はISO/IEC/IEEE 60559の`totalOrder`による全順序と一致する。
 
 4. [`strong_ordering`](strong_ordering.md)`(a <=> b)`が呼び出し可能ならば`strong_ordering(a <=> b)`
@@ -59,25 +59,25 @@ namespace std {
 
 ## カスタマイゼーションポイント
 
-上記「効果」節2,4のケースでは、ユーザー定義の`strong_order()`もしくは`<=>`演算子を定義しておくことによって実行される比較をカスタマイズすることができる。
+上記「効果」節2,4のケースでは、ユーザー定義の`strong_order()`もしくは`<=>`演算�を定義しておくことによって実行される比較をカスタマイズすることができる。
 
 1. --
 2. 引数`a, b`の型`T`と同じ名前空間、もしくは`T`の定義内で`friend`関数として`strong_order()`を定義しておく。
 3. --
-4. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
+4. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算�を定義しておく。
 
 ただし、どちらのケースもその戻り値型は[`strong_ordering`](strong_ordering.md)に変換可能でなければならない。
 
 
 ## 備考
 
-ISO/IEC/IEEE 60559の`totalOrder`による全順序では、`±0`や内部表現の異なる`NaN`を区別した上で順序付けされる。すなわち、本関数オブジェクトによる浮動小数点数の比較においてはこれらの値を識別することができる。
+ISO/IEC/IEEE 60559の`totalOrder`による全順序では、`±0`や内部表現の異なる`NaN`を区別した上で順序付けされる。すなわち、本関数オブジェクトによる浮動小数点数の比較においてはこれらの値を�別することができる。
 
 その順序付けは以下のようになる。
 
-{負のquiet NaN} ` < ` {負のsignaling NaN} ` < ` {負の数} `-0.0` ` < ` `+0.0` ` < ` {正の数} ` < ` {正のsignaling NaN} ` < ` {正のquiet NaN}
+{負のquiet NaN} ` < ` {負のsignaling NaN} ` < ` {負の数} `-0.0` ` < ` `+0.0` ` < ` {�の数} ` < ` {�のsignaling NaN} ` < ` {�のquiet NaN}
 
-それぞれの種類の`NaN`の集合内では、`NaN`のペイロード（先頭ビットを除いた仮数部）の表現によって順序付けされる。
+それぞれの種類の`NaN`の集合内では、`NaN`のペイ�ード（先�ビットを除いた仮数部）の表現によって順序付けされる。
 
 ## 例
 ```cpp example

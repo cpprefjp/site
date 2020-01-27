@@ -19,9 +19,9 @@ namespace std {
 ## 概要
 `std::boyer_moore_searcher`は、ボイヤー・ムーア法によって、シーケンス (text) からサブシーケンス (pattern) を検索する関数オブジェクトである。
 
-このクラスは、コンストラクタおよびクラステンプレートのテンプレート引数で、検索対象となるサブシーケンス (pattern) を登録し、関数呼び出し演算子で全体のシーケンス (text) を指定して検索を実行する。
+このクラスは、コンストラクタおよびクラステンプレートのテンプレート引数で、検索対象となるサブシーケンス (pattern) を登録し、関数呼び出し演算�で全体のシーケンス (text) を指定して検索を実行する。
 
-このアルゴリズムは本来、文字列から部分文字列を高速に検索するためのアルゴリズムであるが、仕様として対象を文字列に限定してはいない。
+このアルゴリズムは本来、文�列から部分文�列を高速に検索するためのアルゴリズムであるが、仕様として対象を文�列に限定してはいない。
 
 ボイヤー・ムーア法は、その簡略版であるボイヤー・ムーア・ホースプール法 ([`std::boyer_moore_horspool_searcher`](boyer_moore_horspool_searcher.md)) に比べて、メモリ使用量が多い代わりに性能がよい。
 
@@ -32,7 +32,7 @@ namespace std {
 
 ## 備考
 - このクラステンプレートは複数のテンプレート引数をもつが、それを容易に使用するためのヘルパ関数 (`make_boyer_moore_searcher()`) は定義されていない。これは、C++17で導入された[クラステンプレートパラメータの推論](/lang/cpp17/type_deduction_for_class_templates.md)機能と併用することを意図したものである
-- このクラスは[`std::search()`](/reference/algorithm/search.md)アルゴリズムと併用することを意図して設計されているが、このクラス単体で使用できる
+- このクラスは[`std::search()`](/reference/algorithm/search.md)アルゴリズムと併用することを意図して�計されているが、このクラス単体で使用できる
 
 
 ## メンバ関数
@@ -72,7 +72,7 @@ int main()
     // 見つかった位置を取得
     std::ptrdiff_t n = std::distance(text.cbegin(), result.first);
 
-    // 見つかった文字列 (pattern) を取得
+    // 見つかった文�列 (pattern) を取得
     std::string s {result.first, result.second};
 
     std::cout << n << std::endl;

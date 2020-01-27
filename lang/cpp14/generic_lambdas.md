@@ -8,7 +8,7 @@
 auto plus = [](auto a, auto b) { return a + b; };
 ```
 
-このラムダ式は、以下のような関数呼び出し演算子を持つ関数オブジェクトを生成する。
+このラムダ式は、以下のような関数呼び出し演算�を持つ関数オブジェクトを生成する。
 
 ```cpp
 template <class T1, class T2>
@@ -69,7 +69,7 @@ auto operator()(T1 a, T2 b) const
     auto f = [](std::vector<auto> a) {}; // コンパイルエラー
     ```
 
-- キャプチャを含まないジェネリックラムダは、関数ポインタへの変換演算子を持つ。変換先の関数ポインタは、パラメータ型を推論した結果のラムダ式のシグニチャと、完全に一致しなければならない：
+- �ャプチャを含まないジェネリックラムダは、関数ポインタへの変換演算�を持つ。変換先の関数ポインタは、パラメータ型を推論した結果のラムダ式のシグニチャと、完全に一致しなければならない：
 
     ```cpp
     int(*fp1)(int) = [](auto x) { return x; }; // OK
@@ -117,12 +117,12 @@ HelloWorld
 [](const& x, & y) { return x + y; }
 ```
 
-これが現在`auto`を書くようになったのは、可読性のためである。
+これが現在`auto`を書くようになったのは、可�性のためである。
 
 
 ## 関連項目
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
-- [C++14 ラムダ式の初期化キャプチャ](initialize_capture.md)
+- [C++14 ラムダ式の初期化�ャプチャ](initialize_capture.md)
 - [C++14 通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)
 - [C++20 ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md)
 - [C++20 autoパラメータによる関数テンプレートの簡易定義](/lang/cpp20/function_templates_with_auto_parameters.md)

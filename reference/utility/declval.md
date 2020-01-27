@@ -32,7 +32,7 @@ namespace std {
 ## 備考
 テンプレートパラメータ`T`は、不完全型であってもよい。
 
-この関数が実際に評価されうる場合、プログラムは不適格となる。
+この関数が実際に評価されうる場合、プ�グラムは不適格となる。
 
 
 ## 例
@@ -41,7 +41,7 @@ namespace std {
 #include <utility>
 
 // この関数は、型Fromから型Toへの明示的な型変換が定義されている場合のみ
-// オーバーロード解決の候補となる
+// オーバー�ード解決の候補となる
 template <class To, class From>
 decltype(static_cast<To>(std::declval<From>())) convert(From&& x)
 {

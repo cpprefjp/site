@@ -24,7 +24,7 @@ namespace std {
 |----------------------------------|-----------------------|---|
 | [`(constructor)`](ostream_iterator/op_constructor.md) | コンストラクタ | |
 | `~ostream_iterator() = default`                         | デストラクタ | |
-| [`operator=`](ostream_iterator/op_assign.md)          | 代入演算子 | |
+| [`operator=`](ostream_iterator/op_assign.md)          | 代入演算� | |
 | [`operator*`](ostream_iterator/op_deref.md)           | 間接参照 | |
 | [`operator++`](ostream_iterator/op_increment.md)      | インクリメント | |
 
@@ -54,7 +54,7 @@ int main()
 {
   const std::vector<int> v = {1, 2, 3};
 
-  // vの要素をイテレートしながらstd::coutに出力(区切り文字にカンマ)
+  // vの要素をイテレートしながらstd::coutに出力(区切り文�にカンマ)
   std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, ","));
 }
 ```

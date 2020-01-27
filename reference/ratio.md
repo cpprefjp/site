@@ -26,15 +26,15 @@
 
 | 名前                                                    | 説明                                         | 対応バージョン |
 |---------------------------------------------------------|----------------------------------------------|-------|
-| [`ratio_equal`](ratio/ratio_equal.md)                 | 等値比較(class template)                     | C++11 |
-| [`ratio_not_equal`](ratio/ratio_not_equal.md)         | 非等値比較(class template)                   | C++11 |
+| [`ratio_equal`](ratio/ratio_equal.md)                 | �値比較(class template)                     | C++11 |
+| [`ratio_not_equal`](ratio/ratio_not_equal.md)         | 非�値比較(class template)                   | C++11 |
 | [`ratio_less`](ratio/ratio_less.md)                   | 左辺が右辺より小さいかの比較(class template) | C++11 |
 | [`ratio_less_equal`](ratio/ratio_less_equal.md)       | 左辺が右辺以下かの比較(class template)       | C++11 |
 | [`ratio_greater`](ratio/ratio_greater.md)             | 左辺が右辺より大きいかの比較(class template) | C++11 |
 | [`ratio_greater_equal`](ratio/ratio_greater_equal.md) | 左辺が右辺以上かの比較(class template)       | C++11 |
 
 
-## SI接頭辞の別名型
+## SI接�辞の別名型
 
 | 名前                            | 説明              | 対応バージョン |
 |---------------------------------|-------------------|----------------|
@@ -44,13 +44,13 @@
 | [`femto`](ratio/si_prefix.md) | フェムト(type-alias) | C++11          |
 | [`pico`](ratio/si_prefix.md)  | ピコ(type-alias)     | C++11          |
 | [`nano`](ratio/si_prefix.md)  | ナノ(type-alias)     | C++11          |
-| [`micro`](ratio/si_prefix.md) | マイクロ(type-alias) | C++11          |
+| [`micro`](ratio/si_prefix.md) | マイク�(type-alias) | C++11          |
 | [`milli`](ratio/si_prefix.md) | ミリ(type-alias)     | C++11          |
 | [`centi`](ratio/si_prefix.md) | センチ(type-alias)   | C++11          |
 | [`deci`](ratio/si_prefix.md)  | デシ(type-alias)     | C++11          |
 | [`deca`](ratio/si_prefix.md)  | デカ(type-alias)     | C++11          |
 | [`hecto`](ratio/si_prefix.md) | ヘクト(type-alias)   | C++11          |
-| [`kilo`](ratio/si_prefix.md)  | キロ(type-alias)     | C++11          |
+| [`kilo`](ratio/si_prefix.md)  | ��(type-alias)     | C++11          |
 | [`mega`](ratio/si_prefix.md)  | メガ(type-alias)     | C++11          |
 | [`giga`](ratio/si_prefix.md)  | ギガ(type-alias)     | C++11          |
 | [`tera`](ratio/si_prefix.md)  | テラ(type-alias)     | C++11          |

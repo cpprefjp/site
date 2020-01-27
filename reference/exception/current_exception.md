@@ -12,12 +12,12 @@ namespace std {
 * exception_ptr[link exception_ptr.md]
 
 ## 概要
-現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を取得する。
+現在処理�の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を取得する。
 
 
 ## 戻り値
-- 現在処理中の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す
-- 処理中の例外オブジェクトがない場合は、ヌルを指す[`exception_ptr`](exception_ptr.md)を返す
+- 現在処理�の例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す
+- 処理�の例外オブジェクトがない場合は、ヌルを指す[`exception_ptr`](exception_ptr.md)を返す
 - この関数がメモリ確保する必要があり、それに失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す
 - この関数を2回以上呼び出した場合に、同じオブジェクトを指す[`exception_ptr`](exception_ptr.md)が返るとは限らない。(呼び出しのたびに例外オブジェクトを作る可能性がある)
 - 例外オブジェクトをコピーする際に例外が送出された場合、送出された例外オブジェクトを指す[`exception_ptr`](exception_ptr.md)を返す
@@ -29,9 +29,9 @@ namespace std {
 
 
 ## 備考
-この関数は、`catch`節で使用すれば、処理中の例外オブジェクトへの例外ポインタを取得できる。
+この関数は、`catch`節で使用すれば、処理�の例外オブジェクトへの例外ポインタを取得できる。
 
-ただし、例外送出によるスタック巻き戻し中は、取得できないので注意。(スタック巻き戻し中とは、`try`ブロック中で定義されたオブジェクトのデストラクタのこと)
+ただし、例外送出によるスタック巻き戻し�は、取得できないので注意。(スタック巻き戻し�とは、`try`ブ�ック�で定義されたオブジェクトのデストラクタのこと)
 
 
 ## 例
@@ -49,12 +49,12 @@ int main()
   }
   catch (...) {
     std::cout << "catch" << std::endl;
-    ep = std::current_exception(); // 処理中の例外ポインタを取得
+    ep = std::current_exception(); // 処理�の例外ポインタを取得
   }
 
   if (ep) {
     std::cout << "rethrow" << std::endl;
-    std::rethrow_exception(ep); // 再スロー
+    std::rethrow_exception(ep); // 再ス�ー
   }
 }
 ```

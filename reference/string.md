@@ -1,48 +1,48 @@
 # string
 * string[meta header]
 
-`<string>`ヘッダでは、文字列に関するクラス、関数、文字特性を定義する。
+`<string>`ヘッダでは、文�列に関するクラス、関数、文�特性を定義する。
 
 このヘッダでは、以下の標準ヘッダをインクルードする：
 
 - [`<initializer_list>`](initializer_list.md) (C++11)
 
 
-## 文字特性
+## 文�特性
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------|--------------------------|-------|
-| [`char_traits`](string/char_traits.md) | 文字特性(class template) | |
+| [`char_traits`](string/char_traits.md) | 文�特性(class template) | |
 
 
-## 文字列クラス
+## 文�列クラス
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|------------------------------------|-------|
-| [`basic_string`](string/basic_string.md) | 汎用文字型の文字列(class template) | |
-| [`string`](string/basic_string.md)       | マルチバイト文字列(type-alias) | |
-| [`wstring`](string/basic_string.md)      | ワイド文字列(type-alias) | |
-| [`u16string`](string/basic_string.md)    | UTF-16文字列(type-alias) | C++11 |
-| [`u32string`](string/basic_string.md)    | UTF-32文字列(type-alias) | C++11 |
-| [`pmr::basic_string`](string/basic_string.md) | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる汎用文字型の文字列(type-alias) | C++17 |
-| [`pmr::string`](string/basic_string.md)       | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるマルチバイト文字列(type-alias) | C++17 |
-| [`pmr::wstring`](string/basic_string.md)      | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるワイド文字列(type-alias) | C++17 |
-| [`pmr::u16string`](string/basic_string.md)    | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるUTF-16文字列(type-alias) | C++17 |
-| [`pmr::u32string`](string/basic_string.md)    | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるUTF-32文字列(type-alias) | C++17 |
+| [`basic_string`](string/basic_string.md) | 汎用文�型の文�列(class template) | |
+| [`string`](string/basic_string.md)       | マルチバイト文�列(type-alias) | |
+| [`wstring`](string/basic_string.md)      | ワイド文�列(type-alias) | |
+| [`u16string`](string/basic_string.md)    | UTF-16文�列(type-alias) | C++11 |
+| [`u32string`](string/basic_string.md)    | UTF-32文�列(type-alias) | C++11 |
+| [`pmr::basic_string`](string/basic_string.md) | [多相ア�ケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる汎用文�型の文�列(type-alias) | C++17 |
+| [`pmr::string`](string/basic_string.md)       | [多相ア�ケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるマルチバイト文�列(type-alias) | C++17 |
+| [`pmr::wstring`](string/basic_string.md)      | [多相ア�ケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるワイド文�列(type-alias) | C++17 |
+| [`pmr::u16string`](string/basic_string.md)    | [多相ア�ケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるUTF-16文�列(type-alias) | C++17 |
+| [`pmr::u32string`](string/basic_string.md)    | [多相ア�ケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるUTF-32文�列(type-alias) | C++17 |
 
 
 ## 数値との変換
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------|----------------------------------------------------|-------|
-| [`stoi`](string/stoi.md)             | 文字列から`int`型への変換(function)                | C++11 |
-| [`stol`](string/stol.md)             | 文字列から`long`型への変換(function)               | C++11 |
-| [`stoul`](string/stoul.md)           | 文字列から`unsigned long`型への変換(function)      | C++11 |
-| [`stoll`](string/stoll.md)           | 文字列から`long long`型への変換(function)          | C++11 |
-| [`stoull`](string/stoull.md)         | 文字列から`unsigned long long`型への変換(function) | C++11 |
-| [`stof`](string/stof.md)             | 文字列から`float`型への変換(function)              | C++11 |
-| [`stod`](string/stod.md)             | 文字列から`double`型への変換(function)             | C++11 |
-| [`stold`](string/stold.md)           | 文字列から`long double`型への変換(function)        | C++11 |
+| [`stoi`](string/stoi.md)             | 文�列から`int`型への変換(function)                | C++11 |
+| [`stol`](string/stol.md)             | 文�列から`long`型への変換(function)               | C++11 |
+| [`stoul`](string/stoul.md)           | 文�列から`unsigned long`型への変換(function)      | C++11 |
+| [`stoll`](string/stoll.md)           | 文�列から`long long`型への変換(function)          | C++11 |
+| [`stoull`](string/stoull.md)         | 文�列から`unsigned long long`型への変換(function) | C++11 |
+| [`stof`](string/stof.md)             | 文�列から`float`型への変換(function)              | C++11 |
+| [`stod`](string/stod.md)             | 文�列から`double`型への変換(function)             | C++11 |
+| [`stold`](string/stold.md)           | 文�列から`long double`型への変換(function)        | C++11 |
 | [`to_string`](string/to_string.md)   | 数値から`string`への変換(function)                 | C++11 |
 | [`to_wstring`](string/to_wstring.md) | 数値から`wstring`への変換(function)                | C++11 |
 

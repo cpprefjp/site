@@ -37,8 +37,8 @@ boyer_moore_horspool_searcher(boyer_moore_horspool_searcher&& other) = default; 
 ## 例外
 - (1) :
     - `RandomAccessIterator1`のコピーコンストラクタが、任意の例外を送出する可能性がある
-    - `RandomAccessIterator1`が指す値型のデフォルトコンストラクタ、コピーコンストラクタ、コピー代入演算子が、任意の例外を送出する可能性がある
-    - `BinaryPredicate`と`Hash`のコピーコンストラクタと関数呼び出し演算子が、任意の例外を送出する可能性がある
+    - `RandomAccessIterator1`が指す値型のデフォルトコンストラクタ、コピーコンストラクタ、コピー代入演算�が、任意の例外を送出する可能性がある
+    - `BinaryPredicate`と`Hash`のコピーコンストラクタと関数呼び出し演算�が、任意の例外を送出する可能性がある
     - 内部のデータ構造で追加のメモリが必要になり、そのメモリ確保に失敗した場合、[`std::bad_alloc`](/reference/new/bad_alloc.md)例外が送出される可能性がある
 
 

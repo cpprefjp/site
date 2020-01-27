@@ -15,7 +15,7 @@ namespace std::filesystem {
 * path[link path.md]
 
 ## 概要
-指定されたパスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する。
+指定されたパスが�在していない、もしくはシステム依�の種別のファイルを指しているかを確認する。
 
 
 ## 戻り値
@@ -61,11 +61,11 @@ namespace fs = std::filesystem;
 int main()
 {
   // (1)
-  // 取得済みのファイル状態を使用して、システム依存のファイルかを確認
+  // 取得済みのファイル状態を使用して、システム依�のファイルかを確認
   assert(fs::is_other(fs::status("/dev/urandom")));
 
   // (2)
-  // パスを指定して、システム依存のファイルかを確認。
+  // パスを指定して、システム依�のファイルかを確認。
   assert(fs::is_other("/dev/urandom"));
   assert(fs::is_other("/dev/null"));
 

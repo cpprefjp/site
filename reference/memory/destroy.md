@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 効果
-以下と等価：
+以下と�価：
 
 ```cpp
 for (; first!=last; ++first)

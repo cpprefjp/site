@@ -19,7 +19,7 @@ namespace std {
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
-等値比較。
+�値比較。
 
 
 ## 戻り値

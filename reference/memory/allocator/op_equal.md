@@ -14,7 +14,7 @@ bool operator==(const allocator<T>&, const allocator<U>&) noexcept;
 ```
 
 ## 概要
-2つの`allocator`オブジェクトを等値比較する。
+2つの`allocator`オブジェクトを�値比較する。
 
 
 ## 戻り値

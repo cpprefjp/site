@@ -15,7 +15,7 @@ namespace std::chrono {
 
 日曜日から土曜日までを値の範囲`[0, 6]`として扱うが、このクラスではその範囲外の非負の値を扱える。
 
-このクラスは等値比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)の要件を満たす。しかし、週の最初の曜日について (日曜日か月曜日か) 合意が得られないため大小比較はできず、LessThanComparable要件は満たさない。
+このクラスは�値比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)の要件を満たす。しかし、週の最初の曜日について (日曜日か月曜日か) 合意が得られないため大小比較はできず、LessThanComparable要件は満たさない。
 
 このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)で、かつ[スタンダードレイアウト型](/reference/type_traits/is_standard_layout.md)である。
 
@@ -26,7 +26,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](weekday/op_constructor.md) | コンストラクタ | C++20 |
-| `weekday& operator=(const weekday&) = default;`<br/> `weekday& operator=(weekday&&) = default;` | 代入演算子 | C++20 |
+| `weekday& operator=(const weekday&) = default;`<br/> `weekday& operator=(weekday&&) = default;` | 代入演算� | C++20 |
 
 
 ### 算術演算
@@ -74,8 +74,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](weekday/op_equal.md) | 等値比較を行う | C++20 |
-| `bool operator!=(const weekday&, const weekday&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
+| [`operator==`](weekday/op_equal.md) | �値比較を行う | C++20 |
+| `bool operator!=(const weekday&, const weekday&) noexcept;` | 非�値比較を行う (`==`により使用可能) | C++20 |
 
 
 ### 入出力

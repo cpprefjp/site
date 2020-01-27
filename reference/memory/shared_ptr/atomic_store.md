@@ -48,7 +48,7 @@ int main()
   std::shared_ptr<int> x(new int(3));
   std::atomic_store(&p, x);
 
-  // pが指すshared_ptrオブジェクトを、アトミックに読み込む
+  // pが指すshared_ptrオブジェクトを、アトミックに�み込む
   std::shared_ptr<int> result = std::atomic_load(&p);
   std::cout << *result << std::endl;
 }

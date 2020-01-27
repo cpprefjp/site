@@ -18,7 +18,7 @@ void destroy(T* p);
 
 この関数において、以下の名称定義を行う。
 
-- `OUTERMOST(x)`関数は、アロケータオブジェクト`x`が`outer_allocator()`メンバ関数を持っている場合、その関数によって返されるアロケータを返す。そうでない場合は、`x`を返す。
+- `OUTERMOST(x)`関数は、ア�ケータオブジェクト`x`が`outer_allocator()`メンバ関数を持っている場合、その関数によって返されるア�ケータを返す。そうでない場合は、`x`を返す。
 - [`allocator_traits`](/reference/memory/allocator_traits.md)`<decltype(OUTERMOST(x))>`を`OUTERMOST_ALLOC_TRAITS(x)`とする。
 
 この定義の元に、以下の関数呼び出しを行う：
@@ -54,11 +54,11 @@ using vector = std::vector<
 int main()
 {
   vector<string>::allocator_type alloc {
-    alloc_t<string>(), // vector自体のアロケータオブジェクト
-    alloc_t<char>()    // vectorの全ての要素に使用するアロケータオブジェクト
+    alloc_t<string>(), // vector自体のア�ケータオブジェクト
+    alloc_t<char>()    // vectorの全ての要素に使用するア�ケータオブジェクト
   };
 
-  // 外側のアロケータを使用し、stringが1要素入るメモリを確保
+  // 外側のア�ケータを使用し、stringが1要素入るメモリを確保
   const std::size_t n = 1;
   string* p = alloc.allocate(n);
 

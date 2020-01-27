@@ -21,7 +21,7 @@ namespace std {
 * memory_order[link memory_order.md]
 
 ## 概要
-アトミックに値を読み込む
+アトミックに値を�み込む
 
 
 ## 要件
@@ -32,11 +32,11 @@ namespace std {
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、アトミックに値を読み込む
+`order`で指定されたメモリオーダーにしたがって、アトミックに値を�み込む
 
 
 ## 戻り値
-アトミックに読み込まれた値
+アトミックに�み込まれた値
 
 
 ## 例外
@@ -56,7 +56,7 @@ int main()
 {
   std::atomic<int> x(3);
 
-  // 値を読み込む
+  // 値を�み込む
   int result = std::atomic_load_explicit(&x, std::memory_order_acquire);
 
   std::cout << result << std::endl;

@@ -47,7 +47,7 @@ bad function call
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.4, 4.7.2(what()が"std::bad_weak_ptr"を返すので規格違反。バグ報告済み: [#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847)。4.7.3で修正されている。)
+- [GCC](/implementation.md#gcc): 4.4, 4.7.2(what()が"std::bad_weak_ptr"を返すので規格違反。バグ報告済み: [#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847)。4.7.3で修�されている。)
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010
 

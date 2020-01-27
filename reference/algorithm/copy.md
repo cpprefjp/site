@@ -45,7 +45,7 @@ namespace std {
 
 
 ## 計算量
-正確に `last - first` 回代入が行われる。
+�確に `last - first` 回代入が行われる。
 
 
 ## 例
@@ -63,7 +63,7 @@ int main() {
   std::vector<int> v2(v.size()); // ちゃんと確保しておくこと
   std::copy(v.begin(), v.end(), v2.begin());
 
-  // back_inserter を使って v3 へ設定。
+  // back_inserter を使って v3 へ�定。
   // back_inserter は要素をコピーするときに v3.push_back() するイテレータを作る関数。
   std::list<int> ls3;
   std::copy(v2.begin(), v2.end(), std::back_inserter(ls3));

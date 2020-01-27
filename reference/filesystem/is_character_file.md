@@ -15,9 +15,9 @@ namespace std::filesystem {
 * path[link path.md]
 
 ## 概要
-指定されたパスがキャラクタデバイスのスペシャルファイルを指しているかを確認する。
+指定されたパスが�ャラクタデバイスのスペシャルファイルを指しているかを確認する。
 
-Linux環境においては、`/dev/null`、`/dev/urandom`、`/dev/zero`などがキャラクタデバイスに該当する。
+Linux環境においては、`/dev/null`、`/dev/urandom`、`/dev/zero`などが�ャラクタデバイスに該当する。
 
 
 ## 戻り値
@@ -63,11 +63,11 @@ namespace fs = std::filesystem;
 int main()
 {
   // (1)
-  // 取得済みのファイル状態を使用して、キャラクタスペシャルファイルかを確認
+  // 取得済みのファイル状態を使用して、�ャラクタスペシャルファイルかを確認
   assert(fs::is_character_file(fs::status("/dev/null")));
 
   // (2)
-  // パスを指定して、キャラクタスペシャルファイルかを確認。
+  // パスを指定して、�ャラクタスペシャルファイルかを確認。
   assert(fs::is_character_file("/dev/null"));
   assert(fs::is_character_file("/dev/urandom"));
   assert(fs::is_character_file("/dev/zero"));

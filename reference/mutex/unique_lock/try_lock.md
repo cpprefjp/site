@@ -10,7 +10,7 @@ bool try_lock();
 ```
 
 ## 概要
-ロックの取得を試みる
+�ックの取得を試みる
 
 
 ## 要件
@@ -60,7 +60,7 @@ public:
     std::unique_lock<std::mutex> lk(mtx_, std::defer_lock);
 
     if (!lk.try_lock()) {
-      // ロックの取得に失敗
+      // �ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

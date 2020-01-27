@@ -18,23 +18,23 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ## 要件
-- `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](cend.md)`()` ではない）当該コンテナを指す読み取り専用イテレータでなければならない。
-- `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である読み取り専用イテレータでなければならない。  
+- `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](cend.md)`()` ではない）当該コンテナを指す�み取り専用イテレータでなければならない。
+- `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である�み取り専用イテレータでなければならない。  
 	なお、規格書では `first` は間接参照可能である必要があることになっているが、他の種類のコンテナの要件と照らし合わせると、間接参照可能である必要はない（つまり、`first` と `last` が共に [`cend`](cend.md)`()` でも良い）ものと思われる。
 
 
 ## 効果
 - (1) : `position` で指定された要素を削除する。
-- (2) : `k` と等価なキーの要素を削除する。
+- (2) : `k` と�価な�ーの要素を削除する。
 - (3) : `[first, last)` の範囲にある要素を全て削除する。
 
 
 ## 戻り値
 - (1) : 「削除前に、削除された要素の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`std::`[`next`](/reference/iterator/next.md)`(position)` と同じ位置を指す `iterator` である。  
-	なお、`position` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。
+	なお、`position` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも�み取り専用イテレータである。
 - (2) : 削除した要素数。
 - (3) : 「削除前に、削除された要素の範囲の次だった位置」を指すイテレータ。`erase()` を呼び出しても削除された要素以外を指す全てのイテレータは無効にならないため、`last` と同じ位置を指す `iterator` である。  
-	なお、`first` 及び `last` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも読み取り専用イテレータである。  
+	なお、`first` 及び `last` は `const_iterator` なのに対して、戻り値は `iterator` であるため注意が必要だが、非順序連想コンテナの場合いずれにせよどちらも�み取り専用イテレータである。  
 	また、要件に示したように `first` が間接参照可能である必要がなかった場合にも、他の種類のコンテナの戻り値と照らし合わせると、`last` と同じ位置を指す `iterator` を返すのが適切であるものと思われる。
 
 
@@ -86,7 +86,7 @@ int main()
     std::cout << std::endl;
   }
 
-  // 指定したキーと等価な要素を削除（(2)の形式）
+  // 指定した�ーと�価な要素を削除（(2)の形式）
   {
     std::unordered_multiset<int> ums{ 1, 3, 5, 7, 9, 3, };
     print("(2) erase(const value_type&) before", ums);
@@ -143,7 +143,7 @@ after : 9 1 3 3
 注：[`unordered_multiset`](/reference/unordered_set/unordered_multiset.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-### イテレート中に要素を削除する (C++11)
+### イテレート�に要素を削除する (C++11)
 ```cpp example
 #include <iostream>
 #include <unordered_set>
@@ -152,7 +152,7 @@ int main()
 {
   std::unordered_multiset<int> ums = {3, 1, 4};
 
-  // イテレート中に要素削除をするような場合には、
+  // イテレート�に要素削除をするような場合には、
   // 範囲for文は使用できない
   for (auto it = ums.begin(); it != ums.end();) {
     // 条件一致した要素を削除する

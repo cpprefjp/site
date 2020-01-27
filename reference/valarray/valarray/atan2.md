@@ -27,11 +27,11 @@ namespace std {
 * ValOrProxy[italic]
 
 ## 概要
-逆正接（アークタンジェント：arc tangent）を対辺と隣辺から求める。
+逆�接（アークタンジェント：arc tangent）を対辺と隣辺から求める。
 
 
 ## 戻り値
-- (1) : 以下のコードと等価のことを行う：
+- (1) : 以下のコードと�価のことを行う：
 
 ```cpp
 std::valarray<T> result(ys.size());
@@ -44,7 +44,7 @@ return result;
 * std::atan2[link /reference/cmath/atan2.md]
 
 
-- (2) : 以下のコードと等価のことを行う：
+- (2) : 以下のコードと�価のことを行う：
 
 ```cpp
 std::valarray<T> result(ys.size());
@@ -57,7 +57,7 @@ return result;
 * std::atan2[link /reference/cmath/atan2.md]
 
 
-- (3) : 以下のコードと等価のことを行う：
+- (3) : 以下のコードと�価のことを行う：
 
 ```cpp
 std::valarray<T> result(xs.size());
@@ -75,7 +75,7 @@ return result;
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 - (1) : `ys` と `xs` の要素数が異なる場合、その挙動は未定義。
 - C++20における(2)と(3)に対する変更は、`std::valarray<double>{} * 2` のような式が型推論に失敗しないようにするためである。  
-	なお、この変更は規格の誤り修正とみなされているため、処理系によっては C++17 以前でも使用可能となる。
+	なお、この変更は規格の誤り修�とみなされているため、処理系によっては C++17 以前でも使用可能となる。
 
 
 ## 例

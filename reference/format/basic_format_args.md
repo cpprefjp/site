@@ -24,8 +24,8 @@ namespace std {
 ## 概要
 フォーマット引数列を保持する型。
 
-* (2): マルチバイト文字列版、[`vformat`](vformat.md)のマルチバイト文字列版の引数に使う
-* (3): ワイド文字列版、[`vformat`](vformat.md)のワイド文字列版の引数に使う
+* (2): マルチバイト文�列版、[`vformat`](vformat.md)のマルチバイト文�列版の引数に使う
+* (3): ワイド文�列版、[`vformat`](vformat.md)のワイド文�列版の引数に使う
 * (4): [`vformat_to`](vformat_to.md)の引数に使う
 
 この型のオブジェクトは、[`make_format_args`](make_format_args.md)の戻り値から構築する。

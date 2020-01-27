@@ -33,7 +33,7 @@ namespace std::filesystem {
 
 
 ## 備考
-- ファイルシステムによっては、この関数でディレクトリに対するシンボリックリンクを作成できない場合がある。より汎用的なプログラムを記述するのであれば、ディレクトリに対しては[`create_directory_symlink()`](create_directory_symlink.md)関数を使用すること
+- ファイルシステムによっては、この関数でディレクトリに対するシンボリックリンクを作成できない場合がある。より汎用的なプ�グラムを記述するのであれば、ディレクトリに対しては[`create_directory_symlink()`](create_directory_symlink.md)関数を使用すること
 
 
 ## 例

@@ -21,11 +21,11 @@ namespace std {
 
 ## 効果
 
-`partial_order(a, b)`のように呼び出された時、以下のいずれかと等価（上から順に考慮される）
+`partial_order(a, b)`のように呼び出された時、以下のいずれかと�価（上から順に考慮される）
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
-2. `std::partial_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`partial_ordering`](partial_ordering.md)`(partial_order(a, b))`が呼び出し可能ならば`partial_ordering(partial_order(a, b))`
+2. `std::partial_order`（本関数オブジェクト）の宣言を含まないコンテ�ストで、[`partial_ordering`](partial_ordering.md)`(partial_order(a, b))`が呼び出し可能ならば`partial_ordering(partial_order(a, b))`
 
 3. [`partial_ordering`](partial_ordering.md)`(a <=> b)`が呼び出し可能ならば`partial_ordering(a <=> b)`
 
@@ -59,11 +59,11 @@ namespace std {
 
 ## カスタマイゼーションポイント
 
-上記「効果」節2,3,4のケースでは、ユーザー定義の`partial_order()`、`<=>`演算子を定義、もしくは`weak_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
+上記「効果」節2,3,4のケースでは、ユーザー定義の`partial_order()`、`<=>`演算�を定義、もしくは`weak_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
 
 1. --
 2. 引数`a, b`の型`T`と同じ名前空間、もしくは`T`の定義内で`friend`関数として`partial_order()`を定義しておく。
-3. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
+3. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算�を定義しておく。
 4. 引数`a, b`の型`T`を[`weak_order`](weak_order.md)にアダプトしておく。
 
 ただし、どのケースにおいてもその戻り値型は[`partial_ordering`](weak_ordering.md)に変換可能でなければならない。

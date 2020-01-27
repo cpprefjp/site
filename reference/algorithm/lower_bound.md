@@ -36,7 +36,7 @@ namespace std {
 ## 概要
 指定された要素以上の値が現れる最初の位置のイテレータを取得する。
 
-この関数の用途としては、ソート済み範囲に対して、任意の値を二分探索で見つけるために使用できる。[`std::multiset`](/reference/set/multiset.md)のように同じキーを持つ要素が複数あり、その全てを列挙したい場合にはこの関数の代わりに[`std::equal_range()`](equal_range.md)関数を使用できる。
+この関数の用途としては、ソート済み範囲に対して、任意の値を二分探索で見つけるために使用できる。[`std::multiset`](/reference/set/multiset.md)のように同じ�ーを持つ要素が複数あり、その全てを列挙したい場合にはこの関数の代わりに[`std::equal_range()`](equal_range.md)関数を使用できる。
 
 
 ## 要件
@@ -44,7 +44,7 @@ namespace std {
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
 	- `T` は `LessThanComparable` であること。
-	- `operator<` または `comp` は「[狭義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
+	- `operator<` または `comp` は「[�義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
 	- 範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
 - C++11 から  
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
@@ -66,10 +66,10 @@ namespace std {
 
 
 ## 備考
-- 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と等価である。  
-	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return e < value; })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return comp(e, value); })` とすることで等価の結果が得られる。
+- 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と�価である。  
+	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return e < value; })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return comp(e, value); })` とすることで�価の結果が得られる。
 - 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。
-	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。
+	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても�常に動作する可能性は高いものと思われる。
 
 
 ## 例
@@ -129,7 +129,7 @@ int main()
 
     const std::string key = "Bob";
 
-    // X::nameメンバ変数をキーにして、
+    // X::nameメンバ変数を�ーにして、
     // X::name == "Bob"となる要素を二分探索で見つける
     decltype(v)::iterator it = std::lower_bound(
       v.begin(),

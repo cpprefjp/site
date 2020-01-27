@@ -5,13 +5,13 @@
 - [Microsoft Visual C++](#visual_cpp)
 
 ## 本サイトにおける処理系バージョンに記載
-本サイトのリファレンスページでは、「処理系」の項目にバージョン番号を記載している。これは、処理系がその機能をサポート開始した厳密なバージョンではなく、リファレンス執筆者が動作確認できたバージョンである。
+本サイトのリファレンスページでは、「処理系」の項目にバージョン番号を記載している。これは、処理系がその機能をサポート開始した厳密なバージョンではなく、リファレンス執�者が動作確認できたバージョンである。
 
 古くからサポートされている機能だが、古い処理系を入手することが難しい場合などがあるため、本サイトではこのようなルールになっている。
 
 
 ## <a id="clang" href="#clang">Clang</a>
-このサイトでは Clang と呼ぶ。「クラン(グ)」と読む。
+このサイトでは Clang と呼ぶ。「クラン(グ)」と�む。
 
 - ["clang" C Language Family Frontend for LLVM](http://clang.llvm.org/)
 
@@ -118,7 +118,7 @@
 
 ### <a id="visual_cpp_ver" href="#visual_cpp_ver">バージョンの表記</a>
 
-以下に当サイトにおけるバージョン表記と、製品・バージョン等の対応を示す。
+以下に当サイトにおけるバージョン表記と、製品・バージョン�の対応を示す。
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
@@ -198,14 +198,14 @@
 
 1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。製品バージョンは、2017以降、メインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
 2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。
-3. <a id="note-t1-3">^</a> <sup>[**a**](#note_ref-t1-3-a)</sup> <sup>[**b**](#note_ref-t1-3-b)</sup> <sup>[**c**](#note_ref-t1-3-c)</sup> IDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は変更されなかった。
+3. <a id="note-t1-3">^</a> <sup>[**a**](#note_ref-t1-3-a)</sup> <sup>[**b**](#note_ref-t1-3-b)</sup> <sup>[**c**](#note_ref-t1-3-c)</sup> IDEのみ修�され、コンパイラ、ヘッダー、ライブラリ�は変更されなかった。
 	- [C++17 Features And STL Fixes In VS 2017 15.3 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/08/11/c17-features-and-stl-fixes-in-vs-2017-15-3/) - "*After VS 2017 RTM, the 15.1 and 15.2 updates improved the IDE. The 15.3 update improves both the IDE and the toolset.*"
 	- [Description of Visual Studio 2013 Update 1](https://support.microsoft.com/en-us/help/2911573/description-of-visual-studio-2013-update-1)
 4. **<a id="note-t1-4" href="#note_ref-t1-4">^</a>** 2017は2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
   [Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”](https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/)
 
 - 2015以降、Visual Studioの既定のインストールではVisual C++は入らなくなった。Visual StudioのインストーラでVisual C++コンポーネントを選択する必要がある。
-  [Visual Studio 2015 の Visual C++](https://docs.microsoft.com/ja-JP/previous-versions/60k1461a(v=vs.140)?redirectedfrom=MSDN) の [警告] を参照。
+  [Visual Studio 2015 の Visual C++](https://docs.microsoft.com/ja-JP/previous-versions/60k1461a(v=vs.140)?redirectedfrom=MSDN) の [�告] を参照。
 - 2017 Update 5からside-by-sideがサポートされ、一つの製品内で同時に複数のVisual C++ツールセットを選択できるようになった。
   [Side-by-side minor version MSVC toolsets in Visual Studio 2017 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/11/15/side-by-side-minor-version-msvc-toolsets-in-visual-studio-2017/)
 
@@ -217,12 +217,12 @@
 ### C++14の機能を有効にする
 
 - C++14は常に有効である
-- 2015 Update 3から`/std:c++14`オプションが導入されたが既定値でありC++14を無効化する機能は提供されていない。`_MSVC_LANG`マクロの値は`201402`になる
+- 2015 Update 3から`/std:c++14`オプションが導入されたが既定値でありC++14を無効化する機能は提供されていない。`_MSVC_LANG`マク�の値は`201402`になる
 
 ### C++17の機能を有効にする
 
 - 2015 Update 2以前に実装された機能については、互換性の観点から常に有効である
-- 2015 Update 3以降に実装された機能については、`/std:c++17`オプションを使用する。`_MSVC_LANG`マクロの値は`201703`になる
+- 2015 Update 3以降に実装された機能については、`/std:c++17`オプションを使用する。`_MSVC_LANG`マク�の値は`201703`になる
 
 ### 最新バージョンの言語機能を有効にする
 

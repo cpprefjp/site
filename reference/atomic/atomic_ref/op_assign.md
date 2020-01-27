@@ -14,7 +14,7 @@ T operator=(T desired) const noexcept;
 
 
 ## 効果
-以下と等価：
+以下と�価：
 
 ```
 store(desired);

@@ -19,13 +19,13 @@ namespace std {
 * Integral[italic]
 
 ## 概要
-算術型の逆正接（アークタンジェント、arc tangent）を求める。
+算術型の逆�接（アークタンジェント、arc tangent）を求める。
 
-`atan()`は、正接を表す[`tan()`](tan.md)の逆関数である。$\tan(\mathrm{Arctan}~x) = x$、$\mathrm{Arctan}~(\tan x) = x ~ (x \in [-\pi/2, \pi/2])$である。
+`atan()`は、�接を表す[`tan()`](tan.md)の逆関数である。$\tan(\mathrm{Arctan}~x) = x$、$\mathrm{Arctan}~(\tan x) = x ~ (x \in [-\pi/2, \pi/2])$である。
 
 
 ## 戻り値
-引数 `x` の逆正接を主値 `[-π/2, π/2]` の範囲で返す。（単位はラジアン）
+引数 `x` の逆�接を主値 `[-π/2, π/2]` の範囲で返す。（単位はラジアン）
 
 
 ## 備考
@@ -83,7 +83,7 @@ atan(∞)    = 1.570796
 
 
 ## 実装例
-以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
+以下のマク�ーリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
 $$ \mathrm{Arctan}~x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 

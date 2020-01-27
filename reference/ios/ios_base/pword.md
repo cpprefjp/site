@@ -23,7 +23,7 @@ void*& pword(int idx);
 
 ## 備考
 - 引数 `idx` には、[`xalloc`](xalloc.md) で取得した値を渡すことが想定されている。
-    そうすることによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `void*` 型の私用記憶域を確保することが可能となる。
+    そうすることによって、各プ�グラムが他のプ�グラムと競合すること無く各ストリームオブジェクト内に `void*` 型の私用記憶域を確保することが可能となる。
 - 本関数で取得した `void*` への参照は、本オブジェクトの他の操作によって無効になる可能性がある。  
     しかし、その場合でも引数 `idx` で指定した記憶域の内容は依然として有効である。
 - 本関数で取得した `void*` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) でコピーされる。  
@@ -66,17 +66,17 @@ private:
   }
 };
 
-// 記憶域用の添え字を取得
+// 記憶域用の添え�を取得
 const int setsuffix::index = std::ios_base::xalloc();
 
-// MyString 用の出力演算子
+// MyString 用の出力演算�
 std::ostream& operator<<(std::ostream& os, const MyString& x)
 {
   std::string* psuffix = static_cast<std::string*>(os.pword(setsuffix::index));
   return os << (psuffix == 0 ? x.value : x.value + *psuffix);
 }
 
-// マニピュレータ用の出力演算子
+// マニピュレータ用の出力演算�
 std::ostream& operator<<(std::ostream& os, const setsuffix& manip)
 {
   void*& psuffix = os.pword(setsuffix::index);
@@ -100,9 +100,9 @@ int main()
   std::cout << setsuffix("ドン") << x << std::endl;     // どんちゃん風に出力
 
   std::stringstream ss;
-  ss << setsuffix("ぞい");                              // ss を涼風青葉風出力に設定
+  ss << setsuffix("ぞい");                              // ss を涼風青葉風出力に�定
   std::cout.copyfmt(ss);                                // ss から std::cout にフォーマットをコピー
-  ss << setsuffix("(´･_･`)");                           // ss を tanakh さん風に設定変更
+  ss << setsuffix("(´･_･`)");                           // ss を tanakh さん風に�定変更
   std::cout << x << std::endl;                          // 涼風青葉風に出力（ss に対する変更は無影響）
 }
 ```

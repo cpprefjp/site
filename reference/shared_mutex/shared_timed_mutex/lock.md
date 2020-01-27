@@ -10,7 +10,7 @@ void lock();
 ```
 
 ## 概要
-排他ロックを取得する。
+排他�ックを取得する。
 
 
 ## 要件
@@ -18,7 +18,7 @@ void lock();
 
 
 ## 効果
-この関数を呼び出したスレッドがミューテックスの排他所有権を取得できるまでブロックする。
+この関数を呼び出したスレッドがミューテックスの排他所有権を取得できるまでブ�ックする。
 
 
 ## 戻り値
@@ -29,8 +29,8 @@ void lock();
 この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
 - [`operation_not_permitted`](/reference/system_error/errc.md) : スレッドにこの操作を行う権限がない
-- [`resource_deadlock_would_occur`](/reference/system_error/errc.md) : デッドロックが発生することを検出した(実装依存)
-- [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでにロックされていて、ブロッキングできない
+- [`resource_deadlock_would_occur`](/reference/system_error/errc.md) : デッド�ックが発生することを検出した(実装依�)
+- [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでに�ックされていて、ブ�ッ�ングできない
 
 
 ## 例
@@ -45,18 +45,18 @@ public:
   // メンバ変数value_への書き込みを排他的にする
   void add_value(int value)
   {
-    mtx_.lock(); // 排他ロックを取得する
+    mtx_.lock(); // 排他�ックを取得する
     value_ = value;
-    mtx_.unlock(); // 排他ロックを手放す
+    mtx_.unlock(); // 排他�ックを手放す
   }
 
-  // メンバ変数value_の値を読み込む
+  // メンバ変数value_の値を�み込む
   int get_value() const
   {
     int result = 0;
-    mtx_.lock_shared(); // 共有ロックを取得する
+    mtx_.lock_shared(); // 共有�ックを取得する
     result = value_;
-    mtx_.unlock_shared(); // 共有ロックを手放す
+    mtx_.unlock_shared(); // 共有�ックを手放す
     return result;
   }
 };

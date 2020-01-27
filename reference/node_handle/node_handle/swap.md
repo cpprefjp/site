@@ -16,11 +16,11 @@ void swap(node_handle&)
 
 
 ## 要件
-一方のノードハンドルが空である。または、`allocator_traits<allocator_type>::propagate_on_container_swap`が`true`である。または、両方のアロケータが等値である。
+一方のノードハンドルが空である。または、`allocator_traits<allocator_type>::propagate_on_container_swap`が`true`である。または、両方のア�ケータが�値である。
 
 
 ## 効果
- `swap(ptr_, nh.ptr_)` を呼び出す。一方のノードが空であるか、両方のノードが空でなく `std::allocator_traits<allocator_type>::propagate_on_container_swap` が `true` の場合、アロケータも同様に入れ替えられる。 
+ `swap(ptr_, nh.ptr_)` を呼び出す。一方のノードが空であるか、両方のノードが空でなく `std::allocator_traits<allocator_type>::propagate_on_container_swap` が `true` の場合、ア�ケータも同様に入れ替えられる。 
 
 
 ## 戻り値

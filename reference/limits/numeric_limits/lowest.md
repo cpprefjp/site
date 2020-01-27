@@ -12,7 +12,7 @@ static constexpr T lowest() noexcept;
 ## 概要
 型ごとの値の最小値を取得する。
 
-浮動小数点数において、[`min()`](min.md)は非ゼロの正の値の最小値が返されるが、この関数では負の値の最小値が返される。
+浮動小数点数において、[`min()`](min.md)は非ゼ�の�の値の最小値が返されるが、この関数では負の値の最小値が返される。
 
 
 ## 戻り値
@@ -26,7 +26,7 @@ static constexpr T lowest() noexcept;
 
 ## 備考
 - `is_specialized == false`の場合は`T()`が返される
-- 戻り値が`-`[`max()`](max.md)と等しい必要はない
+- 戻り値が`-`[`max()`](max.md)と�しい必要はない
 
 
 ## 例

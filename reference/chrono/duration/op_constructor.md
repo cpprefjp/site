@@ -25,10 +25,10 @@ duration(const duration&) = default;                  // (4)
 
 
 ## 備考
-- (2) : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`の場合にオーバーロード解決される。
-- (3) : この関数は、以下の条件を満たす場合にオーバーロード解決される。
+- (2) : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`の場合にオーバー�ード解決される。
+- (3) : この関数は、以下の条件を満たす場合にオーバー�ード解決される。
     - C++11 : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`
-    - C++14 : 単位変換の結果としてオーバーフローせず、[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`
+    - C++14 : 単位変換の結果としてオーバーフ�ーせず、[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`
     - もしくは、[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == false`かつ[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::type::den == 1`
     - これらの要求は、整数ベースの`duration`型間での変換の際に、暗黙に切り捨て誤差が起きるのを防ぐ。浮動小数点数型ベースの場合には、精度が下がれば小数点以下の数値になるだけなので問題ない。
 
@@ -46,7 +46,7 @@ int main()
   duration<int, std::milli> d2 {};     // デフォルト構築 d1.count()の値は0
 
   duration<int, std::milli> d3(3);     // 値を指定して構築(ミリ秒)
-  duration<int, std::micro> d4 = d3;   // ミリ秒からマイクロ秒に変換
+  duration<int, std::micro> d4 = d3;   // ミリ秒からマイク�秒に変換
 
   duration<int, std::micro> d5 = d4;   // コピー
 

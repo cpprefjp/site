@@ -22,7 +22,7 @@ namespace std {
 
 ## テンプレートパラメータ制約
 - 型`T`は[コピー構築可能](/reference/concepts/copy_constructible.md)かつ[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
-- [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> &&` [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`が`false`である場合、プログラムは不適格となる
+- [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> &&` [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`が`false`である場合、プ�グラムは不適格となる
     - 簡潔に言うと、`memcpy()`可能な型であること
 
 
@@ -75,9 +75,9 @@ namespace std {
 | `atomic_intmax_t`       | [`intmax_t`](/reference/cstdint/intmax_t.md)             | C++11 |
 | `atomic_uintmax_t`      | [`uintmax_t`](/reference/cstdint/uintmax_t.md)           | C++11 |
 
-以下の整数型に対する別名は、整数型に対する`atomic`型の特殊化だが、その中でも以下の特性を持つものである：
+以下の整数型に対する別名は、整数型に対する`atomic`型の特殊化だが、その�でも以下の特性を持つものである：
 
-- `is_always_lock_free`プロパティが`true`である
+- `is_always_lock_free`プ�パティが`true`である
 - wait/notify操作が最も効率的に行える整数アトミック型
 
 ただし、フリースタンディング環境において、これらの型は定義されない場合がある。
@@ -109,11 +109,11 @@ namespace std {
 |------|------|-----|
 | [`(constructor)`](atomic/op_constructor.md) | コンストラクタ | C++11 |
 | `~atomic() = default`                       | デストラクタ | C++11 |
-| [`operator=`](atomic/op_assign.md)          | 代入演算子 | C++11 |
-| [`is_lock_free`](atomic/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++11 |
+| [`operator=`](atomic/op_assign.md)          | 代入演算� | C++11 |
+| [`is_lock_free`](atomic/is_lock_free.md)    | オブジェクトが�ックフリーに振る舞えるかを判定する | C++11 |
 | [`store`](atomic/store.md)                  | 値を書き込む | C++11 |
-| [`load`](atomic/load.md)                    | 値を読み込む | C++11 |
-| [`operator T`](atomic/op_t.md)              | 型Tへの変換演算子 | C++11 |
+| [`load`](atomic/load.md)                    | 値を�み込む | C++11 |
+| [`operator T`](atomic/op_t.md)              | 型Tへの変換演算� | C++11 |
 | [`exchange`](atomic/exchange.md)            | 値を入れ替える | C++11 |
 | [`compare_exchange_weak`](atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++11 |
 | [`compare_exchange_strong`](atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++11 |
@@ -132,7 +132,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常にロックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++17 |
+| `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常に�ックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++17 |
 
 `is_always_lock_free == true`の場合、このクラスのオブジェクトをシグナルハンドラー内で使用できる。
 
@@ -200,7 +200,7 @@ namespace std {
 
 ### 例
 ```cpp example
-// スピンロックの実装
+// スピン�ックの実装
 // Boost Atomic Library - Usage Example
 // http://www.boost.org/doc/libs/1_53_0/doc/html/atomic/usage_examples.html#boost_atomic.usage_examples.example_spinlock
 
@@ -221,7 +221,7 @@ public:
   {
     // 現在の状態をLockedと入れ替える
     while (state_.exchange(Locked, std::memory_order_acquire) == Locked) {
-      // busy-wait...アンロックされるまで待機
+      // busy-wait...アン�ックされるまで待機
     }
   }
 
@@ -284,7 +284,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 ### 備考
-- GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
+- GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修�された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
 
 
 ## 関連項目

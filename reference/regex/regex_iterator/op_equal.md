@@ -10,7 +10,7 @@ bool operator==(const regex_iterator& right) const;
 ```
 
 ## 概要
-`regex_iterator` の等値比較を行う。
+`regex_iterator` の�値比較を行う。
 
 
 ## 戻り値
@@ -85,5 +85,5 @@ it2:'1'(3, 4)
 ## 関連項目
 | 名前                            | 説明       |
 |---------------------------------|------------|
-| [`operator!=`](op_not_equal.md) | 非等値比較 |
+| [`operator!=`](op_not_equal.md) | 非�値比較 |
 

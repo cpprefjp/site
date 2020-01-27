@@ -11,7 +11,7 @@ void set_exception(exception_ptr p);
 * exception_ptr[link /reference/exception/exception_ptr.md]
 
 ## 概要
-結果の例外を設定する
+結果の例外を�定する
 
 
 ## 効果
@@ -25,7 +25,7 @@ void set_exception(exception_ptr p);
 ## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
-- [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
+- [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が�定されている
 - [`no_state`](../future_errc.md) ： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
 
 
@@ -44,7 +44,7 @@ void calc(std::promise<int> p)
     throw std::invalid_argument("invalid argument!");
   }
   catch (...) {
-    // 呼び出し元スレッドに例外を設定する
+    // 呼び出し元スレッドに例外を�定する
     std::exception_ptr ep = std::current_exception();
     p.set_exception(ep);
   }
@@ -58,7 +58,7 @@ int main()
   std::thread t(calc, std::move(p));
 
   try {
-    int result = f.get(); // promiseで設定された例外が送出される
+    int result = f.get(); // promiseで�定された例外が送出される
   }
   catch (std::invalid_argument& e) {
     std::cout << e.what() << std::endl;

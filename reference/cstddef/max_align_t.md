@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `std::max_align_t`は、どのスカラー型よりも大きいアライメントを必要とするPOD (Plain Old Data) 型である。
 
-`alignas`指示子により、`std::max_align_t`のアライメントより大きいサイズのアライメントを指定できるかどうかは、実装依存である。
+`alignas`指示�により、`std::max_align_t`のアライメントより大きいサイズのアライメントを指定できるかどうかは、実装依�である。
 
 
 ## 例

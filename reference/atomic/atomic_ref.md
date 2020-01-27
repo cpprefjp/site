@@ -23,7 +23,7 @@ namespace std {
 
 同じオブジェクトを参照する異なる`atomic_ref`オブジェクトを介して行われるアトミック操作は、共通の参照するオブジェクトに対してアトミックに行われる。つまり、局所的に`atomic_ref`オブジェクトに変換してアトミック操作を適用してもよい。
 
-オブジェクトを参照してアトミック操作をするための制約として、アーキテクチャ固有のアライメント制約を満たすことが要求される。コンストラクタと代入演算子でオブジェクトを参照する際、メンバ定数としてのアライメント値`required_alignment`の位置にオブジェクトが配置されていること。
+オブジェクトを参照してアトミック操作をするための制約として、アー�テクチャ固有のアライメント制約を満たすことが要求される。コンストラクタと代入演算�でオブジェクトを参照する際、メンバ定数としてのアライメント値`required_alignment`の位置にオブジェクトが配置されていること。
 
 `atomic_ref`クラステンプレートは型`T`の値をコピーではなく参照で保持するため、`atomic_ref`オブジェクトより先に参照先の変数の寿命が尽きてはならない。
 
@@ -39,10 +39,10 @@ namespace std {
 | [`(constructor)`](atomic_ref/op_constructor.md) | コンストラクタ | C++20 |
 | `~atomic_ref() = default`                       | デストラクタ | C++20 |
 | [`operator=`](atomic_ref/op_assign.md)          | 代入 | C++20 |
-| [`is_lock_free`](atomic_ref/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++20 |
+| [`is_lock_free`](atomic_ref/is_lock_free.md)    | オブジェクトが�ックフリーに振る舞えるかを判定する | C++20 |
 | [`store`](atomic_ref/store.md)                  | 値を書き込む | C++20 |
-| [`load`](atomic_ref/load.md)                    | 値を読み込む | C++20 |
-| [`operator T`](atomic_ref/op_t.md)              | 型Tへの変換演算子 | C++20 |
+| [`load`](atomic_ref/load.md)                    | 値を�み込む | C++20 |
+| [`operator T`](atomic_ref/op_t.md)              | 型Tへの変換演算� | C++20 |
 | [`exchange`](atomic_ref/exchange.md)            | 値を入れ替える | C++20 |
 | [`compare_exchange_weak`](atomic_ref/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++20 |
 | [`compare_exchange_strong`](atomic_ref/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++20 |
@@ -61,12 +61,12 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常にロックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++20 |
+| `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常に�ックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++20 |
 | `static constexpr` [`size_t`](/reference/cstddef/size_t.md) `required_alignment` | 参照するオブジェクトに要求されるアライメント。少なくとも`alignof(T)` | C++20 |
 
 `is_always_lock_free == true`の場合、このクラスのオブジェクトをシグナルハンドラー内で使用できる。
 
-`required_alignment`について、ハードウェアは参照するオブジェクトに対して、型`T`のほかのオブジェクトよりも厳密なアライメントを持つことを要求できる。また、`atomic_ref`がロックフリーかどうかは、参照するオブジェクトのアライメントに依存する。たとえば[`std::complex`](/reference/complex/complex.md)`<double>`のロックフリー操作は`2 * alignof(double)`にアライメントされる場合にのみサポートされる。
+`required_alignment`について、ハードウェアは参照するオブジェクトに対して、型`T`のほかのオブジェクトよりも厳密なアライメントを持つことを要求できる。また、`atomic_ref`が�ックフリーかどうかは、参照するオブジェクトのアライメントに依�する。たとえば[`std::complex`](/reference/complex/complex.md)`<double>`の�ックフリー操作は`2 * alignof(double)`にアライメントされる場合にのみサポートされる。
 
 
 ### atomic_ref<integral>専用メンバ関数

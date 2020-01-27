@@ -77,7 +77,7 @@ basic_string<charT, traits, Allocator>
 - (3) `std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))`
 
 - (4) `std::`[`move`](/reference/utility/move.md)`(lhs.`[`append`](append.md)`(rhs))`  
-	(`std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))` とも等価)
+	(`std::`[`move`](/reference/utility/move.md)`(rhs.`[`insert`](insert.md)`(0, lhs))` とも�価)
 
 - (5) [`basic_string`](op_constructor.md)`<charT, traits, Allocator>(lhs) + rhs`  
 
@@ -97,7 +97,7 @@ basic_string<charT, traits, Allocator>
 
 
 ## 備考
-(5)、(6) の形式の `lhs`、および、(9)、(10) の形式の `rhs` の文字列長算出のために `traits::length()` が使用される
+(5)、(6) の形式の `lhs`、および、(9)、(10) の形式の `rhs` の文�列長算出のために `traits::length()` が使用される
 
 
 ## 例
@@ -126,6 +126,6 @@ Hello, world!
 
 | 名前                          | 説明                   |
 |-------------------------------|------------------------|
-| [`append`](append.md)       | 文字／文字列を追加する |
-| [`push_back`](push_back.md) | 文字を追加する         |
-| [`insert`](insert.md)       | 文字／文字列を挿入する |
+| [`append`](append.md)       | 文�／文�列を追加する |
+| [`push_back`](push_back.md) | 文�を追加する         |
+| [`insert`](insert.md)       | 文�／文�列を挿入する |

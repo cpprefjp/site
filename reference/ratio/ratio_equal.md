@@ -16,7 +16,7 @@ namespace std {
 ```
 
 ## 概要
-`ratio_equal`は、2つの[`ratio`](ratio.md)が等値かを判定するクラステンプレートである。
+`ratio_equal`は、2つの[`ratio`](ratio.md)が�値かを判定するクラステンプレートである。
 
 
 ## 効果

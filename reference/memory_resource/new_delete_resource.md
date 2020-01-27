@@ -11,7 +11,7 @@ namespace std::pmr {
 ```
 
 ## 概要
-グローバルな[`operator new`](/reference/new/op_new.md)及び[`operator delete`](/reference/new/op_delete.md)を利用してメモリを確保・解放する`memory_resource`を取得する。
+グ�ーバルな[`operator new`](/reference/new/op_new.md)及び[`operator delete`](/reference/new/op_delete.md)を利用してメモリを確保・解放する`memory_resource`を取得する。
 
 ## 戻り値
 静的記憶域期間に配置されている`memory_resource`実装のオブジェクトへのポインタを返す。

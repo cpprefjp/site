@@ -2,7 +2,7 @@
 * cpp20[meta cpp]
 
 ## 概要
-C++14では、ラムダ式のパラメータ型に`auto`キーワードを使用することで、任意の型のパラメータを受け取れるようになった：
+C++14では、ラムダ式のパラメータ型に`auto`�ーワードを使用することで、任意の型のパラメータを受け取れるようになった：
 
 ```cpp
 auto f = [](auto x, auto y) {};
@@ -36,19 +36,19 @@ f(w); // Tの型はstd::string
 ## 仕様
 - テンプレートパラメータの定義を含むラムダ式の構文は、以下のようになる：
     ```
-    [キャプチャリスト] <テンプレートパラメータリスト> (パラメータリスト) mutable 例外仕様 属性 -> 戻り値の型 { 関数の本体 }
+    [�ャプチャリスト] <テンプレートパラメータリスト> (パラメータリスト) mutable 例外仕様 属性 -> 戻り値の型 { 関数の本体 }
     ```
 
 - テンプレートパラメータリストは省略可能
-- テンプレートパラメータには、ほかのテンプレート構文と同様に、`typename`、`class`どちらのキーワードも使用できる
+- テンプレートパラメータには、ほかのテンプレート構文と同様に、`typename`、`class`どちらの�ーワードも使用できる
 - テンプレートパラメータには、テンプレートテンプレートパラメータも指定できる
-- `auto`キーワードとの共存ができる
-- `auto`キーワードを使用した場合、パラメータごとに異なるテンプレートパラメータとなるが、この構文では全てのパラメータを同じ型にすることもできる
+- `auto`�ーワードとの共�ができる
+- `auto`�ーワードを使用した場合、パラメータごとに異なるテンプレートパラメータとなるが、この構文では全てのパラメータを同じ型にすることもできる
 - 推論規則は関数テンプレートと同じ
 
 
 ## この機能が必要になった背景・経緯
-`auto`キーワードを使用したジェネリックラムダは、柔軟さが足りなかった。たとえばパラメータを`std::vector`コンテナにして要素の型だけ可変にしたい場合、関数テンプレートでは「`template <class T> void f(std::vector<T> v)`」のように書けばよかった。しかし、`auto`キーワードの場合にはこのような型推論のための構文が使用できず、パラメータを`std::vector`に限定することがむずかしかった。
+`auto`�ーワードを使用したジェネリックラムダは、柔軟さが足りなかった。たとえばパラメータを`std::vector`コンテナにして要素の型だけ可変にしたい場合、関数テンプレートでは「`template <class T> void f(std::vector<T> v)`」のように書けばよかった。しかし、`auto`�ーワードの場合にはこのような型推論のための構文が使用できず、パラメータを`std::vector`に限定することがむずかしかった。
 
 ```cpp
 // 型Tがstd::vectorコンテナかを判定する
@@ -67,7 +67,7 @@ auto f = []<typename T>(std::vector<T> v) {
 };
 ```
 
-また、同じ状況において、`std::vector`として受け取ったコンテナ型の要素となる型を取り出したい場合、関数テンプレートでは型推論によって取り出された`T`型を単に使用すればよかった。`auto`キーワードを使用する場合には、以下のように`value_type`を取り出す冗長な指定が必要になった：
+また、同じ状況において、`std::vector`として受け取ったコンテナ型の要素となる型を取り出したい場合、関数テンプレートでは型推論によって取り出された`T`型を単に使用すればよかった。`auto`�ーワードを使用する場合には、以下のように`value_type`を取り出す冗長な指定が必要になった：
 
 ```cpp
 auto f = [](auto vector) {
@@ -85,7 +85,7 @@ void advance(Iterator it, typename std::iterator_traits<Iterator>::difference_ty
 ```
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 
-`auto`キーワードの場合は、そういった状況では`decltype`を使用しなければならなかった：
+`auto`�ーワードの場合は、そういった状況では`decltype`を使用しなければならなかった：
 
 ```cpp
 auto advance = [](auto it, typename std::iterator_traits<decltype(it)>::difference_type n) {
@@ -103,7 +103,7 @@ auto advance = []<typename Iterator>(Iterator it, typename std::iterator_traits<
 ```
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 
-最後に、完全転送の問題として、`auto`キーワードを使用した場合、[`std::forward()`](/reference/utility/forward.md)関数に型を指定する唯一の方法は`decltype`を使用することだった：
+最後に、完全転送の問題として、`auto`�ーワードを使用した場合、[`std::forward()`](/reference/utility/forward.md)関数に型を指定する唯一の方法は`decltype`を使用することだった：
 
 ```cpp
 auto f = [](auto&&... args) {
@@ -112,7 +112,7 @@ auto f = [](auto&&... args) {
 ```
 * std::forward[link /reference/utility/forward.md]
 
-これは正しく動作し、この書き方はScott Meyersのブログでも記事で紹介されているが、Meyersが記事を書かなければならなかったということが、これがユーザーにとって難しい問題であることを表していた。
+これは�しく動作し、この書き方はScott Meyersのブ�グでも記事で紹介されているが、Meyersが記事を書かなければならなかったということが、これがユーザーにとって難しい問題であることを表していた。
 
 テンプレート構文では以下のようになる：
 

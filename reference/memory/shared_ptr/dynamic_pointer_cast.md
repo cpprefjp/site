@@ -64,7 +64,7 @@ int main()
   std::shared_ptr<B> b(new B());
   std::shared_ptr<A> a = std::static_pointer_cast<A>(b);
 
-  // AからBへのダウンキャスト
+  // AからBへのダウン�ャスト
   if (std::shared_ptr<B> result = std::dynamic_pointer_cast<B>(a)) {
     result->call();
   }

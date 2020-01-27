@@ -94,7 +94,7 @@ minmax_element(ForwardIterator first, ForwardIterator last, Compare comp)
 
   // 範囲の要素数が 0 か 1 だったら、そのまま result を返す
   if (first != last && ++first != last) {
-    // 最初の 2 個を比較して、小さい方を .first に、大きい方を .second に設定
+    // 最初の 2 個を比較して、小さい方を .first に、大きい方を .second に�定
     if (comp(*first, *result.first))
       result.first = first;
     else

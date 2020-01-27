@@ -12,7 +12,7 @@ namespace std {
 
 ## 概要
 `locale`を実引数で指定できる`tolower()`関数。 
-文字`c`を、ロケールに基いて小文字に変換する。
+文�`c`を、�ケールに基いて小文�に変換する。
 
 
 ## 戻り値
@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 備考
-`locale`を引数に取らない`tolower()`関数は、`<cctype>`ヘッダに存在する。
+`locale`を引数に取らない`tolower()`関数は、`<cctype>`ヘッダに�在する。
 
 
 ## 例

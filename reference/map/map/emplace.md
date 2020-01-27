@@ -19,7 +19,7 @@ pair<iterator, bool> emplace(Args&&... args);
 - `args...` : 要素のコンストラクタへ転送される引数パック。
 
 ## 戻り値
-挿入されたかどうかを示す `bool` と、挿入された要素へのイテレータからなる [`pair`](/reference/utility/pair.md) を返す。挿入されなかったときは、既存要素へのイテレータを返す。
+挿入されたかどうかを示す `bool` と、挿入された要素へのイテレータからなる [`pair`](/reference/utility/pair.md) を返す。挿入されなかったときは、既�要素へのイテレータを返す。
 
 
 ## 計算量
@@ -31,7 +31,7 @@ C++17 で導入された [`try_emplace`](try_emplace.md) と異なり、たと�
 
 
 ## 例
-### 単純なキー・値を挿入する例
+### 単純な�ー・値を挿入する例
 ```cpp example
 #include <iostream>
 #include <map>
@@ -40,8 +40,8 @@ int main()
 {
   std::map<int, char> m;
 
-  // キーと値の組を作ることなく挿入できる
-  m.emplace(3, 'A'); // キー3と、値'A'を挿入
+  // �ーと値の組を作ることなく挿入できる
+  m.emplace(3, 'A'); // �ー3と、値'A'を挿入
   m.emplace(1, 'B');
   m.emplace(4, 'C');
 
@@ -59,7 +59,7 @@ int main()
 4 : C
 ```
 
-### キーと値もそれぞれコンストラクタ引数を渡す例
+### �ーと値もそれぞれコンストラクタ引数を渡す例
 ```cpp example
 #include <iostream>
 #include <map>
@@ -76,7 +76,7 @@ int main()
   std::map<std::string, Point> m;
 
   m.emplace(std::piecewise_construct,
-            std::forward_as_tuple(3, 'C'), // キーの型std::stringのコンストラクタ引数を渡す
+            std::forward_as_tuple(3, 'C'), // �ーの型std::stringのコンストラクタ引数を渡す
             std::forward_as_tuple(1, 2));  // 値の型Pointのコンストラクタ引数を渡す
 
   m.emplace(std::piecewise_construct,
@@ -121,7 +121,7 @@ CCC : (1, 2)
 | [`map::insert`](insert.md)                     | 要素を挿入する                             |
 | [`map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
 | [`map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
-| [`map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
+| [`map::try_emplace`](try_emplace.md)           | �ーが�在しない場合のみ要素を直接構築する |
 
 
 ## 参照

@@ -9,7 +9,7 @@ bool operator>=(const multimap<Key,T, Compare,Allocator>& x, const multimap<Key,
 ```
 
 ## 概要
-`x` が `y` より大きいか等しいかの判定を行う。
+`x` が `y` より大きいか�しいかの判定を行う。
 
 
 ## 引数
@@ -18,7 +18,7 @@ bool operator>=(const multimap<Key,T, Compare,Allocator>& x, const multimap<Key,
 
 
 ## 戻り値
-`x` が `y` より大きいか等しい場合に `true`, そうでない場合に `false`。
+`x` が `y` より大きいか�しい場合に `true`, そうでない場合に `false`。
 
 
 ## 計算量

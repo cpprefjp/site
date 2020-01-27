@@ -9,7 +9,7 @@ bool good() const;
 ```
 
 ## 概要
-現在の状態値が空であることを判定する。状態値のビットが全く設定されていない場合に真を返す。
+現在の状態値が空であることを判定する。状態値のビットが全く�定されていない場合に真を返す。
 
 ## 戻り値
 [`rdstate`](rdstate.md)`() == 0`
@@ -30,7 +30,7 @@ bool good() const {
 - 状態値の書き込み
     - [`setstate`](setstate.md)
     - [`clear`](clear.md)
-- 状態値の読み取り
+- 状態値の�み取り
     - [`rdstate`](rdstate.md)
     - `good`（この関数）
     - [`eof`](eof.md)

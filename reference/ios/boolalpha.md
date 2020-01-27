@@ -10,7 +10,7 @@ namespace std {
 ```
 
 ## 概要
-bool値を文字列として入出力することを指示するマニピュレータ。
+bool値を文�列として入出力することを指示するマニピュレータ。
 
 ## 効果
 `str.setf(std::ios_base::boolalpha)`を実行する。

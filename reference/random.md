@@ -21,7 +21,7 @@
 |----------------------------------------------------------------------|-------------------------------|-------|
 | [`linear_congruential_engine`](random/linear_congruential_engine.md) | 線形合同法(class template)             | C++11 |
 | [`mersenne_twister_engine`](random/mersenne_twister_engine.md)       | メルセンヌツイスター法(class template) | C++11 |
-| [`subtract_with_carry_engine`](random/subtract_with_carry_engine.md) | キャリー付き減算法(class template)     | C++11 |
+| [`subtract_with_carry_engine`](random/subtract_with_carry_engine.md) | �ャリー付き減算法(class template)     | C++11 |
 
 
 ## 生成器アダプタ
@@ -41,7 +41,7 @@
 
 先に挙げた擬似乱数生成器に対して一般的なパラメータを定義し、使いやすいように用意された擬似乱数生成器の型。
 
-これらの型には、パフォーマンス、オブジェクトのサイズ、周期などのトレードオフがある。ユーザーの目的に合わせて擬似乱数正器の型を選択してほしい。
+これらの型には、パフォーマンス、オブジェクトのサイズ、周期などのトレードオフがある。ユーザーの目的に合わせて擬似乱数�器の型を選択してほしい。
 
 オブジェクトのサイズをある程度無視・許容できる状況では、多くの分野と用途に、[`mt19937`](random/mt19937.md)を推奨できる。
 
@@ -111,12 +111,12 @@
 | [`extreme_value_distribution`](random/extreme_value_distribution.md) | 極値分布(class template)     | C++11 |
 
 
-### 正規分布(Normal Distribution)
+### �規分布(Normal Distribution)
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`normal_distribution`](random/normal_distribution.md)           | 正規分布(class template)              | C++11 |
-| [`lognormal_distribution`](random/lognormal_distribution.md)     | 対数正規分布(class template)          | C++11 |
+| [`normal_distribution`](random/normal_distribution.md)           | �規分布(class template)              | C++11 |
+| [`lognormal_distribution`](random/lognormal_distribution.md)     | 対数�規分布(class template)          | C++11 |
 | [`chi_squared_distribution`](random/chi_squared_distribution.md) | カイ二乗分布(class template)          | C++11 |
 | [`cauchy_distribution`](random/cauchy_distribution.md)           | コーシー分布(class template)          | C++11 |
 | [`fisher_f_distribution`](random/fisher_f_distribution.md)       | フィッシャーのF分布(class template)   | C++11 |
@@ -136,11 +136,11 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------|------------------------------|-------|
-| [`generate_canonical`](random/generate_canonical.md) | 実数区間\[0.0,1.0\)に展開（事実上正規化）された一様分布乱数を得る(function template) | C++11 |
+| [`generate_canonical`](random/generate_canonical.md) | 実数区間\[0.0,1.0\)に展開（事実上�規化）された一様分布乱数を得る(function template) | C++11 |
 
 
 ## 例
-以下に示す例では、標準の乱数ライブラリを用いてランダムデバイスでシードを生成してメルセンヌツイスタエンジンを初期化、単精度浮動小数点数型で区間\[-1.0f, 1.0f\)の一様分布、および`1.0f`を中心として標準偏差`0.5f`の正規分布に基づく擬似乱数を100万個生成し"random.tsv"にタブ区切り形式のファイルとして結果を保存する。
+以下に示す例では、標準の乱数ライブラリを用いてランダムデバイスでシードを生成してメルセンヌツイスタエンジンを初期化、単精度浮動小数点数型で区間\[-1.0f, 1.0f\)の一様分布、および`1.0f`を�心として標準偏差`0.5f`の�規分布に基づく擬似乱数を100万個生成し"random.tsv"にタブ区切り形式のファイルとして結果を保�する。
 
 ```cpp example
 #include <fstream>
@@ -154,10 +154,10 @@ int main()
   std::mt19937 engine(seed_gen());
 
   // 一様実数分布
-  // [-1.0, 1.0)の値の範囲で、等確率に実数を生成する
+  // [-1.0, 1.0)の値の範囲で、�確率に実数を生成する
   std::uniform_real_distribution<> dist1(-1.0, 1.0);
 
-  // 正規分布
+  // �規分布
   // 平均1.0、標準偏差0.5で分布させる
   std::normal_distribution<> dist2(1.0, 0.5);
 
@@ -182,29 +182,29 @@ int main()
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/random.png)
 
-破線は dist1 (一様分布; min=-1.0f, max=1.0f) 、実線は dist2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
+破線は dist1 (一様分布; min=-1.0f, max=1.0f) 、実線は dist2 (�規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
 
 
 ## 標準乱数ライブラリの基本的な使い方
 ### 「擬似」乱数生成器
 擬似乱数生成器は決定論的で、再現性を持つ。
-擬似乱数生成器に同じシードを与えることで、同じ乱数列を再現させられる。この挙動は開発中のテストやデバッグなどで有用である。
+擬似乱数生成器に同じシードを与えることで、同じ乱数列を再現させられる。この挙動は開発�のテストやデバッグなどで有用である。
 実行ごとに異なる乱数列が必要な場合、[`random_device`](random/random_device.md) クラスのような非決定論的に実装される乱数をシードとして使用するとよい。
 
-また、擬似乱数生成器は高速かつ高効率に動作するよう設計されている。
+また、擬似乱数生成器は高速かつ高効率に動作するよう�計されている。
 しかしながら、これらが生成する乱数列は真の乱数ではなく、周期を持つ。
 
 `<random>` が提供する擬似乱数生成器は暗号論的に安全ではない。
 
 一方 [`random_device`](random/random_device.md) は非決定論的である（ただし実装は処理系定義なので詳細は項目を参照すること）が、
-速度は擬似乱数生成器に比べ遅く、特にエントロピープールが枯渇すると著しく悪化する。
+速度は擬似乱数生成器に比べ遅く、特にエント�ピープールが枯渇すると著しく悪化する。
 
-モンテカルロ法など多数の乱数が必要な場合は擬似乱数生成器の使用を推奨する。
+モンテカル�法など多数の乱数が必要な場合は擬似乱数生成器の使用を推奨する。
 
 ### 推奨する擬似乱数エンジン
 基本的には32ビット版メルセンヌ・ツイスターの実装である[`mt19937`](random/mt19937.md)、もしくはその64ビット版の実装である[`mt19937_64`](random/mt19937_64.md)のどちらかを使用することを推奨する。
 
-非専門用途のための[`default_random_engine`](random/default_random_engine.md)というエンジン型も定義されているが、この型は環境によって乱雑度が低く、周期も短い擬似乱数エンジンの別名として定義される場合がある。
+非専門用途のための[`default_random_engine`](random/default_random_engine.md)というエンジン型も定義されているが、この型は環境によって乱雑度が低く、周期も�い擬似乱数エンジンの別名として定義される場合がある。
 
 [`mt19937`](random/mt19937.md)は、状態の大きさが`sizeof(std::uint_fast32_t) * (624 + 1)`だけあり、少々サイズが大きいが、それを受け入れられる状況であれば、デフォルトで[`mt19937`](random/mt19937.md)を採用しよう。このエンジンでは、乱雑度や周期の長さが問題になることは少ない。
 

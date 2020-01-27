@@ -49,13 +49,13 @@ namespace std {
 
 
 ## 効果
-- (1) : `Types...`に含まれる型`T`のインデックスを`I`として、以下と等価：
+- (1) : `Types...`に含まれる型`T`のインデックスを`I`として、以下と�価：
     ```cpp
     return emplace<I>(std::forward<Args>(args)...);
     ```
     * std::forward[link /reference/utility/forward.md]
 
-- (2) : `Types...`に含まれる型`T`のインデックスを`I`として、以下と等価：
+- (2) : `Types...`に含まれる型`T`のインデックスを`I`として、以下と�価：
     ```cpp
     return emplace<I>(il, std::forward<Args>(args)...);
     ```
@@ -78,11 +78,11 @@ namespace std {
 
 
 ## 例外
-- (1), (2), (3), (4) : 保持する値の初期化中に例外が発生する可能性があり、その後、`variant`オブジェクトは値を保持しない可能性がある
+- (1), (2), (3), (4) : 保持する値の初期化�に例外が発生する可能性があり、その後、`variant`オブジェクトは値を保持しない可能性がある
 
 
 ## 備考
-- この関数は、テンプレート内で使用する場合に、`v.template emplace<T>(args...)`のようにtemplate限定子を指定する必要がある。
+- この関数は、テンプレート内で使用する場合に、`v.template emplace<T>(args...)`のようにtemplate限定�を指定する必要がある。
 
 
 ## 例
@@ -150,7 +150,7 @@ int main()
 int main()
 {
   // インデックスを指定した代入なら、同じ型が複数現れてもよい。
-  // 代入演算子、emplace<T>()、std::get<T>()、std::holds_alternative<T>()は使用できない。
+  // 代入演算�、emplace<T>()、std::get<T>()、std::holds_alternative<T>()は使用できない。
   // in_place_index<I>を指定するコンストラクタ、emplace<I>()、std::get<I>(), index()は使用できる
   std::variant<std::string, std::string> v;
   v.emplace<0>("abc"); // OK

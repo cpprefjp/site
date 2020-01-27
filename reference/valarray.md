@@ -1,7 +1,7 @@
 # valarray
 * valarray[meta header]
 
-`<valarray>`ヘッダは、数値計算に特化した配列クラスである [`valarray`](valarray/valarray.md) と、基礎的な数学的処理を行うための関数オーバーロードを定義したライブラリである。
+`<valarray>`ヘッダは、数値計算に特化した配列クラスである [`valarray`](valarray/valarray.md) と、基礎的な数�的処理を行うための関数オーバー�ードを定義したライブラリである。
 
 このヘッダで定義される任意の [`valarray`](valarray/valarray.md)`<T>` 型を返す関数は（メンバ関数、非メンバ関数とも）、式テンプレートでの実装を可能とするため [`valarray`](valarray/valarray.md)`<T>` 型以外の代理の型を返すことが規格で許可されている。
 このような代理の型には、[`valarray`](valarray/valarray.md) の全ての `const` メンバ関数が提供される。

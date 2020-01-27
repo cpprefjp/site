@@ -13,7 +13,7 @@ namespace std::filesystem {
 ## 概要
 `std::filesystem::space_info`は、ディスク容量を表すクラスである。
 
-`available`の値はOS依存であるが、値としては`free`以下となるだろう。POSIX環境では、非特権プロセスが使用できる容量を表す。
+`available`の値はOS依�であるが、値としては`free`以下となるだろう。POSIX環境では、非特権プ�セスが使用できる容量を表す。
 
 
 ## メンバ変数

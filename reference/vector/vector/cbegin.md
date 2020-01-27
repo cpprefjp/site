@@ -10,7 +10,7 @@ const_iterator cbegin() const noexcept;
 ```
 
 ## 概要
-先頭の要素を指す読み取り専用イテレータを取得する。
+先�の要素を指す�み取り専用イテレータを取得する。
 
 [`begin`](begin.md)`()`は非`const`な`vector`オブジェクトに対して`iterator`を返し、`const`な`vector`オブジェクトに対しては`const_iterator`を返すが、`cbegin()`は`const_iterator`を返すバージョンのみが提供されている。
 
@@ -18,7 +18,7 @@ const_iterator cbegin() const noexcept;
 
 
 ## 戻り値
-先頭の要素を指す読み取り専用イテレータ
+先�の要素を指す�み取り専用イテレータ
 
 
 ## 例外

@@ -12,13 +12,13 @@ namespace chrono {
 ```
 
 ## 概要
-`steady_clock`は、物理的な時間と同様、決して逆行することがない時間を表現するためのクロックである。
+`steady_clock`は、物理的な時間と同様、決して逆行することがない時間を表現するためのク�ックである。
 
 
 ### エポック
-クロックごとの初期時間 (内部的にカウンタがあれば値ゼロ) をエポックと呼ぶ。
+ク�ックごとの初期時間 (内部的にカウンタがあれば値ゼ�) をエポックと呼ぶ。
 
-`steady_clock`のエポックは未規定だが、多くの実装ではプログラム起動時間が時間ゼロのエポックとして定義され、その時間からの時間間隔がカウントされる。
+`steady_clock`のエポックは未規定だが、多くの実装ではプ�グラム起動時間が時間ゼ�のエポックとして定義され、その時間からの時間間隔がカウントされる。
 
 
 ## メンバ関数
@@ -43,8 +43,8 @@ namespace chrono {
 
 | 名前        | 説明 | 対応バージョン |
 |-------------|--------------------------------------------------------|-------|
-| `static const bool is_steady`     | 逆行しないクロックかどうかを表す`bool`値。値は`true`。 | C++11まで |
-| `static constexpr bool is_steady` | 逆行しないクロックかどうかを表す`bool`値。値は`true`。 | C++14から |
+| `static const bool is_steady`     | 逆行しないク�ックかどうかを表す`bool`値。値は`true`。 | C++11まで |
+| `static constexpr bool is_steady` | 逆行しないク�ックかどうかを表す`bool`値。値は`true`。 | C++14から |
 
 
 ## 例
@@ -88,7 +88,7 @@ int main()
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-	- 2012, 2013は逆行が起こり得る、すなわち正しくない実装であった。
+	- 2012, 2013は逆行が起こり得る、すなわち�しくない実装であった。
 	- 2015からは、Windows APIの`QueryPerformanceCounter`関数を使用した実装である。
 		- MSDNライブラリ: [QueryPerformanceCounter](https://docs.microsoft.com/ja-jp/windows/win32/api/profileapi/nf-profileapi-queryperformancecounter)
 

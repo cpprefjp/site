@@ -19,14 +19,14 @@ namespace std {
 
 `vector`はシーケンスコンテナの一種で、各要素は線形に、順序を保ったまま格納される。
 
-`vector`コンテナは可変長配列として実装される。通常の(`new []`で確保した)配列と同じように、`vector`の各要素は連続して配置されるため、イテレータだけでなく添字による要素のランダムアクセスも高速である。
+`vector`コンテナは可変長配列として実装される。通常の(`new []`で確保した)配列と同じように、`vector`の各要素は連続して配置されるため、イテレータだけでなく添�による要素のランダムアクセスも高速である。
 
 配列と違い、ストレージは`vector`自体が管理するため、自動的に領域の拡張が行われる。
 
 
 `vector`は次の点で優れている。
 
-- 各要素への添字アクセス(定数時間)
+- 各要素への添�アクセス(定数時間)
 - 全要素の両方向の走査(線形時間)
 - 末尾への要素の追加・削除(償却定数時間)
 
@@ -34,17 +34,17 @@ namespace std {
 
 他の標準シーケンスコンテナと比べ、`vector`は要素アクセスと(末尾に対する)追加・削除において一般的に最高の性能を誇る。末尾以外に対する挿入・削除は[`deque`](/reference/deque/deque.md)や[`list`](/reference/list/list.md)に劣り、イテレータや要素への参照の安定性(無効になる操作の数)では[`list`](/reference/list/list.md)に劣る。
 
-内部的には、`vector`は(他のすべてのコンテナと同じように)サイズ用のメンバ変数を持ち、格納されている要素数を管理している。しかし`vector`の場合は、さらに確保済みのメモリサイズを管理するキャパシティ用のメンバ変数を持ち、これは常に[`size()`](vector/size.md)と同じか大きい値となる。確保済みの領域の余計な部分は、要素数の増加に備えて確保しているものである。この動作のおかげで、要素を追加するたびにメモリを再確保する必要が無くなり、単に確保済みの領域を初期化するだけでよくなる(再確保は要素数の対数の頻度で発生する)。
+内部的には、`vector`は(他のすべてのコンテナと同じように)サイズ用のメンバ変数を持ち、格納されている要素数を管理している。しかし`vector`の場合は、さらに確保済みのメモリサイズを管理する�ャパシティ用のメンバ変数を持ち、これは常に[`size()`](vector/size.md)と同じか大きい値となる。確保済みの領域の余計な部分は、要素数の増加に備えて確保しているものである。この動作のおかげで、要素を追加するたびにメモリを再確保する必要が無くなり、単に確保済みの領域を初期化するだけでよくなる(再確保は要素数の対数の頻度で発生する)。
 
-領域の再確保が発生すると、全ての要素が新しい領域にコピーされるため非常にコストがかかる。このため、最終的な要素数が大きくなると解っている場合はあらかじめ[`reserve()`](vector/reserve.md)メンバ関数でキャパシティを増加させておくことが望ましい。
+領域の再確保が発生すると、全ての要素が新しい領域にコピーされるため非常にコストがかかる。このため、最終的な要素数が大きくなると解っている場合はあらかじめ[`reserve()`](vector/reserve.md)メンバ関数で�ャパシティを増加させておくことが望ましい。
 
 
 各テンプレートパラメータの意味は次の通りである。
 
 - `T`: 格納される要素の型、C++17以降は不完全型をサポートしている
-- `Allocator`: メモリ確保に使用されるアロケータの型。デフォルトでは標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
+- `Allocator`: メモリ確保に使用されるア�ケータの型。デフォルトでは標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
-リファレンス中では、これらの名前をテンプレートパラメータとして扱う。
+リファレンス�では、これらの名前をテンプレートパラメータとして扱う。
 
 
 ## メンバ関数
@@ -54,21 +54,21 @@ namespace std {
 |---------------------------------------|----------------|-------|
 | [`(constructor)`](vector/op_constructor.md) | コンストラクタ | |
 | [`(destructor)`](vector/op_destructor.md) | デストラクタ   | |
-| [`operator=`](vector/op_assign.md)  | 代入演算子     | |
+| [`operator=`](vector/op_assign.md)  | 代入演算�     | |
 
 
 ### イテレータ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------|---------------------------------------|-------|
-| [`begin`](vector/begin.md)     | 先頭の要素を指すイテレータを取得する | |
+| [`begin`](vector/begin.md)     | 先�の要素を指すイテレータを取得する | |
 | [`end`](vector/end.md)         | 末尾の次を指すイテレータを取得する | |
-| [`cbegin`](vector/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++11 |
-| [`cend`](vector/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
+| [`cbegin`](vector/cbegin.md)   | 先�の要素を指す�み取り専用イテレータを取得する | C++11 |
+| [`cend`](vector/cend.md)       | 末尾の次を指す�み取り専用イテレータを取得する | C++11 |
 | [`rbegin`](vector/rbegin.md)   | 末尾を指す逆イテレータを取得する | |
-| [`rend`](vector/rend.md)       | 先頭の前を指す逆イテレータを取得する | |
-| [`crbegin`](vector/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
-| [`crend`](vector/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`rend`](vector/rend.md)       | 先�の前を指す逆イテレータを取得する | |
+| [`crbegin`](vector/crbegin.md) | 末尾を指す�み取り専用逆イテレータを取得する | C++11 |
+| [`crend`](vector/crend.md)     | 先�の前を指す�み取り専用逆イテレータを取得する | C++11 |
 
 
 ### 領域
@@ -90,8 +90,8 @@ namespace std {
 |-----------------------------------|---------------|-------|
 | [`operator[]`](vector/op_at.md) | 要素アクセス | |
 | [`at`](vector/at.md)            | 要素アクセス | |
-| [`data`](vector/data.md)        | 配列の先頭へのポインタを取得する | C++11 |
-| [`front`](vector/front.md)      | 先頭要素への参照を取得する | |
+| [`data`](vector/data.md)        | 配列の先�へのポインタを取得する | C++11 |
+| [`front`](vector/front.md)      | 先�要素への参照を取得する | |
 | [`back`](vector/back.md)        | 末尾要素への参照を取得する | |
 
 
@@ -110,11 +110,11 @@ namespace std {
 | [`clear`](vector/clear.md)               | 全要素削除 | |
 
 
-### アロケータ
+### ア�ケータ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|------------------------------|-------|
-| [`get_allocator`](vector/get_allocator.md) | アロケータオブジェクトの取得 | |
+| [`get_allocator`](vector/get_allocator.md) | ア�ケータオブジェクトの取得 | |
 
 
 ## メンバ型
@@ -124,11 +124,11 @@ namespace std {
 | `reference`              | `T&` | |
 | `const_reference`        | `const T&` | |
 | `iterator`               | ランダムアクセスイテレータ | |
-| `const_iterator`         | 読み取り専用ランダムアクセスイテレータ | |
+| `const_iterator`         | �み取り専用ランダムアクセスイテレータ | |
 | `size_type`              | 符号なし整数型 (通常は[`size_t`](/reference/cstddef/size_t.md)) | |
 | `difference_type`        | 符号付き整数型 (通常は[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | |
 | `value_type`             | 要素型 `T` | |
-| `allocator_type`         | アロケータの型 `Allocator` | |
+| `allocator_type`         | ア�ケータの型 `Allocator` | |
 | `pointer`                | `Allocator::pointer` | |
 | `const_pointer`          | `Allocator::const_pointer` | |
 | `reverse_iterator`       | [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | |
@@ -136,12 +136,12 @@ namespace std {
 
 
 ## 非メンバ関数
-### 比較演算子
+### 比較演算�
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|------------------------------------|-------|
-| [`operator==`](vector/op_equal.md)         | 等値比較 | |
-| [`operator!=`](vector/op_not_equal.md)     | 非等値比較 | |
+| [`operator==`](vector/op_equal.md)         | �値比較 | |
+| [`operator!=`](vector/op_not_equal.md)     | 非�値比較 | |
 | [`operator<`](vector/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
 | [`operator<=`](vector/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
 | [`operator>`](vector/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
@@ -206,7 +206,7 @@ public:
 int main()
 {
   // int型を要素とする可変長配列の変数を定義し、
-  // 初期状態の要素を設定
+  // 初期状態の要素を�定
   std::vector<int> v = {1, 99, 4};
 
   v[1] = 3;                    // 1番目の要素を参照し、書き換える
@@ -354,7 +354,7 @@ int main()
   v[5] = true; // ビットを立てる
   v[7].flip(); // ビット反転(1だったら0、0だったら1にする)
 
-//bool& x = v[3]; // エラー！プロキシオブジェクトのため、bool&には変換できない
+//bool& x = v[3]; // エラー！プ��シオブジェクトのため、bool&には変換できない
   bool x = v[3]; // OK : コピーはできる
   std::cout << "v[3] : " << x << std::endl;
 
@@ -381,7 +381,7 @@ v[3] : 0
 1
 ```
 
-`vector<bool>`の要素は参照するとプロキシオブジェクトのコピーが返ってくるため、RandomAccessIteratorの要件を満たさない。
+`vector<bool>`の要素は参照するとプ��シオブジェクトのコピーが返ってくるため、RandomAccessIteratorの要件を満たさない。
 
 
 ## 参照

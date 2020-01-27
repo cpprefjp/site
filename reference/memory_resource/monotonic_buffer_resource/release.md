@@ -17,8 +17,8 @@ void release();
 必要に応じて[`this->upstream_resource()`](upstream_resource.md)[`->deallocate()`](/reference/memory_resource/memory_resource/deallocate.md)を呼び出し上流メモリリソースから割り当てた全てのメモリを解放する。  
 `deallocate()`によって割り当て解除されていないメモリがあったとしても、全てのメモリが解放される。
 
-コンストラクタから設定された初期メモリ領域の解放は行われない。
-<!-- 未規定かもしれないが、どのみちできないと思われるのでしない物と判断 -->
+コンストラクタから�定された初期メモリ領域の解放は行われない。
+<!-- 未規定かもしれないが、どのみちできないと思われるのでしない物と判� -->
 
 ## 例
 ```cpp example

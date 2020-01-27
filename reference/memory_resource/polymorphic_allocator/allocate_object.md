@@ -20,7 +20,7 @@ T* allocate_object(size_t n = 1);
 
 ## 効果
 
-以下と等価。
+以下と�価。
 
 ```cpp
 return static_cast<T*>(this->allocate_bytes(n*sizeof(T), alignof(T)));
@@ -28,7 +28,7 @@ return static_cast<T*>(this->allocate_bytes(n*sizeof(T), alignof(T)));
 * allocate_bytes[link allocate_bytes.md]
 
 ## 戻り値
-確保した領域の先頭へのポインタ。
+確保した領域の先�へのポインタ。
 
 ## 例外
 

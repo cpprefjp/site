@@ -105,8 +105,8 @@ variant(allocator_arg_t,
 - (3) :
     - 全ての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti>`が`true`であること
 - (4) :
-    - C++17 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
-    - C++20 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`を、縮小変換を受け付けない型であり (`Ti x[] = {`[`std::forward`](/reference/utility/forward.md)`<T>(t)};`)、CV修飾付き`bool`の場合にCV修飾を外した`bool`型になるとして、その型に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
+    - C++17 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバー�ードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
+    - C++20 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`を、縮小変換を受け付けない型であり (`Ti x[] = {`[`std::forward`](/reference/utility/forward.md)`<T>(t)};`)、CV修飾付き`bool`の場合にCV修飾を外した`bool`型になるとして、その型に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバー�ードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<T>, variant>`が`false`であること
     - 型[`decay_t`](/reference/type_traits/decay.md)`<T>`が[`in_place_type_t`](/reference/utility/in_place_type_t.md)および[`in_place_index_t`](/reference/utility/in_place_index_t.md)の特殊化ではないこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
@@ -147,7 +147,7 @@ variant(allocator_arg_t,
 - (8) :
     - `il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`Ti`型オブジェクトを直接構築して`*this`に保持する
 - (9)-(16) :
-    - uses-allocator構築すること以外は、対応するコンストラクタと等価
+    - uses-allocator構築すること以外は、対応するコンストラクタと�価
 
 
 ## 事後条件
@@ -165,15 +165,15 @@ variant(allocator_arg_t,
 ## 例外
 - (1) :
     - `T0`型を値初期化した際、その型のコンストラクタによって任意の例外が送出される可能性がある
-    - `noexcept`内の式は、[`is_nothrow_default_constructible_v`](/reference/type_traits/is_nothrow_default_constructible.md)`<T0>`と等価
+    - `noexcept`内の式は、[`is_nothrow_default_constructible_v`](/reference/type_traits/is_nothrow_default_constructible.md)`<T0>`と�価
 - (2) :
     - 全ての型`Ti`の直接初期化が、任意の例外を送出する可能性がある
 - (3) :
     - 全ての型`Ti`のムーブ構築が、任意の例外を送出する可能性がある
-    - `noexcept`内の式は、全ての`Ti`についての[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Ti>`を論理積したものと等価
+    - `noexcept`内の式は、全ての`Ti`についての[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Ti>`を論理積したものと�価
 - (4) :
     - `Tj`の選択された初期化方法 (コンストラクタ) が任意の例外を送出する可能性がある
-    - `noexcept`内の式は、[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T>`と等価となる
+    - `noexcept`内の式は、[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<Tj, T>`と�価となる
 - (5), (6) :
     - 型`T`の選択されたコンストラクタが任意の例外を送出する可能性がある
 - (7), (8) :
@@ -193,7 +193,7 @@ variant(allocator_arg_t,
 
 
 ## 備考
-- (4) : 以下のコードは不適格となる。第1テンプレート引数の型をとるコンストラクタオーバーロードと、第2テンプレート引数の型をとるコンストラクタオーバーロードが定義されるため、曖昧になる：
+- (4) : 以下のコードは不適格となる。第1テンプレート引数の型をとるコンストラクタオーバー�ードと、第2テンプレート引数の型をとるコンストラクタオーバー�ードが定義されるため、曖昧になる：
     ```cpp
     std::variant<std::string, std::string> v("abc"); // コンパイルエラー！
     ```
@@ -216,7 +216,7 @@ int main()
 
     assert(v.index() == 0);
     assert(std::holds_alternative<int>(v));
-    assert(std::get<int>(v) == 0); // 値初期化されるのでゼロ初期化される (不定値にはならない)
+    assert(std::get<int>(v) == 0); // 値初期化されるのでゼ�初期化される (不定値にはならない)
   }
 
   // (2)
@@ -266,7 +266,7 @@ int main()
   }
 
   // (6)
-  // (5) とほぼ同じ。コンストラクタ引数の先頭が初期化子リストの場合に、
+  // (5) とほぼ同じ。コンストラクタ引数の先�が初期化�リストの場合に、
   // こちらが呼ばれる。
   {
     std::allocator<char> alloc;
@@ -298,7 +298,7 @@ int main()
   }
 
   // (7)
-  // (6) とほぼ同じ。コンストラクタ引数の先頭が初期化子リストの場合に、
+  // (6) とほぼ同じ。コンストラクタ引数の先�が初期化�リストの場合に、
   // こちらが呼ばれる。
   {
     // コンストラクタ引数3と'a'を渡して、
@@ -343,7 +343,7 @@ int main()
   }
 
   {
-    // 文字列リテラルは、C++17ではstd::stringよりもboolに優先的に変換されてしまう
+    // 文�列リテラルは、C++17ではstd::stringよりもboolに優先的に変換されてしまう
     std::variant<std::string, bool> v = "abc";
     assert(std::holds_alternative<std::string>(v)); // C++17ではbool、C++20ではstd::string
 
@@ -371,7 +371,7 @@ int main()
 int main()
 {
   // インデックスを指定した代入なら、同じ型が複数現れてもよい。
-  // 代入演算子、emplace<T>()、std::get<T>()、std::holds_alternative<T>()は使用できない。
+  // 代入演算�、emplace<T>()、std::get<T>()、std::holds_alternative<T>()は使用できない。
   // emplace<I>()、std::get<I>(), index()は使用できる
   std::variant<std::string, std::string> v1 { // OK
     std::in_place_index<0>,

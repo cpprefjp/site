@@ -27,29 +27,29 @@
 
 | 名前                                    | 説明                                             | 対応バージョン |
 |-----------------------------------------|--------------------------------------------------|----------------|
-| [`boolalpha`](ios/boolalpha.md)       | bool値を文字列として入出力させる                 |                |
+| [`boolalpha`](ios/boolalpha.md)       | bool値を文�列として入出力させる                 |                |
 | [`noboolalpha`](ios/noboolalpha.md)   | bool値を数値表記で入出力させる                   |                |
 | [`showbase`](ios/showbase.md)         | 基数などを表すプレフィックスを出力させる         |                |
 | [`noshowbase`](ios/noshowbase.md)     | 基数などを表すプレフィックスを出力させない       |                |
 | [`showpoint`](ios/showpoint.md)       | 小数点を常に出力させる                           |                |
 | [`noshowpoint`](ios/noshowpoint.md)   | 小数点を不要なら出力させない                     |                |
-| [`showpos`](ios/showpos.md)           | 正符号を出力させる                               |                |
-| [`noshowpos`](ios/noshowpos.md)       | 正符号を出力させない                             |                |
-| [`skipws`](ios/skipws.md)             | 書式入力操作前に空白を読み飛ばさせる             |                |
-| [`noskipws`](ios/noskipws.md)         | 書式入力操作前の空白の読み飛ばしを行わない       |                |
-| [`uppercase`](ios/uppercase.md)       | 英大文字の表記で出力                             |                |
-| [`nouppercase`](ios/nouppercase.md)   | 英小文字の表記で出力                             |                |
+| [`showpos`](ios/showpos.md)           | �符号を出力させる                               |                |
+| [`noshowpos`](ios/noshowpos.md)       | �符号を出力させない                             |                |
+| [`skipws`](ios/skipws.md)             | 書式入力操作前に空白を�み飛ばさせる             |                |
+| [`noskipws`](ios/noskipws.md)         | 書式入力操作前の空白の�み飛ばしを行わない       |                |
+| [`uppercase`](ios/uppercase.md)       | 英大文�の表記で出力                             |                |
+| [`nouppercase`](ios/nouppercase.md)   | 英小文�の表記で出力                             |                |
 | [`unitbuf`](ios/unitbuf.md)           | 出力操作の都度バッファを吐き出す                 |                |
 | [`nounitbuf`](ios/nounitbuf.md)       | 出力操作を終えても必要に応じてバッファに蓄える   |                |
 | [`internal`](ios/internal.md)         | 両端揃え                                         |                |
 | [`left`](ios/left.md)                 | 左揃え                                           |                |
 | [`right`](ios/right.md)               | 右揃え                                           |                |
 | [`dec`](ios/dec.md)                   | 十進法で入出力（整数）                           |                |
-| [`hex`](ios/hex.md)                   | 十六進法で入出力（整数）                         |                |
+| [`hex`](ios/hex.md)                   | 十�進法で入出力（整数）                         |                |
 | [`oct`](ios/oct.md)                   | 八進法で入出力（整数）                           |                |
 | [`fixed`](ios/fixed.md)               | 小数点数表記で出力（浮動小数点数）               |                |
 | [`scientific`](ios/scientific.md)     | 指数表記で出力（浮動小数点数）                   |                |
-| [`hexfloat`](ios/hexfloat.md)         | 十六進法での指数表記で出力（浮動小数点数）       | C++11          |
+| [`hexfloat`](ios/hexfloat.md)         | 十�進法での指数表記で出力（浮動小数点数）       | C++11          |
 | [`defaultfloat`](ios/defaultfloat.md) | 小数点数・指数表記の自動切り替え（浮動小数点数） | C++11          |
 
 ## バージョン

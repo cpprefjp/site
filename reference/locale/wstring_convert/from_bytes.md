@@ -17,29 +17,29 @@ wide_string from_bytes(const char* first,
 このクラスはC++17から非推奨となった。
 
 ## 概要
-バイト文字列からワイド文字列に変換する。
+バイト文�列からワイド文�列に変換する。
 
 
 ## 効果
-変換前に、[`state()`](state.md)メンバ関数が返す状態値が、コンストラクタで明示的に指定されていなかった場合、デフォルト値を設定する。
+変換前に、[`state()`](state.md)メンバ関数が返す状態値が、コンストラクタで明示的に指定されていなかった場合、デフォルト値を�定する。
 
-- (1) : 1バイトからなる文字を、ワイド文字列に変換する。
-- (2) : バイト文字配列を、ワイド文字列に変換する。
-- (3) : バイト文字列を、ワイド文字列に変換する。
-- (4) : バイト文字の範囲`[first, last)`を、ワイド文字列に変換する。
+- (1) : 1バイトからなる文�を、ワイド文�列に変換する。
+- (2) : バイト文�配列を、ワイド文�列に変換する。
+- (3) : バイト文�列を、ワイド文�列に変換する。
+- (4) : バイト文�の範囲`[first, last)`を、ワイド文�列に変換する。
 
-変換に成功した場合、成功した要素数が、[`converted()`](converted.md)メンバ関数が返す変数に設定される。
+変換に成功した場合、成功した要素数が、[`converted()`](converted.md)メンバ関数が返す変数に�定される。
 
 
 
 ## 戻り値
-変換結果のワイド文字列を返す。
+変換結果のワイド文�列を返す。
 
-変換に失敗し、コンストラクタで`wide_err`パラメータ(エラー時に返す文字列)が設定された場合、そのパラメータを返す。
+変換に失敗し、コンストラクタで`wide_err`パラメータ(エラー時に返す文�列)が�定された場合、そのパラメータを返す。
 
 
 ## 例外
-変換に失敗し、コンストラクタで`wide_err`パラメータ(エラー時に返す文字列)が設定されていなかった場合、[`std::range_error`](/reference/stdexcept.md)例外を送出する。
+変換に失敗し、コンストラクタで`wide_err`パラメータ(エラー時に返す文�列)が�定されていなかった場合、[`std::range_error`](/reference/stdexcept.md)例外を送出する。
 
 
 ## 例
@@ -56,7 +56,7 @@ int main()
   std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> converter;
 
   // (1)
-  // 1バイト文字からワイド文字列に変換
+  // 1バイト文�からワイド文�列に変換
   {
     char input = 'a';
     std::u32string result = converter.from_bytes(input);
@@ -64,7 +64,7 @@ int main()
   }
     
   // (2)
-  // バイト文字配列からワイド文字列に変換
+  // バイト文�配列からワイド文�列に変換
   {
     const char input[] = u8"あいうえお";
     std::u32string result = converter.from_bytes(input);
@@ -72,7 +72,7 @@ int main()
   }
     
   // (3)
-  // バイト文字列からワイド文字列に変換
+  // バイト文�列からワイド文�列に変換
   {
     std::string input = u8"あいうえお";
     std::u32string result = converter.from_bytes(input);
@@ -80,7 +80,7 @@ int main()
   }
     
   // (4)
-  // バイト文字の範囲からワイド文字列に変換
+  // バイト文�の範囲からワイド文�列に変換
   {
     const char input[] = u8"あいうえお";
     std::u32string result = converter.from_bytes(std::begin(input), std::end(input) - 1);

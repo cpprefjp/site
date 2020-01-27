@@ -1,4 +1,4 @@
-# SI接頭辞
+# SI接�辞
 * ratio[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -31,7 +31,7 @@ namespace std {
 * ratio[link ratio.md]
 
 ## 概要
-これらは、コンパイル時有理数である[`ratio`](ratio.md)を利用した、SI単位系(The International System of Units : 国際単位系)の接頭辞を表す型である。
+これらは、コンパイル時有理数である[`ratio`](ratio.md)を利用した、SI単位系(The International System of Units : 国際単位系)の接�辞を表す型である。
 
 | 型      | 説明     |
 |---------|----------|
@@ -41,13 +41,13 @@ namespace std {
 | `femto` | フェムト |
 | `pico`  | ピコ     |
 | `nano`  | ナノ     |
-| `micro` | マイクロ |
+| `micro` | マイク� |
 | `milli` | ミリ     |
 | `centi` | センチ   |
 | `deci`  | デシ     |
 | `deca`  | デカ     |
 | `hecto` | ヘクト   |
-| `kilo`  | キロ     |
+| `kilo`  | ��     |
 | `mega`  | メガ     |
 | `giga`  | ギガ     |
 | `tera`  | テラ     |

@@ -20,7 +20,7 @@ namespace std {
 
 ## 概要
 引数 `x` を四捨五入により丸めた整数値を得る。  
-ここで引数 `x` の四捨五入とは、`x` を最も近い整数に丸めるが、`x` の小数部分が `0.5` の場合には、`x` の符号が正負のいずれであってもゼロから遠い方向に丸めることを指す。  
+ここで引数 `x` の四捨五入とは、`x` を最も近い整数に丸めるが、`x` の小数部分が `0.5` の場合には、`x` の符号が�負のいずれであってもゼ�から遠い方向に丸めることを指す。  
 具体例は下記の出力例を参照。
 
 
@@ -29,7 +29,7 @@ namespace std {
 
 
 ## 備考
-- 本関数は、C99 の規格にある `round`（より正確には `math.h` ヘッダの `round`、`roundf`、`roundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
+- 本関数は、C99 の規格にある `round`（より�確には `math.h` ヘッダの `round`、`roundf`、`roundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と�価である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
 	- `x = ±0` の場合、`±0` を返す。
 	- `x = ±∞` の場合、`±∞` を返す。
@@ -62,8 +62,8 @@ namespace std {
     * fabs[link fabs.md]
     * feupdateenv[link ../cfenv/feupdateenv.md.nolink]
 
-	ただし、本関数において戻り値が引数 `x` と異なる場合に、上記の実装のように例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依存である。  
-	なお、本関数の挙動は、現在の丸めモードには依存しない。
+	ただし、本関数において戻り値が引数 `x` と異なる場合に、上記の実装のように例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) が発生するか否かは実装依�である。  
+	なお、本関数の挙動は、現在の丸めモードには依�しない。
 
 
 ## 例

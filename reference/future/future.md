@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-`future`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`promise`](promise.md)クラスと組み合わせて使用する。[`promise`](promise.md)が別スレッドでの処理結果を書き込み、`future`がその結果を読み取る。[`promise`](promise.md)と`future`は内部的に同一の共有状態を参照する。これによってスレッド間での値の受け渡しやスレッド間同期を実現する。このクラスは`R&`および`void`の、2つの特殊化を持つ。
+`future`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`promise`](promise.md)クラスと組み合わせて使用する。[`promise`](promise.md)が別スレッドでの処理結果を書き込み、`future`がその結果を�み取る。[`promise`](promise.md)と`future`は内部的に同一の共有状態を参照する。これによってスレッド間での値の受け渡しやスレッド間同期を実現する。このクラスは`R&`および`void`の、2つの特殊化を持つ。
 
 
 ## メンバ関数
@@ -21,7 +21,7 @@ namespace std {
 |---------------------------------------|--------------------------------|-------|
 | [`(constructor)`](future/op_constructor.md) | コンストラクタ                 | C++11 |
 | [`(destructor)`](future/op_destructor.md) | デストラクタ                   | C++11 |
-| [`operator=`](future/op_assign.md)  | 代入演算子                     | C++11 |
+| [`operator=`](future/op_assign.md)  | 代入演算�                     | C++11 |
 | [`share`](future/share.md)          | `future`オブジェクトを共有する | C++11 |
 
 

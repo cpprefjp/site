@@ -64,7 +64,7 @@ int main()
   std::random_device seed_gen;
   std::mt19937 engine {seed_gen()};
 
-  // 文字列中から3文字をランダム抽出する
+  // 文�列�から3文�をランダム抽出する
   {
     const std::string input = "abcdef";
     const int n = 3;

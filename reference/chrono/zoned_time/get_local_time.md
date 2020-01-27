@@ -11,13 +11,13 @@ local_time<duration> get_local_time() const; // (1) C++20
 * local_time[link /reference/chrono/local_time.md]
 
 ## 概要
-ローカル時間を取得する。
+�ーカル時間を取得する。
 
 この関数によって、タイムゾーンを考慮した時間への変換が行われる (UTC -> 日本時間であれば9時間が加算される)。
 
 
 ## 戻り値
-コンストラクタで設定されたタイムゾーンオブジェクトへのポインタ`zone`、およびシステム時間の時間点`tp`があるとして、以下を返す：
+コンストラクタで�定されたタイムゾーンオブジェクトへのポインタ`zone`、およびシステム時間の時間点`tp`があるとして、以下を返す：
 
 ```cpp
 return zone->to_local(tp);
@@ -39,12 +39,12 @@ int main()
   chrono::local_time local_now{now.time_since_epoch()};
   chrono::local_time local_jst_now = now - chrono::hours{9};
 
-  // UTCタイムゾーンのシステム時間から、Asia/Tokyoタイムゾーンのローカル時間に変換する
+  // UTCタイムゾーンのシステム時間から、Asia/Tokyoタイムゾーンの�ーカル時間に変換する
   chrono::zoned_time zt1{"Asia/Tokyo", now};
   chrono::local_time lt1 = zt1.get_local_time();
   assert(lt1 == local_jst_now);
 
-  // UTCタイムゾーンのローカル時間から、Asia/Tokyoタイムゾーンのローカル時間に変換する
+  // UTCタイムゾーンの�ーカル時間から、Asia/Tokyoタイムゾーンの�ーカル時間に変換する
   chrono::zoned_time zt2{"Asia/Tokyo", local_now};
   chrono::local_time lt2 = zt2.get_local_time();
   assert(lt2 == local_jst_now);

@@ -14,7 +14,7 @@ static constexpr const char_type* find(const char_type* s,
 ```
 
 ## 概要
-文字列中から特定の値を検索する。
+文�列�から特定の値を検索する。
 
 
 ## 戻り値

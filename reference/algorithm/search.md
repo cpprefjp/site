@@ -69,10 +69,10 @@ namespace std {
 
 
 ## 概要
-あるシーケンスの中から、特定のサブシーケンスを探す
+あるシーケンスの�から、特定のサブシーケンスを探す
 
-- (1) : 範囲`[first1, last1)`内からサブシーケンス`[first2, last2)`を検索する。各要素の等値比較として`operator==`を使用する
-- (2) : 範囲`[first1, last1)`内からサブシーケンス`[first2, last2)`を検索する。各要素の等値比較として二項述語関数オブジェクト`pred`を使用する
+- (1) : 範囲`[first1, last1)`内からサブシーケンス`[first2, last2)`を検索する。各要素の�値比較として`operator==`を使用する
+- (2) : 範囲`[first1, last1)`内からサブシーケンス`[first2, last2)`を検索する。各要素の�値比較として二項述語関数オブジェクト`pred`を使用する
 - (3) : (1)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
 - (4) : (2)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
 - (5) : 対象となるサブシーケンスを包含する`sercher`関数オブジェクトを使用して、範囲`[first, last)`から対象のサブシーケンスを検索する。
@@ -81,12 +81,12 @@ namespace std {
 
 ## 戻り値
 - (1), (3) :
-    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先�のイテレータを返す。
     - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
 - (2), (4) :
-    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先�のイテレータを返す。
     - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
-- (5) : 以下と等価
+- (5) : 以下と�価
     ```cpp
     return searcher(first, last).first;
     ```
@@ -149,7 +149,7 @@ int main()
   std::string text = "babcabaabaac";
   std::string pattern = "abaa";
 
-  // ボイヤー・ムーア法で、文字列 (text) 内のサブ文字列 (pattern) を検索する。
+  // ボイヤー・ムーア法で、文�列 (text) 内のサブ文�列 (pattern) を検索する。
   // patternを登録
   std::boyer_moore_searcher searcher {
     pattern.cbegin(),
@@ -164,7 +164,7 @@ int main()
     // 見つかった位置を取得
     std::ptrdiff_t n = std::distance(text.cbegin(), result);
 
-    // 見つかった文字列 (pattern) を取得
+    // 見つかった文�列 (pattern) を取得
     std::string s {result, result + pattern.size()};
 
     std::cout << n << std::endl;

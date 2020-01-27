@@ -60,7 +60,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator=`](optional/op_assign.md) | 代入演算子 | C++17 |
+| [`operator=`](optional/op_assign.md) | 代入演算� | C++17 |
 | [`emplace`](optional/emplace.md)     | 要素型のコンストラクタ引数から直接構築する | C++17 |
 | [`swap`](optional/swap.md)           | 他の`optional`オブジェクトとデータを入れ替える | C++17 |
 | [`reset`](optional/reset.md)         | 有効値を保持していない状態にする | C++17 |
@@ -100,12 +100,12 @@ namespace std {
 | [`swap`](optional/swap_free.md) | 2つの`optional`オブジェクトを入れ替える | C++17 |
 
 
-### 比較演算子
+### 比較演算�
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](optional/op_equal.md)         | 等値比較 | C++17 |
-| [`operator!=`](optional/op_not_equal.md)     | 非等値比較 | C++17 |
+| [`operator==`](optional/op_equal.md)         | �値比較 | C++17 |
+| [`operator!=`](optional/op_not_equal.md)     | 非�値比較 | C++17 |
 | [`operator<`](optional/op_less.md)           | 左辺が右辺より小さいかを判定する | C++17 |
 | [`operator<=`](optional/op_less_equal.md)    | 左辺が右辺以下かを判定する | C++17 |
 | [`operator>`](optional/op_greater.md)        | 左辺が右辺より大きいかを判定する | C++17 |
@@ -133,7 +133,7 @@ namespace std {
 #include <optional>
 
 // 除算をする関数。
-// ゼロ割りを試みた場合、無効値が返る
+// ゼ�割りを試みた場合、無効値が返る
 std::optional<int> safe_divide(int a, int b)
 {
   if (b == 0)

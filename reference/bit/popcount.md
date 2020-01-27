@@ -30,11 +30,11 @@ namespace std {
 ## 備考
 - この関数は、ハードウェア機能として提供されている場合がある
 - GCCの組み込み関数として`__builtin_popcount()`、`__builtin_popcountl()`、`__builtin_popcountll()`が定義されていた
-- popcountは少なくとも1961年のCPUアーキテクチャから存在している命令であり、NSA (アメリカ国家安全保障局) の要請によって暗号解析のためアーキテクチャに導入された。この命令は幅広い用途に使われる：
+- popcountは少なくとも1961年のCPUアー�テクチャから�在している命令であり、NSA (アメリカ国家安全保障局) の要請によって暗号解析のためアー�テクチャに導入された。この命令は幅広い用途に使われる：
     - 暗号解析
-    - エラー訂正 (ECC, Error Correction Code)。ハミング距離 (Hamming Distance) の計算に使用する
-    - チェスプログラム。チェスではビットでボード情報を保持することが多く、64ビットワードに1ボードの情報が収まる。popcountによって駒の変動計算などができる
-    - 分子の特徴ベクトル (Molecular Fingerprinting)。分子はなんらかの方法でハッシュ化され、それらがどれくらい似ているかをpopcountで判断する
+    - エラー訂� (ECC, Error Correction Code)。ハミング距離 (Hamming Distance) の計算に使用する
+    - チェスプ�グラム。チェスではビットでボード情報を保持することが多く、64ビットワードに1ボードの情報が収まる。popcountによって駒の変動計算などができる
+    - 分�の特徴ベクトル (Molecular Fingerprinting)。分�はなんらかの方法でハッシュ化され、それらがどれくらい似ているかをpopcountで判�する
     - Hash Array Mapped Tries (HAMT) アルゴリズム
     - ビット配列 (標準では[`std::bitset`](/reference/bitset/bitset.md)や[`std::vector<bool>`](/reference/vector/vector.md))
 

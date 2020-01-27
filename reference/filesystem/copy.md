@@ -22,7 +22,7 @@ namespace std::filesystem {
 
 
 ## 要件
-- `options`は、各グループのオプションが最大ひとつまで設定されていること
+- `options`は、各グループのオプションが最大ひとつまで�定されていること
 
 
 ## 効果
@@ -53,7 +53,7 @@ namespace std::filesystem {
         * status[link status.md]
 
     - `f.`[`type()`](file_status/type.md)もしくは`t.`[`type()`](file_status/type.md)が実装定義のファイル種別であった場合、その効果は実装定義となる
-    - 以下のいずれかの場合、エラーを報告する。(3)の場合は例外、(4)の場合は`ec`にエラー情報を設定することでエラー報告とする：
+    - 以下のいずれかの場合、エラーを報告する。(3)の場合は例外、(4)の場合は`ec`にエラー情報を�定することでエラー報告とする：
         - `!`[`exists`](exists.md)`(f)`
         - [`equivalent`](equivalent.md)`(from, to)`
         - [`is_other`](is_other.md)`(f) ||` [`is_other`](is_other.md)`(t)`
@@ -70,7 +70,7 @@ namespace std::filesystem {
         - コピー先がディレクトリである場合、[`copy_file`](copy_file.md)`(from, to/`[`from.filename()`](path/filename.md)`, options)`を実行する
         - いずれの条件にも合致しない場合は、[`copy_file`](copy_file.md)`(from, to, options)`を実行する
     - コピー元がディレクトリであり、`((options & copy_options::recursive) != copy_options::none || options == copy_options::none)`である場合、
-        - コピー先にディレクトリが存在しない場合は、[`create_directory`](create_directory.md)`(to, from)`を実行する
+        - コピー先にディレクトリが�在しない場合は、[`create_directory`](create_directory.md)`(to, from)`を実行する
         - その後、コピー元ディレクトリの全ての要素を、以下のようにコピーする (`in-recursive-copy`は、[`copy_options`](copy_options.md)には含まれないビットマスク要素)：
 
         ```cpp
@@ -104,8 +104,8 @@ namespace fs = std::filesystem;
 int main()
 {
   // 単純なファイルのコピー。
-  // コピー先にはファイルが存在していない
-  // (コピー先にファイルが存在していたらエラー)
+  // コピー先にはファイルが�在していない
+  // (コピー先にファイルが�在していたらエラー)
   {
     std::ofstream{"regular1.txt"};
 

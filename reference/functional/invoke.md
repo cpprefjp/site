@@ -24,11 +24,11 @@ namespace std {
 [*INVOKE*](/reference/concepts/Invoke.md)コンセプトとはC++における関数呼び出しという性質を抽象化しまとめた概念（コンセプト）であり、この関数はその実体化、すなわち関数呼び出しという操作を統一したものである。
 
 ## 要件
-型`F`および`Args`の組み合わせで[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しが可能であり、オーバーロード解決の結果が曖昧にならないこと。そうでない場合はコンパイルエラーとなる。
+型`F`および`Args`の組み合わせで[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しが可能であり、オーバー�ード解決の結果が曖昧にならないこと。そうでない場合はコンパイルエラーとなる。
 
 ## 引数
 - `f` -- [*Callable*](/reference/concepts/Callable.md) オブジェクト（関数ポインタ/参照・関数オブジェクト・メンバポインタ）
-- `args...` -- `f`に与える引数列。`f`がメンバポインタである場合は対応するクラスのオブジェクト（もしくはその[reference_wrapper](reference_wrapper.md)）が`args...`の先頭になければならない
+- `args...` -- `f`に与える引数列。`f`がメンバポインタである場合は対応するクラスのオブジェクト（もしくはその[reference_wrapper](reference_wrapper.md)）が`args...`の先�になければならない
 
 ## 戻り値
 `f`と`args...`により[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しを行い、その結果を戻り値として返す。
@@ -96,7 +96,7 @@ int main()
   //関数呼び出し
   std::cout << std::invoke(f, 10) << std::endl;
 
-  //フリー関数は一度関数ポインタにしないとオーバーロード解決できない
+  //フリー関数は一度関数ポインタにしないとオーバー�ード解決できない
   std::cout << std::invoke((double(*)(int))g, 10) << std::endl;
   std::cout << std::invoke((double(*)(int, int))g, 10, 10) << std::endl;
 

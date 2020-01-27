@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`queue`の非等値比較を行う
+`queue`の非�値比較を行う
 
 
 ## 戻り値

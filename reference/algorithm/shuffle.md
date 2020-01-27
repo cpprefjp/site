@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 計算量
-正確に `(last - first) - 1` 回 swap する。
+�確に `(last - first) - 1` 回 swap する。
 
 
 ## 備考
@@ -73,7 +73,7 @@ before: 0123456789
  after: 5803429716
 ```
 
-### 文字列をシャッフルする
+### 文�列をシャッフルする
 ```cpp example
 #include <algorithm>
 #include <iostream>

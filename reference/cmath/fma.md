@@ -35,17 +35,17 @@ namespace std {
 
 
 ## 備考
-- 本関数は、C99 の規格にある `fma`（より正確には `math.h` ヘッダの `fma`、`fmaf`、`fmal` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
-- C99 では、処理系が ISO IEC 60559（IEEE 754 と等価）に準拠している場合、以下のように規定されている。
+- 本関数は、C99 の規格にある `fma`（より�確には `math.h` ヘッダの `fma`、`fmaf`、`fmal` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と�価である。
+- C99 では、処理系が ISO IEC 60559（IEEE 754 と�価）に準拠している場合、以下のように規定されている。
 
-	- `x`、または `y` のいずれか一方が無限でもう一方がゼロで、かつ、`z` が NaN の場合、NaN を返す。この際、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生するか否かは処理系定義である。
-	- `x`、または `y` のいずれか一方が無限でもう一方がゼロで、かつ、`z` が NaN 以外の場合、NaN を返す。この際、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生する。
+	- `x`、または `y` のいずれか一方が無限でもう一方がゼ�で、かつ、`z` が NaN の場合、NaN を返す。この際、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生するか否かは処理系定義である。
+	- `x`、または `y` のいずれか一方が無限でもう一方がゼ�で、かつ、`z` が NaN 以外の場合、NaN を返す。この際、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生する。
 	- `x * y` と `z` がいずれも無限で、かつ、それらの符号が異なる場合、NaN を返す。この際、[`FE_INVALID`](../cfenv/fe_invalid.md) が発生する。
 
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md) によって型毎に判別可能である。
 
-- 本関数が単純に `x * y + z` を計算するのと等価か、より速い場合には、引数の型に応じて [`FP_FAST_FMA`](fp_fast_fma.md)（`double` の場合）、[`FP_FAST_FMAF`](fp_fast_fmaf.md)（`float` の場合）、[`FP_FAST_FMAL`](fp_fast_fmal.md)（`long double` の場合）と言ったマクロが定義される。  
-	これらのマクロは、一般的に本関数がハードウェアによる積和演算命令を使用している場合にのみ定義される。
+- 本関数が単純に `x * y + z` を計算するのと�価か、より速い場合には、引数の型に応じて [`FP_FAST_FMA`](fp_fast_fma.md)（`double` の場合）、[`FP_FAST_FMAF`](fp_fast_fmaf.md)（`float` の場合）、[`FP_FAST_FMAL`](fp_fast_fmal.md)（`long double` の場合）と言ったマク�が定義される。  
+	これらのマク�は、一般的に本関数がハードウェアによる積和演算命令を使用している場合にのみ定義される。
 
 
 ## 例

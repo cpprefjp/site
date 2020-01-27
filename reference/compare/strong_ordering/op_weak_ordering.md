@@ -14,7 +14,7 @@ constexpr operator weak_ordering() const noexcept;
 
 
 ## 戻り値
-以下と等価：
+以下と�価：
 
 ```cpp
 return *this == 0 ? weak_ordering::equivalent :

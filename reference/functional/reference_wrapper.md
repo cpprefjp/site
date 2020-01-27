@@ -23,7 +23,7 @@ C++17からは、このクラスは[トリビアルコピー可能](/reference/t
 |------|------|----------------|
 | [`(constructor)`](reference_wrapper/op_constructor.md) | コンストラクタ | C++11 |
 | `~reference_wrapper() = default;`                        | デストラクタ | C++11 |
-| [`operator=`](reference_wrapper/op_assign.md)          | 代入演算子 | C++11 |
+| [`operator=`](reference_wrapper/op_assign.md)          | 代入演算� | C++11 |
 | [`get`](reference_wrapper/get.md)                      | 生参照の取得 | C++11 |
 | [`operator T&()`](reference_wrapper/op_cast_ref_t.md)  | 生参照への変換 | C++11 |
 | [`operator()`](reference_wrapper/op_call.md)           | 関数オブジェクト呼び出し | C++11 |

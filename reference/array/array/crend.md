@@ -12,14 +12,14 @@ constexpr const_reverse_iterator crend() const noexcept; // C++17
 
 ## 概要
 
-先頭要素の前を指す読み取り専用逆イテレータを取得する。
+先�要素の前を指す�み取り専用逆イテレータを取得する。
 
 [`rend()`](rend.md)は非`const`な`array`オブジェクトに対して`reverse_iterator`を返し、`const`な`array`オブジェクトに対しては`const_reverse_iterator`を返すが、`cend()`は`const_reverse_iterator`を返すバージョンのみが提供されている。
 アルゴリズムにイテレータの組を渡す際、アルゴリズム内でデータの書き換えが起こらないというユーザーの意図を示す場合などに有用である。
 
 
 ## 戻り値
-先頭要素の前を指す読み取り専用逆イテレータ
+先�要素の前を指す�み取り専用逆イテレータ
 
 
 ## 例外

@@ -11,7 +11,7 @@ constexpr bool empty() const noexcept;               // C++17
 ```
 
 ## 概要
-文字列が空かどうかを判定する。
+文�列が空かどうかを判定する。
 
 
 ## 戻り値

@@ -18,7 +18,7 @@ namespace std {
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
-`deque`（通常、"デック"のように発音する）は<b>d</b>ouble-<b>e</b>nded <b>q</b>ueue （二重終端キュー）の頭文字をとったものである。double-ended queue はシーケンスコンテナの一種である。要素は厳密な線形シーケンスに従って並べられる。
+`deque`（通常、"デック"のように発音する）は<b>d</b>ouble-<b>e</b>nded <b>q</b>ueue （二重終端�ュー）の�文�をとったものである。double-ended queue はシーケンスコンテナの一種である。要素は厳密な線形シーケンスに従って並べられる。
 
 `deque` はライブラリによってさまざまな方法で実装されるかもしれないが、全ての場合においてランダムアクセスイテレータを介して個々の要素へアクセス可能であり、ストレージは（必要に応じて拡大または縮小して）自動的に処理される。
 
@@ -26,17 +26,17 @@ namespace std {
 
 - 個々の要素はその位置インデックスによってアクセスすることができる。
 - 要素のイテレーションは任意の順序で実行することができる。
-- 要素はいずれの端（シーケンスの先頭または最後）からも効率よく追加・削除される。
+- 要素はいずれの端（シーケンスの先�または最後）からも効率よく追加・削除される。
 
-従ってこれは [`vector`](/reference/vector.md) と同様の機能を提供するが、シーケンスの終端だけでなく先頭への効率的な挿入・削除を共に提供する。[`vector`](/reference/vector.md) とは異なる欠点として `deque` は連続した位置のストレージに全ての要素を持つことを保証していないため、ポインタ演算を介しての安全なアクセスの可能性を排除する。
+従ってこれは [`vector`](/reference/vector.md) と同様の機能を提供するが、シーケンスの終端だけでなく先�への効率的な挿入・削除を共に提供する。[`vector`](/reference/vector.md) とは異なる欠点として `deque` は連続した位置のストレージに全ての要素を持つことを保証していないため、ポインタ演算を介しての安全なアクセスの可能性を排除する。
 
-[`vector`](/reference/vector.md) と `deque` は共に類似したインターフェイスを提供するため、類似した目的に利用することができるが、内部的にはかなり異なった方法で動作する。[`vector`](/reference/vector.md) は通常の配列と非常によく似ており、容量が使い果たされるときにはブロック内の全ての要素を再配置することによって拡張する。`deque` は全ての情報を保持しつつ要素への均一なアクセスを提供することで、要素をストレージのいくつかのチャンクに分割することができる。従って `deque` の内部は少し複雑であるが、これは特に大規模なシーケンスにおいて大規模な再配置が回避されることを許すため、一般に容量増加の自動管理を [`vector`](/reference/vector.md) より効率的に行うことを可能にする。
+[`vector`](/reference/vector.md) と `deque` は共に類似したインターフェイスを提供するため、類似した目的に利用することができるが、内部的にはかなり異なった方法で動作する。[`vector`](/reference/vector.md) は通常の配列と非常によく似ており、容量が使い果たされるときにはブ�ック内の全ての要素を再配置することによって拡張する。`deque` は全ての情報を保持しつつ要素への均一なアクセスを提供することで、要素をストレージのいくつかのチャンクに分割することができる。従って `deque` の内部は少し複雑であるが、これは特に大規模なシーケンスにおいて大規模な再配置が回避されることを許すため、一般に容量増加の自動管理を [`vector`](/reference/vector.md) より効率的に行うことを可能にする。
 
 
 テンプレートパラメータは、以下を意味する：
 
 - `T` : 要素の型。
-- `Allocator` : ストレージの割り当てモデルを定義するために使用されるアロケータオブジェクトの型。デフォルトでは、値に依存しない単純なメモリ割り当てモデルを定義する、型 `T` の [`allocator`](/reference/memory/allocator.md) クラステンプレートが使われる。 
+- `Allocator` : ストレージの割り当てモデルを定義するために使用されるア�ケータオブジェクトの型。デフォルトでは、値に依�しない単純なメモリ割り当てモデルを定義する、型 `T` の [`allocator`](/reference/memory/allocator.md) クラステンプレートが使われる。 
 
 
 ## メンバ関数
@@ -46,9 +46,9 @@ namespace std {
 |---------------------------------------------|----------------|-------|
 | [`(constructor)`](deque/op_constructor.md)         | コンストラクタ | |
 | [`(destructor)`](deque/op_destructor.md)         | デストラクタ   | |
-| [`operator=`](deque/op_assign.md)         | 代入演算子     | |
+| [`operator=`](deque/op_assign.md)         | 代入演算�     | |
 | [`assign`](deque/assign.md)               | コンテナに値を代入する | |
-| [`get_allocator`](deque/get_allocator.md) | アロケータオブジェクトを取得する | |
+| [`get_allocator`](deque/get_allocator.md) | ア�ケータオブジェクトを取得する | |
 
 
 ### 要素アクセス
@@ -57,7 +57,7 @@ namespace std {
 |----------------------------------|----------------------------------|-------|
 | [`at`](deque/at.md)            | 任意位置の要素への参照を取得する | |
 | [`operator[]`](deque/op_at.md) | 任意位置の要素への参照を取得する | |
-| [`front`](deque/front.md)      | 先頭要素への参照を取得する | |
+| [`front`](deque/front.md)      | 先�要素への参照を取得する | |
 | [`back`](deque/back.md)        | 末尾要素への参照を取得する | |
 
 
@@ -65,14 +65,14 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|------------------------------------------------------|-------|
-| [`begin`](deque/begin.md)     | 先頭要素を指すイテレータの取得する                   | |
+| [`begin`](deque/begin.md)     | 先�要素を指すイテレータの取得する                   | |
 | [`end`](deque/end.md)         | 末尾要素の次を指すイテレータを取得する               | |
-| [`cbegin`](deque/cbegin.md)   | 先頭要素を指す読み取り専用イテレータを取得する       | C++11 |
-| [`cend`](deque/cend.md)       | 末尾要素の次を指す読み取り専用イテレータを取得する   | C++11 |
+| [`cbegin`](deque/cbegin.md)   | 先�要素を指す�み取り専用イテレータを取得する       | C++11 |
+| [`cend`](deque/cend.md)       | 末尾要素の次を指す�み取り専用イテレータを取得する   | C++11 |
 | [`rbegin`](deque/rbegin.md)   | 末尾要素を指す逆イテレータを取得する                 | |
-| [`rend`](deque/rend.md)       | 先頭要素の前を指す逆イテレータを取得する             | |
-| [`crbegin`](deque/crbegin.md) | 末尾要素を指す読み取り専用逆イテレータを取得する     | C++11 |
-| [`crend`](deque/crend.md)     | 先頭要素の前を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`rend`](deque/rend.md)       | 先�要素の前を指す逆イテレータを取得する             | |
+| [`crbegin`](deque/crbegin.md) | 末尾要素を指す�み取り専用逆イテレータを取得する     | C++11 |
+| [`crend`](deque/crend.md)     | 先�要素の前を指す�み取り専用逆イテレータを取得する | C++11 |
 
 
 ### 領域
@@ -95,9 +95,9 @@ namespace std {
 | [`push_back`](deque/push_back.md)         | 末尾に要素を追加する | |
 | [`emplace_back`](deque/emplace_back.md)   | 末尾に要素を直接構築で追加する | C++11 |
 | [`pop_back`](deque/pop_back.md)           | 末尾要素を削除する | |
-| [`push_front`](deque/push_front.md)       | 先頭に要素を追加する | |
-| [`emplace_front`](deque/emplace_front.md) | 先頭に要素を直接構築で追加する | C++11 |
-| [`pop_front`](deque/pop_front.md)         | 先頭要素を削除する | |
+| [`push_front`](deque/push_front.md)       | 先�に要素を追加する | |
+| [`emplace_front`](deque/emplace_front.md) | 先�に要素を直接構築で追加する | C++11 |
+| [`pop_front`](deque/pop_front.md)         | 先�要素を削除する | |
 | [`resize`](deque/resize.md)               | 要素数を変更する | |
 | [`erase`](deque/erase.md)                 | 指定した要素を削除する | |
 | [`swap`](deque/swap.md)                   | 他の`deque`オブジェクトとデータを入れ替える | |
@@ -110,7 +110,7 @@ namespace std {
 | `reference` | `T&` | |
 | `const_reference` | `const T&` | |
 | `iterator` | イテレータ型。ランダムアクセスイテレータ | |
-| `const_iterator` | 読み取り専用イテレータ型ランダムアクセスイテレータ | |
+| `const_iterator` | �み取り専用イテレータ型ランダムアクセスイテレータ | |
 | `size_type` | 符号なし整数型(通常は [`size_t`](/reference/cstddef/size_t.md)) | |
 | `difference_type` | 符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) | |
 | `value_type` | `T` | |
@@ -118,16 +118,16 @@ namespace std {
 | `pointer` | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer` | |
 | `const_iterator` | [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer` | |
 | `reverse_iterator` | 逆イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | |
-| `const_reverse_iterator` | 読み取り専用逆イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | |
+| `const_reverse_iterator` | �み取り専用逆イテレータ型 [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | |
 
 
 ## 非メンバ関数
-### 比較演算子
+### 比較演算�
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
-| [`operator==`](deque/op_equal.md)         | 等値比較 | |
-| [`operator!=`](deque/op_not_equal.md)     | 非等値比較 | |
+| [`operator==`](deque/op_equal.md)         | �値比較 | |
+| [`operator!=`](deque/op_not_equal.md)     | 非�値比較 | |
 | [`operator<`](deque/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
 | [`operator<=`](deque/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
 | [`operator>`](deque/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
@@ -165,7 +165,7 @@ int main()
 {
   std::deque<int> deq;
 
-  deq.push_front(3);  // 先頭に要素を追加
+  deq.push_front(3);  // 先�に要素を追加
   deq.push_back(1);   // 末尾に要素を追加
 
   // イテレータを介して全要素に対して操作を行う

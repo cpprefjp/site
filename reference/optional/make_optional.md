@@ -24,13 +24,13 @@ namespace std {
 
 - (1) : 型`T`の値を受け取り、それを有効値として保持する`optional`オブジェクトを構築する
 - (2) : 型`T`のコンストラクタ引数を受け取り、関数内で`T`オブジェクトを構築し、それを有効値として保持する`optional`オブジェクトを構築する
-- (3) : 型`T`のコンストラクタ引数として初期化子リストと任意個の引数を受け取り、関数内で`T`オブジェクトを構築し、それを有効値として保持する`optional`オブジェクトを構築する
+- (3) : 型`T`のコンストラクタ引数として初期化�リストと任意個の引数を受け取り、関数内で`T`オブジェクトを構築し、それを有効値として保持する`optional`オブジェクトを構築する
 
 
 ## 効果
 - (1) : `return optional<`[`decay_t`](/reference/type_traits/decay.md)`<T>>(`[`std::forward`](/reference/utility/forward.md)`<T>(v))`
-- (2) : `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と等価の処理を行う
-- (3) `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`, il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と等価の処理を行う
+- (2) : `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と�価の処理を行う
+- (3) `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`, il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と�価の処理を行う
 
 
 ## 例

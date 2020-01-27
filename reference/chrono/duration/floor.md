@@ -56,8 +56,8 @@ int main()
 
 | 名前 | 説明 |
 |------|------|
-| [`duration_cast`](/reference/chrono/duration_cast.md) | ゼロ方向への丸め |
-| [`ceil`](ceil.md)                                     | 正の無限大方向への丸め |
+| [`duration_cast`](/reference/chrono/duration_cast.md) | ゼ�方向への丸め |
+| [`ceil`](ceil.md)                                     | �の無限大方向への丸め |
 | [`round`](round.md)                                   | 偶数方向への丸め |
 
 

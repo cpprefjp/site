@@ -18,7 +18,7 @@ void promise<void>::set_value();
 ```
 
 ## 概要
-結果の値を設定する
+結果の値を�定する
 
 
 ## 効果
@@ -32,7 +32,7 @@ void promise<void>::set_value();
 ## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
-- [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が設定されている
+- [`promise_already_satisfied`](../future_errc.md) ： すでに値もしくは例外が�定されている
 - [`no_state`](../future_errc.md) ： `*this`が共有状態を持っていない(`promise`オブジェクトがムーブされると起こりうる)
 
 また、以下のバージョンにおいてその他の例外オブジェクトが送出される可能性がある：

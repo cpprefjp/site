@@ -18,7 +18,7 @@ namespace std {
 * locale[link /reference/locale/locale.md]
 
 ## 概要
-`basic_streambuf`の派生クラスに対し、ロケールの変更を通知する。
+`basic_streambuf`の派生クラスに対し、�ケールの変更を通知する。
 
 この関数は`public`なメンバ関数[`pubimbue`](pubimbue.md)から呼び出される。
 そのため、この関数を呼び出そうと考えているなら、代わりに`public`なメンバ関数`pubimbue`を呼び出すほうが適切ではないか検討すべきであろう。

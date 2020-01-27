@@ -30,7 +30,7 @@ bool empty() const;               // C++03
 
 int main()
 {
-  // 空のキュー
+  // 空の�ュー
   {
     std::priority_queue<int> empty_que;
 
@@ -42,7 +42,7 @@ int main()
     }
   }
 
-  // 非空のキュー
+  // 非空の�ュー
   {
     std::priority_queue<int> non_empty_que;
     non_empty_que.push(3);

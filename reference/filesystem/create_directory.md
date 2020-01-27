@@ -26,7 +26,7 @@ namespace std::filesystem {
 ## 効果
 - (1), (2) : パス`p`のディレクトリを作成する
     - POSIX環境では、[`mkdir()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/mkdir.2.html)関数に、第2引数に権限として`static_cast<int>(`[`perms::all`](perms.md)`)`を指定して実行する
-    - (2) では、OSのファイルシステムAPIによってエラーが報告された場合、`ec`にエラー情報が設定される。そうでなければ、[`ec.clear()`](/reference/system_error/error_code/clear.md)を呼び出し、エラー情報をクリアする
+    - (2) では、OSのファイルシステムAPIによってエラーが報告された場合、`ec`にエラー情報が�定される。そうでなければ、[`ec.clear()`](/reference/system_error/error_code/clear.md)を呼び出し、エラー情報をクリアする
 - (3), (4) : パス`existing_p`の属性を取得し、その属性を付加してパス`p`のディレクトリを作成する
     - POSIX環境では、[`stat`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)`(existing_p.c_str(), &attributes_stat)`の呼び出し後に、[`mkdir`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/mkdir.2.html)`(p.c_str(), attributes_stat.st_mode)`の呼び出しでディレクトリを作成する
     - Windows環境では、`CreateDirectoryExW(existing_p.c_str(), p.c_str(), 0)`を呼び出す
@@ -61,7 +61,7 @@ int main()
   assert(fs::exists("dir"));
   assert(fs::is_directory("dir"));
 
-  // すでに存在するディレクトリを指定した場合、falseは返るがエラーにはならない
+  // すでに�在するディレクトリを指定した場合、falseは返るがエラーにはならない
   bool result2 = fs::create_directory("dir");
   assert(!result2);
 }

@@ -10,7 +10,7 @@ void lock();
 ```
 
 ## 概要
-ロックを取得する
+�ックを取得する
 
 
 ## 効果
@@ -53,7 +53,7 @@ public:
   void add_value(int value)
   {
     std::unique_lock<std::mutex> lk(mtx_, std::defer_lock);
-    lk.lock(); // ロックを取得する
+    lk.lock(); // �ックを取得する
 
     value_ = value;
   }

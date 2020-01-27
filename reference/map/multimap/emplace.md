@@ -24,7 +24,7 @@ iterator emplace(Args&&... args);
 
 
 ## 例
-### 単純なキー・値を挿入する例
+### 単純な�ー・値を挿入する例
 ```cpp example
 #include <iostream>
 #include <map>
@@ -33,8 +33,8 @@ int main()
 {
   std::multimap<int, char> m;
 
-  // キーと値の組を作ることなく挿入できる
-  m.emplace(3, 'A'); // キー3と、値'A'を挿入
+  // �ーと値の組を作ることなく挿入できる
+  m.emplace(3, 'A'); // �ー3と、値'A'を挿入
   m.emplace(1, 'B');
   m.emplace(4, 'C');
 
@@ -52,7 +52,7 @@ int main()
 4 : C
 ```
 
-### キーと値もそれぞれコンストラクタ引数を渡す例
+### �ーと値もそれぞれコンストラクタ引数を渡す例
 ```cpp example
 #include <iostream>
 #include <map>
@@ -69,7 +69,7 @@ int main()
   std::multimap<std::string, Point> m;
 
   m.emplace(std::piecewise_construct,
-            std::forward_as_tuple(3, 'C'), // キーの型std::stringのコンストラクタ引数を渡す
+            std::forward_as_tuple(3, 'C'), // �ーの型std::stringのコンストラクタ引数を渡す
             std::forward_as_tuple(1, 2));  // 値の型Pointのコンストラクタ引数を渡す
 
   m.emplace(std::piecewise_construct,

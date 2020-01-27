@@ -28,7 +28,7 @@ namespace std {
 ```
 
 ## 概要
-範囲の先頭N個の要素に、指定された関数を適用する。
+範囲の先�N個の要素に、指定された関数を適用する。
 
 
 ## 要件
@@ -68,11 +68,11 @@ int main()
 {
   std::vector<int> v = {3, 1, 4, 5, 2};
 
-  // コンテナvの先頭3要素に、関数f()を適用する。
+  // コンテナvの先�3要素に、関数f()を適用する。
   // 関数f()は要素の変更を行う
   std::for_each_n(v.begin(), 3, f);
 
-  // コンテナvの先頭3要素に、ラムダ式で記述した関数オブジェクトを適用する
+  // コンテナvの先�3要素に、ラムダ式で記述した関数オブジェクトを適用する
   std::for_each_n(v.begin(), 3, [](int x) {
     std::cout << x << std::endl;
   });
@@ -99,4 +99,4 @@ int main()
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [Bug 91748 - doesn't compile `std::for_each_n` with random access iterator range](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91748)
-    - GCC 9.2の`std::for_each_n()`は、ランダムアクセスイテレータを与えるとコンパイルに失敗する。9.3で修正済み
+    - GCC 9.2の`std::for_each_n()`は、ランダムアクセスイテレータを与えるとコンパイルに失敗する。9.3で修�済み

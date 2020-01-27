@@ -23,7 +23,7 @@ namespace std {
 * nullopt_t[link /reference/optional/nullopt_t.md]
 
 ## 概要
-`optional`オブジェクトの非等値比較を行う。
+`optional`オブジェクトの非�値比較を行う。
 
 
 ## 要件

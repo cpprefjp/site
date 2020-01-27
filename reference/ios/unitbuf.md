@@ -20,7 +20,7 @@ namespace std {
 
 ## 備考
 [`std::cerr`](../iostream/cerr.md)と[`std::wcerr`](../iostream/wcerr.md.nolink)オブジェクトは、
-初期状態として`std::ios_base::unitbuf`が設定されている。
+初期状態として`std::ios_base::unitbuf`が�定されている。
 
 ## 例
 ```cpp example

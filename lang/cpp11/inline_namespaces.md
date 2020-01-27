@@ -33,7 +33,7 @@ int main()
     ```
 
 - インライン名前空間のメンバは、その外側の名前空間 (the enclosing namespace, それを取り囲む名前空間) のメンバとして使用できる
-- インライン名前空間とその外側の名前空間は、引数依存の名前探索で探索される「関連ある名前空間(associated namespace)」となる
+- インライン名前空間とその外側の名前空間は、引数依�の名前探索で探索される「関連ある名前空間(associated namespace)」となる
 
     ```cpp example
     #include <iostream>
@@ -225,7 +225,7 @@ v2
     - [`operator"" s`](/reference/chrono/duration/op_s.md)
     - [`operator"" min`](/reference/chrono/duration/op_min.md)
     - [`operator"" h`](/reference/chrono/duration/op_h.md)
-- 文字列オブジェクトのリテラル
+- 文�列オブジェクトのリテラル
     - [`operator"" s`](/reference/string/basic_string/op_s.md)
 - 複素数オブジェクトのリテラル
     - [`operator"" i`](/reference/complex/complex/op_i.md)

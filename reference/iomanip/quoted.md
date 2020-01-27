@@ -30,32 +30,32 @@ namespace std {
 * unspecified[italic]
 
 ## 概要
-囲み文字指定で入出力する。
+囲み文�指定で入出力する。
 
-このマニピュレータを使用して`cout << quoted("hello");`とすると、「`"hello"`」のように、引用符で囲まれた文字列が出力される。逆に、引用符で囲まれた文字列を`cin >> quoted(s);`のように入力すると、引用符が外された文字列を取得できる。
+このマニピュレータを使用して`cout << quoted("hello");`とすると、「`"hello"`」のように、引用符で囲まれた文�列が出力される。逆に、引用符で囲まれた文�列を`cin >> quoted(s);`のように入力すると、引用符が外された文�列を取得できる。
 
-このような囲み文字を指定しての入出力は、たとえばXMLの属性や、CSVのフィールドで使用する。
+このような囲み文�を指定しての入出力は、たとえばXMLの属性や、CSVのフィールドで使用する。
 
-- (1) : 出力用のオーバーロード。文字配列を、囲み文字で修飾する。
-- (2) : 出力用のオーバーロード。[`std::basic_string`](/reference/string/basic_string.md)型の文字列を、囲み文字で修飾する。
-- (3) : 出力用のオーバーロード。[`std::basic_string_view`](/reference/string_view/basic_string_view.md)型の文字列を、囲み文字で修飾する。
-- (4) : 入力用のオーバーロード。囲み文字で修飾された入力から、囲まれている文字列を抽出する。
+- (1) : 出力用のオーバー�ード。文�配列を、囲み文�で修飾する。
+- (2) : 出力用のオーバー�ード。[`std::basic_string`](/reference/string/basic_string.md)型の文�列を、囲み文�で修飾する。
+- (3) : 出力用のオーバー�ード。[`std::basic_string_view`](/reference/string_view/basic_string_view.md)型の文�列を、囲み文�で修飾する。
+- (4) : 入力用のオーバー�ード。囲み文�で修飾された入力から、囲まれている文�列を抽出する。
 
 
 ## 効果
 - (1), (2), (3) : この関数で返された結果を出力ストリームに渡すと、以下のシーケンスが出力される。出力ストリームは、そのシーケンスに対して書式を適用する。
     1. `delim`を出力する。
-    2. `s`の各要素を出力する。それら要素が`delim`もしくは`escape`と等しい場合、要素の前に`escape`を出力する。
-        - 文字の等値比較には、[`std::char_traits<CharT>::eq()`](/reference/string/char_traits/eq.md)を使用する。
+    2. `s`の各要素を出力する。それら要素が`delim`もしくは`escape`と�しい場合、要素の前に`escape`を出力する。
+        - 文�の�値比較には、[`std::char_traits<CharT>::eq()`](/reference/string/char_traits/eq.md)を使用する。
     3. `delim`を出力する。
 - (4) : この関数で返された結果を入力ストリームに渡すと、以下のように入力される。
-    - 開始の文字が、[`std::char_traits<CharT>::eq()`](/reference/string/char_traits/eq.md)関数で比較して`delim`と等価である場合、
+    - 開始の文�が、[`std::char_traits<CharT>::eq()`](/reference/string/char_traits/eq.md)関数で比較して`delim`と�価である場合、
         1. `skipws`フラグをオフにする。
         2. [`s.clear()`](/reference/string/basic_string/clear.md)を呼び出す。
-        3. エスケープされない`delim`が読み込まれるか、ストリームが終端に達するまで、`s`に1文字ずつ読み込まれ追加される(`escape`文字以外)。
+        3. エスケープされない`delim`が�み込まれるか、ストリームが終端に達するまで、`s`に1文�ずつ�み込まれ追加される(`escape`文�以外)。
         4. 最後の`delim`が破棄される。
         5. `skipws`フラグを、元の値に戻す。
-    - そうでない場合、`istream >> s`で読み込みが行われる。
+    - そうでない場合、`istream >> s`で�み込みが行われる。
     - この関数で返された結果を出力ストリームに渡した場合は、(2)の動作となる。
 
 
@@ -68,14 +68,14 @@ namespace std {
 
 int main()
 {
-  // (1) : ダブルクォーテーションで文字列を囲んで出力する
+  // (1) : ダブルクォーテーションで文�列を囲んで出力する
   {
     std::stringstream ss;
     ss << std::quoted("hello");
     std::cout << "(1) : " << ss.str() << std::endl;
   }
 
-  // (2) : std::basic_string文字列をシングルクォーテーションで囲んで出力する
+  // (2) : std::basic_string文�列をシングルクォーテーションで囲んで出力する
   {
     std::string s = "hello";
 
@@ -84,7 +84,7 @@ int main()
     std::cout << "(2) : " << ss.str() << std::endl;
   }
 
-  // (3) : std::basic_string_view文字列を、ダブルクォーテーションで囲んで出力する
+  // (3) : std::basic_string_view文�列を、ダブルクォーテーションで囲んで出力する
   {
     std::string_view sv = "hello";
 
@@ -93,7 +93,7 @@ int main()
     std::cout << "(3) : " << ss.str() << std::endl;
   }
 
-  // (4) : ダブルクォーテーションで囲まれた文字列を抽出する
+  // (4) : ダブルクォーテーションで囲まれた文�列を抽出する
   {
     std::stringstream ss;
     ss << "\"hello\"";
@@ -103,7 +103,7 @@ int main()
     std::cout << "(4) : " << input << std::endl;
   }
 
-  // (4) : ダブルクォーテーションで囲まれていない文字列も読み込める
+  // (4) : ダブルクォーテーションで囲まれていない文�列も�み込める
   {
     std::stringstream ss;
     ss << "hello";

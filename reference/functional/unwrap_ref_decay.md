@@ -85,7 +85,7 @@ int main()
   assert(y.t == 5);
   assert(b == 4);
 
-  // Xクラスに文字列リテラルを保持させたい場合に、
+  // Xクラスに文�列リテラルを保持させたい場合に、
   // const char(&)[N]がconst char*に変換して保持させられる。
   X z = f("Hello");
   static_assert(std::is_same_v<decltype(z.t), const char*>);

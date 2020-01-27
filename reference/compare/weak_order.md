@@ -21,22 +21,22 @@ namespace std {
 
 ## 効果
 
-`weak_order(a, b)`のように呼び出された時、以下のいずれかと等価（上から順に考慮される）
+`weak_order(a, b)`のように呼び出された時、以下のいずれかと�価（上から順に考慮される）
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
-2. `std::weak_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`weak_ordering`](strong_ordering.md)`(weak_order(a, b))`が呼び出し可能ならば`weak_ordering(weak_order(a, b))`
+2. `std::weak_order`（本関数オブジェクト）の宣言を含まないコンテ�ストで、[`weak_ordering`](strong_ordering.md)`(weak_order(a, b))`が呼び出し可能ならば`weak_ordering(weak_order(a, b))`
 
-3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算子および[`strong_order`](strong_order.md)による順序と一貫する[`weak_ordering`](weak_ordering.md)の値を返す。  
+3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算�および[`strong_order`](strong_order.md)による順序と一貫する[`weak_ordering`](weak_ordering.md)の値を返す。  
    さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)` == true`の場合、追加で以下の同値類の順序に従った順序付けを行う。
 
     1. 全ての`-NaN`
     2. `-Inf`
-    3. 負の正規化数
-    4. 負の非正規化数
+    3. 負の�規化数
+    4. 負の非�規化数
     5. `±0.0`
-    6. 正の非正規化数
-    7. 正の正規化数
+    6. �の非�規化数
+    7. �の�規化数
     8. `+Inf`
     9. 全ての`+NaN`
 
@@ -74,12 +74,12 @@ namespace std {
 
 ## カスタマイゼーションポイント
 
-上記「効果」節2,4,5のケースでは、ユーザー定義の`weak_order()`、`<=>`演算子を定義、もしくは`strong_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
+上記「効果」節2,4,5のケースでは、ユーザー定義の`weak_order()`、`<=>`演算�を定義、もしくは`strong_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
 
 1. --
 2. 引数`a, b`の型`T`と同じ名前空間、もしくは`T`の定義内で`friend`関数として`weak_order()`を定義しておく。
 3. --
-4. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
+4. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算�を定義しておく。
 5. 引数`a, b`の型`T`を[`strong_order`](strong_order.md)にアダプトしておく。
 
 ただし、どのケースにおいてもその戻り値型は[`weak_ordering`](strong_ordering.md)に変換可能でなければならない。
@@ -89,9 +89,9 @@ namespace std {
 
 [`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)` == true`の場合の浮動小数点数の比較において、各同値類間の順序は以下のようになる。
 
-{全ての`-NaN`} ` < ` {`-Inf`} ` < ` {負の正規化数} ` < ` {負の非正規化数} ` < ` {`±0.0`} ` < ` {正の非正規化数} ` < ` {正の正規化数} ` < ` {`+Inf`} ` < ` {全ての`+NaN`}
+{全ての`-NaN`} ` < ` {`-Inf`} ` < ` {負の�規化数} ` < ` {負の非�規化数} ` < ` {`±0.0`} ` < ` {�の非�規化数} ` < ` {�の�規化数} ` < ` {`+Inf`} ` < ` {全ての`+NaN`}
 
-それぞれの同値類における順序付けは通常の比較演算子の順序付けに従う。ただし、比較不能である場合はその値は同値として扱われる。すなわち、{`±0.0`}および{`±NaN`}のそれぞの同値類では全ての値が同値(`=`)として扱われる。
+それぞれの同値類における順序付けは通常の比較演算�の順序付けに従う。ただし、比較不能である場合はその値は同値として扱われる。すなわち、{`±0.0`}および{`±NaN`}のそれぞの同値類では全ての値が同値(`=`)として扱われる。
 
 ## 例
 ```cpp example

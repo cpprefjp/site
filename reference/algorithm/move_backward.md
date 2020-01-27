@@ -39,7 +39,7 @@ namespace std {
 
 
 ## 計算量
-正確に `last - first` 回ムーブ代入が行われる。
+�確に `last - first` 回ムーブ代入が行われる。
 
 
 ## 備考

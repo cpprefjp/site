@@ -16,7 +16,7 @@ namespace std {
 
 [`wait()`](condition_variable/wait.md)／[`wait_for()`](condition_variable/wait_for.md)／[`wait_until()`](condition_variable/wait_until.md)を使用してスレッドを待機させ、[`notify_one()`](condition_variable/notify_one.md)／[`notify_all()`](condition_variable/notify_all.md)によって待機しているスレッドを起床させる。
 
-`condition_variable`は[`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)と違い、ロック型として[`unique_lock`](/reference/mutex/unique_lock.md)`<`[`mutex`](/reference/mutex/mutex.md)`>`のみをサポートしている。これは、処理系に`condition_variable`クラスに最も効率の良い実装を許可するためである。（例：POSIXスレッド環境においては`condition_variable`が`pthread_cond_t`の、[`mutex`](/reference/mutex/mutex.md)が`pthread_mutex_t`の単純なラッパクラスとして実装されうる）
+`condition_variable`は[`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)と違い、�ック型として[`unique_lock`](/reference/mutex/unique_lock.md)`<`[`mutex`](/reference/mutex/mutex.md)`>`のみをサポートしている。これは、処理系に`condition_variable`クラスに最も効率の良い実装を許可するためである。（例：POSIXスレッド環境においては`condition_variable`が`pthread_cond_t`の、[`mutex`](/reference/mutex/mutex.md)が`pthread_mutex_t`の単純なラッパクラスとして実装されうる）
 
 
 `condition_variable`の適切な利用については、[条件変数の利用方法](/article/lib/how_to_use_cv.md)も参照のこと。
@@ -28,7 +28,7 @@ namespace std {
 |---------------------------------------------------------------|----------------------------------------------------------|-------|
 | [`(constructor)`](condition_variable/op_constructor.md) | コンストラクタ | C++11 |
 | [`(destructor)`](condition_variable/op_destructor.md) | デストラクタ | C++11 |
-| `operator=(const condition_variable&) = delete;`              | 代入演算子 | C++11 |
+| `operator=(const condition_variable&) = delete;`              | 代入演算� | C++11 |
 | [`notify_one`](condition_variable/notify_one.md)            | 待機しているスレッドをひとつ起床させる | C++11 |
 | [`notify_all`](condition_variable/notify_all.md)            | 待機している全てのスレッドを起床させる | C++11 |
 | [`wait`](condition_variable/wait.md)                        | 起床されるまで待機する | C++11 |
@@ -41,7 +41,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------|----------------------|-------|
-| `native_handle_type` | 実装依存のハンドル型 | C++11 |
+| `native_handle_type` | 実装依�のハンドル型 | C++11 |
 
 
 ## 非メンバ関数

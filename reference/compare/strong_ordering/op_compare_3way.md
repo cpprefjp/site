@@ -27,7 +27,7 @@ friend constexpr strong_ordering operator<=>(/*unspecified*/, strong_ordering v)
 
 ## 備考
 
-これらの演算子は、`strong_ordering`がメンバ変数となっている時にその属する型の三方比較演算子の`default`実装を妨げないために定義されている。
+これらの演算�は、`strong_ordering`がメンバ変数となっている時にその属する型の三方比較演算�の`default`実装を妨げないために定義されている。
 
 それぞれ*unspecified*となっている片側の引数には`0`リテラルのみが使用できる。それ以外の物を渡した場合、動作は未定義。
 

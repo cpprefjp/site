@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-`stop_callback`クラステンプレートは、停止要求が作成された際に呼び出されるコールバックを表す。
+`stop_callback`クラステンプレートは、停�要求が作成された際に呼び出されるコールバックを表す。
 
 ## メンバ関数
 
@@ -20,7 +20,7 @@ namespace std {
 |---------------------------------------------------|--------------------------------------------------------------------|-------|
 | [`(constructor)`](stop_callback/op_constructor.md.nolink)| コンストラクタ | C++20 |
 | [`(destructor)`](stop_callback/op_destructor.md.nolink)  | デストラクタ | C++20 |
-| [`operator=`](stop_callback/op_assign.md.nolink)         | 代入演算子 | C++20 |
+| [`operator=`](stop_callback/op_assign.md.nolink)         | 代入演算� | C++20 |
 
 ## メンバ型
 
@@ -58,14 +58,14 @@ int main()
 
   ss.request_stop();
 
-  // 停止要求が作成される前に登録されていたコールバック関数は、
-  // 停止要求が作成された際にその中で呼び出される
+  // 停�要求が作成される前に登録されていたコールバック関数は、
+  // 停�要求が作成された際にその�で呼び出される
   assert(msg == "hello");
 
   std::stop_callback cb2(st, [&] { msg += " world"; });
 
-  // 停止要求が作成されたあとに登録されたコールバック関数は、
-  // std::stop_callbackクラスのコンストラクタの中で即座に呼び出される
+  // 停�要求が作成されたあとに登録されたコールバック関数は、
+  // std::stop_callbackクラスのコンストラクタの�で即座に呼び出される
   assert(msg == "hello world");
 }
 ```

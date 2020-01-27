@@ -21,7 +21,7 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` の値として要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。
+引数 `k` で指定された�ーが�在しなければ対応する値を引数 `obj` の値として要素を挿入し（`insert`）、さもなければ（`or`）、その�ーに対応する値に引数 `obj` を代入する（`assign`）。
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。（が、実際に使用されることはないものと思われる。[`emplace_hint`](emplace_hint.md) の備考を参照）
 
@@ -32,14 +32,14 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 
 
 ## 効果
-- (1)、(3) : `Unordered_map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
-- (2)、(4) : `Unordered_map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (1)、(3) : `Unordered_map` が `k` と同値の�ーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (2)、(4) : `Unordered_map` が `k` と同値の�ーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
 
 
 ## 戻り値
 - (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
-    - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
-    - 代入された場合には、`first` に代入された要素へのイテレータ、`second` に `false` が設定される。
+    - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が�定される。
+    - 代入された場合には、`first` に代入された要素へのイテレータ、`second` に `false` が�定される。
 - (3)、(4) :
     - 挿入された場合には、挿入された要素へのイテレータを返す。
     - 代入された場合には、代入された要素へのイテレータを返す。
@@ -51,13 +51,13 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 
 
 ## 備考
-- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と等価と考えて問題ないと思われる。
+- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と�価と考えて問題ないと思われる。
 
-- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と等価と考えて問題ないと思われる。
+- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と�価と考えて問題ないと思われる。
 
-- このメンバ関数の[`機能テストマクロ`](/lang/cpp17/feature_test_macros.md)は以下の通り。
+- このメンバ関数の[`機能テストマク�`](/lang/cpp17/feature_test_macros.md)は以下の通り。
 
-    | マクロ名                              | 値       |
+    | マク�名                              | 値       |
     |---------------------------------------|----------|
     | `__cpp_lib_unordered_map_try_emplace` | `201411` |
 
@@ -134,7 +134,7 @@ key = two, value = 42, is inserted = false, is empty = true
 | [`swap`](swap.md)                         | 内容の交換                                             |
 | [`bucket_count`](bucket_count.md)         | バケット数の取得                                       |
 | [`load_factor`](load_factor.md)           | 現在の負荷率（バケットあたりの要素数の平均）を取得     |
-| [`max_load_factor`](max_load_factor.md)   | 負荷率の最大値を取得、設定                             |
+| [`max_load_factor`](max_load_factor.md)   | 負荷率の最大値を取得、�定                             |
 | [`rehash`](rehash.md)                     | 最小バケット数指定によるバケット数の調整               |
 | [`reserve`](reserve.md)                   | 最小要素数指定によるバケット数の調整                   |
 

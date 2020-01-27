@@ -20,7 +20,7 @@ thread& operator=(thread&& x) noexcept;
 
 
 ## 効果
-ムーブ代入演算子呼び出し時点で`this`にスレッドが関連付けられている場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプログラムを異常終了する。そうでなければ`x`から`this`へのムーブ代入を行う。
+ムーブ代入演算�呼び出し時点で`this`にスレッドが関連付けられている場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプ�グラムを異常終了する。そうでなければ`x`から`this`へのムーブ代入を行う。
 
 
 ## 事後条件

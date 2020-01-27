@@ -21,11 +21,11 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](filesystem_error/op_constructor.md) | コンストラクタ | C++17 |
 | `~filesystem_error() = default` | デストラクタ | C++17 |
-| `filesystem_error& operator=(const filesystem_error&) = default` | 代入演算子 | C++17 |
+| `filesystem_error& operator=(const filesystem_error&) = default` | 代入演算� | C++17 |
 | [`path1`](filesystem_error/path1.md) | エラーとなったひとつめのパスを取得する | C++17 |
 | [`path2`](filesystem_error/path2.md) | エラーとなったふたつめのパスを取得する | C++17 |
 | [`code`](filesystem_error/code.md) | エラーコードを取得する | C++17 |
-| [`what`](filesystem_error/what.md) | エラー理由の文字列を取得する | C++17 |
+| [`what`](filesystem_error/what.md) | エラー理由の文�列を取得する | C++17 |
 
 
 ## 例
@@ -40,7 +40,7 @@ int main()
 {
   assert(!fs::exists("a/from.txt"));
 
-  // 存在しないファイルをコピーしようとした
+  // �在しないファイルをコピーしようとした
   try {
     fs::copy_file("a/from.txt", "b/to.txt");
   }

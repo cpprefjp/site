@@ -15,7 +15,7 @@ namespace std {
 ```
 
 ## 概要
-`piecewise_construct_t`クラスは、オーバーロードのための空クラスである。
+`piecewise_construct_t`クラスは、オーバー�ードのための空クラスである。
 
 `pair`の要素型のコンストラクタ引数を引数にとるコンストラクタを呼び出すためにある。
 

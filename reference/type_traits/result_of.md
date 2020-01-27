@@ -75,7 +75,7 @@ struct functor {
     return a + b;
   }
 
-  // オーバーロードしている
+  // オーバー�ードしている
   std::string operator()(std::string a, std::string b) const
   {
     return a + b;
@@ -114,7 +114,7 @@ int main()
   // 関数オブジェクト
   int result2 = invoke(functor(), 1, 2);
 
-  // オーバーロード
+  // オーバー�ード
   std::string result3 = invoke(functor(), "Hello ", "World");
 
   // メンバ関数

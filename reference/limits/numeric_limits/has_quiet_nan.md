@@ -16,7 +16,7 @@ static constexpr bool has_quiet_NaN;
 浮動小数点数型において、型Tがシグナルを投げないNaN (Not a Number)を持っているかを判定。  
 [`is_iec559`](is_iec559.md) `!= false`が成り立つ場合は常に`true`である。
 
-`numeric_limits<float>::has_quiet_NaN`が`true`のときマクロ`NAN`がdefineされ、そうでないときはdefineされない。
+`numeric_limits<float>::has_quiet_NaN`が`true`のときマク�`NAN`がdefineされ、そうでないときはdefineされない。
 
 
 ## 例

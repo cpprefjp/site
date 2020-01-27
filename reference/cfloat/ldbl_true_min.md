@@ -9,11 +9,11 @@
 ```
 
 ## 概要
-`long double` の正の最小値を表すマクロ。
+`long double` の�の最小値を表すマク�。
 
-このマクロは、非正規化数を含む、その環境での正の最小値を表すマクロである。非正規化数を表現できない、または非正規化数の有無を判定できない場合は、その型の最小正規化数以下の正数を表す。
+このマク�は、非�規化数を含む、その環境での�の最小値を表すマク�である。非�規化数を表現できない、または非�規化数の有無を判定できない場合は、その型の最小�規化数以下の�数を表す。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`denorm_min`](/reference/limits/numeric_limits/denorm_min.md)`()` と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<long double>::`[`denorm_min`](/reference/limits/numeric_limits/denorm_min.md)`()` と�しい。
 
 
 ## 備考

@@ -10,7 +10,7 @@ void lock();
 ```
 
 ## 概要
-共有ロックを取得する
+共有�ックを取得する
 
 
 ## 効果
@@ -47,10 +47,10 @@ int main()
 {
   std::shared_timed_mutex mtx;
   {
-    // 遅延ロックする(ここではロックを取得しない)
+    // 遅延�ックする(ここでは�ックを取得しない)
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
 
-    // 共有ロックを取得する
+    // 共有�ックを取得する
     lock.lock();
 
     assert(lock.owns_lock() == true);

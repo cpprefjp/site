@@ -6,7 +6,7 @@ if文、switch文、for文と同様に、範囲for文でもそのスコープで
 
 これにより、範囲for文で使用するための変数を、範囲for文のスコープ外 (前) で宣言しなくてもよくなり、範囲for文用の変数のスコープを限定できるようになる。
 
-従来の範囲for文で記述していた以下のようなプログラムは、
+従来の範囲for文で記述していた以下のようなプ�グラムは、
 
 ```cpp
 {
@@ -29,7 +29,7 @@ for (T thing = f(); auto& x : thing.items()) {
 ```
 * T thing = f();[color ff0000]
 
-また同様に、範囲for文にインデックスを持たせる以下のようなプログラムは、
+また同様に、範囲for文にインデックスを持たせる以下のようなプ�グラムは、
 
 ```cpp
 {
@@ -64,7 +64,7 @@ iteration-statement:
   for ( init-statement opt for-range-declaration : for-range-initializer ) statement
 ```
 
-この改定では、範囲for文に初期化式であるinit-statement (セミコロン含む) が省略可能として追加になる。
+この改定では、範囲for文に初期化式であるinit-statement (セミコ�ン含む) が省略可能として追加になる。
 
 範囲for文のfor文への展開は以下のようになる：
 

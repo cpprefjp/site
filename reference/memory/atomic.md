@@ -26,11 +26,11 @@ namespace std {
 |------|------|-----|
 | [`(constructor)`](/reference/atomic/atomic/op_constructor.md) | コンストラクタ | C++20 |
 | `~atomic() = default`                       | デストラクタ | C++20 |
-| [`operator=`](/reference/atomic/atomic/op_assign.md)          | 代入演算子 | C++20 |
-| [`is_lock_free`](/reference/atomic/atomic/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++20 |
+| [`operator=`](/reference/atomic/atomic/op_assign.md)          | 代入演算� | C++20 |
+| [`is_lock_free`](/reference/atomic/atomic/is_lock_free.md)    | オブジェクトが�ックフリーに振る舞えるかを判定する | C++20 |
 | [`store`](/reference/atomic/atomic/store.md)                  | 値を書き込む | C++20 |
-| [`load`](/reference/atomic/atomic/load.md)                    | 値を読み込む | C++20 |
-| [`operator T`](/reference/atomic/atomic/op_t.md)              | 型Tへの変換演算子 | C++20 |
+| [`load`](/reference/atomic/atomic/load.md)                    | 値を�み込む | C++20 |
+| [`operator T`](/reference/atomic/atomic/op_t.md)              | 型Tへの変換演算� | C++20 |
 | [`exchange`](/reference/atomic/atomic/exchange.md)            | 値を入れ替える | C++20 |
 | [`compare_exchange_weak`](/reference/atomic/atomic/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++20 |
 | [`compare_exchange_strong`](/reference/atomic/atomic/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++20 |
@@ -49,7 +49,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常にロックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++20 |
+| `static constexpr bool is_always_lock_free` | 型`T`に対するアトミック操作が常に�ックフリー (非ミューテックス) で動作する場合は`true`、そうでなければ`false` | C++20 |
 
 
 ### 例

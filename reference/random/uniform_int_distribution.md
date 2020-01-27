@@ -12,14 +12,14 @@ namespace std {
 ```
 
 ## 概要
-`uniform_int_distribution`は、指定された範囲の値が等確率で発生するよう離散分布するクラスである。 
+`uniform_int_distribution`は、指定された範囲の値が�確率で発生するよう離散分布するクラスである。 
 このクラスは、離散一様分布(Discrete Uniform Distribution)の整数に特化したバージョンである。実数が必要な場合は、[`uniform_real_distribution`](uniform_real_distribution.md)クラスを使用する。
 
 
 一様分布の整数は、以下のような用途で使用できる：
 
-- サイコロを振る
-- カードデッキから1枚を選ぶ
+- サイコ�を振る
+- カードデッ�から1枚を選ぶ
 
 
 テンプレートパラメータは、以下を意味する：
@@ -44,13 +44,13 @@ namespace std {
 | [`operator()`](uniform_int_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
 | [`a`](uniform_int_distribution/a.md)         | 生成し得る値の下限を取得する   | C++11 |
 | [`b`](uniform_int_distribution/b.md)         | 生成し得る値の上限を取得する   | C++11 |
-| [`param`](uniform_int_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](uniform_int_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](uniform_int_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](uniform_int_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -67,8 +67,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
-| [`operator==`](uniform_int_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](uniform_int_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](uniform_int_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](uniform_int_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](uniform_int_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](uniform_int_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -83,7 +83,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // 0以上9以下の値を等確率で発生させる
+  // 0以上9以下の値を�確率で発生させる
   std::uniform_int_distribution<> dist(0, 9);
 
   std::ofstream result_file("uniform_int_distribution.tsv");
@@ -103,11 +103,11 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[uniform_int_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/uniform_int_distribution/uniform_int_distribution.tsv)）を図示する。
+このプ�グラムによってある時に得られた結果（[uniform_int_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/uniform_int_distribution/uniform_int_distribution.tsv)）を図示する。
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/random/uniform_int_distribution/uniform_int_distribution.png)
 
-1,000個程度のデータのため、ある程度は偏りがあるが、誤差の範囲でほぼ等確率で0から9までの値が生成されていることがわかる。
+1,000個程度のデータのため、ある程度は偏りがあるが、誤差の範囲でほぼ�確率で0から9までの値が生成されていることがわかる。
 
 
 ## バージョン

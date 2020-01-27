@@ -10,15 +10,15 @@ allocator_type get_allocator() const;
 ```
 
 ## 概要
-アロケータオブジェクトのコピーを取得する。
+ア�ケータオブジェクトのコピーを取得する。
 
 
 ## 戻り値
-`*this` で使用しているアロケータオブジェクトのコピー
+`*this` で使用しているア�ケータオブジェクトのコピー
 
 
 ## 備考
-`*this` で使用しているアロケータオブジェクトは、構築時に設定されたものか、直近の代入時、あるいは、交換時に設定されたもののいずれかである。
+`*this` で使用しているア�ケータオブジェクトは、構築時に�定されたものか、直近の代入時、あるいは、交換時に�定されたもののいずれかである。
 
 
 ## 例
@@ -63,26 +63,26 @@ int main()
   mymatch<char*> mm1(my_alloc<std::sub_match<char*>>(1));
 
   // my_alloc は select_on_container_copy_construction を定義しているので、
-  // コピーコンストラクタではそれを用いてアロケータを取得する。
+  // コピーコンストラクタではそれを用いてア�ケータを取得する。
   mymatch<char*> mm2(mm1);
   std::cout << mm1.get_allocator().no << ',' << mm2.get_allocator().no << std::endl;
 
   // my_alloc は propagate_on_container_swap を true_type としているので、
-  // アロケータも swap される。
+  // ア�ケータも swap される。
   swap(mm1, mm2);
   std::cout << mm1.get_allocator().no << ',' << mm2.get_allocator().no << std::endl;
 
   // my_alloc は propagate_on_container_copy_assignment を true_type としていないので、
-  // アロケータは copy されない。
+  // ア�ケータは copy されない。
   mm1 = mm2;
   std::cout << mm1.get_allocator().no << ',' << mm2.get_allocator().no << std::endl;
 
   // my_alloc は propagate_on_container_move_assignment を true_type としているので、
-  // アロケータも move される。
+  // ア�ケータも move される。
   mm1 = std::move(mm2);
   std::cout << mm1.get_allocator().no << std::endl;
 
-  // move コンストラクタでは、アロケータも無条件に move される。
+  // move コンストラクタでは、ア�ケータも無条件に move される。
   mymatch<char*> mm3(std::move(mm1));
   std::cout << mm3.get_allocator().no << std::endl;
 }
@@ -117,4 +117,4 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-`get_allocator` の問題ではないが、GCC(libstdc++) の 4.9.2 までは代入演算子を使用した場合に正しくアロケータを設定しない。
+`get_allocator` の問題ではないが、GCC(libstdc++) の 4.9.2 までは代入演算�を使用した場合に�しくア�ケータを�定しない。

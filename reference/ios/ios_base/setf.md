@@ -11,22 +11,22 @@ fmtflags setf(fmtflags fmtfl, fmtflags mask);       // (2)
 * fmtflags[link type-fmtflags.md]
 
 ## 概要
-書式フラグを設定する。
+書式フラグを�定する。
 
 
 ## 効果
-- (1) [`flags`](flags.md)`()` に引数 `fmtfl` を設定する。[`flags`](flags.md)`(`[`flags`](flags.md)`() | fmtfl)` と等価。
-- (2) [`flags`](flags.md)`()` から引数 `mask` をクリアした後、引数 `fmtfl` を設定する。[`flags`](flags.md)`((`[`flags`](flags.md)`() & ~mask) | fmtfl)` と等価。
+- (1) [`flags`](flags.md)`()` に引数 `fmtfl` を�定する。[`flags`](flags.md)`(`[`flags`](flags.md)`() | fmtfl)` と�価。
+- (2) [`flags`](flags.md)`()` から引数 `mask` をクリアした後、引数 `fmtfl` を�定する。[`flags`](flags.md)`((`[`flags`](flags.md)`() & ~mask) | fmtfl)` と�価。
 
 
 ## 戻り値
-- (1) 設定される前の書式フラグ
-- (2) 設定される前の書式フラグ
+- (1) �定される前の書式フラグ
+- (2) �定される前の書式フラグ
 
 
 ## 備考
 - (1) の形式は単独のビットで意味のあるフィールドに、(2) の形式は複数のビットで一つの意味を表すフィールドに用いる。（例を参照）
-- 設定後に戻す必要が無いような場合には、本関数より各種マニピュレータを使用した方が便利だろう。
+- �定後に戻す必要が無いような場合には、本関数より各種マニピュレータを使用した方が便利だろう。
 
 
 ## 例
@@ -42,12 +42,12 @@ int main()
   std::cout.flags(old1);
 
   // (2) の形式
-  // 16 進数に設定して出力
+  // 16 進数に�定して出力
   std::ios_base::fmtflags old2 = std::cout.setf(std::ios_base::hex, std::ios_base::basefield);
   std::cout << 100 << '\n';
   std::cout.flags(old2);
 
-  // マニピュレータを使用して上記とほぼ等価の設定をした例（ただし、設定が戻っているわけでは無い）
+  // マニピュレータを使用して上記とほぼ�価の�定をした例（ただし、�定が戻っているわけでは無い）
   std::cout << std::boolalpha << true << std::noboolalpha << '\n';
   std::cout << std::hex << 100 << std::dec << '\n';
 }

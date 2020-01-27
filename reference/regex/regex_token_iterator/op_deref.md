@@ -42,7 +42,7 @@ int main()
 
   // 1 番目と 2 番目のサブマッチを順に繰り返す
   for (std::sregex_token_iterator it(std::begin(s), std::end(s), re, { 1, 2 }), end; it != end; ++it) {
-    // 間接参照した結果を参照型のローカル変数 m に代入（m の型は const value_type&）
+    // 間接参照した結果を参照型の�ーカル変数 m に代入（m の型は const value_type&）
     auto&& m = *it;
     std::cout << "match range = (" << m.first - std::begin(s) << ", " << m.second - std::begin(s) << "), "
                  "str = '" << m.str() << '\'' << std::endl;
@@ -81,4 +81,4 @@ match range = (67, 73), str = 'value3'
 | [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)            | インクリメント | C++11          |
-| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+| [`operator==`](op_equal.md)                | �値比較       | C++11          |

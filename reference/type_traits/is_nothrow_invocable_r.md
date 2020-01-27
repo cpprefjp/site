@@ -73,7 +73,7 @@ int main()
   //h(int) noexcept -> from_int::operator int() noexcept -> int
   std::cout << std::is_nothrow_invocable_r<int, decltype(h), int>::value << std::endl;
 
-  //h(int) noexcept -> from_int::operator double() -> double （doubleへの変換演算子にnoexceptなし）
+  //h(int) noexcept -> from_int::operator double() -> double （doubleへの変換演算�にnoexceptなし）
   std::cout << std::is_nothrow_invocable_r<double, decltype(h), int>::value << std::endl;
 }
 ```

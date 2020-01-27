@@ -44,8 +44,8 @@ using vector = std::vector<
 int main()
 {
   vector<string>::allocator_type alloc {
-    alloc_t<string>(), // vector自体のアロケータオブジェクト
-    alloc_t<char>()    // vectorの全ての要素に使用するアロケータオブジェクト
+    alloc_t<string>(), // vector自体のア�ケータオブジェクト
+    alloc_t<char>()    // vectorの全ての要素に使用するア�ケータオブジェクト
   };
 
   std::size_t n = alloc.max_size();

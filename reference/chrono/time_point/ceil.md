@@ -13,7 +13,7 @@ namespace std::chrono {
 ```
 
 ## 概要
-分解能が低い`time_point`に変換する際に、天井関数 (正の無限大方向への丸め、切り上げ) による丸めを行う。
+分解能が低い`time_point`に変換する際に、天井関数 (�の無限大方向への丸め、切り上げ) による丸めを行う。
 
 
 ## 戻り値
@@ -66,7 +66,7 @@ int main()
 
 | 名前 | 説明 |
 |------|------|
-| [`time_point_cast`](/reference/chrono/time_point_cast.md) | ゼロ方向への丸め |
+| [`time_point_cast`](/reference/chrono/time_point_cast.md) | ゼ�方向への丸め |
 | [`floor`](floor.md)                                       | 負の無限大方向への丸め |
 | [`round`](round.md)                                       | 偶数方向への丸め |
 

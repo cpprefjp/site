@@ -11,11 +11,11 @@ basic_syncbuf& operator=(basic_syncbuf&& rhs) noexcept;
 ```
 
 ## 概要
-ムーブ代入を行う。このとき、保留中の出力はラップされたストリームへ転送される。
+ムーブ代入を行う。このとき、保留�の出力はラップされたストリームへ転送される。
 
 
 ## 効果
-保留中の出力を転送するために[`emit()`](emit.md)を呼び出した後、`rhs`から`*this`へムーブ代入を行う。
+保留�の出力を転送するために[`emit()`](emit.md)を呼び出した後、`rhs`から`*this`へムーブ代入を行う。
 
 
 ## 戻り値
@@ -27,7 +27,7 @@ basic_syncbuf& operator=(basic_syncbuf&& rhs) noexcept;
 - `allocator_traits<Allocator>::propagate_on_container_move_assignment::value`が`true`のとき、
   `this->get_allocator() == rhs.get_allocator()`は`true`である。 
 - そうではなく、`allocator_traits<Allocator>::propagate_on_container_move_assignment::value`が`false`のときは、
-  アロケータは変更されない。
+  ア�ケータは変更されない。
 
 
 ## 例外
@@ -35,7 +35,7 @@ basic_syncbuf& operator=(basic_syncbuf&& rhs) noexcept;
 
 
 ## 備考
-この代入演算子は、`rhs`をそのラップされたストリームバッファから切り離し、`rhs`を破棄しても出力が生成されないようにする。
+この代入演算�は、`rhs`をそのラップされたストリームバッファから切り離し、`rhs`を破棄しても出力が生成されないようにする。
 
 
 ## 例

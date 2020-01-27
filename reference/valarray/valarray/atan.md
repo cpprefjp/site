@@ -12,11 +12,11 @@ namespace std {
 * ValOrProxy[italic]
 
 ## 概要
-逆正接（アークタンジェント：arc tangent）を得る。
+逆�接（アークタンジェント：arc tangent）を得る。
 
 
 ## 戻り値
-以下のコードと等価のことを行う：
+以下のコードと�価のことを行う：
 
 ```cpp
 return va.apply(static_cast<T(*)(T)>(std::atan));

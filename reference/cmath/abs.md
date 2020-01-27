@@ -31,7 +31,7 @@ namespace std {
 
 ## 備考
 - $$ f(x) = | x | $$
-- 任意の整数型に対するオーバーロードが C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。
+- 任意の整数型に対するオーバー�ードが C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。
 
 
 ## 例

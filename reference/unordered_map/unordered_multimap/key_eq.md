@@ -10,13 +10,13 @@ key_equal key_eq() const;
 ```
 
 ## 概要
-コンテナのキー比較用関数オブジェクトを返す
+コンテナの�ー比較用関数オブジェクトを返す
 
 
 ## 戻り値
-コンテナのキー比較用関数オブジェクト。
+コンテナの�ー比較用関数オブジェクト。
 
-このメンバ関数で返されるキー比較用関数オブジェクトは、コンストラクタ、あるいは、直近の代入（コピー、あるいはムーブ）、交換でコンテナに保存されたオブジェクトのコピーである。
+このメンバ関数で返される�ー比較用関数オブジェクトは、コンストラクタ、あるいは、直近の代入（コピー、あるいはムーブ）、交換でコンテナに保�されたオブジェクトのコピーである。
 
 
 ## 計算量
@@ -24,9 +24,9 @@ key_equal key_eq() const;
 
 
 ## 備考
-戻り値の型である、キー比較用関数オブジェクトの型 `key_equal` は、[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md) のメンバ型で、四番目のテンプレートパラメータ `Pred` を別名定義したものである。
+戻り値の型である、�ー比較用関数オブジェクトの型 `key_equal` は、[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md) のメンバ型で、四番目のテンプレートパラメータ `Pred` を別名定義したものである。
 
-キー比較用関数オブジェクトは、名前の通りキーを比較するためのオブジェクトで、与えられた二つのキーが等しいときには `true`、等しくないときには `false` を返すメンバ関数 `bool operator()(key_type, key_type)`を持つ必要がある。
+�ー比較用関数オブジェクトは、名前の通り�ーを比較するためのオブジェクトで、与えられた二つの�ーが�しいときには `true`、�しくないときには `false` を返すメンバ関数 `bool operator()(key_type, key_type)`を持つ必要がある。
 
 テンプレートパラメータを省略した場合、`key_equal` はデフォルト値 `std::`[`equal_to`](/reference/functional/equal_to.md)`<key_type>` となる。
 
@@ -76,6 +76,6 @@ eq("1st", "2nd") = true
 
 | 名前 | 説明 |
 |----------------------------------------------------|----------------------------------------------|
-| [`equal_to`](/reference/functional/equal_to.md)    | 等値比較演算関数オブジェクト(class template) |
+| [`equal_to`](/reference/functional/equal_to.md)    | �値比較演算関数オブジェクト(class template) |
 | [`hash_function`](hash_function.md)              | ハッシュ関数オブジェクトの取得 |
 

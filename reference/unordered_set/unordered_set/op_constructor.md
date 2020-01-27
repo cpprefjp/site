@@ -14,14 +14,14 @@ explicit unordered_set(size_type n,
                        const allocator_type& a = allocator_type()); // (2) C++14
 
 
-explicit unordered_set(size_type n = 実装依存の既定値,
+explicit unordered_set(size_type n = 実装依�の既定値,
                        const hasher& hf = hasher(),
                        const key_equal& eql = key_equal(),
                        const allocator_type& a = allocator_type()); // (1) + (2) C++11
 
 template <class InputIterator>
 unordered_set(InputIterator first, InputIterator last,
-              size_type n = 実装依存の既定値,
+              size_type n = 実装依�の既定値,
               const hasher& hf = hasher(),
               const key_equal& eql = key_equal(),
               const allocator_type& a = allocator_type());          // (3)
@@ -37,7 +37,7 @@ unordered_set(const unordered_set& v, const allocator_type& a);     // (7)
 unordered_set(unordered_set&& rv, const allocator_type& a);         // (8)
 
 unordered_set(initializer_list<value_type> il,
-              size_type n = 実装依存の既定値,
+              size_type n = 実装依�の既定値,
               const hasher& hf = hasher(),
               const key_equal& eql = key_equal(),
               const allocator_type& a = allocator_type());          // (9)
@@ -79,9 +79,9 @@ unordered_set(initializer_list<value_type> il,
 ## 要件
 - ハッシュ関数オブジェクト `hasher` が引数として与えられなかった場合、`hasher` は DefaultConstructible であること。
 
-- キー比較用関数オブジェクト `key_equal` が引数として与えられなかった場合、`key_equal` は DefaultConstructible であること。
+- �ー比較用関数オブジェクト `key_equal` が引数として与えられなかった場合、`key_equal` は DefaultConstructible であること。
 
-- アロケータオブジェクト `allocator_type` が引数として与えられなかった場合、`allocator_type` は DefaultConstructible であること。
+- ア�ケータオブジェクト `allocator_type` が引数として与えられなかった場合、`allocator_type` は DefaultConstructible であること。
 
 - (3) の形式の場合、`value_type` は `*first` からこの `unordered_set` に EmplaceConstructible であること。
 
@@ -94,48 +94,48 @@ unordered_set(initializer_list<value_type> il,
 
 ## 効果
 
-- (1) : バケット数の最低が実装依存の、要素を持たない空の `unordered_set` を構築する。
+- (1) : バケット数の最低が実装依�の、要素を持たない空の `unordered_set` を構築する。
 
-- (2) : バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、キー比較用関数オブジェクト `eql`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
+- (2) : バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、�ー比較用関数オブジェクト `eql`、ア�ケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
 
-- (1) + (2) : バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、キー比較用関数オブジェクト `eql`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
-    引数 `n` のデフォルト値は実装依存である。
+- (1) + (2) : バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、�ー比較用関数オブジェクト `eql`、ア�ケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
+    引数 `n` のデフォルト値は実装依�である。
 
 - (3) : (2)と同様に `unordered_set` が構築された後、`[first, last)` の範囲の要素が挿入される。
 
 - (4) : コピーコンストラクタ。`v` の全ての要素をコピーした、`unordered_set` を構築する。
-    ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](max_load_factor.md)`()` の値も `v` からコピーされる。
-    アロケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](/reference/memory/allocator_traits/select_on_container_copy_construction.md)`(`[`get_allocator`](get_allocator.md)`())` の戻り値が使用される。
+    ハッシュ関数オブジェクトと�ー比較関数オブジェクト、および、[`max_load_factor`](max_load_factor.md)`()` の値も `v` からコピーされる。
+    ア�ケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](/reference/memory/allocator_traits/select_on_container_copy_construction.md)`(`[`get_allocator`](get_allocator.md)`())` の戻り値が使用される。
 
 - (5) : ムーブコンストラクタ。`rv` の全ての要素をムーブした、`unordered_set` を構築する。
-    ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、アロケータオブジェクトも `v` からムーブされる。
+    ハッシュ関数オブジェクトと�ー比較関数オブジェクト、および、ア�ケータオブジェクトも `v` からムーブされる。
     [`max_load_factor`](max_load_factor.md)`()` の値は `rv` からコピーされる。
     なお、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされる。
 
-- (6) : ハッシュ関数オブジェクト `hasher()`、キー比較用関数オブジェクト `key_equal()`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
-    構築された `unordered_set` のバケット数、および、[`max_load_factor`](max_load_factor.md)`()` は実装依存である。
+- (6) : ハッシュ関数オブジェクト `hasher()`、�ー比較用関数オブジェクト `key_equal()`、ア�ケータオブジェクト `a` で、要素を持たない空の `unordered_set` を構築する。
+    構築された `unordered_set` のバケット数、および、[`max_load_factor`](max_load_factor.md)`()` は実装依�である。
 
 - (7) : `v` の全ての要素をコピーした、`unordered_set` を構築する。
-    ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](max_load_factor.md)`()` の値も `v` からコピーされるが、アロケータオブジェクトは引数 `a` が使用される。
+    ハッシュ関数オブジェクトと�ー比較関数オブジェクト、および、[`max_load_factor`](max_load_factor.md)`()` の値も `v` からコピーされるが、ア�ケータオブジェクトは引数 `a` が使用される。
 
 - (8) : `rv` のすべての要素をムーブした、`unordered_set` を構築する。
-    ハッシュ関数オブジェクトとキー比較関数オブジェクトの値も `rv` からムーブされるが、アロケータオブジェクトは引数 `a` が使用される。
+    ハッシュ関数オブジェクトと�ー比較関数オブジェクトの値も `rv` からムーブされるが、ア�ケータオブジェクトは引数 `a` が使用される。
     [`max_load_factor`](max_load_factor.md)`()` の値は `rv` からコピーされる。
     なお、`a == rv.`[`get_allocator`](get_allocator.md)`()` の場合、要素のムーブは個々に行われるのではなく、`unordered_set` 内部の構造ごと一括でムーブされるが、そうでない場合は要素ごとにムーブされる。
 
-- (9) : (3) の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と等価である。
+- (9) : (3) の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と�価である。
 
-- (10) : (2) の形式を `unordered_set(n, hasher(), key_equal(), a)` として呼び出した場合と等価である。
+- (10) : (2) の形式を `unordered_set(n, hasher(), key_equal(), a)` として呼び出した場合と�価である。
 
-- (11) : (2) の形式を `unordered_set(n, hf, key_equal(), a)` として呼び出した場合と等価である。
+- (11) : (2) の形式を `unordered_set(n, hf, key_equal(), a)` として呼び出した場合と�価である。
 
-- (12) : (3) の形式を `unordered_set(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と等価である。
+- (12) : (3) の形式を `unordered_set(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と�価である。
 
-- (13) : (3) の形式を `unordered_set(f, l, n, hf, key_equal(), a)` として呼び出した場合と等価である。
+- (13) : (3) の形式を `unordered_set(f, l, n, hf, key_equal(), a)` として呼び出した場合と�価である。
 
-- (14) : (5) の形式を `unordered_set(il, n, hasher(), key_equal(), a)` として呼び出した場合と等価である。
+- (14) : (5) の形式を `unordered_set(il, n, hasher(), key_equal(), a)` として呼び出した場合と�価である。
 
-- (15) : (5) の形式を `unordered_set(il, n, hf, key_equal(), a)` として呼び出した場合と等価である。
+- (15) : (5) の形式を `unordered_set(il, n, hf, key_equal(), a)` として呼び出した場合と�価である。
 
 
 ## 事後条件
@@ -188,13 +188,13 @@ unordered_set(initializer_list<value_type> il,
 - (7) : O(`v.`[`size`](size.md)`()`)
 - (8) : `a == rv.`[`get_allocator`](get_allocator.md)`()` の場合、定数。
     そうでない場合、O(`rv.`[`size`](size.md)`()`)。
-- (9) : (2) の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と等価。
-- (10) : (2) の形式を `unordered_set(n, hasher(), key_equal(), a)` として呼び出した場合と等価。
-- (11) : (2) の形式を `unordered_set(n, hf, key_equal(), a)` として呼び出した場合と等価。
-- (12) : (3) の形式を `unordered_set(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と等価。
-- (13) : (3) の形式を `unordered_set(f, l, n, hf, key_equal(), a)` として呼び出した場合と等価。
-- (14) : (5) の形式を `unordered_set(il, n, hasher(), key_equal(), a)` として呼び出した場合と等価。
-- (15) : (5) の形式を `unordered_set(il, n, hf, key_equal(), a)` として呼び出した場合と等価。
+- (9) : (2) の形式を `unordered_set(il.begin(), il.end(), n, hf, eql, a)` として呼び出した場合と�価。
+- (10) : (2) の形式を `unordered_set(n, hasher(), key_equal(), a)` として呼び出した場合と�価。
+- (11) : (2) の形式を `unordered_set(n, hf, key_equal(), a)` として呼び出した場合と�価。
+- (12) : (3) の形式を `unordered_set(f, l, n, hasher(), key_equal(), a)` として呼び出した場合と�価。
+- (13) : (3) の形式を `unordered_set(f, l, n, hf, key_equal(), a)` として呼び出した場合と�価。
+- (14) : (5) の形式を `unordered_set(il, n, hasher(), key_equal(), a)` として呼び出した場合と�価。
+- (15) : (5) の形式を `unordered_set(il, n, hf, key_equal(), a)` として呼び出した場合と�価。
 
 
 ## 備考
@@ -230,15 +230,15 @@ libstdc++ には 4.8.2 現在、(6)、(7)、(8)の形式はない。
 | 名前                                  | 説明         |
 |---------------------------------------|--------------|
 | [`(destructor)`](op_destructor.md)  | デストラクタ |
-| [`operator=`](op_assign.md)         | 代入演算子   |
+| [`operator=`](op_assign.md)         | 代入演算�   |
 
 
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (9)の経緯となる提案文書
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
-    (1) + (2) を 2 つのオーバーロードに分割するきっかけとなったレポート
+    (1) + (2) を 2 つのオーバー�ードに分割するきっかけとなったレポート
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     (10)、(11)、(12)、(13)、(14)、(15) を追加するきっかけとなったレポート  
-    なお、Discussion の例はアロケータの型が誤っているので注意
+    なお、Discussion の例はア�ケータの型が誤っているので注意
 

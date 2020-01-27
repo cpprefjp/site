@@ -11,10 +11,10 @@ namespace std {
 * unspecified[italic]
 
 ## 概要
-基数を設定する。ただし、`ios_base::oct`, `ios_base::dec`, `ios_base::hex`のいずれにも対応しない値が来た場合、フォーマットフラグはリセットされる。
+基数を�定する。ただし、`ios_base::oct`, `ios_base::dec`, `ios_base::hex`のいずれにも対応しない値が来た場合、フォーマットフラグはリセットされる。
 
 ## 効果
-このマニピュレータをストリームオブジェクトに適用することにより、以下の関数と等価の効果を持つ：
+このマニピュレータをストリームオブジェクトに適用することにより、以下の関数と�価の効果を持つ：
 
 ```cpp
 void f(std::ios_base& str, int base) {

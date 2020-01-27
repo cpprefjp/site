@@ -20,7 +20,7 @@ namespace std {
 
 この関数は、以下のような状況で活用できる：
 
-- [`std::find()`](/reference/algorithm/find.md)や[`std::find_if()`](/reference/algorithm/find_if.md)で検索し、見つかった要素が先頭から何番目かを調べる。
+- [`std::find()`](/reference/algorithm/find.md)や[`std::find_if()`](/reference/algorithm/find_if.md)で検索し、見つかった要素が先�から何番目かを調べる。
 
     ```cpp
     std::vector<int> v = { … };

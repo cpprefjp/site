@@ -10,9 +10,9 @@
 ## 概要
 [`long long`](/lang/cpp11/long_long_type.md) 型が表現できる値の最小値。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<`[`long long`](/lang/cpp11/long_long_type.md)`>::`[`min()`](/reference/limits/numeric_limits/min.md) と等しいが、`LLONG_MIN` は `#if` などのプリプロセッサディレクティブで使用できる。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<`[`long long`](/lang/cpp11/long_long_type.md)`>::`[`min()`](/reference/limits/numeric_limits/min.md) と�しいが、`LLONG_MIN` は `#if` などのプリプ�セッサディレクティブで使用できる。
 
-具体的な値は実装依存であるが、-9223372036854775807（-(2<sup>63</sup> - 1)）以下であることが規格で定められている。このマクロによって定義される値の型は [`long long`](/lang/cpp11/long_long_type.md) である。
+具体的な値は実装依�であるが、-9223372036854775807（-(2<sup>63</sup> - 1)）以下であることが規格で定められている。このマク�によって定義される値の型は [`long long`](/lang/cpp11/long_long_type.md) である。
 
 
 ## 例

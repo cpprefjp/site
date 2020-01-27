@@ -10,7 +10,7 @@ bool try_lock();
 ```
 
 ## 概要
-共有ロックの取得を試みる
+共有�ックの取得を試みる
 
 
 ## 効果
@@ -48,12 +48,12 @@ int main()
 {
   std::shared_timed_mutex mtx;
   {
-    // 遅延ロックする(ここではロックを取得しない)
+    // 遅延�ックする(ここでは�ックを取得しない)
     std::shared_lock<std::shared_timed_mutex> lock(mtx, std::defer_lock);
 
-    // 共有ロックの取得を試みる
+    // 共有�ックの取得を試みる
     if (!lock.try_lock()) {
-      // 共有ロックの取得に失敗
+      // 共有�ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }

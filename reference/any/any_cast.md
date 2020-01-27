@@ -34,9 +34,9 @@ namespace std {
 ## 要件
 `using U =` [`remove_cv_t`](/reference/type_traits/remove_cv.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<T>>;`であるとして、
 
-- (1) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const U&> == true`であること。そうでない場合、プログラムは不適格となる
-- (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U&> == true`であること。そうでない場合、プログラムは不適格となる
-- (3) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`であること。そうでない場合、プログラムは不適格となる
+- (1) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const U&> == true`であること。そうでない場合、プ�グラムは不適格となる
+- (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U&> == true`であること。そうでない場合、プ�グラムは不適格となる
+- (3) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`であること。そうでない場合、プ�グラムは不適格となる
 
 
 ## 効果

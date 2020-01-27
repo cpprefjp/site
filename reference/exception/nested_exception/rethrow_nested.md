@@ -10,11 +10,11 @@
 ```
 
 ## 概要
-入れ子になった例外を送出する
+入れ�になった例外を送出する
 
 
 ## 効果
-[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)メンバ関数`がヌルポインタを返した場合、`std::terminate()を呼び出してプログラムを終了させる。そうでなければ、[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)によって返された例外を送出する。
+[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)メンバ関数`がヌルポインタを返した場合、`std::terminate()を呼び出してプ�グラムを終了させる。そうでなければ、[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)によって返された例外を送出する。
 
 
 ## 戻り値
@@ -22,7 +22,7 @@
 
 
 ## 例外
-入れ子になった例外を送出する
+入れ�になった例外を送出する
 
 
 ## 例
@@ -41,12 +41,12 @@ int main()
       }
       catch (int& x) {
         std::cout << "1st caught: " << x << std::endl;
-        throw my_exception(); // 現在の例外(int)を入れ子にしてmy_exceptionを送出
+        throw my_exception(); // 現在の例外(int)を入れ�にしてmy_exceptionを送出
       }
     }
     catch (my_exception& e) {
       std::cout << "2nd caught: my_exception(nested_exception)." << std::endl;
-      // 入れ子になっている例外(int)を送出
+      // 入れ�になっている例外(int)を送出
       e.rethrow_nested();
     }
   }

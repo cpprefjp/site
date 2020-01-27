@@ -12,11 +12,11 @@ void max_load_factor(float z);          // (2)
 
 ## 概要
 - (1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。
-- (2) : 負荷率（バケットあたりの要素数の平均）の最大値を設定する。
+- (2) : 負荷率（バケットあたりの要素数の平均）の最大値を�定する。
 
 
 ## 要件
-`z` は正の数であること。
+`z` は�の数であること。
 
 
 ## 効果
@@ -40,7 +40,7 @@ void max_load_factor(float z);          // (2)
 ## 備考
 - `max_load_factor` はその名前の通り、[`load_factor`](load_factor.md) の最大値（上限）を定義する。<br/>従って、[`insert`](insert.md)、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md) で要素が追加された際、および、[`operator=`](op_assign.md) による [`initializer_list`](/reference/initializer_list/initializer_list.md) からの代入で要素数が増加した際には、[`load_factor`](load_factor.md) が `max_load_factor()` 以下になるように、必要に応じてバケット数が調整される。<br/>なお、`min_load_factor` のようなものはないので、[`erase`](erase.md) で要素が削除された際にも、バケット数の調整は行われない。<br/>（標準では、[`erase`](erase.md) が呼び出された際に、削除された要素を指すイテレータ、および、参照以外は無効にならないと規定されているため、調整できないと思われる）
 
-- (2) の形式では、効果にもある通り引数 `z` は「ヒント」であり、設定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも [`load_factor`](load_factor.md)`() <= z` が満たされていれば `z` に従って設定されると考えてよいと思われる。<br/>一方、[`load_factor`](load_factor.md)`() > z` の場合、単純に無視するか [`load_factor`](load_factor.md)`()` に設定するのが適切と思われるが、`z` をそのまま設定する実装もある。<br/>なお、計算量が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、[`load_factor`](load_factor.md)`() > z` の場合に [`load_factor`](load_factor.md)`() <= z` を満たすようにリハッシュされる実装も多い）。
+- (2) の形式では、効果にもある通り引数 `z` は「ヒント」であり、�定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも [`load_factor`](load_factor.md)`() <= z` が満たされていれば `z` に従って�定されると考えてよいと思われる。<br/>一方、[`load_factor`](load_factor.md)`() > z` の場合、単純に無視するか [`load_factor`](load_factor.md)`()` に�定するのが適切と思われるが、`z` をそのまま�定する実装もある。<br/>なお、計算量が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、[`load_factor`](load_factor.md)`() > z` の場合に [`load_factor`](load_factor.md)`() <= z` を満たすようにリハッシュされる実装も多い）。
 
 
 ## 例
@@ -64,9 +64,9 @@ int main()
   std::cout << "max_load_factor is " << us.max_load_factor() << "\n\n"; // (1) の形式。max_load_factor のデフォルトは 1.0f。
   print(us);
 
-  us.max_load_factor(2.0f); // (2) の形式。max_load_factor を 2.0f に設定。
+  us.max_load_factor(2.0f); // (2) の形式。max_load_factor を 2.0f に�定。
 
-  float z = us.max_load_factor(); // (1) の形式。上記で設定した値。
+  float z = us.max_load_factor(); // (1) の形式。上記で�定した値。
   std::cout << "max_load_factor is " << z << "\n\n";
   print(us);
 
@@ -90,7 +90,7 @@ int main()
 
   us.max_load_factor(us.load_factor() / 2.0f); // (2) の形式。max_load_factor を現在の値の 1/2 を引数にして呼び出し。
 
-  z = us.max_load_factor(); // (1) の形式。上記で設定した値。
+  z = us.max_load_factor(); // (1) の形式。上記で�定した値。
   std::cout << "max_load_factor is " << z << "\n\n";
 
   // 最終的な状態を出力。
@@ -106,7 +106,7 @@ int main()
 ### 出力
 libstdc++ の出力例（4.7.2 時点）
 
-- [`load_factor`](load_factor.md)`() > z` の場合に、`max_load_factor()` に `z` を設定して [`load_factor`](load_factor.md)`() < max_load_factor()` となるようにリハッシュされている。
+- [`load_factor`](load_factor.md)`() > z` の場合に、`max_load_factor()` に `z` を�定して [`load_factor`](load_factor.md)`() < max_load_factor()` となるようにリハッシュされている。
 
 - [`size`](size.md)`() = 0` の場合にバケット数が減っている。
 
@@ -133,7 +133,7 @@ size is 4, bucket_count is 29, load_factor is 0.137931, bucket_count * max_load_
 
 libc++ の出力例（2012/12/19 現在）
 
-- [`load_factor`](load_factor.md)`() > z` の場合に、`max_load_factor()` に [`load_factor`](load_factor.md)`()` の値を設定してリハッシュはされていない。
+- [`load_factor`](load_factor.md)`() > z` の場合に、`max_load_factor()` に [`load_factor`](load_factor.md)`()` の値を�定してリハッシュはされていない。
 
 - [`size`](size.md)`() = 0` の場合にもバケット数は減っていない。
 
@@ -175,7 +175,7 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
 
 | 名前 | 説明 |
 |---------------------------------------|------------|
-| [`operator=`](op_assign.md)         | 代入演算子 |
+| [`operator=`](op_assign.md)         | 代入演算� |
 | [`emplace`](emplace.md)             | コンテナ内への要素の直接構築 |
 | [`emplace_hint`](emplace_hint.md)   | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
 | [`insert`](insert.md)               | 要素の追加 |

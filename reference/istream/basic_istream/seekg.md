@@ -10,11 +10,11 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 ```
 
 ## 概要
-（非書式化入力関数）ストリームバッファに対し、読み取り位置の移動を指示する。
+（非書式化入力関数）ストリームバッファに対し、�み取り位置の移動を指示する。
 
 非書式化入力関数であるが、後続の`gcount()`呼び出しに影響を及ぼさない点が通常と異なる。
 
-`seekg`は、`seek get`の略称。「読み取り用の位置の移動」を意味する。
+`seekg`は、`seek get`の略称。「�み取り用の位置の移動」を意味する。
 
 
 ## 効果
@@ -31,7 +31,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 
 ## 例
 以下は、`off_type`と`seekdir`を使用する例。
-`pos_type`のみを引数に取るオーバーロードの例は、[`tellg`](tellg.md)を参照。
+`pos_type`のみを引数に取るオーバー�ードの例は、[`tellg`](tellg.md)を参照。
 
 ```cpp example
 #include <iostream>
@@ -73,7 +73,7 @@ basic_istream<CharT, Traits>& seekg(pos_type pos) {
       }
     }
   } catch (...) {
-    例外を投げずにbadbitを設定する;
+    例外を投げずにbadbitを�定する;
     if ((this->exceptions() & badbit) != 0) {
       throw;
     }
@@ -92,7 +92,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
       }
     }
   } catch (...) {
-    例外を投げずにbadbitを設定する;
+    例外を投げずにbadbitを�定する;
     if ((this->exceptions() & badbit) != 0) {
       throw;
     }

@@ -15,7 +15,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 
 ## 要件
-- 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、[`cend`](cend.md)`()` でも良い）
+- 引数 `position` は、コンテナの有効な�み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、[`cend`](cend.md)`()` でも良い）
 
 
 ## テンプレートパラメータ制約
@@ -54,11 +54,11 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 
 	となっている。  
 	なお、この条件は C++14 までは「以下」ではなく「よりも小さい」だったため、最大負荷率の定義と不整合だった。  
-	これは規格の誤りとして C++17 で修正されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
+	これは規格の誤りとして C++17 で修�されたが、使用する処理系やそのバージョンによっては以前の「よりも小さい」という条件でしかイテレータの有効性を保証していない可能性があるため、注意が必要である。
 
-- これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、等価なキーの要素同士の相対的な順序は変わらない。
+- これらの関数が呼ばれた後、たとえ呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わった（＝リハッシュが発生した）場合でも、�価な�ーの要素同士の相対的な順序は変わらない。
 
-- 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修正された。
+- 引数 `position` は、C++14 までは間接参照可能（dereferenceable）でなければならない（つまり、[`cend`](cend.md)`()` ではいけない）との記載になっていたが、これは規格の誤りとして C++17 で修�された。
 
 - このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。  
 	`emplace` も含めた一覧を以下に示す。
@@ -66,11 +66,11 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 	| コンテナ                                                              | シグネチャ                                                                         |
 	|-----------------------------------------------------------------------|------------------------------------------------------------------------------------|
 	| シーケンスコンテナ                                                    | `template <class... Args>`<br/> `iterator emplace(const_iterator, Args&&...)`      |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
-	| 連想コンテナ、非順序連想コンテナ<br/>（同一キーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許さない場合） | `template <class... Args>`<br/> `pair<iterator, bool> emplace(Args&&...)`          |
+	| 連想コンテナ、非順序連想コンテナ<br/>（同一�ーの重複を許す場合）     | `template <class... Args>`<br/> `iterator emplace(Args&&...)`                      |
 	| 連想コンテナ、非順序連想コンテナ                                      | `template <class... Args>`<br/> `iterator emplace_hint(const_iterator, Args&&...)` |
 
-- 本関数呼び出しで構築されるオブジェクトを `t` とすると、`t.first` と等価なキーの要素が既に存在する場合、`position` に応じて既存の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は存在しない。
+- 本関数呼び出しで構築されるオブジェクトを `t` とすると、`t.first` と�価な�ーの要素が既に�在する場合、`position` に応じて既�の要素と新規の要素が順序付けられると期待されるが、規格書にそのような規定は�在しない。
 	従って、そのような期待はすべきではない。（下記の出力例も参照）
 
 ## 例
@@ -85,7 +85,7 @@ iterator emplace_hint(const_iterator position, Args&&... args);
 // サンプルで使用する型の別名
 using is = std::pair<const int, std::string>;
 
-// サンプルで使用する型の別名のための挿入演算子
+// サンプルで使用する型の別名のための挿入演算�
 std::ostream& operator<<(std::ostream& os, const is& p)
 {
   return os << '(' << p.first << ',' << p.second << ')';
@@ -107,11 +107,11 @@ int main()
   // 初期状態の出力
   print("before", um.cbegin(), um.cend());
 
-  // 追加するデータと等価な範囲を取得
+  // 追加するデータと�価な範囲を取得
   auto p = um.equal_range(1);
   print("equal_range", p.first, p.second);
 
-  // 等価な要素の間に emplace_hint でデータを追加
+  // �価な要素の間に emplace_hint でデータを追加
   auto it = um.emplace_hint(std::next(p.first), 1, "4th");
   std::cout << "emplace_hint : " << *it << '\n';
 
@@ -174,7 +174,7 @@ int main()
 | [`swap`](swap.md)                       | 内容の交換                                         |
 | [`bucket_count`](bucket_count.md)       | バケット数の取得                                   |
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
-| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、設定                             |
+| [`max_load_factor`](max_load_factor.md) | 最大負荷率を取得、�定                             |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整           |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整               |
 

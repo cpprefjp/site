@@ -33,7 +33,7 @@ namespace std {
 
 
 ## 計算量
-正確に `(last - first) / 2` 回 swap する
+�確に `(last - first) / 2` 回 swap する
 
 
 ## 例
@@ -72,5 +72,5 @@ void reverse(BidirectionalIterator first, BidirectionalIterator last) {
 
 ## 参照
 - [LWG Issue 2039. Issues with `std::reverse` and `std::copy_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2039)
-    - C++11まで、効果を「0 以上 `(last - first) / 2` **以下**の整数 `i` について、」と記載していたが、これは間違いなので、C++14で「0 以上 `(last - first) / 2` **未満**の整数 `i` について、」と修正。
+    - C++11まで、効果を「0 以上 `(last - first) / 2` **以下**の整数 `i` について、」と記載していたが、これは間違いなので、C++14で「0 以上 `(last - first) / 2` **未満**の整数 `i` について、」と修�。
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

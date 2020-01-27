@@ -24,7 +24,7 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 
 - 赤玉20個、白玉20個が混ざった箱から、20個の玉を取り出す。その際の、期待値(赤玉10個、白玉10個)からのずれの度合いを判定する。
 - 異なる世代で、1ヶ月に利用する携帯電話の利用時間に差が出るか判定する。
-- これらの用途を一般化すると、χ²検定(chi-square test)やフリードマン検定(Friedman test)といった科学的検定に分類される。
+- これらの用途を一般化すると、χ²検定(chi-square test)やフリードマン検定(Friedman test)といった科�的検定に分類される。
 
 上記の例では、自由度は1となる(玉の種類(2) - 1)。玉の種類が3の場合は自由度2になる。
 
@@ -51,12 +51,12 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 | [`operator()`](chi_squared_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|----------------------------------|-------|
 | [`n`](chi_squared_distribution/n.md)         | 分布の自由度を取得する           | C++11 |
-| [`param`](chi_squared_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](chi_squared_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](chi_squared_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](chi_squared_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -73,8 +73,8 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------|-------|
-| [`operator==`](chi_squared_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](chi_squared_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](chi_squared_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](chi_squared_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](chi_squared_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](chi_squared_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -108,7 +108,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[chi_squared_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv)）を図示する。
+このプ�グラムによってある時に得られた結果（[chi_squared_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv)）を図示する。
 
 ![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.png)
 

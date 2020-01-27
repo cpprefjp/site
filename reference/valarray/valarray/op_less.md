@@ -35,7 +35,7 @@ namespace std {
 
 
 ## 戻り値
-- (1) : 以下のコードと等価のことを行う：
+- (1) : 以下のコードと�価のことを行う：
 
 ```cpp
 valarray<bool> result(xs.size());
@@ -47,7 +47,7 @@ return result;
 * size()[link size.md]
 
 
-- (2) : 以下のコードと等価のことを行う：
+- (2) : 以下のコードと�価のことを行う：
 
 ```cpp
 valarray<bool> result(xs.size());
@@ -59,7 +59,7 @@ return result;
 * size()[link size.md]
 
 
-- (3) : 以下のコードと等価のことを行う：
+- (3) : 以下のコードと�価のことを行う：
 
 ```cpp
 valarray<bool> result(ys.size());
@@ -76,7 +76,7 @@ return result;
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 - (1) : `xs` と `ys` の要素数が異なる場合、その挙動は未定義。
 - C++20における(2)と(3)に対する変更は、`std::valarray<double>{} * 2` のような式が型推論に失敗しないようにするためである。  
-	なお、この変更は規格の誤り修正とみなされているため、処理系によっては C++17 以前でも使用可能となる。
+	なお、この変更は規格の誤り修�とみなされているため、処理系によっては C++17 以前でも使用可能となる。
 
 
 ## 例

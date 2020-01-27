@@ -16,9 +16,9 @@ friend simple-type-specifier ;     // 追加
 friend typename-specifier ;        // 追加
 ```
 
-- `elaborated-type-specifier`は、従来の`friend`宣言できる型。クラス名、およびクラスの入れ子型を指定できる
-- `simple-type-specifier`は、テンプレートパラメータの型を含む、`int`、`char`、`auto`、`void`、列挙型、型の別名などを表す識別子
-- `typename-specifier`は、`typename`キーワードを使用した、テンプレートパラメータに依存した入れ子型
+- `elaborated-type-specifier`は、従来の`friend`宣言できる型。クラス名、およびクラスの入れ�型を指定できる
+- `simple-type-specifier`は、テンプレートパラメータの型を含む、`int`、`char`、`auto`、`void`、列挙型、型の別名などを表す�別�
+- `typename-specifier`は、`typename`�ーワードを使用した、テンプレートパラメータに依�した入れ�型
 - `friend`宣言に対して非クラス型が指定された場合、その宣言は無視される
 - `friend`宣言に指定された型のCV修飾は無視される
 

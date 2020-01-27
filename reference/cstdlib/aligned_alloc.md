@@ -59,9 +59,9 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3の時点では未実装)
 
 #### 備考
-- Clangは、グローバル名前空間 (POSIXの実装) では、3.1で動作確認できた
-- GCCは、グローバル名前空間 (POSIXの実装) では、4.4で動作確認できた
-- Visual Studio 2019 Update 3の時点では存在が確認できない。`_aligned_malloc`という同等のWindows用機能が提供されているため、そちらを使う必要がある
+- Clangは、グ�ーバル名前空間 (POSIXの実装) では、3.1で動作確認できた
+- GCCは、グ�ーバル名前空間 (POSIXの実装) では、4.4で動作確認できた
+- Visual Studio 2019 Update 3の時点では�在が確認できない。`_aligned_malloc`という同�のWindows用機能が提供されているため、そちらを使う必要がある
 
 ## 参照
 - [`aligned_alloc`(3) - Linux man page](https://linux.die.net/man/3/aligned_alloc)

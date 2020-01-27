@@ -10,7 +10,7 @@ constexpr void remove_suffix(size_type n);
 ```
 
 ## 概要
-末尾のN文字を削除する。
+末尾のN文�を削除する。
 
 
 ## 要件
@@ -18,7 +18,7 @@ constexpr void remove_suffix(size_type n);
 
 
 ## 効果
-メンバ変数として、参照する文字配列の文字数`size_type size_`があるものとして、以下と等価：
+メンバ変数として、参照する文�配列の文�数`size_type size_`があるものとして、以下と�価：
 
 ```cpp
 size_ -= n;
@@ -34,7 +34,7 @@ int main()
 {
   std::string_view sv = "This is a pen";
 
-  sv.remove_suffix(4); // 末尾4文字 " pen" を削除
+  sv.remove_suffix(4); // 末尾4文� " pen" を削除
   std::cout << '[' << sv << ']' << std::endl;
 }
 ```

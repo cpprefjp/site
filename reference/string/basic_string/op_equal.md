@@ -24,14 +24,14 @@ namespace std {
 ```
 
 ## 概要
-`basic_string`オブジェクトの等値比較を行う。
+`basic_string`オブジェクトの�値比較を行う。
 
-デフォルトの比較では、大文字と小文字は区別される（`'a' == 'A'`は`false`）。  
-なお、この比較方法は[`char_traits`](/reference/string/char_traits.md)によってカスタマイズでき、大文字・小文字を区別しない比較もできる。
+デフォルトの比較では、大文�と小文�は区別される（`'a' == 'A'`は`false`）。  
+なお、この比較方法は[`char_traits`](/reference/string/char_traits.md)によってカスタマイズでき、大文�・小文�を区別しない比較もできる。
 
 
 ## 要件
-- (3) パラメータ`b`が、[`Traits::length`](/reference/string/char_traits/length.md)`(b) + 1`の要素数を持つ`CharT`文字型の配列を指していること
+- (3) パラメータ`b`が、[`Traits::length`](/reference/string/char_traits/length.md)`(b) + 1`の要素数を持つ`CharT`文�型の配列を指していること
 
 
 ## 戻り値

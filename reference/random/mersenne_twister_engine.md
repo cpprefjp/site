@@ -25,7 +25,7 @@ namespace std {
 メルセンヌ・ツイスター法は、以下のような特徴を持つ：
 
 1. 非常に長い周期を持つ。
-2. 非常に大きな次元で均等分布する。(`n`次元…パラメータ設定済み別名である`mt19937`では623次元)
+2. 非常に大きな次元で均�分布する。(`n`次元…パラメータ�定済み別名である`mt19937`では623次元)
 	- これは内部的に、大きな配列(領域)を保持することを意味する。空間的に余裕がある場合にこのエンジンを選択する。
 
 
@@ -34,9 +34,9 @@ namespace std {
 * `UIntType` : 生成する符号なし整数の型。
 * `w` : ワードサイズ。状態シーケンス内での各ワードのビット数。[`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)以下にするのがよい。
 * `n` : 状態のサイズ。状態シーケンスの要素数。生成される値が再発する程度を調整するための値。
-* `m` : シフトサイズ。各ひねり(twist)時にシーケンスから選択する他の値が、`m`要素離れるようにする。`n`より小さくするのがよい。
-* `r` : マスクのビットサイズ。各ひねりに対する分離ポイントのマスクサイズ。`w`よりも小さくするのがよい。
-* `a` : XORのマスク。各ひねりに対して、線形関数としてXORする値。`1u << w`よりも小さくするのがよい。
+* `m` : シフトサイズ。各ひ�り(twist)時にシーケンスから選択する他の値が、`m`要素離れるようにする。`n`より小さくするのがよい。
+* `r` : マスクのビットサイズ。各ひ�りに対する分離ポイントのマスクサイズ。`w`よりも小さくするのがよい。
+* `a` : XORのマスク。各ひ�りに対して、線形関数としてXORする値。`1u << w`よりも小さくするのがよい。
 * `s, t, u, l` : 調律シフトのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のシフト値。`w`よりも小さくするのがよい。
 * `b, c, d` : 調律ビットマスクのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のビットマスク値。`1u << w`以下にするのがよい。
 * `f` : 初期化の乗数。ひとつの値をシードとする際の、状態シーケンスのシードとして使用する初期化乗数。
@@ -65,7 +65,7 @@ namespace std {
 |-------------------------------------------------------------------------|------------------|-------|
 | [`(constructor)`](mersenne_twister_engine/op_constructor.md)          | コンストラクタ   | C++11 |
 | `~mersenne_twister_engine() = default;`                                 | デストラクタ     | C++11 |
-| [`seed`](mersenne_twister_engine/seed.md)                             | シードを設定する | C++11 |
+| [`seed`](mersenne_twister_engine/seed.md)                             | シードを�定する | C++11 |
 
 
 ### 生成
@@ -98,9 +98,9 @@ namespace std {
 |---------------|-------------------|-------|
 | `static constexpr size_t word_size`     | ワードサイズ。状態シーケンス内での各ワードのビット数。テンプレートパラメータ`w`。 | C++11 |
 | `static constexpr size_t state_size`    | 状態のサイズ。状態シーケンスの要素数。生成される値が再発する程度を調整するための値。テンプレートパラメータ`n`。 | C++11 |
-| `static constexpr size_t shift_size`    | シフトサイズ。各ひねり(twist)時にシーケンスから選択する他の値が、`m`要素離れるようにする。テンプレートパラメータ`m`。 | C++11 |
-| `static constexpr size_t mask_bits`     | マスクのビットサイズ。各ひねりに対する分離ポイントのマスクサイズ。テンプレートパラメータ`r`。 | C++11 |
-| `static constexpr UIntType xor_mask`    | XORのマスク。各ひねりに対して、線形関数としてXORする値。テンプレートパラメータ`a`。 | C++11 |
+| `static constexpr size_t shift_size`    | シフトサイズ。各ひ�り(twist)時にシーケンスから選択する他の値が、`m`要素離れるようにする。テンプレートパラメータ`m`。 | C++11 |
+| `static constexpr size_t mask_bits`     | マスクのビットサイズ。各ひ�りに対する分離ポイントのマスクサイズ。テンプレートパラメータ`r`。 | C++11 |
+| `static constexpr UIntType xor_mask`    | XORのマスク。各ひ�りに対して、線形関数としてXORする値。テンプレートパラメータ`a`。 | C++11 |
 | `static constexpr size_t tempering_u`   | 調律シフトのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のシフト値。テンプレートパラメータ`u`。 | C++11 |
 | `static constexpr UIntType tempering_d` | 調律ビットマスクのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のビットマスク値。テンプレートパラメータ`d`。 | C++11 |
 | `static constexpr size_t tempering_s`   | 調律シフトのパラメータ。生成アルゴリズムによって使用される、ごちゃ混ぜ処理のシフト値。テンプレートパラメータ`s`。 | C++11 |
@@ -116,8 +116,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------------|----------------------|-------|
-| [`operator==`](mersenne_twister_engine/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](mersenne_twister_engine/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](mersenne_twister_engine/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](mersenne_twister_engine/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](mersenne_twister_engine/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](mersenne_twister_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -131,7 +131,7 @@ int main()
 {
   std::random_device seed_gen;
 
-  // mersenne_twister_engineのパラメータ設定済み別名であるmt19937を使用する。
+  // mersenne_twister_engineのパラメータ�定済み別名であるmt19937を使用する。
   // ランダムなシードを使用して初期化
   std::mt19937 engine(seed_gen());
 

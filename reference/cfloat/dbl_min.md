@@ -8,7 +8,7 @@
 ```
 
 ## 概要
-`double` の正の正規化数のうち最小のものを表すマクロ。  
+`double` の�の�規化数のうち最小のものを表すマク�。  
 以下の式で表される。
 
 $$
@@ -18,7 +18,7 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$e_{\rm min}$ は指数の最小値（[`DBL_MIN_EXP`](dbl_min_exp.md)）である。  
 $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`min`](/reference/limits/numeric_limits/min.md)`()` と�しい。
 
 
 ## 備考
@@ -37,7 +37,7 @@ int main()
   std::cout << std::setprecision(DBL_DIG);
   std::cout << DBL_MIN << '\n';
 
-  // 以下の式と等価
+  // 以下の式と�価
   std::cout << std::pow(FLT_RADIX, DBL_MIN_EXP - 1) << '\n';
 }
 ```

@@ -10,7 +10,7 @@ void unlock();
 ```
 
 ## 概要
-ロックを手放す
+�ックを手放す
 
 
 ## 要件
@@ -43,9 +43,9 @@ public:
   // メンバ変数value_への書き込みを排他的にする
   void add_value(int value)
   {
-    mtx_.lock(); // ロックを取得する
+    mtx_.lock(); // �ックを取得する
     value_ = value;
-    mtx_.unlock(); // ロックを手放す
+    mtx_.unlock(); // �ックを手放す
   }
 };
 

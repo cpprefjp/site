@@ -10,7 +10,7 @@ bool operator!=(const regex_iterator& right) const;
 ```
 
 ## 概要
-`regex_iterator` の非等値比較を行う。
+`regex_iterator` の非�値比較を行う。
 
 
 ## 戻り値
@@ -18,7 +18,7 @@ bool operator!=(const regex_iterator& right) const;
 
 
 ## 備考
-- 本メンバ関数が `true` を返したとしても、イテレータの指す文字列が等しくないとは限らないことに注意すること。（下記の例を参照）
+- 本メンバ関数が `true` を返したとしても、イテレータの指す文�列が�しくないとは限らないことに注意すること。（下記の例を参照）
 
 
 ## 例
@@ -75,5 +75,5 @@ it2:'1'(1, 2)
 ## 関連項目
 | 名前                        | 説明     |
 |-----------------------------|----------|
-| [`operator==`](op_equal.md) | 等値比較 |
+| [`operator==`](op_equal.md) | �値比較 |
 

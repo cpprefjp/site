@@ -33,15 +33,15 @@ namespace std {
 | [`line_number`](contract_violation/line_number.md.nolink)     | 契約違反が発生したソースコード上の行番号    | C++23 |
 | [`file_name`](contract_violation/file_name.md.nolink)       | 契約違反が発生したソースコードのファイル名  | C++23 |
 | [`function_name`](contract_violation/function_name.md.nolink)   | 契約違反が発生した関数の名前                    | C++23 |
-| [`comment`](contract_violation/comment.md.nolink)         | 契約違反の原因となった述語を説明する処理系定義のテキスト  | C++23 |
+| [`comment`](contract_violation/comment.md.nolink)         | 契約違反の原因となった述語を説明する処理系定義のテ�スト  | C++23 |
 | [`assertion_level`](contract_violation/assertion_level.md.nolink) | 違反した契約のアサーションレベル             | C++23 |
 
 
 ## 例
-(執筆中)
+(執��)
 
 ### 出力
-(執筆中)
+(執��)
 
 ## バージョン
 ### 言語
@@ -54,7 +54,7 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): 未実装
 
 ## 関連項目
-- [契約に基づくプログラミング](/lang/cpp23/contract-based_programming.md)
+- [契約に基づくプ�グラミング](/lang/cpp23/contract-based_programming.md)
 
 ## 参照
 - [P0542R5 Support for contract based programming in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html)

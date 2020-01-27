@@ -22,8 +22,8 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](error_code/op_constructor.md) | コンストラクタ | C++11 |
 | `~error_code() = default`                         | デストラクタ | C++11 |
-| [`operator=`](error_code/op_assign.md)          | 代入演算子 | C++11 |
-| [`assign`](error_code/assign.md)                | 値の再設定 | C++11 |
+| [`operator=`](error_code/op_assign.md)          | 代入演算� | C++11 |
+| [`assign`](error_code/assign.md)                | 値の再�定 | C++11 |
 | [`clear`](error_code/clear.md)                  | エラー情報をクリアする | C++11 |
 | [`value`](error_code/value.md)                  | エラー値を取得する | C++11 |
 | [`category`](error_code/category.md)            | エラーカテゴリを取得する | C++11 |
@@ -36,8 +36,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](op_equal.md) | 等値比較 | C++11 |
-| [`operator!=`](op_not_equal.md) | 非等値比較 | C++11 |
+| [`operator==`](op_equal.md) | �値比較 | C++11 |
+| [`operator!=`](op_not_equal.md) | 非�値比較 | C++11 |
 | [`operator<`](error_code/op_less.md) | 左辺が右辺より小さいか判定する | C++11 |
 | [`operator<<`](error_code/op_ostream.md) | ストリームへ出力 | C++11 |
 | [`make_error_code`](make_error_code.md) | `errc`から`error_code`オブジェクトを生成する | C++11 |
@@ -58,7 +58,7 @@ namespace std {
 int main()
 {
   try {
-    // 不正な引数エラー
+    // 不�な引数エラー
     std::error_code ec(static_cast<int>(std::errc::invalid_argument),
                        std::generic_category());
 

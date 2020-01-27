@@ -18,19 +18,19 @@ unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェ�
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
-- (1) : 自身が保持しているリソースを解放し、`u`から`*this`に所有権を譲渡する。
-- (2) : 自身が保持しているリソースを解放し、変換可能な`u`から`*this`に所有権を譲渡する
+- (1) : 自身が保持しているリソースを解放し、`u`から`*this`に所有権を�渡する。
+- (2) : 自身が保持しているリソースを解放し、変換可能な`u`から`*this`に所有権を�渡する
 - (3) : 自身が保持しているリソースを解放する。
-- (4) : コピー代入禁止。
+- (4) : コピー代入禁�。
 
 
 ## 要件
 - (1) : デリータの型`D`が、例外を投げずにムーブ構築可能であること。
-- (2) 単一オブジェクト : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
+- (2) 単一オブジェクト : 以下の条件を満たさない場合、この関数はオーバー�ード解決の候補から外れる：
     - `unique_ptr<U, E>::pointer`が、`pointer`に暗黙変換可能な型であること。
     - `U`が配列型ではないこと。
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<D&, E&&> == true`であること。
-- (2) 配列 : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
+- (2) 配列 : 以下の条件を満たさない場合、この関数はオーバー�ード解決の候補から外れる：
     - `U`は配列型であること。
     - `*this`の型`UP`について、`UP::pointer`と`UP::element_type*`が同じ型であること。
     - `u`の型`UP`について、`UP::pointer`と`UP::element_type*`が同じ型であること。
@@ -72,13 +72,13 @@ int main()
   std::unique_ptr<int> p0(new int(3));
 
   // (1) ムーブ代入
-  // p0の所有権をp1に譲渡する
+  // p0の所有権をp1に�渡する
   std::unique_ptr<int> p1;
   p1 = std::move(p0);
   assert(*p1 == 3);
 
   // (2) 変換可能な型からの所有権移動
-  // p1の所有権をp2に譲渡する
+  // p1の所有権をp2に�渡する
   std::unique_ptr<void> p2;
   p2 = std::move(p1);
   assert(*static_cast<int*>(p2.get()) == 3);
@@ -100,15 +100,15 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバーロード以外), 4.6.4
+- [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバー�ード以外), 4.6.4
 - [Clang](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
-	- 2010にはnullptr_tのオーバーロードがない。
+	- 2010にはnullptr_tのオーバー�ードがない。
 	- 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 ## 参照
 - [LWG Issue 2047. Incorrect "mixed" move-assignment semantics of `unique_ptr`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2047)
 - [LWG 2246. `unique_ptr` assignment effects w.r.t. deleter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246)
 - [LWG 2228: Missing SFINAE rule in unique_ptr templated assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4366)
-    - (2)のSFINAEルール不足の欠陥修正の提案文書
+    - (2)のSFINAEルール不足の欠陥修�の提案文書

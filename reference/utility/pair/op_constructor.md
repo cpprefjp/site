@@ -78,13 +78,13 @@ constexpr pair(piecewise_construct_t,
     - `first_type`と`second_type`が[`is_copy_constructible`](/reference/type_traits/is_copy_constructible.md)`<T>::value == true`であること
 - (5) :
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
-    - C++14まで : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+    - C++14まで : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバー�ード解決から除外される
 - (6) :
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, const U&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, const V&>::value`であること
-    - C++14まで : `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+    - C++14まで : `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバー�ード解決から除外される
 - (7) :
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
-    - C++14まで : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+    - C++14まで : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバー�ード解決から除外される
 - (8) :
     - `is_constructible<first_type, Args1&&...>::value && is_constructible<second_type, Args2&&...>::value`であること
 
@@ -100,7 +100,7 @@ constexpr pair(piecewise_construct_t,
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U1&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U2&, second_type>`である場合、この関数は`explicit`となる
 - (7) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、この関数は`explicit`となる
-- C++17では、コンストラクタの各オーバーロードが条件付きで`explicit`となるよう規定された。これは、以下のような初期化子リストを使用したC++17での初期化が不適格になっていたため、適格になるようにするための変更である：
+- C++17では、コンストラクタの各オーバー�ードが条件付きで`explicit`となるよう規定された。これは、以下のような初期化�リストを使用したC++17での初期化が不適格になっていたため、適格になるようにするための変更である：
     ```cpp
     std::tuple<int, int> pixel_coordinates()
     {

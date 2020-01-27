@@ -36,9 +36,9 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 
 ストリームへの出力またはマニピュレータの実行を行う。
 
-- マニピュレータを実行するオーバーロードそれ自体は、書式化出力関数・非書式化出力関数いずれにも該当しない。
-- 数値型（`bool`も含む）とポインタに対するオーバーロードは、書式化出力関数である。
-- `basic_streambuf`に対するオーバーロードは、非書式化出力関数である。
+- マニピュレータを実行するオーバー�ードそれ自体は、書式化出力関数・非書式化出力関数いずれにも該当しない。
+- 数値型（`bool`も含む）とポインタに対するオーバー�ードは、書式化出力関数である。
+- `basic_streambuf`に対するオーバー�ードは、非書式化出力関数である。
 
 ## 効果
 
@@ -51,10 +51,10 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. `num_put::put`を使用して入力のパース・数値への変換を行う。実引数を渡すに際し、一部の型では以下のように型変換を行う。
 	- `short`
-		- `flags()`に`hex`または`oct`が設定されていれば`static_cast<long>(static_cast<unsigned short>(n))`
+		- `flags()`に`hex`または`oct`が�定されていれば`static_cast<long>(static_cast<unsigned short>(n))`
 		- それ以外では`static_cast<long>(n)`
 	- `int`
-		- `flags()`に`hex`または`oct`が設定されていれば`static_cast<long>(static_cast<unsigned int>(n))`
+		- `flags()`に`hex`または`oct`が�定されていれば`static_cast<long>(static_cast<unsigned int>(n))`
 		- それ以外では`static_cast<long>(n)`
 	- `unsigned short`、`unsigned int`: `static_cast<unsigned long>(n)`
 	- `float`: `static_cast<double>(n)`
@@ -63,7 +63,7 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 
 ### `nullptr_t`の出力
 
-- C++17 : 実装定義の出力文字列`s`を、`return operator<<(s)`として渡した場合と等価である。
+- C++17 : 実装定義の出力文�列`s`を、`return operator<<(s)`として渡した場合と�価である。
 
 
 ### ストリームバッファの非書式化出力
@@ -72,9 +72,9 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. 仮引数`sb`がヌルポインタの場合、`setstate(badbit)`を呼び出して終了する。
-1. 以下のいずれかを満たすまで、`sb`から文字を入力して`this`へ出力する。
+1. 以下のいずれかを満たすまで、`sb`から文�を入力して`this`へ出力する。
 	- EOFに達した。
-	- 出力処理に失敗した（この場合、失敗したときの文字は入力側のストリームバッファに戻される）。
+	- 出力処理に失敗した（この場合、失敗したときの文�は入力側のストリームバッファに戻される）。
 	- 例外が発生した。
 
 入力がなされなかった場合、`setstate(failbit)`を呼び出す。
@@ -87,7 +87,7 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb);
 
 ## 備考
 
-- このクラスにはメンバ関数版の`operator<<`と非メンバ関数版の`operator<<`があるが、ロケールに依存して出力が変わる型へのオーバーロードが、メンバ関数版として定義される設計となっている。
+- このクラスにはメンバ関数版の`operator<<`と非メンバ関数版の`operator<<`があるが、�ケールに依�して出力が変わる型へのオーバー�ードが、メンバ関数版として定義される�計となっている。
     - 参照 : [N0470 A Draft for the Specification of the IOStream Classes](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1994/N0470.asc)
 
 
@@ -116,8 +116,8 @@ TBD
 
 ## 関連項目
 
-- このほかの`<<`演算子関数
-	- [文字・文字列の書式化出力、および、右辺値ストリームに対する出力](op_ostream_free.md)
+- このほかの`<<`演算�関数
+	- [文�・文�列の書式化出力、および、右辺値ストリームに対する出力](op_ostream_free.md)
 	- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
 	- [`std::error_code`に関するもの](../../system_error/error_code/op_ostream.md)
 	- [`std::complex`に関するもの](../../complex/complex/op_ostream.md)

@@ -34,7 +34,7 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-指定された文字列、文字、あるいは初期化リストを追加する。
+指定された文�列、文�、あるいは初期化リストを追加する。
 
 
 ## 要件
@@ -46,34 +46,34 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
 
 ## 効果
 - (1) 対象オブジェクトの末尾に `str` の値が追加（コピー）される。
-    * C++03 まで：`append(str, 0, npos)` と等価。
-    * C++11 から：`append(str.`[`data`](data.md)`(), str.`[`size`](size.md)`())` と等価。
+    * C++03 まで：`append(str, 0, npos)` と�価。
+    * C++11 から：`append(str.`[`data`](data.md)`(), str.`[`size`](size.md)`())` と�価。
 
-- (2) 対象オブジェクトの末尾に `str` の `pos` 以降の文字が追加される。
-    追加される文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
-    * C++03 まで：対象オブジェクトの末尾に `str` の `pos` 番目からの `rlen` 文字を追加（コピー）する。
-    * C++11 から：`append(str.`[`data`](data.md)`() + pos, rlen)` と等価。
+- (2) 対象オブジェクトの末尾に `str` の `pos` 以降の文�が追加される。
+    追加される文�列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
+    * C++03 まで：対象オブジェクトの末尾に `str` の `pos` 番目からの `rlen` 文�を追加（コピー）する。
+    * C++11 から：`append(str.`[`data`](data.md)`() + pos, rlen)` と�価。
 
-- (3) 対象オブジェクトの末尾に `s` が指す長さ `n` の文字列が追加（コピー）される。
-    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と等価。
-    * C++11 から：対象オブジェクトの末尾に `s` からの `n` 文字を追加（コピー）する。
+- (3) 対象オブジェクトの末尾に `s` が指す長さ `n` の文�列が追加（コピー）される。
+    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s, n))` と�価。
+    * C++11 から：対象オブジェクトの末尾に `s` からの `n` 文�を追加（コピー）する。
 
-- (4) 対象オブジェクトの末尾に `s` が指す NULL 終端された文字列が追加（コピー）される。
-    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と等価。
-    * C++11 から：`append(s, traits_type::length(s))` と等価。
+- (4) 対象オブジェクトの末尾に `s` が指す NULL 終端された文�列が追加（コピー）される。
+    * C++03 まで：`append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(s))` と�価。
+    * C++11 から：`append(s, traits_type::length(s))` と�価。
 
-- (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字追加（コピー）される。
-    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と等価。
+- (5) 対象オブジェクトの末尾に、文� `c` が `n` 文�追加（コピー）される。
+    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と�価。
 
-- (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。
-    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と等価。
+- (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文�列が追加（コピー）される。
+    * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と�価。
 
-- (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。
-    * `append(il.begin(), il.end())` と等価。
-- (8) 対象オブジェクトの末尾に、`sv`が参照する範囲の文字列が追加される。
-    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と等価。
-- (9) 対象オブジェクトの末尾に、`sv`の指定された範囲の文字列が追加される。
-    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
+- (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文�列が追加される。
+    * `append(il.begin(), il.end())` と�価。
+- (8) 対象オブジェクトの末尾に、`sv`が参照する範囲の文�列が追加される。
+    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と�価。
+- (9) 対象オブジェクトの末尾に、`sv`の指定された範囲の文�列が追加される。
+    * 文�列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
     * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
 
 
@@ -157,15 +157,15 @@ Hello, world
 
 | 名前                                | 説明                   |
 |-------------------------------------|------------------------|
-| [`operator+=`](op_plus_assign.md) | 文字／文字列を追加する |
-| [`push_back`](push_back.md)       | 文字を追加する         |
-| [`insert`](insert.md)             | 文字／文字列を挿入する |
-| [`operator+`](op_plus.md)         | 文字列を連結する       |
+| [`operator+=`](op_plus_assign.md) | 文�／文�列を追加する |
+| [`push_back`](push_back.md)       | 文�を追加する         |
+| [`insert`](insert.md)             | 文�／文�列を挿入する |
+| [`operator+`](op_plus.md)         | 文�列を連結する       |
 
 
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (7)の経緯となる提案文書
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
-    - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
+    - C++14から(2)のオーバー�ードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)

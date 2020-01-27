@@ -10,7 +10,7 @@ basic_ios& copyfmt(const basic_ios& rhs);
 * basic_ios[link ../basic_ios.md]
 
 ## 概要
-書式設定をコピーする。
+書式�定をコピーする。
 
 
 ## 効果
@@ -31,8 +31,8 @@ basic_ios& copyfmt(const basic_ios& rhs);
 
 
 ## 備考
-- 名前が示すように、書式設定はコピーするがストリームバッファ（[`rdbuf`](rdbuf.md)）、および、その状態（[`rdstate`](rdstate.md)`()`）はコピーしない。  
-    ただし、[`exceptions`](exceptions.md)`()` は設定する。
+- 名前が示すように、書式�定はコピーするがストリームバッファ（[`rdbuf`](rdbuf.md)）、および、その状態（[`rdstate`](rdstate.md)`()`）はコピーしない。  
+    ただし、[`exceptions`](exceptions.md)`()` は�定する。
 - コールバックは [`erase_event`](../ios_base/type-event.md) と [`copyfmt_event`](../ios_base/type-event.md) の 2 回呼び出されるが、[`erase_event`](../ios_base/type-event.md) で呼び出されるのはもともと `*this` に登録されていたコールバック、[`copyfmt_event`](../ios_base/type-event.md) で呼び出されるのは `rhs` 側に登録されていた（本関数で `*this` にコピーされた）コールバックである。  
     [`erase_event`](../ios_base/type-event.md) で、`pword` の私用記憶域に格納されていたポインタが指すオブジェクトの破棄、[`copyfmt_event`](../ios_base/type-event.md) で `pword` の私用記憶域にコピーされたポインタが指すオブジェクトのコピー（あるいはポインタのヌルポインタへの変更）を行うことができる。  
     `pword` の私用記憶域に格納したポインタの対処については [`ios_base`](../ios_base.md)`::`[`pword`](../ios_base/pword.md) の例を参照。

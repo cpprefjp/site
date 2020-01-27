@@ -31,14 +31,14 @@ constexpr int compare(size_type pos1,
 ```
 
 ## 概要
-他の文字列との比較を行う。
+他の文�列との比較を行う。
 
 - (1) : `*this`と`s`を比較する
 - (2) : `*this`の範囲`[pos1, pos1 + n1)`と`s`を比較する
 - (3) : `*this`の範囲`[pos1, pos1 + n1)`と`s`の範囲`[pos2, pos2 + n2)`を比較する
-- (4) : `*this`と文字配列`s`を比較する
-- (5) : `*this`の範囲`[pos1, pos1 + n1)`と文字配列`s`を比較する
-- (6) : `*this`の範囲`[pos1, pos1 + n1)`と文字配列`s`の先頭`n2`文字を比較する
+- (4) : `*this`と文�配列`s`を比較する
+- (5) : `*this`の範囲`[pos1, pos1 + n1)`と文�配列`s`を比較する
+- (6) : `*this`の範囲`[pos1, pos1 + n1)`と文�配列`s`の先�`n2`文�を比較する
 
 
 ## 効果
@@ -49,11 +49,11 @@ constexpr int compare(size_type pos1,
         - `size() < str.size()`であれば0未満の値を返す
         - `size() == str.size()`であれば0を返す
         - `size() > str.size()`であれば0超の値を返す
-- (2) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv);` と等価
-- (3) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv.`[`substr`](substr.md)`(pos2, n2));` と等価
-- (4) : `return compare(basic_string_view(s));` と等価
-- (5) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s));` と等価
-- (6) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s, n2));` と等価
+- (2) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv);` と�価
+- (3) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv.`[`substr`](substr.md)`(pos2, n2));` と�価
+- (4) : `return compare(basic_string_view(s));` と�価
+- (5) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s));` と�価
+- (6) : `return` [`substr`](substr.md)`(pos1, n1).compare(basic_string_view(s, n2));` と�価
 
 
 ## 戻り値

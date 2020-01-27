@@ -18,14 +18,14 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 
 
 ## 要件
-- `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](cend.md)`()` ではない）当該コンテナを指す読み取り専用イテレータでなければならない。
-- `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である読み取り専用イテレータでなければならない。  
+- `position` は、有効で、かつ、間接参照可能な（dereferenceable、つまり [`cend`](cend.md)`()` ではない）当該コンテナを指す�み取り専用イテレータでなければならない。
+- `first` と `last` は `[first, last)` が当該コンテナの有効な範囲である�み取り専用イテレータでなければならない。  
 	なお、規格書では `first` は間接参照可能である必要があることになっているが、他の種類のコンテナの要件と照らし合わせると、間接参照可能である必要はない（つまり、`first` と `last` が共に [`cend`](cend.md)`()` でも良い）ものと思われる。
 
 
 ## 効果
 - (1) : `position` で指定された要素を削除する。
-- (2) : `k` と等価なキーの要素を削除する。
+- (2) : `k` と�価な�ーの要素を削除する。
 - (3) : `[first, last)` の範囲にある要素を全て削除する。
 
 
@@ -94,7 +94,7 @@ int main()
     std::cout << std::endl;
   }
 
-  // 指定したキーと等価な要素を削除（(2)の形式）
+  // 指定した�ーと�価な要素を削除（(2)の形式）
   {
     std::unordered_multimap<std::string, int> um{ {"1st", 1}, {"3rd", 3}, {"5th", 5}, {"7th", 7}, {"9th", 9}, {"3rd", 33}, };
     print("(2) erase(const value_type&) before", um);
@@ -150,7 +150,7 @@ after : (9th, 9), (3rd, 33), (3rd, 3), (1st, 1),
 注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
-### イテレート中に要素を削除する
+### イテレート�に要素を削除する
 ```cpp example
 #include <iostream>
 #include <unordered_map>
@@ -163,7 +163,7 @@ int main()
     {4, 'c'}
   };
 
-  // イテレート中に要素削除をするような場合には、
+  // イテレート�に要素削除をするような場合には、
   // 範囲for文は使用できない
   for (auto it = um.begin(); it != um.end();) {
     // 条件一致した要素を削除する

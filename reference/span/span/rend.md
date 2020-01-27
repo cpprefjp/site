@@ -14,7 +14,7 @@ constexpr reverse_iterator rend() const noexcept;
 
 
 ## 戻り値
-以下と等価：
+以下と�価：
 
 ```cpp
 return reverse_iterator(begin());
@@ -41,7 +41,7 @@ int main()
 {
   std::vector<int> v = {1, 2, 3, 4, 5};
 
-  // vの先頭3要素を部分シーケンスとして参照する
+  // vの先�3要素を部分シーケンスとして参照する
   std::span<int, 3> s = std::span(v).first(3);
 
   // 逆順に出力

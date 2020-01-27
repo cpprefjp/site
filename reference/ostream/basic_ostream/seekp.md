@@ -16,8 +16,8 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir); // (2)
 
 ## 効果
 
-- (1) 出力ストリームの書き込み位置を `pos` に設定する。
-- (2) 出力ストリームの書き込み位置を `dir` を基準として相対位置 `off` に設定する。
+- (1) 出力ストリームの書き込み位置を `pos` に�定する。
+- (2) 出力ストリームの書き込み位置を `dir` を基準として相対位置 `off` に�定する。
 
 ## 戻り値
 `*this`
@@ -33,7 +33,7 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir); // (2)
 
 ## 例
 以下は、`off_type` と `seekdir` を使用する例。
-`pos_type` のみを引数に取るオーバーロードの例は、[`tellp`](tellp.md) を参照。
+`pos_type` のみを引数に取るオーバー�ードの例は、[`tellp`](tellp.md) を参照。
 
 ```cpp example
 #include <iostream>

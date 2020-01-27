@@ -10,7 +10,7 @@ constexpr const_reference front() const;
 ```
 
 ## 概要
-先頭文字を取得する。
+先�文�を取得する。
 
 
 ## 要件

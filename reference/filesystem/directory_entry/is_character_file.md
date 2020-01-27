@@ -11,7 +11,7 @@ bool is_character_file(std::error_code& ec) const noexcept; // (2)
 ```
 
 ## 概要
-キャラクタデバイスのスペシャルファイルを指しているか確認する。
+�ャラクタデバイスのスペシャルファイルを指しているか確認する。
 
 
 ## 戻り値

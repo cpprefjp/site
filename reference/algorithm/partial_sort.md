@@ -43,9 +43,9 @@ namespace std {
 ```
 
 ## 概要
-範囲を部分的にソートし、先頭 `N` 個を順に並んだ状態にする。`N` は `middle - first` で決まる。
+範囲を部分的にソートし、先� `N` 個を順に並んだ状態にする。`N` は `middle - first` で決まる。
 
-この関数は、「売り上げランキング トップ1位から10位まで」のように、全体ではなく最高順位から途中までの順位がわかればよい状況で、全体を並び替える[`sort()`](sort.md)関数の代わりに使用できる。
+この関数は、「売り上げラン�ング トップ1位から10位まで」のように、全体ではなく最高順位から途�までの順位がわかればよい状況で、全体を並び替える[`sort()`](sort.md)関数の代わりに使用できる。
 
 なお、トップ10がどれかわかれば十分である（1位から10位までは順不同でよい）ような場合、[`nth_element()`](nth_element.md)が使用できる。
 
@@ -54,7 +54,7 @@ namespace std {
 
 
 ## 効果
-`[first,last)` にある要素の中から、`middle - first` 個の要素をソート済みの状態で `[first,middle)` に配置する。残りの `[middle,last)` にある要素は unspecified order に配置される。
+`[first,last)` にある要素の�から、`middle - first` 個の要素をソート済みの状態で `[first,middle)` に配置する。残りの `[middle,last)` にある要素は unspecified order に配置される。
 
 
 ## 戻り値
@@ -75,7 +75,7 @@ int main()
 {
   std::vector<int> v = {3, 1, 4, 2, 5};
 
-  // 先頭2要素を並んだ状態にする
+  // 先�2要素を並んだ状態にする
   std::partial_sort(v.begin(), v.begin() + 2, v.end());
 
   std::for_each(v.begin(), v.end(), [](int x) {

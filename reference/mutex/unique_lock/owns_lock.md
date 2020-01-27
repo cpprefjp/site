@@ -10,11 +10,11 @@ bool owns_lock() const noexcept;
 ```
 
 ## 概要
-ロックを取得しているかを確認する
+�ックを取得しているかを確認する
 
 
 ## 戻り値
-ロックが取得済みであれば`true`、そうでなければ`false`を返す。
+�ックが取得済みであれば`true`、そうでなければ`false`を返す。
 
 
 ## 例外
@@ -32,20 +32,20 @@ int main()
   {
     std::unique_lock<std::mutex> lk(mtx);
 
-    // コンストラクタでロック取得されるのでowns_lock() == true
+    // コンストラクタで�ック取得されるのでowns_lock() == true
     assert(lk.owns_lock());
   }
 
   {
     std::unique_lock<std::mutex> lk(mtx, std::defer_lock);
 
-    // 遅延ロックのためコンストラクタでロック取得されないので、
+    // 遅延�ックのためコンストラクタで�ック取得されないので、
     // owns_lock() == false
     assert(!lk.owns_lock());
 
     lk.lock();
 
-    // ロック取得後なのでowns_lock() == true
+    // �ック取得後なのでowns_lock() == true
     assert(lk.owns_lock());
   }
 }

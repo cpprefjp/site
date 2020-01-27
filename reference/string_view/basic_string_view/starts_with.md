@@ -12,22 +12,22 @@ constexpr bool starts_with(const CharT* x) const;               // (3)
 ```
 
 ## 概要
-指定の文字列で始まるかを判定する。
+指定の文�列で始まるかを判定する。
 
-- (1) : `*this`が参照する文字列範囲の先頭が、`x`が参照する文字列範囲と一致するかを判定する
-- (2) : `*this`が参照する文字列範囲の先頭が、文字`x`と一致するかを判定する
-- (3) : `*this`が参照する文字列範囲の先頭が、文字列`x`と一致するかを判定する
+- (1) : `*this`が参照する文�列範囲の先�が、`x`が参照する文�列範囲と一致するかを判定する
+- (2) : `*this`が参照する文�列範囲の先�が、文�`x`と一致するかを判定する
+- (3) : `*this`が参照する文�列範囲の先�が、文�列`x`と一致するかを判定する
 
 
 ## 戻り値
-- (1) : 以下と等価である
+- (1) : 以下と�価である
     ```cpp
     return substr(0, x.size()) == x;
     ```
     * substr[link substr.md]
     * x.size()[link size.md]
 
-- (2) : 以下と等価である
+- (2) : 以下と�価である
     ```cpp
     return !empty() && Traits::eq(front(), x);
     ```
@@ -35,7 +35,7 @@ constexpr bool starts_with(const CharT* x) const;               // (3)
     * Traits::eq[link /reference/string/char_traits/eq.md]
     * front()[link front.md]
 
-- (3) : 以下と等価である
+- (3) : 以下と�価である
     ```cpp
     return starts_with(basic_string_view(x));
     ```

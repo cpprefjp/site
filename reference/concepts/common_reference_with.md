@@ -19,7 +19,7 @@ namespace std {
 
 ## 概要
 
-`common_reference_with`は、`T, U`の間で、どちらの型からも変換可能な共通の参照型が存在することを表すコンセプトである。
+`common_reference_with`は、`T, U`の間で、どちらの型からも変換可能な共通の参照型が�在することを表すコンセプトである。
 
 2つの型`T, U`は以下の全ての条件を満たす場合にのみ、共通の参照型を持つ。
 
@@ -31,10 +31,10 @@ namespace std {
 
 ## モデル
 
-`C = common_reference_t<T, U>`、[等しさを保持](/reference/concepts.md)し`decltype((t1))`と`decltype((t2))`が共に`T`となるような式`t1, t2`及び、等しさを保持し`decltype((u1))`と`decltype((u2))`が共に`U`となるような式`u1, u2`について以下の条件を満たす場合に限って、型`T, U`は`common_reference_with`のモデルである。
+`C = common_reference_t<T, U>`、[�しさを保持](/reference/concepts.md)し`decltype((t1))`と`decltype((t2))`が共に`T`となるような式`t1, t2`及び、�しさを保持し`decltype((u1))`と`decltype((u2))`が共に`U`となるような式`u1, u2`について以下の条件を満たす場合に限って、型`T, U`は`common_reference_with`のモデルである。
 
-- `t1`と`t2`が等値である場合にのみ、`C(t1)`と`C(t2)`も等値となる
-- `u1`と`u2`が等値である場合にのみ、`C(u1)`と`C(u2)`も等値となる
+- `t1`と`t2`が�値である場合にのみ、`C(t1)`と`C(t2)`も�値となる
+- `u1`と`u2`が�値である場合にのみ、`C(u1)`と`C(u2)`も�値となる
 
 ## 備考
 

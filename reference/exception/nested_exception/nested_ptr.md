@@ -11,11 +11,11 @@ exception_ptr nested_ptr() const noexcept;
 * exception_ptr[link /reference/exception/exception_ptr.md]
 
 ## 概要
-入れ子になった例外へのポインタを取得する
+入れ�になった例外へのポインタを取得する
 
 
 ## 戻り値
-メンバとして保持している、入れ子になった例外へのポインタを返す。
+メンバとして保持している、入れ�になった例外へのポインタを返す。
 
 
 ## 例外
@@ -38,12 +38,12 @@ int main()
       }
       catch (int& x) {
         std::cout << "1st caught: " << x << std::endl;
-        throw my_exception(); // 現在の例外(int)を入れ子にしてmy_exceptionを送出
+        throw my_exception(); // 現在の例外(int)を入れ�にしてmy_exceptionを送出
       }
     }
     catch (my_exception& e) {
       std::cout << "2nd caught: my_exception(nested_exception)." << std::endl;
-      // 入れ子になっている例外(int)を送出
+      // 入れ�になっている例外(int)を送出
       std::rethrow_exception(e.nested_ptr());
     }
   }

@@ -10,7 +10,7 @@ static constexpr bool eq(char_type c1, char_type c2) noexcept; // C++11
 ```
 
 ## 概要
-2つの文字を比較し、同じかどうかを判定する。
+2つの文�を比較し、同じかどうかを判定する。
 
 
 ## 戻り値

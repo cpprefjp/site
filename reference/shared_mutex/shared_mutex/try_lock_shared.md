@@ -10,7 +10,7 @@ bool try_lock_shared();
 ```
 
 ## 概要
-共有ロックの取得を試みる。
+共有�ックの取得を試みる。
 
 
 ## 要件
@@ -18,7 +18,7 @@ bool try_lock_shared();
 
 
 ## 効果
-ブロッキングせずに、この関数を呼び出したスレッドがミューテックスの共有所有権を取得する
+ブ�ッ�ングせずに、この関数を呼び出したスレッドがミューテックスの共有所有権を取得する
 
 
 ## 戻り値
@@ -45,24 +45,24 @@ public:
   // メンバ変数value_への書き込みを排他的にする
   void add_value(int value)
   {
-    mtx_.lock(); // 排他ロックを取得する
+    mtx_.lock(); // 排他�ックを取得する
     value_ = value;
-    mtx_.unlock(); // 排他ロックを手放す
+    mtx_.unlock(); // 排他�ックを手放す
   }
 
-  // メンバ変数value_の値を読み込む
+  // メンバ変数value_の値を�み込む
   int get_value() const
   {
     int result = 0;
 
-    if (!mtx_.try_lock_shared()) { // 共有ロックの取得を試みる
-      // 共有ロックの取得に失敗
+    if (!mtx_.try_lock_shared()) { // 共有�ックの取得を試みる
+      // 共有�ックの取得に失敗
       std::error_code ec(static_cast<int>(std::errc::device_or_resource_busy), std::generic_category());
       throw std::system_error(ec);
     }
 
     result = value_;
-    mtx_.unlock_shared(); // 共有ロックを手放す
+    mtx_.unlock_shared(); // 共有�ックを手放す
     return result;
   }
 };

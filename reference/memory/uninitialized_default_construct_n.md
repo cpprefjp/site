@@ -20,13 +20,13 @@ namespace std {
 ```
 
 ## 概要
-未初期化領域の範囲のうち、先頭N個の要素をデフォルト構築する。
+未初期化領域の範囲のうち、先�N個の要素をデフォルト構築する。
 
-未初期化領域の入力範囲`[first, first + n)`の各要素をデフォルト構築する (ゼロ初期化しない)。
+未初期化領域の入力範囲`[first, first + n)`の各要素をデフォルト構築する (ゼ�初期化しない)。
 
 
 ## 効果
-以下と等価：
+以下と�価：
 
 ```cpp
 for (; n > 0; (void)++first, --n)
@@ -39,7 +39,7 @@ return first;
 
 
 ## 備考
-- [`std::vector`](/reference/vector/vector.md)クラスの要素数を変更する操作は、要素を値構築するためゼロ初期化が行われる。その値初期化のコストが気になるような場合に、デフォルト構築することでプログラマの責任で必要な分だけ任意に初期化でき、パフォーマンス向上が期待できるようになる。
+- [`std::vector`](/reference/vector/vector.md)クラスの要素数を変更する操作は、要素を値構築するためゼ�初期化が行われる。その値初期化のコストが気になるような場合に、デフォルト構築することでプ�グラマの責任で必要な分だけ任意に初期化でき、パフォーマンス向上が期待できるようになる。
      - 例としてBoost Container Libraryの`vector`クラスには、要素数を変更するメンバ関数にデフォルト構築のオプションとして[`default_init`](https://www.boost.org/doc/libs/release/doc/html/container/extended_functionality.html#container.extended_functionality.default_initialialization)がある
 
 
@@ -65,7 +65,7 @@ int main()
   std::uninitialized_default_construct_n(p, size);
 
   // 各要素を出力
-  // (値構築すると各値がゼロ初期化されるが、デフォルト構築ではゼロ初期化されない)
+  // (値構築すると各値がゼ�初期化されるが、デフォルト構築ではゼ�初期化されない)
   for (std::size_t i = 0; i < size; ++i) {
     const Vector& v = *(p + i);
     std::cout << v.x << ',' << v.y << std::endl;

@@ -87,7 +87,7 @@ namespace std{
 
 
 ## 効果
-- (1) : 以下と等価
+- (1) : 以下と�価
     ```cpp
     return exclusive_scan(first, last, result, init, plus<>());
     ```
@@ -95,7 +95,7 @@ namespace std{
 
 - (2), (4) : 範囲`[0, last - first)`の各値を`K`として、出力先のイテレータ`result + K`に、`{init, *first, *(first + 1), *(first + 2), ..., *(last - 1)}`の`K`番目までの要素の合計値を順不同に代入する
 
-- (3) : 以下と等価
+- (3) : 以下と�価
     ```cpp
     return exclusive_scan(std::forward<ExecutionPolicy>(exec),
                           first, last, result, init, plus<>());
@@ -114,7 +114,7 @@ namespace std{
 
 ## 備考
 - (1), (2) : `result`は`first`と同値になるだろう
-- (2), (4) : 関数オブジェクト`binary_op`に数学的な結合性がない場合、この関数は非決定的な動作になる可能性がある
+- (2), (4) : 関数オブジェクト`binary_op`に数�的な結合性がない場合、この関数は非決定的な動作になる可能性がある
 
 
 ## 例
@@ -186,6 +186,6 @@ int main()
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
 - [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [Finding the number of occurrences of keys and the positions of first occurrences of keys by CUDA Thrust - StackOverflow](https://stackoverflow.com/questions/8792926/finding-the-number-of-occurrences-of-keys-and-the-positions-of-first-occurrences/)
-    - この関数の用途として、[`std::multiset`](/reference/set/multiset.md)のような構成になっているシーケンスから、それぞれのキーがはじまるインデックスのリストを取得するために使用できる
+    - この関数の用途として、[`std::multiset`](/reference/set/multiset.md)のような構成になっているシーケンスから、それぞれの�ーがはじまるインデックスのリストを取得するために使用できる
 - [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
     - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した

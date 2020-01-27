@@ -13,7 +13,7 @@
 
 
 ## 備考
-このマクロの値は、[`std::fpclassify`](fpclassify.md) において、引数が `NaN`（Not a Number、非数）である場合に、戻り値として使用される。
+このマク�の値は、[`std::fpclassify`](fpclassify.md) において、引数が `NaN`（Not a Number、非数）である場合に、戻り値として使用される。
 
 
 ## 例

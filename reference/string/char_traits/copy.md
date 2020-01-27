@@ -15,7 +15,7 @@ static constexpr char_type* copy(char_type* s1,
 ```
 
 ## 概要
-文字列`s1`に文字列`s2`をコピーする。
+文�列`s1`に文�列`s2`をコピーする。
 
 
 ## 事前条件

@@ -22,7 +22,7 @@ error_code(ErrorCodeEnum e) noexcept;                    // (3)
 
 
 ## 効果
-- (1) : 値`0`(正常値)で構築する。エラーカテゴリは[`system_category()`](../system_category.md)と見なされる。
+- (1) : 値`0`(�常値)で構築する。エラーカテゴリは[`system_category()`](../system_category.md)と見なされる。
 - (3) : `*this =` [`make_error_code`](../make_error_code.md)`(e);` となる。
 
 
@@ -31,7 +31,7 @@ error_code(ErrorCodeEnum e) noexcept;                    // (3)
 
 
 ## 備考
-- (3) : [`is_error_code_enum`](../is_error_code_enum.md)が`false`となる場合、この関数はオーバーロード解決から除外される。
+- (3) : [`is_error_code_enum`](../is_error_code_enum.md)が`false`となる場合、この関数はオーバー�ード解決から除外される。
 
 
 ## 例

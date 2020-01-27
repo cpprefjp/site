@@ -27,19 +27,19 @@ template<class T, class Alloc, class U, class V>
 * see below[italic]
 
 ## 概要
-`Alloc` 型のアロケータオブジェクト `alloc` を使用した `T` 型オブジェクトの uses-allocator 構築のために必要なコンストラクタ引数を、[`tuple`](../tuple/tuple.md) 型にして返す。
+`Alloc` 型のア�ケータオブジェクト `alloc` を使用した `T` 型オブジェクトの uses-allocator 構築のために必要なコンストラクタ引数を、[`tuple`](../tuple/tuple.md) 型にして返す。
 また、`T` が [`pair`](../utility/pair.md) だった場合は、それぞれの要素に対して uses-allocator 構築するために必要なコンストラクタ引数を、[`tuple`](../tuple/tuple.md) 型にして返す。
 
 構築対象の型 `T` は関数引数からは推論できないため、明示的に指定する必要がある。
 
 
 ## テンプレートパラメータ制約
-- (1) : `T` が [`pair`](../utility/pair.md) の特殊化**ではない**場合のみオーバーロード解決に参加する
-- (2)～(6) : `T` が [`pair`](../utility/pair.md) の特殊化**である**場合のみオーバーロード解決に参加する
+- (1) : `T` が [`pair`](../utility/pair.md) の特殊化**ではない**場合のみオーバー�ード解決に参加する
+- (2)～(6) : `T` が [`pair`](../utility/pair.md) の特殊化**である**場合のみオーバー�ード解決に参加する
 
 
 ## 戻り値
-- (1) : 以下のいずれかと同等
+- (1) : 以下のいずれかと同�
 	- もし [`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `false` で、かつ、[`is_constructible_v`](../type_traits/is_constructible.md)`<T, Args...>` が `true` の場合、
 
 		```cpp
@@ -69,7 +69,7 @@ forward_as_tuple(std::forward<Args>(args)..., alloc)
 
 	- 上記以外の場合、不適格となる。
 
-- (2) : `T` を [`pair`](../utility/pair.md)`<T1, T2>` とすると、以下と同等
+- (2) : `T` を [`pair`](../utility/pair.md)`<T1, T2>` とすると、以下と同�
 
 	```cpp
 make_tuple(
@@ -89,7 +89,7 @@ make_tuple(
 * apply[link ../tuple/apply.md]
 * make_tuple[link ../tuple/make_tuple.md]
 
-- (3) : 以下と同等
+- (3) : 以下と同�
 
 	```cpp
 uses_allocator_construction_args<T>(alloc, piecewise_construct,
@@ -99,7 +99,7 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
 * tuple[link ../tuple/tuple/op_constructor.md]
 * uses_allocator_construction_args[color ff0000]
 
-- (4) : 以下と同等
+- (4) : 以下と同�
 
 	```cpp
 uses_allocator_construction_args<T>(alloc, piecewise_construct,
@@ -111,7 +111,7 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
 * forward[link ../utility/forward.md]
 * uses_allocator_construction_args[color ff0000]
 
-- (5) : 以下と同等
+- (5) : 以下と同�
 
 	```cpp
 uses_allocator_construction_args<T>(alloc, piecewise_construct,
@@ -122,7 +122,7 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
 * forward_as_tuple[link ../tuple/forward_as_tuple.md]
 * uses_allocator_construction_args[color ff0000]
 
-- (6) : 以下と同等
+- (6) : 以下と同�
 
 	```cpp
 uses_allocator_construction_args<T>(alloc, piecewise_construct,
@@ -138,10 +138,10 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
 ## 備考
 - 本関数は、uses-allocator 構築をサポートするために C++20 で導入された。  
 	本関数を用いることで、uses-allocator 構築、特に [`pair`](../utility/pair.md) に対する特殊な uses-allocator 構築を容易にサポートすることが可能となる。  
-	ただし、実際には構築まで実施する [`make_obj_using_allocator`](make_obj_using_allocator.md) や [`uninitialized_construct_using_allocator`](uninitialized_construct_using_allocator.md) が存在するため、これらの関数を直接呼び出す機会はあまり多くはないだろう。
-- 上記 (1) を見ればわかる通り、uses-allocator 構築は、その名前に反して必ずしもアロケータオブジェクトを使うとは限らないので注意。  
-	（[`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `false` の場合、アロケータオブジェクト `alloc` は無視される）
-- 上記 (2)～(6) を見ればわかる通り、`T` が [`pair`](../utility/pair.md) の場合には再帰的に `uses_allocator_construction_args` を呼び出しているため、ネストした [`pair`](../utility/pair.md) に対しても正しく uses-allocator 構築をサポートできる。
+	ただし、実際には構築まで実施する [`make_obj_using_allocator`](make_obj_using_allocator.md) や [`uninitialized_construct_using_allocator`](uninitialized_construct_using_allocator.md) が�在するため、これらの関数を直接呼び出す機会はあまり多くはないだろう。
+- 上記 (1) を見ればわかる通り、uses-allocator 構築は、その名前に反して必ずしもア�ケータオブジェクトを使うとは限らないので注意。  
+	（[`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `false` の場合、ア�ケータオブジェクト `alloc` は無視される）
+- 上記 (2)～(6) を見ればわかる通り、`T` が [`pair`](../utility/pair.md) の場合には再帰的に `uses_allocator_construction_args` を呼び出しているため、ネストした [`pair`](../utility/pair.md) に対しても�しく uses-allocator 構築をサポートできる。
 
 
 ## 例
@@ -150,45 +150,45 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
 #include <utility>
 #include <memory>
 
-// 偽アロケータ
+// 偽ア�ケータ
 struct MyAlloc {};
 
-// アロケータを使用しない偽コンテナ
+// ア�ケータを使用しない偽コンテナ
 struct MyContainer0 {
   MyContainer0(int) noexcept {}
 };
 
-// 偽アロケータを使用する偽コンテナ（allocator_arg_t 使用）
+// 偽ア�ケータを使用する偽コンテナ（allocator_arg_t 使用）
 struct MyContainer1 {
   using allocator_type = MyAlloc;
   MyContainer1(std::allocator_arg_t, const MyAlloc&, int) noexcept {}
 };
 
-// 偽アロケータを使用する偽コンテナ（最後の引数）
+// 偽ア�ケータを使用する偽コンテナ（最後の引数）
 struct MyContainer2 {
   using allocator_type = MyAlloc;
   MyContainer2(int, const MyAlloc&) noexcept {}
 };
 
-// 偽アロケータ用挿入演算子
+// 偽ア�ケータ用挿入演算�
 std::ostream& operator<<(std::ostream& os, const MyAlloc&)
 {
   return os << "MyAlloc";
 }
 
-// allocator_arg 用挿入演算子
+// allocator_arg 用挿入演算�
 std::ostream& operator<<(std::ostream& os, const std::allocator_arg_t&)
 {
   return os << "allocator_arg_t";
 }
 
-// piecewise_construct 用挿入演算子
+// piecewise_construct 用挿入演算�
 std::ostream& operator<<(std::ostream& os, const std::piecewise_construct_t&)
 {
   return os << "piecewise_construct_t";
 }
 
-// tuple 用挿入演算子
+// tuple 用挿入演算�
 template <typename... Ts>
 std::ostream& operator<<(std::ostream& os, const std::tuple<Ts...>& t)
 {

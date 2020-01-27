@@ -35,15 +35,15 @@ namespace std {
 
 ## 引数
 
-- `first1` -- 比較する1つ目の範囲の先頭のイテレータ。
+- `first1` -- 比較する1つ目の範囲の先�のイテレータ。
 - `last1` -- 比較する1つ目の範囲の終端のイテレータ。
-- `first2` -- 比較する2つ目の範囲の先頭のイテレータ。
+- `first2` -- 比較する2つ目の範囲の先�のイテレータ。
 - `last2` -- 比較する2つ目の範囲の終端のイテレータ。
 - `comp` -- 使用する三方比較をカスタマイズする関数オブジェクト。
 
 ## 効果
 
-- (1) : 以下と等価
+- (1) : 以下と�価
   ```cpp
   for ( ; first1 != last1 && first2 != last2; void(++first1), void(++first2) )
     if (auto cmp = comp(*first1, *first2); cmp != 0)
@@ -54,7 +54,7 @@ namespace std {
   ```
   * strong_ordering[link /reference/compare/strong_ordering.md]
 
-- (2) : 以下と等価、すなわち(1)に移譲
+- (2) : 以下と�価、すなわち(1)に移�
   ```cpp
   return lexicographical_compare_three_way(first1, last1, first2, last2, compare_three_way());
   ```
@@ -64,7 +64,7 @@ namespace std {
 ## 戻り値
 
 戻り値型となる比較カテゴリ型を`Cat`とすると、  
-範囲`[first1, last1)`が、辞書式比較で範囲`[first2, last2)`より大きい場合は`Cat::greator`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
+範囲`[first1, last1)`が、辞書式比較で範囲`[first2, last2)`より大きい場合は`Cat::greator`を返し、小さい場合`Cat::less`を返し、�しいのならば`Cat::equivalent`を返す。
 
 ## 例
 ```cpp example
@@ -73,7 +73,7 @@ namespace std {
 #include <algorithm>
 #include <cctype>
 
-//大文字小文字を同値として扱って比較
+//大文�小文�を同値として扱って比較
 auto weak_comp = [](char cl, char cr) -> std::weak_ordering {
   char c1, c2;
   if (std::isalpha(static_cast<unsigned char>(cl)) && std::isalpha(static_cast<unsigned char>(cr))) {

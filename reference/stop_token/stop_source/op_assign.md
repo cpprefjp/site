@@ -11,8 +11,8 @@ stop_source& operator=(stop_source&& r) noexcept;      // (2)
 ```
 
 ## 概要
-- (1) : コピー代入演算子。
-- (2) : ムーブ代入演算子。
+- (1) : コピー代入演算�。
+- (2) : ムーブ代入演算�。
 
 
 ## 効果
@@ -42,13 +42,13 @@ int main()
   assert(ss1.stop_requested() == false);
   assert(ss2.stop_requested() == false);
 
-  // (1) コピー代入演算子
+  // (1) コピー代入演算�
   ss2 = ss1;
   assert(ss2 == ss1);
   assert(ss1.stop_possible() == true);
   assert(ss2.stop_possible() == true);
 
-  // (2) ムーブ代入演算子
+  // (2) ムーブ代入演算�
   ss3 = std::move(ss1);
   assert(ss1.stop_possible() == false);
   assert(ss3.stop_possible() == true);

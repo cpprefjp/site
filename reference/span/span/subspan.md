@@ -33,7 +33,7 @@ constexpr span<element_type, dynamic_extent>
 
 
 ## 戻り値
-- (1) : 以下と等価：
+- (1) : 以下と�価：
     ```cpp
     return span<ElementType, see below>(
         data() + Offset, Count != dynamic_extent ? Count : size() - Offset);
@@ -50,7 +50,7 @@ constexpr span<element_type, dynamic_extent>
     dynamic_extent)
     ```
 
-- (2) : 以下と等価：
+- (2) : 以下と�価：
     ```cpp
     return {data() + offset, count == dynamic_extent ? size() - offset : count};
     ```
@@ -75,8 +75,8 @@ int main()
   std::span<int, 5> s = std::span{v};
 
   // (1) : テンプレート引数として開始位置と要素数を指定して、要素を取得する。
-  // テンプレート内でこのオーバーロードを使用する場合、s.template subspan<2, 3>(); のように、
-  // template限定子の指定が必要になることに注意
+  // テンプレート内でこのオーバー�ードを使用する場合、s.template subspan<2, 3>(); のように、
+  // template限定�の指定が必要になることに注意
   std::span<int, 3> static_span = s.subspan<2, 3>();
   for (int x : static_span) {
     std::cout << x << std::endl;

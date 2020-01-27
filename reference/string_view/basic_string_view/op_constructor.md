@@ -15,9 +15,9 @@ constexpr basic_string_view(const CharT* str, size_type len); // (4)
 
 ## 概要
 - (1) : デフォルトコンストラクタ。空の`basic_string_view`オブジェクトを構築する
-- (2) : コピーコンストラクタ。コピー元と同じ文字列を参照する
-- (3) : 文字配列を受けとって、その文字配列の全体(ただしヌル文字列を含む場合はそこまで)を参照する
-- (4) : 文字配列と長さを受けとって、文字配列`str`の先頭`len`文字を参照する
+- (2) : コピーコンストラクタ。コピー元と同じ文�列を参照する
+- (3) : 文�配列を受けとって、その文�配列の全体(ただしヌル文�列を含む場合はそこまで)を参照する
+- (4) : 文�配列と長さを受けとって、文�配列`str`の先�`len`文�を参照する
 
 
 ## 要件
@@ -26,7 +26,7 @@ constexpr basic_string_view(const CharT* str, size_type len); // (4)
 
 
 ## 効果
-メンバ変数として、参照する文字配列へのポインタを`const CharT* data_`、文字数を`size_type size_`があるものとして、
+メンバ変数として、参照する文�配列へのポインタを`const CharT* data_`、文�数を`size_type size_`があるものとして、
 
 - (1) : `data_ = nullptr;`および`size_ = 0;`とする
 - (3) : `data_ = str;`および`size_ = Traits::`[`length`](/reference/string/char_traits/length.md)`(str);`とする
@@ -35,10 +35,10 @@ constexpr basic_string_view(const CharT* str, size_type len); // (4)
 
 ## 計算量
 - (1), (4) : 定数時間
-- (3): 文字数に対して線形時間
+- (3): 文�数に対して線形時間
 
 ## 備考
-- `basic_string_view`のコンストラクタに`template<size_t N>basic_string_view(const charT (&str)[N])`タイプの配列を受け取るコンストラクタが無いのは次の使い方をしたとき`str`のサイズが`sizeof(buf)`となり、それは利用者の意図しない挙動になる可能性が高いと判断されたからである。
+- `basic_string_view`のコンストラクタに`template<size_t N>basic_string_view(const charT (&str)[N])`タイプの配列を受け取るコンストラクタが無いのは次の使い方をしたとき`str`のサイズが`sizeof(buf)`となり、それは利用者の意図しない挙動になる可能性が高いと判�されたからである。
 
 ```cpp example
 char buf[128];
@@ -46,7 +46,7 @@ snprintf(buf, sizeof(buf), "abc");
 string_view str(buf);
 ```
 
-- ヌル文字を含む文字列リテラル全体から`basic_string_view`を構築したい場合は[`std::string_view_literals::svリテラル`](op_sv.html)を用いる。
+- ヌル文�を含む文�列リテラル全体から`basic_string_view`を構築したい場合は[`std::string_view_literals::svリテラル`](op_sv.html)を用いる。
 
 
 ## 例
@@ -66,7 +66,7 @@ int main()
   }
 
   // (2)
-  // コピーコンストラクタ。コピー元と同じ文字列を参照する
+  // コピーコンストラクタ。コピー元と同じ文�列を参照する
   {
     std::string_view base{"Hello World"};
     std::string_view sv = base;
@@ -75,16 +75,16 @@ int main()
   }
 
   // (3)
-  // 文字配列を受けとって参照するコンストラクタ
+  // 文�配列を受けとって参照するコンストラクタ
   {
     std::string_view sv = "Hello World";
     std::cout << "(3) : " << sv << std::endl;
   }
 
   // (4)
-  // 文字配列と文字数を受けとって部分文字列を参照するコンストラクタ
+  // 文�配列と文�数を受けとって部分文�列を参照するコンストラクタ
   {
-    // "Hello World"の先頭5文字"Hello"を参照
+    // "Hello World"の先�5文�"Hello"を参照
     std::string_view sv{"Hello World", 5};
     std::cout << "(4) : " << sv << std::endl;
   }

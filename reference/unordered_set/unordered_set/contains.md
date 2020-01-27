@@ -13,12 +13,12 @@ bool contains(const K& k) const;        // (2)
 ```
 
 ## 概要
-指定されたキーに一致する要素がコンテナに含まれているかを判定する。
+指定された�ーに一致する要素がコンテナに含まれているかを判定する。
 
-- (1) : キー`x`を検索し、合致する要素が含まれるかを判定する
-- (2) : キー`k`を透過的に検索し、合致する要素が含まれるかを判定する
+- (1) : �ー`x`を検索し、合致する要素が含まれるかを判定する
+- (2) : �ー`k`を透過的に検索し、合致する要素が含まれるかを判定する
 
-(2)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.contains("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+(2)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.contains("key");`のように`string`型の�ーを持つ連想コンテナの検索インタフェースに文�列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## テンプレートパラメータ制約
@@ -26,7 +26,7 @@ bool contains(const K& k) const;        // (2)
 
 
 ## 戻り値
-`x`と`k`を共通の変数`a`であるとして、以下と等価：
+`x`と`k`を共通の変数`a`であるとして、以下と�価：
 
 ```cpp
 return find(a) != end();
@@ -49,7 +49,7 @@ int main()
 {
   std::unordered_set<int> us = {1, 2, 3};
 
-  // キー2の要素が含まれているか
+  // �ー2の要素が含まれているか
   if (us.contains(2)) {
     std::cout << "contain" << std::endl;
   }

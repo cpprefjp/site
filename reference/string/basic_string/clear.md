@@ -33,7 +33,7 @@ int main()
 {
   std::string s = "hello";
 
-  // 文字列を空にする
+  // 文�列を空にする
   s.clear();
 
   assert(s.empty());

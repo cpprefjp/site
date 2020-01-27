@@ -20,13 +20,13 @@ path& operator+=(EcharT x);                        // (7)
 ```
 
 ## 概要
-パス文字列を加算する。
+パス文�列を加算する。
 
-この演算子は、[`operator/=`](op_append_assign.md)と違って、ディレクトリ区切り文字を自動的に挿入はせず、パス文字列への加算のみを行う。
+この演算�は、[`operator/=`](op_append_assign.md)と違って、ディレクトリ区切り文�を自動的に挿入はせず、パス文�列への加算のみを行う。
 
 
 ## 効果
-`path(x).`[`native()`](native.md)を、`*this`が保持するパス文字列に加算する。
+`path(x).`[`native()`](native.md)を、`*this`が保持するパス文�列に加算する。
 
 
 ## 戻り値
@@ -54,7 +54,7 @@ int main()
   }
   {
     fs::path p = "foo";
-    p += U'p'; // UTF-32文字を加算 (文字コードはクラス内部で自動変換される)
+    p += U'p'; // UTF-32文�を加算 (文�コードはクラス内部で自動変換される)
     std::cout << p << std::endl;
   }
 }

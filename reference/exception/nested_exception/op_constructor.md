@@ -34,7 +34,7 @@ int main()
     catch (int& x) {
       my_exception e; // 現在の例外(int)が保持される
 
-      // my_exceptionによって入れ子になった例外へのポインタを取得して再送出
+      // my_exceptionによって入れ�になった例外へのポインタを取得して再送出
       std::rethrow_exception(e.nested_ptr());
     }
   }

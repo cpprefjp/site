@@ -10,7 +10,7 @@ constexpr void remove_prefix(size_type n);
 ```
 
 ## 概要
-先頭のN文字を削除する。
+先�のN文�を削除する。
 
 
 ## 要件
@@ -18,7 +18,7 @@ constexpr void remove_prefix(size_type n);
 
 
 ## 効果
-メンバ変数として、参照する文字配列へのポインタを`const CharT* data_`、文字数を`size_type size_`があるものとして、以下と等価：
+メンバ変数として、参照する文�配列へのポインタを`const CharT* data_`、文�数を`size_type size_`があるものとして、以下と�価：
 
 ```cpp
 data_ += n;
@@ -35,7 +35,7 @@ int main()
 {
   std::string_view sv = "This is a pen";
 
-  sv.remove_prefix(5); // 先頭5文字 "This " を削除
+  sv.remove_prefix(5); // 先�5文� "This " を削除
   std::cout << '[' << sv << ']' << std::endl;
 }
 ```

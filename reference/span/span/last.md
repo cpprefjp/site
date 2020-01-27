@@ -32,7 +32,7 @@ constexpr span<element_type, dynamic_extent>
 
 
 ## 戻り値
-(1)であれば`Count`を`N`、(2)であれば`count`を`N`として、以下と等価：
+(1)であれば`Count`を`N`、(2)であれば`count`を`N`として、以下と�価：
 
 ```cpp
 return {data() + (size() - N), N};
@@ -58,8 +58,8 @@ int main()
   std::span s{v};
 
   // (1) : テンプレート引数として要素数を指定して、末尾3要素を取得する。
-  // テンプレート内でこのオーバーロードを使用する場合、s.template last<3>(); のように、
-  // template限定子の指定が必要になることに注意
+  // テンプレート内でこのオーバー�ードを使用する場合、s.template last<3>(); のように、
+  // template限定�の指定が必要になることに注意
   std::span<int, 3> static_span = s.last<3>();
   for (int x : static_span) {
     std::cout << x << std::endl;

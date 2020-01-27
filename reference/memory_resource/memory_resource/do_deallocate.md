@@ -13,7 +13,7 @@ virtual void do_deallocate(void* p, std::size_t bytes, std::size_t alignment) = 
 [`do_allocate`](do_allocate.md)によって確保されたメモリを解放する。
 
 ## 要件
-`p`の指すサイズ`bytes`のメモリ領域は、`*this`もしくは等しい`memory_resource`オブジェクト（`this->is_equal(other) == true`となるような`other`）の[`allocate`](allocate.md)`(bytes, alignment)`によって事前に確保された領域であること。  
+`p`の指すサイズ`bytes`のメモリ領域は、`*this`もしくは�しい`memory_resource`オブジェクト（`this->is_equal(other) == true`となるような`other`）の[`allocate`](allocate.md)`(bytes, alignment)`によって事前に確保された領域であること。  
 かつ、そのメモリ領域は未解放であること。
 
 ## 引数

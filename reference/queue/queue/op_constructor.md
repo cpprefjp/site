@@ -24,7 +24,7 @@ template <class Alloc> queue(queue&& que, const Alloc& alloc);
 
 ## 引数
 `other`: 初期化に用いるコンテナオブジェクト
-`alloc`: 内部のコンテナで使用するアロケータオブジェクト
+`alloc`: 内部のコンテナで使用するア�ケータオブジェクト
 `que`: コピー・ムーブ元の`queue`オブジェクト
 
 ## 計算量
@@ -49,7 +49,7 @@ int main() {
   // sを引数に構築
   std::queue<int> que(std::move(s));
 
-  // 中身の出力
+  // �身の出力
   while (!que.empty()) {
     std::cout << que.front() << std::endl;
     que.pop();

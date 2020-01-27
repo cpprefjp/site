@@ -16,11 +16,11 @@ namespace std {
 
 
 ## 要件
-- 型`IntType`は、[`std::is_integral_v`](/reference/type_traits/is_integral.md)`<IntType> == true`であること。そうでない場合、この関数はオーバーロード解決の候補から除外される
+- 型`IntType`は、[`std::is_integral_v`](/reference/type_traits/is_integral.md)`<IntType> == true`であること。そうでない場合、この関数はオーバー�ード解決の候補から除外される
 
 
 ## 効果
-以下の式と等価の効果をもつ：
+以下の式と�価の効果をもつ：
 
 ```cpp
 return static_cast<byte>(static_cast<unsigned char>(static_cast<unsigned int>(b) << shift));

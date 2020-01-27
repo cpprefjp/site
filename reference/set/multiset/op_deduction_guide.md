@@ -35,9 +35,9 @@ namespace std {
 `std::multiset`クラステンプレートの型推論補助。
 
 - (1) : イテレータ範囲からの推論
-- (2) : 初期化子リストと比較関数オブジェクトからの推論
-- (3) : イテレータ範囲とアロケータからの推論
-- (4) : 初期化子リストとアロケータからの推論
+- (2) : 初期化�リストと比較関数オブジェクトからの推論
+- (3) : イテレータ範囲とア�ケータからの推論
+- (4) : 初期化�リストとア�ケータからの推論
 
 
 ## 例
@@ -49,17 +49,17 @@ namespace std {
 int main()
 {
   // (2)
-  // 初期化子リストから推論
+  // 初期化�リストから推論
   std::multiset s1 = {1, 2, 3};
   static_assert(std::is_same_v<decltype(s1), std::multiset<int>>);
 
-  // パラメータ設定済みのsetからの推論
+  // パラメータ�定済みのsetからの推論
   std::multiset s2 = s1;
   static_assert(std::is_same_v<decltype(s2), std::multiset<int>>);
 
   // (1)
   // イテレータ範囲からの推論。
-  // s3{s1.begin(), s1.end()} とすると、イテレータの初期化子リストと見なされてしまうので注意
+  // s3{s1.begin(), s1.end()} とすると、イテレータの初期化�リストと見なされてしまうので注意
   std::multiset s3(s1.begin(), s1.end());
   static_assert(std::is_same_v<decltype(s3), std::multiset<int>>);
   assert(s3.size() == 3);

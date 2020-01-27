@@ -19,8 +19,8 @@ explicit sentry(basic_ostream& os);
 準備処理を行っている間に、`os.`[`setstate`](../../../ios/basic_ios/setstate.md)`(failbit)` が呼び出される可能性がある。（これは、[`ios_base`](../../../ios/ios_base.md)`::failure` 例外の送出を引き起こす可能性がある）
 
 ## 備考
-- 本コンストラクタでは、効果に記載されている以外に実装依存の処理が行われるかもしれない。
-- `os.`[`tie`](../../../ios/basic_ios/tie.md)`()->`[`flush`](../flush.md)`()` は、同期が不要と判断できる場合には呼び出されないかもしれない。
+- 本コンストラクタでは、効果に記載されている以外に実装依�の処理が行われるかもしれない。
+- `os.`[`tie`](../../../ios/basic_ios/tie.md)`()->`[`flush`](../flush.md)`()` は、同期が不要と判�できる場合には呼び出されないかもしれない。
 
 
 ## 参照

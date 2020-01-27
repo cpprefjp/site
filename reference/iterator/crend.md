@@ -13,7 +13,7 @@ namespace std {
 * std::rend[link rend.md]
 
 ## 概要
-範囲の先頭の前を指す、読み取り専用逆イテレータを取得する。
+範囲の先�の前を指す、�み取り専用逆イテレータを取得する。
 
 
 ## 戻り値
@@ -59,7 +59,7 @@ int main()
   }
   std::cout << std::endl;
 
-  // 初期化子リスト
+  // 初期化�リスト
   {
     std::initializer_list<int> init = {7, 8, 9};
 

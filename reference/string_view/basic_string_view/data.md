@@ -10,11 +10,11 @@ constexpr const_pointer data() const noexcept;
 ```
 
 ## 概要
-文字配列表現を取得する。
+文�配列表現を取得する。
 
 
 ## 戻り値
-`*this`が保持している、参照している文字配列へのポインタを返す。
+`*this`が保持している、参照している文�配列へのポインタを返す。
 
 
 ## 例外
@@ -22,7 +22,7 @@ constexpr const_pointer data() const noexcept;
 
 
 ## 備考
-文字列長は[`substr()`](substr.md)メンバ関数やコンストラクタなどで変更できるが、それらは参照の範囲を限定するのみである。この関数によって返される文字配列へのポインタは、参照範囲の終端にヌル文字は挿入しないので注意すること。
+文�列長は[`substr()`](substr.md)メンバ関数やコンストラクタなどで変更できるが、それらは参照の範囲を限定するのみである。この関数によって返される文�配列へのポインタは、参照範囲の終端にヌル文�は挿入しないので注意すること。
 
 
 ## 例
@@ -36,7 +36,7 @@ int main()
   const char* s = sv.data();
   std::cout << "a : " << s << std::endl;
 
-  // 部分文字列
+  // 部分文�列
   std::string_view sv2 = sv.substr(0, 5);
   const char* s2 = sv2.data();
   std::cout << "b : " << sv2 << std::endl;

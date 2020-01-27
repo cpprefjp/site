@@ -21,7 +21,7 @@ void assign(initializer_list<T> init);                // (3)
 
 - (1) : 範囲を代入。
 - (2) : `n`個の値`t`を代入。
-- (3) : 初期化子リストを代入。
+- (3) : 初期化�リストを代入。
 
 
 ## 効果
@@ -48,7 +48,7 @@ insert_after(before_begin(), n, t);
 * before_begin()[link before_begin.md]
 
 
-- (3) : 以下と等価
+- (3) : 以下と�価
 
 ```cpp
 assign(init.begin(), init.end());
@@ -96,7 +96,7 @@ int main()
     print("ls2", ls2);
   }
 
-  // 初期化子リストを代入
+  // 初期化�リストを代入
   {
     std::forward_list<int> ls3;
     ls3.assign({1, 2, 3});
@@ -125,7 +125,7 @@ ls3 : 1 2 3
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
-	- (3) `initializer_list`のオーバーロードは2013から。
+	- (3) `initializer_list`のオーバー�ードは2013から。
 
 
 ## 参照

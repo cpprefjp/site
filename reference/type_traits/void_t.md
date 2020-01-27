@@ -15,7 +15,7 @@ namespace std {
 0個以上の任意の型をvoidに変換する。
 
 ## 効果
-与えられた型の中に一つでもill-formedとなる型があれば`void_t`もまたill-formedとなる。そうでなければ（与えられた型がすべてwell-formedならば）`void_t`は`void`となる。
+与えられた型の�に一つでもill-formedとなる型があれば`void_t`もまたill-formedとなる。そうでなければ（与えられた型がすべてwell-formedならば）`void_t`は`void`となる。
 
 すなわち、与えられた型を一つづつ評価していった結果エラーとなる型が現れた場合に`void_t`もまたエラーとなる。
 
@@ -24,7 +24,7 @@ namespace std {
 
 ## 備考
 C++14まではエイリアステンプレートでの未使用のテンプレートパラメータの評価に関しての規定が無かったことから、以下のような少し複雑な実装になっている場合がある。
-この問題はcore issue 1558で把握され、C++17にて修正された。
+この問題はcore issue 1558で把握され、C++17にて修�された。
 
 ```cpp
 template <class... Types>
@@ -73,7 +73,7 @@ int main()
   std::cout << has_iterator_type<int>::value << std::endl;
   std::cout << has_iterator_type<std::vector<int>>::value << std::endl;
 
-  //等値比較可能かの検出
+  //�値比較可能かの検出
   std::cout << is_equality_comparable<int>::value << std::endl;
   std::cout << is_equality_comparable<NonComparable>::value << std::endl;
 }

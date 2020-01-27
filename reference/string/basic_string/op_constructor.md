@@ -58,20 +58,20 @@ explicit basic_string(std::basic_string_view<charT, traits> sv,
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-- (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して空の`basic_string`オブジェクトを構築する。
-- (2) : アロケータを受け取るデフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
-- (3) : コピーコンストラクタ。`str`オブジェクトと同じ文字列を構築する。
+- (1) : デフォルトコンストラクタ。ア�ケータをデフォルト構築して空の`basic_string`オブジェクトを構築する。
+- (2) : ア�ケータを受け取るデフォルトコンストラクタ。空の`basic_string`オブジェクトを構築する。
+- (3) : コピーコンストラクタ。`str`オブジェクトと同じ文�列を構築する。
 - (4) : ムーブコンストラクタ。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
-- (5) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文字列がコピーされる。
-- (6) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から末尾までの部分文字列がコピーされる。
-- (7) : 文字配列`s`の先頭`n`文字からなる部分文字列のコピーから`basic_string`オブジェクトを構築する。
-- (8) : 文字配列`s`のコピーから`basic_string`オブジェクトを構築する。
-- (9) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
-- (10) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
-- (11) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
-- (12) : アロケータを受け取るコピーコンストラクタ。
-- (13) : アロケータを受け取るムーブコンストラクタ。
-- (14) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換コンストラクタ。`sv`が参照する範囲の文字列を`*this`にコピーする
+- (5) : `str`オブジェクトの部分文�列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文�の部分文�列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文�列がコピーされる。
+- (6) : `str`オブジェクトの部分文�列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から末尾までの部分文�列がコピーされる。
+- (7) : 文�配列`s`の先�`n`文�からなる部分文�列のコピーから`basic_string`オブジェクトを構築する。
+- (8) : 文�配列`s`のコピーから`basic_string`オブジェクトを構築する。
+- (9) : 文�`c`の`n`回繰り返した文�列からなる`basic_string`オブジェクトを構築する。
+- (10) : 文�列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
+- (11) : 文�の初期化�リストから`basic_string`オブジェクトを構築する。
+- (12) : ア�ケータを受け取るコピーコンストラクタ。
+- (13) : ア�ケータを受け取るムーブコンストラクタ。
+- (14) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換コンストラクタ。`sv`が参照する範囲の文�列を`*this`にコピーする
 
 
 ## 要件
@@ -89,7 +89,7 @@ explicit basic_string(std::basic_string_view<charT, traits> sv,
 
 
 ## 備考
-- C++14 では、`explicit basic_string(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバーロードに分割された。  
+- C++14 では、`explicit basic_string(const Allocator& a = Allocator())` がデフォルト引数を使用しない 2 つのオーバー�ードに分割された。  
     これは、デフォルトコンストラクタに `explicit` が付いていると、
 
     ```cpp
@@ -111,7 +111,7 @@ int main()
   std::string s1;
   std::cout << "s1 : " << s1 << std::endl;
 
-  // 文字配列からの構築
+  // 文�配列からの構築
   std::string s2 = "hello";
   std::cout << "s2 : " << s2 << std::endl;
 
@@ -123,24 +123,24 @@ int main()
   std::string s4 = std::move(s3);
   std::cout << "s4 : " << s4 << std::endl;
 
-  // 部分文字列のコピーから構築
-  // s4文字列オブジェクトの1番目の文字から3文字
+  // 部分文�列のコピーから構築
+  // s4文�列オブジェクトの1番目の文�から3文�
   std::string s5(s4, 1, 3);
   std::cout << "s5 : " << s5 << std::endl;
 
-  // 文字配列の先頭N文字から構築
+  // 文�配列の先�N文�から構築
   std::string s6("hello", 3);
   std::cout << "s6 : " << s6 << std::endl;
 
-  // 文字をN回繰り返して構築
+  // 文�をN回繰り返して構築
   std::string s7(3, 'a');
   std::cout << "s7 : " << s7 << std::endl;
 
-  // 文字列の範囲から構築
+  // 文�列の範囲から構築
   std::string s8(s4.begin(), s4.end());
   std::cout << "s8 : " << s8 << std::endl;
 
-  // 文字の初期化子リストから構築
+  // 文�の初期化�リストから構築
   std::string s9 = {'h', 'e', 'l', 'l', 'o'};
   std::cout << "s9 : " << s9 << std::endl;
 
@@ -173,7 +173,7 @@ s14 : Hello
     - (11)の経緯となる提案文書
 - [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](https://wg21.cmeerw.net/lwg/issue2069)
 - [LWG Issue 2193. Default constructors for standard library containers are explicit](https://wg21.cmeerw.net/lwg/issue2193)
-    - `explicit basic_string(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
+    - `explicit basic_string(const Allocator& a = Allocator())` を 2 つのオーバー�ードに分割するきっかけとなったレポート
 - [LWG Issue 2235. Undefined behavior without proper requirements on `basic_string` constructors](https://wg21.cmeerw.net/lwg/issue2235)
     - C++14で、(7)と(8)の要件を見直した。
 - [LWG Issue 2583. There is no way to supply an allocator for `basic_string(str, pos)`](https://wg21.cmeerw.net/lwg/issue2583)

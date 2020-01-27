@@ -26,7 +26,7 @@ namespace std {
 ## 効果
 `is_nothrow_default_constructible`は、型`T`が例外を投げない保証のもとにデフォルト構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
-[`is_nothrow_constructible`](is_nothrow_constructible.md)`<T>::value == true`の場合に、例外を投げないデフォルト構築が可能であると判断される。
+[`is_nothrow_constructible`](is_nothrow_constructible.md)`<T>::value == true`の場合に、例外を投げないデフォルト構築が可能であると判�される。
 
 
 ## 例
@@ -78,7 +78,7 @@ int main(){}
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.8.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-	- 2012～2013には、提案時の名前である`has_nothrow_constructor`, `has_nothrow_default_constructor`も存在する。
+	- 2012～2013には、提案時の名前である`has_nothrow_constructor`, `has_nothrow_default_constructor`も�在する。
 	- 2012は`void`において、誤って`false_type`になっている。
 	- 2013までは`std::is_default_constructible<int[]>`のような要素数の指定がない配列型において、誤って`false_type`になっている。
 

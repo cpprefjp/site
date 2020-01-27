@@ -48,11 +48,11 @@ int main() {
 
   std::cout << std::boolalpha;
 
-  // 5 以上の要素が存在するかどうか
+  // 5 以上の要素が�在するかどうか
   bool result1 = std::any_of(v.begin(), v.end(), [](int x) { return x >= 5; });
   std::cout << result1 << std::endl;
 
-  // 1 の要素が存在するかどうか
+  // 1 の要素が�在するかどうか
   bool result2 = std::any_of(v.begin(), v.end(), [](int x) { return x == 1; });
   std::cout << result2 << std::endl;
 }

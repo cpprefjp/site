@@ -11,7 +11,7 @@ namespace std::chrono {
 ```
 
 ## 概要
-`day`同士の等値比較を行う。
+`day`同士の�値比較を行う。
 
 
 ## 戻り値
@@ -23,7 +23,7 @@ namespace std::chrono {
 
 
 ## 備考
-- この演算子により、`operator!=`が使用可能になる
+- この演算�により、`operator!=`が使用可能になる
 
 
 ## 例

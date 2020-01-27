@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 効果
-`is_same`は、CV修飾子が同じであることを含め型`T`と型`U`が同じ型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`is_same`は、CV修飾�が同じであることを含め型`T`と型`U`が同じ型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 例

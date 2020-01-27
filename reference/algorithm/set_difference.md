@@ -73,7 +73,7 @@ namespace std {
 
 
 ## 効果
-`[first1,last1)` から、`[first2,last2)` に存在していない要素を `result` へコピーする。構築された範囲はソートされている。
+`[first1,last1)` から、`[first2,last2)` に�在していない要素を `result` へコピーする。構築された範囲はソートされている。
 
 
 ## 戻り値
@@ -85,7 +85,7 @@ namespace std {
 
 
 ## 備考
-`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の等価な要素を含んでいる場合、`[first1,last1)` から最後の [`max`](max.md)`(m-n, 0)` 要素が出力の範囲へコピーされる。
+`[first1,last1)` が `m` 個、`[first2,last2)` が `n` 個の�価な要素を含んでいる場合、`[first1,last1)` から最後の [`max`](max.md)`(m-n, 0)` 要素が出力の範囲へコピーされる。
 
 
 ## 例

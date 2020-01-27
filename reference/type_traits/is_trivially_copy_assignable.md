@@ -42,19 +42,19 @@ namespace std {
 #include <string>
 
 struct X {
-  // トリビアルなコピー代入演算子を持っている
+  // トリビアルなコピー代入演算�を持っている
 };
 
 struct Y {
-  // 非トリビアルなコピー代入演算子を持っている
+  // 非トリビアルなコピー代入演算�を持っている
   Y& operator=(const Y&) { return *this; }
 };
 
 struct Z {
-  // 非トリビアルなコピー代入演算子を持つ型を包含している
+  // 非トリビアルなコピー代入演算�を持つ型を包含している
   std::string s;
 
-  // Z型は非トリビアルなコピー代入演算子を持つ
+  // Z型は非トリビアルなコピー代入演算�を持つ
 };
 
 // 組み込み型は全てトリビアルにコピー代入可能
@@ -62,17 +62,17 @@ static_assert(
   std::is_trivially_copy_assignable<int>::value == true,
   "int is trivially copy assignable");
 
-// トリビアルなコピー代入演算子を持っている型
+// トリビアルなコピー代入演算�を持っている型
 static_assert(
   std::is_trivially_copy_assignable<X>::value == true,
   "X is trivially copy assignable");
 
-// 非トリビアルなコピー代入演算子を持っている型
+// 非トリビアルなコピー代入演算�を持っている型
 static_assert(
   std::is_trivially_copy_assignable<Y>::value == false,
   "Y isn't trivially copy assignable");
 
-// 非トリビアルなコピー代入演算子を持つ型を包含する型
+// 非トリビアルなコピー代入演算�を持つ型を包含する型
 static_assert(
   std::is_trivially_copy_assignable<Z>::value == false,
   "Z isn't trivially copy assignable");

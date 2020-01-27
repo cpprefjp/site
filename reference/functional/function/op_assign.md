@@ -35,7 +35,7 @@ function& operator=(reference_wrapper<F> f) noexcept; // (5)
 
 ## 備考
 - (4) :
-    - C++14 : `typename` [`decay`](/reference/type_traits/decay.md)`<F>::type`型の関数オブジェクトが、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返さない場合、この関数はオーバーロード解決から除外される。
+    - C++14 : `typename` [`decay`](/reference/type_traits/decay.md)`<F>::type`型の関数オブジェクトが、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返さない場合、この関数はオーバー�ード解決から除外される。
 
 
 ## 例

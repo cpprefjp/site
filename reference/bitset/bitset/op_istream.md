@@ -16,13 +16,13 @@ namespace std {
 
 
 ## 効果
-1. 入力ストリーム`is`から`N`文字を読み、[`basic_string`](/reference/string/basic_string.md)型の一時オブジェクトを作って読み込んだ文字列を保持する。文字は、以下のいずれかの条件を満たすまで読む：
-	- `N`文字読み込んで保持した
+1. 入力ストリーム`is`から`N`文�を�み、[`basic_string`](/reference/string/basic_string.md)型の一時オブジェクトを作って�み込んだ文�列を保持する。文�は、以下のいずれかの条件を満たすまで�む：
+	- `N`文��み込んで保持した
 	- 入力シーケンスが終端に達した
-	- 次に読み込む文字が`is.widen('0')`と`is.widen('1')`のどちらでもなかった。
-2. 読み込んだ文字列`str`を`bitset`のコンストラクタに渡して構築し、`x`に代入する：`x = bitset<N>(str);`
+	- 次に�み込む文�が`is.widen('0')`と`is.widen('1')`のどちらでもなかった。
+2. �み込んだ文�列`str`を`bitset`のコンストラクタに渡して構築し、`x`に代入する：`x = bitset<N>(str);`
 
-`str`に1文字も入力が行われなかった場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
+`str`に1文�も入力が行われなかった場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base`](/reference/ios/ios_base.md)`::failbit)`が呼び出される。
 
 ## 戻り値
 `is`

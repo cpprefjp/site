@@ -18,20 +18,20 @@ namespace std::filesystem {
 
 
 ## 戻り値
-- ファイルが存在しない、もしくはファイルシステムでエラーが発生した場合、 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が設定されて`static_cast<`[`uintmax_t`](/reference/cstdint/uintmax_t.md)`>(-1)`が返る
+- ファイルが�在しない、もしくはファイルシステムでエラーが発生した場合、 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が�定されて`static_cast<`[`uintmax_t`](/reference/cstdint/uintmax_t.md)`>(-1)`が返る
 - `p`が通常ファイル、もしくは通常ファイルを指すシンボリックリンクである場合、ファイルサイズが返る
     - POSIX環境では[`stat()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数の`st_size`メンバ変数を使用する
 - `p`がそれ以外のファイル種別である場合は、実装定義の動作をする
 
 
 ## 例外
-- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、指定されたファイルが存在しない場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、指定されたファイルが�在しない場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
 - (2) : 投げない
 
 
 ## 備考
 - libstdc++では、通常ファイル、シンボリックリンク以外のファイル種別はエラー
-- ファイルサイズの取得方法として、ファイルの読み込み位置をseekによって末尾に移動するものがあるが、その方法は推奨されていない。本関数を使用すること
+- ファイルサイズの取得方法として、ファイルの�み込み位置をseekによって末尾に移動するものがあるが、その方法は推奨されていない。本関数を使用すること
     - [FIO19-C. ファイルサイズの計算に `fseek()` および `ftell()` を使用しない](https://www.jpcert.or.jp/sc-rules/c-fio19-c.html)
 
 

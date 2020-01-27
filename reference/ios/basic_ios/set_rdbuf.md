@@ -13,7 +13,7 @@ protected:
 
 
 ## 概要
-ストリームバッファオブジェクトを設定する。
+ストリームバッファオブジェクトを�定する。
 
 
 ## 要件
@@ -21,8 +21,8 @@ protected:
 
 
 ## 効果
-`*this` に紐づくストリームバッファ（[`basic_streambuf`](../../streambuf/basic_streambuf.md)）オブジェクトを引数 `sb` に設定する（`rdbuf() == sb` となる）。  
-なお、publicメンバ関数の [`rdbuf`](rdbuf.md) と異なり、ストリームバッファオブジェクトの設定後、[`clear`](clear.md)`()` は呼び出さない。
+`*this` に紐づくストリームバッファ（[`basic_streambuf`](../../streambuf/basic_streambuf.md)）オブジェクトを引数 `sb` に�定する（`rdbuf() == sb` となる）。  
+なお、publicメンバ関数の [`rdbuf`](rdbuf.md) と異なり、ストリームバッファオブジェクトの�定後、[`clear`](clear.md)`()` は呼び出さない。
 
 
 ## 戻り値

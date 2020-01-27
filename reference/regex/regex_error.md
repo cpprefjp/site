@@ -12,11 +12,11 @@ namespace std {
 * std::runtime_error[link /reference/stdexcept.md]
 
 ## 概要
-`regex_error`クラスは、正規表現ライブラリ`<regex>`からのエラー報告として送出される、例外オブジェクトの型である。
+`regex_error`クラスは、�規表現ライブラリ`<regex>`からのエラー報告として送出される、例外オブジェクトの型である。
 
-有効ではない正規表現が入力された場合に送出される。
+有効ではない�規表現が入力された場合に送出される。
 
-エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文字列として取得できるほか、[`code()`](regex_error/code.md)メンバ関数によって[`regex_constants::error_type`](regex_constants/error_type.md)型のエラーコード値としても取得できる。
+エラーとなった理由は、[`what()`](/reference/stdexcept.md)メンバ関数によってエラーメッセージ文�列として取得できるほか、[`code()`](regex_error/code.md)メンバ関数によって[`regex_constants::error_type`](regex_constants/error_type.md)型のエラーコード値としても取得できる。
 
 
 ## メンバ関数
@@ -29,7 +29,7 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](regex_error/op_constructor.md) | コンストラクタ | C++11 |
 | `~regex_error() = default;`  | デストラクタ | C++11 |
-| `regex_error& operator=(const regex_error&) = default;`<br/> `regex_error& operator=(regex_error&&) = default;` | 代入演算子 | C++11 |
+| `regex_error& operator=(const regex_error&) = default;`<br/> `regex_error& operator=(regex_error&&) = default;` | 代入演算� | C++11 |
 
 
 ### エラー内容
@@ -70,7 +70,7 @@ std::string code_to_string(std::regex_constants::error_type e)
 int main()
 {
   try {
-    std::regex re("("); // 開きカッコに対応する閉じカッコがない正規表現を指定
+    std::regex re("("); // 開きカッコに対応する閉じカッコがない�規表現を指定
   }
   catch (std::regex_error& e) {
     std::cout << code_to_string(e.code()) << std::endl;

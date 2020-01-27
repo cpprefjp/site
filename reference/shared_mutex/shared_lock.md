@@ -14,12 +14,12 @@ namespace std {
 ## 概要
 `shared_lock`は、共有ミューテックスの`lock_shared()`／`unlock_shared()`処理を、コンストラクタとデストラクタで確実に実行するためのクラスである。
 
-このクラスは、排他ロックを自動的に手放す[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスと組み合わせて使用する。
+このクラスは、排他�ックを自動的に手放す[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスと組み合わせて使用する。
 
-- 排他ロック(書き込みロック、`lock()`／`unlock()`)を自動的に手放すために[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスを使用する。
-- 共有ロック(読み込みロック、`lock_shared()`／`unlock_shared()`)を自動的に手放すために、このクラスを使用する。
+- 排他�ック(書き込み�ック、`lock()`／`unlock()`)を自動的に手放すために[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスを使用する。
+- 共有�ック(�み込み�ック、`lock_shared()`／`unlock_shared()`)を自動的に手放すために、このクラスを使用する。
 
-このクラスは、メンバ変数で保持しているミューテックスオブジェクトを、メンバ関数のスコープでロック取得し、手放すというようにして使用する。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
+このクラスは、メンバ変数で保持しているミューテックスオブジェクトを、メンバ関数のスコープで�ック取得し、手放すというようにして使用する。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
 
 テンプレートパラメータ`Mutex`は、`lock_shared()`／`unlock_shared()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
 
@@ -30,16 +30,16 @@ namespace std {
 |-----------------------------------------------------|--------------------------------------------------------|-------|
 | [`(constructor)`](shared_lock/op_constructor.md)  | コンストラクタ | C++14 |
 | [`(destructor)`](shared_lock/op_destructor.md)    | デストラクタ | C++14 |
-| [`operator=`](shared_lock/op_assign.md)           | 代入演算子 | C++14 |
-| [`lock`](shared_lock/lock.md)                     | 共有ロックを取得する | C++14 |
-| [`try_lock`](shared_lock/try_lock.md)             | 共有ロックの取得を試みる | C++14 |
-| [`try_lock_for`](shared_lock/try_lock_for.md)     | タイムアウトする相対時間を指定して共有ロックの取得を試みる | C++14 |
-| [`try_lock_until`](shared_lock/try_lock_until.md) | タイムアウトする絶対時間を指定して共有ロックの取得を試みる | C++14 |
-| [`unlock`](shared_lock/unlock.md)                 | 共有ロックを手放す | C++14 |
+| [`operator=`](shared_lock/op_assign.md)           | 代入演算� | C++14 |
+| [`lock`](shared_lock/lock.md)                     | 共有�ックを取得する | C++14 |
+| [`try_lock`](shared_lock/try_lock.md)             | 共有�ックの取得を試みる | C++14 |
+| [`try_lock_for`](shared_lock/try_lock_for.md)     | タイムアウトする相対時間を指定して共有�ックの取得を試みる | C++14 |
+| [`try_lock_until`](shared_lock/try_lock_until.md) | タイムアウトする絶対時間を指定して共有�ックの取得を試みる | C++14 |
+| [`unlock`](shared_lock/unlock.md)                 | 共有�ックを手放す | C++14 |
 | [`swap`](shared_lock/swap.md)                     | 他の`shared_lock`オブジェクトと値を入れ替える | C++14 |
 | [`release`](shared_lock/release.md)               | ミューテックスの所有権を放棄する | C++14 |
-| [`owns_lock`](shared_lock/owns_lock.md)           | ロックを取得しているかを判定する | C++14 |
-| [`operator bool`](shared_lock/op_bool.md)         | ロックを取得しているかを判定する | C++14 |
+| [`owns_lock`](shared_lock/owns_lock.md)           | �ックを取得しているかを判定する | C++14 |
+| [`operator bool`](shared_lock/op_bool.md)         | �ックを取得しているかを判定する | C++14 |
 | [`mutex`](shared_lock/mutex.md)                   | 所有しているミューテックスオブジェクトを取得する | C++14 |
 
 
@@ -111,7 +111,7 @@ int main()
 
 ## 関連項目
 - [`shared_timed_mutex`](shared_timed_mutex.md) : 共有ミューテックスクラス
-- [`lock_guard`](/reference/mutex/lock_guard.md) : 排他ロックを自動的に手放す
-- [`unique_lock`](/reference/mutex/unique_lock.md) : 排他ロックを自動的に手放す
+- [`lock_guard`](/reference/mutex/lock_guard.md) : 排他�ックを自動的に手放す
+- [`unique_lock`](/reference/mutex/unique_lock.md) : 排他�ックを自動的に手放す
 
 

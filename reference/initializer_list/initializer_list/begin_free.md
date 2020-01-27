@@ -13,7 +13,7 @@ constexpr const E* begin(initializer_list<E> il) noexcept; // C++14
 ```
 
 ## 概要
-先頭要素を指すポインタを取得する。
+先�要素を指すポインタを取得する。
 
 
 ## 戻り値

@@ -12,7 +12,7 @@ void do_deallocate(void* p, std::size_t bytes, std::size_t alignment) override;
 ## 概要
 [`do_allocate`](do_allocate.md)によって割り当てたメモリ領域を解放（割り当て解除）する。
 
-要件等は[`memory_resource::do_deallocate()`](/reference/memory_resource/memory_resource/do_deallocate.md)に従う。
+要件�は[`memory_resource::do_deallocate()`](/reference/memory_resource/memory_resource/do_deallocate.md)に従う。
 
 ## 要件
 `p`の指すサイズ`bytes`のメモリ領域は、[`this->do_allocate`](do_allocate.md)`(bytes, alignment)`によって事前に確保された領域であること。  

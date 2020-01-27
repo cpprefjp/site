@@ -61,7 +61,7 @@ static_assert(std::is_nothrow_convertible_v<const int&, long>);
 static_assert(std::is_nothrow_convertible_v<int, int>);
 
 static_assert(std::is_nothrow_convertible_v<B, A>);
-static_assert(std::is_nothrow_convertible_v<C, A> == false); // 型変換演算子がnoexcept(false)
+static_assert(std::is_nothrow_convertible_v<C, A> == false); // 型変換演算�がnoexcept(false)
 
 // explicitなコンストラクタによる明示的な型変換は、変換可能とみなされない
 static_assert(std::is_nothrow_convertible_v<int, D> == false);

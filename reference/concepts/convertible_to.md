@@ -34,11 +34,11 @@ To test(From (&func)()) {
 From f();
 ```
 
-この`test()`関数、型`From, To`及び、[等しさを保持](/reference/concepts.md)し`From`型を返す引数なしの関数`f`について、以下の条件を満たす場合に限って型`From, To`は`convertible_to`のモデルである。
+この`test()`関数、型`From, To`及び、[�しさを保持](/reference/concepts.md)し`From`型を返す引数なしの関数`f`について、以下の条件を満たす場合に限って型`From, To`は`convertible_to`のモデルである。
 
 - 次のどちらかを満たす
     - `To`は[オブジェクト型](/reference/type_traits/is_object.md)でもオブジェクトへの参照型でもない
-    - `static_cast<To>(f())`と`test(f)`は等しい
+    - `static_cast<To>(f())`と`test(f)`は�しい
 - 次のいずれかを満たす
     - `From`はオブジェクトへの参照型ではない
     - `From`が非`const`右辺値参照型の場合、`f()`の呼び出しによって参照されるオブジェクトの状態は、上記の式の実行の後でも有効だが未規定となる

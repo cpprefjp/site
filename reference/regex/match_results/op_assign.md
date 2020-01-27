@@ -21,8 +21,8 @@ match_results& operator=(match_results&& m) noexcept;   // (2)
 
 
 ## 効果
-- (1) コピー代入演算子。引数 `m` を `*this` にコピー代入する。
-- (2) ムーブ代入演算子。引数 `m` を `*this` にムーブ代入する。`*this` の全ての既存の要素はムーブ代入されるか破棄される。
+- (1) コピー代入演算�。引数 `m` を `*this` にコピー代入する。
+- (2) ムーブ代入演算�。引数 `m` を `*this` にムーブ代入する。`*this` の全ての既�の要素はムーブ代入されるか破棄される。
 
 
 ## 事後条件
@@ -137,4 +137,4 @@ suffix:' '
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-GCC(libstdc++) の 4.9.2 までは、アロケータが上記の備考欄のようには設定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
+GCC(libstdc++) の 4.9.2 までは、ア�ケータが上記の備考欄のようには�定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が�しくコピーされない。これは、4.9.3 以降で修�される予定である。

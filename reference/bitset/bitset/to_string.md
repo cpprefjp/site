@@ -19,15 +19,15 @@ basic_string<CharT, Traits, Allocator>
 * basic_string[link /reference/string/basic_string.md]
 
 ## 概要
-文字列に変換する。
+文�列に変換する。
 
 
 ## 戻り値
 1. `bitset`クラスのテンプレートパラメータ`N`の長さの`basic_string`オブジェクトを構築する。
-2. 各ビットを文字表現に変換する
-	- C++03 : ビット値0は文字`CharT(0)`に、ビット値1は文字`CharT(1)`に変換。
-	- C++11 : ビット値0はパラメータ`zero`の文字に、ビット値1はパラメータ`one`に変換。
-3. 各ビットの文字表現を、構築した`basic_string`オブジェクトに順番に設定して返す。
+2. 各ビットを文�表現に変換する
+	- C++03 : ビット値0は文�`CharT(0)`に、ビット値1は文�`CharT(1)`に変換。
+	- C++11 : ビット値0はパラメータ`zero`の文�に、ビット値1はパラメータ`one`に変換。
+3. 各ビットの文�表現を、構築した`basic_string`オブジェクトに順番に�定して返す。
 
 
 ## 例
@@ -62,7 +62,7 @@ int main()
 
 ## 参照
 - [LWG Issue 853. `to_string` needs updating with `zero` and `one`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#853)
-    - C++11で、`0`を表す文字と`1`を表す文字を指定できるようになった経緯のレポート
+    - C++11で、`0`を表す文�と`1`を表す文�を指定できるようになった経緯のレポート
 - [LWG Issue 1113. `bitset::to_string` could be simplified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1113)
-    - C++11で、デフォルトの文字型が設定された経緯のレポート
+    - C++11で、デフォルトの文�型が�定された経緯のレポート
 

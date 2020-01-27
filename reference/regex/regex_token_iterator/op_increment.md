@@ -21,13 +21,13 @@ regex_token_iterator operator++(int); // (2) 後置形式
 
 ## 効果
 - (1) の形式（前置形式）は、以下のように振る舞う。
-    - `value_type` 型（[`sub_match`](../sub_match.md)`<BidirectionalIterator>`）のローカル変数 `prev` を構築し、値 `position->`[`suffix`](../match_results/suffix.md)`()` で初期化する。
-    - `*this` が接尾辞イテレータであれば、 `*this` をシーケンス終端イテレータに設定する。
-    - そうでなくて、`N + 1 < subs.size()` であれば、`N` をインクリメントし `result` を現在のマッチ（備考参照）のアドレスに設定する。
-    - そうでなければ、`N` を `0` に設定し、`position` をインクリメントする。
-        - `position` がシーケンス終端イテレータでなければ、`result` を現在のマッチのアドレスに設定する。
-        - そうでなくて、`subs` が `-1` を含んでいて、かつ、`prev.length()` が `0` でなければ、 `*this` を範囲 `[prev.first, prev.second)` を指す接尾辞イテレータに設定する。
-        - そうでなければ、`*this` をシーケンス終端イテレータに設定する。
+    - `value_type` 型（[`sub_match`](../sub_match.md)`<BidirectionalIterator>`）の�ーカル変数 `prev` を構築し、値 `position->`[`suffix`](../match_results/suffix.md)`()` で初期化する。
+    - `*this` が接尾辞イテレータであれば、 `*this` をシーケンス終端イテレータに�定する。
+    - そうでなくて、`N + 1 < subs.size()` であれば、`N` をインクリメントし `result` を現在のマッチ（備考参照）のアドレスに�定する。
+    - そうでなければ、`N` を `0` に�定し、`position` をインクリメントする。
+        - `position` がシーケンス終端イテレータでなければ、`result` を現在のマッチのアドレスに�定する。
+        - そうでなくて、`subs` が `-1` を含んでいて、かつ、`prev.length()` が `0` でなければ、 `*this` を範囲 `[prev.first, prev.second)` を指す接尾辞イテレータに�定する。
+        - そうでなければ、`*this` をシーケンス終端イテレータに�定する。
 - (2) の形式（後置形式）は、以下のように振る舞う。
 
     ```cpp
@@ -70,7 +70,7 @@ void f(std::initializer_list<int> submatches)
 
 int main()
 {
-  // 列挙子と値の両方を抽出
+  // 列挙�と値の両方を抽出
   f({ 1, 2 });
 
   // マッチしない部分のみ抽出
@@ -110,8 +110,8 @@ match range = (73, 77), str = ', };'
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-Clang & libc++ と GCC & libstdc++ の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
-（特に、Clang は長さ 0 の文字列にマッチするとそこから先に進まなくなってしまう）
+Clang & libc++ と GCC & libstdc++ の 4.9.1 までのバージョンには、長さ 0 の文�列にマッチした時の挙動に問題があるため、注意が必要。
+（特に、Clang は長さ 0 の文�列にマッチするとそこから先に進まなくなってしまう）
 
 
 ## 関連項目
@@ -120,4 +120,4 @@ Clang & libc++ と GCC & libstdc++ の 4.9.1 までのバージョンには、�
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator*`](op_deref.md)                 | 間接参照       | C++11          |
 | [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
-| [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+| [`operator==`](op_equal.md)                | �値比較       | C++11          |

@@ -34,7 +34,7 @@ namespace std {
 ## 概要
 範囲の値の部分和を計算する。
 
-[`accumulate()`](accumulate.md)は最終結果のみを得るが、`partial_sum()`は計算の途中結果のシーケンスを得る。
+[`accumulate()`](accumulate.md)は最終結果のみを得るが、`partial_sum()`は計算の途�結果のシーケンスを得る。
 
 `partial_sum()`の引数としてシーケンス`{0, 1, 2, 3}`が与えられた場合、以下のような計算が行われる：
 

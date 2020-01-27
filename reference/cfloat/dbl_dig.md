@@ -8,8 +8,8 @@
 ```
 
 ## 概要
-`double` で正確に表現可能な10進数の最大の桁数を表すマクロ。  
-より正確には、$n$ 桁の10進数を `double` に変換し、また元に戻した場合に値が変わらないような $n$ のうち最大のもの。  
+`double` で�確に表現可能な10進数の最大の桁数を表すマク�。  
+より�確には、$n$ 桁の10進数を `double` に変換し、また元に戻した場合に値が変わらないような $n$ のうち最大のもの。  
 以下の式で表される。
 
 $$
@@ -24,11 +24,11 @@ $$
 ここで、$b$ は指数表現の基数（[`FLT_RADIX`](flt_radix.md)）、$p$ は精度（基数 $b$ での仮数部の桁数、[`DBL_MANT_DIG`](dbl_mant_dig.md)）である。  
 $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 
-[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`digits10`](/reference/limits/numeric_limits/digits10.md) と等しい。
+[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<double>::`[`digits10`](/reference/limits/numeric_limits/digits10.md) と�しい。
 
 ## 備考
 - 規格で 10 以上であることが規定されている。
-- 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
+- 本マク�は `#if` プリプ�セッサディレクティブに使用可能な定数式である。
 - `DBL_DIG` は DouBLe DIGits（digit：桁）に由来する。
 
 
@@ -42,7 +42,7 @@ int main()
 {
   std::cout << DBL_DIG << '\n';
 
-  // 以下の式と等価
+  // 以下の式と�価
   double log10b = std::log10(FLT_RADIX);
   double intpart;
   if (std::modf(log10b, &intpart) == 0.0) {

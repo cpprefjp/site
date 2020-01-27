@@ -13,7 +13,7 @@ namespace std::pmr {
 ```
 
 ## 概要
-2つの`polymorphic_allocator`オブジェクトを非等値比較する。
+2つの`polymorphic_allocator`オブジェクトを非�値比較する。
 
 ## 戻り値
 `!(a == b)`

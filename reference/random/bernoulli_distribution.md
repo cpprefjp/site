@@ -14,7 +14,7 @@ namespace std {
 `bernoulli_distribution`は、`true`と`false`という2つの値を確率分布させるクラスである。  
 このクラスは、ベルヌーイ分布(Bernoulli distribution)の実装である。
 
-コンストラクタで設定された確率`p`で`true`が生成され、確率`1.0 - p`で`false`が生成される。
+コンストラクタで�定された確率`p`で`true`が生成され、確率`1.0 - p`で`false`が生成される。
 
 
 ベルヌーイ分布は、以下のような用途に使用できる：
@@ -40,12 +40,12 @@ namespace std {
 | [`operator()`](bernoulli_distribution/op_call.md) | 乱数を生成する | C++11 |
 
 
-### プロパティ
+### プ�パティ
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|----------------------------------|-------|
 | [`p`](bernoulli_distribution/p.md)         | 確率を取得する                   | C++11 |
-| [`param`](bernoulli_distribution/param.md) | 分布のパラメータを取得／設定する | C++11 |
+| [`param`](bernoulli_distribution/param.md) | 分布のパラメータを取得／�定する | C++11 |
 | [`min`](bernoulli_distribution/min.md)     | 生成し得る値の下限を取得する   | C++11 |
 | [`max`](bernoulli_distribution/max.md)     | 生成し得る値の上限を取得する   | C++11 |
 
@@ -62,8 +62,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------|-------|
-| [`operator==`](bernoulli_distribution/op_equal.md)     | 等値比較             | C++11 |
-| [`operator!=`](bernoulli_distribution/op_not_equal.md) | 非等値比較           | C++11 |
+| [`operator==`](bernoulli_distribution/op_equal.md)     | �値比較             | C++11 |
+| [`operator!=`](bernoulli_distribution/op_not_equal.md) | 非�値比較           | C++11 |
 | [`operator<<`](bernoulli_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
 | [`operator>>`](bernoulli_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
 
@@ -99,7 +99,7 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[bernoulli_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/bernoulli_distribution/bernoulli_distribution.tsv)）を図示する。
+このプ�グラムによってある時に得られた結果（[bernoulli_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/bernoulli_distribution/bernoulli_distribution.tsv)）を図示する。
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/random/bernoulli_distribution/bernoulli_distribution.png)
 

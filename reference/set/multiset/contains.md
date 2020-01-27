@@ -14,11 +14,11 @@ bool contains(const K& x) const;        // (2)
 
 
 ## 概要
-指定されたキー`x`に一致する要素がコンテナに含まれているかを判定する。
+指定された�ー`x`に一致する要素がコンテナに含まれているかを判定する。
 
 
 ## 戻り値
-以下と等価：
+以下と�価：
 
 ```cpp
 return find(x) != end();
@@ -40,7 +40,7 @@ int main()
 {
   std::multiset<int> s = {1, 2, 3};
 
-  // キー2の要素が含まれているか
+  // �ー2の要素が含まれているか
   if (s.contains(2)) {
     std::cout << "contain" << std::endl;
   }
