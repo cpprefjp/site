@@ -1,4 +1,4 @@
-name: forbidden charactors detect
+name: detect forbidden charactors
 
 on: [push]
 
