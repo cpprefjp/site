@@ -67,8 +67,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](zoned_time/op_equal.md.nolink)         | 等値比較を行う | C++20 |
-| `template<class Duration1, class Duration2, class TimeZonePtr>`<br/> `bool operator==(const zoned_time<Duration1, TimeZonePtr>& x, const zoned_time<Duration2, TimeZonePtr>& y);` | 非等値比較を行う (`==`により使用可能) | C++20 |
+| [`operator==`](zoned_time/op_equal.md) | 等値比較を行う | C++20 |
+| `template<class Duration1, class Duration2, class TimeZonePtr>`<br/> `bool operator!=(const zoned_time<Duration1, TimeZonePtr>& x, const zoned_time<Duration2, TimeZonePtr>& y);` | 非等値比較を行う (`==`により使用可能) | C++20 |
 
 
 ### 入出力
