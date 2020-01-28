@@ -11,6 +11,8 @@ jobs:
         curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
         sudo dpkg -i ripgrep_11.0.2_amd64.deb
     - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
     - run: mkdir -p .tmp
     - run: rg -t md '[\u00ad\u200b]' | tee .tmp/log.txt
     - name: test
