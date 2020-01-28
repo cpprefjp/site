@@ -97,6 +97,20 @@ int main()
   }
   std::cout << std::endl;
 
+  // 各要素を参照する
+  {
+    std::tuple<int, std::string, double> t = g();
+    auto& [id, message, value] = t;
+
+    // tの1番目の要素を書き換える
+    message = "My World";
+
+    std::cout << std::get<0>(t) << std::endl;
+    std::cout << std::get<1>(t) << std::endl;
+    std::cout << std::get<2>(t) << std::endl;
+  }
+  std::cout << std::endl;
+
   // 一部の要素が参照だった場合
   {
     auto [id, message, value] = h();
@@ -118,6 +132,10 @@ Hello
 
 1
 World
+3.14
+
+1
+My World
 3.14
 
 hello, world
@@ -148,15 +166,14 @@ int main()
   // 参照の例
   {
     int ar[] = {3, 1, 4};
-    int (&rar)[3] = ar;
-    auto [a, b, c] = rar;
+    auto& [a, b, c] = ar;
 
     // ar[1]を値2に書き換える
     b = 2;
 
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << c << std::endl;
+    std::cout << ar[0] << std::endl;
+    std::cout << ar[1] << std::endl;
+    std::cout << ar[2] << std::endl;
   }
 }
 ```
