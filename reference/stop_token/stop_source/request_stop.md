@@ -93,8 +93,8 @@ int main()
       cv.wait(lock, ss.get_token(), wait_forever);
     };
 
-    std::thread th1(cv_wait_test_func);
-    std::thread th2(cv_wait_test_func);
+    std::thread t1(cv_wait_test_func);
+    std::thread t2(cv_wait_test_func);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
@@ -102,8 +102,8 @@ int main()
     // すべての condition_variable_any に対して、起床通知が送られる。
     ss.request_stop();
 
-    th1.join();
-    th2.join();
+    t1.join();
+    t2.join();
   }
 }
 ```
@@ -115,12 +115,7 @@ int main()
 * stop_requested()[link stop_requested.md]
 * condition_variable_any[link /reference/condition_variable/condition_variable_any.md]
 * wait()[link /reference/condition_variable/condition_variable_any/wait.md]
-* thread[link /reference/thread/thread.md]
-* milliseconds()[link /reference/chrono/duration/milliseconds.md]
-* join()[link /reference/thread/thread/join.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* mutex[link /reference/mutex/mutex.md]
-* unique_lock[link /reference/mutex/unique_lock.md]
 
 ### 出力
 ```
