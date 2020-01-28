@@ -25,10 +25,10 @@ decay_t<T>& emplace(std::initializer_list<U> il,
 ## テンプレートパラメータ制約
 - (1) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、
     - [`std::copy_constructible`](/reference/concepts/copy_constructible.md)`<VT>`および、
-    - [`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)`<VT, Args...>`を満たすこと
+    - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<VT, Args...>`を満たすこと
 - (2) : `using VT =` [`std::decay_t<T>`](/reference/type_traits/decay.md)であるとして、
     - [`std::copy_constructible`](/reference/concepts/copy_constructible.md)`<VT>`および、
-    - [`std::constructible_from`](/reference/concepts/constructible_from.md.nolink)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...>`を満たすこと
+    - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<VT,` [`std::initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...>`を満たすこと
 
 
 ## 効果
