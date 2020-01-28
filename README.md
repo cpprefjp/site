@@ -1,6 +1,8 @@
 site
 ====
 
+![detect forbidden characters](https://github.com/cpprefjp/site/workflows/detect%20forbidden%20characters/badge.svg?branch=master)
+
 このリポジトリは、C++リファレンスサイト[cpprefjp](https://cpprefjp.github.io/)のMarkdownソースです。
 
 このリポジトリにあるMarkdownファイルを編集することで、cpprefjpサイトに自動的に反映されます。
