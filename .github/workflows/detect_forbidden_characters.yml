@@ -1,4 +1,4 @@
-name: detect forbidden charactors
+name: detect forbidden characters
 
 on: [push, pull_request]
 
