@@ -18,9 +18,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------|--------------------------------------------------------------------|-------|
-| [`(constructor)`](stop_callback/op_constructor.md.nolink)| コンストラクタ | C++20 |
-| [`(destructor)`](stop_callback/op_destructor.md.nolink)  | デストラクタ | C++20 |
-| [`operator=`](stop_callback/op_assign.md.nolink)         | 代入演算子 | C++20 |
+| [`(constructor)`](stop_callback/op_constructor.md)| コンストラクタ | C++20 |
+| [`(destructor)`](stop_callback/op_destructor.md)  | デストラクタ | C++20 |
+| `operator=(const stop_callback&) = delete;`       | 代入演算子 | C++20 |
+| `operator=(stop_callback&&) = delete;`            | 代入演算子 | C++20 |
 
 ## メンバ型
 
@@ -32,19 +33,19 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
-| [`(deduction_guide)`](stop_callback/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20 |
+| [`(deduction_guide)`](stop_callback/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
 
-## 適格条件
-テンプレート引数の`Callback`は`invocable`と`destructible`制約を満たさなければならい。
+## 適格要件
+テンプレート引数の`Callback`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
 
 ## 事前条件
-テンプレート引数の`Callback`は`invocable`と`destructible`制約を満たさなければならい。
+テンプレート引数の`Callback`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
 
 ## 例
 ```cpp example
 #include <cassert>
-#include <string>
 #include <stop_token>
+#include <string>
 
 int main()
 {
@@ -65,7 +66,7 @@ int main()
   std::stop_callback cb2(st, [&] { msg += " world"; });
 
   // 停止要求が作成されたあとに登録されたコールバック関数は、
-  // std::stop_callbackクラスのコンストラクタの中で即座に呼び出される
+  // std::stop_callback クラスのコンストラクタの中で即座に呼び出される
   assert(msg == "hello world");
 }
 ```
