@@ -75,7 +75,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](zoned_time/op_ostream.md.nolink) | 出力ストリームに出力する | C++20 |
+| [`operator<<`](zoned_time/op_ostream.md) | 出力ストリームに出力する | C++20 |
 
 
 ## 推論補助
