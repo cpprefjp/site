@@ -177,7 +177,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`sys_info`](chrono/sys_info.md.nolink) | タイムゾーンと時間の情報 (class) | C++20 |
+| [`sys_info`](chrono/sys_info.md.nolink) | システム時間用のタイムゾーン情報 (class) | C++20 |
+| [`local_info`](chrono/local_info.md.nolink) | ローカル時間用のタイムゾーン情報 (class) | C++20 |
 
 
 ### タイムゾーン
