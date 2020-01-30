@@ -186,7 +186,7 @@
 |------|------|----------------|
 | [`choose`](chrono/choose.md.nolink) | タイムゾーンを変換する際に、早い時間側と遅い時間側どちらに丸めるかの種類 (enum) | C++20 |
 | [`time_zone`](chrono/time_zone.md.nolink) | タイムゾーンの変換を扱うクラス (class) | C++20 |
-| [`zoned_traits`](chrono/zone_traits.md.nolink) | `zoned_time`のカスタマイズ (class) | C++20 |
+| [`zoned_traits`](chrono/zone_traits.md) | タイムゾーン取得のカスタマイズ用中間インタフェース (class) | C++20 |
 | [`zoned_time`](chrono/zoned_time.md) | タイムゾーンを考慮した時間軸上の一点を表す型 (class) | C++20 |
 | [`zoned_seconds`](chrono/zoned_time.md) | 秒単位でタイムゾーンを考慮した時間軸上の一点を表す型 (type-alias) | C++20 |
 

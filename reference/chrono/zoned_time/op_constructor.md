@@ -88,13 +88,13 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 
 
 ## 効果
-- (1) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md.nolink)によって得られたタイムゾーンオブジェクトへのポインタと、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
-- (3) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md.nolink)によって得られた[`time_zone`](/reference/chrono/time_zone.md.nolink)オブジェクトへのポインタと`st`を、メンバ変数として保持する
+- (1) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md)によって得られたタイムゾーンオブジェクトへのポインタと、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
+- (3) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md)によって得られた[`time_zone`](/reference/chrono/time_zone.md.nolink)オブジェクトへのポインタと`st`を、メンバ変数として保持する
 - (4) : [`std::move`](/reference/utility/move.md)`(z)`をタイムゾーンオブジェクトへのポインタとして、メンバ変数に保持する
-- (5) : [`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md.nolink)`(name)`と、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
+- (5) : [`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name)`と、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
 - (6) : `zt`がもつタイムゾーンオブジェクトへのポインタと時間点をメンバ変数として保持する
 - (7) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`st`をメンバ変数に保持する
-- (8) : タイムゾーンオブジェクトへのポインタ[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md.nolink)`(name)`、および時間点`st`をメンバ変数として保持する
+- (8) : タイムゾーンオブジェクトへのポインタ[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name)`、および時間点`st`をメンバ変数として保持する
 - (9) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp)`をメンバ変数に保持する
 - (10) : 式`{traits::locate_zone(name), tp}`で(9)を呼び出すことと等価
 - (11) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp, c)`をメンバ変数に保持する
