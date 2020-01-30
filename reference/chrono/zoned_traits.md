@@ -45,7 +45,7 @@ int main()
 
   // zoned_traits<const time_zone*>::locate_zone()で取得したタイムゾーンが使用される
   chrono::zoned_time zt2{"Asia/Tokyo", now};
-  assert(zt1.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
+  assert(zt2.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
 }
 ```
 * zoned_traits[color ff0000]
@@ -54,6 +54,7 @@ int main()
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * chrono::locate_zone[link locate_zone.md]
+* get_time_zone()[link zoned_time/get_time_zone.md]
 
 ### 出力
 ```
