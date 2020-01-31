@@ -157,13 +157,13 @@
 | [`locate_zone`](chrono/locate_zone.md) | 指定した名前のタイムゾーンを取得する (function) | C++20 |
 | [`current_zone`](chrono/current_zone.md) | 現在のタイムゾーンを取得する (function) | C++20 |
 
+
 ### リモートタイムゾーンのサポート
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`reload_tzdb`](chrono/reload_tzdb.md.nolink) | リモートタイムゾーンを再読み込みする (function) | C++20 |
 | [`remote_version`](chrono/remote_version.md.nolink) | リモートタイムゾーンの最新バージョン番号を取得する | C++20 |
-
 
 ### 例外クラス
 
@@ -173,20 +173,14 @@
 | [`ambiguous_local_time`](chrono/ambiguous_local_time.md.nolink) | ローカル時間があいまい (class) | C++20 |
 
 
-### 情報クラス
+### タイムゾーン
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`sys_info`](chrono/sys_info.md.nolink) | システム時間用のタイムゾーン情報 (class) | C++20 |
 | [`local_info`](chrono/local_info.md.nolink) | ローカル時間用のタイムゾーン情報 (class) | C++20 |
-
-
-### タイムゾーン
-
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
 | [`choose`](chrono/choose.md.nolink) | タイムゾーンを変換する際に、早い時間側と遅い時間側どちらに丸めるかの種類 (enum) | C++20 |
-| [`time_zone`](chrono/time_zone.md.nolink) | タイムゾーンの変換を扱うクラス (class) | C++20 |
+| [`time_zone`](chrono/time_zone.md) | タイムゾーンの変換を扱うクラス (class) | C++20 |
 | [`zoned_traits`](chrono/zoned_traits.md) | タイムゾーン取得のカスタマイズ用中間インタフェース (class) | C++20 |
 | [`zoned_time`](chrono/zoned_time.md) | タイムゾーンを考慮した時間軸上の一点を表す型 (class) | C++20 |
 | [`zoned_seconds`](chrono/zoned_time.md) | 秒単位でタイムゾーンを考慮した時間軸上の一点を表す型 (type-alias) | C++20 |

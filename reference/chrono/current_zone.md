@@ -9,7 +9,7 @@ namespace std::chrono {
   const time_zone* current_zone();
 }
 ```
-* time_zone[time_zone.md.nolink]
+* time_zone[time_zone.md]
 
 ## 概要
 現在のタイムゾーンを取得する。
@@ -39,7 +39,7 @@ int main()
 }
 ```
 * chrono::current_zone()[color ff0000]
-* chrono::time_zone[link time_zone.md.nolink]
+* chrono::time_zone[link time_zone.md]
 * tz->name()[link time_zone/name.md.nolink]
 
 ### 出力例

@@ -12,14 +12,14 @@ namespace std::chrono {
   using zoned_seconds = zoned_time<seconds>;
 }
 ```
-* time_zone[link time_zone.md.nolink]
+* time_zone[link time_zone.md]
 
 ## 概要
 `zoned_time`は、タイムゾーンを考慮した時間軸上の一点を表す型である。この型は、テンプレートパラメータとして時間間隔をとる。
 
 秒単位の時間間隔を扱う別名として、`zoned_seconds`も定義される。
 
-`zoned_time`は[`time_point`](time_point.md)と[`time_zone`](time_zone.md.nolink)の組である。有効なタイムゾーンを常にもち、あいまいなタイムゾーンを参照するようなことにはならないという不変条件をもつ。
+`zoned_time`は[`time_point`](time_point.md)と[`time_zone`](time_zone.md)の組である。有効なタイムゾーンを常にもち、あいまいなタイムゾーンを参照するようなことにはならないという不変条件をもつ。
 
 このクラスを介することで、日時を、タイムゾーンを考慮した日時に変換できる。このクラスでは、タイムゾーンを考慮した日時への変換は、[`local_time`](local_time.md)への変換時に行われる。具体的には以下のような操作で、タイムゾーンを考慮した日時に変換もしくは出力できる：　
 

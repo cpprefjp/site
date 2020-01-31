@@ -9,7 +9,7 @@ namespace std::chrono {
   const time_zone* locate_zone(std::string_view tz_name);
 }
 ```
-* time_zone[time_zone.md.nolink]
+* time_zone[time_zone.md]
 
 ## 概要
 指定した名前のタイムゾーンを取得する。
@@ -30,7 +30,7 @@ return get_tzdb().locate_zone(tz_name);
 
 
 ## 備考
-- この関数は例外を送出する状況以外では、常に有効な[`time_zone`](time_zone.md.nolink)オブジェクトへのポインタを返す
+- この関数は例外を送出する状況以外では、常に有効な[`time_zone`](time_zone.md)オブジェクトへのポインタを返す
 
 
 ## 例
@@ -65,7 +65,7 @@ int main()
 }
 ```
 * chrono::locate_zone[color ff0000]
-* chrono::time_zone[link time_zone.md.nolink]
+* chrono::time_zone[link time_zone.md]
 * name()[link time_zone/name.md.nolink]
 
 ### 出力

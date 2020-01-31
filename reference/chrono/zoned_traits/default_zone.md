@@ -8,7 +8,7 @@
 ```cpp
 static const time_zone* default_zone(); // (1) C++20
 ```
-* time_zone[link /reference/chrono/time_zone.md.nolink]
+* time_zone[link /reference/chrono/time_zone.md]
 
 ## 概要
 デフォルトのタイムゾーンを取得する。
@@ -35,7 +35,7 @@ int main()
 }
 ```
 * default_zone()[color ff0000]
-* time_zone[link /reference/chrono/time_zone.md.nolink]
+* time_zone[link /reference/chrono/time_zone.md]
 * locate_zone[link /reference/chrono/locate_zone.md]
 
 

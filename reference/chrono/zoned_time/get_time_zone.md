@@ -37,7 +37,7 @@ int main()
 }
 ```
 * get_time_zone()[color ff0000]
-* chrono::time_zone[link /reference/chrono/time_zone.md.nolink]
+* chrono::time_zone[link /reference/chrono/time_zone.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 * chrono::locate_zone[link /reference/chrono/locate_zone.md]

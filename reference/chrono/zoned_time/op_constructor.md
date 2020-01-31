@@ -89,7 +89,7 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 
 ## 効果
 - (1) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md)によって得られたタイムゾーンオブジェクトへのポインタと、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
-- (3) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md)によって得られた[`time_zone`](/reference/chrono/time_zone.md.nolink)オブジェクトへのポインタと`st`を、メンバ変数として保持する
+- (3) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md)によって得られた[`time_zone`](/reference/chrono/time_zone.md)オブジェクトへのポインタと`st`を、メンバ変数として保持する
 - (4) : [`std::move`](/reference/utility/move.md)`(z)`をタイムゾーンオブジェクトへのポインタとして、メンバ変数に保持する
 - (5) : [`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name)`と、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
 - (6) : `zt`がもつタイムゾーンオブジェクトへのポインタと時間点をメンバ変数として保持する

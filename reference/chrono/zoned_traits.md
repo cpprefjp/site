@@ -12,7 +12,7 @@ namespace std::chrono {
   struct zoned_traits<const time_zone*>;     // (2) C++20
 }
 ```
-* time_zone[link time_zone.md.nolink]
+* time_zone[link time_zone.md]
 
 ## 概要
 `zoned_traits`は、[`zoned_time`](zoned_time.md)`<Duration, TimeZonePtr>`クラスのデフォルトコンストラクタ、および[`string_view`](/reference/string_view/basic_string_view.md)をとるコンストラクタのための、タイムゾーン取得を動作をカスタマイズする中間インタフェースクラスである。
@@ -49,7 +49,7 @@ int main()
 }
 ```
 * zoned_traits[color ff0000]
-* time_zone[link time_zone.md.nolink]
+* time_zone[link time_zone.md]
 * chrono::zoned_time[link zoned_time.md]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]

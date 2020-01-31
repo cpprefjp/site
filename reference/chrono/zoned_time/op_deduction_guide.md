@@ -117,7 +117,7 @@ int main()
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
-* chrono::time_zone[link /reference/chrono/time_zone.md.nolink]
+* chrono::time_zone[link /reference/chrono/time_zone.md]
 
 ### 出力
 ```
