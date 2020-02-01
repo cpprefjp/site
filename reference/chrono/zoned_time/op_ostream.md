@@ -55,8 +55,8 @@ int main()
   std::cout << chrono::zoned_time{"UTC", now} << std::endl;        // UTC
 }
 ```
-* chrono::system_clock[link system_clock.md]
-* now()[link system_clock/now.md]
+* chrono::system_clock[link ../system_clock.md]
+* now()[link ../system_clock/now.md]
 
 ### 出力
 ```
