@@ -14,7 +14,7 @@ namespace std {
 
 
 ## 概要
-`destructible`は、任意の型`T`が破棄可能であることを表す要件である。
+`destructible`は、任意の型`T`が破棄可能であることを表すコンセプトである。
 
 ## 備考
 
@@ -32,7 +32,7 @@ void f(const char* name) {
   std::cout << name << " is destructible" << std::endl;
 }
 
-template<typename T, typename... Args>
+template<typename T>
 void f(const char* name) {
   std::cout << name << " is not destructible" << std::endl;
 }
