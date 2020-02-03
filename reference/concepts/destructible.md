@@ -18,7 +18,7 @@ namespace std {
 
 ## 備考
 
-`noexcept(true)`相当の指定がされていないが実際には例外を投げる事はない場合でも、本コンセプトを満たす事は出来ない。
+デストラクタが実際に例外を投げる事はないが、`noexcept(false)`相当の指定がされているような場合でも、本コンセプトを満たす事は出来ない。
 
 ## 例
 
@@ -54,7 +54,6 @@ int main() {
 }
 ```
 * std::destructible[color ff0000]
-* std::span[link /reference/span/span.md]
 
 ### 出力
 ```
