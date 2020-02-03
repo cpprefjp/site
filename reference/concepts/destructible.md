@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template <class T, class... Args>
+  template <class T>
   concept destructible = is_nothrow_destructible_v<T>;;
 }
 ```
