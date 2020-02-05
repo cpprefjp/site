@@ -66,7 +66,7 @@ int main()
 ```
 * chrono::locate_zone[color ff0000]
 * chrono::time_zone[link time_zone.md]
-* name()[link time_zone/name.md.nolink]
+* name()[link time_zone/name.md]
 
 ### 出力
 ```

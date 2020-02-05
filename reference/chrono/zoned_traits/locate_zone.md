@@ -37,7 +37,7 @@ int main()
 ```
 * locate_zone[color ff0000]
 * time_zone[link /reference/chrono/time_zone.md]
-* tz->name()[link /reference/chrono/time_zone/name.md.nolink]
+* tz->name()[link /reference/chrono/time_zone/name.md]
 
 ### 出力
 ```

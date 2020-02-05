@@ -40,7 +40,7 @@ int main()
 ```
 * chrono::current_zone()[color ff0000]
 * chrono::time_zone[link time_zone.md]
-* tz->name()[link time_zone/name.md.nolink]
+* tz->name()[link time_zone/name.md]
 
 ### 出力例
 ```
