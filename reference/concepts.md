@@ -97,7 +97,7 @@ concept C =
 | [`copy_constructible`](concepts/copy_constructible.md)       | コピー構築可能 | C++20 |
 | [`move_constructible`](concepts/move_constructible.md)       | ムーブ構築可能 | C++20 |
 | [`destructible`](concepts/destructible.md)                 | 破棄可能 | C++20 |
-| `assignable_from` | 代入可能 | C++20 |
+| [`assignable_from`](concepts/assignable_from.md) | 代入可能 | C++20 |
 | [`swappable`](concepts/swappable.md)                       | 入れ替え可能 | C++20 |
 | `swappable_with` | 特定の型と入れ替え可能 | C++20 |
 
