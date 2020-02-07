@@ -70,7 +70,7 @@ int main()
 ```
 * chrono::sys_info[color ff0000]
 * chrono::time_zone[link time_zone.md]
-* tz->get_info[link time_zone/get_info.md]
+* tz->get_info[link time_zone/get_info.md.nolink]
 * chrono::locate_zone[link locate_zone.md]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
