@@ -44,7 +44,7 @@ int main()
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 * count()[link /reference/chrono/duration/count.md]
-* chrono::sys_info[link /reference/chrono/sys_info.md.nolink]
+* chrono::sys_info[link /reference/chrono/sys_info.md]
 * chrono::floor[link /reference/chrono/duration/floor.md]
 
 ### 出力

@@ -25,7 +25,7 @@ namespace std::chrono {
 ## 概要
 `sys_info`は、システム時間に関するタイムゾーン情報の低レベルインタフェースを提供するクラスである。
 
-このクラスの情報は、[`sys_time`](sys_time.md)から[`local_time`](loacl_time.md)に変換する際に使用される。
+このクラスの情報は、[`sys_time`](sys_time.md)から[`local_time`](local_time.md)に変換する際に使用される。
 
 - (1) : システム時間に関するタイムゾーン情報のクラス
 - (2) : 出力ストリームへの出力
@@ -33,7 +33,7 @@ namespace std::chrono {
 
 | 変数 | 説明 |
 |------|------|
-| `begin`, `end` | 関連する[`time_zone`](time_zone.md)、[`time_point`](time_point.md)、`offset`、`abbrev`が`[begin, end)`の範囲内で有効であることを意味する。この情報を利用することで、タイムゾーン遷移を効率的にイテレートできる |
+| `begin`, `end` | 関連する[`time_zone`](time_zone.md)、[`time_point`](time_point.md)、`offset`、`abbrev`が`[begin, end)`の範囲内で有効であることを意味する。<br/> この情報を利用することで、タイムゾーン遷移を効率的にイテレートできる |
 | `offset` | 関連する[`time_zone`](time_zone.md)、[`time_point`](time_point.md)に対して有効な、UTCタイムゾーンに対する差分時間を意味する。<br/> `offset = local_time - sys_time`の関係が成り立つ |
 | `save` | このメンバ変数は、[`local_time`](local_time.md)と[`sys_time`](sys_time.md)の間の変換では通常、必要にならない情報である。<br/> `save != 0min`の場合、その`sys_info`は「サマータイム ("daylight saving" time)」にあると言われ、その[`time_zone`](time_zone.md)がサマータイムから外れている場合に使用するオフセットとして`offset - save`を使用することを推奨する。<br/> ただし、この情報は信頼すべきものと見なすことは推奨しない。そのような情報を取得する唯一の確実な方法は、`save == 0min`である`sys_info`を返す[`time_point`](time_point.md)で[`time_zone`](time_zone.md)を照会することである。<br/> [`time_point`](time_point.md)がそのような`sys_info`を返す保証はないが、`save != 0min`の`sys_info`は、`[begin, end)`の範囲内にないことが保証される |
 | `abbrev` | 関連する[`time_zone`](time_zone.md)および[`time_point`](time_point.md)に使用される現在の「略称 (abbreviation)」を意味する。略称はタイムゾーンごとに一意に定まるわけではないため、略称からタイムゾーンおよびUTCタイムゾーンからのオフセット時間を確実にマッピングすることはできない |
@@ -68,13 +68,14 @@ int main()
   std::cout << si << std::endl; // タイムゾーン情報全体を出力
 }
 ```
-* chrono::sys_seconds[color ff0000]
-* chrono::sys_days[color ff0000]
+* chrono::sys_info[color ff0000]
+* chrono::time_zone[link time_zone.md]
+* tz->get_info[link time_zone/get_info.md]
+* chrono::locate_zone[link locate_zone.md]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * chrono::floor[link time_point/floor.md]
-* chrono::zoned_time[link zoned_time.md]
-* chrono::current_zone()[link current_zone.md]
+* count()[link /reference/chrono/duration/count.md]
 
 ### 出力例
 ```
