@@ -177,7 +177,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`sys_info`](chrono/sys_info.md.nolink) | システム時間用のタイムゾーン情報 (class) | C++20 |
+| [`sys_info`](chrono/sys_info.md) | システム時間用のタイムゾーン情報 (class) | C++20 |
 | [`local_info`](chrono/local_info.md.nolink) | ローカル時間用のタイムゾーン情報 (class) | C++20 |
 | [`choose`](chrono/choose.md.nolink) | タイムゾーンを変換する際に、早い時間側と遅い時間側どちらに丸めるかの種類 (enum) | C++20 |
 | [`time_zone`](chrono/time_zone.md) | タイムゾーンの変換を扱うクラス (class) | C++20 |
