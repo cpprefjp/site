@@ -102,6 +102,6 @@ gcd<uint32_t, uint32_t>(-2147483648, -2147483648) 2147483648
 
 ## 実装例
 $$ \mathrm{gcd}(m, n) = \begin{cases}
-  |m| & \text{if } n = 0 \\
-  \mathrm{gcd}(n, m \bmod n) & \text{otherwise}
+  |m| &amp; \text{if } n = 0 \\
+  \mathrm{gcd}(n, m \bmod n) &amp; \text{otherwise}
 \end{cases} $$

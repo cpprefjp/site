@@ -69,7 +69,7 @@ namespace std {
 `required_alignment`について、ハードウェアは参照するオブジェクトに対して、型`T`のほかのオブジェクトよりも厳密なアライメントを持つことを要求できる。また、`atomic_ref`がロックフリーかどうかは、参照するオブジェクトのアライメントに依存する。たとえば[`std::complex`](/reference/complex/complex.md)`<double>`のロックフリー操作は`2 * alignof(double)`にアライメントされる場合にのみサポートされる。
 
 
-### atomic_ref<integral>専用メンバ関数
+### atomic_ref&lt;integral&gt;専用メンバ関数
 整数型に対する特殊化。
 
 | 名前 | 説明 | 対応バージョン |
@@ -88,13 +88,13 @@ namespace std {
 | [`operator^=`](atomic_ref/op_xor_assign.md)   | XOR演算 | C++20 |
 
 
-### atomic_ref<integral>専用メンバ型
+### atomic_ref&lt;integral&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `difference_type` | 2つの値の差を表す整数型`value_type` | C++20 |
 
 
-### atomic_ref<floating-point>専用メンバ関数
+### atomic_ref&lt;floating-point&gt;専用メンバ関数
 浮動小数点数型に対する特殊化。
 
 | 名前 | 説明 | 対応バージョン |
@@ -105,13 +105,13 @@ namespace std {
 | [`operator-=`](atomic_ref/op_minus_assign.md) | 減算 | C++20 |
 
 
-### atomic_ref<floating-point>専用メンバ型
+### atomic_ref&lt;floating-point&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `difference_type` | 2つの値の差を表す整数型`value_type` | C++20 |
 
 
-### atomic_ref<T*>専用メンバ関数
+### atomic_ref&lt;T*&gt;専用メンバ関数
 ポインタ型に対する特殊化。
 
 | 名前 | 説明 | 対応バージョン |
@@ -124,7 +124,7 @@ namespace std {
 | [`operator-=`](atomic_ref/op_minus_assign.md) | 減算 | C++20 |
 
 
-### atomic_ref<T*>専用メンバ型
+### atomic_ref&lt;T*&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `difference_type` | 2つの値の差を表す整数型[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) | C++20 |

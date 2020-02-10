@@ -53,8 +53,8 @@ using u32streampos = fpos<char_traits<char32_t>::state_type>;
 | `streamsize(o)` | 型変換                                     | `streamsize(O(sz)) == sz`      |
 | `O(sz)`         | 型変換                                     | 〃                             |
 
-- P: fpos<T>である型
-- p, q: fpos<T>である型の値
+- P: fpos&lt;T&gt;である型
+- p, q: fpos&lt;T&gt;である型の値
 - O: streamoff型
 - o: streamoff型の値
 - sz: streamsize型の値

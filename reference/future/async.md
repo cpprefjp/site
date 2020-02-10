@@ -203,4 +203,4 @@ foo() = 3
 - [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
 - [In Visual Studio, `thread_local` variables' destructor not called when used with `std::async`, is this a bug? - stackoverflow](https://stackoverflow.com/questions/50897768/in-visual-studio-thread-local-variables-destructor-not-called-when-used-with)
-- [<future> functions - Microsoft Docs](https://docs.microsoft.com/en-us/cpp/standard-library/future-functions?view=vs-2019#remarks)
+- [&lt;future&gt; functions - Microsoft Docs](https://docs.microsoft.com/en-us/cpp/standard-library/future-functions?view=vs-2019#remarks)

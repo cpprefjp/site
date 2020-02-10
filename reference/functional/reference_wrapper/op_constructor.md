@@ -75,4 +75,4 @@ int main()
 
 
 ## 参照
-- [LWG Issue 2993. reference_wrapper<T> conversion from T&&](https://wg21.cmeerw.net/lwg/issue2993)
+- [LWG Issue 2993. `reference_wrapper<T>` conversion from `T&&`](https://wg21.cmeerw.net/lwg/issue2993)

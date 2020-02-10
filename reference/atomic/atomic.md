@@ -137,7 +137,7 @@ namespace std {
 `is_always_lock_free == true`の場合、このクラスのオブジェクトをシグナルハンドラー内で使用できる。
 
 
-### atomic<integral>専用メンバ関数
+### atomic&lt;integral&gt;専用メンバ関数
 整数型に対する特殊化。
 
 | 名前 | 説明 | 対応バージョン |
@@ -156,13 +156,13 @@ namespace std {
 | [`operator^=`](atomic/op_xor_assign.md)   | XOR演算 | C++11 |
 
 
-### atomic<integral>専用メンバ型
+### atomic&lt;integral&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `difference_type` | 2つの値の差を表す整数型`value_type` | C++17 |
 
 
-### atomic<floating-point>専用メンバ関数
+### atomic&lt;floating-point&gt;専用メンバ関数
 浮動小数点数型に対する特殊化。
 
 | 名前 | 説明 | 対応バージョン |
@@ -173,13 +173,13 @@ namespace std {
 | [`operator-=`](atomic/op_minus_assign.md) | 減算 | C++20 |
 
 
-### atomic<floating-point>専用メンバ型
+### atomic&lt;floating-point&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `difference_type` | 2つの値の差を表す整数型`value_type` | C++20 |
 
 
-### atomic<T*>専用メンバ関数
+### atomic&lt;T*&gt;専用メンバ関数
 ポインタ型に対する特殊化。
 
 | 名前 | 説明 | 対応バージョン |
@@ -192,7 +192,7 @@ namespace std {
 | [`operator-=`](atomic/op_minus_assign.md) | 減算 | C++11 |
 
 
-### atomic<T*>専用メンバ型
+### atomic&lt;T*&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `difference_type` | 2つの値の差を表す整数型[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) | C++17 |

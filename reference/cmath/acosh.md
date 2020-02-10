@@ -78,4 +78,4 @@ acosh(∞)  = inf
 ## 実装例
 対数に変換して求めることができる。
 
-$$ \mathrm{arcosh}~x = \log_e \left(x + \sqrt{x^2-1}\right) \quad \mathrm{for} \; 1 < x $$
+$$ \mathrm{arcosh}~x = \log_e \left(x + \sqrt{x^2-1}\right) \quad \mathrm{for} \; 1 &lt; x $$
