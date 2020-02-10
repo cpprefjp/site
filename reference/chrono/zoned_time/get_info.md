@@ -8,7 +8,7 @@
 ```cpp
 sys_info get_info() const; // (1) C++20
 ```
-* sys_info[link /reference/chrono/sys_info.md.nolink]
+* sys_info[link /reference/chrono/sys_info.md]
 
 ## 概要
 設定されたタイムゾーンの情報を取得する。
