@@ -1,7 +1,7 @@
 # sys_info
 * chrono[meta header]
 * std::chrono[meta namespace]
-* type-alias[meta id-type]
+* class[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
