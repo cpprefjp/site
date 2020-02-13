@@ -20,7 +20,7 @@ sys_info get_info() const; // (1) C++20
 ```cpp
 return zone->get_info(tp);
 ```
-* get_info[link /reference/time_zone/get_info.md.nolink]
+* get_info[link /reference/time_zone/get_info.md]
 
 
 ## 例

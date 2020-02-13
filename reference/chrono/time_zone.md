@@ -36,7 +36,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`name`](time_zone/name.md)         | タイムゾーン名を取得する | C++20 |
-| [`get_info`](time_zone/get_info.md.nolink) | タイムゾーンの情報を取得する | C++20 |
+| [`get_info`](time_zone/get_info.md) | タイムゾーンの情報を取得する | C++20 |
 
 
 ### 変換
