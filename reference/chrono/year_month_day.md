@@ -150,6 +150,7 @@ int main()
 * count()[link duration/count.md]
 * 15h[link duration/op_h.md]
 * 30min[link duration/op_min.md]
+* chrono::sys_time[link sys_time.md]
 
 #### 出力例
 ```
