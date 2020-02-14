@@ -125,6 +125,7 @@ int main()
 ```
 * chrono::sys_seconds[color ff0000]
 * chrono::sys_days[color ff0000]
+* chrono::sys_time[color ff0000]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * chrono::floor[link time_point/floor.md]
