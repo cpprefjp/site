@@ -96,13 +96,13 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 - (7) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`st`をメンバ変数に保持する
 - (8) : タイムゾーンオブジェクトへのポインタ[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name)`、および時間点`st`をメンバ変数として保持する
 - (9) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp)`をメンバ変数に保持する
-- (10) : 式`{traits::locate_zone(name), tp}`で(9)を呼び出すことと等価
+- (10) : 式`{`[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name), tp}`で(9)を呼び出すことと等価
 - (11) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`zone->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(tp, c)`をメンバ変数に保持する
-- (12) : 式`{traits::locate_zone(name), tp, c}`で(11)を呼び出すことと等価
+- (12) : 式`{`[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name), tp, c}`で(11)を呼び出すことと等価
 - (13) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および`zt`がもつ時間点をメンバ変数に保持する
 - (14) : 式`{z, zt}`で(13)を呼び出すことと等価。`c`は使われない
-- (15) : 式`{traits::locate_zone(name), zt}`で(13)を呼び出すことと等価
-- (16) : 式`{traits::locate_zone(name), zt, c}`で(14)を呼び出すことと等価
+- (15) : 式`{`[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name), zt}`で(13)を呼び出すことと等価
+- (16) : 式`{`[`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name), zt, c}`で(14)を呼び出すことと等価
 
 
 ## 備考
