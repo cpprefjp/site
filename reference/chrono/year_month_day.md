@@ -131,6 +131,10 @@ int main()
   std::cout <<
     chrono::time_point_cast<chrono::seconds>(sd).time_since_epoch().count()
   << std::endl; // 1970年1月1日からの経過秒
+
+  // 日単位のシステム時間に時・分を加算して、分まで扱えるシステム時間に変換。
+  chrono::sys_time sm = chrono::sys_days{2020y/3/1} + 15h + 30min;
+  std::cout << sm << std::endl;
 }
 ```
 * 2020y[link year/op_y.md]
@@ -144,6 +148,8 @@ int main()
 * chrono::time_point_cast[link time_point_cast.md]
 * time_since_epoch()[link time_point/time_since_epoch.md]
 * count()[link duration/count.md]
+* 15h[link duration/op_h.md]
+* 30min[link duration/op_min.md]
 
 #### 出力例
 ```
@@ -152,6 +158,7 @@ int main()
 2020-03-01
 18322
 1583020800
+2020-03-01 15:30:00
 ```
 
 ### 前月の末日を求める (C++20)

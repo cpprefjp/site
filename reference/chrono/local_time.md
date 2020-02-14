@@ -94,6 +94,14 @@ int main()
   std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
   // 2. 日本のタイムゾーンとして日時を出力
   std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;
+
+  // year_month_dayオブジェクトからローカル時間を構築
+  chrono::local_days ld{2020y/3/1};
+  std::cout << ld << std::endl;
+
+  // local_daysに時・分などを加算すると、それらの分解能を扱えるlocal_time<Duration>に変換される
+  chrono::local_time<chrono::minutes> lm = chrono::local_days{2020y/3/1} + 15h + 30min;
+  std::cout << lm << std::endl;
 }
 ```
 * chrono::local_time[color ff0000]
@@ -106,6 +114,9 @@ int main()
 * sys_time[link sys_time.md]
 * chrono::zoned_time[link zoned_time.md]
 * chrono::current_zone()[link current_zone.md]
+* 2020y[link year/op_y.md]
+* 15h[link duration/op_h.md]
+* 30min[link duration/op_min.md]
 
 #### 出力例
 ```
@@ -113,6 +124,8 @@ int main()
 2019-10-24 00:00:00
 2019-10-24 20:15:10.330140 JST
 2019-10-24 20:15:10.330140 JST
+2020-03-01 00:00:00
+2020-03-01 15:30:00
 ```
 
 ### 入力の例
