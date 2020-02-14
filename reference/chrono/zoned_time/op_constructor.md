@@ -40,7 +40,7 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 * sys_time[link /reference/chrono/sys_time.md]
 * local_time[link /reference/chrono/local_time.md]
 * string_view[link /reference/string_view/basic_string_view.md]
-* choose[link /reference/chrono/choose.md.nolink]
+* choose[link /reference/chrono/choose.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。デフォルト構築したシステム時間とデフォルトのタイムゾーン (UTC) を保持する
@@ -51,10 +51,10 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 - (6) : 異なる時間間隔をもつ`zoned_time`から変換する
 - (7) : タイムゾーンとシステム時間を保持する
 - (8) : 指定した名前のタイムゾーンとシステム時間を保持する
-- (9) : タイムゾーンと、ローカル時間をシステム時間に変換して (丸め方向は東) 保持する
-- (10) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して (丸め方向は東) 保持する
+- (9) : タイムゾーンと、ローカル時間をシステム時間に変換して保持する
+- (10) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して保持する
 - (11) : タイムゾーンと、ローカル時間をシステム時間に変換して保持する。変換時の丸め方向は指定したものを使用する
-- (12) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して (丸め方向は東) 保持する。変換時の丸め方向は指定したものを使用する
+- (12) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して保持する。変換時の丸め方向は指定したものを使用する
 - (13) : タイムゾーン`z`と`zt`がもつ[`sys_time`](/reference/chrono/sys_time.md)型の時間点を保持する
 - (14) : (13)と等価。丸めオプションは使われない
 - (15) : 指定した名前のタイムゾーンと、`zt`がもつ[`sys_time`](/reference/chrono/sys_time.md)型の時間点を保持する
@@ -74,7 +74,7 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 - (9) :
     - 型`decltype(declval<TimeZonePtr&>()->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(`[`local_time`](/reference/chrono/local_time.md)`<Duration>{}))`が[`sys_time`](/reference/chrono/sys_time.md)`<duration>`に変換可能であること
 - (11) :
-    - 型`decltype(declval<TimeZonePtr&>()->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(`[`local_time`](/reference/chrono/local_time.md)`<Duration>{},` [`choose::earliest`](/reference/chrono/choose.md.nolink)`))`が[`sys_time`](/reference/chrono/sys_time.md)`<duration>`に変換可能であること
+    - 型`decltype(declval<TimeZonePtr&>()->`[`to_sys`](/reference/chrono/time_zone/to_sys.md.nolink)`(`[`local_time`](/reference/chrono/local_time.md)`<Duration>{},` [`choose::earliest`](/reference/chrono/choose.md)`))`が[`sys_time`](/reference/chrono/sys_time.md)`<duration>`に変換可能であること
 - (12) :
     - `traits::locate_zone(name)`、`tp`、`c`を引数にして`zoned_time`オブジェクトが構築可能であること
 - (15) :
@@ -107,7 +107,7 @@ zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) 
 
 ## 備考
 - [`local_time`](/reference/chrono/local_time.md)型のローカル時間を受け取るコンストラクタでは、[`sys_time`](/reference/chrono/sys_time.md)型のシステム時間への変換が行われ、システム時間としてメンバ変数に保持される
-
+- (9), (10) : ローカル時間からシステム時間への変換があいまいになる場合、早い時間側の候補に変換される
 
 
 ### 例
@@ -122,7 +122,7 @@ int main()
   auto now = chrono::system_clock::now();
   auto now_sec = chrono::floor<chrono::seconds>(now);
   chrono::local_time local_now{now.time_since_epoch()};
-  chrono::local_time local_jst_now = now - chrono::hours{9};
+  chrono::local_time local_jst_now = local_now - chrono::hours{9};
 
   // デフォルト構築
   chrono::zoned_time<chrono::seconds> zt1{};
@@ -166,8 +166,8 @@ int main()
   std::cout << "(8) : " << zt8 << std::endl;
 
   // タイムゾーンとローカル時間を指定して構築
-  chrono::zoned_time zt9{chrono::locate_zone("Asia/Tokyo"), local_now};
-  chrono::zoned_time zt10{"Asia/Tokyo", local_now};
+  chrono::zoned_time zt9{chrono::locate_zone("Asia/Tokyo"), local_jst_now};
+  chrono::zoned_time zt10{"Asia/Tokyo", local_jst_now};
   assert(zt9.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
   assert(zt10.get_time_zone() == chrono::locate_zone("Asia/Tokyo"));
   assert(zt9.get_sys_time() == now);
