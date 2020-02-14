@@ -21,14 +21,9 @@ namespace std::chrono {
 
 `zoned_time`は[`time_point`](time_point.md)と[`time_zone`](time_zone.md)の組である。有効なタイムゾーンを常にもち、あいまいなタイムゾーンを参照するようなことにはならないという不変条件をもつ。
 
-このクラスを介することで、日時を、タイムゾーンを考慮した日時に変換できる。このクラスでは、タイムゾーンを考慮した日時への変換は、[`local_time`](local_time.md)への変換時に行われる。具体的には以下のような操作で、タイムゾーンを考慮した日時に変換もしくは出力できる：　
+このクラスを介することで、UTCタイムゾーンをもつシステム時間を指定したタイムゾーンのローカル時間に変換でき、またその逆の変換もできる。
 
-- [`sys_time`](sys_time.md)もしくは[`local_time`](local_time.md)にタイムゾーンを付加し、本クラスの出力ストリームで出力すると、タイムゾーンを考慮した日時が出力される
-- [`sys_time`](sys_time.md)もしくは[`local_time`](local_time.md)にタイムゾーンを付加し、[`local_time`](local_time.md)に変換すると、タイムゾーンを考慮した日時が取得できる
-
-注意点として、以下のような方法をとった場合は、タイムゾーンを考慮した日時には変換されない：
-
-- [`sys_time`](sys_time.md)もしくは[`local_time`](local_time.md)にタイムゾーンを付加して、[`sys_time`](sys_time.md)に変換
+このクラスに対する出力ストリームの演算子は、タイムゾーンを考慮したローカル時間を出力するため、単にタイムゾーンを考慮した日時を出力したい場合にも使用できる。
 
 
 ## 適格要件
@@ -94,9 +89,10 @@ namespace chrono = std::chrono;
 
 int main()
 {
+  // システム時間はUTCタイムゾーンをもつ
   auto now = chrono::system_clock::now();
 
-  // タイムゾーンなしで日時を出力する
+  // タイムゾーン情報なしで日時を出力する
   // (ローカルタイムゾーンへの変換はしてくれないので、デフォルトではUTCタイムゾーンで出力される)
   std::cout << now << std::endl;
 
@@ -107,12 +103,18 @@ int main()
 
   // コンピュータに設定されているタイムゾーンで、日時を出力する
   std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
+
+  // UTCタイムゾーンのシステム時間を、日本のローカル時間に変換
+  chrono::local_time lt = chrono::zoned_time{"Asia/Tokyo", now}.get_local_time();
+  std::cout << lt << std::endl;
 }
 ```
 * chrono::zoned_time[color ff0000]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * chrono::current_zone()[link current_zone.md]
+* chrono::local_time[link local_time.md]
+* get_local_time[link zoned_time/get_local_time.md]
 
 ### 出力例
 ```
@@ -121,6 +123,7 @@ int main()
 2019-12-20 19:05:05.330140 JST
 2019-12-20 10:05:05.330140 UTC
 2019-12-20 19:05:05.330140 JST
+2019-12-20 19:05:05
 ```
 
 ## バージョン
