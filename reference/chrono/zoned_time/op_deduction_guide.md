@@ -42,7 +42,7 @@ namespace std::chrono {
 * sys_time[link /reference/chrono/sys_time.md]
 * common_type_t[link /reference/chrono/common_type.md]
 - local_time[link /reference/chrono/local_time.md]
-* choose[link /reference/chrono/choose.md.nolink]
+* choose[link /reference/chrono/choose.md]
 * string_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
@@ -51,12 +51,12 @@ namespace std::chrono {
 - (1) : デフォルトコンストラクタ。秒単位の時間間隔を使用する
 - (2) : [`sys_time`](/reference/chrono/sys_time.md)`<Duration>`からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔を使用する
 - (3) : 任意のタイムゾーンオブジェクトへのポインタ型と[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
-- (4) : 任意のタイムゾーンオブジェクトへのポインタ型、[`local_time`](/reference/chrono/local_time.md)`<Duration>`、[`choose`](/reference/chrono/choose.md.nolink)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
-- (5) : 任意のタイムゾーンオブジェクトへのポインタ型、`zoned_time<Duration>`、[`choose`](/reference/chrono/choose.md.nolink)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
+- (4) : 任意のタイムゾーンオブジェクトへのポインタ型、[`local_time`](/reference/chrono/local_time.md)`<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
+- (5) : 任意のタイムゾーンオブジェクトへのポインタ型、`zoned_time<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
 - (6) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型からの推論。秒単位の時間間隔を使用する
 - (7) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型と、[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔を使用する
-- (8) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型、[`local_time`](/reference/chrono/local_time.md)`<Duration>`、[`choose`](/reference/chrono/choose.md.nolink)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
-- (9) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型、`zoned_time<Duration>`、[`choose`](/reference/chrono/choose.md.nolink)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
+- (8) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型、[`local_time`](/reference/chrono/local_time.md)`<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
+- (9) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型、`zoned_time<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
 
 
 ## 備考
