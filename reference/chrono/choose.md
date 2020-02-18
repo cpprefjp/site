@@ -76,4 +76,4 @@ int main()
 
 ## 関連項目
 - [`local_info`](local_info.md)
-- [`time_zone::to_sys()`](time_zone/to_sys.md.nolink)
+- [`time_zone::to_sys()`](time_zone/to_sys.md)
