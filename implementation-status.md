@@ -177,13 +177,13 @@
 | [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | | 2015 |
 | [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | | |
 | [指示付き初期化][P0329] | | 8 | 6.0 (partial) | | 2019 Update 1 |
-| [コンセプト][P0734] | テンプレートパラメータに対する制約を行う | | | | 2019 Update 3 |
+| [コンセプト][P0734] | テンプレートパラメータに対する制約を行う | 10 | | | 2019 Update 3 |
 | [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | |
 | [暗黙のラムダキャプチャを簡略化][p0588] | | 8 | | | 2019 Update 4 |
 | [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正][p0846] | | 9 | 9.0 | | 2019 Update 1 |
 | [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | 9 | 8.0 | | |
 | [評価されない文脈で`constexpr`関数が定数式評価されることを規定][p0859] | | 9 | | | |
-| [一貫性ある比較][p0515] | | | 8.0 (partial) | | 2019 |
+| [一貫比較][p0515] | | 10 | 8.0 (partial) | | 2019 |
 | [ラムダ式の制約][p0857] | | | | | 2019 Update 3 |
 | [特殊化のアクセスチェック][p0692] | | Yes | | | |
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | 9 | 8.0 | | 2019 Update 2 |
@@ -201,7 +201,7 @@
 | [非型テンプレートパラメータとしてクラス型を許可する][p0732] | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする | 9 | | | |
 | [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | |
 | [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | | |
-| [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 9 | 9.0 | | |
+| [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 10 | 9.0 | | |
 | [constexpr関数内でのtry-catchブロックを許可][p1002] | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | | |
 | [即時関数][p1073] | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | | | | |
 | [定数式内での共用体のアクティブメンバの変更を許可][p1330] | 共用体メンバの書き換えを定数式内で行えるようにする | 9 | 9.0 | | 2017 |
@@ -213,23 +213,23 @@
 | [入れ子名前空間定義でのインライン名前空間][p1094] | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 | | |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | | 2019 Update 4 |
 | [構造化束縛したビットフィールドの参照キャプチャ](/lang/cpp20/reference_capture_of_structured_bindings.md.nolink) | ビットフィールドを含む構造化束縛をした場合にラムダ式で参照キャプチャできない規定を緩和し、ビットフィールドを直接参照キャプチャ、もしくはデフォルト参照キャプチャして使用しなければ適格とする | 8 | 8.0 (partial) | | |
-| [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | | | | |
+| [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | 10 | | | |
 | [`new`式での配列要素数の推論](/lang/cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 | | | | |
-| [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md.nolink) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | | Yes | | 2015 |
+| [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md.nolink) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | 10 | Yes | | 2015 |
 | [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | | 8.0 partial (`-fmodules`, `-fmodules-ts`が必要) | | |
 | [コルーチン](/lang/cpp20/coroutines.md.nolink) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | | 8.0 (partial) | | |
 | [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md.nolink) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | | |
-| [constexprの文脈での自明なデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | | | | |
+| [constexprの文脈での自明なデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | 10 | | | |
 | [特殊メンバ関数の条件付き自明定義](/lang/cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によって自明な特殊メンバ関数と非自明な特殊メンバ関数をオーバーロードできるようにする | | | | |
-| [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](cpp20/nodiscard_should_have_a_reason.md.nolink) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | | 9.0 | | |
+| [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](cpp20/nodiscard_should_have_a_reason.md.nolink) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | 10 | 9.0 | | |
 | [スコープ付き列挙型のusing宣言](/lang/cpp20/using_enum.md.nolink) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする | | | | 2019 Update 4 |
-| [集成体クラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_aggregates.md.nolink) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | | | | |
+| [集成体クラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_aggregates.md.nolink) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | 10 | | | |
 | [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md.nolink) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 | 10 | | | |
-| [要素数不明の配列への変換を許可](/lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.md.nolink) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 | | | | |
+| [要素数不明の配列への変換を許可](/lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.md.nolink) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 | | 10 | | |
 | [コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md.nolink) | 初期化のみコンパイル時におわらせたい場合に使用する | 10 | | | |
 | [ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md.nolink) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する | 10 | | | |
-| [エイリアステンプレートに対するクラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_alias_templates.md.nolink) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | | | | |
-| [可変サイズをもつコンテナの`constexpr`化](cpp20/more_constexpr_containers.md.nolink) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | | | | |
+| [エイリアステンプレートに対するクラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_alias_templates.md.nolink) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | | | |
+| [可変サイズをもつコンテナの`constexpr`化](cpp20/more_constexpr_containers.md.nolink) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | | | |
 
 
 [p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
