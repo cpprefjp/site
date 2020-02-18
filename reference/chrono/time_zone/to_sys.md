@@ -50,6 +50,7 @@ sys_time<common_type_t<Duration, seconds>>
 
 ## 例
 ```cpp example
+#include <iostream>
 #include <cassert>
 #include <chrono>
 
