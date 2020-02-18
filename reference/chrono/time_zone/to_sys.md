@@ -28,6 +28,7 @@ sys_time<common_type_t<Duration, seconds>>
 
 ## 戻り値
 - (1) : 少なくとも秒以上の分解能で、タイムゾーンの規則に従ったUTCのシステム時間を返す
+- (2) : (1)に加え、`tp`からシステム時間への変換があいまいである場合、`z ==` [`choose::earliest`](/reference/chrono/choose.md)であるなら早い方のシステム時間候補を返し、`z ==` [`choose::latest`](/reference/chrono/choose.md)であるなら遅い方のシステム時間候補を返す。`tp`とUTC時間点の間に表現できる時間が存在しない場合、同じ時間点のシステム時間を返す
 
 
 ## 例外
