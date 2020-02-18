@@ -100,6 +100,7 @@ int main()
 * 1h[link /reference/chrono/duration/op_h.md]
 * 9h[link /reference/chrono/duration/op_h.md]
 * 30min[link /reference/chrono/duration/op_min.md]
+* chrono::local_days[link /reference/chrono/local_time.md]
 * chrono::sys_time[link /reference/chrono/sys_time.md]
 * chrono::ambiguous_local_time[link /reference/chrono/ambiguous_local_time.md.nolink]
 * choose::latest[link /reference/chrono/choose.md]
