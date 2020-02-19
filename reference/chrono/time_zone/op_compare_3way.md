@@ -43,6 +43,7 @@ int main()
   assert((chrono::locate_zone("Asia/Tokyo") <=> chrono::locate_zone("Asia/Tokyo")) == 0);
 }
 ```
+* chrono::locate_zone[link /reference/chrono/locate_zone.md]
 
 ### 出力
 ```
