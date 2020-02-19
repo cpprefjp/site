@@ -80,7 +80,7 @@ int main()
   std::cout << jst_now << std::endl;
 }
 ```
-* tz->to_local[time_zone/to_local.md]
+* tz->to_local[link time_zone/to_local.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 * chrono::local_time[link /reference/chrono/local_time.md]
