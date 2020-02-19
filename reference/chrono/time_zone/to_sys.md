@@ -66,7 +66,7 @@ int main()
   // 日本のローカル時間をシステム時間 (UTCタイムゾーン) に変換する
   const chrono::time_zone* jst = chrono::locate_zone("Asia/Tokyo");
   chrono::sys_time jst_to_utc = jst->to_sys(local_jst_now);
-  assert(jst_to_utc == now);
+  assert(chrono::floor<chrono::seconds>(jst_to_utc) == chrono::floor<chrono::seconds>(now));
 
   // ニューヨーク (EDTタイムゾーン) のローカル時間を、システム時間 (UTCタイムゾーン) に変換する。
   // ローカル時間2016-11-06 01:30:00 EDTに対応するシステム時間は、以下の2つがあり、一意に決まらない：
@@ -105,6 +105,7 @@ int main()
 * chrono::sys_time[link /reference/chrono/sys_time.md]
 * chrono::ambiguous_local_time[link /reference/chrono/ambiguous_local_time.md.nolink]
 * choose::latest[link /reference/chrono/choose.md]
+* chrono::floor[link /reference/chrono/time_point/floor.md]
 
 ### 出力例
 ```
