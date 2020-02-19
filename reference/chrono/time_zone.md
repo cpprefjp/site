@@ -44,7 +44,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`to_sys`](time_zone/to_sys.md)     | ローカル時間からシステム時間に変換する | C++20 |
-| [`to_local`](time_zone/to_local.md.nolink) | システム時間からローカル時間に変換する | C++20 |
+| [`to_local`](time_zone/to_local.md) | システム時間からローカル時間に変換する | C++20 |
 
 
 ## 例
