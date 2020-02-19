@@ -38,7 +38,7 @@ int main()
 {
   auto now = chrono::system_clock::now();
   chrono::local_time local_now{now.time_since_epoch()};
-  chrono::local_time local_jst_now = local_now - 9h;
+  chrono::local_time local_jst_now = local_now + 9h;
 
   // システム時間 (UTCタイムゾーン) を日本のローカル時間に変換する
   const chrono::time_zone* jst = chrono::locate_zone("Asia/Tokyo");
