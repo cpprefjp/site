@@ -63,10 +63,33 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <chrono>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  // システム時間 (UTCタイムゾーン) を日本のローカル時間 (UTC + 9時間) に変換する
+  auto utc_now = chrono::system_clock::now();
+
+  const chrono::time_zone* tz = chrono::locate_zone("Asia/Tokyo");
+  chrono::local_time jst_now = tz->to_local(utc_now);
+
+  std::cout << utc_now << std::endl;
+  std::cout << jst_now << std::endl;
+}
 ```
+* tz->to_local[time_zone/to_local.md]
+* chrono::system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
+* chrono::local_time[link /reference/chrono/local_time.md]
+* chrono::locate_zone[link /reference/chrono/locate_zone.md]
 
 ### 出力例
 ```
+2019-10-24 11:15:10
+2019-10-24 20:15:10
 ```
 
 ## バージョン
