@@ -85,7 +85,7 @@ int main() {
   f<not_swappable>("not_swappable");
 }
 ```
-* std::assignable_from[color ff0000]
+* std::swappable[color ff0000]
 
 #### 出力
 ```
@@ -108,7 +108,7 @@ not_swappable is not swappable
 template<typename T, typename U>
 requires std::swappable_with<T, U>
 void f(const char* name, const char* name2) {
-  std::cout << name << " is swappable with" << name2 << std::endl;
+  std::cout << name << " is swappable with " << name2 << std::endl;
 }
 
 template<typename T, typename U>
@@ -177,11 +177,13 @@ int main() {
   f<NS::S2, NS::S1>("NS::S2", "NS::S1");
 }
 ```
+* std::swappable_with[color ff0000]
+* basic_common_reference[link /reference/type_traits/basic_common_reference.md]
 
 #### 出力
 ```
-NS::S1& is swappable withNS::S2&
-NS::S2& is swappable withNS::S1&
+NS::S1& is swappable with NS::S2&
+NS::S2& is swappable with NS::S1&
 NS::S1 is not swappable with NS::S2
 NS::S2 is not swappable with NS::S1
 ```
