@@ -99,7 +99,7 @@ concept C =
 | [`destructible`](concepts/destructible.md)                 | 破棄可能 | C++20 |
 | [`assignable_from`](concepts/assignable_from.md) | 代入可能 | C++20 |
 | [`swappable`](concepts/swappable.md)                       | 入れ替え可能 | C++20 |
-| `swappable_with` | 特定の型と入れ替え可能 | C++20 |
+| [`swappable_with`](concepts/swappable.md) | 特定の型と入れ替え可能 | C++20 |
 
 
 ## 比較
