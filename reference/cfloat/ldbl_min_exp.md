@@ -42,7 +42,6 @@ int main()
 }
 ```
 * std::setprecision[link ../iomanip/setprecision.md]
-* boolalpha[link ../ios/boolalpha.md]
 * LDBL_MIN_EXP[color ff0000]
 * LDBL_DIG[link ldbl_dig.md]
 * FLT_RADIX[link flt_radix.md]

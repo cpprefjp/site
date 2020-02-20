@@ -80,7 +80,6 @@ int main()
 * get_allocator()[color ff0000]
 * ::operator new[link /reference/new/op_new.md]
 * ::operator delete[link /reference/new/op_delete.md]
-* std::true_type[link /reference/type_traits/true_type.md]
 * std::hash[link /reference/functional/hash.md]
 * std::equal_to[link /reference/functional/equal_to.md]
 * swap[link swap_free.md]

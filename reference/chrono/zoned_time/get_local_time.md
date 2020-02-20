@@ -22,7 +22,7 @@ local_time<duration> get_local_time() const; // (1) C++20
 ```cpp
 return zone->to_local(tp);
 ```
-* to_local[link /reference/time_zone/to_local.md]
+* to_local[link /reference/chrono/time_zone/to_local.md]
 
 
 ## 例

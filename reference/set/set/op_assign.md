@@ -12,7 +12,7 @@ set& operator=(set&& x)
             && is_nothrow_move_assignable<Compare>::value); // (2) C++17
 set& operator=(initializer_list<value_type> init); // (3) C++11
 ```
-*initializer_list[link ../../initializer_list.md]
+* initializer_list[link ../../initializer_list.md]
 
 ## 概要
 - (1) : コピー代入

@@ -184,7 +184,6 @@ int main()
 ```
 * std::assume_aligned[color ff0000]
 * std::fill[link /reference/algorithm/fill.md]
-* std::accumulate[link /reference/numeric/accumulate.md]
 
 ### 逆アセンブル
 

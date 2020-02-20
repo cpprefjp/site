@@ -68,7 +68,6 @@ namespace std {
 ```
 * std::hash[link /reference/functional/hash.md]
 * std::equal_to[link /reference/functional/equal_to.md]
-* std::allocator[link /reference/memory/allocator.md]
 
 ## バージョン
 ### 言語

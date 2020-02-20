@@ -86,7 +86,6 @@ int main()
   print("assign value", va);
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 * mask.size()[link /reference/valarray/valarray/size.md]
 
 ### 出力

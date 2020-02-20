@@ -13,7 +13,6 @@ namespace std {
   class wstring_convert;
 }
 ```
-* allocator[link /reference/memory/allocator.md]
 
 ## 概要
 `wstring_convert`は、ワイド文字列とバイト文字列を相互変換するクラスである。

@@ -60,7 +60,6 @@ static_assert(std::is_scalar<void (s::*)()>::value == true, "void (s::*)() is sc
 int main(){}
 ```
 * std::is_scalar[color ff0000]
-* std::nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ### 出力
 ```

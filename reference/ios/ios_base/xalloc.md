@@ -29,7 +29,6 @@ return index++;
 static std::atomic<int> index(0);
 return index++;
 ```
-* std::atomic[link /reference/atomic/atomic.md]
 * index++[link /reference/atomic/atomic/op_increment.md]
 
 

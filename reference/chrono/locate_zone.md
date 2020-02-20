@@ -9,7 +9,7 @@ namespace std::chrono {
   const time_zone* locate_zone(std::string_view tz_name);
 }
 ```
-* time_zone[time_zone.md]
+* time_zone[link time_zone.md]
 
 ## 概要
 指定した名前のタイムゾーンを取得する。

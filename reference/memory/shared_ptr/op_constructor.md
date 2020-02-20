@@ -252,7 +252,6 @@ int main()
 * get()[link get.md]
 * use_count()[link use_count.md]
 * std::default_delete[link /reference/memory/default_delete.md]
-* std::allocator[link /reference/memory/allocator.md]
 * std::move[link /reference/utility/move.md]
 * std::weak_ptr[link /reference/memory/weak_ptr.md]
 * lock()[link /reference/memory/weak_ptr/lock.md]

@@ -61,7 +61,6 @@ int main()
 }
 ```
 * std::this_thread::yield()[color ff0000]
-* std::atomic[link /reference/atomic/atomic.md]
 
 ### 出力
 ```

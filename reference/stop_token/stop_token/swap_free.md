@@ -53,12 +53,10 @@ int main()
 }
 ```
 * std::swap[color ff0000]
-* std::swap[link swap.md]
-* stop_token[link ../stop_token.md]
-* stop_source[link ../stop_source.md]
+* std::stop_token[link ../stop_token.md]
+* std::stop_source[link ../stop_source.md]
 * request_stop()[link ../stop_source/request_stop.md]
 * stop_possible()[link stop_possible.md]
-* stop_requested()[link stop_requested.md]
 
 ### 出力
 ```

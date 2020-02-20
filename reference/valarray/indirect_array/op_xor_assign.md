@@ -54,7 +54,6 @@ int main()
   }
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 * mask.size()[link /reference/valarray/valarray/size.md]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 

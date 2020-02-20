@@ -103,7 +103,6 @@ int main()
 }
 ```
 * std::notify_all_at_thread_exit[color ff0000]
-* std::unique_lock[link /reference/mutex/unique_lock.md]
 * cond_.wait[link wait.md]
 * std::move[link /reference/utility/move.md]
 * t1.detach()[link /reference/thread/thread/detach.md]

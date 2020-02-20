@@ -56,7 +56,6 @@ int main()
   }
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 * std::slice[link /reference/valarray/slice.md]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 

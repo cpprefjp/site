@@ -89,9 +89,7 @@ int main()
   return 0;
 }
 ```
-* std::shared_ptr[link /reference/memory/shared_ptr.md]
 * std::make_shared[link /reference/memory/make_shared.md]
-* std::unique_ptr[link /reference/memory/unique_ptr.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

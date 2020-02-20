@@ -87,7 +87,6 @@ int main()
   print("assign value", va);
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 
 ### 出力
 ```

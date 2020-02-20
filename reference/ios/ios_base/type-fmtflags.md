@@ -63,8 +63,9 @@ int main()
   std::cout << true << ", " << false << "\n";
 }
 ```
-* boolalpha[color ff0000]
+* std::boolalpha[link ../boolalpha.md]
 * std::noboolalpha[link ../noboolalpha.md]
+* boolalpha[color ff0000]
 
 ### 出力
 ```
@@ -85,9 +86,9 @@ int main()
   std::cout << 10 << "\n";
 }
 ```
-* showpos[color ff0000]
 * std::showpos[link ../showpos.md]
 * std::noshowpos[link ../noshowpos.md]
+* showpos[color ff0000]
 
 ### 出力
 ```
@@ -109,9 +110,9 @@ int main()
   std::cout << 10.0 << "\n";
 }
 ```
-* showpoint[color ff0000]
 * std::showpoint[link ../showpoint.md]
 * std::noshowpoint[link ../noshowpoint.md]
+* showpoint[color ff0000]
 
 ### 出力
 ```
@@ -143,17 +144,17 @@ int main()
   std::cout << 10 << "\n";
 }
 ```
+* std::showbase[link ../showbase.md]
+* std::noshowbase[link ../noshowbase.md]
+* std::hex[link ../hex.md]
+* std::oct[link ../oct.md]
+* std::dec[link ../dec.md]
 * showbase[color ff0000]
 * uppercase[color ff0000]
 * basefield[color ff0000]
 * hex[color ff0000]
 * oct[color ff0000]
 * dec[color ff0000]
-* std::showbase[link ../showbase.md]
-* std::noshowbase[link ../noshowbase.md]
-* std::hex[link ../hex.md]
-* std::oct[link ../oct.md]
-* std::dec[link ../dec.md]
 
 ### 出力
 ```
@@ -195,15 +196,15 @@ int main()
   std::cout << 12.34567 << "\n\n";
 }
 ```
-* floatfield[color ff0000]
-* fixed[color ff0000]
-* scientific[color ff0000]
 * std::uppercase[link ../uppercase.md]
 * std::nouppercase[link ../nouppercase.md]
 * std::fixed[link ../fixed.md]
 * std::scientific[link ../scientific.md]
 * std::hexfloat[link ../hexfloat.md]
 * std::defaultfloat[link ../defaultfloat.md]
+* floatfield[color ff0000]
+* fixed[color ff0000]
+* scientific[color ff0000]
 
 ### 出力
 ```
@@ -237,13 +238,13 @@ int main()
   std::cout << -10 << "|\n";
 }
 ```
+* std::right[link ../right.md]
+* std::internal[link ../internal.md]
+* std::left[link ../left.md]
 * adjustfield[color ff0000]
 * right[color ff0000]
 * internal[color ff0000]
 * left[color ff0000]
-* std::right[link ../right.md]
-* std::internal[link ../internal.md]
-* std::left[link ../left.md]
 
 ### 出力
 ```

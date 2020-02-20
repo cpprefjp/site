@@ -40,7 +40,6 @@ int main()
 }
 ```
 * std::in_place[color ff0000]
-* std::optional[link /reference/optional/optional.md]
 * p.value()[link /reference/optional/optional/value.md]
 
 ### 出力

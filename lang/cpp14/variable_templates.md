@@ -33,7 +33,6 @@ int main()
   if (std::is_integral<int>()) {}
 }
 ```
-* <type_traits>[link /reference/type_traits.md]
 * std::is_integral[link /reference/type_traits/is_integral.md]
 
 変数テンプレートを使用することで、以下のように記述できる：
@@ -99,10 +98,7 @@ auto main() -> int
     ;
 }
 ```
-* <iomanip>[link /reference/iomanip.md]
-* <limits>[link /reference/limits.md]
 * template < typename T = float >[color ff0000]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
 * max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
 * std::setprecision[link /reference/iomanip/setprecision.md]
 

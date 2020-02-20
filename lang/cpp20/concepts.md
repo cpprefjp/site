@@ -157,7 +157,6 @@ int main() {
 * std::integral[link /reference/concepts/integral.md]
 * std::floating_point[link /reference/concepts/floating_point.md]
 * std::abs[link /reference/cmath/abs.md]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
 * epsilon()[link /reference/limits/numeric_limits/epsilon.md]
 * 0.30000000000000004[link https://0.30000000000000004.com]
 
@@ -367,7 +366,6 @@ int main() {
 * std::floating_point[link /reference/concepts/floating_point.md]
 * std::common_type_t[link /reference/type_traits/common_type.md]
 * std::abs[link /reference/cmath/abs.md]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
 * epsilon()[link /reference/limits/numeric_limits/epsilon.md]
 
 

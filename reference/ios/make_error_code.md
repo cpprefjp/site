@@ -41,11 +41,9 @@ int main()
 ```
 * std::make_error_code[color ff0000]
 * std::io_errc::stream[link io_errc.md]
-* std::error_code[link /reference/system_error/error_code.md]
 * ec.category()[link /reference/system_error/error_code/category.md]
 * name()[link /reference/system_error/error_category/name.md]
 * ec.value()[link /reference/system_error/error_code/value.md]
-* ec.message()[link /reference/system_error/error_code/message.md]
 
 ### 出力例
 ```

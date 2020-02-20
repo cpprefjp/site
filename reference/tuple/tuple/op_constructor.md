@@ -265,7 +265,6 @@ explicit(see below) constexpr
     struct NonCopyable { NonCopyable(int); NonCopyable(const NonCopyable&) = delete; };
     std::pair<NonCopyable, double> pmd{42, 3.14};  // C++14でコンパイルエラー！
     ```
-    * std::pair[link /reference/utility/pair.md]
 
     - この変更はC++17に対するものであるが、コンパイラが早期に対応していたため、一部処理系ではC++14の段階から適格となっていた
 
@@ -303,7 +302,6 @@ int main()
 ```
 * std::move[link /reference/utility/move.md]
 * std::allocator_arg[link /reference/memory/allocator_arg_t.md]
-* std::allocator[link /reference/memory/allocator.md]
 
 ### 出力
 ```

@@ -70,12 +70,12 @@ int main()
   std::cout << std::endl;
 }
 ```
+* std::begin[link /reference/iterator/begin.md]
+* std::end[link /reference/iterator/end.md]
 * s.end[color ff0000]
 * end(s)[color ff0000]
 * s.begin()[link begin.md]
 * begin(s)[link begin.md]
-* std::begin[link /reference/iterator/begin.md]
-* std::end[link /reference/iterator/end.md]
 * first[link first.md]
 
 ### 出力

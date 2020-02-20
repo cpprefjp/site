@@ -56,7 +56,6 @@ int main()
 }
 ```
 * discard[color ff0000]
-* std::mt19937[link /reference/random/mt19937.md]
 * engine()[link op_call.md]
 * seed()[link seed.md]
 

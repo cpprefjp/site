@@ -63,8 +63,8 @@ int main()
 }
 ```
 * std::move[link /reference/utility/move.md]
-* stop_token[link ../stop_token.md]
-* stop_source[link ../stop_source.md]
+* std::stop_token[link ../stop_token.md]
+* std::stop_source[link ../stop_source.md]
 * stop_requested()[link stop_requested.md]
 * stop_possible()[link stop_possible.md]
 * get_token()[link ../stop_source/get_token.md]

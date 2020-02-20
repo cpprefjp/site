@@ -13,7 +13,6 @@ namespace std {
     const discard_block_engine<Engine, p, r>& x);
 }
 ```
-* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 ストリームへの出力を行う。

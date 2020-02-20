@@ -43,7 +43,6 @@ int main()
   std::cout << engine << std::endl;
 }
 ```
-* std::mt19937[link /reference/random/mt19937.md]
 * std::uint64_t[link /reference/cstdint/uint64_t.md]
 
 ### 出力例

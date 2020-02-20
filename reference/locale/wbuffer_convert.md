@@ -13,7 +13,6 @@ namespace std {
   class wbuffer_convert : public std::basic_streambuf<Elem, Tr>;
 }
 ```
-* char_traits[link /reference/string/char_traits.md]
 * basic_streambuf[link ../streambuf/basic_streambuf.md]
 
 ## 概要

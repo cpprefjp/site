@@ -49,7 +49,6 @@ int main() {
 }
 ```
 * peek()[color ff0000]
-* std::char_traits[link /reference/string/char_traits.md]
 * to_char_type[link /reference/string/char_traits/to_char_type.md]
 * std::isdigit[link /reference/locale/isdigit.md.nolink]
 * getloc()[link /reference/ios/ios_base/getloc.md]

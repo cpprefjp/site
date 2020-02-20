@@ -145,7 +145,6 @@ minmax_element(ForwardIterator first, ForwardIterator last)
   return std::minmax_element(first, last, less_inner());
 }
 ```
-* std::pair[link /reference/utility/pair.md]
 
 
 ## バージョン

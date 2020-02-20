@@ -81,7 +81,6 @@ auto main()
   print( gs2 );
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 
 ### 出力
 ```

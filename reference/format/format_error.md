@@ -14,7 +14,6 @@ namespace std {
 }
 ```
 * string[link /reference/string/basic_string.md]
-* string[link /reference/string/basic_string.md]
 
 ## 概要
 `<format>`の各機能の失敗を表す例外クラス。ユーザー定義フォーマッターもこの例外を投げることができる。

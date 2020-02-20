@@ -66,8 +66,8 @@ int main()
 * flags()[color ff0000]
 * fmtflags[link type-fmtflags.md]
 * setf[link setf.md]
-* hex[link type-fmtflags.md]
 * std::hex[link ../hex.md]
+* hex[link type-fmtflags.md]
 
 ### 出力
 ```

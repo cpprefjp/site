@@ -102,7 +102,6 @@ int main()
 }
 ```
 * select_on_container_copy_construction[color ff0000]
-* std::allocator[link /reference/memory/allocator.md]
 * traits::allocate[link allocate.md]
 * traits::construct[link construct.md]
 * traits::destroy[link destroy.md]

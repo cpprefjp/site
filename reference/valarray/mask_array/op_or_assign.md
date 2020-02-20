@@ -54,7 +54,6 @@ int main()
   }
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 
 ### 出力

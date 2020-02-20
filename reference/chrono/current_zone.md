@@ -9,7 +9,7 @@ namespace std::chrono {
   const time_zone* current_zone();
 }
 ```
-* time_zone[time_zone.md]
+* time_zone[link time_zone.md]
 
 ## 概要
 現在のタイムゾーンを取得する。

@@ -63,9 +63,6 @@ int main() {
 }
 ```
 * std::shuffle[color ff0000]
-* std::random_device[link /reference/random/random_device.md]
-* seed_gen()[link /reference/random/random_device/op_call.md]
-* std::mt19937[link /reference/random/mt19937.md]
 
 #### 出力例
 ```
@@ -94,9 +91,6 @@ int main() {
 }
 ```
 * std::shuffle[color ff0000]
-* std::random_device[link /reference/random/random_device.md]
-* seed_gen()[link /reference/random/random_device/op_call.md]
-* std::mt19937[link /reference/random/mt19937.md]
 * input.begin()[link /reference/string/basic_string/begin.md]
 * input.end()[link /reference/string/basic_string/end.md]
 

@@ -42,7 +42,6 @@ int main()
 }
 ```
 * cend()[color ff0000]
-* ls.cend()[link cend.md]
 
 ### 出力
 ```

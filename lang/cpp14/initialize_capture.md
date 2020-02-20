@@ -84,9 +84,6 @@ int main()
   auto f = [q = std::move(p)] {};
 }
 ```
-* <memory>[link /reference/memory.md]
-* <utility>[link /reference/utility.md]
-* std::unique_ptr[link /reference/memory/unique_ptr.md]
 * std::make_unique[link /reference/memory/make_unique.md]
 * std::move[link /reference/utility/move.md]
 
@@ -127,17 +124,12 @@ int main()
   t.join();
 }
 ```
-* <utility>[link /reference/utility.md]
-* <thread>[link /reference/thread.md]
-* <future>[link /reference/future.md]
 * std::promise[link /reference/future/promise.md]
 * p.get_future()[link /reference/future/promise/get_future.md]
 * std::future[link /reference/future/future.md]
-* std::thread[link /reference/thread/thread.md]
 * std::move[link /reference/utility/move.md]
 * x.set_value[link /reference/future/promise/set_value.md]
 * f.get()[link /reference/future/future/get.md]
-* t.join()[link /reference/thread/thread/join.md]
 
 出力 :
 ```

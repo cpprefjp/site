@@ -56,7 +56,6 @@ int main()
   }
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 * std::gslice[link /reference/valarray/gslice.md]
 
 ### 出力

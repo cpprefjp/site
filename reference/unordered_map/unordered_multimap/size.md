@@ -43,7 +43,6 @@ int main()
 }
 ```
 * size()[color ff0000]
-* std::distance[link /reference/iterator/distance.md]
 * um.begin()[link begin.md]
 * um.end()[link end.md]
 

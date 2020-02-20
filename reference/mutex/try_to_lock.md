@@ -41,7 +41,6 @@ int main()
 ```
 * std::try_to_lock[color ff0000]
 * std::unique_lock[link unique_lock.md]
-* std::error_code[link /reference/system_error/error_code.md]
 * std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]

@@ -35,9 +35,9 @@ int main()
   assert(st2.stop_possible() == false);
 }
 ```
-* stop_token[link ../stop_token.md]
-* stop_source[link ../stop_source.md]
-* nostopstate[link ../nostopstate.md]
+* std::stop_token[link ../stop_token.md]
+* std::stop_source[link ../stop_source.md]
+* std::nostopstate[link ../nostopstate.md]
 * stop_possible()[link ../stop_token/stop_requested.md]
 * get_token()[link get_token.md]
 

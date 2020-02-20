@@ -83,6 +83,7 @@ namespace std::filesystem {
         * filename()[link path/filename.md]
         * copy_options[link copy_options.md]
         * in-recursive-copy[italic]
+
     - いずれでもない場合、
         - (3) であれば、なにもしない
         - (4) であれば[`ec.clear()`](/reference/system_error/error_code/clear.md)を呼び出し、エラー情報をクリアする

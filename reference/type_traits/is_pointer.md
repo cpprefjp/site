@@ -62,7 +62,6 @@ static_assert(std::is_pointer<std::nullptr_t>::value == false, "std::nullptr_t i
 int main(){}
 ```
 * std::is_pointer[color ff0000]
-* std::nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ### 出力
 ```

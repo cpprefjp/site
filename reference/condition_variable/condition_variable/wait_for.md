@@ -162,7 +162,6 @@ int main()
 ```
 * wait_for[color ff0000]
 * cond_.notify_all()[link notify_all.md]
-* std::unique_lock[link /reference/mutex/unique_lock.md]
 * std::cv_status[link /reference/condition_variable/cv_status.md]
 * std::cv_status::timeout[link /reference/condition_variable/cv_status.md]
 

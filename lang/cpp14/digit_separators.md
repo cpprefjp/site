@@ -53,9 +53,7 @@ int main()
   std::cout << floating_point_value << std::endl;
 }
 ```
-* <limits>[link /reference/limits.md]
 * precision[link /reference/ios/ios_base/precision.md]
-* std::numeric_limits[link /reference/limits/numeric_limits.md]
 * max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
 
 ### 出力

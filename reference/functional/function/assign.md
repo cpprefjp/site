@@ -54,7 +54,6 @@ int main()
 }
 ```
 * assign[color ff0000]
-* std::allocator[link /reference/memory/allocator.md]
 * f(1)[link op_call.md]
 
 ### 出力

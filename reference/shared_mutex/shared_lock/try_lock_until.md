@@ -74,7 +74,6 @@ int main()
 * owns_lock()[link owns_lock.md]
 * chrono::steady_clock[link /reference/chrono/steady_clock.md]
 * now()[link /reference/chrono/steady_clock/now.md]
-* std::error_code[link /reference/system_error/error_code.md]
 * std::errc::device_or_resource_busy[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_error[link /reference/system_error/system_error.md]

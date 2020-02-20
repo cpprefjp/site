@@ -22,7 +22,6 @@ namespace std {
 ```cpp
 return std::end(c);
 ```
-* end[link end.md]
 
 パラメータを`const`で受け取っているので、`std::end()`を経由することで、読み取り専用イテレータを取得している。
 

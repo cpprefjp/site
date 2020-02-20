@@ -153,7 +153,6 @@ int main()
 ```
 * wait_for[color ff0000]
 * std::recursive_mutex[link /reference/mutex/recursive_mutex.md]
-* std::unique_lock[link /reference/mutex/unique_lock.md]
 * std::cv_status[link /reference/condition_variable/cv_status.md]
 * std::cv_status::timeout[link /reference/condition_variable/cv_status.md]
 

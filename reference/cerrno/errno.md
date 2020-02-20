@@ -5,7 +5,6 @@
 ```cpp
 #define errno implementation-defined
 ```
-* implementation-defined[italic]
 
 ## 概要
 `errno` は、標準ライブラリのエラー状態を表すマクロである。

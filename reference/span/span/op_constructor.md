@@ -242,7 +242,6 @@ int main()
 * s2.first[link first.md]
 * s4.size()[link size.md]
 * s4.data()[link data.md]
-* v.size()[link /reference/vector/vector/size.md]
 * v.data()[link /reference/vector/vector/data.md]
 * cv.size()[link /reference/vector/vector/size.md]
 * cv.data()[link /reference/vector/vector/data.md]

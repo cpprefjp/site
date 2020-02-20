@@ -60,7 +60,6 @@ int main()
   static_assert(std::is_same<A<p>::type, int*>{});
 }
 ```
-* is_same[link ../../reference/type_traits/is_same.md]
 * decltype[link ../cpp11/decltype.md]
 
 ### 出力

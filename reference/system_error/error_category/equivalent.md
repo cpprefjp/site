@@ -52,7 +52,6 @@ int main()
 * std::generic_category()[link /reference/system_error/generic_category.md]
 * std::system_category()[link /reference/system_error/system_category.md]
 * ENOTDIR[link /reference/cerrno.md]
-* std::error_code[link /reference/system_error/error_code.md]
 * default_error_condition()[link /reference/system_error/error_code/default_error_condition.md]
 
 ### 出力

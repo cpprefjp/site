@@ -45,7 +45,6 @@ int main()
   std::cout << engine << std::endl;
 }
 ```
-* std::mt19937[link /reference/random/mt19937.md]
 
 ### 出力
 ```

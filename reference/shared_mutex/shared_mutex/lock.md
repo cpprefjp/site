@@ -76,8 +76,6 @@ int main()
 * unlock()[link unlock.md]
 * lock_shared()[link lock_shared.md]
 * unlock_shared()[link unlock_shared.md]
-* std::thread[link /reference/thread/thread.md]
-* join()[link /reference/thread/thread/join.md]
 
 ### 出力
 ```

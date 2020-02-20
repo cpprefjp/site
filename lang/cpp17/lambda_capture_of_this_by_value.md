@@ -57,7 +57,6 @@ int main()
   std::cout << "exit" << std::endl;
 }
 ```
-* std::atomic[link /reference/atomic/atomic.md]
 * is_finish.store[link /reference/atomic/atomic/store.md]
 * is_finish.load()[link /reference/atomic/atomic/load.md]
 * t.detach()[link /reference/thread/thread/detach.md]

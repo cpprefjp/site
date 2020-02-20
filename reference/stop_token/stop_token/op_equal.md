@@ -41,8 +41,8 @@ int main()
   assert(st4 == st5);
 }
 ```
-* stop_token[link ../stop_token.md]
-* stop_source[link ../stop_source.md]
+* std::stop_token[link ../stop_token.md]
+* std::stop_source[link ../stop_source.md]
 * get_token()[link ../stop_source/get_token.md]
 
 ### 出力

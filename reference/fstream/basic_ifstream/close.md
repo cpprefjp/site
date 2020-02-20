@@ -30,7 +30,6 @@ int main()
 }
 ```
 * std::ifstream[link /reference/fstream/basic_ifstream.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
 * close()[color ff0000]
 
 ### 出力

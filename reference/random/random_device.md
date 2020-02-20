@@ -276,7 +276,6 @@ using std::random_device;
 * CryptGenRandom[link https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom]
 * std::system_category[link /reference/system_error/system_category.md]
 * std::system_error[link /reference/system_error/system_error.md]
-* std::error_code[link /reference/system_error/error_code.md]
 * std::to_string[link /reference/string/to_string.md]
 
 使用例は次の通り。上記コードを`random_device.hpp`というファイル名で保存していると仮定する。`cpprefjp::random_device`が`std::random_device`のworkaroundで、C++11標準規格の要求を満たしたクラス。
@@ -316,7 +315,6 @@ int main()
 * std::generate[link /reference/algorithm/generate.md]
 * std::ref[link /reference/functional/ref.md]
 * std::seed_seq[link /reference/random/seed_seq.md]
-* std::mt19937[link /reference/random/mt19937.md]
 * std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * dist(engine)[link /reference/random/uniform_int_distribution/op_call.md]
 * sed_v.begin()[link /reference/array/array/begin.md]

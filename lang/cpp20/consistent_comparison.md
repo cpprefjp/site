@@ -65,6 +65,7 @@ if (comp < 0) {
   std::cout << "a = b";
 }
 ```
+
 この場合の結果は`a < b`が出力される。
 
 戻り値の値は左辺に対する右辺の関係を表すので、引数順を入れ替えると順序の方向も逆転する。（上記の例の場合、`comp = b <=> a`とすると`comp < 0 == false, 0 < comp == true`となり、`a > b`が出力される）
@@ -628,7 +629,6 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
 * lhs.size()[link /reference/vector/vector/size.md]
 * rhs.size()[link /reference/vector/vector/size.md]
 * size_t[link /reference/cstddef/size_t.md]
-* strong_ordering[link /reference/compare/strong_ordering.md]
 * std::compare_three_way[link /reference/compare/compare_three_way.md]
 
 これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。  

@@ -32,8 +32,8 @@ int main()
   static_assert(std::is_same_v<decltype(cb)::callback_type, X>);
 }
 ```
-* stop_token[link ../stop_token.md]
-* stop_callback[link ../stop_callback.md]
+* std::stop_token[link ../stop_token.md]
+* std::stop_callback[link ../stop_callback.md]
 
 ### 出力
 ```

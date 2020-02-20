@@ -92,6 +92,7 @@ static_assert(std::is_destructible<int[]>::value == false, "int[] is not destruc
 ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1 error generated.
 ```
+
 revision 188080以降のClang 3.4ならばエラーが出ない。
 
 

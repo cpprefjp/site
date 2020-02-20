@@ -20,7 +20,6 @@ namespace std {
 }
 ```
 * common_comparison_category_t[link /reference/compare/common_comparison_category.md]
-* strong_ordering[link /reference/compare/strong_ordering.md]
 
 
 ## 概要
@@ -52,7 +51,6 @@ namespace std {
          first2 != last2 ? strong_ordering::less :
                            strong_ordering::equal;
   ```
-  * strong_ordering[link /reference/compare/strong_ordering.md]
 
 - (2) : 以下と等価、すなわち(1)に移譲
   ```cpp

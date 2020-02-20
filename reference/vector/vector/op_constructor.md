@@ -106,7 +106,6 @@ vector(initializer_list<T> il,
     }
     ```
     * std::scoped_allocator_adaptor[link /reference/scoped_allocator/scoped_allocator_adaptor.md]
-    * std::allocator[link /reference/memory/allocator.md]
     * emplace_back[link /reference/list/list/emplace_back.md]
 
 

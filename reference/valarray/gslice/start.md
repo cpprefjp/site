@@ -34,7 +34,6 @@ auto main()
 }
 ```
 * start()[color ff0000]
-* std::valarray[link /reference/valarray/valarray.md]
 
 ### 出力
 ```

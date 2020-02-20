@@ -52,9 +52,9 @@ insert(begin(), init.begin(), init.end());
 ```
 * clear[link clear.md]
 * insert[link insert.md]
-* begin[link begin.md]
 * init.begin[link /reference/initializer_list/initializer_list/begin.md]
 * init.end[link /reference/initializer_list/initializer_list/end.md]
+* begin[link begin.md]
 
 
 ## 戻り値

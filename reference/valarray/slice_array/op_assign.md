@@ -89,7 +89,6 @@ int main()
   print("assign value", va);
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 * std::slice[link /reference/valarray/slice.md]
 
 ### 出力

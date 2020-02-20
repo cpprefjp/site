@@ -6,7 +6,6 @@
 ```cpp
 # define math_errhandling implementation-defined
 ```
-* implementation-defined[italic]
 
 ## 概要
 `math_errhandling` は、[`<cmath>`](../cmath.md) 内の関数がエラーをどのように取り扱うかを表すマクロである。  

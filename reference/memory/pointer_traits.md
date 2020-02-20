@@ -61,7 +61,7 @@ int main()
   static_assert(std::is_same<ptr_element, int>::value, "element type is int");
 }
 ```
-- std::pointer_traits[color ff0000]
+* std::pointer_traits[color ff0000]
 
 ### 出力
 ```

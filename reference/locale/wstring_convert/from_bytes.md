@@ -90,8 +90,6 @@ int main()
 ```
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
 * size()[link /reference/string/basic_string/size.md]
-* std::begin[link /reference/iterator/begin.md]
-* std::end[link /reference/iterator/end.md]
 
 ### 出力
 ```

@@ -55,7 +55,6 @@ int main()
 * increment[color ff0000]
 * fs::create_directory[link /reference/filesystem/create_directory.md]
 * it->path()[link /reference/filesystem/directory_entry/path.md]
-* ec.message()[link /reference/system_error/error_code/message.md]
 
 ### 出力
 ```

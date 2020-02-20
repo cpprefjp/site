@@ -54,7 +54,6 @@ int main()
 }
 ```
 * destroy[color ff0000]
-* std::allocator[link /reference/memory/allocator.md]
 * traits::allocate[link allocate.md]
 * traits::construct[link construct.md]
 * traits::deallocate[link deallocate.md]

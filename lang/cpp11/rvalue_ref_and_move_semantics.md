@@ -189,7 +189,6 @@ int main()
   large_class y(x);
 }
 ```
-* std::copy[link /reference/algorithm/copy.md]
 
 コピーには時間がかかる。  
 コピーをポインタの挿げ替えにしてしまえば、定数時間で処理が終わる。  

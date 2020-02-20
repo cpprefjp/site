@@ -23,7 +23,6 @@ namespace std {
 ```
 * std::hash[link /reference/functional/hash.md]
 * std::equal_to[link /reference/functional/equal_to.md]
-* std::allocator[link /reference/memory/allocator.md]
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要

@@ -207,9 +207,6 @@ int main()
 }
 ```
 * construct[color ff0000]
-* std::allocator[link /reference/memory/allocator.md]
-* std::basic_string[link /reference/string/basic_string.md]
-* std::char_traits[link /reference/string/char_traits.md]
 * alloc.allocate[link allocate.md]
 * alloc.destroy[link destroy.md]
 * alloc.deallocate[link deallocate.md]

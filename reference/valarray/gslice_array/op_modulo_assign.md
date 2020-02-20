@@ -61,9 +61,7 @@ int main()
   }
 }
 ```
-* std::valarray[link /reference/valarray/valarray.md]
 * std::gslice[link /reference/valarray/gslice.md]
-* std::accumulate[link /reference/numeric/accumulate.md]
 * std::begin[link /reference/valarray/valarray/begin_free.md]
 * std::end[link /reference/valarray/valarray/end_free.md]
 * std::multiplies[link /reference/functional/multiplies.md]

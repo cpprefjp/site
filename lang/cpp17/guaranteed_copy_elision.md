@@ -71,8 +71,6 @@ int main() {
   g(f());                     // g()の引数初期化時、コピーは省略される
 }
 ```
-* vector[link ../../reference/vector/vector.md]
-* cout[link ../../reference/iostream/cout.md]
 
 ### 出力例
 最適化された場合

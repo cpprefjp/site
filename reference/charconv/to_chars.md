@@ -188,7 +188,6 @@ int main()
 }
 ```
 * std::to_chars[color ff0000]
-* std::string_view[link /reference/string_view/basic_string_view.md]
 
 ### 出力例（VS2019 16.5 preview 1）
 ```

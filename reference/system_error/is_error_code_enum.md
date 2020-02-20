@@ -46,7 +46,6 @@ int main()
 * std::is_error_code_enum[color ff0000]
 * std::io_errc[link ../ios/io_errc.md]
 * std::future_errc[link ../future/future_errc.md]
-* std::future_errc[link ../future/future_errc.md]
 
 ### 出力
 ```

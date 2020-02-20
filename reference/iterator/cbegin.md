@@ -22,7 +22,6 @@ namespace std {
 ```cpp
 return std::begin(c);
 ```
-* begin[link begin.md]
 
 パラメータを`const`で受け取っているので、`std::begin()`を経由することで、読み取り専用イテレータを取得している。
 

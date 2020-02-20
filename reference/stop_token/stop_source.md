@@ -62,8 +62,8 @@ int main()
   assert(invoked == true);
 }
 ```
-* stop_token[link stop_token.md]
-* stop_source[link stop_source.md]
+* std::stop_token[link stop_token.md]
+* std::stop_source[link stop_source.md]
 * stop_callback[link stop_callback.md]
 * stop_requested()[link stop_token/stop_requested.md]
 * request_stop()[link stop_source/request_stop.md]
