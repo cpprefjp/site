@@ -2,7 +2,7 @@
 
 * concepts[meta header]
 * function[meta id-type]
-* std[meta namespace]
+* std::ranges[meta namespace]
 * cpp20[meta cpp]
 
 ```cpp
@@ -16,11 +16,11 @@ namespace std::ranges {
 
 ## 概要
 
-`swap`は2つの引数を受け取り、それらの値の交換を行う関数オブジェクトである。
+`ranges::swap`は2つの引数を受け取り、それらの値の交換を行う関数オブジェクトである。
 
 ## 効果
 
-`swap(a, b)`のように呼び出された時、以下のいずれかと等価（上から順に考慮される）
+`std::ranges::swap(a, b)`のように呼び出された時、以下のいずれかと等価（上から順に考慮される）
 
 1. 引数`a, b`の型がクラス型であるか列挙型であり、`std::ranges::swap`（本関数オブジェクト）の宣言を含まず下記の`swap`関数宣言を含むコンテキストで、`void(swap(a, b))`が呼び出し可能ならば`void(swap(a, b))`
    ```cpp
