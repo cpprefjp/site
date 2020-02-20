@@ -10,7 +10,7 @@ namespace std {
   concept swappable = requires(T& a, T& b) { ranges::swap(a, b); };
 
   template<class T, class U>
-  concept swappable_­with =
+  concept swappable_with =
     common_reference_with<const remove_reference_t<T>&, const remove_reference_t<U>&> &&
     requires(T&& t, U&& u) {
       ranges::swap(std::forward<T>(t), std::forward<T>(t));
