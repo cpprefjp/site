@@ -67,7 +67,7 @@ int main()
 ```
 * chrono::ambiguous_local_time[color ff0000]
 * chrono::local_time[link local_time.md]
-* chrono::local_days[link local_days.md]
+* chrono::local_days[link local_time.md]
 * 2016y[link year/op_y.md]
 * 1h[link duration/op_h.md]
 * 30min[link duration/op_min.md]
