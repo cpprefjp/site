@@ -33,8 +33,8 @@ sys_time<common_type_t<Duration, seconds>>
 
 ## 例外
 - (1) :
-    - `tp`からシステム時間への変換があいまいである場合、[`ambiguous_local_time`](/reference/chrono/ambiguous_local_time.md.nolink)例外を送出する
-    - `tp`とUTC時間点の間に表現できる時間が存在しない場合、[`nonexistent_local_time`](/reference/chrono/nonexistent_local_time.md.nolink)例外を送出する
+    - `tp`からシステム時間への変換があいまいである場合、[`ambiguous_local_time`](/reference/chrono/ambiguous_local_time.md)例外を送出する
+    - `tp`とUTC時間点の間に表現できる時間が存在しない場合、[`nonexistent_local_time`](/reference/chrono/nonexistent_local_time.md)例外を送出する
 
 
 ## 備考
@@ -103,7 +103,7 @@ int main()
 * 30min[link /reference/chrono/duration/op_min.md]
 * chrono::local_days[link /reference/chrono/local_time.md]
 * chrono::sys_time[link /reference/chrono/sys_time.md]
-* chrono::ambiguous_local_time[link /reference/chrono/ambiguous_local_time.md.nolink]
+* chrono::ambiguous_local_time[link /reference/chrono/ambiguous_local_time.md]
 * choose::latest[link /reference/chrono/choose.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
 
