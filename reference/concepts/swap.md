@@ -84,15 +84,24 @@ namespace std::ranges {
 namespace NS {
   struct swappable1 {
     int n = 0;
-
-    // メンバ関数として定義
-    void swap(swappable1& rhs) {
-      std::swap(this->n, rhs.n);
-    }
+    
+    swappable1(int m) : n(m) {}
+    
+    swappable1(swappable1&&) = delete;
   };
+  
+  // 非メンバ関数として定義
+  void swap(swappable1& lhs, swappable1& rhs) {
+    std::swap(lhs.n, rhs.n);
+  }
+
 
   struct swappable2 {
     double d = 0.0;
+
+    swappable2(double v) : d(v) {}
+
+    swappable2(swappable2&&) = delete;
 
     // Hidden friendsな関数として定義
     friend void swap(swappable2& lhs, swappable2& rhs) {
@@ -110,14 +119,14 @@ int main() {
   }
   std::cout << "\n";
   {
-    NS::swappable1 a{.n = 11}, b{.n = 13};
+    NS::swappable1 a{11}, b{13};
     std::ranges::swap(a, b);
 
     std::cout << "a = " << a.n << ", b = " << b.n << std::endl;
   }
   std::cout << "\n";
   {
-    NS::swappable2 a{.d = 3.14}, b{.d = 2.71};
+    NS::swappable2 a{3.14}, b{2.71};
     std::ranges::swap(a, b);
 
     std::cout << "a = " << a.d << ", b = " << b.d << std::endl;
