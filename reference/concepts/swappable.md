@@ -50,15 +50,24 @@ void f(const char* name) {
 namespace NS {
   struct swappable1 {
     int n = 0;
-
-    // メンバ関数として定義
-    void swap(swappable1& rhs) {
-      std::swap(this->n, rhs.n);
-    }
+    
+    swappable1(int m) : n(m) {}
+    
+    swappable1(swappable1&&) = delete;
   };
+  
+  // 非メンバ関数として定義
+  void swap(swappable1& lhs, swappable1& rhs) {
+    std::swap(lhs.n, rhs.n);
+  }
+
 
   struct swappable2 {
     double d = 0.0;
+
+    swappable2(double v) : d(v) {}
+
+    swappable2(swappable2&&) = delete;
 
     // Hidden friendsな関数として定義
     friend void swap(swappable2& lhs, swappable2& rhs) {
