@@ -45,7 +45,6 @@ int main()
 * DBL_MIN_EXP[color ff0000]
 * DBL_DIG[link dbl_dig.md]
 * FLT_RADIX[link flt_radix.md]
-* DBL_MIN_EXP[link dbl_min_exp.md]
 * std::pow[link ../cmath/pow.md]
 * std::isnormal[link ../cmath/isnormal.md]
 

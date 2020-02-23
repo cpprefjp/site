@@ -38,7 +38,6 @@ int main()
 }
 ```
 * swap[color ff0000]
-* swap[link swap.md]
 * stop_source[link ../stop_source.md]
 * nostopstate[link ../nostopstate.md]
 * stop_possible()[link stop_possible.md]
