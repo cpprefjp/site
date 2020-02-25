@@ -1,32 +1,28 @@
 # current_zone
 * chrono[meta header]
 * std::chrono[meta namespace]
+* tzdb[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
 namespace std::chrono {
-  const time_zone* current_zone();
+  const time_zone* current_zone() const;
 }
 ```
-* time_zone[link time_zone.md]
+* time_zone[link /reference/chrono/time_zone.md]
 
 ## 概要
 現在のタイムゾーンを取得する。
 
-この関数は、そのコンピュータに設定されているローカルタイムゾーンへのポインタを返す。
-
 
 ## 戻り値
-```cpp
-return get_tzdb().current_zone();
-```
-* get_tzdb()[link get_tzdb.md.nolink]
-* current_zone()[link tzdb/current_zone.md]
+そのコンピュータに設定されているローカルタイムゾーンへのポインタを返す
 
 
 ## 備考
 - WindowsおよびLinux系OSでは、環境変数`TZ`に設定されたタイムゾーンが返される
+- 基本的には、この関数をラップした[`std::chrono::current_zone()`](/reference/chrono/current_zone.md)関数を使用すること
 
 
 ## 例
@@ -38,11 +34,12 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  const chrono::time_zone* tz = chrono::current_zone();
+  const chrono::time_zone* tz = chrono::get_tzdb().current_zone();
   std::cout << tz->name() << std::endl;
 }
 ```
-* chrono::current_zone()[color ff0000]
+* current_zone()[color ff0000]
+* chrono::get_tzdb()[link /reference/chrono/get_tzdb.md.nolink]
 * chrono::time_zone[link time_zone.md]
 * tz->name()[link time_zone/name.md]
 

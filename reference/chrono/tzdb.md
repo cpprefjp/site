@@ -25,7 +25,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`locate_zone`](tzdb/locate_zone.md.nolink)   | 指定した名前のタイムゾーンを取得する | C++20 |
-| [`current_zone`](tzdb/current_zone.md.nolink) | 現在のタイムゾーンを取得する | C++20 |
+| [`current_zone`](tzdb/current_zone.md) | 現在のタイムゾーンを取得する | C++20 |
 
 
 ## メンバ変数
