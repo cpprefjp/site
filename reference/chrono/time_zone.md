@@ -28,7 +28,7 @@ namespace std::chrono {
 | `time_zone(time_zone&&) = default;`<br/> `time_zone() = delete;`<br/> `time_zone(const time_zone&) = delete;` | コンストラクタ | C++20 |
 | `time_zone& operator=(time_zone&&) = default;`<br/> `time_zone& operator=(const time_zone&) = delete;` | 代入演算子 | C++20 |
 
-ここに記載されていない追加のコンストラクタは未規定である。ユーザーがこのクラスのオブジェクトを構築することはできず、タイムゾーンデータベース[`tzdb`](tzdb.md.nolink)が構築を行う。
+ここに記載されていない追加のコンストラクタは未規定である。ユーザーがこのクラスのオブジェクトを構築することはできず、タイムゾーンデータベース[`tzdb`](tzdb.md)が構築を行う。
 
 
 ### 観測
