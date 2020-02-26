@@ -119,6 +119,8 @@ int main() {
   f<not_eq_comp>("not_eq_comp");
 }
 ```
+* std::equality_comparable[color ff0000]
+* std::any[link /reference/any/any.md]
 
 #### 出力
 
@@ -206,6 +208,8 @@ int main() {
   f<S2, int>("S2", "int");
 }
 ```
+* std::equality_comparable_with[color ff0000]
+* basic_common_reference[link /reference/type_traits/basic_common_reference.md]
 
 #### 出力
 
