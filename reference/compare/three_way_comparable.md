@@ -16,7 +16,7 @@ namespace std {
 ```
 
 ## 概要
-`three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`<=>`による三方比較を使用可能であり、その戻り値型が指定した比較カテゴリ型`Cat`に変換可能であることを表すコンセプトである。
+`three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`<=>`による三方比較を使用可能であり、その戻り値型が指定した[比較カテゴリ型](/reference/compare.md)`Cat`に変換可能であることを表すコンセプトである。
 
 
 ## 要件
@@ -100,7 +100,7 @@ concept three_way_comparable_with =
         - `T`は`totally_orderd`のモデルである
   
 - (2) : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`、`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U, Cat`は`three_way_comparable_with`のモデルである
-    - `t <=> u`と`u <=> t`が同じ定義域を持つ（それぞれの引数型がその順番によらず同一である）
+    - `t <=> u`と`u <=> t`が同じ[定義域](/reference/concepts.md)を持つ
     - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が等値
     - `(t <=> u == 0) == bool(t == u)`が`true`であること
     - `(t <=> u != 0) == bool(t != u)`が`true`であること
