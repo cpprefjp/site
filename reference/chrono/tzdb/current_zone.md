@@ -40,8 +40,8 @@ int main()
 ```
 * current_zone()[color ff0000]
 * chrono::get_tzdb()[link /reference/chrono/get_tzdb.md.nolink]
-* chrono::time_zone[link time_zone.md]
-* tz->name()[link time_zone/name.md]
+* chrono::time_zone[link ../time_zone.md]
+* tz->name()[link ../time_zone/name.md]
 
 ### 出力例
 ```
