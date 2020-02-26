@@ -28,7 +28,7 @@ namespace std::chrono {
 
 
 ## 備考
-- この関数は例外を送出する状況以外では、常に有効な[`time_zone`](time_zone.md)オブジェクトへのポインタを返す
+- この関数は例外を送出する状況以外では、常に有効な[`time_zone`](/reference/chrono/time_zone.md)オブジェクトへのポインタを返す
 
 
 ## 例
