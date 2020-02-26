@@ -24,7 +24,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`locate_zone`](tzdb/locate_zone.md.nolink)   | 指定した名前のタイムゾーンを取得する | C++20 |
+| [`locate_zone`](tzdb/locate_zone.md)   | 指定した名前のタイムゾーンを取得する | C++20 |
 | [`current_zone`](tzdb/current_zone.md) | 現在のタイムゾーンを取得する | C++20 |
 
 
@@ -34,8 +34,8 @@ namespace std::chrono {
 |------|------|----------------|
 | [`string`](/reference/string/basic_string.md) `version;` | タイムゾーンデータベースのバージョン文字列 | C++20 |
 | [`vector`](/reference/vector/vector.md)`<`[`time_zone`](time_zone.md)`> zones;` | タイムゾーンデータベースが保持するタイムゾーンのリスト | C++20 |
-| [`vector`](/reference/vector/vector.md)`<`[`link`](link.md.nolink)`> links;` | タイムゾーンデータベースが保持するタイムゾーンリンクのリスト | C++20 |
-| [`vector`](/reference/vector/vector.md)`<`[`leap`](leap.md.nolink)`> leaps;` | タイムゾーンデータベースが保持するうるう秒のリスト | C++20 |
+| [`vector`](/reference/vector/vector.md)`<`[`zone_link`](zone_link.md.nolink)`> links;` | タイムゾーンデータベースが保持するタイムゾーンリンクのリスト | C++20 |
+| [`vector`](/reference/vector/vector.md)`<`[`utc_leap`](utc_leap.md.nolink)`> leaps;` | タイムゾーンデータベースが保持するうるう秒のリスト | C++20 |
 
 
 ## 例

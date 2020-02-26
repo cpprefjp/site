@@ -190,14 +190,14 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`leap`](chrono/leap.md.nolink) | うるう秒が挿入された日付を表す型 (class) | C++20 |
+| [`utc_leap`](chrono/utc_leap.md.nolink) | うるう秒が挿入された日付を表す型 (class) | C++20 |
 
 
 ### リンク
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`link`](chrono/link.md.nolink) | タイムゾーンの代替名を表す型 (class) | C++20 |
+| [`zone_link`](chrono/zone_link.md.nolink) | タイムゾーンの代替名を表す型 (class) | C++20 |
 
 
 ## 文字列フォーマット

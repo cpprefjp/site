@@ -1,15 +1,16 @@
 # locate_zone
 * chrono[meta header]
 * std::chrono[meta namespace]
+* tzdb[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
 namespace std::chrono {
-  const time_zone* locate_zone(std::string_view tz_name);
+  const time_zone* locate_zone(std::string_view tz_name) const;
 }
 ```
-* time_zone[link time_zone.md]
+* time_zone[link /reference/chrono/time_zone.md]
 
 ## 概要
 指定した名前のタイムゾーンを取得する。
@@ -18,11 +19,8 @@ namespace std::chrono {
 
 
 ## 戻り値
-```cpp
-return get_tzdb().locate_zone(tz_name);
-```
-* get_tzdb()[link get_tzdb.md.nolink]
-* locate_zone()[link tzdb/locate_zone.md]
+- タイムゾーンリストの要素である[`time_zone`](/reference/chrono/time_zone.md)型オブジェクト`tz`に対して`tz.`[`name()`](/reference/chrono/time_zone/name.md) `== tz_name`が`true`である`tz`へのポインタを返す。
+- そのようなオブジェクトが見つからない場合、タイムゾーンリンクの要素である[`zone_link`](/reference/chrono/zone_link.md.nolink)型オブジェクト`link`に対して`link.`[`name()`](/reference/chrono/zone_link/name.md.nolink) `== tz_name`が`true`である要素に対して、`tz.`[`name()`](/reference/chrono/time_zone/name.md) `== link.`[`target()`](/reference/chrono/zone_link/target.md.nolink)が`true`である`tz`へのポインタを返す
 
 
 ## 例外
@@ -42,31 +40,33 @@ namespace chrono = std::chrono;
 
 int main()
 {
+  const chrono::tzdb& tzdb = chrono::get_tzdb();
   // 日本のタイムゾーン (UTC + 9時間)
-  const chrono::time_zone* tz = chrono::locate_zone("Asia/Tokyo");
+  const chrono::time_zone* tz = tzdb.locate_zone("Asia/Tokyo");
   std::cout << tz->name() << std::endl;
 
   // アメリカのタイムゾーン。
   // 地名内のスペースは、アンダースコアに変換されている
-  std::cout << chrono::locate_zone("America/New_York")->name() << std::endl;
+  std::cout << tzdb.locate_zone("America/New_York")->name() << std::endl;
 
   // 標準時のタイムゾーン。
   // 正式なタイムゾーン名は "Etc/UTC" と "Etc/GMT" だが、
   // より短い名前が (リンクとして) 定義されている
-  std::cout << chrono::locate_zone("UTC")->name() << std::endl;
-  std::cout << chrono::locate_zone("GMT")->name() << std::endl;
+  std::cout << tzdb.locate_zone("UTC")->name() << std::endl;
+  std::cout << tzdb.locate_zone("GMT")->name() << std::endl;
 
   // キプロス共和国の首都ニコシアはアジアに属するが、
   // 多くのユーザーはヨーロッパで見つかることを期待している。
   // ニコシアは、ヨーロッパとアジアどちらでも見つかるようリンクされており、
   // 現在の正式な地域だけでなく (Asia/Nicosia)、リンクされた地域も指定できる
-  const chrono::time_zone* linked_tz = chrono::locate_zone("Europe/Nicosia");
+  const chrono::time_zone* linked_tz = tzdb.locate_zone("Europe/Nicosia");
   std::cout << linked_tz->name() << std::endl;
 }
 ```
-* chrono::locate_zone[color ff0000]
-* chrono::time_zone[link time_zone.md]
-* name()[link time_zone/name.md]
+* locate_zone[color ff0000]
+* chrono::get_tzdb()[link /reference/chrono/get_tzdb.md.nolink]
+* chrono::time_zone[link /reference/chrono/time_zone.md]
+* name()[link /reference/chrono/time_zone/name.md]
 
 ### 出力
 ```
