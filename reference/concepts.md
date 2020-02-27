@@ -108,8 +108,8 @@ concept C =
 |------|------|----------------|
 | [`equality_comparable`](concepts/equality_comparable.md)     | 等値比較可能 | C++20 |
 | [`equality_comparable_with`](concepts/equality_comparable.md) | 特定の型と等値比較可能 | C++20 |
-| `totally_ordered` | 狭義の全順序 | C++20 |
-| `totally_ordered_with` | 特定の型と狭義の全順序 | C++20 |
+| [`totally_ordered`](concepts/totally_ordered.md) | 狭義の全順序による比較が可能 | C++20 |
+| [`totally_ordered_with`](concepts/totally_ordered.md) | 特定の型と狭義の全順序による比較が可能 | C++20 |
 
 
 ## 値指向の操作

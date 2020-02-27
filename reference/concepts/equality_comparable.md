@@ -75,6 +75,13 @@ concept equality_comparable_with =
     - `bool(t != u) == !bool(t == u)`が`true`であること
     - `bool(u != t) ==  bool(t != u)`が`true`であること
 
+## 備考
+
+定義内の`a == b`等の各制約式に[等しさを保持](/reference/concepts.md)する事が要求されていることによって、これらコンセプトを満たす`== !=`演算子は推移的かつ対称的である事を表し、要求している。
+
+- 推移律 : `a == b`かつ`b == c`ならば`a == c`
+- 対称律 : `a == b`ならば`b == a`
+
 ## 例
 
 ### equality_comparable
@@ -243,3 +250,4 @@ S2 is not equality comparable with int
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [同値関係 - wikipedia](https://ja.wikipedia.org/wiki/同値関係)
