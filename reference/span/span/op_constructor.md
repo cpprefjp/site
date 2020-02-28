@@ -8,10 +8,10 @@
 ```cpp
 constexpr span() noexcept;                                             // (1)
 
-template<class It>
+template <class It>
 constexpr span(It first, size_type count);                             // (2)
 
-template<class It, class End>
+template <class It, class End>
 constexpr span(It first, End last);                                    // (3)
 
 template <size_t N>
@@ -23,7 +23,7 @@ constexpr span(array<value_type, N>& arr) noexcept;                    // (5)
 template <size_t N>
 constexpr span(const array<value_type, N>& arr) noexcept;              // (6)
 
-template<class R>
+template <class R>
 constexpr span(R&& r);                                                 // (7)
 
 constexpr span(const span& other) noexcept = default;                  // (8)
