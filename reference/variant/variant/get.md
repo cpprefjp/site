@@ -65,6 +65,8 @@ namespace std {
 - (1), (2), (3), (4) : 指定したインデックスの型が`v`オブジェクトに保持されていない場合、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md)例外を送出する
 - (5), (6), (7), (8) : 指定した型が`v`オブジェクトに保持されていない場合、[`std::bad_variant_access`](/reference/variant/bad_variant_access.md)例外を送出する
 
+例外を投げる動作が好ましくない場合は[get_if()](get_if.md)を使用する。こちらの関数は例外を投げる代わりに`nullptr`を返す。
+
 
 ## 備考
 - この関数がメンバ関数ではなく非メンバ関数として定義されているのは、ユーザーにtemplate限定子を指定させるのを避けるためである。メンバ関数にした場合、テンプレート内でその関数を使用すると、`v.template get<I>()`のようにtemplateキーワードをユーザーが指定しなければならない
