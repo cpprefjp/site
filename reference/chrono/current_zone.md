@@ -21,7 +21,7 @@ namespace std::chrono {
 ```cpp
 return get_tzdb().current_zone();
 ```
-* get_tzdb()[link get_tzdb.md.nolink]
+* get_tzdb()[link get_tzdb.md]
 * current_zone()[link tzdb/current_zone.md]
 
 

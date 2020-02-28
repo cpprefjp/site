@@ -64,7 +64,7 @@ int main()
 }
 ```
 * locate_zone[color ff0000]
-* chrono::get_tzdb()[link /reference/chrono/get_tzdb.md.nolink]
+* chrono::get_tzdb()[link /reference/chrono/get_tzdb.md]
 * chrono::time_zone[link /reference/chrono/time_zone.md]
 * name()[link /reference/chrono/time_zone/name.md]
 

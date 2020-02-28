@@ -21,7 +21,7 @@ namespace std::chrono {
 ```cpp
 return get_tzdb().locate_zone(tz_name);
 ```
-* get_tzdb()[link get_tzdb.md.nolink]
+* get_tzdb()[link get_tzdb.md]
 * locate_zone()[link tzdb/locate_zone.md]
 
 
