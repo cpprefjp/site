@@ -57,9 +57,9 @@ namespace std {
 
 非配列型Uの（サブ）オブジェクトが初期値`v`または`U(l...)`を持つように指定されている場合（`l...`はコンストラクター引数のリスト）、この関数は次の式を介してこの（サブ）オブジェクトを初期化する。
 
-     `allocator_traits<A2>::construct(a2, pv, v)` または
+- `allocator_traits<A2>::construct(a2, pv, v)` または
 
-     `allocator_traits<A2>::construct(a2, pv, l...)`
+- `allocator_traits<A2>::construct(a2, pv, l...)`
 
 それぞれ、`pv`は型`U`のオブジェクトを保持するのに適したストレージを指し、型`A2`の`a2`は、`value_type`が`remove_cv_t<U>`になるように`allocate_shared`に渡されるアロケーター`a`のリバウンドコピーである。ここで、リバウンドコピーとは、参照カウンタと型`T`の本体を連続メモリ領域に配置するためには`T`のサイズより大きい領域をアロケートする必要があるために`allocator_traits<Alloc>::rebind_alloc<value_type>`を用いて再束縛されたものである。
 
