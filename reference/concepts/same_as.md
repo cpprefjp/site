@@ -22,7 +22,7 @@ namespace std {
 
 ```cpp
 template <class T, class U>
-concept same-as-impl　= is_same_v<T, U>;
+concept same-as-impl = is_same_v<T, U>;
 ```
 * is_same_v[link /reference/type_traits/is_same.md]
 

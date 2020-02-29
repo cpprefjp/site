@@ -425,7 +425,7 @@ struct newer {
     if (auto comp = static_cast<std::strong_ordering>(m <=> that.m); comp != 0) return comp;
 
     //legacy型に対する<=>の合成
-    std::strong_ordering comp = (l == that.l) ? std::strong_ordering::equal :　
+    std::strong_ordering comp = (l == that.l) ? std::strong_ordering::equal :
                                 (l <  that.l) ? std::strong_ordering::less
                                               : std::strong_ordering::greater;
     if (comp != 0) return comp;
