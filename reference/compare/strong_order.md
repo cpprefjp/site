@@ -75,7 +75,7 @@ ISO/IEC/IEEE 60559の`totalOrder`による全順序では、`±0`や内部表現
 
 その順序付けは以下のようになる。
 
-{負のquiet NaN} ` < ` {負のsignaling NaN} ` < ` {負の数} `-0.0` ` < ` `+0.0` ` < ` {正の数} ` < ` {正のsignaling NaN} ` < ` {正のquiet NaN}
+{負のquiet NaN} ` < ` {負のsignaling NaN} ` < ` {負の数} ` < ` `-0.0` ` < ` `+0.0` ` < ` {正の数} ` < ` {正のsignaling NaN} ` < ` {正のquiet NaN}
 
 それぞれの種類の`NaN`の集合内では、`NaN`のペイロード（先頭ビットを除いた仮数部）の表現によって順序付けされる。
 
