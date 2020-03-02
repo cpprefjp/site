@@ -40,11 +40,39 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
-```
+#include <iostream>
+#include <chrono>
 
+namespace chrono = std::chrono;
+
+int main()
+{
+  auto utc_now = chrono::system_clock::now();
+
+  // 日本のタイムゾーン (UTC + 9時間)
+  const chrono::tzdb& tzdb = chrono::get_tzdb();
+  const chrono::time_zone* tz = tzdb.locate_zone("Asia/Tokyo");
+
+  // UTCから日本のタイムゾーンに変換
+  chrono::local_time jst_now = tz->to_local(utc_now);
+
+  std::cout << utc_now << std::endl;
+  std::cout << jst_now << std::endl;
+}
+```
+* chrono::tzdb[color ff0000]
+* chrono::get_tzdb()[link get_tzdb.md]
+* chrono::time_zone[link time_zone.md]
+* tzdb.locate_zone[link tzdb/locate_zone.md]
+* tz->to_local[link time_zone/to_local.md]
+* chrono::local_time[link local_time.md]
+* chrono::system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
 
 ### 出力例
 ```
+2019-10-24 11:15:10
+2019-10-24 20:15:10
 ```
 
 ## バージョン
