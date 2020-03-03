@@ -18,7 +18,7 @@ namespace std::chrono {
 
 [`std::chrono::reload_tzdb()`](reload_tzdb.md.nolink)関数を呼び出すことで[`tzdb_list`](tzdb_list.md.nolink)がスレッドセーフに更新され、最新のタイムゾーンデータベースが先頭要素として挿入され、古いタイムゾーンデータベースがうしろにずれるようになっている。
 
-IANAのタイムゾーンデータベースは、毎月もしくは季節ごとに更新される。長期間動かすプログラムの場合は、タイムゾーンデータベースが更新されることを想定する必要がある。[`std::chrono::remote_version()`](remote_version.md.nolink)関数を呼び出すことでダウンロード先にあるタイムゾーンデータベースの最新バージョンがいくつなのかを取得できる。それとローカルのバージョンを比較してタイムゾーンデータベースを更新することになる。
+IANAのタイムゾーンデータベースは、毎月もしくは季節ごとに更新される。長期間動かすプログラムの場合は、タイムゾーンデータベースが更新されることを想定する必要がある。[`std::chrono::remote_version()`](remote_version.md)関数を呼び出すことでダウンロード先にあるタイムゾーンデータベースの最新バージョンがいくつなのかを取得できる。それとローカルのバージョンを比較してタイムゾーンデータベースを更新することになる。
 
 ```cpp
 // 10日に一度などの周期で以下の処理を実行する
@@ -26,7 +26,7 @@ if (get_tzdb().version != remote_version()) {
   reload_tzdb(); // get_tzdb()で取得されるタイムゾーンデータベースを更新する
 }
 ```
-* remote_version()[link remote_version.md.nolink]
+* remote_version()[link remote_version.md]
 * reload_tzdb()[link reload_tzdb.md.nolink]
 
 
