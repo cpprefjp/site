@@ -49,8 +49,10 @@ jobs:
     - run: git submodule update -i
       working-directory: site_generator/cpprefjp/site
 
-    # setuptools が無いって怒られたので
-    - run: sudo apt-get install -y python3-setuptools
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.x
 
     # あとはスクリプトで頑張る
     - run: ./cpprefjp/site/.github/workflows/script/build.sh
