@@ -162,8 +162,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`reload_tzdb`](chrono/reload_tzdb.md.nolink) | リモートタイムゾーンを再読み込みする (function) | C++20 |
-| [`remote_version`](chrono/remote_version.md) | リモートタイムゾーンの最新バージョン番号を取得する (function) | C++20 |
+| [`reload_tzdb`](chrono/reload_tzdb.md) | リモートタイムゾーンデータベースを再読み込みする (function) | C++20 |
+| [`remote_version`](chrono/remote_version.md) | リモートタイムゾーンデータベースの最新バージョン番号を取得する (function) | C++20 |
 
 ### 例外クラス
 

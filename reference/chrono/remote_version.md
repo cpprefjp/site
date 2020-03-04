@@ -11,7 +11,7 @@ namespace std::chrono {
 ```
 
 ## 概要
-リモートタイムゾーンの最新バージョン番号を取得する。
+リモートタイムゾーンデータベースの最新バージョン番号を取得する。
 
 この関数は、ローカルで保持しているタイムゾーンデータベースのバージョン番号と、リモートのバージョン番号を比較し、新しいバージョンがリリースされていたらダウンロードするために使用する。
 
@@ -22,7 +22,7 @@ if (get_tzdb().version != remote_version()) {
 }
 ```
 * get_tzdb()[link get_tzdb.md]
-* reload_tzdb()[link reload_tzdb.md.nolink]
+* reload_tzdb()[link reload_tzdb.md]
 
 
 ## 戻り値
