@@ -49,6 +49,9 @@ jobs:
     - run: git submodule update -i
       working-directory: site_generator/cpprefjp/site
 
+    # setuptools が無いって怒られたので
+    - run: sudo apt-get install -y python3-setuptools
+
     # あとはスクリプトで頑張る
     - run: ./cpprefjp/site/.github/workflows/script/build.sh
       working-directory: site_generator

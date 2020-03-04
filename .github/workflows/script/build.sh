@@ -2,6 +2,8 @@
 
 # site_generator 直下でこのスクリプトを実行すること
 
+set -ex
+
 # dist を生成
 pushd kunai
   npm install
