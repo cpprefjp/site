@@ -1,0 +1,54 @@
+name: build
+
+on:
+  push:
+    branches:
+      # - master
+      # テストのために今だけこのブランチを反映させる
+      - github-actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Register SSH key
+      env:
+        CPPREFJP_GITHUB_IO_SECRETS: ${{ secrets.CPPREFJP_GITHUB_IO_SECRETS }}
+      run: |
+        mkdir -p $HOME/.ssh
+        echo "$CPPREFJP_GITHUB_IO_SECRETS" > $HOME/.ssh/id_ed25519
+        chmod 600 $HOME/.ssh/id_ed25519
+
+    # site_generator
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/site_generator
+        path: site_generator
+    - run: git submodule update -i
+      working-directory: site_generator
+
+    # kunai
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/kunai
+        path: site_generator/kunai
+    - run: git submodule update -i
+      working-directory: site_generator/kunai
+
+    # cpprefjp.github.io
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/cpprefjp.github.io
+        path: site_generator/cpprefjp/cpprefjp.github.io
+
+    # site
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/site
+        path: site_generator/cpprefjp/site
+    - run: git submodule update -i
+      working-directory: site_generator/cpprefjp/site
+
+    # あとはスクリプトで頑張る
+    - run: ./cpprefjp/site/.github/workflows/script/build.sh
+      working-directory: site_generator
