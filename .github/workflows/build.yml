@@ -3,9 +3,7 @@ name: build
 on:
   push:
     branches:
-      # - master
-      # テストのために今だけこのブランチを反映させる
-      - github-actions
+      - master
   schedule:
     # UTC 表記
     # 日本時間 23:30
