@@ -38,6 +38,8 @@ pushd cpprefjp/cpprefjp.github.io
   git remote add origin2 git@github.com:cpprefjp/cpprefjp.github.io.git
 
   git add ./ --all
-  git commit -a "--author=cpprefjp-autoupdate <shigemasa7watanabe@gmail.com>" -m "update automatically"
+  git config --global user.email "shigemasa7watanabe+cpprefjp@gmail.com"
+  git config --global user.name "cpprefjp-autoupdate"
+  git commit -a -m "update automatically"
   git push origin2 master
 popd
