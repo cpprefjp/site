@@ -60,8 +60,8 @@ namespace std::ranges {
       - `a = std::move(b), b = std::move(a)`は共に定数評価可能
       - 次のような初期化式が定数評価可能
         ```cpp
-        T t1(std::move(E1));
-        T t2(std::move(E2));
+        T t1(std::move(a));
+        T t2(std::move(b));
         ```
 
 ## カスタマイゼーションポイント
