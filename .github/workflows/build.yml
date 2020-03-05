@@ -46,8 +46,8 @@ jobs:
       with:
         repository: cpprefjp/site
         path: site_generator/cpprefjp/site
-        # atom 生成のためにある程度履歴が必要
-        fetch-depth: 10
+        # atom 生成のために全履歴が必要
+        fetch-depth: 0
     - run: git submodule update -i
       working-directory: site_generator/cpprefjp/site
 
