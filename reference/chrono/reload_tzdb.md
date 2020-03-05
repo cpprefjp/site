@@ -30,7 +30,7 @@ if (get_tzdb().version != remote_version()) {
 
 ## 効果
 - リモートタイムゾーンデータベースのバージョンを確認する。ローカルで保持しているタイムゾーンデータベースとバージョンが同じである場合、なにもしない
-- そうでない場合、リモートタイムゾーンデータベースをダウンロードし、[`get_tzdb_list()`](get_tzdb_list.md)関数で取得できるタイムゾーンデータベースリストの先頭要素の前に、リモートタイムゾーンデータベースを挿入する
+- そうでない場合、リモートタイムゾーンデータベースをダウンロードし、[`get_tzdb_list()`](get_tzdb_list.md.nolink)関数で取得できるタイムゾーンデータベースリストの先頭要素の前に、リモートタイムゾーンデータベースを挿入する
 
 
 ## 戻り値
@@ -46,7 +46,7 @@ return get_tzdb_list().front();
 
 
 ## 備考
-- この関数による[`get_tzdb_list()`](get_tzdb_list.md.nolink)`.`[`front()`](tzdb_list/front.md)と[`get_tzdb_list()`](get_tzdb_list.md.nolink)`.`[`erase_after()`](tzdb_list/erase_after.md.nolink)の呼び出しはスレッドセーフに行われる
+- この関数による[`get_tzdb_list()`](get_tzdb_list.md.nolink)`.`[`front()`](tzdb_list/front.md.nolink)と[`get_tzdb_list()`](get_tzdb_list.md.nolink)`.`[`erase_after()`](tzdb_list/erase_after.md.nolink)の呼び出しはスレッドセーフに行われる
 - IANAのタイムゾーンデータベースは、以下からダウンロードできる：
     - [Time Zone Database - IANA](https://www.iana.org/time-zones)
 

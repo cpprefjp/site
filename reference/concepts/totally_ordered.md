@@ -43,7 +43,7 @@ namespace std {
 * common_reference_with[link /reference/concepts/common_reference_with.md]
 * common_reference_t[link /reference/type_traits/common_reference.md]
 * equality_comparable[link /reference/concepts/equality_comparable.md]
-* equality_comparable_with[link /reference/concepts/equality_comparable_with.md]
+* equality_comparable_with[link /reference/concepts/equality_comparable.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 ## 概要
