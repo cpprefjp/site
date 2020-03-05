@@ -6,6 +6,10 @@ on:
       # - master
       # テストのために今だけこのブランチを反映させる
       - github-actions
+  schedule:
+    # UTC 表記
+    # 日本時間 23:30
+    - cron: "30 14 * * *"
 
 jobs:
   build:

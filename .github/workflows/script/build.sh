@@ -30,7 +30,7 @@ popd
 
 # サイトの生成
 pip3 install -r docker/requirements.txt
-python3 run.py settings.cpprefjp
+python3 run.py settings.cpprefjp --concurrency=`nproc`
 
 # 生成されたサイトの中身を push
 pushd cpprefjp/cpprefjp.github.io
