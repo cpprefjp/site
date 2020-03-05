@@ -1,0 +1,63 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    # UTC 表記
+    # 日本時間 23:30
+    - cron: "30 14 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Register SSH key
+      env:
+        CPPREFJP_GITHUB_IO_SECRETS: ${{ secrets.CPPREFJP_GITHUB_IO_SECRETS }}
+      run: |
+        mkdir -p $HOME/.ssh
+        echo "$CPPREFJP_GITHUB_IO_SECRETS" > $HOME/.ssh/id_ed25519
+        chmod 600 $HOME/.ssh/id_ed25519
+
+    # site_generator
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/site_generator
+        path: site_generator
+    - run: git submodule update -i
+      working-directory: site_generator
+
+    # kunai
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/kunai
+        path: site_generator/kunai
+    - run: git submodule update -i
+      working-directory: site_generator/kunai
+
+    # cpprefjp.github.io
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/cpprefjp.github.io
+        path: site_generator/cpprefjp/cpprefjp.github.io
+
+    # site
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/site
+        path: site_generator/cpprefjp/site
+        # atom 生成のために全履歴が必要
+        fetch-depth: 0
+    - run: git submodule update -i
+      working-directory: site_generator/cpprefjp/site
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.x
+
+    # あとはスクリプトで頑張る
+    - run: ./cpprefjp/site/.github/workflows/script/build.sh
+      working-directory: site_generator
