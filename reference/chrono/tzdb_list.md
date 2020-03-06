@@ -74,11 +74,21 @@ namespace chrono = std::chrono;
 
 int main()
 {
+  const chrono::tzdb& tzdb = chrono::get_tzdb_list().front();
+  const chrono::time_zone* tz = tzdb.locate_zone("Asia/Tokyo");
+  std::cout << tz->name() << std::endl;
 }
 ```
+* chrono::get_tzdb_list()[link get_tzdb_list.md]
+* front()[link tzdb_list/front.md]
+* chrono::tzdb[link tzdb.md]
+* tzdb.locate_zone[link tzdb/locate_zone.md]
+* chrono::time_zone[link time_zone.md]
+* tz->name()[link time_zone/name.md]
 
 ### 出力例
 ```
+Asia/Tokyo
 ```
 
 ## バージョン
