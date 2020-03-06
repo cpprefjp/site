@@ -48,7 +48,7 @@ int main()
 }
 ```
 * chrono::get_tzdb_list()[color ff0000]
-* front()[link tzdb_list/front.md.nolink]
+* front()[link tzdb_list/front.md]
 * chrono::tzdb[link tzdb.md]
 * tzdb.locate_zone[link tzdb/locate_zone.md]
 * chrono::time_zone[link time_zone.md]

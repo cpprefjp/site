@@ -38,7 +38,7 @@ if (get_tzdb().version != remote_version()) {
 return get_tzdb_list().front();
 ```
 * get_tzdb_list()[ink get_tzdb_list.md]
-* front()[link tzdb_list/front.md.nolink]
+* front()[link tzdb_list/front.md]
 
 
 ## 例外
@@ -46,7 +46,7 @@ return get_tzdb_list().front();
 
 
 ## 備考
-- この関数による[`get_tzdb_list()`](get_tzdb_list.md)`.`[`front()`](tzdb_list/front.md.nolink)と[`get_tzdb_list()`](get_tzdb_list.md)`.`[`erase_after()`](tzdb_list/erase_after.md.nolink)の呼び出しはスレッドセーフに行われる
+- この関数による[`get_tzdb_list()`](get_tzdb_list.md)`.`[`front()`](tzdb_list/front.md)と[`get_tzdb_list()`](get_tzdb_list.md)`.`[`erase_after()`](tzdb_list/erase_after.md)の呼び出しはスレッドセーフに行われる
 - IANAのタイムゾーンデータベースは、以下からダウンロードできる：
     - [Time Zone Database - IANA](https://www.iana.org/time-zones)
 

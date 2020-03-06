@@ -38,14 +38,14 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`front`](tzdb_list/front.md.nolink) | 先頭要素を取得する | C++20 |
+| [`front`](tzdb_list/front.md) | 先頭要素を取得する | C++20 |
 
 
 ### リストの変更
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`erase_after`](tzdb_list/erase_after.md.nolink) | 指定したイテレータの次の要素を削除する | C++20 |
+| [`erase_after`](tzdb_list/erase_after.md) | 指定したイテレータの次の要素を削除する | C++20 |
 
 
 ### イテレータ

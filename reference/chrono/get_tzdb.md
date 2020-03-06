@@ -35,7 +35,7 @@ if (get_tzdb().version != remote_version()) {
 return get_tzdb_list().front();
 ```
 * get_tzdb_list()[link get_tzdb_list.md]
-* front()[link tzdb_list/front.md.nolink]
+* front()[link tzdb_list/front.md]
 
 
 ## 例
