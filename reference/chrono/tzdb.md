@@ -34,7 +34,7 @@ namespace std::chrono {
 |------|------|----------------|
 | [`string`](/reference/string/basic_string.md) `version;` | タイムゾーンデータベースのバージョン文字列 | C++20 |
 | [`vector`](/reference/vector/vector.md)`<`[`time_zone`](time_zone.md)`> zones;` | タイムゾーンデータベースが保持するタイムゾーンのリスト | C++20 |
-| [`vector`](/reference/vector/vector.md)`<`[`zone_link`](zone_link.md.nolink)`> links;` | タイムゾーンデータベースが保持するタイムゾーンリンクのリスト | C++20 |
+| [`vector`](/reference/vector/vector.md)`<`[`time_zone_link`](time_zone_link.md)`> links;` | タイムゾーンデータベースが保持するタイムゾーンリンクのリスト | C++20 |
 | [`vector`](/reference/vector/vector.md)`<`[`utc_leap`](utc_leap.md.nolink)`> leaps;` | タイムゾーンデータベースが保持するうるう秒のリスト | C++20 |
 
 

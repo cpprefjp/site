@@ -198,7 +198,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`zone_link`](chrono/zone_link.md.nolink) | タイムゾーンの代替名を表す型 (class) | C++20 |
+| [`time_zone_link`](chrono/time_zone_link.md) | タイムゾーンの代替名を管理する型 (class) | C++20 |
 
 
 ## 文字列フォーマット

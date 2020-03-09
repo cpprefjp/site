@@ -20,7 +20,7 @@ namespace std::chrono {
 
 ## 戻り値
 - タイムゾーンリストの要素である[`time_zone`](/reference/chrono/time_zone.md)型オブジェクト`tz`に対して`tz.`[`name()`](/reference/chrono/time_zone/name.md) `== tz_name`が`true`である`tz`へのポインタを返す。
-- そのようなオブジェクトが見つからない場合、タイムゾーンリンクの要素である[`zone_link`](/reference/chrono/zone_link.md.nolink)型オブジェクト`link`に対して`link.`[`name()`](/reference/chrono/zone_link/name.md.nolink) `== tz_name`が`true`である要素に対して、`tz.`[`name()`](/reference/chrono/time_zone/name.md) `== link.`[`target()`](/reference/chrono/zone_link/target.md.nolink)が`true`である`tz`へのポインタを返す
+- そのようなオブジェクトが見つからない場合、タイムゾーンリンクの要素である[`time_zone_link`](/reference/chrono/time_zone_link.md)型オブジェクト`link`に対して`link.`[`name()`](/reference/chrono/time_zone_link/name.md) `== tz_name`が`true`である要素に対して、`tz.`[`name()`](/reference/chrono/time_zone/name.md) `== link.`[`target()`](/reference/chrono/time_zone_link/target.md)が`true`である`tz`へのポインタを返す
 
 
 ## 例外
