@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std::chrono {
-  struct leap_second;
+  class leap_second;
 }
 ```
 
