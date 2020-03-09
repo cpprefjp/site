@@ -41,6 +41,8 @@ std::cout << linked_tz->name() << std::endl; // Asia/Nicosia
 | `time_zone_link& operator=(time_zone_link&&) = default;` | 代入演算子 | C++20 |
 
 
+### 観測
+
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`name`](time_zone_link/name.md) | タイムゾーンの代替名を取得する | C++20 |
