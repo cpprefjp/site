@@ -191,7 +191,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`utc_leap`](chrono/utc_leap.md.nolink) | うるう秒が挿入された日付を表す型 (class) | C++20 |
+| [`leap_second`](chrono/leap_second.md.nolink) | うるう秒が挿入された日付を表す型 (class) | C++20 |
 
 
 ### リンク
