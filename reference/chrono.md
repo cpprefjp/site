@@ -154,7 +154,7 @@
 | [`tzdb`](chrono/tzdb.md) | タイムゾーンのデータベース型 (class) | C++20 |
 | [`get_tzdb`](chrono/get_tzdb.md) | タイムゾーンデータベースを取得する (function) | C++20 |
 | [`tzdb_list`](chrono/tzdb_list.md) | タイムゾーンデータベースのリスト (class) | C++20 |
-| [`get_tzdb_list`](chrono/get_tzdb_list.md.nolink) | タイムゾーンデータベースのリストを取得する (function) | C++20 |
+| [`get_tzdb_list`](chrono/get_tzdb_list.md) | タイムゾーンデータベースのリストを取得する (function) | C++20 |
 | [`locate_zone`](chrono/locate_zone.md) | 指定した名前のタイムゾーンを取得する (function) | C++20 |
 | [`current_zone`](chrono/current_zone.md) | 現在のタイムゾーンを取得する (function) | C++20 |
 
