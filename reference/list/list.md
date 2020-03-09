@@ -75,17 +75,17 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------|--------------------------------|-------|
-| [`emplace_front`](list/emplace_front.md) | 先頭への直接構築による要素追加 | C++11 |
-| [`pop_front`](list/pop_front.md)         | 先頭から要素を削除             | |
-| [`emplace_back`](list/emplace_back.md)   | 末尾への直接構築による要素追加 | C++11 |
 | [`push_front`](list/push_front.md)       | 先頭に要素を追加する           | |
+| [`emplace_front`](list/emplace_front.md) | 先頭への直接構築による要素追加 | C++11 |
 | [`push_back`](list/push_back.md)         | 末尾に要素を追加する           | |
-| [`pop_back`](list/pop_back.md)           | 末尾から要素を削除             | |
-| [`emplace`](list/emplace.md)             | 要素の直接構築による挿入       | C++11 |
+| [`emplace_back`](list/emplace_back.md)   | 末尾への直接構築による要素追加 | C++11 |
 | [`insert`](list/insert.md)               | 要素の挿入                     | |
+| [`emplace`](list/emplace.md)             | 要素の直接構築による挿入       | C++11 |
+| [`pop_front`](list/pop_front.md)         | 先頭から要素を削除             | |
+| [`pop_back`](list/pop_back.md)           | 末尾から要素を削除             | |
 | [`erase`](list/erase.md)                 | 要素の削除                     | |
-| [`swap`](list/swap.md)                   | コンテナの交換                 | |
 | [`clear`](list/clear.md)                 | 全要素削除                     | |
+| [`swap`](list/swap.md)                   | コンテナの交換                 | |
 
 
 ### リスト操作
