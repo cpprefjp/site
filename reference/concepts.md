@@ -116,10 +116,10 @@ concept C =
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `movable` | ムーブ可能 | C++20 |
-| `copyable` | コピー可能 | C++20 |
-| `semiregular` | 半正則 | C++20 |
-| `regular` | 正則 | C++20 |
+| [`movable`](concepts/movable.md) | ムーブ可能 | C++20 |
+| [`copyable`](concepts/copyable.md) | コピー可能 | C++20 |
+| [`semiregular`](concepts/semiregular.md) | 半正則 | C++20 |
+| [`regular`](concepts/regular.md) | 正則 | C++20 |
 
 
 ## 関数呼び出し
