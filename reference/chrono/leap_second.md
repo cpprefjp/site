@@ -11,9 +11,11 @@ namespace std::chrono {
 ```
 
 ## 概要
-`leap_second`は、うるう秒が挿入された日時を秒単位で表す型である。
+`leap_second`は、うるう秒が挿入された日を、UTCタイムゾーンの秒単位で表す型である。
 
 [`get_tzdb()`](get_tzdb.md)で取得した[`tzdb`](tzdb.md)クラスのオブジェクトに、これまでに挿入されたうるう秒のリスト`leap_seconds`がメンバ変数として含まれている。
+
+このクラスが表すうるう秒が挿入された時間とは、日付を秒単位で表すのであって (2006年1月1日)、厳密にうるう秒が挿入された日時 (2006年1月1日8時59分60秒JSTなど) を表すものではないことに注意すること。なお、IANAのうるう秒データベースには、秒単位で定義されている。
 
 
 ## メンバ関数
@@ -52,14 +54,51 @@ namespace std::chrono {
 #include <chrono>
 
 namespace chrono = std::chrono;
+using namespace std::chrono_literals;
 
 int main()
 {
+  // 2018年3月17日までにうるう秒が挿入された日を列挙する
+  for (const chrono::leap_second& date : chrono::get_tzdb().leap_seconds) {
+    if (date <= 2018y/3/17)
+      std::cout << date.date() << std::endl;
+  }
 }
 ```
+* chrono::leap_second[color ff0000]
+* chrono::get_tzdb()[link get_tzdb.md]
+* 2018y[link year/op_y.md]
+* date()[link leap_second/date.md.nolink]
 
 ### 出力
 ```
+1972-07-01 00:00:00
+1973-01-01 00:00:00
+1974-01-01 00:00:00
+1975-01-01 00:00:00
+1976-01-01 00:00:00
+1977-01-01 00:00:00
+1978-01-01 00:00:00
+1979-01-01 00:00:00
+1980-01-01 00:00:00
+1981-07-01 00:00:00
+1982-07-01 00:00:00
+1983-07-01 00:00:00
+1985-07-01 00:00:00
+1988-01-01 00:00:00
+1990-01-01 00:00:00
+1991-01-01 00:00:00
+1992-07-01 00:00:00
+1993-07-01 00:00:00
+1994-07-01 00:00:00
+1996-01-01 00:00:00
+1997-07-01 00:00:00
+1999-01-01 00:00:00
+2006-01-01 00:00:00
+2009-01-01 00:00:00
+2012-07-01 00:00:00
+2015-07-01 00:00:00
+2017-01-01 00:00:00
 ```
 
 ## バージョン
@@ -73,5 +112,9 @@ int main()
 
 
 ## 参照
+- [閏秒 - Wikipedia](https://ja.wikipedia.org/wiki/%E9%96%8F%E7%A7%92)
+- [IANAのうるう秒リスト](https://github.com/eggert/tz/blob/master/leap-seconds.list)
+    - 各うるう秒は、1900年1月1日UTCからの経過秒として定義される (UNIX時間の1970年1月1日からの経過秒ではない)
 - [P1981R0 Rename `leap` to `leap_second`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1981r0.html)
     - C++20の策定中、National Body Commentとして`leap`というクラス名は一般的すぎて説明的ではないと指摘があり、`leap_second`に名称変更された
+
