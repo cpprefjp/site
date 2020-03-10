@@ -25,7 +25,7 @@ namespace std {
 - コピー構築・代入
 - デフォルト構築
 - `swap`
-- `==`による等値比較
+- `== !=`による等値比較
 
 このような正則な型とは、`int`型などの[基本型](/reference/type_traits/is_fundamental.md)の様に扱うことのできる型を表している。
 
