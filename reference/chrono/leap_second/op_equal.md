@@ -10,7 +10,7 @@ namespace std::chrono {
                             const leap_second& y) noexcept;        // (1) C++20
 
   template <class Duration>
-  constexpr bool operator==(const leap& x,
+  constexpr bool operator==(const leap_second& x,
                             const sys_time<Duration>& y) noexcept; // (2) C++20
 }
 ```
