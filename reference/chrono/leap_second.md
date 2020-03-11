@@ -29,7 +29,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`date`](leap_second/date.md.nolink) | うるう秒が挿入された日時を秒単位のシステム時間として取得する | C++20 |
+| [`date`](leap_second/date.md) | うるう秒が挿入された日時を秒単位のシステム時間として取得する | C++20 |
 
 
 ## 非メンバ関数
@@ -37,7 +37,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](leap_second/op_equal.md.nolink)         | 等値比較を行う | C++20 |
+| [`operator==`](leap_second/op_equal.md)         | 等値比較を行う | C++20 |
 | `bool operator!=(const leap_second&, const leap_second&) noexcept;`<br/> `template <class Duration>`<br/> `bool operator!=(const leap&, const sys_time<Duration>);` | 非等値比較を行う (`==`により使用可能) | C++20 |
 | [`operator<=>`](leap_second/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
 | [`operator<`](leap_second/op_less.md.nolink) | 左辺が右辺より小さいかを判定する | C++20 |
@@ -66,7 +66,7 @@ int main()
 * chrono::leap_second[color ff0000]
 * chrono::get_tzdb()[link get_tzdb.md]
 * 2018y[link year/op_y.md]
-* date()[link leap_second/date.md.nolink]
+* date()[link leap_second/date.md]
 
 ### 出力
 ```
