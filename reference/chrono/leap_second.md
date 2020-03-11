@@ -39,11 +39,11 @@ namespace std::chrono {
 |------|------|----------------|
 | [`operator==`](leap_second/op_equal.md)         | 等値比較を行う | C++20 |
 | `bool operator!=(const leap_second&, const leap_second&) noexcept;`<br/> `template <class Duration>`<br/> `bool operator!=(const leap&, const sys_time<Duration>);` | 非等値比較を行う (`==`により使用可能) | C++20 |
-| [`operator<`](leap_second/op_less.md.nolink) | 左辺が右辺より小さいかを判定する | C++20 |
 | [`operator<=>`](leap_second/op_compare_3way.md) | 三方比較を行う | C++20 |
-| [`operator<=`](leap_second/op_less_equal.md.nolink) | 左辺が右辺以下を判定する | C++20 |
-| [`operator>`](leap_second/op_greater.md.nolink) | 左辺が右辺より大きいかを判定する | C++20 |
-| [`operator>=`](leap_second/op_greater_equal.md.nolink) | 左辺が右辺以上を判定する | C++20 |
+| [`operator<`](leap_second/op_less.md) | 左辺が右辺より小さいかを判定する | C++20 |
+| [`operator<=`](leap_second/op_less_equal.md) | 左辺が右辺以下を判定する | C++20 |
+| [`operator>`](leap_second/op_greater.md) | 左辺が右辺より大きいかを判定する | C++20 |
+| [`operator>=`](leap_second/op_greater_equal.md) | 左辺が右辺以上を判定する | C++20 |
 
 
 ## 例
