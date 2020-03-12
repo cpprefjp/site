@@ -108,8 +108,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`leap_second_info`](chrono/leap_second_info.md.nolink) | うるう秒の情報を扱うクラス (class) | C++20 |
-| [`get_leap_second_info`](chrono/get_leap_second_info.md.nolink) | 指定した日時までに挿入されたうるう秒の回数を取得する (function template) | C++20 |
+| [`leap_second_info`](chrono/leap_second_info.md) | うるう秒の情報を扱うクラス (class) | C++20 |
+| [`get_leap_second_info`](chrono/get_leap_second_info.md) | 指定した日時までに挿入されたうるう秒の回数を取得する (function template) | C++20 |
 
 
 ## カレンダー型
