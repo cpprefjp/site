@@ -42,7 +42,7 @@
 | [`steady_clock`](chrono/steady_clock.md)       | 時間が逆行しないクロック(class) | C++11 |
 | [`high_resolution_clock`](chrono/high_resolution_clock.md) | 高分解能クロック(class) | C++11 |
 | [`utc_clock`](chrono/utc_clock.md) | UTC時間 (協定世界時) のクロック (class) | C++20 |
-| [`tai_clock`](chrono/tai_clock.md.nolink) | TAI時間 (国際原子時) のクロック (class) | C++20 |
+| [`tai_clock`](chrono/tai_clock.md) | TAI時間 (国際原子時) のクロック (class) | C++20 |
 | [`gps_clock`](chrono/gps_clock.md.nolink) | GPS時間のクロック (class) | C++20 |
 | [`file_clock`](chrono/file_clock.md.nolink) | ファイル時間を作るために使用されるクロック (class) | C++20 |
 

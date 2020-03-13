@@ -33,8 +33,8 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|--------------------------------|-------|
-| `rep`        | 時間間隔の内部表現となる算術型 | C++11 |
-| `period`     | 時間の周期を表す`ratio`型      | C++11 |
+| `rep`        | 時間間隔の内部表現となる算術型。具体的な型は未規定 | C++11 |
+| `period`     | 時間の周期を表す`ratio`型 [`ratio`](/reference/ratio/ratio.md)`<unspecified, unspecified>` | C++11 |
 | `duration`   | 時間間隔の型                   | C++11 |
 | `time_point` | 時間の一点を指す型             | C++11 |
 

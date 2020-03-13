@@ -20,9 +20,9 @@ namespace std::chrono {
 例として、以下のような変換ができる：
 
 - [`system_clock`](system_clock.md)の[`time_point`](time_point.md)から、[`utc_clock`](utc_clock.md)の[`time_point`](time_point.md)へ変換、およびその逆の変換
-- [`tai_clock`](tai_clock.md.nolink)または[`gps_clock`](gps_clock.md.nolink)の[`time_point`](time_point.md)から、[`utc_clock`](utc_clock.md)の[`time_point`](time_point.md)へ変換、およびその逆の変換
-- [`system_clock`](system_clock.md)の[`time_point`](time_point.md)から、[`tai_clock`](tai_clock.md.nolink)または[`gps_clock`](gps_clock.md.nolink)の[`time_point`](time_point.md)への変換、およびその逆の変換
-    - この組み合わせは[`clock_time_conversion`](clock_time_conversion.md)の特殊化では定義されないが、この関数では、[`utc_clock`](utc_clock.md)を介した、[`system_clock`](system_clock.md)と、[`tai_clock`](tai_clock.md.nolink)または[`gps_clock`](gps_clock.md.nolink)の変換がサポートされる
+- [`tai_clock`](tai_clock.md)または[`gps_clock`](gps_clock.md.nolink)の[`time_point`](time_point.md)から、[`utc_clock`](utc_clock.md)の[`time_point`](time_point.md)へ変換、およびその逆の変換
+- [`system_clock`](system_clock.md)の[`time_point`](time_point.md)から、[`tai_clock`](tai_clock.md)または[`gps_clock`](gps_clock.md.nolink)の[`time_point`](time_point.md)への変換、およびその逆の変換
+    - この組み合わせは[`clock_time_conversion`](clock_time_conversion.md)の特殊化では定義されないが、この関数では、[`utc_clock`](utc_clock.md)を介した、[`system_clock`](system_clock.md)と、[`tai_clock`](tai_clock.md)または[`gps_clock`](gps_clock.md.nolink)の変換がサポートされる
 
 
 ## テンプレートパラメータ制約

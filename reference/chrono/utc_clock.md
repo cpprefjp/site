@@ -13,8 +13,6 @@ namespace std::chrono {
 ## 概要
 `utc_clock`は、UTC時間 (協定世界時、Coordinated Universal Time) を表現するためのクロックである。
 
-うるう秒をカウントしないシステム時間 (UTCタイムゾーン) のクロック[`system_clock`](system_clock.md)とその時間点[`sys_time`](sys_time.md)と違い、`utc_clock`とその時間点[`utc_time`](utc_time.md)は、エポック以降のうるう秒を含む時間をカウントする。
-
 他のクロッククラスとは違い、このクラスの[`now()`](utc_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
 
@@ -22,6 +20,12 @@ namespace std::chrono {
 クロックごとの初期時間 (内部的にカウンタがあれば値ゼロ) をエポックと呼ぶ。
 
 `utc_clock`のエポックは、1970年1月1日0時0分0秒である。
+
+
+### うるう秒の扱い
+このクロックは、うるう秒をカウントする。
+
+[`system_clock`](system_clock.md)とその時間点[`sys_time`](sys_time.md)は、うるう秒をカウントしない。
 
 
 ## メンバ関数
@@ -38,7 +42,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------|--------------------------------|-------|
-| `rep`        | 時間間隔の内部表現となる符号付き算術型                        | C++20 |
+| `rep`        | 時間間隔の内部表現となる符号付き算術型。具体的な型は未規定 | C++20 |
 | `period`     | 時間の周期を表す`ratio`型 [`ratio`](/reference/ratio/ratio.md)`<unspecified, unspecified>` | C++20 |
 | `duration`   | 時間間隔の型 [`duration`](duration.md)`<rep, period>`         | C++20 |
 | `time_point` | 時間の一点を指す型 [`time_point`](time_point.md)`<utc_clock>` | C++20 |
