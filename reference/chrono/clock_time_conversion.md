@@ -90,7 +90,7 @@ namespace std::chrono {
 * time_point[link time_point.md]
 
 ## 概要
-`clock_time_conversion`は、[`clock_cast()`](clock_cast.md.nolink)関数内で、時計間の変換方法を組み合わせごとに定義するためのクラスである。
+`clock_time_conversion`は、[`clock_cast()`](clock_cast.md)関数内で、時計間の変換方法を組み合わせごとに定義するためのクラスである。
 
 クラスの第1テンプレートパラメータは変換先の時計型、第2テンプレートパラメータは変換元の時計型を意味する。
 
@@ -158,7 +158,7 @@ namespace std::chrono {
 ## 備考
 - [`system_clock`](system_clock.md)と[`utc_clock`](utc_clock.md)の間の変換は、[`utc_clock`](utc_clock.md)クラスの機能を使用して変換する
 - [`tai_clock`](tai_clock.md.nolink)、[`gps_clock`](gps_clock.md.nolink)と[`utc_clock`](utc_clock.md)の間の変換は、[`tai_clock`](tai_clock.md.nolink)と[`gps_clock`](gps_clock.md.nolink)の機能を使用して変換する
-- [`tai_clock`](tai_clock.md.nolink)、[`gps_clock`](gps_clock.md.nolink)と[`system_clock`](system_clock.md)の直接の変換は定義されないため、[`utc_clock`](utc_clock.md)を介して変換する
+- [`tai_clock`](tai_clock.md.nolink)、[`gps_clock`](gps_clock.md.nolink)と[`system_clock`](system_clock.md)の直接の変換は定義されないため、[`utc_clock`](utc_clock.md)を介して変換することはできないが、[`clock_cast()`](clock_cast.md)関数ではそのような変換がサポートされる
 
 
 ## 例

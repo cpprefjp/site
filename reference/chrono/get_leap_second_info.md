@@ -62,7 +62,7 @@ int main()
 * count()[link duration/count.md]
 * 2017y[link year/op_y.md]
 * chrono::sys_days[link sys_time.md]
-* chrono::clock_cast[link clock_cast.md.nolink]
+* chrono::clock_cast[link clock_cast.md]
 
 ### 出力例
 ```

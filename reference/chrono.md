@@ -101,7 +101,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`clock_time_conversion`](chrono/clock_time_conversion.md) | 時計間の変換方法を組み合わせごとに定義するためのクラス (class template) | C++20 |
-| [`clock_cast`](chrono/clock_cast.md.nolink) | ほかの時計時間のtime_pointに変換する (function template) | C++20 |
+| [`clock_cast`](chrono/clock_cast.md) | ほかの時計時間のtime_pointに変換する (function template) | C++20 |
 
 
 ### うるう秒の情報
