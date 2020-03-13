@@ -35,8 +35,8 @@ return tai_time<common_type_t<Duration, seconds>>{t.time_since_epoch()} + 378691
 * 378691210s[link /reference/chrono/duration/op_s.md]
 * 10s[link /reference/chrono/duration/op_s.md]
 * sys_days[link /reference/chrono/sys_time.md]
-* 1970y[link /reference/chrono/op_y.md]
-* 1958y[link /reference/chrono/op_y.md]
+* 1970y[link /reference/chrono/year/op_y.md]
+* 1958y[link /reference/chrono/year/op_y.md]
 * January[link /reference/chrono/month_constants.md]
 
 

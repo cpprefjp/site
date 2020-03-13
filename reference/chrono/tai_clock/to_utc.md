@@ -35,8 +35,8 @@ return utc_time<common_type_t<Duration, seconds>>{t.time_since_epoch()} - 378691
 * 378691210s[link /reference/chrono/duration/op_s.md]
 * 10s[link /reference/chrono/duration/op_s.md]
 * sys_days[link /reference/chrono/sys_time.md]
-* 1970y[link /reference/chrono/op_y.md]
-* 1958y[link /reference/chrono/op_y.md]
+* 1970y[link /reference/chrono/year/op_y.md]
+* 1958y[link /reference/chrono/year/op_y.md]
 * January[link /reference/chrono/month_constants.md]
 
 
@@ -63,7 +63,7 @@ int main()
 ```
 * to_utc[color ff0000]
 * chrono::clock_cast[link /reference/chrono/clock_cast.md]
-* sys_days[link /reference/chrono/sys_time.md]
+* chrono::sys_days[link /reference/chrono/sys_time.md]
 * 2019y[link /reference/chrono/year/op_y.md]
 * chrono::get_leap_second_info[link /reference/chrono/get_leap_second_info.md]
 * chrono::leap_second_info[link /reference/chrono/leap_second_info.md]
