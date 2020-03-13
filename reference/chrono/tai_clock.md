@@ -36,9 +36,9 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`now`](tai_clock/now.md.nolink)           | 現在日時を取得する           | C++20 |
-| [`to_utc`](tai_clock/to_utc.md.nolink)     | TAI時間からUTC時間へ変換する | C++20 |
-| [`from_utc`](tai_clock/from_utc.md.nolink) | UTC時間からTAI時間へ変換する | C++20 |
+| [`now`](tai_clock/now.md)           | 現在日時を取得する           | C++20 |
+| [`to_utc`](tai_clock/to_utc.md)     | TAI時間からUTC時間へ変換する | C++20 |
+| [`from_utc`](tai_clock/from_utc.md) | UTC時間からTAI時間へ変換する | C++20 |
 
 
 ## メンバ型
@@ -71,7 +71,7 @@ int main()
   std::cout << tp << std::endl;
 }
 ```
-* now()[link tai_clock/now.md.nolink]
+* now()[link tai_clock/now.md]
 
 ### 出力例
 ```
