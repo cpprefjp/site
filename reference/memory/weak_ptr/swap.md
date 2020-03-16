@@ -38,25 +38,35 @@ int main()
   std::shared_ptr<int> sp2(new int(2));
   std::weak_ptr<int> wp2 = sp2;
 
+  if (std::shared_ptr<int> r = wp1.lock()) {
+    std::cout << r << std::endl;
+  }
+
+  if (std::shared_ptr<int> r = wp2.lock()) {
+    std::cout << r << std::endl;
+  }
+
   // wp1とwp2を入れ替える
   wp1.swap(wp2);
 
   if (std::shared_ptr<int> r = wp1.lock()) {
-    std::cout << *r << std::endl;
+    std::cout << r << std::endl;
   }
 
   if (std::shared_ptr<int> r = wp2.lock()) {
-    std::cout << *r << std::endl;
+    std::cout << r << std::endl;
   }
 }
 ```
 * swap[color ff0000]
 * lock()[link lock.md]
 
-### 出力
+### 出力例
 ```
-2
-1
+0x14ab010
+0x14ab060
+0x14ab060
+0x14ab010
 ```
 
 ## バージョン
