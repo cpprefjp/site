@@ -32,7 +32,7 @@ namespace std::chrono {
 UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
 - (1) : [`utc_clock`](utc_clock.md)の[`time_point`](time_point.md)に対する別名。時間間隔を表す型はパラメータ化されている
-- (2) : 秒単位でシステム時間の一点を指す[`time_point`](time_point.md)に対する別名
+- (2) : 秒単位でUTC時間の一点を指す[`time_point`](time_point.md)に対する別名
 - (3) : 時間点に含まれる日付と時間を出力ストリームに出力する
 - (4) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
 
