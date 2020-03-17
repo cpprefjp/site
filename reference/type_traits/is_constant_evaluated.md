@@ -127,7 +127,7 @@ int main()
 - [Clang](/implementation.md#clang): 9
 - [GCC](/implementation.md#gcc): 9.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 update5
 
 ## 関連項目
 - [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md.nolink)
