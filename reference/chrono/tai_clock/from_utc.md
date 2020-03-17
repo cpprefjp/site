@@ -10,7 +10,7 @@ template <class Duration>
 static tai_time<common_type_t<Duration, seconds>>
   from_utc(const utc_time<Duration>&) noexcept;
 ```
-* tai_time[link /reference/chrono/tai_time.md.nolink]
+* tai_time[link /reference/chrono/tai_time.md]
 * utc_time[link /reference/chrono/utc_time.md]
 * common_type_t[link /reference/chrono/common_type.md]
 
@@ -22,7 +22,7 @@ UTC時間からTAI時間に変換する。
 ```cpp
 return tai_time<common_type_t<Duration, seconds>>{t.time_since_epoch()} + 378691210s;
 ```
-* tai_time[link /reference/chrono/tai_time.md.nolink]
+* tai_time[link /reference/chrono/tai_time.md]
 * common_type_t[link /reference/chrono/common_type.md]
 * t.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * 378691210s[link /reference/chrono/duration/op_s.md]

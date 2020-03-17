@@ -77,8 +77,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`tai_time`](chrono/tai_time.md.nolink) | TAI時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
-| [`tai_seconds`](chrono/tai_time.md.nolink) | 秒単位でTAI時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`tai_time`](chrono/tai_time.md) | TAI時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`tai_seconds`](chrono/tai_time.md) | 秒単位でTAI時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 
 
 ### GPS時間用の機能

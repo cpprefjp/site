@@ -10,7 +10,7 @@ template <class Duration>
 static utc_time<common_type_t<Duration, seconds>>
   to_utc(const tai_time<Duration>& t) noexcept;
 ```
-* tai_time[link /reference/chrono/tai_time.md.nolink]
+* tai_time[link /reference/chrono/tai_time.md]
 * utc_time[link /reference/chrono/utc_time.md]
 * common_type_t[link /reference/chrono/common_type.md]
 
