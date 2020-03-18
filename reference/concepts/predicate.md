@@ -11,13 +11,13 @@ namespace std {
     regular_invocable<F, Args...> && boolean-testable<invoke_result_t<F, Args...>>;
 }
 ```
-* regular_­invocable[link /reference/concepts/­invocable.md]
+* regular_invocable[link /reference/concepts/invocable.md]
 * boolean-testable[link /reference/concepts/boolean.md]
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
 
 ## 概要
 
-`predicate`は、任意の関数呼び出し可能な型`F`が引数`Args...`によって関数呼び出し可能（[`regular_­invocable`](/reference/concepts/­invocable.md)）であり、その戻り値型が`bool`に変換可能であることを表すコンセプトである。
+`predicate`は、任意の関数呼び出し可能な型`F`が引数`Args...`によって関数呼び出し可能（[`regular_invocable`](/reference/concepts/invocable.md)）であり、その戻り値型が`bool`に変換可能であることを表すコンセプトである。
 
 `predicate`のモデルとなる`F`はその引数`Args...`に対しての述語（*predicate*）と呼ばれ、（[`<algorithm>`](/reference/algorithm.md)の関数などにおいて）引数がある条件を満たしているかを判定するものとして利用される。
 
