@@ -126,11 +126,12 @@ concept C =
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `invocable` | INVOKEコンセプトに従った関数呼び出しが可能 | C++20 |
-| `regular_invocable` | 正則呼び出し可能 | C++20 |
-| `predicate` | 述語 | C++20 |
-| `relation` | 述語関係 | C++20 |
-| `strict_weak_order` | 狭義の弱順序 | C++20 |
+| [`invocable`](concepts/invocable.md) | INVOKEコンセプトに従った関数呼び出しが可能 | C++20 |
+| [`regular_invocable`](concepts/invocable.md) | 正則呼び出し可能 | C++20 |
+| [`predicate`](concepts/predicate.md) | 述語 | C++20 |
+| [`relation`](concepts/relation.md) | 二項関係 | C++20 |
+| [`equivalence_relation`](concepts/equivalence_relation.md) | 同値関係 | C++20 |
+| [`strict_weak_order`](concepts/strict_weak_order.md) | 狭義の弱順序 | C++20 |
 
 
 ## カスタマイゼーションポイントオブジェクト
