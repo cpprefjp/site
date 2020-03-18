@@ -12,7 +12,7 @@ namespace std {
     predicate<R, T, U> && predicate<R, U, T>;
 }
 ```
-* regular_­invocable[link /reference/concepts/­invocable.md]
+* regular_invocable[link /reference/concepts/invocable.md]
 * boolean-testable[link /reference/concepts/boolean.md]
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
 
