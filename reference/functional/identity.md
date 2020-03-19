@@ -28,7 +28,7 @@ namespace std {
 
 | 名前         | 説明           | 対応バージョン |
 |--------------|----------------|----------------|
-| `operator()` | `return std​::​forward<T>(t);` | C++20          |
+| `operator()` | `return std::forward<T>(t);` | C++20          |
 
 
 ## メンバ型
