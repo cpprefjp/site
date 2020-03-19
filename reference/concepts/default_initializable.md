@@ -1,4 +1,4 @@
-# default_constructible
+# default_initializable
 * concepts[meta header]
 * concept[meta id-type]
 * std[meta namespace]
@@ -7,13 +7,13 @@
 ```cpp
 namespace std {
   template<class T>
-  concept default_constructible = /*see below*/;
+  concept default_initializable = /*see below*/;
 }
 ```
 
 ## 概要
 
-`default_constructible`は、任意の型`T`がデフォルト構築可能であること表すコンセプトである。
+`default_initializable`は、任意の型`T`がデフォルト構築可能であること表すコンセプトである。
 
 
 ## 要件
@@ -25,11 +25,11 @@ template<class T>
 inline constexpr bool is-default-initializable;
 ```
 
-`default_constructible`コンセプトは以下のように定義される。
+`default_initializable`コンセプトは以下のように定義される。
 
 ```cpp
 template<class T>
-concept default_constructible = constructible_from<T> &&
+concept default_initializable = constructible_from<T> &&
                                 requires { T{}; } &&
                                 is-default-initializable<T>;
 ```
@@ -41,14 +41,14 @@ concept default_constructible = constructible_from<T> &&
 #include <iostream>
 #include <concepts>
 
-template<std::default_constructible T>
+template<std::default_initializable T>
 void f(const char* name) {
-  std::cout << name << " is default constructible" << std::endl;
+  std::cout << name << " is default initializable" << std::endl;
 }
 
 template<typename T>
 void f(const char* name) {
-  std::cout << name << " is not default constructible" << std::endl;
+  std::cout << name << " is not default initializable" << std::endl;
 }
 
 struct S {
@@ -64,12 +64,12 @@ int main() {
   f<S>("S");
 }
 ```
-* std::default_constructible[color ff0000]
+* std::default_initializable[color ff0000]
 
 ### 出力
 ```
-int is default constructible
-S is not default constructible
+int is default initializable
+S is not default initializable
 ```
 
 ## バージョン
@@ -78,8 +78,7 @@ S is not default constructible
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-    - GCC 10.1では`default_initializable`という名前でほぼ同じコンセプトが定義されている
+- [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
 
 ## 関連項目
@@ -91,4 +90,5 @@ S is not default constructible
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [LWG Issue 3149. DefaultConstructible should require default initialization](https://wg21.cmeerw.net/lwg/issue3149)
 
