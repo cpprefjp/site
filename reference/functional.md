@@ -122,7 +122,7 @@ struct doubler {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|--------------------------|-------|
-| [`identity`](functional/identity.md)          | 入力値を値カテゴリも含めてそのまま返す (function template) | C++20 |
+| [`identity`](functional/identity.md)          | 入力値を値カテゴリも含めてそのまま返す (class) | C++20 |
 
 
 ## 検索

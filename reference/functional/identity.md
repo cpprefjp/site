@@ -1,7 +1,7 @@
 # identity
 * functional[meta header]
 * std[meta namespace]
-* class template[meta id-type]
+* class[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
@@ -68,6 +68,9 @@ int main()
 
 ### 出力
 ```
+20
+10
+30
 ```
 
 ## バージョン
