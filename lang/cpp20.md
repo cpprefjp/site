@@ -232,6 +232,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
 - メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
 - [`std::invoke()`](/reference/functional/invoke.md)、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)の各操作、[`std::not_fn()`](/reference/functional/not_fn.md)、[`std::bind()`](/reference/functional/bind.md)、[`std::mem_fn()`](/reference/functional/mem_fn.md)を`constexpr`対応
+- コンセプトの導入にともない、[`<functional>`](/reference/functional.md)に、受け取った値をそのまま返す関数オブジェクト[`std::identity`](/reference/functional/identity.md)を追加
 
 
 ### 文字列
