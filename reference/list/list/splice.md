@@ -30,9 +30,9 @@ void splice(const_iterator position, list&& x,
 ## 概要
 他の`list`オブジェクトから、要素を移動する。
 
-- (1), (2) : `position`の次の要素の前に、`x`の全ての要素を移動する。  
-- (3), (4) : `position`の次の要素の前に、`x`の要素のうち`i`の指す要素を移動する。  
-- (5), (6) : `position`の次の要素の前に、`x`の要素のうち`[first, last)`の範囲を移動する。  
+- (1), (2) : `position`の指す要素の前に、`x`の全ての要素を移動する。  
+- (3), (4) : `position`の指す要素の前に、`x`の要素のうち`i`の指す要素を移動する。  
+- (5), (6) : `position`の指す要素の前に、`x`の要素のうち`[first, last)`の範囲を移動する。  
 
 
 ## 要件
@@ -111,6 +111,15 @@ int main()
 
     print(xs);
   }
+  // ysの全ての要素をxsの末尾に移動する
+  {
+    std::list<int> xs = {1, 2, 3};
+    std::list<int> ys = {4, 5, 6};
+
+    xs.splice(xs.end(), std::move(ys));
+
+    print(xs);
+  }
 }
 ```
 * splice[color ff0000]
@@ -122,6 +131,7 @@ int main()
 1 2 3 4 5 6 
 1 4 5 6 
 1 2 4 5 6 
+1 2 3 4 5 6 
 ```
 
 ## 参照
