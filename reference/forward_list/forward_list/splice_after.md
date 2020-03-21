@@ -28,18 +28,15 @@ void splice_after(const_iterator position, forward_list&& x,
 
 
 ## 要件
-- 第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](end.md)]の範囲の間接参照可能なイテレータであること。
+- 第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](end.md))の範囲の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
 - [`get_allocator()`](get_allocator.md) `== x.`[`get_allocator()`](get_allocator.md)であること。(C++14)
 
 
 ## 効果
-- (1) : `position`の次の要素の後ろに`x`の全ての要素をコピーする
-- (2) : `position`の次の要素の後ろに`x`の全ての要素を移動する
-- (3) : `position`の次の要素の後ろに、`x`の要素のうち`i`の次の要素をコピーする
-- (4) : `position`の次の要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
-- (5) : `position`の次の要素の後ろに、`x`の要素のうち`(first, last)`の範囲をコピーする
-- (6) : `position`の次の要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
+- (1),(2) : `position`の指す要素の後ろに、`x`の全ての要素を移動する
+- (3),(4) : `position`の指す要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
+- (5),(6) : `position`の指す要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
 
 
 ## 戻り値
