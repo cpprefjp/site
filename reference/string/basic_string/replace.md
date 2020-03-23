@@ -118,6 +118,7 @@ basic_string& replace(const_iterator i1,
   ```
   * basic_string_view[link /reference/string_view/basic_string_view.md]
   * substr[link /reference/string_view/basic_string_view/append.md]
+
 - (14) : 以下と等価。
   ```cpp
   basic_string_view<charT, traits> sv = t;

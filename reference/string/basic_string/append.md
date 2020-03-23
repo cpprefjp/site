@@ -28,7 +28,7 @@ basic_string& append(initializer_list<charT> il);               // (7) C++11
 
 // string_viewを引数に取るオーバーロード
 template<class T>
-basic_string& append(const T& t);                             // (8) C++17
+basic_string& append(const T& t);                               // (8) C++17
 template<class T>
 basic_string& append(const T& t,
                      size_type pos,
@@ -85,7 +85,7 @@ basic_string& append(const T& t,
   return append(sv.data(), sv.size());
   ```
   * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * 
+
 - (9) 対象オブジェクトの末尾に、[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`の指定された範囲の文字列が追加される。
     * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。  
 以下と等価。
