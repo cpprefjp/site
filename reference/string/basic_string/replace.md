@@ -51,37 +51,44 @@ basic_string& replace(const_iterator i1, const_iterator i2,
 basic_string& replace(const_iterator i1, const_iterator i2,
                       initializer_list<charT> il);                  // (11) C++11
 
+// string_viewを引数に取るオーバーロード
+template<class T>
 basic_string& replace(size_type pos1,
                       size_type n1,
-                      std::basic_string_view<charT, traits> sv);    // (12) C++17
-
-basic_string& replace(size_type pos1,
+                      const T& t);                                  // (12) C++17
+template<class T>
+basic_string& replace(size_type pos1, 
                       size_type n1,
-                      std::basic_string_view<charT, traits> sv,
+                      const T& t,
                       size_type pos2,
                       size_type n2 = npos);                         // (13) C++17
-
+template<class T>
 basic_string& replace(const_iterator i1,
                       const_iterator i2,
-                      std::basic_string_view<charT, traits> sv);    // (14) C++17
+                      const T& t);                                  // (14) C++17
 ```
 
 ## 概要
 文字列の一部を置換する。
 
+## テンプレートパラメータ制約
+
+- (12)(13)(14) : 以下の両方を満たしていること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 要件
 - (1) : `pos1 <=` [`size()`](size.md)
 - (2) : `pos1 <=` [`size()`](size.md)、および`pos2 <= str.`[`size()`](size.md)であること。
 - (3) : `pos1 <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても`n2`個の要素を持つ配列を指していること。
 - (4) : `pos <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
-- (6) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
-- (7) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。また、文字配列へのポインタ`s`が、少なくても`n`個の要素を持つ配列を指していること。
-- (8) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
-- (9) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
-- (10) : `[`[`begin()`](begin.md)`, i1)`、`[i1, i2)`、および`[j1, j2)`が有効は範囲であること。
-- (11) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
-- (14) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効は範囲であること。
+- (6) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
+- (7) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。また、文字配列へのポインタ`s`が、少なくても`n`個の要素を持つ配列を指していること。
+- (8) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
+- (9) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
+- (10) : `[`[`begin()`](begin.md)`, i1)`、`[i1, i2)`、および`[j1, j2)`が有効な範囲であること。
+- (11) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
+- (14) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
 
 
 ## 効果
@@ -98,11 +105,25 @@ basic_string& replace(const_iterator i1,
 - (9) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(n, c))`を呼び出す。
 - (10) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(j1, j2))`を呼び出す。
 - (11) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/initializer_list/size.md)`)`を呼び出す。
-- (12) : `return replace(pos1, n1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`);` と等価
-- (13) :
-    - `n2`と`sv.`[`size()`](/reference/string_view/basic_string_view/size.md) `- pos2`のうち小さい方を`rlen`とする。
-    - `replace(pos1, n1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos2, rlen)` を呼び出す
-- (14) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, sv)` を呼び出す
+- (12) : 以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return replace(pos1, n1, sv.data(), sv.size());
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+- (13) : 以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return replace(pos1, n1, sv.substr(pos2, n2));
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+  * substr[link /reference/string_view/basic_string_view/append.md]
+- (14) : 以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return replace(i1 - begin(), i2 - i1, sv.data(), sv.size());
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 
 ## 戻り値
@@ -296,3 +317,6 @@ int main()
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(12)(13)(14)の引数型を`const T&`に変更

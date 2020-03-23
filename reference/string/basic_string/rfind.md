@@ -13,13 +13,18 @@ size_type rfind(const charT* s, size_type pos = npos) const;                   /
 
 size_type rfind(charT c, size_type pos = npos) const;                          // (4)
 
-size_type rfind(std::basic_string_view<charT, traits> sv,
-                size_type pos = npos) const noexcept;                          // (5) C++17
+// string_viewを引数に取るオーバーロード
+template <class T>
+size_type rfind(const T& t, size_type pos = npos) const noexcept(see below);   // (5) C++17
 ```
 
 ## 概要
 最後に現れる指定文字列を検索する。
 
+## テンプレートパラメータ制約
+- (5) :
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&,` [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>>`が`true`であること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*>`が`false`であること
 
 ## 要件
 (3) の形式の場合、`s` は少なくとも `traits_type::length(s) + 1` の要素を持つ `charT` の配列を指していること。
@@ -30,7 +35,7 @@ size_type rfind(std::basic_string_view<charT, traits> sv,
 - (2) `pos` より前で最後に `s` と一致する位置を返す。`s` は長さ `n` の文字列へのポインタである。
 - (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
 - (4) `pos` より前で最後に `c` と一致する位置を返す。
-- (5) `pos` より前で最後に `sv` と一致する位置を返す。
+- (5) `basic_string_view<charT, traits> sv = t;`として変数`sv`を作成し、`pos` より前で最後に `sv` と一致する位置を返す。
 
 
 ## 戻り値
@@ -39,7 +44,12 @@ size_type rfind(std::basic_string_view<charT, traits> sv,
 
 ## 例外
 - (1) 投げない
-- (5) 投げない
+- (5) `noexcept`内の式は、以下と等価である
+        ```cpp
+        is_nothrow_convertible_v<const T&, basic_string_view<charT, traits>>
+        ```
+        * is_nothrow_convertible_v[link /reference/type_traits/is_nothrow_convertible.md]
+        * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 
 ## 備考
@@ -117,3 +127,6 @@ size_type basic_string<charT, traits, Allocator>::rfind(charT c, size_type pos =
 ## 参照
 - [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(5)の引数型を`const T&`に変更
+

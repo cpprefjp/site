@@ -13,10 +13,9 @@ size_type find(const charT* s, size_type pos = 0) const;                   // (3
 
 size_type find(charT c, size_type pos = 0) const;                          // (4)
 
-size_type find(std::basic_string_view<charT, traits> sv,
-               size_type pos = 0) const noexcept;                          // (5) C++17
+// string_viewを引数に取るオーバーロード
 template <class T>
-size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5) C++20
+size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5) C++17
 ```
 
 ## 概要
@@ -38,9 +37,7 @@ size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5
 - (2) `pos` 以降で最初に `s` と一致する位置を返す。`s` は長さ `n` の文字列へのポインタである。
 - (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
 - (4) `pos` 以降で最初に `c` と一致する位置を返す。
-- (5) :
-    - C++17 : `pos` 以降で最初に `sv` と一致する位置を返す。
-    - C++20 : `basic_string_view<charT, traits> sv = t;`として変数`sv`を作成し、`pos` 以降で最初に `sv` と一致する位置を返す。
+- (5) `basic_string_view<charT, traits> sv = t;`として変数`sv`を作成し、`pos` 以降で最初に `sv` と一致する位置を返す。
 
 
 ## 戻り値
@@ -49,9 +46,7 @@ size_type find(const T& t, size_type pos = 0) const noexcept(see below);   // (5
 
 ## 例外
 - (1) 投げない
-- (5) :
-    - C++17 : 投げない
-    - C++20 : `noexcept`内の式は、以下と等価である
+- (5) `noexcept`内の式は、以下と等価である
         ```cpp
         is_nothrow_convertible_v<const T&, basic_string_view<charT, traits>>
         ```
@@ -131,3 +126,5 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 - [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [P0758R1 Implicit conversion traits and utility functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0758r1.html)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(5)の引数型を`const T&`に変更

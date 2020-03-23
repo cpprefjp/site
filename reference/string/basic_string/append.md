@@ -26,8 +26,11 @@ basic_string& append(InputIterator first, InputIterator last);  // (6)
 
 basic_string& append(initializer_list<charT> il);               // (7) C++11
 
-basic_string& append(std::basic_string_view<charT, traits> sv); // (8) C++17
-basic_string& append(std::basic_string_view<charT, traits> sv,
+// string_viewを引数に取るオーバーロード
+template<class T>
+basic_string& append(const T& t);                             // (8) C++17
+template<class T>
+basic_string& append(const T& t,
                      size_type pos,
                      size_type n = npos);                       // (9) C++17
 ```
@@ -36,6 +39,11 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
 ## 概要
 指定された文字列、文字、あるいは初期化リストを追加する。
 
+## テンプレートパラメータ制約
+
+- (8)(9) : 以下の両方を満たしていること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 要件
 - (2) では、`pos <=` [`size`](size.md)`()` であること。
@@ -70,11 +78,23 @@ basic_string& append(std::basic_string_view<charT, traits> sv,
 
 - (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。
     * `append(il.begin(), il.end())` と等価。
-- (8) 対象オブジェクトの末尾に、`sv`が参照する範囲の文字列が追加される。
-    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と等価。
-- (9) 対象オブジェクトの末尾に、`sv`の指定された範囲の文字列が追加される。
-    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
-    * `append(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
+- (8) 対象オブジェクトの末尾に、[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲の文字列が追加される。  
+以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return append(sv.data(), sv.size());
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+  * 
+- (9) 対象オブジェクトの末尾に、[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`の指定された範囲の文字列が追加される。
+    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。  
+以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return append(sv.substr(pos, n));
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+  * substr[link /reference/string_view/basic_string_view/append.md]
 
 
 ## 戻り値
@@ -169,3 +189,6 @@ Hello, world
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(8)(9)の引数型を`const T&`に変更

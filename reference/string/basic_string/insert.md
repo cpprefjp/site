@@ -31,11 +31,13 @@ iterator insert(const_iterator p,
 
 iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11
 
+// string_viewを引数に取るオーバーロード
+template<class T>
 basic_string& insert(size_type pos1,
-                     std::basic_string_view<charT, traits> sv);   // (10) C++17
-
+                     const T& t);                                 // (10) C++17
+template<class T>
 basic_string& insert(size_type pos1,
-                     std::basic_string_view<charT, traits> sv,
+                     const T& t,
                      size_type pos2,
                      size_type n = npos);                         // (11) C++17
 ```
@@ -44,6 +46,11 @@ basic_string& insert(size_type pos1,
 ## 概要
 文字／文字列を挿入する。
 
+## テンプレートパラメータ制約
+
+- (10)(11) : 以下の両方を満たしていること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 要件
 - (1) : `pos <=` [`size()`](size.md)
@@ -67,10 +74,19 @@ basic_string& insert(size_type pos1,
 - (7) : イテレータ`p`が指す要素の前に、文字`c`のコピーを`n`個挿入する。
 - (8) : `insert(p -` [`begin()`](begin.md)`, basic_string(first, last))`と等価の効果を持つ。
 - (9) : `insert(p, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`end()`](/reference/initializer_list/initializer_list/end.md)`)`
-- (10) : `return insert(pos1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と等価の効果を持つ。
-- (11) :
-    - `sv.`[`size()`](/reference/string_view/basic_string_view/size.md) `- pos2`と`n`のうち小さい方を`rlen`とする
-    - `insert(pos1,` [`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos2, rlen)` を呼び出す
+- (10) : 以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return insert(pos1, sv.data(), sv.size());
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+- (11) : 以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return insert(pos1, sv.substr(pos2, n));
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+  * substr[link /reference/string_view/basic_string_view/append.md]
 
 
 ## 戻り値
@@ -230,3 +246,6 @@ int main()
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(10)(11)の引数型を`const T&`に変更

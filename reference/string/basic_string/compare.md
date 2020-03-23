@@ -22,15 +22,17 @@ int compare(size_type pos1, size_type n1,
 int compare(size_type pos1, size_type n1,
             const charT* s, size_type n2) const;                      // (6)
 
-int compare(std::basic_string_view<charT, traits> sv) const noexcept; // (7) C++17
-
+// string_viewを引数に取るオーバーロード
+template<class T>
+int compare(const T& t) const noexcept(/*see below*/);                // (7) C++17
+template<class T>
 int compare(size_type pos1,
             size_type n1,
-            std::basic_string_view<charT, traits> sv) const;          // (8) C++17
-
+            const T& t) const;                                        // (8) C++17
+template<class T>
 int compare(size_type pos1,
             size_type n1,
-            std::basic_string_view<charT, traits> sv,
+            const T& t,
             size_type pos2,
             size_type n2 = npos) const;                               // (9) C++17
 ```
@@ -38,6 +40,11 @@ int compare(size_type pos1,
 ## 概要
 他の文字列との比較を行う。
 
+## テンプレートパラメータ制約
+
+- (7)(8)(9) : 以下の両方を満たしていること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 効果
 - (1) 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
@@ -58,10 +65,20 @@ int compare(size_type pos1,
 - (4) `compare(basic_string(s))` と等価
 - (5) `basic_string(*this, pos, n1).compare(basic_string(s))` と等価
 - (6) `basic_string(*this, pos, n1).compare(basic_string(s, n2))` と等価
-- (7) (1)と同様の結果を返す。
-- (8) `basic_string_view<charT, traits>(`[`this.data()`](data.md)`, pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(sv)` と等価
-- (9) `basic_string_view<charT, traits>(`[`this.data()`](data.md)`, pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(sv, pos1, n2)` と等価
+- (7) (1)と同様の結果を返す。`return basic_string_view<charT, traits>(*this).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t);`と等価。
+- (8) `basic_string_view<charT, traits>(*this).`[`substr`](/reference/string_view/basic_string_view/substr.md)`(pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t)` と等価
+- (9) 以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> s = *this, sv = t;
+  return s.substr(pos1, n1).compare(sv.substr(pos2, n2));
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+  * substr[link /reference/string_view/basic_string_view/append.md]
+  * compare[link /reference/string_view/basic_string_view/compare.md]
 
+## 例外
+
+- (7) : `noexcept(is_nothrow_convertible_v<const T&, basic_string_view<charT, traits>>)`が指定される
 
 ## 例
 ```cpp example
@@ -90,3 +107,6 @@ int main()
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(7)(8)(9)の引数型を`const T&`に変更

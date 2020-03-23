@@ -52,8 +52,15 @@ basic_string(initializer_list<charT> init,
 basic_string(const basic_string& str, const Allocator&);        // (12) C++11
 basic_string(basic_string&& str, const Allocator&);             // (13) C++11
 
-explicit basic_string(std::basic_string_view<charT, traits> sv,
+// string_viewから構築するコンストラクタ
+template<class T>
+explicit basic_string(const T& t,
                       const Allocator& a = Allocator());        // (14) C++17
+template<class T>
+         basic_string(const T& t,
+                      size_type pos,
+                      size_type n,
+                      const Allocator& a = Allocator());        // (15) C++17
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -71,7 +78,15 @@ explicit basic_string(std::basic_string_view<charT, traits> sv,
 - (11) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
 - (12) : アロケータを受け取るコピーコンストラクタ。
 - (13) : アロケータを受け取るムーブコンストラクタ。
-- (14) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換コンストラクタ。`sv`が参照する範囲の文字列を`*this`にコピーする
+- (14) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換コンストラクタ。[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲の文字列を`*this`にコピーする。
+- (15) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲の文字列の`pos`番目から`n`文字の部分文字列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文字列がコピーされる。
+
+## テンプレートパラメータ制約
+
+- (14) : 以下の両方を満たしていること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
+- (15) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`であること
 
 
 ## 要件
@@ -179,3 +194,7 @@ s14 : Hello
 - [LWG Issue 2583. There is no way to supply an allocator for `basic_string(str, pos)`](https://wg21.cmeerw.net/lwg/issue2583)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+- [LWG Issue 2742. Inconsistent string interface taking `string_view`](https://wg21.cmeerw.net/lwg/issue2742)
+    - `string_view`から範囲を指定して構築する(15)を追加
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(14)の引数型を`const T&`に変更

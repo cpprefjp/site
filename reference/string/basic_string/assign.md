@@ -29,9 +29,11 @@ basic_string& assign(InputIterator first,
 
 basic_string& assign(initializer_list<charT>);                  // (8) C++11
 
-basic_string& assign(std::basic_string_view<charT, traits> sv); // (9) C++17
-
-basic_string& assign(std::basic_string_view<charT, traits> sv,
+// string_viewを引数に取るオーバーロード
+template<class T>
+basic_string& assign(const T& t);                               // (9) C++17
+template<class T>
+basic_string& assign(const T& t,
                      size_type pos,
                      size_type n = npos);                       // (10) C++17
 ```
@@ -42,6 +44,11 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
 
 この関数は、アロケータを除き、`basic_string`クラスのコンストラクタと同様のパラメータを受け取り、再代入を行う。代入演算子が一つのパラメータしか扱えないため、複数パラメータによる代入として使用する。
 
+## テンプレートパラメータ制約
+
+- (9)(10) : 以下の両方を満たしていること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 要件
 - (3) : `pos <= str.`[`size()`](size.md)であること。
@@ -65,11 +72,21 @@ basic_string& assign(std::basic_string_view<charT, traits> sv,
     - `assign(basic_string(first, last))`と等価。
 - (8) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
     - `assign(il.begin(), il.end())`を呼び出す。
-- (9) : `std::basic_string_view`オブジェクトが参照する範囲をコピーして、`basic_string`オブジェクトを構築する。
-    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md)`,` [`sv.size()`](/reference/string_view/basic_string_view/size.md)`)` と等価。
-- (10) : `std::basic_string_view`オブジェクトが参照する文字列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。
-    - 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。
-    - `assign(`[`sv.data()`](/reference/string_view/basic_string_view/data.md) `+ pos, rlen)` を呼び出す。
+- (9) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲をコピーして、`basic_string`オブジェクトを構築する。  
+以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return assign(sv.data(), sv.size());
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+- (10) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する文字列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。  
+以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return assign(sv.substr(pos, n));
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+  * substr[link /reference/string_view/basic_string_view/append.md]
 
 
 ## 戻り値
@@ -165,3 +182,6 @@ s10 : Hello
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(3)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(9)(10)の引数型を`const T&`に変更

@@ -13,7 +13,10 @@ basic_string& operator=(basic_string&& str) noexcept
 basic_string& operator=(const charT* s);                           // (3)
 basic_string& operator=(charT c);                                  // (4)
 basic_string& operator=(initializer_list<charT> il);               // (5) C++11
-basic_string& operator=(std::basic_string_view<charT, traits> sv); // (6) C++17
+
+// string_viewを引数に取るオーバーロード
+template<class T>
+basic_string& operator=(const T& t);                               // (6) C++17
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -23,8 +26,20 @@ basic_string& operator=(std::basic_string_view<charT, traits> sv); // (6) C++17
 - (3) : `*this = basic_string(s);` と等価。
 - (4) : `*this = basic_string(1, c);` と等価。
 - (5) : `*this = basic_string(il);` と等価。
-- (6) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換。`return` [`assign`](assign.md)`(sv)` と等価。
+- (6) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換。以下と等価。
+  ```cpp
+  basic_string_view<charT, traits> sv = t;
+  return assign(sv);
+  ```
+  * basic_string_view[link /reference/string_view/basic_string_view.md]
+  * assign[link assign.md]
 
+
+## テンプレートパラメータ制約
+
+- (6) : 以下の両方を満たしていること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 効果
 コピーを行った場合と、ムーブ代入を行った場合で効果が異なる
@@ -97,3 +112,5 @@ hello
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+- [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(6)の引数型を`const T&`に変更
