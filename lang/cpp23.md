@@ -16,7 +16,8 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - 契約違反のハンドリングをするためのライブラリとして[`<contract>`](/reference/contract.md)を追加
 
 ### スマートポインタ
-- [`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)と[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)が定義され、非順序連想コンテナのキーとして[`std::weak_ptr`](/reference/memory/weak_ptr.md)を使用できるようになった
+- [`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)と[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)が追加され、非順序連想コンテナのキーとして[`std::weak_ptr`](/reference/memory/weak_ptr.md)を使用できるようになった
+
 
 ### 型特性
 - [`<type_traits>`](/reference/type_traits.md)に、第1テンプレート引数についている型修飾を第2テンプレート引数の型に付加する型特性として、以下を追加：
