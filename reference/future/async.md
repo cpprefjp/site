@@ -25,6 +25,7 @@ namespace std {
   [[nodiscard]] future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
     async(F&& f, Args&&... args);                // (1) C++20
 
+
   template <class F, class... Args>
   future<typename result_of<F(Args...)>::type>
     async(launch policy, F&& f, Args&&... args); // (2) C++11
@@ -70,11 +71,11 @@ namespace std {
 
 各実行ポリシーの振る舞いは以下のようになる：
 
-- `policy & launch::async`が`0`じゃない場合、新たなスレッドで関数オブジェクト`f`に`args...`を渡して実行する
+- `policy & launch::async`が`0`でない場合、新たなスレッドで関数オブジェクト`f`に`args...`を渡して実行する
     - ( [`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)` )
     - 関数オブジェクト`f`の戻り値が、この関数の戻り値である[`future`](future.md)オブジェクトとの共有状態に書き込まれる。
     - 関数オブジェクト`f`の内部で例外が投げられた場合は、共有状態に投げられた例外が設定される。
-- `policy & launch::deferred`が`0`じゃない場合、関数オブジェクト`f`をその場では実行せず、遅延状態にする
+- `policy & launch::deferred`が`0`でない場合、関数オブジェクト`f`をその場では実行せず、遅延状態にする
     - (`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f))`と`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...`を[`future`](future.md)オブジェクトとの共有状態に格納する)。
     - この関数の戻り値である[`future`](future.md)オブジェクトの[`get()`](future/get.md)もしくは[`wait()`](future/wait.md)が呼び出されるタイミングで、関数オブジェクト`f`に`args...`を渡して実行する。
 - 有効な実行ポリシーが指定されていない場合(整数値を`launch`型にキャストするような状況)、その動作は未定義(C++14)。
@@ -92,7 +93,7 @@ namespace std {
 
 ### 戻り値
 
-[`launch::async`](launch.md)を指定してこの関数を呼び出した場合のみ、戻り値の`future`オブジェクトはそのデストラクタにおいて、指定された関数の終了を待機する。
+[`launch::async`](launch.md)を指定してこの関数を呼び出した場合のみ、戻り値の`future`オブジェクトはそのデストラクタにおいて、指定された関数の終了を待機する（おそらく、[`wait()`](future/wait.md)を呼ぶ）。
 
 すなわち、[`launch::async`](launch.md)を指定した場合には戻り値を何かしらの形で受けておかないとこの関数は同期的に実行されているかのように振舞う。また、戻り値を何かしらの形で受けた場合でもそのスコープを抜ける際に指定された関数の終了を待機する。この挙動はクラスのメンバ変数に保存する等、外部スコープに持ち出したとしても変わらない。
 
@@ -118,10 +119,10 @@ std::async(std::launch::async, []{ g(); }); //g()の呼び出しは必ずf()の�
 MSVCにおける`launch::async`指定した際のこの関数の実装は、Windowsの提供するスレッドプールのスレッドを用いて処理を実行するため、新しいスレッドを起動せず、処理スレッドは終了されない。
 
 このため、スレッドローカルストレージを利用している場合、あるスレッドにおける同じ処理の1回目の呼び出しではスレッドローカルストレージ内のオブジェクトは破棄されず、2回目以降の呼び出しではスレッドローカルストレージ内オブジェクトの初期化処理は実行されない。  
-また、どのスレッドが呼ばれるかはおそらくランダムであるため、違うスレッドローカルストレージにある同じ名前のオブジェクトを利用していることになり可能性もある。  
+また、どのスレッドが呼ばれるかはおそらくランダムであるため、違うスレッドローカルストレージにある同じ名前のオブジェクトを利用していることになる可能性もある。  
 Windows環境においてMSVC実装の本関数とスレッドローカルストレージを合わせて利用する場合は注意が必要である。
 
-なおC++標準規格ではC++11以降一貫して、`launch::async`を指定して本関数を呼び出した場合は新しいスレッドを起動する、という様に記述されているため、MSVCのこの実装は規格違反となる。
+なおC++標準規格ではC++11以降一貫して、「`launch::async`を指定して本関数を呼び出した場合は新しいスレッドを起動する」という様に記述されているため、MSVCのこの実装は規格違反となる。
 
 
 ## 例
