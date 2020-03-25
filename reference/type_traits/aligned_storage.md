@@ -69,6 +69,7 @@ private:
   // [...]
 };
 ```
+* std::byte[link /reference/cstddef/byte.md]
 
 
 ## 例

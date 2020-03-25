@@ -55,6 +55,21 @@ namespace std {
 - サイズとアライメントの推論が[`aligned_storage`](aligned_storage.md)と一貫していない
     - 一貫した仕様であるならば、`aligned_union_t<0、T>`のような型をひとつだけ指定する用途につながるが、現在の仕様は何を意図していたのか不明である
 
+この機能を以下のように置き換えることを推奨する：
+
+```diff
+template <typename... Ts>
+class MyContainer {
+  // [...]
+private:
+- std::aligned_union_t<0, Ts...> t_buff;
++ alignas(Ts...) std::byte t_buff[std::max({sizeof(Ts)...})];
+  // [...]
+};
+```
+* std::byte[link /reference/cstddef/byte.md]
+* std::max[link /reference/algorithm/max.md]
+
 
 ## 例
 ```cpp example
