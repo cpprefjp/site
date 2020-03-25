@@ -340,3 +340,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`invoke_result`](/reference/type_traits/invoke_result.md)の追加にともない、C++17から非推奨化されていた[`result_of`](/reference/type_traits/result_of.md)を削除
 - C++17での[`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)の追加にともない、非推奨化していた[`uncaught_exception()`](/reference/exception/uncaught_exception.md)を削除
 - C++17で非推奨化されていたC互換ライブラリ`<ccomplex>`, `<cstdalign>`, `<cstdbool>`, `<ctgmath>`を削除。また、C++ではなにも定義されないC互換ライブラリ`<ciso646>`を削除
+
+
+## 参照
+- [P2131R0 Changes between C++17 and C++20 DIS](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2131r0.html)
