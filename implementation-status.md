@@ -178,7 +178,7 @@
 | [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | | |
 | [指示付き初期化][P0329] | | 8 | 6.0 (partial) | | 2019 Update 1 |
 | [コンセプト][P0734] | テンプレートパラメータに対する制約を行う | 10 | | | 2019 Update 3 |
-| [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | |
+| [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | 2019 Update 5 |
 | [暗黙のラムダキャプチャを簡略化][p0588] | | 8 | | | 2019 Update 4 |
 | [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正][p0846] | | 9 | 9.0 | | 2019 Update 1 |
 | [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | 9 | 8.0 | | |
@@ -187,11 +187,11 @@
 | [ラムダ式の制約][p0857] | | | | | 2019 Update 3 |
 | [特殊化のアクセスチェック][p0692] | | Yes | | | |
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | 9 | 8.0 | | 2019 Update 2 |
-| [PODを非推奨化][p0767] | | | | | |
+| [PODを非推奨化][p0767] | | | | | 2019 Update 5 |
 | [評価されない文脈でのラムダ式][p0315] | | 9 | | | |
 | [空オブジェクトを言語サポート][p0840] | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | 9 | 9.0 | | |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | 8 | | | |
-| [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | 8 | | | |
+| [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | 8 | | | 2019 |
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく | 8 | | | 2019 |
 | [型の文脈で`typename`の省略を許可][p0634] | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | 9 | | | |
 | [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | 8 | 9.0 | | 2019 Update 2 |
@@ -202,7 +202,7 @@
 | [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | |
 | [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | | |
 | [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 10 | 9.0 | | |
-| [constexpr関数内でのtry-catchブロックを許可][p1002] | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | | |
+| [constexpr関数内でのtry-catchブロックを許可][p1002] | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | | 2019 Update 5 |
 | [即時関数][p1073] | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | | | | |
 | [定数式内での共用体のアクティブメンバの変更を許可][p1330] | 共用体メンバの書き換えを定数式内で行えるようにする | 9 | 9.0 | | 2017 |
 | [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止][p1008] | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | 8.0 | | 2019 |
@@ -216,7 +216,7 @@
 | [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | 10 | | | |
 | [`new`式での配列要素数の推論](/lang/cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 | | | | |
 | [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md.nolink) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | 10 | Yes | | 2015 |
-| [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | | 8.0 partial (`-fmodules`, `-fmodules-ts`が必要) | | |
+| [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | | 8.0 partial (`-fmodules`, `-fmodules-ts`が必要) | | partial |
 | [コルーチン](/lang/cpp20/coroutines.md.nolink) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | | 8.0 (partial) | | |
 | [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md.nolink) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | | |
 | [constexprの文脈での自明なデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | 10 | | | |
@@ -269,6 +269,9 @@
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libstdc++: [C++ 2020 Implementation Status](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020)
 - libc++: [libc++ C++2a Status](http://libcxx.llvm.org/cxx2a_status.html)
+- Visual C++ (MSVC):
+    - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
+    - [次リリース情報 - Visual Studio 2019 change log](https://github.com/microsoft/STL/wiki/Changelog)
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
