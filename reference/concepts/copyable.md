@@ -7,8 +7,12 @@
 ```cpp
 namespace std {
   template<class T>
-  concept copyable = copy_constructible<T> && movable<T> &&
-                     assignable_from<T&, T&> && assignable_from<T&, const T&> && assignable_from<T&, const T>;
+  concept copyable =
+    copy_constructible<T> &&
+    movable<T> &&
+    assignable_from<T&, T&> &&
+    assignable_from<T&, const T&> &&
+    assignable_from<T&, const T>;
 }
 ```
 * assignable_from[link /reference/concepts/assignable_from.md]
