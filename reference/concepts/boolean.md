@@ -121,3 +121,5 @@ std::optional<int> is not boolean
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [LWG Issue 3208. Boolean's expression requirements are ordered inconsistently](https://wg21.cmeerw.net/lwg/issue3208)
+- [P1964R2 Wording for `boolean-testable`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1964r2.html)

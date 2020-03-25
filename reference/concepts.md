@@ -10,7 +10,7 @@
 
 ### 等しさの保持（*equality preservation*）
 
-ある式への等しい入力によって等しい出力が得られる時、その式は __等しさを保持__ している。この入力とは具体的な値ではなくその式の入力となり得る引数（オペランド）の集合であり、出力とはその式の結果およびその式によって変更された全ての引数（オペランド）のこと。
+ある式への等しい入力によって等しい出力が得られる時、その式は __等しさを保持__ している。入力とはその式に与えられた全ての引数（オペランド）であり、出力とはその式の結果およびその式によって変更された全ての引数のこと。
 
 また、必ずしも入力の個別の値が全てその式にとって有効である必要はない。例えば、整数に対する`a / b`という式は等しさを保持するが、`b = 0`の時この式は有効ではない。しかし、このことは式`a / b`が等しさを保持することを妨げない。  
 式への入力のうちこのような有効ではない値を除いたものをその式の __定義域（*domain*）__ と呼ぶ。
@@ -37,6 +37,8 @@ concept C2 = requires(const T a) {
   a + a;  // C2コンセプトを満たす型はこの式の実行においてその引数を変更してはならない
 };
 ```
+
+これによって各制約式では、型パラメータがCV修飾されない非配列のオブジェクト型であると仮定することで、それぞれの引数の値カテゴリとCV修飾を確定することができる。
 
 ### 暗黙的な式のバリエーション（*implicit expression variations*）
 
@@ -166,3 +168,5 @@ concept C =
 - [C++標準コンセプトの名前付けガイドライン - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190826/p1)
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [P2101R0 “Models” subsumes “satisfies” (Wording for US298 and US300)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2101r0.html)
+- [P2102R0 Make “implicit expression variations” more explicit (Wording for US185)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2102r0.html)

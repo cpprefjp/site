@@ -107,4 +107,5 @@ not_relation_s1s2 is not relation between S1 and S2
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [P1248R1 Remove `CommonReference` requirement from `StrictWeakOrdering` (a.k.a Fixing Relations)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1248r1.html)
 - [二項関係 - wikipedia](https://ja.wikipedia.org/wiki/二項関係)
