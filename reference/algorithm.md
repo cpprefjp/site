@@ -193,7 +193,7 @@ return distance(a, b);
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------------------|-------|
 | [`lower_bound`](algorithm/lower_bound.md) | 指定された要素以上の値が現れる最初の位置のイテレータを取得する | |
-| [`upper_bound`](algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最も後ろの位置のイテレータを取得する | |
+| [`upper_bound`](algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最初の位置のイテレータを取得する | |
 | [`equal_range`](algorithm/equal_range.md) | `lower_bound`と`upper_bound`の結果を組で取得する | |
 | [`binary_search`](algorithm/binary_search.md) | 二分探索法による検索を行う | |
 
