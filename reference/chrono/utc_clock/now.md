@@ -19,7 +19,7 @@ static time_point now();
 
 
 ## 備考
-他のクロッククラスとは違い、このクラスの`now()`静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
+このクラスの`now()`静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
 
 ## 例

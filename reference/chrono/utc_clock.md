@@ -13,7 +13,7 @@ namespace std::chrono {
 ## 概要
 `utc_clock`は、UTC時間 (協定世界時、Coordinated Universal Time) を表現するためのクロックである。
 
-他のクロッククラスとは違い、このクラスの[`now()`](utc_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
+このクラスの[`now()`](utc_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
 
 ### エポック

@@ -16,7 +16,7 @@ namespace std::chrono {
 このクロックは、UTCよりも10秒進んでいる。そのため、1958-01-01 00:00:00 TAIと1957-12-31 23:59:50 UTCは等価である。
 
 
-他のクロッククラスとは違い、このクラスの[`now()`](tai_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
+このクラスの[`now()`](tai_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
 
 ### エポック

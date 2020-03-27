@@ -157,8 +157,8 @@ namespace std::chrono {
 
 ## 備考
 - [`system_clock`](system_clock.md)と[`utc_clock`](utc_clock.md)の間の変換は、[`utc_clock`](utc_clock.md)クラスの機能を使用して変換する
-- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md.nolink)と[`utc_clock`](utc_clock.md)の間の変換は、[`tai_clock`](tai_clock.md)と[`gps_clock`](gps_clock.md.nolink)の機能を使用して変換する
-- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md.nolink)と[`system_clock`](system_clock.md)の直接の変換は定義されないため、[`utc_clock`](utc_clock.md)を介して変換することはできないが、[`clock_cast()`](clock_cast.md)関数ではそのような変換がサポートされる
+- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md)と[`utc_clock`](utc_clock.md)の間の変換は、[`tai_clock`](tai_clock.md)と[`gps_clock`](gps_clock.md.nolink)の機能を使用して変換する
+- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md)と[`system_clock`](system_clock.md)の直接の変換は定義されないため、[`utc_clock`](utc_clock.md)を介して変換することはできないが、[`clock_cast()`](clock_cast.md)関数ではそのような変換がサポートされる
 
 
 ## 例
