@@ -13,7 +13,7 @@ namespace std::chrono {
 ## 概要
 `gps_clock`は、GPS時間 (GPST) を表現するためのクロックである。この時刻系は、カーナビや携帯端末などで使用される。
 
-このクラスの[`now()`](gps_clock/now.md.nolink)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
+このクラスの[`now()`](gps_clock/now.md)静的メンバ関数は、標準では`noexcept(false)`である。実装が`noexcept(true)`である保証をしない限り、このクラスはTrivialClock要件を満たさない。
 
 
 ### エポック
@@ -33,9 +33,9 @@ GPS時間とTAI時間は19秒ずれていて、このずれは時間が経過し
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`now`](gps_clock/now.md.nolink)           | 現在日時を取得する           | C++20 |
-| [`to_utc`](gps_clock/to_utc.md.nolink)     | GPS時間からUTC時間へ変換する | C++20 |
-| [`from_utc`](gps_clock/from_utc.md.nolink) | UTC時間からGPS時間へ変換する | C++20 |
+| [`now`](gps_clock/now.md)           | 現在日時を取得する           | C++20 |
+| [`to_utc`](gps_clock/to_utc.md)     | GPS時間からUTC時間へ変換する | C++20 |
+| [`from_utc`](gps_clock/from_utc.md) | UTC時間からGPS時間へ変換する | C++20 |
 
 
 ## メンバ型
@@ -68,7 +68,7 @@ int main()
   std::cout << tp << std::endl;
 }
 ```
-* now()[link gps_clock/now.md.nolink]
+* now()[link gps_clock/now.md]
 
 ### 出力例
 ```
