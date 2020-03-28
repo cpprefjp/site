@@ -286,4 +286,5 @@
 
 ## 参照
 - [N2661 A Foundation to Sleep On](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm)
+- [P0216R0 C++ Standard Proposal — A Time-Zone Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0216r0.html)
 - [P0355R7 Extending `<chrono>` to Calendars and Time Zones](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0355r7.html)
