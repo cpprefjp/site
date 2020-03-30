@@ -44,7 +44,7 @@
 | [`utc_clock`](chrono/utc_clock.md) | UTC時間 (協定世界時) のクロック (class) | C++20 |
 | [`tai_clock`](chrono/tai_clock.md) | TAI時間 (国際原子時) のクロック (class) | C++20 |
 | [`gps_clock`](chrono/gps_clock.md) | GPS時間のクロック (class) | C++20 |
-| [`file_clock`](chrono/file_clock.md.nolink) | ファイル時間を作るために使用されるクロック (class) | C++20 |
+| [`file_clock`](chrono/file_clock.md) | ファイル時間を作るために使用されるクロック (type-alias) | C++20 |
 
 ### システム時間用の機能
 

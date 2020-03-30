@@ -6,10 +6,12 @@
 
 ```cpp
 namespace std::filesystem {
-  using file_time_type = chrono::time_point<実装定義のクロック型>;
+  using file_time_type = chrono::time_point<実装定義のクロック型>; // (1) C++17
+  using file_time_type = chrono::time_point<chrono::file_clock>;   // (1) C++20
 }
 ```
 * chrono::time_point[link /reference/chrono/time_point.md]
+* chrono::file_clock[link /reference/chrono/file_clock.md]
 
 ## 概要
 ファイル情報で使用する時間の型。
@@ -77,3 +79,5 @@ dir time : Fri Jun 15 14:19:03 2018
 
 ## 関連項目
 - [`last_write_time`](last_write_time.md)
+- [P0355R7 Extending `<chrono>` to Calendars and Time Zones](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0355r7.html)
+- [`file_clock` breaks ABI for C++17 implementations](https://wg21.cmeerw.net/lwg/issue3145)
