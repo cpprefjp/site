@@ -1,4 +1,4 @@
-# tai_time
+# gps_time
 * chrono[meta header]
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
@@ -7,32 +7,32 @@
 ```cpp
 namespace std::chrono {
   template <class Duration>
-  using tai_time = time_point<tai_clock, Duration>;    // (1) C++20
+  using gps_time = time_point<gps_clock, Duration>;    // (1) C++20
 
-  using tai_seconds = tai_time<seconds>;               // (2) C++20
+  using gps_seconds = gps_time<seconds>;               // (2) C++20
 
   template <class charT, class traits, class Duration>
   std::basic_ostream<charT, traits>&
     operator<<(std::basic_ostream<charT, traits>& os,
-               const tai_time<Duration>& tp);          // (3) C++20
+               const gps_time<Duration>& tp);          // (3) C++20
 
   template <class charT, class traits, class Duration, class Alloc = std::allocator<charT>>
   std::basic_istream<charT, traits>&
     from_stream(std::basic_istream<charT, traits>& is,
                 const charT* fmt,
-                tai_time<Duration>& tp,
+                gps_time<Duration>& tp,
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);            // (4) C++20
 }
 ```
 * time_point[link time_point.md]
-* tai_clock[link tai_clock.md]
+* gps_clock[link gps_clock.md]
 
 ## 概要
-TAI時間の一点を指す[`time_point`](time_point.md)に対する別名。
+GPS時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
-- (1) : [`tai_clock`](tai_clock.md)の[`time_point`](time_point.md)に対する別名。時間間隔を表す型はパラメータ化されている
-- (2) : 秒単位でTAI時間の一点を指す[`time_point`](time_point.md)に対する別名
+- (1) : [`gps_clock`](gps_clock.md)の[`time_point`](time_point.md)に対する別名。時間間隔を表す型はパラメータ化されている
+- (2) : 秒単位でGPS時間の一点を指す[`time_point`](time_point.md)に対する別名
 - (3) : 時間点に含まれる日付と時間を出力ストリームに出力する
 - (4) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
 
@@ -58,7 +58,7 @@ TAI時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
 
 ## 備考
-- (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`tai_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
+- (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`gps_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 
 
 ## 例
@@ -72,21 +72,21 @@ namespace chrono = std::chrono;
 int main()
 {
   // 未規定の時間間隔単位をもつ時間点
-  chrono::tai_clock::time_point tp = chrono::tai_clock::now();
+  chrono::gps_clock::time_point tp = chrono::gps_clock::now();
 
   // 秒単位の時間点 (日付と時間が出力される)
-  chrono::tai_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
+  chrono::gps_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
   std::cout << sec_p << std::endl;
 }
 ```
-* chrono::tai_seconds[color ff0000]
-* chrono::tai_clock[link tai_clock.md]
-* now()[link tai_clock/now.md]
+* chrono::gps_seconds[color ff0000]
+* chrono::gps_clock[link gps_clock.md]
+* now()[link gps_clock/now.md]
 * chrono::time_point_cast[link time_point_cast.md]
 
 #### 出力例
 ```
-2019-10-24 11:15:37 TAI
+2019-10-24 11:15:27 GPS
 ```
 
 ### 入力の例
@@ -102,9 +102,9 @@ int main()
   // タイムゾーンとオフセットを含まない入力
   {
     std::stringstream ss;
-    ss << "2019-10-24 20:15:37";
+    ss << "2019-10-24 20:15:27";
 
-    chrono::tai_seconds tp;
+    chrono::gps_seconds tp;
     chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S", tp);
 
     if (ss) {
@@ -118,9 +118,9 @@ int main()
   // タイムゾーンを含む入力
   {
     std::stringstream ss;
-    ss << "2019-10-24 20:15:10 TAI";
+    ss << "2019-10-24 20:15:10 GPS";
 
-    chrono::tai_seconds tp;
+    chrono::gps_seconds tp;
     std::string abbrev;
     chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z%z", tp, &abbrev);
 
@@ -134,9 +134,9 @@ int main()
 
 #### 出力例
 ```
-2019-10-24 11:15:37 TAI
-2019-10-24 11:15:37 TAI
-TAI
+2019-10-24 11:15:27 GPS
+2019-10-24 11:15:27 GPS
+GPS
 ```
 
 ## バージョン

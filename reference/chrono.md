@@ -85,8 +85,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`gps_time`](chrono/gps_time.md.nolink) | GPS時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
-| [`gps_seconds`](chrono/gps_time.md.nolink) | 秒単位でGPS時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`gps_time`](chrono/gps_time.md) | GPS時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`gps_seconds`](chrono/gps_time.md) | 秒単位でGPS時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 
 
 ### ファイル時間用の機能
