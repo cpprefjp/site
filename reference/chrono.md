@@ -93,7 +93,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`file_time`](chrono/file_time.md.nolink) | ファイル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
+| [`file_time`](chrono/file_time.md) | ファイル時間の一点を指すtime_pointの別名 (type-alias) | C++20 |
 
 
 ### 時計時間の変換

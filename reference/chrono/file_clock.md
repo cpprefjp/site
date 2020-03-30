@@ -33,7 +33,7 @@ static file_time<see below>
 ```
 * utc_clock[link utc_clock.md]
 * sys_time[link sys_time.md]
-* file_time[link file_time.md.nolink]
+* file_time[link file_time.md]
 
 もしくは
 
@@ -50,7 +50,7 @@ static file_time<see below>
 * tai_clock[link tai_clock.md]
 * gps_clock[link gps_clock.md]
 * utc_time[link utc_time.md]
-* file_time[link file_time.md.nolink]
+* file_time[link file_time.md]
 
 これらの戻り値となる[`time_point`](time_point.md)の`Duration`は、入力の[`time_point`](time_point.md)から計算される。
 
