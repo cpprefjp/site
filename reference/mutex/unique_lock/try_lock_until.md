@@ -15,8 +15,9 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 タイムアウトする絶対時間を指定してロックの取得を試みる
 
 
-## 要件
-`Mutex`型が、`try_lock_until()`メンバ関数をサポートするミューテックス型であること
+## テンプレートパラメータ制約
+- `Mutex`型が、`try_lock_until()`メンバ関数をサポートするミューテックス型であること
+- [`chrono::is_clock_v`](/reference/chrono/is_clock.md)`<Clock>`が`true`であること (C++20)
 
 
 ## 効果

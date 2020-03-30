@@ -14,6 +14,11 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 ## 概要
 タイムアウトする絶対時間を指定してロックの取得を試みる
 
+
+## テンプレートパラメータ制約
+- [`chrono::is_clock_v`](/reference/chrono/is_clock.md)`<Clock>`が`true`であること (C++20)
+
+
 ## 効果
 `abs_time`パラメータで指定された絶対時間に到達するまで、ミューテックスの所有権取得を試みる。
 

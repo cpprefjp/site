@@ -15,6 +15,10 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 タイムアウトする絶対時間を指定して共有ロックの取得を試みる
 
 
+## テンプレートパラメータ制約
+- [`chrono::is_clock_v`](/reference/chrono/is_clock.md)`<Clock>`が`true`であること (C++20)
+
+
 ## 効果
 ```cpp
 pm->try_lock_until_shared(abs_time);

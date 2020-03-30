@@ -16,6 +16,10 @@ future_status wait_until(const chrono::time_point<Clock, Duration>& abs_time) co
 絶対時間でタイムアウトを指定して、処理が完了するまで待機する
 
 
+## テンプレートパラメータ制約
+- [`chrono::is_clock_v`](/reference/chrono/is_clock.md)`<Clock>`が`true`であること (C++20)
+
+
 ## 効果
 共有状態が遅延状態([`future_status::deferred`](../future_status.md))の場合、この関数は何もしない。そうでない場合、`abs_time`で指定された絶対時間の期限まで、共有状態が準備状態([`future_status::ready`](../future_status.md))になるのを待機する。
 

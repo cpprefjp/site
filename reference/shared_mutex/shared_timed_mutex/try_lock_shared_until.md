@@ -19,6 +19,10 @@ bool try_lock_shared_until(const chrono::time_point<Clock, Duration>& abs_time);
 この関数を呼び出したスレッドが、ミューテックスの排他所有権と共有所有権のいずれもを保持していないこと。
 
 
+## テンプレートパラメータ制約
+- [`chrono::is_clock_v`](/reference/chrono/is_clock.md)`<Clock>`が`true`であること (C++20)
+
+
 ## 効果
 `abs_time`パラメータで指定された絶対時間に到達するまで、ミューテックスの共有所有権の取得を試みる。
 

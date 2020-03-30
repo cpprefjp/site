@@ -37,9 +37,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------|-------|
-| [`is_clock`](chrono/is_clock.md.nolink) | クロック型かを判定する (class template) | C++20 |
-| [`system_clock`](chrono/system_clock.md)       | システム時間のクロック(class) | C++11 |
-| [`steady_clock`](chrono/steady_clock.md)       | 時間が逆行しないクロック(class) | C++11 |
+| [`is_clock`](chrono/is_clock.md) | クロック型かを判定する (class template) | C++20 |
+| [`system_clock`](chrono/system_clock.md) | システム時間のクロック(class) | C++11 |
+| [`steady_clock`](chrono/steady_clock.md) | 時間が逆行しないクロック(class) | C++11 |
 | [`high_resolution_clock`](chrono/high_resolution_clock.md) | 高分解能クロック(class) | C++11 |
 | [`utc_clock`](chrono/utc_clock.md) | UTC時間 (協定世界時) のクロック (class) | C++20 |
 | [`tai_clock`](chrono/tai_clock.md) | TAI時間 (国際原子時) のクロック (class) | C++20 |

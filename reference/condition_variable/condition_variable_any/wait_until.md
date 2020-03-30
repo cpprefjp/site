@@ -28,6 +28,10 @@ bool wait_until(Lock& lock,
 述語を指定する場合、述語呼び出しが`true`になるまで待機を続行する。
 
 
+## テンプレートパラメータ制約
+- [`chrono::is_clock_v`](/reference/chrono/is_clock.md)`<Clock>`が`true`であること (C++20)
+
+
 ## 効果
 - (1) :
     - アトミックに`lock.[unlock()](/reference/mutex/unique_lock/unlock.md)`する
