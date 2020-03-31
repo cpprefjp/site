@@ -28,14 +28,14 @@ template<class T, class U>
 concept weakly-equality-comparable-with =
   requires(const remove_reference_t<T>& t,
            const remove_reference_t<U>& u) {
-    { t == u } -> boolean;
-    { t != u } -> boolean;
-    { u == t } -> boolean;
-    { u != t } -> boolean;
+    { t == u } -> boolean-testable;
+    { t != u } -> boolean-testable;
+    { u == t } -> boolean-testable;
+    { u != t } -> boolean-testable;
   };
 ```
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* boolean[link /reference/concepts/boolean.md]
+* boolean-testable[link /reference/concepts/boolean-testable.md]
 
 - (1) : 以下のように定義される
 

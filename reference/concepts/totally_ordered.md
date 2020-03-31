@@ -9,34 +9,17 @@ namespace std {
   template<class T, class U>
   concept totally_ordered =
     equality_comparable<T> &&
-    requires(const remove_reference_t<T>& a,
-             const remove_reference_t<T>& b) {
-      { a <  b } -> boolean;
-      { a >  b } -> boolean;
-      { a <= b } -> boolean;
-      { a >= b } -> boolean;
-    };
+    partially-ordered-with<T, T>;
 
   template<class T, class U>
   concept totally_ordered_with =
     totally_ordered<T> && totally_ordered<U> &&
-    common_reference_with<const remove_reference_t<T>&, const remove_reference_t<U>&> &&
+    equality_comparable_with<T, U> &&
     totally_ordered<
       common_reference_t<
         const remove_reference_t<T>&,
         const remove_reference_t<U>&>> &&
-    equality_comparable_with<T, U> &&
-    requires(const remove_reference_t<T>& t,
-             const remove_reference_t<U>& u) {
-      { t <  u } -> boolean;
-      { t >  u } -> boolean;
-      { t <= u } -> boolean;
-      { t >= u } -> boolean;
-      { u <  t } -> boolean;
-      { u >  t } -> boolean;
-      { u <= t } -> boolean;
-      { u >= t } -> boolean;
-    };
+    partially-ordered-with<T, U>;
 }
 ```
 * boolean[link /reference/concepts/boolean.md]
@@ -45,6 +28,7 @@ namespace std {
 * equality_comparable[link /reference/concepts/equality_comparable.md]
 * equality_comparable_with[link /reference/concepts/equality_comparable.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
+* partially-ordered-with[link /reference/compare/three_way_comparable.md]
 
 ## 概要
 `totally_ordered`及び`totally_ordered_with`は、指定された型`T`もしくは`T, U`の間で`< <= > >=`の演算子による比較が可能であり、その順序付けが全順序の要件を満たしている事を表すコンセプトである。
@@ -241,3 +225,4 @@ S2 is not totally ordered with int
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [LWG Issue 3329. `totally_ordered_with` both directly and indirectly requires `common_reference_with`](https://wg21.cmeerw.net/lwg/issue3329)
