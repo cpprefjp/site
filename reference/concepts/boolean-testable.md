@@ -1,4 +1,4 @@
-# boolean
+# boolean-testable
 * concepts[meta header]
 * std[meta namespace]
 * concept[meta id-type]
@@ -59,7 +59,7 @@ concept boolean-testable =
 
 `boolean-testable`コンセプトのモデルとなる型には、`bool`, [`std::true_type`](/reference/type_traits/true_type.md), `int*`等ポインタ型、[`std::bitset<N>::reference`](https://cpprefjp.github.io/reference/bitset/bitset/reference.html)等がある。
 
-### booleanコンセプト
+## booleanコンセプト
 
 `boolean-testable`コンセプトは当初、真理値型を表す説明専用ではない`boolean`コンセプトとして以下の様に定義されていた。
 
