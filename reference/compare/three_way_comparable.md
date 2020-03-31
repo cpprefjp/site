@@ -270,3 +270,5 @@ int main() {
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [LWG Issue 3360. `three_way_comparable_with` is inconsistent with similar concepts](https://wg21.cmeerw.net/lwg/issue3360)
+- [P1964R2 Wording for `boolean-testable`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1964r2.html)
