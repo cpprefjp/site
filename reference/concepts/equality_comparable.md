@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template<class T, class U>
+  template<class T>
   concept equality_comparable = /*see below*/;      // (1)
 
   template<class T, class U>
@@ -40,7 +40,7 @@ concept weakly-equality-comparable-with =
 - (1) : 以下のように定義される
 
 ```cpp
-template<class T, class U>
+template<class T>
 concept equality_comparable = weakly-equality-comparable-with<T, T>;
 ```
 
