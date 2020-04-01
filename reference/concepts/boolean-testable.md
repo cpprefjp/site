@@ -30,6 +30,7 @@ namespace std {
 template<class T>
 concept boolean-testable-impl = convertible_to<T, bool>;
 ```
+* convertible_to[link /reference/concepts/convertible_to.md]
 
 これを用いて、`boolean-testable`は以下の様に定義される。
 
@@ -44,7 +45,7 @@ concept boolean-testable =
 ## モデル
 
 - `decltype((e))`が`T`となる式`e`について、次の条件を満たす場合に限って型`T`は`boolean-testable-impl`のモデルである。
-    - 次のどちらか
+    - 次のどちらかを満たす
         - `remove_cvref_t<T>`はクラス型ではない
         - `operator||, operator&&`を`remove_cvref_t<T>`のクラススコープで名前解決したかの様に探索した結果、候補関数は見つからない
     - `operator||, operator&&`のADLによる探索では不適格な宣言は見つからない
