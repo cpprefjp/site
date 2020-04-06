@@ -13,7 +13,7 @@ namespace std {
 * equal_to[link equal_to.md]
 
 ## 概要
-`std::default_searcher`は、[`std::search()`](/reference/algorithm/search.md)のデフォルトの検索法で、シーケンス (text) からサブシーケンス (pattern) を検索する関数オブジェクトである。このクラスは、検索器 (searcher) を指定する`[`std::search()`](/reference/algorithm/search.md)のインタフェースに、デフォルトの検索方法を指定するために定義されている。
+`std::default_searcher`は、[`std::search()`](/reference/algorithm/search.md)のデフォルトの検索法で、シーケンス (text) からサブシーケンス (pattern) を検索する関数オブジェクトである。このクラスは、検索器 (searcher) を指定する[`std::search()`](/reference/algorithm/search.md)のインタフェースに、デフォルトの検索方法を指定するために定義されている。
 
 このクラスは、コンストラクタおよびクラステンプレートのテンプレート引数で、検索対象となるサブシーケンス (pattern) を登録し、関数呼び出し演算子で全体のシーケンス (text) を指定して検索を実行する。
 
