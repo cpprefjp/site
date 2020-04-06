@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * copyable[link /reference/concepts/copyable.md]
-* default_constructible[link /reference/concepts/default_initializable.md]
+* default_initializable[link /reference/concepts/default_initializable.md]
 
 ## 概要
 
