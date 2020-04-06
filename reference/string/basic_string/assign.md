@@ -87,7 +87,7 @@ basic_string& assign(const T& t,
   return assign(sv.substr(pos, n));
   ```
   * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * substr[link /reference/string_view/basic_string_view/append.md]
+  * substr[link /reference/string_view/basic_string_view/substr.md]
 
 
 ## 戻り値

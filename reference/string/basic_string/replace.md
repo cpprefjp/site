@@ -117,7 +117,7 @@ basic_string& replace(const_iterator i1,
   return replace(pos1, n1, sv.substr(pos2, n2));
   ```
   * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * substr[link /reference/string_view/basic_string_view/append.md]
+  * substr[link /reference/string_view/basic_string_view/substr.md]
 
 - (14) : 以下と等価。
   ```cpp

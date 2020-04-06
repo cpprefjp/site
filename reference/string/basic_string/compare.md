@@ -73,7 +73,7 @@ int compare(size_type pos1,
   return s.substr(pos1, n1).compare(sv.substr(pos2, n2));
   ```
   * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * substr[link /reference/string_view/basic_string_view/append.md]
+  * substr[link /reference/string_view/basic_string_view/substr.md]
   * compare[link /reference/string_view/basic_string_view/compare.md]
 
 ## 例外

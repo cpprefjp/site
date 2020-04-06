@@ -7,11 +7,11 @@
 ```cpp
 namespace std {
   template<class T>
-  concept semiregular = copyable<T> && default_constructible<T>;
+  concept semiregular = copyable<T> && default_initializable<T>;
 }
 ```
 * copyable[link /reference/concepts/copyable.md]
-* default_constructible[link /reference/concepts/default_constructible.md]
+* default_constructible[link /reference/concepts/default_initializable.md]
 
 ## 概要
 
