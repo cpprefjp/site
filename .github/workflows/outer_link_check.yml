@@ -1,0 +1,23 @@
+name: outer link check
+
+on:
+  schedule:
+    # UTC 表記
+    # 日本時間 23:30
+    - cron: "30 14 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+    - uses: actions/checkout@v2
+    - name: check
+      run: python3 .github/workflows/script/link_check.py --check-outer-link
