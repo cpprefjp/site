@@ -22,7 +22,7 @@ namespace std {
     partially-ordered-with<T, U>;
 }
 ```
-* boolean[link /reference/concepts/boolean.md]
+* boolean[link /reference/concepts/boolean-testable.md]
 * common_reference_with[link /reference/concepts/common_reference_with.md]
 * common_reference_t[link /reference/type_traits/common_reference.md]
 * equality_comparable[link /reference/concepts/equality_comparable.md]
