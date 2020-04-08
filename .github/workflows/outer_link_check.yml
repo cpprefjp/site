@@ -22,4 +22,8 @@ jobs:
       with:
         ref: master
     - name: check
-      run: python3 .github/workflows/script/link_check.py --check-outer-link
+      run: python3 .github/workflows/script/link_check.py --check-outer-link 2> check_result.txt
+    - name: print check check_result
+      run: cat check_result.txt
+    - name: create github issue when needed
+      run: .github/workflows/script/create_github_issue_when_not_empty.sh check_result.txt ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} ${{ github.sha }}
