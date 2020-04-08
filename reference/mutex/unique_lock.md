@@ -26,7 +26,7 @@ namespace std {
 - 任意のタイミングで所有ミューテックスのロック操作を呼び出せる
 
 
-また条件変数std::[`condition_variable`](/reference/condition_variable/condition_variable.md)オブジェクトと組み合わせて利用できるのは、`std::unique_lock<std::`[`mutex`](mutex.md)`>`型のオブジェクトに限定されている。
+また条件変数`std::`[`condition_variable`](/reference/condition_variable/condition_variable.md)オブジェクトと組み合わせて利用できるのは、`std::unique_lock<std::`[`mutex`](mutex.md)`>`型のオブジェクトに限定されている。
 
 ## メンバ関数
 
