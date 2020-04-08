@@ -13,9 +13,9 @@ curl --request POST \
     --url "https://api.github.com/repos/$3/issues" \
     --header "authorization: Bearer $2" \
     --header 'content-type: application/json' \
-    -d @- << EOF 
+    -d @- << EOF
 {
     "title": "outer link check failed at $4",
-    "body": "The commit hash was: _$4_.\n\n$(cat "$1")"
+    "body": "The commit hash was: _$4_.\n\n$(perl -pe 's/\n/\\n/g' "$1" | cat)"
 }
 EOF
