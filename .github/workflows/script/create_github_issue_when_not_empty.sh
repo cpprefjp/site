@@ -16,6 +16,6 @@ curl --request POST \
     -d @- << EOF
 {
     "title": "outer link check failed at $4",
-    "body": "The commit hash was: _$4_.\n\n$(perl -pe 's/\n/\\n/g' "$1" | cat)"
+    "body": "The commit hash was: _$4_.\n\n$(perl -pe 's/\n/\\n/g' "$1")"
 }
 EOF
