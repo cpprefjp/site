@@ -19,5 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
     - uses: actions/checkout@v2
+      with:
+        ref: master
     - name: check
       run: python3 .github/workflows/script/link_check.py --check-outer-link
