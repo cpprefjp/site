@@ -170,12 +170,12 @@
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
-| [ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する | 8 | 6.0 | |
+| [ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する | 8 | 6.0 | 2019 Update 5 |
 | [ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする | 8 | 6.0 | | 2019 Update 1 |
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](/lang/cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | | | 2019 Update 2 |
 | [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | 8 | 9.0 | | 2019 Update 2 |
 | [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | | 2015 |
-| [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | | |
+| [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | | 2019 Update 5 |
 | [指示付き初期化][P0329] | | 8 | 6.0 (partial) | | 2019 Update 1 |
 | [コンセプト][P0734] | テンプレートパラメータに対する制約を行う | 10 | | | 2019 Update 3 |
 | [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | 2019 Update 5 |
@@ -221,7 +221,7 @@
 | [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md.nolink) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | | |
 | [constexprの文脈での自明なデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | 10 | | | |
 | [特殊メンバ関数の条件付き自明定義](/lang/cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によって自明な特殊メンバ関数と非自明な特殊メンバ関数をオーバーロードできるようにする | | | | |
-| [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](cpp20/nodiscard_should_have_a_reason.md.nolink) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | 10 | 9.0 | | |
+| [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](cpp20/nodiscard_should_have_a_reason.md.nolink) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | 10 | 9.0 | | 2019 Update 5 |
 | [スコープ付き列挙型のusing宣言](/lang/cpp20/using_enum.md.nolink) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする | | | | 2019 Update 4 |
 | [集成体クラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_aggregates.md.nolink) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | 10 | | | |
 | [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md.nolink) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 | 10 | | | |
