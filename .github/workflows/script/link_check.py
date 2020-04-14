@@ -9,7 +9,7 @@ import sys
 
 urllib3.disable_warnings()
 
-def check_url(url: str, retry: int = 3) -> (bool, str):
+def check_url(url: str, retry: int = 5) -> (bool, str):
     try:
         url_parts = urllib.parse.urlparse(url)
         res = requests.get("://".join([url_parts.scheme, url_parts.netloc]), verify=False)
@@ -20,11 +20,15 @@ def check_url(url: str, retry: int = 3) -> (bool, str):
         else:
             return res.status_code != 404, "not found"
     except requests.exceptions.ConnectionError as e:
-        return False, str(e)
+        if retry <= 0:
+            return False, "requests.exceptions.ConnectionError : {} ".format(e)
+        return check_url(url, retry - 1)
     except requests.exceptions.RequestException as e:
         if retry <= 0:
-            return False, str(e)
+            return False, "requests.exceptions.RequestException : {}".format(e)
         return check_url(url, retry - 1)
+    except Exception as e:
+        return False, "unknown exception : {}".format(e)
 
 def fix_link(link: str) -> str:
     if "http" in link or ".md" in link:
