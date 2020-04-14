@@ -3,13 +3,16 @@ import glob
 import re
 import os
 import urllib.request, urllib.error, urllib.parse
+import urllib3
 import requests
 import sys
+
+urllib3.disable_warnings()
 
 def check_url(url: str, retry: int = 3) -> (bool, str):
     try:
         url_parts = urllib.parse.urlparse(url)
-        res = requests.get("://".join([url_parts.scheme, url_parts.netloc]))
+        res = requests.get("://".join([url_parts.scheme, url_parts.netloc]), verify=False)
         if res.url:
             if res.url == url:
                 return True, ""
