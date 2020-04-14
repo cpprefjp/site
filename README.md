@@ -1,7 +1,7 @@
 site
 ====
 
-![detect forbidden characters](https://github.com/cpprefjp/site/workflows/detect%20forbidden%20characters/badge.svg?branch=master) ![build](https://github.com/cpprefjp/site/workflows/build/badge.svg)
+![detect forbidden characters](https://github.com/cpprefjp/site/workflows/detect%20forbidden%20characters/badge.svg?branch=master) ![inner link check](https://github.com/cpprefjp/site/workflows/inner%20link%20check/badge.svg?branch=master) ![outer link check](https://github.com/cpprefjp/site/workflows/outer%20link%20check/badge.svg?branch=master) ![build](https://github.com/cpprefjp/site/workflows/build/badge.svg)
 
 このリポジトリは、C++リファレンスサイト[cpprefjp](https://cpprefjp.github.io/)のMarkdownソースです。
 
