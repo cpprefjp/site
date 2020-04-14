@@ -51,7 +51,7 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 
 翻訳や解説などで活用してください：
 
-- [Standard Template Library プログラミング on the Web](http://episteme.wankuma.com/stlprog/index.html)
+- [Standard Template Library プログラミング on the Web](https://web.archive.org/web/20190112041213/http://episteme.wankuma.com/stlprog/index.html)
 
 
 ## プライバシーポリシー
