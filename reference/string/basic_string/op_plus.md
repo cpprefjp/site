@@ -180,17 +180,17 @@ C++20からこの演算子による文字列連結時にアロケータがどの
 |オーバーロード|C++17まで|GCC|clang|MSVC|C++20から|
 |----|----|----|----|----|----|
 |(1) : `lhs + rhs`|`lhs`からのSOCCC|`lhs`からのSOCCC|`lhs`|新規にデフォルト構築|`lhs`からのSOCCC|
-|(3) : `lhs + std::move(rhs)`|`rhs`|`rhs`|`rhs`|`rhs`|`rhs`|
 |(2) : `std::move(lhs) + rhs`|`lhs`|`lhs`|`lhs`|`lhs`|`lhs`|
+|(3) : `lhs + std::move(rhs)`|`rhs`|`rhs`|`rhs`|`rhs`|`rhs`|
 |(4) : `std::move(lhs) + std::move(rhs)`|`lhs`または`rhs`|`lhs`|`lhs`|`lhs`|`lhs`|
-|(9) : `lhs + "rhs"`|新規にデフォルト構築|`lhs`からのSOCCC|`lhs`|新規にデフォルト構築|`lhs`からのSOCCC|
-|(11) : `lhs + 'r'`|新規にデフォルト構築|`lhs`からのSOCCC|`lhs`|新規にデフォルト構築|`lhs`からのSOCCC|
-|(10) : `std::move(lhs) + "rhs"`|`lhs`|`lhs`|`lhs`|`lhs`|`lhs`|
-|(12) : `std::move(lhs) + 'r'`|`lhs`|`lhs`|`lhs`|`lhs`|`lhs`|
 |(5) : `"lhs" + rhs`|新規にデフォルト構築|新規にデフォルト構築|`rhs`|新規にデフォルト構築|`lhs`からのSOCCC|
-|(7) : `'l' + rhs`|新規にデフォルト構築|新規にデフォルト構築|`rhs`|新規にデフォルト構築|`lhs`からのSOCCC|
 |(6) : `"lhs" + std::move(rhs)`|`rhs`|`rhs`|`rhs`|`rhs`|`rhs`|
+|(7) : `'l' + rhs`|新規にデフォルト構築|新規にデフォルト構築|`rhs`|新規にデフォルト構築|`lhs`からのSOCCC|
 |(8) : `'l' + std::move(rhs)`|`rhs`|`rhs`|`rhs`|`rhs`|`rhs`|
+|(9) : `lhs + "rhs"`|新規にデフォルト構築|`lhs`からのSOCCC|`lhs`|新規にデフォルト構築|`lhs`からのSOCCC|
+|(10) : `std::move(lhs) + "rhs"`|`lhs`|`lhs`|`lhs`|`lhs`|`lhs`|
+|(11) : `lhs + 'r'`|新規にデフォルト構築|`lhs`からのSOCCC|`lhs`|新規にデフォルト構築|`lhs`からのSOCCC|
+|(12) : `std::move(lhs) + 'r'`|`lhs`|`lhs`|`lhs`|`lhs`|`lhs`|
 
 
 表にあるように、C++17までの仕様に完全に準拠している実装は無かった上に各実装によって伝播仕様がバラバラだったため、この変更によって影響を受けるコードはほぼ無いと思われる。
