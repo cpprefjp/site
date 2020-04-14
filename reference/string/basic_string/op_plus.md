@@ -173,9 +173,9 @@ basic_string<charT, traits, Allocator>
 ## 備考
 (5)、(6) の形式の `lhs`、および、(9)、(10) の形式の `rhs` の文字列長算出のために `traits::length()` が使用される
 
-## アロケータの伝搬
+## アロケータの伝播
 
-C++20からこの演算子による文字列連結時にアロケータがどのように伝搬するかが変更された。C++17までの仕様及び各実装とC++20からの各オーバーロード利用時の結果オブジェクトへのアロケータ供給元は次のようになる。なお、SOCCCは[`select_on_container_copy_construction`](/reference/memory/allocator_traits/select_on_container_copy_construction.md)の略。
+C++20からこの演算子による文字列連結時にアロケータがどのように伝播するかが変更された。C++17までの仕様及び各実装とC++20からの各オーバーロード利用時の結果オブジェクトへのアロケータ供給元は次のようになる。なお、SOCCCは[`select_on_container_copy_construction`](/reference/memory/allocator_traits/select_on_container_copy_construction.md)の略。
 
 |オーバーロード|C++17まで|GCC|clang|MSVC|C++20から|
 |----|----|----|----|----|----|
@@ -193,7 +193,7 @@ C++20からこの演算子による文字列連結時にアロケータがどの
 |(8) : `'l' + std::move(rhs)`|`rhs`|`rhs`|`rhs`|`rhs`|`rhs`|
 
 
-表にあるように、C++17までの仕様に完全に準拠している実装は無かった上に各実装によって伝搬仕様がバラバラだったため、この変更によって影響を受けるコードはほぼ無いと思われる。
+表にあるように、C++17までの仕様に完全に準拠している実装は無かった上に各実装によって伝播仕様がバラバラだったため、この変更によって影響を受けるコードはほぼ無いと思われる。
 
 ## 例
 ```cpp example

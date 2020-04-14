@@ -52,7 +52,7 @@ int main()
 
 
 ### <a id="carries_dependency" href="#carries_dependency">`[[carries_dependency]]`属性</a>
-`[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order_consume`](/reference/atomic/memory_order.md)を、関数をまたいで伝搬することを明示するための属性である。
+`[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order_consume`](/reference/atomic/memory_order.md)を、関数をまたいで伝播することを明示するための属性である。
 
 以下は、[`memory_order_consume`](/reference/atomic/memory_order.md)を使用した順序付けの例である：
 
@@ -70,10 +70,10 @@ if (r1) {
 * x.load[link /reference/atomic/atomic/load.md]
 * memory_order_consume[link /reference/atomic/memory_order.md]
 
-ここでは、`r1`に関連する操作が全て同一関数内で行われているが、一部の操作が別の関数になっていると、別の関数になった操作に値の依存があるかどうか・依存として扱ってよいのかどうかがコンパイラに判断できない可能性がある。そのような状況で、関数のパラメータおよび戻り値のそれぞれが値の依存性を伝搬させることを明示するために`[[carries_dependency]]`属性を使用する。
+ここでは、`r1`に関連する操作が全て同一関数内で行われているが、一部の操作が別の関数になっていると、別の関数になった操作に値の依存があるかどうか・依存として扱ってよいのかどうかがコンパイラに判断できない可能性がある。そのような状況で、関数のパラメータおよび戻り値のそれぞれが値の依存性を伝播させることを明示するために`[[carries_dependency]]`属性を使用する。
 
 
-#### 関数の戻り値で値の依存性を伝搬させる
+#### 関数の戻り値で値の依存性を伝播させる
 関数の戻り値に対して値の依存性を持たせる場合、関数に対して`[[carries_dependency]]`属性を付加する。
 
 ```cpp
@@ -94,7 +94,7 @@ if (r1) {
 * memory_order_consume[link /reference/atomic/memory_order.md]
 
 
-#### 関数のパラメータで値の依存性を伝搬させる
+#### 関数のパラメータで値の依存性を伝播させる
 関数のパラメータに対して値の依存性を持たせる場合、各パラメータ名のうしろに`[[carries_dependency]]`属性を付加する。
 
 ```cpp
