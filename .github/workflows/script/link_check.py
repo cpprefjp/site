@@ -12,7 +12,7 @@ urllib3.disable_warnings()
 def check_url(url: str, retry: int = 5) -> (bool, str):
     try:
         url_parts = urllib.parse.urlparse(url)
-        res = requests.get("://".join([url_parts.scheme, url_parts.netloc]), verify=False)
+        res = requests.get("://".join([url_parts.scheme, url_parts.netloc]), verify=False, timeout=60.0)
         if res.url:
             if res.url == url:
                 return True, ""
