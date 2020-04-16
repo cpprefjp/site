@@ -10,11 +10,6 @@ namespace std {
   concept boolean-testable = /*see below*/; // 説明専用コンセプト
 }
 ```
-* movable[link /reference/concepts/movable.md.nolink]
-* same_as[link /reference/concepts/same_as.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 ## 概要
 
@@ -88,7 +83,7 @@ namespace std {
     };
 }
 ```
-* movable[link /reference/concepts/movable.md.nolink]
+* movable[link /reference/concepts/movable.md]
 * same_as[link /reference/concepts/same_as.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
