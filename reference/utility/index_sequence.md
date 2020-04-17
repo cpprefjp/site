@@ -26,9 +26,8 @@ void g(std::size_t a, std::size_t b, std::size_t c)
   std::cout << a << ", " << b << ", " << c << std::endl;
 }
 
-template <class T, T... Seq>
-void f(std::integer_sequence<T, Seq...>) // g++のバグに対する回避策
-                                         // 本来はindex_sequenceで受け取れるはず
+template <std::size_t... Seq>
+void f(std::index_sequence<Seq...>)
 {
   // 定数のシーケンス{0, 1, 2}を取り出して、関数g()の引数として転送
   g(Seq...);
@@ -58,7 +57,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2015
 
 ### 備考
-- GCC 4.9.2で、`std::index_sequence`を関数のパラメータとして受け取るとコンパイルエラーになる問題がある([Bug 65790](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65790))
+- GCC 4.9.2で、`std::index_sequence`を関数のパラメータとして受け取るとコンパイルエラーになる問題があった([Bug 65790](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65790))。GCC 5.2.0で修正された。
 
 
 ## 参照
