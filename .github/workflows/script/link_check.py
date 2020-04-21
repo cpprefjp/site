@@ -23,12 +23,12 @@ def check_url(url: str, retry: int = 5) -> (bool, str):
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
-        time.sleep(2)
+        time.sleep(20)
         return check_url(url, retry - 1)
     except requests.exceptions.RequestException as e:
         if retry <= 0:
             return False, "requests.exceptions.RequestException : {}".format(e)
-        time.sleep(2)
+        time.sleep(20)
         return check_url(url, retry - 1)
     except Exception as e:
         return False, "unknown exception : {}".format(e)
