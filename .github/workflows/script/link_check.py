@@ -41,17 +41,24 @@ def fix_link(link: str) -> str:
     else:
         return ""
 
-def find_all_links(text: str) -> list:
-    links = []
+def find_all_links(text: str) -> (list, set):
+    inner_links = []
+    outer_links = set()
     for m in re.finditer(r'\[(.*?)\]\((.*?)\)', text):
         link = fix_link(m.group(2))
         if link:
-            links.append(link)
+            if "http" in link:
+                outer_links.add(link)
+            else:
+                inner_links.append(link)
     for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', text):
         link = fix_link(m.group(2))
         if link:
-            links.append(link)
-    return links
+            if "http" in link:
+                outer_links.add(link)
+            else:
+                inner_links.append(link)
+    return inner_links, outer_links
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(description="")
@@ -71,40 +78,42 @@ if __name__ == '__main__':
 
     found_error = False
     current_dir = os.getcwd()
+    outer_link_dict = dict()
     for p in glob.glob("**/*.md", recursive=True):
         dirname = os.path.dirname(p)
         with open(p) as f:
             text = f.read()
 
-        for link in find_all_links(text):
-            rel_link = ""
-            if link.startswith("/"):
-                rel_link = os.path.join(current_dir, link.lstrip("/"))
-            elif not link.startswith("http"):
-                rel_link = os.path.join(dirname, link)
-
-            if link.startswith("http"):
-                if not args.check_outer_link:
-                    continue
-
-                exists, reason = check_url(link)
-                if not exists:
-                    print("{} href {} not found. {}".format(p, link, reason), file=sys.stderr)
-                    found_error = True
-            elif link.endswith(".nolink"):
-                if not args.check_inner_link:
-                    continue
-
-                if os.path.exists(rel_link):
-                    print("nolinked {} href {} found.".format(p, link), file=sys.stderr)
-                    found_error = True
+        inner_links, outer_links = find_all_links(text)
+        for link in outer_links:
+            if link in outer_link_dict:
+                outer_link_dict[link].append(p)
             else:
-                if not args.check_inner_link:
-                    continue
+                outer_link_dict[link] = [p]
 
-                if not os.path.exists(rel_link):
-                    print("{} href {} not found.".format(p, link), file=sys.stderr)
-                    found_error = True
+        if args.check_inner_link:
+            for link in inner_links:
+                rel_link = ""
+                if link.startswith("/"):
+                    rel_link = os.path.join(current_dir, link.lstrip("/"))
+                else:
+                    rel_link = os.path.join(dirname, link)
+
+                if link.endswith(".nolink"):
+                    if os.path.exists(rel_link):
+                        print("nolinked {} href {} found.".format(p, link), file=sys.stderr)
+                        found_error = True
+                else:
+                    if not os.path.exists(rel_link):
+                        print("{} href {} not found.".format(p, link), file=sys.stderr)
+                        found_error = True
+
+    if args.check_outer_link:
+        for link, from_list in outer_link_dict.items():
+            exists, reason = check_url(link)
+            if not exists:
+                print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
+                found_error = True
 
     if found_error:
         sys.exit(1)
