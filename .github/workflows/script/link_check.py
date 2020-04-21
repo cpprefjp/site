@@ -7,8 +7,13 @@ import urllib3
 import requests
 import sys
 import time
+import random
 
 urllib3.disable_warnings()
+
+def retry_sleep():
+    sec = random.uniform(20, 30);
+    time.sleep(sec)
 
 def check_url(url: str, retry: int = 5) -> (bool, str):
     try:
@@ -23,12 +28,12 @@ def check_url(url: str, retry: int = 5) -> (bool, str):
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
-        time.sleep(20)
+        retry_sleep()
         return check_url(url, retry - 1)
     except requests.exceptions.RequestException as e:
         if retry <= 0:
             return False, "requests.exceptions.RequestException : {}".format(e)
-        time.sleep(20)
+        retry_sleep()
         return check_url(url, retry - 1)
     except Exception as e:
         return False, "unknown exception : {}".format(e)
