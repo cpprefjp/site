@@ -72,11 +72,7 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 
 
 ## 戻り値
-```cpp
-return get_tzdb().current_zone();
-```
-* get_tzdb()[link get_tzdb.md]
-* current_zone()[link tzdb/current_zone.md]
+
 
 
 ## 例
