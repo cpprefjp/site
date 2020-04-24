@@ -206,6 +206,13 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`local_time_format`](chrono/local_time_format.md.nolink) | ローカル時間の文字列フォーマット用オブジェクトを生成する (function template) | C++20 |
+| [`format`](chrono/format.md) | 文字列フォーマット | C++20 |
+
+
+### 文字列フォーマッタの特殊化
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
 | `template<class Rep, class Period, class charT>`<br/> `struct formatter<chrono::duration<Rep, Period>, charT>;` | `duration`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
 | `template<class Duration, class charT>`<br/> `struct formatter<chrono::sys_time<Duration>, charT>;` | `sys_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
 | `template<class Duration, class charT>`<br/> `struct formatter<chrono::utc_time<Duration>, charT>;` | `utc_time`に対する[`formatter`](/reference/format/formatter.md)の特殊化 | C++20 |
