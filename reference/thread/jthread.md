@@ -91,7 +91,7 @@ int main()
 * std::jthread[link jthread.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * std::stop_callback[link /reference/stop_token/stop_callback.md]
-* get_stop_token()[link jthread/get_stop_token.md]
+* get_stop_token()[link jthread/get_stop_token.md.nolink]
 
 ### 出力
 ```
