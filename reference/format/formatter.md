@@ -17,7 +17,7 @@ namespace std {
 
 `charT`を`char`または`wchar_t`とすると、標準で以下の特殊化が利用できる。
 
-- \1. 以下のもの。
+- 1 以下のもの。
     ```cpp
     template<> struct formatter<charT, charT>;
 
@@ -38,7 +38,7 @@ namespace std {
     * basic_string[link /reference/string/basic_string.md]
     * basic_string_view[link /reference/string_view/basic_string_view.md]
 
-- \2. 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
+- 2 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
 
 さらに、ユーザーが`formatter`を特殊化した場合、それも有効である。
 
