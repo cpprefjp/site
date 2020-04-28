@@ -15,30 +15,30 @@ namespace std {
 ## 概要
 フォーマット引数の個々の型に対応する書式文字列の解析と値のフォーマットを担うクラス。
 
-`charT`を`char`または`wchar_t`とすると、標準で次の特殊化が有効である。
+`charT`を`char`または`wchar_t`とすると、標準で以下の特殊化が利用できる。
 
-1. 以下のもの。
-```cpp
-template<> struct formatter<charT, charT>;
+- 1. 以下のもの。
+    ```cpp
+    template<> struct formatter<charT, charT>;
 
-template<> struct formatter<char, wchar_t>;
+    template<> struct formatter<char, wchar_t>;
 
-template<> struct formatter<charT*, charT>;
+    template<> struct formatter<charT*, charT>;
 
-template<> struct formatter<const charT*, charT>;
+    template<> struct formatter<const charT*, charT>;
 
-template<size_t N> struct formatter<const charT[N], charT>;
+    template<size_t N> struct formatter<const charT[N], charT>;
 
-template<class traits, class Allocator>
-struct formatter<basic_string<charT, traits, Allocator>, charT>;
+    template<class traits, class Allocator>
+    struct formatter<basic_string<charT, traits, Allocator>, charT>;
 
-template<class traits>
-struct formatter<basic_string_view<charT, traits>, charT>;
-```
-* basic_string[link /reference/string/basic_string.md]
-* basic_string_view[link /reference/string_view/basic_string_view.md]
+    template<class traits>
+    struct formatter<basic_string_view<charT, traits>, charT>;
+    ```
+    * basic_string[link /reference/string/basic_string.md]
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
 
-2. 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
+- 2. 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
 
 さらに、ユーザーが`formatter`を特殊化した場合、それも有効である。
 
@@ -54,7 +54,7 @@ struct formatter<basic_string_view<charT, traits>, charT>;
 
 * `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること (注: ここはC++20の策定までにコンセプトで書き換えられるかもしれない)
 
-さらに、
+さらに、以下の条件を満たすこと
 
 1. 式 `f.parse(pc)` が有効であり、
     * 戻り値の型が`PC::iterator`である
@@ -69,7 +69,7 @@ struct formatter<basic_string_view<charT, traits>, charT>;
     * 出力は`t`、グローバルロケール、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
     * `u`を変更しない
 
-ただし、
+条件内の各要素を、以下のように定義する
 
 * 文字の型を`charT`
 * 出力イテレーターの型を`Out`
@@ -83,8 +83,6 @@ struct formatter<basic_string_view<charT, traits>, charT>;
 * `fc`を`FC`のlvalue
 * `pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す
 * オプションが空なら、`pc.begin() == pc.end()`または`*pc.begin() == '}'`である
-
-とする。
 
 ## 例
 ```cpp example
