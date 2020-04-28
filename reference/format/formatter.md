@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std {
-  template<class T, class U>
+  template<class T, class U = char>
   struct formatter;
 }
 ```
