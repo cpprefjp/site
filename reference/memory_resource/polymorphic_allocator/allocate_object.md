@@ -7,7 +7,7 @@
 
 ```cpp
 template <class T>
-T* allocate_object(size_t n = 1);
+[[nodiscard]] T* allocate_object(size_t n = 1);
 ```
 
 ## 概要
@@ -105,3 +105,4 @@ int main() {
 
 ## 参照
 - [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf) 
+- [LWG Issue 3304. Allocate functions of `std::polymorphic_allocator` should require `[[nodiscard]]`](https://wg21.cmeerw.net/lwg/issue3304)
