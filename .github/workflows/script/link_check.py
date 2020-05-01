@@ -53,14 +53,16 @@ def find_all_links(text: str) -> (list, set):
         link = fix_link(m.group(2))
         if link:
             if "http" in link:
-                outer_links.add(link)
+                if not link.startswith("https://web.archive.org"):
+                    outer_links.add(link)
             else:
                 inner_links.append(link)
     for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', text):
         link = fix_link(m.group(2))
         if link:
             if "http" in link:
-                outer_links.add(link)
+                if not link.startswith("https://web.archive.org"):
+                    outer_links.add(link)
             else:
                 inner_links.append(link)
     return inner_links, outer_links
