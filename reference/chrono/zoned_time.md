@@ -154,10 +154,10 @@ int main()
   std::cout << std::format("2 : {}", zt_sec) << std::endl;
 
   // 「年月日 時分秒」のフォーマット
-  std::cout << std::format("3 : %Y年%m月%d日 %H時%M分%S秒", zt_sec) << std::endl;
+  std::cout << std::format("3 : {:%Y年%m月%d日 %H時%M分%S秒}", zt_sec) << std::endl;
 
   // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り
-  std::cout << std::format("4 : %Y/%m/%d %H:%M:%S", zt_sec) << std::endl;
+  std::cout << std::format("4 : {0:%Y/%m/%d %H:%M:%S}", zt_sec) << std::endl;
 
   // 日付だけ出力
   std::cout << std::format("5 : %Y年%m月%d日", zt_sec) << std::endl;
