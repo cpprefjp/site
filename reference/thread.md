@@ -11,6 +11,7 @@
 | [`thread`](thread/thread.md)           | スレッド クラス(class)       | C++11 |
 | [`thread::id`](thread/thread/id.md)    | スレッド識別子 クラス(class) | C++11 |
 | [`this_thread`](thread/this_thread.md) | 現スレッドの制御機能を提供する名前空間 (namespace) | C++11 |
+| [`jthread`](thread/jthread.md) | 停止要求を扱ったり、自動で[`join`](thread/jthread/join.md.nolink)する機能を持つスレッド クラス (class) | C++20 |
 
 
 ## バージョン

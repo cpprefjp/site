@@ -236,7 +236,7 @@ int main()
 
 ## 参照
 ### 分布アルゴリズム
-* [さまざまな確率分布 (probability distributions)](http://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html)
+* [さまざまな確率分布 (probability distributions)](https://web.archive.org/web/20190523080819/https://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html)
 * [確率変数－種々の分布の特徴](https://sites.google.com/site/techdmba/distribution)
 
 ### 乱数ライブラリの使い方
