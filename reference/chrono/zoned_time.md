@@ -91,22 +91,24 @@ int main()
 {
   // システム時間はUTCタイムゾーンをもつ
   auto now = chrono::system_clock::now();
+  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(now); // 秒単位
 
   // タイムゾーン情報なしで日時を出力する
   // (ローカルタイムゾーンへの変換はしてくれないので、デフォルトではUTCタイムゾーンで出力される)
-  std::cout << now << std::endl;
+  std::cout << "1 : " << now << std::endl;
 
   // タイムゾーン付きで日時を出力する
-  std::cout << chrono::zoned_time{now} << std::endl;               // デフォルトタイムゾーン (UTC)
-  std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl; // 日本 (UTC + 9時間)
-  std::cout << chrono::zoned_time{"UTC", now} << std::endl;        // UTC
+  std::cout << "2 : " << chrono::zoned_time{now} << std::endl;                   // デフォルトタイムゾーン (UTC)
+  std::cout << "3 : " << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;     // 日本 (UTC + 9時間)
+  std::cout << "4 : " << chrono::zoned_time{"UTC", now} << std::endl;            // UTC
+  std::cout << "5 : " << chrono::zoned_time{"Asia/Tokyo", now_sec} << std::endl; // 日本 (秒単位)
 
   // コンピュータに設定されているタイムゾーンで、日時を出力する
-  std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
+  std::cout << "6 : " << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
 
   // UTCタイムゾーンのシステム時間を、日本のローカル時間に変換
   chrono::local_time lt = chrono::zoned_time{"Asia/Tokyo", now}.get_local_time();
-  std::cout << lt << std::endl;
+  std::cout << "7 : "lt << std::endl;
 }
 ```
 * chrono::zoned_time[color ff0000]
@@ -118,12 +120,13 @@ int main()
 
 ### 出力例
 ```
-2019-12-20 10:05:05
-2019-12-20 10:05:05.330140 UTC
-2019-12-20 19:05:05.330140 JST
-2019-12-20 10:05:05.330140 UTC
-2019-12-20 19:05:05.330140 JST
-2019-12-20 19:05:05
+1 : 2019-12-20 10:05:05
+2 : 2019-12-20 10:05:05.330140 UTC
+3 : 2019-12-20 19:05:05.330140 JST
+4 : 2019-12-20 10:05:05.330140 UTC
+5 : 2019-12-20 19:05:05 JST
+6 : 2019-12-20 19:05:05.330140 JST
+7 : 2019-12-20 19:05:05
 ```
 
 ## バージョン
