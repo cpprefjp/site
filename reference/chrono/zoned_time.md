@@ -81,6 +81,7 @@ namespace std::chrono {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <chrono>
@@ -114,11 +115,13 @@ int main()
 * chrono::zoned_time[color ff0000]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
+* chrono::sys_seconds[link sys_time.md]
+* chrono::floor[link time_point/floor.md]
 * chrono::current_zone()[link current_zone.md]
 * chrono::local_time[link local_time.md]
 * get_local_time[link zoned_time/get_local_time.md]
 
-### 出力例
+#### 出力例
 ```
 1 : 2019-12-20 10:05:05
 2 : 2019-12-20 10:05:05.330140 UTC
@@ -127,6 +130,66 @@ int main()
 5 : 2019-12-20 19:05:05 JST
 6 : 2019-12-20 19:05:05.330140 JST
 7 : 2019-12-20 19:05:05
+```
+
+### 文字列フォーマットの例
+```cpp
+#include <iostream>
+#include <chrono>
+#include <format>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  // システム時間はUTCタイムゾーンをもつ
+  auto now = chrono::system_clock::now();
+  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(now); // 秒単位
+
+  chrono::zoned_time zt{"Asia/Tokyo", now};
+  chrono::zoned_seconds zt_sec{"Asia/Tokyo", now_sec};
+
+  // デフォルトフォーマット
+  std::cout << std::format("1 : {}", zt) << std::endl;
+  std::cout << std::format("2 : {}", zt_sec) << std::endl;
+
+  // 「年月日 時分秒」のフォーマット
+  std::cout << std::format("3 : {%Y年%m月%d日 %H時%M分%S秒}", zt_sec) << std::endl;
+
+  // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り
+  std::cout << std::format("4 : {%Y/%m/%d %H:%M:%S}", zt_sec) << std::endl;
+
+  // 日付だけ出力
+  std::cout << std::format("5 : {%Y年%m月%d日}", zt_sec) << std::endl;
+  std::cout << std::format("6 : {%F}", zt_sec) << std::endl;
+
+  // 時間だけ出力
+  std::cout << std::format("7 : {%H時%M分%S秒}", zt_sec) << std::endl;
+  std::cout << std::format("8 : {%T}", zt_sec) << std::endl;
+
+  // 12時間時計で出力
+  std::cout << std::format("9 : {%Y年%m月%d日 %p %I時%M分%S秒}", zt_sec) << std::endl;
+}
+```
+* chrono::zoned_time[color ff0000]
+* chrono::zoned_seconds[color ff0000]
+* chrono::system_clock[link system_clock.md]
+* now()[link system_clock/now.md]
+* chrono::sys_seconds[link sys_time.md]
+* chrono::floor[link time_point/floor.md]
+* std::format[link format.md]
+
+#### 出力例
+```
+1 : 2019-12-20 19:05:05.330140 JST
+2 : 2019-12-20 19:05:05 JST
+3 : 2019年12月20日 19時05分05秒
+4 : 2019/12/20 19:05:05
+5 : 2019年12月20日
+6 : 2019-12-20
+7 : 19時05分05秒
+8 : 19:05:05
+9 : 2019年12月20日 午後 07時05分05秒
 ```
 
 ## バージョン
