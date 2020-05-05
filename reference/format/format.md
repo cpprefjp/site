@@ -6,17 +6,19 @@
 * cpp20[meta cpp]
 
 ```cpp
-template<class... Args>
-string format(string_view fmt, const Args&... args); // (1)
+namespace std {
+  template<class... Args>
+  string format(string_view fmt, const Args&... args);                      // (1)
 
-template<class... Args>
-wstring format(wstring_view fmt, const Args&... args); // (2)
+  template<class... Args>
+  wstring format(wstring_view fmt, const Args&... args);                    // (2)
 
-template<class... Args>
-string format(const locale& loc, string_view fmt, const Args&... args); // (3)
+  template<class... Args>
+  string format(const locale& loc, string_view fmt, const Args&... args);   // (3)
 
-template<class... Args>
-wstring format(const locale& loc, wstring_view fmt, const Args&... args); // (4)
+  template<class... Args>
+  wstring format(const locale& loc, wstring_view fmt, const Args&... args); // (4)
+}
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
