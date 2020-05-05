@@ -174,6 +174,9 @@ format("{0:} {0:+} {0:-} {0: }", -1);  // "-1 -1 -1 -1"
 format("{0:} {0:+} {0:-} {0: }", inf); // "inf +inf inf  inf"
 format("{0:} {0:+} {0:-} {0: }", nan); // "nan +nan nan  nan"
 ```
+* numeric_limits[link /reference/limits/numeric_limits.md]
+* infinity()[link /reference/limits/numeric_limits/infinity.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 ```cpp
 format("{}", 42);                      // "42"
