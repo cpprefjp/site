@@ -64,7 +64,7 @@ namespace std::filesystem {
 | [`wstring`](path/wstring.md) | システムのワイド文字コードとしてパス文字列を取得する | C++17 |
 | [`u8string`](path/u8string.md) | UTF-8エンコードとしてパス文字列を取得する | C++17 |
 | [`u16string`](path/u16string.md) | UTF-16エンコードでパス文字列を取得する | C++17 |
-| [`u32string`](path/u32string.md) | UTF-32エンコードでパス文字列を首都する | C++17 |
+| [`u32string`](path/u32string.md) | UTF-32エンコードでパス文字列を取得する | C++17 |
 
 ### システム非依存のパスフォーマット
 
