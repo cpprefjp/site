@@ -64,15 +64,11 @@ int main()
 
 のようにして設定しないと何も表示されない。
 
-`std::locale("")`とすると本来はOSに設定されたロケールが設定されるはずが、MinGWやLinux環境で実行すると、"C"ロケールになってしまう問題がある。
-
-また、上記プログラムで`std::locale("ja")`の行のコメントアウトを外してを実行すると、以下のようなエラーが出力されてしまう。
+`std::locale("")`とすると本来はOSに設定されたロケールが設定されるはずが、MinGW環境でコンパイルし実行すると、以下のようなエラーが出力されてしまう。
 
 ```
 terminate called after throwing an instance of 'std::runtime_error'
   what():  locale::facet::_S_create_c_locale name not valid
-
-Aborted
 ```
 
 一方、以下のようなコードなら求める結果が得られる処理系もある。
