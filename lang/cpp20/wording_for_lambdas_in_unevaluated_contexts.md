@@ -39,16 +39,86 @@ auto s2 = sizeof([]{ return 0;}()); // 4
 ```
 
 ## 仕様
-(執筆中)
 
 1. ラムダ式によって生成されるクロージャの型はリンケージを持たない
     - `typedef/using`によってリンケージを持つ名前を付ける事もできない
 2. 関数テンプレートのシグネチャに含まれるラムダ式は、宣言が異なれば同一とはみなされない
     - つまり、ラムダ式は関数テンプレートのシグネチャに含まれない
     - 異なる翻訳単位の定義を参照するため、あるいは同一翻訳単位での再宣言において、そのシグネチャにラムダ式が含まれる場合、それら2つ（以上）の宣言は同一のものとはみなされない
+3. エイリアステンプレートに現れているラムダ式は、その特殊化毎に固有のクロージャ型を持つ
+4. 関数テンプレートの宣言に含まれるラムダ式の本体内でコンパイルエラーが起きた場合、SFINAEしない
+5. 非型テンプレートパラメータにラムダ式が現れている場合でも、そのクロージャ型は宣言毎に固有の型を持つ
+6. 未評価の文脈であっても、ラムダ式の本体内で使用されている変数は暗黙的にキャプチャされる
+    - 未評価の文脈で現れているラムダ式の本体内は未評価の文脈ではない
+7. 関数の本体の外側で、その関数の引数をキャプチャする事はできない
+8. `concpet`の定義内及び`requires`節の内部に現れているラムダ式本体のエラーはコンパイルエラーとなる
+
+```cpp
+// 1 クロージャ型にリンケージを付加できない
+typedef decltype([]{}) C;
+using C = decltype([]{});
+
+// 2. この2つのf()は異なる宣言、呼び出そうとするとオーバーロード解決できずコンパイルエラー
+template <int N>
+void f(const char (*s)[([]{ return N; })()]) { }
+template <int N>
+void f(const char (*s)[([]{ return N; })()]) { }
+
+// 3. 例えば、A<int>とA<char> は異なるクロージャ型を示す
+template <class T>
+using A = decltype([] { });
+
+// 4. 次の2つのようなケースはコンパイルエラーとなる
+template <class T>
+auto f(T) -> decltype([]() { T::invalid; } ());
+void f(...);
+f(0); // error!
+
+template <class T, std::size_t = sizeof([]() { T::invalid; })>
+void g(T);
+void g(...);
+g(0); // error!
+
+// 5. 未定義動作
+/// foo.h
+template <auto> struct foo { };
+extern foo<+[]() {}> x;
+inline foo<+[]() {}> y;
+
+/// tu1.cpp
+#include "foo.h"
+
+/// tu2.cpp
+#include "foo.h"
+
+// 6. ラムダ式の内部は評価されない文脈ではないので、暗黙キャプチャは評価される
+void f(int i) {
+  auto lambda = [=]{ return i; }; // ok
+  static_assert(1 < sizeof([=]{ return i; })); // ok
+}
+
+// 7. 関数の本体内でのみ、その引数をキャプチャできる
+auto f(int i) -> decltype([=](auto g) { return g(i); })
+{ }
+
+// 8. ラムダ式の本体内のエラーはハードエラー
+template<typename T>
+concept C = requires {
+  []() { typename T::invalid foo; };
+};
+
+template<typename T>
+void f() requires requires {
+  []() { typename T::invalid foo; };
+};
+
+C<int>; // error!
+f(0);   // error!
+```
 
 ## 例
-(執筆中)
+
+「[状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md.nolink)」のサンプルコードを参照。
 
 ## この機能が必要になった背景・経緯
 
