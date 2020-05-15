@@ -79,7 +79,7 @@ void g(T);
 void g(...);
 g(0); // error!
 
-// 5. 未定義動作
+// 5. ODR違反により未定義動作
 /// foo.h
 template <auto> struct foo { };
 extern foo<+[]() {}> x;
