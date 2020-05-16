@@ -118,7 +118,7 @@ f(0);   // error!
 
 ## 例
 
-「[状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md.nolink)」のサンプルコードを参照。
+「[状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md)」のサンプルコードを参照。
 
 ## この機能が必要になった背景・経緯
 
@@ -131,7 +131,7 @@ C++17までは、ラムダ式をSFINAEの文脈で用いて擬似的なコンセ
 ただし、ラムダ式が外部リンケージを持つエンティティのシグネチャに現れる事は相変わらず禁止されている。ラムダ式を用いてSFINAEするなど、そのような事がしたい場合には[コンセプト](./concepts.md)を用いる事でより容易に目的を達成できる。
 
 ## 関連項目
-- [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md.nolink)
+- [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md)
 
 ## 参照
 - [P0315R0 Wording for lambdas in unevaluated contexts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0315r0.pdf)
