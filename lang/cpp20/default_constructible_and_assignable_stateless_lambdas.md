@@ -75,20 +75,7 @@ struct closure {
 int main()
 {
   std::set<int, decltype([](auto lhs, auto rhs){ return lhs > rhs;})> set{};
-  set.emplace(1);
-  set.emplace(2);
-  set.emplace(4);
-  set.emplace(3);
-  set.emplace(0);
-  set.emplace(10);
-  set.emplace(9);
-  set.emplace(7);
-  set.emplace(5);
-  set.emplace(6);
-  set.emplace(8);
-  set.emplace(1);
-  set.emplace(5);
-  set.emplace(10);
+  set.insert({1, 2, 4, 3, 0, 10, 9, 7, 5, 6, 8, 1, 5, 10});
   
   for (auto n : set) {
     std::cout << n << "\n";
