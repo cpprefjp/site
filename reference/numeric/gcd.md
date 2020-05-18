@@ -76,7 +76,6 @@ int main() {
 * std::int32_t[link /reference/cstdint/int32_t.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * std::accumulate[link accumulate.md]
-* v.front()[link /reference/vector/vector/front.md]
 
 ### 出力例
 ```
