@@ -80,10 +80,9 @@ int main() {
 ```
 * std::lcm[color ff0000]
 * max[link /reference/limits/numeric_limits/max.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
+* std::uint16_t[link /reference/cstdint/uint16_t.md]
 * std::fabs[link /reference/cmath/fabs.md]
 * std::accumulate[link accumulate.md]
-* v.front()[link /reference/vector/vector/front.md]
 
 ### 出力例
 ```
