@@ -54,7 +54,7 @@ int main() {
   assert(std::gcd(std::gcd(12, 42), 72) == 6);
 
   std::vector<int> v = {12, 42, 72};
-  int r = std::accumulate(v.begin() + 1, v.end(), v.front(), [](int m, int n) {
+  int r = std::accumulate(v.begin(), v.end(), 0, [](int m, int n) {
     return std::gcd(m, n);
   });
   assert(r == 6);
