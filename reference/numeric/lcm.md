@@ -57,17 +57,25 @@ int main() {
   assert(std::lcm(std::lcm(3, 4), 6) == 12);
 
   std::vector<int> v = {3, 4, 6};
-  int r = std::accumulate(v.begin() + 1, v.end(), v.front(), [](int m, int n) {
+  int r = std::accumulate(v.begin(), v.end(), 1, [](int m, int n) {
     return std::lcm(m, n);
   });
   assert(r == 12);
 
-  // オーバーフローする例
-  auto m = std::numeric_limits<std::uint32_t>::max();
-  auto n = m - 1;
-  std::cout << "lcm(" << m << ", " << n << ")      " << std::lcm(m, n) << std::endl;
-  auto g = std::gcd(m, n);  // 1
-  std::cout << "true lcm(" << m << ", " << n << ") " << std::fabs(m) * std::fabs(n / g) << std::endl;
+  // 以下、オーバーフローしやすい例
+  uint16_t m = 20000;
+  uint16_t n = 40000;
+
+  // 標準std::lcm()の動作は実装定義
+  std::cout << "std::lcm(" << m << ", " << n << ")     " << std::lcm(m, n) << std::endl;
+
+  // 公式通りのオーバーフローしやすい最小公倍数の実装
+  volatile uint16_t t = m * n; // 最適化回避のための変数
+  std::cout << "formal lcm(" << m << ", " << n << ")   " << (t / std::gcd(m, n)) << std::endl;
+
+  // オーバーフローしにくいよう公式を改良した実装
+  auto g = std::gcd(m, n);
+  std::cout << "improved lcm(" << m << ", " << n << ") " << m * (n / g) << std::endl;
 }
 ```
 * std::lcm[color ff0000]
@@ -79,8 +87,9 @@ int main() {
 
 ### 出力例
 ```
-lcm(4294967295, 4294967294)      2
-true lcm(4294967295, 4294967294) 1.84467e+19
+std::lcm(20000, 40000)     40000
+formal lcm(20000, 40000)   0
+improved lcm(20000, 40000) 40000
 ```
 
 
