@@ -61,14 +61,14 @@ int main() {
   assert(r == 12);
 
   // 以下、オーバーフローしやすい例
-  uint16_t m = 20000;
-  uint16_t n = 40000;
+  std::uint16_t m = 20000;
+  std::uint16_t n = 40000;
 
   // 標準std::lcm()の動作は実装定義
   std::cout << "std::lcm(" << m << ", " << n << ")     " << std::lcm(m, n) << std::endl;
 
   // 公式通りのオーバーフローしやすい最小公倍数の実装
-  volatile uint16_t t = m * n; // 最適化回避のための変数
+  volatile std::uint16_t t = m * n; // 最適化回避のための変数
   std::cout << "formal lcm(" << m << ", " << n << ")   " << (t / std::gcd(m, n)) << std::endl;
 
   // オーバーフローしにくいよう公式を改良した実装
