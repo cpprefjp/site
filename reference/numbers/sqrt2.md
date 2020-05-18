@@ -5,7 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::numbers {
   template <class T>
   inline constexpr T sqrt2_v = unspecified;        // (1)
 
