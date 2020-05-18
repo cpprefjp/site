@@ -83,6 +83,7 @@ int main() {
 * std::uint16_t[link /reference/cstdint/uint16_t.md]
 * std::fabs[link /reference/cmath/fabs.md]
 * std::accumulate[link accumulate.md]
+* std::gcd[link gcd.md]
 
 ### 出力例
 ```
