@@ -39,15 +39,31 @@ namespace std {
 ```cpp example
 #include <cmath>
 #include <iostream>
+#include <cassert>
+#include <cstdint>
 #include <limits>
 #include <numeric>
+#include <vector>
 
 int main() {
+  assert(std::lcm(3, 4) == 12);
+  assert(std::lcm(4, 3) == 12);
+
+  // コンパイル時に最小公倍数を求めることもできる
   static_assert(std::lcm(0, 1) == 0);
   static_assert(std::lcm(4u, -6l) == 12);
 
+  // 3つの値の最小公倍数を求める
+  assert(std::lcm(std::lcm(3, 4), 6) == 12);
+
+  std::vector<int> v = {3, 4, 6};
+  int r = std::accumulate(v.begin() + 1, v.end(), v.front(), [](int m, int n) {
+    return std::lcm(m, n);
+  });
+  assert(r == 12);
+
   // オーバーフローする例
-  auto m = std::numeric_limits<uint32_t>::max();
+  auto m = std::numeric_limits<std::uint32_t>::max();
   auto n = m - 1;
   std::cout << "lcm(" << m << ", " << n << ")      " << std::lcm(m, n) << std::endl;
   auto g = std::gcd(m, n);  // 1
@@ -56,7 +72,10 @@ int main() {
 ```
 * std::lcm[color ff0000]
 * max[link /reference/limits/numeric_limits/max.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * std::fabs[link /reference/cmath/fabs.md]
+* std::accumulate[link accumulate.md]
+* v.front()[link /reference/vector/vector/front.md]
 
 ### 出力例
 ```
@@ -77,16 +96,14 @@ true lcm(4294967295, 4294967294) 1.84467e+19
 
 ### 備考
 #### Clang (libc++)
-要件 2 を満たすかどうかチェックしない。
-
-[`_LIBCPP_DEBUG`](http://releases.llvm.org/5.0.0/projects/libcxx/docs/DesignDocs/DebugMode.html#using-debug-mode) マクロが
-`0` 以上の場合、要件 3 を満たさなければ [`abort`](/reference/cstdlib/abort.md) する。
-ただし 4 系では [`<limits>`](/reference/limits.md) を `<numeric>` より先に include しなければならない。
-それ以外の場合（デフォルト）、オーバーフローにより戻り値が不正になることがある。
+- 要件 2 を満たすかどうかチェックしない。
+- [`_LIBCPP_DEBUG`](http://releases.llvm.org/5.0.0/projects/libcxx/docs/DesignDocs/DebugMode.html#using-debug-mode) マクロが`0` 以上の場合、要件 3 を満たさなければ [`abort`](/reference/cstdlib/abort.md) する。
+    - ただしバージョン 4 系では [`<limits>`](/reference/limits.md) を `<numeric>` より先に include しなければならない。
+    - それ以外の場合（デフォルト）、オーバーフローにより戻り値が不正になることがある。
 
 #### GCC (libstdc++)
-要件 2, 3 を満たすかどうかチェックしない。
-要件 3 を満たさない場合、オーバーフローにより戻り値が不正になることがある。
+- 要件 2, 3 を満たすかどうかチェックしない。
+- 要件 3 を満たさない場合、オーバーフローにより戻り値が不正になることがある。
 
 
 ## 参照
