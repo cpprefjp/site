@@ -37,11 +37,9 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <cmath>
 #include <iostream>
 #include <cassert>
 #include <cstdint>
-#include <limits>
 #include <numeric>
 #include <vector>
 
@@ -79,9 +77,7 @@ int main() {
 }
 ```
 * std::lcm[color ff0000]
-* max[link /reference/limits/numeric_limits/max.md]
 * std::uint16_t[link /reference/cstdint/uint16_t.md]
-* std::fabs[link /reference/cmath/fabs.md]
 * std::accumulate[link accumulate.md]
 * std::gcd[link gcd.md]
 
