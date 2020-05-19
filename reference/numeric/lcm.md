@@ -62,7 +62,7 @@ int main() {
 ```
 
 ### オーバーフローしやすい状況の例
-```cpp
+```cpp example
 #include <iostream>
 #include <cstdint>
 #include <numeric>
@@ -95,7 +95,7 @@ improved lcm(20000, 40000) 40000
 ```
 
 ### 3つ以上の値に対する最小公倍数を求める
-```cpp
+```cpp example
 #include <cassert>
 #include <numeric>
 #include <vector>

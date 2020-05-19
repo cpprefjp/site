@@ -55,7 +55,7 @@ int main() {
 ```
 
 ### 負の最大公約数
-```cpp
+```cpp example
 #include <iostream>
 #include <numeric>
 #include <cstdint>
@@ -86,7 +86,7 @@ gcd<uint32_t, uint32_t>(-2147483648, -2147483648) 2147483648
 ```
 
 ### 3つ以上の値に対する最小公倍数を求める
-```cpp
+```cpp example
 #include <cassert>
 #include <numeric>
 #include <vector>
