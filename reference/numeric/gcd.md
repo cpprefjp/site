@@ -34,24 +34,10 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
-#include <iostream>
 #include <cassert>
-#include <cstdint>
-#include <limits>
 #include <numeric>
-#include <vector>
-
-// 可変引数で最大公約数を求める関数
-template <class T>
-T vgcd(T m, T n) {
-  return std::gcd(m, n);
-}
-
-template <class T, class... Args>
-T vgcd(T a, Args... args) {
-  return vgcd(a, vgcd(args...));
-}
 
 int main() {
   assert(std::gcd(12, 42) == 6);
@@ -60,18 +46,22 @@ int main() {
   // コンパイル時に最大公約数を求めることもできる
   static_assert(std::gcd(0, 0) == 0);
   static_assert(std::gcd(3u, -7l) == 1);
+}
+```
+* std::gcd[color ff0000]
 
-  // 3つの値の最大公約数を求める
-  assert(std::gcd(std::gcd(12, 42), 72) == 6);
+#### 出力
+```
+```
 
-  std::vector<int> v = {12, 42, 72};
-  int r = std::accumulate(v.begin(), v.end(), 0, [](int m, int n) {
-    return std::gcd(m, n);
-  });
-  assert(r == 6);
+### 負の最大公約数
+```cpp
+#include <iostream>
+#include <numeric>
+#include <cstdint>
+#include <limits>
 
-  assert(vgcd(12, 42, 72) == 6);
-
+int main() {
   // 符号付き整数の場合、戻り値が負になることがある
   using T = std::int32_t;
   constexpr auto m = std::numeric_limits<T>::min();
@@ -88,14 +78,51 @@ int main() {
 * min[link /reference/limits/numeric_limits/min.md]
 * std::int32_t[link /reference/cstdint/int32_t.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
-* std::accumulate[link accumulate.md]
 
-### 出力例
+#### 出力例
 ```
 gcd<int32_t, int32_t>(-2147483648, -2147483648)   -2147483648
 gcd<uint32_t, uint32_t>(-2147483648, -2147483648) 2147483648
 ```
 
+### 3つ以上の値に対する最小公倍数を求める
+```cpp
+#include <cassert>
+#include <numeric>
+#include <vector>
+
+// 可変引数で最大公約数を求める関数
+template <class T>
+T vgcd(T m, T n) {
+  return std::gcd(m, n);
+}
+
+template <class T, class... Args>
+T vgcd(T a, Args... args) {
+  return vgcd(a, vgcd(args...));
+}
+
+int main() {
+  // 2つずつ最大公約数を求める
+  assert(std::gcd(std::gcd(12, 42), 72) == 6);
+
+  // リスト全体の最大公約数を求める
+  std::vector<int> v = {12, 42, 72};
+  int r = std::accumulate(v.begin(), v.end(), 0, [](int m, int n) {
+    return std::gcd(m, n);
+  });
+  assert(r == 6);
+
+  // 可変引数で最大公約数を求める
+  assert(vgcd(12, 42, 72) == 6);
+}
+```
+* std::gcd[color ff0000]
+* std::accumulate[link accumulate.md]
+
+#### 出力
+```
+```
 
 ## バージョン
 ### 言語

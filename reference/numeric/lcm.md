@@ -36,23 +36,10 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
-#include <iostream>
 #include <cassert>
-#include <cstdint>
 #include <numeric>
-#include <vector>
-
-// 可変引数で最小公倍数を求める関数
-template <class T>
-T vlcm(T m, T n) {
-  return std::lcm(m, n);
-}
-
-template <class T, class... Args>
-T vlcm(T a, Args... args) {
-  return vlcm(a, vlcm(args...));
-}
 
 int main() {
   assert(std::lcm(3, 4) == 12);
@@ -61,19 +48,21 @@ int main() {
   // コンパイル時に最小公倍数を求めることもできる
   static_assert(std::lcm(0, 1) == 0);
   static_assert(std::lcm(4u, -6l) == 12);
+}
+```
+* std::lcm[color ff0000]
 
-  // 3つの値の最小公倍数を求める
-  assert(std::lcm(std::lcm(3, 4), 6) == 12);
+#### 出力
+```
+```
 
-  std::vector<int> v = {3, 4, 6};
-  int r = std::accumulate(v.begin(), v.end(), 1, [](int m, int n) {
-    return std::lcm(m, n);
-  });
-  assert(r == 12);
+### オーバーフローしやすい状況の例
+```cpp
+#include <iostream>
+#include <cstdint>
+#include <numeric>
 
-  assert(vlcm(3, 4, 6) == 12);
-
-  // 以下、オーバーフローしやすい例
+int main() {
   std::uint16_t m = 20000;
   std::uint16_t n = 40000;
 
@@ -91,14 +80,52 @@ int main() {
 ```
 * std::lcm[color ff0000]
 * std::uint16_t[link /reference/cstdint/uint16_t.md]
-* std::accumulate[link accumulate.md]
 * std::gcd[link gcd.md]
 
-### 出力例
+#### 出力例
 ```
 std::lcm(20000, 40000)     40000
 formal lcm(20000, 40000)   0
 improved lcm(20000, 40000) 40000
+```
+
+### 3つ以上の値に対する最小公倍数を求める
+```cpp
+#include <cassert>
+#include <numeric>
+#include <vector>
+
+// 可変引数で最小公倍数を求める関数
+template <class T>
+T vlcm(T m, T n) {
+  return std::lcm(m, n);
+}
+
+template <class T, class... Args>
+T vlcm(T a, Args... args) {
+  return vlcm(a, vlcm(args...));
+}
+
+int main() {
+  // 2つずつ最小公倍数を求める
+  assert(std::lcm(std::lcm(3, 4), 6) == 12);
+
+  // リスト全体の最小公倍数を求める
+  std::vector<int> v = {3, 4, 6};
+  int r = std::accumulate(v.begin(), v.end(), 1, [](int m, int n) {
+    return std::lcm(m, n);
+  });
+  assert(r == 12);
+
+  // 可変引数で最小公倍数を求める
+  assert(vlcm(3, 4, 6) == 12);
+}
+```
+* std::lcm[color ff0000]
+* std::accumulate[link accumulate.md]
+
+#### 出力
+```
 ```
 
 
