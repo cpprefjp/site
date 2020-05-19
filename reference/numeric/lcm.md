@@ -43,6 +43,17 @@ namespace std {
 #include <numeric>
 #include <vector>
 
+// 可変引数で最小公倍数を求める関数
+template <class T>
+T vlcm(T m, T n) {
+  return std::lcm(m, n);
+}
+
+template <class T, class... Args>
+T vlcm(T a, Args... args) {
+  return vlcm(a, vlcm(args...));
+}
+
 int main() {
   assert(std::lcm(3, 4) == 12);
   assert(std::lcm(4, 3) == 12);
@@ -59,6 +70,8 @@ int main() {
     return std::lcm(m, n);
   });
   assert(r == 12);
+
+  assert(vlcm(3, 4, 6) == 12);
 
   // 以下、オーバーフローしやすい例
   std::uint16_t m = 20000;

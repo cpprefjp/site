@@ -42,6 +42,17 @@ namespace std {
 #include <numeric>
 #include <vector>
 
+// 可変引数で最大公約数を求める関数
+template <class T>
+T vgcd(T m, T n) {
+  return std::gcd(m, n);
+}
+
+template <class T, class... Args>
+T vgcd(T a, Args... args) {
+  return vgcd(a, vgcd(args...));
+}
+
 int main() {
   assert(std::gcd(12, 42) == 6);
   assert(std::gcd(42, 12) == 6);
@@ -58,6 +69,8 @@ int main() {
     return std::gcd(m, n);
   });
   assert(r == 6);
+
+  assert(vgcd(12, 42, 72) == 6);
 
   // 符号付き整数の場合、戻り値が負になることがある
   using T = std::int32_t;
