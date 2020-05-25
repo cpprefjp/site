@@ -117,7 +117,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 - [`errno`](cerrno/errno.md) によってエラーが通知される場合、[`EDOM`](cerrno.md)（定義域エラー、Error DOMain）が設定される。  
 - 浮動小数点例外によってエラーが通知される場合、[`FE_INVALID`](cfenv/fe_invalid.md)（無効演算浮動小数点例外）が設定される。  
 
-定義域エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が quiet NaN（quiet Not a Number：静かな非数）を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_quiet_NaN`](limits/numeric_limits/has_quiet_nan.md)`()` が真）の場合、一般的には quiet NaN が返る。
+定義域エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が quiet NaN（quiet Not a Number：静かな非数）を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_quiet_NaN`](limits/numeric_limits/has_quiet_nan.md) が真）の場合、一般的には quiet NaN が返る。
 
 ### 極エラー（pole error）
 引数の値が有限値である場合に、関数の当該値に対する数学的な極限値が無限大であることを示すエラー。（例：[`log`](cmath/log.md)`(0.0)` や、[`atanh`](cmath/atanh.md)`(1.0)` 等）  
@@ -131,7 +131,7 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 - 浮動小数点例外によってエラーが通知される場合、[`FE_DIVBYZERO`](cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が設定される（注：「ゼロ除算浮動小数点例外」は誤記では無い）。
 
 極エラーが発生した場合、関数の戻り値は処理系定義であるが、戻り値の型が浮動小数点数の場合、一般的には [`HUGE_VAL`](cmath/huge_val.md)（`double`）、[`HUGE_VALF`](cmath/huge_valf.md)（`float` 、C++11 以降のみ）、[`HUGE_VALL`](cmath/huge_vall.md)（`long double`、C++11 以降のみ）に正しい符号を付加した値が返る。
-また、戻り値の型が無限大を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_infinity`](limits/numeric_limits/has_infinity.md)`()` が真）の場合、一般的には無限大（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`infinity`](limits/numeric_limits/infinity.md)`()`）が返る。
+また、戻り値の型が無限大を表現可能（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`has_infinity`](limits/numeric_limits/has_infinity.md) が真）の場合、一般的には無限大（[`std::numeric_limits`](limits/numeric_limits.md)`<T>::`[`infinity`](limits/numeric_limits/infinity.md)`()`）が返る。
 なお、マクロ [`INFINITY`](cmath/infinity.md) も、定義されている場合には無限大を表すものではあるが、`float` 型であることに注意。
 
 ### オーバーフローエラー（overflow error）
