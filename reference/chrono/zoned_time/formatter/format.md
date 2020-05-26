@@ -1,7 +1,7 @@
-# format
+# <zoned_time>::format
 * chrono[meta header]
 * std[meta namespace]
-* formatter<zoned_time>[meta class]
+* formatter[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
