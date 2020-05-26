@@ -34,8 +34,8 @@ return formatter<chrono::local-time-format-t<Duration>, charT>::format(
 ```
 * sys_info[link /reference/chrono/sys_info.md]
 * chrono::local-time-format-t[link /reference/chrono/local-time-format-t.md.nolink]
-* tp.get_info()[link /reference/zoned_time/get_info.md]
-* tp.get_local_time()[link /reference/zoned_time/get_local_time.md]
+* tp.get_info()[link /reference/chrono/zoned_time/get_info.md]
+* tp.get_local_time()[link /reference/chrono/zoned_time/get_local_time.md]
 
 ## バージョン
 ### 言語
