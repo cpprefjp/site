@@ -6,17 +6,15 @@
 
 ```cpp
 namespace std {
-  template <class FormatContext>
-  typename FormatContext::iterator
-    format(const chrono::zoned_time<Duration, TimeZonePtr>& tp, FormatContext& ctx); // (1)
+  // 追加宣言なし
 }
 ```
-* zoned_time[link zoned_time.md]
 
 ## 概要
 chronoライブラリのクラスオブジェクトに対する文字列フォーマット。
 
-ここでは宣言として、[`zoned_time`](zoned_time.md)オブジェクトに対するオーバーロードのみを記載するが、[`std::formatter`](/reference/format/formatter.md)クラスがchronoライブラリの各型に対して特殊化されるため、多くのchronoライブラリオブジェクトを文字列フォーマットできる。
+ここでは宣言はとくにないが、[`std::format()`](/reference/format/format.md)に対してchronoライブラリの各クラスオブジェクトを出力できるよう[`std::formatter`](/reference/format/formatter.md)クラスが各クラスで特殊化されている。
+
 
 ### chronoライブラリでのフォーマット指定子
 
