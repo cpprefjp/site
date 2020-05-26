@@ -1,4 +1,4 @@
-# formatter<zoned_time>
+# formatter
 * chrono[meta header]
 * std[meta namespace]
 * class[meta id-type]
