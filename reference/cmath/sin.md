@@ -105,3 +105,7 @@ int main()
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
 $$ \sin x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{(2n + 1)!} x^{2n + 1} \quad \mathrm{for~all} \; x $$
+
+
+## 関連項目
+- [`std::numbers::pi`](/reference/numbers/pi.md)
