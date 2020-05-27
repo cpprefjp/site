@@ -55,12 +55,15 @@ int main()
   }
 }
 ```
-* std::local_time_format[color ff0000]
+* chrono::local_time_format[color ff0000]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
 * std::format[link format.md]
 * chrono::zoned_time[link zoned_time.md]
 * zt.get_local_time()[link zoned_time/get_local_time.md]
+* zt.get_info()[link zoned_time/get_info.md]
+* chrono::sys_info[link sys_info.md]
+* chrono::local_time_format[link local_time_format.md]
 
 ### 出力例
 ```

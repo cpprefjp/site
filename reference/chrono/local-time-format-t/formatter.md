@@ -53,7 +53,9 @@ int main()
 * std::format[link /reference/chrono/format.md]
 * chrono::zoned_time[link /reference/chrono/zoned_time.md]
 * zt.get_local_time()[link /reference/chrono/zoned_time/get_local_time.md]
-* std::local_time_format[link /reference/chrono/local_time_format.md]
+* zt.get_info()[link /reference/chrono/zoned_time/get_info.md]
+* chrono::sys_info[link /reference/chrono/sys_info.md]
+* chrono::local_time_format[link /reference/chrono/local_time_format.md]
 
 ### 出力例
 ```
