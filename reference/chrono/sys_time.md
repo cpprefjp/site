@@ -209,4 +209,4 @@ UTC
 
 
 ## 関連項目
-- [`local_time_format()`](local_time_format.md.nolink) (フォーマットの詳細)
+- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)

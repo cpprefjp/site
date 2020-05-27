@@ -11,7 +11,7 @@ namespace std {
     : formatter<chrono::local-time-format-t<Duration>, charT>;
 }
 ```
-* chrono::local-time-format-t[link /reference/chrono/local-time-format-t.md.nolink]
+* chrono::local-time-format-t[link /reference/chrono/local-time-format-t.md]
 
 ## 概要
 `zoned_time`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。

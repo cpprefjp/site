@@ -41,9 +41,7 @@ namespace std::chrono {
     ```cpp
     return os << format(STATICALLY-WIDEN<charT>("{:%F %T}"), tp);
     ```
-    * format[link /reference/format/format.md]
-
-    - フォーマットの詳細は[`local_time_format()`](local_time_format.md.nolink)を参照
+    * format[link format.md]
 
 - (3) :
     - パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`tp`に代入する
@@ -151,4 +149,6 @@ UTC
 
 
 ## 関連項目
-- [`local_time_format()`](local_time_format.md.nolink) (フォーマットの詳細)
+- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+
+

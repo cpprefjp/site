@@ -205,7 +205,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`local_time_format`](chrono/local_time_format.md.nolink) | ローカル時間の文字列フォーマット用オブジェクトを生成する (function template) | C++20 |
+| [`local-time-format-t`](chrono/local-time-format-t.md) | ローカル時間を文字列フォーマットするために必要な情報をまとめた説明用の型 (class template) | C++20 |
+| [`local_time_format`](chrono/local_time_format.md) | ローカル時間の文字列フォーマット用オブジェクトを生成する (function template) | C++20 |
 | [`format`](chrono/format.md) | 文字列フォーマット | C++20 |
 
 
