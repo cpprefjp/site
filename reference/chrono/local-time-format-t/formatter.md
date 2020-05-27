@@ -32,8 +32,9 @@ namespace chrono = std::chrono;
 int main()
 {
   auto now = chrono::system_clock::now();
+  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(now); // 秒単位
 
-  chrono::zoned_time zt{"Asia/Tokyo", now};
+  chrono::zoned_time zt{"Asia/Tokyo", now_sec};
   std::cout << std::format("{:%Y/%m/%d %H:%M:%S %Z}", zt) << std::endl;
 
   auto lt = zt.get_local_time();
@@ -50,6 +51,8 @@ int main()
 ```
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
+* chrono::floor[link /reference/chrono/time_point/floor.md]
+* chrono::sys_seconds[link /reference/chrono/sys_time.md]
 * std::format[link /reference/chrono/format.md]
 * chrono::zoned_time[link /reference/chrono/zoned_time.md]
 * zt.get_local_time()[link /reference/chrono/zoned_time/get_local_time.md]
