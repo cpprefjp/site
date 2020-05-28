@@ -187,11 +187,9 @@ int main()
   std::cout << std::format("7 : %T", tp) << std::endl;
 }
 ```
-* chrono::system_clock[link system_clock.md]
-* now()[link system_clock/now.md]
-* chrono::zoned_seconds[link zoned_time.md]
+* fs::file_time_type[link /reference/filesystem/file_time_type.md]
+* fs::last_write_time[link /reference/filesystem/last_write_time.md]
 * std::format[link format.md]
-* std::locale[link /reference/locale/locale.md]
 
 #### 出力例
 ```
