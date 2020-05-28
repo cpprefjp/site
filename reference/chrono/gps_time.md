@@ -24,6 +24,11 @@ namespace std::chrono {
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);            // (4) C++20
 }
+
+namespace std {
+  template <class Duration, class charT>
+  struct formatter<chrono::gps_time<Duration>, charT>; // (5) C++20
+}
 ```
 * time_point[link time_point.md]
 * gps_clock[link gps_clock.md]
@@ -35,6 +40,7 @@ GPS時間の一点を指す[`time_point`](time_point.md)に対する別名。
 - (2) : 秒単位でGPS時間の一点を指す[`time_point`](time_point.md)に対する別名
 - (3) : 時間点に含まれる日付と時間を出力ストリームに出力する
 - (4) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
+- (5) : `gps_time`型に対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化
 
 
 ## 効果
@@ -57,6 +63,20 @@ GPS時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
 ## 備考
 - (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`gps_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
+- (5) :
+    - `%Z` (タイムゾーンの省略名) が指定された場合、`STATICALLY-WIDEN<charT>("GPS")`で置き換えられる
+    - `%z`もしくはその改良コマンドが指定された場合、`0`[`min`](duration/op_min.md)が使用される
+    - この日付と時間のフォーマットは、`gps_time<Duration>`型変数`tp`を以下のように変換した[`sys_time`](sys_time.md)をフォーマットした場合と等価：
+        ```cpp
+        sys_time<Duration>{tp.time_since_epoch()} + (sys_days{1980y/January/Sunday[1]} - sys_days{1970y/January/1})
+        ```
+        * sys_time[link sys_time.md]
+        * tp.time_since_epoch()[link time_point/time_since_epoch.md]
+        * sys_days[link sys_days.md]
+        * 1980y[link year/op_y.md]
+        * 1970y[link year/op_y.md]
+        * January[link month_constants.md]
+        * Sunday[link weekday_constants.md]
 
 
 ## 例
@@ -73,14 +93,14 @@ int main()
   chrono::gps_clock::time_point tp = chrono::gps_clock::now();
 
   // 秒単位の時間点 (日付と時間が出力される)
-  chrono::gps_seconds sec_p = chrono::time_point_cast<chrono::seconds>(tp);
+  chrono::gps_seconds sec_p = chrono::floor<chrono::seconds>(tp);
   std::cout << sec_p << std::endl;
 }
 ```
 * chrono::gps_seconds[color ff0000]
 * chrono::gps_clock[link gps_clock.md]
 * now()[link gps_clock/now.md]
-* chrono::time_point_cast[link time_point_cast.md]
+* chrono::floor[link time_point/floor.md]
 
 #### 出力例
 ```
@@ -135,6 +155,53 @@ int main()
 2019-10-24 11:15:27 GPS
 2019-10-24 11:15:27 GPS
 GPS
+```
+
+### 文字列フォーマットの例
+```cpp example
+#include <iostream>
+#include <chrono>
+#include <format>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  chrono::gps_clock::time_point now = chrono::gps_clock::now();
+  chrono::gps_seconds now_sec = chrono::floor<chrono::seconds>(tp);
+
+  // デフォルトフォーマット
+  std::cout << std::format("1 : {}", now_sec) << std::endl;
+
+  // 「年月日 時分秒」のフォーマット
+  std::cout << std::format("2 : {:%Y年%m月%d日 %H時%M分%S秒}", now_sec) << std::endl;
+
+  // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り、タイムゾーンの省略名付き
+  std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S %Z}", now_sec) << std::endl;
+
+  // 日付だけ出力
+  std::cout << std::format("4 : %Y年%m月%d日", now_sec) << std::endl;
+  std::cout << std::format("5 : %F", now_sec) << std::endl;
+
+  // 時間だけ出力
+  std::cout << std::format("6 : %H時%M分%S秒", now_sec) << std::endl;
+  std::cout << std::format("7 : %T", now_sec) << std::endl;
+}
+```
+* chrono::gps_clock[link gps_clock.md]
+* now()[link gps_clock/now.md]
+* chrono::floor[link time_point/floor.md]
+* std::format[link format.md]
+
+#### 出力例
+```
+1 : 2019-12-20 10:05:05 GPS
+2 : 2019年12月20日 10時05分05秒
+3 : 2019/12/20 10:05:05 GPS
+4 : 2019年12月20日
+5 : 2019-12-20
+6 : 10時05分05秒
+7 : 10:05:05
 ```
 
 ## バージョン
