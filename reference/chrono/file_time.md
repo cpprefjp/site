@@ -22,6 +22,11 @@ namespace std::chrono {
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);              // (3) C++20
 }
+
+namespace std {
+  template <class Duration, class charT>
+  struct formatter<chrono::file_time<Duration>, charT>;  // (4) C++20
+}
 ```
 * time_point[link time_point.md]
 * file_clock[link file_clock.md]
@@ -29,9 +34,12 @@ namespace std::chrono {
 ## 概要
 ファイル時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
+この時間点はUTCタイムゾーンの時間を指す。
+
 - (1) : [`file_clock`](file_clock.md)の[`time_point`](time_point.md)に対する別名。時間間隔を表す型はパラメータ化されている
 - (2) : 時間点に含まれる日付と時間を出力ストリームに出力する
 - (3) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
+- (4) : `file_time`型に対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化
 
 
 ## 効果
@@ -54,6 +62,10 @@ namespace std::chrono {
 
 ## 備考
 - (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`file_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
+- (4) :
+    - `%Z` (タイムゾーンの省略名) が指定された場合、`STATICALLY-WIDEN<charT>("UTC")`で置き換えられる
+    - `%z`もしくはその改良コマンドが指定された場合、`0`[`min`](duration/op_min.md)が使用される
+    - この日付と時間のフォーマットは、`file_time<Duration>`型変数`t`を[`clock_cast`](clock_cast.md)`<`[`system_clock`](system_clock.md)`>(t)`で変換した[`sys_time`](sys_time.md)、もしくは[`clock_cast`](clock_cast.md)`<`[`utc_clock`](utc_clock.md)`>(t)`で変換した[`utc_time`](utc_time.md)をフォーマットした場合と等価である
 
 
 ## 例
@@ -62,6 +74,7 @@ namespace std::chrono {
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <fstream>
 
 namespace chrono = std::chrono;
 namespace fs = std::filesystem;
@@ -137,6 +150,60 @@ int main()
 UTC
 540
 ```
+
+### 文字列フォーマットの例
+```cpp example
+#include <iostream>
+#include <chrono>
+#include <format>
+#include <filesystem>
+#include <fstream>
+
+namespace chrono = std::chrono;
+namespace fs = std::filesystem;
+
+int main()
+{
+  std::ofstream{"regular.txt"};
+
+  // ファイルの最終更新日時を取得して出力
+  fs::file_time_type tp = fs::last_write_time("regulat.txt");
+
+  // デフォルトフォーマット
+  std::cout << std::format("1 : {}", tp) << std::endl;
+
+  // 「年月日 時分秒」のフォーマット
+  std::cout << std::format("2 : {:%Y年%m月%d日 %H時%M分%S秒}", tp) << std::endl;
+
+  // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り
+  std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S}", tp) << std::endl;
+
+  // 日付だけ出力
+  std::cout << std::format("4 : %Y年%m月%d日", tp) << std::endl;
+  std::cout << std::format("5 : %F", tp) << std::endl;
+
+  // 時間だけ出力
+  std::cout << std::format("6 : %H時%M分%S秒", lt) << std::endl;
+  std::cout << std::format("7 : %T", tp) << std::endl;
+}
+```
+* chrono::system_clock[link system_clock.md]
+* now()[link system_clock/now.md]
+* chrono::zoned_seconds[link zoned_time.md]
+* std::format[link format.md]
+* std::locale[link /reference/locale/locale.md]
+
+#### 出力例
+```
+1 : 2019-12-20 10:05:00 UTC
+2 : 2019年12月20日 10時05分05秒
+3 : 2019/12/20 10:05:05
+4 : 2019年12月20日
+5 : 2019-12-20
+6 : 10時05分05秒
+7 : 10:05:05
+```
+
 
 ## バージョン
 ### 言語
