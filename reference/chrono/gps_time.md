@@ -72,7 +72,7 @@ GPS時間の一点を指す[`time_point`](time_point.md)に対する別名。
         ```
         * sys_time[link sys_time.md]
         * tp.time_since_epoch()[link time_point/time_since_epoch.md]
-        * sys_days[link sys_days.md]
+        * sys_days[link sys_time.md]
         * 1980y[link year/op_y.md]
         * 1970y[link year/op_y.md]
         * January[link month_constants.md]
