@@ -48,7 +48,7 @@ namespace std {
 - (4) : 時間点に含まれる日付と時間を出力ストリームに出力する
 - (5) : 時間点に含まれる日付を出力ストリームに出力する
 - (6) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
-- (7) : `utc_time`型に対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化
+- (7) : `sys_time`型に対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化
 
 
 ## テンプレートパラメータ制約
