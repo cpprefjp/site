@@ -30,6 +30,11 @@ namespace std::chrono {
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);            // (6) C++20
 }
+
+namespace std {
+  template <class Duration, class charT>
+  struct formatter<chrono::sys_time<Duration>, charT>; // (7) C++20
+}
 ```
 * time_point[link time_point.md]
 * system_clock[link system_clock.md]
@@ -43,6 +48,7 @@ namespace std::chrono {
 - (4) : 時間点に含まれる日付と時間を出力ストリームに出力する
 - (5) : 時間点に含まれる日付を出力ストリームに出力する
 - (6) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
+- (7) : `utc_time`型に対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化
 
 
 ## テンプレートパラメータ制約
@@ -84,6 +90,9 @@ namespace std::chrono {
 - (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`system_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であり、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 - [`year`](year.md)クラスの制限により、年の値としては`[-32767, 32767]`の範囲までしか入出力できないことに注意 (その範囲外は未規定の値となる)
 - (4), (5) : 出力ストリームの演算子は、ローカルのタイムゾーンへの変換を行わない。そのため、システム時間をそのまま出力すると、デフォルトではUTCタイムゾーンの日時が出力される。日本のタイムゾーンで出力したい場合は、[`zoned_time`](zoned_time.md)クラスを介して出力するか、9時間を加算して出力すること
+- (7) :
+    - `%Z` (タイムゾーンの省略名) が指定された場合、`STATICALLY-WIDEN<charT>("UTC")`で置き換えられる
+    - `%z`もしくはその改良コマンドが指定された場合、`0`[`min`](duration/op_min.md)が使用される
 
 
 ## 例
@@ -196,6 +205,53 @@ int main()
 2019-10-24 11:15:10
 UTC
 540
+```
+
+### 文字列フォーマットの例
+```cpp example
+#include <iostream>
+#include <chrono>
+#include <format>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  chrono::system_clock::time_point now = chrono::system_clock::now();
+  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(tp);
+
+  // デフォルトフォーマット
+  std::cout << std::format("1 : {}", now_sec) << std::endl;
+
+  // 「年月日 時分秒」のフォーマット
+  std::cout << std::format("2 : {:%Y年%m月%d日 %H時%M分%S秒}", now_sec) << std::endl;
+
+  // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り、タイムゾーンの省略名付き
+  std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S %Z}", now_sec) << std::endl;
+
+  // 日付だけ出力
+  std::cout << std::format("4 : %Y年%m月%d日", now_sec) << std::endl;
+  std::cout << std::format("5 : %F", now_sec) << std::endl;
+
+  // 時間だけ出力
+  std::cout << std::format("6 : %H時%M分%S秒", now_sec) << std::endl;
+  std::cout << std::format("7 : %T", now_sec) << std::endl;
+}
+```
+* chrono::system_clock[link system_clock.md]
+* now()[link system_clock/now.md]
+* chrono::floor[link time_point/floor.md]
+* std::format[link format.md]
+
+#### 出力例
+```
+1 : 2019-12-20 10:05:05 UTC
+2 : 2019年12月20日 10時05分05秒
+3 : 2019/12/20 10:05:05 UTC
+4 : 2019年12月20日
+5 : 2019-12-20
+6 : 10時05分05秒
+7 : 10:05:05
 ```
 
 ## バージョン
