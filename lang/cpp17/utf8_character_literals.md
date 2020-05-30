@@ -20,6 +20,7 @@ char c = u8'A'; // OK : C++17以降
 ## 関連項目
 - [C++11 UTF-8文字列リテラル](/lang/cpp11/utf8_string_literals.md)
 - [C++11 `char16_t`と`char32_t`](/lang/cpp11/char16_32.md)
+- [ostream `operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)
 
 
 ## 参照

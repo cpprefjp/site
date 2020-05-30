@@ -65,7 +65,7 @@ int main()
 - [C++11 `char16_t`と`char32_t`](char16_32.md)
 - [C++17 UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md)
 - [C++20 UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md)
-
+- [ostream `operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)
 
 ## 参照
 - [N2159 UTF-8 String Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2159.html)
