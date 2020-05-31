@@ -96,7 +96,7 @@ namespace std {
 なお、(14) の形式（`os` の文字型（`char_type`）が `char` 以外で `s` が `const char*`）の時は、`s` の各文字 `c` を直接出力するのではなく、`os.`[`widen`](../../ios/basic_ios/widen.md)`(c)` を出力する。  
 出力後、幅指定は `0` にリセットされる。
 
-### (18)～(24) 文字列の書式化出力
+### (18)～(24) 文字列の書式化出力 (C++20)
 
 これらの関数は削除されている
 
@@ -212,6 +212,25 @@ cpprefjp
 ## 実装例
 TBD
 
+## C++20で追加された`delete`指定オーバーロードについて
+
+[`char8_t`型の追加](/lang/cpp20/char8_t.md)に伴って、次に示すようなコードに破壊的変更が生じてしまった。
+
+```cpp
+#include <iostream>
+int main()
+{
+    std::cout << u8'x';    // C++17までは x と表示された。C++20では120と表示される
+    std::cout << u8"text"; // C++20までは text と表示された。C++20では文字列先頭へのポインタが表示される
+}
+```
+
+これは`char8_t`/`char16_t`/`char32_t`に対するostreamの`operator<<`が提供されないため、他のオーバーロードが選ばれるためにこのような直感に反する挙動が発生する。
+
+そこで(6)～(12)、(18)～(24)のように`delete`指定された`operator<<`を追加することで不適格にし、このような直感的ではない挙動を避ける。
+
+[機能テストマクロ](/lang/cpp20/feature_test_macros.md.nolink)は`__cpp_lib_char8_t`で、値は`201907`。
+
 ## バージョン
 ### 言語
 - C++98
@@ -221,39 +240,53 @@ TBD
 
 ## 関連項目
 
-- このほかの`<<`演算子関数
-    - [`bool`値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの](op_ostream.md)
-	- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
-	- [`std::error_code`に関するもの](../../system_error/error_code/op_ostream.md)
-	- [`std::complex`に関するもの](../../complex/complex/op_ostream.md)
-	- [`std::bitset`に関するもの](../../bitset/bitset/op_ostream.md)
-	- [`std::basic_string`に関するもの](../../string/basic_string/op_ostream.md)
-	- [`std::shared_ptr`に関するもの](../../memory/shared_ptr/op_ostream.md)
-	- [`std::shuffle_order_engine`に関するもの](../../random/shuffle_order_engine/op_ostream.md)
-	- [`std::gamma_distribution`に関するもの](../../random/gamma_distribution/op_ostream.md)
-	- [`std::geometric_distribution`に関するもの](../../random/geometric_distribution/op_ostream.md)
-	- [`std::extreme_value_distribution`に関するもの](../../random/extreme_value_distribution/op_ostream.md)
-	- [`std::fisher_f_distribution`に関するもの](../../random/fisher_f_distribution/op_ostream.md)
-	- [`std::mersenne_twister_engine`に関するもの](../../random/mersenne_twister_engine/op_ostream.md)
-	- [`std::chi_squared_distribution`に関するもの](../../random/chi_squared_distribution/op_ostream.md)
-	- [`std::exponential_distribution`に関するもの](../../random/exponential_distribution/op_ostream.md)
-	- [`std::discrete_distribution`に関するもの](../../random/discrete_distribution/op_ostream.md)
-	- [`std::subtract_with_carry_engine`に関するもの](../../random/subtract_with_carry_engine/op_ostream.md)
-	- [`std::piecewise_constant_distribution`に関するもの](../../random/piecewise_constant_distribution/op_ostream.md)
-	- [`std::poisson_distribution`に関するもの](../../random/poisson_distribution/op_ostream.md)
-	- [`std::student_t_distribution`に関するもの](../../random/student_t_distribution/op_ostream.md)
-	- [`std::bernoulli_distribution`に関するもの](../../random/bernoulli_distribution/op_ostream.md)
-	- [`std::weibull_distribution`に関するもの](../../random/weibull_distribution/op_ostream.md)
-	- [`std::binomial_distribution`に関するもの](../../random/binomial_distribution/op_ostream.md)
-	- [`std::piecewise_linear_distribution`に関するもの](../../random/piecewise_linear_distribution/op_ostream.md)
-	- [`std::uniform_real_distribution`に関するもの](../../random/uniform_real_distribution/op_ostream.md)
-	- [`std::negative_binomial_distribution`に関するもの](../../random/negative_binomial_distribution/op_ostream.md)
-	- [`std::discard_block_engine`に関するもの](../../random/discard_block_engine/op_ostream.md)
-	- [`std::normal_distribution`に関するもの](../../random/normal_distribution/op_ostream.md)
-	- [`std::cauchy_distribution`に関するもの](../../random/cauchy_distribution/op_ostream.md)
-	- [`std::lognormal_distribution`に関するもの](../../random/lognormal_distribution/op_ostream.md)
-	- [`std::linear_congruential_engine`に関するもの](../../random/linear_congruential_engine/op_ostream.md)
-	- [`std::uniform_int_distribution`に関するもの](../../random/uniform_int_distribution/op_ostream.md)
-	- [`std::independent_bits_engine`に関するもの](../../random/independent_bits_engine/op_ostream.md)
-- 出力対象の型
-    - [`basic_streambuf`](../../streambuf/basic_streambuf.md)
+### このほかの`<<`演算子関数
+
+- [`bool`値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの](op_ostream.md)
+- [`std::sub_match`に関するもの](../../regex/sub_match/op_ostream.md)
+- [`std::error_code`に関するもの](../../system_error/error_code/op_ostream.md)
+- [`std::complex`に関するもの](../../complex/complex/op_ostream.md)
+- [`std::bitset`に関するもの](../../bitset/bitset/op_ostream.md)
+- [`std::basic_string`に関するもの](../../string/basic_string/op_ostream.md)
+- [`std::shared_ptr`に関するもの](../../memory/shared_ptr/op_ostream.md)
+- [`std::shuffle_order_engine`に関するもの](../../random/shuffle_order_engine/op_ostream.md)
+- [`std::gamma_distribution`に関するもの](../../random/gamma_distribution/op_ostream.md)
+- [`std::geometric_distribution`に関するもの](../../random/geometric_distribution/op_ostream.md)
+- [`std::extreme_value_distribution`に関するもの](../../random/extreme_value_distribution/op_ostream.md)
+- [`std::fisher_f_distribution`に関するもの](../../random/fisher_f_distribution/op_ostream.md)
+- [`std::mersenne_twister_engine`に関するもの](../../random/mersenne_twister_engine/op_ostream.md)
+- [`std::chi_squared_distribution`に関するもの](../../random/chi_squared_distribution/op_ostream.md)
+- [`std::exponential_distribution`に関するもの](../../random/exponential_distribution/op_ostream.md)
+- [`std::discrete_distribution`に関するもの](../../random/discrete_distribution/op_ostream.md)
+- [`std::subtract_with_carry_engine`に関するもの](../../random/subtract_with_carry_engine/op_ostream.md)
+- [`std::piecewise_constant_distribution`に関するもの](../../random/piecewise_constant_distribution/op_ostream.md)
+- [`std::poisson_distribution`に関するもの](../../random/poisson_distribution/op_ostream.md)
+- [`std::student_t_distribution`に関するもの](../../random/student_t_distribution/op_ostream.md)
+- [`std::bernoulli_distribution`に関するもの](../../random/bernoulli_distribution/op_ostream.md)
+- [`std::weibull_distribution`に関するもの](../../random/weibull_distribution/op_ostream.md)
+- [`std::binomial_distribution`に関するもの](../../random/binomial_distribution/op_ostream.md)
+- [`std::piecewise_linear_distribution`に関するもの](../../random/piecewise_linear_distribution/op_ostream.md)
+- [`std::uniform_real_distribution`に関するもの](../../random/uniform_real_distribution/op_ostream.md)
+- [`std::negative_binomial_distribution`に関するもの](../../random/negative_binomial_distribution/op_ostream.md)
+- [`std::discard_block_engine`に関するもの](../../random/discard_block_engine/op_ostream.md)
+- [`std::normal_distribution`に関するもの](../../random/normal_distribution/op_ostream.md)
+- [`std::cauchy_distribution`に関するもの](../../random/cauchy_distribution/op_ostream.md)
+- [`std::lognormal_distribution`に関するもの](../../random/lognormal_distribution/op_ostream.md)
+- [`std::linear_congruential_engine`に関するもの](../../random/linear_congruential_engine/op_ostream.md)
+- [`std::uniform_int_distribution`に関するもの](../../random/uniform_int_distribution/op_ostream.md)
+- [`std::independent_bits_engine`に関するもの](../../random/independent_bits_engine/op_ostream.md)
+
+### 出力対象の型
+
+- [`basic_streambuf`](../../streambuf/basic_streambuf.md)
+
+### C++20での変更関連
+
+- [UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md)
+- [char16_tとchar32_t](/lang/cpp11/char16_32.md)
+- [UTF-8文字列リテラル](/lang/cpp11/utf8_string_literals.md)
+- [UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md)
+
+## 参照
+
+[P1423R3: char8_t backward compatibility remediation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r3.html)

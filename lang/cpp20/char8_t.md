@@ -27,7 +27,12 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 
 ## 備考
 
-[機能テストマクロ](../../lang/cpp17/feature_test_macros.md)は`__cpp_char8_t`で、値は`201803`。
+[機能テストマクロ](../../lang/cpp20/feature_test_macros.md.nolink)は以下の通り。
+
+| マクロ名            | 値       |
+|---------------------|----------|
+| `__cpp_char8_t`     | `201811` |
+| `__cpp_lib_char8_t` | `201811` |
 
 ## 例
 ```cpp example

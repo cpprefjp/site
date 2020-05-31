@@ -15,6 +15,7 @@ char t[] = u8"\U00020BB7野家"; // 𠮷野家
 
 `u8`プレフィックスを指定しない場合は、実装定義のマルチバイト文字コードにエンコードされる。その実装定義の文字コードは、ASCII文字コードと互換があることは保証されない。そのため、UTF-8のASCII互換部分が、実装定義の文字コードと互換があることも、保証されない。
 
+C++20ではUTF-8文字リテラルの型が[`const char[N]`ではなく`const char8_t[N]`になる](/lang/cpp20/char8_t.md)
 
 ## 仕様
 - 文字列リテラルに`u8`プレフィックスを付けることで、UTF-8にエンコードされた`char`型の配列に初期化される。
@@ -65,7 +66,7 @@ int main()
 - [C++11 `char16_t`と`char32_t`](char16_32.md)
 - [C++17 UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md)
 - [C++20 UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md)
-
+- [ostream `operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)
 
 ## 参照
 - [N2159 UTF-8 String Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2159.html)
