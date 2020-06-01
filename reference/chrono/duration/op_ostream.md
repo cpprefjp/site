@@ -50,7 +50,7 @@ namespace std::chrono {
 
 値`num`を`Period::type::num`、値`den`を`Period::type::den`をゼロ埋めなしの10進数で文字列化したものであるとして、
 
-- `Period::type::den == 1`である場合、サフィックス"[num]s"
+- `Period::type::den == 1`である場合、サフィックス`"[num]s"`
 - いずれにもあてはまらない場合、サフィックスは`"[num/den]s"`
 
 マイクロ秒として`"µs"`が表現できないエンコーディングの場合、代わりに`"us"`が使用される。
@@ -84,6 +84,8 @@ int main()
   std::cout << "float sec : " << float_seconds{1.23f} << std::endl;
 }
 ```
+* chrono::weeks[link duration_aliases.md]
+* std::ratio[link /reference/ratio/ratio.md]
 
 ### 出力
 ```
