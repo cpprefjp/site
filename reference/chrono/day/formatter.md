@@ -29,14 +29,16 @@ int main()
   std::cout << std::format("{}", chrono::day{3}) << std::endl;
 
   std::cout << std::format("{:%d}", chrono::day{3}) << std::endl;
+  std::cout << std::format("{:%e}", chrono::day{3}) << std::endl;
 }
 ```
 - std::format[link /reference/chrono/format.md]
 
 ### 出力
 ```
-3
-3
+03
+03
+ 3
 ```
 
 ## バージョン
