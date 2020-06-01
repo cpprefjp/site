@@ -48,6 +48,7 @@ int main()
 ```
 * std::format[link /reference/chrono/format.md]
 * chrono::April[link /reference/chrono/month_constants.md]
+* std::locale[link /reference/locale/locale.md]
 
 ### 出力
 ```
