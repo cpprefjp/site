@@ -14,6 +14,17 @@ namespace std {
 ## 概要
 `duration`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
 
+フォーマット指定子としては、以下を使用できる：
+
+| フォーマット指定子 | 説明 |
+|--------------------|------|
+| `%q` | `duration`単位ごとのサフィックス。`duration`の`operator<<`で出力されるサフィックスと等価 |
+| `%Q` | `duration`の数値。`.count()`で取得した値 |
+| `%S` | 2桁0埋めの秒 |
+| `%M` | 2桁0埋めの分 |
+| `%H` | 24時間時計での2桁0埋めの時 |
+| `%I` | 12時間時計での2桁0埋めの時 |
+| `%p` | 12時間時計でのロケール依存の午前・午後の表現 |
 
 ## 備考
 - `Rep`が浮動小数点数である場合のみ、フォーマットとして浮動小数点数の精度を指定でき、そうでない場合に指定すると[`std::format_error`](/reference/format/format_error.md)例外が送出される
@@ -33,6 +44,12 @@ int main()
   // デフォルトフォーマットは、operator<<で出力されるものと同じ
   std::cout << std::format("{}", chrono::seconds{3}) << std::endl;
 
+  // 単位ごとのサフィックス
+  std::cout << std::format("{:%q}", chrono::seconds{3}) << std::endl;
+
+  // duration::count()で取得した値
+  std::cout << std::format("{:%Q}", chrono::seconds{3}) << std::endl;
+
   // フォーマット指定子を使用した場合、サフィックスは出力されない
   std::cout << std::format("seconds : {:%S}", chrono::seconds{3}) << std::endl;
   std::cout << std::format("minutes : {:%M}", chrono::minutes{3}) << std::endl;
@@ -46,6 +63,8 @@ int main()
 ### 出力
 ```
 3s
+s
+3
 seconds : 03
 minutes : 03
 24-hours : 15
