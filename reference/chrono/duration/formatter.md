@@ -31,16 +31,17 @@ namespace chrono = std::chrono;
 int main()
 {
   // デフォルトフォーマットは、operator<<で出力されるものと同じ
-  std::format("{}", chrono::seconds{3});
+  std::cout << std::format("{}", chrono::seconds{3}) << std::endl;
 
   // フォーマット指定子を使用した場合、サフィックスは出力されない
-  std::format("seconds : {:%S}", chrono::seconds{3});
-  std::format("minutes : {:%M}", chrono::minutes{3});
-  std::format("24-hours : {:%H}", chrono::hours{15});
-  std::format("12-hours : {:%I}", chrono::hours{15});
-  std::format("AM/PM : {:%p %I:00}", chrono::hours{15});
+  std::cout << std::format("seconds : {:%S}", chrono::seconds{3}) << std::endl;
+  std::cout << std::format("minutes : {:%M}", chrono::minutes{3}) << std::endl;
+  std::cout << std::format("24-hours : {:%H}", chrono::hours{15}) << std::endl;
+  std::cout << std::format("12-hours : {:%I}", chrono::hours{15}) << std::endl;
+  std::cout << std::format("AM/PM : {:%p %I:00}", chrono::hours{15}) << std::endl;
 }
 ```
+- std::format[link /reference/chrono/format.md]
 
 ### 出力
 ```
