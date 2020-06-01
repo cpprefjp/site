@@ -42,8 +42,8 @@ int main()
   std::cout << std::format("{:%m}", chrono::April) << std::endl; // 完全名
 
   // ロケール依存の出力
-  std::cout << std::format(std::locale(""ja_JP.UTF-8""), "{:%b}", chrono::April) << std::endl;
-  std::cout << std::format(std::locale(""ja_JP.UTF-8""), "{:%B}", chrono::April) << std::endl;
+  std::cout << std::format(std::locale("ja_JP.UTF-8"), "{:%b}", chrono::April) << std::endl;
+  std::cout << std::format(std::locale("ja_JP.UTF-8"), "{:%B}", chrono::April) << std::endl;
 }
 ```
 * std::format[link /reference/chrono/format.md]

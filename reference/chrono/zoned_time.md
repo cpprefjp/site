@@ -176,7 +176,7 @@ int main()
 
   // 12時間時計で出力
   // (%pでロケール固有の「午前」「午後」を出力するには、日本のロケールを指定する必要がある)
-  std::cout << std::format(std::locale(""ja_JP.UTF-8""), "9 : %Y年%m月%d日 %p %I時%M分%S秒", zt_sec) << std::endl;
+  std::cout << std::format(std::locale("ja_JP.UTF-8"), "9 : %Y年%m月%d日 %p %I時%M分%S秒", zt_sec) << std::endl;
 }
 ```
 * chrono::zoned_time[color ff0000]
