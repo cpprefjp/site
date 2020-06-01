@@ -43,8 +43,11 @@ iterator insert_after(const_iterator position,
 - (3), (4), (5) : 最後に挿入された要素を指すイテレータ、挿入されなかった時は`position`
 
 ## 計算量
-定数時間
 
+- (1), (2) : 定数時間
+- (3) : `n`に対して線形時間
+- (4) : `std::distance(first, last)`に対して線形時間
+- (5) : `il.size()`に対して線形時間
 
 ## 例
 ```cpp example
