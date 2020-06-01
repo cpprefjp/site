@@ -44,7 +44,7 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 | `%M` | 10進数での分。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%0M`を指定すると、ロケール依存の異なる表現を出力する | `"14"` |
 | `%n` | 改行文字 | |
 | `%p` | 12時間時計でのロケール依存の午前・午後の表現 | `"PM"`, `"午後"` |
-| `%q` | [`duration`](duration.md)単位ごとのサフィックス。[`duration`](duration.md)の[`operator<<`](duration/op_ostream.md.nolink)で出力されるサフィックスと等価 | `"s"` |
+| `%q` | [`duration`](duration.md)単位ごとのサフィックス。[`duration`](duration.md)の[`operator<<`](duration/op_ostream.md)で出力されるサフィックスと等価 | `"s"` |
 | `%Q` | [`duration`](duration.md)の数値。[`.count()`](duration/count.md)で取得した値 | `"44"` |
 | `%r` | 12時間時計でのロケール依存の時間 | `"05:14:44 PM"`<br/> `"午後05時14分44秒"` |
 | `%R` | `%H:%M`と等価 | `"17:14"` |
