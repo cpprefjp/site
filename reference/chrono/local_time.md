@@ -206,7 +206,7 @@ int main()
 
   // 12時間時計で出力
   // (%pでロケール固有の「午前」「午後」を出力するには、日本のロケールを指定する必要がある)
-  std::cout << std::format(std::locale(""ja_JP.UTF-8""),
+  std::cout << std::format(std::locale("ja_JP.UTF-8"),
                            "8 : %Y年%m月%d日 %p %I時%M分%S秒",
                            lt) << std::endl;
 }
