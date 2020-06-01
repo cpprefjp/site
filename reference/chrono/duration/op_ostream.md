@@ -84,7 +84,7 @@ int main()
   std::cout << "float sec : " << float_seconds{1.23f} << std::endl;
 }
 ```
-* chrono::weeks[link duration_aliases.md]
+* chrono::weeks[link /reference/chrono/duration_aliases.md]
 * std::ratio[link /reference/ratio/ratio.md]
 
 ### 出力
