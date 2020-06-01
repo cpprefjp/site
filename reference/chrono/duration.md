@@ -127,7 +127,7 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](duration/op_ostream.md.nolink) | ストリームへの出力 | C++20 |
+| [`operator<<`](duration/op_ostream.md) | ストリームへの出力 | C++20 |
 | [`from_stream`](duration/from_stream.md.nolink) | フォーマットを指定してストリームから入力 | C++20 |
 
 
