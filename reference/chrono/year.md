@@ -119,6 +119,13 @@ namespace std::chrono {
 | [`y`](year/op_y.md) | 年リテラル | C++20 |
 
 
+## 文字列フォーマット
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](year/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
 ## 例
 ```cpp example
 #include <iostream>
