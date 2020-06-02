@@ -214,7 +214,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`parse`](chrono/parse.md.nolink) | 日時文字列を解析する (function template) | C++20 |
+| [`parse`](chrono/parse.md) | 日時文字列を解析する入力マニピュレータ (function template) | C++20 |
 
 
 ## カレンダー定数
