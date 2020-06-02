@@ -18,7 +18,7 @@ namespace std {
 
 | フォーマット指定子 | 説明 |
 |--------------------|------|
-| `%a` | ロケール依存の曜日の省略名 |
+| `%a` | ロケール依存の曜日の略称 |
 | `%A` | ロケール依存の曜日の完全名 |
 | `%u` | 10進数での月曜を1とするISO曜日番号 (1-7) |
 | `%0u` | ロケール依存の`%u`の異なる表現 |
@@ -38,7 +38,7 @@ int main()
   // デフォルトフォーマットはoperator<<と同じ
   std::cout << std::format("{}", chrono::Sunday) << std::endl;
 
-  std::cout << std::format("{:%a}", chrono::Sunday) << std::endl; // 省略名
+  std::cout << std::format("{:%a}", chrono::Sunday) << std::endl; // 略称
   std::cout << std::format("{:%A}", chrono::Sunday) << std::endl; // 完全名
 
   // ロケール依存の出力

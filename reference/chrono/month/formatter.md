@@ -18,7 +18,7 @@ namespace std {
 
 | フォーマット指定子 | 説明 |
 |--------------------|------|
-| `%b` | ロケール依存の月の省略名 |
+| `%b` | ロケール依存の月の略称 |
 | `%B` | ロケール依存の月の完全名 |
 | `%h` | `%b`と等価 |
 | `%m` | 10進数での月。2桁0埋め |
@@ -37,7 +37,7 @@ int main()
   // デフォルトフォーマットはoperator<<と同じ
   std::cout << std::format("{}", chrono::April) << std::endl;
 
-  std::cout << std::format("{:%b}", chrono::April) << std::endl; // 省略名
+  std::cout << std::format("{:%b}", chrono::April) << std::endl; // 略称
   std::cout << std::format("{:%B}", chrono::April) << std::endl; // 完全名
   std::cout << std::format("{:%m}", chrono::April) << std::endl; // 完全名
 

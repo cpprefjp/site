@@ -63,7 +63,7 @@ namespace std {
 ## 備考
 - (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`file_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
 - (4) :
-    - `%Z` (タイムゾーンの省略名) が指定された場合、`STATICALLY-WIDEN<charT>("UTC")`で置き換えられる
+    - `%Z` (タイムゾーンの略称) が指定された場合、`STATICALLY-WIDEN<charT>("UTC")`で置き換えられる
     - `%z`もしくはその改良コマンドが指定された場合、`0`[`min`](duration/op_min.md)が使用される
     - この日付と時間のフォーマットは、`file_time<Duration>`型変数`t`を[`clock_cast`](clock_cast.md)`<`[`system_clock`](system_clock.md)`>(t)`で変換した[`sys_time`](sys_time.md)、もしくは[`clock_cast`](clock_cast.md)`<`[`utc_clock`](utc_clock.md)`>(t)`で変換した[`utc_time`](utc_time.md)をフォーマットした場合と等価である
 

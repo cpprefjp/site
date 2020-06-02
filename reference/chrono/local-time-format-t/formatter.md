@@ -17,7 +17,7 @@ namespace std {
 
 `formatter::format()`関数に渡される`local-time-format-t<Duration>`型の変数`f`があるとして、
 
-- `%Z` (タイムゾーンの省略名) が指定された場合、`f.abbrev`がヌルポインタでなければ`*f.abbrev`で置き換えられる。`%Z`が指定されて`f.abbrev`がヌルポインタだった場合、[`std::format_error`](/reference/format/format_error.md)例外が送出される
+- `%Z` (タイムゾーンの略称) が指定された場合、`f.abbrev`がヌルポインタでなければ`*f.abbrev`で置き換えられる。`%Z`が指定されて`f.abbrev`がヌルポインタだった場合、[`std::format_error`](/reference/format/format_error.md)例外が送出される
 - `%z`もしくはその改良コマンドが指定された場合、`f.offset_sec`がヌルポインタでなければ`*f.offset_sec`がフォーマットされる。`%z`もしくはその改良コマンドが指定されて`f.offset_sec`がヌルポインタだった場合、[`std::format_error`](/reference/format/format_error.md)例外が送出される
 
 
