@@ -49,7 +49,7 @@ int main()
     ss << "3";
 
     chrono::seconds sec{0};
-    chrono::from_stream(ss, "%s", sec);
+    chrono::from_stream(ss, "%S", sec);
 
     std::cout << sec << std::endl;
   }
@@ -60,7 +60,7 @@ int main()
     chrono::seconds sec{3};
     std::string abbrev;
     chrono::minutes offset{0};
-    chrono::from_stream(ss, "%s", sec, &abbrev, &offset);
+    chrono::from_stream(ss, "%S", sec, &abbrev, &offset);
 
     std::cout << sec << std::endl;
     std::cout << abbrev << std::endl;
