@@ -56,14 +56,6 @@ namespace std::chrono {
 - (4) : このマニピュレータは、[`basic_istream`](/reference/istream/basic_istream.md)`<charT, traits>`型オブジェクト`is`に対して`from_stream(is, fmt.`[`c_str()`](/reference/string/basic_string/c_str.md)`, tp,` [`addressof`](/reference/memory/addressof.md)`(abbrev), &offset)`を呼び出して返す
 
 
-## 戻り値
-```cpp
-return get_tzdb().locate_zone(tz_name);
-```
-* get_tzdb()[link get_tzdb.md]
-* locate_zone()[link tzdb/locate_zone.md]
-
-
 ## 例
 ```cpp example
 #include <iostream>
