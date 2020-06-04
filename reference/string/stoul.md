@@ -50,7 +50,7 @@ namespace std {
 ### グローバルロケールの影響
 この関数は、`setlocale()`関数により挙動が変化する。
 
-`strtol()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用されるためである。
+`strtoul()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用されるためである。
 
 
 ## 例
@@ -238,7 +238,7 @@ unsigned long stoul(const std::wstring& str, std::size_t* idx = nullptr, unsigne
 ## 関連リンク
 ### C標準ライブラリに由来する関数
 - `atol`: `stoul`は`atol`を`std::string`および`std::wsting`に対応させ、戻り値の型を`unsigned long`に変更したものと見なせる。
-- `strtoul`, `wcstoul`: `stoul`は`wcstoull`および`wcstoul`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `strtoul`, `wcstoul`: `stoul`は`strtoul`および`wcstoul`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。
