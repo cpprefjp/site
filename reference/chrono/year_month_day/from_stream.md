@@ -59,7 +59,7 @@ int main()
     ss << "2020-03-01";
 
     chrono::year_month_day ymd;
-    chrono::from_stream(ss, ymd, "%04F"); // 年の桁数を指定する
+    chrono::from_stream(ss, ymd, "%4F"); // 年の桁数を指定する
     assert(ymd == 2020y/3/1);
   }
 }
