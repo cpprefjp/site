@@ -41,9 +41,9 @@ namespace std::chrono {
 - (3) chronoオブジェクトと、UTCタイムゾーンからのオフセット時間を解析する
 - (4) chronoオブジェクトと、タイムゾーンの略称、UTCタイムゾーンからのオフセット時間を解析する
 
-`fmt`パラメータに指定できるフォーマット指定子は、以下である。`N`として10進整数を指定できる場合があり、それを指定することでより多くの文字数を読み込める。
+`fmt`パラメータに指定できるフォーマットフラグは、以下である。`N`として10進整数を指定できる場合があり、それを指定することでより多くの文字数を読み込める。
 
-| フォーマット指定子 | 説明 | 例 |
+| フォーマットフラグ | 説明 | 例 |
 |--------------------|------|----|
 | `%a` | ロケール依存の曜日の略称 (大文字・小文字を区別しない) | `"Sun"`<br/> 日本のロケールでは`"日"` |
 | `%A` | `%a`と等価 | |
@@ -101,11 +101,11 @@ namespace std::chrono {
 
 - これらの関数をADL (引数依存の名前探索、argument dependent lookup) で呼び出すために、`from_stream`を修飾せずに呼び出している
 - これらの関数は書式化されていない入力関数として動作するが ([`std::boolalpha`](/reference/ios/boolalpha.md), [`std::quoted`](/reference/iomanip/quoted.md)などの影響を受けない)、後続で呼び出された[`std::basic_istream`](/reference/istream/basic_istream.md)`<>::`[`gcount()`](/reference/istream/basic_istream/gcount.md)の戻り値に未規定の影響がある
-- 概要欄に示したフォーマット指定子に含まれておらず、スペースを除くフォーマット文字列のすべての文字は、ストリームから変更されずに解析される
+- 概要欄に示したフォーマットフラグに含まれておらず、スペースを除くフォーマット文字列のすべての文字は、ストリームから変更されずに解析される
 - スペース文字は、入力ストリーム内の「ゼロ個以上のスペース文字」と合致する
-- 解析する`tp`の型が、フォーマット指定子の情報を表現できない場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)`)`が呼び出される
+- 解析する`tp`の型が、フォーマットフラグの情報を表現できない場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)`)`が呼び出される
     - 例として、[`duration`](duration.md)は[`weekday`](weekday.md)を表現できない
-    - ただし、フォーマット指定子が時刻を表すものである場合 (`"%H"`, `"%I"`, `"%p"`など)、[`duration`](duration.md)の特殊化は、その日の深夜0時からの経過時間だと見なして読み込む
+    - ただし、フォーマットフラグが時刻を表すものである場合 (`"%H"`, `"%I"`, `"%p"`など)、[`duration`](duration.md)の特殊化は、その日の深夜0時からの経過時間だと見なして読み込む
 - フォーマット文字列で指定されたいずれの解析にも失敗した場合、もしくは完全な`duration`、時間点、カレンダーデータ構造を指定するために十分な情報が解析されなかった場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)`)`が呼び出される
 
 

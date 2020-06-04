@@ -16,13 +16,13 @@ chronoライブラリのクラスオブジェクトに対する文字列フォ�
 ここでは宣言はとくにないが、[`std::format()`](/reference/format/format.md)に対してchronoライブラリの各クラスオブジェクトを出力できるよう[`std::formatter`](/reference/format/formatter.md)クラスが各クラスで特殊化されている。
 
 
-### chronoライブラリでのフォーマット指定子
+### chronoライブラリでのフォーマットフラグ
 
 [`std::format()`](/reference/format/format.md)関数の通常の指定では、置換フィールド`{}`内に基数、精度、0埋め指定、アライメントなどを指定する。
 
 chronoライブラリではこれに加え、たとえばデフォルトでは年・月・日を出力する[`year_month_day`](year_month_day.md)クラスに対して「`"年/月"`」というフォーマットで出力するよう`"{%Y/%m}"`のように指定することでデフォルトとは異なる出力をさせることができる。
 
-| フォーマット指定子 | 説明 | 例 |
+| フォーマットフラグ | 説明 | 例 |
 |--------------------|------|----|
 | `%a` | ロケール依存の曜日の略称。<br/> 値に有効な曜日が含まれていない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"Fri"`, `"金"` |
 | `%A` | ロケール依存の曜日の完全名。<br/> 値に有効な曜日が含まれていない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"Friday"`, `"金曜日"` |

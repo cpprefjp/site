@@ -14,9 +14,9 @@ namespace std {
 ## 概要
 `year_month_day`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
 
-フォーマット指定子としては、以下を使用できる：
+フォーマットフラグとしては、以下を使用できる：
 
-| フォーマット指定子 | 説明 |
+| フォーマットフラグ | 説明 |
 |--------------------|------|
 | `%D` | `%m/%d/%y`と等価 |
 | `%F` | `%Y-%m-%d`と等価 |
@@ -24,7 +24,7 @@ namespace std {
 | `%x` | ロケール依存の日付表現 |
 | `%Ex` | `%x`の異なる表現 |
 
-その他、[`day`](/reference/chrono/day/formatter.md)、[`month`](/reference/chrono/month/formatter.md)、[`year`](/reference/chrono/year/formatter.md)で利用可能なフォーマット指定子を使用できる。
+その他、[`day`](/reference/chrono/day/formatter.md)、[`month`](/reference/chrono/month/formatter.md)、[`year`](/reference/chrono/year/formatter.md)で利用可能なフォーマットフラグを使用できる。
 
 
 ## 例

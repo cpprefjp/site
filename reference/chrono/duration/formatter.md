@@ -14,9 +14,9 @@ namespace std {
 ## 概要
 `duration`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
 
-フォーマット指定子としては、以下を使用できる：
+フォーマットフラグとしては、以下を使用できる：
 
-| フォーマット指定子 | 説明 |
+| フォーマットフラグ | 説明 |
 |--------------------|------|
 | `%q` | `duration`単位ごとのサフィックス。`duration`の`operator<<`で出力されるサフィックスと等価 |
 | `%Q` | `duration`の数値。`.count()`で取得した値 |
@@ -50,7 +50,7 @@ int main()
   // duration::count()で取得した値
   std::cout << std::format("{:%Q}", chrono::seconds{3}) << std::endl;
 
-  // フォーマット指定子を使用した場合、サフィックスは出力されない
+  // フォーマットフラグを使用した場合、サフィックスは出力されない
   std::cout << std::format("seconds : {:%S}", chrono::seconds{3}) << std::endl;
   std::cout << std::format("minutes : {:%M}", chrono::minutes{3}) << std::endl;
   std::cout << std::format("24-hours : {:%H}", chrono::hours{15}) << std::endl;
