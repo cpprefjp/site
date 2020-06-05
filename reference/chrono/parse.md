@@ -115,18 +115,60 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
-#include <iostream>
+#include <sstream>
 #include <chrono>
 
 namespace chrono = std::chrono;
 
 int main()
 {
+  // タイムゾーン情報を含まない日時の解析
+  {
+    std::stringstream ss;
+    ss << "2019-10-24 20:15:10";
+
+    chrono::sys_seconds tp;
+    ss >> chrono::parse("%Y-%m-%d %H:%M:%S", tp);
+
+    if (ss) {
+      std::cout << tp << std::endl;
+    }
+    else {
+      std::cout << "解析失敗" << std::endl;
+    }
+  }
+
+  // タイムゾーン情報を含む日時の解析
+  {
+    std::stringstream ss;
+    ss << "2019-10-24 20:15:10 JST+0900";
+
+    chrono::sys_seconds tp;
+    std::string abbrev;
+    chrono::minutes offset;
+    ss >> chrono::parse("%Y-%m-%d %H:%M:%S %Z%z", tp, abbrev, offset);
+
+    if (ss) {
+      std::cout << tp << std::endl;
+      std::cout << abbrev << std::endl;
+      std::cout << chrono::floor<chrono::hours>(offset) << std::endl;
+    }
+    else {
+      std::cout << "解析失敗" << std::endl;
+    }
+  }
 }
 ```
+* chrono::parse[color ff0000]
+* chrono::sys_seconds[link sys_time.md]
+* chrono::floor[link duration/floor.md]
 
 ### 出力
 ```
+2019-10-24 20:15:10
+2019-10-24 11:15:10
+JST
+9h
 ```
 
 ## バージョン

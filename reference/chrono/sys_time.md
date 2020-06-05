@@ -183,7 +183,7 @@ int main()
   // タイムゾーンとオフセットを含む入力
   {
     std::stringstream ss;
-    ss << "2019-10-24 20:15:10 UTC+0900";
+    ss << "2019-10-24 20:15:10 JST+0900";
 
     chrono::sys_seconds tp;
     std::string abbrev;
@@ -203,7 +203,7 @@ int main()
 ```
 2019-10-24 20:15:10
 2019-10-24 11:15:10
-UTC
+JST
 540
 ```
 
