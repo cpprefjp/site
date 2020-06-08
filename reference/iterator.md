@@ -11,7 +11,7 @@ C++標準ライブラリのイテレータは、以下のように階層的に�
 
 C++20以降の標準ライブラリでは、任意のイテレータに対して可能な操作によって上記5つに隣接イテレータ（*contiguous iterator*）を加えた6つのイテレータカテゴリを定義する。それぞれ次のイテレータコンセプトが対応する。
 
-- 入力イテレータ : [`input_­iterator`](iterator/input_­iterator.md.nolink)
+- 入力イテレータ : [`input_iterator`](iterator/input_iterator.md.nolink)
 - 出力イテレータ : [`output_iterator`](iterator/output_iterator.md.nolink)
 - 前方向イテレータ : [`forward_iterator`](iterator/forward_iterator.md.nolink)
 - 双方向イテレータ : [`bidirectional_iterator`](iterator/bidirectional_iterator.md.nolink)
