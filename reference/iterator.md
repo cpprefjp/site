@@ -182,3 +182,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`permutable`](iterator/permutable.md.nolink) | イテレータを介して要素を並べ替え可能 (concept)           | C++20          |
 | [`mergeable`](iterator/mergeable.md.nolink) | イテレータを介して範囲をマージ可能 (concept)           | C++20          |
 | [`sortable`](iterator/sortable.md.nolink) | イテレータを介して範囲をソート可能 (concept)           | C++20          |
+
+## 参照
+
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
