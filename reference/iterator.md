@@ -140,20 +140,20 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`iter_rvalue_reference_t`](iterator/iter_rvalue_reference_t.md.nolink) | イテレータの指す要素の右辺値参照型を取得する (alias template)           | C++20          |
 | [`iter_common_reference_t`](iterator/iter_common_reference_t.md.nolink) | イテレータの`value_type`と`reference_type`の[`common_reference`](/reference/type_traits/common_reference.md)を取得する (alias template)           | C++20          |
 | [`indirect_result_t`](iterator/indirect_result_t.md.nolink) | 関数呼び出し可能な型`F`を複数のイテレータ`Is...`によって呼び出した時の戻り値型を取得する (alias template)           | C++20          |
-| [`projected`](iterator/projected.md.nolink) | イテレータ`I`に対する`Proj`による射影操作の戻り値型を取得する (class template)           | C++20          |
+| [`projected`](iterator/projected.md.nolink) | イテレータ`I`の`Proj`による射影操作の戻り値型を取得する (class template)           | C++20          |
 
-## カスタマイぜーションポイントオブジェクト
+## カスタマイゼーションポイントオブジェクト
 
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
 | [`ranges::iter_move`](iterator/iter_move.md.nolink)   | イテレータの指す要素をムーブする (function template)               | C++20          |
 | [`ranges::iter_swap`](iterator/iter_swap.md.nolink) | 2つのイテレータの指す要素を*swap*する (function template) | C++20 |
 
-## コンセプト
+## イテレータコンセプト
 
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
-| [`indirectly_readable`](iterator/indirectly_readable.md.nolink) | 間接参照によって読み取り可能 (concept)           | C++20          |
+| [`indirectly_readable`](iterator/indirectly_readable.md) | 間接参照によって読み取り可能 (concept)           | C++20          |
 | [`indirectly_writable`](iterator/indirectly_writable.md.nolink) | 間接参照によって書き込み可能 (concept)           | C++20          |
 | [`weakly_incrementable`](iterator/weakly_incrementable.md.nolink) | 前置/後置インクリメント可能 (concept)           | C++20          |
 | [`incrementable`](iterator/incrementable.md.nolink) | 正則に前置/後置インクリメント可能 (concept)           | C++20          |
@@ -167,12 +167,22 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`bidirectional_iterator`](iterator/bidirectional_iterator.md.nolink) | 双方向イテレータ (concept)           | C++20          |
 | [`random_access_iterator`](iterator/random_access_iterator.md.nolink) | ランダムアクセスイテレータ (concept)           | C++20          |
 | [`contiguous_iterator`](iterator/contiguous_iterator.md.nolink) | 隣接イテレータ (concept)           | C++20          |
+
+## 間接呼び出しコンセプト
+
+| 名前                         | 説明                                            | 対応バージョン |
+|------------------------------|-------------------------------------------------|----------------|
 | [`indirectly_unary_invocable`](iterator/indirectly_unary_invocable.md.nolink) | イテレータの要素型によって呼び出し可能 (concept)           | C++20          |
 | [`indirectly_regular_unary_invocable`](iterator/indirectly_regular_unary_invocable.md.nolink) | 正則な`indirectly_unary_invocable` (concept)           | C++20          |
 | [`indirect_unary_predicate`](iterator/indirect_unary_predicate.md.nolink) | イテレータの要素型についての単項述語 (concept)           | C++20          |
 | [`indirect_binary_predicate`](iterator/indirect_binary_predicate.md.nolink) | イテレータの要素型についての二項述語 (concept)           | C++20          |
 | [`indirect_equivalence_relation`](iterator/indirect_equivalence_relation.md.nolink) | イテレータの要素型についての同値関係 (concept)           | C++20          |
 | [`indirect_strict_weak_order`](iterator/indirect_strict_weak_order.md.nolink) | イテレータの要素型についての狭義の弱順序 (concept)           | C++20          |
+
+## 一般的なアルゴリズムコンセプト
+
+| 名前                         | 説明                                            | 対応バージョン |
+|------------------------------|-------------------------------------------------|----------------|
 | [`indirectly_movable`](iterator/indirectly_movable.md.nolink) | 片方のイテレータからもう片方のイテレータへ要素をムーブ可能 (concept)           | C++20          |
 | [`indirectly_movable_storable`](iterator/indirectly_movable_storable.md.nolink) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をムーブ可能 (concept)           | C++20          |
 | [`indirectly_copyable`](iterator/indirectly_copyable.md.nolink) | 片方のイテレータからもう片方のイテレータへ要素をコピー可能 (concept)           | C++20          |
