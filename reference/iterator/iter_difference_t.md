@@ -21,8 +21,8 @@ namespace std {
 `RI = remove_cvref_t<I>`とすると、次のどちらか
 
 - [`incrementable_traits`](iterator/incrementable_traits.md.nolink)`<RI>::difference_type`
-    - [`iterator_traits`](iterator/iterator_traits.md)`<RI>`がプライマリテンプレートの特殊化となる場合
-- [`iterator_traits`](iterator/iterator_traits.md)`<RI>::difference_type`
+    - [`iterator_traits`](iterator_traits.md)`<RI>`がプライマリテンプレートの特殊化となる場合
+- [`iterator_traits`](iterator_traits.md)`<RI>::difference_type`
     - その他の場合
 
 ## 備考
