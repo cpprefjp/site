@@ -34,6 +34,7 @@ int main()
 }
 ```
 * weekday()[color ff0000]
+* chrono::weekday[link /reference/chrono/weekday.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 
 ### 出力
