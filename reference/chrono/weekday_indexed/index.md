@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr unsigned char index() const noexcept; // (1) C++20
+constexpr unsigned int index() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -27,7 +27,7 @@ namespace chrono = std::chrono;
 int main()
 {
   chrono::weekday_indexed wi = chrono::Sunday[1];
-  unsigned char index = wi.index();
+  unsigned int index = wi.index();
 
   assert(index == 1);
 }
