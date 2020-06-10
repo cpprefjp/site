@@ -12,7 +12,7 @@ constexpr weekday_indexed
 constexpr weekday_last
   operator[](last_spec) const noexcept;          // (2) C++20
 ```
-* weekday_indexed[link /reference/chrono/weekday_indexed.md.nolink]
+* weekday_indexed[link /reference/chrono/weekday_indexed.md]
 * weekday_last[link /reference/chrono/weekday_last.md.nolink]
 * last_spec[link /reference/chrono/last_spec.md]
 
