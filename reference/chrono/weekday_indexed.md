@@ -43,7 +43,7 @@ Nの妥当な範囲は`[1, 5]`である。0ベースではないことに注意�
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](weekday_indexed/op_equal.md.nolink) | 等値比較を行う | C++20 |
+| [`operator==`](weekday_indexed/op_equal.md) | 等値比較を行う | C++20 |
 | `bool operator!=(const weekday_indexed&, const weekday_indexed&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
 
 
