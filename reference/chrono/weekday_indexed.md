@@ -51,15 +51,14 @@ Nの妥当な範囲は`[1, 5]`である。0ベースではないことに注意�
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](weekday_indexed/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
-| [`from_stream`](weekday_indexed/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
+| [`operator<<`](weekday_indexed/op_ostream.md) | 出力ストリームに出力する | C++20 |
 
 
 ## 文字列フォーマット
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`formatter`](weekday_indexed/formatter.md.nolink) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+| [`formatter`](weekday_indexed/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
 
 
 ## 例
