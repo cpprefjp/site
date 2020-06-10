@@ -60,7 +60,7 @@ int main() {
 
 ## 関連項目
 
-- [`iterator_traits`](iterator/iterator_traits.md)
+- [`iterator_traits`](iterator_traits.md)
 
 ## 参照
 

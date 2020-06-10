@@ -50,7 +50,7 @@ int main() {
 
 ## 関連項目
 
-- [`iterator_traits`](iterator/iterator_traits.md)
+- [`iterator_traits`](iterator_traits.md)
 - [`common_reference`](/reference/type_traits/common_reference.md)
 
 ## 参照
