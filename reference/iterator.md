@@ -133,12 +133,12 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
 | [`incrementable_traits`](iterator/incrementable_traits.md.nolink)   | イテレータの`difference_type`を取得する (class template)               | C++20          |
-| [`iter_difference_t`](iterator/incrementable_traits.md.nolink) | イテレータの`difference_type`を取得する (alias template) | C++20 |
+| [`iter_difference_t`](iterator/iter_difference_t.md.nolink) | イテレータの`difference_type`を取得する (alias template) | C++20 |
 | [`indirectly_readable_traits`](iterator/indirectly_readable_traits.md.nolink) | イテレータの`value_type`を取得する (class template)           | C++20          |
-| [`iter_value_t`](iterator/indirectly_readable_traits.md.nolink) | イテレータの`value_type`を取得する (alias template)           | C++20          |
-| [`iter_reference_t`](iterator/iter_reference_t.md.nolink) | イテレータの`reference_type`を取得する (alias template)           | C++20          |
-| [`iter_rvalue_reference_t`](iterator/iter_rvalue_reference_t.md.nolink) | イテレータの指す要素の右辺値参照型を取得する (alias template)           | C++20          |
-| [`iter_common_reference_t`](iterator/iter_common_reference_t.md.nolink) | イテレータの`value_type`と`reference_type`の[`common_reference`](/reference/type_traits/common_reference.md)を取得する (alias template)           | C++20          |
+| [`iter_value_t`](iterator/iter_value_t.md) | イテレータの`value_type`を取得する (alias template)           | C++20          |
+| [`iter_reference_t`](iterator/iter_reference_t.md) | イテレータの`reference_type`を取得する (alias template)           | C++20          |
+| [`iter_rvalue_reference_t`](iterator/iter_rvalue_reference_t.md) | イテレータの指す要素の右辺値参照型を取得する (alias template)           | C++20          |
+| [`iter_common_reference_t`](iterator/iter_common_reference_t.md) | イテレータの`value_type`と`reference_type`の[`common_reference`](/reference/type_traits/common_reference.md)を取得する (alias template)           | C++20          |
 | [`indirect_result_t`](iterator/indirect_result_t.md.nolink) | 関数呼び出し可能な型`F`を複数のイテレータ`Is...`によって呼び出した時の戻り値型を取得する (alias template)           | C++20          |
 | [`projected`](iterator/projected.md.nolink) | イテレータ`I`の`Proj`による射影操作の戻り値型を取得する (class template)           | C++20          |
 

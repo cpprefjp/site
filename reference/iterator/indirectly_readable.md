@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template<class In>
-  concept indirectly_readable = /*see below*/
+  concept indirectly_readable = /*see below*/;
 }
 ```
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
