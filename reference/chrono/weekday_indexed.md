@@ -13,7 +13,7 @@ namespace std::chrono {
 ## 概要
 `weekday_indexed`は、月内でのN回目の指定した曜日を表すクラスである。
 
-Nの範囲は`[1, 5]`である。0ベースではないことに注意。
+Nの妥当な範囲は`[1, 5]`である。0ベースではないことに注意。
 
 このクラスは等値比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)の要件を満たす。しかし大小比較はできず、LessThanComparable要件は満たさない。
 
@@ -25,7 +25,7 @@ Nの範囲は`[1, 5]`である。0ベースではないことに注意。
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](weekday_indexed/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](weekday_indexed/op_constructor.md) | コンストラクタ | C++20 |
 | `weekday_indexed& operator=(const weekday_indexed&) = default;`<br/> `weekday_indexed& operator=(weekday_indexed&&) = default;` | 代入演算子 | C++20 |
 
 
