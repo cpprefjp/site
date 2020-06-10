@@ -65,3 +65,4 @@ char : false
 - [LWG Issue 612. `numeric_limits::is_modulo` insufficiently defined](https://wg21.cmeerw.net/lwg/issue612)
     - C++11で、定義がより明確になった
 - [LWG 2422. `std::numeric_limits<T>::is_modulo` description: "most machines" errata](https://wg21.cmeerw.net/lwg/issue2422)
+- [[LLVMbugs] [Bug 20158] New: `std::numeric_limits<signed T>::is_modulo` set even without `-fwrapv`](http://lists.llvm.org/pipermail/llvm-bugs/2014-June/034843.html)
