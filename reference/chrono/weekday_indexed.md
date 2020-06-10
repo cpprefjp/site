@@ -33,9 +33,9 @@ Nの範囲は`[1, 5]`である。0ベースではないことに注意。
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`weekday`](weekday_indexed/weekday.md.nolink) | 曜日を取得する | C++20 |
-| [`index`](weekday_indexed/index.md.nolink) | インデックスを取得する | C++20 |
-| [`ok`](weekday_indexed/ok.md.nolink) | 値が範囲に収まっているか判定する | C++20 |
+| [`weekday`](weekday_indexed/weekday.md) | 曜日を取得する | C++20 |
+| [`index`](weekday_indexed/index.md) | インデックスを取得する | C++20 |
+| [`ok`](weekday_indexed/ok.md) | 値が範囲に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数
@@ -89,8 +89,8 @@ int main() {
 * chrono::weekday_indexed[color ff0000]
 * chrono::Sunday[link weekday_constants.md]
 * 2020y[link year/op_y.md]
-* wi1.weekday()[link weekday_indexed/weekday.md.nolink]
-* wi1.index()[link weekday_indexed/index.md.nolink]
+* wi1.weekday()[link weekday_indexed/weekday.md]
+* wi1.index()[link weekday_indexed/index.md]
 * chrono::year_month_weekday[link year_month_weekday.md.nolink]
 * chrono::sys_days[link sys_time.md]
 * chrono::year_month_day[link year_month_day.md]
