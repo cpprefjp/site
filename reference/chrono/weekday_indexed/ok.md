@@ -10,7 +10,7 @@ constexpr bool ok() const noexcept; // (1) C++20
 ```
 
 ## 概要
-`weekday_index`オブジェクトが保持する曜日とインデックスが妥当な範囲内にあるかを判定する。
+`weekday_indexed`オブジェクトが保持する曜日とインデックスが妥当な範囲内にあるかを判定する。
 
 
 ## 戻り値
