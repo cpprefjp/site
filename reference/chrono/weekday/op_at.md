@@ -13,7 +13,7 @@ constexpr weekday_last
   operator[](last_spec) const noexcept;          // (2) C++20
 ```
 * weekday_indexed[link /reference/chrono/weekday_indexed.md]
-* weekday_last[link /reference/chrono/weekday_last.md.nolink]
+* weekday_last[link /reference/chrono/weekday_last.md]
 * last_spec[link /reference/chrono/last_spec.md]
 
 ## 概要
@@ -25,7 +25,7 @@ constexpr weekday_last
 
 ## 戻り値
 - (1) : `{*this, index}`
-- (2) : [`weekday_last`](/reference/chrono/weekday_last.md.nolink)`{*this}`
+- (2) : [`weekday_last`](/reference/chrono/weekday_last.md)`{*this}`
 
 
 ## 例外
