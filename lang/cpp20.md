@@ -263,7 +263,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### スマートポインタ
 - [`std::make_shared()`](/reference/memory/make_shared.md)と[`std::allocate_shared()`](/reference/memory/allocate_shared.md)を配列に対応
-- スマートポインタをデフォルト初期化で構築するヘルパ関数として、[`std::make_unique_default_init()`](/reference/memory/make_unique_default_init.md)、[`std::make_shared_default_init()`](/reference/memory/make_shared_default_init.md)、[`std::allocate_shared_default_init()`](/reference/memory/allocate_shared_default_init.md)を追加
+- スマートポインタをデフォルト初期化で構築するヘルパ関数として、[`std::make_unique_for_overwrite()`](/reference/memory/make_unique_for_overwrite.md)、[`std::make_shared_for_overwrite()`](/reference/memory/make_shared_for_overwrite.md)、[`std::allocate_shared_for_overwrite()`](/reference/memory/allocate_shared_for_overwrite.md)を追加
 - ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md)を追加
 - [`std::pointer_traits`](/reference/memory/pointer_traits.md)`::`[`pointer_to()`](/reference/memory/pointer_traits/pointer_to.md)関数に`constexpr`を追加
 

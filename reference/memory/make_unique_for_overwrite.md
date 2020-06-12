@@ -1,4 +1,4 @@
-# make_unique_default_init
+# make_unique_for_overwrite
 * memory[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  template<class T> unique_ptr<T> make_unique_default_init();                                // (1)
+  template<class T> unique_ptr<T> make_unique_for_overwrite();                                // (1)
 
-  template<class T> unique_ptr<T> make_unique_default_init(size_t n);                        // (2)
+  template<class T> unique_ptr<T> make_unique_for_overwrite(size_t n);                        // (2)
 
-  template<class T, class... Args> unspecified make_unique_default_init(Args&&...) = delete; // (3)
+  template<class T, class... Args> unspecified make_unique_for_overwrite(Args&&...) = delete; // (3)
 }
 ```
 * unique_ptr[link unique_ptr.md]
@@ -37,11 +37,11 @@ namespace std {
 
 int main()
 {
-  std::unique_ptr<std::pair<int, int>> p1 = std::make_unique_default_init<std::pair<int, int>>();
+  std::unique_ptr<std::pair<int, int>> p1 = std::make_unique_for_overwrite<std::pair<int, int>>();
   std::cout << p1->first << ':' << p1->second << std::endl;
 }
 ```
-* std::make_unique[color ff0000]
+* std::make_unique_for_overwrite[color ff0000]
 
 ### 出力
 ```
@@ -64,3 +64,4 @@ int main()
 
 ## 参照
 - [P1020R1 Smart pointer creation with default initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1020r1.html)
+- [P1973R1 Rename "_default_init" Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1973r1.pdf)
