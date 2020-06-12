@@ -15,10 +15,10 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ispow2`](bit/ispow2.md) | 整数値が2の累乗かを判定する (functional template) | C++20 |
-| [`ceil2`](bit/ceil2.md)   | 整数値を2の累乗値に切り上げる (functional template) | C++20 |
-| [`floor2`](bit/floor2.md) | 整数値を2の累乗値に切り下げる (functional template) | C++20 |
-| [`log2p1`](bit/log2p1.md) | 2を底とした整数値の対数を求めて1を足す (functional template) | C++20 |
+| [`has_single_bit`](bit/has_single_bit.md) | 整数値が2の累乗かを判定する (functional template) | C++20 |
+| [`bit_ceil`](bit/bit_ceil.md)   | 整数値を2の累乗値に切り上げる (functional template) | C++20 |
+| [`bit_floor`](bit/bit_floor.md) | 整数値を2の累乗値に切り下げる (functional template) | C++20 |
+| [`bit_width`](bit/bit_width.md) | 2を底とした整数値の対数を求めて1を足す (functional template) | C++20 |
 
 
 ## 循環ビットシフト

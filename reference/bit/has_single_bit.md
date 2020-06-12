@@ -1,4 +1,4 @@
-# ispow2
+# has_single_bit
 * bit[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  constexpr bool ispow2(T x) noexcept;
+  constexpr bool has_single_bit(T x) noexcept;
 }
 ```
 
@@ -34,14 +34,14 @@ namespace std {
 
 void check_pow2(unsigned int x)
 {
-  std::cout << x << "\t : " << std::ispow2(x) << std::endl;
+  std::cout << x << "\t : " << std::has_single_bit(x) << std::endl;
 }
 
 int main()
 {
   std::cout << std::boolalpha;
 
-  if (std::ispow2(128u)) {
+  if (std::has_single_bit(128u)) {
     std::cout << "128 is power of 2" << std::endl;
   }
   check_pow2(0u);
@@ -56,7 +56,7 @@ int main()
   }
 }
 ```
-* std::ispow2[color ff0000]
+* std::has_single_bit[color ff0000]
 
 ### 出力
 ```
@@ -91,3 +91,5 @@ int main()
 
 ## 参照
 - [P0556R3 Integral power-of-2 operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0556r3.html)
+- [P1956R1 On the names of low-level bit manipulation functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1956r1.pdf)
+-- `std::ispow2`から`std::has_single_bit`に名称変更

@@ -1,4 +1,4 @@
-# floor2
+# bit_floor
 * bit[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  constexpr T floor2(T x) noexcept;
+  constexpr T bit_floor(T x) noexcept;
 }
 ```
 
@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 戻り値
-`x == 0`である場合、`0`を返す。そうでない場合、[`ispow2`](ispow2.md)`(y) == true`および`y  <= x`となるような最大の`y`を求めて返す。
+`x == 0`である場合、`0`を返す。そうでない場合、[`has_single_bit`](has_single_bit.md)`(y) == true`および`y  <= x`となるような最大の`y`を求めて返す。
 
 
 ## 例外
@@ -34,19 +34,19 @@ namespace std {
 
 void convert_to_pow2(unsigned int x)
 {
-  std::cout << x << "\t : " << std::floor2(x) << std::endl;
+  std::cout << x << "\t : " << std::bit_floor(x) << std::endl;
 }
 
 int main()
 {
-  std::cout << "129\t : " << std::floor2(129u) << std::endl;
+  std::cout << "129\t : " << std::bit_floor(129u) << std::endl;
 
   for (unsigned int i = 0u; i <= 34u; ++i) {
     convert_to_pow2(i);
   }
 }
 ```
-* std::floor2[color ff0000]
+* std::bit_floor[color ff0000]
 
 ### 出力
 ```
@@ -101,3 +101,5 @@ int main()
 
 ## 参照
 - [P0556R3 Integral power-of-2 operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0556r3.html)
+- [P1956R1 On the names of low-level bit manipulation functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1956r1.pdf)
+-- `std::floor2`から`std::bit_floor`に名称変更

@@ -1,4 +1,4 @@
-# ceil2
+# bit_ceil
 * bit[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  constexpr T ceil2(T x);
+  constexpr T bit_ceil(T x);
 }
 ```
 
@@ -46,19 +46,19 @@ namespace std {
 
 void convert_to_pow2(unsigned int x)
 {
-  std::cout << x << "\t : " << std::ceil2(x) << std::endl;
+  std::cout << x << "\t : " << std::bit_ceil(x) << std::endl;
 }
 
 int main()
 {
-  std::cout << "127\t : " << std::ceil2(127u) << std::endl;
+  std::cout << "127\t : " << std::bit_ceil(127u) << std::endl;
 
   for (unsigned int i = 0u; i <= 32u; ++i) {
     convert_to_pow2(i);
   }
 }
 ```
-* std::ceil2[color ff0000]
+* std::bit_ceil[color ff0000]
 
 ### 出力
 ```
@@ -112,3 +112,5 @@ int main()
 ## 参照
 - [P0556R3 Integral power-of-2 operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0556r3.html)
 - [P1355R2 Exposing a narrow contract for `ceil2`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1355r2.html)
+- [P1956R1 On the names of low-level bit manipulation functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1956r1.pdf)
+-- `std::ceil2`から`std::bit_ceil`に名称変更
