@@ -72,7 +72,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [初期化式をともなう範囲for文](cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく |
-| [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加](cpp20/likely_and_unlikely_attributes.md.nolink) | コンパイラが分岐予測するためのヒントとする |
+| [`likely`, `unlikely`属性](cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 |
 
 
 ### テンプレート
