@@ -1,4 +1,4 @@
-# likely, unlikely属性
+# 確率が高い分岐と低い分岐を伝える属性 [[likely]], [[unlikely]]
 * cpp20[meta cpp]
 
 ## 概要
