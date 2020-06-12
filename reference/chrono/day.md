@@ -132,7 +132,7 @@ int main() {
 ```
 * chrono::day[color ff0000]
 * 1d[link day/op_d.md]
-* month_day[link month_day.md.nolink]
+* month_day[link month_day.md]
 
 ### 出力
 ```

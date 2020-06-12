@@ -54,7 +54,7 @@ int main()
 ```
 * 3d[color ff0000]
 * 1d[color ff0000]
-* chrono::month_day[link /reference/chrono/month_day.md.nolink]
+* chrono::month_day[link /reference/chrono/month_day.md]
 
 ### 出力
 ```

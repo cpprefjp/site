@@ -36,9 +36,9 @@ concept indirectly-readable-impl =
   common_reference_with<iter_reference_t<In>&&, iter_rvalue_reference_t<In>&&> &&
   common_reference_with<iter_rvalue_reference_t<In>&&, const iter_value_t<In>&>;
 ```
-* iter_value_t[link /reference/iterator/iter_value_t.md.nolink]
-* iter_reference_t[link /reference/iterator/iter_reference_t.md.nolink]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md.nolink]
+* iter_value_t[link /reference/iterator/iter_value_t.md]
+* iter_reference_t[link /reference/iterator/iter_reference_t.md]
+* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 * iter_move[link /reference/iterator/iter_move.md.nolink]
 * common_reference_with[link /reference/concepts/common_reference_with.md]
 

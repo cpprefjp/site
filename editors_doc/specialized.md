@@ -176,9 +176,9 @@ Warning: [editors_doc/specialized.md] href "/reference/foobar.md (/reference/foo
 
 ````
 ```cpp
-#include <iostream>
+#include <std_header>
 ```
-* <iostream>[link /reference/iostream.md.nolink]
+* <std_header>[link /reference/std_header.md.nolink]
 ````
 
 このように`link`のURLの最後に `.nolink` を指定すると、リンク先が存在しなかった場合には、以下の様なメッセージが **標準出力に** 出力されます。

@@ -107,8 +107,8 @@ if __name__ == '__main__':
                     rel_link = os.path.join(dirname, link)
 
                 if link.endswith(".nolink"):
-                    if os.path.exists(rel_link):
-                        print("nolinked {} href {} found.".format(p, link), file=sys.stderr)
+                    if os.path.exists(rel_link.rstrip(".nolink")):
+                        print("nolinked {} href {} found.".format(p, link.rstrip(".nolink")), file=sys.stderr)
                         found_error = True
                 else:
                     if not os.path.exists(rel_link):
