@@ -124,9 +124,9 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
-| [`with-reference`](iterator/exposition_only.md)   | 型`T`に参照を付加する (alias template)               | C++20          |
-| [`can-reference`](iterator/exposition_only.md) | `with-reference`可能 (concept) | C++20 |
-| [`dereferenceable`](iterator/exposition_only.md) | 単純な間接参照が可能 (concept)           | C++20          |
+| [`with-reference`](iterator/dereferenceable.md)   | 型`T`に参照を付加する (alias template)               | C++20          |
+| [`can-reference`](iterator/dereferenceable.md) | `with-reference`可能 (concept) | C++20 |
+| [`dereferenceable`](iterator/dereferenceable.md) | 単純な間接参照が可能 (concept)           | C++20          |
 
 ## 型特性
 

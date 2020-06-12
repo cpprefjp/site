@@ -1,4 +1,4 @@
-# 説明専用コンセプト
+# dereferenceable
 * iterator[meta header]
 * std[meta namespace]
 * concepts[meta id-type]
