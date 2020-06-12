@@ -1,7 +1,7 @@
 # dereferenceable
 * iterator[meta header]
 * std[meta namespace]
-* concepts[meta id-type]
+* concept[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
