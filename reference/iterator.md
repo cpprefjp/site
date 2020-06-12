@@ -133,7 +133,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
 | [`incrementable_traits`](iterator/incrementable_traits.md.nolink)   | イテレータの`difference_type`を取得する (class template)               | C++20          |
-| [`iter_difference_t`](iterator/iter_difference_t.md.nolink) | イテレータの`difference_type`を取得する (alias template) | C++20 |
+| [`iter_difference_t`](iterator/iter_difference_t.md) | イテレータの`difference_type`を取得する (alias template) | C++20 |
 | [`indirectly_readable_traits`](iterator/indirectly_readable_traits.md.nolink) | イテレータの`value_type`を取得する (class template)           | C++20          |
 | [`iter_value_t`](iterator/iter_value_t.md) | イテレータの`value_type`を取得する (alias template)           | C++20          |
 | [`iter_reference_t`](iterator/iter_reference_t.md) | イテレータの`reference_type`を取得する (alias template)           | C++20          |

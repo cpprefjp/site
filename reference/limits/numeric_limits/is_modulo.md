@@ -26,8 +26,8 @@ static constexpr bool is_modulo;
 ## 備考
 - C++03の「ほとんどのマシンでは符号付き整数型は`true`になる」という仕様は、符号あり整数型の未定義動作としてのオーバーフロー動作を正しいものとして扱ってしまっていた。これは間違いであった。C++17では、符号あり整数型は標準では`false`とし、実装がオーバーフロー時に値を折り返す場合に`true`と定義されるように修正された
 - コンパイルオプション
-    - GCCとClangでは、`-fwrapv`オプションをつけることで、符号付き整数型を2の補数表現として折り返すよう動作を規定する
-    - Visual C++では、`d2UndefIntOverflow`オプションをつけることで、符号付き整数型のオーバーフローを利用するコードの最適化を無効化し、値を折り返す動作になる
+    - GCCとClangでは、`-fwrapv`オプションをつけることで、符号付き整数型を2の補数表現として折り返すよう動作を規定するが、`is_modulo`は`false`となる
+    - Visual C++では、`d2UndefIntOverflow`オプションをつけることで、符号付き整数型のオーバーフローを利用するコードの最適化を無効化し、値を折り返す動作になるが、`is_modulo`は`false`となる
 
 
 ## 例
@@ -65,3 +65,4 @@ char : false
 - [LWG Issue 612. `numeric_limits::is_modulo` insufficiently defined](https://wg21.cmeerw.net/lwg/issue612)
     - C++11で、定義がより明確になった
 - [LWG 2422. `std::numeric_limits<T>::is_modulo` description: "most machines" errata](https://wg21.cmeerw.net/lwg/issue2422)
+- [[LLVMbugs] [Bug 20158] New: `std::numeric_limits<signed T>::is_modulo` set even without `-fwrapv`](http://lists.llvm.org/pipermail/llvm-bugs/2014-June/034843.html)
