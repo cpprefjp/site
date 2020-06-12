@@ -10,7 +10,7 @@ namespace std {
   using iter_reference_t = decltype(*declval<I&>());
 }
 ```
-* dereferenceable[link /reference/iterator/exposition_only.md]
+* dereferenceable[link /reference/iterator/dereferenceable.md]
 * declval[link /reference/utility/declval.md]
 
 ## 概要

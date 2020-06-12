@@ -13,7 +13,7 @@ namespace std {
   using iter_rvalue_reference_t = decltype(ranges::iter_move(declval<I&>()));
 }
 ```
-* dereferenceable[link /reference/iterator/exposition_only.md]
+* dereferenceable[link /reference/iterator/dereferenceable.md]
 * can-reference[link /reference/iterator/exposition_only.md.nolink]
 * iter_move[link /reference/iterator/iter_move.md.nolink]
 * declval[link /reference/utility/declval.md]
