@@ -6,8 +6,8 @@
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`counting_semaphore`](semaphore/counting_semaphore.md.nolink) | カウンティングセマフォ (class template) | C++20 |
-| [`binary_semaphore`] | バイナリセマフォ `counting_semaphore<1>` | C++20 |
+| [`counting_semaphore`](semaphore/counting_semaphore.md) | カウンティングセマフォ (class template) | C++20 |
+| `binary_semaphore` | バイナリセマフォ `counting_semaphore<1>` | C++20 |
 
 
 ## バージョン
