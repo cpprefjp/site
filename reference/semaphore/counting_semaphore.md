@@ -1,4 +1,4 @@
-# counting_semaphore.md
+# counting_semaphore
 * semaphore[meta header]
 * class template[meta id-type]
 * std[meta namespace]
@@ -125,8 +125,8 @@ int main()
 
 
 ## 関連項目
-- [`condition_variable`](condition_variable/condition_variable.md)
-- [`mutex`](mutex/mutex.md)
+- [`<condition_variable>`](/referene/condition_variable.md)
+- [`<mutex>`](/referene/mutex.md)
 
 
 ## 参照
