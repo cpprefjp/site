@@ -125,8 +125,8 @@ int main()
 
 
 ## 関連項目
-- [`<condition_variable>`](/referene/condition_variable.md)
-- [`<mutex>`](/referene/mutex.md)
+- [`<condition_variable>`](/reference/condition_variable/condition_variable.md)
+- [`<mutex>`](/reference/mutex.md)
 
 
 ## 参照
