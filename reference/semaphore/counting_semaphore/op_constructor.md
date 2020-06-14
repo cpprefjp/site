@@ -16,7 +16,7 @@ counting_semaphore(const counting_semaphore&) = delete;   // (2)
 
 
 ## 事前条件
-`desired >= 0` かつ `desired < `[`max()`](max.md)
+`desired >= 0` かつ `desired <=` [`max()`](max.md)
 
 
 ## 例外
