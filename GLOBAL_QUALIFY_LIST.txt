@@ -138,6 +138,7 @@
 * <ratio>[link /reference/ratio.md]
 * <regex>[link /reference/regex.md]
 * <scoped_allocator>[link /reference/scoped_allocator.md]
+* <semaphore>[link /reference/semaphore.md]
 * <set>[link /reference/set.md]
     * std::set[link /reference/set/set.md]
 * <shared_mutex>[link /reference/shared_mutex.md]
