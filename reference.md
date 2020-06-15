@@ -10,6 +10,7 @@
 - [ローカライズライブラリ](#localization)
 - [コンテナライブラリ](#container)
 - [イテレータライブラリ](#iterator)
+- [レンジライブラリ](#ranges")
 - [アルゴリズムライブラリ](#algorithm)
 - [数値ライブラリ](#numerics)
 - [入出力ライブラリ](#io)
@@ -33,6 +34,7 @@
 | [`<exception>`](/reference/exception.md)               | 例外ハンドリング         |                |
 | [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト           | C++11          |
 | [`<compare>`](/reference/compare.md)                   | 比較演算                 | C++20          |
+| [`<coroutine>`](/reference/coroutine.md.nolink)        | コルーチン               | C++20          |
 
 
 ## <a id="concepts" href="#concepts">コンセプトライブラリ</a>
@@ -65,7 +67,7 @@
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
 | [`<scoped_allocator>`](/reference/scoped_allocator.md) | スコープ付きアロケータ        | C++11          |
-| [`<memory_resource>`](/reference/memory_resource.md) | 多相アロケータ        | C++17          |
+| [`<memory_resource>`](/reference/memory_resource.md) | 多相アロケータ       | C++17          |
 | [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ           | C++11          |
 | [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス             | C++11          |
 | [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
@@ -114,6 +116,13 @@
 | [`<iterator>`](/reference/iterator.md) | イテレータの定義 |                |
 
 
+## <a id="ranges" href="#ranges">レンジライブラリ</a>
+
+| ヘッダ                                 | 説明             | 対応バージョン |
+|----------------------------------------|------------------|----------------|
+| [`<ranges>`](/reference/ranges.md.nolink) | レンジアルゴリズム | C++20          |
+
+
 ## <a id="algorithm" href="#algorithm">アルゴリズムライブラリ</a>
 
 | ヘッダ                                   | 説明         | 対応バージョン |
@@ -147,7 +156,7 @@
 | [`<sstream>`](/reference/sstream.md)       | 文字列ストリーム             |                |
 | [`<fstream>`](/reference/fstream.md)       | ファイルストリーム           |                |
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
-| [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー   | C++20          |
+| [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー | C++20          |
 
 
 ## <a id="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
@@ -168,12 +177,15 @@
 
 | ヘッダ                                                     | 説明                  | 対応バージョン |
 |------------------------------------------------------------|-----------------------|----------------|
+| [`<stop_token>`](/reference/stop_token.md)                 | 停止状態              | C++20          |
 | [`<thread>`](/reference/thread.md)                         | スレッド              | C++11          |
 | [`<mutex>`](/reference/mutex.md)                           | ミューテックス        | C++11          |
 | [`<shared_mutex>`](/reference/shared_mutex.md)             | 共有ミューテックス    | C++14          |
 | [`<condition_variable>`](/reference/condition_variable.md) | 条件変数              | C++11          |
+| [`<semaphore>`](/reference/semaphore.md)                   | セマフォ              | C++20          |
+| [`<latch>`](/reference/latch.md.nolink)                    | ラッチ同期            | C++20          |
+| [`<barrier>`](/reference/barrier.md.nolink)                | バリア同期            | C++20          |
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
-| [`<stop_token>`](/reference/stop_token.md)                 | 停止状態              | C++20          |
 
 
 ## <a id="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>
