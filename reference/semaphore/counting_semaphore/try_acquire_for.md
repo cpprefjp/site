@@ -55,7 +55,7 @@ int main()
       std::cout << shared_data << std::endl;
     } else {
       std::cout << "(timed out)" << std::endl;
-	}
+    }
   });
 
   // 共有データへ書込み、通知を行う
