@@ -13,16 +13,16 @@ namespace std {
 ## 概要
 `latch`クラスは、ラッチ通過/到達スレッドが期待する個数になるまで複数スレッドの進行をブロックする、スレッド調整機構（同期プリミティブ）である。
 
-ラッチは1つのカウンタで状態管理される同期プリミティブとみなせる。カウンタは`0`以上かつ期待カウント値以下の値をとり、このカウンタ値がラッチ未到達のスレッド個数と解釈される。
+ラッチは1つのカウンタで状態管理される同期プリミティブとみなせる。カウンタは`0`以上かつ初期値以下の値をとり、このカウンタ値がラッチ未到達のスレッド個数と解釈される。
 その動作仕様からカウントダウン・ラッチと呼ばれることもある。
 
-- [コンストラクタ](latch/op_constructor.md.nolink)で指定する期待カウント値をカウンタに設定する。
-- [`count_down()`](latch/count_down.md.nolink)によりカウンタ値の減算と通知処理。（ラッチ通過）
-- [`wait()`](latch/wait.md.nolink)によりカウンタ値が`0`になるまで呼び出しスレッドをブロックする。（ラッチ待機）
-- [`arrive_and_wait()`](latch/arrive_and_wait.md.nolink)は名前通り`count_down()`＋`wait()`相当。（ラッチ到達 兼 待機）
+- [コンストラクタ](latch/op_constructor.md)にてカウンタ値を設定する。
+- [`count_down()`](latch/count_down.md)によりカウンタ値の減算と通知を行う。（ラッチ通過）
+- [`wait()`](latch/wait.md)によりカウンタ値が`0`になるまで呼び出しスレッドをブロックする。（ラッチ待機）
+- [`arrive_and_wait()`](latch/arrive_and_wait.md)は`count_down()`＋`wait()`に相当する。（ラッチ到達 兼 待機）
 
-ラッチオブジェクトは1回だけ使用でき、期待カウント値に到達したオブジェクトの再利用はできない。
-反復的に複数スレッド間で同期をとる場合には、バリア[`barrier`](/reference/barrier/barrier.md.nolink)を利用する。
+ラッチオブジェクトは1回だけ使用でき、カウンタ値が`0`に到達したオブジェクトの再利用はできない。
+複数スレッド間同期を繰り返しとる場合はバリア[`barrier`](/reference/barrier/barrier.md.nolink)を利用する。
 
 ラッチ`latch`はカウンタ値`0`を待機するが、類似機構のセマフォ[`counting_semaphore`](/reference/semaphore/counting_semaphore.md)はカウンタ値が`0`より大きいことを待機するという違いがある。
 
@@ -31,20 +31,20 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`(constructor)`](latch/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](latch/op_constructor.md) | コンストラクタ | C++20 |
 | `(destructor)`  | デストラクタ   | C++20 |
-| `latch& operator=(const latch&) = delete;`     | 代入演算子     | C++20 |
-| [`count_down`](latch/count_down.md.nolink) | 通過通知           | C++20 |
-| [`try_wait`](latch/try_wait.md.nolink) | カウンタ値が`0`か否かを確認 | C++20 |
-| [`wait`](latch/wait.md.nolink) | 待機処理           | C++20 |
-| [`arrive_and_wait`](latch/arrive_and_wait.md.nolink) | 到達通知かつ待機処理 | C++20 |
+| `operator=(const latch&) = delete;`     | 代入演算子     | C++20 |
+| [`count_down`](latch/count_down.md) | 通過通知           | C++20 |
+| [`try_wait`](latch/try_wait.md) | カウンタ値が`0`か否かを確認 | C++20 |
+| [`wait`](latch/wait.md) | 待機処理           | C++20 |
+| [`arrive_and_wait`](latch/arrive_and_wait.md) | 到達通知と待機処理 | C++20 |
 
 
 ## 静的メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`max`](latch/max.md.nolink) | 処理系でサポートされるカウンタ最大値 | C++20 |
+| [`max`](latch/max.md) | 処理系でサポートされるカウンタ最大値 | C++20 |
 
 
 ## 例
@@ -63,9 +63,9 @@ int main()
   // 1回だけ初期化される共有データ
   int shared_data = 0;
 
-  // 初期化済みを表すラッチ: 期待カウント値=1
+  // 初期化済みを表すラッチ: 初期カウント値=1
   std::latch initalized{1};
-  // タスク完了を表すラッチ: 期待カウント値=ワーカ数+1(メインスレッド)
+  // タスク完了を表すラッチ: 初期カウント値=ワーカ数+1(メインスレッド)
   std::latch completed{NWORKER+1};
 
   // ワーカスレッド群をFire-and-Forget起動
@@ -105,9 +105,9 @@ int main()
 }
 ```
 * std::latch[color ff0000]
-* count_down()[link latch/count_down.md.nolink]
-* wait()[link latch/wait.md.nolink]
-* arrive_and_wait()[link latch/arrive_and_wait.md.nolink]
+* count_down()[link latch/count_down.md]
+* wait()[link latch/wait.md]
+* arrive_and_wait()[link latch/arrive_and_wait.md]
 
 ### 出力例
 ```

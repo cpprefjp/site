@@ -103,6 +103,7 @@
     * std::distance[link /reference/iterator/distance.md]
     * std::end[link /reference/iterator/end.md]
     * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* <latch>[link /reference/latch.md]
 * <limits>[link /reference/limits.md]
     * std::numeric_limits[link /reference/limits/numeric_limits.md]
 * <list>[link /reference/list.md]
