@@ -69,6 +69,7 @@ int main()
 ```
 * try_acquire_until[color ff0000]
 * release()[link release.md]
+* std::chrono::system_clock[link /reference/chrono/system_clock.md]
 
 ### 出力例
 ```

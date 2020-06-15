@@ -12,6 +12,7 @@ namespace std {
   using binary_semaphore = counting_semaphore<1>;
 }
 ```
+* ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
 ## 概要
 `counting_semaphore`クラスは、スレッド間で使用する共有リソースへの並行アクセスを制約する、軽量な同期プリミティブである。
@@ -111,6 +112,10 @@ int main()
 * std::counting_semaphore[color ff0000]
 * release()[link counting_semaphore/release.md]
 * acquire()[link counting_semaphore/acquire.md]
+* std::queue[link /reference/queue/queue.md]
+* stock.push[link /reference/queue/queue/push.md]
+* stop.pop()[link /reference/queue/queue/pop.md]
+* join()[link /reference/thread/thread/join.md]
 
 ### 出力
 ```

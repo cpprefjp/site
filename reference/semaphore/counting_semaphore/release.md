@@ -8,6 +8,7 @@
 ```cpp
 void release(ptrdiff_t update = 1);
 ```
+* ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
 ## 概要
 カウンティングセマフォのカウンタ値に`update`を加算し、待機中スレッドのブロック解除を行う。

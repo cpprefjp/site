@@ -63,6 +63,7 @@ int main()
 * try_acquire()[color ff0000]
 * acquire()[link acquire.md]
 * release()[link release.md]
+* std::this_thread::yield()[link /reference/thread/this_thread/yield.md]
 
 ### 出力
 ```

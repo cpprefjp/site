@@ -8,6 +8,7 @@
 ```cpp
 static constexpr ptrdiff_t max() noexcept;
 ```
+* ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
 ## 概要
 カウンティングセマフォが取り扱えるカウンタの最大値
