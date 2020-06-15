@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template<ptrdiff_t least_max_value = implementation-defined>
-    class counting_semaphore;
+  class counting_semaphore;
+
+  using binary_semaphore = counting_semaphore<1>;
 }
 ```
 
