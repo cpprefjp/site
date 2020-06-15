@@ -25,20 +25,24 @@ static constexpr ptrdiff_t max() noexcept;
 
 ## 例
 ```cpp example
-#include <semaphore>
 #include <iostream>
+#include <semaphore>
 
 int main()
 {
   using Semaphore = std::counting_semaphore<10>;
   std::cout << Semaphore::max() << std::endl;
+
+  // 処理系定義のデフォルト値
+  std::cout << std::counting_semaphore<>::max() << std::endl;
 }
 ```
-* max[color ff0000]
+* max()[color ff0000]
 
 ### 出力例
 ```
 10
+2147483647
 ```
 
 

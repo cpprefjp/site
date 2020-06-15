@@ -36,6 +36,7 @@ std::counting_semaphore<1> mtx{1};
 
 int main() {}
 ```
+* std::counting_semaphore[color ff0000]
 
 ### 出力
 ```
