@@ -21,7 +21,7 @@ bool try_acquire() noexcept;
 
 処理系には、`counter > 0`であっても`counter`の減算に失敗することが許容される。
 ただし、セマフォに対する操作が競合していない状況下において、`try_acquire`が一貫して`false`を返すような実装は許容されない。
-（Spurious Failure が生じることは滅多にないが、これによりアトミック変数を用いた Swap-and-Compare ベースの興味深い実装が許容される。）
+（Spurious Failure が生じることは滅多にないが、これによりアトミック変数を用いる単純な Compare-and-Exchange ベースの興味深い実装が許容される。）
 
 
 ## 戻り値
@@ -47,8 +47,8 @@ int main()
     // 通知を待機し、共有データから読取り
     while (!sem.try_acquire()) {
       std::this_thread::yield();
-      // ここではtry_acquire()動作例示のためビジーループを行うが、
-      // セマフォ待機が目的であればacquire()利用が適切である。
+      // ここでは try_acquire 動作例示のためビジーループを行うが、
+      // セマフォ待機が目的であれば acquire() 利用が適切である。
     }
     std::cout << shared_data << std::endl;
   });
