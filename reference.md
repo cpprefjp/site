@@ -183,7 +183,7 @@
 | [`<shared_mutex>`](/reference/shared_mutex.md)             | 共有ミューテックス    | C++14          |
 | [`<condition_variable>`](/reference/condition_variable.md) | 条件変数              | C++11          |
 | [`<semaphore>`](/reference/semaphore.md)                   | セマフォ              | C++20          |
-| [`<latch>`](/reference/latch.md.nolink)                    | ラッチ同期            | C++20          |
+| [`<latch>`](/reference/latch.md)                           | ラッチ同期            | C++20          |
 | [`<barrier>`](/reference/barrier.md.nolink)                | バリア同期            | C++20          |
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
 
