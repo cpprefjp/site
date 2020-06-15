@@ -16,12 +16,12 @@ namespace std {
 
 カウンティングセマフォ（または単にセマフォ）は他の同期プリミティブを実装するための部品として広く用いられ、セマフォと条件変数のいずれも適用可能なケースでは[`condition_variable`](/reference/condition_variable/condition_variable.md)よりも効率的である。
 
-セマフォは1つのカウンタで状態管理される同期プリミティブとみなせる。カウンタは`0`から最大値[`max()`](counting_semaphore/max.md)までの値をとり、このカウンタ値がセマフォで管理する共有リソースの個数と解釈される。
+セマフォは1つのカウンタで状態管理される同期プリミティブとみなせる。カウンタは`0`から[`max()`](counting_semaphore/max.md)までの値をとり、このカウンタ値がセマフォで管理する共有リソースの個数と解釈される。
 
 - カウンタの最大値はテンプレートパラメータ`least_max_value`にて設定する。省略時は処理系がサポートする最大値が設定される。
 - カウンタの初期値は[コンストラクタ](counting_semaphore/op_constructor.md)でセマフォ構築時に指定する。
-- [`release()`](counting_semaphore/release.md.nolink)メンバ関数呼び出しによりカウンタ値の加算と通知処理、つまり利用可能な共有リソースの増加を表現する。（歴史的にはオランダ語由来の"V操作"と呼ばれる。英語では"up"／"signal"／"post"とも呼ばれる。）
-- [`acquire()`](counting_semaphore/acquire.md.nolink)メンバ関数呼び出しにより待機処理とカウンタ値の減算、つまり利用可能な共有リソースの減少を表現する。（同様に"P操作"や"down"／"wait"／"pend"とも呼ばれる。）
+- [`release()`](counting_semaphore/release.md)メンバ関数呼び出しによりカウンタ値の加算と通知処理、つまり利用可能な共有リソースの増加を表現する。（歴史的にはオランダ語由来の"V操作"と呼ばれる。英語では"up"／"signal"／"post"とも呼ばれる。）
+- [`acquire()`](counting_semaphore/acquire.md)メンバ関数呼び出しにより待機処理とカウンタ値の減算、つまり利用可能な共有リソースの減少を表現する。（同様に"P操作"や"down"／"wait"／"pend"とも呼ばれる。）
 
 カウンティングセマフォの最大値を`1`としたものはバイナリセマフォと呼ばれ、ヘッダ[`<semaphore>`](/reference/semaphore.md)ではエイリアス型`binary_semaphore`として定義される。
 バイナリセマフォはミューテックス（[`mutex`](/reference/mutex/mutex.md)など）と同様に共有リソースの排他制御を実現する同期プリミティブだが、ミューテックスとは異なりスレッドがロックを所有(own)するという概念が存在しない。
@@ -36,14 +36,14 @@ namespace std {
 ## メンバ関数
 ### 構築・破棄
 
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
+| 名前             | 説明            | 対応バージョン |
+|-----------------|----------------|------------|
 | [`(constructor)`](counting_semaphore/op_constructor.md) | コンストラクタ | C++20 |
 | `(destructor)` | デストラクタ | C++20 |
 | `operator=(const counting_semaphore&) = delete;` | 代入演算子 | C++20 |
-| [`release`](counting_semaphore/release.md.nolink) | カウンタ値を加算し、待機中スレッドをブロック解除する | C++20 |
-| [`acquire`](counting_semaphore/acquire.md.nolink) | カウンタ値が正数になるまで待機し、カウンタ値を1つ減算する | C++20 |
-| [`try_acquire`](counting_semaphore/try_acquire.md.nolink) | カウンタ値の1減算を試みる | C++20 |
+| [`release`](counting_semaphore/release.md) | カウンタ値を加算し、待機中スレッドをブロック解除する | C++20 |
+| [`acquire`](counting_semaphore/acquire.md) | カウンタ値が`0`より大きくなるまで待機し、カウンタ値を1つ減算する | C++20 |
+| [`try_acquire`](counting_semaphore/try_acquire.md) | カウンタ値の1減算を試みる | C++20 |
 | [`try_acquire_for`](counting_semaphore/try_acquire_for.md.nolink) | 相対時間のタイムアウトを指定して、カウンタ値の1減算を試みる | C++20 |
 | [`try_acquire_until`](counting_semaphore/try_acquire_until.md.nolink) | 絶対時間のタイムアウトを指定して、カウンタ値の1減算を試みる | C++20 |
 
@@ -108,7 +108,6 @@ int main()
 }
 ```
 * std::counting_semaphore[color ff0000]
-
 
 ### 出力
 ```
