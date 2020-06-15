@@ -20,14 +20,14 @@ namespace std {
 
 `RI = remove_cvref_t<I>`とすると、次のどちらか
 
-- [`incrementable_traits`](iterator/incrementable_traits.md)`<RI>::difference_type`
+- [`incrementable_traits`](incrementable_traits.md)`<RI>::difference_type`
     - [`iterator_traits`](iterator_traits.md)`<RI>`がプライマリテンプレートの特殊化となる場合
 - [`iterator_traits`](iterator_traits.md)`<RI>::difference_type`
     - その他の場合
 
 ## 備考
 
-プログラム定義型（ユーザー定義の任意のイテレータ型）でこの結果をカスタマイズするには、[`incrementable_traits`](iterator/incrementable_traits.md)を特殊化する。
+プログラム定義型（ユーザー定義の任意のイテレータ型）でこの結果をカスタマイズするには、[`incrementable_traits`](incrementable_traits.md)を特殊化する。
 
 ## 例
 ```cpp example
