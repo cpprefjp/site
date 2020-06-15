@@ -114,7 +114,7 @@ int main()
 * acquire()[link counting_semaphore/acquire.md]
 * std::queue[link /reference/queue/queue.md]
 * stock.push[link /reference/queue/queue/push.md]
-* stop.pop()[link /reference/queue/queue/pop.md]
+* stock.pop()[link /reference/queue/queue/pop.md]
 * join()[link /reference/thread/thread/join.md]
 
 ### 出力
