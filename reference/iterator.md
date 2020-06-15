@@ -29,6 +29,15 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 |----------------------------------------------------|------------------------------------------|-------|
 | [`iterator_traits`](iterator/iterator_traits.md) | イテレータに関する型情報(class template) | |
 | [`iterator`](iterator/iterator.md) | イテレータを定義するための基底クラス(class template) | C++17から非推奨 |
+| [`iter_difference_t`](iterator/iter_difference_t.md) | イテレータの`difference_type`を取得する (alias template) | C++20 |
+| [`iter_value_t`](iterator/iter_value_t.md) | イテレータの`value_type`を取得する (alias template)           | C++20          |
+| [`iter_reference_t`](iterator/iter_reference_t.md) | イテレータの`reference_type`を取得する (alias template)           | C++20          |
+| [`iter_rvalue_reference_t`](iterator/iter_rvalue_reference_t.md) | イテレータの指す要素の右辺値参照型を取得する (alias template)           | C++20          |
+| [`iter_common_reference_t`](iterator/iter_common_reference_t.md) | イテレータの`value_type`と`reference_type`の[`common_reference`](/reference/type_traits/common_reference.md)を取得する (alias template)           | C++20          |
+| [`indirect_result_t`](iterator/indirect_result_t.md.nolink) | 関数呼び出し可能な型`F`を複数のイテレータ`Is...`によって呼び出した時の戻り値型を取得する (alias template)           | C++20          |
+| [`projected`](iterator/projected.md.nolink) | イテレータ`I`の`Proj`による射影操作の戻り値型を取得する (class template)           | C++20          |
+| [`incrementable_traits`](iterator/incrementable_traits.md)   | `iter_difference_t`にアダプトするためのカスタマイゼーションポイント (class template)               | C++20          |
+| [`indirectly_readable_traits`](iterator/indirectly_readable_traits.md) | `iter_value_t`にアダプトするためのカスタマイゼーションポイント (class template)           | C++20          |
 | [`input_iterator_tag`](iterator/iterator_tag.md) | 入力イテレータを表すタグ(class) | |
 | [`output_iterator_tag`](iterator/iterator_tag.md) | 出力イテレータを表すタグ(class) | |
 | [`forward_iterator_tag`](iterator/iterator_tag.md) | 前方向イテレータを表すタグ(class) | |
@@ -120,6 +129,13 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`empty`](iterator/empty.md) | コンテナが空かどうかを判定する (function)           | C++17          |
 | [`data`](iterator/data.md)   | コンテナの要素配列へのポインタを取得する (function) | C++17          |
 
+## カスタマイゼーションポイントオブジェクト
+
+| 名前                         | 説明                                            | 対応バージョン |
+|------------------------------|-------------------------------------------------|----------------|
+| [`ranges::iter_move`](iterator/iter_move.md.nolink)   | イテレータの指す要素をムーブする (function template)               | C++20          |
+| [`ranges::iter_swap`](iterator/iter_swap.md.nolink) | 2つのイテレータの指す要素を*swap*する (function template) | C++20 |
+
 ## 説明専用コンセプト
 
 | 名前                         | 説明                                            | 対応バージョン |
@@ -127,27 +143,6 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`with-reference`](iterator/dereferenceable.md)   | 型`T`に参照を付加する (alias template)               | C++20          |
 | [`can-reference`](iterator/dereferenceable.md) | `with-reference`可能 (concept) | C++20 |
 | [`dereferenceable`](iterator/dereferenceable.md) | 単純な間接参照が可能 (concept)           | C++20          |
-
-## 型特性
-
-| 名前                         | 説明                                            | 対応バージョン |
-|------------------------------|-------------------------------------------------|----------------|
-| [`incrementable_traits`](iterator/incrementable_traits.md.nolink)   | イテレータの`difference_type`を取得する (class template)               | C++20          |
-| [`iter_difference_t`](iterator/iter_difference_t.md) | イテレータの`difference_type`を取得する (alias template) | C++20 |
-| [`indirectly_readable_traits`](iterator/indirectly_readable_traits.md.nolink) | イテレータの`value_type`を取得する (class template)           | C++20          |
-| [`iter_value_t`](iterator/iter_value_t.md) | イテレータの`value_type`を取得する (alias template)           | C++20          |
-| [`iter_reference_t`](iterator/iter_reference_t.md) | イテレータの`reference_type`を取得する (alias template)           | C++20          |
-| [`iter_rvalue_reference_t`](iterator/iter_rvalue_reference_t.md) | イテレータの指す要素の右辺値参照型を取得する (alias template)           | C++20          |
-| [`iter_common_reference_t`](iterator/iter_common_reference_t.md) | イテレータの`value_type`と`reference_type`の[`common_reference`](/reference/type_traits/common_reference.md)を取得する (alias template)           | C++20          |
-| [`indirect_result_t`](iterator/indirect_result_t.md.nolink) | 関数呼び出し可能な型`F`を複数のイテレータ`Is...`によって呼び出した時の戻り値型を取得する (alias template)           | C++20          |
-| [`projected`](iterator/projected.md.nolink) | イテレータ`I`の`Proj`による射影操作の戻り値型を取得する (class template)           | C++20          |
-
-## カスタマイゼーションポイントオブジェクト
-
-| 名前                         | 説明                                            | 対応バージョン |
-|------------------------------|-------------------------------------------------|----------------|
-| [`ranges::iter_move`](iterator/iter_move.md.nolink)   | イテレータの指す要素をムーブする (function template)               | C++20          |
-| [`ranges::iter_swap`](iterator/iter_swap.md.nolink) | 2つのイテレータの指す要素を*swap*する (function template) | C++20 |
 
 ## イテレータコンセプト
 
