@@ -43,8 +43,8 @@ namespace std {
 | [`release`](counting_semaphore/release.md) | カウンタ値を加算し、待機中スレッドをブロック解除する | C++20 |
 | [`acquire`](counting_semaphore/acquire.md) | カウンタ値が`0`より大きくなるまで待機し、カウンタ値を1つ減算する | C++20 |
 | [`try_acquire`](counting_semaphore/try_acquire.md) | カウンタ値の1減算を試みる | C++20 |
-| [`try_acquire_for`](counting_semaphore/try_acquire_for.md.nolink) | 相対時間のタイムアウトを指定して、カウンタ値の1減算を試みる | C++20 |
-| [`try_acquire_until`](counting_semaphore/try_acquire_until.md.nolink) | 絶対時間のタイムアウトを指定して、カウンタ値の1減算を試みる | C++20 |
+| [`try_acquire_for`](counting_semaphore/try_acquire_for.md) | 相対時間のタイムアウトを指定して、カウンタ値の1減算を試みる | C++20 |
+| [`try_acquire_until`](counting_semaphore/try_acquire_until.md) | 絶対時間のタイムアウトを指定して、カウンタ値の1減算を試みる | C++20 |
 
 ## 静的メンバ関数
 
@@ -107,6 +107,8 @@ int main()
 }
 ```
 * std::counting_semaphore[color ff0000]
+* release()[link counting_semaphore/release.md]
+* acquire()[link counting_semaphore/acquire.md]
 
 ### 出力
 ```
