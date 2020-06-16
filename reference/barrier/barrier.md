@@ -115,7 +115,7 @@ int main()
   for (int phase = 1; phase <= NPHASES; phase++) {
     { // メインスレッドのフェーズタスクを実行
       std::lock_guard lk{cout_mtx};
-      std::cout << "Main " << phase << std::endl;
+      std::cout << "Main     " << phase << std::endl;
     }
 
     // 合流ポイント: 全ワーカスレッドと同期
@@ -129,14 +129,14 @@ int main()
 ### 出力例
 ```
 Worker#1 1
-Main 1
+Main     1
 Worker#2 1
-Main 2
+Main     2
 Worker#2 2
 Worker#1 2
 Worker#1 3
 Worker#2 3
-Main 3
+Main     3
 ```
 
 
