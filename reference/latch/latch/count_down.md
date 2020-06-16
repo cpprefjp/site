@@ -82,5 +82,5 @@ int main()
 
 
 ## 関連項目
-- [`wait()`][link wait.md]
-- [`arrive_and_wait()`][link arrive_and_wait.md]
+- [`wait()`][wait.md]
+- [`arrive_and_wait()`][arrive_and_wait.md]

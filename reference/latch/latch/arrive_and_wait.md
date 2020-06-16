@@ -90,5 +90,5 @@ int main()
 
 
 ## 関連項目
-- [`count_down()`][link count_down.md]
-- [`wait()`][link wait.md]
+- [`count_down()`][count_down.md]
+- [`wait()`][wait.md]

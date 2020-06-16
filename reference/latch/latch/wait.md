@@ -77,5 +77,5 @@ int main()
 
 
 ## 関連項目
-- [`count_down()`][link count_down.md]
-- [`arrive_and_wait()`][link arrive_and_wait.md]
+- [`count_down()`][count_down.md]
+- [`arrive_and_wait()`][arrive_and_wait.md]
