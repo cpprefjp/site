@@ -25,7 +25,7 @@ namespace std {
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
 * indirectly_regular_unary_invocable[link /reference/iterator/indirectly_regular_unary_invocable.md.nolink]
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
-* indirect_result_t[link /reference/iterator/indirect_result_t.md.nolink]
+* indirect_result_t[link /reference/iterator/indirect_result_t.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md.nolink]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
 * projected[link /reference/iterator/projected.md]

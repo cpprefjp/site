@@ -58,7 +58,7 @@ namespace std {
 
 また、標準ライブラリ内のいくつかのクラスに対して予め特殊化が用意されている。
 
-- [`projected`](iterator/projected.md) 
+- [`projected`](projected.md) 
 
 ## 備考
 
