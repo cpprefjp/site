@@ -22,7 +22,7 @@ namespace std {
 - [`arrive_and_wait()`](latch/arrive_and_wait.md)は`count_down()`＋`wait()`に相当する。（ラッチ到達 兼 待機）
 
 ラッチオブジェクトは1回だけ使用でき、カウンタ値が`0`に到達したオブジェクトの再利用はできない。
-複数スレッド間同期を繰り返しとる場合はバリア[`barrier`](/reference/barrier/barrier.md.nolink)を利用する。
+複数スレッド間同期を繰り返しとる場合はバリア[`barrier`](/reference/barrier/barrier.md)を利用する。
 
 ラッチ`latch`はカウンタ値`0`を待機するが、類似機構のセマフォ[`counting_semaphore`](/reference/semaphore/counting_semaphore.md)はカウンタ値が`0`より大きいことを待機するという違いがある。
 
