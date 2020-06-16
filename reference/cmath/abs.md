@@ -6,15 +6,15 @@
 
 ```cpp
 namespace std {
-  float abs(float x);
-  double abs(double x);
-  long double abs(long double x);
+  float abs(float x);             // (1)
+  double abs(double x);           // (2)
+  long double abs(long double x); // (3)
 
-  double abs(Integral x);     // C++11 から C++14 まで
+  double abs(Integral x);     // (4) C++11 から C++14 まで
 
-  int abs(int x);             // C++17 から
-  long abs(long int x);       // C++17 から
-  long long abs(long long x); // C++17 から
+  int abs(int x);             // (5) C++17 から
+  long abs(long int x);       // (6) C++17 から
+  long long abs(long long x); // (7) C++17 から
 }
 ```
 * Integral[italic]
@@ -26,12 +26,12 @@ namespace std {
 ## 戻り値
 引数 `x` の絶対値を返す。
 
-`x` が `±∞` だった場合 `+∞` を返す。
+- (1),(2),(3) : `x` が `±∞` だった場合 `+∞` を返す。
 
 
 ## 備考
 - $$ f(x) = | x | $$
-- 任意の整数型に対するオーバーロードが C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。
+- 任意の整数型に対するオーバーロード(4)は C++11 で追加されたが、[一部の符号なし整数型に対して問題を引き起こす](http://wg21.cmeerw.net/lwg/issue2192)ことから C++17 で削除され、符号付き整数型に対するオーバーロード(5),(6),(7)が追加された。
 
 
 ## 例
