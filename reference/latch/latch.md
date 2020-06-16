@@ -131,7 +131,7 @@ Worker#3:42
 
 ## 関連項目
 - [`<semaphore>`](/reference/semaphore.md)
-- [`<barrier>`](/reference/barrier.md.nolink)
+- [`<barrier>`](/reference/barrier.md)
 
 
 ## 参照
