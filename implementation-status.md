@@ -105,8 +105,7 @@
 | [トライグラフを削除](/lang/cpp17/removing_trigraphs.md) | | 5.1 | 3.5 | 19.1 | 2010 |
 | [テンプレートテンプレートパラメータに`typename`を許可](/lang/cpp17/allow_typename_in_a_template_template_parameter.md) | `class`キーワードしか使用できなかった部分に、`typename`を許可 | 5.0 | 3.5 | 17.0 | 2015 |
 | [単一要素初期化子リストを`auto`で受け取った場合の型を変更](/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md) | `initializer_list<T>`だったのを`T`に変更 | 5 | 3.8 | 17.0 | 2015 |
-| [畳み込み式](/lang/cpp17/folding_expressions.md) | パラメータパックに対する2項演算の集積処理 | 6 | 3.6 | 19.0 | 2017 
-5 |
+| [畳み込み式](/lang/cpp17/folding_expressions.md) | パラメータパックに対する2項演算の集積処理 | 6 | 3.6 | 19.0 | 2017 Update 5 |
 | [UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md) | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | 6 | 3.6 | 17.0 | 2015 |
 | [入れ子名前空間の定義](/lang/cpp17/nested_namespace.md) | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | 6 | 3.6 | 17.0 | 2015 Update 3 |
 | [名前空間と列挙子に属性の付加を許可](/lang/cpp17/attributes_for_namespaces_and_enumerators.md) | 名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする | 名前空間は4.0<br/>列挙子は6 | 3.6 | 17.0 | 2015 |
