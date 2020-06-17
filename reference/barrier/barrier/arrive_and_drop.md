@@ -39,6 +39,7 @@ void arrive_and_drop();
 
 
 ## 例
+```cpp example
 #include <barrier>
 #include <chrono>
 #include <iostream>
@@ -90,6 +91,7 @@ int main()
   t1.join();
   t2.join();
 }
+```
 * arrive_and_drop[color ff0000]
 * arrive_and_wait[link arrive_and_wait.md]
 

@@ -31,11 +31,59 @@ void arrive_and_wait();
 
 ## 例
 ```cpp example
+#include <barrier>
+#include <chrono>
+#include <iostream>
+#include <thread>
+#include <utility>
+
+// (ダミーの)タスク処理関数
+void do_task(const char* msg)
+{
+  static std::mutex cout_mtx;
+
+  std::this_thread::sleep_for(std::chrono::seconds(1));
+  {
+    std::lock_guard lk{cout_mtx};
+    std::cout << msg << std::endl;
+  }
+}
+
+int main()
+{
+  std::barrier<> sync{2};
+
+  // ワーカスレッド起動
+  std::thread t1([&]{
+    do_task("sub:  phase-1");
+    sync.arrive_and_wait();
+    do_task("sub:  phase-2");
+    sync.arrive_and_wait();
+    do_task("sub:  phase-3");
+  });
+
+  // メインスレッド処理
+  {
+    do_task("main: phase-1");
+    sync.arrive_and_wait();
+    do_task("main: phase-2");
+    sync.arrive_and_wait();
+    do_task("main: phase-3");
+  }
+
+  t.join();
+}
 ```
 * arrive_and_wait[color ff0000]
 
-### 出力
+### 出力例
 ```
+sub:  phase-1
+main: phase-1
+main: phase-2
+sub:  phase-2
+sub:  phase-3
+main: phase-3
 ```
 
 
