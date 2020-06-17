@@ -17,9 +17,9 @@ namespace std {
 複数スレッドがバリアオブジェクト上で待ち合わせ（合流）を行うさまから、ランデブーポイント(Rendezvous Point)とも呼ばれる。
 
 バリア同期を用いると[Fork-Joinモデル](https://en.wikipedia.org/wiki/Fork%E2%80%93join_model)に基づくタスク並行構造を容易に実装できる。
-- [コンストラクタ](op_constructor.md)にてバリア同期に参加するスレッド数を設定する。
-- [`arrive_and_wait()`](arrive_and_wait.md)により自スレッドの現行フェーズ完了を通知し、他スレッド群の現行フェーズ完了を待機する。バリア同期参加中のスレッドが合流し終えると、各スレッドのブロックが解除されて次フェーズを開始する。
-- [`arrive_and_drop()`](arrive_and_drop.md)により自スレッドの現行フェーズ完了を通知し、次フェーズからはバリア同期に参加しない（参加スレッド数を1つ減らす）。バリア同期参加中のスレッドが合流し終えると、自スレッド以外のブロックが解除されて次フェーズを開始する。
+- [コンストラクタ](barrier/op_constructor.md)にてバリア同期に参加するスレッド数を設定する。
+- [`arrive_and_wait()`](barrier/arrive_and_wait.md)により自スレッドの現行フェーズ完了を通知し、他スレッド群の現行フェーズ完了を待機する。バリア同期参加中のスレッドが合流し終えると、各スレッドのブロックが解除されて次フェーズを開始する。
+- [`arrive_and_drop()`](barrier/arrive_and_drop.md)により自スレッドの現行フェーズ完了を通知し、次フェーズからはバリア同期に参加しない（参加スレッド数を1つ減らす）。バリア同期参加中のスレッドが合流し終えると、自スレッド以外のブロックが解除されて次フェーズを開始する。
 
 バリアオブジェクトは複数スレッド間の合流制御を繰り返して行えるが、1回のみの制御で十分ならばラッチ[`latch`](/reference/latch/latch.md)も利用候補となりえる。
 
@@ -129,7 +129,7 @@ int main()
 }
 ```
 * std::barrier[color ff0000]
-* arrive_and_wait()[link arrive_and_wait.md]
+* arrive_and_wait()[link barrier/arrive_and_wait.md]
 
 ### 出力例
 ```
