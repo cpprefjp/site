@@ -26,9 +26,7 @@ namespace std {
 ## 効果
 `is_trivially_copyable`は、`T`がトリビアルコピー可能な型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
-ユーザーが関数を宣言したとき、`user-declared`であると言える。`= default`/`= delete`指定されたものも含む。
-
-`user-provided`とは、`= default`/`= delete`指定されたものを含まない、`user-declared`なものである。
+`user-provided`とは、`= default`/`= delete`指定されたものを含まない、ユーザーによる関数宣言(`user-declared`)である。
 
 「トリビアルコピー可能な型」とは、「`std::memcpy()`可能な型である」と言い換えることもできる。これに分類される型は、以下の全ての条件を満たす必要がある：
 
