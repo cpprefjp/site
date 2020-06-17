@@ -10,11 +10,10 @@ namespace std {
   concept indirectly_readable = /*see below*/;
 }
 ```
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 
-`indirectly_readable`は、任意の型が間接参照演算子（`operator*`）によって値を読み取り可能であることを表すコンセプトである。
+`indirectly_readable`は、任意の型`In`が間接参照演算子（`operator*`）によって値を読み取り（入力）可能であることを表すコンセプトである。
 
 イテレータ型に限らず、ポインタ型、スマートポインタ型などがこのコンセプトのモデルとなることができる。
 
@@ -78,6 +77,7 @@ int main() {
   f<int*>("int*");
   f<std::unique_ptr<int>>("std::unique_ptr<int>");
   f<std::vector<int>::iterator>("std::vector<int>::iterator");
+  f<std::istream_iterator<double>>("std::istream_iterator<double>");
   
   std::cout << "\n";
   f<std::optional<int>>("std::optional<int>");
@@ -90,6 +90,7 @@ int main() {
 int* is indirectly readable
 std::unique_ptr<int> is indirectly readable
 std::vector<int>::iterator is indirectly readable
+std::istream_iterator<double> is indirectly readable
 
 std::optional<int> is not indirectly readable
 ```

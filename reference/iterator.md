@@ -149,7 +149,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
 | [`indirectly_readable`](iterator/indirectly_readable.md) | 間接参照によって読み取り可能 (concept)           | C++20          |
-| [`indirectly_writable`](iterator/indirectly_writable.md.nolink) | 間接参照によって書き込み可能 (concept)           | C++20          |
+| [`indirectly_writable`](iterator/indirectly_writable.md) | 間接参照によって書き込み可能 (concept)           | C++20          |
 | [`weakly_incrementable`](iterator/weakly_incrementable.md.nolink) | 前置/後置インクリメント可能 (concept)           | C++20          |
 | [`incrementable`](iterator/incrementable.md.nolink) | 正則に前置/後置インクリメント可能 (concept)           | C++20          |
 | [`input_or_output_iterator`](iterator/input_or_output_iterator.md.nolink) | 基礎的なイテレータコンセプト (concept)           | C++20          |
