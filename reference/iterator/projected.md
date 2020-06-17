@@ -33,7 +33,7 @@ namespace std {
 
 ## 概要
 
-間接参照可能な型`I`に任意の射影操作`Proj`を適用した結果を表す[`indirectly_readable`](/reference/iterator/indirectly_readable.md)な型を生成する。
+間接参照可能な型`I`に任意の射影操作`Proj`を適用した結果を表す[`indirectly_readable`](/reference/iterator/indirectly_readable.md)のモデルとなる型を生成する。
 
 これは射影操作を受け取るコンセプトやアルゴリズムを制約するために使用するものであり、評価される文脈で使用可能ではない。主に、射影操作の結果に対してイテレータ関連のコンセプトを適用する場合に使用する。
 
@@ -54,7 +54,7 @@ int main() {
   static_assert(std::same_as<std::iter_rvalue_reference_t<vecitr_proj>, int&&>);
   static_assert(std::same_as<std::iter_common_reference_t<vecitr_proj>, int&>);
 
-	//別の射影でプロジェクション
+  //別の射影でプロジェクション
   using vecitr_proj2 = std::projected<vec_iterator, decltype([](int) -> double { return 0.0;})>;
 
   static_assert(std::indirectly_readable<vecitr_proj2>);

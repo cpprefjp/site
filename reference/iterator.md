@@ -35,7 +35,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`iter_rvalue_reference_t`](iterator/iter_rvalue_reference_t.md) | イテレータの指す要素の右辺値参照型を取得する (alias template)           | C++20          |
 | [`iter_common_reference_t`](iterator/iter_common_reference_t.md) | イテレータの`value_type`と`reference_type`の[`common_reference`](/reference/type_traits/common_reference.md)を取得する (alias template)           | C++20          |
 | [`indirect_result_t`](iterator/indirect_result_t.md) | 関数呼び出し可能な型`F`を複数のイテレータ`Is...`によって呼び出した時の戻り値型を取得する (alias template)           | C++20          |
-| [`projected`](iterator/projected.md) | イテレータ`I`の`Proj`による射影操作の戻り値型を取得する (class template)           | C++20          |
+| [`projected`](iterator/projected.md) | イテレータ`I`の`Proj`による射影操作の結果を表すことのできる[`indirectly_readable`](/reference/iterator/indirectly_readable.md)なクラス (class template)           | C++20          |
 | [`incrementable_traits`](iterator/incrementable_traits.md)   | `iter_difference_t`にアダプトするためのカスタマイゼーションポイント (class template)               | C++20          |
 | [`indirectly_readable_traits`](iterator/indirectly_readable_traits.md) | `iter_value_t`にアダプトするためのカスタマイゼーションポイント (class template)           | C++20          |
 | [`input_iterator_tag`](iterator/iterator_tag.md) | 入力イテレータを表すタグ(class) | |
