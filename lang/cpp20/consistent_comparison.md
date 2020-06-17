@@ -298,16 +298,28 @@ bool eq2 = a == category::C;  //ok
 
 ```cpp
 struct C {
-  //有効な<=>のdefault宣言（3つのうちいずれか）
+  //有効な<=>のdefault宣言例
   auto operator<=>(const C&) const = default;
   friend auto operator<=>(const C&, const C&) = default;
   friend auto operator<=>(C, C) = default;
 
-  //有効な==のdefault宣言（3つのうちいずれか）
+  //有効な==のdefault宣言例
   bool operator==(const C&) const = default;
   friend bool operator==(const C&, const C&) = default;
   friend bool operator==(C, C) = default;
+
+  //クラス外で定義することもできる
+  auto operator<=>(const C&) const;
+  bool operator== (const C&) const;
+  friend auto operator<=>(const C&, const C&);
+  friend bool operator== (const C&, const C&);
 };
+
+//クラス外定義は別の翻訳単位にあってもok
+auto C::operator<=>(const C&) const = default;
+bool C::operator== (const C&) const = default;
+inline auto operator<=>(const C&, const C&) = default;
+inline bool operator== (const C&, const C&) = default;
 ```
 
 `<=>`をdefault宣言した場合、対応する`==`が暗黙的にdefault宣言される。そのアクセス指定は同一であり、`friend`であるかも`<=>`に従う。  
@@ -783,6 +795,8 @@ struct has_vector {
         - 不要になった`_equality`な比較カテゴリ型の削除
     10. [P1946R0 Allow defaulting comparisons by value](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1946r0.html)
         - `<=> ==`の`friend`な`default`宣言の調整
+    11. [P2085R0 Consistent defaulted comparisons](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2085r0.html)
+        - `<=> ==`の`default`宣言をクラス外でも行えるようにする
 - 以前に検討されていた提案文書
     - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
     - [N4114 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm)
