@@ -41,7 +41,7 @@ namespace std {
 indirectly_readable<Out> && same_as<iter_value_t<Out>, decay_t<T>>
 ```
 * indirectly_readable[link indirectly_readablemd]
-* same_as[link /reference/concpets/same_as.md]
+* same_as[link /reference/concepts/same_as.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 * decay_t[link /reference/type_traits/decay.md]
 
