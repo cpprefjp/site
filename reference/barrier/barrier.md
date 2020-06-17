@@ -16,20 +16,25 @@ namespace std {
 [バリア](https://en.wikipedia.org/wiki/Barrier_(computer_science))の存続期間はバリアフェーズの列からなり、各フェーズでは予定スレッド数がバリアに到達するまで先行到達スレッドの実行をブロックできる。
 複数スレッドがバリアオブジェクト上で待ち合わせ（合流）を行うさまから、ランデブーポイント(Rendezvous Point)とも呼ばれる。
 
-バリアオブジェクトは複数スレッド間の合流制御を繰り返し行えるが、1回のみの制御で十分ならばラッチ[`latch`](/reference/latch/latch.md)を利用する。
+バリア同期を用いると[Fork-Joinモデル](https://en.wikipedia.org/wiki/Fork%E2%80%93join_model)に基づくタスク並行構造を容易に実装できる。
+- [コンストラクタ](op_constructor.md)にてバリア同期に参加するスレッド数を設定する。
+- [`arrive_and_wait()`](arrive_and_wait.md)により自スレッドの現行フェーズ完了を通知し、他スレッド群の現行フェーズ完了を待機する。バリア同期参加中のスレッドが合流し終えると、各スレッドのブロックが解除されて次フェーズを開始する。
+- [`arrive_and_drop()`](arrive_and_drop.md)により自スレッドの現行フェーズ完了を通知し、次フェーズからはバリア同期に参加しない（参加スレッド数を1つ減らす）。バリア同期参加中のスレッドが合流し終えると、自スレッド以外のブロックが解除されて次フェーズを開始する。
+
+バリアオブジェクトは複数スレッド間の合流制御を繰り返して行えるが、1回のみの制御で十分ならばラッチ[`latch`](/reference/latch/latch.md)も利用候補となりえる。
 
 ### 詳細説明
 説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のデータメンバを`completion`と表記する。
-同データメンバ`completion`は、[コンストラクタ](barrier/op_constructor.md.nolink)にて設定される。
+同データメンバ`completion`は、[コンストラクタ](barrier/op_constructor.md)にて設定される。
 
 各バリアフェーズ(barrier phase)は下記のステップで構成される：
 
-- [`arrive()`](barrier/arrive.md.nolink)または[`arrive_and_drop`](barrier/arrive_and_drop.md.nolink)呼び出しによって、予定カウントを減算する。
-- 予定カウントが`0`に到達したら、完了ステップを実行する。テンプレートパラメータ`CompletionFunction`のデフォルト値に対する特殊化では、完了ステップは予定カウントを`0`とした[`arrive()`](barrier/arrive.md.nolink)または[`arrive_and_drop`](barrier/arrive_and_drop.md.nolink)呼び出しの一部として実行される。それ以外の特殊化では、完了ステップはそのフェーズ内でバリア到達したスレッドのいずれか1つの上で実行される。
-- 完了ステップが終了したのち、予定カウントをコンストラクタ実引数`expected`でリセットし、[`arrive_and_drop`](barrier/arrive_and_drop.md.nolink)呼び出しの場合は調整を行って、次のフェーズを開始する。
+- [`arrive()`](barrier/arrive.md)または[`arrive_and_drop`](barrier/arrive_and_drop.md)呼び出しによって、予定カウントを減算する。
+- 予定カウントが`0`に到達したら、完了ステップを実行する。テンプレートパラメータ`CompletionFunction`のデフォルト値に対する特殊化では、完了ステップは予定カウントを`0`とした[`arrive()`](barrier/arrive.md)または[`arrive_and_drop`](barrier/arrive_and_drop.md)呼び出しの一部として実行される。それ以外の特殊化では、完了ステップはそのフェーズ内でバリア到達したスレッドのいずれか1つの上で実行される。
+- 完了ステップが終了したのち、予定カウントをコンストラクタ実引数`expected`でリセットし、[`arrive_and_drop`](barrier/arrive_and_drop.md)呼び出しの場合は調整を行って、次のフェーズを開始する。
 
 各フェーズは、フェーズ同期ポイント(phase synchronization point)を定義する。
-フェーズ内でバリアに到達したスレッドは、[`wait()`](barrier/wait.md.nolink)呼び出しによりフェーズ同期ポイント上でブロックされ、フェーズ完了ステップが実行されるまでブロック状態は継続する。
+フェーズ内でバリアに到達したスレッドは、[`wait()`](barrier/wait.md)呼び出しによりフェーズ同期ポイント上でブロックされ、フェーズ完了ステップが実行されるまでブロック状態は継続する。
 
 フェーズ完了ステップ(phase completion step)は各フェーズ終了時に実行され、下記の効果を持つ：
 
@@ -37,7 +42,7 @@ namespace std {
 - フェーズ同期ポイント上でブロックされている全スレッドのブロックを解除する。
 
 完了ステップの終了は、完了ステップによりブロック解除される全ての関数呼び出しからの復帰よりも、確実に前に発生(strongly happens before)する。
-テンプレートパラメータ`CompletionFunction`のデフォルト値以外の特殊化においては、完了ステップの進行中にバリアオブジェクトの[`wait()`](barrier/wait.md.nolink)を除くメンバ関数が呼び出されると、その動作は未定義となる。
+テンプレートパラメータ`CompletionFunction`のデフォルト値以外の特殊化においては、完了ステップの進行中にバリアオブジェクトの[`wait()`](barrier/wait.md)を除くメンバ関数が呼び出されると、その動作は未定義となる。
 
 テンプレートパラメータ`CompletionFunction`のデフォルト値は、追加で Cpp17DefaultConstructible 要件を満たす未規定の型であり、式`completion()`は何の副作用も生じない。
 つまりテンプレートパラメータを省略した`barrier<>`オブジェクトでは、各フェーズ完了時に追加的な処理を行わない。
@@ -55,19 +60,19 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`(constructor)`](barrier/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](barrier/op_constructor.md) | コンストラクタ | C++20 |
 | `(destructor)`  | デストラクタ   | C++20 |
 | `operator=(const barrier&) = delete;` | 代入演算子 | C++20 |
-| [`arrive`](barrier/arrive.md.nolink) | 到達通知 | C++20 |
-| [`wait`](barrier/wait.md.nolink) | 待機処理 | C++20 |
-| [`arrive_and_wait`](barrier/arrive_and_wait.md.nolink) | 到達通知と待機処理 | C++20 |
-| [`arrive_and_drop`](barrier/arrive_and_drop.md.nolink) | 到達通知後に離脱 | C++20 |
+| [`arrive`](barrier/arrive.md) | 到達通知 | C++20 |
+| [`wait`](barrier/wait.md) | 待機処理 | C++20 |
+| [`arrive_and_wait`](barrier/arrive_and_wait.md) | 到達通知と待機処理 | C++20 |
+| [`arrive_and_drop`](barrier/arrive_and_drop.md) | 到達通知後に離脱 | C++20 |
 
 ## 静的メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`max`](barrier/max.md.nolink) | 処理系がサポートする予定カウントの最大値 | C++20 |
+| [`max`](barrier/max.md) | 処理系がサポートする予定カウントの最大値 | C++20 |
 
 ## メンバ型
 
@@ -124,7 +129,7 @@ int main()
 }
 ```
 * std::barrier[color ff0000]
-* arrive_and_wait()[link arrive_and_wait.md.nolink]
+* arrive_and_wait()[link arrive_and_wait.md]
 
 ### 出力例
 ```
