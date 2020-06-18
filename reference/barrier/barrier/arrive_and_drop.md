@@ -1,4 +1,4 @@
-## arrive_and_drop
+# arrive_and_drop
 * barrier[meta header]
 * std[meta namespace]
 * barrier[meta class]
