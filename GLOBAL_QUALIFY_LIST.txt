@@ -65,6 +65,7 @@
 * <condition_variable>[link /reference/condition_variable.md]
     * std::condition_variable[link /reference/condition_variable/condition_variable.md]
 * <cstddef>[link /reference/cstddef.md]
+    * std::byte[link /reference/cstddef/byte.md]
     * std::nullptr_t[link /reference/cstddef/nullptr_t.md]
     * std::size_t[link /reference/cstddef/size_t.md]
 * <cstdint>[link /reference/cstdint.md]
