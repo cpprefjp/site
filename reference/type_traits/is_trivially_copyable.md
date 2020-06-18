@@ -67,18 +67,18 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 ```cpp example
 #include <type_traits>
 template <typename T>
-concept TriviallyCopyConstructible = std::is_trivially_copy_constructible_v<T>;
+concept trivially_copy_constructible = std::is_trivially_copy_constructible_v<T>;
 template <typename T>
-concept CopyConstructible = std::is_copy_constructible_v<T>;
+concept copy_constructible = std::is_copy_constructible_v<T>;
 template <typename T>
 struct optional {
     // #1
     optional(optional const&)
-        requires TriviallyCopyConstructible<T> && CopyConstructible<T>
+        requires trivially_copy_constructible<T> && copy_constructible<T>
         = default;
     // #2
     optional(optional const& rhs)
-            requires CopyConstructible<T>
+            requires copy_constructible<T>
        : engaged(rhs.engaged)
     {
         if (engaged) {
@@ -184,21 +184,21 @@ struct DeletedDestructor {
 };
 #ifdef __cpp_concepts
 template <typename T>
-concept TriviallyCopyConstructible = std::is_trivially_copy_constructible_v<T>;
+concept trivially_copy_constructible = std::is_trivially_copy_constructible_v<T>;
 template <typename T>
-concept CopyConstructible = std::is_copy_constructible_v<T>;
+concept copy_constructible = std::is_copy_constructible_v<T>;
 template <typename T>
 struct optional {
   alignas(T) std::byte value[sizeof(T)];
   bool engaged;
   // #1: default指定されており、user-providedではない
   optional(optional const&)
-      requires TriviallyCopyConstructible<T> && CopyConstructible<T>
+      requires trivially_copy_constructible<T> && copy_constructible<T>
       = default;
 
   // #2: user-providedなコピーコンストラクタ
   optional(optional const& rhs)
-          requires CopyConstructible<T>
+          requires copy_constructible<T>
       : engaged(rhs.engaged)
   {
       if (engaged) {
