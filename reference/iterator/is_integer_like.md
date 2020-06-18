@@ -1,4 +1,4 @@
-# dereferenceable
+# is-integer-like
 * iterator[meta header]
 * std[meta namespace]
 * variable[meta id-type]
