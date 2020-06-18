@@ -154,7 +154,8 @@ struct optional {
 ## 例
 ```cpp example
 #include <type_traits>
-
+#include <memory>
+#include <string>
 struct C1 {
   // 非トリビアルな特殊関数を持っていない
 
@@ -176,7 +177,31 @@ struct DeletedDestructor {
   // デストラクタはdeleteされている
   ~DeletedDestructor() = delete;
 };
+#ifdef __cpp_concepts
+template <typename T>
+concept TriviallyCopyConstructible = std::is_trivially_copy_constructible_v<T>;
+template <typename T>
+concept CopyConstructible = std::is_copy_constructible_v<T>;
+template <typename T>
+struct optional {
+  alignas(T) std::byte value[sizeof(T)];
+  bool engaged;
+  // #1: default指定されており、user-providedではない
+  optional(optional const&)
+      requires TriviallyCopyConstructible<T> && CopyConstructible<T>
+      = default;
 
+  // #2: user-providedなコピーコンストラクタ
+  optional(optional const& rhs)
+          requires CopyConstructible<T>
+      : engaged(rhs.engaged)
+  {
+      if (engaged) {
+          new (value) T(rhs.value);
+      }
+  }
+};
+#endif
 // 組み込み型は全てトリビアルコピー可能
 static_assert(std::is_trivially_copyable<int>::value == true, "int is trivially copyable");
 static_assert(std::is_trivially_copyable<int*>::value == true, "int* is trivially copyable");
@@ -189,9 +214,19 @@ static_assert(std::is_trivially_copyable<TrivialDestructor>::value == true, "Tri
 // CWG issue 1734が適用された環境ではトリビアルコピー可能ではない
 static_assert(std::is_trivially_copyable<DeletedDestructor>::value == false, "DeletedDestructor isn't trivially copyable");
 
+#ifdef __cpp_concepts
+// #1も#2も適格ではないので適格なコピー/ムーブ コンストラクタ/代入演算子がないためトリビアルコピー可能ではない
+static_assert(std::is_trivially_copyable<optional<std::unique_ptr<int>>>::value == false, "std::unique_ptr<int> isn't trivially copyable");
+// #2が適格なコピーコンストラクタであるが、user-proviedであるためトリビアルコピー可能ではない
+static_assert(std::is_trivially_copyable<optional<std::string>>::value == false, "optional<std::string> isn't trivially copyable");
+// #1が適格なコピーコンストラクタであるのでトリビアルコピー可能
+static_assert(std::is_trivially_copyable<optional<int>>::value == true, "optional<int> is trivially copyable");
+#endif
 int main() {}
 ```
 * std::is_trivially_copyable[color ff0000]
+* std::is_trivially_copy_constructible_v[link /reference/type_traits/is_trivially_copy_constructible.md]
+* std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
 
 ### 出力
 ```
