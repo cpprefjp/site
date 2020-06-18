@@ -65,6 +65,11 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 `T=int`の場合、#1と#2はどちらも制約テンプレートを満たすが、#1のほうが#2より強く制約されているので、#1だけが適格なコピーコンストラクタである。
 
 ```cpp example
+#include <type_traits>
+template <typename T>
+concept TriviallyCopyConstructible = std::is_trivially_copy_constructible_v<T>;
+template <typename T>
+concept CopyConstructible = std::is_copy_constructible_v<T>;
 template <typename T>
 struct optional {
     // #1
