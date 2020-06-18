@@ -27,7 +27,7 @@ namespace std {
 ## 関連項目
 
 - [`weakly_incrementable`](weakly_incrementable.md)
-- [`iota_view`](/reference/ranges/iota_view.md)
+- [`iota_view`](/reference/ranges/iota_view.md.nolink)
 
 ## 参照
 

@@ -26,9 +26,7 @@ namespace std {
 * indirectly_regular_unary_invocable[link /reference/iterator/indirectly_regular_unary_invocable.md.nolink]
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * indirect_result_t[link /reference/iterator/indirect_result_t.md]
-* weakly_incrementable[link /reference/iterator/weakly_incrementable.md.nolink]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
-* projected[link /reference/iterator/projected.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
