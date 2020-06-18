@@ -143,6 +143,8 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`with-reference`](iterator/dereferenceable.md)   | 型`T`に参照を付加する (alias template)               | C++20          |
 | [`can-reference`](iterator/dereferenceable.md) | `with-reference`可能 (concept) | C++20 |
 | [`dereferenceable`](iterator/dereferenceable.md) | 単純な間接参照が可能 (concept)           | C++20          |
+| [`is-integer-like`](iterator/is_integer_like.md) | 単純な間接参照が可能 (variable template)           | C++20          |
+| [`is-signed-integer-like`](iterator/is_integer_like.md) | 単純な間接参照が可能 (variable template)           | C++20          |
 
 ## イテレータコンセプト
 
@@ -150,7 +152,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 |------------------------------|-------------------------------------------------|----------------|
 | [`indirectly_readable`](iterator/indirectly_readable.md) | 間接参照によって読み取り可能 (concept)           | C++20          |
 | [`indirectly_writable`](iterator/indirectly_writable.md) | 間接参照によって書き込み可能 (concept)           | C++20          |
-| [`weakly_incrementable`](iterator/weakly_incrementable.md.nolink) | 前置/後置インクリメント可能 (concept)           | C++20          |
+| [`weakly_incrementable`](iterator/weakly_incrementable.md) | 前置/後置インクリメント可能 (concept)           | C++20          |
 | [`incrementable`](iterator/incrementable.md.nolink) | 正則に前置/後置インクリメント可能 (concept)           | C++20          |
 | [`input_or_output_iterator`](iterator/input_or_output_iterator.md.nolink) | 基礎的なイテレータコンセプト (concept)           | C++20          |
 | [`sentinel_for`](iterator/sentinel_for.md.nolink) | 同じ範囲についてのイテレータと番兵 (concept)           | C++20          |
