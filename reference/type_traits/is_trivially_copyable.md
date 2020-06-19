@@ -34,7 +34,7 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 
 ### 前提となる用語
 
-`user-provided`とは、`= default`/`= delete`指定されたものを含まない、ユーザーによる関数宣言(`user-declared`)である。
+`user-provided`な関数とは、`= default`/`= delete`指定されていない、ユーザーによって宣言された関数である。
 
 ### C++20
 
