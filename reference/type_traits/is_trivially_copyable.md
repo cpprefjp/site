@@ -69,24 +69,18 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 template <typename T>
 concept trivially_copy_constructible = std::is_trivially_copy_constructible_v<T>;
 template <typename T>
-concept copy_constructible = std::is_copy_constructible_v<T>;
-template <typename T>
 struct optional {
     // #1
     optional(optional const&)
-        requires trivially_copy_constructible<T> && copy_constructible<T>
+        requires trivially_copy_constructible<T> && std::copy_constructible<T>
         = default;
     // #2
     optional(optional const& rhs)
-            requires copy_constructible<T>
-       : engaged(rhs.engaged)
-    {
-        if (engaged) {
-            new (value) T(rhs.value);
-        }
-    }
+            requires copy_constructible<T>;
 };
 ```
+* std::is_trivially_copy_constructible_v[link /reference/type_traits/is_trivially_copy_constructible.md]
+* std::copy_constructible[link /reference/concepts/copy_constructible.md]
 
 #### トリビアルコピー可能な型
 
@@ -159,6 +153,7 @@ struct optional {
 ## 例
 ```cpp example
 #include <type_traits>
+#include <concepts>
 #include <memory>
 #include <string>
 struct C1 {
@@ -186,19 +181,17 @@ struct DeletedDestructor {
 template <typename T>
 concept trivially_copy_constructible = std::is_trivially_copy_constructible_v<T>;
 template <typename T>
-concept copy_constructible = std::is_copy_constructible_v<T>;
-template <typename T>
 struct optional {
   alignas(T) std::byte value[sizeof(T)];
   bool engaged;
   // #1: default指定されており、user-providedではない
   optional(optional const&)
-      requires trivially_copy_constructible<T> && copy_constructible<T>
+      requires trivially_copy_constructible<T> && std::copy_constructible<T>
       = default;
 
   // #2: user-providedなコピーコンストラクタ
   optional(optional const& rhs)
-          requires copy_constructible<T>
+          requires std::copy_constructible<T>
       : engaged(rhs.engaged)
   {
       if (engaged) {
@@ -231,7 +224,8 @@ int main() {}
 ```
 * std::is_trivially_copyable[color ff0000]
 * std::is_trivially_copy_constructible_v[link /reference/type_traits/is_trivially_copy_constructible.md]
-* std::is_copy_constructible_v[link /reference/type_traits/is_copy_constructible.md]
+* std::copy_constructible[link /reference/concepts/copy_constructible.md]
+* std::byte[link /reference/cstddef/byte.md]
 
 ### 出力
 ```
