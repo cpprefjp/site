@@ -49,9 +49,9 @@ namespace std {
 - `numeric_limits<I>::is_specialized == true`
 - [`numeric_limits<I>::is_signed`](/reference/limits/numeric_limits/is_signed.md)` == true`
     - `I`が*signed-integer-class*型の場合のみ
-- [`numeric_limits<I>::digits`](/limits/numeric_limits/digits.md)は`I`の幅と等しい
-- [`numeric_limits<I>::digits10`](/limits/numeric_limits/digits10.md)は`static_cast<int>(digits * log10(2))`と等しい
-- [`numeric_limits<I>::min()`](/limits/numeric_limits/min.md)と[`numeric_limits<I>::max()`](/limits/numeric_limits/max.md)はそれぞれ、`I`の表現可能な値の最小値と最大値を返す。[`numeric_limits<I>::lowest()`](/limits/numeric_limits/lowest.md)は`numeric_limits<I>::max()`を返す。
+- [`numeric_limits<I>::digits`](/reference/limits/numeric_limits/digits.md)は`I`の幅と等しい
+- [`numeric_limits<I>::digits10`](/reference/limits/numeric_limits/digits10.md)は`static_cast<int>(digits * log10(2))`と等しい
+- [`numeric_limits<I>::min()`](/reference/limits/numeric_limits/min.md)と[`numeric_limits<I>::max()`](/reference/limits/numeric_limits/max.md)はそれぞれ、`I`の表現可能な値の最小値と最大値を返す。[`numeric_limits<I>::lowest()`](/reference/limits/numeric_limits/lowest.md)は`numeric_limits<I>::max()`を返す。
 
 
 ## バージョン
