@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cpp20deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -13,6 +14,8 @@ namespace std {
   inline constexpr bool is_pod_v = is_pod<T>::value; // C++17
 }
 ```
+
+このトレイトはC++20で非推奨になった。同時にPODという概念自体が非推奨になった。
 
 ## 概要
 型`T`がPOD型 (Plain Old Data) か調べる。POD型は、トリビアル型、かつスタンダードレイアウト型、およびそのcv修飾を含む。
@@ -29,6 +32,12 @@ namespace std {
 ## 備考
 "Plain Old Data"という名称はつまり、C言語の構造体や共用体と互換性を持つためである。
 
+## 非推奨の詳細 (C++20)
+
+C++11でPODをトリビアルとスタンダードレイアウトという２つの概念に分離した。  
+そして実用上必要だったのはトリビアル型ではなく[トリビアルコピー可能](is_trivially_copyable.md)型、もしくは[スタンダードレイアウト](is_standard_layout.md)型であった。  
+結果として、トリビアル型かつスタンダードレイアウト型というあまりに強すぎる制約を課すPODというのは、もはや定義だけされて使われていないものとなっていた。
+したがって、規格書の文面でPODという用語に依存している部分は他の説明に書き換え、非推奨にすることとした。
 
 ## 例
 ```cpp example
@@ -80,3 +89,6 @@ int main(){}
 - [LWG Issue 2015. Incorrect pre-conditions for some type traits](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2015)
     - C++11では要件が「型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。」だったが、これは間違いであるため、C++14で「型[`remove_all_extents`](remove_all_extents.md)`<T>::type`は、完全型か、`const`/`volatile`修飾された(あるいはされていない)`void`でなければならない。」に変更された。
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [CGW issue 2323. Expunge POD](https://wg21.cmeerw.net/cwg/issue2323)
+- [P0488R0 WG21 Working Paper, NB Comments, ISO/IEC CD 14882 #US 101](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0488r0.pdf#US101)
+- [P0767R1: Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
