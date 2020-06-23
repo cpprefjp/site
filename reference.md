@@ -34,7 +34,7 @@
 | [`<exception>`](/reference/exception.md)               | 例外ハンドリング         |                |
 | [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト           | C++11          |
 | [`<compare>`](/reference/compare.md)                   | 比較演算                 | C++20          |
-| [`<coroutine>`](/reference/coroutine.md.nolink)        | コルーチン               | C++20          |
+| [`<coroutine>`](/reference/coroutine.md)               | コルーチン               | C++20          |
 
 
 ## <a id="concepts" href="#concepts">コンセプトライブラリ</a>

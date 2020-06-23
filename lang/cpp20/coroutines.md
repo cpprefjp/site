@@ -4,7 +4,7 @@
 ## 概要
 処理途中でのサスペンド(中断)／レジューム(再開)をサポートする一般化された関数として、[コルーチン](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3)が導入される。
 
-C++20時点では、コルーチン動作に関する言語仕様と新キーワード`co_return`, `co_await`, `co_yield`による新しい構文、コルーチンライブラリ実装者向けの低レベルライブラリ[`<coroutine>`](/reference/coroutine.md.nolink)のみが規定される。
+C++20時点では、コルーチン動作に関する言語仕様と新キーワード`co_return`, `co_await`, `co_yield`による新しい構文、コルーチンライブラリ実装者向けの低レベルライブラリ[`<coroutine>`](/reference/coroutine.md)のみが規定される。
 
 ```cpp
 // コルーチンiotaを定義
@@ -484,7 +484,7 @@ int main()
 
 
 ## 関連項目
-- [`<coroutine>`](/reference/coroutine.md.nolink)
+- [`<coroutine>`](/reference/coroutine.md)
 
 
 ## 参照

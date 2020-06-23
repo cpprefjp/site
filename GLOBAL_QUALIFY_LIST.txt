@@ -58,6 +58,7 @@
 * <climits>[link /reference/climits.md]
 * <compare>[link /reference/compare.md]
     * strong_ordering[link /reference/compare/strong_ordering.md]
+* <coroutine>[link /reference/coroutine.md]
 * <cmath>[link /reference/cmath.md]
 * <codecvt>[link /reference/codecvt.md]
 * <complex>[link /reference/complex.md]
