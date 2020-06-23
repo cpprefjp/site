@@ -28,10 +28,20 @@ for (int v: g) {
 
 一般的なアプリケーション実装者からの利用を想定した、ジェネレータや非同期タスク・非同期I/Oといったハイレベルなコルーチンライブラリは、C++23以降での導入にむけて検討されている。
 
+### 特徴
+C++コルーチンの特徴は次の通り：
+
+- 関数からコルーチンへの拡張: 従来からある関数(function)の呼出し(call)と復帰(return)に加えて、コルーチン(coroutine)では中断(suspend)と再開(resume)動作をサポートする。また中断状態のまま再開不要となったコルーチンに対しては、リソースリークを防ぐため明示的に破棄(destroy)を行える。
+- 多数の __カスタマイズポイント__: コルーチンライブラリ実装者向けに、コルーチン動作の制御を可能とするカスタマイズポイントを規定する。後述するPromise、Awaitable、Awaiterなど。
+- 軽量な __スタックレス(Stackless)コルーチン__: コルーチンの中断は実行中コルーチンのレキシカル・スコープ内でのみで許可され、コルーチンが呼び出した関数内では中断操作を行えない。（C++コルーチンの定義上、`co_await`や`co_yield`を用いて中断処理を記述すると、関数ではなくコルーチンとみなされる。）
+- コルーチン毎の __動的メモリ確保__: コルーチン実引数の保持や進行状況を管理するため、動的メモリ確保が行われる可能性がある。ただし一定の条件を満たす場合には、[C++コンパイラ最適化により動的メモリ確保は省略される](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0981r0.html)と期待できる。
+- __非対称(Asymmetric)・対称(Symmetric)コルーチン__: 中断処理によりコルーチン再開元へ制御を戻す非対称コルーチンのほか、明示的に別コルーチンの再開に制御を移す対象コルーチンをサポートする。待機動作をカスタマイズするAwaiterオブジェクト`await_suspend`にて制御する。
+- __[スレッド(thread)](/reference/thread/thread.md)との直交__: あるスレッド上で実行されるコルーチンを中断し、その後に別スレッドから同コルーチンを再開させることもできる。ただし[スレッドローカルストレージ](/lang/cpp11/thread_local_storage.md)と組合せには注意が必要。
+
 
 ## 仕様
 ### コルーチン定義
-C++におけるコルーチン(coroutine)は、従来からある関数(function)の一種である。
+C++におけるコルーチンは、関数の一種として定義される。
 
 関数本体に新キーワード`co_await`(Await式), `co_yield`(Yield式), `co_return`のいずれかが含まれるとき、その関数はコルーチンとなる。
 つまり、戻り値型や引数リストなどのシグニチャからコルーチン／関数を区別することはできない。
@@ -57,7 +67,7 @@ task<void> g3(int a, ...) { // エラー: 可変引数リストは許可され�
 }
 ```
 
-プログラムエントリポイントの`main`関数、`constexpr`関数、戻り値型をプレースホルダ(`auto`)で宣言された関数、クラス型のコンストラクタとデストラクタはコルーチンとして定義できない。
+プログラムエントリポイントの`main`関数、`constexpr`関数、戻り値型をプレースホルダ(`auto`)で宣言された関数、クラス型のコンストラクタとデストラクタは、コルーチンとして定義できない。
 
 ### Promise型とコルーチン動作仕様
 コルーチンのPromise型は、コルーチンの戻り値型`R`と引数リスト`P1`, `P2`, ..., `Pn`から決定されるクラス型である。
@@ -75,7 +85,7 @@ task<void> g3(int a, ...) { // エラー: 可変引数リストは許可され�
     co_await promise.initial_suspend() ;
     function-body
   } catch ( ... ) {
-    if (!initial-await-resume-called)
+    if (! initial-await-resume-called )
       throw ;
     promise.unhandled_exception() ;
   }
@@ -84,20 +94,20 @@ final-suspend :
 }
 ```
 * promise-type[italic]
-* promise[italic]
 * promise-constructor-arguments[italic]
+* promise[italic]
 * function-body[italic]
 * initial-await-resume-called[italic]
 * final-suspend[italic]
 
 - `initial_suspend`呼び出しを含むAwait式は、初期サスペンドポイントとなる。
 - `final_suspend`呼び出しを含むAwait式は、最終サスペンドポイントとなる。
-- _initial-await-resume-called_ は`false`で初期化され、初期サスペンドポイントのAwait再開式が評価される直前に`true`が設定される。
+- _initial-await-resume-called_ は`false`で初期化され、初期サスペンドポイントの式 _await-resume_ が評価される直前に`true`が設定される。
 - _promise-type_ はPromise型を表す。
 - 説明用の変数名 _promise_ は、コルーチンのPromiseオブジェクトを表す。
 - ラベル _final-suspend_ は説明のためにのみ定義される。
 - _promise-constructor-arguments_ は次の通りに決定される:
-    - 引数リスト`Pi`の左辺値を`pi`とする。ただし、コルーチンが非静的メンバでは`p1`は`*this`を表し、`p(i+1)`はi番目の関数パラメータを表す。
+    - 引数リスト`Pi`の左辺値を`pi`とする。コルーチンが非静的メンバの場合、`p1`は`*this`を表し`p(i+1)`はi番目の関数パラメータを表す。
     - 左辺値`p1`...`pn`の実引数リストを用いて、Promiseコンストラクタ呼び出しのオーバーロード解決を試みる。
     - 適合するコンストラクタが見つかった場合は、_promise-constructor-arguments_ は `(p1, ..., pn)` となる。見つからなかった場合、_promise-constructor-arguments_ は空のリストとなる。
 
@@ -198,11 +208,17 @@ Await式は、静的記憶域もしくは[スレッドローカル](/lang/cpp11/
 
 Await式の評価では、次のような補助的な型、式、オブジェクトを用いる：
 
-- _p_ を同Await式を含むコルーチンのPrimiseオブジェクトの左辺値名、`P`を同オブジェクトの型とする。
-- Await式がYield式または初期サスペンドポイントまたたは最終サスペンドポイントにより暗黙に生成された場合、_a_ をその _cast-expression_ とする。そうでなければ、`P`のスコープで非修飾な`await_transform`の探索がにより一つ以上の名前がみつかった場合は _a_ は _p_`.await_transform(` _cast-expression_ `)`とし、それ以外では _a_ は _cast-expression_ とする。
-- _o_ を、実引数 _a_ に対して適用可能な`operator co_await`関数を列挙し、オーバーロード解決により最も相応しい候補から決定する。オーバーロード解決が曖昧な場合、プログラムは不適格となる。適合する関数が見つからない場合、_o_ は _a_ とする。そうでなければ、_o_ は実引数 _a_ により選択された関数呼び出しとなる。_o_ がprvalueの場合、[Temporary materialization conversion](https://cpprefjp.github.io/lang/cpp17/guaranteed_copy_elision.html)が行われる。
+- _p_ を同Await式を含むコルーチンのPrimiseオブジェクトの左辺値名とし、`P`を同オブジェクトの型とする。
+- _a_ (Awaitable) を下記のように定義する：
+    - Await式がYield式または初期サスペンドポイントまたたは最終サスペンドポイントにより暗黙に生成された場合、_a_ をその _cast-expression_ とする。
+    - そうでなければ、`P`のスコープで非修飾な`await_transform`の探索がにより一つ以上の名前がみつかった場合は _a_ を _p_`.await_transform(` _cast-expression_ `)`とする。
+    - それ以外では _a_ を _cast-expression_ とする。
+- _o_ (Awaiter) を下記のように定義する。_o_ がprvalueの場合は[Temporary materialization conversion](https://cpprefjp.github.io/lang/cpp17/guaranteed_copy_elision.html)が行われる：
+    - 実引数 _a_ に対して適用可能な`operator co_await`関数を列挙し、_o_ をオーバーロード解決により選択された関数呼び出しとする。
+    - 適合する関数が見つからない場合、_o_ を _a_ とする。
+    - オーバーロード解決が曖昧な場合、プログラムは不適格となる。
 - _e_ を、_o_ の評価結果を参照する左辺値とする。
-- _h_ を、同Await式を含むコルーチンを参照する[`std:::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md.nolink)型のオブジェクトする。
+- _h_ を、同Await式を含むコルーチンを参照する[`std:::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md.nolink)型のオブジェクトとする。
 - _await-ready_ を、`bool`に変換されうる式 _e_`.await_ready()`とする。
 - _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。`void`、`bool`または何らかの型`Z`に対しする[`std:::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)型のprvalueであるべき。
 - _await-resume_ を、式 _e_`.await_resume()`とする。
@@ -211,12 +227,12 @@ Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
 
 Await式は式 _o_ と式 _await-resume_ を評価し、続いて：
 
-- _await_ready_ の結果が`false`の場合、コルーチンは中断状態とみなされる。その後に：
-    - _await-suspend_ の型が[`std:::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)の場合、_await-suspend_ [`.resume()](/reference/coroutine/coroutine_handle/resume.md.nolink)が評価される。
-    - そうではなく_await-suspend_ の型が`bool`の場合、_await-suspend_ が評価され、その結果が`false`であればコルーチンは再開する。
+- _await-ready_ の結果が`false`の場合、コルーチンは中断状態とみなされる。その後に：
+    - _await-suspend_ の型が[`std:::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md.nolink)が評価される。
+    - そうではなく _await-suspend_ の型が`bool`の場合、_await-suspend_ が評価され、その結果が`false`であればコルーチンは再開する。
     - それ以外の場合、_await-suspend_ が評価される。
 - _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再スローされる。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
-- _await_ready_ の結果が`true`またはコルーチンが再開した場合、_await-resume_ の評価結果がAwait式の結果となる。
+- _await-ready_ の結果が`true`またはコルーチンが再開した場合、_await-resume_ の評価結果がAwait式の結果となる。
 
 ```cpp
 template <typename T>
@@ -324,7 +340,7 @@ _p_ をコルーチンPromiseオブジェクトのlvalue名とすると、`co_re
 * S[italic]
 * final-suspend[italic]
 
-ここで _final-suspend_ はコルーチン動作説明用の最終サスペンドポイントラベル名、_S_ は次の通り定義される：
+ここで _final-suspend_ はコルーチン動作説明用の最終サスペンドポイントラベル名であり、_S_ は次の通り定義される：
 
 - オペランドが _braced-init-list_ または非`void`型の式の場合、_S_ を _p_`.return_value(` _expr-or-braced-init-list_ `)`とする。式 _S_ は `void`型のpvalueであるべき。
 - そうでなければ、_S_ を複合文 `{` _expression_ _opt_ `;` _p_`.return_void(); }`とする。式 _p_`.return_void()`は`void`型のpvalueであるべき。
@@ -494,3 +510,10 @@ int main()
 - [P0914R1 Add parameter preview to coroutine promise constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0914r1.html)
 - [P0664R4 C++ Coroutine TS Issues](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0664r4.html)
 - [P0912R5 Merge Coroutines TS into C++20 working draft](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0912r5.html)
+
+- [Coroutine Theory](https://lewissbaker.github.io/2017/09/25/coroutine-theory)
+- [C++ Coroutines: Understanding operator co_await](https://lewissbaker.github.io/2017/11/17/understanding-operator-co-await)
+- [C++ Coroutines: Understanding the promise type](https://lewissbaker.github.io/2018/09/05/understanding-the-promise-type)
+- [C++ Coroutines: Understanding Symmetric Transfer](https://lewissbaker.github.io/2020/05/11/understanding_symmetric_transfer)
+- [C++ co_awaiting coroutines](https://blog.panicsoftware.com/co_awaiting-coroutines/)
+- [20分くらいでわかった気分になれるC++20コルーチン](https://www.slideshare.net/yohhoy/20c20)
