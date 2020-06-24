@@ -212,8 +212,8 @@ Await式の評価では、次のような補助的な型、式、オブジェク
 
 - _p_ を同Await式を含むコルーチンのPrimiseオブジェクトの左辺値名とし、`P`を同オブジェクトの型とする。
 - _a_ (Awaitable) を下記のように定義する：
-    - Await式がYield式または初期サスペンドポイントまたたは最終サスペンドポイントにより暗黙に生成された場合、_a_ をその _cast-expression_ とする。
-    - そうでなければ、`P`のスコープで非修飾な`await_transform`の探索がにより一つ以上の名前がみつかった場合は _a_ を _p_`.await_transform(` _cast-expression_ `)`とする。
+    - Await式がYield式または初期サスペンドポイントまたは最終サスペンドポイントにより暗黙に生成された場合、_a_ をその _cast-expression_ とする。
+    - `P`のスコープで非修飾な`await_transform`の探索により一つ以上の名前がみつかった場合は、 _a_ を _p_`.await_transform(` _cast-expression_ `)`とする。
     - それ以外では _a_ を _cast-expression_ とする。
 - _o_ (Awaiter) を下記のように定義する。_o_ がprvalueの場合は[Temporary materialization conversion](https://cpprefjp.github.io/lang/cpp17/guaranteed_copy_elision.html)が行われる：
     - 実引数 _a_ に対して適用可能な`operator co_await`関数を列挙し、_o_ をオーバーロード解決により選択された関数呼び出しとする。
@@ -284,7 +284,7 @@ co_yield braced-init-list
 * assignment-expression[italic]
 * braced-init-list[italic]
 
-Yield式は関数中断コンテキストの中にのみ出現してよい。
+Yield式は関数の中断コンテキストにのみ出現してよい。
 _e_ をYield式のオペランド、_p_ を同式を含むコルーチンのPromiseオブジェクトのlvalue名としたとき、Yield式は式`co_await` _p_`.yield_value(` _e_ `)`と等価である。
 
 ```cpp
@@ -481,7 +481,7 @@ int main()
 * co_yield[color ff0000]
 * std::exchange[link /reference/utility/exchange.md]
 * std::coroutine_handle[link /reference/coroutine/coroutine_handle.md.nolink]
-* std::suspend_always[link /reference/coroutine/suspend_always.md.nolink]
+* std::suspend_always[link /reference/coroutine/suspend_always.md]
 * resume()[link /reference/coroutine/coroutine_handle/resume.md.nolink]
 * done()[link /reference/coroutine/coroutine_handle/done.md.nolink]
 * from_promise[link /reference/coroutine/coroutine_handle/from_promise.md.nolink]

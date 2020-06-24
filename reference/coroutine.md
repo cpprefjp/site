@@ -26,8 +26,8 @@
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`noop_coroutine_promise`](coroutine/noop_coroutine_promise.md.nolink)| 何もしないコルーチンPromise型(class)| C++20 |
-| [`suspend_never`](coroutine/suspend_never.md.nolink)| 中断しないAwaitable型(class) | C++20 |
-| [`suspend_always`](coroutine/suspend_always.md.nolink)| 中断するAwaitable型(class) | C++20 |
+| [`suspend_never`](coroutine/suspend_never.md) | 常に中断しないAwaitable型(class) | C++20 |
+| [`suspend_always`](coroutine/suspend_always.md) | 常に中断するAwaitable型(class) | C++20 |
 
 
 ## バージョン
