@@ -35,7 +35,7 @@ C++コルーチンの特徴は次の通り：
 - 多数の __カスタマイズポイント__: コルーチンライブラリ実装者向けに、コルーチン動作の制御を可能とするカスタマイズポイントを規定する。後述するPromise、Awaitable、Awaiterなど。
 - 軽量な __スタックレス(Stackless)コルーチン__: コルーチンの中断は実行中コルーチンのレキシカル・スコープ内でのみで許可され、コルーチンが呼び出した関数内では中断操作を行えない。（C++コルーチンの定義上、`co_await`や`co_yield`を用いて中断処理を記述すると、関数ではなくコルーチンとみなされる。）
 - コルーチン毎の __動的メモリ確保__: コルーチン実引数の保持や進行状況を管理するため、動的メモリ確保が行われる可能性がある。ただし一定の条件を満たす場合には、[C++コンパイラ最適化により動的メモリ確保は省略される](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0981r0.html)と期待できる。
-- __非対称(Asymmetric)・対称(Symmetric)コルーチン__: 中断処理によりコルーチン再開元へ制御を戻す非対称コルーチンのほか、明示的に別コルーチンの再開に制御を移す対象コルーチンをサポートする。待機動作をカスタマイズするAwaiterオブジェクト`await_suspend`にて制御する。
+- __非対称(Asymmetric)・対称(Symmetric)コルーチン__: 中断処理によりコルーチン再開元へ制御を戻す非対称コルーチンのほか、明示的に別コルーチンの再開に制御を移す対称コルーチンをサポートする。待機動作をカスタマイズするAwaiterオブジェクト`await_suspend`にて制御する。
 - __[スレッド(thread)](/reference/thread/thread.md)との直交__: あるスレッド上で実行されるコルーチンを中断し、その後に別スレッドから同コルーチンを再開させることもできる。ただし[スレッドローカルストレージ](/lang/cpp11/thread_local_storage.md)と組合せには注意が必要。
 
 
@@ -143,7 +143,7 @@ struct generator {
   struct promise_type;
   using handle = std::coroutine_handle<promise_type>;
   struct promise_type {
-  int current_value;
+    int current_value;
     static auto get_return_object_on_allocation_failure() { return generator{nullptr}; }
     auto get_return_object() { return generator{handle::from_promise(*this)}; }
     auto initial_suspend() { return std::suspend_always{}; }
@@ -164,7 +164,9 @@ private:
   generator(handle h) : coro(h) {}
   handle coro;
 };
+
 generator f() { co_yield 1; co_yield 2; }
+
 int main() {
   auto g = f();
   while (g.move_next()) std::cout << g.current_value() << std::endl;
@@ -220,7 +222,7 @@ Await式の評価では、次のような補助的な型、式、オブジェク
 - _e_ を、_o_ の評価結果を参照する左辺値とする。
 - _h_ を、同Await式を含むコルーチンを参照する[`std:::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md.nolink)型のオブジェクトとする。
 - _await-ready_ を、`bool`に変換されうる式 _e_`.await_ready()`とする。
-- _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。`void`、`bool`または何らかの型`Z`に対しする[`std:::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)型のprvalueであるべき。
+- _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。この式（の結果）は`void`であるか、`bool`または任意の型`Z`に対する[`std:::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)型のprvalueであるべき。
 - _await-resume_ を、式 _e_`.await_resume()`とする。
 
 Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
