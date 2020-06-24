@@ -128,5 +128,5 @@ C++11以降対応については対応バージョンを明記します。バー
 | virtual base class                 | 仮想基底クラス               |
 | weak ordering                      | 弱順序                       |
 | well-formed                        | 適格                         |
-
+| eligible                           | 資格のある                   |
 

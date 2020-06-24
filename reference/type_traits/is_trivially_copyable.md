@@ -38,9 +38,9 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 
 ### C++20
 
-#### 適格な特殊メンバ関数
+#### 資格のある特殊メンバ関数
 
-適格な特殊メンバ関数とは、特殊メンバ関数のうち、次の条件を満たすものを言う。
+資格のある特殊メンバ関数とは、特殊メンバ関数のうち、次の条件を満たすものを言う。
 
 - `= delete`指定されていない
 - 制約されている場合、それを満たしている
@@ -54,9 +54,9 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 これらは最初の引数の型が等しいので、2つの同じ種類のコピーコンストラクタを持っているといえる。  
 これらはいずれも`= delete`指定されていない。
 
-`T=std::unique_ptr<int>`の場合、#1と#2はどちらも制約を満たさないので適格なコピーコンストラクタを持たない。  
-`T=std::string`の場合、#2のみ制約を満たすので#2だけが適格なコピーコンストラクタである。  
-`T=int`の場合、#1と#2はどちらも制約を満たすが、#1のほうが#2より強く制約されているので、#1だけが適格なコピーコンストラクタである。
+`T=std::unique_ptr<int>`の場合、#1と#2はどちらも制約を満たさないので資格のあるコピーコンストラクタを持たない。  
+`T=std::string`の場合、#2のみ制約を満たすので#2だけが資格のあるコピーコンストラクタである。  
+`T=int`の場合、#1と#2はどちらも制約を満たすが、#1のほうが#2より強く制約されているので、#1だけが資格のあるコピーコンストラクタである。
 
 ```cpp example
 #include <type_traits>
@@ -80,8 +80,8 @@ struct optional {
 
 トリビアルコピー可能な型とは、次の条件を満たすものをいう。
 
-1. 少なくとも１つの適格なコピー/ムーブ コンストラクタ/代入演算子がある
-2. 適格なコピー/ムーブ コンストラクタ/代入演算子それぞれはtrivialである
+1. 少なくとも１つの資格のあるコピー/ムーブ コンストラクタ/代入演算子がある
+2. 資格のあるコピー/ムーブ コンストラクタ/代入演算子それぞれはtrivialである
 3. trivialで`= delete`指定されていないデストラクタを持つ
 
 これをもうすこし具体的に解釈する。
@@ -90,9 +90,9 @@ struct optional {
 
 - デストラクタはvirtualではない
 - デストラクタは`= delete`指定されていない
-- デストラクタと全ての**適格な**コピー/ムーブ コンストラクタ/代入演算子は`user-provided`ではない
+- デストラクタと全ての**資格のある**コピー/ムーブ コンストラクタ/代入演算子は`user-provided`ではない
 - virtual関数を持たず、virtual基本クラスも持たない
-- 少なくとも１つの**適格な**コピー/ムーブ コンストラクタ/代入演算子がある
+- 少なくとも１つの**資格のある**コピー/ムーブ コンストラクタ/代入演算子がある
 
 対象となるクラスの非静的メンバ変数及び全ての基底クラスもトリビアルコピー可能でなければならない
 
@@ -201,11 +201,11 @@ static_assert(std::is_trivially_copyable<TrivialDestructor>::value == true, "Tri
 static_assert(std::is_trivially_copyable<DeletedDestructor>::value == false, "DeletedDestructor isn't trivially copyable");
 
 #ifdef __cpp_concepts
-// #1も#2も適格ではないので適格なコピー/ムーブ コンストラクタ/代入演算子がないためトリビアルコピー可能ではない
+// #1も#2も資格のあるコピーコンストラクタではなく、他に資格のあるコピー/ムーブ コンストラクタ/代入演算子がないためトリビアルコピー可能ではない
 static_assert(std::is_trivially_copyable<optional<std::unique_ptr<int>>>::value == false, "std::unique_ptr<int> isn't trivially copyable");
-// #2が適格なコピーコンストラクタであるが、user-proviedであるためトリビアルコピー可能ではない
+// #2が資格のあるコピーコンストラクタであるが、user-proviedであるためトリビアルコピー可能ではない
 static_assert(std::is_trivially_copyable<optional<std::string>>::value == false, "optional<std::string> isn't trivially copyable");
-// #1が適格なコピーコンストラクタであるのでトリビアルコピー可能
+// #1が資格のあるコピーコンストラクタであるのでトリビアルコピー可能
 static_assert(std::is_trivially_copyable<optional<int>>::value == true, "optional<int> is trivially copyable");
 #endif
 int main() {}
