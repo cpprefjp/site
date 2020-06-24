@@ -1,7 +1,7 @@
 # swap
 
 * concepts[meta header]
-* function[meta id-type]
+* cpo[meta id-type]
 * std::ranges[meta namespace]
 * cpp20[meta cpp]
 
