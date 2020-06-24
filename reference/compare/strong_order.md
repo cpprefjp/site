@@ -1,7 +1,7 @@
 # strong_order
 
 * compare[meta header]
-* function[meta id-type]
+* cpo[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
 
