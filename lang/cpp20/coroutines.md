@@ -387,7 +387,7 @@ struct generator {
       return std::suspend_always{};
     }
     void return_void() {}
-    void unhandled_exception() { throw; }
+    void unhandled_exception() { std::terminate(); }
   };
   // ジェネレータに関連付けられるコルーチンハンドル型
   using coro_handle = std::coroutine_handle<promise_type>;
@@ -480,6 +480,7 @@ int main()
 ```
 * co_yield[color ff0000]
 * std::exchange[link /reference/utility/exchange.md]
+* std::terminate()[link /reference/exception/terminate.md]
 * std::coroutine_handle[link /reference/coroutine/coroutine_handle.md.nolink]
 * std::suspend_always[link /reference/coroutine/suspend_always.md]
 * resume()[link /reference/coroutine/coroutine_handle/resume.md.nolink]
