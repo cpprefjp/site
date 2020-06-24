@@ -11,7 +11,7 @@
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`coroutine_traits`](coroutine/coroutine_traits.md.nolink)| Promise型導出トレイト(class template) | C++20 |
+| [`coroutine_traits`](coroutine/coroutine_traits.md)| Promise型導出トレイト(class template) | C++20 |
 
 
 ## コルーチンハンドル
@@ -21,11 +21,19 @@
 | [`coroutine_handle`](coroutine/coroutine_handle.md.nolink)| コルーチンハンドル(class template) | C++20 |
 
 
-## コルーチン実装補助クラス
+## 何もしないコルーチン
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`noop_coroutine_promise`](coroutine/noop_coroutine_promise.md.nolink)| 何もしないコルーチンPromise型(class)| C++20 |
+| [`noop_coroutine_promise`](coroutine/noop_coroutine_handle.md)| 何もしないコルーチンPromise型(class)| C++20 |
+| [`noop_coroutine_handle`](coroutine/noop_coroutine_handle.md) | 何もしないコルーチンのハンドル(class) | C++20 |
+| [`noop_coroutine`](coroutine/noop_coroutine.md) | 何もしないコルーチンのハンドルを取得(function) | C++20
+
+
+## トリビアルAwaitable型
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
 | [`suspend_never`](coroutine/suspend_never.md) | 常に中断しないAwaitable型(class) | C++20 |
 | [`suspend_always`](coroutine/suspend_always.md) | 常に中断するAwaitable型(class) | C++20 |
 

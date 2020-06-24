@@ -99,7 +99,6 @@ int main()
 * promise()[link coroutine_handle/promise.md.nolink]
 * std::exchange[link /reference/utility/exchange.md]
 
-
 ### 出力
 ```
 main

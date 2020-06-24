@@ -73,7 +73,7 @@ task<void> g3(int a, ...) { // エラー: 可変引数リストは許可され�
 コルーチンのPromise型は、コルーチンの戻り値型`R`と引数リスト`P1`, `P2`, ..., `Pn`から決定されるクラス型である。
 
 - デフォルト動作では`R::protmise_type`がPromise型となる。
-- ユーザプログラム中で[`std::coroutine_traits`](/reference/coroutine/coroutine_traits.md.nolink)トレイトを特殊化した場合は、`coroutine_traits<R, P1, P2, ..., Pn>::protmise_type`がPromise型となる。
+- ユーザプログラム中で[`std::coroutine_traits`](/reference/coroutine/coroutine_traits.md)トレイトを特殊化した場合は、`coroutine_traits<R, P1, P2, ..., Pn>::protmise_type`がPromise型となる。
 - コルーチンがクラスの非静的メンバの場合、`P1`は暗黙のオブジェクトパラメータ(`*this`の型)となる。
 
 コルーチンは、その本体 _function-body_ が下記の通り置き換えられたかのように動作する：
@@ -220,9 +220,9 @@ Await式の評価では、次のような補助的な型、式、オブジェク
     - 適合する関数が見つからない場合、_o_ を _a_ とする。
     - オーバーロード解決が曖昧な場合、プログラムは不適格となる。
 - _e_ を、_o_ の評価結果を参照する左辺値とする。
-- _h_ を、同Await式を含むコルーチンを参照する[`std:::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md.nolink)型のオブジェクトとする。
+- _h_ を、同Await式を含むコルーチンを参照する[`std::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md.nolink)型のオブジェクトとする。
 - _await-ready_ を、`bool`に変換されうる式 _e_`.await_ready()`とする。
-- _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。この式（の結果）は`void`であるか、`bool`または任意の型`Z`に対する[`std:::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)型のprvalueであるべき。
+- _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。この式（の結果）は`void`であるか、`bool`または任意の型`Z`に対する[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)型のprvalueであるべき。
 - _await-resume_ を、式 _e_`.await_resume()`とする。
 
 Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
@@ -230,7 +230,7 @@ Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
 Await式は式 _o_ と式 _await-resume_ を評価し、続いて：
 
 - _await-ready_ の結果が`false`の場合、コルーチンは中断状態とみなされる。その後に：
-    - _await-suspend_ の型が[`std:::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md.nolink)が評価される。
+    - _await-suspend_ の型が[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md.nolink)が評価される。
     - そうではなく _await-suspend_ の型が`bool`の場合、_await-suspend_ が評価され、その結果が`false`であればコルーチンは再開する。
     - それ以外の場合、_await-suspend_ が評価される。
 - _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再スローされる。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
