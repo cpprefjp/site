@@ -173,7 +173,7 @@ int main() {
 }
 ```
 
-コルーチンの終端まで制御が到達、またはコルーチンを指すコルーチンハンドルの[`destroy`](/reference/coroutine/coroutine_handle/destroy.md.nolink)メンバ関数が呼び出されると、コルーチン・ステートは破棄される。
+コルーチンの終端まで制御が到達、またはコルーチンを指すコルーチンハンドルの[`destroy`](/reference/coroutine/coroutine_handle/destroy.md)メンバ関数が呼び出されると、コルーチン・ステートは破棄される。
 
 メモリ解放関数はPromise型のスコープで名前探索が行われる。
 名前探索に失敗した場合は、グローバルスコープで探索が行われる。
@@ -230,7 +230,7 @@ Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
 Await式は式 _o_ と式 _await-resume_ を評価し、続いて：
 
 - _await-ready_ の結果が`false`の場合、コルーチンは中断状態とみなされる。その後に：
-    - _await-suspend_ の型が[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md.nolink)が評価される。
+    - _await-suspend_ の型が[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md)が評価される。
     - そうではなく _await-suspend_ の型が`bool`の場合、_await-suspend_ が評価され、その結果が`false`であればコルーチンは再開する。
     - それ以外の場合、_await-suspend_ が評価される。
 - _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再スローされる。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
@@ -483,10 +483,10 @@ int main()
 * std::terminate()[link /reference/exception/terminate.md]
 * std::coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * std::suspend_always[link /reference/coroutine/suspend_always.md]
-* resume()[link /reference/coroutine/coroutine_handle/resume.md.nolink]
-* done()[link /reference/coroutine/coroutine_handle/done.md.nolink]
-* from_promise[link /reference/coroutine/coroutine_handle/from_promise.md.nolink]
-* promise()[link /reference/coroutine/coroutine_handle/promise.md.nolink]
+* resume()[link /reference/coroutine/coroutine_handle/resume.md]
+* done()[link /reference/coroutine/coroutine_handle/done.md]
+* from_promise[link /reference/coroutine/coroutine_handle/from_promise.md]
+* promise()[link /reference/coroutine/coroutine_handle/promise.md]
 
 ### 出力
 ```

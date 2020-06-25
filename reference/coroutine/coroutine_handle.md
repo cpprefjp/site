@@ -27,43 +27,43 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`(constructor)`](coroutine_handle/op_constructor.md.nolink) | コンストラクタ | C++20 |
-| [`operator=`](coroutine_handle/op_assign.md.nolink) | 代入演算子 | C++20 |
+| [`(constructor)`](coroutine_handle/op_constructor.md) | コンストラクタ | C++20 |
+| [`operator=`](coroutine_handle/op_assign.md) | 代入演算子 | C++20 |
 
 ### エクスポート
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`address`](coroutine_handle/address.md.nolink) | コルーチンハンドルに対応するアドレス値 | C++20 |
+| [`address`](coroutine_handle/address.md) | コルーチンハンドルに対応するアドレス値 | C++20 |
 
 ### 観測
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator bool`](coroutine_handle/op_bool.md.nolink) | 有効なコルーチンかを確認 | C++20 |
-| [`done`](coroutine_handle/done.md.nolink) | 最終サスペンドポイントで中断状態にあるか確認 | C++20 |
+| [`operator bool`](coroutine_handle/op_bool.md) | 有効なコルーチンか確認 | C++20 |
+| [`done`](coroutine_handle/done.md) | 最終サスペンドポイントで中断状態にあるか確認 | C++20 |
 
 ### 再開
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`operator()`](coroutine_handle/resume.md.nolink) | 中断状態にあるコルーチンを再開 | C++20 |
-| [`resume`](coroutine_handle/resume.md.nolink)     | 中断状態にあるコルーチンを再開 | C++20 |
-| [`destroy`](coroutine_handle/destroy.md.nolink)   | 中断状態にあるコルーチンを破棄 | C++20 |
+| [`operator()`](coroutine_handle/resume.md) | 中断状態にあるコルーチンを再開 | C++20 |
+| [`resume`](coroutine_handle/resume.md)     | 中断状態にあるコルーチンを再開 | C++20 |
+| [`destroy`](coroutine_handle/destroy.md)   | 中断状態にあるコルーチンを破棄 | C++20 |
 
 ### Promiseアクセス
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`promise`](coroutine_handle/promise.md.nolink) | Promiseオブジェクトの参照 | C++20 |
+| [`promise`](coroutine_handle/promise.md) | Promiseオブジェクトの参照 | C++20 |
 
 
 ## 静的メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`from_promise`](coroutine_handle/from_promise.md.nolink) | Promiseオブジェクトから対応するコルーチンハンドルへ変換 | C++20 |
-| [`from_address`](coroutine_handle/from_address.md.nolink) | アドレス値から対応するコルーチンハンドルへ変換 | C++20 |
+| [`from_promise`](coroutine_handle/from_promise.md) | Promiseオブジェクトから対応するコルーチンハンドルへ変換 | C++20 |
+| [`from_address`](coroutine_handle/from_address.md) | アドレス値から対応するコルーチンハンドルへ変換 | C++20 |
 
 
 ## 非メンバ関数
@@ -86,7 +86,7 @@ namespace std {
 | `bool operator>(coroutine_handle<>, coroutine_handle<>);`  | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | C++20 |
 | `bool operator>=(coroutine_handle<>, coroutine_handle<>);` | 左辺が右辺以上かを判定する (`<=>`により使用可能) | C++20 |
 
-`coroutine_handle`同士の比較は、[`address`](coroutine_handle/address.md.nolink)が返すアドレス値を用いて比較演算が行われる。
+`coroutine_handle`同士の比較は、[`address`](coroutine_handle/address.md)が返すアドレス値を用いて比較演算が行われる。
 
 
 ## 例
@@ -147,10 +147,10 @@ int main()
 * std::coroutine_handle<promise_type>[color ff0000]
 * std::suspend_never[link suspend_never.md]
 * std::suspend_always[link suspend_always.md]
-* resume()[link coroutine_handle/resume.md.nolink]
-* done()[link coroutine_handle/done.md.nolink]
-* from_promise[link coroutine_handle/from_promise.md.nolink]
-* promise()[link coroutine_handle/promise.md.nolink]
+* resume()[link coroutine_handle/resume.md]
+* done()[link coroutine_handle/done.md]
+* from_promise[link coroutine_handle/from_promise.md]
+* promise()[link coroutine_handle/promise.md]
 * std::exchange[link /reference/utility/exchange.md]
 
 ### 出力

@@ -81,6 +81,7 @@ namespace std {
 
 ## 関連項目
 - [C++20 コルーチン](/lang/cpp20/coroutines.md)
+- [`coroutine_handle`](coroutine_handle.md)
 - [`noop_coroutine`](noop_coroutine.md)
 
 

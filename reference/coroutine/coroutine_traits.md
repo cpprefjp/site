@@ -100,9 +100,9 @@ int main()
 * std::suspend_never[link suspend_never.md]
 * std::suspend_always[link suspend_always.md]
 * std::coroutine_handle[link coroutine_handle.md]
-* resume()[link coroutine_handle/resume.md.nolink]
-* done()[link coroutine_handle/done.md.nolink]
-* from_promise[link coroutine_handle/from_promise.md.nolink]
+* resume()[link coroutine_handle/resume.md]
+* done()[link coroutine_handle/done.md]
+* from_promise[link coroutine_handle/from_promise.md]
 * std::exchange[link /reference/utility/exchange.md]
 
 ### 出力
