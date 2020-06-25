@@ -172,6 +172,14 @@ int main() {
   while (g.move_next()) std::cout << g.current_value() << std::endl;
 }
 ```
+* std::coroutine_handle<promise_type>[link /reference/coroutine/coroutine_handle.md]
+* from_promise[link /reference/coroutine/coroutine_handle/from_promise.md]
+* resume()[link /reference/coroutine/coroutine_handle/resume.md]
+* done()[link /reference/coroutine/coroutine_handle/done.md]
+* promise()[link /reference/coroutine/coroutine_handle/promise.md]
+* destroy()[link /reference/coroutine/coroutine_handle/destroy.md]
+* suspend_always[link /reference/coroutine/suspend_always.md]
+* std::terminate[link /reference/exception/terminate.md]
 
 コルーチンの終端まで制御が到達、またはコルーチンを指すコルーチンハンドルの[`destroy`](/reference/coroutine/coroutine_handle/destroy.md)メンバ関数が呼び出されると、コルーチン・ステートは破棄される。
 
@@ -272,6 +280,7 @@ my_future<void> g() {
 auto f(int x = co_await h()); // エラー: await式は関数中断ポイントの外
 int a[] = { co_await h() };   // エラー: await式は関数中断ポイントの外
 ```
+* std::coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 
 ### Yield式
 `co_yield`式は、コルーチンから値を生成(yield)するときに用いる。
@@ -319,6 +328,10 @@ int main() {
   assert(std::equal(r1.begin(), r1.end(), r2.begin(), r2.end()));
 }
 ```
+* std::suspend_always[link /reference/coroutine/suspend_always.md]
+* std::move[link /reference/utility/move.md]
+* pair[link /reference/utility/pair.md]
+* make_pair[link /reference/utility/make_pair.md]
 
 ## co_return文
 `co_return`文は、コルーチンを終了し呼出元へ制御を戻すために用いる。
