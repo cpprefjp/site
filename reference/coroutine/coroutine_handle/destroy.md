@@ -24,7 +24,7 @@ void destroy() const;
 ## 備考
 最終サスペンドポイントにてコルーチンを中断していなければ、該当コルーチンは暗黙に破棄される。
 
-[`std::thread`](/refernce/thread/thread.md)や[`std::jthread`](/refernce/thread/jthread.md)のインスタンス、もしくはメインスレッド以外からコルーチンを破棄する場合、その振る舞いは処理系定義とされる。
+[`std::thread`](/reference/thread/thread.md)や[`std::jthread`](/reference/thread/jthread.md)のインスタンス、もしくはメインスレッド以外からコルーチンを破棄する場合、その振る舞いは処理系定義とされる。
 
 
 ## 例

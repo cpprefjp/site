@@ -23,7 +23,7 @@ void resume() const;
 
 
 ## 備考
-[`std::thread`](/refernce/thread/thread.md)や[`std::jthread`](/refernce/thread/jthread.md)のインスタンス、もしくはメインスレッド以外からコルーチンを再開する場合、その振る舞いは処理系定義とされる。
+[`std::thread`](/reference/thread/thread.md)や[`std::jthread`](/reference/thread/jthread.md)のインスタンス、もしくはメインスレッド以外からコルーチンを再開する場合、その振る舞いは処理系定義とされる。
 
 
 ## バージョン

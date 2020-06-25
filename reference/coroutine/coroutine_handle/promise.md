@@ -33,4 +33,4 @@ Promise& promise() const;
 
 ## 関連項目
 - [C++20 コルーチン](/lang/cpp20/coroutines.md)
-- [from_promise](form_promise.md)
+- [from_promise](from_promise.md)
