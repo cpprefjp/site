@@ -220,9 +220,9 @@ Await式の評価では、次のような補助的な型、式、オブジェク
     - 適合する関数が見つからない場合、_o_ を _a_ とする。
     - オーバーロード解決が曖昧な場合、プログラムは不適格となる。
 - _e_ を、_o_ の評価結果を参照する左辺値とする。
-- _h_ を、同Await式を含むコルーチンを参照する[`std::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md.nolink)型のオブジェクトとする。
+- _h_ を、同Await式を含むコルーチンを参照する[`std::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md)型のオブジェクトとする。
 - _await-ready_ を、`bool`に変換されうる式 _e_`.await_ready()`とする。
-- _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。この式（の結果）は`void`であるか、`bool`または任意の型`Z`に対する[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)型のprvalueであるべき。
+- _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。この式（の結果）は`void`であるか、`bool`または任意の型`Z`に対する[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)型のprvalueであるべき。
 - _await-resume_ を、式 _e_`.await_resume()`とする。
 
 Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
@@ -230,7 +230,7 @@ Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
 Await式は式 _o_ と式 _await-resume_ を評価し、続いて：
 
 - _await-ready_ の結果が`false`の場合、コルーチンは中断状態とみなされる。その後に：
-    - _await-suspend_ の型が[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md.nolink)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md.nolink)が評価される。
+    - _await-suspend_ の型が[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md.nolink)が評価される。
     - そうではなく _await-suspend_ の型が`bool`の場合、_await-suspend_ が評価され、その結果が`false`であればコルーチンは再開する。
     - それ以外の場合、_await-suspend_ が評価される。
 - _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再スローされる。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
@@ -481,7 +481,7 @@ int main()
 * co_yield[color ff0000]
 * std::exchange[link /reference/utility/exchange.md]
 * std::terminate()[link /reference/exception/terminate.md]
-* std::coroutine_handle[link /reference/coroutine/coroutine_handle.md.nolink]
+* std::coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * std::suspend_always[link /reference/coroutine/suspend_always.md]
 * resume()[link /reference/coroutine/coroutine_handle/resume.md.nolink]
 * done()[link /reference/coroutine/coroutine_handle/done.md.nolink]

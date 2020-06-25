@@ -29,8 +29,8 @@ namespace std {
   using noop_coroutine_handle = coroutine_handle<noop_coroutine_promise>;
 }
 ```
-* coroutine_handle<>[link coroutine_handle.md.nolink]
-* coroutine_handle<noop_coroutine_promise>[link coroutine_handle.md.nolink]
+* coroutine_handle<>[link coroutine_handle.md]
+* coroutine_handle<noop_coroutine_promise>[link coroutine_handle.md]
 * unspecified[italic]
 
 
@@ -66,7 +66,7 @@ namespace std {
 
 | 名前      | 説明           | 対応バージョン |
 |-----------|----------------|----------------|
-| `address` | コルーチンハンドルに対応するポインタ値を返す | C++20 |
+| `address` | コルーチンハンドルに対応するアドレス値を返す | C++20 |
 
 
 ## バージョン

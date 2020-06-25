@@ -13,7 +13,7 @@ namespace std {
   };
 }
 ```
-* coroutine_handle<>[link coroutine_handle.md.nolink]
+* coroutine_handle<>[link coroutine_handle.md]
 
 ## 概要
 コルーチンを中断させない、トリビアルAwaitable型。
@@ -93,7 +93,7 @@ int main()
 ```
 * std::suspend_never[color ff0000]
 * std::suspend_always[link suspend_always.md]
-* std::coroutine_handle[link coroutine_handle.md.nolink]
+* std::coroutine_handle[link coroutine_handle.md]
 * resume()[link coroutine_handle/resume.md.nolink]
 * done()[link coroutine_handle/done.md.nolink]
 * from_promise[link coroutine_handle/from_promise.md.nolink]

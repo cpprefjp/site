@@ -114,7 +114,7 @@ int main()
 ```
 * std::noop_coroutine()[color ff0000]
 * std::suspend_always[link suspend_always.md]
-* std::coroutine_handle[link coroutine_handle.md.nolink]
+* std::coroutine_handle[link coroutine_handle.md]
 * resume()[link coroutine_handle/resume.md.nolink]
 * done()[link coroutine_handle/done.md.nolink]
 * from_promise[link coroutine_handle/from_promise.md.nolink]
