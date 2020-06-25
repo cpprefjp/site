@@ -9,17 +9,32 @@ namespace std {
   template<class Promise = void>
   struct coroutine_handle;
 
-  constexpr bool operator==(coroutine_handle<> x, coroutine_handle<> y) noexcept;
-  constexpr strong_ordering operator<=>(coroutine_handle<> x, coroutine_handle<> y) noexcept;
+  template<>
+  struct coroutine_handle<void> {
+    // (メンバ宣言は省略)
+  };
 
-  template<class T> struct hash;
-  template<class P> struct hash<coroutine_handle<P>>;
+  template<class Promise>
+  struct coroutine_handle : coroutine_handle<> {
+    // (メンバ宣言は省略)
+  };
 }
 ```
 * hash[link /reference/functional/hash.md]
 
 ## 概要
 コルーチンに対応するコルーチンハンドル。
+テンプレートパラメータ`Promise`には、コルーチンのPromise型を指定する。
+
+コルーチンハンドルはアプリケーションコードからの直接アクセスを想定した機能ではなく、コルーチンライブラリ提供クラス内部に隠蔽される構造が一般的である。
+例: 後述サンプルコードでは`task`クラス内に隠蔽されており、コルーチン`f`や関数`main`から間接的に利用される。
+
+`coroutine_handle<void>`または単に`coroutine_handle<>`は、Promise型について型消去(Type-erased)されたコルーチンハンドルとして取り扱える。
+コルーチンのPromise型を明示した`coroutine_handle<Promise>`は型消去された`coroutine_handle<>`から公開派生されており、前者から後者への暗黙変換を行うことが可能となっている。
+
+C++コルーチンとC API（コールバック関数へのポインタと`void*`をとる関数）との組合せ利用を可能とするため、`coroutine_handle`とポインタ型`void*`との相互変換がサポートされる。
+
+ユーザプログラムが`coroutine_handle`の明示特殊化まは部分特殊化を宣言した場合、その動作は未定義とされる。
 
 
 ## メンバ関数
