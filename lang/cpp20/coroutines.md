@@ -508,11 +508,26 @@ int main()
 
 
 ## この機能が必要になった背景・経緯
-(執筆中)
+
+多くのプログラミング言語で対応されており広い実績のあるコルーチン機能を、C++言語でも使えるよう[2013年頃](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3708.pdf)から検討が始まっている。
+
+2017年には [ISO/IEC TS 22277 C++ Extensions for Coroutines](https://www.iso.org/standard/73008.html)（通称"Coroutines TS"） として正式発効され、いくつかの追加の仕様修正をへてC++20言語仕様本体への統合が決定された。
+
+C++言語仕様へのコルーチン導入によって、ジェネレータの協調的マルチタスクのサポート、ファイルやネットワークなど非同期I/Oライブラリとの統合が期待されている。
 
 
 ## 検討されたほかの選択肢
-(執筆中)
+
+C++20コルーチンはスタックレスコルーチンとして導入されたが、スタックフル(Stackful)コルーチン＝ファイバー(Fiber)の導入検討も長らく行われてきた。
+スタックフルコルーチンは将来のC++仕様導入に向けて引き続き検討されている。
+（本ページ執筆時点では[提案文書P0876R10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p0876r10.pdf)が最新）
+
+C++20コルーチンでは、コルーチン・ステートのために動的メモリ確保が行われる可能性がある。
+一定条件を満たせばコンパイラ最適化によって動的メモリ確保が省略されるとしているが、言語仕様として動的メモリ確保を避ける仕様も検討された（通称"Core Coroutines")。
+最終的には既に実績のあるCoroutinesTS（発案者の名前にちなみ"Gor-routines"と呼ばれた）ベースのコルーチン仕様が採用されることになった。
+
+C++20コルーチンに関するキーワードは、いずれも接頭辞`co_`が付与されている。
+何度かの改名提案（[P0071R0](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0071r0.html)、[P1485R1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1485r1.html)）も提出されたが、いずれも否決されてC++20仕様に落ち着いた。
 
 
 ## 関連項目
@@ -520,7 +535,7 @@ int main()
 
 
 ## 参照
-- [N4680 C++ Extensions for Coroutines(Coroutine TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4680.pdf)
+- [N4680 C++ Extensions for Coroutines(Coroutines TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4680.pdf)
 - [P0911R1 Rebase the Coroutines TS onto the C++17 Standard](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0911r1.html)
 - [P0913R1 Add symmetric coroutine control transfer](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0913r1.html)
 - [P0914R1 Add parameter preview to coroutine promise constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0914r1.html)
