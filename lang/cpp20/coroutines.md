@@ -43,21 +43,69 @@ C++コルーチン動作理解の助けとなるよう、ここでは細部を�
 コルーチン実行の基本動作は、それぞれ下記ように説明される：
 
 - 呼出し: 通常の関数と同様に、括弧(`()`)を用いた関数呼び出し構文を用いる。コルーチンに対応するユーザ定義Promiseオブジェクトが自動的に生成されるため、そこからコルーチンハンドルを取得する。
-- 中断: コルーチン本体にて`co_yield`式または`co_await`式を記述する。中断されたコルーチンから呼出し元へは、コルーチンハンドルを内包するコルーチン戻り値型オブジェクトを返す。
+- 中断: コルーチン本体にて`co_yield`式または`co_await`式を記述する。中断されたコルーチンから呼出元へは、コルーチンハンドルを内包するコルーチン戻り値型オブジェクトを返す。
 - 再開: コルーチン中断により返された戻り値型オブジェクトを介して、コルーチンハンドルの再開関数[`resume`](/reference/coroutine/coroutine_handle/resume.md)を呼び出す。
 - 復帰: コルーチン本体にて`co_return`文を記述、またはコルーチン本体終端まで到達する。全てのローカル変数とPromiseオブジェクトは破棄される。
 
-この４種類の基本動作に対して、次にようなカスタマイズポイントが提供される（_Promise_ や _Awaiter_ はコルーチンライブラリが提供するユーザ定義型とする）：
+この4種類の基本動作に対して、次のカスタマイズポイントが提供される。括弧内はコルーチンライブラリが実装すべきカスタマイズポイント名：
 
-- コルーチン呼出し直後の動作: 初期サスペンドポイント(_Promise_`::initial_suspend`)にて、コルーチン本体の開始前に中断して戻り値型オブジェクトを返すか、そのままコルーチン本体を実行継続するかを制御する。
+- コルーチン呼出し直後の動作: 初期サスペンドポイント(`initial_suspend`)にて、コルーチン本体の開始前に中断して戻り値型オブジェクトを返すか、そのままコルーチン本体を実行継続するかを制御する。
+- コルーチン復帰直前の動作: 最終サスペンドポイント(`final_suspend`)にて、コルーチンを最後に中断して戻り値型オブジェクトを返すか、そのままコルーチンに関するリソースを破棄するかを制御する。前者を選択した場合、リソースリークを防ぐためコルーチンハンドルの破棄関数[`destroy`](/reference/coroutine/coroutine_handle/destroy.md)呼出しが必要となる。
+- 値を伴うコルーチン中断: `co_yield`式により、コルーチンを中断すると同時に呼出元へ値を返す(`yield_value`)。
+- 値を伴うコルーチン復帰: `co_return`文により、呼出元へ値を返す(`return_value`)。
+- コルーチン中断／再開制御: `co_await`式により、コルーチン中断と再開に関する振る舞いを詳細に制御する(`await_transform`, `operator co_await`)。
+    - コルーチン中断の条件: `co_await`式に対して、コルーチンを中断するか否かを判断する(`await_ready`)。
+    - コルーチン中断直前の動作: `co_await`式に対して、コルーチンを中断する直前の動作を制御する(`await_suspend`)。
+    - コルーチン再開直後の動作: `co_await`式に対して、コルーチンが再開された直後の動作を制御する(`await_resume`)。
 
-- コルーチン復帰直前の動作: 最終サスペンドポイント(_Promise_`::final_suspend`)にて、コルーチンを最後に中断して戻り値型オブジェクトを返すか、そのままコルーチンに関するリソースを破棄するかを制御する。前者を選択した場合、リソースリークを防ぐためコルーチンハンドルの破棄関数[`destroy`](/reference/coroutine/coroutine_handle/destroy.md)呼出しが必要となる。
-- 値を伴うコルーチン中断: `co_yield`式により、コルーチンを中断すると同時に呼出し元へ値を返す(_Promise_`::yield_value`)。
-- 値を伴うコルーチン復帰: `co_return`文により、呼出し元へ値を返す(_Promise_`::return_value`)。
-- コルーチン中断／再開制御: `co_await`式により、コルーチン中断の条件や動作を詳細に制御する(_Promise_`::await_transform`, `operator co_await`)。
-    - コルーチン中断の条件: `co_await`式に対して、コルーチンを中断するか否かを判断する(_Awaiter_`::await_ready`)。
-    - コルーチン中断直前の動作: `co_await`式に対して、コルーチンを中断する直前の動作を制御する(_Awaiter_`::await_suspend`)。
-    - コルーチン再開直後の動作: `co_await`式に対して、コルーチンが再開された直後の動作を制御する(_Awaiter_`::await_resume`)。
+プログラマが記述するコルーチンは、コンパイル時にソースコード変換が行われると解釈できる。
+（従来のC++仕様範囲ではコルーチン動作を正確に表現できないため、下記はあくまでも疑似的なコードとなる）：
+
+```cpp
+// プログラマが記述するコルーチン
+generator iota(int end)
+{
+  for (int n = 0; n < end; ++n) {
+    co_yield n;
+  }
+}
+
+// C++コンパイラにより展開されたコード
+generator iota(int end)
+{
+  // コルーチンに対応するPromiseオブジェクトを初期化
+  generator::promise_type promise;
+
+  // 戻り値型オブジェクトの初期化
+  generator result = promise.get_return_object();
+  // コルーチンハンドルをget_return_object内で取得し、resultメンバで保持する。
+  // 生成したresultオブジェクトは、初回のコルーチン中断時に呼出元へ返される。
+
+  // 本例では全て co_await std::suspend_always{} 相当のため、
+  // 以降のco_await式(★箇所)においてコルーチンは中断／再開される。
+
+  // 初期サスペンドポイント
+  co_await promise.initial_suspend(); //★
+
+  // コルーチン本体部
+  {
+    for (int n = 0; n < end; ++n) {
+      // co_yield式は下記co_await式に展開される
+      co_await promise.yield_value(n); //★
+    }
+  }
+  promise.return_void();
+
+  // 最終サスペンドポイント
+  co_await promise.final_suspend(); //★
+
+  // 本例では最終サスペンドポイントでコルーチンを中断するため、ここには制御が到達しない。
+  // 呼出側で戻り値オブジェクトを破棄すると、デストラクタ経由で本コルーチンは破棄される。
+}
+```
+* co_yield[color ff0000]
+* co_await[color ff0000]
+* std::suspend_always{}[link /reference/coroutine/suspend_always.md]
 
 
 ## 仕様
@@ -300,8 +348,8 @@ my_future<void> g() {
   co_await h();
 }
 
-auto f(int x = co_await h()); // エラー: await式は関数中断ポイントの外
-int a[] = { co_await h() };   // エラー: await式は関数中断ポイントの外
+auto f(int x = co_await h()); // エラー: await式は関数中断コンテキストの外
+int a[] = { co_await h() };   // エラー: await式は関数中断コンテキストの外
 ```
 * co_await[color ff0000]
 * std::coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
