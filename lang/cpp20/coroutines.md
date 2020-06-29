@@ -66,6 +66,7 @@ task<void> g3(int a, ...) { // エラー: 可変引数リストは許可され�
   std::cout << "f() => " << i << std::endl;
 }
 ```
+* co_await[color ff0000]
 
 プログラムエントリポイントの`main`関数、`constexpr`関数、戻り値型をプレースホルダ(`auto`)で宣言された関数、クラス型のコンストラクタとデストラクタは、コルーチンとして定義できない。
 
@@ -172,6 +173,7 @@ int main() {
   while (g.move_next()) std::cout << g.current_value() << std::endl;
 }
 ```
+* co_yield[color ff0000]
 * std::coroutine_handle<promise_type>[link /reference/coroutine/coroutine_handle.md]
 * from_promise[link /reference/coroutine/coroutine_handle/from_promise.md]
 * resume()[link /reference/coroutine/coroutine_handle/resume.md]
@@ -280,6 +282,7 @@ my_future<void> g() {
 auto f(int x = co_await h()); // エラー: await式は関数中断ポイントの外
 int a[] = { co_await h() };   // エラー: await式は関数中断ポイントの外
 ```
+* co_await[color ff0000]
 * std::coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 
 ### Yield式
@@ -328,10 +331,12 @@ int main() {
   assert(std::equal(r1.begin(), r1.end(), r2.begin(), r2.end()));
 }
 ```
+* co_yield[color ff0000]
 * std::suspend_always[link /reference/coroutine/suspend_always.md]
 * std::move[link /reference/utility/move.md]
 * pair[link /reference/utility/pair.md]
 * make_pair[link /reference/utility/make_pair.md]
+* std::equal[link /reference/algorithm/equal.md]
 
 ## co_return文
 `co_return`文は、コルーチンを終了し呼出元へ制御を戻すために用いる。
@@ -496,6 +501,7 @@ int main()
 * std::terminate()[link /reference/exception/terminate.md]
 * std::coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * std::suspend_always[link /reference/coroutine/suspend_always.md]
+* destroy()[link /reference/coroutine/coroutine_handle/destroy.md]
 * resume()[link /reference/coroutine/coroutine_handle/resume.md]
 * done()[link /reference/coroutine/coroutine_handle/done.md]
 * from_promise[link /reference/coroutine/coroutine_handle/from_promise.md]
