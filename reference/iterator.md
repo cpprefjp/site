@@ -155,7 +155,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`weakly_incrementable`](iterator/weakly_incrementable.md) | 前置/後置インクリメント可能 (concept)           | C++20          |
 | [`incrementable`](iterator/incrementable.md) | `weakly_incrementable`かつ[正則](/reference/concepts/regular.md) (concept)           | C++20          |
 | [`input_or_output_iterator`](iterator/input_or_output_iterator.md) | 基礎的なイテレータコンセプト (concept)           | C++20          |
-| [`sentinel_for`](iterator/sentinel_for.md.nolink) | 同じ範囲についてのイテレータと番兵 (concept)           | C++20          |
+| [`sentinel_for`](iterator/sentinel_for.md) | 同じ範囲についてのイテレータと番兵 (concept)           | C++20          |
 | [`sized_sentinel_for`](iterator/sized_sentinel_for.md.nolink) | 距離を定義可能なイテレータ (concept)           | C++20          |
 | [`disable_sized_sentinel_for`](iterator/sized_sentinel_for.md.nolink) | `sentinel_for<S, I>`について、`sized_sentinel_for`を不適合にする (variable template)           | C++20          |
 | [`input_iterator`](iterator/input_iterator.md.nolink) | 入力イテレータ (concept)           | C++20          |
