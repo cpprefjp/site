@@ -23,7 +23,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](month_day/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](month_day/op_constructor.md) | コンストラクタ | C++20 |
 | `month_day& operator=(const month_day&) = default;`<br/> `month_day& operator=(month_day&&) = default;` | 代入演算子 | C++20 |
 
 
@@ -31,15 +31,15 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`month`](month_day/month.md.nolink) | 月要素を取得する | C++20 |
-| [`day`](month_day/day.md.nolink)     | 日要素を取得する | C++20 |
+| [`month`](month_day/month.md) | 月要素を取得する | C++20 |
+| [`day`](month_day/day.md)     | 日要素を取得する | C++20 |
 
 
 ### 検証
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](month_day/ok.md.nolink) | 値が範囲に収まっているか判定する | C++20 |
+| [`ok`](month_day/ok.md) | 値が範囲に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数
