@@ -53,8 +53,8 @@ int main()
 * chrono::March[link /reference/chrono/month_constants.md]
 * 1d[link /reference/chrono/day/op_d.md]
 * chrono::month_day[link /reference/chrono/month_day.md]
-* md1.month()[link /reference/chrono/month_day/month.md.nolink]
-* md1.day()[link /reference/chrono/month_day/day.md.nolink]
+* md1.month()[link /reference/chrono/month_day/month.md]
+* md1.day()[link /reference/chrono/month_day/day.md]
 
 ### 出力
 ```
