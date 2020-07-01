@@ -67,7 +67,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](month_day/op_ostream.md.nolink)   | 出力ストリームに出力する | C++20 |
+| [`operator<<`](month_day/op_ostream.md)   | 出力ストリームに出力する | C++20 |
 | [`from_stream`](month_day/from_stream.md.nolink) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
@@ -112,11 +112,11 @@ int main()
 
 ### 出力
 ```
-03/01
-03/01
-03/01
-03/01
-03/01
+Mar/01
+Mar/01
+Mar/01
+Mar/01
+Mar/01
 ```
 
 ## バージョン
