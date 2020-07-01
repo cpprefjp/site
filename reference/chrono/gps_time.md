@@ -215,4 +215,5 @@ int main()
 
 
 ## 関連項目
-- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+- [chronoの`std::format()`](/reference/chrono/format.md) (出力フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

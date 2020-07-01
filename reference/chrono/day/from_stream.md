@@ -31,10 +31,6 @@ namespace std::chrono {
 `is`を返す
 
 
-## 備考
-- この解析においては、日のフォーマットは、デフォルトで2桁ゼロ埋めの日を意味する`%d`が使用される。1日を表すために`01`および`1`のどちらでも入力できる。1桁の場合の、先頭のゼロは必須ではない。ゼロ埋めの桁数を指定する`%Nd`も指定できる
-
-
 ## 例
 ```cpp example
 #include <cassert>
@@ -80,4 +76,4 @@ int main()
 
 
 ## 関連項目
-- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

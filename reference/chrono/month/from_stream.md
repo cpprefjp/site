@@ -31,10 +31,6 @@ namespace std::chrono {
 `is`を返す
 
 
-## 備考
-- この解析においては、月のフォーマットは、ロケール規定の完全もしくは短縮された月名を意味する`%b`が使用される。そのため、デフォルトのCロケールにおいては、1月を入力するために`"January`" (完全名) と`"Jan"` (短縮名)の2通りが使用でき、ほかの月も同様である
-
-
 ## 例
 ```cpp example
 #include <cassert>
@@ -81,4 +77,4 @@ int main()
 
 
 ## 関連項目
-- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

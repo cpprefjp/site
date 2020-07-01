@@ -43,7 +43,7 @@ int main()
 {
   {
     std::stringstream ss;
-    ss << "Mar/1"; // "Mar/01"でもOK
+    ss << "Mar/1"; // "Mar/01"や"March/1"でもOK
 
     chrono::month_day md;
     chrono::from_stream(ss, md, "%b/%d");
@@ -77,4 +77,4 @@ int main()
 
 
 ## 関連項目
-- [`std::chrono::parse()`](/reference/chrono/parse.md) (解析フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

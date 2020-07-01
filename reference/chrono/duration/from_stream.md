@@ -87,3 +87,7 @@ JST
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 関連項目
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

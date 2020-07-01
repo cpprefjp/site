@@ -31,10 +31,6 @@ namespace std::chrono {
 `is`を返す
 
 
-## 備考
-- この解析においては、曜日のフォーマットは、ロケール規定の完全もしくは短縮された曜日名を意味する`%a`が使用される。そのため、デフォルトのCロケールにおいては、日曜日を入力するために`"Sunday`" (完全名) と`"Sun"` (短縮名)の2通りが使用でき、ほかの曜日も同様である
-
-
 ## 例
 ```cpp example
 #include <cassert>
@@ -81,4 +77,4 @@ int main()
 
 
 ## 関連項目
-- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)
