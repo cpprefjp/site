@@ -47,7 +47,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator/`](month_day/op_append.md.nolink) | カレンダー要素同士をつなぎ合わせる | C++20 |
+| [`operator/`](month_day/op_append.md) | カレンダー要素同士をつなぎ合わせる | C++20 |
 
 
 ### 比較演算
