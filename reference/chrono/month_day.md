@@ -75,7 +75,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`formatter`](month_day/formatter.md.nolink) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+| [`formatter`](month_day/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
 
 
 ## 例
