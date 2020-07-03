@@ -1,6 +1,6 @@
 # swap (非メンバ関数)
 * cpp17[meta cpp]
-* node_handle[meta category]
+* node_handle[meta header]
 * function template[meta id-type]
 * [meta namespace]
 
