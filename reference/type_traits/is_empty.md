@@ -31,11 +31,15 @@ namespace std {
 
 - [クラス型](is_class.md)である。
 - [共用型](is_union.md)でない。
-- 長さ0のビットフィールド以外に、非静的データメンバを持たない。
+- 大きさ0のものを除いて、非静的データメンバを持たない。
 - 仮想メンバ関数を持たない。
 - 仮想基底クラスを持たない。
 - 空のクラスでない基底クラスを持たない。
 
+大きさ0のデータメンバには、以下のものがある。
+
+- 長さ0のビットフィールド
+- 型が空のクラスであって、[`[[no_unique_address]]`属性](/lang/cpp20/language_support_for_empty_objects.md)が指定されているメンバ (C++20)
 
 ## 例
 ```cpp example
@@ -78,6 +82,8 @@ int main(){}
 #### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は `integral_constant` が `operator bool()` を持っていないためエラーになる。
 
+## 関連項目
+- [`[[no_unique_address]]`属性](/lang/cpp20/language_support_for_empty_objects.md)
 
 ## 参照
 - [LWG Issue 2015. Incorrect pre-conditions for some type traits](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2015)
