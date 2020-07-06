@@ -1,6 +1,8 @@
 # Callable
 * cpp11[meta cpp]
-* named requirement[meta id-type]
+* concepts[meta header]
+* concept[meta id-type]
+* [meta namespace]
 
 ## 概要
 `Callable`は、関数呼び出し可能な型を表す、型の分類、または要件である。ライブラリ機能ではない。
