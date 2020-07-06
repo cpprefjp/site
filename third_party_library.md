@@ -37,7 +37,7 @@ C++の準標準と呼ばれているライブラリ。C++標準化委員会の�
 ライセンス：Boost Software License, Version 1.0
 
 
-- [Xbyak](http://herumi.in.coocan.jp/soft/xbyak.html)
+- [Xbyak](https://github.com/herumi/xbyak/blob/master/readme.txt)
 
 x86(IA32), x64(AMD64, x86-64)のマシン語命令を実行時に生成するC++のクラスライブラリ。  
 ライセンス：修正BSDライセンス
