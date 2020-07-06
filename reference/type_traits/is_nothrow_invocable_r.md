@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 効果
-型`F`に対して引数`ArgsTypes...`による[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った呼び出しが可能であり、その結果となる戻り値の型が`R`に変換可能かつ、その呼び出し及び変換に際していかなる例外も投げない場合[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+型`F`に対して引数`ArgsTypes...`による[*INVOKE*](/reference/concepts/Invoke.md)要件に従った呼び出しが可能であり、その結果となる戻り値の型が`R`に変換可能かつ、その呼び出し及び変換に際していかなる例外も投げない場合[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 例
