@@ -151,7 +151,7 @@ int main() {
   f<not_invocable, int>("not_invocable(int)");
 }
 ```
-* std::invocable[color ff0000]
+* std::regular_invocable[color ff0000]
 
 
 #### 出力
