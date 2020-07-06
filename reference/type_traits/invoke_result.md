@@ -23,7 +23,7 @@ namespace std {
 
 
 ## 効果
-[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った呼び出しの結果（戻り値）となる型をメンバ型`type`として定義する。そのような呼び出しが出来ない（ill-formedな）場合、メンバ型`type`は定義されない。
+[*INVOKE*](/reference/concepts/Invoke.md)要件に従った呼び出しの結果（戻り値）となる型をメンバ型`type`として定義する。そのような呼び出しが出来ない（ill-formedな）場合、メンバ型`type`は定義されない。
 
 すなわち、関数呼び出し出来ない型と引数列の組み合わせが渡された場合、SFINAEが働く。
 
