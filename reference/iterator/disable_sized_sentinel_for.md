@@ -1,4 +1,4 @@
-# sized_sentinel_for
+# disable_sized_sentinel_for
 * iterator[meta header]
 * std[meta namespace]
 * variable[meta id-type]
