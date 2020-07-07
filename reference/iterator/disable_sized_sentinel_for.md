@@ -51,5 +51,5 @@ namespace std {
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1871R0 Should concepts be enabled or disabled?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1871r0.html)
+- [P1871R1 Concept traits should be named after concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1871r1.html)
 - [microsoft/STL P1871R1 disable_sized_sentinel_for #607 - Github](https://github.com/microsoft/STL/pull/607/files#r392700693)
-
