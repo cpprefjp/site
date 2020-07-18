@@ -63,14 +63,20 @@ int main()
   A a(1, 2);
   int n[](1, 2, 3, 4, 5);
   std::cout << a.x << ',' << a.y << std::endl;
-  for (int x : n) 
-  std::cout << variable << std::endl;
+  for (int x : n) {
+    std::cout << x << std::endl;
+  }
 }
 ```
 
 ### 出力
 ```
-0
+1,2
+1
+2
+3
+4
+5
 ```
 
 ## この機能が必要になった背景・経緯
