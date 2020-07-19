@@ -115,3 +115,4 @@ explicit A(T1 t1, … , Tk tk);
 ## 参照
 
 - [P0960R3 Allow initializing aggregates from a parenthesized list of values](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0960r3.html)
+- [C++ Core Guidelines ES.23: Prefer the {}-initializer syntax](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es23-prefer-the--initializer-syntax) 常に波カッコで初期化することを推奨している。
