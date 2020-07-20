@@ -41,7 +41,7 @@ static_assert(std::is_same<std::is_array<int>::value_type, bool>::value, "value_
 static_assert(std::is_same<std::is_array<int>::type, std::false_type>::value, "type == false_type");
 static_assert(std::is_array<int>() == false, "is_array<int>() == false");
 
-static_assert(std::is_array<int[]>::value == true, "int[] double is array");
+static_assert(std::is_array<int[]>::value == true, "int[] is array");
 static_assert(std::is_array<int*[2]>::value == true, "int*[2] is array");
 static_assert(std::is_array<const unsigned[3][4]>::value == true, "const unsigned[3][4] is array");
 static_assert(std::is_array<volatile long[][5]>::value == true, "volatile long[][5] is array");
