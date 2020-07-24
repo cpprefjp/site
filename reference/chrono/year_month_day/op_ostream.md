@@ -29,7 +29,7 @@ namespace std::chrono {
 
 
 ## 備考
-- フォーマット指定子`"%F"`は`"%Y-%m-%d"`と等価であり、4桁ゼロ埋め整数値の年、2桁ゼロ埋め整数値の月、2桁ゼロ埋め整数値の日が、ハイフン区切りで出力される
+- フォーマットフラグ`"%F"`は`"%Y-%m-%d"`と等価であり、4桁ゼロ埋め整数値の年、2桁ゼロ埋め整数値の月、2桁ゼロ埋め整数値の日が、ハイフン区切りで出力される
 
 
 ## 例
@@ -62,4 +62,4 @@ int main()
 
 
 ## 関連項目
-- [`local_time_format()`](/reference/chrono/local_time_format.md.nolink) (フォーマットの詳細)
+- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)

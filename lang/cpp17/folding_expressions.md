@@ -243,3 +243,4 @@ auto res =  (std::string(args) + ...);
 * [N4295 Folding expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html)
 * [N4358 Unary Folds and Empty Parameter Packs](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4358.pdf)
 * [P0036 Unary Folds and Empty Parameter Packs (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0036r0.pdf)
+* [Nifty Fold Expression Tricks - foonathan::blog()](https://foonathan.net/2020/05/fold-tricks/)

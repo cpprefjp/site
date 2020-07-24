@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template<class T, class U>
+  template<class T>
   concept equality_comparable = /*see below*/;      // (1)
 
   template<class T, class U>
@@ -28,19 +28,19 @@ template<class T, class U>
 concept weakly-equality-comparable-with =
   requires(const remove_reference_t<T>& t,
            const remove_reference_t<U>& u) {
-    { t == u } -> boolean;
-    { t != u } -> boolean;
-    { u == t } -> boolean;
-    { u != t } -> boolean;
+    { t == u } -> boolean-testable;
+    { t != u } -> boolean-testable;
+    { u == t } -> boolean-testable;
+    { u != t } -> boolean-testable;
   };
 ```
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* boolean[link /reference/concepts/boolean.md]
+* boolean-testable[link /reference/concepts/boolean-testable.md]
 
 - (1) : 以下のように定義される
 
 ```cpp
-template<class T, class U>
+template<class T>
 concept equality_comparable = weakly-equality-comparable-with<T, T>;
 ```
 
@@ -77,7 +77,7 @@ concept equality_comparable_with =
 
 ## 備考
 
-定義内の`a == b`等の各制約式に[等しさを保持](/reference/concepts.md)する事が要求されていることによって、これらコンセプトを満たす`== !=`演算子は推移的かつ対称的である事を表し、要求している。
+定義内の`t == u`等の各制約式に[等しさを保持](/reference/concepts.md)する事が要求されていることによって、これらコンセプトを満たす`== !=`演算子は推移的かつ対称的である事を表し、要求している。
 
 - 推移律 : `a == b`かつ`b == c`ならば`a == c`
 - 対称律 : `a == b`ならば`b == a`

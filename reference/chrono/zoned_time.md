@@ -76,11 +76,19 @@ namespace std::chrono {
 ## 推論補助
 
 | 名前 | 説明 | 対応バージョン |
-|---------------------------------------------|------------------------------------|-------|
+|------|------|----------------|
 | [`(deduction_guide)`](zoned_time/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
 
 
+## 文字列フォーマット
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](zoned_time/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <chrono>
@@ -91,39 +99,106 @@ int main()
 {
   // システム時間はUTCタイムゾーンをもつ
   auto now = chrono::system_clock::now();
+  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(now); // 秒単位
 
   // タイムゾーン情報なしで日時を出力する
   // (ローカルタイムゾーンへの変換はしてくれないので、デフォルトではUTCタイムゾーンで出力される)
-  std::cout << now << std::endl;
+  std::cout << "1 : " << now << std::endl;
 
   // タイムゾーン付きで日時を出力する
-  std::cout << chrono::zoned_time{now} << std::endl;               // デフォルトタイムゾーン (UTC)
-  std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl; // 日本 (UTC + 9時間)
-  std::cout << chrono::zoned_time{"UTC", now} << std::endl;        // UTC
+  std::cout << "2 : " << chrono::zoned_time{now} << std::endl;                   // デフォルトタイムゾーン (UTC)
+  std::cout << "3 : " << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;     // 日本 (UTC + 9時間)
+  std::cout << "4 : " << chrono::zoned_time{"UTC", now} << std::endl;            // UTC
+  std::cout << "5 : " << chrono::zoned_time{"Asia/Tokyo", now_sec} << std::endl; // 日本 (秒単位)
 
   // コンピュータに設定されているタイムゾーンで、日時を出力する
-  std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
+  std::cout << "6 : " << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
 
   // UTCタイムゾーンのシステム時間を、日本のローカル時間に変換
   chrono::local_time lt = chrono::zoned_time{"Asia/Tokyo", now}.get_local_time();
-  std::cout << lt << std::endl;
+  std::cout << "7 : "lt << std::endl;
 }
 ```
 * chrono::zoned_time[color ff0000]
 * chrono::system_clock[link system_clock.md]
 * now()[link system_clock/now.md]
+* chrono::sys_seconds[link sys_time.md]
+* chrono::floor[link time_point/floor.md]
 * chrono::current_zone()[link current_zone.md]
 * chrono::local_time[link local_time.md]
 * get_local_time[link zoned_time/get_local_time.md]
 
-### 出力例
+#### 出力例
 ```
-2019-12-20 10:05:05
-2019-12-20 10:05:05.330140 UTC
-2019-12-20 19:05:05.330140 JST
-2019-12-20 10:05:05.330140 UTC
-2019-12-20 19:05:05.330140 JST
-2019-12-20 19:05:05
+1 : 2019-12-20 10:05:05
+2 : 2019-12-20 10:05:05.330140 UTC
+3 : 2019-12-20 19:05:05.330140 JST
+4 : 2019-12-20 10:05:05.330140 UTC
+5 : 2019-12-20 19:05:05 JST
+6 : 2019-12-20 19:05:05.330140 JST
+7 : 2019-12-20 19:05:05
+```
+
+### 文字列フォーマットの例
+```cpp
+#include <iostream>
+#include <chrono>
+#include <format>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  // システム時間はUTCタイムゾーンをもつ
+  auto now = chrono::system_clock::now();
+  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(now); // 秒単位
+
+  chrono::zoned_time zt{"Asia/Tokyo", now};
+  chrono::zoned_seconds zt_sec{"Asia/Tokyo", now_sec};
+
+  // デフォルトフォーマット
+  std::cout << std::format("1 : {}", zt) << std::endl;
+  std::cout << std::format("2 : {}", zt_sec) << std::endl;
+
+  // 「年月日 時分秒」のフォーマット
+  std::cout << std::format("3 : {:%Y年%m月%d日 %H時%M分%S秒}", zt_sec) << std::endl;
+
+  // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り
+  std::cout << std::format("4 : {0:%Y/%m/%d %H:%M:%S}", zt_sec) << std::endl;
+
+  // 日付だけ出力
+  std::cout << std::format("5 : %Y年%m月%d日", zt_sec) << std::endl;
+  std::cout << std::format("6 : %F", zt_sec) << std::endl;
+
+  // 時間だけ出力
+  std::cout << std::format("7 : %H時%M分%S秒", zt_sec) << std::endl;
+  std::cout << std::format("8 : %T", zt_sec) << std::endl;
+
+  // 12時間時計で出力
+  // (%pでロケール固有の「午前」「午後」を出力するには、日本のロケールを指定する必要がある)
+  std::cout << std::format(std::locale("ja_JP.UTF-8"), "9 : %Y年%m月%d日 %p %I時%M分%S秒", zt_sec) << std::endl;
+}
+```
+* chrono::zoned_time[color ff0000]
+* chrono::zoned_seconds[color ff0000]
+* chrono::system_clock[link system_clock.md]
+* now()[link system_clock/now.md]
+* chrono::sys_seconds[link sys_time.md]
+* chrono::floor[link time_point/floor.md]
+* std::format[link format.md]
+* std::locale[link /reference/locale/locale.md]
+
+#### 出力例
+```
+1 : 2019-12-20 19:05:05.330140 JST
+2 : 2019-12-20 19:05:05 JST
+3 : 2019年12月20日 19時05分05秒
+4 : 2019/12/20 19:05:05
+5 : 2019年12月20日
+6 : 2019-12-20
+7 : 19時05分05秒
+8 : 19:05:05
+9 : 2019年12月20日 午後 07時05分05秒
 ```
 
 ## バージョン

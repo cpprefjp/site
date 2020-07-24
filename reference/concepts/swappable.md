@@ -11,7 +11,7 @@ namespace std {
 
   template<class T, class U>
   concept swappable_with =
-    common_reference_with<const remove_reference_t<T>&, const remove_reference_t<U>&> &&
+    common_reference_with<T, U> &&
     requires(T&& t, U&& u) {
       ranges::swap(std::forward<T>(t), std::forward<T>(t));
       ranges::swap(std::forward<U>(u), std::forward<U>(u));
@@ -216,4 +216,5 @@ NS::S2 is not swappable with NS::S1
 ## 参照
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [LWG Issue 3175. The `CommonReference` requirement of concept `SwappableWith` is not satisfied in the example](https://wg21.cmeerw.net/lwg/issue3175)
 

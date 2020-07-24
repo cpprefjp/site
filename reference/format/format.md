@@ -6,17 +6,19 @@
 * cpp20[meta cpp]
 
 ```cpp
-template<class... Args>
-string format(string_view fmt, const Args&... args); // (1)
+namespace std {
+  template<class... Args>
+  string format(string_view fmt, const Args&... args);                      // (1)
 
-template<class... Args>
-wstring format(wstring_view fmt, const Args&... args); // (2)
+  template<class... Args>
+  wstring format(wstring_view fmt, const Args&... args);                    // (2)
 
-template<class... Args>
-string format(const locale& loc, string_view fmt, const Args&... args); // (3)
+  template<class... Args>
+  string format(const locale& loc, string_view fmt, const Args&... args);   // (3)
 
-template<class... Args>
-wstring format(const locale& loc, wstring_view fmt, const Args&... args); // (4)
+  template<class... Args>
+  wstring format(const locale& loc, wstring_view fmt, const Args&... args); // (4)
+}
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
@@ -77,7 +79,7 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
 * `sign` : 符号
     * `+` : 正の数でも符号を表示する
     * `-` : 負の数の場合のみ符号を表示する(デフォルト)
-    * ` ` : 正の数にはスペースを表示する
+    * スペース : 正の数にはスペースを表示する
 * `#` : 代替表現(`0x`など形式がわかる表記)を使う
 * `0` : 符号を考慮して0で埋める (`fill`を`0`、`align`を`=`にした場合と同じ)
 * `width` : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)
@@ -174,6 +176,9 @@ format("{0:} {0:+} {0:-} {0: }", -1);  // "-1 -1 -1 -1"
 format("{0:} {0:+} {0:-} {0: }", inf); // "inf +inf inf  inf"
 format("{0:} {0:+} {0:-} {0: }", nan); // "nan +nan nan  nan"
 ```
+* numeric_limits[link /reference/limits/numeric_limits.md]
+* infinity()[link /reference/limits/numeric_limits/infinity.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 ```cpp
 format("{}", 42);                      // "42"

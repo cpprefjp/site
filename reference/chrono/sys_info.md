@@ -12,11 +12,7 @@ namespace std::chrono {
     seconds offset;
     minutes save;
     string abbrev;
-  };                    // (1) C++20
-
-  template <class charT, class traits>
-  std::basic_ostream<charT, traits>&
-    operator<<(std::basic_ostream<charT, traits>& os, const sys_info& si); // (2)
+  };
 }
 ```
 * sys_seconds[link sys_time.md]
@@ -27,9 +23,8 @@ namespace std::chrono {
 
 このクラスの情報は、[`sys_time`](sys_time.md)から[`local_time`](local_time.md)に変換する際に使用される。
 
-- (1) : システム時間に関するタイムゾーン情報のクラス
-- (2) : 出力ストリームへの出力
 
+## メンバ変数
 
 | 変数 | 説明 |
 |------|------|
@@ -39,12 +34,18 @@ namespace std::chrono {
 | `abbrev` | 関連する[`time_zone`](time_zone.md)および[`time_point`](time_point.md)に使用される現在の「略称 (abbreviation)」を意味する。略称はタイムゾーンごとに一意に定まるわけではないため、略称からタイムゾーンおよびUTCタイムゾーンからのオフセット時間を確実にマッピングすることはできない |
 
 
-## 効果
-- (2) : `si`を未規定のフォーマットで`os`に出力する
+## 非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator<<`](sys_info/op_ostream.md) | 出力ストリームへの出力 | C++20 |
 
 
-## 戻り値
-- (2) : `return os;`
+## 文字列フォーマット
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](sys_info/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
 
 
 ## 例
@@ -63,9 +64,6 @@ int main()
   chrono::sys_info si = tz->get_info(now);
   std::cout << chrono::floor<chrono::hours>(si.offset).count() << " hours" << std::endl; // UTCタイムゾーンからの差分時間
   std::cout << si.abbrev << std::endl; // タイムゾーンの略称
-
-  std::cout << std::endl;
-  std::cout << si << std::endl; // タイムゾーン情報全体を出力
 }
 ```
 * chrono::sys_info[color ff0000]
@@ -77,11 +75,11 @@ int main()
 * chrono::floor[link time_point/floor.md]
 * count()[link /reference/chrono/duration/count.md]
 
-### 出力例
+### 出力
 ```
+9 hours
+JST
 ```
-
-(未検証)
 
 ## バージョン
 ### 言語

@@ -213,7 +213,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //アロケータが伝播している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -227,7 +227,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //アロケータが伝播している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -241,7 +241,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //アロケータが伝播している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -256,7 +256,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //アロケータが伝播している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 
@@ -270,7 +270,7 @@ int main()
 
     std::cout << p->first << std::endl;
     std::cout << p->second << std::endl;
-    //アロケータが伝搬している
+    //アロケータが伝播している
     std::cout << (p->second.get_allocator() == alloc) << std::endl;
   }
 }

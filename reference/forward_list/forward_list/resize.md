@@ -6,8 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void resize(size_type sz);
-void resize(size_type sz, const value_type& c);
+void resize(size_type sz);                        // (1)
+void resize(size_type sz, const value_type& c);   // (2)
 ```
 
 ## 概要
@@ -15,7 +15,10 @@ void resize(size_type sz, const value_type& c);
 
 
 ## テンプレートパラメータ制約
-- 型`T`がデフォルト構築可能であり、`*this`に対してコピー挿入可能であること
+- (1) 
+    - C++14まで : 型`T`がデフォルト構築可能であること
+    - C++17から : 型`T`が`*this`に対してデフォルト挿入可能であること
+- (2) : 型`T`が`*this`に対してコピー挿入可能であること
 
 
 ## 効果

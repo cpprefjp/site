@@ -24,11 +24,11 @@ namespace std {
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
 
-図2 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる(例1)
+図2 コンテナとその要素で、アロケータオブジェクトの状態を伝播させる(例1)
 
 ![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
 
-図3 全ての要素にアロケータオブジェクトの状態を伝搬させる(例2)
+図3 全ての要素にアロケータオブジェクトの状態を伝播させる(例2)
 
 
 
@@ -99,7 +99,7 @@ namespace std {
 | [`(deduction_guide)`](scoped_allocator_adaptor/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
 
 
-## 例1 コンテナとその要素で、アロケータオブジェクトの状態を伝搬させる
+## 例1 コンテナとその要素で、アロケータオブジェクトの状態を伝播させる
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -176,7 +176,7 @@ int main()
 5
 ```
 
-## 例2 全ての要素にアロケータオブジェクトの状態を伝搬させる
+## 例2 全ての要素にアロケータオブジェクトの状態を伝播させる
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -242,7 +242,7 @@ int main()
   std::cout << "container allocator : " << v.get_allocator().getState() << std::endl;
 
   // 要素に使用されるアロケータの状態を確認
-  // 全ての要素に、アロケータの状態が伝搬される
+  // 全ての要素に、アロケータの状態が伝播される
   for (const forward_list& x : v) {
     std::cout << "element allocator : " << x.get_allocator().getState() << std::endl;
   }

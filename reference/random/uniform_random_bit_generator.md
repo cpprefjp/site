@@ -62,7 +62,7 @@ int main() {
   f<std::exponential_distribution<>>("std::exponential_distribution<>");
 }
 ```
-* std::predicate[color ff0000]
+* std::uniform_random_bit_generator[color ff0000]
 
 ### 出力
 ```

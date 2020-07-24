@@ -37,6 +37,10 @@ bool wait_until(unique_lock<mutex>& lock,
 - `*this`の`condition_variable`オブジェクトが他スレッドで待機していないか、もしくは並行に待機している全てのスレッドで`lock`パラメータが同じミューテックスオブジェクトを参照していること
 
 
+## テンプレートパラメータ制約
+- [`chrono::is_clock_v`](/reference/chrono/is_clock.md)`<Clock>`が`true`であること (C++20)
+
+
 ## 効果
 - (1) :
     1. アトミックに`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)する

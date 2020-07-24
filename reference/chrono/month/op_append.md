@@ -30,11 +30,11 @@ namespace std::chrono {
 }
 ```
 * day[link /reference/chrono/day.md]
-* month_day[link /reference/chrono/month_day.md.nolink]
+* month_day[link /reference/chrono/month_day.md]
 * last_spec[link /reference/chrono/last_spec.md]
 * month_day_last[link /reference/chrono/month_day_last.md.nolink]
-* weekday_indexed[link /reference/chrono/weekday_indexed.md.nolink]
-* weekday_last[link /reference/chrono/weekday_last.md.nolink]
+* weekday_indexed[link /reference/chrono/weekday_indexed.md
+* weekday_last[link /reference/chrono/weekday_last.md]
 * month_weekday_last[link /reference/chrono/month_weekday_last.md.nolink]
 
 ## 概要
@@ -110,9 +110,9 @@ int main()
 * chrono::March[link /reference/chrono/month_constants.md]
 * chrono::February[link /reference/chrono/month_constants.md]
 * 1d[link /reference/chrono/day/op_d.md]
-* chrono::month_day[link /reference/chrono/month_day.md.nolink]
-* md1.month()[link /reference/chrono/month_day/month.md.nolink]
-* md1.day()[link /reference/chrono/month_day/day.md.nolink]
+* chrono::month_day[link /reference/chrono/month_day.md]
+* md1.month()[link /reference/chrono/month_day/month.md]
+* md1.day()[link /reference/chrono/month_day/day.md]
 * chrono::last[link /reference/chrono/last_spec.md]
 * chrono::month_day_last[link /reference/chrono/month_day_last.md.nolink]
 * mdl1.month()[link /reference/chrono/month_day_last/month.md.nolink]

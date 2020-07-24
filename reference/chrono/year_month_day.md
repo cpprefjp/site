@@ -91,6 +91,13 @@ namespace std::chrono {
 | [`from_stream`](year_month_day/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
+## 文字列フォーマット
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](year_month_day/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
 ## 例
 ### 基本的な使い方 (C++20)
 ```cpp example

@@ -161,7 +161,7 @@ return distance(a, b);
   これにより、例えばソートされていない整数列 `[5, 1, 25, 13, 17]` に対しても `10` をキーとして [`lower_bound()`](algorithm/lower_bound.md) を用いることにより `10` より小さい範囲の境界を取り出すことが可能になっている。しかし `15` をキーとすることは不正である。  
   ただ、 C++03 の要件に合わない（特にソートされていない範囲に対する）二分探索を行いたい場合は、同じく C++11 で追加された [`partition_point()`](algorithm/partition_point.md) の使用も検討したほうがよい。  
 
-順序関係を扱う関数の説明において、この節では安定性 (stability) のようなコンセプトを説明するために同値性 (equivalence) の概念を頻繁に使う。  
+順序関係を扱う関数の説明において、この節では安定性 (stability) のような考え方を説明するために同値性 (equivalence) の概念を頻繁に使う。
 この節で参照する同値性は必ずしも `operator==` ではなく、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)によって示される同値関係である。つまりそれは、２つの要素 `a` と `b` は `!(a < b) && !(b < a)` の時かつその時に限り同値とみなされるということである。  
 
 
@@ -193,7 +193,7 @@ return distance(a, b);
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------------------|-------|
 | [`lower_bound`](algorithm/lower_bound.md) | 指定された要素以上の値が現れる最初の位置のイテレータを取得する | |
-| [`upper_bound`](algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最も後ろの位置のイテレータを取得する | |
+| [`upper_bound`](algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最初の位置のイテレータを取得する | |
 | [`equal_range`](algorithm/equal_range.md) | `lower_bound`と`upper_bound`の結果を組で取得する | |
 | [`binary_search`](algorithm/binary_search.md) | 二分探索法による検索を行う | |
 

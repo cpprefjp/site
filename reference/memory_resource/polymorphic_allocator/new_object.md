@@ -7,7 +7,7 @@
 
 ```cpp
 template <class T, class... CtorArgs>
-T* new_object(CtorArgs&&... ctor_args);
+[[nodiscard]] T* new_object(CtorArgs&&... ctor_args);
 ```
 * pair[link /reference/utility/pair.md]
 * tuple[link /reference/tuple/tuple.md]
@@ -100,3 +100,4 @@ address : 0x1a2b960
 
 ## 参照
 - [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf) 
+- [LWG Issue 3304. Allocate functions of `std::polymorphic_allocator` should require `[[nodiscard]]`](https://wg21.cmeerw.net/lwg/issue3304)

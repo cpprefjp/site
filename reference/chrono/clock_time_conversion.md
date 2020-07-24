@@ -157,25 +157,58 @@ namespace std::chrono {
 
 ## 備考
 - [`system_clock`](system_clock.md)と[`utc_clock`](utc_clock.md)の間の変換は、[`utc_clock`](utc_clock.md)クラスの機能を使用して変換する
-- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md.nolink)と[`utc_clock`](utc_clock.md)の間の変換は、[`tai_clock`](tai_clock.md)と[`gps_clock`](gps_clock.md.nolink)の機能を使用して変換する
-- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md.nolink)と[`system_clock`](system_clock.md)の直接の変換は定義されないため、[`utc_clock`](utc_clock.md)を介して変換することはできないが、[`clock_cast()`](clock_cast.md)関数ではそのような変換がサポートされる
+- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md)と[`utc_clock`](utc_clock.md)の間の変換は、[`tai_clock`](tai_clock.md)と[`gps_clock`](gps_clock.md)の機能を使用して変換する
+- [`tai_clock`](tai_clock.md)、[`gps_clock`](gps_clock.md)と[`system_clock`](system_clock.md)の直接の変換は定義されないため、[`utc_clock`](utc_clock.md)を介して変換することはできないが、[`clock_cast()`](clock_cast.md)関数ではそのような変換がサポートされる
 
 
 ## 例
 ```cpp example
 #include <iostream>
 #include <chrono>
-#include <ctime>
 
 using namespace std::chrono;
 
 int main()
 {
+  // system_clockからutc_clockへの変換
+  {
+    utc_time ut = clock_time_conversion<utc_clock, system_clock>{}(system_clock::now());
+    std::cout << ut << std::endl;
+  }
+
+  // system_clockからutc_clockへの変換
+  {
+    sys_time st = clock_time_conversion<system_clock, utc_clock>{}(utc_clock::now());
+    std::cout << st << std::endl;
+  }
+
+  // utc_clockからtai_clockへの変換
+  {
+    tai_time tt = clock_time_conversion<tai_clock, utc_clock>{}(utc_clock::now());
+    std::cout << tt << std::endl;
+  }
+
+  // tai_clockからutc_clockへの変換
+  {
+    utc_time ut = clock_time_conversion<utc_clock, tai_clock>{}(tai_clock::now());
+    std::cout << ut << std::endl;
+  }
 }
 ```
+* clock_time_conversion[color ff0000]
+* system_clock[link system_clock.md]
+* utc_clock[link utc_clock.md]
+* tai_clock[link tai_clock.md]
+* utc_time[link utc_time.md]
+* sys_time[link sys_time.md]
+* tai_time[link tai_time.md]
 
 ### 出力例
 ```
+2019-10-24 11:15:10 UTC
+2019-10-24 11:15:10
+2019-10-24 11:15:37 TAI
+2019-10-24 11:15:10 UTC
 ```
 
 ## バージョン

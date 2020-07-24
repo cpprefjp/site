@@ -160,7 +160,7 @@ int main()
 ```
 * std::atomic_ref[color ff0000]
 * x.exchange[link atomic_ref/exchange.md]
-* x.store[link atomic_ref[store.md]
+* store[link atomic_ref/store.md]
 * consumer_thread.join()[link /reference/thread/thread/join.md]
 
 ### 出力

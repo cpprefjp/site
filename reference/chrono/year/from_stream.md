@@ -31,10 +31,6 @@ namespace std::chrono {
 `is`を返す
 
 
-## 備考
-- この解析においては、日のフォーマットは、デフォルトで4桁ゼロ埋めの日を意味する`%Y`が使用される。3桁の年として123年を表すために`0123`および`123`のどちらでも入力できる。4桁の未満の場合、ゼロ埋めは必須ではない。ゼロ埋めの桁数を指定する`%NY`も指定できる
-
-
 ## 例
 ```cpp example
 #include <cassert>
@@ -80,4 +76,4 @@ int main()
 
 
 ## 関連項目
-- [`local_time_format()`](/reference/chrono/local_time_format.md.nolink) (フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

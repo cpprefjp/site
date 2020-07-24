@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 効果
-パラメータ`str`が`string`型であれば`std::strtod(str.c_str(), &end)`、`wstring`型であれば`std::wcstold(str.c_str(), &end)`を呼び出して、その戻り値を返す。
+パラメータ`str`が`string`型であれば`std::strtold(str.c_str(), &end)`、`wstring`型であれば`std::wcstold(str.c_str(), &end)`を呼び出して、その戻り値を返す。
 
 `idx`が非`nullptr`の場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
 
@@ -28,7 +28,7 @@ namespace std {
 ## 例外
 - 数値への変換が行われなかった場合、`std::invalid_argument`が送出される。
 - 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
-    - `std::strtoull()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合
+    - `std::strtold()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合
     - 結果が範囲外の値になった場合 (C++14)
 
 

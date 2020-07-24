@@ -102,3 +102,5 @@ T, U share a common type
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [LWG Issue 3153. `Common` and `common_type` have too little in common](https://wg21.cmeerw.net/lwg/issue3153)
+- [LWG Issue 3154. `Common` and `CommonReference` have a common defect](https://wg21.cmeerw.net/lwg/issue3154)

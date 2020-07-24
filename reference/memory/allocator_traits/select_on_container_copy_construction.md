@@ -67,7 +67,7 @@ public:
   MyVector(const MyVector& other)
     : MyVector(
         other,
-        std::allocator_traits<Alloc>::select_on_container_copy_construction(alloc_)) {}
+        std::allocator_traits<Alloc>::select_on_container_copy_construction(other.alloc_)) {}
 
   ~MyVector()
   {

@@ -127,9 +127,8 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](duration/op_ostream.md.nolink) | ストリームへの出力 | C++20 |
-| [`to_stream`](duration/to_stream.md.nolink) | フォーマットを指定してストリームへ出力 | C++20 |
-| [`from_stream`](duration/from_stream.md.nolink) | フォーマットを指定してストリームから入力 | C++20 |
+| [`operator<<`](duration/op_ostream.md) | ストリームへの出力 | C++20 |
+| [`from_stream`](duration/from_stream.md) | フォーマットを指定してストリームから入力 | C++20 |
 
 
 ### リテラル
@@ -144,11 +143,13 @@ namespace chrono {
 | [`h`](duration/op_h.md)     | 時リテラル         | C++14 |
 
 
-### common_type特殊化
+## 特殊化
 
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
-| [`common_type`](common_type.md)   | 異なる`duration`間の共通の型を求める | C++11 |
+| [`common_type`](common_type.md) | 異なる`duration`間の共通の型を求める | C++11 |
+| [`formatter`](duration/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化。文字列フォーマットの許可 | C++20 |
+
 
 ## 例
 ```cpp example

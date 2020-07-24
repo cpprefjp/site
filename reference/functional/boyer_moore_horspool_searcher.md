@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 要件
-- `RandomAccessIterator1`が指す値型は、[デフォルト構築可能](/reference/concepts/default_constructible.md)、[コピー構築可能](/reference/concepts/copy_constructible.md)、[コピー代入可能](/reference/type_traits/is_copy_assignable.md)の要件を満たすこと
+- `RandomAccessIterator1`が指す値型は、[デフォルト構築可能](/reference/concepts/default_initializable.md)、[コピー構築可能](/reference/concepts/copy_constructible.md)、[コピー代入可能](/reference/type_traits/is_copy_assignable.md)の要件を満たすこと
 
 
 ## 備考

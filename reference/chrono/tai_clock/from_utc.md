@@ -1,7 +1,7 @@
 # from_utc
 * chrono[meta header]
 * std::chrono[meta namespace]
-* utc_clock[meta class]
+* tai_clock[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 

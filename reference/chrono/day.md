@@ -102,6 +102,13 @@ namespace std::chrono {
 | [`d`](day/op_d.md) | 日リテラル | C++20 |
 
 
+## 文字列フォーマット
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](day/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -125,7 +132,7 @@ int main() {
 ```
 * chrono::day[color ff0000]
 * 1d[link day/op_d.md]
-* month_day[link month_day.md.nolink]
+* month_day[link month_day.md]
 
 ### 出力
 ```

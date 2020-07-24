@@ -1,7 +1,7 @@
 # strong_order
 
 * compare[meta header]
-* function[meta id-type]
+* cpo[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
 
@@ -53,7 +53,7 @@ namespace std {
 
 1. --
 2. 呼び出される`strong_order(a, b)`およびその戻り値の`strong_ordering`への変換が定数評価可能であるかに従う。
-3. 常に定数評価可能
+3. 引数`a, b`が定数（式）ならば、常に定数評価可能
 4. 呼び出される`a <=> b`およびその戻り値の`strong_ordering`への変換が定数評価可能であるかに従う。
 
 

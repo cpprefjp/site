@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 効果
-パラメータ`str`が`string`型であれば`std::strtod(str.c_str(), &end)`、`wstring`であれば`std::wcstof(str.c_str(), &end)`を呼び出して、その戻り値を返す。
+パラメータ`str`が`string`型であれば`std::strtof(str.c_str(), &end)`、`wstring`であれば`std::wcstof(str.c_str(), &end)`を呼び出して、その戻り値を返す。
 
 パラメータ`idx`が非`nullptr`の場合、変換に使用されなかった要素のインデックス（`end - str.c_str()`）が格納される。
 
@@ -28,7 +28,7 @@ namespace std {
 ## 例外
 - 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
 - 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
-    - `std::strtoull()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合
+    - `std::strtof()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合
     - 結果が範囲外の値になった場合 (C++14)
 
 
@@ -40,7 +40,7 @@ namespace std {
 ### グローバルロケールの影響
 この関数は、`setlocale()`関数により挙動が変化する。
 
-- `strtod()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用される。
+- `strtof()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用される。
 - 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
 
 
@@ -122,7 +122,7 @@ float stof(const std::string& str, std::size_t* idx = nullptr) {
   const char* p = str.c_str();
   char* end;
   errno = 0;
-  double x = std::strtod(p, &end);
+  double x = std::strtof(p, &end);
   if (p == end) {
     throw std::invalid_argument("stof");
   }
@@ -173,7 +173,7 @@ float stof(const std::wstring& str, std::size_t* idx = nullptr) {
 ## 関連リンク
 ### C標準ライブラリに由来する関数
 - `atof`: `stold`は`atof`を`std::string`および`std::wsting`に対応させ、戻り値の型を`float`に変更したものと見なせる。
-- `strtod`, `wcstof`: `stof`は`strtod`および`wcstof`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `strtof`, `wcstof`: `stof`は`strtof`および`wcstof`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

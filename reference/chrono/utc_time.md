@@ -24,6 +24,11 @@ namespace std::chrono {
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
                 minutes* offset = nullptr);            // (4) C++20
 }
+
+namespace std {
+  template <class Duration, class charT>
+  struct formatter<chrono::utc_time<Duration>, charT>; // (5) C++20
+}
 ```
 * time_point[link time_point.md]
 * utc_clock[link utc_clock.md]
@@ -35,6 +40,7 @@ UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
 - (2) : 秒単位でUTC時間の一点を指す[`time_point`](time_point.md)に対する別名
 - (3) : 時間点に含まれる日付と時間を出力ストリームに出力する
 - (4) : フォーマット指定して入力ストリームから日付・時間を時間点オブジェクトに入力する
+- (5) : `utc_time`型に対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化
 
 
 ## 効果
@@ -44,9 +50,7 @@ UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
     ```cpp
     return os << format(STATICALLY-WIDEN<charT>("{:%F %T}"), tp);
     ```
-    * format[link /reference/format/format.md]
-
-    - フォーマットの詳細は[`local_time_format()`](local_time_format.md.nolink)を参照
+    * format[link format.md]
 
 - (4) :
     - パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`tp`に代入する
@@ -59,6 +63,10 @@ UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
 
 ## 備考
 - (1) : このバージョンは、関数テンプレートで任意の時間間隔単位の`time_point`を受け取るために使用できる。`utc_clock::time_point`がもつ時間間隔の単位は未規定 (実装定義) であるため、特定の単位に決めることができないため、時間間隔の型のみをパラメータ化して関数テンプレートで受け取ると便利である
+- (5) :
+    - `%Z` (タイムゾーンの略称) が指定された場合、`STATICALLY-WIDEN<charT>("UTC")`で置き換えられる
+    - `%z`もしくはその改良コマンドが指定された場合、`0`[`min`](duration/op_min.md)が使用される
+    - 引数がうるう秒が挿入された時間を表す場合、秒フィールドは`STATICALLY-WIDEN<charT>("60")`でフォーマットされる
 
 
 ## 例
@@ -142,6 +150,53 @@ UTC
 540
 ```
 
+### 文字列フォーマットの例
+```cpp example
+#include <iostream>
+#include <chrono>
+#include <format>
+
+namespace chrono = std::chrono;
+
+int main()
+{
+  chrono::utc_clock::time_point now = chrono::utc_clock::now();
+  chrono::utc_seconds now_sec = chrono::floor<chrono::seconds>(tp);
+
+  // デフォルトフォーマット
+  std::cout << std::format("1 : {}", now_sec) << std::endl;
+
+  // 「年月日 時分秒」のフォーマット
+  std::cout << std::format("2 : {:%Y年%m月%d日 %H時%M分%S秒}", now_sec) << std::endl;
+
+  // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り、タイムゾーンの略称付き
+  std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S %Z}", now_sec) << std::endl;
+
+  // 日付だけ出力
+  std::cout << std::format("4 : %Y年%m月%d日", now_sec) << std::endl;
+  std::cout << std::format("5 : %F", now_sec) << std::endl;
+
+  // 時間だけ出力
+  std::cout << std::format("6 : %H時%M分%S秒", now_sec) << std::endl;
+  std::cout << std::format("7 : %T", now_sec) << std::endl;
+}
+```
+* chrono::utc_clock[link utc_clock.md]
+* now()[link utc_clock/now.md]
+* chrono::floor[link time_point/floor.md]
+* std::format[link format.md]
+
+#### 出力例
+```
+1 : 2019-12-20 10:05:05 UTC
+2 : 2019年12月20日 10時05分05秒
+3 : 2019/12/20 10:05:05 UTC
+4 : 2019年12月20日
+5 : 2019-12-20
+6 : 10時05分05秒
+7 : 10:05:05
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -153,4 +208,5 @@ UTC
 
 
 ## 関連項目
-- [`local_time_format()`](local_time_format.md.nolink) (フォーマットの詳細)
+- [chronoの`std::format()`](/reference/chrono/format.md) (出力フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

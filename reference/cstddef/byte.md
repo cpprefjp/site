@@ -88,7 +88,7 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 5.0
 - [GCC](/implementation.md#gcc): 7.1
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 3(`_HAS_STD_BYTE`を`0`に定義することで無効化できる)
 
 
 ## 関連項目

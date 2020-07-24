@@ -24,7 +24,7 @@ namespace std::chrono {
 
 - `"%F"`は`"%Y-%m-%d"` (4桁ゼロ埋めの年-2桁ゼロ埋めの月-2桁ゼロ埋めの日) と等価
 - `"%T"`は`"%H:%M:%S"` (2桁ゼロ埋めの時:2桁ゼロ埋めの分:2桁ゼロ埋めの秒と小数点以下の時間) と等価
-- `"%Z"`はタイムゾーンの省略名 (日本は`"JST"`、UTCは`"UTC"`)
+- `"%Z"`はタイムゾーンの略称 (日本は`"JST"`、UTCは`"UTC"`)
 
 
 ## 戻り値
@@ -77,4 +77,4 @@ int main()
 
 
 ## 関連項目
-- [`local_time_format()`](/reference/chrono/local_time_format.md.nolink) (フォーマットの詳細)
+- [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)

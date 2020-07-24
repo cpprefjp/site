@@ -17,7 +17,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [`const`修飾されたメンバポインタの制限を修正](cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する |
 | デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正 | |
 | 特殊化のアクセスチェック | |
-| [空オブジェクトを言語サポート](cpp20/language_support_for_empty_objects.md.nolink) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する |
+| [空オブジェクトに対する最適化を支援する属性`[[no_unique_address]]`](cpp20/language_support_for_empty_objects.md) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する |
 | [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする |
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく |
 | [抽象型のチェック](cpp20/checking_for_abstract_class_types.md.nolink) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
@@ -29,16 +29,16 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [スコープ付き列挙型のusing宣言](cpp20/using_enum.md.nolink) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする |
+| [スコープ付き列挙型のusing宣言](cpp20/using_enum.md) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする |
 
 
 ### 変数
 
 | 言語機能 | 説明 |
 |----------|------|
-| 指示付き初期化 | |
+| [指示付き初期化](cpp20/designated_initialization.md) | 波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 |
-| [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md.nolink) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
+| [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
 | [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 |
 | [要素数不明の配列への変換を許可](cpp20/permit_conversions_to_arrays_of_unknown_bound.md.nolink) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 |
 | [ほとんどの`volatile`を非推奨化](cpp20/deprecating_volatile.md.nolink) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する |
@@ -72,7 +72,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [初期化式をともなう範囲for文](cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく |
-| [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加](cpp20/likely_and_unlikely_attributes.md.nolink) | コンパイラが分岐予測するためのヒントとする |
+| [確率が高い分岐と低い分岐を伝える属性 `[[likely]]`, `[[unlikely]]`](cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 |
 
 
 ### テンプレート
@@ -81,7 +81,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [コンセプト](cpp20/concepts.md) | テンプレートパラメータに対する制約を行う |
 | [autoパラメータによる関数テンプレートの簡易定義](cpp20/function_templates_with_auto_parameters.md) | ジェネリックラムダと同様、関数パラメータをの型を`auto`にすることで簡易的に関数テンプレートを定義できるようにする |
-| [型の文脈で`typename`の省略を許可](cpp20/down_with_typename.md.nolink) | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする |
+| [型の文脈で`typename`の省略を許可](cpp20/down_with_typename.md) | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする |
 | [非型テンプレートパラメータとしてクラス型を許可する](cpp20/class_types_in_non-type_template_parameters.md.nolink) | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする |
 | 関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正 | |
 | [集成体クラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_aggregates.md.nolink) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする |
@@ -113,8 +113,8 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする |
 | ラムダ式の制約 | |
 | 暗黙のラムダキャプチャを簡略化 | |
-| 状態を持たないラムダ式を、デフォルト構築可能、代入可能とする | |
-| 評価されない文脈でのラムダ式 | |
+| [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](./cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする |
+| [評価されない文脈でのラムダ式](./cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする |
 | [ラムダ式の初期化キャプチャでのパック展開を許可](cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 |
 | [構造化束縛したビットフィールドの参照キャプチャ](cpp20/reference_capture_of_structured_bindings.md.nolink) | ビットフィールドを含む構造化束縛をした場合にラムダ式で参照キャプチャできない規定を緩和し、ビットフィールドを直接参照キャプチャ、もしくはデフォルト参照キャプチャして使用しなければ適格とする |
 
@@ -137,7 +137,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [コルーチン](cpp20/coroutines.md.nolink) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する |
+| [コルーチン](cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する |
 
 
 ### プリプロセッサ
@@ -184,15 +184,15 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - 数値ライブラリとして[`<numbers>`](/reference/numbers.md)を追加。数学定数が定義される
 - ビット操作ライブラリとして[`<bit>`](/reference/bit.md)を追加
     - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
-    - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::ispow2()`](/reference/bit/ispow2.md)関数、整数値を2の累乗値に切り上げる[`std::ceil2()`](/reference/bit/ceil2.md)関数、整数値を2の累乗値に切り下げる[`std::floor2()`](/reference/bit/floor2.md)関数、2を底とした整数値の対数を求めて1を足す[`std::log2p1()`](/reference/bit/log2p1.md)関数を追加
+    - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::has_single_bit()`](/reference/bit/has_single_bit.md)関数、整数値を2の累乗値に切り上げる[`std::bit_ceil()`](/reference/bit/bit_ceil.md)関数、整数値を2の累乗値に切り下げる[`std::bit_floor()`](/reference/bit/bit_floor.md)関数、2を底とした整数値の対数を求めて1を足す[`std::bit_width()`](/reference/bit/bit_width.md)関数を追加
     - 循環ビットシフトを行う[`std::rotl()`](/reference/bit/rotl.md)と[`std::rotr()`](/reference/bit/rotr.md)を追加
     - 連続した0もしくは1のビットを数える[`std::countl_zero()`](/reference/bit/countl_zero.md)、[`std::countl_one()`](/reference/bit/countl_one.md)、[`std::countr_zero()`](/reference/bit/countr_zero.md)、[`std::countr_one()`](/reference/bit/countr_one.md)、および立っているビットを数える[`std::popcount()`](/reference/bit/popcount.md)を追加
     - エンディアンを表す列挙型として[`std::endian`](/reference/bit/endian.md)を追加
 - 型制約のための要件ライブラリとして[`<concepts>`](/reference/concepts.md)を追加
-- 言語機能であるコルーチンを制御するライブラリとして[`<coroutine>`](/reference/coroutine.md.nolink)を追加
-- スレッドの実行を停止させるメカニズムとして[`<stop_token>`](/reference/stop_token.md)を追加し、停止に対応したスレッドクラスとして[`<thread>`](/reference/thread.md)に[`std::jthread`](/reference/thread/jthread.md.nolink)クラスを追加
-- 軽量な同期プリミティブであるセマフォのライブラリとして[`<semaphore>`](/reference/semaphore.md.nolink)を追加
-- スレッド調整メカニズムとして、ラッチライブラリの[`<latch>`](/reference/latch.md.nolink)、バリアライブラリの[`<barrier>`](/reference/barrier.md.nolink)を追加
+- 言語機能であるコルーチンを制御するライブラリとして[`<coroutine>`](/reference/coroutine.md)を追加
+- スレッドの実行を停止させるメカニズムとして[`<stop_token>`](/reference/stop_token.md)を追加し、停止に対応したスレッドクラスとして[`<thread>`](/reference/thread.md)に[`std::jthread`](/reference/thread/jthread.md)クラスを追加
+- 軽量な同期プリミティブであるセマフォのライブラリとして[`<semaphore>`](/reference/semaphore.md)を追加
+- スレッド調整メカニズムとして、ラッチライブラリの[`<latch>`](/reference/latch.md)、バリアライブラリの[`<barrier>`](/reference/barrier.md)を追加
 - イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして[`<ranges>`](/reference/ranges.md.nolink)を追加
     - 既存のイテレータの組を扱うアルゴリズムは、`std::ranges`名前空間に範囲版アルゴリズムが追加される
 - ソースコードの位置を取得するライブラリとして[`<source_location>`](/reference/source_location.md)を追加
@@ -263,7 +263,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### スマートポインタ
 - [`std::make_shared()`](/reference/memory/make_shared.md)と[`std::allocate_shared()`](/reference/memory/allocate_shared.md)を配列に対応
-- スマートポインタをデフォルト初期化で構築するヘルパ関数として、[`std::make_unique_default_init()`](/reference/memory/make_unique_default_init.md)、[`std::make_shared_default_init()`](/reference/memory/make_shared_default_init.md)、[`std::allocate_shared_default_init()`](/reference/memory/allocate_shared_default_init.md)を追加
+- スマートポインタをデフォルト初期化で構築するヘルパ関数として、[`std::make_unique_for_overwrite()`](/reference/memory/make_unique_for_overwrite.md)、[`std::make_shared_for_overwrite()`](/reference/memory/make_shared_for_overwrite.md)、[`std::allocate_shared_for_overwrite()`](/reference/memory/allocate_shared_for_overwrite.md)を追加
 - ポインタを生ポインタに変換する[`std::to_address()`](/reference/memory/to_address.md)を追加
 - [`std::pointer_traits`](/reference/memory/pointer_traits.md)`::`[`pointer_to()`](/reference/memory/pointer_traits/pointer_to.md)関数に`constexpr`を追加
 
@@ -340,3 +340,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`invoke_result`](/reference/type_traits/invoke_result.md)の追加にともない、C++17から非推奨化されていた[`result_of`](/reference/type_traits/result_of.md)を削除
 - C++17での[`uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)の追加にともない、非推奨化していた[`uncaught_exception()`](/reference/exception/uncaught_exception.md)を削除
 - C++17で非推奨化されていたC互換ライブラリ`<ccomplex>`, `<cstdalign>`, `<cstdbool>`, `<ctgmath>`を削除。また、C++ではなにも定義されないC互換ライブラリ`<ciso646>`を削除
+
+
+## 参照
+- [P2131R0 Changes between C++17 and C++20 DIS](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2131r0.html)

@@ -9,11 +9,12 @@ namespace std {
   template<class From, class To>
   concept convertible_to =
     is_convertible_v<From, To> &&
-    requires(From (&f)()) {
+    requires(add_rvalue_reference_t<From> (&f)()) {
       static_cast<To>(f());
     };
 }
 ```
+* add_rvalue_reference_t[link /reference/type_traits/add_rvalue_reference.md]
 * is_convertible_v[link /reference/type_traits/is_convertible.md]
 
 ## 概要
@@ -24,24 +25,24 @@ namespace std {
 
 ## モデル
 
-まず、説明のための関数`test(), f()`を以下のように定義、宣言する。
+`FromR = add_rvalue_reference_t<From>`として、説明のための関数`test(), f()`を以下のように定義、宣言する。
 
 ```cpp
-To test(From (&func)()) {
+To test(FromR (&func)()) {
   return func();
 }
 
-From f();
+FromR f();
 ```
 
-この`test()`関数、型`From, To`及び、[等しさを保持](/reference/concepts.md)し`From`型を返す引数なしの関数`f`について、以下の条件を満たす場合に限って型`From, To`は`convertible_to`のモデルである。
+この`test()`関数、型`FromR, To`及び、[等しさを保持](/reference/concepts.md)し`FromR`型を返す引数なしの関数`f`について、以下の条件を満たす場合に限って型`From, To`は`convertible_to`のモデルである。
 
 - 次のどちらかを満たす
     - `To`は[オブジェクト型](/reference/type_traits/is_object.md)でもオブジェクトへの参照型でもない
     - `static_cast<To>(f())`と`test(f)`は等しい
 - 次のいずれかを満たす
-    - `From`はオブジェクトへの参照型ではない
-    - `From`が非`const`右辺値参照型の場合、`f()`の呼び出しによって参照されるオブジェクトの状態は、上記の式の実行の後でも有効だが未規定となる
+    - `FromR`はオブジェクトへの参照型ではない
+    - `FromR`が非`const`右辺値参照型の場合、`f()`の呼び出しによって参照されるオブジェクトの状態は、上記の式の実行の後でも有効だが未規定となる
         - 標準ライブラリの型のオブジェクトは特に指定がない場合、ムーブされた後の状態は有効だが未規定となる
     - `f()`の呼び出しによって参照されるオブジェクトは上記の式の実行によって変更されない
 
@@ -139,3 +140,4 @@ true
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [LWG Issue 3194. `ConvertibleTo` prose does not match code](https://wg21.cmeerw.net/lwg/issue3194)

@@ -129,8 +129,8 @@ int main() {
 
 ## 関連項目
 - [`std::make_shared()`](make_shared.md)
-- [`std::make_shared_default_init()`](make_shared_default_init.md)
-- [`std::allocate_shared_default_init()`](allocate_shared_default_init.md)
+- [`std::make_shared_for_overwrite()`](make_shared_for_overwrite.md)
+- [`std::allocate_shared_for_overwrite()`](allocate_shared_for_overwrite.md)
 
 
 ## 参照

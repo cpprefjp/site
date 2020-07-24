@@ -19,19 +19,19 @@ namespace std {
 * is_nothrow_invocable_v[link /reference/type_traits/is_nothrow_invocable.md]
 
 ## 概要
-関数呼び出し可能なオブジェクト`f`とその引数`args...`の組み合わせで[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しを行う。
+関数呼び出し可能なオブジェクト`f`とその引数`args...`の組み合わせで[*INVOKE*](/reference/concepts/Invoke.md)要件に従った関数呼び出しを行う。
 
-[*INVOKE*](/reference/concepts/Invoke.md)コンセプトとはC++における関数呼び出しという性質を抽象化しまとめた概念（コンセプト）であり、この関数はその実体化、すなわち関数呼び出しという操作を統一したものである。
+[*INVOKE*](/reference/concepts/Invoke.md)要件とはC++における関数呼び出しという性質を抽象化しまとめた概念であり、`invoke`はその実体化、すなわち関数呼び出しという操作を統一したものである。
 
 ## 要件
-型`F`および`Args`の組み合わせで[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しが可能であり、オーバーロード解決の結果が曖昧にならないこと。そうでない場合はコンパイルエラーとなる。
+型`F`および`Args...`の組み合わせで[*INVOKE*](/reference/concepts/Invoke.md)要件に従った関数呼び出しが可能であり、オーバーロード解決の結果が曖昧にならないこと。そうでない場合はコンパイルエラーとなる。
 
 ## 引数
 - `f` -- [*Callable*](/reference/concepts/Callable.md) オブジェクト（関数ポインタ/参照・関数オブジェクト・メンバポインタ）
 - `args...` -- `f`に与える引数列。`f`がメンバポインタである場合は対応するクラスのオブジェクト（もしくはその[reference_wrapper](reference_wrapper.md)）が`args...`の先頭になければならない
 
 ## 戻り値
-`f`と`args...`により[*INVOKE*](/reference/concepts/Invoke.md)コンセプトに従った関数呼び出しを行い、その結果を戻り値として返す。
+`f`と`args...`により[*INVOKE*](/reference/concepts/Invoke.md)要件に従った関数呼び出しを行い、その結果を戻り値として返す。
 
 ## 例外
 `f`の`args...`による関数呼び出しに際して例外を投げない（[`is_nothrow_invocable_v<F, Args...>`](/reference/type_traits/is_nothrow_invocable.md) ` == true`）ならば、この関数も例外を投げない。

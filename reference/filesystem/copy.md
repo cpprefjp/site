@@ -69,6 +69,7 @@ namespace std::filesystem {
         - `(options & copy_options::create_hard_links) != copy_options::none`であれば、コピー元ファイルのハードリンクを、コピー先に作成する
         - コピー先がディレクトリである場合、[`copy_file`](copy_file.md)`(from, to/`[`from.filename()`](path/filename.md)`, options)`を実行する
         - いずれの条件にも合致しない場合は、[`copy_file`](copy_file.md)`(from, to, options)`を実行する
+    - コピー元がディレクトリであり、`(options & copy_options::create_symlinks) != copy_options::none`である場合、[`make_error_code`](/reference/system_error/make_error_code.md)`(`[`errc::is_a_directory`](/reference/system_error/errc.md)`)`と等値な[`error_code`](/reference/system_error/error_code.md)オブジェクトをエラーとして報告する
     - コピー元がディレクトリであり、`((options & copy_options::recursive) != copy_options::none || options == copy_options::none)`である場合、
         - コピー先にディレクトリが存在しない場合は、[`create_directory`](create_directory.md)`(to, from)`を実行する
         - その後、コピー元ディレクトリの全ての要素を、以下のようにコピーする (`in-recursive-copy`は、[`copy_options`](copy_options.md)には含まれないビットマスク要素)：
@@ -191,3 +192,6 @@ int main()
 
 ## 参照
 - [LWG Issue 3015. `copy_options::unspecified` underspecified](https://wg21.cmeerw.net/lwg/issue3015)
+- [LWG Issue 2682. `filesystem::copy()` won't create a symlink to a directory](https://wg21.cmeerw.net/lwg/issue2682)
+    - C++17策定同時の仕様では、`copy("/", "root", copy_options::create_symlinks);`のような状況 (コピー元がディレクトリで、`create_symlinks`オプション付き) でコピー先ディレクトリにシンボリックリンクが作られない問題があった。GNUの`cp -s`コマンドでは「ディレクトリ`"/"`の処理は省略された」と表示されてエラー終了する。この問題に対する仕様変更ではその動作に合わせて、コピー元がディレクトリで`create_symlinks`オプションが指定された場合、エラーを報告するようになった
+    - この問題は2016年4月に報告された。仕様としてはC++20に含まれるが、過去に遡ってC++17のコンパイラでもこの仕様に対応している可能性がある

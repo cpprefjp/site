@@ -28,23 +28,23 @@ namespace std {
 template<class T, class Cat>
 concept compares-as = same_as<common_comparison_category_t<T, Cat>, Cat>;
 
-//順序付けの4種×2方向の比較演算子が使用可能であり、戻り値型がbooleanコンセプトを満たす
+//順序付けの4種×2方向の比較演算子が使用可能であり、戻り値型がboolean-testableコンセプトを満たす
 template<class T, class U>
 concept partially-ordered-with =
   requires(const remove_reference_t<T>& t, const remove_reference_t<U>& u) {
-    { t <  u } -> boolean;
-    { t >  u } -> boolean;
-    { t <= u } -> boolean;
-    { t >= u } -> boolean;
-    { u <  t } -> boolean;
-    { u >  t } -> boolean;
-    { u <= t } -> boolean;
-    { u >= t } -> boolean;
+    { t <  u } -> boolean-testable;
+    { t >  u } -> boolean-testable;
+    { t <= u } -> boolean-testable;
+    { t >= u } -> boolean-testable;
+    { u <  t } -> boolean-testable;
+    { u >  t } -> boolean-testable;
+    { u <= t } -> boolean-testable;
+    { u >= t } -> boolean-testable;
   };
 ```
 * common_comparison_category_t[link /reference/compare/common_comparison_category.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* boolean[link /reference/concepts/boolean.md]
+* boolean-testable[link /reference/concepts/boolean-testable.md]
 
 - (1) : 以下のように定義される。
 
@@ -67,13 +67,13 @@ concept three_way_comparable =
 ```cpp
 template<class T, class U, class Cat = partial_ordering>
 concept three_way_comparable_with =
-  weakly-equality-comparable-with<T, U> &&
-  partially-ordered-with<T, U> &&
   three_way_comparable<T, Cat> &&
   three_way_comparable<U, Cat> &&
   common_reference_with<const remove_reference_t<T>&, const remove_reference_t<U>&> &&
   three_way_comparable<
     common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>, Cat> &&
+  weakly-equality-comparable-with<T, U> &&
+  partially-ordered-with<T, U> &&
   requires(const remove_reference_t<T>& t, const remove_reference_t<U>& u) {
     { t <=> u } -> compares-as<Cat>;
     { u <=> t } -> compares-as<Cat>;
@@ -113,7 +113,7 @@ concept three_way_comparable_with =
         - `T, U`は`totally_orderd_with`のモデルである
 
 - `partially-ordered-with` : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`について次の条件を満たす場合に限って、型`T, U, Cat`は`partially-ordered-with`のモデルである
-    - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ定義域を持つ
+    - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ[定義域](/reference/concepts.md)を持つ
     - `bool(t < u) == bool(u > t)`が`true`であること
     - `bool(u < t) == bool(t > u)`が`true`であること
     - `bool(t <= u) == bool(u >= t)`が`true`であること
@@ -270,3 +270,5 @@ int main() {
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [LWG Issue 3360. `three_way_comparable_with` is inconsistent with similar concepts](https://wg21.cmeerw.net/lwg/issue3360)
+- [P1964R2 Wording for `boolean-testable`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1964r2.html)

@@ -137,7 +137,7 @@ void construct_propagate_alloc()
   const std::size_t n = 1;
   string* p = alloc.allocate(n);
 
-  // (1) 以下のコンストラクタを呼び出し、アロケータオブジェクトを伝搬させる
+  // (1) 以下のコンストラクタを呼び出し、アロケータオブジェクトを伝播させる
   // basic_string(const char*, Allocator)
   alloc.construct(p, "hello");
 
@@ -157,7 +157,7 @@ void construct_pair()
 
   // (2)
   // pairの各要素に対して以下のコンストラクタを呼び出し、
-  // アロケータオブジェクトを伝搬させる。
+  // アロケータオブジェクトを伝播させる。
   // basic_string(const char*, Allocator)
   std::pair<string, string>* pair_p = p;
   alloc.construct(p, std::piecewise_construct,

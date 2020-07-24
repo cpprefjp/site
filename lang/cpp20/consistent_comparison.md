@@ -88,7 +88,7 @@ bool is_equal = comp == 0.0;
 三方比較演算子の戻り値型は`int`などの整数型ではなく、比較カテゴリ型と呼ばれる専用の型である。  
 これは、比較対象となる型の満たしている同値や順序の関係についてを専用の型によって表明し、コンセプト等の機構によってその性質に応じた適切な処理へのディスパッチを行うことを出来るようにするためである（例えば、以下で述べる比較カテゴリ型によって導出する演算子を変化させるのに利用されている）。
 
-以下の5つの比較カテゴリ型が提供される。
+以下の3つの比較カテゴリ型が提供される。
 
 |比較カテゴリ型|対応する数学的な関係|導出される演算子|
 |:---|:---:|:---:|
@@ -108,7 +108,7 @@ bool is_equal = comp == 0.0;
 各比較カテゴリ型はその条件の強いものから弱いものへの暗黙変換が定義される。この方向は各カテゴリに対応する数学的な関係の包含関係によって定義されている。  
 
 ![]( https://raw.githubusercontent.com/cpprefjp/image/master/lang/cpp20/consistent_comparison_01.png)  
-図1 比較カテゴリ間の変換関係（[P0515R3](http://wg21.link/p0515)より引用）
+図1 比較カテゴリ間の変換関係（[P0515R3](http://wg21.link/p0515)より引用； 最終的なC++20仕様では`weak_equality`/`strong_equality`は[削除されている](http://wg21.link/p1959)）
 
 
 これはつまり、各比較カテゴリ間の順序関係を示している。この順序は半順序となる。
@@ -298,16 +298,28 @@ bool eq2 = a == category::C;  //ok
 
 ```cpp
 struct C {
-  //有効な<=>のdefault宣言（3つのうちいずれか）
+  //有効な<=>のdefault宣言例
   auto operator<=>(const C&) const = default;
   friend auto operator<=>(const C&, const C&) = default;
   friend auto operator<=>(C, C) = default;
 
-  //有効な==のdefault宣言（3つのうちいずれか）
+  //有効な==のdefault宣言例
   bool operator==(const C&) const = default;
   friend bool operator==(const C&, const C&) = default;
   friend bool operator==(C, C) = default;
+
+  //クラス外で定義することもできる
+  auto operator<=>(const C&) const;
+  bool operator== (const C&) const;
+  friend auto operator<=>(const C&, const C&);
+  friend bool operator== (const C&, const C&);
 };
+
+//クラス外定義は別の翻訳単位にあってもok
+auto C::operator<=>(const C&) const = default;
+bool C::operator== (const C&) const = default;
+inline auto operator<=>(const C&, const C&) = default;
+inline bool operator== (const C&, const C&) = default;
 ```
 
 `<=>`をdefault宣言した場合、対応する`==`が暗黙的にdefault宣言される。そのアクセス指定は同一であり、`friend`であるかも`<=>`に従う。  
@@ -783,6 +795,8 @@ struct has_vector {
         - 不要になった`_equality`な比較カテゴリ型の削除
     10. [P1946R0 Allow defaulting comparisons by value](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1946r0.html)
         - `<=> ==`の`friend`な`default`宣言の調整
+    11. [P2085R0 Consistent defaulted comparisons](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2085r0.html)
+        - `<=> ==`の`default`宣言をクラス外でも行えるようにする
 - 以前に検討されていた提案文書
     - [N3950 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html)
     - [N4114 Defaulted comparison operators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm)

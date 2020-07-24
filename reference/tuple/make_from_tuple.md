@@ -25,7 +25,7 @@ tuple-likeな型とは主に[`std::tuple`](../tuple.md)の事であるが、[`st
 より詳細には、[`std::get`](/reference/array/array/get.md)（インデックス指定）と[`std::tuple_size`](/reference/array/array/tuple_size.md)が適用可能な型である。
 
 ## 戻り値
-`Tuple`に含まれる型の値をその順番通りに型`T`のコンストラクタに[`std::forward`](`/reference/utility/forward.md`)して構築された`T`のオブジェクト。
+`Tuple`に含まれる型の値をその順番通りに型`T`のコンストラクタに[`std::forward`](/reference/utility/forward.md)して構築された`T`のオブジェクト。
 
 ## 例外
 `Tuple`に含まれる型の値を受け取る`T`のコンストラクタが例外を送出する可能性がある場合は、この関数も例外を送出しうる。

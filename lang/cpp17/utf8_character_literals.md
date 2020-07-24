@@ -9,6 +9,7 @@ char s[] = u8"あいうえお"; // OK : C++11以降
 char c = u8'A'; // OK : C++17以降
 ```
 
+C++20ではUTF-8文字リテラルの型が[`char`ではなく`char8_t`になる](/lang/cpp20/char8_t.md)
 
 ## 仕様
 - `u8`プレフィックスが付いた文字リテラルは、`char`文字型の、UTF-8文字リテラルとなる
@@ -20,6 +21,8 @@ char c = u8'A'; // OK : C++17以降
 ## 関連項目
 - [C++11 UTF-8文字列リテラル](/lang/cpp11/utf8_string_literals.md)
 - [C++11 `char16_t`と`char32_t`](/lang/cpp11/char16_32.md)
+- [C++20 UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md)
+- [ostream `operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)
 
 
 ## 参照

@@ -31,10 +31,6 @@ namespace std::chrono {
 `is`を返す
 
 
-## 備考
-- この解析においては、`year_month_day`のフォーマットは、デフォルトで`"%F"`が使用される。これは`"%Y-%m-%d"`と等価であり、ハイフン区切りで年、月、日を整数値として解析する
-
-
 ## 例
 ```cpp example
 #include <cassert>
@@ -59,7 +55,7 @@ int main()
     ss << "2020-03-01";
 
     chrono::year_month_day ymd;
-    chrono::from_stream(ss, ymd, "%04F"); // 年の桁数を指定する
+    chrono::from_stream(ss, ymd, "%4F"); // 年の桁数を指定する
     assert(ymd == 2020y/3/1);
   }
 }
@@ -82,4 +78,4 @@ int main()
 
 
 ## 関連項目
-- [`local_time_format()`](/reference/chrono/local_time_format.md.nolink) (フォーマットの詳細)
+- [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)

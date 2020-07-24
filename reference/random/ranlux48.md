@@ -102,5 +102,5 @@ int main()
 ## 参照
 - [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
 - [Ranlux - Random number generator](http://luscher.web.cern.ch/luscher/ranlux/)
-- [Uniform Random Numbers of Guaranteed Quality](http://cmd.inp.nsk.su/old/cmd2/manuals/cernlib/shortwrups/node244.html)
+- [Uniform Random Numbers of Guaranteed Quality](https://web.archive.org/web/20190922154624/http://cmd.inp.nsk.su/old/cmd2/manuals/cernlib/shortwrups/node244.html)
 - [M. Matsumoto, et al., Common Defects in Initialization of Pseudorandom Number Generators, *ACM Trans. Model. Comput. Simul.* **17**, 15 (2007)](https://doi.org/10.1145/1276927.1276928)

@@ -10,19 +10,21 @@ namespace std {
   struct forward_iterator_tag : public input_iterator_tag { };
   struct bidirectional_iterator_tag : public forward_iterator_tag { };
   struct random_access_iterator_tag : public bidirectional_iterator_tag { };
+  struct contiguous_iterator_tag: public random_access_iterator_tag { };  // C++20から
 }
 ```
 
 ## 概要
 `<iterator>`ヘッダでは、イテレータを分類するためのタグ(空クラス)を定義している。
 
-| 型                           | 説明 |
-|------------------------------|----------------|
-| `input_iterator_tag`         | 入力イテレータ |
-| `output_iterator_tag`        | 出力イテレータ |
-| `forward_iterator_tag`       | 前方イテレータ |
-| `bidirectional_iterator_tag` | 双方向イテレータ |
-| `random_access_iterator_tag` | ランダムアクセスイテレータ |
+| 型                           | 説明 | 対応バージョン |
+|------------------------------|----------------|-------|
+| `input_iterator_tag`         | 入力イテレータ ||
+| `output_iterator_tag`        | 出力イテレータ ||
+| `forward_iterator_tag`       | 前方イテレータ ||
+| `bidirectional_iterator_tag` | 双方向イテレータ ||
+| `random_access_iterator_tag` | ランダムアクセスイテレータ ||
+| `contiguous_iterator_tag` | 隣接イテレータ | C++20 |
 
 イテレータの関係性の定義に従い、これらのクラスは継承関係を持っている。
 

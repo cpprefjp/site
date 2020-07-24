@@ -25,7 +25,7 @@ namespace std {
 
 
 ## 戻り値
-* `m` および `n` が 0 の場合 0 を返す
+* `m` と `n` が共に 0 の場合 0 を返す
 * それ以外の場合引数 `|m|` と `|n|` の最大公約数を返す
 
 
@@ -34,38 +34,95 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
-#include <iostream>
-#include <limits>
+#include <cassert>
 #include <numeric>
-#include <type_traits>
 
 int main() {
+  assert(std::gcd(12, 42) == 6);
+  assert(std::gcd(42, 12) == 6);
+
+  // コンパイル時に最大公約数を求めることもできる
   static_assert(std::gcd(0, 0) == 0);
   static_assert(std::gcd(3u, -7l) == 1);
+}
+```
+* std::gcd[color ff0000]
 
-  // 符号付き整数の場合戻り値が負になることがある
-  using T = int32_t;
+#### 出力
+```
+```
+
+### 負の最大公約数
+```cpp example
+#include <iostream>
+#include <numeric>
+#include <cstdint>
+#include <limits>
+
+int main() {
+  // 符号付き整数の場合、戻り値が負になることがある
+  using T = std::int32_t;
   constexpr auto m = std::numeric_limits<T>::min();
   const auto gs = std::gcd<T, T>(m, m);  // -m が int32_t で表せないと m < 0 になる
   std::cout << "gcd<int32_t, int32_t>(" << m << ", " << m << ")   " << gs << std::endl;
 
-  // 符号なし整数にすれば戻り値は正
-  using U = std::make_unsigned<T>::type;  // uint32_t
+  // 符号なし整数にすれば戻り値は正になる
+  using U = std::uint32_t;
   const auto gu = std::gcd<U, U>(m, m);
   std::cout << "gcd<uint32_t, uint32_t>(" << m << ", " << m << ") " << gu << std::endl;
 }
 ```
 * std::gcd[color ff0000]
 * min[link /reference/limits/numeric_limits/min.md]
-* std::make_unsigned[link /reference/type_traits/make_unsigned.md]
+* std::int32_t[link /reference/cstdint/int32_t.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
-### 出力例
+#### 出力例
 ```
 gcd<int32_t, int32_t>(-2147483648, -2147483648)   -2147483648
 gcd<uint32_t, uint32_t>(-2147483648, -2147483648) 2147483648
 ```
 
+### 3つ以上の値に対する最大公約数を求める
+```cpp example
+#include <cassert>
+#include <numeric>
+#include <vector>
+
+// 可変引数で最大公約数を求める関数
+template <class T>
+T vgcd(T m, T n) {
+  return std::gcd(m, n);
+}
+
+template <class T, class... Args>
+T vgcd(T a, Args... args) {
+  return vgcd(a, vgcd(args...));
+}
+
+int main() {
+  // 2つずつ最大公約数を求める
+  assert(std::gcd(std::gcd(12, 42), 72) == 6);
+
+  // リスト全体の最大公約数を求める
+  std::vector<int> v = {12, 42, 72};
+  int r = std::accumulate(v.begin(), v.end(), 0, [](int m, int n) {
+    return std::gcd(m, n);
+  });
+  assert(r == 6);
+
+  // 可変引数で最大公約数を求める
+  assert(vgcd(12, 42, 72) == 6);
+}
+```
+* std::gcd[color ff0000]
+* std::accumulate[link accumulate.md]
+
+#### 出力
+```
+```
 
 ## バージョン
 ### 言語
@@ -79,12 +136,12 @@ gcd<uint32_t, uint32_t>(-2147483648, -2147483648) 2147483648
 
 ### 備考
 #### Clang (libc++)
-要件 2 を満たすかどうかチェックしないが、戻り値を `constexpr` 指定するとオーバーフロー時にコンパイルエラーとなることがある。
-要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
+- 要件 2 を満たすかどうかチェックしないが、戻り値を `constexpr` 指定するとオーバーフロー時にコンパイルエラーとなることがある。
+- 要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
 
 #### GCC (libstdc++)
-要件 2 を満たすかどうかチェックしないが、戻り値を `constexpr` 指定するとオーバーフロー時にコンパイルエラーとなることがある。
-要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
+- 要件 2 を満たすかどうかチェックしないが、戻り値を `constexpr` 指定するとオーバーフロー時にコンパイルエラーとなることがある。
+- 要件 2 を満たさない場合、オーバーフローにより戻り値が負になることがある。
 
 
 ## 参照

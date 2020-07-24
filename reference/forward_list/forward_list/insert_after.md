@@ -33,17 +33,21 @@ iterator insert_after(const_iterator position,
 
 
 ## 要件
-- 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/forward_list/before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/forward_list/end.md)`]`の範囲の間接参照可能なイテレータであること。
+- 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/forward_list/before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/forward_list/end.md)`)`の範囲の間接参照可能なイテレータであること。
 - `first`、`last`は`*this`のイテレータではないこと。
 
 
 ## 戻り値
-挿入された要素を指すイテレータ
 
+- (1), (2) : 挿入された要素を指すイテレータ
+- (3), (4), (5) : 最後に挿入された要素を指すイテレータ、挿入されなかった時は`position`
 
 ## 計算量
-定数時間
 
+- (1), (2) : 定数時間
+- (3) : `n`に対して線形時間
+- (4) : `std::distance(first, last)`に対して線形時間
+- (5) : `il.size()`に対して線形時間
 
 ## 例
 ```cpp example

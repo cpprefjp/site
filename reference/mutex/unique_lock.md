@@ -16,7 +16,7 @@ namespace std {
 
 このクラスは通常、メンバ変数もしくはグローバル変数としてもつミューテックスオブジェクトに対し、関数内の先頭で`lock()`、関数を抜ける際に`unlock()`を確実に呼び出すために使用される。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
 
-テンプレートパラメータ`Mutex`は、`lock()`／`unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](http://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
+テンプレートパラメータ`Mutex`は、`lock()`／`unlock()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](https://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
 
 シンプルな機能しか提供しない[`lock_guard`](lock_guard.md)クラスとの違いとして、以下の拡張機能を持つ：
 
@@ -26,7 +26,7 @@ namespace std {
 - 任意のタイミングで所有ミューテックスのロック操作を呼び出せる
 
 
-また条件変数std::[`condition_variable`](/reference/condition_variable/condition_variable.md)オブジェクトと組み合わせて利用できるのは、`std::unique_lock<std::`[`mutex`](mutex.md)`>`型のオブジェクトに限定されている。
+また条件変数`std::`[`condition_variable`](/reference/condition_variable/condition_variable.md)オブジェクトと組み合わせて利用できるのは、`std::unique_lock<std::`[`mutex`](mutex.md)`>`型のオブジェクトに限定されている。
 
 ## メンバ関数
 
