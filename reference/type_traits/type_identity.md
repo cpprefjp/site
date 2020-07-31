@@ -54,7 +54,7 @@ int main()
 ```
 ```
 
-### 型推論の無効化
+### 型推論の無効化(1)
 ```cpp example
 #include <type_traits>
 
@@ -76,6 +76,43 @@ int main()
 }
 ```
 * std::type_identity_t[color ff0000]
+
+### 型推論の無効化(2)
+```cpp example
+#include <iostream>
+#include <type_traits>
+
+template <typename T>
+void h1(T a, T b)
+{
+  std::cout << a << ' ' << b << std::endl;
+}
+
+template <typename T>
+void h2(T a, std::type_identity_t<T> b)
+{
+  std::cout << a << ' ' << b << std::endl;
+}
+
+int main()
+{
+#if 0
+  // Tの型推論がintとdoubleで曖昧となるためコンパイルエラー
+  h1(100, 3.14);
+#endif
+    
+  // 第1引数(int)からのみTの型推論を行う
+  // 第2引数はdouble→intに変換される(3.14→3)
+  h2(100, 3.14);
+}
+```
+* std::type_identity_t[color ff0000]
+
+#### 出力
+```
+100 3
+```
+
 
 ## バージョン
 ### 言語
