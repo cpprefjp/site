@@ -117,10 +117,9 @@ bool is_equal = comp == 0.0;
 
 比較に参加するすべての型の`<=>`による比較カテゴリ型をそれぞれ`Ti (0 <= i < N)`として、共通比較カテゴリ型`U`は以下のように決定される。
 
-1. `Ti`の中に一つでも比較カテゴリ型でない型がある場合、`U = void`
-2. `Ti`の中に1つでも`partial_ordering`がある場合、`U = partial_ordering`
-3. `Ti`の中に1つでも`weak_ordering`がある場合、`U = weak_ordering`
-4. それ以外の場合、`U = strong_ordering`（`N == 0`の場合）
+1. `Ti`の中に1つでも`partial_ordering`がある場合、`U = partial_ordering`
+2. `Ti`の中に1つでも`weak_ordering`がある場合、`U = weak_ordering`
+3. それ以外の場合、`U = strong_ordering`（`N == 0`の場合）
 
 この共通比較カテゴリ型を求めるのは場合によっては困難なので、それを求めるために`<compare>`ヘッダにて[`common_comparison_category<Ts...>`](/reference/compare/common_comparison_category.md)というメタ関数が提供される。
 
@@ -332,7 +331,7 @@ inline bool operator== (const C&, const C&) = default;
 
 上記のように`<=>`が`default`宣言されていて`==`メンバ/`friend`関数が一つも宣言されていない場合、その`<=>`に対応する`==`の`default`宣言が暗黙的に行われる。
 
-そのような暗黙宣言は対応する`<=>`の直後で、対応する`<=>`の宣言の戻り値型を`bool`、名前を`operator==`に置き換えた形で宣言される。すなわち、対応する`<=>`に指定されているあらゆるプロパティを全て継承する。ただし、結果的な例外指定だけは異なる可能性がある。
+そのような暗黙宣言は対応する`<=>`の直後で、対応する`<=>`の宣言の戻り値型を`bool`、名前を`operator==`に置き換えたように宣言される。すなわち、対応する`<=>`に指定されているあらゆるプロパティを全て継承する。ただし、結果的な例外指定だけは異なる可能性がある。
 
 `<=>`の`default`宣言に伴う暗黙の`==`宣言の例。
 
@@ -340,11 +339,11 @@ inline bool operator== (const C&, const C&) = default;
 template<typename T>
 struct X {
   friend constexpr std::partial_ordering operator<=>(X, X) requires (sizeof(T) != 1) = default;
-  //暗黙宣言は次のようになる
+  //対応する==の暗黙宣言は次のようになる
   //friend constexpr bool operator==(X, X) requires (sizeof(T) != 1) = default;
 
   [[nodiscard]] virtual std::strong_ordering operator<=>(const X&) const = default;
-  //暗黙宣言は次のようになる
+  //対応する==の暗黙宣言は次のようになる
   //[[nodiscard]] virtual bool operator==(const X&) const = default;
 };
 ```
@@ -399,7 +398,18 @@ public:
 };
 ```
 
-この時、使用可能な`<=> ==`演算子が見つからない場合、およびメンバに参照型を持つか1つ以上のメンバ変数を持つ匿名共用体を含む、もしくはその型が1つ以上のメンバ変数を持つ共用体である場合は宣言された全ての比較演算子の`default`宣言は暗黙的に`delete`される（下記のその他演算子の`default`宣言も含む）。
+ただし、次のいずれかに該当する場合には`<=> ==`の`default`宣言は暗黙的に`delete`される
+
+- `<=>`は`delete`される
+    - 使用可能な`<=>`演算子が見つからないペアがある
+    - `<=>`による比較が比較カテゴリ型を返さないペアがある
+- `==`は`delete`される
+    - 使用可能な`==`演算子が見つからないペアがある
+    - `==`による比較が`bool`に変換可能な型を返さないペアがある
+- 両方とも`delete`される
+    - 参照型メンバを持つ
+    - 1つ以上のメンバ変数を持つ匿名共用体をメンバに含む
+    - その型が1つ以上のメンバ変数を持つ共用体である
 
 #### default実装における<=>の合成
 
@@ -434,18 +444,17 @@ auto comp = n1 <=> n2;  //ok
 bool eq   = n1 ==  n2;  //ok
 ```
 
-指定された戻り値型を`R`、比較しようとしている`T`の値を`a, b`として、それらの満たす条件によって以下のように`<=>`は合成される。
+`<=>`の`default`宣言に指定された戻り値型を`R`、比較しようとしている対応するメンバの値を`a, b`として、それらの満たす条件によって以下のように`<=>`は合成される。
 
 |条件|合成された`<=>`の式|
 |:-------------|:-------------|
-|`a <=> b`のオーバーロード解決で使用可能な`<=>`が見つかる|`static_cast<R>(a <=> b);`|
-|`R`は`std::strong_ordering`|`a == b ? std::strong_ordering::equal :`<br/>`a < b  ? std::strong_ordering::less :`<br/>`std::strong_ordering::greater;`|
-|`R`は`std::weak_ordering`|`a == b ? std::weak_ordering::equivalent :`<br/>`a < b  ? std::weak_ordering::less :`<br/>`std::weak_ordering::greater;`|
-|`R`は`std::partial_ordering`|`a == b ? std::partial_ordering::equivalent :`<br/>`a < b  ? std::partial_ordering::less :`<br/>`b < a  ? std::partial_ordering::greater;`<br/>`std::partial_ordering::unordered`|
+|`a <=> b`が使用可能|`static_cast<R>(a <=> b);`|
+|`R`は`std::strong_ordering`であり、`a == b, a < b`がいずれも使用可能|`a == b ? std::strong_ordering::equal :`<br/>`a < b  ? std::strong_ordering::less :`<br/>`std::strong_ordering::greater;`|
+|`R`は`std::weak_ordering`であり、`a == b, a < b`がいずれも使用可能|`a == b ? std::weak_ordering::equivalent :`<br/>`a < b  ? std::weak_ordering::less :`<br/>`std::weak_ordering::greater;`|
+|`R`は`std::partial_ordering`であり、`a == b, a < b`がいずれも使用可能|`a == b ? std::partial_ordering::equivalent :`<br/>`a < b  ? std::partial_ordering::less :`<br/>`b < a  ? std::partial_ordering::greater;`<br/>`std::partial_ordering::unordered`|
 |どれにも当てはまらない|定義されない|
 
-戻り値型に`auto`を指定した際は、共通比較カテゴリ型を`R`として1つ目（1番上）のように`<=>`が合成されている。  
-また、1つ目の条件により合成される際は`a <=> b`の戻り値型が`R`に変換できない場合はコンパイルエラーとなる。
+この合成された式を用いて`<=>`の`default`実装を行う時、合成された式が定義されない（上記条件に当てはまらない）ペアがある場合はその`<=>`の`default`宣言は暗黙的に`delete`される。
 
 先ほどの`newer`に対して明示的に書くと以下のようになる。
 ```cpp
@@ -469,26 +478,33 @@ struct newer {
 };
 ```
 
-この合成において使用される`< ==`演算子の戻り値型の妥当性はチェックされない。仮に`bool`ではなかったとしても、合成された式においてコンパイルエラーが発生しなければ`<=>`の合成はつつがなく行われる。  
-また、合成された`<=>`が定義されない（上記条件のいずれも当てはまらない）場合はdefault指定の`<=>`は暗黙にdeleteされる。
+この合成において使用される`< ==`演算子の戻り値型の妥当性はチェックされない。仮に`bool`ではなかったとしても、合成された式においてコンパイルエラーが発生しなければ`<=>`の合成はつつがなく行われる。逆に言うと、合成された式がコンパイルエラーを起こす場合はハードエラーとなる。
 
 #### その他の比較演算子のdefault宣言
-`<=> ==`だけでなく、残りの比較演算子もdefault指定で宣言することができる。その有効な宣言は`<=> ==`に従う。
 
+`<=> ==`だけでなく、残りの比較演算子もdefault指定で宣言することができる。その有効な宣言は`==`に従う。  
 そのようなdefault実装はオーバーロード解決時に生成される式と同様の式を使って`<=> ==`から実装される。
 
-`<=> ==`演算子が使用可能ではない場合や`<=>`の戻り値型が対象の演算子を生成できない場合、`==`の戻り値型が`bool`ではない場合はそのdefault宣言は暗黙的に`delete`される（オーバーロード候補生成時はコンパイルエラーとなる場合でも単にdeleteされる）。
+ただし次のいずれかの場合、演算子`@`の`default`宣言は暗黙的に`delete`される（オーバーロード候補生成時はコンパイルエラーとなる場合でも単に`delete`される）。
+
+- `x @ y`のオーバーロード解決の結果、使用可能な候補が見つからない
+    - `@`の生成に使用する`<=> ==`演算子が使用可能ではない
+    - `@`の生成に使用する`<=>`の戻り値型が比較カテゴリ型ではない
+    - `@`（`!=`）の生成に使用する`==`の戻り値型が`bool`ではない
+- `x @ y`のオーバーロード解決の結果、生成された式ではない演算子が見つかった
+    - `operator@`がすでに定義されている
 
 ```cpp
 struct C {
-
+  // 戻り値型のおかしい<=>
   bool operator<=>(const C&) const { return true; }
+  // 正常な==
+  bool operator==(const C&) const = default;
 
   bool operator<(const C&) const = default;  //ok、暗黙的にdeleteされる
 
-  bool operator!=(const C&) const = default;  //ok、使用可能
+  bool operator!=(const C&) const = default;  //ok、使用可能（ただし、==が明示的に宣言されている必要がある）
 };
-
 ```
 
 これは、比較演算子のアドレスを取りたいときに使用する。
