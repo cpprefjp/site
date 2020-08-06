@@ -47,13 +47,13 @@ int main()
   std::cout << std::boolalpha;
 
   std::atomic_flag x = ATOMIC_FLAG_INIT;
-  std::cout << std::atomic_flag_test(&x, std::memory_order::acquire) << std::endl;
+  std::cout << std::atomic_flag_test_explicit(&x, std::memory_order::acquire) << std::endl;
 
   std::atomic_flag_test_and_set(&x, std::memory_order::release);
-  std::cout << std::atomic_flag_test(&x, std::memory_order::acquire) << std::endl;
+  std::cout << std::atomic_flag_test_explicit(&x, std::memory_order::acquire) << std::endl;
 }
 ```
-* std::atomic_flag_test[color ff0000]
+* std::atomic_flag_test_explicit[color ff0000]
 * std::atomic_flag_test_and_set[link atomic_flag_test_and_set.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 * memory_order[link /reference/atomic/memory_order.md]
