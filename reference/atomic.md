@@ -21,6 +21,7 @@
 |-----------------------------------------------------------|------------------------------------------------------------|-------|
 | [`ATOMIC_BOOL_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<bool>`に対する操作がロックフリーかを調べる(define) | C++11 |
 | [`ATOMIC_CHAR_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char>`に対する操作がロックフリーかを調べる(define) | C++11 |
+| [`ATOMIC_CHAR8_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char8_t>`に対する操作がロックフリーかを調べる(define) | C++20 |
 | [`ATOMIC_CHAR16_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char16_t>`に対する操作がロックフリーかを調べる(define) | C++11 |
 | [`ATOMIC_CHAR32_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<char32_t>`に対する操作がロックフリーかを調べる(define) | C++11 |
 | [`ATOMIC_WCHAR_T_LOCK_FREE`](atomic/lock_free_property.md) | `atomic<wchar_t>`に対する操作がロックフリーかを調べる(define) | C++11 |
