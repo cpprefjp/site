@@ -48,5 +48,5 @@ hello
 
 
 ## 参照
-- [CWG Issue 1473. Syntax of literal-operator-id](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1473)
+- [CWG Issue 1473. Syntax of literal-operator-id](https://wg21.cmeerw.net/cwg/issue1473)
 
