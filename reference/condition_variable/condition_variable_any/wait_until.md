@@ -14,9 +14,17 @@ template <class Lock, class Clock, class Duration, class Predicate>
 bool wait_until(Lock& lock,
                 const chrono::time_point<Clock, Duration>& abs_time,
                 Predicate pred);                                           // (2)
+
+template<class Lock, class Clock, class Duration, class Predicate>
+bool wait_until(Lock& lock,
+                stop_token stoken,
+                const chrono::time_point<Clock, Duration>& abs_time,
+                Predicate pred);                                           // (3) C++20 から
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
 * time_point[link /reference/chrono/time_point.md]
+* stop_token[link /reference/stop_token/stop_token.md]
+
 
 ## 概要
 絶対時間でタイムアウトを指定して、起床されるまで待機する。
@@ -51,10 +59,25 @@ return true;
 ```
 * cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
+- (3) : 以下と等価の処理を行う
+
+```cpp
+while (!stoken.stop_requested()) {
+  if (pred())
+    return true;
+  if (cv.wait_until(lock, abs_time) == cv_status::timeout)
+    return pred();
+}
+return pred();
+```
+* stop_requested()[link /reference/stop_token/stop_source/stop_requested.md]
+* cv_status::timeout[link /reference/condition_variable/cv_status.md]
+
 
 ## 戻り値
 - (1) : `abs_time`で指定された絶対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。
-- (2) : 戻り値：`pred()`の結果が返る
+- (2) : `pred()`の結果が返る。
+- (3) : 停止要求が行われた場合は`true`が返る。そうでない場合は`pred()`の結果が返る。
 
 
 ## 事後条件
@@ -62,8 +85,14 @@ return true;
 
 
 ## 例外
-- C++11 : この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
-- C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
+- (1) :
+    - C++11まで : この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
+    - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
+- (2) :
+    - C++11まで : この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
+    - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。または`pred()`により送出された例外。
+- (3) :
+    - 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。または`pred()`により送出された例外。
 
 
 ## 備考
@@ -187,4 +216,4 @@ process data
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 - [Bug 41861 (DR887) - [DR 887][C++0x] `<condition_variable>` does not use `monotonic_clock`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=41861)
     - GCC 10から`steady_clock`がサポートされた
-
+- [P0660R10 Stop Token and Joining Thread, Rev 10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)

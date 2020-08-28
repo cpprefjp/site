@@ -11,7 +11,14 @@ void wait(Lock& lock);                 // (1)
 
 template <class Lock, class Predicate>
 void wait(Lock& lock, Predicate pred); // (2)
+
+template<class Lock, class Predicate>
+bool wait(Lock& lock,
+          stop_token stoken,
+          Predicate pred);             // (3) C++20 から
 ```
+* stop_token[link /reference/stop_token/stop_token.md]
+
 
 ## 概要
 起床されるまで待機する。
@@ -40,13 +47,26 @@ while (!pred()) {
 }
 ```
 
+- (3) : 以下と等価の処理を行う
+
+```cpp
+while (!stoken.stop_requested()) {
+  if (pred())
+    return true;
+  wait(lock);
+}
+return pred();
+```
+* stop_requested()[link /reference/stop_token/stop_source/stop_requested.md]
+
 
 ## 事後条件
 `lock`が参照しているミューテックスオブジェクトが、この関数を呼び出したスレッドでロック取得されていること
 
 
 ## 戻り値
-なし
+- (1),(2) : なし
+- (3) : 停止要求が行われた場合は`true`が返る。そうでない場合は`pred()`の結果が返る。
 
 
 ## 例外
@@ -55,7 +75,9 @@ while (!pred()) {
     - C++14 : 投げない
 - (2) : 
     - C++11まで : この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
-    - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
+    - C++14 : `pred()`により送出された例外。
+－ (3) :
+    - `pred()`により送出された例外。
 
 
 ## 備考
@@ -158,5 +180,4 @@ process data
 ## 参照
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
-
-
+- [P0660R10 Stop Token and Joining Thread, Rev 10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
