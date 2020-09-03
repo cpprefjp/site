@@ -154,6 +154,11 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 
 ## 関連項目
 - [C++14 `[[deprecated]]`属性](/lang/cpp14/deprecated_attr.md)
+- [C++17 `[[maybe_unused]]`属性](/lang/cpp17/maybe_unused.md)
+- [C++17 `[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)
+- [C++17 `[[fallthrough]]`属性](/lang/cpp17/fallthrough.md)
+- [C++20 `[[no_unique_address]]`属性](/lang/cpp20/language_support_for_empty_objects.md)
+- [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
 
 
 ## 参照
