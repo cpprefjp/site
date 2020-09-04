@@ -27,6 +27,12 @@ namespace std {
 
 ## <a href="#iter_concept" id="iter_concept ">`ITER_CONCEPT`</a>
 
+型`I`について、`std::iterator_traits<I>`がプライマリテンプレートの特殊化となる場合、`ITER_TRAITS(I)`を`I`とする。それ以外の場合、`ITER_TRAITS(I)`を`std::iterator_traits<I>`とする。
+
+1. `ITER_TRAITS(I)::itertor_concept`が有効で型名を示す場合、`ITER_CONCEPT(I)`は`ITER_TRAITS(I)::itertor_concept`
+2. `ITER_TRAITS(I)::itertor_category`が有効で型名を示す場合、`ITER_CONCEPT(I)`は`ITER_TRAITS(I)::itertor_category`
+3. `std::iterator_traits<I>`がプライマリテンプレートの特殊化となる場合、`ITER_CONCEPT(I)`は`ITER_TRAITS(I)::random_access_iterator_tag`
+4. 上記いずれにも当てはまらない場合、`ITER_CONCEPT(I)`は型名を示さない
 
 ## 例
 ```cpp example
@@ -63,6 +69,7 @@ int main() {
   f<int*>("int*");
   f<const int*>("const int*");
   f<std::vector<int>::iterator>("std::vector<int>::iterator");
+  f<std::istream_iterator<double>>("std::istream_iterator<double>");
   f<sample_input_iterator>("sample_input_iterator");
   
   std::cout << "\n";
@@ -77,6 +84,7 @@ int main() {
 int* is input_iterator
 const int* is input_iterator
 std::vector<int>::iterator is input_iterator
+std::istream_iterator<double> is input_iterator
 sample_input_iterator is input_iterator
 
 int* const is not input_iterator
