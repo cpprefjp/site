@@ -3,8 +3,8 @@ name: outer link check
 on:
   schedule:
     # UTC 表記
-    # 日本時間 23:30
-    - cron: "30 14 * * *"
+    # 日本時間 日曜23:30
+    - cron: "30 14 * * 0"
 
 jobs:
   build:
