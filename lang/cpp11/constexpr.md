@@ -146,7 +146,7 @@ std::thread t2{job2};
 
 そんな状況のために、[`std::mutex`クラスのデフォルトコンストラクタ](/reference/mutex/mutex/op_constructor.md)には、`constexpr`修飾が行われている。そうすることで、その型の非ローカル変数を作ったときに、その変数は他の任意のスレッド開始よりも先に行われることが保証される。
 
-- [Constant Initialization - 雑貨's tumblr](http://zakkas783.tumblr.com/post/25490513807/constant-initialization)
+- [雑貨's tumblr - Constant Initialization](https://zakkas783-blog-blog.tumblr.com/post/25490513807/constant-initialization)
 - [`mutex`のconstexprコンストラクタ](http://d.hatena.ne.jp/yohhoy/20120621/p1)
 
 
