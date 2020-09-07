@@ -36,7 +36,7 @@ namespace std {
 
 `random_access_iterator`は、イテレータ型`I`がランダムアクセスイテレータであることを表すコンセプトである。
 
-`random_access_iterator`となるイテレータは、[双方向イテレータ](bidirectional_iterator.md)であり、`+= + -= -`による定数時間での進行と、`-`による定数時間での距離の計算が可能である、
+`random_access_iterator`となるイテレータは、[双方向イテレータ](bidirectional_iterator.md)であり、`+= + -= -`による定数時間での進行と、`-`による定数時間での距離の計算が可能である。
 
 ## モデル
 
@@ -91,12 +91,12 @@ struct sample_random_access_iterator {
   friend auto operator-(const sample_random_access_iterator&, int) -> sample_random_access_iterator;
   friend auto operator-=(sample_random_access_iterator&, int) -> sample_random_access_iterator&;
   
-  friend auto operator-(const sample_random_access_iterator&, const sample_random_access_iterator&) -> i;
+  friend auto operator-(const sample_random_access_iterator&, const sample_random_access_iterator&) -> int;
 
   friend auto operator*(const sample_random_access_iterator&) -> int&;
   auto operator[](int) const -> int&;
 
-  friend bool operator<=>(const sample_random_access_iterator&, const sample_random_access_iterator&);
+  friend std::strong_ordering operator<=>(const sample_random_access_iterator&, const sample_random_access_iterator&);
   friend bool operator==(const sample_random_access_iterator&, const sample_random_access_iterator&);
 
   using difference_type = int;
