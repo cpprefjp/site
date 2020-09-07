@@ -37,7 +37,7 @@ namespace std {
 
 ## モデル
 
-`a, b`を間接参照可能なイテレータ、`c`を間接参照不可能なイテレータとし、`b`は`a`から、`c`は`b`からそれぞれ到達可能であるとする。そのような型`I`のイテレータ`a, b, c`と`iter_reference_t<I>`の示す型`D`について次の条件を満たす場合に限って、型`I`は`contiguous_iterator`のモデルである。
+`a, b`を間接参照可能なイテレータ、`c`を間接参照不可能なイテレータとし、`b`は`a`から、`c`は`b`からそれぞれ到達可能であるとする。そのような型`I`のイテレータ`a, b, c`と[`iter_difference_t<I>`](/reference/iterator/iter_difference_t.md)の示す型`D`について次の条件を満たす場合に限って、型`I`は`contiguous_iterator`のモデルである。
 
 - `to_address(a) == addressof(*a)`
 - `to_address(b) == to_address(a) + D(b - a)`
