@@ -238,7 +238,7 @@ v2
 - [N2013 Versioning with Namespaces](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2013.html)
 - [N2331 Namespace Association ("strong" using)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2331.html)
 - [N2535 Namespace Association ("inline namespace")](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2535.htm)
-- [7.9 Namespace Association - Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/Namespace-Association.html#Namespace-Association)
+- [7.9 Namespace Association - Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gcc/Namespace-Association.html)
 - [CWG Issue 812. Duplicate names in inline namespaces](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#812)
 - [CWG Issue 861. Unintended ambiguity in inline namespace lookup](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#861)
 - [Inline namespaces and ambigous declarations - Stackoverflow](http://stackoverflow.com/questions/27252466/inline-namespaces-and-ambigous-declarations/)
