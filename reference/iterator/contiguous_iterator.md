@@ -27,7 +27,7 @@ namespace std {
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * to_address[link /reference/memory/to_address.md]
-* add_pointer_t[link /reference/type_traits/add_pointer_t.md]
+* add_pointer_t[link /reference/type_traits/add_pointer.md]
 
 ## 概要
 
