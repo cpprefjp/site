@@ -16,7 +16,7 @@ namespace std {
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* input_iterator_tag[link /reference/iterator/input_iterator_tag.md]
+* input_iterator_tag[link /reference/iterator/iterator_tag.md]
 * derived_from[link /reference/concepts/derived_from.md]
 
 ## 概要

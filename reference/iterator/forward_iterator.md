@@ -15,8 +15,9 @@ namespace std {
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
+* forward_iterator_tag[link /reference/iterator/iterator_tag.md]
 * derived_from[link /reference/concepts/derived_from.md]
-* ITER_CONCEPT[link /reference/concepts/input_iterator.md#iter_concept]
+* ITER_CONCEPT[link /reference/iterator/input_iterator.md#iter_concept]
 * incrementable[link /reference/iterator/incrementable.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 
