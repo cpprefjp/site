@@ -168,5 +168,5 @@ enum class char8_t : unsigned char {};
 
 ### その他
 
-- [Proposal for a C/C++ language extension to support portable UTF-16](http://www.unicode.org/%7Easmus/stdc-utf-16.txt)
+- [Proposal for a C/C++ language extension to support portable UTF-16](http://web.archive.org/web/20140701223639/http://www.unicode.org/~asmus/stdc-utf-16.txt)
 - [char8_tによせて - なるせにっき](https://naruse.hateblo.jp/entry/2018/12/24/013446)
