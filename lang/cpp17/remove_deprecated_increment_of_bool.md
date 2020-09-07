@@ -158,6 +158,10 @@ C++14で`std::exchange()`が導入されたことにより、唯一使いみち�
 - [Core issue 1653: Removing deprecated increment of bool](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4192.html#1653)
 - [N3668: exchange() utility function, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3668)
 - [history - Why does the boolean type in C++ support ++ but not --? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/230928/why-does-the-boolean-type-in-c-support-but-not)
-- [An Investigation of Therac-25 Accidents - I](http://courses.cs.vt.edu/professionalism/Therac_25/Therac_1.html)
-- [Therac-25 - III](http://courses.cs.vt.edu/professionalism/Therac_25/Therac_3.html)
+- Leveson, Nancy G.; Turner, Clark S. (July 1993). ["An Investigation of the Therac-25 Accidents"](https://web.archive.org/web/20041128024227/http://www.cs.umd.edu/class/spring2003/cmsc838p/Misc/therac.pdf) (PDF). IEEE Computer. 26 (7): 18–41. doi:10.1109/MC.1993.274940.
+
+  テキスト起こし
+  1. [An Investigation of Therac-25 Accidents - I](http://web.archive.org/web/20171206153409/http://courses.cs.vt.edu/professionalism/Therac_25/Therac_1.html)
+  2. [Therac-25 - II](http://web.archive.org/web/20171212115910/http://courses.cs.vt.edu/professionalism/Therac_25/Therac_2.html)
+  3. [Therac-25 - III](http://web.archive.org/web/20170215125239/http://courses.cs.vt.edu/professionalism/Therac_25/Therac_3.html)
 - [Therac-25 - Wikipedia](https://en.wikipedia.org/wiki/Therac-25)
