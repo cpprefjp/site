@@ -47,9 +47,28 @@ int main()
 * max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
 * std::scientific[link /reference/ios/scientific.md]
 
+## 小数点以下の出力桁数を指定する例
+```cpp example
+#include <iostream>
+#include <iomanip>
+#include <limits>
+
+int main()
+{
+  float f = 3.145900F;
+
+  // デフォルトは整数部も含めた桁数指定
+  std::cout << std::setprecision(3) << f << std::endl;
+  // std::fixedを同時に使用することで小数点以下の桁数指定になる
+  std::cout << std::fixed << std::setprecision(3) << f << std::endl;
+}
+```
+* std::setprecision[color ff0000]
+* std::fixed[link /reference/ios/fixed.md]
+
 ## 出力例
 ```
-9
-3.145900011e+00
+3.15
+3.146
 ```
 
