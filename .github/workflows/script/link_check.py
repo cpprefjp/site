@@ -39,7 +39,7 @@ def check_url(url: str, retry: int = 5) -> (bool, str):
 
 def fix_link(link: str) -> str:
     if "http" in link or ".md" in link:
-        if "http" in link and "(" in link:
+        if "http" in link and "(" in link and ")" not in link:
             link = link + ")"
         return re.sub("#.*", "", link.strip())
     else:
