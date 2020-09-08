@@ -19,7 +19,7 @@ namespace std {
 - 排他ロック(書き込みロック、`lock()`／`unlock()`)を自動的に手放すために[`lock_guard`](/reference/mutex/lock_guard.md)クラス、[`unique_lock`](/reference/mutex/unique_lock.md)クラスを使用する。
 - 共有ロック(読み込みロック、`lock_shared()`／`unlock_shared()`)を自動的に手放すために、このクラスを使用する。
 
-このクラスは、メンバ変数で保持しているミューテックスオブジェクトを、メンバ関数のスコープでロック取得し、手放すというようにして使用する。この手法は、[Scoped Locking Pattern](http://www.cs.wustl.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
+このクラスは、メンバ変数で保持しているミューテックスオブジェクトを、メンバ関数のスコープでロック取得し、手放すというようにして使用する。この手法は、[Scoped Locking Pattern](https://www.dre.vanderbilt.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
 
 テンプレートパラメータ`Mutex`は、`lock_shared()`／`unlock_shared()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](https://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
 
