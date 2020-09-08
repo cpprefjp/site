@@ -47,6 +47,12 @@ int main()
 * max_digits10[link /reference/limits/numeric_limits/max_digits10.md]
 * std::scientific[link /reference/ios/scientific.md]
 
+## 出力例
+```
+9
+3.145900011e+00
+```
+
 ## 小数点以下の出力桁数を指定する例
 ```cpp example
 #include <iostream>
