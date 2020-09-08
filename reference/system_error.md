@@ -26,7 +26,7 @@
 
 ## 参照
 - [System error support in C++0x part1-5 - Thinking Asynchronously in C++](http://blog.think-async.com/search/label/system_error)
-- [Boost System Library Documentation](http://www.boost.org/doc/libs/release/libs/system/doc/index.html)
+- [Boost System Library Documentation](https://boost.org/libs/system)
 - [N2241 Diagnostics Enhancements for C++0x (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2241.html)
 - [N2422 Diagnostics Issues (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2422.htm)
 
