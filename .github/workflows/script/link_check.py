@@ -17,14 +17,13 @@ def retry_sleep():
 
 def check_url(url: str, retry: int = 5) -> (bool, str):
     try:
-        url_parts = urllib.parse.urlparse(url)
-        res = requests.get("://".join([url_parts.scheme, url_parts.netloc]), verify=False, timeout=60.0)
+        res = requests.get(url, verify=False, timeout=60.0)
         if res.url:
             if res.url == url:
-                return True, ""
+                return res.status_code != 404, "404"
             return check_url(res.url)
         else:
-            return res.status_code != 404, "not found"
+            return res.status_code != 404, "404"
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
@@ -40,7 +39,7 @@ def check_url(url: str, retry: int = 5) -> (bool, str):
 
 def fix_link(link: str) -> str:
     if "http" in link or ".md" in link:
-        if "http" in link and "(" in link:
+        if "http" in link and "(" in link and ")" not in link:
             link = link + ")"
         return re.sub("#.*", "", link.strip())
     else:
