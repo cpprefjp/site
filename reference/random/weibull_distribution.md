@@ -128,5 +128,5 @@ int main()
 ### 参考
 - [ワイブル分布 - Wikipedia](https://ja.wikipedia.org/wiki/ワイブル分布)
 - [ワイブル分布 = NtRand](http://www.ntrand.com/jp/weibull-distribution/)
-- [疲労や破壊現象とワイブル分布](http://www.mogami-wire.co.jp/notes/weibull.html)
+- [疲労や破壊現象とワイブル分布](http://www.mogami.com/notes/weibull.html)
 
