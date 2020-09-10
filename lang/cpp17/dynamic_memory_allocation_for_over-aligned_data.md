@@ -40,8 +40,8 @@ void* operator new(std::size_t size, std::align_val_t alignment);
 ## 関連項目
 - [`<new>`](/reference/new.md)
 - [`std::align`](/reference/memory/align.md)
-- [C++11 alignas](/lang/cpp11/alignas.md)
-- [C++11 alignof](/lang/cpp11/alignof.md)
+- [C++11 `alignas`](/lang/cpp11/alignas.md)
+- [C++11 `alignof`](/lang/cpp11/alignof.md)
 
 ## 参照
 - [P0035R4 Dynamic memory allocation for over-aligned data](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html)

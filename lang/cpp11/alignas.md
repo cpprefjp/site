@@ -103,6 +103,7 @@ N2341 からはわからない、恐らくないと思われる。
 
 ## 関連項目
 - [C++11 `alignof`](/lang/cpp11/alignof.md)
+- [C++17 アライメント指定されたデータの動的メモリ確保](/lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.md)
 
 
 ## 参照
