@@ -64,7 +64,7 @@ int main()
   int shared_data = 0;
 
   // 初期化済みを表すラッチ: 初期カウント値=1
-  std::latch initalized{1};
+  std::latch initialized{1};
   // タスク完了を表すラッチ: 初期カウント値=ワーカ数+1(メインスレッド)
   std::latch completed{NWORKER+1};
 
@@ -72,7 +72,7 @@ int main()
   for (int id = 1; id <= NWORKER; id++) {
     std::thread([&,id]{
       // 共有データの初期化完了を待機
-      initalized.wait();
+      initialized.wait();
       // メインスレッド上でのshared_data代入完了は保証されており、
       // 以降はshared_data読出のみであればデータ競合発生しない。
       int local_data = shared_data;
@@ -92,7 +92,7 @@ int main()
   shared_data = 42;
 
   // 共有データ初期化完了をワーカスレッド群へ通知
-  initalized.count_down();
+  initialized.count_down();
   // メインスレッドはブロックされず後続行を実行する
 
   { // メインスレッドのタスクを実行
