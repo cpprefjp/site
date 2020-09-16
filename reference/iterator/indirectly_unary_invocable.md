@@ -37,7 +37,7 @@ namespace std {
 * iter_common_reference_t[link /reference/iterator/iter_common_reference_t.md]
 * common_reference_with[link /reference/concepts/common_reference_with.md]
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
-* regular_invocable[link /reference/concepts/regular_invocable.md]
+* regular_invocable[link /reference/concepts/invocable.md]
 
 ## 概要
 
