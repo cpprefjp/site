@@ -30,8 +30,6 @@ namespace std {
 
 単純には、型`I1, I2, F`のオブジェクトをそれぞれ`i1, i2, f`とすると`bool c = f(*i1, *i2)`のような呼び出しが可能であることを表している。
 
-これは例えば、[`shared_ptr`](/reference/memory/shared_ptr.md)の比較に[`owner_less`](/reference/memory/owner_less.md)を用いる場合に、そのような述語オブジェクトの制約に用いることができる。
-
 ## 例
 ```cpp example
 #include <iostream>
