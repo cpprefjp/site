@@ -169,12 +169,12 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
-| [`indirectly_unary_invocable`](iterator/indirectly_unary_invocable.md.nolink) | イテレータの要素型によって呼び出し可能 (concept)           | C++20          |
-| [`indirectly_regular_unary_invocable`](iterator/indirectly_regular_unary_invocable.md.nolink) | 正則な`indirectly_unary_invocable` (concept)           | C++20          |
-| [`indirect_unary_predicate`](iterator/indirect_unary_predicate.md.nolink) | イテレータの要素型についての単項述語 (concept)           | C++20          |
-| [`indirect_binary_predicate`](iterator/indirect_binary_predicate.md.nolink) | イテレータの要素型についての二項述語 (concept)           | C++20          |
-| [`indirect_equivalence_relation`](iterator/indirect_equivalence_relation.md.nolink) | イテレータの要素型についての同値関係 (concept)           | C++20          |
-| [`indirect_strict_weak_order`](iterator/indirect_strict_weak_order.md.nolink) | イテレータの要素型についての狭義の弱順序 (concept)           | C++20          |
+| [`indirectly_unary_invocable`](iterator/indirectly_unary_invocable.md) | イテレータの要素型によって呼び出し可能 (concept)           | C++20          |
+| [`indirectly_regular_unary_invocable`](iterator/indirectly_unary_invocable.md) | 正則な`indirectly_unary_invocable` (concept)           | C++20          |
+| [`indirect_unary_predicate`](iterator/indirect_unary_predicate.md) | イテレータの要素型についての単項述語 (concept)           | C++20          |
+| [`indirect_binary_predicate`](iterator/indirect_binary_predicate.md) | 2つのイテレータの要素型についての二項述語 (concept)           | C++20          |
+| [`indirect_equivalence_relation`](iterator/indirect_equivalence_relation.md) | 2つのイテレータの要素型についての同値関係 (concept)           | C++20          |
+| [`indirect_strict_weak_order`](iterator/indirect_strict_weak_order.md) | 2つのイテレータの要素型についての狭義の弱順序 (concept)           | C++20          |
 
 ## 一般的なアルゴリズムコンセプト
 
