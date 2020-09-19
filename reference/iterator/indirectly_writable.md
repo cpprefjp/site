@@ -29,7 +29,7 @@ namespace std {
 
 このコンセプトを構成する4つの制約式は全て、[等しさを保持](/reference/concepts.md)することを要求しない。
 
-`const_cast`を用いる制約式は、右辺値の代入は可能だが`const`な右辺値の代入ができないような*prvalue*の非プロキシイテレータを弾くために存在している。これによって、間接参照が`std::string`（*pravlue*）を返すようなイテレータ型は`indirectly_writable`のモデルとならない。
+`const_cast`を用いる制約式は、右辺値の代入は可能だが`const`な右辺値の代入ができないような*prvalue*の非プロキシイテレータを弾くために存在している。これによって、間接参照が`std::string`（*prvalue*）を返すようなイテレータ型は`indirectly_writable`のモデルとならない。
 
 ## モデル
 
