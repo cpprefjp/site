@@ -87,10 +87,11 @@ int main() {
 
 ### 出力
 ```
-int* is indirectly_movable_storable bool(const int&, const int&)
-std::unique_ptr<int> is indirectly_movable_storable bool(const int&, const int&)
-std::vector<int>::iterator is indirectly_movable_storable bool(const int&, const int&)
-std::istream_iterator<int> is indirectly_movable_storable bool(const int&, const int&)
+int* is indirectly_movable_storable int* const
+std::unique_ptr<int> is indirectly_movable_storable int*
+std::vector<int>::iterator is indirectly_movable_storable std::unique_ptr<int>
+std::istream_iterator<int> is indirectly_movable_storable std::vector<int>::iterator
+std::istream_iterator<int> is indirectly_movable_storable std::ostream_iterator<int>
 
 int* is not indirectly_movable_storable const int*
 std::ostream_iterator<int> is not indirectly_movable_storable std::istream_iterator<int>
