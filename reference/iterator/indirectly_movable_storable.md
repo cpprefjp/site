@@ -92,10 +92,9 @@ std::unique_ptr<int> is indirectly_movable_storable bool(const int&, const int&)
 std::vector<int>::iterator is indirectly_movable_storable bool(const int&, const int&)
 std::istream_iterator<int> is indirectly_movable_storable bool(const int&, const int&)
 
-int* is not indirectly_movable_storable void(const int&, const int&)
-std::unique_ptr<int> is not indirectly_movable_storable void(const int&, const int&)
-std::vector<int>::iterator is not indirectly_movable_storable void(const int&, const int&)
-std::istream_iterator<int> is not indirectly_movable_storable void(const int&, const int&)
+int* is not indirectly_movable_storable const int*
+std::ostream_iterator<int> is not indirectly_movable_storable std::istream_iterator<int>
+non_copy* is not indirectly_movable_storable non_copy*
 ```
 
 ## バージョン
