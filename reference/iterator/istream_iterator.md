@@ -3,7 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 
-```
+```cpp
 namespace std {
   template <class T, class CharT = char,
             class Traits = char_traits<CharT>, class Distance = ptrdiff_t>
