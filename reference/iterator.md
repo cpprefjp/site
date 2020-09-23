@@ -180,8 +180,8 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
-| [`indirectly_movable`](iterator/indirectly_movable.md.nolink) | 片方のイテレータからもう片方のイテレータへ要素をムーブ可能 (concept)           | C++20          |
-| [`indirectly_movable_storable`](iterator/indirectly_movable_storable.md.nolink) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をムーブ可能 (concept)           | C++20          |
+| [`indirectly_movable`](iterator/indirectly_movable.md) | 片方のイテレータからもう片方のイテレータへ要素をムーブ可能 (concept)           | C++20          |
+| [`indirectly_movable_storable`](iterator/indirectly_movable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をムーブ可能 (concept)           | C++20          |
 | [`indirectly_copyable`](iterator/indirectly_copyable.md.nolink) | 片方のイテレータからもう片方のイテレータへ要素をコピー可能 (concept)           | C++20          |
 | [`indirectly_copyable_storable`](iterator/indirectly_copyable_storable.md.nolink) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をコピー可能 (concept)           | C++20          |
 | [`indirectly_swappable`](iterator/indirectly_swappable.md.nolink) | 2つのイテレータ間で要素を交換可能 (concept)           | C++20          |

@@ -67,7 +67,7 @@ int main() {
   f<std::istream_iterator<int>, F2>("std::istream_iterator<int>", "void(const int&, const int&)");
 }
 ```
-* std::contiguous_iterator[color ff0000]
+* std::indirect_strict_weak_order[color ff0000]
 
 ### 出力
 ```
