@@ -69,7 +69,7 @@ int main() {
   }
 
   //確保したメモリ領域を解放
-  alloc.deallocate_bytes(vp, N, alignof(int));
+  alloc.deallocate_bytes(vp, sizeof(int) * N, alignof(int));
 }
 ```
 * deallocate_bytes[color ff0000]
