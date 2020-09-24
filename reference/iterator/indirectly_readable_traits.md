@@ -59,7 +59,7 @@ namespace std {
 
 ## 概要
 
-任意のイテレータ型からそのイテレータの要素型（`value_type`）を取得する、あるいは[`iter_value_t`](iter_difference_t.md)で取得できるようにするためにアダプトする。
+任意のイテレータ型からそのイテレータの要素型（`value_type`）を取得する、あるいは[`iter_value_t`](iter_value_t.md)で取得できるようにするためにアダプトする。
 
 ## 効果
 
