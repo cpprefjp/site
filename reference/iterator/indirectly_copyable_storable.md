@@ -28,12 +28,12 @@ namespace std {
 
 ## 概要
 
-`indirectly_copyable_storable`は、型`In, Out`が[`indirectly_copyable`](/reference/iterator/indirectly_copyable.md)の関係にあり、[`iter_value_t<In>`](/reference/iterator/iter_value_t.md)型の中間オブジェクトを介しても、`In`から`Out`へその要素のオブジェクトがムーブ可能であることを表すコンセプトである。
+`indirectly_copyable_storable`は、型`In, Out`が[`indirectly_copyable`](/reference/iterator/indirectly_copyable.md)の関係にあり、[`iter_value_t<In>`](/reference/iterator/iter_value_t.md)型の中間オブジェクトを介しても、`In`から`Out`へその要素のオブジェクトがコピー可能であることを表すコンセプトである。
 
 単純には、型`In, Out`のオブジェクトをそれぞれ`in, out`とすると次のような代入が可能であることを表している。
 
 ```cpp
-const iter_value_t<In> tmp = std::move(*in);
+const iter_value_t<In> tmp = *in;
 *out = tmp;
 ```
 
