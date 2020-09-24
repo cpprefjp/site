@@ -64,7 +64,7 @@ namespace std {
 
 ## 備考
 
-イテレータの差分型を求める場合はこのクラスの代わりに[`iter_difference_t`](iter_value_t.md)を使用することを推奨する（より汎用的であるため）。その場合、このクラスは自作のイテレータ型を`iter_difference_t`にアダプトするために使用できる。
+イテレータの差分型を求める場合はこのクラスの代わりに[`iter_difference_t`](iter_difference_t.md)を使用することを推奨する（より汎用的であるため）。その場合、このクラスは自作のイテレータ型を`iter_difference_t`にアダプトするために使用できる。
 
 ## 例
 ```cpp example
