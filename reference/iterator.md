@@ -182,8 +182,8 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 |------------------------------|-------------------------------------------------|----------------|
 | [`indirectly_movable`](iterator/indirectly_movable.md) | 片方のイテレータからもう片方のイテレータへ要素をムーブ可能 (concept)           | C++20          |
 | [`indirectly_movable_storable`](iterator/indirectly_movable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をムーブ可能 (concept)           | C++20          |
-| [`indirectly_copyable`](iterator/indirectly_copyable.md.nolink) | 片方のイテレータからもう片方のイテレータへ要素をコピー可能 (concept)           | C++20          |
-| [`indirectly_copyable_storable`](iterator/indirectly_copyable_storable.md.nolink) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をコピー可能 (concept)           | C++20          |
+| [`indirectly_copyable`](iterator/indirectly_copyable.md) | 片方のイテレータからもう片方のイテレータへ要素をコピー可能 (concept)           | C++20          |
+| [`indirectly_copyable_storable`](iterator/indirectly_copyable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をコピー可能 (concept)           | C++20          |
 | [`indirectly_swappable`](iterator/indirectly_swappable.md.nolink) | 2つのイテレータ間で要素を交換可能 (concept)           | C++20          |
 | [`indirectly_comparable`](iterator/indirectly_comparable.md.nolink) | 2つのイテレータ間で要素を比較可能 (concept)           | C++20          |
 | [`permutable`](iterator/permutable.md.nolink) | イテレータを介して要素を並べ替え可能 (concept)           | C++20          |

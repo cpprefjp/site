@@ -66,8 +66,8 @@ void f(const char* nameIn, const char* nameO) {
 }
 
 
-struct non_copy {
-  non_copy(const non_copy&) = delete;
+struct del_copy_ctor {
+  del_copy_ctor(const del_copy_ctor&) = delete;
 };
 
 int main() {
@@ -80,7 +80,7 @@ int main() {
   std::cout << "\n";
   f<int*, const int*>("int*", "const int*");
   f<std::ostream_iterator<int>, std::istream_iterator<int>>("std::ostream_iterator<int>", "std::istream_iterator<int>");
-  f<non_copy*, non_copy*>("non_copy*", "non_copy*");
+  f<del_copy_ctor*, del_copy_ctor*>("del_copy_ctor*", "del_copy_ctor*");
 }
 ```
 * std::indirectly_movable_storable[color ff0000]
@@ -95,7 +95,7 @@ std::istream_iterator<int> is indirectly_movable_storable std::ostream_iterator<
 
 int* is not indirectly_movable_storable const int*
 std::ostream_iterator<int> is not indirectly_movable_storable std::istream_iterator<int>
-non_copy* is not indirectly_movable_storable non_copy*
+del_copy_ctor* is not indirectly_movable_storable del_copy_ctor*
 ```
 
 ## バージョン
