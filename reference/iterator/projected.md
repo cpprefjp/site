@@ -89,9 +89,9 @@ int main() {
 
 ## 関連項目
 
-- [`indirectly_comparable`](iterator/indirectly_comparable.md)
-- [`mergeable`](iterator/mergeable.md.nolink)
-- [`sortable`](iterator/sortable.md.nolink)
+- [`indirectly_comparable`](indirectly_comparable.md)
+- [`mergeable`](mergeable.md.nolink)
+- [`sortable`](sortable.md.nolink)
 
 ## 参照
 
