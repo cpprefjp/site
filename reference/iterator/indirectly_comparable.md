@@ -17,7 +17,7 @@ namespace std {
 
 ## 概要
 
-`indirectly_comparable`は、`indirectly_readable`な型`I1, I2`の参照する要素のオブジェクトが`R`の比較関数によって比較可能であることを表すコンセプトである。  
+`indirectly_comparable`は、[`indirectly_readable`](indirectly_readable.md)な型`I1, I2`の参照する要素のオブジェクトが`R`の比較関数によって比較可能であることを表すコンセプトである。  
 また、その際に任意の射影操作（`P1, P2`）を指定する事ができる。
 
 単純には、型`I1, I2, R, P1, P2`のオブジェクトをそれぞれ`i1, i2, comp, proj1, proj2`とすると`bool c = comp(proj1(*i1), proj2(*i2))`のような比較が可能であることを表している。
@@ -34,8 +34,8 @@ namespace std {
 template<class I, class Range, class R, class P1 = std::identity, class P2 = std::identity>
   requires std::indirectly_comparable<I, std::ranges::iterator_t<Range>, R, P1, P2>
 bool compare_range(I&& lhs, Range&& r, R comp, P1 proj1 = {}, P2 proj2 = {}) {
-  for (auto&& v : r) {
-    if (comp(proj1(*lhs), proj2(v)) == false) return false;
+  for (auto&& rhs : r) {
+    if (comp(proj1(*lhs), proj2(rhs)) == false) return false;
   }
   return true;
 }
