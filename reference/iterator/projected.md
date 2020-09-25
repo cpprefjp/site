@@ -23,7 +23,7 @@ namespace std {
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* indirectly_regular_unary_invocable[link /reference/iterator/indirectly_regular_unary_invocable.md.nolink]
+* indirectly_regular_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * indirect_result_t[link /reference/iterator/indirect_result_t.md]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
@@ -33,7 +33,7 @@ namespace std {
 
 間接参照可能な型`I`に任意の射影操作`Proj`を適用した結果を表す[`indirectly_readable`](/reference/iterator/indirectly_readable.md)のモデルとなる型を生成する。
 
-これは射影操作を受け取るコンセプトやアルゴリズムを制約するために使用するものであり、評価される文脈で使用可能ではない。主に、射影操作の結果に対してイテレータ関連のコンセプトを適用する場合に使用する。
+これは射影操作を受け取るコンセプトやアルゴリズムを制約するために使用するものであり、評価される文脈で使用可能ではない。主に、射影操作の結果に対してイテレータ関連のコンセプトを適用する場合に使用する（射影の結果を再び`indirectly_readable`な型に写す事で、一部のイテレータに対するコンセプトを使いまわす事が出来る）。
 
 ## 例
 ```cpp example
@@ -89,7 +89,7 @@ int main() {
 
 ## 関連項目
 
-- [`indirectly_comparable`](iterator/indirectly_comparable.md.nolink)
+- [`indirectly_comparable`](iterator/indirectly_comparable.md)
 - [`mergeable`](iterator/mergeable.md.nolink)
 - [`sortable`](iterator/sortable.md.nolink)
 
