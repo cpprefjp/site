@@ -58,7 +58,7 @@ int main() {
 ```
 * std::indirectly_comparable[color ff0000]
 * identity[link /reference/functional/identity.md]
-* greater[link /reference/functional/less.md]
+* less[link /reference/functional/less.md]
 * greater[link /reference/functional/greater.md]
 * iterator_t[link /reference/ranges/iterator_t.md.nolink]
 
