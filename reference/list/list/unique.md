@@ -6,7 +6,7 @@
 
 ```cpp
 void unique();                          // (1) C++03
-size_type unique();                     // (1) C++03
+size_type unique();                     // (1) C++20
 
 template <class BinaryPredicate>
 void unique(BinaryPredicate pred);      // (2) C++03
