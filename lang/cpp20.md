@@ -169,6 +169,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
+| [更新された定義済みマクロ](cpp20/predefined_macros.md) | 標準規格で定義されたマクロの更新 |
 | [Unicode標準への参照を更新](cpp20/update_the_reference_to_the_unicode_standard.md.nolink) | 標準C++からISO/IEC 10646への参照を更新し、古い固定バージョンへの参照をやめる |
 
 
