@@ -33,7 +33,7 @@ void* operator new(std::size_t size, std::align_val_t alignment);
 ```
 * std::align_val_t[link /reference/new/align_val_t.md]
 
-動的確保時になされるアライメントのデフォルト値は`__STDCPP_DEFAULT_NEW_ALIGNMENT__`で定義されている。これを超えるアライメント要求を持つクラスに対する[`new`](/reference/new/op_new.md)呼び出しは、[`align_val_t`](/reference/new/align_val_t.md)が渡された場合のもので解決される。また、対応するユーザー定義[`new`](/reference/new/op_new.md)が存在する場合、互換性のため呼び出しはそちらで解決される。もしユーザー定義`new`に`align_val_t`を取るものと取らないものがある場合、取るものが優先される。`delete`も同様である。
+動的確保時になされるアライメントのデフォルト値は[`__STDCPP_DEFAULT_NEW_ALIGNMENT__`](predefined_macros.md)で定義されている。これを超えるアライメント要求を持つクラスに対する[`new`](/reference/new/op_new.md)呼び出しは、[`align_val_t`](/reference/new/align_val_t.md)が渡された場合のもので解決される。また、対応するユーザー定義[`new`](/reference/new/op_new.md)が存在する場合、互換性のため呼び出しはそちらで解決される。もしユーザー定義`new`に`align_val_t`を取るものと取らないものがある場合、取るものが優先される。`delete`も同様である。
 
 `new T`の呼び出しが[`align_val_t`](/reference/new/align_val_t.md)を取る[`new`](/reference/new/op_new.md)で解決される場合、`align_val_t`の値は`alignof(T)`の結果になる。
 
