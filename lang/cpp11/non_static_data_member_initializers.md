@@ -52,6 +52,8 @@ int main()
 
 
 ## 関連項目
+- [C++17 インライン変数](/lang/cpp17/inline_variables.md)  
+  静的メンバ変数は、インライン変数とすることで定義時に初期化できる。
 - [C++20 ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md)
 
 
