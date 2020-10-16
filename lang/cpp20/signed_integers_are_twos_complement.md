@@ -13,6 +13,11 @@ C++20では、符号付き整数型のビット表現を「2の補数 (Two's Com
 ただし、符号付き整数型のオーバーフロー時の動作は、これまでと変わらず未定義動作である。[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<符号付き整数型>::`[`is_modulo`](/reference/limits/numeric_limits/is_modulo.md)はデフォルトで`false`のままとなる。
 
 
+## 備考
+- 2の補数表現としては、正数を加算し続けていくと負数になることは規定できる。しかしこの動作はバグの元であることと、コンパイラは加算を続けても正数であることを期待して積極的に最適化を行うために、標準C++としてはオーバーフローは未定義動作のままである
+    - オーバーフローして符号反転することを想定したプログラムを記述する場合は、[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<符号付き整数型>::`[`is_modulo`](/reference/limits/numeric_limits/is_modulo.md)が`true`であることを確認するか、コンパイラごとに符号付き整数型の最適化を切るオプションを設定するのがよいだろう
+
+
 ## 例
 ### ビット値・ビット演算の例
 ```cpp example
