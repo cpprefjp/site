@@ -7,9 +7,9 @@
 
 ```cpp
 stop_source();                                // (1)
-explicit stop_source(nostopstate_t) explicit; // (2)
-stop_source(const stop_source& rhs) explicit; // (3)
-stop_source(stop_source&& rhs) explicit;      // (4)
+explicit stop_source(nostopstate_t) noexcept; // (2)
+stop_source(const stop_source& rhs) noexcept; // (3)
+stop_source(stop_source&& rhs) noexcept;      // (4)
 ```
 
 ## 概要
