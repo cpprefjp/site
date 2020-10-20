@@ -21,3 +21,14 @@ cpprefjpは、以下のコアメンバが運営を行っています。
 
 
 cpprefjpでは、C++の最新バージョンに随時対応しています。
+
+
+## 各種ツールの使用方法
+### 内部リンクのチェック
+Python 3系をインストールした状態で、以下を実行する：
+
+```
+pip3 install requests
+python3 .github/workflows/script/link_check.py --check-inner-link
+```
+
