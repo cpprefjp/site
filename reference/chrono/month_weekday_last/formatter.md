@@ -7,14 +7,14 @@
 ```cpp
 namespace std {
   template <class charT>
-  struct formatter<chrono::month_weekday, charT>;
+  struct formatter<chrono::month_weekday_last, charT>;
 }
 ```
 
 ## 概要
-`month_weekday`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
+`month_weekday_last`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
 
-フォーマットフラグとしては、[`month`](/reference/chrono/month/formatter.md)と[`weekday_indexed`](/reference/chrono/weekday_indexed/formatter.md)で利用可能なフォーマットフラグを使用できる。
+フォーマットフラグとしては、[`month`](/reference/chrono/month/formatter.md)と[`weekday_last`](/reference/chrono/weekday_last/formatter.md)で利用可能なフォーマットフラグを使用できる。
 
 
 ## 例
@@ -26,7 +26,7 @@ namespace std {
 namespace chrono = std::chrono;
 
 int main() {
-  chrono::month_weekday date = chrono::March/chrono::Sunday[1];
+  chrono::month_weekday_last date = chrono::March/chrono::Sunday[chrono::last];
 
   // デフォルトフォーマットはoperator<<と同じ
   std::cout << std::format("1 : {}", date) << std::endl;
@@ -42,6 +42,7 @@ int main() {
 * std::format[link /reference/chrono/format.md]
 * std::locale[link /reference/locale/locale.md]
 * chrono::March[link /reference/chrono/month_constants.md]
+* chrono::last[link /reference/chrono/last_spec.md]
 
 ### 出力
 ```
@@ -49,7 +50,7 @@ int main() {
 2 : March, Sunday
 3 : 03, Sun
 4 : 3月, 日
-5 : 3月, 日曜日
+4 : 3月, 日曜日
 ```
 
 ## バージョン

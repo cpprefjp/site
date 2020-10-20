@@ -1,7 +1,7 @@
 # month
 * chrono[meta header]
 * std::chrono[meta namespace]
-* month_weekday[meta class]
+* month_weekday_last[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
@@ -27,16 +27,17 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  chrono::month_weekday mwd = chrono::March/chrono::Sunday[1];
+  chrono::month_weekday_last mwdl = chrono::March/chrono::Sunday[chrono::last];
 
-  chrono::month m = mwd.month();
+  chrono::month m = mwdl.month();
   assert(m == chrono::March);
 }
 ```
-* mwd.month()[color ff0000]
+* mwdl.month()[color ff0000]
 * chrono::month[link /reference/chrono/month.md]
 * chrono::March[link /reference/chrono/month_constants.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
+* chrono::last[link /reference/chrono/last_spec.md]
 
 ### 出力
 ```

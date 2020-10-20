@@ -35,7 +35,7 @@ namespace std::chrono {
 * month_day_last[link /reference/chrono/month_day_last.md]
 * weekday_indexed[link /reference/chrono/weekday_indexed.md]
 * weekday_last[link /reference/chrono/weekday_last.md]
-* month_weekday_last[link /reference/chrono/month_weekday_last.md.nolink]
+* month_weekday_last[link /reference/chrono/month_weekday_last.md]
 
 ## 概要
 カレンダー要素同士をつなぎ合わせる。
@@ -120,9 +120,9 @@ int main()
 * chrono::month_weekday[link /reference/chrono/month_weekday.md]
 * mw1.month()[link /reference/chrono/month_weekday/month.md]
 * mw1.weekday_indexed()[link /reference/chrono/month_weekday/weekday_indexed.md]
-* chrono::month_weekday_last[link /reference/chrono/month_weekday_last.md.nolink]
-* mwl1.month()[link /reference/chrono/month_weekday_last/month.md.nolink]
-* mwl1.weekday_last()[link /reference/chrono/month_weekday_last/weekday_last.md.nolink]
+* chrono::month_weekday_last[link /reference/chrono/month_weekday_last.md]
+* mwl1.month()[link /reference/chrono/month_weekday_last/month.md]
+* mwl1.weekday_last()[link /reference/chrono/month_weekday_last/weekday_last.md]
 
 ### 出力
 ```

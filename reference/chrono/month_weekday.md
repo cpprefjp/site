@@ -15,7 +15,7 @@ namespace std::chrono {
 
 年が規定されないために、このクラスでは月の指定したN回目の曜日が何日なのかは取得できない。年情報を付加して[`year_month_weekday`](year_month_weekday.md.nolink)クラスに変換し、そこからシステム時間もしくはローカル時間に変換するか、そこからさらに[`year_month_day`](year_month_day.md)クラスに変換することで日を取得できる。
 
-このクラスは等値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)の要件を満たす。
+このクラスは等値比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)の要件を満たす。
 
 このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)で、かつ[スタンダードレイアウト型](/reference/type_traits/is_standard_layout.md)である。
 
@@ -91,7 +91,7 @@ int main()
   chrono::month_weekday date4 = chrono::Sunday[1]/3;
 
   // 各カレンダー要素のコンストラクタはexplicitなので、
-  // 指定順は月、日で決まっているが、int値は指定できない
+  // 指定順は月、N回目の曜日で決まっているが、int値は指定できない
   chrono::month_weekday date5{chrono::March, chrono::Sunday[1]};
   chrono::month_weekday date6{chrono::month{3}, chrono::weekday_indexed{chrono::Sunday, 1}};
 

@@ -1,4 +1,4 @@
-# month
+# weekday_indexed
 * chrono[meta header]
 * std::chrono[meta namespace]
 * month_weekday[meta class]
@@ -33,8 +33,8 @@ int main()
   assert(wdi == chrono::Sunday[1]);
 }
 ```
-* md.month()[color ff0000]
-* chrono::month[link /reference/chrono/month.md]
+* mwd.weekday_indexed()[color ff0000]
+* chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
 * chrono::March[link /reference/chrono/month_constants.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 

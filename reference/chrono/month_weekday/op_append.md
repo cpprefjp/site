@@ -13,7 +13,6 @@ namespace std::chrono {
     operator/(const month_weekday& mwd, int y) noexcept;         // (2) C++20
 }
 ```
-* month_weekday[link /reference/chrono/month_weekday.md]
 * year[link /reference/chrono/year.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
 
