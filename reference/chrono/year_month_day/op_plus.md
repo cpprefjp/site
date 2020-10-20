@@ -78,6 +78,8 @@ int main()
   assert(2020y/3/1 + chrono::years{1} == 2021y/3/1);
 }
 ```
+* 2020y[link /reference/chrono/year/op_y.md]
+* 2021y[link /reference/chrono/year/op_y.md]
 
 ### 出力
 ```
