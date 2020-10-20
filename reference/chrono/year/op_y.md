@@ -53,7 +53,7 @@ int main()
 }
 ```
 * 2020y[color ff0000]
-* chrono::year_month[link /reference/chrono/year_month.md.nolink]
+* chrono::year_month[link /reference/chrono/year_month.md]
 
 ### 出力
 ```

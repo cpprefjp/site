@@ -43,7 +43,7 @@ namespace std::chrono {
 }
 ```
 * month[link /reference/chrono/month.md]
-* year_month[link /reference/chrono/year_month.md.nolink]
+* year_month[link /reference/chrono/year_month.md]
 * year_month_day[link /reference/chrono/year_month_day.md]
 * month_day[link /reference/chrono/month_day.md]
 * year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
@@ -120,7 +120,7 @@ int main()
 * 1d[link /reference/chrono/day/op_d.md]
 * last[link /reference/chrono/last_spec.md]
 * Sunday[link /reference/chrono/weekday_constants.md]
-* year_month[link /reference/chrono/year_month.md.nolink]
+* year_month[link /reference/chrono/year_month.md]
 * year_month_day[link /reference/chrono/year_month_day.md]
 * year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]

@@ -20,8 +20,8 @@ constexpr year_month_day& operator-=(const years& y) noexcept;  // (2) C++20
 
 
 ## 効果
-- (1) : `*this = *this + m`
-- (2) : `*this = *this + y`
+- (1) : `*this = *this - m`
+- (2) : `*this = *this - y`
 
 
 ## 戻り値
@@ -44,8 +44,8 @@ int main()
 {
   chrono::year_month_day date = 2020y/3/1;
 
-  date += chrono::months{1}; // 1ヶ月進める
-  date += chrono::years{1};  // 1年進める
+  date -= chrono::months{1}; // 1ヶ月戻す
+  date -= chrono::years{1};  // 1年戻す
 
   std::cout << date << std::endl;
 }
@@ -54,7 +54,7 @@ int main()
 
 ### 出力
 ```
-2021-04-01
+2019-02-01
 ```
 
 ## バージョン
