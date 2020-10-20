@@ -39,12 +39,23 @@ static constexpr int max_digits10;
 #include <limits>
 #include <cmath>
 #include <sstream>
+#include <bitset>
 
 std::string make_float_string(float f, int digits) {
   std::stringstream s;
   s.precision(digits);
   s << std::scientific << f;
   return s.str();
+}
+
+std::uint32_t float_to_uint(float f) {
+    std::uint32_t result = 0;
+    std::memcpy(&result, &f, sizeof(std::uint32_t));
+    return result;
+}
+
+std::string make_bit_string(float f) {
+    return std::bitset<32>(float_to_uint(f)).to_string();
 }
 
 int main()
@@ -58,10 +69,15 @@ int main()
   // digits10とmax_digits10での、
   // 下位数ビットが異なる浮動小数点数の出力のされ方を比較
   for (int digits : {limits::digits10, limits::max_digits10}) {
-    std::cout << "digits : " << digits << std::endl;
-    std::cout << "  " << make_float_string(3.145900f, digits) << std::endl;
-    std::cout << "  " << make_float_string(std::nextafter(3.145900f, 1.0f), digits) << std::endl;
+    std::cout << "[digits : " << digits << ']' << std::endl;
+    std::cout << make_float_string(3.145900f, digits) << std::endl;
+    std::cout << make_float_string(std::nextafter(3.145900f, 1.0f), digits) << std::endl;
   }
+
+  // それぞれの値のビット列を出力
+  std::cout << "[bit string]" << std::endl;
+  std::cout << make_bit_string(3.145900f) << std::endl;
+  std::cout << make_bit_string(std::nextafter(3.145900f, 1.0f)) << std::endl;
 }
 ```
 * max_digits10[color ff0000]
@@ -77,12 +93,15 @@ int main()
 float digits10 : 6
 float max_digits10 : 9
 
-digits : 6
-  3.145900e+00
-  3.145900e+00
-digits : 9
-  3.145900011e+00
-  3.145899773e+00
+[digits : 6]
+3.145900e+00
+3.145900e+00
+[digits : 9]
+3.145900011e+00
+3.145899773e+00
+[bit string]
+01000000010010010101011001101101
+01000000010010010101011001101100
 ```
 
 ## バージョン
