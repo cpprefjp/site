@@ -49,7 +49,7 @@ namespace std::chrono {
 * year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
 * month_day_last[link /reference/chrono/month_day_last.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
-* month_weekday[link /reference/chrono/month_weekday.md.nolink]
+* month_weekday[link /reference/chrono/month_weekday.md]
 * year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
 * month_weekday_last[link /reference/chrono/month_weekday_last.md.nolink]
 
@@ -62,8 +62,8 @@ namespace std::chrono {
 - (4) : `int`型の年と[`month_day`](/reference/chrono/month_day.md)型をつなぎ、年月日の情報をもつ型にまとめる
 - (5) : `year`型と[`month_day_last`](/reference/chrono/month_day_last.md)型をつなぎ、年月の最終日の情報をもつ型にまとめる
 - (6) : `int`型の年と[`month_day_last`](/reference/chrono/month_day_last.md)型をつなぎ、年月の最終日の情報をもつ型にまとめる
-- (7) : `year`型と[`month_weekday`](/reference/chrono/month_weekday.md.nolink)型をつなぎ、年月のN回目の曜日の情報をもつ型にまとめる
-- (8) : `int`型の年と[`month_weekday`](/reference/chrono/month_weekday.md.nolink)型をつなぎ、年月のN回目の曜日の情報をもつ型にまとめる
+- (7) : `year`型と[`month_weekday`](/reference/chrono/month_weekday.md)型をつなぎ、年月のN回目の曜日の情報をもつ型にまとめる
+- (8) : `int`型の年と[`month_weekday`](/reference/chrono/month_weekday.md)型をつなぎ、年月のN回目の曜日の情報をもつ型にまとめる
 - (9) : `year`型と[`month_weekday_last`](/reference/chrono/month_weekday_last.md.nolink)型をつなぎ、年月の指定した最終曜日の情報をもつ型にまとめる
 - (10) : `int`型の年と[`month_weekday_last`](/reference/chrono/month_weekday_last.md.nolink)型をつなぎ、年月の指定した最終曜日の情報をもつ型にまとめる
 
@@ -75,9 +75,9 @@ namespace std::chrono {
 - (4) : `return year(y) / md;`
 - (5) : `return` [`year_month_day_last`](/reference/year_month_day_last.md.nolink)`{y, mdl};`
 - (6) : `return year(y) / mdl;`
-- (7) : `return` [`year_month_weekday`](/reference/year_month_weekday.md.nolink)`{y, mwd.`[`month()`](/reference/chrono/month_weekday/month.md.nolink)`, mwd.`[`weekday_indexed()`](/reference/chrono/month_weekday/weekday_indexed.md.nolink)`};`
+- (7) : `return` [`year_month_weekday`](/reference/year_month_weekday.md.nolink)`{y, mwd.`[`month()`](/reference/chrono/month_weekday/month.md)`, mwd.`[`weekday_indexed()`](/reference/chrono/month_weekday/weekday_indexed.md)`};`
 - (8) : `return year(y) / mwd;`
-- (9) : `return` [`year_month_weekday_last`](/reference/year_month_weekday_last.md.nolink)`{y, mwdl.`[`month()`](/reference/chrono/month_weekday_last/month.md.nolink)`, mwdl.`[`weekday_last()`](/reference/chrono/month_weekday/weekday_last.md.nolink)`};`
+- (9) : `return` [`year_month_weekday_last`](/reference/year_month_weekday_last.md.nolink)`{y, mwdl.`[`month()`](/reference/chrono/month_weekday_last/month.md.nolink)`, mwdl.`[`weekday_last()`](/reference/chrono/month_weekday_last/weekday_last.md.nolink)`};`
 - (10) : `return year(y) / mwdl;`
 
 
