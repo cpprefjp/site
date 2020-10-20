@@ -37,32 +37,52 @@ static constexpr int max_digits10;
 ```cpp example
 #include <iostream>
 #include <limits>
+#include <cmath>
 #include <sstream>
+
+std::string make_float_string(float f, int digits) {
+  std::stringstream s;
+  s.precision(digits);
+  s << std::scientific << f;
+  return s.str();
+}
 
 int main()
 {
-  constexpr int d = std::numeric_limits<float>::max_digits10;
-  std::cout << d << std::endl;
+  using limits = std::numeric_limits<float>;
 
-  float f = 3.145900F;
+  std::cout << "float digits10 : " << limits::digits10 << std::endl;
+  std::cout << "float max_digits10 : " << limits::max_digits10 << std::endl;
+  std::cout << std::endl;
 
-  std::stringstream s;
-  s.precision(d);
-  s << std::scientific << f;
-
-  std::cout << s.str() << std::endl;
+  // digits10とmax_digits10での、
+  // 下位数ビットが異なる浮動小数点数の出力のされ方を比較
+  for (int digits : {limits::digits10, limits::max_digits10}) {
+    std::cout << "digits : " << digits << std::endl;
+    std::cout << "  " << make_float_string(3.145900f, digits) << std::endl;
+    std::cout << "  " << make_float_string(std::nextafter(3.145900f, 1.0f), digits) << std::endl;
+  }
 }
 ```
 * max_digits10[color ff0000]
+* digits10[link digits10.md]
 * std::stringstring[link /reference/sstream/basic_stringstream.md.nolink]
 * precision[link /reference/ios/ios_base/precision.md]
 * std::scientific[link /reference/ios/scientific.md]
 * s.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
+* std::nextafter[link /reference/cmath/nextafter.md]
 
 ### 出力例
 ```
-9
-3.145900011e+000
+float digits10 : 6
+float max_digits10 : 9
+
+digits : 6
+  3.145900e+00
+  3.145900e+00
+digits : 9
+  3.145900011e+00
+  3.145899773e+00
 ```
 
 ## バージョン
