@@ -8,12 +8,12 @@
 namespace std::chrono {
   template <class charT, class traits>
   std::basic_ostream<charT, traits>&
-    operator<<(std::basic_ostream<charT, traits>& os, const month_day& md); // (1) C++20
+    operator<<(std::basic_ostream<charT, traits>& os, const month_day_last& mdl); // (1) C++20
 }
 ```
 
 ## 概要
-`month_day`オブジェクトを出力ストリームに出力する。
+`month_day_last`オブジェクトを出力ストリームに出力する。
 
 
 ## 戻り値
@@ -21,11 +21,10 @@ namespace std::chrono {
 
 - (1) : 以下と等価：
     ```cpp
-    return os << format(STATICALLY-WIDEN<charT>("{}/{}"), md.month(), md.day());
+    return os << format(STATICALLY-WIDEN<charT>("{}/last"), mdl.month());
     ```
     * format[link /reference/format/format.md]
-    * md.month()[link month.md]
-    * md.day()[link day.md]
+    * mdl.month()[link month.md]
 
 
 ## 例
@@ -37,14 +36,15 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  std::cout << chrono::March/1 << std::endl;
+  std::cout << chrono::March/chrono::last << std::endl;
 }
 ```
 * chrono::March[link /reference/chrono/month_constants.md]
+* chrono::last[link /reference/chrono/last_spec.md]
 
 ### 出力
 ```
-Mar/01
+Mar/last
 ```
 
 ## バージョン

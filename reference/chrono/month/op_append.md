@@ -32,8 +32,8 @@ namespace std::chrono {
 * day[link /reference/chrono/day.md]
 * month_day[link /reference/chrono/month_day.md]
 * last_spec[link /reference/chrono/last_spec.md]
-* month_day_last[link /reference/chrono/month_day_last.md.nolink]
-* weekday_indexed[link /reference/chrono/weekday_indexed.md
+* month_day_last[link /reference/chrono/month_day_last.md]
+* weekday_indexed[link /reference/chrono/weekday_indexed.md]
 * weekday_last[link /reference/chrono/weekday_last.md]
 * month_weekday_last[link /reference/chrono/month_weekday_last.md.nolink]
 
@@ -55,7 +55,7 @@ namespace std::chrono {
 - (1) : `return {m, d};`
 - (2) : `return m /` [`day`](/reference/chrono/day.md)`{d};`
 - (3) : `return` [`month`](/reference/chrono/month.md)`{m} / d;`
-- (4) : `return `[`month_day_last`](/reference/chrono/month_day_last.md.nolink)`{m};`
+- (4) : `return `[`month_day_last`](/reference/chrono/month_day_last.md)`{m};`
 - (5) : `return` [`month`](/reference/chrono/month.md)`{m} /` [`last`](/reference/chrono/last_spec.md)`;`
 - (6) : `return {m, wdi};`
 - (7) : `return` [`month`](/reference/chrono/month.md)`{m} / wdi;`
@@ -114,8 +114,8 @@ int main()
 * md1.month()[link /reference/chrono/month_day/month.md]
 * md1.day()[link /reference/chrono/month_day/day.md]
 * chrono::last[link /reference/chrono/last_spec.md]
-* chrono::month_day_last[link /reference/chrono/month_day_last.md.nolink]
-* mdl1.month()[link /reference/chrono/month_day_last/month.md.nolink]
+* chrono::month_day_last[link /reference/chrono/month_day_last.md]
+* mdl1.month()[link /reference/chrono/month_day_last/month.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 * chrono::month_weekday[link /reference/chrono/month_weekday.md.nolink]
 * mw1.month()[link /reference/chrono/month_weekday/month.md.nolink]
@@ -134,5 +134,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
+- [GCC](/implementation.md#gcc): 11.1
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)

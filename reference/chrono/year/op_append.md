@@ -7,24 +7,78 @@
 ```cpp
 namespace std::chrono {
   constexpr year_month
-    operator/(const year& y, const month& m) noexcept; // (1) C++20
+    operator/(const year& y,
+              const month& m) noexcept;                 // (1) C++20
   constexpr year_month
-    operator/(const year& y, int m) noexcept;          // (2) C++20
+    operator/(const year& y,
+              int m) noexcept;                          // (2) C++20
+
+  constexpr year_month_day
+    operator/(const year& y,
+              const month_day& md) noexcept;            // (3) C++20
+  constexpr year_month_day
+    operator/(int y,
+              const month_day& md) noexcept;            // (4) C++20
+
+  constexpr year_month_day_last
+    operator/(const year& y,
+              const month_day_last& mdl) noexcept;      // (5) C++20
+  constexpr year_month_day_last
+    operator/(int y,
+              const month_day_last& mdl) noexcept;      // (6) C++20
+
+  constexpr year_month_weekday
+    operator/(const year& y,
+              const month_weekday& mwd) noexcept;       // (7) C++20
+  constexpr year_month_weekday
+    operator/(int y,
+              const month_weekday& mwd) noexcept;       // (8) C++20
+
+  constexpr year_month_weekday_last
+    operator/(const year& y,
+              const month_weekday_last& mwdl) noexcept; // (9) C++20
+  constexpr year_month_weekday_last
+    operator/(int y,
+              const month_weekday_last& mwdl) noexcept; // (10) C++20
 }
 ```
 * month[link /reference/chrono/month.md]
 * year_month[link /reference/chrono/year_month.md.nolink]
+* year_month_day[link /reference/chrono/year_month_day.md]
+* month_day[link /reference/chrono/month_day.md]
+* year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
+* month_day_last[link /reference/chrono/month_day_last.md]
+* year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
+* month_weekday[link /reference/chrono/month_weekday.md.nolink]
+* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
+* month_weekday_last[link /reference/chrono/month_weekday_last.md.nolink]
 
 ## 概要
 カレンダー要素同士をつなぎ合わせる。
 
 - (1) : `year`型と[`month`](/reference/chrono/month.md)型をつなぎ、年と月の両方の情報をもつ型にまとめる
 - (2) : `year`型と`int`型での月の値をつなぎ、年と月の両方の情報をもつ型にまとめる
+- (3) : `year`型と[`month_day`](/reference/chrono/month_day.md)型をつなぎ、年月日の情報をもつ型にまとめる
+- (4) : `int`型の年と[`month_day`](/reference/chrono/month_day.md)型をつなぎ、年月日の情報をもつ型にまとめる
+- (5) : `year`型と[`month_day_last`](/reference/chrono/month_day_last.md)型をつなぎ、年月の最終日の情報をもつ型にまとめる
+- (6) : `int`型の年と[`month_day_last`](/reference/chrono/month_day_last.md)型をつなぎ、年月の最終日の情報をもつ型にまとめる
+- (7) : `year`型と[`month_weekday`](/reference/chrono/month_weekday.md.nolink)型をつなぎ、年月のN回目の曜日の情報をもつ型にまとめる
+- (8) : `int`型の年と[`month_weekday`](/reference/chrono/month_weekday.md.nolink)型をつなぎ、年月のN回目の曜日の情報をもつ型にまとめる
+- (9) : `year`型と[`month_weekday_last`](/reference/chrono/month_weekday_last.md.nolink)型をつなぎ、年月の指定した最終曜日の情報をもつ型にまとめる
+- (10) : `int`型の年と[`month_weekday_last`](/reference/chrono/month_weekday_last.md.nolink)型をつなぎ、年月の指定した最終曜日の情報をもつ型にまとめる
 
 
 ## 戻り値
 - (1) : `return {y, m};`
 - (2) : `return y /` [`month`](/reference/chrono/month.md)`{m};`
+- (3) : `return y / md.`[`month()`](/reference/chrono/month_day/month.md) `/ md.`[`day()`](/reference/chrono/month_day/day.md)`;`
+- (4) : `return year(y) / md;`
+- (5) : `return` [`year_month_day_last`](/reference/year_month_day_last.md.nolink)`{y, mdl};`
+- (6) : `return year(y) / mdl;`
+- (7) : `return` [`year_month_weekday`](/reference/year_month_weekday.md.nolink)`{y, mwd.`[`month()`](/reference/chrono/month_weekday/month.md.nolink)`, mwd.`[`weekday_indexed()`](/reference/chrono/month_weekday/weekday_indexed.md.nolink)`};`
+- (8) : `return year(y) / mwd;`
+- (9) : `return` [`year_month_weekday_last`](/reference/year_month_weekday_last.md.nolink)`{y, mwdl.`[`month()`](/reference/chrono/month_weekday_last/month.md.nolink)`, mwdl.`[`weekday_last()`](/reference/chrono/month_weekday/weekday_last.md.nolink)`};`
+- (10) : `return year(y) / mwdl;`
 
 
 ## 例外
@@ -36,32 +90,41 @@ namespace std::chrono {
 #include <cassert>
 #include <chrono>
 
-namespace chrono = std::chrono;
-using namespace std::chrono_literals;
+using namespace std::chrono;
 
 int main()
 {
-  chrono::year_month ym1 = 2020y/chrono::March;
-  chrono::year_month ym2 = 2020y/3;
+  // (1), (2)
+  assert(2020y/March == (year_month{2020y, March}));
+  assert(2020y/3 == (year_month{2020y, March}));
 
-  chrono::year y{2020};
-  chrono::month m = chrono::March;
-  chrono::year_month ym3 = y/m;
+  // (3), (4)
+  assert(2020y/(March/1) == (year_month_day{2020y, March, 1d}));
+  assert(2020/(March/1) == (year_month_day{2020y, March, 1d}));
 
-  assert(ym1.year() == chrono::year{2020});
-  assert(ym1.month() == chrono::March);
-  assert(ym2.year() == chrono::year{2020});
-  assert(ym2.month() == chrono::March);
-  assert(ym3.year() == chrono::year{2020});
-  assert(ym3.month() == chrono::March);
+  // (5), (6)
+  assert(2020y/(March/last) == (year_month_day_last{2020y, March/last}));
+  assert(2020/(March/last) == (year_month_day_last{2020y, March/last}));
+
+  // (7), (8)
+  assert(2020y/(March/Sunday[1]) == (year_month_weekday{2020y, March, Sunday[1]}));
+  assert(2020/(March/Sunday[1]) == (year_month_weekday{2020y, March, Sunday[1]}));
+
+  // (9), (10)
+  assert(2020y/(March/Sunday[last]) == (year_month_weekday_last{2020y, March, Sunday[last]}));
+  assert(2020/(March/Sunday[last]) == (year_month_weekday_last{2020y, March, Sunday[last]}));
 }
 ```
 * 2020y[link op_y.md]
-* chrono::March[link /reference/chrono/month_constants.md]
-* chrono::month[link /reference/chrono/month.md]
-* chrono::year_month[link /reference/chrono/year_month.md.nolink]
-* year()[link /reference/chrono/year_month/year.md.nolink]
-* month()[link /reference/chrono/year_month/month.md.nolink]
+* March[link /reference/chrono/month_constants.md]
+* 1d[link /reference/chrono/day/op_d.md]
+* last[link /reference/chrono/last_spec.md]
+* Sunday[link /reference/chrono/weekday_constants.md]
+* year_month[link /reference/chrono/year_month.md.nolink]
+* year_month_day[link /reference/chrono/year_month_day.md]
+* year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
+* year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
+* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
 
 ### 出力
 ```
@@ -73,5 +136,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
+- [GCC](/implementation.md#gcc): 11.1
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)

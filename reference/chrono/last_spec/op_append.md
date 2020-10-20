@@ -13,7 +13,7 @@ namespace std::chrono {
 }
 ```
 * month[link /reference/chrono/month.md]
-* month_day_last[link /reference/chrono/month_day_last.md.nolink]
+* month_day_last[link /reference/chrono/month_day_last.md]
 
 ## 概要
 カレンダー要素同士をつなぎ合わせる。
@@ -49,8 +49,8 @@ int main()
 }
 ```
 * chrono::February[link /reference/chrono/month_constants.md]
-* chrono::month_day_last[link /reference/chrono/month_day_last.md.nolink]
-* mdl1.month()[link /reference/chrono/month_day_last/month.md.nolink]
+* chrono::month_day_last[link /reference/chrono/month_day_last.md]
+* mdl1.month()[link /reference/chrono/month_day_last/month.md]
 
 ### 出力
 ```

@@ -124,7 +124,7 @@
 | [`weekday_indexed`](chrono/weekday_indexed.md) | N回目の指定した曜日を表す型 (class) | C++20 |
 | [`weekday_last`](chrono/weekday_last.md) | 未規定の月の最後の指定した曜日を表す型 (class) | C++20 |
 | [`month_day`](chrono/month_day.md) | 月と日を表す型 (class) | C++20 |
-| [`month_day_last`](chrono/month_day_last.md.nolink) | 指定した月の最終日を表す型 (class) | C++20 |
+| [`month_day_last`](chrono/month_day_last.md) | 指定した月の最終日を表す型 (class) | C++20 |
 | [`month_weekday`](chrono/month_weekday.md.nolink) | 月の指定したN番目の曜日を表す型 (class) | C++20 |
 | [`month_weekday_last`](chrono/month_weekday_last.md.nolink) | 月の最後の指定した曜日を表す型 (class) | C++20 |
 | [`year_month`](chrono/year_month.md.nolink) | 年と月を表す型 (class) | C++20 |
