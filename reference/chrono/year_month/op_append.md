@@ -25,7 +25,7 @@ namespace std::chrono {
 ```
 * day[link /reference/chrono/day.md]
 * year_month_day[link /reference/chrono/year_month_day.md]
-* year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
+* year_month_day_last[link /reference/chrono/year_month_day_last.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
 * year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
 
@@ -42,7 +42,7 @@ namespace std::chrono {
 ## 戻り値
 - (1) : `return` [`year_month_day`](/reference/chrono/year_month_day.md)`{ym.`[`year()`](year.md)`, ym.`[`month()`](month.md)`, d};`
 - (2) : `return ym /` [`day`](/reference/chrono/day.md)`(d);`
-- (3) : `return` [`year_month_day_last`](/reference/chrono/year_month_day_last.md.nolink)`{ym.`[`year()`](year.md)`,` [`month_day_last`](/reference/chrono/month_day_last.md)`{ym.`[`month()`](month.md)`}};`
+- (3) : `return` [`year_month_day_last`](/reference/chrono/year_month_day_last.md)`{ym.`[`year()`](year.md)`,` [`month_day_last`](/reference/chrono/month_day_last.md)`{ym.`[`month()`](month.md)`}};`
 - (4) : `return` [`year_month_weekday`](/reference/chrono/year_month_weekday.md.nolink)`{ym.`[`year()`](year.md)`, ym.`[`month()`](month.md)`, wdi};`
 - (5) : `return` [`year_month_weekday_last`](/reference/chrono/year_month_weekday_last.md.nolink)`{ym.`[`year()`](year.md)`, ym.`[`month()`](month.md)`, wdl};`
 
@@ -78,7 +78,7 @@ int main()
 * 2020y[link /reference/chrono/year/op_y.md]
 * 1d[link /reference/chrono/day/op_d.md]
 * year_month_day[link /reference/chrono/year_month_day.md]
-* year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
+* year_month_day_last[link /reference/chrono/year_month_day_last.md]
 * month_day_last[link /reference/chrono/month_day_last.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
 * year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]

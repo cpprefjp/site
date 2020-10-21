@@ -46,7 +46,7 @@ namespace std::chrono {
 * year_month[link /reference/chrono/year_month.md]
 * year_month_day[link /reference/chrono/year_month_day.md]
 * month_day[link /reference/chrono/month_day.md]
-* year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
+* year_month_day_last[link /reference/chrono/year_month_day_last.md]
 * month_day_last[link /reference/chrono/month_day_last.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
 * month_weekday[link /reference/chrono/month_weekday.md]
@@ -73,11 +73,11 @@ namespace std::chrono {
 - (2) : `return y /` [`month`](/reference/chrono/month.md)`{m};`
 - (3) : `return y / md.`[`month()`](/reference/chrono/month_day/month.md) `/ md.`[`day()`](/reference/chrono/month_day/day.md)`;`
 - (4) : `return year(y) / md;`
-- (5) : `return` [`year_month_day_last`](/reference/year_month_day_last.md.nolink)`{y, mdl};`
+- (5) : `return` [`year_month_day_last`](/reference/chrono/year_month_day_last.md)`{y, mdl};`
 - (6) : `return year(y) / mdl;`
-- (7) : `return` [`year_month_weekday`](/reference/year_month_weekday.md.nolink)`{y, mwd.`[`month()`](/reference/chrono/month_weekday/month.md)`, mwd.`[`weekday_indexed()`](/reference/chrono/month_weekday/weekday_indexed.md)`};`
+- (7) : `return` [`year_month_weekday`](/reference/chrono/year_month_weekday.md.nolink)`{y, mwd.`[`month()`](/reference/chrono/month_weekday/month.md)`, mwd.`[`weekday_indexed()`](/reference/chrono/month_weekday/weekday_indexed.md)`};`
 - (8) : `return year(y) / mwd;`
-- (9) : `return` [`year_month_weekday_last`](/reference/year_month_weekday_last.md.nolink)`{y, mwdl.`[`month()`](/reference/chrono/month_weekday_last/month.md)`, mwdl.`[`weekday_last()`](/reference/chrono/month_weekday_last/weekday_last.md)`};`
+- (9) : `return` [`year_month_weekday_last`](/reference/chrono/year_month_weekday_last.md.nolink)`{y, mwdl.`[`month()`](/reference/chrono/month_weekday_last/month.md)`, mwdl.`[`weekday_last()`](/reference/chrono/month_weekday_last/weekday_last.md)`};`
 - (10) : `return year(y) / mwdl;`
 
 
@@ -122,7 +122,7 @@ int main()
 * Sunday[link /reference/chrono/weekday_constants.md]
 * year_month[link /reference/chrono/year_month.md]
 * year_month_day[link /reference/chrono/year_month_day.md]
-* year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
+* year_month_day_last[link /reference/chrono/year_month_day_last.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md.nolink]
 * year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
 

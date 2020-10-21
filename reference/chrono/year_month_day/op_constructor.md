@@ -24,7 +24,7 @@ year_month_day(year_month_day&&) = default;                         // (7) C++20
 * chrono::year[link /reference/chrono/year.md]
 * chrono::month[link /reference/chrono/month.md]
 * chrono::day[link /reference/chrono/day.md]
-* year_month_day_last[link /reference/chrono/year_month_day_last.md.nolink]
+* year_month_day_last[link /reference/chrono/year_month_day_last.md]
 * sys_days[link /reference/chrono/sys_time.md]
 * local_days[link /reference/chrono/local_time.md]
 

@@ -13,7 +13,7 @@ namespace std::chrono {
 ## 概要
 `month_day_last`は、未規定の年の、月の最終日を表すカレンダー表現のためクラスである。
 
-2月の最終日が年によって異なることもあり、このクラスでは月の最終日が何日なのかは取得できない。そのためには、年情報を付加して[`year_month_day_last`](year_month_day_last.md.nolink)クラスに変換する必要がある。
+2月の最終日が年によって異なることもあり、このクラスでは月の最終日が何日なのかは取得できない。そのためには、年情報を付加して[`year_month_day_last`](year_month_day_last.md)クラスに変換する必要がある。
 
 このクラスは等値比較および大小比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)およびLessThanComparableの要件を満たす。
 
