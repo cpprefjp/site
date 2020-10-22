@@ -25,7 +25,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](year_month_day_last/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](year_month_day_last/op_constructor.md) | コンストラクタ | C++20 |
 | `year_month_day_last& operator=(const year_month_day_last&) = default;`<br/> `year_month_day_last& operator=(year_month_day_last&&) = default;` | 代入演算子 | C++20 |
 
 
@@ -33,33 +33,33 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+=`](year_month_day_last/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
-| [`operator-=`](year_month_day_last/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
+| [`operator+=`](year_month_day_last/op_plus_assign.md)  | 加算の複合代入 | C++20 |
+| [`operator-=`](year_month_day_last/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
 
 ### 観測
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`year`](year_month_day_last/year.md.nolink)   | 年要素を取得する | C++20 |
-| [`month`](year_month_day_last/month.md.nolink) | 月要素を取得する | C++20 |
-| [`month_day_last`](year_month_day_last/month_day_last.md.nolink) | 月とその最終日の要素を取得する | C++20 |
-| [`day`](year_month_day_last/day.md.nolink)     | 日要素を求める | C++20 |
+| [`year`](year_month_day_last/year.md)   | 年要素を取得する | C++20 |
+| [`month`](year_month_day_last/month.md) | 月要素を取得する | C++20 |
+| [`month_day_last`](year_month_day_last/month_day_last.md) | 月とその最終日の要素を取得する | C++20 |
+| [`day`](year_month_day_last/day.md)     | 日要素を求める | C++20 |
 
 
 ### 変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator sys_days`](year_month_day_last/op_sys_days.md.nolink)     | システム時間の日付への型変換演算子 | C++20 |
-| [`operator local_days`](year_month_day_last/op_local_days.md.nolink) | ローカル時間の日付への型変換演算子 | C++20 |
+| [`operator sys_days`](year_month_day_last/op_sys_days.md)     | システム時間の日付への型変換演算子 | C++20 |
+| [`operator local_days`](year_month_day_last/op_local_days.md) | ローカル時間の日付への型変換演算子 | C++20 |
 
 
 ### 検証
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](year_month_day_last/ok.md.nolink) | 値が範囲に収まっているか判定する | C++20 |
+| [`ok`](year_month_day_last/ok.md) | 値が範囲に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数
@@ -67,17 +67,17 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year_month_day_last/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](year_month_day_last/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](year_month_day_last/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](year_month_day_last/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](year_month_day_last/op_equal.md.nolink) | 等値比較を行う | C++20 |
+| [`operator==`](year_month_day_last/op_equal.md) | 等値比較を行う | C++20 |
 | `bool operator!=(const year_month_day_last&, const year_month_day_last&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
-| [`operator<=>`](year_month_day_last/op_compare_3way.md.nolink) | 三方比較を行う | C++20 |
+| [`operator<=>`](year_month_day_last/op_compare_3way.md) | 三方比較を行う | C++20 |
 | `bool operator<(const year_month_day_last&, const year_month_day_last&) noexcept;` | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | C++20 |
 | `bool operator<=(const year_month_day_last&, const year_month_day_last&) noexcept;` | 左辺が右辺以下を判定する (`<=>`により使用可能) | C++20 |
 | `bool operator>(const year_month_day_last&, const year_month_day_last&) noexcept;` | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | C++20 |
@@ -88,14 +88,14 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](year_month_day_last/op_ostream.md.nolink) | 出力ストリームに出力する | C++20 |
+| [`operator<<`](year_month_day_last/op_ostream.md) | 出力ストリームに出力する | C++20 |
 
 
 ## 文字列フォーマット
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`formatter`](year_month_day_last/formatter.md.nolink) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+| [`formatter`](year_month_day_last/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
 
 
 ## 例
@@ -134,7 +134,7 @@ int main()
 * February[link month_constants.md]
 * last[link last_spec.md]
 * sys_days[link sys_time.md]
-* date5.day()[link year_month_day_last/day.md.nolink]
+* date5.day()[link year_month_day_last/day.md]
 * year_month_day[link year_month_day.md]
 
 ### 出力

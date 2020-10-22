@@ -50,7 +50,6 @@ int main()
   std::cout << over_min_day << std::endl;
 }
 ```
-* ok()[color ff0000]
 * chrono::sys_days[link /reference/chrono/sys_time.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * 2019y[link /reference/chrono/year/op_y.md]
