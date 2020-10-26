@@ -13,7 +13,7 @@ namespace std::chrono {
 ## 概要
 `month_weekday`は、未規定の年の、月の指定したN回目の曜日を表すカレンダー表現のためクラスである。
 
-年が規定されないために、このクラスでは月の指定したN回目の曜日が何日なのかは取得できない。年情報を付加して[`year_month_weekday`](year_month_weekday.md.nolink)クラスに変換し、そこからシステム時間もしくはローカル時間に変換するか、そこからさらに[`year_month_day`](year_month_day.md)クラスに変換することで日を取得できる。
+年が規定されないために、このクラスでは月の指定したN回目の曜日が何日なのかは取得できない。年情報を付加して[`year_month_weekday`](year_month_weekday.md)クラスに変換し、そこからシステム時間もしくはローカル時間に変換するか、そこからさらに[`year_month_day`](year_month_day.md)クラスに変換することで日を取得できる。
 
 このクラスは等値比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)の要件を満たす。
 
@@ -112,7 +112,7 @@ int main()
 * chrono::Sunday[link weekday_constants.md]
 * chrono::month[link month.md]
 * chrono::weekday_indexed[link weekday_indexed.md]
-* chrono::year_month_weekday[link year_month_weekday.md.nolink]
+* chrono::year_month_weekday[link year_month_weekday.md]
 * chrono::sys_days[link sys_time.md]
 * chrono::year_month_day[link year_month_day.md]
 

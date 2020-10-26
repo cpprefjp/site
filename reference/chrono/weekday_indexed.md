@@ -90,7 +90,7 @@ int main() {
 * 2020y[link year/op_y.md]
 * wi1.weekday()[link weekday_indexed/weekday.md]
 * wi1.index()[link weekday_indexed/index.md]
-* chrono::year_month_weekday[link year_month_weekday.md.nolink]
+* chrono::year_month_weekday[link year_month_weekday.md]
 * chrono::sys_days[link sys_time.md]
 * chrono::year_month_day[link year_month_day.md]
 
