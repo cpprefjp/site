@@ -33,7 +33,7 @@ int main()
   assert(mdl == chrono::February/chrono::last);
 }
 ```
-* date.month()[color ff0000]
+* date.month_day_last()[color ff0000]
 * chrono::month_day_last[link /reference/chrono/month_day_last.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * chrono::February[link /reference/chrono/month_constants.md]

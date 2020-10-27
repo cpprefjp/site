@@ -25,7 +25,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](year_month_weekday/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](year_month_weekday/op_constructor.md) | コンストラクタ | C++20 |
 | `year_month_weekday& operator=(const year_month_weekday&) = default;`<br/> `year_month_weekday& operator=(year_month_weekday&&) = default;` | 代入演算子 | C++20 |
 
 
@@ -41,11 +41,11 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`year`](year_month_weekday/year.md.nolink)       | 年要素を取得する | C++20 |
-| [`month`](year_month_weekday/month.md.nolink)     | 月要素を取得する | C++20 |
-| [`weekday`](year_month_weekday/weekday.md.nolink) | 曜日要素を取得する | C++20 |
-| [`index`](year_month_weekday/index.md.nolink)     | 何回目の曜日かを取得する | C++20 |
-| [`weekday_indexed`](year_month_weekday/weekday_indexed.md.nolink) | N回目の曜日要素を取得する | C++20 |
+| [`year`](year_month_weekday/year.md)       | 年要素を取得する | C++20 |
+| [`month`](year_month_weekday/month.md)     | 月要素を取得する | C++20 |
+| [`weekday`](year_month_weekday/weekday.md) | 曜日要素を取得する | C++20 |
+| [`index`](year_month_weekday/index.md)     | 何回目の曜日かを取得する | C++20 |
+| [`weekday_indexed`](year_month_weekday/weekday_indexed.md) | N回目の曜日要素を取得する | C++20 |
 
 
 ### 変換
@@ -60,7 +60,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`ok`](year_month_weekday/ok.md.nolink) | 値が範囲に収まっているか判定する | C++20 |
+| [`ok`](year_month_weekday/ok.md) | 値が範囲に収まっているか判定する | C++20 |
 
 
 ## 非メンバ関数

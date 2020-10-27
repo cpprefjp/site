@@ -17,7 +17,7 @@ constexpr bool ok() const noexcept; // (1) C++20
 以下の全ての条件を満たす場合にこの関数は`true`を返し、そうでなければ`false`を返す：
 
 - [`year()`](year.md)メンバ関数によって返されるオブジェクト`y`の[`ok()`](/reference/chrono/year/ok.md)が`true`
-- [`month_day_last()`](month_day_last.md)メンバ関数によって返されるオブジェクト`mdl`の[`ok()`](/reference/chrono/month/ok.md)が`true`
+- [`month_day_last()`](month_day_last.md)メンバ関数によって返されるオブジェクト`mdl`の[`ok()`](/reference/chrono/month_day_last/ok.md)が`true`
 
 
 ## 例
@@ -30,7 +30,7 @@ using namespace std::chrono_literals;
 
 int main()
 {
-  assert((2020y/2/chrono::last).ok()  == true);
+  assert((2020y/2/chrono::last).ok() == true);
 }
 ```
 * ok()[color ff0000]
