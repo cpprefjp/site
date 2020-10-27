@@ -24,8 +24,8 @@ year_month_weekday(year_month_weekday&&) = default;      // (6) C++20
 * chrono::year[link /reference/chrono/year.md]
 * chrono::month[link /reference/chrono/month.md]
 * chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
-* sys_days[link /reference/chrono/sys_days.md]
-* local_days[link /reference/chrono/local_days.md]
+* sys_days[link /reference/chrono/sys_time.md]
+* local_days[link /reference/chrono/local_time.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ

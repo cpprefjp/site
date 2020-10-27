@@ -1,4 +1,4 @@
-# weekday
+# weekday_indexed
 * chrono[meta header]
 * std::chrono[meta namespace]
 * year_month_weekday[meta class]
@@ -6,22 +6,16 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr chrono::weekday weekday() const noexcept; // (1) C++20
+constexpr chrono::weekday_indexed weekday_indexed() const noexcept; // (1) C++20
 ```
-* chrono::weekday[link /reference/chrono/weekday.md]
+* chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
 
 ## 概要
-曜日要素を取得する。
+N回目の曜日要素を取得する。
 
 
 ## 戻り値
-以下と等価：
-
-```cpp
-return weekday_indexed().weekday();
-```
-* weekday_indexed()[link weekday_indexed.md]
-* weekday()[link /reference/chrono/weekday_indexed/weekday.md]
+コンストラクタで設定されて保持しているN回目の曜日オブジェクトを返す。
 
 
 ## 例
@@ -35,12 +29,12 @@ using namespace std::chrono_literals;
 int main()
 {
   chrono::year_month_weekday date = 2020y/3/chrono::Sunday[2];
-  chrono::weekday wd = date.weekday();
-  assert(wd == chrono::Sunday);
+  chrono::weekday_indexed wdi = date.weekday_indexed();
+  assert(wdi == chrono::Sunday[2]);
 }
 ```
-* date.weekday()[color ff0000]
-* chrono::weekday[link /reference/chrono/weekday.md]
+* date.weekday_indexed()[color ff0000]
+* chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 
