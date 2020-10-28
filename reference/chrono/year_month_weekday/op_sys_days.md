@@ -13,6 +13,8 @@ constexpr operator sys_days() const noexcept; // (1) C++20
 ## 概要
 `year_month_weekday`オブジェクトをシステム時間の日付に、暗黙に型変換する。
 
+この関数では、N回目の曜日のNは月内である必要はなく、N == 0の場合は「1週目の指定した曜日の7日前」を意味し、N > 0の場合は「1週目の指定した曜日から(N - 1) * 7日を加算した日付」を意味し任意にNを大きく指定できる。
+
 
 ## 戻り値
 - [`year()`](year.md)`.`[`ok()`](/reference/chrono/year/ok.md) `&&` [`month()`](month.md)`.`[`ok()`](/reference/chrono/month/ok.md) `&&` [`weekday()`](weekday.md)`.`[`ok()`](/reference/chrono/weekday/ok.md)が`true`である場合、[`year()`](year.md)`/`[`month()`](month.md)の最初の[`weekday()`](weekday.md)の`(`[`index()`](index.md) `- 1) * 7`日後を表す[`sys_days`](/reference/chrono/sys_time.md)を返す
@@ -38,6 +40,9 @@ int main()
 
   chrono::sys_days date3 = 2020y/3/chrono::Sunday[0];
   assert(chrono::year_month_day{date3} == 2020y/2/23);
+
+  chrono::sys_days date4 = 2020y/3/chrono::Sunday[10];
+  assert(chrono::year_month_day{date4} == 2020y/5/3);
 }
 ```
 * chrono::sys_days[link /reference/chrono/sys_time.md]

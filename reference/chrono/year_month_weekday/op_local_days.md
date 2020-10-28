@@ -42,6 +42,9 @@ int main()
 
   chrono::local_days date3{2020y/3/chrono::Sunday[0]};
   assert(chrono::year_month_day{date3} == 2020y/2/23);
+
+  chrono::local_days date4{2020y/3/chrono::Sunday[10]};
+  assert(chrono::year_month_day{date4} == 2020y/5/3);
 }
 ```
 * chrono::local_days[link /reference/chrono/local_time.md]
