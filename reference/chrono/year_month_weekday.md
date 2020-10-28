@@ -52,8 +52,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator sys_days`](year_month_weekday/op_sys_days.md.nolink)     | システム時間の日付への型変換演算子 | C++20 |
-| [`operator local_days`](year_month_weekday/op_local_days.md.nolink) | ローカル時間の日付への型変換演算子 | C++20 |
+| [`operator sys_days`](year_month_weekday/op_sys_days.md)     | システム時間の日付への型変換演算子 | C++20 |
+| [`operator local_days`](year_month_weekday/op_local_days.md) | ローカル時間の日付への型変換演算子 | C++20 |
 
 
 ### 検証
