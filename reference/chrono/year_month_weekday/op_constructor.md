@@ -48,7 +48,7 @@ year_month_weekday(year_month_weekday&&) = default;      // (6) C++20
 
 
 ## 備考
-- (3) : `year_month_weekday`クラスのあらゆる値`ymdl`について、`ymdl.`[`ok()`](ok.md)が`true`である値はすべて、`ymdl == year_month_weekday{sys_days{ymdl}}`が`true`となる
+- (3) : `year_month_weekday`クラスのあらゆる値`ymwd`について、`ymwd.`[`ok()`](ok.md)が`true`である値はすべて、`ymwd == year_month_weekday{sys_days{ymwd}}`が`true`となる
 
 
 ### 例
