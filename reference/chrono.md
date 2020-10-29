@@ -138,7 +138,6 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`time_of_day`](chrono/time_of_day.md.nolink) | 1日内の時間情報を取得するクラス (class) | C++20 |
 | [`hh_mm_ss`](chrono/hh_mm_ss.md.nolink) | 時、分、秒を表すクラス (class) | C++20 |
 | [`is_am`](chrono/is_am.md.nolink) | 時間が午前かを判定する (function) | C++20 |
 | [`is_pm`](chrono/is_pm.md.nolink) | 時間が午後かを判定する (function) | C++20 |
