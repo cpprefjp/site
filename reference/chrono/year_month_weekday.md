@@ -33,8 +33,8 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+=`](year_month_weekday/op_plus_assign.md.nolink)  | 加算の複合代入 | C++20 |
-| [`operator-=`](year_month_weekday/op_minus_assign.md.nolink) | 減算の複合代入 | C++20 |
+| [`operator+=`](year_month_weekday/op_plus_assign.md)  | 加算の複合代入 | C++20 |
+| [`operator-=`](year_month_weekday/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
 
 ### 観測
@@ -68,15 +68,15 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator+`](year_month_weekday/op_plus.md.nolink)  | 加算 | C++20 |
-| [`operator-`](year_month_weekday/op_minus.md.nolink) | 減算 | C++20 |
+| [`operator+`](year_month_weekday/op_plus.md)  | 加算 | C++20 |
+| [`operator-`](year_month_weekday/op_minus.md) | 減算 | C++20 |
 
 
 ### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](year_month_weekday/op_equal.md.nolink) | 等値比較を行う | C++20 |
+| [`operator==`](year_month_weekday/op_equal.md) | 等値比較を行う | C++20 |
 | `bool operator!=(const year_month_weekday&, const year_month_weekday&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++20 |
 
 
@@ -84,14 +84,14 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](year_month_weekday/op_ostream.md.nolink) | 出力ストリームに出力する | C++20 |
+| [`operator<<`](year_month_weekday/op_ostream.md) | 出力ストリームに出力する | C++20 |
 
 
 ## 文字列フォーマット
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`formatter`](year_month_weekday/formatter.md.nolink) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+| [`formatter`](year_month_weekday/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
 
 
 ## 例
