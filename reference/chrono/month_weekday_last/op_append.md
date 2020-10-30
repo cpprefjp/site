@@ -14,7 +14,7 @@ namespace std::chrono {
 }
 ```
 * year[link /reference/chrono/year.md]
-* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
+* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md]
 
 ## 概要
 カレンダー要素同士をつなぎ合わせる。
@@ -49,7 +49,7 @@ int main()
 * Sunday[link /reference/chrono/weekday_constants.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * last[link /reference/chrono/last_spec.md]
-* chrono::year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
+* chrono::year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md]
 
 ### 出力
 ```

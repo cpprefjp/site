@@ -27,7 +27,7 @@ namespace std::chrono {
 * year_month_day[link /reference/chrono/year_month_day.md]
 * year_month_day_last[link /reference/chrono/year_month_day_last.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md]
-* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
+* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md]
 
 ## 概要
 カレンダー要素同士をつなぎ合わせる。
@@ -44,7 +44,7 @@ namespace std::chrono {
 - (2) : `return ym /` [`day`](/reference/chrono/day.md)`(d);`
 - (3) : `return` [`year_month_day_last`](/reference/chrono/year_month_day_last.md)`{ym.`[`year()`](year.md)`,` [`month_day_last`](/reference/chrono/month_day_last.md)`{ym.`[`month()`](month.md)`}};`
 - (4) : `return` [`year_month_weekday`](/reference/chrono/year_month_weekday.md)`{ym.`[`year()`](year.md)`, ym.`[`month()`](month.md)`, wdi};`
-- (5) : `return` [`year_month_weekday_last`](/reference/chrono/year_month_weekday_last.md.nolink)`{ym.`[`year()`](year.md)`, ym.`[`month()`](month.md)`, wdl};`
+- (5) : `return` [`year_month_weekday_last`](/reference/chrono/year_month_weekday_last.md)`{ym.`[`year()`](year.md)`, ym.`[`month()`](month.md)`, wdl};`
 
 
 ## 例外
@@ -81,7 +81,7 @@ int main()
 * year_month_day_last[link /reference/chrono/year_month_day_last.md]
 * month_day_last[link /reference/chrono/month_day_last.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md]
-* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md.nolink]
+* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md]
 
 ### 出力
 ```

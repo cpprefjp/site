@@ -13,7 +13,7 @@ namespace std::chrono {
 ## 概要
 `month_weekday_last`は、未規定の年の、月の指定した最終回目の曜日を表すカレンダー表現のためクラスである。
 
-年が規定されないために、このクラスでは月の指定した最終回目の曜日が何日なのかは取得できない。年情報を付加して[`year_month_weekday_last`](year_month_weekday_last.md.nolink)クラスに変換し、そこからシステム時間もしくはローカル時間に変換するか、そこからさらに[`year_month_day`](year_month_day.md)クラスに変換することで日を取得できる。
+年が規定されないために、このクラスでは月の指定した最終回目の曜日が何日なのかは取得できない。年情報を付加して[`year_month_weekday_last`](year_month_weekday_last.md)クラスに変換し、そこからシステム時間もしくはローカル時間に変換するか、そこからさらに[`year_month_day`](year_month_day.md)クラスに変換することで日を取得できる。
 
 このクラスは等値比較ができ、[EqualityComparable](/reference/concepts/equality_comparable.md)の要件を満たす。
 
@@ -112,7 +112,7 @@ int main()
 * last[link last_spec.md]
 * month[link month.md]
 * weekday_last[link weekday_last.md]
-* year_month_weekday_last[link year_month_weekday_last.md.nolink]
+* year_month_weekday_last[link year_month_weekday_last.md]
 * sys_days[link sys_time.md]
 * year_month_day[link year_month_day.md]
 

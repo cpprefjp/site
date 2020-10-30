@@ -131,7 +131,7 @@
 | [`year_month_day`](chrono/year_month_day.md) | 年、月、日を表す型 (class) | C++20 |
 | [`year_month_day_last`](chrono/year_month_day_last.md) | 年、月、月の最終日を表す型 (class) | C++20 |
 | [`year_month_weekday`](chrono/year_month_weekday.md) | 年、月、N回目の指定した曜日を表す型 (class) | C++20 |
-| [`year_month_weekday_last`](chrono/year_month_weekday_last.md.nolink) | 年、月、月の最後の指定した曜日を表す型 (class) | C++20 |
+| [`year_month_weekday_last`](chrono/year_month_weekday_last.md) | 年、月、月の最後の指定した曜日を表す型 (class) | C++20 |
 
 
 ## 1日内の時間情報
