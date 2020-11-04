@@ -186,9 +186,9 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`indirectly_copyable_storable`](iterator/indirectly_copyable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をコピー可能 (concept)           | C++20          |
 | [`indirectly_swappable`](iterator/indirectly_swappable.md) | 2つのイテレータ間で要素を交換可能 (concept)           | C++20          |
 | [`indirectly_comparable`](iterator/indirectly_comparable.md) | 2つのイテレータ間で要素を比較可能 (concept)           | C++20          |
-| [`permutable`](iterator/permutable.md.nolink) | イテレータを介して要素を並べ替え可能 (concept)           | C++20          |
-| [`mergeable`](iterator/mergeable.md.nolink) | イテレータを介して範囲をマージ可能 (concept)           | C++20          |
-| [`sortable`](iterator/sortable.md.nolink) | イテレータを介して範囲をソート可能 (concept)           | C++20          |
+| [`permutable`](iterator/permutable.md) | イテレータを介して要素を並べ替え可能 (concept)           | C++20          |
+| [`mergeable`](iterator/mergeable.md) | イテレータを介して範囲をマージ可能 (concept)           | C++20          |
+| [`sortable`](iterator/sortable.md) | イテレータを介して範囲をソート可能 (concept)           | C++20          |
 
 ## 参照
 
