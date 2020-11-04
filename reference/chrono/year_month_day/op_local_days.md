@@ -39,15 +39,15 @@ using namespace std::chrono_literals;
 
 int main()
 {
-  // year_month_dayからlocal_daysへの暗黙変換
-  chrono::local_days date {2020y/3/1};
+  // year_month_dayからlocal_daysへの明示的変換
+  chrono::local_days date{2020y/3/1};
   std::cout << date << std::endl;
 
   // 日だけ範囲外に大きくなった場合でも、ローカル日付を求められる
-  chrono::local_days over_day {2019y/2/29};
+  chrono::local_days over_day{2019y/2/29};
   std::cout << over_day << std::endl;
 
-  chrono::local_days over_min_day {2020y/1/0};
+  chrono::local_days over_min_day{2020y/1/0};
   std::cout << over_min_day << std::endl;
 }
 ```

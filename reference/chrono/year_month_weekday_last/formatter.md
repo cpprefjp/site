@@ -7,12 +7,12 @@
 ```cpp
 namespace std {
   template <class charT>
-  struct formatter<chrono::year_month_weekday, charT>;
+  struct formatter<chrono::year_month_weekday_last, charT>;
 }
 ```
 
 ## 概要
-`year_month_weekday`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
+`year_month_weekday_last`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
 
 [`month`](/reference/chrono/month/formatter.md)、[`year`](/reference/chrono/year/formatter.md)で利用可能なフォーマットフラグを使用できる。
 
@@ -27,7 +27,7 @@ namespace chrono = std::chrono;
 using namespace std::chrono_literals;
 
 int main() {
-  chrono::year_month_weekday date = 2020y/2/chrono::Sunday[2];
+  chrono::year_month_weekday_last date = 2020y/2/chrono::Sunday[chrono::last];
 
   // デフォルトフォーマットはoperator<<と同じ
   std::cout << std::format("1 : {}", date) << std::endl;
@@ -40,10 +40,11 @@ int main() {
 * std::locale[link /reference/locale/locale.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
+* chrono::last[link /reference/chrono/last_spec.md]
 
 ### 出力
 ```
-1 : 2020/Mar/Sun[2]
+1 : 2020/Mar/Sun[last]
 2 : 2020/Mar
 3 : 2020年03月
 ```

@@ -1,7 +1,7 @@
 # operator local_days
 * chrono[meta header]
 * std::chrono[meta namespace]
-* year_month_day_last[meta class]
+* year_month_weekday_last[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
@@ -11,7 +11,7 @@ constexpr explicit operator local_days() const noexcept; // (1) C++20
 * local_days[link /reference/chrono/local_time.md]
 
 ## 概要
-`year_month_day_last`オブジェクトをローカル時間の日付に、明示的に型変換する。
+`year_month_weekday`オブジェクトをローカル時間の日付に、明示的に型変換する。
 
 
 ## 戻り値
@@ -25,7 +25,7 @@ return local_days{sys_days{*this}.time_since_epoch()};
 
 ## 例
 ```cpp example
-#include <iostream>
+#include <cassert>
 #include <chrono>
 
 namespace chrono = std::chrono;
@@ -33,17 +33,18 @@ using namespace std::chrono_literals;
 
 int main()
 {
-  chrono::local_days date {2020y/2/chrono::last};
-  std::cout << date << std::endl;
+  chrono::local_days date{2020y/3/chrono::Sunday[chrono::last]};
+  assert(chrono::year_month_day{date} == 2020y/3/29);
 }
 ```
 * chrono::local_days[link /reference/chrono/local_time.md]
 * 2020y[link /reference/chrono/year/op_y.md]
+* chrono::Sunday[link /reference/chrono/weekday_constants.md]
+* chrono::year_month_day[link /reference/chrono/year_month_day.md]
 * chrono::last[link /reference/chrono/last_spec.md]
 
 ### 出力
 ```
-2020-02-29 00:00:00
 ```
 
 ## バージョン

@@ -33,7 +33,6 @@ using namespace std::chrono_literals;
 
 int main()
 {
-  // year_month_dayからlocal_daysへの暗黙変換
   chrono::local_days date1{2020y/3/chrono::Sunday[1]};
   assert(chrono::year_month_day{date1} == 2020y/3/1);
 
