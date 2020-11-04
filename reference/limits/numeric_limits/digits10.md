@@ -5,11 +5,8 @@
 * variable[meta id-type]
 
 ```cpp
-// C++03
-static const int digits10;
-
-// C++11
-static constexpr int digits10;
+static const int digits10;     // (1) C++03
+static constexpr int digits10; // (1) C++11
 ```
 
 ## 概要
@@ -40,17 +37,17 @@ static constexpr int digits10;
 
 int main()
 {
-  constexpr int i = std::numeric_limits<int>::digits10;
-  constexpr int d = std::numeric_limits<double>::digits10;
+  std::cout << std::numeric_limits<float>::digits10 << std::endl;
+  std::cout << std::numeric_limits<double>::digits10 << std::endl;
 
-  std::cout << i << std::endl;
-  std::cout << d << std::endl;
+  std::cout << std::numeric_limits<int>::digits10 << std::endl;
 }
 ```
 * digits10[color ff0000]
 
 ### 出力例
 ```
+6
 9
 15
 ```
