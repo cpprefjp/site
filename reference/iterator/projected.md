@@ -90,8 +90,8 @@ int main() {
 ## 関連項目
 
 - [`indirectly_comparable`](indirectly_comparable.md)
-- [`mergeable`](mergeable.md.nolink)
-- [`sortable`](sortable.md.nolink)
+- [`mergeable`](mergeable.md)
+- [`sortable`](sortable.md)
 
 ## 参照
 
