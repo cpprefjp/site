@@ -64,7 +64,7 @@ before : 1
 ```
 
 
-## コンテナを出力する例
+### コンテナを出力する例
 ```cpp example
 #include <iostream>
 #include <utility>
@@ -112,7 +112,7 @@ int main()
 ```
 * std::exchange[color ff0000]
 
-### 出力
+#### 出力
 ```
 {1,2,3}
 {1,2,3}
@@ -196,6 +196,8 @@ int main()
 ```
 * std::exchange[color ff0000]
 * std::move[link move.md]
+* reset()[link /reference/memory/unique_ptr/reset.md]
+* get()[link /reference/memory/unique_ptr/get.md]
 
 
 #### 出力例
