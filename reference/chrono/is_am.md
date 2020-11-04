@@ -37,7 +37,7 @@ int main()
 }
 ```
 * chrono::is_am[color ff0000]
-* chrono::hh_mm_ss[link hh_mm_ss.md.nolink]
+* chrono::hh_mm_ss[link hh_mm_ss.md]
 * time.hours()[link hh_mm_ss/hours.md.nolink]
 * chrono::is_pm[link is_pm.md]
 

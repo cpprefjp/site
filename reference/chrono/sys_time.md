@@ -62,14 +62,14 @@ namespace std {
     ```cpp
     auto const dp = floor<days>(tp);
     return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{} {}"),
-                        year_month_day{dp}, hh_mm_ss{tp-dp});
+                        year_month_day{dp}, hh_mm_ss{tp - dp});
     ```
     * floor[link time_point/floor.md]
     * days[link duration_aliases.md]
     * format[link /reference/format/format.md]
     * os.getloc()[link /reference/ios/ios_base/getloc.md]
     * year_month_day[link year_month_day.md]
-    * hh_mm_ss[link hh_mm_ss.md.nolink]
+    * hh_mm_ss[link hh_mm_ss.md]
 
 - (5) : 以下と等価：
     ```cpp
