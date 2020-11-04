@@ -41,6 +41,7 @@ return old_val;
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <utility>
@@ -56,7 +57,7 @@ int main()
 ```
 * std::exchange[color ff0000]
 
-### 出力
+#### 出力
 ```
 state : 2
 before : 1
@@ -117,6 +118,94 @@ int main()
 {1,2,3}
 ```
 
+
+### ムーブ後オブジェクトの状態をリセットする
+```cpp
+#include <iostream>
+#include <string>
+#include <utility>
+#include <memory>
+
+struct A {};
+
+struct X {
+  std::string str;
+  int* p = nullptr;
+  std::unique_ptr<A> a;
+
+  X() = default;
+
+  // ムーブ構築しつつ、ムーブされたオブジェクトは空にする。
+  // ムーブ構築しただけでは、標準範囲のオブジェクトは「有効だが未規定の状態」になる
+  X(X&& other)
+    : str(std::exchange(other.str, {})),
+      p(std::exchange(other.p, nullptr)),
+      a(std::exchange(other.a, {}))
+  {}
+  // 以下と等価:
+  // str{std::move(other.str)};
+  // other.str = {};
+  //
+  // p = other.p;
+  // other.p = nullptr;
+
+  X& operator=(X&& other) {
+    str = std::exchange(other.str, {});
+    p = std::exchange(other.p, nullptr);
+
+    // 破棄処理をともなう例
+    if (std::unique_ptr<A> old = std::exchange(a, std::exchange(other.a, {}))) {
+      old.reset();
+    }
+    // ほかの書き方1 : わかりにくい
+    // std::swap(a, other.a);
+    // if (other.a) {
+    //   other.a.reset();
+    // }
+    //
+    // ほかの書き方2 : 意図はわかりやすくなった例
+    // std::unique_ptr<A> old = a;
+    // a = std::move(other.a);
+    // if (old) {
+    //   old.reset();
+    // }
+
+    return *this;
+  }
+};
+
+int main()
+{
+  int value = 3;
+
+  X a;
+  a.str = "Hello";
+  a.p = &value;
+  a.a = std::make_unique<A>();
+
+  X b = std::move(a);
+
+  // ムーブされたaが空になり、bとcへとデータが移動していくことを確認
+  std::cout << a.str << " " << a.p << " " << a.a.get() << std::endl;
+  std::cout << b.str << " " << b.p << " " << b.a.get() << std::endl;
+
+  X c;
+  c = std::move(b);
+  std::cout << c.str << " " << c.p << " " << c.a.get() << std::endl;
+}
+```
+* std::exchange[color ff0000]
+* std::move[link move.md]
+
+
+#### 出力例
+```
+ (nil) (nil)
+Hello 0x7ffdeb8e04bc 0x19be9c0
+Hello 0x7ffdeb8e04bc 0x19be9c0
+```
+
+
 ## バージョン
 ### 言語
 - C++14
@@ -137,3 +226,4 @@ int main()
 - [N3668 exchange() utility function, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3668.html)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [`std::exchange` Patterns: Fast, Safe, Expressive, and Probably Underused](https://www.fluentcpp.com/2020/09/25/stdexchange-patterns-fast-safe-expressive-and-probably-underused/)
+- [`std::exchange`によるmoveしてリセットするイディオムの御紹介](https://onihusube.hatenablog.com/entry/2020/10/31/163244)
