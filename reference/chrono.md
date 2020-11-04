@@ -141,8 +141,8 @@
 | [`hh_mm_ss`](chrono/hh_mm_ss.md.nolink) | 時間間隔を時、分、秒に分割するクラス (class) | C++20 |
 | [`is_am`](chrono/is_am.md) | 時間が午前かを判定する (function) | C++20 |
 | [`is_pm`](chrono/is_pm.md) | 時間が午後かを判定する (function) | C++20 |
-| [`make12`](chrono/make12.md.nolink) | `[1h, 12h]`の時間範囲に変換する (function) | C++20 |
-| [`make24`](chrono/make24.md.nolink) | 時間を午前`[0h, 11h]`か午後`[12h, 23h]`の範囲に変換する (function) | C++20 |
+| [`make12`](chrono/make12.md) | 24時間ベースの時間を12時間ベースの時間範囲に変換する (function) | C++20 |
+| [`make24`](chrono/make24.md) | 12時間ベースの時間を24時間ベースの時間範囲に変換する (function) | C++20 |
 
 
 ## タイムゾーン
