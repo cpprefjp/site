@@ -64,7 +64,7 @@ before : 1
 ```
 
 
-## コンテナを出力する例
+### コンテナを出力する例
 ```cpp example
 #include <iostream>
 #include <utility>
@@ -112,7 +112,7 @@ int main()
 ```
 * std::exchange[color ff0000]
 
-### 出力
+#### 出力
 ```
 {1,2,3}
 {1,2,3}
