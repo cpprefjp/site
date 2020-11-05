@@ -64,7 +64,7 @@ return vformat_to(out, fmt, {make_format_args<context>(args...)});
 return vformat_to(out, loc, fmt, {make_format_args<context>(args...)});
 ```
 * basic_format_context[link basic_format_context.md]
-* vformat_to[link vformat.md]
+* vformat_to[link vformat_to.md]
 * make_format_args[link make_format_args.md]
 
 ## 戻り値
