@@ -175,8 +175,6 @@ int main()
 ```
 * std::exchange[color ff0000]
 * std::move[link move.md]
-* reset()[link /reference/memory/unique_ptr/reset.md]
-* get()[link /reference/memory/unique_ptr/get.md]
 
 
 #### 出力例
