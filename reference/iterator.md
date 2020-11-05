@@ -23,6 +23,50 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 - [`<concepts>`](concepts.md) (C++20)
 - [`<compare>`](compare.md) (C++20)
 
+## イテレータコンセプト
+
+| 名前                         | 説明                                            | 対応バージョン |
+|------------------------------|-------------------------------------------------|----------------|
+| [`indirectly_readable`](iterator/indirectly_readable.md) | 間接参照によって読み取り可能 (concept)           | C++20          |
+| [`indirectly_writable`](iterator/indirectly_writable.md) | 間接参照によって書き込み可能 (concept)           | C++20          |
+| [`weakly_incrementable`](iterator/weakly_incrementable.md) | 前置/後置インクリメント可能 (concept)           | C++20          |
+| [`incrementable`](iterator/incrementable.md) | `weakly_incrementable`かつ[正則](/reference/concepts/regular.md) (concept)           | C++20          |
+| [`input_or_output_iterator`](iterator/input_or_output_iterator.md) | 基礎的なイテレータコンセプト (concept)           | C++20          |
+| [`sentinel_for`](iterator/sentinel_for.md) | 同じ範囲についてのイテレータと番兵 (concept)           | C++20          |
+| [`sized_sentinel_for`](iterator/sized_sentinel_for.md) | 距離を定義可能なイテレータ (concept)           | C++20          |
+| [`disable_sized_sentinel_for`](iterator/disable_sized_sentinel_for.md) | `sentinel_for<S, I>`について、`sized_sentinel_for`を不適合にする (variable template)           | C++20          |
+| [`input_iterator`](iterator/input_iterator.md) | 入力イテレータ (concept)           | C++20          |
+| [`output_iterator`](iterator/output_iterator.md) | 出力イテレータ (concept)           | C++20          |
+| [`forward_iterator`](iterator/forward_iterator.md) | 前方向イテレータ (concept)           | C++20          |
+| [`bidirectional_iterator`](iterator/bidirectional_iterator.md) | 双方向イテレータ (concept)           | C++20          |
+| [`random_access_iterator`](iterator/random_access_iterator.md) | ランダムアクセスイテレータ (concept)           | C++20          |
+| [`contiguous_iterator`](iterator/contiguous_iterator.md) | 隣接イテレータ (concept)           | C++20          |
+
+## イテレータを介した関数呼び出しに関するコンセプト
+
+| 名前                         | 説明                                            | 対応バージョン |
+|------------------------------|-------------------------------------------------|----------------|
+| [`indirectly_unary_invocable`](iterator/indirectly_unary_invocable.md) | イテレータの要素型によって呼び出し可能 (concept)           | C++20          |
+| [`indirectly_regular_unary_invocable`](iterator/indirectly_unary_invocable.md) | 正則な`indirectly_unary_invocable` (concept)           | C++20          |
+| [`indirect_unary_predicate`](iterator/indirect_unary_predicate.md) | イテレータの要素型についての単項述語 (concept)           | C++20          |
+| [`indirect_binary_predicate`](iterator/indirect_binary_predicate.md) | 2つのイテレータの要素型についての二項述語 (concept)           | C++20          |
+| [`indirect_equivalence_relation`](iterator/indirect_equivalence_relation.md) | 2つのイテレータの要素型についての同値関係 (concept)           | C++20          |
+| [`indirect_strict_weak_order`](iterator/indirect_strict_weak_order.md) | 2つのイテレータの要素型についての狭義の弱順序 (concept)           | C++20          |
+
+## イテレータによるアルゴリズムに関するコンセプト
+
+| 名前                         | 説明                                            | 対応バージョン |
+|------------------------------|-------------------------------------------------|----------------|
+| [`indirectly_movable`](iterator/indirectly_movable.md) | 片方のイテレータからもう片方のイテレータへ要素をムーブ可能 (concept)           | C++20          |
+| [`indirectly_movable_storable`](iterator/indirectly_movable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をムーブ可能 (concept)           | C++20          |
+| [`indirectly_copyable`](iterator/indirectly_copyable.md) | 片方のイテレータからもう片方のイテレータへ要素をコピー可能 (concept)           | C++20          |
+| [`indirectly_copyable_storable`](iterator/indirectly_copyable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をコピー可能 (concept)           | C++20          |
+| [`indirectly_swappable`](iterator/indirectly_swappable.md) | 2つのイテレータ間で要素を交換可能 (concept)           | C++20          |
+| [`indirectly_comparable`](iterator/indirectly_comparable.md) | 2つのイテレータ間で要素を比較可能 (concept)           | C++20          |
+| [`permutable`](iterator/permutable.md) | イテレータを介して要素を並べ替え可能 (concept)           | C++20          |
+| [`mergeable`](iterator/mergeable.md) | イテレータを介して範囲をマージ可能 (concept)           | C++20          |
+| [`sortable`](iterator/sortable.md) | イテレータを介して範囲をソート可能 (concept)           | C++20          |
+
 ## イテレータの情報
 
 | 名前 | 説明 | 対応バージョン |
@@ -145,50 +189,6 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`dereferenceable`](iterator/dereferenceable.md) | 単純な間接参照が可能 (concept)           | C++20          |
 | [`is-integer-like`](iterator/is_integer_like.md) | 符号付整数型と同等の型か否かを表す (variable template)           | C++20          |
 | [`is-signed-integer-like`](iterator/is_integer_like.md) | 符号なし整数型と同等の型か否かを表す (variable template)           | C++20          |
-
-## イテレータコンセプト
-
-| 名前                         | 説明                                            | 対応バージョン |
-|------------------------------|-------------------------------------------------|----------------|
-| [`indirectly_readable`](iterator/indirectly_readable.md) | 間接参照によって読み取り可能 (concept)           | C++20          |
-| [`indirectly_writable`](iterator/indirectly_writable.md) | 間接参照によって書き込み可能 (concept)           | C++20          |
-| [`weakly_incrementable`](iterator/weakly_incrementable.md) | 前置/後置インクリメント可能 (concept)           | C++20          |
-| [`incrementable`](iterator/incrementable.md) | `weakly_incrementable`かつ[正則](/reference/concepts/regular.md) (concept)           | C++20          |
-| [`input_or_output_iterator`](iterator/input_or_output_iterator.md) | 基礎的なイテレータコンセプト (concept)           | C++20          |
-| [`sentinel_for`](iterator/sentinel_for.md) | 同じ範囲についてのイテレータと番兵 (concept)           | C++20          |
-| [`sized_sentinel_for`](iterator/sized_sentinel_for.md) | 距離を定義可能なイテレータ (concept)           | C++20          |
-| [`disable_sized_sentinel_for`](iterator/disable_sized_sentinel_for.md) | `sentinel_for<S, I>`について、`sized_sentinel_for`を不適合にする (variable template)           | C++20          |
-| [`input_iterator`](iterator/input_iterator.md) | 入力イテレータ (concept)           | C++20          |
-| [`output_iterator`](iterator/output_iterator.md) | 出力イテレータ (concept)           | C++20          |
-| [`forward_iterator`](iterator/forward_iterator.md) | 前方向イテレータ (concept)           | C++20          |
-| [`bidirectional_iterator`](iterator/bidirectional_iterator.md) | 双方向イテレータ (concept)           | C++20          |
-| [`random_access_iterator`](iterator/random_access_iterator.md) | ランダムアクセスイテレータ (concept)           | C++20          |
-| [`contiguous_iterator`](iterator/contiguous_iterator.md) | 隣接イテレータ (concept)           | C++20          |
-
-## 間接呼び出しコンセプト
-
-| 名前                         | 説明                                            | 対応バージョン |
-|------------------------------|-------------------------------------------------|----------------|
-| [`indirectly_unary_invocable`](iterator/indirectly_unary_invocable.md) | イテレータの要素型によって呼び出し可能 (concept)           | C++20          |
-| [`indirectly_regular_unary_invocable`](iterator/indirectly_unary_invocable.md) | 正則な`indirectly_unary_invocable` (concept)           | C++20          |
-| [`indirect_unary_predicate`](iterator/indirect_unary_predicate.md) | イテレータの要素型についての単項述語 (concept)           | C++20          |
-| [`indirect_binary_predicate`](iterator/indirect_binary_predicate.md) | 2つのイテレータの要素型についての二項述語 (concept)           | C++20          |
-| [`indirect_equivalence_relation`](iterator/indirect_equivalence_relation.md) | 2つのイテレータの要素型についての同値関係 (concept)           | C++20          |
-| [`indirect_strict_weak_order`](iterator/indirect_strict_weak_order.md) | 2つのイテレータの要素型についての狭義の弱順序 (concept)           | C++20          |
-
-## 一般的なアルゴリズムコンセプト
-
-| 名前                         | 説明                                            | 対応バージョン |
-|------------------------------|-------------------------------------------------|----------------|
-| [`indirectly_movable`](iterator/indirectly_movable.md) | 片方のイテレータからもう片方のイテレータへ要素をムーブ可能 (concept)           | C++20          |
-| [`indirectly_movable_storable`](iterator/indirectly_movable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をムーブ可能 (concept)           | C++20          |
-| [`indirectly_copyable`](iterator/indirectly_copyable.md) | 片方のイテレータからもう片方のイテレータへ要素をコピー可能 (concept)           | C++20          |
-| [`indirectly_copyable_storable`](iterator/indirectly_copyable_storable.md) | 片方のイテレータからもう片方のイテレータへ中間オブジェクトを介して要素をコピー可能 (concept)           | C++20          |
-| [`indirectly_swappable`](iterator/indirectly_swappable.md) | 2つのイテレータ間で要素を交換可能 (concept)           | C++20          |
-| [`indirectly_comparable`](iterator/indirectly_comparable.md) | 2つのイテレータ間で要素を比較可能 (concept)           | C++20          |
-| [`permutable`](iterator/permutable.md) | イテレータを介して要素を並べ替え可能 (concept)           | C++20          |
-| [`mergeable`](iterator/mergeable.md) | イテレータを介して範囲をマージ可能 (concept)           | C++20          |
-| [`sortable`](iterator/sortable.md) | イテレータを介して範囲をソート可能 (concept)           | C++20          |
 
 ## 参照
 
