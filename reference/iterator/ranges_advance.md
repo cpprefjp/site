@@ -35,22 +35,22 @@ namespace std::ranges {
 
 ## 事前条件
 
-- (1) : `I`が[`bidirectional_iterator`](iterator/bidirectional_iterator.md)のモデルとならない場合、`n`は負数ではない
+- (1) : `I`が[`bidirectional_iterator`](bidirectional_iterator.md)のモデルとならない場合、`n`は負数ではない
 - (2) : `[i, bound)`は有効な範囲である
 - (3) : 次のいずれか
     - `n >  0` : `[i, bound)`は有効な範囲である
     - `n == 0` : `[i, bound)`もしくは`[bound, i)`は有効な範囲である
-    - `n <  0` : `[bound, i)`は有効な範囲であり、`I`は[`bidirectional_iterator`](iterator/bidirectional_iterator.md)のモデルであり、`I, S`は[`same_as`](/reference/concepts/same_as.md)`<I, S>`のモデルとなる。
+    - `n <  0` : `[bound, i)`は有効な範囲であり、`I`は[`bidirectional_iterator`](bidirectional_iterator.md)のモデルであり、`I, S`は[`same_as`](/reference/concepts/same_as.md)`<I, S>`のモデルとなる。
 
 ## 効果
 
 - (1) : 次のいずれかによって、イテレータへの参照`i`を`n`回進める(`n`が負数の場合は逆方向に進める)。
-    - `I`が[`random_access_iterator`](iterator/random_access_iterator.md)のモデルとなる : `i += n`
+    - `I`が[`random_access_iterator`](random_access_iterator.md)のモデルとなる : `i += n`
     - `n`が正数 : `i`を`n`回インクリメントする
     - `n`が負数 : `i`を`-n`回デクリメントする
 - (2) : 次のいずれかによって、イテレータへの参照`i`を`bound`まで進める。
     - `I, S`が[`assignable_from`](/reference/concepts/assignable_from.md)`<I&, S>`のモデルとなる : `i = std::move(bound)`
-    - `S, I`が[`sized_sentinel_for`](iterator/sized_sentinel_for.md)`<S, I>`のモデルとなる : `ranges::advance(i, bound - i)`（(1)に委譲）
+    - `S, I`が[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる : `ranges::advance(i, bound - i)`（(1)に委譲）
     - それ以外の場合 : `bool(i != bound) == true`である間、`i`をインクリメントする
 - (3) : 次のいずれかによって、イテレータへの参照`i`を`bound`を超えないように`n`回進める(`n`が負数の場合は逆方向に進める)。
     - `S, I`が[`sized_sentinel_for`](iterator/sized_sentinel_for.md)`<S, I>`のモデルとなり
