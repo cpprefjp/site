@@ -64,10 +64,6 @@ int main()
 - [GCC](/implementation.md#gcc): 11.1
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
 
-#### 備考
-- GCC 11のtrunkバージョンでは`index() == 0`の場合に間違った値が返る。正式リリース時には直っている可能性がある
-    - [Bug 97613 - `chrono::year_month_weekday` cast to `sys_days` : return bad value if `index() == 0`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97613)
-
 
 ## 関連項目
 - [`operator sys_days`](op_sys_days.md)
