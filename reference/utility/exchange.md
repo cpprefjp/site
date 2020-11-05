@@ -124,14 +124,12 @@ int main()
 #include <iostream>
 #include <string>
 #include <utility>
-#include <memory>
 
 struct A {};
 
 struct X {
   std::string str;
   int* p = nullptr;
-  std::unique_ptr<A> a;
 
   X() = default;
 
@@ -139,8 +137,7 @@ struct X {
   // ムーブ構築しただけでは、標準範囲のオブジェクトは「有効だが未規定の状態」になる
   X(X&& other)
     : str(std::exchange(other.str, {})),
-      p(std::exchange(other.p, nullptr)),
-      a(std::exchange(other.a, {}))
+      p(std::exchange(other.p, nullptr))
   {}
   // 以下と等価:
   // str{std::move(other.str)};
@@ -149,27 +146,10 @@ struct X {
   // p = other.p;
   // other.p = nullptr;
 
+  // ムーブ代入も同様
   X& operator=(X&& other) {
     str = std::exchange(other.str, {});
     p = std::exchange(other.p, nullptr);
-
-    // 破棄処理をともなう例
-    if (std::unique_ptr<A> old = std::exchange(a, std::exchange(other.a, {}))) {
-      old.reset();
-    }
-    // ほかの書き方1 : わかりにくい
-    // std::swap(a, other.a);
-    // if (other.a) {
-    //   other.a.reset();
-    // }
-    //
-    // ほかの書き方2 : 意図はわかりやすくなった例
-    // std::unique_ptr<A> old = a;
-    // a = std::move(other.a);
-    // if (old) {
-    //   old.reset();
-    // }
-
     return *this;
   }
 };
@@ -181,30 +161,27 @@ int main()
   X a;
   a.str = "Hello";
   a.p = &value;
-  a.a = std::make_unique<A>();
 
   X b = std::move(a);
 
   // ムーブされたaが空になり、bとcへとデータが移動していくことを確認
-  std::cout << a.str << " " << a.p << " " << a.a.get() << std::endl;
-  std::cout << b.str << " " << b.p << " " << b.a.get() << std::endl;
+  std::cout << a.str << " " << a.p << std::endl;
+  std::cout << b.str << " " << b.p << std::endl;
 
   X c;
   c = std::move(b);
-  std::cout << c.str << " " << c.p << " " << c.a.get() << std::endl;
+  std::cout << c.str << " " << c.p << std::endl;
 }
 ```
 * std::exchange[color ff0000]
 * std::move[link move.md]
-* reset()[link /reference/memory/unique_ptr/reset.md]
-* get()[link /reference/memory/unique_ptr/get.md]
 
 
 #### 出力例
 ```
- (nil) (nil)
-Hello 0x7ffdeb8e04bc 0x19be9c0
-Hello 0x7ffdeb8e04bc 0x19be9c0
+ (nil)
+Hello 0x7ffc560ca4cc
+Hello 0x7ffc560ca4cc
 ```
 
 
