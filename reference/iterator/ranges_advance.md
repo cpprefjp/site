@@ -53,7 +53,7 @@ namespace std::ranges {
     - `S, I`が[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる : `ranges::advance(i, bound - i)`（(1)に委譲）
     - それ以外の場合 : `bool(i != bound) == true`である間、`i`をインクリメントする
 - (3) : 次のいずれかによって、イテレータへの参照`i`を`bound`を超えないように`n`回進める(`n`が負数の場合は逆方向に進める)。
-    - `S, I`が[`sized_sentinel_for`](iterator/sized_sentinel_for.md)`<S, I>`のモデルとなり
+    - `S, I`が[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなり
         - `|n| >= |bound - i|` : `ranges::advance(i, bound)`（(2)に委譲）
         - `|n| <  |bound - i|` : `ranges::advance(i, n)`（(1)に委譲）
     - それ以外の場合で
