@@ -82,14 +82,16 @@ using namespace std::chrono_literals;
 
 int main()
 {
-  chrono::hh_mm_ss time1{15h + 30min + 20s};
-  std::cout << time1 << std::endl;
-
-  chrono::hh_mm_ss time2{65745s};
+  // コンストラクタ引数からテンプレートパラメータDurationを推論
+  chrono::hh_mm_ss time2{15h + 30min + 20s}; // 秒単位
   std::cout << time2 << std::endl;
 
-  chrono::hh_mm_ss time3{65745123ms};
+  // 時間間隔の型を明示的に指定
+  chrono::hh_mm_ss<chrono::seconds> time3{65745s}; // 秒単位
   std::cout << time3 << std::endl;
+
+  chrono::hh_mm_ss time4{65745123ms}; // ミリ秒単位
+  std::cout << time4 << std::endl;
 }
 ```
 * chrono::hh_mm_ss[color ff0000]
