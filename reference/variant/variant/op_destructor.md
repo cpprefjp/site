@@ -18,7 +18,7 @@
 
 
 ## 備考
-- `Types...`の全ての型`Ti`について[`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`である場合、この関数は自明となる
+- `Types...`の全ての型`Ti`について[`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`である場合、この関数はトリビアルとなる
     - つまり、全ての候補型がデストラクタを呼び出す必要のない型である場合、[`valueless_by_exception()`](valueless_by_exception.md)の状態に関わらず何もする必要がない
 
 

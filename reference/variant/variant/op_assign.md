@@ -71,7 +71,7 @@ variant& operator=(T&& rhs) noexcept(see below);               // (3)
     - 保持する値の初期化中に例外が発生した場合、`variant`オブジェクトは値を保持しない可能性がある
 
 
-## 自明定義される条件
+## トリビアルに定義される条件
 - (1) : `Types...`のすべての型`Ti`について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti> &&` [`is_trivially_copy_assignable_v`](/reference/type_traits/is_trivially_copy_assignable.md)`<Ti> &&` [`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`であること
 - (2) : `Types...`のすべての型`Ti`について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti> &&` [`is_trivially_move_assignable_v`](/reference/type_traits/is_trivially_move_assignable.md)`<Ti> &&` [`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Ti>`が`true`であること
 
