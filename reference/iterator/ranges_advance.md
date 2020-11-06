@@ -1,12 +1,11 @@
-# ranges::advance
+# advance
 * iterator[meta header]
-* std[meta namespace]
+* std::ranges[meta namespace]
 * function template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
 namespace std::ranges {
-
   template<input_or_output_iterator I>
   constexpr void advance(I& i, iter_difference_t<I> n);     // (1)
 
