@@ -180,7 +180,7 @@ variant(allocator_arg_t,
     - 型`Ti`の選択されたコンストラクタが任意の例外を送出する可能性がある
 
 
-## 自明定義される条件
+## トリビアルに定義される条件
 - (2) : 全ての`Ti`型について、[`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<Ti>`が`true`であること
 - (3) : 全ての`Ti`型について、[`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<Ti>`が`true`であること
 
