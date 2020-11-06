@@ -1,6 +1,7 @@
 name: outer link check
 
 on:
+  workflow_dispatch:
   schedule:
     # UTC 表記
     # 日本時間 日曜23:30
