@@ -34,7 +34,7 @@ return first;
 
 
 ## 備考
-- 非自明なデストラクタをもたない`int`や`char`配列のような型のオブジェクトに対しては、デストラクタを呼び出す必要はない。`ForwardIterator`の値型`T`が[`std::is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<T> == true`である場合、 (効果欄の`for`文も含めて) なにもしない最適化が行われる可能性がある
+- 非トリビアルなデストラクタをもたない`int`や`char`配列のような型のオブジェクトに対しては、デストラクタを呼び出す必要はない。`ForwardIterator`の値型`T`が[`std::is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<T> == true`である場合、 (効果欄の`for`文も含めて) なにもしない最適化が行われる可能性がある
     - 例として、[`std::optional`](/reference/optional/optional.md)クラスの[デストラクタ](/reference/optional/optional/op_destructor.md)、および[`std::vector`](/reference/vector/vector.md)クラスの[デストラクタ](/reference/vector/vector/op_destructor.md)を参照
 
 

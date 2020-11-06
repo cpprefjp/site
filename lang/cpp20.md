@@ -22,7 +22,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく |
 | [抽象型のチェック](cpp20/checking_for_abstract_class_types.md.nolink) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
 | [可変長データを扱うクラスの効率的な`delete`](cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 |
-| [条件付きで特殊メンバ関数をトリビアルに定義するように](cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によって自明な特殊メンバ関数と非自明な特殊メンバ関数をオーバーロードできるようにする |
+| [条件付きで特殊メンバ関数をトリビアルに定義するように](cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数をオーバーロードできるようにする |
 
 
 ### 列挙型
@@ -98,7 +98,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 | [constexpr関数内でのtry-catchブロックを許可](cpp20/try-catch_blocks_in_constexpr_functions.md.nolink) | constexpr関数内での例外の捕捉を許可する |
 | [即時関数](cpp20/immediate_functions.md.nolink) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする |
 | [定数式内での共用体のアクティブメンバの変更を許可](cpp20/changing_the_active_member_of_a_union_inside_constexpr.md.nolink) | 共用体メンバの書き換えを定数式内で行えるようにする |
-| [constexprの文脈での自明なデフォルト初期化を許可](cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する |
+| [constexprの文脈でのトリビアルなデフォルト初期化を許可](cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する |
 | [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md.nolink) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 |
 | [コンパイル時初期化を強制する`constinit`キーワードを追加](cpp20/constinit.md.nolink) | 初期化のみコンパイル時におわらせたい場合に使用する |
 | [可変サイズをもつコンテナの`constexpr`化](cpp20/more_constexpr_containers.md.nolink) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする |
