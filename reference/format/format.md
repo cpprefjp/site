@@ -75,13 +75,12 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
     * `>` : 右寄せ
     * `<` : 左寄せ
     * `^` : 中央寄せ
-    * `=` : 符号の後にアライメントをする
 * `sign` : 符号
     * `+` : 正の数でも符号を表示する
     * `-` : 負の数の場合のみ符号を表示する(デフォルト)
     * スペース : 正の数にはスペースを表示する
 * `#` : 代替表現(`0x`など形式がわかる表記)を使う
-* `0` : 符号を考慮して0で埋める (`fill`を`0`、`align`を`=`にした場合と同じ)
+* `0` : 符号を考慮して0で埋める
 * `width` : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)
     * 置換フィールドを使って変数で指定できる
 * `precision` : 精度(浮動小数点数の場合)、使う文字数(文字列の場合)
@@ -136,7 +135,7 @@ string s3 = format("{} {1}",  "a", "b"); // format_error
 |:-----------|:-------------------|:----------------------------------------------------------------------------------------------------------------|
 | p (省略可) | アドレスを出力する | `"0x" + to_chars(first, last, reinterpret_cast<uintptr_t>(value), 16)`  |
 
-### 例([P0645R10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)より)
+### 例(N4861より)
 
 ```cpp
 char c = 120;
@@ -145,24 +144,28 @@ format("{:6}", 'x');     // "x     "
 format("{:*<6}", 'x');   // "x*****"
 format("{:*>6}", 'x');   // "*****x"
 format("{:*^6}", 'x');   // "**x***"
-format("{:=6}", 'x');    // エラー
 format("{:6d}", c);      // "   120"
-format("{:=+06d}", c);   // "+00120"
-format("{:0=#6x}", 0xa); // "0x000a"
 format("{:6}", true);    // "true  "
 ```
 
 ```cpp
 double inf = numeric_limits<double>::infinity();
 double nan = numeric_limits<double>::quiet_NaN();
-format("{0:} {0:+} {0:-} {0: }", 1);   // "1 +1 1  1"
-format("{0:} {0:+} {0:-} {0: }", -1);  // "-1 -1 -1 -1"
-format("{0:} {0:+} {0:-} {0: }", inf); // "inf +inf inf  inf"
-format("{0:} {0:+} {0:-} {0: }", nan); // "nan +nan nan  nan"
+format("{0:},{0:+},{0:-},{0: }", 1);   // "1,+1,1, 1"
+format("{0:},{0:+},{0:-},{0: }", -1);  // "-1,-1,-1,-1"
+format("{0:},{0:+},{0:-},{0: }", inf); // "inf,+inf,inf, inf"
+format("{0:},{0:+},{0:-},{0: }", nan); // "nan,+nan,nan, nan"
 ```
 * numeric_limits[link /reference/limits/numeric_limits.md]
 * infinity()[link /reference/limits/numeric_limits/infinity.md]
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
+
+```cpp
+char c = 120;
+format("{:+06d}", c);   // "+00120"
+format("{:#06x}", 0xa); // "0x000a"
+format("{:<06}", -42);  // "-42   "
+```
 
 ```cpp
 format("{}", 42);                      // "42"
@@ -267,3 +270,4 @@ wstring format(const locale& loc, wstring_view fmt, const Args&... args)
 
 * [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [P1652R1 Printf corner cases in std::format](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1652r1.html)
