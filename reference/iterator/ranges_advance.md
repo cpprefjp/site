@@ -124,8 +124,8 @@ diff : 2
 |---------------------|-----------------------------------|
 | [`next()`](next.md) | `n`回前方に進めたイテレータを返す |
 | [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
-| [`rangs::next()`](rangs_next.md) | `n`回あるいは`bound`まで前方に進めたイテレータを返す |
-| [`rangs::prev()`](rangs_prev.md.nolink) | `n`回あるいは`bound`まで後方に進めたイテレータを返す |
+| [`ranges::next()`](ranges_next.md) | `n`回あるいは`bound`まで前方に進めたイテレータを返す |
+| [`ranges::prev()`](ranges_prev.md.nolink) | `n`回あるいは`bound`まで後方に進めたイテレータを返す |
 
 
 ## 参照
