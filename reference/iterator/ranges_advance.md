@@ -24,11 +24,11 @@ namespace std::ranges {
 
 イテレータを`n`回あるいは指定された位置まで進める。
 
-[`ranges::next()`](ranges_next.md.nolink)、[`ranges::prev()`](ranges_prev.md.nolink)と違い、引数として渡されたイテレータへの参照を書き換える。
+[`ranges::next()`](ranges_next.md)、[`ranges::prev()`](ranges_prev.md.nolink)と違い、引数として渡されたイテレータへの参照を書き換える。
 
 ## 引数
 
-- `i` -- 進める対象のイテレータ
+- `i` -- 進める対象のイテレータの参照
 - `n` -- 進める距離
 - `bound` -- 進行の目的地となる位置を示すイテレータ（あるいは番兵）
 
@@ -124,8 +124,8 @@ diff : 2
 |---------------------|-----------------------------------|
 | [`next()`](next.md) | `n`回前方に進めたイテレータを返す |
 | [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
-| [`rangs::next()`](rangs::next.md.nolink) | `n`回前方に進めたイテレータを返す |
-| [`rangs::prev()`](rangs::prev.md.nolink) | `n`回後方に進めたイテレータを返す |
+| [`rangs::next()`](rangs_next.md) | `n`回あるいは`bound`まで前方に進めたイテレータを返す |
+| [`rangs::prev()`](rangs_prev.md.nolink) | `n`回あるいは`bound`まで後方に進めたイテレータを返す |
 
 
 ## 参照
