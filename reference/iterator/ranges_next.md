@@ -42,18 +42,21 @@ namespace std::ranges {
     ++x;
     return x;
     ```
+
 - (2) :  以下と等価
     ```cpp
     ranges::advance(x, n);
     return x;
     ```
     * ranges::advance[link /reference/iterator/ranges_advance.md]
+
 - (3) : 以下と等価
     ```cpp
     ranges::advance(x, bound);
     return x;
     ```
     * ranges::advance[link /reference/iterator/ranges_advance.md]
+
 - (4) : 以下と等価
     ```cpp
     ranges::advance(x, n, bound);
