@@ -40,25 +40,25 @@ namespace std {
 
 - `N == 2` : `Types...`の１、2番目の型を`T1, T2`とすると
     - `T1, T2`は共に参照型であり、`COMMON-REF(T1, T2)`が有効ならば、`type = COMMON-REF(T1, T2);`
-	- `basic_common_reference<remove_cvref_t<T1>, remove_cvref_t<T2>, XREF(T1), XREF(T2)>::type`が有効ならば、メンバ型`type`はその型
+	- [`basic_common_reference`](basic_common_reference.md)`<remove_cvref_t<T1>, remove_cvref_t<T2>, XREF(T1), XREF(T2)>::type`が有効ならば、メンバ型`type`はその型
 	- `COND-RES(T1, T2)`が有効ならば、`type = COND-RES(T1, T2);`
-	- `common_type_t<T1, T2>`が有効ならば、`type = common_type_t<T1, T2>;`
+	- [`common_type_t`](common_type.md)`<T1, T2>`が有効ならば、`type = common_type_t<T1, T2>;`
 	- そうでなければ、メンバ型`type`は定義されない。
 - `N >= 3` : `Types...`の１、2番目の型を`T1, T2`、残りのパラメータパックを`Rest`、`C = common_reference<T1, T2>`とすると
-    - 型`C`が存在する場合、`type = common_reference<C, Rest...>;`のようにメンバ型``type`を定義。
+    - 型`C`が存在する場合、`type = common_reference<C, Rest...>;`のようにメンバ型`type`を定義。
     - そうでなければ、メンバ型`type`は定義されない。
 
 `COMMON-REF`や`XREF`はそれぞれ次のように定義される型を表す説明専用のものである
 
 - `XREF(A)`
     - 参照ではなくCV修飾もされていない型`U`を引数に取り、`A`の参照・CV修飾をそのまま`U`にコピーした型を示すエイリアステンプレート`T<U>`
-    - このような`T<U>`は、`basic_common_reference`の要件指定で使用される
+    - このような`T<U>`は、[`basic_common_reference`](basic_common_reference.md)の要件指定で使用される
 - `COND-RES(X, Y)`
     - `decltype(false ? declval<X(&)()>()() : declval<Y(&)()>()())`
 - `COPYCV(FROM, TO)`
     - 型`FROM`の最上位のCV修飾をそのまま`TO`へコピーした型を示すエイリアス
 - `COMMON-REF(A, B)`
-    - `X = remove_reference_t<A>, Y = remove_reference_t<B>`として、以下のように定義される
+    - `X = remove_reference_t<A>`, `Y = remove_reference_t<B>`として、以下のように定義される
         1. `A, B`が共に左辺値参照型の場合、`COND-RES(COPYCV(X, Y) &, COPYCV(Y, X) &)`が有効であり参照型ならばその型
         2. `A, B`が共に右辺値参照型の場合、`C = remove_reference_t<COMMON-REF(X, Y)>&&`（1に移譲）が有効であり、`is_convertible_v<A, C> && is_convertible_v<B, C> == true`ならば、型`C`
         3. `A`が右辺値参照型で`B`が左辺値参照型の場合、`D = COMMON-REF(const X&, Y&)`（1に移譲）が有効であり、`is_convertible_v<A, D> == true`ならば、型`D`

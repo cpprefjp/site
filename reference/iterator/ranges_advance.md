@@ -24,7 +24,7 @@ namespace std::ranges {
 
 イテレータを`n`回あるいは指定された位置まで進める。
 
-[`ranges::next()`](ranges_next.md)、[`ranges::prev()`](ranges_prev.md.nolink)と違い、引数として渡されたイテレータへの参照を書き換える。
+[`ranges::next()`](ranges_next.md)、[`ranges::prev()`](ranges_prev.md)と違い、引数として渡されたイテレータへの参照を書き換える。
 
 ## 引数
 

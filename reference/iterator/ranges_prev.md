@@ -120,7 +120,7 @@ int main() {
 |---------------------|-----------------------------------|
 | [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
 | [`advance()`](advance.md) | `n`回イテレータを進める       |
-| [`rangse::prev()`](ranges_prev.md.nolink) | `n`回後方に進めたイテレータを返す |
+| [`rangse::prev()`](ranges_prev.md) | `n`回後方に進めたイテレータを返す |
 | [`ranges::advance()`](/reference/iterator/ranges_advance.md) |`n`回あるいは`boundまで`イテレータを進める  |
 
 
