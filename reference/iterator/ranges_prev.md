@@ -21,9 +21,9 @@ namespace std::ranges {
 
 ## 概要
 
-`n`回あるいは指定された位置まで後方に進めたイテレータを返す。
+`n`回あるいは指定された位置まで戻したイテレータを返す。
 
-[`ranges::advance()`](/reference/iterator/ranges_advance.md)と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回後方に進んだイテレータのコピーを返す。
+[`ranges::advance()`](/reference/iterator/ranges_advance.md)と違い、引数として渡されたイテレータへの参照を書き換えるのではなく、`n`回戻したイテレータのコピーを返す。
 
 ## 引数
 
@@ -55,9 +55,9 @@ namespace std::ranges {
 
 ## 戻り値
 
-- (1) : `x`を1後ろに進めたイテレータのコピーを返す
-- (2) : `x`を`n`後ろに進めたイテレータのコピーを返す
-- (3) : `x`を`bound`以内で`n`後ろに進めたイテレータのコピーを返す
+- (1) : `x`を1戻したイテレータのコピーを返す
+- (2) : `x`を`n`戻したイテレータのコピーを返す
+- (3) : `x`を`bound`以内で`n`戻したイテレータのコピーを返す
 
 ## 例
 ```cpp example
@@ -95,7 +95,6 @@ int main() {
 }
 ```
 * std::ranges::prev[color ff0000]
-* std::begin[link /reference/iterator/begin.md]
 
 ### 出力
 ```
@@ -104,7 +103,6 @@ int main() {
 1
 6
 6
-5
 ```
 
 ## バージョン
