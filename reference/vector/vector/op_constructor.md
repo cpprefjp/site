@@ -31,7 +31,7 @@ vector(InputIter first, InputIter last,
 vector(const vector& x);                             // (6) C++03
 
 vector(vector&& x);                                  // (7) C++11
-vector(vector&& x); noexcept                         // (7) C++17
+vector(vector&& x) noexcept;                         // (7) C++17
 
 vector(const vector& x, const Allocator& a);         // (8) C++11
 
