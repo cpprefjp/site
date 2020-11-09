@@ -112,7 +112,6 @@ int main() {
 ```
 * std::ranges::next[color ff0000]
 * std::begin[link /reference/iterator/begin.md]
-* std::next[link /reference/iterator/next.md]
 
 ### 出力
 ```

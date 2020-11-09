@@ -57,7 +57,7 @@ namespace std::ranges {
         - `|n| <  |bound - i|` : `ranges::advance(i, n)`（(1)に委譲）
     - それ以外の場合で
         - `n`が正数 : `bool(i != bound) == true`である間、`i`を最大`n`回インクリメントする
-        - `n`が負数 : `bool(i != bound) == true`である間、`i`を最大`-n`回インクリメントする
+        - `n`が負数 : `bool(i != bound) == true`である間、`i`を最大`-n`回デクリメントする
 
 ## 戻り値
 
@@ -123,10 +123,9 @@ diff : 2
 | 名前                | 説明                              |
 |---------------------|-----------------------------------|
 | [`next()`](next.md) | `n`回前方に進めたイテレータを返す |
-| [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
+| [`advance()`](advance.md) | `n`回イテレータを進める       |
 | [`ranges::next()`](ranges_next.md) | `n`回あるいは`bound`まで前方に進めたイテレータを返す |
-| [`ranges::prev()`](ranges_prev.md.nolink) | `n`回あるいは`bound`まで後方に進めたイテレータを返す |
-
+| [`ranges::advance()`](/reference/iterator/ranges_advance.md) |`n`回あるいは`boundまで`イテレータを進める  |
 
 ## 参照
 
