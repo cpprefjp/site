@@ -19,10 +19,16 @@ namespace std {
 ## 概要
 2つの`move_iterator`オブジェクトが同じ要素を指していないかを判定する。
 
+## テンプレートパラメータ制約
+
+`x.base() == y.base()`が有効であり、戻り値が`bool`に変換可能であること。
 
 ## 戻り値
 `return !(x == y);`
 
+## 備考
+
+C++20以降、この演算子は[`operator==`](op_equal.md)によって使用可能となる。
 
 ## 例
 ```cpp example

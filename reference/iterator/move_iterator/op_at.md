@@ -8,6 +8,7 @@
 ```cpp
 unspecified operator[](difference_type n) const;           // C++11
 constexpr unspecified operator[](difference_type n) const; // C++17
+constexpr reference operator[](difference_type n) const;   // C++20
 ```
 * unspecified[italic]
 
@@ -16,7 +17,11 @@ constexpr unspecified operator[](difference_type n) const; // C++17
 
 
 ## 戻り値
-`return std::`[`move`](/reference/utility/move.md)`(`[`base`](base.md)`()[n]);`
+
+- C++17まで
+    - `return std::`[`move`](/reference/utility/move.md)`(`[`base`](base.md)`()[n]);`
+- C++20
+    - `return ranges::`[`iter_move`](/reference/iterator/iter_move.md.nolink)`(`[`base`](base.md)`() + n);`
 
 
 ## 例
@@ -60,3 +65,4 @@ int main()
 
 ## 参照
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

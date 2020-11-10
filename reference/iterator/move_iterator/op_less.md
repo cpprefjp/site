@@ -19,6 +19,9 @@ namespace std {
 ## 概要
 2つの`move_iterator`オブジェクトにおいて、左辺が右辺より小さいかを判定する。
 
+## テンプレートパラメータ制約
+
+`x.base() < y.base()`が有効であり、戻り値が`bool`に変換可能であること。
 
 ## 戻り値
 `return x.`[`base`](base.md)`() < y.`[`base`](base.md)`();`

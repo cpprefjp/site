@@ -40,6 +40,8 @@ namespace std {
 
 ## メンバ型
 
+### C++17まで
+
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
 | `iterator_type` | `Iterator` | C++11 |
@@ -48,6 +50,18 @@ namespace std {
 | `value_type` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::value_type` | C++11 |
 | `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` | C++11 |
 | `reference` | `value_type&&` | C++11 |
+
+### C++20
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| `iterator_type` | `Iterator` | C++11 |
+| `difference_type` | [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<Iterator>` | C++20 |
+| `pointer` | `Iterator` | C++11 |
+| `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<Iterator>` | C++20 |
+| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` <br/> ただし、[`contiguous_iterator_tag`](reference/iterator/iterator_tag.md)となるときは`random_access_iterator_tag` | C++20 |
+| `iterator_concept` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) | C++20 |
+| `reference` | [`iter_rvalue_reference_t`](/reference/iterator/iter_rvalue_reference_t.md)`<Iterator>`  | C++20 |
 
 
 ## 非メンバ関数
@@ -63,6 +77,16 @@ namespace std {
 | [`operator-`](move_iterator/op_minus.md)          | 2つの`move_iterator`の差を求める | C++11 |
 | [`operator+`](move_iterator/op_plus.md)           | イテレータを進める | C++11 |
 | [`make_move_iterator`](make_move_iterator.md)     | `move_iterator`のヘルパ関数 | C++11 |
+| [`iter_move`](move_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++20 |
+| [`iter_swap`](move_iterator/iter_swap.md.nolink)     | イテレータの要素の交換 | C++20 |
+
+### `move_sentinel`に関する操作
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| [`operator==`](move_iterator/op_equal.md)         | 等値比較 | C++20 |
+| [`operator!=`](move_iterator/op_not_equal.md)     | 非等値比較 | C++20 |
+| [`operator-`](move_iterator/op_minus.md)          | `move_iterator`と終端との差を求める | C++20 |
 
 
 ## 例
@@ -112,4 +136,4 @@ int main()
 
 ## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
-
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

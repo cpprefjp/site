@@ -15,7 +15,12 @@ constexpr reference operator*() const; // C++17
 
 
 ## 戻り値
-`std::move(*base())`
+
+- C++17まで
+    - `std::move(*base())`
+- C++20
+    - `return ranges::`[`iter_move`](/reference/iterator/iter_move.md.nolink)`(`[`base`](base.md)`());`
+
 
 
 ## 例
@@ -58,3 +63,4 @@ int main()
 
 ## 参照
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

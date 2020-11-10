@@ -15,12 +15,21 @@ namespace std {
   constexpr move_iterator<Iterator> operator+(
     typename move_iterator<Iterator>::difference_type n,
     const move_iterator<Iterator>& x);                   // C++17
+
+  template <class Iterator>
+  constexpr move_iterator<Iterator> operator+(
+    iter_difference_t<Iterator> n,
+    const move_iterator<Iterator>& x);                   // C++20
 }
 ```
+* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 イテレータを`n`回進める。
 
+## テンプレートパラメータ制約
+
+`x + n`が有効であり、戻り値型が`Iterator`であること。
 
 ## 戻り値
 `return x + n;`
