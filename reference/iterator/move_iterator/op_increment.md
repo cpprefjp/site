@@ -35,6 +35,7 @@ return *this;
         return tmp;
         ```
         * base[link base.md]
+
     - それ以外の場合 : `++base()`と等価
 
 ## 例
