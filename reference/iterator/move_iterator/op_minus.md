@@ -39,6 +39,7 @@ namespace std {
 `return x.base() - y.base();`
 
 `x.base()`と`y.base()`はオーバーロードによって次のどちらか
+
 - [`move_iterator::base()`](base.md)
 - [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md.nolink)
 

@@ -39,12 +39,13 @@ namespace std {
 `return x.base() == y.base();`
 
 `x.base()`と`y.base()`はオーバーロードによって次のどちらか
+
 - [`move_iterator::base()`](base.md)
 - [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md.nolink)
 
 ## 備考
 
-C++20以降、この演算子により以下のオーバーロードが使用可能になる。
+C++20以降、この演算子により以下の演算子が使用可能になる。
 
 - [`operator!=(const move_iterator<Iterator1>& x, const move_iterator<Iterator2>& y)`](/reference/iterator/move_iterator/op_not_equal.md) 
 - `operator!=(const move_iterator& x, const move_sentinel<S>& y)`
