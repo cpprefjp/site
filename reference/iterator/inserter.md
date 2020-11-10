@@ -7,14 +7,15 @@
 namespace std {
   template <class Container>
   insert_iterator<Container>
-    inserter(Container& x, typename Container::iterator i); // (1) C++03
+    inserter(Container& x, typename Container::iterator i);   // (1) C++03
 
   template <class Container>
   constexpr insert_iterator<Container>
-    inserter(Container& x, typename Container::iterator i); // (1) C++20
+    inserter(Container& x, ranges::iterator_t<Container> i);  // (1) C++20
 }
 ```
 * insert_iterator[link insert_iterator.md]
+* ranges::iterator_t[link /reference/iterator/iterator_t.md]
 
 ## 概要
 `insert_iterator`のヘルパ関数
@@ -61,3 +62,5 @@ int main()
 
 ## 参照
 - [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+
