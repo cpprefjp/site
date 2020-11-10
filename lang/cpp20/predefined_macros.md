@@ -9,3 +9,6 @@
 |---------------|-----------|-------------------------|
 | `__cplusplus` | `202002L` | C++のバージョン値を表す |
 
+
+## 参照
+- [N4859 Editors' Report -- Programming Languages -- C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4859.html)
