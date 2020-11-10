@@ -25,7 +25,7 @@ namespace std {
 }
 ```
 * sentinel_for[link /reference/iterator/sentinel_for.md)
-* move_sentinel[link /reference/iterator/move_sentinel.md]
+* move_sentinel[link /reference/iterator/move_sentinel.md.nolink]
 
 ## 概要
 2つの`move_iterator`オブジェクトが同じ要素を指しているかを判定する。
@@ -40,7 +40,7 @@ namespace std {
 
 `x.base()`と`y.base()`はオーバーロードによって次のどちらか
 - [`move_iterator::base()`](base.md)
-- [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md)
+- [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md.nolink)
 
 ## 備考
 

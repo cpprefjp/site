@@ -28,7 +28,7 @@ namespace std {
 * base[link /reference/iterator/move_iterator/base.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md)
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* move_sentinel[link /reference/iterator/move_sentinel.md]
+* move_sentinel[link /reference/iterator/move_sentinel.md.nolink]
 
 ## 概要
 2つのイテレータの差を求める。
@@ -40,7 +40,7 @@ namespace std {
 
 `x.base()`と`y.base()`はオーバーロードによって次のどちらか
 - [`move_iterator::base()`](base.md)
-- [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md)
+- [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md.nolink)
 
 ## 例
 ```cpp example

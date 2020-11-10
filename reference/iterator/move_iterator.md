@@ -59,7 +59,7 @@ namespace std {
 | `difference_type` | [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<Iterator>` | C++20 |
 | `pointer` | `Iterator` | C++11 |
 | `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<Iterator>` | C++20 |
-| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` <br/> ただし、[`contiguous_iterator_tag`](reference/iterator/iterator_tag.md)となるときは`random_access_iterator_tag` | C++20 |
+| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` <br/> ただし、[`contiguous_iterator_tag`](/reference/iterator/iterator_tag.md)となるときは`random_access_iterator_tag` | C++20 |
 | `iterator_concept` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) | C++20 |
 | `reference` | [`iter_rvalue_reference_t`](/reference/iterator/iter_rvalue_reference_t.md)`<Iterator>`  | C++20 |
 
