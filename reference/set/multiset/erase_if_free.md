@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   template <class Key, class Compare, class Allocator, class Predicate>
-  void erase_if(multiset<Key, Compare, Allocator>& c, Predicate pred);
+  typename multiset<Key, Compare, Allocator>::size_type
+    erase_if(multiset<Key, Compare, Allocator>& c, Predicate pred);
 }
 ```
 
@@ -19,6 +20,7 @@ namespace std {
 以下と等価：
 
 ```
+auto original_size = c.size();
 for (auto i = c.begin(), last = c.end(); i != last;) {
   if (pred(*i)) {
     i = c.erase(i);
@@ -26,14 +28,16 @@ for (auto i = c.begin(), last = c.end(); i != last;) {
     ++i;
   }
 }
+return original_size - c.size();
 ```
 * c.begin()[link begin.md]
 * c.end()[link end.md]
 * c.erase[link erase.md]
+* c.size()[link size.md]
 
 
 ## 戻り値
-なし
+削除した要素数を返す。
 
 
 ## 例
@@ -72,4 +76,5 @@ int main()
 
 
 ## 参照
-- [P1209R0 | Adopt consistent container erasure from Library Fundamentals 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1209r0.html)
+- [P1209R0 Adopt consistent container erasure from Library Fundamentals 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1209r0.html)
+- [R1115R3 Improving the Return Value of Erase-Like Algorithms II: Free `erase`/`erase_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1115r3.pdf)
