@@ -159,6 +159,7 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - [C++17 `[[fallthrough]]`属性](/lang/cpp17/fallthrough.md)
 - [C++20 `[[no_unique_address]]`属性](/lang/cpp20/language_support_for_empty_objects.md)
 - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
+- [C++20 属性の名前空間を予約](/lang/cpp20/reserving_attribute_namespaces_for_future_use.md)
 
 
 ## 参照
