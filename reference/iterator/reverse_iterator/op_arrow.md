@@ -21,8 +21,17 @@ constexpr pointer operator->() const  // C++20
 - C++03 : `&(operator*())`
 - C++14 : [`addressof`](/reference/memory/addressof.md)`(operator*())`
 - C++20 : 次のいずれか
-    - `Iterator`がポインタ型である場合 : `return `[` prev`](/reference/iterator/prev.md)`(current);`
-    - それ以外の場合 : `return `[` prev`](/reference/iterator/prev.md)`(current).operator->();`
+    - `Iterator`がポインタ型である場合
+      ```cpp
+      return prev(current);
+      ```
+      * prev[link /reference/iterator/prev.md]
+
+    - それ以外の場合
+      ```cpp
+      return prev(current).operator->();;
+      ```
+      * prev[link /reference/iterator/prev.md]
 
 ## 例
 ```cpp example

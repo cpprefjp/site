@@ -85,7 +85,7 @@ namespace std {
 | `pointer` | `Iterator` | |
 | `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<Iterator>` | C++20 |
 | `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` <br/> ただし、[`contiguous_iterator_tag`](/reference/iterator/iterator_tag.md)となるときは`random_access_iterator_tag` | C++20 |
-| `iterator_concept` | [`bidirectional_iterator_tag`](/reference/iterator/iterator_tag.md) <br/> ただし、`Iterator`が[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルとなる場合は[`random_access_iterator_tag`](/reference/iterator/iterator_tag.md)  | C++20 |
+| `iterator_concept` | [`bidirectional_iterator_tag`](/reference/iterator/iterator_tag.md) <br/> ただし、`Iterator`が[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルとなるときは[`random_access_iterator_tag`](/reference/iterator/iterator_tag.md)  | C++20 |
 | `reference` | [`iter_reference_t`](/reference/iterator/iter_reference_t.md)`<Iterator>`  | C++20 |
 
 ## 非メンバ関数
