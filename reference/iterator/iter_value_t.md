@@ -19,10 +19,10 @@ namespace std {
 
 `RI = remove_cvref_t<I>`とすると、次のどちらか
 
-- [`indirectly_readable_traits`](indirectly_readable_traits.md)`<RI>::value_type`
-    - [`iterator_traits`](iterator_traits.md)`<RI>`がプライマリテンプレートの特殊化となる場合
-- [`iterator_traits`](iterator_traits.md)`<RI>::value_type`
-    - その他の場合
+- [`iterator_traits`](iterator_traits.md)`<RI>`がプライマリテンプレートの特殊化となる場合
+    - [`indirectly_readable_traits`](indirectly_readable_traits.md)`<RI>::value_type`
+- その他の場合
+    - [`iterator_traits`](iterator_traits.md)`<RI>::value_type`
 
 ## 備考
 
