@@ -135,6 +135,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 
 ## 非メンバ関数
+### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -144,7 +145,19 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | [`operator<=`](basic_string_view/op_less_equal.md)    | 左辺が右辺以下かの判定を行う       | C++17 |
 | [`operator>`](basic_string_view/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++17 |
 | [`operator>=`](basic_string_view/op_greater_equal.md) | 左辺が右辺以上かの判定を行う       | C++17 |
-| [`operator<<`](basic_string_view/op_ostream.md)       | ストリームへの出力                 | C++17 |
+
+### 入出力
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator<<`](basic_string_view/op_ostream.md) | ストリームへの出力 | C++17 |
+
+
+### 推論ガイド
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(op_deduction_guide)`](basic_string_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
 
 
 ### リテラル
