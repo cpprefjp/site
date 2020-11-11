@@ -7,7 +7,11 @@
 ```cpp
 pointer operator->() const;           // C++03
 constexpr pointer operator->() const; // C++17
+constexpr pointer operator->() const  // C++20
+  requires (is_pointer_v<Iterator> ||
+            requires (const Iterator i) { i.operator->(); });
 ```
+* is_pointer_v[link /reference/type_traits/is_pointer.md]
 
 ## 概要
 イテレータを通してオブジェクトにアクセスする
@@ -16,6 +20,9 @@ constexpr pointer operator->() const; // C++17
 ## 戻り値
 - C++03 : `&(operator*())`
 - C++14 : [`addressof`](/reference/memory/addressof.md)`(operator*())`
+- C++20 : 次のいずれか
+    - `Iterator`がポインタ型である場合 : `return `[` prev`](/reference/iterator/prev.md)`(current);`
+    - それ以外の場合 : `return `[` prev`](/reference/iterator/prev.md)`(current).operator->();`
 
 ## 例
 ```cpp example
@@ -52,3 +59,4 @@ int main()
 ## 参照
 - [LWG Issue 2188. Reverse iterator does not fully support targets that overload `operator&`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2188)
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

@@ -12,10 +12,18 @@ namespace std {
                       typename iterator_traits<Iterator>::difference_type,
                       typename iterator_traits<Iterator>::pointer,
                       typename iterator_traits<Iterator>::reference>;
+
+  // 距離を求められないイテレータペアについて、sized_sentinel_forを無効化する（C++20）
+  template<class Iterator1, class Iterator2>
+    requires (!sized_sentinel_for<Iterator1, Iterator2>)
+  inline constexpr bool disable_sized_sentinel_for<reverse_iterator<Iterator1>,
+                                                   reverse_iterator<Iterator2>> = true;
 }
 ```
 * iterator[link /reference/iterator/iterator.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* disable_sized_sentinel_for[link /reference/iterator/disable_sized_sentinel_for.md]
 
 ## 概要
 `reverse_iterator`は、イテレータを、逆方向に進むイテレータとしてラップするイテレータアダプタである。
@@ -24,7 +32,9 @@ namespace std {
 
 
 ## 要件
-テンプレートパラメータ`Iterator`は、双方向イテレータの要件を満たすこと。ランダムアクセスイテレータであることを必要とする横断操作を使用する場合は、ランダムアクセスイテレータの要件を満たすこと。
+
+- C++17まで : テンプレートパラメータ`Iterator`は、双方向イテレータの要件を満たすこと。ランダムアクセスイテレータであることを必要とする横断操作を使用する場合は、ランダムアクセスイテレータの要件を満たすこと。
+- C++20 : テンプレートパラメータ`Iterator`は、[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルとなること。ランダムアクセスイテレータであることを必要とする横断操作を使用する場合は、[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルとなること。
 
 
 ## メンバ関数
@@ -55,6 +65,8 @@ namespace std {
 
 ## メンバ型
 
+### C++17まで
+
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------|----------------------------------------|-------|
 | `iterator_type` | `Iterator` | |
@@ -64,6 +76,17 @@ namespace std {
 | `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` | |
 | `reference` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::reference` | |
 
+### C++20
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| `iterator_type` | `Iterator` | |
+| `difference_type` | [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<Iterator>` | C++20 |
+| `pointer` | `Iterator` | |
+| `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<Iterator>` | C++20 |
+| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` <br/> ただし、[`contiguous_iterator_tag`](/reference/iterator/iterator_tag.md)となるときは`random_access_iterator_tag` | C++20 |
+| `iterator_concept` | [`bidirectional_iterator_tag`](/reference/iterator/iterator_tag.md) <br/> ただし、`Iterator`が[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルとなる場合は[`random_access_iterator_tag`](/reference/iterator/iterator_tag.md)  | C++20 |
+| `reference` | [`iter_reference_t`](/reference/iterator/iter_reference_t.md)`<Iterator>`  | C++20 |
 
 ## 非メンバ関数
 
@@ -75,8 +98,11 @@ namespace std {
 | [`operator<=`](reverse_iterator/op_less_equal.md) | 左辺が右辺以下かの判定を行う | |
 | [`operator>`](reverse_iterator/op_greater.md) | 左辺が右辺より大きいかの判定を行う | |
 | [`operator>=`](reverse_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | |
+| [`operator<=>`](reverse_iterator/op_compare_3way.md.nolink)           | 三方比較を行う | C++20 |
 | [`operator-`](reverse_iterator/op_minus.md) | 2つの`reverse_iterator`の差を求める | |
 | [`operator+`](reverse_iterator/op_plus.md) | イテレータを進める | |
+| [`iter_move`](reverse_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++20 |
+| [`iter_swap`](reverse_iterator/iter_swap.md.nolink)     | イテレータの要素の交換 | C++20 |
 
 ### ヘルパ関数
 
@@ -118,4 +144,4 @@ int main()
 
 ### 参照
 
-
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

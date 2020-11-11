@@ -18,6 +18,9 @@ namespace std {
 ## 概要
 2つの`reverse_iterator`オブジェクトにおいて、左辺が右辺より小さいかを判定する。
 
+## テンプレートパラメータ制約
+
+`x.current > y.current`が有効であり、戻り値が`bool`に変換可能であること。
 
 
 ## 戻り値
@@ -55,3 +58,4 @@ less
 
 ## 参照
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
