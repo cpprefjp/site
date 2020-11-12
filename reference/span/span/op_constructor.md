@@ -17,7 +17,8 @@ constexpr explicit(extent != dynamic_extent)
   span(It first, End last);                                    // (3) C++20
 
 template <size_t N>
-constexpr span(element_type (&arr)[N]) noexcept;               // (4) C++20
+constexpr span(
+  type_identity_t<element_type> (&arr)[N]) noexcept;           // (4) C++20
 
 template <class T, size_t N>
 constexpr span(array<T, N>& arr) noexcept;                     // (5) C++20
@@ -38,6 +39,7 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 * size_t[link /reference/cstddef/size_t.md]
 * array[link /reference/array/array.md]
 * dynamic_extent[link /reference/span/dynamic_extent.md]
+* type_identity_t[link /reference/type_traits/type_identity.md]
 
 ## 概要
 `span`オブジェクトを構築する。
