@@ -19,11 +19,11 @@ constexpr explicit(extent != dynamic_extent)
 template <size_t N>
 constexpr span(element_type (&arr)[N]) noexcept;               // (4) C++20
 
-template <size_t N>
-constexpr span(array<value_type, N>& arr) noexcept;            // (5) C++20
+template <class T, size_t N>
+constexpr span(array<T, N>& arr) noexcept;                     // (5) C++20
 
-template <size_t N>
-constexpr span(const array<value_type, N>& arr) noexcept;      // (6) C++20
+template <class T, size_t N>
+constexpr span(const array<T, N>& arr) noexcept;               // (6) C++20
 
 template <class R>
 constexpr explicit(extent != dynamic_extent)
@@ -115,10 +115,10 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 
 
 ## 事後条件
-- (1) : [`size()`](size.md) `== 0 &&` [`data()`](data.md) `== nullptr`
-- (4), (5), (6) : [`size()`](size.md) `== N &&` [`data()`](data.md) `==` [`data`](/reference/iterator/data.md)`(arr)`
-- (8) : [`size()`](size.md) `==` [`size`](/reference/iterator/size.md)`(cont) &&` [`data()`](data.md) `==` [`data`](/reference/iterator/data.md)`(cont)`
-- (9) : [`size()`](size.md) `== s.`[`size()`](size.md) `&&` [`data()`](data.md) `== s.`[`data()`](data.md)
+- (1) : [`size()`](size.md) `== 0 &&` [`data()`](data.md) `== nullptr`が`true`であること
+- (4), (5), (6) : [`size()`](size.md) `== N &&` [`data()`](data.md) `==` [`data`](/reference/iterator/data.md)`(arr)`が`true`であること
+- (8) : [`size()`](size.md) `==` [`size`](/reference/iterator/size.md)`(cont) &&` [`data()`](data.md) `==` [`data`](/reference/iterator/data.md)`(cont)`が`true`であること
+- (9) : [`size()`](size.md) `== s.`[`size()`](size.md) `&&` [`data()`](data.md) `== s.`[`data()`](data.md)が`true`であること
 
 
 ## 例外
@@ -281,3 +281,4 @@ int main()
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
 - [P1394R4 Range constructor for `std::span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1394r4.pdf)
 - [P1976R2 Fixed-size `span` construction from dynamic range](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1976r2.html)
+- [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
