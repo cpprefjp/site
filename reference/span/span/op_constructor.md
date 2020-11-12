@@ -122,7 +122,8 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 
 
 ## 例外
-- (1), (2), (3), (4), (5), (6) : 投げない
+- (1), (2), (4), (5), (6) : 投げない
+- (3) : `last - first`がなんらかの例外を送出する可能性がある
 - (7) : コンテナ型によっては、`std::ranges::data(r)`と`std::ranges::size(r)`の呼び出しがなんらかの例外を送出する可能性がある
 
 
