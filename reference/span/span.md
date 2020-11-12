@@ -91,12 +91,8 @@ namespace std {
 |------|------|----------------|
 | [`begin`](span/begin.md) | 先頭要素を指すイテレータを取得する | C++20 |
 | [`end`](span/end.md) | 末尾要素の次を指すイテレータを取得する | C++20 |
-| [`cbegin`](span/cbegin.md) | 先頭要素を指す読み取り専用イテレータを取得する | C++20 |
-| [`cend`](span/cend.md) | 末尾要素の次を指す読み取り専用イテレータを取得する | C++20 |
 | [`rbegin`](span/rbegin.md) | 末尾要素を指す逆順イテレータを取得する | C++20 |
 | [`rend`](span/rend.md) | 先頭要素の前を指す逆順イテレータを取得する | C++20 |
-| [`crbegin`](span/crbegin.md) | 末尾要素を指す読み取り専用逆順イテレータを取得する | C++20 |
-| [`crend`](span/crend.md) | 先頭要素の前を指す読み取り専用逆順イテレータを取得する | C++20 |
 
 
 ### メンバ定数
@@ -119,9 +115,7 @@ namespace std {
 | `reference` | 参照型 `element_type&` | C++20 |
 | `const_reference` | `const`参照型 `const element_type&` | C++20 |
 | `iterator` | 実装定義のイテレータ型 | C++20 |
-| `const_iterator` | 実装定義の読み取り専用イテレータ | C++20 |
 | `reverse_iterator` | 逆順イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++20 |
-| `const_reverse_iterator` | 読み取り専用逆イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | C++20 |
 
 
 ## 非メンバ関数
@@ -265,4 +259,6 @@ int main()
 - [LWG Issue 3144. `span` does not have a `const_pointer` typedef](https://wg21.cmeerw.net/lwg/issue3144)
 - [LWG Issue 3203. `span` element access invalidation](https://cplusplus.github.io/LWG/lwg-active.html#3203)
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
+    - `const_iterator`, `const_reverse_iterator`, `cbegin()`, `cend()`, `crbegin()`, `crend()`を削除
 - [P2116R0 Remove tuple-like protocol support from fixed-extent `span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2116r0.html)
