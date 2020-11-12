@@ -35,7 +35,7 @@ namespace std {
 ### 静的な要素数と、動的な要素数
 `std::span`は、静的な要素数をもつ場合と、動的な要素数をもつ場合の両方をサポートする。それはテンプレートパラメータ`Extent`によって表される。動的な要素数をもつ場合は、`Extent`として[`std::dynamic_extent`](/reference/span/dynamic_extent.md)を指定する。動的な要素数は、[`std::vector`](/reference/vector/vector.md)を参照したり、ポインタと要素数の組を扱ったり、参照範囲を動的に変更したりする場合に必要となる。
 
-静的な要素数をもつ場合、メンバ定数`extent`に要素数が保持されるため、メンバ変数として要素数を保持する必要がなく、領域を節約する最適化を行える。また、静的な要素数をもつ`std::span`型に対しては、タプルインタフェースを適用できる。
+静的な要素数をもつ場合、メンバ定数`extent`に要素数が保持されるため、メンバ変数として要素数を保持する必要がなく、領域を節約する最適化を行える。
 
 
 ### テンプレートパラメータ制約
@@ -131,14 +131,6 @@ namespace std {
 |------|------|----------------|
 | [`as_bytes`](span/as_bytes.md) | 読み取り専用バイト列としてシーケンスを参照する | C++20 |
 | [`as_writable_bytes`](span/as_writable_bytes.md) | 書込み可能なバイト列としてシーケンスを参照する | C++20 |
-
-## タプルインタフェース
-
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
-| [`tuple_size`](span/tuple_size.md)       | 要素数を取得する (class template)           | C++20 |
-| [`tuple_element`](span/tuple_element.md) | `i`番目の要素型を取得する (class template)  | C++20 |
-| [`get`](span/get.md)                     | 任意の位置の要素を取得する | C++20 |
 
 
 ## 推論補助
@@ -273,3 +265,4 @@ int main()
 - [LWG Issue 3144. `span` does not have a `const_pointer` typedef](https://wg21.cmeerw.net/lwg/issue3144)
 - [LWG Issue 3203. `span` element access invalidation](https://cplusplus.github.io/LWG/lwg-active.html#3203)
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
+- [P2116R0 Remove tuple-like protocol support from fixed-extent `span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2116r0.html)
