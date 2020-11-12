@@ -2,35 +2,40 @@
 * cpp20[meta cpp]
 
 ## 概要
-C++20では、インクルードに代わる新たな仕組みとしてモジュールが導入された。
+C++20では、ヘッダーファイル・ソースファイルに代わる新たなファイル分割の仕組みとしてモジュールが導入された。
 
-C++20では、プリプロセッサを用いずにプログラムを分割することができる：
+モジュールは翻訳単位の先頭でモジュール宣言を行うことにより宣言する。
 
 ```cpp
-// P1103R3より引用
+export module mylib;
+```
 
-// a.cpp
-export module A; // モジュールAのインターフェース
+モジュールの中では、関数や型などの宣言に `export` キーワードを付けて宣言をエクスポートできる。
 
-int foo() { return 1; } // エクスポートしていない関数foo
-export int bar();       // エクスポートしている関数bar
+```cpp
+export module mylib;
 
-// a-impl.cpp
-module A; // モジュールAの実装
+namespace mylib {
+  export struct myfunc_result_t {
+    int x, y;
+  };
+  export myfunc_result_t myfunc() { /*...*/ };
+};
+```
 
-int bar() {
-  return foo() + 1; // OK: fooはエクスポートしていないが、モジュールAの中では見える。
-}
+モジュールを利用するには、インポート宣言を行う。これにより、インポートしたモジュールがエクスポートしている宣言が見えるようになる。
 
-// unrelated.cpp
-import A;
+```cpp
+import mylib;
 
 int main() {
-  bar(); // OK: barはAからエクスポートされているので見える
-  foo(); // エラー: fooはモジュールAの外では見えない
+  // これらの型や関数の宣言はこの翻訳単位には無いが、
+  // mylibでエクスポートしているので、使用することができる。
+  mylib::myfunc_result_t ret = mylib::myfunc();
 }
 ```
-* P1103R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf]
+
+モジュールは単一の翻訳単位で構成することも、複数の翻訳単位で構成することもできる。
 
 C++20では標準ライブラリはモジュール化されないが、その中でC++ライブラリはヘッダーユニットとしてインポートできる。
 標準ライブラリのモジュール化はC++23以降に予定されている。
