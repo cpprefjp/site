@@ -101,8 +101,8 @@ namespace std {
 | [`operator<=>`](reverse_iterator/op_compare_3way.md.nolink)           | 三方比較を行う | C++20 |
 | [`operator-`](reverse_iterator/op_minus.md) | 2つの`reverse_iterator`の差を求める | |
 | [`operator+`](reverse_iterator/op_plus.md) | イテレータを進める | |
-| [`iter_move`](reverse_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++20 |
-| [`iter_swap`](reverse_iterator/iter_swap.md.nolink)     | イテレータの要素の交換 | C++20 |
+| [`iter_move`](reverse_iterator/iter_move.md)     | イテレータの要素の移動 | C++20 |
+| [`iter_swap`](reverse_iterator/iter_swap.md)     | イテレータの要素の交換 | C++20 |
 
 ### ヘルパ関数
 
