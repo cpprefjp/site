@@ -6,33 +6,38 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr span() noexcept;                                             // (1)
+constexpr span() noexcept;                                     // (1) C++20
 
 template <class It>
-constexpr span(It first, size_type count);                             // (2)
+constexpr explicit(extent != dynamic_extent)
+  span(It first, size_type count);                             // (2) C++20
 
 template <class It, class End>
-constexpr span(It first, End last);                                    // (3)
+constexpr explicit(extent != dynamic_extent)
+  span(It first, End last);                                    // (3) C++20
 
 template <size_t N>
-constexpr span(element_type (&arr)[N]) noexcept;                       // (4)
+constexpr span(element_type (&arr)[N]) noexcept;               // (4) C++20
 
 template <size_t N>
-constexpr span(array<value_type, N>& arr) noexcept;                    // (5)
+constexpr span(array<value_type, N>& arr) noexcept;            // (5) C++20
 
 template <size_t N>
-constexpr span(const array<value_type, N>& arr) noexcept;              // (6)
+constexpr span(const array<value_type, N>& arr) noexcept;      // (6) C++20
 
 template <class R>
-constexpr span(R&& r);                                                 // (7)
+constexpr explicit(extent != dynamic_extent)
+  span(R&& r);                                                 // (7) C++20
 
-constexpr span(const span& other) noexcept = default;                  // (8)
+constexpr span(const span& other) noexcept = default;          // (8) C++20
 
 template <class OtherElementType, size_t OtherExtent>
-constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9)
+constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
+  span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9) C++20
 ```
 * size_t[link /reference/cstddef/size_t.md]
 * array[link /reference/array/array.md]
+* dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ## 概要
 `span`オブジェクトを構築する。
@@ -57,45 +62,48 @@ constexpr span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9)
     - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == 0`が`true`であること
         - 値`-1`はオーバーフローによって正の最大値になるので`false`
 - (2) :
-    - 型 `U` を `std::remove_reference_t<std::iter_reference_t<It>>`とするとき
-        - 型 `It` はコンセプト `std::contiguous_iterator` を満たしていること
-        - `std::is_convertible_v<U(*)[], element_type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_type` への `qualification conversions`のみを許可することである。)
+    - 型 `U` を [`std::remove_reference_t`](/reference/type_traits/remove_reference.md)`<`[`std::iter_reference_t`](/reference/iterator/iter_reference_t.md)`<It>>`とするとき
+        - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) を満たしていること
+        - [`std::is_convertible_v`](/reference/type_traits/is_convertible.md)`<U(*)[], element_type(*)[]>` が `true` であること。(この制約の意図は、イテレータ参照型から `element_type` への修飾の変換のみを許可すること)
 - (3) :
-    - 型 `U` を `std::remove_reference_t<std::iter_reference_t<It>>`とするとき
-        - 型 `It` はコンセプト `std::contiguous_iterator` を満たしていること
-        - `std::is_convertible_v<U(*)[], element_type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_type` への `qualification conversions`のみを許可することである。)
-        - 型 `End` はコンセプト `std::sized_sentinel_for<It>` を満たしていること
-        - `std::is_convertible_v<End, size_t>` が `false`であること
+    - 型 `U` を [`std::remove_reference_t`](/reference/type_traits/remove_reference.md)`<`[`std::iter_reference_t`](/reference/iterator/iter_reference_t.md)`<It>>`とするとき
+        - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) を満たしていること
+        - [`std::is_convertible_v`](/reference/type_traits/is_convertible.md)`<U(*)[], element_type(*)[]>` が `true` であること。(この制約の意図は、イテレータ参照型から `element_type` への修飾の変換のみを許可すること)
+        - 型 `End` はコンセプト [`std::sized_sentinel_for<It>`](/reference/iterator/sized_sentinel_for.md) を満たしていること
+        - [`std::is_convertible_v`](/reference/type_traits/is_convertible.md)`<End, size_t>` が `false`であること
 - (4), (5), (6) :
     - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| N == extent`が`true`であること
-    - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>(*)[]`型が`ElementType(*)[]`型に変換可能であること
+    - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>`を型`U`であるとして、
+        - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U(*)[], element_type(*)[]>`が`trueであること` (この制約の意図は、配列の要素型から`element_type`へ、修飾の変換のみを許可すること)
 - (7) :
-    - 型 `U` を `std::remove_reference_t<std::iter_reference_t<R>>`とするとき
-        - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)が`true`であること
+    - 型 `U` を [`std::remove_reference_t`](/reference/type_traits/remove_reference.md)`<`[`std::iter_reference_t`](/reference/iterator/iter_reference_t.md)`<R>>`とするとき
         - 型 `R` はコンセプト `std::ranges::contiguous_range` 及び `std::ranges::sized_range` を満たしていること
         - 型 `R` がコンセプト `std::ranges::safe_range` を満たすか、`std::is_const_v<element_type>` が`true`であること
         - `std::remove_cvref_t<R>`が`std::span`の特殊化ではないこと
         - `std::remove_cvref_t<R>`が`std::array`の特殊化ではないこと
         - `std::is_array_v<std::remove_cvref_t<R>>` が `false` であること
-        - `std::is_convertible_v<U(*)[], element_type(*)[]>` が `true` であること。(その意図は、イテレータ参照型から `element_type` への `qualification conversions`のみを許可することである。)
+        - `std::is_convertible_v<U(*)[], element_type(*)[]>` が `true` であること。(この制約の意図は、イテレータ参照型から `element_type` への修飾変換のみを許可すること)
 - (9) :
-    - `Extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| Extent == OtherExtent`が`true`であること (受け取り側が[`dynamic_extent`](/reference/span/dynamic_extent.md)を持っていれば任意の`Extent`から変換できる)
+    - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| OtherExtent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| extent == OtherExtent`が`true`であること (受け取り側が[`dynamic_extent`](/reference/span/dynamic_extent.md)を持っていれば任意の`Extent`から変換できる)
     - `OtherElementType(*)[]`型が`ElementType(*)[]`型に変換可能であること
 
 
 ## 事前条件
 - (2) :
     - `[first, first + count)`が妥当な範囲であること
-    - 型 `It` はコンセプト `std::contiguous_iterator` のモデルであること
+    - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) のモデルであること
     - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`count`と`extent`が等値であること
 - (3) :
     - `[first, last)`が妥当な範囲であること
     - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`last - first`と`extent`が等値であること
-    - 型 `It` はコンセプト `std::contiguous_iterator` のモデルであること
-    - 型 `End` はコンセプト `std::sized_sentinel_for<It>` のモデルであること
+    - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) のモデルであること
+    - 型 `End` はコンセプト [`std::sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`<It>` のモデルであること
 - (7) :
+    - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`ranges::size`](/reference/ranges/size.md.nolink)`(r)`と等値になる
     - 型 `R` はコンセプト `std::ranges::contiguous_range` 及び `std::ranges::sized_range` のモデルであること
-    - `std::is_const_v<element_type>` が `false`であるとき、型 `R` は `std::ranges::safe_range` のモデルであること
+    - [`std::is_const_v`](/reference/type_traits/is_const.md)`<element_type>` が `false`であるとき、型 `R` は `std::ranges::safe_range` のモデルであること
+- (9) :
+    - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`s.size()`](size.md)と等値になる
 
 
 ## 効果
@@ -272,3 +280,4 @@ int main()
 - [LWG Issue 3198. Bad constraint on `std::span::span()`](https://cplusplus.github.io/LWG/issue3198)
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
 - [P1394R4 Range constructor for `std::span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1394r4.pdf)
+- [P1976R2 Fixed-size `span` construction from dynamic range](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1976r2.html)
