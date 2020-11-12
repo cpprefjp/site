@@ -114,7 +114,7 @@ namespace std {
 | `const_pointer` | `const`ポインタ型 `const element_type*` | C++20 |
 | `reference` | 参照型 `element_type&` | C++20 |
 | `const_reference` | `const`参照型 `const element_type&` | C++20 |
-| `iterator` | 実装定義のイテレータ型 | C++20 |
+| `iterator` | 実装定義のイテレータ型。[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)、[`random_access_iterator`](/reference/iterator/random_access_iterator.md)、constexprイテレータのモデルであり、コンテナのイテレータに対するすべての要件を満たす | C++20 |
 | `reverse_iterator` | 逆順イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++20 |
 
 
@@ -256,6 +256,7 @@ int main()
 - [P1085R2 Should `span` be regular?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1085r2.md)
 - [P1227R2 Signed `ssize()` functions, unsigned `size()` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1227r2.html)
 - [P1024R3 Usability enhancements for `std::span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1024r3.pdf)
+- [LWG Issue 3102 Clarify `span` `iterator` and `const_iterator` behavior](https://wg21.cmeerw.net/lwg/issue3102)
 - [LWG Issue 3144. `span` does not have a `const_pointer` typedef](https://wg21.cmeerw.net/lwg/issue3144)
 - [LWG Issue 3203. `span` element access invalidation](https://cplusplus.github.io/LWG/lwg-active.html#3203)
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
