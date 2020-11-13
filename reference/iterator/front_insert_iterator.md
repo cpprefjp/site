@@ -42,6 +42,7 @@ namespace std {
 |----------------------|------------|-------|
 | `container_type`    | `Container` | |
 | `difference_type`   | `void` | |
+| `difference_type`   | `ptrdiff_t` | |
 | `pointer`           | `void` | |
 | `value_type`        | `void` | |
 | `iterator_category` | [`output_iterator_tag`](/reference/iterator/iterator_tag.md) | |
@@ -87,4 +88,4 @@ int main()
 ```
 
 ## 参照
-
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
