@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits, class Allocator, class U>
-  void erase(basic_string<CharT, Traits, Allocator>& c, const U& value);
+  typename basic_string<CharT, Traits, Allocator>::size_type
+    erase(basic_string<CharT, Traits, Allocator>& c, const U& value);
 }
 ```
 

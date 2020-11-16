@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits, class Allocator, class Predicate>
-  void erase_if(basic_string<CharT, Traits, Allocator>& c, Predicate pred);
+  typename basic_string<CharT, Traits, Allocator>::size_type
+    erase_if(basic_string<CharT, Traits, Allocator>& c, Predicate pred);
 }
 ```
 
