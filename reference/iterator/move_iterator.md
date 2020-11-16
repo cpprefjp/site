@@ -16,7 +16,9 @@ namespace std {
 
 
 ## 要件
-`move_iterator`クラスのテンプレートパラメータ`Iterator`は、入力イテレータの要件を満たすこと。双方向またはランダムアクセスの横断を必要とする操作を行う場合は、それぞれ双方向イテレータまたはランダムアクセスイテレータの要件を満たすこと。
+
+`move_iterator`クラスのテンプレートパラメータ`Iterator`は、入力イテレータの要件を満たすか[`input_iterator`](/reference/iterator/input_iterator.md)のモデルであること。  
+さらに、双方向またはランダムアクセスの横断を必要とする操作を行う場合は、それぞれ双方向イテレータまたはランダムアクセスイテレータの要件を満たすか、それぞれ[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)または[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルであること。
 
 
 ## メンバ関数
@@ -78,8 +80,8 @@ namespace std {
 | [`operator-`](move_iterator/op_minus.md)          | 2つの`move_iterator`の差を求める | C++11 |
 | [`operator+`](move_iterator/op_plus.md)           | イテレータを進める | C++11 |
 | [`make_move_iterator`](make_move_iterator.md)     | `move_iterator`のヘルパ関数 | C++11 |
-| [`iter_move`](move_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++20 |
-| [`iter_swap`](move_iterator/iter_swap.md.nolink)     | イテレータの要素の交換 | C++20 |
+| [`iter_move`](move_iterator/iter_move.md)     | イテレータの要素の移動 | C++20 |
+| [`iter_swap`](move_iterator/iter_swap.md)     | イテレータの要素の交換 | C++20 |
 
 ### `move_sentinel`に関する操作
 
