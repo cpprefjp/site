@@ -126,7 +126,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 |----------------------------------------------------|------------------------------------------|-------|
 | [`move_iterator`](iterator/move_iterator.md) | 間接参照時にムーブするイテレータアダプタ(class template) | C++11 |
 | [`make_move_iterator`](iterator/make_move_iterator.md) | `move_iterator`オブジェクトを作るヘルパ関数(function template) | C++11 |
-| [`move_sentinel`](iterator/move_sentinel.md.nolink) | `move_iterator`の終端を表す番兵型(class template) | C++20 |
+| [`move_sentinel`](iterator/move_sentinel.md) | `move_iterator`の終端を表す番兵型(class template) | C++20 |
 
 ## ストリームイテレータ
 

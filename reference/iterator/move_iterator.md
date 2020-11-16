@@ -83,12 +83,12 @@ namespace std {
 | [`iter_move`](move_iterator/iter_move.md)     | イテレータの要素の移動 | C++20 |
 | [`iter_swap`](move_iterator/iter_swap.md)     | イテレータの要素の交換 | C++20 |
 
-### `move_sentinel`に関する操作
+### `move_sentinel`との間の操作
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
 | [`operator==`](move_iterator/op_equal.md)         | 等値比較 | C++20 |
-| [`operator!=`](move_iterator/op_not_equal.md)     | 非等値比較 | C++20 |
+| [`operator!=`](move_iterator/op_equal.md)     | 非等値比較（`==`により使用可能） | C++20 |
 | [`operator-`](move_iterator/op_minus.md)          | `move_iterator`と終端との差を求める | C++20 |
 
 
