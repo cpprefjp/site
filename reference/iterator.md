@@ -98,7 +98,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`next`](iterator/next.md)         | `n`回前方に進めたイテレータを返す(function template) | C++11          |
 | [`prev`](iterator/prev.md)         | `n`回後方に進めたイテレータを返す(function template) | C++11          |
 | [`ranges::advance`](iterator/ranges_advance.md)   | イテレータを進める(function template)           | C++20          |
-| [`ranges::distance`](iterator/ranges_distance.md) | イテレータ間の距離を求める(function template)        | C++20          |
+| [`ranges::distance`](iterator/ranges_distance.md) | 範囲の長さを求める(function template)        | C++20          |
 | [`ranges::next`](iterator/ranges_next.md)         | 前方に進めたイテレータを返す(function template) | C++20          |
 | [`ranges::prev`](iterator/ranges_prev.md)         | 後方に進めたイテレータを返す(function template) | C++20          |
 
