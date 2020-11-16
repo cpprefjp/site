@@ -36,7 +36,7 @@ ranges::iter_swap(x.current, y.current);
 ## 戻り値
 
 ```cpp
-return move_iterator<Iterator>(std​::​move(i));
+return move_iterator<Iterator>(std::move(i));
 ```
 * move_iterator[link /reference/iterator/move_iterator.md]
 

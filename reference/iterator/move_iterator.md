@@ -83,7 +83,7 @@ namespace std {
 | [`iter_move`](move_iterator/iter_move.md)     | イテレータの要素の移動 | C++20 |
 | [`iter_swap`](move_iterator/iter_swap.md)     | イテレータの要素の交換 | C++20 |
 
-### `move_sentinel`との間の操作
+### [`move_sentinel`](move_sentinel.md)との間の操作
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
