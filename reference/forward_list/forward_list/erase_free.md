@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class U>
-  void erase(forward_list<T, Allocator>& c, const U& value);
+  typename forward_list<T, Allocator>::size_type erase(forward_list<T, Allocator>& c, const U& value);
 }
 ```
 

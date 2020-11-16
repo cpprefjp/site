@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class U>
-  void erase(deque<T, Allocator>& c, const U& value);
+  typename deque<T, Allocator>::size_type erase(deque<T, Allocator>& c, const U& value);
 }
 ```
 

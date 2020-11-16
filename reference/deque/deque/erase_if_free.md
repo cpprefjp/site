@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class Predicate>
-  void erase_if(deque<T, Allocator>& c, Predicate pred);
+  typename deque<T, Allocator>::size_type erase_if(deque<T, Allocator>& c, Predicate pred);
 }
 ```
 

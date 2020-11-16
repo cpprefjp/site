@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class Predicate>
-  void erase_if(forward_list<T, Allocator>& c, Predicate pred);
+  typename forward_list<T, Allocator>::size_type erase_if(forward_list<T, Allocator>& c, Predicate pred);
 }
 ```
 
