@@ -25,7 +25,7 @@ namespace std {
 }
 ```
 * sentinel_for[link /reference/iterator/sentinel_for.md)
-* move_sentinel[link /reference/iterator/move_sentinel.md.nolink]
+* move_sentinel[link /reference/iterator/move_sentinel.md]
 
 ## 概要
 2つの`move_iterator`オブジェクトが同じ要素を指しているかを判定する。
