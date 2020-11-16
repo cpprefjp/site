@@ -15,6 +15,8 @@ namespace std {
 ## 概要
 `move_sentinel`は、[`move_iterator`](/reference/iterator/move_iterator.md)と共に任意のイテレータと番兵のペアをラップして、要素をムーブする範囲を表すための番兵アダプタである。
 
+イテレータ型と番兵型が異なり番兵型がイテレータとしての要件を満たさない場合、`move_iterator`の終端を構成する事が出来ない。その場合にこのクラスを利用する事で、`move_iterator`の終端を構成する事が出来るようになる。
+
 任意の入力イテレータ型`I`とその番兵型`S`が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである時、`move_iterator<I>`と`move_sentinel<S>`もまた`sentinel_for<move_sentinel<S>, move_iterator<I>>`のモデルとなる。
 
 ## メンバ関数
