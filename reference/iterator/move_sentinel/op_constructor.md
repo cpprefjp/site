@@ -32,6 +32,8 @@ constexpr move_sentinel(const move_sentinel<S2>& s);    // (3)
 
 - (1) : [`is_trivially_default_constructible_v`](/reference/type_traits/is_trivially_default_constructible.md)`<S> == true`の時。
 
+## 例
+
 ```cpp example
 #include <iterator>
 #include <vector>
