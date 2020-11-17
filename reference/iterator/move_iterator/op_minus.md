@@ -41,7 +41,7 @@ namespace std {
 `x.base()`と`y.base()`はオーバーロードによって次のどちらか
 
 - [`move_iterator::base()`](base.md)
-- [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md.nolink)
+- [`move_sentinel::base()`](/reference/iterator/move_sentinel/base.md)
 
 ## 例
 ```cpp example
