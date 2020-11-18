@@ -39,27 +39,30 @@ namespace std {
 | [`operator!=`](move_iterator/op_equal.md)     | 非等値比較（`==`により使用可能） | C++20 |
 | [`operator-`](move_iterator/op_minus.md)          | `move_iterator`との距離を求める | C++20 |
 
-## 例
+## 利用例
 
-(執筆中)
+例えば次のようなアルゴリズムを構成する際に利用する事ができる。
 
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <memory>
 #include <algorithm>
 #include <iterator>
 
-int main()
-{
+// 範囲[first, last)から条件を満たす要素だけをムーブしてoutへ出力する
+template<std::input_iterator I, std::sentinel_for<I> S, std::weakly_incrementable O, std::indirect_unary_predicate<I> Pred>
+  requires std::indirectly_movable<I, O>
+void move_if(I first, S last, O out, Pred pred) {
+  // 番兵型SがIと異なり、イテレータ要件を満たさなかったとしても、move_iterator<I>の終端として扱う事ができる
+  std::ranges::copy_if(std::move_iterator<I>{first}, std::move_sentinel<S>{last}, out, pred);
 }
 ```
-* std::make_move_iterator[color ff0000]
-* v.emplace_back[link /reference/vector/vector/emplace_back.md]
+* std::move_sentinel[color ff0000]
+* input_iterator[link /reference/iterator/input_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
+* indirectly_movable[link /reference/iterator/indirectly_movable.md]
+* copy_if[link /reference/algorithm/copy_if.md]
 
-### 出力
-```
-```
 
 ## バージョン
 ### 言語

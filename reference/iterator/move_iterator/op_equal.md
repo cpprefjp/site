@@ -6,22 +6,27 @@
 
 ```cpp
 namespace std {
+  template <class Iterator>
+  class move_iterator {
+
+    template <sentinel_for<Iterator> S>
+    friend constexpr bool operator==(const move_iterator& x,
+                                     const move_sentinel<S>& y);  // (1) C++20
+    
+    // (1)のoperator==により、以下のオーバーロードが使用可能になる
+    template <sentinel_for<Iterator> S>
+    friend constexpr bool operator==(const move_sentinel<S>& x,
+                                     const move_iterator& y);     // (2) C++20
+  };
+
+
   template <class Iterator1, class Iterator2>
   bool operator==(const move_iterator<Iterator1>& x,
-                  const move_iterator<Iterator2>& y);           // (1) C++11
+                  const move_iterator<Iterator2>& y);             // (3) C++11
 
   template <class Iterator1, class Iterator2>
   constexpr bool operator==(const move_iterator<Iterator1>& x,
-                            const move_iterator<Iterator2>& y); // (1) C++17
-
-  template<sentinel_for<Iterator> S>
-  friend constexpr bool operator==(const move_iterator& x,
-                                   const move_sentinel<S>& y);  // (2) C++20
-  
-  // (2)のoperator==により、以下のオーバーロードが使用可能になる
-  template<sentinel_for<Iterator> S>
-  friend constexpr bool operator==(const move_sentinel<S>& x,
-                                   const move_iterator& y);     // (3) C++20
+                            const move_iterator<Iterator2>& y);   // (3) C++17
 }
 ```
 * sentinel_for[link /reference/iterator/sentinel_for.md)
@@ -45,7 +50,7 @@ namespace std {
 
 ## 備考
 
-C++20以降、この演算子により以下の演算子が使用可能になる。
+C++20以降、これらの演算子により以下の演算子が使用可能になる。
 
 - [`operator!=(const move_iterator<Iterator1>& x, const move_iterator<Iterator2>& y)`](/reference/iterator/move_iterator/op_not_equal.md) 
 - `operator!=(const move_iterator& x, const move_sentinel<S>& y)`

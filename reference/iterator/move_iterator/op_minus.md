@@ -6,23 +6,27 @@
 
 ```cpp
 namespace std {
+  template <class Iterator>
+  class move_iterator {
+
+    template <sized_sentinel_for<Iterator> S>
+    friend constexpr iter_difference_t<Iterator>
+      operator-(const move_sentinel<S>& x, const move_iterator& y); // (1) C++20
+
+    template <sized_sentinel_for<Iterator> S>
+    friend constexpr iter_difference_t<Iterator>
+      operator-(const move_iterator& x, const move_sentinel<S>& y); // (2) C++20
+  };
+
   template <class Iterator1, class Iterator2>
   auto operator-(const move_iterator<Iterator1>& x,
                  const move_iterator<Iterator2>& y)
-    -> decltype(x.base() - y.base());                             // (1) C++11
+    -> decltype(x.base() - y.base());                               // (3) C++11
 
   template <class Iterator1, class Iterator2>
   constexpr auto operator-(const move_iterator<Iterator1>& x,
                            const move_iterator<Iterator2>& y)
-    -> decltype(x.base() - y.base());                             // (1) C++17
-
-  template<sized_sentinel_for<Iterator> S>
-  friend constexpr iter_difference_t<Iterator>
-    operator-(const move_sentinel<S>& x, const move_iterator& y); // (2) C++20
-
-  template<sized_sentinel_for<Iterator> S>
-  friend constexpr iter_difference_t<Iterator>
-    operator-(const move_iterator& x, const move_sentinel<S>& y); // (3) C++20
+    -> decltype(x.base() - y.base());                               // (3) C++17
 }
 ```
 * base[link /reference/iterator/move_iterator/base.md]
