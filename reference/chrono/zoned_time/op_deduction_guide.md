@@ -6,37 +6,43 @@
 
 ```cpp
 namespace std::chrono {
-  zoned_time() -> zoned_time<seconds>;                            // (1) C++20
+  zoned_time() -> zoned_time<seconds>;                          // (1) C++20
 
   template <class Duration>
   zoned_time(sys_time<Duration>)
-    -> zoned_time<common_type_t<Duration, seconds>>;              // (2) C++20
+    -> zoned_time<common_type_t<Duration, seconds>>;            // (2) C++20
 
-  template <class TimeZonePtr, class Duration>
-  zoned_time(TimeZonePtr, sys_time<Duration>)
-    -> zoned_time<common_type_t<Duration, seconds>, TimeZonePtr>; // (3) C++20
+  // 説明用の型
+  template <class TimeZonePtrOrName>
+  using time-zone-representation =
+    conditional_t<is_convertible_v<TimeZonePtrOrName, string_view>,
+                  const time_zone*,
+                  remove_cvref_t<TimeZonePtrOrName>>;
 
-  template <class TimeZonePtr, class Duration>
-  zoned_time(TimeZonePtr, local_time<Duration>, choose = choose::earliest)
-    -> zoned_time<common_type_t<Duration, seconds>, TimeZonePtr>; // (4) C++20
+  template <class TimeZonePtrOrName>
+  zoned_time(TimeZonePtrOrName&&)
+    -> zoned_time<seconds,
+                  time-zone-representation<TimeZonePtrOrName>>; // (3) C++20
 
-  template <class TimeZonePtr, class Duration>
-  zoned_time(TimeZonePtr, zoned_time<Duration>, choose = choose::earliest)
-    -> zoned_time<common_type_t<Duration, seconds>, TimeZonePtr>; // (5) C++20
+  template <class TimeZonePtrOrName, class Duration>
+  zoned_time(TimeZonePtrOrName&&,
+            sys_time<Duration>)
+    -> zoned_time<common_type_t<Duration, seconds>,
+                  time-zone-representation<TimeZonePtrOrName>>; // (4) C++20
 
-  zoned_time(string_view) -> zoned_time<seconds>;                 // (6) C++20
+  template <class TimeZonePtrOrName, class Duration>
+  zoned_time(TimeZonePtrOrName&&,
+             local_time<Duration>,
+             choose = choose::earliest)
+    -> zoned_time<common_type_t<Duration, seconds>,
+                  time-zone-representation<TimeZonePtrOrName>>; // (5) C++20
 
-  template <class Duration>
-  zoned_time(string_view, sys_time<Duration>)
-    -> zoned_time<common_type_t<Duration, seconds>>;              // (7) C++20
-
-  template <class Duration>
-  zoned_time(string_view, local_time<Duration>, choose = choose::earliest)
-    -> zoned_time<common_type_t<Duration, seconds>>;              // (8) C++20
-
-  template <class Duration, class TimeZonePtr, class TimeZonePtr2>
-  zoned_time(TimeZonePtr, zoned_time<Duration, TimeZonePtr2>, choose = choose::earliest)
-    -> zoned_time<Duration, TimeZonePtr>;                         // (9) C++20
+  template <class TimeZonePtrOrName, class Duration>
+  zoned_time(TimeZonePtrOrName&&,
+             zoned_time<Duration>,
+             choose = choose::earliest)
+    -> zoned_time<common_type_t<Duration, seconds>,
+                  time-zone-representation<TimeZonePtrOrName>>; // (6) C++20
 }
 ```
 * sys_time[link /reference/chrono/sys_time.md]
@@ -44,19 +50,28 @@ namespace std::chrono {
 * local_time[link /reference/chrono/local_time.md]
 * choose[link /reference/chrono/choose.md]
 * string_view[link /reference/string_view/basic_string_view.md]
+* conditional_t[link /reference/type_traits/conditional.md]
+* is_convertible[link /reference/type_traits/is_convertible.md]
+* time_zone[link /reference/chrono/time_zone.md]
+* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 `std::chrono::zoned_time`クラステンプレートの型推論補助。
 
 - (1) : デフォルトコンストラクタ。秒単位の時間間隔を使用する
 - (2) : [`sys_time`](/reference/chrono/sys_time.md)`<Duration>`からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔を使用する
-- (3) : 任意のタイムゾーンオブジェクトへのポインタ型と[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
-- (4) : 任意のタイムゾーンオブジェクトへのポインタ型、[`local_time`](/reference/chrono/local_time.md)`<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
-- (5) : 任意のタイムゾーンオブジェクトへのポインタ型、`zoned_time<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
-- (6) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型からの推論。秒単位の時間間隔を使用する
-- (7) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型と、[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔を使用する
-- (8) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型、[`local_time`](/reference/chrono/local_time.md)`<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
-- (9) : タイムゾーン名の[`string_view`](/reference/string_view/basic_string_view.md)型、`zoned_time<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論。`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の時間間隔と、受け取ったタイムゾーンオブジェクトへのポインタ型を使用する
+- (3) : 任意のタイムゾーンオブジェクトへのポインタ型もしくはタイムゾーン名の文字列型からの推論
+    - 時間間隔として[`seconds`](/reference/chrono/duration_aliases.md)をもつ
+    - タイムゾーンへのポインタ型として、渡された型が文字列であれば`const` [`time_zone`](/reference/chrono/time_zone.md)`*`、そうでなければCV参照修飾を外したパラメータ型をもつ
+- (4) : 任意のタイムゾーンオブジェクトへのポインタ型もしくはタイムゾーン名の文字列型と、[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`からの推論
+    - 時間間隔として`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の型をもつ
+    - タイムゾーンへのポインタ型として、渡された型が文字列であれば`const` [`time_zone`](/reference/chrono/time_zone.md)`*`、そうでなければCV参照修飾を外したパラメータ型をもつ
+- (5) : 任意のタイムゾーンオブジェクトへのポインタ型もしくはタイムゾーン名の文字列型と、[`local_time`](/reference/chrono/local_time.md)`<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論
+    - 時間間隔として`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の型をもつ
+    - タイムゾーンへのポインタ型として、渡された型が文字列であれば`const` [`time_zone`](/reference/chrono/time_zone.md)`*`、そうでなければCV参照修飾を外したパラメータ型をもつ
+- (6) : 任意のタイムゾーンオブジェクトへのポインタ型もしくはタイムゾーン名の文字列型、`zoned_time<Duration>`、[`choose`](/reference/chrono/choose.md)型からの推論
+    - 時間間隔として、`Duration`と[`seconds`](/reference/chrono/duration_aliases.md)の共通の型をもつ
+    - タイムゾーンへのポインタ型として、渡された型が文字列であれば`const` [`time_zone`](/reference/chrono/time_zone.md)`*`、そうでなければCV参照修飾を外したパラメータ型をもつ
 
 
 ## 備考
@@ -131,3 +146,7 @@ int main()
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
