@@ -102,3 +102,4 @@ int main()
 
 ## 参照
 - [P1361R2 Integration of chrono with text formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1361r2.pdf)
+- [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
