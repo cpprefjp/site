@@ -10,12 +10,12 @@ namespace chrono {
   // duration * N = duration
   template <class Rep1, class Period, class Rep2>
   duration<typename common_type<Rep1, Rep2>::type, Period>
-    constexpr operator*(const duration<Rep1, Period>& d, const Rep2& s);
+    constexpr operator*(const duration<Rep1, Period>& d, const Rep2& s); // (1)
 
   // N * duration = duration
   template <class Rep1, class Rep2, class Period>
   duration<typename common_type<Rep1, Rep2>::type, Period>
-    constexpr operator*(const Rep1& s, const duration<Rep2, Period>& d);
+    constexpr operator*(const Rep1& s, const duration<Rep2, Period>& d); // (2)
 }}
 ```
 * common_type[link /reference/type_traits/common_type.md]
@@ -24,10 +24,9 @@ namespace chrono {
 durationの乗算を行う
 
 
-## 要件
-右辺の`Rep2`型は、`Rep1`に変換可能でなければならない。
-
-変換できない型の場合は、この関数はオーバーロードから除外される。
+## テンプレートパラメータ制約
+- (1) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であること
+- (2) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const Rep1&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であること
 
 
 ## 戻り値
@@ -83,3 +82,7 @@ int main()
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+
+
+## 参照
+- [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)

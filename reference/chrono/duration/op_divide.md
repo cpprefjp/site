@@ -26,8 +26,8 @@ namespace chrono {
 `duration`の除算を行う
 
 
-## 要件
-- (1) : 右辺の`Rep2`型は、`Rep1`に変換可能でなければならない。変換できない型の場合は、この関数はオーバーロードから除外される。
+## テンプレートパラメータ制約
+- (1) : [`is_convertible_v`](/reference/chrono/d)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
 
 
 ## 戻り値
@@ -99,3 +99,4 @@ int main()
 
 ## 参照
 - [LWG Issue 3104. Fixing `duration` division](https://wg21.cmeerw.net/lwg/issue3104)
+- [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
