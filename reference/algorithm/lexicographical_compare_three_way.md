@@ -8,18 +8,23 @@
 namespace std {
   template<class InputIterator1, class InputIterator2, class Cmp>
     constexpr auto
-      lexicographical_compare_three_way(InputIterator1 first1, InputIterator1 last1,
-                                        InputIterator2 first2, InputIterator2 last2,
-                                        Cmp comp)
-        -> common_comparison_category_t<decltype(comp(*first1, *first2)), strong_ordering>; // (1)
+      lexicographical_compare_three_way(
+        InputIterator1 first1,
+        InputIterator1 last1,
+        InputIterator2 first2,
+        InputIterator2 last2,
+        Cmp comp)
+        -> decltype(comp(*first1, *first2)); // (1)
 
   template<class InputIterator1, class InputIterator2>
     constexpr auto
-      lexicographical_compare_three_way(InputIterator1 first1, InputIterator1 last1,
-                                        InputIterator2 first2, InputIterator2 last2);       // (2)
+      lexicographical_compare_three_way(
+        InputIterator1 first1,
+        InputIterator1 last1,
+        InputIterator2 first2,
+        InputIterator2 last2);               // (2)
 }
 ```
-* common_comparison_category_t[link /reference/compare/common_comparison_category.md]
 
 
 ## 概要
@@ -130,4 +135,5 @@ true
 ## 参照
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
-- [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [P1614R2 The Mothership has Landed (Adding `<=>` to the Library)](http://wg21.link/p1614)
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
