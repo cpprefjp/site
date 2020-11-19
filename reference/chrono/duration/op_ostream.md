@@ -23,9 +23,26 @@ namespace std::chrono {
 
 
 ## 効果
-- `charT`が`char`の場合は[`to_string()`](/reference/string/to_string.md)、`wchar_t`の場合は[`to_wstring()`](/reference/string/to_wstring.md)を使用して[`d.count()`](count.md)から[`basic_string`](/reference/string/basic_string.md)`<charT, traits>`を構築し、以下で述べるサフィックスを追加して`os`に出力する：
+以下のように実装し、`duration`オブジェクト`d`を出力ストリーム`os`に出力する：
 
-| `Period::type`単位型 | サフィックス |
+```cpp
+basic_ostringstream<charT, traits> s;
+s.flags(os.flags());
+s.imbue(os.getloc());
+s.precision(os.precision());
+s << d.count() << units_suffix;
+return os << s.str();
+```
+* basic_ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
+* flags[link /reference/ios/ios_base/flags.md]
+* s.imbue[link /reference/ios/ios_base/imbue.md]
+* os.getloc()[link reference/ios/ios_base/getloc.md]
+* precision[link /reference/ios/ios_base/precision.md]
+* s.str()[link /reference/sstream/basic_ostringstream/str.md.nolink]
+
+ここでの`units_suffix`は、`Period::type`単位型に以下のように対応する：
+
+| `Period::type`単位型 | `units_suffix` |
 |----------------------|--------------|
 | [`atto`](/reference/ratio/si_prefix.md)       | `"as"` |
 | [`femto`](/reference/ratio/si_prefix.md)      | `"fs"` |
@@ -50,8 +67,8 @@ namespace std::chrono {
 
 値`num`を`Period::type::num`、値`den`を`Period::type::den`をゼロ埋めなしの10進数で文字列化したものであるとして、
 
-- `Period::type::den == 1`である場合、サフィックス`"[num]s"`
-- いずれにもあてはまらない場合、サフィックスは`"[num/den]s"`
+- `Period::type::den == 1`である場合、`units_suffix`は`"[num]s"`
+- いずれにもあてはまらない場合、`units_suffix`は`"[num/den]s"`
 
 マイクロ秒として`"µs"`が表現できないエンコーディングの場合、代わりに`"us"`が使用される。
 
@@ -108,3 +125,6 @@ float sec : 1.23s
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+## 参照
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
