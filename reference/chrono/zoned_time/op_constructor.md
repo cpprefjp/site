@@ -34,8 +34,13 @@ zoned_time(TimeZonePtr z,
            const zoned_time<Duration2, TimeZonePtr2>& zt,
            choose c);                                                   // (14) C++20
 
-zoned_time(string_view name, const zoned_time<Duration>& zt);           // (15) C++20
-zoned_time(string_view name, const zoned_time<Duration>& zt, choose c); // (16) C++20
+template <class Duration2, class TimeZonePtr2>
+zoned_time(string_view name,
+           const zoned_time<Duration2, TimeZonePtr2>& zt);              // (15) C++20
+template <class Duration2, class TimeZonePtr2>
+zoned_time(string_view name,
+           const zoned_time<Duration2, TimeZonePtr2>& zt,
+           choose c);                                                   // (16) C++20
 ```
 * sys_time[link /reference/chrono/sys_time.md]
 * local_time[link /reference/chrono/local_time.md]
@@ -206,3 +211,7 @@ int main()
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
