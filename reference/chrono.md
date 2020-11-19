@@ -6,6 +6,9 @@
 
 このライブラリは、タイムアウト、操作間隔、スケジューリングといった短期間の操作を主な用途として想定している。そのためカレンダー機能としては遥かな過去・未来を扱えるようにはなっていない。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<compare>`](compare.md) (C++20)
 
 ## 時間を表す型
 
@@ -263,3 +266,4 @@
 - [N2661 A Foundation to Sleep On](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm)
 - [P0216R0 C++ Standard Proposal — A Time-Zone Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0216r0.html)
 - [P0355R7 Extending `<chrono>` to Calendars and Time Zones](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0355r7.html)
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)

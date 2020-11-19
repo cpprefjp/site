@@ -2,8 +2,11 @@
 * thread[meta header]
 * cpp11[meta cpp]
 
-`<thread>`ヘッダはマルチスレッド制御に関するクラス・関数を定義する。  
-スレッドサポートはC++11にて導入された。
+`<thread>`ヘッダはマルチスレッド制御に関するクラス・関数を定義する。
+
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<compare>`](compare.md) (C++20)
 
 
 | 名前 | 説明 | 対応バージョン |
@@ -26,4 +29,5 @@
 ## 参照
 - [The cpp-threads Archives](https://www.decadent.org.uk/pipermail/cpp-threads/)
     - C++11の策定時に、C++標準の言語とライブラリに並行プログラミングの提案を行うため使用されていたメーリングリストのアーカイブです。
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
 

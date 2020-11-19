@@ -4,6 +4,11 @@
 
 `<tuple>`ヘッダでは、異なる型を格納できる固定サイズコレクションであるタプル型を提供する。2要素のみ格納可能な[`pair`](/reference/utility/pair.md)とは違い、[`tuple`](tuple/tuple.md)は任意の数の要素を格納できる。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<compare>`](compare.md) (C++20)
+
+
 ## タプルクラス
 
 | 名前 | 説明 | 対応バージョン |
@@ -41,3 +46,6 @@
 ### 言語
 - C++11
 
+
+## 参照
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)

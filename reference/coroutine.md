@@ -6,6 +6,10 @@
 
 `<coroutine>`ヘッダでは、[コルーチン](/lang/cpp20/coroutines.md)の制御に関する機能を提供する。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<compare>`](compare.md) (C++20)
+
 
 ## コルーチントレイト
 
@@ -49,3 +53,7 @@
 
 ## 関連項目
 - [C++20 コルーチン](/lang/cpp20/coroutines.md)
+
+
+## 参照
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)

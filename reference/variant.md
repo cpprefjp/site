@@ -4,6 +4,11 @@
 
 `<variant>`ヘッダでは、候補の型を切り替えながら保持できる記憶域型を定義する。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<compare>`](compare.md) (C++20)
+
+
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`variant`](variant/variant.md) | 候補の型を切り替えながら保持できる記憶域型 (class template) | C++17 |
@@ -22,3 +27,4 @@
 
 ## 参照
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)

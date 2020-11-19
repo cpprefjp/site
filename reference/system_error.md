@@ -4,6 +4,11 @@
 
 `<system_error>`ヘッダでは、OSが出力するエラーを扱う機能を提供する。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<compare>`](compare.md) (C++20)
+
+
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-----------------------------------------|-------|
 | [`error_category`](system_error/error_category.md) | エラーを分類するための基底クラス(class) | C++11 |
@@ -29,4 +34,4 @@
 - [Boost System Library Documentation](https://boost.org/libs/system)
 - [N2241 Diagnostics Enhancements for C++0x (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2241.html)
 - [N2422 Diagnostics Issues (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2422.htm)
-
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)

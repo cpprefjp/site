@@ -6,6 +6,7 @@
 このヘッダでは、以下の標準ヘッダをインクルードする：
 
 - [`<initializer_list>`](initializer_list.md) (C++11)
+- [`<compare>`](compare.md) (C++20)
 
 
 ## 演算子定義
@@ -73,3 +74,6 @@
 | [`make_index_sequence`](utility/make_index_sequence.md) | 要素数を指定して、0から始まる`size_t`型整数シーケンスを生成する(type-alias) | C++14 |
 | [`index_sequence_for`](utility/index_sequence_for.md) | 型のシーケンスを、0から始まる`size_t`型整数シーケンスに変換する(type-alias) | C++14 |
 
+
+## 参照
+- [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
