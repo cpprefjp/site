@@ -18,6 +18,10 @@ namespace std::chrono {
 - (2) : `year_month`から年の時間間隔を減算する
 
 
+## テンプレートパラメータ制約
+- (1) : [`months`](/reference/chrono/duration_aliases.md)パラメータに指定した引数が[`years`](/reference/chrono/duration_aliases.md)に変換可能である場合、[`years`](/reference/chrono/duration_aliases.md)への暗黙変換は、[`months`](/reference/chrono/duration_aliases.md)への暗黙変換よりも劣る
+
+
 ## 戻り値
 - (1) : `return ym + (-dm);`
 - (2) : `return ym + (-dy);`
@@ -56,3 +60,7 @@ int main()
 - [Clang](/implementation.md#clang): 8.0
 - [GCC](/implementation.md#gcc): 11.1
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [LWG Issue 3260. `year_month*` arithmetic rejects durations convertible to `years`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3260)

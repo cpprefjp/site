@@ -19,6 +19,10 @@ constexpr year_month_weekday_last& operator-=(const years& y) noexcept;  // (2) 
 パラメータの型が、カレンダー時間の[`month`](/reference/chrono/month.md)、[`year`](/reference/chrono/year.md)ではなく、時間間隔を表す[`months`](/reference/chrono/duration_aliases.md)、[`years`](/reference/chrono/duration_aliases.md)であることに注意。
 
 
+## テンプレートパラメータ制約
+- (1) : [`months`](/reference/chrono/duration_aliases.md)パラメータに指定した引数が[`years`](/reference/chrono/duration_aliases.md)に変換可能である場合、[`years`](/reference/chrono/duration_aliases.md)への暗黙変換は、[`months`](/reference/chrono/duration_aliases.md)への暗黙変換よりも劣る
+
+
 ## 効果
 - (1) : `*this = *this - m`
 - (2) : `*this = *this - y`
@@ -69,3 +73,7 @@ int main()
 - [Clang](/implementation.md#clang): 8.0
 - [GCC](/implementation.md#gcc): 11.1
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [LWG Issue 3260. `year_month*` arithmetic rejects durations convertible to `years`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3260)
