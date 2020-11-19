@@ -36,7 +36,7 @@ return os << s.str();
 * basic_ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
 * flags[link /reference/ios/ios_base/flags.md]
 * s.imbue[link /reference/ios/ios_base/imbue.md]
-* os.getloc()[link reference/ios/ios_base/getloc.md]
+* os.getloc()[link /reference/ios/ios_base/getloc.md]
 * precision[link /reference/ios/ios_base/precision.md]
 * s.str()[link /reference/sstream/basic_ostringstream/str.md.nolink]
 
