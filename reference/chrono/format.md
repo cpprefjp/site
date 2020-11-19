@@ -64,31 +64,9 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 | `%Z` | タイムゾーンの略称。タイムゾーンの略称が利用可能でない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"JST"` |
 | `%%` | 文字`%` | `"%"` |
 
+- 便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
+- [`hh_mm_ss`](hh_mm_ss.md)オブジェクトの[`is_negative()`](hh_mm_ss/is_negative.md)が`true`である場合、出力される文字列の先頭に`STATICALLY-WIDEN<charT>("-")`が挿入される
 
-### chronoライブラリの各クラスのデフォルトフォーマット
-
-
-
-## 戻り値
-
-
-
-## 例
-```cpp example
-#include <iostream>
-#include <format>
-#include <chrono>
-
-namespace chrono = std::chrono;
-
-int main()
-{
-}
-```
-
-### 出力例
-```
-```
 
 ## バージョン
 ### 言語
@@ -103,3 +81,4 @@ int main()
 ## 参照
 - [P1361R2 Integration of chrono with text formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1361r2.pdf)
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)

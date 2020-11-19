@@ -22,15 +22,14 @@ namespace std::chrono {
 - (1) : 以下と等価：
     ```cpp
     return os << format(os.getloc(),
-                   hms.is_negative() ?
-                     STATICALLY-WIDEN<charT>("-{:%T}")
-                   : STATICALLY-WIDEN<charT>("{:%T}"),
-                   abs(hms.to_duration()));
+                        STATICALLY-WIDEN<charT>("{:%T}"),
+                        hms);
     ```
     * format[link /reference/format/format.md]
-    * hms.is_negative()[link is_negative.md]
-    * abs[link /reference/chrono/duration/abs.md]
-    * hms.to_dutation()[link to_duration.md]
+
+
+## 備考
+- このクラスのオブジェクトを文字列フォーマットする場合、負数には先頭に`-` (マイナス) がつく
 
 
 ## 例
@@ -72,3 +71,7 @@ int main()
 
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+
+
+## 参照
+- [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)
