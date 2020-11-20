@@ -48,7 +48,7 @@ return os << s.str();
 | [`femto`](/reference/ratio/si_prefix.md)      | `"fs"` |
 | [`pico`](/reference/ratio/si_prefix.md)       | `"ps"` |
 | [`nano`](/reference/ratio/si_prefix.md)       | `"ns"` |
-| [`micro`](/reference/ratio/si_prefix.md)      | `"µs"` (`"\u00b5\u0073"`) |
+| [`micro`](/reference/ratio/si_prefix.md)      | `"µs"` (`"\u00b5\u0073"`) もしくは`"us"`が実装定義で選択される |
 | [`milli`](/reference/ratio/si_prefix.md)      | `"ms"` |
 | [`centi`](/reference/ratio/si_prefix.md)      | `"cs"` |
 | [`deci`](/reference/ratio/si_prefix.md)       | `"ds"` |
@@ -69,8 +69,6 @@ return os << s.str();
 
 - `Period::type::den == 1`である場合、`units_suffix`は`"[num]s"`
 - いずれにもあてはまらない場合、`units_suffix`は`"[num/den]s"`
-
-マイクロ秒として`"µs"`が表現できないエンコーディングの場合、代わりに`"us"`が使用される。
 
 
 ## 戻り値
@@ -128,3 +126,4 @@ float sec : 1.23s
 
 ## 参照
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
+- [LWG Issue 3314. Is stream insertion behavior locale dependent when `Period::type` is `micro`?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3314)
