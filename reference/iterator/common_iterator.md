@@ -53,7 +53,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| [`(constructor)`](common_iterator/op_constructor.md.nolink) | コンストラクタ | C++20 |
+| [`(constructor)`](common_iterator/op_constructor.md) | コンストラクタ | C++20 |
 | [`operator=`](common_iterator/op_assign.md.nolink)          | 代入演算子 | C++20 |
 | [`operator*`](common_iterator/op_deref.md.nolink)           | 間接参照演算子 | C++20 |
 | [`operator->`](common_iterator/op_arrow.md.nolink)          | メンバアクセス演算子 | C++20 |
@@ -137,7 +137,7 @@ int main() {
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 7
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9
 
 ## 関連項目
 
