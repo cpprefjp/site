@@ -54,7 +54,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
 | [`(constructor)`](common_iterator/op_constructor.md) | コンストラクタ | C++20 |
-| [`operator=`](common_iterator/op_assign.md.nolink)          | 代入演算子 | C++20 |
+| [`operator=`](common_iterator/op_assign.md)          | 代入演算子 | C++20 |
 | [`operator*`](common_iterator/op_deref.md.nolink)           | 間接参照演算子 | C++20 |
 | [`operator->`](common_iterator/op_arrow.md.nolink)          | メンバアクセス演算子 | C++20 |
 | [`operator++`](common_iterator/op_increment.md.nolink)      | イテレータをインクリメントする | C++20 |
