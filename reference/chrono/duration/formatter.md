@@ -18,6 +18,7 @@ namespace std {
 
 | フォーマットフラグ | 説明 |
 |--------------------|------|
+| `%j` | [`days`](duration_aliases.md)の10進数値として0埋めなしで書式化される |
 | `%q` | `duration`単位ごとのサフィックス。`duration`の`operator<<`で出力されるサフィックスと等価 |
 | `%Q` | `duration`の数値。`.count()`で取得した値 |
 | `%S` | 2桁0埋めの秒 |
@@ -84,3 +85,7 @@ AM/PM : PM 03:00
 
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+
+
+## 参照
+- [LWG Issue 3270. Parsing and formatting `%j` with `duration`s](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270)

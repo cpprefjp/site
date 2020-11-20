@@ -39,7 +39,7 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 | `%h` | `%b`と等価 | `"Jan"`, `"4月"` |
 | `%H` | 24時間時計での10進数の時。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%OH`を指定知ると、ロケール依存の異なる表現を出力する | `"17"` |
 | `%I` | 12時間時計での10進数の時。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%OI`を指定知ると、ロケール依存の異なる表現を出力する | `"05"` |
-| `%j` | 10進数での年の日。1月1日は`001`が出力される。結果が3桁未満の場合、3桁になるよう左が`0`で埋められる | `"115"` |
+| `%j` | 10進数での年の日。1月1日は`001`が出力される。結果が3桁未満の場合、3桁になるよう左が`0`で埋められる。[`duration`](duration.md)の特殊化が与えられた場合、[`days`](duration_aliases.md)の10進数値として0埋めなしで書式化される | `"115"` |
 | `%m` | 10進数での月。1月は`01`が出力される。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%Om`を指定すると、ロケール依存の異なる表現を出力する | `"04"` |
 | `%M` | 10進数での分。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%OM`を指定すると、ロケール依存の異なる表現を出力する | `"14"` |
 | `%n` | 改行文字 | |
@@ -82,3 +82,4 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - [P1361R2 Integration of chrono with text formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1361r2.pdf)
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
 - [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)
+- [LWG Issue 3270. Parsing and formatting `%j` with `duration`s](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270)
