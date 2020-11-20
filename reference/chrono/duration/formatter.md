@@ -18,7 +18,7 @@ namespace std {
 
 | フォーマットフラグ | 説明 |
 |--------------------|------|
-| `%j` | [`days`](duration_aliases.md)の10進数値として0埋めなしで書式化される |
+| `%j` | [`days`](/reference/chrono/duration_aliases.md)の10進数値として0埋めなしで書式化される |
 | `%q` | `duration`単位ごとのサフィックス。`duration`の`operator<<`で出力されるサフィックスと等価 |
 | `%Q` | `duration`の数値。`.count()`で取得した値 |
 | `%S` | 2桁0埋めの秒 |
