@@ -1,5 +1,5 @@
 # unwrap_ref_decay
-* functional[meta header]
+* type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
@@ -17,7 +17,7 @@ namespace std {
 * decay_t[link /reference/type_traits/decay.md]
 
 ## 概要
-[`reference_wrapper`](reference_wrapper.md)`<T>`型を`T&`型に展開し、型推論規則による型変換を行う。
+[`reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開し、型推論規則による型変換を行う。
 
 この変換型特性は、関数で受け取ったパラメータをメンバ変数にもつオブジェクトを構築して返すような状況で頻出する型変換を行う。
 
@@ -25,7 +25,7 @@ namespace std {
 
 
 ## 効果
-- テンプレートパラメータ`T`を、[`unwrap_reference`](unwrap_reference.md)によって[`reference_wrapper`](reference_wrapper.md)`<T>`型を展開`T&`に展開し、[`decay`](/reference/type_traits/decay.md)によって型推論規則による型変換を行う。
+- テンプレートパラメータ`T`を、[`unwrap_reference`](unwrap_reference.md)によって[`reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を展開`T&`に展開し、[`decay`](decay.md)によって型推論規則による型変換を行う。
 
 
 ## 例
@@ -92,8 +92,8 @@ int main()
 }
 ```
 * std::unwrap_ref_decay_t[color ff0000]
-* std::reference_wrapper[link ref.md]
-* std::ref[link ref.md]
+* std::reference_wrapper[link /reference/functional/reference_wrapper.md]
+* std::ref[link /reference/functional/ref.md]
 
 ### 出力
 ```
@@ -111,3 +111,4 @@ int main()
 
 ## 参照
 - [P0318R1 `unwrap_ref_decay` and `unwrap_reference`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0318r1.pdf)
+- [LWG Issue 3348. `__cpp_lib_unwrap_ref` in wrong header](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3348)

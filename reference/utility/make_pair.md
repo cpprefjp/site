@@ -29,7 +29,7 @@ pairクラスのオブジェクトを構築する。
     - [`std::decay`](/reference/type_traits/decay.md)`<T>::type`の結果型を使用し、
     - かつ型`T`が[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)型であった場合`T&`型を使用する
 - C++20 : `T1`と`T2`それぞれの型`T`において、
-    - [`std::unwrap_ref_decay_t`](/reference/functional/unwrap_ref_decay.md)`<T>`を適用した型
+    - [`std::unwrap_ref_decay_t`](/reference/type_traits/unwrap_ref_decay.md)`<T>`を適用した型
 
 
 ## 戻り値

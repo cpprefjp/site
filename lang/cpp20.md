@@ -230,7 +230,6 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 関数オブジェクト
-- [`<functional>`](/reference/functional.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開する[`std::unwrap_reference`](/reference/functional/unwrap_reference.md)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型の展開をする[`std::unwrap_ref_decay`](/reference/functional/unwrap_ref_decay.md)型特性を追加
 - [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
 - メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
 - [`std::invoke()`](/reference/functional/invoke.md)、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)の各操作、[`std::not_fn()`](/reference/functional/not_fn.md)、[`std::bind()`](/reference/functional/bind.md)、[`std::mem_fn()`](/reference/functional/mem_fn.md)を`constexpr`対応
@@ -303,6 +302,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - 基底クラスと派生クラスの間でポインタ変換可能かを判定する[`std::is_pointer_interconvertible_base_of`](/reference/type_traits/is_pointer_interconvertible_base_of.md.nolink)
     - メンバポインタがクラスのポインタに変換可能かを判定する[`is_pointer_interconvertible_with_class()`](/reference/type_traits/is_pointer_interconvertible_with_class.md.nolink)
     - 2つの互換レイアウトをもつメンバポインタが共通位置にあるかを判定する[`std::is_corresponding_member()`](/reference/type_traits/is_corresponding_member.md.nolink)
+- [`<type_traits>`](/reference/type_traits.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開する[`std::unwrap_reference`](/reference/type_traits/unwrap_reference.md)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型の展開をする[`std::unwrap_ref_decay`](/reference/type_traits/unwrap_ref_decay.md)型特性を追加
 
 
 ### 機能の非推奨化

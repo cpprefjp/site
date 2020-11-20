@@ -191,6 +191,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
+| [`unwrap_reference`](type_traits/unwrap_reference.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開する (class template) | C++20 |
+| [`unwrap_ref_decay`](type_traits/unwrap_ref_decay.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開し、型推論規則による型変換を行う (class template) | C++20 |
 | [`type_identity`](type_traits/type_identity.md) | 受け取った型を返す (class template) | C++20 |
 | [`aligned_storage`](type_traits/aligned_storage.md) | アライメント調整された領域を作る (class template) | C++11 |
 | [`aligned_union`](type_traits/aligned_union.md) | アライメント調整された共用体領域を作る (class template) | C++11 |

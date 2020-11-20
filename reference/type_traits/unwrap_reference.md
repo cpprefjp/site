@@ -1,5 +1,5 @@
 # unwrap_reference
-* functional[meta header]
+* type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
@@ -12,11 +12,11 @@ namespace std {
 ```
 
 ## 概要
-[`reference_wrapper`](reference_wrapper.md)`<T>`型を`T&`型に展開する。
+[`reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開する。
 
 
 ## 効果
-- テンプレートパラメータ`T`が[`reference_wrapper`](reference_wrapper.md)`<T>`であれば、`T&`型をメンバ型`type`として定義する
+- テンプレートパラメータ`T`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`であれば、`T&`型をメンバ型`type`として定義する
 - そうでなければ、テンプレートパラメータ`T`をメンバ型`type`として定義する
 
 
@@ -69,8 +69,8 @@ int main()
 }
 ```
 * std::unwrap_reference[color ff0000]
-* std::reference_wrapper[link ref.md]
-* std::ref[link ref.md]
+* std::reference_wrapper[link /reference/functional/reference_wrapper.md]
+* std::ref[link /reference/functional/ref.md]
 
 ### 出力
 ```
@@ -86,7 +86,7 @@ namespace std {
   struct unwrap_reference<reference_wrapper<T>> { using type = T&; }
 }
 ```
-* reference_wrapper[link reference_wrapper.md]
+* reference_wrapper[link /reference/functional/reference_wrapper.md]
 
 ## バージョン
 ### 言語
@@ -100,3 +100,4 @@ namespace std {
 
 ## 参照
 - [P0318R1 `unwrap_ref_decay` and `unwrap_reference`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0318r1.pdf)
+- [LWG Issue 3348. `__cpp_lib_unwrap_ref` in wrong header](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3348)
