@@ -63,3 +63,7 @@ int main() {
 - [Clang](/implementation.md#clang): 8.0
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [LWG Issue 3273. Specify `weekday_indexed` to range of `[0, 7]`](https://wg21.cmeerw.net/lwg/issue3273)
