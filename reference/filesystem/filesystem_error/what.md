@@ -16,7 +16,7 @@ const char* what() const noexcept override;
 ## 戻り値
 コンストラクタで設定されたエラー理由を含む未規定のフォーマットの実装定義の文字列を返す。
 
-実装は、[`system_error`](/reference/system_error/system_error.md)`::`[`what()`](/reference/system_error/system_error/what.md)で返される文字列とネイティブ形式の`path1`と`path2`を含める必要がある。
+実装は、[`system_error`](/reference/system_error/system_error.md)`::what()`で返される文字列とネイティブ形式の`path1`と`path2`を含める必要がある。
 
 
 ## 例
