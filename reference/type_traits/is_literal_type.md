@@ -93,3 +93,4 @@ Clang 3.0では、上記サンプルにおける`X`型が、リテラル型と�
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [LWG Issue `is_literal_type_v` should be `inline`](https://wg21.cmeerw.net/lwg/issue3042)
