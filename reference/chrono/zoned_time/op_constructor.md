@@ -95,7 +95,7 @@ zoned_time(string_view name,
 ## 効果
 - (1) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md)によって得られたタイムゾーンオブジェクトへのポインタと、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
 - (3) : [`traits::default_zone()`](/reference/chrono/zoned_traits/default_zone.md)によって得られた[`time_zone`](/reference/chrono/time_zone.md)オブジェクトへのポインタと`st`を、メンバ変数として保持する
-- (4) : [`std::move`](/reference/utility/move.md)`(z)`をタイムゾーンオブジェクトへのポインタとして、メンバ変数に保持する
+- (4) : [`std::move`](/reference/utility/move.md)`(z)`をタイムゾーンオブジェクトへのポインタとしてメンバ変数に保持し、時間点をデフォルト構築する
 - (5) : [`traits::locate_zone`](/reference/chrono/zoned_traits/locate_zone.md)`(name)`と、デフォルト構築した[`sys_time`](/reference/chrono/sys_time.md)`<Duration>`オブジェクトをメンバ変数として保持する
 - (6) : `zt`がもつタイムゾーンオブジェクトへのポインタと時間点をメンバ変数として保持する
 - (7) : タイムゾーンオブジェクトへのポインタ[`std::move`](/reference/utility/move.md)`(z)`、および時間点`st`をメンバ変数に保持する
@@ -214,5 +214,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3224. `zoned_time` constructor from `TimeZonePtr` does not specify initialization of `tp_`](https://wg21.cmeerw.net/lwg/issue3224)
 - [LWG Issue 3225. `zoned_time` converting constructor shall not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3225)
 - [LWG Issue 3226. `zoned_time` constructor from `string_view` should accept `zoned_time<Duration2, TimeZonePtr2>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3226)
