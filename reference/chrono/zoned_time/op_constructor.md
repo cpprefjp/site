@@ -15,7 +15,7 @@ explicit zoned_time(TimeZonePtr z);                                     // (4) C
 explicit zoned_time(string_view name);                                  // (5) C++20
 
 template <class Duration2>
-zoned_time(const zoned_time<Duration2, TimeZonePtr>& zt) noexcept;      // (6) C++20
+zoned_time(const zoned_time<Duration2, TimeZonePtr>& zt);               // (6) C++20
 
 zoned_time(TimeZonePtr z, const sys_time<Duration>& st);                // (7) C++20
 zoned_time(string_view name, const sys_time<Duration>& st);             // (8) C++20
@@ -214,4 +214,5 @@ int main()
 
 
 ## 参照
-- [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 3225. `zoned_time` converting constructor shall not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3225)
+- [LWG Issue 3226. `zoned_time` constructor from `string_view` should accept `zoned_time<Duration2, TimeZonePtr2>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3226)
