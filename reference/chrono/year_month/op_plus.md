@@ -93,4 +93,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3221. Result of `year_month` arithmetic with `months` is ambiguous](https://wg21.cmeerw.net/lwg/issue3221)
 - [LWG Issue 3260. `year_month*` arithmetic rejects durations convertible to `years`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3260)
