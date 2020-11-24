@@ -195,3 +195,4 @@ int main()
 - [LWG Issue 2682. `filesystem::copy()` won't create a symlink to a directory](https://wg21.cmeerw.net/lwg/issue2682)
     - C++17策定同時の仕様では、`copy("/", "root", copy_options::create_symlinks);`のような状況 (コピー元がディレクトリで、`create_symlinks`オプション付き) でコピー先ディレクトリにシンボリックリンクが作られない問題があった。GNUの`cp -s`コマンドでは「ディレクトリ`"/"`の処理は省略された」と表示されてエラー終了する。この問題に対する仕様変更ではその動作に合わせて、コピー元がディレクトリで`create_symlinks`オプションが指定された場合、エラーを報告するようになった
     - この問題は2016年4月に報告された。仕様としてはC++20に含まれるが、過去に遡ってC++17のコンパイラでもこの仕様に対応している可能性がある
+- [LWG Issue 3013. `(recursive_)directory_iterator` construction and traversal should not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3013)

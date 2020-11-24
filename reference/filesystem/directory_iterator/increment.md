@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-directory_iterator& increment(std::error_code& ec) noexcept;
+directory_iterator& increment(std::error_code& ec);
 ```
 
 ## 概要
@@ -70,3 +70,7 @@ after  : "dir/a.txt"
 - [Clang](/implementation.md#clang): 7.0
 - [GCC](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 3013. `(recursive_)directory_iterator` construction and traversal should not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3013)

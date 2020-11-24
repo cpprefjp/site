@@ -11,10 +11,10 @@ explicit directory_iterator(const path& p);            // (2)
 directory_iterator(const path& p,
                    directory_options options);         // (3)
 directory_iterator(const path& p,
-                   std::error_code& ec) noexcept;      // (4)
+                   std::error_code& ec);               // (4)
 directory_iterator(const path& p,
                    directory_options options,
-                   std::error_code& ec) noexcept;      // (5)
+                   std::error_code& ec);               // (5)
 directory_iterator(const directory_iterator& rhs);     // (6)
 directory_iterator(directory_iterator&& rhs) noexcept; // (7)
 ```
@@ -112,3 +112,7 @@ int main()
 - [Clang](/implementation.md#clang): 7.0
 - [GCC](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 3013. `(recursive_)directory_iterator` construction and traversal should not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3013)

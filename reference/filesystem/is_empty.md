@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std::filesystem {
-  bool is_empty(const path& p);                               // (1)
-  bool is_empty(const path& p, std::error_code& ec) noexcept; // (2)
+  bool is_empty(const path& p);                      // (1)
+  bool is_empty(const path& p, std::error_code& ec); // (2)
 }
 ```
 * path[link path.md]
@@ -77,3 +77,7 @@ int main()
 - [Clang](/implementation.md#clang): 7.0
 - [GCC](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 3013. `(recursive_)directory_iterator` construction and traversal should not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3013)
