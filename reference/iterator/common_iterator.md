@@ -77,7 +77,7 @@ namespace std {
 | `iterator_category` | [`forward_iterator_tag`](/reference/iterator/iterator_tag.md) <br/> ただし、[`iterator_traits`](/reference/iterator/iterator_traits.md)`<I>::iterator_category`が[`derived_from`](/reference/concepts/derived_from.md)`<forward_iterator_tag>`のモデルではない場合は`input_iterator_tag` | C++20 |
 | `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<I>` | C++20 |
 | `difference_type` | [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<I>` | C++20 |
-| `pointer` | `void` <br/> ただし、[`operator->`](common_iterator/op_arrow.md.nolink)が利用可能である場合はその戻り値型 | C++20 |
+| `pointer` | `void` <br/> ただし、[`operator->`](common_iterator/op_arrow.md)が利用可能である場合はその戻り値型 | C++20 |
 | `reference` | [`iter_reference_t`](/reference/iterator/iter_reference_t.md)`<I>`  | C++20 |
 
 

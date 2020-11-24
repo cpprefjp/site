@@ -23,7 +23,7 @@ decltype(auto) operator++(int);   // (2)
 
 - (1) : 以下と等価  
     ```cpp
-    ++get<I>(v_­);
+    ++get<I>(v_);
     return *this;
     ```
 
