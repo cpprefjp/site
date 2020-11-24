@@ -25,6 +25,9 @@ namespace chrono {
 ## 概要
 `duration`の除算を行う
 
+- (1) : `duration`を任意の算術型で除算する
+- (2) : `duration`を`duration`で除算する
+
 
 ## テンプレートパラメータ制約
 - (1) : [`is_convertible_v`](/reference/chrono/d)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
