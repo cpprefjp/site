@@ -7,10 +7,10 @@
 ```cpp
 namespace std {
   template <class Ptr>
-  auto to_address(const Ptr& p) noexcept; // (1)
+  constexpr auto to_address(const Ptr& p) noexcept; // (1)
 
   template <class T>
-  constexpr T* to_address(T* p) noexcept; // (2)
+  constexpr T* to_address(T* p) noexcept;           // (2)
 }
 ```
 
@@ -74,3 +74,4 @@ int main()
 ## 参照
 - [P0653R2 Utility to convert a pointer to a raw pointer](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0653r2.html)
 - [`pointer_traits` - Boost Core Library](http://www.boost.org/doc/libs/1_66_0/libs/core/doc/html/core/pointer_traits.html)
+- [LWG Issue 3374. P0653 + P1006 should have made the other `std::to_address` overload `constexpr`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3374)
