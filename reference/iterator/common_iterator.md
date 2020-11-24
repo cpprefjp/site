@@ -55,9 +55,9 @@ namespace std {
 |------------------------------------------------------|-------------|-------|
 | [`(constructor)`](common_iterator/op_constructor.md) | コンストラクタ | C++20 |
 | [`operator=`](common_iterator/op_assign.md)          | 代入演算子 | C++20 |
-| [`operator*`](common_iterator/op_deref.md.nolink)           | 間接参照演算子 | C++20 |
-| [`operator->`](common_iterator/op_arrow.md.nolink)          | メンバアクセス演算子 | C++20 |
-| [`operator++`](common_iterator/op_increment.md.nolink)      | イテレータをインクリメントする | C++20 |
+| [`operator*`](common_iterator/op_deref.md)           | 間接参照演算子 | C++20 |
+| [`operator->`](common_iterator/op_arrow.md)          | メンバアクセス演算子 | C++20 |
+| [`operator++`](common_iterator/op_increment.md)      | イテレータをインクリメントする | C++20 |
 
 ## 非メンバ（*Hidden friends*）関数
 
@@ -118,7 +118,7 @@ int main() {
 * iterator_t[link /reference/ranges/iterator_t.md.nolink]
 * sentinel_t[link /reference/ranges/sentinel_t.md.nolink]
 * ranges::begin[link /reference/ranges/begin.md.nolink]
-* seranges::end[link /reference/ranges/end.md.nolink]
+* ranges::end[link /reference/ranges/end.md.nolink]
 
 ### 出力
 
@@ -142,6 +142,7 @@ int main() {
 ## 関連項目
 
 - [`common_range`](/reference/ranges/common_range.md.nolink)
+- [`common_view`](/reference/ranges/common_view.md.nolink)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
