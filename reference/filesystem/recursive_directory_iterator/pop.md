@@ -18,6 +18,10 @@ void pop(std::error_code& ec);
 [`depth()`](depth.md) `== 0`の場合は、`*this`に終端イテレータを代入する。そうでない場合は、そのディレクトリの走査を終了し、親ディレクトリに戻る。
 
 
+## 事後条件
+- `*this`のそれまでのあらゆるコピーは、`==`のドメインにおいて間接参照であることが要求されなくなる
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -64,3 +68,7 @@ int main()
 - [Clang](/implementation.md#clang): 7.0
 - [GCC](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue `recursive_directory_iterator::pop` must invalidate](https://wg21.cmeerw.net/lwg/issue3067)
