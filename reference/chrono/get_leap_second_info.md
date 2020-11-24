@@ -23,7 +23,7 @@ namespace std::chrono {
 | メンバ変数 | 説明 |
 |------------|------|
 | `is_leap_second` | `ut`自身がうるう秒であれば`true`、そうでなければ`false` |
-| `elapsed`        | 1970年1月1日から`ut`でにうるう秒が挿入された回数 (秒数)。<br/> 回数には`ut`を含む |
+| `elapsed`        | 1970年1月1日から`ut`までに正のうるう秒が挿入された合計 (秒数)。<br/> 合計には`ut`を含む |
 
 
 ## 例
@@ -85,3 +85,4 @@ true
 
 ## 参照
 - [P1466R3 Miscellaneous minor fixes for chrono](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1466r3.html)
+- [LWG Issue 3359. `<chrono>` leap second support should allow for negative leap seconds](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359)

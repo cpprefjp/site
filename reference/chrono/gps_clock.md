@@ -23,7 +23,7 @@ namespace std::chrono {
 
 
 ### うるう秒の扱い
-このクロックではうるう秒は挿入されず、うるう秒の数だけ時間が進む。そのため、UTCにうるう秒が挿入されるたびに、UTCはGPSよりも1秒ずつ遅れていく。
+このクロックではうるう秒は挿入されず、うるう秒の数だけ時間が進む。そのため、UTCにうるう秒が挿入されるたびに、UTCはGPSよりも1秒ずつずれていく。
 
 GPS時間とTAI時間は19秒ずれていて、このずれは時間が経過しても変わらない。GPS時間のエポックが[`1958y`](year/op_y.md)`/`[`January`](month_constants.md)`/1`、TAI時間のエポックが[`1980y`](year/op_y.md)`/`[`January`](month_constants.md)`/`[`Sunday`](weekday_constants.md)`[1]`であるが、1958年から1970年までのオフセットが10秒と、1970年から1980年までに挿入されたうるう秒が9秒あるためだ。
 
@@ -87,3 +87,4 @@ int main()
 
 ## 参照
 - [全地球測位システム GPS - 暦Wiki](https://eco.mtk.nao.ac.jp/koyomi/wiki/GPS.html)
+- [LWG Issue 3359. `<chrono>` leap second support should allow for negative leap seconds](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359)

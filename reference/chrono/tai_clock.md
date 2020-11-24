@@ -26,9 +26,9 @@ namespace std::chrono {
 
 
 ### うるう秒の扱い
-このクロックではうるう秒は挿入されず、うるう秒の数だけ時間が進む。そのため、UTCにうるう秒が挿入されるたびに、UTCはTAIよりも1秒ずつ遅れていく。
+このクロックではうるう秒は挿入されず、うるう秒の数だけ時間が進む。そのため、UTCにうるう秒が挿入されるたびに、UTCはTAIよりも1秒ずつずれていく。
 
-例として、2000年01月01日までにうるう秒は22回挿入されたため、TAIがUTCより10秒進んでいることも含めて、2000-01-01 00:00:00 UTCと2000-01-01 00:00:32 TAIは等価となる。
+例として、2000年01月01日までに正のうるう秒が22回、負のうるう秒が0回挿入されたため、TAIがUTCより10秒進んでいることも含めて、2000-01-01 00:00:00 UTCと2000-01-01 00:00:32 TAIは等価となる。
 
 
 ## メンバ関数
@@ -90,3 +90,4 @@ int main()
 
 ## 参照
 - [国際原子時 - Wikipedia](https://ja.wikipedia.org/wiki/国際原子時)
+- [LWG Issue 3359. `<chrono>` leap second support should allow for negative leap seconds](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359)

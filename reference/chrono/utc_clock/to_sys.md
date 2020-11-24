@@ -19,9 +19,7 @@ UTC時間からシステム時間に変換する。
 
 
 ## 戻り値
-UTC時間`u`からうるう秒を除外した、システム時間として表現可能な最後の日時を返す。
-
-変換元と変換先の時間単位は同じとなる。
+対応するシステム時間が存在する場合、[`from_sys`](from_sys.md)`(t) == u`となるようなシステム時間`t`を返す。そうでない場合、UTC時間`u`は正のうるう秒が挿入されている時間点を表しており、この変換によってうるう秒が挿入されていないものとして時間をカウントし、うるう秒が挿入される前のシステム時間として表現可能な最後の日時を返す。
 
 
 ## 例
@@ -65,3 +63,7 @@ int main()
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [LWG Issue 3359. `<chrono>` leap second support should allow for negative leap seconds](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359)

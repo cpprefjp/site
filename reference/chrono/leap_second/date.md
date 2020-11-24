@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr sys_seconds date() const noexcept;; // (1) C++20
+constexpr sys_seconds date() const noexcept; // (1) C++20
 ```
 * sys_seconds[link /reference/chrono/sys_time.md]
 

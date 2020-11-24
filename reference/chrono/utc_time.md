@@ -66,7 +66,7 @@ UTC時間の一点を指す[`time_point`](time_point.md)に対する別名。
 - (5) :
     - `%Z` (タイムゾーンの略称) が指定された場合、`STATICALLY-WIDEN<charT>("UTC")`で置き換えられる
     - `%z`もしくはその改良コマンドが指定された場合、`0`[`min`](duration/op_min.md)が使用される
-    - 引数がうるう秒が挿入された時間を表す場合、秒フィールドは`STATICALLY-WIDEN<charT>("60")`でフォーマットされる
+    - 引数が正のうるう秒が挿入された時間を表す場合、秒フィールドは`STATICALLY-WIDEN<charT>("60")`でフォーマットされる
 
 
 ## 例
@@ -210,3 +210,7 @@ int main()
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (出力フォーマットの詳細)
 - [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)
+
+
+## 参照
+- [LWG Issue 3359. `<chrono>` leap second support should allow for negative leap seconds](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359)
