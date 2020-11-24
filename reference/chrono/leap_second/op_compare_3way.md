@@ -9,7 +9,8 @@ namespace std::chrono {
   constexpr strong_ordering
     operator<=>(const leap_second& x, const leap_second& y) noexcept;        // (1) C++20
 
-  template <three_way_comparable_with<sys_seconds> Duration>
+  template <class Duration>
+    requires three_way_comparable_with<sys_seconds, sys_time<Duration>>
   constexpr auto
     operator<=>(const leap_second& x, const sys_time<Duration>& y) noexcept; // (2) C++20
 }
@@ -55,3 +56,7 @@ namespace std::chrono {
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): (9.2時点で実装なし)
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+
+
+## 参照
+- [LWG Issue 3383. §[time.zone.leap.nonmembers] `sys_seconds` should be replaced with `seconds`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3383)
