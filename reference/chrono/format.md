@@ -80,6 +80,7 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 
 ## 参照
 - [P1361R2 Integration of chrono with text formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1361r2.pdf)
-- [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)
+- [LWG Issue 3230. Format specifier `%y`/`%Y` is missing locale alternative versions](https://wg21.cmeerw.net/lwg/issue3230)
 - [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)
 - [LWG Issue 3270. Parsing and formatting `%j` with `duration`s](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270)
