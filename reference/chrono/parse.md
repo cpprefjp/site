@@ -179,6 +179,7 @@ JST
 
 ## 参照
 - [LWG Issue 3218. Modifier for `%d` parse flag does not match POSIX and format specification](https://wg21.cmeerw.net/lwg/issue3218)
+- [LWG Issue 3235. `parse` manipulator without abbreviation is not callable](https://wg21.cmeerw.net/lwg/issue3235)
 - [LWG Issue 3245. Unnecessary restriction on `'%p'` parse specifier](https://wg21.cmeerw.net/lwg/issue3245)
 - [LWG Issue 3269. Parse manipulators do not specify the result of the extraction from stream](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3269)
 - [LWG Issue 3270. Parsing and formatting `%j` with `duration`s](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270)
