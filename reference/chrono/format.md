@@ -68,6 +68,11 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - [`hh_mm_ss`](hh_mm_ss.md)オブジェクトの[`is_negative()`](hh_mm_ss/is_negative.md)が`true`である場合、出力される文字列の先頭に`STATICALLY-WIDEN<charT>("-")`が挿入される
 
 
+## 例外
+- 指定されたフォーマットフラグに必要な情報が含まれていない場合、[`format_error`](/reference/format/format_error.md)例外が送出される (例として、[`duration`](duration.md)には曜日をフォーマットするために必要な情報が含まれていない)
+    - ただし、フラグが時刻に関するもの (`%H`, `%I`, `%p`など) である場合、`duration`の特殊化は深夜0時からの経過した時刻として解釈する
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -84,3 +89,4 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - [LWG Issue 3230. Format specifier `%y`/`%Y` is missing locale alternative versions](https://wg21.cmeerw.net/lwg/issue3230)
 - [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)
 - [LWG Issue 3270. Parsing and formatting `%j` with `duration`s](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270)
+- [LWG Issue 3272. `%I``%p` should `parse`/`format` `duration` since midnight](https://wg21.cmeerw.net/lwg/issue3272)
