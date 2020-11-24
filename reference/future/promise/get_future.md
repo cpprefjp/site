@@ -18,6 +18,27 @@ future<R> get_future();
 `*this`と同じ共有状態を持つ[`future`](../future.md)`<R>`オブジェクトを返す
 
 
+## 同期
+この関数の呼び出しでは、以下の呼び出しとのデータ競合は発生しない (C++20)：
+
+- [`set_value()`](set_value.md)
+- [`set_exception()`](set_exception.md)
+- [`set_value_at_thread_exit()`](set_value_at_thread_exit.md)
+- [`set_exception_at_thread_exit()`](set_exception_at_thread_exit.md)
+
+これは、以下のようなケースをサポートするための規定：
+
+```cpp
+std::promise<void> p;
+std::thread t{ []{
+  p.get_future().wait();
+}};
+p.set_value();
+t.join();
+```
+* wait()[link /reference/future/future/wait.md]
+* p.set_value()[link set_value.md]
+
 ## 例外
 この関数は、以下のerror conditionを持つ[`future_error`](../future_error.md)例外オブジェクトを送出する可能性がある：
 
@@ -79,5 +100,5 @@ int main()
 
 
 ## 参照
-
+- [LWG Issue 2412. `promise::set_value()` and `promise::get_future()` should not race](https://wg21.cmeerw.net/lwg/issue2412)
 
