@@ -14,8 +14,12 @@ basic_ios& copyfmt(const basic_ios& rhs);
 
 
 ## 効果
-もし `this == &rhs` であれば、何もしない。  
-そうでなければ、以下のように引数 `rhs` のメンバオブジェクトを `*this` の対応するメンバオブジェクトに代入する。
+- `*this`と`rhs`が同じオブジェクトを指している場合、何もしない
+    - C++03 : `this == &rhs`
+    - C++11 : `this ==` [`addressof`](/reference/memory/addressof.md)`(rhs)`
+- そうでなければ、以下のように引数 `rhs` のメンバオブジェクトを `*this` の対応するメンバオブジェクトに代入する。
+
+以下、代入の詳細：
 
 - [`register_callback`](../ios_base/register_callback.md) で登録されているすべてのコールバックの組 `(fn, index)` について、`(*fn)(`[`erase_event`](../ios_base/type-event.md)`, this, index)` の形式で呼び出す。
 - 以下の例外を除いて、引数 `rhs` のメンバオブジェクトを `*this` の対応するメンバオブジェクトに代入する。
@@ -72,7 +76,7 @@ int main()
 ### 言語
 - C++98
 
-## 参照
+## 関連項目
 - [`basic_ios`](../basic_ios.md)`::`[`rdstate`](rdstate.md)
 - [`basic_ios`](../basic_ios.md)`::`[`rdbuf`](rdbuf.md)
 - [`basic_ios`](../basic_ios.md)`::`[`exceptions`](exceptions.md)
@@ -81,3 +85,7 @@ int main()
 - [`ios_base`](../ios_base.md)`::`[`event`](../ios_base/type-event.md)
 - [`ios_base`](../ios_base.md)`::`[`event_callback`](../ios_base/type-event_callback.md)
 - [`ios_base`](../ios_base.md)`::`[`register_callback`](../ios_base/register_callback.md)
+
+
+## 参照
+- [LWG Issue 3130. §[input.output] needs many `addressof`](https://wg21.cmeerw.net/lwg/issue3130)

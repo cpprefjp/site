@@ -45,7 +45,7 @@ charT* data() noexcept;             // (2) C++17
         - 本メンバ関数を呼び出しても、対象オブジェクトの要素への既存の参照、ポインタ、イテレータは無効にはならない。
         - 本メンバ関数で返されたポインタは、対象オブジェクトに対する非constメンバ関数呼び出しにより無効になる可能性がある。
         - 本メンバが返すポインタは、長さが [`size`](size.md)`() + 1` の `charT` 型の配列を指す。この配列は、最初の [`size`](size.md)`()` 要素は対象オブジェクトの文字列と等しく、最後の要素は NULL 文字、すなわち `charT()` である。  
-            - 本メンバ関数が返すポインタを `p` とすると、範囲 `[0,` [`size`](size.md)`()]` の全ての `i` について `p + i == &operator[](i)` を満たす。このことから、`*`[`end`](end.md)`() == charT()` を満たす。
+            - 本メンバ関数が返すポインタを `p` とすると、範囲 `[0,` [`size`](size.md)`()]` の全ての `i` について `p + i ==` [`addressof`](/reference/memory/addressof.md)`(operator[](i))` を満たす。このことから、`*`[`end`](end.md)`() == charT()` を満たす。
 - 対象オブジェクト内に NULL 文字があった場合、C 言語の文字列表現では正しく扱うことができないので注意すること。
 - (2) :
     - この関数を使用するユーザーは、`p +` [`size()`](size.md) (NULL終端) に格納されている値を変更してはならない
@@ -81,3 +81,4 @@ Hello, world!
 
 ## 参照
 - [P0272R1 Give `std::string` a non-const `.data()` member function.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0272r1.html)
+- [LWG Issue 3131. `addressof` all the things](https://wg21.cmeerw.net/lwg/issue3131)

@@ -31,6 +31,7 @@ void splice_after(const_iterator position, forward_list&& x,
 - 第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](end.md))の範囲の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
 - [`get_allocator()`](get_allocator.md) `== x.`[`get_allocator()`](get_allocator.md)であること。(C++14)
+- [`addressof`](/reference/memory/addressof.md)`(x) != this`であること
 
 
 ## 効果
@@ -135,4 +136,4 @@ int main()
 - [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
 - [LWG Issue 2222. Inconsistency in description of `forward_list::splice_after` single-element overload](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2222)
 	- (3)と(4)のオーバーロードについて、有効性が継続される対象が、`*i`となっていたが、`*++i`の間違いであったため、C++14で修正された。
-
+- [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)

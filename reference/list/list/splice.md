@@ -38,8 +38,9 @@ void splice(const_iterator position, list&& x,
 ## 要件
 - 第1パラメータ`position`が、`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の範囲の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
-
-- (1), (2) : `&x != this`であること
+- (1), (2) :
+    - C++03 : `&x != this`であること
+    - C++11 : [`addressof`](/reference/memory/addressof.md)`(x) != this`であること
 - (5), (6) : `position`が`[first, last)`に含まれる場合、未定義動作。
 
 
@@ -55,7 +56,7 @@ void splice(const_iterator position, list&& x,
 - C++11から
     - (1), (2) : 定数時間
     - (3), (4) : 定数時間
-    - (5), (6) : `&x == this`の場合、定数時間。そうでない場合、`[first, last)`の要素数に対して線形時間
+    - (5), (6) : [`addressof`](/reference/memory/addressof.md)`(x) == this`の場合、定数時間。そうでない場合、`[first, last)`の要素数に対して線形時間
 
 
 ## 例外
@@ -138,3 +139,5 @@ int main()
 - [LWG Issue 250. splicing invalidates iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
 - [LWG Issue 1133. Does N2844 break current specification of `list::splice`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
+- [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)
+- [LWG Issue 3087. One final `&x` in §[list.ops]](https://wg21.cmeerw.net/lwg/issue3087)

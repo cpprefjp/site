@@ -19,13 +19,13 @@ string_type transform(ForwardIterator first, ForwardIterator last) const;
 ```cpp
 string_type str(first, last);
 return use_facet<collate<char_type>>(getloc())
-         .transform(&*str.begin(), &*str.begin() + str.length());
+         .transform(str.data(), str.data() + str.length());
 ```
 * use_facet[link /reference/locale/use_facet.md.nolink]
 * collate[link /reference/locale/collate.md]
 * getloc()[link getloc.md]
 * transform[link /reference/locale/collate/transform.md.nolink]
-* str.begin()[link /reference/string/basic_string/begin.md]
+* str.data()[link /reference/string/basic_string/data.md]
 * str.length()[link /reference/string/basic_string/length.md]
 
 
@@ -77,3 +77,6 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [LWG Issue 3040. `basic_string_view::starts_with` Effects are incorrect](https://wg21.cmeerw.net/lwg/issue3040)

@@ -178,6 +178,7 @@ JST
 
 
 ## 参照
+- [LWG Issue 3131. `addressof` all the things](https://wg21.cmeerw.net/lwg/issue3131)
 - [LWG Issue 3218. Modifier for `%d` parse flag does not match POSIX and format specification](https://wg21.cmeerw.net/lwg/issue3218)
 - [LWG Issue 3235. `parse` manipulator without abbreviation is not callable](https://wg21.cmeerw.net/lwg/issue3235)
 - [LWG Issue 3245. Unnecessary restriction on `'%p'` parse specifier](https://wg21.cmeerw.net/lwg/issue3245)

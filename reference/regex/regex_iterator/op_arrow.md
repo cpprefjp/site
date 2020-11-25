@@ -18,7 +18,7 @@ const value_type* operator->() const;
 
 
 ## 戻り値
-メンバ変数 `match` への `const` ポインタ `&match` を返す。（`match` は最後に[`regex_search`](../regex_search.md) を呼び出した際の値を保持している）
+メンバ変数 `match` への `const` ポインタ [`addressof`](/reference/memory/addressof.md)`(match)` を返す。（`match` は最後に[`regex_search`](../regex_search.md) を呼び出した際の値を保持している）
 
 
 ## 備考
@@ -75,3 +75,7 @@ prefix = 'def', str = '456', suffix = 'ghi'
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)      | インクリメント | C++11          |
 | [`operator==`](op_equal.md)          | 等値比較       | C++11          |
+
+
+## 参照
+- [LWG Issue 3040. `basic_string_view::starts_with` Effects are incorrect](https://wg21.cmeerw.net/lwg/issue3040)

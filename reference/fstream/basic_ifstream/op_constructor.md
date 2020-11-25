@@ -67,13 +67,17 @@ int main()
 ```cpp
 // (1)
 template<class CharT, class Traits>
-basic_ifstream<CharT, Traits>::basic_ifstream() : basic_istream(&sb), sb() {
+basic_ifstream<CharT, Traits>::basic_ifstream()
+//: basic_istream(&sb), sb() {           // C++98
+  : basic_istream(addressof(sb)), sb() { // C++11
   // 本体は空
 }
 
 // (2)
 template<class CharT, class Traits>
-basic_ifstream<CharT, Traits>::basic_ifstream(const char* s, ios_base::openmode mode) : basic_istream(&sb), sb() {
+basic_ifstream<CharT, Traits>::basic_ifstream(const char* s, ios_base::openmode mode)
+//: basic_istream(&sb), sb() {           // C++98
+  : basic_istream(addressof(sb)), sb() { // C++11
   if (rdbuf()->open(s, mode | ios_base::in) == nullptr) {
     setstate(failbit);
   }
@@ -81,16 +85,20 @@ basic_ifstream<CharT, Traits>::basic_ifstream(const char* s, ios_base::openmode 
 
 // (3)
 template<class CharT, class Traits>
-basic_ifstream<CharT, Traits>::basic_ifstream(const string& s, ios_base::openmode mode) : basic_ifstream(s.c_str(), mode) {
+basic_ifstream<CharT, Traits>::basic_ifstream(const string& s, ios_base::openmode mode)
+  : basic_ifstream(s.c_str(), mode) {
   // 本体は空
 }
 
 // (5)
 template<class CharT, class Traits>
-basic_ifstream<CharT, Traits>::basic_ifstream(basic_ifstream&& rhs) : basic_istream(move(rhs)), sb(move(rhs.sb)) {
-  set_rdbuf(&sb);
+basic_ifstream<CharT, Traits>::basic_ifstream(basic_ifstream&& rhs)
+  : basic_istream(move(rhs)), sb(move(rhs.sb)) {
+  // set_rdbuf(&sb);        // C++98
+  set_rdbuf(addressof(sb)); // C++11
 }
 ```
+* addressof[link /reference/memory/addressof.md]
 
 ## バージョン
 ### 言語
@@ -101,3 +109,4 @@ basic_ifstream<CharT, Traits>::basic_ifstream(basic_ifstream&& rhs) : basic_istr
 ## 参照
 
 - [LGW issue 2676. Provide filesystem::path overloads for File-based streams](https://wg21.cmeerw.net/lwg/issue2676)
+- [LWG Issue 3130. §[input.output] needs many `addressof`](https://wg21.cmeerw.net/lwg/issue3130)
