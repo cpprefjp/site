@@ -6,7 +6,6 @@
 * cpp20[meta cpp]
 
 ```cpp
-void notify_one() volatile noexcept;
 void notify_one() noexcept;
 ```
 

@@ -6,7 +6,6 @@
 * cpp20[meta cpp]
 
 ```cpp
-void wait(T old, memory_order order = memory_order::seq_cst) const volatile noexcept;
 void wait(T old, memory_order order = memory_order::seq_cst) const noexcept;
 ```
 * memory_order[link /reference/atomic/memory_order.md]
