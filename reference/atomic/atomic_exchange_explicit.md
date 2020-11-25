@@ -39,6 +39,11 @@ namespace std {
 アトミックに値を入れ替える
 
 
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
+
+
 ## 効果
 `order`で指定されたメモリオーダーにしたがって、現在の値を`desired`でアトミックに置き換える
 
@@ -92,5 +97,11 @@ replaced 1 by 2
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
 ## 参照
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加

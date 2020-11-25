@@ -47,7 +47,12 @@ namespace std {
 強い比較でアトミックに値を入れ替える
 
 
-## 要件
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
+
+
+## 事前条件
 - `failure`が[`memory_order_release`](memory_order.md), [`memory_order_acq_rel`](memory_order.md)ではないこと。
 - `failure`が`success`よりも強くないこと。
 
@@ -131,6 +136,10 @@ false 3 3
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
 ## 参照
 - [atomic compare_exchange_weak/strong関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120725/p1)
 - [N2748 Strong Compare and Exchange](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html)
@@ -138,3 +147,5 @@ false 3 3
 - [What does 'spurious failure' on a CAS mean? - StackOverflow](http://stackoverflow.com/q/355365/463412)
 - [“Strong” and “weak” hardware memory models - Sutter’s Mill](https://herbsutter.com/2012/08/02/strong-and-weak-hardware-memory-models/)
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加

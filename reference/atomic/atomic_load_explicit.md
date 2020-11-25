@@ -9,12 +9,12 @@ namespace std {
   template <class T>
   T atomic_load_explicit(
       const volatile atomic<T>* object,
-      memory_order order) noexcept;     // (1)
+      memory_order order) noexcept;     // (1) C++11
 
   template <class T>
   T atomic_load_explicit(
       const atomic<T>* object,
-      memory_order order) noexcept;     // (2)
+      memory_order order) noexcept;     // (2) C++11
 }
 ```
 * atomic[link atomic.md]
@@ -24,7 +24,12 @@ namespace std {
 アトミックに値を読み込む
 
 
-## 要件
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
+
+
+## 事前条件
 `order`が以下のメモリオーダーではないこと：
 
 - [`memory_order_release`](memory_order.md)
@@ -83,3 +88,5 @@ int main()
 
 ## 参照
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加
