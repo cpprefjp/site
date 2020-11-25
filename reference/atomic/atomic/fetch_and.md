@@ -6,8 +6,12 @@
 * cpp11[meta cpp]
 
 ```cpp
-T fetch_and(T operand, memory_order order = memory_order_seq_cst) volatile noexcept;
-T fetch_and(T operand, memory_order order = memory_order_seq_cst) noexcept;
+T fetch_and(T operand,
+            memory_order order = memory_order_seq_cst
+            ) volatile noexcept;                       // (1) C++11
+T fetch_and(T operand,
+            memory_order order = memory_order_seq_cst
+            ) noexcept;                                // (2) C++11
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -16,8 +20,11 @@ T fetch_and(T operand, memory_order order = memory_order_seq_cst) noexcept;
 AND演算を行う
 
 
-## 要件
-- `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない (C++17)
+## テンプレートパラメータ制約
+- (1), (2) :
+    - C++17 : `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+- (1) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
 
 
 ## 効果
@@ -115,5 +122,12 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
 ## 参照
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
+    - C++17での、オブジェクト型であることの制約追加
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加

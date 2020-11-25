@@ -6,12 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-T operator|=(T operand) volatile noexcept;
-T operator|=(T operand) noexcept;
+T operator|=(T operand) volatile noexcept; // (1) C++11
+T operator|=(T operand) noexcept;          // (2) C++11
 ```
 
 ## 概要
 OR演算を行う
+
+
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
 
 
 ## 戻り値
@@ -110,3 +115,12 @@ int main()
 - [Clang](/implementation.md#clang): 3.2
 - [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+
+
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
+## 参照
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加

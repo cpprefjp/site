@@ -6,22 +6,32 @@
 * cpp11[meta cpp]
 
 ```cpp
-T operator++() volatile noexcept;
-T operator++() noexcept;
+T operator++() volatile noexcept;    // (1) C++11
+T operator++() noexcept;             // (2) C++11
 
-T operator++(int) volatile noexcept;
-T operator++(int) noexcept;
+T operator++(int) volatile noexcept; // (3) C++11
+T operator++(int) noexcept;          // (4) C++11
 ```
 
 ## 概要
-値をインクリメントする
+値をインクリメントする。
+
+- (1) : `volatile`オブジェクトに対する前置インクリメント
+- (2) : 非`volatile`オブジェクトに対する前置インクリメント
+- (3) : `volatile`オブジェクトに対する後置インクリメント
+- (4) : 非`volatile`オブジェクトに対する後置インクリメント
+
+
+## テンプレートパラメータ制約
+- (1), (3) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
 
 
 ## 戻り値
 以下と等価：
 
-- 前置`operator++`：[`fetch_add`](fetch_add.md)`(1) + 1`
-- 後置`operator++`：[`fetch_add`](fetch_add.md)`(1)`
+- (1), (2) : [`fetch_add`](fetch_add.md)`(1) + 1`
+- (3), (4) : [`fetch_add`](fetch_add.md)`(1)`
 
 
 ## 例外
@@ -99,3 +109,12 @@ int main()
 - [Clang](/implementation.md#clang): 3.2
 - [GCC](/implementation.md#gcc): 4.7.0
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+
+
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
+## 参照
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加

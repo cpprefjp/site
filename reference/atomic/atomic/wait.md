@@ -6,8 +6,12 @@
 * cpp20[meta cpp]
 
 ```cpp
-void wait(T old, memory_order order = memory_order::seq_cst) const volatile noexcept;
-void wait(T old, memory_order order = memory_order::seq_cst) const noexcept;
+void wait(T old,
+          memory_order order = memory_order::seq_cst
+          ) const volatile noexcept;                 // (1) C++20
+void wait(T old,
+          memory_order order = memory_order::seq_cst
+          ) const noexcept;                          // (2) C++20
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 
@@ -17,6 +21,11 @@ void wait(T old, memory_order order = memory_order::seq_cst) const noexcept;
 この関数は、ブロッキング同期を行うための機能であり、ビジーループによるポーリングよりもエネルギー消費が低く効率的な待機を実現できる。アトミック操作版の[`std::condition_variable`](/reference/condition_variable/condition_variable.md)であると言える。
 
 この関数によってブロッキング待機をしたら、対応する起床関数である[`notify_one()`](notify_one.md)、[`notify_all()`](notify_all.md)によってブロッキング待機を解除できる。
+
+
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
 
 
 ## 効果
@@ -114,6 +123,12 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
 
 
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
 ## 参照
 - [P0514R4 Efficient concurrent waiting for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0514r4.pdf)
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加

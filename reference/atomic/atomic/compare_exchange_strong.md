@@ -10,21 +10,21 @@ bool compare_exchange_strong(T& expected,
                              T desired,
                              memory_order success,
                              memory_order failure
-                             ) volatile noexcept;  // (1)
+                             ) volatile noexcept;  // (1) C++11
 bool compare_exchange_strong(T& expected,
                              T desired,
                              memory_order success,
                              memory_order failure
-                             ) noexcept;           // (2)
+                             ) noexcept;           // (2) C++11
 
 bool compare_exchange_strong(T& expected,
                              T desired,
                              memory_order order = memory_order_seq_cst
-                             ) volatile noexcept;  // (3)
+                             ) volatile noexcept;  // (3) C++11
 bool compare_exchange_strong(T& expected,
                              T desired,
                              memory_order order = memory_order_seq_cst
-                             ) noexcept;           // (4)
+                             ) noexcept;           // (4) C++11
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -36,7 +36,12 @@ bool compare_exchange_strong(T& expected,
 - (3), (4) : 現在の値と`expected`が等値である場合に、現在の値を`desired`で置き換え、そうでなければ`expected`を現在の値で置き換える。どちらの値置き換えの場合でも`order`メモリオーダーが使用される
 
 
-## 要件
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
+
+
+## 事前条件
 - `failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと
 
 
@@ -162,6 +167,10 @@ true
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
 
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
 ## 参照
 - [atomic compare_exchange_weak/strong関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120725/p1)
 - [N2748 Strong Compare and Exchange](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html)
@@ -169,3 +178,5 @@ true
 - [What does 'spurious failure' on a CAS mean? - StackOverflow](http://stackoverflow.com/q/355365/463412)
 - [“Strong” and “weak” hardware memory models - Sutter’s Mill](https://herbsutter.com/2012/08/02/strong-and-weak-hardware-memory-models/)
 - [Understand `std::atomic::compare_exchange_weak()` in C++11 - Eric Z's blog](https://tonywearme.wordpress.com/2014/08/15/understand-stdatomiccompare_exchange_weak-in-c11/)
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+    - C++20での、`volatile`版への制約追加
