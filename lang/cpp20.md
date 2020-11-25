@@ -280,6 +280,14 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### ユーティリティ
+- [`<utility>`](/reference/utility.md)に、符号付き整数と符号なし整数の安全な比較関数として、以下を追加：
+    - [`std::cmp_equal()`](/reference/utility/cmp_equal.md)
+    - [`std::cmp_not_equal()`](/reference/utility/cmp_not_equal.md)
+    - [`std::cmp_less()`](/reference/utility/cmp_less.md)
+    - [`std::cmp_less_equal()`](/reference/utility/cmp_less_equal.md)
+    - [`std::cmp_greater()`](/reference/utility/cmp_greater.md)
+    - [`std::cmp_greater_equal()`](/reference/utility/cmp_greater_equal.md)
+    - [`std::in_range()`](/reference/utility/in_range.md)
 - [`std::swap()`](/reference/utility/swap.md)関数に`constexpr`を追加
 - [`std::exchange()`](/reference/utility/exchange.md)関数に`constexpr`を追加
 - [`std::complex`](/reference/complex/complex.md)クラスを`constexpr`に対応

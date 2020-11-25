@@ -33,12 +33,31 @@
 | [`move_if_noexcept`](utility/move_if_noexcept.md) | 例外を投げないオブジェクトをムーブする(function template) | C++11    |
 
 
+## 型の修飾
+
+| 名前                              | 説明                                | 対応バージョン |
+|-----------------------------------|-------------------------------------|----------------|
+| [`as_const`](utility/as_const.md) | 左辺値参照を`const`左辺値参照にする (function template) | C++17 |
+
+
 ## 型の値
 
-| 名前                              | 説明                                      | 対応バージョン |
-|-----------------------------------|-------------------------------------------|----------------|
+| 名前                            | 説明                                      | 対応バージョン |
+|---------------------------------|-------------------------------------------|----------------|
 | [`declval`](utility/declval.md) | 指定された型の値を得る(function template) | C++11 |
-| [`as_const`](utility/as_const.md) | 左辺値参照を`const`左辺値参照にする | C++17 |
+
+
+## 整数比較
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`cmp_equal`](utility/cmp_equal.md)           | 等値比較 (function template) | C++20 |
+| [`cmp_not_equal`](utility/cmp_not_equal.md)   | 非等値比較 (function template) | C++20 |
+| [`cmp_less`](utility/cmp_less.md)             | 左辺が右辺より小さいかを比較 (function template) | C++20 |
+| [`cmp_less_equal`](utility/cmp_less_equal.md) | 左辺が右辺以下かを比較 (function template) | C++20 |
+| [`cmp_greater`](utility/cmp_greater.md)             | 左辺が右辺より大きいかを比較 (function template) | C++20 |
+| [`cmp_greater_equal`](utility/cmp_greater_equal.md) | 左辺が右辺以上かを比較 (function template) | C++20 |
+| [`in_range`](utility/in_range.md) | 値が型のとりうる範囲内か判定する (function template) | C++20 |
 
 
 ## 組
