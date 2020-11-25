@@ -14,7 +14,7 @@ bool is_lock_free() const noexcept;
 
 
 ## 戻り値
-オブジェクトに対する操作がロックフリーに振る舞えるなら`true`、そうでなければ`false`を返す。
+`atomic_ref<T>`型のすべてのオブジェクトに対する操作がロックフリーに振る舞えるなら`true`、そうでなければ`false`を返す。
 
 `false`を返す場合は、ロックで実装されることを意味する。
 
@@ -60,3 +60,7 @@ atomic_ref<int> is lock-free
 - [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
+    - 対象を「オブジェクト」から「`atomic_ref<T>`型のすべてのオブジェクト」に変更
