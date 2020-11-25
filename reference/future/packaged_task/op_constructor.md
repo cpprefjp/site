@@ -48,7 +48,7 @@ packaged_task(packaged_task&& rhs) noexcept;       // (5)
 
 ## 備考
 - (2), (3) :
-    - C++14 : [`std::decay`](/reference/type_traits/decay.md)`<F>::type`が`std::packaged_task<R(ArgTypes...)>`型である場合、この関数はオーバーロード解決に参加しない。
+    - C++14 : [`std::remove_cvref`](/reference/type_traits/remove_cvref.md)`<F>::type`が`std::packaged_task<R(ArgTypes...)>`型である場合、この関数はオーバーロード解決に参加しない。
 
 
 ## 例
@@ -116,3 +116,4 @@ int main()
 - [LWG Issue 2097. `packaged_task` constructors should be constrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2097)
 - [LWG Issue 2921. `packaged_task` and type-erased allocators](https://wg21.cmeerw.net/lwg/issue2921)
     - [`std::function`のコンストラクタ](/reference/functional/function/op_constructor.md)と同様の理由により、アロケータを受け取るコンストラクタを削除
+- [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
