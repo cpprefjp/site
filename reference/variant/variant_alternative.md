@@ -7,23 +7,25 @@
 ```cpp
 namespace std {
   template <std::size_t I, class T>
-  struct variant_alternative;                       // (1) 先行宣言
+  struct variant_alternative;                       // (1) C++17 先行宣言
 
   template <std::size_t I, class T>
-  struct variant_alternative<I, const T>;           // (2)
+  struct variant_alternative<I, const T>;           // (2) C++17
 
   template <std::size_t I, class T>
-  struct variant_alternative<I, volatile T>;        // (3)
+  struct variant_alternative<I, volatile T>;        // (3) C++17
+                                                    // C++20で非推奨
 
   template <std::size_t I, class T>
-  struct variant_alternative<I, const volatile T>;  // (4)
+  struct variant_alternative<I, const volatile T>;  // (4) C++17
+                                                    // C++20で非推奨
 
   template <std::size_t I, class T>
   using variant_alternative_t =
-    typename variant_alternative<I, T>::type;       // (5)
+    typename variant_alternative<I, T>::type;       // (5) C++17
 
   template <std::size_t I, class... Types>
-  struct variant_alternative<I, variant<Types...>>; // (6)
+  struct variant_alternative<I, variant<Types...>>; // (6) C++17
 }
 ```
 * variant[link variant.md]
@@ -48,6 +50,10 @@ namespace std {
 - (3) : `std::variant<Types...>`の`Types...`のうち、`I`番目の型`T`を取得し、[`std::add_volatile_t`](/reference/type_traits/add_volatile.md)`<T>`をメンバ型`type`とする
 - (4) : `std::variant<Types...>`の`Types...`のうち、`I`番目の型`T`を取得し、[`std::add_cv_t`](/reference/type_traits/add_cv.md)`<T>`をメンバ型`type`とする
 - (6) : `std::variant<Types...>`の`Types...`のうち、`I`番目の型`T`を取得し、その型をメンバ型`type`とする
+
+
+## 非推奨の詳細
+- (3), (4) : これらの部分特殊化は、型の`volatile`修飾を部分的に非推奨にすることにともなって、非推奨化される
 
 
 ## 例
@@ -120,3 +126,11 @@ int main()
 - [Clang](/implementation.md#clang): 4.0
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+
+
+## 参照
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
