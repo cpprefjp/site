@@ -30,20 +30,26 @@ filesystem_error(const string& what_arg,
 
 ## 事後条件
 - (1) :
-    - [`what()`](what.md)メンバ関数の戻り値 : `what_arg.c_str()`
     - [`code()`](code.md)メンバ関数の戻り値 : `ec`
     - [`path1()`](path1.md)メンバ関数の戻り値 : 空のパス
     - [`path2()`](path2.md)メンバ関数の戻り値 : 空のパス
+    - エラー理由の文字列：
+        - C++17 : [`what()`](what.md)メンバ関数の戻り値 : `what_arg.c_str()`
+        - C++20 : [`string_view`](/reference/string_view/basic_string_view.md)`(`[`what()`](what.md)`).`[`find`](/reference/string_view/basic_string_view/find.md)`(what_arg.`[`c_str()`](/reference/string/basic_string/c_str.md)`) != string_view::npos`
 - (2) :
-    - [`what()`](what.md)メンバ関数の戻り値 : `what_arg.c_str()`
     - [`code()`](code.md)メンバ関数の戻り値 : `ec`
     - [`path1()`](path1.md)メンバ関数の戻り値 : コピーされた`p1`への参照
     - [`path2()`](path2.md)メンバ関数の戻り値 : 空のパス
+    - エラー理由の文字列：
+        - C++17 : [`what()`](what.md)メンバ関数の戻り値 : `what_arg.c_str()`
+        - C++20 : [`string_view`](/reference/string_view/basic_string_view.md)`(`[`what()`](what.md)`).`[`find`](/reference/string_view/basic_string_view/find.md)`(what_arg.`[`c_str()`](/reference/string/basic_string/c_str.md)`) != string_view::npos`
 - (3) :
-    - [`what()`](what.md)メンバ関数の戻り値 : `what_arg.c_str()`
     - [`code()`](code.md)メンバ関数の戻り値 : `ec`
     - [`path1()`](path1.md)メンバ関数の戻り値 : コピーされた`p1`への参照
     - [`path2()`](path2.md)メンバ関数の戻り値 : コピーされた`p2`への参照
+    - エラー理由の文字列：
+        - C++17 : [`what()`](what.md)メンバ関数の戻り値 : `what_arg.c_str()`
+        - C++20 : [`string_view`](/reference/string_view/basic_string_view.md)`(`[`what()`](what.md)`).`[`find`](/reference/string_view/basic_string_view/find.md)`(what_arg.`[`c_str()`](/reference/string/basic_string/c_str.md)`) != string_view::npos`
 
 
 ## 例
@@ -111,3 +117,8 @@ filesystem error: can't copy file. source file doesn't found: No such file or di
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 4.8.1
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue `system_error` and `filesystem_error` constructors taking a `string` may not be able to meet their postconditions](https://wg21.cmeerw.net/lwg/issue3112)
+    - C++20でのエラー理由文字列の事後条件が、指定したエラー理由文字列を直接要求するのではなく、それを含んでいることを要求するように変更された
