@@ -51,7 +51,7 @@ auto f3 = bind_front(&Strategy::process, Strategy{});
 
 ## テンプレートパラメータ制約
 [`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`、
-[`std::unwrap_ref_decay`](/reference/type_traits/unwrap_ref_decay.md)`<Args>...`を適用した型パラメータパックを`BoundArgs`であるとして、
+[`std::decay_t`](/reference/type_traits/decay.md)`<Args>...`を適用した型パラメータパックを`BoundArgs`であるとして、
 
 - `FD`が[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
 - `BoundArgs`のそれぞれの型`Ti`が[オブジェクト型](/reference/type_traits/is_object.md)である場合、[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
@@ -129,3 +129,4 @@ int main() {
 
 ## 参照
 - [P0356R5 Simplified partial function application](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0356r5.html)
+- [P1651R0 `bind_front` should not unwrap `reference_wrapper`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1651r0.html)
