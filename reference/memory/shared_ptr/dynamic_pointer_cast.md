@@ -51,10 +51,11 @@ struct A {
   virtual void call() const {
     std::cout << "A::call" << std::endl;
   }
+  virtual ~A() = default;
 };
 
 struct B : A {
-  void call() const {
+  void call() const override {
     std::cout << "B::call()" << std::endl;
   }
 };
