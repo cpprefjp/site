@@ -6,11 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-T operator++() volatile noexcept;    // (1) C++11
-T operator++() noexcept;             // (2) C++11
+T operator++() volatile noexcept;             // (1) C++11
+value_type operator++() volatile noexcept;    // (1) C++20
 
-T operator++(int) volatile noexcept; // (3) C++11
-T operator++(int) noexcept;          // (4) C++11
+T operator++() noexcept;                      // (2) C++11
+value_type operator++() noexcept;             // (2) C++20
+
+T operator++(int) volatile noexcept;          // (3) C++11
+value_type operator++(int) volatile noexcept; // (3) C++20
+
+T operator++(int) noexcept;                   // (4) C++11
+value_type operator++(int) noexcept;          // (4) C++20
 ```
 
 ## 概要
@@ -118,3 +124,5 @@ int main()
 ## 参照
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
+    - 戻り値の型を`T`から`value_type`に変更

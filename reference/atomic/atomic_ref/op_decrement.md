@@ -6,19 +6,22 @@
 * cpp20[meta cpp]
 
 ```cpp
-T operator--() const noexcept;
-T operator--(int) const noexcept;
+value_type operator--() const noexcept;
+value_type operator--(int) const noexcept;
 ```
 
 ## 概要
-値をデクリメントする
+値をデクリメントする。
+
+- (1) : 前置デクリメント
+- (2) : 後置デクリメント
 
 
 ## 戻り値
 以下と等価：
 
-- 前置`operator--`： [`fetch_sub`](fetch_sub.md)`(1) - 1`
-- 後置`operator--`： [`fetch_sub`](fetch_sub.md)`(1)`
+- (1) : [`fetch_sub`](fetch_sub.md)`(1) - 1`
+- (2) : [`fetch_sub`](fetch_sub.md)`(1)`
 
 
 ## 例外
@@ -91,3 +94,8 @@ int main()
 - [Clang](/implementation.md#clang): (9.0時点で実装なし)
 - [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
+    - 戻り値の型を`T`から`value_type`に変更
