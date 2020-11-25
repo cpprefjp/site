@@ -217,3 +217,4 @@ process data
 - [Bug 41861 (DR887) - [DR 887][C++0x] `<condition_variable>` does not use `monotonic_clock`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=41861)
     - GCC 10から`steady_clock`がサポートされた
 - [P0660R10 Stop Token and Joining Thread, Rev 10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
+- [P1869R1 Rename `condition_variable_any` interruptible wait methods](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1869r1.html)
