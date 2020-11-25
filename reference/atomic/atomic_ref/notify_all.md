@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-void notify_all() noexcept;
+void notify_all() const noexcept;
 ```
 
 ## 概要
@@ -81,3 +81,5 @@ int main()
 - [P0514R4 Efficient concurrent waiting for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0514r4.pdf)
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
 - [P1643R1 Add wait/notify to `atomic_ref`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1643r1.html)
+- [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
+    - 宣言に`const`を追加

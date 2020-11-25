@@ -64,3 +64,7 @@ int main()
 - [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
+    - 宣言に`const`を追加
