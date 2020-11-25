@@ -22,7 +22,7 @@ namespace std {
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
-* equality_comparable_with[link /reference/concepts/equality_comparable_with.md]
+* equality_comparable_with[link /reference/concepts/equality_comparable.md]
 
 ## 概要
 2つの`common_iterator`オブジェクトが同じ要素を指しているかを判定する。
