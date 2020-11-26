@@ -29,7 +29,7 @@ namespace std {
 
 ## 事前条件
 
-`x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception)`()`、`y.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception)`()`はどちらも`false`であること。
+`x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`()`、`y.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`()`はどちらも`false`であること。
 
 ## 戻り値
 

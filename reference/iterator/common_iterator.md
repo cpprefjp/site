@@ -66,8 +66,8 @@ namespace std {
 | [`operator==`](common_iterator/op_equal.md)         | 等値比較 | C++20 |
 | `operator!=`     | 非等値比較 (`==`により使用可能) | C++20 |
 | [`operator-`](common_iterator/op_minus.md)          | 2つの`common_iterator`の差を求める | C++20 |
-| [`iter_move`](common_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++20 |
-| [`iter_swap`](common_iterator/iter_swap.md.nolink)     | イテレータの要素の交換 | C++20 |
+| [`iter_move`](common_iterator/iter_move.md)     | イテレータの要素の移動 | C++20 |
+| [`iter_swap`](common_iterator/iter_swap.md)     | イテレータの要素の交換 | C++20 |
 
 ## `iterator_traits`の型
 

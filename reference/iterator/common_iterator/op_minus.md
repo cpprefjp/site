@@ -17,6 +17,7 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
@@ -26,7 +27,7 @@ namespace std {
 
 ## 事前条件
 
-`x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception)`()`、`y.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception)`()`はどちらも`false`であること。
+`x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`()`、`y.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`()`はどちらも`false`であること。
 
 ## 戻り値
 
@@ -69,8 +70,8 @@ int main() {
 ```
 1
 -1
--9
-9
+-4
+4
 ```
 
 ## バージョン
