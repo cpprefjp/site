@@ -11,8 +11,8 @@ namespace std {
   class common_iterator {
 
     template<indirectly_swappable<I> I2, class S2>
-  friend void iter_swap(const common_iterator& x, const common_iterator<I2, S2>& y)
-    noexcept(noexcept(ranges::iter_swap(declval<const I&>(), declval<const I2&>())));
+    friend void iter_swap(const common_iterator& x, const common_iterator<I2, S2>& y)
+      noexcept(noexcept(ranges::iter_swap(declval<const I&>(), declval<const I2&>())));
   };
 }
 ```
