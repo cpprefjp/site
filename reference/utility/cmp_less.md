@@ -32,6 +32,7 @@ for (int i = 0; i < v.size(); ++i) {}
 以下と等価：
 
 ```cpp
+using UT = make_unsigned_t<T>;
 using UU = make_unsigned_t<U>;
 if constexpr (is_signed_v<T> == is_signed_v<U>)
   return t < u;
