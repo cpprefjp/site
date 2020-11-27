@@ -49,6 +49,10 @@ namespace std::ranges {
 - (1) : `first`から`last`までの距離
 - (2) : `r`の範囲の長さ（先頭から終端までの距離）
 
+## 備考
+
+この関数テンプレートは通常の名前探索で発見されている場合にADLを無効化する。詳しくは「[ADLを無効にする関数定義](/article/lib/disable_adl_function.md)」を参照のこと。
+
 ## 例
 ```cpp example
 #include <iostream>

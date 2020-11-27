@@ -71,6 +71,10 @@ namespace std::ranges {
 - (3) : `x`を`bound`まで進めたイテレータのコピーを返す
 - (4) : `x`を`bound`以内で`n`進めたイテレータのコピーを返す
 
+## 備考
+
+この関数テンプレートは通常の名前探索で発見されている場合にADLを無効化する。詳しくは「[ADLを無効にする関数定義](/article/lib/disable_adl_function.md)」を参照のこと。
+
 ## 例
 ```cpp example
 #include <iostream>

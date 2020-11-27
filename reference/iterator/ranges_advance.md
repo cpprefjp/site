@@ -65,6 +65,10 @@ namespace std::ranges {
 - (3) : 指定した距離`n`と実際に進めた距離との差（進めなかった距離）を返す
     - `i`の処理終了時と開始時の位置の差を`M`として、`n - M`を返す
 
+## 備考
+
+この関数テンプレートは通常の名前探索で発見されている場合にADLを無効化する。詳しくは「[ADLを無効にする関数定義](/article/lib/disable_adl_function.md)」を参照のこと。
+
 ## 例
 ```cpp example
 #include <iostream>
