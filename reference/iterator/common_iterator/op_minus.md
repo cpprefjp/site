@@ -63,8 +63,8 @@ int main() {
 }
 ```
 * counted_iterator[link /reference/iterator/counted_iterator.md.nolink]
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md.nolink]
-* default_sentinel[link /reference/iterator/default_sentinel_t.md.nolink]
+* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
+* default_sentinel[link /reference/iterator/default_sentinel_t.md]
 
 ### 出力
 ```
