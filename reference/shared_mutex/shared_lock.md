@@ -21,7 +21,7 @@ namespace std {
 
 このクラスは、メンバ変数で保持しているミューテックスオブジェクトを、メンバ関数のスコープでロック取得し、手放すというようにして使用する。この手法は、[Scoped Locking Pattern](https://www.dre.vanderbilt.edu/~schmidt/PDF/ScopedLocking.pdf)として知られている。
 
-テンプレートパラメータ`Mutex`は、`lock_shared()`／`unlock_shared()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](https://wiki.hsr.ch/PnProg/files/StrategizedLocking.pdf)として知られている。
+テンプレートパラメータ`Mutex`は、`lock_shared()`／`unlock_shared()`メンバ関数を持つあらゆるミューテックスクラスを扱うためのものである。ミューテックス型をパラメータ化するScoped Locking手法は、[Strategized Locking Pattern](https://www.dre.vanderbilt.edu/~schmidt/PDF/locking-patterns.pdf)として知られている。
 
 
 ## メンバ関数
