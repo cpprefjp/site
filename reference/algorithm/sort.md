@@ -54,7 +54,7 @@ namespace std {
 
 ## 計算量
 - C++03: 平均して約N log N (N == `last - first`) 回の比較
-- C++11以降: N log N (N == `last - first`) 回の比較
+- C++11以降: O(N log N) (N == `last - first`) 計算量での比較
 
 
 ## 備考
