@@ -60,7 +60,7 @@ namespace std {
 
 - [`projected`](projected.md)
 - [`common_iterator`](common_iterator.md)
-- [`counted_iterator`](counted_iterator.md.nolink)
+- [`counted_iterator`](counted_iterator.md)
 
 ## 備考
 

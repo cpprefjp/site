@@ -62,7 +62,7 @@ int main() {
   std::cout << (ce - ci) << std::endl;
 }
 ```
-* counted_iterator[link /reference/iterator/counted_iterator.md.nolink]
+* counted_iterator[link /reference/iterator/counted_iterator.md]
 * default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 * default_sentinel[link /reference/iterator/default_sentinel_t.md]
 

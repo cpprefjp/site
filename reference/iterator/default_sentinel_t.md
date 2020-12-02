@@ -38,7 +38,7 @@ int main() {
 }
 ```
 * default_sentinel[color ff0000]
-* counted_iterator[link /reference/iterator/counted_iterator.md.nolink]
+* counted_iterator[link /reference/iterator/counted_iterator.md]
 * ranges::begin[link /reference/ranges/begin.md.nolink]
 
 ### 出力
