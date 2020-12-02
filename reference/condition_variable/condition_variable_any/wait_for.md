@@ -60,7 +60,7 @@ return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred))
 
 `pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブロッキングしない
 
-- (3) : このメンバ関数呼び出しの間だけ`stoken`に対する停止要求によって`*this`へ通知が行われるよう登録し、以下の処理を行う。
+- (3) :
 
 ```cpp
 return wait_until(lock, std::move(stoken), chrono::steady_clock::now() + rel_time,
