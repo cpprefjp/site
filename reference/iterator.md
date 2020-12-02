@@ -142,7 +142,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|------------------------------------------|-------|
 | [`common_iterator`](iterator/common_iterator.md) | イテレータ型と番兵型が異なる場合に型を共通化するためのラッパーイテレータ(class template) | C++20 |
-| [`counted_iterator`](iterator/counted_iterator.md.nolink) | 予め指定された`N`個の要素だけをイテレートするラッパーイテレータ(class template) | C++20 |
+| [`counted_iterator`](iterator/counted_iterator.md) | 予め指定された`N`個の要素だけをイテレートするラッパーイテレータ(class template) | C++20 |
 
 ## 番兵型
 
