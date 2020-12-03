@@ -18,7 +18,7 @@ path& operator/=(const Source& source); // (2)
 
 ## 効果
 - (1) :
-    - `p.`[`is_absolute()`](is_absolute.md) `|| (p.`[`has_root_name()`](has_root_name.md) `&& p.`[`root_name()](root_name.md) `!=` [`root_name()`](root_name.md)`)`であれば、`p`を`*this`に代入する。
+    - `p.`[`is_absolute()`](is_absolute.md) `|| (p.`[`has_root_name()`](has_root_name.md) `&& p.`[`root_name()`](root_name.md) `!=` [`root_name()`](root_name.md)`)`であれば、`p`を`*this`に代入する。
         - `p`が絶対パスであれば`*this`にパス連結できないため、置き換えとする
     - そうでなければ、`*this`を以下のように変更する：
         1. `p`が[ルートディレクトリを持っている](has_root_directory.md)場合、`*this`から[ルートディレクトリ](root_directory.md)と[相対パス](relative_path.md)を削除する
