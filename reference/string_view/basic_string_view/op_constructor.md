@@ -6,14 +6,14 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr basic_string_view() noexcept;                       // (1)
+constexpr basic_string_view() noexcept;                        // (1)
 constexpr basic_string_view(
-            const basic_string_view&) noexcept = default;     // (2)
-constexpr basic_string_view(const CharT* str);                // (3)
-constexpr basic_string_view(const CharT* str, size_type len); // (4)
+            const basic_string_view&) noexcept = default;      // (2)
+constexpr basic_string_view(const CharT* str);                 // (3)
+constexpr basic_string_view(const CharT* str, size_type len);  // (4)
 
 template <class It, class End>
-constexpr basic_string_view(It first, End last);               // (5)
+constexpr basic_string_view(It first, End last);               // (5) C++20
 ```
 
 ## 概要
