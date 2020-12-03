@@ -49,7 +49,7 @@ namespace std {
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータオブジェクトをコピー(伝播)するか否か。<br/>`Alloc`がメンバ型`propagate_on_container_move_assignment`を持っていればそれを使用し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)を使用する。 | C++11 |
 | `propagate_on_container_swap` | コンテナの交換時に、アロケータオブジェクトをコピー(伝播)するか否か。<br/>`Alloc`がメンバ型`propagate_on_container_swap`を持っていればそれを使用し、そうでなければ[`false_type`](/reference/type_traits/false_type.md)を使用する。 | C++11 |
 | `is_always_equal` | `Alloc::is_always_equal`が存在する場合は`Alloc::is_always_equal`。それ以外の場合は`is_empty<Alloc>::type`。 | C++17 |
-| `rebind_alloc<U>` | 型`U`を確保するようにアロケータ型を再束縛する。<br/> `Alloc::rebind<U>::other`が有効ならそれを使用し、そうでなければ`Alloc<U, Args>`を使用する。`Alloc`がクラステンプレートでない場合、`rebind_alloc`の使用は不適格となる。 | C++11 |
+| `rebind_alloc<U>` | 型`U`を確保するようにアロケータ型を再束縛する。<br/> `Alloc::rebind<U>::other`が有効ならそれを使用し、そうでなければ`Alloc<U, Args>`を使用する(ここで、`Args`は0個以上の型引数で、`Alloc`が`Alloc<T, Args>`だった際の`Args`である)。`Alloc`がクラステンプレートでない場合、`rebind_alloc`の使用は不適格となる。 | C++11 |
 | `rebind_traits<U>` | 再束縛した型`U`に対する`allocator_traits`。`allocator_traits<rebind_alloc<U>>` | C++11 |
 
 
