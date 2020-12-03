@@ -314,7 +314,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 
 ### 機能の非推奨化
-- 一貫比較非機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
+- 一貫比較機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
 - [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
 - [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：
     - [`std::atomic_init()`](/reference/atomic/atomic_init.md)関数
@@ -336,7 +336,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - [`max_size()`](/reference/memory/allocator/max_size.md)メンバ関数
     - [`construct()`](/reference/memory/allocator/construct.md)メンバ関数
     - [`destroy()`](/reference/memory/allocator/destroy.md)メンバ関数
-- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、要素型を再束縛するための`allocator<void>`特殊化を非推奨化
+- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、要素型を再束縛するための`allocator<void>`特殊化を削除
 - C++17で非推奨化されていた、`constexpr`で扱える型の分類である[`is_literal_type`](/reference/type_traits/is_literal_type.md)型特性を削除
 - C++17で非推奨化されていた、一時的なメモリ確保のための[`std::get_temporary_buffer()`](/reference/memory/get_temporary_buffer.md)関数と[`std::return_temporary_buffer()`](/reference/memory/return_temporary_buffer.md)関数を削除
 - C++17で非推奨化されていた[`raw_storage_iterator`](/reference/memory/raw_storage_iterator.md)クラスを削除
@@ -344,7 +344,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
     - [`not1()`](/reference/functional/negators.md)関数
     - [`not2()`](/reference/functional/negators.md)関数
     - [`unary_negate`](/reference/functional/negators.md)クラス
-    - [`binary_nagate`](/reference/functional/negators.md)クラス
+    - [`binary_negate`](/reference/functional/negators.md)クラス
     - 標準関数オブジェクトの`result_type`、`argument_type`、`first_argument_type`、`second_argument_type`型
 - C++17から非推奨化されていた[`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`unique()`](/reference/memory/shared_ptr/unique.md)を削除
 - [`invoke_result`](/reference/type_traits/invoke_result.md)の追加にともない、C++17から非推奨化されていた[`result_of`](/reference/type_traits/result_of.md)を削除
