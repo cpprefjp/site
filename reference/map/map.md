@@ -190,6 +190,7 @@ struct insert-return-type {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <map>
@@ -213,10 +214,169 @@ int main()
 * m.insert[link map/insert.md]
 * m.at[link map/at.md]
 
-### 出力
+#### 出力
 ```
 10
 ```
+
+
+### ユーザー定義型をキーとして使用する (`operator<`を定義)
+```cpp example
+#include <iostream>
+#include <map>
+#include <string>
+#include <tuple>
+
+// 要素がひとつの場合
+struct MyInt {
+  int value;
+};
+
+bool operator<(const MyInt& a, const MyInt& b) noexcept {
+  return a.value < b.value;
+}
+
+// 要素が複数の場合
+struct Person {
+  int id;
+  int age;
+  std::string name;
+};
+
+bool operator<(const Person& a, const Person& b) noexcept {
+  // キーとして比較したい要素を列挙する
+  return std::tie(a.id, a.age, a.name) < std::tie(b.id, b.age, b.name);
+}
+
+int main() {
+  std::map<MyInt, int> m1 {
+    {MyInt{1}, 3},
+    {MyInt{2}, 1},
+    {MyInt{3}, 4},
+  };
+  std::cout << m1[MyInt{2}] << std::endl;
+
+  std::map<Person, int> m2 {
+    {Person{1, 18, "Alice"}, 3},
+    {Person{2, 30, "Bob"}, 1},
+    {Person{3, 30, "Carol"}, 4},
+  };
+  std::cout << m2[Person{2, 30, "Bob"}] << std::endl;
+}
+```
+* std::tie[link /reference/tuple/tie.md]
+
+#### 出力
+```
+1
+1
+```
+
+
+### ユーザー定義型をキーとして使用する (大小比較の関数オブジェクトを定義)
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+#include <tuple>
+
+// 要素がひとつの場合
+struct MyInt {
+  int value;
+};
+
+struct MyIntLess {
+  bool operator()(const MyInt& a, const MyInt& b) const noexcept {
+    return a.value < b.value;
+  }
+};
+
+// 要素が複数の場合
+struct Person {
+  int id;
+  int age;
+  std::string name;
+};
+
+struct PersonLess {
+  bool operator()(const Person& a, const Person& b) const noexcept {
+    // キーとして比較したい要素を列挙する
+    return std::tie(a.id, a.age, a.name) < std::tie(b.id, b.age, b.name);
+  }
+};
+
+int main() {
+  std::map<MyInt, int, MyIntLess> m1 {
+    {MyInt{1}, 3},
+    {MyInt{2}, 1},
+    {MyInt{3}, 4},
+  };
+  std::cout << m1[MyInt{2}] << std::endl;
+
+  std::map<Person, int, PersonLess> m2 {
+    {Person{1, 18, "Alice"}, 3},
+    {Person{2, 30, "Bob"}, 1},
+    {Person{3, 30, "Carol"}, 4},
+  };
+  std::cout << m2[Person{2, 30, "Bob"}] << std::endl;
+}
+```
+* std::tie[link /reference/tuple/tie.md]
+
+#### 出力
+```
+1
+1
+```
+
+### ユーザー定義型をキーとして使用する (三方比較演算子を定義) (C++20)
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+// 要素がひとつの場合
+struct MyInt {
+  int value;
+
+  friend auto operator<=>(const MyInt&, const MyInt&) = default;
+};
+
+// 要素が複数の場合
+struct Person {
+  int id;
+  int age;
+  std::string name;
+
+  friend auto operator<=>(const Person&, const Person&) = default;
+};
+
+int main() {
+  std::map<MyInt, int> m1 {
+    {MyInt{1}, 3},
+    {MyInt{2}, 1},
+    {MyInt{3}, 4},
+  };
+  std::cout << m1[MyInt{2}] << std::endl;
+
+  std::map<Person, int> m2 {
+    {Person{1, 18, "Alice"}, 3},
+    {Person{2, 30, "Bob"}, 1},
+    {Person{3, 30, "Carol"}, 4},
+  };
+  std::cout << m2[Person{2, 30, "Bob"}] << std::endl;
+}
+```
+
+#### 出力
+```
+1
+1
+```
+
+
+## 関連項目
+- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
 
 
 ## 参照
