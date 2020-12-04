@@ -119,7 +119,7 @@
 | [`is_base_of`](type_traits/is_base_of.md) | ある型が別の型の基底クラスか調べる (class template) | C++11 |
 | [`is_convertible`](type_traits/is_convertible.md) | ある型から別の型へ変換可能か調べる (class template) | C++11 |
 | [`is_nothrow_convertible`](type_traits/is_nothrow_convertible.md) | ある型から別の型へ、例外を投げずに変換可能か調べる (class template) | C++20 |
-| [`is_layout_compatible`](type_traits/is_layout_compatible.md.nolink) | 2つの型にレイアウト互換があるかを判定する (class template) | C++20 |
+| [`is_layout_compatible`](type_traits/is_layout_compatible.md) | 2つの型にレイアウト互換があるかを判定する (class template) | C++20 |
 | [`is_pointer_interconvertible_base_of`](type_traits/is_pointer_interconvertible_base_of.md.nolink) | 基底クラスと派生クラスの間でポインタ変換可能かを判定する (class template) | C++20 |
 
 
