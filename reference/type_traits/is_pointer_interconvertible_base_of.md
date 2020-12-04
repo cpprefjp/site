@@ -40,15 +40,15 @@ namespace std {
 ```cpp example
 #include <type_traits>
 
-struct B { int m; };
-struct D1 { B b; };
-struct D2 : B {};
+struct B1 { int m1; };
+struct B2 { int m2; };
+struct D : B1, B2 {};
 
 int main()
 {
-  static_assert(std::is_pointer_interconvertible_base_of_v<B, B>);
-  static_assert(std::is_pointer_interconvertible_base_of_v<B, D1>);
-  static_assert(std::is_pointer_interconvertible_base_of_v<B, D2>);
+  static_assert( std::is_pointer_interconvertible_base_of_v<D, D>);
+  static_assert( std::is_pointer_interconvertible_base_of_v<B1, D>);
+  static_assert(!std::is_pointer_interconvertible_base_of_v<B2, D>);
 }
 ```
 * std::is_pointer_interconvertible_base_of_v[color ff0000]
