@@ -47,7 +47,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
 | [`(constructor)`](counted_iterator/op_constructor.md) | コンストラクタ | C++20 |
-| [`operator=`](counted_iterator/op_assign.md.nolink)          | 代入演算子 | C++20 |
+| [`operator=`](counted_iterator/op_assign.md)          | 代入演算子 | C++20 |
 | [`base`](counted_iterator/base.md.nolink)          | 元のイテレータを取得する | C++20 |
 | [`count`](counted_iterator/count.md.nolink)          | 代入演算子 | C++20 |
 | [`operator*`](counted_iterator/op_deref.md.nolink)           | 間接参照演算子 | C++20 |
