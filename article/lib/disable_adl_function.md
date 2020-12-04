@@ -21,7 +21,41 @@ void foo() {
 
 `std::ranges`名前空間に追加される関数テンプレート群は、同名の`std`名前空間直下にある既存のものに対してC++20の`<ranges>`が規定するイテレータ/rangeコンセプトに適合するように再設計されたものであり、このような規定はC++20以降古い関数が意図せず使用されないようにするための処置であると考えられる。
 
-この性質は通常の関数では実現できず、これらの関数テンプレートは実のところ関数テンプレートではない。おそらく関数オブジェクトとして実装されるものと思われる。
+この性質は通常の関数では実現できず、これらの関数テンプレートは実のところ関数テンプレートではない。おそらく関数オブジェクトとして実装されるものと思われる。以下は、関数オブジェクトによる実装例である：
+
+```cpp
+#include <iostream>
+#include <iterator>
+#include <vector>
+
+namespace my_range {
+  struct distance_t {
+    template <class Iterator>
+    auto operator()(Iterator first, Iterator last) const {
+      std::cout << "call my_distance" << std::endl;
+      int n = 0;
+      for (;first != last; ++first, ++n) {}
+      return n;
+    }
+  };
+  const inline distance_t distance{};
+}
+
+int main() {
+  using namespace my_range;
+
+  std::vector<int> v = {1, 2, 3};
+  int n = distance(begin(v), end(v));
+  std::cout << n << std::endl;
+}
+```
+
+出力：
+
+```
+call my_distance
+3
+```
 
 
 ## 呼称について
