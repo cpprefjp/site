@@ -119,6 +119,8 @@
 | [`is_base_of`](type_traits/is_base_of.md) | ある型が別の型の基底クラスか調べる (class template) | C++11 |
 | [`is_convertible`](type_traits/is_convertible.md) | ある型から別の型へ変換可能か調べる (class template) | C++11 |
 | [`is_nothrow_convertible`](type_traits/is_nothrow_convertible.md) | ある型から別の型へ、例外を投げずに変換可能か調べる (class template) | C++20 |
+| [`is_layout_compatible`](type_traits/is_layout_compatible.md.nolink) | 2つの型にレイアウト互換があるかを判定する (class template) | C++20 |
+| [`is_pointer_interconvertible_base_of`](type_traits/is_pointer_interconvertible_base_of.md.nolink) | 基底クラスと派生クラスの間でポインタ変換可能かを判定する (class template) | C++20 |
 
 
 ## const-volatile の変更
@@ -166,22 +168,11 @@
 | [`remove_pointer`](type_traits/remove_pointer.md) | 型からポインタを除去する (class template) | C++11 |
 
 
-## 論理演算
-
-| 名前 | 説明 | 対応バージョン |
-|------------------------|-------------------------------------------|-------|
-| [`conjunction`](type_traits/conjunction.md)       | 特性の論理積を求める (class template)   | C++17 |
-| [`disjunction`](type_traits/disjunction.md) | 特性の論理和を求める (class template) | C++17 |
-| [`negation`](type_traits/negation.md) | 特性の論理否定を求める (class template) | C++17 |
-
-
 ## 関数呼び出しに関連した特性
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
-| [`invoke_result`](type_traits/invoke_result.md) | 関数の戻り値の型を取得する (class template) | C++17 |
-| [`is_invocable`](type_traits/is_invocable.md)       | 関数呼び出し可能かを調べる (class template)   | C++17 |
+| [`is_invocable`](type_traits/is_invocable.md) | 関数呼び出し可能かを調べる (class template)   | C++17 |
 | [`is_invocable_r`](type_traits/is_invocable_r.md) | 関数呼び出し可能でその戻り値型がある型へ変換可能かを調べる (class template) | C++17 |
 | [`is_nothrow_invocable`](type_traits/is_nothrow_invocable.md) | 例外を投げずに関数呼び出し可能かを調べる (class template) | C++17 |
 | [`is_nothrow_invocable_r`](type_traits/is_nothrow_invocable_r.md) | 例外を投げずに関数呼び出し可能でその戻り値型がある型へ変換可能かを調べる (class template) | C++17 |
@@ -191,8 +182,6 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
-| [`unwrap_reference`](type_traits/unwrap_reference.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開する (class template) | C++20 |
-| [`unwrap_ref_decay`](type_traits/unwrap_ref_decay.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開し、型推論規則による型変換を行う (class template) | C++20 |
 | [`type_identity`](type_traits/type_identity.md) | 受け取った型を返す (class template) | C++20 |
 | [`aligned_storage`](type_traits/aligned_storage.md) | アライメント調整された領域を作る (class template) | C++11 |
 | [`aligned_union`](type_traits/aligned_union.md) | アライメント調整された共用体領域を作る (class template) | C++11 |
@@ -201,10 +190,31 @@
 | [`enable_if`](type_traits/enable_if.md) | コンパイル時条件式が真の場合のみ有効な型 (class template) | C++11 |
 | [`conditional`](type_traits/conditional.md) | コンパイル時条件式 (class template) | C++11 |
 | [`common_type`](type_traits/common_type.md) | 変換可能な共通の型を取得する (class template) | C++11 |
-| [`underlying_type`](type_traits/underlying_type.md) | 列挙型の基底型を取得する (class template) | C++11 |
 | [`void_t`](type_traits/void_t.md) | 任意の型をvoidへ変換する (type-alias) | C++17 |
-| [`common_reference`](type_traits/common_reference.md) | 共通の参照型を取得する (class template) | C++20 |
 | [`basic_common_reference`](type_traits/basic_common_reference.md) | `common_reference`へアダプトする (class template) | C++20 |
+| [`common_reference`](type_traits/common_reference.md) | 共通の参照型を取得する (class template) | C++20 |
+| [`underlying_type`](type_traits/underlying_type.md) | 列挙型の基底型を取得する (class template) | C++11 |
+| [`result_of`](type_traits/result_of.md) | 関数の戻り値の型を取得する (class template) | C++11 |
+| [`invoke_result`](type_traits/invoke_result.md) | 関数の戻り値の型を取得する (class template) | C++17 |
+| [`unwrap_reference`](type_traits/unwrap_reference.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開する (class template) | C++20 |
+| [`unwrap_ref_decay`](type_traits/unwrap_ref_decay.md) | [`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)型を`T&`型に展開し、型推論規則による型変換を行う (class template) | C++20 |
+
+
+## 論理演算
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------|-------------------------------------------|-------|
+| [`conjunction`](type_traits/conjunction.md) | 特性の論理積を求める (class template)   | C++17 |
+| [`disjunction`](type_traits/disjunction.md) | 特性の論理和を求める (class template) | C++17 |
+| [`negation`](type_traits/negation.md) | 特性の論理否定を求める (class template) | C++17 |
+
+
+## メンバの関係性
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------|-------------------------------------------|-------|
+| [`is_pointer_interconvertible_with_class`](type_traits/is_pointer_interconvertible_with_class.md.nolink) | メンバポインタがクラスのポインタに変換可能かを判定する | C++20 |
+| [`is_corresponding_member`](type_traits/is_corresponding_member.md.nolink) | 2つの互換レイアウトをもつメンバポインタが共通位置にあるかを判定する | C++20 |
 
 
 ## コンパイル時評価
