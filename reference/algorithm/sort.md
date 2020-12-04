@@ -64,6 +64,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -83,7 +84,7 @@ int main()
 ```
 * std::sort[color ff0000]
 
-### 出力
+#### 出力
 ```
 1
 2
@@ -92,6 +93,128 @@ int main()
 5
 ```
 
+### ユーザー定義型の配列を並び替える (C++11)
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <tuple>
+
+// 要素がひとつの場合
+struct MyInt {
+  int value;
+};
+
+bool operator<(const MyInt& a, const MyInt& b) noexcept {
+  return a.value < b.value;
+}
+
+// 要素が複数の場合
+struct Person {
+  int id;
+  int age;
+  std::string name;
+};
+
+struct PersonLess { // 大小比較用の関数オブジェクトを定義することもできる
+  bool operator()(const Person& a, const Person& b) const noexcept {
+    // キーとして比較したい要素を列挙する
+    return std::tie(a.id, a.age, a.name) < std::tie(b.id, b.age, b.name);
+  }
+};
+
+int main() {
+  std::vector<MyInt> v1 {
+    MyInt{3},
+    MyInt{1},
+    MyInt{2},
+  };
+  std::sort(v1.begin(), v1.end());
+
+  std::vector<Person> v2 {
+    Person{3, 30, "Carol"},
+    Person{1, 18, "Alice"},
+    Person{2, 30, "Bob"},
+  };
+  std::sort(v2.begin(), v2.end(), PersonLess{});
+
+  for (const MyInt& x : v1) {
+    std::cout << x.value << std::endl;
+  }
+  std::cout << std::endl;
+
+  for (const Person& x : v2) {
+    std::cout << x.name << std::endl;
+  }
+}
+```
+* std::sort[color ff0000]
+* std::tie[link /reference/tuple/tie.md]
+
+#### 出力
+```
+1
+2
+3
+
+Alice
+Bob
+Carol
+```
+
+
+### ユーザー定義型の配列を並び替える (C++20)
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+// 要素がひとつの場合
+struct MyInt {
+  int value;
+
+  friend auto operator<=>(const MyInt&, const MyInt&) = default;
+};
+
+// 要素が複数の場合
+struct Person {
+  int id;
+  int age;
+  std::string name;
+
+  friend auto operator<=>(const Person&, const Person&) = default;
+};
+
+int main() {
+  std::vector<MyInt> v1 {
+    MyInt{3},
+    MyInt{1},
+    MyInt{2},
+  };
+  std::sort(v1.begin(), v1.end());
+
+  std::vector<Person> v2 {
+    Person{3, 30, "Carol"},
+    Person{1, 18, "Alice"},
+    Person{2, 30, "Bob"},
+  };
+  std::sort(v2.begin(), v2.end());
+
+  for (const MyInt& x : v1) {
+    std::cout << x.value << std::endl;
+  }
+  std::cout << std::endl;
+
+  for (const Person& x : v2) {
+    std::cout << x.name << std::endl;
+  }
+}
+```
+* std::sort[color ff0000]
+
+
+## 関連項目
+- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
 
 ## 参照
 - [LWG Issue 713. `sort()` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713)
