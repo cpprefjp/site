@@ -74,8 +74,20 @@ int main()
 {
   std::vector<int> v = {3, 1, 4, 2, 5};
 
-  // 並べ替える
+  // 昇順に並べ替える
   std::sort(v.begin(), v.end());
+
+  std::for_each(v.begin(), v.end(), [](int x) {
+    std::cout << x << std::endl;
+  });
+  std::cout << std::endl;
+
+  // 降順に並べ替える
+  std::sort(v.begin(), v.end(), [](int a, int b) {
+    return a > b;
+  });
+  // こちらでもよい
+  // std::sort(v.begin(), v.end(), std::greater<int>{});
 
   std::for_each(v.begin(), v.end(), [](int x) {
     std::cout << x << std::endl;
@@ -91,9 +103,15 @@ int main()
 3
 4
 5
+
+5
+4
+3
+2
+1
 ```
 
-### ユーザー定義型の配列を並び替える (C++11)
+### ユーザー定義型の配列を並べ替える (C++11)
 ```cpp
 #include <iostream>
 #include <vector>
@@ -163,7 +181,7 @@ Carol
 ```
 
 
-### ユーザー定義型の配列を並び替える (C++20)
+### ユーザー定義型の配列を並べ替える (C++20)
 ```cpp
 #include <iostream>
 #include <vector>
