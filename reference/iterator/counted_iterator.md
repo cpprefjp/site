@@ -23,7 +23,7 @@ namespace std {
 
   // iterator_traitsにアダプトする
   template<input_iterator I>
-  struct iterator_traits<counted_iterator<I>> iterator_traits<I> {
+  struct iterator_traits<counted_iterator<I>> : iterator_traits<I> {
     using pointer = void;
   };
 }
