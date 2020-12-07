@@ -58,7 +58,7 @@ namespace std {
 | [`operator+=`](counted_iterator/op_plus_assign.md.nolink)    | イテレータ自身を進める | C++20 |
 | [`operator-`](counted_iterator/op_unary_minus.md.nolink)     | イテレータを逆に進める | C++20 |
 | [`operator-=`](counted_iterator/op_minus_assign.md.nolink)   | イテレータ自身を逆に進める | C++20 |
-| [`operator[]`](counted_iterator/op_at.md.nolink)             | 任意の位置にランダムアクセスする | C++20 |
+| [`operator[]`](counted_iterator/op_at.md)             | 任意の位置にランダムアクセスする | C++20 |
 
 ## 非メンバ（*Hidden friends*）関数
 
