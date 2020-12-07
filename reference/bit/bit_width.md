@@ -12,9 +12,7 @@ namespace std {
 ```
 
 ## 概要
-2を底とした整数値の対数を求めて1を足す。
-
-1を足す理由は、対数を求められない`0`を引数として許容することで`noexcept`とし、かつ`x == 1`である場合と区別するためである。
+値を表現するために必要なビット幅を求める。
 
 
 ## テンプレートパラメータ制約
@@ -34,7 +32,7 @@ namespace std {
 #include <iostream>
 #include <bit>
 
-void convert_to_log2(unsigned int x)
+void convert_to_width(unsigned int x)
 {
   std::cout << x << "\t : " << std::bit_width(x) << std::endl;
 }
@@ -42,13 +40,13 @@ void convert_to_log2(unsigned int x)
 int main()
 {
   std::cout << "129\t : " << std::bit_width(129u) << std::endl;
-  convert_to_log2(127u);
-  convert_to_log2(1u);
-  convert_to_log2(0u);
+  convert_to_width(127u);
+  convert_to_width(1u);
+  convert_to_width(0u);
 
   std::cout << "---" << std::endl;
   for (unsigned int i = 1024u; i >= 2u; i /= 2) {
-    convert_to_log2(i);
+    convert_to_width(i);
   }
 }
 ```
