@@ -24,12 +24,12 @@ namespace std {
 
 
 ## 効果
-`is_pointer_interconvertible_base_of`は、(cv修飾を無視して)`Derived`が`Base`から曖昧さなく派生しかつ型`Derived`の各オブジェクトが`Base`サブオブジェクトとポインタ相互交換可能(pointer-interconvertible)である、もしくは`Base`と`Derived`が非共用体の(cv修飾を無視した)同一クラス型を指すならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`is_pointer_interconvertible_base_of`は、(cv修飾を無視して)`Derived`が`Base`から曖昧さなく派生しかつ型`Derived`のオブジェクトが`Base`サブオブジェクトとポインタ相互交換可能(pointer-interconvertible)である、もしくは`Base`と`Derived`が非共用体の(cv修飾を無視した)同一クラス型を指すならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 2つオブジェクト`a`, `b`が下記条件のいずれかを満たすとき、ポインタ相互交換可能(pointer-interconvertible)である。
 
 - 両者が同一オブジェクトである。
-- 一方が共用体オブジェクトであり、他方が共用体オブジェクトの非静的データメンバである。（この条件は`is_pointer_interconvertible_base_of`定義には関係しない。）
+- 一方が共用体オブジェクトであり、他方が共用体オブジェクトの非静的データメンバである。
 - 一方が[スタンダードレイアウト](is_standard_layout.md)クラスオブジェクトであり他方が同オブジェクトの先頭の非静的データメンバ、または同オブジェクトが非静的データメンバを持たなければ同オブジェクトの基底クラスサブオブジェクトである。
 - `a`とポインタ相互交換可能(pointer-interconvertible)なオブジェクト`c`が存在し、`c`と`b`がポインタ相互交換可能(pointer-interconvertible)である。
 
@@ -40,15 +40,17 @@ namespace std {
 ```cpp example
 #include <type_traits>
 
-struct B1 { int m1; };
-struct B2 { int m2; };
-struct D : B1, B2 {};
+struct B { int m; };
+struct D : B {};
 
 int main()
 {
-  static_assert( std::is_pointer_interconvertible_base_of_v<D, D>);
-  static_assert( std::is_pointer_interconvertible_base_of_v<B1, D>);
-  static_assert(!std::is_pointer_interconvertible_base_of_v<B2, D>);
+  // スタンダードレイアウト派生クラスDは非静的データメンバをもたず、
+  // スタンダードレイアウト基底クラスDから曖昧さなく派生しているため、
+  // 基底クラスBと派生クラスDはポインタ相互交換可能である。
+  static_assert(std::is_pointer_interconvertible_base_of_v<B, D>);
+  // 同一クラス同士は(自明に)ポインタ相互交換可能である。
+  static_assert(std::is_pointer_interconvertible_base_of_v<D, D>);
 }
 ```
 * std::is_pointer_interconvertible_base_of_v[color ff0000]
