@@ -12,11 +12,11 @@ constexpr iter_difference_t<I> count() const noexcept;
 
 ## 概要
 
-メンバ変数として保持している、カウント数（長さ）を取得する。
+メンバ変数として保持しているカウントを取得する。
 
 ## 戻り値
 
-コンストラクタで指定されたカウント数を返す。
+現在のカウント数（残りの長さ）を返す。
 
 ## 例
 
@@ -31,7 +31,11 @@ int main() {
 
   std::counted_iterator ci{std::ranges::begin(vec), 5};
 
-  std::cout << ci.count();
+  std::cout << ci.count() << '\n';
+  
+  ++ci;
+
+  std::cout <<  ci.count();
 }
 ```
 * count[color ff0000]
@@ -41,6 +45,7 @@ int main() {
 
 ```
 5
+4
 ```
 
 ## バージョン
