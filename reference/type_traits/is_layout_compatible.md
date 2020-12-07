@@ -74,5 +74,10 @@ int main()
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 関連項目
+- [`is_corresponding_member`](is_corresponding_member.md)
+
+
 ## 参照
 - [P0466R5 Layout-compatibility and Pointer-interconvertibility Traits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0466r5.pdf)

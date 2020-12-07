@@ -214,7 +214,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
 | [`is_pointer_interconvertible_with_class`](type_traits/is_pointer_interconvertible_with_class.md) | メンバポインタとクラスの間でポインタ相互交換可能かを判定する | C++20 |
-| [`is_corresponding_member`](type_traits/is_corresponding_member.md.nolink) | 2つの互換レイアウトをもつメンバポインタが共通位置にあるかを判定する | C++20 |
+| [`is_corresponding_member`](type_traits/is_corresponding_member.md) | 2つのメンバポインタが互換な共通位置にあるかを判定する | C++20 |
 
 
 ## コンパイル時評価

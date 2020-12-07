@@ -307,9 +307,9 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - [`<type_traits>`](/reference/type_traits.md)に、要素数が判明している配列型かを判定する[`std::is_bounded_array`](/reference/type_traits/is_bounded_array.md)、要素数が不明な配列型かを判定する[`std::is_unbounded_array`](/reference/type_traits/is_unbounded_array.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、レイアウト互換性、ポインタ相互交換可能性を判定する以下の型特性を追加：
     - 2つの型にレイアウト互換があるかを判定する[`std::is_layout_compatible`](/reference/type_traits/is_layout_compatible.md)
+    - 2つのメンバポインタが互換な共通位置にあるかを判定する[`std::is_corresponding_member()`](/reference/type_traits/is_corresponding_member.md)
     - 基底クラスと派生クラスの間でポインタ相互交換可能かを判定する[`std::is_pointer_interconvertible_base_of`](/reference/type_traits/is_pointer_interconvertible_base_of.md)
     - メンバポインタとクラスの間でポインタ相互交換可能かを判定する[`is_pointer_interconvertible_with_class()`](/reference/type_traits/is_pointer_interconvertible_with_class.md)
-    - 2つの互換レイアウトをもつメンバポインタが共通位置にあるかを判定する[`std::is_corresponding_member()`](/reference/type_traits/is_corresponding_member.md.nolink)
 - [`<type_traits>`](/reference/type_traits.md)に、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開する[`std::unwrap_reference`](/reference/type_traits/unwrap_reference.md)型特性、[`std::decay`](/reference/type_traits/decay.md) + [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型の展開をする[`std::unwrap_ref_decay`](/reference/type_traits/unwrap_ref_decay.md)型特性を追加
 
 
