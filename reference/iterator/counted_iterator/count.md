@@ -1,4 +1,4 @@
-# base
+# count
 * iterator[meta header]
 * std[meta namespace]
 * counted_iterator[meta class]
@@ -6,19 +6,17 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr I base() const & requires copy_constructible<I>;  // (1)
-constexpr I base() &&;  // (2)
+constexpr iter_difference_t<I> count() const noexcept;
 ```
-* copy_constructible[link /reference/concepts/copy_constructible.md]
+* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 
-メンバ変数として保持している、元のイテレータを取得する。
+メンバ変数として保持している、カウント数（長さ）を取得する。
 
 ## 戻り値
 
-- (1) : 元のイテレータをコピーして返す。
-- (2) : 元のイテレータをムーブして返す。
+コンストラクタで指定されたカウント数を返す。
 
 ## 例
 
@@ -33,11 +31,7 @@ int main() {
 
   std::counted_iterator ci{std::ranges::begin(vec), 5};
 
-  std::cout << *(ci.base()) << '\n';
-  
-  ++ci;
-  
-  std::cout << *(ci.base());
+  std::cout << ci.count();
 }
 ```
 * count[color ff0000]
@@ -46,8 +40,7 @@ int main() {
 ### 出力
 
 ```
-1
-2
+5
 ```
 
 ## バージョン

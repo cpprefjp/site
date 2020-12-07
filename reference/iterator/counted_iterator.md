@@ -49,7 +49,7 @@ namespace std {
 | [`(constructor)`](counted_iterator/op_constructor.md) | コンストラクタ | C++20 |
 | [`operator=`](counted_iterator/op_assign.md)          | 代入演算子 | C++20 |
 | [`base`](counted_iterator/base.md)          | 元のイテレータを取得する | C++20 |
-| [`count`](counted_iterator/count.md.nolink)          | 代入演算子 | C++20 |
+| [`count`](counted_iterator/count.md)          | 代入演算子 | C++20 |
 | [`operator*`](counted_iterator/op_deref.md.nolink)           | 間接参照演算子 | C++20 |
 | [`operator->`](counted_iterator/op_arrow.md.nolink)          | メンバアクセス演算子 | C++20 |
 | [`operator++`](counted_iterator/op_increment.md.nolink)      | イテレータをインクリメントする | C++20 |
@@ -107,7 +107,6 @@ int main() {
   for (auto n : std::ranges::subrange{std::counted_iterator{std::ranges::begin(vec), 5}, std::default_sentinel}) {
     std::cout << n << " ";
   }
-}
 }
 ```
 * std::counted_iterator[color ff0000]
