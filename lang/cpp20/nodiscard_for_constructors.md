@@ -50,5 +50,9 @@ prog.cc:11:12: note: declared here
 ```
 
 
+## 関連項目
+- [C++17 `[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)
+
+
 ## 参照
 - [P1771R1 `[[nodiscard]]` for constructors](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1771r1.pdf)
