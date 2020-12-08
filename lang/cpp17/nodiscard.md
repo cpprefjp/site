@@ -51,6 +51,7 @@ nodiscard.cpp:11:3: warning: ignoring return value of function declared with 'no
 ## 関連項目
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 - [C++20 `[[nodiscard]]`をコンストラクタのオーバーロードごとに付加できるようにする](/lang/cpp20/nodiscard_for_constructors.md)
+    - C++17対応のコンパイラでも使用できる可能性がある
 
 
 ## 参照
