@@ -264,7 +264,7 @@
 
 各処理系のC++20実装状況ページ：
 
-- GCC: [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx2a)
+- GCC: [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx20)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libstdc++: [C++ 2020 Implementation Status](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020)
 - libc++: [libc++ C++2a Status](http://libcxx.llvm.org/cxx2a_status.html)
