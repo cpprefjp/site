@@ -186,7 +186,9 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 - 数値ライブラリとして[`<numbers>`](/reference/numbers.md)を追加。数学定数が定義される
 - ビット操作ライブラリとして[`<bit>`](/reference/bit.md)を追加
     - Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである[`std::bit_cast()`](/reference/bit/bit_cast.md)関数を追加
-    - 2の乗数関係の関数として、整数値が2の累乗かを判定する[`std::has_single_bit()`](/reference/bit/has_single_bit.md)関数、整数値を2の累乗値に切り上げる[`std::bit_ceil()`](/reference/bit/bit_ceil.md)関数、整数値を2の累乗値に切り下げる[`std::bit_floor()`](/reference/bit/bit_floor.md)関数、2を底とした整数値の対数を求めて1を足す[`std::bit_width()`](/reference/bit/bit_width.md)関数を追加
+    - 1ビットだけ立っている値をもっているかを判定する[`std::has_single_bit()`](/reference/bit/has_single_bit.md)関数を追加
+    - 整数値を2の累乗値に切り上げる[`std::bit_ceil()`](/reference/bit/bit_ceil.md)関数、整数値を2の累乗値に切り下げる[`std::bit_floor()`](/reference/bit/bit_floor.md)関数を追加
+    - 値を表現するために必要なビット幅を求める[`std::bit_width()`](/reference/bit/bit_width.md)関数を追加
     - 循環ビットシフトを行う[`std::rotl()`](/reference/bit/rotl.md)と[`std::rotr()`](/reference/bit/rotr.md)を追加
     - 連続した0もしくは1のビットを数える[`std::countl_zero()`](/reference/bit/countl_zero.md)、[`std::countl_one()`](/reference/bit/countl_one.md)、[`std::countr_zero()`](/reference/bit/countr_zero.md)、[`std::countr_one()`](/reference/bit/countr_one.md)、および立っているビットを数える[`std::popcount()`](/reference/bit/popcount.md)を追加
     - エンディアンを表す列挙型として[`std::endian`](/reference/bit/endian.md)を追加
