@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-void swap(stop_token&) noexcept;
+void swap(stop_source&) noexcept;
 ```
 
 ## 概要
