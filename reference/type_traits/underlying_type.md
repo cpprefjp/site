@@ -41,11 +41,50 @@ enum class IntColor {
 ## 要件
 - C++11 : 型`T`が列挙型であること。(完全型を要求するかどうかは未規定)
 - C++14 : 型`T`が完全な列挙型であること。
-
+- C++20 : 型`T`が不完全な列挙型ではないこと。(満たさない場合不適格)
 
 ## 効果
 `underlying_type`は、列挙型`T`の基底型を、メンバ型`type`として定義する。
 
+C++20からは`T`が列挙型ではない場合、`type`は定義されない。
+これによりSFINAEの文脈で使うときにこれまで不適格となるために列挙型以外の型のときに実体化を防ぐ必要があったところをその必要がなくなった。
+
+```cpp example
+#include <type_traits>
+/**
+Tが列挙型ではないときも、std::underlying_type_t<T>が実体化してしまっているため不適格
+template<class T>
+std::enable_if_t<std::is_enum<T>::value, std::underlying_type_t<T>>
+foo(T t) { return static_cast<underlying_type_wrap_t<T>>(t); }
+*/
+#if 1
+// p0340r3が適用されていない処理系
+template<typename T, bool is_enum>
+struct underlying_type_wrap_impl {};
+template<typename T>
+struct underlying_type_wrap_impl<T, true> : std::underlying_type<T> {};//列挙型に対する特殊化なのでOK
+template<typename T>
+struct underlying_type_wrap : underlying_type_wrap_impl<T, std::is_enum<T>::value> {};
+template<typename T>
+using underlying_type_wrap_t = typename underlying_type_wrap<T>::type;
+
+template<typename T>
+underlying_type_wrap_t<T> foo(T t) { return static_cast<underlying_type_wrap_t<T>>(t); }
+#else
+// C++20またはp0340r3が適用された処理系
+// => 上のようなラッパーはいらない
+template<typename T>
+std::underlying_type_t<T> foo(T t) { return static_cast<std::underlying_type_t<T>>(t); }
+#endif
+template<typename T, std::enable_if_t<std::is_integral<T>::value, std::nullptr_t> = nullptr>
+T foo(T t) { return t; }
+enum class bar {
+    hoge
+};
+int main(){
+    return foo(bar::hoge) + foo(0);
+}
+```
 
 ## 例
 ```cpp example
@@ -76,10 +115,18 @@ int main() {}
 - C++11
 
 ### 処理系
+#### underlying_type
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 4.3.6
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
+#### P0340R3: Making `std::underlying_type` SFINAE-friendly
+
+以下の処理系ではコンパイル時の言語バージョンスイッチに関わらずP0340R3の修正が適用されている
+
+- [Clang](/implementation.md#clang): 9.0
+- [GCC](/implementation.md#gcc): 9.1
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5
 
 ## 関連項目
 - [C++11 スコープを持つ列挙型](/lang/cpp11/scoped_enum.md)
@@ -93,4 +140,5 @@ int main() {}
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 - [LWG Issue 2396. underlying_type doesn't say what to do for an incomplete enumeration type](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2396)
-
+- [D0340R2: Making std::underlying_type SFINAE-friendly](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0340r2.html)
+- [P0340R3: Making std::underlying_type SFINAE-friendly](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0340r3.html)
