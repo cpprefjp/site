@@ -31,6 +31,7 @@ constexpr counted_iterator operator--(int)
     ++length;
     return *this;
     ```
+
 - (2) : 以下と等価  
     ```cpp
     counted_iterator tmp = *this;
