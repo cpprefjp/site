@@ -64,7 +64,7 @@ int main() {
 * indices.clear()[link /reference/vector/vector/clear.md]
 * indices.empty()[link /reference/vector/vector/empty.md]
 * ptr.release()[link /reference/memory/unique_ptr/release.md]
-* ptr.reset()[link /reference/memory/unique_ptr/reset.md]
+* ptr.reset[link /reference/memory/unique_ptr/reset.md]
 
 ### 出力例
 ```
