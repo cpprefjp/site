@@ -27,7 +27,7 @@ constexpr counted_iterator(const counted_iterator<I2>& x);  // (3)
 
 ## 効果
 
-`I`の値`current`メンバ変数、カウントの値を`length`メンバ変数に保持するとする。
+`I`の値を`current`メンバ変数、カウントの値を`length`メンバ変数に保持するとする。
 
 - (1) : `current, n`をデフォルト構築する。
 - (2) : `current`を`x`からムーブ構築し、`length`を`n`で初期化する。
