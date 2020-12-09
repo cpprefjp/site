@@ -52,6 +52,7 @@ prog.cc:11:12: note: declared here
 
 ## 関連項目
 - [C++17 `[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)
+- [C++20 `[[nodiscard]]`属性に理由となる文字列を付加できるようにする](nodiscard_should_have_a_reason.md)
 
 
 ## 参照
