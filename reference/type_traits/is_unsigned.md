@@ -42,12 +42,12 @@ static_assert(std::is_same<std::is_unsigned<int>::value_type, bool>::value, "val
 static_assert(std::is_same<std::is_unsigned<int>::type, std::false_type>::value, "type == false_type");
 static_assert(std::is_unsigned<int>() == false, "is_unsigned<int>() == false");
 
-static_assert(std::is_unsigned<const volatile unsigned int>::value == true, "value == true, const volatile unsigned int is unsigned");
-static_assert(std::is_unsigned<unsigned int&>::value == false, "value == false, unsigned int& is not unsigned");
+static_assert(std::is_unsigned<const volatile unsigned int>::value == true, "const volatile unsigned int is unsigned");
+static_assert(std::is_unsigned<unsigned int&>::value == false, "unsigned int& is not unsigned");
 
 class c{};
-static_assert(std::is_unsigned<float>::value == false, "value == false, float is not unsigned");
-static_assert(std::is_unsigned<c>::value == false, "value == false, class is not unsigned");
+static_assert(std::is_unsigned<float>::value == false, "float is not unsigned");
+static_assert(std::is_unsigned<c>::value == false, "class is not unsigned");
 
 int main(){}
 ```
