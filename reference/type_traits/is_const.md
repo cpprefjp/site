@@ -41,7 +41,7 @@ static_assert(std::is_same<std::is_const<int>::type, std::false_type>::value, "t
 static_assert(std::is_const<int>() == false, "is_const<int>() == false");
 
 static_assert(std::is_const<const volatile int>::value == true, "value == true, const volatile int is const-qualified");
-static_assert(std::is_const<const int&>::value == false, "value == true, const int& is not const-qualified");
+static_assert(std::is_const<const int&>::value == false, "value == false, const int& is not const-qualified");
 
 int main(){}
 ```

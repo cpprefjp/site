@@ -61,7 +61,7 @@ static_assert(std::is_same<std::is_empty<non_empty_class>::type, std::false_type
 static_assert(std::is_empty<non_empty_class>() == false, "is_empty<non_empty_class>() == false");
 
 static_assert(std::is_empty<const volatile empty_class>::value == true, "value == true, const volatile empty_class is empty");
-static_assert(std::is_empty<empty_class&>::value == false, "value == true, empty_class& is not empty");
+static_assert(std::is_empty<empty_class&>::value == false, "value == false, empty_class& is not empty");
 
 int main(){}
 ```

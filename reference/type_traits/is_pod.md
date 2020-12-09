@@ -54,14 +54,14 @@ static_assert(std::is_same<std::is_pod<int&>::type, std::false_type>::value, "ty
 static_assert(std::is_pod<int&>() == false, "is_pod<int&>() == false");
 
 static_assert(std::is_pod<const volatile int>::value == true, "value == true, const volatile int is POD");
-static_assert(std::is_pod<int&>::value == false, "value == true, int& is not POD");
+static_assert(std::is_pod<int&>::value == false, "value == false, int& is not POD");
 
 struct POD_struct{};
 struct non_POD_struct {
   non_POD_struct() {}    // デフォルトコンストラクタが非トリビアル
 };
 static_assert(std::is_pod<POD_struct>::value == true, "value == true, POD_struct is POD");
-static_assert(std::is_pod<non_POD_struct>::value == false, "value == true, non_POD_struct is not POD");
+static_assert(std::is_pod<non_POD_struct>::value == false, "value == false, non_POD_struct is not POD");
 
 int main(){}
 ```
