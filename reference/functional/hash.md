@@ -80,8 +80,6 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `result_type`           | 戻り値の型([`size_t`](/reference/cstddef/size_t.md)) | C++11 |
-| `argument_type`         | 引数の型(キーの型`T`) | C++11 |
 | `is_transparent` | 省略可。ハッシュ計算の関数オブジェクトがこの型を持っている場合、非順序連想コンテナの透過的な検索関数が有効になる。<br/> 標準ライブラリの`hash`クラスの特殊化がこの型を持つかは未規定。<br/> この型は、例として`hash<string>`が`hash<const char*>`や`hash<string_view>`と等価なハッシュ値を生成できるような場合に定義される。 | C++20 |
 
 
