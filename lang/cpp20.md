@@ -209,7 +209,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 ### コンテナ
 - 連想コンテナに、要素がコンテナに含まれているかを判定する`contains()`メンバ関数を追加
-- 順序付き連想コンテナと同様に、非順序連想コンテナの検索処理で、一時オブジェクトが生成されるコストを抑える拡張を追加。ハッシュ計算を行う関数オブジェクトに`transparent_key_equal`が定義されていれば、透過的な検索が使用できる。[`std::hash`](/reference/functional/hash.md)クラスのページを参照
+- 順序付き連想コンテナと同様に、非順序連想コンテナの検索処理で、一時オブジェクトが生成されるコストを抑える拡張を追加。キー等値比較を行う関数オブジェクトとハッシュ計算を行う関数オブジェクトの両方に`is_transparent`が定義されていれば、透過的な検索が使用できる。[`std::hash`](/reference/functional/hash.md)クラスのページを参照
 - 各コンテナの非メンバ関数として、要素を削除する`std::erase()`関数と`std::erase_if()`関数を追加
 - [`std::forward_list`](/reference/forward_list/forward_list.md)と[`std::list`](/reference/list/list.md)のメンバ関数`remove()`、`remove_if()`、`unique()`の戻り値型を、`void`から`Container::size_type`に変更
 - [`std::array`](/reference/array/array.md)クラスの比較演算子、[`fill()`](/reference/array/array/fill.md)メンバ関数、[`swap()`](/reference/array/array/swap.md)メンバ関数、[`swap()`](/reference/array/array/swap_free.md)非メンバ関数に`constexpr`を追加。このクラスのメンバ関数はすべて`constexpr`に対応した

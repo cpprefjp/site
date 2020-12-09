@@ -82,7 +82,7 @@ namespace std {
 |------|------|----------------|
 | `result_type`           | 戻り値の型([`size_t`](/reference/cstddef/size_t.md)) | C++11 |
 | `argument_type`         | 引数の型(キーの型`T`) | C++11 |
-| `transparent_key_equal` | 省略可。[`std::equal_to<void>`](equal_to.md)のような、`is_transparent`型を持ち、透過的な比較ができる関数オブジェクト型を指定する。<br/> ハッシュ計算の関数オブジェクトがこの型を持っている場合、非順序連想コンテナの透過的な検索関数が有効になる。<br/> 標準ライブラリの`hash`クラスの特殊化がこの型を持つかは未規定。<br/> この型は、例として`hash<string>`が`hash<const char*>`や`hash<string_view>`と等価なハッシュ値を生成できるような場合に定義される。 | C++20 |
+| `is_transparent` | 省略可。ハッシュ計算の関数オブジェクトがこの型を持っている場合、非順序連想コンテナの透過的な検索関数が有効になる。<br/> 標準ライブラリの`hash`クラスの特殊化がこの型を持つかは未規定。<br/> この型は、例として`hash<string>`が`hash<const char*>`や`hash<string_view>`と等価なハッシュ値を生成できるような場合に定義される。 | C++20 |
 
 
 ## 例
@@ -119,7 +119,7 @@ int main()
 ```
 
 ### 透過的にハッシュ値を計算できる場合 (C++20)
-`transparent_key_equal`が定義される場合、以下のようなコードにおいて、`find()`メンバ関数に文字列リテラルを指定しても、一時的な[`string`](/reference/string/basic_string.md)オブジェクトが作成されず、パフォーマンス向上が期待できる。
+`is_transparent`が定義される場合、以下のようなコードにおいて、`find()`メンバ関数に文字列リテラルを指定しても、一時的な[`string`](/reference/string/basic_string.md)オブジェクトが作成されず、パフォーマンス向上が期待できる。
 
 ```cpp example
 #include <iostream>
@@ -134,7 +134,7 @@ int main()
     {"Carol", 4}
   };
 
-  // std::hash<std::string>がtransparent_key_equal型を持つ場合、
+  // std::equal_to<std::string>とstd::hash<std::string>がis_transparent型を持つ場合、
   // find()などの検索関数に引数を渡す場合に、std::string一時オブジェクトが作られない
   auto it = um.find("Alice");
   if (it != um.end()) {
@@ -165,3 +165,4 @@ found : 3
 - [LWG 2148 - Hashing enums should be supported directly by std::hash](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2148)
 - [LWG 2291 - std::hash is vulnerable to collision DoS attack](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2291)
 - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
+- [P1690R1 Refinement Proposal for P0919 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1690r1.html)

@@ -18,11 +18,11 @@ size_type count(const K& k) const;        // (2) C++20
 - (1) : キー`x`を検索し、合致する要素数を取得する
 - (2) : キー`k`を透過的に検索し、合致する要素数を取得する
 
-(2)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.count("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+(2)の透過的な検索は、`Pred::is_transparent`および`Hash::is_transparent`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.count("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## テンプレートパラメータ制約
-- (2) : `Hash::transparent_key_equal`型が定義されていること
+- (2) : `Pred::is_transparent`型および`Hash::is_transparent`型が定義されていること
 
 
 ## 戻り値

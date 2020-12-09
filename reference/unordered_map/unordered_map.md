@@ -162,7 +162,7 @@ namespace std {
 | `value_type`           | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`。 | C++11 |
 | `mapped_type`          | 値の型。テンプレートパラメータ `T`。 | C++11 |
 | `hasher`               | キーのハッシュ関数の型。テンプレートパラメータ `Hash`。 | C++11 |
-| `key_equal`            | キーが等値か否かを判断するための二項述語の型。<br/> C++11 : テンプレートパラメータ `Pred`。<br/> C++20 : `Hash::transparent_key_equal`が定義されていたらその別名、そうでなければテンプレートパラメータ`Pred`を使用する。`Hash::transparent_key_equal`が定義されている場合、`Hash::transparent_key_equal::is_transparent`が定義されていなければプログラムは不適格となる | C++11 |
+| `key_equal`            | キーが等値か否かを判断するための二項述語の型。テンプレートパラメータ `Pred`。 | C++11 |
 | `allocator_type`       | アロケータの型。テンプレートパラメータ `Allocator`。 | C++11 |
 | `pointer`              | 要素 `value_type`（`= std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`）へのポインタ。スマートポインタも可であるが、通常は `value_type*`。<br/>規格書では、`allocator_type::pointer` となっているが、これは規格書の誤りで、ドラフト [N3376](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf) で既に `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer` に修正されている。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） | C++11 |
 | `const_pointer`        | 要素 `value_type`（`= std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`）へのコンストポインタ。スマートポインタも可であるが、通常は `const value_type*`。<br/>規格書では、`allocator_type::const_pointer` となっているが、これは規格書の誤りで、ドラフト [N3376](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf) で既に `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer` に修正されている。<br/>（さもないと、必須である `allocator_type::value_type` のみを定義したユーザ定義のアロケータを使用することができないため） | C++11 |

@@ -30,7 +30,7 @@ pair<const_iterator, const_iterator>
 - (3) : 非`const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
 - (4) : `const`な`this`に対してキー`k`を透過的に検索し、合致する全ての要素を含む範囲を取得する
 
-(3)、(4)の透過的な検索は、`Hash::transparent_key_equal`が定義される場合に有効になる機能であり、例として`unordered_map<string, int> m;`に対して`m.equal_range("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+(3)、(4)の透過的な検索は、`Pred::is_transparent`および`Hash::is_transparent`が定義される場合に有効になる機能であり、例として`unordered_map<string, int> m;`に対して`m.equal_range("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## パラメータ
@@ -39,7 +39,7 @@ pair<const_iterator, const_iterator>
 
 
 ## テンプレートパラメータ制約
-- (3), (4) : `Hash::transparent_key_equal`型が定義されていること
+- (3), (4) : `Pred::is_transparent`型および`Hash::is_transparent`型が定義されていること
 
 
 ## 戻り値
