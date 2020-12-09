@@ -42,29 +42,38 @@ constexpr counted_iterator operator--(int)
 ## 例
 ```cpp example
 #include <iostream>
-#include <vector>
-#include <memory>
 #include <iterator>
+#include <ranges>
+#include <vector>
 
-int main()
-{
-  std::vector<std::unique_ptr<int>> v;
-  for (int i = 0; i < 5; ++i)
-    v.emplace_back(new int(i));
+int main() {
+  std::vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-  auto it = std::make_move_iterator(v.end());
-  --it; // ひとつ逆に進める
-  std::unique_ptr<int> p = *it;
+  std::counted_iterator ci{std::ranges::begin(vec), 5};
 
-  std::cout << *p << std::endl;
+  ++ci;
+  ++ci;
+  
+  std::cout << *ci << '\n';
+  
+  --ci;
+  
+  std::cout << *ci << '\n';
+  
+  ci--;
+
+  std::cout << *ci << '\n';
 }
 ```
-* v.emplace_back[link /reference/vector/vector/emplace_back.md]
-* std::make_move_iterator[link /reference/iterator/make_move_iterator.md]
+* --ci[color ff0000]
+* ci--[color ff0000]
+* ranges::begin[link /reference/ranges/begin.md.nolink]
 
 ### 出力
 ```
-4
+3
+2
+1
 ```
 
 ## バージョン

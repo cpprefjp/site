@@ -66,29 +66,26 @@ int main() {
 
   std::counted_iterator ci{std::ranges::begin(vec), 5};
 
-  ++ci;
-  ++ci;
-
   std::cout << *ci << '\n';
-
-  --ci;
-
+  
+  ++ci;
+  
   std::cout << *ci << '\n';
-
-  ci--;
+  
+  ci++;
 
   std::cout << *ci << '\n';
 }
 ```
-* --ci[color ff0000]
-* ci--[color ff0000]
+* ++ci[color ff0000]
+* ci++[color ff0000]
 * ranges::begin[link /reference/ranges/begin.md.nolink]
 
 ### 出力
 ```
-3
-2
 1
+2
+3
 ```
 
 ## バージョン
