@@ -86,6 +86,7 @@ prog.cc:26:8: note: declared here
 
 ## 関連項目
 - [C++17 `[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)
+- [C++20 `[[nodiscard]]`をコンストラクタのオーバーロードごとに付加できるようにする](nodiscard_for_constructors.md)
 
 
 ## 参照
