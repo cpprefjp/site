@@ -40,7 +40,7 @@ friend constexpr counted_iterator operator+(iter_difference_t<I> n, const counte
 
 ## 備考
 
-(2)は*Hidden friends*として定義される。
+(2)は[*Hidden friends*](/article/lib/hidden_friends.md)として定義される。
 
 ## 例
 ```cpp example

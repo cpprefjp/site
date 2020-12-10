@@ -9,6 +9,7 @@
 - [標準ライブラリにおける、関数にnoexceptを付けない条件](article/lib/dont_use_noexcept.md)
 - [`_at_thread_exit`系の関数が存在している理由](article/lib/at_thread_exit.md)
 - [ADLを無効にする関数定義](article/lib/disable_adl_function.md)
+- [Hidden friends](article/lib/hidden_friends.md)
 
 
 ## プラットフォーム
