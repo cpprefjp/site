@@ -375,6 +375,47 @@ int main() {
 ```
 
 
+### 文字列比較のコストを下げる比較関数オブジェクトの指定方法 (C++14)
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+int main() {
+  // 比較関数オブジェクトをデフォルトのstd::less<Key>の代わりに
+  // std::less<> (std::less<void>と同じ) と指定する。
+  // 検索関係のインタフェースに文字列リテラルを指定した際に
+  // キーのためのstd::stringオブジェクトが作られない。
+  // 余分なメモリ確保を回避できる
+  std::map<std::string, int, std::less<>> m = {
+    {"Alice", 3},
+    {"Bob", 1},
+    {"Carol", 4}
+  };
+
+  // 文字列リテラル"Bob"からstd::stringオブジェクトが作られない
+  m["Bob"] = 2;
+
+  // 文字列リテラル"Carol"からstd::stringオブジェクトが作られない
+  auto it = m.find("Carol");
+  if (it != m.end()) {
+    std::cout << it->second << std::endl;
+  }
+  else {
+    std::cout << "not found" << std::endl;
+  }
+}
+```
+* std::less[link /reference/functional/less.md]
+* m.find[link map/find.md]
+* m.end()[link map/end.md]
+
+#### 出力
+```
+4
+```
+
+
 ## 関連項目
 - [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
 
