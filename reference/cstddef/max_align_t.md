@@ -11,7 +11,9 @@ namespace std {
 ```
 
 ## 概要
-`std::max_align_t`は、どのスカラー型よりも大きいアライメントを必要とするPOD (Plain Old Data) 型である。
+`std::max_align_t`は、どのスカラー型よりも大きいアライメントを必要とする型である。
+
+この型は、C++11では[POD型](/reference/type_traits/is_pod.md)、C++20では[トリビアル型](/reference/type_traits/is_trivial.md)型に分類される。
 
 `alignas`指示子により、`std::max_align_t`のアライメントより大きいサイズのアライメントを指定できるかどうかは、実装依存である。
 
@@ -66,3 +68,11 @@ is_pod<max_align_t>: 1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
+
+## 関連項目
+- [C++20 PODを非推奨化](/lang/cpp20/deprecate_pod.md)
+
+
+## 参照
+- [P0767R1 Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
+    - C++20でPOD用語の非推奨化にともない、この型がPOD型ではなくトリビアル型に分類されるよう規定が変更された

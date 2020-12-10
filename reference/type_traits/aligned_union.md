@@ -32,7 +32,9 @@ namespace std {
 
 ## 効果
 - `aligned_union`は、領域サイズ`Len`、要素型列`Types...`で調整した未初期化の共用体領域をメンバ型`type`として定義する。
-- `Types...`のいずれかの型が非POD型だとしても、メンバ型`type`はPOD型となる(参照：[`is_pod`](is_pod.md))。
+- メンバ型`type`は、以下の型分類となる：
+    - C++11 : `Types...`のいずれかの型が非POD型だとしても、メンバ型`type`は[POD型](is_pod.md)となる
+    - C++20 : `Types...`のいずれかの型が非トリビアル型だとしても、メンバ型`type`は[トリビアル型](is_trivial.md)となる
 
 また、`Types...`全ての厳格なアライメント値を、[`std::size_t`](/reference/cstddef/size_t.md)型の静的メンバ定数`alignment_value`として定義する。
 
@@ -118,11 +120,17 @@ hello
 	- `aligned_union_t`は2013から
 
 
+## 関連項目
+- [C++20 PODを非推奨化](/lang/cpp20/deprecate_pod.md)
+
+
 ## 参照
 - [N1877 Adding Alignment Support to the C++ Programming Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1877.pdf)
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
     - C++14で`aligned_union_t`が定義された
 - [LWG Issue 2979. `aligned_union` should require complete object types](https://wg21.cmeerw.net/lwg/issue2979)
+- [P0767R1 Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
+    - C++20でPOD用語の非推奨化にともない、メンバ型`type`がPOD型ではなくトリビアル型に分類されるよう規定が変更された
 - [P1413R2 Deprecate `std::aligned_storage` and `std::aligned_union`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1413r2.pdf)
     - C++23でこの機能が非推奨となった

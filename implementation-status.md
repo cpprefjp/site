@@ -186,7 +186,7 @@
 | [ラムダ式の制約][p0857] | | | | | 2019 Update 3 |
 | [特殊化のアクセスチェック][p0692] | | Yes | | | 2019 Update 6 |
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | 9 | 8.0 | | 2019 Update 2 |
-| [PODを非推奨化][p0767] | | | | | 2019 Update 5 |
+| [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | | | | 2019 Update 5 |
 | [評価されない文脈でのラムダ式][p0315] | | 9 | | | |
 | [空オブジェクトを言語サポート][p0840] | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | 9 | 9.0 | | |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | 8 | | | |
@@ -241,7 +241,6 @@
 [p0857]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0857r0.html
 [p0692]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0692r1.html
 [p0624]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0624r2.pdf
-[p0767]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html
 [p0315]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0315r4.pdf
 [p0840]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0840r2.html
 [p0962]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0962r1.html

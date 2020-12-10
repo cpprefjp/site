@@ -153,7 +153,7 @@ C++20とは、2020年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| PODを非推奨化 | |
+| [PODを非推奨化](cpp20/deprecate_pod.md) | PODという用語を非推奨化する |
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする |
 | [添字演算子内でのカンマ演算子の使用を非推奨化](cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md.nolink) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK |
 
