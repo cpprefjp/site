@@ -86,6 +86,7 @@ int main()
 * arrive[link wait.md]
 * arrive_and_wait[link arrive_and_wait.md]
 * std::move[link /reference/utility/move.md]
+* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 
 ### 出力例
 ```

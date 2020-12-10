@@ -94,6 +94,7 @@ int main()
 ```
 * arrive_and_drop[color ff0000]
 * arrive_and_wait[link arrive_and_wait.md]
+* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 
 ### 出力例
 ```

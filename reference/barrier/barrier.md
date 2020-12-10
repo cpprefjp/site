@@ -131,6 +131,7 @@ int main()
 ```
 * std::barrier[color ff0000]
 * arrive_and_wait()[link barrier/arrive_and_wait.md]
+* detach()[link /reference/thread/thread/detach.md]
 
 ### 出力例
 ```

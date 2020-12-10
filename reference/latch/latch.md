@@ -108,6 +108,7 @@ int main()
 * count_down()[link latch/count_down.md]
 * wait()[link latch/wait.md]
 * arrive_and_wait()[link latch/arrive_and_wait.md]
+* detach()[link /reference/thread/thread/detach.md]
 
 ### 出力例
 ```
