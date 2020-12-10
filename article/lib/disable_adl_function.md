@@ -38,7 +38,7 @@ namespace my_range {
       return n;
     }
   };
-  const inline distance_t distance{};
+  constexpr inline distance_t distance{};
 }
 
 int main() {
