@@ -18,9 +18,8 @@ namespace std {
 
 
 ## 効果
-`os.flush()`を呼び出す。  
-`os.rdbuf()`が`std::basic_syncbuf<charT、traits、Allocator>*`である場合、これを`buf`とすると、`buf->emit()`を呼び出す。  
-それ以外の場合、このマニピュレータは効果がない。
+`os.flush()`を呼び出す。
+続いて`os.rdbuf()`が`std::basic_syncbuf<charT、traits、Allocator>*`である場合、これを`buf`とすると、`buf->emit()`を呼び出す。
 
 
 ## 戻り値
