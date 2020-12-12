@@ -93,6 +93,7 @@ namespace std {
   ```
 
     - この時、`I::pointer`も定義されているならば、`pointer`はそれを用いて定義される。
+
 - いずれかのメンバ型が定義されておらず、`I`が`cpp17-input-iterator`コンセプトを満たす場合、それぞれのメンバ型は次のように定義される
   ```cpp
   using difference_type   = typename incrementable_traits<I>::difference_type;
