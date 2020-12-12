@@ -101,7 +101,7 @@ namespace std {
   using reference         = /*see below*/;
   using iterator_category = /*see below*/;
   ```
-  * indirectly_readable_traits[link /reference/iteratoindirectly_readable_traits.md]
+  * indirectly_readable_traits[link /reference/indirectly_readable_traits.md]
   * incrementable_traits[link /reference/iterator/incrementable_traits.md]
   * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
