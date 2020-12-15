@@ -77,7 +77,7 @@ return pred();
 ## 戻り値
 - (1) : `abs_time`で指定された絶対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。
 - (2) : `pred()`の結果が返る。
-- (3) : 停止要求が行われた場合は`true`が返る。そうでない場合は`pred()`の結果が返る。
+- (3) : 停止要求の有無によらず、`pred()`の結果が返る。
 
 
 ## 事後条件
