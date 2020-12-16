@@ -40,8 +40,8 @@ static_assert(std::is_same<std::is_volatile<int>::value_type, bool>::value, "val
 static_assert(std::is_same<std::is_volatile<int>::type, std::false_type>::value, "type == false_type");
 static_assert(std::is_volatile<int>() == false, "is_volatile<int>() == false");
 
-static_assert(std::is_volatile<const volatile int>::value == true, "value == true, const volatile int is volatile-qualified");
-static_assert(std::is_volatile<volatile int&>::value == false, "value == true, volatile int& is not volatile-qualified");
+static_assert(std::is_volatile<const volatile int>::value == true, "const volatile int is volatile-qualified");
+static_assert(std::is_volatile<volatile int&>::value == false, "volatile int& is not volatile-qualified");
 
 int main(){}
 ```

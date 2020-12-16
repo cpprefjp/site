@@ -49,8 +49,8 @@ static_assert(std::is_same<std::is_polymorphic<non_polymorphic_class>::value_typ
 static_assert(std::is_same<std::is_polymorphic<non_polymorphic_class>::type, std::false_type>::value, "type == false_type");
 static_assert(std::is_polymorphic<non_polymorphic_class>() == false, "is_polymorphic<non_polymorphic_class>() == false");
 
-static_assert(std::is_polymorphic<const volatile polymorphic_class>::value == true, "value == true, const volatile polymorphic_class is polymorphic");
-static_assert(std::is_polymorphic<polymorphic_class&>::value == false, "value == true, polymorphic_class& is not polymorphic");
+static_assert(std::is_polymorphic<const volatile polymorphic_class>::value == true, "const volatile polymorphic_class is polymorphic");
+static_assert(std::is_polymorphic<polymorphic_class&>::value == false, "polymorphic_class& is not polymorphic");
 
 int main(){}
 ```

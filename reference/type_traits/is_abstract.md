@@ -51,8 +51,8 @@ static_assert(std::is_same<std::is_abstract<non_abstract_class>::value_type, boo
 static_assert(std::is_same<std::is_abstract<non_abstract_class>::type, std::false_type>::value, "type == false_type");
 static_assert(std::is_abstract<non_abstract_class>() == false, "is_abstract<non_abstract_class>() == false");
 
-static_assert(std::is_abstract<const volatile abstract_class>::value == true, "value == true, const volatile abstract_class is abstract");
-static_assert(std::is_abstract<abstract_class&>::value == false, "value == true, abstract_class& is not abstract");
+static_assert(std::is_abstract<const volatile abstract_class>::value == true, "const volatile abstract_class is abstract");
+static_assert(std::is_abstract<abstract_class&>::value == false, "abstract_class& is not abstract");
 
 int main(){}
 ```
