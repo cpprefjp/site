@@ -276,6 +276,7 @@ int main()
     - `std::shared_ptr`は、生ポインタからの推論を許可しない。`std::shared_ptr`には単一要素版と配列版があるが、生ポインタの値と型からは、どちらに振り分けるべきかが定まらないためである
 - [`std::array`の推論補助](/reference/array/array/op_deduction_guide.md)
     - `std::array`の推論補助からは、非トリビアルなコンストラクタを持たないクラステンプレートであっても、推論補助を定義できることがわかる。ただし、配列の要素型を推論するためには、推論しない場合とは違った制限が必要となる
+- [C++20 集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md)
 
 
 ## 参照
