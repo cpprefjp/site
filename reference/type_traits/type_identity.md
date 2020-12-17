@@ -114,6 +114,26 @@ int main()
 ```
 
 
+### 型変換トレイトの簡易定義
+```cpp
+#include <type_traits>
+
+// using type = T*; の定義を省略し、継承だけで済ませる
+template <class T>
+struct my_add_pointer : std::type_identity<T*> {};
+
+int main() {
+  static_assert(std::is_same_v<
+    my_add_pointer<int>::type,
+    int*
+  >);
+}
+```
+
+#### 出力
+```
+```
+
 ## バージョン
 ### 言語
 - C++20
