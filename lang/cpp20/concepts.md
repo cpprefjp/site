@@ -747,7 +747,7 @@ int main() {
     };
 
     // autoプレースホルダーによる簡略構文を使用したラムダ式のテンプレートパラメータを制約
-    auto g = [](C auto t1, C auto t2) {
+    auto g = [](C auto t1, auto t2) requires C<decltype(t2)> {
         return t1 + t2;
     };
     ```
