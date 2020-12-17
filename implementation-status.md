@@ -183,7 +183,6 @@
 | [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | 9 | 8.0 | | partial |
 | [評価されない文脈で`constexpr`関数が定数式評価されることを規定][p0859] | | 9 | | | |
 | [一貫比較][p0515] | | 10 | 8.0 (partial) | | 2019 |
-| [ラムダ式の制約][p0857] | | | | | 2019 Update 3 |
 | [特殊化のアクセスチェック][p0692] | | Yes | | | 2019 Update 6 |
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | 9 | 8.0 | | 2019 Update 2 |
 | [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | | | | 2019 Update 5 |
@@ -238,7 +237,6 @@
 [p0641]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0641r2.html
 [p0859]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0859r0.html
 [p0515]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0515r3.pdf
-[p0857]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0857r0.html
 [p0692]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0692r1.html
 [p0624]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0624r2.pdf
 [p0315]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0315r4.pdf
