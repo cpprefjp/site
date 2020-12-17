@@ -13,7 +13,7 @@ struct Point {
   T y;
 };
 
-Point<double> p1{3.0, 4.0}; // C++17:NG C++20:OK
+Point p1{3.0, 4.0}; // C++17:NG C++20:OK
 ```
 
 
