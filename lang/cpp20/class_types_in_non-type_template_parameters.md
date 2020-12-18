@@ -17,17 +17,17 @@ C++11以降での[汎用的な定数式`constexpr`](/lang/cpp11/constexpr.md)の
 ## 仕様
 非型テンプレートパラメータとして、以下のいずれかに分類される型のオブジェクトを受け取ることができる：
 
-- 構造型
+- 構造的型
 - [プレースホルダ型を含む型](/lang/cpp17/declaring_non-type_template_arguments_with_auto.md) (`template <auto V> class X;`の`auto`)
 - 推論用クラス型のプレースホルダ (`template <class T> A;`があったときの`A x{};`のようなクラステンプレートのテンプレート引数推論を意図した型指定)
 
-構造型 (structural type) とは以下のいずれかに分類される型である：
+構造的型 (structural type) とは以下のいずれかに分類される型である：
 
 - [スカラ型](/reference/type_traits/is_scalar.md)
 - [左辺値参照型](/reference/type_traits/is_lvalue_reference.md)
 - 以下の特徴をもつリテラルクラス型：
     - すべての基本クラスと非静的メンバ変数が`public`かつ非`mutable`であり、
-    - すべての基本クラスと非静的メンバ変数が構造型もしくはその (多次元) 配列である
+    - すべての基本クラスと非静的メンバ変数が構造的型もしくはその (多次元) 配列である
 
 
 ## 例
