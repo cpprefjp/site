@@ -84,12 +84,20 @@ int main() {
   static_assert(C4<3.14f>::value == 3.14f);
   static_assert(C4<x1>::value == x1);
   static_assert(C4<x2>::value == x2);
+
+  constexpr std::pair p{1, 3.14};
+  static_assert(C<p>::value == p);
 }
 ```
 
 ### 出力
 ```
 ```
+
+
+## 備考
+- [Bug 97930 - `pair` is not a structural type](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97930)
+    - GCC 10では、`pair`が構造的型とみなされないバグがある
 
 
 ## 関連項目
