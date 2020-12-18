@@ -196,7 +196,7 @@
 | [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加][p0479] |  `[[likely]]`/`[[unlikely]]`属性を導入し、コンパイラが分岐予測するためのヒントとする | 9 (partial, `switch` 文のみ可能)<br/> 10| | | 2019 Update 6 |
 | [宇宙船演算子に対称性をもたせる][p0905] | `a <=> b`が妥当であれば`b <=> a`も妥当とする | | | | 2019 Update 2 |
 | [抽象型のチェック][p0929] | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
-| [非型テンプレートパラメータとしてクラス型を許可する][p0732] | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする | 9 | | | 2019 Update 6 |
+| [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | `std::strong_equality`に変換可能な非メンバ関数`<=>`をもつ型を、非型テンプレートパラメータとして使用できるようにする | 9 | | | 2019 Update 6 |
 | [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | |
 | [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | | |
 | [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 10 | 9.0 | | |
@@ -247,7 +247,6 @@
 [p0479]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0479r5.html
 [p0905]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0905r1.html
 [p0929]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0929r2.html
-[p0732]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0732r2.pdf
 [p0722]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0722r1.html
 [p1008]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1008r1.pdf
 [p0542]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html

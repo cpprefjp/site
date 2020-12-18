@@ -39,7 +39,7 @@ A<3.14>; // コンパイルエラー (浮動小数点数は渡せない)
 - オブジェクトへの左辺値参照または関数への左辺値参照
 - メンバへのポインタ
 -  [`std::nullptr_t`](/reference/cstddef/nullptr_t.md)
-- プレースホルダタイプを含む型　<-- この行が追加された
+- プレースホルダ型を含む型　<-- この行が追加された
 
 なお、[temp.param]/4 は C++20 で変更予定である。[Working Draft, Standard](http://eel.is/c++draft/temp.param)を参照。
 
@@ -92,7 +92,9 @@ template <auto v> struct S; // type of v is deduced
 ```
 
 ## 関連項目
-- [全ての非型テンプレート引数の定数式評価を許可](/lang/cpp17/allow_constant_evaluation_for_all_non-type_template_arguments.md)
+- [C++17 全ての非型テンプレート引数の定数式評価を許可](/lang/cpp17/allow_constant_evaluation_for_all_non-type_template_arguments.md)
+- [C++20 非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md)
+
 
 ## 参照
 - [P0127R1 Declaring non-type template arguments with auto](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r1.html)
