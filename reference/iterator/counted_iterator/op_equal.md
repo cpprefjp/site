@@ -78,6 +78,7 @@ int main() {
   std::cout << (std::default_sentinel != ci) << '\n';
 }
 ```
+* ==[color ff0000]
 * ranges::begin[link /reference/ranges/begin.md.nolink]
 * default_sentinel[link /reference/iterator/default_sentinel_t.md]
 

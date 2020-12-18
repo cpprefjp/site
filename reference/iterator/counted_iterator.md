@@ -66,12 +66,12 @@ namespace std {
 | [`operator-`](counted_iterator/op_minus.md)          | 2つの`counted_iterator`の差を求める | C++20 |
 | [`operator+`](counted_iterator/op_plus.md)           | イテレータを進める | C++20 |
 | [`operator==`](counted_iterator/op_equal.md)         | 等値比較 | C++20 |
-| `operator!=`     | 非等値比較 (`==`により使用可能) | C++20 |
-| [`operator<=>`](counted_iterator/op_compare_3way.md.nolink)          | 三方比較 | C++20 |
-| `operator<`           | 左辺が右辺より小さいかの判定を行う (`<=>`により使用可能) | C++20 |
-| `operator<=`    | 左辺が右辺以下かの判定を行う (`<=>`により使用可能) | C++20 |
-| `operator>`        | 左辺が右辺より大きいかの判定を行う (`<=>`により使用可能) | C++20 |
-| `operator>=` | 左辺が右辺以上かの判定を行う (`<=>`により使用可能) | C++20 |
+| `operator!=`     | 非等値比較 ([`==`](counted_iterator/op_equal.md)により使用可能) | C++20 |
+| [`operator<=>`](counted_iterator/op_compare_3way.md)          | 三方比較 | C++20 |
+| `operator<`           | 左辺が右辺より小さいかの判定を行う ([`<=>`](counted_iterator/op_compare_3way.md)により使用可能) | C++20 |
+| `operator<=`    | 左辺が右辺以下かの判定を行う ([`<=>`](counted_iterator/op_compare_3way.md)により使用可能) | C++20 |
+| `operator>`        | 左辺が右辺より大きいかの判定を行う ([`<=>`](counted_iterator/op_compare_3way.md)により使用可能) | C++20 |
+| `operator>=` | 左辺が右辺以上かの判定を行う ([`<=>`](counted_iterator/op_compare_3way.md)により使用可能) | C++20 |
 | [`iter_move`](counted_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++20 |
 | [`iter_swap`](counted_iterator/iter_swap.md.nolink)     | イテレータの要素の交換 | C++20 |
 
