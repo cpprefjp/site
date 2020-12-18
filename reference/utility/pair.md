@@ -15,6 +15,8 @@ namespace std {
 
 標準ライブラリにおいて`pair`は、連想配列コンテナの実装である[`map`](/reference/map/map.md)クラスや[`unordered_map`](/reference/unordered_map/unordered_map.md)クラスで、キーと値をまとめるためのデータ型として使用されている。
 
+- C++20 : `T1`と`T2`がどちらも構造的型である場合、この型は構造的型となる
+
 
 ## メンバ変数
 
