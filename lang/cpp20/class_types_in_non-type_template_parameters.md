@@ -106,4 +106,4 @@ int main() {
 
 ## 参照
 - [P0732R2 Class Types in Non-Type Template Parameters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0732r2.pdf)
-- [P1907R1 P1907R1: Inconsistencies with non-type template parameters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1907r1.html)
+- [P1907R1 Inconsistencies with non-type template parameters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1907r1.html)
