@@ -13,8 +13,8 @@ namespace NS {
     friend void hidden_friend(C& self);
   };
 
-  // 普通のfriend関数
-  friend void visible_friend(C& self);
+  // 普通の非メンバ関数
+  void free_func(C& c);
 }
 
 int main() {
@@ -30,10 +30,10 @@ int main() {
   hidden_friend(c);       // ok
   NS::hidden_friend(c);   // ng
 
-  // 普通のfriend関数
+  // 普通の非メンバ関数
   c.visible_friend();     // ng
-  visible_friend(c);      // ok
-  NS::visible_friend(c);  // ok
+  free_func(c);           // ok
+  NS::free_func(c);       // ok
 }
 ```
 
