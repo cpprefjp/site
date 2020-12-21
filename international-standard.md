@@ -3,7 +3,7 @@
 ## <a href="#summary" id="summary">概要</a>
 
 C++ の標準規格の実例として ISO/IEC による**国際標準規格** (international standard) がある。
-最新の国際標準規格は「ISO/IEC 14882:2017 Programming Languages -- C++」(通称 C++17) である。
+最新の国際標準規格は「ISO/IEC 14882:2020 Programming Languages -- C++」(通称 C++20) である。
 C++ の標準規格は、他にも各国の規格化団体によって国際標準規格に等価なものが定められている。
 日本では日本工業標準調査会 (JISC) により「JIS X 3014:2003 プログラム言語C++」が定められているが古い (C++03 相当)。
 ここでは特に国際標準規格について取り扱う。
