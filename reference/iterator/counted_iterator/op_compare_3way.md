@@ -27,7 +27,7 @@ friend constexpr strong_ordering operator<=>(const counted_iterator& x, const co
 
 ## 備考
 
-C++20以降、これらの演算子により以下の演算子が使用可能になる。
+C++20以降、この演算子により以下の演算子が使用可能になる。
 
 ```cpp
 template<common_with<I> I2>
@@ -43,16 +43,16 @@ template<common_with<I> I2>
 friend constexpr bool operator>=(const counted_iterator& x, const counted_iterator<I2>& y);
 
 template<common_with<I> I2>
-friend constexpr bool operator<(const counted_iterator<I2>& y, const counted_iterator& x,);
+friend constexpr bool operator<(const counted_iterator<I2>& y, const counted_iterator& x);
 template<common_with<I> I2>
-friend constexpr bool operator>(const counted_iterator<I2>& y, const counted_iterator& x,);
+friend constexpr bool operator>(const counted_iterator<I2>& y, const counted_iterator& x);
 template<common_with<I> I2>
-friend constexpr bool operator<=(const counted_iterator<I2>& y, const counted_iterator& x,);
+friend constexpr bool operator<=(const counted_iterator<I2>& y, const counted_iterator& x);
 template<common_with<I> I2>
-friend constexpr bool operator>=(const counted_iterator<I2>& y, const counted_iterator& x,);
+friend constexpr bool operator>=(const counted_iterator<I2>& y, const counted_iterator& x);
 ```
 
-また、これらの演算子は全て[*Hidden friends*](/article/lib/hidden_friends.md)として定義される。
+また、この演算子は[*Hidden friends*](/article/lib/hidden_friends.md)として定義され、使用可能となる演算子も*Hidden friends*であるかの様に使用可能となる。
 
 ## 例
 ```cpp example
