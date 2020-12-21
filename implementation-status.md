@@ -179,7 +179,7 @@
 | [コンセプト][P0734] | テンプレートパラメータに対する制約を行う | 10 | | | 2019 Update 3 |
 | [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | 2019 Update 5 |
 | [暗黙のラムダキャプチャを簡略化][p0588] | | 8 | | | 2019 Update 4 |
-| [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正][p0846] | | 9 | 9.0 | | 2019 Update 1 |
+| [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 | 9 | 9.0 | | 2019 Update 1 |
 | [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | 9 | 8.0 | | partial |
 | [評価されない文脈で`constexpr`関数が定数式評価されることを規定][p0859] | | 9 | | | |
 | [一貫比較][p0515] | | 10 | 8.0 (partial) | | 2019 |
@@ -233,7 +233,6 @@
 [p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
 [p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
 [p0588]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0588r1.html
-[p0846]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0846r0.html
 [p0641]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0641r2.html
 [p0859]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0859r0.html
 [p0515]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0515r3.pdf

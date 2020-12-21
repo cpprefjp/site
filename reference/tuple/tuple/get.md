@@ -147,6 +147,24 @@ int main()
 Hello
 ```
 
+
+### get関数をADLで呼び出す (C++20)
+```cpp
+#include <iostream>
+#include <tuple>
+
+int main() {
+  std::tuple t{1, 3.14, "Hello"};
+  std::cout << get<0>(t) << std::endl; // C++17:NG C++20:OK
+}
+```
+
+#### 出力
+```
+1
+```
+
+
 ## バージョン
 ### 言語
 - C++11
@@ -161,6 +179,7 @@ Hello
 ## 関連項目
 - [`get - std::pair`](/reference/utility/pair/get.md)
 - [`get - std::array`](/reference/array/array/get.md)
+- [C++20 関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/cpp20/adl_and_function_templates_that_are_not_visible.md)
 
 
 ## 参照
