@@ -62,11 +62,37 @@ for-range-initializerにはfor文が処理すべき範囲を表す値を書く�
 
 C++03のfor文と異なりセミコロンではなくコロンで区切ることに注意する。
 
-範囲for文に配列を範囲として渡したとき、以下のように展開される：
+### for文への展開
+
+C++11、C++14において、範囲for文は以下のように通常のfor文へと展開される([C++17以降は展開のされ方が異なる](/lang/cpp17/generalizing_the_range-based_for_loop.md))。
+
+```cpp
+// for ( for-range-declaration : for-range-initializer ) statement
+{
+  auto && __range = for-range-initializer;
+  for ( auto __begin = begin-expr, __end = end-expr;
+        __begin != __end;
+        ++__begin ) {
+    for-range-declaration = *__begin;
+    statement
+  }
+}
+```
+* for-range-initializer[italic]
+* for-range-declaration[italic]
+* statement[italic]
+* begin-expr[italic]
+* end-expr[italic]
+
+展開後に現れる変数名は仮のものであり、実際に変数として見えるわけではない。しかし、デバッガーにこれらの変数が現れることがある。
+
+begin-exprとend-exprの具体的な内容は、範囲として何を渡すかによって3通りに分かれる。いずれの場合も、begin-exprとend-exprは同じ型でなければならない。
+
+配列を範囲として渡したとき、以下のように展開される：
 
 ```cpp
 {
-  auto && __range = range-init;
+  auto && __range = for-range-initializer;
 
   for (auto __begin = __range, __end = __range + __bound; __begin != __end; ++__begin) {
     for-range-declaration = *__begin;
@@ -75,14 +101,17 @@ C++03のfor文と異なりセミコロンではなくコロンで区切ること
   }
 }
 ```
+* for-range-initializer[italic]
+* for-range-declaration[italic]
+* statement[italic]
 
-* ただし、`__bound`は配列の要素数である。要素数が不明な場合はill-formedである。
+* ただし、`__bound`は配列の要素数(要素数が不明な場合はill-formed)。
 
 範囲の型がクラスであって、メンバ`begin`**または**`end`が存在するとき、以下のように展開される：
 
 ```cpp
 {
-  auto && __range = range-init;
+  auto && __range = for-range-initializer;
 
   for (auto __begin = __range.begin(), __end = __range.end(); __begin != __end; ++__begin) {
     for-range-declaration = *__begin;
@@ -91,6 +120,9 @@ C++03のfor文と異なりセミコロンではなくコロンで区切ること
   }
 }
 ```
+* for-range-initializer[italic]
+* for-range-declaration[italic]
+* statement[italic]
 
 * メンバ`begin`、`end`が片方しかない場合や、関数ではない場合でもこのように展開されるが、当然エラーとなる。この問題は[C++20で部分的に緩和される](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)。
 
@@ -98,7 +130,7 @@ C++03のfor文と異なりセミコロンではなくコロンで区切ること
 
 ```cpp
 {
-  auto && __range = range-init;
+  auto && __range = for-range-initializer;
 
   for (auto __begin = begin(__range), __end = end(__range); __begin != __end; ++__begin) {
     for-range-declaration = *__begin;
@@ -107,6 +139,9 @@ C++03のfor文と異なりセミコロンではなくコロンで区切ること
   }
 }
 ```
+* for-range-initializer[italic]
+* for-range-declaration[italic]
+* statement[italic]
 
 * 展開されたコード内の`begin()`と`end()`が正確に何を呼びだすかについては、引数依存の名前探索（argument-dependent name lookup; ADL）を参照のこと。
 
