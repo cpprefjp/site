@@ -1,0 +1,70 @@
+# new式での配列要素数の推論
+
+* cpp20[meta cpp]
+
+## 概要
+
+C++20では、`new`式で配列の要素数を推論できる。
+
+```cpp
+// C++20
+double a[3] {1,2,3};               // OK
+double a[] {1,2,3};                // OK
+double* p = new double[3]{1,2,3};  // OK
+double* p = new double[]{1,2,3};   // OK (C++17ではエラー)
+double* p = new double[](1,2,3);   // OK (丸カッコでの集成体初期化:C++20)
+char*   p = new char[]{"hello"};   // OK (C++17ではエラー)
+```
+
+要素数が推論できない場合、エラーとなる。
+
+```cpp
+// C++20
+double a[];               // エラー
+double* p = new double[]; // エラー
+```
+
+## 例
+```cpp example
+#include <iostream>
+
+int main()
+{
+  int* a = new int[]{1, 2, 3};
+  for (int i = 0; i < 3; ++i) {
+    std::cout << a[i] << '\n';
+  }
+  delete[] a;
+}
+```
+
+### 出力
+```
+1
+2
+3
+```
+
+## この機能が必要になった背景・経緯
+
+`new`式での配列要素数は文法上必須となっていて省略することができなかったが、通常の配列の宣言では要素数を省略できるので一貫性がなかった。
+
+```cpp
+// C++17
+double a[3] {1,2,3}               // OK
+double a[] {1,2,3}                // OK
+double* p = new double[3]{1,2,3}  // OK
+double* p = new double[]{1,2,3}   // エラー
+```
+
+`new`式で要素数を必須とする強い理由がないため、推論できるようになった。
+
+なお、clangは以前から`new`式での配列要素数を推論できていたが、clang独自の拡張である。
+
+## 関連項目
+
+* [丸カッコの値リストからの集成体初期化を許可](allow_initializing_aggregates_from_a_parenthesized_list_of_values.md)
+
+## 参照
+
+* [P1009R2 Array size deduction in new-expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1009r2.pdf)

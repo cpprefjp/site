@@ -39,7 +39,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | [指示付き初期化](cpp20/designated_initialization.md) | 波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 |
 | [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
-| [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md.nolink) | `double* p = new double[]{1,2,3};`を許可 |
+| [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md) | `double* p = new double[]{1,2,3};`を許可 |
 | [要素数不明の配列への変換を許可](cpp20/permit_conversions_to_arrays_of_unknown_bound.md.nolink) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 |
 | [ほとんどの`volatile`を非推奨化](cpp20/deprecating_volatile.md.nolink) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する |
 
