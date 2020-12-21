@@ -185,6 +185,23 @@ int main()
 (8) : hello
 ```
 
+### get関数をADLで呼び出す (C++20)
+```cpp
+#include <iostream>
+#include <variant>
+
+int main() {
+  std::variant<int, char> v = 1;;
+  std::cout << get<int>(v) << std::endl; // C++17:NG C++20:OK
+}
+```
+
+#### 出力
+```
+1
+```
+
+
 ## バージョン
 ### 言語
 - C++17
@@ -193,3 +210,7 @@ int main()
 - [Clang](/implementation.md#clang): 4.0.1
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [C++20 関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md)
