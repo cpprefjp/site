@@ -331,6 +331,7 @@ auto { w, {x, y}, z } = f(); // このような、tuple内にあるpairを同時
 ## 関連項目
 - [C++20 friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md)
 - [C++20 構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md)
+- [C++20 構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md)
 
 
 ## 参照

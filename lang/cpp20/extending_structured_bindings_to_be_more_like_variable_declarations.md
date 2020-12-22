@@ -11,7 +11,7 @@ C++20ではこの制限が少し緩和され、構造化束縛宣言に`static`�
 ただし、`inline`や`constexpr`、`constinit`等その他の指定は出来ず、指定された場合コンパイルエラーとなる。
 
 また、C++17では構造化束縛宣言に指定した変数名をそのままラムダ式でキャプチャすることもできなかった。しかし、禁止しておく技術的な（コンパイラ実装上の）理由は無かったことから、この制限は撤廃された。  
-これによって、構造化束縛の変数を通常の変数とほぼ同じようにラムダ式でキャプチャできるようになる。ただし、ビットフィールドを参照キャプチャする場合は少し注意が必要である（詳しくは[構造化束縛したビットフィールドの参照キャプチャ](/lang/cpp20/reference_capture_of_structured_bindings.md.nolink)を参照のこと）。
+これによって、構造化束縛の変数を通常の変数とほぼ同じようにラムダ式でキャプチャできるようになる。ただし、ビットフィールドを構造化束縛した変数は引き続き参照キャプチャできないため少し注意が必要である（詳しくは[構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md)を参照のこと）。
 
 
 ## 例
@@ -127,7 +127,7 @@ int main()
 
 ## 関連項目
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
-- [C++20 構造化束縛したビットフィールドの参照キャプチャ](/lang/cpp20/reference_capture_of_structured_bindings.md.nolink)
+- [C++20 構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md)
 
 
 ## 参照
