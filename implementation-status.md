@@ -208,7 +208,7 @@
 | [関数を条件付きで`explicit`にする構文を追加][p0892] | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | | 2019 Update 2 |
 | [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | 9.0 | | |
 | [UTF-8エンコーディングされた文字の型として`char8_t`を追加][p0486] | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要) | | 2019 Update 2 |
-| [入れ子名前空間定義でのインライン名前空間][p1094] | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 |  | 2019 Update 7 |
+| [入れ子名前空間定義でのインライン名前空間](/lang/cpp20/nested_inline_mamespaces.md) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 |  | 2019 Update 7 |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | | 2019 Update 4 |
 | [構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md) | 構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する | 8 | 8.0 (partial) | | |
 | [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | 10 | | | |
@@ -254,7 +254,6 @@
 [p1327]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1327r1.html
 [p0486]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r6.html
 [p1073]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html
-[p1094]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1094r2.html
 [p1330]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1330r0.pdf
 
 各処理系のC++20実装状況ページ：

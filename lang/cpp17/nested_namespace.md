@@ -52,6 +52,11 @@ a legacy nested namespace definition is workded.
 ## 検討されたほかの選択肢
 この機能はC++0x当時から提案されており、以前の提案等については以下参照されたい。
 
+
+## 関連項目
+- [C++20 入れ子名前空間定義でのインライン名前空間](/lang/cpp20/nested_inline_mamespaces.md)
+
+
 ## 参照
 - 言語仕様: §7.3.1 §A.6
 - [N4230 Nested namespace definition (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4230.html)
