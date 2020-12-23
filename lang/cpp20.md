@@ -15,8 +15,8 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | [ビットフィールドのメンバ変数初期化](cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する |
 | [関数を条件付きで`explicit`にする構文を追加](cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする |
 | [`const`修飾されたメンバポインタの制限を修正](cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する |
-| デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正 | |
-| 特殊化のアクセスチェック | |
+| [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md.nolink) | |
+| [特殊化のアクセスチェック](cpp20/access_checking_on_specializations.md.nolink) | |
 | [空オブジェクトに対する最適化を支援する属性`[[no_unique_address]]`](cpp20/language_support_for_empty_objects.md) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する |
 | [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする |
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく |
@@ -93,7 +93,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 | 言語機能 | 説明 |
 |----------|------|
-| 評価されない文脈で`constexpr`関数が定数式評価されることを規定 | |
+| [積極的でない`constexpr`関数のインスタンス化](cpp20/less_eager_instantiation_of_constexpr_functions.md.nolink) | |
 | [定数式からの仮想関数の呼び出しを許可](cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 |
 | [定数式での`dynamic_cast`、多態的な`typeid`を許可](cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md.nolink) | 定数式での動的多態を許可 |
 | [constexpr関数内でのtry-catchブロックを許可](cpp20/try-catch_blocks_in_constexpr_functions.md.nolink) | constexpr関数内での例外の捕捉を許可する |
@@ -112,9 +112,9 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | [ジェネリックラムダのテンプレート構文](cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする |
 | [ラムダ式のキャプチャとして`[=, this]`を許可する](cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする |
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする |
-| 暗黙のラムダキャプチャを簡略化 | |
-| [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](./cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする |
-| [評価されない文脈でのラムダ式](./cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする |
+| [暗黙のラムダキャプチャを簡略化](cpp20/simplifying_implicit_lambda_capture.md.nolink) | |
+| [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする |
+| [評価されない文脈でのラムダ式](cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする |
 | [ラムダ式の初期化キャプチャでのパック展開を許可](cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 |
 | [構造化束縛した変数の参照キャプチャを許可](cpp20/reference_capture_of_structured_bindings.md) | 構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する |
 

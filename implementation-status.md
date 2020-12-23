@@ -175,39 +175,37 @@
 | [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | 8 | 9.0 | | 2019 Update 2 |
 | [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | | 2015 |
 | [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | | 2019 Update 5 |
-| [指示付き初期化][P0329] | | 8 | 6.0 (partial) | | 2019 Update 1 |
-| [コンセプト][P0734] | テンプレートパラメータに対する制約を行う | 10 | | | 2019 Update 3 |
+| [指示付き初期化](/lang/cpp20/designated_initialization.md) | | 8 | 6.0 (partial) | | 2019 Update 1 |
+| [コンセプト](/lang/cpp20/concepts.md) | テンプレートパラメータに対する制約を行う | 10 | | | 2019 Update 3 |
 | [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | 2019 Update 5 |
-| [暗黙のラムダキャプチャを簡略化][p0588] | | 8 | | | 2019 Update 4 |
+| [暗黙のラムダキャプチャを簡略化](/lang/cpp20/simplifying_implicit_lambda_capture.md.nolink) | | 8 | | | 2019 Update 4 |
 | [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 | 9 | 9.0 | | 2019 Update 1 |
-| [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正][p0641] | | 9 | 8.0 | | partial |
-| [評価されない文脈で`constexpr`関数が定数式評価されることを規定][p0859] | | 9 | | | |
-| [一貫比較][p0515] | | 10 | 8.0 (partial) | | 2019 |
-| [特殊化のアクセスチェック][p0692] | | Yes | | | 2019 Update 6 |
-| [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする][p0624] | | 9 | 8.0 | | 2019 Update 2 |
+| [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md.nolink) | | 9 | 8.0 | | partial |
+| [積極的でない`constexpr`関数のインスタンス化](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md.nolink) | | 9 | | | |
+| [一貫比較](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial) | | 2019 |
+| [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md.nolink) | | Yes | | | 2019 Update 6 |
+| [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする | 9 | 8.0 | | 2019 Update 2 |
 | [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | | | | 2019 Update 5 |
-| [評価されない文脈でのラムダ式][p0315] | | 9 | | | |
-| [空オブジェクトを言語サポート][p0840] | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | 9 | 9.0 | | |
+| [評価されない文脈でのラムダ式](/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする | 9 | | | |
+| [空オブジェクトを言語サポート](/lang/cpp20/language_support_for_empty_objects.md) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | 9 | 9.0 | | |
 | [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | 8 | | | |
 | [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | 8 | | | 2019 |
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく | 8 | | | 2019 |
-| [型の文脈で`typename`の省略を許可][p0634] | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | 9 | | | |
-| [ラムダ式の初期化キャプチャでのパック展開を許可][p0780] | `[...args = std::move(args)]`のようなキャプチャを許可 | 8 | 9.0 | | 2019 Update 2 |
-| [当たる確率が高い分岐と、当たる確率が低い分岐をコンパイラに伝える属性を追加][p0479] |  `[[likely]]`/`[[unlikely]]`属性を導入し、コンパイラが分岐予測するためのヒントとする | 9 (partial, `switch` 文のみ可能)<br/> 10| | | 2019 Update 6 |
-| [宇宙船演算子に対称性をもたせる][p0905] | `a <=> b`が妥当であれば`b <=> a`も妥当とする | | | | 2019 Update 2 |
-| [抽象型のチェック][p0929] | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
+| [型の文脈で`typename`の省略を許可](/lang/cpp20/down_with_typename.md) | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | 9 | | | |
+| [ラムダ式の初期化キャプチャでのパック展開を許可](/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 | 8 | 9.0 | | 2019 Update 2 |
+| [確率が高い分岐と低い分岐を伝える属性 `[[likely]]`, `[[unlikely]]`](/lang/cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 | 9 (partial, `switch` 文のみ可能)<br/> 10| | | 2019 Update 6 |
+| [抽象型のチェック](/lang/cpp20/checking_for_abstract_class_types.md.nolink) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
 | [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする | 9 | | | 2019 Update 6 |
-| [可変長データを扱うクラスの効率的な`delete`][p0722] | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | |
+| [可変長データを扱うクラスの効率的な`delete`](/lang/cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | |
 | [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | | |
-| [定数式での`dynamic_cast`、多態的な`typeid`を許可][p1327] | 定数式での動的多態を許可 | 10 | 9.0 | | |
-| [constexpr関数内でのtry-catchブロックを許可][p1002] | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | | 2019 Update 5 |
-| [即時関数][p1073] | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | | | | |
-| [定数式内での共用体のアクティブメンバの変更を許可][p1330] | 共用体メンバの書き換えを定数式内で行えるようにする | 9 | 9.0 | | 2017 |
-| [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止][p1008] | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | 8.0 | | 2019 |
-| [契約に基づくプログラミング][p0542] | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 | | | | |
-| [関数を条件付きで`explicit`にする構文を追加][p0892] | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | | 2019 Update 2 |
+| [定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md.nolink) | 定数式での動的多態を許可 | 10 | 9.0 | | |
+| [constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md.nolink) | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | | 2019 Update 5 |
+| [即時関数](/lang/cpp20/immediate_functions.md.nolink) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | | | | |
+| [定数式内での共用体のアクティブメンバの変更を許可](/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.md.nolink) | 共用体メンバの書き換えを定数式内で行えるようにする | 9 | 9.0 | | 2017 |
+| [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止](/lang/cpp20/prohibit_aggregates_with_user-declared_constructors.md.nolink) | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | 8.0 | | 2019 |
+| [関数を条件付きで`explicit`にする構文を追加](/lang/cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | | 2019 Update 2 |
 | [符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md) | 符号付き整数型のビット表現を2の補数に規定する | 9 | 9.0 | | |
-| [UTF-8エンコーディングされた文字の型として`char8_t`を追加][p0486] | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要) | | 2019 Update 2 |
+| [UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要) | | 2019 Update 2 |
 | [入れ子名前空間定義でのインライン名前空間](/lang/cpp20/nested_inline_mamespaces.md) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 |  | 2019 Update 7 |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | | 2019 Update 4 |
 | [構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md) | 構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する | 8 | 8.0 (partial) | | |
@@ -229,32 +227,6 @@
 | [エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | | | |
 | [可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md.nolink) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | | | |
 
-
-[p0329]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf
-[p0734]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf
-[p0588]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0588r1.html
-[p0641]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0641r2.html
-[p0859]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0859r0.html
-[p0515]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0515r3.pdf
-[p0692]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0692r1.html
-[p0624]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0624r2.pdf
-[p0315]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0315r4.pdf
-[p0840]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0840r2.html
-[p0962]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0962r1.html
-[p0634]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0634r3.html
-[p0780]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0780r2.html
-[p0479]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0479r5.html
-[p0905]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0905r1.html
-[p0929]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0929r2.html
-[p0722]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0722r1.html
-[p1008]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1008r1.pdf
-[p0542]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html
-[p0892]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html
-[p1002]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1002r1.pdf
-[p1327]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1327r1.html
-[p0486]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r6.html
-[p1073]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html
-[p1330]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1330r0.pdf
 
 各処理系のC++20実装状況ページ：
 
