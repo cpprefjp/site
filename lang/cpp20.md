@@ -161,7 +161,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 | 言語機能 | 説明 |
 |----------|------|
-| `throw()`による例外送出しない指定を削除 | 代わりに`noexcept`を使用すること |
+| [`throw()`による例外送出しない指定を削除](cpp20/remove_deprecated_nothrow_exception_specification.md) | 代わりに`noexcept`を使用すること |
 | [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止](cpp20/prohibit_aggregates_with_user-declared_constructors.md.nolink) | コンストラクタが`delete`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 |
 
 

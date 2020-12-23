@@ -56,6 +56,7 @@ C++でもJavaを含むこれらの問題は認識されており、動的例外�
 
 ## 関連項目
 - [C++11 noexcept](/lang/cpp11/noexcept.md)
+- [C++20 `throw()`による例外送出しない指定を削除](/lang/cpp20/remove_deprecated_nothrow_exception_specification.md)
 
 
 ## 参照

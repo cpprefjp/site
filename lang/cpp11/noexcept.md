@@ -175,6 +175,7 @@ int main()
 - [`is_nothrow_destructible`](/reference/type_traits/is_nothrow_destructible.md)
 - [C++17 非推奨だった古い例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md)
 - [C++17 例外仕様を型システムの一部にする](/lang/cpp17/exception_spec_be_part_of_the_type_system.md)
+- [C++20 `throw()`による例外送出しない指定を削除](/lang/cpp20/remove_deprecated_nothrow_exception_specification.md)
 
 
 ## 参照
