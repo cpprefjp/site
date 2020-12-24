@@ -95,10 +95,10 @@ int main()
 
 ### 出力例
 ```
-??
-??
-??
-??
+6
+71
+prog.cc
+int main()
 ```
 
 ## バージョン
@@ -107,9 +107,12 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 11.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 関連項目
+- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
 
 ## 参照
 

@@ -64,10 +64,10 @@ int main()
 
 ### 出力例
 ```
-??
-??
-??
-??
+6
+71
+prog.cc
+int main()
 ```
 
 ## この機能が必要になった背景・経緯
@@ -84,14 +84,15 @@ C言語から引き継いだ定義済みマクロ`__LINE__`、`__FILE__`や[事�
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 11.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
 
-- [事前定義識別子`__func__`](/lang/cpp11/func.md)
+- [C++11 事前定義識別子`__func__`](/lang/cpp11/func.md)
+- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
 
 ## 参照
 
