@@ -9,7 +9,9 @@
 function() noexcept;          // (1)
 function(nullptr_t) noexcept; // (2)
 function(const function& f);  // (3)
-function(function&& f);       // (4)
+
+function(function&& f);           // (4) C++17まで
+function(function&& f) noexcept;  // (4) C++20
 
 template <class F>
 function(F f);                // (5)
@@ -239,3 +241,4 @@ int main()
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(5)と(10)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
 - [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
+- [P0771R1 std::function move constructor should be noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0771r1.pdf)
