@@ -24,9 +24,9 @@ namespace std {
 
 
 ## 戻り値
-型`To`の値を返す。その戻り値の各ビットが`from`と等しくなる。ただし、戻り値のパディングビットは未規定。
+型`To`の値を返す。その戻り値のビット表現は値`from`のビット表現と等しくなる。（もしあれば）戻り値のパディングビットは未規定。
 
-型`To`で`from`の値を表現できない場合の動作は未定義となる。そのような値が複数ある場合、生成される値は未規定。
+型`To`においてビット表現に対応する値が存在しない場合、その動作は未定義となる。またビット表現に対応する値が複数存在する場合、どの値が生成されるかは未規定となる。
 
 
 ## 例外
@@ -40,7 +40,7 @@ namespace std {
 - [`std::is_pointer_v`](/reference/type_traits/is_pointer.md)`<T> == false`
 - [`std::is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<T> == false`
 - [`std::is_volatile_v`](/reference/type_traits/is_volatile.md)`<T> == false`
-- `T`が参照の非静的メンバ変数を持たないこと
+- `T`が参照型の非静的メンバ変数を持たないこと
 
 
 ## 備考
@@ -58,17 +58,17 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <iostream>
 #include <cassert>
-#include <bit>
 #include <cstdint>
 #include <cstring>
+#include <bit>
+#include <iostream>
 
 int main()
 {
   float f = 3.14f;
 
-  // ビット値を保って、単精度浮動小数点数 (IEEE 754準拠なら32ビット) を、32ビット整数に変換
+  // ビット表現を保って、単精度浮動小数点数 (IEEE 754準拠なら32ビット) を、32ビット整数に変換
   std::uint32_t n = std::bit_cast<std::uint32_t>(f);
 
   // 従来の方法
@@ -96,7 +96,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc):
+- [GCC](/implementation.md#gcc): 11.0
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
