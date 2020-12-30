@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits = char_traits<CharT>>
-  class basic_ifstream : public basic_iostream<CharT, Traits>;
+  class basic_ifstream : public basic_istream<CharT, Traits>;
 
   using ifstream  = basic_ifstream<char>;
   using wifstream = basic_ifstream<wchar_t>;
