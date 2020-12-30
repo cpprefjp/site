@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits = char_traits<CharT>>
-  class basic_ofstream : public basic_iostream<CharT, Traits>;
+  class basic_ofstream : public basic_ostream<CharT, Traits>;
 
   using ofstream  = basic_ofstream<char>;
   using wofstream = basic_ofstream<wchar_t>;
