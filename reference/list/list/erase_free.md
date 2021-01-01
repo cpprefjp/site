@@ -25,7 +25,7 @@ erase_if(c, [&](auto& elem) { return elem == value; });
 
 
 ## 戻り値
-なし
+削除した要素数を返す。
 
 
 ## 例
