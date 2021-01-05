@@ -11,7 +11,7 @@ namespace std {
   class basic_string;
 
   using string    = basic_string<char>;
-  using u8string = basic_string<char8_t>;    // C++20から
+  using u8string  = basic_string<char8_t>;   // C++20から
   using u16string = basic_string<char16_t>;  // C++11から
   using u32string = basic_string<char32_t>;  // C++11から
   using wstring   = basic_string<wchar_t>;
