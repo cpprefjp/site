@@ -150,7 +150,8 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 |----------------------------------------------------|------------------------------------------|-------|
 | [`default_sentinel_t`](iterator/default_sentinel_t.md) | 任意の範囲の終端を表すことのできるデフォルトの番兵型(class template) | C++20 |
 | [`default_sentinel`](iterator/default_sentinel_t.md) | 任意の範囲の終端を表すことのできるデフォルトの番兵オブジェクト(constant variable) | C++20 |
-| [`unreachable_sentinel_t`](iterator/unreachable_sentinel_t.md.nolink) | 別の方法で終端が指定される範囲の仮想的な終端を表す番兵型(class template) | C++20 |
+| [`unreachable_sentinel_t`](iterator/unreachable_sentinel_t.md) | 別の方法で終端が指定される範囲の仮想的な終端を表す番兵型(class template) | C++20 |
+| [`unreachable_sentinel`](iterator/unreachable_sentinel_t.md) | 別の方法で終端が指定される範囲の仮想的な終端を表す番兵オブジェクト(class template) | C++20 |
 
 ## 先頭イテレータと末尾イテレータ
 
