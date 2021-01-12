@@ -46,7 +46,7 @@
 このサイトでは GCC と呼ぶ
 
 - [GCC, the GNU Compiler Collection - GNU Project - Free Software Foundation (FSF)](https://gcc.gnu.org/)
-- [MinGW | Minimalist GNU for Windows](http://www.mingw.org/)
+- [Mingw-w64 - GCC for Windows 64 & 32 bits [mingw-w64]](http://mingw-w64.org/)
 - [Fortran, C, C++ for Windows](http://www.equation.com/servlet/equation.cmd?fa=fortran) (MinGW バイナリ)
 
 ### 別名
