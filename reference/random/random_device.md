@@ -179,7 +179,6 @@ GCC (MinGW, libstdc++) 9.2からは、この問題は解決されている。[PR
     - CPU が提供する [`RDRAND`, `RDSEED` 命令](https://www.cryptopp.com/wiki/RDRAND)
 - Windows
     - [`rand_s`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s) (`CryptGenRandom` のラッパー)
-    - [`RtlGenRandom`](https://docs.microsoft.com/ja-jp/windows/win32/api/ntsecapi/nf-ntsecapi-rtlgenrandom) 関数 (替わりに `CryptGenRandom` を使用することを推奨)
     - [`CryptGenRandom`](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom) 関数(Windows XP/Windows Server 2003以降。非推奨)
     - [`BCryptGenRandom`](https://docs.microsoft.com/ja-jp/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) 関数(Windows Vista/Windows Server 2008以降)
 
