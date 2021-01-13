@@ -87,3 +87,4 @@ namespace std {
 
 ## 参照
 - [P0913R1 Add symmetric coroutine control transfer](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0913r1.html)
+- [LWG3460. Unimplementable noop_coroutine_handle guarantees](https://cplusplus.github.io/LWG/issue3460)
