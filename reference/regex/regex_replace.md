@@ -226,7 +226,7 @@ int main()
 (1) 'abc[012]def'
 (2) '[012]'
 (3) 'abc[123]def[456]ghi'
-(3) 'abc[123]def456ghi'
+(4) 'abc[123]def456ghi'
 (5) 'abc[321]def[654]ghi'
 (6) 'abc[321]def[654]ghi'
 ```
