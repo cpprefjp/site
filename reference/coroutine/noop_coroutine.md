@@ -145,7 +145,7 @@ coro#1 0
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.0
+- [GCC](/implementation.md#gcc): 11.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
