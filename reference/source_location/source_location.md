@@ -61,6 +61,11 @@ int main()
   std::cout << location.function_name() << std::endl;
 }
 ```
+* current()[link source_location/current.md]
+* location.line()[link source_location/line.md]
+* location.column()[link source_location/column.md]
+* location.file_name()[link source_location/file_name.md]
+* location.function_name()[link source_location/function_name.md]
 
 ### 出力例
 ```
