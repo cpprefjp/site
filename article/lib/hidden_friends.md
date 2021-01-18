@@ -31,7 +31,7 @@ int main() {
   NS::hidden_friend(c);   // ng
 
   // 普通の非メンバ関数
-  c.visible_friend();     // ng
+  c.free_func();          // ng
   free_func(c);           // ok
   NS::free_func(c);       // ok
 }
