@@ -21,7 +21,7 @@ constexpr reference operator[](difference_type n) const;   // C++20
 - C++17まで
     - `return std::`[`move`](/reference/utility/move.md)`(`[`base`](base.md)`()[n]);`
 - C++20
-    - `return ranges::`[`iter_move`](/reference/iterator/iter_move.md.nolink)`(`[`base`](base.md)`() + n);`
+    - `return ranges::`[`iter_move`](/reference/iterator/iter_move.md)`(`[`base`](base.md)`() + n);`
 
 
 ## 例

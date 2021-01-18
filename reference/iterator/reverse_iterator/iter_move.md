@@ -30,7 +30,7 @@ auto tmp = i.base();
 return ranges::iter_move(--tmp);
 ```
 * base[link /reference/iterator/reverse_iterator/base.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md.nolink]
+* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 例外
 
@@ -41,12 +41,12 @@ is_nothrow_copy_constructible_v<Iterator> &&
 noexcept(ranges::iter_move(--declval<Iterator&>()))
 ```
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md.nolink]
+* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 備考
 
 この関数は`reverse_iterator`のクラス定義内で`friend`関数として定義される。そのため、メンバ関数としても非メンバ関数としても明示的に呼び出すことはできず、ADLによってのみ呼び出すことができる。  
-基本的には[`ranges::iter_move`](/reference/iterator/iter_move.md.nolink)カスタマイゼーションポイントオブジェクトを通して利用する。
+基本的には[`ranges::iter_move`](/reference/iterator/iter_move.md)カスタマイゼーションポイントオブジェクトを通して利用する。
 
 ## 例
 ```cpp example
@@ -71,7 +71,7 @@ int main() {
 }
 ```
 * iter_move[color ff0000]
-* ranges::iter_move[link /reference/iterator/iter_move.md.nolink]
+* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ### 出力
 ```
@@ -90,7 +90,7 @@ int main() {
 
 ## 関連項目
 
-- [`ranges::iter_move`](/reference/iterator/iter_move.md.nolink)
+- [`ranges::iter_move`](/reference/iterator/iter_move.md)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

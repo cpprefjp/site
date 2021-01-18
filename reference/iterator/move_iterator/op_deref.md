@@ -19,7 +19,7 @@ constexpr reference operator*() const; // C++17
 - C++17まで
     - `std::move(*base())`
 - C++20
-    - `return ranges::`[`iter_move`](/reference/iterator/iter_move.md.nolink)`(`[`base`](base.md)`());`
+    - `return ranges::`[`iter_move`](/reference/iterator/iter_move.md)`(`[`base`](base.md)`());`
 
 
 

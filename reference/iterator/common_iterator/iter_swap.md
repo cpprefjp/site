@@ -18,7 +18,6 @@ namespace std {
 ```
 * move_iterator[link /reference/iterator/move_iterator.md]
 * indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md.nolink]
 
 ## 概要
 
