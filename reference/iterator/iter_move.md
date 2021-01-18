@@ -21,7 +21,7 @@ namespace std {
 
 `iter_move(i)`のように呼び出された時、以下のいずれかと等価
 
-1. 引数`i`の型がクラス型であるか列挙型であり、`std::ranges::iter_move`（本関数オブジェクト）の宣言を含まず下記の`iter_move`関数宣言を含むコンテキストで、`iter_move(i)`が呼び出し可能ならば`iter_move(i)`
+1. 引数`i`の型がクラス型であるか列挙型であり、`std::ranges::iter_move`（本CPO）の宣言を含まず下記の`iter_move`関数宣言を含むコンテキストで、`iter_move(i)`が呼び出し可能ならば`iter_move(i)`
    ```cpp
    void iter_move();
    ```
@@ -37,13 +37,11 @@ namespace std {
 
 ## 戻り値
 
-上記「効果」節のそれぞれのケース毎に
-
-1. 引数`i`の指す要素のへの（右辺値）参照、もしくは要素を移動した値
-2. 引数`i`の指す要素の右辺値参照
-3. 引数`i`の指す要素の右辺値参照
+引数`i`の指す要素の（右辺値）参照、もしくは`i`の指す要素を移動した値
 
 ## 例外
+
+上記「効果」節のそれぞれのケース毎に
 
 1. 呼び出される`iter_move()`が例外を投げるかに従う
 2. 引数`i`の`*`演算子が例外を投げるかに従う
@@ -110,11 +108,6 @@ int main() {
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 4
-
-## 関連項目
-
-- [`views::counted`](/reference/ranges/counted.md.nolink)
-- [`take_view`](/reference/ranges/take_view.md.nolink)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
