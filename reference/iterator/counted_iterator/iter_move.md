@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 * iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md.nolink]
+* ranges::iter_move[link /reference/iterator/iter_move.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 
 ## 概要
@@ -26,12 +26,12 @@ namespace std {
 ```cpp
 return ranges::iter_move(i.current);
 ```
-* ranges::iter_move[link /reference/iterator/iter_move.md.nolink]
+* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 備考
 
 この関数は[*Hidden friends*](/article/lib/hidden_friends.md)として定義される。  
-基本的には[`ranges::iter_move`](/reference/iterator/iter_move.md.nolink)カスタマイゼーションポイントオブジェクトを通して利用する。
+基本的には[`ranges::iter_move`](/reference/iterator/iter_move.md)カスタマイゼーションポイントオブジェクトを通して利用する。
 
 ## 例
 ```cpp example
@@ -57,7 +57,7 @@ int main() {
 }
 ```
 * iter_move[color ff0000]
-* ranges::iter_move[link /reference/iterator/iter_move.md.nolink]
+* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ### 出力
 ```
@@ -76,7 +76,7 @@ int main() {
 
 ## 関連項目
 
-- [`ranges::iter_move`](/reference/iterator/iter_move.md.nolink)
+- [`ranges::iter_move`](/reference/iterator/iter_move.md)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
