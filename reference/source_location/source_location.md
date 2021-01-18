@@ -89,8 +89,7 @@ C言語から引き継いだ定義済みマクロ`__LINE__`、`__FILE__`や[事�
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.0
-- [ICC](/implementation.md#icc): ??
+- [GCC](/implementation.md#gcc): 11.1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
