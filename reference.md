@@ -73,6 +73,7 @@
 | [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
 | [`<charconv>`](/reference/charconv.md)       | 高速な文字列 ⇔ 数値変換     | C++17          |
 | [`<format>`](/reference/format.md)           | 文字列フォーマット           | C++20          |
+| [`<stacktrace>`](/reference/stacktrace.md.nolink)   | スタックトレース             | C++23          |
 
 
 ## <a id="strings" href="#strings">文字列ライブラリ</a>
@@ -171,6 +172,7 @@
 | ヘッダ                             | 説明                                            | 対応バージョン |
 |------------------------------------|-------------------------------------------------|----------------|
 | [`<atomic>`](/reference/atomic.md) | アトミックアクセスのためのコンポーネント        | C++11          |
+| [`<stdatomic.h>`](/reference/stdatomic.h.nolink) | アトミック操作のC互換ライブラリ | C++23 |
 
 
 ## <a id="thread-support" href="#thread-support">スレッドサポートライブラリ</a>
