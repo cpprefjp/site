@@ -20,7 +20,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [参照するPOSIX規格を更新](cpp23/update_normative_reference_to_posix.md.nolink) | 新しいPOSIX規格の機能を標準C++が参照していたため、参照するPOSIX規格のバージョンを更新 |
+| [参照するPOSIX規格を更新](cpp23/update_normative_reference_to_posix.md) | 新しいPOSIX規格の機能を標準C++が参照していたため、参照するPOSIX規格のバージョンを更新 |
 
 
 ## ライブラリ更新の概要
