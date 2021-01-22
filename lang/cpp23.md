@@ -10,7 +10,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [`(signed) size_t`リテラルのためのサフィックス](cpp23/literal_suffix_for_signed_size_t.md.nolink) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする |
+| [(符号付き)`size_t`リテラルのためのサフィックス](cpp23/literal_suffix_for_signed_size_t.md.nolink) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする |
 | [部分特殊化の汎用化仕様](cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 |
 | [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | |
 | [スコープと名前ルックアップの仕様整理](cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する |
