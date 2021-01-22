@@ -48,6 +48,7 @@
 | [`is_scalar`](type_traits/is_scalar.md)                 | 型がスカラ型か調べる (class template) | C++11 |
 | [`is_compound`](type_traits/is_compound.md)             | 型が複合型か調べる (class template) | C++11 |
 | [`is_member_pointer`](type_traits/is_member_pointer.md) | 型がメンバポインタ型か調べる (class template) | C++11 |
+| [`is_scoped_enum`](type_traits/is_scoped_enum.md)       | 型がスコープ付きの列挙型か調べる (class template) | C++23 |
 
 
 ## 型の特性
