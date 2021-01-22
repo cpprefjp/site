@@ -172,7 +172,7 @@
 | ヘッダ                             | 説明                                            | 対応バージョン |
 |------------------------------------|-------------------------------------------------|----------------|
 | [`<atomic>`](/reference/atomic.md) | アトミックアクセスのためのコンポーネント        | C++11          |
-| [`<stdatomic.h>`](/reference/stdatomic.h.nolink) | アトミック操作のC互換ライブラリ | C++23 |
+| [`<stdatomic.h>`](/reference/stdatomic.h.md) | アトミック操作のC互換ライブラリ | C++23 |
 
 
 ## <a id="thread-support" href="#thread-support">スレッドサポートライブラリ</a>
