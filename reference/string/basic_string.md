@@ -144,6 +144,7 @@ namespace std {
 | [`compare`](basic_string/compare.md)                                 | 他の文字列との比較を行う                       |                |
 | [`starts_with`](basic_string/starts_with.md)                         | 指定の文字列で始まるかを判定する               | C++20          |
 | [`ends_with`](basic_string/ends_with.md)                             | 指定の文字列で終わるかを判定する               | C++20          |
+| [`contains`](basic_string/contains.md)                               | 指定の文字・文字列が含まれているかを判定する   | C++23 |
 
 
 ### メンバ定数

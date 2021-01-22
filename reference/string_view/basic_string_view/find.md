@@ -105,3 +105,7 @@ int main()
 - [GCC](/implementation.md#gcc): 7.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`contains`](contains.md)

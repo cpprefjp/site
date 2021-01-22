@@ -95,6 +95,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | [`compare`](basic_string_view/compare.md)         | 他の文字列との比較を行う                       | C++17 |
 | [`starts_with`](basic_string_view/starts_with.md) | 指定の文字列で始まるかを判定する               | C++20 |
 | [`ends_with`](basic_string_view/ends_with.md)     | 指定の文字列で終わるかを判定する               | C++20 |
+| [`contains`](basic_string_view/contains.md)       | 指定の文字・文字列が含まれているかを判定する   | C++23 |
 
 
 ### 検索

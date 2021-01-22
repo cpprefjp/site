@@ -116,10 +116,11 @@ size_type basic_string<charT, traits, Allocator>::find(charT c, size_type pos = 
 
 ## 関連項目
 
-| 名前                                       | 説明                                     |
-|--------------------------------------------|------------------------------------------|
-| [`search`](/reference/algorithm/search.md) | 指定された最初のサブシーケンスを検索する |
-| [`find`](/reference/algorithm/find.md)     | 指定された値を検索する                   |
+| 名前                                            | 説明                                     |
+|-------------------------------------------------|------------------------------------------|
+| [`std::search`](/reference/algorithm/search.md) | 指定された最初のサブシーケンスを検索する |
+| [`std::find`](/reference/algorithm/find.md)     | 指定された値を検索する                   |
+| [`contains`](contains.md)                       | 指定された文字・文字列が含まれているかを判定する |
 
 
 ## 参照
