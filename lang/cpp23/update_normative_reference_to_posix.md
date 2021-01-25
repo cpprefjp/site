@@ -1,5 +1,5 @@
 # 参照するPOSIX規格を更新
-* cpp20[meta cpp]
+* cpp23[meta cpp]
 
 ## 概要
 C++20まではPOSIX規格としてISO/IEC 9945:2003 (別名POSIX.1-2001 aka The Single UNIX Specification, version 3) を参照していた。
