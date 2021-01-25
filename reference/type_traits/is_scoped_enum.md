@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 要件
-`is_scoped_enum`は、型`T`がメンバポインタ型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`is_scoped_enum`は、型`T`がスコープ付きの列挙型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 例
