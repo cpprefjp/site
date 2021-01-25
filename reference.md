@@ -73,7 +73,7 @@
 | [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
 | [`<charconv>`](/reference/charconv.md)       | 高速な文字列 ⇔ 数値変換     | C++17          |
 | [`<format>`](/reference/format.md)           | 文字列フォーマット           | C++20          |
-| [`<stacktrace>`](/reference/stacktrace.md.nolink)   | スタックトレース             | C++23          |
+| [`<stacktrace>`](/reference/stacktrace.md)   | スタックトレース             | C++23          |
 
 
 ## <a id="strings" href="#strings">文字列ライブラリ</a>
