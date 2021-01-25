@@ -70,5 +70,10 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [C++23 (符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md)
+- [`std::cmp_less()`](/reference/utility/cmp_less.md)
+
+
 ## 参照
 - [P1227: Signed `ssize()` functions, unsigned `size()` functions (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1227r2.html)

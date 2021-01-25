@@ -21,6 +21,9 @@ std::vector<X> v;
 
 // 警告：式`i < v.size()`で、符号付き整数と符号なし整数の間で比較しようとした
 for (int i = 0; i < v.size(); ++i) {}
+
+// OK
+for (int i = 0; cmp_less(i, v.size()); ++i) {}
 ```
 
 
@@ -86,6 +89,11 @@ true
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 7
+
+
+## 関連項目
+- [C++23 (符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md)
+- [`std::ssize()`](/reference/iterator/ssize.md)
 
 
 ## 参照
