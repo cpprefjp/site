@@ -140,6 +140,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <stacktrace>
@@ -158,13 +159,44 @@ int main() {
 ```
 * current()[link basic_stacktrace/current.md.nolink]
 
-### 出力例
+#### 出力例
 ```
  0# g() at main.cpp:5
  1# f() at main.cpp:9
  2# main at main.cpp:13
 ```
 
+### スタックトレースを出力するアサーションマクロを作る
+```cpp example
+#include <iostream>
+#include <cstdint>
+#include <stacktrace>
+
+void assertion_failed(char const* expr) {
+  auto st = std::stacktrace::current(1, 1);
+  std::stacktrace_entry info = st[0];
+  std::cerr << "Expression '" << expr << "' is false in " << info << std::endl;
+  std::abort();
+}
+
+#define MY_ASSERT(expr) if (!(expr)) assertion_failed(#expr)
+
+void f(int i) {
+  MY_ASSERT(i >= 0);
+}
+
+int main() {
+  f(-1);
+}
+```
+* current[basic_stacktrace/current.md.nolink]
+* std::stacktrace_entry[link stacktrace_entry.md.nolink]
+* std::abort()[link /reference/cstdlib/abort.md]
+
+#### 出力例
+```
+Expression 'i >= 0' is false in f() at main.cpp:15
+```
 
 ## バージョン
 ### 言語
