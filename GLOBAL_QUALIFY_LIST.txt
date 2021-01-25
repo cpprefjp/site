@@ -150,6 +150,7 @@
 * <span>[link /reference/span.md]
 * <sstream>[link /reference/sstream.md]
 * <stack>[link /reference/stack.md]
+* <stacktrace>[link /reference/stacktrace.md]
 * <stdexcept>[link /reference/stdexcept.md]
 * <stop_token>[link /reference/stop_token.md]
 * <streambuf>[link /reference/streambuf.md]
