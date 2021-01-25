@@ -108,14 +108,14 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](basic_stacktrace/op_ostream.md.nolink) | 出力ストリームに出力する | C++23 |
+| [`operator<<`](basic_stacktrace/op_ostream.md) | 出力ストリームに出力する | C++23 |
 
 
 ### 文字列への変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`to_string`](basic_stacktrace/to_string.md.nolink) | 文字列に変換する | C++23 |
+| [`to_string`](basic_stacktrace/to_string.md) | 文字列に変換する | C++23 |
 
 
 ### 比較演算子
