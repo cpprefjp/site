@@ -6,9 +6,14 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(forward_list& x);
-void swap(forward_list& x) noexcept(allocator_traits<Allocator>::is_always_equal::value) // C++17
+void swap(forward_list& x); // (1) C++17
+
+void swap(forward_list& x)
+       noexcept(
+         allocator_traits<Allocator>::is_always_equal::value
+       );                   // (1) C++17
 ```
+* allocator_traits[link /reference/memory/allocator_traits.md]
 
 ## 概要
 他の`forward_list`オブジェクトと値を入れ替える。

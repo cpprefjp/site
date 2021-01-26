@@ -7,11 +7,13 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  void swap(forward_list<T, Allocator>& x, forward_list<T, Allocator>& y);
+  void swap(forward_list<T, Allocator>& x,
+            forward_list<T, Allocator>& y);  // (1) C++11
 
   template <class T, class Allocator>
-  void swap(forward_list<T,Allocator>& x, forward_list<T,Allocator>& y)
-  noexcept(noexcept(x.swap(y)));                                        // C++17
+  void swap(forward_list<T,Allocator>& x,
+            forward_list<T,Allocator>& y)
+              noexcept(noexcept(x.swap(y))); // (1) C++17
 }
 ```
 
