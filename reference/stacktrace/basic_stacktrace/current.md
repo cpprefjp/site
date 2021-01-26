@@ -93,7 +93,7 @@ int main() {
 ```
 * current()[color ff0000]
 
-### 出力例
+#### 出力例
 ```
  0# f() at main.cpp:9
  1# main at main.cpp:13
@@ -118,7 +118,7 @@ int main() {
 ```
 * current()[color ff0000]
 
-### 出力例
+#### 出力例
 ```
  0# f() at main.cpp:9
  1# main at main.cpp:13
