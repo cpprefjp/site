@@ -206,6 +206,7 @@ int main() {
 * current[link basic_stacktrace/current.md]
 * std::stacktrace_entry[link stacktrace_entry.md.nolink]
 * std::abort()[link /reference/cstdlib/abort.md]
+* std::cerr[link /reference/iostream/cerr.md]
 
 #### 出力例
 ```
