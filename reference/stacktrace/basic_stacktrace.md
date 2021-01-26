@@ -46,7 +46,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`get_allocator`](basic_stacktrace/get_allocator.md.nolink) | アロケータオブジェクトを取得する | C++23 |
+| [`get_allocator`](basic_stacktrace/get_allocator.md) | アロケータオブジェクトを取得する | C++23 |
 
 
 ### イテレータ
