@@ -84,7 +84,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](basic_stacktrace/swap.md.nolink) | 他の`basic_stacktrace`オブジェクトとデータを入れ替える | C++23 |
+| [`swap`](basic_stacktrace/swap.md) | 他の`basic_stacktrace`オブジェクトとデータを入れ替える | C++23 |
 
 
 ### 静的メンバ関数
@@ -115,7 +115,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](basic_stacktrace/swap_free.md.nolink) | 2つの`basic_stacktrace`オブジェクトを入れ替える | C++23 |
+| [`swap`](basic_stacktrace/swap_free.md) | 2つの`basic_stacktrace`オブジェクトを入れ替える | C++23 |
 
 
 ### 入出力
