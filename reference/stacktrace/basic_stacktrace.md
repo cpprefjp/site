@@ -68,7 +68,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`size`](basic_stacktrace/size.md)         | スタックトレースの履歴数を取得する | C++23 |
-| [`max_size`](basic_stacktrace/max_size.md.nolink) | 格納可能な最大の要素数を取得する | C++23 |
+| [`max_size`](basic_stacktrace/max_size.md) | 格納可能な最大の要素数を取得する | C++23 |
 | [`empty`](basic_stacktrace/empty.md)       | スタックトレースの履歴が空かどうかを判定する | C++23 |
 
 
