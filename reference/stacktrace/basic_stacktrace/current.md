@@ -67,7 +67,7 @@ int main() {
 ```
 * current()[color ff0000]
 
-### 出力例
+#### 出力例
 ```
  0# g() at main.cpp:5
  1# f() at main.cpp:9
