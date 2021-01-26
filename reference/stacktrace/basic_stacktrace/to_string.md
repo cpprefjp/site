@@ -44,7 +44,7 @@ int main() {
 }
 ```
 * to_string()[color ff0000]
-* current()[link current.md.nolink]
+* current()[link current.md]
 
 ### 出力例
 ```

@@ -77,7 +77,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`current`](basic_stacktrace/current.md.nolink) | 現在位置のスタックトレースを取得する | C++23 |
+| [`current`](basic_stacktrace/current.md) | 現在位置からのスタックトレースを取得する | C++23 |
 
 
 ## メンバ型
@@ -157,7 +157,7 @@ int main() {
   f();
 }
 ```
-* current()[link basic_stacktrace/current.md.nolink]
+* current()[link basic_stacktrace/current.md]
 
 #### 出力例
 ```
@@ -189,7 +189,7 @@ int main() {
   f(-1);
 }
 ```
-* current[basic_stacktrace/current.md.nolink]
+* current[basic_stacktrace/current.md]
 * std::stacktrace_entry[link stacktrace_entry.md.nolink]
 * std::abort()[link /reference/cstdlib/abort.md]
 

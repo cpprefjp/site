@@ -43,7 +43,7 @@ int main() {
   f();
 }
 ```
-* current()[link current.md.nolink]
+* current()[link current.md]
 
 ### 出力例
 ```
