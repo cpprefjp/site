@@ -37,9 +37,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](basic_stacktrace/op_constructor.md.nolink) | コンストラクタ | C++23 |
-| [`(destructor)`](basic_stacktrace/op_destructor.md.nolink)   | デストラクタ | C++23 |
-| [`operator=`](basic_stacktrace/op_assign.md.nolink) | 代入演算子 | C++23 |
+| [`(constructor)`](basic_stacktrace/op_constructor.md) | コンストラクタ | C++23 |
+| `~basic_stacktrace();` | デストラクタ | C++23 |
+| [`operator=`](basic_stacktrace/op_assign.md) | 代入演算子 | C++23 |
 
 
 ### アロケータ
