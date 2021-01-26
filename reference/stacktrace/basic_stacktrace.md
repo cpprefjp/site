@@ -76,8 +76,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator[]`](basic_stacktrace/op_at.md.nolink) | 要素アクセス | C++23 |
-| [`at`](basic_stacktrace/at.md.nolink)            | 要素アクセス | C++23 |
+| [`operator[]`](basic_stacktrace/op_at.md) | 任意の位置の要素を取得する | C++23 |
+| [`at`](basic_stacktrace/at.md)            | 任意の位置の要素を取得する | C++23 |
 
 
 ### 変更
