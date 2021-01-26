@@ -28,7 +28,6 @@ a.swap(b);
 
 
 ## 例
-### 全体のスタックトレースを取得する
 ```cpp example
 #include <iostream>
 #include <stacktrace>

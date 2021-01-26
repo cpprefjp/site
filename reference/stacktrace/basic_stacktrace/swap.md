@@ -23,7 +23,6 @@ void swap(basic_stacktrace& other)
 
 
 ## 例
-### 全体のスタックトレースを取得する
 ```cpp example
 #include <iostream>
 #include <stacktrace>
