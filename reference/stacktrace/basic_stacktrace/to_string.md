@@ -9,6 +9,7 @@
 namespace std {
   template <class Allocator>
   string to_string(const basic_stacktrace<Allocator>& st);
+}
 ```
 * string[link /reference/string/basic_string.md]
 
