@@ -136,9 +136,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](basic_stacktrace/op_equal.md.nolink) | 等値比較を行う | C++23 |
+| [`operator==`](basic_stacktrace/op_equal.md) | 等値比較を行う | C++23 |
 | `template <class Allocator2>`<br/> `bool operator!=(const basic_stacktrace&, const basic_stacktrace<Allocator2>&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++23 |
-| [`operator<=>`](basic_stacktrace/op_compare_3way.md.nolink) | 三方比較を行う | C++23 |
+| [`operator<=>`](basic_stacktrace/op_compare_3way.md) | 三方比較を行う | C++23 |
 | `template <class Allocator2>`<br/> `strong_ordering operator<(const basic_stacktrace&, const basic_stacktrace<Allocator2>&) noexcept;` | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | C++23 |
 | `template <class Allocator2>`<br/> `strong_ordering operator<=(const basic_stacktrace&, const basic_stacktrace<Allocator2>&) noexcept;` | 左辺が右辺以下かを判定する (`<=>`により使用可能) | C++23 |
 | `template <class Allocator2>`<br/> `strong_ordering operator>(const basic_stacktrace&, const basic_stacktrace<Allocator2>&) noexcept;` | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | C++23 |
