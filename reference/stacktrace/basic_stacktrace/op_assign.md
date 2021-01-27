@@ -14,6 +14,7 @@ basic_stacktrace& operator=(basic_stacktrace&& other)
     allocator_traits<Allocator>::is_always_equal::value
   );                                                        // (2) C++23
 ```
+* allocator_traits[link /reference/memory/allocator_traits.md]
 
 ## 概要
 - (1) コピー代入

@@ -19,6 +19,7 @@ basic_stacktrace(const basic_stacktrace& other,
 basic_stacktrace(basic_stacktrace&& other,
                  const allocator_type& alloc);                   // (6) C++23
 ```
+* is_nothrow_default_constructible_v[link /reference/type_traits/is_nothrow_default_constructible.md]
 
 ## 概要
 `basic_stacktrace`オブジェクトを構築する。
