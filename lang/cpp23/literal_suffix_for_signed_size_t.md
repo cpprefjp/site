@@ -26,8 +26,7 @@ for (auto i = 0u, s = v.size(); i < s; ++i) {}
 for (auto i = 0, s = v.size(); i < s; ++i) {}
 
 // case 3
-for (auto i = 0uz, s = v.size(); i < s; ++i) {
-}
+for (auto i = 0uz, s = v.size(); i < s; ++i) {}
 ```
 
 ここでのcase 1では、`0u`は`unsigned int`型リテラルとなり、[`size_t`](/reference/cstddef/size_t.md)型が64ビットとして定義される場合に、[`size_t`](/reference/cstddef/size_t.md)型を`unsigned int`型に丸めるために警告が出力される可能性がある。
@@ -44,7 +43,7 @@ std::size_t size = …;
 // case 1
 std::size_t clamped_size = std::max(0, std::min(54, size));
 
-case 2
+// case 2
 std::size_t clamped_size = std::max(0uz, std::min(54uz, size));
 ```
 
