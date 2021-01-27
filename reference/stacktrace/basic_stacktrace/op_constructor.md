@@ -33,7 +33,7 @@ basic_stacktrace(basic_stacktrace&& other,
 
 
 ## 効果
-- (2) : 保持する[`std::vector`](/reference/vector/vector.md)`<`[`std::stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md.nolink)`>`型スタックトレースの履歴のオブジェクトに、コンストラクタ引数として`alloc`を渡す
+- (2) : 保持する[`std::vector`](/reference/vector/vector.md)`<`[`std::stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)`>`型スタックトレースの履歴のオブジェクトに、コンストラクタ引数として`alloc`を渡す
 
 
 ## 事後条件
@@ -88,7 +88,7 @@ int main() {
   f();
 }
 ```
-* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md.nolink]
+* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md]
 * empty()[link empty.md]
 * std::move[link /reference/utility/move.md]
 

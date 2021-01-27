@@ -44,7 +44,7 @@ int main() {
 * st.rbegin()[color ff0000]
 * st.rend()[link rend.md]
 * current()[link current.md]
-* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md.nolink]
+* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md]
 
 ### 出力
 ```

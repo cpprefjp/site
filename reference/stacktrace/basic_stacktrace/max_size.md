@@ -14,7 +14,7 @@ size_type max_size() const noexcept; // (1) C++23
 
 
 ## 戻り値
-保持している[`std::vector`](/reference/vector/vector.md)`<`[`std::stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md.nolink)`>`型スタックトレースの履歴の、[`max_size()`](/reference/vector/vector/max_size.md)を返す。
+保持している[`std::vector`](/reference/vector/vector.md)`<`[`std::stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)`>`型スタックトレースの履歴の、[`max_size()`](/reference/vector/vector/max_size.md)を返す。
 
 
 ## 例

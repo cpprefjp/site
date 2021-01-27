@@ -30,7 +30,7 @@ int main() {
 }
 ```
 * trace.get_allocator()[color ff0000]
-* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md.nolink]
+* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md]
 
 ### 出力
 ```

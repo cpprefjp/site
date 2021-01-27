@@ -13,7 +13,7 @@ namespace std {
 }
 ```
 * allocator[link /reference/memory/allocator.md]
-* stacktrace_entry[link stacktrace_entry.md.nolink]
+* stacktrace_entry[link stacktrace_entry.md]
 
 ## 概要
 `basic_stacktrace`は、現在位置からその関数がどこで呼び出されたかの履歴を取得するためのクラスである。この機能は、デバッグに役立つ。
@@ -98,7 +98,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `value_type`       | 要素型 [`stacktrace_entry`](stacktrace_entry.md.nolink) | C++23 |
+| `value_type`       | 要素型 [`stacktrace_entry`](stacktrace_entry.md) | C++23 |
 | `const_reference`  | `const`参照型 `const value_type&` | C++23 |
 | `reference`        | 参照型 `value_type&` | C++23 |
 | `const_iterator`   | 読み取り専用イテレータ型。実装定義のランダムアクセスイテレータ | C++23 |
@@ -204,7 +204,7 @@ int main() {
 }
 ```
 * current[link basic_stacktrace/current.md]
-* std::stacktrace_entry[link stacktrace_entry.md.nolink]
+* std::stacktrace_entry[link stacktrace_entry.md]
 * std::abort()[link /reference/cstdlib/abort.md]
 * std::cerr[link /reference/iostream/cerr.md]
 

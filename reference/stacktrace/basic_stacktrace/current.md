@@ -34,17 +34,17 @@ static basic_stacktrace
 ## 戻り値
 - (1) :
     - 現在の実行スレッドでの、現在の評価のスタックトレースを保持する`basic_stacktrace`オブジェクトを構築する
-    - `alloc`は[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md.nolink)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数に渡される
+    - `alloc`は[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数に渡される
 - (2) :
     - `basic_stacktrace::current(alloc)`で構築されたオブジェクト`st`の[`st.size()`](size.md)を`n`として、
-    - 範囲`[st.begin() + min(n, skip), st.end())`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md.nolink)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
+    - 範囲`[st.begin() + min(n, skip), st.end())`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
 - (3) :
     - `basic_stacktrace::current(alloc)`で構築されたオブジェクト`st`の[`st.size()`](size.md)を`n`として、
-    - 範囲`[st.begin() + min(n, skip), st.begin() + min(n, skip + max_depth))`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md.nolink)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
+    - 範囲`[st.begin() + min(n, skip), st.begin() + min(n, skip + max_depth))`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
 
 
 ## 備考
-- (1) : 正常にスタックトレースを取得できた場合、構築された`basic_stacktrace`型のオブジェクト`st`の先頭要素`st[0]`は、現在の評価を表す[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md.nolink)オブジェクトであり、末尾要素`st[st.size() - 1]`は現在の実行スレッドの初期関数を表す[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md.nolink)オブジェクトである
+- (1) : 正常にスタックトレースを取得できた場合、構築された`basic_stacktrace`型のオブジェクト`st`の先頭要素`st[0]`は、現在の評価を表す[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトであり、末尾要素`st[st.size() - 1]`は現在の実行スレッドの初期関数を表す[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトである
 
 
 ## 例

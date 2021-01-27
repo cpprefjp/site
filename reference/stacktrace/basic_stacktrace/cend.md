@@ -41,7 +41,7 @@ int main() {
 * st.cend()[color ff0000]
 * st.cbegin()[link cbegin.md]
 * current()[link current.md]
-* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md.nolink]
+* std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md]
 
 ### 出力
 ```

@@ -7,7 +7,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------|------------------------|-------|
-| [`stacktrace_entry`](stacktrace/stacktrace_entry.md.nolink) | 個々のスタックトレースの位置情報を表す型 (class) | C++23 |
+| [`stacktrace_entry`](stacktrace/stacktrace_entry.md) | 個々のスタックトレースの位置情報を表す型 (class) | C++23 |
 | [`basic_stacktrace`](stacktrace/basic_stacktrace.md) | スタックトレース全体を取得・参照する型 (class template) | C++23 |
 
 
