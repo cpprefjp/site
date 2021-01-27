@@ -47,9 +47,9 @@ int main() {
 
 ### 出力例
 ```
- 0# g() at main.cpp:5
- 1# f() at main.cpp:9
- 2# main at main.cpp:13
+ 0# main.cpp:5
+ 1# main.cpp:9
+ 2# main.cpp:13
 ```
 
 
