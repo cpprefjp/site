@@ -14,18 +14,29 @@
 ## 例
 ```cpp example
 #include <iostream>
+#include <iomanip>
 
 int main()
 {
-  int(*fp)() noexcept = []() noexcept { return 1; };
+  int (*fp0)()          = []()          { return 0; };
+  int (*fp1)() noexcept = []() noexcept { return 1; };
 
-  std::cout << fp() << std::endl;
+  std::cout << std::boolalpha;
+  std::cout << noexcept(fp0()) << std::endl;
+  std::cout << noexcept(fp1()) << std::endl;
+
+  // noexcept付きラムダからnoexceptなし関数ポインタへは変換可能
+  int (*fp2)() = []() noexcept { return 2; };
+
+  // noexceptなしラムダからnoexcept付き関数ポインタへは変換不可
+//int (*fp3)() noexcept = []() { return 3; };
 }
 ```
 
 ### 出力
 ```
-1
+false
+true
 ```
 
 
