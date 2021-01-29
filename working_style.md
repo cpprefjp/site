@@ -67,6 +67,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | dereferenceable                    | 間接参照可能                 |
 | derived class                      | 派生クラス                   |
 | direct base class                  | 直接基底クラス               |
+| delegate                           | 委譲                         |
 | effects                            | 効果                         |
 | emplace                            | 直接構築                     |
 | empty                              | 空                           |
