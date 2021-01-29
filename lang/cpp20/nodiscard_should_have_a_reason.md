@@ -29,7 +29,7 @@ class data_holder {
   std::vector<int> indices;
 
 public:
-  // この関数のユーザーに所有権を移譲する。
+  // この関数のユーザーに所有権を委譲する。
   // ユーザーはこの戻り値のメモリを適切に解放しなければならず、
   // 戻り値を無視するとメモリリークが発生してしまう
   [[nodiscard("Possible memory leak.")]] 

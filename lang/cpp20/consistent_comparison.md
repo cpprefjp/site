@@ -667,7 +667,7 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
 * std::compare_three_way[link /reference/compare/compare_three_way.md]
 
 これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。  
-実際の比較は[`compare_three_way`](/reference/compare/compare_three_way.md)に移譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
+実際の比較は[`compare_three_way`](/reference/compare/compare_three_way.md)に委譲しているが、これは`T`に`<=>`があればそれを利用し無ければ`<`と`==`を使って比較を行う関数である（C++20より利用可能）。
 
 これは順序付けにおいては問題ないが、同値比較を行おうとすると非効率な点がある。それは、長さ（サイズ）を一番最後に比較していることで、同値比較の場合は一番最初に`vector`の長さをチェックし異なっていれば、その時点で結果が`false`になると分かり処理を終えることができる。  
 従って、`vector`における`==`の効率的な実装は以下のようになる。

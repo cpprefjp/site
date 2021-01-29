@@ -57,11 +57,11 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 
 - (3) : `upstream`を上流`memory_resource`として設定し、`buffer`を初期メモリ領域、`buffer_size`に実装定義の増加分を足した値（整数とは限らない）を次に補充するメモリサイズに設定
 
-- (4) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(1)に渡し移譲
+- (4) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(1)に渡し委譲
 
-- (5) : `initial_size`と[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(2)に渡し移譲
+- (5) : `initial_size`と[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(2)に渡し委譲
 
-- (6) : `buffer`と`buffer_size`及び[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(3)に渡し移譲
+- (6) : `buffer`と`buffer_size`及び[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(3)に渡し委譲
 
 (4)(5)(6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
 
