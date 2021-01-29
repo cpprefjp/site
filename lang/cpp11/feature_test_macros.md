@@ -11,7 +11,7 @@ SD-6 は C++11 の機能について以下のテストマクロを定義する�
 | `__cpp_attributes`                        | `200809` | [属性](attributes.md)                            | predefined |
 | `__cpp_constexpr`                         | `200704` | [`constexpr`](constexpr.md)                      | predefined |
 | `__cpp_decltype`                          | `200707` | [`decltype`](decltype.md)                        | predefined |
-| `__cpp_delegating_constructors`           | `200604` | [移譲コンストラクタ](delegating_constructors.md) | predefined |
+| `__cpp_delegating_constructors`           | `200604` | [委譲コンストラクタ](delegating_constructors.md) | predefined |
 | `__cpp_inheriting_constructors`           | `200802` | [継承コンストラクタ](inheriting_constructors.md) | predefined |
 | `__cpp_initializer_lists`                 | `200806` | [初期化子リスト](initializer_lists.md)           | predefined |
 | `__cpp_lambdas`                           | `200907` | [ラムダ式](lambda_expressions.md)                | predefined |

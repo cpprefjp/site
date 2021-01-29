@@ -63,7 +63,7 @@ public:
   }
 
   // コピー構築に使用するアロケータオブジェクトを取得し、
-  // アロケータを受け取るコピーコンストラクタに移譲
+  // アロケータを受け取るコピーコンストラクタに委譲
   MyVector(const MyVector& other)
     : MyVector(
         other,

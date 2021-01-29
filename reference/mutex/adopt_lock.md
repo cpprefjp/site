@@ -15,7 +15,7 @@ namespace std {
 ## 概要
 `adopt_lock_t`型とその値`adopt_lock`は、ロック済みミューテックスを受け取るためのタグである。
 
-`lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](unique_lock.md)クラスおよび[`lock_guard`](lock_guard.md)クラスのコンストラクタで`lock()`を呼び出さず、ロックの所有権を移譲するために使用する。
+`lock()/unlock()`の呼び出しをRAIIで自動化する[`unique_lock`](unique_lock.md)クラスおよび[`lock_guard`](lock_guard.md)クラスのコンストラクタで`lock()`を呼び出さず、ロックの所有権を委譲するために使用する。
 
 [`defer_lock`](defer_lock.md)との違いは、`unique_lock::`[`owns_lock()`](unique_lock/owns_lock.md) `== true`になることである。
 
@@ -30,7 +30,7 @@ int main()
   std::mutex mtx;
   {
     mtx.lock(); // ロックを取得する
-    std::unique_lock<std::mutex> lk(mtx, std::adopt_lock); // ロック済みミューテックスの管理を移譲する
+    std::unique_lock<std::mutex> lk(mtx, std::adopt_lock); // ロック済みミューテックスの管理を委譲する
 
     // ...共有リソースにアクセスする...
 

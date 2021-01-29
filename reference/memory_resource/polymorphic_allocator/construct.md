@@ -96,14 +96,14 @@ uninitialized_construct_using_allocator(p, *this, forward<Args>(args)...)
 		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`move`](/reference/utility/move.md)`(x),` [`make_tuple`](/reference/tuple/make_tuple.md)`(*this))` を `xprime` とする。
 	- それ以外の場合、プログラムは不適格となる。
 
-- (3) : 以下と等価、すなわち(2)に移譲
+- (3) : 以下と等価、すなわち(2)に委譲
 	```cpp
 construct(p, piecewise_construct, tuple<>(), tuple<>());
 ```
 * piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * tuple[link /reference/tuple/tuple.md]
 
-- (4) : 以下と等価、すなわち(2)に移譲
+- (4) : 以下と等価、すなわち(2)に委譲
 	```cpp
 construct(p, piecewise_construct,
           forward_as_tuple(forward<U>(x)),
@@ -113,7 +113,7 @@ construct(p, piecewise_construct,
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * forward[link /reference/utility/forward.md]
 
-- (5) : 以下と等価、すなわち(2)に移譲
+- (5) : 以下と等価、すなわち(2)に委譲
 	```cpp
 construct(p, piecewise_construct,
           forward_as_tuple(pr.first),
@@ -122,7 +122,7 @@ construct(p, piecewise_construct,
 * piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
-- (6) : 以下と等価、すなわち(2)に移譲
+- (6) : 以下と等価、すなわち(2)に委譲
 	```cpp
 construct(p, piecewise_construct,
           forward_as_tuple(forward<U>(pr.first)),

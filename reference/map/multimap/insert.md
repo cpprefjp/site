@@ -54,7 +54,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (5) : 新たな要素`y`を`position`より前の出来るだけ近い位置にムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる。
 - (6) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
 - (7) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。
-- (8) : `insert(init.begin(), init.end())`と等価（(7)へ移譲）。
+- (8) : `insert(init.begin(), init.end())`と等価（(7)へ委譲）。
 - (9) : `nh`が空の場合、効果はない。そうでなければ、`nh`によって所有されている要素を挿入する。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
 - (10) : `nh`が空の場合、効果はない。そうでなければ、`nh` によって所有されている要素を`p`より前の出来るだけ近い位置に挿入する。 `nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
 

@@ -60,9 +60,9 @@ namespace std {
 - `COMMON-REF(A, B)`
     - `X = remove_reference_t<A>`, `Y = remove_reference_t<B>`として、以下のように定義される
         1. `A, B`が共に左辺値参照型の場合、`COND-RES(COPYCV(X, Y) &, COPYCV(Y, X) &)`が有効であり参照型ならばその型
-        2. `A, B`が共に右辺値参照型の場合、`C = remove_reference_t<COMMON-REF(X, Y)>&&`（1に移譲）が有効であり、`is_convertible_v<A, C> && is_convertible_v<B, C> == true`ならば、型`C`
-        3. `A`が右辺値参照型で`B`が左辺値参照型の場合、`D = COMMON-REF(const X&, Y&)`（1に移譲）が有効であり、`is_convertible_v<A, D> == true`ならば、型`D`
-        4. `B`が右辺値参照型で`A`が左辺値参照型の場合、`COMMON-REF(B, A)`として3に移譲
+        2. `A, B`が共に右辺値参照型の場合、`C = remove_reference_t<COMMON-REF(X, Y)>&&`（1に委譲）が有効であり、`is_convertible_v<A, C> && is_convertible_v<B, C> == true`ならば、型`C`
+        3. `A`が右辺値参照型で`B`が左辺値参照型の場合、`D = COMMON-REF(const X&, Y&)`（1に委譲）が有効であり、`is_convertible_v<A, D> == true`ならば、型`D`
+        4. `B`が右辺値参照型で`A`が左辺値参照型の場合、`COMMON-REF(B, A)`として3に委譲
         5. それ以外の場合及び、上位のいずれかによる結果として不適格な型が生成された場合は、`COMMON-REF(A, B)`は不適格
 
 ## 備考

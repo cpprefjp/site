@@ -57,7 +57,7 @@ namespace std {
                            strong_ordering::equal;
   ```
 
-- (2) : 以下と等価、すなわち(1)に移譲
+- (2) : 以下と等価、すなわち(1)に委譲
   ```cpp
   return lexicographical_compare_three_way(first1, last1, first2, last2, compare_three_way());
   ```
