@@ -180,7 +180,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | 名前                         | 説明                                            | 対応バージョン |
 |------------------------------|-------------------------------------------------|----------------|
 | [`ranges::iter_move`](iterator/iter_move.md)   | イテレータの指す要素をムーブする (customization point object)               | C++20          |
-| [`ranges::iter_swap`](iterator/iter_swap.md.nolink) | 2つのイテレータの指す要素を*swap*する (customization point object) | C++20 |
+| [`ranges::iter_swap`](iterator/iter_swap.md) | 2つのイテレータの指す要素を*swap*する (customization point object) | C++20 |
 
 ## 説明専用コンセプト
 

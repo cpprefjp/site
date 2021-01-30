@@ -6,9 +6,11 @@
 
 ```cpp
 namespace std {
-  inline namespace /*unspecified*/ {
+  namespace ranges {
+    inline namespace /*unspecified*/ {
 
-    inline constexpr /*unspecified*/ iter_move = /*unspecified*/;
+      inline constexpr /*unspecified*/ iter_move = /*unspecified*/;
+    }
   }
 }
 ```
