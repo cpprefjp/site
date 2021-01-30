@@ -30,7 +30,7 @@ namespace std {
 ```cpp
 ranges::iter_swap(x.current, y.current);
 ```
-* ranges::iter_swap[link /reference/iterator/iter_swap.md.nolink]
+* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 戻り値
 
@@ -42,7 +42,7 @@ return move_iterator<Iterator>(std::move(i));
 ## 備考
 
 この関数は`move_iterator`のクラス定義内で`friend`関数として定義される。そのため、メンバ関数としても非メンバ関数としても明示的に呼び出すことはできず、ADLによってのみ呼び出すことができる。 
-基本的には[`ranges::iter_swap`](/reference/iterator/iter_swap.md.nolink)カスタマイゼーションポイントオブジェクトを通して利用する。
+基本的には[`ranges::iter_swap`](/reference/iterator/iter_swap.md)カスタマイゼーションポイントオブジェクトを通して利用する。
 
 ## 例
 ```cpp example
@@ -79,7 +79,7 @@ int main() {
 }
 ```
 * iter_swap[color ff0000]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md.nolink]
+* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ### 出力
 ```
@@ -98,7 +98,7 @@ int main() {
 
 ## 関連項目
 
-- [`ranges::iter_swap`](/reference/iterator/iter_swap.md.nolink)
+- [`ranges::iter_swap`](/reference/iterator/iter_swap.md)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

@@ -33,7 +33,7 @@ auto ytmp = y.base();
 ranges::iter_swap(--xtmp, --ytmp);
 ```
 * base[link /reference/iterator/reverse_iterator/base.md]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md.nolink]
+* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 例外
 
@@ -45,12 +45,12 @@ is_nothrow_copy_constructible_v<Iterator2> &&
 noexcept(ranges::iter_swap(--declval<Iterator&>(), --declval<Iterator2&>()))
 ```
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md.nolink]
+* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 備考
 
 この関数は`reverse_iterator`のクラス定義内で`friend`関数として定義される。そのため、メンバ関数としても非メンバ関数としても明示的に呼び出すことはできず、ADLによってのみ呼び出すことができる。  
-基本的には[`ranges::iter_swap`](/reference/iterator/iter_swap.md.nolink)カスタマイゼーションポイントオブジェクトを通して利用する。
+基本的には[`ranges::iter_swap`](/reference/iterator/iter_swap.md)カスタマイゼーションポイントオブジェクトを通して利用する。
 
 ## 例
 ```cpp example
@@ -86,7 +86,7 @@ int main() {
 }
 ```
 * iter_swap[color ff0000]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md.nolink]
+* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ### 出力
 ```
@@ -105,7 +105,7 @@ int main() {
 
 ## 関連項目
 
-- [`ranges::iter_swap`](/reference/iterator/iter_swap.md.nolink)
+- [`ranges::iter_swap`](/reference/iterator/iter_swap.md)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

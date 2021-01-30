@@ -18,7 +18,7 @@ namespace std {
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* iter_swap[link /reference/iterator/iter_swap.md.nolink]
+* iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 概要
 
