@@ -54,6 +54,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <memory>
 
@@ -104,8 +105,95 @@ int main()
 * traits::destroy[link allocator_traits/destroy.md]
 * traits::deallocate[link allocator_traits/deallocate.md]
 
-### 出力
+#### 出力
 ```
+```
+
+
+### rebind_allocの使用例
+```cpp
+#include <iostream>
+#include <memory>
+
+template <class T>
+struct node {
+  T value;
+  node<T>* next;
+};
+
+// 単方向リンクリストの実装
+template <class T, class Alloc=std::allocator<T>>
+class my_forward_list {
+  // 実際にメモリ確保したいのはT型ではなくnode<T>型なので、
+  // allocator<T>をallocator<node<T>>に置き換える
+  using allocator_type = typename std::allocator_traits<
+    Alloc
+  >::template rebind_alloc<node<T>>;
+
+  using allocator_traits_type =
+    std::allocator_traits<allocator_type>;
+
+  node<T>* head_ = nullptr;
+  allocator_type alloc_;
+
+public:
+  ~my_forward_list() {
+    node<T>* p = head_;
+    while (p) {
+      node<T>* next = p->next;
+
+      allocator_traits_type::destroy(alloc_, p);
+      allocator_traits_type::deallocate(alloc_, p, 1);
+
+      p = next;
+    }
+  }
+
+  void push_back(const T& x) {
+    node<T>* new_node = allocator_traits_type::allocate(alloc_, 1);
+    allocator_traits_type::construct(alloc_, new_node, node<T>{x, nullptr});
+
+    if (!head_) {
+      head_ = new_node;
+    }
+    else {
+      node<T>* last_node = head_;
+      while (true) {
+        if (!last_node->next) {
+          last_node->next = new_node;
+          break;
+        }
+        last_node = last_node->next;
+      }
+    }
+  }
+
+  void print() {
+    for (auto* p = head_; p; p = p->next) {
+      std::cout << p->value << std::endl;
+    }
+  }
+};
+
+int main() {
+  my_forward_list<int> ls;
+  ls.push_back(3);
+  ls.push_back(1);
+  ls.push_back(4);
+  ls.print();
+}
+```
+* rebind_alloc[color ff0000]
+* allocator_traits_type::allocate[link allocator_traits/allocate.md]
+* allocator_traits_type::construct[link allocator_traits/construct.md]
+* allocator_traits_type::destroy[link allocator_traits/destroy.md]
+* allocator_traits_type::deallocate[link allocator_traits/deallocate.md]
+
+#### 出力
+```
+3
+1
+4
 ```
 
 ## バージョン
