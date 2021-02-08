@@ -61,6 +61,10 @@ char : false
 ```
 
 
+## 関連項目
+- [C++20 符号付き整数型が2の補数表現であることを規定](/lang/cpp20/signed_integers_are_twos_complement.md)
+
+
 ## 参照
 - [LWG Issue 612. `numeric_limits::is_modulo` insufficiently defined](https://wg21.cmeerw.net/lwg/issue612)
     - C++11で、定義がより明確になった
