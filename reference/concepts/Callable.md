@@ -1,7 +1,7 @@
 # Callable
 * cpp11[meta cpp]
 * concepts[meta header]
-* concept[meta id-type]
+* named requirement[meta id-type]
 * [meta namespace]
 
 ## 概要
