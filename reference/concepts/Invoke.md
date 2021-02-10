@@ -1,7 +1,7 @@
 # INVOKE
 * cpp11[meta cpp]
 * concepts[meta header]
-* concept[meta id-type]
+* named requirement[meta id-type]
 * [meta namespace]
 
 ## 用語定義
