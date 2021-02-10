@@ -203,7 +203,8 @@ Warning: [nolinked editors_doc/specialized.md] href "/reference/foobar.md.nolink
 
 * `[meta header]`: 所属ヘッダを表すメタ情報
     * 例: `* chrono[meta header]`
-* `[meta id-type]`: 識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, macro, namespace
+* `[meta category]`: 説明用の機能群を表すメタ情報
+* `[meta id-type]`: 識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, macro, namespace, concept, named requirement
 * `[meta namespace]`: 所属する名前空間を表すメタ情報。マクロを考慮して省略可。名前空間の区切りは`::`
     * 例: `* std[meta namespace]`
     * 例: `* std::chrono[meta namespace]`
@@ -213,6 +214,7 @@ Warning: [nolinked editors_doc/specialized.md] href "/reference/foobar.md.nolink
     * `* cpp14[meta cpp]` : C++14で追加された機能
     * `* cpp17[meta cpp]` : C++17で追加された機能
     * `* cpp20[meta cpp]` : C++20で追加された機能
+    * `* cpp23[meta cpp]` : C++23で追加された機能
     * `* cpp11deprecated[meta cpp]` : C++11で非推奨になった機能
     * `* cpp14deprecated[meta cpp]` : C++14で非推奨になった機能
     * `* cpp14removed[meta cpp]` : C++14で削除された機能
@@ -220,6 +222,8 @@ Warning: [nolinked editors_doc/specialized.md] href "/reference/foobar.md.nolink
     * `* cpp17removed[meta cpp]` : C++17で削除された機能
     * `* cpp20deprecated[meta cpp]` : C++20で非推奨になった機能
     * `* cpp20removed[meta cpp]` : C++20で削除された機能
+    * `* cpp23deprecated[meta cpp]` : C++23で非推奨になった機能
+    * `* cpp23removed[meta cpp]` : C++23で削除された機能
 
 ## 数式
 
