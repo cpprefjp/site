@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 要件
-型`T`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
+型`From`と型`To`は完全型であるか、`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型でなければならない。
 
 
 ## 効果
@@ -68,7 +68,7 @@ static_assert(std::is_nothrow_convertible_v<int, D> == false);
 
 int main() {}
 ```
-* std::is_nothrow_convertible[color ff0000]
+* std::is_nothrow_convertible_v[color ff0000]
 
 ### 出力
 ```
