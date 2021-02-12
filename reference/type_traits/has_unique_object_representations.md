@@ -69,9 +69,11 @@ struct unique_object_representations {
 };
 
 struct not_unique_object_representations {
-  char a;/*
-  ここにパディングが3バイトある
-  */int b;
+  char a;
+  // 後続メンバbが配置されるメモリアドレスをint型にとって自然なアライメントとするため、
+  // 多くの処理系ではここにパディングを挿入する。例：sizeof(int)==4環境では3バイト。
+  // pragmaやコンパイルオプションなど処理系独自の手段でパディング量は調整できることが多い。
+  int b;
 };
 
 int main()
@@ -89,7 +91,7 @@ int main()
 ```
 * std::has_unique_object_representations[color ff0000]
 
-### 出力
+### 出力例
 ```
 true
 true
