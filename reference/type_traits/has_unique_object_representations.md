@@ -29,7 +29,7 @@ namespace std {
 
 以下、もう少し詳細な解説。
 
-まず、型`T`のオブジェクト表現とは、`T`を`unsigned char[N]`で参照したときのバイト配列のことである（`N == sizeof(T)`）。  
+まず、型`T`のオブジェクト表現とは、`T`のオブジェクトを型`unsigned char[N]`で参照したときのバイト列のことである（`N == sizeof(T)`）。
 次に、型`T`の値表現とは、`T`の値を保持するビット列のことである。  
 そして、`T`が[*TriviallyCopyable*](is_trivially_copyable.md)であれば、値表現はオブジェクト表現内に含まれる。
 
@@ -38,9 +38,9 @@ namespace std {
 
 [スカラー型](is_scalar.md)がこの性質を満たすかは処理系定義となるが、符号なし整数型は一意なオブジェクト表現を持つ。  
 またC++20以降、符号付整数型は2の補数表現であると規定されるため、C++20以降は（現在でも多くの処理系がそうであるが）符号付も含めた整数型がこの性質を満たすようになる。  
-また、多くの処理系では浮動小数点型はこの性質を満たさない。
+また、多くの処理系において IEC 559 (IEEE 754) に準拠する浮動小数点型がこの性質を満たさない。
 
-ビットフィールドも処理系によってバイト表現が異なるため処理系定義となる（主に、Itenium ABIとMSVC ABI間で異なる）。
+ビットフィールドも処理系によってバイト表現が異なるため処理系定義となる（主に、Itanium ABIとMSVC ABI間で異なる）。
 
 `T`型の二つのオブジェクトが同じ値を持つとは、以下の場合である：
 
@@ -82,6 +82,9 @@ int main()
 
   std::cout << std::has_unique_object_representations<int>::value << std::endl;
   std::cout << std::has_unique_object_representations<unsigned int>::value << std::endl;
+
+  // IEC 559(IEEE 754)準拠の浮動小数点型では、異なるバイト列であっても等価となるケースが存在する。
+  // 正のゼロ(+0.0)と負のゼロ(-0.0)は等価と評価されるが、それぞれの値を表すバイト列は異なっている。
   std::cout << std::has_unique_object_representations<float>::value << std::endl;
   std::cout << std::has_unique_object_representations<double>::value << std::endl;
 
