@@ -35,27 +35,27 @@ struct s
   static void static_member_function(){} // decltype(&s::static_member_function) は void (*)()
 };
 
-static_assert(std::is_member_object_pointer<int s::*>::value == true, "value == true, int s::* is member pointer");
-static_assert(std::is_same<std::is_member_object_pointer<int s::*>::value_type, bool>::value, "value_type == bool");
-static_assert(std::is_same<std::is_member_object_pointer<int s::*>::type, std::true_type>::value, "type == true_type");
-static_assert(std::is_member_object_pointer<int s::*>() == true, "is_member_object_pointer<int s::*>() == true");
+static_assert(std::is_member_pointer<int s::*>::value == true, "value == true, int s::* is member pointer");
+static_assert(std::is_same<std::is_member_pointer<int s::*>::value_type, bool>::value, "value_type == bool");
+static_assert(std::is_same<std::is_member_pointer<int s::*>::type, std::true_type>::value, "type == true_type");
+static_assert(std::is_member_pointer<int s::*>() == true, "is_member_pointer<int s::*>() == true");
 
-static_assert(std::is_member_object_pointer<int>::value == false, "value == false, int is not member pointer");
-static_assert(std::is_same<std::is_member_object_pointer<int>::value_type, bool>::value, "value_type == bool");
-static_assert(std::is_same<std::is_member_object_pointer<int>::type, std::false_type>::value, "type == false_type");
-static_assert(std::is_member_object_pointer<int>() == false, "is_member_object_pointer<int>() == false");
+static_assert(std::is_member_pointer<int>::value == false, "value == false, int is not member pointer");
+static_assert(std::is_same<std::is_member_pointer<int>::value_type, bool>::value, "value_type == bool");
+static_assert(std::is_same<std::is_member_pointer<int>::type, std::false_type>::value, "type == false_type");
+static_assert(std::is_member_pointer<int>() == false, "is_member_pointer<int>() == false");
 
-static_assert(std::is_member_object_pointer<int s::* const>::value == true, "int s::* const is member pointer");
-static_assert(std::is_member_object_pointer<const int s::*>::value == true, "const int s::* is member pointer");
-static_assert(std::is_member_object_pointer<int* s::*>::value == true, "int* s::* is member pointer");
+static_assert(std::is_member_pointer<int s::* const>::value == true, "int s::* const is member pointer");
+static_assert(std::is_member_pointer<const int s::*>::value == true, "const int s::* is member pointer");
+static_assert(std::is_member_pointer<int* s::*>::value == true, "int* s::* is member pointer");
 
-static_assert(std::is_member_function_pointer<void (s::* const)()>::value == true, "void (s::* const)() is member pointer");
-static_assert(std::is_member_function_pointer<void (s::*)() const>::value == true, "void (s::*)() const is member pointer");
-static_assert(std::is_member_function_pointer<const int* (s::*)()>::value == true, "const int* (s::*)() is member pointer");
+static_assert(std::is_member_pointer<void (s::* const)()>::value == true, "void (s::* const)() is member pointer");
+static_assert(std::is_member_pointer<void (s::*)() const>::value == true, "void (s::*)() const is member pointer");
+static_assert(std::is_member_pointer<const int* (s::*)()>::value == true, "const int* (s::*)() is member pointer");
 
 int main(){}
 ```
-* std::is_member_object_pointer[color ff0000]
+* std::is_member_pointer[color ff0000]
 
 ### 出力
 ```
