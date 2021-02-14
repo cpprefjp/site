@@ -111,5 +111,5 @@ namespace std {
 
 
 ## 参照
-- [WG14 N657 Floating-Point and Complex Arithmetic Enhancements](http://www7.open-std.org/JTC1/SC22/WG14/www/docs/n657.ps)
+- [WG14 N657 Floating-Point and Complex Arithmetic Enhancements](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n657.ps)
 
