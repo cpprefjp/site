@@ -115,7 +115,7 @@ int main() {
 
 ### 出力例
 ```
-main.cpp:5
+g() at main.cpp:5
 main.cpp
 5
 ```
