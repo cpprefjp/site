@@ -78,6 +78,6 @@ true
 
 
 ## 参照
-- [P0514R4 Efficient concurrent waiting for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0514r4.pdf)
+- [P0995R1 Improving atomic_flag](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0995r1.html)
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
 - [P1135R6 The C++20 Synchronization Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html)
