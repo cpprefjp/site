@@ -69,9 +69,9 @@ int main() {
 
 #### 出力例
 ```
- 0# main.cpp:5
- 1# main.cpp:9
- 2# main.cpp:13
+ 0# g() at main.cpp:5
+ 1# f() at main.cpp:9
+ 2# main at main.cpp:13
 ```
 
 ### 現在位置からN個を除いたスタックトレースを取得する
@@ -95,8 +95,8 @@ int main() {
 
 #### 出力例
 ```
- 0# main.cpp:9
- 1# main.cpp:13
+ 0# f() at main.cpp:9
+ 1# main at main.cpp:13
 ```
 
 ### 指定範囲のスタックトレースを取得する
@@ -120,8 +120,8 @@ int main() {
 
 #### 出力例
 ```
- 0# main.cpp:9
- 1# main.cpp:13
+ 0# f() at main.cpp:9
+ 1# main at main.cpp:13
 ```
 
 

@@ -45,9 +45,9 @@ int main() {
 
 ### 出力
 ```
-main.cpp:6
-main.cpp:13
-main.cpp:17
+g() at main.cpp:6
+f() at main.cpp:13
+main at main.cpp:17
 ```
 
 
