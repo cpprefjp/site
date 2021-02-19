@@ -306,7 +306,7 @@ Await式の評価では、次のような補助的な型、式、オブジェク
 
 Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
 
-Await式は式 _o_ と式 _await-resume_ を評価し、続いて：
+Await式は式 _o_ と式 _await-ready_ を評価し、続いて：
 
 - _await-ready_ の結果が`false`の場合、コルーチンは中断状態とみなされる。その後に：
     - _await-suspend_ の型が[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md)が評価される。
