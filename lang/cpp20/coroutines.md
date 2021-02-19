@@ -281,7 +281,7 @@ co_await cast-expression
 ```
 * cast-expression[italic]
 
-Await式は、コルーチン本体複合文の内側（かつハンドラの外側）の潜在的に評価される式(potentially-evaluated expression)でのみ、出現してよい。
+Await式は、コルーチン本体複合文の内側（かつ`try`～`catch`構文の`catch`節の外側）において潜在的に評価される式(potentially-evaluated expression)でのみ、出現してよい。
 宣言文やfor構文の宣言を伴う初期化部では、その初期化子の中でのみAwait式が出現してよい。
 デフォルト引数ではAwait式を用いることはできない。
 Await式は、静的記憶域もしくは[スレッドローカル](/lang/cpp11/thread_local_storage.md)なブロックスコープ変数の初期化に出現してはならない。
