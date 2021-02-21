@@ -26,7 +26,7 @@ namespace std {
 ```cpp
 namespace std {
   template<class CharT, class Traits>
-  basic_ostream<CharT, Traits>& endl(basic_ostream<CharT, Traits>& os) {
+  basic_ostream<CharT, Traits>& ends(basic_ostream<CharT, Traits>& os) {
     return os.put(CharT());
   }
 }
