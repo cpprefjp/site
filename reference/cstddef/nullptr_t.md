@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`nullptr`の型。
+ヌルポインタを表すポインタリテラル`nullptr`の型。
 
 ## 例
 ```cpp example
@@ -20,7 +20,7 @@ namespace std {
 
 int main()
 {
-  std::cout << "sizeof(nullptr_t): " << sizeof(std::nullptr_t) << std::endl; // equals to sizeof(void*)
+  std::cout << "sizeof(nullptr_t): " << sizeof(std::nullptr_t) << std::endl; // sizeof(void*)と同サイズ
 
   std::cout << "is_object<nullptr_t>: " << std::is_object<std::nullptr_t>::value << std::endl;
   std::cout << "is_scalar<nullptr_t>: " << std::is_scalar<std::nullptr_t>::value << std::endl; // 0 on VS 2010～2012
@@ -36,9 +36,9 @@ int main()
 * std::is_array[link /reference/type_traits/is_array.md]
 * std::is_class[link /reference/type_traits/is_class.md]
 
-### 出力
+### 出力例
 ```
-sizeof(nullptr_t): 4
+sizeof(nullptr_t): 8
 is_object<nullptr_t>: 1
 is_scalar<nullptr_t>: 1
 is_union<nullptr_t>: 0
@@ -51,8 +51,12 @@ is_class<nullptr_t>: 0
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [Clang](/implementation.md#clang): 3.1
+- [GCC](/implementation.md#gcc): 4.6.4
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 	- 2010, 2012では[`is_scalar`](../type_traits/is_scalar.md)`<nullptr_t>`が`false_type`（からの派生クラス）となっているバグがある。
+
+
+## 関連項目
+- [C++11 `nullptr`](/lang/cpp11/nullptr.md)
