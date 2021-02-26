@@ -21,7 +21,7 @@ namespace std {
 
 `convertible_to`は、`From`に指定された型および値カテゴリから型`To`へ変換可能であることを表すコンセプトである。
 
-このコンセプトを満たすためには`From`から`To`へ暗黙的にも明示的にも変換可能であり、それら暗黙的および明示的な変換は同じ結果とならなければならない。
+このコンセプトを満たすためには[`declval`](/reference/utility/declval.md)`<From>()`と同じ型と値カテゴリを持つオブジェクトが型`To`へ暗黙的にも明示的にも変換可能であり、それら暗黙的および明示的な変換は同じ結果とならなければならない。
 
 ## モデル
 
@@ -141,3 +141,4 @@ true
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
 - [LWG Issue 3194. `ConvertibleTo` prose does not match code](https://wg21.cmeerw.net/lwg/issue3194)
+- [LWG Issue 3461. `convertible_to`'s description mishandles cv-qualified void](https://cplusplus.github.io/LWG/issue3461)
