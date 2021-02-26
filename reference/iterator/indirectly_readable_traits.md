@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
 
-  // 素の型を取得する、説明専用type-traits
+  // 素の型を取得しvalue_typeという名前に変換する、説明専用type-traits
   template<class>
   struct cond-value-type { };
 
@@ -39,17 +39,29 @@ namespace std {
   struct indirectly_readable_traits<const I>
     : indirectly_readable_traits<I> { };
 
-  // value_typeを定義している型についての特殊化
   template<class T>
-    requires requires { typename T::value_type; }
+  concept has-member-value-type = requires { typename T::value_type; };     // 説明専用
+
+  template<class T>
+  concept has-member-element-type = requires { typename T::element_type; }; // 説明専用
+
+  // value_typeを定義している型についての特殊化
+  template<has-member-value-type T>
   struct indirectly_readable_traits<T>
     : cond-value-type<typename T::value_type> { };
 
   // element_typeを定義している型についての特殊化
-  template<class T>
-    requires requires { typename T::element_type; }
+  template<has-member-element-type T>
   struct indirectly_readable_traits<T>
     : cond-value-type<typename T::element_type> { };
+  
+  // value_typeとelement_typeを両方定義している型についての特殊化
+  template<has-member-value-type T>
+    requires has-member-element-type<T> &&
+             same_as<remove_cv_t<typename T::element_type>, 
+                     remove_cv_t<typename T::value_type>>; }
+  struct indirectly_readable_traits<T>
+    : cond-value-type<typename T::value_type> { };
 }
 ```
 * is_object_v[link /reference/type_traits/is_object.md]
@@ -139,3 +151,4 @@ int main() {
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3446. `indirectly_readable_traits` ambiguity for types with both `value_type` and `element_type`](https://cplusplus.github.io/LWG/issue3446)
