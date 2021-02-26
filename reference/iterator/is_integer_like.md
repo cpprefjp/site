@@ -22,8 +22,8 @@ namespace std {
 
 ## 効果
 
-`is-integer-like<T>`は`T`が[`integral`](/reference/concepts/integral.md)のモデルとなるか*integer-class*である時に`true`を示す。  
-`is-signed-integer-like<T>`は`T`が[`signed_integral`](/reference/concepts/signed_integral.md)のモデルとなるか*signed-integer-class*である時に`true`を示す。
+`is-integer-like<T>`は`T`が[`integral`](/reference/concepts/integral.md)のモデルとなるか*integer-class*である時に`true`を示す。ただし、`T`が`bool`かそのCV修飾された型である場合は常に`false`となる。  
+`is-signed-integer-like<T>`は`T`が`integer-like`（`is-integer-like<T> == true`）であり、[`signed_integral`](/reference/concepts/signed_integral.md)のモデルとなるか*signed-integer-class*である時に`true`を示す。
 
 ## (signed-)integer-class型
 
@@ -66,3 +66,4 @@ namespace std {
 ## 参照
 
 - [P1522R1 Iterator Difference Type and Integer Overflow](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1522r1.pdf)
+- [LWG Issue 3467. bool can't be an integer-like type](https://cplusplus.github.io/LWG/issue3467)
