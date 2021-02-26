@@ -28,7 +28,7 @@ namespace std {
 
 2. [`partial_order`](partial_order.md)`(a, b)`が呼び出し可能ならば`partial_order(a, b)`
 
-3. `a == b`、`a < b`の両方の演算子が使用可能でありその戻り値型が`bool`へ変換可能ならば、以下の式
+3. `a == b`、`a < b`、`b < a`の3つの演算子が使用可能でありその戻り値型が`bool`へ変換可能ならば、以下の式
    ```cpp
    a == b ? partial_ordering::equivalent :
    a <  b ? partial_ordering::less :
@@ -151,3 +151,4 @@ false
 
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
+- [LWG Issue 3465. `compare_partial_order_fallback` requires `F < E`](https://cplusplus.github.io/LWG/issue3465)
