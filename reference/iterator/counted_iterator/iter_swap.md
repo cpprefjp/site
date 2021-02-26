@@ -19,6 +19,12 @@ namespace std {
 
 2つの`counted_iterator`の指す要素を交換する。
 
+## 事前条件
+
+カウントの値を`length`メンバ変数に保持するとして
+
+`length >= 0`
+
 ## 効果
 
 以下と等価
@@ -84,3 +90,4 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3472. `counted_iterator` is missing preconditions](https://cplusplus.github.io/LWG/issue3472)
