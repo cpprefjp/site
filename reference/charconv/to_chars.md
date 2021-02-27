@@ -46,8 +46,8 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 - (5)～(10)  : `fmt`は[`chars_format`](../charconv/chars_format.md)の列挙値のうちの一つであること。
 
 ## 引数
-- `first` -- 変換結果の文字列を出力する範囲の先頭のポインタ。
-- `last` -- 変換結果の文字列を出力する範囲の終端の次を指すポインタ。
+- `first` -- 変換結果の文字列を出力する範囲の先頭ポインタ。
+- `last` -- 変換結果の文字列を出力する範囲の終端ポインタ。
 - `value` -- 文字列へ変換する値。
 - `base` -- 整数の出力基数（n進数のn）指定、2進数から36進数まで。
 - `fmt` -- 浮動小数点数の出力フォーマット指定、[`chars_format`](../charconv/chars_format.md)のいずれか。
@@ -209,7 +209,7 @@ z
 
 ### 処理系
 - [Clang](/implementation.md#clang): 7.0(整数のみ)
-- [GCC](/implementation.md#gcc): 8.0(整数のみ)
+- [GCC](/implementation.md#gcc): 8.0(整数のみ), 11.1(full support)
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full support)
 
 ## 関連項目

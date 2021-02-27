@@ -32,8 +32,8 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 - (2)～(4)  : `fmt`は[`chars_format`](../charconv/chars_format.md)の列挙値のうちの一つであること。
 
 ## 引数
-- `first` -- 入力文字列の先頭のポインタ。
-- `last` -- 入力文字列の終端の次を指すポインタ。
+- `first` -- 入力文字列の先頭ポインタ。
+- `last` -- 入力文字列の終端ポインタ。
 - `value` -- 変換結果を出力する変数。
 - `base` -- 入力文字列の整数の基数（n進数のn）指定、2進数から36進数まで。
 - `fmt` -- 入力文字列の浮動小数点数のフォーマット指定、[`chars_format`](../charconv/chars_format.md)のいずれか。
@@ -243,7 +243,7 @@ nan
 
 ### 処理系
 - [Clang](/implementation.md#clang): 7.0(整数のみ)
-- [GCC](/implementation.md#gcc): 8.0(整数のみ)
+- [GCC](/implementation.md#gcc): 8.0(整数のみ), 11.1(full support)
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full support)
 
 
