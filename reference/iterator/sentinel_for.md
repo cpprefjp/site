@@ -29,6 +29,7 @@ namespace std {
 
 - `i == s`が適格である（未定義動作にならない）
 - `bool(i != s) == true`の（`i`が範囲終端に到達していない）時、`i`は間接参照可能であり`[++i, s)`も範囲を示す
+- `I&, S`が[`assignable_from`](/reference/concepts/assignable_from.md)`<I&, S>`のモデルとならないなら、構文的にも`assignable_from`コンセプトを満たさない
 
 ここでの`==`の[定義域](/reference/concepts.md)は静的ではなく、実行時に変化しうる。`[i, s)`が範囲を示している時に`i == oi`となるような別のイテレータ`oi`をインクリメント（`++oi`）した後で、範囲`[i, s)`が有効であり続ける必要はない。
 
@@ -106,4 +107,5 @@ int* is not sentinel for double*
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3453. Generic code cannot call `ranges::advance(i, s)`](https://cplusplus.github.io/LWG/issue3453)
 
