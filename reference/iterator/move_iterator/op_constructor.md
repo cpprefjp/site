@@ -24,14 +24,18 @@ constexpr move_iterator(move_iterator&&) noexcept = default; // (4) C++17
 ## 概要
 `move_iterator`オブジェクトを構築する。
 
-- (1) : デフォルトコンストラクタ。内容する元となるイテレータの値を、`Iterator`の初期化された値を使用して初期化する。
-- (2) : 元となるイテレータを受け取り、メンバ変数に保持する。
+- (1) : デフォルトコンストラクタ。内包する元となるイテレータを値初期化する。
+- (2) : 元となるイテレータ`i`をメンバ変数にムーブして保持する。
 - (3) : `u.base()`をメンバ変数に保持する。
 
+## テンプレートパラメータ制約
 
-## 要件
-- (3) : `U`が`Iterator`に変換可能であること
-
+- C++17まで
+  - (3) : `U`が`Iterator`に変換可能であること
+- C++20
+  - (3) : 次の全てを満たす
+    - `is_same_v<U, Iterator> == false`であること。
+    - `const U&, Iterator`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
 
 ## 例
 ```cpp example
@@ -83,3 +87,4 @@ int main()
 
 ## 参照
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [LWG Issue 3435. `three_way_comparable_with<reverse_iterator<int*>, reverse_iterator<const int*>>`](https://cplusplus.github.io/LWG/issue3435)

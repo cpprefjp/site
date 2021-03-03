@@ -21,9 +21,15 @@ constexpr move_iterator& operator=(move_iterator&&) = default;      // (3) C++17
 ## 概要
 - (1) : `u.base()`をメンバ変数に保持する。
 
+## テンプレートパラメータ制約
 
-## 要件
-- (1) : `U`が`Iterator`に変換可能であること
+- C++17まで
+  - (1) : `U`が`Iterator`に変換可能であること
+- C++20
+  - (1) : 次の両方を満たす
+    - `is_same_v<U, Iterator> == false`であること。
+    - `const U&`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
+    - `Iterator&, const U&`が[`assignable_from<Iterator&, const U&>`](/reference/concepts/assignable_from.md)のモデルとなること。
 
 
 ## 例
@@ -68,3 +74,4 @@ int main()
 
 ## 参照
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [LWG Issue 3435. `three_way_comparable_with<reverse_iterator<int*>, reverse_iterator<const int*>>`](https://cplusplus.github.io/LWG/issue3435)
