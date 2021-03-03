@@ -100,7 +100,7 @@ int main()
 
 // 文字列のフォーマット関数
 // not thread-safe, スレッドセーフな実装ではないので注意
-// Boost.Formatやcppformatを使用することを推奨
+// Boost.Format, fmtlibやstd::format(C++20)の使用を推奨
 template <class... Args>
 std::string format(const char* fmt, Args&&... args)
 {
@@ -133,7 +133,8 @@ int main()
 * str()[link /reference/sstream/basic_stringstream/str.md.nolink]
 * std::fprintf[link /reference/cstdio/fprintf.md.nolink]
 * Boost.Format[link http://www.boost.org/libs/format]
-* cppformat[link https://github.com/cppformat/cppformat]
+* fmtlib[link https://github.com/fmtlib/fmt]
+* std::format[link /reference/format/format.md]
 
 #### 出力
 ```
