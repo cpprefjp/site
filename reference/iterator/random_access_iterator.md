@@ -151,3 +151,4 @@ std::ostream_iterator<double> is not random_access_iterator
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3277. Pre-increment on prvalues is not a requirement of `weakly_incrementable`](https://wg21.cmeerw.net/lwg/issue3277)
