@@ -29,7 +29,7 @@ namespace std {
 
 このコンセプトを構成する4つの制約式は全て、[等しさを保持](/reference/concepts.md)することを要求しない。
 
-`const_cast`を用いる制約式は、右辺値の代入は可能だが`const`な右辺値の代入ができないような*prvalue*の非プロキシイテレータを弾くために存在している。これによって、間接参照が*prvalue*（`T`そのもの、例えば`std::string`）を返すようなイテレータ型は`indirectly_writable`のモデルとならない。
+`const_cast`を用いる制約式は、右辺値に対しても代入できるが`const`な右辺値では代入できなくなる非プロキシイテレータの*prvalue*（例えば`std::string`そのものなど）を返すイテレータを弾くためにある。これによって、間接参照が*prvalue*を返すようなイテレータ型は`indirectly_writable`のモデルとならないが、出力可能なプロキシオブジェクトを返すイテレータは`indirectly_writable`のモデルとなる事ができる。
 
 ## モデル
 
@@ -126,3 +126,5 @@ not_writable is not indirectly writable int
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2214R0 A Plan for C++23 Ranges](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2214r0.html#a-tuple-that-is-writable)
+    - `const_cast`を用いる制約式についての説明がなされている
