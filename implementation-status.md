@@ -7,6 +7,7 @@
 - [C++14](#cpp14)
 - [C++17](#cpp17)
 - [C++20](#cpp20)
+- [C++23](#cpp23)
 
 ## <a id="cpp11" href="#cpp11">C++11言語機能の実装状況</a>
 
@@ -237,6 +238,23 @@
 - Visual C++ (MSVC):
     - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
     - [次リリース情報 - Visual Studio 2019 change log](https://github.com/microsoft/STL/wiki/Changelog)
+
+
+## <a id="cpp23" href="#cpp23">C++23言語機能の実装状況</a>
+
+| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
+|----------|------|------------|----------------|------------|--------------|
+| [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | - | - | - |
+| [部分特殊化の汎用化仕様](/lang/cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 | - | - | - | - |
+| [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
+| [スコープと名前ルックアップの仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する | - | - | - | - |
+| [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | - | - |
+
+
+各処理系のC++20実装状況ページ：
+
+- GCC: [C++23 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx23)
+- Clang: [C++2b implementation status](https://clang.llvm.org/cxx_status.html#cxx23)
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
