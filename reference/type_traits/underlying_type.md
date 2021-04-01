@@ -130,6 +130,7 @@ int main() {}
 
 ## 関連項目
 - [C++11 スコープを持つ列挙型](/lang/cpp11/scoped_enum.md)
+- [`to_underlying()`](/reference/utility/to_underlying.md)
 
 
 ## 参照
