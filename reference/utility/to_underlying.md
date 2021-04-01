@@ -45,6 +45,8 @@ int main() {
 }
 ```
 * std::to_underlying[color ff0000]
+* std::hex[link /reference/ios/hex.md]
+* std::showbase[link /reference/ios/showbase.md]
 
 ### 出力
 ```
