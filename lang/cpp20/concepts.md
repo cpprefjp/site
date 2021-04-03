@@ -884,7 +884,7 @@ int main() {
 
     // 以下と同じ
     // template <class T, class U>
-    // auto f(T a, T b) { return a + b; }
+    // auto f(T a, U b) { return a + b; }
 
     f(1, 2);     // パラメータaとbの型はint
     f(0.1, 0.2); // パラメータaとbの型はdouble
