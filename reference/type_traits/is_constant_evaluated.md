@@ -134,7 +134,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2019 update5
 
 ## 関連項目
-- [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md.nolink)
+- [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md)
 
 ## 参照
 - [P0595R2 `std::is_constant_evaluated()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0595r2.html)

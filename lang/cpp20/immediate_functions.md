@@ -83,7 +83,7 @@ C++11で導入された`constexpr`指定子によって、関数を定数式評�
 ## 関連項目
 
 * [C++11 `constexpr`](/lang/cpp11/constexpr.md)
-* [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](constinit.md.nolink)
+* [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](constinit.md)
 
 ## 参照
 
