@@ -164,6 +164,7 @@ enum class char8_t : unsigned char {};
 - [P0482R3: char8_t: A type for UTF-8 characters and strings (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r3.html)
 - [P0482R4: char8_t: A type for UTF-8 characters and strings (Revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r4.html)
 - [P0482R5: char8_t: A type for UTF-8 characters and strings (Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r5.html)
+- [P0482R6: char8_t: A type for UTF-8 characters and strings (Revision 6)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r6.html)
 
 
 ### その他
