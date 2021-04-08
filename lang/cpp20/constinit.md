@@ -71,9 +71,9 @@ struct S {
   constinit int n;  // NG
 }
 
-int main() [
+int main() {
   constinit int m = 10; // NG
-]
+}
 ```
 
 `constinit`は変数の初期化がコンパイル時に完了することを保証する。したがって`constinit`の効果は初期化を伴う変数宣言に対してのみ適用される。しかし、（別の場所で`constinit`指定されている）変数の最初の初期化の時点で`constinit`指定されている宣言に到達可能とならない場合、診断されない。
@@ -199,7 +199,7 @@ int main() {}
 
 ## 参照
 
-- [P1143R2 AddiNG the `constinit` keyword](https://wg21.link/P1143)
+- [P1143R2 Adding the `constinit` keyword](https://wg21.link/P1143)
 - [Constant initialization - Andrzej's C++ blog](https://akrzemi1.wordpress.com/2012/05/27/constant-initialization/)
 - [`mutex`のconstexprコンストラクタ - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20120621/p1)
 - [Static Initialization Order Fiasco - in neuro](https://yohhoy.hatenadiary.jp/entry/20120621/p1)  
