@@ -209,24 +209,24 @@
 | [UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md) | UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする | 9 | 7 (`-fchar8_t`オプションが必要) | | 2019 Update 2 |
 | [入れ子名前空間定義でのインライン名前空間](/lang/cpp20/nested_inline_mamespaces.md) | `namespace ns1::inline ns2::ns3 {}`のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする | 9 | 8.0 |  | 2019 Update 7 |
 | [構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md) | 記憶域指定子として`static`と`thread_local`の指定を許可 | 10 | 8.0 (partial) | | 2019 Update 4 |
-| [構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md) | 構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する | 8 | 8.0 (partial) | | |
-| [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | 10 | | | |
-| [`new`式での配列要素数の推論](/lang/cpp20/array_size_deduction_in_new-expressions.md) | `double* p = new double[]{1,2,3};`を許可 | 11 | | | |
+| [構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md) | 構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する | 8 | 8.0 (partial) | | 2017 Update 3 |
+| [丸カッコの値リストからの集成体初期化を許可](/lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする | 10 | | | 2019 Update 8 |
+| [`new`式での配列要素数の推論](/lang/cpp20/array_size_deduction_in_new-expressions.md) | `double* p = new double[]{1,2,3};`を許可 | 11 | | | 2019 Update 7 |
 | [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | 10 | Yes | | 2015 |
-| [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | 11 (`-fmodules-ts`が必要) | 8.0 partial (`-fmodules`, `-fmodules-ts`が必要) | | partial |
-| [コルーチン](/lang/cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | 10 (`-fcoroutines`が必要) | 8.0 (partial) | | |
-| [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | | |
-| [constexprの文脈でのトリビアルなデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | 10 | 10.0 | | |
+| [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | 11 (`-fmodules-ts`が必要) | 8.0 partial (`-fmodules`, `-fmodules-ts`が必要) | | 2019 Update 8 |
+| [コルーチン](/lang/cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | 10 (`-fcoroutines`が必要) | 8.0 (partial) | | 2019 Update 8 |
+| [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | | 2019 Update 5 |
+| [constexprの文脈でのトリビアルなデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md.nolink) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | 10 | 10.0 | | 2019 Update 7 |
 | [条件付きで特殊メンバ関数をトリビアルに定義するように](/lang/cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数をオーバーロードできるようにする | | | | |
 | [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](/lang/cpp20/nodiscard_should_have_a_reason.md) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | 10 | 9.0 | | 2019 Update 5 |
 | [スコープ付き列挙型のusing宣言](/lang/cpp20/using_enum.md) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする | 11 | | | 2019 Update 4 |
-| [集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | 10 | | | |
-| [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md.nolink) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 | 10 | 10.0 | | |
-| [要素数不明の配列への変換を許可](/lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.md) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 | 10 | 10.0 | | |
+| [集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | 10 | | | 2019 Update 7 |
+| [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md.nolink) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 | 10 | 10.0 | | 2019 Update 9 |
+| [要素数不明の配列への変換を許可](/lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.md) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 | 10 | | | 2019 Update 7 |
 | [コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md) | 初期化のみコンパイル時におわらせたい場合に使用する | 10 | 10.0 | | |
-| [ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md.nolink) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する | 10 | 10.0 | | |
-| [エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | | | |
-| [可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md.nolink) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | 10.0 | | |
+| [ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md.nolink) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する | 10 | 10.0 | | 2019 Update 7 |
+| [エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | | | 2019 Update 7 |
+| [可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md.nolink) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | 10.0 | | 2019 Update 9 |
 
 
 各処理系のC++20実装状況ページ：
