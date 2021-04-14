@@ -67,4 +67,4 @@ B b2(&d, &d); // エラー！ C<double*, double*>からB<W>を推論できない
 
 
 ## 参照
-- [Wording for Class Template Argument Deduction for Alias Templates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1814r0.html)
+- [P1814R0 Wording for Class Template Argument Deduction for Alias Templates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1814r0.html)
