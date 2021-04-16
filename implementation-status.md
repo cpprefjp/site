@@ -171,7 +171,7 @@
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
 |----------|------|-----|-------|-----|------|
 | P0683R1: [ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する | 8 | 6.0 | | 2019 Update 5 |
-| P0409R2: [ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする | 8 | 6.0 | | 2019 Update 1 |
+| P0409R2: [ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする | 8 | 6.0 | | 2019 Update 2 |
 | P0806R2: [`[=]`による`this`の暗黙のキャプチャを非推奨化](/lang/cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする | 9 | | | 2019 Update 2 |
 | P0428R2: [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | 8 | 9.0 | | 2019 Update 2 |
 | P0704R1: [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | | 2015 |
@@ -179,7 +179,7 @@
 | P0329R4: [指示付き初期化](/lang/cpp20/designated_initialization.md) | | 8 | 6.0 (partial) | | 2019 Update 1 |
 | P0734R0: [コンセプト](/lang/cpp20/concepts.md) | テンプレートパラメータに対する制約を行う | 10 | 10.0 (partial) | | 2019 Update 3 |
 | P0614R1: [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | 2019 Update 5 |
-| P0588R1: [暗黙のラムダキャプチャを簡略化](/lang/cpp20/simplifying_implicit_lambda_capture.md.nolink) | | 8 | | | 2019 Update 2 |
+| P0588R1: [暗黙のラムダキャプチャを簡略化](/lang/cpp20/simplifying_implicit_lambda_capture.md.nolink) | | 8 | | | 2019 Update 4 |
 | P0846R0: [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 | 9 | 9.0 | | 2019 Update 1 |
 | P0641R2: [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md.nolink) | | 9 | 8.0 | | partial |
 | P0859R0: [積極的でない`constexpr`関数のインスタンス化](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md.nolink) | | 9 | | | |
@@ -201,7 +201,7 @@
 | P1064R0: [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | | |
 | P1327R1: [定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md.nolink) | 定数式での動的多態を許可 | 10 | 9.0 | | |
 | P1002R1: [constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md) | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | | 2019 Update 5 |
-| P1073R3: [即時関数](/lang/cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | | | | |
+| P1073R3: [即時関数](/lang/cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | 11 | | | |
 | P1330R0: [定数式内での共用体のアクティブメンバの変更を許可](/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.md.nolink) | 共用体メンバの書き換えを定数式内で行えるようにする | 9 | 9.0 | | 2017 |
 | P1008R1: [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止](/lang/cpp20/prohibit_aggregates_with_user-declared_constructors.md) | コンストラクタが`delete`／`default`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | 8.0 | | 2019 |
 | P0892R2: [関数を条件付きで`explicit`にする構文を追加](/lang/cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | | 2019 Update 2 |
