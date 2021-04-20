@@ -134,7 +134,51 @@ int* volatile f6();   // NG（非推奨）
 
 
 ### 構造化束縛宣言
-（執筆中）
+
+構造化束縛宣言にも`volatile`修飾を行う事ができるが、ここでのCV修飾は右辺にある式の結果である暗黙のオブジェクトに対して作用している。
+
+右辺の式の結果が`std::tuple/std::pair`等の`tuple-like`な型のオブジェクトである場合、構造化束縛はまずその結果オブジェクトを`volatile`修飾して受けておき、その結果オブジェクトに対して`std::get`で要素の取得を行う。しかし、`std::get`には`volatile`オーバーロードが欠けており、コンパイルエラーを起こす。
+
+一方、構造化束縛の残りのケース（配列・構造体）の場合は`std::get`を用いないためこのような問題は起こらない。
+
+```cpp
+auto f() -> std::tuple<int, int, double>;
+
+volatile auto [a, b, c] = f();  // NG
+// ここでは以下の様な事が行われている
+// volatile auto tmp = f();
+// std::tuple_element_t<0, decltype(tmp)> a = std::get<0>(tmp);
+
+int array[3]{};
+
+volatile auto [a, b, c] = array; // OK
+// ここでは以下の様な事が行われている
+// volatile int tmp[] = {array[0], array[1], array[2]};
+// volatile int a = tmp[0];
+
+static_assert(std::is_volatile_v<decltype(a)>); // OK
+```
+
+このような非一貫性の他にも、構造化束縛の裏で行われている事が`volatile`には適さない。
+
+構造化束縛の`volatile`修飾はその右辺にある暗黙のオブジェクトに対して行われるが、その事は構文からは完全に隠蔽されている。右辺の式の結果オブジェクトも場合によってコピーされたり参照のまま利用されたりと、扱いが変化しうる。また、構造化束縛宣言に指定した変数名はコンパイラの扱いとしては変数名ではなく、右辺の暗黙のオブジェクト内の対応する要素にバインドされた名前でしかない。そのような名前に対する`volatile`の効果は不明瞭であり、右辺の式の直接の結果の型もその要素の型も`volatile`ではない場合には意味をなさない。
+
+`volatile`においてはその領域へのアクセスが重要であり、1度のアクセスは正確に1度だけ行われる必要があり、その順序は前後してはならない。構造化束縛宣言はその裏側で多くの事が起こりそれは場合によって変化しうるが、そこでどのオブジェクトが`volatile`となりどのような順番でアクセスが発生するのかは非常に不透明である。
+
+従って、構造化束縛宣言の`volatile`修飾は非推奨とされる。
+
+構造化束縛した名前が`volatile`である必要がある場合は、分解対象の右辺の結果オブジェクトの各要素型をあらかじめ`volatile`修飾しておく事が推奨される。
+
+```cpp
+auto f() -> std::tuple<int, int, double>;
+int array[3]{};
+
+volatile auto [a, b, c] = f();   // NG（非推奨）
+volatile auto [a, b, c] = array; // NG（非推奨）
+
+auto g() -> std::tuple<volatile int*, volatile int*, volatile double&>;
+auto [a, b, c] = g();  // OK
+```
 
 ## ライブラリにおける非推奨化
 （執筆中）
