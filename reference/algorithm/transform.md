@@ -82,7 +82,7 @@ namespace std {
 
 ## 計算量
 - (1) : 正確に `last - first` 回の `op` の適用が行われる。
-- (2) : 正確に `last - first` 回の `binary_op` の適用が行われる。
+- (2) : 正確に `last1 - first1` 回の `binary_op` の適用が行われる。
 
 
 ## 備考
