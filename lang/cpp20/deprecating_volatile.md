@@ -267,6 +267,108 @@ auto&& [a, b, c] = f();  // OK、一時オブジェクト内各要素へのバ�
 
 非推奨化で触れられてはいないが、`volatile`変数を並行処理の共有変数として使用することは常に間違っている。
 
+## 不適切な使用の例
+
+提案文書より不適切と思われる`volatile`の用例をいくつか引用する。中には今回の非推奨化の対象となっていないものもある。
+
+```cpp
+struct foo {
+  int a : 4;
+  int b : 2;
+};
+volatile foo f;
+
+// どんな命令が生成され、fの領域の各バイトに何回アクセスするか不透明
+f.a = 3;
+```
+
+```cpp
+struct foo {
+  volatile int a : 4;
+  int b : 2;
+};
+foo f;
+
+// f.aの領域へのアクセスが発生するか不透明
+f.b = 1;
+```
+
+```cpp
+union foo {
+  char c;
+  int i;
+};
+volatile foo f;
+
+// sizeof(int) [byte]の領域へアクセスするか、sizeof(char) [byte]の領域へアクセスするのか、不透明
+f.c = 42;
+```
+
+```cpp
+volatile int i;
+
+// iの領域へ何回のアクセスが発生するか不透明
+// これはどちらも非推奨化
+i += 42;
+++i;
+```
+
+```cpp
+volatile int i, j, k;
+
+// iへの代入時にjの値を読み取るか不透明（非推奨化）
+i = j = k;
+```
+
+```cpp
+struct big { int arr[32]; };
+volatile _Atomic struct big ba;
+struct big b2;
+
+// 誰から見てもatomicになるとは限らない
+// ほとんどの環境で非推奨化
+ba = b2;
+```
+
+```cpp
+int what(volatile std::atomic<int> *atom) {
+  int expected = 42;
+
+  // この操作でatomの指す領域に何回アクセスが発生するのか不透明（場合によって変化する）
+  atom->compare_exchange_strong(expected, 0xdead);
+    
+  return expected;
+}
+```
+
+```cpp
+// この関数を呼び出すとき、呼び出し側は何を気にすべきか不透明
+void what_does_the_caller_care(volatile int);
+```
+
+```cpp
+// 無意味（非推奨化）
+volatile int nonsense(void);
+```
+
+```cpp
+struct retme { int i, j; };
+
+// 無意味（非推奨化）
+volatile struct retme silly(void);
+```
+
+```cpp
+struct device {
+  unsigned reg;
+  device() : reg(0xc0ffee) {}
+  ~device() { reg = 0xdeadbeef; }
+};
+
+// 初期化（コンストラクタ内）、破棄（デストラクタ内）はともにvolatileではない
+volatile device dev;
+```
+
 ## 参照
 
 - [P1152R0 Deprecating `volatile`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1152r0.html)
