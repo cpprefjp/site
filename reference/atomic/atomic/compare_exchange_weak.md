@@ -193,7 +193,7 @@ int main()
 
 
 ## 関連項目
-- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/cpp20/deprecating_volatile.md.nolink)
+- [C++20 ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md)
 
 
 ## 参照
