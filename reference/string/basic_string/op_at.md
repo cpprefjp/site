@@ -13,7 +13,7 @@ reference operator[](size_type pos) noexcept;             // (2) C++11
 ```
 
 ## 概要
-`pos` 番目目の要素への参照を取得する。
+`pos` 番目の要素への参照を取得する。
 
 
 ## 要件
@@ -23,13 +23,14 @@ reference operator[](size_type pos) noexcept;             // (2) C++11
 ## 戻り値
 - C++03
     - `pos <` [`size()`](size.md) の場合、`*(`[`begin()`](begin.md) `+ pos)` を返す。
-    - `pos ==` [`size()`](size.md)の場合、`charT()` の値を持ったオブジェクトへの参照を返す。
+    - `pos ==` [`size()`](size.md) の場合、(1) は `charT()` の値を持ったオブジェクトへの参照を返す。
     - それ以外の場合は、未定義動作。
 
 - C++11以降
     - `pos <` [`size()`](size.md) の場合、`*(`[`begin()`](begin.md) `+ pos)` を返す。
-    - そうでない場合は、`charT()` の値を持ったオブジェクトへの参照を返す。
-    - 後者の場合、参照を変更するべきではない。
+    - `pos ==` [`size()`](size.md) の場合、`charT()` の値を持ったオブジェクトへの参照を返す。
+    - それ以外の場合は、未定義動作。
+    - (2) において、`pos ==` [`size()`](size.md) の場合に返された参照を `charT()` 以外の値に書き換えた場合の動作は未定義。
 
 
 ## 例外
