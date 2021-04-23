@@ -85,7 +85,7 @@ namespace std {
 #include <iostream>
 
 int main() {
-  std::shared_ptr<int> sp = std::make_shared<int>();
+  std::shared_ptr<int> sp = std::make_shared<int>(42);
   if(sp) {
     std::cout << *sp << std::endl;
   }
