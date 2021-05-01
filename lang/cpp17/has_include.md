@@ -95,4 +95,4 @@ has_include.cpp:23:4: warning: "fuga" is not found [-W#warnings]
 ```
 
 ## 参照
-- [PR0061R1 __has_include for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0061r1.html)
+- [P0061R1 __has_include for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0061r1.html)
