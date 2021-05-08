@@ -7,10 +7,10 @@ C++の準標準と呼ばれているライブラリ。C++標準化委員会の�
 ライセンス：Boost Software License 1.0
 
 
-- [OpenCV](http://opencv.jp/)
+- [OpenCV](https://opencv.org/)
 
-クロスプラットフォームな画像処理、画像認識のためのC++の高水準なクラスライブラリが提供されている。Boostとも連携しやすい。最近ではCUDAなどにも対応している。  
-ライセンス：BSD License
+クロスプラットフォームな画像処理、画像認識のためのC++の高水準なクラスライブラリが提供されている。Boostとも連携しやすい。最近ではCUDAなどにも対応している。[日本語版マニュアル](http://opencv.jp/)はバージョン2.3相当まで。  
+ライセンス：Apache 2 License（バージョン4.4までは 三条項BSD License）
 
 
 - [Qt](https://www.qt.io/)
