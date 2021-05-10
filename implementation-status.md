@@ -123,7 +123,7 @@
 | P0170R1: [ラムダ式を`constexpr`として使用できるようにする](/lang/cpp17/constexpr_lambda.md) | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする | 7 | 5 | 19.0 | 2017 Update 3 |
 | P0184R0: [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md) | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | 18.0 | 2017 |
 | P0018R3: [ラムダ式での`*this`のコピーキャプチャ](/lang/cpp17/lambda_capture_of_this_by_value.md) | キャプチャリストに`*this`を指定することで、`*this`をコピーキャプチャする | 7 | 3.9 | 19.0 | 2017 Update 3 |
-| [`enum class`変数の初期値として整数を指定する際の規則を調整](/lang/cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 | 7 | 1.9 | 19.0 | 2017 Update 3 |
+| [`enum class`変数の初期値として整数を指定する際の規則を調整](/lang/cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 | 7 | 3.9 | 19.0 | 2017 Update 3 |
 | [浮動小数点数の16進数リテラル](/lang/cpp17/hexadecimal_floating_literals.md) | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 3.0 | 3.0 | 18.0 | 2017 Update 5 |
 | [属性の名前空間指定に繰り返しをなくす](/lang/cpp17/using_attribute_namespaces.md) | `[[using CC: opt(1), debug]]`のように属性の名前空間宣言をまとめて行う | 7 | 3.9 | 18.0 | 2017 Update 3 |
 | [アライメント指定されたデータの動的メモリ確保](/lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.md) | `operator new`と`operator delete`でアライメント値を取得できるようにする | 7 | 4 | No | 2017 Update 5 |
