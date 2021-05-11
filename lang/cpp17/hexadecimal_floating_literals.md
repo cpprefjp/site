@@ -76,5 +76,5 @@ C99 で十六進浮動小数リテラルが採用された。
 
 ## 参照
 
-* [P00245R0 Hexadecimal floating literals for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r0.html)
-* [P00245R1 Hexadecimal floating literals for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r1.html)
+* [P0245R0 Hexadecimal floating literals for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r0.html)
+* [P0245R1 Hexadecimal floating literals for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0245r1.html)
