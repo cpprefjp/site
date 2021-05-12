@@ -56,16 +56,27 @@ auto g([[maybe_unused]] Args... args) {};
 
 template <class... Args>
 auto f(Args... args) {
-  [...args=std::move(args)] { // 初期化キャプチャでのパック展開
+  return [...args=std::move(args)] { // 初期化キャプチャでのパック展開
 
     g(args...); // ラムダ式内で、init-capture パック(args)を使う例
 
   };
 }
 
+template <class... Args>
+void h(Args... args) {
+  auto lm = [&...refs=args] { // 参照キャプチャ形式へのパック展開
+    // refsの各要素はargsの各要素への参照となる
+  };
+
+  lm();
+} // argsの各要素は関数h終了にともなって生存期間終了するため、
+  // refsの各要素(参照型)へアクセスできるのはここまで。
+
 int main()
 {
-    f(1, 3.14, "Hello, World!");
+  f(1, 3.14, "Hello, World!");
+  h(1, 3.14, "Hello, World!");
 }
 ```
 
@@ -126,3 +137,4 @@ auto f(Args... args) {
 ## 参照
 - [P0780R2 Allow pack expansion in lambda init-capture](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0780r2.html)
 - [CWG 1760: Access of member corresponding to init-capture](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1760)
+- [P2095R0 Resolve lambda init-capture pack grammar (CWG2378)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2095r0.html)
