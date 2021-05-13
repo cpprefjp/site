@@ -38,16 +38,15 @@ constexpr double inner_product_2d(const double (&v1)[2], const double (&v2)[2]) 
   if (std::is_constant_evaluated()) {
     dp = v1[0]*v2[0] + v1[1]*v2[1];
   } else {
-    constexpr int imm8 = 0b110001;
     asm volatile (
-      "movlpd %%xmm0, %1;"
-      "movhpd %%xmm0, %2;"
-      "movlpd %%xmm1, %3;"
-      "movhpd %%xmm1, %4;"
-      "dppd %%xmm0, %%xmm1, %5;"
-      "movlpd %0, %%xmm0"
+      "movlpd %1, %%xmm0\n"
+      "movhpd %2, %%xmm0\n"
+      "movlpd %3, %%xmm1\n"
+      "movhpd %4, %%xmm1\n"
+      "dppd $0b110001, %%xmm1, %%xmm0\n"
+      "movlpd %%xmm0, %0\n"
       : "=m"(dp)
-      : "m"(v1[0]), "m"(v1[1]), "m"(v2[0]), "m"(v2[1]), "N"(imm8)
+      : "m"(v1[0]), "m"(v1[1]), "m"(v2[0]), "m"(v2[1])
     );
   }
 
@@ -75,9 +74,7 @@ int main() {
 * is_constant_evaluated[link /reference/type_traits/is_constant_evaluated.md]
 * sqrt2[link /reference/numbers/sqrt2.md]
 
-### 出力例
-
-GCC 11.1 x86-64 `-masm=intel`オプションを設定して実行
+### 出力例（GCC 11.1 x86-64）
 
 ```
 0
