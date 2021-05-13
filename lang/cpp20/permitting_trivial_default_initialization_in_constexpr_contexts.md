@@ -32,6 +32,8 @@ C++20からは、このような変数の値が読み取られない限り、定
 ## 例
 
 ```cpp example
+#include <iostream>
+
 template <typename T>
 constexpr T copy(const T& other) {
   T t;  // トリビアルなデフォルト初期化
