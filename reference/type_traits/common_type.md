@@ -27,18 +27,19 @@ namespace std {
 ## 効果
 `common_type`は、`Types...`に含まれる全ての型が暗黙変換可能な型を、メンバ型`type`として定義する。
 
-より詳細には、次のように決定される。ただし、C++11では[`decay`](/reference/type_traits/decay.md)を適用するプロセスが、C++14では下記`N == 2`の時のプロセスが、それぞれ行われない。
+より詳細には、次のように決定される。ただし、C++11では[`decay`](/reference/type_traits/decay.md)を適用するプロセスが、C++14では下記`N == 2`の時のプロセスが、C++17では`N == 2`のとき`COND-RES`を適用するプロセスが、それぞれ行われない。
 
 `N = sizeof...(Types)`として
 
 - `N == 0` : メンバ型`type`は定義されない。
 
 - `N == 1` : `Types...`内の唯一の型を`T`とすると、`type = common_type_t<T, T>;`のように`type`を定義。
-- `N == 2` : `Types...`の１、2番目の型を`T1, T2`、`D1 = decay_t<T1>, D2 = decay_t<T2>`として
-	- `T1,T2`に対する`decay`の適用は、少なくとも片方が恒等写像とならない（`is_same_v<T1, D1> && is_same_v<T2, D2> == false`となる）場合  
-	`type = common_type_t<D1, D2>;`のように`type`を定義。
-	- そうではなく、ユーザ定義の特殊化もない場合、`type = decay_t<decltype(false ? declval<D1>() : declval<D2>())>;`のように`type`を定義。
-	- 上記の様な型が定義できない場合、メンバ型`type`は定義されない。
+- `N == 2` : `Types...`の1, 2番目の型を`T1, T2`、`D1 = decay_t<T1>, D2 = decay_t<T2>`として
+	- `T1,T2`に対する`decay`適用が少なくとも片方が恒等写像とならない（`is_same_v<T1, D1> == false || is_same_v<T2, D2> == false`となる）場合、`type = common_type_t<D1, D2>;`
+	- `common_type<T1, T2>`に対するユーザ定義の特殊化が行われていれば、同特殊化を利用する。
+  - `C = decay_t<decltype(false ? declval<D1>() : declval<D2>())>`が有効な型ならば、`type = C;`
+  - `COND-RES(CREF(D1), CREF(D2))`が有効な型ならば、`type = decay_­t<COND-RES(CREF(D1), CREF(D2))>;`
+	- そうでなければ、メンバ型`type`は定義されない。
 - `N >= 3` : `Types...`の１、2番目の型を`T1, T2`、残りのパラメータパックを`P...`とすると、`type = common_type_t<common_type_t<T1, T2>, P...>;`のように`type`を定義。
 	- 先頭2つの型の共通型を求めて、その型と3番目の型の共通型を求めて、その型と4番目の...というように再帰的に`common_type`を適用していく。
 
@@ -49,6 +50,15 @@ namespace std {
 - `T1, T2`はともに関数型でもなく
 - `T1, T2`はともに参照型でもなく
 - `T1, T2`はともにCV修飾もされていない
+
+
+`COND-RES`や`CREF`はそれぞれ次のように定義される型を表す説明専用のものである。
+
+- `CREF(X)`
+    - `add_­lvalue_­reference_­t<const remove_­reference_­t<A>>`
+- `COND-REF(X, Y)`
+    - `decltype(false ? declval<X(&)()>()() : declval<Y(&)()>()())`
+
 
 ## 特殊化
 `common_type`は以下の条件を満たす場合に、2引数のもの（`common_type<T1, T2>`）に限ってユーザー定義の特殊化が許可されている。
@@ -168,3 +178,5 @@ struct common_type<T, U, V...> {
 - [LWG Issue 2141. `common_type` trait produces reference types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2141)
     - C++11では、`common_type`の結果が参照型になる場合があった。C++14で`decay_t`を通すことにしたことにより、参照型が返されることがなくなった。
 - [P0453R1 Resolving LWG Issues re common_type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0435r1.pdf)
+- [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
+    - C++20で`COND-RES`, `CREF`操作を利用するステップが追加された。
