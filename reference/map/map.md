@@ -15,8 +15,8 @@ namespace std {
 
   namespace pmr {
     template <class Key, class T, class Compare = less<Key>>
-      using multimap = std::multimap<Key, T, Compare,
-                                     polymorphic_allocator<pair<const Key, T>>>;  // C++17から
+      using map = std::map<Key, T, Compare,
+                           polymorphic_allocator<pair<const Key, T>>>;  // C++17から
   }
 }
 ```
