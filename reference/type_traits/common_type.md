@@ -37,8 +37,8 @@ namespace std {
 - `N == 2` : `Types...`の1, 2番目の型を`T1, T2`、`D1 = decay_t<T1>, D2 = decay_t<T2>`として
 	- `T1,T2`に対する`decay`適用が少なくとも片方が恒等写像とならない（`is_same_v<T1, D1> == false || is_same_v<T2, D2> == false`となる）場合、`type = common_type_t<D1, D2>;`
 	- `common_type<T1, T2>`に対するユーザ定義の特殊化が行われていれば、同特殊化を利用する。
-  - `C = decay_t<decltype(false ? declval<D1>() : declval<D2>())>`が有効な型ならば、`type = C;`
-  - `COND-RES(CREF(D1), CREF(D2))`が有効な型ならば、`type = decay_t<COND-RES(CREF(D1), CREF(D2))>;`
+	- `C = decay_t<decltype(false ? declval<D1>() : declval<D2>())>`が有効な型ならば、`type = C;`
+	- `COND-RES(CREF(D1), CREF(D2))`が有効な型ならば、`type = decay_t<COND-RES(CREF(D1), CREF(D2))>;`
 	- そうでなければ、メンバ型`type`は定義されない。
 - `N >= 3` : `Types...`の１、2番目の型を`T1, T2`、残りのパラメータパックを`P...`とすると、`type = common_type_t<common_type_t<T1, T2>, P...>;`のように`type`を定義。
 	- 先頭2つの型の共通型を求めて、その型と3番目の型の共通型を求めて、その型と4番目の...というように再帰的に`common_type`を適用していく。
