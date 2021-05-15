@@ -31,7 +31,7 @@ namespace std::ranges {
 2. `a, b`が共に同じ長さの配列型の左辺値であり、`ranges::swap(*a, *b)`が呼び出し可能ならば`ranges::swap_ranges(a, b)`
       - 1か3に委譲して要素毎に`swap`される
 
-3. `a, b`が共に同じ型`T`の左辺値であり、`T`と`T&`は[`move_constructible<T>`](move_constructible.md)及び[`assignable_from<T&, T>`](move_constructible.md)のモデルとなる場合、[`std::swap()`](/reference/utility/swap.md)相当の操作によって`a, b`の値を交換する。
+3. `a, b`が共に同じ型`T`の左辺値であり、`T`と`T&`は[`move_constructible<T>`](move_constructible.md)及び[`assignable_from<T&, T>`](assignable_from.md)のモデルとなる場合、[`std::swap()`](/reference/utility/swap.md)相当の操作によって`a, b`の値を交換する。
 
 4. それ以外の場合、呼び出しは不適格。
 
