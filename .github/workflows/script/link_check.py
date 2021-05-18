@@ -48,22 +48,28 @@ def fix_link(link: str) -> str:
 def find_all_links(text: str) -> (list, set):
     inner_links = []
     outer_links = set()
+
+    def add_link(origin_link: str):
+        link = fix_link(origin_link)
+        if link:
+            if "http" in link:
+                if not link.startswith("https://web.archive.org"):
+                    outer_links.add(link)
+            else:
+                inner_links.append(link)
+
     for m in re.finditer(r'\[(.*?)\]\((.*?)\)', text):
-        link = fix_link(m.group(2))
-        if link:
-            if "http" in link:
-                if not link.startswith("https://web.archive.org"):
-                    outer_links.add(link)
-            else:
-                inner_links.append(link)
+        link = m.group(2)
+        if '(' in link:
+            index = text.find(')', m.end(0))
+            after_link = text[m.start(2):index]
+            add_link(after_link)
+        else:
+            add_link(link)
+
     for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', text):
-        link = fix_link(m.group(2))
-        if link:
-            if "http" in link:
-                if not link.startswith("https://web.archive.org"):
-                    outer_links.add(link)
-            else:
-                inner_links.append(link)
+        add_link(m.group(2))
+
     return inner_links, outer_links
 
 if __name__ == '__main__':
