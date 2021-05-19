@@ -22,7 +22,7 @@ constexpr int f(int x) {
 
 
 ## 関連項目
-- [C++20 可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md.nolink)
+- [C++20 可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md)
 
 
 ## 参照

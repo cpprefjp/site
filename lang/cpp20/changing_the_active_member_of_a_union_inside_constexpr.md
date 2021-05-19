@@ -36,7 +36,7 @@ int main() {
 
 ## 関連項目
 
-- [可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md.nolink)
+- [可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md)
 
 ## 参照
 
