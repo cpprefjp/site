@@ -78,22 +78,18 @@ C++17までは、クラス型のリテラル型はトリビアルデストラク
 struct S {
   int n = 10;
   
-  constexpr void* operator new(std::size_t n) {
-    return ::operator new(n); // 定数式で実行可能ではない
-  }
-  
-  constexpr void operator delete(void* p) noexcept {
-    ::operator delete(p); // 定数式で実行可能ではない
-  }
+  // 仮に定数式で実行可能なように定義されていたとしても
+  constexpr void* operator new(std::size_t n);
+  constexpr void operator delete(void* p) noexcept;
 };
 
 constexpr int f() {
-  S* s = new S{}; // NG
+  S* s = new S{}; // NG、ユーザー定義operator newの呼び出し
 
   s->n = 20;
   int n = s->n;
 
-  delete s; // NG
+  delete s;
 
   return n;
 }
