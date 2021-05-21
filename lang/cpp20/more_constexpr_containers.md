@@ -67,7 +67,74 @@ C++17までは、クラス型のリテラル型はトリビアルデストラク
 なお、クラスが仮想基底クラスを持つ時、デストラクタもコンストラクタも`constexpr`指定することはできない。
 
 ### `new/delete`式
-(執筆中)
+
+定数式では未定義動作を可能な限り検出しコンパイルエラーとしなければならない。`operator new/operator delete`や`malloc/free`はその実行に伴ってポインタの再解釈（`void*`への/からのキャスト）が必要となるが、ポインタの再解釈は検出しづらい未定義動作に繋がりうるため定数式では禁止されている。
+
+そのため、そのようなポインタの再解釈が発生しない動的メモリ確保機能である`new/delete`式がコンパイル時の動的メモリ確保・解放の方法として許可される。`new/delete`式は`operator new/operator delete`とは異なり、メモリの確保・解放とその領域のオブジェクト構築・破棄を一挙に行う言語機能である。
+
+ただし、コンパイル時に実行される`new`式はグローバルのオーバーロード可能な[`operator new`](/reference/new/op_new.md)を呼び出すものでなくてはならない。そうではない`new`式の定数式における評価はコンパイルエラーとなる。
+
+```cpp
+struct S {
+  int n = 10;
+  
+  constexpr void* operator new(std::size_t n) {
+    return ::operator new(n); // 定数式で実行可能ではない
+  }
+  
+  constexpr void operator delete(void* p) noexcept {
+    ::operator delete(p); // 定数式で実行可能ではない
+  }
+};
+
+constexpr int f() {
+  S* s = new S{}; // NG
+
+  s->n = 20;
+  int n = s->n;
+
+  delete s; // NG
+
+  return n;
+}
+```
+
+そして、コンパイル時に`new`式で確保されたメモリ領域は、コンパイル時に`delete`式によって解放されなければならない。その対応が取れていない`new/delete`式の呼び出しは、どちらもコンパイルエラーとなる。
+
+```cpp
+constexpr int f() {
+  int* d = new int;
+
+  *d = 20;
+  int n = *d;
+
+  // 忘れる
+  //delete d;
+
+  return n;
+}
+
+int main () {
+  constexpr int n = f();  // NG、コンパイルエラー
+}
+```
+
+したがって、C++20のコンパイル時動的メモリ確保の仕様では、コンパイル時に確保したメモリ領域を実行時へ持ち越すことはできない。
+
+実際には、これらの定数式中の`new`式の評価は常に省略されている。この省略はC++14より許可されている最適化の一環として行われ、スタック領域などのストレージを別途割り当てることで動的メモリ確保を避けるものである。対応する`delete`式の呼び出しも同様に省略され、定数式においてはメモリの確保と解放が一貫していることのマーカーとしての役割しか持たない。
+
+```cpp
+constexpr void f() {
+  // このコードは定数式中で
+  int* d = new int{2};
+  delete d;
+
+  // 次のようなコードと等価になる
+  int d{2};
+}
+```
+
+実際にはどこのストレージが提供されるかは規定されていない。ただ、定数式が実行される環境はC++コンパイラの内蔵する`constexpr`インタプリタ上であり、その環境のメモリ領域とはコンパイラ実行環境のヒープ領域が対応する。
 
 ### `std::allocator/std::allocator_traits`
 (執筆中)
@@ -103,4 +170,5 @@ std::vector<std::metainfo> args = std::meta::get_template_args(reflexpr(T));
 - [P0784R5 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r5.html)
 - [P0784R6 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r6.html)
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
+- [動的メモリー確保 - 江添亮の入門C++](https://ezoeryou.github.io/cpp-intro/#動的メモリー確保)
 
