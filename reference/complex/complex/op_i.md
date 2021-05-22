@@ -8,9 +8,9 @@
 namespace std {
 inline namespace literals {
 inline namespace complex_literals {
-  constexpr complex<double> operator""i(long double);
+  constexpr complex<double> operator""i(long double d);
 
-  constexpr complex<double> operator""i(unsigned long long);
+  constexpr complex<double> operator""i(unsigned long long d);
 }}}
 ```
 
