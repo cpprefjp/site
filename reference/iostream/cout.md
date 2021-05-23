@@ -109,7 +109,7 @@ Windowsでは`wchar_t`型といえばUTF-16でエンコードされた文字を�
 ## 参照
 
 - [使用できるロケール文字列](../../article/platform/locales.md)
-- [標準出力に書き込む | 株式会社きじねこ](http://www.kijineko.co.jp/tech/cppsamples/stdout.html)
+- [標準出力に書き込む | 株式会社きじねこ](https://web.archive.org/web/20191011112040/http://www.kijineko.co.jp/tech/cppsamples/stdout.html)
 - [c++で日本語の処理（ロケール周り） 7/8追記 - nullnull7の日記](http://nullnull.hatenablog.com/entry/20120629/1340935277)
 - [std::locale constructor modifies global locale via "setlocale()" | Microsoft Connect](http://web.archive.org/web/20100328154628/http://connect.microsoft.com:80/VisualStudio/feedback/details/492128/std-locale-constructor-modifies-global-locale-via-setlocale)
 - [ASCII.jp：Windows 10に“まとも”に使えるコンソール「WindowsTerminal」が登場する (2/2)](https://ascii.jp/elem/000/001/868/1868623/2/)
