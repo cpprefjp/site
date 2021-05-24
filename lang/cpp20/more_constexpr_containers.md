@@ -153,7 +153,7 @@ constexpr void f() {
 
 標準ライブラリのコンテナ等は`new/delete`式を直接利用するわけではなく、`std::allocator_traits`を介して`std::allocator`を使用してメモリ確保・解放とオブジェクト構築・破棄を行う。`std::allocator/std::allocator_traits`も見かけ上はポインタの再解釈を必要とせずにそれを行うため、`std::allocator/std::allocator_traits`によるメモリ確保周りの機能もまた、コンパイル時の動的メモリ確保・解放の方法として許可される。
 
-`std::allocator/std::allocator_traits`では`new/delete`式とは異なり、メモリの確保・解放（[`allocate`](/reference/memory/allocator/allocate.md)/[`deallocate`](/reference/memory/allocator/deallocate.md)）とその領域へのオブジェクト構築・破棄（[`construct`](/reference/memory/allocator_traits/construct.md)/[`destroy`](/memory/allocator_traits/destroy.md)）の操作が複合していない。オブジェクト構築・破棄においては*placement new*と*pseudo-destructor call*が必要となるが、*placement new*はポインタの再解釈が必要となることから許可されず、そのために不必要であるので*pseudo-destructor call*も許可されない。
+`std::allocator/std::allocator_traits`では`new/delete`式とは異なり、メモリの確保・解放（[`allocate`](/reference/memory/allocator/allocate.md)/[`deallocate`](/reference/memory/allocator/deallocate.md)）とその領域へのオブジェクト構築・破棄（[`construct`](/reference/memory/allocator_traits/construct.md)/[`destroy`](/reference/memory/allocator_traits/destroy.md)）の操作が複合していない。オブジェクト構築・破棄においては*placement new*と*pseudo-destructor call*が必要となるが、*placement new*はポインタの再解釈が必要となることから許可されず、そのために不必要であるので*pseudo-destructor call*も許可されない。
 
 代わりに、*placement new*を行うライブラリ機能である[`construct_at`](/reference/memory/construct.md.nolink)を追加し、*pseudo-destructor call*を行う[`destroy_at`](/reference/memory/destroy_at.md)と共に`constexpr`を付加し定数式で使用可能とする。これによって、ポインタ再解釈を回避しつつ*placement new*と*pseudo-destructor call*が定数式で使用可能となる。
 
