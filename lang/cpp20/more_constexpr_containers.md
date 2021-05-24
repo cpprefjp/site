@@ -72,7 +72,24 @@ C++17までは、クラス型のリテラル型はトリビアルデストラク
 
 そのため、そのようなポインタの再解釈が発生しない動的メモリ確保機能である`new/delete`式がコンパイル時の動的メモリ確保・解放の方法として許可される。`new/delete`式は`operator new/operator delete`とは異なり、メモリの確保・解放とその領域のオブジェクト構築・破棄を一挙に行う言語機能である。
 
-ただし、コンパイル時に実行される`new`式はグローバルのオーバーロード可能な[`operator new`](/reference/new/op_new.md)を呼び出すものでなくてはならない。そうではない`new`式の定数式における評価はコンパイルエラーとなる。
+```cpp
+constexpr int f() {
+  // 確保と構築
+  int* p = new int;
+
+  *p = 20;
+  int n = *p;
+
+  // 破棄と解放
+  delete p;
+
+  return n;
+}
+```
+
+当然ながら、`new/delete`式によって動的メモリ確保しようとする型はリテラル型であり、呼び出されるコンストラクタとデストラクタは共に定数式で実行可能でなければならない。
+
+また、コンパイル時に実行される`new`式はグローバルのオーバーロード可能な[`operator new`](/reference/new/op_new.md)を呼び出すものでなくてはならない。そうではない`new`式の定数式における評価はコンパイルエラーとなる。
 
 ```cpp
 struct S {
@@ -99,13 +116,13 @@ constexpr int f() {
 
 ```cpp
 constexpr int f() {
-  int* d = new int;
+  int* p = new int;
 
-  *d = 20;
-  int n = *d;
+  *p = 20;
+  int n = *p;
 
   // 忘れる
-  //delete d;
+  //delete p;
 
   return n;
 }
@@ -130,11 +147,103 @@ constexpr void f() {
 }
 ```
 
-実際にはどこのストレージが提供されるかは規定されていない。ただ、定数式が実行される環境はC++コンパイラの内蔵する`constexpr`インタプリタ上であり、その環境のメモリ領域とはコンパイラ実行環境のヒープ領域が対応する。
+実際にはどこのストレージが提供されるかは規定されていない。
 
 ### `std::allocator/std::allocator_traits`
-(執筆中)
 
+標準ライブラリのコンテナ等は`new/delete`式を直接利用するわけではなく、`std::allocator_traits`を介して`std::allocator`を使用してメモリ確保・解放とオブジェクト構築・破棄を行う。`std::allocator/std::allocator_traits`も見かけ上はポインタの再解釈を必要とせずにそれを行うため、`std::allocator/std::allocator_traits`によるメモリ確保周りの機能もまた、コンパイル時の動的メモリ確保・解放の方法として許可される。
+
+`std::allocator/std::allocator_traits`では`new/delete`式とは異なり、メモリの確保・解放（[`allocate`](/reference/memory/allocator/allocate.md)/[`deallocate`](/reference/memory/allocator/deallocate.md)）とその領域へのオブジェクト構築・破棄（[`construct`](/reference/memory/allocator_traits/construct.md)/[`destroy`](/memory/allocator_traits/destroy.md)）の操作が複合していない。オブジェクト構築・破棄においては*placement new*と*pseudo-destructor call*が必要となるが、*placement new*はポインタの再解釈が必要となることから許可されず、そのために不必要であるので*pseudo-destructor call*も許可されない。
+
+代わりに、*placement new*を行うライブラリ機能である[`construct_at`](/reference/memory/construct.md.nolink)を追加し、*pseudo-destructor call*を行う[`destroy_at`](/reference/memory/destroy_at.md)と共に`constexpr`を付加し定数式で使用可能とする。これによって、ポインタ再解釈を回避しつつ*placement new*と*pseudo-destructor call*が定数式で使用可能となる。
+
+そして、`std::allocator_traits`の`construct`と`destroy`は`construct_at/destroy_at`を呼び出して処理を行うように変更される。なお、これによって実行時の振る舞いが変化することはない。
+
+```cpp
+constexpr int f() {
+  std::allocator<int> alloc{};
+
+  // 確保と構築
+  int* p = alloc.allocate(1);
+  p = std::construct_at(p);
+
+  *p = 20;
+  int n = *p;
+
+  // 破棄と解放
+  std::destroy_at(p);
+  alloc.deallocate();
+
+  return n;
+}
+```
+
+当然ながら、`std::allocator`によって動的メモリ確保しようとする型はリテラル型であり、`construct_at/destroy_at`によって呼び出されるコンストラクタとデストラクタは共に定数式で実行可能でなければならない。
+
+また、`std::allocator<T>::allocate`が呼び出される場合は必ずその領域は`std::allocator<T>::deallocate`によって解放されていなければならず、`deallocate`と`construct_at`、`destroy_at`の引数の`T*`のポインタは`std::allocator<T>::allocate`によって確保された領域を指していなければならない。
+
+```cpp
+constexpr int f() {
+  std::allocator<int> alloc{};
+
+  // 確保と構築
+  int* p = alloc.allocate(1);
+  p = std::construct_at(p);
+
+  *p = 20;
+  int n = *p;
+
+  // 忘れる
+  //std::destroy_at(p);
+  //alloc.deallocate();
+
+  return n;
+}
+
+int main () {
+  constexpr int n = f();  // NG、コンパイルエラー
+}
+```
+
+すなわち、`new/delete`式と同様にコンパイル時に確保したメモリ領域を実行時へ持ち越すことはできない。
+
+この規則はまた、`std::allocator/std::allocator_traits`によって確保され`construct_at`によってオブジェクトが構築された領域を`delete`式で解放する事、またはその逆も許可されない事を示している。
+
+```cpp
+constexpr int f() {
+  std::allocator<int> alloc{};
+
+  // 確保と構築
+  int* p = alloc.allocate(1);
+  p = std::construct_at(p);
+
+  *p = 20;
+  int n = *p;
+
+  // 破棄と解放
+  delete p; // NG、コンパイルエラー
+
+  return n;
+}
+
+constexpr int g() {
+  std::allocator<int> alloc{};
+
+  // 確保と構築
+  int* p = new int;
+
+  *p = 20;
+  int n = *p;
+
+  // NG、コンパイルエラー
+  std::destroy_at(p);
+  alloc.deallocate();
+
+  return n;
+}
+```
+
+`destroy_at`には類似のファミリとして[`destroy_n`](/reference/memory/destroy_n.md)と、それらの`range`版があり（あるいは追加され）、`construct_at`も`range`版が同時に追加されるが、それらについても`construct_at/destroy_at`と同様の扱いが可能となる。
 
 ## この機能が必要になった背景・経緯
 
@@ -156,6 +265,11 @@ std::vector<std::metainfo> args = std::meta::get_template_args(reflexpr(T));
 
 ## 関連項目
 
+- [`allocator`](/reference/memory/allocator.md)
+- [`allocator_traits`](/reference/memory/allocator_traits.md)
+- [`construct_at`](/reference/memory/construct.md.nolink)
+- [`destroy_at`](/reference/memory/destroy_at.md)
+- [`destroy_n`](/reference/memory/destroy_n.md)
 - [`vector`](/reference/vector/vector.md)
 - [`basic_string`](/reference/string/basic_string.md)
 
