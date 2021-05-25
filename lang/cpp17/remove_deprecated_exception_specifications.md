@@ -61,3 +61,4 @@ C++でもJavaを含むこれらの問題は認識されており、動的例外�
 
 ## 参照
 - [P0003R4 Removing Deprecated Exception Specifications from C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0003r4.html)
+- [P0003R5 Removing Deprecated Exception Specifications from C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0003r5.html)
