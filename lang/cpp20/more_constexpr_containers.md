@@ -134,7 +134,7 @@ int main () {
 
 したがって、C++20のコンパイル時動的メモリ確保の仕様では、コンパイル時に確保したメモリ領域を実行時へ持ち越すことはできない。
 
-実際には、これらの定数式中の`new`式の評価は常に省略されている。この省略はC++14より許可されている最適化の一環として行われ、スタック領域などのストレージを別途割り当てることで動的メモリ確保を避けるものである。対応する`delete`式の呼び出しも同様に省略され、定数式においてはメモリの確保と解放が一貫していることのマーカーとしての役割しか持たない。
+実際には、これらの定数式中の`new`式において呼び出される`::operator new()`の評価は常に省略されている。この省略はC++14より許可されている最適化の一環として行われ、スタック領域などのストレージを別途あてがうことで動的メモリ確保を避けるものである。対応する`delete`式における`::operator delete()`の呼び出しも同様に省略され、定数式における`new/delete`式はメモリの確保と解放が一貫していることのマーカーとしての側面が強くなっている。
 
 ```cpp
 constexpr void f() {
@@ -142,12 +142,12 @@ constexpr void f() {
   int* d = new int{2};
   delete d;
 
-  // 次のようなコードと等価になる
+  // たとえば次のようなコードと等価になる
   int d{2};
 }
 ```
 
-実際にはどこのストレージが提供されるかは規定されていない。
+実際にはどこのストレージが提供されるかは実装定義である。
 
 ### `std::allocator/std::allocator_traits`
 
@@ -245,6 +245,10 @@ constexpr int g() {
 
 `destroy_at`には類似のファミリとして[`destroy_n`](/reference/memory/destroy_n.md)と、それらの`range`版があり（あるいは追加され）、`construct_at`も`range`版が同時に追加されるが、それらについても`construct_at/destroy_at`と同様の扱いが可能となる。
 
+`std::allocator::allocate()`はグローバルの`::operator new()`を呼び出すが、この呼び出しは`new`式の時と同様に省略されており、`std::allocator::deallocate()`における`::operator delete()`の呼び出しも省略されている。この2つもまた`new/delete`式と同様に、メモリの確保と解放が一貫していることのマーカーとしての側面が強くなっている。
+
+結局、C++20のコンパイル時動的メモリ確保は定数式にヒープ領域を導入するものではなく、デフォルトの`::operator new`による動的メモリ確保を別の領域をあてがう形に置換することで行われている。
+
 ## この機能が必要になった背景・経緯
 
 `std::vector`をはじめとする可変サイズのコンテナは実行時に非常に有用であるため、同様に定数式においても有用である可能性があり、その必要性がC++コミュニティからも示されいていた（[C++Now 2017: Ben Deane & Jason Turner "constexpr ALL the things!"](https://youtu.be/HMB9oXFobJc)、[P0810R0 constexpr in Practice](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0810r0.pdf)など）。
@@ -341,4 +345,5 @@ int main() {
 - [P0784R6 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r6.html)
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
 - [動的メモリー確保 - 江添亮の入門C++](https://ezoeryou.github.io/cpp-intro/#動的メモリー確保)
+- [N3664 Clarifying Memory Allocation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3664.html)
 - [P1974R0 Non-transient constexpr allocation using propconst](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1974r0.pdf)
