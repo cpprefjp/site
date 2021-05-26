@@ -34,4 +34,5 @@ int x[2][2] = {1, 2, 3, 4};
 - [CWG Issue 1270. Brace elision in array temporary initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1270)
 - [vector/arrayとUniform initialization+Initializer list - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120724/p1)
 - [initializer-listによるaggregate初期化の制約緩和 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20131116/p1)
+- [N3653 - Member initializers and aggregates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3653.html)
 
