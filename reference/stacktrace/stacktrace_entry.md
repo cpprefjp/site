@@ -20,7 +20,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](stacktrace_entry/op_constructor.md.nolink) | コンストラクタ | C++23 |
-| `~basic_stacktrace();` | デストラクタ | C++23 |
+| `~stacktrace_entry();` | デストラクタ | C++23 |
 | [`operator=`](stacktrace_entry/op_assign.md.nolink) | 代入演算子 | C++23 |
 
 
