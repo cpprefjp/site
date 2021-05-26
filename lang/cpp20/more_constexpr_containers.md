@@ -261,7 +261,67 @@ std::vector<std::metainfo> args = std::meta::get_template_args(reflexpr(T));
 これらの流れを受けて、`std::vector`と`std::string`を定数式で使用可能とするために、その最大の障壁となっていたメモリの動的確保と解放周りの機能が定数式で使用可能となった。
 
 ## 検討されたほかの選択肢
-(執筆中)
+
+当初検討されていた仕様では、コンパイル時に確保したメモリ領域を実行時に持ち越すことが可能だった。そのようなメモリ領域の確保と解放はクラス型の内部で閉じている必要はあったが、その条件を満たせば静的ストレージに昇格され実行時環境から参照できるようになる。
+
+しかし、当初のアプローチには2つの問題があった。
+
+実行時に持ち越されるメモリ領域を管理するクラスであってもそのデストラクタでその領域を解放している事が求められていたが、それはコンパイラによるテスト要件であり実行時に領域を持ち越そうとする時、実際にそのデストラクタがコンパイル時に呼ばれることはない。しかしその場合、静的ストレージに昇格される領域の内容はいつどの時点のものが保持されるのかが不透明となる。
+
+当初の仕様ではそれに対処するために、`std::mark_immutable_if_constexpr()`という関数を導入し、この関数に領域へのポインタを渡して呼び出すことでコンパイラへのマーカーとし、呼ばれた時点でのメモリ領域を実行時に持ち越すアプローチをとっていた。
+
+```cpp
+template<typename T>
+struct sample {
+  std::allocator<T> m_alloc;
+  T* m_p;
+  size_t m_size;
+
+  // 非トリビアルconstexprコンストラクタでメモリ領域を確保
+  template<size_t N>
+  constexpr sample(T(&p)[N])
+    : m_alloc{}
+    , m_p{m_alloc.allocate(N)}
+    , m_size{N}
+  {
+    for(size_t i = 0; i < N; ++i) {
+      std::construct_at(m_p + i, p[i]);
+    }
+
+    // 実行時に持ち越す領域をコンパイラに伝える
+    // ここ以降は確保した領域は不変
+    std::mark_immutable_if_constexpr(m_p);
+  }
+
+  // constexprデストラクタでメモリ領域を解放
+  constexpr ~sample() {
+    for(size_t i = 0; i < N; ++i) {
+      std::destroy_at(m_p + i);
+    }
+    m_alloc.deallocate(m_p, m_size);
+  }
+}
+
+constexpr sample<char> str{"Hello."};
+// 実行時、strは"Hello"を保持する静的配列を参照するようになる
+```
+
+2つ目の問題は、コンパイル時に確保された領域は実行時に`const`であり書き換えられてはならないが、クラス型の`const`伝播の問題から書き換えが可能となってしまっていたことである。
+
+```cpp
+// 当初の仕様ではOK（unique_ptrがconstexpr対応した場合）
+constexpr std::unique_ptr<std::unique_ptr<int>> uui 
+  = std::make_unique<std::unique_ptr<int>>(std::make_unique<int>());
+
+int main() {
+  std::unique_ptr<int>& ui = *uui; // これができてしまう
+  ui.reset(); // 静的ストレージの領域をdeleteする？
+}
+```
+
+`std::unique_ptr`ではそれ自身の`const`性が内部のポインタの参照するオブジェクトまで伝播しないため、コンパイル時に確保されたメモリ領域を参照するような`std::unique_ptr`からは、可変な参照を取得できてしまう。上記例のように`std::unique_ptr`がネストしていれば、そのような領域を`delete`することもできてしまっていた。
+
+`std::mark_immutable_if_constexpr()`によるアプローチを標準化委員会が嫌ったことと、2つ目の問題の解決が簡単ではなかった（時間がかかり得た）事から、コンパイル時に確保したメモリを実行時に持ち越すことについてはC++20への導入を見送ることとなった。
 
 ## 関連項目
 
@@ -281,4 +341,4 @@ std::vector<std::metainfo> args = std::meta::get_template_args(reflexpr(T));
 - [P0784R6 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r6.html)
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
 - [動的メモリー確保 - 江添亮の入門C++](https://ezoeryou.github.io/cpp-intro/#動的メモリー確保)
-
+- [P1974R0 Non-transient constexpr allocation using propconst](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1974r0.pdf)
