@@ -329,6 +329,7 @@ int main() {
 
 ## 関連項目
 
+- [動的メモリ確保の省略の許可](/lang/cpp14/clarifying_memory_allocation.md)
 - [`allocator`](/reference/memory/allocator.md)
 - [`allocator_traits`](/reference/memory/allocator_traits.md)
 - [`construct_at`](/reference/memory/construct.md.nolink)
