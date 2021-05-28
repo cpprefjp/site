@@ -14,6 +14,11 @@
 template <class T1, class T2>
 auto is_addable(T1 a, T2 b) -> decltype(a + b, bool())
 {
+  // decltype(a + b, bool())は、式a + bを評価しつつ、
+  // 戻り値の型としてはboolを返すという動作。
+  // 組み込みのカンマ演算子の
+  // 「`a, b`は`a`を評価しつつ式の結果としては`b`を返す」という仕様を利用している
+
   std::cout << "型T1とT2の間で、+演算子による加算が可能" << std::endl;
   return true;
 }
