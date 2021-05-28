@@ -119,10 +119,10 @@ void ng5() {
 
 void ng6 () {
   int* e1 = new int{1};
-  int* e2 = new int{2};
-
-  // NG、e1 -> e2の順で解放されている
   delete e1;
+  
+  // NG、e2の前にe1が解放されている
+  int* e2 = new int{2};
   delete e2;
 }
 ```
