@@ -32,10 +32,10 @@ size_type find_last_not_of(const T& t, size_type pos = npos) const noexcept(see 
 
 
 ## 効果
-- (1) `pos` より前で最後に `str` 内に存在しない文字の位置を返す。
-- (2) `pos` より前で最後に `s` 内に存在しない文字の位置を返す。`s` は長さ `n` の文字列へのポインタである。
+- (1) `pos` 以前で最後に `str` 内に存在しない文字の位置を返す。
+- (2) `pos` 以前で最後に `s` 内に存在しない文字の位置を返す。`s` は長さ `n` の文字列へのポインタである。
 - (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
-- (4) `pos` より前で最後に `c` と一致しない文字の位置を返す。
+- (4) `pos` 以前で最後に `c` と一致しない文字の位置を返す。
 - (5) `basic_string_view<charT, traits> sv = t;`として変数`sv`を作成し、`pos` より前で最後に `sv` 内に存在しない文字の位置を返す。
 
 
@@ -71,13 +71,13 @@ int main()
   const std::string s("Hello, world. Welcome to C++ world.");
   const std::string str("world");
 
-  // 1 つめの "world" の "d" より前で "world" を検索すると、最初の空白が見つかる
+  // 1 つめの "world" の "d" 以前で "world" を検索すると、最初の空白が見つかる
   std::cout << s.find_last_not_of(str, 11) << std::endl;
 
   // "Welcome to C++ world." を検索すると、"," が見つかる
   std::cout << s.find_last_not_of("Welcome to C++ world.") << std::endl;
 
-  // "C++" の 2 つめの "+" より前で '+' を検索すると "C" が見つかる
+  // "C++" の 2 つめの "+" 以前で '+' を検索すると "C" が見つかる
   std::cout << s.find_last_not_of('+', 27) << std::endl;
 }
 ```
