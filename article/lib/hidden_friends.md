@@ -7,14 +7,14 @@ namespace NS {
   struct C {
 
     // メンバ関数
-    void mem_func();
+    void mem_func() {}
 
     // Hidden Friends
-    friend void hidden_friend(C& self);
+    friend void hidden_friend(C& self) {}
   };
 
   // 普通の非メンバ関数
-  void free_func(C& c);
+  void free_func(C& c) {}
 }
 
 int main() {
