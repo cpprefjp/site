@@ -144,7 +144,10 @@ int main() {
   // 内部状態を保ち、等しさを保持しない呼び出し可能な型
   f<decltype(mut_lambda), int>("mut_lambda(int)");
   f<std::mt19937>("std::mt19937()");
-  
+  // これらの型は std::regular_invocable コンセプトのモデルではないが
+  // C++構文上では std::invocable との差異を区別しない／できないため
+  // それぞれ「XXX is regular_invocable」と出力される。
+
   std::cout << "\n";
   f<decltype(func), int*>("func(int*)");
   f<not_invocable>("not_invocable()");
