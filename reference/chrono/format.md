@@ -16,6 +16,22 @@ chronoライブラリのクラスオブジェクトに対する文字列フォ�
 ここでは宣言はとくにないが、[`std::format()`](/reference/format/format.md)に対してchronoライブラリの各クラスオブジェクトを出力できるよう[`std::formatter`](/reference/format/formatter.md)クラスが各クラスで特殊化されている。
 
 
+## フォーマット構文
+```
+chrono-format-spec:
+  fill-and-align(opt) width(opt) precision(opt) L(opt) chrono-specs(opt)
+```
+
+- `fill` (省略可) : アライメントに使う文字 (デフォルト：スペース)
+- `align` (省略可) : アライメント
+    - `>` : 右寄せ
+    - `<` : 左寄せ
+    - `^` : 中央寄せ
+- `width` (省略可) : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)
+- `precision` (省略可) : 精度(浮動小数点数の場合)、使う文字数(文字列の場合)
+- `L` (省略可) : この関数に指定されたロケールを使用し、指定されなければグローバルロケールを使用する。省略された場合はCロケールを使用する
+
+
 ### chronoライブラリでのフォーマットフラグ
 
 [`std::format()`](/reference/format/format.md)関数の通常の指定では、置換フィールド`{}`内に基数、精度、0埋め指定、アライメントなどを指定する。
@@ -90,3 +106,6 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)
 - [LWG Issue 3270. Parsing and formatting `%j` with `duration`s](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270)
 - [LWG Issue 3272. `%I``%p` should `parse`/`format` `duration` since midnight](https://wg21.cmeerw.net/lwg/issue3272)
+- [P2372R1 Fixing locale handling in chrono formatters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2372r1.html)
+    - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる
+

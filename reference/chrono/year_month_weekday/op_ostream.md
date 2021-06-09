@@ -21,10 +21,11 @@ namespace std::chrono {
 
 - (1) : 以下と等価：
     ```cpp
-    return os << format(STATICALLY-WIDEN<charT>("{}/{}/{}"),
+    return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{:L}/{:L}/{:L}"),
                         ymwd.year(), ymwd.month(), ymwd.weekday_indexed());
     ```
     * format[link /reference/format/format.md]
+    * os.getloc()[link /reference/ios/ios_base/getloc.md]
     * ymwd.year()[link year.md]
     * ymwd.month()[link month.md]
     * ymwd.weekday_indexed()[link weekday_indexed.md]
@@ -63,3 +64,9 @@ int main()
 
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+
+
+## 参照
+- [P2372R1 Fixing locale handling in chrono formatters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2372r1.html)
+    - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる
+

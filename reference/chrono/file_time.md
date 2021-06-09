@@ -47,9 +47,10 @@ namespace std {
 
 - (2) : 以下と等価：
     ```cpp
-    return os << format(STATICALLY-WIDEN<charT>("{:%F %T}"), tp);
+    return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{:L%F %T}"), tp);
     ```
     * format[link format.md]
+    * os.getloc()[link /reference/ios/ios_base/getloc.md]
 
 - (3) :
     - パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`tp`に代入する
@@ -216,3 +217,8 @@ int main()
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (出力フォーマットの詳細)
 - [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)
+
+
+## 参照
+- [P2372R1 Fixing locale handling in chrono formatters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2372r1.html)
+    - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる

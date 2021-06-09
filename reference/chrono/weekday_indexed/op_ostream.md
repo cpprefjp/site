@@ -23,8 +23,8 @@ namespace std::chrono {
     ```cpp
     auto i = wdi.index();
     return os << (i >= 1 && i <= 5 ?
-      format(os.getloc(), STATICALLY-WIDEN<charT>("{}[{}]"), wdi.weekday(), i) :
-      format(os.getloc(), STATICALLY-WIDEN<charT>("{}[{} is not a valid index]"),
+      format(os.getloc(), STATICALLY-WIDEN<charT>("{:L}[{}]"), wdi.weekday(), i) :
+      format(os.getloc(), STATICALLY-WIDEN<charT>("{:L}[{} is not a valid index]"),
              wdi.weekday(), i));
     ```
     * wdi.index()[link index.md]
@@ -64,3 +64,9 @@ Sun[1]
 
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (フォーマットの詳細)
+
+
+## 参照
+- [P2372R1 Fixing locale handling in chrono formatters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2372r1.html)
+    - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる
+

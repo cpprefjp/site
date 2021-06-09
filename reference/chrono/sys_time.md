@@ -61,7 +61,7 @@ namespace std {
 - (4) : 以下と等価：
     ```cpp
     auto const dp = floor<days>(tp);
-    return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{} {}"),
+    return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{:L} {:L}"),
                         year_month_day{dp}, hh_mm_ss{tp - dp});
     ```
     * floor[link time_point/floor.md]
@@ -267,3 +267,8 @@ int main()
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (出力フォーマットの詳細)
 - [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)
+
+
+## 参照
+- [P2372R1 Fixing locale handling in chrono formatters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2372r1.html)
+    - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる
