@@ -128,7 +128,7 @@ std::wstring to_wstring(float val)
                            + 6  // fixed precision (printf's default)
                            + 3; // '-' + '.' + '\0'
   wchar_t buffer[size];
-  std::swprintf(buffer, size, L"%f", val);
+  std::swprintf(buffer, size, L"%g", val);
   return buffer;
 }
 
@@ -139,7 +139,7 @@ std::wstring to_wstring(double val)
                            + 3; // '-' + '.' + '\0'
 
   wchar_t buffer[size];
-  std::swprintf(buffer, size, L"%f", val);
+  std::swprintf(buffer, size, L"%g", val);
   return buffer;
 }
 
@@ -149,7 +149,7 @@ std::wstring to_wstring(long double val)
                            + 6  // fixed precision (printf's default)
                            + 3; // '-' + '.' + '\0'
   wchar_t buffer[size];
-  std::swprintf(buffer, size, L"%Lf", val);
+  std::swprintf(buffer, size, L"%Lg", val);
   return buffer;
 }
 ```
