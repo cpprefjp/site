@@ -90,7 +90,7 @@
 - GCC: [C++14 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx14)
 - libstdc++: [C++ 2014](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014)
 - Clang: [C++98, C++11, and C++14 Support in Clang](http://clang.llvm.org/cxx_status.html)
-- libc++: [libc++ C++1Y Status](http://libcxx.llvm.org/cxx1y_status.html)
+- libc++: [libc++ C++14 Status](https://libcxx.llvm.org/Cxx1yStatus.html)
 - Visual C++ (MSVC):
     - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
     - [Announcing: MSVC Conforms to the C++ Standard](https://blogs.msdn.microsoft.com/vcblog/2018/05/07/announcing-msvc-conforms-to-the-c-standard/)
@@ -159,7 +159,7 @@
 
 - GCC: [C++17 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx17)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
-- libc++ : [libc++ C++1z Status](http://libcxx.llvm.org/cxx1z_status.html)
+- libc++ : [libc++ C++17 Status](https://libcxx.llvm.org/Cxx1zStatus.html)
 - Visual C++ (MSVC):
     - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
     - [Announcing: MSVC Conforms to the C++ Standard](https://blogs.msdn.microsoft.com/vcblog/2018/05/07/announcing-msvc-conforms-to-the-c-standard/)
@@ -234,7 +234,7 @@
 - GCC: [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx20)
 - Clang: [C++ Support in Clang](http://clang.llvm.org/cxx_status.html)
 - libstdc++: [C++ 2020 Implementation Status](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020)
-- libc++: [libc++ C++2a Status](http://libcxx.llvm.org/cxx2a_status.html)
+- libc++: [libc++ C++20 Status](https://libcxx.llvm.org/Cxx2aStatus.html)
 - Visual C++ (MSVC):
     - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
     - [次リリース情報 - Visual Studio 2019 change log](https://github.com/microsoft/STL/wiki/Changelog)
