@@ -28,7 +28,7 @@ for (int i = 0; i < v.size(); ++i) {}
 以下と等価：
 
 ```cpp
-return cmp_equal(t, u);
+return !cmp_equal(t, u);
 ```
 * cmp_equal[link cmp_equal.md]
 
