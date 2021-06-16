@@ -121,7 +121,7 @@ std::string to_string(float val)
   char buffer[std::numeric_limits<float>::max_exponent10 + 1
           + 6   // fixed precision (printf's default)
           + 3]; // '-' + '.' + '\0'
-  std::sprintf(buffer, "%g", val);
+  std::sprintf(buffer, "%f", val);
   return buffer;
 }
 
@@ -130,7 +130,7 @@ std::string to_string(double val)
   char buffer[std::numeric_limits<double>::max_exponent10 + 1
           + 6   // fixed precision (printf's default)
           + 3]; // '-' + '.' + '\0'
-  std::sprintf(buffer, "%g", val);
+  std::sprintf(buffer, "%f", val);
   return buffer;
 }
 
@@ -139,7 +139,7 @@ std::string to_string(long double val)
   char buffer[std::numeric_limits<long double>::max_exponent10 + 1
           + 6   // fixed precision (printf's default)
           + 3]; // '-' + '.' + '\0'
-  std::sprintf(buffer, "%Lg", val);
+  std::sprintf(buffer, "%Lf", val);
   return buffer;
 }
 ```
