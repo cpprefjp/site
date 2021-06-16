@@ -976,3 +976,4 @@ C++14の策定において、コンセプトの複雑さを回避して必要最
 - [P1452R2 On the non-uniform semantics of return-type-requirements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1452r2.html)
 - [P1616R1 Using unconstrained template template parameters with constrained templates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1616r1.html)
 - [C++ Concepts - complete overview (Jakub Cislo)](http://programowaniezpasja.pl/wp-content/uploads/2019/05/Cpp_Concepts_-_complete_overview_-_Jakub_Cislo.pdf)
+- [Multiple destructors with C++ concepts - Sandor Dargo's Blog](https://www.sandordargo.com/blog/2021/06/16/multiple-destructors-with-cpp-concepts)

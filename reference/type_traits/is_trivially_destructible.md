@@ -30,6 +30,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使用例
 ```cpp example
 #include <type_traits>
 
@@ -57,8 +58,78 @@ int main() {}
 ```
 * std::is_trivially_destructible[color ff0000]
 
-### 出力
+#### 出力
 ```
+```
+
+
+### 包含する型がデストラクタを呼び出す必要があるかないかで、デストラクタの定義を分ける (C++11)
+```cpp
+#include <iostream>
+#include <string>
+#include <type_traits>
+
+class TrivialBase {
+public:
+  ~TrivialBase() = default;
+};
+
+class NonTrivialBase {
+public:
+  ~NonTrivialBase() {
+    std::cout << "destruct" << std::endl;
+  }
+};
+
+template <class T>
+class A : public std::conditional<
+            std::is_trivially_destructible<T>::value,
+            TrivialBase,
+            NonTrivialBase
+          >::type {
+  T x;
+};
+
+int main()
+{
+  A<int> a;         // trivially destructible
+  A<std::string> b; // non trivially destructible
+}
+```
+* std::conditional[link conditional.md]
+
+#### 出力
+```
+destruct
+```
+
+### 包含する型がデストラクタを呼び出す必要があるかないかで、デストラクタの定義を分ける (C++20)
+```cpp
+#include <iostream>
+#include <string>
+#include <type_traits>
+
+template <class T>
+class A {
+  T x;
+public:
+  ~A() requires(!std::is_trivially_destructible_v<T>) {
+    std::cout << "destruct" << std::endl;
+  }
+
+  ~A() = default;
+};
+
+int main()
+{
+  A<int> a;         // trivially destructible
+  A<std::string> b; // non trivially destructible
+}
+```
+
+#### 出力
+```
+destruct
 ```
 
 ## バージョン
@@ -71,7 +142,12 @@ int main() {}
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 
 
+#### 備考
+- Clang 12.0時点では、コンセプトによるデストラクタのオーバーロードはサポートされておらず、コンパイルエラーになるか、もしくはオーバーロードしたデストラクタが動作しない。[Bug 50570 - Clang either crashes or choose wrong destructor when using multiple destructors using C++20 constraints](https://bugs.llvm.org/show_bug.cgi?id=50570)
+
+
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
 - [An Example that Omits Destructor Calls For Types with Trivial Destructors](http://www.boost.org/doc/libs/1_65_1/libs/type_traits/doc/html/boost_typetraits/examples/destruct.html)
     - デストラクタを呼び出す必要のない型の配列に対して、デストラクタを呼び出すループを省略する最適化の例
+- [Multiple destructors with C++ concepts - Sandor Dargo's Blog](https://www.sandordargo.com/blog/2021/06/16/multiple-destructors-with-cpp-concepts)
