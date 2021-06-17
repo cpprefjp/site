@@ -123,4 +123,4 @@ int main()
 - [N2210 Defaulted and Deleted Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2210.html)
 - [N2326 Defaulted and Deleted Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2326.html)
 - [N3172 To move or not to move](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3174.pdf)
-
+- [N2346 Defaulted and Deleted Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2346.htm)
