@@ -30,3 +30,7 @@
 - [Clang](/implementation.md#clang): 4.0.1
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`std::is_trivially_destructible`](/reference/type_traits/is_trivially_destructible.md)

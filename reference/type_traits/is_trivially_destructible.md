@@ -146,6 +146,12 @@ destruct
 - Clang 12.0時点では、コンセプトによるデストラクタのオーバーロードはサポートされておらず、コンパイルエラーになるか、もしくはオーバーロードしたデストラクタが動作しない。[Bug 50570 - Clang either crashes or choose wrong destructor when using multiple destructors using C++20 constraints](https://bugs.llvm.org/show_bug.cgi?id=50570)
 
 
+## 関連項目
+- [`std::optional`のデストラクタ](/reference/optional/optional/op_destructor.md)
+- [`std::variant`のデストラクタ](/reference/variant/variant/op_destructor.md)
+- [`std::vector`のデストラクタ](/reference/vector/vector/op_destructor.md)
+
+
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
 - [An Example that Omits Destructor Calls For Types with Trivial Destructors](http://www.boost.org/doc/libs/1_65_1/libs/type_traits/doc/html/boost_typetraits/examples/destruct.html)
