@@ -397,7 +397,7 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 - [N1952 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1952.html)
 - [N2027 A Brief Introduction to Rvalue References](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html)
     - 右辺値参照の入門
-- [N2128 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html)
+- [N2118 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html)
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
     - ムーブコンストラクタから例外を送出することを許可した経緯
 - [P0135R0 Wording for guaranteed copy elision through simplified value categories](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html)
