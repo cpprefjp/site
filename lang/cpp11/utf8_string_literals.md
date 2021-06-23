@@ -70,7 +70,10 @@ int main()
 - [ostream `operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)
 
 ## 参照
+- [N2146 Raw String Literals (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2146.html)
 - [N2159 UTF-8 String Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2159.html)
 - [N2209 UTF-8 String Literals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2209.html)
 - [N2295 Raw and Unicode String Literals; Unified Proposal](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2295.html)
+- [N2384 Raw and Unicode String Literals; Unified Proposal (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2384.html)
+- [N2442 Raw and Unicode String Literals; Unified Proposal (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2442.htm)
 

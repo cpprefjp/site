@@ -66,4 +66,6 @@ int main()
 ## 参照
 - [N0715 Incorporate the `long long` integral data type in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1995/N0715.ps)
 - [N1565 Adding the `long long` type to C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1565.pdf)
+- [N1735 Adding the `long long` type to C++ (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1735.pdf)
+- [N1811 Adding the `long long` type to C++ (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1811.pdf)
 
