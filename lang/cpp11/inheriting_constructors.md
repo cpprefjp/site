@@ -94,4 +94,5 @@ struct Derived : Base {
 - [N2376 Inheriting Constructors (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2376.html)
 - [N2438 Inheriting Constructors (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2438.htm)
 - [N2512 Inheriting Constructors (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2512.html)
+- [N2540 Inheriting Constructors (revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2540.htm)
 
