@@ -62,4 +62,5 @@ int main()
 - [N2354 Class member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2354.htm)
 - [N2426 Class member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2426.htm)
 - [N2628 Non-static data member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2628.html)
+- [N2756 Non-static data member initializers](http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2008/n2756.htm)
 
