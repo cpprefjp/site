@@ -40,7 +40,7 @@ namespace std {
 
 ## モデル
 
-`iter_reference_t<I>`の示す型`D`、`D`の値`n`、型`I`の有効なイテレータ`a`と`++a`を`n`回適用したイテレータ`b`について次の条件を満たす場合に限って、型`I`は`random_access_iterator`のモデルである。
+[`iter_difference_t<I>`](/reference/iterator/iter_difference_t.md)の示す型`D`、`D`の値`n`、型`I`の有効なイテレータ`a`と`++a`を`n`回適用したイテレータ`b`について次の条件を満たす場合に限って、型`I`は`random_access_iterator`のモデルである。
 
 - `(a += n)`は`b`と等値（*equal*）
 - `addressof(a += n)`は`addressof(a)`と等値
