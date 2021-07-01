@@ -58,7 +58,7 @@ int main()
 {
   size_t const size = 10;
   ptr = new intptr_t[size];
-  std::declare_no_pointers(ptr, sizeof(intptr_t) + size);
+  std::declare_no_pointers(ptr, sizeof(intptr_t) * size);
 
   // 以下のような間接参照は例え領域の型がintptr_tであってもしてはならない
   // *reinterpret_cast<int*>(ptr[10]);
@@ -74,7 +74,7 @@ int main()
     std::cout << i << std::endl;
   }
 
-  std::undeclare_no_pointers(ptr, sizeof(intptr_t) + size);
+  std::undeclare_no_pointers(ptr, sizeof(intptr_t) * size);
 
   return EXIT_SUCCESS;
 }
