@@ -46,6 +46,21 @@ Int2Int *pf = sqr; // エラー
 ```
 * P1073R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html]
 
+定数式として評価できない部分があっても、実行されなければエラーとならない。
+
+```cpp example
+consteval void f(int n) {
+  if(n < 0) {
+    throw "n should not be negative";
+  }
+}
+
+int main() {
+  f(10); // OK
+  f(-1); // エラー
+}
+```
+
 ## 例
 ```cpp example
 // P1073R3より引用
