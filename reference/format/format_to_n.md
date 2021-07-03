@@ -8,20 +8,20 @@
 ```cpp
 namespace std {
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, string_view fmt, const Args&... args); // (1)
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, format_string<Args...> fmt, const Args&... args); // (1)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wstring_view fmt, const Args&... args); // (2)
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wformat_string<Args...> fmt, const Args&... args); // (2)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, string_view fmt, const Args&... args); // (3)
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, format_string<Args...> fmt, const Args&... args); // (3)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, wstring_view fmt, const Args&... args); // (4)
+  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
 }
 ```
-* string_view[link /reference/string_view/basic_string_view.md]
-* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_string[italic]
+* wformat_string[italic]
 * format_to_n_result[link format_to_n_result.md]
 * locale[link /reference/locale/locale.md]
 
@@ -40,6 +40,13 @@ auto [end, n] = format_to_n(buffer, size(buffer)-1, "The answer is {}.", 42);
 *end = '\0';    // null文字は出力されない
 cout << buffer; // The answer is 42.
 ```
+
+## 適格要件
+
+* 書式文字列は定数式であり、[`string_view`](/reference/string_view/basic_string_view.md)(ワイド文字列版は[`wstring_view`](/reference/string_view/basic_string_view.md))に暗黙変換できること。
+* 書式文字列にエラーがないこと。例えば、
+    * 閉じていないカッコなどの構文エラーがないこと。
+    * 実際に渡している引数の型が書式文字列中の置換フィールドが要求する型に合うこと。
 
 ## テンプレートパラメータ制約
 
@@ -60,7 +67,7 @@ cout << buffer; // The answer is 42.
 
 ## 例外
 
-書式文字列が正しくなかったり、フォーマット実行時に失敗したりした場合、[`format_error`](format_error.md)を投げる。
+フォーマット実行時に失敗した場合、[`format_error`](format_error.md)を投げる。
 
 ## 備考
 
@@ -100,3 +107,5 @@ The answer is 42.
 
 * [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
+* [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)

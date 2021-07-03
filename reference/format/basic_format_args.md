@@ -11,24 +11,18 @@ namespace std {
 
   using format_args = basic_format_args<format_context>; // (2)
   using wformat_args = basic_format_args<wformat_context>; // (3)
-
-  template<class Out, class charT>
-  using format_args_t = basic_format_args<basic_format_context<Out, charT>>; // (4)
-
 }
 ```
-* basic_format_context[link /reference/format/basic_format_context.md]
 * format_context[link /reference/format/basic_format_context.md]
 * wformat_context[link /reference/format/basic_format_context.md]
 
 ## 概要
-フォーマット引数列を保持する型。
-
-* (2): マルチバイト文字列版、[`vformat`](vformat.md)のマルチバイト文字列版の引数に使う
-* (3): ワイド文字列版、[`vformat`](vformat.md)のワイド文字列版の引数に使う
-* (4): [`vformat_to`](vformat_to.md)の引数に使う
-
+フォーマット引数列を保持する型。[`vformat`](vformat.md)や[`vformat_to`](vformat_to.md)の引数で使用する。
 この型のオブジェクトは、[`make_format_args`](make_format_args.md)の戻り値から構築する。
+
+* (1): クラステンプレートの定義
+* (2): マルチバイト文字列版の特殊化
+* (3): ワイド文字列版の特殊化
 
 ## メンバ関数
 

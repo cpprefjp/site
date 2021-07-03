@@ -8,23 +8,23 @@
 ```cpp
 namespace std {
   template<class... Args>
-  string format(string_view fmt, const Args&... args);                      // (1)
+  string format(format_string<Args...> fmt, const Args&... args);                      // (1)
 
   template<class... Args>
-  wstring format(wstring_view fmt, const Args&... args);                    // (2)
+  wstring format(wformat_string<Args...> fmt, const Args&... args);                    // (2)
 
   template<class... Args>
-  string format(const locale& loc, string_view fmt, const Args&... args);   // (3)
+  string format(const locale& loc, format_string<Args...> fmt, const Args&... args);   // (3)
 
   template<class... Args>
-  wstring format(const locale& loc, wstring_view fmt, const Args&... args); // (4)
+  wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
 }
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
-* string_view[link /reference/string_view/basic_string_view.md]
-* wstring_view[link /reference/string_view/basic_string_view.md]
 * locale[link /reference/locale/locale.md]
+* format_string[italic]
+* wformat_string[italic]
 
 ## 概要
 
@@ -39,6 +39,8 @@ namespace std {
 string message = format("The answer is {}.", 42); // => "The answer is 42."
 ```
 * string[link /reference/string/basic_string.md]
+
+書式文字列は定数式でなければならず、コンパイル時にチェックされる。実行時に決まるフォーマット文字列を使用したい場合、[`vformat`](vformat.md)を使用できる。
 
 ### 書式文字列
 
@@ -174,19 +176,54 @@ format("{0:#x} {0:#X}", 42);           // "0x2a 0X2A"
 format("{:n}", 1234);                  // "1,234" (ロケールによる)
 ```
 
+### コンパイル時の書式文字列チェック
+
+_`format_string`_ および _`basic_format_string`_ は次のように定義される。ただし、クラス名は規定されない。
+
+```cpp
+namespace std {
+  template<class charT, class... Args> struct basic_format_string { // exposition only
+  private:
+    basic_string_view<charT> str; // exposition only
+
+  public:
+    template<class T> consteval basic_format_string(const T& s): str(s) {
+      /*何らかのコンパイル時書式文字列チェック*/
+    }
+  };
+
+  template<class... Args> using format_string
+    = basic_format_string<char, type_identity_t<Args>...>; // exposition only
+
+  template<class... Args> using wformat_string
+    = basic_format_string<wchar_t, type_identity_t<Args>...>; // exposition only
+```
+
+_`basic_format_string`_ のコンストラクタは[即時関数](/lang/cpp20/immediate_functions.md)であり、書式文字列が正しい場合にのみ定数式として評価できるように実装される。即時関数であるため、定数式として評価できない場合はエラーとなる。
+
+書式文字列チェックをエラーがあった場合に例外を投げるような実装をすれば、`throw`は定数式として評価できないため、コンパイルエラーとすることが可能である。
+
+## 適格要件
+
+* 書式文字列は定数式であり、[`string_view`](/reference/string_view/basic_string_view.md)(ワイド文字列版は[`wstring_view`](/reference/string_view/basic_string_view.md))に暗黙変換できること。
+* 書式文字列にエラーがないこと。例えば、
+    * 閉じていないカッコなどの構文エラーがないこと。
+    * 実際に渡している引数の型が書式文字列中の置換フィールドが要求する型に合うこと。
+
 ## 効果
 
 以下のコードと等しい。
 
 ```cpp
-return vformat(fmt, {make_format_args(args...)});  // (1)
-return vformat(fmt, {make_wformat_args(args...)}); // (2)
-return vformat(loc, fmt, {make_format_args(args...)}); // (3)
-return vformat(loc, fmt, {make_wformat_args(args...)}); // (4)
+return vformat(fmt.str, make_format_args(args...));  // (1)
+return vformat(fmt.str, make_wformat_args(args...)); // (2)
+return vformat(loc, fmt.str, make_format_args(args...)); // (3)
+return vformat(loc, fmt.str, make_wformat_args(args...)); // (4)
 ```
 * vformat[link vformat.md]
 * make_format_args[link make_format_args.md]
 * make_wformat_args[link make_format_args.md]
+* str[italic]
 
 ## 戻り値
 
@@ -194,7 +231,7 @@ return vformat(loc, fmt, {make_wformat_args(args...)}); // (4)
 
 ## 例外
 
-書式文字列が正しくなかったり、フォーマット実行時に失敗したりした場合、[`format_error`](format_error.md)を投げる。
+フォーマット実行時に失敗した場合、[`format_error`](format_error.md)を投げる。ただし、書式文字列に問題がある場合はコンパイルエラーとなる。
 
 ## 備考
 
@@ -224,33 +261,34 @@ The answer is 42.
 ## 実装例
 ```cpp
 template<class... Args>
-string format(string_view fmt, const Args&... args)
+string format(format_string<Args...> fmt, const Args&... args)
 {
-  return vformat(fmt, {make_format_args(args...)});
+  return vformat(fmt.str, make_format_args(args...));
 }
 
 template<class... Args>
-wstring format(wstring_view fmt, const Args&... args)
+wstring format(wformat_string<Args...> fmt, const Args&... args)
 {
-  return vformat(fmt, {make_wformat_args(args...)});
+  return vformat(fmt.str, make_wformat_args(args...));
 }
 
 template<class... Args>
-string format(const locale& loc, string_view fmt, const Args&... args)
+string format(const locale& loc, format_string<Args...> fmt, const Args&... args)
 {
-  return vformat(loc, fmt, {make_format_args(args...)});
+  return vformat(loc, fmt.str, make_format_args(args...));
 }
 
 template<class... Args>
-wstring format(const locale& loc, wstring_view fmt, const Args&... args)
+wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... args)
 {
-  return vformat(loc, fmt, {make_wformat_args(args...)});
+  return vformat(loc, fmt.str, make_wformat_args(args...));
 }
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
-* string_view[link /reference/string_view/basic_string_view.md]
-* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_string[italic]
+* wformat_string[italic]
+* str[italic]
 * vformat[link vformat.md]
 * make_format_args[link make_format_args.md]
 * make_wformat_args[link make_format_args.md]
@@ -271,3 +309,5 @@ wstring format(const locale& loc, wstring_view fmt, const Args&... args)
 * [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 * [P1652R1 Printf corner cases in std::format](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1652r1.html)
+* [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
+* [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)

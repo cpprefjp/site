@@ -42,7 +42,7 @@ namespace std {
 
 ## 例外
 
-書式文字列が正しくなかったり、フォーマット実行時に失敗したりした場合、[`format_error`](format_error.md)を投げる。
+フォーマット実行時に失敗した場合、[`format_error`](format_error.md)を投げる。
 
 ## バージョン
 ### 言語

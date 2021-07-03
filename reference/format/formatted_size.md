@@ -8,20 +8,20 @@
 ```cpp
 namespace std {
   template<class... Args>
-  size_t formatted_size(string_view fmt, const Args&... args); // (1)
+  size_t formatted_size(format_string<Args...> fmt, const Args&... args); // (1)
 
   template<class... Args>
-  size_t formatted_size(wstring_view fmt, const Args&... args); // (2)
+  size_t formatted_size(wformat_string<Args...> fmt, const Args&... args); // (2)
 
   template<class... Args>
-  size_t formatted_size(const locale& loc, string_view fmt, const Args&... args); // (3)
+  size_t formatted_size(const locale& loc, format_string<Args...> fmt, const Args&... args); // (3)
 
   template<class... Args>
-  size_t formatted_size(const locale& loc, wstring_view fmt, const Args&... args); // (4)
+  size_t formatted_size(const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
 }
 ```
-* string_view[link /reference/string_view/basic_string_view.md]
-* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_string[italic]
+* wformat_string[italic]
 * locale[link /reference/locale/locale.md]
 
 ## 概要
@@ -36,6 +36,13 @@ namespace std {
 ```cpp
 formatted_size("The answer is {}.", 42); // => 17
 ```
+
+## 適格要件
+
+* 書式文字列は定数式であり、[`string_view`](/reference/string_view/basic_string_view.md)(ワイド文字列版は[`wstring_view`](/reference/string_view/basic_string_view.md))に暗黙変換できること。
+* 書式文字列にエラーがないこと。例えば、
+    * 閉じていないカッコなどの構文エラーがないこと。
+    * 実際に渡している引数の型が書式文字列中の置換フィールドが要求する型に合うこと。
 
 ## 事前条件
 
@@ -85,3 +92,5 @@ int main()
 
 * [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
+* [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)

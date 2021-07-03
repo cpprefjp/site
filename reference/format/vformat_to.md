@@ -7,16 +7,16 @@
 
 ```cpp
 namespace std {
-  template<class Out, class... Args>
+  template<class Out>
   Out vformat_to(Out out, string_view fmt, format_args args); // (1)
 
-  template<class Out, class... Args>
+  template<class Out>
   Out vformat_to(Out out, wstring_view fmt, wformat_args args); // (2)
 
-  template<class Out, class... Args>
+  template<class Out>
   Out vformat_to(Out out, const locale& loc, string_view fmt, format_args args); // (3)
 
-  template<class Out, class... Args>
+  template<class Out>
   Out vformat_to(Out out, const locale& loc, wstring_view fmt, wformat_args args); // (4)
 }
 ```
