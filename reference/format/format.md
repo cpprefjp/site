@@ -40,7 +40,7 @@ string message = format("The answer is {}.", 42); // => "The answer is 42."
 ```
 * string[link /reference/string/basic_string.md]
 
-書式文字列は定数式でなければならず、コンパイル時にチェックされる。実行時に決まるフォーマット文字列を使用したい場合、[`vformat`](vformat.md)を使用できる。
+書式文字列は定数式でなければならず、その妥当性がコンパイル時にチェックされる。実行時に決まるフォーマット文字列を使用したい場合、[`vformat`](vformat.md)を使用できる。
 
 ### 書式文字列
 
@@ -53,14 +53,14 @@ string message = format("The answer is {}.", 42); // => "The answer is 42."
 ```
 
 * 引数IDは0から始まる番号で、何番目の引数で置換するかを指定する。
-* 引数IDを一部のフィールドだけに書くことはできない(すべての置換フィールドに指定するか、すべての置換フィールドで指定しないかのどちらかのみ)。違反した場合は[`format_error`](format_error.md)。
+* 引数IDを一部のフィールドだけに書くことはできない(すべての置換フィールドに指定するか、すべての置換フィールドで指定しないかのどちらかのみ)。違反した場合はコンパイルエラーとなる。
 * オプションの書式は引数の型によって異なる。
 
 ```cpp
 string s0 = format("{} {}",   "a", "b"); // OK
 string s1 = format("{1} {0}", "a", "b"); // OK
-string s2 = format("{0} {}",  "a", "b"); // format_error
-string s3 = format("{} {1}",  "a", "b"); // format_error
+string s2 = format("{0} {}",  "a", "b"); // コンパイルエラー
+string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 ```
 
 ### 標準のオプション書式
