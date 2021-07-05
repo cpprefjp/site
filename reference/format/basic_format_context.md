@@ -74,6 +74,7 @@ namespace std {
       out_ = it;
     }
   };
+}
 ```
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 * basic_format_args[link /reference/format/basic_format_args.md]
