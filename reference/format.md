@@ -43,7 +43,6 @@
 | [`basic_format_args`](format/basic_format_args.md) | 引数列へのアクセスを提供する (class template)                                                    | C++20          |
 | [`format_args`](format/basic_format_args.md)       | `basic_format_args`のマルチバイト文字列版 (type-alias)                                           | C++20          |
 | [`wformat_args`](format/basic_format_args.md)      | `basic_format_args`のワイド文字列版 (type-alias)                                                 | C++20          |
-| [`format_args_t`](format/basic_format_args.md)     | `basic_format_args`の第1テンプレート引数を`basic_format_context`にした別名 (type-alias)          | C++20          |
 
 ## 例外
 
