@@ -35,7 +35,7 @@ namespace std::numbers {
 
     int main() {
       // 除算で 1/√2を求める
-      double r1 = std::numbers::sqrt2 / 2;
+      constexpr double r1 = std::numbers::sqrt2 / 2;
       std::cout << r1 << std::endl; // 0.707107
 
       // sqrt2から指数を1引くことで 1/√2を求める
