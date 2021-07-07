@@ -26,6 +26,30 @@ namespace std::numbers {
 - (3) : `double`型に対する定数定義
 
 
+## 備考
+- 1/√2を表す`inv_sqrt2`は定義されない。`inv_sqrt2`は[`sqrt2`](sqrt2.md)`/2`もしくは[`sqrt2`](sqrt2.md)から指数を1引けば精度の低下なくかんたんに求められるが、`inv_sqrt3`はかんたんではないため、標準ライブラリでは`inv_sqrt3`のみが定義される
+    ```cpp
+    #include <iostream>
+    #include <numbers>
+    #include <cmath>
+
+    int main() {
+      // 除算で 1/√2を求める
+      double r1 = std::numbers::sqrt2 / 2;
+      std::cout << r1 << std::endl; // 0.707107
+
+      // sqrt2から指数を1引くことで 1/√2を求める
+      int exp = 0;
+      double fraction = std::frexp(std::numbers::sqrt2, &exp);
+      double r2 = std::ldexp(fraction, exp - 1);
+      std::cout << r2 << std::endl; // 0.707107
+    }
+    ```
+    * std::numbers::sqrt2[link sqrt2.md]
+    * std::frexp[link /reference/cmath/frexp.md]
+    * std::ldexp[link /reference/cmath/ldexp.md]
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -66,3 +90,7 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 10.1
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [Why isn't inv_sqrt2 defined in the C++ standard library? - Stackoverflow](https://stackoverflow.com/questions/61900861/why-isnt-inv-sqrt2-defined-in-the-c-standard-library)
