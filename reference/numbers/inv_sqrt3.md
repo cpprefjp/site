@@ -19,7 +19,7 @@ namespace std::numbers {
 * floating_point[link /reference/concepts/floating_point.md]
 
 ## 概要
-3の平方根の逆数である1/√3を表す定数。
+3の平方根の逆数 (inverse square root 3) である1/√3を表す定数。
 
 - (1) : プライマリーテンプレート。これをインスタンス化するとプログラムは不適格となる
 - (2) : 任意の浮動小数点数型`T`に対する定数定義。標準で定義される浮動小数点数型ごとの精度に応じた定数が定義される
