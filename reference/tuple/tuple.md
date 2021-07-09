@@ -72,6 +72,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <tuple>
@@ -95,9 +96,41 @@ int main()
 * std::get[link tuple/get.md]
 * std::make_tuple[link make_tuple.md]
 
-### 出力
+#### 出力
 ```
 1
+hello
+```
+
+### 基本的な使い方 (C++17)
+```cpp example
+#include <iostream>
+#include <tuple>
+#include <string>
+
+// 関数から複数の値を返す
+std::tuple<int, char, std::string> f()
+{
+  // std::make_tuple()はほとんどの状況で必要ない
+  return {1, 'a', "hello"};
+}
+
+int main()
+{
+  // 構造化束縛でタプルを分解して、それぞれの要素を代入
+  auto [a, b, c] = f();
+
+  std::cout << a << std::endl;
+  std::cout << b << std::endl;
+  std::cout << c << std::endl;
+}
+```
+* std::make_tuple[link make_tuple.md]
+
+#### 出力
+```
+1
+a
 hello
 ```
 
@@ -111,6 +144,10 @@ hello
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2008, 2010
 
+
+## 関連項目
+- [`std::pair`](/reference/utility/pair.md)
+- [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
 
 ## 参照
 - [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)

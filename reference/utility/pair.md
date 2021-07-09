@@ -87,6 +87,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方 (C++03)
 ```cpp example
 #include <iostream>
 #include <utility>
@@ -104,14 +105,46 @@ int main()
 ```
 * std::pair[color ff0000]
 
-### 出力
+#### 出力
 ```
 1
 hello
 ```
 
+
+### 基本的な使い方 (C++17)
+```cpp example
+#include <iostream>
+#include <utility>
+#include <string>
+
+// 関数から2つの値を返す
+std::pair<int, std::string> f()
+{
+  // std::make_pair()はほとんどの状況で必要ない
+  return {1, "hello"};
+}
+
+int main()
+{
+  // 構造化束縛でペアを分解して、それぞれの要素を代入
+  auto [a, b] = f();
+
+  std::cout << a << std::endl;
+  std::cout << b << std::endl;
+}
+```
+
+#### 出力
+```
+1
+hello
+```
+
+
 ## 関連項目
 - [`std::tuple`](/reference/tuple/tuple.md)
+- [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
 
 
 ## 参照
