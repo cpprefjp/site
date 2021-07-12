@@ -37,8 +37,8 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`description`](stacktrace_entry/description.md.nolink) | スタックトレースの履歴数を取得する | C++23 |
-| [`source_file`](stacktrace_entry/source_file.md.nolink) | 格納可能な最大の要素数を取得する | C++23 |
-| [`source_line`](stacktrace_entry/source_line.md.nolink) | スタックトレースの履歴が空かどうかを判定する | C++23 |
+| [`source_file`](stacktrace_entry/source_file.md.nolink) | ソースファイル名を取得する | C++23 |
+| [`source_line`](stacktrace_entry/source_line.md.nolink) | 行番号を取得する | C++23 |
 
 
 ## メンバ型
