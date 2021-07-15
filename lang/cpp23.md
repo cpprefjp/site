@@ -64,7 +64,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - [`<memory>`](/reference/memory.md)に、出力ポインタと入出力ポインタの抽象である[`std::out_ptr`](/reference/memory/out_ptr.md.nolink)と[`std::inout_ptr`](/reference/memory/inout_ptr.md.nolink)を追加
 
 
-## ユーティリティ
+### ユーティリティ
 - [std::visit()](/reference/variant/visit.md)に指定できるバリアントオブジェクトを、直接的な「[`std::variant`](/reference/variant/variant.md)型の特殊化であること」という制約を緩和し、[`std::variant`](/reference/variant/variant.md)から派生した型も許可
 - [`<utility>`](/reference/utility.md)に、列挙値を基底型に変換する[`std::to_underlying()`](/reference/utility/to_underlying.md)関数を追加
 
