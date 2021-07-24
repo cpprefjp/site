@@ -233,8 +233,8 @@ void foo()
   int x = 3;
 
   // ローカル関数の宣言
-  void f1(int = ([i]{ return x; })()); // コンパイルエラー
-  void f2(int = ([i]{ return 0; })()); // コンパイルエラー
+  void f1(int = ([x]{ return x; })()); // コンパイルエラー
+  void f2(int = ([x]{ return 0; })()); // コンパイルエラー
   void f3(int = ([=]{ return x; })()); // コンパイルエラー
   void f4(int = ([=]{ return 0; })()); // OK : デフォルトキャプチャしたが、使用していない
   void f5(int = ([]{ return sizeof(x); })()); // OK : キャプチャなし
