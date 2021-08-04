@@ -107,7 +107,7 @@ begin-exprとend-exprの具体的な内容は、範囲として何を渡すか�
 
 * ただし、`__bound`は配列の要素数(要素数が不明な場合はill-formed)。
 
-範囲の型がクラスであって、メンバ`begin`**または**`end`が存在するとき、以下のように展開される：
+範囲の型がクラスであって、メンバ`begin`と`end`が両方存在するとき、以下のように展開される：
 
 ```cpp
 {
@@ -124,7 +124,8 @@ begin-exprとend-exprの具体的な内容は、範囲として何を渡すか�
 * for-range-declaration[italic]
 * statement[italic]
 
-* メンバ`begin`、`end`が片方しかない場合や、関数ではない場合でもこのように展開されるが、当然エラーとなる。この問題は[C++20で部分的に緩和される](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)。
+* メンバ`begin`、`end`が関数ではない場合でもこのように展開されるが、呼び出しができなければエラーとなる。
+* 当初のC++11では、メンバ`begin`、`end`が片方しかなくてもこのように展開されていた。これは規格の不具合であり、[修正P0962R1がC++11に遡って適用された](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)。
 
 範囲の型が配列でもメンバ`begin`、`end`のいずれかを持つクラスでもないとき、以下のように展開される：
 
