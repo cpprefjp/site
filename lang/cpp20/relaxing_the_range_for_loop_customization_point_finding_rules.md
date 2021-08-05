@@ -35,9 +35,9 @@ int main()
 {
   X x{"Hello"};
 
-  // C++17まではコンパイルエラー
+  // P0962R1非対応の場合はコンパイルエラー
   // (std::stringstream::endメンバだけが見つかり、対応するbeginがないというエラーになる)。
-  // C++20ではOK
+  // P0962R1に対応していればOK
   for (char c : x) {
     std::cout << c << std::endl;
   }
