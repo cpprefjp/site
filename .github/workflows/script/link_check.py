@@ -17,7 +17,8 @@ def retry_sleep():
 
 def check_url(url: str, retry: int = 5) -> (bool, str):
     try:
-        res = requests.get(url, verify=False, timeout=60.0)
+        headers = {'User-agent': 'Mozilla/5.0'}
+        res = requests.get(url, headers=headers, verify=False, timeout=60.0)
         if res.url:
             if res.url == url:
                 return res.status_code != 404, "404"
