@@ -30,6 +30,11 @@ def check_url(url: str, retry: int = 5) -> (bool, str):
             return False, "requests.exceptions.ConnectionError : {} ".format(e)
         retry_sleep()
         return check_url(url, retry - 1)
+    except requests.exceptions.ConnectionResetError as e:
+        if retry <= 0:
+            return False, "requests.exceptions.ConnectionResetError : {} ".format(e)
+        retry_sleep()
+        return check_url(url, retry - 1)
     except requests.exceptions.RequestException as e:
         if retry <= 0:
             return False, "requests.exceptions.RequestException : {}".format(e)
