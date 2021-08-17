@@ -93,7 +93,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [積極的でない`constexpr`関数のインスタンス化](cpp20/less_eager_instantiation_of_constexpr_functions.md.nolink) | |
+| [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 |
 | [定数式からの仮想関数の呼び出しを許可](cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 |
 | [定数式での`dynamic_cast`、多態的な`typeid`を許可](cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md) | 定数式での動的多態を許可 |
 | [constexpr関数内でのtry-catchブロックを許可](cpp20/try-catch_blocks_in_constexpr_functions.md) | constexpr関数内で`try-catch`ブロックを書けるようにする |
