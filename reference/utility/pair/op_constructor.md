@@ -27,6 +27,8 @@ template <class U, class V>
 EXPLICIT constexpr pair(U&& x, V&& y);                        // (5) C++17
 template <class U, class V>
 explicit(see below) constexpr pair(U&& x, V&& y);             // (5) C++20
+template <class U = T1, class V = T2>
+explicit(see below) constexpr pair(U&& x, V&& y);             // (5) C++23
 
 template <class U, class V>
 pair(const pair<U, V>& p);                                    // (6) C++03
@@ -57,6 +59,7 @@ constexpr pair(piecewise_construct_t,
 ```
 * piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 * tuple[link /reference/tuple/tuple.md]
+* see below[italic]
 
 ## 概要
 `pair`オブジェクトを構築する。
@@ -255,3 +258,5 @@ p8 : (X(1 2 3),Y(4 5))
 - [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応
+- [P1951R1 Default Arguments for `pair`'s Forwarding Constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1951r1.html)
+    - C++23での`{}`完全転送への対応

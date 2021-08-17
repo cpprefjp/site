@@ -42,7 +42,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - [`std::stack`](/reference/stack/stack.md)と[`std::queue`](/reference/queue/queue.md)に、イテレータのペアをとるコンストラクタを追加
 - `auto v = std::vector(v, alloc);`のようなアロケータ引数をともなう場合のクラステンプレートのテンプレート引数推論が動作しなかったため、各コンテナクラスのコンストラクタにおけるアロケータパラメータの型を`const Allocator&`から`const` [`std::type_identity_t`](/reference/type_traits/type_identity.md)`<Allocator>&`に修正
 - N要素のメモリアロケート時にアロケータが実際にどれくらいのメモリを確保したかを得られるインタフェースとして、[`std::allocator`](/reference/memory/allocator.md)クラスに、[`allocate_at_least()`](/reference/memory/allocator/allocate_at_least.md.nolink)メンバ関数を追加
-- [`std::pair`](/reference/utility.md)の転送コンストラクタにデフォルトテンプレート引数を追加することで、`{}`のような型推論ができない引数を渡した場合でも完全転送が行われるよう修正
+- [`std::pair`](/reference/utility/pair.md)の転送コンストラクタにデフォルトテンプレート引数を追加することで、`{}`のような型推論ができない引数を渡した場合でも完全転送が行われるよう修正
 
 
 ### アルゴリズム
