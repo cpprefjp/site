@@ -85,12 +85,16 @@ explicit(see below) optional(optional<U>&& rhs);         // (9) C++20
 
 
 ## 定数式に評価される条件
-- (3) : 型`T`がトリビアルにコピー構築可能であること
-- (4) : 型`T`がトリビアルにムーブ構築可能であること
+- (3) : 型`T`が[トリビアルにコピー構築可能](/reference/type_traits/is_trivially_copy_constructible.md)であること
+- (4) : 型`T`が[トリビアルにムーブ構築可能](/reference/type_traits/is_trivially_move_constructible.md)であること
 - (5) : 型`T`の選択されたコンストラクタが`constexpr`であること
 - (6) : 型`T`の選択されたコンストラクタが`constexpr`であること
 - (7) : 型`T`の選択されたコンストラクタが`constexpr`であること
 
+## トリビアルに定義される条件
+
+- (3) : 型`T`が[トリビアルにコピー構築可能](/reference/type_traits/is_trivially_copy_constructible.md)であること
+- (4) : 型`T`が[トリビアルにムーブ構築可能](/reference/type_traits/is_trivially_move_constructible.md)であること
 
 ## explicitになる条件
 - (7) : 型`U`から型`T`に暗黙的に型変換ができる場合、このオーバーロードは非`explicit`となる。型`U`から型`T`に明示的な型変換ならできる場合、このオーバーロードは`explicit`となる
@@ -219,3 +223,4 @@ int main()
 - [LWG Issue 2900. The copy and move constructors of `optional` are not `constexpr`](https://wg21.cmeerw.net/lwg/issue2900)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応
+- [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)

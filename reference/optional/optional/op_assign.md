@@ -73,6 +73,10 @@ optional& operator=(optional<U>&& rhs);                  // (6)
 - (2) : 型`T`がコピー構築可能でなく、コピー代入可能でもないこと
 - (3) : 型`T`がムーブ構築可能でなく、ムーブ代入可能でもないこと
 
+## トリビアルに定義される条件
+
+- (2) : 型`T`が、[トリビアルにコピー構築可能](/reference/type_traits/is_trivially_copy_constructible.md)であり[トリビアルにコピー代入可能](/reference/type_traits/is_trivially_copy_assignable.md)かつ、[トリビアルに破棄可能](/reference/type_traits/is_trivially_destructible.md)である
+- (3) : 型`T`が、[トリビアルにムーブ構築可能](/reference/type_traits/is_trivially_move_constructible.md)であり[トリビアルにムーブ代入可能](/reference/type_traits/is_nothrow_move_assignable.md)かつ、[トリビアルに破棄可能](/reference/type_traits/is_trivially_destructible.md)である
 
 ## 例
 ```cpp example
@@ -165,3 +169,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2756. `optional<T>` should `forward` `T`'s implicit conversions](https://wg21.cmeerw.net/lwg/issue2756)
+- [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
