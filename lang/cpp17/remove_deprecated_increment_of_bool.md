@@ -14,9 +14,9 @@ C++17では`bool`型に対する前置および後置の`operator ++`を削除�
 int main()
 {
   bool b = false;
-  const b1 = ++b;
+  const bool b1 = ++b;
   std::cout << std::boolalpha << b1 << std::endl; // => true
-  const b2 = ++b;
+  const bool b2 = ++b;
   std::cout << std::boolalpha << b1 << std::endl; // => true
 }
 ```
