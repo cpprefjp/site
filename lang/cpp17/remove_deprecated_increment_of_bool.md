@@ -17,7 +17,7 @@ int main()
   const bool b1 = ++b;
   std::cout << std::boolalpha << b1 << std::endl; // => true
   const bool b2 = ++b;
-  std::cout << std::boolalpha << b1 << std::endl; // => true
+  std::cout << std::boolalpha << b2 << std::endl; // => true
 }
 ```
 
