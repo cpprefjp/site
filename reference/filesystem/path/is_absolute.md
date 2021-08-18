@@ -70,7 +70,9 @@ int main()
     "C:/",               // ルートパスのみ
     "C:/foo/bar.txt",    // ルートパスを含む
     "C:/foo/../bar.txt", // ルートパスに加えて、親ディレクトリの参照を含む
-    "foo/bar.txt"        // ルートパスを含まない
+    "foo/bar.txt",       // ルートパスを含まない
+    "C:foo",             // ルート名はあるがルートディレクトリはない
+    "/foo"               // ルートディレクトリはあるがルート名はない
   };
 
   std::cout << std::boolalpha;
@@ -84,13 +86,14 @@ int main()
 #### 出力
 ```
 "C:" : false
-"C:\" : true
-"C:\foo\bar.txt" : true
-"C:\foo\..\bar.txt" : true
-"foo\bar.txt" : false
+"C:/" : true
+"C:/foo/bar.txt" : true
+"C:/foo/../bar.txt" : true
+"foo/bar.txt" : false
+"C:foo" : false
+"/foo" : false
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン
@@ -105,4 +108,4 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 
 ## 参照
 - [`GetFullPathName` function (Windows)](https://docs.microsoft.com/ja-jp/windows/win32/api/fileapi/nf-fileapi-getfullpathnamea)
-- [Naming Files, Paths, and Namespaces (Windows)](https://docs.microsoft.com/ja-jp/windows/win32/fileio/naming-a-file)
+- [Naming Files, Paths, and Namespaces (Windows)](https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file)

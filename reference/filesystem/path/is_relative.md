@@ -68,7 +68,9 @@ int main()
     "C:/",               // ルートパスのみ
     "C:/foo/bar.txt",    // ルートパスを含む
     "C:/foo/../bar.txt", // ルートパスに加えて、親ディレクトリの参照を含む
-    "foo/bar.txt"        // ルートパスを含まない
+    "foo/bar.txt",       // ルートパスを含まない
+    "C:foo",             // ルート名はあるがルートディレクトリはない
+    "/foo"               // ルートディレクトリはあるがルート名はない
   };
 
   std::cout << std::boolalpha;
@@ -82,13 +84,14 @@ int main()
 #### 出力
 ```
 "C:" : true
-"C:\" : false
-"C:\foo\bar.txt" : false
-"C:\foo\..\bar.txt" : false
-"foo\bar.txt" : true
+"C:/" : false
+"C:/foo/bar.txt" : false
+"C:/foo/../bar.txt" : false
+"foo/bar.txt" : true
+"C:foo" : true
+"/foo" : true
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン
