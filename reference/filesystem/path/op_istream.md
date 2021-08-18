@@ -85,17 +85,15 @@ int main()
   fs::path p;
   ss >> p;
 
-  assert(p.native() == "a\\b\\c");
+  assert(p.native() == L"a/b/c");
 }
 ```
 * p.native()[link native.md]
 
 #### 出力
 ```
-"a\b\c"
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 ## バージョン
 ### 言語

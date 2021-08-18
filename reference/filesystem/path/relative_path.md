@@ -69,11 +69,10 @@ int main()
 
 #### 出力
 ```
-"C:\"
-"Program Files\a.txt"
+"C:/"
+"Program Files/a.txt"
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン

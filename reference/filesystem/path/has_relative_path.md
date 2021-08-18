@@ -90,12 +90,11 @@ int main()
 
 #### 出力
 ```
-root path : "C:\"
-relative_path : "Program Files\a.txt"
+root path : "C:/"
+relative_path : "Program Files/a.txt"
 has relative path from root path
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン

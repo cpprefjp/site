@@ -84,14 +84,13 @@ int main()
 
 #### 出力
 ```
-"C:\foo\bar.txt" : true
-"C:\foo\bar\" : false
+"C:/foo/bar.txt" : true
+"C:/foo/bar/" : false
 "C:" : false
 "." : true
 ".." : true
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン

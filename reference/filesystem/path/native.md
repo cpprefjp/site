@@ -53,7 +53,6 @@ int main()
 {
   fs::path p = "foo/bar";
 
-  // ディレクトリ区切り文字が"/"から"\\"に変換され、
   // UTF-16エンコーディングで返る
   const std::wstring& s = p.native();
   std::wcout << s << std::endl;
@@ -63,7 +62,7 @@ int main()
 
 #### 出力
 ```
-foo\bar
+foo/bar
 ```
 
 ## バージョン

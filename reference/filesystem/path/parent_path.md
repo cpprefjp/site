@@ -74,12 +74,11 @@ int main()
 
 #### 出力
 ```
-"C:\foo\bar.txt" : "C:\foo"
-"C:\foo\bar\" : "C:\foo\bar"
-"C:\" : "C:\"
+"C:/foo/bar.txt" : "C:/foo"
+"C:/foo/bar/" : "C:/foo/bar"
+"C:/" : "C:/"
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン

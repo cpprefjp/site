@@ -59,7 +59,7 @@ int main()
   auto s = p.u8string();
 
   // システムのマルチバイト文字コードからUTF-8に変換されたパス文字列が返される
-  assert(s == u8"foo\\bar");
+  assert(s == u8"foo/bar");
 }
 ```
 * p.u8string()[color ff0000]
@@ -68,7 +68,6 @@ int main()
 ```
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン
