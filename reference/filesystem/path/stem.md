@@ -102,4 +102,4 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0
 - [GCC](/implementation.md#gcc): 8.1
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7

@@ -290,4 +290,4 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 - [Clang](/implementation.md#clang): 7.0
 - [GCC](/implementation.md#gcc): 8.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7
