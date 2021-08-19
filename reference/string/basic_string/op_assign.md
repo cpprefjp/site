@@ -18,7 +18,7 @@ basic_string& operator=(initializer_list<charT> il);               // (5) C++11
 template<class T>
 basic_string& operator=(const T& t);                               // (6) C++17
 
-basic_string& operator=(nullptr_t) = delete;                       // (7)
+basic_string& operator=(nullptr_t) = delete;                       // (7) C++23
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
