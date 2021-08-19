@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-bool operator==(const type_info& rhs) const noexcept;
+bool operator==(const type_info& rhs) const noexcept;            // C++20まで
+constexpr bool operator==(const type_info& rhs) const noexcept;  // C++23から
 ```
 
 ## 概要
@@ -41,5 +42,4 @@ same type? true
 ```
 
 ## 参照
-
-
+- [P1328R1 Making `std::type_info::operator==` `constexpr`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1328r1.html)
