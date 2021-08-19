@@ -17,6 +17,8 @@ basic_string& operator=(initializer_list<charT> il);               // (5) C++11
 // string_viewを引数に取るオーバーロード
 template<class T>
 basic_string& operator=(const T& t);                               // (6) C++17
+
+basic_string& operator=(nullptr_t) = delete;                       // (7)
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -114,3 +116,5 @@ hello
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(6)の引数型を`const T&`に変更
+- [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
+    - C++23での、`nullptr_t`をとる代入演算子のdelete宣言追加
