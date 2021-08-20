@@ -273,3 +273,14 @@ p \log_{10}b&amp;\text{もし $b$ が $10$ の累乗の場合}\\
 \right.
 $$
 
+
+## 使用できないMarkdown / HTMLの機能
+- ブロックコメント (実装に使用しているMarkdownパーサーによる制限)
+    ```
+    <!--
+
+    comment out text...
+
+    -->
+    ```
+
