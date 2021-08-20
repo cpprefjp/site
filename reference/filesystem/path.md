@@ -249,7 +249,7 @@ int main()
   std::cout << "extension : " << p.extension() << std::endl;
 
   // システム依存のパスフォーマットと、システム非依存のパスフォーマット
-  std::cout << "native format  : " << p.native() << std::endl;
+  std::wcerr << "native format  : " << p.native() << std::endl;
   std::cout << "generic format : " << p.generic_string() << std::endl;
 
   // パスが絶対パスか相対パスか判定
@@ -271,16 +271,15 @@ int main()
 
 #### 出力
 ```
-directory : "C:\a\b"
+directory : "C:/a\\b"
 filename  : "c.txt"
 stem      : "c"
 extension : ".txt"
-native format  : C:\a\b\c.txt
+native format  : C:/a\b/c.txt
 generic format : C:/a/b/c.txt
-"C:\a\b\c.txt"は絶対パス
+"C:/a\\b/c.txt"は絶対パス
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 ## バージョン
 ### 言語
@@ -290,4 +289,4 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 - [Clang](/implementation.md#clang): 7.0
 - [GCC](/implementation.md#gcc): 8.1
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7
