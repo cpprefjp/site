@@ -964,7 +964,7 @@ C++14の策定において、コンセプトの複雑さを回避して必要最
 ## 関連項目
 - [`<concepts>`](/reference/concepts.md)
 - [`<iterator>`](/reference/iterator.md)
-- [`<ranges>`](/reference/ranges.md.nolink)
+- [`<ranges>`](/reference/ranges.md)
 - [C++20 autoパラメータによる関数テンプレートの簡易定義](function_templates_with_auto_parameters.md)
 
 

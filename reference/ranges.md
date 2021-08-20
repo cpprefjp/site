@@ -53,7 +53,7 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 | elements_view       |                | C++20          |
 
 ## other range refinements
-## class template view_­interface
+## class template view_interface
 ## sub-ranges
 ## dangling iterator handling
 
@@ -74,8 +74,8 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 - [Visual C++](/implementation.md#visual_cpp): 19.29
 
 ## 関連項目
-- [`<iterator>`](/iterator.md)
-- [`<concepts>`](/concepts.md)
+- [`<iterator>`](iterator.md)
+- [`<concepts>`](concepts.md)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
