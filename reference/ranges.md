@@ -86,8 +86,8 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | dangling            | (class)      | C++20          |
-| borrowed_iterator_t | (type alias) | C++20          |
-| borrowed_subrange_t | (type alias) | C++20          |
+| borrowed_iterator_t | (type-alias) | C++20          |
+| borrowed_subrange_t | (type-alias) | C++20          |
 
 ## empty view
 
@@ -122,7 +122,7 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 | 名前     | 説明           | 対応バージョン |
 |----------|----------------|----------------|
 | all      | (variable template)  | C++20          |
-| all_t    | (type alias)  | C++20          |
+| all_t    | (type-alias)  | C++20          |
 | ref_view | (class template)     | C++20          |
 
 ## filter view
