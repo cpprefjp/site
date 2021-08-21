@@ -29,43 +29,37 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 
 | 名前                                  | 説明           | 対応バージョン |
 |---------------------------------------|----------------|----------------|
-| range                    | (concept)                   | C++20          |
+| range                    | 範囲を定義するコンセプト (concept)                   | C++20          |
 | enable_borrowed_range    | (variable template)         | C++20          |
-| borrowed_range           | (concept)                   | C++20          |
-| iterator_t               | (type-alias)                | C++20          |
-| sentinel_t               | (type-alias)                | C++20          |
-| range_difference_t       | (type-alias)                | C++20          |
-| range_size_t             | (type-alias)                | C++20          |
-| range_value_t            | (type-alias)                | C++20          |
-| range_reference_t        | (type-alias)                | C++20          |
-| range_rvalue_reference_t | (type-alias)                | C++20          |
+| borrowed_range           | 所有権を持たない範囲 (concept)                   | C++20          |
+| iterator_t               | 範囲のイテレータ型を取得する (alias template)                | C++20          |
+| sentinel_t               | 範囲の番兵型を取得する (alias template)                | C++20          |
+| range_difference_t       | 範囲のイテレータの差の型を取得する (alias template)                | C++20          |
+| range_size_t             | 範囲のサイズの型を取得する(alias template)                | C++20          |
+| range_value_t            | 範囲の要素の型を取得する (alias template)                | C++20          |
+| range_reference_t        | 範囲の要素の参照型を取得する (alias template)                | C++20          |
+| range_rvalue_reference_t | 範囲の要素の右辺値参照型を取得する (alias template)                | C++20          |
 
 ## sized ranges
 
 | 名前        | 説明           | 対応バージョン |
 |-------------|----------------|----------------|
-| sized_range | (concept)               | C++20          |
+| sized_range | サイズを一定時間で求められる範囲 (concept)               | C++20          |
 
-## views
 
-| 名前        | 説明                | 対応バージョン |
-|-------------|---------------------|----------------|
-| enable_view | (variable template) | C++20          |
-| view_base   | (class)             | C++20          |
-| view        | (concept)           | C++20          |
 
 ## other range refinements
 
 | 名前                | 説明           | 対応バージョン |
 |---------------------|----------------|----------------|
-| output_range        | (concept)      | C++20          |
-| input_range         | (concept)      | C++20          |
-| forward_range       | (concept)      | C++20          |
-| bidirectional_range | (concept)      | C++20          |
-| random_access_range | (concept)      | C++20          |
-| contiguous_range    | (concept)      | C++20          |
-| common_range        | (concept)      | C++20          |
-| viewable_range      | (concept)      | C++20          |
+| output_range        | イテレータが出力イテレータである範囲 (concept)      | C++20          |
+| input_range         | イテレータが入力イテレータである範囲 (concept)      | C++20          |
+| forward_range       | イテレータが前進イテレータである範囲 (concept)      | C++20          |
+| bidirectional_range | イテレータが双方向イテレータである範囲 (concept)      | C++20          |
+| random_access_range | イテレータがランダムアクセスイテレータである範囲 (concept)      | C++20          |
+| contiguous_range    | イテレータが隣接イテレータである範囲 (concept)      | C++20          |
+| common_range        | イテレータと番兵の型が等しい範囲 (concept)      | C++20          |
+| viewable_range      | ビューに変換できる範囲 (concept)      | C++20          |
 
 ## class template view_interface
 
@@ -86,131 +80,143 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | dangling            | (class)      | C++20          |
-| borrowed_iterator_t | (type-alias) | C++20          |
-| borrowed_subrange_t | (type-alias) | C++20          |
+| borrowed_iterator_t | (alias template) | C++20          |
+| borrowed_subrange_t | (alias template) | C++20          |
 
-## empty view
+## ビュー
+
+| 名前        | 説明                | 対応バージョン |
+|-------------|---------------------|----------------|
+| enable_view | (variable template) | C++20          |
+| view_base   | (class)             | C++20          |
+| view        | ビューである範囲 (concept)           | C++20          |
+
+### Rangeファクトリ
+
+#### empty view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| empty_view      | (class template)     | C++20          |
-| empty           | (variable template)  | C++20          |
+| empty_view      | 空の範囲 (class template)     | C++20          |
+| empty           | 空の範囲を生成する (variable template)  | C++20          |
 
-## single view
+#### single view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| single_view      | (class template)     | C++20          |
-| single           | (variable template)  | C++20          |
+| single_view      | 指定した値1つからなる範囲 (class template)     | C++20          |
+| single           | 指定した値1つからなる範囲を生成する (variable template)  | C++20          |
 
-## iota view
+#### iota view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | iota_view      | (class template)     | C++20          |
 | iota           | (variable template)  | C++20          |
 
-## istream view
+#### istream view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | basic_istream_view | (class template)     | C++20          |
 | istream_view       | (function template)     | C++20          |
 
-## all view
+#### all view
 
 | 名前     | 説明           | 対応バージョン |
 |----------|----------------|----------------|
 | all      | (variable template)  | C++20          |
-| all_t    | (type-alias)  | C++20          |
+| all_t    | (alias template)  | C++20          |
 | ref_view | (class template)     | C++20          |
 
-## filter view
+### Rangeアダプタ
+
+#### filter view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| filter_view      | (class template)     | C++20          |
-| filter           | (variable template)  | C++20          |
+| filter_view      | 指定した条件を満たす要素だけを集めるビュー (class template)     | C++20          |
+| filter           | 指定した条件を満たす要素だけを集めるビューを生成する (customization point object)  | C++20          |
 
-## transform view
-
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-| transform_view      | (class template)     | C++20          |
-| transform           | (variable template)  | C++20          |
-
-## take view
+#### transform view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| take_view      | (class template)     | C++20          |
-| take           | (variable template)  | C++20          |
+| transform_view      | 指定した関数で各要素を変換するビュー (class template)     | C++20          |
+| transform           | 指定した関数で各要素を変換するビューを生成する (customization point object)  | C++20          |
 
-## take while view
-
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-| take_while_view      | (class template)     | C++20          |
-| take_while           | (variable template)  | C++20          |
-
-## drop view
+#### take view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| drop_view      | (class template)     | C++20          |
-| drop           | (variable template)  | C++20          |
+| take_view      | 先頭から指定した個数だけ取り出すビュー (class template)     | C++20          |
+| take           | 先頭から指定した個数だけ取り出すビューを生成する (customization point object)  | C++20          |
 
-## drop while view
-
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-| drop_while_view      | (class template)     | C++20          |
-| drop_while           | (variable template)  | C++20          |
-
-## join view
+#### take while view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| join_view      | (class template)     | C++20          |
-| join           | (variable template)  | C++20          |
+| take_while_view      | 先頭から指定した条件を満たす範囲を取り出すビュー (class template)     | C++20          |
+| take_while           | 先頭から指定した条件を満たす範囲を取り出すビューを生成する (customization point object)  | C++20          |
 
-## split view
-
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-| split_view      | (class template)     | C++20          |
-| split           | (variable template)  | C++20          |
-
-## counted view
+#### drop view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| counted           | (variable template)  | C++20          |
+| drop_view      | 先頭から指定した個数だけ除外するビュー (class template)     | C++20          |
+| drop           | 先頭から指定した個数だけ除外するビューを生成する (customization point object)  | C++20          |
 
-## common view
-
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-| common_view      | (class template)     | C++20          |
-| common           | (variable template)  | C++20          |
-
-## reverse view
+#### drop while view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| reverse_view      | (class template)     | C++20          |
-| reverse           | (variable template)  | C++20          |
+| drop_while_view      | 先頭から指定した条件を満たす範囲を除外するビュー (class template)     | C++20          |
+| drop_while           | 先頭から指定した条件を満たす範囲を除外するビューを生成する (customization point object)  | C++20          |
 
-## elements view
+#### join view
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| elements_view      | (class template)     | C++20          |
-| keys_view      | (class template)     | C++20          |
-| values_view      | (class template)     | C++20          |
-| elements           | (variable template)  | C++20          |
-| keys           | (variable template)  | C++20          |
-| values           | (variable template)  | C++20          |
+| join_view      | ネストされた範囲を平坦にするビュー (class template)     | C++20          |
+| join           | ネストされた範囲を平坦にするビューを生成する (customization point object)  | C++20          |
+
+#### split view
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| split_view      | 範囲を指定したデリミタで分割するビュー (class template)     | C++20          |
+| split           | 範囲を指定したデリミタで分割するビューを生成する (customization point object)  | C++20          |
+
+#### counted view
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| counted           | イテレータを指定した数だけ進めるビューを生成する (customization point object)  | C++20          |
+
+#### common view
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| common_view      | common_rangeにしたビュー (class template)     | C++20          |
+| common           | common_rangeなビューを生成する (customization point object)  | C++20          |
+
+#### reverse view
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| reverse_view      | 逆順のビュー (class template)     | C++20          |
+| reverse           | 逆順のビューを生成する (customization point object)  | C++20          |
+
+#### elements view
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| elements_view | 第n要素を集めたビュー (class template)     | C++20          |
+| keys_view     | 第0要素を集めたビュー (alias template)     | C++20          |
+| values_view   | 第1要素を集めたビュー (alias template)     | C++20          |
+| elements      | 第n要素を集めたビューを生成する (variable template) | C++20          |
+| keys          | 第0要素を集めたビューを生成する (customization point object)  | C++20          |
+| values        | 第1要素を集めたビューを生成する (customization point object)  | C++20          |
 
 ## バージョン
 ### 言語
