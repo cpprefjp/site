@@ -58,7 +58,7 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 | 名前                                                              | 説明                                                  | 対応バージョン |
 |-------------------------------------------------------------------|-------------------------------------------------------|----------------|
 | [`enable_borrowed_range`](ranges/enable_borrowed_range.md.nolink) | 範囲を`borrowed_range`にする (variable template) | C++20          |
-| [`enable_view`](ranges/enable_view.nolink)                        | 範囲を`view`にする (variable template)           | C++20          |
+| [`enable_view`](ranges/enable_view.md.nolink)                        | 範囲を`view`にする (variable template)           | C++20          |
 
 ## 部分範囲
 
@@ -73,16 +73,16 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 
 | 名前                                                   | 説明           | 対応バージョン |
 |--------------------------------------------------------|----------------|----------------|
-| [`dangling`](ranges/dangling.md)                       | ダングリングイテレータ、ダングリング範囲を表す型 (class)      | C++20          |
-| [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md) | 範囲が`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
-| [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md) | 範囲が`borrowed_range`ではないとき`dangling`となる部分範囲 (alias template) | C++20          |
+| [`dangling`](ranges/dangling.md.nolink)                       | ダングリングイテレータ、ダングリング範囲を表す型 (class)      | C++20          |
+| [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md.nolink) | 範囲が`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
+| [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md.nolink) | 範囲が`borrowed_range`ではないとき`dangling`となる部分範囲 (alias template) | C++20          |
 
 ## ビュー
 
 | 名前                                   | 説明                | 対応バージョン |
 |----------------------------------------|---------------------|----------------|
-| [`view_base`](ranges/view_base.nolink) | 基底クラスとすることで`view`となるタグ型 (class) | C++20          |
-| [`view`](ranges/view.nolink)           | ビューである範囲 (concept)                     | C++20          |
+| [`view_base`](ranges/view_base.md.nolink) | 基底クラスとすることで`view`となるタグ型 (class) | C++20          |
+| [`view`](ranges/view.md.nolink)           | ビューである範囲 (concept)                     | C++20          |
 
 ### Rangeファクトリ
 
