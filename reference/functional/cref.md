@@ -10,7 +10,7 @@ namespace std {
   reference_wrapper<const T> cref(const T& t) noexcept;             // (1) C++11
 
   template <class T>
-  constepxr reference_wrapper<const T> cref(const T& t) noexcept;   // (1) C++20
+  constexpr reference_wrapper<const T> cref(const T& t) noexcept;   // (1) C++20
 
   template <class T>
   reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept; // (2) C++11
