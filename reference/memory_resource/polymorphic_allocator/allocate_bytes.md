@@ -106,7 +106,7 @@ address : 0x1c38150
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 update 9
 
 ## 関連項目
 - [`memory_resource::allocate`](/reference/memory_resource/memory_resource/allocate.md)

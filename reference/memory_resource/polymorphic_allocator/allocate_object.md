@@ -98,7 +98,7 @@ int main() {
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 update 9
 
 ## 関連項目
 - [`allocate_bytes`](/reference/memory_resource/polymorphic_allocator/allocate_bytes.md)
