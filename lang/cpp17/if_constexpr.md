@@ -6,7 +6,7 @@
 constexpr if文とは、文を条件付きコンパイルすることを目的とした制御構文である。
 
 ```cpp
-if constepxr ( condition )
+if constexpr ( condition )
   statement
 else
   statement
