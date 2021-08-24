@@ -11,6 +11,9 @@ template <class T>
 void destroy(T* p);
 ```
 
+この関数はC++20で非推奨となった。不要な機能ではあるが、代わりが必要であれば[`allocator_traits<Alloc>::destroy()`](/reference/memory/allocator_traits/destroy.md)もしくは[`destroy_at()`](/reference/memory/destroy_at.md)を使用すること。
+
+
 ## 概要
 指定された領域にある`T`のオブジェクトを破棄する。
 
@@ -22,7 +25,7 @@ void destroy(T* p);
 
 メモリ領域の解放は行われないため、別に[`deallocate`](deallocate.md)で行う必要がある。
 
-## 非推奨の理由
+## 非推奨の詳細
 
 `polymorphic_allocator`も含めたアロケータはコンテナから利用される際に`allocator_traits`を介して利用され、`allocator_traits`の提供するデフォルト実装によってアロケータとしての多くの部分が補われる。
 
