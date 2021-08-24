@@ -28,7 +28,7 @@ void destroy(T* p);
 
 本関数は、[`allocator_traits<Alloc>::destroy()`](/reference/memory/allocator_traits/destroy.md)で提供されているデフォルト実装と完全に同一の実装となっており、追加の事を何もしていない。従って有用性は何もなく、非推奨とされた。
 
-おそらく、[`construct()`](construct.md)メンバ関数との対称性を意識して追加されていたものと思われる。なお、`construct()`メンバ関数は[uses-allocator 構築](/reference/memory/uses_allocator.md)のために追加の仕事を担っており、こちらの関数には有効性があるため非推奨とはされていない。
+おそらく、[`construct()`](construct.md)メンバ関数との対称性を意識して追加されていたものと思われる。なお、`construct()`メンバ関数は[uses-allocator 構築](/reference/memory/uses_allocator.md)のために追加の仕事を担っており、こちらの関数には有用であるため非推奨とはされていない。
 
 `allocator_traits`を介して`polymorphic_allocator`を使用する場合は本関数の有無を気にする必要はないが、もし本関数が必要となった場合は代わりに[`destroy_at()`](/reference/memory/destroy_at.md)を利用できる。
 
@@ -82,7 +82,7 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+- [Visual C++](/implementation.md#visual_cpp): ??
     - 2017, 2019共にこの関数は実装されなかった
 
 ## 関連項目
