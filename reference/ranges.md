@@ -59,7 +59,7 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 |-------------------------------------------------------------------|-------------------------------------------------------------|----------------|
 | [`enable_borrowed_range`](ranges/enable_borrowed_range.md) | 範囲を`borrowed_range`にする (variable template)            | C++20          |
 | [`enable_view`](ranges/enable_view.md)                     | 範囲を`view`にする (variable template)                      | C++20          |
-| [`disable_­sized_­range`](ranges/disable_­sized_­range.md)     | 範囲を`sized_­range`にならないようにする (variable template) | C++20          |
+| [`disable_­sized_­range`](ranges/disable_sized_range.md)     | 範囲を`sized_­range`にならないようにする (variable template) | C++20          |
 
 ## 部分範囲
 
