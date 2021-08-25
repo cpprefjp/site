@@ -53,12 +53,13 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 | [`common_range`](ranges/common_range.md.nolink)               | イテレータと番兵の型が等しい範囲 (concept)               | C++20          |
 | [`viewable_range`](ranges/viewable_range.md.nolink)           | ビューに変換できる範囲 (concept)                        | C++20          |
 
-## 範囲の特性のオプトイン
+## カスタマイゼーションポイント
 
-| 名前                                                              | 説明                                                  | 対応バージョン |
-|-------------------------------------------------------------------|-------------------------------------------------------|----------------|
-| [`enable_borrowed_range`](ranges/enable_borrowed_range.md.nolink) | 範囲を`borrowed_range`にする (variable template) | C++20          |
-| [`enable_view`](ranges/enable_view.md.nolink)                        | 範囲を`view`にする (variable template)           | C++20          |
+| 名前                                                              | 説明                                                        | 対応バージョン |
+|-------------------------------------------------------------------|-------------------------------------------------------------|----------------|
+| [`enable_borrowed_range`](ranges/enable_borrowed_range.md) | 範囲を`borrowed_range`にする (variable template)            | C++20          |
+| [`enable_view`](ranges/enable_view.md)                     | 範囲を`view`にする (variable template)                      | C++20          |
+| [`disable_­sized_­range`](ranges/disable_­sized_­range.md)     | 範囲を`sized_­range`にならないようにする (variable template) | C++20          |
 
 ## 部分範囲
 
@@ -81,7 +82,7 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 
 | 名前                                   | 説明                | 対応バージョン |
 |----------------------------------------|---------------------|----------------|
-| [`view_base`](ranges/view_base.md.nolink) | 基底クラスとすることで`view`となるタグ型 (class) | C++20          |
+| [`view_base`](ranges/view_base.md) | 基底クラスとすることで`view`となるタグ型 (class) | C++20          |
 | [`view`](ranges/view.md.nolink)           | ビューである範囲 (concept)                     | C++20          |
 
 ### Rangeファクトリ
@@ -219,7 +220,7 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 - [Clang](/implementation.md#clang): 13.0.0
 - [GCC](/implementation.md#gcc): 10.1.0
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 19.29
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
 ## 関連項目
 - [`<iterator>`](iterator.md)
@@ -227,4 +228,4 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
-- [C++20 ranges](https://techbookfest.org/product/5134506308665344?utm_source=twitter&utm_medium=social&utm_campaign=bought)
+- [C++20 ranges](https://techbookfest.org/product/5134506308665344)
