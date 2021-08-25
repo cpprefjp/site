@@ -11,6 +11,10 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 
 | 名前                                   | 説明                                                                             | 対応バージョン |
 |---------------------------------------|----------------------------------------------------------------------------------|----------------|
+| [`begin`](ranges/begin.md)     | 範囲の先頭を指すイテレータを取得する (customization point object)                    | C++20          |
+| [`end`](ranges/end.md)         | 範囲の末尾の次を指すイテレータを取得する (customization point object)                | C++20          |
+| [`cbegin`](ranges/cbegin.md)   | 範囲の先頭を指す読み取り専用イテレータを取得する (customization point object)        | C++20          |
+| [`cend`](ranges/cend.md)       | 範囲の末尾の次を指す読み取り専用イテレータを取得する (customization point object)    | C++20          |
 | [`begin`](ranges/begin.md.nolink)     | 範囲の先頭を指すイテレータを取得する (customization point object)                    | C++20          |
 | [`end`](ranges/end.md.nolink)         | 範囲の末尾の次を指すイテレータを取得する (customization point object)                | C++20          |
 | [`cbegin`](ranges/cbegin.md.nolink)   | 範囲の先頭を指す読み取り専用イテレータを取得する (customization point object)        | C++20          |
