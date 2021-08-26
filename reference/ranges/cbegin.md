@@ -70,7 +70,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
 ## 関連項目
-- [`std::cend`](/reference/iterator/cend.md)
+- [`std::cbegin`](/reference/iterator/cbegin.md)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
