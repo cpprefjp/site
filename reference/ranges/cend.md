@@ -18,8 +18,8 @@ namespace std::ranges {
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::cend(E)`の効果は以下の式と等しい。
 
-1. `E`がlvalueであれば、[`ranges​::end`](end.md)`(static_­cast<const T&>(E))`
-2. それ以外の場合、[`ranges​::end`](end.md)`(static_­cast<const T&&>(E))`
+1. `E`がlvalueであれば、[`ranges​::end`](end.md)`(static_cast<const T&>(E))`
+2. それ以外の場合、[`ranges​::end`](end.md)`(static_cast<const T&&>(E))`
 
 ## 戻り値
 最後尾要素の次を指す読み取り専用イテレータもしくは番兵。
@@ -28,7 +28,7 @@ namespace std::ranges {
 範囲が`const`な場合について[`ranges::end`](end.md)をカスタマイズすることで、`ranges::cend`をカスタマイズできる。
 
 ## 備考
-`ranges​::c​end(E)`が有効な式であるとき、`ranges::cend(E)`の型`S`、[`ranges::cbegin`](begin.md)`(E)`の型`T`は[`sentinel_­for`](/reference/iterator/sentinel_for.md)のモデルである。
+`ranges​::c​end(E)`が有効な式であるとき、`ranges::cend(E)`の型`S`、[`ranges::cbegin`](begin.md)`(E)`の型`T`は[`sentinel_for`](/reference/iterator/sentinel_for.md)のモデルである。
 
 ## 例
 ```cpp example

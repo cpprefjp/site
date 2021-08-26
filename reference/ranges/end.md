@@ -19,10 +19,10 @@ namespace std::ranges {
 部分式`E`の型を`T`、`t`を`E`を評価した値とし、関数`decay-copy`が後述のように定義されているとする。
 このとき、式`ranges::begin(E)`の効果は以下の通り。
 
-1. `E`がrvalueかつ[`enable_­borrowed_­range`](enable_borrowed_range.md)`<`[`remove_­cv_­t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
-2. `T`が配列型であれば、`t + `[`extent_­v`](/reference/type_traits/extent.md)`<T>`に等しい(expression‑equivalent)。ただし、要素数不明の配列か、[`remove_­all_­extents_­t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
-3. `decay-copy(t.end())`が有効な式でその型が[`sentinel_­for`](/reference/iterator/sentinel_­for.md)`<`[`iterator_­t`](iterator_t.md.nolink)`<T>>`のモデルであれば、`decay-copy(t.end())`と等しい。
-4. `T`がクラス型または列挙体であって、`end`がADLで見つかり、`decay-copy(end(t))`が有効な式でその型が[`sentinel_­for`](/reference/iterator/sentinel_­for.md)`<`[`iterator_­t`](iterator_t.md.nolink)`<T>>`のモデルであれば、`decay-copy(end(t))`と等しい。
+1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
+2. `T`が配列型であれば、`t + `[`extent_v`](/reference/type_traits/extent.md)`<T>`に等しい(expression‑equivalent)。ただし、要素数不明の配列か、[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
+3. `decay-copy(t.end())`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<`[`iterator_t`](iterator_t.md.nolink)`<T>>`のモデルであれば、`decay-copy(t.end())`と等しい。
+4. `T`がクラス型または列挙体であって、`end`がADLで見つかり、`decay-copy(end(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<`[`iterator_t`](iterator_t.md.nolink)`<T>>`のモデルであれば、`decay-copy(end(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
 
@@ -48,7 +48,7 @@ constexpr decay_t<T> decay-copy(T&& v) noexcept(is_nothrow_convertible_v<T, deca
 3か4の条件を満たすようにする。例えば、ユーザー定義のフリー関数`end`を定義するか、ユーザー定義のクラスにメンバ関数`end`を持たせることでカスタマイズできる。
 
 ## 備考
-`ranges​::​end(E)`が有効な式であるとき、`ranges::end(E)`の型`S`、[`ranges::begin`](begin.md)`(E)`の型`T`は[`sentinel_­for`](/reference/iterator/sentinel_for.md)のモデルである。
+`ranges​::​end(E)`が有効な式であるとき、`ranges::end(E)`の型`S`、[`ranges::begin`](begin.md)`(E)`の型`T`は[`sentinel_for`](/reference/iterator/sentinel_for.md)のモデルである。
 
 ## 例
 ```cpp example

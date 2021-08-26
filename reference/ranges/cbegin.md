@@ -18,8 +18,8 @@ namespace std::ranges {
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::cbegin(E)`の効果は以下の式と等しい。
 
-1. `E`がlvalueであれば、[`ranges​::​begin`](begin.md)`(static_­cast<const T&>(E))`
-2. それ以外の場合、[`ranges​::​begin`](begin.md)`(static_­cast<const T&&>(E))`
+1. `E`がlvalueであれば、[`ranges​::​begin`](begin.md)`(static_cast<const T&>(E))`
+2. それ以外の場合、[`ranges​::​begin`](begin.md)`(static_cast<const T&&>(E))`
 
 ## 戻り値
 先頭要素への読み取り専用イテレータ。
@@ -28,7 +28,7 @@ namespace std::ranges {
 範囲が`const`な場合について[`ranges​::​begin`](begin.md)をカスタマイズすることで、`ranges::cbegin`をカスタマイズできる。
 
 ## 備考
-`ranges::cbegin`の呼び出しが有効な式であるとき、その型は[`input_­or_­output_­iterator`](/reference/iterator/input_or_output_iterator.md)のモデルである。
+`ranges::cbegin`の呼び出しが有効な式であるとき、その型は[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルである。
 
 ## 例
 ```cpp example
