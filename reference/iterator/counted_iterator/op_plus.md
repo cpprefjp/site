@@ -65,7 +65,7 @@ int main() {
   std::cout << *ci3 << '\n';
 }
 ```
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

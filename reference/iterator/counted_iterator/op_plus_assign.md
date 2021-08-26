@@ -51,7 +51,7 @@ int main() {
   std::cout << *ci << '\n';
 }
 ```
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

@@ -88,7 +88,7 @@ int main() {
 * views::take[link /reference/ranges/take_view.md.nolink]
 * iterator_t[link /reference/ranges/iterator_t.md.nolink]
 * sentinel_t[link /reference/ranges/sentinel_t.md.nolink]
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

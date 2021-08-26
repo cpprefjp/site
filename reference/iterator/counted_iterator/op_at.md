@@ -45,7 +45,7 @@ int main() {
 }
 ```
 * ci[1][color ff0000]
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

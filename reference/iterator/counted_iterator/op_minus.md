@@ -66,7 +66,7 @@ int main() {
   std::cout << (std::default_sentinel - ci) << '\n';
 }
 ```
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```
