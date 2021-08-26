@@ -13,18 +13,23 @@ explicit queue(const Container& other);           // (2)
 explicit queue(Container&& other = Container());  // (1),(3)
 
 // C++20以降
-queue: queue(Container()) {}             // (1)
+queue() : queue(Container()) {}          // (1)
 explicit queue(const Container& other);  // (2)
 explicit queue(Container&& other);       // (3)
 
 template<class InputIterator>
 queue(InputIterator first, InputIterator last);  // (4) C++23
 
-template <class Alloc> explicit queue(const Alloc& alloc);                // (5) C++11
-template <class Alloc> queue(const Container& other, const Alloc& alloc); // (6) C++11
-template <class Alloc> queue(Container&& other, const Alloc& alloc);      // (7) C++11
-template <class Alloc> queue(const queue& que, const Alloc& alloc);       // (8) C++11
-template <class Alloc> queue(queue&& que, const Alloc& alloc);            // (9) C++11
+template <class Alloc>
+explicit queue(const Alloc& alloc);                // (5) C++11
+template <class Alloc>
+queue(const Container& other, const Alloc& alloc); // (6) C++11
+template <class Alloc>
+queue(Container&& other, const Alloc& alloc);      // (7) C++11
+template <class Alloc>
+queue(const queue& que, const Alloc& alloc);       // (8) C++11
+template <class Alloc>
+queue(queue&& que, const Alloc& alloc);            // (9) C++11
 
 template<class InputIterator, class Alloc>
 queue(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23

@@ -18,7 +18,7 @@ explicit stack(const Container&);  // (2)
 explicit stack(Container&&);       // (3)
 
 template<class InputIterator>
-stack(InputIterator first, InputIterator last);  // (4) C++23
+stack(InputIterator first, InputIterator last);       // (4) C++23
 
 template <class Allocator>
 explicit stack(const Allocator& alloc);               // (5) C++11

@@ -7,12 +7,17 @@
 ```cpp
 explicit priority_queue(
              const Compare& x = Compare(),
-             const Container& other = Container());       // (1) C++03まで
-
-priority_queue(const Compare& x, const Container& other); // (2) C++11
+             const Container& other = Container());       // (1) C++03
 
 explicit priority_queue(const Compare& x = Compare(),
-                        Container&& = Container());       // (3) C++11
+                        Container&& y = Container());     // (1) C++11
+
+priority_queue() : priority_queue(Compare()) {}           // (1) C++20
+
+explicit priority_queue(const Compare& x)
+  : priority_queue(x, Container()) {}                     // (2) C++20
+
+priority_queue(const Compare& x, const Container& other); // (3) C++11
 
 priority_queue(const priority_queue&);                    // (4) C++03
 priority_queue(const priority_queue&) = default;          // (4) C++11
@@ -61,8 +66,11 @@ priority_queue(priority_queue&& que,
 
 ## 概要
 - (1) : デフォルトコンストラクタ
-- (2) : 比較関数と、元となるコンテナのコピーから構築するコンストラクタ。
-- (3) : デフォルトコンストラクタ。比較関数のコピーと、元となるコンテナをムーブして構築する。
+    - C++03 : 比較関数と元となるコンテナをコピーして構築する。
+    - C++11 : 比較関数をコピー、元となるコンテナをムーブして構築する。
+    - C++20 : (2)に移譲。
+- (2) : 比較関数のコピーと元となるコンテナをデフォルト構築して構築するコンストラクタ。
+- (3) : 比較関数と、元となるコンテナのコピーから構築するコンストラクタ。
 - (4) : コピーコンストラクタ
 - (5), (6), (7) : イテレータ範囲で優先順位付きキューを構築する。
 - (8) : ムーブコンストラクタ
@@ -80,14 +88,19 @@ priority_queue(priority_queue&& que,
 
 ## 効果
 - (1) :
-    1. メンバ変数`comp`を`x`でコピー構築する。
-    2. メンバ変数`c`を`other`でコピー構築する。
-    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
-- (2) :
-    1. メンバ変数`comp`を`x`でコピー構築する。
-    2. メンバ変数`c`を`other`でコピー構築する。
-    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+    - C++03
+        1. メンバ変数`comp`を`x`でコピー構築する。
+        2. メンバ変数`c`を`other`でコピー構築する。
+        3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+    - C++11
+        1. メンバ変数`comp`を`x`でコピー構築する。
+        2. メンバ変数`c`を`y`でムーブ構築する。
+        3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 - (3) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`を`other`でコピー構築する。
+    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (4) :
     1. メンバ変数`comp`を`x`でコピー構築する。
     2. メンバ変数`c`を`other`でムーブ構築する。
     3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
@@ -195,4 +208,4 @@ que5 : 5 4 3 2 1
 
 ## 参照
 
-
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
