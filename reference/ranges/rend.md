@@ -21,9 +21,9 @@ namespace std::ranges {
 
 1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
 2. `T`が配列型かつ[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
-3. `decay-copy(t.rend())`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges​::​rbegin`](rbegin.md)`(E))>`のモデルであれば、`decay-copy(t.rend())`と等しい。
-4. `T`がクラス型または列挙体であって、`rend`がADLで見つかり、`decay-copy(rend(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges​::​rbegin`](rbegin.md)`(E))>`のモデルであれば、`decay-copy(rend(t))`と等しい。
-5. [`ranges::begin`](begin.md)`(t)`と[`ranges::end`](end.md)`(t)`が同じ型をもつ有効な式で、その型が[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルであれば、[`make_reverse_iterator`](/reference/iterator/make_reverse_iterator.md)`(`[`ranges​::​begin`](​begin.md)`(t))`と等しい。
+3. `decay-copy(t.rend())`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、`decay-copy(t.rend())`と等しい。
+4. `T`がクラス型または列挙体であって、`rend`がADLで見つかり、`decay-copy(rend(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、`decay-copy(rend(t))`と等しい。
+5. [`ranges::begin`](begin.md)`(t)`と[`ranges::end`](end.md)`(t)`が同じ型をもつ有効な式で、その型が[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルであれば、[`make_reverse_iterator`](/reference/iterator/make_reverse_iterator.md)`(`[`ranges::begin`](begin.md)`(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
 
@@ -50,7 +50,7 @@ constexpr decay_t<T> decay-copy(T&& v) noexcept(is_nothrow_convertible_v<T, deca
 または、5の条件を満たすようにして、[`ranges::begin`](begin.md)、[`ranges::end`](end.md)をカスタマイズすることで、`ranges::rend`をカスタマイズできる。
 
 ## 備考
-`ranges​::r​end(E)`が有効な式であるとき、`ranges::rend(E)`の型`S`、[`ranges::rbegin`](rbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
+`ranges::rend(E)`が有効な式であるとき、`ranges::rend(E)`の型`S`、[`ranges::rbegin`](rbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
 
 ## 例
 ```cpp example

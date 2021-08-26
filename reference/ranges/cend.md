@@ -28,7 +28,7 @@ namespace std::ranges {
 範囲が`const`な場合について[`ranges::end`](end.md)をカスタマイズすることで、`ranges::cend`をカスタマイズできる。
 
 ## 備考
-`ranges​::c​end(E)`が有効な式であるとき、`ranges::cend(E)`の型`S`、[`ranges::cbegin`](cbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
+`ranges::cend(E)`が有効な式であるとき、`ranges::cend(E)`の型`S`、[`ranges::cbegin`](cbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
 
 ## 例
 ```cpp example

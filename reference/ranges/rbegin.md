@@ -24,7 +24,7 @@ namespace std::ranges {
 2. `T`が配列型かつ[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
 3. `decay-copy(t.rbegin())`が有効な式でその型が[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルであれば、`decay-copy(t.rbegin())`と等しい。
 4. `T`がクラス型または列挙体であって、`rbegin`がADLで見つかり、`decay-copy(rbegin(t))`が有効な式でその型が[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルであれば、`decay-copy(rbegin(t))`と等しい。
-5. [`ranges::begin`](begin.md)`(t)`と[`ranges::end`](end.md)`(t)`が同じ型をもつ有効な式で、その型が[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルであれば、[`make_reverse_iterator`](/reference/iterator/make_reverse_iterator.md)`(`[`ranges​::​end`](end.md)`(t))`と等しい。
+5. [`ranges::begin`](begin.md)`(t)`と[`ranges::end`](end.md)`(t)`が同じ型をもつ有効な式で、その型が[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルであれば、[`make_reverse_iterator`](/reference/iterator/make_reverse_iterator.md)`(`[`ranges::end`](end.md)`(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
 

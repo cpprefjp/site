@@ -18,8 +18,8 @@ namespace std::ranges {
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::crend(E)`の効果は以下の式と等しい。
 
-1. `E`がlvalueであれば、[`ranges​::rend`](rend.md)`(static_cast<const T&>(E))`
-2. それ以外の場合、[`ranges​::rend`](rend.md)`(static_cast<const T&&>(E))`
+1. `E`がlvalueであれば、[`ranges::rend`](rend.md)`(static_cast<const T&>(E))`
+2. それ以外の場合、[`ranges::rend`](rend.md)`(static_cast<const T&&>(E))`
 
 ## 戻り値
 範囲の先頭の前を指す、読み取り専用逆イテレータもしくは番兵。
@@ -28,7 +28,7 @@ namespace std::ranges {
 範囲が`const`な場合について[`ranges::rend`](rend.md)をカスタマイズすることで、`ranges::crend`をカスタマイズできる。
 
 ## 備考
-`ranges​::c​rend(E)`が有効な式であるとき、`ranges::crend(E)`の型`S`、[`ranges::crbegin`](crbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
+`ranges::crend(E)`が有効な式であるとき、`ranges::crend(E)`の型`S`、[`ranges::crbegin`](crbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
 
 ## 例
 ```cpp example

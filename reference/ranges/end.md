@@ -48,7 +48,7 @@ constexpr decay_t<T> decay-copy(T&& v) noexcept(is_nothrow_convertible_v<T, deca
 3か4の条件を満たすようにする。例えば、ユーザー定義のフリー関数`end`を定義するか、ユーザー定義のクラスにメンバ関数`end`を持たせることでカスタマイズできる。
 
 ## 備考
-`ranges​::​end(E)`が有効な式であるとき、`ranges::end(E)`の型`S`、[`ranges::begin`](begin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
+`ranges::end(E)`が有効な式であるとき、`ranges::end(E)`の型`S`、[`ranges::begin`](begin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。
 
 ## 例
 ```cpp example
