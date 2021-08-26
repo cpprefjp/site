@@ -9,16 +9,20 @@ C++17までは、標準アルゴリズム関数はイテレータの組を扱い
 
 ## 範囲アクセス
 
-| 名前                                   | 説明                                                                             | 対応バージョン |
-|---------------------------------------|----------------------------------------------------------------------------------|----------------|
-| [`begin`](ranges/begin.md)     | 範囲の先頭を指すイテレータを取得する (customization point object)                    | C++20          |
-| [`end`](ranges/end.md)         | 範囲の末尾の次を指すイテレータを取得する (customization point object)                | C++20          |
-| [`cbegin`](ranges/cbegin.md)   | 範囲の先頭を指す読み取り専用イテレータを取得する (customization point object)        | C++20          |
-| [`cend`](ranges/cend.md)       | 範囲の末尾の次を指す読み取り専用イテレータを取得する (customization point object)    | C++20          |
-| [`rbegin`](ranges/rbegin.md.nolink)   | 範囲の末尾を指す逆イテレータを取得する (customization point object)                  | C++20          |
-| [`rend`](ranges/rend.md.nolink)       | 範囲の先頭の前を指す逆イテレータを取得する (customization point object)              | C++20          |
-| [`crbegin`](ranges/crbegin.md.nolink) | 範囲の末尾を指す読み取り専用逆イテレータを取得する (customization point object)      | C++20          |
-| [`crend`](ranges/crend.md.nolink)     | 範囲の先頭の前を指す読み取り専用逆イテレータを取得する (customization point object)  | C++20          |
+これらの機能は従来[`<iterator>`](iterator.md)でフリー関数として提供されていた。
+C++20では関数によるカスタマイゼーションポイントの問題点を解消するため、関数オブジェクトとして再実装されている。
+互換性を維持するために従来の関数も残っているが、これらのカスタマイゼーションポイントオブジェクトを使用することが推奨される。
+
+| 名前                           | 説明                                                                                             | 対応バージョン |
+|--------------------------------|--------------------------------------------------------------------------------------------------|----------------|
+| [`begin`](ranges/begin.md)     | 範囲の先頭を指すイテレータを取得する (customization point object)                                | C++20          |
+| [`end`](ranges/end.md)         | 範囲の末尾の次を指すイテレータもしくは番兵を取得する (customization point object)                | C++20          |
+| [`cbegin`](ranges/cbegin.md)   | 範囲の先頭を指す読み取り専用イテレータを取得する (customization point object)                    | C++20          |
+| [`cend`](ranges/cend.md)       | 範囲の末尾の次を指す読み取り専用イテレータもしくは番兵を取得する (customization point object)    | C++20          |
+| [`rbegin`](ranges/rbegin.md)   | 範囲の末尾を指す逆イテレータを取得する (customization point object)                              | C++20          |
+| [`rend`](ranges/rend.md)       | 範囲の先頭の前を指す逆イテレータもしくは番兵を取得する (customization point object)              | C++20          |
+| [`crbegin`](ranges/crbegin.md) | 範囲の末尾を指す読み取り専用逆イテレータを取得する (customization point object)                  | C++20          |
+| [`crend`](ranges/crend.md)     | 範囲の先頭の前を指す読み取り専用逆イテレータもしくは番兵を取得する (customization point object)  | C++20          |
 | [`size`](ranges/size.md.nolink)       | 範囲の要素数を取得する (customization point object)                                  | C++20          |
 | [`ssize`](ranges/ssize.md.nolink)     | 範囲の要素数を、符号付き整数型で取得する (customization point object)                | C++20          |
 | [`empty`](ranges/empty.md.nolink)     | 範囲が空かどうかを判定する (customization point object)                              | C++20          |

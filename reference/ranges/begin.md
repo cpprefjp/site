@@ -26,7 +26,7 @@ namespace std::ranges {
 
 どれにも当てはまらないとき、呼び出しは不適格。
 
-### `decay-copy`の定義
+### decay-copyの定義
 
 ```cpp
 template<class T>
