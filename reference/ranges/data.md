@@ -20,7 +20,7 @@ namespace std::ranges {
 
 1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
 2. `T`が配列型かつ[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
-3. `decay-copy(t.data())`が有効な式でその型がオブジェクトへのポインタであれば、`decay-copy(t.data())`と等しい。
+3. [`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.data())`が有効な式でその型がオブジェクトへのポインタであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.data())`と等しい。
 4. [`ranges::begin`](begin.md)`(t)`が有効な式で、その型が[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)のモデルであれば、[`to_address`](/reference/memory/to_address.md)`(`[`ranges::begin`](begin.md)`(E))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。

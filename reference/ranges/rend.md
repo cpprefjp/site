@@ -16,31 +16,16 @@ namespace std::ranges {
 範囲の先頭の前を指す逆イテレータもしくは番兵を取得する関数オブジェクト。
 
 ## 効果
-部分式`E`の型を`T`、`t`を`E`を評価した値とし、関数`decay-copy`が後述のように定義されているとする。
+部分式`E`の型を`T`、`t`を`E`を評価した値とする。
 このとき、式`ranges::begin(E)`の効果は以下の通り。
 
 1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
 2. `T`が配列型かつ[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
-3. `decay-copy(t.rend())`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、`decay-copy(t.rend())`と等しい。
-4. `T`がクラス型または列挙体であって、`rend`がADLで見つかり、`decay-copy(rend(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、`decay-copy(rend(t))`と等しい。
+3. [`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.rend())`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.rend())`と等しい。
+4. `T`がクラス型または列挙体であって、`rend`がADLで見つかり、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(rend(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<decltype(`[`ranges::rbegin`](rbegin.md)`(E))>`のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(rend(t))`と等しい。
 5. [`ranges::begin`](begin.md)`(t)`と[`ranges::end`](end.md)`(t)`が同じ型をもつ有効な式で、その型が[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルであれば、[`make_reverse_iterator`](/reference/iterator/make_reverse_iterator.md)`(`[`ranges::begin`](begin.md)`(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
-
-### decay-copyの定義
-
-```cpp
-template<class T>
-constexpr decay_t<T> decay-copy(T&& v) noexcept(is_nothrow_convertible_v<T, decay_t<T>>)
-{
-  return std::forward<T>(v);
-}
-```
-* decay-copy[italic]
-* forward[link /reference/utility/forward.md]
-* decay_t[link /reference/type_traits/decay.md]
-* decay_t[link /reference/type_traits/decay.md]
-* is_nothrow_convertible_v[link /reference/type_traits/is_nothrow_convertible.md]
 
 ## 戻り値
 範囲の先頭の前を指す逆イテレータもしくは番兵。
