@@ -48,6 +48,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`range`](ranges/range.md.nolink)                             | 範囲を定義するコンセプト (concept)                      | C++20          |
 | [`borrowed_range`](ranges/borrowed_range.md.nolink)           | 所有権を持たない範囲 (concept)                         | C++20          |
 | [`sized_range`](ranges/sized_range.md.nolink)                 | サイズを一定時間で求められる範囲 (concept)               | C++20          |
+| [`view`](ranges/view.md.nolink)                               | ビューである範囲 (concept)                              | C++20          |
 | [`output_range`](ranges/output_range.md.nolink)               | イテレータが出力イテレータである範囲 (concept)           | C++20          |
 | [`input_range`](ranges/input_range.md.nolink)                 | イテレータが入力イテレータである範囲 (concept)           | C++20          |
 | [`forward_range`](ranges/forward_range.md.nolink)             | イテレータが前進イテレータである範囲 (concept)           | C++20          |
@@ -65,6 +66,12 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`enable_view`](ranges/enable_view.md)                     | 範囲を`view`にする (variable template)                      | C++20          |
 | [`disable_sized_range`](ranges/disable_sized_range.md)     | 範囲を`sized_range`にならないようにする (variable template) | C++20          |
 
+## ビューインターフェース
+
+| 名前                                   | 説明                | 対応バージョン |
+|----------------------------------------|---------------------|----------------|
+| [`view_base`](ranges/view_base.md) | 基底クラスとすることで`view`となるタグ型 (class) | C++20          |
+
 ## 部分範囲
 
 | 名前                                                | 説明                 | 対応バージョン |
@@ -72,7 +79,6 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`view_interface`](ranges/view_interface.md.nolink) | ビューの基底クラスとして推奨されるクラス (class template)     | C++20          |
 | [`subrange_kind`](ranges/subrange_kind.md.nolink)   | 部分範囲の種類を表す列挙体 (enum class)         | C++20          |
 | [`subrange`](ranges/subrange.md.nolink)             | イテレータペアを範囲として扱う (class template)     | C++20          |
-
 
 ## ダングリングイテレータハンドリング
 
@@ -82,46 +88,39 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md.nolink) | 範囲が`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
 | [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md.nolink) | 範囲が`borrowed_range`ではないとき`dangling`となる部分範囲 (alias template) | C++20          |
 
-## ビュー
+## 範囲ファクトリ
 
-| 名前                                   | 説明                | 対応バージョン |
-|----------------------------------------|---------------------|----------------|
-| [`view_base`](ranges/view_base.md) | 基底クラスとすることで`view`となるタグ型 (class) | C++20          |
-| [`view`](ranges/view.md.nolink)           | ビューである範囲 (concept)                     | C++20          |
-
-### Rangeファクトリ
-
-#### empty view
+### empty view
 
 | 名前                                        | 説明           | 対応バージョン |
 |---------------------------------------------|----------------|----------------|
 | [`empty_view`](ranges/empty_view.md.nolink) | 空の範囲 (class template)     | C++20          |
 | [`empty`](ranges/empty.md.nolink)           | `empty_view`を生成する (variable template)  | C++20          |
 
-#### single view
+### single view
 
 | 名前                                          | 説明           | 対応バージョン |
 |-----------------------------------------------|----------------|----------------|
 | [`single_view`](ranges/single_view.md.nolink) | 指定した値1つからなる範囲 (class template)     | C++20          |
 | [`single`](ranges/single.md.nolink)           | `single_view`を生成する (variable template)  | C++20          |
 
-#### iota view
+### iota view
 
 | 名前                                      | 説明           | 対応バージョン |
 |-------------------------------------------|----------------|----------------|
 | [`iota_view`](ranges/iota_view.md.nolink) | 単調増加列である範囲 (class template)     | C++20          |
 | [`iota`](ranges/iota.md.nolink)           | `iota_view`を生成する (customization point object)  | C++20          |
 
-#### istream view
+### istream view
 
 | 名前                                                        | 説明           | 対応バージョン |
 |-------------------------------------------------------------|----------------|----------------|
 | [`basic_istream_view`](ranges/basic_istream_view.md.nolink) | 入力ストリームから値を読む範囲 (class template)     | C++20          |
 | [`istream_view`](ranges/istream_view.md.nolink)             | `basic_istream_view`を生成する (function template)     | C++20          |
 
-### Rangeアダプタ
+## 範囲アダプタ
 
-#### all view
+### all view
 
 | 名前                                    | 説明           | 対応バージョン |
 |-----------------------------------------|----------------|----------------|
@@ -129,83 +128,83 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`all`](ranges/all.md.nolink)           | 範囲への参照として振る舞うビューを生成する (customization point object) | C++20          |
 | [`all_t`](ranges/all_t.md.nolink)       | `all`の戻り値型 (alias template)     | C++20          |
 
-#### filter view
+### filter view
 
 | 名前                                          | 説明           | 対応バージョン |
 |-----------------------------------------------|----------------|----------------|
 | [`filter_view`](ranges/filter_view.md.nolink) | 指定した条件を満たす要素だけを集めるビュー (class template)     | C++20          |
 | [`filter`](ranges/filter.md.nolink)           | 指定した条件を満たす要素だけを集めるビューを生成する (customization point object)  | C++20          |
 
-#### transform view
+### transform view
 
 | 名前                                                | 説明           | 対応バージョン |
 |-----------------------------------------------------|----------------|----------------|
 | [`transform_view`](ranges/transform_view.md.nolink) | 指定した関数で各要素を変換するビュー (class template)     | C++20          |
 | [`transform`](ranges/transform.md.nolink)           | 指定した関数で各要素を変換するビューを生成する (customization point object)  | C++20          |
 
-#### take view
+### take view
 
 | 名前                                      | 説明           | 対応バージョン |
 |-------------------------------------------|----------------|----------------|
 | [`take_view`](ranges/take_view.md.nolink) | 先頭から指定した個数だけ取り出すビュー (class template)     | C++20          |
 | [`take`](ranges/take.md.nolink)           | 先頭から指定した個数だけ取り出すビューを生成する (customization point object)  | C++20          |
 
-#### take while view
+### take while view
 
 | 名前                                                  | 説明           | 対応バージョン |
 |-------------------------------------------------------|----------------|----------------|
 | [`take_while_view`](ranges/take_while_view.md.nolink) | 先頭から指定した条件を満たす範囲を取り出すビュー (class template)     | C++20          |
 | [`take_while`](ranges/take_while.md.nolink)           | 先頭から指定した条件を満たす範囲を取り出すビューを生成する (customization point object)  | C++20          |
 
-#### drop view
+### drop view
 
 | 名前                                      | 説明           | 対応バージョン |
 |-------------------------------------------|----------------|----------------|
 | [`drop_view`](ranges/drop_view.md.nolink) | 先頭から指定した個数だけ除外するビュー (class template)     | C++20          |
 | [`drop`](ranges/drop.md.nolink)           | 先頭から指定した個数だけ除外するビューを生成する (customization point object)  | C++20          |
 
-#### drop while view
+### drop while view
 
 | 名前                                                  | 説明           | 対応バージョン |
 |-------------------------------------------------------|----------------|----------------|
 | [`drop_while_view`](ranges/drop_while_view.md.nolink) | 先頭から指定した条件を満たす範囲を除外するビュー (class template)     | C++20          |
 | [`drop_while`](ranges/drop_while.md.nolink)           | 先頭から指定した条件を満たす範囲を除外するビューを生成する (customization point object)  | C++20          |
 
-#### join view
+### join view
 
 | 名前                                      | 説明           | 対応バージョン |
 |-------------------------------------------|----------------|----------------|
 | [`join_view`](ranges/join_view.md.nolink) | ネストされた範囲を平坦にするビュー (class template)     | C++20          |
 | [`join`](ranges/join.md.nolink)           | ネストされた範囲を平坦にするビューを生成する (customization point object)  | C++20          |
 
-#### split view
+### split view
 
 | 名前                                        | 説明           | 対応バージョン |
 |---------------------------------------------|----------------|----------------|
 | [`split_view`](ranges/split_view.md.nolink) | 範囲を指定したデリミタで分割するビュー (class template)     | C++20          |
 | [`split`](ranges/split.md.nolink)           | 範囲を指定したデリミタで分割するビューを生成する (customization point object)  | C++20          |
 
-#### counted view
+### counted view
 
 | 名前                                  | 説明           | 対応バージョン |
 |---------------------------------------|----------------|----------------|
 | [`counted`](ranges/counted.md.nolink) | イテレータを指定した数だけ進めるビューを生成する (customization point object)  | C++20          |
 
-#### common view
+### common view
 
 | 名前                                          | 説明           | 対応バージョン |
 |-----------------------------------------------|----------------|----------------|
 | [`common_view`](ranges/common_view.md.nolink) | `common_range`にしたビュー (class template)     | C++20          |
 | [`common`](ranges/common.md.nolink)           | `common_range`なビューを生成する (customization point object)  | C++20          |
 
-#### reverse view
+### reverse view
 
 | 名前                                            | 説明           | 対応バージョン |
 |-------------------------------------------------|----------------|----------------|
 | [`reverse_view`](ranges/reverse_view.md.nolink) | 逆順のビュー (class template)     | C++20          |
 | [`reverse`](ranges/reverse.md.nolink)           | 逆順のビューを生成する (customization point object)  | C++20          |
 
-#### elements view
+### elements view
 
 | 名前                                              | 説明           | 対応バージョン |
 |---------------------------------------------------|----------------|----------------|
