@@ -48,8 +48,8 @@ int main() {
 * *ci[color ff0000]
 * views::iota[link /reference/ranges/iota_view.md.nolink]
 * views::take[link /reference/ranges/take_view.md.nolink]
-* iterator_t[link /reference/ranges/iterator_t.md.nolink]
-* sentinel_t[link /reference/ranges/sentinel_t.md.nolink]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* sentinel_t[link /reference/ranges/sentinel_t.md]
 * ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力

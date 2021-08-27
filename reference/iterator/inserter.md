@@ -15,7 +15,7 @@ namespace std {
 }
 ```
 * insert_iterator[link insert_iterator.md]
-* ranges::iterator_t[link /reference/iterator/iterator_t.md.nolink]
+* ranges::iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 `insert_iterator`のヘルパ関数

@@ -31,15 +31,15 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 
 ## 範囲に関連する型へのアクセス
 
-| 名前                                                                     | 説明                                              | 対応バージョン |
-|-------------------------------------------------------------------------|---------------------------------------------------|----------------|
-| [`iterator_t`](ranges/iterator_t.md.nolink)                             | 範囲のイテレータ型を取得する (alias template)        | C++20          |
-| [`sentinel_t`](ranges/sentinel_t.md.nolink)                             | 範囲の番兵型を取得する (alias template)              | C++20          |
-| [`range_difference_t`](ranges/range_difference_t.md.nolink)             | 範囲のイテレータの差の型を取得する (alias template)  | C++20          |
-| [`range_size_t`](ranges/range_size_t.md.nolink)                         | 範囲のサイズの型を取得する(alias template)           | C++20          |
-| [`range_value_t`](ranges/range_value_t.md.nolink)                       | 範囲の要素の型を取得する (alias template)            | C++20          |
-| [`range_reference_t`](ranges/range_reference_t.md.nolink)               | 範囲の要素の参照型を取得する (alias template)        | C++20          |
-| [`range_rvalue_reference_t`](ranges/range_rvalue_reference_t.md.nolink) | 範囲の要素の右辺値参照型を取得する (alias template)  | C++20          |
+| 名前                                                             | 説明                                                 | 対応バージョン |
+|------------------------------------------------------------------|------------------------------------------------------|----------------|
+| [`iterator_t`](ranges/iterator_t.md)                             | 範囲のイテレータ型を取得する (alias template)        | C++20          |
+| [`sentinel_t`](ranges/sentinel_t.md)                             | 範囲の番兵型を取得する (alias template)              | C++20          |
+| [`range_difference_t`](ranges/range_difference_t.md)             | 範囲のイテレータの差の型を取得する (alias template)  | C++20          |
+| [`range_size_t`](ranges/range_size_t.md)                         | 範囲のサイズの型を取得する(alias template)           | C++20          |
+| [`range_value_t`](ranges/range_value_t.md)                       | 範囲の要素の型を取得する (alias template)            | C++20          |
+| [`range_reference_t`](ranges/range_reference_t.md)               | 範囲の要素の参照型を取得する (alias template)        | C++20          |
+| [`range_rvalue_reference_t`](ranges/range_rvalue_reference_t.md) | 範囲の要素の右辺値参照型を取得する (alias template)  | C++20          |
 
 ## 範囲コンセプト
 

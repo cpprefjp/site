@@ -16,7 +16,7 @@ namespace std {
 }
 ```
 * iter_value_t[link /reference/iterator/iter_value_t.md]
-* ranges::range_value_t[link /reference/ranges/range_value_t.md.nolink]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
 
 ## 概要
 `std::basic_string_view`クラステンプレートの型推論補助。イテレータ範囲やレンジから推論する。

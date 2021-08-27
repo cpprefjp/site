@@ -60,7 +60,7 @@ int main() {
 * identity[link /reference/functional/identity.md]
 * less[link /reference/functional/less.md]
 * greater[link /reference/functional/greater.md]
-* iterator_t[link /reference/ranges/iterator_t.md.nolink]
+* iterator_t[link /reference/ranges/iterator_t.md]
 
 ### 出力
 ```
