@@ -95,7 +95,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | 名前                                        | 説明           | 対応バージョン |
 |---------------------------------------------|----------------|----------------|
 | [`empty_view`](ranges/empty_view.md.nolink) | 空の範囲 (class template)     | C++20          |
-| [`empty`](ranges/empty.md.nolink)           | `empty_view`を生成する (variable template)  | C++20          |
+| [`empty`](ranges/empty_view.md.nolink)           | `empty_view`を生成する (variable template)  | C++20          |
 
 ### single view
 
