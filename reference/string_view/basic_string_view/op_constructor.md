@@ -61,7 +61,7 @@ constexpr basic_string_view(R&& r);                            // (7) C++23
 - (3) : `data_ = str;`および`size_ = Traits::`[`length`](/reference/string/char_traits/length.md)`(str);`とする
 - (5) : `data_ = str;`および`size_ = len;`とする
 - (6) : `data_ =` [`to_address`](/reference/memory/to_address.md)`(begin);`および`size_ = end - begin;`とする
-- (7) : `data_ =` [`ranges::data`](/reference/ranges/data.md.nolink)`(r);`および`size_ =` [`ranges::size`](/reference/ranges/size.md.nolink)`(r);`とする
+- (7) : `data_ =` [`ranges::data`](/reference/ranges/data.md)`(r);`および`size_ =` [`ranges::size`](/reference/ranges/size.md)`(r);`とする
 
 
 ## 計算量
@@ -70,7 +70,7 @@ constexpr basic_string_view(R&& r);                            // (7) C++23
 
 
 ## 例外
-- (7) : [`ranges::data`](/reference/ranges/data.md.nolink)`(r)`および[`ranges::size`](/reference/ranges/size.md.nolink)`(r)`が投げた例外
+- (7) : [`ranges::data`](/reference/ranges/data.md)`(r)`および[`ranges::size`](/reference/ranges/size.md)`(r)`が投げた例外
 
 
 ## 備考

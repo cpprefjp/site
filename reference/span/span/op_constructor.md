@@ -101,7 +101,7 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
     - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) のモデルであること
     - 型 `End` はコンセプト [`std::sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`<It>` のモデルであること
 - (7) :
-    - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`ranges::size`](/reference/ranges/size.md.nolink)`(r)`と等値になる
+    - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`ranges::size`](/reference/ranges/size.md)`(r)`と等値になる
     - 型 `R` はコンセプト `std::ranges::contiguous_range` 及び `std::ranges::sized_range` のモデルであること
     - [`std::is_const_v`](/reference/type_traits/is_const.md)`<element_type>` が `false`であるとき、型 `R` は `std::ranges::safe_range` のモデルであること
 - (9) :

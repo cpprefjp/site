@@ -23,11 +23,11 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`rend`](ranges/rend.md)       | 範囲の先頭の前を指す逆イテレータもしくは番兵を取得する (customization point object)              | C++20          |
 | [`crbegin`](ranges/crbegin.md) | 範囲の末尾を指す読み取り専用逆イテレータを取得する (customization point object)                  | C++20          |
 | [`crend`](ranges/crend.md)     | 範囲の先頭の前を指す読み取り専用逆イテレータもしくは番兵を取得する (customization point object)  | C++20          |
-| [`size`](ranges/size.md.nolink)       | 範囲の要素数を取得する (customization point object)                                  | C++20          |
-| [`ssize`](ranges/ssize.md.nolink)     | 範囲の要素数を、符号付き整数型で取得する (customization point object)                | C++20          |
-| [`empty`](ranges/empty.md.nolink)     | 範囲が空かどうかを判定する (customization point object)                              | C++20          |
-| [`data`](ranges/data.md.nolink)       | 範囲の要素配列へのポインタを取得する (customization point object)                    | C++20          |
-| [`cdata`](ranges/cdata.md.nolink)     | 範囲の要素配列への読み取り専用ポインタを取得する (customization point object)        | C++20          |
+| [`size`](ranges/size.md)       | 範囲の要素数を取得する (customization point object)                                              | C++20          |
+| [`ssize`](ranges/ssize.md)     | 範囲の要素数を、符号付き整数型で取得する (customization point object)                            | C++20          |
+| [`empty`](ranges/empty.md)     | 範囲が空かどうかを判定する (customization point object)                                          | C++20          |
+| [`data`](ranges/data.md)       | 範囲の要素配列へのポインタを取得する (customization point object)                                | C++20          |
+| [`cdata`](ranges/cdata.md)     | 範囲の要素配列への読み取り専用ポインタを取得する (customization point object)                    | C++20          |
 
 ## 範囲に関連する型へのアクセス
 
@@ -59,8 +59,8 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 
 ## カスタマイゼーションポイント
 
-| 名前                                                              | 説明                                                        | 対応バージョン |
-|-------------------------------------------------------------------|-------------------------------------------------------------|----------------|
+| 名前                                                       | 説明                                                        | 対応バージョン |
+|------------------------------------------------------------|-------------------------------------------------------------|----------------|
 | [`enable_borrowed_range`](ranges/enable_borrowed_range.md) | 範囲を`borrowed_range`にする (variable template)            | C++20          |
 | [`enable_view`](ranges/enable_view.md)                     | 範囲を`view`にする (variable template)                      | C++20          |
 | [`disable_sized_range`](ranges/disable_sized_range.md)     | 範囲を`sized_range`にならないようにする (variable template) | C++20          |

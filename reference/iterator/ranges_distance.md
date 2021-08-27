@@ -41,7 +41,7 @@ namespace std::ranges {
     - `S, I`が[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる : `return (last - first)`
     - それ以外の場合 : `first`から`last`に到達するのに必要なインクリメントの回数を返す。
 - (2) : 次のいずれかによって、範囲の長さを求める。
-    - `R`が[`sized_range`](/reference/ranges/sized_range.md.nolink)`<R>`のモデルとなる : `return static_cast<`[`range_difference_t`](/reference/ranges/range_difference_t.md.nolink)`<R>>(`[`ranges::size`](/reference/ranges/size.md.nolink)`(r));`
+    - `R`が[`sized_range`](/reference/ranges/sized_range.md.nolink)`<R>`のモデルとなる : `return static_cast<`[`range_difference_t`](/reference/ranges/range_difference_t.md.nolink)`<R>>(`[`ranges::size`](/reference/ranges/size.md)`(r));`
     - それ以外の場合 : `return ranges::distance(`[`ranges::begin`](/reference/ranges/begin.md)`(r), `[`ranges::end`](/reference/ranges/end.md)`(r))` （(1)に委譲）
 
 ## 戻り値
