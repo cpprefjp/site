@@ -1,7 +1,7 @@
 # decay-copy
 * exposition-only[meta header]
 * function[meta id-type]
-* cpp11[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
 template<class T>
