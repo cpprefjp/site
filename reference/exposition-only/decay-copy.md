@@ -1,7 +1,6 @@
 # decay-copy
 * exposition-only[meta header]
 * function[meta id-type]
-* class_name[meta class]
 * cpp11[meta cpp]
 
 ```cpp
