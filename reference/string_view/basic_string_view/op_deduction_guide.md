@@ -27,7 +27,7 @@ namespace std {
     - `It`は[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)の要件を満たすこと
     - `End`は[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`<It>`の要件を満たすこと
 - (2) :
-    - `R`は[`ranges::contiguous_range`](/reference/ranges/contiguous_range.md.nolink)の要件を満たすこと
+    - `R`は[`ranges::contiguous_range`](/reference/ranges/contiguous_range.md)の要件を満たすこと
 
 
 ## 例

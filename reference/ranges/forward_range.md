@@ -1,0 +1,41 @@
+# forward_range
+* ranges[meta header]
+* concept[meta id-type]
+* std::ranges[meta namespace]
+* cpp20[meta cpp]
+
+```cpp
+namespace std::ranges {
+  template<class R, class T>
+  concept forward_range = input_range<R> && forward_iterator<iterator_t<R>, T>;
+}
+```
+* input_range[link input_range.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
+* iterator_t[link iterator_t.md]
+
+## 概要
+`forward_range`は、イテレータが[`forward_iterator`](/reference/iterator/forward_iterator.md)である範囲を表すコンセプトである。
+
+## モデル
+型`T`が`forward_range`のモデルとなるのは、`T`が[`input_range`](input_range.md)のモデルであり、かつそのイテレータが[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルである場合である。
+
+## 例
+(執筆中)
+
+### 出力
+(執筆中)
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): 13.0.0
+- [GCC](/implementation.md#gcc): 10.1.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+## 参照
+- [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
+- [C++20 ranges](https://techbookfest.org/product/5134506308665344)

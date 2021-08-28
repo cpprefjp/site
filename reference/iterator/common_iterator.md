@@ -141,7 +141,7 @@ int main() {
 
 ## 関連項目
 
-- [`common_range`](/reference/ranges/common_range.md.nolink)
+- [`common_range`](/reference/ranges/common_range.md)
 - [`common_view`](/reference/ranges/common_view.md.nolink)
 
 ## 参照

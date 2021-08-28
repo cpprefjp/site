@@ -15,9 +15,9 @@ namespace std::ranges {
 
 ## 概要
 
-`enable_view<T>`が`true`であることは、`T`が[`view`](view.md.nolink)であるための必要条件である。
+`enable_view<T>`が`true`であることは、`T`が[`view`](view.md)であるための必要条件である。
 
-[`view`](view.md.nolink)コンセプトの要件は意味論要件がメインなため、[`view_base`](view_base.md)を基底クラスにするか、`enable_view`を特殊化することで、明示的に`view`であることを示すようになっている。
+[`view`](view.md)コンセプトの要件は意味論要件がメインなため、[`view_base`](view_base.md)を基底クラスにするか、`enable_view`を特殊化することで、明示的に`view`であることを示すようになっている。
 
 ## 例
 

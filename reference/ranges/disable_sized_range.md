@@ -13,9 +13,11 @@ namespace std::ranges {
 
 ## 概要
 
-`disable_sized_range`は、[`sized_range`](sized_range.md.nolink)を無効化するカスタマイゼーションポイントである。
+`disable_sized_range`は、[`sized_range`](sized_range.md)を無効化するカスタマイゼーションポイントである。
 
-[`sized_range`](sized_range.md.nolink)コンセプトの構文要件を満たすが意味論要件を満たさないような型`T`があるとき、`disable_sized_range<T>`が`true`となるように特殊化することで[`sized_range`](sized_range.md.nolink)を無効化する。
+[`sized_range`](sized_range.md)コンセプトの構文要件を満たすが意味論要件を満たさないような型`T`があるとき、`disable_sized_range<T>`が`true`となるように特殊化することで[`ranges::size`](size.md)の引数にできないようにして、[`sized_range`](sized_range.md)を無効化する。
+
+具体的には、大きさを求めることはできるが、その計算量が償却定数にならないような範囲が該当する。
 
 ## 例
 

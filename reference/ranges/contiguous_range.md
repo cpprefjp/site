@@ -1,0 +1,69 @@
+# contiguous_range
+* ranges[meta header]
+* concept[meta id-type]
+* std::ranges[meta namespace]
+* cpp20[meta cpp]
+
+```cpp
+namespace std::ranges {
+  template<class T>
+  concept contiguous_range = random_access_range<T> && contiguous_iterator<iterator_t<T>> &&
+    requires(T& t) {
+      { ranges::data(t) } -> same_as<add_pointer_t<range_reference_t<T>>>;
+    };
+}
+```
+* random_access_range[link random_access_range.md]
+* contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
+* iterator_t[link iterator_t.md]
+* ranges::data[link data.md]
+* same_as[link /reference/concepts/same_as.md]
+* add_pointer_t[link /reference/type_traits/add_pointer.md]
+* range_reference_t[link range_reference_t.md]
+
+## 概要
+`contiguous_range`は、イテレータが[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)である範囲を表すコンセプトである。
+
+`contiguous_range`である範囲は、要素がメモリ上で連続して配置されており、[`ranges::data`](data.md)や[`ranges::cdata`](cdata.md)で要素のポインタを取得できる。
+
+## モデル
+`decltype((t))`が`T&`であるような式`t`があるとする。
+`T`が`contiguous_range`のモデルとなるのは、[`to_address`](/reference/memory/to_address.md)`(`[`ranges::begin`](begin.md)`(t)) == `[`ranges::data`](data.md)`(t)`が`true`となる場合である。
+
+## 例
+```cpp example
+#include <ranges>
+#include <list>
+#include <set>
+#include <vector>
+
+int main()
+{
+  // vectorはcontiguous_range
+  static_assert(std::ranges::contiguous_range<std::vector<int>>);
+
+  // listはcontiguous_rangeではない
+  static_assert(!std::ranges::contiguous_range<std::list<int>>);
+
+  // setはcontiguous_rangeではない
+  static_assert(!std::ranges::contiguous_range<std::set<int>>);
+}
+```
+
+### 出力
+```
+```
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): 13.0.0
+- [GCC](/implementation.md#gcc): 10.1.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+## 参照
+- [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
+- [C++20 ranges](https://techbookfest.org/product/5134506308665344)

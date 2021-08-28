@@ -12,7 +12,7 @@ namespace std::ranges {
 
 ## 概要
 
-`view_base`は、基底クラスにすることで[`view`](view.md.nolink)コンセプトの構文要件の1つである[`enable_view`](enable_view.md)を満たすタグ型である。
+`view_base`は、基底クラスにすることで[`view`](view.md)コンセプトの構文要件の1つである[`enable_view`](enable_view.md)を満たすタグ型である。
 
 ## 例
 

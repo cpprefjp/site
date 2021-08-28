@@ -13,9 +13,9 @@ namespace std::ranges {
 
 ## 概要
 
-`enable_borrowed_range<T>`が`true`であることは、`T`が[`borrowed_range`](borrowed_range.md.nolink)であるための必要条件である。
+`enable_borrowed_range<T>`が`true`であることは、`T`が[`borrowed_range`](borrowed_range.md)であるための必要条件である。
 
-[`borrowed_range`](borrowed_range.md.nolink)コンセプトの要件は意味論要件がメインなため、`enable_borrowed_range`を特殊化することで、明示的に`borrowed_range`であることを示すようになっている。
+[`borrowed_range`](borrowed_range.md)コンセプトの要件は意味論要件がメインなため、`enable_borrowed_range`を特殊化することで、明示的に`borrowed_range`であることを示すようになっている。
 
 ## 例
 
