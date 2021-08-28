@@ -23,7 +23,7 @@ namespace std::ranges {
 #include <vector>
 
 int main() {
-  static_assert(std::same_as<std::ranges::range_rvalue_reference_t<std::vector<int>>, int&>);
+  static_assert(std::same_as<std::ranges::range_rvalue_reference_t<std::vector<int>>, int&&>);
 }
 ```
 * std::ranges::range_rvalue_reference_t[color ff0000]
