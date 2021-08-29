@@ -82,11 +82,11 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 
 ## ダングリングイテレータハンドリング
 
-| 名前                                                   | 説明           | 対応バージョン |
-|--------------------------------------------------------|----------------|----------------|
-| [`dangling`](ranges/dangling.md.nolink)                       | ダングリングイテレータ、ダングリング範囲を表す型 (class)      | C++20          |
-| [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md.nolink) | 範囲が`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
-| [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md.nolink) | 範囲が`borrowed_range`ではないとき`dangling`となる部分範囲 (alias template) | C++20          |
+| 名前                                                   | 説明                                                                          | 対応バージョン |
+|--------------------------------------------------------|-------------------------------------------------------------------------------|----------------|
+| [`dangling`](ranges/dangling.md)                       | ダングリングイテレータ、ダングリング範囲を表す型 (class)                      | C++20          |
+| [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md) | 範囲が`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
+| [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md) | 範囲が`borrowed_range`ではないとき`dangling`となる部分範囲 (alias template)   | C++20          |
 
 ## 範囲ファクトリ
 

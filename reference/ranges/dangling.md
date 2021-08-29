@@ -1,0 +1,76 @@
+# dangling
+* ranges[meta header]
+* std::ranges[meta namespace]
+* class[meta id-type]
+* cpp20[meta cpp]
+
+```cpp
+namespace std::ranges {
+  struct dangling {
+    constexpr dangling() noexcept = default;
+
+    template<class... Args>
+    constexpr dangling(Args&&...) noexcept { }
+  };
+}
+```
+
+## 概要
+
+`dangling`は、イテレータまたは範囲がダングリングであることを示す型である。
+
+この型のオブジェクトは、イテレータまたは範囲を返す関数において、戻り値のイテレータや範囲がダングリングとなる場合に代わりに返される。
+
+## メンバ関数
+### 構築・破棄
+
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
+| `(constructor)` | コンストラクタ | C++20          |
+
+## 例
+
+```cpp example
+#include <ranges>
+#include <vector>
+
+using namespace std;
+
+vector<int> f(){ return {}; }
+
+int main()
+{
+  // borrowed_rangeではない範囲のrvalueが渡された場合、danglingが返る
+  auto result1 = ranges::find(f(), 42);
+  static_assert(same_as<decltype(result1), ranges::dangling>);
+
+  // lvalueが渡された場合、danglingにはならない
+  auto vec = f();
+  auto result2 = ranges::find(vec, 42);
+  static_assert(same_as<decltype(result2), vector<int>::iterator>);
+
+  // borrowed_rangeのrvalueが渡された場合、danglingにはならない
+  auto result3 = ranges::find(ranges::subrange{vec}, 42);
+  static_assert(same_as<decltype(result3), vector<int>::iterator>);
+}
+```
+* ranges::dangling[color ff0000]
+* std::ranges::crend[link crend.md]
+
+### 出力
+```
+```
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): 13.0.0
+- [GCC](/implementation.md#gcc): 10.1.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+## 参照
+- [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
+- [C++20 ranges](https://techbookfest.org/product/5134506308665344)
