@@ -12,7 +12,7 @@ namespace std::ranges {
 ```
 * conditional_t[link /reference/type_traits/conditional.md]
 * borrowed_range[link borrowed_range.md]
-* subrange[link subrange.md]
+* subrange[link subrange.md.nolink]
 * iterator_t[link iterator_t.md]
 * dangling[link dangling.md]
 
