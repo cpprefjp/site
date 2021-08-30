@@ -9,6 +9,8 @@
 
 比較カテゴリ型を返す`<=>`を利用する際は本ヘッダのインクルードは必須である。
 
+本ヘッダはフリースタンディング環境でも提供される。
+
 ## 代入可能性（*substitutability*）
 
 代入可能性とは、`a == b`ならば`f(a) == f(b)`となる性質の事である。なお、ここでの`f()`は内部状態や副作用を持たず入力のアクセス可能な要素のみによって出力が決まる関数で、`pure`な関数と呼ばれるものである。
@@ -84,3 +86,4 @@
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding <=> to the Library)](http://wg21.link/p1614)
 - [P1959R0 Remove `std::weak_equality` and `std::strong_equality`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1959r0.html)
+- [P1855R0 Make <compare> freestanding](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1855r0.html)
