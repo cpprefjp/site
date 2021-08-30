@@ -20,10 +20,47 @@ namespace std::ranges {
 
 任意の範囲型`R`の部分範囲の型を取得する。ただし、`R`が[`borrowed_range`](borrowed_range.md)ではない場合、[`dangling`](dangling.md)になる。
 
+
 ## 例
 ```cpp example
+#include <ranges>
+#include <vector>
+
+using namespace std;
+
+template<ranges::range R>
+ranges::borrowed_subrange_t<R> my_all(R&& r) {
+  auto i = ranges::begin(r);
+  auto e = ranges::end(r);
+  return {i, e};
+}
+
+vector<int> f(){ return {}; }
+
+int main() {
+  // borrowed_rangeではない範囲のrvalueが渡された場合、danglingが返る
+  auto result1 = my_all(f());
+  static_assert(same_as<decltype(result1), ranges::dangling>);
+
+  // lvalueが渡された場合、danglingにはならない
+  auto vec = f();
+  auto result2 = my_all(vec);
+  static_assert(!same_as<decltype(result2), ranges::dangling>);
+
+  // borrowed_rangeのrvalueが渡された場合、danglingにはならない
+  auto result3 = my_all(ranges::subrange{vec});
+  static_assert(!same_as<decltype(result3), ranges::dangling>);
+}
 ```
-* std::ranges::# borrowed_subrange_t[color ff0000]
+* ranges::ranges::borrowed_iborrowed_subrange_tterator_t[color ff0000]
+* ranges::range[link range.md]
+* ranges::begin[link begin.md]
+* ranges::end[link end.md]
+* ranges::range_value_t[link range_value_t.md]
+* ranges::dangling[link dangling.md]
+* ranges::subrange[link subrange.md.nolink]
+* borrowed_range[link borrowed_range.md]
+* same_as[link /reference/concepts/same_as.md]
 
 ### 出力
 ```

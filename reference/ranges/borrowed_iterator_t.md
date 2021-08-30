@@ -16,13 +16,54 @@ namespace std::ranges {
 * dangling[link dangling.md]
 
 ## 概要
-
 任意の範囲型`R`のイテレータの型を取得する。ただし、`R`が[`borrowed_range`](borrowed_range.md)ではない場合、[`dangling`](dangling.md)になる。
+
+イテレータを返す関数では、これを戻り値型に使うことでダングリングイテレータになる場合に自動的に[`dangling`](dangling.md)を返すことができる。
 
 ## 例
 ```cpp example
+#include <ranges>
+#include <vector>
+
+using namespace std;
+
+template<ranges::range R>
+ranges::borrowed_iterator_t<R> my_find(R&& r, const ranges::range_value_t<R>& v) {
+  auto i = ranges::begin(r);
+  auto e = ranges::end(r);
+  while(i != e) {
+    if(*i == v) return i;
+    ++i;
+  }
+  return e;
+}
+
+vector<int> f(){ return {}; }
+
+int main() {
+  // borrowed_rangeではない範囲のrvalueが渡された場合、danglingが返る
+  auto result1 = my_find(f(), 42);
+  static_assert(same_as<decltype(result1), ranges::dangling>);
+
+  // lvalueが渡された場合、danglingにはならない
+  auto vec = f();
+  auto result2 = my_find(vec, 42);
+  static_assert(same_as<decltype(result2), vector<int>::iterator>);
+
+  // borrowed_rangeのrvalueが渡された場合、danglingにはならない
+  auto result3 = my_find(ranges::subrange{vec}, 42);
+  static_assert(same_as<decltype(result3), vector<int>::iterator>);
+}
 ```
-* std::ranges::range_difference_t[color ff0000]
+* ranges::ranges::borrowed_iterator_t[color ff0000]
+* ranges::range[link range.md]
+* ranges::begin[link begin.md]
+* ranges::end[link end.md]
+* ranges::range_value_t[link range_value_t.md]
+* ranges::dangling[link dangling.md]
+* ranges::subrange[link subrange.md.nolink]
+* borrowed_range[link borrowed_range.md]
+* same_as[link /reference/concepts/same_as.md]
 
 ### 出力
 ```

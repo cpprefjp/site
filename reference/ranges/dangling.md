@@ -55,7 +55,10 @@ int main()
 }
 ```
 * ranges::dangling[color ff0000]
-* std::ranges::crend[link crend.md]
+* ranges::find[link /reference/algorithm/find.md]
+* ranges::subrange[link subrange.md.nolink]
+* borrowed_range[link borrowed_range.md]
+* same_as[link /reference/concepts/same_as.md]
 
 ### 出力
 ```
