@@ -182,16 +182,6 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`ranges::iter_move`](iterator/iter_move.md)   | イテレータの指す要素をムーブする (customization point object)               | C++20          |
 | [`ranges::iter_swap`](iterator/iter_swap.md) | 2つのイテレータの指す要素を*swap*する (customization point object) | C++20 |
 
-## 説明専用コンセプト
-
-| 名前                         | 説明                                            | 対応バージョン |
-|------------------------------|-------------------------------------------------|----------------|
-| [`with-reference`](iterator/dereferenceable.md)   | 型`T`に参照を付加する (alias template)               | C++20          |
-| [`can-reference`](iterator/dereferenceable.md) | `with-reference`可能 (concept) | C++20 |
-| [`dereferenceable`](iterator/dereferenceable.md) | 単純な間接参照が可能 (concept)           | C++20          |
-| [`is-integer-like`](iterator/is_integer_like.md) | 符号付整数型と同等の型か否かを表す (variable template)           | C++20          |
-| [`is-signed-integer-like`](iterator/is_integer_like.md) | 符号なし整数型と同等の型か否かを表す (variable template)           | C++20          |
-
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
