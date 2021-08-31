@@ -21,10 +21,24 @@ namespace std::ranges {
 型`T`が`output_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、かつそのイテレータが[`output_iterator`](/reference/iterator/output_iterator.md)のモデルである場合である。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <iterator>
+#include <concepts>
+#include <iostream>
+
+int main() {
+  using namespace std;
+  ostream_iterator<int> osi(cout);
+  static_assert(ranges::output_range<decltype(views::counted(osi, 5)), int>);
+}
+```
+* ranges::output_range[color ff0000]
+* views::counted[link counted.md.nolink]
 
 ### 出力
-(執筆中)
+```
+```
 
 ## バージョン
 ### 言語

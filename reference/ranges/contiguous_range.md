@@ -33,22 +33,22 @@ namespace std::ranges {
 ## 例
 ```cpp example
 #include <ranges>
-#include <list>
-#include <set>
 #include <vector>
 
-int main()
-{
+int main() {
+  using namespace std;
   // vectorはcontiguous_range
-  static_assert(std::ranges::contiguous_range<std::vector<int>>);
+  static_assert(ranges::contiguous_range<vector<int>>);
 
-  // listはcontiguous_rangeではない
-  static_assert(!std::ranges::contiguous_range<std::list<int>>);
-
-  // setはcontiguous_rangeではない
-  static_assert(!std::ranges::contiguous_range<std::set<int>>);
+  // vectorから作ったelements_viewはcontiguous_rangeではない
+  using view_t = ranges::elements_view<ranges::views::all_t<vector<pair<int, int>>&>, 0>;
+  static_assert(ranges::random_access_range<view_t>);
+  static_assert(!ranges::contiguous_range<view_t>);
 }
 ```
+* elements_view[link elements_view.md.nolink]
+* all_t[link all_t.md.nolink]
+* ranges::random_access_range[link random_access_range.md]
 
 ### 出力
 ```

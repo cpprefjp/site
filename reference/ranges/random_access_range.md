@@ -21,10 +21,28 @@ namespace std::ranges {
 型`T`が`random_access_range`のモデルとなるのは、`T`が[`bidirectional_range`](bidirectional_range.md)のモデルであり、かつそのイテレータが[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルである場合である。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <list>
+#include <set>
+#include <vector>
+
+int main()
+{
+  // vectorはrandom_access_range
+  static_assert(std::ranges::random_access_range<std::vector<int>>);
+
+  // listはrandom_access_rangeではない
+  static_assert(!std::ranges::random_access_range<std::list<int>>);
+
+  // setはrandom_access_rangeではない
+  static_assert(!std::ranges::random_access_range<std::set<int>>);
+}
+```
 
 ### 出力
-(執筆中)
+```
+```
 
 ## バージョン
 ### 言語
