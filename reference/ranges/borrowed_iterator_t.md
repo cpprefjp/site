@@ -61,7 +61,7 @@ int main() {
 * ranges::end[link end.md]
 * ranges::range_value_t[link range_value_t.md]
 * ranges::dangling[link dangling.md]
-* ranges::subrange[link subrange.md.nolink]
+* ranges::subrange[link subrange.md]
 * borrowed_range[link borrowed_range.md]
 * same_as[link /reference/concepts/same_as.md]
 

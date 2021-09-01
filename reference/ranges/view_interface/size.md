@@ -20,8 +20,8 @@ constexpr auto size() const requires forward_range<const D> && sized_sentinel_fo
 ## テンプレートパラメータ制約
 [`view_interface`](../view_interface.md)`<D>`に対して、
 
-- (1): `D`が[`forward_range`](../forward_range.md)であり、`D`のイテレータ`I`と番兵`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`(I, S)`を満たすこと。
-- (2): `const D`が[`forward_range`](../forward_range.md)であり、`const D`のイテレータ`I`と番兵`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`(I, S)`を満たすこと。
+- (1): `D`が[`forward_range`](../forward_range.md)であり、`D`のイテレータ`I`と番兵`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)を満たすこと。
+- (2): `const D`が[`forward_range`](../forward_range.md)であり、`const D`のイテレータ`I`と番兵`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)を満たすこと。
 
 ## 戻り値
 (1)、(2)共に、以下と等価：

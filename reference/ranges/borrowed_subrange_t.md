@@ -12,7 +12,7 @@ namespace std::ranges {
 ```
 * conditional_t[link /reference/type_traits/conditional.md]
 * borrowed_range[link borrowed_range.md]
-* subrange[link subrange.md.nolink]
+* subrange[link subrange.md]
 * iterator_t[link iterator_t.md]
 * dangling[link dangling.md]
 
@@ -58,7 +58,7 @@ int main() {
 * ranges::end[link end.md]
 * ranges::range_value_t[link range_value_t.md]
 * ranges::dangling[link dangling.md]
-* ranges::subrange[link subrange.md.nolink]
+* ranges::subrange[link subrange.md]
 * borrowed_range[link borrowed_range.md]
 * same_as[link /reference/concepts/same_as.md]
 
