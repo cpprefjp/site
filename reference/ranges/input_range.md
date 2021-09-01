@@ -21,10 +21,20 @@ namespace std::ranges {
 型`T`が`input_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、かつそのイテレータが[`input_iterator`](/reference/iterator/input_iterator.md)のモデルである場合である。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <forward_list>
+#include <iostream>
 
-### 出力
-(執筆中)
+int main() {
+  using namespace std;
+  // istream_viewはforward_rangeではなく、input_range
+  static_assert(!ranges::forward_range<decltype(ranges::istream_view<int>(cin))>);
+  static_assert(ranges::input_range<decltype(ranges::istream_view<int>(cin))>);
+}
+```
+* ranges::forward_range[link forward_range.md]
+* ranges::istream_view[link istream_view.md.nolink]
 
 ## バージョン
 ### 言語
