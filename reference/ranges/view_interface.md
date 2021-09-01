@@ -1,7 +1,7 @@
 # view_interface
 * ranges[meta header]
 * std::ranges[meta namespace]
-* class[meta id-type]
+* class tempalte[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
