@@ -36,7 +36,7 @@ int main() {
   static_assert(ranges::forward_range<forward_list<int>>);
 }
 ```
-* ranges::bidirectional_range[link random_access_range.md]
+* ranges::forward_range[link forward_range.md]
 
 ### 出力
 ```
