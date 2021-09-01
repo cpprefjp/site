@@ -27,7 +27,7 @@ constexpr decltype(auto) front() const requires forward_range<const D>; // (2)
 (1)、(2)共に、以下と等価：
 
 ```cpp
-*ranges​::​begin(derived())
+*ranges::begin(derived())
 ```
 * ranges::begin[link ../begin.md]
 * derived[italic]

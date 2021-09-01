@@ -28,10 +28,10 @@ constexpr decltype(auto) back() const requires bidirectional_range<const D> && c
 (1)、(2)共に、以下と等価：
 
 ```cpp
-*ranges​::​prev(ranges​::​end(derived()))
+*ranges::prev(ranges::end(derived()))
 ```
-* ranges::​end[link ../begin.md]
-* ranges::​prev[link /reference/iterator/ranges_prev.md]
+* ranges::end[link ../begin.md]
+* ranges::prev[link /reference/iterator/ranges_prev.md]
 * derived[italic]
 * derived[link derived.md]
 
