@@ -21,10 +21,26 @@ namespace std::ranges {
 型`T`が`bidirectional_range`のモデルとなるのは、`T`が[`forward_range`](forward_range.md)のモデルであり、かつそのイテレータが[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルである場合である。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <forward_list>
+#include <list>
+
+int main() {
+  using namespace std;
+  // listはbidirectional_range
+  static_assert(ranges::bidirectional_range<list<int>>);
+
+  // forward_listはbidirectional_rangeではなく、forward_range
+  static_assert(!ranges::bidirectional_range<forward_list<int>>);
+  static_assert(ranges::forward_range<forward_list<int>>);
+}
+```
+* ranges::bidirectional_range[link random_access_range.md]
 
 ### 出力
-(執筆中)
+```
+```
 
 ## バージョン
 ### 言語
