@@ -71,7 +71,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | 名前                                         | 説明                                                      | 対応バージョン |
 |----------------------------------------------|-----------------------------------------------------------|----------------|
 | [`view_base`](ranges/view_base.md)           | 基底クラスとすることで`view`となるタグ型 (class)          | C++20          |
-| [`view_interface`](ranges/view_interface.md.nolink) | ビューの基底クラスとして推奨されるクラス (class template) | C++20          |
+| [`view_interface`](ranges/view_interface.md) | ビューの基底クラスとして推奨されるクラス (class template) | C++20          |
 
 ## 部分範囲
 

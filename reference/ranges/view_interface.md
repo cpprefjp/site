@@ -1,0 +1,48 @@
+# view_interface
+* ranges[meta header]
+* std::ranges[meta namespace]
+* class[meta id-type]
+* cpp20[meta cpp]
+
+```cpp
+namespace std::ranges {
+  template<class D>
+  requires is_class_v<D> && same_as<D, remove_cv_t<D>>
+  class view_interface : public view_base { …… };
+}
+```
+* is_class_v[link /reference/type_traits/is_class.md]
+* same_as[link /reference/concepts/same_as.md]
+* remove_cv_t[link /reference/type_traits/remove_cv.md]
+
+## 概要
+
+`view_interface`は、[`view`](view.md)を実装する際に便利なクラステンプレートである。使用するときは、派生クラスを`view_interface`のテンプレート引数にする(CRTP)。
+
+## メンバ関数
+
+これらのメンバ関数は、`std::ranges`以下のカスタマイゼーションポイントオブジェクトを使って実装されており、テンプレート引数として渡された範囲型に対して該当する呼び出しが可能な場合のみオーバーロード解決に参加する。
+
+| 名前                                         | 説明                             | 対応バージョン |
+|----------------------------------------------|----------------------------------|----------------|
+| [`empty`](view_interface/empty.md)           | 範囲が空かどうかを判定する       | C++20          |
+| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
+| [`data`](view_interface/data.md)             | 配列の先頭へのポインタを取得する | C++20          |
+| [`size`](view_interface/size.md)             | 要素数を取得する                 | C++20          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素アクセス                     | C++20          |
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): 13.0.0
+- [GCC](/implementation.md#gcc): 10.1.0
+- [ICC](/implementation.md#icc): ?
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+## 参照
+- [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
+- [C++20 ranges](https://techbookfest.org/product/5134506308665344)
