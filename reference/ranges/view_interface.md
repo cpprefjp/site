@@ -11,6 +11,7 @@ namespace std::ranges {
   class view_interface : public view_base { …… };
 }
 ```
+* view_base[link view_base.md]
 * is_class_v[link /reference/type_traits/is_class.md]
 * same_as[link /reference/concepts/same_as.md]
 * remove_cv_t[link /reference/type_traits/remove_cv.md]
