@@ -26,6 +26,13 @@ constexpr decay_t<T> decay-copy(T&& v) noexcept(is_nothrow_convertible_v<T, deca
 
 この関数は、参照ではなくコピーまたはムーブした値であることを明示するために使われる。
 
+例えば、以下のような関数`f`があるとき、式`f()`の効果を「`g`と等しい」と説明した場合、型は`int&`になってしまう。そこで、`f()`の効果を正確に述べるために「`decay-copy(g)`と等しい」という表現を用いる。
+
+```cpp
+int g = 0;
+int f(){ return g; }
+```
+
 ## 戻り値
 式`decay-copy(v)`の値は次のようになる。
 
