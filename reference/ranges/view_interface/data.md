@@ -29,7 +29,6 @@ to_address(ranges::begin(derived()));
 ```
 * to_address[link /reference/memory/to_address.md]
 * ranges::begin[link ../begin.md]
-* derived[italic]
 * derived[link derived.md]
 
 ## 計算量

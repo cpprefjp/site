@@ -30,7 +30,6 @@ constexpr decltype(auto) front() const requires forward_range<const D>; // (2)
 *ranges::begin(derived())
 ```
 * ranges::begin[link ../begin.md]
-* derived[italic]
 * derived[link derived.md]
 
 ## 計算量

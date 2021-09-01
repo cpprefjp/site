@@ -10,7 +10,6 @@
     constexpr explicit operator bool() const requires requires { ranges::empty(derived()); }; // (2)
 ```
 * ranges::empty[link ../empty.md]
-* derived[italic]
 * derived[link derived.md]
 
 ## 概要
@@ -26,7 +25,6 @@
 !ranges::empty(derived())
 ```
 * ranges::empty[link ../empty.md]
-* derived[italic]
 * derived[link derived.md]
 
 ## 計算量

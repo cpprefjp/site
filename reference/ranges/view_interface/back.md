@@ -32,7 +32,6 @@ constexpr decltype(auto) back() const requires bidirectional_range<const D> && c
 ```
 * ranges::end[link ../begin.md]
 * ranges::prev[link /reference/iterator/ranges_prev.md]
-* derived[italic]
 * derived[link derived.md]
 
 ## 計算量

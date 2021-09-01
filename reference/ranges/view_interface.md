@@ -31,7 +31,8 @@ namespace std::ranges {
 | [`size`](view_interface/size.md)             | 要素数を取得する                 | C++20          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
-| [`operator[]`](view_interface/op_at.md)      | 要素アクセス                     | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |
+| [`derived`](view_interface/derived.md)       | ダウンキャストする (説明専用)    | C++20          |
 
 ## バージョン
 ### 言語

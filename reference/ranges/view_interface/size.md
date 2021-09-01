@@ -31,7 +31,6 @@ ranges::end(derived()) - ranges::begin(derived());
 ```
 * ranges::begin[link ../begin.md]
 * ranges::end[link ../end.md]
-* derived[italic]
 * derived[link derived.md]
 
 ## 計算量
