@@ -30,7 +30,7 @@ namespace std::ranges {
 `view`と[`borrowed_range`](borrowed_range.md)には直接の包含関係はないが、要素を所有していると一般にこれらの要件は満たせないため、[`borrowed_range`](borrowed_range.md)でもあると考えてよい。
 
 ## 備考
-`view`を自作する場合、[`view_interface`](view_interface.md.nolink)を基底クラスにすると便利である。
+`view`を自作する場合、[`view_interface`](view_interface.md)を基底クラスにすると便利である。
 
 ## 例
 ```cpp example
