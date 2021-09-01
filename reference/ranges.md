@@ -77,7 +77,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 
 | 名前                                         | 説明                                            | 対応バージョン |
 |----------------------------------------------|-------------------------------------------------|----------------|
-| [`subrange_kind`](ranges/subrange_kind.md.nolink)   | 部分範囲の種類を表す列挙体 (enum class)         | C++20          |
+| [`subrange_kind`](ranges/subrange_kind.md)   | 部分範囲の種類を表す列挙体 (enum class)         | C++20          |
 | [`subrange`](ranges/subrange.md.nolink)             | イテレータペアを範囲として扱う (class template) | C++20          |
 
 ## ダングリングイテレータハンドリング
