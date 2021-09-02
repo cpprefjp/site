@@ -92,11 +92,11 @@ namespace std {
 int main() {
   using namespace std;
 
-  for (int i : ranges::iota(1, 10)) {
+  for (int i : views::iota(1, 10)) {
     cout << i;
   }
   cout << '\n';
-  for (int i : ranges::iota(10)) {
+  for (int i : views::iota(10)) {
      cout << i;
      break;
   }

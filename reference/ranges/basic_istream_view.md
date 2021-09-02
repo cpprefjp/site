@@ -73,7 +73,7 @@ int main() {
   using namespace std;
   auto iss = istringstream{"1 2 3 4 5"};
 
-  for (int i : ranges::istream_view<int>(iss)) {
+  for (int i : views::istream_view<int>(iss)) {
     cout << i;
   }
 }
