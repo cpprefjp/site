@@ -7,7 +7,7 @@
 ```cpp
 namespace std::ranges {
   template<class D>
-  requires is_class_v<D> && same_as<D, remove_cv_t<D>>
+    requires is_class_v<D> && same_as<D, remove_cv_t<D>>
   class view_interface : public view_base { …… };
 }
 ```
@@ -22,7 +22,7 @@ namespace std::ranges {
 
 ## メンバ関数
 
-これらのメンバ関数は、`std::ranges`以下のカスタマイゼーションポイントオブジェクトを使って実装されており、テンプレート引数として渡された範囲型に対して該当する呼び出しが可能な場合のみオーバーロード解決に参加する。
+これらのメンバ関数は、`std::ranges`以下のカスタマイゼーションポイントオブジェクトを使って実装されており、テンプレート引数`D`として渡された範囲型に対して該当する呼び出しが可能な場合のみオーバーロード解決に参加する。
 
 | 名前                                         | 説明                             | 対応バージョン |
 |----------------------------------------------|----------------------------------|----------------|
@@ -33,7 +33,7 @@ namespace std::ranges {
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |
-| [`derived`](view_interface/derived.md)       | ダウンキャストする (説明専用)    | C++20          |
+| [`derived`](view_interface/derived.md)       | `D`へダウンキャストする (説明専用) | C++20          |
 
 ## バージョン
 ### 言語

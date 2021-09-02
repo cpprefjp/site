@@ -6,8 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr bool empty() requires forward_range<D>;             // (1) 
-constexpr bool empty() const requires forward_range<const D>; // (2)
+constexpr bool empty()
+  requires forward_range<D>;       // (1)
+
+constexpr bool empty() const
+  requires forward_range<const D>; // (2)
 ```
 * forward_range[link ../forward_range.md]
 

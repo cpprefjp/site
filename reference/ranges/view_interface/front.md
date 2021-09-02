@@ -6,8 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr decltype(auto) front() requires forward_range<D>;             // (1)
-constexpr decltype(auto) front() const requires forward_range<const D>; // (2)
+constexpr decltype(auto) front()
+  requires forward_range<D>;             // (1)
+
+constexpr decltype(auto) front()
+  const requires forward_range<const D>; // (2)
 ```
 * forward_range[link ../forward_range.md]
 

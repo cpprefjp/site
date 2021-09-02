@@ -6,8 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr auto size() requires forward_range<D> && sized_sentinel_for<sentinel_t<D>, iterator_t<D>>;                         // (1) 
-constexpr auto size() const requires forward_range<const D> && sized_sentinel_for<sentinel_t<const D>, iterator_t<const D>>; // (2)
+constexpr auto size()
+  requires forward_range<D> && sized_sentinel_for<sentinel_t<D>, iterator_t<D>>;                   // (1)
+
+constexpr auto size() const
+  requires forward_range<const D> && sized_sentinel_for<sentinel_t<const D>, iterator_t<const D>>; // (2)
 ```
 * forward_range[link ../forward_range.md]
 * sentinel_t[link ../sentinel_t.md]

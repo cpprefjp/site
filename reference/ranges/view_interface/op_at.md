@@ -14,7 +14,6 @@ constexpr decltype(auto) operator[](range_difference_t<R> n) const // (2)
 ```
 * random_access_range[link ../random_access_range.md]
 * range_difference_t[link ../range_difference_t.md]
-* derived[link derived.md]
 
 ## 概要
 範囲の要素にアクセスする。
@@ -28,7 +27,7 @@ constexpr decltype(auto) operator[](range_difference_t<R> n) const // (2)
 ```cpp
 ranges::begin(derived())[n];
 ```
-* ranges::begin[link ../empty.md]
+* ranges::begin[link ../begin.md]
 * derived[link derived.md]
 
 ## 計算量

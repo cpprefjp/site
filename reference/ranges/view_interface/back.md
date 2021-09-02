@@ -6,8 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr decltype(auto) back() requires bidirectional_range<D> && common_range<D>;                   // (1)
-constexpr decltype(auto) back() const requires bidirectional_range<const D> && common_range<const D>; // (2)
+constexpr decltype(auto) back()
+  requires bidirectional_range<D> && common_range<D>;             // (1)
+
+constexpr decltype(auto) back() const
+  requires bidirectional_range<const D> && common_range<const D>; // (2)
 ```
 * bidirectional_range[link ../bidirectional_range.md]
 * common_range[link ../common_range.md]
@@ -30,7 +33,7 @@ constexpr decltype(auto) back() const requires bidirectional_range<const D> && c
 ```cpp
 *ranges::prev(ranges::end(derived()))
 ```
-* ranges::end[link ../begin.md]
+* ranges::end[link ../end.md]
 * ranges::prev[link /reference/iterator/ranges_prev.md]
 * derived[link derived.md]
 

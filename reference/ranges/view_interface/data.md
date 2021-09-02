@@ -6,11 +6,15 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr auto data() requires contiguous_iterator<iterator_t<D>>;             // (1) 
-constexpr auto data() const requires contiguous_iterator<iterator_t<const D>>; // (2)
+constexpr auto data()
+  requires contiguous_iterator<iterator_t<D>>;  // (1)
+
+constexpr auto data() const
+  requires range<const D> && contiguous_iterator<iterator_t<const D>>; // (2)
 ```
 * contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
 * iterator_t[link ../iterator_t.md]
+* range[link ../range.md]
 
 ## 概要
 範囲の要素へのポインタを取得する。
@@ -19,7 +23,7 @@ constexpr auto data() const requires contiguous_iterator<iterator_t<const D>>; /
 [`view_interface`](../view_interface.md)`<D>`に対して、
 
 - (1): `D`のイテレータが[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)であること。
-- (2): `const D`のイテレータが[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)であること。
+- (2): `const D`が[`range`](../range.md)かつ`const D`のイテレータが[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)であること。
 
 ## 戻り値
 (1)、(2)共に、以下と等価：

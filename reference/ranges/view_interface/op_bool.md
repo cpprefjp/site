@@ -6,8 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-    constexpr explicit operator bool() requires requires { ranges::empty(derived()); };       // (1)
-    constexpr explicit operator bool() const requires requires { ranges::empty(derived()); }; // (2)
+constexpr explicit operator bool()
+  requires requires { ranges::empty(derived()); };       // (1)
+
+constexpr explicit operator bool()
+  const requires requires { ranges::empty(derived()); }; // (2)
 ```
 * ranges::empty[link ../empty.md]
 * derived[link derived.md]
