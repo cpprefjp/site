@@ -19,7 +19,7 @@ constexpr explicit operator bool()
 範囲が空かどうかを判定する。
 
 ## テンプレートパラメータ制約
-式[`ranges::empty`](../empty.md)`(`[`derived`](derived.md)`)`が有効であること。
+式[`ranges::empty`](../empty.md)`(`[`derived`](derived.md)`())`が有効であること。
 
 ## 戻り値
 (1)、(2)共に、以下と等価：

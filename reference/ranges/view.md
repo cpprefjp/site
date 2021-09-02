@@ -27,7 +27,7 @@ namespace std::ranges {
 4. [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T>`が`false`、または`T`のコピーコンストラクタがO(1)
 5. [`copyable`](/reference/concepts/copyable.md)`<T>`が`false`、または`T`のコピー代入演算子がO(1)
 
-`view`と[`borrowed_range`](borrowed_range.md)には直接の包含関係はないが、要素を所有していると一般にこれらの要件は満たせないため、[`borrowed_range`](borrowed_range.md)でもあると考えてよい。
+`view`と[`borrowed_range`](borrowed_range.md)には直接の包含関係はないが、要素を所有していると一般にこれらの要件は満たせないため、[`borrowed_range`](borrowed_range.md)でもある場合が多い。
 
 ## 備考
 `view`を自作する場合、[`view_interface`](view_interface.md)を基底クラスにすると便利である。
