@@ -113,7 +113,7 @@ int main() {
 }
 ```
 * std::common_iterator[color ff0000]
-* views::iota[link /reference/ranges/iota_view.md.nolink]
+* views::iota[link /reference/ranges/iota_view.md]
 * views::take[link /reference/ranges/take_view.md.nolink]
 * iterator_t[link /reference/ranges/iterator_t.md]
 * sentinel_t[link /reference/ranges/sentinel_t.md]

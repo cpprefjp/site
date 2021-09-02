@@ -38,7 +38,7 @@ int main() {
 ```
 * ranges::forward_range[color ff0000]
 * ranges::input_range[link input_range.md]
-* ranges::istream_view[link istream_view.md.nolink]
+* ranges::istream_view[link basic_istream_view.md]
 
 ### 出力
 ```
