@@ -39,6 +39,7 @@ int main()
   static_assert(!std::ranges::random_access_range<std::set<int>>);
 }
 ```
+* std::ranges::random_access_range[color ff0000]
 
 ### 出力
 ```

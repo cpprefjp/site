@@ -30,6 +30,8 @@ int main()
   static_assert(enable_view<t>);
 }
 ```
+* view_base[color ff0000]
+* enable_view[link enable_view.md]
 
 ### 出力
 ```

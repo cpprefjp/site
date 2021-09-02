@@ -33,6 +33,7 @@ int main() {
   static_assert(ranges::input_range<decltype(ranges::istream_view<int>(cin))>);
 }
 ```
+* ranges::input_range[color ff0000]
 * ranges::forward_range[link forward_range.md]
 * ranges::istream_view[link istream_view.md.nolink]
 

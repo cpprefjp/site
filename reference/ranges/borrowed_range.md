@@ -48,6 +48,7 @@ int main()
   static_assert(std::ranges::borrowed_range<std::span<int>>);
 }
 ```
+* std::ranges::borrowed_range[color ff0000]
 
 ### 出力
 ```

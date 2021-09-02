@@ -53,7 +53,7 @@ int main() {
   static_assert(!same_as<decltype(result3), ranges::dangling>);
 }
 ```
-* ranges::ranges::borrowed_iborrowed_subrange_tterator_t[color ff0000]
+* ranges::borrowed_subrange_t[color ff0000]
 * ranges::range[link range.md]
 * ranges::begin[link begin.md]
 * ranges::end[link end.md]

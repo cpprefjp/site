@@ -51,6 +51,7 @@ int main()
   static_assert(std::ranges::view<std::span<int>>);
 }
 ```
+* std::ranges::view[color ff0000]
 
 ### 出力
 ```

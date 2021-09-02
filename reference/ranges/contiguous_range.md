@@ -46,6 +46,7 @@ int main() {
   static_assert(!ranges::contiguous_range<view_t>);
 }
 ```
+* ranges::contiguous_range[color ff0000]
 * elements_view[link elements_view.md.nolink]
 * all_t[link all_t.md.nolink]
 * ranges::random_access_range[link random_access_range.md]

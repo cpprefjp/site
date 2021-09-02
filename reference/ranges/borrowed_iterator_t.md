@@ -56,7 +56,7 @@ int main() {
   static_assert(same_as<decltype(result3), vector<int>::iterator>);
 }
 ```
-* ranges::ranges::borrowed_iterator_t[color ff0000]
+* ranges::borrowed_iterator_t[color ff0000]
 * ranges::range[link range.md]
 * ranges::begin[link begin.md]
 * ranges::end[link end.md]

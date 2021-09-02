@@ -47,6 +47,7 @@ int main()
   static_assert(!std::ranges::sized_range<std::forward_list<int>>);
 }
 ```
+* std::ranges::sized_range[color ff0000]
 
 ### 出力
 ```
