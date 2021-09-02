@@ -92,31 +92,31 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 
 ### empty view
 
-| 名前                                        | 説明           | 対応バージョン |
-|---------------------------------------------|----------------|----------------|
-| [`empty_view`](ranges/empty_view.md.nolink) | 空の範囲 (class template)     | C++20          |
-| [`empty`](ranges/empty_view.md.nolink)           | `empty_view`を生成する (variable template)  | C++20          |
+| 名前                                 | 説明                                       | 対応バージョン |
+|--------------------------------------|--------------------------------------------|----------------|
+| [`empty_view`](ranges/empty_view.md) | 空の範囲 (class template)                  | C++20          |
+| [`empty`](ranges/empty_view.md)      | `empty_view`を生成する (variable template) | C++20          |
 
 ### single view
 
-| 名前                                          | 説明           | 対応バージョン |
-|-----------------------------------------------|----------------|----------------|
-| [`single_view`](ranges/single_view.md.nolink) | 指定した値1つからなる範囲 (class template)     | C++20          |
-| [`single`](ranges/single.md.nolink)           | `single_view`を生成する (variable template)  | C++20          |
+| 名前                                   | 説明                                                  | 対応バージョン |
+|----------------------------------------|-------------------------------------------------------|----------------|
+| [`single_view`](ranges/single_view.md) | 指定した値1つからなる範囲 (class template)            | C++20          |
+| [`single`](ranges/single_view.md)      | `single_view`を生成する (customization point object)  | C++20          |
 
 ### iota view
 
-| 名前                                      | 説明           | 対応バージョン |
-|-------------------------------------------|----------------|----------------|
-| [`iota_view`](ranges/iota_view.md.nolink) | 単調増加列である範囲 (class template)     | C++20          |
-| [`iota`](ranges/iota.md.nolink)           | `iota_view`を生成する (customization point object)  | C++20          |
+| 名前                               | 説明                                                | 対応バージョン |
+|------------------------------------|-----------------------------------------------------|----------------|
+| [`iota_view`](ranges/iota_view.md) | 単調増加列である範囲 (class template)               | C++20          |
+| [`iota`](ranges/iota_view.md)      | `iota_view`を生成する (customization point object)  | C++20          |
 
 ### istream view
 
-| 名前                                                        | 説明           | 対応バージョン |
-|-------------------------------------------------------------|----------------|----------------|
-| [`basic_istream_view`](ranges/basic_istream_view.md.nolink) | 入力ストリームから値を読む範囲 (class template)     | C++20          |
-| [`istream_view`](ranges/istream_view.md.nolink)             | `basic_istream_view`を生成する (function template)     | C++20          |
+| 名前                                                 | 説明                                                | 対応バージョン |
+|------------------------------------------------------|-----------------------------------------------------|----------------|
+| [`basic_istream_view`](ranges/basic_istream_view.md) | 入力ストリームから値を読む範囲 (class template)     | C++20          |
+| [`istream_view`](ranges/basic_istream_view.md)       | `basic_istream_view`を生成する (function template)  | C++20          |
 
 ## 範囲アダプタ
 

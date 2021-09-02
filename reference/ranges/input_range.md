@@ -37,6 +37,10 @@ int main() {
 * ranges::forward_range[link forward_range.md]
 * ranges::istream_view[link istream_view.md.nolink]
 
+### 出力
+```
+```
+
 ## バージョン
 ### 言語
 - C++20
