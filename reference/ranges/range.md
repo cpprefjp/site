@@ -49,6 +49,7 @@ int main()
   static_assert(!std::ranges::range<int[]>);
 }
 ```
+* std::ranges::range[color ff0000]
 
 ### 出力
 ```

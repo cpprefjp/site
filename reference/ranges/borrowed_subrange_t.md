@@ -10,6 +10,7 @@ namespace std::ranges {
   using borrowed_subrange_t = conditional_t<borrowed_range<R>, subrange<iterator_t<R>>, dangling>;
 }
 ```
+* range[link range.md]
 * conditional_t[link /reference/type_traits/conditional.md]
 * borrowed_range[link borrowed_range.md]
 * subrange[link subrange.md]

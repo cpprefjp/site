@@ -10,6 +10,7 @@ namespace std::ranges {
   using borrowed_iterator_t = conditional_t<borrowed_range<R>, iterator_t<R>, dangling>;
 }
 ```
+* range[link range.md]
 * conditional_t[link /reference/type_traits/conditional.md]
 * borrowed_range[link borrowed_range.md]
 * iterator_t[link iterator_t.md]
