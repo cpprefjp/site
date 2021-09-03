@@ -28,7 +28,7 @@ namespace std::ranges {
 |----------------------------------------------|----------------------------------|----------------|
 | [`empty`](view_interface/empty.md)           | 範囲が空かどうかを判定する       | C++20          |
 | [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
-| [`data`](view_interface/data.md)             | 配列の先頭へのポインタを取得する | C++20          |
+| [`data`](view_interface/data.md)             | 範囲の先頭へのポインタを取得する | C++20          |
 | [`size`](view_interface/size.md)             | 要素数を取得する                 | C++20          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |

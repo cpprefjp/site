@@ -57,11 +57,11 @@ concept stream-extractable = requires(basic_istream<CharT, Traits>& is, Val& t) 
 
 ## メンバ関数
 
-| 名前                                             | 説明                             | 対応バージョン |
-|--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](iota_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`begin`](iota_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](iota_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
+| 名前                                                     | 説明                             | 対応バージョン |
+|----------------------------------------------------------|----------------------------------|----------------|
+| [`(constructor)`](basic_istream_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
+| [`begin`](basic_istream_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](basic_istream_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 
 ## 例
 ```cpp example
