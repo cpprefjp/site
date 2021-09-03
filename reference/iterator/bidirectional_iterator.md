@@ -16,10 +16,10 @@ namespace std {
     };
 }
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
+* forward_iterator[link forward_iterator.md]
 * derived_from[link /reference/concepts/derived_from.md]
 * ITER_CONCEPT[link /reference/iterator/input_iterator.md#iter_concept]
-* bidirectional_iterator_tag[link /reference/iterator/iterator_tag.md]
+* bidirectional_iterator_tag[link iterator_tag.md]
 * same_as[link /reference/concepts/same_as.md]
 
 ## 概要
@@ -37,7 +37,7 @@ namespace std {
 型`I`の等しい2つのオブジェクト`a, b`について次の条件を満たす場合に限って、型`I`は`bidirectional_iterator`のモデルである。
 
 - `a, b`がデクリメント可能ならば、次の4つの条件を全て満たす
-    - `addressof(--a) == addressof(a)`
+    - [`addressof`](/reference/memory/addressof.md)`(--a) == `[`addressof`](/reference/memory/addressof.md)`(a)`
     - `bool(a-- == b)`
     - `a--, --b`の評価の後でも、`bool(a == b)`は`true`となる
     - `bool(++(--a) == b)`
@@ -95,6 +95,7 @@ int main() {
 }
 ```
 * std::bidirectional_iterator[color ff0000]
+* std::istream_iterator[link istream_iterator.md]
 
 ### 出力
 ```
