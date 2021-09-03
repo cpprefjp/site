@@ -17,8 +17,8 @@ namespace std {
 ```
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* common_reference_with[link /reference/concepts/common_reference_with.md]
-* same_as[link /reference/concepts/same_as.md]
+* common_reference_with[link common_reference_with.md]
+* same_as[link same_as.md]
 
 ## 概要
 
@@ -30,7 +30,7 @@ namespace std {
 
 これらの`lhs, rhs, lcopy, rcopy`について、以下の条件を満たす場合に限って、型`LHS, RHS`は`assignable_from`のモデルである。
 
-- `addressof(lhs = rhs) == addressof(lcopy)`となる
+- [`addressof`](/reference/memory/addressof.md)`(lhs = rhs) == `[`addressof`](/reference/memory/addressof.md)`(lcopy)`となる
 - `lhs = rhs;`という式の評価の後で以下のいずれかのことが成り立っている
     - `rhs`が`lcopy`を参照する非`const` *xvalue*でないならば
         - `lhs`は`rcopy`と等値である
@@ -38,6 +38,7 @@ namespace std {
         - `rhs`が参照するオブジェクトの状態は有効だが未規定
     - それ以外の場合で、`rhs`が*glvalue*ならば
         - `rhs`が参照するオブジェクトは変更されない
+
 ## 備考
 
 代入操作では、引数型の一部の値が本コンセプトが要求する構文・意味論的制約を必ずしも満たしていなくても構わない。特に、あるオブジェクト`x`への代入操作によって別のオブジェクト`y`が変更される時、`x, y`はその場合の`=`の定義域に含まれない事がある。
@@ -53,7 +54,7 @@ namespace std {
 #include <memory>
 
 template<typename LHS, typename RHS>
-requires std::assignable_from<LHS, RHS>
+  requires std::assignable_from<LHS, RHS>
 void f(const char* name, const char* arg) {
   std::cout << name << " is assignable from " << arg << std::endl;
 }
