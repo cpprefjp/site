@@ -18,13 +18,13 @@ C++17 から集成体初期化が拡張され、基底クラスを持つ型の�
 
 struct base_a { std::string s; };
 struct base_b { double d; std::vector< int > vi; };
-struct delived: base_a, base_b { char c; };
+struct derived: base_a, base_b { char c; };
 
 int main()
 {
   // このような初期化を C++17 以降は本機能により使用できるようになった
   // この初期化は C++14 以前では基底クラスの初期化として扱えず翻訳に失敗してしまう
-  delived o
+  derived o
   { { // base_a; 本機能により基底クラスの初期化を { } で記述できる
       "abc" // base_a::s
     }
@@ -32,7 +32,7 @@ int main()
       12.345 // base_b::d
     , { 1, 2, 3} // base_b::v
     }
-  , 'd' // delived::c
+  , 'd' // derived::c
   };
   
   std::cout 
@@ -78,17 +78,17 @@ struct legacy_base
   legacy_base( int a_ ): a( a_ ) { }
   int a;
 };
-struct legacy_delived: legacy_base
+struct legacy_derived: legacy_base
 {
   // いちいち書かなければならないのは面倒くさい
-  legacy_delived( int a_, int b_ ): legacy_base( a_ ), b( b_ ) { }
+  legacy_derived( int a_, int b_ ): legacy_base( a_ ), b( b_ ) { }
   int b;
 };
 
 int main()
 {
-  // 初期化を簡潔に記述するためには legacy_delived, legacy_base の構築子に仕込みが必要だった
-  legacy_delived o{ 123, 456 };
+  // 初期化を簡潔に記述するためには legacy_derived, legacy_base の構築子に仕込みが必要だった
+  legacy_derived o{ 123, 456 };
   std::cout
     << "o.a = " << o.a << '\n'
     << "o.b = " << o.b << '\n'
@@ -103,11 +103,11 @@ int main()
 #include <iostream>
 
 struct legacy_base { int a; };
-struct legacy_delived: legacy_base { int b; };
+struct legacy_derived: legacy_base { int b; };
 
 int main()
 {
-  legacy_delived o{ { 123 }, 456 };
+  legacy_derived o{ { 123 }, 456 };
   std::cout
     << "o.a = " << o.a << '\n'
     << "o.b = " << o.b << '\n'
