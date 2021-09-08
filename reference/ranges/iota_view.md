@@ -34,19 +34,20 @@ namespace std {
 
 `iota_view`のオブジェクトは(2)のカスタマイゼーションポイントオブジェクト`views::iota`で生成できる。
 
+`iota_view`の要素は、`iota_view`が作られる時に初めの要素が生成され、残りはアクセスするときに生成される。
+
 ### 範囲カテゴリ
 
-有限長のとき:
-
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
-| ○       | ○    |        | ○    | ○      | ○            | ○            |            | ○     | ○       | ○   |
+| ○       | (1)   |        | ○    | (2)     | (2)           | (2)           |            | (3)    | ○       | ○   |
 
-無限長のとき:
-
-| borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
-|----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
-| ○       |       |        | ○    | ○      | ○            | ○            |            |        | ○       | ○   |
+- (1): [`common_range`](common_range.md)かつ[`random_access_range`](random_access_range.md)のとき
+- (2):
+    - `W`が[`incrementable`](/reference/iterator/incrementable.md)のとき、[`forward_range`](forward_range.md)
+    - `W`が[`incrementable`](/reference/iterator/incrementable.md)かつデクリメント操作が可能であるとき、[`bidirectional_range`](bidirectional_range.md)
+    - `W`が[`incrementable`](/reference/iterator/incrementable.md)かつデクリメント操作と加減算が可能であるとき、[`random_access_range`](random_access_range.md)
+- (3): `W`と`Bound`が等しいとき
 
 ## テンプレートパラメータ制約
 - [`weakly_incrementable`](/reference/type_traits/is_object.md)`<W>`
