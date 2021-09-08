@@ -50,9 +50,9 @@ namespace std {
 
 ## 効果
 
-- (2): 式`views​::​all(E)`の効果は次の通り
+- (2): 式`views::all(E)`の効果は次の通り
     - `E`の[`decay`](/reference/type_traits/decay.md)した型が[`view`](view.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(E)`と等しい
-    - それ以外のとき、`ref_­view{E}`が有効な式であれば、`ref_­view{E}`と等しい
+    - それ以外のとき、`ref_view{E}`が有効な式であれば、`ref_view{E}`と等しい
     - それ以外のとき、[`subrange`](subrange.md)`{E}`と等しい
 
 ## メンバ関数
