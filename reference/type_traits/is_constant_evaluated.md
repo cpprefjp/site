@@ -21,7 +21,7 @@ namespace std {
 
 - 文法上の定数式（配列型の要素数、`case`ラベルの値、など）
 - `constexpr if`の条件式
-- `consteval`関数の呼び出し内
+- [`consteval`関数](/lang/cpp20/immediate_functions.md)の呼び出し内
 - コンセプトの定義式
     - `requires`節内
     - 入れ子要件内

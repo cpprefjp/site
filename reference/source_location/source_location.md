@@ -23,6 +23,7 @@ namespace std {
   };
 }
 ```
+* consteval[link /lang/cpp20/immediate_functions.md]
 * uint_least32_t[link /reference/cstdint/uint_least32_t.md]
 
 ## 概要

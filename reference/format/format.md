@@ -198,6 +198,7 @@ namespace std {
   template<class... Args> using wformat_string
     = basic_format_string<wchar_t, type_identity_t<Args>...>; // exposition only
 ```
+* consteval[link /lang/cpp20/immediate_functions.md]
 
 _`basic_format_string`_ のコンストラクタは[即時関数](/lang/cpp20/immediate_functions.md)であり、書式文字列が正しい場合にのみ定数式として評価できるように実装される。即時関数であるため、定数式として評価できない場合はエラーとなる。
 

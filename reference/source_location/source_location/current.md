@@ -8,6 +8,7 @@
 ```cpp
 static consteval source_location current() noexcept;
 ```
+* consteval[link /lang/cpp20/immediate_functions.md]
 * source_location[link ../source_location.md]
 
 ## 概要
