@@ -20,9 +20,9 @@ namespace std {
 本関数は以下の文脈内で評価された場合に`true`を返す。
 
 - 文法上の定数式（配列型の要素数、`case`ラベルの値、など）
-- `constexpr if`の条件式
+- [`constexpr if`](/lang/cpp17/if_constexpr.md)の条件式
 - [`consteval`関数](/lang/cpp20/immediate_functions.md)の呼び出し内
-- コンセプトの定義式
+- [コンセプト](/lang/cpp20/concepts.md)の定義式
     - `requires`節内
     - 入れ子要件内
 - 定数式で使用可能な変数の初期化式
@@ -31,10 +31,9 @@ namespace std {
     - 定数初期化される参照型変数の初期化式
 - 定数初期化される変数の初期化式
 
-上記の文脈の外では、コンパイラの最適化（定数畳み込み）によって容易にコンパイル時評価できる
-式や`constexpr`関数の呼び出し中の評価であっても`false`となる。
+上記の文脈の外では、コンパイラの最適化（定数畳み込み）によって容易にコンパイル時評価できる式や`constexpr`関数の呼び出し中の評価であっても`false`となる。
 
-`constexpr if`の条件式および`static_assert`の条件式に書かれている場合は必ず`true`となるので注意が必要である。
+[`constexpr if`](/lang/cpp17/if_constexpr.md)の条件式および[`static_assert`](/lang/cpp11/static_assert.md)の条件式に書かれている場合は必ず`true`となるので注意が必要である。
 
 
 ## 備考
