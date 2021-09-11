@@ -29,7 +29,7 @@ namespace std {
 2つの`tuple`オブジェクト、`t`と`u`の辞書順比較を行った結果を返す。定義は以下のようになる：
 
 ```cpp
-get<i>(t) < get<i>(u) || !(get<i>(u) < get<i>(t)) && get<i+N...>(t) < get<i+N...>(u) ...`
+get<i>(t) < get<i>(u) || !(get<i>(u) < get<i>(t)) && get<i+N...>(t) < get<i+N...>(u) ...
 ```
 * get[link get.md]
 
