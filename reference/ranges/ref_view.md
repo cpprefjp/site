@@ -22,18 +22,18 @@ namespace std {
   namespace views = ranges::views;
 }
 ```
+* range[link range.md]
+* is_object_v[link /reference/type_traits/is_object.md]
 * movable[link /reference/concepts/movable.md]
 * default_initializable[link /reference/concepts/default_initializable.md]
 * viewable_range[link viewable_range.md]
 * view_interface[link view_interface.md]
-* stream-extractable[italic]
+* declval[link /reference/utility/declval.md]
 
 ## 概要
-`ref_view`(1)は、範囲への参照として振る舞う[`view`](view.md)。
-
-カスタマイゼーションポイントオブジェクト`all`(2)で、範囲への参照として振る舞う[`view`](view.md)を生成できる。
-
-`all`の戻り値は`ref_view`とは限らず、元の範囲そのものや[`subrange`](subrange.md)にもなる。戻り値型はエイリアステンプレート`all_t`(3)で取得できる。これらをまとめて"all view"と呼ぶことがある。
+- (1): 範囲への参照として振る舞う[`view`](view.md)
+- (2): 範囲への参照として振る舞う[`view`](view.md)を生成する範囲アダプタクロージャオブジェクト。`all`の戻り値は`ref_view`の他に、元の範囲そのものや[`subrange`](subrange.md)の場合があり、まとめて"all view"と呼ぶことがある
+- (3): `all`の戻り値の型を得るエイリアステンプレート。`all_t`を使えば、`all`の分岐を気にせずに"all view"の型を得ることができる
 
 ### 範囲カテゴリ
 
@@ -54,6 +54,8 @@ namespace std {
     - `E`の[`decay`](/reference/type_traits/decay.md)した型が[`view`](view.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(E)`と等しい
     - それ以外のとき、`ref_view{E}`が有効な式であれば、`ref_view{E}`と等しい
     - それ以外のとき、[`subrange`](subrange.md)`{E}`と等しい
+
+引数にした範囲が元々[`view`](view.md)である場合はそのまま使用する。そうでないときは、まず引数を`ref_view`でラップしようとする。それもできないときは、イテレータと番兵を[`subrange`](subrange.md)でラップする。
 
 ## メンバ関数
 

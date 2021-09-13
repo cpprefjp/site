@@ -150,6 +150,8 @@ for (auto&& item : r | R) {
 }
 ```
 
+第1引数に[`viewable_range`](ranges/viewable_range.md)を受け取って[`view`](ranges/view.md)を返すカスタマイゼーションポイントオブジェクトを、**範囲アダプタオブジェクト**という。とくに、1引数のものを、**範囲アダプタクロージャオブジェクト**という。
+
 ### all view
 
 | 名前                             | 説明                                                                    | 対応バージョン |
@@ -160,10 +162,10 @@ for (auto&& item : r | R) {
 
 ### filter view
 
-| 名前                                          | 説明           | 対応バージョン |
-|-----------------------------------------------|----------------|----------------|
-| [`filter_view`](ranges/filter_view.md.nolink) | 指定した条件を満たす要素だけを集めるビュー (class template)     | C++20          |
-| [`filter`](ranges/filter.md.nolink)           | 指定した条件を満たす要素だけを集めるビューを生成する (customization point object)  | C++20          |
+| 名前                                   | 説明                                                                               | 対応バージョン |
+|----------------------------------------|------------------------------------------------------------------------------------|----------------|
+| [`filter_view`](ranges/filter_view.md) | 指定した条件を満たす要素だけを集めるビュー (class template)                        | C++20          |
+| [`filter`](ranges/filter_view.md)      | 指定した条件を満たす要素だけを集めるビューを生成する (customization point object)  | C++20          |
 
 ### transform view
 
