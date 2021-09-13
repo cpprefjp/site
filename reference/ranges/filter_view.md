@@ -20,7 +20,7 @@ namespace std {
 }
 ```
 * input_range[link input_range.md]
-* indirect_unary_predicate[link /reference/concepts/indirect_unary_predicate.md]
+* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
 * iterator_t[link iterator_t.md]
 * view[link view.md]
 * is_object_v[link /reference/type_traits/is_object.md]
@@ -30,13 +30,12 @@ namespace std {
 - (1): 指定された条件`Pred`を満たす要素だけが残っているような範囲として振る舞う[`view`](view.md)
 - (2): `filter_view`を生成する範囲アダプタオブジェクト
 
-`filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作となる。
-
 元の範囲から条件を満たす要素を探す処理は遅延評価される。
 
-初めてメンバ関数[`begin`](filter_view/begin.md.nolink)が呼び出されたときに先頭の要素を決定し、残りはイテレータが進むときに求める。
+- 初めてメンバ関数[`begin`](filter_view/begin.md.nolink)が呼び出されたときに先頭の要素を決定し、残りはイテレータが進むときに求める。
+- [`begin`](filter_view/begin.md.nolink)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md.nolink)の値はキャッシュされる。
 
-[`begin`](filter_view/begin.md.nolink)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md.nolink)の値はキャッシュされる。
+`filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作となる。
 
 ### 範囲カテゴリ
 
@@ -45,6 +44,9 @@ namespace std {
 |          |       |        | ※    | ※      | ※            |               |            | ※     | ○       | ○   |
 
 ※ `V`に従う
+
+- `Pred`のオブジェクトを所有し、イテレータがそれを参照するため、[`borrowed_range`](borrowed_range.md)ではない
+- 条件を満たす要素を探す処理が必要なため、[`random_access_range`](random_access_range.md)にはならない
 
 ## テンプレートパラメータ制約
 
@@ -89,7 +91,12 @@ int main() {
   using namespace std;
   int a[] = {1, 2, 3, 4, 5};
 
-  for (int i : a | views::filter([](int x){ return x % 2 == 0; })) {
+  for (int& i : a | views::filter([](int x){ return x % 2 == 0; })) {
+    cout << i;
+    i *= 2; // filterした要素を2倍にする (2倍しても条件を満たすことに注意)
+  }
+  cout << '\n';
+  for (int i : a) {
     cout << i;
   }
 }
@@ -99,6 +106,7 @@ int main() {
 ### 出力
 ```
 24
+14385
 ```
 
 ## バージョン
