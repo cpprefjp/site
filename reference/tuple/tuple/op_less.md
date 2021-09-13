@@ -22,15 +22,20 @@ namespace std {
 
 ## 要件
 - 2つの`tuple`の要素数が同じであること。
-- `tuple`の要素`std::`[`get`](get.md)`<i>(t)`と`std::`[`get`](get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) < std::`[`get`](get.md)`<i>(u)` の比較結果が`bool`に変換可能な型であること。
+- `tuple`の要素`std::`[`get`](get.md)`<i>(t)`と`std::`[`get`](get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) < std::`[`get`](get.md)`<i>(u)` および `std::`[`get`](get.md)`<i>(u) < std::`[`get`](get.md)`<i>(t)` の比較結果が`bool`に変換可能な型であること。
 
 
 ## 戻り値
 2つの`tuple`オブジェクト、`t`と`u`の辞書順比較を行った結果を返す。定義は以下のようになる：
 
 ```cpp
-get<i>(t) < get<i>(u) || !(get<i>(u) < get<i>(t)) && get<i+N...>(t) < get<i+N...>(u) ...
+(bool)(get<0>(t) < get<0>(u)) || (!(bool)(get<0>(u) < get<0>(t)) && t_tail < u_tail)
 ```
+
+ただし、`r_tail`は、ある`tuple`オブジェクト`r`の最初の要素以外の全ての要素を含む`tuple`オブジェクトを表す。
+
+2つの`tuple`オブジェクトの要素数が0である場合は、`false`を返す。
+
 * get[link get.md]
 
 
