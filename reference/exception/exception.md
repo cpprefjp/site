@@ -55,3 +55,4 @@ error!
 
 ## 参照
 
+- [`<stdexcept>`](/reference/stdexcept.md)
