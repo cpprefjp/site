@@ -31,12 +31,11 @@ namespace std {
 ```cpp
 (bool)(get<0>(t) < get<0>(u)) || (!(bool)(get<0>(u) < get<0>(t)) && t_tail < u_tail)
 ```
+* get[link get.md]
 
 ただし、`r_tail`は、ある`tuple`オブジェクト`r`の最初の要素以外の全ての要素を含む`tuple`オブジェクトを表す。
 
 2つの`tuple`オブジェクトの要素数が0である場合は、`false`を返す。
-
-* get[link get.md]
 
 
 ## 例
