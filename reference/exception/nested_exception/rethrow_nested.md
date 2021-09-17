@@ -14,7 +14,7 @@
 
 
 ## 効果
-[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)メンバ関数`がヌルポインタを返した場合、`std::terminate()を呼び出してプログラムを終了させる。そうでなければ、[`nested_ptr()`](/reference/exception/nested_exception/nested_ptr.md)によって返された例外を送出する。
+[`nested_ptr()`](nested_ptr.md)メンバ関数がヌルポインタを返した場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプログラムを終了させる。そうでなければ、[`nested_ptr()`](nested_ptr.md)によって返された例外を送出する。
 
 
 ## 戻り値
