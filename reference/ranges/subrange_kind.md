@@ -11,7 +11,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-[`subrange`](subrange.md)の種類を表す列挙型。`sized`のとき、部分範囲は[`sized_range`](sized_range.md)である。
+[`subrange`](subrange.md)の種類を表す列挙型。`sized`のとき、部分Rangeは[`sized_range`](sized_range.md)である。
 
 ## バージョン
 ### 言語

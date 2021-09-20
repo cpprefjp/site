@@ -18,7 +18,7 @@ namespace std::ranges {
 * view_interface[link view_interface.md]
 
 ## 概要
-`subrange`は、イテレータ`i`と番兵`s`が表す範囲`[i, s)`を範囲として扱うクラステンプレート。
+`subrange`は、イテレータ`i`と番兵`s`が表す範囲`[i, s)`をRangeとして扱うクラステンプレート。
 
 `subrange`は[`borrowed_range`](borrowed_range.md)、[`view`](view.md)のモデルであり、また、大きさ2のtuple-likeな型である。第0要素はイテレータ、第1要素は番兵。
 
@@ -33,21 +33,21 @@ namespace std::ranges {
 | [`operator PairLike`](subrange/op_pairlike.md.nolink) | pair-likeな型に変換する          | C++20          |
 | [`begin`](subrange/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
 | [`end`](subrange/end.md.nolink)                       | 番兵を取得する                   | C++20          |
-| [`empty`](subrange/empty.md.nolink)                   | 範囲が空かどうかを判定する       | C++20          |
+| [`empty`](subrange/empty.md.nolink)                   | Rangeが空かどうかを判定する      | C++20          |
 | [`size`](subrange/size.md.nolink)                     | 要素数を取得する                 | C++20          |
 | [`next`](subrange/next.md.nolink)                     | イテレータを前進させる           | C++20          |
 | [`prev`](subrange/prev.md.nolink)                     | イテレータを後退させる           | C++20          |
-| [`advance`](subrange/advance.md.nolink)               | 部分範囲を前進させる             | C++20          |
+| [`advance`](subrange/advance.md.nolink)               | 部分Rangeを前進させる            | C++20          |
 
 ## 継承しているメンバ関数
 
-| 名前                                         | 説明                             | 対応バージョン |
-|----------------------------------------------|----------------------------------|----------------|
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
-| [`data`](view_interface/data.md)             | 配列の先頭へのポインタを取得する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |
+| 名前                                         | 説明                              | 対応バージョン |
+|----------------------------------------------|-----------------------------------|----------------|
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
+| [`data`](view_interface/data.md)             | 配列の先頭へのポインタを取得する  | C++20          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
 
 ## 推論補助
 

@@ -15,7 +15,7 @@ namespace std::ranges {
 * iterator_t[link iterator_t.md]
 
 ## 概要
-`bidirectional_range`は、イテレータが[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)である範囲を表すコンセプトである。
+`bidirectional_range`は、イテレータが[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)であるRangeを表すコンセプトである。
 
 ## モデル
 型`T`が`bidirectional_range`のモデルとなるのは、`T`が[`forward_range`](forward_range.md)のモデルであり、かつそのイテレータが[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルである場合である。

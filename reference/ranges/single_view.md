@@ -12,7 +12,7 @@ namespace std {
     class single_view : public view_interface<single_view<T>> { …… }; // (1)
 
     namespace views {
-      inline constexpr unspecified single = unspecified; // (2)
+      inline constexpr /*unspecified*/ single = /*unspecified*/; // (2)
     }
   }
 
@@ -24,18 +24,18 @@ namespace std {
 * view_interface[link view_interface.md]
 
 ## 概要
-`single_view`は、要素1つからなる範囲を表す[`view`](view.md)。
+- (1): 値を要素1つのRangeに見せる[`view`](view.md)
+- (2): `single_view`を生成するカスタマイゼーションポイントオブジェクト
 
-`single_view`のオブジェクトは(2)のカスタマイゼーションポイントオブジェクト`views::single`で生成できる。
-
-### 範囲カテゴリ
+### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
 |          | ○    | ○     | ○    | ○      | ○            | ○            | ○         | ○     | ○       | ○   |
 
 ## テンプレートパラメータ制約
-[`is_object_v`](/reference/type_traits/is_object.md)`<T>`
+- [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T>`
+- [`is_object_v`](/reference/type_traits/is_object.md)`<T>`
 
 ## 効果
 - 式`views::single(E)`の効果は`single_view{E}`と等しい。
@@ -57,12 +57,12 @@ namespace std {
 
 ## 継承しているメンバ関数
 
-| 名前                                         | 説明                             | 対応バージョン |
-|----------------------------------------------|----------------------------------|----------------|
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |
+| 名前                                         | 説明                              | 対応バージョン |
+|----------------------------------------------|------------------------------ ----|----------------|
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
 
 ## 例
 ```cpp example

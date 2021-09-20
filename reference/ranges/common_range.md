@@ -16,7 +16,7 @@ namespace std::ranges {
 * sentinel_t[link sentinel_t.md]
 
 ## 概要
-`common_range`は、イテレータと番兵の型が等しい範囲を表すコンセプトである。
+`common_range`は、イテレータと番兵の型が等しいRangeを表すコンセプトである。
 
 標準のコンテナはすべて`common_range`のモデルである。
 

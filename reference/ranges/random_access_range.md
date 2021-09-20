@@ -15,7 +15,7 @@ namespace std::ranges {
 * iterator_t[link iterator_t.md]
 
 ## 概要
-`random_access_range`は、イテレータが[`random_access_iterator`](/reference/iterator/random_access_iterator.md)である範囲を表すコンセプトである。
+`random_access_range`は、イテレータが[`random_access_iterator`](/reference/iterator/random_access_iterator.md)であるRangeを表すコンセプトである。
 
 ## モデル
 型`T`が`random_access_range`のモデルとなるのは、`T`が[`bidirectional_range`](bidirectional_range.md)のモデルであり、かつそのイテレータが[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルである場合である。

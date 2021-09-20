@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲の要素数を取得する関数オブジェクト。
+Rangeの要素数を取得する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`、`t`を`E`を評価した値とする。このとき、式`ranges::size(E)`の効果は以下の通り。
@@ -26,7 +26,7 @@ namespace std::ranges {
 どれにも当てはまらないとき、呼び出しは不適格。
 
 ## 戻り値
-範囲の要素数。
+Rangeの要素数。
 
 ## カスタマイゼーションポイント
 [`ranges::begin`](begin.md)と[`ranges::end`](end.md)をカスタマイズすることで、`ranges::size`をカスタマイズできる。

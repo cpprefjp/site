@@ -16,7 +16,7 @@ namespace std::ranges {
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
-`borrowed_range`は、値を所有しない範囲を表すコンセプトである。範囲オブジェクトの左辺値参照は`borrowed_range`である。
+`borrowed_range`は、値を所有しないRangeを表すコンセプトである。Rangeオブジェクトの左辺値参照は`borrowed_range`である。
 
 参照以外の型が値を所有するか否かは構文要件で定義できないため、変数テンプレート[`enable_borrowed_range`](enable_borrowed_range.md)を特殊化して`true`にすることで`borrowed_range`を満たすようにする。
 
@@ -24,7 +24,7 @@ namespace std::ranges {
 `decltype((t))`が`T&`であるような式`t`があるとする。`T`が`borrowed_range`のモデルとなるのは、`t`が示すオブジェクトの寿命とそこから取得したイテレータの有効性が結びついていない場合である。
 
 ## 備考
-`borrowed_range`な範囲のイテレータの有効性が範囲の寿命と結びついていないため、そのような範囲を値で受け取ってイテレータを値で返すような関数がダングリングイテレータの心配なく利用できる。
+`borrowed_range`なRangeのイテレータの有効性がRangeの寿命と結びついていないため、そのようなRangeを値で受け取ってイテレータを値で返すような関数がダングリングイテレータの心配なく利用できる。
 
 ## 例
 ```cpp example

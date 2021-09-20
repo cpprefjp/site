@@ -15,7 +15,7 @@ namespace std::ranges {
 * iterator_t[link iterator_t.md]
 
 ## 概要
-`forward_range`は、イテレータが[`forward_iterator`](/reference/iterator/forward_iterator.md)である範囲を表すコンセプトである。
+`forward_range`は、イテレータが[`forward_iterator`](/reference/iterator/forward_iterator.md)であるRangeを表すコンセプトである。
 
 ## モデル
 型`T`が`forward_range`のモデルとなるのは、`T`が[`input_range`](input_range.md)のモデルであり、かつそのイテレータが[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルである場合である。

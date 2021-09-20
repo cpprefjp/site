@@ -26,11 +26,10 @@ namespace std {
 * stream-extractable[italic]
 
 ## 概要
-`basic_istream_view`は、入力ストリームから読み取った値の範囲である。
+- (1): 入力ストリームから値を読み取る[`view`](view.md)
+- (2): `basic_istream_view`を生成する関数テンプレート
 
-`basic_istream_view`のオブジェクトは(2)の関数テンプレート`views::istream_view`で生成できる。
-
-### 範囲カテゴリ
+### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|

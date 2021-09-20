@@ -31,11 +31,11 @@ namespace std {
 * view_interface[link view_interface.md]
 
 ## 概要
-`empty_view`は、空の範囲を表す[`view`](view.md)。
+`empty_view`は、空のRangeを表す[`view`](view.md)。
 
 `empty_view`のオブジェクトは(2)の変数テンプレート`views::empty`で取得できる。
 
-### 範囲カテゴリ
+### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
@@ -52,13 +52,13 @@ namespace std {
 | [`end`](empty_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 | [`data`](empty_view/data.md.nolink)                     | 配列の先頭へのポインタを取得する | C++20          |
 | [`size`](empty_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
-| [`empty`](empty_view/empty.md.nolink)                   | 範囲が空かどうかを判定する       | C++20          |
+| [`empty`](empty_view/empty.md.nolink)                   | Rangeが空かどうかを判定する       | C++20          |
 
 ## 継承しているメンバ関数
 
 | 名前                                         | 説明                             | 対応バージョン |
 |----------------------------------------------|----------------------------------|----------------|
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |

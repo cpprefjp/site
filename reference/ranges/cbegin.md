@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲から先頭要素への読み取り専用イテレータを取得する関数オブジェクト。
+Rangeから先頭要素への読み取り専用イテレータを取得する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::cbegin(E)`の効果は以下の式と等しい。
@@ -25,7 +25,7 @@ namespace std::ranges {
 先頭要素への読み取り専用イテレータ。
 
 ## カスタマイゼーションポイント
-範囲が`const`な場合について[`ranges::begin`](begin.md)をカスタマイズすることで、`ranges::cbegin`をカスタマイズできる。
+Rangeが`const`な場合について[`ranges::begin`](begin.md)をカスタマイズすることで、`ranges::cbegin`をカスタマイズできる。
 
 ## 備考
 `ranges::cbegin`の呼び出しが有効な式であるとき、その型は[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルである。

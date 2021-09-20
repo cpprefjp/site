@@ -17,9 +17,9 @@ namespace std::ranges {
 
 ## 概要
 
-`dangling`は、イテレータまたは範囲がダングリングであることを示す型である。
+`dangling`は、イテレータまたはRangeがダングリングであることを示す型である。
 
-この型のオブジェクトは、イテレータまたは範囲を返す関数において、戻り値のイテレータや範囲がダングリングとなる場合に代わりに返される。
+この型のオブジェクトは、イテレータまたはRangeを返す関数において、戻り値のイテレータやRangeがダングリングとなる場合に代わりに返される。
 
 ## メンバ関数
 ### 構築・破棄
@@ -40,7 +40,7 @@ vector<int> f(){ return {}; }
 
 int main()
 {
-  // borrowed_rangeではない範囲のrvalueが渡された場合、danglingが返る
+  // borrowed_rangeではないRangeのrvalueが渡された場合、danglingが返る
   auto result1 = ranges::find(f(), 42);
   static_assert(same_as<decltype(result1), ranges::dangling>);
 

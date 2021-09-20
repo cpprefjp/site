@@ -16,9 +16,9 @@ namespace std::ranges {
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
-`viewable_range`は、安全に[`view`](view.md)へ変換できる範囲を表すコンセプトである。
+`viewable_range`は、安全に[`view`](view.md)へ変換できるRangeを表すコンセプトである。
 
-範囲アダプタを適用するには、`viewable_range`である必要がある。
+Rangeアダプタを適用するには、`viewable_range`である必要がある。
 
 ## モデル
 型`T`が`viewable_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、かつ`T`が[`borrowed_range`](borrowed_range.md)のモデルであるか、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<T>`が[`view`](view.md)のモデルである場合である。

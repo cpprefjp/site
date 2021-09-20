@@ -17,7 +17,7 @@ constexpr auto data() const
 * range[link ../range.md]
 
 ## 概要
-範囲の要素へのポインタを取得する。
+Rangeの要素へのポインタを取得する。
 
 ## テンプレートパラメータ制約
 [`view_interface`](../view_interface.md)`<D>`に対して、

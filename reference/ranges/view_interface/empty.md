@@ -15,7 +15,7 @@ constexpr bool empty() const
 * forward_range[link ../forward_range.md]
 
 ## 概要
-範囲が空かどうかを判定する。
+Rangeが空かどうかを判定する。
 
 ## テンプレートパラメータ制約
 [`view_interface`](../view_interface.md)`<D>`に対して、

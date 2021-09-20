@@ -15,7 +15,7 @@ namespace std::ranges {
 * iterator_t[link iterator_t.md]
 
 ## 概要
-`input_range`は、イテレータが[`input_iterator`](/reference/iterator/input_iterator.md)である範囲を表すコンセプトである。
+`input_range`は、イテレータが[`input_iterator`](/reference/iterator/input_iterator.md)であるRangeを表すコンセプトである。
 
 ## モデル
 型`T`が`input_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、かつそのイテレータが[`input_iterator`](/reference/iterator/input_iterator.md)のモデルである場合である。

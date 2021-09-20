@@ -16,7 +16,7 @@ constexpr decltype(auto) back() const
 * common_range[link ../common_range.md]
 
 ## 概要
-範囲の末尾の要素を取得する。
+Rangeの末尾の要素を取得する。
 
 ## テンプレートパラメータ制約
 [`view_interface`](../view_interface.md)`<D>`に対して、

@@ -16,7 +16,7 @@ namespace std::ranges {
 
 ## 概要
 
-任意の範囲型`R`の番兵の型を取得する。
+任意のRange型`R`の番兵の型を取得する。
 
 ## 例
 ```cpp example

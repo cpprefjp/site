@@ -15,7 +15,7 @@ constexpr decltype(auto) front()
 * forward_range[link ../forward_range.md]
 
 ## 概要
-範囲の先頭の要素を取得する。
+Rangeの先頭の要素を取得する。
 
 ## テンプレートパラメータ制約
 [`view_interface`](../view_interface.md)`<D>`に対して、

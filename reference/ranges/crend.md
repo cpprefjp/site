@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲の先頭の前を指す、読み取り専用逆イテレータもしくは番兵を取得する関数オブジェクト。
+Rangeの先頭の前を指す、読み取り専用逆イテレータもしくは番兵を取得する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::crend(E)`の効果は以下の式と等しい。
@@ -22,10 +22,10 @@ namespace std::ranges {
 2. それ以外の場合、[`ranges::rend`](rend.md)`(static_cast<const T&&>(E))`
 
 ## 戻り値
-範囲の先頭の前を指す、読み取り専用逆イテレータもしくは番兵。
+Rangeの先頭の前を指す、読み取り専用逆イテレータもしくは番兵。
 
 ## カスタマイゼーションポイント
-範囲が`const`な場合について[`ranges::rend`](rend.md)をカスタマイズすることで、`ranges::crend`をカスタマイズできる。
+Rangeが`const`な場合について[`ranges::rend`](rend.md)をカスタマイズすることで、`ranges::crend`をカスタマイズできる。
 
 ## 備考
 `ranges::crend(E)`が有効な式であるとき、`ranges::crend(E)`の型`S`、[`ranges::crbegin`](crbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。

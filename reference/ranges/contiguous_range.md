@@ -22,9 +22,9 @@ namespace std::ranges {
 * range_reference_t[link range_reference_t.md]
 
 ## 概要
-`contiguous_range`は、イテレータが[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)である範囲を表すコンセプトである。
+`contiguous_range`は、イテレータが[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)であるRangeを表すコンセプトである。
 
-`contiguous_range`である範囲は、要素がメモリ上で連続して配置されており、[`ranges::data`](data.md)や[`ranges::cdata`](cdata.md)で要素のポインタを取得できる。
+`contiguous_range`であるRangeは、要素がメモリ上で連続して配置されており、[`ranges::data`](data.md)や[`ranges::cdata`](cdata.md)で要素のポインタを取得できる。
 
 ## モデル
 `decltype((t))`が`T&`であるような式`t`があるとする。

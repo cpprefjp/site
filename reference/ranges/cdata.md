@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲の要素が格納されたメモリ領域へのポインタを取得する関数オブジェクト。
+Rangeの要素が格納されたメモリ領域へのポインタを取得する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::cdata(E)`の効果は以下の式と等しい。
@@ -22,10 +22,10 @@ namespace std::ranges {
 2. それ以外の場合、[`ranges::data`](data.md)`(static_cast<const T&&>(E))`
 
 ## 戻り値
-範囲の要素が格納されたメモリ領域へのポインタ。
+Rangeの要素が格納されたメモリ領域へのポインタ。
 
 ## カスタマイゼーションポイント
-範囲が`const`な場合について[`ranges::data`](data.md)をカスタマイズすることで、`ranges::cdata`をカスタマイズできる。
+Rangeが`const`な場合について[`ranges::data`](data.md)をカスタマイズすることで、`ranges::cdata`をカスタマイズできる。
 
 ## 備考
 `ranges::cdata(E)`が有効な式であるとき、その型はオブジェクトへのポインタである。

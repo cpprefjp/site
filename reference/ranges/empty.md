@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲が空かどうかを判定する関数オブジェクト。
+Rangeが空かどうかを判定する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`、`t`を`E`を評価した値とする。このとき、式`ranges::empty(E)`の効果は以下の通り。
@@ -26,7 +26,7 @@ namespace std::ranges {
 どれにも当てはまらないとき、呼び出しは不適格。
 
 ## 戻り値
-範囲が空のとき`true`、それ以外の時`false`。
+Rangeが空のとき`true`、それ以外の時`false`。
 
 ## カスタマイゼーションポイント
 [`ranges::begin`](begin.md)と[`ranges::end`](end.md)、または[`ranges::size`](size.md)をカスタマイズすることで、`ranges::empty`をカスタマイズできる。

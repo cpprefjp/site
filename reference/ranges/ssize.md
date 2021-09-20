@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲の要素数を符号付き整数型で取得する関数オブジェクト。
+Rangeの要素数を符号付き整数型で取得する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::ssize(E)`の効果は以下の式と等しい。
@@ -22,7 +22,7 @@ namespace std::ranges {
 2. それ以外のとき、`static_cast<`[`range_difference_t`](range_difference_t.md)`<T>>(`[`ranges::size`](size.md)`(E))`。
 
 ## 戻り値
-範囲の要素数。
+Rangeの要素数。
 
 ## カスタマイゼーションポイント
 [`ranges::size`](size.md)をカスタマイズすることで、`ranges::ssize`をカスタマイズできる。

@@ -17,7 +17,7 @@ namespace std::ranges {
 * dangling[link dangling.md]
 
 ## 概要
-任意の範囲型`R`のイテレータの型を取得する。ただし、`R`が[`borrowed_range`](borrowed_range.md)ではない場合、[`dangling`](dangling.md)になる。
+任意のRange型`R`のイテレータの型を取得する。ただし、`R`が[`borrowed_range`](borrowed_range.md)ではない場合、[`dangling`](dangling.md)になる。
 
 イテレータを返す関数では、これを戻り値型に使うことでダングリングイテレータになる場合に自動的に[`dangling`](dangling.md)を返すことができる。
 
@@ -42,7 +42,7 @@ ranges::borrowed_iterator_t<R> my_find(R&& r, const ranges::range_value_t<R>& v)
 vector<int> f(){ return {}; }
 
 int main() {
-  // borrowed_rangeではない範囲のrvalueが渡された場合、danglingが返る
+  // borrowed_rangeではないRangeのrvalueが渡された場合、danglingが返る
   auto result1 = my_find(f(), 42);
   static_assert(same_as<decltype(result1), ranges::dangling>);
 

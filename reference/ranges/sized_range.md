@@ -14,9 +14,9 @@ namespace std::ranges {
 * ranges::size[link size.md]
 
 ## 概要
-`sized_range`は、範囲の大きさを償却定数時間で求めることができる範囲を表すコンセプトである。
+`sized_range`は、大きさを償却定数時間で求めることができるRangeを表すコンセプトである。
 
-`sized_range`な範囲からは[`ranges::size`](size.md)で大きさを取得できる。
+`sized_range`なRangeからは[`ranges::size`](size.md)で大きさを取得できる。
 
 ## モデル
 型が[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<T>`であるようなlvalue`t`があるとする。`T`が`sized_range`のモデルとなるのは、以下の条件をすべて満たす場合である。

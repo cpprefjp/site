@@ -18,7 +18,7 @@ constexpr auto size() const
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 
 ## 概要
-範囲の大きさを取得する。
+Rangeの大きさを取得する。
 
 ## テンプレートパラメータ制約
 [`view_interface`](../view_interface.md)`<D>`に対して、

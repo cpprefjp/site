@@ -27,16 +27,14 @@ namespace std {
 * view_interface[link view_interface.md]
 
 ## 概要
-`iota_view`は、有限長または無限長の単調増加列を表す[`view`](view.md)。
-
-- 1つの値`b`から生成した`iota_view`は、`b`から始まる無限長の単調増加列となる。
-- 2つの値`b`, `e`から生成した`iota_view`は、`[b, e)`に含まれる値を列挙する有限長の単調増加列となる。
-
-`iota_view`のオブジェクトは(2)のカスタマイゼーションポイントオブジェクト`views::iota`で生成できる。
+- (1): 有限長または無限長の単調増加列を表す[`view`](view.md)
+    - 1つの値`b`から生成した`iota_view`は、`b`から始まる無限長の単調増加列となる。
+    - 2つの値`b`, `e`から生成した`iota_view`は、`[b, e)`に含まれる値を列挙する有限長の単調増加列となる。
+- (2): `iota_view`を生成するカスタマイゼーションポイントオブジェクト
 
 `iota_view`の要素は、`iota_view`が作られる時に初めの要素が生成され、残りはアクセスするときに生成される。
 
-### 範囲カテゴリ
+### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
@@ -73,8 +71,8 @@ namespace std {
 
 | 名前                                         | 説明                                     | 対応バージョン |
 |----------------------------------------------|------------------------------------------|----------------|
-| [`empty`](view_interface/empty.md)           | 範囲が空かどうかを判定する               | C++20          |
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する         | C++20          |
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する              | C++20          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する        | C++20          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する               | C++20          |
 | [`back`](view_interface/back.md)             | 有限長のとき、末尾要素への参照を取得する | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                       | C++20          |

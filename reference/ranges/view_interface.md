@@ -26,17 +26,17 @@ namespace std::ranges {
 
 ## メンバ関数
 
-これらのメンバ関数は、`std::ranges`以下のカスタマイゼーションポイントオブジェクトを使って実装されており、テンプレート引数`D`として渡された範囲型に対して該当する呼び出しが可能な場合のみオーバーロード解決に参加する。
+これらのメンバ関数は、`std::ranges`以下のカスタマイゼーションポイントオブジェクトを使って実装されており、テンプレート引数`D`として渡されたRange型に対して該当する呼び出しが可能な場合のみオーバーロード解決に参加する。
 
-| 名前                                         | 説明                             | 対応バージョン |
-|----------------------------------------------|----------------------------------|----------------|
-| [`empty`](view_interface/empty.md)           | 範囲が空かどうかを判定する       | C++20          |
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
-| [`data`](view_interface/data.md)             | 範囲の先頭へのポインタを取得する | C++20          |
-| [`size`](view_interface/size.md)             | 要素数を取得する                 | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |
+| 名前                                         | 説明                               | 対応バージョン |
+|----------------------------------------------|------------------------------------|----------------|
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する        | C++20          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する  | C++20          |
+| [`data`](view_interface/data.md)             | Rangeの先頭へのポインタを取得する  | C++20          |
+| [`size`](view_interface/size.md)             | 要素数を取得する                   | C++20          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する         | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する         | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                 | C++20          |
 | [`derived`](view_interface/derived.md)       | `D`へダウンキャストする (説明専用) | C++20          |
 
 ## バージョン

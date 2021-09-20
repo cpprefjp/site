@@ -19,7 +19,7 @@ namespace std::ranges {
 
 ## 概要
 
-任意の範囲型`R`の部分範囲の型を取得する。ただし、`R`が[`borrowed_range`](borrowed_range.md)ではない場合、[`dangling`](dangling.md)になる。
+任意のRange型`R`の部分Rangeの型を取得する。ただし、`R`が[`borrowed_range`](borrowed_range.md)ではない場合、[`dangling`](dangling.md)になる。
 
 
 ## 例
@@ -39,7 +39,7 @@ ranges::borrowed_subrange_t<R> my_all(R&& r) {
 vector<int> f(){ return {}; }
 
 int main() {
-  // borrowed_rangeではない範囲のrvalueが渡された場合、danglingが返る
+  // borrowed_rangeではないRangeのrvalueが渡された場合、danglingが返る
   auto result1 = my_all(f());
   static_assert(same_as<decltype(result1), ranges::dangling>);
 

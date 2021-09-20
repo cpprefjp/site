@@ -16,7 +16,7 @@ constexpr explicit operator bool()
 * derived[link derived.md]
 
 ## 概要
-範囲が空かどうかを判定する。
+Rangeが空かどうかを判定する。
 
 ## テンプレートパラメータ制約
 式[`ranges::empty`](../empty.md)`(`[`derived`](derived.md)`())`が有効であること。

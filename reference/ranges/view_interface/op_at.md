@@ -16,7 +16,7 @@ constexpr decltype(auto) operator[](range_difference_t<R> n) const // (2)
 * range_difference_t[link ../range_difference_t.md]
 
 ## 概要
-範囲の要素にアクセスする。
+Rangeの要素にアクセスする。
 
 ## テンプレートパラメータ制約
 `R`が[`random_access_range`](../random_access_range.md)であること。

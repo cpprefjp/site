@@ -2,69 +2,69 @@
 * ranges[meta header]
 * cpp20[meta cpp]
 
-`<ranges>` では、イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリを提供する。
+`<ranges>` では、イテレータの組ではなく、コンテナや配列、部分的なコンテナなどの範囲(Range)を直接扱うライブラリを提供する。
 
 C++17までは、標準アルゴリズム関数はイテレータの組を扱い、範囲を直接扱ってはいなかった。
-範囲ライブラリはBoost.Rangeやrange-v3などで実績があり、C++標準にも取り込まれることになった。
+このようなライブラリはBoost.Range、range-v3、cpplinqなどで実績があり、C++標準にも取り込まれることになった。
 
-## 範囲アクセス
+## Rangeアクセス
 
 これらの機能は従来[`<iterator>`](iterator.md)でフリー関数として提供されていた。
 C++20では関数によるカスタマイゼーションポイントの問題点を解消するため、関数オブジェクトとして再実装されている。
 互換性を維持するために従来の関数も残っているが、これらのカスタマイゼーションポイントオブジェクトを使用することが推奨される。
 
-| 名前                           | 説明                                                                                             | 対応バージョン |
-|--------------------------------|--------------------------------------------------------------------------------------------------|----------------|
-| [`begin`](ranges/begin.md)     | 範囲の先頭を指すイテレータを取得する (customization point object)                                | C++20          |
-| [`end`](ranges/end.md)         | 範囲の末尾の次を指すイテレータもしくは番兵を取得する (customization point object)                | C++20          |
-| [`cbegin`](ranges/cbegin.md)   | 範囲の先頭を指す読み取り専用イテレータを取得する (customization point object)                    | C++20          |
-| [`cend`](ranges/cend.md)       | 範囲の末尾の次を指す読み取り専用イテレータもしくは番兵を取得する (customization point object)    | C++20          |
-| [`rbegin`](ranges/rbegin.md)   | 範囲の末尾を指す逆イテレータを取得する (customization point object)                              | C++20          |
-| [`rend`](ranges/rend.md)       | 範囲の先頭の前を指す逆イテレータもしくは番兵を取得する (customization point object)              | C++20          |
-| [`crbegin`](ranges/crbegin.md) | 範囲の末尾を指す読み取り専用逆イテレータを取得する (customization point object)                  | C++20          |
-| [`crend`](ranges/crend.md)     | 範囲の先頭の前を指す読み取り専用逆イテレータもしくは番兵を取得する (customization point object)  | C++20          |
-| [`size`](ranges/size.md)       | 範囲の要素数を取得する (customization point object)                                              | C++20          |
-| [`ssize`](ranges/ssize.md)     | 範囲の要素数を、符号付き整数型で取得する (customization point object)                            | C++20          |
-| [`empty`](ranges/empty.md)     | 範囲が空かどうかを判定する (customization point object)                                          | C++20          |
-| [`data`](ranges/data.md)       | 範囲の要素配列へのポインタを取得する (customization point object)                                | C++20          |
-| [`cdata`](ranges/cdata.md)     | 範囲の要素配列への読み取り専用ポインタを取得する (customization point object)                    | C++20          |
+| 名前                           | 説明                                                                                              | 対応バージョン |
+|--------------------------------|---------------------------------------------------------------------------------------------------|----------------|
+| [`begin`](ranges/begin.md)     | Rangeの先頭を指すイテレータを取得する (customization point object)                                | C++20          |
+| [`end`](ranges/end.md)         | Rangeの末尾の次を指すイテレータもしくは番兵を取得する (customization point object)                | C++20          |
+| [`cbegin`](ranges/cbegin.md)   | Rangeの先頭を指す読み取り専用イテレータを取得する (customization point object)                    | C++20          |
+| [`cend`](ranges/cend.md)       | Rangeの末尾の次を指す読み取り専用イテレータもしくは番兵を取得する (customization point object)    | C++20          |
+| [`rbegin`](ranges/rbegin.md)   | Rangeの末尾を指す逆イテレータを取得する (customization point object)                              | C++20          |
+| [`rend`](ranges/rend.md)       | Rangeの先頭の前を指す逆イテレータもしくは番兵を取得する (customization point object)              | C++20          |
+| [`crbegin`](ranges/crbegin.md) | Rangeの末尾を指す読み取り専用逆イテレータを取得する (customization point object)                  | C++20          |
+| [`crend`](ranges/crend.md)     | Rangeの先頭の前を指す読み取り専用逆イテレータもしくは番兵を取得する (customization point object)  | C++20          |
+| [`size`](ranges/size.md)       | Rangeの要素数を取得する (customization point object)                                              | C++20          |
+| [`ssize`](ranges/ssize.md)     | Rangeの要素数を、符号付き整数型で取得する (customization point object)                            | C++20          |
+| [`empty`](ranges/empty.md)     | Rangeが空かどうかを判定する (customization point object)                                          | C++20          |
+| [`data`](ranges/data.md)       | Rangeの要素配列へのポインタを取得する (customization point object)                                | C++20          |
+| [`cdata`](ranges/cdata.md)     | Rangeの要素配列への読み取り専用ポインタを取得する (customization point object)                    | C++20          |
 
-## 範囲に関連する型へのアクセス
+## Rangeに関連する型へのアクセス
 
-| 名前                                                             | 説明                                                 | 対応バージョン |
-|------------------------------------------------------------------|------------------------------------------------------|----------------|
-| [`iterator_t`](ranges/iterator_t.md)                             | 範囲のイテレータ型を取得する (alias template)        | C++20          |
-| [`sentinel_t`](ranges/sentinel_t.md)                             | 範囲の番兵型を取得する (alias template)              | C++20          |
-| [`range_difference_t`](ranges/range_difference_t.md)             | 範囲のイテレータの差の型を取得する (alias template)  | C++20          |
-| [`range_size_t`](ranges/range_size_t.md)                         | 範囲のサイズの型を取得する(alias template)           | C++20          |
-| [`range_value_t`](ranges/range_value_t.md)                       | 範囲の要素の型を取得する (alias template)            | C++20          |
-| [`range_reference_t`](ranges/range_reference_t.md)               | 範囲の要素の参照型を取得する (alias template)        | C++20          |
-| [`range_rvalue_reference_t`](ranges/range_rvalue_reference_t.md) | 範囲の要素の右辺値参照型を取得する (alias template)  | C++20          |
+| 名前                                                             | 説明                                           | 対応バージョン |
+|------------------------------------------------------------------|------------------------------------------------|----------------|
+| [`iterator_t`](ranges/iterator_t.md)                             | イテレータ型を取得する (alias template)        | C++20          |
+| [`sentinel_t`](ranges/sentinel_t.md)                             | 番兵型を取得する (alias template)              | C++20          |
+| [`range_difference_t`](ranges/range_difference_t.md)             | イテレータの差の型を取得する (alias template)  | C++20          |
+| [`range_size_t`](ranges/range_size_t.md)                         | サイズの型を取得する(alias template)           | C++20          |
+| [`range_value_t`](ranges/range_value_t.md)                       | 要素の型を取得する (alias template)            | C++20          |
+| [`range_reference_t`](ranges/range_reference_t.md)               | 要素の参照型を取得する (alias template)        | C++20          |
+| [`range_rvalue_reference_t`](ranges/range_rvalue_reference_t.md) | 要素の右辺値参照型を取得する (alias template)  | C++20          |
 
-## 範囲コンセプト
+## Rangeコンセプト
 
-| 名前                                                   | 説明                                                       | 対応バージョン |
-|--------------------------------------------------------|------------------------------------------------------------|----------------|
-| [`range`](ranges/range.md)                             | 範囲を定義するコンセプト (concept)                         | C++20          |
-| [`borrowed_range`](ranges/borrowed_range.md)           | 所有権を持たない範囲 (concept)                             | C++20          |
-| [`sized_range`](ranges/sized_range.md)                 | サイズを一定時間で求められる範囲 (concept)                 | C++20          |
-| [`view`](ranges/view.md)                               | ビューである範囲 (concept)                                 | C++20          |
-| [`output_range`](ranges/output_range.md)               | イテレータが出力イテレータである範囲 (concept)             | C++20          |
-| [`input_range`](ranges/input_range.md)                 | イテレータが入力イテレータである範囲 (concept)             | C++20          |
-| [`forward_range`](ranges/forward_range.md)             | イテレータが前進イテレータである範囲 (concept)             | C++20          |
-| [`bidirectional_range`](ranges/bidirectional_range.md) | イテレータが双方向イテレータである範囲 (concept)           | C++20          |
-| [`random_access_range`](ranges/random_access_range.md) | イテレータがランダムアクセスイテレータである範囲 (concept) | C++20          |
-| [`contiguous_range`](ranges/contiguous_range.md)       | イテレータが隣接イテレータである範囲 (concept)             | C++20          |
-| [`common_range`](ranges/common_range.md)               | イテレータと番兵の型が等しい範囲 (concept)                 | C++20          |
-| [`viewable_range`](ranges/viewable_range.md)           | ビューに変換できる範囲 (concept)                           | C++20          |
+| 名前                                                   | 説明                                                        | 対応バージョン |
+|--------------------------------------------------------|-------------------------------------------------------------|----------------|
+| [`range`](ranges/range.md)                             | Rangeを定義するコンセプト (concept)                         | C++20          |
+| [`borrowed_range`](ranges/borrowed_range.md)           | 所有権を持たないRange (concept)                             | C++20          |
+| [`sized_range`](ranges/sized_range.md)                 | サイズを償却定数時間で求められるRange (concept)             | C++20          |
+| [`view`](ranges/view.md)                               | ビューであるRange (concept)                                 | C++20          |
+| [`output_range`](ranges/output_range.md)               | イテレータが出力イテレータであるRange (concept)             | C++20          |
+| [`input_range`](ranges/input_range.md)                 | イテレータが入力イテレータであるRange (concept)             | C++20          |
+| [`forward_range`](ranges/forward_range.md)             | イテレータが前進イテレータであるRange (concept)             | C++20          |
+| [`bidirectional_range`](ranges/bidirectional_range.md) | イテレータが双方向イテレータであるRange (concept)           | C++20          |
+| [`random_access_range`](ranges/random_access_range.md) | イテレータがランダムアクセスイテレータであるRange (concept) | C++20          |
+| [`contiguous_range`](ranges/contiguous_range.md)       | イテレータが隣接イテレータであるRange (concept)             | C++20          |
+| [`common_range`](ranges/common_range.md)               | イテレータと番兵の型が等しいRange (concept)                 | C++20          |
+| [`viewable_range`](ranges/viewable_range.md)           | ビューに変換できるRange (concept)                           | C++20          |
 
 ## カスタマイゼーションポイント
 
-| 名前                                                       | 説明                                                        | 対応バージョン |
-|------------------------------------------------------------|-------------------------------------------------------------|----------------|
-| [`enable_borrowed_range`](ranges/enable_borrowed_range.md) | 範囲を`borrowed_range`にする (variable template)            | C++20          |
-| [`enable_view`](ranges/enable_view.md)                     | 範囲を`view`にする (variable template)                      | C++20          |
-| [`disable_sized_range`](ranges/disable_sized_range.md)     | 範囲を`sized_range`にならないようにする (variable template) | C++20          |
+| 名前                                                       | 説明                                                         | 対応バージョン |
+|------------------------------------------------------------|--------------------------------------------------------------|----------------|
+| [`enable_borrowed_range`](ranges/enable_borrowed_range.md) | Rangeを`borrowed_range`にする (variable template)            | C++20          |
+| [`enable_view`](ranges/enable_view.md)                     | Rangeを`view`にする (variable template)                      | C++20          |
+| [`disable_sized_range`](ranges/disable_sized_range.md)     | Rangeを`sized_range`にならないようにする (variable template) | C++20          |
 
 ## ビューインターフェース
 
@@ -73,76 +73,76 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`view_base`](ranges/view_base.md)           | 基底クラスとすることで`view`となるタグ型 (class)          | C++20          |
 | [`view_interface`](ranges/view_interface.md) | ビューの基底クラスとして推奨されるクラス (class template) | C++20          |
 
-## 部分範囲
+## 部分Range
 
-| 名前                                         | 説明                                            | 対応バージョン |
-|----------------------------------------------|-------------------------------------------------|----------------|
-| [`subrange_kind`](ranges/subrange_kind.md)   | 部分範囲の種類を表す列挙体 (enum class)         | C++20          |
-| [`subrange`](ranges/subrange.md)             | イテレータペアを範囲として扱う (class template) | C++20          |
+| 名前                                         | 説明                                               | 対応バージョン |
+|----------------------------------------------|----------------------------------------------------|----------------|
+| [`subrange_kind`](ranges/subrange_kind.md)   | 部分Rangeの種類を表す列挙体 (enum class)           | C++20          |
+| [`subrange`](ranges/subrange.md)             | イテレータペアをRangeとして扱う型 (class template) | C++20          |
 
 ## ダングリングイテレータハンドリング
 
-| 名前                                                   | 説明                                                                          | 対応バージョン |
-|--------------------------------------------------------|-------------------------------------------------------------------------------|----------------|
-| [`dangling`](ranges/dangling.md)                       | ダングリングイテレータ、ダングリング範囲を表す型 (class)                      | C++20          |
-| [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md) | 範囲が`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
-| [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md) | 範囲が`borrowed_range`ではないとき`dangling`となる部分範囲 (alias template)   | C++20          |
+| 名前                                                   | 説明                                                                           | 対応バージョン |
+|--------------------------------------------------------|--------------------------------------------------------------------------------|----------------|
+| [`dangling`](ranges/dangling.md)                       | ダングリングイテレータ、ダングリングRangeを表す型 (class)                      | C++20          |
+| [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md) | Rangeが`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
+| [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md) | Rangeが`borrowed_range`ではないとき`dangling`となる部分Range (alias template)  | C++20          |
 
-## 範囲ファクトリ
+## Rangeファクトリ
 
-範囲ファクトリは、範囲ではないオブジェクトから[`view`](ranges/view.md)を生成するものである。
+Rangeファクトリは、Rangeではないオブジェクトから[`view`](ranges/view.md)を生成するものである。
 その実体は、引数の無いものは変数テンプレート、引数のあるものは関数テンプレートやカスタマイゼーションポイントオブジェクトとなっている。
 
 ### empty view
 
 | 名前                                 | 説明                                       | 対応バージョン |
 |--------------------------------------|--------------------------------------------|----------------|
-| [`empty_view`](ranges/empty_view.md) | 空の範囲 (class template)                  | C++20          |
+| [`empty_view`](ranges/empty_view.md) | 空のRange (class template)                 | C++20          |
 | [`empty`](ranges/empty_view.md)      | `empty_view`を生成する (variable template) | C++20          |
 
 ### single view
 
 | 名前                                   | 説明                                                  | 対応バージョン |
 |----------------------------------------|-------------------------------------------------------|----------------|
-| [`single_view`](ranges/single_view.md) | 指定した値1つからなる範囲 (class template)            | C++20          |
+| [`single_view`](ranges/single_view.md) | 指定した値1つからなるRange (class template)           | C++20          |
 | [`single`](ranges/single_view.md)      | `single_view`を生成する (customization point object)  | C++20          |
 
 ### iota view
 
 | 名前                               | 説明                                                | 対応バージョン |
 |------------------------------------|-----------------------------------------------------|----------------|
-| [`iota_view`](ranges/iota_view.md) | 単調増加列である範囲 (class template)               | C++20          |
+| [`iota_view`](ranges/iota_view.md) | 単調増加列であるRange (class template)              | C++20          |
 | [`iota`](ranges/iota_view.md)      | `iota_view`を生成する (customization point object)  | C++20          |
 
 ### istream view
 
 | 名前                                                 | 説明                                                | 対応バージョン |
 |------------------------------------------------------|-----------------------------------------------------|----------------|
-| [`basic_istream_view`](ranges/basic_istream_view.md) | 入力ストリームから値を読む範囲 (class template)     | C++20          |
+| [`basic_istream_view`](ranges/basic_istream_view.md) | 入力ストリームから値を読むRange (class template)    | C++20          |
 | [`istream_view`](ranges/basic_istream_view.md)       | `basic_istream_view`を生成する (function template)  | C++20          |
 
-## 範囲アダプタ
+## Rangeアダプタ
 
-範囲アダプタは、既存の範囲に作用して新たな[`view`](ranges/view.md)を生成するものである。
+Rangeアダプタは、既存のRangeに作用して新たな[`view`](ranges/view.md)を生成するものである。
 その実体はカスタマイゼーションポイントオブジェクトとなっている。
 
-範囲アダプタを範囲に作用させる方法には、関数記法とパイプライン記法の2つがある。
+RangeアダプタをRangeに作用させる方法には、関数記法とパイプライン記法の2つがある。
 
-`R`を範囲アダプタ、`r`を元になる範囲とする。このとき、以下の2つの式は同じ[`view`](ranges/view.md)を生成する。
+`R`をRangeアダプタ、`r`を元になるRangeとする。このとき、以下の2つの式は同じ[`view`](ranges/view.md)を生成する。
 
 ```cpp
 R(r)   // 関数記法
 r | R  // パイプライン記法
 ```
 
-範囲アダプタを適用した結果は[`view`](ranges/view.md)、すなわち範囲であることから、範囲アダプタを次々と繋いでいくことができる。
+Rangeアダプタを適用した結果は[`view`](ranges/view.md)、すなわちRangeであることから、Rangeアダプタを次々と繋いでいくことができる。
 
 ```cpp
 R1(R2(R3(r)))     // 関数記法
 r | R1 | R2 | R3  // パイプライン記法
 ```
 
-範囲アダプタの処理は遅延評価され、要素は必要になるまで生成されない。このような仕組みは実際の仕事の多くをイテレータが担うことで実現している。
+Rangeアダプタの処理は遅延評価され、要素は必要になるまで生成されない。このような仕組みは実際の仕事の多くをイテレータが担うことで実現している。
 
 ```cpp
 for (auto&& item : r | R) {
@@ -150,9 +150,9 @@ for (auto&& item : r | R) {
 }
 ```
 
-第1引数に[`viewable_range`](ranges/viewable_range.md)を受け取って[`view`](ranges/view.md)を返すカスタマイゼーションポイントオブジェクトを、**範囲アダプタオブジェクト**という。とくに、1引数のものを**範囲アダプタクロージャオブジェクト**という。
+第1引数に[`viewable_range`](ranges/viewable_range.md)を受け取って[`view`](ranges/view.md)を返すカスタマイゼーションポイントオブジェクトを、**Rangeアダプタオブジェクト**という。とくに、1引数のものを**Rangeアダプタクロージャオブジェクト**という。
 
-範囲アダプタオブジェクト`adaptor`が2つ以上の引数をとる場合、以下の3つの式は等しい。
+Rangeアダプタオブジェクト`adaptor`が2つ以上の引数をとる場合、以下の3つの式は等しい。
 
 ```cpp
 adaptor(range, args...)
@@ -160,15 +160,15 @@ adaptor(args...)(range)
 range | adaptor(args...)
 ```
 
-このとき、`adaptor(args...)`は範囲アダプタクロージャオブジェクトになっている。
+このとき、`adaptor(args...)`はRangeアダプタクロージャオブジェクトになっている。
 
 ### all view
 
-| 名前                             | 説明                                                                    | 対応バージョン |
-|----------------------------------|-------------------------------------------------------------------------|----------------|
-| [`ref_view`](ranges/ref_view.md) | 範囲への参照として振る舞うビュー (class template)                       | C++20          |
-| [`all`](ranges/ref_view.md)      | 範囲への参照として振る舞うビューを生成する (customization point object) | C++20          |
-| [`all_t`](ranges/ref_view.md)    | `all`の戻り値型 (alias template)                                        | C++20          |
+| 名前                             | 説明                                                                     | 対応バージョン |
+|----------------------------------|--------------------------------------------------------------------------|----------------|
+| [`ref_view`](ranges/ref_view.md) | Rangeへの参照として振る舞うビュー (class template)                       | C++20          |
+| [`all`](ranges/ref_view.md)      | Rangeへの参照として振る舞うビューを生成する (customization point object) | C++20          |
+| [`all_t`](ranges/ref_view.md)    | `all`の戻り値型 (alias template)                                         | C++20          |
 
 ### filter view
 
@@ -216,15 +216,15 @@ range | adaptor(args...)
 
 | 名前                                      | 説明           | 対応バージョン |
 |-------------------------------------------|----------------|----------------|
-| [`join_view`](ranges/join_view.md.nolink) | ネストされた範囲を平坦にするビュー (class template)     | C++20          |
-| [`join`](ranges/join.md.nolink)           | ネストされた範囲を平坦にするビューを生成する (customization point object)  | C++20          |
+| [`join_view`](ranges/join_view.md.nolink) | ネストされたRangeを平坦にするビュー (class template)     | C++20          |
+| [`join`](ranges/join.md.nolink)           | ネストされたRangeを平坦にするビューを生成する (customization point object)  | C++20          |
 
 ### split view
 
 | 名前                                        | 説明           | 対応バージョン |
 |---------------------------------------------|----------------|----------------|
-| [`split_view`](ranges/split_view.md.nolink) | 範囲を指定したデリミタで分割するビュー (class template)     | C++20          |
-| [`split`](ranges/split.md.nolink)           | 範囲を指定したデリミタで分割するビューを生成する (customization point object)  | C++20          |
+| [`split_view`](ranges/split_view.md.nolink) | Rangeを指定したデリミタで分割するビュー (class template)     | C++20          |
+| [`split`](ranges/split.md.nolink)           | Rangeを指定したデリミタで分割するビューを生成する (customization point object)  | C++20          |
 
 ### counted view
 
@@ -270,6 +270,7 @@ range | adaptor(args...)
 ## 関連項目
 - [`<iterator>`](iterator.md)
 - [`<concepts>`](concepts.md)
+- [`<algorithm>`](algorithm.md)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)

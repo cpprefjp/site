@@ -27,17 +27,17 @@ namespace std {
 * view_interface[link view_interface.md]
 
 ## 概要
-- (1): 指定された条件`Pred`を満たす要素だけが残っているような範囲として振る舞う[`view`](view.md)
-- (2): `filter_view`を生成する範囲アダプタオブジェクト
+- (1): 指定された条件`Pred`を満たす要素だけが要素となる[`view`](view.md)
+- (2): `filter_view`を生成するRangeアダプタオブジェクト
 
-元の範囲から条件を満たす要素を探す処理は遅延評価される。
+元のRangeから条件を満たす要素を探す処理は遅延評価される。
 
 - 初めてメンバ関数[`begin`](filter_view/begin.md.nolink)が呼び出されたときに先頭の要素を決定し、残りはイテレータが進むときに求める。
 - [`begin`](filter_view/begin.md.nolink)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md.nolink)の値はキャッシュされる。
 
 `filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作となる。
 
-### 範囲カテゴリ
+### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
@@ -73,7 +73,7 @@ namespace std {
 
 | 名前                                         | 説明                             | 対応バージョン |
 |----------------------------------------------|----------------------------------|----------------|
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
 

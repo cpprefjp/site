@@ -17,7 +17,7 @@ namespace std::ranges {
 
 [`sized_range`](sized_range.md)コンセプトの構文要件を満たすが意味論要件を満たさないような型`T`があるとき、`disable_sized_range<T>`が`true`となるように特殊化することで[`ranges::size`](size.md)の引数にできないようにして、[`sized_range`](sized_range.md)を無効化する。
 
-具体的には、大きさを求めることはできるが、その計算量が償却定数にならないような範囲が該当する。
+具体的には、大きさを求めることはできるが、その計算量が償却定数にならないようなRangeが該当する。
 
 ## 例
 

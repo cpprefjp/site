@@ -32,10 +32,10 @@ namespace std {
 * view_interface[link view_interface.md]
 
 ## 概要
-- (1): 指定した関数で各要素を変換した値の範囲として振る舞う[`view`](view.md)
-- (2): `transform_view`を生成する範囲アダプタオブジェクト
+- (1): 指定した関数で各要素を変換した値のRangeとして振る舞う[`view`](view.md)
+- (2): `transform_view`を生成するRangeアダプタオブジェクト
 
-### 範囲カテゴリ
+### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
@@ -66,14 +66,14 @@ namespace std {
 | [`end`](transform_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 | [`size`](transform_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
 
-`r`を元の範囲とする。`empty`、`size`、`data`は、それぞれ[`ranges::empty`](empty.md)`(r)`、[`ranges::size`](size.md)`(r)`、[`ranges::data`](data.md)`(r)`が有効な式であるときに定義される。
+`r`を元のRangeとする。`empty`、`size`、`data`は、それぞれ[`ranges::empty`](empty.md)`(r)`、[`ranges::size`](size.md)`(r)`、[`ranges::data`](data.md)`(r)`が有効な式であるときに定義される。
 
 ## 継承しているメンバ関数
 
 | 名前                                         | 説明                             | 対応バージョン |
 |----------------------------------------------|----------------------------------|----------------|
-| [`empty`](view_interface/empty.md)           | 範囲が空かどうかを判定する       | C++20          |
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++20          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |

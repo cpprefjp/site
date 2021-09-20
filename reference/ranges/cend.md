@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲から、最後尾要素の次を指す読み取り専用イテレータもしくは番兵を取得する関数オブジェクト。
+Rangeから、最後尾要素の次を指す読み取り専用イテレータもしくは番兵を取得する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::cend(E)`の効果は以下の式と等しい。
@@ -25,7 +25,7 @@ namespace std::ranges {
 最後尾要素の次を指す読み取り専用イテレータもしくは番兵。
 
 ## カスタマイゼーションポイント
-範囲が`const`な場合について[`ranges::end`](end.md)をカスタマイズすることで、`ranges::cend`をカスタマイズできる。
+Rangeが`const`な場合について[`ranges::end`](end.md)をカスタマイズすることで、`ranges::cend`をカスタマイズできる。
 
 ## 備考
 `ranges::cend(E)`が有効な式であるとき、`ranges::cend(E)`の型`S`、[`ranges::cbegin`](cbegin.md)`(E)`の型`I`は[`sentinel_for`](/reference/iterator/sentinel_for.md)`<S, I>`のモデルである。

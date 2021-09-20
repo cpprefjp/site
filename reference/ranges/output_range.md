@@ -15,7 +15,7 @@ namespace std::ranges {
 * iterator_t[link iterator_t.md]
 
 ## 概要
-`output_range`は、イテレータが[`output_iterator`](/reference/iterator/output_iterator.md)である範囲を表すコンセプトである。
+`output_range`は、イテレータが[`output_iterator`](/reference/iterator/output_iterator.md)であるRangeを表すコンセプトである。
 
 ## モデル
 型`T`が`output_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、かつそのイテレータが[`output_iterator`](/reference/iterator/output_iterator.md)のモデルである場合である。
@@ -30,7 +30,7 @@ namespace std::ranges {
 
 int main() {
   using namespace std;
-  // ostream_iteratorから作った範囲はoutput_range
+  // ostream_iteratorから作ったRangeはoutput_range
   ostream_iterator<int> osi(cout);
   static_assert(ranges::output_range<decltype(views::counted(osi, 5)), int>);
 

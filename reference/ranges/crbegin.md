@@ -13,7 +13,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-範囲の末尾を指す読み取り専用逆イテレータを取得する関数オブジェクト。
+Rangeの末尾を指す読み取り専用逆イテレータを取得する関数オブジェクト。
 
 ## 効果
 部分式`E`の型を`T`とする。このとき、式`ranges::crbegin(E)`の効果は以下の式と等しい。
@@ -22,10 +22,10 @@ namespace std::ranges {
 2. それ以外の場合、[`ranges::rbegin`](rbegin.md)`(static_cast<const T&&>(E))`
 
 ## 戻り値
-範囲の末尾を指す読み取り専用逆イテレータ。
+Rangeの末尾を指す読み取り専用逆イテレータ。
 
 ## カスタマイゼーションポイント
-範囲が`const`な場合について[`ranges::rbegin`](rbegin.md)をカスタマイズすることで、`ranges::crbegin`をカスタマイズできる。
+Rangeが`const`な場合について[`ranges::rbegin`](rbegin.md)をカスタマイズすることで、`ranges::crbegin`をカスタマイズできる。
 
 ## 例
 ```cpp example

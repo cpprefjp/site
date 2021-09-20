@@ -31,17 +31,17 @@ namespace std {
 * declval[link /reference/utility/declval.md]
 
 ## 概要
-- (1): 範囲への参照として振る舞う[`view`](view.md)
-- (2): 範囲への参照として振る舞う[`view`](view.md)を生成する範囲アダプタクロージャオブジェクト。`all`の戻り値は`ref_view`の他に、元の範囲そのものや[`subrange`](subrange.md)の場合があり、まとめて"all view"と呼ぶことがある
+- (1): Rangeへの参照として振る舞う[`view`](view.md)
+- (2): Rangeへの参照として振る舞う[`view`](view.md)を生成するRangeアダプタクロージャオブジェクト。`all`の戻り値は`ref_view`の他に、元のRangeそのものや[`subrange`](subrange.md)の場合があり、まとめて"all view"と呼ぶことがある
 - (3): `all`の戻り値の型を得るエイリアステンプレート。`all_t`を使えば、`all`の分岐を気にせずに"all view"の型を得ることができる
 
-### 範囲カテゴリ
+### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
 | ○       | ※    | ※     | ※    | ※      | ※            | ※            | ※         | ※     | ○       | ○   |
 
-※ 参照先の範囲に従う
+※ 参照先のRangeに従う
 
 ## テンプレートパラメータ制約
 
@@ -55,30 +55,30 @@ namespace std {
     - それ以外のとき、`ref_view{E}`が有効な式であれば、`ref_view{E}`と等しい
     - それ以外のとき、[`subrange`](subrange.md)`{E}`と等しい
 
-引数にした範囲が元々[`view`](view.md)である場合はそのまま使用する。そうでないときは、まず引数を`ref_view`でラップしようとする。それもできないときは、イテレータと番兵を[`subrange`](subrange.md)でラップする。
+引数にしたRangeが元々[`view`](view.md)である場合はそのまま使用する。そうでないときは、まず引数を`ref_view`でラップしようとする。それもできないときは、イテレータと番兵を[`subrange`](subrange.md)でラップする。
 
 ## メンバ関数
 
-| 名前                                             | 説明                             | 対応バージョン |
-|--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](ref_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](ref_view/base.md.nolink)                     | `R`の参照を取得する              | C++20          |
-| [`begin`](ref_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](ref_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
-| [`empty`](ref_view/empty.md.nolink)                   | 範囲が空かどうかを判定する       | C++20          |
-| [`size`](ref_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
-| [`data`](ref_view/data.md.nolink)                     | 範囲の先頭へのポインタを取得する | C++20          |
+| 名前                                             | 説明                              | 対応バージョン |
+|--------------------------------------------------|-----------------------------------|----------------|
+| [`(constructor)`](ref_view/op_constructor.md.nolink)  | コンストラクタ                    | C++20          |
+| [`base`](ref_view/base.md.nolink)                     | `R`の参照を取得する               | C++20          |
+| [`begin`](ref_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する    | C++20          |
+| [`end`](ref_view/end.md.nolink)                       | 番兵を取得する                    | C++20          |
+| [`empty`](ref_view/empty.md.nolink)                   | Rangeが空かどうかを判定する       | C++20          |
+| [`size`](ref_view/size.md.nolink)                     | 要素数を取得する                  | C++20          |
+| [`data`](ref_view/data.md.nolink)                     | Rangeの先頭へのポインタを取得する | C++20          |
 
-`r`を参照先の範囲とする。`empty`、`size`、`data`は、それぞれ[`ranges::empty`](empty.md)`(r)`、[`ranges::size`](size.md)`(r)`、[`ranges::data`](data.md)`(r)`が有効な式であるときに定義される。
+`r`を参照先のRangeとする。`empty`、`size`、`data`は、それぞれ[`ranges::empty`](empty.md)`(r)`、[`ranges::size`](size.md)`(r)`、[`ranges::data`](data.md)`(r)`が有効な式であるときに定義される。
 
 ## 継承しているメンバ関数
 
-| 名前                                         | 説明                             | 対応バージョン |
-|----------------------------------------------|----------------------------------|----------------|
-| [`operator bool`](view_interface/op_bool.md) | 範囲が空でないかどうかを判定する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |
+| 名前                                         | 説明                              | 対応バージョン |
+|----------------------------------------------|-----------------------------------|----------------|
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
 
 ## 推論補助
 

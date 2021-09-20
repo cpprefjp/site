@@ -16,7 +16,7 @@ namespace std::ranges {
 
 ## 概要
 
-任意の範囲型`R`から、その範囲の要素の参照型を取得する。
+任意のRange型`R`から、そのRangeの要素の参照型を取得する。
 
 ## 例
 ```cpp example
