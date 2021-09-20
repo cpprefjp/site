@@ -41,7 +41,7 @@ namespace std {
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
-|          |       |        | ※    | ※      | ※            |               |            | ※     | ○       | ○   |
+|          |       | ※     | ○    | ※      | ※            |               |            | ※     | ○       | ○   |
 
 ※ `V`に従う
 

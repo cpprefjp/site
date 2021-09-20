@@ -26,15 +26,24 @@ namespace std::ranges {
 #include <iterator>
 #include <concepts>
 #include <iostream>
+#include <vector>
 
 int main() {
   using namespace std;
+  // ostream_iteratorから作った範囲はoutput_range
   ostream_iterator<int> osi(cout);
   static_assert(ranges::output_range<decltype(views::counted(osi, 5)), int>);
+
+  // constではないコンテナはoutput_range
+  static_assert(ranges::output_range<vector<int>&, int>);
+
+  // constなコンテナには書き込めないので、output_rangeではない
+  static_assert(!ranges::output_range<const vector<int>&, int>);
 }
 ```
 * ranges::output_range[color ff0000]
 * views::counted[link counted.md.nolink]
+* ostream_iterator[link reference/iterator/ostream_iterator.md]
 
 ### 出力
 ```
