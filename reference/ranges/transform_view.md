@@ -39,9 +39,10 @@ namespace std {
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
-|          | ※    | ※     | ○    | ※      | ※            | ※            |            | ※     | ○       | ○   |
+|          | (1)   | (2)    | ○    | (1)     | (1)           | (1)           |            | (1)    | ○       | ○   |
 
-※ `V`に従う
+- (1): `V`に従う
+- (2): 述語が参照を返す場合
 
 ## テンプレートパラメータ制約
 
@@ -66,7 +67,7 @@ namespace std {
 | [`end`](transform_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 | [`size`](transform_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
 
-`r`を元のRangeとする。`empty`、`size`、`data`は、それぞれ[`ranges::empty`](empty.md)`(r)`、[`ranges::size`](size.md)`(r)`、[`ranges::data`](data.md)`(r)`が有効な式であるときに定義される。
+`r`を元のRangeとする。`size`、`data`は、それぞれ[`ranges::size`](size.md)`(r)`、[`ranges::data`](data.md)`(r)`が有効な式であるときに定義される。
 
 ## 継承しているメンバ関数
 
@@ -90,18 +91,18 @@ namespace std {
 
 int main() {
   using namespace std;
-  int a[] = {1, 2, 3, 4, 5};
+  int a[] = {1, 2, 3};
 
-  for (int i : a | views::all) {
+  for (int i : a | views::transform([](int x){ return x * x; })) {
     cout << i;
   }
 }
 ```
-* views::all[color ff0000]
+* views::transform[color ff0000]
 
 ### 出力
 ```
-12345
+149
 ```
 
 ## バージョン
@@ -113,6 +114,9 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+## 関連項目
+- [`std::transform`](/reference/algorithm/transform.md)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)

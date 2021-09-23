@@ -7,6 +7,12 @@
 C++17までは、標準アルゴリズム関数はイテレータの組を扱い、範囲を直接扱ってはいなかった。
 このようなライブラリはBoost.Range、range-v3、cpplinqなどで実績があり、C++標準にも取り込まれることになった。
 
+また、従来のイテレータの組は基本的に同じ型であることが期待されていたが、C++20のRangesでは`end`で得られるものは**番兵**(sentinel)と規定され、イテレータと同じ型でなくてもよくなった。
+
+`<ranges>`で定義されるコンセプトはイテレータを用いて定義されるものが多い。イテレータや番兵に関するコンセプトなどは引き続き[`<iterator>`](iterator.md)で提供される。
+
+また、Range対応版のアルゴリズム関数は引き続き[`<algorithm>`](algorithm.md)で提供される。
+
 ## Rangeアクセス
 
 これらの機能は従来[`<iterator>`](iterator.md)でフリー関数として提供されていた。
@@ -179,10 +185,10 @@ range | adaptor(args...)
 
 ### transform view
 
-| 名前                                          | 説明                                                     | 対応バージョン |
-|-----------------------------------------------|----------------------------------------------------------|----------------|
-| [`transform_view`](ranges/transform_view.md.nolink) | 指定した関数で各要素を変換するビュー (class template)    | C++20          |
-| [`transform`](ranges/transform_view.md.nolink)      | `transform_view`を生成する (customization point object)  | C++20          |
+| 名前                                         | 説明                                                     | 対応バージョン |
+|----------------------------------------------|----------------------------------------------------------|----------------|
+| [`transform_view`](ranges/transform_view.md) | 指定した関数で各要素を変換するビュー (class template)    | C++20          |
+| [`transform`](ranges/transform_view.md)      | `transform_view`を生成する (customization point object)  | C++20          |
 
 ### take view
 
