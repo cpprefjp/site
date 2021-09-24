@@ -8,7 +8,7 @@
 namespace std {
   template <class CharT, class Traits>
   std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<charT, traits>& os, std::basic_string_view<CharT, Traits> sv);
+    operator<<(std::basic_ostream<CharT, Traits>& os, std::basic_string_view<CharT, Traits> sv);
 }
 ```
 
