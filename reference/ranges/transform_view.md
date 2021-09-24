@@ -67,7 +67,7 @@ namespace std {
 | [`end`](transform_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 | [`size`](transform_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
 
-`r`を元のRangeとする。`size`、`data`は、それぞれ[`ranges::size`](size.md)`(r)`、[`ranges::data`](data.md)`(r)`が有効な式であるときに定義される。
+`r`を元のRangeとする。`size`は[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 
 ## 継承しているメンバ関数
 

@@ -192,10 +192,10 @@ range | adaptor(args...)
 
 ### take view
 
-| 名前                                      | 説明           | 対応バージョン |
-|-------------------------------------------|----------------|----------------|
-| [`take_view`](ranges/take_view.md.nolink) | 先頭から指定した個数だけ取り出すビュー (class template)     | C++20          |
-| [`take`](ranges/take.md.nolink)           | 先頭から指定した個数だけ取り出すビューを生成する (customization point object)  | C++20          |
+| 名前                               | 説明                                                                          | 対応バージョン |
+|------------------------------------|-------------------------------------------------------------------------------|----------------|
+| [`take_view`](ranges/take_view.md) | 先頭から指定した個数だけ取り出すビュー (class template)                       | C++20          |
+| [`take`](ranges/take_view.md)      | 先頭から指定した個数だけ取り出すビューを生成する (customization point object) | C++20          |
 
 ### take while view
 
@@ -206,10 +206,10 @@ range | adaptor(args...)
 
 ### drop view
 
-| 名前                                      | 説明           | 対応バージョン |
-|-------------------------------------------|----------------|----------------|
-| [`drop_view`](ranges/drop_view.md.nolink) | 先頭から指定した個数だけ除外するビュー (class template)     | C++20          |
-| [`drop`](ranges/drop.md.nolink)           | 先頭から指定した個数だけ除外するビューを生成する (customization point object)  | C++20          |
+| 名前                               | 説明                                                                          | 対応バージョン |
+|------------------------------------|-------------------------------------------------------------------------------|----------------|
+| [`drop_view`](ranges/drop_view.md) | 先頭から指定した個数だけ除外するビュー (class template)                       | C++20          |
+| [`drop`](ranges/drop_view.md)      | 先頭から指定した個数だけ除外するビューを生成する (customization point object) | C++20          |
 
 ### drop while view
 
