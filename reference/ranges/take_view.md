@@ -85,6 +85,7 @@ namespace std {
 ## 例
 ```cpp example
 #include <ranges>
+#include <iostream>
 
 int main() {
   using namespace std;
