@@ -43,7 +43,7 @@ int main() {
 ```
 * ranges::output_range[color ff0000]
 * views::counted[link counted.md.nolink]
-* ostream_iterator[link reference/iterator/ostream_iterator.md]
+* ostream_iterator[link /reference/iterator/ostream_iterator.md]
 
 ### 出力
 ```
