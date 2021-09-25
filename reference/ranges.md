@@ -254,14 +254,14 @@ range | adaptor(args...)
 
 ### elements view
 
-| 名前                                              | 説明           | 対応バージョン |
-|---------------------------------------------------|----------------|----------------|
-| [`elements_view`](ranges/elements_view.md.nolink) | 第n要素を集めたビュー (class template)     | C++20          |
-| [`keys_view`](ranges/keys_view.md.nolink)         | 第0要素を集めたビュー (alias template)     | C++20          |
-| [`values_view`](ranges/values_view.md.nolink)     | 第1要素を集めたビュー (alias template)     | C++20          |
-| [`elements`](ranges/elements.md.nolink)           | `elements_view`を生成する (variable template) | C++20          |
-| [`keys`](ranges/keys.md.nolink)                   | `keys_view`を生成する (customization point object)  | C++20          |
-| [`values`](ranges/values.md.nolink)               | `values_view`を生成する (customization point object)  | C++20          |
+| 名前                                       | 説明                                                  | 対応バージョン |
+|--------------------------------------------|-------------------------------------------------------|----------------|
+| [`elements_view`](ranges/elements_view.md) | 第n要素を集めたビュー (class template)                 | C++20          |
+| [`keys_view`](ranges/elements_view.md)     | 第0要素を集めたビュー (alias template)                 | C++20          |
+| [`values_view`](ranges/elements_view.md)   | 第1要素を集めたビュー (alias template)                 | C++20          |
+| [`elements`](ranges/elements_view.md)      | `elements_view`を生成する (customization point object) | C++20          |
+| [`keys`](ranges/elements_view.md)          | `keys_view`を生成する (customization point object)     | C++20          |
+| [`values`](ranges/elements_view.md)        | `values_view`を生成する (customization point object)   | C++20          |
 
 ## バージョン
 ### 言語
