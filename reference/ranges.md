@@ -199,10 +199,10 @@ range | adaptor(args...)
 
 ### take while view
 
-| 名前                                                  | 説明           | 対応バージョン |
-|-------------------------------------------------------|----------------|----------------|
-| [`take_while_view`](ranges/take_while_view.md.nolink) | 先頭から指定した条件を満たす範囲を取り出すビュー (class template)     | C++20          |
-| [`take_while`](ranges/take_while.md.nolink)           | 先頭から指定した条件を満たす範囲を取り出すビューを生成する (customization point object)  | C++20          |
+| 名前                                           | 説明                                                              | 対応バージョン |
+|------------------------------------------------|-------------------------------------------------------------------|----------------|
+| [`take_while_view`](ranges/take_while_view.md) | 先頭から指定した条件を満たす範囲を取り出すビュー (class template) | C++20          |
+| [`take_while`](ranges/take_while_view.md)      | `take_while_view`を生成する (customization point object)          | C++20          |
 
 ### drop view
 
@@ -213,10 +213,10 @@ range | adaptor(args...)
 
 ### drop while view
 
-| 名前                                                  | 説明           | 対応バージョン |
-|-------------------------------------------------------|----------------|----------------|
-| [`drop_while_view`](ranges/drop_while_view.md.nolink) | 先頭から指定した条件を満たす範囲を除外するビュー (class template)     | C++20          |
-| [`drop_while`](ranges/drop_while.md.nolink)           | 先頭から指定した条件を満たす範囲を除外するビューを生成する (customization point object)  | C++20          |
+| 名前                                           | 説明                                                              | 対応バージョン |
+|------------------------------------------------|-------------------------------------------------------------------|----------------|
+| [`drop_while_view`](ranges/drop_while_view.md) | 先頭から指定した条件を満たす範囲を除外するビュー (class template) | C++20          |
+| [`drop_while`](ranges/drop_while_view.md)      | `drop_while_view`を生成する (customization point object)          | C++20          |
 
 ### join view
 
