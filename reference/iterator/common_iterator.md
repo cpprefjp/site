@@ -142,7 +142,7 @@ int main() {
 ## 関連項目
 
 - [`common_range`](/reference/ranges/common_range.md)
-- [`common_view`](/reference/ranges/common_view.md.nolink)
+- [`common_view`](/reference/ranges/common_view.md)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

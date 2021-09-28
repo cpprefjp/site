@@ -240,10 +240,10 @@ range | adaptor(args...)
 
 ### common view
 
-| 名前                                          | 説明           | 対応バージョン |
-|-----------------------------------------------|----------------|----------------|
-| [`common_view`](ranges/common_view.md.nolink) | `common_range`にしたビュー (class template)     | C++20          |
-| [`common`](ranges/common.md.nolink)           | `common_range`なビューを生成する (customization point object)  | C++20          |
+| 名前                                   | 説明                                                          | 対応バージョン |
+|----------------------------------------|---------------------------------------------------------------|----------------|
+| [`common_view`](ranges/common_view.md) | `common_range`にしたビュー (class template)                   | C++20          |
+| [`common`](ranges/common_view.md)      | `common_range`なビューを生成する (customization point object) | C++20          |
 
 ### reverse view
 
