@@ -1,4 +1,4 @@
-# ref_view
+# common_view
 * ranges[meta header]
 * std::ranges[meta namespace]
 * class template[meta id-type]
@@ -42,7 +42,7 @@ namespace std {
 ## テンプレートパラメータ制約
 
 - [`view`](view.md)`<V>`
-- ![`common_range`](common_range.md)`<V>`
+- `!`[`common_range`](common_range.md)`<V>`
 - [`copyable`](/reference/concepts/copyable.md)`<`[`iterator_t`](iterator_t.md)`<V>>`
 
 ## 効果
