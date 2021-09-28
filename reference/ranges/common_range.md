@@ -39,6 +39,13 @@ namespace std::ranges {
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
+## 関連項目
+
+- [C++17 範囲 for ループの制限緩和](/lang/cpp17/generalizing_the_range-based_for_loop.md)  
+  範囲for文は、C++17の時点で先行して`common_range`ではない範囲を扱えるようになっている
+- [`views::common`](common_view.md)  
+  任意の範囲を`common_range`に変換するRangeアダプタオブジェクト
+
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
