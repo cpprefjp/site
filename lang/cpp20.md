@@ -317,7 +317,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 ### 機能の非推奨化
 - 一貫比較機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
-- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
+- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨化
 - [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：
     - [`std::atomic_init()`](/reference/atomic/atomic_init.md)関数
     - [`ATOMIC_VAR_INIT`](/reference/atomic/atomic_var_init.md)マクロ
