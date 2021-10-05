@@ -80,7 +80,7 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 - (7) :
     - 型 `U` を [`std::remove_reference_t`](/reference/type_traits/remove_reference.md)`<`[`std::iter_reference_t`](/reference/iterator/iter_reference_t.md)`<R>>`とするとき
         - 型 `R` はコンセプト `std::ranges::contiguous_range` 及び `std::ranges::sized_range` を満たしていること
-        - 型 `R` がコンセプト `std::ranges::safe_range` を満たすか、`std::is_const_v<element_type>` が`true`であること
+        - 型 `R` がコンセプト [`std::ranges::borrowed_range`](/reference/ranges/borrowed_range.md) を満たすか、`std::is_const_v<element_type>` が`true`であること
         - `std::remove_cvref_t<R>`が`std::span`の特殊化ではないこと
         - `std::remove_cvref_t<R>`が`std::array`の特殊化ではないこと
         - `std::is_array_v<std::remove_cvref_t<R>>` が `false` であること
