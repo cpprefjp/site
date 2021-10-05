@@ -16,7 +16,7 @@ namespace std::ranges {
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
-`borrowed_range`は、Rnageを所有しない`range`を表すコンセプトである。Rangeオブジェクトの左辺値参照は`borrowed_range`である。
+`borrowed_range`は、Rangeを所有しない`range`を表すコンセプトである。Rangeオブジェクトの左辺値参照は`borrowed_range`である。
 
 左辺値参照以外の型が値を所有するか否かは構文要件で定義できないため、変数テンプレート[`enable_borrowed_range`](enable_borrowed_range.md)を特殊化して`true`となるようにすることで`borrowed_range`を満たすようにする。
 
