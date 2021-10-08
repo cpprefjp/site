@@ -227,7 +227,7 @@
 | P1152R4: [ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する | 10 | 10.0 | | 2019 Update 7 |
 | P1814R0: [エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | | | 2019 Update 7 |
 | P0784R7: [可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | 10.0 | | 2019 Update 9 |
-| P1957R2: [ポインタから`bool`への変換を縮小変換とする](/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md) | ポインタから`bool`値への変換を縮小変換と規定することで、意図しない変換を防止する | 10 | 10.0 | | 2019 Update 9 |
+| P1957R2: [ポインタから`bool`への変換を縮小変換とする](/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md) | ポインタから`bool`値への変換を縮小変換と規定することで、意図しない変換を防止する | 10 | 11.0 | | 2019 Update 7 |
 
 - <a href="#note_ref-t1-1" id="note-t1-1">**^**</a> 不明な属性として無視されなくなっただけで期待する効果は得られない。完全に実装されるまでは、代わりに[`[[msvc::no_unique_address]]`](https://devblogs.microsoft.com/cppblog/msvc-cpp20-and-the-std-cpp20-switch/#msvc-extensions-and-abi)を使用できる。
 
