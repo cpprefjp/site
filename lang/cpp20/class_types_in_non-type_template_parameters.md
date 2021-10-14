@@ -32,6 +32,8 @@ C++11以降での[汎用的な定数式`constexpr`](/lang/cpp11/constexpr.md)の
 
 ## 例
 ```cpp example
+#include <utility>
+
 struct X1 {
   int i;
   float f;
@@ -86,7 +88,7 @@ int main() {
   static_assert(C4<x2>::value == x2);
 
   constexpr std::pair p{1, 3.14};
-  static_assert(C<p>::value == p);
+  static_assert(C4<p>::value == p);
 }
 ```
 
@@ -97,7 +99,7 @@ int main() {
 
 ## 備考
 - [Bug 97930 - `pair` is not a structural type](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97930)
-    - GCC 10では、`pair`が構造的型とみなされないバグがある
+    - GCC 10では`pair`が構造的型とみなされないバグがある。GCC 11で修正済み
 
 
 ## 関連項目
