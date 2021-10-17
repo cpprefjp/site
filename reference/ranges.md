@@ -220,10 +220,10 @@ range | adaptor(args...)
 
 ### join view
 
-| 名前                                      | 説明           | 対応バージョン |
-|-------------------------------------------|----------------|----------------|
-| [`join_view`](ranges/join_view.md.nolink) | ネストされたRangeを平坦にするビュー (class template)     | C++20          |
-| [`join`](ranges/join.md.nolink)           | ネストされたRangeを平坦にするビューを生成する (customization point object)  | C++20          |
+| 名前                               | 説明                                                                        | 対応バージョン |
+|------------------------------------|-----------------------------------------------------------------------------|----------------|
+| [`join_view`](ranges/join_view.md) | ネストされたRangeを平坦にするビュー (class template)                        | C++20          |
+| [`join`](ranges/join_view.md)      | ネストされたRangeを平坦にするビューを生成する (customization point object)  | C++20          |
 
 ### split view
 
