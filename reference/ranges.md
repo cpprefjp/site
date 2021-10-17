@@ -227,10 +227,12 @@ range | adaptor(args...)
 
 ### split view
 
-| 名前                                        | 説明           | 対応バージョン |
-|---------------------------------------------|----------------|----------------|
-| [`split_view`](ranges/split_view.md.nolink) | Rangeを指定したデリミタで分割するビュー (class template)     | C++20          |
-| [`split`](ranges/split.md.nolink)           | Rangeを指定したデリミタで分割するビューを生成する (customization point object)  | C++20          |
+| 名前                                           | 説明                                                                     | 対応バージョン |
+|------------------------------------------------|--------------------------------------------------------------------------|----------------|
+| [`lazy_split_view`](ranges/lazy_split_view.md) | Rangeを指定したデリミタで分割するビュー (class template)     | C++20          |
+| [`lazy_split`](ranges/lazy_split_view.md)      | `lazy_split_view`を生成する (customization point object)     | C++20          |
+| [`split_view`](ranges/split_view.md)           | Rangeを指定したデリミタで分割するビュー (class template)     | C++20          |
+| [`split`](ranges/split_view.md)                | `split_view`を生成する (customization point object)          | C++20          |
 
 ### counted view
 
