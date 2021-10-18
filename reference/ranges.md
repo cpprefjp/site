@@ -249,10 +249,10 @@ range | adaptor(args...)
 
 ### reverse view
 
-| 名前                                            | 説明           | 対応バージョン |
-|-------------------------------------------------|----------------|----------------|
-| [`reverse_view`](ranges/reverse_view.md.nolink) | 逆順のビュー (class template)     | C++20          |
-| [`reverse`](ranges/reverse.md.nolink)           | 逆順のビューを生成する (customization point object)  | C++20          |
+| 名前                                     | 説明                                                 | 対応バージョン |
+|------------------------------------------|------------------------------------------------------|----------------|
+| [`reverse_view`](ranges/reverse_view.md) | 逆順のビュー (class template)                        | C++20          |
+| [`reverse`](ranges/reverse_view.md)      | 逆順のビューを生成する (customization point object)  | C++20          |
 
 ### elements view
 
