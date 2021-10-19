@@ -68,11 +68,12 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 - 成功した場合
     - `ptr` : 指定されたパターンに一致しなかった最初の文字の位置。全てが一致した場合は`ptr == last`
     - `ec` : `ec == errc{}`
-- 失敗した場合
+- パターンにマッチする文字列が見つからない場合
     - `ptr` : `ptr == first`
-    - `ec` : 
-        - パターンにマッチする文字列が見つからない場合、`ec == ` [`errc::invalid_argument`](/reference/system_error/errc.md)
-        - 変換した結果の値が`value`の型では表現できない場合、`ec == ` [`errc::result_out_of_range`](/reference/system_error/errc.md)
+    - `ec` : `ec == ` [`errc::invalid_argument`](/reference/system_error/errc.md)
+- 変換した結果の値が`value`の型では表現できない場合
+    - `ptr` : 指定されたパターンに一致しなかった最初の文字の位置
+    - `ec` : `ec == ` [`errc::result_out_of_range`](/reference/system_error/errc.md)
 
 ## 例外
 投げない。
