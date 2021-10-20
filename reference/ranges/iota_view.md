@@ -5,18 +5,14 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<weakly_incrementable W, semiregular Bound = unreachable_sentinel_t>
+namespace std::ranges {
+  template<weakly_incrementable W, semiregular Bound = unreachable_sentinel_t>
     requires weakly-equality-comparable-with<W, Bound> && semiregular<W>
-    class iota_view : public view_interface<iota_view<W, Bound>> { …… }; // (1)
+  class iota_view : public view_interface<iota_view<W, Bound>> { …… }; // (1)
 
-    namespace views {
-      inline constexpr unspecified iota = unspecified; // (2)
-    }
+  namespace views {
+    inline constexpr unspecified iota = unspecified; // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * is_object_v[link /reference/type_traits/is_object.md]

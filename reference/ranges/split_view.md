@@ -5,20 +5,16 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
+namespace std::ranges {
 
-    template<forward_range V, forward_range Pattern>
+  template<forward_range V, forward_range Pattern>
     requires view<V> && view<Pattern> &&
              indirectly_comparable<iterator_t<V>, iterator_t<Pattern>, ranges::equal_to>
-    class split_view : public view_interface<split_view<V, Pattern>> { …… }; // (1)
+  class split_view : public view_interface<split_view<V, Pattern>> { …… };   // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ split = /*unspecified*/;                // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ split = /*unspecified*/;                // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * forward_range[link forward_range.md]

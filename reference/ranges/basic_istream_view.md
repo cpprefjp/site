@@ -5,19 +5,15 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<movable Val, class CharT, class Traits>
+namespace std::ranges {
+  template<movable Val, class CharT, class Traits>
     requires default_initializable<Val> && stream-extractable<Val, CharT, Traits>
-    class basic_istream_view : public view_interface<basic_istream_view<Val, CharT, Traits>> { …… }; // (1)
+  class basic_istream_view : public view_interface<basic_istream_view<Val, CharT, Traits>> { …… }; // (1)
 
-    namespace views {
-      template<class Val, class CharT, class Traits>
-      basic_istream_view<Val, CharT, Traits> istream_view(basic_istream<CharT, Traits>& s);  // (2)
-    }
+  namespace views {
+    template<class Val, class CharT, class Traits>
+    basic_istream_view<Val, CharT, Traits> istream_view(basic_istream<CharT, Traits>& s);  // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * movable[link /reference/concepts/movable.md]

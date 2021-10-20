@@ -5,20 +5,15 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-
-    template<input_range V>
+namespace std::ranges {
+  template<input_range V>
     requires view<V> && input_range<range_reference_t<V>> &&
              (is_reference_v<range_reference_t<V>> || view<range_value_t<V>>)
-    class join_view : public view_interface<join_view<V>> { …… }; // (1)
+  class join_view : public view_interface<join_view<V>> { …… }; // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ join = /*unspecified*/;      // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ join = /*unspecified*/;      // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * input_range[link input_range.md]

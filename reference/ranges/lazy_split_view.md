@@ -5,21 +5,17 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
+namespace std::ranges {
 
-    template<input_range V, forward_range Pattern>
+  template<input_range V, forward_range Pattern>
     requires view<V> && view<Pattern> &&
              indirectly_comparable<iterator_t<V>, iterator_t<Pattern>, ranges::equal_to> &&
              (forward_range<V> || tiny-range<Pattern>)
-    class lazy_spliy_view : public view_interface<lazy_spliy_view<V, Pattern>> { …… }; // (1)
+  class lazy_spliy_view : public view_interface<lazy_spliy_view<V, Pattern>> { …… };   // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ lazy_spliy = /*unspecified*/;                     // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ lazy_spliy = /*unspecified*/;                     // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * input_range[link input_range.md]

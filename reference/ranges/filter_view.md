@@ -5,18 +5,14 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<input_range V, indirect_unary_predicate<iterator_t<V>> Pred>
+namespace std::ranges {
+  template<input_range V, indirect_unary_predicate<iterator_t<V>> Pred>
     requires view<V> && is_object_v<Pred>
-    class filter_view : public view_interface<filter_view<V, Pred>> { …… }; // (1)
+  class filter_view : public view_interface<filter_view<V, Pred>> { …… }; // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ filter = /*unspecified*/;     // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ filter = /*unspecified*/;     // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * input_range[link input_range.md]

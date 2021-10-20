@@ -5,29 +5,26 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<input_range V, size_t N>
+namespace std::ranges {
+  template<input_range V, size_t N>
     requires view<V> && has-tuple-element<range_value_t<V>, N> &&
              has-tuple-element<remove_reference_t<range_reference_t<V>>, N>
-    class elements_view : public view_interface<elements_view<V, N>> { …… }; // (1)
+  class elements_view : public view_interface<elements_view<V, N>> { …… }; // (1)
 
-    template<class R>
-    using keys_view = elements_view<views::all_t<R>, 0>;                     // (2)
+  template<class R>
+  using keys_view = elements_view<views::all_t<R>, 0>;                     // (2)
 
-    template<class R>
-    using values_view = elements_view<views::all_t<R>, 1>;                   // (3)
+  template<class R>
+  using values_view = elements_view<views::all_t<R>, 1>;                   // (3)
 
-    namespace views {
-      inline constexpr /*unspecified*/ elements = /*unspecified*/;           // (4)
+  namespace views {
+    template<size_t N>
+    inline constexpr /*unspecified*/ elements = /*unspecified*/;           // (4)
 
-      inline constexpr auto keys = elements<0>;                              // (5)
+    inline constexpr auto keys = elements<0>;                              // (5)
 
-      inline constexpr auto values = elements<1>;                            // (6)
-    }
+    inline constexpr auto values = elements<1>;                            // (6)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * view[link view.md]
