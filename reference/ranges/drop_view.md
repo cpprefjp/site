@@ -5,17 +5,13 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<view V>
-    class drop_view : public view_interface<drop_view<V>> { …… }; // (1)
+namespace std::ranges {
+  template<view V>
+  class drop_view : public view_interface<drop_view<V>> { …… };  // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ drop = /*unspecified*/;     // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ drop = /*unspecified*/;     // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * view[link view.md]

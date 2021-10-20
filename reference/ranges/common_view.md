@@ -5,18 +5,14 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<view V>
+namespace std::ranges {
+  template<view V>
     requires (!common_range<V> && copyable<iterator_t<V>>)
-    class common_view : public view_interface<common_view<V>> { …… }; // (1)
+  class common_view : public view_interface<common_view<V>> { …… }; // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ common = /*unspecified*/;     // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ common = /*unspecified*/;      // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * view[link view.md]

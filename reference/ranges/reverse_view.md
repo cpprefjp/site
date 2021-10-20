@@ -5,18 +5,14 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<view V>
+namespace std::ranges {
+  template<view V>
     requires bidirectional_range<V>
-    class reverse_view : public view_interface<reverse_view<V>> { …… }; // (1)
+  class reverse_view : public view_interface<reverse_view<V>> { …… };   // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ reverse = /*unspecified*/;         // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ reverse = /*unspecified*/;         // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * view[link view.md]

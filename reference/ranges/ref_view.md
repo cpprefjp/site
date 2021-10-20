@@ -5,21 +5,17 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<range R>
+namespace std::ranges {
+  template<range R>
     requires is_object_v<R>
-    class ref_view : public view_interface<ref_view<R>> { …… }; // (1)
+  class ref_view : public view_interface<ref_view<R>> { …… };   // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ all = /*unspecified*/;     // (2)
+  namespace views {
+    inline constexpr /*unspecified*/ all = /*unspecified*/;     // (2)
 
-      template<viewable_range R>
-      using all_t = decltype(all(declval<R>()));                  // (3)
-    }
+    template<viewable_range R>
+    using all_t = decltype(all(declval<R>()));                  // (3)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * range[link range.md]

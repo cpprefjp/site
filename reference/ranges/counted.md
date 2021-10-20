@@ -1,18 +1,12 @@
 # counted
 * ranges[meta header]
-* std::ranges[meta namespace]
+* std::ranges::views[meta namespace]
 * cpo[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    namespace views {
-      inline constexpr /*unspecified*/ counted = /*unspecified*/;
-    }
-  }
-
-  namespace views = ranges::views;
+namespace std::ranges::views {
+  inline constexpr /*unspecified*/ counted = /*unspecified*/;
 }
 ```
 

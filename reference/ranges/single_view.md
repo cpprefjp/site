@@ -5,18 +5,14 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<copy_constructible T>
+namespace std::ranges {
+  template<copy_constructible T>
     requires is_object_v<T>
-    class single_view : public view_interface<single_view<T>> { …… }; // (1)
+  class single_view : public view_interface<single_view<T>> { …… }; // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ single = /*unspecified*/; // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ single = /*unspecified*/; // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * copy_constructible[link /reference/concepts/copy_constructible.md]

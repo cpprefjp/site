@@ -5,18 +5,14 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<view V, class Pred>
+namespace std::ranges {
+  template<view V, class Pred>
     requires input_range<V> && is_object_v<Pred> && indirect_unary_predicate<const Pred, iterator_t<V>>
-    class drop_while_view : public view_interface<drop_while_view<V, Pred>> { …… }; // (1)
+  class drop_while_view : public view_interface<drop_while_view<V, Pred>> { …… }; // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ drop_while = /*unspecified*/;     // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ drop_while = /*unspecified*/;     // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * view[link view.md]

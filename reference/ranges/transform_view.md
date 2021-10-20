@@ -5,20 +5,16 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  namespace ranges {
-    template<input_range V, copy_constructible F>
+namespace std::ranges {
+  template<input_range V, copy_constructible F>
     requires view<V> && is_object_v<F> &&
              regular_invocable<F&, range_reference_t<V>> &&
              can-reference<invoke_result_t<F&, range_reference_t<V>>>
-    class transform_view : public view_interface<transform_view<R>> { …… }; // (1)
+  class transform_view : public view_interface<transform_view<R>> { …… }; // (1)
 
-    namespace views {
-      inline constexpr /*unspecified*/ transform = /*unspecified*/;     // (2)
-    }
+  namespace views {
+    inline constexpr /*unspecified*/ transform = /*unspecified*/;         // (2)
   }
-
-  namespace views = ranges::views;
 }
 ```
 * input_range[link input_range.md]
