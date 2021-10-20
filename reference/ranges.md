@@ -255,7 +255,7 @@ range | adaptor(args...)
 |------------------------------------------------|--------------------------------------------------------------------------|----------------|
 | [`lazy_split_view`](ranges/lazy_split_view.md) | Rangeを指定したデリミタで分割するビュー (class template)     | C++20          |
 | [`views::lazy_split`](ranges/lazy_split_view.md)      | `lazy_split_view`を生成する (customization point object)     | C++20          |
-| [`split_view`](ranges/split_view.md)           | Rangeを指定したデリミタで分割するビュー (class template)     | C++20          |
+| [`split_view`](ranges/split_view.md)           | 文字列分割に特化した`lazy_split_view` (class template)     | C++20          |
 | [`views::split`](ranges/split_view.md)                | `split_view`を生成する (customization point object)          | C++20          |
 
 ### counted view
