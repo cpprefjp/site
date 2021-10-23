@@ -64,7 +64,7 @@ concept tiny-range = sized_range<R> &&
 
 ## 効果
 
-- (2): 式`views::lazy_split(E, F)`の効果は`lazy_spliy_view{E, F}`と等しい。
+- (2): 式`views::lazy_split(E, F)`の効果は`lazy_split_view{E, F}`と等しい。
 
 ## メンバ関数
 

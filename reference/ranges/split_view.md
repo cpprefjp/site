@@ -44,7 +44,7 @@ namespace std::ranges {
 
 ## 効果
 
-- (2): 式`views::split(E, F)`の効果は`spliy_view{E, F}`と等しい。
+- (2): 式`views::split(E, F)`の効果は`split_view{E, F}`と等しい。
 
 ## メンバ関数
 
