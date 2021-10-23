@@ -40,6 +40,14 @@ namespace std::ranges {
 - (1): `V`が[`forward_range`](forward_range.md)のとき
 - (2): `V`が[`forward_range`](forward_range.md)かつ[`common_range`](common_range.md)のとき
 
+### Rangeコンセプト (各部分Range)
+
+| borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
+|----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
+|          |       |        | ○    | (1)     |               |               |            |        | ○       | ○   |
+
+- (1): `V`が[`forward_range`](forward_range.md)のとき
+
 ## テンプレートパラメータ制約
 
 説明専用コンセプト`tiny-range`を次のように定義する。

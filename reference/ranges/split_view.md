@@ -37,6 +37,14 @@ namespace std::ranges {
 
 - (1): `V`が[`common_range`](common_range.md)のとき
 
+### Rangeコンセプト (各部分Range)
+
+| borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
+|----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
+| ○       | ※    | ※     | ○    | ○      | ※            | ※            | ※         | ※     | ○       | ○   |
+
+- ※: `V`に従う
+
 ## テンプレートパラメータ制約
 
 - `V`、`Pattern`が[`view`](view.md)かつ[`forward_range`](input_range.md)
