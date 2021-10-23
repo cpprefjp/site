@@ -7,7 +7,7 @@
 
 ```cpp
 T& operator[](const key_type& x);
-T& operator[](const key_type&& x);
+T& operator[](key_type&& x);
 ```
 
 ## 概要
