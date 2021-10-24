@@ -58,10 +58,10 @@ namespace std::ranges {
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](spliy_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](spliy_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
-| [`begin`](spliy_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](spliy_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
+| [`(constructor)`](split_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
+| [`base`](split_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
+| [`begin`](split_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](split_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 
 ## 継承しているメンバ関数
 
@@ -76,7 +76,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](spliy_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](split_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example

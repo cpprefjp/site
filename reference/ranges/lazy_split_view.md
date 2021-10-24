@@ -1,4 +1,4 @@
-# lazy_spliy_view
+# lazy_split_view
 * ranges[meta header]
 * std::ranges[meta namespace]
 * class template[meta id-type]
@@ -11,10 +11,10 @@ namespace std::ranges {
     requires view<V> && view<Pattern> &&
              indirectly_comparable<iterator_t<V>, iterator_t<Pattern>, ranges::equal_to> &&
              (forward_range<V> || tiny-range<Pattern>)
-  class lazy_spliy_view : public view_interface<lazy_spliy_view<V, Pattern>> { …… };   // (1)
+  class lazy_split_view : public view_interface<lazy_split_view<V, Pattern>> { …… };   // (1)
 
   namespace views {
-    inline constexpr /*unspecified*/ lazy_spliy = /*unspecified*/;                     // (2)
+    inline constexpr /*unspecified*/ lazy_split = /*unspecified*/;                     // (2)
   }
 }
 ```
@@ -78,10 +78,10 @@ concept tiny-range = sized_range<R> &&
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](lazy_spliy_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](lazy_spliy_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
-| [`begin`](lazy_spliy_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](lazy_spliy_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
+| [`(constructor)`](lazy_split_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
+| [`base`](lazy_split_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
+| [`begin`](lazy_split_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](lazy_split_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 
 ## 継承しているメンバ関数
 
@@ -96,7 +96,7 @@ concept tiny-range = sized_range<R> &&
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](lazy_spliy_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](lazy_split_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
