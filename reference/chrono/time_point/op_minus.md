@@ -41,13 +41,13 @@ namespace chrono {
 
 
 ## 戻り値
-- (2)
+- (1)
 
 ```cpp
 return lhs + (-rhs);
 ```
 
-- (3)
+- (2)
 
 ```cpp
 return lhs.time_since_epoch() - rhs.time_since_epoch();
