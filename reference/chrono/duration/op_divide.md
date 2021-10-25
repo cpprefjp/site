@@ -30,7 +30,7 @@ namespace chrono {
 
 
 ## テンプレートパラメータ制約
-- (1) : [`is_convertible_v`](/reference/chrono/d)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
+- (1) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
 
 
 ## 戻り値

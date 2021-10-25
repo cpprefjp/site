@@ -25,7 +25,7 @@ constexpr common_iterator(const common_iterator<I2, S2>& x);  // (4)
 
 ## 事前条件
 
-- (4) : `x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception)`() == false`であること。
+- (4) : `x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`() == false`であること。
 
 
 ## 効果

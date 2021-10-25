@@ -20,7 +20,7 @@ common_iterator& operator=(const common_iterator<I2, S2>& x);
 
 ## 事前条件
 
-`x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception)`() == false`であること。
+`x.v_.`[`valueless_by_exception`](/reference/variant/variant/valueless_by_exception.md)`() == false`であること。
 
 ## 効果
 
