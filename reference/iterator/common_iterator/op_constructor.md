@@ -30,12 +30,12 @@ constexpr common_iterator(const common_iterator<I2, S2>& x);  // (4)
 
 ## 効果
 
-`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`_v`に保持するとする。
+`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`v_`に保持するとする。
 
-- (1) : `_v`をデフォルト構築（`I`をデフォルト構築して初期化）する。
-- (2) : `v_{`[`in_place_type`](/reference/utility/in_place_type_t.md)`<I>, std::move(i)}`が行われたかのように`_v`を初期化する。
-- (3) : `v_{`[`in_place_type`](/reference/utility/in_place_type_t.md)`<S>, std::move(s)}`が行われたかのように`_v`を初期化する。
-- (4) : `i = x.v_.`[`index()`](/reference/variant/variant/index.md)として、`v_{`[`in_place_index`](/reference/utility/in_place_index_t.md)`<i>, get<i>(x.v_)}`が行われたかのように`_v`を初期化する。
+- (1) : `v_`をデフォルト構築（`I`をデフォルト構築して初期化）する。
+- (2) : `v_{`[`in_place_type`](/reference/utility/in_place_type_t.md)`<I>, std::move(i)}`が行われたかのように`v_`を初期化する。
+- (3) : `v_{`[`in_place_type`](/reference/utility/in_place_type_t.md)`<S>, std::move(s)}`が行われたかのように`v_`を初期化する。
+- (4) : `i = x.v_.`[`index()`](/reference/variant/variant/index.md)として、`v_{`[`in_place_index`](/reference/utility/in_place_index_t.md)`<i>, get<i>(x.v_)}`が行われたかのように`v_`を初期化する。
 
 ## 例
 ```cpp example
