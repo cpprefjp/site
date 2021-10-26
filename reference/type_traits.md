@@ -29,7 +29,7 @@
 | [`is_pointer`](type_traits/is_pointer.md)                   | 型がポインタ型か調べる (class template) | C++11 |
 | [`is_lvalue_reference`](type_traits/is_lvalue_reference.md) | 型が左辺値参照型か調べる (class template) | C++11 |
 | [`is_rvalue_reference`](type_traits/is_rvalue_reference.md) | 型が右辺値参照型か調べる (class template) | C++11 |
-| [`is_member_object_pointer`](type_traits/is_member_object_pointer.md)     | 型がデータメンバへのポインタ型か調べる (class template) | C++11 |
+| [`is_member_object_pointer`](type_traits/is_member_object_pointer.md)     | 型がメンバ変数へのポインタ型か調べる (class template) | C++11 |
 | [`is_member_function_pointer`](type_traits/is_member_function_pointer.md) | 型がメンバ関数へのポインタ型か調べる (class template) | C++11 |
 | [`is_enum`](type_traits/is_enum.md)                         | 型が列挙型か調べる (class template) | C++11 |
 | [`is_union`](type_traits/is_union.md)                       | 型が共用型か調べる (class template) | C++11 |

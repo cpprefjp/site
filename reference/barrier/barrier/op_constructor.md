@@ -18,7 +18,7 @@ barrier(const barrier&) = delete;                     // (2)
 - (1) : `barrier`オブジェクトの初期化を行う。
 - (2) : コピーコンストラクタ。コピー不可。
 
-説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のデータメンバを`completion`と表記する。
+説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のメンバ変数を`completion`と表記する。
 
 
 ## 事前条件

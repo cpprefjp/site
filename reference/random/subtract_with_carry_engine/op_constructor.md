@@ -45,7 +45,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (5
 int main()
 {
   // (1) デフォルト構築
-  // デフォルトのシード値(default_seed静的データメンバ)から構築する
+  // デフォルトのシード値(default_seed静的メンバ変数)から構築する
   {
     std::ranlux24_base engine;
 

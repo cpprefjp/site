@@ -31,12 +31,12 @@ namespace std {
 
 - [クラス型](is_class.md)である。
 - [共用型](is_union.md)でない。
-- 大きさ0のものを除いて、非静的データメンバを持たない。
+- 大きさ0のものを除いて、非静的メンバ変数を持たない。
 - 仮想メンバ関数を持たない。
 - 仮想基底クラスを持たない。
 - 空のクラスでない基底クラスを持たない。
 
-大きさ0のデータメンバには、以下のものがある。
+大きさ0のメンバ変数には、以下のものがある。
 
 - 長さ0のビットフィールド
 - 型が空のクラスであって、[`[[no_unique_address]]`属性](/lang/cpp20/language_support_for_empty_objects.md)が指定されているメンバ (C++20)
@@ -47,7 +47,7 @@ namespace std {
 
 class empty_class{};
 struct non_empty_class {
-  int m;                  // 非静的データメンバを持つ
+  int m;                  // 非静的メンバ変数を持つ
 };
 
 static_assert(std::is_empty<empty_class>::value == true, "value == true, empty_class is empty");
