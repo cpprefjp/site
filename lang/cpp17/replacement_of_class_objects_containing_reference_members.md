@@ -88,7 +88,7 @@ public:
 - [［C++］メンバに参照型を持つクラス（構造体）の取り扱い - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2018/10/23/010840)
 - [P0532R0 On `launder()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0532r0.pdf)
 - [Core Issue 1776: Replacement of class objects containing reference members](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html)
-- [ std :: launder  -  cppreference.com ](https://translate.googleusercontent.com/translate_c?depth=1&hl=ja&rurl=translate.google.com&sl=en&sp=nmt4&tl=ja&u=https://en.cppreference.com/w/cpp/utility/launder&xid=17259,15700021,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhhMzC3zGFnlq6UBLNSPrRqUFR4OFA)
+- [std::launder - cppreference.com](https://en.cppreference.com/w/cpp/utility/launder)
 - [Pointer safety and placement new](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4303.html)
 - [Implementability of std::optional （std :: optionalの実装可能性） ](https://groups.google.com/a/isocpp.org/forum/#!msg/std-proposals/93ebFsxCjvQ/Q5LUnO8339wJ)
 - [Lifetime - cppreference.com](https://en.cppreference.com/w/cpp/language/lifetime)
