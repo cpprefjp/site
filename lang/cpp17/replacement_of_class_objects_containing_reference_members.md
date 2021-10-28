@@ -31,16 +31,16 @@ int main()
 {
   int n = 12;
   X *p = new X{n};
-    
+
   int m = 34;
   new (p) X{m};
-    
+
   n = 56;
   m = 78;
-  
+
   // const int a = p->n;  // 未定義動作
   const int a = std::launder(p)->n;  // OK
-    
+
   std::cout << a << std::endl;
 }
 ```
