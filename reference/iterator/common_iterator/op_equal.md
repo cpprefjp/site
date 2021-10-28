@@ -33,7 +33,7 @@ namespace std {
 
 ## 戻り値
 
-`I, S`（`I2, S2`）の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`_v`に保持しており、`i = x.v_.`[`index()`](/reference/variant/variant/index.md)、`j = y.v_.`[`index()`](/reference/variant/variant/index.md)として
+`I, S`（`I2, S2`）の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`v_`に保持しており、`i = x.v_.`[`index()`](/reference/variant/variant/index.md)、`j = y.v_.`[`index()`](/reference/variant/variant/index.md)として
 
 - (1)
     - `i == j`の場合 : `true`

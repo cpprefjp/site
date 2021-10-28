@@ -20,7 +20,7 @@ decltype(auto) operator*() const requires dereferenceable<const I>;
 
 ## 戻り値
 
-`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`_v`に保持しているとして、以下と等価。
+`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`v_`に保持しているとして、以下と等価。
 
 `return *get<I>(v_);`
 

@@ -19,7 +19,7 @@ decltype(auto) operator++(int);   // (2)
 
 ## 効果
 
-`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`_v`に保持しているとして
+`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`v_`に保持しているとして
 
 - (1) : 以下と等価  
     ```cpp

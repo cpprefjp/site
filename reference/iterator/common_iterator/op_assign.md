@@ -24,9 +24,9 @@ common_iterator& operator=(const common_iterator<I2, S2>& x);
 
 ## 効果
 
-`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`_v`に保持しており、`i = x.v_.`[`index()`](/reference/variant/variant/index.md)として、次のどちらか
+`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`v_`に保持しており、`i = x.v_.`[`index()`](/reference/variant/variant/index.md)として、次のどちらか
 
-- `i == _v.index()`が`true`である場合 : `get<i>(v_) = get<i>(x.v_)`
+- `i == v_.index()`が`true`である場合 : `get<i>(v_) = get<i>(x.v_)`
 - それ以外の場合 : `v_.`[`emplace`](/reference/variant/variant/emplace.md)`<i>(get<i>(x.v_))`
 
 ## 戻り値
