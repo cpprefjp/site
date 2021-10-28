@@ -25,8 +25,8 @@ namespace std {
 バリアオブジェクトは複数スレッド間の合流制御を繰り返して行えるが、1回のみの制御で十分ならばラッチ[`latch`](/reference/latch/latch.md)も利用候補となりえる。
 
 ### 詳細説明
-説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のデータメンバを`completion`と表記する。
-同データメンバ`completion`は、[コンストラクタ](barrier/op_constructor.md)にて設定される。
+説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のメンバ変数を`completion`と表記する。
+同メンバ変数`completion`は、[コンストラクタ](barrier/op_constructor.md)にて設定される。
 
 各バリアフェーズ(barrier phase)は下記のステップで構成される：
 

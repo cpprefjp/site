@@ -41,7 +41,7 @@ linear_congruential_engine(linear_congruential_engine&& e) = default;      // (5
 int main()
 {
   // (1) デフォルト構築
-  // デフォルトのシード値(default_seed静的データメンバ)から構築する
+  // デフォルトのシード値(default_seed静的メンバ変数)から構築する
   {
     std::minstd_rand engine;
 

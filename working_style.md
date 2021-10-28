@@ -63,6 +63,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | const iterator                     | 読み取り専用イテレータ       |
 | const reverse iterator             | 読み取り専用逆イテレータ     |
 | covariant                          | 共変的                       |
+| data member                        | メンバ変数 (ユーザー視点ではデータメンバより一般的のため) |
 | dereference                        | 間接参照                     |
 | dereferenceable                    | 間接参照可能                 |
 | derived class                      | 派生クラス                   |

@@ -16,15 +16,15 @@ namespace std {
 ```
 
 ## 概要
-型`T`がデータメンバへのポインタ型かを調べる
+型`T`がメンバ変数へのポインタ型かを調べる
 
 
 ## 効果
-`is_member_object_pointer`は、型`T`がデータメンバへのポインタであるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`is_member_object_pointer`は、型`T`がメンバ変数へのポインタであるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 備考
-メンバ関数へのポインタはデータメンバへのポインタではない。`static`なデータメンバへのポインタはデータメンバへのポインタではない。
+メンバ関数へのポインタはメンバ変数へのポインタではない。`static`なメンバ変数へのポインタはメンバ変数へのポインタではない。
 
 
 ## 例
