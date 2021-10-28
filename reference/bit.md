@@ -11,6 +11,13 @@
 | [`bit_cast`](bit/bit_cast.md) | ビットレベルの再解釈キャスト (functional template) | C++20 |
 
 
+## バイト入替
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`byteswap`](bit/byteswap.md) | バイト単位入れ替え (functional template) | C++23 |
+
+
 ## 2の累乗整数
 
 | 名前 | 説明 | 対応バージョン |
