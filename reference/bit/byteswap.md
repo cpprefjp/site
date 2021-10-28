@@ -5,8 +5,10 @@
 * cpp23[meta cpp]
 
 ```cpp
-template <class T>
-constexpr T byteswap (T value) noexcept;
+namespace std {
+  template <class T>
+  constexpr T byteswap(T value) noexcept;
+}
 ```
 
 ## 概要
