@@ -115,7 +115,7 @@ struct task {
     int value_;
     auto get_return_object() { return task{*this}; }
     auto initial_suspend() { return std::suspend_never{}; }
-    auto final_suspend() { return std::suspend_always{}; }
+    auto final_suspend() noexcept { return std::suspend_always{}; }
     void return_value(int x) { value_ = x; }
     void unhandled_exception() { std::terminate(); }
   };

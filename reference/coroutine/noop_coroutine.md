@@ -39,7 +39,7 @@ struct task {
     std::coroutine_handle<> next_;
     auto get_return_object() { return task{*this}; }
     auto initial_suspend() { return std::suspend_always{}; }
-    auto final_suspend() { return std::suspend_always{}; }
+    auto final_suspend() noexcept { return std::suspend_always{}; }
     auto yield_value(bool cont)
     {
       struct awaiter {

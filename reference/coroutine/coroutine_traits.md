@@ -41,7 +41,7 @@ struct task;
 struct task_promise {
   task get_return_object();
   auto initial_suspend() { return std::suspend_never{}; }
-  auto final_suspend() { return std::suspend_always{}; }
+  auto final_suspend() noexcept { return std::suspend_always{}; }
   auto yield_value(int) { return std::suspend_always{}; }
   void return_void() {}
   void unhandled_exception() { std::terminate(); }

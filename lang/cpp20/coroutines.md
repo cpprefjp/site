@@ -217,7 +217,7 @@ struct generator {
     static auto get_return_object_on_allocation_failure() { return generator{nullptr}; }
     auto get_return_object() { return generator{handle::from_promise(*this)}; }
     auto initial_suspend() { return std::suspend_always{}; }
-    auto final_suspend() { return std::suspend_always{}; }
+    auto final_suspend() noexcept { return std::suspend_always{}; }
     void unhandled_exception() { std::terminate(); }
     void return_void() {}
     auto yield_value(int value) {
@@ -462,7 +462,7 @@ struct generator {
       // コルーチン本体処理の開始前に無条件サスペンド
       return std::suspend_always{};
     }
-    auto final_suspend()
+    auto final_suspend() noexcept
     {
       // コルーチン本体処理の終了後に無条件サスペンド
       return std::suspend_always{};

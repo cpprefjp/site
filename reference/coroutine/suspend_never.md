@@ -42,7 +42,7 @@ struct task {
     {
       return std::suspend_never{};
     }
-    auto final_suspend()
+    auto final_suspend() noexcept
     {
       return std::suspend_always{};
     }
