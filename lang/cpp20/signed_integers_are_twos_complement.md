@@ -8,9 +8,11 @@ C++20では、符号付き整数型のビット表現を「2の補数 (Two's Com
 
 値`-0`は、`0`を意味する。
 
-符号付き整数型に対する右シフトは「符号拡張 (sign extension)」を行い、符号ビットが右に伝播する。
+符号付き整数型に対する左シフト`<<`は[論理シフト(Logical shift)](https://en.wikipedia.org/wiki/Logical_shift)となる。対応する符号無し整数型における左シフト演算とビット表現が等しい結果が得られる。
 
-ただし、符号付き整数型のオーバーフロー時の動作は、これまでと変わらず未定義動作である。[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<符号付き整数型>::`[`is_modulo`](/reference/limits/numeric_limits/is_modulo.md)はデフォルトで`false`のままとなる。
+符号付き整数型に対する右シフト`>>`は[算術シフト(Arithmetic shift)](https://en.wikipedia.org/wiki/Arithmetic_shift)となる。右シフトでは「符号拡張 (sign extension)」が行われ、符号ビットが右に伝播する。
+
+ただし、符号付き整数型に対する算術演算におけるオーバーフロー時の動作は、これまでと変わらず未定義動作である。[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<符号付き整数型>::`[`is_modulo`](/reference/limits/numeric_limits/is_modulo.md)はデフォルトで`false`のままとなる。
 
 
 ## 備考
@@ -43,13 +45,24 @@ int main()
     assert(x == static_cast<std::int8_t>(0b0000'0000));
     assert(y == static_cast<std::int8_t>(0b0000'0000));
   }
-  // 右シフト時の符号拡張
+  // 論理左シフト演算
+  {
+    std::int8_t x = 64;
+    assert(x == static_cast<std::int8_t>(0b0100'0000));
+
+    x <<= 1;
+
+    assert(x == static_cast<std::int8_t>(-128));
+    assert(x == static_cast<std::int8_t>(0b1000'0000));
+  }
+  // 算術右シフト演算
   {
     std::int8_t x = -124;
     assert(x == static_cast<std::int8_t>(0b1000'0100));
 
     x >>= 2;
 
+    assert(x == static_cast<std::int8_t>(-31));
     assert(x == static_cast<std::int8_t>(0b1110'0001));
   }
 }
