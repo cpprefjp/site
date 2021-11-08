@@ -183,7 +183,7 @@ Carol
 
 
 ### ユーザー定義型の配列を並べ替える (C++20)
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>
