@@ -112,11 +112,12 @@ int main()
 ```
 
 ### ユーザー定義型の配列を並べ替える (C++11)
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>
 #include <tuple>
+#include <algorithm>
 
 // 要素がひとつの場合
 struct MyInt {
@@ -182,10 +183,11 @@ Carol
 
 
 ### ユーザー定義型の配列を並べ替える (C++20)
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 // 要素がひとつの場合
 struct MyInt {
