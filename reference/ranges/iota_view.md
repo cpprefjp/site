@@ -23,7 +23,7 @@ namespace std::ranges {
 * view_interface[link view_interface.md]
 
 ## 概要
-- (1): 有限長または無限長の単調増加列を表す[`view`](view.md)
+- (1): インクリメント演算子によって生成される、有限長または無限長の単調増加列を表す[`view`](view.md)
     - 1つの値`b`から生成した`iota_view`は、`b`から始まる無限長の単調増加列となる。
     - 2つの値`b`, `e`から生成した`iota_view`は、`[b, e)`に含まれる値を列挙する有限長の単調増加列となる。
 - (2): `iota_view`を生成するカスタマイゼーションポイントオブジェクト
