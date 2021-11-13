@@ -103,13 +103,14 @@ concept tiny-range = sized_range<R> &&
 #include <ranges>
 #include <vector>
 #include <iostream>
+#include <sstream>
 
 int main() {
   using namespace std;
-  std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+  auto iss = istringstream{"1 2 3 4 5 6 7 8 9"};
   std::vector<int> pattern = {4, 5};
 
-  for (auto inner_range : v | views::lazy_split(views::all(pattern))) {
+  for (auto inner_range : views::istream_view<int>(iss) | views::lazy_split(views::all(pattern))) {
     for (int n : inner_range) {
       std::cout << n;
     }
