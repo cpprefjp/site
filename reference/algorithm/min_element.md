@@ -60,7 +60,7 @@ int main()
 
 
   // (2)
-  std::vector<std::pair<int, int>> v2 = {std::make_pair(0, 3), std::make_pair(1, 1), std::make_pair(2, 4)};
+  std::vector<std::pair<int, int>> v2 = {{0, 3}, {1, 1}, {2, 4}};
 
   decltype(v2)::iterator v2_min_element = std::min_element(v2.begin(), v2.end(), [](const auto& a, const auto& b) {
     return a.second < b.second;
