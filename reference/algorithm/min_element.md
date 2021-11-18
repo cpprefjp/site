@@ -57,7 +57,7 @@ int main()
   assert(*i == 1);
 
   decltype(v)::iterator j = std::min_element(v.begin(), v.end(), [](int a, int b) {
-                              return a > b;
+                              return a < b;
                             });
   assert(*j == 4);
 }
