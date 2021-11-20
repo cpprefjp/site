@@ -28,6 +28,10 @@ namespace std {
 `alignof(T)`で得られた[`std::size_t`](/reference/cstddef/size_t.md)型の値を、メンバ定数`value`として定義する。
 
 
+## 備考
+`alignment_of`は[`integral_constant`](integral_constant.md)から派生する。
+
+
 ## 例
 ```cpp example
 #include <type_traits>
