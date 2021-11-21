@@ -25,6 +25,10 @@ namespace std {
 - 型`T`が配列型ではない、もしくは配列の次元数が`I`以下の場合、値`0`をメンバ定数`value`として定義する。
 
 
+## 備考
+`extent`は[`integral_constant`](integral_constant.md)から派生する。
+
+
 ## 例
 ```cpp example
 #include <type_traits>

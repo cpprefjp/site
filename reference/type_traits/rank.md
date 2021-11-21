@@ -24,6 +24,10 @@ namespace std {
 型`T`が配列型である場合、配列の次元数となる整数値をメンバ定数`value`の値として定義する。配列型でなければ`0`をメンバ定数`value`の値として定義する。
 
 
+## 備考
+`rank`は[`integral_constant`](integral_constant.md)から派生する。
+
+
 ## 例
 ```cpp example
 #include <type_traits>
