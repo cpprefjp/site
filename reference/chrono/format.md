@@ -89,8 +89,8 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 #include <chrono>
 int main()
 {
-    const auto now = std::chrono::system_clock::now();
-    std::cout << std::format("{:%Y}", now); // => 2021
+  const auto now = std::chrono::system_clock::now();
+  std::cout << std::format("{:%Y}", now); // => 2021
 }
 ```
 
