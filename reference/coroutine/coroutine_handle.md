@@ -70,14 +70,14 @@ C++コルーチンとC API（コールバック関数へのポインタと`void*
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`promise`](coroutine_handle/promise.md) | Promiseオブジェクトの参照 | C++20 |
+| [`promise`](coroutine_handle/promise.md) | Promiseオブジェクトの参照（`coroutine_handle<Promise>`のみ） | C++20 |
 
 
 ## 静的メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`from_promise`](coroutine_handle/from_promise.md) | Promiseオブジェクトから対応するコルーチンハンドルへ変換 | C++20 |
+| [`from_promise`](coroutine_handle/from_promise.md) | Promiseオブジェクトから対応するコルーチンハンドルへ変換（`coroutine_handle<Promise>`のみ） | C++20 |
 | [`from_address`](coroutine_handle/from_address.md) | アドレス値から対応するコルーチンハンドルへ変換 | C++20 |
 
 
