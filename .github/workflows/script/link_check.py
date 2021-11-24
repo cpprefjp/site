@@ -54,7 +54,9 @@ def find_all_links(text: str) -> (list, set):
         link = fix_link(origin_link)
         if link:
             if "http" in link:
-                if not link.startswith("https://web.archive.org"):
+                # web.archive.org : 確実に存在すると思われる
+                # cse.naro.affrc.go.jp : 海外 (GitHub Actions) からのアクセスを排除していると思われる
+                if not link in ("https://web.archive.org", "http://cse.naro.affrc.go.jp/takezawa/r-tips/"):
                     outer_links.add(link)
             else:
                 inner_links.append(link)
