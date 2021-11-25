@@ -132,9 +132,9 @@ inline constexpr f_impl f; // f は変数名なのでADLで発見されない
 | [`equal`](algorithm/equal.md)                 | 2つの範囲を等値比較する | |
 | [`search`](algorithm/search.md)               | 指定された最初のサブシーケンスを検索する | |
 | [`search_n`](algorithm/search_n.md)           | 指定された最初のサブシーケンスを検索する | |
-| [`ranges::all_of`](algorithm/ranges_all_of.md.nolink)               | 全ての要素が条件を満たしているかを調べる             | C++20 |
-| [`ranges::any_of`](algorithm/ranges_any_of.md.nolink)               | どれかの要素が条件を満たしているかを調べる           | C++20 |
-| [`ranges::none_of`](algorithm/ranges_none_of.md.nolink)             | 全ての要素が条件を満たしていないかを調べる           | C++20 |
+| [`ranges::all_of`](algorithm/ranges_all_of.md)               | 全ての要素が条件を満たしているかを調べる             | C++20 |
+| [`ranges::any_of`](algorithm/ranges_any_of.md)               | どれかの要素が条件を満たしているかを調べる           | C++20 |
+| [`ranges::none_of`](algorithm/ranges_none_of.md)             | 全ての要素が条件を満たしていないかを調べる           | C++20 |
 | [`ranges::for_each`](algorithm/ranges_for_each.md.nolink)           | 全ての要素に対して処理を行う                         | C++20 |
 | [`ranges::for_each_n`](algorithm/ranges_for_each_n.md.nolink)       | 範囲の先頭N個の要素に対して処理を行う                | C++20 |
 | [`ranges::find`](algorithm/ranges_find.md.nolink)                   | 指定された値を検索する                               | C++20 |
