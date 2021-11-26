@@ -136,6 +136,7 @@ int main() {
 #include <ranges>
 #include <vector>
 #include <iostream>
+#include <sstream>
 
 int main() {
   using namespace std;
