@@ -46,6 +46,18 @@ def fix_link(link: str) -> str:
     else:
         return ""
 
+IGNORE_LIST = [
+    "https://web.archive.org", # 確実に存在すると思われる
+    "http://cse.naro.affrc.go.jp" # 海外 (GitHub Actions) からのアクセスを排除していると思われる
+]
+
+def is_ignore_link(link: str) -> bool:
+    for x in IGNORE_LIST:
+        if link.startswith(x):
+            return True
+    return False
+
+
 def find_all_links(text: str) -> (list, set):
     inner_links = []
     outer_links = set()
@@ -54,7 +66,7 @@ def find_all_links(text: str) -> (list, set):
         link = fix_link(origin_link)
         if link:
             if "http" in link:
-                if not link.startswith("https://web.archive.org"):
+                if not is_ignore_link(link):
                     outer_links.add(link)
             else:
                 inner_links.append(link)
