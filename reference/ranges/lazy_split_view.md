@@ -99,18 +99,20 @@ concept tiny-range = sized_range<R> &&
 | [`(deduction_guide)`](lazy_split_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
+
+### `range`による`range`の分割
+
 ```cpp example
 #include <ranges>
 #include <vector>
 #include <iostream>
-#include <sstream>
 
 int main() {
   using namespace std;
-  auto iss = istringstream{"1 2 3 4 5 6 7 8 9"};
+  std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9};
   std::vector<int> pattern = {4, 5};
 
-  for (auto inner_range : views::istream_view<int>(iss) | views::lazy_split(views::all(pattern))) {
+  for (auto inner_range : v | views::lazy_split(pattern)) {
     for (int n : inner_range) {
       std::cout << n;
     }
@@ -124,6 +126,37 @@ int main() {
 ```
 123
 6789
+```
+
+### `input_range`の分割
+
+この場合はデリミタは1要素でなければならず、`range`による分割はできない。
+
+```cpp example
+#include <ranges>
+#include <vector>
+#include <iostream>
+
+int main() {
+  using namespace std;
+  auto iss = istringstream{"1 2 3 1 4 5 6 1 7 8 1 9 1"};
+
+  for (auto inner_range : ranges::istream_view<int>(iss) | views::lazy_split(1)) {
+    for (int n : inner_range) {
+      std::cout << n;
+    }
+    std::cout << '\n';
+  }
+}
+```
+* views::lazy_split[color ff0000]
+
+### 出力
+```
+23
+456
+78
+9
 ```
 
 ## バージョン
