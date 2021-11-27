@@ -27,7 +27,7 @@ namespace std::ranges {
 - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である
 - `Fun`は`I`を`Proj`で射影した値を[参照で渡すことができる1引数の`invocable`](/reference/iterator/indirectly_unary_invocable.md)である
 
-この他にFunは[`copy_­constructible`](/reference/concepts/copy_­constructible.md)のモデルであることが要求される。
+この他にFunは[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであることが要求される。
 
 
 ## 事前条件
@@ -39,7 +39,7 @@ namespace std::ranges {
 このアルゴリズムはその他のアルゴリズムと違い、[`invoke`](/reference/functional/invoke.md)`(proj, *i)` が書き換え可能な参照であれば、関数 `f` の内部でその値を書き換えても構わない。
 
 ## 戻り値
-`{first + n, std​::​move(f)}`
+`{first + n, std::move(f)}`
 
 ## 備考
 - 関数 `f` に戻り値がある場合、それは単に無視される
@@ -90,7 +90,7 @@ int main()
 ```cpp
 struct for_each_n_impl {
   template<input_iterator I, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
-    requires copy_­constructible<Fun>
+    requires copy_constructible<Fun>
   constexpr for_each_n_result<I, Fun> for_each_n(I first, iter_difference_t<I> n, Fun f, Proj proj = {}) {
     for (iter_difference_t<I> i = 0; i < n; ++i) {
       invoke(f, invoke(proj, *first));
@@ -105,7 +105,7 @@ inline constexpr for_each_n_impl for_each_n;
 * input_iterator[link /reference/iterator/input_iterator.md]
 * identity[link /reference/functional/identity.md]
 * indirectly_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
-* copy_­constructible[link /reference/concepts/copy_­constructible.md]
+* copy_constructible[link /reference/concepts/copy_constructible.md]
 * projected[link /reference/iterator/projected.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * move[link /reference/utility/move.md]

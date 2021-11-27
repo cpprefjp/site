@@ -21,7 +21,7 @@ namespace std::ranges {
 * identity[link /reference/functional/identity.md]
 * indirectly_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
 * input_range[link /reference/ranges/input_range.md]
-* borrowed_iterator_t[link /reference/iterator/borrowed_iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * projected[link /reference/iterator/projected.md]
 * in_fun_result[link /reference/algorithm/ranges_in_fun_result.md.nolink]
 
@@ -38,7 +38,7 @@ namespace std::ranges {
     - `R`が[`input_range`](/reference/ranges/input_range.md)である
     - `Fun`は`R`のイテレータを`Proj`で射影した値を[参照で渡すことができる1引数の`invocable`](/reference/iterator/indirectly_unary_invocable.md)である
 
-この他にFunは[`copy_­constructible`](/reference/concepts/copy_­constructible.md)のモデルであることが要求される。
+この他にFunは[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであることが要求される。
 
 ## 効果
 `[first,last)` 内の全てのイテレータ `i` に [`invoke`](/reference/functional/invoke.md)`(f, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` という操作を行う。`first` から順番に処理し、`last - 1` まで行う。
@@ -48,7 +48,7 @@ namespace std::ranges {
 
 ## 戻り値
 
-`{last, std​::​move(f)}`
+`{last, std::move(f)}`
 
 ## 計算量
 正確に `f` を `last - first` 回適用する
@@ -104,7 +104,7 @@ int main() {
 ```cpp
 struct for_each_impl {
   template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
-    requires copy_­constructible<Fun>
+    requires copy_constructible<Fun>
   constexpr for_each_result<I, Fun> operator()(I first, S last, Fun f, Proj proj = {}) {
     for (; first != last; ++first) {
       invoke(f, invoke(proj, *first));
@@ -113,7 +113,7 @@ struct for_each_impl {
   }
 
   template<input_range R, class Proj = identity, indirectly_unary_invocable<projected<iterator_t<R>, Proj>> Fun>
-    requires copy_­constructible<Fun>
+    requires copy_constructible<Fun>
   constexpr for_each_result<borrowed_iterator_t<R>, Fun> operator()(R&& r, Fun f, Proj proj = {}) {
     return (*this)(begin(r), end(r), move(f), ref(proj));
   }
@@ -125,9 +125,9 @@ inline constexpr for_each_impl for_each;
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * identity[link /reference/functional/identity.md]
 * indirectly_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
-* copy_­constructible[link /reference/concepts/copy_­constructible.md]
+* copy_constructible[link /reference/concepts/copy_constructible.md]
 * input_range[link /reference/ranges/input_range.md]
-* borrowed_iterator_t[link /reference/iterator/borrowed_iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * projected[link /reference/iterator/projected.md]
 * ref[link /reference/functional/ref.md]
 * move[link /reference/utility/move.md]
