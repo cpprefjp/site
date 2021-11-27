@@ -13,12 +13,12 @@ namespace std::ranges {
   constexpr bool any_of(R&& r, Pred pred, Proj proj = {});           // (2)
 }
 ```
-- input_iterator[link /reference/iterator/input_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- identity[link /reference/functional/identity.md]
-- indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-- input_range[link /reference/ranges/input_range.md]
-- projected[link /reference/iterator/projected.md]
+* input_iterator[link /reference/iterator/input_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* identity[link /reference/functional/identity.md]
+* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
+* input_range[link /reference/ranges/input_range.md]
+* projected[link /reference/iterator/projected.md]
 
 ## 概要
 範囲のいずれかの要素が条件を満たすかを判定する。
@@ -86,16 +86,16 @@ struct any_of_impl {
 
 inline constexpr any_of_impl any_of;
 ```
-- input_iterator[link /reference/iterator/input_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- identity[link /reference/functional/identity.md]
-- indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-- input_range[link /reference/ranges/input_range.md]
-- projected[link /reference/iterator/projected.md]
-- invoke[link /reference/functional/invoke.md]
-- begin[link /reference/ranges/begin.md]
-- end[link /reference/ranges/end.md]
-- ref[link /reference/functional/ref.md]
+* input_iterator[link /reference/iterator/input_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* identity[link /reference/functional/identity.md]
+* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
+* input_range[link /reference/ranges/input_range.md]
+* projected[link /reference/iterator/projected.md]
+* invoke[link /reference/functional/invoke.md]
+* begin[link /reference/ranges/begin.md]
+* end[link /reference/ranges/end.md]
+* ref[link /reference/functional/ref.md]
 
 ## バージョン
 ### 言語
