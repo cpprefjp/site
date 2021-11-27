@@ -94,12 +94,13 @@ struct none_of_impl {
   constexpr bool operator()(R&& r, Pred pred, Proj proj = {}) {
     return (*this)(begin(r), end(r), ref(pred), ref(proj));
   }
-}
+};
 
 inline constexpr none_of_impl none_of;
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
 * identity[link /reference/functional/identity.md]
 * indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
 * input_range[link /reference/ranges/input_range.md]
