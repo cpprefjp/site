@@ -40,7 +40,7 @@ int main()
 {
   std::ofstream s1("file.txt");
   if (!s1) {
-    std::cerr << "ファイルを開けませんでした。" << std::endl;
+    std::cerr << "file.txtを開けませんでした。" << std::endl;
   }
 
   try
@@ -48,7 +48,7 @@ int main()
     std::ofstream s2("internal.dat", std::ios_base::in | std::ios_base::out | std::ios_base::binary);
     s2.exceptions(std::ios_base::failbit);
   } catch (const std::exception& e) {
-    std::cerr << "ファイルを開けませんでした。" << std::endl;
+    std::cerr << "internal.datを開けませんでした。" << std::endl;
   }
 }
 ```
@@ -56,7 +56,7 @@ int main()
 
 ### 出力
 ```
-ファイルを開けませんでした。
+internal.datを開けませんでした。
 ```
 
 ## 実装例
