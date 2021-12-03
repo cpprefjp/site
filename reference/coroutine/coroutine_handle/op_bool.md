@@ -30,7 +30,7 @@ int main()
 {
   std::coroutine_handle<> h;
   if (h) {
-    std::cout << "vaild coroutine" << std::endl;
+    std::cout << "valid coroutine" << std::endl;
   } else {
     std::cout << "empty coroutine" << std::endl;
   }

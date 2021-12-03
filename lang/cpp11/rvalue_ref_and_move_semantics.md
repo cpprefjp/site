@@ -277,7 +277,7 @@ public:
 
 ### ユニヴァーサル参照
 関数テンプレートの型パラメータ`T`や[型推論プレースホルダ`auto`](auto.md)に参照修飾子`&&`をつけて宣言したものはユニヴァーサル参照と呼ばれ、通常の右辺値参照とは異なる動作をする。
-なお「ユニヴァーサル参照(Universal Reference)」は[Scott Mayers氏による解説](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)由来の俗称であり、後にC++17仕様において「転送参照(Fowarding Reference)」という正式名称が与えられた。
+なお「ユニヴァーサル参照(Universal Reference)」は[Scott Mayers氏による解説](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)由来の俗称であり、後にC++17仕様において「転送参照(Forwarding Reference)」という正式名称が与えられた。
 
 ```cpp
 // ユニヴァーサル参照

@@ -140,7 +140,7 @@ std::visit([](const auto& x) {
 
 
 ## 備考
-- この関数は、[Boost Vairant Library](https://boost.org/libs/variant)では[`apply_visitor()`](https://www.boost.org/doc/libs/release/doc/html/boost/apply_visitor.html)という名前で定義される
+- この関数は、[Boost Variant Library](https://boost.org/libs/variant)では[`apply_visitor()`](https://www.boost.org/doc/libs/release/doc/html/boost/apply_visitor.html)という名前で定義される
 
 
 ## 例

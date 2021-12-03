@@ -74,8 +74,8 @@ int main()
 
 ## 仕様
 
-これまで、`opeartor ++`の定義は、`bool`型のときは`true`に変更する、`opeartor --`の定義は`bool`型を除く、というように例外規定されていた(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)。  
-C++17ではこれらが削除され、`opeartor ++`の定義(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)に、`bool`型を除く、という例外規定が追加された。
+これまで、`operator ++`の定義は、`bool`型のときは`true`に変更する、`operator --`の定義は`bool`型を除く、というように例外規定されていた(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)。  
+C++17ではこれらが削除され、`operator ++`の定義(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)に、`bool`型を除く、という例外規定が追加された。
 
 前置の`operator ++`と`operator +=`の呼び出し(例えば`++a`と`a+=1`)が等価にならない例に、`bool`型の場合、という文面があったが、C++17で削除された(§ 8 expr)。
 
