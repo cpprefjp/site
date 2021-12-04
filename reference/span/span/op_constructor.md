@@ -94,10 +94,10 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 - (2) :
     - `[first, first + count)`が妥当な範囲であること
     - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) のモデルであること
-    - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`count`と`extent`が等値であること
+    - メンバ定数`extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`count`と`extent`が等値であること
 - (3) :
     - `[first, last)`が妥当な範囲であること
-    - メンバ定数`extent`が[`dyanmic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`last - first`と`extent`が等値であること
+    - メンバ定数`extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値ではない場合、`last - first`と`extent`が等値であること
     - 型 `It` はコンセプト [`std::contiguous_iterator`](/reference/iterator/contiguous_iterator.md) のモデルであること
     - 型 `End` はコンセプト [`std::sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`<It>` のモデルであること
 - (7) :

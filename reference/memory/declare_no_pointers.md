@@ -5,7 +5,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-namepsace std {
+namespace std {
   void declare_no_pointers(char* p, size_t n);
 }
 ```
@@ -25,7 +25,7 @@ namepsace std {
 
 ## 効果
 - オブジェクトの型に関係なく、`[p, p + n)`の領域に追跡可能なポインタ位置を含まないものとして扱われる。
-- ゆえに、領域に位置する、グローバルな`operater new`でつくられ、到達可能だと宣言されないポインタは、間接参照できない。
+- ゆえに、領域に位置する、グローバルな`operator new`でつくられ、到達可能だと宣言されないポインタは、間接参照できない。
 
 
 ## 戻り値
