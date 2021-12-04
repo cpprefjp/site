@@ -51,7 +51,7 @@ std::condition_variable cv;
 通知関数としてはもう1種類[`notify_one()`](/reference/condition_variable/condition_variable/notify_one.md)が提供されるが、`notify_one()`で論理的に十分であると判断できないならば、まずは`notify_all()`利用を推奨する。
 （`notify_all()`が待機中の全スレッドに通知を行うのに対し、`notify_one()`は待機中の任意の1スレッドにのみ通知を行うため、後者は実行時オーバーヘッドの観点で有利である。
 一方、待機処理における指定条件によっては、`notify_one()`利用ではライブロック(live lock)に陥るケースも存在する。
-なお、`nofity_all()`の動作セマンティクスは`notify_one()`を完全に包含するため、`notify_one()`で正しく動作する並行処理は`notify_all()`利用でも正しく動作する。）
+なお、`notify_all()`の動作セマンティクスは`notify_one()`を完全に包含するため、`notify_one()`で正しく動作する並行処理は`notify_all()`利用でも正しく動作する。）
 
 待機処理の実装では、第2引数に述語をとる[`wait()`](/reference/condition_variable/condition_variable/wait.md)を利用することで、条件変数のSpurious Wakeupと呼ばれる現象を考慮しなくとも正しい処理を記述できる。
 `wait()`メンバ関数はロック型のみを引数にとる1引数オーバーロードも提供するが、特殊なケースを除いて上記の2引数オーバーロード利用を推奨する。
