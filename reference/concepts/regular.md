@@ -15,7 +15,7 @@ namespace std {
 
 ## 概要
 
-`regular`は、任意の型`T`が[`semiregular`](./semiregular.md)であり、等値比較可能であることを表すコンセプトである。
+`regular`は、任意の型`T`が[`semiregular`](./semiregular.md)コンセプトを満たし、それに加えて等値比較可能であることを表すコンセプトである。
 
 ## 正則性
 
