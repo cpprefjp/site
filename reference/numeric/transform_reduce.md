@@ -140,8 +140,8 @@ namespace std{
 
 
 ## 計算量
-- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`を、O(`last1 - first1`)計算量の回数だけ適用する
-- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`をO(`last - first`)計算量の回数だけ適用する
+- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`を、O(`last1 - first1`)回だけ適用する
+- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`をO(`last - first`)回だけ適用する
 
 
 ## 備考

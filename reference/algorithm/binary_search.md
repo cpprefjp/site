@@ -44,7 +44,7 @@ namespace std {
 
 
 ## 計算量
-最大で log2(`last - first`) + 1 回の比較を行う
+最大で log2(`last - first`) + O(1) 回の比較を行う
 
 
 ## 備考
