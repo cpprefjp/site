@@ -23,11 +23,13 @@
 | [`basic_string`](string/basic_string.md) | 汎用文字型の文字列(class template) | |
 | [`string`](string/basic_string.md)       | マルチバイト文字列(type-alias) | |
 | [`wstring`](string/basic_string.md)      | ワイド文字列(type-alias) | |
+| [`u8string`](string/basic_string.md)    | UTF-8文字列(type-alias) | C++20 |
 | [`u16string`](string/basic_string.md)    | UTF-16文字列(type-alias) | C++11 |
 | [`u32string`](string/basic_string.md)    | UTF-32文字列(type-alias) | C++11 |
 | [`pmr::basic_string`](string/basic_string.md) | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いる汎用文字型の文字列(type-alias) | C++17 |
 | [`pmr::string`](string/basic_string.md)       | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるマルチバイト文字列(type-alias) | C++17 |
 | [`pmr::wstring`](string/basic_string.md)      | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるワイド文字列(type-alias) | C++17 |
+| [`pmr::u8string`](string/basic_string.md)    | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるUTF-8文字列(type-alias) | C++20 |
 | [`pmr::u16string`](string/basic_string.md)    | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるUTF-16文字列(type-alias) | C++17 |
 | [`pmr::u32string`](string/basic_string.md)    | [多相アロケータ](/reference/memory_resource/polymorphic_allocator.md)を用いるUTF-32文字列(type-alias) | C++17 |
 
