@@ -34,7 +34,7 @@ namespace std {
 
 
 ## 計算量
-O(log(`last - first`)) のオーダーで `pred` が適用される。
+`pred` が O(log(`last - first`)) 回適用される。
 
 
 ## 例
