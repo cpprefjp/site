@@ -82,7 +82,7 @@ centi_meter triangle_area(centi_meter base, centi_meter height)
 
 int main()
 {
-  milli_meter base(3000); // 3000mm -> 3cm
+  milli_meter base(3000); // 3000mm -> 300cm
   meter       height(1);  // 1m -> 100cm
 
   centi_meter area = triangle_area(base, height);
