@@ -32,7 +32,7 @@ int main()
   using r1 = std::ratio<3, 5>;
   using r2 = std::ratio<2, 5>;
 
-  static_assert(std::ratio_greater_equal<r1, r2>::value == true, "r1 > r2");
+  static_assert(std::ratio_greater_equal<r1, r2>::value == true, "r1 >= r2");
 }
 ```
 * std::ratio_greater_equal[color ff0000]
