@@ -251,7 +251,7 @@ int main()
 
 
 ### <a id="type-deduction" href="#type-deduction">型推論</a>
-- 初期化リストを`auto`で受けた場合、`std::initializer_list`型に推論される。ただし、空の初期化子リストは推論に失敗する
+- 初期化子リストを`auto`で受けた場合、`std::initializer_list`型に推論される。ただし、空の初期化子リストは推論に失敗する
 
     ```cpp
     auto x1 = {1, 2, 3}; // x1の型はstd::initializer_list<int>
