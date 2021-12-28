@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std::ranges {
-  template<class R, class T>
-  concept forward_range = input_range<R> && forward_iterator<iterator_t<R>, T>;
+  template<class T>
+  concept forward_range = input_range<T> && forward_iterator<iterator_t<T>>;
 }
 ```
 * input_range[link input_range.md]
