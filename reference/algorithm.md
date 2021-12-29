@@ -61,7 +61,18 @@ C++20ではアルゴリズム関数の新しいバージョンが`std::ranges`�
 * テンプレート引数がコンセプトによって制約される
 * イテレータの組に加えて、範囲(Range)も直接渡せる
 * 射影(Projection)をサポートする
-* ADLで発見されない
+* [ADLで発見されない](/article/lib/disable_adl_function.md)
+
+新しいアルゴリズム関数には範囲(Range)を直接渡すことができる。
+
+```cpp
+// 従来のアルゴリズム関数
+sort(v.begin(), v.end());
+// C++20以降の新しいアルゴリズム関数: Rangeを直接渡せる
+ranges::sort(v);
+// イテレータ対も渡せる
+ranges::sort(v.begin(), v.end());
+```
 
 射影は、述語とは別に渡すことができる関数オブジェクトで、特定のメンバだけを対象にアルゴリズムを実行するために用いる。
 
@@ -86,30 +97,6 @@ ranges::sort(pv.begin(), pv.end(), {}, [](auto&& a){ return a.name; });
 // Rangeを渡す
 ranges::sort(pv, {}, [](auto&& a){ return a.name; });
 ```
-
-### ADLの無効化
-
-`std::ranges`以下のアルゴリズムは`std`以下のものより先に見つかるようにするため、ADLで発見されない(ADLより前に見つかる)ことが規定されている。
-
-```cpp
-using namespace std::ranges;
-std::vector v = {1, 3, 2, 0};
-// ADLに従えばstd::sortが呼ばれてしまうが、ranges::sortはADL以前に見つかるため、ranges::sortが呼ばれる
-sort(v.begin(), v.end());
-```
-
-ADLを無効化するには変数名にするのが最も簡単であり、アルゴリズムは関数オブジェクトとして実装されると考えられる。
-
-```cpp
-struct f_impl {
-  void operator() { … }
-};
-
-inline constexpr f_impl f; // f は変数名なのでADLで発見されない
-```
-
-しかし、規格上は関数のように説明されているため、ここでも関数として解説する。
-
 
 ## シーケンスを変更しない操作
 
