@@ -15,7 +15,7 @@ namespace std {
 ```
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * identity[link /reference/functional/identity.md]
-* indirect_binarindirect_unary_predicatey_predicate[link /reference/iterator/indirect_unary_predicate.md]
+* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
 * projected[link /reference/iterator/projected.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * range_difference_t[link /reference/ranges/range_difference_t.md]
