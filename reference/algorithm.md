@@ -124,9 +124,9 @@ ranges::sort(pv, {}, [](auto&& a){ return a.name; });
 | [`ranges::none_of`](algorithm/ranges_none_of.md)             | 全ての要素が条件を満たしていないかを調べる           | C++20 |
 | [`ranges::for_each`](algorithm/ranges_for_each.md)           | 全ての要素に対して処理を行う                         | C++20 |
 | [`ranges::for_each_n`](algorithm/ranges_for_each_n.md)       | 範囲の先頭N個の要素に対して処理を行う                | C++20 |
-| [`ranges::find`](algorithm/ranges_find.md.nolink)                   | 指定された値を検索する                               | C++20 |
-| [`ranges::find_if`](algorithm/ranges_find_if.md.nolink)             | 条件を満たす最初の要素を検索する                     | C++20 |
-| [`ranges::find_if_not`](algorithm/ranges_find_if_not.md.nolink)     | 条件を満たしていない最初の要素を検索する             | C++20 |
+| [`ranges::find`](algorithm/ranges_find.md)                   | 指定された値を検索する                               | C++20 |
+| [`ranges::find_if`](algorithm/ranges_find_if.md)             | 条件を満たす最初の要素を検索する                     | C++20 |
+| [`ranges::find_if_not`](algorithm/ranges_find_if_not.md)     | 条件を満たしていない最初の要素を検索する             | C++20 |
 | [`ranges::find_end`](algorithm/ranges_find_end.md.nolink)           | 指定された最後のサブシーケンスを検索する             | C++20 |
 | [`ranges::find_first_of`](algorithm/ra.nolinknges_find_first_of.md.nolink) | ある集合の1つとマッチする最初の要素を検索する        | C++20 |
 | [`ranges::adjacent_find`](algorithm/ra.nolinknges_adjacent_find.md.nolink) | 隣接する要素で条件を満たしている最初の要素を検索する | C++20 |
