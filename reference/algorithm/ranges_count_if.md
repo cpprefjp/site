@@ -13,6 +13,8 @@ namespace std::ranges {
   constexpr range_difference_t<R> count_if(R&& r, Pred pred, Proj proj = {});          // (2)
 }
 ```
+* input_iterator[link /reference/iterator/input_iterator.md]
+* input_range[link /reference/ranges/input_range.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * identity[link /reference/functional/identity.md]
 * indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
@@ -83,6 +85,8 @@ struct count_if_impl {
 
 inline constexpr count_if_impl count_if;
 ```
+* input_iterator[link /reference/iterator/input_iterator.md]
+* input_range[link /reference/ranges/input_range.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * identity[link /reference/functional/identity.md]
 * indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]

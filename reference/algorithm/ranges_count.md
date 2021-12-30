@@ -7,18 +7,20 @@
 ```cpp
 namespace std::ranges {
   template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<I, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
   constexpr iter_difference_t<I> count(I first, S last, const T& value, Proj proj = {}); // (1)
 
   template<input_range R, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<iterator_t<R>, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
   constexpr range_difference_t<R> count(R&& r, const T& value, Proj proj = {});          // (2)
 }
 ```
+* input_iterator[link /reference/iterator/input_iterator.md]
+* input_range[link /reference/ranges/input_range.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * identity[link /reference/functional/identity.md]
 * indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* equal_to[link /reference/functional/equal_to.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * projected[link /reference/iterator/projected.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * range_difference_t[link /reference/ranges/range_difference_t.md]
@@ -67,7 +69,7 @@ count of 1: 3
 ```cpp
 struct count_impl {
   template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<I, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
   constexpr iter_difference_t<I> operator()(I first, S last, const T& value, Proj proj = {}) {
     iter_difference_t<I> count = 0;
     for ( ; first != last; ++first)
@@ -76,7 +78,7 @@ struct count_impl {
   }
 
   template<input_range R, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<iterator_t<R>, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
   constexpr range_difference_t<R> operator()(R&& r, const T& value, Proj proj = {}) {
     return (*this)(begin(r), end(r), value, ref(proj));
   }
@@ -84,10 +86,12 @@ struct count_impl {
 
 inline constexpr count_impl count;
 ```
+* input_iterator[link /reference/iterator/input_iterator.md]
+* input_range[link /reference/ranges/input_range.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * identity[link /reference/functional/identity.md]
 * indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* equal_to[link /reference/functional/equal_to.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * projected[link /reference/iterator/projected.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * range_difference_t[link /reference/ranges/range_difference_t.md]

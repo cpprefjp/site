@@ -7,11 +7,11 @@
 ```cpp
 namespace std::ranges {
   template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<I, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
   constexpr I find(I first, S last, const T& value, Proj proj = {});
 
   template<input_range R, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<iterator_t<R>, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
   constexpr borrowed_iterator_t<R> find(R&& r, const T& value, Proj proj = {});
 }
 ```
@@ -21,7 +21,7 @@ namespace std::ranges {
 - iterator_t[link /reference/ranges/iterator_t.md]
 - identity[link /reference/functional/identity.md]
 - indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-- equal_to[link /reference/functional/equal_to.md]
+- ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 - input_range[link /reference/ranges/input_range.md]
 - projected[link /reference/iterator/projected.md]
 
@@ -64,7 +64,7 @@ found: 1
 ```cpp
 struct find_impl {
   template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<I, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
   constexpr I operator()(I first, S last, const T& value, Proj proj = {}) {
     for ( ; first != last; ++first)
       if (*first == value) return first;
@@ -72,7 +72,7 @@ struct find_impl {
   }
 
   template<input_range R, class T, class Proj = identity>
-    requires indirect_binary_predicate<equal_to, projected<iterator_t<R>, Proj>, const T*>
+    requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
   constexpr borrowed_iterator_t<R> operator()(R&& r, const T& value, Proj proj = {}) {
     return (*this)(begin(r), end(r), value, ref(proj));
   }
@@ -83,7 +83,7 @@ inline constexpr find_impl find;
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * identity[link /reference/functional/identity.md]
 * indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* equal_to[link /reference/functional/equal_to.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * projected[link /reference/iterator/projected.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
