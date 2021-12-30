@@ -127,15 +127,15 @@ ranges::sort(pv, {}, [](auto&& a){ return a.name; });
 | [`ranges::find`](algorithm/ranges_find.md)                   | 指定された値を検索する                               | C++20 |
 | [`ranges::find_if`](algorithm/ranges_find_if.md)             | 条件を満たす最初の要素を検索する                     | C++20 |
 | [`ranges::find_if_not`](algorithm/ranges_find_if_not.md)     | 条件を満たしていない最初の要素を検索する             | C++20 |
-| [`ranges::find_end`](algorithm/ranges_find_end.md.nolink)           | 指定された最後のサブシーケンスを検索する             | C++20 |
-| [`ranges::find_first_of`](algorithm/ra.nolinknges_find_first_of.md.nolink) | ある集合の1つとマッチする最初の要素を検索する        | C++20 |
+| [`ranges::find_end`](algorithm/ranges_find_end.md)           | 指定された最後のサブシーケンスを検索する             | C++20 |
+| [`ranges::find_first_of`](algorithm/ranges_find_first_of.md) | ある集合の1つとマッチする最初の要素を検索する        | C++20 |
 | [`ranges::adjacent_find`](algorithm/ra.nolinknges_adjacent_find.md.nolink) | 隣接する要素で条件を満たしている最初の要素を検索する | C++20 |
 | [`ranges::count`](algorithm/ranges_count.md)                 | 指定された値である要素の数を数える                   | C++20 |
 | [`ranges::count_if`](algorithm/ranges_count_if.md)           | 条件を満たしている要素の数を数える                   | C++20 |
 | [`ranges::mismatch`](algorithm/ranges_mismatch.md.nolink)           | 2つの範囲が一致していない場所を検索する              | C++20 |
 | [`ranges::equal`](algorithm/ranges_equal.md.nolink)                 | 2つの範囲を等値比較する                              | C++20 |
-| [`ranges::search`](algorithm/ranges_search.md.nolink)               | 指定された最初のサブシーケンスを検索する             | C++20 |
-| [`ranges::search_n`](algorithm/ranges_search_n.md.nolink)           | 指定された最初のサブシーケンスを検索する             | C++20 |
+| [`ranges::search`](algorithm/ranges_search.md)               | 指定された最初のサブシーケンスを検索する             | C++20 |
+| [`ranges::search_n`](algorithm/ranges_search_n.md)           | 指定された最初のサブシーケンスを検索する             | C++20 |
 | [`ranges::starts_with`](algorithm/ranges_starts_with.md.nolink)     | 先頭が指定されたシーケンスと一致するかを調べる       | C++23 |
 | [`ranges::ends_with`](algorithm/ranges_ends_with.md.nolink)         | 末尾が指定されたシーケンスと一致するかを調べる       | C++23 |
 
