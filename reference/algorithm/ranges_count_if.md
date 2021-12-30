@@ -5,7 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::ranges {
   template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
   constexpr iter_difference_t<I> count_if(I first, S last, Pred pred, Proj proj = {}); // (1)
 
