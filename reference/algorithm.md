@@ -93,10 +93,11 @@ sort(pv.begin(), pv.end(), [](auto&& a, auto&& b){ return a.name < b.name; });
 
 ```cpp
 // デフォルトの述語({})で、nameでソート
-ranges::sort(pv.begin(), pv.end(), {}, [](auto&& a){ return a.name; });
-// Rangeを渡す
 ranges::sort(pv, {}, [](auto&& a){ return a.name; });
+// std::invokeで呼び出されるため、メンバ変数ポインタでもよい
+ranges::sort(pv, {}, &Parson::name);
 ```
+* std::invoke[link /reference/functional/invoke.md]
 
 ## シーケンスを変更しない操作
 
