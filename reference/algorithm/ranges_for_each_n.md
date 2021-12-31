@@ -91,7 +91,7 @@ int main()
 struct for_each_n_impl {
   template<input_iterator I, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
     requires copy_constructible<Fun>
-  constexpr for_each_n_result<I, Fun> for_each_n(I first, iter_difference_t<I> n, Fun f, Proj proj = {}) {
+  constexpr for_each_n_result<I, Fun> operator()(I first, iter_difference_t<I> n, Fun f, Proj proj = {}) {
     for (iter_difference_t<I> i = 0; i < n; ++i) {
       invoke(f, invoke(proj, *first));
       ++first;

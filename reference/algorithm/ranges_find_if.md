@@ -63,7 +63,7 @@ found: 1
 ```cpp
 struct find_if_impl {
   template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
-  constexpr I perator()(I first, S last, Pred pred, Proj proj = {}) {
+  constexpr I operator()(I first, S last, Pred pred, Proj proj = {}) {
     for ( ; first != last; ++first)
       if (invoke(pred, invoke(proj, *first)))
         return first;
