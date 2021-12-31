@@ -68,7 +68,7 @@ int main() {
   }
 }
 ```
-* std::search_n[color ff0000]
+* std::ranges::search_n[color ff0000]
 * v.begin()[link /reference/vector/vector/begin.md]
 
 ### 出力

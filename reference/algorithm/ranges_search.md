@@ -60,7 +60,7 @@ int main() {
   }
 }
 ```
-* std::search[color ff0000]
+* std::ranges::search[color ff0000]
 
 #### 出力
 ```
