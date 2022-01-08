@@ -13,19 +13,15 @@ namespace std::ranges {
   constexpr borrowed_iterator_t<R> adjacent_find(R&& r, Pred pred = {}, Proj proj = {});
 }
 ```
-- forward_iterator[link /reference/iterator/forward_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- identity[link /reference/functional/identity.md]
-- indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-- projected[link /reference/iterator/projected.md]
-- ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-- forward_range[link /reference/ranges/forward_range.md]
-- iterator_t[link /reference/ranges/iterator_t.md]
-- borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-- invoke[link /reference/functional/invoke.md]
-- begin[link /reference/ranges/begin.md]
-- end[link /reference/ranges/end.md]
-- ref[link /reference/functional/ref.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* identity[link /reference/functional/identity.md]
+* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
+* projected[link /reference/iterator/projected.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
+* forward_range[link /reference/ranges/forward_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 
 ## 概要
@@ -95,19 +91,19 @@ struct adjacent_find_impl {
 
 inline constexpr adjacent_find_impl adjacent_find;
 ```
-- forward_iterator[link /reference/iterator/forward_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- identity[link /reference/functional/identity.md]
-- indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-- projected[link /reference/iterator/projected.md]
-- ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-- forward_range[link /reference/ranges/forward_range.md]
-- iterator_t[link /reference/ranges/iterator_t.md]
-- borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-- invoke[link /reference/functional/invoke.md]
-- begin[link /reference/ranges/begin.md]
-- end[link /reference/ranges/end.md]
-- ref[link /reference/functional/ref.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* identity[link /reference/functional/identity.md]
+* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
+* projected[link /reference/iterator/projected.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
+* forward_range[link /reference/ranges/forward_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* invoke[link /reference/functional/invoke.md]
+* begin[link /reference/ranges/begin.md]
+* end[link /reference/ranges/end.md]
+* ref[link /reference/functional/ref.md]
 
 ## バージョン
 ### 言語

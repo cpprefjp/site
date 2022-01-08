@@ -16,15 +16,15 @@ namespace std::ranges {
   constexpr borrowed_subrange_t<R1> search(R1&& r1, R2&& r2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});              // (2)
 }
 ```
-- forward_iterator[link /reference/iterator/forward_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-- identity[link /reference/functional/identity.md]
-- indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-- subrange[link /reference/ranges/subrange.md]
-- forward_range[link /reference/ranges/forward_range.md]
-- iterator_t[link /reference/ranges/iterator_t.md]
-- borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
+* identity[link /reference/functional/identity.md]
+* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
+* subrange[link /reference/ranges/subrange.md]
+* forward_range[link /reference/ranges/forward_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
 
 ## 概要
 あるシーケンスの中から、特定のサブシーケンスを探す
@@ -96,19 +96,19 @@ struct search_impl {
 
 inline constexpr search_impl search;
 ```
-- forward_iterator[link /reference/iterator/forward_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-- identity[link /reference/functional/identity.md]
-- indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-- subrange[link /reference/ranges/subrange.md]
-- forward_range[link /reference/ranges/forward_range.md]
-- iterator_t[link /reference/ranges/iterator_t.md]
-- borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
-- invoke[link /reference/functional/invoke.md]
-- begin[link /reference/ranges/begin.md]
-- end[link /reference/ranges/end.md]
-- ref[link /reference/functional/ref.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
+* identity[link /reference/functional/identity.md]
+* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
+* subrange[link /reference/ranges/subrange.md]
+* forward_range[link /reference/ranges/forward_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
+* invoke[link /reference/functional/invoke.md]
+* begin[link /reference/ranges/begin.md]
+* end[link /reference/ranges/end.md]
+* ref[link /reference/functional/ref.md]
 
 ## バージョン
 ### 言語

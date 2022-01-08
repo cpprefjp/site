@@ -18,20 +18,20 @@ namespace std::ranges {
   constexpr mismatch_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>> mismatch(R1&& r1, R2&& r2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});    // (3)
 }
 ```
-- in_fun_result[link ranges_in_fun_result.md.nolink]
-- input_iterator[link /reference/iterator/input_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-- identity[link /reference/functional/identity.md]
-- indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-- subrange[link /reference/ranges/subrange.md]
-- input_range[link /reference/ranges/input_range.md]
-- iterator_t[link /reference/ranges/iterator_t.md]
-- borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-- invoke[link /reference/functional/invoke.md]
-- begin[link /reference/ranges/begin.md]
-- end[link /reference/ranges/end.md]
-- ref[link /reference/functional/ref.md]
+* in_fun_result[link ranges_in_fun_result.md.nolink]
+* input_iterator[link /reference/iterator/input_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
+* identity[link /reference/functional/identity.md]
+* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
+* subrange[link /reference/ranges/subrange.md]
+* input_range[link /reference/ranges/input_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* invoke[link /reference/functional/invoke.md]
+* begin[link /reference/ranges/begin.md]
+* end[link /reference/ranges/end.md]
+* ref[link /reference/functional/ref.md]
 
 
 ## 概要
@@ -126,20 +126,20 @@ struct mismatch_impl {
 
 inline constexpr mismatch_impl mismatch;
 ```
-- in_fun_result[link ranges_in_fun_result.md.nolink]
-- input_iterator[link /reference/iterator/input_iterator.md]
-- sentinel_for[link /reference/iterator/sentinel_for.md]
-- ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-- identity[link /reference/functional/identity.md]
-- indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-- subrange[link /reference/ranges/subrange.md]
-- input_range[link /reference/ranges/input_range.md]
-- iterator_t[link /reference/ranges/iterator_t.md]
-- borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-- invoke[link /reference/functional/invoke.md]
-- begin[link /reference/ranges/begin.md]
-- end[link /reference/ranges/end.md]
-- ref[link /reference/functional/ref.md]
+* in_fun_result[link ranges_in_fun_result.md.nolink]
+* input_iterator[link /reference/iterator/input_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
+* identity[link /reference/functional/identity.md]
+* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
+* subrange[link /reference/ranges/subrange.md]
+* input_range[link /reference/ranges/input_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* invoke[link /reference/functional/invoke.md]
+* begin[link /reference/ranges/begin.md]
+* end[link /reference/ranges/end.md]
+* ref[link /reference/functional/ref.md]
 
 ## バージョン
 ### 言語
