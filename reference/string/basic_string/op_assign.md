@@ -107,7 +107,7 @@ int main()
 
 ### 出力
 ```
-hello
+Hello
 ```
 
 ## 参照
