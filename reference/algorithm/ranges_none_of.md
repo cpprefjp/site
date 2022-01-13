@@ -27,10 +27,10 @@ namespace std::ranges {
 - (1):
     - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である
     - `S`が[`I`に対する番兵](/reference/iterator/sentinel_for.md)である
-    - `Pred`は`I`を`Proj`で射影した値を[参照で渡すことができる1引数の述語](/reference/iterator/indirect_unary_predicate.md)である
+    - `Pred`は`I`を`Proj`で射影した値を受け取る[単項述語](/reference/iterator/indirect_unary_predicate.md)である
 - (2):
     - `R`が[`input_range`](/reference/ranges/input_range.md)である
-    - `Pred`は`R`のイテレータを`Proj`で射影した値を[参照で渡すことができる1引数の述語](/reference/iterator/indirect_unary_predicate.md)である
+    - `Pred`は`R`のイテレータを`Proj`で射影した値を受け取る[単項述語](/reference/iterator/indirect_unary_predicate.md)である
 
 ## 戻り値
 `[first,last)` あるいは `r` が空であったり、範囲内の全てのイテレータ `i` について [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` が `false` である場合は `true` を返し、そうでない場合は `false` を返す。

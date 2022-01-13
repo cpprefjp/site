@@ -25,7 +25,7 @@ namespace std::ranges {
 
 ## テンプレートパラメータ制約
 - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である
-- `Fun`は`I`を`Proj`で射影した値を[参照で渡すことができる1引数の`invocable`](/reference/iterator/indirectly_unary_invocable.md)である
+- `Fun`は`I`を`Proj`で射影した値を受け取る[1引数の`invocable`](/reference/iterator/indirectly_unary_invocable.md)である
 
 この他にFunは[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであることが要求される。
 
