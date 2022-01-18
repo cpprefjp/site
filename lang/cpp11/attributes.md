@@ -52,7 +52,7 @@ int main()
 
 
 ### <a id="carries_dependency" href="#carries_dependency">`[[carries_dependency]]`属性</a>
-`[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order_consume`](/reference/atomic/memory_order.md)を、関数をまたいで伝播することを明示するための属性である。
+`[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order`](/reference/atomic/memory_order.md)を、関数をまたいで伝播することを明示するための属性である。
 
 以下は、[`memory_order_consume`](/reference/atomic/memory_order.md)を使用した順序付けの例である：
 

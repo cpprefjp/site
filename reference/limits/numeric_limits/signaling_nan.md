@@ -6,7 +6,7 @@
 
 ```cpp
 // C++03
-static const T signaling_NaN() noexcept;
+static const T signaling_NaN() throw();
 
 // C++11
 static constexpr T signaling_NaN() noexcept;
@@ -36,7 +36,7 @@ static constexpr T signaling_NaN() noexcept;
 int main()
 {
   constexpr float f = std::numeric_limits<float>::signaling_NaN();
-  constexpr float d = std::numeric_limits<double>::signaling_NaN();
+  constexpr double d = std::numeric_limits<double>::signaling_NaN();
 
   std::cout << "float : " << f << std::endl;
   std::cout << "double : " << d << std::endl;
