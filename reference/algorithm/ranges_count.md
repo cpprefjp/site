@@ -71,7 +71,7 @@ count of 1: 3
 struct count_impl {
   template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
-  constexpr iter_difference_t<I> operator()(I first, S last, const T& value, Proj proj = {}) {
+  constexpr iter_difference_t<I> operator()(I first, S last, const T& value, Proj proj = {}) const {
     iter_difference_t<I> count = 0;
     for ( ; first != last; ++first)
       if (value == invoke(proj, *first)) count++;
@@ -80,7 +80,7 @@ struct count_impl {
 
   template<input_range R, class T, class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
-  constexpr range_difference_t<R> operator()(R&& r, const T& value, Proj proj = {}) {
+  constexpr range_difference_t<R> operator()(R&& r, const T& value, Proj proj = {}) const {
     return (*this)(begin(r), end(r), value, ref(proj));
   }
 };

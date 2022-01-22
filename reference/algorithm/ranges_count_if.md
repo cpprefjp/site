@@ -71,7 +71,7 @@ count of 1 or 3: 5
 ```cpp
 struct count_if_impl {
   template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
-  constexpr iter_difference_t<I> operator()(I first, S last, Pred pred, Proj proj = {}) {
+  constexpr iter_difference_t<I> operator()(I first, S last, Pred pred, Proj proj = {}) const {
     iter_difference_t<I> count = 0;
     for ( ; first != last; ++first)
       if (invoke(pred, invoke(proj, *first))) count++;
@@ -79,7 +79,7 @@ struct count_if_impl {
   }
 
   template<input_range R, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
-  constexpr range_difference_t<R> operator()(R&& r, Pred pred, Proj proj = {}) {
+  constexpr range_difference_t<R> operator()(R&& r, Pred pred, Proj proj = {}) const {
     return (*this)(begin(r), end(r), ref(pred), ref(proj));
   }
 };

@@ -71,7 +71,7 @@ found: index==2
 ```cpp
 struct adjacent_find_impl {
   template<forward_iterator I, sentinel_for<I> S, class Proj = identity, indirect_binary_predicate<projected<I, Proj>, projected<I, Proj>> Pred = ranges::equal_to>
-  constexpr I adjacent_find(I first, S last, Pred pred = {}, Proj proj = {}) {
+  constexpr I operator()(I first, S last, Pred pred = {}, Proj proj = {}) const {
     if (first == last)
       return last;
 
@@ -84,7 +84,7 @@ struct adjacent_find_impl {
   }
 
   template<forward_range R, class Proj = identity, indirect_binary_predicate<projected<iterator_t<R>, Proj>, projected<iterator_t<R>, Proj>> Pred = ranges::equal_to>
-  constexpr borrowed_iterator_t<R> adjacent_find(R&& r, Pred pred = {}, Proj proj = {}) {
+  constexpr borrowed_iterator_t<R> operator()(R&& r, Pred pred = {}, Proj proj = {}) const {
     return (*this)(begin(r), end(r), ref(pred), ref(proj));
   }
 };

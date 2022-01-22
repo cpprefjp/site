@@ -65,7 +65,7 @@ found: 1
 struct find_impl {
   template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
-  constexpr I operator()(I first, S last, const T& value, Proj proj = {}) {
+  constexpr I operator()(I first, S last, const T& value, Proj proj = {}) const {
     for ( ; first != last; ++first)
       if (*first == value) return first;
     return last;
@@ -73,7 +73,7 @@ struct find_impl {
 
   template<input_range R, class T, class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
-  constexpr borrowed_iterator_t<R> operator()(R&& r, const T& value, Proj proj = {}) {
+  constexpr borrowed_iterator_t<R> operator()(R&& r, const T& value, Proj proj = {}) const {
     return (*this)(begin(r), end(r), value, ref(proj));
   }
 };

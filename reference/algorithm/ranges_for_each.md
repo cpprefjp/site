@@ -106,7 +106,7 @@ int main() {
 struct for_each_impl {
   template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
     requires copy_constructible<Fun>
-  constexpr for_each_result<I, Fun> operator()(I first, S last, Fun f, Proj proj = {}) {
+  constexpr for_each_result<I, Fun> operator()(I first, S last, Fun f, Proj proj = {}) const {
     for (; first != last; ++first) {
       invoke(f, invoke(proj, *first));
     }
@@ -115,7 +115,7 @@ struct for_each_impl {
 
   template<input_range R, class Proj = identity, indirectly_unary_invocable<projected<iterator_t<R>, Proj>> Fun>
     requires copy_constructible<Fun>
-  constexpr for_each_result<borrowed_iterator_t<R>, Fun> operator()(R&& r, Fun f, Proj proj = {}) {
+  constexpr for_each_result<borrowed_iterator_t<R>, Fun> operator()(R&& r, Fun f, Proj proj = {}) const {
     return (*this)(begin(r), end(r), move(f), ref(proj));
   }
 };

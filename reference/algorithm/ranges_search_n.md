@@ -83,7 +83,7 @@ found: index==0
 struct search_n_impl {
   template<forward_iterator I, sentinel_for<I> S, class T, class Pred = ranges::equal_to, class Proj = identity>
     requires indirectly_comparable<I, const T*, Pred, Proj>
-  constexpr subrange<I> operator()(I first, S last, iter_difference_t<I> count, const T& value, Pred pred = {}, Proj proj = {}) {
+  constexpr subrange<I> operator()(I first, S last, iter_difference_t<I> count, const T& value, Pred pred = {}, Proj proj = {}) const {
     if (first == last || count <= 0)
       return first;
 
@@ -107,7 +107,7 @@ struct search_n_impl {
 
   template<forward_range R, class T, class Pred = ranges::equal_to, class Proj = identity>
     requires indirectly_comparable<iterator_t<R>, const T*, Pred, Proj>
-  constexpr borrowed_subrange_t<R> operator()(R&& r, range_difference_t<R> count, const T& value, Pred pred = {}, Proj proj = {}) {
+  constexpr borrowed_subrange_t<R> operator()(R&& r, range_difference_t<R> count, const T& value, Pred pred = {}, Proj proj = {}) const {
     return (*this)(begin(r1), end(r1), count, value, ref(pred), ref(proj));
   }
 };
