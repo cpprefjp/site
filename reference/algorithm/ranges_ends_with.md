@@ -113,6 +113,7 @@ inline constexpr ends_with_impl ends_with;
 * forward_range[link /reference/ranges/forward_range.md]
 * sized_range[link /reference/ranges/sized_range.md]
 * iterator_t[link /reference/ranges/iterator_t.md]
+* distance[link /reference/iterator/distance.md]
 * equal[link ranges_equal.md]
 * drop_view[link /reference/ranges/drop_view.md]
 * ref_view[link /reference/ranges/ref_view.md]
