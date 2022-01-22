@@ -46,12 +46,12 @@ Int2Int *pf = sqr; // エラー
 ```
 * P1073R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html]
 
-定数式として評価できない部分があっても、実行されなければエラーとならない。
+定数式として評価できない部分があっても、評価しようとしなければエラーとならない。
 
 ```cpp example
 consteval void f(int n) {
   if(n < 0) {
-    throw "n should not be negative";
+    throw "n should not be negative"; // throwは定数式として評価できないが、ここを通らなければOK
   }
 }
 
@@ -60,6 +60,8 @@ int main() {
   f(-1); // エラー
 }
 ```
+
+この性質は様々なチェックをコンパイル時に行うために活用できる。たとえば、[`std::format`](/reference/format/format.md)におけるコンパイル時の書式文字列チェックで使用されている。
 
 ## 例
 ```cpp example
