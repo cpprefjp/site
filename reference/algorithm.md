@@ -137,8 +137,8 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::equal`](algorithm/ranges_equal.md)                 | 2つの範囲を等値比較する                              | C++20 |
 | [`ranges::search`](algorithm/ranges_search.md)               | 指定された最初のサブシーケンスを検索する             | C++20 |
 | [`ranges::search_n`](algorithm/ranges_search_n.md)           | 指定された最初のサブシーケンスを検索する             | C++20 |
-| [`ranges::starts_with`](algorithm/ranges_starts_with.md.nolink)     | 先頭が指定されたシーケンスと一致するかを調べる       | C++23 |
-| [`ranges::ends_with`](algorithm/ranges_ends_with.md.nolink)         | 末尾が指定されたシーケンスと一致するかを調べる       | C++23 |
+| [`ranges::starts_with`](algorithm/ranges_starts_with.md)     | 先頭が指定されたシーケンスと一致するかを調べる       | C++23 |
+| [`ranges::ends_with`](algorithm/ranges_ends_with.md)         | 末尾が指定されたシーケンスと一致するかを調べる       | C++23 |
 
 ## シーケンスを変更する操作
 
