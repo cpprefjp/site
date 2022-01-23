@@ -94,7 +94,7 @@ basic_string& replace(const_iterator i1,
 ## 効果
 - (1) : `replace(pos1, n1, str.`[`data()`](data.md)`, str.`[`size()`](size.md)`)`を呼び出す。
 - (2) :
-    - `n2`と`str.`[`size()`](size.md) `- pos2`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
+    - `n2`と`str.`[`size()`](size.md) `- pos2`のうち小さい方を`rlen`とする。`n2 == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
     - `replace(pos1, n1, str.`[`data()`](data.md) `+ pos2, rlen)`を呼び出す。
 - (3) : `n1`と[`size()`](size.md) `- pos1`のうち小さい方を`xlen`とし、自身の`pos1`番目から`xlen`個の要素を、文字配列`s`の先頭`n2`文字で置き換える。
 - (4) : `replace(pos, n, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
