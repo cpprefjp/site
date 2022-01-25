@@ -7,12 +7,11 @@
 ```cpp
 namespace std::ranges {
   template<class T>
-  concept view = range<T> && movable<T> && default_initializable<T> && enable_view<T>;
+  concept view = range<T> && movable<T> && enable_view<T>;
 }
 ```
 * range[link range.md]
 * movable[link /reference/concepts/movable.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
 * enable_view[link enable_view.md]
 
 ## 概要
@@ -70,3 +69,4 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)

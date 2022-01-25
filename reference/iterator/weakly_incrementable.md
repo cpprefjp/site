@@ -8,7 +8,7 @@
 namespace std {
   template<class I>
   concept weakly_incrementable =
-    default_initializable<I> && movable<I> &&
+    movable<I> &&
     requires(I i) {
       typename iter_difference_t<I>;
       requires is-signed-integer-like<iter_difference_t<I>>;
@@ -17,7 +17,6 @@ namespace std {
     };
 }
 ```
-* default_initializable[link /reference/concepts/default_initializable.md]
 * movable[link /reference/concepts/movable.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * is-signed-integer-like[link /reference/iterator/is_integer_like.md]
@@ -124,4 +123,4 @@ sample_not_incrementable is not weakly incrementable
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1522R1 Iterator Difference Type and Integer Overflow](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1522r1.pdf)
 - [P1207R4 Movability of single-pass iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1207r4.pdf)
-
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)

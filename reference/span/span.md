@@ -8,10 +8,21 @@
 namespace std {
   template <class ElementType, size_t Extent = dynamic_extent>
   class span;
+
+
+  // viewコンセプトを有効化する
+  template<class ElementType, size_t Extent>
+  inline constexpr bool ranges::enable_view<span<ElementType, Extent>> = true;
+
+  // borrowed_rangeコンセプトを有効化する
+  template<class ElementType, size_t Extent>
+  inline constexpr bool ranges::enable_borrowed_range<span<ElementType, Extent>> = true;
 }
 ```
 * size_t[link /reference/cstddef/size_t.md]
 * dynamic_extent[link dynamic_extent.md]
+* enable_view[link /reference/ranges/enable_view.md]
+* enable_borrowed_range[link /reference/ranges/enable_borrowed_range.md]
 
 ## 概要
 `std::span`は、シーケンスの所有権を保持せず、部分シーケンスを参照するクラスである。
@@ -263,3 +274,5 @@ int main()
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
     - `const_iterator`, `const_reverse_iterator`, `cbegin()`, `cend()`, `crbegin()`, `crend()`を削除
 - [P2116R0 Remove tuple-like protocol support from fixed-extent `span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2116r0.html)
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)

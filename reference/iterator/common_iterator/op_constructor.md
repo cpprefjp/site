@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr common_iterator() = default;                        // (1)
+constexpr common_iterator() requires default_initializable<I> = default;  // (1)
 
 constexpr common_iterator(I i);                               // (2)
 
@@ -17,6 +17,7 @@ template<class I2, class S2>
            convertible_to<const S2&, S>
 constexpr common_iterator(const common_iterator<I2, S2>& x);  // (4)
 ```
+* default_initializable[link /reference/concepts/default_initializable.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
@@ -91,3 +92,4 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)

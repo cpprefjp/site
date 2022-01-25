@@ -7,7 +7,7 @@
 ```cpp
 namespace std::ranges {
   template<weakly_incrementable W, semiregular Bound = unreachable_sentinel_t>
-    requires weakly-equality-comparable-with<W, Bound> && semiregular<W>
+    requires weakly-equality-comparable-with<W, Bound> && copyable<W>
   class iota_view : public view_interface<iota_view<W, Bound>> { …… }; // (1)
 
   namespace views {
@@ -17,7 +17,7 @@ namespace std::ranges {
 ```
 * is_object_v[link /reference/type_traits/is_object.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
-* semiregular[link /reference/concepts/semiregular.md]
+* copyable[link /reference/concepts/copyable.md]
 * unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 * view_interface[link view_interface.md]
@@ -45,7 +45,7 @@ namespace std::ranges {
 
 ## テンプレートパラメータ制約
 - [`weakly_incrementable`](/reference/type_traits/is_object.md)`<W>`
-- [`semiregular`](/reference/concepts/semiregular.md)`<W>`
+- [`copyable`](/reference/concepts/copyable.md)`<W>`
 - [`semiregular`](/reference/concepts/semiregular.md)`<Bound>`
 - [`weakly-equality-comparable-with`](/reference/concepts/equality_comparable.md)`<W, Bound>`
 
@@ -118,3 +118,4 @@ int main() {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)
