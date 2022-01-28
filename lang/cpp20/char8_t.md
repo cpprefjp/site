@@ -32,7 +32,7 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 | マクロ名            | 値       |
 |---------------------|----------|
 | `__cpp_char8_t`     | `201811` |
-| `__cpp_lib_char8_t` | `201811` |
+| `__cpp_lib_char8_t` | `201811` <br/> `201907` （P1423R3によって更新） |
 
 ## 例
 ```cpp example
@@ -150,7 +150,7 @@ enum class char8_t : unsigned char {};
 - [`path::generic_u8string`](/reference/filesystem/path/generic_u8string.md)
 - [`operator ""s`](/reference/string/basic_string/op_s.md)
 - [`operator ""sv`](/reference/string_view/basic_string_view/op_sv.md)
-
+- [`operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)
 
 ## 参照
 
@@ -169,5 +169,6 @@ enum class char8_t : unsigned char {};
 
 ### その他
 
+- [P1423R3: char8_t backward compatibility remediation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r3.html)
 - [Proposal for a C/C++ language extension to support portable UTF-16](http://web.archive.org/web/20140701223639/http://www.unicode.org/~asmus/stdc-utf-16.txt)
 - [char8_tによせて - なるせにっき](https://naruse.hateblo.jp/entry/2018/12/24/013446)
