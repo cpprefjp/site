@@ -27,7 +27,7 @@ namespace std {
 
 この要件を満たすものとしては[`vector`](/reference/vector.md)と[`deque`](/reference/deque/deque.md)があり、デフォルトでは[`vector`](/reference/vector.md)が使用される。
 
-`queue`は2つのテンプレート引数を持つ。
+`priority_queue`は3つのテンプレート引数を持つ。
 
 各テンプレートパラメータの意味は以下の通りである。
 
