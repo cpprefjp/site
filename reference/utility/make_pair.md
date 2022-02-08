@@ -41,7 +41,6 @@ std::pair<V1, V2>(std::forward<T1>(x), std::forward<T2>(y));
 
 ## 例
 ```cpp example
-#include <iostream>
 #include <utility>
 #include <functional>
 

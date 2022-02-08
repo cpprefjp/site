@@ -8,7 +8,7 @@
 T imag() const;             // (1) C++03
 constexpr T imag() const;   // (1) C++14
 
-void imag(T val);           // (2) C++03
+void imag(T val);           // (2) C++11
 constexpr void imag(T val); // (2) C++20
 ```
 
