@@ -13,7 +13,7 @@ namespace std {
 }
 ```
 * char_traits[link /reference/string/char_traits.md]
-* basic_istream[link /reference/istream/basic_istream.md]
+* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
 
