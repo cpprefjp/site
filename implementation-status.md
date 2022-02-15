@@ -254,7 +254,7 @@
 | P1938R3 : [`if consteval`](/lang/cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | - |
 | P1401R5 : [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | - | - |
 | P2223R2 : [行末スペースを無視するよう規定](/lang/cpp23/trimming_whitespaces_before_line_splicing.md.nolink) | 行末が`\ `でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 | Yes | Yes | - | - |
-| P1847R4 : [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | - |
+| P1847R4 : [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | Yes |
 | P2201R1 : [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | Yes | Yes |
 
 
