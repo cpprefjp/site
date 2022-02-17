@@ -112,7 +112,7 @@ ccc
 ```
 
 
-### 末尾への挿入
+### 末尾への挿入 (C++11)
 ```cpp example
 #include <iostream>
 #include <vector>
