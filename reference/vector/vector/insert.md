@@ -58,6 +58,7 @@ iterator insert(const_iterator position, initializer_list<T> il); // (5) C++11
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -97,7 +98,7 @@ int main()
 ```
 * insert[color ff0000]
 
-### 出力
+#### 出力
 ```
 aaa
 hhh
@@ -108,6 +109,44 @@ eee
 ddd
 bbb
 ccc
+```
+
+
+### 末尾への挿入 (C++11)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <list>
+
+int main() {
+  std::vector<int> v = {1, 2, 3};
+
+  // 末尾の次を指すイテレータ (v.end()) 位置に挿入することで、
+  // 末尾に要素が追加される
+  v.insert(v.end(), {4, 5, 6});
+
+  std::list<int> ls = {7, 8, 9};
+  v.insert(v.end(), ls.begin(), ls.end());
+
+  for (int x : v) {
+    std::cout << x << std::endl;
+  }
+}
+```
+* ls.begin()[link /reference/list/list/begin.md]
+* ls.end()[link /reference/list/list/end.md]
+
+#### 出力
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
 ```
 
 ## バージョン
