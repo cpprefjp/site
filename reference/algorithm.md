@@ -391,7 +391,7 @@ ranges::sort(pv, {}, &Parson::name);
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|---------------------------------|-------|
-| [`lexicographical_compare_three_way`](algorithm/lexicographical_compare_three_way.md) | 2つの範囲を辞書式順序で比較する | |
+| [`lexicographical_compare_three_way`](algorithm/lexicographical_compare_three_way.md) | 2つの範囲を辞書式順序で比較する | C++20 |
 
 
 ### 順列
