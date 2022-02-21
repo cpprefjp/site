@@ -7,25 +7,25 @@
 
 | マクロ名 | 値 | 機能 |
 |----------|----|------|
-|`__cpp_aggregate_paren_init`|`201902L`|[丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md)|
-|`__cpp_char8_t`|`201811L`|[UTF-8エンコーディングされた文字の型として`char8_t`を追加](cpp20/char8_t.md)|
-|`__cpp_concepts`|`201907L`|[コンセプト](cpp20/concepts.md)|
-|`__cpp_conditional_explicit`|`201806L`|[関数を条件付きで`explicit`にする構文を追加](cpp20/explicit_bool.md)|
-|`__cpp_constexpr`|`201907L`|[定数式からの仮想関数の呼び出しを許可](cpp20/allow_virtual_function_calls_in_constant_expressions.md)<br/>[定数式での`dynamic_cast`、多態的な`typeid`を許可](cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md)<br/>[constexpr関数内でのtry-catchブロックを許可](cpp20/try-catch_blocks_in_constexpr_functions.md)<br/>[定数式内での共用体のアクティブメンバの変更を許可](cpp20/changing_the_active_member_of_a_union_inside_constexpr.md)<br/>[constexpr関数内でのトリビアルなデフォルト初期化を許可](cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md)<br/>[constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)|
-|`__cpp_constexpr_dynamic_alloc`|`201907L`|[可変サイズをもつコンテナの`constexpr`化](cpp20/more_constexpr_containers.md)|
-|`__cpp_constexpr_in_decltype`|`201711L`|[評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](cpp20/less_eager_instantiation_of_constexpr_functions.md)|
-|`__cpp_consteval`|`201811L`|[即時関数](cpp20/immediate_functions.md)|
-|`__cpp_constinit`|`201907L`|[コンパイル時初期化を強制する`constinit`キーワードを追加](cpp20/constinit.md)|
-|`__cpp_deduction_guides`|`201907L`|[集成体クラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_aggregates.md)<br/>[エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](cpp20/class_template_argument_deduction_for_alias_templates.md)|
-|`__cpp_designated_initializers`|`201707L`|[指示付き初期化](cpp20/designated_initialization.md)|
-|`__cpp_generic_lambdas`|`201707L`|[ジェネリックラムダのテンプレート構文](cpp20/familiar_template_syntax_for_generic_lambdas.md)|
-|`__cpp_impl_coroutine`|`201902L`|[コルーチン](cpp20/coroutines.md)|
-|`__cpp_impl_destroying_delete`|`201806L`|[可変長データを扱うクラスの効率的な`delete`](cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink)|
-|`__cpp_impl_three_way_comparison`|`201907L`|[一貫比較](cpp20/consistent_comparison.md)|
-|`__cpp_init_captures`|`201803L`|[ラムダ式の初期化キャプチャでのパック展開を許可](cpp20/allow_pack_expansion_in_lambda_init_capture.md)|
-|`__cpp_modules`|`201907L`|[モジュール](cpp20/modules.md)|
-|`__cpp_nontype_template_args`|`201911L`|[非型テンプレートパラメータとしてクラス型を許可する](cpp20/class_types_in_non-type_template_parameters.md)|
-|`__cpp_using_enum`|`201907L`|[スコープ付き列挙型のusing宣言](cpp20/using_enum.md)|
+|`__cpp_aggregate_paren_init`|`201902L`|[丸カッコの値リストからの集成体初期化を許可](allow_initializing_aggregates_from_a_parenthesized_list_of_values.md)|
+|`__cpp_char8_t`|`201811L`|[UTF-8エンコーディングされた文字の型として`char8_t`を追加](char8_t.md)|
+|`__cpp_concepts`|`201907L`|[コンセプト](concepts.md)|
+|`__cpp_conditional_explicit`|`201806L`|[関数を条件付きで`explicit`にする構文を追加](explicit_bool.md)|
+|`__cpp_constexpr`|`201907L`|[定数式からの仮想関数の呼び出しを許可](allow_virtual_function_calls_in_constant_expressions.md)<br/>[定数式での`dynamic_cast`、多態的な`typeid`を許可](allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md)<br/>[constexpr関数内でのtry-catchブロックを許可](try-catch_blocks_in_constexpr_functions.md)<br/>[定数式内での共用体のアクティブメンバの変更を許可](changing_the_active_member_of_a_union_inside_constexpr.md)<br/>[constexpr関数内でのトリビアルなデフォルト初期化を許可](permitting_trivial_default_initialization_in_constexpr_contexts.md)<br/>[constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)|
+|`__cpp_constexpr_dynamic_alloc`|`201907L`|[可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md)|
+|`__cpp_constexpr_in_decltype`|`201711L`|[評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](less_eager_instantiation_of_constexpr_functions.md)|
+|`__cpp_consteval`|`201811L`|[即時関数](immediate_functions.md)|
+|`__cpp_constinit`|`201907L`|[コンパイル時初期化を強制する`constinit`キーワードを追加](constinit.md)|
+|`__cpp_deduction_guides`|`201907L`|[集成体クラステンプレートのテンプレート引数推論](class_template_argument_deduction_for_aggregates.md)<br/>[エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](class_template_argument_deduction_for_alias_templates.md)|
+|`__cpp_designated_initializers`|`201707L`|[指示付き初期化](designated_initialization.md)|
+|`__cpp_generic_lambdas`|`201707L`|[ジェネリックラムダのテンプレート構文](familiar_template_syntax_for_generic_lambdas.md)|
+|`__cpp_impl_coroutine`|`201902L`|[コルーチン](coroutines.md)|
+|`__cpp_impl_destroying_delete`|`201806L`|[可変長データを扱うクラスの効率的な`delete`](efficient_sized_delete_for_variable_sized_classes.md.nolink)|
+|`__cpp_impl_three_way_comparison`|`201907L`|[一貫比較](consistent_comparison.md)|
+|`__cpp_init_captures`|`201803L`|[ラムダ式の初期化キャプチャでのパック展開を許可](allow_pack_expansion_in_lambda_init_capture.md)|
+|`__cpp_modules`|`201907L`|[モジュール](modules.md)|
+|`__cpp_nontype_template_args`|`201911L`|[非型テンプレートパラメータとしてクラス型を許可する](class_types_in_non-type_template_parameters.md)|
+|`__cpp_using_enum`|`201907L`|[スコープ付き列挙型のusing宣言](using_enum.md)|
 
 ### ライブラリ
 
