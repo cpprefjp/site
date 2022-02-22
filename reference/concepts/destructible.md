@@ -51,6 +51,7 @@ int main() {
   f<std::vector<int>>("std::vector<int>");
   f<S1>("S1");
   f<S2>("S2");
+  f<void>("void");
 }
 ```
 * std::destructible[color ff0000]
@@ -61,6 +62,7 @@ int is destructible
 std::vector<int> is destructible
 S1 is not destructible
 S2 is not destructible
+void is not destructible
 ```
 
 
