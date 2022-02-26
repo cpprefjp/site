@@ -263,6 +263,7 @@
 - GCC: [C++23 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx23)
 - Clang: [C++2b implementation status](https://clang.llvm.org/cxx_status.html#cxx23)
 - Visual C++ (MSVC):
+    - [C++23 - cppreference](https://en.cppreference.com/w/cpp/23)
     - [次リリース情報(VS2019,2022) - Change log](https://github.com/microsoft/STL/wiki/Changelog)
 
 [gcc]: ./implementation.md#gcc
