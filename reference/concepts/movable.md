@@ -20,7 +20,13 @@ namespace std {
 
 ## 概要
 
-`movable`は、任意の型`T`がオブジェクト型かつムーブ構築・代入が可能であり、必然的に`swap`可能であることを表すコンセプトである。
+`movable`は、任意の型`T`がオブジェクト型かつムーブ構築・代入が可能であることを表すコンセプトである。
+
+## 備考
+
+`move_constructible`かつ`assignable_from`であれば結果として必然的に`swap`可能となるにもかかわらず、本コンセプト定義に[`swappable`](/reference/concepts/swappable.md)が含まれているのは、オブジェクトの基本操作として`swap`可能という性質がもっとも原始的なものであるため。
+
+また、`swappable`を定義に含むことで、そのような「`swap`可能->ムーブ可能->コピー可能」というオブジェクトに対する基本操作の関係性を、コンセプトにおける包摂関係として表現している。
 
 ## 例
 ```cpp example
@@ -96,3 +102,4 @@ not_movable2 is not movable
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
+- [値指向なコンセプトの説明文面を修正 Pull Request #929 - cpprefjp/site](https://github.com/cpprefjp/site/pull/929)
