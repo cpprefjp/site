@@ -38,7 +38,7 @@ int main() {
   f<int>("int");
   f<std::size_t>("std::size_t");
   f<std::uint32_t>("std::uint32_t");
-  f<int>("char");
+  f<char>("char");
   f<char8_t>("char8_t");
 
   std::cout << "\n";
