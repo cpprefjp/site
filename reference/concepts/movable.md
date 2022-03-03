@@ -24,9 +24,9 @@ namespace std {
 
 ## 備考
 
-`move_constructible`かつ`assignable_from`であれば結果として必然的に`swap`可能となるにもかかわらず、本コンセプト定義に[`swappable`](/reference/concepts/swappable.md)が含まれているのは、オブジェクトの基本操作として`swap`可能という性質がもっとも原始的なものであるため。
+意味論上はムーブ構築可能(`move_constructible<T>`)かつムーブ代入可能(`assignable_from<T&, T>`)であれば結果として必然的に[`swap`](/reference/concepts/swap.md)可能となるにもかかわらず、本コンセプト定義の制約式は[`swappable`](/reference/concepts/swappable.md)コンセプトを明示的に含んでいる。
 
-また、`swappable`を定義に含むことで、そのような「`swap`可能->ムーブ可能->コピー可能」というオブジェクトに対する基本操作の関係性を、コンセプトにおける包摂関係として表現している。
+オブジェクトに対する基本操作としては「`swap`可能」がもっとも原始的と考えられるため、ムーブ可能を表すコンセプトの制約式に`swappable`コンセプトを含めることで、そのような「`swap`可能->ムーブ可能->コピー可能」という基本操作の関係性を、コンセプトにおける包摂関係として表現している。
 
 ## 例
 ```cpp example
