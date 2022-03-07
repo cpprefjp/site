@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`x` が `y` より小さいかどうかの判定を行う。
+`set`において、左辺が右辺より小さいかの判定を行う。
 
 
 ## パラメータ
@@ -20,11 +20,16 @@ namespace std {
 
 
 ## 戻り値
-`x` が `y` より小さい場合に `true`, そうでない場合に `false`。
+```cpp
+lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
+```
+* lexicographical_compare[link /reference/algorithm/lexicographical_compare.md]
+* begin()[link begin.md]
+* end()[link end.md]
 
 
 ## 計算量
-[`size()`](size.md) に対して線形時間。
+[`size()`](size.md) に対して線形時間
 
 
 ## 例
@@ -32,26 +37,19 @@ namespace std {
 #include <iostream>
 #include <set>
 
-int main()
+int main ()
 {
-  std::set<int> s1, s2;
-  s1.insert(10);
-  s1.insert(20);
-  s1.insert(30);
-  s2 = s1;
+  std::set<int> s1 = {1, 2, 3};
+  std::set<int> s2 = {4, 5, 6};
 
-  std::cout << (s1 < s2) << std::endl;
-
-  s2.insert(40);
+  std::cout << std::boolalpha;
 
   std::cout << (s1 < s2) << std::endl;
 }
 ```
 * <[color ff0000]
-* insert[link insert.md]
 
 ### 出力
 ```
-0
-1
+true
 ```

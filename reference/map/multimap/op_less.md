@@ -9,7 +9,7 @@ bool operator< (const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 ```
 
 ## 概要
-`x` が `y` より小さいかどうかの判定を行う。
+`multimap`において、左辺が右辺より小さいかの判定を行う。
 
 
 ## パラメータ
@@ -18,11 +18,16 @@ bool operator< (const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T
 
 
 ## 戻り値
-`x` が `y` より小さい場合に `true`, そうでない場合に `false`。
+```cpp
+lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
+```
+* lexicographical_compare[link /reference/algorithm/lexicographical_compare.md]
+* begin()[link begin.md]
+* end()[link end.md]
 
 
 ## 計算量
-[`size()`](/reference/map/multimap/size.md) に対して線形時間。
+[`size()`](size.md) に対して線形時間。
 
 
 ## 例

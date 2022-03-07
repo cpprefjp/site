@@ -19,11 +19,16 @@ namespace std {
 
 
 ## 戻り値
-[`lexicographical_compare`](/reference/algorithm/lexicographical_compare.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`(), y.`[`end`](end.md)`());`
+```cpp
+lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
+```
+* lexicographical_compare[link /reference/algorithm/lexicographical_compare.md]
+* begin()[link begin.md]
+* end()[link end.md]
 
 
 ## 計算量
-線形時間
+[`size()`](size.md) に対して線形時間
 
 
 ## 例
