@@ -31,7 +31,7 @@ lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
 
 
 ## 計算量
-[`size()`](size.md) に対して線形時間。
+要素数に対して線形時間。
 
 
 ## 例
