@@ -42,5 +42,5 @@ int main()
 
 
 ## 参照
-- [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
+- [N2235 Generalized Constant Expressions — Revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2235.pdf)
 
