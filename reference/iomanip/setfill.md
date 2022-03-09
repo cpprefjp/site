@@ -1,12 +1,11 @@
 # setfill
 * iomanip[meta header]
 * std[meta namespace]
-* function template[meta id-type]
+* function[meta id-type]
 
 ```cpp
 namespace std {
-  template <class CharT>
-  unspecified setfill(CharT c);
+  unspecified setfill(char_type c);
 }
 ```
 * unspecified[italic]
