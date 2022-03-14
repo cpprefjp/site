@@ -17,7 +17,7 @@ iterator insert(const_iterator position,
 
 template <class InputIterator>
 void insert(iterator position,
-            InputIterator first, InputIterator last);               // (4) C++11
+            InputIterator first, InputIterator last);               // (4) C++03
 template <class InputIterator>
 iterator insert(const_iterator position,
                 InputIterator first, InputIterator last);           // (4) C++11
@@ -47,7 +47,7 @@ iterator insert(const_iterator position, initializer_list<T> init); // (5) C++11
 
 
 ## 戻り値
-- C++03まで一番上のバージョンがのみ、新しい要素が挿入された場所を指すイテレータを返す。
+- C++03まで一番上のバージョンのみ、新しい要素が挿入された場所を指すイテレータを返す。
 - C++11以降新しい要素が挿入された場所を示すイテレータ。
 
 
