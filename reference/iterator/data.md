@@ -69,13 +69,10 @@ int main()
 * std::data[color ff0000]
 * std::size[link size.md]
 
-### 出力
+### 出力例
 ```
-false
-false
-true
-false
-false
+array size:4 at 0x7fff0833f980
+array size:1 at 0x22e42b0
 ```
 
 ## バージョン

@@ -12,9 +12,10 @@ namespace std {
                          Size n,
                          ForwardIterator result); // (1) C++11
 
-  template <class InputIterator, class Size, class ForwardIterator>
+  template <class ExecutionPolicy, class InputIterator, class Size, class ForwardIterator>
   ForwardIterator
-    uninitialized_copy_n(InputIterator first,
+    uninitialized_copy_n(ExecutionPolicy&& exec,
+                         InputIterator first,
                          Size n,
                          ForwardIterator result); // (2) C++17
 }
