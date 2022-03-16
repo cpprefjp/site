@@ -58,7 +58,7 @@ namespace std {
 | [`begin`](forward_list/begin.md) | 先頭要素を指すイテレータを取得する | C++11 |
 | [`end`](forward_list/end.md) | 末尾の次を指すイテレータを取得する | C++11 |
 | [`cbegin`](forward_list/cbegin.md) | 先頭要素を指す読み取り専用イテレータを取得する | C++11 |
-| [`cbefore_begin`](forward_list/before_cbegin.md) | 先頭要素の前を指す読み取り専用イテレータを取得する | C++11 |
+| [`cbefore_begin`](forward_list/cbefore_begin.md) | 先頭要素の前を指す読み取り専用イテレータを取得する | C++11 |
 | [`cend`](forward_list/cend.md) | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
 
 

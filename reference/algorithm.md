@@ -145,7 +145,6 @@ ranges::sort(pv, {}, &Parson::name);
 | 名前 | 説明 | 対応バージョン |
 |-----------------------------------------------------|------------------------------------------|-------|
 | [`copy`](algorithm/copy.md)                       | 指定された範囲の要素をコピーする         | |
-| [`copy`](algorithm/copy.md)                       | 指定された範囲の要素をコピーする         | |
 | [`copy_n`](algorithm/copy_n.md)                   | 指定された数の要素をコピーする           | C++11 |
 | [`copy_if`](algorithm/copy_if.md)                 | 条件を満たす要素のみをコピーする         | C++11 |
 | [`copy_backward`](algorithm/copy_backward.md)     | 指定された範囲の要素を後ろからコピーする | |
