@@ -40,6 +40,7 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11
 
 
 ## 備考
+- 削除された要素を指すイテレータ、および、参照のみ無効になる。なお、規格書に明確な記載は無いが、削除された要素を指すポインタも無効になる。
 - ループ中で `map` の要素を削除するためには、C++03 までは以下のようなコードを書く必要があった。
     ```cpp
     while (it != map_object.end()) {
