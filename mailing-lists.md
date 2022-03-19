@@ -1,7 +1,7 @@
 # コミュニティリスト
 
 ## メーリングリスト
-以下は、標準C++関係のメーリングリストでである。
+以下は、標準C++関係のメーリングリストである。
 
 - [一覧](https://lists.isocpp.org/mailman/listinfo.cgi/)
 - [ISO C++ Standard - Discussion](https://lists.isocpp.org/mailman/listinfo.cgi/std-discussion)
