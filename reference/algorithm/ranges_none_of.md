@@ -128,4 +128,4 @@ inline constexpr none_of_impl none_of;
 
 
 ## 参照
-- [N4821 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)

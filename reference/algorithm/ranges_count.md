@@ -113,4 +113,4 @@ inline constexpr count_impl count;
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
 ## 参照
-- [N4821 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
