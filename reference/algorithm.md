@@ -275,11 +275,11 @@ ranges::sort(pv, {}, &Parson::name);
 | [`is_sorted`](algorithm/is_sorted.md)                 | ソート済みか判定する | C++11 |
 | [`is_sorted_until`](algorithm/is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++11 |
 | [`ranges::sort`](algorithm/ranges_sort.md)                           | 範囲を並べ替える                                                 | C++20 |
-| [`ranges::stable_sort`](algorithm/ranges_stable_sort.md.nolink)             | 範囲を安定ソートで並べ替える                                     | C++20 |
-| [`ranges::partial_sort`](algorithm/ranges_partial_sort.md.nolink)           | 範囲を部分的にソートし、先頭N個を並んだ状態にする                | C++20 |
-| [`ranges::partial_sort_copy`](algorithm/ranges_partial_sort_copy.md.nolink) | 範囲を部分的にソートした結果を他の範囲にコピーする               | C++20 |
-| [`ranges::is_sorted`](algorithm/ranges_is_sorted.md.nolink)                 | ソート済みか判定する                                             | C++20 |
-| [`ranges::is_sorted_until`](algorithm/ranges_is_sorted_until.md.nolink)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++20 |
+| [`ranges::stable_sort`](algorithm/ranges_stable_sort.md)             | 範囲を安定ソートで並べ替える                                     | C++20 |
+| [`ranges::partial_sort`](algorithm/ranges_partial_sort.md)           | 範囲を部分的にソートし、先頭N個を並んだ状態にする                | C++20 |
+| [`ranges::partial_sort_copy`](algorithm/ranges_partial_sort_copy.md) | 範囲を部分的にソートした結果を他の範囲にコピーする               | C++20 |
+| [`ranges::is_sorted`](algorithm/ranges_is_sorted.md)                 | ソート済みか判定する                                             | C++20 |
+| [`ranges::is_sorted_until`](algorithm/ranges_is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++20 |
 
 ### N 番目の要素
 

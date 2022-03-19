@@ -1,0 +1,99 @@
+# partial_sort_copy
+* algorithm[meta header]
+* std::ranges[meta namespace]
+* function template[meta id-type]
+* cpp20[meta cpp]
+
+```cpp
+namespace std::ranges {
+  template<class I, class O>
+  using partial_sort_copy_result = in_out_result<I, O>;
+
+  template<input_iterator I1, sentinel_for<I1> S1, random_access_iterator I2, sentinel_for<I2> S2,
+           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
+    requires indirectly_copyable<I1, I2> && sortable<I2, Comp, Proj2> &&
+             indirect_strict_weak_order<Comp, projected<I1, Proj1>, projected<I2, Proj2>>
+  constexpr partial_sort_copy_result<I1, I2>
+    partial_sort_copy(I1 first, S1 last, I2 result_first, S2 result_last, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {}); // (1)
+
+  template<input_range R1, random_access_range R2,
+           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
+    requires indirectly_copyable<iterator_t<R1>, iterator_t<R2>> &&
+             sortable<iterator_t<R2>, Comp, Proj2> &&
+             indirect_strict_weak_order<Comp, projected<iterator_t<R1>, Proj1>, projected<iterator_t<R2>, Proj2>>
+  constexpr partial_sort_copy_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>>
+    partial_sort_copy(R1&& r, R2&& result_r, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                              // (2)
+}
+```
+* in_out_result[link in_out_result.md.nolink]
+* input_iterator[link /reference/iterator/input_iterator.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* ranges::less[link /reference/functional/ranges_less.md]
+* identity[link /reference/functional/identity.md]
+* indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
+* indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
+* projected[link /reference/iterator/projected.md]
+* sortable[link /reference/iterator/sortable.md]
+* input_range[link /reference/ranges/input_range.md]
+* random_access_range[link /reference/ranges/random_access_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+
+## 概要
+範囲を部分的にソートした結果を他の範囲にコピーする
+
+* (1): イテレーターペアで範囲を指定する
+* (2): 範囲を直接指定する
+
+## 効果
+`[first,last)` にある要素の中から、[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` 個の要素をソート済みの状態で `[result_first,result_first +` [`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first))` に配置する。
+
+
+## 戻り値
+`result_last` と `result_first + (last - first)` で小さい方が返される
+
+
+## 計算量
+ほぼ `(last - first) * log(min(last - first, result_last - result_- first))` 回の比較を行う
+
+
+## 例
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main()
+{
+  std::vector<int> v = {3, 1, 4, 2, 5};
+
+  // vから小さい順に2要素取り出す
+  std::vector<int> result(2);
+  std::ranges::partial_sort_copy(v, result);
+
+  for (int i : result) {
+    std::cout << i;
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::partial_sort_copy[color ff0000]
+
+### 出力
+```
+12
+```
+
+## バージョン
+### 言語
+- C++20
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 10.1.0
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+## 参照
+- [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
