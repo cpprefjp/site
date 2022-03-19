@@ -1,4 +1,6 @@
-# メーリングリスト
+# コミュニティリスト
+
+## メーリングリスト
 以下は、標準C++関係のメーリングリストでである。
 
 - [一覧](https://lists.isocpp.org/mailman/listinfo.cgi/)
@@ -21,12 +23,12 @@
 - [SG20 Education](https://lists.isocpp.org/mailman/listinfo.cgi/sg20)
     - Study Group 20は、C++教育のための現代的な教材を作成する
 
-# チャットリスト
+## チャットリスト
 以下は、C++の話題が盛んなチャットツールのリストである。
 
 - [CPP Lang (Slack)](https://cppalliance.org/slack/)
-  - 世界中のC ++のユーザーを同じ場所に集める目的で作られたSlackワークスペース。[The C++ Alliance](https://cppalliance.org/) が運営している。  
+    - 世界中のC ++のユーザーを同じ場所に集める目的で作られたSlackワークスペース。[The C++ Alliance](https://cppalliance.org/) が運営している。  
   `cmake`, `boost`, `feature_standard` などチャネルが多数存在する。
 - [MSVC STL (Discord) ](https://github.com/microsoft/STL/wiki/)
-  -  The Microsoft C++ team が開設したDiscordチャネル。  
+    - The Microsoft C++ team が開設したDiscordチャネル。  
   microsoft/STL の開発状況や、次期リリース情報などがリアルタイムに判る。参加者との質疑応答も盛んに行われている。
