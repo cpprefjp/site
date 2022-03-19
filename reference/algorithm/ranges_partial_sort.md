@@ -9,6 +9,10 @@ namespace std::ranges {
   template<random_access_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
     requires sortable<I, Comp, Proj>
   constexpr I partial_sort(I first, I middle, S last, Comp comp = {}, Proj proj = {});
+
+  template<random_access_range R, class Comp = ranges::less, class Proj = identity>
+    requires sortable<iterator_t<R>, Comp, Proj>
+  constexpr borrowed_iterator_t<R> partial_sort(R&& r, iterator_t<R> middle, Comp comp = {}, Proj proj = {});
 }
 ```
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
@@ -16,6 +20,9 @@ namespace std::ranges {
 * ranges::less[link /reference/functional/ranges_less.md]
 * identity[link /reference/functional/identity.md]
 * sortable[link /reference/iterator/sortable.md]
+* random_access_range[link /reference/ranges/random_access_range.md]
+* iterator_t[link /reference/iterator/iterator_t.md]
+* borrowed_iterator_t[link /reference/iterator/borrowed_iterator_t.md]
 
 
 ## 概要
@@ -47,7 +54,7 @@ int main()
   std::vector<int> v = {3, 1, 4, 2, 5};
 
   // 先頭2要素を並んだ状態にする
-  std::ranges::partial_sort(v.begin(), v.begin() + 2, v.end());
+  std::ranges::partial_sort(v, v.begin() + 2);
 
   for (int i : v) {
     std::cout << i;
