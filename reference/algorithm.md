@@ -286,7 +286,7 @@ ranges::sort(pv, {}, &Parson::name);
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------------|-------|
 | [`nth_element`](algorithm/nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | |
-| [`ranges::nth_element`](algorithm/ranges_nth_element.md.nolink) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | C++20 |
+| [`ranges::nth_element`](algorithm/ranges_nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | C++20 |
 
 
 ### <a id="alg.binary.search"></a>二分探索
