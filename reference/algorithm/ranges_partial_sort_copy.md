@@ -47,15 +47,17 @@ namespace std::ranges {
 * (2): 範囲を直接指定する
 
 ## 効果
-`[first,last)` にある要素の中から、[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` 個の要素をソート済みの状態で `[result_first,result_first +` [`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first))` に配置する。
+`N = `[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` とする。
+
+`[first,last)` にある要素の中から、`N` 個の要素をソート済みの状態で `[result_first,result_first + N)` に配置する。
 
 
 ## 戻り値
-`result_last` と `result_first + (last - first)` で小さい方が返される
+`{last, result_first + N}`
 
 
 ## 計算量
-ほぼ `(last - first) * log(min(last - first, result_last - result_- first))` 回の比較を行う
+ほぼ `(last - first) * log(N)` 回の比較を行う
 
 
 ## 例
