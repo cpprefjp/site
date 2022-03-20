@@ -384,7 +384,7 @@ ranges::sort(pv, {}, &Parson::name);
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|---------------------------------|-------|
 | [`lexicographical_compare`](algorithm/lexicographical_compare.md) | 2つの範囲を辞書式順序で比較する | |
-| [`ranges::lexicographical_compare`](algorithm/ranges_lexicographical_compare.md.nolink) | 2つの範囲を辞書式順序で比較する | C++20 |
+| [`ranges::lexicographical_compare`](algorithm/ranges_lexicographical_compare.md) | 2つの範囲を辞書式順序で比較する | C++20 |
 
 ### 三方比較アルゴリズム
 
