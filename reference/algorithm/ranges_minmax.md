@@ -7,9 +7,6 @@
 
 ```cpp
 namespace std::ranges {
-  template<class T>
-  using minmax_result = min_max_result<T>;
-
   template<class T, class Proj = identity,
            indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
   constexpr minmax_result<const T&> minmax(const T& a, const T& b, Comp comp = {}, Proj proj = {});
@@ -24,7 +21,7 @@ namespace std::ranges {
   constexpr minmax_result<range_value_t<R>> minmax(R&& r, Comp comp = {}, Proj proj = {});
 }
 ```
-* min_max_result[link min_max_result.md.nolink]
+* minmax_result[link min_max_result.md]
 * identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * projected[link /reference/iterator/projected.md]
@@ -39,7 +36,13 @@ namespace std::ranges {
 同じ型の2つの値、もしくは範囲によるN個の値のうち、最小値と最大値の組を取得する。
 
 ## 戻り値
-第1メンバ`min`が最小値、第2メンバ`max`が最大値となるtuple-likeオブジェクト([`min_max_result`](min_max_result.md.nolink))
+```cpp
+minmax_result {
+  .min = 最小値,
+  .max = 最大値,
+}
+```
+* minmax_result[link min_max_result.md]
 
 それぞれ、比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって判断された最初の値となる。
 

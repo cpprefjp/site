@@ -22,7 +22,7 @@ namespace std::ranges {
     set_symmetric_difference(R1&& r1, R2&& r2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});
 }
 ```
-* in_in_out_result[link in_in_out_result.md.nolink]
+* set_symmetric_difference_result[link in_in_out_result.md] 
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
@@ -49,15 +49,14 @@ namespace std::ranges {
 
 
 ## 戻り値
-次のメンバをもつtuple-likeオブジェクト。
-
 ```cpp
-set_union_result {
+set_symmetric_difference_result {
   .in1 = last1,
   .in2 = last2,
   .out = result_last,
 }
 ```
+* set_symmetric_difference_result[link in_in_out_result.md] 
 
 ただし、`result_last` は構築された範囲の終端。 
 

@@ -6,9 +6,6 @@
 
 ```cpp
 namespace std::ranges {
-  template<class I, class O>
-  using partial_sort_copy_result = in_out_result<I, O>;
-
   template<input_iterator I1, sentinel_for<I1> S1, random_access_iterator I2, sentinel_for<I2> S2,
            class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
     requires indirectly_copyable<I1, I2> && sortable<I2, Comp, Proj2> &&
@@ -25,7 +22,7 @@ namespace std::ranges {
     partial_sort_copy(R1&& r, R2&& result_r, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                              // (2)
 }
 ```
-* in_out_result[link in_out_result.md.nolink]
+* partial_sort_copy_result[link in_out_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
@@ -53,7 +50,13 @@ namespace std::ranges {
 
 
 ## 戻り値
-`{last, result_first + N}`
+```cpp
+partial_sort_copy_result {
+  .in = last,
+  .out = result_first + N
+}
+```
+* partial_sort_copy_result[link in_out_result.md]
 
 
 ## 計算量

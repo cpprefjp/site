@@ -6,9 +6,6 @@
 
 ```cpp
 namespace std::ranges {
-  template<class I, class F>
-  using for_each_result = in_fun_result<I, F>;
-
   template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
   constexpr for_each_result<I, Fun> for_each(I first, S last, Fun f, Proj proj = {});                     // (1)
 
@@ -24,7 +21,7 @@ namespace std::ranges {
 * input_range[link /reference/ranges/input_range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * projected[link /reference/iterator/projected.md]
-* in_fun_result[link /reference/algorithm/ranges_in_fun_result.md.nolink]
+* for_each_result[link /reference/algorithm/ranges_in_fun_result.md]
 
 
 ## 概要
@@ -49,7 +46,13 @@ namespace std::ranges {
 
 ## 戻り値
 
-`{last, std::move(f)}`
+```cpp
+for_each_result {
+  .in = last,
+  .fun = std::move(f),
+}
+```
+* for_each_result[link /reference/algorithm/ranges_in_fun_result.md]
 
 ## 計算量
 正確に `f` を `last - first` 回適用する

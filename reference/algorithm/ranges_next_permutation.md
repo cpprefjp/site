@@ -7,9 +7,6 @@
 
 ```cpp
 namespace std::ranges {
-  template<class I>
-  using next_permutation_result = in_found_result<I>;
-
   template<bidirectional_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
     requires sortable<I, Comp, Proj>
   constexpr next_permutation_result<I> next_permutation(I first, S last, Comp comp = {}, Proj proj = {});             // (1)
@@ -19,7 +16,7 @@ namespace std::ranges {
   constexpr next_permutation_result<borrowed_iterator_t<R>> next_permutation(R&& r, Comp comp = {}, Proj proj = {});  // (2)
 }
 ```
-* in_found_result[link in_found_result.md.nolink]
+* next_permutation_result[link in_found_result.md]
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::less[link /reference/functional/ranges_less.md]
@@ -44,10 +41,14 @@ namespace std::ranges {
 辞書順による次の順列とは、現在の順列（`[first, last)`）よりも（上記の意味の順序で）大きい順列のうち取り得る最小のもののことである。
 
 ## 戻り値
-次のメンバをもつtuple-lileオブジェクト。
 
-1. `in`: `last`
-2. `found`: 次の順列が存在する場合は`true`、そうでなければ`false`
+```cpp
+next_permutation_result {
+  .in = last,
+  .found = 次の順列が存在する場合は true、そうでなければ false,
+}
+```
+* next_permutation_result[link in_found_result.md]
 
 ## 計算量
 高々`(last - first)/2`回の要素の交換

@@ -6,9 +6,6 @@
 
 ```cpp
 namespace std::ranges {
-  template<class I1, class I2, class O>
-  using set_union_result = in_in_out_result<I1, I2, O>;
-
   template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2, weakly_incrementable O,
            class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
     requires mergeable<I1, I2, O, Comp, Proj1, Proj2>
@@ -22,7 +19,7 @@ namespace std::ranges {
     set_union(R1&& r1, R2&& r2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                           // (2)
 }
 ```
-* in_in_out_result[link in_in_out_result.md.nolink]
+* set_union_result[link in_in_out_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
@@ -48,8 +45,6 @@ namespace std::ranges {
 
 
 ## 戻り値
-次のメンバをもつtuple-likeオブジェクト。
-
 ```cpp
 set_union_result {
   .in1 = last1,
@@ -57,6 +52,7 @@ set_union_result {
   .out = result_last,
 }
 ```
+* set_union_result[link in_in_out_result.md]
 
 ただし、`result_last` は構築された範囲の終端。 
 

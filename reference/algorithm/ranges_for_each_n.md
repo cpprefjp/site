@@ -6,9 +6,6 @@
 
 ```cpp
 namespace std::ranges {
-  template<class I, class F>
-  using for_each_n_result = in_fun_result<I, F>;
-
   template<input_iterator I, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
   constexpr for_each_n_result<I, Fun> for_each_n(I first, iter_difference_t<I> n, Fun f, Proj proj = {});
 }
@@ -18,7 +15,7 @@ namespace std::ranges {
 * indirectly_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
 * projected[link /reference/iterator/projected.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* in_fun_result[link /reference/algorithm/ranges_in_fun_result.md.nolink]
+* for_each_n_result[link /reference/algorithm/ranges_in_fun_result.md]
 
 ## 概要
 範囲の先頭N個の要素に、指定された関数を適用する。
@@ -39,7 +36,13 @@ namespace std::ranges {
 このアルゴリズムはその他のアルゴリズムと違い、[`invoke`](/reference/functional/invoke.md)`(proj, *i)` が書き換え可能な参照であれば、関数 `f` の内部でその値を書き換えても構わない。
 
 ## 戻り値
-`{first + n, std::move(f)}`
+```cpp
+for_each_n_result {
+  .in = first + n,
+  .fun = std::move(f)
+}
+```
+* for_each_n_result[link /reference/algorithm/ranges_in_fun_result.md]
 
 ## 備考
 - 関数 `f` に戻り値がある場合、それは単に無視される

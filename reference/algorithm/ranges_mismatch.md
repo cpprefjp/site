@@ -6,19 +6,16 @@
 
 ```cpp
 namespace std::ranges {
-  template<class I1, class I2>
-  using mismatch_result = in_in_result<I1, I2>; // (1)
-
   template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2, class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
     requires indirectly_comparable<I1, I2, Pred, Proj1, Proj2>
-  constexpr mismatch_result<I1, I2> mismatch(I1 first1, S1 last1, I2 first2, S2 last2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                      // (2)
+  constexpr mismatch_result<I1, I2> mismatch(I1 first1, S1 last1, I2 first2, S2 last2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                      // (1)
 
   template<input_range R1, input_range R2, class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
     requires indirectly_comparable<iterator_t<R1>, iterator_t<R2>, Pred, Proj1, Proj2>
-  constexpr mismatch_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>> mismatch(R1&& r1, R2&& r2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});    // (3)
+  constexpr mismatch_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>> mismatch(R1&& r1, R2&& r2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});    // (2)
 }
 ```
-* in_fun_result[link ranges_in_fun_result.md.nolink]
+* mismatch_result[link ranges_in_in_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::equal_to[link /reference/functional/ranges_equal_to.md]
@@ -37,16 +34,18 @@ namespace std::ranges {
 ## 概要
 2つのシーケンスが一致していない場所を検索する。
 
+* (1): イテレーターペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 ## 戻り値
-戻り値の型 `mismatch_result` は2つのイテレータからなるtuple-likeな型である。
 
 `[first1,last1)` 内にあるイテレータ `i` と、`j == first2 + (i - first1)` であるイテレータ `j` について、
 
 - `j`が範囲`[first2, last2)`に含まれており、
 - `!(*i == *j)` もしくは
-- [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj1, *i), `[`invoke`](/reference/functional/invoke.md)`(proj2, *j)) == false` であるような、最初のイテレータのペア `{i, j}` を返す。
+- [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj1, *i), `[`invoke`](/reference/functional/invoke.md)`(proj2, *j)) == false` であるような、最初のイテレータのペア [`mismatch_result`](ranges_in_in_result.md)`{ .in1 = i, .in2 = j }` を返す。
 
-そのようなイテレータが見つからなかった場合は `{last1, first2 + (last1 - first1)}` を返す。
+そのようなイテレータが見つからなかった場合は [`mismatch_result`](ranges_in_in_result.md)`{ .in1 = last1, .in2 = first2 + (last1 - first1)}` を返す。
 
 ## 計算量
 最大で `last1 - first1` 回の対応する述語が適用される。
@@ -110,7 +109,7 @@ mismatch value: (end,2)
 struct mismatch_impl {
   template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2, class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
     requires indirectly_comparable<I1, I2, Pred, Proj1, Proj2>
-  constexpr ranges::mismatch_result<I1, I2> operator()(I1 first1, S1 last1, I2 first2, S2 last2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {}) const {
+  constexpr mismatch_result<I1, I2> operator()(I1 first1, S1 last1, I2 first2, S2 last2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {}) const {
     for ( ; first1 != last1 && first != last2; ++first1, ++first2)
       if (!bool(invoke(pred, invoke(proj1, *first1), invoke(proj2, *first2))))
         return {first1, first2};
@@ -126,7 +125,7 @@ struct mismatch_impl {
 
 inline constexpr mismatch_impl mismatch;
 ```
-* in_fun_result[link ranges_in_fun_result.md.nolink]
+* mismatch_result[link ranges_in_in_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::equal_to[link /reference/functional/ranges_equal_to.md]

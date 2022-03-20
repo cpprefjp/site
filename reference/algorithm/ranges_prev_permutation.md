@@ -6,9 +6,6 @@
 
 ```cpp
 namespace std::ranges {
-  template<class I>
-  using prev_permutation_result = in_found_result<I>;
-
   template<bidirectional_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
     requires sortable<I, Comp, Proj>
   constexpr prev_permutation_result<I> next_permutation(I first, S last, Comp comp = {}, Proj proj = {});             // (1)
@@ -18,7 +15,7 @@ namespace std::ranges {
   constexpr prev_permutation_result<borrowed_iterator_t<R>> next_permutation(R&& r, Comp comp = {}, Proj proj = {});  // (2)
 }
 ```
-* in_found_result[link in_found_result.md.nolink]
+* prev_permutation_result[link in_found_result.md]
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::less[link /reference/functional/ranges_less.md]
@@ -40,10 +37,13 @@ namespace std::ranges {
 比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって辞書順に並んでいる全ての順列の集合があると仮定すると、前の順列が発見される。
 
 ## 戻り値
-次のメンバをもつtuple-lileオブジェクト。
-
-1. `in`: `last`
-2. `found`: 前の順列が存在する場合は`true`、そうでなければ`false`
+```cpp
+prev_permutation_result {
+  .in = last,
+  .found = 前の順列が存在する場合は true、そうでなければ false,
+}
+```
+* prev_permutation_result[link in_found_result.md]
 
 
 ## 計算量

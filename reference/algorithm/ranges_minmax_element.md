@@ -6,19 +6,16 @@
 
 ```cpp
 namespace std::ranges {
-  template<class T>
-  using minmax_result = min_max_result<T>;
-
   template<forward_iterator I, sentinel_for<I> S, class Proj = identity,
            indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
-  constexpr minmax_result<I> minmax_element(I first, S last, Comp comp = {}, Proj proj = {});
+  constexpr minmax_element_result<I> minmax_element(I first, S last, Comp comp = {}, Proj proj = {});
 
   template<forward_range R, class Proj = identity,
            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
-  constexpr minmax_result<borrowed_iterator_t<R>> minmax_element(R&& r, Comp comp = {}, Proj proj = {});
+  constexpr minmax_element_result<borrowed_iterator_t<R>> minmax_element(R&& r, Comp comp = {}, Proj proj = {});
 }
 ```
-* min_max_result[link min_max_result.md.nolink]
+* minmax_element_result[link min_max_result.md]
 * forward_iterator[link /reference/iterator/forward_iterator.md]
 * identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
@@ -35,8 +32,13 @@ namespace std::ranges {
 
 
 ## 戻り値
-
-第1メンバ`min`が最小の要素、第2メンバ`max`が最大の要素をそれぞれ指すイテレータとなるtuple-likeオブジェクト([`min_max_result`](min_max_result.md.nolink))
+```cpp
+minmax_element_result {
+  .min = 最小の要素を指すイテレータ,
+  .max = 最大の要素を指すイテレータ,
+}
+```
+* minmax_element_result[link min_max_result.md]
 
 それぞれ、比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって判断し、同じ値の要素が複数ある場合は、最小の要素は最初の要素、最大の要素は最後の要素となる。
 

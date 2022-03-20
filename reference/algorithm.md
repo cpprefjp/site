@@ -408,15 +408,15 @@ ranges::sort(pv, {}, &Parson::name);
 
 これらの型は、複数の値を1つの戻り値として返すために使われる汎用的な型である。構造化束縛で受け取ることが想定されている。
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------|------------------------|-------|
-| [`ranges::in_fun_result`](algorithm/ranges_in_fun_result.md.nolink)         | イテレータと関数オブジェクトを格納する型 | C++20 |
-| [`ranges::in_in_result`](algorithm/ranges_in_in_result.md.nolink)           | 2つのイテレータを格納する型              | C++20 |
-| [`ranges::in_out_result`](algorithm/ranges_in_out_result.md.nolink)         | 2つのイテレータを格納する型              | C++20 |
-| [`ranges::in_in_out_result`](algorithm/ranges_in_in_out_result.md.nolink)   | 3つのイテレータを格納する型              | C++20 |
-| [`ranges::in_out_out_result`](algorithm/ranges_in_out_out_result.md.nolink) | 3つのイテレータを格納する型              | C++20 |
-| [`ranges::min_max_result`](algorithm/ranges_min_max_result.md.nolink)       | 2つの値または参照を格納する型            | C++20 |
-| [`ranges::in_found_result`](algorithm/ranges_in_found_result.md.nolink)     | イテレータとbool値を格納する型           | C++20 |
+| 名前                                                                 | 説明                                     | 対応バージョン |
+|----------------------------------------------------------------------|------------------------------------------|----------------|
+| [`ranges::in_fun_result`](algorithm/ranges_in_fun_result.md)         | イテレータと関数オブジェクトを格納する型 | C++20          |
+| [`ranges::in_in_result`](algorithm/ranges_in_in_result.md)           | 2つのイテレータを格納する型              | C++20          |
+| [`ranges::in_out_result`](algorithm/ranges_in_out_result.md)         | 2つのイテレータを格納する型              | C++20          |
+| [`ranges::in_in_out_result`](algorithm/ranges_in_in_out_result.md)   | 3つのイテレータを格納する型              | C++20          |
+| [`ranges::in_out_out_result`](algorithm/ranges_in_out_out_result.md) | 3つのイテレータを格納する型              | C++20          |
+| [`ranges::min_max_result`](algorithm/ranges_min_max_result.md)       | 2つの値または参照を格納する型            | C++20          |
+| [`ranges::in_found_result`](algorithm/ranges_in_found_result.md)     | イテレータとbool値を格納する型           | C++20          |
 
 ## 関連項目
 - [`<numeric>`](/reference/numeric.md)
