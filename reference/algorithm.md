@@ -371,13 +371,13 @@ ranges::sort(pv, {}, &Parson::name);
 | [`max_element`](algorithm/max_element.md)       | 範囲内の最大要素へのイテレータを取得する | |
 | [`minmax_element`](algorithm/minmax_element.md) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++11 |
 | [`clamp`](algorithm/clamp.md)                   | 値を範囲内に収める | C++17 |
-| [`ranges::min`](algorithm/ranges_min.md.nolink)                       | 最小値を取得する                                   | C++20 |
-| [`ranges::max`](algorithm/ranges_max.md.nolink)                       | 最大値を取得する                                   | C++20 |
-| [`ranges::minmax`](algorithm/ranges_minmax.md.nolink)                 | 最小値と最大値を取得する                           | C++20 |
-| [`ranges::min_element`](algorithm/ranges_min_element.md.nolink)       | 範囲内の最小要素へのイテレータを取得する           | C++20 |
-| [`ranges::max_element`](algorithm/ranges_max_element.md.nolink)       | 範囲内の最大要素へのイテレータを取得する           | C++20 |
-| [`ranges::minmax_element`](algorithm/ranges_minmax_element.md.nolink) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++20 |
-| [`ranges::clamp`](algorithm/ranges_clamp.md.nolink)                   | 値を範囲内に収める                                 | C++20 |
+| [`ranges::min`](algorithm/ranges_min.md)                       | 最小値を取得する                                   | C++20 |
+| [`ranges::max`](algorithm/ranges_max.md)                       | 最大値を取得する                                   | C++20 |
+| [`ranges::minmax`](algorithm/ranges_minmax.md)                 | 最小値と最大値を取得する                           | C++20 |
+| [`ranges::min_element`](algorithm/ranges_min_element.md)       | 範囲内の最小要素へのイテレータを取得する           | C++20 |
+| [`ranges::max_element`](algorithm/ranges_max_element.md)       | 範囲内の最大要素へのイテレータを取得する           | C++20 |
+| [`ranges::minmax_element`](algorithm/ranges_minmax_element.md) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++20 |
+| [`ranges::clamp`](algorithm/ranges_clamp.md)                   | 値を範囲内に収める                                 | C++20 |
 
 ### 辞書式比較
 
