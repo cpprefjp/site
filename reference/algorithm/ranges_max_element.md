@@ -15,7 +15,7 @@ namespace std::ranges {
   constexpr borrowed_iterator_t<R> max_element(R&& r, Comp comp = {}, Proj proj = {});
 }
 ```
-* forward_iterator[link /reference/ranges/forward_iterator.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
 * identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * projected[link /reference/iterator/projected.md]

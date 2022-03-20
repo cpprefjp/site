@@ -19,7 +19,7 @@ namespace std::ranges {
 }
 ```
 * min_max_result[link min_max_result.md.nolink]
-* forward_iterator[link /reference/ranges/forward_iterator.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
 * identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * projected[link /reference/iterator/projected.md]
