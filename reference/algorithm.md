@@ -329,11 +329,11 @@ ranges::sort(pv, {}, &Parson::name);
 | [`set_difference`](algorithm/set_difference.md)     | 2つのソート済み範囲の差集合を得る | |
 | [`set_symmetric_difference`](algorithm/set_symmetric_difference.md) | 2つのソート済み範囲の対称差集合を得る | |
 | [`includes`](algorithm/includes.md) | 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する | |
-| [`ranges::set_union`](algorithm/ranges_set_union.md.nolink)                               | 2つのソート済み範囲の和集合を得る                                                           | C++20 |
-| [`ranges::set_intersection`](algorithm/ranges_set_intersection.md.nolink)                 | 2つのソート済み範囲の積集合を得る                                                           | C++20 |
-| [`ranges::set_difference`](algorithm/ranges_set_difference.md.nolink)                     | 2つのソート済み範囲の差集合を得る                                                           | C++20 |
-| [`ranges::set_symmetric_difference`](algorithm/ranges_set_symmetric_difference.md.nolink) | 2つのソート済み範囲の対称差集合を得る                                                       | C++20 |
-| [`ranges::includes`](algorithm/ranges_includes.md.nolink)                                 | 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する | C++20 |
+| [`ranges::set_union`](algorithm/ranges_set_union.md)                               | 2つのソート済み範囲の和集合を得る                                                           | C++20 |
+| [`ranges::set_intersection`](algorithm/ranges_set_intersection.md)                 | 2つのソート済み範囲の積集合を得る                                                           | C++20 |
+| [`ranges::set_difference`](algorithm/ranges_set_difference.md)                     | 2つのソート済み範囲の差集合を得る                                                           | C++20 |
+| [`ranges::set_symmetric_difference`](algorithm/ranges_set_symmetric_difference.md) | 2つのソート済み範囲の対称差集合を得る                                                       | C++20 |
+| [`ranges::includes`](algorithm/ranges_includes.md)                                 | 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する | C++20 |
 
 ### ヒープ
 
