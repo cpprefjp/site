@@ -5,7 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::ranges {
   template<forward_iterator I, sentinel_for<I> S, class Proj = identity,
            indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
   constexpr I is_sorted_until(I first, S last, Comp comp = {}, Proj proj = {});

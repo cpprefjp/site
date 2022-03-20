@@ -5,7 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::ranges {
   template<bidirectional_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
     requires sortable<I, Comp, Proj>
   I inplace_merge(I first, I middle, S last, Comp comp = {}, Proj proj = {});
