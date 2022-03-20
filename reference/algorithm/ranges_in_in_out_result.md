@@ -57,7 +57,7 @@ namespace std::ranges {
 
 ## 概要
 * (1): 3つのイテレータを格納する型
-* (2): [`ranges::transform`](ranges_transform.md.nolink)で使用するエイリアス
+* (2): [`ranges::transform`](ranges_transform.md)で使用するエイリアス
 * (2): [`ranges::merge`](ranges_merge.md)で使用するエイリアス
 * (2): [`ranges::set_union`](ranges_set_union.md)で使用するエイリアス
 * (2): [`ranges::set_intersection`](ranges_set_intersection.md)で使用するエイリアス

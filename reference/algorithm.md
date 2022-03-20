@@ -99,6 +99,8 @@ ranges::sort(pv, {}, &Parson::name);
 ```
 * std::invoke[link /reference/functional/invoke.md]
 
+なお、各関数の説明においては、射影の影響は無視していることがある。
+
 ## シーケンスを変更しない操作
 
 | 名前 | 説明 | 対応バージョン |
@@ -188,7 +190,7 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::move`](algorithm/ranges_move.md)                         | 指定された範囲の要素をムーブする                                                                                | C++20 |
 | [`ranges::move_backward`](algorithm/ranges_move_backward.md)       | 指定された範囲の要素を後ろからムーブする                                                                        | C++20 |
 | [`ranges::swap_ranges`](algorithm/ranges_swap_ranges.md)           | 指定された2つの範囲同士を swap する                                                                             | C++20 |
-| [`ranges::transform`](algorithm/ranges_transform.md.nolink)               | 全ての要素に関数を適用する                                                                                      | C++20 |
+| [`ranges::transform`](algorithm/ranges_transform.md)               | 全ての要素に関数を適用する                                                                                      | C++20 |
 | [`ranges::replace`](algorithm/ranges_replace.md.nolink)                   | 指定された値と一致する要素を指定された値に置き換える                                                            | C++20 |
 | [`ranges::replace_if`](algorithm/ranges_replace_if.md.nolink)             | 条件を満たす要素を指定された値に置き換える                                                                      | C++20 |
 | [`ranges::replace_copy`](algorithm/ranges_replace_copy.md.nolink)         | 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする                            | C++20 |
