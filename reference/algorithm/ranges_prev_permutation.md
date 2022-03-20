@@ -15,7 +15,7 @@ namespace std::ranges {
   constexpr prev_permutation_result<borrowed_iterator_t<R>> next_permutation(R&& r, Comp comp = {}, Proj proj = {});  // (2)
 }
 ```
-* prev_permutation_result[link in_found_result.md]
+* prev_permutation_result[link ranges_in_found_result.md]
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::less[link /reference/functional/ranges_less.md]
@@ -43,7 +43,7 @@ prev_permutation_result {
   .found = 前の順列が存在する場合は true、そうでなければ false,
 }
 ```
-* prev_permutation_result[link in_found_result.md]
+* prev_permutation_result[link ranges_in_found_result.md]
 
 
 ## 計算量

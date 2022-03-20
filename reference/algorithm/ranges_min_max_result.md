@@ -41,7 +41,7 @@ namespace std::ranges {
 ## 概要
 * (1): 最小値と最大値、またはそれらのイテレータを格納する型
 * (2): [`ranges::minmax`](ranges_minmax.md)で使用するエイリアス
-* (3): [`ranges::minmax_element`](ranges_fominmax_element.md)で使用するエイリアス
+* (3): [`ranges::minmax_element`](ranges_minmax_element.md)で使用するエイリアス
 
 この型は、関数が最小値と最大値またはそれらのイテレータを返す場合に使用される。
 
