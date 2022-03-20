@@ -41,7 +41,7 @@ namespace std::ranges {
 ## 概要
 * (1): 2つのイテレータを格納する型
 * (2): [`ranges::mismatch`](ranges_mismatch.md)で使用するエイリアス
-* (3): [`ranges::swap_ranges`](ranges_swap_ranges.md.nolink)で使用するエイリアス
+* (3): [`ranges::swap_ranges`](ranges_swap_ranges.md)で使用するエイリアス
 
 この型は、関数が入力用に2つの範囲を受け取る場合に、それぞれ処理した範囲の末尾を返すために使用される。
 

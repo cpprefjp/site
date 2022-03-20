@@ -100,8 +100,8 @@ namespace std::ranges {
 * (3): [`ranges::copy_n`](ranges_copy_n.md)で使用するエイリアス
 * (4): [`ranges::copy_if`](ranges_copy_if.md)で使用するエイリアス
 * (5): [`ranges::copy_backward`](ranges_copy_backward.md)で使用するエイリアス
-* (6): [`ranges::move`](ranges_move.md.nolink)で使用するエイリアス
-* (7): [`ranges::move_backward`](ranges_move_backward.md.nolink)で使用するエイリアス
+* (6): [`ranges::move`](ranges_move.md)で使用するエイリアス
+* (7): [`ranges::move_backward`](ranges_move_backward.md)で使用するエイリアス
 * (8): [`ranges::unary_transform`](ranges_unary_transform.md.nolink)で使用するエイリアス
 * (9): [`ranges::replace_copy`](ranges_replace_copy.md.nolink)で使用するエイリアス
 * (10): [`ranges::replace_copy_if`](ranges_replace_copy_if.md.nolink)で使用するエイリアス

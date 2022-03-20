@@ -185,10 +185,9 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::copy_n`](algorithm/ranges_copy_n.md)                     | 指定された数の要素をコピーする                                                                                  | C++20 |
 | [`ranges::copy_if`](algorithm/ranges_copy_if.md)                   | 条件を満たす要素のみをコピーする                                                                                | C++20 |
 | [`ranges::copy_backward`](algorithm/ranges_copy_backward.md)       | 指定された範囲の要素を後ろからコピーする                                                                        | C++20 |
-| [`ranges::move`](algorithm/ranges_move.md.nolink)                         | 指定された範囲の要素をムーブする                                                                                | C++20 |
-| [`ranges::move_backward`](algorithm/ranges_move_backward.md.nolink)       | 指定された範囲の要素を後ろからムーブする                                                                        | C++20 |
-| [`ranges::swap_ranges`](algorithm/ranges_swap_ranges.md.nolink)           | 指定された2つの範囲同士を swap する                                                                             | C++20 |
-| [`ranges::iter_swap`](algorithm/ranges_iter_swap.md.nolink)               | 2つのイテレータの要素を swap する                                                                               | C++20 |
+| [`ranges::move`](algorithm/ranges_move.md)                         | 指定された範囲の要素をムーブする                                                                                | C++20 |
+| [`ranges::move_backward`](algorithm/ranges_move_backward.md)       | 指定された範囲の要素を後ろからムーブする                                                                        | C++20 |
+| [`ranges::swap_ranges`](algorithm/ranges_swap_ranges.md)           | 指定された2つの範囲同士を swap する                                                                             | C++20 |
 | [`ranges::transform`](algorithm/ranges_transform.md.nolink)               | 全ての要素に関数を適用する                                                                                      | C++20 |
 | [`ranges::replace`](algorithm/ranges_replace.md.nolink)                   | 指定された値と一致する要素を指定された値に置き換える                                                            | C++20 |
 | [`ranges::replace_if`](algorithm/ranges_replace_if.md.nolink)             | 条件を満たす要素を指定された値に置き換える                                                                      | C++20 |
