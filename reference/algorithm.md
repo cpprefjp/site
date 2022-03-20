@@ -313,8 +313,8 @@ ranges::sort(pv, {}, &Parson::name);
 |-------------------------------------------------|---------------------------------|-------|
 | [`merge`](algorithm/merge.md)                 | 2つのソート済み範囲をマージする | |
 | [`inplace_merge`](algorithm/inplace_merge.md) | 2つの連続したソート済み範囲をマージする | |
-| [`ranges::merge`](algorithm/ranges_merge.md.nolink)                 | 2つのソート済み範囲をマージする         | C++20 |
-| [`ranges::inplace_merge`](algorithm/ranges_inplace_merge.md.nolink) | 2つの連続したソート済み範囲をマージする | C++20 |
+| [`ranges::merge`](algorithm/ranges_merge.md)                 | 2つのソート済み範囲をマージする         | C++20 |
+| [`ranges::inplace_merge`](algorithm/ranges_inplace_merge.md) | 2つの連続したソート済み範囲をマージする | C++20 |
 
 ### ソート済み構造に対する集合演算
 
