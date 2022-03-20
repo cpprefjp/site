@@ -25,7 +25,7 @@ namespace std::filesystem {
     set_gid      = 02000,
     sticky_bit   = 01000,
     mask         = 07777, // all | set_uid | set_gid | sticky_bit
-    unknown      = 0xFFF
+    unknown      = 0xFFFF
   };
 }
 ```

@@ -1,4 +1,4 @@
-# end, cend
+# end
 * set[meta header]
 * std[meta namespace]
 * set[meta class]
