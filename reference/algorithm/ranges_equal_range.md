@@ -5,7 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::ranges {
   template<forward_iterator I, sentinel_for<I> S, class T, class Proj = identity,
            indirect_strict_weak_order<const T*, projected<I, Proj>> Comp = ranges::less>
   constexpr subrange<I> equal_range(I first, S last, const T& value, Comp comp = {}, Proj proj = {});
