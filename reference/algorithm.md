@@ -301,10 +301,10 @@ ranges::sort(pv, {}, &Parson::name);
 | [`upper_bound`](algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最初の位置のイテレータを取得する | |
 | [`equal_range`](algorithm/equal_range.md) | `lower_bound`と`upper_bound`の結果を組で取得する | |
 | [`binary_search`](algorithm/binary_search.md) | 二分探索法による検索を行う | |
-| [`ranges::lower_bound`](algorithm/ranges_lower_bound.md.nolink)     | 指定された要素以上の値が現れる最初の位置のイテレータを取得する     | C++20 |
-| [`ranges::upper_bound`](algorithm/ranges_upper_bound.md.nolink)     | 指定された要素より大きい値が現れる最初の位置のイテレータを取得する | C++20 |
-| [`ranges::equal_range`](algorithm/ranges_equal_range.md.nolink)     | `lower_bound`と`upper_bound`の結果を組で取得する                   | C++20 |
-| [`ranges::binary_search`](algorithm/ranges_binary_search.md.nolink) | 二分探索法による検索を行う                                         | C++20 |
+| [`ranges::lower_bound`](algorithm/ranges_lower_bound.md)     | 指定された要素以上の値が現れる最初の位置のイテレータを取得する     | C++20 |
+| [`ranges::upper_bound`](algorithm/ranges_upper_bound.md)     | 指定された要素より大きい値が現れる最初の位置のイテレータを取得する | C++20 |
+| [`ranges::equal_range`](algorithm/ranges_equal_range.md)     | 指定した値と等しい範囲を取得する                                   | C++20 |
+| [`ranges::binary_search`](algorithm/ranges_binary_search.md) | 二分探索法による検索を行う                                         | C++20 |
 
 
 ### マージ
