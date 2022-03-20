@@ -52,7 +52,7 @@ namespace std::ranges {
 
 ```cpp
 merge_result {
-  .in  = last1,
+  .in1 = last1,
   .in2 = last2,
   .out = result + (last1 - first1) + (last2 - first2),
 }
