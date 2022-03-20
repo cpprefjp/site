@@ -55,6 +55,7 @@ int main()
   std::vector<int> v2  = {1, 4, 2, 5};
 
   std::ranges::sort(v);
+  std::ranges::sort(v2);
 
   auto result  = std::ranges::equal_range(v, 3);
   auto result2 = std::ranges::equal_range(v2, 3);
