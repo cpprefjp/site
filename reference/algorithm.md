@@ -181,11 +181,10 @@ ranges::sort(pv, {}, &Parson::name);
 | [`stable_partition`](algorithm/stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
 | [`partition_copy`](algorithm/partition_copy.md)   | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする | C++11 |
 | [`partition_point`](algorithm/partition_point.md) | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る | C++11 |
-| [`ranges::copy`](algorithm/ranges_copy.md.nolink)                         | 指定された範囲の要素をコピーする                                                                                | C++20 |
-| [`ranges::copy`](algorithm/ranges_copy.md.nolink)                         | 指定された範囲の要素をコピーする                                                                                | C++20 |
-| [`ranges::copy_n`](algorithm/ranges_copy_n.md.nolink)                     | 指定された数の要素をコピーする                                                                                  | C++20 |
-| [`ranges::copy_if`](algorithm/ranges_copy_if.md.nolink)                   | 条件を満たす要素のみをコピーする                                                                                | C++20 |
-| [`ranges::copy_backward`](algorithm/ranges_copy_backward.md.nolink)       | 指定された範囲の要素を後ろからコピーする                                                                        | C++20 |
+| [`ranges::copy`](algorithm/ranges_copy.md)                         | 指定された範囲の要素をコピーする                                                                                | C++20 |
+| [`ranges::copy_n`](algorithm/ranges_copy_n.md)                     | 指定された数の要素をコピーする                                                                                  | C++20 |
+| [`ranges::copy_if`](algorithm/ranges_copy_if.md)                   | 条件を満たす要素のみをコピーする                                                                                | C++20 |
+| [`ranges::copy_backward`](algorithm/ranges_copy_backward.md)       | 指定された範囲の要素を後ろからコピーする                                                                        | C++20 |
 | [`ranges::move`](algorithm/ranges_move.md.nolink)                         | 指定された範囲の要素をムーブする                                                                                | C++20 |
 | [`ranges::move_backward`](algorithm/ranges_move_backward.md.nolink)       | 指定された範囲の要素を後ろからムーブする                                                                        | C++20 |
 | [`ranges::swap_ranges`](algorithm/ranges_swap_ranges.md.nolink)           | 指定された2つの範囲同士を swap する                                                                             | C++20 |

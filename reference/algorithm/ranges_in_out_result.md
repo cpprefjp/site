@@ -96,10 +96,10 @@ namespace std::ranges {
 
 ## 概要
 * (1): 2つのイテレータを格納する型
-* (2): [`ranges::copy`](ranges_copy.md.nolink)で使用するエイリアス
-* (3): [`ranges::copy_n`](ranges_copy_n.md.nolink)で使用するエイリアス
-* (4): [`ranges::copy_if`](ranges_copy_if.md.nolink)で使用するエイリアス
-* (5): [`ranges::copy_backward`](ranges_copy_backward.md.nolink)で使用するエイリアス
+* (2): [`ranges::copy`](ranges_copy.md)で使用するエイリアス
+* (3): [`ranges::copy_n`](ranges_copy_n.md)で使用するエイリアス
+* (4): [`ranges::copy_if`](ranges_copy_if.md)で使用するエイリアス
+* (5): [`ranges::copy_backward`](ranges_copy_backward.md)で使用するエイリアス
 * (6): [`ranges::move`](ranges_move.md.nolink)で使用するエイリアス
 * (7): [`ranges::move_backward`](ranges_move_backward.md.nolink)で使用するエイリアス
 * (8): [`ranges::unary_transform`](ranges_unary_transform.md.nolink)で使用するエイリアス
