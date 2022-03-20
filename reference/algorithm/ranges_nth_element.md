@@ -21,8 +21,8 @@ namespace std::ranges {
 * identity[link /reference/functional/identity.md]
 * sortable[link /reference/iterator/sortable.md]
 * random_access_range[link /reference/ranges/random_access_range.md]
-* iterator_t[link /reference/iterator/iterator_t.md]
-* borrowed_iterator_t[link /reference/iterator/borrowed_iterator_t.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 
 ## 概要
