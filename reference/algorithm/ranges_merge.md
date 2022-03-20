@@ -20,7 +20,7 @@ namespace std::ranges {
   constexpr merge_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>, O> merge(R1&& r1, R2&& r2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});  // (2)
 }
 ```
-* in_in_out_result[link in_in_out_result.md]
+* in_in_out_result[link in_in_out_result.md.nolink]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
