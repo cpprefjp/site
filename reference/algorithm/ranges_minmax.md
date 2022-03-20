@@ -21,7 +21,7 @@ namespace std::ranges {
   constexpr minmax_result<range_value_t<R>> minmax(R&& r, Comp comp = {}, Proj proj = {});
 }
 ```
-* minmax_result[link min_max_result.md]
+* minmax_result[link ranges_min_max_result.md]
 * identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * projected[link /reference/iterator/projected.md]
@@ -42,7 +42,7 @@ minmax_result {
   .max = 最大値,
 }
 ```
-* minmax_result[link min_max_result.md]
+* minmax_result[link ranges_min_max_result.md]
 
 それぞれ、比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって判断された最初の値となる。
 

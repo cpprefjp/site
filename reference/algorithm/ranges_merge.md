@@ -17,7 +17,7 @@ namespace std::ranges {
   constexpr merge_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>, O> merge(R1&& r1, R2&& r2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});  // (2)
 }
 ```
-* merge_result[link in_in_out_result.md]
+* merge_result[link ranges_in_in_out_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
@@ -52,7 +52,7 @@ merge_result {
   .out = result + (last1 - first1) + (last2 - first2),
 }
 ```
-* merge_result[link in_in_out_result.md]
+* merge_result[link ranges_in_in_out_result.md]
 
 ## 計算量
 `N = (last1 - first1) + (last2 - first2)`であるとして最大で、N - 1回比較する

@@ -22,7 +22,7 @@ namespace std::ranges {
     partial_sort_copy(R1&& r, R2&& result_r, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                              // (2)
 }
 ```
-* partial_sort_copy_result[link in_out_result.md]
+* partial_sort_copy_result[link ranges_in_out_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
@@ -56,7 +56,7 @@ partial_sort_copy_result {
   .out = result_first + N
 }
 ```
-* partial_sort_copy_result[link in_out_result.md]
+* partial_sort_copy_result[link ranges_in_out_result.md]
 
 
 ## 計算量
