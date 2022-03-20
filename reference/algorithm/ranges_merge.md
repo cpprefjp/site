@@ -9,16 +9,27 @@ namespace std::ranges {
   template<class I1, class I2, class O>
   using merge_result = in_in_out_result<I1, I2, O>;
 
-  template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2,
-           weakly_incrementable O, class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
+  template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2, weakly_incrementable O,
+           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
     requires mergeable<I1, I2, O, Comp, Proj1, Proj2>
   constexpr merge_result<I1, I2, O> merge(I1 first1, S1 last1, I2 first2, S2 last2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                    // (1)
 
-  template<input_range R1, input_range R2, weakly_incrementable O, class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
+  template<input_range R1, input_range R2, weakly_incrementable O,
+           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
     requires mergeable<iterator_t<R1>, iterator_t<R2>, O, Comp, Proj1, Proj2>
   constexpr merge_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>, O> merge(R1&& r1, R2&& r2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});  // (2)
 }
 ```
+* in_in_out_result[link in_in_out_result.md]
+* input_iterator[link /reference/iterator/input_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
+* weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
+* ranges::less[link /reference/functional/ranges_less.md]
+* identity[link /reference/functional/identity.md]
+* mergeable[link /reference/iterator/mergeable.md]
+* input_range[link /reference/ranges/input_range.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
 2つのソート済み範囲をマージして、出力イテレーターへ出力する。
