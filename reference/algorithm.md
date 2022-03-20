@@ -400,9 +400,9 @@ ranges::sort(pv, {}, &Parson::name);
 | [`next_permutation`](algorithm/next_permutation.md) | 次の順列を生成する     | |
 | [`prev_permutation`](algorithm/prev_permutation.md) | 前の順列を生成する     | |
 | [`is_permutation`](algorithm/is_permutation.md)     | 範囲が順列かを判定する | C++11 |
-| [`ranges::next_permutation`](algorithm/ranges_next_permutation.md.nolink) | 次の順列を生成する     | C++20 |
-| [`ranges::prev_permutation`](algorithm/ranges_prev_permutation.md.nolink) | 前の順列を生成する     | C++20 |
-| [`ranges::is_permutation`](algorithm/ranges_is_permutation.md.nolink)     | 範囲が順列かを判定する | C++20 |
+| [`ranges::next_permutation`](algorithm/ranges_next_permutation.md) | 次の順列を生成する     | C++20 |
+| [`ranges::prev_permutation`](algorithm/ranges_prev_permutation.md) | 前の順列を生成する     | C++20 |
+| [`ranges::is_permutation`](algorithm/ranges_is_permutation.md)     | 範囲が順列かを判定する | C++20 |
 
 ### 戻り値
 
