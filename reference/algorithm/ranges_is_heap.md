@@ -31,7 +31,7 @@ namespace std::ranges {
 
 
 ## 効果
-[`ranges​::​is_­heap_­until`](ranges_is_heap_until.md)`(first, last, comp, proj) == last` と等しい。
+[`ranges::is_heap_until`](ranges_is_heap_until.md)`(first, last, comp, proj) == last` と等しい。
 
 
 ## 例
