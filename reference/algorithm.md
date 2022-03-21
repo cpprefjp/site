@@ -195,8 +195,8 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::replace_if`](algorithm/ranges_replace_if.md)             | 条件を満たす要素を指定された値に置き換える                                                                      | C++20 |
 | [`ranges::replace_copy`](algorithm/ranges_replace_copy.md)         | 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする                            | C++20 |
 | [`ranges::replace_copy_if`](algorithm/ranges_replace_copy_if.md)   | 条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする                                      | C++20 |
-| [`ranges::fill`](algorithm/ranges_fill.md.nolink)                         | 指定された値で出力の範囲に書き込む                                                                              | C++20 |
-| [`ranges::fill_n`](algorithm/ranges_fill_n.md.nolink)                     | 指定された値で出力の範囲に n 個書き込む                                                                         | C++20 |
+| [`ranges::fill`](algorithm/ranges_fill.md)                         | 指定された値で出力の範囲に書き込む                                                                              | C++20 |
+| [`ranges::fill_n`](algorithm/ranges_fill_n.md)                     | 指定された値で出力の範囲に n 個書き込む                                                                         | C++20 |
 | [`ranges::generate`](algorithm/ranges_generate.md.nolink)                 | 出力の範囲へ関数の結果を書き込む                                                                                | C++20 |
 | [`ranges::generate_n`](algorithm/ranges_generate_n.md.nolink)             | 出力の範囲へ関数の結果を n 個書き込む                                                                           | C++20 |
 | [`ranges::remove`](algorithm/ranges_remove.md.nolink)                     | 指定された要素を除ける                                                                                          | C++20 |
