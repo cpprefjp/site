@@ -29,6 +29,9 @@ namespace std::ranges {
 ## 概要
 あるシーケンスの中から、特定のサブシーケンスを探す
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 ## 戻り値
 - (1) :
     - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj1, *(i + n)), `[`invoke`](/reference/functional/invoke.md)`(proj2, *(first2 + n)))` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスを返す。

@@ -29,6 +29,9 @@ namespace std::ranges {
 ## 概要
 指定された値と等値な要素の数を数える。
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 ## テンプレートパラメータ制約
 - (1):
     - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である

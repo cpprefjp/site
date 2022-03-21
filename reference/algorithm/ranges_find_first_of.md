@@ -29,6 +29,9 @@ namespace std::ranges {
 ## 概要
 ある集合の1つとマッチする最初の要素を検索する。
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 
 ## 戻り値
 `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、`[first2,last2)` 内のイテレータ `j` について、どれかが [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj1, *i), `[`invoke`](/reference/functional/invoke.md)`(proj2, *j)) == true` であるような最初のイテレータを返す。

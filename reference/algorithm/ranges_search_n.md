@@ -30,6 +30,9 @@ namespace std::ranges {]
 ## 概要
 あるシーケンスの中から、指定の要素が連続するサブシーケンスを探す。
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 ## 戻り値
 `[first,last-count)` 内のイテレータ `i` があるとき、0 以上 `count` 未満の整数 `n` について、それぞれ [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *(i + n)), value)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスを返す。
 

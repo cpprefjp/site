@@ -27,6 +27,9 @@ namespace std::ranges {
 ## 概要
 隣接する要素で条件を満たしている最初の要素を検索する。
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 
 ## 戻り値
 `[first,last)` 内にあるイテレータ i について、[`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *(i + 1))) != false` であるような最初のイテレータを返す。

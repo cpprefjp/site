@@ -23,6 +23,9 @@ namespace std::ranges {
 ## 概要
 範囲の全ての要素が条件を満たさないかを判定する。
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 ## テンプレートパラメータ制約
 - (1):
     - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である

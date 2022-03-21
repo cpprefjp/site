@@ -27,6 +27,9 @@ namespace std::ranges {
 ## 概要
 シーケンスの先頭が指定されたシーケンスと一致するかを調べる
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 ## 戻り値
 
 [`ranges::mismatch`](ranges_mismatch.md)`(`[`std::move`](/reference/utility/move.md)`(first1), last1, `[`std::move`](/reference/utility/move.md)`(first2), last2, pred, proj1, proj2).in2 == last2`

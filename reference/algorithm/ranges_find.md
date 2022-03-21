@@ -28,6 +28,9 @@ namespace std::ranges {
 ## 概要
 指定された値を検索する。
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 
 ## 戻り値
 `[first,last)` あるいは `r` 内のイテレータ i について、[`invoke`](/reference/functional/invoke.md)`(proj, *i) == value` であるような最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。

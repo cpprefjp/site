@@ -27,6 +27,9 @@ namespace std::ranges {
 ## 概要
 範囲の全ての要素に、指定された関数を適用する。
 
+* (1): イテレータペアで範囲を指定する
+* (2): 範囲を直接指定する
+
 ## テンプレートパラメータ制約
 - (1):
     - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である
