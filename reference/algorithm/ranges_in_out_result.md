@@ -108,7 +108,7 @@ namespace std::ranges {
 * (11): [`ranges::remove_copy`](ranges_remove_copy.md)で使用するエイリアス
 * (12): [`ranges::remove_copy_if`](ranges_remove_copy_if.md)で使用するエイリアス
 * (13): [`ranges::unique_copy`](ranges_unique_copy.md)で使用するエイリアス
-* (14): [`ranges::reverse_copy`](ranges_reverse_copy.md.nolink)で使用するエイリアス
+* (14): [`ranges::reverse_copy`](ranges_reverse_copy.md)で使用するエイリアス
 * (15): [`ranges::rotate_copy`](ranges_rotate_copy.md)で使用するエイリアス
 * (16): [`ranges::partial_sort_copy`](ranges_partial_sort_copy.md)で使用するエイリアス
 * (17): [`ranges::set_difference`](ranges_set_difference.md)で使用するエイリアス
