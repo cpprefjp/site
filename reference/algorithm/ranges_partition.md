@@ -29,7 +29,7 @@ namespace std::ranges {
 ## 概要
 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
-* (1): イテレーターペアで範囲を指定する
+* (1): イテレータペアで範囲を指定する
 * (2): 範囲を直接指定する
 
 

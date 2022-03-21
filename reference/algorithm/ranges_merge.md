@@ -29,9 +29,9 @@ namespace std::ranges {
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
-2つのソート済み範囲をマージして、出力イテレーターへ出力する。
+2つのソート済み範囲をマージして、出力イテレータへ出力する。
 
-* (1): イテレーターペアで範囲を指定する
+* (1): イテレータペアで範囲を指定する
 * (2): 範囲を直接指定する
 
 
