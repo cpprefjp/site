@@ -29,7 +29,7 @@ namespace std::ranges {
 二分探索法による検索を行う。
 
 
-## 要件
+## 事前条件
 `[first,last)` の要素 `e` は `e < value` および `!(value < e)`、または `comp(e, value)` および `!comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。
 
 また、`[first, last)` の全ての要素 `e` は、`e < value` であれば `!(value < e)` である、または `comp(e, value)` であれば `!comp(value, e)` である必要がある。

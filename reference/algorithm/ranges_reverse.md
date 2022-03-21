@@ -30,9 +30,6 @@ namespace std::ranges {
 * (1): イテレータペアで範囲を指定する
 * (2): 範囲を直接指定する
 
-## 要件
-`*first` は `Swappable` でなければならない
-
 
 ## 効果
 0 以上 `(last - first) / 2` 未満の整数 `i` について、[`iter_swap`](iter_swap.md)`(first + i, (last - i) - 1)` を行う

@@ -37,7 +37,7 @@ namespace std::ranges {
 
 
 ## 計算量
-`last2` が与えられている形式の場合、`ForwardIterator1` と `ForwardIterator2` がどちらもランダムアクセスイテレータの要件を満たし、かつ `last1 - first1 != last2 - first2` であれば 1 度も述語の適用を行わない。  
+`last2` が与えられている形式の場合、`I1` と `I2` がどちらも[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルであり、かつ `last1 - first1 != last2 - first2` であれば 1 度も述語の適用を行わない。  
 そうでなければ、[`equal`](/reference/algorithm/equal.md)`(first1, last1, first2, last2) == true` もしくは [`equal`](/reference/algorithm/equal.md)`(first1, last1, first2, last2, pred) == true` の場合（`last2` が無い形式の場合、[`equal`](/reference/algorithm/equal.md) も `last2` の無い形式で置き換える）、[`distance`](/reference/iterator/distance.md)`(first1, last1)` 回の述語適用で完了する。  
 そうでなければ、[`distance`](/reference/iterator/distance.md)`(first1, last1)` をNとした場合に最悪O(N^2)回の述語適用で完了する。
 

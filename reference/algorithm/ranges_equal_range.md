@@ -30,7 +30,7 @@ namespace std::ranges {
 ## 概要
 指定した値と等しい範囲を取得する。
 
-## 要件
+## 事前条件
 `[first,last)` の要素 `e` は `e < value` および `!(value < e)` 、あるいは `comp(e, value)` および `!comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。
 
 また、`[first, last)` の要素 `e` は全て暗黙に、`e < value` が `!(value < e)` または `comp(e, value)` が `!comp(value, e)` を意味している必要がある。
