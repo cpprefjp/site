@@ -55,7 +55,7 @@ namespace std::ranges {
 * (1), (3): イテレーターペアで範囲を指定する
 * (2), (4): 範囲を直接指定する
 
-## 要件
+## 事前条件
 - (1), (2) : `op` は、`[first,last]`, `[result,result + (last - first)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
 - (3), (4) : `binary_op` は、`[first1,last1]`, `[first2,first2 + (last1 - first1)]`, `[result,result + (last1 - first1)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。
 
@@ -156,3 +156,7 @@ cccc
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+
+## 関連項目
+
+- [`transform_view`](/reference/ranges/transform_view.md) : 要素に関数を適用した結果をビューとして提供する
