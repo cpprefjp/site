@@ -352,12 +352,12 @@ ranges::sort(pv, {}, &Parson::name);
 | [`sort_heap`](algorithm/sort_heap.md)         | ヒープ化された範囲を並べ替える | |
 | [`is_heap_until`](algorithm/is_heap_until.md) | 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する | C++11 |
 | [`is_heap`](algorithm/is_heap.md)             | 範囲がヒープ化されているか判定する | C++11 |
-| [`ranges::push_heap`](algorithm/ranges_push_heap.md.nolink)         | ヒープ化された範囲に要素を追加したヒープ範囲を得る                                         | C++20 |
-| [`ranges::pop_heap`](algorithm/ranges_pop_heap.md.nolink)           | ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す                             | C++20 |
-| [`ranges::make_heap`](algorithm/ranges_make_heap.md.nolink)         | 範囲をヒープ化する                                                                         | C++20 |
-| [`ranges::sort_heap`](algorithm/ranges_sort_heap.md.nolink)         | ヒープ化された範囲を並べ替える                                                             | C++20 |
-| [`ranges::is_heap_until`](algorithm/ranges_is_heap_until.md.nolink) | 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する | C++20 |
-| [`ranges::is_heap`](algorithm/ranges_is_heap.md.nolink)             | 範囲がヒープ化されているか判定する                                                         | C++20 |
+| [`ranges::push_heap`](algorithm/ranges_push_heap.md)         | ヒープ化された範囲に要素を追加したヒープ範囲を得る                                         | C++20 |
+| [`ranges::pop_heap`](algorithm/ranges_pop_heap.md)           | ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す                             | C++20 |
+| [`ranges::make_heap`](algorithm/ranges_make_heap.md)         | 範囲をヒープ化する                                                                         | C++20 |
+| [`ranges::sort_heap`](algorithm/ranges_sort_heap.md)         | ヒープ化された範囲を並べ替える                                                             | C++20 |
+| [`ranges::is_heap_until`](algorithm/ranges_is_heap_until.md) | 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する | C++20 |
+| [`ranges::is_heap`](algorithm/ranges_is_heap.md)             | 範囲がヒープ化されているか判定する                                                         | C++20 |
 
 ### 最小と最大
 
