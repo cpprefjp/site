@@ -1,4 +1,4 @@
-# in_fun_result
+# min_max_result
 * algorithm[meta header]
 * std::ranges[meta namespace]
 * function template[meta id-type]
