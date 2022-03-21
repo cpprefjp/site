@@ -105,8 +105,8 @@ namespace std::ranges {
 * (8): [`ranges::transform`](ranges_transform.md)で使用するエイリアス
 * (9): [`ranges::replace_copy`](ranges_replace_copy.md)で使用するエイリアス
 * (10): [`ranges::replace_copy_if`](ranges_replace_copy_if.md)で使用するエイリアス
-* (11): [`ranges::remove_copy`](ranges_remove_copy.md.nolink)で使用するエイリアス
-* (12): [`ranges::remove_copy_if`](ranges_remove_copy_if.md.nolink)で使用するエイリアス
+* (11): [`ranges::remove_copy`](ranges_remove_copy.md)で使用するエイリアス
+* (12): [`ranges::remove_copy_if`](ranges_remove_copy_if.md)で使用するエイリアス
 * (13): [`ranges::unique_copy`](ranges_unique_copy.md.nolink)で使用するエイリアス
 * (14): [`ranges::reverse_copy`](ranges_reverse_copy.md.nolink)で使用するエイリアス
 * (15): [`ranges::rotate_copy`](ranges_rotate_copy.md.nolink)で使用するエイリアス

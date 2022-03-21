@@ -199,10 +199,10 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::fill_n`](algorithm/ranges_fill_n.md)                     | 指定された値で出力の範囲に n 個書き込む                                                                         | C++20 |
 | [`ranges::generate`](algorithm/ranges_generate.md)                 | 出力の範囲へ関数の結果を書き込む                                                                                | C++20 |
 | [`ranges::generate_n`](algorithm/ranges_generate_n.md)             | 出力の範囲へ関数の結果を n 個書き込む                                                                           | C++20 |
-| [`ranges::remove`](algorithm/ranges_remove.md.nolink)                     | 指定された要素を除ける                                                                                          | C++20 |
-| [`ranges::remove_if`](algorithm/ranges_remove_if.md.nolink)               | 条件を満たす要素を除ける                                                                                        | C++20 |
-| [`ranges::remove_copy`](algorithm/ranges_remove_copy.md.nolink)           | 指定された要素を除け、その結果を出力の範囲へコピーする                                                          | C++20 |
-| [`ranges::remove_copy_if`](algorithm/ranges_remove_copy_if.md.nolink)     | 条件を満たす要素を除け、その結果を出力の範囲へコピーする                                                        | C++20 |
+| [`ranges::remove`](algorithm/ranges_remove.md)                     | 指定された要素を除ける                                                                                          | C++20 |
+| [`ranges::remove_if`](algorithm/ranges_remove_if.md)               | 条件を満たす要素を除ける                                                                                        | C++20 |
+| [`ranges::remove_copy`](algorithm/ranges_remove_copy.md)           | 指定された要素を除け、その結果を出力の範囲へコピーする                                                          | C++20 |
+| [`ranges::remove_copy_if`](algorithm/ranges_remove_copy_if.md)     | 条件を満たす要素を除け、その結果を出力の範囲へコピーする                                                        | C++20 |
 | [`ranges::unique`](algorithm/ranges_unique.md.nolink)                     | 重複した要素を除ける                                                                                            | C++20 |
 | [`ranges::unique_copy`](algorithm/ranges_unique_copy.md.nolink)           | 重複した要素を除け、その結果を出力の範囲へコピーする                                                            | C++20 |
 | [`ranges::reverse`](algorithm/ranges_reverse.md.nolink)                   | 要素の並びを逆にする                                                                                            | C++20 |
