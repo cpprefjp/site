@@ -213,11 +213,11 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::shift_right`](algorithm/ranges_shift_right.md)           | 要素を右にシフトさせる                                                                                          | C++23 |
 | [`ranges::sample`](algorithm/ranges_sample.md)                     | 範囲から指定された個数の要素をランダムに抽出する                                                                | C++20 |
 | [`ranges::shuffle`](algorithm/ranges_shuffle.md)                   | それぞれの要素をランダムな位置に移動させる                                                                      | C++20 |
-| [`ranges::is_partitioned`](algorithm/ranges_is_partitioned.md.nolink)     | 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する       | C++20 |
-| [`ranges::partition`](algorithm/ranges_partition.md.nolink)               | 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する                       | C++20 |
-| [`ranges::stable_partition`](algorithm/ranges_stable_partition.md.nolink) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する   | C++20 |
-| [`ranges::partition_copy`](algorithm/ranges_partition_copy.md.nolink)     | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする                                                 | C++20 |
-| [`ranges::partition_point`](algorithm/ranges_partition_point.md.nolink)   | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る     | C++20 |
+| [`ranges::is_partitioned`](algorithm/ranges_is_partitioned.md)     | 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する       | C++20 |
+| [`ranges::partition`](algorithm/ranges_partition.md)               | 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する                       | C++20 |
+| [`ranges::stable_partition`](algorithm/ranges_stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する   | C++20 |
+| [`ranges::partition_copy`](algorithm/ranges_partition_copy.md)     | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする                                                 | C++20 |
+| [`ranges::partition_point`](algorithm/ranges_partition_point.md)   | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る     | C++20 |
 
 ## ソートや、それに関連した操作
 

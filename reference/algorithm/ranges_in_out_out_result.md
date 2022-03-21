@@ -41,7 +41,7 @@ namespace std::ranges {
 
 ## 概要
 * (1): 3つのイテレータを格納する型
-* (2): [`ranges::partition_copy`](ranges_partition_copy.md.nolink)で使用するエイリアス
+* (2): [`ranges::partition_copy`](ranges_partition_copy.md)で使用するエイリアス
 
 この型は、関数が入力用の範囲と2つの出力用の範囲を受け取る場合に、それぞれ処理した範囲の末尾を返すために使用される。
 
