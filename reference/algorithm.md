@@ -416,6 +416,7 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::in_out_out_result`](algorithm/ranges_in_out_out_result.md) | 3つのイテレータを格納する型              | C++20          |
 | [`ranges::min_max_result`](algorithm/ranges_min_max_result.md)       | 2つの値または参照を格納する型            | C++20          |
 | [`ranges::in_found_result`](algorithm/ranges_in_found_result.md)     | イテレータとbool値を格納する型           | C++20          |
+| [`ranges::out_value_result`](algorithm/ranges_out_value_result.md)   | イテレータと値を格納する型               | C++23          |
 
 ## 関連項目
 - [`<numeric>`](/reference/numeric.md)
