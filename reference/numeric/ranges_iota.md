@@ -2,7 +2,7 @@
 * numeric[meta header]
 * std::ranges[meta namespace]
 * function template[meta id-type]
-* cpp13[meta cpp]
+* cpp23[meta cpp]
 
 ```cpp
 namespace std::ranges {
