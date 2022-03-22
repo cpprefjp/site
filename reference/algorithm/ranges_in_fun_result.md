@@ -65,7 +65,33 @@ namespace std::ranges {
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
 ## 例
-(執筆中)
+
+```cpp example
+#include <cassert>
+#include <array>
+#include <algorithm>
+
+int main() {
+  std::array v = { 3, 1, 4 };
+
+  const std::ranges::in_fun_result result = std::ranges::for_each(v, [](int& x) { ++x; });
+
+  assert(result.in == v.end());
+
+  // funは、渡した関数オブジェクト
+  int x = 10;
+  result.fun(x);
+
+  // 渡した関数オブジェクトの効果で1増えている
+  assert(x == 11);
+}
+```
+* std::ranges::in_fun_result[color ff0000]
+* std::ranges::for_each[link ranges_for_each.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

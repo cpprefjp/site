@@ -63,8 +63,29 @@ namespace std::ranges {
 
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
+
 ## 例
-(執筆中)
+```cpp example
+#include <cassert>
+#include <array>
+#include <algorithm>
+
+int main ()
+{
+  std::array<int, 3> v = {1, 2, 3};
+
+  const std::ranges::in_found_result result = std::ranges::next_permutation(v);
+
+  assert(result.in == v.end());
+  assert(result.found == true);
+}
+```
+* std::ranges::in_found_result[color ff0000]
+* std::ranges::next_permutation[link ranges_next_permutation.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

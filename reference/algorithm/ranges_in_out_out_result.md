@@ -66,7 +66,40 @@ namespace std::ranges {
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
 ## 例
-(執筆中)
+```cpp example
+#include <cassert>
+#include <vector>
+#include <algorithm>
+
+bool is_even(int x) { return x % 2 == 0; }
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5};
+
+  // 偶数グループと奇数グループに分ける
+  std::vector<int> evens(5);
+  std::vector<int> odds(5);
+  const std::ranges::in_out_out_result result = std::ranges::partition_copy(v, evens.begin(), odds.begin(), is_even);
+
+  assert(result.in == v.end());
+  assert(result.out1 == evens.begin() + 2);
+  assert(result.out2 == odds.begin() + 3);
+
+  // 出力した範囲の後ろを削除する
+  evens.erase(result.out1, evens.end());
+  odds.erase(result.out2, odds.end());
+
+  assert(evens.size() == 2);
+  assert(odds.size() == 3);
+}
+```
+* std::ranges::in_out_out_result[color ff0000]
+* std::ranges::partition_copy[link ranges_partition_copy.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

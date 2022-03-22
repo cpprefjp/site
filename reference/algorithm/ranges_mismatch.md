@@ -84,14 +84,13 @@ int main() {
   std::cout << std::endl;
 
   // v と v3 で異なる場所を探す。
-  // v.size() > v3.size() なので mismatch(v.begin(), v.end(), v3.begin()) とやってはいけない。
   {
-    auto [i1, i2] = std::mismatch(v3.begin(), v3.end(), v.begin());
+    auto [i1, i2] = std::ranges::mismatch(v3, v);
     print_mismatch_value(v3, v, i1, i2);
   }
 }
 ```
-* std::mismatch[color ff0000]
+* std::ranges::mismatch[color ff0000]
 * std::to_string[link /reference/string/to_string.md]
 
 ### 出力

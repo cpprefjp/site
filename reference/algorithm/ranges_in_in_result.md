@@ -65,7 +65,29 @@ namespace std::ranges {
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
 ## 例
-(執筆中)
+```cpp example
+#include <cassert>
+#include <algorithm>
+#include <vector>
+#include <array>
+
+int main() {
+  const std::vector<int>   v  = { 1,2,3,4,3,2 };
+  const std::array<int, 6> v2 = { 1,2,4,3,2,1 };
+
+  // v と v2 で異なる場所を探す
+  const std::ranges::in_in_result result = std::ranges::mismatch(v, v2);
+
+  assert(result.in1 == v.begin() + 2);
+  assert(result.in2 == v2.begin() + 2);
+}
+```
+* std::ranges::in_in_result[color ff0000]
+* std::ranges::mismatch[link ranges_mismatch.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

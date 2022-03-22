@@ -135,7 +135,27 @@ namespace std::ranges {
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
 ## 例
-(執筆中)
+```cpp example
+#include <cassert>
+#include <algorithm>
+#include <vector>
+
+int main() {
+  std::vector<int> v = { 1, 2, 3 };
+  std::vector<int> v2(5);
+
+  const std::ranges::in_out_result result = std::ranges::copy(v, v2.begin());
+
+  assert(result.in == v.end());
+  assert(result.out == v2.begin() + 3);
+}
+```
+* std::ranges::in_out_result[color ff0000]
+* std::ranges::copy[link ranges_copy.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

@@ -85,8 +85,33 @@ namespace std::ranges {
 
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
+
 ## 例
-(執筆中)
+```cpp example
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <cassert>
+
+int main() {
+  std::vector<char> v1 = { 'a','b','c','d','e' };
+  std::vector<int> v2 = { 3,1,4 };
+  std::vector<std::string> outs(3);
+
+  // v1[n] の文字を v2[n] 回繰り返した文字列を返す
+  const std::ranges::in_in_out_result result = std::ranges::transform(v1, v2, outs.begin(), [](char a, int b) { return std::string(b, a); });
+
+  assert(result.in1 == v1.begin() + 3);
+  assert(result.in2 == v2.begin() + 3);
+  assert(result.out == outs.begin() + 3);
+}
+```
+* std::ranges::in_in_out_result[color ff0000]
+* std::ranges::transform[link ranges_transform.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

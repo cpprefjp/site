@@ -65,7 +65,22 @@ namespace std::ranges {
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
 ## 例
-(執筆中)
+```cpp example
+#include <cassert>
+#include <algorithm>
+
+int main()
+{
+  const std::ranges::min_max_result result = std::ranges::minmax({1, 2, 3});
+  assert(result.min == 1 && result.max == 3);
+}
+```
+* std::ranges::min_max_result[color ff0000]
+* std::ranges::minmax[link ranges_minmax.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語
