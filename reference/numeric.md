@@ -37,6 +37,7 @@
 |------|------|-------|
 | [`adjacent_difference`](numeric/adjacent_difference.md) | 隣接する要素間の差を計算する | |
 | [`iota`](numeric/iota.md)                   | 指定された値から始まる整数列を生成する | C++11 |
+| [`ranges::iota`](numeric/ranges_iota.md)                   | 指定された値から始まる整数列を生成する | C++23 |
 
 
 ## 最大公約数と最小公倍数
