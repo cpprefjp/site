@@ -22,7 +22,7 @@ namespace std::ranges {
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
 * output_range[link /reference/ranges/output_range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* iota_result[link /reference/algorithm/out_value_result.md]
+* iota_result[link /reference/algorithm/ranges_out_value_result.md]
 
 
 ## 概要
