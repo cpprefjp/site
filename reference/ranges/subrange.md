@@ -65,9 +65,9 @@ namespace std::ranges {
 
 | 名前                                         | 説明                               | 対応バージョン |
 |----------------------------------------------|------------------------------------|----------------|
-| [`tuple_size`](subrange/tuple_size.md.nolink)       | 静的な要素数取得(class template)   | C++20          |
-| [`tuple_element`](subrange/tuple_element.md.nolink) | 静的な要素の型取得(class template) | C++20          |
-| [`get`](subrange/get.md.nolink)                     | 要素を取得する(function template)  | C++20          |
+| [`tuple_size`](subrange/tuple_size.md)       | 静的な要素数取得(class template)   | C++20          |
+| [`tuple_element`](subrange/tuple_element.md) | 静的な要素の型取得(class template) | C++20          |
+| [`get`](subrange/get.md)                     | 要素を取得する(function template)  | C++20          |
 
 ## バージョン
 ### 言語
