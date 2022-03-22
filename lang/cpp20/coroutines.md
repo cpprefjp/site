@@ -621,5 +621,5 @@ C++20コルーチンに関するキーワードは、いずれも接頭辞`co_`�
 - [C++ Coroutines: Understanding operator co_await](https://lewissbaker.github.io/2017/11/17/understanding-operator-co-await)
 - [C++ Coroutines: Understanding the promise type](https://lewissbaker.github.io/2018/09/05/understanding-the-promise-type)
 - [C++ Coroutines: Understanding Symmetric Transfer](https://lewissbaker.github.io/2020/05/11/understanding_symmetric_transfer)
-- [C++ co_awaiting coroutines](https://blog.panicsoftware.com/co_awaiting-coroutines/)
+- [C++ co_awaiting coroutines](https://web.archive.org/web/20210421165652/https://blog.panicsoftware.com/co_awaiting-coroutines/)
 - [20分くらいでわかった気分になれるC++20コルーチン](https://www.slideshare.net/yohhoy/20c20)
