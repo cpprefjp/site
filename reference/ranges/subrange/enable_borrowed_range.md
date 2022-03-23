@@ -6,16 +6,16 @@
 
 ```cpp
 namespace std::ranges {
-  template<class T>
-  inline constexpr bool enable_borrowed_range = false;
+  template<class I, class S, subrange_kind K>
+  inline constexpr bool enable_borrowed_range<subrange<I, S, K>> = true;
 }
 ```
 
 ## 概要
 
-`enable_borrowed_range<T>`が`true`であることは、`T`が[`borrowed_range`](borrowed_range.md)であるための必要条件である。
+[`enable_borrowed_range`](../enable_borrowed_range.md)の特殊化。
 
-[`borrowed_range`](borrowed_range.md)コンセプトの要件は意味論要件がメインなため、`enable_borrowed_range`を特殊化することで、明示的に`borrowed_range`であることを示すようになっている。
+この特殊化により、`subrange`が[`borrowed_range`](borrowed_range.md)となる。
 
 ## 例
 
