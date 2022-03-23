@@ -6,13 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  template<movable Val, class CharT, class Traits>
+  // (1)
+  template<movable Val, class CharT, class Traits = char_traits<CharT>>
     requires default_initializable<Val> && stream-extractable<Val, CharT, Traits>
-  class basic_istream_view : public view_interface<basic_istream_view<Val, CharT, Traits>> { …… }; // (1)
+  class basic_istream_view : public view_interface<basic_istream_view<Val, CharT, Traits>> { …… };
+
+  // (2)
+  template<class Val>
+  using istream_view = basic_istream_view<Val, char>;
+
+  // (3)
+  template<class Val>
+  using wistream_view = basic_istream_view<Val, wchar_t>;
 
   namespace views {
-    template<class Val, class CharT, class Traits>
-    basic_istream_view<Val, CharT, Traits> istream_view(basic_istream<CharT, Traits>& s);  // (2)
+    // (4)
+    template<class T>
+    inline constexpr /*unspecified*/ istream = /*unspecified*/;
   }
 }
 ```
@@ -22,8 +32,10 @@ namespace std::ranges {
 * stream-extractable[italic]
 
 ## 概要
-- (1): 入力ストリームから値を読み取る[`view`](view.md)
-- (2): `basic_istream_view`を生成する関数テンプレート
+- (1): 入力ストリームから`Val`型の値を読み取る[`view`](view.md)
+- (2): `basic_istream_view`の、文字の型を`char`とするエイリアス
+- (2): `basic_istream_view`の、文字の型を`wchar_t`とするエイリアス
+- (4): `basic_istream_view`を生成するカスタマイゼーションポイントオブジェクト
 
 ### Rangeコンセプト
 
@@ -48,7 +60,7 @@ concept stream-extractable = requires(basic_istream<CharT, Traits>& is, Val& t) 
 
 ## 効果
 
-- (2): `return basic_istream_view<Val, CharT, Traits>{s};`
+- (4): `istream<T>(e)`の効果は、`U`を`std::remove_reference_t<decltype(e)>`とするとき、`basic_istream_view<T, typename U::char_type, typename U::traits_type>(e);`と等しい。
 
 ## メンバ関数
 
@@ -68,12 +80,12 @@ int main() {
   using namespace std;
   auto iss = istringstream{"1 2 3 4 5"};
 
-  for (int i : views::istream_view<int>(iss)) {
+  for (int i : views::istream<int>(iss)) {
     cout << i;
   }
 }
 ```
-* views::istream_view[color ff0000]
+* views::istream[color ff0000]
 
 ### 出力
 ```
