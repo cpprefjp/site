@@ -115,6 +115,9 @@ int main() {
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
+## 関連項目
+- [`std::iota`](/reference/numeric/iota.md), [`std::ranges::iota`](/reference/numeric/ranegs_iota.md): Rangeに先行評価で増加列を書き込む標準アルゴリズム関数
+
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)

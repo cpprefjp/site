@@ -98,5 +98,8 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+## 関連項目
+- [`std::ranges::iota_view`](/reference/ranges/iota_view.md): 増加列を遅延評価で生成するRangeファクトリ
+
 ## 参照
 - [N4901 25 Algorithms library](https://timsong-cpp.github.io/cppwp/algorithms)
