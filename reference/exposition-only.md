@@ -26,5 +26,10 @@
 | [`is-integer-like`](iterator/is_integer_like.md) | 符号付整数型と同等の型か否かを表す (variable template)           | C++20          |
 | [`is-signed-integer-like`](iterator/is_integer_like.md) | 符号なし整数型と同等の型か否かを表す (variable template)           | C++20          |
 
+## `<ranges>`
+| 名前                                       | 説明                                                                            | 対応バージョン |
+|--------------------------------------------|---------------------------------------------------------------------------------|----------------|
+| [`copyable-box`](ranges/copyable_box.md)   | コピー可能、または例外なしでムーブ可能な場合のみ値を保持する型 (class template) | C++20          |
+
 ## 参照
 - [N4861 16.4.2.1 Exposition-only functions](https://timsong-cpp.github.io/cppwp/n4861/expos.only.func)

@@ -80,6 +80,60 @@ int main() {
 1
 ```
 
+## 実装例
+```cpp
+namespace std::ranges {
+  template<copy_constructible T>
+    requires is_object_v<T>
+  class single_view : public view_interface<single_view<T>> {
+  private:
+    copyable-box<T> value_;
+
+  public:
+    single_view() requires default_initializable<T> = default;
+    constexpr explicit single_view(const T& t): value_(t) {
+    }
+    constexpr explicit single_view(T&& t): value_(t) {
+    }
+    template<class... Args>
+      requires constructible_from<T, Args...>
+    constexpr explicit single_view(in_place_t, Args&&... args): value_{in_place, forward<Args>(args)...} {
+    }
+
+    constexpr T* begin() noexcept {
+      return data();
+    }
+    constexpr const T* begin() const noexcept {
+      return data();
+    }
+    constexpr T* end() noexcept {
+      return data() + 1;
+    }
+    constexpr const T* end() const noexcept {
+      return data() + 1;
+    }
+    static constexpr size_t size() noexcept {
+      return 1;
+    }
+    constexpr T* data() noexcept {
+      return value_.operator->();
+    }
+    constexpr const T* data() const noexcept {
+      return value_.operator->();
+    }
+  };
+
+  template<class T>
+    single_view(T) -> single_view<T>;
+}
+```
+* copy_constructible[link /reference/concepts/copy_constructible.md]
+* default_initializable[link /reference/concepts/default_initializable.md]
+* constructible_from[link /reference/concepts/constructible_from.md]
+* is_object_v[link /reference/type_traits/is_object.md]
+* view_interface[link view_interface.md]
+* copyable-box[link copyable_box.md]
+
 ## バージョン
 ### 言語
 - C++20
