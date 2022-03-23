@@ -46,15 +46,16 @@ namespace std::ranges {
 
 ## 例
 ```cpp example
-#include <utility>
-#include <type_traits>
+#include <ranges>
+#include <concepts>
 
 int main()
 {
-  std::pair p {3, "Hello"};
-  static_assert(std::is_same_v<
-    decltype(p),
-    std::pair<int, const char*>
+  int a[] = {1, 2, 3};
+  std::ranges::subrange sub = a;
+  static_assert(std::same_as<
+    decltype(sub),
+    std::ranges::subrange<int*, int*, std::ranges::subrange_kind::sized>
   >);
 }
 ```
