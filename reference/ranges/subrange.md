@@ -111,6 +111,7 @@ concept pair-like-convertible-from =
   convertible_to<V, tuple_element_t<1, T>>;
 ```
 * convertible_to[link /reference/concepts/convertible_to.md]
+* constructible_from[link /reference/concepts/derived_from.md]
 * derived_from[link /reference/concepts/derived_from.md]
 * is_pointer_v[link /reference/type_traits/is_pointer.md]
 * decay_t[link /reference/type_traits/decay.md]
@@ -118,6 +119,7 @@ concept pair-like-convertible-from =
 * remove_pointer_t[link /reference/type_traits/remove_pointer.md]
 * remove_const_t[link /reference/type_traits/remove_const.md]
 * range[link /reference/ranges/range.md]
+* tuple_element_t[link /reference/tuple/tuple_element.md]
 * not-same-as[italic][link /reference/concepts/same_as.md]
 * uses-nonqualification-pointer-conversion[italic]
 * convertible-to-non-slicing[italic]

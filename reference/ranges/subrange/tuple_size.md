@@ -17,7 +17,7 @@ namespace std {
 
 要素数は、[`integral_constant`](/reference/type_traits/integral_constant.md)の機能を利用してコンパイル時の定数値として取得できる。
 
-`<ranges>`ヘッダでは、[`subrange`](/reference/ranges/subrange.md)に関する特殊化を定義する。
+[`<ranges>`](/reference/ranges.md)ヘッダでは、[`subrange`](/reference/ranges/subrange.md)に関する特殊化を定義する。
 
 [`subrange`](/reference/ranges/subrange.md)をタプルとして見たとき、大きさ2で、第0要素はイテレータ、第1要素は番兵である。
 

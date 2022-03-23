@@ -27,6 +27,7 @@ template<borrowed_range R>
 constexpr subrange(R&& r, make-unsigned-like-t<iter_difference_t<I>> n)
   requires (K == subrange_kind::sized) : subrange{ranges::begin(r), ranges::end(r), n} {}
 ```
+* subrange[link ../subrange.md]
 * subrange_kind[link /reference/ranges/subrange_kind.md]
 * borrowed_range[link /reference/ranges/borrowed_range.md]
 * sized_range[link /reference/ranges/sized_range.md]
@@ -51,6 +52,7 @@ constexpr subrange(R&& r, make-unsigned-like-t<iter_difference_t<I>> n)
 ```cpp
 static constexpr bool StoreSize = (K == subrange_kind::sized && !sized_sentinel_for<S, I>);
 ```
+* subrange_kind[link /reference/ranges/subrange_kind.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * StoreSize[italic]
 
@@ -64,7 +66,7 @@ static constexpr bool StoreSize = (K == subrange_kind::sized && !sized_sentinel_
 ## 事前条件
 
 - (2): `[i, s)`は有効な範囲であること
-- (3): `[i, s)`は有効な範囲であり、`n`はその範囲の長さ([`ranges​::​distance](/reference/iterator/ranges_distance.md)`(i, s)`)と等しいこと
+- (3): `[i, s)`は有効な範囲であり、`n`はその範囲の長さ([`ranges::distance](/reference/iterator/ranges_distance.md)`(i, s)`)と等しいこと
 - (4): `r`は有効な範囲であること
 - (5): `r`は有効な範囲であり、`n`はその範囲の長さと等しいこと
 
@@ -74,7 +76,7 @@ static constexpr bool StoreSize = (K == subrange_kind::sized && !sized_sentinel_
 
 ## 備考
 
-`subrange`はコピー、ムーブ可能である。また、テンプレート引数が異なる`subrange`はからは、(4)によって構築できる。
+`subrange`はコピー、ムーブ可能である。また、テンプレート引数が異なる`subrange`からは、(4)によって構築できる。
 
 ## 例
 ```cpp example

@@ -17,8 +17,8 @@ constexpr I begin() const requires copyable<I>;             // (1)
 先頭要素を指すイテレータを取得する。
 
 ## 効果
-- (1): `return begin_­;`
-- (2): `return std​::​move(begin_­);`
+- (1): `return begin_;`
+- (2): `return std::move(begin_);`
 
 ただし、`begin_`は`subrange`が内部で保持するイテレータ。
 

@@ -10,12 +10,13 @@ namespace std::ranges {
   inline constexpr bool enable_borrowed_range<subrange<I, S, K>> = true;
 }
 ```
+* subrange[link ../subrange.md]
 
 ## 概要
 
 [`enable_borrowed_range`](../enable_borrowed_range.md)の特殊化。
 
-この特殊化により、`subrange`が[`borrowed_range`](borrowed_range.md)となる。
+この特殊化により、`subrange`が[`borrowed_range`](../borrowed_range.md)となる。
 
 ## 例
 

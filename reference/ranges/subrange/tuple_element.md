@@ -34,7 +34,7 @@ namespace std {
 ## 概要
 `tuple_element`は、タプルとして見なせる型から、`I`番目の要素型を取得するためのクラスである。
 
-`<ranges>`ヘッダでは、[`subrange`](/reference/ranges/subrange.md)に関する特殊化を定義する。
+[`<ranges>`](/reference/ranges.md)ヘッダでは、[`subrange`](/reference/ranges/subrange.md)に関する特殊化を定義する。
 
 [`subrange`](/reference/ranges/subrange.md)をタプルとして見たとき、大きさ2で、第0要素はイテレータ、第1要素は番兵である。
 

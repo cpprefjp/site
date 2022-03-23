@@ -13,7 +13,7 @@ constexpr bool empty() const;
 `subrange`が空かどうかを判定する。
 
 ## 効果
-`return begin_­ == end_­;`
+`return begin_ == end_;`
 
 ただし、`begin_`、`end_`は`subrange`が内部で保持するイテレータと番兵。
 

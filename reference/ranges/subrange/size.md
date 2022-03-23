@@ -20,8 +20,8 @@ constexpr make-unsigned-like-t<iter_difference_t<I>> size() const
 
 ## 効果
 
-- [`StoreSize`](op_constructor.md)が真のとき、 `return size_­;`
-- それ以外のとき、`return `[`to-unsigned-like`](/reference/type_traits/make_unsigned.md)`(end_­ - begin_­);`
+- [`StoreSize`](op_constructor.md)が真のとき、 `return size_;`
+- それ以外のとき、`return `[`to-unsigned-like`](/reference/type_traits/make_unsigned.md)`(end_ - begin_);`
 
 ## 例
 ```cpp example
