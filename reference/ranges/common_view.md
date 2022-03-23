@@ -16,6 +16,7 @@ namespace std::ranges {
 }
 ```
 * view[link view.md]
+* view_interface[link view_interface.md]
 * common_range[link common_range.md]
 * is_object_v[link /reference/type_traits/is_object.md]
 * copyable[link /reference/concepts/copyable.md]
