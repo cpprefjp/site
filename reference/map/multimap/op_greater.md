@@ -4,8 +4,10 @@
 * function template[meta id-type]
 
 ```cpp
-template <class Key, class T, class Compare, class Allocator>
-bool operator> (const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T,Compare,Allocator>& y);
+namespace std {
+  template <class Key, class T, class Compare, class Allocator>
+  bool operator> (const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T,Compare,Allocator>& y);
+}
 ```
 
 ## 概要
