@@ -1,4 +1,4 @@
-# operator>
+# operator<=
 * map[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -6,21 +6,21 @@
 ```cpp
 namespace std {
   template <class Key, class T, class Compare, class Allocator>
-  bool operator> (const multimap<Key,T,Compare,Allocator>& x, const multimap<Key,T,Compare,Allocator>& y);
+  bool operator<=(const multimap<Key,T, Compare,Allocator>& x, const multimap<Key,T, Compare,Allocator>& y);
 }
 ```
 
 ## 概要
-`x` が `y` より大きいかどうかの判定を行う。
+`x` が `y` より小さいか等しいかの判定を行う。
 
 
-## パラメータ
+## 引数
 - `x`, `y`<br/>
 比較するコンテナ。
 
 
 ## 戻り値
-`x` が `y` より大きい場合に `true`, そうでない場合に `false`。
+`x` が `y` より小さいか等しい場合に `true`, そうでない場合に `false`。
 
 
 ## 計算量
@@ -40,11 +40,11 @@ int main()
   m1.insert(std::make_pair('c', 30));
   m2 = m1;
 
-  std::cout << (m1 > m2) << std::endl;
+  std::cout << (m1 <= m2) << std::endl;
 
-  m1.insert(std::make_pair('d', 40));
+  m2.insert(std::make_pair('d', 40));
 
-  std::cout << (m1 > m2) << std::endl;
+  std::cout << (m1 <= m2) << std::endl;
 
   return 0;
 }
@@ -53,15 +53,7 @@ int main()
 
 ### 出力
 ```
-0
+1
 1
 ```
-
-
-### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
-
 

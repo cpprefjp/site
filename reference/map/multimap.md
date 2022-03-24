@@ -149,7 +149,7 @@ namespace std {
 | [`operator==`](multimap/op_equal.md)         | 左辺と右辺が等しいかの判定を行う           | |
 | [`operator!=`](multimap/op_not_equal.md)     | 左辺と右辺が等しくないかの判定を行う       | |
 | [`operator<`](multimap/op_less.md)           | 左辺が右辺より小さいかの判定を行う         | |
-| [`operator<=`](multimap/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
+| [`operator<=`](multimap/op_less_equal.md)    | 左辺が右辺より小さいか等しいかの判定を行う | |
 | [`operator>`](multimap/op_greater.md)        | 左辺が右辺より大きいかの判定を行う         | |
 | [`operator>=`](multimap/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
 
