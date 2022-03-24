@@ -304,12 +304,35 @@ range | adaptor(args...)
 
 ### adjacent view
 
-| 名前                                                             | 説明                                                                            | 対応バージョン |
-|------------------------------------------------------------------|---------------------------------------------------------------------------------|----------------|
-| [`adjacent_view`](ranges/adjacent_view.md.nolink)                       | シーケンスから値を2つずつ取り出した`tuple`のビュー (class template)             | C++23          |
-| [`views::adjacent`](ranges/adjacent_view.md.nolink)                     | `adjacent_view`を生成する (customization point object)                          | C++23          |
-| [`adjacent_transform_view`](ranges/adjacent_transform_view.md.nolink)   | シーケンスから値を2つずつ取り出し、関数を適用した結果のビュー (class template)  | C++23          |
-| [`views::adjacent_transform`](ranges/adjacent_transform_view.md.nolink) | `adjacent_transform_view`を生成する (customization point object)                | C++23          |
+| 名前                                                             | 説明                                                                               | 対応バージョン |
+|------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
+| [`adjacent_view`](ranges/adjacent_view.md.nolink)                       | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
+| [`views::adjacent`](ranges/adjacent_view.md.nolink)                     | `adjacent_view`を生成する (customization point object)                             | C++23          |
+| [`adjacent_transform_view`](ranges/adjacent_transform_view.md.nolink)   | `adjacent_view`と同様に取り出し、関数を適用した結果のビュー (class template)       | C++23          |
+| [`views::adjacent_transform`](ranges/adjacent_transform_view.md.nolink) | `adjacent_transform_view`を生成する (customization point object)                   | C++23          |
+
+### chunk view
+
+| 名前                                        | 説明                                                               | 対応バージョン |
+|---------------------------------------------|--------------------------------------------------------------------|----------------|
+| [`chunk_view`](ranges/chunk_view.md.nolink)         | シーケンスを指定個数で区切った`view`のシーケンス (class template)  | C++23          |
+| [`views::chunk`](ranges/chunk_view.md.nolink)       | `chunk_view`を生成する (customization point object)                | C++23          |
+| [`chunk_by_view`](ranges/chunk_by_view.md.nolink)   | 2項述語が偽となる部分で区切った`view`のシーケンス (class template) | C++23          |
+| [`views::chunk_by`](ranges/chunk_by_view.md.nolink) | `chunk_by_view`を生成する (customization point object)             | C++23          |
+
+### slide view
+
+| 名前                                   | 説明                                                                            | 対応バージョン |
+|----------------------------------------|---------------------------------------------------------------------------------|----------------|
+| [`slide_view`](ranges/slide_view.md.nolink)   | 各要素とそれに隣接する要素を指定個数ずつ見る`view`のシーケンス (class template) | C++23          |
+| [`views::slide`](ranges/slide_view.md.nolink) | `slide_view`を生成する (customization point object)                             | C++23          |
+
+
+## Range変換
+
+| 名前                 | 説明                                                           | 対応バージョン |
+|----------------------|----------------------------------------------------------------|----------------|
+| [`to`](ranges/to.md.nolink) | パイプライン記法でRangeからコンテナを構築する (class template) | C++23          |
 
 ## バージョン
 ### 言語
