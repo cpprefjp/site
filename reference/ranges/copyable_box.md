@@ -34,7 +34,7 @@ constexpr copyable-box& operator=(const copyable-box& that) noexcept(is_nothrow_
 * reset[link /reference/optional/optional/reset.md]
 
 ### 差分3
-`T`が[`copyable`](/reference/optional/copyable.md)のモデルでない場合、ムーブ代入演算子は以下のように定義される。
+`T`が[`copyable`](/reference/concepts/copyable.md)のモデルでない場合、ムーブ代入演算子は以下のように定義される。
 
 ```cpp
 constexpr copyable-box& operator=(copyable-box&& that) noexcept(is_nothrow_move_constructible_v<T>) {

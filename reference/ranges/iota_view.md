@@ -116,7 +116,7 @@ int main() {
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
 ## 関連項目
-- [`std::iota`](/reference/numeric/iota.md), [`std::ranges::iota`](/reference/numeric/ranegs_iota.md): Rangeに先行評価で増加列を書き込む標準アルゴリズム関数
+- [`std::iota`](/reference/numeric/iota.md), [`std::ranges::iota`](/reference/numeric/ranges_iota.md): Rangeに先行評価で増加列を書き込む標準アルゴリズム関数
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
