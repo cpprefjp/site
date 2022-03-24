@@ -85,14 +85,14 @@ int main()
   std::multiset<int> result;
 
   // 重ならない要素からなる集合を作る
-  std::set_symmetric_difference(a, b, std::inserter(result, result.end()));
+  std::ranges::set_symmetric_difference(a, b, std::inserter(result, result.end()));
 
   for (int x : result) {
     std::cout << x << std::endl;
   }
 }
 ```
-* std::set_symmetric_difference[color ff0000]
+* std::ranges::set_symmetric_difference[color ff0000]
 * std::multiset[link /reference/set/multiset.md]
 * begin()[link /reference/set/set/begin.md]
 * end()[link /reference/set/set/end.md]
