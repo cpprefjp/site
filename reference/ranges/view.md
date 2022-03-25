@@ -17,12 +17,18 @@ namespace std::ranges {
 ## 概要
 `view`は、ビューを表すコンセプトである。`view`の要件は意味論要件がメインなので、[`enable_view`](enable_view.md)を特殊化して有効にしない限り`view`とはならない。
 
+`view`の例：
+
+- イテレータペアをラップするRange
+- 要素を`shared_­ptr`で持っていて、Rangeのコピーをすると要素の所有権を共有するようなRange
+- 要素を必要に応じて生成するRange
+
 ## モデル
 型`T`が`view`のモデルとなるのは、以下の条件をすべて満たす場合である。
 
-1. `T`はO(1)で構築できる
-2. `T`はO(1)でムーブ代入できる
-3. `T`はO(1)で破棄できる
+1. `T`のムーブコンストラクタがO(1)
+2. `T`のムーブ代入は、`T`のデストラクタとムーブコンストラクタを連続で実行する場合より複雑にならない
+3. M 個の要素を持つ`T`型のオブジェクトから N 個の`T`型オブジェクトをムーブやコピーで作ったとき、それら N 個の`T`型オブジェクトは O(N + M) で破棄できる
 4. [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T>`が`false`、または`T`のコピーコンストラクタがO(1)
 5. [`copyable`](/reference/concepts/copyable.md)`<T>`が`false`、または`T`のコピー代入演算子がO(1)
 
@@ -51,6 +57,7 @@ int main()
 }
 ```
 * std::ranges::view[color ff0000]
+* std::span[link /reference/span/span.md]
 
 ### 出力
 ```
