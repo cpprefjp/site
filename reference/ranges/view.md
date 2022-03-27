@@ -20,7 +20,7 @@ namespace std::ranges {
 `view`の例：
 
 - イテレータペアをラップするRange
-- 要素を`shared_­ptr`で持っていて、Rangeのコピーをすると要素の所有権を共有するようなRange
+- 要素を`shared_ptr`で持っていて、Rangeのコピーをすると要素の所有権を共有するようなRange
 - 要素を必要に応じて生成するRange
 
 ## モデル
