@@ -67,7 +67,7 @@ bitset(
 - (3) : `pos > str.`[`size()`](/reference/string/basic_string/size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 	- C++03 : `str`に`'0'`と`'1'`以外の文字が含まれていた場合、[`invalid_argument`](/reference/stdexcept.md)例外を送出する。
 	- C++11 : `str`に`zero`と`one`以外の文字が含まれていた場合、[`invalid_argument`](/reference/stdexcept.md)例外を送出する。
-
+- (4) : `str`に`zero`と`one`以外の文字が含まれていた場合、[`invalid_argument`](/reference/stdexcept.md)例外を送出する。
 
 
 ## 例
