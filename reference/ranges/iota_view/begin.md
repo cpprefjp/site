@@ -8,16 +8,16 @@
 ```cpp
 constexpr iterator begin() const;
 ```
-* itetator[link itetator.md]
+* iterator[link iterator.md]
 
 ## 概要
 先頭要素を指すイテレータを取得する。
 
 ## 効果
 ```cpp
-return itetator{value_};
+return iterator{value_};
 ```
-* itetator[link itetator.md]
+* iterator[link iterator.md]
 
 ただし、`value_`は`iota_view`が内部で保持する先頭の値。
 
