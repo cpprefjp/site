@@ -334,6 +334,11 @@ range | adaptor(args...)
 |----------------------|----------------------------------------------------------------|----------------|
 | [`to`](ranges/to.md.nolink) | パイプライン記法でRangeからコンテナを構築する (class template) | C++23          |
 
+## 実装例
+- [libstdc++](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/ranges)
+- [libc++](https://github.com/llvm/llvm-project/blob/main/libcxx/include/ranges)
+- [MSVC](https://github.com/microsoft/STL/blob/main/stl/inc/ranges)
+
 ## バージョン
 ### 言語
 - C++20

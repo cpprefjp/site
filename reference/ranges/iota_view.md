@@ -56,12 +56,12 @@ namespace std::ranges {
 
 ## メンバ関数
 
-| 名前                                             | 説明                             | 対応バージョン |
-|--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](iota_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`begin`](iota_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](iota_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
-| [`size`](iota_view/size.md.nolink)                     | 有限長のとき、要素数を取得する   | C++20          |
+| 名前                                            | 説明                             | 対応バージョン |
+|-------------------------------------------------|----------------------------------|----------------|
+| [`(constructor)`](iota_view/op_constructor.md)  | コンストラクタ                   | C++20          |
+| [`begin`](iota_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](iota_view/end.md)                       | 番兵を取得する                   | C++20          |
+| [`size`](iota_view/size.md)                     | 有限長のとき、要素数を取得する   | C++20          |
 
 ## 継承しているメンバ関数
 
@@ -73,11 +73,23 @@ namespace std::ranges {
 | [`back`](view_interface/back.md)             | 有限長のとき、末尾要素への参照を取得する | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                       | C++20          |
 
+## メンバ型
+
+| 名前                                      | 説明                         | 対応バージョン |
+|-------------------------------------------|------------------------------|----------------|
+| [`iterator`](iota_view/iterator.md)       | イテレータ型(説明専用)       | C++20          |
+| [`sentinel`](iota_view/sentinel.md)       | 番兵型(説明専用)             | C++20          |
+
+## その他
+| 名前                                      | 説明                         | 対応バージョン |
+|-------------------------------------------|------------------------------|----------------|
+| [`iota_diff_t`](iota_view/iota_diff_t.md) | イテレータの差の型(説明専用) | C++20          |
+
 ## 推論補助
 
-| 名前                                                  | 説明                         | 対応バージョン |
-|-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](iota_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| 名前                                                   | 説明                         | 対応バージョン |
+|--------------------------------------------------------|------------------------------|----------------|
+| [`(deduction_guide)`](iota_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
@@ -91,18 +103,85 @@ int main() {
     cout << i;
   }
   cout << '\n';
-  for (int i : views::iota(10)) {
-     cout << i;
-     break;
+  for (int i : views::iota(1) | views::filter([](auto&& x) { return x % 3 == 0; }) | views::take(3)) {
+    cout << i;
   }
 }
 ```
 * views::iota[color ff0000]
+* views::filter[link filter_view.md]
+* views::take[link take_view.md]
 
 ### 出力
 ```
 123456789
-10
+369
+```
+
+## 例 自作クラスを使用する
+
+```cpp
+#include <ranges>
+#include <concepts>
+#include <cstdint>
+#include <iostream>
+
+struct fizzbuzz_t {
+  int value_ = 0;
+  constexpr fizzbuzz_t& operator++(){
+    ++value_;
+    return *this;
+  }
+  constexpr fizzbuzz_t operator++(int){
+    ++value_;
+    return {value_ - 1};
+  }
+  using difference_type = int;
+  constexpr auto operator<=>(const fizzbuzz_t&) const = default;
+};
+
+static_assert(std::weakly_incrementable<fizzbuzz_t>);
+
+std::ostream& operator<<(std::ostream& os, fizzbuzz_t fb) {
+  if(fb.value_ % 15 == 0) {
+    return os << "FizzBuzz";
+  }
+  if(fb.value_ % 3 == 0) {
+    return os << "Fizz";
+  }
+  if(fb.value_ % 5 == 0) {
+    return os << "Buzz";
+  }
+  return os << fb.value_;
+}
+
+int main()
+{
+  for(auto fb : std::views::iota(fizzbuzz_t{1}, fizzbuzz_t{16})) {
+    std::cout << fb << '\n';
+  }
+}
+```
+* std::weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
+* std::views::iota[color ff0000]
+
+### 出力
+```
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
 ```
 
 ## バージョン
