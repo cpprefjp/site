@@ -25,16 +25,18 @@ constexpr iota_view(iterator first, sentinel last);
 
 ## 概要
 - (1) : `[W(), Bound())` を範囲とする`iota_view`を構築する
-- (2) : `Bound`が`unreachable_sentinel_t`のとき、`value`から始まる無限長の`iota_view`を構築する。それ以外のとき、`[value, Bound())` を範囲とする`iota_view`を構築する
+- (2) : `[value, Bound())` を範囲とする`iota_view`を構築する
 - (3) : `[value, bound)` を範囲とする`iota_view`を構築する
 - (4) : イテレータ `[first, last)` が指す値を範囲とする`iota_view`を構築する((3)に委譲)
+
+`Bound`が[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)のとき、無限長の`iota_view`となる。
 
 ## 事前条件
 
 `e`が`b`から到達できるとは、`b`をn回インクリメントしたとき、`e == b`が真となるようなnが存在することをいう。
 
 - (2): `Bound`は[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)である。または、`Bound()`は`value`から到達できる
-- (3): `Bound`は[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)である。または、`Bound()`は`value`から到達できる。[`totally_ordered_with`](/reference/concepts/totally_ordered.md)`<W, Bound>`ならば、`bool(value <= bound)`が`true`である
+- (3): `Bound`は[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)である。または、`bound`は`value`から到達できる。[`totally_ordered_with`](/reference/concepts/totally_ordered.md)`<W, Bound>`ならば、`bool(value <= bound)`が`true`である
 
 ## 効果
 
