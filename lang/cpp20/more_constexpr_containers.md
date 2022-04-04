@@ -1,4 +1,4 @@
-# 可変サイズをもつコンテナの`constexpr`化
+# 可変サイズをもつコンテナのconstexpr化
 * cpp20[meta cpp]
 
 ## 概要
