@@ -19,12 +19,13 @@ constexpr int test_vector() {
 }
 
 constexpr bool check_cpp_file(const std::string& filename) {
-  return filename.end_with(".cpp") || filename.end_with(".hpp");
+  return filename.ends_with(".cpp") || filename.ends_with(".hpp");
 }
 
 static_assert(test_vector() == 35);         // OK
 static_assert(check_cpp_file("main.cpp"));  // OK
 ```
+* ends_with[link /reference/string/basic_string/ends_with.md]
 
 これは主に以下の変更によって達成されている。
 
