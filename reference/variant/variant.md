@@ -56,6 +56,7 @@ std::visit([](auto& x) {
 
 ## テンプレートパラメータ制約
 - `Types...`の全ての型が、[`std::destructible`](/reference/concepts/destructible.md)要件を満たすこと
+    - 例えば`void`はこれを満たさない。空、あるいは無効な型を入れ込みたい場合には[`std::monostate`](/reference/variant/monostate.md)が使用できる
 - コンストラクタや代入の制約として、`variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、`Types...`内に同じ型が複数回現れる指定をする場合は、型のインデックスを指定する形式の機能のみ使用できる
     - こういった指定は、正常データかエラーデータどちらかが代入されるオブジェクトを用意する状況で、正常データとエラーデータがどちらも文字列、という場合に必要になる
 
