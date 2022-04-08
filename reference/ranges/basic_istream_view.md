@@ -95,6 +95,87 @@ int main() {
 12345
 ```
 
+## 実装例
+
+```cpp
+namespace std::ranges {
+  template<class Val, class CharT, class Traits>
+  concept stream_extractable = requires(basic_istream<CharT, Traits>& is, Val& t) { is >> t; };
+
+  template<movable Val, class CharT, class Traits = char_traits<CharT>>
+    requires default_initializable<Val> && stream_extractable<Val, CharT, Traits>
+  class basic_istream_view : public view_interface<basic_istream_view<Val, CharT, Traits>> {
+
+  private:
+    template<movable Val, class CharT, class Traits>
+      requires default_initializable<Val> && stream_extractable<Val, CharT, Traits>
+    class iterator {
+    public:
+      using iterator_concept = input_iterator_tag;
+      using difference_type = ptrdiff_t;
+      using value_type = Val;
+
+      constexpr explicit iterator(basic_istream_view& parent) noexcept
+        : parent_(addressof(parent))
+      {}
+
+      iterator(const iterator&) = delete;
+      iterator(iterator&&) = default;
+      iterator& operator=(const iterator&) = delete;
+      iterator& operator=(iterator&&) = default;
+
+      iterator& operator++() {
+        *parent_->stream_ >> parent_->value_;
+        return *this;
+      }
+
+      void operator++(int) {
+        ++*this;
+      }
+
+      Val& operator*() const {
+        return parent_->value_;
+      }
+
+      friend bool operator==(const iterator& x, default_sentinel_t) {
+        return !*x.parent_->stream_;
+      }
+
+    private:
+      basic_istream_view* parent_;
+    };
+
+  public:
+    constexpr explicit basic_istream_view(basic_istream<CharT, Traits>& stream)
+      : stream_(addressof(stream))
+    {
+    }
+
+    constexpr auto begin() {
+      *stream_ >> value_;
+      return iterator{*this};
+    }
+
+    constexpr default_sentinel_t end() const noexcept {
+      return default_sentinel;
+    }
+
+  private:
+    struct iterator;
+    basic_istream<CharT, Traits>* stream_;
+    Val value_ = Val();
+  };
+}
+```
+* movable[link /reference/concepts/movable.md]
+* default_initializable[link /reference/concepts/default_initializable.md]
+* view_interface[link view_interface.md]
+* input_iterator_tag[link /reference/iterator/iterator_tag.md]
+* addressof[link /reference/memory/addressof.md]
+* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
+* basic_istream[likn /reference/istream/basic_istream.md]
+* char_traits[likn /reference/string/char_traits.md]
+
 ## バージョン
 ### 言語
 - C++20
