@@ -142,7 +142,7 @@ int main() {
   using namespace std;
   auto iss = istringstream{"1 2 3 1 4 5 6 1 7 8 1 9 1"};
 
-  for (auto inner_range : ranges::istream_view<int>(iss) | views::lazy_split(1)) {
+  for (auto inner_range : views::istream<int>(iss) | views::lazy_split(1)) {
     for (int n : inner_range) {
       std::cout << n;
     }
@@ -150,6 +150,7 @@ int main() {
   }
 }
 ```
+* views::istream[link basic_istream_view.md]
 * views::lazy_split[color ff0000]
 
 ### 出力

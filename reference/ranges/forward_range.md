@@ -31,14 +31,15 @@ int main() {
   // forward_listはforward_range
   static_assert(ranges::forward_range<forward_list<int>>);
 
-  // istream_viewはforward_rangeではなく、input_range
-  static_assert(!ranges::forward_range<decltype(ranges::istream_view<int>(cin))>);
-  static_assert(ranges::input_range<decltype(ranges::istream_view<int>(cin))>);
+  // basic_istream_viewはforward_rangeではなく、input_range
+  static_assert(!ranges::forward_range<decltype(views::istream<int>(cin))>);
+  static_assert(ranges::input_range<decltype(views::istream<int>(cin))>);
 }
 ```
 * ranges::forward_range[color ff0000]
 * ranges::input_range[link input_range.md]
-* ranges::istream_view[link basic_istream_view.md]
+* basic_istream_view[link basic_istream_view.md]
+* views::istream[link basic_istream_view.md]
 
 ### 出力
 ```
