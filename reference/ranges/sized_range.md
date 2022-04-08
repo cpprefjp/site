@@ -18,6 +18,10 @@ namespace std::ranges {
 
 `sized_range`なRangeからは[`ranges::size`](size.md)で大きさを取得できる。
 
+`sized_range`ではないRangeとしては、[`iota_view`](iota_view.md)のように無限長のもの、
+[`forward_list`](/reference/forward_list/forward_list.md)のように大きさは決まっているが償却定数時間で求められないもの、
+[`basic_istream_view`](basic_istream_view.md)のように事前に求められないものなどがある。
+
 ## モデル
 型が[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<T>`であるようなlvalue`t`があるとする。`T`が`sized_range`のモデルとなるのは、以下の条件をすべて満たす場合である。
 
