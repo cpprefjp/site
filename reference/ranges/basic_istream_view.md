@@ -102,6 +102,9 @@ int main() {
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
+## 関連項目
+- [`istream_iterator`](/reference/iterator/istream_iterator.md): ストリームからデータを読み込む入力イテレータ
+
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
