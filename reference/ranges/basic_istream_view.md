@@ -37,6 +37,9 @@ namespace std::ranges {
 - (2): `basic_istream_view`の、文字の型を`wchar_t`とするエイリアス
 - (4): `basic_istream_view`を生成するカスタマイゼーションポイントオブジェクト
 
+基本的な挙動は[`istream_iterator`](/reference/iterator/istream_iterator.md)と同じで、イテレータが作られるときにストリームから値を1つ読み、インクリメントされるときに次の値を読む。
+ただし、`basic_istream_view`の場合、読んだ値はイテレータではなくRangeオブジェクトに保存されている。
+
 ### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
@@ -67,7 +70,7 @@ concept stream-extractable = requires(basic_istream<CharT, Traits>& is, Val& t) 
 | 名前                                                     | 説明                             | 対応バージョン |
 |----------------------------------------------------------|----------------------------------|----------------|
 | [`(constructor)`](basic_istream_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`begin`](basic_istream_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`begin`](basic_istream_view/begin.md.nolink)                   | ストリームから値を1つ読み、それを指すイテレータを取得する   | C++20          |
 | [`end`](basic_istream_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 
 ## 例
