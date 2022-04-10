@@ -45,7 +45,7 @@ namespace std::ranges {
 ## 効果
 
 - (2): 式`views::common(E)`の効果は次の通り
-    - [`decltype`](/lang/cpp11/decltype.md)`((E))`が[`common_range`](common_range.md)のモデルであり、[`views::all`](ref_view.md)`(E)`が有効な式であれば、[`views::all`](ref_view.md)`(E)`と等しい
+    - [`decltype`](/lang/cpp11/decltype.md)`((E))`が[`common_range`](common_range.md)のモデルであり、[`views::all`](all.md)`(E)`が有効な式であれば、[`views::all`](all.md)`(E)`と等しい
     - それ以外のとき、`common_view{E}`と等しい
 
 ## メンバ関数

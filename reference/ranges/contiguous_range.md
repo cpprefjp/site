@@ -48,7 +48,7 @@ int main() {
 ```
 * ranges::contiguous_range[color ff0000]
 * ranges::elements_view[link elements_view.md]
-* ranges::views::all_t[link ref_view.md]
+* ranges::views::all_t[link all.md]
 * ranges::random_access_range[link random_access_range.md]
 
 ### 出力

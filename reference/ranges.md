@@ -199,8 +199,9 @@ range | adaptor(args...)
 | 名前                                    | 説明                                                                     | 対応バージョン |
 |-----------------------------------------|--------------------------------------------------------------------------|----------------|
 | [`ref_view`](ranges/ref_view.md)        | Rangeへの参照として振る舞うビュー (class template)                       | C++20          |
-| [`views::all`](ranges/ref_view.md)      | Rangeへの参照として振る舞うビューを生成する (customization point object) | C++20          |
-| [`views::all_t`](ranges/ref_view.md)    | `all`の戻り値型 (alias template)                                         | C++20          |
+| [`owning_view`](ranges/owning_view.md)  | Rangeの右辺値をムーブして所有するビュー (class template)                 | C++20          |
+| [`views::all`](ranges/all.md)           | Rangeへの参照として振る舞うビューを生成する (customization point object) | C++20          |
+| [`views::all_t`](ranges/all.md)         | `all`の戻り値型 (alias template)                                         | C++20          |
 
 ### filter view
 

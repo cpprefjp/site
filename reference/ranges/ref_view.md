@@ -8,28 +8,16 @@
 namespace std::ranges {
   template<range R>
     requires is_object_v<R>
-  class ref_view : public view_interface<ref_view<R>> { …… };   // (1)
-
-  namespace views {
-    inline constexpr /*unspecified*/ all = /*unspecified*/;     // (2)
-
-    template<viewable_range R>
-    using all_t = decltype(all(declval<R>()));                  // (3)
-  }
+  class ref_view : public view_interface<ref_view<R>> { …… };
 }
 ```
 * range[link range.md]
 * is_object_v[link /reference/type_traits/is_object.md]
-* movable[link /reference/concepts/movable.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* viewable_range[link viewable_range.md]
 * view_interface[link view_interface.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
-- (1): Rangeへの参照として振る舞う[`view`](view.md)
-- (2): Rangeへの参照として振る舞う[`view`](view.md)を生成するRangeアダプタクロージャオブジェクト。`all`の戻り値は`ref_view`の他に、元のRangeそのものや[`subrange`](subrange.md)の場合があり、まとめて"all view"と呼ぶことがある
-- (3): `all`の戻り値の型を得るエイリアステンプレート。`all_t`を使えば、`all`の分岐を気にせずに"all view"の型を得ることができる
+
+Rangeへの参照として振る舞う[`view`](view.md)。このクラスのオブジェクトは、Rangeアダプタ[`all`](all.md)によって生成される。
 
 ### Rangeコンセプト
 
@@ -38,20 +26,6 @@ namespace std::ranges {
 | ○       | ※    | ※     | ※    | ※      | ※            | ※            | ※         | ※     | ○       | ○   |
 
 ※ 参照先のRangeに従う
-
-## テンプレートパラメータ制約
-
-- [`range`](range.md)`<R>`
-- [`is_object_v`](/reference/type_traits/is_object.md)`<R>`
-
-## 効果
-
-- (2): 式`views::all(E)`の効果は次の通り
-    - `E`の[`decay`](/reference/type_traits/decay.md)した型が[`view`](view.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(E)`と等しい
-    - それ以外のとき、`ref_view{E}`が有効な式であれば、`ref_view{E}`と等しい
-    - それ以外のとき、[`subrange`](subrange.md)`{E}`と等しい
-
-引数にしたRangeが元々[`view`](view.md)である場合はそのまま使用する。そうでないときは、まず引数を`ref_view`でラップしようとする。それもできないときは、イテレータと番兵を[`subrange`](subrange.md)でラップする。
 
 ## メンバ関数
 
@@ -96,12 +70,78 @@ int main() {
   }
 }
 ```
-* views::all[color ff0000]
+* views::all[link all.md]
 
 ### 出力
 ```
 12345
 ```
+
+## 実装例
+```cpp
+namespace std::ranges {
+  template<class T, class U>
+  concept __different_from = !same_as<remove_cvref_t<T>, remove_cvref_t<U>>;
+
+  void __FUN(R&);
+  void __FUN(R&&) = delete;
+
+  template<range R>
+    requires is_object_v<R>
+  class ref_view : public view_interface<ref_view<R>> {
+  private:
+    R* r_;
+  public:
+    template<__different_from<ref_view> T>
+      requires convertible_to<T, R&> && requires { __FUN(declval<T>()); }
+    constexpr ref_view(T&& t) : r_(addressof(static_cast<R&>(std::forward<T>(t)))) {}
+
+    constexpr R& base() const { return *r_; }
+
+    constexpr iterator_t<R> begin() const {
+      return ranges::begin(*r_);
+    }
+
+    constexpr sentinel_t<R> end() const {
+      return ranges::end(*r_);
+    }
+
+    constexpr bool empty() const requires requires { ranges::empty(*r_); } {
+      return ranges::empty(*r_);
+    }
+
+    constexpr auto size() const requires sized_range<R> {
+      return ranges::size(*r_);
+    }
+
+    constexpr auto data() const requires contiguous_range<R> {
+      return ranges::data(*r_);
+    }
+  };
+
+  template<class R>
+  ref_view(R&) -> ref_view<R>;
+}
+```
+* is-initializer-list[italic]
+* range[link range.md]
+* is_object_v[link /reference/type_traits/is_object.md]
+* convertible_to[link /reference/concepts/convertible_to.md]
+* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
+* declval[link /reference/utility/declval.md]
+* std::forward[link /reference/utility/forward.md]
+* addressof[link /reference/memory/addressof.md]
+* same_as[link /reference/concepts/same_as.md]
+* iterator_t[link iterator_t.md]
+* sentinel_t[link sentinel_t.md]
+* ranges::begin[link begin.md]
+* ranges::end[link end.md]
+* ranges::empty[link empty.md]
+* ranges::size[link size.md]
+* ranges::data[link data.md]
+* sized_range[link sized_range.md]
+* contiguous_range[link contiguous_range.md]
+* view_interface[link view_interface.md]
 
 ## バージョン
 ### 言語

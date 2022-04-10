@@ -32,7 +32,7 @@ namespace std::ranges {
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * range_reference_t[link range_reference_t.md]
 * view_interface[link view_interface.md]
-* views::all_t[link ref_view.md]
+* views::all_t[link all.md]
 
 ## 概要
 
@@ -84,7 +84,7 @@ concept has-tuple-element =
 
 ## 効果
 
-- (4): `E`を部分式、`N`を定数式とするとき、式`views::elements<N>(E)`の効果は`elements_view<`[`views::all_t`](ref_view.md)`<`[`decltype`](/lang/cpp11/decltype.md)`((E))>, N>{E}`と等しい。
+- (4): `E`を部分式、`N`を定数式とするとき、式`views::elements<N>(E)`の効果は`elements_view<`[`views::all_t`](all.md)`<`[`decltype`](/lang/cpp11/decltype.md)`((E))>, N>{E}`と等しい。
 
 ## メンバ関数
 
