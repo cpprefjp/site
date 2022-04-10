@@ -170,4 +170,4 @@ namespace std::ranges {
 ## 参照
 - [N4892 24 Ranges library](https://timsong-cpp.github.io/cppwp/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
-- [［C++］ <ranges>のviewを見る19 - owning_view](https://zenn.dev/onihusube/articles/fd07528b68ae0c)
+- [［C++］ `<ranges>`のviewを見る19 - owning_view](https://zenn.dev/onihusube/articles/fd07528b68ae0c)
