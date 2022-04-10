@@ -104,6 +104,74 @@ int main() {
 olleH
 ```
 
+## 実装例
+```cpp
+namespace std::ranges {
+  template<view V>
+    requires bidirectional_range<V>
+  class reverse_view : public view_interface<reverse_view<V>> {
+  private:
+    V base_ = V();
+    optional<reverse_iterator<iterator_t<V>>> cache_;
+  public:
+    reverse_view() requires default_initializable<V> = default;
+
+    constexpr explicit reverse_view(V r) : base_(std::move(r)) {}
+
+    constexpr V base() const & requires copy_constructible<V> { return base_; }
+    constexpr V base() && { return std::move(base_); }
+
+    constexpr reverse_iterator<iterator_t<V>> begin() {
+      // 償却定数時間で返すためのキャッシュ
+      if (!cache_)
+        cache_ = make_reverse_iterator(ranges::next(ranges::begin(base_), ranges::end(base_)));
+      return *cache_;
+    }
+    constexpr reverse_iterator<iterator_t<V>> begin() requires common_range<V> {
+      return make_reverse_iterator(ranges::end(base_));
+    }
+    constexpr auto begin() const requires common_range<const V> {
+      return make_reverse_iterator(ranges::end(base_));
+    }
+
+    constexpr reverse_iterator<iterator_t<V>> end() {
+      return make_reverse_iterator(ranges::begin(base_));
+    }
+    constexpr auto end() const requires common_range<const V> {
+      return make_reverse_iterator(ranges::begin(base_));
+    }
+
+    constexpr auto size() requires sized_range<V> {
+      return ranges::size(base_);
+    }
+
+    constexpr auto size() const requires sized_range<const V> {
+      return ranges::size(base_);
+    }
+  };
+
+  template<class R>
+  reverse_view(R&&) -> reverse_view<views::all_t<R>>;
+}
+```
+* view[link view.md]
+* bidirectional_range[link bidirectional_range.md]
+* view_interface[link view_interface.md]
+* common_range[link common_range.md]
+* sized_range[link sized_range.md]
+* copyable[link /reference/concepts/copyable.md]
+* default_initializable[link /reference/concepts/default_initializable.md]
+* copy_constructible[link /reference/concepts/copy_constructible.md]
+* reverse_iterator[link /reference/iterator/reverse_iterator.md]
+* make_reverse_iterator[link /reference/iterator/make_reverse_iterator.md]
+* iterator_t[link iterator_t.md]
+* sentinel_t[link sentinel_t.md]
+* ranges::next[link /reference/iterator/ranges_next.md]
+* ranges::begin[link begin.md]
+* ranges::end[link end.md]
+* ranges::size[link size.md]
+
+
 ## バージョン
 ### 言語
 - C++20
