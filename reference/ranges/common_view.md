@@ -18,7 +18,6 @@ namespace std::ranges {
 * view[link view.md]
 * view_interface[link view_interface.md]
 * common_range[link common_range.md]
-* is_object_v[link /reference/type_traits/is_object.md]
 * copyable[link /reference/concepts/copyable.md]
 * iterator_t[link iterator_t.md]
 
@@ -102,6 +101,80 @@ int main() {
 ### 出力
 ```
 ```
+
+## 実装例
+```cpp
+namespace std::ranges {
+  template<view V>
+    requires (!common_range<V> && copyable<iterator_t<V>>)
+  class common_view : public view_interface<common_view<V>> {
+  private:
+    V base_ = V();
+  public:
+    common_view() requires default_initializable<V> = default;
+
+    constexpr explicit common_view(V r) : base_(std::move(r)) {}
+
+    constexpr V base() const & requires copy_constructible<V> { return base_; }
+    constexpr V base() && { return std::move(base_); }
+
+    constexpr auto begin() {
+      if constexpr (random_access_range<V> && sized_range<V>)
+        return ranges::begin(base_);
+      else
+        return common_iterator<iterator_t<V>, sentinel_t<V>>(ranges::begin(base_));
+    }
+
+    constexpr auto begin() const requires range<const V> {
+      if constexpr (random_access_range<const V> && sized_range<const V>)
+        return ranges::begin(base_);
+      else
+        return common_iterator<iterator_t<const V>, sentinel_t<const V>>(ranges::begin(base_));
+    }
+
+    constexpr auto end() {
+      if constexpr (random_access_range<V> && sized_range<V>)
+        return ranges::begin(base_) + ranges::size(base_);
+      else
+        return common_iterator<iterator_t<V>, sentinel_t<V>>(ranges::end(base_));
+    }
+
+    constexpr auto end() const requires range<const V> {
+      if constexpr (random_access_range<const V> && sized_range<const V>)
+        return ranges::begin(base_) + ranges::size(base_);
+      else
+        return common_iterator<iterator_t<const V>, sentinel_t<const V>>(ranges::end(base_));
+    }
+
+    constexpr auto size() requires sized_range<V> {
+      return ranges::size(base_);
+    }
+    constexpr auto size() const requires sized_range<const V> {
+      return ranges::size(base_);
+    }
+  };
+
+  template<class R>
+  common_view(R&&) -> common_view<views::all_t<R>>;
+}
+```
+* view[link view.md]
+* view_interface[link view_interface.md]
+* common_range[link common_range.md]
+* random_access_range[link random_access_range.md]
+* sized_range[link sized_range.md]
+* copyable[link /reference/concepts/copyable.md]
+* default_initializable[link /reference/concepts/default_initializable.md]
+* copy_constructible[link /reference/concepts/copy_constructible.md]
+* common_iterator[link /reference/iterator/common_iterator.md]
+* iterator_t[link iterator_t.md]
+* sentinel_t[link sentinel_t.md]
+* ranges::begin[link begin.md]
+* ranges::end[link end.md]
+* ranges::empty[link empty.md]
+* ranges::size[link size.md]
+* ranges::data[link data.md]
+* views::all_t[link all.md]
 
 ## バージョン
 ### 言語
