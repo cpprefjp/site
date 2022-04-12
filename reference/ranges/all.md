@@ -27,6 +27,7 @@ Rangeアダプタオブジェクトでも暗黙的に使用され、それによ
 ## 効果
 
 式`views::all(E)`の効果は次の通り
+
 - `E`の[`decay`](/reference/type_traits/decay.md)した型が[`view`](view.md)のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(E)`と等しい
 - それ以外のとき、[`ref_view`](ref_view.md)`{E}`が有効な式であれば、[`ref_view`](ref_view.md)`{E}`と等しい
 - それ以外のとき、[`owning_view`](owning_view.md)`{E}`と等しい
