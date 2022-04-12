@@ -33,21 +33,21 @@
 
 | マクロ名 | 値 | 機能 | ヘッダ |
 |----------|----|------|--------|
-|`__cpp_lib_array_constexpr`|`201811L`||[`<iterator>`](/reference/iterator.md)<br/>[`<array>`](/reference/array.md)|
-|`__cpp_lib_assume_aligned`|`201811L`||[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_atomic_flag_test`|`201907L`||[`<atomic>`](/reference/atomic.md)|
-|`__cpp_lib_atomic_float`|`201711L`||[`<atomic>`](/reference/atomic.md)|
-|`__cpp_lib_atomic_lock_free_type_aliases`|`201907L`||[`<atomic>`](/reference/atomic.md)|
-|`__cpp_lib_atomic_ref`|`201806L`||[`<atomic>`](/reference/atomic.md)|
-|`__cpp_lib_atomic_shared_ptr`|`201711L`||[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_atomic_value_initialization`|`201911L`||[`<atomic>`](/reference/atomic.md)<br/>[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_atomic_wait`|`201907L`||[`<atomic>`](/reference/atomic.md)|
+|`__cpp_lib_array_constexpr`|`201803L`<br/>`201806L`<br/>`201811L`|`std::array`の完全`constexpr`対応)|[`<iterator>`](/reference/iterator.md)<br/>[`<array>`](/reference/array.md)|
+|`__cpp_lib_assume_aligned`|`201811L`|[`std::assume_aligned()`](/reference/memory/assume_aligned.md)|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_atomic_flag_test`|`201907L`|[`std::atomic_flag::test()`](/reference/atomic/atomic_flag/test.md)|[`<atomic>`](/reference/atomic.md)|
+|`__cpp_lib_atomic_float`|`201711L`|[`std::atomic`の浮動小数点数型に対する特殊化](/reference/atomic/atomic.md)|[`<atomic>`](/reference/atomic.md)|
+|`__cpp_lib_atomic_lock_free_type_aliases`|`201907L`|[`atomic_signed_lock_free/atomic_unsigned_lock_free`](/reference/atomic/atomic.md)|[`<atomic>`](/reference/atomic.md)|
+|`__cpp_lib_atomic_ref`|`201806L`|[`std::atomic_ref`](/reference/atomic/atomic_ref.md)|[`<atomic>`](/reference/atomic.md)|
+|`__cpp_lib_atomic_shared_ptr`|`201711L`|[`std::atomic`の`std::shared_ptr/std::weak_ptr`に対する特殊化](/reference/memory/atomic.md)|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_atomic_value_initialization`|`201911L`|[`std::atomic_flag`の値初期化](/reference/atomic/atomic_flag/op_constructor.md)|[`<atomic>`](/reference/atomic.md)<br/>[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_atomic_wait`|`201907L`|[`std::atomic::wait()`](/reference/atomic/atomic/wait.md)、[`std::atomic::notify_one()`](/reference/atomic/atomic/notify_one.md)、[`std::atomic::notify_all()`](/reference/atomic/atomic/notify_all.md)|[`<atomic>`](/reference/atomic.md)|
 |`__cpp_lib_barrier`|`201907L`||[`<barrier>`](/reference/barrier.md)|
-|`__cpp_lib_bind_front`|`201907L`||[`<functional>`](/reference/functional.md)|
+|`__cpp_lib_bind_front`|`201811L`<br/>`201907L`||[`<functional>`](/reference/functional.md)|
 |`__cpp_lib_bit_cast`|`201806L`||[`<bit>`](/reference/bit.md)|
 |`__cpp_lib_bitops`|`201907L`||[`<bit>`](/reference/bit.md)|
 |`__cpp_lib_bounded_array_traits`|`201902L`||[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_char8_t`|`201907L`||[`<atomic>`](/reference/atomic.md)<br/>[`<filesystem>`](/reference/filesystem.md)<br/>[`<istream>`](/reference/istream.md)<br/>[`<limits>`](/reference/limits.md)<br/>[`<locale>`](/reference/locale.md)<br/>[`<ostream>`](/reference/ostream.md)<br/>[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
+|`__cpp_lib_char8_t`|`201811L`<br/>`201907L`||[`<atomic>`](/reference/atomic.md)<br/>[`<filesystem>`](/reference/filesystem.md)<br/>[`<istream>`](/reference/istream.md)<br/>[`<limits>`](/reference/limits.md)<br/>[`<locale>`](/reference/locale.md)<br/>[`<ostream>`](/reference/ostream.md)<br/>[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_chrono`|`201907L`||[`<chrono>`](/reference/chrono.md)|
 |`__cpp_lib_concepts`|`202002L`||[`<concepts>`](/reference/concepts.md)|
 |`__cpp_lib_constexpr_algorithms`|`201806L`||[`<algorithm>`](/reference/algorithm.md)|
