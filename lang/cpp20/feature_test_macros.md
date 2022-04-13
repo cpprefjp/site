@@ -42,11 +42,11 @@
 |`__cpp_lib_atomic_shared_ptr`|`201711L`|[`std::atomic`の`std::shared_ptr/std::weak_ptr`に対する特殊化](/reference/memory/atomic.md)|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_atomic_value_initialization`|`201911L`|[`std::atomic_flag`の値初期化](/reference/atomic/atomic_flag/op_constructor.md)|[`<atomic>`](/reference/atomic.md)<br/>[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_atomic_wait`|`201907L`|[`std::atomic::wait()`](/reference/atomic/atomic/wait.md)、[`std::atomic::notify_one()`](/reference/atomic/atomic/notify_one.md)、[`std::atomic::notify_all()`](/reference/atomic/atomic/notify_all.md)|[`<atomic>`](/reference/atomic.md)|
-|`__cpp_lib_barrier`|`201907L`||[`<barrier>`](/reference/barrier.md)|
-|`__cpp_lib_bind_front`|`201811L`<br/>`201907L`||[`<functional>`](/reference/functional.md)|
-|`__cpp_lib_bit_cast`|`201806L`||[`<bit>`](/reference/bit.md)|
-|`__cpp_lib_bitops`|`201907L`||[`<bit>`](/reference/bit.md)|
-|`__cpp_lib_bounded_array_traits`|`201902L`||[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_barrier`|`201907L`|[`<barrier>`](/reference/barrier.md)の追加|[`<barrier>`](/reference/barrier.md)|
+|`__cpp_lib_bind_front`|`201811L`<br/>`201907L`|[`std::bind_front()`](/reference/functional/bind_front.md)|[`<functional>`](/reference/functional.md)|
+|`__cpp_lib_bit_cast`|`201806L`|[`std::bit_cast()`](/reference/bit/bit_cast.md)|[`<bit>`](/reference/bit.md)|
+|`__cpp_lib_bitops`|`201907L`|[`<bit>`](/reference/bit.md)の追加|[`<bit>`](/reference/bit.md)|
+|`__cpp_lib_bounded_array_traits`|`201902L`|[`std::is_bounded_array`](/reference/type_traits/is_bounded_array.md)、[`std::is_unbounded_array`](/reference/type_traits/is_unbounded_array.md)|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_char8_t`|`201811L`<br/>`201907L`||[`<atomic>`](/reference/atomic.md)<br/>[`<filesystem>`](/reference/filesystem.md)<br/>[`<istream>`](/reference/istream.md)<br/>[`<limits>`](/reference/limits.md)<br/>[`<locale>`](/reference/locale.md)<br/>[`<ostream>`](/reference/ostream.md)<br/>[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_chrono`|`201907L`||[`<chrono>`](/reference/chrono.md)|
 |`__cpp_lib_concepts`|`202002L`||[`<concepts>`](/reference/concepts.md)|
