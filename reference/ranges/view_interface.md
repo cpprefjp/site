@@ -8,10 +8,9 @@
 namespace std::ranges {
   template<class D>
     requires is_class_v<D> && same_as<D, remove_cv_t<D>>
-  class view_interface : public view_base { …… };
+  class view_interface { …… };
 }
 ```
-* view_base[link view_base.md]
 * is_class_v[link /reference/type_traits/is_class.md]
 * same_as[link /reference/concepts/same_as.md]
 * remove_cv_t[link /reference/type_traits/remove_cv.md]
@@ -59,3 +58,4 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3549. `view_interface` is overspecified to derive from `view_base`](https://cplusplus.github.io/LWG/issue3549)
