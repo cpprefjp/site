@@ -18,7 +18,9 @@ namespace std::ranges {
 
 ## 概要
 
-`view_interface`は、[`view`](view.md)を実装する際に便利なクラステンプレートである。使用するときは、派生クラスを`view_interface`のテンプレート引数にする(CRTP)。
+`view_interface`は、[`view`](view.md)を実装する際に便利なクラステンプレートである。
+
+使用するときは、`D`で`view_interface`を公開継承した上で派生クラス`D`を`view_interface`のテンプレート引数にする(CRTP)。
 
 ## テンプレートパラメータ制約
 
@@ -48,6 +50,11 @@ namespace std::ranges {
 - [GCC](/implementation.md#gcc): 10.1.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+
+## 関連項目
+
+- [`enable_view`](/reference/ranges/enable_view.md)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
