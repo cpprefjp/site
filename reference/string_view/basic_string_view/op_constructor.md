@@ -42,7 +42,7 @@ constexpr basic_string_view(R&& r);                            // (7) C++23
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`ranges::range_value_t`](/reference/ranges/range_value_t.md)`<R>, charT>`が`true`であること
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<R, const charT*>`が`false`であること
     - `d`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<R>`型の左辺値としたとき、`d.operator ::std::basic_string_view<charT, traits>()`が妥当な式ではないこと
-    - もし`R::traits_type`が妥当な型の場合、[`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<R>::type_traits, traits>`が`true`であること
+    - もし`R::traits_type`が妥当な型の場合、[`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<R>::traits_type, traits>`が`true`であること
 
 
 ## 事前条件
