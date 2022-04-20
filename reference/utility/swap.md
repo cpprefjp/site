@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  void swap(T& a, T& b) noexcept(see below);           // (1) C++03
+  void swap(T& a, T& b);                               // (1) C++03 in <algorithm> header
+
+  template <class T>
+  void swap(T& a, T& b) noexcept(see below);           // (1) C++11
 
   template <class T>
   constexpr void swap(T& a, T& b) noexcept(see below); // (1) C++20
@@ -76,6 +79,10 @@ swap(a, b);
 ## 例外
 - 値版：`noexcept`中の式は、以下と等価である：`is_nothrow_move_constructible<T>::value && is_nothrow_move_assignable<T>::value`
 - 配列版：配列の要素型`T`に対する`swap()`操作が例外を投げない場合、この関数もまた例外を投げない
+
+
+## 備考
+C++03では<algorithm>ヘッダーに定義されていた。
 
 
 ## 例
