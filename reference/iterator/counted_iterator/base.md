@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr const I& base() const &;  // (1)
+constexpr const I& base() const & noexcept;  // (1)
 constexpr I base() &&;  // (2)
 ```
 * copy_constructible[link /reference/concepts/copy_constructible.md]
@@ -63,3 +63,4 @@ int main() {
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1207R4 Movability of single-pass iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1207r4.pdf)
 - [LWG Issue 3391. Problems with `counted_iterator/move_iterator::base() const &`](https://cplusplus.github.io/LWG/issue3391)
+- [LWG Issue 3593. Several iterators' base() const & and lazy_split_view::outer-iterator::value_type::end() missing noexcept](https://cplusplus.github.io/LWG/issue3593)
