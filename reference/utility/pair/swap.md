@@ -3,9 +3,10 @@
 * std[meta namespace]
 * pair[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
-void swap(pair& p) noexcept(see below);           // (1) C++03
+void swap(pair& p) noexcept(see below);           // (1) C++11
 constexpr void swap(pair& p) noexcept(see below); // (1) C++20
 ```
 
