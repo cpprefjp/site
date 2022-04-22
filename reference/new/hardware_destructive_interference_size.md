@@ -104,7 +104,9 @@ int main()
 
 
 ### 出力例
-(実装がないため、動作確認できていない)
+```
+hardware_destructive_interference_size : 64
+```
 
 
 ## バージョン
@@ -113,8 +115,8 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc):
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [GCC](/implementation.md#gcc): 12.1
+- [Visual C++](/implementation.md#visual_cpp):
 
 
 ## 参照
