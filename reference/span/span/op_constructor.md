@@ -103,7 +103,7 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 - (7) :
     - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`ranges::size`](/reference/ranges/size.md)`(r)`と等値になる
     - 型 `R` はコンセプト `std::ranges::contiguous_range` 及び `std::ranges::sized_range` のモデルであること
-    - [`std::is_const_v`](/reference/type_traits/is_const.md)`<element_type>` が `false`であるとき、型 `R` は `std::ranges::safe_range` のモデルであること
+    - [`std::is_const_v`](/reference/type_traits/is_const.md)`<element_type>` が `false`であるとき、型 `R` はコンセプト [`std::ranges::borrowed_range`](/reference/ranges/borrowed_range.md) のモデルであること
 - (9) :
     - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`s.size()`](size.md)と等値になる
 
