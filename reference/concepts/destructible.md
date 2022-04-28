@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  concept destructible = is_nothrow_destructible_v<T>;;
+  concept destructible = is_nothrow_destructible_v<T>;
 }
 ```
 * is_nothrow_destructible_v[link /reference/type_traits/is_nothrow_destructible.md]

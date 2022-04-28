@@ -7,12 +7,12 @@
 ```cpp
 namespace std {
   template<class... TTypes, class... UTypes>
-  bool operator<=(const tuple<TTypes...>&,
-                  const tuple<UTypes...>&);           // C++11
+  bool operator<=(const tuple<TTypes...>& t,
+                  const tuple<UTypes...>& u);           // C++11
 
   template<class... TTypes, class... UTypes>
-  constexpr bool operator<=(const tuple<TTypes...>&,
-                            const tuple<UTypes...>&); // C++14
+  constexpr bool operator<=(const tuple<TTypes...>& t,
+                            const tuple<UTypes...>& u); // C++14
 }
 ```
 

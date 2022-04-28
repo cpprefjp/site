@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-T* data() noexcept;a                      // (1) C++11
+T* data() noexcept;                       // (1) C++11
 constexpr T* data() noexcept;             // (1) C++17
 
 const T* data() const noexcept;           // (2) C++11

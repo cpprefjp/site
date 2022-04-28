@@ -40,7 +40,7 @@ namespace std {
 
 ```cpp example
 #include <iostream>
-#include <complex>
+#include <functional>
 
 struct functor {
   auto operator()() -> int {

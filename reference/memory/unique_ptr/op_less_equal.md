@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T1, class D1, class T2, class D2>
-  bool operator<=(const unique_ptr<T1, D1>& a, const unique_ptr<T2, D2>& a); // (1)
+  bool operator<=(const unique_ptr<T1, D1>& a, const unique_ptr<T2, D2>& b); // (1)
 
   template <class T, class D>
   bool operator<=(const unique_ptr<T, D>& x, nullptr_t);                     // (2)

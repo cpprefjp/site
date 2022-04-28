@@ -13,7 +13,7 @@ namespace std::chrono {
                 const charT* fmt,
                 duration<Rep, Period>& d,
                 std::basic_string<charT, traits, Alloc>* abbrev = nullptr,
-                minutes* offset = nullptr);;  // (1) C++20
+                minutes* offset = nullptr);  // (1) C++20
 }
 ```
 
