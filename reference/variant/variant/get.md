@@ -191,7 +191,7 @@ int main()
 #include <variant>
 
 int main() {
-  std::variant<int, char> v = 1;;
+  std::variant<int, char> v = 1;
   std::cout << get<int>(v) << std::endl; // C++17:NG C++20:OK
 }
 ```

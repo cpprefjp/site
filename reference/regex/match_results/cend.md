@@ -32,7 +32,7 @@ int main()
 
   std::cmatch m;
   if (std::regex_search(s, m, re)) {
-    for (auto it = m.begin(), end = m.end(); it != end; ++it) {
+    for (auto it = m.cbegin(), end = m.cend(); it != end; ++it) {
       std::cout << "str() = '" << it->str() << "', "
         "range = [" << it->first - s << ", " << it->second - s << "), "
         "matched = " << std::boolalpha << it->matched << std::endl;

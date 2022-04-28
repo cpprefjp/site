@@ -15,7 +15,7 @@ bitset<N> operator~() const noexcept; // C++11
 
 ## 戻り値
 `*this`のビットを反転させた`bitset`オブジェクトを生成して返す。  
-この関数は、以下のプログラムを同じ動作をする：
+この関数は、以下のプログラムと同じ動作をする：
 
 ```cpp
 return bitset(*this).flip();

@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 戻り値
-`!(a` [`>`](op_greater.md) `b)`
+`!(x` [`>`](op_greater.md) `y)`
 
 
 ## 計算量

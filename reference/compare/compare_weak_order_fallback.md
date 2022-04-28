@@ -92,7 +92,7 @@ int main()
 {
   std::cout << std::boolalpha;
 
-  legacy l1 = {+0.0}, l2 = {-0.0}, l3 = {-std::numeric_limits<double>::quiet_NaN()}, l4 = {std::numeric_limits<double>::quiet_NaN()};;
+  legacy l1 = {+0.0}, l2 = {-0.0}, l3 = {-std::numeric_limits<double>::quiet_NaN()}, l4 = {std::numeric_limits<double>::quiet_NaN()};
   std::cout << (std::compare_weak_order_fallback(l1, l2) <  0) << std::endl;
   std::cout << (std::compare_weak_order_fallback(l1, l2) == 0) << std::endl;
 

@@ -1,7 +1,7 @@
 # basic_ifstream
 * fstream[meta header]
 * std[meta namespace]
-* class[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {
