@@ -13,7 +13,9 @@ namespace std {
 * make_index_sequence[link make_index_sequence.md]
 
 ## 概要
-`index_sequence_for`は、型のシーケンス、0から始まる[`size_t`](/reference/cstddef/size_t.md)型整数シーケンスに変換する、[`make_index_sequence`](make_index_sequence.md)の別名である。
+`index_sequence_for`は、型のシーケンスを0から始まる[`size_t`](/reference/cstddef/size_t.md)型整数シーケンスに変換する、[`make_index_sequence`](make_index_sequence.md)の別名である。
+
+別の言い方をすると、パラメータパック`Ts...`に含まれる各型に対して先頭から順番に`0`始まりのインデックスを振り、そのインデックスの列（[`integer_sequence`](/reference/utility/integer_sequence.md)）を返す。
 
 テンプレートパラメータは、以下を意味する：
 
