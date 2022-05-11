@@ -97,7 +97,7 @@ int main()
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.6.1
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-	- 2013でサンプルコードをコンパイルしたところ、dulation / dulationでコンパイルエラーになった。
+	- 2013でサンプルコードをコンパイルしたところ、duration / durationでコンパイルエラーになった。
 
 
 ## 参照
