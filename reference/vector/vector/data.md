@@ -3,11 +3,13 @@
 * std[meta namespace]
 * vector[meta class]
 * function[meta id-type]
-* cpp11[meta cpp]
 
 ```cpp
-T* data() noexcept;
-const T* data() const noexcept;
+T* data();                      // (1) C++03
+T* data() noexcept;             // (1) C++11
+
+const T* data() const;          // (2) C++03
+const T* data() const noexcept; // (2) C++11
 ```
 
 ## 概要
