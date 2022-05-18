@@ -72,7 +72,7 @@ int main()
   }
 }
 ```
-* try_lock_until()[color ff0000]
+* try_lock_until[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
 * owns_lock()[link owns_lock.md]
