@@ -54,10 +54,9 @@ Hello, World!
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0.0 現在未対応
-- [GCC](/implementation.md#gcc): 10.0.0 現在未対応
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 11.1
+- [Visual C++](/implementation.md#visual_cpp): 2019 update 10
 
 
 ## 参照
