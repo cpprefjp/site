@@ -147,9 +147,9 @@ int main()
 ```
 * osyncstream[color ff0000]
 
-###
+### 出力例
 
-``` 出力例
+```
 Hello, World!
 aGoodbye, Planet!
 ```
