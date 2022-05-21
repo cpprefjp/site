@@ -5,11 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-bool operator!=(const type_info& rhs) const noexcept;
+bool operator!=(const type_info& rhs) const;          // C++03
+bool operator!=(const type_info& rhs) const noexcept; // C++11
 ```
 
 ## 概要
 2つの型が異なるかを判定する
+（C++20からは、`operator＝=`から導出される）
 
 
 ## 戻り値
