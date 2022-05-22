@@ -62,7 +62,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
-| [`(deduction_guide)`](shared_ptr/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+| [`(deduction_guide)`](weak_ptr/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
 
 
 ## 例

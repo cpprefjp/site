@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bool operator==(const type_info& rhs) const noexcept;            // C++20まで
-constexpr bool operator==(const type_info& rhs) const noexcept;  // C++23から
+bool operator==(const type_info& rhs) const;                     // C++03
+bool operator==(const type_info& rhs) const noexcept;            // C++11
+constexpr bool operator==(const type_info& rhs) const noexcept;  // C++23
 ```
 
 ## 概要
