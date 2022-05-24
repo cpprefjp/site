@@ -101,24 +101,43 @@ function-specifier:
 #include <iostream>
 
 namespace N {
-  // static指定(翻訳単位ごとにアドレスが変わる)
-  static inline int static_var = 10;
-  static inline int static_func(void) {
+
+  // 外部リンケージ & 非インライン
+  // →ODR違反により不適格
+  /*
+  int var = 0;
+  int func(void) {
+    return 0;
+  }
+  */
+
+  // 外部リンケージ & インライン(inline指定)
+  // →全翻訳単位でアドレスは同一
+  inline int inline_var = 10;
+  inline int inline_func(void) {
     return 20;
   }
 
-  // inline指定(全翻訳単位でアドレスは同一)
-  inline int inline_var = 30;
-  inline int inline_func(void) {
+  // 内部リンケージ(static指定) & 非インライン
+  // →翻訳単位毎に異なるアドレス
+  static int static_var = 30;
+  static int static_func(void) {
     return 40;
   }
 
-  // constexprだがinlineは指定されない
-  constexpr int constexpr_var = 50;
-  // 関数かつconstexprなので
-  // 暗黙のうちにinlineが指定される
-  constexpr int constexpr_func(void) {
+  // 内部リンケージ(static指定) & インライン(inline指定)
+  // →外部リンケージではないのでインライン指定はアドレスに影響しない。
+  //   static のみ指定したときと同様に、翻訳単位毎に異なるアドレスになる。
+  static inline int static_inline_var = 50;
+  static inline int static_inline_func(void) {
     return 60;
+  }
+
+  // 外部リンケージ & 非インライン(constexpr変数は暗黙にinlineにはならない)
+  constexpr int constexpr_var = 70;
+  // 外部リンケージ & インライン(constexpr関数は暗黙にinlineとなる)
+  constexpr int constexpr_func(void) {
+    return 80;
   }
 }
 
@@ -150,17 +169,19 @@ void func(void);
 int main()
 {
   std::cout << __func__ << std::endl
-    << "  N::static_var    :" << &N::static_var << std::endl
-    << "  N::static_func   :" << reinterpret_cast<void *>(N::static_func) << std::endl
-    << "  N::inline_var    :" << &N::inline_var << std::endl
-    << "  N::inline_func   :" << reinterpret_cast<void *>(N::inline_func) << std::endl
-    << "  N::constexpr_var :" << &N::constexpr_var << std::endl
-    << "  N::constexpr_func:" << reinterpret_cast<void *>(N::constexpr_func) << std::endl
+    << "  N::inline_var        :" << &N::inline_var << std::endl
+    << "  N::inline_func       :" << reinterpret_cast<void *>(N::inline_func) << std::endl
+    << "  N::static_var        :" << &N::static_var << std::endl
+    << "  N::static_func       :" << reinterpret_cast<void *>(N::static_func) << std::endl
+    << "  N::static_inline_var :" << &N::static_inline_var << std::endl
+    << "  N::static_inline_func:" << reinterpret_cast<void *>(N::static_inline_func) << std::endl
+    << "  N::constexpr_var     :" << &N::constexpr_var << std::endl
+    << "  N::constexpr_func    :" << reinterpret_cast<void *>(N::constexpr_func) << std::endl
     << std::endl
-    << "  A::inline_var    :" << &A::inline_var << std::endl
-    << "  A::inline_func   :" << reinterpret_cast<void *>(A::inline_func) << std::endl
-    << "  A::constexpr_var :" << &A::constexpr_var << std::endl
-    << "  A::constexpr_func:" << reinterpret_cast<void *>(A::constexpr_func) << std::endl
+    << "  A::inline_var        :" << &A::inline_var << std::endl
+    << "  A::inline_func       :" << reinterpret_cast<void *>(A::inline_func) << std::endl
+    << "  A::constexpr_var     :" << &A::constexpr_var << std::endl
+    << "  A::constexpr_func    :" << reinterpret_cast<void *>(A::constexpr_func) << std::endl
     << std::endl;
 
   func();
@@ -177,51 +198,58 @@ int main()
 void func(void)
 {
   std::cout << __func__ << std::endl
-    << "  N::static_var    :" << &N::static_var << std::endl
-    << "  N::static_func   :" << reinterpret_cast<void *>(N::static_func) << std::endl
-    << "  N::inline_var    :" << &N::inline_var << std::endl
-    << "  N::inline_func   :" << reinterpret_cast<void *>(N::inline_func) << std::endl
-    << "  N::constexpr_var :" << &N::constexpr_var << std::endl
-    << "  N::constexpr_func:" << reinterpret_cast<void *>(N::constexpr_func) << std::endl
+    << "  N::inline_var        :" << &N::inline_var << std::endl
+    << "  N::inline_func       :" << reinterpret_cast<void *>(N::inline_func) << std::endl
+    << "  N::static_var        :" << &N::static_var << std::endl
+    << "  N::static_func       :" << reinterpret_cast<void *>(N::static_func) << std::endl
+    << "  N::static_inline_var :" << &N::static_inline_var << std::endl
+    << "  N::static_inline_func:" << reinterpret_cast<void *>(N::static_inline_func) << std::endl
+    << "  N::constexpr_var     :" << &N::constexpr_var << std::endl
+    << "  N::constexpr_func    :" << reinterpret_cast<void *>(N::constexpr_func) << std::endl
     << std::endl
-    << "  A::inline_var    :" << &A::inline_var << std::endl
-    << "  A::inline_func   :" << reinterpret_cast<void *>(A::inline_func) << std::endl
-    << "  A::constexpr_var :" << &A::constexpr_var << std::endl
-    << "  A::constexpr_func:" << reinterpret_cast<void *>(A::constexpr_func) << std::endl
+    << "  A::inline_var        :" << &A::inline_var << std::endl
+    << "  A::inline_func       :" << reinterpret_cast<void *>(A::inline_func) << std::endl
+    << "  A::constexpr_var     :" << &A::constexpr_var << std::endl
+    << "  A::constexpr_func    :" << reinterpret_cast<void *>(A::constexpr_func) << std::endl
     << std::endl;
 }
 ```
 
 ### 出力
 
-clang++ 5.0.0 にて amd64 向けにコンパイル、実行した場合。
+clang++ 14.0.0 (Fedora 14.0.0-1.fc36) にて amd64 向けにコンパイル、実行した場合。
 
 ```
 main
-  N::static_var    :0x602060
-  N::static_func   :0x400b30
-  N::inline_var    :0x602064
-  N::inline_func   :0x400b40
-  N::constexpr_var :0x400f6c
-  N::constexpr_func:0x400b50
+  N::inline_var        :0x404054
+  N::inline_func       :0x401550
+  N::static_var        :0x404058
+  N::static_func       :0x401530
+  N::static_inline_var :0x40405c
+  N::static_inline_func:0x401540
+  N::constexpr_var     :0x402144
+  N::constexpr_func    :0x401560
 
-  A::inline_var    :0x602068
-  A::inline_func   :0x400b60
-  A::constexpr_var :0x400f70
-  A::constexpr_func:0x400b70
+  A::inline_var        :0x404060
+  A::inline_func       :0x401570
+  A::constexpr_var     :0x402148
+  A::constexpr_func    :0x401580
 
 func
-  N::static_var    :0x60206c
-  N::static_func   :0x400e00
-  N::inline_var    :0x602064
-  N::inline_func   :0x400b40
-  N::constexpr_var :0x400f7c
-  N::constexpr_func:0x400b50
+  N::inline_var        :0x404054
+  N::inline_func       :0x401550
+  N::static_var        :0x404064
+  N::static_func       :0x401870
+  N::static_inline_var :0x404068
+  N::static_inline_func:0x401880
+  N::constexpr_var     :0x402154
+  N::constexpr_func    :0x401560
 
-  A::inline_var    :0x602068
-  A::inline_func   :0x400b60
-  A::constexpr_var :0x400f70
-  A::constexpr_func:0x400b70
+  A::inline_var        :0x404060
+  A::inline_func       :0x401570
+  A::constexpr_var     :0x402148
+  A::constexpr_func    :0x401580
+
 ```
 
 表示されるアドレスは環境によって異なる可能性がある。
