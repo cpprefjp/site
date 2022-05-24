@@ -106,7 +106,7 @@ namespace N {
   // →ODR違反により不適格
   /*
   int var = 0;
-  int func(void) {
+  int func() {
     return 0;
   }
   */
@@ -114,14 +114,14 @@ namespace N {
   // 外部リンケージ & インライン(inline指定)
   // →全翻訳単位でアドレスは同一
   inline int inline_var = 10;
-  inline int inline_func(void) {
+  inline int inline_func() {
     return 20;
   }
 
   // 内部リンケージ(static指定) & 非インライン
   // →翻訳単位毎に異なるアドレス
   static int static_var = 30;
-  static int static_func(void) {
+  static int static_func() {
     return 40;
   }
 
@@ -129,14 +129,14 @@ namespace N {
   // →外部リンケージではないのでインライン指定はアドレスに影響しない。
   //   static のみ指定したときと同様に、翻訳単位毎に異なるアドレスになる。
   static inline int static_inline_var = 50;
-  static inline int static_inline_func(void) {
+  static inline int static_inline_func() {
     return 60;
   }
 
   // 外部リンケージ & 非インライン(constexpr変数は暗黙にinlineにはならない)
   constexpr int constexpr_var = 70;
   // 外部リンケージ & インライン(constexpr関数は暗黙にinlineとなる)
-  constexpr int constexpr_func(void) {
+  constexpr int constexpr_func() {
     return 80;
   }
 }
@@ -144,7 +144,7 @@ namespace N {
 struct A {
   // inline指定(全翻訳単位でアドレスは同一)
   static inline int inline_var = 100;
-  static inline int inline_func(void) {
+  static inline int inline_func() {
     return 200;
   }
 
@@ -153,12 +153,12 @@ struct A {
   static constexpr int constexpr_var = 300;
   // 関数かつconstexprなので
   // 暗黙のうちにinlineが指定される
-  static constexpr int constexpr_func(void) {
+  static constexpr int constexpr_func() {
     return 400;
   }
 };
 
-void func(void);
+void func();
 
 
 //inline_variable1.cpp
@@ -195,7 +195,7 @@ int main()
 #include <iostream>
 #include "inline_variable.hpp"
 
-void func(void)
+void func()
 {
   std::cout << __func__ << std::endl
     << "  N::inline_var        :" << &N::inline_var << std::endl
