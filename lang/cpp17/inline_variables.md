@@ -258,4 +258,9 @@ func
 - [C++11 constexpr](/lang/cpp11/constexpr.md)
 
 ## 参照
-- [P0386R2 Inline Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r2.pdf)
+- [N4147 - Inline variables, or encapsulated expressions?](https://isocpp.org/files/papers/n4147.pdf), 2014-09-25
+- [N4424 - Inline Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4424.pdf), 2015-04-07
+- [P0386R0 - Inline Variables](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r0.pdf), 2016-05-30
+- [P0386R2 - Inline Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r2.pdf), 2016-06-24
+- [P0607R0 - Inline Variables for the Standard Library](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0607r0.html), 2017-02-27
+- [C++1z インライン変数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/11/11/172954)
