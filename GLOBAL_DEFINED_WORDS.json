@@ -1,0 +1,12 @@
+{
+  "適格": {
+    "link": "/implementation-compliance.md#dfn-well-formed",
+    "yomi": "てきかく",
+    "desc": "プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと"
+  },
+  "不適格": {
+    "link": "/implementation-compliance.md#dfn-ill-formed",
+    "yomi": "ふてきかく",
+    "desc": "プログラムが適格でないこと。コンパイルエラーなどになる"
+  }
+}
