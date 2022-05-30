@@ -438,7 +438,7 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 
 ### その他
 
-- [Static If I Had a Hammer - Andrei Alexandrescu](https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer)
+- [Static If I Had a Hammer - Andrei Alexandrescu](http://web.archive.org/web/20201202042515/https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer)
 - [C++1z if constexpr文 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/12/22/171238)
 - [[cfe-dev] Clang getting involved](https://lists.llvm.org/pipermail/cfe-dev/2014-March/035801.html)
 - [`__if_exists` Statement | Microsoft Docs](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)
