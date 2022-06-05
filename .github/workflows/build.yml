@@ -54,6 +54,12 @@ jobs:
     - run: git submodule update -i
       working-directory: site_generator/cpprefjp/site
 
+    # site
+    - uses: actions/checkout@v2
+      with:
+        repository: cpprefjp/image
+        path: site_generator/cpprefjp/image
+
     - name: Set up Python 3.x
       uses: actions/setup-python@v5
       with:
