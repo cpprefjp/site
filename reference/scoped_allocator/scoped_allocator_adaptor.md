@@ -17,16 +17,16 @@ namespace std {
 以下は、このアダプタクラスを使用することによって変化する、コンテナのメモリイメージである。
 
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
 
 図1 コンテナ、および各要素がそれぞれに別個のアロケータオブジェクトを持つ
 
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
 
 図2 コンテナとその要素で、アロケータオブジェクトの状態を伝播させる(例1)
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
 
 図3 全ての要素にアロケータオブジェクトの状態を伝播させる(例2)
 

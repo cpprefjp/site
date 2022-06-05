@@ -105,7 +105,7 @@ int main()
 
 このプログラムによってある時に得られた結果（[uniform_int_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/uniform_int_distribution/uniform_int_distribution.tsv)）を図示する。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/random/uniform_int_distribution/uniform_int_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/uniform_int_distribution/uniform_int_distribution.png)
 
 1,000個程度のデータのため、ある程度は偏りがあるが、誤差の範囲でほぼ等確率で0から9までの値が生成されていることがわかる。
 

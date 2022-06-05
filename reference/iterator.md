@@ -7,7 +7,7 @@
 C++標準ライブラリのイテレータは、以下のように階層的に定義される。
 この階層はC++言語機能の継承と同じように見なせる。たとえば、入力イテレータと前方向イテレータはis a関係が成り立っており、前方向イテレータは入力イテレータと見なすことができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/iterator/iterators.jpg)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/iterator/iterators.jpg)
 
 C++20以降の標準ライブラリでは、任意のイテレータに対して可能な操作によって上記5つに隣接イテレータ（*contiguous iterator*）を加えた6つのイテレータカテゴリを定義する。それぞれ次のイテレータコンセプトが対応する。
 

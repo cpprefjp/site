@@ -108,9 +108,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[weibull_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull_distribution.tsv)）を図示する。 
+このプログラムによってある時に得られた結果（[weibull_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/weibull_distribution/weibull_distribution.tsv)）を図示する。 
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/weibull_distribution/weibull_distribution.png)
 
 この図において、破線はdist1(a = 1.0, b = 1.0)、実線はdist2(a = 1.0, b = 2.0)を意味する。
 

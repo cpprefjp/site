@@ -184,9 +184,9 @@ int main()
 * dist1(engine)[link random/uniform_real_distribution/op_call.md]
 * dist2(engine)[link random/normal_distribution/op_call.md]
 
-この例である時得られた [random.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/random.tsv.xz) (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
+この例である時得られた [random.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/random.tsv.xz) (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/random.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/random.png)
 
 破線は dist1 (一様分布; min=-1.0f, max=1.0f) 、実線は dist2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
 
