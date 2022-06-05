@@ -100,9 +100,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[piecewise_constant_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv)）を図示する。
+このプログラムによってある時に得られた結果（[piecewise_constant_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.png)
 
 
 ## バージョン

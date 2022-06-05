@@ -108,9 +108,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[gamma_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma_distribution.tsv)）を図示する。 
+このプログラムによってある時に得られた結果（[gamma_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/gamma_distribution/gamma_distribution.tsv)）を図示する。 
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/gamma_distribution/gamma_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/gamma_distribution/gamma_distribution.png)
 
 ## バージョン
 ### 言語
