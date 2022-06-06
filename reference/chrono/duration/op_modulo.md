@@ -6,6 +6,7 @@
 
 ```cpp
 namespace std {
+namespace chrono {
   // duration % N = duration
   template <class Rep1, class Period, class Rep2>
   duration<typename common_type<Rep1, Rep2>::type, Period>
@@ -17,7 +18,7 @@ namespace std {
   typename common_type<duration<Rep1, Period1>, duration<Rep2, Period2>>::type
     constexpr operator%(const duration<Rep1, Period1>& lhs,
                         const duration<Rep2, Period2>& rhs); // (2)
-}
+}}
 ```
 * common_type[link /reference/type_traits/common_type.md]
 

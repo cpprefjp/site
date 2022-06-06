@@ -6,21 +6,19 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std {
-  template <class T, class... Args>
-  T& emplace(Args&&... args);                              // (1)
+template <class T, class... Args>
+T& emplace(Args&&... args);                              // (1)
 
-  template <class T, class U, class... Args>
-  T& emplace(std::initializer_list<U> il, Args&&... args); // (2)
+template <class T, class U, class... Args>
+T& emplace(std::initializer_list<U> il, Args&&... args); // (2)
 
-  template <std::size_t I, class... Args>
-  variant_alternative_t<I, variant<Types...>>&
-    emplace(Args&&... args);                               // (3)
+template <std::size_t I, class... Args>
+variant_alternative_t<I, variant<Types...>>&
+  emplace(Args&&... args);                               // (3)
 
-  template <std::size_t I, class U, class... Args>
-  variant_alternative_t<I, variant<Types...>>&
-    emplace(std::initializer_list<U> il, Args&&... args);  // (4)
-}
+template <std::size_t I, class U, class... Args>
+variant_alternative_t<I, variant<Types...>>&
+  emplace(std::initializer_list<U> il, Args&&... args);  // (4)
 ```
 * variant_alternative_t[link /reference/variant/variant_alternative.md]
 
