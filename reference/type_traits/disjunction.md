@@ -21,7 +21,7 @@ namespace std {
 Traits内の全ての型は基底クラスとして使用可能で（final指定されていない）、boolに変換可能なメンバ変数valueを持つこと。
 
 ## 効果
-`sizeof...(Traits) == 0`ならば[`true_type`](true_type.md)から派生し
+`sizeof...(Traits) == 0`ならば[`false_type`](false_type.md)から派生し
 
 `sizeof...(Traits) == 1`ならばそのTraitsから派生し
 

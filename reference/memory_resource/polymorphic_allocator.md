@@ -1,6 +1,6 @@
 # polymorphic_allocator
 * memory_resource[meta header]
-* class[meta id-type]
+* class template[meta id-type]
 * std::pmr[meta namespace]
 * cpp17[meta cpp]
 

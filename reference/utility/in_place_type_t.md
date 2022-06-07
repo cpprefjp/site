@@ -1,7 +1,7 @@
 # in_place_type_t
 * utility[meta header]
 * std[meta namespace]
-* class[meta id-type]
+* class template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
