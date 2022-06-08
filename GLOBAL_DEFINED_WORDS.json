@@ -8,5 +8,42 @@
     "link": "/implementation-compliance.md#dfn-ill-formed",
     "yomi": "ふてきかく",
     "desc": "プログラムが適格でないこと。コンパイルエラーなどになる"
-  }
+  },
+  "未定義の動作": {
+    "link": "/implementation-compliance.md#dfn-undefined-behavior",
+    "yomi": "みていぎのどうさ",
+    "desc": "処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外"
+  },
+  "未定義動作": { "redirect": "未定義の動作", "yomi": "みていぎどうさ" },
+  "未定義": { "redirect": "未定義の動作", "yomi": "みていぎ" },
+  "未規定の動作": {
+    "link": "/implementation-compliance.md#dfn-unspecified-behavior",
+    "yomi": "みきていのどうさ",
+    "desc": "事前の断りなく処理系によって異なる動作をする"
+  },
+  "未規定動作": { "redirect": "未規定の動作", "yomi": "みきていどうさ" },
+  "未規定": { "redirect": "未規定の動作", "yomi": "みきてい" },
+  "処理系定義の動作": {
+    "link": "/implementation-compliance.md#dfn-implementation-defined-behavior",
+    "yomi": "しょりけいていぎのどうさ",
+    "desc": "処理系によって事前に定めた動作をする"
+  },
+  "処理系定義": { "redirect": "処理系定義の動作", "yomi": "しょりけいていぎ" },
+  "実装定義の動作": { "redirect": "処理系定義の動作", "yomi": "じっそうていぎ" },
+  "実装定義": { "redirect": "処理系定義の動作", "yomi": "じっそうていぎ" },
+  "診断情報": {
+    "link": "/implementation-compliance.md#dfn-diagnostic-message",
+    "yomi": "しんだんじょうほう",
+    "desc": "コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称"
+  },
+  "診断メッセージ": { "redirect": "診断情報", "yomi": "しんだんめっせーじ" },
+  "診断不要": {
+    "link": "/implementation-compliance.md#dfn-no-diagnostic-required",
+    "yomi": "しんだんふよう",
+    "desc": "処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない"
+  },
+  "カスタマイゼーションポイントオブジェクト": {
+    "desc": "プログラム定義型に対するオーバーが許されている標準関数名について、中でいい感じにオーバーロード解決して呼び出してくれる関数オブジェクト"
+  },
+  "CPO": { "redirect": "カスタマイゼーションポイントオブジェクト" }
 }
