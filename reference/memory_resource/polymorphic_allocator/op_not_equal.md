@@ -1,4 +1,4 @@
-# operator==
+# operator!=
 * memory_resource[meta header]
 * std::pmr[meta namespace]
 * function[meta id-type]
