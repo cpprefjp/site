@@ -42,7 +42,14 @@ namespace std {
 #include <type_traits>
 
 template<typename T, typename Cat>
-using fallback_comp3way = std::conditional_t<std::three_way_comparable<T>, std::compare_three_way_result_t<T>, Cat>;
+struct fallback_comp3way {
+  using type = Cat;
+};
+
+template<std::three_way_comparable T, typename Cat>
+struct fallback_comp3way<T, Cat> {
+  using type = std::compare_three_way_result_t<T>;
+};
 
 template<typename T>
 struct wrap {
@@ -50,7 +57,7 @@ struct wrap {
 
   //<=>を使用可能ならそれを、そうでないなら< ==を使ってdefault実装
   auto operator<=>(const wrap&) const
-    -> fallback_comp3way<T, std::weak_ordering>
+    -> fallback_comp3way<T, std::weak_ordering>::type
       = default;
 }
 
