@@ -42,25 +42,19 @@ namespace std {
 #include <type_traits>
 
 template<typename T, typename Cat>
-struct fallback_comp3way {
-  using type = Cat;
-};
-
-template<std::three_way_comparable T, typename Cat>
-struct fallback_comp3way<T, Cat> {
-  using type = std::compare_three_way_result_t<T>;
-};
+using fallback_comp3way_t = std::conditional_t<std::three_way_comparable<T>, std::compare_three_way_result<T>, std::type_identity<Cat>>::type;
 
 template<typename T>
 struct wrap {
   T t;
 
-  //<=>を使用可能ならそれを、そうでないなら< ==を使ってdefault実装
+  // <=>を使用可能ならそれを、そうでないなら< ==を使ってdefault実装
   auto operator<=>(const wrap&) const
-    -> fallback_comp3way<T, std::weak_ordering>::type
+    -> fallback_comp3way_t<T, std::weak_ordering>
       = default;
 }
 
+// <=>を定義しない型
 struct no_spaceship {
   int n;
 
@@ -85,6 +79,7 @@ int main()
 }
 ```
 * compare_three_way_result_t[color ff0000]
+* type_identity[link /reference/type_traits/type_identity.md]
 
 ### 出力
 ```
