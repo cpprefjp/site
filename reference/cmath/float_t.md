@@ -27,5 +27,5 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): 2013, 2015, 2017
 	- 2013では、常に`float`の別名。
 	- 2015で、ターゲットのCPUアーキテクチャが`x86`以外である場合、`float`の別名。
-	- 2015で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用する場合（`/arch:SSE2`以上のコンパイラオプション）、`double`の別名。
+	- 2015で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用する場合（`/arch:SSE2`以上のコンパイラオプション）、`float`の別名。
 	- 2015で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用しない場合（`/arch:IA32`や`/arch:SSE`コンパイラオプション）、`long double`の別名。
