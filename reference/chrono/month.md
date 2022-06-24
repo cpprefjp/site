@@ -38,7 +38,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator++`](month/op_increment.md)    | インクリメント | C++20 |
-| [`operator-=`](month/op_decrement.md)    | デクリメント   | C++20 |
+| [`operator--`](month/op_decrement.md)    | デクリメント   | C++20 |
 | [`operator+=`](month/op_plus_assign.md)  | 加算の複合代入 | C++20 |
 | [`operator-=`](month/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
