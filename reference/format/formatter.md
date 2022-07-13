@@ -52,7 +52,7 @@ namespace std {
 
 型`F`がFormatter要件を満たすとは、次のことをいう。
 
-* `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること (注: ここはC++20の策定までにコンセプトで書き換えられるかもしれない)
+* `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること
 
 さらに、以下の条件を満たすこと
 
@@ -62,11 +62,11 @@ namespace std {
 2. 式 `f.format(t, fc)` が有効であり、
     * 戻り値の型が`FC::iterator`である
     * フォーマット結果を`fc.out()`へ出力し、出力後のイテレーターを返す
-    * 出力は`t`、グローバルロケール、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
+    * 出力は`t`、`fc.locale()`、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
 3. 式 `f.format(u, fc)` が有効であり、
     * 戻り値が`FC::iterator`である
     * フォーマット結果を`fc.out()`へ出力し、出力後のイテレーターを返す
-    * 出力は`t`、グローバルロケール、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
+    * 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
     * `u`を変更しない
 
 条件内の各要素を、以下のように定義する
