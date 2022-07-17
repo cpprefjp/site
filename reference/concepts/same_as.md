@@ -30,7 +30,7 @@ concept same-as-impl = is_same_v<T, U>;
 
 ```cpp
 template <class T, class U>
-concept C = same-as-impl<T, U> && same-as-impl<U, T>;
+concept same_as = same-as-impl<T, U> && same-as-impl<U, T>;
 ```
 
 ## 備考
