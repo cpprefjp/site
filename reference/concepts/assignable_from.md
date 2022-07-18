@@ -26,18 +26,20 @@ namespace std {
 
 ## モデル
 
-まず、`lhs`を`decltype((lhs))`が`LHS`であるような`lcopy`オブジェクトを参照する左辺値、`rhs`を`decltype((rhs))`が`RHS`であるような式、`rcopy`を`rhs`と等値な個別のオブジェクトとして定義する。
+まず、`lhs`を`decltype((lhs))`が`LHS`であるような`lcopy`オブジェクトを参照する左辺値（参照）、`rhs`を`decltype((rhs))`が`RHS`であるような式、`rcopy`を`rhs`と等値な別のオブジェクトとして定義する。
 
 これらの`lhs, rhs, lcopy, rcopy`について、以下の条件を満たす場合に限って、型`LHS, RHS`は`assignable_from`のモデルである。
 
 - [`addressof`](/reference/memory/addressof.md)`(lhs = rhs) == `[`addressof`](/reference/memory/addressof.md)`(lcopy)`となる
-- `lhs = rhs;`という式の評価の後で以下のいずれかのことが成り立っている
-    - `rhs`が`lcopy`を参照する非`const` *xvalue*でないならば
+- `lhs = rhs;`という式の評価の後で以下のことが成り立っている
+    - `rhs`が`lcopy`を参照する非`const` *xvalue*でない（ムーブが起こる自己代入ではない）場合
         - `lhs`は`rcopy`と等値である
     - `rhs`が非`const` *xvalue*ならば
         - `rhs`が参照するオブジェクトの状態は有効だが未規定
     - それ以外の場合で、`rhs`が*glvalue*ならば
         - `rhs`が参照するオブジェクトは変更されない
+
+`rhs`が*prvalue*の場合、2つめの条件のいずれにも該当しない。これはコピー省略等の最適化を考慮したものである。
 
 ## 備考
 
