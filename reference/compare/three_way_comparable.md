@@ -91,7 +91,7 @@ concept three_way_comparable_with =
 - (1) : `const remove_reference_t<T>`の左辺値`a, b`について次の条件を満たす場合に限って、型`T, Cat`は`three_way_comparable`のモデルである
     - `(a <=> b == 0) == bool(a == b)`が`true`であること
     - `(a <=> b != 0) == bool(a != b)`が`true`であること
-    - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が等値
+    - `((a <=> b) <=> 0)`と`(0 <=> (a <=> b))`が等値
     - `(a <=> b < 0) == bool(a < b)`が`true`であること
     - `(a <=> b > 0) == bool(a > b)`が`true`であること
     - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
@@ -101,7 +101,7 @@ concept three_way_comparable_with =
   
 - (2) : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`、`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U, Cat`は`three_way_comparable_with`のモデルである
     - `t <=> u`と`u <=> t`が同じ[定義域](/reference/concepts.md)を持つ
-    - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が等値
+    - `((t <=> u) <=> 0)`と`(0 <=> (t <=> u))`が等値
     - `(t <=> u == 0) == bool(t == u)`が`true`であること
     - `(t <=> u != 0) == bool(t != u)`が`true`であること
     - `Cat(t <=> u) == Cat(C(t) <=> C(u))`が`true`であること
