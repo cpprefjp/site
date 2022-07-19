@@ -23,6 +23,7 @@ return !(lhs < rhs) && !(rhs < lhs);
 ## 備考
 `lhs.`[`compare`](compare.md)`(rhs) == 0`と等価
 
+この演算子はパス要素列の等価性を判定するため、パスが意味的に同一かどうかを判定することはできない。パス文字列の意味的な等価性判定には、[filesystem::equivalent()](/reference/filesystem/equivalent.md)を使用する。
 
 ## 例
 ```cpp example
