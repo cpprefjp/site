@@ -38,7 +38,6 @@ namespace std {
 - (1) : `const remove_reference_t<T>`型の左辺値`a, b, c`について次の条件を満たす場合に限って、型`T`は`totally_ordered`のモデルである。
     - `bool(a < b)`、`bool(a > b)`、`bool(a == b)`はいずれか1つだけが`true`となる
     - `bool(a < b)`かつ`bool(b < c)`ならば、`bool(a < c)`
-    - `bool(a > b) == bool(b < a)`が`true`であること
     - `bool(a <= b) == !bool(b < a)`が`true`であること
     - `bool(a >= b) == !bool(a < b)`が`true`であること
 
