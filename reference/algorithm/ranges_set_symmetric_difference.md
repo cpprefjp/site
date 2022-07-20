@@ -44,7 +44,7 @@ namespace std::ranges {
 
 
 ## 効果
-`[first1,last1)` から `[first2,last2)` に存在していない要素と、`[first2,last2)` から `[first2,last2)` に存在していない要素を `result` へコピーする。構築された要素はソートされている。
+`[first1,last1)` から `[first2,last2)` に存在していない要素と、`[first2,last2)` から `[first1,last1)` に存在していない要素を `result` へコピーする。構築された要素はソートされている。
 
 
 ## 戻り値
