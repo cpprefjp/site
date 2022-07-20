@@ -66,6 +66,7 @@ namespace std {
 
 
 ## 備考
+- [`std::set`](/reference/set/set.md)や[`std::multiset`](/reference/set/multiset.md)に対しては専用の[`lower_bound`](/reference/set/set/lower_bound.md)メンバ関数が定義されているため、そちらを使用すること
 - 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と等価である。  
 	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return e < value; })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return comp(e, value); })` とすることで等価の結果が得られる。
 - 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。
