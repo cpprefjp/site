@@ -62,20 +62,19 @@ copy_backward_result {
 #include <algorithm>
 #include <iostream>
 #include <list>
-#include <iterator>
 
 int main() {
   std::list<int> ls = { 1,2,3,4,5 };
   // 1,2,3 の範囲を、3,4,5 の値のある範囲へコピーする
-  std::copy_backward(ls.begin(), std::next(ls.begin(), 3), ls.end());
+  std::ranges::copy_backward(ls.begin(), std::next(ls.begin(), 3), ls.end());
 
   // 以下のコードだと期待した結果にならないことを確認しよう
-  // std::copy(ls.begin(), std::next(ls.begin(), 3), std::next(ls.begin(), 2));
+  // std::ranges::copy(ls.begin(), std::next(ls.begin(), 3), std::next(ls.begin(), 2));
 
-  std::copy(ls.begin(), ls.end(), std::ostream_iterator<int>(std::cout, ","));
+  std::ranges::copy(ls.begin(), ls.end(), std::ostream_iterator<int>(std::cout, ","));
 }
 ```
-* std::copy_backward[color ff0000]
+* std::ranges::copy_backward[color ff0000]
 * ls.begin()[link /reference/list/list/begin.md]
 * std::next[link /reference/iterator/next.md]
 * ls.end()[link /reference/list/list/end.md]
@@ -85,18 +84,6 @@ int main() {
 1,2,1,2,3,
 ```
 
-
-## 実装例
-```cpp
-template <class BidirectionalIterator1, class BidirectionalIterator2>
-BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
-                                     BidirectionalIterator1 last,
-                                     BidirectionalIterator2 result) {
-  while (first != last)
-    *--result = *--last;
-  return result;
-}
-```
 
 ## バージョン
 ### 言語
