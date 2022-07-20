@@ -72,7 +72,6 @@ set_intersection_result {
 #include <iostream>
 #include <set>
 #include <algorithm>
-#include <iterator>
 
 int main()
 {
@@ -81,7 +80,7 @@ int main()
   std::multiset<int> result;
 
   // aとbの積集合を作る
-  std::set_intersection(a, b, std::inserter(result, result.end()));
+  std::ranges::set_intersection(a, b, std::inserter(result, result.end()));
 
   for (int x : result) {
     std::cout << x << std::endl;
