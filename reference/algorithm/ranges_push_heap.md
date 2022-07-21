@@ -27,7 +27,7 @@ namespace std::ranges {
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
-ヒープ化された範囲に要素を追加したヒープ範囲を得る
+ヒープ化された範囲に要素を追加する
 
 * (1): イテレータペアで範囲を指定する
 * (2): 範囲を直接指定する
