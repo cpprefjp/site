@@ -20,6 +20,10 @@ constexpr basic_string_view substr(size_type pos = 0, size_type n = npos) const;
 [`size()`](size.md) `- pos`と`n`うち、小さい方を`rlen`とし、`basic_string_view(`[`data()`](data.md) `+ pos, rlen)`を返す。
 
 
+## 例外
+`pos >` [`size()`](size.md)の場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する。
+
+
 ## 例
 ```cpp example
 #include <iostream>
