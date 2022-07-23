@@ -4,13 +4,15 @@
 * function template[meta id-type]
 
 ```cpp
-// C++03
-template <class T1, class T2>
-bool operator!=(const allocator<T1>&, const allocator<T2>&) throw();
+namespace std {
+  // C++03
+  template <class T1, class T2>
+  bool operator!=(const allocator<T1>&, const allocator<T2>&) throw();
 
-// C++11
-template <class T, class U>
-bool operator!=(const allocator<T>&, const allocator<U>&) noexcept;
+  // C++11
+  template <class T, class U>
+  bool operator!=(const allocator<T>&, const allocator<U>&) noexcept;
+}
 ```
 
 ## 概要

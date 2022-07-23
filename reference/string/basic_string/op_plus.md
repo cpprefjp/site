@@ -4,65 +4,67 @@
 * function template[meta id-type]
 
 ```cpp
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(const basic_string<charT, traits, Allocator>& lhs,
-            const basic_string<charT, traits, Allocator>& rhs); // (1)
+namespace std {
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(const basic_string<charT, traits, Allocator>& lhs,
+              const basic_string<charT, traits, Allocator>& rhs); // (1)
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(basic_string<charT, traits, Allocator>&& lhs,
-            const basic_string<charT, traits, Allocator>& rhs); // (2) C++11 から
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(basic_string<charT, traits, Allocator>&& lhs,
+              const basic_string<charT, traits, Allocator>& rhs); // (2) C++11 から
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(const basic_string<charT, traits, Allocator>& lhs,
-            basic_string<charT, traits, Allocator>&& rhs);      // (3) C++11 から
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(const basic_string<charT, traits, Allocator>& lhs,
+              basic_string<charT, traits, Allocator>&& rhs);      // (3) C++11 から
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(basic_string<charT, traits, Allocator>&& lhs,
-            basic_string<charT, traits, Allocator>&& rhs);      // (4) C++11 から
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(basic_string<charT, traits, Allocator>&& lhs,
+              basic_string<charT, traits, Allocator>&& rhs);      // (4) C++11 から
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(const charT* lhs,
-            const basic_string<charT, traits, Allocator>& rhs); // (5)
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(const charT* lhs,
+              const basic_string<charT, traits, Allocator>& rhs); // (5)
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(const charT* lhs,
-            basic_string<charT, traits, Allocator>&& rhs);      // (6) C++11 から
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(const charT* lhs,
+              basic_string<charT, traits, Allocator>&& rhs);      // (6) C++11 から
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(charT lhs,
-            const basic_string<charT, traits, Allocator>& rhs); // (7)
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(charT lhs,
+              const basic_string<charT, traits, Allocator>& rhs); // (7)
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(charT lhs,
-            basic_string<charT, traits, Allocator>&& rhs);      // (8) C++11 から
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(charT lhs,
+              basic_string<charT, traits, Allocator>&& rhs);      // (8) C++11 から
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(const basic_string<charT, traits, Allocator>& lhs,
-            const charT* rhs);                                  // (9)
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(const basic_string<charT, traits, Allocator>& lhs,
+              const charT* rhs);                                  // (9)
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(basic_string<charT, traits, Allocator>&& lhs,
-            const charT* rhs);                                  // (10) C++11 から
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(basic_string<charT, traits, Allocator>&& lhs,
+              const charT* rhs);                                  // (10) C++11 から
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(const basic_string<charT, traits, Allocator>& lhs,
-            charT rhs);                                         // (11)
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(const basic_string<charT, traits, Allocator>& lhs,
+              charT rhs);                                         // (11)
 
-template <class charT, class traits, class Allocator>
-basic_string<charT, traits, Allocator>
-  operator+(basic_string<charT, traits, Allocator>&& lhs,
-            charT rhs);                                         // (12) C++11 から
+  template <class charT, class traits, class Allocator>
+  basic_string<charT, traits, Allocator>
+    operator+(basic_string<charT, traits, Allocator>&& lhs,
+              charT rhs);                                         // (12) C++11 から
+}
 ```
 
 ## 概要
