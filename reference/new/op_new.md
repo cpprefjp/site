@@ -25,7 +25,7 @@ void* operator new(std::size_t size,
                    const std::nothrow_t&) noexcept;                 // (4) C++17
 [[nodiscard]]void* operator new(std::size_t size,
                                 std::align_val_t alignment,
-                                const std::nothrow_t&) noexcept;    // (4) C++17
+                                const std::nothrow_t&) noexcept;    // (4) C++20
 
 void* operator new(std::size_t size, void* ptr) throw();            // (5) C++03
 void* operator new(std::size_t size, void* ptr) noexcept;           // (5) C++11
