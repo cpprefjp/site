@@ -2,7 +2,7 @@
 * unordered_set[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* unordered_miltiset[meta class]
+* unordered_multiset[meta class]
 * cpp17[meta cpp]
 
 ```cpp
