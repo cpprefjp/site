@@ -60,6 +60,7 @@ namespace std{
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -95,12 +96,46 @@ int main()
 ```
 * std::accumulate[color ff0000]
 
-### 出力
+#### 出力
 ```
 sum : 15
 sum_ll : 15
 concat : aaabbbccc
 product : 120
+```
+
+
+### クラスの一部のメンバ変数を集計する
+```cpp
+#include <iostream>
+#include <numeric>
+#include <vector>
+#include <string>
+
+struct X {
+  int value;
+  std::string name;
+};
+
+int main() {
+  std::vector<X> v = {
+    {1, "AAA"},
+    {2, "BBB"},
+    {3, "CCC"}
+  };
+
+  int sum = std::accumulate(v.begin(), v.end(), 0, [](int acc, const X& x) {
+    return acc + x.value;
+  });
+
+  std::cout << sum << std::endl;
+}
+```
+* std::accumulate[color ff0000]
+
+#### 出力
+```
+6
 ```
 
 
