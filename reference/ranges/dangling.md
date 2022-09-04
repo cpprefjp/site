@@ -57,7 +57,7 @@ int main()
 }
 ```
 * ranges::dangling[color ff0000]
-* ranges::find[link /reference/algorithm/find.md]
+* ranges::find[link /reference/algorithm/ranges_find.md]
 * ranges::subrange[link subrange.md]
 * borrowed_range[link borrowed_range.md]
 * same_as[link /reference/concepts/same_as.md]
