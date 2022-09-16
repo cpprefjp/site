@@ -240,7 +240,7 @@
 - Visual C++ (MSVC):
     - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
     - [次リリース情報(VS2019,2022) - Change log](https://github.com/microsoft/STL/wiki/Changelog)
-
+- ICC: [C++20 Features Supported by Intel® C++ Compiler](https://www.intel.com/content/www/us/en/developer/articles/technical/c20-features-supported-by-intel-cpp-compiler.html)
 
 ## <a id="cpp23" href="#cpp23">C++23言語機能の実装状況</a>
 
