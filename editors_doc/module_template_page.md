@@ -8,7 +8,7 @@
 )
 
 * module_name[meta module]
-* cpp26[meta cpp]
+* cpp23[meta cpp]
 
 <!-- `[meta module]`は、所属モジュールを表すメタ情報 -->
 <!-- `[meta cpp]`は、機能が追加・非推奨・削除されたバージョンを表すメタ情報。改行して複数指定ができる。 -->
