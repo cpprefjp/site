@@ -215,18 +215,18 @@
 | P1041R4: [`char16_t`と`char32_t`の文字・文字列リテラルを、文字コードUTF-16/32に規定](/lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.md) | `__STDC_UTF_16__`、`__STDC_UTF_32__`の定義に関係なく、`char16_t`、`char32_t`のリテラルをUTF-16/32文字コードに規定する | 10 | Yes | | 2015 |
 | P1103R3: [モジュール](/lang/cpp20/modules.md) | ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する | 11 (`-fmodules-ts`が必要) | 8.0 partial (`-fmodules`, `-fmodules-ts`が必要) | | 2019 Update 8 |
 | P0912R5: [コルーチン](/lang/cpp20/coroutines.md) | 関数実行を中断・再開する仕組みとしてコルーチンを導入する | 10 (`-fcoroutines`が必要) | 8.0 (partial) | 2021.4| 2019 Update 8 |
-| P1161R3: [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | | 2019 Update 5 |
+| P1161R3: [添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK | 10 | 9.0 | 2021.6 | 2019 Update 5 |
 | P1331R2: [constexpr関数内でのトリビアルなデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する | 10 | 10.0 | | 2019 Update 7 |
 | P0848R3: [条件付きで特殊メンバ関数をトリビアルに定義するように](/lang/cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数をオーバーロードできるようにする | 10 | 16 Partial (consepts 未実装部あり) | | 2019 Update 8 |
-| P1301R4: [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](/lang/cpp20/nodiscard_should_have_a_reason.md) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | 10 | 9.0 | | 2019 Update 5 |
+| P1301R4: [`[[nodiscard]]`属性に理由となる文字列を付加できるようにする](/lang/cpp20/nodiscard_should_have_a_reason.md) | 関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる | 10 | 9.0 | 2021.6 | 2019 Update 5 |
 | P1099R5: [スコープ付き列挙型のusing宣言](/lang/cpp20/using_enum.md) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする | 11 | 13 | | 2019 Update 4 |
 | P1816R0: [集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md) | クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする | 10 | | | 2019 Update 7 |
 | P1668R1: [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 | 10 | 10.0 | | 2019 Update 9 |
-| P0388R4: [要素数不明の配列への変換を許可](/lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.md) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 | 10 | 14 | | 2019 Update 7 |
+| P0388R4: [要素数不明の配列への変換を許可](/lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.md) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 | 10 | 14 | 2021.6 | 2019 Update 7 |
 | P1143R2: [コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md) | 初期化のみコンパイル時におわらせたい場合に使用する | 10 | 10.0 | | 2019 Update 10 |
-| P1152R4: [ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する | 10 | 10.0 | | 2019 Update 7 |
+| P1152R4: [ほとんどの`volatile`を非推奨化](/lang/cpp20/deprecating_volatile.md) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する | 10 | 10.0 | 2021.6 | 2019 Update 7 |
 | P1814R0: [エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md) | エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする | 10 | | | 2019 Update 7 |
-| P0784R7: [可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | 10.0 | | 2019 Update 9 |
+| P0784R7: [可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md) | `constexpr`記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする | 10 | 10.0 | 2021.6 | 2019 Update 9 |
 | P1957R2: [ポインタから`bool`への変換を縮小変換とする](/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md) | ポインタから`bool`値への変換を縮小変換と規定することで、意図しない変換を防止する | 10 | 11.0 | | 2019 Update 7 |
 
 - <a href="#note_ref-t1-1" id="note-t1-1">**^**</a> 不明な属性として無視されなくなっただけで期待する効果は得られない。完全に実装されるまでは、代わりに[`[[msvc::no_unique_address]]`](https://devblogs.microsoft.com/cppblog/msvc-cpp20-and-the-std-cpp20-switch/#msvc-extensions-and-abi)を使用できる。
