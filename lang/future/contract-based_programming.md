@@ -1,8 +1,8 @@
 # 契約に基づくプログラミング
-* cpp23[meta cpp]
+* future[meta cpp]
 
 ## 概要
-C++20では、いわゆる[契約プログラミング](https://ja.wikipedia.org/wiki/%E5%A5%91%E7%B4%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)がサポートされる予定であったが、C++23以降へ延期された。
+将来のC++では、いわゆる[契約プログラミング](https://ja.wikipedia.org/wiki/%E5%A5%91%E7%B4%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)が検討されている。
 
 以下の内容はC++20で予定されていた仕様に基づいており、今後変わる可能性が高い。
 
@@ -26,7 +26,7 @@ int main()
   [[assert: x > 0]]; // アサーション
 
   double y = sqrt_checked(x);
-    
+
   std::cout << y << '\n';
 }
 ```
@@ -240,7 +240,7 @@ struct derived : base {
   {
     return 1;
   }
-  
+
   //暗黙的にbase::g()と同じ契約がされているとみなされる
   int g(int n) override {
     return -1;
