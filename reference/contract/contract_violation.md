@@ -19,7 +19,7 @@ namespace std {
 
 ## 概要
 
-`contract_violation`クラスは、発生した[契約違反](/lang/cpp23/contract-based_programming.md)に関する情報を提供する。
+`contract_violation`クラスは、発生した[契約違反](/lang/future/contract-based_programming.md)に関する情報を提供する。
 
 契約違反が発生したとき、このクラスのオブジェクトが処理系定義の方法により構築され、違反ハンドラーに渡される。
 
