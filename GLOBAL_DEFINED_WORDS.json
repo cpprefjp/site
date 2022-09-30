@@ -29,7 +29,7 @@
     "desc": "処理系によって事前に定めた動作をする"
   },
   "処理系定義": { "redirect": "処理系定義の動作", "yomi": "しょりけいていぎ" },
-  "実装定義の動作": { "redirect": "処理系定義の動作", "yomi": "じっそうていぎ" },
+  "実装定義の動作": { "redirect": "処理系定義の動作", "yomi": "じっそうていぎのどうさ" },
   "実装定義": { "redirect": "処理系定義の動作", "yomi": "じっそうていぎ" },
   "診断情報": {
     "link": "/implementation-compliance.md#dfn-diagnostic-message",
