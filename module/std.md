@@ -22,11 +22,11 @@ int main() {
 }
 ```
 
-マクロを使用したい場合、対応するヘッダーファイルをインクルードまたはインポートする必要がある。
+マクロを使用したい場合、対応するヘッダーファイルをインクルード(または、[ヘッダーユニット](/lang/cpp20/modules.md)としてインポート)する必要がある。
 
 ```cpp example
 import std;
-import <cassert>;
+#include <cassert>
 
 int main() {
   assert(0 < 1); // OK
