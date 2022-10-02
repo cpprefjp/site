@@ -123,7 +123,7 @@ int main() {
     Person{2, 32, "Bob"},
   };
   // 特定のメンバでソート
-  std::ranges::sort(v2, {}, &Person::age);
+  std::ranges::sort(v3, {}, &Person::age);
 
   for (const MyInt& x : v1) {
     std::cout << x.value << std::endl;
