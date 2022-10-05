@@ -23,6 +23,8 @@
 <!--    `cpp23removed[meta cpp]` : C++23で削除された機能 -->
 <!--    `cpp26deprecated[meta cpp]` : C++26で非推奨になった機能 -->
 <!--    `cpp26removed[meta cpp]` : C++26で削除された機能 -->
+<!--    `future[meta cpp]` : 将来のC++で検討されている機能 -->
+<!--    `archive[meta cpp]` : 廃案になったが記録として残す価値のあるC++機能 -->
 
 ```cpp
 namespace std {
