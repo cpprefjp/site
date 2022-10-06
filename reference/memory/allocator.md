@@ -41,7 +41,7 @@ C++11から：
 |---------------------------------------------|----------------------------------------------|-------|
 | [`(constructor)`](allocator/op_constructor.md) | コンストラクタ                          | |
 | [`(destructor)`](allocator/op_destructor.md) | デストラクタ                              | |
-| `operator=(const allocator&) = default`   | 代入演算子                                   | |
+| [`operator=`](allocator/op_assign.md)`    | 代入演算子                                   | |
 | [`allocate`](allocator/allocate.md)       | メモリを確保する                             | |
 | [`deallocate`](allocator/deallocate.md)   | メモリを解放する                             | |
 | [`address`](allocator/address.md)         | 変数のアドレスを取得する                     | C++17から非推奨<br/> C++20で削除 |
