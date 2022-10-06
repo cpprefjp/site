@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void push_back(const T& x); // (1)
-void push_back(T&& x);      // (2) C++11
+void push_back(const T& x);           // (1) C++03
+constexpr void push_back(const T& x); // (1) C++20
+
+void push_back(T&& x);                // (2) C++11
+constexpr void push_back(T&& x);      // (2) C++20
 ```
 
 ## 概要
@@ -92,4 +95,5 @@ world
         - `deque`の[`push_back()`](/reference/deque/deque/push_back.md)と[`push_front()`](/reference/deque/deque/push_front.md) (C++03から)
         - `deque`の[`emplace_back()`](/reference/deque/deque/emplace_back.md)と[`emplace_front()`](/reference/deque/deque/emplace_front.md) (C++14から)
         - `deque`の両端へ単一要素を挿入する[`insert()`](/reference/deque/deque/insert.md)と[`emplace()`](/reference/deque/deque/emplace.md) (C++14)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
 

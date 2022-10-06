@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void shrink_to_fit();
+void shrink_to_fit();           // (1) C++11
+constexpr void shrink_to_fit(); // (1) C++20
 ```
 
 ## 概要
@@ -81,3 +82,4 @@ int main()
 - [LWG Issue 755. `std::vector` and `std:string` lack explicit shrink-to-fit operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#755)
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
 - [LWG Issue 2223. `shrink_to_fit` effect on iterator validity](https://wg21.cmeerw.net/lwg/issue2223)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

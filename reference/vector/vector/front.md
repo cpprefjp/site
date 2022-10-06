@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reference front();             // (1)
-const_reference front() const; // (2)
+reference front();                       // (1) C++03
+constexpr reference front();             // (1) C++20
+
+const_reference front() const;           // (2) C++03
+constexpr const_reference front() const; // (2) C++20
 ```
 
 ## 概要
@@ -45,3 +48,6 @@ int main()
 3
 ```
 
+
+## 参照
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

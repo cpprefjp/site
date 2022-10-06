@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void reserve(size_type n);
+void reserve(size_type n);           // (1) C++03
+constexpr void reserve(size_type n); // (1) C++20
 ```
 
 ## 概要
@@ -71,4 +72,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
-
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

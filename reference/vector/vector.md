@@ -173,18 +173,18 @@ namespace std {
 
 この特殊化はメモリ領域を最小化するために提供されていて、各要素は1bitの領域のみを必要とする。
 
-`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである。
+`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである (`constexpr`はC++20から付加される)。
 
 ```cpp
 class vector<bool>::reference {
   friend class vector;
-  reference();                              // コンストラクタは非公開
+  constexpr reference();                              // コンストラクタは非公開
 public:
-  ~reference();
-  operator bool() const;                    // boolへの暗黙変換
-  reference& operator=(const bool x);       // boolからの代入
-  reference& operator=(const reference& x); // vector<bool>のビットからの代入
-  void flip();                              // ビットの反転
+  constexpr ~reference();
+  constexpr operator bool() const;                    // boolへの暗黙変換
+  constexpr reference& operator=(const bool x);       // boolからの代入
+  constexpr reference& operator=(const reference& x); // vector<bool>のビットからの代入
+  constexpr void flip();                              // ビットの反転
 }
 ```
 
@@ -382,6 +382,40 @@ v[3] : 0
 ```
 
 `vector<bool>`の要素は参照するとプロキシオブジェクトのコピーが返ってくるため、RandomAccessIteratorの要件を満たさない。
+
+
+### 定数式内でvectorを使用する (C++20)
+```cpp
+#include <cassert>
+#include <vector>
+
+constexpr bool f()
+{
+  std::vector<int> v = {1, 2, 3};
+  v.push_back(4);
+
+  auto* p = v.data();
+  assert(p);
+
+  int sum = 0;
+  for (auto x : v) {
+    sum += x;
+  }
+  return sum != 0;
+}
+
+int main()
+{
+  static_assert(f());
+}
+```
+* v.push_back[link vector/push_back.md]
+* v.data[link vector/data.md]
+
+
+#### 出力
+```
+```
 
 
 ## 参照

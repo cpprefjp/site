@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_iterator cend() const noexcept;
+const_iterator cend() const noexcept;           // (1) C++11
+constexpr const_iterator cend() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -69,3 +70,5 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
+## 参照
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

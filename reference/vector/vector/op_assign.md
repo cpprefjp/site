@@ -5,14 +5,19 @@
 * function[meta id-type]
 
 ```cpp
-vector& operator=(const vector& x);     // (1) C++03
+vector& operator=(const vector& x);           // (1) C++03
+constexpr vector& operator=(const vector& x); // (1) C++20
 
 vector& operator=(vector&& x);          // (2) C++11
 vector& operator=(vector&& x) noexcept(
   allocator_traits<Allocator>::propagate_on_container_move_assignment::value
     || allocator_traits<Allocator>::is_always_equal::value); // (2) C++17
+constexpr vector& operator=(vector&& x) noexcept(
+  allocator_traits<Allocator>::propagate_on_container_move_assignment::value
+    || allocator_traits<Allocator>::is_always_equal::value); // (2) C++20
 
-vector& operator=(initializer_list<T>); // (3) C++11
+vector& operator=(initializer_list<T>);           // (3) C++11
+constexpr vector& operator=(initializer_list<T>); // (3) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * allocator_traits[link /reference/memory/allocator_traits.md]
@@ -109,3 +114,4 @@ int main()
     - (3)の経緯となる提案文書
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

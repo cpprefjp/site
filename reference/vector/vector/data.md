@@ -7,9 +7,11 @@
 ```cpp
 T* data();                      // (1) C++03
 T* data() noexcept;             // (1) C++11
+constexpr T* data() noexcept;   // (1) C++20
 
-const T* data() const;          // (2) C++03
-const T* data() const noexcept; // (2) C++11
+const T* data() const;                    // (2) C++03
+const T* data() const noexcept;           // (2) C++11
+constexpr const T* data() const noexcept; // (2) C++20
 ```
 
 ## 概要
@@ -73,3 +75,4 @@ gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が�
 - [LWG Issue 464. Suggestion for new member functions in standard containers](https://wg21.cmeerw.net/lwg/issue464)
 - [LWG Issue 2596. `vector::data()` should use addressof](https://wg21.cmeerw.net/lwg/issue2596)
 - [[gcc] Revision 207241](https://gcc.gnu.org/viewcvs/gcc?view=revision&revision=207241)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

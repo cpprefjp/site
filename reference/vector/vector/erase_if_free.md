@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class Predicate>
-  typename vector<T, Allocator>::size_type erase_if(vector<T, Allocator>& c, Predicate pred);
+  constexpr typename vector<T, Allocator>::size_type
+    erase_if(vector<T, Allocator>& c, Predicate pred);
 }
 ```
 

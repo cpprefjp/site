@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_iterator cbegin() const noexcept;
+const_iterator cbegin() const noexcept;           // (1) C++11
+constexpr const_iterator cbegin() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -66,4 +67,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
 
-
+## 参照
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

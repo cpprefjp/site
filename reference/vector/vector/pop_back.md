@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void pop_back();
+void pop_back();           // (1) C++03
+constexpr void pop_back(); // (1) C++20
 ```
 
 ## 概要
@@ -49,5 +50,4 @@ int main()
 ```
 
 ## 参照
-
-
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

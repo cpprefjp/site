@@ -5,21 +5,29 @@
 * function[meta id-type]
 
 ```cpp
-vector();                                            // (1) C++14
-vector() noexcept(noexcept(Allocator()))             // (1) C++17
+vector();                                          // (1) C++14
+vector() noexcept(noexcept(Allocator()))           // (1) C++17
+  : vector(Allocator()) {}
+constexpr vector() noexcept(noexcept(Allocator())) // (1) C++20
   : vector(Allocator()) {}
 
-explicit vector(const Allocator& a);                 // (2) C++14
-explicit vector(const Allocator&) noexcept;          // (2) C++17
 
-explicit vector(const Allocator& a = Allocator());   // (1) + (2) C++03
+explicit vector(const Allocator& a);                  // (2) C++14
+explicit vector(const Allocator&) noexcept;           // (2) C++17
+constexpr explicit vector(const Allocator&) noexcept; // (2) C++20
 
-explicit vector(size_type n);                        // (3) C++11
+explicit vector(const Allocator& a = Allocator());    // (1) + (2) C++03
+
+explicit vector(size_type n);                                // (3) C++11
 explicit vector(size_type n,
-                const Allocator& a = Allocator());   // (3) C++14
+                const Allocator& a = Allocator());           // (3) C++14
+constexpr explicit vector(size_type n,
+                          const Allocator& a = Allocator()); // (3) C++20
 
 vector(size_type n, const T& value,
        const Allocator& a = Allocator());            // (4) C++11
+constexpr vector(size_type n, const T& value,
+                 const Allocator& a = Allocator());  // (4) C++20
 
 explicit vector(size_type n, const T& value = T(),
                 const Allocator& a = Allocator());   // (3) + (4) C++03
@@ -27,18 +35,27 @@ explicit vector(size_type n, const T& value = T(),
 template <class InputIter>
 vector(InputIter first, InputIter last,
       const Allocator& a = Allocator());             // (5) C++03
+template <class InputIter>
+constexpr vector(InputIter first, InputIter last,
+                 const Allocator& a = Allocator());  // (5) C++20
 
 vector(const vector& x);                             // (6) C++03
+constexpr vector(const vector& x);                   // (6) C++20
 
 vector(vector&& x);                                  // (7) C++11
 vector(vector&& x) noexcept;                         // (7) C++17
+constexpr vector(vector&& x) noexcept;               // (7) C++20
 
-vector(const vector& x, const Allocator& a);         // (8) C++11
+vector(const vector& x, const Allocator& a);           // (8) C++11
+constexpr vector(const vector& x, const Allocator& a); // (8) C++20
 
 vector(vector&& x, const Allocator& a);              // (9) C++11
+constexpr vector(vector&& x, const Allocator& a);    // (9) C++20
 
 vector(initializer_list<T> il,
        const Allocator& a = Allocator());            // (10) C++11
+constexpr vector(initializer_list<T> il,
+                 const Allocator& a = Allocator());  // (10) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -169,3 +186,4 @@ sixth : {1 2 3 }
 	なお、Discussion の例はアロケータの型が誤っているので注意
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

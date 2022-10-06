@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class U>
-  typename vector<T, Allocator>::size_type erase(vector<T, Allocator>& c, const U& value);
+  constexpr typename vector<T, Allocator>::size_type
+    erase(vector<T, Allocator>& c, const U& value);
 }
 ```
 

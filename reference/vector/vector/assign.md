@@ -6,11 +6,15 @@
 
 ```cpp
 template <class InputIterator>
-void assign(InputIterator first, InputIterator last); // (1)
+void assign(InputIterator first, InputIterator last);           // (1) C++03
+template <class InputIterator>
+constexpr void assign(InputIterator first, InputIterator last); // (1) C++20
 
-void assign(size_type n, const T& u);                 // (2)
+void assign(size_type n, const T& u);           // (2) C++03
+constexpr void assign(size_type n, const T& u); // (2) C++20
 
-void assign(initializer_list<T>);                     // (3) C++11
+void assign(initializer_list<T>);           // (3) C++11
+constexpr void assign(initializer_list<T>); // (3) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -95,3 +99,4 @@ a.assign(il) example:
 
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
