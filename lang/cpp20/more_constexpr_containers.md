@@ -333,7 +333,7 @@ int main() {
 - [動的メモリ確保の省略の許可](/lang/cpp14/clarifying_memory_allocation.md)
 - [`allocator`](/reference/memory/allocator.md)
 - [`allocator_traits`](/reference/memory/allocator_traits.md)
-- [`construct_at`](/reference/memory/construct.md.nolink)
+- [`construct_at`](/reference/memory/construct_at.md)
 - [`destroy_at`](/reference/memory/destroy_at.md)
 - [`destroy_n`](/reference/memory/destroy_n.md)
 - [`vector`](/reference/vector/vector.md)

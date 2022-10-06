@@ -36,6 +36,7 @@
 | [`uninitialized_move_n`](memory/uninitialized_move_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してムーブ出力する(function template) | C++11 |
 | [`uninitialized_fill`](memory/uninitialized_fill.md) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | |
 | [`uninitialized_fill_n`](memory/uninitialized_fill_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | |
+| [`construct_at`](memory/construct_at.md) | コンストラクタを呼び出す | C++20 |
 | [`destroy_at`](memory/destroy_at.md) | デストラクタを呼び出す | C++17 |
 | [`destroy`](memory/destroy.md) | 範囲の各要素に対してデストラクタを呼び出す | C++17 |
 | [`destroy_n`](memory/destroy_n.md) | 範囲のうち、先頭`N`個の要素に対してデストラクタを呼び出す | C++17 |
