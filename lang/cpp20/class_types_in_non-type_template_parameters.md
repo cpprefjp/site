@@ -30,6 +30,11 @@ C++11以降での[汎用的な定数式`constexpr`](/lang/cpp11/constexpr.md)の
     - すべての基本クラスと非静的メンバ変数が構造的型もしくはその (多次元) 配列である
 
 
+## 備考
+- C++20では[`std::vector`](/reference/vector/vector.md)および[`std::basic_string`](/reference/string/basic_string.md)を定数式内で使用できるようになるが、これらの型はC++20時点では構造的型に分類されないため、そのオブジェクトをテンプレート引数として渡すことはできない
+    - [C++20 可変サイズをもつコンテナのconstexpr化](more_constexpr_containers.md)
+
+
 ## 例
 ```cpp example
 #include <utility>
