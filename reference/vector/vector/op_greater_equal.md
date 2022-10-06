@@ -6,7 +6,12 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator>=(const vector<T, Allocator>& x, const vector<T, Allocator>& y);
+  bool operator>=(const vector<T, Allocator>& x,
+                  const vector<T, Allocator>& y);           // (1) C++03
+
+  template <class T, class Allocator>
+  constexpr bool operator>=(const vector<T, Allocator>& x,
+                            const vector<T, Allocator>& y); // (1) C++20
 }
 ```
 
@@ -44,5 +49,4 @@ true
 ```
 
 ## 参照
-
-
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

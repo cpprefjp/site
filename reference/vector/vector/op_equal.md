@@ -6,7 +6,12 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator==(const vector<T, Allocator>& x, const vector<T, Allocator>& y);
+  bool operator==(const vector<T, Allocator>& x,
+                  const vector<T, Allocator>& y);           // (1) C++03
+
+  template <class T, class Allocator>
+  constexpr bool operator==(const vector<T, Allocator>& x,
+                            const vector<T, Allocator>& y); // (1) C++20
 }
 ```
 
@@ -32,11 +37,12 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <vector>
 
-int main ()
+int main()
 {
   std::vector<int> v1 = {1, 2, 3};
   std::vector<int> v2 = {1, 2, 3};
@@ -52,14 +58,44 @@ int main ()
 }
 ```
 
-### 出力
+#### 出力
 ```
 true
 false
 ```
 
+### 基本的な使い方 (C++20 constexpr)
+```cpp example
+#include <cassert>
+#include <vector>
+
+constexpr bool f()
+{
+  std::vector<int> v1 = {1, 2, 3};
+  std::vector<int> v2 = {1, 2, 3};
+  std::vector<int> v3 = {1, 2, 3, 4};
+
+  // 要素数と要素の値が等しい
+  assert(v1 == v2);
+
+  // 要素の値は(左辺の要素数分まで)等しいが要素数が異なる
+  assert(!(v1 == v3));
+
+  return true;
+}
+
+int main()
+{
+  static_assert(f());
+}
+```
+
+#### 出力
+```
+```
+
+
 ## 参照
 - [LWG Issue 2257. Simplify container requirements with the new algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2257)
     - C++14から、2つ目の範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
-
-
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

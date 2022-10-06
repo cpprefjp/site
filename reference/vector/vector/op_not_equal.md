@@ -6,7 +6,12 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator!=(const vector<T, Allocator>& x,const vector<T, Allocator>& y);
+  bool operator!=(const vector<T, Allocator>& x,
+                  const vector<T, Allocator>& y);           // (1) C++03
+
+  template <class T, class Allocator>
+  constexpr bool operator!=(const vector<T, Allocator>& x,
+                            const vector<T, Allocator>& y); // (1) C++20
 }
 ```
 
@@ -27,6 +32,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方 (C++11)
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -47,12 +53,38 @@ int main ()
 }
 ```
 
-### 出力
+#### 出力
 ```
 false
 true
 ```
 
+
+### 基本的な使い方 (C++20 constexpr)
+```cpp
+#include <cassert>
+#include <vector>
+
+constexpr bool f()
+{
+  std::vector<int> v1 = {1, 2, 3};
+  std::vector<int> v2 = {1, 2, 3};
+  std::vector<int> v3 = {1, 2, 3, 4};
+
+  // 要素の値は(左辺の要素数分まで)等しいが要素数が異なる
+  assert(v1 != v3);
+
+  // 要素数と要素の値が等しい
+  assert(!(v1 != v2));
+
+  return true;
+}
+
+int main()
+{
+  static_assert(f());
+}
+```
+
 ## 参照
-
-
+- [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
