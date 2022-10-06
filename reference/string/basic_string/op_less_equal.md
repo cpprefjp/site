@@ -6,20 +6,35 @@
 ```cpp
 namespace std {
   template <class CharT, class Traits, class Allocator>
-  bool operator<=(const basic_string<CharT, Traits, Allocator>& a,
-                  const basic_string<CharT, Traits, Allocator>& b); // (1) C++03
+  bool
+    operator<=(const basic_string<CharT, Traits, Allocator>& a,
+               const basic_string<CharT, Traits, Allocator>& b);          // (1) C++03
+  template <class CharT, class Traits, class Allocator>
+  bool
+    operator<=(const basic_string<CharT, Traits, Allocator>& a,
+               const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
+  template <class CharT, class Traits, class Allocator>
+  constexpr bool
+    operator<=(const basic_string<CharT, Traits, Allocator>& a,
+               const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++20
 
   template <class CharT, class Traits, class Allocator>
-  bool operator<=(const basic_string<CharT, Traits, Allocator>& a,
-                  const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
+  bool
+    operator<=(const CharT* a,
+               const basic_string<CharT, Traits, Allocator>& b); // (2) C++03
+  template <class CharT, class Traits, class Allocator>
+  constexpr bool
+    operator<=(const CharT* a,
+               const basic_string<CharT, Traits, Allocator>& b); // (2) C++20
 
   template <class CharT, class Traits, class Allocator>
-  bool operator<=(const CharT* a,
-                  const basic_string<CharT, Traits, Allocator>& b);          // (2)
-
+  bool
+    operator<=(const basic_string<CharT, Traits, Allocator>& a,
+               const CharT* rhs) noexcept;                       // (3) C++03
   template <class CharT, class Traits, class Allocator>
-  bool operator<=(const basic_string<CharT, Traits, Allocator>& a,
-                  const CharT* rhs) noexcept;                                // (3)
+  constexpr bool
+    operator<=(const basic_string<CharT, Traits, Allocator>& a,
+               const CharT* rhs) noexcept;                       // (3) C++20
 }
 ```
 
@@ -55,3 +70,4 @@ true
 
 ## 参照
 - [LWG2064 - More `noexcept` issues in `basic_string`](https://wg21.cmeerw.net/lwg/issue2064)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

@@ -231,6 +231,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方 (C++03)
 ```cpp example
 #include <iostream>
 #include <cstdio>
@@ -258,10 +259,32 @@ int main()
 * s.substr[link basic_string/substr.md]
 * s.c_str()[link basic_string/c_str.md]
 
-### 出力
+#### 出力
 ```
 hello
 hello world
+```
+
+### 定数式内でbasic_stringを使用する (C++20)
+```cpp
+#include <cassert>
+#include <string>
+
+constexpr bool f()
+{
+  std::string s = "Hello";
+  s += " World";
+
+  auto* p = s.data();
+  assert(p);
+
+  return true;
+}
+
+int main()
+{
+  static_assert(f());
+}
 ```
 
 ## 参照

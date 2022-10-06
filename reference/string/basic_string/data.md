@@ -5,10 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-const charT* data() const;          // (1) C++03
-const charT* data() const noexcept; // (1) C++11
+const charT* data() const;                    // (1) C++03
+const charT* data() const noexcept;           // (1) C++11
+constexpr const charT* data() const noexcept; // (1) C++20
 
-charT* data() noexcept;             // (2) C++17
+charT* data() noexcept;                       // (2) C++17
+constexpr charT* data() noexcept;             // (2) C++20
 ```
 
 ## 概要
@@ -82,3 +84,4 @@ Hello, world!
 ## 参照
 - [P0272R1 Give `std::string` a non-const `.data()` member function.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0272r1.html)
 - [LWG Issue 3131. `addressof` all the things](https://wg21.cmeerw.net/lwg/issue3131)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

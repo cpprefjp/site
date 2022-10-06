@@ -8,11 +8,19 @@
 namespace std {
 inline namespace literals {
 inline namespace string_literals {
-  string    operator""s(const char* str, size_t len);     // (1)
-  u8string  operator""s(const char8_t* str, size_t len);  // (2) C++20
-  u16string operator""s(const char16_t* str, size_t len); // (3)
-  u32string operator""s(const char32_t* str, size_t len); // (4)
-  wstring   operator""s(const wchar_t* str, size_t len);  // (5)
+  string operator""s(const char* str, size_t len);                  // (1) C++14
+  constexpr string operator""s(const char* str, size_t len);        // (1) C++20
+
+  constexpr u8string operator""s(const char8_t* str, size_t len);   // (2) C++20
+
+  u16string operator""s(const char16_t* str, size_t len);           // (3) C++14
+  constexpr u16string operator""s(const char16_t* str, size_t len); // (3) C++20
+
+  u32string operator""s(const char32_t* str, size_t len);           // (4) C++14
+  constexpr u32string operator""s(const char32_t* str, size_t len); // (4) C++20
+
+  wstring operator""s(const wchar_t* str, size_t len);              // (5) C++14
+  constexpr wstring operator""s(const wchar_t* str, size_t len);    // (5) C++20
 }}}
 ```
 
@@ -75,4 +83,4 @@ int main()
 
 ## 参照
 - [N3642 User-defined Literals for Standard Library Types (part 1 - version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3642.pdf)
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void push_back(charT c);
+void push_back(charT c);           // (1) C++03
+constexpr void push_back(charT c); // (1) C++20
 ```
 
 ## 概要
@@ -39,4 +40,4 @@ hello
 ```
 
 ## 参照
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

@@ -3,9 +3,11 @@
 * std[meta namespace]
 * basic_string[meta class]
 * function[meta id-type]
+* cpp17[meta cpp]
 
 ```cpp
-operator basic_string_view<charT, traits>() const noexcept;
+operator basic_string_view<charT, traits>() const noexcept;           // (1) C++17
+constexpr operator basic_string_view<charT, traits>() const noexcept; // (1) C++20
 ```
 * basic_string_view[link /reference/string_view/basic_string_view.md]
 
@@ -51,3 +53,4 @@ Hello World
 
 ## 参照
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

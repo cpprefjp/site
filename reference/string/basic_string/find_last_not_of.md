@@ -5,17 +5,48 @@
 * function[meta id-type]
 
 ```cpp
-size_type find_last_not_of(const basic_string& str, size_type pos = npos) const;          // (1) C++03
-size_type find_last_not_of(const basic_string& str, size_type pos = npos) const noexcept; // (1) C++11
+size_type
+  find_last_not_of(const basic_string& str,
+                  size_type pos = npos) const;           // (1) C++03
+size_type
+  find_last_not_of(const basic_string& str,
+                   size_type pos = npos) const noexcept; // (1) C++11
+constexpr size_type
+  find_last_not_of(const basic_string& str,
+                   size_type pos = npos) const noexcept; // (1) C++20
 
-size_type find_last_not_of(const charT* s, size_type pos, size_type n) const;             // (2)
-size_type find_last_not_of(const charT* s, size_type pos = npos) const;                   // (3)
+size_type
+  find_last_not_of(const charT* s,
+                   size_type pos,
+                   size_type n) const; // (2) C++03
+constexpr size_type
+  find_last_not_of(const charT* s,
+                   size_type pos,
+                   size_type n) const; // (2) C++20
 
-size_type find_last_not_of(charT c, size_type pos = npos) const;                          // (4)
+size_type
+  find_last_not_of(const charT* s,
+                   size_type pos = npos) const; // (3) C++03
+constexpr size_type
+  find_last_not_of(const charT* s,
+                   size_type pos = npos) const; // (3) C++20
+
+size_type
+  find_last_not_of(charT c,
+                   size_type pos = npos) const; // (4) C++03
+constexpr size_type
+  find_last_not_of(charT c,
+                   size_type pos = npos) const; // (4) C++20
 
 // string_viewを引数に取るオーバーロード
 template <class T>
-size_type find_last_not_of(const T& t, size_type pos = npos) const noexcept(see below);   // (5) C++17
+size_type
+  find_last_not_of(const T& t,
+                   size_type pos = npos) const noexcept(下記参照); // (5) C++17
+template <class T>
+constexpr size_type
+  find_last_not_of(const T& t,
+                   size_type pos = npos) const noexcept(下記参照); // (5) C++20
 ```
 
 ## 概要

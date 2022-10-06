@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void resize(size_type n, charT c);
-void resize(size_type n);
+void resize(size_type n, charT c);           // (1) C++03
+constexpr void resize(size_type n, charT c); // (1) C++20
+
+void resize(size_type n);                    // (2) C++03
+constexpr void resize(size_type n);          // (2) C++20
 ```
 
 ## 概要
@@ -58,3 +61,4 @@ helloxxxxx
 
 - [LWG Issue 2318 `basic_string`'s wording has confusing relics from the copy-on-write era](https://wg21.cmeerw.net/lwg/issue2318)
 - [P1148R0 Cleaning up Clause 20](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1148r0.pdf)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

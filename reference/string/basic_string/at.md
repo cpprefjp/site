@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-const_reference at(size_type pos) const;
-reference at(size_type pos);
+const_reference at(size_type pos) const;           // (1) C++03
+constexpr const_reference at(size_type pos) const; // (1) C++20
+
+reference at(size_type pos);                       // (2) C++03
+constexpr reference at(size_type pos);             // (2) C++20
 ```
 
 ## 概要
@@ -54,4 +57,4 @@ access error
 ## 参照
 - [LWG Issue 2207. `basic_string::at` should not have a Requires clause](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2207)
     - C++11まで、この関数を呼び出す要件として「`pos < size()`」があったが、例外節があるため要件節は不要。C++14で要件節が削除された。
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

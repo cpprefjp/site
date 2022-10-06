@@ -7,9 +7,11 @@
 ```cpp
 reverse_iterator rbegin();                      // (1) C++03
 reverse_iterator rbegin() noexcept;             // (1) C++11
+constexpr reverse_iterator rbegin() noexcept;   // (1) C++20
 
-const_reverse_iterator rbegin() const;          // (2) C++03
-const_reverse_iterator rbegin() const noexcept; // (2) C++11
+const_reverse_iterator rbegin() const;                    // (2) C++03
+const_reverse_iterator rbegin() const noexcept;           // (2) C++11
+constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++20
 ```
 
 ## 概要
@@ -49,3 +51,4 @@ o
 ```
 
 ## 参照
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

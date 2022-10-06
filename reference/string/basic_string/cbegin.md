@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_iterator cbegin() const noexcept;
+const_iterator cbegin() const noexcept;           // (1) C++11
+constexpr const_iterator cbegin() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -46,3 +47,4 @@ h
 ```
 
 ## 参照
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

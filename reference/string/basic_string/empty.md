@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const noexcept;               // C++03
-[[nodiscard]] bool empty() const noexcept; // C++20
+bool empty() const noexcept;                         // C++03
+[[nodiscard]] constexpr bool empty() const noexcept; // C++20
 ```
 
 ## 概要
@@ -47,3 +47,4 @@ int main()
 
 ## 参照
 - [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

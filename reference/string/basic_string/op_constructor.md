@@ -8,61 +8,98 @@
 basic_string();                                                 // (1) C++14
 basic_string() noexcept(noexcept(Allocator()))                  // (1) C++17
   : basic_string(Allocator()) {}
+constexpr basic_string() noexcept(noexcept(Allocator()))        // (1) C++20
+  : basic_string(Allocator()) {}
 
 explicit basic_string(const Allocator& a);                      // (2) C++14
 explicit basic_string(const Allocator& a) noexcept;             // (2) C++17
+constexpr explicit basic_string(const Allocator& a) noexcept;   // (2) C++20
 
 explicit basic_string(const Allocator& a = Allocator());        // (1) + (2) C++03
 
-basic_string(const basic_string& str);                          // (3)
+basic_string(const basic_string& str);                          // (3) C++03
+constexpr basic_string(const basic_string& str);                // (3) C++20
+
 basic_string(basic_string&& str) noexcept;                      // (4) C++11
+constexpr basic_string(basic_string&& str) noexcept;            // (4) C++20
 
 basic_string(const basic_string& str,
              size_type pos,
              size_type n = npos,
-             const Allocator& a = Allocator());                 // (5) C++14まで
-
+             const Allocator& a = Allocator());                 // (5) C++03
 basic_string(const basic_string& str,
              size_type pos,
              size_type n,
              const Allocator& a = Allocator());                 // (5) C++17
+constexpr basic_string(const basic_string& str,
+                       size_type pos,
+                       size_type n,
+                       const Allocator& a = Allocator());       // (5) C++20
 
 basic_string(const basic_string& str,
              size_type pos,
              const Allocator& a = Allocator());                 // (6) C++17
+constexpr basic_string(const basic_string& str,
+                       size_type pos,
+                       const Allocator& a = Allocator());       // (6) C++20
 
 basic_string(const charT* s,
              size_type n,
-             const Allocator& a = Allocator());                 // (7)
+             const Allocator& a = Allocator());                 // (7) C++03
+constexpr basic_string(const charT* s,
+                       size_type n,
+                       const Allocator& a = Allocator());       // (7) C++20
 
 basic_string(const charT* s,
-             const Allocator& a = Allocator());                 // (8)
+             const Allocator& a = Allocator());                 // (8) C++03
+constexpr basic_string(const charT* s,
+                       const Allocator& a = Allocator());       // (8) C++20
 
 basic_string(size_type n,
              charT c,
-             const Allocator& a = Allocator());                 // (9)
+             const Allocator& a = Allocator());                 // (9) C++03
+constexpr basic_string(size_type n,
+                       charT c,
+                       const Allocator& a = Allocator());       // (9) C++20
 
 template <class InputIterator>
 basic_string(InputIterator begin, InputIterator end,
-             const Allocator& a = Allocator());                 // (10)
+             const Allocator& a = Allocator());                 // (10) C++03
+template <class InputIterator>
+constexpr basic_string(InputIterator begin, InputIterator end,
+                       const Allocator& a = Allocator());       // (10) C++20
 
 basic_string(initializer_list<charT> init,
              const Allocator& = Allocator());                   // (11) C++11
+constexpr basic_string(initializer_list<charT> init,
+                       const Allocator& = Allocator());         // (11) C++20
 
-basic_string(const basic_string& str, const Allocator&);        // (12) C++11
+basic_string(const basic_string& str, const Allocator&);           // (12) C++11
+constexpr basic_string(const basic_string& str, const Allocator&); // (12) C++20
+
 basic_string(basic_string&& str, const Allocator&);             // (13) C++11
+constexpr basic_string(basic_string&& str, const Allocator&);   // (13) C++20
 
 // string_viewから構築するコンストラクタ
 template<class T>
 explicit basic_string(const T& t,
-                      const Allocator& a = Allocator());        // (14) C++17
+                      const Allocator& a = Allocator());           // (14) C++17
 template<class T>
-         basic_string(const T& t,
-                      size_type pos,
-                      size_type n,
-                      const Allocator& a = Allocator());        // (15) C++17
+constexpr explicit basic_string(const T& t,
+                                const Allocator& a = Allocator()); // (14) C++20
 
-basic_string(nullptr_t) = delete;                               // (16) C++23
+template<class T>
+basic_string(const T& t,
+             size_type pos,
+             size_type n,
+             const Allocator& a = Allocator());                  // (15) C++17
+template<class T>
+constexpr basic_string(const T& t,
+                       size_type pos,
+                       size_type n,
+                       const Allocator& a = Allocator());        // (15) C++20
+
+basic_string(nullptr_t) = delete; // (16) C++23
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -202,3 +239,4 @@ s14 : Hello
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(14)の引数型を`const T&`に変更
 - [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
     - C++23での、`nullptr_t`をとるコンストラクタのdelete宣言追加
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

@@ -5,7 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-basic_string substr(size_type pos = 0, size_type n = npos) const;
+basic_string
+  substr(size_type pos = 0,
+         size_type n = npos) const; // (1) C++03
+constexpr basic_string
+  substr(size_type pos = 0,
+         size_type n = npos) const; // (1) C++20
 ```
 
 ## 概要
@@ -60,4 +65,4 @@ llo
 ```
 
 ## 参照
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

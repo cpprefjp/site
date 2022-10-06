@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-void reserve(size_type res_arg = 0); // (1) C++03 (C++20で非推奨化)
-void reserve(size_type res_arg);     // (1) C++20
+void reserve(size_type res_arg = 0);       // (1) C++03 (C++20で非推奨化)
+
+constexpr void reserve(size_type res_arg); // (2) C++20
 ```
 
 ## 概要
@@ -68,3 +69,4 @@ int main()
 
 ## 参照
 - [P0966R1 `string::reserve` Should Not Shrink](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0966r1.html)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

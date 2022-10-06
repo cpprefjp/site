@@ -5,41 +5,84 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& insert(size_type pos1, const basic_string& str);    // (1)
+basic_string&
+  insert(size_type pos1, const basic_string& str);    // (1) C++03
+constexpr basic_string&
+  insert(size_type pos1, const basic_string& str);    // (1) C++20
 
-basic_string& insert(size_type pos1, const basic_string& str,
-                     size_type pos2, size_type n);                // (2) C++03
-basic_string& insert(size_type pos1, const basic_string& str,
-                     size_type pos2, size_type n = npos);         // (2) C++14
+basic_string&
+  insert(size_type pos1, const basic_string& str,
+         size_type pos2, size_type n);                // (2) C++03
+basic_string&
+  insert(size_type pos1, const basic_string& str,
+         size_type pos2, size_type n = npos);         // (2) C++14
+constexpr basic_string&
+  insert(size_type pos1, const basic_string& str,
+         size_type pos2, size_type n = npos);         // (2) C++20
 
-basic_string& insert(size_type pos, const charT* s, size_type n); // (3)
-basic_string& insert(size_type pos, const charT* s);              // (4)
-basic_string& insert(size_type pos, size_type n, charT c);        // (5)
+basic_string&
+  insert(size_type pos, const charT* s, size_type n); // (3) C++03
+constexpr basic_string&
+  insert(size_type pos, const charT* s, size_type n); // (3) C++20
 
-iterator insert(iterator p, charT c);                             // (6) C++03
-iterator insert(const_iterator p, charT c);                       // (6) C++11
+basic_string&
+  insert(size_type pos, const charT* s);              // (4) C++03
+constexpr basic_string&
+  insert(size_type pos, const charT* s);              // (4) C++20
 
-void insert(iterator p, size_type n, charT c);                    // (7) C++03
-iterator insert(const_iterator p, size_type n, charT c);          // (7) C++11
+basic_string&
+  insert(size_type pos, size_type n, charT c);        // (5) C++03
+constexpr basic_string&
+  insert(size_type pos, size_type n, charT c);        // (5) C++20
+
+iterator insert(iterator p, charT c);                 // (6) C++03
+iterator insert(const_iterator p, charT c);           // (6) C++11
+constexpr iterator insert(const_iterator p, charT c); // (6) C++20
+
+void insert(iterator p, size_type n, charT c);                     // (7) C++03
+iterator insert(const_iterator p, size_type n, charT c);           // (7) C++11
+constexpr iterator insert(const_iterator p, size_type n, charT c); // (7) C++20
 
 template<class InputIterator>
-void insert(iterator p,
-            InputIterator first, InputIterator last);             // (8) C++03
+void
+  insert(iterator p,
+         InputIterator first, InputIterator last); // (8) C++03
 template<class InputIterator>
-iterator insert(const_iterator p,
-                InputIterator first, InputIterator last);         // (8) C++11
+iterator
+  insert(const_iterator p,
+         InputIterator first, InputIterator last); // (8) C++11
+template<class InputIterator>
+constexpr iterator
+  insert(const_iterator p,
+         InputIterator first, InputIterator last); // (8) C++20
 
-iterator insert(const_iterator p, initializer_list<charT>);       // (9) C++11
+iterator
+  insert(const_iterator p, initializer_list<charT>); // (9) C++11
+constexpr iterator
+  insert(const_iterator p, initializer_list<charT>); // (9) C++20
 
 // string_viewを引数に取るオーバーロード
 template<class T>
-basic_string& insert(size_type pos1,
-                     const T& t);                                 // (10) C++17
+basic_string&
+  insert(size_type pos1,
+         const T& t);    // (10) C++17
 template<class T>
-basic_string& insert(size_type pos1,
-                     const T& t,
-                     size_type pos2,
-                     size_type n = npos);                         // (11) C++17
+constexpr basic_string&
+  insert(size_type pos1,
+         const T& t);    // (10) C++20
+
+template<class T>
+basic_string&
+  insert(size_type pos1,
+         const T& t,
+         size_type pos2,
+         size_type n = npos); // (11) C++17
+template<class T>
+constexpr basic_string&
+  insert(size_type pos1,
+         const T& t,
+         size_type pos2,
+         size_type n = npos); // (11) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -250,3 +293,4 @@ int main()
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(10)(11)の引数型を`const T&`に変更
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

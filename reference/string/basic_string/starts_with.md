@@ -6,9 +6,12 @@
 * cpp20[meta cpp]
 
 ```cpp
-bool starts_with(std::basic_string_view<charT, traits> x) const noexcept; // (1)
-bool starts_with(charT x) const noexcept;                                 // (2)
-bool starts_with(const charT* x) const;                                   // (3)
+constexpr bool
+  starts_with(std::basic_string_view<charT, traits> x) const noexcept; // (1) C++20
+constexpr bool
+  starts_with(charT x) const noexcept;                                 // (2) C++20
+constexpr
+  bool starts_with(const charT* x) const;                              // (3) C++20
 ```
 
 ## 概要
@@ -77,3 +80,4 @@ int main()
 
 ## 参照
 - [P0457R2 String Prefix and Suffix Checking](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0457r2.html)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
