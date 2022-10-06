@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  void destroy_at(T* location);
+  void destroy_at(T* location);           // (1) C++17
+
+  template <class T>
+  constexpr void destroy_at(T* location); // (1) C++20
 }
 ```
 
@@ -64,5 +67,9 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
+
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+- [P0784R7 More `constexpr` containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
