@@ -7,7 +7,7 @@
 ```cpp
 namespace std::ranges {
   template<class T>
-  inline constexpr bool enable_view = derived_from<T, view_base> | is-derived-from-view-interface<T>;
+  inline constexpr bool enable_view = derived_from<T, view_base> || is-derived-from-view-interface<T>;
 }
 ```
 * derived_from[link /reference/concepts/derived_from.md]
