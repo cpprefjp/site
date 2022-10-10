@@ -33,11 +33,11 @@ const_iterator begin() const noexcept;
 
 int main()
 {
-  std::deque<int> v = {1, 2, 3};
-  const std::deque<int>& cv = v;
+  std::deque<int> d = {1, 2, 3};
+  const std::deque<int>& cd = d;
 
-  decltype(v)::iterator i = v.begin();
-  decltype(v)::const_iterator ci = cv.begin();
+  decltype(d)::iterator i = d.begin();
+  decltype(d)::const_iterator ci = cd.begin();
 
   std::cout << *i << std::endl;
   std::cout << *ci << std::endl;
