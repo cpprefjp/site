@@ -22,6 +22,17 @@
 | [`uninitialized_construct_using_allocator`](memory/uninitialized_construct_using_allocator.md) | 指定された領域に uses-allocator 構築する | C++20 |
 
 
+## メモリ特化のコンセプト
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`no-throw-input-iterator`](memory/no-throw-input-iterator.md.nolink) | 各操作で例外送出をしない説明用の入力イテレータ (concept) | C++20 |
+| [`no-throw-forward-iterator`](memory/no-throw-forward-iterator.md.nolink) | 各操作で例外送出をしない説明用の前方向イテレータ (concept) | C++20 |
+| [`no-throw-sentinel`](memory/no-throw-sentinel.md.nolink) | 各操作で例外送出をしない説明用の番兵 (concept) | C++20 |
+| [`no-throw-input-range`](memory/no-throw-input-range.md.nolink) | 各操作で例外送出をしない入力Range (concept) | C++20 |
+| [`no-throw-forward-range`](memory/no-throw-forward-range.md.nolink) | 各操作で例外送出をしない前方向Range (concept) | C++20 |
+
+
 ## 未初期化領域に対する操作
 
 | 名前 | 説明 | 対応バージョン |
@@ -36,10 +47,24 @@
 | [`uninitialized_move_n`](memory/uninitialized_move_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してムーブ出力する(function template) | C++11 |
 | [`uninitialized_fill`](memory/uninitialized_fill.md) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | |
 | [`uninitialized_fill_n`](memory/uninitialized_fill_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | |
-| [`construct_at`](memory/construct_at.md) | コンストラクタを呼び出す | C++20 |
-| [`destroy_at`](memory/destroy_at.md) | デストラクタを呼び出す | C++17 |
-| [`destroy`](memory/destroy.md) | 範囲の各要素に対してデストラクタを呼び出す | C++17 |
-| [`destroy_n`](memory/destroy_n.md) | 範囲のうち、先頭`N`個の要素に対してデストラクタを呼び出す | C++17 |
+| [`construct_at`](memory/construct_at.md) | コンストラクタを呼び出す(function template) | C++20 |
+| [`destroy_at`](memory/destroy_at.md) | デストラクタを呼び出す(function template) | C++17 |
+| [`destroy`](memory/destroy.md) | 範囲の各要素に対してデストラクタを呼び出す(function template) | C++17 |
+| [`destroy_n`](memory/destroy_n.md) | 範囲のうち、先頭`N`個の要素に対してデストラクタを呼び出す(function template) | C++17 |
+| [`ranges::uninitialized_default_construct`](memory/ranges_uninitialized_default_construct.md.nolink) | 未初期化領域の範囲の各要素をデフォルト構築する(function template) | C++20 |
+| [`ranges::uninitialized_default_construct_n`](memory/ranges_uninitialized_default_construct_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素をデフォルト構築する(function template) | C++20 |
+| [`ranges::uninitialized_value_construct`](memory/ranges_uninitialized_value_construct.md.nolink) | 未初期化領域の範囲の各要素配置を値構築する(function template) | C++20 |
+| [`ranges::uninitialized_value_construct_n`](memory/ranges_uninitialized_value_construct_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を値構築する(function template) | C++20 |
+| [`ranges::uninitialized_copy`](memory/ranges_uninitialized_copy.md.nolink) | 未初期化領域の範囲を配置`new`で初期化してコピー出力する(function template) | C++20 |
+| [`ranges::uninitialized_copy_n`](memory/ranges_uninitialized_copy_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してコピー出力する(function template) | C++20 |
+| [`ranges::uninitialized_move`](memory/ranges_uninitialized_move.md.nolink) | 未初期化領域の範囲を配置`new`で初期化してムーブ出力する(function template) | C++20 |
+| [`ranges::uninitialized_move_n`](memory/ranges_uninitialized_move_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してムーブ出力する(function template) | C++20 |
+| [`ranges::uninitialized_fill`](memory/ranges_uninitialized_fill.md.nolink) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | C++20 |
+| [`ranges::uninitialized_fill_n`](memory/ranges_uninitialized_fill_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | C++20 |
+| [`ranges::construct_at`](memory/ranges_construct_at.md.nolink) | コンストラクタを呼び出す(function template) | C++20 |
+| [`ranges::destroy_at`](memory/ranges_destroy_at.md.nolink) | デストラクタを呼び出す(function template) | C++20 |
+| [`ranges::destroy`](memory/ranges_destroy.md.nolink) | 範囲の各要素に対してデストラクタを呼び出す(function template) | C++20 |
+| [`ranges::destroy_n`](memory/ranges_destroy_n.md.nolink) | 範囲のうち、先頭`N`個の要素に対してデストラクタを呼び出す(function template) | C++20 |
 | [`raw_storage_iterator`](memory/raw_storage_iterator.md) | 未初期化領域に書き込むための出力イテレータ(class template) | C++17から非推奨<br/> C++20で削除 |
 | [`get_temporary_buffer`](memory/get_temporary_buffer.md) | 短期的なメモリ領域を確保する(function template) | C++17から非推奨<br/> C++20で削除 |
 | [`return_temporary_buffer`](memory/return_temporary_buffer.md) | `get_temporary_buffer()`で確保された領域を解放する(function) | C++17から非推奨<br/> C++20で削除 |
