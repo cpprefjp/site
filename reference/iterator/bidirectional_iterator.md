@@ -34,7 +34,7 @@ namespace std {
 
 ## モデル
 
-型`I`の等しい2つのオブジェクト`a, b`について次の条件を満たす場合に限って、型`I`は`bidirectional_iterator`のモデルである。
+型`I`の等しい2つのオブジェクト（同じ要素を指すイテレータ）`a, b`について次の条件を満たす場合に限って、型`I`は`bidirectional_iterator`のモデルである。
 
 - `a, b`がデクリメント可能ならば、次の4つの条件を全て満たす
     - [`addressof`](/reference/memory/addressof.md)`(--a) == `[`addressof`](/reference/memory/addressof.md)`(a)`
