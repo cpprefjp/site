@@ -121,17 +121,18 @@ int main()
   {
     // 要素は複数のメンバ変数をもつ
     std::vector<X> v = {
-      {1, "Carol"},
+      {1, "Bob"},
       {3, "Alice"},
-      {4, "Bob"},
+      {4, "Carol"},
+      {2, "Franklin"},
       {5, "Eve"},
       {6, "Dave"}
     };
 
-    const std::string key = "Bob";
+    const std::string key = "Carol";
 
     // X::nameメンバ変数をキーにして、
-    // X::name == "Bob"となる要素を二分探索で見つける
+    // X::name == "Carol"となる要素を二分探索で見つける
     decltype(v)::iterator it = std::lower_bound(
       v.begin(),
       v.end(),
@@ -155,7 +156,7 @@ int main()
 ```
 4 pos=2
 4 pos=2
-id=4 name=Bob pos=2
+id=4 name=Carol pos=2
 ```
 
 
