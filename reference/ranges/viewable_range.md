@@ -53,5 +53,5 @@ Rangeアダプタを適用するには、`viewable_range`である必要があ�
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [LWG Issue 3481 `viewable_range` mishandles lvalue move-only views](https://cplusplus.github.io/LWG/lwg-defects.html#3481)
-- [P2415R2 What is a `view`?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/P2415R2html)
+- [P2415R2 What is a `view`?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2415r2.html)
   - 本論文はC++20に遡って適用されている
