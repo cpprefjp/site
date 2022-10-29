@@ -7,13 +7,21 @@
 ```cpp
 namespace std::ranges {
   template<class T>
-  concept viewable_range = range<T> && (borrowed_range<T> || view<remove_cvref_t<T>>);
+  concept viewable_range =
+    range<T> &&
+    ((view<remove_cvref_t<T>> && constructible_from<remove_cvref_t<T>, T>) ||
+     (!view<remove_cvref_t<T>> &&
+      (is_lvalue_reference_v<T> || (movable<remove_reference_t<T>> && !is-initializer-list<T>))));
 }
 ```
 * range[link range.md]
-* borrowed_range[link borrowed_range.md]
 * view[link view.md]
 * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
+* constructible_from[link /reference/concepts/constructible_from.md]
+* is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
+* movable[link /reference/concepts/movable.md]
+* remove_reference_t[link /reference/type_traits/remove_reference.md]
+* is-initializer-list[italic]
 
 ## 概要
 `viewable_range`は、安全に[`view`](view.md)へ変換できるRangeを表すコンセプトである。
@@ -44,3 +52,6 @@ Rangeアダプタを適用するには、`viewable_range`である必要があ�
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3481 `viewable_range` mishandles lvalue move-only views](https://cplusplus.github.io/LWG/lwg-defects.html#3481)
+- [P2415R2 What is a `view`?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/P2415R2html)
+  - 本論文はC++20に遡って適用されている
