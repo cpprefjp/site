@@ -67,5 +67,4 @@ int main() {
 - [N4892 24 Ranges library](https://timsong-cpp.github.io/cppwp/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [［C++］ `<ranges>`のviewを見る19 - owning_view](https://zenn.dev/onihusube/articles/fd07528b68ae0c)
-- [P2415R2 What is a `view`?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2415r2.html)
-  - 本論文はC++20に遡って適用されている
+- [P2415R2 What is a `view`?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2415r2.html) (本論文はC++20に遡って適用されている)
