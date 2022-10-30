@@ -51,8 +51,8 @@ namespace std::ranges {
 
 ## 効果
 
-- 式`views::iota(E)`の効果は`iota_view{E}`と等しい。
-- 式`views::iota(E, F)`の効果は`iota_view{E, F}`と等しい。
+- 式`views::iota(E)`の効果は`iota_view(E)`と等しい。
+- 式`views::iota(E, F)`の効果は`iota_view(E, F)`と等しい。
 
 ## メンバ関数
 
@@ -200,4 +200,5 @@ FizzBuzz
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
-- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html) (本論文はC++20に遡って適用されている)
+- [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本論文はC++20に遡って適用されている)

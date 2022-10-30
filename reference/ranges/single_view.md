@@ -34,7 +34,7 @@ namespace std::ranges {
 - [`is_object_v`](/reference/type_traits/is_object.md)`<T>`
 
 ## 効果
-- 式`views::single(E)`の効果は`single_view{E}`と等しい。
+- 式`views::single(E)`の効果は`single_view<decay_t<decltype((E))>>(E)`と等しい。
 
 ## メンバ関数
 
@@ -59,6 +59,12 @@ namespace std::ranges {
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+
+## 推論補助
+
+| 名前                                                  | 説明                         | 対応バージョン |
+|-------------------------------------------------------|------------------------------|----------------|
+| [`(deduction_guide)`](single_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
@@ -147,3 +153,4 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本論文はC++20に遡って適用されている)

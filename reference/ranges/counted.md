@@ -30,9 +30,9 @@ namespace std::ranges::views {
 式`E`をイテレータ、式`F`を進める数、イテレータ型`T`を[`decay_t`](/reference/type_traits/decay.md)`<`[`decltype`](/lang/cpp11/decltype.md)`((E))>`、イテレータの差の型`D`を[`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<T>`とする。式`views::counted(E, F)`の効果は以下の通り。
 
 - [`decltype`](/lang/cpp11/decltype.md)`((F))`が[`convertible_to`](/reference/concepts/convertible_to.md)`<D>`のモデルでなければ、呼び出しは不適格。
-- `T`が[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)のモデルであれば、[`span`](/reference/span/span.md)`{`[`to_address`](/reference/memory/to_address.md)`(E), static_cast<D>(F)}`と等しい。
-- `T`が[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルであれば、[`subrange`](subrange.md)`{E, E + static_cast<D>(F)}`と等しい。
-- それ以外のとき、[`subrange`](subrange.md)`{`[`counted_iterator`](/reference/iterator/counted_iterator.md)`{E, F}, `[`default_sentinel`](/reference/iterator/default_sentinel_t.md)`}`と等しい。
+- `T`が[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)のモデルであれば、[`span`](/reference/span/span.md)`(`[`to_address`](/reference/memory/to_address.md)`(E), static_cast<D>(F))`と等しい。
+- `T`が[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルであれば、[`subrange`](subrange.md)`(E, E + static_cast<D>(F))`と等しい。
+- それ以外のとき、[`subrange`](subrange.md)`(`[`counted_iterator`](/reference/iterator/counted_iterator.md)`(E, F), `[`default_sentinel`](/reference/iterator/default_sentinel_t.md)`)`と等しい。
 
 ## 例
 ```cpp example
@@ -76,3 +76,4 @@ int main() {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本論文はC++20に遡って適用されている)

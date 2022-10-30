@@ -51,7 +51,7 @@ namespace std::ranges {
 
 ## 効果
 
-- (2): 式`views::transform(E, P)`の効果は`transform_view{E, P}`と等しい
+- (2): 式`views::transform(E, P)`の効果は`transform_view(E, P)`と等しい
 
 ## メンバ関数
 
@@ -118,3 +118,4 @@ int main() {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本論文はC++20に遡って適用されている)
