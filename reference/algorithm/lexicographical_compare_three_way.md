@@ -47,15 +47,13 @@ namespace std {
 
 ## 効果
 
-- (1) : 以下と等価
-  ```cpp
-  for ( ; first1 != last1 && first2 != last2; void(++first1), void(++first2) )
-    if (auto cmp = comp(*first1, *first2); cmp != 0)
-      return cmp;
-  return first1 != last1 ? strong_ordering::greater :
-         first2 != last2 ? strong_ordering::less :
-                           strong_ordering::equal;
-  ```
+まず、`N`をmin`(last1 - first1, last2 - first2)`、`E(n)`を`comp(*(first1 + n), *(first2 + n))`で定義する。
+
+- (1) : 次のいずれか
+    - `E(i) != 0`が`true`となる`[0, N)`内の最小の整数`i`について、`E(i)`
+      - `comp`の意味で異なる最初の要素についての三方比較の結果を返す
+    - そのような`i`が存在しない場合 : `(last1 - first1) <=> (last2 - first2)`
+      - 全ての要素が等しいならば、長さを比較する
 
 - (2) : 以下と等価、すなわち(1)に委譲
   ```cpp
@@ -68,6 +66,12 @@ namespace std {
 
 戻り値型となる比較カテゴリ型を`Cat`とすると、  
 範囲`[first1, last1)`が、辞書式比較で範囲`[first2, last2)`より大きい場合は`Cat::greator`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
+
+## 計算量
+
+「効果」節の`N`について
+
+高々`N`回の`comp`による比較が行われる。
 
 ## 例
 ```cpp example
@@ -137,3 +141,4 @@ true
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding `<=>` to the Library)](http://wg21.link/p1614)
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
+- [LWG Issue 3410. lexicographical_compare_three_way is overspecified](https://cplusplus.github.io/LWG/issue3410)
