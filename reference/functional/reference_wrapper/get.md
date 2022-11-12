@@ -8,7 +8,7 @@
 ```cpp
 T& get() const noexcept;            //C++11
 
-constexpr T& get() const noexcept;  //C++17
+constexpr T& get() const noexcept;  //C++20
 ```
 
 ## 概要
