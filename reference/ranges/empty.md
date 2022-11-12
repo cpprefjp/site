@@ -30,7 +30,7 @@ Rangeが空のとき`true`、それ以外の時`false`。
 
 ## カスタマイゼーションポイント
 [`ranges::begin`](begin.md)と[`ranges::end`](end.md)、または[`ranges::size`](size.md)をカスタマイズすることで、`ranges::empty`をカスタマイズできる。
-もしくは、メンバー関数`empty`を持たせるなどの方法でカスタマイズできる。
+もしくは、メンバ関数`empty`を持たせるなどの方法でカスタマイズできる。
 
 ## 備考
 `ranges::empty(E)`が有効な式であるとき、その型は`bool`である。

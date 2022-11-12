@@ -17,7 +17,7 @@ constexpr const D& derived() const noexcept {       // exposition only
 * derived[italic]
 
 ## 概要
-派生クラスの参照にダウンキャストする説明用の`private`メンバー関数。
+派生クラスの参照にダウンキャストする説明用の`private`メンバ関数。
 
 ## バージョン
 ### 言語
