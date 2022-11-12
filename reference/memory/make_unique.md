@@ -60,7 +60,7 @@ int main()
   std::unique_ptr<int[]> p2 = std::make_unique<int[]>(3);
   p2[0] = 1;
   p2[1] = 2;
-  p2[3] = 3;
+  p2[2] = 3;
 }
 ```
 * std::make_unique[color ff0000]
