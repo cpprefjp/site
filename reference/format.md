@@ -13,8 +13,8 @@
 | 名前                                                 | 説明                                                                                                                 | 対応バージョン |
 |------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
 | [`format`](format/format.md)                         | 書式文字列を使って引数をフォーマットした文字列を返す (function template)                                             | C++20          |
-| [`format_to`](format/format_to.md)                   | 書式文字列を使って引数をフォーマットし、出力イテレーターに出力する (function template)                               | C++20          |
-| [`format_to_n`](format/format_to_n.md)               | 書式文字列を使って引数をフォーマットし、指定した文字数を超えないように出力イテレーターに出力する (function template) | C++20          |
+| [`format_to`](format/format_to.md)                   | 書式文字列を使って引数をフォーマットし、出力イテレータに出力する (function template)                               | C++20          |
+| [`format_to_n`](format/format_to_n.md)               | 書式文字列を使って引数をフォーマットし、指定した文字数を超えないように出力イテレータに出力する (function template) | C++20          |
 | [`format_to_n_result`](format/format_to_n_result.md) | `format_to_n`の結果を表す (class template)                                                                           | C++20          |
 | [`formatted_size`](format/formatted_size.md)         | 書式文字列を使って引数をフォーマットした文字列を保存するのに必要な文字数を返す (function template)                   | C++20          |
 | [`vformat`](format/vformat.md)                       | [`format`](format/format.md)の非テンプレート版 (function)                                                            | C++20          |

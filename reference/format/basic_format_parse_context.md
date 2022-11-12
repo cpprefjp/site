@@ -28,9 +28,9 @@ namespace std {
 | 名前            | 説明                                               | 対応バージョン |
 |-----------------|----------------------------------------------------|----------------|
 | `(constructor)` | コンストラクタ                                     | C++20          |
-| `begin`         | 書式文字列の先頭のイテレーターを得る               | C++20          |
-| `end`           | 書式文字列の末尾のイテレーターを得る               | C++20          |
-| `advance_to`    | 先頭のイテレーターを指定したイテレーターに設定する | C++20          |
+| `begin`         | 書式文字列の先頭のイテレータを得る               | C++20          |
+| `end`           | 書式文字列の末尾のイテレータを得る               | C++20          |
+| `advance_to`    | 先頭のイテレータを指定したイテレータに設定する | C++20          |
 | `next_arg_id`   | フォーマット引数の番号を次に進める                 | C++20          |
 | `check_arg_id`  | フォーマット引数の番号指定が有効か確かめる         | C++20          |
 
@@ -39,8 +39,8 @@ namespace std {
 | 名前             | 説明                                                                                          | 対応バージョン |
 |------------------|-----------------------------------------------------------------------------------------------|----------------|
 | `char_type`      | 文字の型(`charT`と等しい) (type-alias)                                                        | C++20          |
-| `const_iterator` | 書式文字列のイテレーターの型(`basic_string_view<charT>::const_iterator`と等しい) (type-alias) | C++20          |
-| `iterator`       | 書式文字列のイテレーターの型(`basic_string_view<charT>::iterator`と等しい) (type-alias)       | C++20          |
+| `const_iterator` | 書式文字列のイテレータの型(`basic_string_view<charT>::const_iterator`と等しい) (type-alias) | C++20          |
+| `iterator`       | 書式文字列のイテレータの型(`basic_string_view<charT>::iterator`と等しい) (type-alias)       | C++20          |
 
 ## 実装例
 ```cpp
