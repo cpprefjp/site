@@ -59,5 +59,5 @@ int main()
 - [Variadic Templates for C++0x](http://www.jot.fm/issues/issue_2008_02/article2/)
     - テンプレートの再帰によって、コンパイル時間がどれくらい延びるかのレポートがある記事
 - [C++ Language Features/Controlling implementation limits - Clang Compiler User’s Manual](http://clang.llvm.org/docs/UsersManual.html#cmdoption-ftemplate-depth)
-- [3.5 Options Controlling C++ Dialect - GCC Command Options](https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html)
+- [3.5 Options Controlling C++ Dialect - GCC Command Options](https://gcc.gnu.org/onlinedocs/gcc/gcc-command-options/options-controlling-c%2B%2B-dialect.html)
 
