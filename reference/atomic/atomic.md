@@ -176,7 +176,7 @@ namespace std {
 ### atomic&lt;floating-point&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `difference_type` | 2つの値の差を表す整数型`value_type` | C++20 |
+| `difference_type` | 2つの値の差を表す型`value_type` | C++20 |
 
 
 ### atomic&lt;T*&gt;専用メンバ関数
