@@ -105,11 +105,11 @@ jthread(jthread&&) noexcept;             // (4) C++20
 std::uint64_t sum1 = 0;
 std::uint64_t sum2 = 0;
 
-void f1(std::stop_token token, std::uint64_t n)
+void f1(std::stop_token stoken, std::uint64_t n)
 {
   sum1 = 0;
   for (std::uint64_t i = 1; i < n; ++i) {
-    if (token.stop_requested()) {
+    if (stoken.stop_requested()) {
       // 中断リクエストがきたのでスレッドを終了する
       break;
     }
@@ -134,6 +134,9 @@ int main()
     std::this_thread::sleep_for(std::chrono::milliseconds{3});
     t1.request_stop(); // スレッドの中断要求を発行
 
+    // スレッド実行する関数がstd::stop_tokenを受け取らない場合、
+    // 中断リクエストを使用せず、
+    // デストラクタで自動的にjoinするスレッドオブジェクトとして使用する
     std::jthread t2 {
       [] { f2(1'000'000); }
     };
