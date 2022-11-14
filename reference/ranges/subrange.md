@@ -26,7 +26,7 @@ namespace std::ranges {
 また、元のRangeが[`sized_range`](sized_range.md)でなくても、長さを別に指定することで[`sized_range`](sized_range.md)になれる。
 
 ## テンプレートパラメータ制約
-[`subrange_kind`](subrange_kind.md)` K`が`sized`である。または、イテレータ`I`と番兵`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)を満たさない。
+[`subrange_kind`](subrange_kind.md)`​ K`が`sized`である。または、イテレータ`I`と番兵`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)を満たさない。
 
 ## メンバ関数
 
