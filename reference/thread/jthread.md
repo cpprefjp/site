@@ -23,7 +23,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------------------------------------------|-------|
 | [`(constructor)`](jthread/op_constructor.md)        | コンストラクタ | C++20 |
-| [`(destructor)`](jthread/op_destructor.md.nolink)        | デストラクタ | C++20 |
+| [`(destructor)`](jthread/op_destructor.md)        | デストラクタ | C++20 |
 | [`operator=`](jthread/op_assign.md.nolink)         | 代入演算子 | C++20 |
 | [`swap`](jthread/swap.md.nolink)                   | 別の`jthread`と交換する | C++20 |
 | [`joinable`](jthread/joinable.md.nolink)           | スレッドに関連付けられているか否かを取得する | C++20 |

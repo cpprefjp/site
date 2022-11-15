@@ -140,7 +140,7 @@ int main()
     std::jthread t2 {
       [] { f2(1'000'000); }
     };
-  } // スレッドの終了をデストラクタで待機する
+  } // jthreadのデストラクタでは、中断要求を発行し、スレッドの終了を待機する
 
   std::cout << sum1 << std::endl; // 計算できたところまで表示
   std::cout << sum2 << std::endl;
