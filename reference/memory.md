@@ -57,7 +57,7 @@
 | [`ranges::uninitialized_value_construct_n`](memory/ranges_uninitialized_value_construct_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を値構築する(function template) | C++20 |
 | [`ranges::uninitialized_copy`](memory/ranges_uninitialized_copy.md) | 未初期化領域の範囲を配置`new`で初期化してコピー出力する(function template) | C++20 |
 | [`ranges::uninitialized_copy_n`](memory/ranges_uninitialized_copy_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してコピー出力する(function template) | C++20 |
-| [`ranges::uninitialized_move`](memory/ranges_uninitialized_move.md.nolink) | 未初期化領域の範囲を配置`new`で初期化してムーブ出力する(function template) | C++20 |
+| [`ranges::uninitialized_move`](memory/ranges_uninitialized_move.md) | 未初期化領域の範囲を配置`new`で初期化してムーブ出力する(function template) | C++20 |
 | [`ranges::uninitialized_move_n`](memory/ranges_uninitialized_move_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してムーブ出力する(function template) | C++20 |
 | [`ranges::uninitialized_fill`](memory/ranges_uninitialized_fill.md.nolink) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | C++20 |
 | [`ranges::uninitialized_fill_n`](memory/ranges_uninitialized_fill_n.md.nolink) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | C++20 |
