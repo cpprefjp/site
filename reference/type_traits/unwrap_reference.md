@@ -7,7 +7,12 @@
 ```cpp
 namespace std {
   template <class T>
-  struct unwrap_reference;
+  struct unwrap_reference {
+    using type = …;
+  };
+  
+  template <class T>
+  using unwrap_reference_t = typename unwrap_reference<T>::type;
 }
 ```
 
