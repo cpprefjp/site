@@ -73,7 +73,7 @@ int main()
 
   // 要素を破棄
   for (std::size_t i = 0; i < size; ++i) {
-    alloc.destroy(p + i);
+    std::destroy_at(p + i);
   }
 
   // メモリ解放
@@ -83,7 +83,7 @@ int main()
 * std::uninitialized_move_n[color ff0000]
 * std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
-* alloc.destroy[link allocator/destroy.md]
+* std::destroy_at[link destroy_at.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
 ### 出力
@@ -101,6 +101,10 @@ int main()
 - [Clang](/implementation.md#clang): 4.0.1
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`ranges::uninitialized_move_n`](ranges_uninitialized_move_n.md)
 
 
 ## 参照
