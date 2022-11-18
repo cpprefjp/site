@@ -93,5 +93,9 @@ int main()
 ```
 
 
+## 関連項目
+- [`ranges::uninitialized_fill`](ranges_uninitialized_fill.md)
+
+
 ## 参照
 - [LWG Issue 2433 `uninitialized_copy()`/etc. should tolerate overloaded `operator&`](https://wg21.cmeerw.net/lwg/issue2433)
