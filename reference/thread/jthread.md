@@ -31,7 +31,7 @@ namespace std {
 | [`detach`](jthread/detach.md.nolink)               | スレッドの管理を手放す | C++20 |
 | [`get_id`](jthread/get_id.md)               | 関連付けられているスレッドのスレッド識別子を取得する | C++20 |
 | [`native_handle`](jthread/native_handle.md.nolink) | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++20 |
-| [`get_stop_source`](jthread/get_stop_source.md.nolink) | 停止要求を作成するための[`stop_source`](/reference/stop_token/stop_source.md)オブジェクトを取得する | C++20 |
+| [`get_stop_source`](jthread/get_stop_source.md) | 停止要求を作成するための[`stop_source`](/reference/stop_token/stop_source.md)オブジェクトを取得する | C++20 |
 | [`get_stop_token`](jthread/get_stop_token.md.nolink) | 停止状態を問い合わせるための[`stop_token`](/reference/stop_token/stop_token.md)オブジェクトを取得する | C++20 |
 | [`request_stop`](jthread/request_stop.md.nolink) | スレッドに対する停止要求を作成する | C++20 |
 

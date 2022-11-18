@@ -78,15 +78,15 @@ jthread(jthread&&) noexcept;             // (4) C++20
 ## 事後条件
 - (1) :
     - [`get_id()`](get_id.md) `==` [`id()`](/reference/thread/thread/id.md)が`true`となること
-    - [`get_stop_source()`](get_stop_source.md.nolink)で取得される[`std::stop_source`](/reference/stop_token/stop_source.md)オブジェクトの[`stop_possible()`](/reference/stop_token/stop_source/stop_possible.md)が`false`であること
+    - [`get_stop_source()`](get_stop_source.md)で取得される[`std::stop_source`](/reference/stop_token/stop_source.md)オブジェクトの[`stop_possible()`](/reference/stop_token/stop_source/stop_possible.md)が`false`であること
 - (2) :
     - [`get_id()`](get_id.md) `!=` [`id()`](/reference/thread/thread/id.md)が`true`となること
-    - [`get_stop_source()`](get_stop_source.md.nolink)で取得される[`std::stop_source`](/reference/stop_token/stop_source.md)オブジェクトの[`stop_possible()`](/reference/stop_token/stop_source/stop_possible.md)が`true`であること
+    - [`get_stop_source()`](get_stop_source.md)で取得される[`std::stop_source`](/reference/stop_token/stop_source.md)オブジェクトの[`stop_possible()`](/reference/stop_token/stop_source/stop_possible.md)が`true`であること
     - `*this`は新しいスレッドと関連付けられること
 - (4) :
     - `x.`[`get_id()`](get_id.md) `==` [`get_id()`](get_id)が`true`であること
     - [`get_id()`](get_id.md)がムーブ前の`x.`[`get_id()`](get_id.md)の値であること
-    - `x.`[`get_stop_source()`](get_stop_source.md.nolink)`.`[`stop_possible()`](/reference/stop_token/stop_source/stop_possible.md)が`false`であること
+    - `x.`[`get_stop_source()`](get_stop_source.md)`.`[`stop_possible()`](/reference/stop_token/stop_source/stop_possible.md)が`false`であること
 
 
 ## 例外
