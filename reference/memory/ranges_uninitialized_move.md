@@ -35,7 +35,7 @@ namespace std::ranges {
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
-未初期化領域の範囲を配置`new`で初期化してムーブ出力する。
+未初期化領域の範囲（`out_range`、`[ofirst, olast)`）を配置`new`で入力範囲（`in_range`、`[ifirst, ilast)`）の対応する要素から初期化してムーブ出力する。
 
 - (1): イテレータペアで範囲を指定する
 - (2): 範囲を直接指定する

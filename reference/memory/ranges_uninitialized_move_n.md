@@ -30,7 +30,7 @@ namespace std::ranges {
 * iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 
 ## 概要
-未初期化領域の範囲`[ifirst, ifirst + n)`を配置`new`で初期化してムーブ出力する。
+未初期化領域の範囲`[ofirst, ofirst + n)`を配置`new`で`[ifirst, ifirst + n)`の対応する要素から初期化してムーブ出力する。
 
 - (1): イテレータペアで範囲を指定する
 
