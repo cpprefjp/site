@@ -15,7 +15,7 @@ namespace std {
 
 
 ## 戻り値
-`b < a`
+`y < x`
 
 
 ## 計算量
