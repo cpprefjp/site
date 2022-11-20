@@ -79,8 +79,8 @@ int main()
 | [`map::cend`](/reference/map/map/cend.md) | 末尾を指すconstイテレータを取得する |
 | [`map::rbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`map::rend`](/reference/map/map/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`map::crbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`map::crend`](/reference/map/map/rend.md) | 先頭を指す逆constイテレータを取得する |
+| [`map::crbegin`](/reference/map/map/crbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`map::crend`](/reference/map/map/crend.md) | 先頭を指す逆constイテレータを取得する |
 
 
 

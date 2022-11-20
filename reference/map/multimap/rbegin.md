@@ -73,6 +73,6 @@ int main()
 | [`multimap::cbegin`](/reference/map/multimap/cbegin.md) | 先頭を指すconstイテレータを取得する |
 | [`multimap::cend`](/reference/map/multimap/cend.md) | 末尾を指すconstイテレータを取得する |
 | [`multimap::rend`](/reference/map/multimap/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`multimap::crbegin`](/reference/map/multimap/rbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`multimap::crend`](/reference/map/multimap/rend.md) | 先頭を指す逆constイテレータを取得する |
+| [`multimap::crbegin`](/reference/map/multimap/crbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`multimap::crend`](/reference/map/multimap/crend.md) | 先頭を指す逆constイテレータを取得する |
 
