@@ -8,6 +8,7 @@
 namespace std {
   template <std::size_t N, class T>
   [[nodiscard]] constexpr T* assume_aligned(T* ptr);
+}
 ```
 
 ## 概要
