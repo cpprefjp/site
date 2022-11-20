@@ -57,7 +57,7 @@ int main()
 ```
 * std::fstream[link /reference/fstream/basic_fstream.md]
 * exceptions[link /reference/ios/basic_ios/exceptions.md]
-* open()[color ff0000]
+* open[color ff0000]
 
 ### 出力
 ```

@@ -48,7 +48,7 @@ int main()
   }
 }
 ```
-* std::front_inserter[color ff0000]
+* std::inserter[color ff0000]
 * src.begin()[link /reference/set/set/begin.md]
 * src.end()[link /reference/set/set/end.md]
 * dest.end()[link /reference/set/set/end.md]

@@ -34,7 +34,7 @@ int main()
   assert(d == 1d);
 }
 ```
-* date.day()[color ff0000]
+* md.day()[color ff0000]
 * chrono::day[link /reference/chrono/day.md]
 * chrono::March[link /reference/chrono/month_constants.md]
 * 1d[link /reference/chrono/day/op_d.md]

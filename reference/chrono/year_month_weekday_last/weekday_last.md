@@ -33,7 +33,7 @@ int main()
   assert(wdl == chrono::Sunday[chrono::last]);
 }
 ```
-* date.weekday_indexed()[color ff0000]
+* date.weekday_last()[color ff0000]
 * chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]

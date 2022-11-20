@@ -75,7 +75,7 @@ int main()
 * std::fstream[link /reference/fstream/basic_fstream.md]
 * std::filebuf[link /reference/fstream/basic_filebuf.md]
 * rdbuf()[link /reference/fstream/basic_fstream/rdbuf.md]
-* open()[color ff0000]
+* buf->open()[color ff0000]
 
 ## バージョン
 ### 言語

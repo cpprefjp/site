@@ -42,14 +42,14 @@ int main()
   std::thread t2;
   assert(t1.joinable() && !t2.joinable());
 
-  // th1からth2へムーブ代入
+  // t1からt2へムーブ代入
   t2 = std::move(t1);
   assert(!t1.joinable() && t2.joinable());
 
   t2.join();
 }
 ```
-* th2 = std::move(th1);[color ff0000]
+* t2 = std::move(t1);[color ff0000]
 * joinable()[link joinable.md]
 
 ### 出力

@@ -47,7 +47,7 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
-#include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;
@@ -70,7 +70,7 @@ int main()
   }
 }
 ```
-* x == date[color ff0000]
+* x == ymd[color ff0000]
 * chrono::year_month_day[link /reference/chrono/year_month_day.md]
 * chrono::get_tzdb()[link /reference/chrono/get_tzdb.md]
 * 1972y[link /reference/chrono/year/op_y.md]

@@ -74,7 +74,7 @@ int main()
   }
 }
 ```
-* count()[color ff0000]
+* m.count[color ff0000]
 * std::less[link /reference/functional/less.md]
 
 ### 出力
