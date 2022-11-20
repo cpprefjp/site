@@ -50,6 +50,7 @@ int main()
 }
 ```
 * std::forward_like[color ff0000]
+* std::is_same_v[link /reference/type_traits/is_same.md]
 
 #### 出力
 ```
@@ -88,6 +89,9 @@ int main()
 }
 ```
 * std::forward_like[color ff0000]
+* std::invoke[link /reference/functional/invoke.md]
+* std::forward[link /reference/utility/forward.md]
+* std::decay_t[link /reference/type_traits/decay.md]
 
 #### 出力
 ```
