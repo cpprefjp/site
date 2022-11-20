@@ -19,8 +19,6 @@ namespace std {
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
-`<forward_list>`ヘッダでは、単方向リンクリストの実装である`forward_list`コンテナを提供する。
-
 `forward_list`は、標準ライブラリではシーケンスコンテナの一種として定義されるが、いくつかの点でシーケンスコンテナの要件を満たさない：
 
 - `size()`メンバ関数を提供しない。

@@ -18,8 +18,6 @@ namespace std {
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
-`<list>`ヘッダでは、双方向リンクリストの実装である `list` コンテナを提供する。
-
 任意の位置への挿入や削除を定数時間で行う事が出来るが、高速なランダムアクセスは出来ず、常にシーケンシャルアクセスを行う必要がある。
 
 テンプレートパラメータは、以下を意味する：
