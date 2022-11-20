@@ -17,7 +17,7 @@ const_reverse_iterator crend() const noexcept;
 
 ## 戻り値
 反転シーケンスの終端を指す逆イテレータ。 
-`reverse_iterator` と `const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
+`const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、`reverse_iterator<const_iterator>` と定義される。
 
 
 ## 例
