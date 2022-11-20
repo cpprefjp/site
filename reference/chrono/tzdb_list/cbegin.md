@@ -35,7 +35,7 @@ int main()
 {
   const chrono::tzdb_list& ls = chrono::get_tzdb_list();
 
-  int n = std::distance(ls.begin(), ls.end());
+  int n = std::distance(ls.cbegin(), ls.cend());
   std::cout << n << std::endl;
 
   for (const chrono::tzdb& tzdb : ls) {
