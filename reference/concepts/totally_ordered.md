@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template<class T, class U>
+  template<class T>
   concept totally_ordered =
     equality_comparable<T> &&
     partially-ordered-with<T, T>;
