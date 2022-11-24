@@ -1,4 +1,4 @@
-# uninitialized_fill
+# uninitialized_fill_n
 * memory[meta header]
 * std::ranges[meta namespace]
 * function template[meta id-type]
@@ -6,65 +6,36 @@
 
 ```cpp
 namespace std::ranges {
-  template <no-throw-forward-iterator I,
-            no-throw-sentinel<I> S,
-            class T>
+  template <no-throw-forward-iterator I, class T>
     requires constructible_from<iter_value_t<I>, const T&>
-  I uninitialized_fill(I first, S last, const T& x);            // (1) C++20
-
-  template <no-throw-forward-range R,
-            class T>
-    requires constructible_from<range_value_t<R>, const T&>
-  borrowed_iterator_t<R> uninitialized_fill(R&& r, const T& x); // (2) C++20
+  I uninitialized_fill_n(I first, iter_difference_t<I> n, const T& x); // (1) C++20
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md.nolink]
-* no-throw-sentinel[link no-throw-sentinel.md.nolink]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
-* no-throw-forward-range[link no-throw-forward-range.md.nolink]
-* range_value_t[link /reference/ranges/range_value_t.md]
-* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
-未初期化領域の範囲 (`r`、`[first, last)`) を、指定された値で配置`new`で初期化する。
-
-- (1): イテレータペアで範囲を指定する
-- (2): 範囲を直接指定する
+未初期化領域の範囲 (`[first, first + n)`) を、指定された値で配置`new`で初期化する。
 
 
 ## テンプレートパラメータ制約
 - (1):
     - `I`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md.nolink)である
-    - `S`が[`I`に対する例外を投げない番兵](no-throw-sentinel.md.nolink)である
     - `I`の要素型が、`const T&`型を引数として[構築可能](/reference/concepts/constructible_from.md)である
-- (2):
-    - `R`が[`no-throw-forward-range`](no-throw-forward-range.md.nolink)である
-    - `R`の要素型が、`const T&`型を引数として[構築可能](/reference/concepts/constructible_from.md)である
 
 
 ## 効果
-説明用の関数`voidify`があるとして、
-
-```cpp
-template<class T>
-constexpr void* voidify(T& obj) noexcept {
-  return const_cast<void*>(static_cast<const volatile void*>(addressof(obj)));
-}
-```
-* addressof[link addressof.md]
-
-
 以下と等価である：
 
 ```cpp
-for (; first != last; ++first) {
-  ::new (voidify(*first)) remove_reference_t<iter_reference_t<I>>(x);
-}
-return first;
+return uninitialized_fill(counted_iterator(first, n), default_sentinel, x).base();
 ```
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
-* iter_reference_t[link /reference/iterator/iter_reference_t.md]
+* uninitialized_fill[link ranges_uninitialized_fill.md]
+* counted_iterator[link /reference/iterator/counted_iterator.md]
+* default_sentinel[link /reference/iterator/default_sentinel_t.md]
+* base()[link /reference/iterator/counted_iterator/base.md]
 
 
 ## 例
@@ -83,7 +54,7 @@ int main()
   int* p = alloc.allocate(size);
 
   // 未初期化領域[p, p + size)を初期化しつつ、値2で埋める
-  std::ranges::uninitialized_fill(std::ranges::subrange{p, p + size}, 2);
+  std::ranges::uninitialized_fill_n(p, size, 2);
 
   // pの領域が初期化され、かつ範囲pの全ての要素が2で埋められているか確認
   std::for_each(p, p + size, [](int x) {
@@ -99,7 +70,7 @@ int main()
   alloc.deallocate(p, size);
 }
 ```
-* std::ranges::uninitialized_fill[color ff0000]
+* std::ranges::uninitialized_fill_n[color ff0000]
 * std::ranges::subrange[link /reference/ranges/subrange.md]
 * std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
@@ -125,7 +96,7 @@ int main()
 
 
 ## 関連項目
-- [`uninitialized_fill`](uninitialized_fill.md)
+- [`uninitialized_fill_n`](uninitialized_fill_n.md)
 
 ## 参照
 - [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

@@ -28,6 +28,7 @@ namespace std::ranges {
 * no-throw-sentinel[link no-throw-sentinel.md.nolink]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
+* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 未初期化領域の範囲`[ofirst, ofirst + n)`を配置`new`で`[ifirst, ifirst + n)`の対応する要素から初期化してコピー出力する。
