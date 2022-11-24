@@ -14,7 +14,7 @@
 
 
 ## 効果
-[`joinable`](joinable.md)が`true`である場合、[`request_stop()`](request_stop.md.nolink)とそのあと[`join()`](join.md.nolink)を呼び出す。
+[`joinable`](joinable.md)が`true`である場合、[`request_stop()`](request_stop.md)とそのあと[`join()`](join.md.nolink)を呼び出す。
 
 
 ## 例

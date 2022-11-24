@@ -150,7 +150,7 @@ int main()
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * token.stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* t1.request_stop()[link request_stop.md.nolink]
+* t1.request_stop()[link request_stop.md]
 
 
 ### 出力例
