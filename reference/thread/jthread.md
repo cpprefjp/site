@@ -11,12 +11,12 @@ namespace std {
 ```
 
 ## 概要
-クラス`jthread`は、[`thread`](thread.md)と同じく、新しい実行のスレッド(thread of execution)（以下、単にスレッドとする）の作成／待機／その他操作を行う機構を提供する。このクラスはさらに、実行しているスレッドに対する停止要求を扱う機能や、自動で[`join`](jthread/join.md.nolink)操作を行う機能を提供する。
+クラス`jthread`は、[`thread`](thread.md)と同じく、新しい実行のスレッド(thread of execution)（以下、単にスレッドとする）の作成／待機／その他操作を行う機構を提供する。このクラスはさらに、実行しているスレッドに対する停止要求を扱う機能や、自動で[`join`](jthread/join.md)操作を行う機能を提供する。
 
 ## `thread`クラスとの違い
 
 - 停止要求のサポート: `jthread`は自身と関連付けられたスレッドに対する停止要求を扱う仕組みを提供する。このために[`<stop_token>`](/reference/stop_token/stop_token.md)ヘッダに定義されたクラスを利用する。
-- 自動join機能: `jthread`はデストラクタやムーブ代入演算子が呼び出されたとき、もし自身に関連付けられたスレッドが存在する場合は、スレッドの停止要求を作成し、その後[`join()`](jthread/join.md.nolink)を呼び出してスレッドの終了を待機する。そのため`thread`クラスと異なり、[`joinable()`](jthread/joinable.md) `==` `true` であってもデストラクタやムーブ代入演算子を呼び出し可能であり、[`std::terminate()`](/reference/exception/terminate.md)は呼び出されない。
+- 自動join機能: `jthread`はデストラクタやムーブ代入演算子が呼び出されたとき、もし自身に関連付けられたスレッドが存在する場合は、スレッドの停止要求を作成し、その後[`join()`](jthread/join.md)を呼び出してスレッドの終了を待機する。そのため`thread`クラスと異なり、[`joinable()`](jthread/joinable.md) `==` `true` であってもデストラクタやムーブ代入演算子を呼び出し可能であり、[`std::terminate()`](/reference/exception/terminate.md)は呼び出されない。
 
 ## メンバ関数
 
@@ -27,7 +27,7 @@ namespace std {
 | [`operator=`](jthread/op_assign.md.nolink)         | 代入演算子 | C++20 |
 | [`swap`](jthread/swap.md.nolink)                   | 別の`jthread`と交換する | C++20 |
 | [`joinable`](jthread/joinable.md)           | スレッドに関連付けられているか否かを取得する | C++20 |
-| [`join`](jthread/join.md.nolink)                   | スレッドが終了するまで待機する | C++20 |
+| [`join`](jthread/join.md)                   | スレッドが終了するまで待機する | C++20 |
 | [`detach`](jthread/detach.md.nolink)               | スレッドの管理を手放す | C++20 |
 | [`get_id`](jthread/get_id.md)               | 関連付けられているスレッドのスレッド識別子を取得する | C++20 |
 | [`native_handle`](jthread/native_handle.md.nolink) | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++20 |
