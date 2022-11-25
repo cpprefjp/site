@@ -73,7 +73,8 @@ path(InputIterator first, InputIterator last,
 
 
 ## 備考
-- これらのコンストラクタに、UTF-8エンコーディングでパス文字列を指定してはならない。そのような用途には、[`std::filesystem::u8path()`](/reference/filesystem/u8path.md)関数を使用すること
+- C++17までは、これらのコンストラクタにUTF-8エンコーディング（`u8""`リテラル等）でパス文字列を指定してはならない。そのような用途には、[`std::filesystem::u8path()`](/reference/filesystem/u8path.md)関数を使用すること
+    - C++20以降は、`char8_t`型として型によって文字のエンコーディングを判別できるようになったため、`char8_t`文字列によって表現されたUTF-8エンコーディングのパス文字列からの構築をサポートしている
 - (1) : このクラスはメンバ変数として`string_type`型のオブジェクトを持つ。[`std::basic_string`](/reference/string/basic_string.md)クラスのデフォルトのアロケータである[`std::allocator`](/reference/memory/allocator.md)クラスは、デフォルトコンストラクタで例外を送出しない。そのため、`path`クラスのデフォルトコンストラクタもまた例外を決して送出しない
 
 
@@ -153,6 +154,10 @@ int main()
 
     std::u32string_view p12_base = U"a/b/c";
     fs::path p12 = p12_base; // UTF-32エンコーディングの文字列を参照するu32string_viewオブジェクトを代入
+
+    // C++20以降
+    std::u8string_view p13_base = u8"a/b/c";
+    fs::path p13 = p13_base; // UTF-8エンコーディングの文字列を参照するu8string_viewオブジェクトを代入
   }
 
   // (6)
