@@ -62,7 +62,7 @@ int main()
   const std::size_t size = 3;
   Vector* p = alloc.allocate(size);
 
-  // 未初期化領域[p, p + size)をデフォルト構築
+  // 未初期化領域[p, p + size)の各要素をデフォルト構築
   std::uninitialized_default_construct(p, p + size);
 
   // 各要素を出力
@@ -101,6 +101,9 @@ int main()
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 関連項目
+- [`ranges::uninitialized_default_construct`](ranges_uninitialized_default_construct.md)
 
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
