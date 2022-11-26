@@ -18,6 +18,10 @@ namespace std::pmr {
 ## 戻り値
 `!(a == b)`
 
+## 備考
+
+この演算子はC++20以降、対応する[`==`を利用して導出](/lang/cpp20/consistent_comparison.md)される。
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -53,8 +57,8 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+- [GCC](/implementation.md#gcc): 9.1 (2), 13.1 (1)
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 6 (2), 2022 17.4 (1)
 
 ## 関連項目
 - [`operator!=`](/reference/memory_resource/memory_resource/op_not_equal.md)

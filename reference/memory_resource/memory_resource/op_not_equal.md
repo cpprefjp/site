@@ -19,6 +19,10 @@ namespace std::pmr {
 
 結果が`true`となる場合、`a`で確保したメモリ領域を`b`で解放するのもその逆も行ってはならない。
 
+## 備考
+
+この演算子はC++20以降、対応する[`==`を利用して導出](/lang/cpp20/consistent_comparison.md)される。
+
 ## 例
 ```cpp example
 #include <iostream>
