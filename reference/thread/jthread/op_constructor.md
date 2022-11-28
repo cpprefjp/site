@@ -49,7 +49,7 @@ jthread(jthread&&) noexcept;             // (4) C++20
         * invoke[link /reference/functional/invoke.md]
         * decay-copy[link /reference/exposition-only/decay-copy.md]
         * std::forward[link /reference/utility/forward.md]
-        * get_stop_token()[link get_stop_token.md.nolink]
+        * get_stop_token()[link get_stop_token.md]
 
     - そうでなければ以下の式でスレッドを生成して実行する
         ```cpp

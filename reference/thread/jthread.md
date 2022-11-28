@@ -32,7 +32,7 @@ namespace std {
 | [`get_id`](jthread/get_id.md)               | 関連付けられているスレッドのスレッド識別子を取得する | C++20 |
 | [`native_handle`](jthread/native_handle.md.nolink) | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++20 |
 | [`get_stop_source`](jthread/get_stop_source.md) | 停止要求を作成するための[`stop_source`](/reference/stop_token/stop_source.md)オブジェクトを取得する | C++20 |
-| [`get_stop_token`](jthread/get_stop_token.md.nolink) | 停止状態を問い合わせるための[`stop_token`](/reference/stop_token/stop_token.md)オブジェクトを取得する | C++20 |
+| [`get_stop_token`](jthread/get_stop_token.md) | 停止状態を問い合わせるための[`stop_token`](/reference/stop_token/stop_token.md)オブジェクトを取得する | C++20 |
 | [`request_stop`](jthread/request_stop.md) | スレッドに対する停止要求を作成する | C++20 |
 
 ## 静的メンバ関数
@@ -91,7 +91,7 @@ int main()
 * std::jthread[link jthread.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * std::stop_callback[link /reference/stop_token/stop_callback.md]
-* get_stop_token()[link jthread/get_stop_token.md.nolink]
+* get_stop_token()[link jthread/get_stop_token.md]
 
 ### 出力
 ```
