@@ -46,8 +46,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------|----------------------------------------------|-------|
-| [`id`](jthread/id.md.nolink) | スレッド識別子 (type-alias) | C++20 |
-| `native_handle_type`   | ネイティブハンドル型 (type-alias)［処理系定義］ | C++20 |
+| [`id`](jthread/id.md) | スレッド識別子 (type-alias) | C++20 |
+| `native_handle_type`  | ネイティブハンドル型 (type-alias)［処理系定義］ | C++20 |
 
 
 ## 非メンバ関数
@@ -101,11 +101,7 @@ int main()
 ### 言語
 - C++20
 
-
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 10.2.0
-- [ICC](/implementation.md#icc): ??
-
-## 参照
-
+- [Visual C++](/implementation.md#visual_cpp): ??
