@@ -127,13 +127,13 @@ UTF-8の利用が広く利用されていく中で、C++でもUTF-8を扱う上�
 
 ## 検討されたほかの選択肢
 
-N3398提案では以下のように`char8_t`型を`unsigned char`型の別名にすることが提案されていた。
+提案文書N3398では以下のように`char8_t`型を`unsigned char`型の別名にすることが提案されていた。
 
 ```cpp
 typedef unsigned char char8_t;
 ```
 
-以下のように`enum class`を利用する選択肢もあったが、P0372R0提案は`char8_t`型を使うためにヘッダのインクルードが必要になることは望ましくないと述べている。
+以下のように`enum class`を利用する選択肢もあったが、提案文書P0372R0は`char8_t`型を使うためにヘッダのインクルードが必要になることは望ましくないと述べている。
 
 ```cpp
 enum class char8_t : unsigned char {};
@@ -154,7 +154,7 @@ enum class char8_t : unsigned char {};
 
 ## 参照
 
-### `char8_t`型を追加する提案文章
+### `char8_t`型を追加する提案文書
 
 - [N3398: String Interoperation Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3398.html)
 - [P0372R0: A type for utf-8 data](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0372r0.html)
