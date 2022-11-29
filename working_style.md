@@ -97,6 +97,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | note                               | 注                           |
 | output iterator                    | 出力イテレータ               |
 | overload                           | オーバーロード               |
+| (proposal) paper                   | 提案文書                     |
 | partial ordering                   | 半順序                       |
 | partition                          | 区分化                       |
 | pointer                            | ポインタ                     |
