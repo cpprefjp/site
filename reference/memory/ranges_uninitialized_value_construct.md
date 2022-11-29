@@ -1,4 +1,4 @@
-# uninitialized_default_construct
+# uninitialized_value_construct
 * memory[meta header]
 * std::ranges[meta namespace]
 * function template[meta id-type]
@@ -8,11 +8,11 @@
 namespace std::ranges {
   template <no-throw-forward-iterator I, no-throw-sentinel<I> S>
     requires default_initializable<iter_value_t<I>>
-  I uninitialized_default_construct(I first, S last);            // (1) C++20
+  I uninitialized_value_construct(I first, S last);            // (1) C++20
 
   template <no-throw-forward-range R>
     requires default_initializable<range_value_t<R>>
-  borrowed_iterator_t<R> uninitialized_default_construct(R&& r); // (2) C++20
+  borrowed_iterator_t<R> uninitialized_value_construct(R&& r); // (2) C++20
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md.nolink]
@@ -24,7 +24,7 @@ namespace std::ranges {
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
-未初期化領域の範囲 (`r`、`[first, last)`) の各要素をデフォルト構築する。
+未初期化領域の範囲 (`r`、`[first, last)`) の各要素を値構築する。
 
 - (1): イテレータペアで範囲を指定する
 - (2): 範囲を直接指定する
@@ -56,16 +56,11 @@ constexpr void* voidify(T& obj) noexcept {
 
 ```cpp
 for (; first != last; ++first)
-  ::new (voidify(*first)) remove_reference_t<iter_reference_t<I>>;
+  ::new (voidify(*first)) remove_reference_t<iter_reference_t<I>>();
 return first;
 ```
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-
-
-## 備考
-- [`std::vector`](/reference/vector/vector.md)クラスの要素数を変更する操作は、要素を値構築するためゼロ初期化が行われる。その値初期化のコストが気になるような場合に、デフォルト構築することでプログラマの責任で必要な分だけ任意に初期化でき、パフォーマンス向上が期待できるようになる。
-     - 例としてBoost Container Libraryの`vector`クラスには、要素数を変更するメンバ関数にデフォルト構築のオプションとして[`default_init`](https://www.boost.org/doc/libs/release/doc/html/container/extended_functionality.html#container.extended_functionality.default_initialialization)がある
 
 
 ## 例
@@ -87,8 +82,8 @@ int main()
   const std::size_t size = 3;
   Vector* p = alloc.allocate(size);
 
-  // 未初期化領域[p, p + size)の各要素をデフォルト構築
-  std::ranges::uninitialized_default_construct(std::ranges::subrange{p, p + size});
+  // 未初期化領域[p, p + size)の各要素を値構築
+  std::ranges::uninitialized_value_construct(std::ranges::subrange{p, p + size});
 
   // pの領域が初期化され、かつ範囲pの全ての要素が2で埋められているか確認
   std::for_each(p, p + size, [](const Vector& v) {
@@ -104,18 +99,18 @@ int main()
   alloc.deallocate(p, size);
 }
 ```
-* std::ranges::uninitialized_default_construct[color ff0000]
+* std::ranges::uninitialized_value_construct[color ff0000]
 * std::ranges::subrange[link /reference/ranges/subrange.md]
 * std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * std::destroy_at[link destroy_at.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
-### 出力例
+### 出力
 ```
-1445540552,1445540279
-0,1445540279
-0,1445540279
+0,0
+0,0
+0,0
 ```
 
 
@@ -130,7 +125,7 @@ int main()
 
 
 ## 関連項目
-- [`uninitialized_default_construct`](uninitialized_default_construct.md)
+- [`uninitialized_value_construct`](uninitialized_value_construct.md)
 
 ## 参照
 - [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
