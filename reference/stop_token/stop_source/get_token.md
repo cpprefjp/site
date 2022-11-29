@@ -13,7 +13,7 @@
 自身と停止状態を共有する[`stop_token`](../stop_token.md)を構築して返す。
 
 ## 戻り値
-[`stop_possible()`](stop_possible.md) `==` `false` のときは、デフォルトコンストラクトした`stop_token`を返す。それ以外の場合は、自身と停止状態を共有する`stop_token`を構築して返す。
+[`stop_possible()`](stop_possible.md) `==` `false` のときは、デフォルト構築した`stop_token`を返す。それ以外の場合は、自身と停止状態を共有する`stop_token`を構築して返す。
 
 ## 例外
 投げない。

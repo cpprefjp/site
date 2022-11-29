@@ -16,7 +16,7 @@ id get_id() const noexcept;
 
 
 ## 戻り値
-`thread`オブジェクトがスレッドに関連付けられていない場合はデフォルトコンストラクトされた[`id`](/reference/thread/thread/id.md)オブジェクト、そうでなければ`*this`が関連付けられているスレッドを表す[`std::this_thread::get_id()`](/reference/thread/this_thread/get_id.md)を返す。
+`thread`オブジェクトがスレッドに関連付けられていない場合はデフォルト構築された[`id`](/reference/thread/thread/id.md)オブジェクト、そうでなければ`*this`が関連付けられているスレッドを表す[`std::this_thread::get_id()`](/reference/thread/this_thread/get_id.md)を返す。
 
 
 ## 例外

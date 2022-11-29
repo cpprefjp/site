@@ -20,7 +20,7 @@ namespace this_thread {
 ## 戻り値
 現在のスレッド、すなわちこの関数を呼び出したスレッドのスレッド識別子を返す。
 
-この関数の戻り値は、デフォルトコンストラクトされた[`thread::id`](/reference/thread/thread/id.md)オブジェクトとは必ず異なる。
+この関数の戻り値は、デフォルト構築された[`thread::id`](/reference/thread/thread/id.md)オブジェクトとは必ず異なる。
 
 
 ## 例外

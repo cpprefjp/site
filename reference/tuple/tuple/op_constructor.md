@@ -277,13 +277,13 @@ explicit(see below) constexpr
 
 int main()
 {
-  // デフォルトコンストラクト
+  // デフォルト構築
   std::tuple<int, char, std::string> t1;
 
-  // コピーコンストラクト
+  // コピー構築
   std::tuple<int, char, std::string> t2(t1);
 
-  // ムーブコンストラクト
+  // ムーブ構築
   std::tuple<int, char, std::string> t3(std::move(t2));
 
   // 値を指定して構築

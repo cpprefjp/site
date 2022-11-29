@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 効果
-`is_default_constructible`は、型`T`がデフォルトコンストラクト可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`is_default_constructible`は、型`T`がデフォルト構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 [`is_constructible`](is_constructible.md)`<T>::value == true`の時に、デフォルト構築可能であると判断される。
 
@@ -36,7 +36,7 @@ namespace std {
 struct s {
   s(int){}
   // デフォルトコンストラクタは暗黙に = delete されている。
-  // そのためデフォルトコンストラクトできない。
+  // そのためデフォルト構築できない。
 };
 
 static_assert(std::is_default_constructible<int>::value == true, "value == true, int is default constructible");

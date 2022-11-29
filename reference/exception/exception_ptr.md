@@ -44,7 +44,7 @@ int main()
     std::cout << "2. null" << std::endl;
   }
 
-  // デフォルトコンストラクトしたexception_ptrはヌル値
+  // デフォルト構築したexception_ptrはヌル値
   if (ep1 == std::exception_ptr()) {
     std::cout << "3. null" << std::endl;
   }
