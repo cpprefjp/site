@@ -1,9 +1,9 @@
 # detach
 * thread[meta header]
 * std[meta namespace]
-* thread[meta class]
+* jthread[meta class]
 * function[meta id-type]
-* cpp11[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
 void detach();
@@ -14,7 +14,7 @@ void detach();
 
 
 ## 要件
-`thread`オブジェクトにスレッドが関連付けられていること([`joinable()`](joinable.md) `== true`)。
+`jthread`オブジェクトにスレッドが関連付けられていること([`joinable()`](joinable.md) `== true`)。
 
 
 ## 効果
@@ -22,7 +22,7 @@ void detach();
 
 
 ## 事後条件
-`this`は何も指さない空の`thread`オブジェクトとなる。
+`this`は何も指さない空の`jthread`オブジェクトとなる。
 
 
 ## 例外
@@ -30,7 +30,8 @@ detach操作に失敗した場合、[`system_error`](/reference/system_error/sys
 
 
 ## 備考
-detachされたスレッドは、他のスレッドから直接アクセスすることが出来なくなる。ただし、[`mutex`](/reference/mutex/mutex.md)や[`future`](/reference/future/future.md)オブジェクトなどを介して間接的に同期することは可能。
+- detachされたスレッドは、他のスレッドから直接アクセスすることが出来なくなる。ただし、[`mutex`](/reference/mutex/mutex.md)や[`future`](/reference/future/future.md)オブジェクトなどを介して間接的に同期することは可能。
+- detachされたスレッドに対して停止要求は引き続き発行できる。ただし、このクラスのデストラクタでは[`request_stop()`](request_stop.md)は呼び出されなくなる
 
 
 ## 例
@@ -41,14 +42,15 @@ detachされたスレッドは、他のスレッドから直接アクセスす�
 
 std::future<int> start_async(int x, int y)
 {
-  std::packaged_task<int()> task([x,y]{
+  std::packaged_task<int(std::stop_token)> task([x,y](std::stop_token stoken) {
     // 非同期実行されるタスク...
+    if (stoken.stop_requested()) { return -1; }
     return x + y;
   });
   auto ftr = task.get_future();
 
   // 新しいスレッド作成後にdetach操作
-  std::thread t(std::move(task));
+  std::jthread t(std::move(task));
   t.detach();
 
   return ftr;
@@ -69,6 +71,8 @@ int main()
 * task.get_future()[link /reference/future/packaged_task/get_future.md]
 * std::move[link /reference/utility/move.md]
 * result.get()[link /reference/future/future/get.md]
+* std::stop_token[link /reference/stop_token/stop_token.md]
+* stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
 
 ### 出力
 ```
@@ -77,12 +81,9 @@ int main()
 
 ## バージョン
 ### 言語
-- C++11
+- C++20
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
-- [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-
-## 参照
+- [GCC](/implementation.md#gcc): 10.2.0
+- [Visual C++](/implementation.md#visual_cpp): ??
