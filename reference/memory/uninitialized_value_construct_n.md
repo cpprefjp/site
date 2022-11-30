@@ -95,5 +95,9 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [`ranges::uninitialized_value_construct_n`](ranges_uninitialized_value_construct_n.md)
+
+
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
