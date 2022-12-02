@@ -21,8 +21,6 @@ jthread& operator=(jthread&& x) noexcept;    // (2) C++20
 - [`joinable()`](joinable.md)が`true`を返す場合、[`request_stop()`](request_stop.md)と[`join()`](join.md)を呼び出す
 - `x`の状態を`*this`に代入し、`x`をデフォルト構築された状態に設定する
 
-ムーブ代入演算子呼び出し時点で`this`にスレッドが関連付けられている場合、[`std::terminate()`](/reference/exception/terminate.md)を呼び出してプログラムを異常終了する。そうでなければ`x`から`this`へのムーブ代入を行う。
-
 
 ## 事後条件
 - `x.`[`get_id()`](get_id.md) `==` [`id`](id.md)`()`であること
