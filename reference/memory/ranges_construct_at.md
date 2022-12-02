@@ -1,11 +1,11 @@
 # construct_at
 * memory[meta header]
-* std[meta namespace]
+* std::ranges[meta namespace]
 * function template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::ranges {
   template <class T, class... Args>
   constexpr T* construct_at(T* location, Args&&... args); // (1) C++20
 }
@@ -55,38 +55,37 @@ int main()
 {
   // 配置newでオブジェクトを構築
   char storage[4];
-  int* n = std::construct_at(reinterpret_cast<int*>(storage));
+  int* n = std::ranges::construct_at(reinterpret_cast<int*>(storage));
 
   *n = 314;
   std::cout << *n << std::endl;
 
   // デストラクタを呼び出して破棄
-  std::destroy_at(n);
+  std::ranges::destroy_at(n);
 }
 ```
-* std::construct_at[color ff0000]
-* std::destroy_at[link destroy_at.md]
+* std::ranges::construct_at[color ff0000]
+* std::ranges::destroy_at[link ranges_destroy_at.md]
 
 ### 出力
 ```
 314
 ```
 
+
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 12.0
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 16.0
+- [GCC](/implementation.md#gcc): 10.2.0
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
 
 
 ## 関連項目
-- [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
-- [`std::ranges::construct_at`](ranges_construct_at.md)
+- [`construct_at`](construct_at.md)
 
 ## 参照
-- [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
-- [P0784R7 More `constexpr` containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
+- [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [LWG Issue 3436. `std::construct_at` should support arrays](https://wg21.cmeerw.net/lwg/issue3436)

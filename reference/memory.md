@@ -61,8 +61,8 @@
 | [`ranges::uninitialized_move_n`](memory/ranges_uninitialized_move_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してムーブ出力する(function template) | C++20 |
 | [`ranges::uninitialized_fill`](memory/ranges_uninitialized_fill.md) | 未初期化領域の範囲を、指定された値で配置`new`する(function template) | C++20 |
 | [`ranges::uninitialized_fill_n`](memory/ranges_uninitialized_fill_n.md) | 未初期化領域の範囲のうち、先頭`N`個の要素を指定された値で配置`new`する(function template) | C++20 |
-| [`ranges::construct_at`](memory/ranges_construct_at.md.nolink) | コンストラクタを呼び出す(function template) | C++20 |
-| [`ranges::destroy_at`](memory/ranges_destroy_at.md.nolink) | デストラクタを呼び出す(function template) | C++20 |
+| [`ranges::construct_at`](memory/ranges_construct_at.md) | コンストラクタを呼び出す(function template) | C++20 |
+| [`ranges::destroy_at`](memory/ranges_destroy_at.md) | デストラクタを呼び出す(function template) | C++20 |
 | [`ranges::destroy`](memory/ranges_destroy.md.nolink) | 範囲の各要素に対してデストラクタを呼び出す(function template) | C++20 |
 | [`ranges::destroy_n`](memory/ranges_destroy_n.md.nolink) | 範囲のうち、先頭`N`個の要素に対してデストラクタを呼び出す(function template) | C++20 |
 | [`raw_storage_iterator`](memory/raw_storage_iterator.md) | 未初期化領域に書き込むための出力イテレータ(class template) | C++17から非推奨<br/> C++20で削除 |
