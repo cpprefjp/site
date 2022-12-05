@@ -93,6 +93,7 @@ int main()
 
 ## 関連項目
 - [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
+- [`ranges::destroy_n`](ranges_destroy_n.md)
 
 
 ## 参照

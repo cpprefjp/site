@@ -23,7 +23,7 @@ namespace std::ranges {
     ```cpp
     destroy(begin(*location), end(*location));
     ```
-    * destroy[link ranges_destroy.md.nolink]
+    * destroy[link ranges_destroy.md]
     * begin[link /reference/iterator/begin.md]
     * end[link /reference/iterator/end.md]
 
