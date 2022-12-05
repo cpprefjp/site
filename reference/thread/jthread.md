@@ -25,7 +25,7 @@ namespace std {
 | [`(constructor)`](jthread/op_constructor.md)        | コンストラクタ | C++20 |
 | [`(destructor)`](jthread/op_destructor.md)        | デストラクタ | C++20 |
 | [`operator=`](jthread/op_assign.md)         | 代入演算子 | C++20 |
-| [`swap`](jthread/swap.md.nolink)                   | 別の`jthread`と交換する | C++20 |
+| [`swap`](jthread/swap.md)                   | 別の`jthread`と交換する | C++20 |
 | [`joinable`](jthread/joinable.md)           | スレッドに関連付けられているか否かを取得する | C++20 |
 | [`join`](jthread/join.md)                   | スレッドが終了するまで待機する | C++20 |
 | [`detach`](jthread/detach.md)               | スレッドの管理を手放す | C++20 |
@@ -54,7 +54,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|---------------------------------------|-------|
-| [`swap`](jthread/swap_free.md.nolink) | 2つの`jthread`オブジェクトを入れ替える | C++20 |
+| [`swap`](jthread/swap_free.md) | 2つの`jthread`オブジェクトを入れ替える | C++20 |
 
 
 ## 備考

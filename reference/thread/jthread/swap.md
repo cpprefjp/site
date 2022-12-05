@@ -1,16 +1,16 @@
 # swap
 * thread[meta header]
 * std[meta namespace]
-* thread[meta class]
+* jthread[meta class]
 * function[meta id-type]
-* cpp11[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
-void swap(thread& x) noexcept;
+void swap(jthread& x) noexcept;
 ```
 
 ## 概要
-別の`thread`と交換する。
+別の`jthread`と交換する。
 
 
 ## 効果
@@ -27,8 +27,8 @@ void swap(thread& x) noexcept;
 
 int main()
 {
-  std::thread t1([]{ /*...*/ });
-  std::thread t2;
+  std::jthread t1([]{ /*...*/ });
+  std::jthread t2;
 
   t1.swap(t2);
 
@@ -46,13 +46,9 @@ int main()
 
 ## バージョン
 ### 言語
-- C++11
+- C++20
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
-- [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-
-
-## 参照
+- [GCC](/implementation.md#gcc): 10.2.0
+- [Visual C++](/implementation.md#visual_cpp): ??
