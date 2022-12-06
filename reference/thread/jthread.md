@@ -22,15 +22,15 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------------------------------------------|-------|
-| [`(constructor)`](jthread/op_constructor.md)        | コンストラクタ | C++20 |
-| [`(destructor)`](jthread/op_destructor.md)        | デストラクタ | C++20 |
-| [`operator=`](jthread/op_assign.md)         | 代入演算子 | C++20 |
-| [`swap`](jthread/swap.md)                   | 別の`jthread`と交換する | C++20 |
-| [`joinable`](jthread/joinable.md)           | スレッドに関連付けられているか否かを取得する | C++20 |
-| [`join`](jthread/join.md)                   | スレッドが終了するまで待機する | C++20 |
-| [`detach`](jthread/detach.md)               | スレッドの管理を手放す | C++20 |
-| [`get_id`](jthread/get_id.md)               | 関連付けられているスレッドのスレッド識別子を取得する | C++20 |
-| [`native_handle`](jthread/native_handle.md.nolink) | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++20 |
+| [`(constructor)`](jthread/op_constructor.md) | コンストラクタ | C++20 |
+| [`(destructor)`](jthread/op_destructor.md)   | デストラクタ | C++20 |
+| [`operator=`](jthread/op_assign.md)          | 代入演算子 | C++20 |
+| [`swap`](jthread/swap.md)                    | 別の`jthread`と交換する | C++20 |
+| [`joinable`](jthread/joinable.md)            | スレッドに関連付けられているか否かを取得する | C++20 |
+| [`join`](jthread/join.md)                    | スレッドが終了するまで待機する | C++20 |
+| [`detach`](jthread/detach.md)                | スレッドの管理を手放す | C++20 |
+| [`get_id`](jthread/get_id.md)                | 関連付けられているスレッドのスレッド識別子を取得する | C++20 |
+| [`native_handle`](jthread/native_handle.md)  | スレッドに関連付けられたネイティブハンドルを取得する［処理系定義］ | C++20 |
 | [`get_stop_source`](jthread/get_stop_source.md) | 停止要求を作成するための[`stop_source`](/reference/stop_token/stop_source.md)オブジェクトを取得する | C++20 |
 | [`get_stop_token`](jthread/get_stop_token.md) | 停止状態を問い合わせるための[`stop_token`](/reference/stop_token/stop_token.md)オブジェクトを取得する | C++20 |
 | [`request_stop`](jthread/request_stop.md) | スレッドに対する停止要求を作成する | C++20 |
@@ -39,7 +39,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------------|----------------------------------------------------|-------|
-| [`hardware_concurrency`](jthread/hardware_concurrency.md.nolink) | 処理系によりサポートされるスレッド並行数を取得する | C++20 |
+| [`hardware_concurrency`](jthread/hardware_concurrency.md) | 処理系によりサポートされるスレッド並行数を取得する | C++20 |
 
 
 ## メンバ型
