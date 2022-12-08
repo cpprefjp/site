@@ -34,7 +34,7 @@ namespace std {
 
 ## 備考
 - このコンセプトは[`input_iterator`](/reference/iterator/input_iterator.md)のいくつかの操作で例外を投げることを許可する
-- このクラスは、[`std::vector`](/reference/vector/vector.md)`<bool>`のイテレータのような、プロキシオブジェクトを指すイテレータを除外する
+- このコンセプトは、[`std::vector`](/reference/vector/vector.md)`<bool>`のイテレータのような、プロキシオブジェクトを指すイテレータを除外する
 
 
 ## 例
