@@ -26,7 +26,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`no-throw-input-iterator`](memory/no-throw-input-iterator.md.nolink) | 各操作で例外送出をしない説明用の入力イテレータ (concept) | C++20 |
+| [`no-throw-input-iterator`](memory/no-throw-input-iterator.md) | 各操作で例外送出をしない説明用の入力イテレータ (concept) | C++20 |
 | [`no-throw-forward-iterator`](memory/no-throw-forward-iterator.md.nolink) | 各操作で例外送出をしない説明用の前方向イテレータ (concept) | C++20 |
 | [`no-throw-sentinel`](memory/no-throw-sentinel.md.nolink) | 各操作で例外送出をしない説明用の番兵 (concept) | C++20 |
 | [`no-throw-input-range`](memory/no-throw-input-range.md.nolink) | 各操作で例外送出をしない入力Range (concept) | C++20 |
