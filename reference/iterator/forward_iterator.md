@@ -51,6 +51,8 @@ namespace std {
 #include <iterator>
 #include <memory>
 #include <vector>
+#include <forward_list>
+#include <list>
 
 template<std::forward_iterator I>
 void f(const char* name) {
@@ -84,7 +86,7 @@ int main() {
   f<std::list<int>::iterator>("std::list<int>::iterator");
   f<std::vector<int>::iterator>("std::vector<int>::iterator");
   f<sample_forward_iterator>("sample_forward_iterator");
-  
+
   std::cout << "\n";
   f<int* const>("int* const");
   f<std::istream_iterator<double>>("std::istream_iterator<double>");
