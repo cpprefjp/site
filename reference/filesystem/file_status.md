@@ -32,6 +32,14 @@ namespace std::filesystem {
 | [`permissions`](file_status/permissions.md) | ファイルの権限を設定・取得する | C++17 |
 
 
+### 比較演算子
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator==`](file_status/op_equal.md) | 等値比較 | C++20 |
+| `friend bool operator!=(const file_status&, const file_status&);` | 非等値比較 (`==`により使用可能) | C++20 |
+
+
 ## 例
 ```cpp example
 #include <cassert>

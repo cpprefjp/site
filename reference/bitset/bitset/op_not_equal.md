@@ -22,6 +22,10 @@ bool operator!=(const bitset<N>& rhs) const noexcept; // (2) C++11
 投げない。
 
 
+## 備考
+- この演算子により、`operator!=`が使用可能になる (C++20)
+
+
 ## 例
 ```cpp example
 #include <iostream>
