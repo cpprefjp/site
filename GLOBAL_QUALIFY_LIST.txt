@@ -106,6 +106,7 @@
 * <istream>[link /reference/istream.md]
     * std::basic_istream[link /reference/istream/basic_istream.md]
 * <iterator>[link /reference/iterator.md]
+    * default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
     * std::back_inserter[link /reference/iterator/back_inserter.md]
     * std::begin[link /reference/iterator/begin.md]
     * std::distance[link /reference/iterator/distance.md]
