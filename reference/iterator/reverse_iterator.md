@@ -98,7 +98,7 @@ namespace std {
 | [`operator<=`](reverse_iterator/op_less_equal.md) | 左辺が右辺以下かの判定を行う | |
 | [`operator>`](reverse_iterator/op_greater.md) | 左辺が右辺より大きいかの判定を行う | |
 | [`operator>=`](reverse_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | |
-| [`operator<=>`](reverse_iterator/op_compare_3way.md.nolink)           | 三方比較を行う | C++20 |
+| [`operator<=>`](reverse_iterator/op_compare_3way.md)           | 三方比較を行う | C++20 |
 | [`operator-`](reverse_iterator/op_minus.md) | 2つの`reverse_iterator`の差を求める | |
 | [`operator+`](reverse_iterator/op_plus.md) | イテレータを進める | |
 | [`iter_move`](reverse_iterator/iter_move.md)     | イテレータの要素の移動 | C++20 |
