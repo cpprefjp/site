@@ -8,12 +8,12 @@
 namespace std {
   template <class Iterator>
   class move_iterator {
-
+  public:
     template <sentinel_for<Iterator> S>
     friend constexpr bool operator==(const move_iterator& x,
                                      const move_sentinel<S>& y);  // (1) C++20
-    
-    // (1)のoperator==により、以下のオーバーロードが使用可能になる
+
+    // (1)のoperator==により、以下のオーバーロードが使用可能になる (C++20)
     template <sentinel_for<Iterator> S>
     friend constexpr bool operator==(const move_sentinel<S>& x,
                                      const move_iterator& y);     // (2) C++20
