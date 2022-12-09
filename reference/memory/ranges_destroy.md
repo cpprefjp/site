@@ -18,7 +18,7 @@ namespace std::ranges {
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
 * destructible[link /reference/concepts/destructible.md]
-* no-throw-forward-range[link no-throw-forward-range.md.nolink]
+* no-throw-forward-range[link no-throw-forward-range.md]
 * range_value_t[link /reference/ranges/range_value_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
@@ -37,7 +37,7 @@ namespace std::ranges {
     - `S`が[`I`に対する例外を投げない番兵](no-throw-sentinel.md)である
     - `I`の要素型が、[破棄可能](/reference/concepts/destructible.md)である
 - (2):
-    - `R`が[`no-throw-forward-range`](no-throw-forward-range.md.nolink)である
+    - `R`が[`no-throw-forward-range`](no-throw-forward-range.md)である
     - `R`の要素型が、[破棄可能](/reference/concepts/destructible.md)である
 
 

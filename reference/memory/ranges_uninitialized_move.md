@@ -29,7 +29,7 @@ namespace std::ranges {
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 * input_range[link /reference/ranges/input_range.md]
-* no-throw-forward-range[link no-throw-forward-range.md.nolink]
+* no-throw-forward-range[link no-throw-forward-range.md]
 * range_value_t[link /reference/ranges/range_value_t.md]
 * range_rvalue_reference_t[link /reference/ranges/range_rvalue_reference_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
@@ -50,7 +50,7 @@ namespace std::ranges {
     - `O`の要素型が、`I`の要素型の右辺値を引数として[構築可能](/reference/concepts/constructible_from.md)である
 - (2):
     - `IR`が[`input_range`](/reference/ranges/input_range.md)である
-    - `OR`が[`no-throw-forward-range`](no-throw-forward-range.md.nolink)である
+    - `OR`が[`no-throw-forward-range`](no-throw-forward-range.md)である
     - `OR`の要素型が、`IR`の要素型の右辺値を引数として[構築可能](/reference/concepts/constructible_from.md)である
 
 

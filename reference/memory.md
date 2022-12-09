@@ -29,8 +29,8 @@
 | [`no-throw-input-iterator`](memory/no-throw-input-iterator.md) | 各操作で例外送出をしない説明用の入力イテレータ (concept) | C++20 |
 | [`no-throw-forward-iterator`](memory/no-throw-forward-iterator.md) | 各操作で例外送出をしない説明用の前方向イテレータ (concept) | C++20 |
 | [`no-throw-sentinel`](memory/no-throw-sentinel.md) | 各操作で例外送出をしない説明用の番兵 (concept) | C++20 |
-| [`no-throw-input-range`](memory/no-throw-input-range.md.nolink) | 各操作で例外送出をしない入力Range (concept) | C++20 |
-| [`no-throw-forward-range`](memory/no-throw-forward-range.md.nolink) | 各操作で例外送出をしない前方向Range (concept) | C++20 |
+| [`no-throw-input-range`](memory/no-throw-input-range.md) | 各操作で例外送出をしない入力Range (concept) | C++20 |
+| [`no-throw-forward-range`](memory/no-throw-forward-range.md) | 各操作で例外送出をしない前方向Range (concept) | C++20 |
 
 
 ## 未初期化領域に対する操作
