@@ -51,14 +51,6 @@ SM_CAT(I) = compare_three_way_result_t<basic_string<typename iterator_traits<I>:
 
 - (2) :
     ```cpp
-    return lhs.compare(typename sub_match<BiIter>::string_type(rhs.data(), rhs.size())) == 0;
-    ```
-    * compare[link compare.md]
-    * data()[link /reference/string/basic_string/data.md]
-    * size()[link /reference/string/basic_string/size.md]
-
-- (3) :
-    ```cpp
     return static_cast<SM_CAT(BiIter)>(lhs.compare(
       typename sub_match<BiIter>::string_type(rhs.data(), rhs.size())
     ) <=> 0)
@@ -67,11 +59,20 @@ SM_CAT(I) = compare_three_way_result_t<basic_string<typename iterator_traits<I>:
     * data()[link /reference/string/basic_string/data.md]
     * size()[link /reference/string/basic_string/size.md]
 
+- (3) :
+    ```cpp
+    static_cast<SM_CAT(BiIter)>(lhs.compare(
+      typename sub_match<BiIter>::string_type(1, rhs)
+    ) <=> 0)
+    ```
+    * compare[link compare.md]
+
 - (4) :
     ```cpp
     return static_cast<SM_CAT(BiIter)>(lhs.compare(rhs) <=> 0);
     ```
     * compare[link compare.md]
+
 
 ## 備考
 - (1) の形式でもマッチした文字列のみが比較され、マッチした位置は考慮されない。（例を参照）
