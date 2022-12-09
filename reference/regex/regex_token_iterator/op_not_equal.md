@@ -6,6 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
+// operator==により、以下の演算子が使用可能になる (C++20)
 bool operator!=(const regex_token_iterator& right) const;
 ```
 
@@ -84,3 +85,7 @@ match range = (31, 42), str = 'enumerator1'
 | [`(constructor)`](op_constructor.md) | コンストラクタ | C++11          |
 | [`operator++`](op_increment.md)            | インクリメント | C++11          |
 | [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
