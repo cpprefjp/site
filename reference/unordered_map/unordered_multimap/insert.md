@@ -232,7 +232,6 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,5th), (5,five), (4,four)
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ?

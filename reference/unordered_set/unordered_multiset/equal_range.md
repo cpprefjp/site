@@ -97,7 +97,6 @@ equal_range(8): [10, 10)
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.0, 3.1
 - [GCC](/implementation.md#gcc): 4.4.7, 4.5.3, 4.6.3, 4.7.0
 - [ICC](/implementation.md#icc): ?

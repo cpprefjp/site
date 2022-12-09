@@ -79,7 +79,6 @@ size is 10, bucket_count is 11, load_factor is 0.909091
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ?

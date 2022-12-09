@@ -182,7 +182,6 @@ insert initializer_list : 7 8 6 5 5 5 4 4 3 3 2 2 1 1 0 0 0
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ?

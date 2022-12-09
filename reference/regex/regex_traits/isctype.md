@@ -57,7 +57,6 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
 - [GCC](/implementation.md#gcc): 4.9.0, 4.9.1, 4.9.2, 5.0.0
 - [ICC](/implementation.md#icc): ??

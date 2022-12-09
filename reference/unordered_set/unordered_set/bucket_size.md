@@ -68,7 +68,6 @@ bucket = 4, bucket_size = 2, keys = { C, B, }
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.2
 - [ICC](/implementation.md#icc): ?

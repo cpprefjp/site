@@ -50,7 +50,6 @@ max bucket count is 576460752303423487
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 4.3.6
 - [ICC](/implementation.md#icc): ?

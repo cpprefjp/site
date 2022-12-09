@@ -87,7 +87,6 @@ bucket_count is 7
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ?

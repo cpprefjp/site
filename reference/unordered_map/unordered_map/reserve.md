@@ -105,7 +105,6 @@ new load_factor: 0.363636
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.2
 - [GCC](/implementation.md#gcc): 4.5.4
 - [ICC](/implementation.md#icc): ?

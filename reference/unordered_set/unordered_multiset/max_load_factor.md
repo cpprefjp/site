@@ -165,7 +165,6 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
 - [Clang](/implementation.md#clang): 3.1
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ?
