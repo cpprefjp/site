@@ -48,11 +48,12 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |--------------|------------------------------------|-------|
 | `operator==` | 等値比較                           | C++11 |
-| `operator!=` | 非等値比較                         | C++11 |
-| `operator<`  | 左辺が右辺より小さいかの判定を行う | C++11 |
-| `operator<=` | 左辺が右辺以下かの判定を行う       | C++11 |
-| `operator>`  | 左辺が右辺より大きいかの判定を行う | C++11 |
-| `operator>=` | 左辺が右辺以上かの判定を行う       | C++11 |
+| `operator!=` | 非等値比較 (C++20から`operator==`により使用可能)                         | C++11 |
+| `operator<`  | 左辺が右辺より小さいかの判定を行う (C++20から`operator==`により使用可能) | C++11 |
+| `operator<=` | 左辺が右辺以下かの判定を行う (C++20から`operator==`により使用可能)       | C++11 |
+| `operator>`  | 左辺が右辺より大きいかの判定を行う (C++20から`operator==`により使用可能) | C++11 |
+| `operator>=` | 左辺が右辺以上かの判定を行う (C++20から`operator==`により使用可能)       | C++11 |
+| `strong_ordering operator<=>(thread::id x, thread::id y) noexcept;` | 三方比較 | C++20 |
 
 ### ストリーム出力
 
@@ -100,4 +101,5 @@ main=824a30
 
 ## 参照
 - [LWG Issue 783. `thread::id` reuse](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#783)
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
