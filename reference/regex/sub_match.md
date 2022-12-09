@@ -59,6 +59,7 @@ namespace std {
 |-----------------------------------------------|------------------------------------|----------------|
 | [`operator==`](sub_match/op_equal.md)         | 等値比較を行う                     | C++11          |
 | [`operator!=`](sub_match/op_not_equal.md)     | 非等値比較を行う                   | C++11          |
+| [`operator<=>`](sub_match/op_compare_3way.md) | 三方比較を行う                     | C++20          |
 | [`operator<`](sub_match/op_less.md)           | 左辺が右辺よりも小さいか判定を行う | C++11          |
 | [`operator<=`](sub_match/op_less_equal.md)    | 左辺が右辺以下か判定を行う         | C++11          |
 | [`operator>`](sub_match/op_greater.md)        | 左辺が右辺より大きいか判定を行う   | C++11          |
