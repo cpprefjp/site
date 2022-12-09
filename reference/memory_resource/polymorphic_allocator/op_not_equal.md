@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std::pmr {
+  // operator==により、以下のオーバーロードが使用可能になる (C++20)
   template <class T1, class T2>
   bool operator!=(const polymorphic_allocator<T1>& a,
-                  const polymorphic_allocator<T2>& b) noexcept;
+                  const polymorphic_allocator<T2>& b) noexcept; // (1) C++17
 }
 ```
 
@@ -62,3 +63,8 @@ false
 
 ## 関連項目
 - [`operator!=`](/reference/memory_resource/memory_resource/op_not_equal.md)
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

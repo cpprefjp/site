@@ -6,7 +6,8 @@
 
 ```cpp
 namespace std::pmr {
-  bool operator!=(const memory_resource& a, const memory_resource& b) noexcept;
+  // operator==により、以下のオーバーロードが使用可能になる (C++20)
+  bool operator!=(const memory_resource& a, const memory_resource& b) noexcept; // (1) C++17
 }
 ```
 
@@ -62,3 +63,8 @@ true
 ## 関連項目
 - [`is_equal`](is_equal.md)
 - [`op_equal`](op_equal.md)
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
