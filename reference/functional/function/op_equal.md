@@ -6,11 +6,12 @@
 
 ```cpp
 namespace std {
-template <class R, class... ArgTypes>
-bool operator==(const function<R(ArgTypes...)>& f, nullptr_t) noexcept;
+  template <class R, class... ArgTypes>
+  bool operator==(const function<R(ArgTypes...)>& f, nullptr_t) noexcept; // (1) C++11
 
-template <class R, class... ArgTypes>
-bool operator==(nullptr_t, const function<R(ArgTypes...)>& f) noexcept;
+  // (1)により、以下のオーバーロードが使用可能になる (C++20)
+  template <class R, class... ArgTypes>
+  bool operator==(nullptr_t, const function<R(ArgTypes...)>& f) noexcept; // (2) C++20
 }
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
@@ -65,4 +66,5 @@ not empty
 
 
 ## 参照
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
