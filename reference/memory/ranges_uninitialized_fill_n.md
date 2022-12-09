@@ -62,9 +62,7 @@ int main()
   });
 
   // 要素を破棄
-  for (std::size_t i = 0; i < size; ++i) {
-    std::destroy_at(p + i);
-  }
+  std::ranges::destroy_n(p, size);
 
   // メモリ解放
   alloc.deallocate(p, size);
@@ -74,7 +72,7 @@ int main()
 * std::ranges::subrange[link /reference/ranges/subrange.md]
 * std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
-* std::destroy_at[link destroy_at.md]
+* std::ranges::destroy_n[link ranges_destroy_n.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
 ### 出力
