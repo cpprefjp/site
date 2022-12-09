@@ -24,8 +24,8 @@ namespace std::ranges {
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
-* no-throw-forward-iterator[link no-throw-forward-iterator.md.nolink]
-* no-throw-sentinel[link no-throw-sentinel.md.nolink]
+* no-throw-forward-iterator[link no-throw-forward-iterator.md]
+* no-throw-sentinel[link no-throw-sentinel.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * input_range[link /reference/ranges/input_range.md]
@@ -45,8 +45,8 @@ namespace std::ranges {
 - (1):
     - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である
     - `S1`が[`I`に対する番兵](/reference/iterator/sentinel_for.md)である
-    - `O`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md.nolink)である
-    - `S2`が[`O`に対する例外を投げない番兵](no-throw-sentinel.md.nolink)である
+    - `O`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md)である
+    - `S2`が[`O`に対する例外を投げない番兵](no-throw-sentinel.md)である
     - `O`の要素型が、`I`の要素型を引数として[構築可能](/reference/concepts/constructible_from.md)である
 - (2):
     - `IR`が[`input_range`](/reference/ranges/input_range.md)である

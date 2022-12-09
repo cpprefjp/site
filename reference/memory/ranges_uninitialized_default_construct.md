@@ -15,8 +15,8 @@ namespace std::ranges {
   borrowed_iterator_t<R> uninitialized_default_construct(R&& r); // (2) C++20
 }
 ```
-* no-throw-forward-iterator[link no-throw-forward-iterator.md.nolink]
-* no-throw-sentinel[link no-throw-sentinel.md.nolink]
+* no-throw-forward-iterator[link no-throw-forward-iterator.md]
+* no-throw-sentinel[link no-throw-sentinel.md]
 * default_initializable[link /reference/concepts/default_initializable.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 * no-throw-forward-range[link no-throw-forward-range.md.nolink]
@@ -32,8 +32,8 @@ namespace std::ranges {
 
 ## テンプレートパラメータ制約
 - (1):
-    - `I`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md.nolink)である
-    - `S`が[`I`に対する例外を投げない番兵](no-throw-sentinel.md.nolink)である
+    - `I`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md)である
+    - `S`が[`I`に対する例外を投げない番兵](no-throw-sentinel.md)である
     - `I`の要素型が、[デフォルト構築可能](/reference/concepts/default_initializable.md)である
 - (2):
     - `R`が[`no-throw-forward-range`](no-throw-forward-range.md.nolink)である

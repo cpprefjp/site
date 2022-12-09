@@ -11,7 +11,7 @@ namespace std::ranges {
   I uninitialized_value_construct_n(I first, iter_difference_t<I> n); // (1) C++20
 }
 ```
-* no-throw-forward-iterator[link no-throw-forward-iterator.md.nolink]
+* no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * default_initializable[link /reference/concepts/default_initializable.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
@@ -22,7 +22,7 @@ namespace std::ranges {
 
 ## テンプレートパラメータ制約
 - (1):
-    - `I`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md.nolink)である
+    - `I`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md)である
     - `I`の要素型が、[デフォルト構築可能](/reference/concepts/default_initializable.md)である
 
 

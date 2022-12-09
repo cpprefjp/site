@@ -1,4 +1,4 @@
-# no-throw-input-iterator
+# no-throw-forward-iterator
 * memory[meta header]
 * std[meta namespace]
 * concept[meta id-type]
@@ -8,21 +8,18 @@
 namespace std {
   template <class I>
   concept no-throw-input-iterator =
-    input_iterator<I> &&
-    is_lvalue_reference_v<iter_reference_t<I>> &&
-    same_as<remove_cvref_t<iter_reference_t<I>>, iter_value_t<I>>;
+    no-throw-input-iterator<I> &&
+    forward_iterator<T> &&
+    no-throw-sentinel<T, I>
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
-* iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
-* same_as[link /reference/concepts/same_as.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
+* no-throw-input-iterator[link no-throw-input-iterator.md]
+* forward_iterator[link /reference/iterator/forward_iterator.md]
+* no-throw-sentinel[link no-throw-sentinel.md]
 
 ## 概要
 
-`no-throw-input-iterator`は、イテレータ型`I`が以下の操作で例外を投げない入力イテレータの説明用コンセプトである：
+`no-throw-forward-iterator`は、イテレータ型`I`が以下の操作で例外を投げない前方向イテレータの説明用コンセプトである：
 
 - インクリメント
 - コピー構築
@@ -33,7 +30,7 @@ namespace std {
 
 
 ## 備考
-- このコンセプトは[`input_iterator`](/reference/iterator/input_iterator.md)のいくつかの操作で例外を投げることを許可する
+- このコンセプトは[`forward_iterator`](/reference/iterator/forward_iterator.md)のいくつかの操作で例外を投げることを許可する
 - このコンセプトは、[`std::vector`](/reference/vector/vector.md)`<bool>`のイテレータのような、プロキシオブジェクトを指すイテレータを除外する
 
 
@@ -53,14 +50,23 @@ concept no_throw_input_iterator =
   std::is_lvalue_reference_v<std::iter_reference_t<I>> &&
   std::same_as<std::remove_cvref_t<std::iter_reference_t<I>>, std::iter_value_t<I>>;
 
-template <no_throw_input_iterator I>
+template<class S, class I>
+concept no_throw_sentinel = std::sentinel_for<S, I>;
+
+template<class I>
+concept no_throw_forward_iterator =
+  no_throw_input_iterator <I> &&
+  std::forward_iterator<I> &&
+  no_throw_sentinel<I, I>;
+
+template <no_throw_forward_iterator I>
 void f(const char* name) {
-  std::cout << name << " is no-throw-input-iterator" << std::endl;
+  std::cout << name << " is no-throw-forward-iterator" << std::endl;
 }
 
 template<typename I>
 void f(const char* name) {
-  std::cout << name << " is not no-throw-input-iterator" << std::endl;
+  std::cout << name << " is not no-throw-forward-iterator" << std::endl;
 }
 
 int main() {
@@ -74,24 +80,26 @@ int main() {
   std::cout << "\n";
 }
 ```
-* no_throw_input_iterator[color ff0000]
+* no_throw_forward_iterator[color ff0000]
 * std::input_iterator[link /reference/iterator/input_iterator.md]
 * std::is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * std::iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * std::iter_value_t[link /reference/iterator/iter_value_t.md]
 * std::same_as[link /reference/concepts/same_as.md]
 * std::remove_cvref_t[link /reference/type_traits/remove_cvref.md]
+* std::sentinel_for[link /reference/iterator/sentinel_for.md]
+* std::forward_iterator[link /reference/iterator/forward_iterator.md]
 * std::forward_list[link /reference/forward_list/forward_list.md]
 * std::list[link /reference/list/list.md]
 
 ### 出力
 ```
-int* is no-throw-input-iterator
-const int* is no-throw-input-iterator
-std::forward_list<int>::iterator is no-throw-input-iterator
-std::list<int>::iterator is no-throw-input-iterator
-std::vector<int>::iterator is no-throw-input-iterator
-std::vector<bool>::iterator is not no-throw-input-iterator
+int* is no-throw-forward-iterator
+const int* is no-throw-forward-iterator
+std::forward_list<int>::iterator is no-throw-forward-iterator
+std::list<int>::iterator is no-throw-forward-iterator
+std::vector<int>::iterator is no-throw-forward-iterator
+std::vector<bool>::iterator is not no-throw-forward-iterator
 ```
 
 

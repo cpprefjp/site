@@ -24,8 +24,8 @@ namespace std::ranges {
 ```
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
-* no-throw-forward-iterator[link no-throw-forward-iterator.md.nolink]
-* no-throw-sentinel[link no-throw-sentinel.md.nolink]
+* no-throw-forward-iterator[link no-throw-forward-iterator.md]
+* no-throw-sentinel[link no-throw-sentinel.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
@@ -39,8 +39,8 @@ namespace std::ranges {
 ## テンプレートパラメータ制約
 - (1):
     - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である
-    - `O`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md.nolink)である
-    - `S`が[`O`に対する例外を投げない番兵](no-throw-sentinel.md.nolink)である
+    - `O`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md)である
+    - `S`が[`O`に対する例外を投げない番兵](no-throw-sentinel.md)である
     - `O`の要素型が、`I`の要素型の右辺値を引数として[構築可能](/reference/concepts/constructible_from.md)である
 
 
