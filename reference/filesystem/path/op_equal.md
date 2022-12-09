@@ -6,7 +6,12 @@
 
 ```cpp
 namespace std::filesystem {
-  bool operator==(const path& lhs, const path& rhs) noexcept;
+  bool operator==(const path& lhs, const path& rhs) noexcept; // (1) C++20
+
+  class path {
+  public:
+    friend bool operator==(const path& lhs, const path& rhs) noexcept; // (1) C++20
+  };
 }
 ```
 
@@ -15,15 +20,24 @@ namespace std::filesystem {
 
 
 ## 戻り値
-```cpp
-return !(lhs < rhs) && !(rhs < lhs);
-```
+- (1):
+    - C++17
+    ```cpp
+    return !(lhs < rhs) && !(rhs < lhs);
+    ```
+
+    - C++20
+    ```cpp
+    return lhs.compare(rhs) == 0;
+    ```
+    * compare[link compare.md]
 
 
 ## 備考
-`lhs.`[`compare`](compare.md)`(rhs) == 0`と等価
+- (1) : `lhs.`[`compare`](compare.md)`(rhs) == 0`と等価 (C++17)
+- この演算子はパス要素列の等価性を判定するため、パスが意味的に同一かどうかを判定することはできない。パス文字列の意味的な等価性判定には、[`filesystem::equivalent()`](/reference/filesystem/equivalent.md)を使用する
+- この演算子により、`operator!=`が使用可能になる (C++20)
 
-この演算子はパス要素列の等価性を判定するため、パスが意味的に同一かどうかを判定することはできない。パス文字列の意味的な等価性判定には、[filesystem::equivalent()](/reference/filesystem/equivalent.md)を使用する。
 
 ## 例
 ```cpp example
@@ -61,3 +75,8 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 8.1
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 7
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

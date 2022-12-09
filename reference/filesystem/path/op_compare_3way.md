@@ -1,24 +1,31 @@
-# operator!=
+# operator<=>
 * filesystem[meta header]
 * std::filesystem[meta namespace]
+* path[meta class]
 * function[meta id-type]
-* cpp17[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
-namespace std::filesystem {
-  // operator==により、以下のオーバーロードが使用可能になる (C++20)
-  bool operator!=(const path& lhs, const path& rhs) noexcept; // (1) C++17
-}
+friend strong_ordering operator<=>(const path& lhs, const path& rhs) noexcept; // (1) C++20
 ```
 
 ## 概要
-非等値比較を行う
+三方比較を行う
 
 
 ## 戻り値
 ```cpp
-return !(lhs == rhs);
+return lhs.compare(rhs) <=> 0;
 ```
+* compare[link compare.md]
+
+
+## 備考
+- この演算子により、以下の演算子が使用可能になる：
+    - `operator<`
+    - `operator<=`
+    - `operator>`
+    - `operator>=`
 
 
 ## 例
@@ -33,17 +40,17 @@ int main()
   fs::path a = "a/b/c";
   fs::path b = "a/b/d";
 
-  assert(a != b);
-  assert(!(a != a));
+  assert((a <=> a) == 0);
+  assert((a <=> b) != 0);
 
   // 正規化は考慮されない。
   // ファイルシステムとしてのパスの等価性ではなく、
   // パス文字列の同値性が比較されれる
   fs::path c = "a/../b/c";
-  assert(a != c);
+  assert((a <=> c) != 0);
 }
 ```
-* !=[color ff0000]
+* <=>[color ff0000]
 
 ### 出力
 ```
@@ -51,12 +58,12 @@ int main()
 
 ## バージョン
 ### 言語
-- C++17
+- C++20
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 8.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7
+- [GCC](/implementation.md#gcc): 10
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
