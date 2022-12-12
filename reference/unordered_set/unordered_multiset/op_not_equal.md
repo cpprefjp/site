@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std {
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class Key, class Hash, class Pred, class Allocator>
   bool operator!=(const unordered_multiset<Key, Hash, Pred, Allocator>& a,
-                  const unordered_multiset<Key, Hash, Pred, Allocator>& b);
+                  const unordered_multiset<Key, Hash, Pred, Allocator>& b); // (1) C++11
 }
 ```
 
@@ -122,3 +123,5 @@ namespace std {
 
 ## 参照
 - [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
