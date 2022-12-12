@@ -24,8 +24,8 @@ template <class T, class U=T>
 using synth-three-way-result =
   decltype(synth-three-way(declval<T&>(), declval<U&>())); // (2) C++20
 ```
-* synth-three-way[italic]
 * synth-three-way-result[italic]
+* synth-three-way[italic]
 * boolean-testable[link /reference/concepts/boolean-testable.md]
 * three_way_comparable_with[link /reference/compare/three_way_comparable.md]
 * weak_ordering[link /reference/compare/weak_ordering.md]
