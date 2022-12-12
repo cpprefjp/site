@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator==(const forward_list<T, Allocator>& x, const forward_list<T, Allocator>& y);
+  bool operator==(const forward_list<T, Allocator>& x,
+                  const forward_list<T, Allocator>& y); // (1) C++11
 }
 ```
 
@@ -30,6 +31,11 @@ namespace std {
 
 ## 計算量
 線形時間
+
+
+## 備考
+- この演算子により、以下の演算子が使用可能になる (C++20)：
+    - `operator!=`
 
 
 ## 例
