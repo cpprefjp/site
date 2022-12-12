@@ -5,8 +5,11 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class Key, class T, class Compare, class Allocator>
-  bool operator>=(const map<Key,T, Compare,Allocator>& x, const map<Key,T, Compare,Allocator>& y);
+  bool
+    operator>=(const map<Key,T, Compare,Allocator>& x,
+               const map<Key,T, Compare,Allocator>& y);
 }
 ```
 
@@ -57,3 +60,7 @@ int main()
 0
 ```
 
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
