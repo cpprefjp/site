@@ -1,25 +1,24 @@
 # operator<=>
-* map[meta header]
+* set[meta header]
 * std[meta namespace]
 * function template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
 namespace std {
-  template <class Key, class T, class Compare, class Allocator>
-  synth-three-way-result<pair<const Key, T>>
-    operator<=>(const multimap<Key,T,Compare,Allocator>& x,
-                const multimap<Key,T,Compare,Allocator>& y); // (1) C++20
+  template <class Key, class Compare, class Allocator>
+  synth-three-way-result<Key>
+    operator<=>(const multiset<Key,Compare,Allocator>& x,
+                const multiset<Key,Compare,Allocator>& y); // (1) C++20
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
-`multimap`オブジェクトの三方比較を行う。
+`multiset`オブジェクトの三方比較を行う。
 
 
 ## テンプレートパラメータ制約
-- 型 (`const`) `pair<const Key, T>` の値に対して`operator<=>`が定義されるか、型 (`const`) `pair<const Key, T>` の値に対して`operator<`が定義され全順序をもつこと
+- 型 (`const`) `Key` の値に対して`operator<=>`が定義されるか、型 (`const`) `Key` の値に対して`operator<`が定義され全順序をもつこと
 
 
 ## 効果
@@ -46,26 +45,24 @@ return lexicographical_compare_three_way(
     - `operator>=`
 
 
-
 ## 例
 ```cpp example
 #include <cassert>
-#include <map>
+#include <set>
 
 int main()
 {
-  std::multimap<int, char> m1;
-  m1.insert(std::make_pair(0, 'a'));
+  std::multiset<int> s1, s2;
+  s1.insert(10);
+  s1.insert(20);
+  s1.insert(30);
+  s2 = s1;
 
-  auto m2 = m1;
+  assert((s1 <=> s2) == 0);
 
-  assert((m1 <=> m2) == 0);
+  s2.insert(40);
 
-  m2.insert(std::make_pair(0, 'b'));
-
-  assert((m1 <=> m2) != 0);
-
-  return 0;
+  assert((s1 <=> s2) != 0);
 }
 ```
 * insert[link insert.md]
@@ -73,12 +70,6 @@ int main()
 ### 出力
 ```
 ```
-
-### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
 
 
 ## 参照

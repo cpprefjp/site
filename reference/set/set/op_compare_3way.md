@@ -18,7 +18,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-- 型 (`const`) `T` の値に対して`operator<=>`が定義されるか、型 (`const`) `T` の値に対して`operator<`が定義され全順序をもつこと
+- 型 (`const`) `Key` の値に対して`operator<=>`が定義されるか、型 (`const`) `Key` の値に対して`operator<`が定義され全順序をもつこと
 
 
 ## 効果
