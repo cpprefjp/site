@@ -51,6 +51,7 @@ namespace std {
 | `off_type`   | 文字の差を表す型 | |
 | `pos_type`   | 位置を表す型 | |
 | `state_type` | ストリームのマルチバイト文字の変換の状態を表す型 | |
+| `comparison_category` | 比較カテゴリ | C++20 |
 
 
 ### charによる特殊化のメンバ型定義
@@ -62,6 +63,7 @@ namespace std {
 | `off_type`   | `streamoff` | |
 | `pos_type`   | `streampos` | |
 | `state_type` | `mbstate_t` | |
+| `comparison_category` | [`strong_ordering`](/reference/compare/strong_ordering.md) | C++20 |
 
 ### char8_tによる特殊化のメンバ型定義 (C++20)
 
@@ -72,6 +74,7 @@ namespace std {
 | `off_type`   | `streamoff`      | C++20          |
 | `pos_type`   | `u8streampos`   | C++20          |
 | `state_type` | `mbstate_t`      | C++20          |
+| `comparison_category` | [`strong_ordering`](/reference/compare/strong_ordering.md) | C++20 |
 
 ### char16_tによる特殊化のメンバ型定義 (C++11)
 
@@ -82,6 +85,7 @@ namespace std {
 | `off_type`   | `streamoff`      | C++11          |
 | `pos_type`   | `u16streampos`   | C++11          |
 | `state_type` | `mbstate_t`      | C++11          |
+| `comparison_category` | [`strong_ordering`](/reference/compare/strong_ordering.md) | C++20 |
 
 
 ### char32_tによる特殊化のメンバ型定義 (C++11)
@@ -93,6 +97,7 @@ namespace std {
 | `off_type`   | `streamoff`      | C++11          |
 | `pos_type`   | `u32streampos`   | C++11          |
 | `state_type` | `mbstate_t`      | C++11          |
+| `comparison_category` | [`strong_ordering`](/reference/compare/strong_ordering.md) | C++20 |
 
 
 ### wchar_tによる特殊化のメンバ型定義
@@ -104,6 +109,7 @@ namespace std {
 | `off_type`   | `streamoff`      | |
 | `pos_type`   | `wstreampos`     | |
 | `state_type` | `mbstate_t`      | |
+| `comparison_category` | [`strong_ordering`](/reference/compare/strong_ordering.md) | C++20 |
 
 
 ## 例
@@ -224,3 +230,7 @@ int main() {
 equal
 ```
 
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
