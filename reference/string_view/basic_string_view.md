@@ -142,6 +142,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 |------|------|----------------|
 | [`operator==`](basic_string_view/op_equal.md)         | 等値比較                           | C++17 |
 | [`operator!=`](basic_string_view/op_not_equal.md)     | 非等値比較                         | C++17 |
+| [`operator<=>`](basic_string_view/op_compare_3way.md) | 三方比較                           | C++20 |
 | [`operator<`](basic_string_view/op_less.md)           | 左辺が右辺より小さいかの判定を行う | C++17 |
 | [`operator<=`](basic_string_view/op_less_equal.md)    | 左辺が右辺以下かの判定を行う       | C++17 |
 | [`operator>`](basic_string_view/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++17 |

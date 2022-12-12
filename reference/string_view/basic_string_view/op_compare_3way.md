@@ -1,31 +1,38 @@
-# operator==
+# operator<=>
 * string_view[meta header]
 * std[meta namespace]
 * function template[meta id-type]
-* cpp17[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
 namespace std {
-  template <class CharT, class Traits>
-  constexpr bool operator==(basic_string_view<CharT, Traits> x,
-                            basic_string_view<CharT, Traits> y) noexcept; // (1) C++17
+  template<class charT, class traits>
+    constexpr see below
+  operator<=>(basic_string_view<charT, traits> x,
+              basic_string_view<charT, traits> y) noexcept; // (1) C++20
 }
 ```
 
 ## 概要
-`basic_string_view`オブジェクトの等値比較を行う。
+`basic_string_view`オブジェクトの三方比較を行う。
 
 
 ## 戻り値
+戻り値の型`R`は、`traits::comparison_category`が存在していればその型、そうでなければ[`weak_ordering`](/reference/compare/weak_ordering.md)となり、以下と等価：
+
+
 ```cpp
-return x.compare(y) == 0;
+return static_cast<R>(lhs.compare(rhs) <=> 0);
 ```
 * compare[link compare.md]
 
 
 ## 備考
 - この演算子により、以下の演算子が使用可能になる (C++20)：
-    - `operator!=`
+    - `operator<`
+    - `operator<=`
+    - `operator>`
+    - `operator>=`
 
 
 ## 例
@@ -38,7 +45,7 @@ int main()
   std::string_view a = "aaa";
   std::string_view b {"aaaBB", 3}; // 先頭3文字を参照
 
-  if (a == b) {
+  if ((a <=> b) == 0) {
     std::cout << "equal" << std::endl;
   }
   else {
@@ -54,12 +61,11 @@ equal
 
 ## バージョン
 ### 言語
-- C++17
+- C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.1
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang):
+- [GCC](/implementation.md#gcc): 10
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
