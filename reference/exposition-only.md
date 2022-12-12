@@ -7,8 +7,8 @@
 | 名前                                                                  | 説明                    | 対応バージョン |
 |-----------------------------------------------------------------------|-------------------------|----------------|
 | [`decay-copy`](exposition-only/decay-copy.md)                         | [`decay`](/reference/type_traits/decay.md)した型にコピーまたはムーブする (function template)     | C++20          |
-| [`synth-three-way`](exposition-only/synth-three-way.md.nolink)               | (function template)     | C++20          |
-| [`synth-three-way-result`](exposition-only/synth-three-way-result.md.nolink) | (function template)     | C++20          |
+| [`synth-three-way`](exposition-only/synth-three-way-result.md)        | 三方比較可能であればそれを行い、そうでなければ三方比較を実装して比較を行う (variable)     | C++20          |
+| [`synth-three-way-result`](exposition-only/synth-three-way-result.md) | `synth-three-way`関数オブジェクトでの比較結果の型 (function template)     | C++20          |
 
 ## `<concepts>`
 
