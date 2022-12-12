@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bool operator!=(const type_info& rhs) const;          // C++03
-bool operator!=(const type_info& rhs) const noexcept; // C++11
+// operator==により、以下の演算子が使用可能になる (C++20)
+bool operator!=(const type_info& rhs) const;          // (1) C++03
+bool operator!=(const type_info& rhs) const noexcept; // (1) C++11
 ```
 
 ## 概要
@@ -43,5 +44,5 @@ difference type? false
 ```
 
 ## 参照
-
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
