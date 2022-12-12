@@ -23,6 +23,14 @@ namespace std {
 | ptr | 成功した場合、書き込まれた最後の文字の次の位置を指すポインタ。 | C++17 |
 | ec | 成功なら`ec == errc{}`、失敗ならば`errc::value_too_large`を表す[`errc`](/reference/system_error/errc.md)の値。 | C++17 |
 
+## メンバ関数
+### 比較演算子
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `friend bool operator==(const to_chars_result&, const to_chars_result&) = default;` | 等値比較を行う | C++20 |
+| `friend bool operator!=(const to_chars_result&, const to_chars_result&);` | 非等値比較を行う (`==`により使用可能) | C++20 |
+
 詳細は[`to_chars`](../charconv/to_chars.md)の戻り値の項を参照のこと。
 
 ## バージョン

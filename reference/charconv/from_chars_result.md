@@ -24,6 +24,14 @@ namespace std {
 | ptr | （指定したフォーマットの）パターンにマッチしない最初の入力文字の位置を指すか、入力文字列の先頭を指すポインタ。 | C++17 |
 | ec | 成功なら`ec == errc{}`、失敗ならば`errc::invalid_argument`を表す[`errc`](/reference/system_error/errc.md)の値。 | C++17 |
 
+## メンバ関数
+### 比較演算子
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `friend bool operator==(const from_chars_result&, const from_chars_result&) = default;` | 等値比較を行う | C++20 |
+| `friend bool operator!=(const from_chars_result&, const from_chars_result&);` | 非等値比較を行う (`==`により使用可能) | C++20 |
+
 詳細は[`from_chars`](../charconv/from_chars.md)の戻り値の項を参照のこと。
 
 ## バージョン
