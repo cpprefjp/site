@@ -6,7 +6,8 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator==(const deque<T, Allocator>& x, const deque<T, Allocator>& y);
+  bool operator==(const deque<T, Allocator>& x,
+                  const deque<T, Allocator>& y); // (1) C++03
 }
 ```
 

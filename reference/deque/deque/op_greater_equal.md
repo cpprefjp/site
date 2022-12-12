@@ -7,7 +7,8 @@
 namespace std {
   // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T, class Allocator>
-  bool operator>=(const deque<T, Allocator>& x, const deque<T, Allocator>& y);
+  bool operator>=(const deque<T, Allocator>& x,
+                  const deque<T, Allocator>& y); // (1) C++03
 }
 ```
 

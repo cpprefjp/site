@@ -26,7 +26,7 @@ namespace std {
 return lexicographical_compare_three_way(
     x.begin(), x.end(),
     y.begin(), y.end(),
-    synth-three-way)
+    synth-three-way);
 ```
 * lexicographical_compare_three_way[link /reference/algorithm/lexicographical_compare_three_way.md]
 * begin()[link begin.md]

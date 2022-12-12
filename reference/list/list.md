@@ -133,6 +133,7 @@ namespace std {
 |--------------------------------------------|-------------------------------------|-------|
 | [`operator==`](list/op_equal.md)         | 等値比較                            | |
 | [`operator!=`](list/op_not_equal.md)     | 非等値比較                          | |
+| [`operator<=>`](list/op_compare_3way.md) | 三方比較                            | C++20 |
 | [`operator<`](list/op_less.md)           | 左辺が右辺より小さいかの判定を行う  | |
 | [`operator<=`](list/op_less_equal.md)    | 左辺が右辺以下かの判定を行う        | |
 | [`operator>`](list/op_greater.md)        | 左辺が右辺より大きいかの判定を行う  | |

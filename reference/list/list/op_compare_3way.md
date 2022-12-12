@@ -1,19 +1,20 @@
 # operator<=>
-* array[meta header]
+* list[meta header]
 * std[meta namespace]
 * function template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
 namespace std {
-  template <class T, size_t N>
-  constexpr synth-three-way-result<T>
-    operator==(const array<T, N>& x, const array<T, N>& y); // C++20
+  template <class T, class Allocator>
+  synth-three-way-result<T>
+    operator<=>(const list<T, Allocator>& x,
+                const list<T, Allocator>& y); // (1) C++20
 }
 ```
 
 ## 概要
-`array`オブジェクトの三方比較を行う。
+`list`オブジェクトの三方比較を行う。
 
 
 ## テンプレートパラメータ制約
@@ -46,36 +47,26 @@ return lexicographical_compare_three_way(
 
 ## 例
 ```cpp example
-#include <iostream>
-#include <array>
+#include <cassert>
+#include <list>
 
-int main()
+int main ()
 {
-  std::array<int, 3> x = {1, 2, 3};
-  std::array<int, 3> y = {1, 2, 3};
+  std::list<int> ls1 = {1, 2, 3};
+  std::list<int> ls2 = {1, 2, 3};
+  std::list<int> ls3 = {1, 2, 3, 4};
 
-  if ((x <=> y) == 0) {
-    std::cout << "equal" << std::endl;
-  }
-  else {
-    std::cout << "not equal" << std::endl;
-  }
+  // 要素数と要素の値が等しい
+  assert((ls1 <=> ls2) == 0);
+
+  // 要素の値は(左辺の要素数分まで)等しいが要素数が異なる
+  assert((ls1 <=> ls3) != 0);
 }
 ```
 
 ### 出力
 ```
-equal
 ```
-
-## バージョン
-### 言語
-- C++20
-
-### 処理系
-- [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 10
-- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
