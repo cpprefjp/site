@@ -6,14 +6,18 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T, class U>
-  bool operator<(const shared_ptr<T>& a, const shared_ptr<U>& b) noexcept; // (1)
+  bool operator<(const shared_ptr<T>& a,
+                 const shared_ptr<U>& b) noexcept; // (1) C++11
 
   template <class T>
-  bool operator<(const shared_ptr<T>& x, nullptr_t) noexcept;              // (2)
+  bool operator<(const shared_ptr<T>& x,
+                 nullptr_t) noexcept;              // (2) C++11
 
   template <class T>
-  bool operator<(nullptr_t, const shared_ptr<T>& x) noexcept;              // (3)
+  bool operator<(nullptr_t,
+                 const shared_ptr<T>& x) noexcept; // (3) C++11
 }
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
@@ -81,3 +85,5 @@ true
 ## 参照
 - [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
