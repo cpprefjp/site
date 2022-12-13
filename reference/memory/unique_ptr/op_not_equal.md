@@ -6,14 +6,15 @@
 
 ```cpp
 namespace std {
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class T1, class D1, class T2, class D2>
-  bool operator!=(const unique_ptr<T1, D1>& a, const unique_ptr<T2, D2>& b); // (1)
+  bool operator!=(const unique_ptr<T1, D1>& a, const unique_ptr<T2, D2>& b); // (1) C++11
 
   template <class T, class D>
-  bool operator!=(const unique_ptr<T, D>& x, nullptr_t) noexcept;            // (2)
+  bool operator!=(const unique_ptr<T, D>& x, nullptr_t) noexcept;            // (2) C++11
 
   template <class T, class D>
-  bool operator!=(nullptr_t, const unique_ptr<T, D>& x) noexcept;            // (3)
+  bool operator!=(nullptr_t, const unique_ptr<T, D>& x) noexcept;            // (3) C++11
 }
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
@@ -68,3 +69,8 @@ p3 is not nullptr
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 	- 2012までは`nullptr`バージョンがない。
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

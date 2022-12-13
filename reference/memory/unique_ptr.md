@@ -70,9 +70,10 @@ namespace std {
 ## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|--------------------------------------------------|-------------------------------------------|-------|
+|------------------------------------------------|-------------------------------------------|-------|
 | [`operator==`](unique_ptr/op_equal.md)         | 等値比較                                  | C++11 |
 | [`operator!=`](unique_ptr/op_not_equal.md)     | 非等値比較                                | C++11 |
+| [`operator<=>`](unique_ptr/op_compare_3way.md) | 三方比較                                  | C++20 |
 | [`operator<`](unique_ptr/op_less.md)           | 左辺が右辺より小さいかを判定する          | C++11 |
 | [`operator<=`](unique_ptr/op_less_equal.md)    | 左辺が右辺以下かを判定する                | C++11 |
 | [`operator>`](unique_ptr/op_greater.md)        | 左辺が右辺より大きいかを判定する          | C++11 |
