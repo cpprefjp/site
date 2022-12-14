@@ -83,12 +83,13 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|------|-------|
-| [`operator==`](time_point/op_equal.md)         | 等値判定を行う | C++11 |
-| [`operator!=`](time_point/op_not_equal.md)     | 非等値判定を行う | C++11 |
-| [`operator<`](time_point/op_less.md)           | 左辺が右辺より小さいか判定を行う | C++11 |
-| [`operator<=`](time_point/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
-| [`operator>`](time_point/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
-| [`operator>=`](time_point/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
+| [`operator==`](time_point/op_equal.md)         | 等値比較を行う | C++11 |
+| [`operator!=`](time_point/op_not_equal.md)     | 非等値比較を行う | C++11 |
+| [`operator<=>`](time_point/op_compare_3way.md) | 三方比較を行う | C++20 |
+| [`operator<`](time_point/op_less.md)           | 左辺が右辺より小さいか比較を行う | C++11 |
+| [`operator<=`](time_point/op_less_equal.md)    | 左辺が右辺以下かの比較を行う | C++11 |
+| [`operator>`](time_point/op_greater.md)        | 左辺が右辺より大きいか比較を行う | C++11 |
+| [`operator>=`](time_point/op_greater_equal.md) | 左辺が右辺以上かの比較を行う | C++11 |
 
 ### common_type特殊化
 

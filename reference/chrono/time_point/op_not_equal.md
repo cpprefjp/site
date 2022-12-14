@@ -7,20 +7,21 @@
 ```cpp
 namespace std {
 namespace chrono {
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class Clock, class Duration1, class Duration2>
   bool operator!=(const time_point<Clock, Duration1>& lhs,
-                  const time_point<Clock, Duration2>& rhs);           // C++11
+                  const time_point<Clock, Duration2>& rhs);           // (1) C++11
 
   template <class Clock, class Duration1, class Duration2>
   constexpr bool operator!=(const time_point<Clock, Duration1>& lhs,
-                            const time_point<Clock, Duration2>& rhs); // C++14
+                            const time_point<Clock, Duration2>& rhs); // (1) C++14
 }}
 ```
 * time_point[link /reference/chrono/time_point.md]
 
 
 ## 概要
-非等値の判定を行う
+非等値比較を行う
 
 
 ## 戻り値
@@ -62,4 +63,5 @@ int main()
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
