@@ -5,11 +5,12 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T1, class T2>
-  bool operator>(const pair<T1, T2>& x, const pair<T1, T2>& y);           // C++03
+  bool operator>(const pair<T1, T2>& x, const pair<T1, T2>& y);           // (1) C++03
 
   template <class T1, class T2>
-  constexpr bool operator>(const pair<T1, T2>& x, const pair<T1, T2>& y); // C++14
+  constexpr bool operator>(const pair<T1, T2>& x, const pair<T1, T2>& y); // (1) C++14
 }
 ```
 
@@ -47,3 +48,5 @@ true
 
 ## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
