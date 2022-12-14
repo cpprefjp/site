@@ -5,29 +5,27 @@
 
 ```cpp
 namespace std {
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class T>
   bool operator!=(const complex<T>& lhs,
-                  const complex<T>& rhs);           // C++03
-
+                  const complex<T>& rhs);           // (1) C++03
   template <class T>
   constexpr bool operator!=(const complex<T>& lhs,
-                            const complex<T>& rhs); // C++14
+                            const complex<T>& rhs); // (1) C++14
 
   template <class T>
   bool operator!=(const complex<T>& lhs,
-                  const T& rhs);                    // C++03
-
+                  const T& rhs);                    // (2) C++03
   template <class T>
   constexpr bool operator!=(const complex<T>& lhs,
-                            const T& rhs);          // C++14
+                            const T& rhs);          // (2) C++14
 
   template <class T>
   bool operator==(const T& lhs,
-                  const complex<T>& rhs);           // C++03
-
+                  const complex<T>& rhs);           // (3) C++03
   template <class T>
   constexpr bool operator==(const T& lhs,
-                            const complex<T>& rhs); // C++14
+                            const complex<T>& rhs); // (3) C++14
 }
 ```
 
@@ -70,10 +68,6 @@ int main()
 ```
 
 
-## 参照
-- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
-
-
 ## 関連項目
 
 | 名前                        | 説明                                           |
@@ -81,3 +75,9 @@ int main()
 | [`operator==`](op_equal.md) | 等値比較を行う。                               |
 | [`real`](real.md)           | 実部を取得、あるいは、設定する。（メンバ関数） |
 | [`imag`](imag.md)           | 虚部を取得、あるいは、設定する。（メンバ関数） |
+
+
+## 参照
+- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
