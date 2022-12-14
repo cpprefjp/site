@@ -8,11 +8,11 @@
 namespace std {
   template<class... TTypes, class... UTypes>
   bool operator==(const tuple<TTypes...>& t,
-                  const tuple<UTypes...>& u);           // C++11
+                  const tuple<UTypes...>& u);           // (1) C++11
 
   template<class... TTypes, class... UTypes>
   constexpr bool operator==(const tuple<TTypes...>& t,
-                            const tuple<UTypes...>& u); // C++14
+                            const tuple<UTypes...>& u); // (1) C++14
 }
 ```
 * tuple[link ../tuple.md]
@@ -32,6 +32,11 @@ namespace std {
 
 ## 戻り値
 [`tuple`](../tuple.md)の全ての要素を`std::`[`get`](get.md)`<i>(t) ==std::`[`get`](get.md)`<i>(u)` した結果が`true`である場合`true`を返し、そうでなければ`false`を返す。
+
+
+## 備考
+- この演算子により、以下の演算子が使用可能になる (C++20)：
+    - `operator!=`
 
 
 ## 例
@@ -77,3 +82,5 @@ false
 
 ## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

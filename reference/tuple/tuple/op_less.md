@@ -6,18 +6,19 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template<class... TTypes, class... UTypes>
   bool operator<(const tuple<TTypes...>& t,
-                 const tuple<UTypes...>& u); // C++11
+                 const tuple<UTypes...>& u); // (1) C++11
 
   template<class... TTypes, class... UTypes>
   bool operator<(const tuple<TTypes...>& t,
-                 const tuple<UTypes...>& u); // C++14
+                 const tuple<UTypes...>& u); // (1) C++14
 }
 ```
 
 ## 概要
-2つの`tuple`において、左辺が右辺より小さいかの判定を行う。
+2つの`tuple`において、左辺が右辺より小さいかの比較を行う。
 
 
 ## 要件
@@ -84,3 +85,5 @@ false
 
 ## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

@@ -52,16 +52,17 @@ namespace std {
 | [`swap`](tuple/swap_free.md) | 2つの`tuple`オブジェクトを入れ替える | C++11 |
 
 
-### 関係演算子
+### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
-|---------------------------------------------|------------------------------------|-------|
-| [`operator==`](tuple/op_equal.md)         | 等値判定を行う | C++11 |
-| [`operator!=`](tuple/op_not_equal.md)     | 非等値判定を行う | C++11 |
-| [`operator<`](tuple/op_less.md)           | 左辺が右辺よりも小さいか判定を行う | C++11 |
-| [`operator<=`](tuple/op_less_equal.md)    | 左辺が右辺以下か判定を行う | C++11 |
-| [`operator>`](tuple/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
-| [`operator>=`](tuple/op_greater_equal.md) | 左辺が右辺以上か判定を行う | C++11 |
+|-------------------------------------------|------------------------------------|-------|
+| [`operator==`](tuple/op_equal.md)         | 等値比較を行う | C++11 |
+| [`operator!=`](tuple/op_not_equal.md)     | 非等値比較を行う | C++11 |
+| [`operator<=>`](tuple/op_compare_3way.md) | 三方比較を行う | C++20 |
+| [`operator<`](tuple/op_less.md)           | 左辺が右辺よりも小さいか比較を行う | C++11 |
+| [`operator<=`](tuple/op_less_equal.md)    | 左辺が右辺以下か比較を行う | C++11 |
+| [`operator>`](tuple/op_greater.md)        | 左辺が右辺より大きいか比較を行う | C++11 |
+| [`operator>=`](tuple/op_greater_equal.md) | 左辺が右辺以上か比較を行う | C++11 |
 
 
 ## 推論補助
