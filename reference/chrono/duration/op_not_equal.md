@@ -7,9 +7,10 @@
 ```cpp
 namespace std {
 namespace chrono {
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class Rep1, class Period1, class Rep2, class Period2>
   constexpr bool operator!=(const duration<Rep1, Period1>& lhs,
-                            const duration<Rep2, Period2>& rhs);
+                            const duration<Rep2, Period2>& rhs); // (1) C++11
 }}
 ```
 
@@ -50,4 +51,5 @@ int main()
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
