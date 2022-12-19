@@ -7,25 +7,101 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 
 ## 言語機能
+### 変数
 
 | 言語機能 | 説明 |
 |----------|------|
 | [(符号付き)`size_t`リテラルのためのサフィックス](cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする |
-| [部分特殊化の汎用化仕様](cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 |
-| [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | |
+| [エスケープシーケンスの区切り](cpp23/delimited_escape_sequences.md.nolink) | エスケープシーケンスの範囲を明確にする構文を追加する |
+| [暗黙的なムーブを簡略化](cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 |
+| [浮動小数点数型の拡張](cpp23/extended_floating_point_types_and_standard_names.md.nolink) | 実装による拡張浮動小数点型の 定義を許可する |
+
+
+### 関数
+
+| 言語機能 | 説明 |
+|----------|------|
 | [スコープと名前ルックアップの仕様整理](cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する |
-| [ラムダ式で`()`を省略できる条件を緩和](cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | - | - |
-| [`if consteval`](/lang/cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる |
-| [定数式の文脈での`bool`への縮小変換を許可](cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 |
-| [行末スペースを無視するよう規定](cpp23/trimming_whitespaces_before_line_splicing.md.nolink) | 行末が`\ `でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 |
+
+
+### 制御構文
+
+| 言語機能 | 説明 |
+|----------|------|
+| [初期化文での型の別名宣言を許可](cpp23/extend_init_statement_to_allow_alias_declaration.md.nolink) | `for (using T = int; T e : v) {}`を許可 |
+| [関数末尾のラベルを許可](cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する |
+
+
+### クラス
+
+| 言語機能 | 説明 |
+|----------|------|
 | [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 |
-| [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する |
+| [添字演算子の多次元サポート](cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 |
+| [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](cpp23/static_operator.md.nolink) | |
+
+
+### 文字列
+
+| 言語機能 | 説明 |
+|----------|------|
+| [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する |
+| [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | |
+| [1ワイド文字に収まらないワイド文字リテラルを禁止する](cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md.nolink) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する |
+| [名前付きユニバーサルキャラクタ名](cpp23/named_universal_character_escapes.md.nolink) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする |
+
+
+### テンプレート
+
+| 言語機能 | 説明 |
+|----------|------|
+| [部分特殊化の汎用化仕様](cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 |
+| [thisの推論](cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする |
+| [継承コンストラクタからのクラステンプレート引数の推論](cpp23/class_template_argument_deduction_from_inherited.md.nolink) | |
+
+
+### 定数式
+
+| 言語機能 | 説明 |
+|----------|------|
+| [`if consteval`](cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる |
+| [定数式の文脈での`bool`への縮小変換を許可](cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 |
+| [定数式内での非リテラル変数の使用を含められないようにする](cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける |
+| [静的な診断メッセージの文字エンコーディング](cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす |
+| [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](cpp23/relaxing_some_constexpr_restrictions.md.nolink) | |
+
+
+### ラムダ式
+
+| 言語機能 | 説明 |
+|----------|------|
+| [ラムダ式で`()`を省略できる条件を緩和](cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる |
+| [ラムダ式に対する属性](cpp23/attributes_on_lambda_expressions.md.nolink) | ラムダ式のいくつかの箇所に属性を記述できるようにする |
+
+
+### 属性
+
+| 言語機能 | 説明 |
+|----------|------|
+| [コード内容の仮定をコンパイラに伝えるassume属性](cpp23/portable_assumptions.md.nolink) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する |
+
+
+### プリプロセッサ
+
+| 言語機能 | 説明 |
+|----------|------|
+| [文字リテラルエンコーディングを一貫させる](cpp23/consistent_character_literal_encoding.md.nolink) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする |
+| [`elif`/`elifdef`/`elifndef`のサポートを追加](cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md.nolink) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する |
+| [`#warning`のサポートを追加](cpp23/warning.md.nolink) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート |
+| [汎用的なソースコードのエンコーディングとしてUTF-8をサポート](cpp23/support_for_utf8_as_a_portable_source_file_encoding.md.nolink) | |
+
 
 ### 小さな変更
 
 | 言語機能 | 説明 |
 |----------|------|
 | [参照するPOSIX規格を更新](cpp23/update_normative_reference_to_posix.md) | 新しいPOSIX規格の機能を標準C++が参照していたため、参照するPOSIX規格のバージョンを更新 |
+| [行末スペースを無視するよう規定](cpp23/trimming_whitespaces_before_line_splicing.md.nolink) | 行末が`\ `でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 |
 
 
 ## ライブラリ更新の概要
