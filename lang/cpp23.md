@@ -14,7 +14,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | [(符号付き)`size_t`リテラルのためのサフィックス](cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする |
 | [エスケープシーケンスの区切り](cpp23/delimited_escape_sequences.md.nolink) | エスケープシーケンスの範囲を明確にする構文を追加する |
 | [暗黙的なムーブを簡略化](cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 |
-| [浮動小数点数型の拡張](cpp23/extended_floating_point_types_and_standard_names.md.nolink) | 実装による拡張浮動小数点型の 定義を許可する |
+| [浮動小数点数型の拡張](cpp23/extended_floating_point_types_and_standard_names.md.nolink) | 実装による拡張浮動小数点型の定義を許可する |
 
 
 ### 関数
