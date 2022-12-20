@@ -29,7 +29,7 @@
 | 名前                                                | 説明                                                | 対応バージョン |
 |-----------------------------------------------------|-----------------------------------------------------|----------------|
 | [`forward`](utility/forward.md)                   | 関数テンプレートの引数を転送する(function template) | C++11          |
-| [`forward_like`](utility/forward_like.md)                   | 第一テンプレート引数の`const`参照修飾で引数を転送する(function template) | C++23          |
+| [`forward_like`](utility/forward_like.md)         | 第一テンプレート引数の`const`性と参照修飾で引数を転送する(function template) | C++23          |
 | [`move`](utility/move.md)                         | 左辺値を右辺値にキャストする(function template)     | C++11          |
 | [`move_if_noexcept`](utility/move_if_noexcept.md) | 例外を投げないオブジェクトをムーブする(function template) | C++11    |
 
