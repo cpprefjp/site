@@ -183,7 +183,6 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 
 ### メモリ
-- [`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)と[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)が追加され、非順序連想コンテナのキーとして[`std::weak_ptr`](/reference/memory/weak_ptr.md)を使用できるようになった
 - [`<memory>`](/reference/memory.md)に、出力ポインタと入出力ポインタの抽象である[`std::out_ptr`](/reference/memory/out_ptr.md.nolink)と[`std::inout_ptr`](/reference/memory/inout_ptr.md.nolink)を追加
 - [`std::unique_ptr`](/reference/memory/unique_ptr.md)クラスを`constexpr`に対応
 - [`<memory>`](/reference/memory.md)に、オブジェクトの生存期間を開始することを明示する関数として、[`std::start_lifetime_as()`](/reference/memory/start_lifetime_as.md.nolink)と[`std::start_lifetime_as_array()`](/reference/memory/start_lifetime_as_array.md.nolink)を追加
@@ -204,18 +203,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 ### 型特性
 - [`<type_traits>`](/reference/type_traits.md)に、スコープ付き列挙型かを判定する型特性[`std::is_scoped_enum`](/reference/type_traits/is_scoped_enum.md)を追加
-- [`<type_traits>`](/reference/type_traits.md)に、第1テンプレート引数についている型修飾を第2テンプレート引数の型に付加する型特性として、以下を追加：
-    - [`std::copy_const`](/reference/type_traits/copy_const.md.nolink)
-    - [`std::copy_volatile`](/reference/type_traits/copy_volatile.md.nolink)
-    - [`std::copy_cv`](/reference/type_traits/copy_cv.md.nolink)
-    - [`std::copy_reference`](/reference/type_traits/copy_reference.md.nolink)
-    - [`std::copy_extent`](/reference/type_traits/copy_extent.md.nolink)
-    - [`std::copy_all_extents`](/reference/type_traits/copy_all_extents.md.nolink)
-    - [`std::copy_pointer`](/reference/type_traits/copy_pointer.md.nolink)
-    - [`std::copy_all_pointers`](/reference/type_traits/copy_all_pointers.md.nolink)
-    - [`std::copy_cvref`](/reference/type_traits/copy_cvref.md.nolink)
 - [`<type_traits>`](/reference/type_traits.md)に、第1テンプレート引数についている型修飾を外す型特性として、以下を追加：
-    - [`std::remove_all_pointers`](/reference/type_traits/remove_all_pointers.md.nolink)
 - [`<type_traits>`](/reference/type_traits.md)に、一時オブジェクトの参照への束縛を検出するための型特性として、以下を追加：
     - [`std::reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md.nolink)
     - [`std::reference_converts_from_temporary`](/reference/type_traits/reference_converts_from_temporary.md.nolink)
