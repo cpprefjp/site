@@ -64,6 +64,7 @@
 | [`<optional>`](/reference/optional.md)       | 任意で値を持たせられるオブジェクト | C++17 |
 | [`<variant>`](/reference/variant.md)         | 候補の型を切り替えながら保持できる記憶域型 | C++17 |
 | [`<any>`](/reference/any.md)                 | あらゆる型の値を保持できる記憶域型 | C++17 |
+| [`<expected>`](/reference/expected.md.nolink) | 正常値かエラー値のどちらかを持たせられるオブジェクト | C++23 |
 | [`<type_traits>`](/reference/type_traits.md) | 型特性                       | C++11          |
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
@@ -104,11 +105,14 @@
 | [`<queue>`](/reference/queue.md)                 | FIFOキュー            |                |
 | [`<stack>`](/reference/stack.md)                 | LIFOスタック          |                |
 | [`<vector>`](/reference/vector.md)               | ベクタ配列            |                |
-| [`<map>`](/reference/map.md)                     | 連想配列              |                |
-| [`<set>`](/reference/set.md)                     | 集合                  |                |
+| [`<map>`](/reference/map.md)                     | 順序付き連想配列      |                |
+| [`<set>`](/reference/set.md)                     | 順序付き集合          |                |
+| [`<flat_map>`](/reference/flat_map.md)           | ソート済みキーによる順序付き連想配列 | C++23 |
+| [`<flat_set>`](/reference/flat_set.md)           | ソート済みキーによる順序付き集合 | C++23 |
 | [`<unordered_map>`](/reference/unordered_map.md) | 非順序連想配列        | C++11          |
 | [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合            | C++11          |
 | [`<span>`](/reference/span.md)                   | 部分シーケンスの参照  | C++20          |
+| [`<mdspan>`](/reference/mdspan.md.nolink)        | 多次元配列ビュー      | C++23          |
 
 
 ## <a id="iterator" href="#iterator">イテレータライブラリ</a>
@@ -122,7 +126,8 @@
 
 | ヘッダ                                 | 説明             | 対応バージョン |
 |----------------------------------------|------------------|----------------|
-| [`<ranges>`](/reference/ranges.md) | レンジアルゴリズム | C++20          |
+| [`<ranges>`](/reference/ranges.md)       | レンジアルゴリズム | C++20          |
+| [`<generator>`](/reference/generator.md.nolink) | コルーチンによるレンジ生成 | C++23          |
 
 
 ## <a id="algorithm" href="#algorithm">アルゴリズムライブラリ</a>
@@ -160,6 +165,7 @@
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 | [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー | C++20          |
 | [`<spanstream>`](/reference/spanstream.md.nolink) | メモリバッファの所有権をもたないストリーム | C++23 |
+| [`<print>`](/reference/print.md.nolink) | 書式指定による出力 | C++23 |
 
 
 ## <a id="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
