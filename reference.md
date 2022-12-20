@@ -107,8 +107,8 @@
 | [`<vector>`](/reference/vector.md)               | ベクタ配列            |                |
 | [`<map>`](/reference/map.md)                     | 順序付き連想配列      |                |
 | [`<set>`](/reference/set.md)                     | 順序付き集合          |                |
-| [`<flat_map>`](/reference/flat_map.md)           | ソート済みキーによる順序付き連想配列 | C++23 |
-| [`<flat_set>`](/reference/flat_set.md)           | ソート済みキーによる順序付き集合 | C++23 |
+| [`<flat_map>`](/reference/flat_map.md.nolink)           | ソート済みキーによる順序付き連想配列 | C++23 |
+| [`<flat_set>`](/reference/flat_set.md.nolink)           | ソート済みキーによる順序付き集合 | C++23 |
 | [`<unordered_map>`](/reference/unordered_map.md) | 非順序連想配列        | C++11          |
 | [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合            | C++11          |
 | [`<span>`](/reference/span.md)                   | 部分シーケンスの参照  | C++20          |

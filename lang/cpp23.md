@@ -113,7 +113,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - 外部から提供されるメモリバッファでストリーム処理を行うライブラリとして[`<spanstream>`](/reference/spanstream.md.nolink)を追加
 - 正常値とエラー値のどちらかを持つクラスおよびライブラリとして[`<expected>`](/reference/expected.md.nolink)を追加
 - 多次元配列ビューのライブラリとして[`<mdspan>`](/reference/mdspan.md.nolink)を追加
-- ノードベースではないソート済みキーによる順序付き連想コンテナのライブラリとして、[`<flat_map>`](/reference/flat_map.md.nolink)と[`<flat_set>`](/reference/flat_set.md)を追加
+- ノードベースではないソート済みキーによる順序付き連想コンテナのライブラリとして、[`<flat_map>`](/reference/flat_map.md.nolink)と[`<flat_set>`](/reference/flat_set.md.nolink)を追加
 - 書式指定で出力するライブラリとして[`<print>`](/reference/print.md.nolink)を追加
 - コルーチンによるRangeの生成をサポートする[`<generator>`](/reference/generator.md.nolink)を追加
 
@@ -137,8 +137,8 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - Rangeを代入する`assign_range()`メンバ関数
 - ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、[`<ranges>`](/reference/ranges.md)に[`std::range::range_adaptor_closure`](/reference/ranges/range_adaptor_closure.md.nolink)クラスを追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeを連結させる[`join_with`](/reference/ranges/join_with.md.nolink)を追加
-- Rangeを指定の大きさで分割する[`std::views::chunk`](/reference/ranges/chunk_view.md)と、Rangeを指定の大きさの隣接要素で分割する[`std::views::slide`](/reference/ranges/slide_view.md)を追加
-- Rangeを条件一致する間の要素で分割する[`std::views::chunk_by`](/reference/ranges/chunk_by_view.md)を追加
+- Rangeを指定の大きさで分割する[`std::views::chunk`](/reference/ranges/chunk_view.md.nolink)と、Rangeを指定の大きさの隣接要素で分割する[`std::views::slide`](/reference/ranges/slide_view.md.nolink)を追加
+- Rangeを条件一致する間の要素で分割する[`std::views::chunk_by`](/reference/ranges/chunk_by_view.md.nolink)を追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeを等間隔からなるRangeに変換する[`std::views::stride`](/reference/ranges/stride_view.md.nolink)を追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeをムーブするための[`std::views::as_rvalue`](/reference/ranges/as_rvalue.md.nolink)を追加
 - [`<ranges>`](/reference/ranges.md)に、指定した値をN回繰り返すRangeを生成する[`std::views::repeat`](/reference/ranges/repeat.md.nolink)を追加
@@ -146,11 +146,11 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 ### アルゴリズム
 - [`<algorithm>`](/reference/algorithm.md)に、範囲の先頭が指定した範囲と合致するかを判定する[`std::starts_with()`](/reference/algorithm/starts_with.md.nolink)、範囲の末尾が指定した範囲と合致するかを判定する[`std::ends_with()`](/reference/algorithm/ends_with.md.nolink)を追加
-- [`<algorithm>`](/reference/algorithm.md)に、要素を左シフトさせるRangeアルゴリズム[`std::ranges::shift_left()`](/reference/algorithm/ranges_shift_left.md.nolink)、要素を右シフトさせるRangeアルゴリズム[`std::ranges::shift_right()`](/reference/algorithm/shift_right.md.nolink)を追加
+- [`<algorithm>`](/reference/algorithm.md)に、要素を左シフトさせるRangeアルゴリズム[`std::ranges::shift_left()`](/reference/algorithm/ranges_shift_left.md)、要素を右シフトさせるRangeアルゴリズム[`std::ranges::shift_right()`](/reference/algorithm/ranges_shift_right.md)を追加
 - [`<algorithm>`](/reference/algorithm.md)に、範囲の末尾から要素を検索する以下のアルゴリズムを追加：
     - [`std::ranges::find_last()`](/reference/algorithm/ranges_find_last.md.nolink)
-    - [`std::ranges::find_last_if()`](/reference/algorithm/find_last_if.md)
-    - [`std::ranges::find_last_if_not()`](/reference/algorithm/find_last_if_not.md)
+    - [`std::ranges::find_last_if()`](/reference/algorithm/find_last_if.md.nolink)
+    - [`std::ranges::find_last_if_not()`](/reference/algorithm/find_last_if_not.md.nolink)
 - [`<algorithm>`](/reference/algorithm.md)に、範囲に特定の値が含まれているかを判定する[`std::ranges::contains()`](/reference/algorithm/ranges_contains.md.nolink)、[`std::ranges::contains_subrange`](/reference/algorithm/ranges_contains_subrange.md.nolink)を追加
 - [`<algorithm`](/reference/algorithm.md)に、数値に限定しない汎用的な畳み込みアルゴリズムとして、以下を追加：
     - [`std::ranges::fold_left()`](/reference/algorithm/ranges_fold_left.md.nolink)
@@ -159,7 +159,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - [`std::ranges::fold_right_last()`](/reference/algorithm/ranges_fold_right_last.md.nolink)
     - [`std::ranges::fold_left_with_iter()`](/reference/algorithm/ranges_fold_left_with_iter.md.nolink)
     - [`std::ranges::fold_left_first_with_iter()`](/reference/algorithm/ranges_fold_left_first_with_iter.md.nolink)
-- [`<numeric>`](/reference/numeric.md)に、連番を生成するRangeアルゴリズム[`std::ranges::iota()`](/reference/numeric/ranges_iota.md.nolink)を追加
+- [`<numeric>`](/reference/numeric.md)に、連番を生成するRangeアルゴリズム[`std::ranges::iota()`](/reference/numeric/ranges_iota.md)を追加
 
 
 ### 文字列
@@ -168,7 +168,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - `std::string s = nullptr;`のような文字列オブジェクトに`nullptr`を代入するようなコードはバグの元であるため、[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)に、[`nullptr_t`](/reference/cstddef/nullptr_t.md)をとるコンストラクタをdelete定義として追加
 - [`std::basic_string`](/reference/string/basic_string.md)クラスに、resize時に任意の初期化を行う[`resize_and_overwrite()`](/reference/string/basic_string/resize_and_overwrite.md.nolink)メンバ関数を追加
 - [`std::basic_string`](/reference/string/basic_string.md)クラスのコンストラクタと[`substr()`](/reference/string/basic_string/substr.md)メンバ関数に一時オブジェクトのオーバーロードを追加
-- [`std::format()`](/reference/format/format.md)関数でコンテナ、[`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/pair/pair.md)を出力できるよう、[`std::formatter`](/reference/format/formatter.md)に特殊化を追加
+- [`std::format()`](/reference/format/format.md)関数でコンテナ、[`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/utility/pair.md)を出力できるよう、[`std::formatter`](/reference/format/formatter.md)に特殊化を追加
 
 
 ### 入出力
