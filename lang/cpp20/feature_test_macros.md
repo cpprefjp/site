@@ -63,7 +63,7 @@
 |`__cpp_lib_constexpr_utility`|`201811L`|[`std::pair`](/reference/utility/pair.md)の`constexpr`追加対応（一部のコンストラクタと代入演算子）|[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_constexpr_vector`|`201907L`|[`std::vector`](/reference/vector/vector.md)の`constexpr`対応|[`<vector>`](/reference/vector.md)|
 |`__cpp_lib_coroutine`|`201902L`|[`<coroutine>`](/reference/coroutine.md)ヘッダの追加|[`<coroutine>`](/reference/coroutine.md)|
-|`__cpp_lib_destroying_delete`|`201806L`|[`destroying_delete_t`](/reference/new/nothrow_t.md.nolink)|[`<new>`](/reference/new.md)|
+|`__cpp_lib_destroying_delete`|`201806L`|[`destroying_delete_t`](/reference/new/destroying_delete_t.md.nolink)|[`<new>`](/reference/new.md)|
 |`__cpp_lib_endian`|`201907L`||[`<bit>`](/reference/bit.md)|
 |`__cpp_lib_erase_if`|`202002L`||[`<string>`](/reference/string.md)<br/>[`<deque>`](/reference/deque.md)<br/>[`<forward_list>`](/reference/forward_list.md)<br/>[`<list>`](/reference/list.md)<br/>[`<vector>`](/reference/vector.md)<br/>[`<map>`](/reference/map.md)<br/>[`<set>`](/reference/set.md)<br/>[`<unordered_map>`](/reference/unordered_map.md)<br/>[`<unordered_set>`](/reference/unordered_set.md)|
 |`__cpp_lib_execution`|`201902L`||[`<execution>`](/reference/execution.md)|
