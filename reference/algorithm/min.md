@@ -6,13 +6,13 @@
 ```cpp
 namespace std {
   template <class T>
-  const T& min(const T& a, const T& b);                         // (1)
+  const T& min(const T& a, const T& b);                         // (1) C++03
 
   template <class T>
   constexpr const T& min(const T& a, const T& b);               // (1) C++14
 
   template <class T, class Compare>
-  const T& min(const T& a, const T& b, Compare comp);           // (2)
+  const T& min(const T& a, const T& b, Compare comp);           // (2) C++03
 
   template <class T, class Compare>
   constexpr const T& min(const T& a, const T& b, Compare comp); // (2) C++14
