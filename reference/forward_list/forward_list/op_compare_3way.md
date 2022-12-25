@@ -8,8 +8,8 @@
 namespace std {
   template <class T, class Allocator>
   synth-three-way-result<T>
-    operator==(const forward_list<T, Allocator>& x,
-               const forward_list<T, Allocator>& y); // (1) C++20
+    operator<=>(const forward_list<T, Allocator>& x,
+                const forward_list<T, Allocator>& y); // (1) C++20
 }
 ```
 

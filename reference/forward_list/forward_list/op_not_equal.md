@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  // operator<=>により、以下の演算子が使用可能になる (C++20)
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class T, class Allocator>
   bool operator!=(const forward_list<T, Allocator>& x,
                   const forward_list<T, Allocator>& y); // (1) C++11

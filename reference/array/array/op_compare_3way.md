@@ -8,7 +8,7 @@
 namespace std {
   template <class T, size_t N>
   constexpr synth-three-way-result<T>
-    operator==(const array<T, N>& x, const array<T, N>& y); // C++20
+    operator<=>(const array<T, N>& x, const array<T, N>& y); // C++20
 }
 ```
 

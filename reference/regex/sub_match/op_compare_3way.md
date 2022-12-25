@@ -21,12 +21,12 @@ namespace std {
     >& rhs);                                                  // (2) C++20
 
   template <class BiIter>
-  auto operator==(
+  auto operator<=>(
     const sub_match<BiIter>& lhs,
     const typename iterator_traits<BiIter>::value_type& rhs); // (3) C++20
 
   template <class BiIter>
-  auto operator==(
+  auto operator<=>(
     const sub_match<BiIter>& lhs,
     const typename iterator_traits<BiIter>::value_type* rhs); // (4) C++20
 }
