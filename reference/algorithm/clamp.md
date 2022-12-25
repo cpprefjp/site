@@ -78,6 +78,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [N4536 An algorithm to "clamp" a value between a pair of boundary values](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4536.html)
 - [P0025R0 An algorithm to "clamp" a value between a pair of boundary values (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0025r0.html)
