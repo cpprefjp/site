@@ -18,7 +18,7 @@ namespace std {
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
-`forward_list`は、双方向リンクリストのデータ構造をもつクラスである。
+`list`は、双方向リンクリストのデータ構造をもつクラスである。
 
 任意の位置への挿入や削除を定数時間で行う事が出来るが、高速なランダムアクセスは出来ず、常にシーケンシャルアクセスを行う必要がある。
 
