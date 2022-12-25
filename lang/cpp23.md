@@ -152,7 +152,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - [`std::ranges::find_last_if()`](/reference/algorithm/find_last_if.md.nolink)
     - [`std::ranges::find_last_if_not()`](/reference/algorithm/find_last_if_not.md.nolink)
 - [`<algorithm>`](/reference/algorithm.md)に、範囲に特定の値が含まれているかを判定する[`std::ranges::contains()`](/reference/algorithm/ranges_contains.md.nolink)、[`std::ranges::contains_subrange`](/reference/algorithm/ranges_contains_subrange.md.nolink)を追加
-- [`<algorithm`](/reference/algorithm.md)に、数値に限定しない汎用的な畳み込みアルゴリズムとして、以下を追加：
+- [`<algorithm>`](/reference/algorithm.md)に、数値に限定しない汎用的な畳み込みアルゴリズムとして、以下を追加：
     - [`std::ranges::fold_left()`](/reference/algorithm/ranges_fold_left.md.nolink)
     - [`std::ranges::fold_left_first()`](/reference/algorithm/ranges_fold_left_first.md.nolink)
     - [`std::ranges::fold_right()`](/reference/algorithm/ranges_fold_right.md.nolink)
