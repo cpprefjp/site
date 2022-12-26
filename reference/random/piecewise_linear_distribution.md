@@ -101,9 +101,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[piecewise_linear_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.tsv)）を図示する。
+このプログラムによってある時に得られた結果（[piecewise_linear_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.tsv)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.png)
 
 ## バージョン
 ### 言語
