@@ -67,37 +67,37 @@
 |`__cpp_lib_endian`|`201907L`|[`std::endian`](/reference/bit/endian.md)|[`<bit>`](/reference/bit.md)|
 |`__cpp_lib_erase_if`|`202002L`|各コンテナに対する`std::erase`、`std::erase_if`の特殊化|[`<string>`](/reference/string.md)<br/>[`<deque>`](/reference/deque.md)<br/>[`<forward_list>`](/reference/forward_list.md)<br/>[`<list>`](/reference/list.md)<br/>[`<vector>`](/reference/vector.md)<br/>[`<map>`](/reference/map.md)<br/>[`<set>`](/reference/set.md)<br/>[`<unordered_map>`](/reference/unordered_map.md)<br/>[`<unordered_set>`](/reference/unordered_set.md)|
 |`__cpp_lib_execution`|`201902L`|[`std::execution::unsequenced_policy`](/reference/execution/execution/execution_policy.md)|[`<execution>`](/reference/execution.md)|
-|`__cpp_lib_format`|`201907L`<br/>`202106L`<br/>`202110L`|`<format>`ヘッダ<br/>コンパイル時フォーマット文字列検査/[`std::vformat`](https://cpprefjp.github.io/reference/format/vformat.html)のコードサイズ削減<br/>`std::chrono`のフォーマットにおけるロケール指定の修正/`const`だとフォーマットできない型に対する対応|[`<format>`](/reference/format.md)|
+|`__cpp_lib_format`|`201907L`<br/>`202106L`<br/>`202110L`|`<format>`ヘッダ<br/>コンパイル時フォーマット文字列検査/[`std::vformat`](/reference/format/vformat.md)のコードサイズ削減<br/>`std::chrono`のフォーマットにおけるロケール指定の修正/`const`だとフォーマットできない型に対する対応|[`<format>`](/reference/format.md)|
 |`__cpp_lib_generic_unordered_lookup`|`201811L`|非順序連想コンテナの`find(), count(), contains(), equal_range()`に対するHeterogeneous Overload追加|[`<unordered_map>`](/reference/unordered_map.md)<br/>[`<unordered_set>`](/reference/unordered_set.md)|
 |`__cpp_lib_int_pow2`|`202002L`|`<bit>`の2の冪乗に関する操作を行う関数の名前変更|[`<bit>`](/reference/bit.md)|
-|`__cpp_lib_integer_comparison_functions`|`202002L`|[`std::cmp_equal`](https://cpprefjp.github.io/reference/utility/cmp_equal.html)等の整数比較関数と[`std::in_range`](https://cpprefjp.github.io/reference/utility/in_range.html)|[`<utility>`](/reference/utility.md)|
-|`__cpp_lib_interpolate`|`201902L`|[`std::lerp`](https://cpprefjp.github.io/reference/cmath/lerp.html)と[`std::midpoint`](https://cpprefjp.github.io/reference/numeric/midpoint.html)|[`<cmath>`](/reference/cmath.md)<br/>[`<numeric>`](/reference/numeric.md)|
-|`__cpp_lib_is_constant_evaluated`|`201811L`|[`std::is_constant_evaluated`](https://cpprefjp.github.io/reference/type_traits/is_constant_evaluated.html)|[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_is_layout_compatible`|`201907L`||[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_is_nothrow_convertible`|`201806L`||[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_is_pointer_interconvertible`|`201907L`||[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_jthread`|`201911L`||[`<stop_token>`](/reference/stop_token.md)<br/>[`<thread>`](/reference/thread.md)|
-|`__cpp_lib_latch`|`201907L`||[`<latch>`](/reference/latch.md)|
-|`__cpp_lib_list_remove_return_type`|`201806L`||[`<forward_list>`](/reference/forward_list.md)<br/>[`<list>`](/reference/list.md)|
-|`__cpp_lib_math_constants`|`201907L`||[`<numbers>`](/reference/numbers.md)|
-|`__cpp_lib_polymorphic_allocator`|`201902L`||[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_ranges`|`201911L`||[`<algorithm>`](/reference/algorithm.md)<br/>[`<functional>`](/reference/functional.md)<br/>[`<iterator>`](/reference/iterator.md)<br/>[`<memory>`](/reference/memory.md)<br/>[`<ranges>`](/reference/ranges.md)|
-|`__cpp_lib_remove_cvref`|`201711L`||[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_semaphore`|`201907L`||[`<semaphore>`](/reference/semaphore.md)|
-|`__cpp_lib_shared_ptr_arrays`|`201707L`||[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_shift`|`201806L`||[`<algorithm>`](/reference/algorithm.md)|
-|`__cpp_lib_smart_ptr_for_overwrite`|`202002L`||[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_source_location`|`201907L`||[`<source_location>`](/reference/source_location.md)|
-|`__cpp_lib_span`|`202002L`||[`<span>`](/reference/span.md)|
-|`__cpp_lib_ssize`|`201902L`||[`<iterator>`](/reference/iterator.md)|
-|`__cpp_lib_starts_ends_with`|`201711L`||[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
-|`__cpp_lib_string_view`|`201803L`||[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
-|`__cpp_lib_syncbuf`|`201803L`||[`<syncstream>`](/reference/syncstream.md)|
-|`__cpp_lib_three_way_comparison`|`201907L`||[`<compare>`](/reference/compare.md)|
-|`__cpp_lib_to_address`|`201711L`||[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_to_array`|`201907L`||[`<array>`](/reference/array.md)|
-|`__cpp_lib_type_identity`|`201806L`||[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_unwrap_ref`|`201811L`||[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_integer_comparison_functions`|`202002L`|[`std::cmp_equal()`](/reference/utility/cmp_equal.md)等の整数比較関数と[`std::in_range()`](/reference/utility/in_range.md)|[`<utility>`](/reference/utility.md)|
+|`__cpp_lib_interpolate`|`201902L`|[`std::lerp()`](/reference/cmath/lerp.md)と[`std::midpoint()`](/reference/numeric/midpoint.md)|[`<cmath>`](/reference/cmath.md)<br/>[`<numeric>`](/reference/numeric.md)|
+|`__cpp_lib_is_constant_evaluated`|`201811L`|[`std::is_constant_evaluated()`](/reference/type_traits/is_constant_evaluated.md)|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_is_layout_compatible`|`201907L`|[`std::is_layout_compatible`](/reference/type_traits/is_layout_compatible.md)と[`is_corresponding_member`](/reference/type_traits/is_corresponding_member.md)|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_is_nothrow_convertible`|`201806L`|[`std::is_nothrow_convertible`](/reference/type_traits/is_nothrow_convertible.md)|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_is_pointer_interconvertible`|`201907L`|[`std::is_corresponding_member`](/reference/type_traits/is_corresponding_member.md)と[`std::is_pointer_interconvertible_base_of`](/reference/type_traits/is_pointer_interconvertible_base_of.md)|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_jthread`|`201911L`|[`std::jthread`](/reference/thread/jthread.md)と`stop_token`による協調的キャンセル機構|[`<stop_token>`](/reference/stop_token.md)<br/>[`<thread>`](/reference/thread.md)|
+|`__cpp_lib_latch`|`201907L`|[`std::latch`](/reference/latch/latch.md)|[`<latch>`](/reference/latch.md)|
+|`__cpp_lib_list_remove_return_type`|`201806L`|`std::list`と`std::forward_list`の`remove(), remove_if(), unique()`の戻り値型変更|[`<forward_list>`](/reference/forward_list.md)<br/>[`<list>`](/reference/list.md)|
+|`__cpp_lib_math_constants`|`201907L`|数学定数|[`<numbers>`](/reference/numbers.md)|
+|`__cpp_lib_polymorphic_allocator`|`201902L`|[`std::pmr::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)の改修|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_ranges`|`201911L`<br/>`202106L`<br/>`202110L`|RangeライブラリとRangeアルゴリズム<br/>[`view`](/reference/ranges/view.md)コンセプトのデフォルト構築要求を削除<br/>所有権を持つ`view`の許可と[`owning_view`](/reference/ranges/owning_view.md)|[`<algorithm>`](/reference/algorithm.md)<br/>[`<functional>`](/reference/functional.md)<br/>[`<iterator>`](/reference/iterator.md)<br/>[`<memory>`](/reference/memory.md)<br/>[`<ranges>`](/reference/ranges.md)|
+|`__cpp_lib_remove_cvref`|`201711L`|[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_semaphore`|`201907L`|[`std::counting_semaphore`](/reference/semaphore/counting_semaphore.md)と`std::binary_semaphore`|[`<semaphore>`](/reference/semaphore.md)|
+|`__cpp_lib_shared_ptr_arrays`|`201707L`|[`std::make_shared`](/reference/memory/make_shared.md)と[`std::allocate_shared`](/reference/memory/allocate_shared.md)の配列対応|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_shift`|`201806L`|[`std::shift_left`](/reference/algorithm/shift_left.md)と[`std::shift_right`](/reference/algorithm/shift_right.md)|[`<algorithm>`](/reference/algorithm.md)|
+|`__cpp_lib_smart_ptr_for_overwrite`|`202002L`|[`std::make_shared_for_overwrite()`](/reference/memory/make_shared_for_overwrite.md)と[`std::allocate_shared_for_overwrite()`](/reference/memory/allocate_shared_for_overwrite.md)|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_source_location`|`201907L`|[`std::source_location`](/reference/source_location/source_location.md)|[`<source_location>`](/reference/source_location.md)|
+|`__cpp_lib_span`|`202002L`|[`std::span`](/reference/span/span.md)|[`<span>`](/reference/span.md)|
+|`__cpp_lib_ssize`|`201902L`|[`std::ssize()`](/reference/iterator/ssize.md)と`std::span`で使用する整数型の符号なし（`size_t`）への変更|[`<iterator>`](/reference/iterator.md)|
+|`__cpp_lib_starts_ends_with`|`201711L`|`std::string`と`std::string_view`の`starts_with()`と`ends_with()`|[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
+|`__cpp_lib_string_view`|`201803L`|`std::string`と`std::string_view`のイテレータの`constexpr`対応|[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
+|`__cpp_lib_syncbuf`|`201803L`|同期化出力ストリーム（`std::osyncstream`）とバッファ（`std::syncbuf`）|[`<syncstream>`](/reference/syncstream.md)|
+|`__cpp_lib_three_way_comparison`|`201907L`|標準ライブラリの三方比較演算子対応|[`<compare>`](/reference/compare.md)|
+|`__cpp_lib_to_address`|`201711L`|[`std::to_address()`](/reference/memory/to_address.md)|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_to_array`|`201907L`|[`std::to_array()`](/reference/array/to_array.md)|[`<array>`](/reference/array.md)|
+|`__cpp_lib_type_identity`|`201806L`|[`std::type_identity`](/reference/type_traits/type_identity.md)|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_unwrap_ref`|`201811L`|[`std::unwrap_reference`](/reference/type_traits/unwrap_reference.md)と[`std::unwrap_ref_decay`](/reference/type_traits/unwrap_ref_decay.md)|[`<type_traits>`](/reference/type_traits.md)|
 
 ## 参照
 
