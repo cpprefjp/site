@@ -6,14 +6,24 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<permutable I, sentinel_for<I> S, class Proj = identity, indirect_equivalence_relation<projected<I, Proj>> C = ranges::equal_to>
-  constexpr subrange<I> unique(I first, S last, C comp = {}, Proj proj = {});
+  template <permutable I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<I, Proj>> C = ranges::equal_to>
+  constexpr subrange<I>
+    unique(I first,
+           S last,
+           C comp = {},
+           Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<forward_range R, class Proj = identity, indirect_equivalence_relation<projected<iterator_t<R>, Proj>> C = ranges::equal_to>
+  template <forward_range R,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<iterator_t<R>, Proj>> C = ranges::equal_to>
     requires permutable<iterator_t<R>>
-  constexpr borrowed_subrange_t<R> unique(R&& r, C comp = {}, Proj proj = {});
+  constexpr borrowed_subrange_t<R>
+    unique(R&& r,
+           C comp = {},
+           Proj proj = {}); // (2) C++20
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
@@ -30,8 +40,8 @@ namespace std::ranges {
 ## 概要
 重複した要素を除ける。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 この関数は、隣り合った重複要素を除いた要素を、範囲の先頭に集める。この関数によってコンテナから直接要素が削除され、コンテナの要素数が減るようなことはない。コンテナから実際に要素を削除する場合は、この関数の戻り値として、先頭に集められた重複なし範囲の末尾の次を指すイテレータが返るため、そのイテレータを介してコンテナの`erase()`メンバ関数などを呼び出し、削除を行うこと。
 

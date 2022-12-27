@@ -45,16 +45,21 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする。
+イテレータ範囲`[first, last)`を条件を満たすか満たさないかで、2つの出力範囲へ分けてコピーする。
+
+この関数は、入力のイテレータ範囲のうち、条件を満たす要素を出力イテレータ範囲`out_true`、条件を満たさない要素を出力イテレータ範囲`out_false`にコピーする。
 
 
-## 要件
-- `InputIterator` の value type は `Assignable` で、`out_true` と `out_false` の `OutputIterator` へ書き込み可能で、`Predicate` の argument type へ変換可能でなければならない。
-- 入力範囲は出力範囲のどちらとも重なっていてはならない。
+## テンプレートパラメータ制約
+- `InputIterator` の value type は `Assignable` で、`out_true` と `out_false` の `OutputIterator` へ書き込み可能で、`Predicate` の引数型へ変換可能であること
+
+
+## 事前条件
+- 入力範囲は出力範囲のどちらとも重なっていてはならない
 
 
 ## 効果
-`[first,last)` 内にあるそれぞれのイテレータ `i` について、`pred(*i)` が `true` なら `*i` を `out_true` へコピーし、そうでない場合は `out_false` へコピーする。
+イテレータ範囲`[first,last)` 内にあるそれぞれのイテレータ `i` について、`pred(*i)` が `true` なら `*i` を `out_true` へコピーし、そうでない場合は `out_false` へコピーする。
 
 
 ## 戻り値

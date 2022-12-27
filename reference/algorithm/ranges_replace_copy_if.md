@@ -6,17 +6,33 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, class T, output_iterator<const T&> O, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class T,
+            output_iterator<const T&> O,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
     requires indirectly_copyable<I, O>
   constexpr replace_copy_if_result<I, O>
-    replace_copy_if(I first, S last, O result, Pred pred, const T& new_value, Proj proj = {});
+    replace_copy_if(I first,
+                    S last,
+                    O result,
+                    Pred pred,
+                    const T& new_value,
+                    Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<input_range R, class T, output_iterator<const T&> O, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  template <input_range R,
+            class T,
+            output_iterator<const T&> O,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
     requires indirectly_copyable<iterator_t<R>, O>
   constexpr replace_copy_if_result<borrowed_iterator_t<R>, O>
-    replace_copy_if(R&& r, O result, Pred pred, const T& new_value, Proj proj = {});
+    replace_copy_if(R&& r,
+                    O result,
+                    Pred pred,
+                    const T& new_value,
+                    Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -34,8 +50,8 @@ namespace std::ranges {
 ## 概要
 条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `[first,last)` と `[result,result + (last - first))` の範囲が重なっていてはならない。

@@ -6,13 +6,25 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class T,
+            class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
-  constexpr I find(I first, S last, const T& value, Proj proj = {});
+  constexpr I
+    find(I first,
+         S last,
+         const T& value,
+         Proj proj = {}); // (1) C++20
 
-  template<input_range R, class T, class Proj = identity>
+  template <input_range R,
+            class T,
+            class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
-  constexpr borrowed_iterator_t<R> find(R&& r, const T& value, Proj proj = {});
+  constexpr borrowed_iterator_t<R>
+    find(R&& r,
+         const T& value,
+         Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -28,8 +40,8 @@ namespace std::ranges {
 ## 概要
 指定された値を検索する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 戻り値

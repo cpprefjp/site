@@ -6,17 +6,21 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<bidirectional_iterator I, sentinel_for<I> S, weakly_incrementable O>
+  template <bidirectional_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O>
     requires indirectly_copyable<I, O>
   constexpr reverse_copy_result<I, O>
-    reverse_copy(I first, S last, O result);
+    reverse_copy(I first,
+                 S last,
+                 O result); // (1) C++20
 
-  // (2)
-  template<bidirectional_range R, weakly_incrementable O>
+  template <bidirectional_range R,
+            weakly_incrementable O>
     requires indirectly_copyable<iterator_t<R>, O>
   constexpr reverse_copy_result<borrowed_iterator_t<R>, O>
-    reverse_copy(R&& r, O result);
+    reverse_copy(R&& r,
+                 O result); // (2) C++20
 }
 ```
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
@@ -31,8 +35,9 @@ namespace std::ranges {
 ## 概要
 要素の並びを逆にし、その結果を出力の範囲へコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
+
 
 ## 事前条件
 `[first,last)` と `[result,result+(last-first))` は領域が重なっていてはならない。

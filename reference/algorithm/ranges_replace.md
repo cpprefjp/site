@@ -6,15 +6,35 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, class T1, class T2, class Proj = identity>
-    requires indirectly_writable<I, const T2&> && indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T1*>
-  constexpr I replace(I first, S last, const T1& old_value, const T2& new_value, Proj proj = {});
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class T1,
+            class T2,
+            class Proj = identity>
+    requires indirectly_writable<I, const T2&> &&
+             indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T1*>
+  constexpr I
+    replace(I first,
+            S last,
+            const T1& old_value,
+            const T2& new_value,
+            Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<input_range R, class T1, class T2, class Proj = identity>
-    requires indirectly_writable<iterator_t<R>, const T2&> && indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T1*>
-  constexpr borrowed_iterator_t<R> replace(R&& r, const T1& old_value, const T2& new_value, Proj proj = {});
+  template <input_range R,
+            class T1,
+            class T2,
+            class Proj = identity>
+    requires indirectly_writable<iterator_t<R>, const T2&> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T1*
+             >
+  constexpr borrowed_iterator_t<R>
+    replace(R&& r,
+            const T1& old_value,
+            const T2& new_value,
+            Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -31,8 +51,8 @@ namespace std::ranges {
 ## 概要
 指定された値と一致する要素を指定された値に置き換える。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 効果

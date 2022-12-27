@@ -25,17 +25,16 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する。
+イテレータ範囲`[first, last)`が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する。
 
 
-## 要件
-`InputIterator`のvalue typeは `Predicate` の引数型へ変換可能でなければならない。
-
-つまり `pred(*first)` という式が有効でなければならない。
+## テンプレートパラメータ制約
+- `InputIterator`のvalue typeは `Predicate` の引数型へ変換可能でなければならない
+    - つまり `pred(*first)` という式が有効でなければならない
 
 
 ## 戻り値
-`[first,last)` が空、 または `[first,last)` が `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているなら `true` 、そうでなければ `false` を返す。
+イテレータ範囲`[first,last)` が空、 または `[first,last)` が `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているなら `true` 、そうでなければ `false` を返す。
 
 つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現するなら `true` を返す。
 

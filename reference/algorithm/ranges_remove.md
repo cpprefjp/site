@@ -6,15 +6,30 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<permutable I, sentinel_for<I> S, class T, class Proj = identity>
+  template <permutable I,
+            sentinel_for<I> S,
+            class T,
+            class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
-  constexpr subrange<I> remove(I first, S last, const T& value, Proj proj = {});
+  constexpr subrange<I>
+    remove(I first,
+           S last,
+           const T& value,
+           Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<forward_range R, class T, class Proj = identity>
-    requires permutable<iterator_t<R>> && indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
-  constexpr borrowed_subrange_t<R> remove(R&& r, const T& value, Proj proj = {});
+  template <forward_range R,
+            class T,
+            class Proj = identity>
+    requires permutable<iterator_t<R>> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T*
+             >
+  constexpr borrowed_subrange_t<R>
+    remove(R&& r,
+           const T& value,
+           Proj proj = {}); // (2) C++20
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
@@ -31,8 +46,8 @@ namespace std::ranges {
 ## 概要
 指定された要素を取り除く。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 効果

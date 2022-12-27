@@ -6,29 +6,80 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, weakly_incrementable O, copy_constructible F, class Proj = identity>
-    requires indirectly_writable<O, indirect_result_t<F&, projected<I, Proj>>>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O,
+            copy_constructible F,
+            class Proj = identity>
+    requires indirectly_writable<
+               O,
+               indirect_result_t<F&, projected<I, Proj>>
+             >
   constexpr unary_transform_result<I, O>
-    transform(I first1, S last1, O result, F op, Proj proj = {});
+    transform(I first1,
+              S last1,
+              O result,
+              F op,
+              Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<input_range R, weakly_incrementable O, copy_constructible F, class Proj = identity>
-    requires indirectly_writable<O, indirect_result_t<F&, projected<iterator_t<R>, Proj>>>
+  template <input_range R,
+            weakly_incrementable O,
+            copy_constructible F,
+            class Proj = identity>
+    requires indirectly_writable<
+               O,
+               indirect_result_t<F&, projected<iterator_t<R>, Proj>>
+             >
   constexpr unary_transform_result<borrowed_iterator_t<R>, O>
-    transform(R&& r, O result, F op, Proj proj = {});
+    transform(R&& r,
+              O result,
+              F op,
+              Proj proj = {}); // (2) C++20
 
-  // (3)
-  template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2, weakly_incrementable O, copy_constructible F, class Proj1 = identity, class Proj2 = identity>
-    requires indirectly_writable<O, indirect_result_t<F&, projected<I1, Proj1>, projected<I2, Proj2>>>
+  template <input_iterator I1,
+            sentinel_for<I1> S1,
+            input_iterator I2,
+            sentinel_for<I2> S2,
+            weakly_incrementable O,
+            copy_constructible F,
+            class Proj1 = identity,
+            class Proj2 = identity>
+    requires indirectly_writable<
+               O,
+               indirect_result_t<F&, projected<I1, Proj1>, projected<I2, Proj2>>
+             >
   constexpr binary_transform_result<I1, I2, O>
-    transform(I1 first1, S1 last1, I2 first2, S2 last2, O result, F binary_op, Proj1 proj1 = {}, Proj2 proj2 = {});
+    transform(I1 first1,
+              S1 last1,
+              I2 first2,
+              S2 last2,
+              O result,
+              F binary_op,
+              Proj1 proj1 = {},
+              Proj2 proj2 = {}); // (3) C++20
 
-  // (4)
-  template<input_range R1, input_range R2, weakly_incrementable O, copy_constructible F, class Proj1 = identity, class Proj2 = identity>
-    requires indirectly_writable<O, indirect_result_t<F&, projected<iterator_t<R1>, Proj1>, projected<iterator_t<R2>, Proj2>>>
-  constexpr binary_transform_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>, O>
-    transform(R1&& r1, R2&& r2, O result, F binary_op, Proj1 proj1 = {}, Proj2 proj2 = {});
+  template <input_range R1,
+            input_range R2,
+            weakly_incrementable O,
+            copy_constructible F,
+            class Proj1 = identity,
+            class Proj2 = identity>
+    requires indirectly_writable<
+               O,
+               indirect_result_t<F&, projected<iterator_t<R1>, Proj1>,
+               projected<iterator_t<R2>, Proj2>>
+             >
+  constexpr binary_transform_result<
+              borrowed_iterator_t<R1>,
+              borrowed_iterator_t<R2>,
+              O
+            >
+    transform(R1&& r1,
+              R2&& r2,
+              O result,
+              F binary_op,
+              Proj1 proj1 = {},
+              Proj2 proj2 = {}); // (4) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -49,11 +100,12 @@ namespace std::ranges {
 ## 概要
 全ての要素に関数を適用する。
 
-* (1), (2): 1つの範囲の要素に関数を適用し、結果を出力イテレータに出力する
-* (3), (4): 2つの範囲の要素を1つずつ取り出して関数を適用し、結果を出力イテレータに出力する
+- (1), (2): 1つの範囲の要素に関数を適用し、結果を出力イテレータに出力する
+- (3), (4): 2つの範囲の要素を1つずつ取り出して関数を適用し、結果を出力イテレータに出力する
 
-* (1), (3): イテレータペアで範囲を指定する
-* (2), (4): 範囲を直接指定する
+- (1), (3): イテレータ範囲を指定する
+- (2), (4): Rangeを直接指定する
+
 
 ## 事前条件
 - (1), (2) : `op` は、`[first,last]`, `[result,result + (last - first)]` 内のイテレータや subrange を無効にしたり、要素を書き換えてはならない。

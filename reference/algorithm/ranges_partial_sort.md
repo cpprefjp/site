@@ -6,13 +6,27 @@
 
 ```cpp
 namespace std::ranges {
-  template<random_access_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
+  template <random_access_iterator I,
+            sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<I, Comp, Proj>
-  constexpr I partial_sort(I first, I middle, S last, Comp comp = {}, Proj proj = {});
+  constexpr I
+    partial_sort(I first,
+                 I middle,
+                 S last,
+                 Comp comp = {},
+                 Proj proj = {}); // (1) C++20
 
-  template<random_access_range R, class Comp = ranges::less, class Proj = identity>
+  template <random_access_range R,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<iterator_t<R>, Comp, Proj>
-  constexpr borrowed_iterator_t<R> partial_sort(R&& r, iterator_t<R> middle, Comp comp = {}, Proj proj = {});
+  constexpr borrowed_iterator_t<R>
+    partial_sort(R&& r,
+                 iterator_t<R> middle,
+                 Comp comp = {},
+                 Proj proj = {}); // (2) C++20
 }
 ```
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
@@ -27,6 +41,9 @@ namespace std::ranges {
 
 ## 概要
 範囲を部分的にソートし、先頭 `N` 個を順に並んだ状態にする。`N` は `middle - first` で決まる。
+
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 この関数は、「売り上げランキング トップ1位から10位まで」のように、全体ではなく最高順位から途中までの順位がわかればよい状況で、全体を並び替える[`sort()`](sort.md)関数の代わりに使用できる。
 

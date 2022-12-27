@@ -6,11 +6,18 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
-  constexpr bool any_of(I first, S last, Pred pred, Proj proj = {}); // (1)
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+  constexpr bool
+    any_of(I first, S last, Pred pred, Proj proj = {}); // (1) C++20
 
-  template<input_range R, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
-  constexpr bool any_of(R&& r, Pred pred, Proj proj = {});           // (2)
+  template <input_range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  constexpr bool
+    any_of(R&& r, Pred pred, Proj proj = {});           // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -23,8 +30,8 @@ namespace std::ranges {
 ## 概要
 範囲のいずれかの要素が条件を満たすかを判定する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## テンプレートパラメータ制約
 - (1):

@@ -234,7 +234,7 @@ auto res =  (std::string(args) + ...);
 
 ## 関連項目
 - [C++11 可変引数テンプレート](/lang/cpp11/variadic_templates.md)
-- [`std::accumulate`](/reference/numeric/accumulate.md) — イテレータの範囲について累積的に二項演算を行う
+- [`std::accumulate`](/reference/numeric/accumulate.md) — イテレータ範囲について累積的に二項演算を行う
 
 
 ## 参照

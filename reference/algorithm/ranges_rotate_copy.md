@@ -6,17 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
- template<forward_iterator I, sentinel_for<I> S, weakly_incrementable O>
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O>
     requires indirectly_copyable<I, O>
   constexpr rotate_copy_result<I, O>
-    rotate_copy(I first, I middle, S last, O result);
+    rotate_copy(I first,
+                I middle,
+                S last,
+                O result); // (1) C++20
 
-  // (2)
-  template<forward_range R, weakly_incrementable O>
+  template <forward_range R,
+            weakly_incrementable O>
     requires indirectly_copyable<iterator_t<R>, O>
   constexpr rotate_copy_result<borrowed_iterator_t<R>, O>
-    rotate_copy(R&& r, iterator_t<R> middle, O result);
+    rotate_copy(R&& r,
+                iterator_t<R> middle,
+                O result); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -30,8 +36,8 @@ namespace std::ranges {
 ## 概要
 `middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させ、その結果を出力の範囲へコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 事前条件

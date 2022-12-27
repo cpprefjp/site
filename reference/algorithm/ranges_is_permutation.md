@@ -6,13 +6,39 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I1, sentinel_for<I1> S1, forward_iterator I2, sentinel_for<I2> S2, class Proj1 = identity, class Proj2 = identity,
-           indirect_equivalence_relation<projected<I1, Proj1>, projected<I2, Proj2>> Pred = ranges::equal_to>
-  constexpr bool is_permutation(I1 first1, S1 last1, I2 first2, S2 last2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {}); // (1)
+  template <forward_iterator I1,
+            sentinel_for<I1> S1,
+            forward_iterator I2,
+            sentinel_for<I2> S2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_equivalence_relation<
+              projected<I1, Proj1>,
+              projected<I2, Proj2>
+            > Pred = ranges::equal_to>
+  constexpr bool
+    is_permutation(I1 first1,
+                   S1 last1,
+                   I2 first2,
+                   S2 last2,
+                   Pred pred = {},
+                   Proj1 proj1 = {},
+                   Proj2 proj2 = {}); // (1) C++20
 
-  template<forward_range R1, forward_range R2, class Proj1 = identity, class Proj2 = identity,
-           indirect_equivalence_relation<projected<iterator_t<R1>, Proj1>, projected<iterator_t<R2>, Proj2>> Pred = ranges::equal_to>
-  constexpr bool is_permutation(R1&& r1, R2&& r2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                         // (2)
+  template <forward_range R1,
+            forward_range R2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_equivalence_relation<
+              projected<iterator_t<R1>, Proj1>,
+              projected<iterator_t<R2>, Proj2>
+            > Pred = ranges::equal_to>
+  constexpr bool
+    is_permutation(R1&& r1,
+                   R2&& r2,
+                   Pred pred = {},
+                   Proj1 proj1 = {},
+                   Proj2 proj2 = {}); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -27,8 +53,8 @@ namespace std::ranges {
 ## 概要
 範囲 `[first2, last2)` を並べ替えたものが、`[first1, last1)` の範囲と一致するか判定する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 戻り値
 `last2` が与えられている形式の場合、`last1 - first1 != last2 - first2` であれば `false` を返す。  

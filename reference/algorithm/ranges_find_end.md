@@ -6,21 +6,43 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I1, sentinel_for<I1> S1, forward_iterator I2, sentinel_for<I2> S2, class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
+  template <forward_iterator I1,
+            sentinel_for<I1> S1,
+            forward_iterator I2,
+            sentinel_for<I2> S2,
+            class Pred = ranges::equal_to,
+            class Proj1 = identity,
+            class Proj2 = identity>
     requires indirectly_comparable<I1, I2, Pred, Proj1, Proj2>
-  constexpr subrange<I1> find_end(I1 first1, S1 last1, I2 first2, S2 last2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});
+  constexpr subrange<I1>
+    find_end(I1 first1,
+             S1 last1,
+             I2 first2,
+             S2 last2,
+             Pred pred = {},
+             Proj1 proj1 = {},
+             Proj2 proj2 = {}); // (1) C++20
 
-  template<forward_range R1, forward_range R2, class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
+  template <forward_range R1,
+            forward_range R2,
+            class Pred = ranges::equal_to,
+            class Proj1 = identity,
+            class Proj2 = identity>
     requires indirectly_comparable<iterator_t<R1>, iterator_t<R2>, Pred, Proj1, Proj2>
-  constexpr borrowed_subrange_t<R1> find_end(R1&& r1, R2&& r2, Pred pred = {}, Proj1 proj1 = {}, Proj2 proj2 = {});
+  constexpr borrowed_subrange_t<R1>
+    find_end(R1&& r1,
+             R2&& r2,
+             Pred pred = {},
+             Proj1 proj1 = {},
+             Proj2 proj2 = {}); // (2) C++20
 }
 ```
 
 ## 概要
 範囲の中から、特定のサブシーケンスを検索する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 戻り値

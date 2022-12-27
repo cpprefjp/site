@@ -6,13 +6,25 @@
 
 ```cpp
 namespace std::ranges {
-  template<random_access_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
+  template <random_access_iterator I,
+            sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<I, Comp, Proj>
-  constexpr I sort(I first, S last, Comp comp = {}, Proj proj = {});            // (1)
+  constexpr I
+    sort(I first,
+         S last,
+         Comp comp = {},
+         Proj proj = {}); // (1) C++20
 
-  template<random_access_range R, class Comp = ranges::less, class Proj = identity>
+  template <random_access_range R,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<iterator_t<R>, Comp, Proj>
-  constexpr borrowed_iterator_t<R> sort(R&& r, Comp comp = {}, Proj proj = {}); // (2)
+  constexpr borrowed_iterator_t<R>
+    sort(R&& r,
+         Comp comp = {},
+         Proj proj = {}); // (2) C++20
 }
 ```
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
@@ -27,8 +39,8 @@ namespace std::ranges {
 ## 概要
 範囲を並べ替える
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 効果
 `[first,last)` の範囲をソートする

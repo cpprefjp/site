@@ -6,14 +6,18 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<permutable I, sentinel_for<I> S>
-    constexpr subrange<I> shift_left(I first, S last, iter_difference_t<I> n);
+  template <permutable I,
+            sentinel_for<I> S>
+  constexpr subrange<I>
+    shift_left(I first,
+               S last,
+               iter_difference_t<I> n);  // (1) C++20
 
-  // (2)
-  template<forward_range R>
+  template <forward_range R>
     requires permutable<iterator_t<R>>
-  constexpr borrowed_subrange_t<R> shift_left(R&& r, range_difference_t<R> n)
+  constexpr borrowed_subrange_t<R>
+    shift_left(R&& r,
+               range_difference_t<R> n); // (2) C++20
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
@@ -28,8 +32,8 @@ namespace std::ranges {
 ## 概要
 範囲の要素をn個だけ左にシフトさせる。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 この関数に符号付き整数型のシフト数として、0および負数を指定した場合はなにもしない。
 

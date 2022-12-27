@@ -6,11 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
-  constexpr I find_if(I first, S last, Pred pred, Proj proj = {});
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+  constexpr I
+    find_if(I first,
+            S last,
+            Pred pred,
+            Proj proj = {}); // (1) C++20
 
-  template<input_range R, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
-  constexpr borrowed_iterator_t<R> find_if(R&& r, Pred pred, Proj proj = {});
+  template <input_range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  constexpr borrowed_iterator_t<R>
+    find_if(R&& r,
+            Pred pred,
+            Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -25,8 +37,8 @@ namespace std::ranges {
 ## 概要
 範囲の中から、指定された条件を満たす最初の要素を検索する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+* (1): イテレータ範囲を指定する
+* (2): Rangeを直接指定する
 
 
 ## 戻り値

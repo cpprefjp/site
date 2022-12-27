@@ -30,11 +30,11 @@ namespace std {
 ```
 
 ## 概要
-`middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させ、その結果を出力の範囲へコピーする。
+`middle`の要素が先頭、`middle-1`の要素が末尾となるように、イテレータ範囲`[first,last)`の要素の並びを回転させ、その結果を出力の範囲へコピーする。
 
 
-## 要件
-`[first,last)` と `[result,result + (last - first))` の範囲は重なっていてはならない。
+## 事前条件
+- `[first,last)` と `[result,result + (last - first))` の範囲は重なっていてはならない
 
 
 ## 効果

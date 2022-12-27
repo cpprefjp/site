@@ -57,7 +57,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 
 
 ### アルゴリズム
-- 以下のアルゴリズムに、2つ目の範囲の終端イテレータをパラメータにとるバージョンを追加。これにより、2つの範囲が同じ長さかを事前にユーザーがチェックする必要がなくなった
+- 以下のアルゴリズムに、2つ目のイテレータ範囲の終端イテレータをパラメータにとるバージョンを追加。これにより、2つの範囲が同じ長さかを事前にユーザーがチェックする必要がなくなった
     - [`std::mismatch()`](/reference/algorithm/mismatch.md)
 	- [`std::equal()`](/reference/algorithm/equal.md)
 	- [`std::is_permutation()`](/reference/algorithm/is_permutation.md)

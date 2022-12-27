@@ -6,15 +6,21 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_or_output_iterator O, sentinel_for<O> S, copy_constructible F>
+  template <input_or_output_iterator O,
+            sentinel_for<O> S,
+            copy_constructible F>
     requires invocable<F&> && indirectly_writable<O, invoke_result_t<F&>>
-  constexpr O generate(O first, S last, F gen);
+  constexpr O
+    generate(O first,
+             S last,
+             F gen); // (1) C++20
 
-  // (2)
-  template<class R, copy_constructible F>
+  template <class R,
+            copy_constructible F>
     requires invocable<F&> && output_range<R, invoke_result_t<F&>>
-  constexpr borrowed_iterator_t<R> generate(R&& r, F gen);
+  constexpr borrowed_iterator_t<R>
+    generate(R&& r,
+             F gen); // (2) C++20
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
@@ -29,8 +35,8 @@ namespace std::ranges {
 ## 概要
 出力の範囲へ関数の結果を書き込む。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 効果

@@ -6,14 +6,18 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<permutable I, sentinel_for<I> S>
-  constexpr subrange<I> rotate(I first, I middle, S last);
+  template <permutable I,
+            sentinel_for<I> S>
+  constexpr subrange<I>
+    rotate(I first,
+           I middle,
+           S last);               // (1) C++20
 
-  // (2)
-  template<forward_range R>
+  template <forward_range R>
     requires permutable<iterator_t<R>>
-  constexpr borrowed_subrange_t<R> rotate(R&& r, iterator_t<R> middle);
+  constexpr borrowed_subrange_t<R>
+    rotate(R&& r,
+           iterator_t<R> middle); // (2) C++20
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
@@ -26,8 +30,8 @@ namespace std::ranges {
 ## 概要
 `middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させる。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `[first,middle)` と `[middle,last)` は有効な範囲である必要がある。

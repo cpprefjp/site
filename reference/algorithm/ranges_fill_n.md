@@ -7,7 +7,8 @@
 ```cpp
 namespace std::ranges {
   template<class T, output_iterator<const T&> O>
-    constexpr O fill_n(O first, iter_difference_t<O> n, const T& value);
+  constexpr O
+    fill_n(O first, iter_difference_t<O> n, const T& value); // (1) C++20
 }
 ```
 * output_iterator[link /reference/iterator/output_iterator.md]

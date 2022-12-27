@@ -146,13 +146,13 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 
 ### アルゴリズム
 
-- 範囲が特定の条件を満たしているか調べる、[`std::all_of()`](/reference/algorithm/all_of.md)、[`std::any_of()`](/reference/algorithm/any_of.md)、[`std::none_of`](/reference/algorithm/none_of.md)を追加
+- イテレータ範囲が特定の条件を満たしているか調べる、[`std::all_of()`](/reference/algorithm/all_of.md)、[`std::any_of()`](/reference/algorithm/any_of.md)、[`std::none_of`](/reference/algorithm/none_of.md)を追加
 - 条件を満たしていない最初の要素を検索する[`std::find_if_not()`](/reference/algorithm/find_if_not.md)を追加
 - 指定された数の要素をコピーする[`std::copy_n()`](/reference/algorithm/copy_n.md)を追加
 - 条件を満たす要素のみをコピーする[`std::copy_if()`](/reference/algorithm/copy_if.md)を追加
-- 範囲の要素をムーブする[`std::move()`](/reference/algorithm/move.md)、[`std::move_backward()`](/reference/algorithm/move_backward.md)を追加
-- 新たな乱数ライブラリ[`<random>`](/reference/random.md)に対応した範囲のシャッフルアルゴリズム[`std::shuffle()`](/reference/algorithm/shuffle.md)を追加
-- 範囲がソート済みか調べる[`std::is_sorted()`](/reference/algorithm/is_sorted.md)を追加
+- イテレータ範囲の要素をムーブする[`std::move()`](/reference/algorithm/move.md)、[`std::move_backward()`](/reference/algorithm/move_backward.md)を追加
+- 新たな乱数ライブラリ[`<random>`](/reference/random.md)に対応したイテレータ範囲のシャッフルアルゴリズム[`std::shuffle()`](/reference/algorithm/shuffle.md)を追加
+- イテレータ範囲がソート済みか調べる[`std::is_sorted()`](/reference/algorithm/is_sorted.md)を追加
 - 2つの値の最小値を取得する[`std::min()`](/reference/algorithm/min.md)、最大値を取得する[`std::max()`](/reference/algorithm/max.md)に、初期化子リストによる可変引数版を追加
 - 最小値と最大値を同時に取得する関数[`std::minmax()`](/reference/algorithm/minmax.md)、[`std::minmax_element()`](/reference/algorithm/minmax_element.md)を追加
 - 指定された値から始まる整数列を生成する[`std::iota()`](/reference/numeric/iota.md)を追加

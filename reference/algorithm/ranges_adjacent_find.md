@@ -6,11 +6,20 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I, sentinel_for<I> S, class Proj = identity, indirect_binary_predicate<projected<I, Proj>, projected<I, Proj>> Pred = ranges::equal_to>
-  constexpr I adjacent_find(I first, S last, Pred pred = {}, Proj proj = {});
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_binary_predicate<projected<I, Proj>,
+            projected<I, Proj>> Pred = ranges::equal_to>
+  constexpr I
+    adjacent_find(I first, S last, Pred pred = {}, Proj proj = {}); // (1) C++20
 
-  template<forward_range R, class Proj = identity, indirect_binary_predicate<projected<iterator_t<R>, Proj>, projected<iterator_t<R>, Proj>> Pred = ranges::equal_to>
-  constexpr borrowed_iterator_t<R> adjacent_find(R&& r, Pred pred = {}, Proj proj = {});
+  template <forward_range R,
+            class Proj = identity,
+            indirect_binary_predicate<projected<iterator_t<R>, Proj>,
+            projected<iterator_t<R>, Proj>> Pred = ranges::equal_to>
+  constexpr borrowed_iterator_t<R>
+    adjacent_find(R&& r, Pred pred = {}, Proj proj = {});           // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -27,8 +36,8 @@ namespace std::ranges {
 ## 概要
 隣接する要素で条件を満たしている最初の要素を検索する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 戻り値

@@ -7,15 +7,31 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, weakly_incrementable O, class Gen>
-    requires (forward_iterator<I> || random_access_iterator<O>) && indirectly_copyable<I, O> && uniform_random_bit_generator<remove_reference_t<Gen>>
-  O sample(I first, S last, O out, iter_difference_t<I> n, Gen&& g);
+  template <input_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O,
+            class Gen>
+    requires (forward_iterator<I> || random_access_iterator<O>) &&
+             indirectly_copyable<I, O> &&
+             uniform_random_bit_generator<remove_reference_t<Gen>>
+  O
+    sample(I first,
+           S last,
+           O out,
+           iter_difference_t<I> n,
+           Gen&& g); // (1) C++20
 
-  // (2)
-  template<input_range R, weakly_incrementable O, class Gen>
-    requires (forward_range<R> || random_access_iterator<O>) && indirectly_copyable<iterator_t<R>, O> && uniform_random_bit_generator<remove_reference_t<Gen>>
-  O sample(R&& r, O out, range_difference_t<R> n, Gen&& g);
+  template <input_range R,
+            weakly_incrementable O,
+            class Gen>
+    requires (forward_range<R> || random_access_iterator<O>) &&
+             indirectly_copyable<iterator_t<R>, O> &&
+             uniform_random_bit_generator<remove_reference_t<Gen>>
+  O
+    sample(R&& r,
+           O out,
+           range_difference_t<R> n,
+           Gen&& g); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -32,8 +48,8 @@ namespace std::ranges {
 ## 概要
 範囲から指定された個数の要素をランダムに抽出する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `out`は範囲`[first, last)`に含まれてはならない

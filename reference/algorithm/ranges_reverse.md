@@ -6,15 +6,17 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<bidirectional_iterator I, sentinel_for<I> S>
+  template <bidirectional_iterator I,
+            sentinel_for<I> S>
     requires permutable<I>
-  constexpr I reverse(I first, S last);
+  constexpr I
+    reverse(I first,
+            S last); // (1) C++20
 
-  // (2)
-  template<bidirectional_range R>
+  template <bidirectional_range R>
     requires permutable<iterator_t<R>>
-  constexpr borrowed_iterator_t<R> reverse(R&& r);
+  constexpr borrowed_iterator_t<R>
+    reverse(R&& r);  // (2) C++20
 }
 ```
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
@@ -27,8 +29,8 @@ namespace std::ranges {
 ## 概要
 要素の並びを逆にする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 効果

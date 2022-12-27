@@ -6,13 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I, sentinel_for<I> S, class Proj = identity,
-           indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
-  constexpr minmax_element_result<I> minmax_element(I first, S last, Comp comp = {}, Proj proj = {});
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
+  constexpr minmax_element_result<I>
+    minmax_element(I first,
+                   S last,
+                   Comp comp = {},
+                   Proj proj = {}); // (1) C++20
 
-  template<forward_range R, class Proj = identity,
-           indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
-  constexpr minmax_element_result<borrowed_iterator_t<R>> minmax_element(R&& r, Comp comp = {}, Proj proj = {});
+  template <forward_range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  constexpr minmax_element_result<borrowed_iterator_t<R>>
+    minmax_element(R&& r,
+                   Comp comp = {},
+                   Proj proj = {}); // (2) C++20
 }
 ```
 * minmax_element_result[link ranges_min_max_result.md]
@@ -29,6 +39,9 @@ namespace std::ranges {
 
 ## 概要
 `[first, last)` の範囲において、最小要素を指すイテレータと最大要素を指すイテレータの組を取得する。
+
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 戻り値

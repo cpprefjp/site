@@ -6,13 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<random_access_iterator I, sentinel_for<I> S, class Proj = identity, indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
-  constexpr I is_heap_until(I first, S last, Comp comp = {}, Proj proj = {});
+  template <random_access_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
+  constexpr I
+    is_heap_until(I first,
+                  S last,
+                  Comp comp = {},
+                  Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<random_access_range R, class Proj = identity, indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
-  constexpr borrowed_iterator_t<R> is_heap_until(R&& r, Comp comp = {}, Proj proj = {});
+  template <random_access_range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  constexpr borrowed_iterator_t<R>
+    is_heap_until(R&& r,
+                  Comp comp = {},
+                  Proj proj = {}); // (2) C++20
 }
 ```
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
@@ -26,8 +36,8 @@ namespace std::ranges {
 ## 概要
 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 戻り値

@@ -6,17 +6,43 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, class T1, class T2, output_iterator<const T2&> O, class Proj = identity>
-    requires indirectly_copyable<I, O> && indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T1*>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class T1,
+            class T2,
+            output_iterator<const T2&> O,
+            class Proj = identity>
+    requires indirectly_copyable<I, O> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<I, Proj>,
+               const T1*
+             >
   constexpr replace_copy_result<I, O>
-    replace_copy(I first, S last, O result, const T1& old_value, const T2& new_value, Proj proj = {});
+    replace_copy(I first,
+                 S last,
+                 O result,
+                 const T1& old_value,
+                 const T2& new_value,
+                 Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<input_range R, class T1, class T2, output_iterator<const T2&> O, class Proj = identity>
-    requires indirectly_copyable<iterator_t<R>, O> && indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T1*>
+  template <input_range R,
+            class T1,
+            class T2,
+            output_iterator<const T2&> O,
+            class Proj = identity>
+    requires indirectly_copyable<iterator_t<R>, O> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T1*
+             >
   constexpr replace_copy_result<borrowed_iterator_t<R>, O>
-    replace_copy(R&& r, O result, const T1& old_value, const T2& new_value, Proj proj = {});
+    replace_copy(R&& r,
+                 O result,
+                 const T1& old_value,
+                 const T2& new_value,
+                 Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -35,8 +61,8 @@ namespace std::ranges {
 ## 概要
 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `[first,last)` と `[result,result + (last - first))` の範囲が重なっていてはならない。

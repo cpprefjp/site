@@ -6,20 +6,42 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I1, sentinel_for<I1> S1, random_access_iterator I2, sentinel_for<I2> S2,
-           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
-    requires indirectly_copyable<I1, I2> && sortable<I2, Comp, Proj2> &&
+  template <input_iterator I1,
+            sentinel_for<I1> S1,
+            random_access_iterator I2, sentinel_for<I2> S2,
+            class Comp = ranges::less,
+            class Proj1 = identity,
+            class Proj2 = identity>
+    requires indirectly_copyable<I1, I2> &&
+             sortable<I2, Comp, Proj2> &&
              indirect_strict_weak_order<Comp, projected<I1, Proj1>, projected<I2, Proj2>>
   constexpr partial_sort_copy_result<I1, I2>
-    partial_sort_copy(I1 first, S1 last, I2 result_first, S2 result_last, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {}); // (1)
+    partial_sort_copy(I1 first,
+                      S1 last,
+                      I2 result_first,
+                      S2 result_last,
+                      Comp comp = {},
+                      Proj1 proj1 = {},
+                      Proj2 proj2 = {}); // (1) C++20
 
-  template<input_range R1, random_access_range R2,
-           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
+  template <input_range R1,
+            random_access_range R2,
+            class Comp = ranges::less,
+            class Proj1 = identity,
+            class Proj2 = identity>
     requires indirectly_copyable<iterator_t<R1>, iterator_t<R2>> &&
              sortable<iterator_t<R2>, Comp, Proj2> &&
-             indirect_strict_weak_order<Comp, projected<iterator_t<R1>, Proj1>, projected<iterator_t<R2>, Proj2>>
+             indirect_strict_weak_order<
+               Comp,
+               projected<iterator_t<R1>, Proj1>,
+               projected<iterator_t<R2>, Proj2>
+             >
   constexpr partial_sort_copy_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>>
-    partial_sort_copy(R1&& r, R2&& result_r, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                              // (2)
+    partial_sort_copy(R1&& r,
+                      R2&& result_r,
+                      Comp comp = {},
+                      Proj1 proj1 = {},
+                      Proj2 proj2 = {}); // (2) C++20
 }
 ```
 * partial_sort_copy_result[link ranges_in_out_result.md]
@@ -40,8 +62,8 @@ namespace std::ranges {
 ## 概要
 範囲を部分的にソートした結果を他の範囲にコピーする
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 効果
 `N = `[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` とする。

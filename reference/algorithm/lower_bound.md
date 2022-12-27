@@ -34,9 +34,9 @@ namespace std {
 ```
 
 ## 概要
-指定された要素以上の値が現れる最初の位置のイテレータを取得する。
+イテレータ範囲`[first, last)`のうち、指定された要素以上の値が現れる最初の位置のイテレータを取得する。
 
-この関数の用途としては、ソート済み範囲に対して、任意の値を二分探索で見つけるために使用できる。[`std::multiset`](/reference/set/multiset.md)のように同じキーを持つ要素が複数あり、その全てを列挙したい場合にはこの関数の代わりに[`std::equal_range()`](equal_range.md)関数を使用できる。
+この関数の用途としては、ソート済みイテレータ範囲に対して、任意の値を二分探索で見つけるために使用できる。[`std::multiset`](/reference/set/multiset.md)のように同じキーを持つ要素が複数あり、その全てを列挙したい場合にはこの関数の代わりに[`std::equal_range()`](equal_range.md)関数を使用できる。
 
 
 ## 要件
@@ -45,11 +45,11 @@ namespace std {
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
 	- `T` は `LessThanComparable` であること。
 	- `operator<` または `comp` は「[狭義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
-	- 範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
+	- イテレータ範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
 - C++11 から  
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
-	- `[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていること。
+	- イテレータ範囲`[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていること。
 		つまり、`e < value` または `comp(e, value)` が `true` となる全ての要素 `e` は、`false` となる全ての要素よりも左側（`first` に近い方）になければならない。
 
 
@@ -103,7 +103,7 @@ int main()
   }
 
   // 基本的な用途
-  // ソート済み範囲から、特定の値を二分探索で見つける
+  // ソート済みイテレータ範囲から、特定の値を二分探索で見つける
   {
     std::vector<int> v = {3, 1, 4, 6, 5};
     std::sort(v.begin(), v.end());

@@ -27,11 +27,11 @@ namespace std {
 ```
 
 ## 概要
-条件を満たす要素を除ける。
+イテレータ範囲`[first, last)`から条件を満たす要素を除ける。
 
 
-## 要件
-`*first` の型は `MoveAssignable` の要件を満たす必要がある
+## テンプレートパラメータ制約
+- `*first` の型は `MoveAssignable` の要件を満たすこと
 
 
 ## 効果

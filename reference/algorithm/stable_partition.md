@@ -21,12 +21,12 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
+与えられたイテレータ範囲`[first, last)`を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
 
-## 要件
-- `BidirectionalIterator` は `ValueSwappable` の要件を満たしている必要がある。
-- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+## テンプレートパラメータ制約
+- `BidirectionalIterator` は `ValueSwappable` の要件を満たしていること
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
 
 
 ## 効果

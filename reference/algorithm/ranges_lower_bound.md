@@ -6,13 +6,27 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I, sentinel_for<I> S, class T, class Proj = identity,
-           indirect_strict_weak_order<const T*, projected<I, Proj>> Comp = ranges::less>
-  constexpr I lower_bound(I first, S last, const T& value, Comp comp = {}, Proj proj = {});
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class T,
+            class Proj = identity,
+            indirect_strict_weak_order<const T*, projected<I, Proj>> Comp = ranges::less>
+  constexpr I
+    lower_bound(I first,
+                S last,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (1) C++20
 
-  template<forward_range R, class T, class Proj = identity,
-           indirect_strict_weak_order<const T*, projected<iterator_t<R>, Proj>> Comp = ranges::less>
-  constexpr borrowed_iterator_t<R> lower_bound(R&& r, const T& value, Comp comp = {}, Proj proj = {});
+  template <forward_range R,
+            class T,
+            class Proj = identity,
+            indirect_strict_weak_order<const T*, projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  constexpr borrowed_iterator_t<R>
+    lower_bound(R&& r,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -27,6 +41,9 @@ namespace std::ranges {
 
 ## 概要
 指定された要素以上の値が現れる最初の位置のイテレータを取得する。
+
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 この関数の用途としては、ソート済み範囲に対して、任意の値を二分探索で見つけるために使用できる。[`std::multiset`](/reference/set/multiset.md)のように同じキーを持つ要素が複数あり、その全てを列挙したい場合にはこの関数の代わりに[`std::ranges::equal_range()`](ranges_equal_range.md)関数を使用できる。
 

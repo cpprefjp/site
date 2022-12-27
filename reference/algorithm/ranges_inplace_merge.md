@@ -6,13 +6,27 @@
 
 ```cpp
 namespace std::ranges {
-  template<bidirectional_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
+  template <bidirectional_iterator I,
+            sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<I, Comp, Proj>
-  I inplace_merge(I first, I middle, S last, Comp comp = {}, Proj proj = {});
+  I
+    inplace_merge(I first,
+                  I middle,
+                  S last,
+                  Comp comp = {},
+                  Proj proj = {}); // (1) C++20
 
-  template<bidirectional_range R, class Comp = ranges::less, class Proj = identity>
+  template <bidirectional_range R,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<iterator_t<R>, Comp, Proj>
-  borrowed_iterator_t<R> inplace_merge(R&& r, iterator_t<R> middle, Comp comp = {}, Proj proj = {});
+  borrowed_iterator_t<R>
+    inplace_merge(R&& r,
+                  iterator_t<R> middle,
+                  Comp comp = {},
+                  Proj proj = {}); // (2) C++20
 }
 ```
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
@@ -27,8 +41,8 @@ namespace std::ranges {
 ## 概要
 2つの連続したソート済み範囲をマージする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `[first,middle)` と `[middle,last)` の範囲はそれぞれソートされていること。

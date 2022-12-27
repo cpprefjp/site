@@ -6,15 +6,29 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class T,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
     requires indirectly_writable<I, const T&>
-  constexpr I replace_if(I first, S last, Pred pred, const T& new_value, Proj proj = {});
+  constexpr I
+    replace_if(I first,
+               S last,
+               Pred pred,
+               const T& new_value,
+               Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<input_range R, class T, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  template <input_range R,
+            class T,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
     requires indirectly_writable<iterator_t<R>, const T&>
-  constexpr borrowed_iterator_t<R> replace_if(R&& r, Pred pred, const T& new_value, Proj proj = {});
+  constexpr borrowed_iterator_t<R>
+    replace_if(R&& r,
+               Pred pred,
+               const T& new_value,
+               Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -30,8 +44,8 @@ namespace std::ranges {
 ## 概要
 条件を満たす要素を指定された値に置き換える。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 効果

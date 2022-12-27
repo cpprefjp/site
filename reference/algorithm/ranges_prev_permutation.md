@@ -6,13 +6,25 @@
 
 ```cpp
 namespace std::ranges {
-  template<bidirectional_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
+  template <bidirectional_iterator I,
+            sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<I, Comp, Proj>
-  constexpr prev_permutation_result<I> next_permutation(I first, S last, Comp comp = {}, Proj proj = {});             // (1)
+  constexpr prev_permutation_result<I>
+    next_permutation(I first,
+                     S last,
+                     Comp comp = {},
+                     Proj proj = {}); // (1) C++20
 
-  template<bidirectional_range R, class Comp = ranges::less, class Proj = identity>
+  template <bidirectional_range R,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<iterator_t<R>, Comp, Proj>
-  constexpr prev_permutation_result<borrowed_iterator_t<R>> next_permutation(R&& r, Comp comp = {}, Proj proj = {});  // (2)
+  constexpr prev_permutation_result<borrowed_iterator_t<R>>
+    next_permutation(R&& r,
+                     Comp comp = {},
+                     Proj proj = {}); // (2) C++20
 }
 ```
 * prev_permutation_result[link ranges_in_found_result.md]
@@ -28,8 +40,8 @@ namespace std::ranges {
 ## 概要
 与えられた時点の`[first, last)`の範囲を起点の順列として、辞書順によるその前の順列を生成する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 効果
 `[first, last)`の範囲を前の順列に変換する。

@@ -23,7 +23,7 @@ namespace std {
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 概要
-範囲の要素をn個だけ右にシフトさせる。
+イテレータ範囲`[first, last)`の要素をn個だけ右にシフトさせる。
 
 この関数に符号付き整数型のシフト数として、0および負数を指定した場合はなにもしない。
 

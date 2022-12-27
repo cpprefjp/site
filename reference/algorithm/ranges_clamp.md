@@ -6,9 +6,11 @@
 
 ```cpp
 namespace std::ranges {
-  template<class T, class Proj = identity,
-           indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
-  constexpr const T& clamp(const T& v, const T& lo, const T& hi, Comp comp = {}, Proj proj = {});
+  template <class T,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
+  constexpr const T&
+    clamp(const T& v, const T& lo, const T& hi, Comp comp = {}, Proj proj = {}); // (1) C++20
 }
 ```
 * identity[link /reference/functional/identity.md]

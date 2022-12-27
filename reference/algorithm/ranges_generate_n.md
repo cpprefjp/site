@@ -6,9 +6,13 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_or_output_iterator O, copy_constructible F>
+  template <input_or_output_iterator O,
+            copy_constructible F>
     requires invocable<F&> && indirectly_writable<O, invoke_result_t<F&>>
-  constexpr O generate_n(O first, iter_difference_t<O> n, F gen);
+  constexpr O
+    generate_n(O first,
+               iter_difference_t<O> n,
+               F gen);                  // (1) C++20
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]

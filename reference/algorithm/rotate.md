@@ -33,13 +33,16 @@ namespace std {
 ```
 
 ## 概要
-`middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させる。
+`middle`の要素が先頭、`middle-1`の要素が末尾となるように、イテレータ範囲`[first,last)`の要素の並びを回転させる。
 
 
 ## 要件
-- `[first,middle)` と `[middle,last)` は有効な範囲である必要がある。
-- `ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
-- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+- `ForwardIterator` は `ValueSwappable` の要件を満たしていること
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
+
+
+## 事前条件
+- `[first,middle)` と `[middle,last)` は有効な範囲であること
 
 
 ## 効果

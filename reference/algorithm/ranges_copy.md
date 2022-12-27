@@ -6,13 +6,18 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S, weakly_incrementable O>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O>
     requires indirectly_copyable<I, O>
-  constexpr copy_result<I, O> copy(I first, S last, O result);            // (1)
+  constexpr copy_result<I, O>
+    copy(I first, S last, O result); // (1) C++20
 
-  template<input_range R, weakly_incrementable O>
+  template <input_range R,
+            weakly_incrementable O>
     requires indirectly_copyable<iterator_t<R>, O>
-  constexpr copy_result<borrowed_iterator_t<R>, O> copy(R&& r, O result); // (2)
+  constexpr copy_result<borrowed_iterator_t<R>, O>
+    copy(R&& r, O result);           // (2) C++20
 }
 ```
 * copy_result[link ranges_in_out_result.md]
@@ -27,8 +32,8 @@ namespace std::ranges {
 ## 概要
 指定された範囲の要素をコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 事前条件

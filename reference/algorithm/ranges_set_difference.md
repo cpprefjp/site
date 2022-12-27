@@ -6,17 +6,39 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2, weakly_incrementable O,
-           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
+  template <input_iterator I1,
+            sentinel_for<I1> S1,
+            input_iterator I2,
+            sentinel_for<I2> S2,
+            weakly_incrementable O,
+            class Comp = ranges::less,
+            class Proj1 = identity,
+            class Proj2 = identity>
     requires mergeable<I1, I2, O, Comp, Proj1, Proj2>
   constexpr set_difference_result<I1, O>
-    set_difference(I1 first1, S1 last1, I2 first2, S2 last2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {}); // (1)
+    set_difference(I1 first1,
+                   S1 last1,
+                   I2 first2,
+                   S2 last2,
+                   O result,
+                   Comp comp = {},
+                   Proj1 proj1 = {},
+                   Proj2 proj2 = {}); // (1) C++20
 
-  template<input_range R1, input_range R2, weakly_incrementable O,
-           class Comp = ranges::less, class Proj1 = identity, class Proj2 = identity>
+  template <input_range R1,
+            input_range R2,
+            weakly_incrementable O,
+            class Comp = ranges::less,
+            class Proj1 = identity,
+            class Proj2 = identity>
     requires mergeable<iterator_t<R1>, iterator_t<R2>, O, Comp, Proj1, Proj2>
   constexpr set_difference_result<borrowed_iterator_t<R1>, O>
-    set_difference(R1&& r1, R2&& r2, O result, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                         // (2)
+    set_difference(R1&& r1,
+                   R2&& r2,
+                   O result,
+                   Comp comp = {},
+                   Proj1 proj1 = {},
+                   Proj2 proj2 = {}); // (2) C++20
 }
 ```
 * set_difference_result[link ranges_in_out_result.md]
@@ -34,8 +56,8 @@ namespace std::ranges {
 ## 概要
 2つのソート済み範囲の差集合を得る
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 結果の範囲は両方の入力の範囲と重なっていてはならない。

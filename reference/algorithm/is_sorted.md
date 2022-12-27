@@ -38,7 +38,7 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲がソート済みか判定する。
+イテレータ範囲`[first, last)`がソート済みか判定する。
 
 ### 戻り値
 - (1) : [`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last) == last`

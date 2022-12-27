@@ -27,11 +27,11 @@ namespace std {
 ```
 
 ## 概要
-要素の並びを逆にし、その結果を出力の範囲へコピーする。
+イテレータ範囲`[first, last)`の要素順を逆にし、その結果を出力の範囲へコピーする。
 
 
-## 要件
-`[first,last)` と `[result,result+(last-first))` は領域が重なっていてはならない。
+## 事前条件
+- `[first,last)` と `[result,result+(last-first))` は領域が重なっていてはならない
 
 
 ## 効果

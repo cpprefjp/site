@@ -6,13 +6,27 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I, sentinel_for<I> S, class T, class Proj = identity,
-           indirect_strict_weak_order<const T*, projected<I, Proj>> Comp = ranges::less>
-  constexpr subrange<I> equal_range(I first, S last, const T& value, Comp comp = {}, Proj proj = {});
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class T,
+            class Proj = identity,
+            indirect_strict_weak_order<const T*, projected<I, Proj>> Comp = ranges::less>
+  constexpr subrange<I>
+    equal_range(I first,
+                S last,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (1) C++20
 
-  template<forward_range R, class T, class Proj = identity,
-           indirect_strict_weak_order<const T*, projected<iterator_t<R>, Proj>> Comp = ranges::less>
-  constexpr borrowed_subrange_t<R> equal_range(R&& r, const T& value, Comp comp = {}, Proj proj = {});
+  template <forward_range R,
+            class T,
+            class Proj = identity,
+            indirect_strict_weak_order<const T*, projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  constexpr borrowed_subrange_t<R>
+    equal_range(R&& r,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -29,6 +43,10 @@ namespace std::ranges {
 
 ## 概要
 指定した値と等しい範囲を取得する。
+
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
+
 
 ## 事前条件
 `[first,last)` の要素 `e` は `e < value` および `!(value < e)` 、あるいは `comp(e, value)` および `!comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。

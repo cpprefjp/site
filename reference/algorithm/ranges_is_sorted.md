@@ -6,13 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I, sentinel_for<I> S, class Proj = identity,
-           indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
-  constexpr bool is_sorted(I first, S last, Comp comp = {}, Proj proj = {});
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
+  constexpr bool
+    is_sorted(I first,
+              S last,
+              Comp comp = {},
+              Proj proj = {}); // (1) C++20
 
-  template<forward_range R, class Proj = identity,
-           indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
-  constexpr bool is_sorted(R&& r, Comp comp = {}, Proj proj = {});
+  template <forward_range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  constexpr bool
+    is_sorted(R&& r,
+              Comp comp = {},
+              Proj proj = {}); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -26,6 +36,10 @@ namespace std::ranges {
 
 ## 概要
 与えられた範囲がソート済みか判定する。
+
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
+
 
 ### 戻り値
 - (1) : [`ranges::is_sorted_until`](/reference/algorithm/ranges_is_sorted_until.md)`(first, last, comp, proj) == last`

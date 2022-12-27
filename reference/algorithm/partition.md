@@ -33,7 +33,7 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
+イテレータ範囲`[first, last)`を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
 
 ## 要件

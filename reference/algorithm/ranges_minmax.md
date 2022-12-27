@@ -6,18 +6,31 @@
 
 ```cpp
 namespace std::ranges {
-  template<class T, class Proj = identity,
-           indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
-  constexpr minmax_result<const T&> minmax(const T& a, const T& b, Comp comp = {}, Proj proj = {});
+  template <class T,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
+  constexpr minmax_result<const T&>
+    minmax(const T& a,
+           const T& b,
+           Comp comp = {},
+           Proj proj = {}); // (1) C++20
 
-  template<copyable T, class Proj = identity,
-           indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
-  constexpr minmax_result<T> minmax(initializer_list<T> r, Comp comp = {}, Proj proj = {});
+  template <copyable T,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
+  constexpr minmax_result<T>
+    minmax(initializer_list<T> r,
+           Comp comp = {},
+           Proj proj = {}); // (2) C++20
 
-  template<input_range R, class Proj = identity,
-           indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  template <input_range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
     requires indirectly_copyable_storable<iterator_t<R>, range_value_t<R>*>
-  constexpr minmax_result<range_value_t<R>> minmax(R&& r, Comp comp = {}, Proj proj = {});
+  constexpr minmax_result<range_value_t<R>>
+    minmax(R&& r,
+           Comp comp = {},
+           Proj proj = {}); // (3) C++20
 }
 ```
 * minmax_result[link ranges_min_max_result.md]
@@ -33,6 +46,11 @@ namespace std::ranges {
 
 ## 概要
 同じ型の2つの値、もしくは範囲によるN個の値のうち、最小値と最大値の組を取得する。
+
+- (1): 2つの値を指定する
+- (2): 初期化子リストを指定する
+- (3): Rangeを指定する
+
 
 ## 戻り値
 ```cpp

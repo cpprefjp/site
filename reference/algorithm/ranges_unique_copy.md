@@ -6,19 +6,37 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, weakly_incrementable O, class Proj = identity, indirect_equivalence_relation<projected<I, Proj>> C = ranges::equal_to>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<I, Proj>> C = ranges::equal_to>
     requires indirectly_copyable<I, O> &&
-      (forward_iterator<I> || (input_iterator<O> && same_as<iter_value_t<I>, iter_value_t<O>>) || indirectly_copyable_storable<I, O>)
+             (forward_iterator<I> ||
+               (input_iterator<O> && same_as<iter_value_t<I>, iter_value_t<O>>) ||
+               indirectly_copyable_storable<I, O>
+             )
   constexpr unique_copy_result<I, O>
-    unique_copy(I first, S last, O result, C comp = {}, Proj proj = {});
+    unique_copy(I first,
+                S last,
+                O result,
+                C comp = {},
+                Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<input_range R, weakly_incrementable O, class Proj = identity, indirect_equivalence_relation<projected<iterator_t<R>, Proj>> C = ranges::equal_to>
+  template <input_range R,
+            weakly_incrementable O,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<iterator_t<R>, Proj>> C = ranges::equal_to>
     requires indirectly_copyable<iterator_t<R>, O> &&
-      (forward_iterator<iterator_t<R>> || (input_iterator<O> && same_as<range_value_t<R>, iter_value_t<O>>) || indirectly_copyable_storable<iterator_t<R>, O>)
+             (forward_iterator<iterator_t<R>> ||
+               (input_iterator<O> && same_as<range_value_t<R>, iter_value_t<O>>) ||
+               indirectly_copyable_storable<iterator_t<R>, O>
+             )
   constexpr unique_copy_result<borrowed_iterator_t<R>, O>
-    unique_copy(R&& r, O result, C comp = {}, Proj proj = {});
+    unique_copy(R&& r,
+                O result,
+                C comp = {},
+                Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -41,8 +59,8 @@ namespace std::ranges {
 ## 概要
 隣り合った重複要素を取り除き、その結果を出力の範囲へコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `[first,last)` と `[result,result + (last - first))` は重なっていてはならない

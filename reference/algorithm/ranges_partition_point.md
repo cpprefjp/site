@@ -6,13 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<forward_iterator I, sentinel_for<I> S, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
-  constexpr I partition_point(I first, S last, Pred pred, Proj proj = {});
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+  constexpr I
+    partition_point(I first,
+                    S last,
+                    Pred pred,
+                    Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<forward_range R, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
-  constexpr borrowed_iterator_t<R> partition_point(R&& r, Pred pred, Proj proj = {});
+  template <forward_range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  constexpr borrowed_iterator_t<R>
+    partition_point(R&& r,
+                    Pred pred,
+                    Proj proj = {}); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -28,8 +38,8 @@ namespace std::ranges {
 ## 概要
 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `[first,last)` は `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない。

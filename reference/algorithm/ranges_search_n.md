@@ -6,13 +6,31 @@
 
 ```cpp
 namespace std::ranges {]
-  template<forward_iterator I, sentinel_for<I> S, class T, class Pred = ranges::equal_to, class Proj = identity>
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class T,
+            class Pred = ranges::equal_to,
+            class Proj = identity>
     requires indirectly_comparable<I, const T*, Pred, Proj>
-  constexpr subrange<I> search_n(I first, S last, iter_difference_t<I> count, const T& value, Pred pred = {}, Proj proj = {});
+  constexpr subrange<I>
+    search_n(I first,
+             S last,
+             iter_difference_t<I> count,
+             const T& value,
+             Pred pred = {},
+             Proj proj = {}); // (1) C++20
 
-  template<forward_range R, class T, class Pred = ranges::equal_to, class Proj = identity>
+  template <forward_range R,
+            class T,
+            class Pred = ranges::equal_to,
+            class Proj = identity>
     requires indirectly_comparable<iterator_t<R>, const T*, Pred, Proj>
-  constexpr borrowed_subrange_t<R> search_n(R&& r, range_difference_t<R> count, const T& value, Pred pred = {}, Proj proj = {});
+  constexpr borrowed_subrange_t<R>
+    search_n(R&& r,
+             range_difference_t<R> count,
+             const T& value,
+             Pred pred = {},
+             Proj proj = {}); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -30,8 +48,8 @@ namespace std::ranges {]
 ## 概要
 あるシーケンスの中から、指定の要素が連続するサブシーケンスを探す。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 戻り値
 `[first,last-count)` 内のイテレータ `i` があるとき、0 以上 `count` 未満の整数 `n` について、それぞれ [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *(i + n)), value)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスを返す。

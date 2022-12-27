@@ -6,13 +6,16 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<class T, output_iterator<const T&> O, sentinel_for<O> S>
-    constexpr O fill(O first, S last, const T& value);
+  template <class T,
+            output_iterator<const T&> O,
+            sentinel_for<O> S>
+  constexpr O
+    fill(O first, S last, const T& value); // (1) C++20
 
-  // (2)
-  template<class T, output_range<const T&> R>
-    constexpr borrowed_iterator_t<R> fill(R&& r, const T& value);
+  template <class T,
+            output_range<const T&> R>
+  constexpr borrowed_iterator_t<R>
+    fill(R&& r, const T& value);           // (2) C++20
 
 }
 ```
@@ -24,8 +27,8 @@ namespace std::ranges {
 ## 概要
 指定された値で出力の範囲に書き込む。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 効果

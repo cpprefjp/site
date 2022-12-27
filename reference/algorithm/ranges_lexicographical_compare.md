@@ -7,13 +7,39 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I1, sentinel_for<I1> S1, input_iterator I2, sentinel_for<I2> S2, class Proj1 = identity, class Proj2 = identity,
-           indirect_strict_weak_order<projected<I1, Proj1>, projected<I2, Proj2>> Comp = ranges::less>
-  constexpr bool lexicographical_compare(I1 first1, S1 last1, I2 first2, S2 last2, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {}); // (1)
+  template <input_iterator I1,
+            sentinel_for<I1> S1,
+            input_iterator I2,
+            sentinel_for<I2> S2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_strict_weak_order<
+              projected<I1, Proj1>,
+              projected<I2, Proj2>
+            > Comp = ranges::less>
+  constexpr bool
+    lexicographical_compare(I1 first1,
+                            S1 last1,
+                            I2 first2,
+                            S2 last2,
+                            Comp comp = {},
+                            Proj1 proj1 = {},
+                            Proj2 proj2 = {}); // (1) C++20
 
-  template<input_range R1, input_range R2, class Proj1 = identity, class Proj2 = identity,
-          indirect_strict_weak_order<projected<iterator_t<R1>, Proj1>, projected<iterator_t<R2>, Proj2>> Comp = ranges::less>
-  constexpr bool lexicographical_compare(R1&& r1, R2&& r2, Comp comp = {}, Proj1 proj1 = {}, Proj2 proj2 = {});                         // (2)
+  template <input_range R1,
+            input_range R2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_strict_weak_order<
+              projected<iterator_t<R1>, Proj1>,
+              projected<iterator_t<R2>, Proj2>
+            > Comp = ranges::less>
+  constexpr bool
+    lexicographical_compare(R1&& r1,
+                            R2&& r2,
+                            Comp comp = {},
+                            Proj1 proj1 = {},
+                            Proj2 proj2 = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -28,8 +54,8 @@ namespace std::ranges {
 ## 概要
 `[first1, last1)`および`[first2, last2)`の2つの範囲を辞書式順序で比較する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 効果
 ```cpp

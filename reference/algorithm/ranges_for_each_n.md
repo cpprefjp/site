@@ -6,8 +6,14 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
-  constexpr for_each_n_result<I, Fun> for_each_n(I first, iter_difference_t<I> n, Fun f, Proj proj = {});
+  template <input_iterator I,
+            class Proj = identity,
+            indirectly_unary_invocable<projected<I, Proj>> Fun>
+  constexpr for_each_n_result<I, Fun>
+    for_each_n(I first,
+               iter_difference_t<I> n,
+               Fun f,
+               Proj proj = {}); // (1) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -31,7 +37,7 @@ namespace std::ranges {
 `n >= 0`
 
 ## 効果
-範囲`[first, first + n)` 内の全てのイテレータ `i` に [`invoke`](/reference/functional/invoke.md)`(f, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` という操作を行う。
+イテレータ範囲`[first, first + n)` 内の全てのイテレータ `i` に [`invoke`](/reference/functional/invoke.md)`(f, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` という操作を行う。
 
 このアルゴリズムはその他のアルゴリズムと違い、[`invoke`](/reference/functional/invoke.md)`(proj, *i)` が書き換え可能な参照であれば、関数 `f` の内部でその値を書き換えても構わない。
 

@@ -6,13 +6,27 @@
 
 ```cpp
 namespace std::ranges {
-  template<random_access_iterator I, sentinel_for<I> S, class Comp = ranges::less, class Proj = identity>
+  template <random_access_iterator I,
+            sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<I, Comp, Proj>
-  constexpr I nth_element(I first, I nth, S last, Comp comp = {}, Proj proj = {});
+  constexpr I
+    nth_element(I first,
+                I nth,
+                S last,
+                Comp comp = {},
+                Proj proj = {}); // (1) C++20
 
-  template<random_access_range R, class Comp = ranges::less, class Proj = identity>
+  template <random_access_range R,
+            class Comp = ranges::less,
+            class Proj = identity>
     requires sortable<iterator_t<R>, Comp, Proj>
-  constexpr borrowed_iterator_t<R> nth_element(R&& r, iterator_t<R> nth, Comp comp = {}, Proj proj = {});
+  constexpr borrowed_iterator_t<R>
+    nth_element(R&& r,
+                iterator_t<R> nth,
+                Comp comp = {},
+                Proj proj = {}); // (2) C++20
 }
 ```
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
@@ -27,6 +41,9 @@ namespace std::ranges {
 
 ## 概要
 基準となる要素よりも小さい要素が前に来るよう並べ替える。
+
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 この関数は範囲 `[first,last)` の並び替えを行うが、基準位置 `nth` のみが正しい要素、つまり仮に範囲 `[first,last)` 全体を並び替えた際に`nth`に位置すべき要素となる。前半の範囲 `[first,nth)` は関数呼び出し後の位置 `nth` にある要素よりも小さいことは保証されるが、その範囲 `[first,nth)` 内での要素並び順はなんら保証されない。
 

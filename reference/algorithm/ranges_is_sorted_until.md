@@ -6,13 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  template<forward_iterator I, sentinel_for<I> S, class Proj = identity,
-           indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
-  constexpr I is_sorted_until(I first, S last, Comp comp = {}, Proj proj = {});
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
+  constexpr I
+    is_sorted_until(I first,
+                    S last,
+                    Comp comp = {},
+                    Proj proj = {}); // (1) C++20
 
-  template<forward_range R, class Proj = identity,
-           indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
-  constexpr borrowed_iterator_t<R> is_sorted_until(R&& r, Comp comp = {}, Proj proj = {});
+  template <forward_range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  constexpr borrowed_iterator_t<R>
+    is_sorted_until(R&& r,
+                    Comp comp = {},
+                    Proj proj = {}); // (2) C++20
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -28,8 +38,8 @@ namespace std::ranges {
 ## 概要
 ソート済みか判定し、ソートされていない位置のイテレータを取得する
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 戻り値
 [`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、`[first,last]` の中でソートされている範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。

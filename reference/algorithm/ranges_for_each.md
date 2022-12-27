@@ -6,11 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S, class Proj = identity, indirectly_unary_invocable<projected<I, Proj>> Fun>
-  constexpr for_each_result<I, Fun> for_each(I first, S last, Fun f, Proj proj = {});                     // (1)
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirectly_unary_invocable<projected<I, Proj>> Fun>
+  constexpr for_each_result<I, Fun>
+    for_each(I first,
+             S last,
+             Fun f,
+             Proj proj = {}); // (1) C++20
 
-  template<input_range R, class Proj = identity, indirectly_unary_invocable<projected<iterator_t<R>, Proj>> Fun>
-  constexpr for_each_result<borrowed_iterator_t<R>, Fun> for_each(R&& r, Fun f, Proj proj = {});          // (2)
+  template <input_range R,
+            class Proj = identity,
+            indirectly_unary_invocable<projected<iterator_t<R>, Proj>> Fun>
+  constexpr for_each_result<borrowed_iterator_t<R>, Fun>
+    for_each(R&& r,
+             Fun f,
+             Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -27,8 +39,8 @@ namespace std::ranges {
 ## 概要
 範囲の全ての要素に、指定された関数を適用する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+* (1): イテレータ範囲を指定する
+* (2): Rangeを直接指定する
 
 ## テンプレートパラメータ制約
 - (1):

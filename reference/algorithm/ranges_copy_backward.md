@@ -6,13 +6,18 @@
 
 ```cpp
 namespace std::ranges {
-  template<bidirectional_iterator I1, sentinel_for<I1> S1, bidirectional_iterator I2>
+  template <bidirectional_iterator I1,
+            sentinel_for<I1> S1,
+            bidirectional_iterator I2>
     requires indirectly_copyable<I1, I2>
-  constexpr copy_backward_result<I1, I2> copy_backward(I1 first, S1 last, I2 result);       // (1)
+  constexpr copy_backward_result<I1, I2>
+    copy_backward(I1 first, S1 last, I2 result); // (1) C++20
 
-  template<bidirectional_range R, bidirectional_iterator I>
+  template <bidirectional_range R,
+            bidirectional_iterator I>
     requires indirectly_copyable<iterator_t<R>, I>
-  constexpr copy_backward_result<borrowed_iterator_t<R>, I> copy_backward(R&& r, I result); // (2)
+  constexpr copy_backward_result<borrowed_iterator_t<R>, I>
+    copy_backward(R&& r, I result);              // (2) C++20
 }
 ```
 * copy_backward_result[link ranges_in_out_result.md]
@@ -26,8 +31,8 @@ namespace std::ranges {
 ## 概要
 指定された範囲の要素を後ろからコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 事前条件

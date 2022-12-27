@@ -44,11 +44,11 @@ namespace std {
 ```
 
 ## 概要
-ソート済みか判定し、ソートされていない位置のイテレータを取得する
+イテレータ範囲`[first, last)`がソート済みか判定し、ソートされていない位置のイテレータを取得する
 
 
 ## 戻り値
-[`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、`[first,last]` の中でソートされている範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。
+[`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、イテレータ範囲`[first,last]` の中でソートされているイテレータ範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。
 
 
 ## 計算量

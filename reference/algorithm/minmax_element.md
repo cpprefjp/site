@@ -34,7 +34,9 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-`[first, last)` の範囲において、最小要素を指すイテレータと最大要素を指すイテレータの組を取得する。
+イテレータ範囲`[first, last)`のうち、最小要素を指すイテレータと最大要素を指すイテレータの組を取得する。
+
+この関数の戻り値となるイテレータの[`pair`](/reference/utility/pair.md)では、`first`に最小要素を指すイテレータ、`second`に最大要素を指すイテレータが代入される。
 
 
 ## 戻り値
@@ -92,7 +94,7 @@ minmax_element(ForwardIterator first, ForwardIterator last, Compare comp)
   // 結果用オブジェクト
   std::pair<ForwardIterator, ForwardIterator> result(first, first);
 
-  // 範囲の要素数が 0 か 1 だったら、そのまま result を返す
+  // イテレータ範囲の要素数が 0 か 1 だったら、そのまま result を返す
   if (first != last && ++first != last) {
     // 最初の 2 個を比較して、小さい方を .first に、大きい方を .second に設定
     if (comp(*first, *result.first))

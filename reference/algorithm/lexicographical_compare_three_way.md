@@ -29,7 +29,8 @@ namespace std {
 
 ## 概要
 
-`[first1, last1)`および`[first2, last2)`の2つの範囲を[辞書式順序](lexicographical_compare.md)による三方比較によって比較する。
+2つのイテレータ範囲`[first1, last1)`と`[first2, last2)`を[辞書式順序](lexicographical_compare.md)による三方比較によって比較する。
+
 このアルゴリズムは、コンテナの`operator<=>()`の実装で使用される。
 
 
@@ -39,10 +40,10 @@ namespace std {
 
 ## 引数
 
-- `first1` -- 比較する1つ目の範囲の先頭のイテレータ。
-- `last1` -- 比較する1つ目の範囲の終端のイテレータ。
-- `first2` -- 比較する2つ目の範囲の先頭のイテレータ。
-- `last2` -- 比較する2つ目の範囲の終端のイテレータ。
+- `first1` -- 比較する1つ目のイテレータ範囲の先頭イテレータ。
+- `last1` -- 比較する1つ目のイテレータ範囲の終端イテレータ。
+- `first2` -- 比較する2つ目のイテレータ範囲の先頭イテレータ。
+- `last2` -- 比較する2つ目のイテレータ範囲の終端イテレータ。
 - `comp` -- 使用する三方比較をカスタマイズする関数オブジェクト。
 
 ## 効果
@@ -65,7 +66,7 @@ namespace std {
 ## 戻り値
 
 戻り値型となる比較カテゴリ型を`Cat`とすると、  
-範囲`[first1, last1)`が、辞書式比較で範囲`[first2, last2)`より大きい場合は`Cat::greator`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
+イテレータ範囲`[first1, last1)`が、辞書式比較でイテレータ範囲`[first2, last2)`より大きい場合は`Cat::greator`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
 
 ## 計算量
 
@@ -100,13 +101,13 @@ int main() {
 
   std::cout << std::boolalpha;
 
-  //カスタマイズした比較による同じ長さの範囲の比較
+  //カスタマイズした比較による同じ長さのイテレータ範囲の比較
   {
     auto comp = std::lexicographical_compare_three_way(str1.begin(), str1.end(), str2.begin(), str2.end(), weak_comp);
     std::cout << (comp == 0) << std::endl;
   }
 
-  //デフォルトの比較による異なる長さの範囲の比較
+  //デフォルトの比較による異なる長さのイテレータ範囲の比較
   {
     auto comp = std::lexicographical_compare_three_way(str1.begin(), str1.end(), str3.begin(), str3.end());
     std::cout << (comp > 0) << std::endl;

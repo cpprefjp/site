@@ -21,12 +21,15 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る。
+イテレータ範囲`[first, last)`から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る。
 
 
-## 要件
-- `ForwardIterator` の value type は `Predicate` の argument type へ変換可能でなければならない。
-- `[first,last)` は `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない。
+## テンプレートパラメータ制約
+- `ForwardIterator` の value type は `Predicate` の引数型へ変換可能であること
+
+
+## 事前条件
+- イテレータ範囲`[first,last)` は `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない
 
 
 ## 戻り値

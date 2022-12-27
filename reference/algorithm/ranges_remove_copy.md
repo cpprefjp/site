@@ -6,17 +6,39 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<input_iterator I, sentinel_for<I> S, weakly_incrementable O, class T, class Proj = identity>
-    requires indirectly_copyable<I, O> && indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O,
+            class T,
+            class Proj = identity>
+    requires indirectly_copyable<I, O> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<I, Proj>,
+               const T*
+             >
   constexpr remove_copy_result<I, O>
-    remove_copy(I first, S last, O result, const T& value, Proj proj = {});
+    remove_copy(I first,
+                S last,
+                O result,
+                const T& value,
+                Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<input_range R, weakly_incrementable O, class T, class Proj = identity>
-    requires indirectly_copyable<iterator_t<R>, O> && indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
+  template <input_range R,
+            weakly_incrementable O,
+            class T,
+            class Proj = identity>
+    requires indirectly_copyable<iterator_t<R>, O> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T*
+             >
   constexpr remove_copy_result<borrowed_iterator_t<R>, O>
-    remove_copy(R&& r, O result, const T& value, Proj proj = {});
+    remove_copy(R&& r,
+                O result,
+                const T& value,
+                Proj proj = {}); // (2) C++20
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -35,8 +57,8 @@ namespace std::ranges {
 ## 概要
 指定された要素を除け、その結果を出力の範囲へコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 - `[first,last)` と `[result,result + (last - first)` は重なってはならない。

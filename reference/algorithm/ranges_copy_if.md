@@ -6,13 +6,22 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S, weakly_incrementable O, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
+  template <input_iterator I,
+            sentinel_for<I> S,
+            weakly_incrementable O,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
     requires indirectly_copyable<I, O>
-  constexpr copy_if_result<I, O> copy_if(I first, S last, O result, Pred pred, Proj proj = {});            // (1)
+  constexpr copy_if_result<I, O>
+    copy_if(I first, S last, O result, Pred pred, Proj proj = {}); // (1) C++20
 
-  template<input_range R, weakly_incrementable O, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  template <input_range R,
+            weakly_incrementable O,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
     requires indirectly_copyable<iterator_t<R>, O>
-  constexpr copy_if_result<borrowed_iterator_t<R>, O> copy_if(R&& r, O result, Pred pred, Proj proj = {}); // (2)
+  constexpr copy_if_result<borrowed_iterator_t<R>, O>
+    copy_if(R&& r, O result, Pred pred, Proj proj = {});           // (2) C++20
 }
 ```
 * copy_if_result[link ranges_in_out_result.md]
@@ -29,8 +38,9 @@ namespace std::ranges {
 ## 概要
 条件を満たす要素のみをコピーする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
+
 
 ## 事前条件
 `[first,last)` の範囲と、`[result,result + (last - first))` の範囲は重なっていてはならない。

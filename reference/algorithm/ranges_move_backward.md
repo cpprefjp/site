@@ -6,13 +6,21 @@
 
 ```cpp
 namespace std::ranges {
-  template<bidirectional_iterator I1, sentinel_for<I1> S1, bidirectional_iterator I2>
+  template <bidirectional_iterator I1,
+            sentinel_for<I1> S1,
+            bidirectional_iterator I2>
     requires indirectly_movable<I1, I2>
-  constexpr move_backward_result<I1, I2> move_backward(I1 first, S1 last, I2 result);       // (1)
+  constexpr move_backward_result<I1, I2>
+    move_backward(I1 first,
+                  S1 last,
+                  I2 result); // (1) C++20
 
-  template<bidirectional_range R, bidirectional_iterator I>
+  template <bidirectional_range R,
+            bidirectional_iterator I>
     requires indirectly_movable<iterator_t<R>, I>
-  constexpr move_backward_result<borrowed_iterator_t<R>, I> move_backward(R&& r, I result); // (2)
+  constexpr move_backward_result<borrowed_iterator_t<R>, I>
+    move_backward(R&& r,
+                  I result); // (2) C++20
 }
 ```
 * move_backward_result[link ranges_in_out_result.md]
@@ -26,8 +34,8 @@ namespace std::ranges {
 ## 概要
 指定された範囲の要素を後ろからムーブする。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 ## 事前条件
 `result` は `(first,last]` の範囲に含まれてはならない。

@@ -6,15 +6,25 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<bidirectional_iterator I, sentinel_for<I> S, class Proj = identity, indirect_unary_predicate<projected<I, Proj>> Pred>
+  template <bidirectional_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
     requires permutable<I>
-  subrange<I> stable_partition(I first, S last, Pred pred, Proj proj = {});
+  subrange<I>
+    stable_partition(I first,
+                     S last,
+                     Pred pred,
+                     Proj proj = {}); // (1) C++20
 
-  // (2)
-  template<bidirectional_range R, class Proj = identity, indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  template <bidirectional_range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
     requires permutable<iterator_t<R>>
-  borrowed_subrange_t<R> stable_partition(R&& r, Pred pred, Proj proj = {});
+  borrowed_subrange_t<R>
+    stable_partition(R&& r,
+                     Pred pred,
+                     Proj proj = {}); // (2) C++20
 }
 ```
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
@@ -32,8 +42,8 @@ namespace std::ranges {
 ## 概要
 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 効果

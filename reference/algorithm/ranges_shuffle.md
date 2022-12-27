@@ -6,15 +6,23 @@
 
 ```cpp
 namespace std::ranges {
-  // (1)
-  template<random_access_iterator I, sentinel_for<I> S, class Gen>
-    requires permutable<I> && uniform_random_bit_generator<remove_reference_t<Gen>>
-  I shuffle(I first, S last, Gen&& g);
+  template <random_access_iterator I,
+            sentinel_for<I> S,
+            class Gen>
+    requires permutable<I> &&
+             uniform_random_bit_generator<remove_reference_t<Gen>>
+  I
+    shuffle(I first,
+            S last,
+            Gen&& g); // (1) C++20
 
-  // (2)
-  template<random_access_range R, class Gen>
-    requires permutable<iterator_t<R>> && uniform_random_bit_generator<remove_reference_t<Gen>>
-  borrowed_iterator_t<R> shuffle(R&& r, Gen&& g);
+  template <random_access_range R,
+            class Gen>
+    requires permutable<iterator_t<R>> &&
+             uniform_random_bit_generator<remove_reference_t<Gen>>
+  borrowed_iterator_t<R>
+    shuffle(R&& r,
+            Gen&& g); // (2) C++20
 }
 ```
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
@@ -28,10 +36,10 @@ namespace std::ranges {
 
 
 ## 概要
-`[first,last)` のそれぞれの要素を同じ確率で並び替える。
+範囲のそれぞれの要素を同じ確率で並び替える。
 
-* (1): イテレータペアで範囲を指定する
-* (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## 計算量

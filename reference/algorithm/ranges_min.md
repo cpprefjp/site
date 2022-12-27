@@ -6,18 +6,31 @@
 
 ```cpp
 namespace std::ranges {
-  template<class T, class Proj = identity,
-           indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
-  constexpr const T& min(const T& a, const T& b, Comp comp = {}, Proj proj = {}); // (1)
+  template <class T,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
+  constexpr const T&
+    min(const T& a,
+        const T& b,
+        Comp comp = {},
+        Proj proj = {}); // (1) C++20
 
-  template<copyable T, class Proj = identity,
-           indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
-  constexpr T min(initializer_list<T> r, Comp comp = {}, Proj proj = {});         // (2)
+  template <copyable T,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<const T*, Proj>> Comp = ranges::less>
+  constexpr T
+    min(initializer_list<T> r,
+        Comp comp = {},
+        Proj proj = {}); // (2) C++20
 
-  template<input_range R, class Proj = identity,
-           indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  template <input_range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
     requires indirectly_copyable_storable<iterator_t<R>, range_value_t<R>*>
-  constexpr range_value_t<R> min(R&& r, Comp comp = {}, Proj proj = {});          // (3)
+  constexpr range_value_t<R>
+    min(R&& r,
+        Comp comp = {},
+        Proj proj = {}); // (3) C++20
 }
 ```
 * identity[link /reference/functional/identity.md]
@@ -32,6 +45,11 @@ namespace std::ranges {
 
 ## 概要
 同じ型の2つの値、もしくは範囲によるN個の値のうち、最小値を取得する。
+
+- (1): 2つの値を指定する
+- (2): 初期化子リストを指定する
+- (3): Rangeを指定する
+
 
 ## 戻り値
 比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって最小と判断された最初の値
