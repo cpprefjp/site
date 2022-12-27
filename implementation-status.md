@@ -184,7 +184,7 @@
 | P0641R2: [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md.nolink) | | 9 | 8.0 | 2021.4 | 2015 |
 | P0859R0: [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 | 9 | 8 | | Partial in 2019 Update 7 |
 | P0515R3: [一貫比較](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial) | 2021.4 | 2019 |
-| P0692R1: [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md.nolink) | | Yes | partial | 2021.4 | 2019 Update 6 |
+| P0692R1: [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md) | | Yes | partial | 2021.4 | 2019 Update 6 |
 | P0624R2: [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする | 9 | 8.0 | 2021.4 | 2019 Update 2 |
 | P0767R1: [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | | | 2021.4 | 2019 Update 5 |
 | P0315R4: [評価されない文脈でのラムダ式](/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする | 9 | Partial | | 2019 Update 8 |
