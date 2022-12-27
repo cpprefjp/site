@@ -94,6 +94,10 @@ function-specifier:
   explicit
 ```
 
+## 備考
+- 名前のないクラスのオブジェクトは、インライン指定しても同じ実体にはならない
+
+
 ## 例
 
 ```cpp example
@@ -264,3 +268,4 @@ func
 - [P0386R2 - Inline Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0386r2.pdf), 2016-06-24
 - [P0607R0 - Inline Variables for the Standard Library](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0607r0.html), 2017-02-27
 - [C++1z インライン変数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/11/11/172954)
+- [インライン変数が翻訳単位毎に別々の実体となってしまう - Stackoverflow](https://ja.stackoverflow.com/questions/93046/)
