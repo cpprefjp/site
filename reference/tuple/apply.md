@@ -1,6 +1,6 @@
 # apply
 * tuple[meta header]
-* function[meta id-type]
+* function template[meta id-type]
 * std[meta namespace]
 * cpp17[meta cpp]
 

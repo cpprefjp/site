@@ -2,7 +2,7 @@
 * functional[meta header]
 * std[meta namespace]
 * default_searcher[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp

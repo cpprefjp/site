@@ -1,6 +1,6 @@
 # merge
 * map[meta header]
-* function[meta id-type]
+* function template[meta id-type]
 * std[meta namespace]
 * map[meta class]
 * cpp17[meta cpp]

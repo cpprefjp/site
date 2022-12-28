@@ -1,7 +1,7 @@
 # abs
 * chrono[meta header]
 * std::chrono[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp

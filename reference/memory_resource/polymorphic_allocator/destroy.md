@@ -1,6 +1,6 @@
 # destroy
 * memory_resource[meta header]
-* function[meta id-type]
+* function template[meta id-type]
 * std::pmr[meta namespace]
 * polymorphic_allocator[meta class]
 * cpp17[meta cpp]
