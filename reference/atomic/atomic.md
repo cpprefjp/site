@@ -302,3 +302,5 @@ int main()
 - [LWG Issue 3045. `atomic` doesn't have `value_type` or `difference_type`](https://wg21.cmeerw.net/lwg/issue3045)
 - [LWG Issue 3012. `atomic` is unimplementable for non-`is_trivially_copy_constructible` `T`](https://wg21.cmeerw.net/lwg/issue3012)
 - [Correctly implementing a spinlock in C++](https://rigtorp.se/spinlock/)
+- [P1135R6 The C++20 Synchronization Library](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html)
+    - C++20での`atomic_signed_lock_free`と`atomic_unsigned_lock_free`の追加
