@@ -19,12 +19,12 @@ iterator erase_after(const_iterator position,
 第1引数`position`の次が間接参照可能なイテレータであること
 
 - (1) : `position`イテレータが指す次の要素単体を削除する
-- (2) : 範囲`(position, last)`の要素を削除する
+- (2) : イテレータ範囲`(position, last)`の要素を削除する
 
 
 ## 効果
 - (1) : `position`が指す次の要素が削除される
-- (2) : `(position, last)`で示される範囲の要素が削除される
+- (2) : イテレータ範囲`(position, last)`の要素が削除される
 
 
 ## 戻り値

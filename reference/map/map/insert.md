@@ -48,7 +48,7 @@ iterator           insert(const_iterator hint, node_type&& nh); // (8) C++17か�
 - (2) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
 - (3) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
 - (4) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
-- (5) : 範囲`[first, last)`の各イテレータが、`*this`の要素を指さないこと。
+- (5) : イテレータ範囲`[first, last)`の各イテレータが、`*this`の要素を指さないこと。
 - (6) : (5)の要件と同じである。
 - (7) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
 - (8) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
@@ -59,7 +59,7 @@ iterator           insert(const_iterator hint, node_type&& nh); // (8) C++17か�
 - (2) : [`emplace`](emplace.md)`(`[`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
 - (3) : `x`を`*this`の要素としてコピー挿入する。ただし、`x`のキーと等価のキーを持つ要素が`*this`に存在する場合には、挿入されない。可能であれば、挿入位置のヒントを表すイテレータ`position`のすぐ前に挿入する。
 - (4) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
-- (5) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。ただし、`*this`にすでに存在するキーと等価なキーを持つ要素については、挿入されない。
+- (5) : イテレータ範囲`[first, last)`の各要素を`*this`の要素として挿入する。ただし、`*this`にすでに存在するキーと等価なキーを持つ要素については、挿入されない。
 - (6) : `insert(init.begin(), init.end())`と等価。
 - (7) : `nh`が空の場合、効果はない。
 それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。

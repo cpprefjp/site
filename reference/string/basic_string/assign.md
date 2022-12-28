@@ -93,7 +93,7 @@ constexpr basic_string&
     - `assign(s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
 - (6) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
     - `assign(basic_string(n, c))`と等価。
-- (7) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
+- (7) : 文字列のイテレータ範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
     - `assign(basic_string(first, last))`と等価。
 - (8) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
     - `assign(il.begin(), il.end())`を呼び出す。

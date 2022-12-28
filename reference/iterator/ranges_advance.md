@@ -35,11 +35,11 @@ namespace std::ranges {
 ## 事前条件
 
 - (1) : `I`が[`bidirectional_iterator`](bidirectional_iterator.md)のモデルとならない場合、`n`は負数ではない
-- (2) : `[i, bound)`は有効な範囲である
+- (2) : `[i, bound)`は有効なイテレータ範囲である
 - (3) : 次のいずれか
-    - `n >  0` : `[i, bound)`は有効な範囲である
-    - `n == 0` : `[i, bound)`もしくは`[bound, i)`は有効な範囲である
-    - `n <  0` : `[bound, i)`は有効な範囲であり、`I`は[`bidirectional_iterator`](bidirectional_iterator.md)のモデルであり、`I, S`は[`same_as`](/reference/concepts/same_as.md)`<I, S>`のモデルとなる。
+    - `n >  0` : `[i, bound)`は有効なイテレータ範囲である
+    - `n == 0` : `[i, bound)`もしくは`[bound, i)`は有効なイテレータ範囲である
+    - `n <  0` : `[bound, i)`は有効なイテレータ範囲であり、`I`は[`bidirectional_iterator`](bidirectional_iterator.md)のモデルであり、`I, S`は[`same_as`](/reference/concepts/same_as.md)`<I, S>`のモデルとなる。
 
 ## 効果
 

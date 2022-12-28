@@ -28,12 +28,12 @@ iterator insert_after(const_iterator position,
 
 - (1), (2) : 新たな要素をひとつ挿入する
 - (3) : 新たな要素`x`のコピーを`n`個挿入する
-- (4) : `[first, last)`の範囲の要素を挿入する
+- (4) : イテレータ範囲`[first, last)`の要素を挿入する
 - (5) : `initializer_list`の全て要素を挿入する
 
 
 ## 要件
-- 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/forward_list/before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/forward_list/end.md)`)`の範囲の間接参照可能なイテレータであること。
+- 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/forward_list/before_begin.md)もしくはイテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/forward_list/end.md)`)`の間接参照可能なイテレータであること。
 - `first`、`last`は`*this`のイテレータではないこと。
 
 

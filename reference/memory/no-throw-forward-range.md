@@ -18,7 +18,7 @@ namespace std {
 
 ## 概要
 
-`no-throw-forward-range`は、`R`型のオブジェクトに対する以下の操作で例外を投げない入力範囲の説明用コンセプトである：
+`no-throw-forward-range`は、`R`型のオブジェクトに対する以下の操作で例外を投げない入力Rangeの説明用コンセプトである：
 
 - [`std::ranges::begin`](/reference/ranges/begin.md)
 - [`std::ranges::end`](/reference/ranges/end.md)

@@ -17,7 +17,7 @@ namespace std::ranges {
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
-範囲 (`[first, first + n)`) の各要素に対してデストラクタを呼び出す。
+イテレータ範囲`[first, first + n)`の各要素に対してデストラクタを呼び出す。
 
 この関数は、配置`new`で構築したオブジェクトを破棄するために使用する。
 

@@ -21,7 +21,7 @@ boyer_moore_horspool_searcher(boyer_moore_horspool_searcher&& other) = default; 
 
 このクラスにデフォルトコンストラクタは定義されない。
 
-- (1) : 検索対象 (pattern) の範囲`[pat_first, pat_last)`を登録する
+- (1) : 検索対象 (pattern) のイテレータ範囲`[pat_first, pat_last)`を登録する
 - (2) : コピーコンストラクタ
 - (3) : ムーブコンストラクタ
 

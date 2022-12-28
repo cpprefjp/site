@@ -32,7 +32,7 @@ namespace std {
 ```
 
 ## 概要
-範囲の値の部分和を計算する。
+イテレータ範囲`[first, last)`の値の部分和を計算する。
 
 [`accumulate()`](accumulate.md)は最終結果のみを得るが、`partial_sum()`は計算の途中結果のシーケンスを得る。
 
@@ -67,12 +67,12 @@ namespace std {
 - C++11から : `InputIterator`の値型は、`*first`の型から構築可能でなければならない
 - C++11から : `binary_op`の戻り値が、`InputIterator`の値型に変換可能でなければならない
 - C++11から : `binary_op`の戻り値が、`result`出力イテレータに書き込めなければならない
-- C++11から : `binary_op`は入力範囲`[first, last]`および出力範囲`[result, result + (last - first)]`の要素を変更してはならず、そのイテレータと部分範囲を無効化してはならない
+- C++11から : `binary_op`は入力イテレータ範囲`[first, last]`および出力イテレータ範囲`[result, result + (last - first)]`の要素を変更してはならず、そのイテレータと部分範囲を無効化してはならない
 
 
 ## 効果
 - (1) : `binary_op`を`operator+`として、(2)の演算を行う
-- (2) : 出力結果の範囲`[result, result + (last - first))`には、以下が書き込まれる：
+- (2) : 出力結果のイテレータ範囲`[result, result + (last - first))`には、以下が書き込まれる：
     - C++03 :
 
     ```

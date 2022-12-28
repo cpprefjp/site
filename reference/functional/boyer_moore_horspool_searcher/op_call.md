@@ -26,7 +26,7 @@ std::pair<RandomAccessIterator2, RandomAccessIterator2>
 ## 戻り値
 - 部分シーケンス`[pat_first, pat_last)`が空である場合、[`make_pair`](/reference/utility/make_pair.md)`(first, first)`を返す
 - イテレータ`i`と`j`として以下を定義し、
-    - `i` : 範囲`[first, last)`のうち、部分範囲`[pat_first, pat_last)`が現れる最初の位置を指すイテレータ。各要素の等値比較は、`pred(*(i + n), *(pat_first + n)) != false`で判定する
+    - `i` : イテレータ範囲`[first, last)`のうち、部分範囲`[pat_first, pat_last)`が現れる最初の位置を指すイテレータ。各要素の等値比較は、`pred(*(i + n), *(pat_first + n)) != false`で判定する
     - `j` : [`next`](/reference/iterator/next.md)`(i,` [`distance`](/reference/iterator/distance.md)`(pat_first, pat_last))`
     - 合致する部分シーケンスが見つかった場合、[`make_pair`](/reference/utility/make_pair.md)`(i, j)`を返す
 - 合致する部分シーケンスが見つからなかった場合、[`make_pair`](/reference/utility/make_pair.md)`(last, last)`を返す

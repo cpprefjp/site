@@ -49,7 +49,7 @@ set(initializer_list<value_type> init,
 - (2) : 比較関数オブジェクトを受け取るコンストラクタ。受け取った比較関数オブジェクトを、このコンテナでの要素比較に使用する。要素数が空の`set`オブジェクトを構築する。
 - (1) + (2) : デフォルトコンストラクタ。空のコンテナを構築する。
 - (3) : アロケータを別で受け取り、要素数が空の`set`オブジェクトを構築する。
-- (4) : 範囲 `[first, last)` のコンテンツで構築する。
+- (4) : イテレータ範囲 `[first, last)` のコンテンツで構築する。
 - (5) : (4)のコンストラクタを `set(first, last, Compare(), a)` のように呼び出して、`set`オブジェクトを構築する。
 - (6), (8) : コピーコンストラクタ。`x`のコンテンツのコピーでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `std::`[`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](../../memory/allocator_traits/select_on_container_copy_construction.md)`(x.`[`get_allocator`](get_allocator.md)`())` の呼び出しによって取得する。
 - (7), (9) : ムーブコンストラクタ。`y` のコンテンツをムーブすることでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `y` に属しているアロケータをムーブして取得する。

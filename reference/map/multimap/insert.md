@@ -43,7 +43,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (1), (4) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
 - (2), (5) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
 - (3), (6) : `P`から`value_type`が構築可能であること。
-- (7), (8) : 範囲`[first, last)`（`[list.begin(), list.end())`）の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの`Cpp17EmplaceConstructible`であること。
+- (7), (8) : イテレータ範囲`[first, last)`の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの`Cpp17EmplaceConstructible`であること。
 - (9), (10) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
 
 ## 効果
@@ -53,7 +53,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (4) : 新たな要素`x`を`position`より前の出来るだけ近い位置にコピー挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる。
 - (5) : 新たな要素`y`を`position`より前の出来るだけ近い位置にムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる。
 - (6) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
-- (7) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。
+- (7) : イテレータ範囲`[first, last)`の各要素を`*this`の要素として挿入する。
 - (8) : `insert(init.begin(), init.end())`と等価（(7)へ委譲）。
 - (9) : `nh`が空の場合、効果はない。そうでなければ、`nh`によって所有されている要素を挿入する。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
 - (10) : `nh`が空の場合、効果はない。そうでなければ、`nh` によって所有されている要素を`p`より前の出来るだけ近い位置に挿入する。 `nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。

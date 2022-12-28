@@ -23,7 +23,7 @@ iterator erase(const_iterator position,
 
 ## 効果
 - (1) : `position`が指す要素が削除される。
-- (2) : `[position, last)`で示される範囲の要素が削除される。
+- (2) : イテレータ範囲`[position, last)`の要素が削除される。
 
 
 ## 戻り値

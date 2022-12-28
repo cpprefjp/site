@@ -24,7 +24,7 @@ namespace std {
 ## 概要
 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してコピー出力する。
 
-入力範囲`[first, first + n)`のコピーを未初期化出力範囲`[result, result + n)`に書き込む。
+入力イテレータ範囲`[first, first + n)`のコピーを未初期化出力イテレータ範囲`[result, result + n)`に書き込む。
 
 
 ## 効果

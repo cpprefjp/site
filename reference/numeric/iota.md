@@ -29,7 +29,7 @@ namespace std{
 
 
 ## 効果
-範囲`[first, last)`の各要素`it`について、先頭から順番に `*it = value; ++value;` を行う
+イテレータ範囲`[first, last)`の各要素`it`について、先頭から順番に `*it = value; ++value;` を行う
 
 
 ## 戻り値
@@ -37,7 +37,7 @@ namespace std{
 
 
 ## 計算量
-範囲`[first, last)`の要素数をnとして、n回のインクリメントと代入が行われる。
+イテレータ範囲`[first, last)`の要素数をnとして、n回のインクリメントと代入が行われる。
 
 
 ## 備考

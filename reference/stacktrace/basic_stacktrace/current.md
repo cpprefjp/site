@@ -37,10 +37,10 @@ static basic_stacktrace
     - `alloc`は[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数に渡される
 - (2) :
     - `basic_stacktrace::current(alloc)`で構築されたオブジェクト`st`の[`st.size()`](size.md)を`n`として、
-    - 範囲`[st.begin() + min(n, skip), st.end())`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
+    - イテレータ範囲`[st.begin() + min(n, skip), st.end())`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
 - (3) :
     - `basic_stacktrace::current(alloc)`で構築されたオブジェクト`st`の[`st.size()`](size.md)を`n`として、
-    - 範囲`[st.begin() + min(n, skip), st.begin() + min(n, skip + max_depth))`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
+    - イテレータ範囲`[st.begin() + min(n, skip), st.begin() + min(n, skip + max_depth))`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
 
 
 ## 備考

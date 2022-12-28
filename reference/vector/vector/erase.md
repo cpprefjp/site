@@ -26,7 +26,7 @@ constexpr iterator erase(const_iterator first,
 
 ## 効果
 - (1) : `position`が指す要素が削除される。
-- (2) : `[first, last)`で示される範囲の要素が削除される。
+- (2) : `[first, last)`で示されるイテレータ範囲の要素が削除される。
 
 削除された要素またはそれ以降の要素を指すイテレータや参照は無効になる。
 

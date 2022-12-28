@@ -41,7 +41,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
     - [`std::constructible_from`](/reference/concepts/constructible_from.md)`<value_type, P&&>`要件を満たすこと
         - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
 - (7) :
-    - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` が当該コンテナ **以外を指す** 有効な範囲であること
+    - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、イテレータ範囲 `[first, last)` が当該コンテナ **以外を指す** 有効な範囲であること
     - このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能であること
 - (8) : `value_type` はこのコンテナに対してコピー挿入可能であること
 - (9), (10)の形式では、 `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`でなければならない。
@@ -61,7 +61,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
     - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
     - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
 - (7) :
-    - 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）
+    - イテレータ範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(2)の形式が呼び出される）
 - (8) :
     - (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価である
 - (9) :

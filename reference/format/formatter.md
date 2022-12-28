@@ -58,15 +58,15 @@ namespace std {
 
 1. 式 `f.parse(pc)` が有効であり、
     * 戻り値の型が`PC::iterator`である
-    * `[pc.begin(), pc.end())`の範囲を解析して`format_error`を投げるか、解析が終わった位置を指すイテレータを返す
+    * イテレータ範囲`[pc.begin(), pc.end())`を解析して`format_error`を投げるか、解析が終わった位置を指すイテレータを返す
 2. 式 `f.format(t, fc)` が有効であり、
     * 戻り値の型が`FC::iterator`である
     * フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
-    * 出力は`t`、`fc.locale()`、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
+    * 出力は`t`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
 3. 式 `f.format(u, fc)` が有効であり、
     * 戻り値が`FC::iterator`である
     * フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
-    * 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`の`[pc.begin(), pc.end())`の範囲以外に依存しない
+    * 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
     * `u`を変更しない
 
 条件内の各要素を、以下のように定義する

@@ -174,11 +174,11 @@ int main()
   // que2からムーブ構築
   std::priority_queue<int> que3 = std::move(que2);
 
-  // イテレータの範囲から構築
+  // イテレータ範囲から構築
   const std::vector<int> v = {3, 1, 4};
   std::priority_queue<int> que4(v.begin(), v.end());
 
-  // イテレータの範囲、比較関数オブジェクト、コンテナから構築
+  // イテレータ範囲、比較関数オブジェクト、コンテナから構築
   const std::vector<int> v2 = {5, 2};
   std::priority_queue<int> que5(v.begin(), v.end(), {}, v2);
 

@@ -59,12 +59,12 @@ path(InputIterator first, InputIterator last,
 - (3) : `p`の保持するパスを`*this`に移動する。このコンストラクタ呼び出しのあと、`p`は「有効だが未規定の状態」となる
 - (4) : 必要であればパスのフォーマットを変換し、`source`を`*this`に移動する。このコンストラクタ呼び出しのあと、`source`は「有効だが未規定の状態」となる
 - (5) : 必要であればパスのフォーマットを変換し、`source`を`*this`にコピーする
-- (6) : 範囲`[first, last)`をパス文字列とし、必要であればパスのフォーマットを変換て、そのコピーを`*this`にコピーする
+- (6) : イテレータ範囲`[first, last)`をパス文字列とし、必要であればパスのフォーマットを変換て、そのコピーを`*this`にコピーする
 - (7) :
     - `path`クラスの`value_type`が`wchar_t`であれば、[`std::codecvt`](/reference/locale/codecvt.md)`<wchar_t, char, mbstate_t>`ファセットを使用して、`source`をシステムのワイド文字コードに変換をする。そうでなければ、同ファセットを使用して、システムのマルチバイト文字コードに変換をする
     - さらに必要であればパスのフォーマットを変換し、その結果を`*this`にコピーする
 - (8) :
-    - `path`クラスの`value_type`が`wchar_t`であれば、[`std::codecvt`](/reference/locale/codecvt.md)`<wchar_t, char, mbstate_t>`ファセットを使用して、範囲`[first, last)`のパス文字列をシステムのワイド文字コードに変換をする。そうでなければ、同ファセットを使用して、システムのマルチバイト文字コードに変換をする
+    - `path`クラスの`value_type`が`wchar_t`であれば、[`std::codecvt`](/reference/locale/codecvt.md)`<wchar_t, char, mbstate_t>`ファセットを使用して、イテレータ範囲`[first, last)`のパス文字列をシステムのワイド文字コードに変換をする。そうでなければ、同ファセットを使用して、システムのマルチバイト文字コードに変換をする
     - さらに必要であればパスのフォーマットを変換し、その結果を`*this`にコピーする
 
 

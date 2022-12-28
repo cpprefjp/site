@@ -100,7 +100,7 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 #### 文字型 / `bool`型 / 整数型の場合
 
-`[first, last)`を[`to_chars`](/reference/charconv/to_chars.md)の結果を格納するのに十分な範囲、`value`をフォーマットする値、`charT`を`char`または`wchar_t`とする。
+イテレータ範囲`[first, last)`を[`to_chars`](/reference/charconv/to_chars.md)の結果を格納するのに十分な範囲、`value`をフォーマットする値、`charT`を`char`または`wchar_t`とする。
 
 * 以下の表の通りに[`to_chars`](/reference/charconv/to_chars.md)を呼び出したあと、その結果を出力へコピーするかのような振る舞いをする。ただし、実際に[`to_chars`](/reference/charconv/to_chars.md)を呼び出すかどうかは規定されていない。
 * 実際には、出力へコピーする際にパディングなども行われる。

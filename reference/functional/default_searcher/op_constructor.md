@@ -23,7 +23,7 @@ default_searcher(default_searcher&& other) = default;       // (3) C++17
 
 このクラスにデフォルトコンストラクタは定義されない。
 
-- (1) : 検索対象 (pattern) の範囲`[pat_first, pat_last)`を登録する
+- (1) : 検索対象 (pattern) のイテレータ範囲`[pat_first, pat_last)`を登録する
 - (2) : コピーコンストラクタ
 - (3) : ムーブコンストラクタ
 

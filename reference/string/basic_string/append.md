@@ -73,10 +73,10 @@ constexpr basic_string&
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 要件
-- (2) では、`pos <=` [`size`](size.md)`()` であること。
-- (3) では、`s` は少なくとも `n` の長さを持つ `charT` 型の配列を指していること。
-- (4) では、`s` は少なくとも `traits_type::length(s) + 1` の長さを持つ `charT` 型の配列を指していること。
-- (6) では、`[first, last)` が有効な範囲であること。
+- (2) : `pos <=` [`size`](size.md)`()` であること。
+- (3) : `s` は少なくとも `n` の長さを持つ `charT` 型の配列を指していること。
+- (4) : `s` は少なくとも `traits_type::length(s) + 1` の長さを持つ `charT` 型の配列を指していること。
+- (6) : `[first, last)` が有効なイテレータ範囲であること。
 
 
 ## 効果
@@ -100,7 +100,7 @@ constexpr basic_string&
 - (5) 対象オブジェクトの末尾に、文字 `c` が `n` 文字追加（コピー）される。
     * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(n, c))` と等価。
 
-- (6) 対象オブジェクトの末尾に、範囲 `[first, last)` の文字列が追加（コピー）される。
+- (6) 対象オブジェクトの末尾に、イテレータ範囲 `[first, last)` の文字列が追加（コピー）される。
     * `append(`[`basic_string`](op_constructor.md)`<value_type, traits_type, allocator_type>(first, last))` と等価。
 
 - (7) 対象オブジェクトの末尾に初期化リスト `il` で表された文字列が追加される。

@@ -40,8 +40,8 @@ constexpr subrange(R&& r, make-unsigned-like-t<iter_difference_t<I>> n)
 
 ## 概要
 - (1) : 空の`subrange`を構築する(デフォルトコンストラクタ)
-- (2) : イテレータ`i`と番兵`s`が表す範囲`[i, s)`で初期化する
-- (3) : イテレータ`i`と番兵`s`が表す範囲`[i, s)`で初期化し、`subrange`の長さを`n`にする
+- (2) : イテレータ`i`と番兵`s`が表すイテレータ範囲`[i, s)`で初期化する
+- (3) : イテレータ`i`と番兵`s`が表すイテレータ範囲`[i, s)`で初期化し、`subrange`の長さを`n`にする
 - (4) : 範囲 `r` で初期化する
 - (5) : 範囲 `r` で初期化し、`subrange`の長さを`n`にする ((3)へ委譲)
 
@@ -65,8 +65,8 @@ static constexpr bool StoreSize = (K == subrange_kind::sized && !sized_sentinel_
 
 ## 事前条件
 
-- (2): `[i, s)`は有効な範囲であること
-- (3): `[i, s)`は有効な範囲であり、`n`はその範囲の長さ([`ranges::distance](/reference/iterator/ranges_distance.md)`(i, s)`)と等しいこと
+- (2): `[i, s)`は有効なイテレータ範囲であること
+- (3): `[i, s)`は有効なイテレータ範囲であり、`n`はその範囲の長さ([`ranges::distance](/reference/iterator/ranges_distance.md)`(i, s)`)と等しいこと
 - (4): `r`は有効な範囲であること
 - (5): `r`は有効な範囲であり、`n`はその範囲の長さと等しいこと
 

@@ -26,7 +26,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ## 効果
-2つのソート済み範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
+2つのソート済みイテレータ範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
 
 マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
 

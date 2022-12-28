@@ -35,10 +35,10 @@ namespace std::ranges {
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
-未初期化領域の範囲（`out_range`、`[ofirst, olast)`）を配置`new`で入力範囲（`in_range`、`[ifirst, ilast)`）の対応する要素から初期化してムーブ出力する。
+未初期化領域のイテレータ範囲（`out_range`、`[ofirst, olast)`）を配置`new`で入力イテレータ範囲（`in_range`、`[ifirst, ilast)`）の対応する要素から初期化してムーブ出力する。
 
-- (1): イテレータペアで範囲を指定する
-- (2): 範囲を直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
 
 
 ## テンプレートパラメータ制約
@@ -56,7 +56,7 @@ namespace std::ranges {
 
 ## 事前条件
 
-- 範囲`[ofirst, olast)`が範囲`[ifirst, ilast)`と重ならないこと
+- イテレータ範囲`[ofirst, olast)`が`[ifirst, ilast)`と重ならないこと
 
 
 ## 効果

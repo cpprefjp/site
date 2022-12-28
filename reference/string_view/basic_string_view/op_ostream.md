@@ -16,7 +16,7 @@ namespace std {
 文字列をストリームへ出力する。
 
 ## 効果
-`[sv.`[`begin()`](begin.md)`, sv.`[`end()`](end.md)`)`の範囲の文字を`os`に出力する。
+イテレータ範囲`[sv.`[`begin()`](begin.md)`, sv.`[`end()`](end.md)`)`の文字を`os`に出力する。
 
 
 ## 戻り値

@@ -32,8 +32,8 @@ namespace std::ranges {
 ## 事前条件
 
 - (1) : 次のいずれか
-    - `[first, last)`は有効な範囲である
-    - `[last, first)`は有効な範囲であり、`S, I`は[`same_as`](/reference/concepts/same_as.md)`<S, I>`および[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる
+    - `[first, last)`は有効なイテレータ範囲である
+    - `[last, first)`は有効なイテレータ範囲であり、`S, I`は[`same_as`](/reference/concepts/same_as.md)`<S, I>`および[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる
 
 ## 効果
 

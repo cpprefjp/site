@@ -18,7 +18,7 @@ namespace std::ranges {
 * view_interface[link view_interface.md]
 
 ## 概要
-`subrange`は、イテレータ`i`と番兵`s`が表す範囲`[i, s)`をRangeとして扱うクラステンプレート。
+`subrange`は、イテレータ`i`と番兵`s`が表すイテレータ範囲`[i, s)`をRangeとして扱うクラステンプレート。
 
 `subrange`は[`borrowed_range`](borrowed_range.md)、[`view`](view.md)のモデルであり、また、大きさ2のtuple-likeな型である。第0要素はイテレータ、第1要素は番兵。
 

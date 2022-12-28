@@ -7,9 +7,13 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, weakly_incrementable O>
+  template <input_iterator I,
+            weakly_incrementable O>
     requires indirectly_copyable<I, O>
-  constexpr copy_n_result<I, O> copy_n(I first, iter_difference_t<I> n, O result);
+  constexpr copy_n_result<I, O>
+    copy_n(I first,
+           iter_difference_t<I> n,
+           O result); // (1) C++20
 }
 ```
 * copy_n_result[link ranges_in_out_result.md]
@@ -19,6 +23,8 @@ namespace std::ranges {
 
 ## 概要
 指定された数の要素をコピーする。
+
+- (1): イテレータ範囲を指定する
 
 
 ## 効果

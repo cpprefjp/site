@@ -31,9 +31,9 @@ namespace std::ranges {
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
-未初期化領域の範囲`[ofirst, ofirst + n)`を配置`new`で`[ifirst, ifirst + n)`の対応する要素から初期化してムーブ出力する。
+未初期化領域のイテレータ範囲`[ofirst, ofirst + n)`を配置`new`でイテレータ範囲`[ifirst, ifirst + n)`の対応する要素から初期化してムーブ出力する。
 
-- (1): イテレータペアで範囲を指定する
+- (1): イテレータ範囲を指定する
 
 
 ## テンプレートパラメータ制約
@@ -46,7 +46,7 @@ namespace std::ranges {
 
 ## 事前条件
 
-- 範囲`[ofirst, olast)`が範囲`ifirst + [0, n)`と重ならないこと
+- イテレータ範囲`[ofirst, olast)`が`ifirst + [0, n)`と重ならないこと
 
 
 ## 効果

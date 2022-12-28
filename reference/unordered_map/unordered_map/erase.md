@@ -26,7 +26,7 @@ iterator erase(const_iterator first, const_iterator last); // (3)
 ## 効果
 - (1) : `position` で指定された要素を削除する。
 - (2) : `k` と等価なキーの要素を削除する。
-- (3) : `[first, last)` の範囲にある要素を全て削除する。
+- (3) : イテレータ範囲`[first, last)` にある要素を全て削除する。
 
 
 ## 戻り値

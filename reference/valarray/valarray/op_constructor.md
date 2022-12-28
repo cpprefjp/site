@@ -28,7 +28,7 @@ valarray(initializer_list<T> init);   // (11) C++11 から
 - (1) : デフォルトコンストラクタ
 - (2) : `n`個の`T()`初期化された要素を保持した`valarray`オブジェクトを構築する。
 - (3) : `value`のコピーを`n`個要素として保持した`valarray`オブジェクトを構築する。
-- (4) : `[first, first + n)`の範囲を要素としてコピーした`valarray`オブジェクトを構築する。
+- (4) : イテレータ範囲`[first, first + n)`を要素としてコピーした`valarray`オブジェクトを構築する。
 - (5) : コピーコンストラクタ
 - (6) : ムーブコンストラクタ
 - (7) : [`slice_array`](/reference/valarray/slice_array.md)オブジェクトから`valarray`への変換を行う。

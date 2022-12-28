@@ -36,12 +36,12 @@ iterator insert(const_iterator position,
 
 - (1), (2) : 新たな要素をひとつ挿入する
 - (3) : 新たな要素`x`のコピーを`n`個挿入する
-- (4) : `[first, last)`の範囲の要素を挿入する
+- (4) : イテレータ範囲`[first, last)`の要素を挿入する
 - (5) : `initializer_list`の全て要素を挿入する
 
 
 ## 要件
-第1パラメータ`position`が、`[`[`begin()`](begin.md)`,` [`end()`](end.md)`]`の範囲の間接参照可能なイテレータであること。
+第1パラメータ`position`が、イテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md)`]`の間接参照可能なイテレータであること。
 
 
 ## 戻り値
