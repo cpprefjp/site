@@ -22,7 +22,7 @@ namespace std {
 
 
 ```cpp
-return static_cast<R>(lhs.compare(rhs) <=> 0);
+return static_cast<R>(x.compare(y) <=> 0);
 ```
 * compare[link compare.md]
 

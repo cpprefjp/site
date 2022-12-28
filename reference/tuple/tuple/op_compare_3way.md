@@ -8,7 +8,7 @@
 namespace std {
   template<class... TTypes, class... UTypes>
   constexpr common_comparison_category_t<synth-three-way-result<TTypes, UTypes>...>
-    operator<=>(const tuple<TTypes...>&, const tuple<UTypes...>&); // (1) C++20
+    operator<=>(const tuple<TTypes...>& t, const tuple<UTypes...>& u); // (1) C++20
 }
 ```
 * tuple[link ../tuple.md]
