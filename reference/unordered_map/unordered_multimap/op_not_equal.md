@@ -14,7 +14,7 @@ namespace std {
 ```
 
 ## 概要
-`unordered_multiset` オブジェクトを非等値比較する。
+`unordered_multimap` オブジェクトを非等値比較する。
 
 
 ## 要件
