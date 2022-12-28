@@ -5,6 +5,7 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class Key, class Compare, class Allocator>
   bool
     operator>=(const set<Key,Compare,Allocator>& x,

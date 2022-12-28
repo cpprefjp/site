@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  // operator==により、以下の演算子が使用可能になる (C++20)
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class CharT, class Traits, class Allocator>
   bool
     operator>(const basic_string<CharT, Traits, Allocator>& a,
