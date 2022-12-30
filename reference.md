@@ -127,7 +127,7 @@
 | ヘッダ                                 | 説明             | 対応バージョン |
 |----------------------------------------|------------------|----------------|
 | [`<ranges>`](/reference/ranges.md)       | レンジアルゴリズム | C++20          |
-| [`<generator>`](/reference/generator.md.nolink) | コルーチンによるレンジ生成 | C++23          |
+| [`<generator>`](/reference/generator.md) | コルーチンによるレンジ生成 | C++23          |
 
 
 ## <a id="algorithm" href="#algorithm">アルゴリズムライブラリ</a>

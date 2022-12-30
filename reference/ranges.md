@@ -118,6 +118,12 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`borrowed_iterator_t`](ranges/borrowed_iterator_t.md) | Rangeが`borrowed_range`ではないとき`dangling`となるイテレータ (alias template) | C++20          |
 | [`borrowed_subrange_t`](ranges/borrowed_subrange_t.md) | Rangeが`borrowed_range`ではないとき`dangling`となる部分Range (alias template)  | C++20          |
 
+## Rangeジェネレータ
+
+| 名前                                   | 説明                                           | 対応バージョン |
+|----------------------------------------|------------------------------------------------|-------|
+| [`elements_of`](ranges/elements_of.md) | 子Range要素の生成を示すタグ型 (class template) | C++23 |
+
 ## Rangeファクトリ
 
 Rangeファクトリは、Rangeではないオブジェクトから[`view`](ranges/view.md)を生成するものである。
