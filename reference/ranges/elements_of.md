@@ -18,7 +18,7 @@ namespace std::ranges {
 ```
 
 ## 概要
-ジェネレータ型[`std::generator`](/reference/generator/generator.md.nolink)を戻り値とするコルーチンにおいて、`co_yield`式がネストしたRangeの要素を順次生成することを示すタグ型。
+ジェネレータ型[`std::generator`](/reference/generator/generator.md)を戻り値とするコルーチンにおいて、`co_yield`式がネストしたRangeの要素を順次生成することを示すタグ型。
 
 
 ## テンプレートパラメータ制約
@@ -69,8 +69,8 @@ int main()
 }
 ```
 * std::ranges::elements_of[color ff0000]
-* std::generator[link /reference/generator/generator.md.nolink]
-* co_yield[link /reference/lang/cpp20/coroutines.md]
+* std::generator[link /reference/generator/generator.md]
+* co_yield[link /lang/cpp20/coroutines.md]
 
 ### 出力
 ```
