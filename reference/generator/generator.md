@@ -12,31 +12,35 @@ namespace std {
   }
 }
 ```
+* ranges::view_interface[link /reference/ranges/view_interface.md]
 
 
 ## 概要
 `generator`クラステンプレートは、[コルーチン](/lang/cpp20/coroutines.md)の評価により生成される要素列のビュー(view)を表現する。
-
 特殊化された`generator`は[`view`](/reference/ranges/view.md)および[`input_range`](/reference/ranges/input_range.md)のモデルである。
 
-戻り値型`generator`のコルーチン（以降、ジェネレータコルーチン）では`co_yield`式を用いて値を生成する。`co_yield `[`std::ranges::elements_of`](/reference/ranges/elements_of.md)`(rng)`式を用いると、ジェネレータコルーチンから入れ子Range(`rng`)の各要素を逐次生成する。
+戻り値型`generator`のコルーチン（以下、ジェネレータコルーチン）では`co_yield`式を用いて値を生成する。`co_yield` [`std::ranges::elements_of`](/reference/ranges/elements_of.md)`(rng)`式を用いると、ジェネレータコルーチンから入れ子Range(`rng`)の各要素を逐次生成する。
 
-ジェネレータコルーチンの開始は遅延評価されるため、`generator`利用側が先頭要素[`begin`](generator/begin.md.nolink)を指すイテレータを間接参照するまでジェネレータコルーチンの本体処理は実行されない。
+ジェネレータコルーチンは遅延評価される。ジェネレータコルーチンが返す`generator`オブジェクトの利用側（以下、呼び出し側）で先頭要素[`begin`](generator/begin.md.nolink)を指すイテレータを間接参照するまで、ジェネレータコルーチンの本体処理は実行されない。
+呼び出し側がイテレータの間接参照を試みるとジェネレータコルーチンを再開(resume)し、ジェネレータコルーチン本体処理において`co_yield`式に到達すると生成値を保持して再び中断(suspend)する。呼び出し側ではイテレータの間接参照の結果として生成値を取得する。
 
 
 `generator`では下記の説明用メンバ型を定義する。
+
 - `value` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Ref>, V>`
 - `reference` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>, Ref&&, Ref>`
 
 
 ## 適格要件
-- `Allocator`が`void`ではない場合、[`allocator_traits<Allocator>`](/reference/memory/allocator_traits.md)`::pointer`はポインタ型
-- `value`はcv修飾されないオブジェクト型
-- `reference`は参照型、または[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるcv修飾されないオブジェクト型
-- `reference`が参照型の場合は`RRef` == [`remove_reference_t`](/reference/type_traits/remove_reference.md)`<reference>&&`、それ以外の場合は`RRef` == `reference`としたとき、それぞれ下記のモデルであること
-  - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<reference&&, value&>`
-  - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<reference&&, RRef&&>`
-  - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<RRef&&, const value&>`
+- テンプレートパラメータ`Allocator`が`void`ではない場合、[`allocator_traits<Allocator>`](/reference/memory/allocator_traits.md)`::pointer`はポインタ型であること。
+- メンバ型`value`はCV修飾されないオブジェクト型であること。
+- メンバ型`reference`は参照型、または[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるCV修飾されないオブジェクト型であること。
+- メンバ型`reference`が参照型の場合には`RRef` == [`remove_reference_t`](/reference/type_traits/remove_reference.md)`<reference>&&`、それ以外の場合には`RRef` == `reference`としたとき、それぞれ下記のモデルであること。
+    - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<reference&&, value&>`
+    - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<reference&&, RRef&&>`
+    - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<RRef&&, const value&>`
+
+テンプレートパラメータ`Allocator`が`void`ではない場合、`Cpp17Allocator`の要件を満たすこと。
 
 
 ## メンバ関数

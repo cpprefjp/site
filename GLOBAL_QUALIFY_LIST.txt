@@ -99,6 +99,7 @@
 * <fstream>[link /reference/fstream.md]
 * <functional>[link /reference/functional.md]
 * <future>[link /reference/future.md]
+* <generator>[link /reference/generator.md]
 * <initializer_list>[link /reference/initializer_list.md]
     * std::initializer_list[link /reference/initializer_list/initializer_list.md]
 * <iomanip>[link /reference/iomanip.md]

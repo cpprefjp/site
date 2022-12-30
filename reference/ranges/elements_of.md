@@ -16,9 +16,11 @@ namespace std::ranges {
     elements_of(R&&, Allocator = Allocator()) -> elements_of<R&&, Allocator>;
 }
 ```
+* allocator[link /reference/memory/allocator.md]
+
 
 ## 概要
-ジェネレータ型[`std::generator`](/reference/generator/generator.md)を戻り値とするコルーチンにおいて、`co_yield`式がネストしたRangeの要素を順次生成することを示すタグ型。
+ジェネレータ[`std::generator`](/reference/generator/generator.md)を戻り値型とする[コルーチン](/lang/cpp20/coroutines.md)において、`co_yield`式がネストしたRangeの要素を順次生成することを示すタグ型。
 
 
 ## テンプレートパラメータ制約
@@ -36,8 +38,9 @@ namespace std::ranges {
 ## 例
 ```cpp example
 #include <generator>
-#include <ranges>
 #include <iostream>
+#include <ranges>
+#include <vector>
 
 std::vector<int> vec{2, 3, 4};
 
@@ -94,7 +97,7 @@ int main()
 
 
 ## 関連項目
-- [`generator`](/reference/generator.md)
+- [`<generator>`](/reference/generator.md)
 
 ## 参照
 - [P2502R2 `std::generator`: Synchronous Coroutine Generator for Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2502r2.pdf)
