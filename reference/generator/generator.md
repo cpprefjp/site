@@ -20,8 +20,9 @@ namespace std {
 特殊化された`generator`は[`view`](/reference/ranges/view.md)および[`input_range`](/reference/ranges/input_range.md)のモデルである。
 
 戻り値型`generator`のコルーチン（以下、ジェネレータコルーチン）では`co_yield`式を用いて値を生成する。`co_yield` [`std::ranges::elements_of`](/reference/ranges/elements_of.md)`(rng)`式を用いると、ジェネレータコルーチンから入れ子Range(`rng`)の各要素を逐次生成する。
+ジェネレータコルーチンでは`co_await`式を利用できない。
 
-ジェネレータコルーチンは遅延評価される。ジェネレータコルーチンが返す`generator`オブジェクトの利用側（以下、呼び出し側）で先頭要素[`begin`](generator/begin.md.nolink)を指すイテレータを間接参照するまで、ジェネレータコルーチンの本体処理は実行されない。
+ジェネレータコルーチンは遅延評価される。ジェネレータコルーチンが返す`generator`オブジェクトの利用側（以下、呼び出し側）で先頭要素[`begin`](generator/begin.md)を指すイテレータを間接参照するまで、ジェネレータコルーチンの本体処理は実行されない。
 呼び出し側がイテレータの間接参照を試みるとジェネレータコルーチンを再開(resume)し、ジェネレータコルーチン本体処理において`co_yield`式に到達すると生成値を保持して再び中断(suspend)する。呼び出し側ではイテレータの間接参照の結果として生成値を取得する。
 
 
@@ -29,6 +30,7 @@ namespace std {
 
 - `value` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Ref>, V>`
 - `reference` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>, Ref&&, Ref>`
+- [`iterator`](generator/iterator.md)
 
 
 ## 適格要件
@@ -48,11 +50,11 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `(constructor)` | コンストラクタ | C++23 |
-| `(destructor)`  | デストラクタ   | C++23 |
-| `operator=`     | 代入演算子     | C++23 |
-| [`begin`](generator/begin.md.nolink) | Viewの先頭を指すイテレータを取得する | C++23 |
-| [`end`](generator/end.md.nolink) | Viewの番兵を取得する | C++23 |
+| [`(constructor)`](generator/op_constructor.md) | コンストラクタ | C++23 |
+| `(destructor)` | デストラクタ | C++23 |
+| `operator=(generator other) noexcept;` | ムーブ代入演算子 | C++23 |
+| [`begin`](generator/begin.md) | Viewの先頭を指すイテレータを取得する | C++23 |
+| [`end`](generator/end.md) | Viewの番兵を取得する | C++23 |
 
 ## メンバ型
 
