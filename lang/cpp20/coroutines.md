@@ -8,7 +8,7 @@ C++20時点では、コルーチン動作に関する言語仕様と新キーワ
 
 ```cpp
 // コルーチンiotaを定義
-generator iota(int end)
+my_generator iota(int end)
 {
   for (int n = 0; n < end; ++n) {
     co_yield n;
@@ -21,12 +21,15 @@ for (int v: g) {
   std::cout << v;
 }
 
-// "generator"はライブラリが提供するべきクラス。
+// "my_generator"はライブラリが提供するべきクラス。
 // 動作可能なサンプルコード全体は後述例を参照のこと。
 ```
 * co_yield[color ff0000]
 
 一般的なアプリケーション実装者からの利用を想定した、ジェネレータや非同期タスク・非同期I/Oといったハイレベルなコルーチンライブラリは、C++23以降での導入にむけて検討されている。
+
+C++23ではジェネレータコルーチンを実現する[`<generetor>`](/reference/generator.md)が追加された。
+
 
 ### 特徴
 C++コルーチンの特徴は次の通り：
@@ -63,7 +66,7 @@ C++コルーチン動作理解の助けとなるよう、ここでは細部を�
 
 ```cpp
 // プログラマが記述するコルーチン
-generator iota(int end)
+my_generator iota(int end)
 {
   for (int n = 0; n < end; ++n) {
     co_yield n;
@@ -71,13 +74,13 @@ generator iota(int end)
 }
 
 // C++コンパイラにより展開されたコード
-generator iota(int end)
+my_generator iota(int end)
 {
   // コルーチンに対応するPromiseオブジェクトを初期化
-  generator::promise_type promise;
+  my_generator::promise_type promise;
 
   // 戻り値型オブジェクトの初期化
-  generator result = promise.get_return_object();
+  my_generator result = promise.get_return_object();
   // コルーチンハンドルをget_return_object内で取得し、resultメンバで保持する。
   // 生成したresultオブジェクトは、初回のコルーチン中断時に呼出元へ返される。
 
@@ -445,7 +448,7 @@ _p_`.return_void()`が有効な式のとき、コルーチン本体の終端到�
 #include <utility>
 
 // コルーチン利用ライブラリ: ジェネレータ型
-struct generator {
+struct my_generator {
   // ジェネレータに関連付けられるPromise型
   struct promise_type {
     // co_yield式で指定されるint値を保持する変数
@@ -455,7 +458,7 @@ struct generator {
     {
       // コルーチンに紐づくPromiseオブジェクト(*this)から
       // ジェネレータ型のコルーチン戻り値オブジェクトを生成
-      return generator{*this};
+      return my_generator{*this};
     };
     auto initial_suspend()
     {
@@ -505,14 +508,14 @@ struct generator {
     }
   };
 
-  ~generator()
+  ~my_generator()
   {
     if (coro_)
       coro_.destroy();
   }
 
-  generator(generator const&) = delete;
-  generator(generator&& rhs) 
+  my_generator(my_generator const&) = delete;
+  my_generator(my_generator&& rhs) 
     : coro_(std::exchange(rhs.coro_, nullptr)) {}
 
   // 範囲for構文サポート用のメンバ関数
@@ -531,7 +534,7 @@ struct generator {
 
 private:
   // Promiseオブジェクト経由でコルーチンハンドルを取得する
-  explicit generator(promise_type& p)
+  explicit my_generator(promise_type& p)
     : coro_(coro_handle::from_promise(p)) {}
 
   coro_handle coro_;
@@ -539,7 +542,7 @@ private:
 
 
 // ユーザ定義コルーチン
-generator iota(int end)
+my_generator iota(int end)
 {
   // コルーチンに対応したPromise型 generator::promise_typeの
   // Promiseオブジェクト(p)が生成される。
@@ -606,7 +609,8 @@ C++20コルーチンに関するキーワードは、いずれも接頭辞`co_`�
 
 
 ## 関連項目
-- [`<coroutine>`](/reference/coroutine.md)
+- C++20 [`<coroutine>`](/reference/coroutine.md)
+- C++23 [`<generator>`](/reference/generator.md)
 
 
 ## 参照
