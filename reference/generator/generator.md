@@ -30,7 +30,7 @@ namespace std {
 
 - `value` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Ref>, V>`
 - `reference` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>, Ref&&, Ref>`
-- [`iterator`](generator/iterator.md)
+- [`iterator`](generator/iterator.md) : ジェネレータが返すイテレータ型。
 
 
 ## 適格要件
@@ -53,6 +53,10 @@ namespace std {
 | [`(constructor)`](generator/op_constructor.md) | コンストラクタ | C++23 |
 | `(destructor)` | デストラクタ | C++23 |
 | `operator=(generator other) noexcept;` | ムーブ代入演算子 | C++23 |
+
+### イテレータ
+| 名前            | 説明           | 対応バージョン |
+|-----------------|----------------|----------------|
 | [`begin`](generator/begin.md) | Viewの先頭を指すイテレータを取得する | C++23 |
 | [`end`](generator/end.md) | Viewの番兵を取得する | C++23 |
 
@@ -60,8 +64,15 @@ namespace std {
 
 | 名前            | 説明        | 対応バージョン |
 |-----------------|-------------|-------|
-| `yielded`      | `co_yield`式の引数型  | C++23 |
-| `promise_type` | コルーチンのPromise型 | C++23 |
+| `yielded`      | `co_yield`式の引数型（後述） | C++23 |
+| [`promise_type`](generator/promise_type.md) | ジェネレータコルーチンのPromise型 | C++23 |
+
+``` cpp
+using yielded =
+  conditional_t<is_reference_v<reference>, reference, const reference&>;
+```
+* conditional_t[link /reference/type_traits/conditional.md]
+* is_reference_v[link /reference/type_traits/is_reference.md]
 
 
 ## 例
