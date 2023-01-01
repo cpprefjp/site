@@ -24,13 +24,13 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `get_return_object` | [`generator`](../generator.md)戻り値の取得 | C++23 |
-| `initial_suspend` | 初期サスペンドポイント動作の制御 | C++23 |
-| `final_suspend` | 最終サスペンドポイント動作の制御 | C++23 |
-| `yield_value` | co_yield式動作の制御 | C++23 |
-| `await_transform` | co_await式動作の制御 | C++23 |
-| `return_void` | コルーチンreturn動作の制御 | C++23 |
-| `unhandled_exception` | 未処理例外の制御 | C++23 |
+| [`get_return_object`](promise_type/get_return_object.md) | [`generator`](../generator.md)戻り値の取得 | C++23 |
+| [`initial_suspend`](promise_type/initial_suspend.md) | 初期サスペンドポイント動作の制御 | C++23 |
+| [`final_suspend`](promise_type/final_suspend.md) | 最終サスペンドポイント動作の制御 | C++23 |
+| [`yield_value`](promise_type/yield_value.md) | co_yield式動作の制御 | C++23 |
+| [`await_transform`](promise_type/await_transform.md) | co_await式動作の制御 | C++23 |
+| [`return_void`](promise_type/return_void.md) | コルーチンreturn動作の制御 | C++23 |
+| [`unhandled_exception`](promise_type/unhandled_exception.md) | 未処理例外の制御 | C++23 |
 | `operator new` | カスタムnew演算子 | C++23 |
 | `operator delete` | カスタムdelete演算子 | C++23 |
 
@@ -45,8 +45,10 @@ namespace std {
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp):
 
+
 ## 関連項目
 - [`std::ranges::elements_of`](/reference/ranges/elements_of.md)
+
 
 ## 参照
 - [P2502R2 `std::generator`: Synchronous Coroutine Generator for Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2502r2.pdf)
