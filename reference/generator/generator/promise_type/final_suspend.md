@@ -11,6 +11,7 @@ auto final_suspend() noexcept;
 
 ## 概要
 ジェネレータコルーチンの[最終サスペンドポイント](/lang/cpp20/coroutines.md)を制御するAwaitableオブジェクトを返す。
+プログラマが本関数を直接利用することは想定されていない。
 
 
 ## 事前条件

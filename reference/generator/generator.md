@@ -22,27 +22,28 @@ namespace std {
 戻り値型`generator`のコルーチン（以下、ジェネレータコルーチン）では`co_yield`式を用いて値を生成する。`co_yield` [`std::ranges::elements_of`](/reference/ranges/elements_of.md)`(rng)`式を用いると、ジェネレータコルーチンから入れ子Range(`rng`)の各要素を逐次生成する。
 ジェネレータコルーチンでは`co_await`式を利用できない。
 
-ジェネレータコルーチンは遅延評価される。ジェネレータコルーチンが返す`generator`オブジェクトの利用側（以下、呼び出し側）で先頭要素[`begin`](generator/begin.md)を指すイテレータを間接参照するまで、ジェネレータコルーチンの本体処理は実行されない。
+ジェネレータコルーチンは遅延評価される。ジェネレータコルーチンが返す`generator`オブジェクトの利用側（以下、呼び出し側）で先頭要素[`begin`](generator/begin.md)を指す[イテレータ](generator/iterator.md)を間接参照するまで、ジェネレータコルーチンの本体処理は実行されない。
 呼び出し側がイテレータの間接参照を試みるとジェネレータコルーチンを再開(resume)し、ジェネレータコルーチン本体処理において`co_yield`式に到達すると生成値を保持して再び中断(suspend)する。呼び出し側ではイテレータの間接参照の結果として生成値を取得する。
 
 
+### 説明用メンバ
 `generator`では下記の説明用メンバ型を定義する。
 
-- `value` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Ref>, V>`
-- `reference` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>, Ref&&, Ref>`
+- `value` : [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Ref>, V>`
+- `reference` : [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>, Ref&&, Ref>`
 - [`iterator`](generator/iterator.md) : ジェネレータが返すイテレータ型。
 
-`generator`クラスの動作説明のため、下記の説明専用メンバを用いる。
+`generator`および[`promise_type`](generator/promise_type.md)の動作説明のため、下記の説明用メンバを用いる。
 
 - [`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<`[`promise_type`](generator/promise_type.md)`>` : コルーチンハンドル(`coroutine_`)
 - [`unique_ptr`](/reference/memory/unique_ptr.md)`<`[`stack`](/reference/stack/stack.md)`<`[`coroutine_handle<>`](/reference/coroutine/coroutine_handle.md)`>>`: アクティブスタック(`active_`)
 
 
 ## 適格要件
-- テンプレートパラメータ`Allocator`が`void`ではない場合、[`allocator_traits<Allocator>`](/reference/memory/allocator_traits.md)`::pointer`はポインタ型であること。
-- メンバ型`value`はCV修飾されないオブジェクト型であること。
-- メンバ型`reference`は参照型、または[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるCV修飾されないオブジェクト型であること。
-- メンバ型`reference`が参照型の場合には`RRef` == [`remove_reference_t`](/reference/type_traits/remove_reference.md)`<reference>&&`、それ以外の場合には`RRef` == `reference`としたとき、それぞれ下記のモデルであること。
+- テンプレートパラメータ`Allocator`が`void`ではない場合、[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`はポインタ型であること。
+- 説明用のメンバ型`value`はCV修飾されないオブジェクト型であること。
+- 説明用のメンバ型`reference`は参照型、または[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるCV修飾されないオブジェクト型であること。
+- 説明用のメンバ型`reference`が参照型の場合には`RRef` == [`remove_reference_t`](/reference/type_traits/remove_reference.md)`<reference>&&`、それ以外の場合には`RRef` == `reference`としたとき、それぞれ下記のモデルであること。
     - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<reference&&, value&>`
     - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<reference&&, RRef&&>`
     - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<RRef&&, const value&>`
@@ -98,12 +99,16 @@ std::generator<int> evens()
 
 int main()
 {
+  // ジェネレータにより生成されるレンジのうち
+  // 先頭から5個までの要素値を列挙する
   for (int n : evens() | std::views::take(5)) {
     std::cout << n << std::endl;
   }
 }
 ```
 * std::generator[color ff0000]
+* co_yield[link /lang/cpp20/coroutines.md]
+* std::views::take[link /reference/ranges/take_view.md]
 
 ### 出力
 ```

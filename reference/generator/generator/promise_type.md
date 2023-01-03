@@ -17,10 +17,12 @@ namespace std {
 
 ## 概要
 ジェネレータコルーチン動作を制御する[Promise型](/lang/cpp20/coroutines.md)。
+プログラマが本クラスを直接利用することは想定されていない。
+
 
 `generator::promise_type`クラスの動作説明のため、以下の説明専用メンバを用いる。
 
-- [`add_pointer_t`](/reference/type_traits/add_pointer.md)`<`[`yielded`](../../generator.md)`>`型 : `value_`
+- [`add_pointer_t`](/reference/type_traits/add_pointer.md)`<`[`yielded`](../generator.md)`>`型 : `value_`
 - [`exception_ptr`](/reference/exception/exception_ptr.md)型 : `except_`
 
 

@@ -13,6 +13,7 @@ generator get_return_object() noexcept;
 ## 概要
 ジェネレータ[コルーチン](/lang/cpp20/coroutines.md)の戻り値オブジェクトを生成する。
 戻り値ジェネレータの[アクティブスタック](../../generator.md)を、空(empty)で初期化する。
+プログラマが本関数を直接利用することは想定されていない。
 
 
 ## 戻り値

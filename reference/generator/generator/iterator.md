@@ -61,8 +61,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-----|-----|-----|
-| `bool operator==(const iterator& i, default_sentinel_t)` | 等値比較 | C++23 |
-| `bool operator!=(const iterator& i, default_sentinel_t)` | 非等値比較 (`==`により使用可能) | C++23 |
+| `bool operator==(const iterator&, default_sentinel_t)` | 等値比較 | C++23 |
+| `bool operator!=(const iterator&, default_sentinel_t)` | 非等値比較 (`==`により使用可能) | C++23 |
 
 
 ## バージョン

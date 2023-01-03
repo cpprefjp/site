@@ -12,6 +12,7 @@ suspend_always initial_suspend() const noexcept;
 
 ## 概要
 ジェネレータコルーチンの[初期サスペンドポイント](/lang/cpp20/coroutines.md)を制御するAwaitableオブジェクトを返す。
+プログラマが本関数を直接利用することは想定されていない。
 
 
 ## 戻り値
