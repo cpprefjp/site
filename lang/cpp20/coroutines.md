@@ -373,7 +373,7 @@ _e_ をYield式のオペランド、_p_ を同式を含むコルーチンのProm
 
 ```cpp
 template <typename T>
-struct my_generator {
+struct generator {
   struct promise_type {
     T current_value;
     /* ... */
@@ -387,10 +387,10 @@ struct my_generator {
   iterator end();
 };
 
-my_generator<pair<int,int>> g1() {
+generator<pair<int,int>> g1() {
   for (int i = i; i < 10; ++i) co_yield {i,i};
 }
-my_generator<pair<int,int>> g2() {
+generator<pair<int,int>> g2() {
   for (int i = i; i < 10; ++i) co_yield make_pair(i,i);
 }
 
