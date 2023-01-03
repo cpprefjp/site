@@ -18,6 +18,11 @@ namespace std {
 ## 概要
 ジェネレータコルーチン動作を制御する[Promise型](/lang/cpp20/coroutines.md)。
 
+`generator::promise_type`クラスの動作説明のため、以下の説明専用メンバを用いる。
+
+- [`add_pointer_t`](/reference/type_traits/add_pointer.md)`<`[`yielded`](../../generator.md)`>`型 : `value_`
+- [`exception_ptr`](/reference/exception/exception_ptr.md)型 : `except_`
+
 
 ## メンバ関数
 ### コルーチン
@@ -31,8 +36,8 @@ namespace std {
 | [`await_transform`](promise_type/await_transform.md) | co_await式動作の制御 | C++23 |
 | [`return_void`](promise_type/return_void.md) | コルーチンreturn動作の制御 | C++23 |
 | [`unhandled_exception`](promise_type/unhandled_exception.md) | 未処理例外の制御 | C++23 |
-| `operator new` | カスタムnew演算子 | C++23 |
-| `operator delete` | カスタムdelete演算子 | C++23 |
+| [`operator new`](promise_type/op_new.md) | new演算子オーバーロード | C++23 |
+| [`operator delete`](promise_type/op_delete.md) | delete演算子オーバーロード | C++23 |
 
 
 ## バージョン

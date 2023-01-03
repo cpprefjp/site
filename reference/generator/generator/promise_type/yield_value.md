@@ -1,6 +1,6 @@
-# unhandled_exception
+# yield_value
 * generator[meta header]
-* function[meta id-type]
+* function template[meta id-type]
 * std[meta namespace]
 * generator::promise_type[meta class]
 * cpp23[meta cpp]
@@ -39,11 +39,58 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
 
 
 ## 事前条件
-（執筆中）
+- (2) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタックのトップにあること。
+- (3) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタックのトップにあること。ジェネレータ`g.range`に対応するコルーチンが、初期サスペンドポイントにて中断されていること。
 
 
 ## 効果
-（執筆中）
+(1) : 以下と等価
+```cpp
+value_ = addressof(val)
+```
+* value_[link ../promise_type.md]
+* addressof[link /reference/memory/addressof.md]
+
+(4) : 以下と等価
+```cpp
+auto nested = [](allocator_arg_t, Alloc, ranges::iterator_t<Rng> i,
+                 ranges::sentinel_t<Rng> s)
+  -> generator<yielded, ranges::range_value_t<Rng>, Alloc> {
+    for (; i != s; ++i) {
+      co_yield static_cast<yielded>(*i);
+    }
+  };  
+return yield_value(ranges::elements_of(nested(
+  allocator_arg, r.allocator, ranges::begin(r.range), ranges::end(r.range))));
+```
+* co_yield[link /lang/cpp20/coroutines.md]
+* generator[link ../../generator.md]
+* yielded[link ../../generator.md]
+* allocator_arg_t[link /reference/memory/allocator_arg_t.md]
+* allocator_arg[link /reference/memory/allocator_arg_t.md]
+* ranges::iterator_t[link /reference/ranges/iterator_t.md]
+* ranges::sentinel_t[link /reference/ranges/sentinel_t.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* ranges::elements_of[link /reference/ranges/elements_of.md]
+* r.range[link /reference/ranges/elements_of.md]
+* r.allocator[link /reference/ranges/elements_of.md]
+* ranges::begin[link /reference/ranges/begin.md]
+* ranges::end[link /reference/ranges/end.md]
+
+
+## 戻り値
+- (1) :　[`suspend_always{}`](/reference/coroutine/suspend_always.md)
+- (2) : `lval`を用いて直接非リスト初期化(direct-non-list-initialized)された[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`yielded`](../../generator.md)`>`型オブジェクトを保持し、[説明専用メンバ`value_`](../promise_type.md)が保持されたオブジェクトを指してコルーチンを中断(suspend)するメンバ関数をもつ、未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)。
+- (3) : ジェネレータ`g.range`の所有権を受け取り、メンバ関数`await_ready`は`false`を返し、メンバ関数`await_suspend`は`x`のアクティブスタックに`g.range`に対応する[コルーチンハンドル](/reference/coroutine/coroutine_handle.md)をpushしてから`g.range`を再開(resume)し、メンバ関数`await_resume`は[説明専用メンバ`except_`](../promise_type.md)が例外を保持している場合に[`rethrow_exception`](/reference/exception/rethrow_exception.md)`(except_)`を行う、未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)。
+
+
+## 例外
+- (1) : 投げない。
+- (2) : 格納されるオブジェクトの初期化によって送出された例外。
+
+
+## 備考
+この関数を呼び出す`co_yield`式は`void`型となる。
 
 
 ## バージョン
@@ -55,3 +102,7 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`unhandled_exception`](unhandled_exception.md)

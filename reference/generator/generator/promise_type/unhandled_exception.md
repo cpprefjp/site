@@ -14,11 +14,13 @@ void unhandled_exception();
 
 
 ## 事前条件
-（執筆中）
+Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタックのトップにあること。
 
 
 ## 効果
-（執筆中）
+Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)がジェネレータ`x`のアクティブスタックの単独要素であれば、式`throw;`に等しい。
+
+そうでなければ、[説明専用メンバ`except_`](../promise_type.md)に[`current_exception()`](/reference/exception/current_exception.md)を代入する。
 
 
 ## バージョン
@@ -30,3 +32,7 @@ void unhandled_exception();
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`yield_value`](yield_value.md)

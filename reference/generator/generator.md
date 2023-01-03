@@ -32,6 +32,11 @@ namespace std {
 - `reference` == [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>, Ref&&, Ref>`
 - [`iterator`](generator/iterator.md) : ジェネレータが返すイテレータ型。
 
+`generator`クラスの動作説明のため、下記の説明専用メンバを用いる。
+
+- [`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<`[`promise_type`](generator/promise_type.md)`>` : コルーチンハンドル(`coroutine_`)
+- [`unique_ptr`](/reference/memory/unique_ptr.md)`<`[`stack`](/reference/stack/stack.md)`<`[`coroutine_handle<>`](/reference/coroutine/coroutine_handle.md)`>>`: アクティブスタック(`active_`)
+
 
 ## 適格要件
 - テンプレートパラメータ`Allocator`が`void`ではない場合、[`allocator_traits<Allocator>`](/reference/memory/allocator_traits.md)`::pointer`はポインタ型であること。
