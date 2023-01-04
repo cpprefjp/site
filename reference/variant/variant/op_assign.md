@@ -10,7 +10,9 @@ constexpr variant& operator=(const variant& rhs);              // (1)
 constexpr variant& operator=(variant&& t) noexcept(see below); // (2)
 
 template <class T>
-variant& operator=(T&& rhs) noexcept(see below);               // (3)
+variant& operator=(T&& rhs) noexcept(see below);               // (3) C++17
+template <class T>
+constexpr variant& operator=(T&& rhs) noexcept(see below);     // (3) C++23
 ```
 
 ## 概要
@@ -193,3 +195,4 @@ int main()
 ## 参照
 - [P0608R3 A sane variant converting constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html)
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

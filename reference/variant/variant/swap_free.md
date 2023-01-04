@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <class... Types>
-  void swap(variant<Types...>& x, variant<Types...>& y) noexcept(see below);
+  void swap(variant<Types...>& x, variant<Types...>& y) noexcept(see below);            // C++17
+  template <class... Types>
+  constexpr void swap(variant<Types...>& x, variant<Types...>& y) noexcept(see below);  // C++23
 }
 ```
 
@@ -71,3 +73,6 @@ int main()
 - [Clang](/implementation.md#clang): 4.0.1
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
