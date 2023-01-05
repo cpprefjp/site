@@ -10,8 +10,9 @@ C++11で、汎用定数式の機能である[`constexpr`](/lang/cpp11/constexpr.
 - `if`文と`switch`文を許可
 - 全てのループ文を許可(`for`文、範囲`for`文、`while`文、`do-while`文)
 - 変数の書き換えを許可
-- 戻り値型(リテラル型)として、`void`を許可
+- 戻り値型(リテラル型)として、`void`を許可 / 戻り値型や関数引数で非`const`参照を許可
 - `constexpr`非静的メンバ関数の、暗黙の`const`修飾を削除
+- `constexpr`コンストラクタがbodyを持てるようになった
 
 
 ## 仕様
@@ -137,10 +138,12 @@ constexpr int square(int n)
 ```
 
 
-### `constexpr`関数の戻り値型として、`void`を許可
+### `constexpr`関数の戻り値型として、`void`を許可 / 戻り値型や関数引数で非`const`参照を許可
 `constexpr`関数での、パラメータの型、および戻り値の型は、[リテラル型](/reference/type_traits/is_literal_type.md)に分類される型に限定される。
 
 C++14では、[リテラル型](/reference/type_traits/is_literal_type.md)に分類される型に、`void`が追加された。
+
+また、戻り値型や関数引数で非`const`参照を使うことが許可された。
 
 これにより、`constexpr`関数の戻り値型を`void`とし、非`const`参照のパラメータを書き換えて結果を返す、という操作が許可された。
 
@@ -171,6 +174,19 @@ struct X {
 C++14ではこの仕様が削除され、`const`か非`const`かを、明示的に指定することになった。
 
 ※この変更によって、既存コードの互換性は壊れない。
+
+
+### `constexpr`コンストラクタがbodyを持てるようになった
+C++11では、`constexpr`コンストラクタのbodyには以下の要素しか持たせることを許されていなかった：
+
+- ヌル文
+- `static_assert`
+- クラスや列挙型を定義しない、別の型名定義
+- `using`宣言と、`using`ディレクティブ
+
+これは事実上`constexpr`コンストラクタのbodyが空でなければいけないことを意味している。
+
+C++14では`constexpr`コンストラクタのbodyに関する制約は一般の`constexpr`関数に従うようになったため、body内でローカル変数を定義したり引数に応じたメンバ変数の書き換えを行ったりすることが許可された。
 
 
 ## この機能が必要になった背景・経緯
