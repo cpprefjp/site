@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-~variant();
+~variant();            // C++17
+constexpr ~variant();  // C++23
 ```
 
 ## 概要
@@ -34,3 +35,6 @@
 
 ## 関連項目
 - [`std::is_trivially_destructible`](/reference/type_traits/is_trivially_destructible.md)
+
+## 参照
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
