@@ -82,12 +82,13 @@ using yielded =
 
 
 ## 例
+### 例1: 単一値の生成
 ```cpp example
 #include <generator>
 #include <ranges>
 #include <iostream>
 
-// 偶数値列を(無限に)生成するコルーチン
+// 偶数値列を無限生成するコルーチン
 std::generator<int> evens()
 {
   int n = 0;
@@ -110,13 +111,111 @@ int main()
 * co_yield[link /lang/cpp20/coroutines.md]
 * std::views::take[link /reference/ranges/take_view.md]
 
-### 出力
+#### 出力
 ```
 0
 2
 4
 6
 8
+```
+
+### 例2: レンジ要素値の逐次生成
+```cpp example
+#include <generator>
+#include <iostream>
+#include <list>
+#include <ranges>
+#include <vector>
+
+// レンジの要素値を逐次生成するコルーチン
+std::generator<int> ints()
+{
+  int arr[] = {1, 2, 3};
+  co_yield std::ranges::elements_of(arr);
+  std::vector<int> vec = {4, 5, 6};
+  co_yield std::ranges::elements_of(vec);
+  std::list<int> lst = {7, 8, 9};
+  co_yield std::ranges::elements_of(lst);
+}
+
+int main()
+{
+  for (int n : ints())) {
+    std::cout << n << ' ';
+  }
+}
+```
+* std::generator[color ff0000]
+* co_yield[link /lang/cpp20/coroutines.md]
+* std::ranges::elements_of[link /reference/ranges/elements_of.md]
+
+#### 出力
+```
+1 2 3 4 5 6 7 8 9 
+```
+
+### 例3: ジェネレータのネスト
+```cpp example
+#include <generator>
+#include <iostream>
+#include <ranges>
+#include <memory>
+
+// 二分木ノード
+struct node {
+  int value;
+  std::unique_ptr<node> left = nullptr;
+  std::unique_ptr<node> right = nullptr;
+};
+
+// 二分木を幅優先走査: 左(left)→自ノード→右(right)
+std::generator<int> traverse(const node& e)
+{
+  if (e.left) {
+    co_yield std::ranges::elements_of(traverse(*e.left));
+  }
+  co_yield e.value;
+  if (e.right) {
+    co_yield std::ranges::elements_of(traverse(*e.right));
+  }
+}
+
+int main()
+{
+  // tree:
+  //    2
+  //   / ¥
+  //  1   4
+  //     / ¥
+  //    3   5
+  node tree = {
+    2,
+    std::make_unique<node>(1),
+    std::make_unique<node>(
+      4,
+      std::make_unique<node>(3),
+      std::make_unique<node>(5)
+    ),
+  };
+
+  for (int n: traverse(tree)) {
+    std::cout << n << std::endl;
+  }
+}
+```
+* std::generator[color ff0000]
+* co_yield[link /lang/cpp20/coroutines.md]
+* std::ranges::elements_of[link /reference/ranges/elements_of.md]
+* std::make_unique[link /reference/memory/make_unique.md]
+
+#### 出力
+```
+1
+2
+3
+4
+5
 ```
 
 
