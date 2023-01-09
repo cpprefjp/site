@@ -36,6 +36,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
+| [自身のオブジェクトを明示的にパラメータとして指定する](cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする |
 | [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 |
 | [添字演算子の多次元サポート](cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 |
 | [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](cpp23/static_operator.md.nolink) | |
@@ -56,7 +57,6 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [部分特殊化の汎用化仕様](cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 |
-| [thisの推論](cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする |
 | [継承コンストラクタからのクラステンプレート引数の推論](cpp23/class_template_argument_deduction_from_inherited.md.nolink) | |
 
 
