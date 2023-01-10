@@ -35,7 +35,7 @@ void f(int n) {
   struct A {
     void f() { n = 2; }         // error: nが使われようとしているのは関数定義スコープの中なので、odr-usableではない
   };
-  void g(int = n);              // error: nが使われ用としているのはlambda式以外の関数引数スコープの中なので、odr-usableではない
+  void g(int = n);              // error: nが使われようとしているのはlambda式以外の関数引数スコープの中なので、odr-usableではない
   [=](int k = n) {};            // error: n is not odr-usable due to being
                                 // outside the block scope of the lambda-expression
   [&] { [n]{ return n; }; };    // OK
