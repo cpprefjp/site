@@ -52,8 +52,9 @@ int main()
 
 
 ## 関連項目
-- [C++17 インライン変数](/lang/cpp17/inline_variables.md)  
-  静的メンバ変数は、インライン変数とすることで定義時に初期化できる。
+- [C++14 宣言時のメンバ初期化を持つ型の集成体初期化を許可](/lang/cpp14/member_initializers_and_aggregates.md)
+- [C++17 インライン変数](/lang/cpp17/inline_variables.md)
+    - 静的メンバ変数は、インライン変数とすることで定義時に初期化できる
 - [C++20 ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md)
 
 
