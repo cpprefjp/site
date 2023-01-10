@@ -31,6 +31,7 @@ int main() {
 
 ## 関連項目
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
+- [C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)
 
 
 ## 参照
