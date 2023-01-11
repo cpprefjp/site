@@ -22,8 +22,8 @@ namespace std {
 戻り値型`generator`のコルーチン（以下、ジェネレータコルーチン）では`co_yield`式を用いて値を生成する。`co_yield` [`std::ranges::elements_of`](/reference/ranges/elements_of.md)`(rng)`式を用いると、ジェネレータコルーチンから入れ子Range(`rng`)の各要素を逐次生成する。
 ジェネレータコルーチンでは`co_await`式を利用できない。
 
-ジェネレータコルーチンは遅延評価される。ジェネレータコルーチンが返す`generator`オブジェクトの利用側（以下、呼び出し側）で先頭要素[`begin`](generator/begin.md)を指す[イテレータ](generator/iterator.md)を間接参照するまで、ジェネレータコルーチンの本体処理は実行されない。
-呼び出し側がイテレータの間接参照を試みるとジェネレータコルーチンを再開(resume)し、ジェネレータコルーチン本体処理において`co_yield`式に到達すると生成値を保持して再び中断(suspend)する。呼び出し側ではイテレータの間接参照の結果として生成値を取得する。
+ジェネレータコルーチンは遅延評価される。ジェネレータコルーチンが返す`generator`オブジェクトを利用するコード（以下、ジェネレータ利用側）で先頭要素[`begin`](generator/begin.md)を指す[イテレータ](generator/iterator.md)を間接参照するまで、ジェネレータコルーチンの本体処理は実行されない。
+ジェネレータ利用側がイテレータの間接参照を試みるとジェネレータコルーチンを再開(resume)し、ジェネレータコルーチン本体処理において`co_yield`式に到達すると生成値を保持して再び中断(suspend)する。ジェネレータ利用側ではイテレータの間接参照の結果として生成値を取得する。
 
 
 ### 説明用メンバ
@@ -37,6 +37,61 @@ namespace std {
 
 - [`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<`[`promise_type`](generator/promise_type.md)`>` : コルーチンハンドル(`coroutine_`)
 - [`unique_ptr`](/reference/memory/unique_ptr.md)`<`[`stack`](/reference/stack/stack.md)`<`[`coroutine_handle<>`](/reference/coroutine/coroutine_handle.md)`>>`: アクティブスタック(`active_`)
+
+
+### 第1テンプレートパラメータ`Ref`の概要
+`generator`クラステンプレートでは、テンプレートパラメータ`Ref`, `V`の組み合わせによってco_yieldオペランド型(`yielded`)やイテレータ間接参照の結果型(`reference`)や[イテレータの値型(`value_type`)](generator/iterator.md)を制御する。
+
+第1パラメータ`Ref`以外は省略可能となっており、ほとんどのユースケース（提案文書によれば98%）では、テンプレートパラメータ`Ref`のみの明示指定で十分とされる。
+値型`T`を生成するジェネレータにおいて、第1テンプレートパラメータ`Ref`に応じて関連する型がそれぞれ導出される。
+
+|`Ref`|co_yieldオペランド型|間接参照の結果型|イテレータの値型|
+|-----|----|----|----|
+|`T`<br/>`T&&`|`T&&` と `const T&`|`T&&`|`T`|
+|`T&`|`T&`|`T&`|`T`|
+|`const T&`|`const T&`|`const T&`|`T`|
+
+ジェネレータそれ自身ではイテレータの値型を直接利用しない。ジェネレータ利用側でイテレータの`value_type`型にアクセスする特殊な追加処理を行う場合のみ、第2テンプレートパラメータ`V`の明示指定が必要とされる。
+
+
+### ジェネレータと値のコピー／ムーブ
+`generator`クラステンプレートでは、その内部動作において最低限のコピー／ムーブ処理しか行わないよう設計されている。このため一定条件を満たせば、コピー不可でムーブのみ可能な型や、コピー／ムーブいずれも不可能な型の生成もサポートする。
+
+値型`T`を生成するジェネレータにおいて、第1テンプレートパラメータ`Ref`とco_yield演算子オペランドに指定する式（左辺値／右辺値やconst修飾）に応じて、ジェネレータコルーチン最大1回のコピーが発生する。
+`Ref=T&`とした場合、co_yieldに右辺値を指定するとコンパイルエラーになる。
+
+|`Ref`＼co_yield式|左辺値|const左辺値|右辺値|
+|-----|----|----|----|
+|`T`<br/>`T&&`|コピー 1回|コピー 1回|0回|
+|`T&`|コピー 1回|コピー 1回|(不適格)|
+|`const T&`|0回|0回|0回|
+
+またジェネレータ利用側においては、イテレータ間接参照結果を受ける変数の宣言型`X`との関係に応じて（例：[範囲for文](/lang/cpp11/range_based_for.md)の変数宣言型）、最大で1回のコピーまたはムーブが生じる。
+`Ref=T&`または`Ref=const T&`とした場合、右辺値参照型`T&&`には束縛できないためコンパイルエラーとなる。
+
+|`Ref`＼`X`|`T`|`T&&`|`const T&`|
+|-----|----|----|----|
+|`T`<br/>`T&&`|ムーブ 1回|0回|0回|
+|`T&`|コピー 1回|(不適格)|0回|
+|`const T&`|コピー 1回|(不適格)|0回|
+
+ムーブのみ可能な型（例：[`std::unique_ptr`](/reference/memory/unique_ptr.md)）では、上記表においてコピーが生じる組み合わせを避ければジェネレータより生成可能である。
+同様にコピー／ムーブいずれも不可能な型では、コピーまたはムーブが生じる組み合わせを避ければ生成可能である。
+
+
+### アロケータサポート
+`generator`クラステンプレートの第3テンプレートパラメータ`Allocator`によって、[コルーチン・ステート](/lang/cpp20/coroutines.md)の動的メモリ確保に用いる静的アロケータ型を指定できる。省略時はデフォルトアロケータ[`allocator<byte>`](/reference/memory/allocator.md)が利用される。
+
+またジェネレータコルーチン定義の引数リストに[`allocator_arg`](reference/memory/allocator_arg_t.md)タグ型に続いてアロケータオブジェクトを指定すると、ジェネレータの生成毎に異なるアロケータ利用を指定することもできる。
+
+C++コンパイラによっては、ジェネレータコルーチンに関する動的メモリ確保・解放処理は最適化によって省略され(coroutine elision)、より効率的なコードが生成されることも期待できる。
+
+
+### ジェネレータのネスト
+別の子ジェネレータコルーチンが返す`generator`もRangeとなっているため、ある親ジェネレータコルーチン内部で`co_yield` [`std::ranges::elements_of`](/reference/ranges/elements_of.md)構文を用いると、複数ジェネレータコルーチンのネスト構造をとることができる。
+子ジェネーレタコルーチンの遅延評価によって生成される値は、親ジェネレータコルーチンから生成されたかのように振る舞う。
+
+`generator`クラス（厳密には[`generator::promise_type`](generator/promise_type.md)）ではジェネレータコルーチンのネスト構造を検出し、[対称コルーチン](/lang/cpp20/coroutines.md)としてコルーチン間の実行フロー転送制御を効率的に行う。
 
 
 ## 適格要件
@@ -70,7 +125,7 @@ namespace std {
 
 | 名前            | 説明        | 対応バージョン |
 |-----------------|-------------|-------|
-| `yielded`      | `co_yield`式の引数型（後述） | C++23 |
+| `yielded`      | `co_yield`演算子オペランド型（後述） | C++23 |
 | [`promise_type`](generator/promise_type.md) | ジェネレータコルーチンのPromise型 | C++23 |
 
 ``` cpp
@@ -169,7 +224,7 @@ struct node {
   std::unique_ptr<node> right = nullptr;
 };
 
-// 二分木を幅優先走査: 左(left)→自ノード→右(right)
+// 二分木を走査: 左(left)→自ノード→右(right)
 std::generator<int> traverse(const node& e)
 {
   if (e.left) {
@@ -236,3 +291,5 @@ int main()
 
 ## 参照
 - [P2502R2 `std::generator`: Synchronous Coroutine Generator for Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2502r2.pdf)
+- [P0981R0 Halo: coroutine Heap Allocation eLision Optimization: the joint response](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0981r0.html)
+    - ジェネレータコルーチン実装において、動的メモリ確保が省略最適化される条件の議論。`std::generator`の設計に反映されている。
