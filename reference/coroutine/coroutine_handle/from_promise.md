@@ -25,6 +25,10 @@ Promiseオブジェクトから対応するコルーチンハンドルを取得�
 [`addressof`](/reference/memory/addressof.md)`(h.`[`promise()`](promise.md)`) ==` [`addressof`](/reference/memory/addressof.md)`(p)`
 
 
+## 備考
+型消去されたコルーチンハンドル`coroutine_handle<>`では、本メンバ関数は提供されない。
+
+
 ## バージョン
 ### 言語
 - C++20

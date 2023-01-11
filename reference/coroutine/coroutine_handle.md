@@ -15,7 +15,7 @@ namespace std {
   };
 
   template<class Promise>
-  struct coroutine_handle : coroutine_handle<> {
+  struct coroutine_handle {
     // (メンバ宣言は省略)
   };
 }
@@ -30,7 +30,7 @@ namespace std {
 例: 後述サンプルコードでは`task`クラス内に隠蔽されており、コルーチン`f`や関数`main`から間接的に利用される。
 
 `coroutine_handle<void>`または単に`coroutine_handle<>`は、Promise型について型消去(Type-erased)されたコルーチンハンドルとして取り扱える。
-コルーチンのPromise型を明示した`coroutine_handle<Promise>`は型消去された`coroutine_handle<>`から公開派生されており、前者から後者への暗黙変換を行うことが可能となっている。
+コルーチンのPromise型を明示した`coroutine_handle<Promise>`から`coroutine_handle<>`へと暗黙変換が可能となっている。
 
 C++コルーチンとC API（コールバック関数へのポインタと`void*`をとる関数）との組合せ利用を可能とするため、`coroutine_handle`とポインタ型`void*`との相互変換がサポートされる。
 
@@ -50,6 +50,12 @@ C++コルーチンとC API（コールバック関数へのポインタと`void*
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`address`](coroutine_handle/address.md) | コルーチンハンドルに対応するアドレス値 | C++20 |
+
+### 変換
+
+| 名前            | 説明          | 対応バージョン |
+|-----------------|---------------|----------------|
+| `operator coroutine_handle<>` | 型消去されたコルーチンハンドルを返す | C++20 |
 
 ### 観測
 
@@ -188,3 +194,7 @@ result=42
 
 ## 関連項目
 - [C++20 コルーチン](/lang/cpp20/coroutines.md)
+
+
+## 参照
+- [LWG3460 Unimplementable `noop_coroutine_handle` guarantees](https://cplusplus.github.io/LWG/issue3460)
