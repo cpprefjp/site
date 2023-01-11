@@ -82,7 +82,7 @@ namespace std {
 ### アロケータサポート
 `generator`クラステンプレートの第3テンプレートパラメータ`Allocator`によって、[コルーチン・ステート](/lang/cpp20/coroutines.md)の動的メモリ確保に用いる静的アロケータ型を指定できる。省略時はデフォルトアロケータ[`allocator<byte>`](/reference/memory/allocator.md)が利用される。
 
-またジェネレータコルーチン定義の引数リストに[`allocator_arg`](reference/memory/allocator_arg_t.md)タグ型に続いてアロケータオブジェクトを指定すると、ジェネレータの生成毎に異なるアロケータ利用を指定することもできる。
+またジェネレータコルーチン定義の引数リストに[`allocator_arg`](/reference/memory/allocator_arg_t.md)タグ型に続いてアロケータオブジェクトを指定すると、ジェネレータの生成毎に異なるアロケータ利用を指定することもできる。
 
 C++コンパイラによっては、ジェネレータコルーチンに関する動的メモリ確保・解放処理は最適化によって省略され(coroutine elision)、より効率的なコードが生成されることも期待できる。
 
