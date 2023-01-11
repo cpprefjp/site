@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template<class F, class Tuple>
-  constexpr decltype(auto) apply(F&& f, Tuple&& t);
+  constexpr decltype(auto) apply(F&& f, Tuple&& t);  // C++20まで
+
+  template<class F, class Tuple>
+  constexpr decltype(auto) apply(F&& f, Tuple&& t) noexcept(see below);  // C++23から
 }
 ```
 
@@ -16,7 +19,7 @@ namespace std {
 
 
 ## 要件
-適用先の関数は[`Callable`](/reference/concepts/Callable.md)要件を満たす（[INVOKE](/reference/concepts/Invoke.md)操作が可能）。展開されるものは、[`std::tuple`](../tuple.md)、[`std::array`](/reference/array/array.md)または[`std::pair`](/reference/utility/pair.md)のように、[`std::get`](/reference/array/array/get.md)と[`std::tuple_size`](/reference/array/array/tuple_size.md)をサポートする必要がある。
+適用先の関数は[`Callable`](/reference/concepts/Callable.md)要件を満たす（[INVOKE](/reference/concepts/Invoke.md)操作が可能）。展開される`Tuple`型は[`std::tuple`](../tuple.md)に限定されず、[`std::array`](/reference/array/array.md)または[`std::pair`](/reference/utility/pair.md)のように、[`std::get`](/reference/array/array/get.md)と[`std::tuple_size`](/reference/array/array/tuple_size.md)をサポートする型であればよい。
 
 
 ## 効果
@@ -28,6 +31,7 @@ constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>)
   return std::invoke(std::forward<F>(f), std::get<I>(std::forward<Tuple>(t))...);
 }
 ```
+* std::get[link tuple/get.md]
 * std::index_sequence[link /reference/utility/index_sequence.md]
 * std::invoke[link /reference/functional/invoke.md]
 * std::forward[link /reference/utility/forward.md]
@@ -38,11 +42,17 @@ constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>)
 return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),
                   std::make_index_sequence<std::tuple_size_v<std::remove_reference_t<Tuple>>>{});
 ```
+* std::tuple_size_v[link tuple_size.md]
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
+* std::forward[link /reference/utility/forward.md]
 * std::remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 ## 戻り値
-適用した関数の戻り値である。
+適用した関数呼び出しの戻り値
+
+
+## 例外
+C++23から : `I`をパラメータパック`0, 1, ..., (`[`tuple_size_v`](tuple_size.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<Tuple>>-1)`としたとき、例外指定の式は次と等価 : `noexcept(`[`invoke`](/reference/functional/invoke.md)`(std::forward<F>(f), get<I>(std::forward<Tuple>(t))...))`
 
 
 ## 例
@@ -86,7 +96,7 @@ hello
 
 
 ## 関連項目
-- [make_from_tuple](../tuple/make_from_tuple.md)
+- [`make_from_tuple`](make_from_tuple.md)
 - [`std::tuple`](../tuple.md)
 - [INVOKE](/reference/concepts/Invoke.md)
 
@@ -98,3 +108,5 @@ hello
 - [P0220R0 Adopt Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r0.html)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [C++1z タプルを展開して関数呼び出しするapply関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/08/18/184315)
+- [P2517R1 Add a conditional `noexcept` specification to `std::apply`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2517r1.html)
+    - C++23から条件付きで`noexpcet`例外指定が行われる。
