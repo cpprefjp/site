@@ -71,10 +71,16 @@ Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイト
 
 新規リファレンスを書くにあたって、雛形ページを用意していますので、そちらをベースにして編集作業を行ってください。
 
-* [ヘッダファイルトップページの雛形](/start_editing/header_template_page.md)
+* [言語機能の雛形](/start_editing/lang_template_page.md)
+* [ヘッダファイルページの雛形](/start_editing/header_template_page.md)
+* [モジュールページの雛形](/start_editing/module_template_page.md)
 * [関数の雛形](/start_editing/function_template_page.md)
 * [クラスの雛形](/start_editing/class_template_page.md)
 * [型の別名の雛形](/start_editing/type-type_template_page.md)
+* [コンセプトの雛形](/start_editing/concept_template_page.md)
+* [名前付き要件の雛形](/start_editing/named_requirement_template_page.md)
+* [比較演算子の雛形](/start_editing/comparison_operator_template_page.md)
+* [CPOの雛形](/start_editing/cpo_template_page.md)
 
 また、リポジトリのトップディレクトリに`GLOBAL_QUALIFY_LIST.txt`というファイルがあります。サイト全体のコードブロックに対して適用したい識別子の修飾があれば、ここに列挙していきます。書き方は各雛形ページに書いてあるコードブロックの修飾と同じです。
 

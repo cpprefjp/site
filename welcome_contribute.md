@@ -38,6 +38,33 @@
 - [Compiler Explorer](https://godbolt.org/)
 
 
+## 関連項目を追加する  (難易度★★★)
+各ページには、「`## 関連項目`」という見出し以下に本サイト内の関連ページを記載できます。
+
+読者が関連する情報を追いやすいように、関連ページへのリンク追加をお願いしたいです。
+
+関連項目としては、以下のようなものを記載します：
+
+- 言語機能であれば、その機能への仕様変更・拡張など
+- ライブラリであれば、
+    - 組み合わせて使うことが多いもの
+    - 特定のデータ構造に特化した関数と、汎用の関数
+    - その機能の代わりに使用を検討したほうがよいもの
+
+関連項目を書く場所については、各雛形ページを参照してください。
+
+* [言語機能の雛形](/start_editing/lang_template_page.md)
+* [ヘッダファイルページの雛形](/start_editing/header_template_page.md)
+* [モジュールページの雛形](/start_editing/module_template_page.md)
+* [関数の雛形](/start_editing/function_template_page.md)
+* [クラスの雛形](/start_editing/class_template_page.md)
+* [型の別名の雛形](/start_editing/type-type_template_page.md)
+* [コンセプトの雛形](/start_editing/concept_template_page.md)
+* [名前付き要件の雛形](/start_editing/named_requirement_template_page.md)
+* [比較演算子の雛形](/start_editing/comparison_operator_template_page.md)
+* [CPOの雛形](/start_editing/cpo_template_page.md)
+
+
 ## サンプルコードを追加する (難易度★★★★)
 本サイトは、すべての機能にひとつ以上のサンプルコードを付けることを大きな価値としています。
 
