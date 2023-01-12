@@ -52,13 +52,13 @@ Markdownの記述方法をわかりやすく解説してくれているWebサイ
 ただし、cpprefjp特有の拡張構文もあります。
 以下のページにまとめてあるので、そちらを参照して下さい。
 
-* [cpprefjp特有の拡張構文](/editors_doc/specialized.md)
+* [cpprefjp特有の拡張構文](/start_editing/specialized.md)
 
 Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイトでは積極的にはHTMLタグを使用しない方針です。できるだけ、Markdown形式でできる範囲内で解決するようにしてください。
 
 ただし、注釈・出典を貼るためにHTMLタグを利用します。
 
-* [cpprefjpにおける注釈・出典の貼り方](./cite_note_ref.md)
+* [cpprefjpにおける注釈・出典の貼り方](/start_editing/cite_note_ref.md)
 
 それ以外に本サイト内で使用しているHTMLタグは以下です：
 
@@ -71,10 +71,10 @@ Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイト
 
 新規リファレンスを書くにあたって、雛形ページを用意していますので、そちらをベースにして編集作業を行ってください。
 
-* [ヘッダファイルトップページの雛形](header_template_page.md)
-* [関数の雛形](function_template_page.md)
-* [クラスの雛形](class_template_page.md)
-* [型の別名の雛形](type-type_template_page.md)
+* [ヘッダファイルトップページの雛形](/start_editing/header_template_page.md)
+* [関数の雛形](/start_editing/function_template_page.md)
+* [クラスの雛形](/start_editing/class_template_page.md)
+* [型の別名の雛形](/start_editing/type-type_template_page.md)
 
 また、リポジトリのトップディレクトリに`GLOBAL_QUALIFY_LIST.txt`というファイルがあります。サイト全体のコードブロックに対して適用したい識別子の修飾があれば、ここに列挙していきます。書き方は各雛形ページに書いてあるコードブロックの修飾と同じです。
 
@@ -88,8 +88,8 @@ Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイト
 
 ## その他、cpprefjpを編集するにあたってのドキュメント
 
-* [ページファイル名の付け方](/editors_doc/page_names.md)
-* [乱数分布の図を作る方法](/editors_doc/random_figure.md)
+* [ページファイル名の付け方](/start_editing/page_names.md)
+* [乱数分布の図を作る方法](/start_editing/random_figure.md)
 
 
 ## 次期C++バージョンへの対応方針と作業方法

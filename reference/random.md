@@ -264,4 +264,4 @@ int main()
 
 
 ## 編集者向けの参照
-* [乱数分布の図を作る方法](/editors_doc/random_figure.md)
+* [乱数分布の図を作る方法](/start_editing/random_figure.md)
