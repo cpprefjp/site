@@ -7,10 +7,12 @@
 ```cpp
 namespace std {
   template<class F, class Tuple>
-  constexpr decltype(auto) apply(F&& f, Tuple&& t);  // C++20まで
+  constexpr decltype(auto)
+    apply(F&& f, Tuple&& t);                     // (1) C++20
 
   template<class F, class Tuple>
-  constexpr decltype(auto) apply(F&& f, Tuple&& t) noexcept(see below);  // C++23から
+  constexpr decltype(auto)
+    apply(F&& f, Tuple&& t) noexcept(see below); // (1) C++23
 }
 ```
 
