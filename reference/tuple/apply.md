@@ -109,4 +109,4 @@ hello
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [C++1z タプルを展開して関数呼び出しするapply関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/08/18/184315)
 - [P2517R1 Add a conditional `noexcept` specification to `std::apply`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2517r1.html)
-    - C++23から条件付きで`noexpcet`例外指定が行われる。
+    - C++23から条件付きで`noexcept`例外指定が行われる。
