@@ -41,7 +41,7 @@ return old_val;
 
 
 ## 例外
-C++23から : 例外指定の式は次と等価 : [`is_nothrow_move_constructible_v](/reference/type_traits/is_nothrow_move_constructible.md)`<T> &&` [`is_nothrow_assignable_v`](/reference/type_traits/is_nothrow_assignable.md)`<T&, U>`
+C++23から : 例外指定の式は次と等価 : [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> &&` [`is_nothrow_assignable_v`](/reference/type_traits/is_nothrow_assignable.md)`<T&, U>`
 
 
 ## 備考
