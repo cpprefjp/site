@@ -7,10 +7,14 @@
 ```cpp
 namespace std {
   template <class T, class U=T>
-  T exchange(T& obj, U&& new_val);           // C++14
+  T exchange(T& obj, U&& new_val);           // (1) C++14
 
   template <class T, class U=T>
-  constexpr T exchange(T& obj, U&& new_val); // C++20
+  constexpr T exchange(T& obj, U&& new_val); // (1) C++20
+
+  template <class T, class U=T>
+  constexpr T exchange(T& obj, U&& new_val)
+    noexcept(see below);                     // (1) C++23
 }
 ```
 
@@ -34,6 +38,10 @@ return old_val;
 
 ## 戻り値
 この関数を呼び出す前の、第1パラメータ`obj`の状態を返す。
+
+
+## 例外
+C++23から : 例外指定の式は次と等価 : [`is_nothrow_move_constructible_v](/reference/type_traits/is_nothrow_move_constructible.md)`<T> &&` [`is_nothrow_assignable_v`](/reference/type_traits/is_nothrow_assignable.md)`<T&, U>`
 
 
 ## 備考
@@ -206,3 +214,4 @@ Hello 0x7ffc560ca4cc
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [`std::exchange` Patterns: Fast, Safe, Expressive, and Probably Underused](https://www.fluentcpp.com/2020/09/25/stdexchange-patterns-fast-safe-expressive-and-probably-underused/)
 - [`std::exchange`によるmoveしてリセットするイディオムの御紹介](https://onihusube.hatenablog.com/entry/2020/10/31/163244)
+- [P2401R0 Add a conditional noexcept specification to std::exchange](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2401r0.html)
