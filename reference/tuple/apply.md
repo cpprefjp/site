@@ -38,8 +38,17 @@ constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>)
 * std::invoke[link /reference/functional/invoke.md]
 * std::forward[link /reference/utility/forward.md]
 
-次と等価である。
+C++17 : 次と等価である。
+```cpp
+return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),
+                  std::make_index_sequence<std::tuple_size_v<std::decay_t<Tuple>>>{});
+```
+* std::tuple_size_v[link tuple_size.md]
+* std::make_index_sequence[link /reference/utility/make_index_sequence.md]
+* std::forward[link /reference/utility/forward.md]
+* std::decay_t[link /reference/type_traits/decay.md]
 
+C++20 : 次と等価である。
 ```cpp
 return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),
                   std::make_index_sequence<std::tuple_size_v<std::remove_reference_t<Tuple>>>{});
@@ -110,5 +119,7 @@ hello
 - [P0220R0 Adopt Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r0.html)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [C++1z タプルを展開して関数呼び出しするapply関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/08/18/184315)
+- [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
+    - C++20から効果説明の`decay_t`を`remove_cvref_t`へ変更。
 - [P2517R1 Add a conditional `noexcept` specification to `std::apply`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2517r1.html)
     - C++23から条件付きで`noexcept`例外指定が行われる。
