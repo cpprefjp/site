@@ -13,8 +13,8 @@ site
 
 cpprefjpへのコントリビュート方法や各ファイル編集方法については、以下のドキュメントを参照してください。
 
-* [cpprefjpへのコントリビュート方法](CONTRIBUTING.md)
 * [cpprefjpを編集するには](start_editing.md)
+* [編集方針](edit_policy.md)
 
 
 cpprefjpは、以下のコアメンバが運営を行っています。
