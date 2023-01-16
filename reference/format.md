@@ -24,6 +24,7 @@
 
 | 名前                                                                 | 説明                                                                        | 対応バージョン |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------|
+| [`formattable`](format/formattable.md)                               | 文字列フォーマット可能 (concept) | C++23          |
 | [`formatter`](format/formatter.md)                                   | 引数の型に対応する書式文字列の解析、値のフォーマットを担う (class template) | C++20          |
 | [`basic_format_parse_context`](format/basic_format_parse_context.md) | 書式文字列の解析のコンテキスト (class template)                             | C++20          |
 | [`format_parse_context`](format/basic_format_parse_context.md)       | `basic_format_parse_context`のマルチバイト文字列版 (type-alias)             | C++20          |
