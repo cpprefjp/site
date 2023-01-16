@@ -5,6 +5,7 @@
 * function[meta id-type]
 
 ```cpp
+// デフォルトコンストラクタ
 basic_string();                                                 // (1) C++14
 basic_string() noexcept(noexcept(Allocator()))                  // (1) C++17
   : basic_string(Allocator()) {}
@@ -17,12 +18,15 @@ constexpr explicit basic_string(const Allocator& a) noexcept;   // (2) C++20
 
 explicit basic_string(const Allocator& a = Allocator());        // (1) + (2) C++03
 
+// コピーコンストラクタ
 basic_string(const basic_string& str);                          // (3) C++03
 constexpr basic_string(const basic_string& str);                // (3) C++20
 
+// ムーブコンストラクタ
 basic_string(basic_string&& str) noexcept;                      // (4) C++11
 constexpr basic_string(basic_string&& str) noexcept;            // (4) C++20
 
+// basic_stringの指定範囲から構築するコンストラクタ
 basic_string(const basic_string& str,
              size_type pos,
              size_type n = npos,
@@ -43,6 +47,16 @@ constexpr basic_string(const basic_string& str,
                        size_type pos,
                        const Allocator& a = Allocator());       // (6) C++20
 
+constexpr basic_string(basic_string&& str,
+                       size_type pos,
+                       const Allocator& a = Allocator());       // (17) C++23
+
+constexpr basic_string(basic_string&& str,
+                       size_type pos,
+                       size_type n,
+                       const Allocator& a = Allocator());       // (18) C++23
+
+// 文字列ポインタから構築するコンストラクタ
 basic_string(const charT* s,
              size_type n,
              const Allocator& a = Allocator());                 // (7) C++03
@@ -55,6 +69,9 @@ basic_string(const charT* s,
 constexpr basic_string(const charT* s,
                        const Allocator& a = Allocator());       // (8) C++20
 
+basic_string(nullptr_t) = delete;                               // (16) C++23
+
+// 文字個数から構築するコンストラクタ
 basic_string(size_type n,
              charT c,
              const Allocator& a = Allocator());                 // (9) C++03
@@ -62,6 +79,7 @@ constexpr basic_string(size_type n,
                        charT c,
                        const Allocator& a = Allocator());       // (9) C++20
 
+// イテレータ範囲から構築するコンストラクタ
 template <class InputIterator>
 basic_string(InputIterator begin, InputIterator end,
              const Allocator& a = Allocator());                 // (10) C++03
@@ -69,11 +87,13 @@ template <class InputIterator>
 constexpr basic_string(InputIterator begin, InputIterator end,
                        const Allocator& a = Allocator());       // (10) C++20
 
+// 初期化子リストから構築するコンストラクタ
 basic_string(initializer_list<charT> init,
              const Allocator& = Allocator());                   // (11) C++11
 constexpr basic_string(initializer_list<charT> init,
                        const Allocator& = Allocator());         // (11) C++20
 
+// アロケータ指定コピー／ムーブコンストラクタ
 basic_string(const basic_string& str, const Allocator&);           // (12) C++11
 constexpr basic_string(const basic_string& str, const Allocator&); // (12) C++20
 
@@ -98,8 +118,6 @@ constexpr basic_string(const T& t,
                        size_type pos,
                        size_type n,
                        const Allocator& a = Allocator());        // (15) C++20
-
-basic_string(nullptr_t) = delete; // (16) C++23
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -119,6 +137,9 @@ basic_string(nullptr_t) = delete; // (16) C++23
 - (13) : アロケータを受け取るムーブコンストラクタ。
 - (14) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換コンストラクタ。[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲の文字列を`*this`にコピーする。
 - (15) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲の文字列の`pos`番目から`n`文字の部分文字列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文字列がコピーされる。
+- (17) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文字列がコピーされる。`str`は未規定の値になる。
+- (18) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から末尾までの部分文字列がコピーされる。`str`は未規定の値になる。
+
 
 ## テンプレートパラメータ制約
 
@@ -138,7 +159,7 @@ basic_string(nullptr_t) = delete; // (16) C++23
 
 
 ## 例外
-- (5), (6) : `pos > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (5), (6), (17), (18) : `pos > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
 - (13) : `alloc == str.`[`get_allocator()`](get_allocator.md)の場合、例外を投げない。
 
 
@@ -237,6 +258,8 @@ s14 : Hello
     - `string_view`から範囲を指定して構築する(15)を追加
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(14)の引数型を`const T&`に変更
-- [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
-    - C++23での、`nullptr_t`をとるコンストラクタのdelete宣言追加
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+- [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
+    - C++23での(16)`nullptr_t`をとるコンストラクタのdelete宣言追加
+- [P2438R2 `std::string::substr() &&`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2438r2.html)
+    - C++23での(17),(18)`basic_string&&`と範囲指定をとるコンストラクタ追加
