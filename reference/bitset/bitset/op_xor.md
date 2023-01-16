@@ -6,10 +6,13 @@
 ```cpp
 namespace std {
   template <size_t N>
-  bitset<N> operator^(const bitset<N>& lhs, const bitset<N>& rhs);          // C++03
+  bitset<N> operator^(const bitset<N>& lhs, const bitset<N>& rhs);          // (1) C++03
 
   template <size_t N>
-  bitset<N> operator^(const bitset<N>& lhs, const bitset<N>& rhs) noexcept; // C++11
+  bitset<N> operator^(const bitset<N>& lhs, const bitset<N>& rhs) noexcept; // (1) C++11
+
+  template <size_t N>
+  constexpr bitset<N> operator^(const bitset<N>& lhs, const bitset<N>& rhs) noexcept; // (1) C++23
 }
 ```
 
@@ -54,4 +57,4 @@ int main()
 
 
 ## 参照
-
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

@@ -11,21 +11,23 @@ namespace std {
   public:
     class reference {
       friend class bitset;
-      reference() noexcept;
+      CONSTEXPR reference() noexcept;
     public:
-      ~reference() noexcept;
-      reference& operator=(bool x) noexcept;
-      reference& operator=(const reference&) noexcept;
-      bool operator~() const noexcept;
-      operator bool() const noexcept;
-      reference& flip() noexcept;
+      CONSTEXPR ~reference() noexcept;
+      CONSTEXPR reference& operator=(bool x) noexcept;
+      CONSTEXPR reference& operator=(const reference&) noexcept;
+      CONSTEXPR bool operator~() const noexcept;
+      CONSTEXPR operator bool() const noexcept;
+      CONSTEXPR reference& flip() noexcept;
     };
   };
-}
 ```
+* CONSTEXPR[italic]
 
 ## 概要
 `bitset::reference`は、`bitset`の各ビットにアクセスするためのプロキシクラスである。`bitset::`[`operator[]`](op_at.md)で返されるビット情報を取得、書き換えるためにある。
+
+C++23から`bitset::reference`全メンバ関数への`constexpr`指定が行われる。
 
 
 ### メンバ関数
@@ -69,5 +71,6 @@ int main()
 ```
 ```
 
-### 参照
 
+## 参照
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

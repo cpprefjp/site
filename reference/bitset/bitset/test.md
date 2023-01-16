@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-bool test(size_t pos) const;
+bool test(size_t pos) const;           // (1) C++03
+constexpr bool test(size_t pos) const; // (1) C++23
 ```
 
 ## 概要
@@ -45,5 +46,6 @@ int main()
 ```
 ```
 
-## 参照
 
+## 参照
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
