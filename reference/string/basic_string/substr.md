@@ -48,7 +48,7 @@ constexpr basic_string
 
 
 ## 備考
-C++23から(2)[右辺値修飾オーバーロード](/lang/cpp11/ref_qualifier_for_this)の追加にともない、従来からある(1)はconst左辺値参照オーバーロードに変更される。
+C++23から(2)[右辺値修飾オーバーロード](/lang/cpp11/ref_qualifier_for_this.md)の追加にともない、従来からある(1)はconst左辺値参照オーバーロードに変更される。
 同時にメンバ関数`substr`のライブラリ仕様記述は、新たに追加された`basic_string`コンストラクタを用いて書き直されるものの、基本的な動作はC++20までと同一である。
 
 
