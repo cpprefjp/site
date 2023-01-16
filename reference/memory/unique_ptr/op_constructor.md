@@ -8,24 +8,36 @@
 ```cpp
 constexpr unique_ptr() noexcept;             // (1) 単一オブジェクト、配列
 
-explicit unique_ptr(pointer p) noexcept;     // (2) 単一オブジェクト、配列（C++14まで）
+explicit unique_ptr(pointer p) noexcept;           // (2) 単一オブジェクト、配列（C++14まで）
+constexpr explicit unique_ptr(pointer p) noexcept; // (2) 単一オブジェクト C++23
 template<class U>
-explicit unique_ptr(U p) noexcept;           // (2) 配列 C++17
-
-unique_ptr(pointer p, const D& d1) noexcept; // (3) 単一オブジェクト、配列（C++14まで）
+explicit unique_ptr(U p) noexcept;                 // (2) 配列 C++17
 template<class U>
-unique_ptr(U p, const D& d1) noexcept;       // (3) 配列 C++17
+constexpr explicit unique_ptr(U p) noexcept;       // (2) 配列 C++23
 
-unique_ptr(pointer p, D&& d2) noexcept;      // (4) 単一オブジェクト、配列（C++14まで）
+unique_ptr(pointer p, const D& d1) noexcept;           // (3) 単一オブジェクト、配列（C++14まで）
+constexpr unique_ptr(pointer p, const D& d1) noexcept; // (3) 単一オブジェクト C++23
 template<class U>
-unique_ptr(U p, D&& d2) noexcept;            // (4) 配列 C++17
+unique_ptr(U p, const D& d1) noexcept;                 // (3) 配列 C++17
+template<class U>
+constexpr unique_ptr(U p, const D& d1) noexcept;       // (3) 配列 C++23
 
-unique_ptr(unique_ptr&& u) noexcept;         // (5) 単一オブジェクト、配列
+unique_ptr(pointer p, D&& d2) noexcept;           // (4) 単一オブジェクト、配列（C++14まで）
+constexpr unique_ptr(pointer p, D&& d2) noexcept; // (4) 単一オブジェクト C++23
+template<class U>
+unique_ptr(U p, D&& d2) noexcept;                 // (4) 配列 C++17
+template<class U>
+constexpr unique_ptr(U p, D&& d2) noexcept;       // (4) 配列 C++23
+
+unique_ptr(unique_ptr&& u) noexcept;           // (5) 単一オブジェクト、配列
+constexpr unique_ptr(unique_ptr&& u) noexcept; // (5) 単一オブジェクト、配列 C++23
 
 constexpr unique_ptr(nullptr_t) noexcept;    // (6) 単一オブジェクト、配列
 
 template <class U, class E>
 unique_ptr(unique_ptr<U, E>&& u) noexcept;   // (7) 単一オブジェクト、配列（C++17）
+template <class U, class E>
+constexpr unique_ptr(unique_ptr<U, E>&& u) noexcept; // (7) 単一オブジェクト、配列 C++23
 
 template <class U>
 unique_ptr(auto_ptr<U>&& u) noexcept;        // (8) 単一オブジェクト
@@ -163,3 +175,4 @@ int main()
 - [LWG Issue 2520 : N4089 broke initializing `unique_ptr<T[]>` from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)
 - [LWG Issue 2801. Default-constructibility of `unique_ptr`](https://wg21.cmeerw.net/lwg/issue2948)
 - [LWG Issue 2905. `is_constructible_v<unique_ptr<P, D>, P, D const &>` should be false when D is not copy constructible](https://wg21.cmeerw.net/lwg/issue2905)
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

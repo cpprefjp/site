@@ -7,13 +7,17 @@
 ```cpp
 namespace std {
   template <class T1, class D1, class T2, class D2>
-  bool operator<(const unique_ptr<T1, D1>& a, const unique_ptr<T2, D2>& b); // (1)
+  bool operator<(const unique_ptr<T1, D1>& a, const unique_ptr<T2, D2>& b); // (1) C++11
 
   template <class T, class D>
-  bool operator<(const unique_ptr<T, D>& x, nullptr_t);                     // (2)
+  bool operator<(const unique_ptr<T, D>& x, nullptr_t);                     // (2) C++11
+  template <class T, class D>
+  constexpr bool operator<(const unique_ptr<T, D>& x, nullptr_t);           // (2) C++23
 
   template <class T, class D>
-  bool operator<(nullptr_t, const unique_ptr<T, D>& x);                     // (3)
+  bool operator<(nullptr_t, const unique_ptr<T, D>& x);                     // (3) C++11
+  template <class T, class D>
+  constexpr bool operator<(nullptr_t, const unique_ptr<T, D>& x);           // (3) C++23
 }
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
@@ -72,3 +76,7 @@ true
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 	- 2012までは`nullptr`バージョンがない。
+
+
+## 参照
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
