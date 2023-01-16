@@ -168,7 +168,13 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - `std::string s = nullptr;`のような文字列オブジェクトに`nullptr`を代入するようなコードはバグの元であるため、[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)に、[`nullptr_t`](/reference/cstddef/nullptr_t.md)をとるコンストラクタをdelete定義として追加
 - [`std::basic_string`](/reference/string/basic_string.md)クラスに、resize時に任意の初期化を行う[`resize_and_overwrite()`](/reference/string/basic_string/resize_and_overwrite.md.nolink)メンバ関数を追加
 - [`std::basic_string`](/reference/string/basic_string.md)クラスのコンストラクタと[`substr()`](/reference/string/basic_string/substr.md)メンバ関数に一時オブジェクトのオーバーロードを追加
-- [`std::format()`](/reference/format/format.md)関数でコンテナ、[`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/utility/pair.md)を出力できるよう、[`std::formatter`](/reference/format/formatter.md)に特殊化を追加
+- [`std::format()`](/reference/format/format.md)関数でRange・コンテナ、[`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/utility/pair.md)を出力できるよう、[`std::formatter`](/reference/format/formatter.md)に特殊化を追加
+    - Range・シーケンスコンテナは`[1, 2, 3]`、`["hello", "world"]`、`['a', 'b', 'c']`のように出力される
+    - 連想コンテナの場合、`std::map<int, int>{{1, 2}, {3, 4}}`は`{1: 2, 3: 4}`のように出力され、`std::set<int>{1, 2, 3}`は`{1, 2, 3}`のように出力される
+    - [`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/utility/pair.md)は`(1, 2)`のように出力される
+- [`std::format()`](/reference/format/format.md)関数のフォーマット指定子としてデバッグ指定「`"?"`」を追加。これは文字・文字列を引用符で囲み、エスケープシーケンスをエスケープする
+    - ただし、Range・コンテナ中の文字・文字列はデフォルトでエスケープされる
+    - `format("{:?}", "h\tello")`は`"h\tello"`のように出力される
 
 
 ### 入出力
