@@ -22,6 +22,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [スコープと名前ルックアップの仕様整理](cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する |
+| [無意味なexport宣言を禁止する](cpp23/meaningful_exports.md.nolink) | |
 
 
 ### 制御構文
@@ -29,6 +30,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [初期化文での型の別名宣言を許可](cpp23/extend_init_statement_to_allow_alias_declaration.md.nolink) | `for (using T = int; T e : v) {}`を許可 |
+| [範囲for文が範囲への参照を延命することを規定](cpp23/lifetime_extension_in_range_based_for_loop.md.nolink) | |
 | [関数末尾のラベルを許可](cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する |
 
 
@@ -69,6 +71,8 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | [定数式内での非リテラル変数の使用を含められないようにする](cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける |
 | [静的な診断メッセージの文字エンコーディング](cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす |
 | [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](cpp23/relaxing_some_constexpr_restrictions.md.nolink) | |
+| [`constexpr`関数内での`static constexpr`変数を許可](cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | |
+| [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](cpp23/consteval_needs_to_propagate_up.md.nolink) | |
 
 
 ### ラムダ式
