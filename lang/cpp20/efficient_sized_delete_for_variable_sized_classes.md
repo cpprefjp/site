@@ -63,7 +63,7 @@ int main() {
 }
 ```
 * std::destroying_delete_t[color ff0000]
-* std::destroy_at[link /reference/new/destroy_at.md]
+* std::destroy_at[link /reference/memory/destroy_at.md]
 
 このように、`std::destroying_delete_t`を取る`operator delete`のオーバーロードのことを*destroying operator delete*と呼ぶ。*destroying operator delete*においては、`delete`式が行う全てのことをユーザーが行う必要がある。
 
@@ -155,7 +155,7 @@ int main() {
 }
 ```
 * destroying_delete_t[color ff0000]
-* std::destroy_at[link /reference/new/destroy_at.md]
+* std::destroy_at[link /reference/memory/destroy_at.md]
 * std::ranges::destroy[link /reference/memory/ranges_destroy.md]
 
 
