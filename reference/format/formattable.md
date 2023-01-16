@@ -71,13 +71,6 @@ hello
 - [GCC](/implementation.md#gcc): 13
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-## 関連項目
-
-- [C++20 コンセプト](/lang/cpp20/concepts.md)
-- [`is_copy_constructible`](/reference/type_traits/is_copy_constructible.md)
 
 ## 参照
-
-- [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
-- [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
-- [LWG Issue 3141. `CopyConstructible` doesn't preserve source values](https://wg21.cmeerw.net/lwg/issue3141)
+- [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
