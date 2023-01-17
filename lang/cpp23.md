@@ -204,7 +204,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - [`<utility>`](/reference/utility.md)に、列挙値を基底型に変換する[`std::to_underlying()`](/reference/utility/to_underlying.md)関数を追加
 - [`<utility>`](/reference/utility.md)に、 (主に) メンバ変数を転送するため、指定された型の`const`性と参照修飾で引数を転送する[`std::forward_like()`](/reference/utility/forward_like.md)関数を追加
 - [`std::optional`](/reference/optional/optional.md)クラスにモナド操作としてメンバ関数[`and_then()`](/reference/optional/optional/and_then.md.nolink)、[`transform()`](/reference/optional/optional/transform.md.nolink)、[`or_else()`](/reference/optional/optional/or_else.md.nolink)を追加
-- 到達しないパスであることを表明する関数[`std::unreachable()`](/reference/utility/unreachable.md.nolink)を追加
+- 到達しないパスであることを表明する関数[`std::unreachable()`](/reference/utility/unreachable.md)を追加
 - [`std::bitset`](/reference/bitset/bitset.md)クラスをさらに`constexpr`対応
 
 
