@@ -19,7 +19,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-[`is_­invocable_­r_­v`](/reference/type_traits/is_invocable_r.md)`<R, F, Args...>`が`true`
+[`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`<R, F, Args...>`が`true`
 
 
 ## 戻り値
