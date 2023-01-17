@@ -3,12 +3,15 @@
 * std[meta namespace]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp23removed[meta cpp]
 
 ```cpp
 namespace std {
   void undeclare_no_pointers(char* p, size_t n);
 }
 ```
+
+この関数はC++23で削除された。
 
 ## 概要
 特定の領域に追跡可能なポインタが存在しないことの宣言を取り消す。
@@ -56,3 +59,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.4 (relaxed実装)
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013 (relaxed実装)
+
+
+## 参照
+- [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)

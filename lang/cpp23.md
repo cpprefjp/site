@@ -238,7 +238,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - [`std::undeclare_no_pointers()`](/reference/memory/undeclare_no_pointers.md)
     - [`std::get_pointer_safety()`](/reference/memory/get_pointer_safety.md)
     - [`std::pointer_safety`](/reference/memory/pointer_safety.md)
-    - `__STDCPP_STRICT_POINTER_SAFETY__`マクロ
+    - [`__STDCPP_STRICT_POINTER_SAFETY__`マクロ](/lang/cpp11/predefined_macros.md)
 
 
 ### 取り決め
