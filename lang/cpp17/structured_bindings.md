@@ -122,7 +122,6 @@ int main()
   }
 }
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 * std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
 #### 出力
@@ -325,7 +324,6 @@ C++17時点の構造化束縛では、使用しない変数もコピーあるい
 std::tuple<T1, std::pair<T2, T3>, T4> f();
 auto { w, {x, y}, z } = f(); // このような、tuple内にあるpairを同時に分解はできない
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 
 
 ## 関連項目

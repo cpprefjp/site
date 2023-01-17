@@ -186,6 +186,7 @@
     * t2.join()[link /reference/thread/thread/join.md]
     * t3.join()[link /reference/thread/thread/join.md]
 * <tuple>[link /reference/tuple.md]
+    * std::tuple[link /reference/tuple/tuple.md]
 * <type_traits>[link /reference/type_traits.md]
     * std::false_type[link /reference/type_traits/false_type.md]
     * std::is_same[link /reference/type_traits/is_same.md]

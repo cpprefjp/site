@@ -40,7 +40,6 @@ void f(Args... args)
 
 f(3, 'a', "hello");
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 
 パラメータパックを最初の要素から順番に処理していきたい場合には、「任意の型のパラメータをひとつと、任意の個数の任意の型のパラメータを受け取る」というような形式のパラメータリストとし、再帰によって処理をする：
 
@@ -201,7 +200,6 @@ hello
       f(a, b);
     }
     ```
-    * std::tuple[link /reference/tuple/tuple.md]
     * std::make_tuple[link /reference/tuple/make_tuple.md]
 
 - テンプレートパラメータ
@@ -247,7 +245,6 @@ hello
     ```cpp
     std::tuple<Args...> t;
     ```
-    * std::tuple[link /reference/tuple/tuple.md]
 
 - 初期化子
 
@@ -356,7 +353,6 @@ hello
       >::value, ""); // OK
     }
     ```
-    * std::tuple[link /reference/tuple/tuple.md]
     * static_assert[link static_assert.md]
 
 

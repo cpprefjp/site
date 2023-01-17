@@ -53,7 +53,6 @@ int main()
 ```
 * std::index_sequence_for[color ff0000]
 * std::integer_sequence[link integer_sequence.md]
-* std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ## 出力

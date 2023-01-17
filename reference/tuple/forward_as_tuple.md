@@ -48,7 +48,6 @@ int main()
 }
 ```
 * std::forward_as_tuple[color ff0000]
-* std::tuple[link tuple.md]
 
 ### 出力
 ```

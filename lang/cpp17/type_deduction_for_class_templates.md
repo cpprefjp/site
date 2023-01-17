@@ -191,7 +191,6 @@ int main()
 * std::function[link /reference/functional/function.md]
 * std::weak_ptr[link /reference/memory/weak_ptr.md]
 * wp.lock()[link /reference/memory/weak_ptr/lock.md]
-* std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 * std::promise[link /reference/future/promise.md]
 * p.get_future()[link /reference/future/promise/get_future.md]

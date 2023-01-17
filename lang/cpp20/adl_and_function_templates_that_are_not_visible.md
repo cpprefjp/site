@@ -53,7 +53,6 @@ int main() {
   std::cout << get<0>(t) << std::endl; // C++17:NG C++20:OK
 }
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 * get[link /reference/tuple/tuple/get.md]
 
 ### 出力

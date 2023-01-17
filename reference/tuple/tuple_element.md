@@ -80,7 +80,6 @@ int main()
 }
 ```
 * std::tuple_element[color ff0000]
-* std::tuple[link tuple.md]
 
 ### 出力
 ```
