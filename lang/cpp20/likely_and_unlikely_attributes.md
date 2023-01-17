@@ -63,6 +63,10 @@ std::string fizzbuzz(int n)
 GCCやClangなど一部C++コンパイラでは独自拡張として同等機能を提供しており、Linuxカーネルや大規模OSSによる広い利用実績があったため、C++標準の属性として採用された。
 
 
+## 関連項目
+- [C++23 `[[assume]]`属性](/lang/cpp23/portable_assumptions.md)
+
+
 ## 参照
 - [How do the likely/unlikely macros in the Linux kernel work and what is their benefit? - Stack Overflow](https://stackoverflow.com/questions/109710/)
 - [GCC __builtin_expect組み込み関数](https://gcc.gnu.org/onlinedocs/gcc/extensions-to-the-c-language-family/other-built-in-functions-provided-by-gcc.html)

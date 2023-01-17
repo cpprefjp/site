@@ -68,6 +68,7 @@ int main()
 
 ## 関連項目
 - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
+- [C++23 `[[assume]]`属性](/lang/cpp23/portable_assumptions.md)
 
 
 ## 参照
