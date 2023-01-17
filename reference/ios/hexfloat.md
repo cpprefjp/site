@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-浮動小数点数を十六進法で出力することを指示するマニピュレータ。
+浮動小数点数を十六進法で入出力することを指示するマニピュレータ。
 
 [`printf()`](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/printf.3.html)関数の`%a`／`%A`相当。
 
@@ -31,8 +31,13 @@ namespace std {
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0
 - [GCC](/implementation.md#gcc): 5.0
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2008, 2010, 2012
+
+
+#### 備考
+- GCCは12.0時点で、入力ストリームでの`hexfloat`の使用に対応していない。使用すると値0が入力される (エラーにならない)
+    - [Bug 81122 - [DR 2381] parsing f stopped after '0' when reading `std::hexfloat >> f;`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81122)
+
 
 ## 参照
 - [`defaultfloat`](defaultfloat.md)
