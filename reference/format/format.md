@@ -168,6 +168,8 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
 
 - `?s`書式を指定した場合、`n`オプションと、`range-underlying-spec`は指定できない。
 - コンテナが[`std::vector`](/reference/vector/vector.md)`<bool>`である場合、その要素型は`bool`として処理される
+- Range・シーケンスコンテナでは、要素型がデバッグ出力可能である場合、それがデフォルトで有効となる
+    - 要素型の書式を指定して、デバッグ出力指定をしなければ、デフォルトで有効になっているデバッグ出力を解除できる
 
 
 #### 連想コンテナの場合 (C++23)
@@ -200,7 +202,7 @@ Range・シーケンスコンテナと同じだが、デフォルトで`m`書式
 | (なし) | デフォルト | `tuple{3, 1.23, "hello"}`は`(3, 1.23, "hello")`となる | C++23 |
 
 - 要素型ごとに個別に書式を指定することはできない
-- 文字列はデバッグ出力が常に有効
+- デバッグ出力可能な要素型の場合、デバッグ出力は常に有効
 
 
 ### 書式例
@@ -388,10 +390,16 @@ int main() {
   std::vector<int> vx = {0xf, 0x1e, 0x3c};
   std::cout << std::format("5. {::#x}", vx) << std::endl;
 
+  // コンテナの要素型が文字・文字列型の場合はデフォルトでデバッグ出力 (?) が適用されるが、
+  // 要素への書式指定として ? を指定しなければ、デバッグ出力が解除される
+  std::vector<std::string> vt = {"h\tello", "w\norld", "C++"};
+  std::cout << std::format("6. {:}", vt) << std::endl;
+  std::cout << std::format("7. {::}", vt) << std::endl;
+
   // 文字を要素とするコンテナは文字列として出力させることもできる
   std::vector<char> vc = {'h', '\n', 'e', 'l', 'l', 'o'};
-  std::cout << std::format("6. {:s}", vc) << std::endl;
-  std::cout << std::format("7. {:?s}", vc) << std::endl;
+  std::cout << std::format("8. {:s}", vc) << std::endl;
+  std::cout << std::format("9. {:?s}", vc) << std::endl;
 }
 ```
 * std::ranges::views::iota[link /reference/ranges/iota_view.md]
@@ -404,9 +412,12 @@ int main() {
 3. {1, 2, 3}
 4. [1, 2, 3, 4]
 5. [0xf, 0x1e, 0x3c]
-6. h
+6. ["h\tello", "w\norld", "C++"]
+7. [h    ello, w
+orld, C++]
+8. h
 ello
-7. "h\nello"
+9. "h\nello"
 ```
 
 ### pair、tupleを出力する (C++23)
