@@ -69,10 +69,62 @@ int main() {
 
 ## 仕様
 
-- クラス`C`に対する*destroying operator delete*の第一引数は`C*`でなければならない
-- *destroying operator delete*の戻り値型は`void`でなければならない
+クラススコープで定義された`operator delete()`で、第二引数が`std::destroying_delete_t`であるものを*destroying operator delete*と呼ぶ。クラス`C`に対する*destroying operator delete*の第一引数は`C*`でなければならず、その2点以外は通常の`operator delete`オーバーロードの制約に従う。
 
-（執筆中）
+```cpp
+struct S {
+  // これらの宣言はいずれも、destroying operator deleteではない（コンパイルエラーとなる）
+  void operator delete(void*, std::destroying_delete_t);      // 第一引数はS*
+  void operator delete(S*, auto);                             // 第二引数は std::destroying_delete_t
+  int* operator delete(S*, std::destroying_delete_t);         // 戻り値はvoid
+  virtual void operator delete(S*, std::destroying_delete_t); // 仮想関数にできない
+};
+```
+
+単一オブジェクトに対する`delete`式の実行に伴う`operator delete`の探索の結果、その候補の中に*destroying operator delete*が含まれている場合、*destroying operator delete*ではない`operator delete`は候補から外れる。
+
+```cpp
+struct S {
+  // destroying operator delete
+  void operator delete(S*, std::destroying_delete_t);
+
+  // destroying operator deleteが定義されている限り、こちらが呼び出されることはない
+  void operator delete(void*);
+};
+```
+
+ただし、配列に対する`delete`式の場合は、*destroying operator delete*は考慮されない。
+
+```cpp
+struct S {
+  // #1 destroying operator delete
+  void operator delete(S* p, std::destroying_delete_t) {
+    std::cout << "S::operator delete()\n";
+
+    std::destroy_at(p);
+    ::operator delete(p);
+  }
+};
+
+int main() {
+  S* p = new S[1]{};
+
+  // #1は呼び出されず、要素ごとに破棄された後で配列の領域が解放される
+  delete[] p;
+}
+```
+
+また、配列板の`operator delete[]`を*destroying operator delete*としてオーバーロードすることもできない。
+
+```cpp
+struct S {
+  void operator delete[](S* p, std::destroying_delete_t); // ng
+};
+```
+
+単一オブジェクトに対する`delete`式においてそのオブジェクトの静的型と動的型が一致しない場合（つまり、基底クラスのポインタから派生クラスのオブジェクトを`delete`しようとする場合など）、その静的型はその動的型の基底クラスである必要があり両方の型に仮想デストラクタが必要となるが、*destroying operator delete*が`operator delete`として使用される場合にはその必要はない。したがって、*destroying operator delete*が使用されない場合に`delete`式が指定されたポインタの指す最も派生したオブジェクトを削除せず未定義動作になるような場合（仮想デストラクタの定義忘れなど）でも、*destroying operator delete*が使用された場合は未定義動作とならない（ただし、呼び出された*destroying operator delete*がそのオブジェクトを正しく破棄しない場合は未定義動作となりうる）。
+
+*destroying operator delete*が`operator delete`として使用される`delete`式の実行において、`delete`式は`delete`対象オブジェクトのデストラクタを呼び出さないで`operator delete`を呼び出す。また、その際の*destroying operator delete*の第二引数（`std::destroying_delete_t`に対応する引数）に渡される値は未規定。
 
 ## 例
 
@@ -159,12 +211,84 @@ int main() {
 * std::ranges::destroy[link /reference/memory/ranges_destroy.md]
 
 
-### 出力
+#### 出力
 
 ```
 inlined_fixed_string::Make() : 47 byte allocate.
 C++20 destroying operator delete test.
 inlined_fixed_string::operator delete() : 47 byte deallocate.
+```
+
+### 正しいデストラクタへのディスパッチ
+
+```cpp example
+#include <iostream>
+#include <new>
+
+// 仮想デストラクタを定義しない基底クラス
+struct base {
+  int kind = 0;
+
+  // destroying operator delete宣言 #1
+  void operator delete(base* p, std::destroying_delete_t);
+};
+
+struct derived1 : base {
+  derived1() : base{1} {}
+};
+
+struct derived2 : base {
+  derived2() : base{2} {}
+};
+
+// #1に対応する定義
+void base::operator delete(base* p, std::destroying_delete_t) {
+
+  switch(p->kind) {
+    case 1:
+    {
+      auto* dp = static_cast<derived1*>(p);
+      std::destroy_at(dp);
+      ::operator delete(dp);
+      std::cout << "destruct derived1\n";
+      break;
+    }
+    case 2:
+    {
+      auto* dp = static_cast<derived2*>(p);
+      std::destroy_at(dp);
+      ::operator delete(dp);
+      std::cout << "destruct derived2\n";
+      break;
+    }
+    default:
+      std::destroy_at(p);
+      ::operator delete(p);
+      std::cout << "destruct base\n";
+  }
+}
+
+int main() {
+  {
+    base* p = new derived1{};
+    // #1によってderived1のデストラクタが呼ばれ、メモリが解放される
+    delete p;
+  }
+  {
+    base* p = new derived2{};
+    // #1によってderived2のデストラクタが呼ばれ、メモリが解放される
+    delete p;
+  }
+}
+```
+* destroying_delete_t[color ff0000]
+* std::destroy_at[link /reference/memory/destroy_at.md]
+
+#### 出力
+
+```
+destruct derived1
+destruct derived2
 ```
 
 ## この機能が必要になった背景・経緯
