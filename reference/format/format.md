@@ -384,10 +384,14 @@ int main() {
   std::cout << std::format("3. {}", s) << std::endl;
   std::cout << std::format("4. {}", r) << std::endl;
 
+  // Rangeの書式指定のあと、:で区切って要素に対する書式指定ができる (ここでは16進数出力)
+  std::vector<int> vx = {0xf, 0x1e, 0x3c};
+  std::cout << std::format("5. {::#x}", vx) << std::endl;
+
   // 文字を要素とするコンテナは文字列として出力させることもできる
   std::vector<char> vc = {'h', '\n', 'e', 'l', 'l', 'o'};
-  std::cout << std::format("5. {:s}", vc) << std::endl;
-  std::cout << std::format("6. {:?s}", vc) << std::endl;
+  std::cout << std::format("6. {:s}", vc) << std::endl;
+  std::cout << std::format("7. {:?s}", vc) << std::endl;
 }
 ```
 * std::ranges::views::iota[link /reference/ranges/iota_view.md]
@@ -399,9 +403,10 @@ int main() {
 2. {1: "aaa", 2: "bbb"}
 3. {1, 2, 3}
 4. [1, 2, 3, 4]
-5. h
+5. [0xf, 0x1e, 0x3c]
+6. h
 ello
-6. "h\nello"
+7. "h\nello"
 ```
 
 ### pair、tupleを出力する (C++23)
