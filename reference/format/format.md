@@ -94,9 +94,10 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 #### 文字列型の場合
 
-| type       | 意味             |
-|:-----------|:-----------------|
-| s (省略可) | 文字列           |
+| type       | 意味         | 対応バージョン |
+|:-----------|:-------------|----------------|
+| s (省略可) | 文字列       | C++20 |
+| ?          | デバッグ出力 | 文字・文字列を引用符で囲み、エスケープシーケンスをエスケープして出力 (例:`"\n"`は`"\"\\n\""`となる) | C++23 |
 
 #### 文字型 / `bool`型 / 整数型の場合
 
@@ -105,17 +106,18 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 * 以下の表の通りに[`to_chars`](/reference/charconv/to_chars.md)を呼び出したあと、その結果を出力へコピーするかのような振る舞いをする。ただし、実際に[`to_chars`](/reference/charconv/to_chars.md)を呼び出すかどうかは規定されていない。
 * 実際には、出力へコピーする際にパディングなども行われる。
 
-| type       | 意味                            | 効果                                                                      |
-|:-----------|:--------------------------------|:--------------------------------------------------------------------------|
-| b          | 2進数(小文字)                   | `to_chars(first, last, value, 2)` (代替表現の接頭辞 `0b`)                 |
-| B          | 2進数(大文字)                   | `b`の大文字版 (代替表現の接頭辞 `0B`)                                     |
-| c          | 文字として出力                  | `static_cast<charT>(value)` (収まらないときは`format_error`)              |
-| d          | 10進数                          | `to_chars(first, last, value)`                                            |
-| n          | 10進数(ロケールを考慮する)      | ロケール依存の桁区切りを使った`d`                                         |
-| o          | 8進数                           | `to_chars(first, last, value, 8)` (代替表現の接頭辞 `0`、ただし値が0のときは接頭辞なし) |
-| x          | 16進数(小文字)                  | `to_chars(first, last, value, 16)` (代替表現の接頭辞 `0x`)                |
-| X          | 16進数(大文字)                  | `x`の大文字版 (代替表現の接頭辞 `0X`)                                     |
-| (なし)     | デフォルト                      | `d` (整数型の場合)<br/>`c` (文字型の場合)<br/>`"true"`/`"false"`を出力(`bool`型の場合) |
+| type   | 意味                       | 効果                                                                      | 対応バージョン |
+|:-------|:---------------------------|:--------------------------------------------------------------------------|----------------|
+| b      | 2進数(小文字)              | `to_chars(first, last, value, 2)` (代替表現の接頭辞 `0b`)                 | C++20 |
+| B      | 2進数(大文字)              | `b`の大文字版 (代替表現の接頭辞 `0B`)                                     | C++20 |
+| c      | 文字として出力             | `static_cast<charT>(value)` (収まらないときは`format_error`)              | C++20 |
+| d      | 10進数                     | `to_chars(first, last, value)`                                            | C++20 |
+| n      | 10進数(ロケールを考慮する) | ロケール依存の桁区切りを使った`d`                                         | C++20 |
+| o      | 8進数                      | `to_chars(first, last, value, 8)` (代替表現の接頭辞 `0`、ただし値が0のときは接頭辞なし) | C++20 |
+| x      | 16進数(小文字)             | `to_chars(first, last, value, 16)` (代替表現の接頭辞 `0x`)                | C++20 |
+| X      | 16進数(大文字)             | `x`の大文字版 (代替表現の接頭辞 `0X`)                                     | C++20 |
+| ?      | デバッグ出力               | 文字・文字列を引用符で囲み、エスケープシーケンスをエスケープして出力 (例:`"\n"`は`"\"\\n\""`となる) | C++23 |
+| (なし) | デフォルト                 | `d` (整数型の場合)<br/>`c` (文字型の場合)<br/>`"true"`/`"false"`を出力(`bool`型の場合) | C++20 |
 
 #### 浮動小数点数型の場合
 
@@ -246,6 +248,7 @@ return vformat(loc, fmt.str, make_wformat_args(args...)); // (4)
     * あるいは、`to_wchars`のようなものを作り、それを使うことも考えられる。
 
 ## 例
+### 基本的な使い方 (C++20)
 ```cpp example
 #include <iostream>
 #include <format>
@@ -256,9 +259,99 @@ int main()
 }
 ```
 
-### 出力
+#### 出力
 ```
 The answer is 42.
+```
+
+### 文字・文字列を出力する (C++23)
+```cpp example
+#include <iostream>
+#include <format>
+
+int main() {
+  // デフォルトの文字列出力。
+  // 引用符で囲まれず「hello」が出力される
+  std::cout << std::format("0. {}", "hello") << std::endl;
+
+  // デバッグ出力。
+  // 引用符で囲まれ「"hello"」が出力される
+  std::cout << std::format("1. {:?}", "hello") << std::endl;
+
+  // エスケープシーケンスを含む文字列をデフォルト出力。
+  // エスケープシーケンスが処理され、以下のように出力される：
+  // hello
+  // world
+  std::cout << std::format("2. {}", "hello\nworld") << std::endl;
+
+  // エスケープシーケンスを含む文字列をデバッグ出力。
+  // エスケープシーケンスがエスケープされて以下のように出力される：
+  // "hello\nworld"
+  std::cout << std::format("3. {:?}", "hello\nworld") << std::endl;
+}
+```
+
+#### 出力
+```
+hello
+"hello"
+hello
+world
+"hello\nworld"
+```
+
+### コンテナ・Rangeを出力する (C++23)
+```cpp example
+#include <iostream>
+#include <format>
+#include <vector>
+#include <map>
+#include <set>
+#include <ranges>
+
+int main() {
+  std::vector<int> vi = {1, 2, 3};
+  std::vector<std::string> vs = {"aaa", "bbb", "ccc"};
+  std::map<int, std::string> m {{1, "aaa"}, {2, "bbb"}};
+  std::set<int> s = {1, 2, 3};
+  auto r = std::ranges::views::iota(1, 5);
+
+  std::cout << std::format("0. {}", vi) << std::endl;
+  std::cout << std::format("1. {}", vs) << std::endl;
+  std::cout << std::format("2. {}", m) << std::endl;
+  std::cout << std::format("3. {}", s) << std::endl;
+  std::cout << std::format("4. {}", r) << std::endl;
+}
+```
+* std::ranges::views::iota[link /reference/ranges/iota_view.md]
+
+#### 出力
+```
+0. [1, 2, 3]
+1. ["abc", "bbb", "ccc"]
+2. {1: "aaa", 2: "bbb"}
+3. {1, 2, 3}
+4. [1, 2, 3, 4]
+```
+
+### pair、tupleを出力する (C++23)
+```cpp example
+#include <iostream>
+#include <format>
+#include <utility>
+#include <tuple>
+
+int main()
+{
+  std::cout << std::format("{}", std::tuple{3, 1.23, "hello"}) << std::endl;
+  std::cout << std::format("{}", std::pair{3, "hello"}) << std::endl;
+}
+```
+
+#### 出力
+```
+(3, 1.23, "hello")
+(3, "hello")
 ```
 
 ## 実装例
@@ -303,14 +396,14 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
+- [GCC](/implementation.md#gcc): 13
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
-
-* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
-* [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
-* [P1652R1 Printf corner cases in std::format](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1652r1.html)
-* [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
-* [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
+- [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
+- [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P1652R1 Printf corner cases in std::format](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1652r1.html)
+- [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
+- [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
+- [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
+    - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
