@@ -274,7 +274,7 @@
 | P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md.nolink) | | - | - | - | - |
 | P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | - | - |
 | P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md.nolink) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | - | - |
-| P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md.nolink) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | - | - | - |
+| P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | - | - | - |
 | P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md.nolink) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | yes | yes | - | - |
 | P2334R1: [`elif`/`elifdef`/`elifndef`のサポートを追加](/lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md.nolink) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する | 12 | 13 | - | - |
 | P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md.nolink) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | yes | yes | yes | yes |
