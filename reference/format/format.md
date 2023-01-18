@@ -390,16 +390,21 @@ int main() {
   std::vector<int> vx = {0xf, 0x1e, 0x3c};
   std::cout << std::format("5. {::#x}", vx) << std::endl;
 
+  // vector<vector<T>>の場合は、:で区切られた要素の書式がRangeの書式となり、
+  // さらに :で区切って要素の書式指定をする
+  std::vector<std::vector<int>> vvx = {{0xf, 0x1e}, {0x3c}};
+  std::cout << std::format("6. {:::#x}", vvx) << std::endl;
+
   // コンテナの要素型が文字・文字列型の場合はデフォルトでデバッグ出力 (?) が適用されるが、
   // 要素への書式指定として ? を指定しなければ、デバッグ出力が解除される
   std::vector<std::string> vt = {"h\tello", "w\norld", "C++"};
-  std::cout << std::format("6. {:}", vt) << std::endl;
-  std::cout << std::format("7. {::}", vt) << std::endl;
+  std::cout << std::format("7. {:}", vt) << std::endl;
+  std::cout << std::format("8. {::}", vt) << std::endl;
 
   // 文字を要素とするコンテナは文字列として出力させることもできる
   std::vector<char> vc = {'h', '\n', 'e', 'l', 'l', 'o'};
-  std::cout << std::format("8. {:s}", vc) << std::endl;
-  std::cout << std::format("9. {:?s}", vc) << std::endl;
+  std::cout << std::format("9. {:s}", vc) << std::endl;
+  std::cout << std::format("10. {:?s}", vc) << std::endl;
 }
 ```
 * std::ranges::views::iota[link /reference/ranges/iota_view.md]
@@ -412,12 +417,13 @@ int main() {
 3. {1, 2, 3}
 4. [1, 2, 3, 4]
 5. [0xf, 0x1e, 0x3c]
-6. ["h\tello", "w\norld", "C++"]
-7. [h    ello, w
+6. [[0xf, 0x1e], [0x3c]]
+7. ["h\tello", "w\norld", "C++"]
+8. [h    ello, w
 orld, C++]
-8. h
+9. h
 ello
-9. "h\nello"
+10. "h\nello"
 ```
 
 ### pair、tupleを出力する (C++23)
