@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 備考
-`std::unreachable`関数の事前条件は決して満たされない（恒偽式）となるため、関数呼び出しは常に未定義の動作を引き起こす。
+`std::unreachable`関数の事前条件は決して満たされない（恒偽式）ため、関数呼び出しは常に未定義の動作を引き起こす。
 C++コンパイラはこの情報を利用し、`std::unreachable`呼び出しを含まないコードパスのみが実行されうると仮定して、より高速に動作するプログラムを生成する可能性がある。
 
 
@@ -28,15 +28,18 @@ C++コンパイラはこの情報を利用し、`std::unreachable`呼び出し�
 #include <iostream>
 #include <utility>
 
-int f(int x)
+int flip(int x)
 {
- switch (x) {
- case 0:
- case 1:
-   return x;
- default:
-   std::unreachable();
- }
+  switch (x) {
+  case 0:
+    return 1;
+  case 1:
+    return 0;
+  default:
+    // C++コンパイラは引数 x が値0,1以外を取らないと
+    // 仮定したコード生成を行う可能性がある。
+    std::unreachable();
+  }
 }
 
 int main()
@@ -50,8 +53,8 @@ int main()
 
 ### 出力
 ```
-0
 1
+0
 ```
 
 
