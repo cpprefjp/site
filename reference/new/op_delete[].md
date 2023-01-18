@@ -11,11 +11,11 @@ void operator delete[](void* ptr, std::align_val_t alignment) noexcept;         
 void operator delete[](void* ptr, std::size_t size, std::align_val_t alignment) noexcept; // (4) C++17 から
 
 void operator delete[](void* ptr, const std::nothrow_t&) throw();                              // (5) C++03 まで
-void operator delete[](void* ptr, const std::nothrow_t&) noexcept;                             // (6) C++11 から
-void operator delete[](void* ptr, std::align_val_t alignment, const std::nothrow_t&) noexcept; // (7) C++17 から
+void operator delete[](void* ptr, const std::nothrow_t&) noexcept;                             // (5) C++11 から
+void operator delete[](void* ptr, std::align_val_t alignment, const std::nothrow_t&) noexcept; // (6) C++17 から
 
-void operator delete[](void* ptr, void*) throw();                                       // (8) C++03 まで
-void operator delete[](void* ptr, void*) noexcept;                                      // (8) C++11 から
+void operator delete[](void* ptr, void*) throw();                                       // (7) C++03 まで
+void operator delete[](void* ptr, void*) noexcept;                                      // (7) C++11 から
 ```
 * std::nothrow_t[link nothrow_t.md]
 * std::align_val_t[link align_val_t.md]
