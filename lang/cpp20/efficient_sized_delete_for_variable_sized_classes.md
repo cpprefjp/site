@@ -126,6 +126,47 @@ struct S {
 
 *destroying operator delete*が`operator delete`として使用される`delete`式の実行において、`delete`式は`delete`対象オブジェクトのデストラクタを呼び出さないで`operator delete`を呼び出す。また、その際の*destroying operator delete*の第二引数（`std::destroying_delete_t`に対応する引数）に渡される値は未規定。
 
+`delete`式に指定されているポインタの指すオブジェクトがクラス型であり、そのデストラクタが仮想デストラクタである場合、その`delete`式の実行に伴う`operator delete`の探索はそのオブジェクトの動的型（実行時の実際のクラス型）のスコープで行われる。この探索は、クラスの仮想関数を基底クラスから呼び出す時と同じものである。
+
+```cpp
+// 基底クラス
+struct B {
+  virtual ~B();
+
+  // 普通のdelete演算子オーバーロード
+  void operator delete(void*, std::size_t);
+};
+
+// 派生クラス1
+struct D : B {
+  // 普通のdelete演算子オーバーロード
+  void operator delete(void*);
+};
+
+// 派生クラス2
+struct E : B {
+  void log_deletion();
+
+  // destroying operator delete
+  void operator delete(E *p, std::destroying_delete_t) {
+    p->log_deletion();
+    p->~E();
+    ::operator delete(p);
+  }
+};
+
+void f() {
+  B* bp = new D;
+  delete bp; // #1 D::operator delete(void*)が呼び出される
+
+  bp = new E;
+  delete bp; // #2 E::operator delete(E*, std::destroying_delete_t)が呼び出される
+}
+```
+
+`#1`において、`D`のオブジェクトは`delete`式によって破棄され、そのメモリ領域は`D::operator delete`によって解放される。  
+`#2`において、`E`のオブジェクトの破棄とそのメモリ領域の解放は`E::operator delete`（*destroying operator delete*）によって行われる。
+
 ## 例
 
 ### 可変サイズクラスの`delete`
@@ -292,16 +333,100 @@ destruct derived2
 ```
 
 ## この機能が必要になった背景・経緯
-（執筆中）
+
+1つ目の例に挙げた`inlined_fixed_string`のような可変サイズクラスの定義は、ポインタの間接参照を回避しながら可変長配列を定義することができ、よく書かれるパターンだった（実際には*flexible array member*を使用することが多い）。
+
+しかし、このようなクラスは[サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)を活用して効率的に削除することができなかった。
+
+`inlined_fixed_string`のオブジェクトを指すポインタを`s`とすると、`delete s;`という式の実行において、C++14（[CWG Issue 2248](https://cplusplus.github.io/CWG/issues/2248)解決前）のコンパイラは次のようなコードを呼び出す必要があった
+
+```cpp
+::operator delete(s, full_size);
+```
+
+しかし、この場合に自動で`full_size`を取得することはできない。
+
+C++17では代わりに次のようなコードを出力する
+
+```cpp
+::operator delete(s, sizeof(inlined_fixed_string));
+```
+
+が、これは正しく確保したメモリ領域を解放していない。
+
+正しくは、クラスで`operator delete`をオーバーロードする必要がある
+
+```cpp
+static void operator delete(void* ptr) {
+  ::operator delete(ptr); // アロケータが知っているptrのサイズ情報に頼る（アロケータでそのサイズを求めるためのオーバーヘッドが発生しうる）
+}
+```
+
+すなわち、サイズ付きデアロケーションを全く利用しない。これは安全に解放できるようになる一方で、サイズ付きデアロケーションのパフォーマンス上の利点を全て捨てることになる。
+
+理想的には、クラスが保存している実際に確保したメモリのサイズを取得できることが望ましい
+
+```cpp
+static void operator delete(void* ptr) {
+  inlined_fixed_string *s = reinterpret_cast<inlined_fixed_string*>(ptr); // UB
+  std::size_t full_size = sizeof(inlined_fixed_string) + s->size();       // UB
+  ::operator delete(ptr, full_size);
+}
+```
+
+しかし、前述のように、この`operator delete`実行の前に`ptr`にあるオブジェクトは破棄されているため、これは未定義動作となる。
+
+*destroying operator delete*は、この一番最後の`operator delete`相当のコードを安全にし、このような可変長クラスの`delete`を効率化するために導入された。
 
 ## 検討されたほかの選択肢
-（執筆中）
+
+### `delete p`以外の削除メカニズム
+
+*destroying operator delete*が必要となる場合に、`delete`式ではなく別のメカニズムによってオブジェクトの破棄とメモリ解放を行う方法が検討された。しかし、これに次のような欠点がある
+
+- ユーザー定義型が組み込み型と同様に使用されるという原則に違反している
+    - この方法の場合、`delete`式が使えなくなる
+- 仮想デストラクタを持つ既存のクラス階層は、動的にクラスレイアウトの先頭/末尾に領域を拡張する派生クラスに対して透過的に拡張できない
+- メモリ解放戦略のローカルな選択がコードの利用者にリークする
+    - `std::unique_ptr`などにおいてはカスタムデリータを指定しなければならない
+    - `std::make_unique`などは使用できない
+    - リソース管理に`new/delete`を使用する多くのリソース管理クラスを使用できない
+
+これらの欠点（特に、`delete`式が使用できないこと）によって、この方法は好まれなかった。
+
+### destroying operator deleteの別の構文
+
+*destroying operator delete*を宣言する構文として、いくつかの構文が検討された。
+
+```cpp
+struct S {
+  // 1. void*の代わりにS*をとる
+  void operator delete(S*);
+
+  // 2. 1+~を先頭につける
+  void operator ~delete(S*);
+
+  // 3. デストラクタ風宣言
+  ~S delete();
+};
+```
+
+1. 通常の`operator delete`オーバーロードと区別がつきづらい
+2. まだ通常の`operator delete`オーバーロードと区別がつきづらい
+    - `~delete`は新しい演算子であるため可読性の問題がある
+    - *destroying operator delete*は`delete`式の実行を完全にオーバーライドするものだが、異なる演算子オーバーロードになっていることによってそれを表現していない
+3. デストラクタ風味の宣言によって、サブオブジェクト（メンバや基底クラス）のデストラクタが自動で呼ばれるという勘違いを招く可能性がある。
+    - 加えて、2と同様の問題がある
+
+結局、`std::destroying_delete_t`を第二引数に取る形が一番シンプルかつ可読性が高いとして採用された。
 
 ## 関連項目
 
+- [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
 - [`std::destroying_delete_t`](/reference/new/destroying_delete_t.md)
 
 ## 参照
 
 - [P0722R3 Efficient sized delete for variable sized classes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0722r3.html)
 - [P0722R1 Efficient sized delete for variable sized classes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0722r1.html)
+- [CWG Issue 2248. Problems with sized delete](https://cplusplus.github.io/CWG/issues/2248)
