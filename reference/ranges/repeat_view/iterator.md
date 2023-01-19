@@ -114,7 +114,7 @@ namespace std::ranges {
 * is-integer-like[link /reference/iterator/is_integer_like.md]
 * repeat_view[link ../repeat_view.md]
 * conditional_t[link /reference/type_traits/conditional.md]
-* ptrdiff_t[link /reference/stddef/ptrdiff_t.md]
+* ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 * random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
 * is-signed-integer-like[link /reference/iterator/is_integer_like.md]
 * iota_diff_t[link /reference/ranges/iota_view/iota_diff_t.md]
