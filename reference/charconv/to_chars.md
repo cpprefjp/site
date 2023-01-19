@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   //整数型用
-  to_chars_result to_chars(char* first, char* last, /*see below*/ value,  int base = 10); // (1)
+  to_chars_result to_chars(char* first, char* last, /*see below*/ value,  int base = 10);           // (1) C++17
+  constexpr to_chars_result to_chars(char* first, char* last, /*see below*/ value,  int base = 10); // (1) C++23
+
   //boolの変換は禁止
   to_chars_result to_chars(char* first, char* last, bool value,  int base = 10) = delete; // C++20
 
@@ -222,3 +224,5 @@ z
 - [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)
 - [LWG Issue 3266. `to_chars(bool)` should be deleted](https://wg21.cmeerw.net/lwg/issue3266)
 - [Visual Studio 2017 version 15.9.0 - Visual Studio 2017 version 15.9 Release Notes](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes#-c)
+- [P2291R3: Add Constexpr Modifiers to Functions to_chars and from_chars for Integral Types in `<charconv>` Header](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2291r3.pdf)
+    - C++23での(1)constexpr指定
