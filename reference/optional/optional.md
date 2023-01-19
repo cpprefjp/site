@@ -78,6 +78,15 @@ namespace std {
 | [`value_or`](optional/value_or.md)     | 有効値もしくは指定された無効値を取得する | C++17 |
 
 
+### モナド操作
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`and_then`](optional/and_then.md)   | 有効値に対して関数を適用する | C++23 |
+| [`transform`](optional/transform.md) | 有効値を変換する | C++23 |
+| [`or_else`](optional/or_else.md)     | 無効値に対して関数を適用する | C++23 |
+
+
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
@@ -201,3 +210,4 @@ error
 - [P0307R2 Making Optional Greater Equal Again](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0307r2.pdf)
 - [P0504R0 Revisiting in-place tag types for `any`/`optional`/`variant`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0504r0.html)
 - [LWG Issue 3196. `std::optional<T>` is ill-formed is `T` is an array](https://wg21.cmeerw.net/lwg/issue3196)
+- [P0798R8 Monadic operations for std::optional](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0798r8.html)
