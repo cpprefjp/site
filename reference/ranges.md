@@ -150,6 +150,13 @@ Rangeファクトリは、Rangeではないオブジェクトから[`view`](rang
 | [`iota_view`](ranges/iota_view.md)        | 単調増加列であるRange (class template)              | C++20          |
 | [`views::iota`](ranges/iota_view.md)      | `iota_view`を生成する (customization point object)  | C++20          |
 
+### repeat view
+
+| 名前                                          | 説明                                                  | 対応バージョン |
+|-----------------------------------------------|-------------------------------------------------------|----------------|
+| [`repeat_view`](ranges/repeat_view.md)        | 指定した値を指定回数繰り返すRange (class template)    | C++23          |
+| [`views::repeat`](ranges/repeat_view.md)      | `repeat_view`を生成する (customization point object)  | C++23          |
+
 ### istream view
 
 | 名前                                                   | 説明                                                         | 対応バージョン |
