@@ -14,7 +14,7 @@ struct S {
   // #1 Sのための operator delete オーバーロード
   void operator delete(void* p) {
     // Sのオブジェクトは破棄済みのため、未定義動作となる
-    const S& self = *p;       // UB
+    const S* self = reinterpret_cast<const S*>(p);  // UB
     std::cout << self->str;   // UB
 
     // メモリ領域の解放
@@ -69,7 +69,7 @@ int main() {
 
 ## 仕様
 
-クラススコープで定義された`operator delete()`で、第二引数が`std::destroying_delete_t`であるものを*destroying operator delete*と呼ぶ。クラス`C`に対する*destroying operator delete*の第一引数は`C*`でなければならず、その2点以外は通常の`operator delete`オーバーロードの制約に従う。
+クラススコープで定義された`operator delete()`で、第二引数が`std::destroying_delete_t`であるものを*destroying operator delete*と呼ぶ。クラス`C`に対する*destroying operator delete*の第一引数は`C*`でなければならず、それらの点以外は通常の`operator delete`オーバーロードの制約に従う。
 
 ```cpp
 struct S {
@@ -126,7 +126,7 @@ struct S {
 
 *destroying operator delete*が`operator delete`として使用される`delete`式の実行において、`delete`式は`delete`対象オブジェクトのデストラクタを呼び出さないで`operator delete`を呼び出す。また、その際の*destroying operator delete*の第二引数（`std::destroying_delete_t`に対応する引数）に渡される値は未規定。
 
-`delete`式に指定されているポインタの指すオブジェクトがクラス型であり、そのデストラクタが仮想デストラクタである場合、その`delete`式の実行に伴う`operator delete`の探索はそのオブジェクトの動的型（実行時の実際のクラス型）のスコープで行われる。この探索は、クラスの仮想関数を基底クラスから呼び出す時と同じものである。
+*destroying operator delete*に限らず全ての`operator delete`オーバーロードにおいて、`delete`式に指定されているポインタの指すオブジェクトがクラス型であり、そのデストラクタが仮想デストラクタである場合、その`delete`式の実行に伴う`operator delete`の探索はそのオブジェクトの動的型（実行時の実際のクラス型）のスコープで行われる。この探索は、クラスの仮想関数を基底クラスから呼び出す時と同じものである。
 
 ```cpp
 // 基底クラス
