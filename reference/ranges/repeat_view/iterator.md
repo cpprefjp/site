@@ -24,7 +24,7 @@ namespace std::ranges {
   class repeat_view<T, Bound>::iterator {
   private:
     using index_type = conditional_t<same_as<Bound, unreachable_sentinel_t>, ptrdiff_t, Bound>;
-    const T* value_ = nullptr;P
+    const T* value_ = nullptr;
     index_type current_ = index_type();
 
     constexpr explicit iterator(const T* value, index_type b = index_type())
