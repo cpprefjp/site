@@ -22,8 +22,8 @@ template <class F> constexpr auto and_then(F&& f) const&&; // (4)
 ```cpp
 template <class T>
 class optional {
-    template <class Return>
-    std::optional<Return> and_then(function<std::optional<Return>(T)> func);
+  template <class Return>
+  std::optional<Return> and_then(function<std::optional<Return>(T)> func);
 };
 ```
 * function[link /reference/functional/function.md]
@@ -33,7 +33,7 @@ class optional {
 説明用の`U`型を次の通りとする：
 
 - (1), (3) : [`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`value()`](value.md)`)>`
-- (2), (4) : [`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std​::​move`](/reference/utility/move.md)`(`[`value()`](value.md)`))>`
+- (2), (4) : [`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))>`
 
 [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>`は`optional`の特殊化であること
 

@@ -32,21 +32,21 @@ class optional {
 説明用の`U`型を次の通りとする：
 
 - (1), (3) : [`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`value()`](value.md)`)>`
-- (2), (4) : [`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std​::​move`](/reference/utility/move.md)`(`[`value()`](value.md)`))>`
+- (2), (4) : [`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))>`
 
 
 ## 適格要件
 - (1), (3) :
-    - `U`型は[`in_place_t`](/reference/utility/in_place_t.md), [`nullopt_t`](nullopt_t.md)いずれでもなく、非配列オブジェクト型であること。
+    - `U`型は[`in_place_t`](/reference/utility/in_place_t.md), [`nullopt_t`](../nullopt_t.md)いずれでもなく、非配列オブジェクト型であること。
     - ある変数`u`の宣言 `U u(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`));` が妥当であること。
 - (2), (4) :
-    - `U`型は[`in_place_t`](/reference/utility/in_place_t.md), [`nullopt_t`](nullopt_t.md)いずれでもなく、非配列オブジェクト型であること。
-    - ある変数`u`の宣言 `U u(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std​::​move`](/reference/utility/move.md)`(`[`value()`](value.md)`)));` が妥当であること。
+    - `U`型は[`in_place_t`](/reference/utility/in_place_t.md), [`nullopt_t`](../nullopt_t.md)いずれでもなく、非配列オブジェクト型であること。
+    - ある変数`u`の宣言 `U u(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`)));` が妥当であること。
 
 
 ## 効果
 - (1), (3) : `*this`が有効値を保持するときは、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`)`で非リスト初期化した`optional<U>`オブジェクトを返す。有効値を保持しないときは、`optional<U>()`を返す。
-- (2), (4) : `*this`が有効値を保持するときは、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std​::​move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`で非リスト初期化した`optional<U>`オブジェクトを返す。有効値を保持しないときは、`optional<U>()`を返す。
+- (2), (4) : `*this`が有効値を保持するときは、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`で非リスト初期化した`optional<U>`オブジェクトを返す。有効値を保持しないときは、`optional<U>()`を返す。
 
 
 ## 備考
