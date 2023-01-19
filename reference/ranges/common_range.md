@@ -11,7 +11,6 @@ namespace std::ranges {
 }
 ```
 * range[link range.md]
-* same_as[link /reference/concepts/same_as.md]
 * iterator_t[link iterator_t.md]
 * sentinel_t[link sentinel_t.md]
 

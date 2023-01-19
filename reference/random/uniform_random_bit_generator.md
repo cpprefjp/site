@@ -18,7 +18,6 @@ namespace std {
 ```
 * invocable[link /reference/concepts/invocable.md]
 * unsigned_integral[link /reference/concepts/unsigned_integral.md]
-* same_as[link /reference/concepts/same_as.md]
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
 * bool_constant[link /reference/type_traits/bool_constant.md]
 

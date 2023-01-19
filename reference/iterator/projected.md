@@ -24,7 +24,6 @@ namespace std {
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
 * indirectly_regular_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * indirect_result_t[link /reference/iterator/indirect_result_t.md]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
@@ -66,7 +65,6 @@ int main() {
 ```
 * std::projected[color ff0000]
 * identity[link /reference/functional/identity.md]
-* same_as[link /reference/concepts/same_as.md]
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]

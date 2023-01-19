@@ -17,7 +17,6 @@ namespace std::ranges {
 * contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
 * iterator_t[link iterator_t.md]
 * ranges::data[link data.md]
-* same_as[link /reference/concepts/same_as.md]
 * add_pointer_t[link /reference/type_traits/add_pointer.md]
 * range_reference_t[link range_reference_t.md]
 

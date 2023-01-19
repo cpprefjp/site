@@ -46,7 +46,6 @@ namespace std::ranges {
 * indirect_equivalence_relation[link /reference/iterator/indirect_equivalence_relation.md]
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
 * forward_iterator[link /reference/iterator/forward_iterator.md]
-* same_as[link /reference/concepts/same_as.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 * indirectly_copyable_storable[link /reference/iterator/indirectly_copyable_storable.md]
 * projected[link /reference/iterator/projected.md]

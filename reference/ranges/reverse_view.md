@@ -97,7 +97,6 @@ int main() {
 }
 ```
 * views::reverse[color ff0000]
-* same_as[link /reference/concepts/same_as.md]
 
 ### 出力
 ```

@@ -32,6 +32,10 @@
 | [`basic_format_context`](format/basic_format_context.md)             | 引数のフォーマットのコンテキスト (class template)                           | C++20          |
 | [`format_context`](format/basic_format_context.md)                   | `basic_format_context`のマルチバイト文字列版 (type-alias)                   | C++20          |
 | [`wformat_context`](format/basic_format_context.md)                  | `basic_format_context`のワイド文字列版 (type-alias)                         | C++20          |
+| [`range_format`](format/range_format.md)                             | Rangeの書式種別 (enum) | C++23 |
+| [`format_kind`](format/format_kind.md)                               | 指定したRangeの書式種別を取得する (variable) | C++23 |
+| [`range_formatter`](format/range_formatter.md.nolink)                | Rangeに対する書式文字列の解析、値のフォーマットを行う (class template) | C++23 |
+| [`range-default-formatter`](format/range-default-formatter.md.nolink) | Rangeに対する共通の書式文字列の解析、値のフォーマットを行う説明専用クラス (class template) | C++23 |
 
 ## 引数
 

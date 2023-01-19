@@ -25,10 +25,8 @@ namespace std {
 ```
 * formatter[link formatter.md]
 * semiregular[link /reference/concepts/semiregular.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * basic_format_context[link basic_format_context.md]
 * basic_format_parse_context[link basic_format_parse_context.md]
-* same_as[link /reference/concepts/same_as.md]
 
 ## 概要
 `formattable`は、文字列フォーマット可能であることを表すコンセプトである。

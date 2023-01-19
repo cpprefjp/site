@@ -53,7 +53,6 @@ namespace std::chrono {
 * conditional_t[link /reference/type_traits/conditional.md]
 * is_convertible[link /reference/type_traits/is_convertible.md]
 * time_zone[link /reference/chrono/time_zone.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 `std::chrono::zoned_time`クラステンプレートの型推論補助。

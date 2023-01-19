@@ -9,7 +9,6 @@
 constexpr auto end() const;                                    // (1)
 constexpr iterator end() const requires same_as<W, Bound>;     // (2)
 ```
-* same_as[link /reference/concepts/same_as.md]
 * iterator[link iterator.md]
 
 ## 概要
@@ -27,7 +26,6 @@ else
 // (2)
 return iterator{bound_};
 ```
-* same_as[link /reference/concepts/same_as.md]
 * unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]
 * unreachable_sentinel[link /reference/iterator/unreachable_sentinel_t.md]
 * sentinel[link sentinel.md]

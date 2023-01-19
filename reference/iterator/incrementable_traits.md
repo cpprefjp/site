@@ -111,7 +111,6 @@ int main() {
 }
 ```
 * std::incrementable_traits[color ff0000]
-* same_as[link /reference/concepts/same_as.md]
 
 ### 出力
 ```

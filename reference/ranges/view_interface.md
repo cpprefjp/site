@@ -12,7 +12,6 @@ namespace std::ranges {
 }
 ```
 * is_class_v[link /reference/type_traits/is_class.md]
-* same_as[link /reference/concepts/same_as.md]
 * remove_cv_t[link /reference/type_traits/remove_cv.md]
 
 ## 概要

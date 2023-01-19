@@ -17,7 +17,6 @@ namespace std {
 ```
 * regular[link /reference/concepts/regular.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
-* same_as[link /reference/concepts/same_as.md]
 
 ## 概要
 

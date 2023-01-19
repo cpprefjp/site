@@ -23,9 +23,7 @@ namespace std {
 * contiguous_iterator_tag[link /reference/iterator/iterator_tag.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* same_as[link /reference/concepts/same_as.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * to_address[link /reference/memory/to_address.md]
 * add_pointer_t[link /reference/type_traits/add_pointer.md]
 

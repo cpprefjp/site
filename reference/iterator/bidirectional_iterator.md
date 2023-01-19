@@ -20,7 +20,6 @@ namespace std {
 * derived_from[link /reference/concepts/derived_from.md]
 * ITER_CONCEPT[link /reference/iterator/input_iterator.md#iter_concept]
 * bidirectional_iterator_tag[link iterator_tag.md]
-* same_as[link /reference/concepts/same_as.md]
 
 ## 概要
 

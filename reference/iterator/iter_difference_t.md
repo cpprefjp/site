@@ -10,7 +10,6 @@ namespace std {
   using iter_difference_t = /*see below*/;
 }
 ```
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 

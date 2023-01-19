@@ -129,7 +129,6 @@ int main() {
 }
 ```
 * std::indirectly_readable_traits[color ff0000]
-* same_as[link /reference/concepts/same_as.md]
 
 ### 出力
 ```

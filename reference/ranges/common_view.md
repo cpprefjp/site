@@ -96,7 +96,6 @@ int main() {
 ```
 * views::common[color ff0000]
 * views::iota[link iota_view.md]
-* same_as[link /reference/concepts/same_as.md]
 
 ### 出力
 ```

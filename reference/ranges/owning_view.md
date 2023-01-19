@@ -145,7 +145,6 @@ namespace std::ranges {
 * declval[link /reference/utility/declval.md]
 * std::forward[link /reference/utility/forward.md]
 * addressof[link /reference/memory/addressof.md]
-* same_as[link /reference/concepts/same_as.md]
 * iterator_t[link iterator_t.md]
 * sentinel_t[link sentinel_t.md]
 * ranges::begin[link begin.md]
