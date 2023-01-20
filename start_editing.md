@@ -1,4 +1,4 @@
-# cpprefjpを編集するには
+# はじめてのコントリビュート
 
 本cpprefjpサイトは、GitHub Pagesのサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkdown形式のプレーンテキストで行います。
 
@@ -54,64 +54,56 @@ Markdownは、GitHubサービス上でドキュメントを記述するフォー
 
 Markdownの記述方法をわかりやすく解説してくれているWebサイトは、すでに数多く存在しますので、詳細はそちらを参照してください。
 
-* [Markdown記法 チートシート](http://qiita.com/Qiita/items/c686397e4a0f4f11683d)
-* [文章作成やメモ書きにも便利、Markdown記法](http://kojika17.com/2013/01/starting-markdown.html)
+- [Markdown記法 チートシート](http://qiita.com/Qiita/items/c686397e4a0f4f11683d)
+- [文章作成やメモ書きにも便利、Markdown記法](http://kojika17.com/2013/01/starting-markdown.html)
 
 ただし、cpprefjp特有の拡張構文もあります。
 以下のページにまとめてあるので、そちらを参照して下さい。
 
-* [cpprefjp特有の拡張構文](/start_editing/specialized.md)
+- [cpprefjp特有の拡張構文](/start_editing/specialized.md)
 
 Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイトでは積極的にはHTMLタグを使用しない方針です。できるだけ、Markdown形式でできる範囲内で解決するようにしてください。
 
 ただし、注釈・出典を貼るためにHTMLタグを利用します。
 
-* [cpprefjpにおける注釈・出典の貼り方](/start_editing/cite_note_ref.md)
+- [cpprefjpにおける注釈・出典の貼り方](/start_editing/cite_note_ref.md)
 
 それ以外に本サイト内で使用しているHTMLタグは以下です：
 
-* アンカーを貼るために、`<a id="アンカー名">対象文字列</a>`のようなHTML5に基づく記法を利用している
-* 表内での改行のために、`<br/>`タグを利用している
-* 値の大きさを表現するために、上付き文字を表す`<sup>`タグを利用している
-* 添字を表現するために、下付き文字を表す`<sub>`タグを利用している
+- アンカーを貼るために、`<a id="アンカー名">対象文字列</a>`のようなHTML5に基づく記法を利用している
+- 表内での改行のために、`<br/>`タグを利用している
+- 値の大きさを表現するために、上付き文字を表す`<sup>`タグを利用している
+- 添字を表現するために、下付き文字を表す`<sub>`タグを利用している
 
 また、Markdownパーサーの制限を回避し、表内で `|` (縦線、vertical line) を使用するために、文字参照 `&#x7C;` を使用してます。
 
 新規リファレンスを書くにあたって、雛形ページを用意していますので、そちらをベースにして編集作業を行ってください。
 
-* [ヘッダファイルトップページの雛形](/start_editing/header_template_page.md)
-* [関数の雛形](/start_editing/function_template_page.md)
-* [クラスの雛形](/start_editing/class_template_page.md)
-* [型の別名の雛形](/start_editing/type-type_template_page.md)
+- [言語機能の雛形](/start_editing/lang_template_page.md)
+- [ヘッダファイルページの雛形](/start_editing/header_template_page.md)
+- [モジュールページの雛形](/start_editing/module_template_page.md)
+- [関数の雛形](/start_editing/function_template_page.md)
+- [クラスの雛形](/start_editing/class_template_page.md)
+- [型の別名の雛形](/start_editing/type-type_template_page.md)
+- [コンセプトの雛形](/start_editing/concept_template_page.md)
+- [名前付き要件の雛形](/start_editing/named_requirement_template_page.md)
+- [比較演算子の雛形](/start_editing/comparison_operator_template_page.md)
+- [CPOの雛形](/start_editing/cpo_template_page.md)
 
 また、リポジトリのトップディレクトリに`GLOBAL_QUALIFY_LIST.txt`というファイルがあります。サイト全体のコードブロックに対して適用したい識別子の修飾があれば、ここに列挙していきます。書き方は各雛形ページに書いてあるコードブロックの修飾と同じです。
 
 
 ## 初めての人は見ておいたほうがよいページ
 
-* [処理系](/implementation.md) 処理系の正式な定義があります
-* [進行状況](https://github.com/cpprefjp/site/wiki/progress) リファレンス作成の進行状況が確認できます
-* [スタイル](/working_style.md) 作業を行う上でのスタイルの定義と、訳語があります
+- [処理系](/implementation.md) 処理系の正式な定義があります
+- [進行状況](https://github.com/cpprefjp/site/wiki/progress) リファレンス作成の進行状況が確認できます
+- [スタイル](/working_style.md) 作業を行う上でのスタイルの定義と、訳語があります
 
 
 ## その他、cpprefjpを編集するにあたってのドキュメント
 
-* [ページファイル名の付け方](/start_editing/page_names.md)
-* [乱数分布の図を作る方法](/start_editing/random_figure.md)
-
-
-## 次期C++バージョンへの対応方針と作業方法
-C++の次のバージョンで入ることが決まった機能については、以下の方針で対応を行います。
-
-- 次のバージョンの言語機能・ライブラリ機能の解説は、随時許可する
-- ただし、Working Draftに採択された機能のみを対象とする。まだ提案中の機能は、本サイトでの解説の対象外とする
-    - 例外は、機能テストマクロのようなコンパイラへの推奨機能
-- 採択された機能は、[C++ Standards Committee Papers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/)のEditor's Reportで確認できる
-- 次のC++バージョンに採択された機能は、本リポジトリのWikiページに随時記載しているので、対応状況を含めてそちらを確認すること
-
-
-## 本サイトのタスクを確認するには
-本サイトで書くことが決まっているタスクを確認するには、issueを参照してください。「TASK」ラベルが付いているもので、担当者がついていないものがあれば、ぜひとも引き取ってください。
+- [ページファイル名の付け方](/start_editing/page_names.md)
+- [乱数分布の図を作る方法](/start_editing/random_figure.md)
 
 
 ## Pull Requestのレビューとマージ
@@ -137,4 +129,111 @@ Pull Requestのレビューが滞っていた場合、Pull Requestの提出者�
 - 強制プッシュ
     - `git push -f`や`git push --force`といったコマンドは、リポジトリの設定で、masterブランチに対してはできないようにしてあります。これは、masterブランチは壊してはならないという理由によるものです
     - masterブランチ以外には強制プッシュできますので、Pull Request用のトピックブランチのコミットを整理する、といった目的などで使用していただいて大丈夫です
+
+
+## 求められる編集作業
+### 誤字・脱字を修正する (難易度★)
+本サイトは編集者が手入力で解説を書いているため、誤字・脱字はどうしても発生してしまいます。
+
+誤字・脱字があったら、積極的に修正してください。
+
+
+### 動作確認できたコンパイラバージョンを記載する (難易度★★)
+本サイトのライブラリリファレンスでは、機能ごとに動作確認ができたコンパイラバージョンを記載しています。
+
+各ページを書いた時点での動作確認できたコンパイラバージョンは記載していますが、その後の更新は十分に行えていません。
+
+サンプルコードの下に以下のように動作確認できたコンパイラバージョンを記載する項目がありますので、「??」になっている項目がありましたら、動作確認して埋めていっていただきたいです。
+
+```
+## 処理系
+### バージョン
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 10
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1
+```
+
+バージョンの表記としては、とくにVisual C++は本サイト独自の表記法がありますので、以下のページを確認してください。
+
+- [処理系](implementation.md)
+
+対応バージョンは、動作確認できたコンパイラのうち、最小のバージョンを知りたいので、記載されているものより古いコンパイラバージョンで動作確認ができた場合は、記載されているバージョンを修正してください。
+
+動作確認の方法としては、対象ページのサンプルコードを、お手元のコンパイラでコンパイル・実行し、出力が記載されているものと一致しているかを確認してください。
+
+ただし、「出力例」のように記載されている場合、プラットフォームごとに出力が異なる可能性があります。その場合は仕様と実装を確認していただく必要があるかもしれません。
+
+動作確認は、Webブラウザ上で行える場合があります。オンラインコンパイラとして、以下のサービスの使用も検討してください。
+
+- [Wandbox](https://wandbox.org/)
+- [Compiler Explorer](https://godbolt.org/)
+
+
+### 関連項目を追加する  (難易度★★★)
+各ページには、「`## 関連項目`」という見出し以下に本サイト内の関連ページを記載できます。
+
+読者が関連する情報を追いやすいように、関連ページへのリンク追加をお願いしたいです。
+
+関連項目としては、以下のようなものを記載します：
+
+- 言語機能であれば、その機能への仕様変更・拡張など
+- ライブラリであれば、
+    - 組み合わせて使うことが多いもの
+    - 特定のデータ構造に特化した関数と、汎用の関数
+    - その機能の代わりに使用を検討したほうがよいもの
+
+関連項目を書く場所については、各雛形ページを参照してください。
+
+- [言語機能の雛形](/start_editing/lang_template_page.md)
+- [ヘッダファイルページの雛形](/start_editing/header_template_page.md)
+- [モジュールページの雛形](/start_editing/module_template_page.md)
+- [関数の雛形](/start_editing/function_template_page.md)
+- [クラスの雛形](/start_editing/class_template_page.md)
+- [型の別名の雛形](/start_editing/type-type_template_page.md)
+- [コンセプトの雛形](/start_editing/concept_template_page.md)
+- [名前付き要件の雛形](/start_editing/named_requirement_template_page.md)
+- [比較演算子の雛形](/start_editing/comparison_operator_template_page.md)
+- [CPOの雛形](/start_editing/cpo_template_page.md)
+
+
+### サンプルコードを追加する (難易度★★★★)
+本サイトは、すべての機能にひとつ以上のサンプルコードを付けることを大きな価値としています。
+
+サンプルコードをひとつは (ほぼ) 必ず付けるようにしていますが、ユースケースをカバーできていない場合があります。
+
+良質なサンプルコードを作ることはむずかしいですが、機能の有用性を説明する最小サンプルコードを書くことに慣れている方や挑戦したい方にお願いしたいです。
+
+サンプルコードを追加する場合、以下の要件を満たすようお願いします：
+
+1. 既存サンプルコードとは異なるユースケースや、異なる観点を与えるものであること
+2. 標準の範囲内でその機能の有用性を説明しにくい場合を除き、プラットフォーム非依存であること
+3. 十分に小さいこと
+
+
+### 新仕様に対応する (難易度★★★★★★)
+C++の規格書を読み慣れている方向けになります。
+
+C++の新仕様やCWG/LWGのissueへの対応作業が多く求められます。対応がまだ行われていない作業は、以下で確認できます。
+
+- [cpprefjp/siteリポジトリのタスクissue](https://github.com/cpprefjp/site/issues)
+    - 担当をとりやすいようタスクissueにしているものがある
+- [cpprefjp/siteリポジトリのWiki](https://github.com/cpprefjp/site/wiki)
+    - CWG (Core Working Group) や LWG (Library Working Group) へのissue (Defect Report) など、タスクissueにしていない未対応タスクがすべて記載されている
+
+C++の次のバージョンで入ることが決まった機能については、以下の方針で対応を行います。
+
+- 次のバージョンの言語機能・ライブラリ機能の解説は、随時許可する
+- ただし、Working Draftに採択された機能のみを対象とする。まだ提案中の機能は、本サイトでの解説の対象外とする
+    - 例外は、機能テストマクロのようなコンパイラへの推奨機能
+- 採択された機能は、Wikiの各言語バージョンのページに記載されているが、されていなかったら[C++ Standards Committee Papers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/)のEditor's Reportで確認できる
+
+
+### 優先度が低くなっている古くからある機能を記載する (難易度★★★★★★)
+本サイトはなるべくすべての機能の解説を書くことを目標にしてはいますが、記載が追いついていないものがいくつかあります。
+
+- iostream系
+- C互換ライブラリ
+- ロケール
+
+これらはタスクissueにもできていませんが、手が足りず作業できていません。
 
