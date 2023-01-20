@@ -150,6 +150,13 @@ Rangeファクトリは、Rangeではないオブジェクトから[`view`](rang
 | [`iota_view`](ranges/iota_view.md)        | 単調増加列であるRange (class template)              | C++20          |
 | [`views::iota`](ranges/iota_view.md)      | `iota_view`を生成する (customization point object)  | C++20          |
 
+### repeat view
+
+| 名前                                          | 説明                                                  | 対応バージョン |
+|-----------------------------------------------|-------------------------------------------------------|----------------|
+| [`repeat_view`](ranges/repeat_view.md)        | 指定した値を指定回数繰り返すRange (class template)    | C++23          |
+| [`views::repeat`](ranges/repeat_view.md)      | `repeat_view`を生成する (customization point object)  | C++23          |
+
 ### istream view
 
 | 名前                                                   | 説明                                                         | 対応バージョン |
@@ -209,6 +216,13 @@ range | adaptor(args...)
 | [`views::all`](ranges/all.md)           | Rangeへの参照として振る舞うビューを生成する (customization point object) | C++20          |
 | [`views::all_t`](ranges/all.md)         | `all`の戻り値型 (alias template)                                         | C++20          |
 
+### as rvalue view
+
+| 名前                                           | 説明                                                         | 対応バージョン |
+|------------------------------------------------|--------------------------------------------------------------|----------------|
+| [`as_rvalue_view`](ranges/as_rvalue_view.md.nolink)   | 各要素をrvalueにするビュー (class template)                  | C++23          |
+| [`views::as_rvalue`](ranges/as_rvalue.md.nolink)      | `as_rvalue_view`を生成する (customization point object)      | C++23          |
+
 ### filter view
 
 | 名前                                          | 説明                                                        | 対応バージョン |
@@ -257,15 +271,25 @@ range | adaptor(args...)
 |-----------------------------------------------------|---------------------------------------------------------------------------------------------------|----------------|
 | [`join_view`](ranges/join_view.md)                  | ネストされたRangeを平坦にするビュー (class template)                                              | C++20          |
 | [`views::join`](ranges/join_view.md)                | ネストされたRangeを平坦にするビューを生成する (customization point object)                        | C++20          |
+
+### join with view
+
+| 名前                                                | 説明                                                                                              | 対応バージョン |
+|-----------------------------------------------------|---------------------------------------------------------------------------------------------------|----------------|
 | [`join_with_view`](ranges/join_with_view.md.nolink)        | ネストされたRangeをデリミタで区切りながら平坦にするビュー (class template)                        | C++23          |
 | [`views::join_with`](ranges/join_with_view.md.nolink)      | ネストされたRangeをデリミタで区切りながら平坦にするビューを生成する (customization point object)  | C++23          |
 
-### split view
+### lazy split view
 
 | 名前                                                  | 説明                                                         | 対応バージョン |
 |-------------------------------------------------------|--------------------------------------------------------------|----------------|
 | [`lazy_split_view`](ranges/lazy_split_view.md)        | Rangeを指定したデリミタで分割するビュー (class template)     | C++20          |
 | [`views::lazy_split`](ranges/lazy_split_view.md)      | `lazy_split_view`を生成する (customization point object)     | C++20          |
+
+### split view
+
+| 名前                                                  | 説明                                                         | 対応バージョン |
+|-------------------------------------------------------|--------------------------------------------------------------|----------------|
 | [`split_view`](ranges/split_view.md)                  | 文字列分割に特化した`lazy_split_view` (class template)       | C++20          |
 | [`views::split`](ranges/split_view.md)                | `split_view`を生成する (customization point object)          | C++20          |
 
@@ -289,6 +313,13 @@ range | adaptor(args...)
 | [`reverse_view`](ranges/reverse_view.md)        | 逆順のビュー (class template)                        | C++20          |
 | [`views::reverse`](ranges/reverse_view.md)      | 逆順のビューを生成する (customization point object)  | C++20          |
 
+### as const view
+
+| 名前                                          | 説明                                                         | 対応バージョン |
+|-----------------------------------------------|--------------------------------------------------------------|----------------|
+| [`as_const_view`](ranges/as_const_view.md.nolink)    | 各要素をconstにするビュー (class template)                   | C++23          |
+| [`views::as_const`](ranges/as_const.md.nolink)       | `as_const_view`を生成する (customization point object)       | C++23          |
+
 ### elements view
 
 | 名前                                              | 説明                                                   | 対応バージョン |
@@ -306,6 +337,11 @@ range | adaptor(args...)
 |--------------------------------------------------------|-------------------------------------------------------------------------------------|----------------|
 | [`zip_view`](ranges/zip_view.md.nolink)                       | 2つのシーケンスから値を1つずつ取り出した`tuple`のビュー (class template)            | C++23          |
 | [`views::zip`](ranges/zip_view.md.nolink)                     | `zip_view`を生成する (customization point object)                                   | C++23          |
+
+### zip transform view
+
+| 名前                                                   | 説明                                                                                | 対応バージョン |
+|--------------------------------------------------------|-------------------------------------------------------------------------------------|----------------|
 | [`zip_transform_view`](ranges/zip_transform_view.md.nolink)   | 2つのシーケンスから値を1つずつ取り出し、関数を適用した結果のビュー (class template) | C++23          |
 | [`views::zip_transform`](ranges/zip_transform_view.md.nolink) | `zip_transform_view`を生成する (customization point object)                         | C++23          |
 
@@ -315,6 +351,11 @@ range | adaptor(args...)
 |------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
 | [`adjacent_view`](ranges/adjacent_view.md.nolink)                       | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
 | [`views::adjacent`](ranges/adjacent_view.md.nolink)                     | `adjacent_view`を生成する (customization point object)                             | C++23          |
+
+### adjacent transform view
+
+| 名前                                                             | 説明                                                                               | 対応バージョン |
+|------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
 | [`adjacent_transform_view`](ranges/adjacent_transform_view.md.nolink)   | `adjacent_view`と同様に取り出し、関数を適用した結果のビュー (class template)       | C++23          |
 | [`views::adjacent_transform`](ranges/adjacent_transform_view.md.nolink) | `adjacent_transform_view`を生成する (customization point object)                   | C++23          |
 
@@ -324,6 +365,11 @@ range | adaptor(args...)
 |---------------------------------------------|--------------------------------------------------------------------|----------------|
 | [`chunk_view`](ranges/chunk_view.md.nolink)         | シーケンスを指定個数で区切った`view`のシーケンス (class template)  | C++23          |
 | [`views::chunk`](ranges/chunk_view.md.nolink)       | `chunk_view`を生成する (customization point object)                | C++23          |
+
+### chunk by view
+
+| 名前                                        | 説明                                                               | 対応バージョン |
+|---------------------------------------------|--------------------------------------------------------------------|----------------|
 | [`chunk_by_view`](ranges/chunk_by_view.md.nolink)   | 2項述語が偽となる部分で区切った`view`のシーケンス (class template) | C++23          |
 | [`views::chunk_by`](ranges/chunk_by_view.md.nolink) | `chunk_by_view`を生成する (customization point object)             | C++23          |
 
@@ -333,6 +379,20 @@ range | adaptor(args...)
 |----------------------------------------|---------------------------------------------------------------------------------|----------------|
 | [`slide_view`](ranges/slide_view.md.nolink)   | 各要素とそれに隣接する要素を指定個数ずつ見る`view`のシーケンス (class template) | C++23          |
 | [`views::slide`](ranges/slide_view.md.nolink) | `slide_view`を生成する (customization point object)                             | C++23          |
+
+### stride view
+
+| 名前                                     | 説明                                                  | 対応バージョン |
+|------------------------------------------|-------------------------------------------------------|----------------|
+| [`stride_view`](ranges/stride_view.md.nolink)   | 要素を指定個数飛ばしに見るビュー (class template)     | C++23          |
+| [`views::stride`](ranges/stride_view.md.nolink) | `stride_view`を生成する (customization point object)  | C++23          |
+
+### cartesian product view
+
+| 名前                                                          | 説明                                                             | 対応バージョン |
+|---------------------------------------------------------------|------------------------------------------------------------------|----------------|
+| [`cartesian_product_view`](ranges/cartesian_product_view.md.nolink)  | シーケンスの直積集合のビュー (class template)                    | C++23          |
+| [`views::cartesian_product`](ranges/cartesian_product.md.nolink)     | `cartesian_product_view`を生成する (customization point object)  | C++23          |
 
 
 ## Range変換

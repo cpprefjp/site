@@ -6,9 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-typename add_lvalue_reference<T>::type operator*() const;
+typename add_lvalue_reference<T>::type operator*() const; // (1) C++11
+constexpr add_lvalue_reference_t<T> operator*() const;    // (1) C++23
 ```
 * add_lvalue_reference[link /reference/type_traits/add_lvalue_reference.md]
+* add_lvalue_reference_t[link /reference/type_traits/add_lvalue_reference.md]
 
 ## 概要
 ポインタを間接参照する。
@@ -54,3 +56,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+
+
+## 参照
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

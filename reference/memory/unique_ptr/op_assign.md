@@ -6,14 +6,19 @@
 * cpp11[meta cpp]
 
 ```cpp
-unique_ptr& operator=(unique_ptr&& u) noexcept;       // (1) 単一オブジェクト、配列
+unique_ptr& operator=(unique_ptr&& u) noexcept;           // (1) C++11
+constexpr unique_ptr& operator=(unique_ptr&& u) noexcept; // (1) C++23
 
 template <class U, class E>
-unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) 単一オブジェクト、配列（C++17）
+unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept;           // (2) C++11 単一オブジェクト版
+                                                                // (2) C++17 配列版
+template <class U, class E>
+constexpr unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) C++23
 
-unique_ptr& operator=(nullptr_t) noexcept;            // (3) 単一オブジェクト、配列
+unique_ptr& operator=(nullptr_t) noexcept;            // (3) C++11
+constexpr unique_ptr& operator=(nullptr_t) noexcept;  // (3) C++23
 
-unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェクト、配列
+unique_ptr& operator=(const unique_ptr&) = delete;    // (4) C++11
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
@@ -112,3 +117,4 @@ int main()
 - [LWG 2246. `unique_ptr` assignment effects w.r.t. deleter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246)
 - [LWG 2228: Missing SFINAE rule in unique_ptr templated assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4366)
     - (2)のSFINAEルール不足の欠陥修正の提案文書
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

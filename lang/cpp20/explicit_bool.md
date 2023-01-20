@@ -94,7 +94,6 @@ std::tuple<int, int> pixel_coordinates()
 struct NonCopyable { NonCopyable(int); NonCopyable(const NonCopyable&) = delete; };
 std::pair<NonCopyable, double> pmd{42, 3.14};  // C++14でコンパイルエラー！
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 
 この問題に対して、C++17では (対応が早い処理系はそれ以前から) これらのクラスのコンストラクタが、条件付きで`explicit`定義されるようにした。その実装方法としてはSFINAEによって、`explicit`コンストラクタと非`explicit`コンストラクタをオーバーロードする方法が使われていた。
 

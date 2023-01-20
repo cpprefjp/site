@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T, class D>
-  void swap(unique_ptr<T, D>& a, unique_ptr<T, D>& b) noexcept;
+  void swap(unique_ptr<T, D>& a, unique_ptr<T, D>& b) noexcept; // (1) C++11
+
+  template <class T, class D>
+  constexpr void swap(unique_ptr<T, D>& a, unique_ptr<T, D>& b) noexcept; // (1) C++23
 }
 ```
 
@@ -62,3 +65,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+
+
+## 参照
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

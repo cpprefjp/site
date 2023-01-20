@@ -93,7 +93,6 @@ int main()
   std::cout << s << std::endl;
 }
 ```
-* std::tuple[color ff0000]
 * std::get[link tuple/get.md]
 * std::make_tuple[link make_tuple.md]
 

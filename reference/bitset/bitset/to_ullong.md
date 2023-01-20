@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-unsigned long long to_ullong() const;
+unsigned long long to_ullong() const;           // (1) C++11
+constexpr unsigned long long to_ullong() const; // (1) C++23
 ```
 
 ## 概要
@@ -52,4 +53,4 @@ int main()
 
 
 ## 参照
-
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

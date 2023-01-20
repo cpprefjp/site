@@ -14,6 +14,7 @@
 | [`align_val_t`](new/align_val_t.md) | デフォルトよりも大きなアライメントを要求するとき、`new` に渡されるアライメント値の型 | C++17 |
 | [`nothrow_t`](new/nothrow_t.md) | 例外をスローしないための`std::nothrow`の型 | |
 | [`new_handler`](new/new_handler.md) | `new`失敗時に呼ばれる関数の型 | |
+| [`destroying_delete_t`](new/destroying_delete_t.md) | *destroying operator delete*を定義するためのタグ型 | C++20 |
 
 
 ## 関数

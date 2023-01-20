@@ -8,7 +8,9 @@
 namespace std {
   //整数型用
   from_chars_result from_chars(const char* first, const char* last,
-                               /*see below*/& value, int base = 10);      // (1)
+                               /*see below*/& value, int base = 10);      // (1) C++17
+  constexpr from_chars_result from_chars(const char* first, const char* last,
+                               /*see below*/& value, int base = 10);      // (1) C++23
 
   //浮動小数点型用
   from_chars_result from_chars(const char* first, const char* last, float& value,
@@ -257,3 +259,5 @@ nan
 - [P0067R5: Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)
 - [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)
 - [How to Use The Newest C++ String Conversion Routines - std::from_chars - Bartek's coding blog ](https://www.bfilipek.com/2018/12/fromchars.html)
+- [P2291R3: Add Constexpr Modifiers to Functions to_chars and from_chars for Integral Types in `<charconv>` Header](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2291r3.pdf)
+    - C++23での(1)constexpr指定

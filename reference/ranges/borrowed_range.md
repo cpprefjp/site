@@ -13,7 +13,6 @@ namespace std::ranges {
 * range[link range.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * enable_borrowed_range[link enable_borrowed_range.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 `borrowed_range`は、Rangeを所有しない`range`を表すコンセプトである。Rangeオブジェクトの左辺値参照は`borrowed_range`である。

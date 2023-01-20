@@ -110,16 +110,16 @@
 | `atomic_compare_exchange_strong_explicit` | 強い比較でメモリオーダーを指定して、`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
 
 
-## ガベージコレクション支援
+## ガベージコレクション支援（C++23で削除）
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|--------------------------------------------|-------|
-| [`pointer_safety`](memory/pointer_safety.md) | ポインタ安全性について実装/挙動を示す列挙型(enum class) | C++11 |
-| [`get_pointer_safety`](memory/get_pointer_safety.md) | 処理系の、ポインタ安全性についての実装/挙動を取得する(function) | C++11 |
-| [`declare_reachable`](memory/declare_reachable.md) | ポインタが到達可能であることを宣言する(function) | C++11 |
-| [`undeclare_reachable`](memory/undeclare_reachable.md) | ポインタが到達可能であるという宣言を削除する(function template) | C++11 |
-| [`declare_no_pointers`](memory/declare_no_pointers.md) | 指定された範囲のポインタが、追跡可能ではないことを宣言する(function) | C++11 |
-| [`undeclare_no_pointers`](memory/undeclare_no_pointers.md) | `declare_no_pointers`で宣言された範囲を無効化する(function) | C++11 |
+| [`pointer_safety`](memory/pointer_safety.md) | ポインタ安全性について実装/挙動を示す列挙型(enum class) | C++11<br/>C++23で削除 |
+| [`get_pointer_safety`](memory/get_pointer_safety.md) | 処理系の、ポインタ安全性についての実装/挙動を取得する(function) | C++11<br/>C++23で削除 |
+| [`declare_reachable`](memory/declare_reachable.md) | ポインタが到達可能であることを宣言する(function) | C++11<br/>C++23で削除 |
+| [`undeclare_reachable`](memory/undeclare_reachable.md) | ポインタが到達可能であるという宣言を削除する(function template) | C++11<br/>C++23で削除 |
+| [`declare_no_pointers`](memory/declare_no_pointers.md) | 指定された範囲のポインタが、追跡可能ではないことを宣言する(function) | C++11<br/>C++23で削除 |
+| [`undeclare_no_pointers`](memory/undeclare_no_pointers.md) | `declare_no_pointers`で宣言された範囲を無効化する(function) | C++11<br/>C++23で削除 |
 
 
 ## ポインタのユーティリティ
@@ -137,3 +137,4 @@
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
 - [P0718R2 Revising `atomic_shared_ptr` for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html)
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
+- [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)

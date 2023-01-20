@@ -221,6 +221,7 @@ int main()
 - [LWG Issue 2842. `in_place_t` check for `optional::optional(U&&)` should decay `U`](https://wg21.cmeerw.net/lwg/issue2842)
     - 説明の簡略化のため、このオーバーロードで`in_place_t`への言及は現在していない
 - [LWG Issue 2900. The copy and move constructors of `optional` are not `constexpr`](https://wg21.cmeerw.net/lwg/issue2900)
+- [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)

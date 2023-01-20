@@ -44,7 +44,13 @@ def fix_link(link: str) -> str:
             link = link + ")"
         return re.sub("#.*", "", link.strip())
     else:
-        return ""
+        if not link:
+            return ""
+
+        if link.startswith("#"):
+            return ""
+
+        return link
 
 IGNORE_LIST = [
     "https://web.archive.org", # 確実に存在すると思われる
@@ -72,17 +78,35 @@ def find_all_links(text: str) -> (list, set):
             else:
                 inner_links.append(link)
 
-    for m in re.finditer(r'\[(.*?)\]\((.*?)\)', text):
-        link = m.group(2)
-        if '(' in link:
-            index = text.find(')', m.end(0))
-            after_link = text[m.start(2):index]
-            add_link(after_link)
-        else:
-            add_link(link)
+    in_code_block = False
+    for line in text.split("\n"):
+        # コードブロックのなかは、チェックしない
+        is_code_block = line.strip().startswith("```")
+        if is_code_block:
+            in_code_block = not in_code_block
+            continue
 
-    for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', text):
-        add_link(m.group(2))
+        if in_code_block:
+            continue
+
+        for m in re.finditer(r'\[(.*?)\]\((.*?)\)', line):
+            pretext = line[0:m.start(0)]
+            # コード修飾のなかは、チェックしない
+            incode = pretext.count("`")
+            if pretext.count("`") % 2 != 0:
+                continue
+
+            link = m.group(2)
+            if '(' in link:
+                index = line.find(')', m.end(0))
+                after_link = line[m.start(2):index]
+                add_link(after_link)
+            else:
+                add_link(link)
+
+    for line in text.split("\n"):
+        for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', line):
+            add_link(m.group(2))
 
     return inner_links, outer_links
 

@@ -26,11 +26,25 @@ explicit bitset(
     basic_string<CharT, Traits, Allocator>::npos,
   CharT zero = CharT('0'), CharT one = CharT('1')); // (3) C++11
 
+template <class CharT, class Traits, class Allocator>
+constexpr explicit bitset(
+  const basic_string<CharT, Traits, Allocator>& str,
+  typename basic_string<CharT, Traits, Allocator>::size_type pos = 0,
+  typename basic_string<CharT, Traits, Allocator>::size_type n =
+    basic_string<CharT, Traits, Allocator>::npos,
+  CharT zero = CharT('0'), CharT one = CharT('1')); // (3) C++23
+
 template <class CharT>
 explicit bitset(
   const CharT* str,
   typename basic_string<CharT>::size_type n = basic_string<CharT>::npos,
   CharT zero = CharT('0'), CharT one = CharT('1')); // (4) C++11
+
+template <class CharT>
+constexpr explicit bitset(
+  const CharT* str,
+  typename basic_string<CharT>::size_type n = basic_string<CharT>::npos,
+  CharT zero = CharT('0'), CharT one = CharT('1')); // (4) C++23
 ```
 * basic_string[link /reference/string/basic_string.md]
 
@@ -122,4 +136,4 @@ int main()
 ## 参照
 - [LWG Issue 778. `std::bitset` does not have any constructor taking a string literal](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#778)
     - (4)のコンストラクタが追加された経緯となるレポート
-
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

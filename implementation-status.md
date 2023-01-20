@@ -181,7 +181,7 @@
 | P0614R1: [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | | 2019 Update 5 |
 | P0588R1: [暗黙のラムダキャプチャを簡略化](/lang/cpp20/simplifying_implicit_lambda_capture.md) | ラムダ式のキャプチャに関する仕様整理 | 8 | No | 2021.4 | 2019 Update 4 |
 | P0846R0: [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 | 9 | 9.0 | 2021.4 | 2019 Update 1 |
-| P0641R2: [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md.nolink) | | 9 | 8.0 | 2021.4 | 2015 |
+| P0641R2: [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md) | 非`const`なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが不適格になってしまう問題を修正 | 9 | 8.0 | 2021.4 | 2015 |
 | P0859R0: [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 | 9 | 8 | | Partial in 2019 Update 7 |
 | P0515R3: [一貫比較](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial) | 2021.4 | 2019 |
 | P0692R1: [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md) | | Yes | partial | 2021.4 | 2019 Update 6 |
@@ -195,9 +195,9 @@
 | P0634R3: [型の文脈で`typename`の省略を許可](/lang/cpp20/down_with_typename.md) | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | 9 | 16 | 2021.4 (2021.6 は未対応) | 2019 Update 9 |
 | P0780R2: [ラムダ式の初期化キャプチャでのパック展開を許可](/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 | 9<br/>10 | 9.0 | | 2019 Update 2 |
 | P0479R5: [確率が高い分岐と低い分岐を伝える属性 `[[likely]]`, `[[unlikely]]`](/lang/cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 | 9 (partial, `switch` 文のみ可能)<br/> 10 | 12.0 | | 2019 Update 6 |
-| P0929R2: [抽象型のチェック](/lang/cpp20/checking_for_abstract_class_types.md.nolink) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | 11 | | | 2019 Update 5 |
+| P0929R2: [抽象型のチェック](/lang/cpp20/checking_for_abstract_class_types.md) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | 11 | | | 2019 Update 5 |
 | P0732R2: [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする | 9 | partial | | 2019 Update 6 |
-| P0722R3: [可変長データを扱うクラスの効率的な`delete`](/lang/cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | 2019 Update 7 |
+| P0722R3: [可変長データを扱うクラスの効率的な`delete`](/lang/cpp20/efficient_sized_delete_for_variable_sized_classes.md) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | 2019 Update 7 |
 | P1064R0: [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | 2021.4 | 2019 Update 9 |
 | P1327R1: [定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md) | 定数式での動的多態を許可 | 10 | 9.0 | 2021.4 | 2019 Update 9 |
 | P1002R1: [constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md) | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | 2021.4 (2021.6 は未対応)  | 2019 Update 5 |
@@ -251,7 +251,9 @@
 | P2266R3: [暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 | 13 | 13 | - | - |
 | P1467R9: [浮動小数点数型の拡張](/lang/cpp23/extended_floating_point_types_and_standard_names.md.nolink) | 実装による拡張浮動小数点型の定義を許可する | 13 | - | - | - |
 | P1787R6: [スコープと名前ルックアップの仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する | - | - | - | - |
+| P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md.nolink) | | - | - | - | - |
 | P2360R0: [初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md.nolink) | `for (using T = int; T e : v) {}`を許可 | 12 | 14 | - | - |
+| P2718R0: [範囲for文が範囲への参照を延命することを規定](lang/cpp23/lifetime_extension_in_range_based_for_loop.md.nolink) | | - | - | - | - |
 | P2324R2: [関数末尾のラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する | 13 | 16 | - | - |
 | P0847R7: [自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする | - | - | - | 2022 Update 2 (partial) |
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | Yes |
@@ -268,9 +270,11 @@
 | P2242R3: [定数式内での非リテラル変数の使用を含められないようにする](/lang/cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける | 12 | 15 | - | - |
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | - | yes | - | - |
 | P2448R2: [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md.nolink) | | 13 | - | - | - |
+| P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | | - | - | - | - |
+| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md.nolink) | | - | - | - | - |
 | P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | - | - |
 | P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md.nolink) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | - | - |
-| P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md.nolink) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | - | - | - |
+| P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | - | - | - |
 | P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md.nolink) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | yes | yes | - | - |
 | P2334R1: [`elif`/`elifdef`/`elifndef`のサポートを追加](/lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md.nolink) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する | 12 | 13 | - | - |
 | P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md.nolink) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | yes | yes | yes | yes |

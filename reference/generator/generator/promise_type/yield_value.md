@@ -28,9 +28,7 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
 * ranges::range_reference_t[link /reference/ranges/range_reference_t.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * is_rvalue_reference_v[link /reference/type_traits/is_rvalue_reference.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* same_as[link /reference/concepts/same_as.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 
 

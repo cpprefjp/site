@@ -10,7 +10,7 @@ namespace std {
 ```
 
 ## 概要
-浮動小数点数を指数表記で出力することを指示するマニピュレータ。
+浮動小数点数を指数表記で入出力することを指示するマニピュレータ。
 
 ## 効果
 `str.setf(ios_base::scientific, ios_base::floatfield)`を実行する。

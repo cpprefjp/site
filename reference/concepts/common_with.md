@@ -23,7 +23,6 @@ namespace std {
         add_lvalue_reference_t<const U>>>;
 }
 ```
-* same_as[link /reference/concepts/same_as.md]
 * common_type_t[link /reference/type_traits/common_type.md]
 * add_lvalue_reference_t[link /reference/type_traits/add_lvalue_reference.md]
 * common_reference_with[link /reference/concepts/common_reference_with.md]

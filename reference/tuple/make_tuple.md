@@ -54,7 +54,6 @@ int main()
 }
 ```
 * std::make_tuple[color ff0000]
-* std::tuple[link tuple.md]
 * std::ref[link /reference/functional/ref.md]
 * std::cref[link /reference/functional/cref.md]
 

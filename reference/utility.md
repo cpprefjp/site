@@ -68,6 +68,13 @@
 | [`to_underlying`](utility/to_underlying.md) | 列挙値を基底型に変換する (function template) | C++23 |
 
 
+## 列挙型
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`unreachable`](utility/unreachable.md) | コードパス不到達を表明する (function) | C++23 |
+
+
 ## 組
 
 | 名前                                                        | 説明                                   | 対応バージョン |

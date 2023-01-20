@@ -22,6 +22,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [スコープと名前ルックアップの仕様整理](cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する |
+| [無意味なexport宣言を禁止する](cpp23/meaningful_exports.md.nolink) | |
 
 
 ### 制御構文
@@ -29,6 +30,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [初期化文での型の別名宣言を許可](cpp23/extend_init_statement_to_allow_alias_declaration.md.nolink) | `for (using T = int; T e : v) {}`を許可 |
+| [範囲for文が範囲への参照を延命することを規定](cpp23/lifetime_extension_in_range_based_for_loop.md.nolink) | |
 | [関数末尾のラベルを許可](cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する |
 
 
@@ -69,6 +71,8 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | [定数式内での非リテラル変数の使用を含められないようにする](cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける |
 | [静的な診断メッセージの文字エンコーディング](cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす |
 | [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](cpp23/relaxing_some_constexpr_restrictions.md.nolink) | |
+| [`constexpr`関数内での`static constexpr`変数を許可](cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | |
+| [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](cpp23/consteval_needs_to_propagate_up.md.nolink) | |
 
 
 ### ラムダ式
@@ -83,7 +87,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [コード内容の仮定をコンパイラに伝えるassume属性](cpp23/portable_assumptions.md.nolink) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する |
+| [コード内容の仮定をコンパイラに伝えるassume属性](cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する |
 
 
 ### プリプロセッサ
@@ -168,7 +172,13 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - `std::string s = nullptr;`のような文字列オブジェクトに`nullptr`を代入するようなコードはバグの元であるため、[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)に、[`nullptr_t`](/reference/cstddef/nullptr_t.md)をとるコンストラクタをdelete定義として追加
 - [`std::basic_string`](/reference/string/basic_string.md)クラスに、resize時に任意の初期化を行う[`resize_and_overwrite()`](/reference/string/basic_string/resize_and_overwrite.md.nolink)メンバ関数を追加
 - [`std::basic_string`](/reference/string/basic_string.md)クラスのコンストラクタと[`substr()`](/reference/string/basic_string/substr.md)メンバ関数に一時オブジェクトのオーバーロードを追加
-- [`std::format()`](/reference/format/format.md)関数でコンテナ、[`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/utility/pair.md)を出力できるよう、[`std::formatter`](/reference/format/formatter.md)に特殊化を追加
+- [`std::format()`](/reference/format/format.md)関数でRange・コンテナ、[`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/utility/pair.md)を出力できるよう、[`std::formatter`](/reference/format/formatter.md)に特殊化を追加
+    - Range・シーケンスコンテナは`[1, 2, 3]`、`["hello", "world"]`、`['a', 'b', 'c']`のように出力される
+    - 連想コンテナの場合、`std::map<int, int>{{1, 2}, {3, 4}}`は`{1: 2, 3: 4}`のように出力され、`std::set<int>{1, 2, 3}`は`{1, 2, 3}`のように出力される
+    - [`std::tuple`](/reference/tuple/tuple.md)、[`std::pair`](/reference/utility/pair.md)は`(1, 2)`のように出力される
+- [`std::format()`](/reference/format/format.md)関数のフォーマット指定子としてデバッグ指定「`"?"`」を追加。これは文字・文字列を引用符で囲み、エスケープシーケンスをエスケープする
+    - ただし、Range・コンテナ中の文字・文字列はデフォルトでエスケープされる
+    - `format("{:?}", "h\tello")`は`"h\tello"`のように出力される
 
 
 ### 入出力
@@ -177,7 +187,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 
 ### 関数オブジェクト
-- [`std::invoke()`](/reference/functional/invoke.md)の戻り値型を指定するバージョンである[`std::invoke_r()`](/reference/functional/onvoke_r.md.nolink)を追加
+- [`std::invoke()`](/reference/functional/invoke.md)の戻り値型を指定するバージョンである[`std::invoke_r()`](/reference/functional/invoke_r.md)を追加
 - ムーブのみ可能な[`std::function`](/reference/functional/function.md)クラスと等価な機能をもつ[`std::move_only_function`](/reference/functional/move_only_function.md.nolink)クラスを追加
 - ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、末尾から引数を束縛する[`std::bind_back()`](/reference/functional/bind_back.md.nolink)関数を追加
 
@@ -193,8 +203,8 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - [`std::visit()`](/reference/variant/visit.md)に指定できるバリアントオブジェクトを、直接的な「[`std::variant`](/reference/variant/variant.md)型の特殊化であること」という制約を緩和し、[`std::variant`](/reference/variant/variant.md)から派生した型も許可
 - [`<utility>`](/reference/utility.md)に、列挙値を基底型に変換する[`std::to_underlying()`](/reference/utility/to_underlying.md)関数を追加
 - [`<utility>`](/reference/utility.md)に、 (主に) メンバ変数を転送するため、指定された型の`const`性と参照修飾で引数を転送する[`std::forward_like()`](/reference/utility/forward_like.md)関数を追加
-- [`std::optional`](/reference/optional/optional.md)クラスにモナド操作としてメンバ関数[`and_then()`](/reference/optional/optional/and_then.md.nolink)、[`transform()`](/reference/optional/optional/transform.md.nolink)、[`or_else()`](/reference/optional/optional/or_else.md.nolink)を追加
-- 到達しないパスであることを表明する関数[`std::unreachable()`](/reference/utility/unreachable.md.nolink)を追加
+- [`std::optional`](/reference/optional/optional.md)クラスにモナド操作としてメンバ関数[`and_then()`](/reference/optional/optional/and_then.md)、[`transform()`](/reference/optional/optional/transform.md)、[`or_else()`](/reference/optional/optional/or_else.md)を追加
+- 到達しないパスであることを表明する関数[`std::unreachable()`](/reference/utility/unreachable.md)を追加
 - [`std::bitset`](/reference/bitset/bitset.md)クラスをさらに`constexpr`対応
 
 
@@ -228,7 +238,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - [`std::undeclare_no_pointers()`](/reference/memory/undeclare_no_pointers.md)
     - [`std::get_pointer_safety()`](/reference/memory/get_pointer_safety.md)
     - [`std::pointer_safety`](/reference/memory/pointer_safety.md)
-    - `__STDCPP_STRICT_POINTER_SAFETY__`マクロ
+    - [`__STDCPP_STRICT_POINTER_SAFETY__`マクロ](/lang/cpp11/predefined_macros.md)
 
 
 ### 取り決め

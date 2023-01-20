@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-~unique_ptr();
+~unique_ptr();           // C++11
+constexpr ~unique_ptr(); // C++23
 ```
 
 ## unique_ptrオブジェクトの破棄
@@ -26,3 +27,7 @@
 - [Clang](/implementation.md#clang): 3.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+
+
+## 参照
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

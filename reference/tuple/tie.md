@@ -78,7 +78,6 @@ int main()
 ```
 * std::tie[color ff0000]
 * std::ignore[link ignore.md]
-* std::tuple[link tuple.md]
 
 #### 出力
 ```

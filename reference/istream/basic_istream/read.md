@@ -59,8 +59,8 @@ Shinjuku
 basic_istream<CharT, Traits>& read(char_type* s, streamsize n) {
   iostate state = goodbit;
   try {
-    sentry s(*this, true);
-    if (s) {
+    const sentry sent(*this, true);
+    if (sent) {
       if (good()) {
         for (streamsize i = 0; i < n; ++i) {
           auto c = rdbuf()->sbumpc();

@@ -113,7 +113,6 @@ constexpr pair(piecewise_construct_t,
     struct NonCopyable { NonCopyable(int); NonCopyable(const NonCopyable&) = delete; };
     std::pair<NonCopyable, double> pmd{42, 3.14};  // C++14でコンパイルエラー！
     ```
-    * std::tuple[link /reference/tuple/tuple.md]
 
     - この変更はC++17に対するものであるが、コンパイラが早期に対応していたため、一部処理系ではC++14の段階から適格となっていた
 

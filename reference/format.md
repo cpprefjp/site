@@ -24,6 +24,7 @@
 
 | 名前                                                                 | 説明                                                                        | 対応バージョン |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------|
+| [`formattable`](format/formattable.md)                               | 文字列フォーマット可能 (concept) | C++23          |
 | [`formatter`](format/formatter.md)                                   | 引数の型に対応する書式文字列の解析、値のフォーマットを担う (class template) | C++20          |
 | [`basic_format_parse_context`](format/basic_format_parse_context.md) | 書式文字列の解析のコンテキスト (class template)                             | C++20          |
 | [`format_parse_context`](format/basic_format_parse_context.md)       | `basic_format_parse_context`のマルチバイト文字列版 (type-alias)             | C++20          |
@@ -31,6 +32,10 @@
 | [`basic_format_context`](format/basic_format_context.md)             | 引数のフォーマットのコンテキスト (class template)                           | C++20          |
 | [`format_context`](format/basic_format_context.md)                   | `basic_format_context`のマルチバイト文字列版 (type-alias)                   | C++20          |
 | [`wformat_context`](format/basic_format_context.md)                  | `basic_format_context`のワイド文字列版 (type-alias)                         | C++20          |
+| [`range_format`](format/range_format.md)                             | Rangeの書式種別 (enum) | C++23 |
+| [`format_kind`](format/format_kind.md)                               | 指定したRangeの書式種別を取得する (variable) | C++23 |
+| [`range_formatter`](format/range_formatter.md.nolink)                | Rangeに対する書式文字列の解析、値のフォーマットを行う (class template) | C++23 |
+| [`range-default-formatter`](format/range-default-formatter.md.nolink) | Rangeに対する共通の書式文字列の解析、値のフォーマットを行う説明専用クラス (class template) | C++23 |
 
 ## 引数
 

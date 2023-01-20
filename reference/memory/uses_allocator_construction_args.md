@@ -215,7 +215,6 @@ int main()
 * std::allocator_arg_t[link allocator_arg_t.md]
 * std::ostream[link ../ostream/basic_ostream.md]
 * std::piecewise_construct_t[link ../utility/piecewise_construct_t.md]
-* std::tuple[link ../tuple/tuple.md]
 * std::apply[link ../tuple/apply.md]
 
 ### 出力

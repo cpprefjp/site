@@ -35,7 +35,6 @@ namespace std {
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
-* same_as[link /reference/concepts/same_as.md]
 * copyable[link /reference/concepts/copyable.md]
 * variant[link /reference/variant/variant.md]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]

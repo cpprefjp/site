@@ -30,7 +30,6 @@ namespace std {
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* same_as[link /reference/concepts/same_as.md]
 
 ## 概要
 

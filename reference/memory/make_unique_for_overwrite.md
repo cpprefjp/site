@@ -7,10 +7,14 @@
 ```cpp
 namespace std {
   template<class T>
-  unique_ptr<T> make_unique_for_overwrite();                 // (1)
+  unique_ptr<T> make_unique_for_overwrite();                   // (1) C++20
+  template<class T>
+  constexpr unique_ptr<T> make_unique_for_overwrite();         // (1) C++23
 
   template<class T>
-  unique_ptr<T> make_unique_for_overwrite(size_t n);         // (2)
+  unique_ptr<T> make_unique_for_overwrite(size_t n);           // (2) C++20
+  template<class T>
+  constexpr unique_ptr<T> make_unique_for_overwrite(size_t n); // (2) C++23
 
   template<class T, class... Args>
   unspecified make_unique_for_overwrite(Args&&...) = delete; // (3)
@@ -82,3 +86,4 @@ int main()
 - [P1973R1 Rename "_default_init" Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1973r1.pdf)
 - [Why is `make_unique<T[N]>` disallowed? - stackoverflow](https://stackoverflow.com/questions/16596950/why-is-make-uniquetn-disallowed)
     - (3)のオーバーロードの意味について
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

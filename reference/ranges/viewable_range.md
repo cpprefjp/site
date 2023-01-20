@@ -16,7 +16,6 @@ namespace std::ranges {
 ```
 * range[link range.md]
 * view[link view.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * movable[link /reference/concepts/movable.md]

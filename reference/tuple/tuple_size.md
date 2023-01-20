@@ -67,7 +67,6 @@ int main()
 }
 ```
 * std::tuple_size[color ff0000]
-* std::tuple[link tuple.md]
 
 ### 出力
 ```

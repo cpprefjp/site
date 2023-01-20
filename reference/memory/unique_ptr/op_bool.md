@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit operator bool() const noexcept;
+explicit operator bool() const noexcept;           // (1) C++11
+constexpr explicit operator bool() const noexcept; // (1) C++23
 ```
 
 ## 概要
@@ -58,4 +59,4 @@ p has resource
 
 ## 参照
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
-
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

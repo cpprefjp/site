@@ -5,10 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-bitset<N>& flip();           // (1) C++03
-bitset<N>& flip() noexcept;  // (1) C++11
+bitset<N>& flip();                     // (1) C++03
+bitset<N>& flip() noexcept;            // (1) C++11
+constexpr bitset<N>& flip() noexcept;  // (1) C++23
 
-bitset<N>& flip(size_t pos); // (2)
+bitset<N>& flip(size_t pos);           // (2) C++03
+constexpr bitset<N>& flip(size_t pos); // (2) C++23
 ```
 
 ## 概要
@@ -64,4 +66,4 @@ int main()
 
 
 ## 参照
-
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
