@@ -7,15 +7,34 @@
 
 ```cpp
 namespace std {
-  template<class T, class U = char>
-  struct formatter;
+  template <class T, class U = char>
+  struct formatter;                                          // (1) C++20
+
+  template <ranges::input_range R, class charT>
+    requires (format_kind<R> != range_format::disabled) &&
+             formattable<ranges::range_reference_t<R>, charT>
+  struct formatter<R, charT>
+    : range-default-formatter<format_kind<R>, R, charT> { }; // (2) C++23
+
+  template <class charT, formattable<charT>... Ts>
+  struct formatter<pair-or-tuple<Ts...>, charT>;             // (3) C++23
 }
 ```
+* ranges::input_range[link /reference/ranges/input_range.md]
+* format_kind[link format_kind.md]
+* range_format[link range_format.md]
+* formattable[link formattable.md]
+* ranges::range_reference_t[link /reference/ranges/range_reference_t.md]
+* range-default-formatter[link range-default-formatter.md.nolink]
 
 ## 概要
 フォーマット引数の個々の型に対応する書式文字列の解析と値のフォーマットを担うクラス。
 
-`charT`を`char`または`wchar_t`とすると、標準で以下の特殊化が利用できる。
+- (1) : デフォルトのフォーマット
+- (2) : Range用のフォーマット。実装は[`range-default-formatter`](range-default-formatter.md.nolink)クラスが行う
+- (3) : [`std::pair`](/reference/utility/pair.md)と[`std::tuple`](/reference/tuple/tuple.md)に対する特殊化
+
+(1)は、`charT`を`char`または`wchar_t`とすると、標準で以下の特殊化が利用できる。
 
 - 1 以下のもの。
     ```cpp
@@ -46,43 +65,67 @@ namespace std {
 
 ワイド文字列とマルチバイト文字列を相互に変換するような特殊化は意図的に用意されていないが、ユーザーが用意することは禁止していない。
 
-## Formatter要件
+## ユーザーの型で`formatter`を特殊化する場合の要件
 
 `formatter`の有効な特殊化はFormatter要件を満たす必要がある。
 
 型`F`がFormatter要件を満たすとは、次のことをいう。
 
-* `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること
+- `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること
 
 さらに、以下の条件を満たすこと
 
 1. 式 `f.parse(pc)` が有効であり、
-    * 戻り値の型が`PC::iterator`である
-    * イテレータ範囲`[pc.begin(), pc.end())`を解析して`format_error`を投げるか、解析が終わった位置を指すイテレータを返す
+    - 戻り値の型が`PC::iterator`である
+    - イテレータ範囲`[pc.begin(), pc.end())`を解析して`format_error`を投げるか、解析が終わった位置を指すイテレータを返す
 2. 式 `f.format(t, fc)` が有効であり、
-    * 戻り値の型が`FC::iterator`である
-    * フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
-    * 出力は`t`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
+    - 戻り値の型が`FC::iterator`である
+    - フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
+    - 出力は`t`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
 3. 式 `f.format(u, fc)` が有効であり、
-    * 戻り値が`FC::iterator`である
-    * フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
-    * 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
-    * `u`を変更しない
+    - 戻り値が`FC::iterator`である
+    - フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
+    - 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
+    - `u`を変更しない
 
 条件内の各要素を、以下のように定義する
 
-* 文字の型を`charT`
-* 出力イテレータの型を`Out`
-* フォーマット引数の型を`T`
-* `f`を`F`のオブジェクト
-* `u`を`T`のlvalue
-* `t`を`T`または`const T`へ変換できる型のオブジェクト
-* `PC`を`basic_format_parse_context<charT>`
-* `FC`を`basic_format_context<Out, charT>`
-* `pc`を`PC`のlvalue
-* `fc`を`FC`のlvalue
-* `pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す
-* オプションが空なら、`pc.begin() == pc.end()`または`*pc.begin() == '}'`である
+- 文字の型を`charT`
+- 出力イテレータの型を`Out`
+- フォーマット引数の型を`T`
+- `f`を`F`のオブジェクト
+- `u`を`T`のlvalue
+- `t`を`T`または`const T`へ変換できる型のオブジェクト
+- `PC`を[`basic_format_parse_context`](basic_format_parse_context.md)`<charT>`
+- `FC`を[`basic_format_context`](basic_format_context.md)`<Out, charT>`
+- `pc`を`PC`のlvalue
+- `fc`を`FC`のlvalue
+- `pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す
+- オプションが空なら、`pc.begin() == pc.end()`または`*pc.begin() == '}'`である
+
+
+## メンバ関数
+
+| メンバ関数 | 説明 | 対応バージョン |
+|------------|------|----------------|
+| [`parse`](formatter/parse.md.nolink)   | 書式の解析を行う | C++20 |
+| [`format`](formatter/format.md.nolink) | 書式化を行う | C++20 |
+
+
+### 文字・文字列に対する特殊化
+
+| メンバ関数 | 説明 | 対応バージョン |
+|------------|------|----------------|
+| [`set_debug_format`](formatter/set_debug_format.md.nolink) | デバッグ書式を有効にする | C++23 |
+
+
+### pair / tuple向けの特殊化
+
+| メンバ関数 | 説明 | 対応バージョン |
+|------------|------|----------------|
+| [`set_separator`](formatter/set_separator.md.nolink) | 要素の区切り文字を設定する | C++23 |
+| [`set_brackets`](formatter/set_brackets.md.nolink)   | 全体の囲み文字を設定する | C++23 |
+
 
 ## 例
 ```cpp example
@@ -93,15 +136,15 @@ enum color { red, green, blue };
 
 const char* color_names[] = { "red", "green", "blue" };
 
-template<> struct std::formatter<color> : std::formatter<const char*> {
-  auto format(color c, format_context& ctx) {
-    return formatter<const char*>::format(color_names[c], ctx);
+template<>
+struct std::formatter<color> : std::formatter<const char*> {
+  auto format(color c, std::format_context& ctx) const {
+    return std::formatter<const char*>::format(color_names[c], ctx);
   }
 };
 
 int main()
 {
-  int variable = 0;
   std::cout << std::format("{}", red) << std::endl;
 }
 ```
@@ -117,11 +160,13 @@ red
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 13
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
-
-* [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
-* [{fmt}](https://github.com/fmtlib/fmt)
+- [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [{fmt}](https://github.com/fmtlib/fmt)
+- [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
+- [P2585R1 Improve default container formatting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2585r1.html)
+    - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
