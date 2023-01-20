@@ -108,7 +108,7 @@ namespace std {
 
 | メンバ関数 | 説明 | 対応バージョン |
 |------------|------|----------------|
-| [`parse`](formatter/parse.md.nolink)   | 書式の解析を行う | C++20 |
+| [`parse`](formatter/parse.md)   | 書式の解析を行う | C++20 |
 | [`format`](formatter/format.md.nolink) | 書式化を行う | C++20 |
 
 

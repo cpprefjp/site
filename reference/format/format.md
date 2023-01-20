@@ -63,7 +63,7 @@ string s2 = format("{0} {}",  "a", "b"); // コンパイルエラー
 string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 ```
 
-### 標準のオプション書式
+### <a id="std-format-options" href="#std-format-options">標準のオプション書式</a>
 
 組み込みの型に対して使える標準のオプション書式は次の通り(`[]`は省略可の意味)。
 基本的に`printf`の書式を踏襲しているが、あくまでもオプションであり、省略しても`<iostream>`と同じようにデフォルトの書式が使われる。
@@ -141,7 +141,7 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 ポインタは`void*`のみサポートする。それ以外のポインタは、`void*`にキャストしなければ出力できない。
 
-#### Range・シーケンスコンテナの場合 (C++23)
+#### <a id="range-format-options" href="#range-format-options">Range・シーケンスコンテナの書式 (C++23)</a>
 
 Range・シーケンスコンテナに対して使用できる標準のオプション書式は次の通り(`[]`は省略可の意味)。
 
@@ -172,12 +172,12 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
     - 要素型の書式を指定して、デバッグ出力指定をしなければ、デフォルトで有効になっているデバッグ出力を解除できる
 
 
-#### 連想コンテナの場合 (C++23)
+#### 連想コンテナの書式 (C++23)
 
 Range・シーケンスコンテナと同じだが、デフォルトで`m`書式を適用する。
 
 
-#### pair、tuple (C++23)
+#### <a id="tuple-format-options" name="tuple-format-options">pair、tupleの書式 (C++23)</a>
 
 [`std::pair`](/reference/utility/pair.md)と[`std::tuple`](/reference/tuple/tuple.md)に対して使用できる標準のオプション書式は次の通り(`[]`は省略可の意味)。
 
