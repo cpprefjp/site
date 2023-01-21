@@ -90,6 +90,16 @@
 | `auto_ptr` | 古い専有方式スマートポインタ(class template) | C++11から非推奨<br/> C++17で削除 |
 
 
+## スマートポインタアダプタ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|-------|
+| [`out_ptr_t`](memory/out_ptr_t.md) | スマートポインタへの出力サポート(class template) | C++23 |
+| [`out_ptr`](memory/out_ptr.md) | スマートポインタへの出力サポートヘルパ関数(function template) | C++23 |
+| [`inout_ptr_t`](memory/inout_ptr_t.md.nolink) | スマートポインタへの入出力サポート(class template) | C++23 |
+| [`inout_ptr`](memory/inout_ptr.md.nolink) | スマートポインタへの入出力サポートヘルパ関数(function template) | C++23 |
+
+
 ## スマートポインタのアトミック操作
 
 | 名前 | 説明 | 対応バージョン |
@@ -138,3 +148,4 @@
 - [P0718R2 Revising `atomic_shared_ptr` for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html)
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
 - [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)
+- [P1132R8 out_ptr - a scalable output pointer abstraction](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html)
