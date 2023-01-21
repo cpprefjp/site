@@ -104,6 +104,7 @@ Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイト
 
 - [ページファイル名の付け方](/start_editing/page_names.md)
 - [乱数分布の図を作る方法](/start_editing/random_figure.md)
+- [ディレクトリ構造](/start_editing/directory_structure.md)
 
 
 ## Pull Requestのレビューとマージ
