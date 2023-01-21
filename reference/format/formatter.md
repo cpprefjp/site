@@ -78,11 +78,11 @@ namespace std {
 1. 式 `f.parse(pc)` が有効であり、
     - 戻り値の型が`PC::iterator`である
     - イテレータ範囲`[pc.begin(), pc.end())`を解析して`format_error`を投げるか、解析が終わった位置を指すイテレータを返す
-2. 式 `f.format(t, fc)` が有効であり、
+2. 式 `cf.format(t, fc)` が有効であり、
     - 戻り値の型が`FC::iterator`である
     - フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
     - 出力は`t`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
-3. 式 `f.format(u, fc)` が有効であり、
+3. 式 `cf.format(u, fc)` が有効であり、
     - 戻り値が`FC::iterator`である
     - フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
     - 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
@@ -94,6 +94,7 @@ namespace std {
 - 出力イテレータの型を`Out`
 - フォーマット引数の型を`T`
 - `f`を`F`のオブジェクト
+- `cf`を`F`の`const`オブジェクト
 - `u`を`T`のlvalue
 - `t`を`T`または`const T`へ変換できる型のオブジェクト
 - `PC`を[`basic_format_parse_context`](basic_format_parse_context.md)`<charT>`
@@ -102,6 +103,8 @@ namespace std {
 - `fc`を`FC`のlvalue
 - `pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す
 - オプションが空なら、`pc.begin() == pc.end()`または`*pc.begin() == '}'`である
+
+[`std::formattable`](/reference/format/formattable.md)コンセプトも参照。
 
 
 ## メンバ関数
