@@ -26,7 +26,7 @@ constexpr typename ParseContext::iterator
 
 
 ## 戻り値
-解析がおわった書式文字列の終端を指すイテレータを返す。
+`ctx`のうち、解析がおわった位置を指すイテレータを返す。
 
 
 ## 備考
