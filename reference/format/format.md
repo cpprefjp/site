@@ -277,7 +277,7 @@ _`basic_format_string`_ のコンストラクタは[即時関数](/lang/cpp20/im
 * 書式文字列は定数式であり、[`string_view`](/reference/string_view/basic_string_view.md)(ワイド文字列版は[`wstring_view`](/reference/string_view/basic_string_view.md))に暗黙変換できること。
 * 書式文字列にエラーがないこと。例えば、
     * 閉じていないカッコなどの構文エラーがないこと。
-    * 実際に渡している引数の型が書式文字列中の置換フィールドが要求する型に合うこと。
+    * 実際に渡している引数の型が、書式文字列中の置換フィールドに要求される型と合うこと。
 
 ## 効果
 
