@@ -1,4 +1,4 @@
-# arg
+# advance_to
 * format[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -6,14 +6,25 @@
 * cpp20[meta cpp]
 
 ```cpp
-basic_format_arg<basic_format_context> arg(size_t id) const;
+void advance_to(iterator it);
 ```
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 * basic_format_context[link /reference/format/basic_format_context.md]
 
 ## 概要
+出力イテレータを指定したイテレータに設定する。
 
-`i`番目のフォーマット引数を取得する。`i`が範囲外の場合、`basic_format_arg<basic_format_context>`のデフォルト値を返す。
+
+## 効果
+以下と等価：
+
+```cpp
+out_ = std::move(it);
+```
+* std::move[link /reference/utility/move.md]
+
+ここで`out_`は、メンバ変数として保持している出力イテレータである。
+
 
 ## バージョン
 ### 言語
@@ -22,7 +33,6 @@ basic_format_arg<basic_format_context> arg(size_t id) const;
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 13
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

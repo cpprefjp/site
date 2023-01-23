@@ -1,4 +1,4 @@
-# arg
+# locale
 * format[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -6,14 +6,17 @@
 * cpp20[meta cpp]
 
 ```cpp
-basic_format_arg<basic_format_context> arg(size_t id) const;
+std::locale locale();
 ```
-* basic_format_arg[link /reference/format/basic_format_arg.md]
-* basic_format_context[link /reference/format/basic_format_context.md]
+* std::locale[link /reference/locale/locale.md]
 
 ## 概要
+ロケールを取得する。
 
-`i`番目のフォーマット引数を取得する。`i`が範囲外の場合、`basic_format_arg<basic_format_context>`のデフォルト値を返す。
+
+## 効果
+文字列フォーマット関数に指定されたロケールオブジェクトがあればそれを返し、そうでなければ[`std::locale()`](/reference/locale/locale.md)を返す。
+
 
 ## バージョン
 ### 言語
@@ -22,7 +25,6 @@ basic_format_arg<basic_format_context> arg(size_t id) const;
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 13
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
