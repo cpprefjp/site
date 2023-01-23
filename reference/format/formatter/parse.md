@@ -20,9 +20,9 @@ constexpr typename ParseContext::iterator
 - デフォルトの`formatter`の場合、[`std::format()`](/reference/format/format.md)関数ページに記載されている「[標準のオプション書式](/reference/format/format.md#std-format-options)」を解析する
 - [`std::pair`](/reference/utility/pair.md)と[`std::tuple`](/reference/tuple/tuple.md)に対する`formatter`の特殊化の場合、[`std::format()`](/reference/format/format.md)関数ページに記載されている「[pair、tupleの書式](/reference/format/format.md#tuple-format-options)」を解析する
     - このとき、書式によって以下を設定する
-        - 全体の囲み文字を、[`set_brackets()`](set_brackets.md.nolink)メンバ関数で設定する
-        - 要素の区切り文字を、[`set_separator()`](set_separator.md.nolink)メンバ関数で設定する
-        - 各要素の`formatter`を`e`として、[`e.set_debug_format()`](set_debug_format.md.nolink)が有効な式であれば、それを呼び出してデバッグ書式を有効にする
+        - 全体の囲み文字を、[`set_brackets()`](set_brackets.md)メンバ関数で設定する
+        - 要素の区切り文字を、[`set_separator()`](set_separator.md)メンバ関数で設定する
+        - 各要素の`formatter`を`e`として、[`e.set_debug_format()`](set_debug_format.md)が有効な式であれば、それを呼び出してデバッグ書式を有効にする
 
 
 ## 戻り値

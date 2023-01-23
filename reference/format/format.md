@@ -177,7 +177,7 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
 Range・シーケンスコンテナと同じだが、デフォルトで`m`書式を適用する。
 
 
-#### <a id="tuple-format-options" name="tuple-format-options">pair、tupleの書式 (C++23)</a>
+#### <a id="tuple-format-options" name="#tuple-format-options">pair、tupleの書式 (C++23)</a>
 
 [`std::pair`](/reference/utility/pair.md)と[`std::tuple`](/reference/tuple/tuple.md)に対して使用できる標準のオプション書式は次の通り(`[]`は省略可の意味)。
 

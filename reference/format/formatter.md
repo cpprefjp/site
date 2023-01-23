@@ -112,22 +112,22 @@ namespace std {
 | メンバ関数 | 説明 | 対応バージョン |
 |------------|------|----------------|
 | [`parse`](formatter/parse.md)   | 書式の解析を行う | C++20 |
-| [`format`](formatter/format.md.nolink) | 書式化を行う | C++20 |
+| [`format`](formatter/format.md) | 書式化を行う | C++20 |
 
 
 ### 文字・文字列に対する特殊化
 
 | メンバ関数 | 説明 | 対応バージョン |
 |------------|------|----------------|
-| [`set_debug_format`](formatter/set_debug_format.md.nolink) | デバッグ書式を有効にする | C++23 |
+| [`set_debug_format`](formatter/set_debug_format.md) | デバッグ出力を有効にする | C++23 |
 
 
 ### pair / tuple向けの特殊化
 
 | メンバ関数 | 説明 | 対応バージョン |
 |------------|------|----------------|
-| [`set_separator`](formatter/set_separator.md.nolink) | 要素の区切り文字を設定する | C++23 |
-| [`set_brackets`](formatter/set_brackets.md.nolink)   | 全体の囲み文字を設定する | C++23 |
+| [`set_separator`](formatter/set_separator.md) | 要素の区切り文字を設定する | C++23 |
+| [`set_brackets`](formatter/set_brackets.md)   | 全体の囲み文字を設定する | C++23 |
 
 
 ## 例

@@ -174,6 +174,7 @@
     * std::u32string[link /reference/string/basic_string.md]
     * std::wstring[link /reference/string/basic_string.md]
 * <string_view>[link /reference/string_view.md]
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
     * std::basic_string_view[link /reference/string_view/basic_string_view.md]
     * std::string_view[link /reference/string_view/basic_string_view.md]
 * <syncstream>[link /reference/syncstream.md]
