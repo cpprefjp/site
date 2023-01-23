@@ -17,6 +17,9 @@ namespace std {
 
 C++標準スマートポインタ[`std::shared_ptr`](shared_ptr.md)や[`std::unique_ptr`](unique_ptr.md)を始め、互換インタフェースをもつ任意のスマートポインタ型`Smart`を取り扱える。
 
+プログラマは`out_ptr_t`クラステンプレートの特殊化を定義してもよい。
+このとき1つ以上のプログラム定義型に依存していれば、プライマリテンプレートにおける要件を満たす必要はない。
+
 
 ## テンプレートパラメータ制約
 `Pointer`はCpp17NullablePointer要件を満たすこと
