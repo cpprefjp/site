@@ -188,7 +188,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 ### 関数オブジェクト
 - [`std::invoke()`](/reference/functional/invoke.md)の戻り値型を指定するバージョンである[`std::invoke_r()`](/reference/functional/invoke_r.md)を追加
-- ムーブのみ可能な[`std::function`](/reference/functional/function.md)クラスと等価な機能をもつ[`std::move_only_function`](/reference/functional/move_only_function.md.nolink)クラスを追加
+- [`std::function`](/reference/functional/function.md)クラスと等価な機能をもつ、ムーブのみ可能な[`std::move_only_function`](/reference/functional/move_only_function.md)クラスを追加
 - ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、末尾から引数を束縛する[`std::bind_back()`](/reference/functional/bind_back.md.nolink)関数を追加
 
 
