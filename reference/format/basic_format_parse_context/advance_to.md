@@ -12,11 +12,15 @@ constexpr void advance_to(const_iterator it);
 ## 概要
 指定したイテレータを先頭イテレータとして設定する。
 
-この関数は、書式文字列の全体を解析する処理において、[`formatter`](/reference/format/formatter.md)`::`[`parse()`](/reference/format/formatter/parse.md)の戻り値を、次の解析の初期位置として設定するために使用する。
+この関数は、書式文字列の全体を解析する処理において、[`formatter`](/reference/format/formatter.md)`::`[`parse()`](/reference/format/formatter/parse.md)の戻り値から、次の解析を始めるために使用する。
 
 ```cpp
 while (…) {
-  next_parse_ctx.advance_to(f.parse(parse_ctx));
+  auto it = f.parse(parse_ctx);
+
+  /* 次の書式指定までitを進める… */
+
+  next_parse_ctx.advance_to(it);
 }
 ```
 * parse[link /reference/format/formatter/parse.md]
