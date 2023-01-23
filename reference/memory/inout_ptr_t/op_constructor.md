@@ -1,26 +1,33 @@
 # コンストラクタ
 * memory[meta header]
 * std[meta namespace]
-* out_ptr_t[meta class]
+* inout_ptr_t[meta class]
 * function[meta id-type]
 * cpp23[meta cpp]
 
 ```cpp
-explicit out_ptr_t(Smart& smart, Args... args);  // (1)
-out_ptr_t(const out_ptr_t&) = delete;  // (2)
+explicit inout_ptr_t(Smart& smart, Args... args);  // (1)
+inout_ptr_t(const inout_ptr_t&) = delete;  // (2)
 ```
 
 ## 概要
-- (1) : `out_ptr_t`オブジェクトの構築。
+- (1) : `inout_ptr_t`オブジェクトの構築。
 - (2) : コピーコンストラクタ。コピー不可。
 
 
 ## 効果
-(1) : `out_ptr_t`クラスの説明用メンバ変数`s`, `a`, `p`を下記の通り初期化する。
+(1) : `inout_ptr_t`クラスの説明用メンバ変数`s`, `a`, `p`を下記の通り初期化する。
 
 - `Smart&`型メンバ変数`s` : `smart`
 - `tuple<Args...>`型メンバ変数`a` : [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`
-- `Pointer`型メンバ`p` : `{}`(値初期化)
+- `Pointer`型メンバ`p` :
+    - [`is_pointer_v`](/reference/type_traits/is_pointer.md)`<Smart>`が`true`ならば、`smart`
+    - そうでなければ、`smart.get()`
+
+
+## 備考
+実装によっては`s.release()`を呼び出すかもしれない。
+コンストラクタで`release`メンバ関数を呼び出さない場合は、[デストラクタ](op_destructor.md)にて呼び出される。
 
 
 ## バージョン
@@ -35,7 +42,7 @@ out_ptr_t(const out_ptr_t&) = delete;  // (2)
 
 
 ## 関連項目
-- [`out_ptr()`](../out_ptr.md)
+- [`inout_ptr()`](../inout_ptr.md)
 - [`(destructor)`](op_destructor.md)
 - [`operator Pointer*`](op_pointer.md)
 - [`operator void**`](op_voidpp.md)

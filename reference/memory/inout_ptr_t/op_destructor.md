@@ -1,23 +1,19 @@
 # デストラクタ
 * memory[meta header]
 * std[meta namespace]
-* out_ptr_t[meta class]
+* inout_ptr_t[meta class]
 * function[meta id-type]
 * cpp23[meta cpp]
 
 ```cpp
-~out_ptr_t();
+~inout_ptr_t();
 ```
 
 ## 概要
-指定した`Smart`型スマートポインタに、レガシーC関数呼び出しにより取得されたポインタ値を格納する。
+指定した`Smart`型スマートポインタが管理するリソースを解放し、レガシーC関数呼び出しにより取得されたポインタ値を格納する。
 
+スマートポインタのリソース解放には、`Smart::release()`メンバ関数が利用される。
 スマートポインタへのポインタ値格納には、`Smart::reset()`メンバ関数、もしくは`Smart`オブジェクト構築＋ムーブ代入`operator=`が利用される。
-
-- オブジェクト単位でカスタムデリータを管理する[`std::shared_ptr<T>`](../shared_ptr.md)の場合、[`out_ptr_t`コンストラクタ](op_constructor.md)にてデリータオブジェクトを渡しておくことで、[`reset()`](../shared_ptr/reset.md)呼び出しの取得ポインタ値に続く引数として渡される。
-この動作は[`out_ptr_t`](../out_ptr_t.md)クラステンプレートの適格要件にて強制される。
-- 型レベルでカスタムデリータを管理する[`std::unique_ptr<T,D>`](../unique_ptr.md)の場合、[`reset()`](../unique_ptr/reset.md)呼び出しには取得ポインタ値のみが渡される。
-- これ以外のスマートポインタ型では、同スマートポインタの動作セマンティクスに従う。
 
 
 ## 効果
@@ -28,13 +24,28 @@
 - そうでなければ、[`pointer_traits`](../pointer_traits.md)`<Smart>::element_type*`
 - そうでなければ、`Pointer`
 
+説明用の文`release-statement`を下記の通り定義する :
+
+- [コンストラクタ](op_constructor.md)で`s.release()`を呼び出さない実装であれば、`s.release()`
+- そうでなければ、空文
+
 [説明用メンバ変数](op_constructor.md)`s`, `a`, `p`を用いて、以下と同じ効果を持つ :
+
+- [`is_pointer_v`](/reference/type_traits/is_pointer.md)`<Smart>`が`true`ならば、
+
+    ```cpp
+    if (p) {
+      apply([&](auto&&... args) {
+        s = Smart(static_cast<SP>(p), std::forward<Args>(args)...); }, std::move(a));
+    }
+    ```
 
 - 式 `s.reset(static_cast<SP>(p),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)` が適格ならば、
 
     ```cpp
     if (p) {
       apply([&](auto&&... args) {
+        release-statement;
         s.reset(static_cast<SP>(p), std::forward<Args>(args)...); }, std::move(a));
     }
     ```
@@ -45,6 +56,7 @@
     ```cpp
     if (p) {
       apply([&](auto&&... args) {
+        release-statement;
         s = Smart(static_cast<SP>(p), std::forward<Args>(args)...); }, std::move(a));
     }
     ```
@@ -65,7 +77,7 @@
 
 
 ## 関連項目
-- [`out_ptr()`](../out_ptr.md)
+- [`inout_ptr_t()`](../inout_ptr_t.md)
 - [`(constructor)`](op_constructor.md)
 - [`operator Pointer*`](op_pointer.md)
 - [`operator void**`](op_voidpp.md)

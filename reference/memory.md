@@ -96,8 +96,8 @@
 |------|------|-------|
 | [`out_ptr_t`](memory/out_ptr_t.md) | スマートポインタへの出力サポート(class template) | C++23 |
 | [`out_ptr`](memory/out_ptr.md) | スマートポインタへの出力サポートヘルパ関数(function template) | C++23 |
-| [`inout_ptr_t`](memory/inout_ptr_t.md.nolink) | スマートポインタへの入出力サポート(class template) | C++23 |
-| [`inout_ptr`](memory/inout_ptr.md.nolink) | スマートポインタへの入出力サポートヘルパ関数(function template) | C++23 |
+| [`inout_ptr_t`](memory/inout_ptr_t.md) | スマートポインタへの入出力サポート(class template) | C++23 |
+| [`inout_ptr`](memory/inout_ptr.md) | スマートポインタへの入出力サポートヘルパ関数(function template) | C++23 |
 
 
 ## スマートポインタのアトミック操作
