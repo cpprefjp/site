@@ -153,6 +153,7 @@ int main()
 }
 ```
 * std::format_context[link basic_format_context.md]
+* std::format[link format.md]
 
 #### 出力
 ```
@@ -212,6 +213,7 @@ int main()
 * std::format_context[link basic_format_context.md]
 * ctx.out()[link basic_format_context/out.md]
 * std::format_to[link format_to.md]
+* std::format[link format.md]
 
 
 #### 出力
