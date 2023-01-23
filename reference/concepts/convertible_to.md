@@ -86,7 +86,7 @@ int main()
   std::cout << std::convertible_to<int*, const int*> << std::endl;
   std::cout << std::convertible_to<const int*, int*> << std::endl;
 
-  std::cout << "\n--- program defined type ---\n";
+  std::cout << "\n--- program-defined type ---\n";
   std::cout << std::convertible_to<convert_int, int> << std::endl;
   std::cout << std::convertible_to<int, convert_int> << std::endl;
   std::cout << std::convertible_to<convert_double, double> << std::endl;
@@ -113,7 +113,7 @@ true
 true
 false
 
---- program defined type ---
+--- program-defined type ---
 true
 true
 false

@@ -129,8 +129,8 @@ C++11以降対応については対応バージョンを明記します。バー
 | underlying type                    | 基底型                       |
 | unordered associative container(s) | 非順序連想コンテナ           |
 | unspecified                        | 未規定                       |
+| program-defined type               | プログラム定義型             |
 | virtual base class                 | 仮想基底クラス               |
 | weak ordering                      | 弱順序                       |
 | well-formed                        | 適格                         |
 | eligible                           | 資格のある                   |
-
