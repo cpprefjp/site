@@ -25,6 +25,7 @@ struct doubler {
 |----------------------------------------------------------|----------------------------------------|-------|
 | [`function`](functional/function.md) | 関数・関数オブジェクトの多相的なラッパー(class template) | C++11 |
 | [`bad_function_call`](functional/bad_function_call.md) | 不正な関数呼び出しに関する例外(class)  | C++11 |
+| [`move_only_function`](functional/move_only_function.md) | 関数・関数オブジェクトの多相的な軽量ラッパー(class template) | C++23 |
 
 
 ## 統一的な関数呼び出し
