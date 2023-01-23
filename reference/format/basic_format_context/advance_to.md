@@ -8,8 +8,6 @@
 ```cpp
 void advance_to(iterator it);
 ```
-* basic_format_arg[link /reference/format/basic_format_arg.md]
-* basic_format_context[link /reference/format/basic_format_context.md]
 
 ## 概要
 出力イテレータを指定したイテレータに設定する。

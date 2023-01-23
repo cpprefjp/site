@@ -208,7 +208,7 @@ int main()
 }
 ```
 * std::format_parse_context[link basic_format_parse_context.md]
-* ctx.begin()[link basic_format_parse_context/begin.md.nolink]
+* ctx.begin()[link basic_format_parse_context/begin.md]
 * std::format_context[link basic_format_context.md]
 * ctx.out()[link basic_format_context/out.md]
 * std::format_to[link format_to.md]
