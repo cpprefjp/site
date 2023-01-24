@@ -31,6 +31,8 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 このクラスの実装としては、文字配列の参照する先頭文字へのポインタと、文字数の2つをメンバ変数として持つ。これらの変数を変動させることによって、部分文字列の抽出や、限定された範囲内での検索といったことを実現する。
 
+このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)である（C++23）
+
 
 ## メンバ関数
 ### 構築・破棄
@@ -321,3 +323,5 @@ C
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [P0403R0 Literal suffixes for `basic_string_view`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0403r0.html)
 - [String literals make bad ranges - Andrzej's C++ blog](https://akrzemi1.wordpress.com/2019/09/25/string-literals-make-bad-ranges/)
+- [Require `span` & `basic_string_view` to be Trivially Copyable](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2251r1.pdf)
+    - C++23から、トリビアルコピー可能が保証される。

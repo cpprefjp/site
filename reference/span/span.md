@@ -31,6 +31,8 @@ namespace std {
 
 文字列操作に特化したクラスとして[`std::basic_string_view`](/reference/string_view/basic_string_view.md)が定義されているが、こちらはメモリ連続性をもつあらゆるコンテナに適用できる。
 
+このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)である（C++23）
+
 
 ### メモリ連続性
 このクラスの対象は、メモリの連続性を持つシーケンスである。例として、以下は対象のシーケンスである：
@@ -276,3 +278,5 @@ int main()
 - [P2116R0 Remove tuple-like protocol support from fixed-extent `span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2116r0.html)
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)
+- [Require `span` & `basic_string_view` to be Trivially Copyable](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2251r1.pdf)
+    - C++23から、トリビアルコピー可能が保証される。
