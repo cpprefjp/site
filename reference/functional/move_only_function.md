@@ -29,7 +29,9 @@ namespace std {
 - const性を正しく伝搬する。
 - 関数型のCV修飾／参照修飾／noexcept例外指定をサポートする。
 - [`target_type`](function/target_type.md)型と[`target()`](function/target.md)を提供しない。
-- [関数呼び出し](move_only_function/op_call.md)は強い前提条件を持つ。
+    - 実行時型情報（RTTI）非依存
+- [関数呼び出し](move_only_function/op_call.md)は強い事前条件を持つ。
+    - 関数呼び出し時のnullチェックが要求されない
 
 
 ## メンバ関数
