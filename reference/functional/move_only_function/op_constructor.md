@@ -25,6 +25,7 @@ explicit move_only_function(in_place_type_t<T>, initializer_list<U>, Args&&...);
 
 
 `move_only_function`クラステンプレートパラメータのnoexcept例外指定 *noex* 特殊化に応じて、説明用の`bool`型テンプレート定数`is-callable-from<VT>`を下記のように定義する :
+
 - *noex* が`true`のとき : [`is_nothrow_invocable_r_v`](/reference/type_traits/is_nothrow_invocable_r.md)`<R, VT /*cv*/ /*ref*/, ArgTypes...> &&` [`is_nothrow_invocable_r_v`](/reference/type_traits/is_nothrow_invocable_r.md)`<R, VT /*inv-quals*/, ArgTypes...>`
 - *noex* が`false`のとき : [`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`<R, VT /*cv*/ /*ref*/, ArgTypes...> &&` [`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`<R, VT /*inv-quals*/, ArgTypes...>`
 
