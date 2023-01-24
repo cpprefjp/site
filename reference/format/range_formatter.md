@@ -50,22 +50,22 @@ public:
   // constexprにする必要がある。
   // この関数に渡されるパラメータは、{:%j}の%以降。
   // 解析がおわった場所を指すイテレータを返す。
-  constexpr auto parse(std::format_parse_context& ctx) {
-    auto it = ctx.begin();
+  constexpr auto parse(std::format_parse_context& pctx) {
+    auto it = pctx.begin();
     if (*it == 'c') {
       is_colon = true;
       ++it;
     }
-    ctx.advance_to(it);
-    return base_type::parse(ctx);
+    pctx.advance_to(it);
+    return base_type::parse(pctx);
   }
 
   // format()関数は書式の情報をもたない。
   // parse()関数で解析した書式をメンバ変数で保持しておいて、
   // それをもとに書式化する
-  auto format(const std::vector<T>& v, std::format_context& ctx) const {
+  auto format(const std::vector<T>& v, std::format_context& fctx) const {
     if (is_colon) {
-      auto out = ctx.out();
+      auto out = fctx.out();
       bool is_first = true;
       for (const T& x : v) {
         if (is_first) {
@@ -75,12 +75,12 @@ public:
           *out = ':';
           ++out;
         }
-        ctx.advance_to(out);
-        out = underlying().format(x, ctx);
+        fctx.advance_to(out);
+        out = underlying().format(x, fctx);
       }
       return out;
     }
-    return base_type::format(v, ctx);
+    return base_type::format(v, fctx);
   }
 };
 
@@ -91,9 +91,11 @@ int main()
 }
 ```
 * std::format_parse_context[link basic_format_parse_context.md]
-* ctx.begin()[link basic_format_parse_context/begin.md]
+* pctx.begin()[link basic_format_parse_context/begin.md]
+* pctx.advance_to()[link basic_format_parse_context/advance_to.md]
 * std::format_context[link basic_format_context.md]
-* ctx.out()[link basic_format_context/out.md]
+* fctx.out()[link basic_format_context/out.md]
+* fctx.advance_to()[link basic_format_context/advance_to.md]
 * std::format_to[link format_to.md]
 * std::format[link format.md]
 * underlying()[link range_formatter/underlying.md.nolink]
