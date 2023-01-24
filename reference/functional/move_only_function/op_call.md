@@ -12,7 +12,12 @@ R operator()(ArgTypes... args) /*cv*/ /*ref*/ noexcept(/*noex*/);
 ## 概要
 関数を呼び出す。
 
-CV修飾子 *cv*, 参照修飾子 *ref*, noexcept例外指定 *noex* は[`move_only_function`](../move_only_function.md)に指定するテンプレートパラメータ`R(ArgTypes...)`部と等しい。
+`operator()`のCV修飾子 *cv*, 参照修飾子 *ref*, noexcept例外指定 *noex* は、[`move_only_function`](../move_only_function.md)に指定するテンプレートパラメータ`R(ArgTypes...)`部のものと等しい。
+
+説明用のプレースホルダ *inv-quals* を次のように定義する :
+
+- *ref* が空（参照修飾無し）ならば、*cv*`&`
+- そうでなければ、*cv* *ref*
 
 
 ## 事前条件
@@ -20,7 +25,7 @@ CV修飾子 *cv*, 参照修飾子 *ref*, noexcept例外指定 *noex* は[`move_o
 
 
 ## 効果
-`*this`が保持している`F`型の関数ポインタまたは関数オブジェクト`f`に対して、[`INVOKE<R>`](/reference/concepts/Invoke.md)`(static_cast<F inv-quals>(f),` [`std::forward`](/reference/utility/forward.md)`<ArgTypes>(args)...)`を行う。
+`*this`が保持している`F`型の関数ポインタまたは関数オブジェクト`f`に対して、[`INVOKE<R>`](/reference/concepts/Invoke.md)`(static_cast<F /*inv-quals*/>(f),` [`std::forward`](/reference/utility/forward.md)`<ArgTypes>(args)...)`を行う。
 
 
 ## 戻り値
@@ -58,7 +63,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
