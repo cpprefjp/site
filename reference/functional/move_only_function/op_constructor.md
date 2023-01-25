@@ -24,7 +24,12 @@ explicit move_only_function(in_place_type_t<T>, initializer_list<U>, Args&&...);
 `move_only_function`オブジェクトを構築する。
 
 
-`move_only_function`クラステンプレートパラメータのnoexcept例外指定 *noex* 特殊化に応じて、説明用の`bool`型テンプレート定数`is-callable-from<VT>`を下記のように定義する :
+`move_only_function`クラステンプレートパラメータのCV修飾子 *cv*, 参照修飾子 *ref*, noexcept例外指定 *noex* に応じて、説明用のプレースホルダ *inv-quals* を次のように定義する :
+
+- *ref* が空（参照修飾無し）ならば、*cv*`&`
+- そうでなければ、*cv* *ref*
+
+また、説明用の`bool`型テンプレート定数`is-callable-from<VT>`を下記のように定義する :
 
 - *noex* が`true`のとき : [`is_nothrow_invocable_r_v`](/reference/type_traits/is_nothrow_invocable_r.md)`<R, VT /*cv*/ /*ref*/, ArgTypes...> &&` [`is_nothrow_invocable_r_v`](/reference/type_traits/is_nothrow_invocable_r.md)`<R, VT /*inv-quals*/, ArgTypes...>`
 - *noex* が`false`のとき : [`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`<R, VT /*cv*/ /*ref*/, ArgTypes...> &&` [`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`<R, VT /*inv-quals*/, ArgTypes...>`
@@ -76,8 +81,10 @@ explicit move_only_function(in_place_type_t<T>, initializer_list<U>, Args&&...);
 ## 例
 ```cpp example
 #include <cassert>
-#include <iostream>
 #include <functional>
+#include <iostream>
+#include <numeric>
+#include <utility>
 
 struct ident_functor {
   int operator()(int x) const
@@ -89,76 +96,87 @@ int ident_func(int x)
 
 struct X {
   int value;
-  X() : value(3) {}
 
-  int ident_member_func(int x) const
-  { return x; }
+  int add_member_func(int x) const
+  { return value + x; }
 };
+
+struct add_functor {
+  int value;
+
+  add_functor(int v) : value(v) {}
+  add_functor(std::initializer_list<int> lst, int iv)
+    : value(std::accumulate(lst.begin(), lst.end(), iv)) {}
+
+  int operator()(int x) const
+  { return value + x; }
+};
+
 
 int main()
 {
-  // (1)
-  // デフォルトコンストラクタ
+  // (1) デフォルトコンストラクタ
+  // (2) ヌルポインタを受け取るコンストラクタ
   // 空のmove_only_functionオブジェクトを作る
   {
-    std::move_only_function<int(int)> f;
-    assert(!f);
+    std::move_only_function<int(int)> f1;
+    assert(!f1);
+    std::move_only_function<int(int)> f2 = nullptr;
+    assert(!f2);
   }
 
-  // (2)
-  // ヌルポインタを受け取るコンストラクタ
-  // デフォルトコンストラクタと同様、空のmove_only_functionオブジェクトを作る
-  {
-    std::move_only_function<int(int)> f = nullptr;
-    assert(!f);
-  }
-
-  // (3)
-  // ムーブ構築
+  // (3) ムーブ構築
   {
     std::move_only_function<int(int)> f = ident_functor();
     std::move_only_function<int(int)> g = std::move(f);
+    assert(g && !f);
 
     int result = g(1);
     std::cout << "(3) : " << result << std::endl;
   }
 
-  // (4)
-  // 関数ポインタを受け取って構築
+  // (4) 関数ポインタを受け取って構築
   {
     std::function<int(int)> f = ident_func;
 
     int result = f(1);
     std::cout << "(4) function pointer : " << result << std::endl;
   }
-
-  // (4)
-  // 関数オブジェクトを受け取って構築
+  // (4) 関数オブジェクトを受け取って構築
   {
     std::function<int(int)> f = ident_functor();
 
     int result = f(1);
     std::cout << "(4) function object : " << result << std::endl;
   }
-
-  // (4)
-  // メンバ関数ポインタを受け取った構築
+  // (4) メンバ関数ポインタを受け取った構築
   {
-    std::function<int(const X&, int)> f = &X::ident_member_func;
+    std::function<int(const X&, int)> f = &X::add_member_func;
 
-    X x;
+    X x{2};
     int result = f(x, 1);
     std::cout << "(4) member function pointer : " << result << std::endl;
   }
-
-  // (4)
-  // メンバ変数ポインタを受け取った構築
+  // (4) メンバ変数ポインタを受け取った構築
   {
     std::function<int(const X&)> f = &X::value;
-
-    X x;
+    X x{2};
     int result = f(x);
     std::cout << "(4) member variable pointer : " << result << std::endl;
+  }
+
+  // (5) 引数リストによる直接構築コンストラクタ
+  {
+    std::move_only_function<int(int)> f(std::in_place_type<add_functor>, 2);
+    int result = f(1);
+    std::cout << "(5) : " << result << std::endl;
+  }
+
+  // (6) initializer_list＋引数リストによる直接構築コンストラクタ
+  {
+    std::move_only_function<int(int)> f(std::in_place_type<add_functor>, std::initializer_list<int>{1, 2, 3}, 4);
+    int result = f(5);
+    std::cout << "(6) : " << result << std::endl;
   }
 }
 ```
@@ -169,8 +187,10 @@ int main()
 (3) : 1
 (4) function pointer : 1
 (4) function object : 1
-(4) member function pointer : 1
-(4) member variable pointer : 3
+(4) member function pointer : 3
+(4) member variable pointer : 2
+(5) : 3
+(6) : 15
 ```
 
 
@@ -180,7 +200,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12.1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
