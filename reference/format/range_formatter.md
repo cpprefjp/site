@@ -19,18 +19,18 @@ namespace std {
 ユーザー定義のコンテナ・RangeをRange書式に対応する場合は、以下のようにする：
 
 - オリジナル書式を定義しないのであれば、このクラスではなく、[`format_kind`](format_kind.md)を特殊化する
-- オリジナル書式を定義するのであれば、このクラスおよび[`format_kind`](format_kind.md)を特殊化して[`parse()`](range_formatter/parse.md.nolink)メンバ関数と[`format()`](range_formatter/format.md.nolink)メンバ関数を実装する
+- オリジナル書式を定義するのであれば、このクラスおよび[`format_kind`](format_kind.md)を特殊化して[`parse()`](range_formatter/parse.md)メンバ関数と[`format()`](range_formatter/format.md)メンバ関数を実装する
 
 
 ## メンバ関数
 
 | メンバ関数 | 説明 | 対応バージョン |
 |------------|------|----------------|
-| [`set_separator`](range_formatter/set_separator.md.nolink) | 要素の区切り文字を設定する | C++23 |
-| [`set_brackets`](range_formatter/set_brackets.md.nolink)   | 全体の囲み文字を設定する | C++23 |
-| [`underlying`](range_formatter/underlying.md.nolink)       | 要素型の`formatter`を取得する | C++23 |
-| [`parse`](range_formatter/parse.md.nolink)                 | 書式の解析を行う | C++23 |
-| [`format`](range_formatter/format.md.nolink)               | 書式化を行う | C++23 |
+| [`set_separator`](range_formatter/set_separator.md) | 要素の区切り文字を設定する | C++23 |
+| [`set_brackets`](range_formatter/set_brackets.md)   | 全体の囲み文字を設定する | C++23 |
+| [`underlying`](range_formatter/underlying.md)       | 要素型の`formatter`を取得する | C++23 |
+| [`parse`](range_formatter/parse.md)                 | 書式の解析を行う | C++23 |
+| [`format`](range_formatter/format.md)               | 書式化を行う | C++23 |
 
 
 ## 例
@@ -65,6 +65,9 @@ public:
 };
 
 template <class T>
+constexpr std::range_format std::format_kind<MyVector<T>> = std::range_format::sequence;
+
+template <class T>
 class std::range_formatter<MyVector<T>> : public std::range_formatter<std::vector<T>> {
   bool is_colon = false;
   using base_type = std::range_formatter<std::vector<T>>;
@@ -87,7 +90,7 @@ public:
   // format()関数は書式の情報をもたない。
   // parse()関数で解析した書式をメンバ変数で保持しておいて、
   // それをもとに書式化する
-  auto format(const MyVector<T>& v, std::format_context& fctx) const {
+  auto format(MyVector<T>&& v, std::format_context& fctx) const {
     if (is_colon) {
       auto out = fctx.out();
       bool is_first = true;
@@ -124,7 +127,7 @@ int main()
 * fctx.advance_to[link basic_format_context/advance_to.md]
 * std::format_to[link format_to.md]
 * std::format[link format.md]
-* underlying()[link range_formatter/underlying.md.nolink]
+* underlying()[link range_formatter/underlying.md]
 
 
 #### 出力

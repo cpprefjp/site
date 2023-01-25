@@ -16,7 +16,7 @@ constexpr void
 
 このメンバ関数は、[`std::format()`](/reference/format/format.md)関数の「[pair、tupleの書式](/reference/format/format.md#tuple-format-options)」において区切り文字を変更するオプションを指定することで自動的に呼び出される。
 
-デフォルトの開きカッコは`", "`である。
+デフォルトの区切り文字は`", "`である。
 
 
 ## 効果
