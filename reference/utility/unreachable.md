@@ -15,7 +15,7 @@ namespace std {
 
 
 ## 事前条件
-`true`==`false`
+`false`==`true`
 
 
 ## 備考
@@ -44,9 +44,9 @@ int flip(int x)
 
 int main()
 {
-  std::cout << f(0) << std::endl;
-  std::cout << f(1) << std::endl;
-  // f(2)呼び出しは未定義動作
+  std::cout << flip(0) << std::endl;
+  std::cout << flip(1) << std::endl;
+  // 例えば f(2) 呼び出しは未定義動作となる。
 }
 ```
 * std::unreachable[color ff0000]
