@@ -6,7 +6,8 @@
 
 ```cpp
 namespace std {
-  template<class... S> class move_only_function; // 宣言のみ
+  template<class... S>
+  class move_only_function; // 宣言のみ
 
   template<class R, class... ArgTypes>
   class move_only_function<R(ArgTypes...) /*cv*/ /*ref*/ noexcept(/*noex*/)>;
@@ -26,12 +27,13 @@ namespace std {
 [`std::function`](function.md)と比べて、`std::move_only_function`は下記の特徴をもつ。
 
 - ムーブのみ対応。コピー不可。
-- const性を正しく伝搬する。
 - 関数型のCV修飾／参照修飾／noexcept例外指定をサポートする。
+    - const性などを正しく伝搬することでバグ発生リスクを軽減する
 - [`target_type`](function/target_type.md)型と[`target()`](function/target.md)を提供しない。
     - 実行時型情報（RTTI）非依存
 - [関数呼び出し](move_only_function/op_call.md)は強い事前条件を持つ。
     - 関数呼び出し時のnullチェックが要求されない
+- クラステンプレート引数の[推論補助](/lang/cpp17/type_deduction_for_class_templates.md)を提供しない。
 
 
 ## メンバ関数
@@ -241,3 +243,4 @@ int main()
 - [P0288R9 move_only_function](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0288r9.html)
 - [N4348 Making `std::function` safe for concurrency](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4348.html)
     - `std::function`のconst性伝搬に関して、スレッドセーフ保証の観点からの問題指摘。
+- [Why does C++23 std::move_only_function not have deduction guides?](https://stackoverflow.com/questions/69509236/why-does-c23-stdmove-only-function-not-have-deduction-guides)
