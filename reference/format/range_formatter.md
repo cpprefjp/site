@@ -41,7 +41,31 @@ namespace std {
 #include <vector>
 
 template <class T>
-class std::range_formatter<std::vector<T>> : public std::range_formatter<std::vector<T>> {
+class MyVector {
+  std::vector<T> v_;
+public:
+  using base_type = std::vector<T>;
+  using iterator = typename base_type::iterator;
+  using const_iterator = typename base_type::iterator;
+  using value_type = typename base_type::value_type;
+  using reference = typename base_type::reference;
+  using const_reference = typename base_type::const_reference;
+
+  MyVector() = default;
+  MyVector(std::initializer_list<T> init)
+      : v_(init.begin(), init.end()) {}
+
+  iterator begin() { v_.begin(); }
+  const_iterator begin() const { v_.begin(); }
+
+  iterator end() { v_.end(); }
+  const_iterator end() const { v_.end(); }
+
+  const std::vector<T>& base() const { return v_; }
+};
+
+template <class T>
+class std::range_formatter<MyVector<T>> : public std::range_formatter<std::vector<T>> {
   bool is_colon = false;
   using base_type = std::range_formatter<std::vector<T>>;
 public:
@@ -63,7 +87,7 @@ public:
   // format()関数は書式の情報をもたない。
   // parse()関数で解析した書式をメンバ変数で保持しておいて、
   // それをもとに書式化する
-  auto format(const std::vector<T>& v, std::format_context& fctx) const {
+  auto format(const MyVector<T>& v, std::format_context& fctx) const {
     if (is_colon) {
       auto out = fctx.out();
       bool is_first = true;
@@ -80,9 +104,11 @@ public:
       }
       return out;
     }
-    return base_type::format(v, fctx);
+    return base_type::format(v.base(), fctx);
   }
 };
+
+#include <cstdint>
 
 int main()
 {
