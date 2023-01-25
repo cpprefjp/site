@@ -84,19 +84,45 @@ namespace std {
 ## 例
 ```cpp example
 #include <expected>
+#include <iomanip>
 #include <iostream>
+#include <string>
+
+// 整数除算
+std::expected<int, std::string> idiv(int a, int b)
+{
+  if (b == 0) {
+    return std::unexpected{"divide by zero"};
+  }
+  if (a % b != 0) {
+    return std::unexpected{"out of domain"};        
+  }
+  return a / b;
+}
+
+void dump_result(const std::expected<int, std::string>& v)
+{
+  if (v) {
+    std::cout << *v << std::endl;
+  } else {
+    std::cout << std::quoted(v.error()) << std::endl;        
+  }
+}
 
 int main()
 {
-  int variable = 0;
-  std::cout << variable << std::endl;
+  dump_result(idiv(10, 2));
+  dump_result(idiv(10, 3));
+  dump_result(idiv(10, 0));
 }
 ```
 * std::expected[color ff0000]
 
 ### 出力
 ```
-0
+5
+out of domain
+divide by zero
 ```
 
 
