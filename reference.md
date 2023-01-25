@@ -63,7 +63,7 @@
 | [`<optional>`](/reference/optional.md)       | 任意で値を持たせられるオブジェクト | C++17 |
 | [`<variant>`](/reference/variant.md)         | 候補の型を切り替えながら保持できる記憶域型 | C++17 |
 | [`<any>`](/reference/any.md)                 | あらゆる型の値を保持できる記憶域型 | C++17 |
-| [`<expected>`](/reference/expected.md.nolink) | 正常値かエラー値のどちらかを持たせられるオブジェクト | C++23 |
+| [`<expected>`](/reference/expected.md)       | 正常値かエラー値のどちらかを持たせられるオブジェクト | C++23 |
 | [`<type_traits>`](/reference/type_traits.md) | 型特性                       | C++11          |
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
