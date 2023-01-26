@@ -67,8 +67,8 @@ namespace std {
 
 | 名前         | 説明       | 対応バージョン |
 |--------------|------------|-------|
-| `operator==` | 等値比較   | C++23 |
-| `operator!=` | 非等値比較 | C++23 |
+| [`operator==`](unexpected/op_equal.md.nolink) | 等値比較 | C++23 |
+| [`operator!=`](unexpected/op_not_equal.md.nolink) | 非等値比較 | C++23 |
 
 
 ## メンバ型
@@ -77,7 +77,7 @@ namespace std {
 |-------------------|-----------------|-------|
 | `value_type`      | 正常値の型`T`   | C++23 |
 | `error_type`      | エラー値の型`E` | C++23 |
-| `unexpected_type` | [`unexpected<E>`](unexpected.md.nolink) | C++23 |
+| `unexpected_type` | [`unexpected<E>`](unexpected.md) | C++23 |
 | `template<class U> rebind` | `expected<U, error_type>` | C++23 |
 
 
@@ -117,12 +117,13 @@ int main()
 }
 ```
 * std::expected[color ff0000]
+* std::unexpected[link unexpected.md]
 
 ### 出力
 ```
 5
-out of domain
-divide by zero
+"out of domain"
+"divide by zero"
 ```
 
 
@@ -138,6 +139,7 @@ divide by zero
 
 
 ## 関連項目
+- [`unexpected`](unexpected.md)
 - [`optional`](/reference/optional/optional.md)
 
 

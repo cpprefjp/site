@@ -8,9 +8,9 @@
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
 | [`expected`](expected/expected.md) | 正常値かエラー値を保持するオブジェクト (class template) | C++23 |
-| [`unexpected`](expected/unexpected.md.nolink) | エラー値の代入補助クラス (class template) | C++23 |
-| [`unexpect_t`](expected/unexpect_t.md.nolink) | エラー値の直接構築を指示するタグ型 (class) | C++23 |
-| [`bad_expected_access`](expected/bad_expected_access.md.nolink) | エラー値保持時に正常値へアクセスした場合に発生する例外 (class template) | C++23 |
+| [`unexpected`](expected/unexpected.md) | エラー値の代入補助クラス (class template) | C++23 |
+| [`unexpect_t`](expected/unexpect_t.md) | エラー値の直接構築を指示するタグ型 (class) | C++23 |
+| [`bad_expected_access`](expected/bad_expected_access.md) | エラー値保持時に正常値へアクセスした場合に発生する例外 (class template) | C++23 |
 
 
 ## バージョン
