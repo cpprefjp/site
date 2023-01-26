@@ -98,6 +98,7 @@ int main()
 ```
 * std::unexpected[color ff0000]
 * std::expected[link expected.md]
+* std::quoted[link ../iomanip/quoted.md]
 
 ### 出力
 ```
