@@ -97,6 +97,7 @@ int main()
 }
 ```
 * std::unexpected[color ff0000]
+* std::expected[link expected.md]
 
 ### 出力
 ```
