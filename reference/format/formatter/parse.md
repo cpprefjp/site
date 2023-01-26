@@ -23,6 +23,15 @@ constexpr typename ParseContext::iterator
         - 全体の囲み文字を、[`set_brackets()`](set_brackets.md)メンバ関数で設定する
         - 要素の区切り文字を、[`set_separator()`](set_separator.md)メンバ関数で設定する
         - 各要素の`formatter`を`e`として、[`e.set_debug_format()`](set_debug_format.md)が有効な式であれば、それを呼び出してデバッグ書式を有効にする
+- コンテナアダプタに対する特殊化の場合、メンバとして以下を持っているとして、
+    ```cpp
+    formatter<Container, charT> underlying_;
+    ```
+
+    - 以下と等価：
+    ```cpp
+    return underlying_.parse(ctx);
+    ```
 
 
 ## 戻り値

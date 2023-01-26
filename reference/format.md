@@ -34,6 +34,8 @@
 | [`wformat_context`](format/basic_format_context.md)                  | `basic_format_context`のワイド文字列版 (type-alias)                         | C++20          |
 | [`range_format`](format/range_format.md)                             | Rangeの書式種別 (enum) | C++23 |
 | [`format_kind`](format/format_kind.md)                               | 指定したRangeの書式種別を取得する (variable) | C++23 |
+| [`const-formattable-range`](format/const-formattable-range.md)       | `const Range`の要素型が文字列フォーマット可能 (concept) | C++23 |
+| [`fmt-maybe-const`](format/fmt-maybe-const.md)                       | `formatter::format()`関数のパラメータ型として使用するための(const) Range型を取得 (type-alias) | C++23 |
 | [`range_formatter`](format/range_formatter.md)                       | Rangeに対する書式文字列の解析、値のフォーマットを行う (class template) | C++23 |
 | [`range-default-formatter`](format/range-default-formatter.md.nolink) | Rangeに対する共通の書式文字列の解析、値のフォーマットを行う説明専用クラス (class template) | C++23 |
 

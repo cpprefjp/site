@@ -170,6 +170,7 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
 - コンテナが[`std::vector`](/reference/vector/vector.md)`<bool>`である場合、その要素型は`bool`として処理される
 - Range・シーケンスコンテナでは、要素型がデバッグ出力可能である場合、それがデフォルトで有効となる
     - 要素型の書式を指定して、デバッグ出力指定をしなければ、デフォルトで有効になっているデバッグ出力を解除できる
+- コンテナアダプタである[`std::queue`](/reference/queue/queue.md)、[`std::priority_queue`](/reference/queue/priority_queue.md)、[`std::stack`](/reference/stack/stack.md)も使用できる
 
 
 #### <a id="assoc-format-options" href="#assoc-format-options">連想コンテナの書式 (C++23)</a>
@@ -444,6 +445,63 @@ int main()
 ```
 (3, 1.23, "hello")
 (3, "hello")
+```
+
+### コンテナアダプタを出力する (C++23)
+```cpp example
+#include <iostream>
+#include <format>
+#include <queue>
+#include <stack>
+#include <flat_map>
+#include <flat_set>
+
+int main()
+{
+  std::queue<int> que;
+  que.push(1);
+  que.push(2);
+  que.push(3);
+
+  std::priority_queue<int> pque;
+  pque.push(1);
+  pque.push(2);
+  pque.push(3);
+
+  std::stack<int> st;
+  st.push(1);
+  st.push(2);
+  st.push(3);
+
+  std::flat_map<int, std::string> m {{1, "aaa"}, {2, "bbb"}};
+  std::flat_set<int> s = {1, 2, 3};
+
+  // queue/priority_queue/stackは、内部で使用しているコンテナと同じ扱い
+  std::cout << std::format("queue: {}", que) << std::endl;
+  std::cout << std::format("priority_queue: {}", pque) << std::endl;
+  std::cout << std::format("stack: {}", st) << std::endl;
+
+  // flat_map/flat_setはmap/setと同じ扱い
+  std::cout << std::format("flat_map: {}", m) << std::endl;
+  std::cout << std::format("flat_set: {}", s) << std::endl;
+}
+```
+* std::queue[link /reference/queue/queue.md]
+* que.push[link /reference/queue/queue/push.md]
+* std::priority_queue[link /reference/queue/priority_queue.md]
+* pque.push[link /reference/queue/priority_queue/push.md]
+* std::stack[link /reference/stack/stack.md]
+* st.push[link /reference/stack/stack/push.md]
+* std::flat_map[link /reference/flat_map/flat_map.md.nolink]
+* std::flat_set[link /reference/flat_map/flat_set.md.nolink]
+
+#### 出力
+```
+[1, 2, 3]
+[3, 2, 1]
+[1, 2, 3]
+{1: "aaa", 2: "bbb"}
+{1, 2, 3}
 ```
 
 ## 実装例

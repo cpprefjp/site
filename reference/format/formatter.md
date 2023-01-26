@@ -18,6 +18,12 @@ namespace std {
 
   template <class charT, formattable<charT>... Ts>
   struct formatter<pair-or-tuple<Ts...>, charT>;             // (3) C++23
+
+  template <class charT,
+            class T,
+            formattable<charT> Container,
+            class... U>
+  struct formatter<adaptor-type<T, Container, U...>, charT>; // (4) C++23
 }
 ```
 * ranges::input_range[link /reference/ranges/input_range.md]
@@ -33,6 +39,7 @@ namespace std {
 - (1) : デフォルトのフォーマット
 - (2) : Range用のフォーマット。実装は[`range-default-formatter`](range-default-formatter.md.nolink)クラスが行う
 - (3) : [`std::pair`](/reference/utility/pair.md)と[`std::tuple`](/reference/tuple/tuple.md)に対する特殊化
+- (4) : コンテナアダプタである[`std::queue`](/reference/queue/queue.md)、[`std::priority_queue`](/reference/queue/priority_queue.md)、[`std::stack`](/reference/stack/stack.md)に対する特殊化
 
 (1)は、`charT`を`char`または`wchar_t`とすると、標準で以下の特殊化が利用できる。
 
