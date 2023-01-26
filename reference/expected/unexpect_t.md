@@ -10,7 +10,7 @@ namespace std {
     explicit unexpect_t() = default;
   };
 
-  inline constexpr unexpect_t {};
+  inline constexpr unexpect_t unexpect{};
 }
 ```
 
