@@ -504,7 +504,7 @@ int main()
 {1, 2, 3}
 ```
 
-### vector<bool>を出力する (C++23)
+### `vector<bool>`を出力する (C++23)
 ```cpp example
 ```cpp example
 #include <iostream>
