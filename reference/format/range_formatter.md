@@ -16,6 +16,8 @@ namespace std {
 ## 概要
 `range_formatter`は、Range・コンテナに対する[`formatter`](formatter.md)クラスの特殊化を実装するためのユーティリティクラスである。
 
+このクラスは、説明専用クラス[`range-default-formatter`](range-default-formatter.md)の内部実装として使用される。
+
 ユーザー定義のコンテナ・RangeをRange書式に対応する場合は、以下のようにする：
 
 - オリジナル書式を定義しないのであれば、このクラスではなく、[`format_kind`](format_kind.md)を特殊化する
@@ -148,7 +150,7 @@ aa:bb:cc:dd:ee:ff
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
-- [`range-default-formatter`](range-default-formatter.md.nolink)
+- [`range-default-formatter`](range-default-formatter.md)
 - [`formatter`](formatter.md)
 
 

@@ -31,13 +31,13 @@ namespace std {
 * range_format[link range_format.md]
 * formattable[link formattable.md]
 * ranges::range_reference_t[link /reference/ranges/range_reference_t.md]
-* range-default-formatter[link range-default-formatter.md.nolink]
+* range-default-formatter[link range-default-formatter.md]
 
 ## 概要
 フォーマット引数の個々の型に対応する書式文字列の解析と値のフォーマットを担うクラス。
 
 - (1) : デフォルトのフォーマット
-- (2) : Range用のフォーマット。実装は[`range-default-formatter`](range-default-formatter.md.nolink)クラスが行う
+- (2) : Range用のフォーマット。実装は[`range-default-formatter`](range-default-formatter.md)クラスが行う
 - (3) : [`std::pair`](/reference/utility/pair.md)と[`std::tuple`](/reference/tuple/tuple.md)に対する特殊化
 - (4) : コンテナアダプタである[`std::queue`](/reference/queue/queue.md)、[`std::priority_queue`](/reference/queue/priority_queue.md)、[`std::stack`](/reference/stack/stack.md)に対する特殊化
 
