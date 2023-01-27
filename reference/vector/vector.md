@@ -189,12 +189,19 @@ public:
 }
 ```
 
-## ハッシュサポート
+### ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------------|------------------------------------------|-------|
 | `template <class T> struct hash;`                                  | `hash`クラスの先行宣言                   | C++11 |
 | `template <class Allocator> struct hash<vector<bool, Allocator>>;` | `hash`クラスの`vector<bool>`に対する特殊化 | C++11 |
+
+
+### 文字列フォーマットサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `template <class T, class charT> requires is-vector-bool-reference<T>`<br/> `struct formatter<T, charT>;` | `vector<bool>::reference`を`bool`として出力するための[`formatter`](/reference/format/formatter.md)の特殊化 | C++23 |
 
 
 ## 例
@@ -430,4 +437,5 @@ int main()
 - 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
 - [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)
-
+- [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
+    - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された

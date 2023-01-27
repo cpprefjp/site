@@ -41,6 +41,7 @@ namespace std {
 - (3) : [`std::pair`](/reference/utility/pair.md)と[`std::tuple`](/reference/tuple/tuple.md)に対する特殊化
 - (4) : コンテナアダプタである[`std::queue`](/reference/queue/queue.md)、[`std::priority_queue`](/reference/queue/priority_queue.md)、[`std::stack`](/reference/stack/stack.md)に対する特殊化
 
+
 (1)は、`charT`を`char`または`wchar_t`とすると、標準で以下の特殊化が利用できる。
 
 - 1 以下のもの。
@@ -237,6 +238,10 @@ int main()
 - [GCC](/implementation.md#gcc): 13
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 関連項目
+- [`vector<bool>`](/reference/vector/vector.md)
+
 
 ## 参照
 - [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
