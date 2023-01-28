@@ -170,6 +170,8 @@ explicit(see below) constexpr
         const Alloc& a,
         pair<U1, U2>&&);                                  // (18) C++20
 ```
+* see below[italic]
+* EXPLICIT[italic]
 * pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 

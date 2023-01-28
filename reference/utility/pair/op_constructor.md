@@ -57,6 +57,7 @@ constexpr pair(piecewise_construct_t,
                tuple<Args1...> first_args,
                tuple<Args2...> second_args);                  // (8) C++20
 ```
+* EXPLICIT[italic]
 * piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 * tuple[link /reference/tuple/tuple.md]
 * see below[italic]
