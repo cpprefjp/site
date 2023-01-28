@@ -31,8 +31,8 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`(constructor)`](expected/op_constructor.md.nolink) | コンストラクタ | C++23 |
-| [`(destructor)`](expected/op_destructor.md.nolink)   | デストラクタ | C++23 |
+| [`(constructor)`](expected/op_constructor.md) | コンストラクタ | C++23 |
+| [`(destructor)`](expected/op_destructor.md)   | デストラクタ | C++23 |
 
 ### 代入
 

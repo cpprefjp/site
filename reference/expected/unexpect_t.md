@@ -15,7 +15,7 @@ namespace std {
 ```
 
 ## 概要
-`unexpected_t`は、[`expected`コンストラクタ](expected/op_constructor.md.nolink)において、エラー値型のコンストラクタ引数を受け取って構築するためのタグ型である。
+`unexpected_t`は、[`expected`コンストラクタ](expected/op_constructor.md)において、エラー値型のコンストラクタ引数を受け取って構築するためのタグ型である。
 
 `unexpected_t`型の定数`unexpect`が提供される。
 
