@@ -63,6 +63,7 @@ class optional {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <cassert>
 #include <optional>
@@ -86,10 +87,54 @@ int main()
 * value()[link value.md]
 
 
-### 出力
+#### 出力
 ```
 ```
 
+### メソッドチェインとしての使い方
+```cpp example
+#include <cassert>
+#include <charconv>
+#include <optional>
+#include <string_view>
+
+std::optional<int> parse(std::string_view sv, int base, std::string_view prefix = "")
+{
+  if (!prefix.empty() && !sv.starts_with(prefix))
+    return std::nullopt;
+  int n{};
+  auto [ptr, ec] = std::from_chars(sv.data() + prefix.size(), sv.data() + sv.size(), n, base);
+  if (ec == std::errc{} && ptr == sv.data() + sv.size())
+    return n;
+  else
+    return std::nullopt;
+}
+
+std::optional<int> parse_digit(std::string_view sv)
+{
+  return parse(sv, 2, "0b")
+    .or_else([sv] { return parse(sv, 10); })
+    .or_else([sv] { return parse(sv, 16, "0x"); });
+}
+
+int main()
+{
+  assert(parse_digit("0b11") == std::optional(3));
+  assert(parse_digit("11") == std::optional(11));
+  assert(parse_digit("0x11") == std::optional(17));
+  assert(parse_digit("x") == std::nullopt);
+}
+```
+* or_else[color ff0000]
+* std::nullopt[link ../nullopt_t.md]
+* std::string_view[link ../string_view/basic_string_view.md]
+* std::from_chars[link ../charconv/from_chars.md]
+* std::errc[link ../system_error/errc.md]
+
+
+#### 出力
+```
+```
 
 ## バージョン
 ### 言語
