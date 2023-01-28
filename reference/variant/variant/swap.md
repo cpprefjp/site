@@ -9,6 +9,7 @@
 void swap(variant& rhs) noexcept(see below);            // C++17
 constexpr void swap(variant& rhs) noexcept(see below);  // C++23
 ```
+* see below[italic]
 
 ## 概要
 他の`variant`オブジェクトとデータを入れ替える。

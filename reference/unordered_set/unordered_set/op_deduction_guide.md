@@ -44,6 +44,7 @@ namespace std {
     -> unordered_set<T, Hash, equal_to<T>, Allocator>;    // (6)
 }
 ```
+* see below[italic]
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/equal_to.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]

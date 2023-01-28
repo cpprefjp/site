@@ -32,6 +32,7 @@ tuple& operator=(pair<U1, U2>&&);                        // (6) C++11
 template <class U1, class U2>
 constexpr tuple& operator=(pair<U1, U2>&&);              // (6) C++20
 ```
+* see below[italic]
 * pair[link /reference/utility/pair.md]
 
 ## 概要

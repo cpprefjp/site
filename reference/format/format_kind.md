@@ -14,6 +14,8 @@ namespace std {
   constexpr range_format format_kind<R> = see below; // (2) C++23
 }
 ```
+* unspecified[italic]
+* see below[italic]
 * range_format[link range_format.md]
 * ranges::input_range[link /reference/ranges/input_range.md]
 

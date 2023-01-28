@@ -21,6 +21,7 @@ optional& operator=(const optional<U>& rhs);             // (5)
 template <class U>
 optional& operator=(optional<U>&& rhs);                  // (6)
 ```
+* see below[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]
 
 ## 概要

@@ -13,6 +13,7 @@ constexpr span<element_type, see below>
 constexpr span<element_type, dynamic_extent>
   subspan(size_type offset, size_type count = dynamic_extent) const; // (2)
 ```
+* see below[italic]
 * dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ## 概要

@@ -77,6 +77,7 @@ namespace std {
                           equal_to<Key>, Allocator>;      // (8)
 }
 ```
+* see below[italic]
 * remove_const_t[link /reference/type_traits/remove_const.md]
 * add_const_t[link /reference/type_traits/add_const.md]
 * pair[link /reference/utility/pair.md]

@@ -10,6 +10,7 @@ namespace std {
   concept indirectly_readable = /*see below*/;
 }
 ```
+* see below[italic]
 
 ## 概要
 

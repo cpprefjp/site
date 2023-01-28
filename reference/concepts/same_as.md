@@ -10,6 +10,7 @@ namespace std {
   concept same_as = /*see below*/;
 }
 ```
+* see below[italic]
 
 ## 概要
 

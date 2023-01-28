@@ -8,6 +8,7 @@
 ```cpp
 void swap(optional& rhs) noexcept(see below);
 ```
+* see below[italic]
 
 ## 概要
 他の`optional`オブジェクトとデータを入れ替える。

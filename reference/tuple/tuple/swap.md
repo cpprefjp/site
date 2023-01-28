@@ -9,6 +9,7 @@
 void swap(tuple& rhs) noexcept(see below);           // (1) C++11
 constexpr void swap(tuple& rhs) noexcept(see below); // (1) C++20
 ```
+* see below[italic]
 
 ## 概要
 他の`tuple`オブジェクトと中身を入れ替える。

@@ -35,6 +35,7 @@ namespace std {
                            chars_format fmt, int precision);             // (10)
 }
 ```
+* see below[italic]
 
 ## 概要
 与えられた数値（`value`）を文字列へ変換し、`[first, last)`内へ出力する。  

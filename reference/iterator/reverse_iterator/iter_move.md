@@ -14,6 +14,7 @@ namespace std {
   };
 }
 ```
+* see below[italic]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
 * iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 

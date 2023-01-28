@@ -16,6 +16,7 @@ namespace std {
   };
 }
 ```
+* see below[italic]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
 * indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
 

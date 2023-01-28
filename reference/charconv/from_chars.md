@@ -21,6 +21,8 @@ namespace std {
                                chars_format fmt = chars_format::general); // (4)
 }
 ```
+* see below[italic]
+
 
 ## 概要
 与えられたイテレータ範囲`[first, last)`内の文字列から、オーバーロードと基数・フォーマット指定によって決まるパターンにマッチングする最初の数字文字列を見つけて、数値へ変換する。  

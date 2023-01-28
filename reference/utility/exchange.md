@@ -17,6 +17,7 @@ namespace std {
     noexcept(see below);                     // (1) C++23
 }
 ```
+* see below[italic]
 
 ## 概要
 値を書き換え、書き換え前の値を返す。

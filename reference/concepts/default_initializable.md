@@ -10,6 +10,7 @@ namespace std {
   concept default_initializable = /*see below*/;
 }
 ```
+* see below[italic]
 
 ## 概要
 

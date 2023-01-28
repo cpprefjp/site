@@ -13,6 +13,7 @@ namespace std {
   inline constexpr bool is-signed-integer-like = /*see below*/;
 }
 ```
+* see below[italic]
 
 ## 概要
 
