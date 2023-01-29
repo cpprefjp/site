@@ -38,7 +38,7 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`operator=`](expected/op_assign.md.nolink) | 代入演算子     | C++23 |
+| [`operator=`](expected/op_assign.md) | 代入演算子 | C++23 |
 | [`emplace`](expected/emplace.md.nolink) | 正常値型のコンストラクタ引数から直接構築する | C++23 |
 | [`swap`](expected/swap.md.nolink) | 他の`expected`オブジェクトとデータを入れ替える | C++23 |
 
