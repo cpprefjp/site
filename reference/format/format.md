@@ -42,6 +42,9 @@ string message = format("The answer is {}.", 42); // => "The answer is 42."
 
 書式文字列は定数式でなければならず、その妥当性がコンパイル時にチェックされる。実行時に決まるフォーマット文字列を使用したい場合、[`vformat`](vformat.md)を使用できる。
 
+C++23以降、書式指定で出力する[`std::print()`](/reference/print/print.md)、[`std::println()`](/reference/print/println.md)関数が定義される。
+
+
 ### 書式文字列
 
 書式文字列中では、`{`と`}`で囲まれた範囲が置換フィールドとなる(エスケープシーケンスは`{{`と`}}`)。
@@ -570,6 +573,16 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 13
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`<print>`](/reference/print.md)
+    - [`std::print()`](/reference/print/print.md)
+    - [`std::println()`](/reference/print/println.md)
+- [`<ostream>`](/reference/ostream.md)
+    - [`std::print()`](/reference/ostream/print.md.nolink)
+    - [`std::println()`](/reference/ostream/println.md.nolink)
+
 
 ## 参照
 - [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
