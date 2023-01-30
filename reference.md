@@ -164,7 +164,7 @@
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 | [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー | C++20          |
 | [`<spanstream>`](/reference/spanstream.md.nolink) | メモリバッファの所有権をもたないストリーム | C++23 |
-| [`<print>`](/reference/print.md.nolink) | 書式指定による出力 | C++23 |
+| [`<print>`](/reference/print.md)           | 書式指定による出力 | C++23 |
 
 
 ## <a id="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
