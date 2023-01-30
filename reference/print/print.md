@@ -46,7 +46,7 @@ namespace std {
     ```cpp
     vprint_unicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
     ```
-    * vprint_unicode[link vprint_unicode.md.nolink]
+    * vprint_unicode[link vprint_unicode.md]
     * fmt.get()[link /reference/format/format_string/get.md.nolink]
     * make_format_args[link /reference/format/make_format_args.md]
     * std::forward[link /reference/utility/forward.md]
@@ -55,7 +55,7 @@ namespace std {
     ```cpp
     vprint_nonunicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
     ```
-    * vprint_nonunicode[link vprint_nonunicode.md.nolink]
+    * vprint_nonunicode[link vprint_nonunicode.md]
     * fmt.get()[link /reference/format/format_string/get.md.nolink]
     * make_format_args[link /reference/format/make_format_args.md]
     * std::forward[link /reference/utility/forward.md]
@@ -79,8 +79,8 @@ namespace std {
         vprint_nonunicode(fmt, make_format_args(args...));
     }
     ```
-    * vprint_unicode[link vprint_unicode.md.nolink]
-    * vprint_nonunicode[link vprint_nonunicode.md.nolink]
+    * vprint_unicode[link vprint_unicode.md]
+    * vprint_nonunicode[link vprint_nonunicode.md]
 
 
 ## 例

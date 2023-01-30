@@ -11,8 +11,8 @@
 |-----------------|----------------|-------|
 | [`print`](print/print.md) | 書式指定で出力する (function template) | C++23 |
 | [`println`](print/println.md) | 書式指定で出力する。末尾改行付き (function template) | C++23 |
-| [`vprint_unicode`](print/vprint_unicode.md.nolink) | 書式指定でUnicode出力する (function template) | C++23 |
-| [`vprint_nonunicode`](print/vprint_nonunicode.md.nolink) | 書式指定で非Unicode出力する (function template) | C++23 |
+| [`vprint_unicode`](print/vprint_unicode.md) | 書式指定でUnicode出力する (function) | C++23 |
+| [`vprint_nonunicode`](print/vprint_nonunicode.md) | 書式指定で非Unicode出力する (function) | C++23 |
 
 ## バージョン
 ### 言語
