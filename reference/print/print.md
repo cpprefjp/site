@@ -65,7 +65,7 @@ namespace std {
 - LinuxやmacOSといった環境では、通常の`char`配列の文字列リテラルはUTF-8にエンコーディングされる
 - WindowsのVisual Studioにおいては、ソースコードと実行時文字集合をUTF-8にする[`/utf-8`オプション](https://learn.microsoft.com/en-us/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8?view=msvc-170)を使用することで、通常の`char`配列の文字列リテラルがUTF-8にエンコーディングされる
 - 「通常の文字列リテラルがUTF-8エンコーディングされている場合」という仕様は、コードでは以下のように表現できる：
-    ```
+    ```cpp
     constexpr bool is_utf8() {
       const unsigned char micro[] = "\u00B5";
       return sizeof(micro) == 3 && micro[0] == 0xC2 && micro[1] == 0xB5;
