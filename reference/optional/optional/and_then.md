@@ -48,6 +48,9 @@ class optional {
       return remove_cvref_t<U>();
     }
     ```
+    * invoke[link /reference/functional/invoke.md]
+    * std::forward[link /reference/utility/forward.md]
+    * value()[link value.md]
 
 - (2), (4) : 次と等価
 
@@ -58,6 +61,10 @@ class optional {
       return remove_cvref_t<U>();
     }
     ```
+    * invoke[link /reference/functional/invoke.md]
+    * std::forward[link /reference/utility/forward.md]
+    * std::move[link /reference/utility/move.md]
+    * value()[link value.md]
 
 
 ## 備考

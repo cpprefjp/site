@@ -46,6 +46,7 @@ class optional {
       return std::forward<F>(f)();
     }
     ```
+    * std::forward[link /reference/utility/forward.md]
 
 - (2) : 次と等価
 
@@ -56,6 +57,8 @@ class optional {
       return std::forward<F>(f)();
     }
     ```
+    * std::move[link /reference/utility/move.md]
+    * std::forward[link /reference/utility/forward.md]
 
 
 ## 備考
@@ -130,6 +133,9 @@ int main()
 * std::string_view[link ../../string_view/basic_string_view.md]
 * std::from_chars[link ../../charconv/from_chars.md]
 * std::errc[link ../../system_error/errc.md]
+* prefix.empty()[link /reference/string_view/basic_string_view/empty.md]
+* prefix.size()[link /reference/string_view/basic_string_view/size.md]
+* sv.starts_with[link /reference/string_view/basic_string_view/starts_with.md]
 
 
 #### 出力

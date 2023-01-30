@@ -179,6 +179,8 @@
     * basic_string_view[link /reference/string_view/basic_string_view.md]
     * std::basic_string_view[link /reference/string_view/basic_string_view.md]
     * std::string_view[link /reference/string_view/basic_string_view.md]
+    * sv.data()[link /reference/string_view/basic_string_view/data.md]
+    * sv.size()[link /reference/string_view/basic_string_view/size.md]
 * <syncstream>[link /reference/syncstream.md]
 * <system_error>[link /reference/system_error.md]
     * ec.message()[link /reference/system_error/error_code/message.md]
