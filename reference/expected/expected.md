@@ -15,6 +15,7 @@ namespace std {
   class expected<T, E>;
 }
 ```
+* is_void_v[link /reference/type_traits/is_void.md]
 
 ## 概要
 `expected`クラスは、任意の型`T`の値を正常値とし任意の型`E`の値をエラー値として、正常もしくはエラーいずれかの状態を取ることを値として表現できる型である。
