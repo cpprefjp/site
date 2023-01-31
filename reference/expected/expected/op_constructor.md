@@ -6,37 +6,38 @@
 * cpp23[meta cpp]
 
 ```cpp
-constexpr expected();                               // (1)
-constexpr expected(const expected&);                // (2)
-constexpr expected(expected&&) noexcept(see below); // (3)
+constexpr expected();                                   // (1)
+constexpr expected(const expected& rhs);                // (2)
+constexpr expected(expected&& rhs) noexcept(see below); // (3)
 
 template<class U, class G>
-constexpr explicit(see below) expected(const expected<U, G>&); // (4)
+constexpr explicit(see below) expected(const expected<U, G>& rhs); // (4)
 template<class U, class G>
-constexpr explicit(see below) expected(expected<U, G>&&);      // (5)
+constexpr explicit(see below) expected(expected<U, G>&& rhs);      // (5)
 
 template<class U = T>
 constexpr explicit(see below) expected(U&& v);      // (6)
 
 template<class G>
-constexpr explicit(see below) expected(const unexpected<G>&); // (7)
+constexpr explicit(see below) expected(const unexpected<G>& e); // (7)
 template<class G>
-constexpr explicit(see below) expected(unexpected<G>&&);      // (8)
+constexpr explicit(see below) expected(unexpected<G>&& e);      // (8)
 
 template<class... Args>
-constexpr explicit expected(in_place_t, Args&&...); // (9)
+constexpr explicit expected(in_place_t, Args&&... args); // (9)
 template<class U, class... Args>
-constexpr explicit expected(in_place_t, initializer_list<U>, Args&&...); // (10)
+constexpr explicit expected(in_place_t, initializer_list<U> il, Args&&... args); // (10)
 
 template<class... Args>
-constexpr explicit expected(unexpect_t, Args&&...); // (11)
+constexpr explicit expected(unexpect_t, Args&&... args); // (11)
 template<class U, class... Args>
-constexpr explicit expected(unexpect_t, initializer_list<U>, Args&&...); // (12)
+constexpr explicit expected(unexpect_t, initializer_list<U> il, Args&&... args); // (12)
 ```
 * see below[italic]
 * unexpected[link ../unexpected.md]
 * unexpect_t[link ../unexpect_t.md]
 * in_place_t[link /reference/utility/in_place_t.md]
+* initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : 正常値型`T`を値初期化して保持する。
@@ -47,10 +48,10 @@ constexpr explicit expected(unexpect_t, initializer_list<U>, Args&&...); // (12)
 - (6) : 正常値型`T`に変換可能な型`U`の値を正常値として受け取り、コピーまたはムーブして保持する。
 - (7) : 変換可能な[`unexpected`](../unexpected.md)オブジェクトかエラー値をコピー構築する。
 - (8) : 変換可能な[`unexpected`](../unexpected.md)オブジェクトからエラー値をムーブ構築する。
-- (9) : 正常値型`T`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`T`のオブジェクトを有効値として生成し、保持する。
-- (10) : 正常値型`T`のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型`T`のオブジェクトを有効値として生成し、保持する。
-- (11) : エラー値型`E`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトを有効値として生成し、保持する。
-- (12) : エラー値型`E`のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトを有効値として生成し、保持する。
+- (9) : 正常値型`T`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`T`のオブジェクトを正常値として生成し、保持する。
+- (10) : 正常値型`T`のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型`T`のオブジェクトを正常値として生成し、保持する。
+- (11) : エラー値型`E`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトを正常値として生成し、保持する。
+- (12) : エラー値型`E`のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトを正常値として生成し、保持する。
 
 
 説明用のテンプレート変数`converts-from-any-cvref`を次の通り定義する。
@@ -70,7 +71,7 @@ constexpr bool converts-from-any-cvref =
 
 ## テンプレートパラメータ制約
 - (1) : [`is_default_constructible_v`](/reference/type_traits/is_default_constructible.md)`<T> == true`
-- (3) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<E> == true`
+- (3) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<E> == true`
 - (4) : 次の制約を全て満たすこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const U&> == true`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, const G&> == true`
@@ -95,17 +96,17 @@ constexpr bool converts-from-any-cvref =
 - (7) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, const G&> == true`
 - (8) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, G> == true`
 - (9) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, Args...> == true`
-- (10) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, initializer_list<U>&, Args...> == true`
+- (10) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, `[`initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`
 - (11) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, Args...> == true`
-- (12) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, initializer_list<U>&, Args...> == true`
+- (12) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, `[`initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`
 
 
 ## 効果
 - (1) : 正常値を値初期化して保持する。
-- (2) : `rhs`が正常値を保持していれば、[`*rhs`](op_deref.md.nolink)で正常値を直接非リスト初期化する。そうでなければ、`rhs.`[`error()`](error.md.nolink)でエラー値を直接非リスト初期化する。
-- (3) : `rhs`が正常値を保持していれば、[`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md.nolink)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
-- (4) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<const U&>(`[`*rhs`](op_deref.md.nolink)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<const G&>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
-- (5) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<U>(`[`*rhs`](op_deref.md.nolink)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<G>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
+- (2) : `rhs`が正常値を保持していれば、[`*rhs`](op_deref.md)で正常値を直接非リスト初期化する。そうでなければ、`rhs.`[`error()`](error.md.nolink)でエラー値を直接非リスト初期化する。
+- (3) : `rhs`が正常値を保持していれば、[`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
+- (4) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<const U&>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<const G&>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
+- (5) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<U>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<G>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
 - (6) : [`std::forward`](/reference/utility/forward.md)`<U>(v)`で正常値を直接非リスト初期化する。
 - (7) : [`std::forward`](/reference/utility/forward.md)`<const G&>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
 - (8) : [`std::forward`](/reference/utility/forward.md)`<G>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
@@ -116,13 +117,13 @@ constexpr bool converts-from-any-cvref =
 
 
 ## 事後条件
-- (1) : 有効値を保持している。
-- (2) : `rhs`が有効値を保持する場合は`*this`も有効値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。
-- (3) : `rhs`が有効値を保持する場合は`*this`も有効値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md.nolink)は変化しない。
-- (4), (5) : `rhs`が有効値を保持する場合は`*this`も有効値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md.nolink)は変化しない。
-- (6) : 有効値を保持している。
+- (1) : 正常値を保持している。
+- (2) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。
+- (3) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md.nolink)は変化しない。
+- (4), (5) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md.nolink)は変化しない。
+- (6) : 正常値を保持している。
 - (7), (8) : エラー値を保持している。
-- (9), (10) : 有効値を保持している。
+- (9), (10) : 正常値を保持している。
 - (11), (12) : エラー値を保持している。
 
 
@@ -173,7 +174,7 @@ using IntTuple = std::tuple<int, int>;
 using UniquePtr = std::unique_ptr<int>;
 using SharedPtr = std::shared_ptr<int>;
 
-// 引数リスト または initializer_list＋引数リスト から構築可能な型
+// 引数リスト または 初期化子リスト＋引数リスト から構築可能な型
 struct ComplexType {
   std::string data;
   std::vector<int> seq;
@@ -297,6 +298,9 @@ int main()
 * value[link value.md.nolink]
 * error[link error.md.nolink]
 * std::unexpected[link ../unexpected.md]
+* std::unexpect[link ../unexpect_t.md]
+* std::in_place[link /reference/utility/in_place_t.md]
+* std::make_unique[link /reference/memory/make_unique.md]
 
 ### 出力
 ```
