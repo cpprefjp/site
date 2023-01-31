@@ -1,5 +1,5 @@
 # println
-* print[meta header]
+* ostream[meta header]
 * std[meta namespace]
 * function template[meta id-type]
 * cpp23[meta cpp]
@@ -7,17 +7,13 @@
 ```cpp
 namespace std {
   template <class... Args>
-  void println(format_string<Args...> fmt,
-               Args&&... args);             // (1) C++23
-
-  template <class... Args>
-  void println(FILE* stream,
+  void println(ostream& os,
                format_string<Args...> fmt,
-               Args&&... args);             // (2) C++23
+               Args&&... args);             // (1) C++23
 }
 ```
 * format_string[link /reference/format/format_string.md.nolink]
-* FILE[link /reference/cstdio/file.md.nolink]
+* ostream[link basic_ostream.md]
 
 ## 概要
 書式指定で出力する。この関数は、出力の末尾に改行コードが自動で付加される。
@@ -26,25 +22,17 @@ namespace std {
 
 この関数は、[`std::printf()`](/reference/cstdio/printf.md.nolink)関数ライクな書式指定で引数を文字列化して出力する。
 
-- (1) : 標準出力に、書式指定で出力する
-- (2) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定で出力する
+- (1) : 指定した[`ostream`](basic_ostream.md)に、書式指定で出力する
 
 この関数は、末尾に改行コードが付くことに注意。改行コードが不要な場合は、[`std::print()`](print.md)関数を使用すること。
 
-[`std::ostream`](/reference/ostream/basic_ostream.md)から派生したクラスオブジェクトに対して出力したい場合は、[`<ostream>`](/reference/ostream.md)ヘッダの[`std::print()`](/reference/ostream/println.md)関数を使用すること。
+デフォルトの標準出力に出力したい場合は、[`<print>`](/reference/print.md)ヘッダの[`std::println()`](/reference/print/println.md)関数を使用すること。
 
 
 ## 効果
 - (1) : 以下と等価：
     ```cpp
-    println(stdout, fmt, std::forward<Args>(args)...);
-    ```
-    * stdout[link /reference/cstdio/stdout.md.nolink]
-    * std::forward[link /reference/utility/forward.md]
-
-- (2) : 以下と等価：
-    ```cpp
-    print(stream, "{}\n", format(fmt, std::forward<Args>(args)...));
+    print(os, "{}\n", format(fmt, std::forward<Args>(args)...));
     ```
     * print[link print.md]
     * format[link /reference/format/format.md]
@@ -53,11 +41,11 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <print>
+#include <ostream>
 
 int main()
 {
-  std::println("Hello {} World", 42);
+  std::println(std::cout, "Hello {} World", 42);
 }
 ```
 * std::println[color ff0000]

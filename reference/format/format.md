@@ -580,8 +580,8 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - [`std::print()`](/reference/print/print.md)
     - [`std::println()`](/reference/print/println.md)
 - [`<ostream>`](/reference/ostream.md)
-    - [`std::print()`](/reference/ostream/print.md.nolink)
-    - [`std::println()`](/reference/ostream/println.md.nolink)
+    - [`std::print()`](/reference/ostream/print.md)
+    - [`std::println()`](/reference/ostream/println.md)
 
 
 ## 参照

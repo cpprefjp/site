@@ -1,5 +1,5 @@
 # print
-* print[meta header]
+* ostream[meta header]
 * std[meta namespace]
 * function template[meta id-type]
 * cpp23[meta cpp]
@@ -7,17 +7,13 @@
 ```cpp
 namespace std {
   template <class... Args>
-  void print(format_string<Args...> fmt,
-             Args&&... args);             // (1) C++23
-
-  template <class... Args>
-  void print(FILE* stream,
+  void print(ostream& os,
              format_string<Args...> fmt,
-             Args&&... args);             // (2) C++23
+             Args&&... args);             // (1) C++23
 }
 ```
 * format_string[link /reference/format/format_string.md.nolink]
-* FILE[link /reference/cstdio/file.md.nolink]
+* ostream[link basic_ostream.md]
 
 ## 概要
 書式指定で出力する。
@@ -26,25 +22,17 @@ namespace std {
 
 この関数は、[`std::printf()`](/reference/cstdio/printf.md.nolink)関数ライクな書式指定で引数を文字列化して出力する。
 
-- (1) : 標準出力に、書式指定で出力する
-- (2) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定で出力する
+- (1) : 指定した[`ostream`](basic_ostream.md)に、書式指定で出力する
 
 この関数は、末尾に改行コードが付かないことに注意。改行コードを自動で付けたい場合は、[`std::println()`](println.md)関数を使用すること。
 
-[`std::ostream`](/reference/ostream/basic_ostream.md)から派生したクラスオブジェクトに対して出力したい場合は、[`<ostream>`](/reference/ostream.md)ヘッダの[`std::print()`](/reference/ostream/print.md)関数を使用すること。
+デフォルトの標準出力に出力したい場合は、[`<print>`](/reference/print.md)ヘッダの[`std::print()`](/reference/print/print.md)関数を使用すること。
 
 
 ## 効果
-- (1) : 以下と等価：
+- (1) : 通常の文字列リテラルがUTF-8エンコーディングされている場合、以下と等価：
     ```cpp
-    print(stdout, fmt, std::forward<Args>(args)...);
-    ```
-    * stdout[link /reference/cstdio/stdout.md.nolink]
-    * std::forward[link /reference/utility/forward.md]
-
-- (2) : 通常の文字列リテラルがUTF-8エンコーディングされている場合、以下と等価：
-    ```cpp
-    vprint_unicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
+    vprint_unicode(os, fmt.get(), make_format_args(std::forward<Args>(args)...));
     ```
     * vprint_unicode[link vprint_unicode.md]
     * fmt.get()[link /reference/format/format_string/get.md.nolink]
@@ -53,7 +41,7 @@ namespace std {
 
     - そうでなければ、以下と等価：
     ```cpp
-    vprint_nonunicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
+    vprint_nonunicode(os, fmt.get(), make_format_args(std::forward<Args>(args)...));
     ```
     * vprint_nonunicode[link vprint_nonunicode.md]
     * fmt.get()[link /reference/format/format_string/get.md.nolink]
@@ -85,11 +73,11 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <print>
+#include <ostream>
 
 int main()
 {
-  std::print("Hello {} World\n", 42);
+  std::print(std::cout, "Hello {} World\n", 42);
 }
 ```
 * std::print[color ff0000]

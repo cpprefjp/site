@@ -23,7 +23,7 @@ namespace std {
 - (1) : 標準出力に、書式指定でUnicode出力する
 - (2) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定でUnicode出力する
 
-[`std::ostream`](/reference/ostream/basic_ostream.md)から派生したクラスオブジェクトに対して出力したい場合は、[`<ostream>`](/reference/ostream.md)ヘッダの[`std::vprint_unicode()`](/reference/ostream/vprint_unicode.md.nolink)関数を使用すること。
+[`std::ostream`](/reference/ostream/basic_ostream.md)から派生したクラスオブジェクトに対して出力したい場合は、[`<ostream>`](/reference/ostream.md)ヘッダの[`std::vprint_unicode()`](/reference/ostream/vprint_unicode.md)関数を使用すること。
 
 
 ## 事前条件
@@ -44,9 +44,9 @@ namespace std {
     * string[link /reference/string/basic_string.md]
     * vformat[link /reference/format/vformat.md]
 
-    - `stream`がUnicodeを表示できる端末を参照している場合、ネイティブのUnicode APIを使用して端末に書き出す。`out`が無効なコードユニットを含んでいる場合、その動作は未定義であり、実装はそれを診断することが望まれる。
+    - `stream`がUnicodeを表示できる端末を参照している場合、ネイティブのUnicode APIを使用して端末に書き出す
     - `out`に無効なコードユニットが含まれる場合、その動作は未定義であり，実装者はそれを診断することが推奨される。それ以外の場合は、変更せずにストリームに書き出します。そうでなければ、変更せず`stream`に`out`を書き出す。
-    - ネイティブのUnicode APIを使用する場合、この関数は`out`に書き出す前にフラッシュする
+    - ネイティブのUnicode APIを使用する場合、この関数は`out`を書き出す前にフラッシュする
 
 
 ## 例外
