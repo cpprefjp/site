@@ -47,8 +47,8 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`operator->`](expected/op_arrow.md.nolink) | メンバアクセス | C++23 |
-| [`operator*`](expected/op_deref.md.nolink) | 間接参照 | C++23 |
+| [`operator->`](expected/op_arrow.md) | 正常値へのメンバアクセス | C++23 |
+| [`operator*`](expected/op_deref.md) | 正常値への間接参照 | C++23 |
 | [`operator bool`](expected/op_bool.md.nolink) | 正常値を保持しているかを判定する | C++23 |
 | [`has_value`](expected/has_value.md.nolink) | 正常値を保持しているかを判定する | C++23 |
 | [`value`](expected/value.md.nolink) | 正常値を取得する | C++23 |
