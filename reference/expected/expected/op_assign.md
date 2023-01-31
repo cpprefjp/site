@@ -6,18 +6,18 @@
 * cpp23[meta cpp]
 
 ```cpp
-constexpr expected& operator=(const expected&);      // (1)
+constexpr expected& operator=(const expected& rhs);    // (1)
 
-constexpr expected& operator=(expected&&) noexcept(see below); // (2)
+constexpr expected& operator=(expected&& rhs) noexcept(see below); // (2)
 
 template<class U = T>
-constexpr expected& operator=(U&&);                  // (3)
+constexpr expected& operator=(U&& v);                  // (3)
 
 template<class G>
-constexpr expected& operator=(const unexpected<G>&); // (4)
+constexpr expected& operator=(const unexpected<G>& e); // (4)
 
 template<class G>
-constexpr expected& operator=(unexpected<G>&&);      // (5)
+constexpr expected& operator=(unexpected<G>&& e);      // (5)
 ```
 * see below[italic]
 * unexpected[link ../unexpected.md]
@@ -65,7 +65,8 @@ constexpr void reinit-expected(T& newval, U& oldval, Args&&... args) {
 * destroy_at[link /reference/memory/destroy_at.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
-
+* std::forward[link /reference/utility/forward.md]
+* std::move[link /reference/utility/move.md]
 
 ## テンプレートパラメータ制約
 - (2) : 下記を全て満たすこと
@@ -93,26 +94,26 @@ constexpr void reinit-expected(T& newval, U& oldval, Args&&... args) {
 
 ## 効果
 - (1) : 次の処理を行ったのち、例外が送出されなければ、`has_val = rhs.`[`has_value()`](has_value.md.nolink)`; return *this;`
-    - `this`と`rhs`が共に正常値を保持していたら、`val = *rhs`
+    - `this`と`rhs`が共に正常値を保持していたら、`val =` [`*rhs`](op_deref.md)
     - `this`が正常値を保持し、`rhs`がエラー値を保持していたら、`reinit-expected(unex, val, rhs.`[`error()`](error.md.nolink)`)`
-    - `this`がエラーを保持し、`rhs`が正常値を保持していたら、`reinit-expected(val, unex, *rhs)`
+    - `this`がエラーを保持し、`rhs`が正常値を保持していたら、`reinit-expected(val, unex,` [`*rhs`](op_deref.md)`)`
     - `this`と`rhs`が共にエラー値を保持していたら、`unex = rhs.`[`error()`](error.md.nolink)
 - (2) : 次の処理を行ったのち、例外が送出されなければ、`has_val = rhs.`[`has_value()`](has_value.md.nolink)`; return *this;`
-    - `this`と`rhs`が共に正常値を保持していたら、`val = std::move(*rhs)`
-    - `this`が正常値を保持し、`rhs`がエラー値を保持していたら、`reinit-expected(unex, val, std::move(rhs.`[`error()`](error.md.nolink)`))`
-    - `this`がエラーを保持し、`rhs`が正常値を保持していたら、`reinit-expected(val, unex, std::move(*rhs))`
-    - `this`と`rhs`が共にエラー値を保持していたら、`unex = std::move(rhs.`[`error()`](error.md.nolink)`)`
+    - `this`と`rhs`が共に正常値を保持していたら、`val =` [`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md)`)`
+    - `this`が正常値を保持し、`rhs`がエラー値を保持していたら、`reinit-expected(unex, val,` [`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md.nolink)`))`
+    - `this`がエラーを保持し、`rhs`が正常値を保持していたら、`reinit-expected(val, unex,` [`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md)`))`
+    - `this`と`rhs`が共にエラー値を保持していたら、`unex` [`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md.nolink)`)`
 - (3) : 次の処理と等価
-    - `this`が正常値を保持していたら、`val = std::forward<U>(v)`
-    - `this`がエラー値を保持していたら、`reinit-expected(val, unex, std::forward<U>(v)); has_val = true;`
+    - `this`が正常値を保持していたら、`val =` [`std::forward`](/reference/utility/forward.md)`<U>(v)`
+    - `this`がエラー値を保持していたら、`reinit-expected(val, unex,` [`std::forward`](/reference/utility/forward.md)`<U>(v)); has_val = true;`
 - (4) : 次の処理と等価
-    - `this`が正常値を保持していたら、`reinit-expected(unex, val, std::forward<const G&>(e.`[`error()`](error.md.nolink)`));
+    - `this`が正常値を保持していたら、`reinit-expected(unex, val,` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpectederror.md.nolink)`));
 has_val = false;`
-    - `this`がエラー値を保持していたら、`unex = std::forward<const G&>(e.`[`error()`](error.md.nolink)`);`
+    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`);`
 - (5) : 次の処理と等価
-    - `this`が正常値を保持していたら、`reinit-expected(unex, val, std::forward<G>(e.`[`error()`](error.md.nolink)`));
+    - `this`が正常値を保持していたら、`reinit-expected(unex, val,` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpectederror.md.nolink)`));
 has_val = false;`
-    - `this`がエラー値を保持していたら、`unex = std::forward<G>(e.`[`error()`](error.md.nolink)`);`
+    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpectederror.md.nolink)`);`
 
 
 ## 戻り値
@@ -224,6 +225,7 @@ int main()
 * value[link value.md.nolink]
 * error[link error.md.nolink]
 * std::unexpected[link ../unexpected.md]
+* std::make_unique[link /reference/memory/make_unique.md]
 
 ### 出力
 ```
