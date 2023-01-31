@@ -103,10 +103,10 @@ constexpr bool converts-from-any-cvref =
 
 ## 効果
 - (1) : 正常値を値初期化して保持する。
-- (2) : `rhs`が正常値を保持していれば、[`*rhs`](op_deref.md)で正常値を直接非リスト初期化する。そうでなければ、`rhs.`[`error()`](error.md.nolink)でエラー値を直接非リスト初期化する。
-- (3) : `rhs`が正常値を保持していれば、[`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
-- (4) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<const U&>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<const G&>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
-- (5) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<U>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<G>(rhs.`[`error()`](error.md.nolink)`)`でエラー値を直接非リスト初期化する。
+- (2) : `rhs`が正常値を保持していれば、[`*rhs`](op_deref.md)で正常値を直接非リスト初期化する。そうでなければ、`rhs.`[`error()`](error.md)でエラー値を直接非リスト初期化する。
+- (3) : `rhs`が正常値を保持していれば、[`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
+- (4) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<const U&>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<const G&>(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
+- (5) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<U>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<G>(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
 - (6) : [`std::forward`](/reference/utility/forward.md)`<U>(v)`で正常値を直接非リスト初期化する。
 - (7) : [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`)`でエラー値を直接非リスト初期化する。
 - (8) : [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md.nolink)`)`でエラー値を直接非リスト初期化する。
@@ -119,8 +119,8 @@ constexpr bool converts-from-any-cvref =
 ## 事後条件
 - (1) : 正常値を保持している。
 - (2) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。
-- (3) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md.nolink)は変化しない。
-- (4), (5) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md.nolink)は変化しない。
+- (3) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md)は変化しない。
+- (4), (5) : `rhs`が正常値を保持する場合は`*this`も正常値を保持し、`rhs`がエラー値を保持する場合は`*this`もエラー値を保持する。`rhs.`[`has_value()`](has_value.md)は変化しない。
 - (6) : 正常値を保持している。
 - (7), (8) : エラー値を保持している。
 - (9), (10) : 正常値を保持している。
@@ -294,9 +294,9 @@ int main()
   }
 }
 ```
-* has_value[link has_value.md.nolink]
-* value[link value.md.nolink]
-* error[link error.md.nolink]
+* has_value()[link has_value.md]
+* value()[link value.md]
+* error()[link error.md]
 * std::unexpected[link ../unexpected.md]
 * std::unexpect[link ../unexpect_t.md]
 * std::in_place[link /reference/utility/in_place_t.md]

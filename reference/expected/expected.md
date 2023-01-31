@@ -49,11 +49,12 @@ namespace std {
 |-----------------|----------------|-------|
 | [`operator->`](expected/op_arrow.md) | 正常値へのメンバアクセス | C++23 |
 | [`operator*`](expected/op_deref.md) | 正常値への間接参照 | C++23 |
-| [`operator bool`](expected/op_bool.md.nolink) | 正常値を保持しているかを判定する | C++23 |
-| [`has_value`](expected/has_value.md.nolink) | 正常値を保持しているかを判定する | C++23 |
-| [`value`](expected/value.md.nolink) | 正常値を取得する | C++23 |
-| [`error`](expected/error.md.nolink) | エラー値を取得する | C++23 |
+| [`operator bool`](expected/op_bool.md) | 正常値を保持しているかを判定する | C++23 |
+| [`has_value`](expected/has_value.md) | 正常値を保持しているかを判定する | C++23 |
+| [`value`](expected/value.md) | 正常値を取得する | C++23 |
+| [`error`](expected/error.md) | エラー値を取得する | C++23 |
 | [`value_or`](expected/value_or.md.nolink) | 正常値もしくは指定された値を取得する | C++23 |
+| [`error_or`](expected/error_or.md.nolink) | エラー値もしくは指定された値を取得する | C++23 |
 
 ### モナド操作
 

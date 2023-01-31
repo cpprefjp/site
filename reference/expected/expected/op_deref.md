@@ -17,7 +17,7 @@ constexpr const T&& operator*() const && noexcept; // (4)
 
 
 ## 事前条件
-[`has_value()`](has_value.md.nolink) `== true`
+[`has_value()`](has_value.md) `== true`
 
 
 ## 戻り値
@@ -69,7 +69,8 @@ int main()
 
 ## 関連項目
 - [`operator->`](op_arrow.md)
-- [`value`](value.md.nolink)
+- [`value()`](value.md)
+- [`value_or()`](value_or.md.nolink)
 
 
 ## 参照

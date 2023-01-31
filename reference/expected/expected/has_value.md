@@ -1,4 +1,4 @@
-# operator->
+# has_value
 * expected[meta header]
 * function[meta id-type]
 * std[meta namespace]
@@ -6,20 +6,15 @@
 * cpp23[meta cpp]
 
 ```cpp
-constexpr const T* operator->() const noexcept;  // (1)
-constexpr T* operator->() noexcept;              // (2)
+constexpr bool has_value() const noexcept;
 ```
 
 ## 概要
-保持している正常値のメンバにアクセスする。
-
-
-## 事前条件
-[`has_value()`](has_value.md) `== true`
+正常値を保持しているかを判定する。
 
 
 ## 戻り値
-正常値へのポインタ。
+正常値を保持しているなら`true`を返し、エラー値を保持しているなら`false`を返す。
 
 
 ## 例外
@@ -35,19 +30,19 @@ constexpr T* operator->() noexcept;              // (2)
 int main()
 {
   std::expected<std::string, int> x = "Hello";
-  std::cout << x->size() << std::endl;
+  std::cout << x.has_value() << std::endl;
 
   std::expected<std::string, int> y = std::unexpected{42};
-//std::cout << y->size() << std::endl;
-  // エラー値を保持する y に対する operator-> 呼び出しは未定義動作
+  std::cout << y.has_value() << std::endl;
 }
 ```
-* x->[color ff0000]
+* has_value[color ff0000]
 * std::unexpected[link ../unexpected.md]
 
 ### 出力
 ```
-5
+1
+0
 ```
 
 
@@ -63,9 +58,7 @@ int main()
 
 
 ## 関連項目
-- [`operator*`](op_deref.md)
-- [`value()`](value.md)
-- [`value_or()`](value_or.md.nolink)
+- [`operator bool`](op_bool.md)
 
 
 ## 参照
