@@ -16,11 +16,15 @@ constexpr E&& error() && noexcept;             // (4)
 エラー値を取得する。
 
 
+## 事前条件
+[`has_value()`](has_value.md) `== false`
+
+
 ## 戻り値
 動作説明用のメンバ変数として、エラー値を保持する`unex`を導入する。
 
-- (1), (2) : [`has_value()`](has_value.md) `== false`ならば、`unex`
-- (3), (4) : [`has_value()`](has_value.md) `== false`ならば、[`std::move`](/reference/utility/move.md)`(unex)`
+- (1), (2) : エラー値を保持していたら、`unex`
+- (3), (4) : エラー値を保持していたら、[`std::move`](/reference/utility/move.md)`(unex)`
 
 
 ## 例外

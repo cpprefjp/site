@@ -69,24 +69,24 @@ constexpr void reinit-expected(T& newval, U& oldval, Args&&... args) {
 * std::move[link /reference/utility/move.md]
 
 ## テンプレートパラメータ制約
-- (2) : 下記を全て満たすこと
+- (2) : 次の制約を全て満たすこと
     - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`
     - [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T> == true`
     - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<E> == true`
     - [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<E> == true`
     - `(`[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> ||` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>) == true`
-- (3) : 下記を全て満たすこと
+- (3) : 次の制約を全て満たすこと
     - [`is_same_v`](/reference/type_traits/is_same.md)`<expected,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>> == false`
     - [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>`が[`unexpected`](../unexpected.md)の特殊化ではない
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<T&, U> == true`
     - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<T, U> ||` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> ||` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>) == true`
-- (4) : 下記を全て満たすこと
+- (4) : 次の制約を全て満たすこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, const G&> == true`
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<E&, const G&> == true`
     - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<E, const G&> ||` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> ||
 `[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>) == true`
-- (5) : 下記を全て満たすこと
+- (5) : 次の制約を全て満たすこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, G> == true`
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<E&, G> == true`
     - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<E, G> ||` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> ||` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>) == true`

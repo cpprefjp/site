@@ -50,8 +50,8 @@ constexpr explicit expected(unexpect_t, initializer_list<U> il, Args&&... args);
 - (8) : 変換可能な[`unexpected`](../unexpected.md)オブジェクトからエラー値をムーブ構築する。
 - (9) : 正常値型`T`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`T`のオブジェクトを正常値として生成し、保持する。
 - (10) : 正常値型`T`のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型`T`のオブジェクトを正常値として生成し、保持する。
-- (11) : エラー値型`E`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトを正常値として生成し、保持する。
-- (12) : エラー値型`E`のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトを正常値として生成し、保持する。
+- (11) : エラー値型`E`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトをエラー値として生成し、保持する。
+- (12) : エラー値型`E`のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトをエラー値として生成し、保持する。
 
 
 説明用のテンプレート変数`converts-from-any-cvref`を次の通り定義する。
@@ -96,9 +96,9 @@ constexpr bool converts-from-any-cvref =
 - (7) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, const G&> == true`
 - (8) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, G> == true`
 - (9) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, Args...> == true`
-- (10) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, `[`initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`
+- (10) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T,` [`initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`
 - (11) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, Args...> == true`
-- (12) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, `[`initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`
+- (12) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E,` [`initializer_list`](/reference/initializer_list/initializer_list.md)`<U>&, Args...> == true`
 
 
 ## 効果

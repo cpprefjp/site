@@ -19,13 +19,13 @@ constexpr T&& value() &&;             // (4)
 ## 戻り値
 動作説明用のメンバ変数として、正常値を保持する`val`を導入する。
 
-- (1), (2) : [`has_value()`](has_value.md) `== true`ならば、`val`
-- (3), (4) : [`has_value()`](has_value.md) `== true`ならば、[`std::move`](/reference/utility/move.md)`(val)`
+- (1), (2) : 正常値を保持していたら、`val`
+- (3), (4) : 正常値を保持していたら、[`std::move`](/reference/utility/move.md)`(val)`
 
 
 ## 例外
-- (1), (2) : [`has_value()`](has_value.md) `== false`ならば、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`をスローする
-- (3), (4) : [`has_value()`](has_value.md) `== false`ならば、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`をスローする
+- (1), (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`をスローする
+- (3), (4) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`をスローする
 
 
 ## 例
