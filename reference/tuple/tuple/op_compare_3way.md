@@ -9,13 +9,26 @@ namespace std {
   template<class... TTypes, class... UTypes>
   constexpr common_comparison_category_t<synth-three-way-result<TTypes, UTypes>...>
     operator<=>(const tuple<TTypes...>& t, const tuple<UTypes...>& u); // (1) C++20
+
+  template<class... TTypes, tuple-like UTuple>
+  constexpr common_comparison_category_t<synth-three-way-result<TTypes, Elems>...>
+    operator<=>(const tuple<TTypes...>& t, const UTuple& u);           // (2) C++23
+  
+  // (2) の Elems は 型パラメータパック 
+  //   tuple_­element_­t<0, UTuple>, tuple_­element_­t<1, UTuple>, ...,
+  //   tuple_­element_­t<tuple_­size_­v<UTuple> - 1, UTuple>
+  // を表す。
 }
 ```
 * tuple[link ../tuple.md]
 * common_comparison_category_t[link /reference/compare/common_comparison_category.md]
+* synth-three-way-result[link /reference/exposition-only/synth-three-way-result.md]
+* tuple-like[link ../tuple-like.md]
+* tuple_­element_­t[link ../tuple_element.md]
+* tuple_­size_­v[link ../tuple_size.md]
 
 ## 概要
-2つの[`tuple`](../tuple.md)オブジェクトの三方比較を行う。
+2つの[`tuple`](../tuple.md)オブジェクトの三方比較を行う。また、[`tuple-like`](../tuple-like.md)なオブジェクトとの三方比較を行う。（C++23以降）
 
 
 ## 効果
@@ -30,6 +43,7 @@ return t tail <=> u tail;
 ```
 * tail[italic]
 * get[link get.md]
+* synth-three-way[link /reference/exposition-only/synth-three-way-result.md]
 
 ここで`r`<sub>tail</sub>は、`r`の最初の要素以外のすべてを含む`tuple`である。
 

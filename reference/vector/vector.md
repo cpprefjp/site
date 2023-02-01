@@ -174,18 +174,22 @@ namespace std {
 
 この特殊化はメモリ領域を最小化するために提供されていて、各要素は1bitの領域のみを必要とする。
 
-`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである (`constexpr`はC++20から付加される)。
+`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである (`noexcept`はC++11から、`constexpr`はC++20から付加される)。
+
+C++23には`vector<bool>::iterator`が出力イテレータとなるために、`vector<bool>::reference`が`const`修飾を持つ`bool`からの代入演算子が追加され、[`indirectly_writable<vector<bool>::iterator,` `bool>`](/reference/iterator/indirectly_writable.md)がモデルを満たすようになった。
 
 ```cpp
 class vector<bool>::reference {
   friend class vector;
-  constexpr reference();                              // コンストラクタは非公開
+  constexpr reference();                                       // コンストラクタは非公開
 public:
+  constexpr reference(const reference&) = default;             // コピーコンストラクタ（C++17）
   constexpr ~reference();
-  constexpr operator bool() const;                    // boolへの暗黙変換
-  constexpr reference& operator=(const bool x);       // boolからの代入
-  constexpr reference& operator=(const reference& x); // vector<bool>のビットからの代入
-  constexpr void flip();                              // ビットの反転
+  constexpr operator bool() const noexcept;                    // boolへの暗黙変換
+  constexpr reference& operator=(const bool x) noexcept;       // boolからの代入
+  constexpr reference& operator=(const reference& x) noexcept; // vector<bool>のビットからの代入
+  constexpr const reference& operator=(bool x) const noexcept; // *thisがconst時のboolからの代入（C++23）
+  constexpr void flip() noexcept;                              // ビットの反転
 }
 ```
 
@@ -390,6 +394,7 @@ v[3] : 0
 ```
 
 `vector<bool>`の要素は参照するとプロキシオブジェクトのコピーが返ってくるため、RandomAccessIteratorの要件を満たさない。
+ただし、C++20以降のランダムアクセスイテレータの定義である[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルは満たす。
 
 
 ### 定数式内でvectorを使用する (C++20)
@@ -437,5 +442,4 @@ int main()
 - 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
 - [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)
-- [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
-    - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+

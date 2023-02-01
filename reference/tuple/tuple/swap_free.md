@@ -12,11 +12,21 @@ namespace std {
   template <class... Types>
   constexpr void swap(tuple<Types...>& x, tuple<Types...>& y)
     noexcept(noexcept(x.swap(y)));                            // (1) C++20
+
+  template<class... Types>
+  constexpr void swap(const tuple<Types...>& x, 
+                      const tuple<Types...>& y) 
+    noexcept(see below);                                      // (2) C++23
 }
 ```
 
 ## 概要
-2つの`tuple`オブジェクトを入れ替える。
+- (1) : 2つの`tuple`オブジェクトを入れ替える。
+- (2) : 2つの[プロキシ参照](/reference/iterator/indirectly_writable.md)である`tuple`オブジェクトについて、対応する要素毎に参照先の値を入れ替える。
+
+
+## 要件
+効果の式に現れている、[`tuple::swap`](swap.md)に準じる。
 
 
 ## 効果

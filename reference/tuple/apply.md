@@ -10,26 +10,38 @@ namespace std {
   constexpr decltype(auto)
     apply(F&& f, Tuple&& t);                     // (1) C++20
 
-  template<class F, class Tuple>
+  template<class F, tuple-like Tuple>
   constexpr decltype(auto)
     apply(F&& f, Tuple&& t) noexcept(see below); // (1) C++23
 }
 ```
+* tuple-like[link tuple-like.md]
+* tuple-like[link tuple-like.md]
+<<<<<<< Updated upstream
 * see below[italic]
+=======
+>>>>>>> Stashed changes
 
 ## 概要
 タプルを展開し、関数の引数に適用してその関数を実行する。
 
 
 ## 要件
-適用先の関数は[`Callable`](/reference/concepts/Callable.md)要件を満たす（[INVOKE](/reference/concepts/Invoke.md)操作が可能）。展開される`Tuple`型は[`std::tuple`](../tuple.md)に限定されず、[`std::array`](/reference/array/array.md)または[`std::pair`](/reference/utility/pair.md)のように、[`std::get`](/reference/array/array/get.md)と[`std::tuple_size`](/reference/array/array/tuple_size.md)をサポートする型であればよい。
+適用先の関数は[`Callable`](/reference/concepts/Callable.md)要件を満たす（[INVOKE](/reference/concepts/Invoke.md)操作が可能）。展開される`Tuple`型は[`std::tuple`](../tuple.md)に限定されず、[`std::array`](/reference/array/array.md)または[`std::pair`](/reference/utility/pair.md)のように、[`std::get`](/reference/array/array/get.md)と[`std::tuple_size`](/reference/array/array/tuple_size.md)をサポートする型であればよい。（C++20 まで。）C++23 では[`tuple-like`](tuple-like.md)による制約が追加されたため、使用できる型は狭まった。（[`tuple-like`](tuple-like.md)参照）
 
 
 ## 効果
 次のような関数があるとき、
 
 ```cpp
+// C++17
 template<class F, class Tuple, size_t... I>
+constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>) {
+  return std::invoke(std::forward<F>(f), std::get<I>(std::forward<Tuple>(t))...);
+}
+
+// C++23
+template<class F, tuple-like Tuple, size_t... I>
 constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>) {
   return std::invoke(std::forward<F>(f), std::get<I>(std::forward<Tuple>(t))...);
 }
@@ -58,6 +70,7 @@ return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
 * std::forward[link /reference/utility/forward.md]
 * std::remove_reference_t[link /reference/type_traits/remove_reference.md]
+
 
 ## 戻り値
 適用した関数呼び出しの戻り値
@@ -111,6 +124,7 @@ hello
 - [`make_from_tuple`](make_from_tuple.md)
 - [`std::tuple`](../tuple.md)
 - [INVOKE](/reference/concepts/Invoke.md)
+- [`tuple-like`](tuple-like.md)
 
 
 ## 参照

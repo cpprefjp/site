@@ -40,7 +40,7 @@ std::variant<bool, int> v = b[1]; // intを保持して構築されてしまう
 * bitset[link /reference/bitset/bitset.md]
 * variant[link /reference/variant/variant.md]
 
-`std::bitset`の非`const`な[`operator[]`](/reference/bitset/bitset/op_at.md)は`bool`型へ暗黙変換可能なプロクシオブジェクトを返す。
+`std::bitset`の非`const`な[`operator[]`](/reference/bitset/bitset/op_at.md)は`bool`型へ暗黙変換可能なプロキシオブジェクトを返す。
 
 `std::variant`の構築・代入時に縮小変換が起こることを検出して防止することはライブラリレベルで可能だったが、ポインタ型から`bool`への変換を縮小変換として扱うということはライブラリレベルでは実装できなかったため`bool`への変換全体を禁止せざるを得ず、このような問題が発生していた。
 

@@ -72,6 +72,15 @@ namespace std {
 | [`(deduction_guide)`](tuple/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
 
 
+## tuple-like とのユーティリティ
+| 名前                                                        | 説明                                                                   | 対応バージョン |
+|-------------------------------------------------------------|----------------------------------------------------------------------|-----------|
+| [`operator==`](tuple/op_equal.md)                           | [`tuple-like`](tuple-like.md)なオブジェクトとの等値比較を行う                     | C++23     |
+| [`operator<=>`](tuple/op_compare_3way.md)                   | [`tuple-like`](tuple-like.md)なオブジェクトとの三方比較を行う                     | C++23     |
+| [`common_type`](tuple/common_type.md)                       | [`tuple-like`](tuple-like.md)なオブジェクトとの共通型を取得できるようにする特殊化        | C++23     |
+| [`basic_common_reference`](tuple/basic_common_reference.md) | [`tuple-like`](tuple-like.md)なオブジェクトとの共通の参照型を取得出来るようにする特殊化 | C++23     |
+
+
 ## 例
 ### 基本的な使い方 (C++11)
 ```cpp example
@@ -101,6 +110,7 @@ int main()
 1
 hello
 ```
+
 
 ### 基本的な使い方 (C++17)
 ```cpp example
@@ -134,6 +144,110 @@ a
 hello
 ```
 
+
+### プロキシ参照としての使い方（C++23）
+C++23 で[`zip_view`](/reference/ranges/zip_view.md.nolink)などが追加されたことに伴い、すべての要素がプロキシ参照であるような`tuple`は[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用することが出来るようになった。
+
+```cpp example
+#include <iostream>
+#include <tuple>
+#include <string_view>
+#include <format>
+
+struct A
+{
+	A(int i, double d)
+		: i(i)
+		, d(d)
+	{}
+
+	std::tuple<int&, double&> f()
+	{
+		// this が A* なので
+		// i: int
+		// d: double
+		// ということと同じ
+		return {i, d};
+	}
+
+	std::tuple<const int&, const double&> f() const
+	{
+		// this が const A* なので
+		// i: const int
+		// d: const double
+		// ということと同じ
+		return {i, d};
+	}
+
+private:
+	int    i;
+	double d;
+};
+
+int main()
+{
+	// プロキシ参照である tuple の性質
+	{
+		A a{0, 0.0};
+
+		// std::tuple<int&, double&>
+		/***/ auto /***/ proxy = a.f();
+
+		// const std::tuple<int&, double&>
+		const auto const_proxy = a.f();
+
+		// std::tuple<const int&, const double&>
+		/***/ auto /***/ proxy_to_const = std::as_const(a).f();
+
+		// const std::tuple<const int&, const double&>
+		const auto const_proxy_to_const = std::as_const(a).f();
+
+		// OK（各要素が指すオブジェクトの値について、代入操作がなされる）
+		proxy       = a.f();
+		const_proxy = a.f();
+
+		// NG（各要素が指すオブジェクトを変更できない！）
+		// proxy_to_const       = a.f();
+		// const_proxy_to_const = a.f();
+	}
+
+	// 使い方
+	{
+		auto print = [](std::string_view prefix, A& a) {
+
+			// 構造化束縛で分解
+			// i: int&
+			// d: double&
+			auto [i, d] = a.f();
+
+			std::cout << std::format("{}: i={}, d={}\n", prefix, i, d);
+		};
+
+		A a{0, 0.0}, b{1, 1.0};
+
+		print("before a", a);
+		print("before b", b);
+
+		// プロキシ参照として使える tuple 同士の swap 操作で
+		// 問題なく各要素が指す先のオブジェクトについて swap 操作が行える
+		std::ranges::swap(a.f(), b.f());
+
+		print("after  a", a);
+		print("after  b", b);
+	}
+}
+
+```
+
+#### 出力
+```
+before a: i=0, d=0
+before b: i=1, d=1
+after  a: i=1, d=1
+after  b: i=0, d=0
+
+```
+
 ## バージョン
 ### 言語
 - C++11
@@ -151,4 +265,4 @@ hello
 
 ## 参照
 - [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)
-
+- [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)

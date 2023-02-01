@@ -60,6 +60,11 @@ C++における関数呼び出しという性質を抽象化しまとめた、�
 	- それ以外の場合は、*INVOKE*`(f, t1, t2, ..., tN)` の実行結果の戻り値が型 `R` に暗黙的に変換されること。
 3. すべての *call-wrapper* は、*Cpp17MoveConstructible* かつ *Cpp17Destructible* でなければならない。
 
+## 要件（C++23差分）
+C++20 における 2. について、次の文言を項目の最後に追加する。この変更は、`R`が参照かつ*INVOKE*の実行結果が`R`に束縛されることで寿命が延長される場合にダングリング参照が作成されてしまう事例を検出するための要件である。
+
+- [`reference_­converts_­from_­temporary_­v`](/reference/type_traits/reference_converts_from_temporary.md)`<R, decltype(`*INVOKE*`(f, t1, t2, …, tN))> == true`の場合、*INVOKE*`<R>(f, t1, t2, …, tN)`は不適格。
+
 
 ## まとめ
 [第1引数がメンバ関数へのポインタの場合でも非静的メンバデータへのポインタの場合でも，第2引数がクラスオブジェクトへの参照の場合でもポインタの場合でもポインタっぽいものの場合でも，なんか知らんけどそれっぽく上手くいく](https://twitter.com/Cryolite/status/216814363221303296) ように取り計らった操作のことである。

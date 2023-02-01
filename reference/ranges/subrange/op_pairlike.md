@@ -6,15 +6,17 @@
 * cpp20[meta cpp]
 
 ```cpp
-template<not-same-as<subrange> PairLike>
+template<different-from<subrange> PairLike>
   requires pair-like-convertible-from<PairLike, const I&, const S&>
 constexpr operator PairLike() const;
 ```
-* not-same-as[italic][link /reference/concepts/same_as.md]
-* pair-like-convertible-from[italic][link ../subrange.md]
+* different-from[link /reference/ranges/different-from.md]
+* pair-like-convertible-from[link pair-like-convertible-from.md]
+* different-from[italic]
+* pair-like-convertible-from[italic]
 
 ## 概要
-pair-like (大きさ2のtuple-like) な型への変換演算子。
+[`pair-like`](/reference/tuple/pair-like.md) (大きさ2の[`tuple-like`](/reference/tuple/tuple-like.md)) な型への変換演算子。
 
 ## 効果
 ```cpp

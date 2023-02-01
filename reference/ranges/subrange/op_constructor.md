@@ -17,7 +17,7 @@ constexpr subrange(convertible-to-non-slicing<I> auto i, S s, make-unsigned-like
   requires (K == subrange_kind::sized);
 
 // (4)
-template<not-same-as<subrange> R>
+template<different-from<subrange> R>
   requires borrowed_range<R> && convertible-to-non-slicing<iterator_t<R>, I> && convertible_to<sentinel_t<R>, S>
 constexpr subrange(R&& r) requires (!StoreSize || sized_range<R>);
 
@@ -33,10 +33,13 @@ constexpr subrange(R&& r, make-unsigned-like-t<iter_difference_t<I>> n)
 * sized_range[link /reference/ranges/sized_range.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
+* different-from[link ../different-from.md]
+* convertible-to-non-slicing[link convertible-to-non-slicing.md]
+* make-unsigned-like-t[link /reference/type_traits/make_unsigned.md]
 * StoreSize[italic]
-* not-same-as[italic][link ../subrange.md]
-* convertible-to-non-slicing[italic][link ../subrange.md]
-* make-unsigned-like-t[italic][link /reference/type_traits/make_unsigned.md]
+* different-from[italic]
+* convertible-to-non-slicing[italic]
+* make-unsigned-like-t[italic]
 
 ## 概要
 - (1) : 空の`subrange`を構築する(デフォルトコンストラクタ)
@@ -66,7 +69,7 @@ static constexpr bool StoreSize = (K == subrange_kind::sized && !sized_sentinel_
 ## 事前条件
 
 - (2): `[i, s)`は有効なイテレータ範囲であること
-- (3): `[i, s)`は有効なイテレータ範囲であり、`n`はその範囲の長さ([`ranges::distance](/reference/iterator/ranges_distance.md)`(i, s)`)と等しいこと
+- (3): `[i, s)`は有効なイテレータ範囲であり、`n`はその範囲の長さ([`ranges::distance`](/reference/iterator/ranges_distance.md)`(i, s)`)と等しいこと
 - (4): `r`は有効な範囲であること
 - (5): `r`は有効な範囲であり、`n`はその範囲の長さと等しいこと
 
@@ -128,3 +131,5 @@ int main()
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
+- [LWG 3281 Conversion from `pair-like` types to `subrange` is a silent semantic promotion](https://cplusplus.github.io/LWG/issue3281)
+- [LWG 3282 `subrange` converting constructor should disallow derived to base conversions](https://cplusplus.github.io/LWG/issue3282)

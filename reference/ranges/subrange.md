@@ -33,7 +33,7 @@ namespace std::ranges {
 | 名前                                           | 説明                             | 対応バージョン |
 |------------------------------------------------|----------------------------------|----------------|
 | [`(constructor)`](subrange/op_constructor.md)  | コンストラクタ                   | C++20          |
-| [`operator PairLike`](subrange/op_pairlike.md) | pair-likeな型に変換する          | C++20          |
+| [`operator PairLike`](subrange/op_pairlike.md) | [`pair-like`](/reference/tuple/pair-like.md)な型に変換する          | C++20          |
 | [`begin`](subrange/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
 | [`end`](subrange/end.md)                       | 番兵を取得する                   | C++20          |
 | [`empty`](subrange/empty.md)                   | Rangeが空かどうかを判定する      | C++20          |
@@ -72,60 +72,6 @@ namespace std::ranges {
 | [`tuple_size`](subrange/tuple_size.md)       | 静的な要素数取得(class template)   | C++20          |
 | [`tuple_element`](subrange/tuple_element.md) | 静的な要素の型取得(class template) | C++20          |
 | [`get`](subrange/get.md)                     | 要素を取得する(function template)  | C++20          |
-
-## 説明専用コンセプト
-
-このクラスの説明では以下のコンセプトを用いる。
-
-```cpp
-// uses-nonqualification-pointer-conversion: 直接変換できない型同士のポインタの変換が必要
-template<class From, class To>
-concept uses-nonqualification-pointer-conversion =
-  is_pointer_v<From> && is_pointer_v<To> &&
-  !convertible_to<remove_pointer_t<From>(*)[], remove_pointer_t<To>(*)[]>;
-
-// convertible-to-non-slicing: スライシングを起こさずに変換できる
-template<class From, class To>
-concept convertible-to-non-slicing =
-  convertible_to<From, To> &&
-  !uses-nonqualification-pointer-conversion<decay_t<From>, decay_t<To>>;
-
-// pair-like: 大きさ2のtuple-likeな型である
-template<class T>
-concept pair-like =
-  !is_reference_v<T> && requires(T t) {
-    typename tuple_size<T>::type;
-    requires derived_from<tuple_size<T>, integral_constant<size_t, 2>>;
-    typename tuple_element_t<0, remove_const_t<T>>;
-    typename tuple_element_t<1, remove_const_t<T>>;
-    { get<0>(t) } -> convertible_to<const tuple_element_t<0, T>&>;
-    { get<1>(t) } -> convertible_to<const tuple_element_t<1, T>&>;
-  };
-
-// pair-like-convertible-from: U, Vから構築できるpair-likeである (その際、Uはスライシングを起こさない)
-template<class T, class U, class V>
-concept pair-like-convertible-from =
-  !range<T> && pair-like<T> &&
-  constructible_from<T, U, V> &&
-  convertible-to-non-slicing<U, tuple_element_t<0, T>> &&
-  convertible_to<V, tuple_element_t<1, T>>;
-```
-* convertible_to[link /reference/concepts/convertible_to.md]
-* constructible_from[link /reference/concepts/derived_from.md]
-* derived_from[link /reference/concepts/derived_from.md]
-* is_pointer_v[link /reference/type_traits/is_pointer.md]
-* decay_t[link /reference/type_traits/decay.md]
-* integral_constant[link /reference/type_traits/integral_constant.md]
-* remove_pointer_t[link /reference/type_traits/remove_pointer.md]
-* remove_const_t[link /reference/type_traits/remove_const.md]
-* range[link /reference/ranges/range.md]
-* tuple_element_t[link /reference/tuple/tuple_element.md]
-* not-same-as[italic][link /reference/concepts/same_as.md]
-* uses-nonqualification-pointer-conversion[italic]
-* convertible-to-non-slicing[italic]
-* pair-like[italic]
-* pair-like-convertible-from[italic]
-* make-unsigned-like-t[italic][link /reference/type_traits/make_unsigned.md]
 
 
 ## バージョン

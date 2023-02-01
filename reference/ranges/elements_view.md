@@ -60,6 +60,7 @@ namespace std::ranges {
 説明専用コンセプト`has-tuple-element`を次のように定義する。
 
 ```cpp
+// C++20
 template<class T, size_t N>
 concept has-tuple-element =
   requires(T t) {
@@ -68,12 +69,19 @@ concept has-tuple-element =
     typename tuple_element_t<N, T>;
     { get<N>(t) } -> convertible_to<const tuple_element_t<N, T>&>;
   };
+
+// C++23
+template<class T, size_t N>
+concept has-tuple-element =
+  tuple-like<T> && N < tuple_size_v<T>;
 ```
 * tuple_size[link /reference/tuple/tuple_size.md]
 * tuple_element_t[link /reference/tuple/tuple_element.md]
 * get[link /reference/tuple/tuple/get.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
+* tuple-like[link /reference/tuple/tuple-like.md]
+* tuple_size_v[link /reference/tuple/tuple_size.md]
 
 これを用いて、
 
@@ -161,3 +169,4 @@ three
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2165R4 Compatibility between `tuple`, `pair` and *tuple-like* objects](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf)

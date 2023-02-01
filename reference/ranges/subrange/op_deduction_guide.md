@@ -36,8 +36,7 @@ namespace std::ranges {
 * tuple_element_t[link /reference/tuple/tuple_element.md]
 * StoreSize[italic][link op_constructor.md]
 * iterator-sentinel-pair[italic][link ../subrange.md]
-* not-same-as[italic][link ../subrange.md]
-* convertible-to-non-slicing[italic][link ../subrange.md]
+* convertible-to-non-slicing[italic][link convertible-to-non-slicing.md]
 * make-unsigned-like-t[italic][link /reference/type_traits/make_unsigned.md]
 
 ## 概要
