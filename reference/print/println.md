@@ -52,19 +52,42 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <print>
 
 int main()
 {
   std::println("Hello {} World", 42);
+
+  // 出力先を指定
+  std::println(stdout, "Hello {} World", 42); // 標準出力に出力
+  std::println(stderr, "Hello {} World", 42); // 標準エラーに出力
 }
 ```
 * std::println[color ff0000]
 
-### 出力
+#### 出力
 ```
 Hello 42 World
+Hello 42 World
+Hello 42 World
+```
+
+### モジュールをインポートする例
+```cpp example
+import std;
+import std.compat;
+
+int main()
+{
+  std::println("Hello {} World", 42); // OK
+
+  // stdout / stderrはマクロとして定義される。
+  // モジュールはマクロをエクスポートしないので、
+  // stdout / stderrは使用できない
+  std::println(stdout, "Hello {} World", 42); // エラー！stdoutが見つからない
+}
 ```
 
 ## バージョン
