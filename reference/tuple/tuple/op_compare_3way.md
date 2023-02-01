@@ -15,8 +15,8 @@ namespace std {
     operator<=>(const tuple<TTypes...>& t, const UTuple& u);           // (2) C++23
   
   // (2) の Elems は 型パラメータパック 
-  //   tuple_­element_­t<0, UTuple>, tuple_­element_­t<1, UTuple>, ...,
-  //   tuple_­element_­t<tuple_­size_­v<UTuple> - 1, UTuple>
+  //   tuple_element_t<0, UTuple>, tuple_element_t<1, UTuple>, ...,
+  //   tuple_element_t<tuple_size_v<UTuple> - 1, UTuple>
   // を表す。
 }
 ```
@@ -24,8 +24,8 @@ namespace std {
 * common_comparison_category_t[link /reference/compare/common_comparison_category.md]
 * synth-three-way-result[link /reference/exposition-only/synth-three-way-result.md]
 * tuple-like[link ../tuple-like.md]
-* tuple_­element_­t[link ../tuple_element.md]
-* tuple_­size_­v[link ../tuple_size.md]
+* tuple_element_t[link ../tuple_element.md]
+* tuple_size_v[link ../tuple_size.md]
 
 ## 概要
 2つの[`tuple`](../tuple.md)オブジェクトの三方比較を行う。また、[`tuple-like`](../tuple-like.md)なオブジェクトとの三方比較を行う。（C++23以降）

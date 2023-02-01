@@ -7,8 +7,8 @@
 template<class R>
   concept simple-view = // 説明専用コンセプト
     view<R> && range<const R> &&
-    same_­as<iterator_t<R>, iterator_t<const R>> &&
-    same_­as<sentinel_t<R>, sentinel_t<const R>>;
+    same_as<iterator_t<R>, iterator_t<const R>> &&
+    same_as<sentinel_t<R>, sentinel_t<const R>>;
 ```
 * same-as[link /reference/concepts/same_as.md]
 * view[link view.md]

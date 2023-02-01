@@ -260,18 +260,18 @@ explicit(see below) constexpr
     - C++20まで : `Types...`の全ての型`Ti`と、`UTypes...`の全ての型`Ui`について、[`is_constructible`](/reference/type_traits/is_constructible.md)`<Ti, Ui&&>::value == true`であること
     - C++17 : `sizeof...(Types) >= 1`であること
     - C++23 : `disambiguating-constraint`を次のように定義して、
-        - `sizeof...(Types) == 1`の時、[`negation`](/reference/type_traits/negation.md)`<`[`is_­same`](/reference/type_traits/is_same.md)`<`[`remove_­cvref_­t`](/reference/type_traits/remove_cvref.md)`<U0>,` [`tuple`](../tuple.md)`>>`
-        - `sizeof...(Types) == 2 || sizeof...(Types) == 3`の時、[`bool_­constant`](/reference/type_traits/bool_constant.md)`<!`[`is_­same_­v`](/reference/type_traits/is_same.md)`<`[`remove_­cvref_­t`](/reference/type_traits/remove_cvref.md)`<U0>,` [`allocator_­arg_­t`](/reference/memory/allocator_arg_t.md)`> ||` [`is_­same_­v`](/reference/type_traits/is_same.md)`<`[`remove_­cvref_­t`](/reference/type_traits/remove_cvref.md)`<T0>,` [`allocator_­arg_­t`](/reference/memory/allocator_arg_t.md)`>>`
+        - `sizeof...(Types) == 1`の時、[`negation`](/reference/type_traits/negation.md)`<`[`is_same`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U0>,` [`tuple`](../tuple.md)`>>`
+        - `sizeof...(Types) == 2 || sizeof...(Types) == 3`の時、[`bool_constant`](/reference/type_traits/bool_constant.md)`<!`[`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U0>,` [`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`> ||` [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<T0>,` [`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`>>`
         - 以上に該当しなければ、[`true_type`](/reference/type_traits/true_type.md)
-    - C++23 : [`conjunction_­v`](/reference/type_traits/conjunction.md)`<disambiguating-constraint,` [`is_­constructible`](/reference/type_traits/is_constructible.md)`<Types, UTypes>...>`であること
+    - C++23 : [`conjunction_v`](/reference/type_traits/conjunction.md)`<disambiguating-constraint,` [`is_constructible`](/reference/type_traits/is_constructible.md)`<Types, UTypes>...>`であること
 - (4), (18) :
     - `Types...`の全ての型`Ti`について、[`is_copy_constructible`](/reference/type_traits/is_copy_constructible.md)`<Ti>::value == true`であること
 - (5), (19) :
     - `Types...`の全ての型`Ti`について、[`is_move_constructible`](/reference/type_traits/is_move_constructible.md)`<Ti>::value == true`であること
 - (6)-(9), (20)-(23) :
-    - `I`をパラメータパック`0, 1, ..., (sizeof...(Types) - 1)`、`FWD(u)`を`static_­cast<decltype(u)>(u)`、`sizeof...(Types) == 1`の場合は、`Types...`を`T`へ、`UTypes...`を`U`へ展開したと定義して
-    - C++23 : `sizeof...(Types) == sizeof...(UTypes) && (`[`is_­constructible_­v`](/reference/type_traits/is_constructible.md)`<Types, decltype(`[`get`](/reference/tuple/tuple/get.md)`<I>(FWD(u)))> && ...) == true`であること
-    - C++23 : 更に、`sizeof...(Types) != 1`または、[`is_­convertible_v­`](/reference/type_traits/is_convertible.md)`<decltype(u), T> == false &&` [`is_­constructible_­v`](/reference/type_traits/is_constructible.md)`<T, decltype(u)> == false &&` [`is_­same_­v`](/reference/type_traits/is_same.md)`<T, U> == false`であること
+    - `I`をパラメータパック`0, 1, ..., (sizeof...(Types) - 1)`、`FWD(u)`を`static_cast<decltype(u)>(u)`、`sizeof...(Types) == 1`の場合は、`Types...`を`T`へ、`UTypes...`を`U`へ展開したと定義して
+    - C++23 : `sizeof...(Types) == sizeof...(UTypes) && (`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Types, decltype(`[`get`](/reference/tuple/tuple/get.md)`<I>(FWD(u)))> && ...) == true`であること
+    - C++23 : 更に、`sizeof...(Types) != 1`または、[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(u), T> == false &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, decltype(u)> == false &&` [`is_same_v`](/reference/type_traits/is_same.md)`<T, U> == false`であること
 - (7), (21) :
     - `sizeof...(Types) == sizeof...(UTypes)`であること
     - `Types...`の全ての型`Ti`と、`UTypes...`の全ての型`Ui`について、[`is_constructible`](/reference/type_traits/is_constructible.md)`<Ti, const Ui&>::value == true`であること
@@ -285,7 +285,7 @@ explicit(see below) constexpr
         - ムーブコンストラクタとのオーバーロードが成立することを意図している
     - C++23 : (6)-(9), (20)-(23) の定義参照
 - (10)-(13), (24)-(27) :
-    - `FWD(u)`を`static_­cast<decltype(u)>(u)`、`Types...`の0番目の型を`T0`、1番目の型を`T1`であるとして、
+    - `FWD(u)`を`static_cast<decltype(u)>(u)`、`Types...`の0番目の型を`T0`、1番目の型を`T1`であるとして、
     - C++23 : `sizeof...(Types) == 2`であること
     - C++23 : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T0, decltype(get<0>(FWD(u))) == true`であること
     - C++23 : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T1, decltype(get<1>(FWD(u))) == true`であること
@@ -304,8 +304,8 @@ explicit(see below) constexpr
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<UTuple, tuple>`であること
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
     - C++23 : `sizeof...(Types) ==` [`tuple_size_v`](../tuple_size.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>>`であること
-    - C++23 : `(`[`is_­constructible_­v`](/reference/type_traits/is_constructible.md)`<Types, decltype(get<I>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))> && ...) == true`であること
-    - C++23 : `sizeof...(Types) != 1`であるか、または`Types...`を`T`に展開したとして[`is_­convertible_­v`](/reference/type_traits/is_convertible.md)`<UTuple, T> == false &&` [`is_­constructible_­v`](/reference/type_traits/is_constructible.md)`<T, UTuple> == false`であること
+    - C++23 : `(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Types, decltype(get<I>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))> && ...) == true`であること
+    - C++23 : `sizeof...(Types) != 1`であるか、または`Types...`を`T`に展開したとして[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<UTuple, T> == false &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, UTuple> == false`であること
 
 
 ## 備考
@@ -319,7 +319,7 @@ explicit(see below) constexpr
     - C++17から : `!`[`conjunction_v`](/reference/type_traits/conjunction.md)`<`[`is_convertible`](/reference/type_traits/is_convertible.md)`<UTypes, Types>...>`である場合、この関数は`explicit`となる
     - C++23から : `(`[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<Types, UTypes&&> || ...)`である場合、この関数は削除定義される
 - (6)-(9) :
-    - `I`をパラメータパック`0, 1, ..., (sizeof...(Types) - 1)`、`FWD(u)`を`static_­cast<decltype(u)>(u)`と定義して、
+    - `I`をパラメータパック`0, 1, ..., (sizeof...(Types) - 1)`、`FWD(u)`を`static_cast<decltype(u)>(u)`と定義して、
     - C++23 : `!(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](../tuple/get.md)`<I>(FWD(u))), Types> && ...)`である場合、この関数は`explicit`となる
     - C++23 : `(`[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<Types, decltype(`[`get`](../tuple/get.md)`<I>(FWD(u)))> || ...)`である場合、この関数は削除定義される
 - (7) :
@@ -329,7 +329,7 @@ explicit(see below) constexpr
     - C++17 : `!`[`conjunction_v`](/reference/type_traits/conjunction.md)`<`[`is_convertible`](/reference/type_traits/is_convertible.md)`<UTypes&&, Types>...>`である場合、この関数は`explicit`となる
     - C++23 : (6)-(9) の定義参照
 - (10)-(13) :
-    - `FWD(u)`を`static_­cast<decltype(u)>(u)`、`Types...`の0番目の型を`T0`、1番目の型を`T1`であるとして、
+    - `FWD(u)`を`static_cast<decltype(u)>(u)`、`Types...`の0番目の型を`T0`、1番目の型を`T1`であるとして、
     - C++23 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(u))), T0> ||!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(u))), T1>`である場合、この関数は`explicit`となる
     - C++23 : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<T0, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(u)))> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<T1, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(u)))>`である場合、この関数は削除定義される
 - (11) :

@@ -84,23 +84,23 @@ constexpr const tuple& operator=(UTuple&&) const;        // (14) C++23
 - (1) : 全ての`i`について、[`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<Ti>::value == true`であること
 - (2) : C++23 : 全ての`i`について、[`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<const Ti> == true`であること
 - (3) : 全ての`i`について、[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<Ti>::value == true`であること
-- (4) : C++23 : 全ての`i`について、[`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const Ti&, Ti> == true`であること
+- (4) : C++23 : 全ての`i`について、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, Ti> == true`であること
 - (5) : 要素数が同じかつ、パラメータの[`tuple`](../tuple.md)の全ての要素型が、元の[`tuple`](../tuple.md)の全ての要素型にコピー代入可能であること
-- (6) : C++23 : 要素数が同じかつ、全ての`i`について、[`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const Ti&, const Ui&> == true`であること
+- (6) : C++23 : 要素数が同じかつ、全ての`i`について、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, const Ui&> == true`であること
 - (7) : 要素数が同じかつ、パラメータの[`tuple`](../tuple.md)の全ての要素型が、元の[`tuple`](../tuple.md)の全ての要素型にムーブ代入可能であること
-- (8) : C++23 : 要素数が同じかつ、全ての`i`について、[`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const Ti&, Ui> = true`であること
+- (8) : C++23 : 要素数が同じかつ、全ての`i`について、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, Ui> = true`であること
 - (9) : 元の[`tuple`](../tuple.md)の要素数が2であり、パラメータの[`pair`](/reference/utility/pair.md)の全ての要素型が元の[`tuple`](../tuple.md)の全ての要素型にコピー代入可能であること
-- (10) : C++23 : 元の[`tuple`](../tuple.md)の要素数が2であり、[`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const T0&, U1> &&` [`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const T1&, U2>`であること
+- (10) : C++23 : 元の[`tuple`](../tuple.md)の要素数が2であり、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T0&, U1> &&` [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T1&, U2>`であること
 - (11) : 元の[`tuple`](../tuple.md)の要素型が2であり、パラメータの[`pair`](/reference/utility/pair.md)の全ての要素型が元の[`tuple`](../tuple.md)の全ての要素型にムーブ代入可能であること
-- (12) : C++23 : 元の[`tuple`](../tuple.md)の要素数が2であり、[`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const T0&, U1> &&` [`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const T1&, U2>`であること
+- (12) : C++23 : 元の[`tuple`](../tuple.md)の要素数が2であり、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T0&, U1> &&` [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T1&, U2>`であること
 - (13) : 要素数が同じかつ、次を全て満たすこと
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<UTuple, tuple>`
-    - C++23 : [`remove_­cvref_­t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
-    - C++23 : 全ての`i`について、[`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<Ti&, decltype(get<i>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
+    - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
+    - C++23 : 全ての`i`について、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<Ti&, decltype(get<i>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
 - (14) : 要素数が同じかつ、次をすべて満たすこと
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<UTuple, tuple>`
-    - C++23 : [`remove_­cvref_­t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
-    - C++23 : [`is_­assignable_­v`](/reference/type_traits/is_assignable.md)`<const Ti&, decltype(get<i>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
+    - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
+    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, decltype(get<i>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
 
 
 ## 例外

@@ -18,16 +18,16 @@ namespace std {
 
 
 ## 効果
-[`tuple`](../tuple.md)`<`[`common_­type_­t`](/reference/type_traits/common_type.md)`<TTypes, UTypes>...>`によって得られた型をメンバ型`type`として定義する。
+[`tuple`](../tuple.md)`<`[`common_type_t`](/reference/type_traits/common_type.md)`<TTypes, UTypes>...>`によって得られた型をメンバ型`type`として定義する。
 
 
 ## 備考
 - `TTuple`か`UTuple`のどちらかが[`tuple`](../tuple.md)の特殊化であること。
-- `TTuple`と`UTuple`のそれぞれについて、（次の`T`を置き換える形で）[`is_­same_­v`](/reference/type_traits/is_same.md)`<T,` [`decay_­t`](/reference/type_traits/decay.md)`<T>>`であること。
+- `TTuple`と`UTuple`のそれぞれについて、（次の`T`を置き換える形で）[`is_same_v`](/reference/type_traits/is_same.md)`<T,` [`decay_t`](/reference/type_traits/decay.md)`<T>>`であること。
     - 実質的には`TTuple`と`Utuple`について、参照型ではなく、最上位の`const`/`volatile`修飾も持っていないこと要求する。
 - `TTuple`と`UTuple`の要素数が一致していること。
-    - 具体的には、[`tuple_­size_­v`](../tuple_size.md)`<TTuple> ==` [`tuple_­size_­v`](../tuple_size.md)`<UTuple>`であること。
-- [`tuple`](../tuple.md)`<`[`common_­type_­t`](/reference/type_traits/common_type.md)`<TTypes, UTypes>...>`が正しく型を表すこと。
+    - 具体的には、[`tuple_size_v`](../tuple_size.md)`<TTuple> ==` [`tuple_size_v`](../tuple_size.md)`<UTuple>`であること。
+- [`tuple`](../tuple.md)`<`[`common_type_t`](/reference/type_traits/common_type.md)`<TTypes, UTypes>...>`が正しく型を表すこと。
 
 
 ## バージョン

@@ -31,7 +31,7 @@ namespace std {
     - 2つの[`tuple`](../tuple.md)オブジェクトの要素数が同じであること。（具体的には`sizeof...(TTypes) == sizeof...(UTypes)`であること。）
     - [`tuple`](../tuple.md)の要素`std::`[`get`](get.md)`<i>(t)`と`std::`[`get`](get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) == std::`[`get`](get.md)`<i>(u)` の比較結果が`bool`に変換可能な型（C++23 以降は[`boolean-testable`](/reference/concepts/boolean-testable.md)を満たせばよい）であること。
 - (2) :
-    - C++23 : 2つの[`tuple-like`](../tuple-like.md)なオブジェクトの要素数が同じであること。（正確には、`sizeof...(TTypes) ==` [`tuple_­size_­v`](../tuple_size.md)`<UTuple>`であること。）
+    - C++23 : 2つの[`tuple-like`](../tuple-like.md)なオブジェクトの要素数が同じであること。（正確には、`sizeof...(TTypes) ==` [`tuple_size_v`](../tuple_size.md)`<UTuple>`であること。）
     - C++23 : [`tuple`](../tuple.md)の要素`std::`[`get`](get.md)`<i>(t)`と[`tuple-like`](../tuple-like.md)なオブジェクトの要素`std::get<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) == std::`[`get`](get.md)`<i>(u)` の比較結果が[`boolean-testable`](/reference/concepts/boolean-testable.md)を満たす型（`bool`へ変換可能な型）であること。
 
 

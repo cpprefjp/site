@@ -29,7 +29,7 @@ namespace std {
     - `Args...`の各型が左辺値参照であればコピー構築可能、そうでなければムーブ構築可能であること。
 - C++23から :
     - 本関数の返り値の[`tuple`](tuple.md)のテンプレートパラメーターパックを`Ctypes`とし、`Ctypes`の全ての要素について、引数`tpls`において対応する要素の型から構築可能であること。
-    - より厳密には、次のように定義を行い、`(`[`is_­constructible_v­`](/reference/type_traits/is_constructible.md)`<CTypes, decltype(celems)> && ...) == true`であること。
+    - より厳密には、次のように定義を行い、`(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<CTypes, decltype(celems)> && ...) == true`であること。
         - `n`を`sizeof...(Tuples)`とし、`i`を範囲`[0, n)`における整数値とする
         - `T(i)`を`Tuples`の`i`番目とする
         - `U(i)`を[`remove_cvref_t<T(i)>`](/reference/type_traits/remove_cvref.md) とする

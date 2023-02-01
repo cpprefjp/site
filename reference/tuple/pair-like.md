@@ -11,7 +11,7 @@ namespace std {
     template<class T>
     concept pair-like = // 説明専用コンセプト
       !is_reference_v<T> && requires(T t) {
-        typename tuple_size<T>::type; // tuple_­size<T> が完全型であることを明確にする
+        typename tuple_size<T>::type; // tuple_size<T> が完全型であることを明確にする
         requires derived_from<tuple_size<T>, integral_constant<size_t, 2>>;
         typename tuple_element_t<0, remove_const_t<T>>;
         typename tuple_element_t<1, remove_const_t<T>>;

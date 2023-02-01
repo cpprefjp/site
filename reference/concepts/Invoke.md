@@ -63,7 +63,7 @@ C++における関数呼び出しという性質を抽象化しまとめた、�
 ## 要件（C++23差分）
 C++20 における 2. について、次の文言を項目の最後に追加する。この変更は、`R`が参照かつ*INVOKE*の実行結果が`R`に束縛されることで寿命が延長される場合にダングリング参照が作成されてしまう事例を検出するための要件である。
 
-- [`reference_­converts_­from_­temporary_­v`](/reference/type_traits/reference_converts_from_temporary.md)`<R, decltype(`*INVOKE*`(f, t1, t2, …, tN))> == true`の場合、*INVOKE*`<R>(f, t1, t2, …, tN)`は不適格。
+- [`reference_converts_from_temporary_v`](/reference/type_traits/reference_converts_from_temporary.md)`<R, decltype(`*INVOKE*`(f, t1, t2, …, tN))> == true`の場合、*INVOKE*`<R>(f, t1, t2, …, tN)`は不適格。
 
 
 ## まとめ

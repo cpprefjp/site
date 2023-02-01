@@ -35,11 +35,11 @@ std::is_convertible_v<std::invoke_result_t<F, ArgsTypes...>, R>
 
 // C++23
 std::is_convertible_v<std::invoke_result_t<F, ArgsTypes...>, R> && 
-std::reference_­converts_­from_­temporary_­v<R, std::invoke_result_t<F, ArgsTypes...>> == false
+std::reference_converts_from_temporary_v<R, std::invoke_result_t<F, ArgsTypes...>> == false
 ```
 * std::is_convertible_v[link is_convertible.md]
 * std::invoke_result_t[link invoke_result.md]
-* std::reference_­converts_­from_­temporary_­v[link /reference/type_traits/reference_converts_from_temporary.md]
+* std::reference_converts_from_temporary_v[link /reference/type_traits/reference_converts_from_temporary.md]
 
 
 ## 寿命の延長とダングリング参照
@@ -49,7 +49,7 @@ std::reference_­converts_­from_­temporary_­v<R, std::invoke_result_t<F, Args
 
 `R`が`const T&`または`T&&`で、かつ`S`が`rvalue`であれば、`S`を`R`へ暗黙変換する際に`S`の寿命は`R`の寿命に合わせて延長されることがある。しかしこの場合、`R`は[*INVOKE*](/reference/concepts/Invoke.md)が行われる文を寿命とするので、`S`も同様に[*INVOKE*](/reference/concepts/Invoke.md)が行われる文が終了すると同時に寿命が終了する。参照による寿命の延長は2度適用されることはないため、このような場合には常にダングリング参照が生じてしまう。
 
-これを検出し、不適格とするために[`reference_­converts_­from_­temporary_­v`](/reference/type_traits/reference_converts_from_temporary.md)を使用しているというわけなのである。
+これを検出し、不適格とするために[`reference_converts_from_temporary_v`](/reference/type_traits/reference_converts_from_temporary.md)を使用しているというわけなのである。
 
 ```cpp example
 #include <iostream>

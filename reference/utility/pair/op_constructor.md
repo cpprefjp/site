@@ -116,11 +116,11 @@ constexpr pair(piecewise_construct_t,
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const first_type&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const second_type&, second_type>`である場合、`explicit`指定される
 - (5) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
-    - C++23 : [`reference_­constructs_­from_­temporary_­v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_­type, U1&&> ||` [`reference_­constructs_­from_­temporary_­v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_­type, U2&&>`である場合、このコンストラクタは削除定義される
+    - C++23 : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, U1&&> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, U2&&>`である場合、このコンストラクタは削除定義される
 - (6)-(10) :
     - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
     - C++23 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p))), T1> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p))), T2>`である場合、`explicit`指定される
-    - C++23 : [`reference_­constructs_­from_­temporary_­v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_­type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> ||` [`reference_­constructs_­from_­temporary_­v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_­type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`である場合、このコンストラクタは削除定義される
+    - C++23 : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`である場合、このコンストラクタは削除定義される
 - (7) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U1&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U2&, second_type>`である場合、`explicit`指定される
     - C++23 : (6)-(10) での定義参照

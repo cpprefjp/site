@@ -26,7 +26,7 @@ namespace std {
 また、型`T`の初期化はそのコンストラクタで行われ集成体初期化は考慮されない。つまり、`Tuple`に含まれる型が空かただ一つの`T`でない場合、型`T`は集成体（aggregate）であってはならない（C++17のみ、C++20以降はok）。
 
 更に、C++23以降は`make_from_tuple`の返り値が参照である場合でダングリング参照を生成しないために、`make_from_tuple`の内部で`T`が構築される際に、`Tuple`から取得されるオブジェクト（参照の初期化であるので、`Tuple`のサイズは1である必要がある）の寿命が延長されないことも要求され、これを満たさない場合はコンパイルエラーとなる。
-正確には、[`tuple_­size_­v`](tuple_size.md)`<`[`remove_­reference_­t`](/reference/type_traits/remove_reference.md)`<Tuple>> == 1`である場合、[`reference_­constructs_­from_­temporary_­v`](/reference/type_traits/reference_constructs_from_temporary.md)`<T, decltype(get<0>(`[`declval`](/reference/utility/declval.md)`<Tuple>()))> == false`であること。
+正確には、[`tuple_size_v`](tuple_size.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<Tuple>> == 1`である場合、[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<T, decltype(get<0>(`[`declval`](/reference/utility/declval.md)`<Tuple>()))> == false`であること。
 
 ## 引数
 - `t` -- [`tuple-like`](tuple-like.md)な型`Tuple`のオブジェクト
