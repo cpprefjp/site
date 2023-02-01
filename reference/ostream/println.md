@@ -45,13 +45,15 @@ namespace std {
 
 int main()
 {
-  std::println(std::cout, "Hello {} World", 42);
+  std::println(std::cout, "Hello {} World", 42); // 標準出力に出力
+  std::println(std::cerr, "Hello {} World", 42); // 標準エラーに出力
 }
 ```
 * std::println[color ff0000]
 
 ### 出力
 ```
+Hello 42 World
 Hello 42 World
 ```
 

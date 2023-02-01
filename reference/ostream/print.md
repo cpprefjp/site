@@ -77,13 +77,15 @@ namespace std {
 
 int main()
 {
-  std::print(std::cout, "Hello {} World\n", 42);
+  std::print(std::cout, "Hello {} World\n", 42); // 標準出力に出力
+  std::print(std::cerr, "Hello {} World\n", 42); // 標準エラーに出力
 }
 ```
 * std::print[color ff0000]
 
 ### 出力
 ```
+Hello 42 World
 Hello 42 World
 ```
 
