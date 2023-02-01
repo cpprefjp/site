@@ -96,11 +96,11 @@ constexpr const tuple& operator=(UTuple&&) const;        // (14) C++23
 - (13) : 要素数が同じかつ、次を全て満たすこと
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<UTuple, tuple>`
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
-    - C++23 : 全ての`i`について、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<Ti&, decltype(get<i>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
+    - C++23 : 全ての`i`について、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<Ti&, decltype(get<i>(`[`std::forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
 - (14) : 要素数が同じかつ、次をすべて満たすこと
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<UTuple, tuple>`
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
-    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, decltype(get<i>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
+    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, decltype(get<i>(`[`std::forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
 
 
 ## 例外

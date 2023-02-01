@@ -66,13 +66,13 @@ template<pair-like P>
 - (9) : 次を全て満たすこと
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<P, pair>`
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<P>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
-    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<T1&, decltype(get<0>(`[`std​::​forward`](/reference/utility/forward.md)`<P>(p)))>`
-    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<T2&, decltype(get<1>(`[`std​::​forward`](/reference/utility/forward.md)`<P>(p)))>`
+    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<T1&, decltype(get<0>(`[`std::forward`](/reference/utility/forward.md)`<P>(p)))>`
+    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<T2&, decltype(get<1>(`[`std::forward`](/reference/utility/forward.md)`<P>(p)))>`
 - (10) : 次を全て満たすこと
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<P, pair>`
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<P>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
-    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T1&, decltype(get<0>(`[`std​::​forward`](/reference/utility/forward.md)`<P>(p)))>`
-    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T2&, decltype(get<1>(`[`std​::​forward`](/reference/utility/forward.md)`<P>(p)))>`
+    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T1&, decltype(get<0>(`[`std::forward`](/reference/utility/forward.md)`<P>(p)))>`
+    - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T2&, decltype(get<1>(`[`std::forward`](/reference/utility/forward.md)`<P>(p)))>`
 
 
 ## 効果

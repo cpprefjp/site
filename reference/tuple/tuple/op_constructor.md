@@ -304,7 +304,7 @@ explicit(see below) constexpr
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<UTuple, tuple>`であること
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
     - C++23 : `sizeof...(Types) ==` [`tuple_size_v`](../tuple_size.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>>`であること
-    - C++23 : `(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Types, decltype(get<I>(`[`std​::​forward`](/reference/utility/forward.md)`<UTuple>(u)))> && ...) == true`であること
+    - C++23 : `(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Types, decltype(get<I>(`[`std::forward`](/reference/utility/forward.md)`<UTuple>(u)))> && ...) == true`であること
     - C++23 : `sizeof...(Types) != 1`であるか、または`Types...`を`T`に展開したとして[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<UTuple, T> == false &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, UTuple> == false`であること
 
 
