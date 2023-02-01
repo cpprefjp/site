@@ -24,15 +24,36 @@ cpprefjp/site へ push すると、すぐに反映されます。
 日次の変換中にコミットした変更は、日次の変換がおわったあと (だいたい1時間30分〜2時間くらい) に自動で変換・反映されます。
 
 
-### 変換エラーの検出
+### 自動デプロイ、自動テスト
+本リポジトリでは、GitHub Actionsを使用して、自動デプロイと自動テストを行っています。
+
+#### 自動デプロイ
+buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへのデプロイを行っています。
+
 変換時になんらかのエラーが発生した場合には、GitHub Actionsが失敗します。その場合、手元で修正して再度git pushを行うことになります
 
-変換エラーではなく、GitHub Pagesリポジトリへのgit pushに失敗した場合 (buildアクションの実行中に新たなコミットがgit pushされた場合など) には、そのbuildアクションに対してRe-run jobを実行し、再度変換を行ってください
+変換エラーではなく、GitHub Pagesリポジトリへのgit pushに失敗した場合 (buildアクションの実行中に新たなコミットがgit pushされた場合など) には、そのbuildアクションに対してRe-run jobを実行し、再度変換を行ってください。
+
+
+#### 自動テスト
+- 禁止文字の検出 (detect forbidden charactersアクション)
+    - 説明は[detect_forbidden_characters.yml](https://github.com/cpprefjp/site/blob/master/.github/workflows/detect_forbidden_characters.yml)のコメントを参照
+- 内部リンクの誤り検出 (inner link checkアクション)
+    - サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する
+    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/inner_link_check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
+- 外部リンク切れを検出 (outer link checkアクション)
+    - 日本時間で日曜日の23:30に実行される
+    - 外部リンクのページにアクセスできない (ページが消滅したか、一時的にアクセスできない、などの理由) 場合にエラーとなる
+    - エラーが発生した場合は、本リポジトリにissueが発行される
+    - ページが消滅した場合は、代替となるものがあれば差し替え、なければInternet Archiveに変更する
+    - 一時的にアクセスできない場合は、時間を置いてアクセスできるようになったらissueを閉じる
+    - 海外からのアクセス (GitHub Actions) を拒否しているページもあるため、そのようなページは個別にチェックから外す ([link_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/link_check.py)の`IGNORE_LIST`に追加する)
+
 
 ### 自動反映ツール
 自動反映ツールも、GitHub上で開発が進められています。
 
-* [site_generator](https://github.com/cpprefjp/site_generator)
+- [site_generator](https://github.com/cpprefjp/site_generator)
 
 機能要望やpull request等がありましたら、こちらにお願いします。
 
