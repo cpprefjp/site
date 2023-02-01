@@ -1,5 +1,13 @@
 name: detect forbidden characters
 
+# 本リポジトリでは、以下に挙げる文字の使用を禁止している：
+# U+00AD SOFT HYPHEN (ソフトハイフン)
+# U+200B ZERO WIDTH SPACE (ゼロ幅スペース)
+#
+# 経緯は以下を参照：
+# #735 SOFT HYPHENを削除する？
+# https://github.com/cpprefjp/site/issues/735
+
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
