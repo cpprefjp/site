@@ -86,8 +86,13 @@ int main()
   // stdout / stderrはマクロとして定義される。
   // モジュールはマクロをエクスポートしないので、
   // stdout / stderrは使用できない
-  std::println(stdout, "Hello {} World", 42); // エラー！stdoutが見つからない
+  // std::println(stdout, "Hello {} World", 42); // エラー！stdoutが見つからない
 }
+```
+
+#### 出力
+```
+Hello 42 World
 ```
 
 ## バージョン
