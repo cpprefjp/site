@@ -41,7 +41,7 @@ namespace std {
 |-----------------|----------------|-------|
 | [`operator=`](expected/op_assign.md) | 代入演算子 | C++23 |
 | [`emplace`](expected/emplace.md) | 正常値型のコンストラクタ引数から直接構築する | C++23 |
-| [`swap`](expected/swap.md.nolink) | 他の`expected`オブジェクトとデータを入れ替える | C++23 |
+| [`swap`](expected/swap.md) | 他の`expected`オブジェクトとデータを入れ替える | C++23 |
 
 ### 値の観測
 
