@@ -25,15 +25,15 @@ constexpr void swap(expected& rhs) noexcept(see below);
 
 - [`is_swappable_v`](/reference/type_traits/is_swappable.md)`<T> == true`
 - [`is_swappable_v`](/reference/type_traits/is_swappable.md)`<E> == true`
-- `(`[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<E> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<E>) == true`
-- `(`[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E> &&` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>) == true`
+- `(`[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<E>) == true`
+- `(`[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> ||` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>) == true`
 
 
 ## 効果
 `*this`と`rhs`それぞれが正常値／エラー値いずれを保持しているかに応じて、以下の効果を持つ。
 
-- `*this`と`rhs`ともに正常値を保持していれば、次と等価 : `using std::swap;` [`swap`](/reference/utility/swap.md)`(val, rhs.val);`
-- `*this`と`rhs`ともにエラー値を保持していれば、次と等価 : `using std::swap;` [`swap`](/reference/utility/swap.md)`(unex, rhs.unex);`
+- `*this`と`rhs`ともに正常値を保持していれば、次と等価 : `using` [`std::swap`](/reference/utility/swap.md)`; swap(val, rhs.val);`
+- `*this`と`rhs`ともにエラー値を保持していれば、次と等価 : `using` [`std::swap`](/reference/utility/swap.md)`; swap(unex, rhs.unex);`
 - `*this`がエラー値を`rhs`が正常値を保持していれば、次と等価 : `rhs.swap(*this);`
 - `*this`が正常値を`rhs`がエラー値を保持していれば、次と等価 :
     ```cpp
