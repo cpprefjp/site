@@ -53,8 +53,8 @@ namespace std {
 | [`has_value`](expected/has_value.md) | 正常値を保持しているかを判定する | C++23 |
 | [`value`](expected/value.md) | 正常値を取得する | C++23 |
 | [`error`](expected/error.md) | エラー値を取得する | C++23 |
-| [`value_or`](expected/value_or.md.nolink) | 正常値もしくは指定された値を取得する | C++23 |
-| [`error_or`](expected/error_or.md.nolink) | エラー値もしくは指定された値を取得する | C++23 |
+| [`value_or`](expected/value_or.md) | 正常値もしくは指定された値を取得する | C++23 |
+| [`error_or`](expected/error_or.md) | エラー値もしくは指定された値を取得する | C++23 |
 
 ### モナド操作
 

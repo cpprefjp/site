@@ -67,7 +67,7 @@ ERR
 
 
 ## 関連項目
-- [`error_or`](error_or.md.nolink)
+- [`error_or`](error_or.md)
 
 
 ## 参照

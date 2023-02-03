@@ -70,7 +70,7 @@ int main()
 ## 関連項目
 - [`operator->`](op_arrow.md)
 - [`value()`](value.md)
-- [`value_or()`](value_or.md.nolink)
+- [`value_or()`](value_or.md)
 
 
 ## 参照

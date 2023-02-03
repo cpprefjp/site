@@ -73,7 +73,7 @@ throw:ERR
 ## 関連項目
 - [`operator->`](op_arrow.md)
 - [`operator*`](op_deref.md)
-- [`value_or()`](value_or.md.nolink)
+- [`value_or()`](value_or.md)
 
 
 ## 参照
