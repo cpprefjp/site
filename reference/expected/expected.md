@@ -60,10 +60,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`and_then`](expected/and_then.md.nolink)   | 正常値に対して関数を適用する | C++23 |
-| [`or_else`](expected/or_else.md.nolink)     | エラー値に対して関数を適用する | C++23 |
-| [`transform`](expected/transform.md.nolink) | 正常値を変換する | C++23 |
-| [`transform_error`](expected/transform_error.md.nolink) | エラー値を変換する | C++23 |
+| [`and_then`](expected/and_then.md) | 正常値に対して関数を適用する | C++23 |
+| [`or_else`](expected/or_else.md) | エラー値に対して関数を適用する | C++23 |
+| [`transform`](expected/transform.md) | 正常値を変換する | C++23 |
+| [`transform_error`](expected/transform_error.md) | エラー値を変換する | C++23 |
 
 ### 比較
 
@@ -120,6 +120,8 @@ int main()
 ```
 * std::expected[color ff0000]
 * std::unexpected[link unexpected.md]
+* *v[link expected/op_deref.md]
+* v.error()[link expected/error.md]
 * std::quoted[link ../iomanip/quoted.md]
 
 ### 出力
