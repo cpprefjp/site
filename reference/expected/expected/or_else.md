@@ -16,6 +16,18 @@ template<class F> constexpr auto or_else(F&& f) const &&; // (4)
 エラー値を保持していれば、エラー値に対して`f`を適用した結果を`expected`として返す。
 正常値を保持していれば、そのまま返す。
 
+実際には複数オーバーロードが提供されるが、大まかには下記シグニチャのようにみなせる。
+`or_else`へは、引数リストに1個の`E`型をとり`std::expected<T, Return>`型を返す関数や関数オブジェクトを与える。
+
+```cpp
+template <class T, class E>
+class expected {
+  template <class Return>
+  std::expected<T, Return> or_else(function<std::expected<T, Return>(E)> func);
+};
+```
+* function[link /reference/functional/function.md]
+
 
 ## テンプレートパラメータ制約
 - (1), (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> == true`
@@ -62,6 +74,10 @@ template<class F> constexpr auto or_else(F&& f) const &&; // (4)
     * std::move[link /reference/utility/move.md]
 
 
+## 備考
+`or_else`は、メソッドチェーンをサポートするモナド風(monadic)操作として導入された。
+
+
 ## 例
 ```cpp example
 #include <cassert>
@@ -98,6 +114,8 @@ int main()
 * value()[link value.md]
 * error()[link error.md]
 * std::unexpected[link ../unexpected.md]
+* std::from_chars[link /reference/charconv/from_chars.md]
+* std::errc[link /reference/system_error/errc.md]
 
 ### 出力
 ```

@@ -16,6 +16,18 @@ template<class F> constexpr auto and_then(F&& f) const &&; // (4)
 正常値を保持していれば、正常値に対して`f`を適用した結果を`expected`として返す。
 エラー値を保持していれば、そのまま返す。
 
+実際には複数オーバーロードが提供されるが、大まかには下記シグニチャのようにみなせる。
+`and_then`へは、引数リストに1個の`T`型をとり`std::expected<Return, E>`型を返す関数や関数オブジェクトを与える。
+
+```cpp
+template <class T, class E>
+class expected {
+  template <class Return>
+  std::expected<Return, E> and_then(function<std::expected<Return, E>(T)> func);
+};
+```
+* function[link /reference/functional/function.md]
+
 
 ## テンプレートパラメータ制約
 - (1), (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<E> == true`
@@ -60,6 +72,10 @@ template<class F> constexpr auto and_then(F&& f) const &&; // (4)
     * invoke[link /reference/functional/invoke.md]
     * std::forward[link /reference/utility/forward.md]
     * std::move[link /reference/utility/move.md]
+
+
+## 備考
+`and_then`は、メソッドチェーンをサポートするモナド風(monadic)操作として導入された。
 
 
 ## 例

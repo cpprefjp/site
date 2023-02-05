@@ -16,6 +16,18 @@ template<class F> constexpr auto transform_error(F&& f) const &&; // (4)
 エラー値を保持していれば、エラー値に対して`f`を適用した結果を`expected`のエラー値として格納して返す。
 正常値を保持していれば、そのまま返す。
 
+実際には複数オーバーロードが提供されるが、大まかには下記シグニチャのようにみなせる。
+`transform_error`へは、引数リストに1個の`E`型をとり`Return`型を返す関数や関数オブジェクトを与える。
+
+```cpp
+template <class T, class E>
+class expected {
+  template <class Return>
+  std::expected<T, Return> transform_error(function<Return(E)> func);
+};
+```
+* function[link /reference/functional/function.md]
+
 
 ## テンプレートパラメータ制約
 - (1), (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> == true`
@@ -24,10 +36,10 @@ template<class F> constexpr auto transform_error(F&& f) const &&; // (4)
 
 ## 適格要件
 - (1), (2) : 型`G`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`error()`](error.md)`)>>`としたとき、次を全て満たすこと
-    - `G`が`expected`の有効な値型である
+    - `G`が`expected`の有効なエラー値型である
     - 宣言`G g(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`error()`](error.md)`));`が妥当である
 - (3), (4) : 型`G`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))>>`としたとき、次を全て満たすこと
-    - `G`が`expected`の有効な値型である
+    - `G`が`expected`の有効なエラー値型である
     - 宣言`G g(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`)));`が妥当である
 
 
@@ -36,8 +48,12 @@ template<class F> constexpr auto transform_error(F&& f) const &&; // (4)
     - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`value()`](value.md)`)`を返す。
     - エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`error()`](error.md)`)`で非直接リスト初期化した`expected<T, G>`オブジェクトを返す。
 - (3), (4) : 次の効果をもつ
-    - エラー値を保持していたら、`expected<U, E>(`[`unexpect`](../unexpect_t.md)`,` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`を返す。
-    - 正常値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`で非直接リスト初期化した`expected<T, G>`オブジェクトを返す。
+    - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`を返す。
+    - エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`で非直接リスト初期化した`expected<T, G>`オブジェクトを返す。
+
+
+## 備考
+`transform_error`は、メソッドチェーンをサポートするモナド風(monadic)操作として導入された。
 
 
 ## 例
@@ -67,6 +83,7 @@ int main()
 * value()[link value.md]
 * error()[link error.md]
 * std::unexpected[link ../unexpected.md]
+* std::reverse[link /reference/algorithm/reverse.md]
 
 ### 出力
 ```

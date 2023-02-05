@@ -16,6 +16,18 @@ template<class F> constexpr auto transform(F&& f) const &&; // (4)
 正常値を保持していれば、正常値に対して`f`を適用した結果を`expected`の正常値として格納して返す。
 エラー値を保持していれば、そのまま返す。
 
+実際には複数オーバーロードが提供されるが、大まかには下記シグニチャのようにみなせる。
+`transform`へは、引数リストに1個の`T`型をとり`Return`型を返す関数や関数オブジェクトを与える。
+
+```cpp
+template <class T, class E>
+class expected {
+  template <class Return>
+  std::expected<Return, E> transform(function<Return(T)> func);
+};
+```
+* function[link /reference/functional/function.md]
+
 
 ## テンプレートパラメータ制約
 - (1), (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<E> == true`
@@ -25,10 +37,10 @@ template<class F> constexpr auto transform(F&& f) const &&; // (4)
 ## 適格要件
 - (1), (2) : 型`U`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`value()`](value.md)`)>>`としたとき、次を全て満たすこと
     - `U`が`expected`の有効な正常値型である
-    - [`is_void_t`](/reference/type_traits/is_void.md)`<U> == false`のとき、宣言`U u(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`));`が妥当である
+    - `U`が（CV修飾された）`void`ではないとき、宣言`U u(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`));`が妥当である
 - (3), (4) : 型`U`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))>>`としたとき、次を全て満たすこと
     - `U`が`expected`の有効な正常値型である
-    - [`is_void_t`](/reference/type_traits/is_void.md)`<U> == false`のとき、宣言`U u(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`)));`が妥当である
+    - `U`が（CV修飾された）`void`ではないとき、宣言`U u(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`)));`が妥当である
 
 
 ## 効果
@@ -36,11 +48,14 @@ template<class F> constexpr auto transform(F&& f) const &&; // (4)
     - エラー値を保持していたら、`expected<U, E>(`[`unexpect`](../unexpect_t.md)`,` [`error()`](error.md)`)`を返す。
     - 型`U`が（CV修飾された）`void`でなければ、正常値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`)`で非直接リスト初期化した`expected<U, E>`オブジェクトを返す。
     - そうでなければ、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`)`を評価し、`expected<U, E>()`を返す。
-
 - (3), (4) : 次の効果をもつ
     - エラー値を保持していたら、`expected<U, E>(`[`unexpect`](../unexpect_t.md)`,` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`を返す。
     - 型`U`が（CV修飾された）`void`でなければ、正常値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`で非直接リスト初期化した`expected<U, E>`オブジェクトを返す。
     - そうでなければ、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`を評価し、`expected<U, E>()`を返す。
+
+
+## 備考
+`transform`は、メソッドチェーンをサポートするモナド風(monadic)操作として導入された。
 
 
 ## 例
