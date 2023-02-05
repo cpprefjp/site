@@ -69,8 +69,8 @@ namespace std {
 
 | 名前         | 説明       | 対応バージョン |
 |--------------|------------|-------|
-| [`operator==`](unexpected/op_equal.md.nolink) | 等値比較 | C++23 |
-| [`operator!=`](unexpected/op_not_equal.md.nolink) | 非等値比較 | C++23 |
+| [`operator==`](expected/op_equal.md) | 等値比較 | C++23 |
+| [`operator!=`](expected/op_not_equal.md) | 非等値比較 | C++23 |
 
 
 ## メンバ型
