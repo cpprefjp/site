@@ -546,6 +546,46 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 * make_wformat_args[link make_format_args.md]
 * locale[link /reference/locale/locale.md]
 
+### ログ出力の例 (C++23)
+```cpp
+#include <iostream>
+#include <format>
+#include <chrono>
+
+// コンパイルフラグによって無効化できるログ出力関数
+template <typename... Args>
+void debug_log(std::format_string<Args...> s, Args&&... args) {
+#if defined(DISABLE_DEBUG_LOG)
+    return;
+#else
+  namespace chrono = std::chrono;
+  auto now = chrono::floor<chrono::seconds>(chrono::system_clock::now());
+  std::cout << std::format("{}: {}",
+    chrono::zoned_time{"Asia/Tokyo", now},
+    std::format(s, std::forward<Args>(args)...)
+  ) << std::endl;
+#endif
+}
+
+int main()
+{
+  debug_log("Hello {} World", 42);
+}
+```
+* std::format_string[link /reference/format/basic_format_string.md]
+* chrono::system_clock[link /reference/chrono/system_clock.md]
+* now[link /reference/chrono/system_clock/now.md]
+* chrono::floor[link /reference/chrono/time_point/floor.md]
+* chrono::seconds[link /reference/chrono/duration_aliases.md]
+* chrono::zoned_time[link /reference/chrono/zoned_time.md]
+* std::forward[link /reference/utility/forward.md]
+
+#### 出力
+```
+2023-02-06 10:46:53: Hello 42 World
+```
+
+
 ## バージョン
 ### 言語
 - C++20
