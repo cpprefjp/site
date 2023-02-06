@@ -20,8 +20,8 @@ namespace std {
   Out format_to(Out out, const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
 }
 ```
-* format_string[italic]
-* wformat_string[italic]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
 * locale[link /reference/locale/locale.md]
 
 ## 概要
@@ -135,8 +135,8 @@ wstring format_to(Out out, const locale& loc, wformat_string<Args...> fmt, const
   return vformat_to(out, loc, fmt.str, {make_format_args<context>(args...)});
 }
 ```
-* format_string[italic]
-* wformat_string[italic]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
 * str[italic]
 * basic_format_context[link basic_format_context.md]
 * vformat_to[link vformat.md]

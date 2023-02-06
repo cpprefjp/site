@@ -20,8 +20,8 @@ namespace std {
   size_t formatted_size(const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
 }
 ```
-* format_string[italic]
-* wformat_string[italic]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
 * locale[link /reference/locale/locale.md]
 
 ## 概要

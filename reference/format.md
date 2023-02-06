@@ -51,6 +51,14 @@
 | [`format_args`](format/basic_format_args.md)       | `basic_format_args`のマルチバイト文字列版 (type-alias)                                           | C++20          |
 | [`wformat_args`](format/basic_format_args.md)      | `basic_format_args`のワイド文字列版 (type-alias)                                                 | C++20          |
 
+
+## 書式文字列
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`basic_format_string`](format/basic_format_string.md) | 書式のコンパイル時文字列クラス (class template) | C++23 |
+
+
 ## 例外
 
 | 名前                                     | 説明                                       | 対応バージョン |

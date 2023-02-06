@@ -12,7 +12,7 @@ namespace std {
              Args&&... args);             // (1) C++23
 }
 ```
-* format_string[link /reference/format/format_string.md.nolink]
+* format_string[link /reference/format/basic_format_string.md]
 * ostream[link basic_ostream.md]
 
 ## 概要

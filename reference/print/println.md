@@ -16,7 +16,7 @@ namespace std {
                Args&&... args);             // (2) C++23
 }
 ```
-* format_string[link /reference/format/format_string.md.nolink]
+* format_string[link /reference/format/basic_format_string.md]
 * FILE[link /reference/cstdio/file.md.nolink]
 
 ## 概要

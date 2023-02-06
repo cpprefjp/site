@@ -8,20 +8,38 @@
 ```cpp
 namespace std {
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, format_string<Args...> fmt, const Args&... args); // (1)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                format_string<Args...> fmt,
+                const Args&... args);       // (1)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wformat_string<Args...> fmt, const Args&... args); // (2)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                wformat_string<Args...> fmt,
+                const Args&... args);       // (2)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, format_string<Args...> fmt, const Args&... args); // (3)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                const locale& loc,
+                format_string<Args...> fmt,
+                const Args&... args);       // (3)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                const locale& loc,
+                wformat_string<Args...> fmt,
+                const Args&... args);       // (4)
 }
 ```
-* format_string[italic]
-* wformat_string[italic]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
 * format_to_n_result[link format_to_n_result.md]
 * locale[link /reference/locale/locale.md]
 

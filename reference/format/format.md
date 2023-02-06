@@ -23,8 +23,8 @@ namespace std {
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
 * locale[link /reference/locale/locale.md]
-* format_string[italic]
-* wformat_string[italic]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
 
 ## 概要
 
@@ -250,31 +250,12 @@ format("{:n}", 1234);                  // "1,234" (ロケールによる)
 
 ### コンパイル時の書式文字列チェック
 
-_`format_string`_ および _`basic_format_string`_ は次のように定義される。ただし、クラス名は規定されない。
+書式文字列は、[`basic_format_string`](basic_format_string.md)クラスによってコンパイル時にチェックされる。
 
-```cpp
-namespace std {
-  template<class charT, class... Args> struct basic_format_string { // exposition only
-  private:
-    basic_string_view<charT> str; // exposition only
-
-  public:
-    template<class T> consteval basic_format_string(const T& s): str(s) {
-      /*何らかのコンパイル時書式文字列チェック*/
-    }
-  };
-
-  template<class... Args> using format_string
-    = basic_format_string<char, type_identity_t<Args>...>; // exposition only
-
-  template<class... Args> using wformat_string
-    = basic_format_string<wchar_t, type_identity_t<Args>...>; // exposition only
-```
-* consteval[link /lang/cpp20/immediate_functions.md]
-
-_`basic_format_string`_ のコンストラクタは[即時関数](/lang/cpp20/immediate_functions.md)であり、書式文字列が正しい場合にのみ定数式として評価できるように実装される。即時関数であるため、定数式として評価できない場合はエラーとなる。
+[`basic_format_string`](basic_format_string.md) のコンストラクタは[即時関数](/lang/cpp20/immediate_functions.md)であり、書式文字列が正しい場合にのみ定数式として評価できるように実装される。即時関数であるため、定数式として評価できない場合はエラーとなる。
 
 書式文字列チェックをエラーがあった場合に例外を投げるような実装をすれば、`throw`は定数式として評価できないため、コンパイルエラーとすることが可能である。
+
 
 ## 適格要件
 
@@ -557,8 +538,8 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
-* format_string[italic]
-* wformat_string[italic]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
 * str[italic]
 * vformat[link vformat.md]
 * make_format_args[link make_format_args.md]
