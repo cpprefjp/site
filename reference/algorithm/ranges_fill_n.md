@@ -41,7 +41,7 @@ int main() {
   std::ranges::fill_n(std::ostream_iterator<int>(std::cout, ","), 10, 3);
 }
 ```
-* std::fill_n[color ff0000]
+* std::ranges::fill_n[color ff0000]
 
 ### 出力
 ```

@@ -42,7 +42,6 @@ int main()
 }
 ```
 * std::hardware_constructive_interference_size[color ff0000]
-* threads.push_back[link /reference/vector/vector/push_back.md]
 
 
 ### 出力例

@@ -66,7 +66,6 @@ int main()
   return 0;
 }
 ```
-* insert[link insert.md]
 
 ### 出力
 ```

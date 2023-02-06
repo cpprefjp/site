@@ -9,7 +9,6 @@
 constexpr const I& base() const & noexcept;  // (1)
 constexpr I base() &&;  // (2)
 ```
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 
 ## 概要
 

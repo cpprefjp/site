@@ -44,7 +44,6 @@ int main()
 * to_sys[color ff0000]
 * from_sys[link from_sys.md]
 * sys_days[link /reference/chrono/sys_time.md]
-* system_clock[link /reference/chrono/system_clock.md]
 * July[link /reference/chrono/month_constants.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 

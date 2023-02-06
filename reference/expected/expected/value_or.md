@@ -39,7 +39,7 @@ int main()
   std::cout << y.value_or(0) << std::endl;
 }
 ```
-* value_or()[color ff0000]
+* value_or[color ff0000]
 * std::unexpected[link ../unexpected.md]
 
 ### 出力

@@ -34,7 +34,7 @@ int main()
 }
 ```
 * date.weekday_last()[color ff0000]
-* chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
+* chrono::weekday_last[link /reference/chrono/weekday_last.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 * chrono::last[link /reference/chrono/last_spec.md]

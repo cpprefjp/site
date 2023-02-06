@@ -11,7 +11,7 @@ namespace std::ranges {
   constexpr I destroy_n(I first, iter_difference_t<I> n) noexcept; // (1) C++20
 }
 ```
-* no-throw-forward-iterator[link no-throw-forward-iterator.md]
+* no-throw-input-iterator[link no-throw-input-iterator.md]
 * destructible[link /reference/concepts/destructible.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
@@ -24,7 +24,7 @@ namespace std::ranges {
 
 ## テンプレートパラメータ制約
 - (1):
-    - `I`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md)である
+    - `I`が[`no-throw-input-iterator`](no-throw-input-iterator.md)である
     - `I`の要素型が、[破棄可能](/reference/concepts/destructible.md)である
 
 

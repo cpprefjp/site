@@ -118,8 +118,6 @@ namespace std::ranges {
 * random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
 * is-signed-integer-like[link /reference/iterator/is_integer_like.md]
 * iota_diff_t[link /reference/ranges/iota_view/iota_diff_t.md]
-* incrementable[link /reference/iterator/incrementable.md]
-* weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 
 ## バージョン
 ### 言語

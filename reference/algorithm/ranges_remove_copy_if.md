@@ -83,7 +83,7 @@ int main() {
   std::ranges::remove_copy_if(v, std::ostream_iterator<int>(std::cout, ","), [](int x) { return x%2 != 0; });
 }
 ```
-* std::remove_copy_if[color ff0000]
+* std::ranges::remove_copy_if[color ff0000]
 
 ### 出力
 ```

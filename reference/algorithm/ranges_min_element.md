@@ -30,7 +30,6 @@ namespace std::ranges {
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * projected[link /reference/iterator/projected.md]
 * ranges::less[link /reference/functional/ranges_less.md]
-* initializer_list[link /reference/initializer_list/initializer_list.md]
 * forward_range[link /reference/ranges/forward_range.md]
 * iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]

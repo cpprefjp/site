@@ -174,7 +174,6 @@ int main()
 * c.begin()[link begin.md]
 * c.end()[link end.md]
 * us.begin()[link begin.md]
-* us.end()[link end.md]
 * second[link /reference/utility/pair.md]
 * first[link /reference/utility/pair.md]
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]

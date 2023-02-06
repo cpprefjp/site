@@ -20,7 +20,6 @@ namespace std {
   };
 }
 ```
-* hash[link /reference/functional/hash.md]
 
 ## 概要
 コルーチンに対応するコルーチンハンドル。

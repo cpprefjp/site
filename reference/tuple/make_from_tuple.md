@@ -60,7 +60,6 @@ constexpr T make_from_tuple(Tuple&& t) {
 * std::forward[link /reference/utility/forward.md]
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
 * std::index_sequence[link /reference/utility/index_sequence.md]
-* std::decay_t[link /reference/type_traits/decay.md]
 
 ## 例
 

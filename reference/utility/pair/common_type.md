@@ -16,7 +16,6 @@ namespace std {
 * common_type[link /reference/type_traits/common_type.md]
 * pair[link ../pair.md]
 * common_type_t[link /reference/type_traits/common_type.md]
-* tuple-like[link /reference/tuple/tuple-like.md]
 
 ## 概要
 [`pair`](../pair.md)について、どちらからも変換可能な共通の型を取得できるようにする[`common_type`](/reference/type_traits/common_type.md)の特殊化である。

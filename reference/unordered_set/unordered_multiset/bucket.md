@@ -59,8 +59,8 @@ int main()
 }
 ```
 * bucket[color ff0000]
-* us.bucket_count()[link bucket_count.md]
-* us.bucket_size[link bucket_size.md]
+* ums.bucket_count()[link bucket_count.md]
+* ums.bucket_size[link bucket_size.md]
 
 ### 出力
 ```

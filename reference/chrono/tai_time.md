@@ -148,7 +148,6 @@ int main()
 }
 ```
 * chrono::from_stream[color ff0000]
-* offset.count()[link duration/count.md]
 
 #### 出力例
 ```

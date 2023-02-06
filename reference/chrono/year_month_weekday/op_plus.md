@@ -55,7 +55,7 @@ return ymwd + dm;
 - (3) :
 
 ```cpp
-return (ymwd.year() + dy) / ywmd.month() / ywmd.weekday_indexed();
+return (ymwd.year() + dy) / ymwd.month() / ymwd.weekday_indexed();
 ```
 * ymwd.year()[link year.md]
 * ymwd.month()[link month.md]

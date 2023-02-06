@@ -191,7 +191,6 @@ namespace std::ranges {
 * totally_ordered[link /reference/concepts/totally_ordered.md]
 * three_way_comparable[link /reference/compare/three_way_comparable.md]
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
-* unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 
 ## バージョン

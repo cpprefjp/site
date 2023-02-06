@@ -46,7 +46,7 @@ constexpr copyable-box& operator=(copyable-box&& that) noexcept(is_nothrow_move_
 }
 ```
 * copyable-box[italic]
-* is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
+* is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 * addressof[link /reference/memory/addressof.md]
 * emplace[link /reference/optional/optional/emplace.md]
 * reset[link /reference/optional/optional/reset.md]

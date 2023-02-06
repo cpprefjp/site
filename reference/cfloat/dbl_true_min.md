@@ -36,7 +36,7 @@ int main()
 }
 ```
 * DBL_TRUE_MIN[color ff0000]
-* sts::setprecision[link /reference/iomanip/setprecision.md]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 * DBL_DIG[link dbl_dig.md]
 * DBL_HAS_SUBNORM[link dbl_has_subnorm.md]
 * DBL_MIN[link dbl_min.md]

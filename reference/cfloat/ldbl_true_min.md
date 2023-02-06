@@ -36,7 +36,7 @@ int main()
 }
 ```
 * LDBL_TRUE_MIN[color ff0000]
-* sts::setprecision[link /reference/iomanip/setprecision.md]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 * LDBL_DIG[link ldbl_dig.md]
 * LDBL_HAS_SUBNORM[link ldbl_has_subnorm.md]
 * LDBL_MIN[link ldbl_min.md]

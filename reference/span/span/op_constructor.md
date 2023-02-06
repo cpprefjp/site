@@ -254,15 +254,12 @@ int main()
 * s4.size()[link size.md]
 * s4.data()[link data.md]
 * v.data()[link /reference/vector/vector/data.md]
-* cv.size()[link /reference/vector/vector/size.md]
-* cv.data()[link /reference/vector/vector/data.md]
 * ar.size()[link /reference/array/array/size.md]
 * ar.data()[link /reference/array/array/data.md]
 * car.size()[link /reference/array/array/size.md]
 * car.data()[link /reference/array/array/data.md]
 * str.size()[link /reference/string/basic_string/size.md]
 * str.data()[link /reference/string/basic_string/data.md]
-* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```

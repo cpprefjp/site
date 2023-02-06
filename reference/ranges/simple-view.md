@@ -10,7 +10,7 @@ template<class R>
     same_as<iterator_t<R>, iterator_t<const R>> &&
     same_as<sentinel_t<R>, sentinel_t<const R>>;
 ```
-* same-as[link /reference/concepts/same_as.md]
+* same_as[link /reference/concepts/same_as.md]
 * view[link view.md]
 * range[link range.md]
 * iterator_t[link iterator_t.md]

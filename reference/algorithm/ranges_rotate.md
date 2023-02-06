@@ -69,7 +69,6 @@ int main() {
 ```
 * std::ranges::rotate[color ff0000]
 * str.begin()[link /reference/string/basic_string/begin.md]
-* str.end()[link /reference/string/basic_string/end.md]
 
 #### 出力
 ```
@@ -119,7 +118,6 @@ int main()
 * std::ranges::rotate[color ff0000]
 * std::ranges::copy[link ranges_copy.md]
 * seq.begin()[link /reference/vector/vector/begin.md]
-* seq.end[link /reference/vector/vector/end.md]
 * seq.assign[link /reference/vector/vector/assign.md]
 * std::swap[link /reference/utility/swap.md]
 

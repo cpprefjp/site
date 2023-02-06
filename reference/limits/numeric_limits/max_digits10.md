@@ -82,7 +82,7 @@ int main()
 ```
 * max_digits10[color ff0000]
 * digits10[link digits10.md]
-* std::stringstring[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
 * precision[link /reference/ios/ios_base/precision.md]
 * std::scientific[link /reference/ios/scientific.md]
 * s.str()[link /reference/sstream/basic_stringstream/str.md.nolink]

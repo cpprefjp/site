@@ -218,7 +218,6 @@ int main()
 ```
 * insert[color ff0000]
 * um.cbegin()[link cbegin.md]
-* um.cend()[link cend.md]
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
 * fl.cend()[link /reference/forward_list/forward_list/cend.md]
 

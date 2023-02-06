@@ -69,7 +69,7 @@ int main() {
   }
 }
 ```
-* std::generate[color ff0000]
+* std::ranges::generate[color ff0000]
 
 ### 出力
 ```

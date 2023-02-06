@@ -53,7 +53,6 @@ int main()
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::locate_zone[link /reference/chrono/locate_zone.md]
 * 9h[link /reference/chrono/duration/op_h.md]
-* chrono::sys_time[link /reference/chrono/sys_time.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
 
 ### 出力

@@ -71,7 +71,7 @@ int main() {
 * iterator_t[link /reference/ranges/iterator_t.md]
 * sentinel_t[link /reference/ranges/sentinel_t.md]
 * ranges::begin[link /reference/ranges/begin.md]
-* seranges::end[link /reference/ranges/end.md]
+* ranges::end[link /reference/ranges/end.md]
 
 ### 出力
 ```

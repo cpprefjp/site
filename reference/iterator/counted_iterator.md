@@ -29,7 +29,6 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * input_iterator[link /reference/iterator/input_iterator.md]

@@ -20,7 +20,7 @@ namespace std::chrono {
 ```cpp
 return time_point<Clock, ToDuration>{round<ToDuration>(tp.time_since_epoch())};
 ```
-* ceil[link /reference/chrono/duration/ceil.md]
+* round[link /reference/chrono/duration/round.md]
 * tp.time_since_epoch()[link time_since_epoch.md]
 
 

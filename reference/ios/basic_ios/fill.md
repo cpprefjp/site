@@ -9,7 +9,6 @@ char_type fill() const;                 // (1)
 
 char_type fill(char_type fillch);       // (2)
 ```
-* basic_ios[link ../basic_ios.md]
 
 ## 概要
 埋め文字を取得・設定する。

@@ -9,9 +9,6 @@
 template <class T, class... CtorArgs>
 [[nodiscard]] T* new_object(CtorArgs&&... ctor_args);
 ```
-* pair[link /reference/utility/pair.md]
-* tuple[link /reference/tuple/tuple.md]
-* piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 
 ## 概要
 

@@ -62,19 +62,18 @@ struct S {
 
 int main()
 {
-	using R = const S&;
+  using R = const S&;
 
-	std::cout << "1" << std::endl;
+  std::cout << "1" << std::endl;
 
-	// INVOKE、つまり std::invoke の返り値である S が
-	// R に束縛されて R の寿命と同じ寿命に延長された上で std::invoke_r の返り値となる
-	// しかし R の寿命はこの1文の間だけなので、S もこの1文が終了する際に破棄される
-	const S& a = std::invoke_r<R>([]() { return S{}; });
-	
-	std::cout << "2" << std::endl;
+  // INVOKE、つまり std::invoke の返り値である S が
+  // R に束縛されて R の寿命と同じ寿命に延長された上で std::invoke_r の返り値となる
+  // しかし R の寿命はこの1文の間だけなので、S もこの1文が終了する際に破棄される
+  const S& a = std::invoke_r<R>([]() { return S{}; });
+
+  std::cout << "2" << std::endl;
 }
 ```
-* std::is_invocable_r[color ff0000]
 
 
 ## 例

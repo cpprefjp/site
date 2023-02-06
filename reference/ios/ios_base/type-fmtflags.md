@@ -150,7 +150,6 @@ int main()
 * std::oct[link ../oct.md]
 * std::dec[link ../dec.md]
 * showbase[color ff0000]
-* uppercase[color ff0000]
 * basefield[color ff0000]
 * hex[color ff0000]
 * oct[color ff0000]

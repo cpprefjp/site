@@ -112,8 +112,6 @@ int main() {
 }
 ```
 * std::ranges::shuffle[color ff0000]
-* input.begin()[link /reference/string/basic_string/begin.md]
-* input.end()[link /reference/string/basic_string/end.md]
 
 #### 出力例
 ```

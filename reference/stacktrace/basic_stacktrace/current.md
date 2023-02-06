@@ -91,7 +91,7 @@ int main() {
   f();
 }
 ```
-* current()[color ff0000]
+* current[color ff0000]
 
 #### 出力例
 ```
@@ -116,7 +116,7 @@ int main() {
   f();
 }
 ```
-* current()[color ff0000]
+* current[color ff0000]
 
 #### 出力例
 ```

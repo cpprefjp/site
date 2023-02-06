@@ -8,7 +8,7 @@
 ```cpp
 memory_resource* upstream_resource() const;
 ```
-* memory_source[link /reference/memory_resource/memory_resource.md]
+* memory_resource[link /reference/memory_resource/memory_resource.md]
 
 ## 概要
 利用中の上流メモリリソースを取得する。

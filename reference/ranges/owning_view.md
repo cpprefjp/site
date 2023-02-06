@@ -140,11 +140,7 @@ namespace std::ranges {
 ```
 * is-initializer-list[italic]
 * range[link range.md]
-* is_object_v[link /reference/type_traits/is_object.md]
 * default_initializable[link /reference/concepts/default_initializable.md]
-* declval[link /reference/utility/declval.md]
-* std::forward[link /reference/utility/forward.md]
-* addressof[link /reference/memory/addressof.md]
 * iterator_t[link iterator_t.md]
 * sentinel_t[link sentinel_t.md]
 * ranges::begin[link begin.md]

@@ -78,7 +78,7 @@ int main()
   std::cout << (t1 >= t2) << std::endl;
 }
 ```
-* compare_three_way_result_t[color ff0000]
+* compare_three_way_result[color ff0000]
 * type_identity[link /reference/type_traits/type_identity.md]
 
 ### 出力

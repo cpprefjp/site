@@ -7,7 +7,6 @@
 ```cpp
 void operator%=(const ValOrProxy<T>& xs) const;
 ```
-* valarray[link /reference/valarray/valarray.md]
 * ValOrProxy[italic]
 
 ## 概要

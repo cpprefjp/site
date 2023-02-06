@@ -36,7 +36,7 @@ int main()
 }
 ```
 * FLT_TRUE_MIN[color ff0000]
-* sts::setprecision[link /reference/iomanip/setprecision.md]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 * FLT_DIG[link flt_dig.md]
 * FLT_HAS_SUBNORM[link flt_has_subnorm.md]
 * FLT_MIN[link flt_min.md]
