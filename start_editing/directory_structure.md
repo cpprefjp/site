@@ -23,7 +23,10 @@ reference階層とmodule階層は上記以外は同じであるため、以下�
     - オーバーロードを意図している関数の例は以下：
         - 非メンバ関数の演算子
         - `std::get()`
-        - `std::begin()`/`std::end()`およびそれに類するもの
+        - `std::begin()`/`std::end()`/`std::data()`/`std::size()`およびそれに類するもの
+        - `std::swap()`
+        - `std::erase()`/`std::erase_if()`
+        - `floor()`/`ceil()`/`round()` (chrono)
 - 演算子オーバーロードは、`operator<<` (出力ストリームへの出力) と `std::operator>>` (入力ストリームからの入力) を除き、左辺のクラスに属するものとする
     - 特殊な例として、[`std::error_code`](/reference/system_error/error_code.md)と[`std::error_condition`](/reference/system_error/error_condition.md)の比較演算子は、クラス階層ではなくヘッダ階層としている。これは所属関係がむずかしいためである
 
