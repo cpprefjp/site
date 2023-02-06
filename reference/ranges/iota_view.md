@@ -15,7 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* is_object_v[link /reference/type_traits/is_object.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * copyable[link /reference/concepts/copyable.md]
 * unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]
@@ -44,7 +43,7 @@ namespace std::ranges {
 - (3): `W`と`Bound`が等しいとき
 
 ## テンプレートパラメータ制約
-- [`weakly_incrementable`](/reference/type_traits/is_object.md)`<W>`
+- [`weakly_incrementable`](/reference/iterator/weakly_incrementable.md)`<W>`
 - [`copyable`](/reference/concepts/copyable.md)`<W>`
 - [`semiregular`](/reference/concepts/semiregular.md)`<Bound>`
 - [`weakly-equality-comparable-with`](/reference/concepts/equality_comparable.md)`<W, Bound>`

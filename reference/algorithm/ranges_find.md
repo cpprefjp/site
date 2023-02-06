@@ -104,7 +104,6 @@ inline constexpr find_impl find;
 * ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * input_range[link /reference/ranges/input_range.md]
 * projected[link /reference/iterator/projected.md]
-* invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]
 * ref[link /reference/functional/ref.md]

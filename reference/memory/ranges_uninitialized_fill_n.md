@@ -69,7 +69,6 @@ int main()
 }
 ```
 * std::ranges::uninitialized_fill_n[color ff0000]
-* std::ranges::subrange[link /reference/ranges/subrange.md]
 * std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * std::ranges::destroy_n[link ranges_destroy_n.md]

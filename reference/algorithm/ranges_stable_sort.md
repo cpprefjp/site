@@ -77,7 +77,7 @@ int main()
   std::cout << std::endl;
 }
 ```
-* std::stable_sort[color ff0000]
+* std::ranges::stable_sort[color ff0000]
 
 ### 出力
 ```

@@ -57,7 +57,6 @@ int main() {
 * ranges::range[link range.md]
 * ranges::begin[link begin.md]
 * ranges::end[link end.md]
-* ranges::range_value_t[link range_value_t.md]
 * ranges::dangling[link dangling.md]
 * ranges::subrange[link subrange.md]
 * borrowed_range[link borrowed_range.md]

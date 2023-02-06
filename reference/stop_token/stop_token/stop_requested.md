@@ -55,7 +55,6 @@ int main()
 ```
 * std::stop_token[link ../stop_token.md]
 * std::stop_source[link ../stop_source.md]
-* nostopstate[link ../nostopstate.md]
 * stop_requested()[link stop_requested.md]
 * request_stop()[link ../stop_source/request_stop.md]
 * get_token()[link ../stop_source/get_token.md]

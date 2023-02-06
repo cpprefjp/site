@@ -193,7 +193,7 @@ int main()
 * wp.lock()[link /reference/memory/weak_ptr/lock.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 * std::promise[link /reference/future/promise.md]
-* p.get_future()[link /reference/future/promise/get_future.md]
+* pro.get_future()[link /reference/future/promise/get_future.md]
 * std::future[link /reference/future/future.md]
 
 #### 出力

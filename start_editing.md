@@ -48,6 +48,9 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
     - ページが消滅した場合は、代替となるものがあれば差し替え、なければInternet Archiveに変更する
     - 一時的にアクセスできない場合は、時間を置いてアクセスできるようになったらissueを閉じる
     - 海外からのアクセス (GitHub Actions) を拒否しているページもあるため、そのようなページは個別にチェックから外す ([link_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/link_check.py)の`IGNORE_LIST`に追加する)
+- コード修飾の誤り検出 (code qualify checkアクション)
+    - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
+    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/code_qualify_check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
 
 
 ### 自動反映ツール

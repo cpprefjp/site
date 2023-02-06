@@ -39,7 +39,7 @@ int main()
   std::cout << y.error_or("-") << std::endl;
 }
 ```
-* error_or()[color ff0000]
+* error_or[color ff0000]
 * std::unexpected[link ../unexpected.md]
 
 ### 出力

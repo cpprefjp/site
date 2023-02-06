@@ -111,7 +111,6 @@ inline constexpr starts_with_impl starts_with;
 * iterator_t[link /reference/ranges/iterator_t.md]
 * move[link /reference/utility/move.md]
 * mismatch[link ranges_mismatch.md]
-* invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]
 * ref[link /reference/functional/ref.md]

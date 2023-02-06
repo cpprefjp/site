@@ -7,7 +7,6 @@
 ```cpp
 explicit sentry(basic_istream& is, bool noskipws = false);
 ```
-* char_traits[link ../../../string/char_traits.md]
 * basic_istream[link ../../basic_istream.md]
 
 ## 概要

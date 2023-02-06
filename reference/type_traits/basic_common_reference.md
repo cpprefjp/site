@@ -70,7 +70,7 @@ int main()
   static_assert(std::same_as<std::common_reference_t<U, T>, B&>);
 }
 ```
-* std::basic_common_reference[color ff0000]
+* basic_common_reference[color ff0000]
 * std::same_as[link /reference/concepts/same_as.md]
 * std::common_reference_t[link common_reference.md]
 

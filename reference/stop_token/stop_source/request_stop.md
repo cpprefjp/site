@@ -112,9 +112,8 @@ int main()
 * stop_callback[link ../stop_callback.md]
 * get_token()[link get_token.md]
 * request_stop()[link request_stop.md]
-* stop_requested()[link stop_requested.md]
 * condition_variable_any[link /reference/condition_variable/condition_variable_any.md]
-* wait()[link /reference/condition_variable/condition_variable_any/wait.md]
+* cv.wait[link /reference/condition_variable/condition_variable_any/wait.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 
 ### 出力

@@ -55,8 +55,8 @@ int main()
   }
 }
 ```
-* chrono::Sunday[link /reference/chrono/weekday_constants.md]
-* chrono::November[link /reference/chrono/month_constants.md]
+* Sunday[link /reference/chrono/weekday_constants.md]
+* November[link /reference/chrono/month_constants.md]
 * last[link /reference/chrono/last_spec.md]
 * year_month_weekday[link /reference/chrono/year_month_weekday.md]
 * year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md]

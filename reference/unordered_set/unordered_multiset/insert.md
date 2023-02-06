@@ -160,7 +160,6 @@ int main()
 * c.cbegin()[link cbegin.md]
 * c.cend()[link cend.md]
 * ums.cbegin()[link cbegin.md]
-* ums.cend()[link cend.md]
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
 * fl.cend()[link /reference/forward_list/forward_list/cend.md]
 

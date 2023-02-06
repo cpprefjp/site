@@ -72,7 +72,6 @@ int main()
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
 * lock.lock()[link /reference/shared_mutex/shared_timed_mutex/lock.md]
-* lock.unlock()[link /reference/shared_mutex/shared_timed_mutex/unlock.md]
 
 ### 出力
 ```cpp

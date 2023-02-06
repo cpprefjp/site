@@ -163,7 +163,7 @@ int main()
 * m.size()[link match_results/size.md]
 * m.prefix()[link match_results/prefix.md]
 * m.suffix()[link match_results/suffix.md]
-* m.str()[link match_results/str.md]
+* m.str[link match_results/str.md]
 * m.position[link match_results/position.md]
 * m.length[link match_results/length.md]
 * m.format[link match_results/format.md]

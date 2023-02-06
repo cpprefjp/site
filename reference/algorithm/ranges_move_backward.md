@@ -96,7 +96,7 @@ int main() {
 ```
 * std::ranges::move_backward[color ff0000]
 * v.emplace_back[link /reference/vector/vector/emplace_back.md]
-* std::move[link move.md]
+* std::ranges::move[link ranges_move.md]
 * std::views::take[link /reference/ranges/take_view.md]
 
 ### 出力

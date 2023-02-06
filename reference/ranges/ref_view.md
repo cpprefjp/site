@@ -123,7 +123,6 @@ namespace std::ranges {
   ref_view(R&) -> ref_view<R>;
 }
 ```
-* is-initializer-list[italic]
 * range[link range.md]
 * is_object_v[link /reference/type_traits/is_object.md]
 * convertible_to[link /reference/concepts/convertible_to.md]

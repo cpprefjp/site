@@ -72,10 +72,10 @@ int main()
   }
 }
 ```
+* buf->open[color ff0000]
 * std::fstream[link /reference/fstream/basic_fstream.md]
 * std::filebuf[link /reference/fstream/basic_filebuf.md]
 * rdbuf()[link /reference/fstream/basic_fstream/rdbuf.md]
-* buf->open()[color ff0000]
 
 ## バージョン
 ### 言語

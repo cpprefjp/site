@@ -71,7 +71,6 @@ return vformat_to(out, fmt.str, make_format_args(args...));
 // (3), (4)
 return vformat_to(out, loc, fmt.str, make_wformat_args(args...));
 ```
-* basic_format_context[link basic_format_context.md]
 * vformat_to[link vformat_to.md]
 * make_format_args[link make_format_args.md]
 

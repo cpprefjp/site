@@ -127,7 +127,6 @@ int main()
 * std::format_context[link basic_format_context.md]
 * fctx.out()[link basic_format_context/out.md]
 * fctx.advance_to[link basic_format_context/advance_to.md]
-* std::format_to[link format_to.md]
 * std::format[link format.md]
 * underlying()[link range_formatter/underlying.md]
 

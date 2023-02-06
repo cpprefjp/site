@@ -29,15 +29,10 @@ namespace std::ranges {
 * iterator_t[link /reference/ranges/iterator_t.md]
 * sentinel_t[link /reference/ranges/sentinel_t.md]
 * sized_range[link /reference/ranges/sized_range.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
-* tuple_element_t[link /reference/tuple/tuple_element.md]
-* StoreSize[italic][link op_constructor.md]
-* iterator-sentinel-pair[italic][link ../subrange.md]
-* convertible-to-non-slicing[italic][link convertible-to-non-slicing.md]
-* make-unsigned-like-t[italic][link /reference/type_traits/make_unsigned.md]
+* make-unsigned-like-t[link /reference/type_traits/make_unsigned.md]
 
 ## 概要
 [`subrange`](../subrange.md)クラステンプレートの型推論補助。

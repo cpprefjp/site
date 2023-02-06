@@ -72,7 +72,7 @@ int main()
   f<std::pair<int&, double&>, std::pair<int, double>>();
 }
 ```
-* std::common_reference_with[color ff0000]
+* std::common_with[color ff0000]
 
 ### 出力
 ```

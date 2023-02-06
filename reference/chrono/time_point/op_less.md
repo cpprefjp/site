@@ -26,7 +26,7 @@ namespace chrono {
 ```cpp
 return lhs.time_since_epoch() < rhs.time_since_poch();
 ```
-* time_since_spoch[link /reference/chrono/time_point/time_since_epoch.md]
+* time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 
 ## 例
 ```cpp example

@@ -37,7 +37,6 @@ int main() {
 }
 ```
 * std::format[link /reference/chrono/format.md]
-* std::locale[link /reference/locale/locale.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 

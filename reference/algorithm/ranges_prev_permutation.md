@@ -90,7 +90,7 @@ int main ()
   } while (std::ranges::prev_permutation(v).found);
 }
 ```
-* std::prev_permutation[color ff0000]
+* std::ranges::prev_permutation[color ff0000]
 
 ### 出力
 ```

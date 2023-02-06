@@ -39,7 +39,7 @@ int main()
 }
 ```
 * stop_source[link ../stop_source.md]
-* nostopstate[link ../nostopstate.md]
+* std::nostopstate[link ../nostopstate.md]
 * stop_requested()[link stop_requested.md]
 * request_stop()[link request_stop.md]
 

@@ -44,7 +44,6 @@ void clear(iostate state = goodbit) {
 * goodbit[link ../ios_base/type-iostate.md]
 * badbit[link ../ios_base/type-iostate.md]
 * failure[link ../ios_base/failure.md]
-* ios_base[link ../ios_base.md]
 
 ## 戻り値
 なし

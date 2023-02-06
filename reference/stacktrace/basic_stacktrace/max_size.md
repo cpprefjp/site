@@ -24,7 +24,7 @@ size_type max_size() const noexcept; // (1) C++23
 
 int main() {
   std::stacktrace trace{};
-  std::cout << tract.max_size() << std::endl;
+  std::cout << trace.max_size() << std::endl;
 }
 ```
 * trace.max_size()[color ff0000]

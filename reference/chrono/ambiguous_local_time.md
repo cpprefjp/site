@@ -39,8 +39,6 @@ os << tp << " is ambiguous. It could be\n"
 
 return os.str().c_str();
 ```
-* local_seconds[link local_time.md]
-* time_since_epoch()[link time_point/time_since_epoch.md]
 
 
 ## 例

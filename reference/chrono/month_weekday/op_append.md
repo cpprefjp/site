@@ -48,7 +48,7 @@ int main()
 * March[link /reference/chrono/month_constants.md]
 * Sunday[link /reference/chrono/weekday_constants.md]
 * 2020y[link /reference/chrono/year/op_y.md]
-* chrono::year_month_weekday[link /reference/chrono/year_month_weekday.md]
+* year_month_weekday[link /reference/chrono/year_month_weekday.md]
 
 ### 出力
 ```

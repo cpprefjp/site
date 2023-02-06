@@ -39,7 +39,6 @@ int main()
 }
 ```
 * std::index_sequence[color ff0000]
-* std::integer_sequence[link integer_sequence.md]
 
 ## 出力
 ```

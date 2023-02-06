@@ -118,7 +118,6 @@ int main()
 ```
 * std::ranges::set_symmetric_difference[color ff0000]
 * std::multiset[link /reference/set/multiset.md]
-* begin()[link /reference/set/set/begin.md]
 * end()[link /reference/set/set/end.md]
 * std::inserter[link /reference/iterator/inserter.md]
 

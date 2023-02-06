@@ -15,7 +15,6 @@ month_weekday_last(const month_weekday_last&) = default; // (3) C++20
 month_weekday_last(month_weekday_last&&) = default;      // (4) C++20
 ```
 * chrono::month[link /reference/chrono/month.md]
-* chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。定義されない

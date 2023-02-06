@@ -7,7 +7,6 @@
 ```cpp
 void operator+=(const ValOrProxy<T>& xs) const;
 ```
-* valarray[link /reference/valarray/valarray.md]
 * ValOrProxy[italic]
 
 ## 概要
@@ -48,7 +47,6 @@ int main()
   }
 }
 ```
-* to_string()[link /reference/bitset/bitset/to_string.md]
 
 ### 出力
 ```

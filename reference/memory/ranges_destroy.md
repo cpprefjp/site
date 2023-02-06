@@ -15,10 +15,10 @@ namespace std::ranges {
   constexpr borrowed_iterator_t<R> destroy(R&& r) noexcept; // (2) C++20
 }
 ```
-* no-throw-forward-iterator[link no-throw-forward-iterator.md]
+* no-throw-input-iterator[link no-throw-input-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
 * destructible[link /reference/concepts/destructible.md]
-* no-throw-forward-range[link no-throw-forward-range.md]
+* no-throw-input-range[link no-throw-input-range.md]
 * range_value_t[link /reference/ranges/range_value_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
@@ -33,11 +33,11 @@ namespace std::ranges {
 
 ## テンプレートパラメータ制約
 - (1):
-    - `I`が[`no-throw-forward-iterator`](no-throw-forward-iterator.md)である
+    - `I`が[`no-throw-input-iterator`](no-throw-input-iterator.md)である
     - `S`が[`I`に対する例外を投げない番兵](no-throw-sentinel.md)である
     - `I`の要素型が、[破棄可能](/reference/concepts/destructible.md)である
 - (2):
-    - `R`が[`no-throw-forward-range`](no-throw-forward-range.md)である
+    - `R`が[`no-throw-input-range`](no-throw-input-range.md)である
     - `R`の要素型が、[破棄可能](/reference/concepts/destructible.md)である
 
 

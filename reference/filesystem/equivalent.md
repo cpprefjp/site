@@ -11,7 +11,6 @@ namespace std::filesystem {
 }
 ```
 * path[link path.md]
-* std::uintmax_t[link /reference/cstdint/uintmax_t.md]
 
 ## 概要
 2つのエンティティが等価かを確認する。

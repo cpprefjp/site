@@ -20,7 +20,7 @@ namespace std {
   float hypot(float x, float y, float z);                         // (8) C++17 から
   long double hypot(long double x, long double y, long double z); // (9) C++17 から
 
-  Promoted hypot(Arithmetic1 x, Arithmetic2 y, Arithmetic2 z);    // (10) C++17 から
+  Promoted hypot(Arithmetic1 x, Arithmetic2 y, Arithmetic3 z);    // (10) C++17 から
 }
 ```
 * Promoted[italic]

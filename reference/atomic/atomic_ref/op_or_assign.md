@@ -47,8 +47,7 @@ int main()
   std::cout << std::bitset<4>(value).to_string() << std::endl;
 }
 ```
-* x |= b;[color ff0000]
-* x.load()[link load.md]
+* x |= 0b1110;[color ff0000]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 
 #### 出力

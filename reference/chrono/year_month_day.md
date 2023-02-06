@@ -280,7 +280,6 @@ int main()
 ```
 * 1985y[link year/op_y.md]
 * 1954y[link year/op_y.md]
-* 2000y[link year/op_y.md]
 * date.ok()[link year_month_day/ok.md]
 * year()[link year_month_day/year.md]
 * month()[link year_month_day/month.md]

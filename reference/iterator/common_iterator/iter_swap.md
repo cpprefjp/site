@@ -16,7 +16,8 @@ namespace std {
   };
 }
 ```
-* move_iterator[link /reference/iterator/move_iterator.md]
+* input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
 * indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
 
 ## 概要

@@ -170,9 +170,7 @@ namespace std::ranges {
 * sentinel_t[link sentinel_t.md]
 * ranges::begin[link begin.md]
 * ranges::end[link end.md]
-* ranges::empty[link empty.md]
 * ranges::size[link size.md]
-* ranges::data[link data.md]
 * views::all_t[link all.md]
 
 ## バージョン

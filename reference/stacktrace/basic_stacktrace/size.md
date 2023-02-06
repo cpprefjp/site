@@ -69,7 +69,7 @@ int main() {
 }
 ```
 * trace.size()[color ff0000]
-* current()[link current.md]
+* current[link current.md]
 
 #### 出力例
 ```

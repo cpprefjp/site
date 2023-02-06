@@ -173,7 +173,7 @@ int main()
 * std::get[link get.md]
 * std::holds_alternative[link /reference/variant/holds_alternative.md]
 * index()[link index.md]
-* std::in_place_index[link /reference/utility/in_place_index_t.md]
+* in_place_index[link /reference/utility/in_place_index_t.md]
 
 #### 出力
 ```

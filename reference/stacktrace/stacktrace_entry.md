@@ -108,7 +108,7 @@ int main() {
 ```
 * std::stacktrace_entry[color ff0000]
 * std::stacktrace[link basic_stacktrace.md]
-* current()[link basic_stacktrace/current.md]
+* current[link basic_stacktrace/current.md]
 * entry.description()[link stacktrace_entry/description.md.nolink]
 * entry.source_file()[link stacktrace_entry/source_file.md.nolink]
 * entry.source_line()[link stacktrace_entry/source_line.md.nolink]

@@ -344,8 +344,6 @@ int main()
 * destroy[link destroy.md]
 * std::pmr::monotonic_buffer_resource[link /reference/memory_resource/monotonic_buffer_resource.md]
 * std::pmr::string[link /reference/string/basic_string.md]
-* std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
-* std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ### C++17 における出力
 ```

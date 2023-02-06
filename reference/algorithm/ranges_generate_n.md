@@ -55,7 +55,7 @@ int main() {
   std::ranges::generate_n(std::ostream_iterator<int>(std::cout, ","), 10, [&n]{ auto t = n; n *= 2; return t; });
 }
 ```
-* std::generate_n[color ff0000]
+* std::ranges::generate_n[color ff0000]
 
 ### 出力
 ```

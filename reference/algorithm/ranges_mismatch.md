@@ -46,14 +46,9 @@ namespace std::ranges {
 * ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * identity[link /reference/functional/identity.md]
 * indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* subrange[link /reference/ranges/subrange.md]
 * input_range[link /reference/ranges/input_range.md]
 * iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* invoke[link /reference/functional/invoke.md]
-* begin[link /reference/ranges/begin.md]
-* end[link /reference/ranges/end.md]
-* ref[link /reference/functional/ref.md]
 
 
 ## 概要
@@ -156,7 +151,6 @@ inline constexpr mismatch_impl mismatch;
 * ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * identity[link /reference/functional/identity.md]
 * indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* subrange[link /reference/ranges/subrange.md]
 * input_range[link /reference/ranges/input_range.md]
 * iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]

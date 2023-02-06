@@ -99,7 +99,6 @@ int main()
 * std::smatch[link ../match_results.md]
 * std::regex_match[link ../regex_match.md]
 * std::regex_search[link ../regex_search.md]
-* std::regex_iterator[link ../regex_iterator.md]
 * std::sregex_iterator[link ../regex_iterator.md]
 * sub.str()[link str.md]
 * std::ssub_match[link ../sub_match.md]

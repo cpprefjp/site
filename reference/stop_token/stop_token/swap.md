@@ -42,7 +42,6 @@ int main()
 * swap[color ff0000]
 * std::stop_token[link ../stop_token.md]
 * std::stop_source[link ../stop_source.md]
-* request_stop()[link ../stop_source/request_stop.md]
 * stop_possible()[link stop_possible.md]
 
 ### 出力
