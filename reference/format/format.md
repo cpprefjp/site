@@ -510,41 +510,6 @@ int main()
 [true, false, true]
 ```
 
-## 実装例
-```cpp
-template<class... Args>
-string format(format_string<Args...> fmt, const Args&... args)
-{
-  return vformat(fmt.str, make_format_args(args...));
-}
-
-template<class... Args>
-wstring format(wformat_string<Args...> fmt, const Args&... args)
-{
-  return vformat(fmt.str, make_wformat_args(args...));
-}
-
-template<class... Args>
-string format(const locale& loc, format_string<Args...> fmt, const Args&... args)
-{
-  return vformat(loc, fmt.str, make_format_args(args...));
-}
-
-template<class... Args>
-wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... args)
-{
-  return vformat(loc, fmt.str, make_wformat_args(args...));
-}
-```
-* string[link /reference/string/basic_string.md]
-* wstring[link /reference/string/basic_string.md]
-* format_string[link basic_format_string.md]
-* wformat_string[link basic_format_string.md]
-* str[italic]
-* vformat[link vformat.md]
-* make_format_args[link make_format_args.md]
-* make_wformat_args[link make_format_args.md]
-* locale[link /reference/locale/locale.md]
 
 ### ログ出力の例 (C++23)
 ```cpp
@@ -584,6 +549,43 @@ int main()
 ```
 2023-02-06 10:46:53: Hello 42 World
 ```
+
+
+## 実装例
+```cpp
+template<class... Args>
+string format(format_string<Args...> fmt, const Args&... args)
+{
+  return vformat(fmt.str, make_format_args(args...));
+}
+
+template<class... Args>
+wstring format(wformat_string<Args...> fmt, const Args&... args)
+{
+  return vformat(fmt.str, make_wformat_args(args...));
+}
+
+template<class... Args>
+string format(const locale& loc, format_string<Args...> fmt, const Args&... args)
+{
+  return vformat(loc, fmt.str, make_format_args(args...));
+}
+
+template<class... Args>
+wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... args)
+{
+  return vformat(loc, fmt.str, make_wformat_args(args...));
+}
+```
+* string[link /reference/string/basic_string.md]
+* wstring[link /reference/string/basic_string.md]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
+* str[italic]
+* vformat[link vformat.md]
+* make_format_args[link make_format_args.md]
+* make_wformat_args[link make_format_args.md]
+* locale[link /reference/locale/locale.md]
 
 
 ## バージョン
