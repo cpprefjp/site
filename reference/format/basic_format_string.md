@@ -95,6 +95,7 @@ int main()
 * chrono::seconds[link /reference/chrono/duration_aliases.md]
 * chrono::zoned_time[link /reference/chrono/zoned_time.md]
 * std::forward[link /reference/utility/forward.md]
+* std::format[link /reference/format/format.md]
 
 ### 出力
 ```
