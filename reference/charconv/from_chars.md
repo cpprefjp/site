@@ -31,7 +31,7 @@ namespace std {
 C++標準はこれら関数の実装の詳細について何も規定しない。これは、各実装において可能な最も高速なアルゴリズムが選択されることを意図しての事である。
 
 ## 要件
-- 全て : 出力イテレータ範囲`[first, last)`は有効な範囲であること（charのオブジェクトが構築済みであり、連続していること）。
+- 全て : 入力イテレータ範囲`[first, last)`は有効な範囲であること（charのオブジェクトが構築済みであり、連続していること）。
 - (1) : `base`は2～36までの値であること。
 - (2)～(4)  : `fmt`は[`chars_format`](../charconv/chars_format.md)の列挙値のうちの一つであること。
 
@@ -86,6 +86,8 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 (1)の関数は実装によって全ての整数型（符号付、無し）および`char`の参照型のオーバーロードが提供される。
 
 ## 例
+
+### 基本の使用例
 
 ```cpp example
 #include <iostream>
@@ -228,7 +230,7 @@ int main()
 ```
 * std::from_chars[color ff0000]
 
-### 出力例（VS2019 preview4.1）
+#### 出力例（VS2019 preview4.1）
 ```
 123456789
 65535
@@ -240,6 +242,90 @@ conversion failed.
 conversion failed.
 nan
 -inf
+```
+
+### イテレータ範囲からの変換（C++20）
+
+入力文字列はポインタによる範囲で指定する必要があるが、`std::string`等のイテレータは必ずしもポインタとは限らず、そのままでは使いづらいことがある。その様なとき、C++20の[`std::to_address`](/reference/memory/to_address.md)を使用すると安全かつ簡易にこの関数でイテレータを使用できる。
+
+```cpp
+#include <iostream>
+#include <ranges>
+#include <memory>
+#include <optional>
+#include <format>
+#include <vector>
+#include <string>
+#include <charconv>
+
+// contiguousな文字列範囲内の数値をdoubleへ変換する
+template<std::ranges::contiguous_range R>
+  requires std::same_as<char, std::ranges::range_value_t<R>>
+auto str_to_double(R&& r) -> std::optional<double> {
+  double out;
+
+  // 範囲のイテレータ（ポインタではない場合がある）
+  auto it = std::ranges::begin(r);
+  auto end = std::ranges::end(r);
+
+  // to_addressでイテレータをポインタへ変換して渡す
+  if (auto [ptr, ec] = std::from_chars(std::to_address(it), std::to_address(end), out, std::chars_format::general); ec != std::errc{}) {
+    return std::nullopt;
+  }
+
+  return out;
+}
+
+int main() {
+  std::string str = "3.1415926535897932384626433832795 is pi";
+  
+  if (auto opt = str_to_double(str); opt) {
+    std::cout << std::format("{:.15f}\n", *opt);
+  } else {
+    std::cout << "conversion failed.\n";
+  }
+
+  std::string_view strview = "2.7182818284590452353602874 is e";
+  
+  if (auto opt = str_to_double(strview); opt) {
+    std::cout << std::format("{:.15f}\n", *opt);
+  } else {
+    std::cout << "conversion failed.\n";
+  }
+
+  const char cstr[] = "1.10001e-01 is Liouville number";
+  std::vector<char> strvec(cstr, std::ranges::end(cstr));
+  
+  if (auto opt = str_to_double(strvec); opt) {
+    std::cout << std::format("{:.15f}\n", *opt);
+  } else {
+    std::cout << "conversion failed.\n";
+  }
+
+  std::span sp{cstr};
+  
+  if (auto opt = str_to_double(sp); opt) {
+    std::cout << std::format("{:.15f}\n", *opt);
+  } else {
+    std::cout << "conversion failed.\n";
+  }
+}
+```
+* std::from_chars[color ff0000]
+* enable_view[link /reference/ranges/contiguous_range.md]
+* enable_view[link /reference/ranges/range_value_t.md]
+* enable_view[link /reference/ranges/begin.md]
+* enable_view[link /reference/ranges/end.md]
+* enable_view[link /reference/memory/to_address.md]
+* enable_view[link /reference/format/format.md]
+
+#### 出力
+
+```
+3.141592653589793
+2.718281828459045
+0.110001000000000
+0.110001000000000
 ```
 
 ## バージョン
