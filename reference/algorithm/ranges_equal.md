@@ -44,6 +44,7 @@ namespace std::ranges {
 * indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
 * input_range[link /reference/ranges/input_range.md]
 * iterator_t[link /reference/ranges/iterator_t.md]
+* invoke[link /reference/functional/invoke.md]
 
 ## 概要
 2つの範囲を等値比較する。
