@@ -25,15 +25,15 @@ friend constexpr bool operator==(const unexpected<E2>& e, const expected& x); //
 * unexpected[link ../unexpected.md]
 
 ## 概要
-- (1) : `unexpected`オブジェクト同士の等値比較を行う。
-- (2), (3) : `unexpected`オブジェクトと正常値の等値比較を行う。
-- (4), (5) : `unexpected`オブジェクトとエラー値の等値比較を行う。
+- (1) : `expected`オブジェクト同士の等値比較を行う。
+- (2), (3) : `expected`オブジェクトと正常値の等値比較を行う。
+- (4), (5) : `expected`オブジェクトとエラー値の等値比較を行う。
 
 
 ## 適格要件
 - (1) : 式[`*x`](op_deref.md) `==` [`*y`](op_deref.md)および式`x.`[`error()`](error.md) `== y.`[`error()`](error.md)が適格であり、各式の結果を`bool`へ変換可能であること。
 - (2), (3) : 式[`*x`](op_deref.md) `== v`が適格であり、その結果を`bool`へ変換可能であること。
-- (4), (5) : 式`x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md.nolink)が適格であり、その結果を`bool`へ変換可能であること。
+- (4), (5) : 式`x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md)が適格であり、その結果を`bool`へ変換可能であること。
 
 
 ## 戻り値
@@ -42,7 +42,7 @@ friend constexpr bool operator==(const unexpected<E2>& e, const expected& x); //
     - `x.`[`has_value()`](has_value.md) `== true`のとき、[`*x`](op_deref.md) `==` [`*y`](op_deref.md)
     - `x.`[`error()`](error.md) `== y.`[`error()`](error.md)
 - (2), (3) : `x.`[`has_value()`](has_value.md) `&& static_cast<bool>(`[`*x`](op_deref.md) `== v)`
-- (4), (5) : `!x.`[`has_value()`](has_value.md) `&& static_cast<bool>(x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md.nolink)`)`
+- (4), (5) : `!x.`[`has_value()`](has_value.md) `&& static_cast<bool>(x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md)`)`
 
 
 ## 例

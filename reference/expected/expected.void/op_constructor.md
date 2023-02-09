@@ -75,8 +75,8 @@ constexpr explicit expected(unexpect_t, initializer_list<U> il, Args&&... args);
 - (3) : `rhs`がエラー値を保持していれば、[`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
 - (4) : `rhs`がエラー値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<const G&>(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
 - (5) : `rhs`がエラー値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<G>(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
-- (6) : [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`)`でエラー値を直接非リスト初期化する。
-- (7) : [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md.nolink)`)`でエラー値を直接非リスト初期化する。
+- (6) : [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md)`)`でエラー値を直接非リスト初期化する。
+- (7) : [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md)`)`でエラー値を直接非リスト初期化する。
 - (9) : [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`でエラー値を直接非リスト初期化する。
 - (10) : `il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`でエラー値を直接非リスト初期化する。
 

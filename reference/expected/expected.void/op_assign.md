@@ -54,13 +54,13 @@ constexpr expected& operator=(unexpected<G>&& e);      // (4)
     - `this`がエラーを保持し、`rhs`が正常値を保持していたら、`unex`を破棄し`has_value = true;`
     - `this`と`rhs`が共にエラー値を保持していたら、`unex =` [`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md)`)`
 - (3) : 次の処理と等価
-    - `this`が正常値を保持していたら、[`construct_at`](/reference/memory/construct_at.md)`(`[`addressof`](/reference/memory/addressof.md)`(unex), val,` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`));
+    - `this`が正常値を保持していたら、[`construct_at`](/reference/memory/construct_at.md)`(`[`addressof`](/reference/memory/addressof.md)`(unex), val,` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md)`));
 has_val = false;`
-    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`);`
+    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md)`);`
 - (4) : 次の処理と等価
-    - `this`が正常値を保持していたら、[`construct_at`](/reference/memory/construct_at.md)`(`[`addressof`](/reference/memory/addressof.md)`(unex), val,` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md.nolink)`));
+    - `this`が正常値を保持していたら、[`construct_at`](/reference/memory/construct_at.md)`(`[`addressof`](/reference/memory/addressof.md)`(unex), val,` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md)`));
 has_val = false;`
-    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md.nolink)`);`
+    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md)`);`
 
 
 ## 戻り値

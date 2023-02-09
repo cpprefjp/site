@@ -107,13 +107,13 @@ constexpr void reinit-expected(T& newval, U& oldval, Args&&... args) {
     - `this`が正常値を保持していたら、`val =` [`std::forward`](/reference/utility/forward.md)`<U>(v)`
     - `this`がエラー値を保持していたら、`reinit-expected(val, unex,` [`std::forward`](/reference/utility/forward.md)`<U>(v)); has_val = true;`
 - (4) : 次の処理と等価
-    - `this`が正常値を保持していたら、`reinit-expected(unex, val,` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`));
+    - `this`が正常値を保持していたら、`reinit-expected(unex, val,` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md)`));
 has_val = false;`
-    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`);`
+    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md)`);`
 - (5) : 次の処理と等価
-    - `this`が正常値を保持していたら、`reinit-expected(unex, val,` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md.nolink)`));
+    - `this`が正常値を保持していたら、`reinit-expected(unex, val,` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md)`));
 has_val = false;`
-    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md.nolink)`);`
+    - `this`がエラー値を保持していたら、`unex =` [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md)`);`
 
 
 ## 戻り値

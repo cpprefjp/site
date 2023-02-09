@@ -9,7 +9,7 @@
 friend constexpr void swap(expected& x, expected& y)
   noexcept(noexcept(x.swap(y)));
 ```
-* swap[link swap.md]
+* x.swap(y)[link swap.md]
 
 ## 概要
 2つの`expected`オブジェクトを入れ替える。

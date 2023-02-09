@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-`unexpected`クラスは、任意の型`E`の値をエラー値として表現する。
+`unexpected`クラスは、[`std::expected<T, E>`](expected.md)に格納される任意の型`E`の値をエラー値として表現する。
 
 
 ## 適格要件
@@ -24,41 +24,42 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`(constructor)`](unexpected/op_constructor.md.nolink) | コンストラクタ | C++23 |
-| [`(destructor)`](unexpected/op_destructor.md.nolink)   | デストラクタ | C++23 |
+| [`(constructor)`](unexpected/op_constructor.md) | コンストラクタ | C++23 |
+| `(destructor)` | デストラクタ | C++23 |
 
 ### 代入
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`operator=`](unexpected/op_assign.md.nolink) | 代入演算子     | C++23 |
-| [`swap`](unexpected/swap.md.nolink) | 他の`unexpected`オブジェクトとデータを入れ替える | C++23 |
+| `constexpr unexpected& operator=(const unexpected&) = default;` | コピー代入演算子 | C++23 |
+| `constexpr unexpected& operator=(unexpected&&) = default;` | ムーブ代入演算子 | C++23 |
+| [`swap`](unexpected/swap.md) | 他の`unexpected`オブジェクトとデータを入れ替える | C++23 |
 
 ### 値の観測
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`error`](unexpected/error.md.nolink) | エラー値を取得する | C++23 |
+| [`error`](unexpected/error.md) | 値を取得する | C++23 |
 
 ### 比較
 
 | 名前         | 説明       | 対応バージョン |
 |--------------|------------|-------|
-| [`operator==`](unexpected/op_equal.md.nolink) | 等値比較 | C++23 |
-| [`operator!=`](unexpected/op_not_equal.md.nolink) | 非等値比較 | C++23 |
+| [`operator==`](unexpected/op_equal.md) | 等値比較 | C++23 |
+| [`operator!=`](unexpected/op_not_equal.md) | 非等値比較 | C++23 |
 
 
 ## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`swap`](unexpected/swap_free.md.nolink) | 他の`unexpected`オブジェクトとデータを入れ替える | C++23 |
+| [`swap`](unexpected/swap_free.md) | 2つの`unexpected`オブジェクトを入れ替える | C++23 |
 
 ## 推論補助
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`(deduction_guide)`](unexpected/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23 |
+| [`(deduction_guide)`](unexpected/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23 |
 
 
 ## 例

@@ -108,8 +108,8 @@ constexpr bool converts-from-any-cvref =
 - (4) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<const U&>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<const G&>(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
 - (5) : `rhs`が正常値を保持していれば、[`std::forward`](/reference/utility/forward.md)`<U>(`[`*rhs`](op_deref.md)`)`で正常値を直接非リスト初期化する。そうでなければ、[`std::forward`](/reference/utility/forward.md)`<G>(rhs.`[`error()`](error.md)`)`でエラー値を直接非リスト初期化する。
 - (6) : [`std::forward`](/reference/utility/forward.md)`<U>(v)`で正常値を直接非リスト初期化する。
-- (7) : [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md.nolink)`)`でエラー値を直接非リスト初期化する。
-- (8) : [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md.nolink)`)`でエラー値を直接非リスト初期化する。
+- (7) : [`std::forward`](/reference/utility/forward.md)`<const G&>(e.`[`error()`](../unexpected/error.md)`)`でエラー値を直接非リスト初期化する。
+- (8) : [`std::forward`](/reference/utility/forward.md)`<G>(e.`[`error()`](../unexpected/error.md)`)`でエラー値を直接非リスト初期化する。
 - (9) : [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`で正常値を直接非リスト初期化する。
 - (10) : `il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`で正常値を直接非リスト初期化する。
 - (11) : [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`でエラー値を直接非リスト初期化する。

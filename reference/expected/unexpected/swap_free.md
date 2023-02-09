@@ -2,18 +2,17 @@
 * expected[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* expected.void[meta class]
+* unexpected[meta class]
 * cpp23[meta cpp]
 
 ```cpp
-// expected<cv void, E>部分特殊化
-friend constexpr void swap(expected& x, expected& y)
+friend constexpr void swap(unexpected& x, unexpected& y)
   noexcept(noexcept(x.swap(y)));
 ```
 * x.swap(y)[link swap.md]
 
 ## 概要
-2つの`expected`オブジェクトを入れ替える。
+2つの`unexpected`オブジェクトを入れ替える。
 
 
 ## 効果
@@ -34,16 +33,15 @@ x.swap(y);
 
 int main()
 {
-  std::expected<void, int> x;
-  std::expected<void, int> y = std::unexpected{42};
-  assert(x.has_value() && y.error() == 42);
+  std::unexpected<int> x{1};
+  std::unexpected<int> y{2};
+  assert(x.error() == 1 && y.error() == 2);
 
   std::swap(x, y);
-  assert(x.error() == 42 && y.has_value());
+  assert(x.error() == 2 && y.error() == 1);
 }
 ```
 * std::swap[color ff0000]
-* has_value()[link has_value.md]
 * error()[link error.md]
 * std::unexpected[link ../unexpected.md]
 
