@@ -149,8 +149,8 @@ constexpr bool converts-from-any-cvref =
 
 
 ## explicitになる条件
-- (4) : `!`[`is_convertible_v`](/reference/type_traits/is_constructible.md)`<const U&, T> || !`[`is_convertible_v`](/reference/type_traits/is_constructible.md)`<const G&, E>`
-- (5) : `!`[`is_convertible_v`](/reference/type_traits/is_constructible.md)`<U, T> || !`[`is_convertible_v`](/reference/type_traits/is_constructible.md)`<G, E>`
+- (4) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U&, T> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const G&, E>`
+- (5) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U, T> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<G, E>`
 - (6) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U, T>`
 - (7) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const G&, E>`
 - (8) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<G, E>`
@@ -162,6 +162,7 @@ constexpr bool converts-from-any-cvref =
 #include <expected>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <tuple>
 #include <utility>
 #include <vector>
