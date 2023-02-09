@@ -130,6 +130,14 @@ namespace std {
 | `template<class U> rebind` | `expected<U, error_type>` | C++23 |
 
 
+## 非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|-------|
+| [`swap`](expected/swap_free.md) | 2つの`expected<T, E>`オブジェクトを入れ替える | C++23 |
+| [`swap`](expected.void/swap_free.md) | 2つの`expected<cv void, E>`オブジェクトを入れ替える | C++23 |
+
+
 ## 例
 ```cpp example
 #include <expected>
