@@ -1,4 +1,4 @@
-# expected<cv void, E>
+# expected.void
 * expected[meta header]
 * class template[meta id-type]
 * std[meta namespace]
