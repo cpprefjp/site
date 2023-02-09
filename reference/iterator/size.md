@@ -93,6 +93,9 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2015
 
+## 関連項目
+
+- [`std::ranges::size`](/reference/ranges/size.md)
 
 ## 参照
 - [`boost::size()` - Boost Range Library](http://www.boost.org/doc/libs/release/libs/range/doc/html/range/reference/concept_implementation/semantics/functions.html)
