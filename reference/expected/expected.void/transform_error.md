@@ -2,10 +2,11 @@
 * expected[meta header]
 * function template[meta id-type]
 * std[meta namespace]
-* expected[meta class]
+* expected.void[meta class]
 * cpp23[meta cpp]
 
 ```cpp
+// expected<cv void, E>部分特殊化
 template<class F> constexpr auto transform_error(F&& f) &;        // (1)
 template<class F> constexpr auto transform_error(F&& f) const &;  // (2)
 template<class F> constexpr auto transform_error(F&& f) &&;       // (3)
@@ -20,18 +21,13 @@ template<class F> constexpr auto transform_error(F&& f) const &&; // (4)
 `transform_error`へは、引数リストに1個の`E`型をとり`Return`型を返す関数や関数オブジェクトを与える。
 
 ```cpp
-template <class T, class E>
+template <cv void, class E>
 class expected {
   template <class Return>
-  std::expected<T, Return> transform_error(function<Return(E)> func);
+  std::expected<cv void, Return> transform_error(function<Return(E)> func);
 };
 ```
 * function[link /reference/functional/function.md]
-
-
-## テンプレートパラメータ制約
-- (1), (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> == true`
-- (3), (4) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`
 
 
 ## 適格要件
@@ -45,10 +41,10 @@ class expected {
 
 ## 効果
 - (1), (2) : 次の効果をもつ
-    - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`value()`](value.md)`)`を返す。
+    - 正常値を保持していたら、`expected<T, G>()`を返す。
     - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`error()`](error.md)`)`で非直接リスト初期化した`expected<T, G>`オブジェクトを返す。
 - (3), (4) : 次の効果をもつ
-    - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`を返す。
+    - 正常値を保持していたら、`expected<T, G>()`を返す。
     - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`で非直接リスト初期化した`expected<T, G>`オブジェクトを返す。
 
 
@@ -59,31 +55,28 @@ class expected {
 ## 例
 ```cpp example
 #include <cassert>
-#include <algorithm>
 #include <expected>
+#include <format>
 #include <string>
 
-// 文字列を逆順に並べ替える関数
-std::string revstr(std::string str)
+std::string int2str(int n)
 {
-  std::reverse(str.begin(), str.end());
-  return str;
+  return std::format("({})", n);
 }
 
 int main()
 {
-  std::expected<int, std::string> v1 = 42;
-  assert(v1.transform_error(revstr).value() == 42);
+  std::expected<void, int> v1;
+  assert(v1.transform_error(int2str).has_value());
 
-  std::expected<int, std::string> e1 = std::unexpected{"Oops"};
-  assert(e1.transform_error(revstr).error() == "spoO");
+  std::expected<void, int> e1 = std::unexpected{42};
+  assert(e1.transform_error(int2str).error() == "(42)");
 }
 ```
 * transform_error[color ff0000]
-* value()[link value.md]
+* has_value()[link has_value.md]
 * error()[link error.md]
 * std::unexpected[link ../unexpected.md]
-* std::reverse[link /reference/algorithm/reverse.md]
 
 ### 出力
 ```

@@ -21,4 +21,4 @@ namespace std {
 
 このページは`expected<cv void, E>`部分特殊化テンプレートに対応するプレースホルダです。
 
-`expected`クラスの説明は[`expected<E, E>`プライマリテンプレート](expected.md)ページを参照してください。
+`expected`クラスの説明は[`expected<T, E>`プライマリテンプレート](expected.md)ページを参照してください。

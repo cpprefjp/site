@@ -102,7 +102,7 @@ constexpr void reinit-expected(T& newval, U& oldval, Args&&... args) {
     - `this`と`rhs`が共に正常値を保持していたら、`val =` [`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md)`)`
     - `this`が正常値を保持し、`rhs`がエラー値を保持していたら、`reinit-expected(unex, val,` [`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md)`))`
     - `this`がエラーを保持し、`rhs`が正常値を保持していたら、`reinit-expected(val, unex,` [`std::move`](/reference/utility/move.md)`(`[`*rhs`](op_deref.md)`))`
-    - `this`と`rhs`が共にエラー値を保持していたら、`unex` [`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md)`)`
+    - `this`と`rhs`が共にエラー値を保持していたら、`unex =` [`std::move`](/reference/utility/move.md)`(rhs.`[`error()`](error.md)`)`
 - (3) : 次の処理と等価
     - `this`が正常値を保持していたら、`val =` [`std::forward`](/reference/utility/forward.md)`<U>(v)`
     - `this`がエラー値を保持していたら、`reinit-expected(val, unex,` [`std::forward`](/reference/utility/forward.md)`<U>(v)); has_val = true;`

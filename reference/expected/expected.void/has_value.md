@@ -1,12 +1,13 @@
-# operator bool
+# has_value
 * expected[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* expected[meta class]
+* expected.void[meta class]
 * cpp23[meta cpp]
 
 ```cpp
-constexpr explicit operator bool() const noexcept;
+// expected<cv void, E>部分特殊化
+constexpr bool has_value() const noexcept;
 ```
 
 ## 概要
@@ -25,36 +26,23 @@ constexpr explicit operator bool() const noexcept;
 ```cpp example
 #include <expected>
 #include <iostream>
-#include <string>
 
 int main()
 {
-  std::expected<std::string, int> x = "Hello";
-  if (x) {
-    std::cout << "val=" << *x << std::endl;
-  } else {
-    std::cout << "unex=" << x.error() << std::endl;
-  }
+  std::expected<void, int> x;
+  std::cout << x.has_value() << std::endl;
 
-  std::expected<std::string, int> y = std::unexpected{42};
-  if (y) {
-    std::cout << "val=" << *y << std::endl;
-  } else {
-    std::cout << "unex=" << y.error() << std::endl;
-  }
+  std::expected<void, int> y = std::unexpected{42};
+  std::cout << y.has_value() << std::endl;
 }
 ```
-* (x)[color ff0000]
-* (y)[color ff0000]
-* *x[link op_deref.md]
-* *y[link op_deref.md]
-* error()[link error.md]
+* has_value[color ff0000]
 * std::unexpected[link ../unexpected.md]
 
 ### 出力
 ```
-val=Hello
-unex=42
+1
+0
 ```
 
 
@@ -70,7 +58,7 @@ unex=42
 
 
 ## 関連項目
-- [`has_value()`](has_value.md)
+- [`operator bool`](op_bool.md)
 
 
 ## 参照

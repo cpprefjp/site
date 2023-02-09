@@ -86,38 +86,38 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`operator=`](expected.void/op_assign.md.nolink) | 代入演算子 | C++23 |
-| [`emplace`](expected.void/emplace.md.nolink) | 正常値型のコンストラクタ引数から直接構築する | C++23 |
-| [`swap`](expected.void/swap.md.nolink) | 他の`expected`オブジェクトとデータを入れ替える | C++23 |
+| [`operator=`](expected.void/op_assign.md) | 代入演算子 | C++23 |
+| [`emplace`](expected.void/emplace.md) | 正常値を保持する | C++23 |
+| [`swap`](expected.void/swap.md) | 他の`expected`オブジェクトとデータを入れ替える | C++23 |
 
 ### 値の観測
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`operator*`](expected.void/op_deref.md.nolink) | 正常値への間接参照 | C++23 |
-| [`operator bool`](expected.void/op_bool.md.nolink) | 正常値を保持しているかを判定する | C++23 |
-| [`has_value`](expected.void/has_value.md.nolink) | 正常値を保持しているかを判定する | C++23 |
-| [`value`](expected.void/value.md.nolink) | 正常値を取得する | C++23 |
-| [`error`](expected.void/error.md.nolink) | エラー値を取得する | C++23 |
-| [`error_or`](expected.void/error_or.md.nolink) | エラー値もしくは指定された値を取得する | C++23 |
+| [`operator*`](expected.void/op_deref.md) | 正常値への間接参照 | C++23 |
+| [`operator bool`](expected.void/op_bool.md) | 正常値を保持しているかを判定する | C++23 |
+| [`has_value`](expected.void/has_value.md) | 正常値を保持しているかを判定する | C++23 |
+| [`value`](expected.void/value.md) | 正常値を取得する | C++23 |
+| [`error`](expected.void/error.md) | エラー値を取得する | C++23 |
+| [`error_or`](expected.void/error_or.md) | エラー値もしくは指定された値を取得する | C++23 |
 
-（`expected<cv void, E>` 部分特殊化では、演算子オーバーロード`operator->`およびメンバ関数`value`は提供されない。）
+（`expected<cv void, E>` 部分特殊化では、演算子オーバーロード`operator->`およびメンバ関数`value_or`は提供されない。）
 
 ### モナド操作
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`and_then`](expected.void/and_then.md.nolink) | 正常値に対して関数を適用する | C++23 |
-| [`or_else`](expected.void/or_else.md.nolink) | エラー値に対して関数を適用する | C++23 |
-| [`transform`](expected.void/transform.md.nolink) | 正常値を変換する | C++23 |
-| [`transform_error`](expected.void/transform_error.md.nolink) | エラー値を変換する | C++23 |
+| [`and_then`](expected.void/and_then.md) | 正常値に対して関数を適用する | C++23 |
+| [`or_else`](expected.void/or_else.md) | エラー値に対して関数を適用する | C++23 |
+| [`transform`](expected.void/transform.md) | 正常値を変換する | C++23 |
+| [`transform_error`](expected.void/transform_error.md) | エラー値を変換する | C++23 |
 
 ### 比較
 
 | 名前         | 説明       | 対応バージョン |
 |--------------|------------|-------|
-| [`operator==`](expected.void/op_equal.md.nolink) | 等値比較 | C++23 |
-| [`operator!=`](expected.void/op_not_equal.md.nolink) | 非等値比較 | C++23 |
+| [`operator==`](expected.void/op_equal.md) | 等値比較 | C++23 |
+| [`operator!=`](expected.void/op_not_equal.md) | 非等値比較 | C++23 |
 
 
 ## メンバ型
