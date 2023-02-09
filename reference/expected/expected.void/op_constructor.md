@@ -2,7 +2,7 @@
 * expected[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* expected[meta class]
+* expected<void,E>[meta class]
 * cpp23[meta cpp]
 
 ```cpp
