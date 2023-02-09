@@ -193,10 +193,10 @@
 | P0969R0: [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | 8 | 8.0 | 2021.4 | 2019 |
 | P0961R1: [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく | 8 | 8.0 | 2021.4 | 2019 |
 | P0634R3: [型の文脈で`typename`の省略を許可](/lang/cpp20/down_with_typename.md) | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする | 9 | 16 | 2021.4 (2021.6 は未対応) | 2019 Update 9 |
-| P0780R2: [ラムダ式の初期化キャプチャでのパック展開を許可](/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 | 9<br/>10 | 9.0 | | 2019 Update 2 |
-| P0479R5: [確率が高い分岐と低い分岐を伝える属性 `[[likely]]`, `[[unlikely]]`](/lang/cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 | 9 (partial, `switch` 文のみ可能)<br/> 10 | 12.0 | | 2019 Update 6 |
+| P0780R2: [ラムダ式の初期化キャプチャでのパック展開を許可](/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 | 9<br/>10 | 9.0 | 2021.7 | 2019 Update 2 |
+| P0479R5: [確率が高い分岐と低い分岐を伝える属性 `[[likely]]`, `[[unlikely]]`](/lang/cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 | 9 (partial, `switch` 文のみ可能)<br/> 10 | 12.0 | 2021.7 | 2019 Update 6 |
 | P0929R2: [抽象型のチェック](/lang/cpp20/checking_for_abstract_class_types.md) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | 11 | | | 2019 Update 5 |
-| P0732R2: [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする | 9 | partial | | 2019 Update 6 |
+| P0732R2: [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする | 9 | partial | 2022.2 Partial | 2019 Update 6 |
 | P0722R3: [可変長データを扱うクラスの効率的な`delete`](/lang/cpp20/efficient_sized_delete_for_variable_sized_classes.md) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | | 2019 Update 7 |
 | P1064R0: [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | 2021.4 | 2019 Update 9 |
 | P1327R1: [定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md) | 定数式での動的多態を許可 | 10 | 9.0 | 2021.4 | 2019 Update 9 |
