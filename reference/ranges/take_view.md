@@ -78,6 +78,70 @@ namespace std::ranges {
 |-------------------------------------------------------|------------------------------|----------------|
 | [`(deduction_guide)`](take_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
 
+## 使用上の注意
+
+この`view`（及びRangeアダプタ）は、入力が[`random_access_range`](random_access_range.md)ではない場合に意図しない無限ループに陥ることがある
+
+```cpp
+int main() {
+  for (auto i  : std::views::iota(0)
+               | std::views::filter([](auto i) { return i < 10; })
+               | std::views::take(10))
+  {
+    std::cout << i << '\n';
+  }
+}
+```
+
+このコードは0から9までの数字を出力するだけのループに見えるが、実行すると無限ループに陥るか完了までに多大な時間を要する。
+
+範囲`for`文は内部でイテレータを用いた通常`for`文に展開されており、1つのループの終わりでは次の様な順番でループのための処理が行われている
+
+1. イテレータのインクリメント
+2. イテレータの終端チェック
+3. ループ本体実行
+
+この例における1では、次の様なことが起きている
+
+1. `take_view`イテレータのインクリメント
+    1. `take_view`内部カウンタの減算
+    2. [`filter_view`](filter_view.md)のイテレータのインクリメント
+      1. 条件を満たす次の要素の探索
+        - 条件を満たす要素が見つかるまで、`iota_view`イテレータをインクリメントする
+          1. `iota_view`イテレータのインクリメント
+            - 増分1で整数値を生成、この場合は終端がない
+          2. `iota_view`生成値の読み取りと条件チェック
+
+`views::iota(0)`によるシーケンスは0始まりの整数の無限列であり、`filter_view`のフィルタ条件（`return i < 10`）は10未満の整数値のみを取り出すものである。したがってこの場合、`iota_view`が10を生成して以降は`filter_view`で条件を満たす要素は存在しなくなる。
+
+ループの最終端、本体処理が9を出力した後のループ終了直前には、`take_view`の内部カウンタが0になり`take_view`の終了条件が満たされるものの、その直後に内部イテレータ（`filter_view`のイテレータ）をインクリメントしてしまう。`filter_view`のイテレータはインクリメントによって10未満の次の要素を探索するために`iota_view`のイテレータをインクリメントし、`iota_view`は10以降の整数値をひたすら生成し続ける。
+
+この例の`iota_view`の要素型は符号付き整数型であるため、そのオーバーフローは未定義動作となり、このループが終了するかどうかは保証されない。
+
+入力に対して`filter_view`の条件の与え方が悪いという見方もできるが、これは`take_view`イテレータのインクリメント時に起こることに問題があり、`take_view`のイテレータは入力が[`random_access_range`](random_access_range.md)ではない場合は[`counted_iterator`](/reference/iterator/counted_iterator.md)を使用するため、本質的には`counted_iterator`の問題である。
+
+`counted_iterator`はインクリメント時にカウンタ値を減算してからラップしているイテレータをインクリメントするが、カウンタ値を考慮せず常にインクリメントを行うため`counted_iterator`の内部カウンタが0になりその終了条件が満たされた時でもラップするイテレータをインクリメントしてしまう。そのため、`filter_view`イテレータのようにそのイテレータ取得時点で終端が確定していないイテレータを入力として使用すると、その終端でこのような問題が起こりうる。
+
+特に、`input_iterator`では、イテレータがその範囲の終端に達した後でインクリメントしてしまうと何が起こるかわからないため、この問題はより複雑な形で顕在化する可能性がある。
+
+```cpp
+int main() {
+  // 入力ストリームには整数値1つしかない
+  auto iss = std::istringstream("0");
+
+  // 0を読んだ後、takeイテレータが進行するが、istream_viewが次のストリーム入力を待機するために終了しない
+  for (auto i : std::ranges::istream_view<int>(iss)
+              | std::views::take(1))
+  {
+    std::cout << i << '\n';
+  }
+}
+```
+
+この例では、`istream_view`の基底のストリームに追加の要素が入力されるか、ストリームが閉じられるまで`istream_view`のイテレータはインクリメント時に次の要素の入力を待機し続けてしまう。より一般的な`input_iterator`ではどうなるかわからない。
+
+ただし、`take_view`は入力範囲が`random_access_range`の場合は`counted_iterator`を使用しないため、`random_access_range`に対して使用する場合はこの問題は起こらない。
+
 ## 例
 ```cpp example
 #include <ranges>
@@ -113,3 +177,4 @@ int main() {
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
+- [P2406R2 Add `lazy_counted_iterator`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2406r2.html)
