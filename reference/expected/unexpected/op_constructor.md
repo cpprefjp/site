@@ -38,9 +38,9 @@ constexpr explicit unexpected(in_place_t, initializer_list<U> il, Args&&... args
 
 
 ## 効果
-- (3) : [`std::forward`](/reference/utility/forward.md)`<Err>(e)`で値を直接非リスト初期化する。
-- (4) : [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`で値を直接非リスト初期化する。
-- (5) : `il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`で値を直接非リスト初期化する。
+- (3) : [`std::forward`](/reference/utility/forward.md)`<Err>(e)`でエラー値を直接非リスト初期化する。
+- (4) : [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`でエラー値を直接非リスト初期化する。
+- (5) : `il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`でエラー値を直接非リスト初期化する。
 
 
 ## 例外
@@ -100,7 +100,7 @@ int main()
     std::unexpected<IntTuple> dst{src};
     assert((dst.error() == IntTuple{1, 2}));
   }
-  // (3) 変換構築
+  // (3) 変換ムーブ構築
   {
     UniquePtr src = std::make_unique<int>(42);
     std::unexpected<SharedPtr> dst{std::move(src)};

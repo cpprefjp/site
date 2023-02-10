@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-`std::expected`クラステンプレートの型推論補助。
+`std::unexpected`クラステンプレートの型推論補助。
 
 
 ## 例

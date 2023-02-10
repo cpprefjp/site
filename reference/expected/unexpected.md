@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-`unexpected`クラスは、[`std::expected<T, E>`](expected.md)に格納される任意の型`E`の値をエラー値として表現する。
+`unexpected`クラスは、[`std::expected<T, E>`](expected.md)に格納される任意の型`E`のエラー値を表現するヘルパークラスである。
 
 
 ## 適格要件
@@ -39,7 +39,7 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`error`](unexpected/error.md) | 値を取得する | C++23 |
+| [`error`](unexpected/error.md) | エラー値を取得する | C++23 |
 
 ### 比較
 

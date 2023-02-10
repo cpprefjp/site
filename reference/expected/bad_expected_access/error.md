@@ -2,7 +2,7 @@
 * expected[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* unexpected[meta class]
+* bad_expected_access[meta class]
 * cpp23[meta cpp]
 
 ```cpp
@@ -36,16 +36,22 @@ constexpr E&& error() && noexcept;             // (4)
 
 int main()
 {
-  std::unexpected<std::string> x{"ERR"};
-  std::cout << x.error() << std::endl;
+  std::expected<int, std::string> v = std::unexpected{"ERR"};
+  try {
+    std::cout << v.value() << std::endl;
+  } catch (const std::bad_expected_access<std::string>& ex) {
+    std::cout << "throw:" << ex.error() << std::endl;
+  }
 }
 ```
 * error()[color ff0000]
+* value()[link ../expected/value.md]
 * std::unexpected[link ../unexpected.md]
+* std::bad_expected_access[link ../bad_expected_access.md]
 
 ### 出力
 ```
-ERR
+throw:ERR
 ```
 
 

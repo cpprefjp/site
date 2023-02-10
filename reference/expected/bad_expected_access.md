@@ -9,7 +9,6 @@ namespace std {
   template<class E>
   class bad_expected_access : public bad_expected_access<void> { ... };
 
-  // void特殊化
   template<>
   class bad_expected_access<void> : public exception { ... };
 }
@@ -24,10 +23,11 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|-------|
-| [`(constructor)`](bad_expected_access/op_constructor.md.nolink) | コンストラクタ | C++23 |
+| [`(constructor)`](bad_expected_access/op_constructor.md) | コンストラクタ | C++23 |
 | `(destructor)` | デストラクタ | C++23 |
-| [`error`](bad_expected_access/error.md.nolink) | エラー値を取得する | C++23 |
-| [`what`](bad_expected_access/what.md.nolink) | エラー理由の文字列を取得する | C++23 |
+| `operator=` | コピー／ムーブ代入演算子 | C++23 |
+| [`error`](bad_expected_access/error.md) | エラー値を取得する | C++23 |
+| [`what`](bad_expected_access/what.md) | エラー理由の文字列を取得する | C++23 |
 
 
 ## 例

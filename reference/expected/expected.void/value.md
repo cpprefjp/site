@@ -43,7 +43,7 @@ int main()
 }
 ```
 * value()[color ff0000]
-* error()[link ../bad_expected_access/error.md.nolink]
+* error()[link ../bad_expected_access/error.md]
 * std::unexpected[link ../unexpected.md]
 * std::bad_expected_access[link ../bad_expected_access.md]
 
