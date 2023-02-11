@@ -21,10 +21,16 @@ namespace std {
 ## 概要
 `expected`クラスは、任意の型`T`の値を正常値とし任意の型`E`の値をエラー値として、正常もしくはエラーいずれかの状態を取ることを値として表現できる型である。
 
+このクラスは、ヒープからの動的メモリ確保を行わない。
+実装は配置newのような機能によって、スタック領域のメモリのみを使用する。
+
 
 ## 適格要件
 
+- 型`T`および型`E`は、参照型、関数型、[`in_place_t`](/reference/utility/in_place_t.md)、[`unexpect_t`](unexpect_t.md)のいずれでもないこと。
+- 型`T`は[`unexpected`](unexpected.md)の特殊化ではないこと。
 - 型`T`が（CV修飾された）`void`型でなければ、型`T`はCpp17Destructible要件を満たすこと。
+- 型`E`は非オブジェクト型、配列型、`unexpected`の特殊化、CV修飾された型のいずれでもないこと。
 - 型`E`はCpp17Destructible要件を満たすこと。
 
 
