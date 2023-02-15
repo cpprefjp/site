@@ -56,6 +56,7 @@ IGNORE_LIST = [
     "https://web.archive.org", # 確実に存在すると思われる
     "http://cse.naro.affrc.go.jp", # 海外 (GitHub Actions) からのアクセスを排除していると思われる
     "https://www.cryptopp.com", # アクセスチェックでよく失敗するがブラウザ上では問題なくアクセスできる
+    "https://www.microsoft.com/", # ちょくちょく失敗するが、一時的なものだと思われる
 ]
 
 def is_ignore_link(link: str) -> bool:
