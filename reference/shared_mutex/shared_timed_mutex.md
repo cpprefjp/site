@@ -96,7 +96,7 @@ public:
   {
     int local_count;
     {
-      std::shared_lock<std::shared_mutex> lock(mtx_);
+      std::shared_lock<std::shared_timed_mutex> lock(mtx_);
       local_count = count_;
     } // 共有ロックをここで手放す
     print_value(local_count);
