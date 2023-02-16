@@ -13,7 +13,7 @@ namespace std {
 `size_t`は、オブジェクトのバイト数を表現できる程度に十分に大きい符号なし整数型である。
 C++03まではC言語と同じく「`sizeof`演算子によって返される符号なし整数型」と規定されていた。
 
-オブジェクトのバイト数（例えば[`malloc`](/reference/cstdlib.md)の引数）やコンテナの要素数（例えば[`std::size()`](/reference/iterator/size.md)の返り値）を表現するために用いられる。
+オブジェクトのバイト数（例えば[`malloc`](/reference/cstdlib.md)の引数）やコンテナの要素数（例えば[`std::size()`](/reference/iterator/size.md)の戻り値）を表現するために用いられる。
 
 ## 例
 ```cpp example

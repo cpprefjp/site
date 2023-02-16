@@ -62,11 +62,11 @@
 	なお、C++11 の記載にある無条件のキャストは規格のバグとされたため、C++11 であってもスコープ付き列挙型や explicit な変換演算子のあるクラス型に、上記規則にある無条件のキャストが適用されると想定すべきではない。  
 	（[LWG 2086. Overly generic type support for math functions](http://cplusplus.github.io/LWG/lwg-defects.html#2086) 参照）
 
-	各関数の個別ページでは、上記のオーバーロード関数をコードで示す際には、引数や返値の型を斜体で示す。
+	各関数の個別ページでは、上記のオーバーロード関数をコードで示す際には、引数や戻り値の型を斜体で示す。
     ```cpp
     Integral      // 任意の整数型
     Arithmetic    // 任意の算術型
-    Promoted      // 決定された返値型
+    Promoted      // 決定された戻り値型
     ```
     * Integral[italic]
     * Arithmetic[italic]
@@ -447,8 +447,8 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`FP_FAST_FMA`](cmath/fp_fast_fma.md)   | `double` 型の `fma` 関数がより高速な実装であるか | C++11 |
 | [`FP_FAST_FMAF`](cmath/fp_fast_fmaf.md) | `float` 型の `fma` 関数がより高速な実装であるか  | C++11 |
 | [`FP_FAST_FMAL`](cmath/fp_fast_fmal.md) | `long double` 型の `fma` 関数がより高速な実装であるか | C++11 |
-| [`FP_ILOGB0`](cmath/fp_ilogb0.md)       | `ilogb(0)` の返値を表す整数定数式 | C++11 |
-| [`FP_ILOGBNAN`](cmath/fp_ilogbnan.md)   | `ilogb(NaN)` の返値を表す整数定数式 | C++11 |
+| [`FP_ILOGB0`](cmath/fp_ilogb0.md)       | `ilogb(0)` の戻り値を表す整数定数式 | C++11 |
+| [`FP_ILOGBNAN`](cmath/fp_ilogbnan.md)   | `ilogb(NaN)` の戻り値を表す整数定数式 | C++11 |
 | [`MATH_ERRNO`](cmath/math_errno.md)             | 数学ライブラリ内で`errno`にエラーが設定されたかを表す整数定数 | C++11 |
 | [`MATH_ERREXCEPT`](cmath/math_errexcept.md)     | 数学ライブラリ内で浮動小数点例外が発生したかを表す整数定数 | C++11 |
 | [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ | C++11 |

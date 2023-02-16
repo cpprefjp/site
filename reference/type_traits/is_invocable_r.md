@@ -66,8 +66,8 @@ int main()
 
   std::cout << "1" << std::endl;
 
-  // INVOKE、つまり std::invoke の返り値である S が
-  // R に束縛されて R の寿命と同じ寿命に延長された上で std::invoke_r の返り値となる
+  // INVOKE、つまり std::invoke の戻り値である S が
+  // R に束縛されて R の寿命と同じ寿命に延長された上で std::invoke_r の戻り値となる
   // しかし R の寿命はこの1文の間だけなので、S もこの1文が終了する際に破棄される
   const S& a = std::invoke_r<R>([]() { return S{}; });
 
