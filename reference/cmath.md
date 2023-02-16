@@ -87,7 +87,7 @@
 
 ### <a id="cpp23" href="#cpp23">C++23での差異</a>
 #### constexpr対応
-C++23では、多くの数学関数が`constexpr`に対応し、定数式内で使用できるようになった。C++23時点では、コンパイラベンダの負担が低い機能を`constexpr`対応した。
+C++23では、多くの数学関数が`constexpr`に対応し、定数式内で使用できるようになった。C++23時点では、コンパイラベンダの負担が少ない機能を`constexpr`対応した。
 
 C++23で`constexpr`対応する関数の条件は以下：
 
@@ -97,6 +97,8 @@ C++23で`constexpr`対応する関数の条件は以下：
 [`exp()`](cmath/exp.md)、[`sqrt()`](cmath/sqrt.md)、[`cos()`](cmath/cos.md)、[`sin()`](cmath/sin.md)は1. の条件を満たさないため、C++23では`constexpr`に対応しない。
 
 [`nearbyint`](cmath/nearbyint.md)は2. の条件を満たさないため、C++23では`constexpr`に対応しない。
+
+ただし、コンパイラが先行して`constexpr`非対応の関数も対応している可能性がある。
 
 なお、C++20では[`lerp()`](cmath/lerp.md)のみ`constexpr`に対応している。これはC標準ライブラリからの移植ではなく、C++で標準化された関数だからである ([`errno`](cerrno/errno.md)や浮動小数点例外のようなグローバル状態を使用しない)。
 
