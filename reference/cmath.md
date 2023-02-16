@@ -85,6 +85,37 @@
     * Promoted[italic]
 
 
+### C++23での差異
+#### constexpr対応
+C++23では、多くの数学関数が`constexpr`に対応し、定数式内で使用できるようになった。C++23時点では、コンパイラベンダの負担が低い機能を`constexpr`対応した。
+
+C++23で`constexpr`対応する関数の条件は以下：
+
+1. 有理数の集合、または実数のどこにも密でない部分集合に作用すると見なされ、関数が閉じていること
+2. 関数が丸めモードに強く依存しないこと
+
+[`exp()`](cmath/exp.md)、[`sqrt()`](cmath/sqrt.md)、[`cos()`](cmath/cos.md)、[`sin()`](cmath/sin.md)は1. の条件を満たさないため、C++23では`constexpr`に対応しない。
+
+[`nearbyint`](cmath/nearbyint.md)は2. の条件を満たさないため、C++23では`constexpr`に対応しない。
+
+なお、C++20では[`lerp()`](cmath/lerp.md)のみ`constexpr`に対応している。これはC標準ライブラリからの移植ではなく、C++で標準化された関数だからである。
+
+#### 拡張浮動小数点数型への対応
+C++23では[`<stdfloat>`](stdfloat.md.nolink)に拡張浮動小数点数型が追加された。その対応として、以下のような`float`、`double`、`long double`に対するオーバーロードは、
+
+```cpp
+float abs(float x);
+double abs(double x);
+long double abs(long double x);
+```
+
+以下のように`floating-point-type`へのオーバーロードに統合され、拡張浮動小数点数型も扱えるようになった。
+
+```cpp
+floating-point-type abs(floating-point-type x);
+```
+
+
 ## <a id="error-handling" href="#error-handling">エラーの扱い</a>
 `<cmath>` で提供される各関数は、特に明記されていない限り、引数の型が表現できる全ての値についての挙動が定義されている。
 なお、ここで言う「挙動が定義されている」とは、未定義動作を引き起こさないというだけで、エラーが発生したり、実装依存の挙動となる場合がある事に注意。
@@ -167,6 +198,18 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 
 不正確エラーが発生した場合、関数の戻り値は真の値を丸めた値となるが、その際の丸め方式は処理系定義である。（関数に特別に規定がある場合を除く）  
 特に、[`fesetround`](cfenv/fesetround.md) で設定した丸め方式に従うとは限らないため、注意が必要である。
+
+
+## 定数式になる条件
+
+`constexpr`対応する数学関数において、以下のいずれかの条件に合致する場合、定数式とならない (引数によってコンパイルエラーになる)
+
+- [`FE_INEXACT`](cfenv/fe_inexact.md)以外の、以下の浮動小数点例外が発生した場合：
+    - [`FE_DIVBYZERO`](cfenv/fe_divbyzero.md) (ゼロ除算)
+    - [`FE_INVALID`](cfenv/fe_invalid.md) (不正な演算)
+    - [`FE_OVERFLOW`](cfenv/fe_overflow.md) (オーバーフロー)
+    - [`FE_UNDERFLOW`](cfenv/fe_underflow.md) (アンダーフロー)
+- [`math_errhandling`](cmath/math_errhandling.md) `&` [`MATH_ERRNO`](cmath/math_errno.md)が真で、[`errno`](cerrno/errno.md)が設定された場合
 
 
 ## <a id="trigonometric-functions" href="#trigonometric-functions">三角関数</a>
@@ -417,3 +460,5 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
 - [P00175R0 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r0.html)
     - C++17 から`f`、`l`サフィックス付きのC関数を導入
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応

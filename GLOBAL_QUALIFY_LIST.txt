@@ -1,3 +1,4 @@
+* floating-point-type[italic]
 * implementation-defined[italic]
 * import std;[link /module/std.md]
 * import std.compat;[link /module/std.compat.md]
