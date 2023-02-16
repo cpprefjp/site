@@ -98,7 +98,7 @@ C++23で`constexpr`対応する関数の条件は以下：
 
 [`nearbyint`](cmath/nearbyint.md)は2. の条件を満たさないため、C++23では`constexpr`に対応しない。
 
-なお、C++20では[`lerp()`](cmath/lerp.md)のみ`constexpr`に対応している。これはC標準ライブラリからの移植ではなく、C++で標準化された関数だからである。
+なお、C++20では[`lerp()`](cmath/lerp.md)のみ`constexpr`に対応している。これはC標準ライブラリからの移植ではなく、C++で標準化された関数だからである ([`errno`](cerrno/errno.md)や浮動小数点例外のようなグローバル状態を使用しない)。
 
 #### 拡張浮動小数点数型への対応
 C++23では[`<stdfloat>`](stdfloat.md.nolink)に拡張浮動小数点数型が追加された。その対応として、以下のような`float`、`double`、`long double`に対するオーバーロードは、
