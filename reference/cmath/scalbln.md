@@ -1,4 +1,4 @@
-# scalbn
+# scalbln
 * cmath[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -6,42 +6,34 @@
 
 ```cpp
 namespace std {
-  float scalbn(float x, int n);             // (1) C++11からC++20まで
-  double scalbn(double x, int n);           // (2) C++11からC++20まで
-  long double scalbn(long double x, int n); // (3) C++11からC++20まで
+  float scalbln(float x, long int n);             // (1) C++11からC++20まで
+  double scalbln(double x, long int n);           // (2) C++11からC++20まで
+  long double scalbln(long double x, long int n); // (3) C++11からC++20まで
 
   constexpr floating-point-type
-    scalbn(floating-point-type x, int n);   // (4) C++23
+    scalbln(floating-point-type x, long int n);   // (4) C++23
 
   double
-    scalbn(Integral x, int n);              // (5) C++11
+    scalbln(Integral x, long int n);              // (5) C++11
   constexpr double
-    scalbn(Integral x, int n);              // (5) C++23
+    scalbln(Integral x, long int n);              // (5) C++23
 
   float
-    scalbnf(float x, int n);                // (6) C++17
+    scalblnf(float x, long int n);                // (6) C++17
   constexpr float
-    scalbnf(float x, int n);                // (6) C++23
+    scalblnf(float x, long int n);                // (6) C++23
 
   long double
-    scalbnl(long double x, int n);          // (7) C++17
+    scalblnl(long double x, long int n);          // (7) C++17
   constexpr long double
-    scalbnl(long double x, int n);          // (7) C++23
-
-  // 乗数としてlong int型を受け取るバージョン
-  float scalbln(float x, long int n);
-  double scalbln(double x, long int n);
-  long double scalbln(long double x, long int n);
-
-  double scalbln(Integral x, long int n);
-
-  float scalblnf(float x, long int n);              // C++17 から
-  long double scalblnl(long double x, long int n);  // C++17 から
+    scalblnl(long double x, long int n);          // (7) C++23
 }
 ```
 * Integral[italic]
 
 ## 概要
+[`scalbn()`](scalbn.md)の、乗数として`int`の代わりに`long int`をとるバージョン。
+
 `x` に、浮動小数点数の内部表現の基数 [`FLT_RADIX`](/reference/cfloat/flt_radix.md) の `n` 乗を掛けた値を効率的に（通常は [`FLT_RADIX`](/reference/cfloat/flt_radix.md)<sup>n</sup> を明示的には計算せずに）計算する。scalbは「scale binary」を意味する。
 
 この関数は、[`FLT_RADIX`](/reference/cfloat/flt_radix.md) が `2` であるシステム上では、[`ldexp()`](ldexp.md) 関数と等価である。
@@ -82,11 +74,11 @@ namespace std {
 int main()
 {
   // 3.0 * (FLT_RADIX^4)
-  double result = std::scalbn(3.0, 4);
+  double result = std::scalbln(3.0, 4);
   std::cout << result << std::endl;
 }
 ```
-* std::scalbn[color ff0000]
+* std::scalbln[color ff0000]
 
 ### 出力例
 ```
@@ -97,28 +89,6 @@ int main()
 特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
-
-
-## 実装例
-```cpp
-namespace std {
-  double scalbn(double x, int n)
-  {
-    return x * std::pow(static_cast<double>(FLT_RADIX), n);
-  }
-
-  float scalbn(float x, int n)
-  {
-    return x * std::pow(static_cast<float>(FLT_RADIX), n);
-  }
-
-  long double scalbn(long double x, int n)
-  {
-    return x * std::pow(static_cast<long double>(FLT_RADIX), n);
-  }
-}
-```
-* std::pow[link pow.md]
 
 
 ## バージョン

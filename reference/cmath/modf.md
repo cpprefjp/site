@@ -5,20 +5,48 @@
 
 ```cpp
 namespace std {
-  double modf(double value, double* iptr);
-  float modf(float value, float* iptr);
-  long double modf(long double value, long double* iptr);
+  float
+    modf(float value, float* iptr);     // (1) C++03からC++20まで
+  double
+    modf(double value, double* iptr);   // (2) C++03からC++20まで
+  long double
+    modf(long double value,
+         long double* iptr);            // (3) C++03からC++20まで
 
-  double modf(Integral value, double* iptr);                // C++11 から
+  constexpr floating-point-type
+    modf(floating-point-type value,
+         floating-point-type* iptr);    // (4) C++23
 
-  float modff(float value, float* iptr);                    // C++17 から
-  long double modfl(long double value, long double* iptr);  // C++17 から
+  double
+    modf(Integral value, double* iptr); // (5) C++11
+  constexpr double
+    modf(Integral value, double* iptr); // (5) C++23
+
+  float
+    modff(float value, float* iptr);    // (6) C++17
+  constexpr float
+    modff(float value, float* iptr);    // (6) C++23
+
+  long double
+    modfl(long double value,
+          long double* iptr);           // (7) C++17
+  constexpr long double
+    modfl(long double value,
+          long double* iptr);           // (7) C++23
 }
 ```
 * Integral[italic]
 
 ## 概要
 浮動小数点数を、整数部と小数部に分解する。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -29,12 +57,13 @@ namespace std {
 
 ## 備考
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
-	- `value = ±∞` の場合、戻り値は `±0` となり、`*exp` には `±∞` が設定される。
-	- `value` が NaN の場合、戻り値は NaN となり、`*exp` には NaN が設定される。
-	- 戻り値は正確で、現在の丸め方式には依存しない。
+    - `value = ±∞` の場合、戻り値は `±0` となり、`*exp` には `±∞` が設定される。
+    - `value` が NaN の場合、戻り値は NaN となり、`*exp` には NaN が設定される。
+    - 戻り値は正確で、現在の丸め方式には依存しない。
 
 - C++11 で `value` が整数型のオーバーロードが追加されているが、`iptr` の型によって呼び出されるオーバーロードが一意に決まるため、存在意義は無いものと思われる。  
     （`value` に整数型、`iptr` に `nullptr` を渡した場合のみ当該オーバーロードによって呼び出しが曖昧ではなくなるが、その場合は未定義動作となってしまうため、本オーバーロードの存在はむしろ有害）
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -78,9 +107,9 @@ int main()
 ```
 
 ### 備考
-- 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
-	- GCC 4.6.1 以上
-- GCC、Clang では、C++11 で追加されたオーバーロードは存在しない。
+- 特定の環境では、早期に `constexpr` 対応されている場合がある：
+    - GCC 4.6.1 以上
+- GCC、Clang では、C++11 で追加された整数型オーバーロードは存在しない。
 
 
 ## 実装例
@@ -143,3 +172,10 @@ namespace std {
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]
 * enable_if[link ../type_traits/enable_if.md]
 * is_integral[link ../type_traits/is_integral.md]
+
+
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
