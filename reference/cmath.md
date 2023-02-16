@@ -94,9 +94,9 @@ C++23で`constexpr`対応する関数の条件は以下：
 1. 有理数の集合、または実数のどこにも密でない部分集合に作用すると見なされ、関数が閉じていること
 2. 関数が丸めモードに強く依存しないこと
 
-[`exp()`](cmath/exp.md)、[`sqrt()`](cmath/sqrt.md)、[`cos()`](cmath/cos.md)、[`sin()`](cmath/sin.md)は1. の条件を満たさないため、C++23では`constexpr`に対応しない。
+[`exp()`](cmath/exp.md)、[`log()`](cmath/log.md)、[`sqrt()`](cmath/sqrt.md)、[`cos()`](cmath/cos.md)、[`sin()`](cmath/sin.md)は1. の条件を満たさないため、C++23では`constexpr`に対応しない。
 
-[`nearbyint`](cmath/nearbyint.md)は2. の条件を満たさないため、C++23では`constexpr`に対応しない。
+[`nearbyint()`](cmath/nearbyint.md)は2. の条件を満たさないため、C++23では`constexpr`に対応しない。
 
 ただし、コンパイラが先行して`constexpr`非対応の関数も対応している可能性がある。
 
