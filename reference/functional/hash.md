@@ -38,7 +38,7 @@ namespace std {
 
 このクラスはそのものにデフォルトの定義は存在せず、ユーザーが任意の型で特殊化する際の要件を定義する。`hash`クラステンプレートを特殊化する場合、以下に記述するメンバ関数を持たせる必要がある。
 
-なお、`<functional>`ヘッダでは、以下の特殊化を提供する：
+`<functional>`ヘッダでは、以下の特殊化を提供する。これ以外の特殊化は、対象型を定義する各種ヘッダファイルにて提供される：
 
 | 型                   | 対応バージョン |
 |----------------------|----------------|
@@ -166,6 +166,26 @@ found : 3
 - [GCC](/implementation.md#gcc): 4.7.0
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+
+| ヘッダ | 特殊化対象 |
+|--------|------------|
+| [`<coroutine>`](/reference/coroutine.md) | [`std::coroutine_handle`](/reference/coroutine/coroutine_handle.md) |
+| [`<bitset>`](/reference/bitset.md) | [`std::bitset`](/reference/bitset/bitset.md) |
+| [`<filesystem>`](/reference/filesystem.md) | [`std::filesystem::path`](/reference/filesystem/path.md) |
+| [`<optional>`](/reference/optional.md) | [`std::optional`](/reference/optional/optional.md) |
+| [`<memory>`](/reference/memory.md) | [`std::shared_ptr`](/reference/memory/shared_ptr.md), [`std::unique_ptr`](/reference/memory/unique_ptr.md) |
+| [`<stacktrace>`](/reference/stacktrace.md) | [`std::basic_backtrace`](/reference/stacktrace/basic_stacktrace.md), [`std::stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md) |
+| [`<string>`](/reference/string.md) | `std::string`など |
+| [`<string_view>`](/reference/string_view.md) | `std::string_view`など |
+| [`<system_error>`](/reference/system_error.md) | [`std::error_code`](/reference/system_error/error_code.md), [`std::error_condition`](/reference/system_error/error_condition.md) |
+| [`<thread>`](/reference/thread.md) | [`std::thread:id`](/reference/thread/thread.md) |
+| [`<typeindex>`](/reference/typeindex.md) | [`std::type_index`](/reference/typeindex/type_index.md) |
+| [`<variant>`](/reference/variant.md) | [`std::variant`](/reference/variant/variant.md), [`std::monostate`](/reference/variant/monostate.md) |
+| [`<vector>`](/reference/vector.md) | [`std::vector<bool>`](/reference/vector/vector.md) |
+
 
 ## 参照
 - [ハッシュ関数 - Wikipedia](https://ja.wikipedia.org/wiki/ハッシュ関数)
