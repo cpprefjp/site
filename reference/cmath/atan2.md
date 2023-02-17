@@ -6,14 +6,23 @@
 
 ```cpp
 namespace std {
-  float atan2(float y, float x);
-  double atan2(double y, double x);
-  long double atan2(long double y, long double x);
+  float atan2(float y, float x);          // (1) C++03からC++20まで
+  double atan2(double y, double x);       // (2) C++03からC++20まで
+  long double
+    atan2(long double y, long double x);  // (3) C++03からC++20まで
 
-  Promoted atan2(Arithmetic1 y, Arithmetic2 x);     // C++11 から
+  floating-point-type
+    atan2(floating-point-type y,
+          floating-point-type x);         // (4) C++23
 
-  float atan2f(float y, float x);                   // C++17 から
-  long double atan2l(long double y, long double x); // C++17 から
+  Promoted
+    atan2(Arithmetic1 y,
+          Arithmetic2 x);                 // (5) C++11
+
+  float
+    atan2f(float y, float x);             // (6) C++17
+  long double
+    atan2l(long double y, long double x); // (7) C++17
 }
 ```
 * Promoted[italic]
@@ -27,6 +36,14 @@ namespace std {
 
 このような三角形があった場合、辺`y`の長さと辺`x`の長さを`atan2()`関数に与えることで、角度θがラジアン単位として求まる。
 
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 算術型に対するオーバーロード (大きい精度にキャストして計算される。整数は`double`で計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
+
 
 ## 戻り値
 `y / x` の逆正接を `[-π, π]` の範囲で返す。（単位はラジアン）
@@ -38,21 +55,22 @@ namespace std {
 ## 備考
 - $$ f(y, x) = \mathrm{Arctan}~\frac{y}{x} $$
 
-	引数の順番に注意されたし。
+    引数の順番に注意されたし。
 
 - 定義域エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
-	- `y = ±0` で `x < 0` または `x = -0` の場合、戻り値は `±π` となる。
-	- `y = ±0` で `x > 0` または `x = +0` の場合、戻り値は `±0` となる。
-	- `y > 0` で `x = ±0` の場合、戻り値は `+π/2` となる。
-	- `y < 0` で `x = ±0` の場合、戻り値は `-π/2` となる。
-	- `0 < z < +∞` とすると、`y = ±z` で `x = -∞` の場合、戻り値は `±π` となる。
-	- `0 < z < +∞` とすると、`y = ±z` で `x = +∞` の場合、戻り値は `±0` となる。
-	- `y = ±∞` で `x` が有限の値の場合、戻り値は `±π/2` となる。
-	- `y = ±∞` で `x = -∞` の場合、戻り値は `±3π/4` となる。
-	- `y = ±∞` で `x = +∞` の場合、戻り値は `±π/4` となる。
+    - `y = ±0` で `x < 0` または `x = -0` の場合、戻り値は `±π` となる。
+    - `y = ±0` で `x > 0` または `x = +0` の場合、戻り値は `±0` となる。
+    - `y > 0` で `x = ±0` の場合、戻り値は `+π/2` となる。
+    - `y < 0` で `x = ±0` の場合、戻り値は `-π/2` となる。
+    - `0 < z < +∞` とすると、`y = ±z` で `x = -∞` の場合、戻り値は `±π` となる。
+    - `0 < z < +∞` とすると、`y = ±z` で `x = +∞` の場合、戻り値は `±0` となる。
+    - `y = ±∞` で `x` が有限の値の場合、戻り値は `±π/2` となる。
+    - `y = ±∞` で `x = -∞` の場合、戻り値は `±3π/4` となる。
+    - `y = ±∞` で `x = +∞` の場合、戻り値は `±π/4` となる。
 
-	特に、`y` と `x` の両方がゼロの場合に定義域エラー（[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外））となったり、`y` が非ゼロで `x` がゼロの場合に極エラー（[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外））となったりは**しない**事に注意。
+    特に、`y` と `x` の両方がゼロの場合に定義域エラー（[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外））となったり、`y` が非ゼロで `x` がゼロの場合に極エラー（[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外））となったりは**しない**事に注意。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -114,3 +132,7 @@ $$
 \displaystyle \mathrm{Arctan}~\frac{y}{x} - \pi &amp; \quad \mathrm{for} \; x &lt; 0, \; y &lt; 0
 \end{cases}
 $$
+
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

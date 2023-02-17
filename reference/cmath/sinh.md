@@ -6,20 +6,31 @@
 
 ```cpp
 namespace std {
-  float sinh(float x);
-  double sinh(double x);
-  long double sinh(long double x);
+  float sinh(float x);              // (1) C++03からC++20まで
+  double sinh(double x);            // (2) C++03からC++20まで
+  long double sinh(long double x);  // (3) C++03からC++20まで
 
-  double sinh(Integral x);          // C++11 から
+  floating-point-type
+    sinh(floating-point-type x);    // (4) C++23
 
-  float sinhf(float x);             // C++17 から
-  long double sinhl(long double x); // C++17 から
+  double sinh(Integral x);          // (5) C++11
+
+  float sinhf(float x);             // (6) C++17
+  long double sinhl(long double x); // (7) C++17
 }
 ```
 * Integral[italic]
 
 ## 概要
 算術型の双曲線正弦（ハイパボリックサイン）を求める。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -32,8 +43,9 @@ namespace std {
 - $$ f(x) = \sinh x $$
 - オーバーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
-	- `x = ±0` の場合、戻り値は `±0` となる。
-	- `x = ±∞` の場合、戻り値は `±∞` となる。
+    - `x = ±0` の場合、戻り値は `±0` となる。
+    - `x = ±∞` の場合、戻り値は `±∞` となる。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -70,6 +82,7 @@ sinh(1.0)  = 1.175201
 
 #### 備考
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+
 - GCC 4.6.1 以上
 
 
@@ -77,3 +90,8 @@ sinh(1.0)  = 1.175201
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
 $$ \sinh x = \sum_{n = 0}^{\infty} \frac{1}{(2n + 1)!} x^{2n + 1} \quad \mathrm{for~all} \; x $$
+
+
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

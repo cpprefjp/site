@@ -6,20 +6,31 @@
 
 ```cpp
 namespace std {
-  float log(float x);
-  double log(double x);
-  long double log(long double x);
+  float log(float x);              // (1) C++03からC++20まで
+  double log(double x);            // (2) C++03からC++20まで
+  long double log(long double x);  // (3) C++03からC++20まで
 
-  double log(Integral x);          // C++11 から
+  floating-point-type
+    log(floating-point-type x);    // (4) C++23
 
-  float logf(float x);             // C++17 から
-  long double logl(long double x); // C++17 から
+  double log(Integral x);          // (5) C++11
+
+  float logf(float x);             // (6) C++17
+  long double logl(long double x); // (7) C++17
 }
 ```
 * Integral[italic]
 
 ## 概要
 `e` (ネイピア数) を底とする自然対数を求める。logは「logarithm (対数)」の略である。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -32,10 +43,11 @@ namespace std {
 - $$ f(x) = \log_e x $$
 - 定義域エラー、極エラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
-	- `x = ±0` の場合、戻り値は `-∞` となり、[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
-	- `x = 1` の場合、戻り値は `+0` となる。
-	- `x < 0` の場合、戻り値は quiet NaN となり、[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外）が発生する。
-	- `x = +∞` の場合、戻り値は `+∞` となる。
+    - `x = ±0` の場合、戻り値は `-∞` となり、[`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
+    - `x = 1` の場合、戻り値は `+0` となる。
+    - `x < 0` の場合、戻り値は quiet NaN となり、[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外）が発生する。
+    - `x = +∞` の場合、戻り値は `+∞` となる。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -85,3 +97,8 @@ log(-1.0) = nan
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
 $$ \log_e (1 + x) = \sum_{n = 1}^{\infty} \frac{(-1)^{n + 1}}{n} x^n \quad \mathrm{for} \; -1 &lt; x \le 1 $$
+
+
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

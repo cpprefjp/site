@@ -6,14 +6,17 @@
 
 ```cpp
 namespace std {
-  float atan(float x);
-  double atan(double x);
-  long double atan(long double x);
+  float atan(float x);                // (1) C++03からC++20まで
+  double atan(double x);              // (2) C++03からC++20まで
+  long double atan(long double x);    // (3) C++03からC++20まで
 
-  double atan(Integral x);          // C++11 から
+  floating-point-type
+    atan(floating-point-type x);      // (4) C++23
 
-  float atanf(float x);             // C++17 から
-  long double atanl(long double x); // C++17 から
+  double atan(Integral x);            // (5) C++11
+
+  float atanf(float x);               // (6) C++17
+  long double atanl(long double x);   // (7) C++17
 }
 ```
 * Integral[italic]
@@ -23,6 +26,14 @@ namespace std {
 
 `atan()`は、正接を表す[`tan()`](tan.md)の逆関数である。$\tan(\mathrm{Arctan}~x) = x$、$\mathrm{Arctan}~(\tan x) = x ~ (x \in [-\pi/2, \pi/2])$である。
 
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
+
 
 ## 戻り値
 引数 `x` の逆正接を主値 `[-π/2, π/2]` の範囲で返す。（単位はラジアン）
@@ -31,8 +42,9 @@ namespace std {
 ## 備考
 - $$ f(x) = \mathrm{Arctan}~x $$
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
-	- `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
-	- `x = ±∞` の場合、戻り値は `±π/2` となる。（複号同順）
+    - `x = ±0` の場合、戻り値は `±0` となる。（複号同順）
+    - `x = ±∞` の場合、戻り値は `±π/2` となる。（複号同順）
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -98,3 +110,8 @@ $$ \mathrm{Arctan}~x = \frac{\pi}{2} - \mathrm{Arctan}~\frac{1}{x} \quad \mathrm
 （特に $ \sqrt{2} - 1 &lt; |x| \le \sqrt{2} + 1 $ の場合）
 
 $$ \mathrm{Arctan}~x = \frac{\pi}{4} + \mathrm{Arctan}~\frac{x - 1}{x + 1} \quad \mathrm{for} \; x \ne -1 $$
+
+
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

@@ -7,20 +7,31 @@
 
 ```cpp
 namespace std {
-  float cbrt(float x);
-  double cbrt(double x);
-  long double cbrt(long double x);
+  float cbrt(float x);              // (1) C++11からC++20まで
+  double cbrt(double x);            // (2) C++11からC++20まで
+  long double cbrt(long double x);  // (3) C++11からC++20まで
 
-  double cbrt(Integral x);
+  floating-point-type
+    cbrt(floating-point-type x);    // (4) C++23
 
-  float cbrtf(float x);             // C++17 から
-  long double cbrtl(long double x); // C++17 から
+  double cbrt(Integral x);          // (5) C++11
+
+  float cbrtf(float x);             // (6) C++17
+  long double cbrtl(long double x); // (7) C++17
 }
 ```
 * Integral[italic]
 
 ## 概要
 算術型の実数の立方根を求める。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -30,8 +41,9 @@ namespace std {
 ## 備考
 - $$ f(x) = \sqrt[3] x $$
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
-	- `x = ±0` の場合、戻り値は `±0` となる。
-	- `x = ±∞` の場合、戻り値は `±∞` となる。
+    - `x = ±0` の場合、戻り値は `±0` となる。
+    - `x = ±∞` の場合、戻り値は `±∞` となる。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -78,3 +90,6 @@ cbrt(-1.0) = -1.000000
 - GCC 4.6.1 以上
 
 
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

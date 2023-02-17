@@ -7,20 +7,31 @@
 
 ```cpp
 namespace std {
-  float lgamma(float x);
-  double lgamma(double x);
-  long double lgamma(long double x);
+  float lgamma(float x);              // (1) C++11からC++20まで
+  double lgamma(double x);            // (2) C++11からC++20まで
+  long double lgamma(long double x);  // (3) C++11からC++20まで
 
-  double lgamma(Integral x);
+  floating-point-type
+    lgamma(floating-point-type x);    // (4) C++23
 
-  float lgammaf(float x);             // C++17 から
-  long double lgammal(long double x); // C++17 から
+  double lgamma(Integral x);          // (5) C++11
+
+  float lgammaf(float x);             // (6) C++17
+  long double lgammal(long double x); // (7) C++17
 }
 ```
 * Integral[italic]
 
 ## 概要
 ガンマ関数の絶対値の自然対数を求める。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -36,6 +47,7 @@ namespace std {
     [`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
     - `x = -∞` の場合、戻り値は `+∞` となる。
     - `x = +∞` の場合、戻り値は `+∞` となる。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -82,3 +94,8 @@ lgamma(+∞)  = inf
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
+
+
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

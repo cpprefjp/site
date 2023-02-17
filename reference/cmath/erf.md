@@ -7,20 +7,31 @@
 
 ```cpp
 namespace std {
-  float erf(float x);
-  double erf(double x);
-  long double erf(long double x);
+  float erf(float x);              // (1) C++11からC++20まで
+  double erf(double x);            // (2) C++11からC++20まで
+  long double erf(long double x);  // (3) C++11からC++20まで
 
-  double erf(Integral x);
+  floating-point-type
+    erf(floating-point-type x);    // (4) C++23
 
-  float erff(float x);             // C++17 から
-  long double erfl(long double x); // C++17 から
+  double erf(Integral x);          // (5) C++11
+
+  float erff(float x);             // (6) C++17
+  long double erfl(long double x); // (7) C++17
 }
 ```
 * Integral[italic]
 
 ## 概要
 算術型の誤差関数 (error function) を求める。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -33,6 +44,7 @@ namespace std {
     - `x = ±0` の場合、戻り値は `±0` となる。
     - `x = ±∞` の場合、戻り値は `±1` となる。
 - 平均μ, 標準偏差σの正規分布の累積分布関数は $$\frac{1}{2} \left( 1 + \mathrm{erf} ~ \frac{x - \mu}{\sqrt{2} \sigma} \right)$$ で与えられる。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -75,3 +87,8 @@ erf(+∞) = 1.000000
 特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
 
 - GCC 4.6.1 以上
+
+
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
