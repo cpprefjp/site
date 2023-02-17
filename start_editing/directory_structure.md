@@ -27,6 +27,7 @@ reference階層とmodule階層は上記以外は同じであるため、以下�
         - `std::swap()`
         - `std::erase()`/`std::erase_if()`
         - `floor()`/`ceil()`/`round()` (chrono)
+    - 特殊な例として、[`std::expected`](/reference/expected/expected.md)では[`部分特殊化](/reference/expected/expected.void.md)のためにクラス階層を分離している。これは各メンバ説明の差分が大きいためである
 - 演算子オーバーロードは、`operator<<` (出力ストリームへの出力) と `std::operator>>` (入力ストリームからの入力) を除き、左辺のクラスに属するものとする
     - 特殊な例として、[`std::error_code`](/reference/system_error/error_code.md)と[`std::error_condition`](/reference/system_error/error_condition.md)の比較演算子は、クラス階層ではなくヘッダ階層としている。これは所属関係がむずかしいためである
 
