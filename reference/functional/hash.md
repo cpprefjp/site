@@ -123,16 +123,25 @@ int main()
 #include <iostream>
 #include <unordered_map>
 #include <string>
+#include <string_view>
+
+struct string_hash {
+  using is_transparent = void;
+  // string/string_view/const char*共用ハッシュ計算
+  size_t operator()(std::string_view sv) const {
+    return std::hash<std::string_view>{}(sv);
+  }
+};
 
 int main()
 {
-  std::unordered_map<std::string, int> um = {
+  std::unordered_map<std::string, int, string_hash, std::equal_to<>> um = {
     {"Alice", 3},
     {"Bob", 1},
     {"Carol", 4}
   };
 
-  // std::equal_to<std::string>とstd::hash<std::string>がis_transparent型を持つ場合、
+  // string_hashおよびstd::equal_to<>はいずれもメンバ型にis_transparentを持つため、
   // find()などの検索関数に引数を渡す場合に、std::string一時オブジェクトが作られない
   auto it = um.find("Alice");
   if (it != um.end()) {
