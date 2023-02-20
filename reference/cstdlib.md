@@ -80,15 +80,15 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`abs`](cstdlib/abs.md)     | `int`の絶対値を取得する (function) | |
-| [`labs`](cstdlib/abs.md)    | `long`の絶対値を取得する (function) | |
-| [`llabs`](cstdlib/abs.md)   | `long long`の絶対値を取得する (function) | C++11 |
-| `div_t`   | `div`関数の戻り値型 (class) | |
-| `div`     | `int`の除算を行う (function) | |
-| `ldiv_t`  | `div`関数の戻り値型 (class) | |
-| `ldiv`    | `long`の除算を行う (functon) | |
-| `lldiv_t` | `div`関数の戻り値型 (class) | C++11 |
-| `lldiv`   | `long long`の除算を行う (function) | C++11 |
+| [`abs`](cstdlib/abs.md)         | `int`の絶対値を取得する (function) | |
+| [`labs`](cstdlib/abs.md)        | `long`の絶対値を取得する (function) | |
+| [`llabs`](cstdlib/abs.md)       | `long long`の絶対値を取得する (function) | C++11 |
+| [`div_t`](cstdlib/div_t.md)     | `div`関数の戻り値型 (class) | |
+| [`div`](cstdlib/div.md)         | `int`の除算と剰余算を行う (function) | |
+| [`ldiv_t`](cstdlib/ldiv_t.md)   | `ldiv`関数の戻り値型 (class) | |
+| [`ldiv`](cstdlib/div.md)        | `long`の除算と剰余算を行う (functon) | |
+| [`lldiv_t`](cstdlib/lldiv_t.md) | `lldiv`関数の戻り値型 (class) | C++11 |
+| [`lldiv`](cstdlib/div.md)       | `long long`の除算と剰余算を行う (function) | C++11 |
 
 
 ## マルチバイト文字とワイド文字の変換
