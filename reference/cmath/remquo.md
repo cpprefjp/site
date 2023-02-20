@@ -135,7 +135,7 @@ remquo(6, 2) = quotient:3 remainder:0
 
 
 ## 参照
-- [std::remquo purpose and usage? - Stack Overflow](https://stackoverflow.com/q/11074865/684921)
+- [std::remquo purpose and usage? - Stack Overflow](https://stackoverflow.com/questions/11074865/stdremquo-purpose-and-usage)
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
     - C++23での、一部関数の`constexpr`対応
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
