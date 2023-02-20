@@ -7,14 +7,39 @@
 
 ```cpp
 namespace std {
-float ellint_1f(float k, float phi);
-double ellint_1(double k, double phi);
-long double ellint_1l(long double k, long double phi);
+  double
+    ellint_1(double k,
+             double phi);              // (1) C++17
+  floating-point-type
+    ellint_1(floating-point-type k,
+             floating-point-type phi); // (1) C++23
+
+  Promoted
+    ellint_1(Arithmetic1 k,
+             Arithmetic2 phi);         // (2) C++17
+
+  float
+    ellint_1f(float k,
+              float phi);              // (3) C++17
+
+  long double
+    ellint_1l(long double k,
+              long double phi);        // (4) C++17
 }
 ```
+* Promoted[italic]
+* Arithmetic1[italic]
+* Arithmetic2[italic]
 
 ## 概要
 第一種不完全楕円積分 (incomplete elliptic integral of the first kind) を計算する。
+
+- (1) :
+    - C++17 : `double`に対するオーバーロード
+    - C++23 : 浮動小数点数型に対するオーバーロード
+- (2) : 算術型に対するオーバーロード (対応する大きい方の精度の浮動小数点数型にキャストして計算される)
+- (3) : `float`型規定
+- (4) : `long double`型規定
 
 
 ## 戻り値
@@ -27,7 +52,8 @@ $$
 
 
 ## 備考
-$ F(k, \pi/2) = K(k)$ (第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))。
+- $ F(k, \pi/2) = K(k)$ (第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))
+- (1) : C++23では、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -85,10 +111,12 @@ GCC 7.1.0–8.0.0 では `|k| == 1 && |phi| >= π / 2` の場合 `nan` を返す
 
 
 ## 関連項目
-* 第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md)
+- 第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md)
 
 
 ## 参照
 - [N3060 JTC1.22.29124 Programming Language C++ — Special Math Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3060.pdf)
 - [WG21 P0226R1 Mathematical Special Functions for C++17, v5](https://isocpp.org/files/papers/P0226R1.pdf)
 - [ISO/IEC 29124:2010 Information technology -- Programming languages, their environments and system software interfaces -- Extensions to the C++ Library to support mathematical special functions](https://www.iso.org/standard/50511.html)
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
