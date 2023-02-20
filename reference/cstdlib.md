@@ -80,9 +80,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `abs`     | `int`の絶対値を取得する (function) | |
-| `labs`    | `long`の絶対値を取得する (function) | |
-| `llabs`   | `long long`の絶対値を取得する (function) | C++11 |
+| [`abs`](cstdlib/abs.md)     | `int`の絶対値を取得する (function) | |
+| [`labs`](cstdlib/abs.md)    | `long`の絶対値を取得する (function) | |
+| [`llabs`](cstdlib/abs.md)   | `long long`の絶対値を取得する (function) | C++11 |
 | `div_t`   | `div`関数の戻り値型 (class) | |
 | `div`     | `int`の除算を行う (function) | |
 | `ldiv_t`  | `div`関数の戻り値型 (class) | |
