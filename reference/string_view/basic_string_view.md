@@ -182,6 +182,8 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | `template <> struct hash<u16string_view>;` | `hash`クラスの`u16string_view`に対する特殊化 | C++17 |
 | `template <> struct hash<u32string_view>;` | `hash`クラスの`u32string_view`に対する特殊化 | C++17 |
 
+上記の各`*string_view`に対する`hash`クラスの特殊化は、それぞれ対応する[`*string`型に対する特殊化](/reference/string.md)と同じハッシュ値を算出する。
+
 
 ## 例
 ### 基本的な使い方
@@ -322,6 +324,7 @@ C
 - [P0254R1 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r1.pdf)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [P0403R0 Literal suffixes for `basic_string_view`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0403r0.html)
+- [LWG 2791 - `string_view` objects and strings should yield the same hash values](https://cplusplus.github.io/LWG/issue2791)
 - [String literals make bad ranges - Andrzej's C++ blog](https://akrzemi1.wordpress.com/2019/09/25/string-literals-make-bad-ranges/)
 - [Require `span` & `basic_string_view` to be Trivially Copyable](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2251r1.pdf)
     - C++23から、トリビアルコピー可能が保証される。
