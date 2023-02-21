@@ -120,6 +120,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - ノードベースではないソート済みキーによる順序付き連想コンテナのライブラリとして、[`<flat_map>`](/reference/flat_map.md.nolink)と[`<flat_set>`](/reference/flat_set.md.nolink)を追加
 - 書式指定で出力するライブラリとして[`<print>`](/reference/print.md)を追加
 - コルーチンによるRangeの生成をサポートする[`<generator>`](/reference/generator.md)を追加
+- 拡張浮動小数点数のライブラリとして[`<stdfloat>`](/reference/stdfloat.md)を追加
 
 
 ### コンテナ

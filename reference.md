@@ -28,6 +28,7 @@
 |--------------------------------------------------------|--------------------------|----------------|
 | [`<limits>`](/reference/limits.md)                     | 実装プロパティ           |                |
 | [`<version>`](/reference/version.md)                   | 実装依存のバージョン情報 | C++20          |
+| [`<stdfloat>`](/reference/stdfloat.md)                 | 拡張浮動小数点数型       | C++23          |
 | [`<new>`](/reference/new.md)                           | 動的メモリ管理           |                |
 | [`<typeinfo>`](/reference/typeinfo.md)                 | 型情報                   |                |
 | [`<source_location>`](/reference/source_location.md)   | ソースコード上の位置     | C++20          |
