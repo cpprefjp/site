@@ -15,7 +15,7 @@ X *make_x() {
   // malloc()はメモリの確保だけを行う
   X *p = (X*)malloc(sizeof(struct X));
   
-  // pの領域にはオブジェクトが構築されていない
+  // pの領域にはXのオブジェクトが構築されていない
   p->a = 1; // 💀 UB
   p->b = 2; // 💀 UB
 
@@ -31,7 +31,7 @@ X *make_x() {
   // new式はメモリの確保とオブジェクト構築を行う
   X *p = new X;
   
-  // pの領域にはオブジェクトが構築済
+  // pの領域にはXのオブジェクトが構築済
   p->a = 1; // ✅ ok
   p->b = 2; // ✅ ok
 
@@ -50,12 +50,12 @@ X *make_x() {
 `new`式ではなく`operator new()`を直接使用する場合は同様の問題がある。
 
 ```cpp
-// new式を使用する場合
+// new演算子を使用する場合
 X *make_x() {
   // operator new()はメモリの確保だけを行う
   X *p = (X*)::operator new(sizeof(struct X));
   
-  // pの領域にはオブジェクトが構築されていない
+  // pの領域にはXのオブジェクトが構築されていない
   p->a = 1; // 💀 UB
   p->b = 2; // 💀 UB
 
@@ -195,6 +195,25 @@ C++においては、ポインタに対する演算（`+ -`など）はそのポ
 
 また、これらの操作に限らず、`char, unsigned char, std::byte`の配列オブジェクトを構築しその生存期間を開始する操作は、その配列オブジェクトが占有する領域内にその要素のオブジェクトを暗黙的に構築する。
 
+#### 共用体のコピー操作
+
+共用体のデフォルトのコピー/ムーブコンストラクタと代入演算子では、次のようにオブジェクトを暗黙的に構築する
+
+- コンストラクタ
+    - コピー元オブジェクトにネストした各オブジェクトに対して、コピー先内で対応するオブジェクト`o`を
+        - サブオブジェクトの場合 : 特定する
+        - それ以外の場合 : 暗黙的に構築する
+            - 別のオブジェクトにストレージを提供している場合やサブオブジェクトのサブオブジェクトなど
+    - `o`の生存期間はコピーの前に開始される
+- 代入演算子
+  - 代入元と代入先が同じオブジェクトではない場合
+  - コピー元オブジェクトにネストした各オブジェクトに対して、コピー先内で対応するオブジェクト`o`が暗黙的に構築され
+  - `o`の生存期間はコピーの前に開始される
+
+どちらの場合も、コピー元で生存期間内にあるオブジェクトがコピー先で（可能なら）暗黙的に構築される。
+
+クラス型をメンバとして保持する場合など、デフォルトのコンストラクタ/代入演算子が`delete`されている場合はこれは行われない。
+
 ### 暗黙的なオブジェクト構築
 
 オブジェクトを暗黙的に構築する操作では、そうすることでプログラムが定義された振る舞いをするようになる（すなわち、未定義動作が回避できる）場合に、*implicit-lifetime types*の０個以上のオブジェクトを暗黙的に構築しその生存期間を開始させる。そのような、暗黙的なオブジェクト構築によってプログラムに定義された振る舞いをもたらすオブジェクトが１つも存在しない場合は未定義動作となる（これは今まで通り）。逆に、そのようなオブジェクトが複数存在している場合は、どのオブジェクトが暗黙的に構築されるかは未規定（これは、都度適切なオブジェクトが選択され構築されることを意図している）。
@@ -237,32 +256,182 @@ static_assert(f() == 123);  // C++20からはUBが起こるため不適格、C++
 
 したがって、これらの変更によって実行時に何かすべきことが増えるわけではなく、暗黙的なオブジェクト構築は実際にコンストラクタを呼んだり何か初期化を行うものではないし、擬似デストラクタ呼び出しが実行時に何かをするようになるわけでもない。
 
-## 例
-(執筆中)
-```cpp example
-// (ここには、言語機能の使い方を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。そのようなコードブロックにはexampleタグを付けます。)
+## 以前の問題の修正例
 
-#include <iostream>
+### `malloc()`/ `operator new`
 
-int main()
-{
-  int variable = 0;
-  std::cout << variable << std::endl;
+```cpp
+// Xはimplicit-lifetime class types
+struct X {
+  int a;
+  int b;
+};
+
+X *make_x() {
+  // 後続のXのメンバアクセスを定義された振る舞いとするために
+  // malloc()はメモリの確保とともにXのオブジェクト（とメンバオブジェクト）を暗黙的に構築する
+  // そして、構築されたXのオブジェクトへの適切なポインタを返す
+  X *p = (X*)malloc(sizeof(struct X));
+  
+  // pの領域にはXのオブジェクトが暗黙的に構築されている
+  p->a = 1; // ✅ ok
+  p->b = 2; // ✅ ok
+
+  return p;
 }
 ```
-* variable[color ff0000]
 
-(コードブロック中の識別子に、文字色を付ける例です。)
+```cpp
+// new演算子を使用する場合
+X *make_x() {
+  // 後続のXのメンバアクセスを定義された振る舞いとするために
+  // operator new()はメモリの確保とともにXのオブジェクト（とメンバオブジェクト）を暗黙的に構築する
+  // そして、構築されたXのオブジェクトへの適切なポインタを返す
+  X *p = (X*)::operator new(sizeof(struct X));
+  
+  // pの領域にはXのオブジェクトが暗黙的に構築されている
+  p->a = 1; // ✅ ok
+  p->b = 2; // ✅ ok
 
-### 出力
+  return p;
+}
 ```
-0
+
+### 共用体のコピー
+
+```cpp
+union U {
+  int n;
+  float f;
+};
+
+float pun(int n) {
+  // U::nの生存期間が開始
+  U u = {.n = n};
+  
+  // このコピーではuのオブジェクト表現がコピーされるとともに
+  // uのアクティブメンバに対応するメンバがコピー先でアクティブとなる
+  U u2 = u;
+  
+  // u2.fは非アクティブ
+  return u2.f; // 💀 UB
+}
 ```
 
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
+共用体のコピーにおいてはあくまでコピー元で生存期間内にあったオブジェクトに対応するオブジェクトがコピー先でも生存期間内にあることが保証されるだけで、*type-punning*のようなことを可能にするわけではない。
 
+```cpp
+int f(int n) {
+  U u = {.n = n};
+
+  U u2 = u;
+  
+  // これならok
+  return u2.n; // ✅ ok
+}
+```
+
+### バイト配列の読み込み
+
+```cpp
+// 何かバイト列ストリームを受け取って処理する関数とする
+void process(Stream *stream) {
+  // バイト配列の読み出し
+  std::unique_ptr<char[]> buffer = stream->read();
+
+  // 先頭バイトの状態によって分岐
+  if (buffer[0] == FOO) {
+    process_foo(reinterpret_cast<Foo*>(buffer.get())); // #1
+  } else {
+    process_bar(reinterpret_cast<Bar*>(buffer.get())); // #2
+  }
+}
+```
+
+`Foo`も`Bar`も*implicit-lifetime types*だとして、以前のこのコードに対して`Stream::read()`が次のように実装されている場合
+
+```cpp
+unique_ptr<char[]> Stream::read() {
+  // ... determine data size ...
+  unique_ptr<char[]> buffer(new char[N]);
+  // ... copy data into buffer ...
+  return buffer;
+}
+```
+
+この`read()`内の`new char[N]`によって呼ばれる`operator new[]`によって`Foo`/`Bar`のオブジェクトが暗黙的に構築される。この場合、`buffer[0] == FOO`による分岐によってプログラムに定義された振る舞いをもたらすオブジェクトは、`Foo`と`Bar`のオブジェクトとして2つ存在する。したがって、ここでは先頭バイトの状態に応じて適切なオブジェクトが構築される（そうすることでプログラムに定義された振る舞いをもたらす）ため、`process()`内では未定義動作は回避される。
+
+```cpp
+void process(Stream *stream) {
+  // バイト配列の読み出し
+  std::unique_ptr<char[]> buffer = stream->read();
+
+  // 先頭バイトの状態によって適切なオブジェクトがStream::read()内で構築されている
+  if (buffer[0] == FOO) {
+    process_foo(reinterpret_cast<Foo*>(buffer.get())); // ✅ ok
+  } else {
+    process_bar(reinterpret_cast<Bar*>(buffer.get())); // ✅ ok
+  }
+}
+```
+
+### 動的配列の実装
+
+```cpp
+// std::vectorの様な動的配列型を実装したい
+template<typename T>
+struct Vec {
+  char *buf = nullptr;
+  char *buf_end_size = nullptr;
+  char *buf_end_capacity = nullptr;
+
+  void reserve(std::size_t n) {
+    // 後続の操作を適格にするためのオブジェクトを暗黙的に構築する
+    // ここでは、Tの配列型T[]のオブジェクトが暗黙的に構築される（要素のオブジェクトは構築されない）
+    // 同時に、char[]のオブジェクトも暗黙的に構築される
+    char *newbuf = (char*)::operator new(n * sizeof(T), std::align_val_t(alignof(T)));
+
+    // newbufにはT[]のオブジェクトが生存期間内にあるため、ポインタT*をイテレータとして使用可能となる
+    // ここで、T[]の要素のTのオブジェクトが構築される（明示的）
+    std::uninitialized_copy(begin(), end(), (T*)newbuf); // #a ✅ ok
+
+    ::operator delete(buf, std::align_val_t(alignof(T)));
+    
+    // newbufにはchar[]のオブジェクトが生存期間内にあるため、newbuf(char*)をイテレータとして使用可能となる
+    buf_end_size = newbuf + sizeof(T) * size(); // #b ✅ ok
+    buf_end_capacity = newbuf + sizeof(T) * n;  // #c ✅ ok
+    buf = newbuf;
+  }
+
+  void push_back(T t) {
+    if (buf_end_size == buf_end_capacity)
+      reserve(std::max<std::size_t>(size() * 2, 1));
+    new (buf_end_size) T(t);
+
+    // buf_end_sizeの指す領域にはchar[]のオブジェクトが生存期間内にあるため、ポインタをイテレータとして使用可能
+    buf_end_size += sizeof(T); // #d ✅ ok
+  }
+
+  T *begin() { return (T*)buf; }
+
+  T *end() { return (T*)buf_end_size; }
+
+  // buf及びbuf_end_sizeの指す領域にはT[]のオブジェクトが生存期間内にあるため、ポインタをイテレータとして使用可能
+  std::size_t size() { return end() - begin(); } // #e ✅ ok
+};
+
+int main() {
+  Vec<int> v;
+  v.push_back(1);
+  v.push_back(2);
+  v.push_back(3);
+
+  // 実装内部で暗黙的に配列オブジェクトが構築されることでUBが回避される
+  for (int n : v) { /*...*/ } // #f ✅ ok
+}
+```
+
+この例では、`reserve()`内`newbuf`及びそれを保存している`Vec::buf`の領域に`T[]`（`T`の配列型）と`char[]`のオブジェクトが暗黙的に構築され、同時に生存期間内にあることで、問題（配列オブジェクトを指さないポインタのイテレータとしての使用）が解消され、すべての箇所で定義された振る舞いをもたらしている。
 
 ## この機能が必要になった背景・経緯
 (執筆中)
