@@ -1,4 +1,4 @@
-# float16_t
+# bfloat16_t
 * stdfloat[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -6,34 +6,38 @@
 
 ```cpp
 namespace std {
-#if defined(__STDCPP_FLOAT16_T__)
-  using float16_t = implementation-defined;
+#if defined(__STDCPP_BFLOAT16_T__)
+  using bfloat16_t = implementation-defined;
 #endif
 }
 ```
 
 ## 概要
-16ビット半精度の浮動小数点数型。
+16ビットのbrain floating point型。
+
 
 ### 内部表現
-この型は、ISO/IEC/IEEE 60559 (IEEE 754) 浮動小数点数規格のbinary16フォーマットをもつ。
+この型はISO/IEC/IEEE 60559 (IEEE 754) にはない16ビットの浮動小数点数型である。
 
-| 符号ビット数 | 指数ビット数 | 仮数ビット数 | 最大指数 |
-|--------------|--------------|--------------|----------|
-| 1            | 5            | 10           | 15       |
+Google社のTPUや、NVIDIAのGPUなどで採用されている内部表現をもつ。
+
+| 型           | 符号ビット数 | 指数ビット数 | 仮数ビット数 | 最大指数 |
+|--------------|--------------|--------------|--------------|----------|
+| `bfloat16_t` | 1            | 8            | 7            | 127      |
+| `float16_t`  | 1            | 5            | 10           | 15       |
+
 
 ### リテラル
-値にサフィックスとして`f16`もしくは`F16`を指定することで、`std::float16_t`のリテラルとすることができる。
+値にサフィックスとして`bf16`もしくは`BF16`を指定することで、`std::bfloat16_t`のリテラルとすることができる。
 
 ```cpp
-std::float16_t a = 1.0f16;
-std::float16_t b = 2.0F16;
+std::bfloat16_t a = 1.0bf16;
+std::bfloat16_t b = 2.0BF16;
 ```
 
 
 ### 事前定義マクロ
-- この型は、事前定義マクロ`__STDCPP_FLOAT16_T__`が定義されない場合、定義されない
-    - ISO/IEC/IEEE 60559 (IEEE 754) のbinary16フォーマットが実装される環境でこのマクロは定義される
+- この型は、事前定義マクロ`__STDCPP_BFLOAT16_T__`が定義されない場合、定義されない
 
 
 ### 順位
@@ -134,8 +138,12 @@ int main() {
 #include <cmath>
 
 int main() {
-  std::float16_t a = 1.0f16;
+  std::bfloat16_t a = 1.0bf16;
   auto b = 2.0f32; // bの型はstd::float32_t
+
+  // 明示的型変換によって、
+  // float16_tとの間の変換ができる
+  auto aa = static_cast<std::float16_t>(a);
 
   // aはより大きい精度の型float32_tに変換される
   auto c = a + b; // cの型はstd::float32_t
@@ -143,7 +151,7 @@ int main() {
   // 精度を落とす縮小変換は明示的型変換で行う。
   // 拡張浮動小数点数型は数学関数にも渡すことができ、
   // 標準浮動小数点数型への暗黙変換もできる
-  double d = std::log(static_cast<std::float16_t>(c));
+  double d = std::log(static_cast<std::bfloat16_t>(c));
 
   // 同じ精度の浮動小数点数型との間で、精度を落とさず変換でき、
   // coutでも拡張浮動小数点数のまま出力できる
@@ -154,7 +162,7 @@ int main() {
 
 ### 出力
 ```
-1.09863
+1.10156
 ```
 
 ## バージョン
@@ -168,10 +176,10 @@ int main() {
 
 
 ## 関連項目
+- [`std::float16_t`](float16_t.md)
 - [`std::float32_t`](float32_t.md)
 - [`std::float64_t`](float64_t.md)
 - [`std::float128_t`](float128_t.md)
-- [`std::bfloat16_t`](bfloat16_t.md)
 
 
 ## 参照

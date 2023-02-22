@@ -1,4 +1,4 @@
-# float16_t
+# float64_t
 * stdfloat[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
@@ -6,34 +6,34 @@
 
 ```cpp
 namespace std {
-#if defined(__STDCPP_FLOAT16_T__)
-  using float16_t = implementation-defined;
+#if defined(__STDCPP_FLOAT64_T__)
+  using float64_t = implementation-defined;
 #endif
 }
 ```
 
 ## 概要
-16ビット半精度の浮動小数点数型。
+64ビット倍精度の浮動小数点数型。
 
 ### 内部表現
-この型は、ISO/IEC/IEEE 60559 (IEEE 754) 浮動小数点数規格のbinary16フォーマットをもつ。
+この型は、ISO/IEC/IEEE 60559 (IEEE 754) 浮動小数点数規格のbinary64フォーマットをもつ。
 
 | 符号ビット数 | 指数ビット数 | 仮数ビット数 | 最大指数 |
 |--------------|--------------|--------------|----------|
-| 1            | 5            | 10           | 15       |
+| 1            | 11           | 52           | 1023     |
 
 ### リテラル
-値にサフィックスとして`f16`もしくは`F16`を指定することで、`std::float16_t`のリテラルとすることができる。
+値にサフィックスとして`f64`もしくは`F64`を指定することで、`std::float64_t`のリテラルとすることができる。
 
 ```cpp
-std::float16_t a = 1.0f16;
-std::float16_t b = 2.0F16;
+std::float64_t a = 1.0f64;
+std::float64_t b = 2.0F64;
 ```
 
 
 ### 事前定義マクロ
-- この型は、事前定義マクロ`__STDCPP_FLOAT16_T__`が定義されない場合、定義されない
-    - ISO/IEC/IEEE 60559 (IEEE 754) のbinary16フォーマットが実装される環境でこのマクロは定義される
+- この型は、事前定義マクロ`__STDCPP_FLOAT64_T__`が定義されない場合、定義されない
+    - ISO/IEC/IEEE 60559 (IEEE 754) のbinary64フォーマットが実装される環境でこのマクロは定義される
 
 
 ### 順位
@@ -168,8 +168,8 @@ int main() {
 
 
 ## 関連項目
+- [`std::float16_t`](float16_t.md)
 - [`std::float32_t`](float32_t.md)
-- [`std::float64_t`](float64_t.md)
 - [`std::float128_t`](float128_t.md)
 - [`std::bfloat16_t`](bfloat16_t.md)
 

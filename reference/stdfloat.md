@@ -10,10 +10,10 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`float16_t`](stdfloat/float16_t.md)   | 16ビット半精度の浮動小数点数型 | C++23 |
-| [`float32_t`](stdfloat/float32_t.md.nolink)   | 32ビット単精度の浮動小数点数型 | C++23 |
-| [`float64_t`](stdfloat/float64_t.md.nolink)   | 64ビット倍精度の浮動小数点数型 | C++23 |
-| [`float128_t`](stdfloat/float128_t.md.nolink) | 128ビット四倍精度の浮動小数点数型 | C++23 |
-| [`bfloat16_t`](stdfloat/bfloat16_t.md.nolink) | 16ビットのbrain floating point型 | C++23 |
+| [`float32_t`](stdfloat/float32_t.md)   | 32ビット単精度の浮動小数点数型 | C++23 |
+| [`float64_t`](stdfloat/float64_t.md)   | 64ビット倍精度の浮動小数点数型 | C++23 |
+| [`float128_t`](stdfloat/float128_t.md) | 128ビット四倍精度の浮動小数点数型 | C++23 |
+| [`bfloat16_t`](stdfloat/bfloat16_t.md) | 16ビットのbrain floating point型 | C++23 |
 
 
 ## バージョン
