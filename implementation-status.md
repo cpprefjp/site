@@ -244,7 +244,7 @@
 
 ## <a id="cpp23" href="#cpp23">C++23言語機能の実装状況</a>
 
-| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICC][icc] | [MSVC][msvc] |
+| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
 |----------|------|------------|----------------|------------|--------------|
 | P0330R8: [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | 13 | - | - |
 | P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md.nolink) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | - | - |
@@ -288,9 +288,10 @@
 - Visual C++ (MSVC):
     - [C++23 - cppreference](https://en.cppreference.com/w/cpp/23)
     - [次リリース情報(VS2019,2022) - Change log](https://github.com/microsoft/STL/wiki/Changelog)
+- ICX: [C+23 Features Supported by Intel® C+ Compiler](https://www.intel.com/content/www/us/en/developer/articles/technical/c23-features-supported-by-intel-c-compiler.html)
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
-[icc]: ./implementation.md#icc
+[icx]: ./implementation.md#icc
 [msvc]: ./implementation.md#visual_cpp
 
