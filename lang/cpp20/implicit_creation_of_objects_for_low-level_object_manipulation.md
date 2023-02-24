@@ -118,9 +118,9 @@ struct Vec {
     std::uninitialized_copy(begin(), end(), (T*)newbuf); // #a 💀 UB
 
     ::operator delete(buf, std::align_val_t(alignof(T)));
+    buf = newbuf;
     buf_end_size = newbuf + sizeof(T) * size(); // #b 💀 UB
     buf_end_capacity = newbuf + sizeof(T) * n;  // #c 💀 UB
-    buf = newbuf;
   }
 
   void push_back(T t) {
@@ -367,13 +367,17 @@ void process(Stream *stream) {
   std::unique_ptr<char[]> buffer = stream->read();
 
   // 先頭バイトの状態によって適切なオブジェクトがStream::read()内で構築されている
+  // ただし、reinterpret_castの代わりにstd::launder()を使用する必要がある
   if (buffer[0] == FOO) {
-    process_foo(reinterpret_cast<Foo*>(buffer.get())); // ✅ ok
+    process_foo(std::launder<Foo>(buffer.get())); // ✅ ok
   } else {
-    process_bar(reinterpret_cast<Bar*>(buffer.get())); // ✅ ok
+    process_bar(std::launder<Bar>(buffer.get())); // ✅ ok
   }
 }
 ```
+* std::launder[link /reference/new/launder.md]
+
+追加で、各分岐においては返された`buffer`ポインタ（`char(*)[]`）から、それぞれの場合で適切なオブジェクト（`Foo`/`Bar`）へのポインタを[`std::launder()`](/reference/new/launder.md)によって取得する必要がある。`reinterpret_cast`はポインタの変換のみを行うため、この場合に
 
 ### 動的配列の実装
 
@@ -393,14 +397,14 @@ struct Vec {
 
     // newbufにはT[]のオブジェクトが生存期間内にあるため、ポインタT*をイテレータとして使用可能となる
     // ここで、T[]の要素のTのオブジェクトが構築される（明示的）
-    std::uninitialized_copy(begin(), end(), (T*)newbuf); // #a ✅ ok
+    std::uninitialized_copy(begin(), end(), std::launder<T>(newbuf)); // #a ✅ ok
 
     ::operator delete(buf, std::align_val_t(alignof(T)));
     
+    buf = newbuf;
     // newbufにはchar[]のオブジェクトが生存期間内にあるため、newbuf(char*)をイテレータとして使用可能となる
     buf_end_size = newbuf + sizeof(T) * size(); // #b ✅ ok
     buf_end_capacity = newbuf + sizeof(T) * n;  // #c ✅ ok
-    buf = newbuf;
   }
 
   void push_back(T t) {
@@ -412,9 +416,9 @@ struct Vec {
     buf_end_size += sizeof(T); // #d ✅ ok
   }
 
-  T *begin() { return (T*)buf; }
+  T *begin() { return std::launder<T>(buf); }
 
-  T *end() { return (T*)buf_end_size; }
+  T *end() { return std::launder<T>(buf_end_size); }
 
   // buf及びbuf_end_sizeの指す領域にはT[]のオブジェクトが生存期間内にあるため、ポインタをイテレータとして使用可能
   std::size_t size() { return end() - begin(); } // #e ✅ ok
@@ -432,6 +436,8 @@ int main() {
 ```
 
 この例では、`reserve()`内`newbuf`及びそれを保存している`Vec::buf`の領域に`T[]`（`T`の配列型）と`char[]`のオブジェクトが暗黙的に構築され、同時に生存期間内にあることで、問題（配列オブジェクトを指さないポインタのイテレータとしての使用）が解消され、すべての箇所で定義された振る舞いをもたらしている。
+
+ここでも同様に、`newbuf`及び`Vec::buf`から都度適切なオブジェクトへのポインタを得るのに[`std::launder()`](/reference/new/launder.md)を使用する必要がある。
 
 ## この機能が必要になった背景・経緯
 (執筆中)
