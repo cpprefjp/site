@@ -174,6 +174,7 @@ int main() {
 - [`std::float32_t`](float32_t.md)
 - [`std::float128_t`](float128_t.md)
 - [`std::bfloat16_t`](bfloat16_t.md)
+- [`std::numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)
 
 
 ## 参照

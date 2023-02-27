@@ -5,15 +5,16 @@
 * variable[meta id-type]
 
 ```cpp
-// C++03
-static const bool is_iec559;
-
-// C++11
-static constexpr bool is_iec559;
+static const bool is_iec559;     // (1) C++03
+static constexpr bool is_iec559; // (1) C++11
 ```
 
 ## 概要
 浮動小数点数型において、型`T`がIEC 559 (IEEE 754) に準拠しているかを判定する。
+
+
+## 備考
+- C++23 : [`float16_t`](/reference/stdfloat/float16_t.md)、[`float32_t`](/reference/stdfloat/float32_t.md)、[`float64_t`](/reference/stdfloat/float64_t.md)、[`float128_t`](/reference/stdfloat/float128_t.md)が存在する場合、この値は`true`となる
 
 
 ## 例
