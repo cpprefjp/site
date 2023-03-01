@@ -177,6 +177,7 @@ int main() {
 - [`std::float64_t`](float64_t.md)
 - [`std::float128_t`](float128_t.md)
 - [`std::basic_ostream::operator<<`](/reference/ostream/basic_ostream/op_ostream.md)
+- [`std::basic_istream::operator>>`](/reference/istream/basic_istream/op_istream.md)
 
 
 ## 参照

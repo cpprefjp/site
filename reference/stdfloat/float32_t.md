@@ -176,6 +176,7 @@ int main() {
 - [`std::bfloat16_t`](bfloat16_t.md)
 - [`std::numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)
 - [`std::basic_ostream::operator<<`](/reference/ostream/basic_ostream/op_ostream.md)
+- [`std::basic_istream::operator>>`](/reference/istream/basic_istream/op_istream.md)
 
 
 ## 参照
