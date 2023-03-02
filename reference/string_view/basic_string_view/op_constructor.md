@@ -21,7 +21,7 @@ template <class It, class End>
 constexpr basic_string_view(It begin, End end);                // (6) C++20
 
 template <class R>
-explicit constexpr basic_string_view(R&& r);                   // (7) C++23
+constexpr explicit basic_string_view(R&& r);                   // (7) C++23
 ```
 
 ## 概要
