@@ -7,10 +7,12 @@
 
 ```cpp
 constexpr basic_string_view() noexcept;                        // (1)
+
 constexpr basic_string_view(
             const basic_string_view&) noexcept = default;      // (2)
 
 constexpr basic_string_view(const CharT* str);                 // (3)
+
 basic_string_view(nullptr_t) = delete;                         // (4) C++23
 
 constexpr basic_string_view(const CharT* str, size_type len);  // (5)
@@ -19,7 +21,7 @@ template <class It, class End>
 constexpr basic_string_view(It begin, End end);                // (6) C++20
 
 template <class R>
-constexpr basic_string_view(R&& r);                            // (7) C++23
+explicit constexpr basic_string_view(R&& r);                   // (7) C++23
 ```
 
 ## 概要
@@ -90,6 +92,7 @@ string_view str(buf);
 #include <cassert>
 #include <iostream>
 #include <string_view>
+#include <vector>
 
 int main()
 {
@@ -117,20 +120,32 @@ int main()
     std::cout << "(3) : " << sv << std::endl;
   }
 
-  // (4)
+  // (5)
   // 文字配列と文字数を受けとって部分文字列を参照するコンストラクタ
   {
     // "Hello World"の先頭5文字"Hello"を参照
     std::string_view sv{"Hello World", 5};
-    std::cout << "(4) : " << sv << std::endl;
+    std::cout << "(5) : " << sv << std::endl;
   }
 
-  // (5)
+  // (6)
   // 文字のイテレータ範囲を受け取って参照するコンストラクタ
   {
     std::string s = "Hello World";
     std::string_view sv{s.begin(), s.begin() + 5};
-    std::cout << "(5) : " << sv << std::endl;
+    std::cout << "(6) : " << sv << std::endl;
+  }
+
+  // (7)
+  // contiguous_rangeからの構築
+  {
+    std::vector vec = {'H', 'e', 'l', 'l', 'o', '\0', '!'};
+    // 参照するのは入力範囲先頭からそのサイズ（`std::ranges::size()`）分
+    std::string_view sv{vec};
+    std::cout << "(7) : " << sv << std::endl;
+
+    // explicitのため、このような初期化や暗黙変換は無効
+    //std::string_view sv = {vec};
   }
 }
 ```
@@ -142,8 +157,9 @@ int main()
 ```
 (2) : Hello World
 (3) : Hello World
-(4) : Hello
 (5) : Hello
+(6) : Hello
+(7) : Hello!
 ```
 
 ## バージョン
@@ -164,3 +180,4 @@ int main()
     - C++23での、`nullptr_t`をとるコンストラクタのdelete宣言追加
 - [P1989R2 Range constructor for `std::string_view` 2: Constrain Harder](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1989r2.pdf)
     - C++23での、レンジ版コンストラクタ追加
+- [P2499R0 `string_view` range constructor should be `explicit`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2499r0.html)
