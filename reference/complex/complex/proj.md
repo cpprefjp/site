@@ -7,9 +7,9 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> proj(const complex<T>& x);
+  complex<T> proj(const complex<T>& x); // (1) C++11
 
-  complex<Promoted> proj(Arithmetic x);	// 追加のオーバーロード：C++11 から
+  complex<Promoted> proj(Arithmetic x); // (2) C++11 追加のオーバーロード
 }
 ```
 * Promoted[italic]
@@ -18,11 +18,13 @@ namespace std {
 ## 概要
 リーマン球面への射影（備考参照）を得る。proj は projection（射影、投射）の略。
 
-なお、C++11 で追加されたオーバーロードは、以下のように規定されている。
+- (1) : `complex<T>`に対するオーバーロード
+- (2) : 算術型に対する追加のオーバーロード
 
-- 実引数の型が `long double` の場合、`complex<long double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `double` か整数型の場合、`complex<double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `float` の場合、`complex<float>` にキャストされているかのように振る舞う。
+(2)は、以下のように振る舞う：
+
+- 実引数の型が浮動小数点数型 `T` の場合、`complex<T>` にキャストされているかのように振る舞う
+- そうでなくて、実引数が整数型の場合、`complex<double>` にキャストされているかのように振る舞う (C++23)
 
 また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない。
 
@@ -115,4 +117,5 @@ proj( (nan,-inf) ) = (inf,-0)
 
 ## 参照
 - [LWG Issue 781. `std::complex` should add missing C99 functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#781)
-
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型への対応が行われ、整数型も考慮されるようになった

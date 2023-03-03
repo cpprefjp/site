@@ -6,14 +6,14 @@
 ```cpp
 namespace std {
   template <class T>
-  T imag(const complex<T>& x);				// C++11 まで
-
+  T imag(const complex<T>& x);           // (1) C++03
   template <class T>
-  constexpr T imag(const complex<T>& x);	// C++14 から
+  constexpr T imag(const complex<T>& x); // (1) C++14
 
-  Promoted imag(Arithmetic x);				// 追加のオーバーロード：C++11
-
-  constexpr Promoted imag(Arithmetic x);	// 追加のオーバーロード：C++14 から
+  complex<Promoted>
+    imag(Arithmetic x);                 // (2) C++11 追加のオーバーロード
+  constexpr complex<Promoted>
+    imag(Arithmetic x);                 // (2) C++14 追加のオーバーロード
 }
 ```
 * Promoted[italic]
@@ -22,11 +22,13 @@ namespace std {
 ## 概要
 複素数の虚部を取得する。
 
-なお、C++11 で追加されたオーバーロードは、以下のように規定されている。
+- (1) : `complex<T>`に対するオーバーロード
+- (2) : 算術型に対する追加のオーバーロード
 
-- 実引数の型が `long double` の場合、`complex<long double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `double` か整数型の場合、`complex<double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `float` の場合、`complex<float>` にキャストされているかのように振る舞う。
+(2)は、以下のように振る舞う：
+
+- 実引数の型が浮動小数点数型 `T` の場合、`complex<T>` にキャストされているかのように振る舞う
+- そうでなくて、実引数が整数型の場合、`complex<double>` にキャストされているかのように振る舞う (C++23)
 
 また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない。
 
@@ -78,10 +80,6 @@ int main()
 	なお、libstdc++ では追加のオーバーロードが constexpr になっていないが、これはバグであるものと思われる。
 
 
-## 参照
-- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
-
-
 ## 関連項目
 
 | 名前                   | 説明                                           |
@@ -96,3 +94,8 @@ int main()
 | [`proj`](proj.md)      | リーマン球面への射影を得る。                   |
 | [`polar`](polar.md)    | 指定した絶対値と偏角の複素数値を得る。         |
 
+
+## 参照
+- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型への対応が行われ、整数型も考慮されるようになった
