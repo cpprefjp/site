@@ -3,6 +3,7 @@ site
 
 [![detect forbidden characters](https://github.com/cpprefjp/site/workflows/detect%20forbidden%20characters/badge.svg)](https://github.com/cpprefjp/site/actions/workflows/detect_forbidden_characters.yml)
 [![inner link check](https://github.com/cpprefjp/site/workflows/inner%20link%20check/badge.svg)](https://github.com/cpprefjp/site/actions/workflows/inner_link_check.yml)
+[![code qualify check](https://github.com/cpprefjp/site/workflows/code%20qualify%20check/badge.svg)](https://github.com/cpprefjp/site/actions/workflows/code_qualify_check.yml)
 [![outer link check](https://github.com/cpprefjp/site/workflows/outer%20link%20check/badge.svg)](https://github.com/cpprefjp/site/actions/workflows/outer_link_check.yml)
 [![build](https://github.com/cpprefjp/site/workflows/build/badge.svg)](https://github.com/cpprefjp/site/actions/workflows/build.yml)
 
