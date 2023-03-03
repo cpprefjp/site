@@ -286,7 +286,7 @@
 - GCC: [C++23 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx23)
 - Clang: [C++2b implementation status](https://clang.llvm.org/cxx_status.html#cxx23)
 - Visual C++ (MSVC):
-    - [C++23 - cppreference](https://en.cppreference.com/w/cpp/23)
+    - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
     - [次リリース情報(VS2019,2022) - Change log](https://github.com/microsoft/STL/wiki/Changelog)
 - ICX: [C+23 Features Supported by Intel® C+ Compiler](https://www.intel.com/content/www/us/en/developer/articles/technical/c23-features-supported-by-intel-c-compiler.html)
 
