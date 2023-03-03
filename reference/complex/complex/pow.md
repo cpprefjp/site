@@ -33,7 +33,6 @@ namespace std {
 * Promoted[italic]
 * ArithmeticOrComplex1[italic]
 * ArithmeticOrComplex2[italic]
-* common_type_t[link /reference/type_traits/common_type.md]
 
 ## 概要
 複素数値の累乗を得る。pow は power（累乗、指数）の略。
