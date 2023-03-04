@@ -44,8 +44,6 @@ constexpr explicit basic_string_view(R&& r);                   // (7) C++23
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`ranges::range_value_t`](/reference/ranges/range_value_t.md)`<R>, charT>`が`true`であること
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<R, const charT*>`が`false`であること
     - `d`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<R>`型の左辺値としたとき、`d.operator ::std::basic_string_view<charT, traits>()`が妥当な式ではないこと
-    - もし`R::traits_type`が妥当な型の場合、[`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<R>::traits_type, traits>`が`true`であること
-
 
 ## 事前条件
 - (3) : 範囲`[str, str + Traits::`[`length`](/reference/string/char_traits/length.md)`(str))`が妥当であること (アクセス可能であること)
@@ -181,3 +179,4 @@ int main()
 - [P1989R2 Range constructor for `std::string_view` 2: Constrain Harder](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1989r2.pdf)
     - C++23での、レンジ版コンストラクタ追加
 - [P2499R0 `string_view` range constructor should be `explicit`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2499r0.html)
+- [LWG Issue 3857. `basic_string_view` should allow explicit conversion when only traits vary](https://cplusplus.github.io/LWG/issue3857)
