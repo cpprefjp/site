@@ -7,35 +7,93 @@
 ```cpp
 namespace std {
   //整数型用
-  to_chars_result to_chars(char* first, char* last, /*see below*/ value,  int base = 10);           // (1) C++17
-  constexpr to_chars_result to_chars(char* first, char* last, /*see below*/ value,  int base = 10); // (1) C++23
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             /*see below*/ value,
+             int base = 10);        // (1) C++17
+  constexpr to_chars_result
+    to_chars(char* first,
+             char* last,
+             integer-type value,
+             int base = 10);        // (1) C++23
 
   //boolの変換は禁止
-  to_chars_result to_chars(char* first, char* last, bool value,  int base = 10) = delete; // C++20
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             bool value,
+             int base = 10) = delete; // C++20
 
   //精度、フォーマット指定なし
-  to_chars_result to_chars(char* first, char* last, float value);        // (2)
-  to_chars_result to_chars(char* first, char* last, double value);       // (3)
-  to_chars_result to_chars(char* first, char* last, long double value);  // (4)
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             float value);               // (2) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             double value);              // (3) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             long double value);         // (4) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             floating-point-type value); // (5) C++23
 
   //精度指定なし
-  to_chars_result to_chars(char* first, char* last, float value,
-                           chars_format fmt);                            // (5)
-  to_chars_result to_chars(char* first, char* last, double value,
-                           chars_format fmt);                            // (6)
-  to_chars_result to_chars(char* first, char* last, long double value,
-                           chars_format fmt);                            // (7)
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             float value,
+             chars_format fmt);          // (6) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             double value,
+             chars_format fmt);          // (7) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             long double value,
+             chars_format fmt);          // (8) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             floating-point-type value,
+             chars_format fmt);          // (9) C++23
 
   //精度とフォーマットを指定
-  to_chars_result to_chars(char* first, char* last, float value,
-                           chars_format fmt, int precision);             // (8)
-  to_chars_result to_chars(char* first, char* last, double value,
-                           chars_format fmt, int precision);             // (9)
-  to_chars_result to_chars(char* first, char* last, long double value,
-                           chars_format fmt, int precision);             // (10)
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             float value,
+             chars_format fmt,
+             int precision);             // (10) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             double value,
+             chars_format fmt,
+             int precision);             // (11) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             long double value,
+             chars_format fmt,
+             int precision);             // (12) C++17からC++20まで
+  to_chars_result
+    to_chars(char* first,
+             char* last,
+             floating-point-type value,
+             chars_format fmt,
+             int precision);             // (13) C++23
 }
 ```
 * see below[italic]
+* integer-type[italic]
 
 ## 概要
 与えられた数値（`value`）を文字列へ変換し、`[first, last)`内へ出力する。  
@@ -43,10 +101,24 @@ namespace std {
 
 C++標準はこれら関数の実装の詳細について何も規定しない。これは、各実装において可能な最も高速なアルゴリズムが選択されることを意図しての事である。
 
+- (1) : 整数型に対するオーバーロード
+- (2) : `float`に対するオーバーロード (精度・フォーマット指定なし)
+- (3) : `double`に対するオーバーロード (精度・フォーマット指定なし)
+- (4) : `long double`に対するオーバーロード (精度・フォーマット指定なし)
+- (5) : 浮動小数点数型に対するオーバーロード (精度・フォーマット指定なし)
+- (6) : `float`に対するオーバーロード (精度指定なし)
+- (7) : `double`に対するオーバーロード (精度指定なし)
+- (8) : `long double`に対するオーバーロード (精度指定なし)
+- (9) : 浮動小数点数型に対するオーバーロード (精度指定なし)
+- (10) : `float`に対するオーバーロード (精度・フォーマット指定)
+- (11) : `double`に対するオーバーロード (精度・フォーマット指定)
+- (12) : `long double`に対するオーバーロード (精度・フォーマット指定)
+- (13) : 浮動小数点数型に対するオーバーロード (精度・フォーマット指定)
+
 ## 要件
 - 全て : 出力イテレータ範囲`[first, last)`は有効な範囲であること（charのオブジェクトが構築済みであり、連続していること）。
 - (1) : `base`は2～36までの値であること。
-- (5)～(10)  : `fmt`は[`chars_format`](../charconv/chars_format.md)の列挙値のうちの一つであること。
+- (6)～(13)  : `fmt`は[`chars_format`](../charconv/chars_format.md)の列挙値のうちの一つであること。
 
 ## 引数
 - `first` -- 変換結果の文字列を出力する範囲の先頭ポインタ。
@@ -64,14 +136,14 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
     10 < nの場合、10～35の値はアルファベットの小文字a～zがあてられる。  
     桁数を合わせるために左側を0をパディングすること（0埋め）は行われない。
     
-- (2)(3)(4) : Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
+- (2)(3)(4)(5) : Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
     フォーマット指定子は`%f,%e`どちらかを出力文字列が最も短くなるように（両者が同じなら`%f`が優先）選択する。
     
-- (5)(6)(7) : `fmt`によって指定されたフォーマット指定子を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
+- (6)(7)(8)(9) : `fmt`によって指定されたフォーマット指定子を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
     出力文字列が最も短くなるように変換される。  
-    `chars_format::general`が指定された場合は(2)(3)(4)と同等。
+    `chars_format::general`が指定された場合は(2)(3)(4)(5)と同等。
     
-- (8)(9)(10) : `fmt`と`precision`によって指定されたフォーマット指定子と精度を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。
+- (10)(11)(12)(13) : `fmt`と`precision`によって指定されたフォーマット指定子と精度を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。
 
 出力文字列が最も短くなるようにとは、小数点の前に少なくとも1桁あり、対応する[`from_chars`](../charconv/from_chars.md)関数によって値を正確に復元できるような最小の文字数、になることである。  
 そのような文字列表現が複数ある場合、`value`の値との差が最も小さくなる物が選ばれ、それも複数あるときは[`std::round_to_nearest`](/reference/limits/float_round_style.md)に従った丸めによって一つを選択する。
@@ -96,9 +168,10 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 投げない。
 
 ## 備考
-(1)の関数は実装によって全ての整数型（符号付、無し）および`char`のオーバーロードが提供される。
+- MSVCでは浮動小数点数→10進文字列変換の実装に[Ryu](https://github.com/ulfjack/ryu)というアルゴリズムを利用している。
+- (1) : 実装によって全ての整数型（符号付、無し）および`char`のオーバーロードが提供される
+- (5)(9)(13) : 浮動小数点数型は拡張浮動小数点数型を含む
 
-MSVCでは浮動小数点数→10進文字列変換の実装に[Ryu](https://github.com/ulfjack/ryu)というアルゴリズムを利用している。
 
 ## 例
 
@@ -145,21 +218,21 @@ int main()
     std::cout << "conversion failed." << std::endl;
   }
 
-  //(6) 精度指定なしの浮動小数点数変換、指数表記
+  //(7) 精度指定なしの浮動小数点数変換、指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::scientific); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(6) 精度指定なしの浮動小数点数変換、固定小数表記
+  //(7) 精度指定なしの浮動小数点数変換、固定小数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(6) 精度指定なしの浮動小数点数変換、16進指数表記
+  //(7) 精度指定なしの浮動小数点数変換、16進指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::hex); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
@@ -167,21 +240,21 @@ int main()
     std::cout << "conversion failed." << std::endl;
   }
 
-  //(9) 精度指定ありの浮動小数点数変換、指数表記
+  //(11) 精度指定ありの浮動小数点数変換、指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::scientific, 16); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(9) 精度指定ありの浮動小数点数変換、固定小数表記
+  //(11) 精度指定ありの浮動小数点数変換、固定小数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed, 16); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
-  //(9) 精度指定ありの浮動小数点数変換、16進指数表記
+  //(11) 精度指定ありの浮動小数点数変換、16進指数表記
   if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::hex, 16); ec == std::errc{}) {
     std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
@@ -227,3 +300,5 @@ z
 - [Visual Studio 2017 version 15.9.0 - Visual Studio 2017 version 15.9 Release Notes](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes#-c)
 - [P2291R3: Add Constexpr Modifiers to Functions to_chars and from_chars for Integral Types in `<charconv>` Header](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2291r3.pdf)
     - C++23での(1)constexpr指定
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型に対応した
