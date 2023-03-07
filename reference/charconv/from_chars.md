@@ -7,21 +7,42 @@
 ```cpp
 namespace std {
   //整数型用
-  from_chars_result from_chars(const char* first, const char* last,
-                               /*see below*/& value, int base = 10);      // (1) C++17
-  constexpr from_chars_result from_chars(const char* first, const char* last,
-                               /*see below*/& value, int base = 10);      // (1) C++23
+  from_chars_result
+    from_chars(const char* first,
+               const char* last,
+               /*see below*/& value,
+               int base = 10);      // (1) C++17
+  constexpr from_chars_result
+    from_chars(const char* first,
+               const char* last,
+               integer-type& value,
+               int base = 10);      // (1) C++23
 
   //浮動小数点型用
-  from_chars_result from_chars(const char* first, const char* last, float& value,
-                               chars_format fmt = chars_format::general); // (2)
-  from_chars_result from_chars(const char* first, const char* last, double& value,
-                               chars_format fmt = chars_format::general); // (3)
-  from_chars_result from_chars(const char* first, const char* last, long double& value,
-                               chars_format fmt = chars_format::general); // (4)
+  from_chars_result
+    from_chars(const char* first,
+               const char* last,
+               float& value,
+               chars_format fmt = chars_format::general); // (2) C++17からC++20まで
+  from_chars_result
+    from_chars(const char* first,
+               const char* last,
+               double& value,
+               chars_format fmt = chars_format::general); // (3) C++17からC++20まで
+  from_chars_result
+    from_chars(const char* first,
+               const char* last,
+               long double& value,
+               chars_format fmt = chars_format::general); // (4) C++17からC++20まで
+  from_chars_result
+    from_chars(const char* first,
+               const char* last,
+               floating-point-type& value,
+               chars_format fmt = chars_format::general); // (5) C++23
 }
 ```
 * see below[italic]
+* integer-type[italic]
 
 
 ## 概要
@@ -29,6 +50,13 @@ namespace std {
 変換に際し、メモリ確保を行わず例外を投げることもない。
 
 C++標準はこれら関数の実装の詳細について何も規定しない。これは、各実装において可能な最も高速なアルゴリズムが選択されることを意図しての事である。
+
+- (1) : 整数型に対するオーバーロード
+- (2) : `float`型に対するオーバーロード
+- (3) : `double`型に対するオーバーロード
+- (4) : `long double`型に対するオーバーロード
+- (5) : 浮動小数点数型に対するオーバーロード
+
 
 ## 要件
 - 全て : 入力イテレータ範囲`[first, last)`は有効な範囲であること（charのオブジェクトが構築済みであり、連続していること）。
@@ -51,7 +79,7 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
     nを基数としたCロケールによる`strtol`で変換する際と同様のパターンを用いる。  
     ただし、`value`の型が符号付である場合にのみ`-`は考慮され、`+`や16進数の`0x`等の他の記号は考慮されない。
     
-- (2)～(4) : 浮動小数点数字列を浮動小数点数へ変換する。  
+- (2)～(5) : 浮動小数点数字列を浮動小数点数へ変換する。  
     Cロケールによる`strtod`で変換する際と同様のパターンを用いる。ただし、以下の違いがある。  
     数字の先頭の符号は`-`のみが考慮され、`+`等は考慮されない。  
     また、`fmt`に`chars_format::general`が設定されておらず（`scientific`と`fixed`が同時に設定されておらず）
@@ -83,7 +111,9 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 投げない。
 
 ## 備考
-(1)の関数は実装によって全ての整数型（符号付、無し）および`char`の参照型のオーバーロードが提供される。
+- (1) : 実装によって全ての整数型（符号付、無し）および`char`の参照型のオーバーロードが提供される
+- (5) : 浮動小数点数型は、拡張浮動小数点数型を含む
+
 
 ## 例
 
@@ -278,7 +308,7 @@ auto str_to_double(R&& r) -> std::optional<double> {
 
 int main() {
   std::string str = "3.1415926535897932384626433832795 is pi";
-  
+
   if (auto opt = str_to_double(str); opt) {
     std::cout << std::format("{:.15f}\n", *opt);
   } else {
@@ -286,7 +316,7 @@ int main() {
   }
 
   std::string_view strview = "2.7182818284590452353602874 is e";
-  
+
   if (auto opt = str_to_double(strview); opt) {
     std::cout << std::format("{:.15f}\n", *opt);
   } else {
@@ -295,7 +325,7 @@ int main() {
 
   const char cstr[] = "1.10001e-01 is Liouville number";
   std::vector<char> strvec(cstr, std::ranges::end(cstr));
-  
+
   if (auto opt = str_to_double(strvec); opt) {
     std::cout << std::format("{:.15f}\n", *opt);
   } else {
@@ -303,7 +333,7 @@ int main() {
   }
 
   std::span sp{cstr};
-  
+
   if (auto opt = str_to_double(sp); opt) {
     std::cout << std::format("{:.15f}\n", *opt);
   } else {
@@ -349,3 +379,5 @@ int main() {
 - [How to Use The Newest C++ String Conversion Routines - std::from_chars - Bartek's coding blog ](https://www.bfilipek.com/2018/12/fromchars.html)
 - [P2291R3: Add Constexpr Modifiers to Functions to_chars and from_chars for Integral Types in `<charconv>` Header](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2291r3.pdf)
     - C++23での(1)constexpr指定
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型に対応した
