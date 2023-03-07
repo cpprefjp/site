@@ -62,3 +62,7 @@ jobs:
     # あとはスクリプトで頑張る
     - run: ./cpprefjp/site/.github/workflows/script/build.sh
       working-directory: site_generator
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
