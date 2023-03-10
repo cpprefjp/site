@@ -4,7 +4,7 @@
 
 `<flat_map>` ヘッダは、ソート済みキーによる順序付き連想配列を定義する。
 
-[`std::map`](/reference/map/map.md)と違ってノードベースの実装ではなく、メモリ連続性のある配列で扱われる (flat=平坦)。
+[`std::map`](/reference/map/map.md)と違ってノードベースの実装ではなく、メモリ連続性のある平坦 (flat) な配列で扱われる。
 
 `<flat_map>` ヘッダでは、キーの重複を許さない `std::`[`flat_map`](flat_map/flat_map.md.nolink) クラステンプレート、およびキーの重複を許す `std::`[`flat_multimap`](flat_map/flat_multimap.md.nolink) クラステンプレートを提供する。
 
