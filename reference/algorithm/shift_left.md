@@ -46,9 +46,8 @@ namespace std {
 
 
 ## 戻り値
-- `n > 0`かつ`n < last - first`である場合、`first + (last - first - n)`を返す
-- `n > 0`である場合、`first`を返す
-- いずれでもない場合、`last`を返す
+- `n < last - first`である場合、`first + (last - first - n)`を返す
+- そうでなければ、`first`を返す
 
 
 ## 計算量

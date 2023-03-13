@@ -54,9 +54,8 @@ namespace std::ranges {
 ## 戻り値
 `new_last`を次のように定義する。
 
-- `n > 0`かつ`n < last - first`である場合、`first + (last - first - n)`を返す
-- `n > 0`である場合、`first`を返す
-- いずれでもない場合、`last`を返す
+- `n < last - first`である場合、`first + (last - first - n)`
+- そうでなければ、`first`
 
 このとき、 `{first, new_last}`
 
