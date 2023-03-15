@@ -99,5 +99,6 @@ int main()
 - [`rotate`](rotate.md)
 
 ## 参照
+- [P1243R4 Rangify New Algorithms](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1243r4.pdf)
 - [P0769R2 | Add shift to `<algorithm>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0769r2.pdf)
 - [[idea for proposal] Adding `std::shift` to `<algorithm>` - std-proposals](https://groups.google.com/a/isocpp.org/forum/#!msg/std-proposals/I76om68B3t0/iA348-iFBAAJ)
