@@ -32,7 +32,7 @@ namespace std {
 - `T1`と`U1`が同一の型である。
 - `T1`と`U1`がレイアウト互換な列挙型(layout-compatible enumerations)である。
     - つまり、2つの列挙型`T1`, `U1`の[基底型](underlying_type.md)が同一の型をもつ。
-- `T1`と`U1`が[スタンダードレイアウト](is_standard_layout.md)かつレイアウト互換なクラス(compatible-compatible class)である。
+- `T1`と`U1`が[スタンダードレイアウト](is_standard_layout.md)かつレイアウト互換なクラス(layout-compatible classes)である。
     - つまり、2つのスタンダードレイアウトなクラス`T1`, `U1`に含まれる全てのメンバ変数およびビットフィールドが、同一の先頭のメンバの並び(common initial sequence)を構成している。
     - 2つ型の同一の先頭のメンバの並びとは、各クラスにおける非静的メンバ変数およびビットフィールドの宣言順序において、対応するエンティティがレイアウト互換な型であり、両エンティティともに[`no_unique_address`属性](/lang/cpp20/language_support_for_empty_objects.md)の指定有無が同一であり、かつ両エンティティが同一幅ビットフィールドもしくは（ビットフィールドではなく）非静的メンバ変数という条件を満たす、先頭からの最長の並びを指す。
 
