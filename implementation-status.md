@@ -246,19 +246,19 @@
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
 |----------|------|------------|----------------|------------|--------------|
-| P0330R8: [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | 13 | - | - |
+| P0330R8: [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | 13 | 2022.2 | - |
 | P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md.nolink) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | - | - |
-| P2266R3: [暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 | 13 | 13 | - | - |
+| P2266R3: [暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 | 13 | 13 | 2022.2 | - |
 | P1787R6: [スコープと名前ルックアップの仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する | - | - | - | - |
 | P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md.nolink) | | - | - | - | - |
-| P2360R0: [初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md.nolink) | `for (using T = int; T e : v) {}`を許可 | 12 | 14 | - | - |
+| P2360R0: [初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md.nolink) | `for (using T = int; T e : v) {}`を許可 | 12 | 14 | 2022.2 | - |
 | P2718R0: [範囲for文が範囲への参照を延命することを規定](lang/cpp23/lifetime_extension_in_range_based_for_loop.md.nolink) | | - | - | - | - |
 | P2324R2: [関数末尾のラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する | 13 | 16 | - | - |
 | P0847R7: [自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする | - | - | - | 2022 Update 2 (partial) |
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | 2022 |
-| P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | - | - |
+| P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | - |
 | P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md.nolink) | | 13 | 16 | - | - |
-| P2201R1 : [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | Yes | Yes |
+| P2201R1 : [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
 | P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
 | P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md.nolink) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | - | - |
 | P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md.nolink) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | - | - |
