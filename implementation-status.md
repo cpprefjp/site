@@ -292,6 +292,7 @@
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
+[icc]: ./implementation.md#icc
 [icx]: ./implementation.md#icc
 [msvc]: ./implementation.md#visual_cpp
 
