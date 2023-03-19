@@ -46,7 +46,7 @@ namespace std::ranges {
 
 
 ## 効果
-- `n <= 0`である場合、なにもしない
+- `n == 0`である場合、なにもしない
 - `n >= last - first`である場合、なにもしない
 - `i < (last - first) - n`である非負の各`i`について、`first + i`位置の要素を`first + n + i`位置にムーブする
     - (1)では、`I`型が[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルとなる場合は、`i = (last - first) - n - 1`から`i = 0`の順に処理する
@@ -55,9 +55,8 @@ namespace std::ranges {
 ## 戻り値
 `new_first`を次のように定義する。
 
-- `n > 0`かつ`n < last - first`である場合、`first + n`を返す
-- `n > 0`である場合、`last`を返す
-- いずれでもない場合、`first`を返す
+- `n < last - first`である場合、`first + n`
+- そうでなければ、`last`
 
 このとき、 `{new_first, last}`
 
@@ -66,7 +65,7 @@ namespace std::ranges {
 
 
 ## 備考
-- シフト数として負数を指定するとなにも起こらないが、この関数には符号付き整数型を指定することとなっている。これは、Bidirectional Iterator向けの最適化した実装をする場合に[`std::prev()`](/reference/iterator/prev.md)関数を使用するため、そちらのパラメータ型と合わせたことによる
+- シフト数として負数を指定することはできないが、この関数には符号付き整数型を指定することとなっている。これは、Bidirectional Iterator向けの最適化した実装をする場合に[`std::prev()`](/reference/iterator/prev.md)関数を使用するため、そちらのパラメータ型と合わせたことによる
 - [`shift_left()`](ranges_shift_left.md)と`shift_right()`で関数が分かれているのは、コンパイルしたコードサイズを小さくするためと、左シフトと右シフトでは最大パフォーマンスのための実装が異なるためである
 
 
