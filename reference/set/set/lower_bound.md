@@ -87,11 +87,9 @@ int main()
 ### 出力
 ```
 B
-B
 C
 D
 
-B
 B
 C
 D
