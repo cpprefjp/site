@@ -31,11 +31,11 @@ namespace std {
   template <class CharT, class Traits, class Allocator>
   bool
     operator>=(const basic_string<CharT, Traits, Allocator>& a,
-               const CharT* rhs) noexcept;                       // (3) C++03
+               const CharT* rhs);                                // (3) C++03
   template <class CharT, class Traits, class Allocator>
   constexpr bool
     operator>=(const basic_string<CharT, Traits, Allocator>& a,
-               const CharT* rhs) noexcept;                       // (3) C++20
+               const CharT* rhs);                                // (3) C++20
 }
 ```
 

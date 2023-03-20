@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-int compare(const basic_string& str) const noexcept; // (1) C++03
+int compare(const basic_string& str) const;          // (1) C++03
+int compare(const basic_string& str) const noexcept; // (1) C++11
 constexpr int
   compare(const basic_string& str) const noexcept;   // (1) C++20
 
