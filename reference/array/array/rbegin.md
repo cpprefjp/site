@@ -7,7 +7,7 @@
 
 ```cpp
 reverse_iterator rbegin() noexcept;                       // (1) C++11
-constexpr reverse_iterator rbegin() noexcept;             // (1) C++11
+constexpr reverse_iterator rbegin() noexcept;             // (1) C++17
 
 const_reverse_iterator rbegin() const noexcept;           // (2) C++11
 constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++17

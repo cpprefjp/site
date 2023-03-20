@@ -6,8 +6,7 @@
 
 ```cpp
 bool operator[](size_t pos) const;           // (1) C++03
-constexpr bool operator[](size_t pos);       // (1) C++11
-constexpr bool operator[](size_t pos) const; // (1) C++14
+constexpr bool operator[](size_t pos) const; // (1) C++11
 
 reference operator[](size_t pos);            // (2) C++03
 constexpr reference operator[](size_t pos);  // (2) C++23

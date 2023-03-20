@@ -12,7 +12,7 @@ basic_string& operator+=(const charT* s);           // (2) C++03
 constexpr basic_string& operator+=(const charT* s); // (2) C++20
 
 basic_string& operator+=(charT c);           // (3) C++03
-constexpr basic_string& operator+=(charT c); // (3) C++03
+constexpr basic_string& operator+=(charT c); // (3) C++20
 
 basic_string& operator+=(initializer_list<charT> il);           // (4) C++11
 constexpr basic_string& operator+=(initializer_list<charT> il); // (4) C++20

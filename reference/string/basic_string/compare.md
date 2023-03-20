@@ -38,7 +38,7 @@ constexpr int
           size_type n2 = npos) const; // (3) C++20
 
 int compare(const charT* s) const;           // (4) C++03
-constexpr int compare(const charT* s) const; // (4) C++03
+constexpr int compare(const charT* s) const; // (4) C++20
 
 int
   compare(size_type pos1,

@@ -6,10 +6,10 @@
 
 ```cpp
 reference back();                       // (1) C++03
-constexpr reference back();             // (1) C++03
+constexpr reference back();             // (1) C++20
 
 const_reference back() const;           // (2) C++03
-constexpr const_reference back() const; // (2) C++03
+constexpr const_reference back() const; // (2) C++20
 ```
 
 ## 概要

@@ -9,7 +9,7 @@ void resize(size_type sz);                       // (1) C++11
 constexpr void resize(size_type sz);             // (1) C++20
 
 void resize(size_type sz, const T& c);           // (2) C++11
-constexpr void resize(size_type sz, const T& c); // (2) C++11
+constexpr void resize(size_type sz, const T& c); // (2) C++20
 
 void resize(size_type sz, T c = T()); // (1) + (2) C++03
 ```
