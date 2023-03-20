@@ -49,8 +49,8 @@ int main()
   });
 }
 ```
-* std::ranges::cbegin[color ff0000]
-* std::ranges::cend[link cend.md]
+* std::ranges::cbegin[link cbegin.md]
+* std::ranges::cend[color ff0000]
 
 ### 出力
 ```

@@ -52,13 +52,10 @@ int main()
 * std::ranges::cdata[color ff0000]
 * std::ranges::size[link size.md]
 
-### 出力
+### 出力例
 ```
-false
-false
-true
-false
-false
+array size:4 at 0x7fffb1ad5d70
+array size:1 at 0x556ec23ba2b0
 ```
 
 ## バージョン
