@@ -35,7 +35,7 @@ namespace std {
 
 - (2) :
     ```cpp
-    ```return bool(x) <=> false;`
+    return bool(x) <=> false;
     ```
 
 - (3) : 以下と等価
