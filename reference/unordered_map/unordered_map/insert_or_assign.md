@@ -21,7 +21,7 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` の値として要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。
+引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` のキーとして要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。（が、実際に使用されることはないものと思われる。[`emplace_hint`](emplace_hint.md) の備考を参照）
 
