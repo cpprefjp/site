@@ -63,6 +63,16 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 - [Standard Template Library プログラミング on the Web](https://web.archive.org/web/20190112041213/http://episteme.wankuma.com/stlprog/index.html)
 
 
+## スポンサー
+cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。
+
+<img src="https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" href="https://acerola-software.jp/" width="300">
+
+スポンサーシップについては、以下のページを参照ください。
+
+- [cpprefjp - Open Collective](https://opencollective.com/cpprefjp)
+
+
 ## プライバシーポリシー
 
 本サイトは、サイトの改善のためにGoogleアナリティクスを使用しています。本サイトをご利用中のブラウザは、Googleに特定の情報を自動的に送信します。本サイトは、この分析のためにCookieを使用します。利用者は、本サイトを利用することで、この目的においてCookieを使用することを許可したものとみなします。
