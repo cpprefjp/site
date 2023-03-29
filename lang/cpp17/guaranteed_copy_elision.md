@@ -60,7 +60,7 @@ struct Noisy {
 std::vector<Noisy> f() {
   std::vector<Noisy> v = std::vector<Noisy>(3); // v 初期化時、コピーは省略される
   return v; // NRVO は、C++17でも保証されない
-}             // 最適化されない場合、コピーコンストラクタがよばれる
+}             // 最適化されない場合、ムーブコンストラクタがよばれる
  
 void g(std::vector<Noisy> arg) {
   std::cout << "arg.size() = " << arg.size() << '\n';
