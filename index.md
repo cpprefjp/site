@@ -66,6 +66,8 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 ## スポンサー
 cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。
 
+<a href="https://www.fixstars.com/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></div></a>
+
 <a href="https://acerola-software.jp/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></div></a>
 
 スポンサーシップについては、以下のページを参照ください。
