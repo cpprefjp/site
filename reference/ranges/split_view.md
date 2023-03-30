@@ -26,10 +26,14 @@ namespace std::ranges {
 
 ## 概要
 
-- (1): [`forward_range`](forward_range.md)を要素、または要素の[`view`](view.md)からなるパターンをデリミタとして分割し、それぞれの部分Rangeを要素とする新たなRangeとして扱う[`view`](view.md)
+指定した区切り文字（デリミタ）によって、入力文字範囲の分割を行うRangeアダプタ。
+
+- (1): 入力の文字範囲を、その要素型の文字または文字列からなるパターンをデリミタとして分割し、切り出した文字列（部分Range）を要素とする新たなRangeに変換する[`view`](view.md)
 - (2): `split_view`を生成するRangeアダプタオブジェクト
 
-### Rangeコンセプト
+入力範囲`V`もデリミタ`Pattern`も共に[`forward_range`](forward_range.md)（かつ`view`）であることしか求められていないため、実際には文字列の分割に限らず、任意の`forward_range`を`forward_range`によって表現されるパターンによって分割することができる。
+
+### Rangeコンセプト（`split_view`そのもの）
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
@@ -37,7 +41,7 @@ namespace std::ranges {
 
 - (1): `V`が[`common_range`](common_range.md)のとき
 
-### Rangeコンセプト (各部分Range)
+### Rangeコンセプト (`split_view`の要素である、切り出した部分文字列を示す各部分Range)
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
