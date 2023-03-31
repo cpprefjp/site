@@ -128,7 +128,6 @@ key = two, value = 42, is inserted = false, is empty = true
 | [`emplace`](emplace.md)                   | コンテナ内への要素の直接構築                           |
 | [`emplace_hint`](emplace_hint.md)         | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
 | [`insert`](insert.md)                     | 要素の追加                                             |
-| [`insert_or_assign`](insert_or_assign.md) | 要素の追加、あるいは代入                               |
 | [`erase`](erase.md)                       | 要素の削除                                             |
 | [`clear`](clear.md)                       | 全要素の削除                                           |
 | [`swap`](swap.md)                         | 内容の交換                                             |
