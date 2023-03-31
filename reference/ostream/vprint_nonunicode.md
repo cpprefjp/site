@@ -50,7 +50,7 @@ namespace std {
 ## 関連項目
 - [`std::print()`](print.md)
 - [`std::println()`](println.md)
-- [`std::vprint_unicode()`](vprint_nonunicode.md)
+- [`std::vprint_unicode()`](vprint_unicode.md)
 
 
 ## 参照

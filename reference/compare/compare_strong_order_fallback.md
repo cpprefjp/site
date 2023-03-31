@@ -63,10 +63,10 @@ namespace std {
 上記「効果」節2,3のケースでは、ユーザー定義の`< ==`演算子を定義、もしくは`strong_order()`へアダプトしておくことによって実行される比較をカスタマイズすることができる。
 
 1. --
-2. 引数`a, b`の型`T`を[`strong_order`](weak_order.md)にアダプトしておく。
+2. 引数`a, b`の型`T`を[`strong_order`](strong_order.md)にアダプトしておく。
 3. 引数`a, b`の型`T`に対して、使用可能な`< ==`演算子を定義しておく。
 
-ただし、どのケースにおいてもその戻り値型は[`strong_ordering`](weak_ordering.md)に変換可能でなければならない。
+ただし、どのケースにおいてもその戻り値型は[`strong_ordering`](strong_ordering.md)に変換可能でなければならない。
 
 ## 例
 ```cpp example

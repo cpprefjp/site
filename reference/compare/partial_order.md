@@ -66,7 +66,7 @@ namespace std {
 3. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
 4. 引数`a, b`の型`T`を[`weak_order`](weak_order.md)にアダプトしておく。
 
-ただし、どのケースにおいてもその戻り値型は[`partial_ordering`](weak_ordering.md)に変換可能でなければならない。
+ただし、どのケースにおいてもその戻り値型は[`partial_ordering`](partial_ordering.md)に変換可能でなければならない。
 
 
 ## 例

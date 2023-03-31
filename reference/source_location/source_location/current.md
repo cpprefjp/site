@@ -25,7 +25,7 @@ static consteval source_location current() noexcept;
 * [`line()`](line.md)の値は`__LINE__`が表すような行番号であり、1オリジンだが、行番号が不明のときは0になる可能性がある。
 * [`column()`](column.md)の値は行頭からのオフセットを表す処理系定義の値で、1オリジンだが、列番号が不明のときは0になる可能性がある。
 * [`file_name()`](file_name.md)の値は`__FILE__`が表すような現在のファイル名である。
-* [`function_name()`](file_name.md)の値は[`__func__`](/lang/cpp11/func.md)が表すような現在の関数名であり、[`__func__`](/lang/cpp11/func.md)が定義されないような状況では空文字列である。
+* [`function_name()`](function_name.md)の値は[`__func__`](/lang/cpp11/func.md)が表すような現在の関数名であり、[`__func__`](/lang/cpp11/func.md)が定義されないような状況では空文字列である。
 
 その他の方法で呼び出されたときは、未規定の有効な値を返す。
 

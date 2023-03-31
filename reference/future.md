@@ -5,7 +5,7 @@
 `<future>`ヘッダでは、並行プログラミングのためのデザインパターンのひとつであるFutureパターンに関するクラス・関数を提供する。
 
 [`future`](future/future.md)はデータの準備ができるまで待機してからデータを読み取る。  
-[`promise`](future/promise.md)はデータを書き込み、準備ができたことを[`future`](future.md)に通知する。  
+[`promise`](future/promise.md)はデータを書き込み、準備ができたことを[`future`](future/future.md)に通知する。  
 [`packaged_task`](future/packaged_task.md)は関数の戻り値をデータの書き込みと見なし、関数終了時に[`future`](future/future.md)に通知する。さらにこのパターンを容易に扱うための[`async()`](future/async.md)関数を提供する。
 
 | 名前 | 説明 | 対応バージョン |

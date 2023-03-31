@@ -53,6 +53,6 @@ double : 1.#QNAN
 ```
 
 ## 参照
-* [`numeric_limits::has_quiet_NaN`](quiet_nan.md)
+* [`numeric_limits::has_quiet_NaN`](has_quiet_nan.md)
 * [NANの定義について - ぴょぴょぴょ？ - Linuxとかプログラミングの覚え書き](http://d.hatena.ne.jp/pyopyopyo/20100330/p1)
 

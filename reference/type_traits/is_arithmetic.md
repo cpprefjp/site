@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 効果
-`is_arithmetic`は、型`T`が算術型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](true_type.md)から派生する。
+`is_arithmetic`は、型`T`が算術型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 例

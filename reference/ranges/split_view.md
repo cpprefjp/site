@@ -51,7 +51,7 @@ namespace std::ranges {
 
 ## テンプレートパラメータ制約
 
-- `V`、`Pattern`が[`view`](view.md)かつ[`forward_range`](input_range.md)
+- `V`、`Pattern`が[`view`](view.md)かつ[`forward_range`](forward_range.md)
 - `V`のイテレータと`Pattern`のイテレータが等値比較可能である
 
 ## 効果
