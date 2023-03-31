@@ -91,8 +91,8 @@ namespace std {
 
 | 名前                                                       | 説明                                                     | 対応バージョン |
 |------------------------------------------------------------|--------------------------------------------------------|-----------|
-| [`common_type`](pair/common_type.md)                       | 異なる[`pair`](pair.md)間の共通型を取得できるようにする特殊化        | C++23     |
-| [`basic_common_reference`](pair/basic_common_reference.md) | 異なる[`pair`](pair.md)間の共通の参照型を取得出来るようにする特殊化 | C++23     |
+| [`common_type`](pair/common_type.md)                       | 異なる`pair`間の共通型を取得できるようにする特殊化        | C++23     |
+| [`basic_common_reference`](pair/basic_common_reference.md) | 異なる`pair`間の共通の参照型を取得出来るようにする特殊化 | C++23     |
 
 
 ## 例

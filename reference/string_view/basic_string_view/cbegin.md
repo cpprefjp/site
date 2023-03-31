@@ -14,7 +14,7 @@ constexpr const_iterator cbegin() const noexcept;
 
 
 ## 戻り値
-`!`[`empty()`](empty.md)である場合、[`data()`](data.md)を指すイテレータを返す。そうでない場合、`[`[`cbegin()`](cbegin.md)`,` [`cend()`](cend.md)`)`を妥当な範囲とする未規定の値を返す。
+`!`[`empty()`](empty.md)である場合、[`data()`](data.md)を指すイテレータを返す。そうでない場合、`[cbegin(),` [`cend()`](cend.md)`)`を妥当な範囲とする未規定の値を返す。
 
 
 ## 例
