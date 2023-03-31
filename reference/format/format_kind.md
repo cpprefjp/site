@@ -57,7 +57,7 @@ Rangeの書式種別を取得する変数テンプレート。
 
 
 ## 関連項目
-- [`format_kind`](range_format.md)
+- [`range_format`](range_format.md)
 - [`formatter`](formatter.md)
 
 
