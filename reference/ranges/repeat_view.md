@@ -40,8 +40,8 @@ namespace std::ranges {
 - (1) `Bound = unreachable_sentinel_t` ではない場合
 
 ## 効果
-- 式`views::repear(E)`の効果は`repeat_view(E)`と等しい。
-- 式`views::repear(E, F)`の効果は`repeat_view(E, F)`と等しい。
+- 式`views::repeat(E)`の効果は`repeat_view(E)`と等しい。
+- 式`views::repeat(E, F)`の効果は`repeat_view(E, F)`と等しい。
 
 ## メンバ関数
 
