@@ -108,8 +108,8 @@ Hello 42 World
 
 ### モジュールをインポートする例
 ```cpp example
-#import std;
-#import std.compat;
+import std;
+import std.compat;
 
 int main()
 {
