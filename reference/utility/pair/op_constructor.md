@@ -84,7 +84,8 @@ constexpr pair(piecewise_construct_t,
 - (8) : 変換可能な他の[`pair`](../pair.md)オブジェクトからムーブ構築
 - (9) : 変換可能な他の[`pair`](../pair.md)オブジェクトから構築
 - (10) : [`pair-like`](/reference/tuple/tuple-like.md)なオブジェクトから構築
-- (11) : `first`と`second`のコンストラクタ引数を受け取り、`first_args`と`second_args`それぞれの要素から`first`と`second`をムーブ構築
+- (11) : `first`と`second`のコンストラクタ引数を`std::tuple`に詰めて受け取り、`first_args`と`second_args`内のそれぞれの要素を転送して`first`と`second`を直接構築
+    - 転送は、`std::tuple`オブジェクト（`first_args`/`second_args`）内の要素`x`とその型`U`（`Args1...`/`Args2...`に含まれる型）によって、`std::forward<U>(x)`のようにしてコンストラクタに渡される
 
 
 ## テンプレートパラメータ制約
@@ -127,6 +128,7 @@ constexpr pair(piecewise_construct_t,
 - (8) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
     - C++23 : (6)-(10) での定義参照
+- (11) : このコンストラクタでは`first`/`second`をそのコンストラクタ引数から直接構築するため、ムーブもコピーもできないような型でも初期化することができる
 
 - C++17では、コンストラクタの各オーバーロードが条件付きで`explicit`となるよう規定された。これは、以下のような初期化子リストを使用したC++17での初期化が不適格になっていたため、適格になるようにするための変更である：
     ```cpp
