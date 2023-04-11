@@ -128,11 +128,13 @@ constexpr pair(piecewise_construct_t,
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
 - (6)-(10) :
     - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
-    - C++23 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p))), T1> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p))), T2>`である場合、`explicit`指定される
+    - C++23 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p))), first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p))), second_type>`である場合、`explicit`指定される
 - (7) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U1&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U2&, second_type>`である場合、`explicit`指定される
+    - C++23 : (6)-(10) での定義参照（複雑であるが、条件は同等である）
 - (8) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
+    - C++23 : (6)-(10) での定義参照（複雑であるが、条件は同等である）
 
 ## 備考
 
