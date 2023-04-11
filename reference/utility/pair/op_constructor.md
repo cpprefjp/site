@@ -109,26 +109,34 @@ constexpr pair(piecewise_construct_t,
 - (11) :
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, Args1&&...>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, Args2&&...>::value`であること
 
+## delete定義される条件（C++23）
 
-## 備考
+- (5) : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, U1&&> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, U2&&>`である場合、このコンストラクタは削除定義される
+- (6)-(10) :
+    - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
+    - [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`である場合、このコンストラクタは削除定義される
+- (11) : 要素型（`T1, T2`のどちらかもしくは両方）が参照型であり、初期化によって一時オブジェクトを束縛することになる場合、このコンストラクタは削除定義される
+    - 上記のコンストラクタと同様に、[`reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)を使用して判定される
+
+## explicitになる条件
+
 - (1) :
     - C++17 : `first_type`と`second_type`のどちらかが非暗黙にデフォルト構築できない場合、`explicit`指定される
 - (4) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const first_type&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const second_type&, second_type>`である場合、`explicit`指定される
 - (5) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
-    - C++23 : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, U1&&> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, U2&&>`である場合、このコンストラクタは削除定義される
 - (6)-(10) :
     - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
     - C++23 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p))), T1> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p))), T2>`である場合、`explicit`指定される
-    - C++23 : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`である場合、このコンストラクタは削除定義される
 - (7) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U1&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U2&, second_type>`である場合、`explicit`指定される
-    - C++23 : (6)-(10) での定義参照
 - (8) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
-    - C++23 : (6)-(10) での定義参照
-- (11) : このコンストラクタでは`first`/`second`をそのコンストラクタ引数から直接構築するため、ムーブもコピーもできないような型でも初期化することができる
+
+## 備考
+
+- (11)のコンストラクタでは`first`/`second`をそのコンストラクタ引数から直接構築するため、コピーもムーブもできないような型でも初期化することができる
 
 - C++17では、コンストラクタの各オーバーロードが条件付きで`explicit`となるよう規定された。これは、以下のような初期化子リストを使用したC++17での初期化が不適格になっていたため、適格になるようにするための変更である：
     ```cpp
@@ -143,7 +151,7 @@ constexpr pair(piecewise_construct_t,
 
     - この変更はC++17に対するものであるが、コンパイラが早期に対応していたため、一部処理系ではC++14の段階から適格となっていた
 
-- C++23 では、ダングリング参照の作成が簡単にできていた状態を改善するべく、[`reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)が追加され、ダングリング参照が作成される場合には不適格とするようになった :
+- C++23 では、ダングリング参照の作成が簡単にできていた状態を改善するべく、[`reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)が追加され、一部のコンストラクタにおいてダングリング参照が作成される場合には不適格とするようになった :
     ```cpp
     // コンストラクタ引数で std::string が構築され
     // その一時オブジェクトが束縛されるため、ダングリング参照となっていた
