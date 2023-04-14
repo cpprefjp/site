@@ -12,7 +12,7 @@ bool operator!=(const type_info& rhs) const noexcept; // (1) C++11
 
 ## 概要
 2つの型が異なるかを判定する
-（C++20からは、`operator＝=`から導出される）
+（C++20からは、`operator==`から導出される）
 
 
 ## 戻り値
