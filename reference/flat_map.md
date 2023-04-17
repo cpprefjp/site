@@ -6,7 +6,7 @@
 
 [`std::map`](/reference/map/map.md)と違ってノードベースの実装ではなく、メモリ連続性のある平坦 (flat) な配列で扱われる。
 
-`<flat_map>` ヘッダでは、キーの重複を許さない `std::`[`flat_map`](flat_map/flat_map.md.nolink) クラステンプレート、およびキーの重複を許す `std::`[`flat_multimap`](flat_map/flat_multimap.md.nolink) クラステンプレートを提供する。
+`<flat_map>` ヘッダでは、キーの重複を許さない `std::`[`flat_map`](flat_map/flat_map.md) クラステンプレート、およびキーの重複を許す `std::`[`flat_multimap`](flat_map/flat_multimap.md.nolink) クラステンプレートを提供する。
 
 このヘッダでは、以下の標準ヘッダをインクルードする：
 
@@ -16,7 +16,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------------------------------|-------|
-| [`flat_map`](flat_map/flat_map.md.nolink)           | キーの重複を許さない平坦な順序付き連想コンテナ(class template) | C++23 |
+| [`flat_map`](flat_map/flat_map.md)           | キーの重複を許さない平坦な順序付き連想コンテナ(class template) | C++23 |
 | [`flat_multimap`](flat_map/flat_multimap.md.nolink) | キーの重複を許す平坦な順序付き連想コンテナ(class template)     | C++23 |
 
 

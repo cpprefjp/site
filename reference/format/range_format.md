@@ -24,7 +24,7 @@ Rangeの書式種別を表す列挙型。
 | 列挙値         | 説明 |
 |----------------|------|
 | `disabled`     | 書式化ができないRangeであることを表す値 |
-| `map`          | [`std::map`](/reference/map/map.md)や[`std::flat_map`](/reference/flat_map/flat_map.md.nolink)向けの書式。`{k1: v1, k2: v2}` |
+| `map`          | [`std::map`](/reference/map/map.md)や[`std::flat_map`](/reference/flat_map/flat_map.md)向けの書式。`{k1: v1, k2: v2}` |
 | `set`          | [`std::set`](/reference/set/set.md)や[`std::flat_set`](/reference/flat_set/flat_set.md.nolink)向けの書式。`{v1, v2}` |
 | `sequence`     | [`std::vector`](/reference/vector/vector.md)や[`std::array`](/reference/array/array.md)向けの書式。`[v1, v2]`|
 | `string`       | 文字列向けの書式。`abc` |

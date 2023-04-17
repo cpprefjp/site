@@ -476,7 +476,7 @@ int main()
 * pque.push[link /reference/queue/priority_queue/push.md]
 * std::stack[link /reference/stack/stack.md]
 * st.push[link /reference/stack/stack/push.md]
-* std::flat_map[link /reference/flat_map/flat_map.md.nolink]
+* std::flat_map[link /reference/flat_map/flat_map.md]
 * std::flat_set[link /reference/flat_map/flat_set.md.nolink]
 
 #### 出力
