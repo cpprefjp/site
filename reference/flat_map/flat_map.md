@@ -109,7 +109,7 @@ namespace std {
 |------|------|----------------|
 | `key_type` | キーの型。テンプレートパラメータ `Key`  |  C++23 |
 | `mapped_type` | 値の型。テンプレートパラメータ `T` | C++23 |
-| `value_type` | 要素の型。`[`std::pair`](/reference/utility/pair.md)`<key_type, mapped_type>` | C++23 |
+| `value_type` | 要素の型。[`std::pair`](/reference/utility/pair.md)`<key_type, mapped_type>` | C++23 |
 | `key_compare` | キー値の大小関係を判定する二項述語の型。テンプレートパラメータ `Compare` | C++23 |
 | [`value_compare`](flat_map/value_compare.md.nolink) | 要素値のキー部分で大小関係を判定する二項述語の型。入れ子クラス | C++23 |
 | `reference` | 要素への参照型。[`std::pair`](/reference/utility/pair.md)`<const key_type&, mapped_type&>` | C++23 |
