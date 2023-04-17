@@ -54,12 +54,12 @@ template<class T>
 basic_string&
   append(const T& t,
         size_type pos,
-        size_type n = npos); / (9) C++17
+        size_type n = npos); // (9) C++17
 template<class T>
 constexpr basic_string&
   append(const T& t,
         size_type pos,
-        size_type n = npos); / (9) C++20
+        size_type n = npos); // (9) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
