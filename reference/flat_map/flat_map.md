@@ -90,18 +90,6 @@ namespace std {
 | [`key_comp`](flat_map/key_comp.md.nolink)     | キー比較用の関数オブジェクトを取得する | C++23 |
 | [`value_comp`](flat_map/value_comp.md.nolink) | 要素比較用の関数オブジェクトを取得する | C++23 |
 
-### 比較演算子
-
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
-| [`operator==`](flat_map/op_equal.md.nolink)         | 左辺と右辺が等しいかの判定を行う           | C++23 |
-| `bool operator!=(const flat_map& x, const flat_map& y);` | 左辺と右辺が等しくないかの判定を行う (`==`により使用可能) | C++23 |
-| [`operator<=>`](flat_map/op_compare_3way.md.nolink) | 三方比較を行う                             | C++23 |
-| `bool operator<(const flat_map& x, const flat_map& y);`  | 左辺が右辺より小さいかの判定を行う  (`<=>`により使用可能) | C++23 |
-| `bool operator<=(const flat_map& x, const flat_map& y);` | 左辺が右辺より小さいか等しいかの判定を行う (`<=>`により使用可能) | C++23 |
-| `bool operator>(const flat_map& x, const flat_map& y);`  | 左辺が右辺より大きいかの判定を行う (`<=>`により使用可能) | C++23 |
-| `bool operator>=(const flat_map& x, const flat_map& y);` | 左辺が右辺より大きいか等しいかの判定を行う (`<=>`により使用可能) | C++23 |
-
 
 ## メンバ型
 
@@ -126,18 +114,32 @@ namespace std {
 
 
 ## 非メンバ関数
-### 入れ替え
-
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
-| [`swap`](flat_map/swap_free.md.nolink) | 2つの`flat_map`オブジェクトを入れ替える | C++23 |
-
-
 ### 要素削除
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`erase_if`](flat_map/erase_if_free.md.nolink) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++23 |
+
+
+## 非メンバ（*Hidden friends*）関数
+### 比較演算子
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator==`](flat_map/op_equal.md.nolink)         | 左辺と右辺が等しいかの判定を行う           | C++23 |
+| `bool operator!=(const flat_map& x, const flat_map& y);` | 左辺と右辺が等しくないかの判定を行う (`==`により使用可能) | C++23 |
+| [`operator<=>`](flat_map/op_compare_3way.md.nolink) | 三方比較を行う                             | C++23 |
+| `bool operator<(const flat_map& x, const flat_map& y);`  | 左辺が右辺より小さいかの判定を行う  (`<=>`により使用可能) | C++23 |
+| `bool operator<=(const flat_map& x, const flat_map& y);` | 左辺が右辺より小さいか等しいかの判定を行う (`<=>`により使用可能) | C++23 |
+| `bool operator>(const flat_map& x, const flat_map& y);`  | 左辺が右辺より大きいかの判定を行う (`<=>`により使用可能) | C++23 |
+| `bool operator>=(const flat_map& x, const flat_map& y);` | 左辺が右辺より大きいか等しいかの判定を行う (`<=>`により使用可能) | C++23 |
+
+
+### 入れ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`swap`](flat_map/swap_free.md.nolink) | 2つの`flat_map`オブジェクトを入れ替える | C++23 |
 
 
 ## 推論補助
