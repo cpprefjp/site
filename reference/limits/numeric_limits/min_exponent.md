@@ -21,9 +21,9 @@ static constexpr int min_exponent;
 
 | 型            | 対応するマクロ |
 |---------------|----------------|
-| `float`       | `FLT_MIN_EXP`  |
-| `double`      | `DBL_MIN_EXP`  |
-| `long double` | `LDBL_MIN_EXP` |
+| `float`       | [`FLT_MIN_EXP`](/reference/cfloat/flt_min_exp.md)   |
+| `double`      | [`DBL_MIN_EXP`](/reference/cfloat/dbl_min_exp.md)   |
+| `long double` | [`LDBL_MIN_EXP`](/reference/cfloat/ldbl_min_exp.md) |
 
 
 ## 例

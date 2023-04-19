@@ -30,7 +30,7 @@ static constexpr int digits; // C++11
 |---------------|-----------------------------------------------------|
 | `float`       | [`FLT_MANT_DIG`](/reference/cfloat/flt_mant_dig.md) |
 | `double`      | [`DBL_MANT_DIG`](/reference/cfloat/dbl_mant_dig.md) |
-| `long double` | [`LDBL_MANT_DIG`](/reference/cfloat/ldbl_dig.md)    |
+| `long double` | [`LDBL_MANT_DIG`](/reference/cfloat/ldbl_mant_dig.md)    |
 
 
 ## 例

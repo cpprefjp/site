@@ -21,9 +21,9 @@ static constexpr int max_exponent;
 
 | 型            | 対応するマクロ |
 |---------------|----------------|
-| `float`       | `FLT_MAX_EXP`  |
-| `double`      | `DBL_MAX_EXP`  |
-| `long double` | `LDBL_MAX_EXP` |
+| `float`       | [`FLT_MAX_EXP`](/reference/cfloat/flt_max_exp.md)   |
+| `double`      | [`DBL_MAX_EXP`](/reference/cfloat/dbl_max_exp.md)   |
+| `long double` | [`LDBL_MAX_EXP`](/reference/cfloat/ldbl_max_exp.md) |
 
 
 ## 例
