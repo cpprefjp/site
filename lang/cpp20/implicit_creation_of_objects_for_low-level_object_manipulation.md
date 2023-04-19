@@ -361,83 +361,15 @@ unique_ptr<char[]> Stream::read() {
 
 この`read()`内の`new char[N]`によって呼ばれる`operator new[]`によって`Foo`/`Bar`のオブジェクトが暗黙的に構築される。この場合、`buffer[0] == FOO`による分岐によってプログラムに定義された振る舞いをもたらすオブジェクトは、`Foo`と`Bar`のオブジェクトとして2つ存在する。したがって、ここでは先頭バイトの状態に応じて適切なオブジェクトが構築される（そうすることでプログラムに定義された振る舞いをもたらす）ため、`process()`内では未定義動作は回避される。
 
-```cpp
-void process(Stream *stream) {
-  // バイト配列の読み出し
-  std::unique_ptr<char[]> buffer = stream->read();
+ただし、`process()`内の各分岐においては、返された`buffer`ポインタ（`char(*)[]`）からそれぞれの場合で適切なオブジェクト（`Foo`/`Bar`）へのポインタを、[`std::launder()`](/reference/new/launder.md)を用いて取得する必要がある。
 
-  // 先頭バイトの状態によって適切なオブジェクトがStream::read()内で構築されている
-  // ただし、reinterpret_castの代わりにstd::launder()を使用する必要がある
-  if (buffer[0] == FOO) {
-    process_foo(std::launder<Foo>(buffer.get())); // ✅ ok
-  } else {
-    process_bar(std::launder<Bar>(buffer.get())); // ✅ ok
-  }
-}
-```
-* std::launder[link /reference/new/launder.md]
-
-追加で、各分岐においては返された`buffer`ポインタ（`char(*)[]`）から、それぞれの場合で適切なオブジェクト（`Foo`/`Bar`）へのポインタを[`std::launder()`](/reference/new/launder.md)によって取得する必要がある。`reinterpret_cast`はポインタの変換のみを行うため、この場合に
+`reinterpret_cast`はポインタ型の変換のみを行うが、型変換だけではそのポインタはその領域に生存期間内にあるオブジェクトと必ずしもリンクしない。`std::launder()`は、渡されたポインタの領域で生存期間内にあるオブジェクトへのポインタを生成して返す関数であり、これを用いることで暗黙的に構築されたオブジェクトへの適切なポインタを得ることができる。
 
 ### 動的配列の実装
 
-```cpp
-// std::vectorの様な動的配列型を実装したい
-template<typename T>
-struct Vec {
-  char *buf = nullptr;
-  char *buf_end_size = nullptr;
-  char *buf_end_capacity = nullptr;
+この例では、`reserve()`内`newbuf`及びそれを保存している`Vec::buf`の領域に`T[]`（`T`の配列型）と`char[]`のオブジェクトが暗黙的に構築され、同時に生存期間内にあることで、問題（配列オブジェクトを指さないポインタのイテレータとしての使用）は解消される。
 
-  void reserve(std::size_t n) {
-    // 後続の操作を適格にするためのオブジェクトを暗黙的に構築する
-    // ここでは、Tの配列型T[]のオブジェクトが暗黙的に構築される（要素のオブジェクトは構築されない）
-    // 同時に、char[]のオブジェクトも暗黙的に構築される
-    char *newbuf = (char*)::operator new(n * sizeof(T), std::align_val_t(alignof(T)));
-
-    // newbufにはT[]のオブジェクトが生存期間内にあるため、ポインタT*をイテレータとして使用可能となる
-    // ここで、T[]の要素のTのオブジェクトが構築される（明示的）
-    std::uninitialized_copy(begin(), end(), std::launder<T>(newbuf)); // #a ✅ ok
-
-    ::operator delete(buf, std::align_val_t(alignof(T)));
-    
-    buf = newbuf;
-    // newbufにはchar[]のオブジェクトが生存期間内にあるため、newbuf(char*)をイテレータとして使用可能となる
-    buf_end_size = newbuf + sizeof(T) * size(); // #b ✅ ok
-    buf_end_capacity = newbuf + sizeof(T) * n;  // #c ✅ ok
-  }
-
-  void push_back(T t) {
-    if (buf_end_size == buf_end_capacity)
-      reserve(std::max<std::size_t>(size() * 2, 1));
-    new (buf_end_size) T(t);
-
-    // buf_end_sizeの指す領域にはchar[]のオブジェクトが生存期間内にあるため、ポインタをイテレータとして使用可能
-    buf_end_size += sizeof(T); // #d ✅ ok
-  }
-
-  T *begin() { return std::launder<T>(buf); }
-
-  T *end() { return std::launder<T>(buf_end_size); }
-
-  // buf及びbuf_end_sizeの指す領域にはT[]のオブジェクトが生存期間内にあるため、ポインタをイテレータとして使用可能
-  std::size_t size() { return end() - begin(); } // #e ✅ ok
-};
-
-int main() {
-  Vec<int> v;
-  v.push_back(1);
-  v.push_back(2);
-  v.push_back(3);
-
-  // 実装内部で暗黙的に配列オブジェクトが構築されることでUBが回避される
-  for (int n : v) { /*...*/ } // #f ✅ ok
-}
-```
-
-この例では、`reserve()`内`newbuf`及びそれを保存している`Vec::buf`の領域に`T[]`（`T`の配列型）と`char[]`のオブジェクトが暗黙的に構築され、同時に生存期間内にあることで、問題（配列オブジェクトを指さないポインタのイテレータとしての使用）が解消され、すべての箇所で定義された振る舞いをもたらしている。
-
-ここでも同様に、`newbuf`及び`Vec::buf`から都度適切なオブジェクトへのポインタを得るのに[`std::launder()`](/reference/new/launder.md)を使用する必要がある。
+ただし、`newbuf`及び`Vec::buf`から都度適切なオブジェクトへのポインタを得るのに[`std::launder()`](/reference/new/launder.md)を適切使用する必要がある。
 
 ## この機能が必要になった背景・経緯
 (執筆中)
