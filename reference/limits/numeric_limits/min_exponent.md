@@ -14,16 +14,16 @@ static constexpr int min_exponent;
 
 ## 概要
 浮動小数点数型において、型`T`の指数下限値を得る。  
-基数[`radix`](radix.md)を`min_exponent`の値で累乗した値が、型`T`で表現可能な正規化された値となる最小の負の値。   
+基数[`radix`](radix.md)を`min_exponent - 1`の値で累乗した値が、型`T`で表現可能な正規化された値となる最小の負の値。   
 浮動小数点数以外は0となる。  
 
 対応するマクロを次の表に挙げる。
 
 | 型            | 対応するマクロ |
 |---------------|----------------|
-| `float`       | `FLT_MIN_EXP`  |
-| `double`      | `DBL_MIN_EXP`  |
-| `long double` | `LDBL_MIN_EXP` |
+| `float`       | [`FLT_MIN_EXP`](/reference/cfloat/flt_min_exp.md)   |
+| `double`      | [`DBL_MIN_EXP`](/reference/cfloat/dbl_min_exp.md)   |
+| `long double` | [`LDBL_MIN_EXP`](/reference/cfloat/ldbl_min_exp.md) |
 
 
 ## 例
