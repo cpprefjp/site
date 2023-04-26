@@ -102,7 +102,7 @@ namespace std {
 (比較演算子がデフォルト定義され、個別ページを作らない場合の記述例。オペランドの組み合わせ数が多い場合には、個別ページを作ることを推奨する)
 
 | 名前 | 説明 | 対応バージョン |
-|-----|-----|-----|
+|------|------|----------------|
 | `bool operator==(const X&, const X&) = default;`  | 等値比較 | |
 | `bool operator!=(const X&, const X&);`            | 非等値比較 (`==`により使用可能) | |
 | `strong_ordering operator<=>(const X&, const X&) = default;` | 三方比較 | |
@@ -110,6 +110,15 @@ namespace std {
 | `bool operator<=(const X&, const X&);` | 左辺が右辺以下を判定する (`<=>`により使用可能) | |
 | `bool operator>(const X&, const X&);`  | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | |
 | `bool operator>=(const X&, const X&);` | 左辺が右辺以上かを判定する (`<=>`により使用可能) | |
+
+
+## 非メンバ（*Hidden friends*）関数
+
+(`friend`付きメンバ関数はこの見出し以下で記載する。[`counted_iterator`](/reference/iterator/counted_iterator.md)を例として参照)
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `swap` | 2つのオブジェクトを入れ替える | |
 
 
 ## 例
