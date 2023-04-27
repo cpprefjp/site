@@ -145,8 +145,8 @@ task<void> g3(int a, ...) { // エラー: 可変引数リストは許可され�
 ### Promise型とコルーチン動作仕様
 コルーチンのPromise型は、コルーチンの戻り値型`R`と引数リスト`P1`, `P2`, ..., `Pn`から決定されるクラス型である。
 
-- デフォルト動作では`R::protmise_type`がPromise型となる。
-- ユーザプログラム中で[`std::coroutine_traits`](/reference/coroutine/coroutine_traits.md)トレイトを特殊化した場合は、`coroutine_traits<R, P1, P2, ..., Pn>::protmise_type`がPromise型となる。
+- デフォルト動作では`R::promise_type`がPromise型となる。
+- ユーザプログラム中で[`std::coroutine_traits`](/reference/coroutine/coroutine_traits.md)トレイトを特殊化した場合は、`coroutine_traits<R, P1, P2, ..., Pn>::promise_type`がPromise型となる。
 - コルーチンがクラスの非静的メンバの場合、`P1`は暗黙のオブジェクトパラメータ(`*this`の型)となる。
 
 コルーチンは、その本体 _function-body_ が下記の通り置き換えられたかのように動作する：
