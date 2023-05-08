@@ -148,6 +148,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - [`<ranges>`](/reference/ranges.md)に、Rangeを等間隔からなるRangeに変換する[`std::views::stride`](/reference/ranges/stride_view.md.nolink)を追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeをムーブするための[`std::views::as_rvalue`](/reference/ranges/as_rvalue.md.nolink)を追加
 - [`<ranges>`](/reference/ranges.md)に、指定した値をN回繰り返すRangeを生成する[`std::views::repeat`](/reference/ranges/repeat.md.nolink)を追加
+- [`<ranges>`](/reference/ranges.md)に、Rangeをインデックス付きでループさせる[`std::views::enumerate`](/reference/ranges/enumerate.md.nolink)を追加
 
 
 ### アルゴリズム
@@ -227,9 +228,13 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 
 ### 機能の非推奨化
-- [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)と[`std::aligned_union`](/reference/type_traits/aligned_union.md)を非推奨化。これらの機能は未定義動作を引き起こし、間違った保証が行われ、よくないAPI設計が行われていたため、非推奨となる。
+- [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)と[`std::aligned_union`](/reference/type_traits/aligned_union.md)を非推奨化。これらの機能は未定義動作を引き起こし、間違った保証が行われ、よくないAPI設計が行われていたため、非推奨となる
     - [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)の代わりに`alignas(T)` [`std::byte`](/reference/cstddef/byte.md)`[sizeof(T)];`を使用することを推奨する
     - [`std::aligned_union`](/reference/type_traits/aligned_union.md)の代わりに`alignas(Ts...)` [`std::byte`](/reference/cstddef/byte.md)`[`[`std::max`](/reference/algorithm/max.md)`({sizeof(Ts)...})];`を使用することを推奨する
+- [`<limits>`](/reference/limits.md)の以下の非正規化数に関する機能を非推奨化。これらの機能は必ずしもコンパイル時に決まらない可能性のある値であり有用でないため、非推奨となる
+    - [`std::numeric_limits`](/reference/limits/numeric_limits.md)`::`[`has_denorm`](/reference/limits/numeric_limits/has_denorm.md)
+    - [`std::numeric_limits`](/reference/limits/numeric_limits.md)`::`[`has_denorm_loss`](/reference/limits/numeric_limits/has_denorm_loss.md)
+    - [`std::float_denorm_style`](/reference/limits/float_denorm_style.md)
 
 
 ### 機能の削除
