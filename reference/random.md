@@ -160,12 +160,12 @@ int main()
   std::mt19937 engine(seed_gen());
 
   // 一様実数分布
-  // [-1.0, 1.0)の値の範囲で、等確率に実数を生成する
-  std::uniform_real_distribution<> dist1(-1.0, 1.0);
+  // [-1.0f, 1.0f)の値の範囲で、等確率に実数を生成する
+  std::uniform_real_distribution<float> dist1(-1.0f, 1.0f);
 
   // 正規分布
-  // 平均1.0、標準偏差0.5で分布させる
-  std::normal_distribution<> dist2(1.0, 0.5);
+  // 平均1.0f、標準偏差0.5fで分布させる
+  std::normal_distribution<float> dist2(1.0f, 0.5f);
 
   std::ofstream file("random.tsv");
   for (size_t i = 0; i < 1000*1000; ++i) {
