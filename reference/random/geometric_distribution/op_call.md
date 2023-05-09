@@ -38,7 +38,7 @@ int main()
 
   // (1)
   {
-    // 確率0.5で成功する事象を、成功するまで施行する
+    // 確率0.5で成功する事象を、成功するまで試行する
     std::geometric_distribution<> dist(0.5);
 
     // 成功するまでに失敗した回数を取得
@@ -51,7 +51,7 @@ int main()
     using dist_type = std::geometric_distribution<>;
     dist_type dist;
 
-    // 確率0.5で成功する事象を、成功するまで施行する
+    // 確率0.5で成功する事象を、成功するまで試行する
     dist_type::param_type param(0.5);
 
     // 成功するまでに失敗した回数を取得
