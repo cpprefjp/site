@@ -13,6 +13,7 @@ NGWORD_LIST = [
     ("", "protmise_type", "promise_type"),
     ("", "repear", "repeat"),
     ("", "子ルーチン", "コルーチン"),
+    ("", "移譲", "委譲"),
     ("reference/chrono", "dulation", "duration"),
     ("reference/random", "施行", "試行"),
     ("reference/random", "疑似", "擬似"),
