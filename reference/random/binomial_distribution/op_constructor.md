@@ -39,7 +39,7 @@ int main()
 
   // パラメータを個別に指定する
   {
-    // 確率0.5で成功する事象を、3回施行する
+    // 確率0.5で成功する事象を、3回試行する
     std::binomial_distribution<> dist(3, 0.5);
 
     // 成功回数を取得
@@ -51,7 +51,7 @@ int main()
   {
     using dist_type = std::binomial_distribution<>;
 
-    // 確率0.5で成功する事象を、3回施行する
+    // 確率0.5で成功する事象を、3回試行する
     dist_type::param_type param(3, 0.5);
     dist_type dist(param);
 

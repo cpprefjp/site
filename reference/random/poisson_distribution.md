@@ -16,7 +16,7 @@ namespace std {
 `poisson_distribution`は、離散確率分布の一種であるポワソン分布を表すクラスである。  
 以下の確率密度関数に基いて、ランダムな整数を生成する：
 
-$$ p(x \mid \mu) = \frac{e^{-\mu} \mu^i}{i!} $$
+$$ p(x \mid \mu) = \frac{e^{-\mu} \mu^x}{x!} $$
 
 
 この数式においてμ(mu)は、平均値(mean)である。
