@@ -203,11 +203,17 @@ int main()
 
 ### クラステンプレートの型推論を回避する例
 ```cpp
+// C++20 で追加された std::type_identity と同じことをするクラス
+template <class T>
+struct identity {
+  using type = T;
+};
+
 template <class T>
 struct X {
-  using T_ = T;
+  using T_ = typename identity<T>::type;
 
-  // テンプレートパラメータを直接使用せず、型の別名を付けてから使用する。
+  // テンプレートパラメータを直接使用せず、identityを介して使用する。
   // これによって、テンプレート引数を明示的に指定させられる
   X(T_) {}
 };
