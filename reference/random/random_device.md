@@ -328,6 +328,6 @@ int main()
 - [random_deviceの実装（再訪） - 煙人計画](http://vaporoid.hateblo.jp/entry/2014/07/25/154852)
 - [Replacing `/dev/urandom` May 4, 2016 - Security](https://lwn.net/Articles/685371/)
 - [gccをwindowsで使うならstd::random_deviceを使ってはいけない - Qiita](http://qiita.com/nanashi/items/f94b78398a6c79d939e1)
-- [MSC30-C. 疑似乱数の生成に rand() 関数を使用しない](https://www.jpcert.or.jp/sc-rules/c-msc30-c.html)
+- [MSC30-C. 擬似乱数の生成に rand() 関数を使用しない](https://www.jpcert.or.jp/sc-rules/c-msc30-c.html)
 - `CryptGenRandom`のエントロピー源(2005年時点): [Cryptographically Secure Random number on Windows without using CryptoAPI – Michael Howard's Web Log](https://blogs.msdn.microsoft.com/michael_howard/2005/01/14/cryptographically-secure-random-number-on-windows-without-using-cryptoapi/#div-comment-5543)
 

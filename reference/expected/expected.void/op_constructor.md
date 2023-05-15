@@ -94,7 +94,7 @@ constexpr explicit expected(unexpect_t, initializer_list<U> il, Args&&... args);
 ## 例外
 - (2) : エラー値型の初期化から送出される例外。
 - (3) : エラー値型の初期化から送出される例外。
-    - [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>`であれば、ムーブコンストラクタはnoexpcet指定される。
+    - [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>`であれば、ムーブコンストラクタはnoexcept指定される。
 - (4), (5) : エラー値型の初期化から送出される例外。
 - (6), (7) : エラー値型の初期化から送出される例外。
 - (8) : 投げない。

@@ -131,7 +131,7 @@ constexpr bool converts-from-any-cvref =
 - (1) : 正常値型の初期化から送出される例外。
 - (2) : 正常値型またはエラー値型の初期化から送出される例外。
 - (3) : 正常値型またはエラー値型の初期化から送出される例外。
-    - [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T>`かつ[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>`であれば、ムーブコンストラクタはnoexpcet指定される。
+    - [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T>`かつ[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E>`であれば、ムーブコンストラクタはnoexcept指定される。
 - (4), (5) : 正常値型またはエラー値型の初期化から送出される例外。
 - (6) : 正常値型の初期化から送出される例外。
 - (7), (8) : エラー値型の初期化から送出される例外。
