@@ -200,6 +200,7 @@
     * t3.join()[link /reference/thread/thread/join.md]
 * <tuple>[link /reference/tuple.md]
     * std::tuple[link /reference/tuple/tuple.md]
+    * std::tie[link /reference/tuple/tie.md]
 * <type_traits>[link /reference/type_traits.md]
     * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
     * std::false_type[link /reference/type_traits/false_type.md]

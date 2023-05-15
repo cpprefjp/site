@@ -151,18 +151,154 @@ namespace std {
 
 ## 例
 ### 基本的な使い方
+```cpp example
+#include <iostream>
+#include <string>
+#include <flat_map>
+
+int main()
+{
+  // stringをキー、intを値として扱う連想配列
+  std::flat_map<std::string, int> fm = {
+    {"Carol", 4},
+    {"Alice", 3},
+    {"Bob", 1}
+  };
+
+  // 検索 : キー(string)を指定し、値(int)を得る
+  int r = fm.at("Alice");
+  std::cout << r << std::endl;
+
+  // 全体を出力する
+  for (const auto& [key, value] : fm) {
+    std::cout << key << " : " << value << std::endl;
+  }
+}
+```
+* fm.at[link flat_map/at.md.nolink]
 
 #### 出力
+```
+3
+Alice : 3
+Bob : 1
+Carol : 4
+```
 
 
 
 ### ユーザー定義型をキーとして使用する (`operator<=>`を定義)
+```cpp example
+#include <iostream>
+#include <string>
+#include <flat_map>
+
+// 要素がひとつの場合
+struct MyInt {
+  int value;
+
+  friend auto operator<=>(const MyInt& a, const MyInt& b) noexcept {
+    return a.value <=> b.value;
+  }
+};
+
+// 要素が複数の場合
+struct Person {
+  int id;
+  int age;
+  std::string name;
+
+  friend auto operator<=>(const Person& a, const Person& b) noexcept {
+    if (auto comp = a.id <=> b.id; comp != 0) {
+      return comp;
+    }
+    if (auto comp = a.age <=> b.age; comp != 0) {
+      return comp;
+    }
+    return a.name <=> b.name;
+  }
+};
+
+int main()
+{
+  std::flat_map<MyInt, int> fm1 {
+    {MyInt{1}, 3},
+    {MyInt{2}, 1},
+    {MyInt{3}, 4},
+  };
+  std::cout << fm1[MyInt{2}] << std::endl;
+
+  std::flat_map<Person, int> fm2 {
+    {Person{1, 18, "Alice"}, 3},
+    {Person{2, 30, "Bob"}, 1},
+    {Person{3, 30, "Carol"}, 4},
+  };
+  std::cout << fm2[Person{2, 30, "Bob"}] << std::endl;
+}
+```
 
 #### 出力
+```
+1
+1
+```
 
 
 ### ユーザー定義型をキーとして使用する (大小比較の関数オブジェクトを定義)
+```cpp example
+#include <iostream>
+#include <string>
+#include <tuple>
+#include <flat_map>
+
+// 要素がひとつの場合
+struct MyInt {
+  int value;
+};
+
+struct MyIntLess {
+  bool operator()(const MyInt& a, const MyInt& b) const noexcept {
+    return a.value < b.value;
+  }
+};
+
+// 要素が複数の場合
+struct Person {
+  int id;
+  int age;
+  std::string name;
+};
+
+struct PersonLess {
+  bool operator()(const Person& a, const Person& b) const noexcept {
+    // キーとして比較したい要素を列挙する
+    return std::tie(a.id, a.age, a.name) < std::tie(b.id, b.age, b.name);
+  }
+};
+
+int main()
+{
+  std::flat_map<MyInt, int, MyIntLess> fm1 {
+    {MyInt{1}, 3},
+    {MyInt{2}, 1},
+    {MyInt{3}, 4},
+  };
+  std::cout << fm1[MyInt{2}] << std::endl;
+
+  std::flat_map<Person, int, PersonLess> fm2 {
+    {Person{1, 18, "Alice"}, 3},
+    {Person{2, 30, "Bob"}, 1},
+    {Person{3, 30, "Carol"}, 4},
+  };
+  std::cout << fm2[Person{2, 30, "Bob"}] << std::endl;
+}
+```
+
 #### 出力
+```
+1
+1
+```
 
 
 ## 参照
