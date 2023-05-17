@@ -29,7 +29,6 @@ const mapped_type& at(const key_type& x) const; // (2) C++23
 #include <flat_map>
 #include <stdexcept>
 
-namespace stdx = flat_map;
 template<class Container, class T>
 void at_wrap(Container& c, T v)
 {
@@ -43,7 +42,7 @@ void at_wrap(Container& c, T v)
 
 int main()
 {
-  stdx::flat_map<int,char> fm;
+  std::flat_map<int,char> fm;
   fm.insert(std::make_pair(1, 'a'));
 
   at_wrap(fm, 1);
