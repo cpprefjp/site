@@ -66,15 +66,34 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 ## スポンサー
 cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。
 
+
+### シルバースポンサー
+
 <a href="https://www.fixstars.com/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></div></a>
 
 <a href="https://acerola-software.jp/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></div></a>
 
-<a href="https://vaporoid.com/sys/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/vaporoid.png" alt="vaporoid" width="400"/></div></a>
+<a href="https://vaporoid.com/sys/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/vaporoid.png" alt="vaporoid" width="320"/></div></a>
+
+<a href="https://www.cube-soft.jp/"><div style="text-align: center"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="vaporoid" width="320"/></div></a>
+
+
+### ブロンズスポンサー
+
+- イシハラユウヤ様
+
+
+### 一時スポンサー
+
+- [Hashitaku様](https://opencollective.com/hashitaku)
+- yukika2e様
+
 
 スポンサーシップについては、以下のページを参照ください。
 
 - [cpprefjp - Open Collective](https://opencollective.com/cpprefjp)
+
+連絡先が不明なスポンサー様は、ロゴの表示が現在できておりません。Open Collectiveの問い合わせフォームから、表示するロゴ画像とリンク先URLについてご連絡いただきたいです。
 
 
 ## プライバシーポリシー
