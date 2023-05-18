@@ -82,6 +82,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 - イシハラユウヤ様
 - [Megumi Nakagami様](https://opencollective.com/meg_nakagami)
+- Junichirou Minami様
 
 
 ### 一時スポンサー
