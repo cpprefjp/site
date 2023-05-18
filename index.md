@@ -77,6 +77,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 <a href="https://www.cube-soft.jp/"><div style="text-align: center"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="vaporoid" width="400"/></div></a>
 
+- M.Kohana様
+
 
 ### ブロンズスポンサー
 
