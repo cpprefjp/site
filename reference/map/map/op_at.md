@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-T& operator[](const key_type& x);
-T& operator[](key_type&& x);
+T& operator[](const key_type& x); // (1) C++03
+T& operator[](key_type&& x);      // (2) C++11
 ```
 
 ## 概要
