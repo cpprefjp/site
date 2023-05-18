@@ -49,7 +49,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|------------------------------------|-------|
 | [`empty`](flat_map/empty.md.nolink)       | コンテナが空であるかどうかを調べる | C++23 |
-| [`size`](flat_map/size.md.nolink)         | 要素数を取得する                   | C++23 |
+| [`size`](flat_map/size.md)         | 要素数を取得する                   | C++23 |
 | [`max_size`](flat_map/max_size.md.nolink) | 格納可能な最大の要素数を取得する   | C++23 |
 
 

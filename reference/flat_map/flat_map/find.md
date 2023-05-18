@@ -34,7 +34,7 @@ const_iterator find(const K& x) const;        // (4) C++23
 
 
 ## 計算量
-[`size`](size.md.nolink) について対数時間。
+[`size`](size.md) について対数時間。
 
 
 ## 備考
