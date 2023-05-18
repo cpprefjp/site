@@ -92,6 +92,17 @@ int main()
 1
 ```
 
+## バージョン
+### 言語
+- C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+
 ## 関連項目
 - [`contains()`](contains.md.nolink)
 
