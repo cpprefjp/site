@@ -7,12 +7,30 @@
 
 ```cpp
 mapped_type& at(const key_type& x);             // (1) C++23
-const mapped_type& at(const key_type& x) const; // (2) C++23
+
+template <class K>
+mapped_type& at(const K& x);                    // (2) C++23
+
+const mapped_type& at(const key_type& x) const; // (3) C++23
+
+template <class K>
+const mapped_type& at(const K& x) const;        // (4) C++23
 ```
 
 ## 概要
 指定したキーを持つ要素を取得する。  
 要素を取り出す際にキーの存在チェックをする。
+
+- (1), (3) : クラスのテンプレートパラメータ`key_type`型のキーを受け取る
+- (2), (4) : `key_type`と比較可能な`K`型のキーを受け取る
+
+
+## テンプレートパラメータ制約
+- (2), (4) : `key_compare::is_transparent`が妥当な式であること
+
+
+## 事前条件
+- (2), (4) : `find(x)`という式が妥当であり、動作が明確に定義されていること
 
 
 ## 戻り値
@@ -21,6 +39,12 @@ const mapped_type& at(const key_type& x) const; // (2) C++23
 
 ## 計算量
 要素数に対して対数時間
+
+
+## 備考
+- (2), (4) :
+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
+    - これらのオーバーロードは、`flat_map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
 
 
 ## 例
