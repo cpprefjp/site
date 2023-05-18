@@ -75,14 +75,16 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 <a href="https://vaporoid.com/sys/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/vaporoid.png" alt="vaporoid" width="320"/></div></a>
 
-<a href="https://www.cube-soft.jp/"><div style="text-align: center"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="vaporoid" width="320"/></div></a>
+<a href="https://www.cube-soft.jp/"><div style="text-align: center"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="vaporoid" width="400"/></div></a>
 
 
 ### ブロンズスポンサー
 
 - イシハラユウヤ様
 - [Megumi Nakagami様](https://opencollective.com/meg_nakagami)
-- Junichirou Minami様
+
+
+<a href="https://github.com/minachun/minachun"><div style="text-align: center"><img src="https://raw.githubusercontent.com/minachun/minachun/main/banner.png" alt="minachun / J.Minami"/></div></a>
 
 
 ### 一時スポンサー
