@@ -73,9 +73,9 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 <a href="https://acerola-software.jp/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></div></a>
 
-<a href="https://vaporoid.com/sys/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/vaporoid.png" alt="vaporoid" width="320"/></div></a>
+<a href="https://vaporoid.com/sys/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/cpprefjp-400x150.png" alt="vaporoid" width="400"/></div></a>
 
-<a href="https://www.cube-soft.jp/"><div style="text-align: center"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="vaporoid" width="400"/></div></a>
+<a href="https://www.cube-soft.jp/"><div style="text-align: center"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="CubeSoft" width="400"/></div></a>
 
 - M.Kohana様
 
