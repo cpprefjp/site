@@ -69,15 +69,15 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### シルバースポンサー
 
-<a href="https://www.fixstars.com/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></div></a>
+<div style="text-align: center"><a href="https://www.fixstars.com/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></a></div>
 
-<a href="https://acerola-software.jp/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></div></a>
+<div style="text-align: center"><a href="https://acerola-software.jp/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></a></div>
 
-<a href="https://vaporoid.com/sys/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/cpprefjp-400x150.png" alt="vaporoid" width="400"/></div></a>
+<div style="text-align: center"><a href="https://vaporoid.com/sys/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/cpprefjp-400x150.png" alt="vaporoid" width="400"/></a></div>
 
-<a href="https://www.cube-soft.jp/"><div style="text-align: center"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="CubeSoft" width="400"/></div></a>
+<div style="text-align: center"><a href="https://www.cube-soft.jp/"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="CubeSoft" width="400"/></a></div>
 
-<a href="https://mkohana.github.io/"><div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/m_kohana/m_kohana.jpg" alt="M.Kohana" width="320"/></div></a>
+<div style="text-align: center"><a href="https://mkohana.github.io/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/m_kohana/m_kohana.jpg" alt="M.Kohana" width="320"/></a></div>
 
 
 ### ブロンズスポンサー
@@ -86,7 +86,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 - [Megumi Nakagami様](https://opencollective.com/meg_nakagami)
 
 
-<a href="https://github.com/minachun/minachun"><div style="text-align: center"><img src="https://raw.githubusercontent.com/minachun/minachun/main/banner.png" alt="minachun / J.Minami"/></div></a>
+<div style="text-align: center"><a href="https://github.com/minachun/minachun"><img src="https://raw.githubusercontent.com/minachun/minachun/main/banner.png" alt="minachun / J.Minami"/></a></div>
 
 
 ### 一時スポンサー
