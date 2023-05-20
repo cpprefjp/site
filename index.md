@@ -92,7 +92,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 ### 一時スポンサー
 
 - [Hashitaku様](https://opencollective.com/hashitaku)
-- yukika2e様
+
+<img src="https://github.com/cpprefjp/image/raw/master/sponsors/yukika2e/yukika2e.png" alt="yukika2e">
 
 
 スポンサーシップについては、以下のページを参照ください。
