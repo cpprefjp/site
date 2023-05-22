@@ -62,4 +62,4 @@ int main ()
 
 
 ## 関連項目
-- [`empty()`](empty.md.nolink)
+- [`empty()`](empty.md)
