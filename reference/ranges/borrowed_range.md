@@ -43,7 +43,7 @@ int main()
   // string_viewは文字列を所有していないので、borrowed_rangeである
   static_assert(std::ranges::borrowed_range<std::string_view>);
 
-  // spanは文字列を所有していないので、borrowed_rangeである
+  // spanはintを所有していないので、borrowed_rangeである
   static_assert(std::ranges::borrowed_range<std::span<int>>);
 }
 ```
