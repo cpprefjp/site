@@ -57,7 +57,7 @@ namespace std {
 
 | 名前                                          | 説明                                       | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------|----------------|
-| [`clear`](flat_map/clear.md.nolink)                       | 全ての要素を削除する                       | C++23 |
+| [`clear`](flat_map/clear.md)                       | 全ての要素を削除する                       | C++23 |
 | [`insert`](flat_map/insert.md.nolink)                     | 要素を挿入する                             | C++23 |
 | [`insert_or_assign`](flat_map/insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               | C++23 |
 | [`insert_range`](flat_map/insert_range.md.nolink)         | Rangeを挿入する                            | C++23 |
