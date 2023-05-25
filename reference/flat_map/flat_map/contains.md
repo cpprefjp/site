@@ -41,14 +41,14 @@ return find(x) != end();
 
 int main()
 {
-  std::flat_map<char, int> m = {
+  std::flat_map<char, int> fm = {
     {'a', 3},
     {'b', 1},
     {'c', 4}
   };
 
   // キー'b'の要素が含まれているか
-  if (m.contains('b')) {
+  if (fm.contains('b')) {
     std::cout << "contain" << std::endl;
   }
   else {
