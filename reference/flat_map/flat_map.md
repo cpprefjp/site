@@ -76,9 +76,9 @@ namespace std {
 |---------------------------------------|--------------------------------------------|-------|
 | [`operator[]`](flat_map/op_at.md)        | 指定したキーを持つ要素を取得する           | C++23 |
 | [`at`](flat_map/at.md)                   | 指定したキーを持つ要素を取得する           | C++23 |
-| [`count`](flat_map/count.md.nolink)             | 指定したキーにマッチする要素の数を取得する | C++23 |
+| [`count`](flat_map/count.md)             | 指定したキーにマッチする要素の数を取得する | C++23 |
 | [`find`](flat_map/find.md)               | 指定したキーで要素を探す                   | C++23 |
-| [`contains`](flat_map/contains.md.nolink)       | 指定したキーの要素が含まれているかを判定する | C++23 |
+| [`contains`](flat_map/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++23 |
 | [`equal_range`](flat_map/equal_range.md.nolink) | 指定したキーにマッチする要素範囲を取得する | C++23 |
 | [`lower_bound`](flat_map/lower_bound.md.nolink) | 与えられた値より小さくない最初の要素へのイテレータを取得する | C++23 |
 | [`upper_bound`](flat_map/upper_bound.md.nolink) | 特定の値よりも大きい最初の要素へのイテレータを取得する       | C++23 |
@@ -89,6 +89,8 @@ namespace std {
 |-------------------------------------|----------------------------------------|----------------|
 | [`key_comp`](flat_map/key_comp.md.nolink)     | キー比較用の関数オブジェクトを取得する | C++23 |
 | [`value_comp`](flat_map/value_comp.md.nolink) | 要素比較用の関数オブジェクトを取得する | C++23 |
+| [`keys`](flat_map/keys.md.nolink)             | キーのコンテナを取得する | C++23 |
+| [`values`](flat_map/values.md.nolink)         | 値のコンテナを取得する | C++23 |
 
 
 ## メンバ型

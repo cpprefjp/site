@@ -1,15 +1,15 @@
 # contains
-* set[meta header]
+* flat_map[meta header]
 * std[meta namespace]
-* multiset[meta class]
+* flat_map[meta class]
 * function[meta id-type]
-* cpp20[meta cpp]
+* cpp23[meta cpp]
 
 ```cpp
-bool contains(const key_type& x) const; // (1)
+bool contains(const key_type& x) const; // (1) C++23
 
 template <class K>
-bool contains(const K& x) const;        // (2)
+bool contains(const K& x) const;        // (2) C++23
 ```
 
 
@@ -27,7 +27,7 @@ bool contains(const K& x) const;        // (2)
 return find(x) != end();
 ```
 * find[link find.md]
-* end()[link end.md]
+* end()[link end.md.nolink]
 
 
 ## 計算量
@@ -37,14 +37,18 @@ return find(x) != end();
 ## 例
 ```cpp example
 #include <iostream>
-#include <set>
+#include <flat_map>
 
 int main()
 {
-  std::multiset<int> s = {1, 2, 3};
+  std::flat_map<char, int> m = {
+    {'a', 3},
+    {'b', 1},
+    {'c', 4}
+  };
 
-  // キー2の要素が含まれているか
-  if (s.contains(2)) {
+  // キー'b'の要素が含まれているか
+  if (m.contains('b')) {
     std::cout << "contain" << std::endl;
   }
   else {
@@ -62,12 +66,9 @@ contain
 
 ## バージョン
 ### 言語
-- C++20
+- C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1
-
-## 参照
-- [P0458R2 Checking for Existence of an Element in Associative Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0458r2.html)
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??

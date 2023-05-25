@@ -104,5 +104,5 @@ int main()
 
 
 ## 関連項目
-- [`contains()`](contains.md.nolink)
+- [`contains()`](contains.md)
 
