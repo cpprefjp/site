@@ -15,8 +15,13 @@ size_type max_size() const noexcept; // (1) C++23
 
 
 ## 戻り値
-コンテナが自身のコンテンツとして保持できる要素の最大数。 
-メンバ型 `size_type` は符号なし整数型である。
+[`containers`](containers.md)型メンバ変数`c`があるとして、以下を返す。
+
+```cpp
+return min<size_type>(c.keys.max_size(), c.values.max_size());
+```
+* min[link /reference/algorithm/min.md]
+* max_size()[link /reference/vector/vector/max_size.md]
 
 
 ## 計算量

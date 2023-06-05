@@ -14,8 +14,12 @@ size_type size() const noexcept;
 
 
 ## 戻り値
-コンテナに格納されている要素の数を返す。 
-メンバ型 `size_type` は符号なし整数型である。
+[`containers`](containers.md)型メンバ変数`c`があるとして、以下を返す。
+
+```cpp
+return c.keys.size();
+```
+* size()[link /reference/vector/vector/size.md]
 
 
 ## 計算量

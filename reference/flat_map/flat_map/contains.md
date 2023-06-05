@@ -20,6 +20,10 @@ bool contains(const K& x) const;        // (2) C++23
 - (2) : `key_type`と比較可能な`K`型のキーを受け取る
 
 
+## テンプレートパラメータ制約
+- (2) : `key_compare::is_transparent`が妥当な式であること
+
+
 ## 戻り値
 以下と等価：
 
@@ -32,6 +36,12 @@ return find(x) != end();
 
 ## 計算量
 対数時間
+
+
+## 備考
+- (3) :
+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
+    - これらのオーバーロードは、`flat_map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
 
 
 ## 例
