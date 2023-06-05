@@ -15,7 +15,7 @@ namespace std {
 }
 ```
 * less[link ../functional/less.md]
-* vector[link /reference/vector.md]
+* vector[link /reference/vector/vector.md]
 
 ## 概要
 
@@ -112,7 +112,7 @@ namespace std {
 | `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。[`std::reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | C++23 |
 | `key_container_type` | キーを格納するコンテナ型 `KeyContainer` | C++23 |
 | `mapped_container_type` | 値を格納するコンテナ型 `MappedContainer` | C++23 |
-| [`containers`](flat_map/containers.md.nolink) | キーのコンテナと値のコンテナを保持する型 | C++23 |
+| [`containers`](flat_map/containers.md) | キーのコンテナと値のコンテナを保持する型 | C++23 |
 
 
 ## 非メンバ関数
@@ -301,6 +301,15 @@ int main()
 1
 1
 ```
+
+## バージョン
+### 言語
+- C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
