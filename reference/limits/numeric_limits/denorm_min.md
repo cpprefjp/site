@@ -22,7 +22,8 @@ static constexpr T denorm_min() noexcept; // (1) C++11
 
 
 ## 戻り値
-最小の正の非正規化数
+非正規化数をサポートするならば、最小の正の非正規化数。
+そうでなければ、最小の正の正規化数。
 
 
 ## 例外
@@ -51,7 +52,11 @@ float : 1.4013e-045
 double : 4.94066e-324
 ```
 
-## 参照
+
+## 関連項目
 * [`numeric_limits::has_denorm`](has_denorm.md)
 * [`numeric_limits::has_denorm_loss`](has_denorm_loss.md)
 
+
+## 参照
+- [P2614R2 Deprecate `numeric_limits::has_denorm`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2614r2.pdf)

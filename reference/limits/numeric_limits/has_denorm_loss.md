@@ -3,6 +3,7 @@
 * std[meta namespace]
 * numeric_limits[meta class]
 * variable[meta id-type]
+* cpp23deprecated[meta cpp]
 
 ```cpp
 // C++03
@@ -43,3 +44,5 @@ double : false
 ```
 
 
+## 参照
+- [P2614R2 Deprecate `numeric_limits::has_denorm`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2614r2.pdf)

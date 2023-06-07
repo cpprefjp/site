@@ -64,8 +64,8 @@ namespace std {
 | [`has_infinity`](numeric_limits/has_infinity.md)           | 正の無限表現を持っているかを判定する | |
 | [`has_quiet_NaN`](numeric_limits/has_quiet_nan.md)         | シグナルを発生させないNaNを持っているかを判定する | |
 | [`has_signaling_NaN`](numeric_limits/has_signaling_nan.md) | シグナルを発生させるNaNを持っているかを判定する | |
-| [`has_denorm`](numeric_limits/has_denorm.md)               | 非正規化数のサポート状況を判定する | |
-| [`has_denorm_loss`](numeric_limits/has_denorm_loss.md)     | 精度の損失が非正規化数によるものかを判定する | |
+| [`has_denorm`](numeric_limits/has_denorm.md)               | 非正規化数のサポート状況を判定する | C++23で非推奨 |
+| [`has_denorm_loss`](numeric_limits/has_denorm_loss.md)     | 精度の損失が非正規化数によるものかを判定する | C++23で非推奨 |
 | [`infinity()`](numeric_limits/infinity.md)                 | 正の無限表現を取得する | |
 | [`quiet_NaN()`](numeric_limits/quiet_nan.md)               | シグナルを発生させないNaNを取得する | |
 | [`signaling_NaN()`](numeric_limits/signaling_nan.md)       | シグナルを発生させるNaNを取得する | |
@@ -81,4 +81,4 @@ namespace std {
 ## 参照
 - [N2114 `long long` Goes to the Library, Revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2114.html)
 - [LWG Issue 559. `numeric_limits<const T>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#559)
-
+- [P2614R2 Deprecate `numeric_limits::has_denorm`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2614r2.pdf)
