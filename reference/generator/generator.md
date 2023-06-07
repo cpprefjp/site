@@ -9,7 +9,7 @@ namespace std {
   template<class Ref, class V = void, class Allocator = void>
   class generator : public ranges::view_interface<generator<Ref, V, Allocator>> {
     ...
-  }
+  };
 
   namespace pmr {
     template<class R, class V = void>
