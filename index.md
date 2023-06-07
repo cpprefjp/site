@@ -91,6 +91,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### 一時スポンサー
 
+<div style="text-align: center"><a href="https://opencollective.com/odan"><img src="https://odan.dev/icon.jpeg" alt="odan"/ width="320"></a></div>
+
 - [Hashitaku様](https://opencollective.com/hashitaku)
 
 <div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/yukika2e/yukika2e.png" alt="yukika2e"/></div>
