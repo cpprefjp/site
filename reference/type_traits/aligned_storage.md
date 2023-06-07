@@ -215,5 +215,5 @@ int main()
     - C++14で`aligned_storage_t`が定義された
 - [P0767R1 Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
     - C++20でPOD用語の非推奨化にともない、メンバ型`type`がPOD型ではなくトリビアル型に分類されるよう規定が変更された
-- [P1413R2 Deprecate `std::aligned_storage` and `std::aligned_union`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1413r2.pdf)
+- [P1413R3 Deprecate `std::aligned_storage` and `std::aligned_union`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf)
     - C++23でこの機能が非推奨となった
