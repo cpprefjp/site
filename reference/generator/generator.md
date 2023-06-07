@@ -10,6 +10,11 @@ namespace std {
   class generator : public ranges::view_interface<generator<Ref, V, Allocator>> {
     ...
   }
+
+  namespace pmr {
+    template<class R, class V = void>
+    using generator = std::generator<R, V, polymorphic_allocator<>>;
+  }
 }
 ```
 * ranges::view_interface[link /reference/ranges/view_interface.md]
@@ -294,5 +299,6 @@ int main()
 
 ## 参照
 - [P2502R2 `std::generator`: Synchronous Coroutine Generator for Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2502r2.pdf)
+- [P2787R1 pmr::generator - Promise Types are not Values](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2787r1.pdf)
 - [P0981R0 Halo: coroutine Heap Allocation eLision Optimization: the joint response](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0981r0.html)
     - ジェネレータコルーチン実装において、動的メモリ確保が省略最適化される条件の議論。`std::generator`の設計に反映されている。
