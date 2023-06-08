@@ -7,7 +7,7 @@ C++20より、`volatile`の本来の役割に照らして不正確、あるい�
 
 非推奨となるのは次のもの
 
-1. `volatile`値に対する複合代入演算子（算術型・ポインタ型のみ）
+1. ~~`volatile`値に対する複合代入演算子（算術型・ポインタ型のみ）~~
 2. `volatile`値に対するインクリメント／デクリメント演算子（算術型・ポインタ型のみ）
 3. 間に`volatile`値がある場合の連鎖した代入演算子（非クラス型のみ）
 4. 関数引数のトップレベル`volatile`修飾
@@ -65,6 +65,8 @@ a--;
 従って、算術型・ポインタ型の`volatile`変数に対する組み込みの複合代入演算子およびインクリメント演算子の使用はバグの元であるので、非推奨とされる。
 
 この場合、これらの複合的な演算子を用いず、明示的に「読み出し - 更新 - 書き込み」を分けて書くことで`volatile`変数へのアクセスをコード上でも明確にする事が推奨される。
+
+ただし、複合代入演算子についてはC++23で非推奨化が解除された。
 
 ### 連鎖した代入演算子
 
@@ -377,3 +379,5 @@ volatile device dev;
 - [P1152R4 Deprecating `volatile`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r4.html)
 - [P1831R0 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1831r0.html)
 - [P1831R0 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+- [P2327R0 De-deprecating volatile compound assignment](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2327r1.pdf)
+- [CWG Issue 2654. Un-deprecation of compound volatile assignments](https://cplusplus.github.io/CWG/issues/2654.html)
