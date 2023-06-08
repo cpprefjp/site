@@ -14,8 +14,10 @@ namespace std {
 }
 ```
 
-この型を返すメンバ変数がC++23にて非推奨化されるため、列挙型も非推奨とされる。
+この型を返すメンバ変数がC++23にて非推奨化されるため、列挙型も非推奨とされる。非推奨の詳細は[`std::numeric_limits::has_denorm`](numeric_limits/has_denorm.md)を参照。
 
+
+## 概要
 `std::float_denorm_style`列挙型は、非正規化数(Denormal Number)のサポートに関する情報のための列挙値を提供する。
 
 | 列挙値                 | 説明                                       |
