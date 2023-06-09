@@ -22,8 +22,6 @@ namespace std {
 - 動的な長さをもつ範囲を参照する ([`std::vector`](/reference/vector/vector.md)や、ポインタと要素数の組など)
 - 参照範囲の変更を、動的な値で指定する (`s.`[`first`](span/first.md)`<N>()`は静的な要素数、`s.`[`first`](span/first.md)`(n)`は動的な要素数をもつ`span`オブジェクトを作成する)
 
-動的な要素数をもつ[`std::span`](span.md)クラスには、タプルインタフェースを使用できないという制限がある。
-
 
 ## 例
 ```cpp example
