@@ -434,8 +434,8 @@ _p_ をコルーチンPromiseオブジェクトのlvalue名とすると、`co_re
 
 ここで _final-suspend_ はコルーチン動作説明用の最終サスペンドポイントラベル名であり、_S_ は次の通り定義される：
 
-- オペランドが _braced-init-list_ または非`void`型の式の場合、_S_ を _p_`.return_value(` _expr-or-braced-init-list_ `)`とする。式 _S_ は `void`型のpvalueであるべき。
-- そうでなければ、_S_ を複合文 `{` _expression_ _opt_ `;` _p_`.return_void(); }`とする。式 _p_`.return_void()`は`void`型のpvalueであるべき。
+- オペランドが _braced-init-list_ または非`void`型の式の場合、_S_ を _p_`.return_value(` _expr-or-braced-init-list_ `)`とする。式 _S_ は `void`型のprvalueであるべき。
+- そうでなければ、_S_ を複合文 `{` _expression_ _opt_ `;` _p_`.return_void(); }`とする。式 _p_`.return_void()`は`void`型のprvalueであるべき。
 
 _p_`.return_void()`が有効な式のとき、コルーチン本体の終端到達はオペランド無し`co_return`と等価である。
 そうでなければ、コルーチン本体の終端到達は未定義の動作を引き起こす。
