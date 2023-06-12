@@ -11,6 +11,7 @@ NGWORD_LIST = [
     ("", "exposion", "exposition"),
     ("", "noexpcet", "noexcept"),
     ("", "protmise_type", "promise_type"),
+    ("", "pvalue", "prvalue"),
     ("", "repear", "repeat"),
     ("", "子ルーチン", "コルーチン"),
     ("", "移譲", "委譲"),
