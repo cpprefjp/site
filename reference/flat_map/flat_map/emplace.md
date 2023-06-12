@@ -32,8 +32,11 @@ auto value_it = c.values.begin() + distance(c.keys.begin(), key_it);
 c.keys.insert(key_it, std::move(t.first));
 c.values.insert(value_it, std::move(t.second));
 ```
+* c.keys[link containers.md]
+* c.values[link containers.md]
 * ranges::upper_bound[link /reference/algorithm/ranges_upper_bound.md]
 * begin()[link /reference/vector/vector/begin.md]
+* distance[link /reference/iterator/distance.md]
 * insert[link /reference/vector/vector/insert.md]
 * std::move[link /reference/utility/move.md]
 
