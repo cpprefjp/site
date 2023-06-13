@@ -324,6 +324,18 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
     - [`std::atomic_init()`](/reference/atomic/atomic_init.md)関数
     - [`ATOMIC_VAR_INIT`](/reference/atomic/atomic_var_init.md)マクロ
     - [`ATOMIC_FLAG_INIT`](/reference/atomic/atomic_flag_init.md)マクロ
+- [`std::shared_ptr`](/reference/memory/shared_ptr.md)の[`std::atomic`特殊化](/reference/memory/atomic.md)追加にともない、[`std::shared_ptr`](/reference/memory/shared_ptr.md)に対する以下のアトミック操作を非推奨化：
+    - [`atomic_is_lock_free`](/reference/memory/shared_ptr/atomic_is_lock_free.md)
+    - [`atomic_load`](/reference/memory/shared_ptr/atomic_load.md)
+    - [`atomic_load_explicit`](/reference/memory/shared_ptr/atomic_load_explicit.md)
+    - [`atomic_store`](/reference/memory/shared_ptr/atomic_store.md)
+    - [`atomic_store_explicit`](/reference/memory/shared_ptr/atomic_store_explicit.md)
+    - [`atomic_exchange`](/reference/memory/shared_ptr/atomic_exchange.md)
+    - [`atomic_exchange_explicit`](/reference/memory/shared_ptr/atomic_exchange_explicit.md)
+    - [`atomic_compare_exchange_weak`](/reference/memory/shared_ptr/atomic_compare_exchange_weak.md)
+    - [`atomic_compare_exchange_strong`](/reference/memory/shared_ptr/atomic_compare_exchange_strong.md)
+    - [`atomic_compare_exchange_weak_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.md)
+    - [`atomic_compare_exchange_strong_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.md)
 
 
 ### 機能の削除
