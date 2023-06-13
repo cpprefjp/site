@@ -10,11 +10,11 @@ const_iterator end() const noexcept;
 ```
 
 ## 概要
-`multimap` コンテナの最後の要素の次を参照するイテレータを返す。
+`multimap` コンテナの末尾の次を参照するイテレータを取得する。
 
 
 ## 戻り値
-コンテナの最後の要素の次を参照するイテレータ。 
+コンテナの末尾の次を参照するイテレータ。 
 `iterator` と `const_iterator` はいずれもメンバ型である。`multimap` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
@@ -82,11 +82,11 @@ int main()
 ## 関連項目
 
 | 名前 | 説明 |
-|------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`multimap::begin`](/reference/map/multimap/begin.md) | 先頭を指すイテレータを取得する |
-| [`multimap::cbegin`](/reference/map/multimap/cbegin.md) | 先頭を指すconstイテレータを取得する |
-| [`multimap::cend`](/reference/map/multimap/cend.md) | 末尾を指すconstイテレータを取得する |
-| [`multimap::rbegin`](/reference/map/multimap/rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`multimap::rend`](/reference/map/multimap/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`multimap::crbegin`](/reference/map/multimap/crbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`multimap::crend`](/reference/map/multimap/crend.md) | 先頭を指す逆constイテレータを取得する |
+|-----------------------------------|-------------------------------------------|
+| [`multimap::begin`](begin.md)     | 先頭を指すイテレータを取得する |
+| [`multimap::cbegin`](cbegin.md)   | 先頭を指すconstイテレータを取得する |
+| [`multimap::cend`](cend.md)       | 末尾の次を指すconstイテレータを取得する |
+| [`multimap::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+| [`multimap::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+| [`multimap::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`multimap::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |

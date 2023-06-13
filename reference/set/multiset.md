@@ -57,12 +57,12 @@ namespace std {
 |-------------------------------|----------------------------------------------|-------|
 | [`begin`](multiset/begin.md)     | 先頭を指すイテレータを取得する               | |
 | [`cbegin`](multiset/cbegin.md)   | 先頭を指す読み取り専用イテレータを取得する   | C++11 |
-| [`end`](multiset/end.md)         | 末尾を指すイテレータを取得する               | |
-| [`cend`](multiset/cend.md)       | 末尾を指す読み取り専用イテレータを取得する   | C++11 |
+| [`end`](multiset/end.md)         | 末尾の次を指すイテレータを取得する               | |
+| [`cend`](multiset/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する   | C++11 |
 | [`rbegin`](multiset/rbegin.md)   | 末尾を指す逆イテレータを取得する             | |
 | [`crbegin`](multiset/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
-| [`rend`](multiset/rend.md)       | 先頭を指す逆イテレータを取得する             | |
-| [`crend`](multiset/crend.md)     | 先頭を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`rend`](multiset/rend.md)       | 先頭の前を指す逆イテレータを取得する             | |
+| [`crend`](multiset/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
 ### 領域

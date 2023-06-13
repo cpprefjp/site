@@ -11,8 +11,8 @@ const_iterator begin() const noexcept;
 
 
 ## 概要
-`map` コンテナの先頭のキーと要素のpairを参照するイテレータを返す。 
-内部的に、`map`コンテナは要素を下位から上位へと並べており、従って `begin()`は `map` 内の最下位のキーにあたるpairのイテレータを返す。
+`map` コンテナの先頭のキーと要素のpairを参照するイテレータを取得する。 
+内部的に、`map`コンテナは要素を下位から上位へと並べており、従って `begin()`は `map` 内の最下位のキーにあたるpairへのイテレータを返す。
 
 
 ## 戻り値
@@ -77,13 +77,13 @@ int main()
 ## 関連項目
 
 | 名前 | 説明 |
-|------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`map::end`](/reference/map/map/end.md) | 末尾を指すイテレータを取得する |
-| [`map::cbegin`](/reference/map/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
-| [`map::cend`](/reference/map/map/cend.md) | 末尾を指すconstイテレータを取得する |
-| [`map::rbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`map::rend`](/reference/map/map/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`map::crbegin`](/reference/map/map/crbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`map::crend`](/reference/map/map/crend.md) | 先頭を指す逆constイテレータを取得する |
+|------------------------------|------------------------------------------|
+| [`map::end`](end.md)         | 末尾の次を指すイテレータを取得する |
+| [`map::cbegin`](cbegin.md)   | 先頭を指すconstイテレータを取得する |
+| [`map::cend`](cend.md)       | 末尾の次を指すconstイテレータを取得する |
+| [`map::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+| [`map::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+| [`map::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`map::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
 
 

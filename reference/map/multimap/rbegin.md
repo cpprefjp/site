@@ -10,9 +10,9 @@ const_reverse_iterator rbegin() const noexcept;
 ```
 
 ## 概要
-`multimap` コンテナ内の最後の要素を指す逆イテレータを返す。 
-内部的に、`multimap` コンテナは各要素をキーの値に従って下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値を返す。 
-`rbegin()` は [`end()`](/reference/map/multimap/end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
+`multimap` コンテナ内の末尾を指す逆イテレータを取得する。 
+内部的に、`multimap` コンテナは各要素をキーの値に従って下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値をへのイテレータ返す。 
+`rbegin()` は [`end()`](end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 
 ## 戻り値
@@ -67,12 +67,12 @@ int main()
 
 ## 関連項目
 | 名前 | 説明 |
----------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`multimap::begin`](/reference/map/multimap/begin.md) | 先頭を指すイテレータを取得する |
-| [`multimap::end`](/reference/map/multimap/end.md) | 末尾を指すイテレータを取得する |
-| [`multimap::cbegin`](/reference/map/multimap/cbegin.md) | 先頭を指すconstイテレータを取得する |
-| [`multimap::cend`](/reference/map/multimap/cend.md) | 末尾を指すconstイテレータを取得する |
-| [`multimap::rend`](/reference/map/multimap/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`multimap::crbegin`](/reference/map/multimap/crbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`multimap::crend`](/reference/map/multimap/crend.md) | 先頭を指す逆constイテレータを取得する |
+------------------------------------|-------------------------------------------|
+| [`multimap::begin`](begin.md)     | 先頭を指すイテレータを取得する |
+| [`multimap::end`](end.md)         | 末尾の次を指すイテレータを取得する |
+| [`multimap::cbegin`](cbegin.md)   | 先頭を指すconstイテレータを取得する |
+| [`multimap::cend`](cend.md)       | 末尾を指すconstイテレータを取得する |
+| [`multimap::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+| [`multimap::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`multimap::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
 

@@ -10,11 +10,11 @@ const_iterator cend() const noexcept;
 ```
 
 ## 概要
-`map` コンテナの最後の要素の次を参照するイテレータを返す。
+`map` コンテナの末尾の次を参照するイテレータを取得する。
 
 
 ## 戻り値
-コンテナの最後の要素の次を参照するイテレータ。 
+コンテナの末尾の次を参照するイテレータ。 
 `const_iterator` はいずれもメンバ型である。`map` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
@@ -78,14 +78,14 @@ int main()
 ## 関連項目
 
 | 名前 | 説明 |
-|------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`map::begin`](/reference/map/map/begin.md) | 先頭を指すイテレータを取得する |
-| [`map::end`](/reference/map/map/end.md) | 末尾を指すイテレータを取得する |
-| [`map::cbegin`](/reference/map/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
-| [`map::rbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`map::rend`](/reference/map/map/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`map::crbegin`](/reference/map/map/crbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`map::crend`](/reference/map/map/crend.md) | 先頭を指す逆constイテレータを取得する |
+|------------------------------|-------------------------------------------|
+| [`map::begin`](begin.md)     | 先頭を指すイテレータを取得する |
+| [`map::end`](end.md)         | 末尾の次を指すイテレータを取得する |
+| [`map::cbegin`](cbegin.md)   | 先頭を指すconstイテレータを取得する |
+| [`map::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+| [`map::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+| [`map::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`map::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
 
 
 
