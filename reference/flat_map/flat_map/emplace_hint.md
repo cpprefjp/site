@@ -52,7 +52,7 @@ int main()
 ```
 * emplace_hint[color ff0000]
 * fm.emplace[link emplace.md]
-* fm.end()[link end.md.nolink]
+* fm.end()[link end.md]
 
 ### 出力
 ```

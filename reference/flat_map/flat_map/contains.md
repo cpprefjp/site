@@ -31,7 +31,7 @@ bool contains(const K& x) const;        // (2) C++23
 return find(x) != end();
 ```
 * find[link find.md]
-* end()[link end.md.nolink]
+* end()[link end.md]
 
 
 ## 計算量

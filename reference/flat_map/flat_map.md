@@ -33,15 +33,15 @@ namespace std {
 ### イテレータ
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------|----------------------------------------------|-------|
-| [`begin`](flat_map/begin.md.nolink)     | 先頭を指すイテレータを取得する               | C++23 |
-| [`cbegin`](flat_map/cbegin.md.nolink)   | 先頭を指す読み取り専用イテレータを取得する   | C++23 |
-| [`end`](flat_map/end.md.nolink)         | 末尾を指すイテレータを取得する               | C++23 |
-| [`cend`](flat_map/cend.md.nolink)       | 末尾を指す読み取り専用イテレータを取得する   | C++23 |
-| [`rbegin`](flat_map/rbegin.md.nolink)   | 末尾を指す逆イテレータを取得する             | C++23 |
-| [`crbegin`](flat_map/crbegin.md.nolink) | 末尾を指す読み取り専用逆イテレータを取得する | C++23 |
-| [`rend`](flat_map/rend.md.nolink)       | 先頭を指す逆イテレータを取得する             | C++23 |
-| [`crend`](flat_map/crend.md.nolink)     | 先頭を指す読み取り専用逆イテレータを取得する | C++23 |
+|----------------------------------|--------------------------------------------------|-------|
+| [`begin`](flat_map/begin.md)     | 先頭を指すイテレータを取得する                   | C++23 |
+| [`cbegin`](flat_map/cbegin.md)   | 先頭を指す読み取り専用イテレータを取得する       | C++23 |
+| [`end`](flat_map/end.md)         | 末尾の次を指すイテレータを取得する               | C++23 |
+| [`cend`](flat_map/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する   | C++23 |
+| [`rbegin`](flat_map/rbegin.md)   | 末尾を指す逆イテレータを取得する                 | C++23 |
+| [`crbegin`](flat_map/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する     | C++23 |
+| [`rend`](flat_map/rend.md)       | 先頭の前を指す逆イテレータを取得する             | C++23 |
+| [`crend`](flat_map/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++23 |
 
 
 ### 領域
@@ -106,10 +106,10 @@ namespace std {
 | `const_reference` | 要素への`const`参照型。[`std::pair`](/reference/utility/pair.md)`<const key_type&, const mapped_type&>` | C++23 |
 | `size_type` | 要素数を表す符号なし整数型 [`size_t`](/reference/cstddef/size_t.md) | C++23 |
 | `difference_type` | 同一のコンテナを指す `iterator` の差を表す符号付き整数型 [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md) | C++23 |
-| `iterator` | 双方向イテレータ | C++23 |
-| `const_iterator` | 読み取り専用双方向イテレータ | C++23 |
-| `reverse_iterator` | 逆順双方向イテレータ。[`std::reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++23 |
-| `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。[`std::reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | C++23 |
+| `iterator` | ランダムアクセスイテレータ | C++23 |
+| `const_iterator` | 読み取り専用ランダムアクセスイテレータ | C++23 |
+| `reverse_iterator` | 逆順ランダムアクセスイテレータ。[`std::reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++23 |
+| `const_reverse_iterator` | 読み取り専用逆順ランダムアクセスイテレータ。[`std::reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>` | C++23 |
 | `key_container_type` | キーを格納するコンテナ型 `KeyContainer` | C++23 |
 | `mapped_container_type` | 値を格納するコンテナ型 `MappedContainer` | C++23 |
 | [`containers`](flat_map/containers.md) | キーのコンテナと値のコンテナを保持する型 | C++23 |
