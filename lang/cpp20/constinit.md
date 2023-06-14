@@ -196,6 +196,9 @@ int main() {}
 ## 関連項目
 
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
+- [`mutex`のコンストラクタ](/reference/mutex/mutex/op_constructor.md)
+- [`unique_ptr`のコンストラクタ](/reference/memory/unique_ptr/op_constructor.md)
+
 
 ## 参照
 
