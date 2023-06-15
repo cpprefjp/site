@@ -1,7 +1,6 @@
 # offsetof
 * cstddef[meta header]
-* std[meta namespace]
-* type-alias[meta id-type]
+* macro[meta id-type]
 
 ```cpp
 # define offsetof(type, member) see-below
