@@ -99,9 +99,6 @@ int main()
   m.erase(1);
   std::cout << m.size() << std::endl;
 
-  m.erase(5);
-  std::cout << m.size() << std::endl;
-
   m.erase(m.begin(), m.end());
   std::cout << m.size() << std::endl;
 
@@ -117,7 +114,6 @@ int main()
 #### 出力
 ```
 3
-2
 2
 0
 ```
