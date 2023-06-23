@@ -135,5 +135,5 @@ CCC : (1, 2)
 | [`flat_map::insert`](insert.md.nolink)                     | 要素を挿入する                             |
 | [`flat_map::insert_or_assign`](insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               |
 | [`flat_map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
-| [`flat_map::try_emplace`](try_emplace.md.nolink)           | キーが存在しない場合のみ要素を直接構築する |
+| [`flat_map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
 

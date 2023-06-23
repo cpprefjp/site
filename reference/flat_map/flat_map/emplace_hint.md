@@ -28,7 +28,7 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 
 
 ## 備考
-- [`try_emplace`](try_emplace.md.nolink) と異なり、たとえ要素が挿入されなかった場合でも `value_type` 型のオブジェクトが構築される可能性があり、結果として引数 `args` が [`move`](/reference/utility/move.md) の対象となって変更されてしまっている可能性があるため、注意が必要である。
+- [`try_emplace`](try_emplace.md) と異なり、たとえ要素が挿入されなかった場合でも `value_type` 型のオブジェクトが構築される可能性があり、結果として引数 `args` が [`move`](/reference/utility/move.md) の対象となって変更されてしまっている可能性があるため、注意が必要である。
 
 
 ## 例
@@ -78,5 +78,5 @@ int main()
 | [`flat_map::insert`](insert.md.nolink)                     | 要素を挿入する                             |
 | [`flat_map::insert_or_assign`](insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               |
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
-| [`flat_map::try_emplace`](try_emplace.md.nolink)           | キーが存在しない場合のみ要素を直接構築する |
+| [`flat_map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
 

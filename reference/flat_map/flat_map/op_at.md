@@ -30,20 +30,20 @@ mapped_type& operator[](K&& x);             // (3) C++23
     ```cpp
     return try_emplace(x).first->second;
     ```
-    * try_emplace[link try_emplace.md.nolink]
+    * try_emplace[link try_emplace.md]
 
 - (2) : 以下と等価
     ```cpp
     return try_emplace(std::move(x)).first->second;
     ```
-    * try_emplace[link try_emplace.md.nolink]
+    * try_emplace[link try_emplace.md]
     * std::move[link /reference/utility/move.md]
 
 - (3) : 以下と等価
     ```cpp
     return try_emplace(std::forward(x)).first->second;
     ```
-    * try_emplace[link try_emplace.md.nolink]
+    * try_emplace[link try_emplace.md]
     * std::forward[link /reference/utility/forward.md]
 
 
@@ -75,9 +75,9 @@ int main()
   fm[2] = 'b';
 }
 ```
-* m[1][color ff0000]
-* m[2][color ff0000]
-* m.insert[link insert.md.nolink]
+* fm[1][color ff0000]
+* fm[2][color ff0000]
+* fm.insert[link insert.md.nolink]
 
 ### 出力
 ```
