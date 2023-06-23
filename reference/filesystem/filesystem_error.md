@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::filesystem {
   class filesystem_error : public system_error;
 }
 ```
