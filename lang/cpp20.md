@@ -339,9 +339,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 
 ### 機能の削除
-- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、[`allocator`](/reference/memory/allocator.md)の以下のメンバを削除：
-    - `size_type`型
-    - `difference_type`型
+- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、[`allocator`](/reference/memory/allocator.md)の以下のメンバを削除。なお、`size_type`型と`difference_type`型の非推奨は取り消された。
     - `pointer`型
     - `const_pointer`型
     - `reference`型
