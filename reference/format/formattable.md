@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class charT>
-  concept fmt-iter-for = output_iterator<const charT&>;
+  using fmt-iter-for = /* unspecified */;
 
   template <class T, class charT>
   concept formattable =
@@ -23,6 +23,8 @@ namespace std {
   };
 }
 ```
+* fmt-iter-for[italic]
+* unspecified[italic]
 * formatter[link formatter.md]
 * semiregular[link /reference/concepts/semiregular.md]
 * basic_format_context[link basic_format_context.md]
@@ -33,6 +35,7 @@ namespace std {
 
 このコンセプトを使用することで、[`formatter`](formatter.md)クラステンプレートが使用したい型で特殊化されているかをチェックできる。
 
+`formattable`コンセプトの定義において使用されている`fmt-iter-for<charT>`は、[`output_iterator<const charT&>`](/reference/iterator/output_iterator.md)コンセプトのモデルとなる未規定の型である。
 
 ## 例
 ```cpp example
