@@ -258,11 +258,11 @@ int main()
     //auto x2 = {};      // コンパイルエラー！x2の型を推論できない
     ```
 
-- 単一要素の初期化子リストを`auto`で受けた場合、C++11では`std::initializer_list<T>`型に推論されるが、C++17では`T`型に推論されるよう仕様が変更されるので注意
+- 単一要素の初期化子リストを`auto`で受けた場合、C++11では`std::initializer_list<T>`型に推論されるが、C++17では直接初期化の場合`T`型に推論されるよう仕様が変更されるので注意
 
     ```cpp
-    auto x = {1}; // C++11ではxの型はstd::initializer_list<int>。
-                  // C++17ではxの型はintになる
+    auto x{1}; // C++17ではxの型はintになる
+    auto x = {1}; // C++11,17共に、xの型はstd::initializer_list<int>。
     ```
 
 - 関数テンプレートのパラメータとして初期化子リストを受けとった場合は、`std::initializer_list`型には推論されない
