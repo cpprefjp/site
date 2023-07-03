@@ -92,7 +92,7 @@ public:
   // format()関数は書式の情報をもたない。
   // parse()関数で解析した書式をメンバ変数で保持しておいて、
   // それをもとに書式化する
-  auto format(MyVector<T>&& v, std::format_context& fctx) const {
+  auto format(const MyVector<T>& v, std::format_context& fctx) const {
     if (is_colon) {
       auto out = fctx.out();
       bool is_first = true;
