@@ -8,7 +8,7 @@
 namespace std {
   template <class Iterator>
   reverse_iterator<Iterator>
-    make_reverse_iterator(Iterator i); // C++03
+    make_reverse_iterator(Iterator i); // C++14
 
   template <class Iterator>
   constexpr reverse_iterator<Iterator>
