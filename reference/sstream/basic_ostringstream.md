@@ -1,4 +1,4 @@
-# basic_istringstream
+# basic_ostringstream
 * sstream[meta header]
 * std[meta namespace]
 * class template[meta id-type]
@@ -7,18 +7,18 @@
 namespace std {
   template <class CharT, class Traits = char_traits<CharT>,
             class Allocator = allocator<CharT> >
-  class basic_istringstream : public basic_istream<CharT, Traits>;
+  class basic_ostringstream : public basic_ostream<CharT, Traits>;
 
-  using istringstream  = basic_istringstream<char>;
-  using wistringstream = basic_istringstream<wchar_t>;
+  using ostringstream  = basic_ostringstream<char>;
+  using wostringstream = basic_ostringstream<wchar_t>;
 }
 ```
 * char_traits[link /reference/string/char_traits.md]
 * allocator[link /reference/memory/allocator.md]
-* basic_istream[link /reference/istream/basic_istream.md]
+* basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
-バッファに保持された文字列への読み取り操作ができるストリーム
+バッファに保持された文字列への書き込み操作ができるストリーム
 
 
 ## メンバ関数
@@ -30,7 +30,7 @@ namespace std {
 | `operator=`                         | ムーブ代入                                 | C++11 |
 | `swap`                              | 値の交換                                   | C++11 |
 | `rdbuf`                             | ストリームバッファオブジェクトの設定・取得 | |
-| [`str`](basic_istringstream/str.md) | 文字列オブジェクトの設定・取得             | |
+| [`str`](basic_ostringstream/str.md) | 文字列オブジェクトの設定・取得             | |
 | `view`                              | 文字列ビューオブジェクトの取得             | C++20 |
 
 

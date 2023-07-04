@@ -68,8 +68,8 @@ int main()
   }
 }
 ```
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
-* ss.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
+* ss.str()[link /reference/sstream/basic_stringstream/str.md]
 * intervals.begin()[link /reference/array/array/begin.md]
 * intervals.end()[link /reference/array/array/end.md]
 * densities.begin()[link /reference/array/array/begin.md]

@@ -33,12 +33,12 @@ s.precision(os.precision());
 s << d.count() << units_suffix;
 return os << s.str();
 ```
-* basic_ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
+* basic_ostringstream[link /reference/sstream/basic_ostringstream.md]
 * flags[link /reference/ios/ios_base/flags.md]
 * s.imbue[link /reference/ios/ios_base/imbue.md]
 * os.getloc()[link /reference/ios/ios_base/getloc.md]
 * precision[link /reference/ios/ios_base/precision.md]
-* s.str()[link /reference/sstream/basic_ostringstream/str.md.nolink]
+* s.str()[link /reference/sstream/basic_ostringstream/str.md]
 
 ここでの`units_suffix`は、`Period::type`単位型に以下のように対応する：
 

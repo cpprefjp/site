@@ -45,10 +45,10 @@ int main()
 }
 ```
 * std::ios_base[link ../ios_base.md]
-* std::ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
+* std::ostringstream[link ../../sstream/basic_ostringstream.md]
 * seekp[link ../../ostream/basic_ostream/seekp.md]
 * std::flush[link ../../ostream/flush.md]
-* str()[link ../../sstream/basic_ostringstream/str.md.nolink]
+* str()[link ../../sstream/basic_ostringstream/str.md]
 * out[link type-openmode.md]
 * seekdir[color ff0000]
 * beg[color ff0000]

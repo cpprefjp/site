@@ -66,7 +66,7 @@ int main()
 }
 ```
 * std::ios_base[link ../ios_base.md]
-* std::stringstream[link ../../sstream/basic_stringstream.md.nolink]
+* std::stringstream[link ../../sstream/basic_stringstream.md]
 * event[color ff0000]
 * erase_event[color ff0000]
 * copyfmt_event[color ff0000]

@@ -62,8 +62,8 @@ int main()
 }
 ```
 * std::knuth_b[link /reference/random/knuth_b.md]
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
-* ss.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
+* ss.str()[link /reference/sstream/basic_stringstream/str.md]
 
 ### 出力例
 ```

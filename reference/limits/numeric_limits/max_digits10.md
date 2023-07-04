@@ -82,10 +82,10 @@ int main()
 ```
 * max_digits10[color ff0000]
 * digits10[link digits10.md]
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 * precision[link /reference/ios/ios_base/precision.md]
 * std::scientific[link /reference/ios/scientific.md]
-* s.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
+* s.str()[link /reference/sstream/basic_stringstream/str.md]
 * std::nextafter[link /reference/cmath/nextafter.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 

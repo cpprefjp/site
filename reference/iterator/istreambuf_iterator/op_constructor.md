@@ -40,7 +40,7 @@ int main()
   std::cout << *it2 << std::endl;
 }
 ```
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ### 出力
 ```

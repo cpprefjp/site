@@ -62,8 +62,8 @@ int main()
 }
 ```
 * std::ranlux24[link /reference/random/ranlux24.md]
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
-* ss.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
+* ss.str()[link /reference/sstream/basic_stringstream/str.md]
 
 ### 出力例
 ```
