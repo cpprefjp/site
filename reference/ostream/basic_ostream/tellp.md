@@ -37,9 +37,9 @@ int main() {
   std::cout << os.str() << std::endl;
 }
 ```
-* std::ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
+* std::ostringstream[link ../../sstream/basic_ostringstream.md]
 * tellp[color ff0000]
-* str()[link ../../sstream/basic_ostringstream/str.md.nolink]
+* str()[link ../../sstream/basic_ostringstream/str.md]
 * seekp[link seekp.md]
 
 ### 出力

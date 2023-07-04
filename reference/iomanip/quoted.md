@@ -115,7 +115,7 @@ int main()
 }
 ```
 * std::quoted[color ff0000]
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ## 出力
 ```

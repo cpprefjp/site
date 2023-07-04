@@ -38,7 +38,7 @@ int main()
   });
 }
 ```
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ### 出力
 ```

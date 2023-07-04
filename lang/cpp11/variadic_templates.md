@@ -323,7 +323,7 @@ hello
       f(1, 'a', "hello");
     }
     ```
-    * std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+    * std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 - 複数のパラメータパックに対して拡張を行う場合、それらのパラメータパックは同じ要素数でなければならない。そうでない場合、プログラムは不適格となる
 
