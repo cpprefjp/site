@@ -8,7 +8,6 @@
 ```cpp
 constexpr const_reverse_iterator crbegin() const noexcept;
 ```
-* const_iterator[link /reference/iterator/const_iterator.md.nolink]
 
 ## 概要
 末尾要素の次を指すイテレータを取得する。
