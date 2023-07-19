@@ -106,6 +106,10 @@ namespace std {
 | [`end`](span/end.md) | 末尾要素の次を指すイテレータを取得する | C++20 |
 | [`rbegin`](span/rbegin.md) | 末尾要素を指す逆順イテレータを取得する | C++20 |
 | [`rend`](span/rend.md) | 先頭要素の前を指す逆順イテレータを取得する | C++20 |
+| [`cbegin`](span/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++23 |
+| [`cend`](span/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++23 |
+| [`crbegin`](span/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++23 |
+| [`crend`](span/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++23 |
 
 
 ### メンバ定数
@@ -129,6 +133,8 @@ namespace std {
 | `const_reference` | `const`参照型 `const element_type&` | C++20 |
 | `iterator` | 実装定義のイテレータ型。[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)、[`random_access_iterator`](/reference/iterator/random_access_iterator.md)、constexprイテレータのモデルであり、コンテナのイテレータに対するすべての要件を満たす | C++20 |
 | `reverse_iterator` | 逆順イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++20 |
+| `const_iterator` | 読み取り専用イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md.nolink)`<iterator>` | C++23 |
+| `const_reverse_iterator` | 読み取り専用逆イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md.nolink)`<reverse_iterator>` | C++23 |
 
 
 ## 非メンバ関数
@@ -259,8 +265,8 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0
-- [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [GCC](/implementation.md#gcc): 10.1
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
 
 
 ## 参照
@@ -280,3 +286,4 @@ int main()
 - [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)
 - [Require `span` & `basic_string_view` to be Trivially Copyable](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2251r1.pdf)
     - C++23から、トリビアルコピー可能が保証される。
+- [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
