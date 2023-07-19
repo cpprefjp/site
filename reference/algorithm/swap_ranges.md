@@ -36,7 +36,7 @@ namespace std {
 
 
 ## 効果
-0 以上 `last1 - first1` 以下のそれぞれの `n` について [`swap`](/reference/utility/swap.md)`(*(first1 + n), *(first2 + n))` を行う
+0 以上 `last1 - first1` 未満のそれぞれの `n` について [`swap`](/reference/utility/swap.md)`(*(first1 + n), *(first2 + n))` を行う
 
 
 ## 戻り値
