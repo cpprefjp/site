@@ -2,7 +2,7 @@
 * iterator[meta header]
 * std[meta namespace]
 * type-alias[meta id-type]
-* cpp20[meta cpp]
+* cpp23[meta cpp]
 
 ```cpp
 namespace std {
