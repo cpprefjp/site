@@ -8,8 +8,8 @@
 basic_string<CharT, Traits, Allocator> str() const;                // (1) C++03
 basic_string<CharT, Traits, Allocator> str() const &;              // (1) C++20
 template <class SAlloc>
-basic_string<CharT, Traits, SAlloc> str(const SAlloc& sa) const &; // (2) C++20
-basic_string<CharT, Traits, Allocator> str() const &&;             // (3) C++20
+basic_string<CharT, Traits, SAlloc> str(const SAlloc& sa) const;   // (2) C++20
+basic_string<CharT, Traits, Allocator> str() &&;                   // (3) C++20
 
 void str(const basic_string<CharT, Traits, Allocator>& s);  // (4)
 template <class SAlloc>
