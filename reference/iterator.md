@@ -142,7 +142,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|------------------------------------------|-------|
-| [`basic_const_iterator`](iterator/basic_const_iterator.md.nolink) | イテレータの要素を`const`化するラッパーイテレータ(class template) | C++23 |
+| [`basic_const_iterator`](iterator/basic_const_iterator.md) | イテレータの要素を`const`化するラッパーイテレータ(class template) | C++23 |
 | [`const_iterator`](iterator/const_iterator.md.nolink) | 要素が`const`化されたイテレータ型を取得する (alias template)           | C++23 |
 | [`const_sentinel`](iterator/const_sentinel.md.nolink) | 要素が`const`化された番兵型を取得する (alias template)           | C++23 |
 | [`make_const_iterator`](iterator/make_const_iterator.md.nolink) | `const_iterator`オブジェクトを作るヘルパ関数(function template) | C++23 |
