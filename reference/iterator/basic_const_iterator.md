@@ -36,7 +36,7 @@ namespace std {
 | [`operator<`](basic_const_iterator/op_less.md.nolink)           | 左辺が右辺より小さいかの判定を行う | C++23 |
 | [`operator<=`](basic_const_iterator/op_less_equal.md.nolink)    | 左辺が右辺以下かの判定を行う | C++23 |
 | [`operator>`](basic_const_iterator/op_greater.md.nolink)        | 左辺が右辺より大きいかの判定を行う | C++23 |
-| [`operator>=`](basic_const_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++23 |
+| [`operator>=`](basic_const_iterator/op_greater_equal.md.nolink) | 左辺が右辺以上かの判定を行う | C++23 |
 | [`operator<=>`](basic_const_iterator/op_compare_3way.md.nolink)           | 三方比較を行う | C++23 |
 | [`operator-`](basic_const_iterator/op_minus.md.nolink)          | 2つの`basic_const_iterator`の差を求める | C++23 |
 | [`operator+`](basic_const_iterator/op_plus.md.nolink)           | イテレータを進める | C++23 |
@@ -47,7 +47,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
 | `iterator_concept` | `Iterator`がモデルとなる最も強いイテレータコンセプトに対応する[イテレータタグ型](/reference/iterator/iterator_tag.md) | C++23 |
-| `iterator_category` | `Iterator`が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルである場合にのみ[`iterator_traits`](/reference/iterator/iterator_traits.md)`<​Iterator>​::​iterator_category`として定義される | C++23 |
+| `iterator_category` | `Iterator`が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルである場合にのみ[`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category`として定義される | C++23 |
 | `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<Iterator>` | C++23 |
 | `difference_type` | [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<Iterator>` | C++23 |
 
