@@ -20,9 +20,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| [`(constructor)`](basic_const_iterator/op_constructor.md.nolink) | コンストラクタ | C++23 |
-| [`operator=`](basic_const_iterator/op_assign.md.nolink)          | 代入演算子 | C++23 |
-| [`base`](basic_const_iterator/base.md.nolink)                    | 元のイテレータを取得する | C++23 |
+| [`(constructor)`](basic_const_iterator/op_constructor.md) | コンストラクタ | C++23 |
+| [`base`](basic_const_iterator/base.md)                    | 元のイテレータを取得する | C++23 |
 | [`operator*`](basic_const_iterator/op_deref.md.nolink)           | 間接参照演算子 | C++23 |
 | [`operator->`](basic_const_iterator/op_arrow.md.nolink)          | メンバアクセス演算子 | C++23 |
 | [`operator++`](basic_const_iterator/op_increment.md.nolink)      | イテレータをインクリメントする | C++23 |
@@ -64,7 +63,7 @@ namespace std {
 - それ以外の場合
     - `input_iterator_tag`
 
-## 非メンバ関数
+## 非メンバ（*Hidden friends*）関数
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
@@ -75,11 +74,15 @@ namespace std {
 | [`operator+`](basic_const_iterator/op_plus.md.nolink)           | イテレータを進める | C++23 |
 | [`operator-`](basic_const_iterator/op_minus.md.nolink)          | 2つの`basic_const_iterator`の差を求める | C++23 |
 | [`iter_move`](basic_const_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++23 |
+
+## 非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
 | [`make_const_iterator`](make_const_iterator.md.nolink)     | `basic_const_iterator`のヘルパ関数 | C++23 |
 | [`make_const_sentinel`](make_const_sentinel.md.nolink)     | `basic_const_iterator`のヘルパ関数 | C++23 |
 
 ## 例
-（執筆中）
 
 ```cpp example
 #include <iterator>
@@ -101,6 +104,7 @@ int main() {
   //*cit = 0;
 }
 ```
+
 ### 出力
 ```
 1

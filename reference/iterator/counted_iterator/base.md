@@ -39,7 +39,7 @@ int main() {
   std::cout << *(ci.base());
 }
 ```
-* count[color ff0000]
+* base[color ff0000]
 * ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
