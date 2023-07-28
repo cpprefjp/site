@@ -22,8 +22,8 @@ namespace std {
 |------------------------------------------------------|-------------|-------|
 | [`(constructor)`](basic_const_iterator/op_constructor.md) | コンストラクタ | C++23 |
 | [`base`](basic_const_iterator/base.md)                    | 元のイテレータを取得する | C++23 |
-| [`operator*`](basic_const_iterator/op_deref.md.nolink)           | 間接参照演算子 | C++23 |
-| [`operator->`](basic_const_iterator/op_arrow.md.nolink)          | メンバアクセス演算子 | C++23 |
+| [`operator*`](basic_const_iterator/op_deref.md)           | 間接参照演算子 | C++23 |
+| [`operator->`](basic_const_iterator/op_arrow.md)          | メンバアクセス演算子 | C++23 |
 | [`operator++`](basic_const_iterator/op_increment.md.nolink)      | イテレータをインクリメントする | C++23 |
 | [`operator--`](basic_const_iterator/op_decrement.md.nolink)      | イテレータをデクリメントする | C++23 |
 | [`operator+=`](basic_const_iterator/op_plus_assign.md.nolink)    | イテレータ自身を進める | C++23 |
