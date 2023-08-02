@@ -10,7 +10,7 @@ constexpr basic_const_iterator& operator--() requires bidirectional_iterator<Ite
 
 constexpr basic_const_iterator operator--(int) requires bidirectional_iterator<Iterator>;   // (2)
 ```
-* bidirectional_iterator[link ./bidirectional_iterator.md]
+* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
 
 ## 概要
 
@@ -55,8 +55,8 @@ int main() {
   
 }
 ```
-* --ci[color ff0000]
-* ci--[color ff0000]
+* --cit[color ff0000]
+* cit--[color ff0000]
 
 ### 出力
 ```
