@@ -28,6 +28,7 @@ constexpr basic_const_iterator operator--(int) requires bidirectional_iterator<I
     --current_;
     return *this;
     ```
+
 - (2) : 以下と等価  
     ```cpp
     auto tmp = *this;

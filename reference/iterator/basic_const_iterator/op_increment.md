@@ -17,8 +17,8 @@ constexpr basic_const_iterator operator++(int) requires forward_iterator<Iterato
 
 イテレータをインクリメントする。
 
-- (1) : 前置デクリメント
-- (2)(3) : 後置デクリメント
+- (1) : 前置インクリメント
+- (2)(3) : 後置インクリメント
 
 ## 効果
 
@@ -29,7 +29,9 @@ constexpr basic_const_iterator operator++(int) requires forward_iterator<Iterato
     ++current_;
     return *this;
     ```
+
 - (2) : `++current_;`
+
 - (3) : 以下と等価  
     ```cpp
     auto tmp = *this;
