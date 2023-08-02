@@ -8,16 +8,16 @@
 ```cpp
 namespace std {
   template<class Out, class... Args>
-  Out format_to(Out out, format_string<Args...> fmt, const Args&... args); // (1)
+  Out format_to(Out out, format_string<Args...> fmt, Args&&... args); // (1)
 
   template<class Out, class... Args>
-  Out format_to(Out out, wformat_string<Args...> fmt, const Args&... args); // (2)
+  Out format_to(Out out, wformat_string<Args...> fmt, Args&&... args); // (2)
 
   template<class Out, class... Args>
-  Out format_to(Out out, const locale& loc, format_string<Args...> fmt, const Args&... args); // (3)
+  Out format_to(Out out, const locale& loc, format_string<Args...> fmt, Args&&... args); // (3)
 
   template<class Out, class... Args>
-  Out format_to(Out out, const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
+  Out format_to(Out out, const locale& loc, wformat_string<Args...> fmt, Args&&... args); // (4)
 }
 ```
 * format_string[link basic_format_string.md]
@@ -158,3 +158,5 @@ wstring format_to(Out out, const locale& loc, wformat_string<Args...> fmt, const
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 * [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
 * [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
+* [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
+

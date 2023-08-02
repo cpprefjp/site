@@ -8,10 +8,10 @@
 ```cpp
 namespace std {
   template<class Context = format_context, class... Args>
-  format_arg_store<Context, Args...> make_format_args(const Args&... args); // (1)
+  format_arg_store<Context, Args...> make_format_args(Args&&... args); // (1)
 
   template<class... Args>
-  format_arg_store<wformat_context, Args...> make_wformat_args(const Args&... args); // (2)
+  format_arg_store<wformat_context, Args...> make_wformat_args(Args&&... args); // (2)
 }
 ```
 * format_arg_store[italic]
@@ -166,3 +166,4 @@ namespace std {
 ## 参照
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)

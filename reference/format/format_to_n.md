@@ -12,14 +12,14 @@ namespace std {
     format_to_n(Out out,
                 iter_difference_t<Out> n,
                 format_string<Args...> fmt,
-                const Args&... args);       // (1)
+                Args&&... args);       // (1)
 
   template<class Out, class... Args>
   format_to_n_result<Out>
     format_to_n(Out out,
                 iter_difference_t<Out> n,
                 wformat_string<Args...> fmt,
-                const Args&... args);       // (2)
+                Args&&... args);       // (2)
 
   template<class Out, class... Args>
   format_to_n_result<Out>
@@ -27,7 +27,7 @@ namespace std {
                 iter_difference_t<Out> n,
                 const locale& loc,
                 format_string<Args...> fmt,
-                const Args&... args);       // (3)
+                Args&&... args);       // (3)
 
   template<class Out, class... Args>
   format_to_n_result<Out>
@@ -35,7 +35,7 @@ namespace std {
                 iter_difference_t<Out> n,
                 const locale& loc,
                 wformat_string<Args...> fmt,
-                const Args&... args);       // (4)
+                Args&&... args);       // (4)
 }
 ```
 * format_string[link basic_format_string.md]
@@ -77,7 +77,7 @@ cout << buffer; // The answer is 42.
 `charT`を`decltype(fmt)::value_type`として、
 
 * `out`は`OutputIterator<const charT&>`を満たす型の有効なオブジェクトである。
-* `Args`のそれぞれの引数`Ti`に対応するフォーマッター`formatter<Ti, charT>`が`Formatter`要件を満たす。
+* `Args`のそれぞれの引数`Ti`に対応するフォーマッター`formatter<remove_cvref_t<Ti>, charT>`が`BasicFormatter`要件を満たす。
 
 ## 戻り値
 
@@ -127,3 +127,4 @@ The answer is 42.
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 * [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
 * [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
+* [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)

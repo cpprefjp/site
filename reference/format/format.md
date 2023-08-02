@@ -8,16 +8,16 @@
 ```cpp
 namespace std {
   template<class... Args>
-  string format(format_string<Args...> fmt, const Args&... args);                      // (1)
+  string format(format_string<Args...> fmt, Args&&... args);                      // (1)
 
   template<class... Args>
-  wstring format(wformat_string<Args...> fmt, const Args&... args);                    // (2)
+  wstring format(wformat_string<Args...> fmt, Args&&... args);                    // (2)
 
   template<class... Args>
-  string format(const locale& loc, format_string<Args...> fmt, const Args&... args);   // (3)
+  string format(const locale& loc, format_string<Args...> fmt, Args&&... args);   // (3)
 
   template<class... Args>
-  wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
+  wstring format(const locale& loc, wformat_string<Args...> fmt, Args&&... args); // (4)
 }
 ```
 * string[link /reference/string/basic_string.md]
@@ -615,3 +615,4 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 - [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+- [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
