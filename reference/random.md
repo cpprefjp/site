@@ -170,8 +170,8 @@ int main()
   std::ofstream file("random.tsv");
   for (size_t i = 0; i < 1000*1000; ++i) {
     // 各分布法に基いて乱数を生成
-    double r1 = dist1(engine);
-    double r2 = dist2(engine);
+    float r1 = dist1(engine);
+    float r2 = dist2(engine);
 
     file << r1 << "\t" << r2 << "\n";
   }
