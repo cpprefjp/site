@@ -27,9 +27,9 @@ namespace std {
 | [`operator++`](basic_const_iterator/op_increment.md)      | イテレータをインクリメントする | C++23 |
 | [`operator--`](basic_const_iterator/op_decrement.md)      | イテレータをデクリメントする | C++23 |
 | [`operator+=`](basic_const_iterator/op_plus_assign.md)    | イテレータ自身を進める | C++23 |
-| [`operator-`](basic_const_iterator/op_unary_minus.md.nolink)     | イテレータを逆に進める | C++23 |
 | [`operator-=`](basic_const_iterator/op_minus_assign.md)   | イテレータ自身を逆に進める | C++23 |
-| [`operator[]`](basic_const_iterator/op_at.md.nolink)             | 任意の位置にランダムアクセスする | C++23 |
+| [`operator-`](basic_const_iterator/op_minus.md)          | 2つの`basic_const_iterator`の差を求める | C++23 |
+| [`operator[]`](basic_const_iterator/op_at.md)             | 任意の位置にランダムアクセスする | C++23 |
 | [`operator==`](basic_const_iterator/op_equal.md.nolink)         | 等値比較 | C++23 |
 | [`operator!=`](basic_const_iterator/op_equal.md.nolink)     | 非等値比較 | C++23 |
 | [`operator<`](basic_const_iterator/op_less.md.nolink)           | 左辺が右辺より小さいかの判定を行う | C++23 |
@@ -37,8 +37,6 @@ namespace std {
 | [`operator>`](basic_const_iterator/op_greater.md.nolink)        | 左辺が右辺より大きいかの判定を行う | C++23 |
 | [`operator>=`](basic_const_iterator/op_greater_equal.md.nolink) | 左辺が右辺以上かの判定を行う | C++23 |
 | [`operator<=>`](basic_const_iterator/op_compare_3way.md.nolink)           | 三方比較を行う | C++23 |
-| [`operator-`](basic_const_iterator/op_minus.md.nolink)          | 2つの`basic_const_iterator`の差を求める | C++23 |
-| [`operator+`](basic_const_iterator/op_plus.md.nolink)           | イテレータを進める | C++23 |
 
 
 ## メンバ型
@@ -71,8 +69,9 @@ namespace std {
 | [`operator<=`](basic_const_iterator/op_less_equal.md.nolink)    | 左辺が右辺以下かの判定を行う | C++23 |
 | [`operator>`](basic_const_iterator/op_greater.md.nolink)        | 左辺が右辺より大きいかの判定を行う | C++23 |
 | [`operator>=`](basic_const_iterator/op_greater_equal.md.nolink) | 左辺が右辺以上かの判定を行う | C++23 |
-| [`operator+`](basic_const_iterator/op_plus.md.nolink)           | イテレータを進める | C++23 |
-| [`operator-`](basic_const_iterator/op_minus.md.nolink)          | 2つの`basic_const_iterator`の差を求める | C++23 |
+| [`operator+`](basic_const_iterator/op_plus.md)           | イテレータを進める | C++23 |
+| [`operator-`](basic_const_iterator/op_unary_minus.md)     | イテレータを逆に進める | C++23 |
+| [`operator-`](basic_const_iterator/op_minus.md)          | 2つの`basic_const_iterator`の差を求める | C++23 |
 | [`iter_move`](basic_const_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++23 |
 
 ## 非メンバ関数
