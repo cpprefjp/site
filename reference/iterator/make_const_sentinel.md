@@ -10,7 +10,7 @@ namespace std {
   constexpr const_sentinel<S> make_const_sentinel(S s);
 }
 ```
-* semiregular[link semiregular.md]
+* semiregular[link /reference/concepts/semiregular.md]
 * const_sentinel[link const_sentinel.md.nolink]
 
 ## 概要
