@@ -78,8 +78,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| [`make_const_iterator`](make_const_iterator.md.nolink)     | `basic_const_iterator`のヘルパ関数 | C++23 |
-| [`make_const_sentinel`](make_const_sentinel.md.nolink)     | `basic_const_iterator`のヘルパ関数 | C++23 |
+| [`make_const_iterator`](make_const_iterator.md)     | `basic_const_iterator`のヘルパ関数 | C++23 |
+| [`make_const_sentinel`](make_const_sentinel.md)     | `basic_const_iterator`のヘルパ関数 | C++23 |
 
 ## 例
 
