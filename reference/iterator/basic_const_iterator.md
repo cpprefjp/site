@@ -72,7 +72,7 @@ namespace std {
 | [`operator+`](basic_const_iterator/op_plus.md)           | イテレータを進める | C++23 |
 | [`operator-`](basic_const_iterator/op_unary_minus.md)     | イテレータを逆に進める | C++23 |
 | [`operator-`](basic_const_iterator/op_minus.md)          | 2つの`basic_const_iterator`の差を求める | C++23 |
-| [`iter_move`](basic_const_iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++23 |
+| [`iter_move`](basic_const_iterator/iter_move.md)     | イテレータの要素の移動 | C++23 |
 
 ## 非メンバ関数
 
