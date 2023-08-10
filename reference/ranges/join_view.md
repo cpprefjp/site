@@ -35,7 +35,10 @@ namespace std::ranges {
 
 - (1): 外側・内側のRangeが[`forward_range`](forward_range.md)のとき
 - (2): 外側・内側のRangeが[`bidirectional_range`](bidirectional_range.md)のとき
-- (3): 外側・内側のRangeが[`forward_range`](forward_range.md)かつ[`common_range`](common_range.md)のとき
+- (3): 外側・内側のRangeが[`forward_range`](forward_range.md)かつ[`common_range`](common_range.md)であり
+    - `const`ではない場合、内側のRangeは参照型（*prvalue*ではない）
+
+外側Rangeとは`V`のことであり、内側Rangeとは`range_reference_t<V>`のことである。`const`の場合`V`を`const V`として同様。
 
 ## テンプレートパラメータ制約
 
