@@ -8,7 +8,7 @@
 ```cpp
 constexpr const_iterator cbegin() const noexcept;
 ```
-* const_iterator[link /reference/iterator/const_iterator.md.nolink]
+* const_iterator[link /reference/iterator/const_iterator.md]
 
 ## 概要
 先頭要素を指す読み取り専用イテレータを取得する。

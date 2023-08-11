@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * input_iterator[link input_iterator.md]
-* const_iterator[link const_iterator.md.nolink]
+* const_iterator[link const_iterator.md]
 
 ## 概要
 

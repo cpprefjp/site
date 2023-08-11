@@ -11,7 +11,7 @@ namespace std {
     input_iterator<It> && same_as<iter_const_reference_t<It>, iter_reference_t<It>>;
 }
 ```
-* input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
+* input_iterator[link /reference/iterator/input_iterator.md]
 * same_as[link /reference/concepts/same_as.md]
 * iter_const_reference_t[link /reference/iterator/iter_const_reference_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]

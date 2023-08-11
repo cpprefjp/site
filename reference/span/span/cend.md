@@ -8,7 +8,7 @@
 ```cpp
 constexpr const_iterator cend() const noexcept;
 ```
-* const_iterator[link /reference/iterator/const_iterator.md.nolink]
+* const_iterator[link /reference/iterator/const_iterator.md]
 
 ## 概要
 末尾要素の次を指すイテレータを取得する。

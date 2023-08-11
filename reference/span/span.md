@@ -133,8 +133,8 @@ namespace std {
 | `const_reference` | `const`参照型 `const element_type&` | C++20 |
 | `iterator` | 実装定義のイテレータ型。[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)、[`random_access_iterator`](/reference/iterator/random_access_iterator.md)、constexprイテレータのモデルであり、コンテナのイテレータに対するすべての要件を満たす | C++20 |
 | `reverse_iterator` | 逆順イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++20 |
-| `const_iterator` | 読み取り専用イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md.nolink)`<iterator>` | C++23 |
-| `const_reverse_iterator` | 読み取り専用逆イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md.nolink)`<reverse_iterator>` | C++23 |
+| `const_iterator` | 読み取り専用イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md)`<iterator>` | C++23 |
+| `const_reverse_iterator` | 読み取り専用逆イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md)`<reverse_iterator>` | C++23 |
 
 
 ## 非メンバ関数
