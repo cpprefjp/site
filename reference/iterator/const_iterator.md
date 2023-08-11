@@ -18,7 +18,7 @@ namespace std {
 
 ## 効果
 
-- `I`が[`constant-iterator`]のモデルとなる場合 : `I`
+- `I`が[`constant-iterator`](constant-iterator.md)のモデルとなる場合 : `I`
 - それ以外の場合 : [`basic_const_iterator`](basic_const_iterator.md)`<I>`
 
 ## 例
