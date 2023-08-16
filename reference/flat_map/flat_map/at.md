@@ -74,7 +74,7 @@ int main()
 }
 ```
 * c.at[color ff0000]
-* fm.insert[link insert.md.nolink]
+* fm.insert[link insert.md]
 * std::out_of_range[link /reference/stdexcept.md]
 
 ### 出力

@@ -123,7 +123,7 @@ iterator
 
 ## 備考
 - 概要に記載されているように、本メンバ関数は指定されたキーと等価の要素が既に存在する場合には、引数に副作用が発生しない。  
-    一方、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md)、[`insert`](insert.md.nolink) にはそのような規定は無く、挿入がされなかった場合でも引数に副作用（引数からのムーブ）が発生してしまう可能性があるため、注意が必要である。
+    一方、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md)、[`insert`](insert.md) にはそのような規定は無く、挿入がされなかった場合でも引数に副作用（引数からのムーブ）が発生してしまう可能性があるため、注意が必要である。
 
 
 ## 例
@@ -171,7 +171,7 @@ false, 114, false
 
 | 名前                                           | 説明                                       |
 |------------------------------------------------|--------------------------------------------|
-| [`flat_map::insert`](insert.md.nolink)                     | 要素を挿入する                             |
+| [`flat_map::insert`](insert.md)                     | 要素を挿入する                             |
 | [`flat_map::insert_or_assign`](insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               |
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`flat_map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |

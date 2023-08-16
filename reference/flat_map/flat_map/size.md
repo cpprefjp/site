@@ -46,7 +46,7 @@ int main ()
 }
 ```
 * size()[color ff0000]
-* fm.insert[link insert.md.nolink]
+* fm.insert[link insert.md]
 
 ### 出力
 ```

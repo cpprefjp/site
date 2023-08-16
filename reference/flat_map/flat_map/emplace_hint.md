@@ -75,7 +75,7 @@ int main()
 
 | 名前                                           | 説明                                       |
 |------------------------------------------------|--------------------------------------------|
-| [`flat_map::insert`](insert.md.nolink)                     | 要素を挿入する                             |
+| [`flat_map::insert`](insert.md)                     | 要素を挿入する                             |
 | [`flat_map::insert_or_assign`](insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               |
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`flat_map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |

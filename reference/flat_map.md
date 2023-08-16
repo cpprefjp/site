@@ -17,7 +17,9 @@
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|--------------------------------------------------------|-------|
 | [`flat_map`](flat_map/flat_map.md)           | キーの重複を許さない平坦な順序付き連想コンテナ(class template) | C++23 |
-| [`flat_multimap`](flat_map/flat_multimap.md.nolink) | キーの重複を許す平坦な順序付き連想コンテナ(class template)     | C++23 |
+| [`flat_multimap`](flat_map/flat_multimap.md.nolink) | キーの重複を許す平坦な順序付き連想コンテナ(class template) | C++23 |
+| [`sorted_unique_t`](flat_map/sorted_unique_t.md) | ソート済みかつ重複要素がないことを示すためのタグ型(class) | C++23 |
+| [`sorted_unique`](flat_map/sorted_unique_t.md) | ソート済みかつ重複要素がないことを示すためのタグ値(variable) | C++23 |
 
 
 ## バージョン

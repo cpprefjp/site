@@ -32,7 +32,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 ## 概要
 新しく一つの要素(引数 `x`, `y`を使う)、要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `multimap` コンテナを拡張する。
 
-これは、挿入された要素の数だけコンテナの [`size()`](/reference/map/multimap/size.md) を増やす。
+これは、挿入された要素の数だけコンテナの [`size()`](size.md) を増やす。
 
 内部的に `multimap` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
 

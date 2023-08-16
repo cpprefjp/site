@@ -141,6 +141,6 @@ int main()
 | 名前 | 説明 |
 |---------------------------------|----------------------|
 | [`flat_map::clear`](clear.md)   | 全ての要素を削除する |
-| [`flat_map::insert`](insert.md.nolink) | 要素を挿入する |
+| [`flat_map::insert`](insert.md) | 要素を挿入する |
 | [`flat_map::find`](find.md)     | 指定したキーで要素を探す |
 

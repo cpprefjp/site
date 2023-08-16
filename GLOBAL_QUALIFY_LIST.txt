@@ -107,6 +107,8 @@
 * <generator>[link /reference/generator.md]
 * <initializer_list>[link /reference/initializer_list.md]
     * std::initializer_list[link /reference/initializer_list/initializer_list.md]
+    * il.begin()[link /reference/initializer_list/initializer_list/begin.md]
+    * il.end()[link /reference/initializer_list/initializer_list/end.md]
 * <iomanip>[link /reference/iomanip.md]
 * <ios>[link /reference/ios.md]
     * std::boolalpha[link /reference/ios/boolalpha.md]

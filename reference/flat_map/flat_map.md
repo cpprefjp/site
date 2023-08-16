@@ -58,7 +58,7 @@ namespace std {
 | 名前                                          | 説明                                       | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------|----------------|
 | [`clear`](flat_map/clear.md)                       | 全ての要素を削除する                       | C++23 |
-| [`insert`](flat_map/insert.md.nolink)                     | 要素を挿入する                             | C++23 |
+| [`insert`](flat_map/insert.md)                     | 要素を挿入する                             | C++23 |
 | [`insert_or_assign`](flat_map/insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               | C++23 |
 | [`insert_range`](flat_map/insert_range.md.nolink)         | Rangeを挿入する                            | C++23 |
 | [`emplace`](flat_map/emplace.md)                   | 要素を直接構築する                         | C++23 |
@@ -113,6 +113,7 @@ namespace std {
 | `key_container_type` | キーを格納するコンテナ型 `KeyContainer` | C++23 |
 | `mapped_container_type` | 値を格納するコンテナ型 `MappedContainer` | C++23 |
 | [`containers`](flat_map/containers.md) | キーのコンテナと値のコンテナを保持する型 | C++23 |
+| [`key_equiv`](flat_map/key_equiv.md) | 要素をとってキーの等価比較を行う説明専用の関数オブジェクト | C++23 |
 
 
 ## 非メンバ関数
