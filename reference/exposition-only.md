@@ -11,6 +11,13 @@
 | [`synth-three-way`](exposition-only/synth-three-way-result.md)        | 三方比較可能であればそれを行い、そうでなければ三方比較を実装して比較を行う (variable)               | C++20     |
 | [`synth-three-way-result`](exposition-only/synth-three-way-result.md) | `synth-three-way`関数オブジェクトでの比較結果の型 (function template)                   | C++20     |
 
+
+## コンテナ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`container-compatible-range`](exposition-only/container-compatible-range.md) | 指定されたコンテナと互換性のあるRange | C++23 |
+
 ## `<concepts>`
 
 | 名前                                               | 説明               | 対応バージョン |
