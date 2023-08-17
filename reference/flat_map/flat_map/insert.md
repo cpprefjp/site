@@ -38,7 +38,6 @@ void insert(sorted_unique_t s,
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * sorted_unique_t[link /reference/flat_map/sorted_unique_t.md]
-* container-compatible-range[link /reference/exposition-only/container-compatible-range.md]
 
 ## 概要
 新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入し、コンテナを拡張する。
