@@ -172,7 +172,8 @@ false, 114, false
 | 名前                                           | 説明                                       |
 |------------------------------------------------|--------------------------------------------|
 | [`flat_map::insert`](insert.md)                     | 要素を挿入する                             |
-| [`flat_map::insert_or_assign`](insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               |
+| [`flat_map::insert_range`](insert_range.md)         | Rangeを挿入する                            |
+| [`flat_map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`flat_map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
 
