@@ -30,13 +30,10 @@ void insert(sorted_unique_t,
             InputIterator first,
             InputIterator last);                  // (8) C++23
 
-template<container-compatible-range<value_type> R>
-void insert_range(R&& rg);                        // (9) C++23
-
-void insert(initializer_list<value_type> il);     // (10) C++23
+void insert(initializer_list<value_type> il);     // (9) C++23
 
 void insert(sorted_unique_t s,
-            initializer_list<value_type> il);     // (11) C++23
+            initializer_list<value_type> il);     // (10) C++23
 ```
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -64,9 +61,8 @@ void insert(sorted_unique_t s,
 - (6) : 指定された位置に、要素型`value_type`のコンストラクタ引数を受け取って挿入する
 - (7) : イテレータ範囲`[first, last)`を挿入する
 - (8) : ソート済みかつ重複要素のないイテレータ範囲`[first, last)`を挿入する
-- (9) : Rangeを挿入する
-- (10) : 初期化子リストを挿入する
-- (11) : ソート済みかつ重複要素のない初期化子リストを挿入する
+- (9) : 初期化子リストを挿入する
+- (10) : ソート済みかつ重複要素のない初期化子リストを挿入する
 
 
 ## 要件
@@ -181,44 +177,12 @@ void insert(sorted_unique_t s,
     * key_equiv[link key_equiv.md]
     * distance[link /reference/iterator/distance.md]
 
-- (9) : メンバ変数として保持しているコンテナ`c`に、以下のように挿入する：
-    ```cpp
-    for (const auto& e : rg) {
-      c.keys.insert(c.keys.end(), e.first);
-      c.values.insert(c.values.end(), e.second);
-    }
-    ```
-    * c.keys[link containers.md]
-    * c.values[link containers.md]
-    * end()[link /reference/vector/vector/end.md]
-    * insert[link /reference/vector/vector/insert.md]
-    * first[link /reference/utility/pair.md]
-    * second[link /reference/utility/pair.md]
-
-    - 次に、新しく挿入された要素の範囲を`value_comp()`を基準にソートする
-    - 次に、ソートされた結果の範囲と、既存の要素のソートされた範囲をひとつのソートされた範囲にマージする
-    - 最後に、重複する要素を以下のように削除する：
-
-    ```cpp
-    auto zv = ranges::zip_view(c.keys, c.values);
-    auto it = ranges::unique(zv, key_equiv(compare)).begin();
-    auto dist = distance(zv.begin(), it);
-    c.keys.erase(c.keys.begin() + dist, c.keys.end());
-    c.values.erase(c.values.begin() + dist, c.values.end());
-    ```
-    * c.keys[link containers.md]
-    * c.values[link containers.md]
-    * ranges::zip_view[link /ranges/zip_view.md.nolink]
-    * ranges::unique[link /reference/algorithm/ranges_unique.md]
-    * key_equiv[link key_equiv.md]
-    * distance[link /reference/iterator/distance.md]
-
-- (10) :
+- (9) :
     ```cpp
     insert(il.begin(), il.end());
     ```
 
-- (11) :
+- (10) :
     ```cpp
     insert(s, il.begin(), il.end());
     ```
@@ -231,17 +195,16 @@ void insert(sorted_unique_t s,
 - (3), (4), (6) :
     - 挿入された場合には、新しく挿入された要素を指すイテレータを返す。
     - 挿入されなかった場合には、`x`のキーと等価のキーを持つ要素へのイテレータを返す。
-- (7), (8), (9), (10), (11) : なし
+- (7), (8), (9), (10) : なし
 
 
 ## 計算量
 - (7) : Nをこの操作の前の[`size()`](size.md)、Mを[`distance`](/reference/iterator/distance.md)`(first, last)`として、N + MlogM
-- (7) : Nをこの操作のあとの[`size()`](size.md)として、Nに対して線形
-- (8) : Nをこの操作の前の[`size()`](size.md)、Mを[`ranges::distance`](/reference/iterator/ranges_distance.md)`(rg)`として、N + MlogM
+- (8) : Nをこの操作のあとの[`size()`](size.md)として、Nに対して線形
 
 
 ## 備考
-- (7), (8), (9) : この操作はインプレース・マージを行うため、追加のメモリ確保を行う可能性がある
+- (7), (8) : この操作はインプレース・マージを行うため、追加のメモリ確保を行う可能性がある
 
 
 ## 例
@@ -263,7 +226,6 @@ int main()
   };
 
   // シーケンスを挿入する
-  fm.insert(fm2);
   fm.insert(fm2.begin(), fm2.end());
 
   // 挿入するシーケンスがソート済みかつ重複要素がないことがわかっている場合、
@@ -275,6 +237,7 @@ int main()
   }
 }
 ```
+* insert[color ff0000]
 * begin()[link begin.md]
 * end()[link end.md]
 * std::sorted_unique[link /reference/flat_map/sorted_unique_t.md]
@@ -298,6 +261,7 @@ int main()
 | 名前                                           | 説明                                       |
 |------------------------------------------------|--------------------------------------------|
 | [`flat_map::insert_or_assign`](insert_or_assign.md.nolink) | 要素を挿入、あるいは代入する               |
+| [`flat_map::insert_range`](insert_range.md)         | Rangeを挿入する                            |
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`flat_map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
 | [`flat_map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
