@@ -121,7 +121,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`erase_if`](flat_map/erase_if_free.md.nolink) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++23 |
+| [`erase_if`](flat_map/erase_if_free.md) | 指定した条件に合致する要素とその分の領域を、コンテナから削除する | C++23 |
 
 
 ## 非メンバ（*Hidden friends*）関数
