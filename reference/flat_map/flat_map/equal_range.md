@@ -1,21 +1,22 @@
 # equal_range
-* map[meta header]
+* flat_map[meta header]
 * std[meta namespace]
-* map[meta class]
+* flat_map[meta class]
 * function[meta id-type]
+* cpp23[meta cpp]
 
 ```cpp
-pair<iterator, iterator> equal_range(const key_type& x); // (1)
+pair<iterator, iterator> equal_range(const key_type& x); // (1) C++23
 
 template <class K>
-pair<iterator, iterator> equal_range(const K& x);        // (2) C++14
+pair<iterator, iterator> equal_range(const K& x);        // (2) C++23
 
 pair<const_iterator, const_iterator>
-  equal_range(const key_type& x) const;                  // (3)
+  equal_range(const key_type& x) const;                  // (3) C++23
 
 template <class K>
 pair<const_iterator, const_iterator>
-  equal_range(const K& x) const;                         // (4) C++14
+  equal_range(const K& x) const;                         // (4) C++23
 ```
 * pair[link /reference/utility/pair.md]
 
@@ -46,19 +47,19 @@ pair<const_iterator, const_iterator>
 ```cpp example
 #include <iostream>
 #include <string>
-#include <map>
+#include <flat_map>
 
 int main()
 {
-  std::map<std::string, int> m = {
+  std::flat_map<std::string, int> fm = {
     {"A", 3},
     {"B", 1},
     {"C", 4},
     {"D", 5}
   };
 
-  using iterator = decltype(m)::iterator;
-  std::pair<iterator, iterator> ret = m.equal_range("B");
+  using iterator = decltype(fm)::iterator;
+  std::pair<iterator, iterator> ret = fm.equal_range("B");
 
   for (iterator it = ret.first; it != ret.second; ++it) {
     std::cout << it->first << "," << it->second << std::endl;
@@ -77,12 +78,8 @@ B,1
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`map::count`](count.md) | 指定したキーにマッチする要素の数を返す |
-| [`map::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
-| [`map::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
-| [`map::find`](find.md) | 指定したキーで要素を探す |
-
-
-## 参照
-- [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
+| [`flat_map::count`](count.md) | 指定したキーにマッチする要素の数を返す |
+| [`flat_map::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+| [`flat_map::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
+| [`flat_map::find`](find.md) | 指定したキーで要素を探す |
 
