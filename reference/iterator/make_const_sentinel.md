@@ -11,7 +11,7 @@ namespace std {
 }
 ```
 * semiregular[link /reference/concepts/semiregular.md]
-* const_sentinel[link const_sentinel.md.nolink]
+* const_sentinel[link const_sentinel.md]
 
 ## 概要
 
