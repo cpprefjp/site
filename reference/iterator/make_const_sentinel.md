@@ -15,7 +15,7 @@ namespace std {
 
 ## 概要
 
-`basic_const_iterator`のヘルパ関数。特に、イテレータではないような番兵を`basic_const_iterator`の番兵型へと変換するのに使用する。
+`basic_const_iterator`のヘルパ関数。特に、イテレータではないような番兵を`basic_const_iterator`の番兵へと変換するのに使用する。
 
 ## 戻り値
 
@@ -35,7 +35,7 @@ return s;
 int main() {
   std::vector vec = {1, 2, 3, 4, 11, 5, 6, 22};
 
-  auto cit = std::make_const_iterator(rng.begin());
+  auto cit = std::make_const_iterator(vec.begin());
   auto cse = std::make_const_sentinel(std::unreachable_sentinel); // unreachable_sentinelはイテレータではない汎用の番兵
 
   auto pos = std::ranges::find_if(cit, cse, [](auto& n) {
