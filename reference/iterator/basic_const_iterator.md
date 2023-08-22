@@ -81,6 +81,13 @@ namespace std {
 | [`make_const_iterator`](make_const_iterator.md)     | `basic_const_iterator`のヘルパ関数 | C++23 |
 | [`make_const_sentinel`](make_const_sentinel.md)     | `basic_const_iterator`のヘルパ関数 | C++23 |
 
+## 特殊化
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| [`common_type`](basic_const_iterator/common_type.md)     | `basic_const_iterator`とイテレータ型の間の共通の型を求める | C++23 |
+
+
 ## 例
 
 ```cpp example
