@@ -65,8 +65,8 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 |------------------------------------------------------------------|------------------------------------------------|----------------|
 | [`iterator_t`](ranges/iterator_t.md)                             | イテレータ型を取得する (alias template)        | C++20          |
 | [`sentinel_t`](ranges/sentinel_t.md)                             | 番兵型を取得する (alias template)              | C++20          |
-| [`const_iterator_t`](ranges/const_iterator_t.md.nolink)          | 定数イテレータ型を取得する (alias template)        | C++23          |
-| [`const_sentinel_t`](ranges/const_sentinel_t.md.nolink)          | 定数番兵型を取得する (alias template)        | C++23          |
+| [`const_iterator_t`](ranges/const_iterator_t.md)                 | 定数イテレータ型を取得する (alias template)        | C++23          |
+| [`const_sentinel_t`](ranges/const_sentinel_t.md)          | 定数番兵型を取得する (alias template)        | C++23          |
 | [`range_difference_t`](ranges/range_difference_t.md)             | イテレータの差の型を取得する (alias template)  | C++20          |
 | [`range_size_t`](ranges/range_size_t.md)                         | サイズの型を取得する(alias template)           | C++20          |
 | [`range_value_t`](ranges/range_value_t.md)                       | 要素の型を取得する (alias template)            | C++20          |
