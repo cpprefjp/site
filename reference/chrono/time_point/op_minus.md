@@ -7,6 +7,7 @@
 ```cpp
 namespace std {
 namespace chrono {
+  // time_point - duration = time_point
   template <class Clock, class Duration1, class Rep2, class Period2>
   time_point<Clock, typename common_type<Duration1, duration<Rep2, Period2>>::type>
     operator-(const time_point<Clock, Duration1>& lhs,
@@ -18,13 +19,13 @@ namespace chrono {
     operator-(const time_point<Clock, Duration1>& lhs,
               const duration<Rep2, Period2>& rhs);      // (1) C++14
 
-  // time_point - time_point - duration
+  // time_point - time_point = duration
   template <class Clock, class Duration1, class Duration2>
   typename common_type<Duration1, Duration2>::type
     operator-(const time_point<Clock, Duration1>& lhs,
               const time_point<Clock, Duration2>& rhs); // (2) C++11
 
-  // time_point - time_point - duration
+  // time_point - time_point = duration
   template <class Clock, class Duration1, class Duration2>
   constexpr typename common_type<Duration1, Duration2>::type
     operator-(const time_point<Clock, Duration1>& lhs,
