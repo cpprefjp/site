@@ -134,6 +134,7 @@ int main()
 
 ## 関連項目
 - [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md)
+- [C++23 `if consteval`](/lang/cpp23/if_consteval.md.nolink)
 
 ## 参照
 - [P0595R2 `std::is_constant_evaluated()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0595r2.html)
