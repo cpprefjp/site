@@ -16,10 +16,19 @@ namespace std::ranges {
 Rangeの要素が格納されたメモリ領域へのポインタを取得する関数オブジェクト。
 
 ## 効果
-部分式`E`の型を`T`とする。このとき、式`ranges::cdata(E)`の効果は以下の式と等しい。
+部分式`E`の型を`T`、`E`の評価結果オブジェクトを示す左辺値を`t`とする。このとき、式`ranges::cdata(E)`の効果は以下の式と等しい。
 
-1. `E`がlvalueであれば、[`ranges::data`](data.md)`(static_cast<const T&>(E))`
-2. それ以外の場合、[`ranges::data`](data.md)`(static_cast<const T&&>(E))`
+- C++20まで
+    1. `E`がlvalueであれば、[`ranges::data`](data.md)`(static_cast<const T&>(E))`
+    2. それ以外の場合、[`ranges::data`](data.md)`(static_cast<const T&&>(E))`
+- C++23から
+    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::cdata(E)`は不適格
+    2. それ以外の場合、`as-const-pointer(`[`ranges::data`](data.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t)))`
+        - `as-const-pointer`は次のような説明専用関数テンプレートである
+          ```cpp
+          template<class T>
+          constexpr auto as-const-pointer(const T* p) { return p; }
+          ```
 
 ## 戻り値
 Rangeの要素が格納されたメモリ領域へのポインタ。
@@ -28,7 +37,7 @@ Rangeの要素が格納されたメモリ領域へのポインタ。
 Rangeが`const`な場合について[`ranges::data`](data.md)をカスタマイズすることで、`ranges::cdata`をカスタマイズできる。
 
 ## 備考
-`ranges::cdata(E)`が有効な式であるとき、その型はオブジェクトへのポインタである。
+`ranges::cdata(E)`が有効な式であるとき、その型はオブジェクトへのポインタである（C++23以降、このポインタは定数ポインタである）。
 
 ## 例
 ```cpp example
@@ -71,3 +80,4 @@ array size:1 at 0x556ec23ba2b0
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)

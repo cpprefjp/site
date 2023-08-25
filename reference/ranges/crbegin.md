@@ -16,16 +16,23 @@ namespace std::ranges {
 Rangeの末尾を指す読み取り専用逆イテレータを取得する関数オブジェクト。
 
 ## 効果
-部分式`E`の型を`T`とする。このとき、式`ranges::crbegin(E)`の効果は以下の式と等しい。
+部分式`E`の型を`T`、`E`の評価結果オブジェクトを示す左辺値を`t`とする。このとき、式`ranges::crbegin(E)`の効果は以下の式と等しい。
 
-1. `E`がlvalueであれば、[`ranges::rbegin`](rbegin.md)`(static_cast<const T&>(E))`
-2. それ以外の場合、[`ranges::rbegin`](rbegin.md)`(static_cast<const T&&>(E))`
+- C++20まで
+    1. `E`がlvalueであれば、[`ranges::rbegin`](rbegin.md)`(static_cast<const T&>(E))`
+    2. それ以外の場合、[`ranges::rbegin`](rbegin.md)`(static_cast<const T&&>(E))`
+- C++23から
+    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::crbegin(E)`は不適格
+    2. それ以外の場合、式`U`を[`ranges::rbegin`](rbegin.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_iterator`](/reference/iterator/const_iterator.md)`<decltype(U)>(U)`
 
 ## 戻り値
 Rangeの末尾を指す読み取り専用逆イテレータ。
 
 ## カスタマイゼーションポイント
 Rangeが`const`な場合について[`ranges::rbegin`](rbegin.md)をカスタマイズすることで、`ranges::crbegin`をカスタマイズできる。
+
+## 備考
+`ranges::crbegin`の呼び出しが有効な式であるとき、その型は[`input_or_output_iterator`](/reference/iterator/input_or_output_iterator.md)のモデルであり、C++23以降はさらに[`constant-iterator`](/reference/iterator/constant-iterator.md)のモデルである。
 
 ## 例
 ```cpp example
@@ -101,3 +108,4 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
