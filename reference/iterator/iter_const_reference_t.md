@@ -21,9 +21,9 @@ namespace std {
 
 ## 型の決定
 
-`iter_value_t<It>`が非参照型であり`iter_reference_t<It>`から修飾を除いた型であるとすると、`iter_reference_t<It>`に対して`iter_const_reference_t<It>`は基本的には次のようになる
+`iter_value_t<It>`が非参照型であり`iter_reference_t<It>`から修飾を除いた型であるとすると、`iter_reference_t<It>`に対して`iter_const_reference_t<It>`は基本的には次のようになる（`T`を任意の修飾なしの型とする）
 
-|`iter_reference_t`|`iter_const_reference_t<It>`|
+|`iter_reference_t<It>`|`iter_const_reference_t<It>`|
 |---|---|
 |`T&`|`const T&`|
 |`T&&`|`const T&&`|
@@ -32,7 +32,7 @@ namespace std {
 |`T`|`T`|
 |`const T`|`T`|
 
-`It`に対して`iterator_traits`の特殊化が存在する場合や、`const iter_value_t<It>&&`と`iter_reference_t<It>`について`common_reference`が特殊化されている場合はこれと異なる結果となりうる。標準ライブラリにあるそのようなイテレータ型を持つものについて一部例を示すと、次のようになる
+`iter_value_t<It>`に対して`iter_reference_t<It>`が修飾以外も異なる型となる場合や、`It`に対して`iterator_traits`の特殊化が存在する場合、`const iter_value_t<It>&&`と`iter_reference_t<It>`について`common_reference`が特殊化されている場合などはこれと異なる結果となりうる。標準ライブラリにあるそのようなイテレータ型を持つものについて一部例を示すと、次のようになる
 
 |`It`の取得元の範囲|`iter_value_t<It>`|`iter_reference_t<It>`|`iter_const_reference_t<It>`|
 |---|---|---|---|
