@@ -37,6 +37,8 @@ namespace std::ranges {
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する         | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する         | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                 | C++20          |
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する           | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する     | C++23          |
 | [`derived`](view_interface/derived.md)       | `D`へダウンキャストする (説明専用) | C++20          |
 
 ## バージョン
@@ -58,3 +60,4 @@ namespace std::ranges {
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [LWG Issue 3549. `view_interface` is overspecified to derive from `view_base`](https://cplusplus.github.io/LWG/issue3549)
+- [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
