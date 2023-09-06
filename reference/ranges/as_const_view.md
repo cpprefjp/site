@@ -77,11 +77,11 @@ namespace std::ranges {
 int main() {
   std::vector<int> vec = {1, 2, 3, 4};
 
-  for (const int& i : vec | std::views::as_const) {
+  for (auto& i : vec | std::views::as_const) {
     std::cout << i << ' ';
 
     // 変更不可
-    //*i = 0
+    //i = 0
   }
 }
 ```
