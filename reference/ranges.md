@@ -321,8 +321,8 @@ range | adaptor(args...)
 
 | 名前                                          | 説明                                                         | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------------------------|----------------|
-| [`as_const_view`](ranges/as_const_view.md.nolink)    | 各要素をconstにするビュー (class template)                   | C++23          |
-| [`views::as_const`](ranges/as_const.md.nolink)       | `as_const_view`を生成する (customization point object)       | C++23          |
+| [`as_const_view`](ranges/as_const_view.md)    | 各要素をconstにするビュー (class template)                       | C++23          |
+| [`views::as_const`](ranges/as_const_view.md)  | `as_const_view`を生成する (customization point object)         | C++23          |
 
 ### elements view
 
