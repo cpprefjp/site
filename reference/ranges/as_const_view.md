@@ -45,8 +45,8 @@ namespace std::ranges {
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](as_const_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`base`](as_const_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
+| [`(constructor)`](as_const_view/op_constructor.md)  | コンストラクタ                   | C++23          |
+| [`base`](as_const_view/base.md)                     | `V`の参照を取得する              | C++23          |
 | [`begin`](as_const_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](as_const_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
 | [`size`](as_const_view/size.md.nolink)                     | 要素数を取得する                 | C++23          |
