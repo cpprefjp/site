@@ -49,6 +49,8 @@ Rangeへの参照として振る舞う[`view`](view.md)。このクラスのオ�
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する             | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する      | C++23          |
 
 ## 推論補助
 
