@@ -21,8 +21,8 @@ constexpr auto size() const requires sized_range<const V>;  // (2)
 
 入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして
 
-- (1) : `return ranges::size(base_);`
-- (2) : `return ranges::size(base_);`
+- (1) : `return `[`ranges::size`](/reference/ranges/size.md)`(base_);`
+- (2) : `return `[`ranges::size`](/reference/ranges/size.md)`(base_);`
 
 ## 例
 
