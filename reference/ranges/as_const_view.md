@@ -49,7 +49,7 @@ namespace std::ranges {
 | [`base`](as_const_view/base.md)                     | `V`の参照を取得する              | C++23          |
 | [`begin`](as_const_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](as_const_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](as_const_view/size.md.nolink)                     | 要素数を取得する                 | C++23          |
+| [`size`](as_const_view/size.md)                     | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
