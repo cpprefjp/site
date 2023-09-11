@@ -27,7 +27,7 @@ template <class K> const_iterator find(const K& k) const;  // (4) C++20
 
 
 ## パラメータ
-- `x` : 検索するキー。`key_type` は `map` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータである。
+- `x` : 検索するキー。`key_type` は `unordered_multimap` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータである。
 - `k` : 検索するキー。`key_type`と透過的に比較可能な型`K`型のキーである。
 
 

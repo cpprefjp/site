@@ -16,7 +16,7 @@ const_iterator end() const noexcept;
 
 ## 戻り値
 コンテナの最後の要素の次を参照するイテレータ。 
-`iterator` と `const_iterator` はいずれもメンバ型である。`map` クラステンプレートにおいて、これらはランダムアクセスイテレータである。
+`iterator` と `const_iterator` はいずれもメンバ型である。`flat_map` クラステンプレートにおいて、これらはランダムアクセスイテレータである。
 
 
 ## 計算量

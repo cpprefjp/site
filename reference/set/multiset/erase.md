@@ -33,7 +33,7 @@ iterator erase(const_iterator first, const_iterator last); // (5) C++11
 
 ## パラメータ
 - `position` : `multiset` から削除する単一要素を指すイテレータ。`iterator`、および、`const_iterator` はメンバ型であり、双方向イテレータとして定義される。
-- `x` : `set` から削除される値。`key_type` はメンバ型であり、`multiset` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータであり、コンテナに格納される要素の型である。
+- `x` : `multiset` から削除される値。`key_type` はメンバ型であり、`multiset` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータであり、コンテナに格納される要素の型である。
 - `first, last` : `multiset` コンテナ内の、削除されるイテレータ範囲 `[first, last)` を指定するイテレータ。ここでいう範囲は `first` と `last` の間の全ての要素を含み、`first` が指す要素を含むが `last` が指す要素は含まない。
 
 

@@ -149,7 +149,7 @@ return value: (3rd, 33)
 after : (9th, 9), (3rd, 33), (3rd, 3), (1st, 1), 
 ```
 
-注：[`unordered_map`](/reference/unordered_map/unordered_map.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
+注：[`unordered_multimap`](/reference/unordered_map/unordered_multimap.md) は非順序連想コンテナであるため、出力順序は無意味であることに注意
 
 
 ### イテレート中に要素を削除する

@@ -14,7 +14,7 @@ namespace std {
 ```
 
 ## 概要
-`unordered_set` オブジェクトを非等値比較する。
+`unordered_map` オブジェクトを非等値比較する。
 
 
 ## 要件

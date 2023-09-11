@@ -12,7 +12,7 @@ const_local_iterator cend(size_type n) const;
 ## 概要
 インデックス（添え字）で指定したバケット内の最後の要素の次を指す読み取り専用イテレータを取得する。
 
-`unordered_map` は非順序連想コンテナであるため「最後」に特に意味はないが、[`cbegin(size_type)`](cbegin-size_type.md) で得られたイテレータを `cend(size_type)` まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
+`unordered_multimap` は非順序連想コンテナであるため「最後」に特に意味はないが、[`cbegin(size_type)`](cbegin-size_type.md) で得られたイテレータを `cend(size_type)` まで `operator++()` でイテレートすることで当該バケットの要素を漏れなくダブりなく走査することができる。
 
 
 ## 要件
