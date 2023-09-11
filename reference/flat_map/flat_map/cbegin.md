@@ -76,7 +76,7 @@ int main()
 | [`flat_map::begin`](begin.md)     | 先頭を指すイテレータを取得する |
 | [`flat_map::end`](end.md)         | 末尾の次を指すイテレータを取得する |
 | [`flat_map::cend`](cend.md)       | 末尾の次を指すconstイテレータを取得する |
-| [`flat_map::rbegin`]rbegin.md)    | 末尾を指す逆イテレータを取得する |
+| [`flat_map::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
 | [`flat_map::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
 | [`flat_map::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
 | [`flat_map::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
