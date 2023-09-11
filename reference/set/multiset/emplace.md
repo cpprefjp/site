@@ -51,7 +51,7 @@ bool operator<(const s& lhs, const s& rhs)
 
 int main()
 {
-  std::set<s> c;
+  std::multiset<s> c;
 
   c.emplace(42);
 
