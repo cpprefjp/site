@@ -29,7 +29,6 @@ node_type extract(const key_type& x);       (2)
 
 ```cpp example
 #include <iostream>
-#include <string>
 #include <unordered_set>
 
 class noncopyable {

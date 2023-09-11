@@ -63,7 +63,6 @@ iterator erase(const_iterator first, const_iterator last); // (4) C++11
 #include <unordered_set>
 #include <iterator>
 #include <algorithm>
-#include <string>
 
 template <class C>
 void print(const char* label, const C& c, std::ostream& os = std::cout)

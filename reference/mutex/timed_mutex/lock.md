@@ -39,7 +39,6 @@ void lock();
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include <vector>
 
 class X {
   std::timed_mutex mtx_;

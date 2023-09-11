@@ -52,7 +52,6 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 #include <thread>
 #include <mutex>
 #include <chrono>
-#include <vector>
 #include <system_error>
 
 class X {

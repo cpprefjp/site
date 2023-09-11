@@ -43,7 +43,6 @@ pm->lock();
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include <vector>
 
 class X {
   std::mutex mtx_;

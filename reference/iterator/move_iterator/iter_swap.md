@@ -48,7 +48,6 @@ return move_iterator<Iterator>(std::move(i));
 ```cpp example
 #include <iterator>
 #include <vector>
-#include <list>
 #include <iostream>
 
 int main() {
