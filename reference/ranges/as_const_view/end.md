@@ -48,7 +48,6 @@ int main() {
 }
 ```
 * begin[color ff0000]
-* subrange[link /reference/ranges/subrange.md]
 
 ### 出力
 
