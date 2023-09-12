@@ -47,7 +47,7 @@ int main() {
   std::cout << *se << '\n'
 }
 ```
-* begin[color ff0000]
+* end[color ff0000]
 
 ### 出力
 
