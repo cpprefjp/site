@@ -42,7 +42,7 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  // 前置インクリメント
+  // 前置デクリメント
   {
     chrono::year y{2020};
 
@@ -50,7 +50,7 @@ int main()
     assert(static_cast<int>(y) == 2019);
   }
 
-  // 後置インクリメント
+  // 後置デクリメント
   {
     chrono::year y{2020};
 

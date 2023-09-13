@@ -10,7 +10,7 @@ T operator-=(T operand) const noexcept;
 ```
 
 ## 概要
-加算を行う
+減算を行う
 
 
 ## 戻り値

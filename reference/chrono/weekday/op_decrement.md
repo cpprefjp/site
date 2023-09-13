@@ -40,7 +40,7 @@ namespace chrono = std::chrono;
 
 int main()
 {
-  // 前置インクリメント
+  // 前置デクリメント
   {
     chrono::weekday w = chrono::Sunday;
 
@@ -48,7 +48,7 @@ int main()
     assert(w == chrono::Saturday);
   }
 
-  // 後置インクリメント
+  // 後置デクリメント
   {
     chrono::weekday w = chrono::Sunday;
 
