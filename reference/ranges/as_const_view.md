@@ -67,7 +67,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](as_const_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23          |
+| [`(deduction_guide)`](as_const_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
 
 ## 例
 ```cpp example
