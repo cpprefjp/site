@@ -25,6 +25,8 @@ return ranges::cbegin(base_);
 ```
 * cbegin[link /reference/ranges/cbegin.md]
 
+`as_const_view`を`views::as_const`から生成している場合、ここで得られるイテレータは常に[`basic_const_iterator`](/reference/iterator/basic_const_iterator.md)の特殊化となる。
+
 ## 例
 
 ```cpp example
