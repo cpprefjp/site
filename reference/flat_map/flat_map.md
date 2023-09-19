@@ -131,7 +131,7 @@ namespace std {
 |------|------|----------------|
 | [`operator==`](flat_map/op_equal.md)         | 左辺と右辺が等しいかの判定を行う           | C++23 |
 | `bool operator!=(const flat_map& x, const flat_map& y);` | 左辺と右辺が等しくないかの判定を行う (`==`により使用可能) | C++23 |
-| [`operator<=>`](flat_map/op_compare_3way.md.nolink) | 三方比較を行う                             | C++23 |
+| [`operator<=>`](flat_map/op_compare_3way.md) | 三方比較を行う                             | C++23 |
 | `bool operator<(const flat_map& x, const flat_map& y);`  | 左辺が右辺より小さいかの判定を行う  (`<=>`により使用可能) | C++23 |
 | `bool operator<=(const flat_map& x, const flat_map& y);` | 左辺が右辺より小さいか等しいかの判定を行う (`<=>`により使用可能) | C++23 |
 | `bool operator>(const flat_map& x, const flat_map& y);`  | 左辺が右辺より大きいかの判定を行う (`<=>`により使用可能) | C++23 |
