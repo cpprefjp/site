@@ -167,8 +167,8 @@ C++においては、ポインタに対する演算（`+ -`など）はそのポ
 標準ライブラリ中の次の関数は、*implicit-lifetime types*に対して使用した場合に、その振る舞いの一環として指定された領域内にそのオブジェクトを暗黙的に構築する
 
 - `new`演算子
-    - `opreator new`
-    - `opreator new[]`
+    - `operator new`
+    - `operator new[]`
 - アロケータ
     - [`std::allocator<T>::allocate`](/reference/memory/allocator/allocate.md)
 - Cライブラリ関数
