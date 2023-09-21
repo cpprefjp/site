@@ -6,6 +6,7 @@ NGWORD_LIST = [
     ("", "<br>", "<br/>"),
     ("", "</br>", "<br/>"),
     ("", "algined", "aligned"),
+    ("", "concpet", "concept"),
     ("", "condtion", "condition"),
     ("", "eror", "error"),
     ("", "exposion", "exposition"),
