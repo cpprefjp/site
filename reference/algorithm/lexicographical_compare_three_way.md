@@ -66,7 +66,7 @@ namespace std {
 ## 戻り値
 
 戻り値型となる比較カテゴリ型を`Cat`とすると、  
-イテレータ範囲`[first1, last1)`が、辞書式比較でイテレータ範囲`[first2, last2)`より大きい場合は`Cat::greator`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
+イテレータ範囲`[first1, last1)`が、辞書式比較でイテレータ範囲`[first2, last2)`より大きい場合は`Cat::greater`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
 
 ## 計算量
 

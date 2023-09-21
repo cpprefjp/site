@@ -80,7 +80,7 @@ auto comp = a <=> b;
 
 //全て未定義動作
 bool is_less = comp == 1;
-bool is_greator = -1 < comp
+bool is_greater = -1 < comp
 bool is_equal = comp == 0.0;
 ```
 
