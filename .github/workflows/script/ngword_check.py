@@ -11,6 +11,7 @@ NGWORD_LIST = [
     ("", "exposion", "exposition"),
     ("", "generetor", "generator"),
     ("", "greator", "greater"),
+    ("", "namespase", "namespace"),
     ("", "noexpcet", "noexcept"),
     ("", "opreator", "operator"),
     ("", "protmise_type", "promise_type"),
