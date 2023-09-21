@@ -9,6 +9,7 @@ NGWORD_LIST = [
     ("", "condtion", "condition"),
     ("", "eror", "error"),
     ("", "exposion", "exposition"),
+    ("", "greator", "greater"),
     ("", "noexpcet", "noexcept"),
     ("", "protmise_type", "promise_type"),
     ("", "pvalue", "prvalue"),
