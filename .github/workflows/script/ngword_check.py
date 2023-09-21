@@ -12,6 +12,7 @@ NGWORD_LIST = [
     ("", "generetor", "generator"),
     ("", "greator", "greater"),
     ("", "noexpcet", "noexcept"),
+    ("", "opreator", "operator"),
     ("", "protmise_type", "promise_type"),
     ("", "pvalue", "prvalue"),
     ("", "repear", "repeat"),
