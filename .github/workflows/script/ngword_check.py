@@ -15,6 +15,7 @@ NGWORD_LIST = [
     ("", "protmise_type", "promise_type"),
     ("", "pvalue", "prvalue"),
     ("", "repear", "repeat"),
+    ("", "voaltile", "volatile"),
     ("", "子ルーチン", "コルーチン"),
     ("", "移譲", "委譲"),
     ("reference/chrono", "dulation", "duration"),
