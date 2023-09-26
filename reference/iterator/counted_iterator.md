@@ -24,10 +24,9 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* incrementable_traits[link /reference/iterator/incrementable_traits.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 * same_as[link /reference/concepts/same_as.md]
-* ITER_CONCEPT[link /reference/iterator/input_iterator.md#iter_concept]
+* ITER_TRAITS[link /reference/iterator/input_iterator.md#iter_concept]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * conditional_t[link /reference/type_traits/conditional.md]
 * contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
