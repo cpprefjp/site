@@ -16,7 +16,7 @@ namespace std {
 Visual C++ 2010、GCC 4.6.1では[`generic_category()`](generic_category.md)と[`system_category()`](system_category.md)の[`error_category`](error_category.md)オブジェクトは[`name()`](error_category/name.md)メンバ関数を除いて同じ挙動を行い、それぞれの[`default_error_condition()`](error_category/default_error_condition.md)メンバ関数も同じエラー値、同じカテゴリの`error_condition`を構築するため、実質[`error_code`](error_code.md)と`error_condition`は標準カテゴリでは等価な動作をする。だが、[`error_category`](error_category.md)を継承した新たなカテゴリを定義することにより、以下のようなエラーを表現することが可能となる：
 
 - 一つのエラー値で上位Nビット、下位Nビットで異なるエラー情報を表現する
-- 例： WindowsのHRESULT : 「[HRESULT型とは？ - UsefullCode.net](http://www.usefullcode.net/2007/03/hresult.html)」
+- 例： WindowsのHRESULT : 「[HRESULT型とは？ - UsefullCode.net](https://web.archive.org/web/20230323103136/http://www.usefullcode.net/2007/03/hresult.html)」
 - システムのエラーコードを汎用のエラーコードに変換し、[`error_code`](/reference/system_error/error_code.md)にはシステムの環境依存エラー値、`error_condition`には環境依存しない汎用エラー値を格納する
 
 
