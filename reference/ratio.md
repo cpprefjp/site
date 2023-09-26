@@ -38,6 +38,8 @@
 
 | 名前                            | 説明              | 対応バージョン |
 |---------------------------------|-------------------|----------------|
+| [`quecto`](ratio/si_prefix.md) | クエクト(type-alias) | C++26          |
+| [`ronto`](ratio/si_prefix.md) | ロント(type-alias)   | C++26          |
 | [`yocto`](ratio/si_prefix.md) | ヨクト(type-alias)   | C++11          |
 | [`zepto`](ratio/si_prefix.md) | ゼプト(type-alias)   | C++11          |
 | [`atto`](ratio/si_prefix.md)  | アト(type-alias)     | C++11          |
@@ -58,6 +60,8 @@
 | [`exa`](ratio/si_prefix.md)   | エクサ(type-alias)   | C++11          |
 | [`zetta`](ratio/si_prefix.md) | ゼタ(type-alias)     | C++11          |
 | [`yotta`](ratio/si_prefix.md) | ヨタ(type-alias)     | C++11          |
+| [`ronna`](ratio/si_prefix.md) | ロナ(type-alias)     | C++26          |
+| [`quetta`](ratio/si_prefix.md) | クエタ(type-alias)  | C++26          |
 
 
 ## バージョン
@@ -67,4 +71,4 @@
 
 ## 参照
 - [N2661 A Foundation to Sleep On](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm)
-
+- [P2734R0 Adding the new SI prefixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2734r0.pdf)
