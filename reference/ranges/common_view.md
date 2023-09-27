@@ -31,7 +31,7 @@ namespace std::ranges {
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
-| ○       | ※    | ※     | ※    | ※      | ※            | ※            | ※         | ○     | ○       | ○   |
+| ※       | ※    | ※     | ※    | ※      | ※            | ※            | ※         | ○     | ○       | ○   |
 
 ※ 参照先のRangeに従う
 
@@ -193,3 +193,4 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2017R1 Conditionally borrowed ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2017r1.html)
