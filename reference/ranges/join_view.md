@@ -7,8 +7,7 @@
 ```cpp
 namespace std::ranges {
   template<input_range V>
-    requires view<V> && input_range<range_reference_t<V>> &&
-             (is_reference_v<range_reference_t<V>> || view<range_value_t<V>>)
+    requires view<V> && input_range<range_reference_t<V>>
   class join_view : public view_interface<join_view<V>> { …… }; // (1)
 
   namespace views {
@@ -19,8 +18,6 @@ namespace std::ranges {
 * input_range[link input_range.md]
 * view[link view.md]
 * range_reference_t[link range_reference_t.md]
-* is_reference_v[link /reference/type_traits/is_reference.md]
-* range_value_t[link range_value_t.md]
 
 ## 概要
 
@@ -33,8 +30,8 @@ namespace std::ranges {
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
 |          |       |        | 〇    | (1)     | (2)           |               |            | (3)    | ○       | ○   |
 
-- (1): 外側・内側のRangeが[`forward_range`](forward_range.md)のとき
-- (2): 外側・内側のRangeが[`bidirectional_range`](bidirectional_range.md)のとき
+- (1): 外側・内側のRangeが[`forward_range`](forward_range.md)であり、内側Rangeが参照型のとき
+- (2): 外側・内側のRangeが[`bidirectional_range`](bidirectional_range.md)であり、内側Rangeが参照型かつ[`common_range`](common_range.md)であるとき
 - (3): 外側・内側のRangeが[`forward_range`](forward_range.md)かつ[`common_range`](common_range.md)であり
     - `const`ではない場合、内側のRangeは参照型（*prvalue*ではない）
 
@@ -45,8 +42,6 @@ namespace std::ranges {
 - [`view`](view.md)`<V>`
 - [`input_range`](input_range.md)`<V>`
 - [`input_range`](input_range.md)`<`[`range_reference_t`](range_reference_t.md)`<V>>`
-- [`is_reference_v`](/reference/type_traits/is_reference.md)`<`[`range_reference_t`](range_reference_t.md)`<V>>`
-- [`view`](view.md)`<`[`range_value_t`](range_value_t.md)`<V>>`
 
 ## 効果
 
@@ -117,3 +112,4 @@ h,e,l,l,o,w,o,r,l,d,
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2328R1 `join_view` should join all views of ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2328r1.html)
