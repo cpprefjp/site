@@ -18,6 +18,7 @@ NGWORD_LIST = [
     ("", "protmise_type", "promise_type"),
     ("", "pvalue", "prvalue"),
     ("", "repear", "repeat"),
+    ("", "std::range::", "std::ranges::"),
     ("", "swtich", "switch"),
     ("", "voaltile", "volatile"),
     ("", "子ルーチン", "コルーチン"),
