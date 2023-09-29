@@ -47,6 +47,9 @@
 - Clang 12.0以降は、`-std=c++2b`オプションを使用する。
     - GNU拡張を有効にする`-std=gnu++2b`オプションもある。
 
+### C++26の機能を有効にする
+- Clang 17.0以降は、`-std=c++2c`オプションを使用する。
+
 
 ## <a id="gcc" href="#gcc">GNU Compiler Collection</a>
 このサイトでは GCC と呼ぶ
