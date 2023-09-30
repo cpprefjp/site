@@ -1,7 +1,7 @@
 # erase (非メンバ関数)
 * forward_list[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
