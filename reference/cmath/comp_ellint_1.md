@@ -13,13 +13,13 @@ namespace std {
     comp_ellint_1(floating-point-type k); // (1) C++23
 
   Promoted
-    comp_ellint_1(Arithmetic k);          // (1) C++17
+    comp_ellint_1(Arithmetic k);          // (2) C++17
 
   float
-    comp_ellint_1f(float k);              // (2) C++17
+    comp_ellint_1f(float k);              // (3) C++17
 
   long double
-    comp_ellint_1l(long double k);        // (3) C++17
+    comp_ellint_1l(long double k);        // (4) C++17
 }
 ```
 * Promoted[italic]

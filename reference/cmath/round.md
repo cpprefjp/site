@@ -21,7 +21,7 @@ namespace std {
   float
     roundf(float x);                // (6) C++17
   constexpr float
-    roundf(float x);                // (6) C++17
+    roundf(float x);                // (6) C++23
 
   long double
     roundl(long double x);          // (7) C++17

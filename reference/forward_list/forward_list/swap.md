@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(forward_list& x); // (1) C++17
+void swap(forward_list& x); // (1) C++11
 
 void swap(forward_list& x)
        noexcept(

@@ -17,7 +17,7 @@ namespace std {
   template <class CharT, class Traits, class Allocator>
   constexpr bool
     operator>(const basic_string<CharT, Traits, Allocator>& a,
-              const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++14
+              const basic_string<CharT, Traits, Allocator>& b) noexcept; // (1) C++20
 
   template <class CharT, class Traits, class Allocator>
   bool

@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std::filesystem {
-  bool operator==(const path& lhs, const path& rhs) noexcept; // (1) C++20
+  bool operator==(const path& lhs, const path& rhs) noexcept; // (1) C++17
 
   class path {
   public:

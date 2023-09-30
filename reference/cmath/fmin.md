@@ -25,12 +25,12 @@ namespace std {
   float
     fminf(float x, float y);             // (6) C++17
   constexpr float
-    fminf(float x, float y);             // (6) C++17
+    fminf(float x, float y);             // (6) C++23
 
   long double
     fminl(long double x, long double y); // (7) C++17
   constexpr long double
-    fminl(long double x, long double y); // (7) C++17
+    fminl(long double x, long double y); // (7) C++23
 }
 ```
 * Promoted[italic]

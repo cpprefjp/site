@@ -26,7 +26,7 @@ namespace std {
   long double
     fabsl(long double x);           // (7) C++17
   constexpr long double
-    fabsl(long double x);           // (7) C++17
+    fabsl(long double x);           // (7) C++23
 }
 ```
 * Integral[italic]

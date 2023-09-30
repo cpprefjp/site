@@ -13,7 +13,7 @@ explicit time_point(const duration& d);           // (2) C++11
 constexpr explicit time_point(const duration& d); // (2) C++14
 
 template <class Duration2>
-time_point(const time_point<clock, Duration2>& t);           // (3) C++14
+time_point(const time_point<clock, Duration2>& t);           // (3) C++11
 
 template <class Duration2>
 constexpr time_point(const time_point<clock, Duration2>& t); // (3) C++14

@@ -24,7 +24,7 @@ namespace std {
   template <class T>
   T atomic_fetch_and(
       atomic<T>* object,
-      typename atomic<T>::value_type operand) noexcept; // (2) C++11
+      typename atomic<T>::value_type operand) noexcept; // (2) C++17
 }
 ```
 * atomic[link atomic.md]

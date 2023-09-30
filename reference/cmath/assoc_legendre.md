@@ -24,12 +24,12 @@ namespace std {
   float
     assoc_legendref(unsigned int l,
                     unsigned int m,
-                    float x);              // (2) C++17
+                    float x);              // (3) C++17
 
   long double
     assoc_legendrel(unsigned int l,
                     unsigned int m,
-                    long double x);        // (3) C++17
+                    long double x);        // (4) C++17
 }
 ```
 * Promoted[italic]

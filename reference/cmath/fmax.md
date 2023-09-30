@@ -30,7 +30,7 @@ namespace std {
   long double
     fmaxl(long double x, long double y); // (7) C++17
   constexpr long double
-    fmaxl(long double x, long double y); // (7) C++17
+    fmaxl(long double x, long double y); // (7) C++23
 }
 ```
 * Promoted[italic]

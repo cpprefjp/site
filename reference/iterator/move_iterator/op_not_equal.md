@@ -23,7 +23,7 @@ namespace std {
       operator!=(const move_iterator& x, const move_sentinel<S>& y); // (2) C++20
     template <sentinel_for<Iterator> S>
     friend constexpr bool
-      operator!=(const move_sentinel<S>& x, const move_iterator& y); // (2) C++20
+      operator!=(const move_sentinel<S>& x, const move_iterator& y); // (3) C++20
   };
 }
 ```

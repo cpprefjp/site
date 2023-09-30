@@ -20,12 +20,12 @@ namespace std {
   float
     ceilf(float x);                 // (6) C++17
   constexpr float
-    ceilf(float x);                 // (6) C++17
+    ceilf(float x);                 // (6) C++23
 
   long double
     ceill(long double x);           // (7) C++17
   constexpr long double
-    ceill(long double x);           // (7) C++17
+    ceill(long double x);           // (7) C++23
 }
 ```
 * Integral[italic]
