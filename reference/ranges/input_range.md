@@ -23,7 +23,6 @@ namespace std::ranges {
 ## 例
 ```cpp example
 #include <ranges>
-#include <forward_list>
 #include <iostream>
 
 int main() {

@@ -36,13 +36,13 @@ int main()
   // floating point Rep
   static_assert(
     treat_as_floating_point<duration<double, std::ratio<1, 30>>::rep>::value,
-    "duration<double, ratio<1, 30>> > can't become floating point"
+    "duration<double, ratio<1, 30>> > must be floating point"
   );
 
   // integer Rep
   static_assert(
     !treat_as_floating_point<milliseconds::rep>::value,
-    "seconds can't become floating point"
+    "milliseconds can't become floating point"
   );
 }
 ```

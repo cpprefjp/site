@@ -61,7 +61,6 @@ C++20以降、これらの演算子により以下の演算子が使用可能に
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <algorithm>
 #include <iterator>
 
 int main()

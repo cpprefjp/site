@@ -47,7 +47,6 @@ C++20以降、この演算子は[`operator==`](op_equal.md)によって使用可
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <algorithm>
 #include <iterator>
 
 int main()

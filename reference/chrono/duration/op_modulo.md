@@ -67,7 +67,7 @@ int main()
     std::cout << ms.count() << std::endl;
   }
 
-  // duration / duration
+  // duration % duration
   {
     seconds s = seconds(8) % seconds(3);
     std::cout << s.count() << std::endl;
