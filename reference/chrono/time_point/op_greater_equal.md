@@ -24,7 +24,7 @@ namespace chrono {
 
 ## 戻り値
 ```cpp
-return lhs.time_since_epoch() < rhs.time_since_poch();
+return lhs.time_since_epoch() >= rhs.time_since_poch();
 ```
 * time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 

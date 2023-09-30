@@ -22,7 +22,7 @@ namespace chrono {
 
 ```cpp
 using ct = common_type<decltype(lhs), decltype(rhs)>::type;
-return ct(lhs).count() < ct(rhs).count();
+return ct(lhs).count() >= ct(rhs).count();
 ```
 * common_type[link /reference/type_traits/common_type.md]
 * count[link /reference/chrono/duration/count.md]

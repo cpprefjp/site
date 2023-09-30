@@ -23,7 +23,7 @@ namespace chrono {
               const time_point<Clock, Duration2>& rhs); // (2) C++11
 
   template <class Rep1, class Period1, class Clock, class Duration2>
-  time_point<Clock, typename common_type<duration<Rep1, Period1>, Duration2>::type>
+  constexpr time_point<Clock, typename common_type<duration<Rep1, Period1>, Duration2>::type>
     operator+(const duration<Rep1, Period1>& lhs,
               const time_point<Clock, Duration2>& rhs); // (2) C++14
 }}
