@@ -30,7 +30,7 @@ namespace std::ranges {
 2. `T`のムーブ代入は、`T`のデストラクタとムーブコンストラクタを連続で実行する場合より複雑にならない
 3. M 個の要素を持つ`T`型のオブジェクトから N 個の`T`型オブジェクトをムーブやコピーで作ったとき、それら N 個の`T`型オブジェクトは O(N + M) で破棄できる
 4. [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T>`が`false`、または`T`のコピーコンストラクタがO(1)
-5. [`copyable`](/reference/concepts/copyable.md)`<T>`が`false`、または`T`のコピー代入演算子がO(1)
+5. [`copyable`](/reference/concepts/copyable.md)`<T>`が`false`、または`T`のコピー代入は`T`のデストラクタとコピーコンストラクタを連続で実行する場合より複雑にならない
 
 `view`と[`borrowed_range`](borrowed_range.md)には直接の包含関係はないが、要素を所有していると一般にこれらの要件は満たせないため、[`borrowed_range`](borrowed_range.md)でもある場合が多い。
 
