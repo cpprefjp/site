@@ -46,4 +46,37 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ## ライブラリ更新の概要
+### アルゴリズム
+- 以下のアルゴリズムを`constexpr`に対応
+    - [`std::stable_sort()`](/reference/algorithm/stable_sort.md) / [`std::ranges::stable_sort()`](/reference/algorithm/ranges_stable_sort.md)
+    - [`std::stable_partition()`](/reference/algorithm/stable_partition.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_stable_partition.md)
+    - [`std::inplace_merge()`](/reference/algorithm/inplace_merge.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_inplace_merge.md)
+
+
+### 文字列
+- [`<charconv>`](/reference/charconv.md)の変換結果[`std::to_chars_result`](/reference/charconv/to_chars_result.md)と[`std::from_chars_result`](/reference/charconv/from_chars_result.md)に、変換が正しく完了したかを判定する`operator bool`を追加
+- [`std::to_string()`](/reference/string/to_string.md)の仕様が`std::sprintf()`で説明されていたが、[`std::format()`](/reference/format/format.md)で定義するよう仕様を変更
+
+
+### 日付・時間
+- [`<chrono>`](/reference/chrono.md)の以下のクラスに[`std::hash`](/reference/functional/hash.md)のサポートを追加
+    - [`std::chrono::duration`](/reference/chrono/duration.md)
+    - [`std::chrono::time_point`](/reference/chrono/time_point.md)
+    - [`std::chrono::day`](/reference/chrono/day.md)
+    - [`std::chrono::month`](/reference/chrono/month.md)
+    - [`std::chrono::year`](/reference/chrono/year.md)
+    - [`std::chrono::weekday`](/reference/chrono/weekday.md)
+    - [`std::chrono::weekday_indexed`](/reference/chrono/weekday_indexed.md)
+    - [`std::chrono::weekday_last`](/reference/chrono/weekday_last.md)
+    - [`std::chrono::month_day`](/reference/chrono/month_day.md)
+    - [`std::chrono::month_day_last`](/reference/chrono/month_day_last.md)
+    - [`std::chrono::month_weekday`](/reference/chrono/month_weekday.md)
+    - [`std::chrono::month_weekday_last`](/reference/chrono/month_weekday_last.md)
+    - [`std::chrono::year_month`](/reference/chrono/year_month.md)
+    - [`std::chrono::year_month_day`](/reference/chrono/year_month_day.md)
+    - [`std::chrono::year_month_day_last`](/reference/chrono/year_month_day_last.md)
+    - [`std::chrono::year_month_weekday`](/reference/chrono/year_month_weekday.md)
+    - [`std::chrono::year_month_weekday_last`](/reference/chrono/year_month_weekday_last.md)
+    - [`std::chrono::zoned_time`](/reference/chrono/zoned_time.md)
+    - [`std::chrono::leap_second`](/reference/chrono/leap_second.md)
 
