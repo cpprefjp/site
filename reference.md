@@ -91,6 +91,7 @@
 | ヘッダ                               | 説明                 | 対応バージョン |
 |--------------------------------------|----------------------|----------------|
 | [`<locale>`](/reference/locale.md)   | ロケール             |                |
+| [`<text_encoding>`](/reference/text_encoding.md.nolink) | 文字列エンコーディングの識別 | C++26 |
 | [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨 |
 
 
@@ -196,6 +197,8 @@
 | [`<latch>`](/reference/latch.md)                           | ラッチ同期            | C++20          |
 | [`<barrier>`](/reference/barrier.md)                       | バリア同期            | C++20          |
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
+| [`<rcu>`](/reference/rcu.md.nolink)                               | データの参照・更新    | C++26          |
+| [`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)         | ハザードポインタ      | C++26          |
 
 
 ## <a id="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>
