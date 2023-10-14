@@ -53,7 +53,7 @@ int main()
 * time_since_epoch()[link time_since_epoch.md]
 * count()[link /reference/chrono/duration/count.md]
 
-### 出力
+### 出力例
 ```
 0
 3000000

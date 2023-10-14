@@ -78,7 +78,7 @@ int main()
   std::cout << is_equality_comparable<NonComparable>::value << std::endl;
 }
 ```
-* std::void[color ff0000]
+* std::void_t[color ff0000]
 * std::declval[link /reference/utility/declval.md]
 
 ### 出力

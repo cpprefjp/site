@@ -34,13 +34,13 @@ int main()
   const std::type_info& b = typeid(3);
 
   std::cout << std::boolalpha;
-  std::cout << "difference type? " << (a != b) << std::endl;
+  std::cout << "different type? " << (a != b) << std::endl;
 }
 ```
 
 ### 出力
 ```
-difference type? false
+different type? false
 ```
 
 ## 参照
