@@ -50,7 +50,7 @@ iterator erase(const_iterator first, const_iterator last); // (5) C++11
 
 ## 計算量
 - (1), (2) : 定数時間
-- (3), (4) : コンテナの [`size()`](size.md) について対数時間
+- (3), (4) : コンテナの [`size()`](size.md) について対数時間に加えて、[`count`](count.md)`(x)`について線形時間
 - (5) : コンテナの [`size()`](size.md) について対数時間、それに加えて `first` と `last` の間の距離に対する線形時間
 
 
