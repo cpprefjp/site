@@ -8,6 +8,7 @@
 - [C++17](#cpp17)
 - [C++20](#cpp20)
 - [C++23](#cpp23)
+- [C++26](#cpp26)
 
 ## <a id="cpp11" href="#cpp11">C++11言語機能の実装状況</a>
 
@@ -289,6 +290,28 @@
     - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
     - [次リリース情報(VS2019,2022) - Change log](https://github.com/microsoft/STL/wiki/Changelog)
 - ICX: [C++23 Features Supported by Intel® C++ Compiler](https://www.intel.com/content/www/us/en/developer/articles/technical/c23-features-supported-by-intel-c-compiler.html)
+
+
+## <a id="cpp26" href="#cpp26">C++26言語機能の実装状況</a>
+
+| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
+|----------|------|------------|----------------|------------|--------------|
+| P2752R3: [`std::initializer_list`の配列を静的ストレージに配置する](/lang/cpp26/static_storage_for_braced_initializers.md.nolink) | `std::vector v = {1, 2, 3};`のような初期化で初期化子リストを静的ストレージに配置することで無駄なコピーをなくす | 14 | | | |
+| P2169R4: [宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md.nolink) | 変数名`_`は暗黙で`[[maybe_unused]]`が指定される | | 18 | | |
+| P1854R4: [文字列リテラルの文字エンコーディング失敗を不適格とする](/lang/cpp26/making_non-encodable_string_literals_ill-formed.md.nolink) | 文字列リテラルのエンコーディング時に文字表現が失われる場合にコンパイルエラーにする | | 14 | | |
+| P2361R6: [コンパイル時にのみ使用される文字列の扱いを明確化](/lang/cpp26/unevaluated_strings.md.nolink) | `static_assert`や`[[deprecated]]`などで使用されるコンパイル時の文字列について、文字コードの指定を禁止し、実行時エンコーディングが行われないことを規定 | | 18 | | |
+| P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md.nolink) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | | | | |
+| P2738R1: [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md.nolink) | 型消去のために`void*`からポインタ型へのキャストを許可する | | 14 | 17 | |
+| P2741R3: [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md.nolink) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする | | | | |
+| P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md.nolink) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | | Yes | | |
+
+各処理系のC++26実装状況ページ：
+
+- GCC: [C++26 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx26)
+- Clang: [C++2c implementation status](https://clang.llvm.org/cxx_status.html#cxx26)
+- Visual C++ (MSVC):
+    - [Change log](https://github.com/microsoft/STL/wiki/Changelog)
+
 
 [gcc]: ./implementation.md#gcc
 [clang]: ./implementation.md#clang
