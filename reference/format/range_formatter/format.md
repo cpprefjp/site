@@ -22,8 +22,8 @@ typename FormatContext::iterator
 
 ## 効果
 - [`parse()`](parse.md)メンバ関数で解析した書式文字列の指定に基づいて、`r`の値を文字列に変換し、以下を[`ctx.out()`](/reference/format/basic_format_context/out.md)に出力する：
-    - Range書式として[`s` (文字列として出力)](/reference/format/format.md#range-format-options)が指定された場合、[`basic_string`](/reference/string/basic_string.md)`<charT>(`[`from_range`](/reference/ranges/from_range_t.md.nolink)`, r)`を出力する
-    - そうでなく、Range書式として[`?s` (デバッグ文字列として出力)](/reference/format/format.md#range-format-options)が指定された場合、[`basic_string`](/reference/string/basic_string.md)`<charT>(`[`from_range`](/reference/ranges/from_range_t.md.nolink)`, r)`に引用符を付け、エスケープシーケンスをエスケープして出力する
+    - Range書式として[`s` (文字列として出力)](/reference/format/format.md#range-format-options)が指定された場合、[`basic_string`](/reference/string/basic_string.md)`<charT>(`[`from_range`](/reference/ranges/from_range_t.md)`, r)`を出力する
+    - そうでなく、Range書式として[`?s` (デバッグ文字列として出力)](/reference/format/format.md#range-format-options)が指定された場合、[`basic_string`](/reference/string/basic_string.md)`<charT>(`[`from_range`](/reference/ranges/from_range_t.md)`, r)`に引用符を付け、エスケープシーケンスをエスケープして出力する
     - そうでなければ、
         - 開きカッコを出力する
         - Range `r`の各要素`e`について、

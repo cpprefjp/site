@@ -404,6 +404,9 @@ range | adaptor(args...)
 | 名前                 | 説明                                                           | 対応バージョン |
 |----------------------|----------------------------------------------------------------|----------------|
 | [`to`](ranges/to.md.nolink) | パイプライン記法でRangeからコンテナを構築する (class template) | C++23          |
+| [`from_range_t`](ranges/from_range_t.md) | Rangeからコンテナへの変換を示すタグ型 (class) | C++23          |
+| [`from_range`](ranges/from_range_t.md) | Rangeからコンテナへの変換を示すタグ値 (variable) | C++23          |
+
 
 ## 実装例
 - [libstdc++](https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/std/ranges)
