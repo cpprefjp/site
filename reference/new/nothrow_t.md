@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  struct nothrow_t {};
+  struct nothrow_t { explicit nothrow_t() = default; };
   extern const nothrow_t nothrow;
 }
 ```
@@ -55,3 +55,6 @@ int main()
 ```
 logic_error: ThrowObj::ThrowObj()
 ```
+
+## 参照
+- [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510)

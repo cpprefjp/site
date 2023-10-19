@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  struct try_to_lock_t { };
+  struct try_to_lock_t { explicit try_to_lock_t() = default; };
   constexpr try_to_lock_t try_to_lock { };        // C++11
   inline constexpr try_to_lock_t try_to_lock { }; // C++17
 }
@@ -62,5 +62,4 @@ int main()
 
 
 ## 参照
-
-
+- [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510

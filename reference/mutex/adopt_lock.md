@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  struct adopt_lock_t { };
+  struct adopt_lock_t { explicit adopt_lock_t() = default; };
   constexpr adopt_lock_t adopt_lock { };        // C++11
   inline constexpr adopt_lock_t adopt_lock { }; // C++17
 }
@@ -58,5 +58,4 @@ int main()
 
 
 ## 参照
-
-
+- [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510)
