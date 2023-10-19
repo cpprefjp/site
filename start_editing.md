@@ -262,3 +262,64 @@ C++の次のバージョンで入ることが決まった機能については�
 
 これらはタスクissueにもできていませんが、手が足りず作業できていません。
 
+
+## <a name="point" href="#point">貢献ポイント</a>
+cpprefjpおよびboostjpでの作業は、以下のように貢献ポイントを割り振った上で、年間の貢献 (12月から翌年11月) を集計して収益をコントリビューターの方々に分配します。
+
+分配の手順は以下のようになります：
+
+1. コアメンバーが集計用のPull Requestを立てる
+2. コントリビューターの方々からの追加・修正の指摘を募集する
+3. 各コントリビューターの年間貢献ポイントと分配率を仮決定
+4. 貢献ポイントの追加・修正指摘、および分配の受け入れ、または辞退の申し出を受け付ける (1週間程度)
+    - 期間内に分配の受け入れ申し出がない場合は、貢献ポイントを次年繰り越す (前年まで保持)
+5. 辞退者を除いて分配率を決定する
+6. 入金先の情報をコアメンバー宛に伝える (Googleフォームを用意する予定)
+
+お金での分配を辞退された方にも、ステッカーの配布などでお返しができればと考えています。
+
+
+### cpprefjp
+
+| タグ | ポイント | 説明 |
+|-----|---------|------|
+| cpprefjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
+| cpprefjp/link     |  2 | 関連項目・参照リンクなどの追加 (ページ単位) |
+| cpprefjp/addref   | 20 | リファレンスを1ページ追加 |
+| cpprefjp/addlang  | 20 | 言語機能を1ページ追加 |
+| cpprefjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正 (ページ単位) |
+| cpprefjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、サンプルコード追加 (ページ単位) |
+| cpprefjp/fixl     | 10 | 既存ページへの修正 : large 仕様変更への対応 (ページ単位) |
+| cpprefjp/compiler |  2 | 動作確認できたコンパイラバージョンの記載 (ページ単位) |
+
+### boostjp
+
+| タグ | ポイント | 説明 |
+|-----|---------|------|
+| boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位 |
+| boostjp/releases |  2 | Boostリリースノート1件追加 small : maintenance workなどの小さなリリースノート |
+| boostjp/releasem |  5 | Boostリリースノートページを準備 |
+| boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : 10行以下の中程度の大きさ |
+| boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ |
+| boostjp/addrefs  | 10 | Boost逆引きリファレンス : small (1例追加) |
+| boostjp/addrefm  | 20 | Boost逆引きリファレンス : medium (標準C++のバージョンアップ対応1例単位、Boostのバージョンアップ対応1例単位) |
+| boostjp/boosts   | 5 | Boostへの貢献 small (typoの修正など) |
+
+### ツール類
+
+CIスクリプト、site_generator、kunaiなど。
+
+| タグ | ポイント | 説明 |
+|-----|---------|------|
+| tool/fixbug     | 30 | バグ修正 |
+| tool/improves   | 10 | コード改善 : small |
+| tool/improvem   | 30 | コード改善 : medium |
+| tool/improvem   | 50 | コード改善 : large |
+| tool/updatelib  | 20 | 依存ライブラリのアップデート (直接使用のライブラリ単位) |
+| tool/updatelang | 10 | 使用言語のアップデート : small (とくにコード変更なく更新できた) |
+| tool/updatelang | 30 | 使用言語のアップデート : medium (多少のコード修正で更新できた) |
+| tool/updatelang | 50 | 使用言語のアップデート : large (大きいまたはむずかしいコード修正をして更新できた) |
+| tool/adds       | 30 | 新たな仕組みの導入 small : (C++バージョン追加、カテゴリ追加など) |
+| tool/addm       | 50 | 新たな仕組みの導入 medium |
+| tool/addl       | 100〜 | 新たな仕組みの導入 large : キーワード自動リンク、相対リンク対応など |
+
