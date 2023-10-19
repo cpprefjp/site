@@ -42,9 +42,6 @@ def check_ngword(text: str, filename: str) -> bool:
 
 if __name__ == '__main__':
     found_error = False
-    current_dir = os.getcwd()
-    outer_link_dict = dict()
-    found_error = False
     for p in sorted(list(glob.glob("**/*.md", recursive=True))):
         with open(p) as f:
             text = f.read()
