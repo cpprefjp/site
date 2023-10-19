@@ -1,5 +1,5 @@
 # from_range_t
-* utility[meta header]
+* ranges[meta header]
 * std[meta namespace]
 * class[meta id-type]
 * cpp23[meta cpp]
