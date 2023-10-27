@@ -1,7 +1,7 @@
 # cpprefjp - C++日本語リファレンス
 ## ゴールドスポンサー
 
-<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="560"/></a></div>
+<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="400"/></a></div>
 
 本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。
 
