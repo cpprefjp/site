@@ -1,8 +1,4 @@
 # cpprefjp - C++日本語リファレンス
-## ゴールドスポンサー
-
-<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="400"/></a></div>
-
 本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。
 
 最新C++バージョンのリファレンスを提供していきます。
@@ -76,6 +72,10 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 
 ## スポンサー
 cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。
+
+### ゴールドスポンサー
+
+<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="480"/></a></div>
 
 
 ### シルバースポンサー
