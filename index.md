@@ -75,7 +75,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### ゴールドスポンサー
 
-<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="480"/></a></div>
+<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="560"/></a></div>
 
 
 ### シルバースポンサー
