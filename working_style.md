@@ -7,12 +7,14 @@
 
 型修飾のスタイル：
 
-- A) const T &v
-- B) const T& v
-- C) const T & v
-- D) T const &v
-- E) T const& v
-- F) T const & v
+```cpp
+/* (A) */ const T &v
+/* (B) */ const T& v
+/* (C) */ const T & v
+/* (D) */ T const &v
+/* (E) */ T const& v
+/* (F) */ T const & v
+```
 
 本サイトでは、Bのスタイルで型修飾を行います。
 
