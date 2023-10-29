@@ -121,6 +121,7 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 
 ```cpp example
 #include <iostream>
+#include <iomanip>
 #include <charconv>
 
 int main()

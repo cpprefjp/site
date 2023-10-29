@@ -70,7 +70,7 @@ struct optional {
         = default;
     // #2
     optional(optional const& rhs)
-            requires copy_constructible<T>;
+            requires std::copy_constructible<T>;
 };
 ```
 * std::is_trivially_copy_constructible_v[link /reference/type_traits/is_trivially_copy_constructible.md]
