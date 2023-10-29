@@ -28,11 +28,11 @@ static constexpr int_type to_int_type(char_type c) noexcept; // C++11
 
 int main()
 {
-  int x = std::char_traits<char>::to_char_type('A');
+  int x = std::char_traits<char>::to_int_type('A');
   std::cout << std::hex << x << std::endl;
 }
 ```
-* to_char_type[color ff0000]
+* to_int_type[color ff0000]
 
 ### 出力例
 ```
