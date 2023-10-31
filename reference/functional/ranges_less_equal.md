@@ -49,7 +49,7 @@ namespace std::ranges {
 
 int main()
 {
-  std::cout << std::boolalpha << std::ranges::less_equal<int>()(2, 3) << std::endl;
+  std::cout << std::boolalpha << std::ranges::less_equal()(2, 3) << std::endl;
 }
 ```
 * std::ranges::less_equal[color ff0000]

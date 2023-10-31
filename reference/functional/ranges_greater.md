@@ -49,7 +49,7 @@ namespace std::ranges {
 
 int main()
 {
-  std::cout << std::boolalpha << std::ranges::greater<int>()(3, 2) << std::endl;
+  std::cout << std::boolalpha << std::ranges::greater()(3, 2) << std::endl;
 }
 ```
 * std::ranges::greater[color ff0000]

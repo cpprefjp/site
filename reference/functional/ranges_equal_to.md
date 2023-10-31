@@ -51,7 +51,7 @@ namespace std::ranges {
 
 int main()
 {
-  std::cout << std::boolalpha << std::ranges::equal_to<int>()(3, 3) << std::endl;
+  std::cout << std::boolalpha << std::ranges::equal_to()(3, 3) << std::endl;
 }
 ```
 * std::ranges::equal_to[color ff0000]

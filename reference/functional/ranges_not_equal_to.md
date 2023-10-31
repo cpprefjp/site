@@ -48,7 +48,7 @@ namespace std::ranges {
 
 int main()
 {
-  std::cout << std::boolalpha << std::ranges::not_equal_to<int>()(3, 3) << std::endl;
+  std::cout << std::boolalpha << std::ranges::not_equal_to()(3, 3) << std::endl;
 }
 ```
 * std::ranges::not_equal_to[color ff0000]
