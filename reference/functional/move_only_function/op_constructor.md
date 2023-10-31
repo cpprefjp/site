@@ -137,21 +137,21 @@ int main()
 
   // (4) 関数ポインタを受け取って構築
   {
-    std::function<int(int)> f = ident_func;
+    std::move_only_function<int(int)> f = ident_func;
 
     int result = f(1);
     std::cout << "(4) function pointer : " << result << std::endl;
   }
   // (4) 関数オブジェクトを受け取って構築
   {
-    std::function<int(int)> f = ident_functor();
+    std::move_only_function<int(int)> f = ident_functor();
 
     int result = f(1);
     std::cout << "(4) function object : " << result << std::endl;
   }
   // (4) メンバ関数ポインタを受け取った構築
   {
-    std::function<int(const X&, int)> f = &X::add_member_func;
+    std::move_only_function<int(const X&, int)> f = &X::add_member_func;
 
     X x{2};
     int result = f(x, 1);
@@ -159,7 +159,7 @@ int main()
   }
   // (4) メンバ変数ポインタを受け取った構築
   {
-    std::function<int(const X&)> f = &X::value;
+    std::move_only_function<int(const X&)> f = &X::value;
     X x{2};
     int result = f(x);
     std::cout << "(4) member variable pointer : " << result << std::endl;
