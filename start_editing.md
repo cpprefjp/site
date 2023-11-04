@@ -367,3 +367,8 @@ CIスクリプト、site_generator、kunaiなど。
         - 説明欄にGitHubアカウントを書いてもらえると、だれの申請かがわかりやすくて助かる
 5. cpprefjpから経費の承認がされれば、支払われる
 
+
+### 貢献ポイントの集計ページ
+
+- [2023年](start_editing/contribution_stats_2023.md)
+
