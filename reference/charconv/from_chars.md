@@ -1,6 +1,6 @@
 # from_chars
 * charconv[meta header]
-* function template[meta id-type]
+* function[meta id-type]
 * std[meta namespace]
 * cpp17[meta cpp]
 
