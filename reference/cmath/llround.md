@@ -46,13 +46,13 @@ namespace std {
 
 
 ## 戻り値
-引数 `x` を四捨五入により丸めた整数値を、[`long long`型](/lang/cpp11/long_long_type.md)型の範囲に収めて返す。
+引数 `x` を四捨五入により丸めた整数値を、[`long long`型](/lang/cpp11/long_long_type.md)の範囲に収めて返す。
 
 
 ## 備考
 - 本関数は、C99 の規格にある `llround`（より正確には `math.h` ヘッダの `llround`、`llroundf`、`llroundl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
 - [`round`](round.md)関数と違い、本関数において戻り値が非整数型引数 `x` と異なる場合に、例外 [`FE_INEXACT`](/reference/cfenv/fe_inexact.md) を発生させる必要はない。
-- 戻り値が[`long long`型](/lang/cpp11/long_long_type.md)型の範囲を超えた場合、定義域エラーが起こる可能性がある。その際の挙動については、[`<cmath>`](../cmath.md) を参照。
+- 戻り値が[`long long`型](/lang/cpp11/long_long_type.md)の範囲を超えた場合、定義域エラーが起こる可能性がある。その際の挙動については、[`<cmath>`](../cmath.md) を参照。
 - なお、本関数の挙動は、現在の丸めモードには依存しない。
 - C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 

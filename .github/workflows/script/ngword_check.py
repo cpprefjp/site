@@ -1,6 +1,7 @@
 import glob
 import os
 import sys
+import re
 
 NGWORD_LIST = [
     ("", "<br>", "<br/>"),
@@ -23,6 +24,7 @@ NGWORD_LIST = [
     ("", "voaltile", "volatile"),
     ("", "子ルーチン", "コルーチン"),
     ("", "移譲", "委譲"),
+    ("", r'型]\((.*?)\)型', "型](link)"),
     ("reference/chrono", "dulation", "duration"),
     ("reference/random", "施行", "試行"),
     ("reference/random", "疑似", "擬似"),
@@ -35,7 +37,8 @@ def check_ngword(text: str, filename: str) -> bool:
         if not filename.startswith(target_dir):
             continue
 
-        if ngword in text:
+        m = re.search(ngword, text)
+        if m:
             print("{}: the file includes ngword \"{}\". you should fix to \"{}\".".format(filename, ngword, correct))
             found_error = True
     return not found_error
