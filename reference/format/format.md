@@ -490,7 +490,6 @@ int main()
 
 ### `vector<bool>`を出力する (C++23)
 ```cpp example
-```cpp example
 #include <iostream>
 #include <format>
 #include <vector>
