@@ -10,7 +10,7 @@ constexpr const_reverse_iterator crend() const noexcept;
 ```
 
 ## 概要
-末尾要素の次を指すイテレータを取得する。
+先頭の前を指す読み取り専用逆イテレータを取得する。
 
 
 ## 戻り値
