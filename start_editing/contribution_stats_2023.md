@@ -5,7 +5,7 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [41bca76](https://github.com/cpprefjp/site/commit/41bca76b22c72220203c7d2e369e6a76e9b645b2) | cpprefjp/type:1 | `generator/begin`: fix typo |
+| [41bca76](https://github.com/cpprefjp/site/commit/41bca76b22c72220203c7d2e369e6a76e9b645b2) | cpprefjp/typo:1 | `generator/begin`: fix typo |
 | [bd48ead](https://github.com/cpprefjp/site/commit/bd48ead94b7324c18006cdcfe08aa8560cf1f303), [27f5df0](https://github.com/cpprefjp/site/commit/27f5df0eebfc593d6875f978aaab727648943559), [ab69dd](https://github.com/cpprefjp/site/commit/ab69dd554d5ea642a4ec6a2350760a6faf069039), [c6bde83](https://github.com/cpprefjp/site/commit/c6bde8363fb78d19713ad3e9b4cd2e4ceb0d48df), [5e25d82](https://github.com/cpprefjp/site/commit/5e25d82045a410286548f4cfb14542e78bec876d) | cpprefjp/addref:9, cpprefjp/fixs:1, cpprefjp/fixm:1, cpprefjp/link:1 | `generator/promise_type`のリファレンス作成 |
 | [384970](https://github.com/cpprefjp/site/commit/384970b9c298f2b5ad0cf76502fbee6635386fc5) | cpprefjp/fixs:1 | cpp20/coroutines: 微調整 |
 | [09c61f9](https://github.com/cpprefjp/site/commit/09c61f94ef2e5795801b131449073c34e47f4995) | cpprefjp/fixm:1 | `generator`: 例示コード拡充 |
@@ -83,7 +83,7 @@
 | [1971c4d](https://github.com/cpprefjp/site/commit/1971c4d9bd39ce1da8ac77597daca3298cb2e3d4) | cpprefjp/addref:2, cpprefjp/fixl:5 | `<format>` : コンテナアダプタの文字列フォーマットに対応 |
 | [2513346](https://github.com/cpprefjp/site/commit/2513346aaefb6f93d4740367084d9f30d30a05aa) | cpprefjp/addref:1, cpprefjp/fixm:1, cpprefjp/link:2 | `<format>` : `range-default-formatter`を追加 |
 | [f216f9f](https://github.com/cpprefjp/site/commit/f216f9febdb4ded06f2ad999933927d694b52765), [b2de7ca](https://github.com/cpprefjp/site/commit/b2de7cae247187b6cacc107f68aa0afec3c7ef0c) | cpprefjp/fixl:1, cpprefjp/fixm:1, cpprefjp/link:1 | `vector<bool>::reference`に対する`formatter`の特殊化を追加 |
-| [4f16a60](https://github.com/cpprefjp/site/commit/4f16a60c92c925396a78baf6e08f22a3450ff652), [469297f](https://github.com/cpprefjp/site/commit/469297fa7a5b27cdd4c4eca4b637a576ee496734), [a235d11](https://github.com/cpprefjp/site/commit/a235d11124e9da535c0af2a90407538d283fb260), [dfae477](https://github.com/cpprefjp/site/commit/dfae47736e42e6bf4603692f494e00540d05e3de), [e388ca6](https://github.com/cpprefjp/site/commit/e388ca69c6b456116a9cda79e221a8df66454bd2), [0bd721d](https://github.com/cpprefjp/site/commit/0bd721d4509759a70a2f56a2e6f7b77f99df7eaf) | cpprefjp/addref:9, cpprefjp/fixl:1, cpprefjp/fixm:1 cpprefjp/link:3 | `<print>`ヘッダ |
+| [4f16a60](https://github.com/cpprefjp/site/commit/4f16a60c92c925396a78baf6e08f22a3450ff652), [469297f](https://github.com/cpprefjp/site/commit/469297fa7a5b27cdd4c4eca4b637a576ee496734), [a235d11](https://github.com/cpprefjp/site/commit/a235d11124e9da535c0af2a90407538d283fb260), [dfae477](https://github.com/cpprefjp/site/commit/dfae47736e42e6bf4603692f494e00540d05e3de), [e388ca6](https://github.com/cpprefjp/site/commit/e388ca69c6b456116a9cda79e221a8df66454bd2), [0bd721d](https://github.com/cpprefjp/site/commit/0bd721d4509759a70a2f56a2e6f7b77f99df7eaf) | cpprefjp/addref:9, cpprefjp/fixl:1, cpprefjp/fixm:1, cpprefjp/link:3 | `<print>`ヘッダ |
 | [83d5357](https://github.com/cpprefjp/site/commit/83d53575d897b0bcdc6c5963ea22fd18ec855755) | cpprefjp/fixs:3 | `optional::and_then`, `or_else` : コード修飾を追加 |
 | [6d029cb](https://github.com/cpprefjp/site/commit/6d029cb18ead0f2abc706638978bc258ef4e5ea1) | cpprefjp/fixs:1 | `expected` : コード修飾を追加 |
 
