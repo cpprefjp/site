@@ -329,7 +329,6 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 | boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ |
 | boostjp/addrefs  | 10 | Boost逆引きリファレンス : small (1例追加) |
 | boostjp/addrefm  | 20 | Boost逆引きリファレンス : medium (標準C++のバージョンアップ対応1例単位、Boostのバージョンアップ対応1例単位) |
-| boostjp/boosts   | 5 | Boostへの貢献 small (typoの修正など) |
 
 ### ツール類
 
