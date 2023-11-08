@@ -25,6 +25,9 @@ namespace std {
 
 入力範囲`[first, last)`のコピーを未初期化出力範囲`[result, )`に書き込む。
 
+## 事前条件
+
+- イテレータ範囲`[result, result + (last - first))`が`[first, last)`と重ならないこと
 
 ## 効果
 - C++03 : 以下と等価

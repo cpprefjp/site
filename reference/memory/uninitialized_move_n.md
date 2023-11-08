@@ -26,6 +26,9 @@ namespace std {
 
 入力イテレータ範囲`[first, first + n)`からムーブして未初期化出力イテレータ範囲`[result, )`に書き込む。
 
+## 事前条件
+
+- イテレータ範囲`[result, result + n)`が`[first, first + n)`と重ならないこと
 
 ## 効果
 以下と等価：
