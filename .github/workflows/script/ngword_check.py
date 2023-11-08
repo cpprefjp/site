@@ -22,6 +22,8 @@ NGWORD_LIST = [
     ("", "std::range::", "std::ranges::"),
     ("", "swtich", "switch"),
     ("", "voaltile", "volatile"),
+    ("", "Updated upstream", ""),
+    ("", "Stashed changes", ""),
     ("", "子ルーチン", "コルーチン"),
     ("", "移譲", "委譲"),
     ("", r'型]\((.*?)\)型', "型](link)"),
