@@ -62,6 +62,10 @@ return first;
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
+## 例外
+
+呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
+
 
 ## 例
 ```cpp example
