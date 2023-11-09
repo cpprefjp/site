@@ -114,7 +114,7 @@
 | [bd6e8a6](https://github.com/cpprefjp/site/commit/bd6e8a6d96268e8405ad83cb1d8c61fd9e0c3e68) | tool/addm:1 | buildジョブを最新以外キャンセルするよう修正 |
 | [f447758](https://github.com/cpprefjp/site/commit/f447758159921653e9e3346942620c9c7bf074b8) | cpprefjp/fixl:1 | `from_chars` : 拡張浮動小数点数型に対応 |
 | [985d49c](https://github.com/cpprefjp/site/commit/985d49c758e7d255f694e0357e289c7484c47cf8) | cpprefjp/fixl:1 | `to_chars` : 拡張浮動小数点数型に対応 |
-| [d9d21a6](https://github.com/cpprefjp/site/commit/d9d21a6ae8197fd8f3b2f068b597574fc67bf450), [a49ab65](https://github.com/cpprefjp/site/commit/a49ab655988d97d3a3f88babe5c609af7a3588d0), [9fe59f7](https://github.com/cpprefjp/site/commit/9fe59f7c3a1b97adef5bc273c0ab9f81f8b085a7), [3ecf9ca](https://github.com/cpprefjp/site/commit/3ecf9caed67da356223be078b0707556c9226e2c), [82cec00](https://github.com/cpprefjp/site/commit/82cec00a8113857dd68414dc45d1b4803cf83a74), [0ce85f3](https://github.com/cpprefjp/site/commit/0ce85f3d6aa5f19188d506288f7f3101ee3313c3) | cpprefjp/addref:2, cpprefjp/link:4 | `<flat_map>` |
+| [d9d21a6](https://github.com/cpprefjp/site/commit/d9d21a6ae8197fd8f3b2f068b597574fc67bf450), [a49ab65](https://github.com/cpprefjp/site/commit/a49ab655988d97d3a3f88babe5c609af7a3588d0), [9fe59f7](https://github.com/cpprefjp/site/commit/9fe59f7c3a1b97adef5bc273c0ab9f81f8b085a7), [3ecf9ca](https://github.com/cpprefjp/site/commit/3ecf9caed67da356223be078b0707556c9226e2c), [82cec00](https://github.com/cpprefjp/site/commit/82cec00a8113857dd68414dc45d1b4803cf83a74), [0ce85f3](https://github.com/cpprefjp/site/commit/0ce85f3d6aa5f19188d506288f7f3101ee3313c3), [9d64bb3](https://github.com/cpprefjp/site/commit/9d64bb3992e4f626b57dc749cb4fc05e36dad532), [566457e](https://github.com/cpprefjp/site/commit/566457ebc95a9e0329610ff0e31f8e4a5d445323), [5e04103](https://github.com/cpprefjp/site/commit/5e0410386479b6cbb938010164128996c2f18876), [e87272b](https://github.com/cpprefjp/site/commit/e87272b9c0f629393dfa20826eca548e99628237), [1fe5eb3](https://github.com/cpprefjp/site/commit/1fe5eb30dfd9a30854f2c1a13ddfaeb7fe5f9eed), [c84d47b](https://github.com/cpprefjp/site/commit/c84d47b429f528700f37e1ba4d22f8b7e5bfdd61), [a43bd16](https://github.com/cpprefjp/site/commit/a43bd165f7c77b915000e79e11396d825ec7b0bd), [c5c7b5a](https://github.com/cpprefjp/site/commit/c5c7b5ad8893c03a788f1f80a0ecd5e1480d12d0), [fb3b50d](https://github.com/cpprefjp/site/commit/fb3b50d2c8403fb9fa47e9941441f8fe686094a2), [9430b41](https://github.com/cpprefjp/site/commit/9430b41593e773a191064eff80815532a0629be0), [d6e40dd](https://github.com/cpprefjp/site/commit/d6e40dd1f3f328b9f1e2d3ba3fd06a068eee1d2d), [d91c1da](https://github.com/cpprefjp/site/commit/d91c1da0f13281d896a93c82e69da2b0f8eb611b), [19decb2](https://github.com/cpprefjp/site/commit/19decb254a0a081db7d7047d2405ac1ae5b8a066) | cpprefjp/addref:11, cpprefjp/fixm:6, cpprefjp/link:5 | `<flat_map>` |
 | [b30e6fd](https://github.com/cpprefjp/site/commit/b30e6fd541461db3e42e8e62566af794628077fa) | cpprefjp/fixm:1 | Clang 16でC++17がデフォルトになった |
 | [5ae96e7](https://github.com/cpprefjp/site/commit/5ae96e7b57f2e93aafb913a4c658faa229325091), [163df86](https://github.com/cpprefjp/site/commit/163df869ce0e8c97cb11c2c13363578a0801dc78) | cpprefjp/fixm:1 | トップページに、スポンサーシップについて掲載 |
 | [ec2e4d0](https://github.com/cpprefjp/site/commit/ec2e4d073819ab587b8697b938e3935a06ba00e7), [f578c30](https://github.com/cpprefjp/site/commit/f578c301efb8a61c8315cba9d085440e6847028b), [ee14b2a](https://github.com/cpprefjp/site/commit/ee14b2abd0629a65e1a1c7439e153d882bd4dda0), [b42afef](https://github.com/cpprefjp/site/commit/b42afef66438a15b6676484c6ec372f2a3d67482), [6c6acb8](https://github.com/cpprefjp/site/commit/6c6acb89e820b695525a06025bb4b2f028604482) | cpprefjp/fixm:1 | トップページ : Acerola Software社様のロゴを表示 |
@@ -122,6 +122,19 @@
 | [15e87df](https://github.com/cpprefjp/site/commit/15e87dfd566db42845f47158e941032b9e0a2de0) | cpprefjp/typo:1 | (multi)map, (multi)set : s/const pointer/const_pointer/ |
 | [5f8fea3](https://github.com/cpprefjp/site/commit/5f8fea3398580638ca88fe270ac92b789e6e48bc) | cpprefjp/fixm:1 | クラスの雛形ページ : Hidden Friendsの記載例を追加 |
 | [8627239](https://github.com/cpprefjp/site/commit/8627239dd8cf584e55541ecf4754bcaa8f746780) | cpprefjp/fixm:1 | 国際標準規格 : C++23の規格案を更新 |
+| [0f55a96](https://github.com/cpprefjp/site/commit/0f55a9625276f145d0ea372275df2e829a978782) | cpprefjp/link:1 | テンプレート再帰回数の記事がリンク切れしていたのでアーカイブに差し替え |
+| [e852199](https://github.com/cpprefjp/site/commit/e85219905c26037593496a3fe1622160c27f5620) | cpprefjp/fixl:1 | C++23 : N4945での主要な変更を反映 |
+| [058df35](https://github.com/cpprefjp/site/commit/058df357fc5857506ee46f8fc179485c0ee759ec), [4f1dfeb](https://github.com/cpprefjp/site/commit/4f1dfeb02c7ba96c0fb0f83fb56afbd02290369a) | tool/addm:2, cpprefjp/typo:4, cpprefjp/link:1 | NGワードのチェックCIを追加 |
+| [8a3b779](https://github.com/cpprefjp/site/commit/8a3b7791e2aa4768757706b8294ff698bbc3233f) | tool/improves:1, cpprefjp/typo:1 | 移譲->委譲 を追加 |
+| [b7b6270](https://github.com/cpprefjp/site/commit/b7b62702f56341a53ba6f218fbb01661e966a284) | cpprefjp/fixs:1 | `map::operator[ ]` : オーバーロードに言語バージョンの書き忘れ |
+| [1702da3](https://github.com/cpprefjp/site/commit/1702da3257cf6123abd2378255bd48554eb4a1bf) | cpprefjp/fixm:4 | (multi)set|mapのfind : 透過的な検索の仕様をひな形に合わせた |
+| [131af88](https://github.com/cpprefjp/site/commit/131af885ebb460f4f285099152718fafd5e31fbd), [555a222](https://github.com/cpprefjp/site/commit/555a222083f8300ca63b94d0f019c7f8e0415df1) | cpprefjp/fixm:1 | vaporoid様のスポンサーロゴを追加 |
+| [a6f4987](https://github.com/cpprefjp/site/commit/a6f4987bf6e5fc792246606aa37c263b065b25ab), [db4695b](https://github.com/cpprefjp/site/commit/db4695bbdc990ec369d8ca97b7ddeb40431e58d4), [e5f31cd](https://github.com/cpprefjp/site/commit/e5f31cd4413e1e2156289e5d5ad28c4c8f703735), [76502a5](https://github.com/cpprefjp/site/commit/76502a5485982eeb21315b415a8a3bec5da8a929), [0bbeedb](https://github.com/cpprefjp/site/commit/0bbeedbb56fd825f21ead503b0edf8f47875d4f3) | cpprefjp/fixm:1 | 新たなスポンサーを追加 |
+| [8d47b62](https://github.com/cpprefjp/site/commit/8d47b625a8d21ac5de2c8b5feeb04ff2b8470793) | cpprefjp/fixm:1 | スポンサーを追加 |
+| [ca45417](https://github.com/cpprefjp/site/commit/ca4541705729e6b4d06cc8cf660a39dc70dc7a79), [1e49d46](https://github.com/cpprefjp/site/commit/1e49d46de2000efe530efba043c9daa973786916) | cpprefjp/fixm:1 | スポンサー追加 |
+| [50fa390](https://github.com/cpprefjp/site/commit/50fa3907fce6fc13f715b89d4e0ad79c55e91dc6), [394355b](https://github.com/cpprefjp/site/commit/394355bbef55ac255bb459691f4ccfb8c671ecfb) | cpprefjp/fixm:1 | スポンサー追加 |
+| [c019c0e](https://github.com/cpprefjp/site/commit/c019c0e36bbd4830536eeb9cb79fc6f039c9e9b9) | cpprefjp/typo:1 | `borrowed_range` : `span<int>`の要素は文字列ではなく`int` |
+| [aaff7b5](https://github.com/cpprefjp/site/commit/aaff7b5d32b068cc6cd74ea24f9fb1b25f437a5c) | cpprefjp/fixm:2 | (multi)map : emptyの言語バージョンがC++11になっていたのを修正 |
 
 
 
@@ -307,4 +320,19 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [7606d8f](https://github.com/cpprefjp/site/commit/7606d8fa6cf0fe57dc94718210b69cfd269a7f40) | cpprefjp/typo:1 | fix typo in cpp20/coroutines |
+
+
+## sutatoruta
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [7580c17](https://github.com/cpprefjp/site/commit/7580c17863c0ba80bef67d6a2b39119587905da7) | cpprefjp/typo:9 | typo修正 |
+| [ae6ac7c](https://github.com/cpprefjp/site/commit/ae6ac7c9b792b8e3fb6fb2ba9bbeab01648740cb) | cpprefjp/fixm:1 | random.mdの説明文とコードの不整合を修正 |
+
+
+## toru-fukaya
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [dd8a50d](https://github.com/cpprefjp/site/commit/dd8a50d89d7eaa04ca9511109342e11ff990e1fb) | cpprefjp/fixm:1 | クラステンプレートの型推論を回避する例を修正 |
 
