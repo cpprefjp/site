@@ -93,18 +93,17 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### ブロンズスポンサー
 
+<div style="text-align: center"><a href="https://opencollective.com/odan"><img src="https://odan.dev/icon.jpeg" alt="odan" width="320"/></a></div>
+
+<div style="text-align: center"><a href="https://www.unagiworks.net/"><img src="https://www.unagiworks.net/blog/wp-content/uploads/2019/01/logo.gif" alt="unagi"/></a></div>
+
+- [nodchip](https://twitter.com/nodchip)
+
 - イシハラユウヤ様
 - [Megumi Nakagami様](https://opencollective.com/meg_nakagami)
 
 
 <div style="text-align: center"><a href="https://github.com/minachun/minachun"><img src="https://raw.githubusercontent.com/minachun/minachun/main/banner.png" alt="minachun / J.Minami"/></a></div>
-
-
-### 一時スポンサー
-
-<div style="text-align: center"><a href="https://opencollective.com/odan"><img src="https://odan.dev/icon.jpeg" alt="odan" width="320"/></a></div>
-
-<div style="text-align: center"><a href="https://www.unagiworks.net/"><img src="https://www.unagiworks.net/blog/wp-content/uploads/2019/01/logo.gif" alt="unagi"/></a></div>
 
 - [Hashitaku様](https://opencollective.com/hashitaku)
 
