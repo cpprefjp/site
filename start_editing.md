@@ -291,6 +291,10 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
     - Issue / Pull Request / コミットへのコメント
     - SNS上での当Webサイトへの問題報告
 2. GitHub Wikiの編集
+3. 貢献ポイントの集計作業
+    - [集計ツール](https://github.com/cpprefjp/stats_contribution)の開発
+    - 貢献ポイントの調整・ルール作り
+    - `start_editing/contribution_stats_*.md`の編集
 
 貢献ポイントの集計方法として、以下の注意事項があります
 
