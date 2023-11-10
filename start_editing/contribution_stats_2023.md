@@ -127,7 +127,7 @@
 | [5f8fea3](https://github.com/cpprefjp/site/commit/5f8fea3398580638ca88fe270ac92b789e6e48bc) | cpprefjp/fixm:1 | クラスの雛形ページ : Hidden Friendsの記載例を追加 |
 | [8627239](https://github.com/cpprefjp/site/commit/8627239dd8cf584e55541ecf4754bcaa8f746780) | cpprefjp/fixm:1 | 国際標準規格 : C++23の規格案を更新 |
 | [0f55a96](https://github.com/cpprefjp/site/commit/0f55a9625276f145d0ea372275df2e829a978782) | cpprefjp/link:1 | テンプレート再帰回数の記事がリンク切れしていたのでアーカイブに差し替え |
-| [e852199](https://github.com/cpprefjp/site/commit/e85219905c26037593496a3fe1622160c27f5620) | cpprefjp/fixl:1 | C++23 : N4945での主要な変更を反映 |
+| [e852199](https://github.com/cpprefjp/site/commit/e85219905c26037593496a3fe1622160c27f5620), [6566493](https://github.com/cpprefjp/site/commit/656649355ce2bda2f629f12880e239fed254e520), [138872a](https://github.com/cpprefjp/site/commit/138872afcc7aaedb1d76a21314c5a49a5b915967) | cpprefjp/fixl:1 | C++23 : N4945での主要な変更を反映 |
 | [058df35](https://github.com/cpprefjp/site/commit/058df357fc5857506ee46f8fc179485c0ee759ec), [4f1dfeb](https://github.com/cpprefjp/site/commit/4f1dfeb02c7ba96c0fb0f83fb56afbd02290369a) | tool/addm:2, cpprefjp/typo:4, cpprefjp/link:1 | NGワードのチェックCIを追加 |
 | [8a3b779](https://github.com/cpprefjp/site/commit/8a3b7791e2aa4768757706b8294ff698bbc3233f) | tool/improves:1, cpprefjp/typo:1 | 移譲->委譲 を追加 |
 | [b7b6270](https://github.com/cpprefjp/site/commit/b7b62702f56341a53ba6f218fbb01661e966a284) | cpprefjp/fixs:1 | `map::operator[ ]` : オーバーロードに言語バージョンの書き忘れ |
@@ -150,6 +150,7 @@
 | [5af768a](https://github.com/cpprefjp/site/commit/5af768ad072b6415b1ed2d271af3f11270eaf5da) | cpprefjp/link:3 | C++20 `constinit` : `mutex`/`unique_ptr`のコンストラクタと相互リンク |
 | [587bd5b](https://github.com/cpprefjp/site/commit/587bd5b265057b6b9f69895cf8c98d6c37bdd483), [ae7c515](https://github.com/cpprefjp/site/commit/ae7c515da20425de6c80b7b4336ec49ba8d7f0c6), [6251e4a](https://github.com/cpprefjp/site/commit/6251e4abe9d90fab42621ba97fea3a0b4a3c94aa), [a6c9e22](https://github.com/cpprefjp/site/commit/a6c9e227b387d2aa8631acc1df6f78468d690702) [717658d](https://github.com/cpprefjp/site/commit/717658da25868f54091bc273aaff7f7c5e46e02b), [e7ee1d9](https://github.com/cpprefjp/site/commit/e7ee1d999620147a6423c73b2992803bf7185a50), [c170374](https://github.com/cpprefjp/site/commit/c170374a913b9dbd4dceb07dbfa4eeba5489ed24) | cpprefjp/fixm:4 | `map`/`set`の`erase`に存在しないキーを指定した場合の動作 |
 | [6eaa82d](https://github.com/cpprefjp/site/commit/6eaa82d487e3c732fa17de04e4bf624125036174) | cpprefjp/fixl:4 | `map` / `set`の`extract` : C++23でのheterogeneousなオーバーロードを追加 |
+| [a5c1257](https://github.com/cpprefjp/site/commit/a5c12573bef144e8af06888137c3e8401abcca49) | cpprefjp/link:1 | ワイブル分布の参考文献をWeb Archiveに差し替え |
 
 
 
@@ -225,6 +226,12 @@
 | [5e2017d](https://github.com/cpprefjp/site/commit/5e2017d1eb229b78d1ae16d99c4afef381682a58) | cpprefjp/typo:1 | コルーチン : pvalue -> prvalue |
 | [90927bc](https://github.com/cpprefjp/site/commit/90927bc3454740d33a8e2933e23ebbc8f3d96ea5) | cpprefjp/fixl:12 | P0718R2の`shared_ptr`のアトミックフリー関数非推奨を適用 |
 | [c46ebf4](https://github.com/cpprefjp/site/commit/c46ebf4afd42816c9a9f10d04d668e336cfea25e) | cpprefjp/fixm:1 | `offsetof` : メタ情報の修正 |
+| [adf4a90](https://github.com/cpprefjp/site/commit/adf4a90966818e7f3130e2dab70cd63b00d78fd8), [04340ca](https://github.com/cpprefjp/site/commit/04340ca0d5503fcdb9c5c1ec03ac636445f03153) | cpprefjp/addref:4, cpprefjp/fixl:1 | `span` : P2278R4対応 |
+| [7d3e69f](https://github.com/cpprefjp/site/commit/7d3e69fd917cb09749aea3855289913420ca5011) | cpprefjp/fixm:1 | 処理型 : VC++バージョン表記リストのアップデート |
+| [79605e8](https://github.com/cpprefjp/site/commit/79605e8277108c0de0d0ecf223945a518ad32127), [069e857](https://github.com/cpprefjp/site/commit/069e8574e5043f53c1c8e64faa7d54969e5e7c5f), [ec63307](https://github.com/cpprefjp/site/commit/ec6330712a56da138e4b977ca03476a72fa80801), [fb63802](https://github.com/cpprefjp/site/commit/fb63802526c3daea90356da72e0ed67a8dd05f22), [e19c878](https://github.com/cpprefjp/site/commit/e19c878e156ca64ea7a5b4a4c703f8c79c494bde), [4a6b82e](https://github.com/cpprefjp/site/commit/4a6b82e1fbbf4c8e10b8fe5ed613585ed09ec201) | cpprefjp/addref:4, cpprefjp/fixl:2, cpprefjp/link:1 | `<iterator>` : P2278R4の機能を追加 |
+| [cde8479](https://github.com/cpprefjp/site/commit/cde8479f21e88562f1dc764fa15b1875de5a0232), [4739795](https://github.com/cpprefjp/site/commit/47397958eb92ad9e374f3e5386eca6102d387b45) | cpprefjp/addref:1, cpprefjp/link:1 | `iter_const_reference_t`追加 |
+| [e0d67ff](https://github.com/cpprefjp/site/commit/e0d67ff886c95bf2444c6a33d4556735b2ab2faf) | cpprefjp/fixm:2 | `ostringstream`の`str()` 修飾の修正 |
+
 
 
 
@@ -249,6 +256,8 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [fb27730](https://github.com/cpprefjp/site/commit/fb277307e6e97f3406fcdfcc957b6c77cb11fb45), [3e0c51d](https://github.com/cpprefjp/site/commit/3e0c51d0d2f8c8607a57857902cd902236d01912) | cpprefjp/fixm:1 | `optional.or_else`: メソッドチェインとしての使い方を追加 |
+| [dc598a2](https://github.com/cpprefjp/site/commit/dc598a2bf6edb642f7fce7599b01aa9b29550568) | cpprefjp/fixm:1 | オリジナル書式を定義する例の参照修飾を修正 |
+| [313f64e](https://github.com/cpprefjp/site/commit/313f64e6b708f264cb2d24e2ead385d5c6e65555) | cpprefjp/fixl:1 | fmt-iter-forが未規定の型であることを明示化 |
 
 
 ## tomolatoon
@@ -340,6 +349,7 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [7606d8f](https://github.com/cpprefjp/site/commit/7606d8fa6cf0fe57dc94718210b69cfd269a7f40) | cpprefjp/typo:1 | fix typo in cpp20/coroutines |
+| [08a97ea](https://github.com/cpprefjp/site/commit/08a97ea65ad85cbb646cd58753e5860600ff337f) | cpprefjp/fixs:1 | typo: `make_reverse_iterator`の言語バージョン |
 
 
 ## sutatoruta
@@ -362,3 +372,37 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [da669da](https://github.com/cpprefjp/site/commit/da669daebd77e3551c2bd9f68bcd745c0205981a) | cpprefjp/fixm:1 | `filesystem_error`の名前空間を修正 |
+
+
+## grafi-tt
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [3c6b49c](https://github.com/cpprefjp/site/commit/3c6b49c2e77dbe6621c285238164fda96fef1c1f) | cpprefjp/link:1 | `basic_filebuf`に`fstream`ヘッダへのリンクを追加 |
+| [fb9bf3a](https://github.com/cpprefjp/site/commit/fb9bf3a994183126c8e0bde4f49c4738dacb1daa), [a3cf8a4](https://github.com/cpprefjp/site/commit/a3cf8a41e6d89778b12af4a438e40d1b1f52b673) | cpprefjp/addref:7, cpprefjp/fixl:1, cpprefjp/link:57 | `stringstream`関連のページ作成および、C++20での効率化について参照追加 |
+| [c1346e3](https://github.com/cpprefjp/site/commit/c1346e39c869eddfdd51c5154b6c8dea1da75cc8) | cpprefjp/typo:1 | `fetch_sub` の typo 修正 |
+
+
+## g-suizu
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [94b0c91](https://github.com/cpprefjp/site/commit/94b0c912176e85c536b6a3d306995ee9da3c4590) | cpprefjp/fixl:1 | 古い表記を修正 |
+
+
+## komori-n
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [c3f3f2c](https://github.com/cpprefjp/site/commit/c3f3f2cf06824af6c4548e63bd2155ce9328fc07) | cpprefjp/typo:1 | `remove` の typo 修正 |
+| [97b792b](https://github.com/cpprefjp/site/commit/97b792b514201c2ad5a52a7e29c0220ec0b53110) | cpprefjp/fixm:1 | `ranges::swap_ranges` の `swap` 回数が正しくない問題を修正 |
+| [0778710](https://github.com/cpprefjp/site/commit/0778710e5a3cbbead54b7a77e962b86061e37c69) | cpprefjp/fixm:1 | `swap_ranges` のループ回数が正しくない問題を修正 |
+
+
+## sf624
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [1ac7d12](https://github.com/cpprefjp/site/commit/1ac7d1265a38e8965fdb0c05d250aa50787c71ea) | cpprefjp/fixm:2 | `std::map`の`operator[]`の記述を修正 |
+| [206dcff](https://github.com/cpprefjp/site/commit/206dcffbd83c1b4e070233ee321bbe16b8bad024) | cpprefjp/fixm:1 | fix: `unordered_map`の`operator[]`の例外仕様を修正 |
+
