@@ -68,10 +68,10 @@ void func(source_location a = source_location::current()) {
 }
 
 int main() {
-  f(); // (2)
+  func(); // (2)
 
   source_location c = source_location::current();
-  f(c); // (3)
+  func(c); // (3)
 }
 ```
 

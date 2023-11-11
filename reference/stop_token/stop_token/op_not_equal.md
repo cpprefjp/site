@@ -14,7 +14,7 @@ namespace std {
 `stop_token`オブジェクトの非等値比較を行う。
 
 ## 戻り値
-`!(x == y)`
+`!(lhs == rhs)`
 
 ## 例外
 投げない。

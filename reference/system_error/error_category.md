@@ -31,8 +31,8 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`equivalent`](error_category/equivalent.md) | エラーコードとエラー状態の等値比較 | C++11 |
-| [`operator==`](error_category/op_equal.md) | 等値比較 (C++20から`operator<=>`により使用可能) | C++11 |
-| [`operator!=`](error_category/op_not_equal.md) | 非等値比較 | C++11 |
+| [`operator==`](error_category/op_equal.md) | 等値比較 | C++11 |
+| [`operator!=`](error_category/op_not_equal.md) | 非等値比較 (C++20から`operator==`により使用可能) | C++11 |
 | [`operator<=>`](error_category/op_compare_3way.md) | 三方比較 | C++20 |
 | [`operator<`](error_category/op_less.md) | 左辺が右辺より小さいか比較 (C++20から`operator<=>`により使用可能) | C++11 |
 | `bool operator<=(const error_category&) const noexcept;` | 左辺が右辺以下か比較 (`operator<=>`により使用可能) | C++20 |

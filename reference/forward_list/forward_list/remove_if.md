@@ -33,7 +33,7 @@ size_type remove_if(Predicate pred); // (1) C++20
 
 
 ## 計算量
-ちょうど`x`の要素数回だけ述語を適用する
+ちょうど`distance(begin(), end())`回だけ述語を適用する
 
 
 ## 例

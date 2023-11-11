@@ -30,7 +30,7 @@ size_type remove(const T& value); // (1) C++20
 
 
 ## 計算量
-ちょうど`x`の要素数回だけ等値比較を行う
+ちょうど`distance(begin(), end())`回だけ等値比較を行う
 
 
 ## 例
