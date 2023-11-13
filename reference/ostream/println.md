@@ -41,7 +41,7 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <ostream>
+#include <iostream>
 
 int main()
 {
