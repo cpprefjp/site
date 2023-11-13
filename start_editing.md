@@ -309,7 +309,7 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 
 | タグ | ポイント | 説明 |
 |-----|---------|------|
-| cpprefjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
+| cpprefjp/typo     |  1 | 誤字・脱字の修正 (ページ単位)。サンプルコードの非コメントの修正はfixs |
 | cpprefjp/link     |  2 | 関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位) |
 | cpprefjp/addref   | 20 | リファレンスを1ページ追加 |
 | cpprefjp/addlang  | 20 | 言語機能を1ページ追加 |
@@ -326,7 +326,7 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 
 | タグ | ポイント | 説明 |
 |-----|---------|------|
-| boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位 |
+| boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
 | boostjp/releases |  2 | Boostリリースノート1件追加 small : maintenance workなどの小さなリリースノート |
 | boostjp/releasem |  5 | Boostリリースノートページを準備 |
 | boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : 10行以下の中程度の大きさ |
