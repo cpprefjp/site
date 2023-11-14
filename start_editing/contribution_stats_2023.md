@@ -1,7 +1,7 @@
 # 2023年 貢献ポイント
 2023年1月から2023年11月を対象期間として、貢献ポイントを集計する。
 
-## yohhoy
+## [yohhoy](https://github.com/yohhoy)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -56,7 +56,7 @@
 | [6df7cab](https://github.com/cpprefjp/site/commit/6df7cab6190236bae3307f74ca259ff29892eea4) | cpprefjp/addref:10, cpprefjp/fixl:2, cpprefjp/link:1 | P2548R6 `copyable_function` |
 
 
-## faithandbrave
+## [faithandbrave](https://github.com/faithandbrave)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -204,9 +204,10 @@
 | [142e7b6](https://github.com/cpprefjp/site/commit/142e7b6c519d541d0a028d68a09b691872aa7725) | | 貢献ポイント : 2023/09のコントリビュートを追加 |
 | [d7ebe95](https://github.com/cpprefjp/site/commit/d7ebe95214a3ad01c4911770f970b4099cc25c4c) | | 貢献ポイント : 2023/10のコントリビュートを追加 |
 | [217669c](https://github.com/cpprefjp/site/commit/217669cf06e0ac6b4e4bc3058cf3871da48d7630) | cpprefjp/fixl:4 | `unordered_map` / `set`の`erase` : `erase(iterator)`のオーバーロードを追加 |
+| [bfc992c](https://github.com/cpprefjp/site/commit/bfc992c17fd341827ea3a1842c2ee193ad60f608) | | 貢献ポイント : cpprefjp/site以外のコミットを追加 |
 
 
-## wx257osn2
+## [wx257osn2](https://github.com/wx257osn2)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -224,7 +225,7 @@
 | [e4d608c](https://github.com/cpprefjp/kunai/commit/e4d608c11981d724a9456323d2dabd1c153ae253) | tool/improves:1 | make padding 90% |
 
 
-## suomesta
+## [suomesta](https://github.com/suomesta)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -259,14 +260,14 @@
 | [de4b233](https://github.com/cpprefjp/site/commit/de4b233c1adaaabaa2a35c4e3005828b50cef34b) | cpprefjp/fixm:1, cpprefjp/fixs:2 | fix some typo |
 
 
-## k-satoda
+## [k-satoda](https://github.com/k-satoda)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [533c542](https://github.com/cpprefjp/site/commit/533c54260230bc66ece67eda846b3412bdd38ee7) | cpprefjp/fixm:1 | `NULL`: C++03 の規定について実際の規格と合致しない記述を修正 |
 
 
-## onihusube
+## [onihusube](https://github.com/onihusube)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -314,7 +315,7 @@
 | [33d6e9a](https://github.com/cpprefjp/site/commit/33d6e9aa95e4f6d02fb700b1d3afa8769b70876c) | cpprefjp/fixm:1 | `generator` : デフォルトアロケータ型の修正 |
 
 
-## tetsurom
+## [tetsurom](https://github.com/tetsurom)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -322,7 +323,7 @@
 | [6634d85](https://github.com/cpprefjp/site/commit/6634d8587f5b9dbb4dc46f1c792f5d3246fd3fea), [8b51996](https://github.com/cpprefjp/site/commit/8b51996ff3b9a4b68106d943313e89569da65069), [8d68f98](https://github.com/cpprefjp/site/commit/8d68f98f82d54011721eac4667dd508b81c457ac) | cpprefjp/addref:2, cpprefjp/fixl:1 | `repeat_view`の説明を追加 |
 
 
-## tshino
+## [tshino](https://github.com/tshino)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -330,7 +331,7 @@
 | [58c137d](https://github.com/cpprefjp/site/commit/58c137d95c790b4afa37945a0b9cec9236cc2dc3), [68eb5ba](https://github.com/cpprefjp/site/commit/68eb5baa77245d37dd583d936ec89998e7f7a6a5), [ceb813e](https://github.com/cpprefjp/site/commit/ceb813ec5fdcfcbf3ef5205d2e0bf4f52e83337d) | cpprefjp/fixm:4, cpprefjp/link:2 | `shift_left`/`shift_right`で負数を指定可能と読める記述の修正 |
 
 
-## acd1034
+## [acd1034](https://github.com/acd1034)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -339,21 +340,21 @@
 | [313f64e](https://github.com/cpprefjp/site/commit/313f64e6b708f264cb2d24e2ead385d5c6e65555) | cpprefjp/fixl:1 | fmt-iter-forが未規定の型であることを明示化 |
 
 
-## tomolatoon
+## [tomolatoon](https://github.com/tomolatoon)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [b2f6285](https://github.com/cpprefjp/site/commit/b2f6285e94de2248a57d9dedff0fb64677e15227), [d9d912a](https://github.com/cpprefjp/site/commit/d9d912ab5e77403cbdf5d93d51b2b66e887d4b8f), [8cc4361](https://github.com/cpprefjp/site/commit/8cc4361ae1ba943d065a624d866ae3f526a48894), [653081e](https://github.com/cpprefjp/site/commit/653081e759e041f845ec7efa22dad18ab81635ca) | cpprefjp/fixs:2, cpprefjp/link:2, cpprefjp/fixl:23, cpprefjp/addref:14 | P2165R4, P2255R2, P2321R2 |
 
 
-## akinomyoga
+## [akinomyoga](https://github.com/akinomyoga)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [05c1f4f](https://github.com/cpprefjp/site/commit/05c1f4f83c8d0036ead5237667fb68c2c8217b4d) | cpprefjp/fixm:1 | `time_t`: 多くの実装で符号付き |
 
 
-## yumetodo
+## [yumetodo](https://github.com/yumetodo)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -361,14 +362,14 @@
 | [141e98e](https://github.com/cpprefjp/site/commit/141e98ef7802194cbe801d5c38a0653545de0e7a) | cpprefjp/link:1 | chore: `std:::size` -> `std::rages::size`にリンクする |
 
 
-## HansRobo
+## [HansRobo](https://github.com/HansRobo)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [40638a6](https://github.com/cpprefjp/site/commit/40638a63cdf1948f5f77277d07f504a34e7f7974) | cpprefjp/typo:1 | fix typo in constexpr_lambda.md |
 
 
-## h-sao
+## [h-sao](https://github.com/h-sao)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -380,42 +381,42 @@
 | [876f77c](https://github.com/cpprefjp/site/commit/876f77c7c909f2972ecdc95333a1f86896ea091f) | cpprefjp/compiler:1 | Update implementation-status.md for C++20 of ICC |
 
 
-## yutopp
+## [yutopp](https://github.com/yutopp)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [20ed53d](https://github.com/cpprefjp/site/commit/20ed53df537f4456bc971969411f1277bbeb22f0) | cpprefjp/typo:1 | typo/コンパイルエラーの修正: `shared_mutex`→`shared_timed_mutex` |
 
 
-## sakujiro-inagaki
+## [sakujiro-inagaki](https://github.com/sakujiro-inagaki)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [9116a93](https://github.com/cpprefjp/site/commit/9116a9393d60707981347afccd127578fd47f374) | cpprefjp/fixm:1 | variantが追加の動的メモリ確保を行わないことを説明する文を修正 |
 
 
-## norisio
+## [norisio](https://github.com/norisio)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [0af0c3c](https://github.com/cpprefjp/site/commit/0af0c3caadb5b187475d04a5ecb886a970376506) | cpprefjp/typo:1 | allocator.md backquoteのtypoを修正 |
 
 
-## kamitani08
+## [kamitani08](https://github.com/kamitani08)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [833f22b](https://github.com/cpprefjp/site/commit/833f22bde02b45e122bd746d52c58f223ef4f81f) | cpprefjp/typo:1 | Update guaranteed_copy_elision.md |
 
 
-## cupro29
+## [cupro29](https://github.com/cupro29)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [38aa278](https://github.com/cpprefjp/site/commit/38aa278067c5ee2a63926bd41401b57d0ab27eb5) | cpprefjp/typo:1 | fix typo |
 
 
-## nu4nu
+## [nu4nu](https://github.com/nu4nu)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -423,7 +424,7 @@
 | [4816cf7](https://github.com/cpprefjp/site/commit/4816cf7b669210665378bf3cdf43dd1b6b2cfa70) | cpprefjp/fixm:2 | `numeric_limits`: Fix description of max/min_exponent |
 
 
-## ToruNiina
+## [ToruNiina](https://github.com/ToruNiina)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -431,7 +432,7 @@
 | [08a97ea](https://github.com/cpprefjp/site/commit/08a97ea65ad85cbb646cd58753e5860600ff337f) | cpprefjp/fixs:1 | typo: `make_reverse_iterator`の言語バージョン |
 
 
-## sutatoruta
+## [sutatoruta](https://github.com/sutatoruta)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -439,14 +440,14 @@
 | [ae6ac7c](https://github.com/cpprefjp/site/commit/ae6ac7c9b792b8e3fb6fb2ba9bbeab01648740cb) | cpprefjp/fixm:1 | random.mdの説明文とコードの不整合を修正 |
 
 
-## toru-fukaya
+## [toru-fukaya](https://github.com/toru-fukaya)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [dd8a50d](https://github.com/cpprefjp/site/commit/dd8a50d89d7eaa04ca9511109342e11ff990e1fb) | cpprefjp/fixm:1 | クラステンプレートの型推論を回避する例を修正 |
 
 
-## kenichiice
+## [kenichiice](https://github.com/kenichiice)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -456,7 +457,7 @@
 | [592119b](https://github.com/cpprefjp/site/commit/592119b916a6fd6c2559f8f2f35b896bc4abdd4a) | cpprefjp/fixl:2 | `allocator`: C++20での`size_type`と`difference_type`の扱いを修正 |
 
 
-## grafi-tt
+## [grafi-tt](https://github.com/grafi-tt)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -465,14 +466,14 @@
 | [c1346e3](https://github.com/cpprefjp/site/commit/c1346e39c869eddfdd51c5154b6c8dea1da75cc8) | cpprefjp/typo:1 | `fetch_sub` の typo 修正 |
 
 
-## g-suizu
+## [g-suizu](https://github.com/g-suizu)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [94b0c91](https://github.com/cpprefjp/site/commit/94b0c912176e85c536b6a3d306995ee9da3c4590) | cpprefjp/fixl:1 | 古い表記を修正 |
 
 
-## komori-n
+## [komori-n](https://github.com/komori-n)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -481,7 +482,7 @@
 | [0778710](https://github.com/cpprefjp/site/commit/0778710e5a3cbbead54b7a77e962b86061e37c69) | cpprefjp/fixm:1 | `swap_ranges` のループ回数が正しくない問題を修正 |
 
 
-## sf624
+## [sf624](https://github.com/sf624)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -489,7 +490,7 @@
 | [206dcff](https://github.com/cpprefjp/site/commit/206dcffbd83c1b4e070233ee321bbe16b8bad024) | cpprefjp/fixm:1 | fix: `unordered_map`の`operator[]`の例外仕様を修正 |
 
 
-## yknishidate
+## [yknishidate](https://github.com/yknishidate)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -510,7 +511,7 @@
 | [2e6e172](https://github.com/cpprefjp/site/commit/2e6e1720de6ffcb5116835bf6c73060b98580fb4) | tool/improves:1 | add "concpet" to NG words |
 
 
-## ROCKTAKEY
+## [ROCKTAKEY](https://github.com/ROCKTAKEY)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
@@ -526,14 +527,14 @@
 | [5607df1](https://github.com/boostjp/site/commit/5607df1b4672b0a573980043313e3fb693996dd5) | boostjp/link:1 | `std::variant`へのリンクを追加 |
 
 
-## Reputeless
+## [Reputeless](https://github.com/Reputeless)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [c9a543d](https://github.com/cpprefjp/site/commit/c9a543d972fa76272af7350fe9a3af9e571ab42c) | cpprefjp/fixm:6 | `ranges::less` 等のサンプルコードのコンパイルエラーを修正 |
 
 
-## KisaragiEffective
+## [KisaragiEffective](https://github.com/KisaragiEffective)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
