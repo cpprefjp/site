@@ -153,7 +153,7 @@
 | [0f3743e](https://github.com/cpprefjp/site/commit/0f3743e212c0c612150466f8fec1babd509c7a6f) | cpprefjp/fixl:1 | C++20 : `shared_ptr`のアトミック操作が非推奨になったことを記載 |
 | [8f3626e](https://github.com/cpprefjp/site/commit/8f3626e2afa6c227bc9170774fd7b72e87d3c7c8) | cpprefjp/fixm:36 | `set`/`map`の`begin`/`end`系 : ほかのコンテナに合わせて文章を整理 |
 | [5af768a](https://github.com/cpprefjp/site/commit/5af768ad072b6415b1ed2d271af3f11270eaf5da) | cpprefjp/link:3 | C++20 `constinit` : `mutex`/`unique_ptr`のコンストラクタと相互リンク |
-| [587bd5b](https://github.com/cpprefjp/site/commit/587bd5b265057b6b9f69895cf8c98d6c37bdd483), [ae7c515](https://github.com/cpprefjp/site/commit/ae7c515da20425de6c80b7b4336ec49ba8d7f0c6), [6251e4a](https://github.com/cpprefjp/site/commit/6251e4abe9d90fab42621ba97fea3a0b4a3c94aa), [a6c9e22](https://github.com/cpprefjp/site/commit/a6c9e227b387d2aa8631acc1df6f78468d690702) [717658d](https://github.com/cpprefjp/site/commit/717658da25868f54091bc273aaff7f7c5e46e02b), [e7ee1d9](https://github.com/cpprefjp/site/commit/e7ee1d999620147a6423c73b2992803bf7185a50), [c170374](https://github.com/cpprefjp/site/commit/c170374a913b9dbd4dceb07dbfa4eeba5489ed24) | cpprefjp/fixm:4 | `map`/`set`の`erase`に存在しないキーを指定した場合の動作 |
+| [587bd5b](https://github.com/cpprefjp/site/commit/587bd5b265057b6b9f69895cf8c98d6c37bdd483), [ae7c515](https://github.com/cpprefjp/site/commit/ae7c515da20425de6c80b7b4336ec49ba8d7f0c6), [6251e4a](https://github.com/cpprefjp/site/commit/6251e4abe9d90fab42621ba97fea3a0b4a3c94aa), [a6c9e22](https://github.com/cpprefjp/site/commit/a6c9e227b387d2aa8631acc1df6f78468d690702), [717658d](https://github.com/cpprefjp/site/commit/717658da25868f54091bc273aaff7f7c5e46e02b), [e7ee1d9](https://github.com/cpprefjp/site/commit/e7ee1d999620147a6423c73b2992803bf7185a50), [c170374](https://github.com/cpprefjp/site/commit/c170374a913b9dbd4dceb07dbfa4eeba5489ed24) | cpprefjp/fixm:4 | `map`/`set`の`erase`に存在しないキーを指定した場合の動作 |
 | [6eaa82d](https://github.com/cpprefjp/site/commit/6eaa82d487e3c732fa17de04e4bf624125036174) | cpprefjp/fixl:4 | `map` / `set`の`extract` : C++23でのheterogeneousなオーバーロードを追加 |
 | [a5c1257](https://github.com/cpprefjp/site/commit/a5c12573bef144e8af06888137c3e8401abcca49) | cpprefjp/link:1 | ワイブル分布の参考文献をWeb Archiveに差し替え |
 | [2dd6e26](https://github.com/cpprefjp/site/commit/2dd6e26bcbdb1a1faebd702ca4e0be505acb9668) | cpprefjp/fixm:1 | `map::insert` : `P&&`と`value_type&&`は両方存在するのでオーバーロード番号を分け、概要文章を追加 |
@@ -179,7 +179,31 @@
 | [3b8a415](https://github.com/cpprefjp/site/commit/3b8a4156369a6cb647a2c3fe17fee4d7a2e06332) | | 貢献ポイント : Open Collectiveでの経費申請の仕方を記載 |
 | [da9fc6a](https://github.com/cpprefjp/site/commit/da9fc6ae8541971d8adc926c20f51b9e1b0b284b) | | 貢献ポイント : マージされずクローズされたPR、マージされずオープンなままのPRについて記載 |
 | [4dfdb3a](https://github.com/cpprefjp/site/commit/4dfdb3a577c6cfa2c9b7c43839366712329bb910), [3104eb3](https://github.com/cpprefjp/site/commit/3104eb39826b9c90875dc20d2cef6c7b740c6dc5), [7326dd7](https://github.com/cpprefjp/site/commit/7326dd761e713c932f0305362d68613be3340927), [2ef44e2](https://github.com/cpprefjp/site/commit/2ef44e29a79b6c542a3b6754448f6402ae4c7cd4), [8cb09b8](https://github.com/cpprefjp/site/commit/8cb09b84f248a585697f837c9b5ff0609b785f20), [11b8c7e](https://github.com/cpprefjp/site/commit/11b8c7e10869d33b4464e73bdd5804ab70fcc9e8) | cpprefjp/fixm:1 | index : 時雨堂さまのロゴとリンクを掲載 |
-| [cefc9fa](https://github.com/cpprefjp/site/commit/cefc9fa40e2d3fdd850fb2feffbf02cdb53b890f) | tool/fixbug:1 | buildアクション : Pythonを3.11に固定 (3.12でエラーがでた) |
+| [cefc9fa](https://github.com/cpprefjp/site/commit/cefc9fa40e2d3fdd850fb2feffbf02cdb53b890f), [2c6589b](https://github.com/boostjp/site/commit/2c6589b1ff15d330b6027f4b3ea686002c97ba7b) | tool/fixbug:2 | buildアクション : Pythonを3.11に固定 (3.12でエラーがでた) |
+| [6345a65](https://github.com/cpprefjp/site_generator/commit/6345a65aa1f15af1da6442509953a204b781125c) | tool/improvem:1 | Google Analytics GA4を設定 |
+| [9b8dc0d](https://github.com/cpprefjp/kunai_config/commit/9b8dc0d6cc1a42edd7a819bd9f7af4ab5e006014), [91b3abb](https://github.com/cpprefjp/kunai_config/commit/91b3abb7cd35b79c140f1c3202ce150a6d56fcbc), [b375504](https://github.com/cpprefjp/kunai/commit/b375504f32f02eab6b14908435446f988f680055) | tool/improvem:1 | 編集者向け資料をリネーム |
+| [9b1cdc2](https://github.com/cpprefjp/kunai_config/commit/9b1cdc2b2e7828e5e0bf46f6092917f1955e7315), [863b2d6](https://github.com/cpprefjp/kunai/commit/863b2d65fad1e754aff403bdb5e6b2701d807eeb), [bdccb2d](https://github.com/cpprefjp/kunai/commit/bdccb2d78751e71d97260f0d63a7d506bb85375f) | tool/adds:1 | 編集方針を追加 |
+| [b7b8513](https://github.com/cpprefjp/kunai/commit/b7b85133a519e0f595701fa32e07f34155270b86) | tool/improves:1 | 画像の最大幅を設定 |
+| [b206bad](https://github.com/cpprefjp/kunai/commit/b206badf8c9324ad381bf7809870a39a3052fbe5) | tool/improves:1 | codeタグ中の末尾スペースが消えてしまっていた問題を修正 |
+| [368ecfc](https://github.com/boostjp/site/commit/368ecfc3cdbfea89419afc4349eb2632c78959f6), [075dd40](https://github.com/boostjp/site/commit/075dd4033e19289d15efa1fd8443247bcb910df7), [aa9e52b](https://github.com/boostjp/site/commit/aa9e52b68b1ff53cdaef9f1af0313874db953d6e), [c8d6259](https://github.com/boostjp/site/commit/c8d6259622539c4d8f662cfd15ee06b3abc2cdfb), [5d2c514](https://github.com/boostjp/site/commit/5d2c51488b95dc9e9752d85cd92c9912ef06e29c), [d813d6a](https://github.com/boostjp/site/commit/d813d6a315f149d2887ea842bb53604460fe8809) | boostjp/releasel:8, boostjp/releasem:19, boostjp/releases:1, boostjp/link:1 | 1.82.0リリースノート |
+| [0bb4c21](https://github.com/boostjp/site/commit/0bb4c21338d28e2128d31aceca8b72597796d3c8), [34205bb](https://github.com/boostjp/site/commit/34205bb35cb0dc5c7e102c2aabfcaf8ef74ec92b), [403bc7b](https://github.com/boostjp/site/commit/403bc7b71df825a1fe8dff8795af3fd8d8876939), [cd1c5f8](https://github.com/boostjp/site/commit/cd1c5f8af25a2930ad82a1f083edbc072d4a26d9) | boostjp/releasel:4, boostjp/releasem:25, boostjp/releases:1, boostjp/link:1 | 1.83.0リリースノート |
+| [bf70875](https://github.com/cpprefjp/site/commit/bf7087596d7f1334739ba264246d1b48baa184ae) | | 貢献ポイント : 集計中に必要となった貢献ポイントの項目を追加 |
+| [f67a9f4](https://github.com/cpprefjp/site/commit/f67a9f4eb93b58343def06bba1dea17fd92a88cd) | | 2023年1月分の貢献ポイントをまとめた |
+| [d9fb324](https://github.com/cpprefjp/site/commit/d9fb324b3d8c92c892f455b3901476c0d12a6de0) | | 貢献ポイント: Boostへの貢献は追跡しきれないのでやめた |
+| [cc884d3](https://github.com/cpprefjp/site/commit/cc884d396da7dbcbc3da81e5eb72d5aa07319702) | | 貢献ポイント2023: 不正なタグを修正 |
+| [4e048eb](https://github.com/cpprefjp/site/commit/4e048eb4e84314b1bbf25dc24834ded95bbe0e1c) | | 貢献ポイント : 2023/02のコントリビュートをまとめた |
+| [0ceca8e](https://github.com/cpprefjp/site/commit/0ceca8ec9cd6c4f940efdc1da5899e65ae1769e2) | | 貢献ポイント : コンパイラ動作確認を言語機能とライブラリ機能で集計方法を分けた |
+| [3faf5c1](https://github.com/cpprefjp/site/commit/3faf5c1a5046050bbdb3d981aadf1973afb4d4c1) | | 貢献ポイント : 2023/03のコントリビュートをまとめた |
+| [7215f9e](https://github.com/cpprefjp/site/commit/7215f9ead299ef527fbb0c46da0adac3ecd8c71a) | | 貢献ポイント : 2023/04のコントリビュートを追加 |
+| [e5991d8](https://github.com/cpprefjp/site/commit/e5991d81a6559beeaae08b186eb53342b68da699) | | NGワードチェック : 編集者向けドキュメントは対象外にした |
+| [192494c](https://github.com/cpprefjp/site/commit/192494cb43d76c61eb31c84f0dec6b8d44e7f134) | | 貢献ポイント : 2023/05のコントリビュートを追加 |
+| [cbed1c0](https://github.com/cpprefjp/site/commit/cbed1c090d88c47a37c504acfe0586ecfa0a57fb) | | 貢献ポイント : 2023/06のコントリビュートを追加 |
+| [e3bd67b](https://github.com/cpprefjp/site/commit/e3bd67b0ecfa59e386f273eb5864025ec3270d76) | | 貢献ポイント: 2023/07のコントリビュートを追加 |
+| [065f221](https://github.com/cpprefjp/site/commit/065f221b742620cdcb6db011deb401004c2896f9) | | 貢献ポイント : 集計作業を除外 |
+| [94f157b](https://github.com/cpprefjp/site/commit/94f157bb931d012571810d9131ae086d4019301a) | | 貢献ポイント : 2023/08のコントリビュートを追加 |
+| [142e7b6](https://github.com/cpprefjp/site/commit/142e7b6c519d541d0a028d68a09b691872aa7725) | | 貢献ポイント : 2023/09のコントリビュートを追加 |
+| [d7ebe95](https://github.com/cpprefjp/site/commit/d7ebe95214a3ad01c4911770f970b4099cc25c4c) | | 貢献ポイント : 2023/10のコントリビュートを追加 |
+| [217669c](https://github.com/cpprefjp/site/commit/217669cf06e0ac6b4e4bc3058cf3871da48d7630) | cpprefjp/fixl:4 | `unordered_map` / `set`の`erase` : `erase(iterator)`のオーバーロードを追加 |
 
 
 ## wx257osn2
@@ -196,6 +220,8 @@
 | [663009e](https://github.com/cpprefjp/site/commit/663009edf7ef89aacce6d49fdbe7f71cd9705ab1) | cpprefjp/typo:1 | remove # |
 | [5281313](https://github.com/cpprefjp/site/commit/528131302fef3ee398244e5900cca0498df28064) | cpprefjp/typo:1 | fix title(prev -> next) |
 | [1117ef2](https://github.com/cpprefjp/site/commit/1117ef22bd6ecdc03a66d7831f77ac7f551ea580) | cpprefjp/typo:1 | fix typo |
+| [8a693a4](https://github.com/cpprefjp/kunai/commit/8a693a4dafa4ade9ea143d56bb9d83daa7696c74) | tool/improves:1 | Fix font size of `<code>` on headers |
+| [e4d608c](https://github.com/cpprefjp/kunai/commit/e4d608c11981d724a9456323d2dabd1c153ae253) | tool/improves:1 | make padding 90% |
 
 
 ## suomesta
@@ -274,7 +300,7 @@
 | [c46ebf4](https://github.com/cpprefjp/site/commit/c46ebf4afd42816c9a9f10d04d668e336cfea25e) | cpprefjp/fixm:1 | `offsetof` : メタ情報の修正 |
 | [adf4a90](https://github.com/cpprefjp/site/commit/adf4a90966818e7f3130e2dab70cd63b00d78fd8), [04340ca](https://github.com/cpprefjp/site/commit/04340ca0d5503fcdb9c5c1ec03ac636445f03153) | cpprefjp/addref:4, cpprefjp/fixl:1 | `span` : P2278R4対応 |
 | [7d3e69f](https://github.com/cpprefjp/site/commit/7d3e69fd917cb09749aea3855289913420ca5011) | cpprefjp/fixm:1 | 処理型 : VC++バージョン表記リストのアップデート |
-| [79605e8](https://github.com/cpprefjp/site/commit/79605e8277108c0de0d0ecf223945a518ad32127), [069e857](https://github.com/cpprefjp/site/commit/069e8574e5043f53c1c8e64faa7d54969e5e7c5f), [ec63307](https://github.com/cpprefjp/site/commit/ec6330712a56da138e4b977ca03476a72fa80801), [fb63802](https://github.com/cpprefjp/site/commit/fb63802526c3daea90356da72e0ed67a8dd05f22), [e19c878](https://github.com/cpprefjp/site/commit/e19c878e156ca64ea7a5b4a4c703f8c79c494bde), [4a6b82e](https://github.com/cpprefjp/site/commit/4a6b82e1fbbf4c8e10b8fe5ed613585ed09ec201), [92d8962](https://github.com/cpprefjp/site/commit/92d89626f7c03750772c8d97b61a28e19a0a73d9), [ea6381e](https://github.com/cpprefjp/site/commit/ea6381e681e5e706f23d38d721cfbfc361003d24), [4e2bdcd](https://github.com/cpprefjp/site/commit/4e2bdcd9d523a6f4c59fd4bdb762e19da36c8cc0), [b2a86cc](https://github.com/cpprefjp/site/commit/b2a86ccbe173e1fbd007d9d0ea07652815f60961), [09c1ad7](https://github.com/cpprefjp/site/commit/09c1ad78bd5be675d94afdc1e49adcaa6ff7ca4d), [c925d35](https://github.com/cpprefjp/site/commit/c925d357c6d192dd1edca8e41f620f33c4a336aa), [3f6f9ce](https://github.com/cpprefjp/site/commit/3f6f9ce56b42ae4ea17dca2ad62f354b38fda974), [02ed11e](https://github.com/cpprefjp/site/commit/02ed11ec6d51486dd32ddc338107c5e383d474ee), [396b2b6](https://github.com/cpprefjp/site/commit/396b2b645a53a32c47038621eb6a4b3042374c45), [e9f6f76](https://github.com/cpprefjp/site/commit/e9f6f76c141d8763627e59d0d59702b45619e55c), [ebae6b7](https://github.com/cpprefjp/site/commit/ebae6b70f005143b4edd3d6003270bf4c2f2328a), [a16938b](https://github.com/cpprefjp/site/commit/a16938b2890659af7e9b366593229419685da7bb), [f2f8993](https://github.com/cpprefjp/site/commit/f2f8993721e5d0bba28ed266f52008a72fe6c862), [00bb047](https://github.com/cpprefjp/site/commit/00bb047d8c8ba716b8df149d4d48e9d8c5719c87), [dbc5cfe](https://github.com/cpprefjp/site/commit/dbc5cfe81d457f717ed99511f72b79d01058a533), [cd41744](https://github.com/cpprefjp/site/commit/cd417442096e21404c93b495684928e7c723f387), [7fc8707](https://github.com/cpprefjp/site/commit/7fc8707529d50ce7434a3e2c012fb8835619360c), [d66df9c](https://github.com/cpprefjp/site/commit/d66df9c2b327ff15e7692c432cdd3f61fb02bed8) | cpprefjp/addref:24, cpprefjp/fixl:2, cpprefjp/link:5 | `<iterator>` : P2278R4の機能を追加 |
+| [79605e8](https://github.com/cpprefjp/site/commit/79605e8277108c0de0d0ecf223945a518ad32127), [069e857](https://github.com/cpprefjp/site/commit/069e8574e5043f53c1c8e64faa7d54969e5e7c5f), [ec63307](https://github.com/cpprefjp/site/commit/ec6330712a56da138e4b977ca03476a72fa80801), [fb63802](https://github.com/cpprefjp/site/commit/fb63802526c3daea90356da72e0ed67a8dd05f22), [e19c878](https://github.com/cpprefjp/site/commit/e19c878e156ca64ea7a5b4a4c703f8c79c494bde), [4a6b82e](https://github.com/cpprefjp/site/commit/4a6b82e1fbbf4c8e10b8fe5ed613585ed09ec201), [92d8962](https://github.com/cpprefjp/site/commit/92d89626f7c03750772c8d97b61a28e19a0a73d9), [ea6381e](https://github.com/cpprefjp/site/commit/ea6381e681e5e706f23d38d721cfbfc361003d24), [4e2bdcd](https://github.com/cpprefjp/site/commit/4e2bdcd9d523a6f4c59fd4bdb762e19da36c8cc0), [b2a86cc](https://github.com/cpprefjp/site/commit/b2a86ccbe173e1fbd007d9d0ea07652815f60961), [09c1ad7](https://github.com/cpprefjp/site/commit/09c1ad78bd5be675d94afdc1e49adcaa6ff7ca4d), [c925d35](https://github.com/cpprefjp/site/commit/c925d357c6d192dd1edca8e41f620f33c4a336aa), [3f6f9ce](https://github.com/cpprefjp/site/commit/3f6f9ce56b42ae4ea17dca2ad62f354b38fda974), [02ed11e](https://github.com/cpprefjp/site/commit/02ed11ec6d51486dd32ddc338107c5e383d474ee), [396b2b6](https://github.com/cpprefjp/site/commit/396b2b645a53a32c47038621eb6a4b3042374c45), [e9f6f76](https://github.com/cpprefjp/site/commit/e9f6f76c141d8763627e59d0d59702b45619e55c), [ebae6b7](https://github.com/cpprefjp/site/commit/ebae6b70f005143b4edd3d6003270bf4c2f2328a), [a16938b](https://github.com/cpprefjp/site/commit/a16938b2890659af7e9b366593229419685da7bb), [f2f8993](https://github.com/cpprefjp/site/commit/f2f8993721e5d0bba28ed266f52008a72fe6c862), [00bb047](https://github.com/cpprefjp/site/commit/00bb047d8c8ba716b8df149d4d48e9d8c5719c87), [dbc5cfe](https://github.com/cpprefjp/site/commit/dbc5cfe81d457f717ed99511f72b79d01058a533), [cd41744](https://github.com/cpprefjp/site/commit/cd417442096e21404c93b495684928e7c723f387), [7fc8707](https://github.com/cpprefjp/site/commit/7fc8707529d50ce7434a3e2c012fb8835619360c), [d66df9c](https://github.com/cpprefjp/site/commit/d66df9c2b327ff15e7692c432cdd3f61fb02bed8), [21a2be5](https://github.com/cpprefjp/site/commit/21a2be5d6f6cb36c66283404efb5cd27bd370573) | cpprefjp/addref:24, cpprefjp/fixl:2, cpprefjp/link:5 | `<iterator>` : P2278R4の機能を追加 |
 | [cde8479](https://github.com/cpprefjp/site/commit/cde8479f21e88562f1dc764fa15b1875de5a0232), [4739795](https://github.com/cpprefjp/site/commit/47397958eb92ad9e374f3e5386eca6102d387b45) | cpprefjp/addref:1, cpprefjp/link:1 | `iter_const_reference_t`追加 |
 | [e0d67ff](https://github.com/cpprefjp/site/commit/e0d67ff886c95bf2444c6a33d4556735b2ab2faf) | cpprefjp/fixm:2 | `ostringstream`の`str()` 修飾の修正 |
 | [5539a02](https://github.com/cpprefjp/site/commit/5539a0217b51ce272b48b1514c7631256927cac0) | cpprefjp/fixl:5 | P2418R2対応 : 関数のインターフェースと事前条件の部分の変更のみ適用 |
@@ -286,8 +312,6 @@
 | [93bc41b](https://github.com/cpprefjp/site/commit/93bc41bc9ade112bd57283929091f24746bc82c1) | cpprefjp/fixl:1 | P2328R1対応 |
 | [10539d4](https://github.com/cpprefjp/site/commit/10539d462cf7325212c96e5620110fdb8a79b115) | cpprefjp/fixm:1 | view : 意味論要件の微修正 |
 | [33d6e9a](https://github.com/cpprefjp/site/commit/33d6e9aa95e4f6d02fb700b1d3afa8769b70876c) | cpprefjp/fixm:1 | `generator` : デフォルトアロケータ型の修正 |
-
-
 
 
 ## tetsurom
@@ -429,6 +453,7 @@
 | [da669da](https://github.com/cpprefjp/site/commit/da669daebd77e3551c2bd9f68bcd745c0205981a) | cpprefjp/fixm:1 | `filesystem_error`の名前空間を修正 |
 | [86bab47](https://github.com/cpprefjp/site/commit/86bab47aa01fce293636c43725a8d0d017f47c06) | cpprefjp/fixs:1 | コメントの誤りを修正 |
 | [6366c71](https://github.com/cpprefjp/site/commit/6366c71c487dcdf10bbf224db35a5b3bbc4d3c3f) | cpprefjp/fixs:1 | `chrono`/`time_point`/`op_minus`のコメントを修正 |
+| [592119b](https://github.com/cpprefjp/site/commit/592119b916a6fd6c2559f8f2f35b896bc4abdd4a) | cpprefjp/fixl:2 | `allocator`: C++20での`size_type`と`difference_type`の扱いを修正 |
 
 
 ## grafi-tt
@@ -491,6 +516,14 @@
 |----------|------|------|
 | [4d8a7ea](https://github.com/cpprefjp/site/commit/4d8a7ea19cc2b3942b7f81e8ff3bb000a9e894bb) | cpprefjp/fixs:1 | start_editing: 特殊文字へ変換される前の文字列を表示するよう修正 |
 | [2c7cf5e](https://github.com/cpprefjp/site/commit/2c7cf5e6f86de685aca92bd133c4be459df95ec7) | cpprefjp/fixs:1 | working_style: 型修飾のスタイルの一覧を等幅フォントで表示するよう修正 |
+| [5b7be4d](https://github.com/boostjp/site/commit/5b7be4df3346979f242b50973fa621fe8780048b) | boostjp/link:1 | boostjpのメンバーへのリンクのミスを修正 |
+| [dd67365](https://github.com/boostjp/site/commit/dd6736568d8619240d2362262a35f5787000040c) | boostjp/fixm:1 | 「編集に際してのその他の方針、ガイドライン」の項を追加 |
+| [eddaf80](https://github.com/boostjp/site/commit/eddaf8047692547c58a205089b8c0756c4b1c5d8) | boostjp/typo:1 | 誤字を修正 |
+| [0bb41b2](https://github.com/boostjp/site/commit/0bb41b2f7b6ffb6d2b5019a1271615297b477340) | boostjp/link:1 | `std::optional`と`std::expected`へのリンクを追加 |
+| [3b69175](https://github.com/boostjp/site/commit/3b69175def18230615ea6c19bf63ac2427baae60) | boostjp/link:1 | `std::for_each`などへのリンクを追加 |
+| [4f2591d](https://github.com/boostjp/site/commit/4f2591d40d878627430db880d9bdedaf6e6c82e2) | boostjp/link:1 | コンパイル時アサートへのリンクを追加 |
+| [a9934e8](https://github.com/boostjp/site/commit/a9934e8743c022b00a5ddcaa026d22b2bd385f0a) | boostjp/link:1 | `std::unordered_map`、`std::unordered_set`へのリンクを追加 |
+| [5607df1](https://github.com/boostjp/site/commit/5607df1b4672b0a573980043313e3fb693996dd5) | boostjp/link:1 | `std::variant`へのリンクを追加 |
 
 
 ## Reputeless
@@ -498,4 +531,11 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [c9a543d](https://github.com/cpprefjp/site/commit/c9a543d972fa76272af7350fe9a3af9e571ab42c) | cpprefjp/fixm:6 | `ranges::less` 等のサンプルコードのコンパイルエラーを修正 |
+
+
+## KisaragiEffective
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [3021561](https://github.com/cpprefjp/site/commit/3021561ee5b45ef4b53eed34d4207d0ae946888d) | cpprefjp/typo:1 | ICXのリンクラベルを修正しました |
 

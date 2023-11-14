@@ -327,10 +327,12 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 | タグ | ポイント | 説明 |
 |-----|---------|------|
 | boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
-| boostjp/releases |  2 | Boostリリースノート1件追加 small : maintenance workなどの小さなリリースノート |
-| boostjp/releasem |  5 | Boostリリースノートページを準備 |
+| boostjp/link     |  2 | 関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位) |
+| boostjp/releases |  5 | Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート |
 | boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : 10行以下の中程度の大きさ |
 | boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ |
+| boostjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位) |
+| boostjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、訳語追加 (ページ単位) |
 | boostjp/addrefs  | 10 | Boost逆引きリファレンス : small (1例追加) |
 | boostjp/addrefm  | 20 | Boost逆引きリファレンス : medium (標準C++のバージョンアップ対応1例単位、Boostのバージョンアップ対応1例単位) |
 
