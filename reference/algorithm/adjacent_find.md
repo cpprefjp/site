@@ -52,10 +52,10 @@ namespace std {
 ```
 |0  1  2  3  4  5  6  7| : index
 [1, 3, 3, 5, 0, 4, 5, 2] : input range
-[1, 3] <- pred(1, 2) == false
-   [3, 3] <- pred(2, 2) == false
-      [3, 5] <- pred(2, 3) == false
-         [5, 0] <- pred(3, 0) == true
+[1, 3] <- pred(1, 3) == false
+   [3, 3] <- pred(3, 3) == false
+      [3, 5] <- pred(3, 5) == false
+         [5, 0] <- pred(5, 0) == true
             [0, 4]
                [4, 5]
                   [5, 2]
