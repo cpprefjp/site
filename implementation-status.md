@@ -248,38 +248,38 @@
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
 |----------|------|------------|----------------|------------|--------------|
 | P0330R8: [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | 13 | 2022.2 | - |
-| P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md.nolink) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | - | - |
+| P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md.nolink) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | 2023.2 | - |
 | P2266R3: [暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 | 13 | 13 | 2022.2 | - |
 | P1787R6: [スコープと名前ルックアップの仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する | - | - | - | - |
 | P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md.nolink) | | - | - | - | - |
 | P2360R0: [初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md.nolink) | `for (using T = int; T e : v) {}`を許可 | 12 | 14 | 2022.2 | - |
 | P2718R0: [範囲for文が範囲への参照を延命することを規定](lang/cpp23/lifetime_extension_in_range_based_for_loop.md.nolink) | | - | - | - | - |
-| P2324R2: [関数末尾のラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する | 13 | 16 | - | - |
+| P2324R2: [関数末尾のラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する | 13 | 16 | 2023.2 | - |
 | P0847R7: [自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする | - | 18 | - | 2022 Update 2 (partial) |
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | 2022 |
 | P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | - |
-| P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md.nolink) | | 13 | 16 | - | - |
+| P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md.nolink) | | 13 | 16 | 2023.2 | - |
 | P2201R1 : [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
 | P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
-| P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md.nolink) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | - | - |
-| P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md.nolink) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | - | - |
+| P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md.nolink) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | 2023.2 | - |
+| P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md.nolink) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | 2023.2 | - |
 | P2096R2: [部分特殊化の汎用化仕様](/lang/cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 | - | - | - | - |
 | P2582R1: [継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md.nolink) | | - | - | - | - |
 | P1938R3 : [`if consteval`](/lang/cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | - |
-| P1401R5 : [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | - | - |
-| P2242R3: [定数式内での非リテラル変数の使用を含められないようにする](/lang/cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける | 12 | 15 | - | - |
+| P1401R5 : [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | 2022.2 | - |
+| P2242R3: [定数式内での非リテラル変数の使用を含められないようにする](/lang/cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける | 12 | 15 | 2022.2 | - |
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | - | yes | - | 2022 |
-| P2448R2: [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md.nolink) | | 13 | 17 (partial) | - | - |
-| P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | 13 | - | 16 | - | - |
-| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md.nolink) | | - | 17 | - | - |
-| P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | - | - |
-| P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md.nolink) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | - | - |
+| P2448R2: [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md.nolink) | | 13 | 17 (partial) | 2024.0 (partial) | - |
+| P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | 13 | - | 16 | 2023.2 | - |
+| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md.nolink) | | - | 17 | - | 2024.0 |
+| P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | 2022.2 | - |
+| P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md.nolink) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | 2022.2 | - |
 | P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | - | - | - |
-| P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md.nolink) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | yes | yes | - | 2022 |
-| P2334R1: [`elif`/`elifdef`/`elifndef`のサポートを追加](/lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md.nolink) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する | 12 | 13 | - | - |
-| P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md.nolink) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | yes | yes | yes | yes |
-| P2295R6: [汎用的なソースコードのエンコーディングとしてUTF-8をサポート](/lang/cpp23/support_for_utf8_as_a_portable_source_file_encoding.md.nolink) | | 13 | 15 | - | 2019 Update 2 |
-| P2223R2: [行末スペースを無視するよう規定](/lang/cpp23/trimming_whitespaces_before_line_splicing.md.nolink) | 行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 | Yes | Yes | - | - |
+| P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md.nolink) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | yes | yes | 2022.2 | 2022 |
+| P2334R1: [`elif`/`elifdef`/`elifndef`のサポートを追加](/lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md.nolink) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する | 12 | 13 | 2022.2 | - |
+| P2437R1: [`#warning`のサポートを追加](/lang/cpp23/warning.md.nolink) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート | yes | yes | 2023.2 | yes |
+| P2295R6: [汎用的なソースコードのエンコーディングとしてUTF-8をサポート](/lang/cpp23/support_for_utf8_as_a_portable_source_file_encoding.md.nolink) | | 13 | 15 | 2023.2 | 2019 Update 2 |
+| P2223R2: [行末スペースを無視するよう規定](/lang/cpp23/trimming_whitespaces_before_line_splicing.md.nolink) | 行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 | Yes | Yes | 2022.2 | - |
 
 
 各処理系のC++23実装状況ページ：
