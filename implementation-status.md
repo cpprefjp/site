@@ -270,7 +270,7 @@
 | P2242R3: [定数式内での非リテラル変数の使用を含められないようにする](/lang/cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける | 12 | 15 | - | - |
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | - | yes | - | 2022 |
 | P2448R2: [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md.nolink) | | 13 | 17 (partial) | - | - |
-| P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | | - | 16 | - | - |
+| P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | 13 | - | 16 | - | - |
 | P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md.nolink) | | - | 17 | - | - |
 | P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md.nolink) | キャプチャや修飾をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | - | - |
 | P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md.nolink) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | - | - |
