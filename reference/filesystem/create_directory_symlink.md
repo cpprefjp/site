@@ -22,7 +22,7 @@ namespace std::filesystem {
 
 
 ## 効果
-- POSIX環境では、[`symlink()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/symlink.2.html)関数を使用して、パス`to`のディレクトリに対するシンボリックリンクをパス`new_symlink`に作成する
+- POSIX環境では、[`symlink()`](https://web.archive.org/web/20230205210429/http://linuxjm.osdn.jp/html/LDP_man-pages/man2/symlink.2.html)関数を使用して、パス`to`のディレクトリに対するシンボリックリンクをパス`new_symlink`に作成する
     - パス`to`は、パス`new_symlink`からの相対パスであることに注意
 
 

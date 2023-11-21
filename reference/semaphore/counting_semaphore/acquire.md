@@ -36,7 +36,7 @@ void acquire();
 ## 備考
 「効果」欄では`acquire`メンバ関数の振る舞いを手続き的に説明しているが、実際の処理系においてはオペレーティングシステムが提供する効率的なセマフォ操作関数が利用されると期待される。
 
-- POSIXセマフォでは[`sem_wait`関数](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/sem_wait.3.html)が提供される。
+- POSIXセマフォでは[`sem_wait`関数](https://web.archive.org/web/20230206231852/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/sem_wait.3.html)が提供される。
 - Windowsセマフォでは[`WaitForSingleObject`関数](https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject)ファミリが提供される。
 
 

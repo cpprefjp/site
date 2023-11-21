@@ -99,5 +99,5 @@ namespace std {
 非推奨とされているものは、対応する`errno`値がPOSIX規格において廃止されたことに対応している。
 
 ## 参照
-- [Man page of ERRNO](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/errno.3.html)
+- [Man page of ERRNO](https://web.archive.org/web/20230205202552/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/errno.3.html)
 - [LWG Issue 3869. Deprecate `std::errc` constants related to UNIX STREAMS](https://cplusplus.github.io/LWG/issue3869)

@@ -142,7 +142,7 @@ int main()
 
 
 ## 参照
-- [semop, semtimedop - System V セマフォの操作](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/semop.2.html)
-- [sem_overview - POSIX セマフォの概要](https://linuxjm.osdn.jp/html/LDP_man-pages/man7/sem_overview.7.html)
+- [semop, semtimedop - System V セマフォの操作](https://web.archive.org/web/20230605023712/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/semop.2.html)
+- [sem_overview - POSIX セマフォの概要](https://web.archive.org/web/20230611015117/https://linuxjm.osdn.jp/html/LDP_man-pages/man7/sem_overview.7.html)
 - [Windows, Semaphore Objects](https://docs.microsoft.com/en-us/windows/win32/sync/semaphore-objects)
 - [macOS/iOS, Dispatch Semaphore](https://developer.apple.com/documentation/dispatch/dispatch_semaphore)

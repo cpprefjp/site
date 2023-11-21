@@ -18,7 +18,7 @@ namespace std::filesystem {
 
 
 ## 戻り値
-- POSIX環境であれば、[`statvfs()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/statvfs.3.html)関数を使用して、残り容量を取得する。
+- POSIX環境であれば、[`statvfs()`](https://web.archive.org/web/20230129184216/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/statvfs.3.html)関数を使用して、残り容量を取得する。
     - [`space_info::capacity`](space_info.md)の値は`statvfs::f_blocks * statvfs::f_frsize`
     - [`space_info::free`](space_info.md)の値は`statvfs::f_bfree * statvfs::f_frsize`
     - [`space_info::available`](space_info.md)の値は`statvfs::f_bavail * statvfs::f_frsize`

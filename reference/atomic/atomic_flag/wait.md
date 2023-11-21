@@ -36,7 +36,7 @@ void wait(bool old, memory_order order = memory_order::seq_cst) const noexcept;
 
 
 ## 備考
-- Windowsでは`WaitOnAddress()`関数、POSIXでは[`futex()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/futex.2.html)関数が実装に使われる
+- Windowsでは`WaitOnAddress()`関数、POSIXでは[`futex()`](https://web.archive.org/web/20230605025744/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/futex.2.html)関数が実装に使われる
 
 
 ## 例

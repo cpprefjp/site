@@ -20,7 +20,7 @@ namespace std::filesystem {
 ## 戻り値
 - ファイルが存在しない、もしくはファイルシステムでエラーが発生した場合、 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が設定されて`static_cast<`[`uintmax_t`](/reference/cstdint/uintmax_t.md)`>(-1)`が返る
 - `p`が通常ファイル、もしくは通常ファイルを指すシンボリックリンクである場合、ファイルサイズが返る
-    - POSIX環境では[`stat()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数の`st_size`メンバ変数を使用する
+    - POSIX環境では[`stat()`](https://web.archive.org/web/20230827123440/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数の`st_size`メンバ変数を使用する
 - `p`がそれ以外のファイル種別である場合は、実装定義の動作をする
 
 

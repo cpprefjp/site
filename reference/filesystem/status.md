@@ -39,7 +39,7 @@ return result;
 
 - (2) :
     - 可能なら、ファイルパス`p`が指すファイルの属性を決定する
-        - POSIX環境であれば[`stat()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数を使用する
+        - POSIX環境であれば[`stat()`](https://web.archive.org/web/20230827123440/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数を使用する
     - OSのファイルシステムAPIによってエラーが報告された場合、`ec`にエラー情報が設定される。そうでなければ、[`ec.clear()`](/reference/system_error/error_code/clear.md)を呼び出し、エラー情報をクリアする
 
 
