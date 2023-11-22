@@ -10,7 +10,7 @@ template <class T>
 void return_temporary_buffer(T* p);
 ```
 
-この機能は、C++17から非推奨となり、C++20で削除された。短期的な用途のメモリ領域確保には、[`alloca()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)のようなスタックからメモリを確保するなど、他の機能を使用すること。
+この機能は、C++17から非推奨となり、C++20で削除された。短期的な用途のメモリ領域確保には、[`alloca()`](https://web.archive.org/web/20230207110403/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)のようなスタックからメモリを確保するなど、他の機能を使用すること。
 
 
 ## 概要
@@ -38,7 +38,7 @@ void return_temporary_buffer(T* p);
 
 将来的にスタックからメモリ確保をする仕組みが検討されているが、これらの関数は設計として例外安全性やRAIIといったものが考慮されていない。スタックからメモリ確保する機能が入ったとしても、これらの関数の内部を改善することはできないと判断され、非推奨となった。
 
-スタックからメモリ確保する機能は、現在の標準ライブラリにはない。そのため、代わりとしては、配置new構文や、標準外の[`alloca()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)関数のような機能を使用すること。
+スタックからメモリ確保する機能は、現在の標準ライブラリにはない。そのため、代わりとしては、配置new構文や、標準外の[`alloca()`](https://web.archive.org/web/20230207110403/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)関数のような機能を使用すること。
 
 
 ## 例
