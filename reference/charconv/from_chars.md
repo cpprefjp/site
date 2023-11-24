@@ -43,6 +43,7 @@ namespace std {
 ```
 * see below[italic]
 * integer-type[italic]
+* from_chars_result[link from_chars_result.md]
 
 
 ## 概要
@@ -349,6 +350,7 @@ int main() {
 * end[link /reference/ranges/end.md]
 * to_address[link /reference/memory/to_address.md]
 * format[link /reference/format/format.md]
+* std::chars_format[link chars_format.md]
 
 #### 出力
 

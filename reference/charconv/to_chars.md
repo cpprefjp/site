@@ -94,6 +94,7 @@ namespace std {
 ```
 * see below[italic]
 * integer-type[italic]
+* to_chars_result[link to_chars_result.md]
 
 ## 概要
 与えられた数値（`value`）を文字列へ変換し、`[first, last)`内へ出力する。  
@@ -264,6 +265,8 @@ int main()
 }
 ```
 * std::to_chars[color ff0000]
+* std::chars_format[link chars_format.md]
+* std::errc[link /reference/system_error/errc.md]
 
 ### 出力例（VS2019 16.5 preview 1）
 ```
