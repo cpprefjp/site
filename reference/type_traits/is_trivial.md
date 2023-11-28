@@ -45,14 +45,13 @@ static_assert(std::is_same<std::is_trivial<int&>::type, std::false_type>::value,
 static_assert(std::is_trivial<int&>() == false, "is_trivial<int&>() == false");
 
 static_assert(std::is_trivial<const volatile int>::value == true, "const volatile int is trivial");
-static_assert(std::is_trivial<int&>::value == false, "int& is not trivial");
 
 class trivial_class{};
 struct non_trivial_class {
   non_trivial_class() {}    // デフォルトコンストラクタが非トリビアル
 };
 static_assert(std::is_trivial<trivial_class>::value == true, "trivial_class is trivial");
-static_assert(std::is_trivial<trivial_class&>::value == true, "trivial_class& is trivial");
+static_assert(std::is_trivial<trivial_class&>::value == false, "trivial_class& is not trivial");
 static_assert(std::is_trivial<non_trivial_class>::value == false, "non_trivial_class is not trivial");
 static_assert(std::is_trivial<non_trivial_class&>::value == false, "non_trivial_class& is not trivial");
 

@@ -47,24 +47,22 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <memory>
-#include <utility>
 
 int main()
 {
-  std::unique_ptr<std::pair<int, int>> p1 = std::make_unique_for_overwrite<std::pair<int, int>>();
+  std::unique_ptr<int> i1 = std::make_unique_for_overwrite<int>();
 
   // 必ず初期化する
-  p1->first = 0;
-  p1->second = 0;
+  *i1 = 0;
 
-  std::cout << p1->first << ':' << p1->second << std::endl;
+  std::cout << *i1 << std::endl;
 }
 ```
 * std::make_unique_for_overwrite[color ff0000]
 
 ### 出力
 ```
-0:0
+0
 ```
 
 ## バージョン

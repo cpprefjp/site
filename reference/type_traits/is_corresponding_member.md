@@ -1,6 +1,6 @@
 # is_corresponding_member
 * type_traits[meta header]
-* function[meta id-type]
+* function template[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
 

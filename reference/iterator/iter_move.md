@@ -78,7 +78,7 @@ namespace std {
 struct I {
   int n = 0;
 
-  // HIdden friendsとして定義、prvalueを返す
+  // Hidden friendsとして定義、prvalueを返す
   friend auto iter_move(I& self) -> I {
     return std::move(self);
   }

@@ -54,7 +54,6 @@ static_assert(std::is_same<std::is_pod<int&>::type, std::false_type>::value, "ty
 static_assert(std::is_pod<int&>() == false, "is_pod<int&>() == false");
 
 static_assert(std::is_pod<const volatile int>::value == true, "const volatile int is POD");
-static_assert(std::is_pod<int&>::value == false, "int& is not POD");
 
 struct POD_struct{};
 struct non_POD_struct {
