@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      RIPGREP_VERSION: 13.0.0
+      RIPGREP_VERSION: 14.0.3
       BIN_DIR: ${{ github.workspace }}/bin
       REPO_DIR: repo
       cache-version: v1
