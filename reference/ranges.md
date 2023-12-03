@@ -224,8 +224,8 @@ range | adaptor(args...)
 
 | 名前                                           | 説明                                                         | 対応バージョン |
 |------------------------------------------------|--------------------------------------------------------------|----------------|
-| [`as_rvalue_view`](ranges/as_rvalue_view.md.nolink)   | 各要素をrvalueにするビュー (class template)                  | C++23          |
-| [`views::as_rvalue`](ranges/as_rvalue.md.nolink)      | `as_rvalue_view`を生成する (customization point object)      | C++23          |
+| [`as_rvalue_view`](ranges/as_rvalue_view.md)   | 各要素をrvalueにするビュー (class template)                  | C++23          |
+| [`views::as_rvalue`](ranges/as_rvalue_view.md) | `as_rvalue_view`を生成する (customization point object)      | C++23          |
 
 ### filter view
 
