@@ -205,6 +205,17 @@
 | [d7ebe95](https://github.com/cpprefjp/site/commit/d7ebe95214a3ad01c4911770f970b4099cc25c4c) | | 貢献ポイント : 2023/10のコントリビュートを追加 |
 | [217669c](https://github.com/cpprefjp/site/commit/217669cf06e0ac6b4e4bc3058cf3871da48d7630) | cpprefjp/fixl:4 | `unordered_map` / `set`の`erase` : `erase(iterator)`のオーバーロードを追加 |
 | [bfc992c](https://github.com/cpprefjp/site/commit/bfc992c17fd341827ea3a1842c2ee193ad60f608) | | 貢献ポイント : cpprefjp/site以外のコミットを追加 |
+| [f9a0fdd](https://github.com/cpprefjp/site/commit/f9a0fdd70a42ec9b262b93cc8796d9e5f1b802b0) | tool/improves:1, cpprefjp/typo:2 | NGワードチェック : "型](link)型"をNGワードに登録 |
+| [118d5b9](https://github.com/cpprefjp/site/commit/118d5b9ebee27d1a04c52bf9c0bfdadd7f940b37) | tool/improves:1, cpprefjp/typo:1 | tuple/apply : Gitのコンフリクトコメントを削除 |
+| [cc748a6](https://github.com/cpprefjp/site/commit/cc748a66a57065cd020e019f780845390e3026f8) | cpprefjp/fixm:1 | スポンサー更新 |
+| [2c21229](https://github.com/cpprefjp/site/commit/2c212294315aec84f90a1540a7a39ae621c5c073) | cpprefjp/fixs:1 | `ios_base` : コード修飾を追加 |
+| [e30c3ae](https://github.com/cpprefjp/site/commit/e30c3ae988aed71a6df562fd71062079949a1d4e) | cpprefjp/fixl:1 | `ios_base::openmode` : C++23対応として`noreplace`フラグを追加 |
+| [d408c51](https://github.com/cpprefjp/site/commit/d408c51c96e78e8af3ab4accc880fee05791d87d) | cpprefjp/fixm:1 | トップページ : シルバースポンサー以上はissueに採用情報を投稿できる特典を追加 |
+| [b17670d](https://github.com/cpprefjp/site/commit/b17670dea79e6d26f1caa2f5c0252f9a8621439f) | cpprefjp/fixm:2 | `ostream`の`print`と`println` : `cerr`とかは`iostream`で定義される |
+| [e6d487c](https://github.com/cpprefjp/site/commit/e6d487c105ddd04d243c2932832bede7fe66d1cc) | cpprefjp/typo:1 | `print`/`vprint_unicode` : ですます調になっていたところを修正 |
+| [519f8a7](https://github.com/cpprefjp/site/commit/519f8a74927665b47e085f2cda66522126058cb7) | cpprefjp/link:2 | `to_chars` / `from_chars` : コード修飾を追加 |
+| [d7ec01f](https://github.com/boostjp/site/commit/d7ec01ffb8f080b9143f16c06a4ee437d4e91a46), [5153ad7](https://github.com/boostjp/site/commit/5153ad74e84dc6ddd921fd13fcef5acdb731fce6), [e9ebe52](https://github.com/boostjp/site/commit/e9ebe52d33bb0a8fca76ec53cb62950d4b7ef21c) | boostjp/releases:13, boostjp/releasem:24, boostjp/releasel:2, boostjp/link:1 | 1.84.0 : リリースノートを追加 |
+| [4df3220](https://github.com/cpprefjp/site/commit/4df32209e7f4396c02262c96a7ab94d9c8246c18) | | 貢献ポイント : ユーザー名をリンクにした |
 
 
 ## [wx257osn2](https://github.com/wx257osn2)
@@ -258,6 +269,11 @@
 | [0ee0833](https://github.com/cpprefjp/site/commit/0ee0833cda17c6b8510840c3f41cc0691cf6212b) | cpprefjp/fixs:5 | fix some typo regarding `std::string` |
 | [3f57b63](https://github.com/cpprefjp/site/commit/3f57b6362da6d563cc732cc0155939599ba43bab) | cpprefjp/fixm:3 | improve some examples |
 | [de4b233](https://github.com/cpprefjp/site/commit/de4b233c1adaaabaa2a35c4e3005828b50cef34b) | cpprefjp/fixm:1, cpprefjp/fixs:2 | fix some typo |
+| [11b32f7](https://github.com/cpprefjp/site/commit/11b32f7cbe871fe4970b66171344d19c831f1b7b) | cpprefjp/fixm:2, cpprefjp/typo:1 | fix some typo |
+| [0622e39](https://github.com/cpprefjp/site/commit/0622e399e01a52b5e8524319d5a1c457e3e0e5f9) | cpprefjp/fixm:6 | fix some expression |
+| [1bf71dc](https://github.com/cpprefjp/site/commit/1bf71dc803d140329e3690f6abaa004bb21b9c97) | cpprefjp/compiler:2, cpprefjp/fixs:1 | update information about `charconv` |
+| [407947b](https://github.com/cpprefjp/site/commit/407947b424bc1f4f868a938453cb8c2eee2c0ab4) | cpprefjp/fixm:6, cpprefjp/typo:5 | fix some typo |
+| [8a944b1](https://github.com/cpprefjp/site/commit/8a944b14616ef124fb61c5793c581789b2d58768) | cpprefjp/fixm:4, cpprefjp/fixs:2, cpprefjp/typo:1 | fix a sample of atomic. |
 
 
 ## [k-satoda](https://github.com/k-satoda)
@@ -313,6 +329,12 @@
 | [93bc41b](https://github.com/cpprefjp/site/commit/93bc41bc9ade112bd57283929091f24746bc82c1) | cpprefjp/fixl:1 | P2328R1対応 |
 | [10539d4](https://github.com/cpprefjp/site/commit/10539d462cf7325212c96e5620110fdb8a79b115) | cpprefjp/fixm:1 | view : 意味論要件の微修正 |
 | [33d6e9a](https://github.com/cpprefjp/site/commit/33d6e9aa95e4f6d02fb700b1d3afa8769b70876c) | cpprefjp/fixm:1 | `generator` : デフォルトアロケータ型の修正 |
+| [9a64346](https://github.com/cpprefjp/site/commit/9a64346a2a1d30ebefdbc5136b08e9a8eaa8b5c9) | cpprefjp/fixl:4 | 未初期化メモリに対するアルゴリズム、事前条件追記 |
+| [2f67b2a](https://github.com/cpprefjp/site/commit/2f67b2a41bf0aaac87dd465530ed1e7f299ec156) | cpprefjp/fixl:20 | 未初期化メモリに対するアルゴリズム、例外発生時の振る舞いについて追記 |
+| [19d47d8](https://github.com/cpprefjp/site/commit/19d47d886e3fad701966c229996b5a6d2dc40a71), [fbfaaeb](https://github.com/cpprefjp/site/commit/fbfaaeb3b76abd124b0afaad2c689ed5e32d159c) | cpprefjp/fixm:2 | `adjacent_find`の動作イメージを付加 |
+| [7a0af00](https://github.com/cpprefjp/site/commit/7a0af0077b1553719db531bfbe12275dc5cd60a6) | cpprefjp/fixm:1 | 畳み込み式 : 式種類の参照方法を微調整 |
+| [7b90cfd](https://github.com/cpprefjp/site/commit/7b90cfd29f6257e949730a1ba70ca02b0e9d2dd6), [7405b3c](https://github.com/cpprefjp/site/commit/7405b3c3c4c498b3518d52486702eec36bf6e866) | cpprefjp/fixl:1 | `offsetof` : バージョン間の差異などについて追記 |
+| [4d5c0ed](https://github.com/cpprefjp/site/commit/4d5c0edfcd79661472afc00a695d017297e4d1d9), [56dc9fa](https://github.com/cpprefjp/site/commit/56dc9faa8b2d540bdbb01f0e4b51f9749922ec45) | cpprefjp/link:32 | osdn.jpのリンクをwebarchiveに差し替え |
 
 
 ## [tetsurom](https://github.com/tetsurom)
@@ -329,6 +351,7 @@
 |----------|------|------|
 | [c77af98](https://github.com/cpprefjp/site/commit/c77af98f9553e4515f55edd53f96e65f1c58dc22) | cpprefjp/typo:1 | Fix typo |
 | [58c137d](https://github.com/cpprefjp/site/commit/58c137d95c790b4afa37945a0b9cec9236cc2dc3), [68eb5ba](https://github.com/cpprefjp/site/commit/68eb5baa77245d37dd583d936ec89998e7f7a6a5), [ceb813e](https://github.com/cpprefjp/site/commit/ceb813ec5fdcfcbf3ef5205d2e0bf4f52e83337d) | cpprefjp/fixm:4, cpprefjp/link:2 | `shift_left`/`shift_right`で負数を指定可能と読める記述の修正 |
+| [05ee2e6](https://github.com/cpprefjp/site/commit/05ee2e647ca2e59498eb1743056925969eeb6e7f) | cpprefjp/fixm:1 | `std::exchange`が常にムーブ代入するような記述の修正 |
 
 
 ## [acd1034](https://github.com/acd1034)
@@ -379,6 +402,10 @@
 | [e9d068b](https://github.com/cpprefjp/site/commit/e9d068b7c23c0d32bdd8ce872aac2b35a40d806a) | cpprefjp/compiler:3 | Updated Implimentation status for VC++ C++23 |
 | [1e3d056](https://github.com/cpprefjp/site/commit/1e3d056d8a587c92a2ce8f4e6c95c5bbad667fbe) | cpprefjp/compiler:5 | Updated supported c++23 by ICX (～ R2201R1) |
 | [876f77c](https://github.com/cpprefjp/site/commit/876f77c7c909f2972ecdc95333a1f86896ea091f) | cpprefjp/compiler:1 | Update implementation-status.md for C++20 of ICC |
+| [67a300d](https://github.com/cpprefjp/site/commit/67a300dab35d0679a014d96c6e2669903a5012e2) | cpprefjp/compiler:5 | Updated implimentation status of Clang about c++23 |
+| [f0d163c](https://github.com/cpprefjp/site/commit/f0d163cc2a32541706d85087b60957b133e87288) | cpprefjp/compiler:8 | Updated implimentation status of ICC about c++20 |
+| [1326e68](https://github.com/cpprefjp/site/commit/1326e68a7dc70b04e698f1ce35580342c0c544e2) | cpprefjp/compiler:1 | Updated GCC support version for C++23 |
+| [beb148e](https://github.com/cpprefjp/site/commit/beb148edbf96be6eb9a31ee14b58a886db3e4e99) | cpprefjp/compiler:17 | Updated implimentation status of ICX about c++23 |
 
 
 ## [yutopp](https://github.com/yutopp)
@@ -539,4 +566,12 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [3021561](https://github.com/cpprefjp/site/commit/3021561ee5b45ef4b53eed34d4207d0ae946888d) | cpprefjp/typo:1 | ICXのリンクラベルを修正しました |
+
+
+## [suzuki-kei](https://github.com/cpprefjp/site/commits?author=suzuki-kei)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [7e37ab2](https://github.com/cpprefjp/site/commit/7e37ab27d5f03221181f8282d1385efe68658864) | cpprefjp/typo:1 | typo を修正: "スタンダードレイアウト型型" -> "スタンダードレイアウト型" |
+
 
