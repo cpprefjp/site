@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `std::max_align_t`は、どのスカラー型よりも大きいアライメントを必要とする型である。
 
-この型は、C++11では[POD型](/reference/type_traits/is_pod.md)、C++20では[トリビアル型](/reference/type_traits/is_trivial.md)型に分類される。
+この型は、C++11では[POD型](/reference/type_traits/is_pod.md)、C++20では[トリビアル型](/reference/type_traits/is_trivial.md)に分類される。
 
 `alignas`指示子により、`std::max_align_t`のアライメントより大きいサイズのアライメントを指定できるかどうかは、実装依存である。
 

@@ -1,6 +1,6 @@
 # to_chars
 * charconv[meta header]
-* function template[meta id-type]
+* function[meta id-type]
 * std[meta namespace]
 * cpp17[meta cpp]
 
@@ -284,7 +284,7 @@ z
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0(整数のみ)
+- [Clang](/implementation.md#clang): 7.0(整数のみ), 14.0(full support)
 - [GCC](/implementation.md#gcc): 8.0(整数のみ), 11.1(full support)
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ), update 9(full support)
 

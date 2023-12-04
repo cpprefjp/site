@@ -7,9 +7,9 @@
 
 ```cpp
 explicit binomial_distribution(IntType t = 1, double p = 0.5); // (1)
-binomial_distribution() : binomial_distribution(1) {}          // (1)
+binomial_distribution() : binomial_distribution(1) {}          // (1) C++20
 
-explicit binomial_distribution(IntType t, double p = 0.5);     // (2)
+explicit binomial_distribution(IntType t, double p = 0.5);     // (2) C++20
 
 explicit binomial_distribution(const param_type& parm);        // (3)
 ```

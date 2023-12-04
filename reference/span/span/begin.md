@@ -43,7 +43,7 @@ int main()
   std::vector<int> v = {1, 2, 3, 4, 5};
 
   // vの先頭3要素を部分シーケンスとして参照する
-  std::span<int, 3> s = std::span(v).first(3);
+  std::span<int> s = std::span(v).first(3);
 
   // (1)
   std::for_each(s.begin(), s.end(), [](int x) {

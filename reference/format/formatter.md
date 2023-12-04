@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std {
-  template <class T, class U = char>
+  template <class T, class charT = char>
   struct formatter;                                          // (1) C++20
 
   template <ranges::input_range R, class charT>
