@@ -16,6 +16,7 @@
 | マクロ名 | 値 | 機能 | ヘッダ |
 |----------|----|------|--------|
 |`__cpp_lib_ranges_as_const`|`202207L`|`ranges::cbegin`が常に定数イテレータを返すようにする|[`<ranges>`](/reference/ranges.md)|
+|`__cpp_lib_ranges_fold`|`202207L`|`fold`アルゴリズム|[`<algorithm>`](/reference/algorithm.md)|
 
 ## 参照
 
