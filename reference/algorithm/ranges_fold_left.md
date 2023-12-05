@@ -52,8 +52,8 @@ namespace std::ranges {
 - `r` -- 入力範囲のオブジェクト
 - `init` -- 初期値
 - `f` -- 適用する二項演算
-    - `f(std::move(init), *first)`のような呼び出しが可能であり、その戻り値型を`U`とすると
-    - `f(std::declval<U&&>(), *first)`のような呼び出しも可能である必要がある
+    - `f(std::move(init), *first)`のような呼び出しが可能であり、その戻り値型のオブジェクトを`acc`とすると
+    - `f(std::move(acc), *first)`のような呼び出しも可能である必要がある
 
 ## テンプレートパラメータ制約
 
@@ -62,13 +62,16 @@ namespace std::ranges {
 ```cpp
 template<class F, class T, class I, class U>
 concept indirectly-binary-left-foldable-impl =
-  movable<T> && movable<U> &&
-  convertible_to<T, U> && invocable<F&, U, iter_reference_t<I>> &&
+  movable<T> &&
+  movable<U> &&
+  convertible_to<T, U> &&
+  invocable<F&, U, iter_reference_t<I>> &&
   assignable_from<U&, invoke_result_t<F&, U, iter_reference_t<I>>>;
 
 template<class F, class T, class I>
 concept indirectly-binary-left-foldable =
-  copy_constructible<F> && indirectly_readable<I> &&
+  copy_constructible<F> &&
+  indirectly_readable<I> &&
   invocable<F&, T, iter_reference_t<I>> &&
   convertible_to<invoke_result_t<F&, T, iter_reference_t<I>>,
          decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>> &&
@@ -84,6 +87,10 @@ concept indirectly-binary-left-foldable =
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
 * decay_t[link /reference/type_traits/decay.md]
+
+ここでのテンプレートパラメータはそれぞれ、二項演算を指定する呼出可能な型`F`、初期値の型`T`、イテレータ型`I`、戻り値型（積算値の型）`U`である。
+
+二項演算（`F`）は初期値・積算値と入力範囲の参照型に対して[`invocable`](/reference/concepts/invocable.md)であることしか求められていない（`regular_invocable`ではない）ため、適用する二項演算は任意の副作用を伴っていても良い。
 
 ## 戻り値
 
