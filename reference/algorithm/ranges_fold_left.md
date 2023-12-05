@@ -33,7 +33,7 @@ namespace std::ranges {
 
 `fold_left`の処理の様子
 
-```{style=planetext}
+```
 0 : init
 [1, 2, 3, 4, 5] : rng
 
@@ -208,7 +208,6 @@ int main() {
 }
 ```
 * fold_left[color ff0000]
-* same_as[link /reference/concepts/same_as.md]
 * println[link /reference/print/println.md]
 * fold_right[link /referencealgorithm/ranges_fold_right.md.nolink]
 
