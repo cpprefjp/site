@@ -247,7 +247,7 @@ int main() {
 
   std::vector<int> res = fold_right(rng, init, op);
 
-  std::println("{:s}", res);
+  std::println("{}", res);
 }
 ```
 * fold_right[color ff0000]

@@ -218,7 +218,7 @@ int main() {
 ```
 * fold_left[color ff0000]
 * println[link /reference/print/println.md]
-* fold_right[link /referencealgorithm/ranges_fold_right.md]
+* fold_right[link ranges_fold_right.md]
 
 ### 出力
 ```
