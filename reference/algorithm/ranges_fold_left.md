@@ -218,7 +218,7 @@ int main() {
 ```
 * fold_left[color ff0000]
 * println[link /reference/print/println.md]
-* fold_right[link /referencealgorithm/ranges_fold_right.md.nolink]
+* fold_right[link /referencealgorithm/ranges_fold_right.md]
 
 ### 出力
 ```
@@ -261,15 +261,15 @@ constexpr auto fold_left(I first, S last, T init, F f) {
 
 ## 関連項目
 
-- [`ranges::fold_right`](algorithm/ranges_fold_right.md.nolink)
+- [`ranges::fold_right`](ranges_fold_right.md)
     - 範囲の右からの`fold`
-- [`ranges::fold_left_first`](algorithm/ranges_fold_left_first.md.nolink)
+- [`ranges::fold_left_first`](ranges_fold_left_first.md.nolink)
     - 範囲の最初の要素を初期値として`fold_left`
-- [`ranges::fold_right_last`](algorithm/ranges_fold_right_last.md.nolink)
+- [`ranges::fold_right_last`](ranges_fold_right_last.md.nolink)
     - 範囲の最後の要素を初期値として`fold_right`
-- [`ranges::fold_left_with_iter`](algorithm/ranges_fold_left_with_iter.md.nolink)
+- [`ranges::fold_left_with_iter`](ranges_fold_left_with_iter.md.nolink)
     - `fold_left`の結果と共に、計算した終端イテレータも返す
-- [`ranges::fold_left_first_with_iter`](algorithm/ranges_fold_left_first_with_iter.md.nolink)
+- [`ranges::fold_left_first_with_iter`](ranges_fold_left_first_with_iter.md.nolink)
     - `fold_left_first`の結果と共に、計算した終端イテレータも返す
 
 ## 参照
