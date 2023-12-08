@@ -162,7 +162,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - [`<algorithm>`](/reference/algorithm.md)に、数値に限定しない汎用的な畳み込みアルゴリズムとして、以下を追加：
     - [`std::ranges::fold_left()`](/reference/algorithm/ranges_fold_left.md)
     - [`std::ranges::fold_left_first()`](/reference/algorithm/ranges_fold_left_first.md.nolink)
-    - [`std::ranges::fold_right()`](/reference/algorithm/ranges_fold_right.md.nolink)
+    - [`std::ranges::fold_right()`](/reference/algorithm/ranges_fold_right.md)
     - [`std::ranges::fold_right_last()`](/reference/algorithm/ranges_fold_right_last.md.nolink)
     - [`std::ranges::fold_left_with_iter()`](/reference/algorithm/ranges_fold_left_with_iter.md.nolink)
     - [`std::ranges::fold_left_first_with_iter()`](/reference/algorithm/ranges_fold_left_first_with_iter.md.nolink)
