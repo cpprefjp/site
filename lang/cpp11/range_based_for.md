@@ -353,6 +353,8 @@ int main()
 }
 ```
 
+また、C++23からは`for-range-initializer`の寿命が条件を満たせば延長されるようになったので([C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](/lang/cpp23/lifetime_extension_in_range_based_for_loop.md))、この問題を踏みにくくなっている。
+
 ## 関連項目
 
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
