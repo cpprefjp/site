@@ -354,25 +354,6 @@ CIスクリプト、site_generator、kunaiなど。
 | tool/addm       | 50 | 新たな仕組みの導入 medium |
 | tool/addl       | 100〜 | 新たな仕組みの導入 large : キーワード自動リンク、相対リンク対応など |
 
-### Open Collectiveでの経費申請
-1. Open Collectiveのcpprefjpページに行く
-2. 画面右側の「アクション」から「経費を申請」をクリック
-3. ご自身の住所・氏名などを入力
-4. 支払い方法を入力
-    - 通貨はUSDを選択
-    - 送金先の国はJapanを選択
-    - 「bank account (銀行口座)」または「PayPal」を選択
-    - bank accountであれば、口座情報として銀行のSWIFT / BIC CODEおよびIBANを調べて入力する
-        - Google検索で「(銀行名) BIC CODE」などで検索
-        - 三菱UFC銀行なら「BOTKJPJT」
-        - bank accountのIBAN (International Bank Account Number) は、支店番号 + 口座番号を連続で記載する
-    - PayPalであれば、ご自身のPayPalアカウントを入力する
-    - ご自身の住所を英語で入力する
-    - 請求金額および請求の説明を記載して送信する
-        - 説明欄にGitHubアカウントを書いてもらえると、だれの申請かがわかりやすくて助かる
-5. cpprefjpから経費の承認がされれば、支払われる
-
-
 ### 貢献ポイントの集計ページ
 
 - [2023年](start_editing/contribution_stats_2023.md)
