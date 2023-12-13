@@ -260,7 +260,7 @@ constexpr auto fold_left(I first, S last, T init, F f) {
 
 - [`ranges::fold_right`](ranges_fold_right.md)
     - 範囲の右からの`fold`
-- [`ranges::fold_left_first`](ranges_fold_left_first.md.nolink)
+- [`ranges::fold_left_first`](ranges_fold_left_first.md)
     - 範囲の最初の要素を初期値として`fold_left`
 - [`ranges::fold_right_last`](ranges_fold_right_last.md.nolink)
     - 範囲の最後の要素を初期値として`fold_right`
