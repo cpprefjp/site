@@ -284,31 +284,57 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 
 また、masterブランチにマージされずオープンなままのPull Requestについては、マージされた年に貢献ポイントをつけさせていただきます。
 
+貢献ポイントとして含めないものには、以下があります
+
+1. 議論への参加、問題提起、問題報告
+    - Issueの発行
+    - Issue / Pull Request / コミットへのコメント
+    - SNS上での当Webサイトへの問題報告
+2. GitHub Wikiの編集
+3. 貢献ポイントの集計作業
+    - [集計ツール](https://github.com/cpprefjp/stats_contribution)の開発
+    - 貢献ポイントの調整・ルール作り
+    - `start_editing/contribution_stats_*.md`の編集
+
+貢献ポイントの集計方法として、以下の注意事項があります
+
+- 同年内の当人による同ページへの複数の修正は、貢献ポイントをまとめる場合がある
+    - 連続した作業が複数コミットになった場合などにまとめる
+    - 複数の仕様変更による複数の修正の場合などはまとめない
+- 同ページ内に対する複数の修正は、大きい貢献ポイントにまとめる場合がある
+    - リンク追加・修正を含む説明修正は、fixmやfixlなどにまとめる
+
+
 ### cpprefjp
 
 | タグ | ポイント | 説明 |
 |-----|---------|------|
-| cpprefjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
-| cpprefjp/link     |  2 | 関連項目・参照リンクなどの追加 (ページ単位) |
+| cpprefjp/typo     |  1 | 誤字・脱字の修正 (ページ単位)。サンプルコードの非コメントの修正はfixs |
+| cpprefjp/link     |  2 | 関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位) |
 | cpprefjp/addref   | 20 | リファレンスを1ページ追加 |
 | cpprefjp/addlang  | 20 | 言語機能を1ページ追加 |
-| cpprefjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正 (ページ単位) |
-| cpprefjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、サンプルコード追加 (ページ単位) |
+| cpprefjp/addpage  | 20 | その他ページ追加 (articleや編集者向けページなど) |
+| cpprefjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位) |
+| cpprefjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、サンプルコード追加、訳語追加 (ページ単位) |
 | cpprefjp/fixl     | 10 | 既存ページへの修正 : large 仕様変更への対応 (ページ単位) |
-| cpprefjp/compiler |  2 | 動作確認できたコンパイラバージョンの記載 (ページ単位) |
+| cpprefjp/compiler |  2 | 動作確認できたコンパイラバージョンの記載。ライブラリ機能はページ単位、言語機能は件数単位 |
+
+機能追加での機能表への列の追加は、linkではなくfixlにあたる。
+
 
 ### boostjp
 
 | タグ | ポイント | 説明 |
 |-----|---------|------|
-| boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位 |
-| boostjp/releases |  2 | Boostリリースノート1件追加 small : maintenance workなどの小さなリリースノート |
-| boostjp/releasem |  5 | Boostリリースノートページを準備 |
+| boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
+| boostjp/link     |  2 | 関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位) |
+| boostjp/releases |  5 | Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート |
 | boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : 10行以下の中程度の大きさ |
 | boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ |
+| boostjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位) |
+| boostjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、訳語追加 (ページ単位) |
 | boostjp/addrefs  | 10 | Boost逆引きリファレンス : small (1例追加) |
 | boostjp/addrefm  | 20 | Boost逆引きリファレンス : medium (標準C++のバージョンアップ対応1例単位、Boostのバージョンアップ対応1例単位) |
-| boostjp/boosts   | 5 | Boostへの貢献 small (typoの修正など) |
 
 ### ツール類
 
@@ -345,4 +371,9 @@ CIスクリプト、site_generator、kunaiなど。
     - 請求金額および請求の説明を記載して送信する
         - 説明欄にGitHubアカウントを書いてもらえると、だれの申請かがわかりやすくて助かる
 5. cpprefjpから経費の承認がされれば、支払われる
+
+
+### 貢献ポイントの集計ページ
+
+- [2023年](start_editing/contribution_stats_2023.md)
 
