@@ -138,9 +138,8 @@ using U = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
 #include <ranges>
 #include <algorithm>
 #include <functional>
-#include <format>
+#include <print>
 #include <vector>
-#include <iostream>
 #include <concepts>
 
 using namespace std::ranges;
@@ -176,7 +175,7 @@ int main() {
 ### 出力
 ```
 55
-2.125
+1.125
 ```
 
 ### 処理順序を表示する例
@@ -185,10 +184,8 @@ int main() {
 #include <ranges>
 #include <algorithm>
 #include <functional>
-#include <format>
+#include <print>
 #include <vector>
-#include <iostream>
-#include <concepts>
 
 using namespace std::ranges;
 
