@@ -84,9 +84,9 @@ int main()
 
   // (2) 変換可能な型からの所有権移動
   // p1の所有権をp2に譲渡する
-  std::unique_ptr<void> p2;
+  std::unique_ptr<const int> p2;
   p2 = std::move(p1);
-  assert(*static_cast<int*>(p2.get()) == 3);
+  assert(*static_cast<const int*>(p2.get()) == 3);
 
   // (3) リソース解放
   std::unique_ptr<int> p3(new int(3));

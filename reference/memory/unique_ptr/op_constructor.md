@@ -143,8 +143,8 @@ int main()
   assert(!p6);
 
   // (7) 変換可能な他のunique_ptrから所有権を譲渡する
-  std::unique_ptr<void> p7 = std::move(p5);
-  assert(*static_cast<int*>(p7.get()) == 3);
+  std::unique_ptr<const int> p7 = std::move(p5);
+  assert(*static_cast<const int*>(p7.get()) == 3);
 }
 ```
 * std::default_delete[link /reference/memory/default_delete.md]
