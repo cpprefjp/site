@@ -107,8 +107,7 @@ int main()
 
     // 条件一致した要素を削除する
     if (*next == 1) {
-      // 削除された要素の次を指すイテレータが返される。
-      it = ls.erase_after(it);
+      ls.erase_after(it);
     }
     // 要素削除をしない場合に、イテレータを進める
     else {
