@@ -267,7 +267,7 @@
 | P2582R1: [継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md.nolink) | | - | - | - | - |
 | P1938R3 : [`if consteval`](/lang/cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | - |
 | P1401R5 : [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | 2022.2 | - |
-| P2242R3: [定数式内での非リテラル変数の使用を含められないようにする](/lang/cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける | 12 | 15 | 2022.2 | - |
+| P2242R3: [定数式内での非リテラル変数の使用を含められないようにする](/lang/cpp23/non_literal_variables_in_constexpr_functions.md) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける | 12 | 15 | 2022.2 | - |
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | - | yes | - | 2022 |
 | P2448R2: [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md.nolink) | | 13 | 17 (partial) | 2024.0 (partial) | - |
 | P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | 13 | - | 16 | 2023.2 | - |
