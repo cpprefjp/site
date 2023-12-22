@@ -69,7 +69,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [`if consteval`](cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる |
 | [定数式の文脈での`bool`への縮小変換を許可](cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 |
-| [定数式内での非リテラル変数の使用を含められないようにする](cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける |
+| [定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する](cpp23/non_literal_variables_in_constexpr_functions.md) | コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する |
 | [静的な診断メッセージの文字エンコーディング](cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす |
 | [`constexpr`関数のすべての引数が定数実行できない場合でも適格とする](cpp23/relaxing_some_constexpr_restrictions.md.nolink) | |
 | [`constexpr`関数内での`static constexpr`変数を許可](cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | |
