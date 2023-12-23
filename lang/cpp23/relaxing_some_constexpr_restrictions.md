@@ -96,7 +96,7 @@ void f(std::optional<T>& opt)
 `constexpr`指定された、`=delete`指定されていないコンストラクタが満たすべき条件を緩和する。
 
 - 非静的メンバ変数のコンストラクタは`constexpr`でなくともよい
-- [委譲コンストラクタ](https://cpprefjp.github.io/lang/cpp11/delegating_constructors.html)の場合、委譲先のコンストラクタが`constexpr`でなくともよい
+- [委譲コンストラクタ](/lang/cpp11/delegating_constructors.md)の場合、委譲先のコンストラクタが`constexpr`でなくともよい
 
 `constexpr`指定された、`=delete`指定されていないデストラクタが満たすべき条件を緩和する。
 
