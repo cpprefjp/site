@@ -16,7 +16,7 @@
 ```cpp
 int f(int x) { return x + 1; }
 
-constexpr int g(int x) { return f(x); } // error! fはいかなるxについても定数式実行不能
+constexpr int g(int x) { return f(x); } // error! fはいかなるxについても定数式実行不可能
 ```
 
 `g`は`constexpr`でない関数`f`を呼び出すため、プログラムの中で実際に`g`が定数式実行されない場合であっても、このコードは不適格である。
