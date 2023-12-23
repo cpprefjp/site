@@ -73,7 +73,7 @@ void f(std::optional<T>& opt)
 `constexpr`指定を行わないことによってもこの問題は回避できるが、自身以外のユーザーが存在するライブラリの場合は`constexpr`対応が望まれる可能性があり、その場合はこの問題に対処する必要が生じる。
 
 多くの場合、標準ライブラリ関数が`constexpr`指定されるのは、その機能が定数式実行可能になったバージョンよりも遅れる。
-例えば、`std::array`の`operator[]`の非`const`版が`constexpr`指定されるのは、定数式内で変数の変更が許可されるC++14ではなく、その次のC++17である（[参考](https://cpprefjp.github.io/reference/array/array/op_at.html)）。
+例えば、`std::array`の`operator[]`の非`const`版が`constexpr`指定されるのは、定数式内で変数の変更が許可されるC++14ではなく、その次のC++17である（[参考](/reference/array/array/op_at.md)）。
 このような状況では上記のような解決策を用いてもミスを避けることは容易ではない。
 
 現在、登場時点では定数式内で実行できなかったために`constexpr`されていなかった多くの標準ライブラリ関数が、のちにコア言語機能が追加されて`constexpr`指定されている。
