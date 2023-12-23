@@ -25,7 +25,7 @@ constexpr int g(int x) { return f(x); } // error! fはいかなるxについて�
 しかし、多くの標準ライブラリが`constexpr`対応を進めていくようになり、状況が変化した。
 
 例えば、`std::optional`の`reset`メンバメソッドが`constexpr`に対応するのはC++23以降である。
-これは`std::optional`の内部実装が`union`のアクティブメンバを更新しているからであり、[これを定数式内で実行するにはC++20を待たねばならなかった](https://cpprefjp.github.io/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.html)。
+これは`std::optional`の内部実装が`union`のアクティブメンバを更新しているからであり、[これを定数式内で実行するにはC++20を待たねばならなかった](/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.md)。
 
 よって、以下のコードはC++17では不適格だが、C++23では正しいコードとなる。
 
