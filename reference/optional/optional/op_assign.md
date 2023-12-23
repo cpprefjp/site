@@ -6,20 +6,29 @@
 * cpp17[meta cpp]
 
 ```cpp
-optional<T>& operator=(nullopt_t rhs) noexcept;          // (1)
+optional<T>& operator=(nullopt_t rhs) noexcept;                    // (1) C++17
+constexpr optional<T>& operator=(nullopt_t rhs) noexcept;          // (1) C++23
 
-optional& operator=(const optional& rhs);                // (2)
+optional& operator=(const optional& rhs);                          // (2) C++17
+constexpr optional& operator=(const optional& rhs);                // (2) C++20
 
-optional& operator=(optional&& rhs) noexcept(see below); // (3)
+optional& operator=(optional&& rhs) noexcept(see below);           // (3) C++17
+constexpr optional& operator=(optional&& rhs) noexcept(see below); // (3) C++20
 
 template <class U = T>
-optional& operator=(U&& rhs);                            // (4)
+optional& operator=(U&& rhs);                                      // (4) C++17
+template <class U = T>
+constexpr optional& operator=(U&& rhs);                            // (4) C++23
 
 template <class U>
-optional& operator=(const optional<U>& rhs);             // (5)
+optional& operator=(const optional<U>& rhs);                       // (5) C++17
+template <class U>
+constexpr optional& operator=(const optional<U>& rhs);             // (5) C++23
 
 template <class U>
-optional& operator=(optional<U>&& rhs);                  // (6)
+optional& operator=(optional<U>&& rhs);                            // (6) C++17
+template <class U>
+constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 ```
 * see below[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]

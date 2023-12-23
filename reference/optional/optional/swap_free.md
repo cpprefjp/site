@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <class T>
-  void swap(optional<T>& x, optional<T>& y) noexcept(noexcept(x.swap(y)));
+  void swap(optional<T>& x, optional<T>& y) noexcept(noexcept(x.swap(y)));           // C++17
+  template <class T>
+  constexpr void swap(optional<T>& x, optional<T>& y) noexcept(noexcept(x.swap(y))); // C++23
 }
 ```
 * x.swap(y)[link swap.md]

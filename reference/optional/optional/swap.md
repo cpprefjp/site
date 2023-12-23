@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-void swap(optional& rhs) noexcept(see below);
+void swap(optional& rhs) noexcept(see below);           // C++17
+constexpr void swap(optional& rhs) noexcept(see below); // C++23
 ```
 * see below[italic]
 

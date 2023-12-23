@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-void reset() noexcept;
+void reset() noexcept;           // (1) C++17
+constexpr void reset() noexcept; // (1) C++23
 ```
 
 ## 概要

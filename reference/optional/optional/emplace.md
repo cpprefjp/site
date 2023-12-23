@@ -7,10 +7,14 @@
 
 ```cpp
 template <class... Args>
-T& emplace(Args&&... args);                              // (1)
+T& emplace(Args&&... args);                                        // (1) C++17
+template <class... Args>
+constexpr T& emplace(Args&&... args);                              // (1) C++23
 
 template <class U, class... Args>
-T& emplace(std::initializer_list<U> il, Args&&... args); // (2)
+T& emplace(std::initializer_list<U> il, Args&&... args);           // (2) C++17
+template <class U, class... Args>
+constexpr T& emplace(std::initializer_list<U> il, Args&&... args); // (2) C++23
 ```
 
 ## 概要

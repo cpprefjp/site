@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-~optional();
+~optional();           // C++17
+constexpr ~optional(); // C++23
 ```
 
 ## 概要
