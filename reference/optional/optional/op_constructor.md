@@ -6,34 +6,38 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr optional() noexcept;                           // (1) C++17
-constexpr optional(nullopt_t) noexcept;                  // (2) C++17
-constexpr optional(const optional& rhs);                 // (3) C++17
-constexpr optional(optional&& rhs) noexcept(see below);  // (4) C++17
+constexpr optional() noexcept;                                  // (1) C++17
+constexpr optional(nullopt_t) noexcept;                         // (2) C++17
+constexpr optional(const optional& rhs);                        // (3) C++17
+constexpr optional(optional&& rhs) noexcept(see below);         // (4) C++17
 
 template <class... Args>
-constexpr explicit optional(in_place_t, Args&&... args); // (5) C++17
+constexpr explicit optional(in_place_t, Args&&... args);        // (5) C++17
 
 template <class U, class... Args>
 constexpr explicit optional(
                      in_place_t,
                      initializer_list<U> il,
-                     Args&&... args);                    // (6) C++17
+                     Args&&... args);                           // (6) C++17
 
 template <class U = T>
-EXPLICIT constexpr optional(U&& rhs);                    // (7) C++17
+EXPLICIT constexpr optional(U&& rhs);                           // (7) C++17
 template <class U = T>
-explicit(see below) constexpr optional(U&& rhs);         // (7) C++20
+explicit(see below) constexpr optional(U&& rhs);                // (7) C++20
 
 template <class U>
-EXPLICIT optional(const optional<U>& rhs);               // (8) C++17
+EXPLICIT optional(const optional<U>& rhs);                      // (8) C++17
 template <class U>
-explicit(see below) optional(const optional<U>& rhs);    // (8) C++20
+explicit(see below) optional(const optional<U>& rhs);           // (8) C++20
+template <class U>
+explicit(see below) constexpr optional(const optional<U>& rhs); // (8) C++23
 
 template <class U>
-EXPLICIT optional(optional<U>&& rhs);                    // (9) C++17
+EXPLICIT optional(optional<U>&& rhs);                           // (9) C++17
 template <class U>
-explicit(see below) optional(optional<U>&& rhs);         // (9) C++20
+explicit(see below) optional(optional<U>&& rhs);                // (9) C++20
+template <class U>
+explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
 ```
 * see below[italic]
 * EXPLICIT[italic]
@@ -227,3 +231,4 @@ int main()
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

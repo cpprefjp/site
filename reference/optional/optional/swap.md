@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-void swap(optional& rhs) noexcept(see below);
+void swap(optional& rhs) noexcept(see below);           // C++17
+constexpr void swap(optional& rhs) noexcept(see below); // C++23
 ```
 * see below[italic]
 
@@ -121,3 +122,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2748. swappable traits for `optional`s](https://wg21.cmeerw.net/lwg/issue2748)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

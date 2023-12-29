@@ -6,20 +6,29 @@
 * cpp17[meta cpp]
 
 ```cpp
-optional<T>& operator=(nullopt_t rhs) noexcept;          // (1)
+optional<T>& operator=(nullopt_t rhs) noexcept;                    // (1) C++17
+constexpr optional<T>& operator=(nullopt_t rhs) noexcept;          // (1) C++23
 
-optional& operator=(const optional& rhs);                // (2)
+optional& operator=(const optional& rhs);                          // (2) C++17
+constexpr optional& operator=(const optional& rhs);                // (2) C++20
 
-optional& operator=(optional&& rhs) noexcept(see below); // (3)
+optional& operator=(optional&& rhs) noexcept(see below);           // (3) C++17
+constexpr optional& operator=(optional&& rhs) noexcept(see below); // (3) C++20
 
 template <class U = T>
-optional& operator=(U&& rhs);                            // (4)
+optional& operator=(U&& rhs);                                      // (4) C++17
+template <class U = T>
+constexpr optional& operator=(U&& rhs);                            // (4) C++23
 
 template <class U>
-optional& operator=(const optional<U>& rhs);             // (5)
+optional& operator=(const optional<U>& rhs);                       // (5) C++17
+template <class U>
+constexpr optional& operator=(const optional<U>& rhs);             // (5) C++23
 
 template <class U>
-optional& operator=(optional<U>&& rhs);                  // (6)
+optional& operator=(optional<U>&& rhs);                            // (6) C++17
+template <class U>
+constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 ```
 * see below[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]
@@ -171,3 +180,4 @@ int main()
 ## 参照
 - [LWG Issue 2756. `optional<T>` should `forward` `T`'s implicit conversions](https://wg21.cmeerw.net/lwg/issue2756)
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
