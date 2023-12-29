@@ -1,7 +1,7 @@
 # node_handle
 * cpp17[meta cpp]
 * node_handle[meta category]
-* class[meta id-type]
+* class template[meta id-type]
 
 
 ```cpp
@@ -51,8 +51,8 @@ class node_handle;
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------|------------------------------|-------|
 | [`value`](node_handle/value.md)(set) | 要素アクセス | C++17 |
-| [`key`](node_handle/key.md)(map) | Keyアクセス | C++17 |
-| [`mapped`](node_handle/mapped.md)(map) | 要素アクセス | C++17 |
+| [`key`](node_handle/key.md)(map) | キーアクセス | C++17 |
+| [`mapped`](node_handle/mapped.md)(map) | 値アクセス | C++17 |
 | [`get_allocator`](node_handle/get_allocator.md) | アロケータオブジェクトの取得 | C++17 |
 | [`operator bool`](node_handle/op_bool.md) | ノードハンドルが空であるかどうかを調べる | C++17 |
 | [`empty`](node_handle/empty.md) | ノードハンドルが空であるかどうかを調べる | C++17 |
@@ -69,9 +69,9 @@ class node_handle;
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `key_type` | テンプレートパラメータ `Key`。 | C++17 |
-| `value_type`(set) | テンプレートパラメータ `Key`。 | C++17 |
-| `value_type`(map) | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const Key, T>`。 | C++17 |
+| `key_type` | テンプレートパラメータ `K`。 | C++17 |
+| `value_type`(set) | テンプレートパラメータ `K`。 | C++17 |
+| `value_type`(map) | 要素の型。`std::`[`pair`](/reference/utility/pair.md)`<const K, T>`。 | C++17 |
 | `mapped_type`(map) | 値の型。テンプレートパラメータ `T`。 | C++17 |
 | `allocator_type` | アロケータの型。 | C++17 |
 

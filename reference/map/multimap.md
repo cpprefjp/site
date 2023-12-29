@@ -159,7 +159,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](multimap/swap_free.md) | 2つの`map`オブジェクトを入れ替える | |
+| [`swap`](multimap/swap_free.md) | 2つの`multimap`オブジェクトを入れ替える | |
 
 
 ### 要素削除

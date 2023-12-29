@@ -2,7 +2,7 @@
 * cpp17[meta cpp]
 * node_handle[meta category]
 * node_handle[meta class]
-* function template[meta id-type]
+* function[meta id-type]
 * [meta namespace]
 
 ```cpp
@@ -23,7 +23,6 @@
 
 ## 例
 ```cpp example
-#include <iostream>
 #include <set>
 
 int main()
@@ -34,7 +33,6 @@ int main()
 
 ### 出力
 ```
-0
 ```
 
 ## バージョン

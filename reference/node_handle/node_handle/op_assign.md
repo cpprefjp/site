@@ -2,7 +2,7 @@
 * cpp17[meta cpp]
 * node_handle[meta category]
 * node_handle[meta class]
-* function template[meta id-type]
+* function[meta id-type]
 * [meta namespace]
 
 ```cpp
@@ -47,6 +47,7 @@ int main()
   std::set<int>::node_type nh;
   // std::set<int>::node_type nh2 = nh;         // コピー構築はできない
   std::set<int>::node_type nh2 = std::move(nh);
+  std::cout << static_cast<bool>(nh2);
 }
 ```
 

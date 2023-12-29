@@ -42,8 +42,8 @@ constexpr basic_string&
   assign(InputIterator first,
          InputIterator last);  // (7) C++20
 
-basic_string& assign(initializer_list<charT>);           // (8) C++11
-constexpr basic_string& assign(initializer_list<charT>); // (8) C++20
+basic_string& assign(initializer_list<charT> il);           // (8) C++11
+constexpr basic_string& assign(initializer_list<charT> il); // (8) C++20
 
 // string_viewを引数に取るオーバーロード
 template<class T>

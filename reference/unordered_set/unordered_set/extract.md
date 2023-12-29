@@ -58,7 +58,7 @@ auto my_hash = [](my_struct const& s) noexcept -> std::size_t
 
 int main()
 {
-  // ムーブオンリーな型をキーとして扱う multiset
+  // ムーブオンリーな型をキーとして扱う unordered_set
   std::unordered_set<my_struct, decltype(my_hash)> s;
 
   // 挿入

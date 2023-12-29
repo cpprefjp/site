@@ -6,7 +6,7 @@
 
 ```cpp
 map& operator=(const map& x);                      // (1) C++03
-map& operator=(map&& y);                           // (2) C++11
+map& operator=(map&& x);                           // (2) C++11
 map& operator=(map&& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value
             && is_nothrow_move_assignable<Compare>::value); (2) // C++17
@@ -22,7 +22,7 @@ map& operator=(initializer_list<value_type> init); // (3) C++11
 ## 効果
 - (1) : 同じテンプレートパラメータを持つ`map`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
 - (2) : 同じテンプレートパラメータを持つ`map`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
-- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`init`の全ての要素が`*this`にコピーされる。
 
 
 ## 戻り値
@@ -32,7 +32,7 @@ map& operator=(initializer_list<value_type> init); // (3) C++11
 ## 事後条件
 - (1) : `*this == x`
 - (2) : `*this`は元々の`x`と等値となる
-- (3) : `*this == x`
+- (3) : `*this == map{init}`
 
 
 ## 計算量
