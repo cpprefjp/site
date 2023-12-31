@@ -27,6 +27,7 @@ NGWORD_LIST = [
     ("", "子ルーチン", "コルーチン"),
     ("", "移譲", "委譲"),
     ("", r'型]\((.*?)\)型', "型](link)"),
+    ("", "constepx", "constexpr"),
     ("reference/chrono", "dulation", "duration"),
     ("reference/random", "施行", "試行"),
     ("reference/random", "疑似", "擬似"),
