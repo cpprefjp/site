@@ -8,7 +8,7 @@
 ```cpp
 static size_type max_size(Alloc& a);                            // C++11
 static size_type max_size(const Alloc& a) noexcept;             // C++14 から C++ 17 まで
-static constepx size_type max_size(const Alloc& a) noexcept;    // C++20 から
+static constexpr size_type max_size(const Alloc& a) noexcept;    // C++20 から
 ```
 
 ## 概要
