@@ -95,7 +95,7 @@ false
 
 ```cpp
 template<typename T, typename U = T>
-concept simple_3way_compareble = requires(const std::remove_reference_t<T>& t, const std::remove_reference_t<U>& u) {
+concept simple_3way_comparable = requires(const std::remove_reference_t<T>& t, const std::remove_reference_t<U>& u) {
   t <=> u;
 };
 
@@ -103,7 +103,7 @@ template<typename T, typename U = T>
 struct compare_three_way_result {};
 
 template<typename T, typename U>
-requires simple_3way_compareble<T, U>
+requires simple_3way_comparable<T, U>
 struct compare_three_way_result<T, U> {
   using type = decltype(declval<const remove_reference_t<T>&>() <=> declval<const remove_reference_t<U>&>());
 };

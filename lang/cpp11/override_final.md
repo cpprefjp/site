@@ -269,7 +269,7 @@ struct base {
 };
 
 struct derived [[check_names]] {
-  virtual void sone_func1();  // error, mis-spelled name
+  virtual void sone_func1();  // error, miss-spelled name
   virtual void some_func2(double); // error, no bad argument type
   virtual void some_func3(); // error, missing cv-qualification
   virtual int some_func4(int); // ill-formed: return type does not match B::h

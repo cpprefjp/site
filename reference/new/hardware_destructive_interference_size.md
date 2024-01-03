@@ -50,7 +50,7 @@ struct X {
   alignas(std::hardware_destructive_interference_size) int b;
 };
 
-struct IndivisualCacheInt {
+struct IndividualCacheInt {
   alignas(std::hardware_destructive_interference_size) int value;
 };
 
@@ -83,7 +83,7 @@ int main()
 
   // 連続したメモリの各要素を、個別のキャッシュに乗せる
   {
-    std::vector<IndivisualCacheInt> v{10};
+    std::vector<IndividualCacheInt> v{10};
     std::vector<std::thread> threads;
     for (std::size_t i = 0; i < v.size(); ++i) {
       threads.push_back(std::thread{[&v, i]{

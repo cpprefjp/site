@@ -203,7 +203,7 @@ static_assert(std::is_trivially_copyable<DeletedDestructor>::value == false, "De
 #ifdef __cpp_concepts
 // #1も#2も資格のあるコピーコンストラクタではなく、他に資格のあるコピー/ムーブ コンストラクタ/代入演算子がないためトリビアルコピー可能ではない
 static_assert(std::is_trivially_copyable<optional<std::unique_ptr<int>>>::value == false, "std::unique_ptr<int> isn't trivially copyable");
-// #2が資格のあるコピーコンストラクタであるが、user-proviedであるためトリビアルコピー可能ではない
+// #2が資格のあるコピーコンストラクタであるが、user-providedであるためトリビアルコピー可能ではない
 static_assert(std::is_trivially_copyable<optional<std::string>>::value == false, "optional<std::string> isn't trivially copyable");
 // #1が資格のあるコピーコンストラクタであるのでトリビアルコピー可能
 static_assert(std::is_trivially_copyable<optional<int>>::value == true, "optional<int> is trivially copyable");

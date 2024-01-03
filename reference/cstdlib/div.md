@@ -6,38 +6,38 @@
 ```cpp
 namespace std {
   div_t
-    div(int numer,
+    div(int number,
         int denom);         // (1) C++03
   constexpr div_t
-    div(int numer,
+    div(int number,
         int denom);         // (1) C++23
 
   ldiv_t
-    div(long numer,
+    div(long number,
         long denom);        // (2) C++03
   constexpr ldiv_t
-    div(long numer,
+    div(long number,
         long denom);        // (2) C++23
 
   lldiv_t
-    div(long long numer,
+    div(long long number,
         long long denom);   // (3) C++03
   constexpr lldiv_t
-    div(long long numer,
+    div(long long number,
         long long denom);   // (3) C++23
 
   ldiv_t
-    ldiv(long numer,
+    ldiv(long number,
          long denom);       // (4) C++03
   constexpr ldiv_t
-    ldiv(long numer,
+    ldiv(long number,
          long denom);       // (4) C++23
 
   lldiv_t
-    lldiv(long long numer,
+    lldiv(long long number,
           long long denom); // (5) C++11
   constexpr lldiv_t
-    lldiv(long long numer,
+    lldiv(long long number,
           long long denom); // (5) C++23
 }
 ```
