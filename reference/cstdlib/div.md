@@ -6,38 +6,38 @@
 ```cpp
 namespace std {
   div_t
-    div(int number,
+    div(int numer,
         int denom);         // (1) C++03
   constexpr div_t
-    div(int number,
+    div(int numer,
         int denom);         // (1) C++23
 
   ldiv_t
-    div(long number,
+    div(long numer,
         long denom);        // (2) C++03
   constexpr ldiv_t
-    div(long number,
+    div(long numer,
         long denom);        // (2) C++23
 
   lldiv_t
-    div(long long number,
+    div(long long numer,
         long long denom);   // (3) C++03
   constexpr lldiv_t
-    div(long long number,
+    div(long long numer,
         long long denom);   // (3) C++23
 
   ldiv_t
-    ldiv(long number,
+    ldiv(long numer,
          long denom);       // (4) C++03
   constexpr ldiv_t
-    ldiv(long number,
+    ldiv(long numer,
          long denom);       // (4) C++23
 
   lldiv_t
-    lldiv(long long number,
+    lldiv(long long numer,
           long long denom); // (5) C++11
   constexpr lldiv_t
-    lldiv(long long number,
+    lldiv(long long numer,
           long long denom); // (5) C++23
 }
 ```
@@ -46,7 +46,7 @@ namespace std {
 * lldiv_t[link lldiv_t.md]
 
 ## 概要
-`number / denom`と`number % denom`の計算をひとつの操作で行う。
+`numer / denom`と`numer % denom`の計算をひとつの操作で行う。
 
 - (1) : `int`型のオーバーロード
 - (2) : `long`型のオーバーロード
