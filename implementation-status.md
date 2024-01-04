@@ -259,15 +259,15 @@
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | 2022 |
 | P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | - |
 | P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md.nolink) | | 13 | 16 | 2023.2 | - |
-| P2201R1 : [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
+| P2201R1: [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
 | P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
 | P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md.nolink) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | 2023.2 | - |
 | P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md.nolink) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | 2023.2 | - |
 | P2096R2: [部分特殊化の汎用化仕様](/lang/cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 | - | - | - | - |
 | P2582R1: [継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md.nolink) | | - | - | - | - |
-| P1938R3 : [`if consteval`](/lang/cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | - |
-| P1401R5 : [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | 2022.2 | - |
-| P2242R3: [定数式内での非リテラル変数の使用を含められないようにする](/lang/cpp23/non_literal_variables_in_constexpr_functions.md.nolink) | 定数式内で静的変数・スレッドローカル変数およびgoto文とラベルを含められない制限を設ける | 12 | 15 | 2022.2 | - |
+| P1938R3: [`if consteval`](/lang/cpp23/if_consteval.md.nolink) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | - |
+| P1401R5: [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md.nolink) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | 2022.2 | - |
+| P2242R3: [定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する](/lang/cpp23/non_literal_variables_in_constexpr_functions.md) | コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する | 12 | 15 | 2022.2 | - |
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md.nolink) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | - | yes | - | 2022 |
 | P2448R2: [`constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md) | | 13 | 17 (partial) | 2024.0 (partial) | - |
 | P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | 13 | - | 16 | 2023.2 | - |
