@@ -117,7 +117,7 @@ int main()
 ## 関連項目
 - C++23 [`move_only_function`](move_only_function.md)
 - C++26 [`copyable_function`](copyable_function.md)
-- C++26 [`function_ref`](function_ref.md.nolink)
+- C++26 [`function_ref`](function_ref.md)
 
 
 ## 参照

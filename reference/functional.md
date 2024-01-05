@@ -27,7 +27,7 @@ struct doubler {
 | [`bad_function_call`](functional/bad_function_call.md) | 不正な関数呼び出しに関する例外(class)  | C++11 |
 | [`move_only_function`](functional/move_only_function.md) | ムーブのみ可能な関数・関数オブジェクトの多相軽量ラッパー(class template) | C++23 |
 | [`copyable_function`](functional/copyable_function.md) | コピー可能な関数・関数オブジェクトの多相軽量ラッパー(class template) | C++26 |
-| [`function_ref`](functional/function_ref.md.nolink) | 関数・関数オブジェクトの多相参照ラッパー(class template) | C++26 |
+| [`function_ref`](functional/function_ref.md) | 関数・関数オブジェクトの多相参照ラッパー(class template) | C++26 |
 
 
 ## 統一的な関数呼び出し

@@ -37,7 +37,6 @@ namespace std {
 
 
 ## メンバ関数
-### 構築・破棄
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
@@ -236,7 +235,9 @@ int main()
 
 
 ## 関連項目
-- [`function`](function.md)
+- C++11 [`function`](function.md)
+- C++26 [`copyable_function`](copyable_function.md)
+- C++26 [`copyable_function`](copyable_function.md)
 
 
 ## 参照

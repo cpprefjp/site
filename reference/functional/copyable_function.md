@@ -36,7 +36,6 @@ namespace std {
 
 
 ## メンバ関数
-### 構築・破棄
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
@@ -235,8 +234,9 @@ int main()
 
 
 ## 関連項目
-- [`function`](function.md)
-- [`move_only_function`](move_only_function.md)
+- C++11 [`function`](function.md)
+- C++23 [`move_only_function`](move_only_function.md)
+- C++26 [`function_ref`](function_ref.md)
 
 
 ## 参照
