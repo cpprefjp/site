@@ -95,7 +95,7 @@ concept three_way_comparable_with =
     - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
     - `(a <=> b >= 0) == bool(a >= b)`が`true`であること
     - `Cat`が`strong_ordering`に変換可能ならば
-        - `T`は`totally_orderd`のモデルである
+        - `T`は`totally_ordered`のモデルである
   
 - (2) : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`、`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U, Cat`は`three_way_comparable_with`のモデルである
     - `t <=> u`と`u <=> t`が同じ[定義域](/reference/concepts.md)を持つ
@@ -108,7 +108,7 @@ concept three_way_comparable_with =
     - `(t <=> u <= 0) == bool(t <= u)`が`true`であること
     - `(t <=> u >= 0) == bool(t >= u)`が`true`であること
     - `Cat`が`strong_ordering`に変換可能ならば
-        - `T, U`は`totally_orderd_with`のモデルである
+        - `T, U`は`totally_ordered_with`のモデルである
 
 - `partially-ordered-with` : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`について次の条件を満たす場合に限って、型`T, U, Cat`は`partially-ordered-with`のモデルである
     - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ[定義域](/reference/concepts.md)を持つ

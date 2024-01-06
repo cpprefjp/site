@@ -46,7 +46,7 @@ namespace std {
 * lldiv_t[link lldiv_t.md]
 
 ## 概要
-`number / denom`と`number % denom`の計算をひとつの操作で行う。
+`numer / denom`と`numer % denom`の計算をひとつの操作で行う。
 
 - (1) : `int`型のオーバーロード
 - (2) : `long`型のオーバーロード

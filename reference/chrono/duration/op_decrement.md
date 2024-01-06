@@ -18,7 +18,7 @@ constexpr duration operator--(int); // (2) C++17
 
 
 ## 戻り値
-- `duration& opertor--()` : `--rep_; return *this`;
+- `duration& operator--()` : `--rep_; return *this`;
 - `duration operator--(int)` : `return duration(rep_--);`
 
 ※ `rep_`は内部で保持している値。メンバ変数名は説明用のもの。
