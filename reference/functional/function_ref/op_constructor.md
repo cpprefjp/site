@@ -42,7 +42,7 @@ constexpr function_ref(const function_ref&) noexcept = default;  // (6)
 - (3) : `F`を`decltype(f)`としたとき
     - `is-invocable-using<F>`が`true`であること
 - (4) : `T`を`remove_refernce_t<F>`、`F`を`F`を`decltype(f)`としたとき
-    - [`is_rvalue_reference_v](/reference/type_traits/is_rvalue_reference.md)`<U&&>`が`false`であり、かつ
+    - [`is_rvalue_reference_v`](/reference/type_traits/is_rvalue_reference.md)`<U&&>`が`false`であり、かつ
     - `is-invocable-using<F, /*cv*/ T&>`が`true`であること
 - (5) : `F`を`decltype(f)`としたとき
     - `is-invocable-using<F, /*cv*/ T*>`が`true`であること
