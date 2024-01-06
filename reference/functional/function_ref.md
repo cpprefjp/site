@@ -22,7 +22,7 @@ namespace std {
 - CV修飾子 *cv* : `const`, CV修飾無し
 - noexcept例外指定 *noex* : `true`, `false`
 
-`function_ref`クラステンプレートのあらゆる特殊化は[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)である。
+`function_ref`クラステンプレートの特殊化は、[`copyable`](/reference/concepts/copyable.md)のモデルである[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)な型となる。
 
 
 ### `function`ファミリとの比較
@@ -41,17 +41,17 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`(constructor)`](function_ref/op_constructor.md.nolink) | コンストラクタ      | C++26 |
-| (destructor) | デストラクタ | C++26 |
-| [`operator=`](function_ref/op_assign.md.nolink) | 代入演算子 | C++26 |
-| [`operator()`](function_ref/op_call.md.nolink) | 関数呼び出し | C++26 |
+| [`(constructor)`](function_ref/op_constructor.md) | コンストラクタ | C++26 |
+| `(destructor)` | デストラクタ | C++26 |
+| [`operator=`](function_ref/op_assign.md) | 代入演算子 | C++26 |
+| [`operator()`](function_ref/op_call.md) | 関数呼び出し | C++26 |
 
 
 ## 推論補助
 
 | 名前 | 説明 | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`(deduction_guide)`](function_ref/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++26 |
+| [`(deduction_guide)`](function_ref/op_deduction_guide.md) | クラステンプレートの推論補助 | C++26 |
 
 
 ## 例
@@ -59,7 +59,7 @@ namespace std {
 ```cpp example
 #include <functional>
 #include <iostream>
-#include <utility>  // nontype
+#include <utility>
 
 // 呼び出し可能な何かを受け取る高階関数
 int hof(std::function_ref<int(int)> fn)

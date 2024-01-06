@@ -67,7 +67,7 @@ Bow-wow
 
 
 ## 関連項目
-- [`copyable_function`](/reference/functional/copyable_function.md)
+- [`function_ref`](/reference/functional/function_ref.md)
 
 
 ## 参照
