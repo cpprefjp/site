@@ -38,7 +38,7 @@ namespace std {
 ## 適格要件
 - `ElementType`は抽象クラス型もしくは配列型のいずれでもない完全型であり、かつ
 - `Extents`は[`extents`](extents.md)の特殊化であり、かつ
-- [`is_same_v`](/reference/type_traits/is_same.md)`<ElementType, typename AccessorPolicy​::​element_type>`が`true`であること。
+- [`is_same_v`](/reference/type_traits/is_same.md)`<ElementType, typename AccessorPolicy::element_type>`が`true`であること。
 
 `LayoutPolicy`はレイアウトマッピングポリシー要件を満たし、かつ`AccessorPolicy`はアクセサポリシー要件を満たすこと。
 
