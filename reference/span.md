@@ -17,4 +17,4 @@
 
 ## 関連項目
 - C++11 [`<string_view>`](string_view.md)
-- C++23 [`<span>`](span.md)
+- C++23 [`<mdspan>`](mdspan.md)

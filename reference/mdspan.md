@@ -26,14 +26,14 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`default_accessor`](mdspan/default_accessor.md.nolink) | デフォルトアクセサ (class template) | C++23 |
+| [`default_accessor`](mdspan/default_accessor.md.nolink) | デフォルト要素アクセサ (class template) | C++23 |
 
 
 ## 多次元配列ビュー
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`mdspan`](mdspan/mdspan.md.nolink) | 多次元配列ビュー (class template) | C++23 |
+| [`mdspan`](mdspan/mdspan.md) | 多次元配列ビュー (class template) | C++23 |
 
 
 ## バージョン

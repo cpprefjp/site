@@ -17,7 +17,7 @@ namespace std {
 
 ## 概要
 `extents`は、多次元配列の次元数、各次元の要素数、要素数が静的（コンパイル時）または動的（プログラム実行時）いずれのタイミングで指定されるかを表現する。
-多次元配列ビュー[`std::mdspan`](mdspan.md.nolink)に対して、多次元配列のサイズを指示するために用いられる。
+多次元配列ビュー[`std::mdspan`](mdspan.md)に対して、多次元配列のサイズを指示するために用いられる。
 
 - 多次元配列の次元数は`sizeof...(Extents)`に等しい
 - `Extents`要素のうち[`dynamic_extent`](/reference/span/dynamic_extent.md)に等しい次元は、動的要素数(dynamic extent)となる
@@ -104,9 +104,9 @@ int main()
 
 
 ## 関連項目
-- [`mdspan`](mdspan.md.nolink)
+- [`mdspan`](mdspan.md)
 
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
-- [P2599R2 index_type & size_type in mdspan](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2599r2.pdf)
+- [P2599R2 `index_type` & `size_type` in `mdspan`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2599r2.pdf)

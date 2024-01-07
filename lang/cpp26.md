@@ -53,7 +53,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### コンテナ
-- [`std::mdspan`](/reference/mdspan/mdspan.md.nolink)のサブ配列版として[`std::submdspan`](/reference/mdspan/submdspan.md.nolink)を追加
+- [`std::mdspan`](/reference/mdspan/mdspan.md)のサブ配列版として[`std::submdspan`](/reference/mdspan/submdspan.md.nolink)を追加
 - 連想コンテナの以下のメンバ関数に、一時オブジェクトが生成されるコストを抑える拡張を追加
     - [`std::map`](/reference/map/map.md)
         - [`operator[]`](/reference/map/map/op_at.md)
