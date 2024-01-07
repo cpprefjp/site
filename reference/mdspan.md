@@ -26,7 +26,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`default_accessor`](mdspan/default_accessor.md.nolink) | デフォルト要素アクセサ (class template) | C++23 |
+| [`default_accessor`](mdspan/default_accessor.md) | デフォルト要素アクセサ (class template) | C++23 |
 
 
 ## 多次元配列ビュー

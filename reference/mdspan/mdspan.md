@@ -14,7 +14,7 @@ namespace std {
 }
 ```
 * layout_right[link layout_right.md.nolink]
-* default_accessor[link default_accessor.md.nolink]
+* default_accessor[link default_accessor.md]
 
 ## 概要
 `mdspan`は、任意のメモリブロックに対して多次元配列のようにアクセスする機能を提供するクラスである。
@@ -23,7 +23,7 @@ namespace std {
 
 - [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<MDS>`が`true`、かつ
 - [`is_nothrow_move_assignable_v`](/reference/type_traits/is_nothrow_move_assignable.md)`<MDS>`が`true`、かつ
-- [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<MDS>`が1`true`となる。
+- [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<MDS>`が`true`となる。
 
 そのメンバ型`accessor_type`, `mapping_type`, `pointer`が[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であるとき、`mdspan`の特殊化もトリビアルコピー可能である。
 
