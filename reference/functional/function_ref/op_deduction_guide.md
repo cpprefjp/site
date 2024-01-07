@@ -36,8 +36,8 @@ namespace std {
 ## 備考
 - (2) : `F`を[`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(f)>`としたとき、型`function_ref<F>`に推論される。
 - (3) : 型`function_ref<R(A...) noexcept(E)>`に推論される。
-  - `F`が`M G::*`の形式のとき、`R`は[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, T&>`、`A...`は空のパック、`E`は`false`とする。
-  - それ以外の形式のときは、テンプレートパラメータ制約の説明を参照。
+    - `F`が`M G::*`の形式のとき、`R`は[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, T&>`、`A...`は空のパック、`E`は`false`とする。
+    - それ以外の形式のときは、テンプレートパラメータ制約の説明を参照。
 
 
 ## 例

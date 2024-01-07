@@ -34,14 +34,16 @@ constexpr function_ref(const function_ref&) noexcept = default;  // (6)
 
 
 ## テンプレートパラメータ制約
+`function_ref`クラステンプレートパラメータのCV修飾子 *cv* に応じて
+
 - (1) : [`is_function`](/reference/type_traits/is_function.md)`<F>`が`true`、かつ`is-invocable-using<F>`が`true`であること
-- (2) : `T`を`remove_refernce_t<F>`としたとき
-    - `remove_cvref_t<F>`が`function_ref`と同一型ではなく、かつ
-    - [`is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`T`が`false`であり、かつ
+- (2) : `T`を[`remove_refernce_t`](/reference/type_traits/remove_reference.md)`<F>`としたとき
+    - [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<F>`が`function_ref`と同一型ではなく、かつ
+    - [`is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<T>`が`false`であり、かつ
     - `is-invocable-using</*cv*/ T&>`が`true`であること
 - (3) : `F`を`decltype(f)`としたとき
     - `is-invocable-using<F>`が`true`であること
-- (4) : `T`を`remove_refernce_t<F>`、`F`を`F`を`decltype(f)`としたとき
+- (4) : `T`を[`remove_refernce_t`](/reference/type_traits/remove_reference.md)`<F>`、`F`を`decltype(f)`としたとき
     - [`is_rvalue_reference_v`](/reference/type_traits/is_rvalue_reference.md)`<U&&>`が`false`であり、かつ
     - `is-invocable-using<F, /*cv*/ T&>`が`true`であること
 - (5) : `F`を`decltype(f)`としたとき
@@ -57,6 +59,8 @@ constexpr function_ref(const function_ref&) noexcept = default;  // (6)
 
 
 ## 効果
+`function_ref`クラステンプレートパラメータのCV修飾子 *cv* に応じて
+
 - (1) : `bound-entity`を`f`で、`thunk-ptr`を説明専用の関数`thunk`へのアドレスで初期化する。
     - [関数呼び出し`thunk(bound-entity, call-args...)`](op_call.md)は[`invoke_r`](/reference/functional/invoke_r.md)`<R>(f, call-args...)`と等価。
 - (2) : `bound-entity`を[`addressof`](/reference/memory/addressof.md)`(f)`で、`thunk-ptr`を説明専用の関数`thunk`へのアドレスで初期化する。
