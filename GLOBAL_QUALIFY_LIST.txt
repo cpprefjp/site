@@ -150,6 +150,7 @@
 * <ostream>[link /reference/ostream.md]
     * std::basic_ostream[link /reference/ostream/basic_ostream.md]
     * std::endl[link /reference/ostream/endl.md]
+* <print>[link /reference/print.md]
 * <queue>[link /reference/queue.md]
 * <random>[link /reference/random.md]
     * std::default_random_engine[link /reference/random/default_random_engine.md]
