@@ -6,10 +6,11 @@
 
 ```cpp
 namespace std {
-  template<class ElementType,
-           class Extents,
-           class LayoutPolicy = layout_right,
-           class AccessorPolicy = default_accessor<ElementType>>
+  template<
+    class ElementType,
+    class Extents,
+    class LayoutPolicy = layout_right,
+    class AccessorPolicy = default_accessor<ElementType>>
   class mdspan;
 }
 ```
@@ -50,7 +51,7 @@ namespace std {
 |------|------|----------------|
 | [`(constructor)`](mdspan/op_constructor.md.nolink) | コンストラクタ | C++23 |
 | `(destructor)` | デストラクタ | C++23 |
-| [`operator=`](mdspan/op_assing.md.nolink) | 代入演算子 | C++23 |
+| [`operator=`](mdspan/op_assign.md.nolink) | 代入演算子 | C++23 |
 
 ### 要素へのアクセス
 
@@ -101,15 +102,15 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `extents_type`  | 多次元配列サイズ型[`Extents`](extents.md) | C++23 |
-| `layout_type`   | レイアウトポリシー型`LayoutPolicy` | C++23 |
-| `accessor_type` | アクセサポリシー型`AccessorPolicy` | C++23 |
-| `mapping_type` | レイアウトマッピング型`typename layout_type::template mapping<extents_type>` | C++23 |
-| `element_type` | 多次元配列の要素型`ElementType` | C++23 |
-| `value_type`   | 要素の値型[`remove_cv_t`](/reference/type_traits/remove_cvref.md)`<element_type>` | C++23 |
-| `size_type` | `typename extents_type::size_type` | C++23 |
-| `rank_type` | `typename extents_type::rank_type` | C++23 |
-| `pointer`   | `typename accessor_type::pointer` | C++23 |
-| `reference` | ` typename accessor_type::reference` | C++23 |
+| `layout_type`   | レイアウトマッピングポリシー`LayoutPolicy` | C++23 |
+| `accessor_type` | アクセサポリシー`AccessorPolicy` | C++23 |
+| `mapping_type` | レイアウトマッピング`LayoutPolicy::mapping<Extents>` | C++23 |
+| `element_type` | 要素型`ElementType` | C++23 |
+| `value_type`   | 要素の値型[`remove_cv_t`](/reference/type_traits/remove_cvref.md)`<ElementType>` | C++23 |
+| `size_type` | [`Extents::size_type`](extents.md) | C++23 |
+| `rank_type` | [`Extents::rank_type`](extents.md) | C++23 |
+| `pointer`   | `AccessorPolicy::pointer` | C++23 |
+| `reference` | `AccessorPolicy::reference` | C++23 |
 
 
 ## 非メンバ（*Hidden friends*）関数
@@ -164,6 +165,7 @@ int main()
 
 ## 関連項目
 - [`extents`](extents.md)
+- [`default_accessor`](default_accessor.md)
 
 
 ## 参照
