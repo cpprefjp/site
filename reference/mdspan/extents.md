@@ -17,7 +17,7 @@ namespace std {
 
 ## 概要
 `extents`は、多次元配列の次元数、各次元の要素数、要素数が静的（コンパイル時）または動的（プログラム実行時）いずれのタイミングで指定されるかを表現する。
-多次元配列ビュー[`std::mdspan`](mdspan.md)に対して、多次元配列のサイズを指示するために用いられる。
+多次元配列ビュー[`std::mdspan`](mdspan.md)に対して、多次元配列のサイズを指示するために用いる。
 
 - 多次元配列の次元数は`sizeof...(Extents)`に等しい
 - `Extents`要素のうち[`dynamic_extent`](/reference/span/dynamic_extent.md)に等しい次元は、動的要素数(dynamic extent)となる
@@ -25,7 +25,8 @@ namespace std {
 
 `extents`の特殊化は[`regular`](/reference/concepts/regular.md)のモデルであり、かつ[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)である。
 
-エイリアステンプレート`dextents`は、全次元が動的要素数で指定される`extents`を生成する。
+### エイリアステンプレート
+エイリアステンプレート`dextents`は、次元数`Rank`かつ全次元が動的要素数で指定される`extents`を生成する。
 例えば`dextents<size_t, 2>`は`extents<size_t, dynamic_extent, dynamic_extent>`の略記となる。
 
 
@@ -39,12 +40,12 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](extents/op_constructor.md.nolink) | コンストラクタ | C++23 |
+| [`(constructor)`](extents/op_constructor.md) | コンストラクタ | C++23 |
 | `(destructor)`  | デストラクタ   | C++23 |
-| [`rank`](extents/rank.md.nolink) | 多次元配列の次元数を取得する | C++23 |
-| [`rank_dynamic`](extents/rank_dynamic.md.nolink) | 多次元配列のうち動的要素数に指定された次元数を取得する | C++23 |
-| [`static_extent`](extents/static_extent.md.nolink) | 指定次元の静的要素数を取得する | C++23 |
-| [`extent`](extents/extent.md.nolink) | 指定次元の要素数を取得する | C++23 |
+| [`rank`](extents/rank.md) | 多次元配列の次元数を取得する | C++23 |
+| [`rank_dynamic`](extents/rank_dynamic.md) | 多次元配列のうち動的要素数に指定された次元数を取得する | C++23 |
+| [`static_extent`](extents/static_extent.md) | 指定次元の静的要素数を取得する | C++23 |
+| [`extent`](extents/extent.md) | 指定次元の要素数を取得する | C++23 |
 
 
 ## メンバ型
@@ -60,15 +61,15 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](extents/op_equal.md.nolink) | 等値比較 | C++23 |
-| [`operator!=`](extents/op_equal.md.nolink) | 非等値比較 (`==`により使用可能) | C++23 |
+| [`operator==`](extents/op_equal.md) | 等値比較 | C++23 |
+| [`operator!=`](extents/op_equal.md) | 非等値比較 (`==`により使用可能) | C++23 |
 
 
 ## 推論補助
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(deduction_guide)`](extents/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23 |
+| [`(deduction_guide)`](extents/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23 |
 
 
 ## 例
@@ -77,21 +78,19 @@ namespace std {
 
 int main()
 {
-  // 固定サイズ 3x3 の2次元配列サイズ
-  std::extents<size_t, 2, 3, 3> ext3x3;
+  // 固定要素数 3x3 の2次元配列サイズ
+  std::extents<size_t, 3, 3> ext3x3;
 
-  // 動的サイズをもつ2次元配列サイズを 4x2 で初期化
-  using Ext2D = std::dextents<size_t, 2>;
-  Ext2D ext2d{4, 2};
+  // 動的要素数からなる2次元配列サイズを 4x2 で初期化
+  std::dextents<size_t, 2> ext2d{4, 2};
 
-  // 2個の動的次元(高さ,幅)と固定次元(RGBA;4)からなる3次元配列サイズ
+  // 2個の動的要素数(高さ,幅)と静的要素数(RGBA=4)からなる3次元配列サイズ
   using ColorImageExt = std::extents<size_t, std::dynamic_extent, std::dynamic_extent, 4>;
   ColorImageExt image_ext{128, 128};
 }
 ```
 * std::extents[color ff0000]
 * std::dextents[color ff0000]
-* std::dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ### 出力
 ```

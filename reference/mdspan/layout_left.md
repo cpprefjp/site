@@ -38,8 +38,8 @@ int main()
   double arr[] = {1, 4, 2, 5, 3, 6};
 
   // 要素数2x3の2次元配列／列優先レイアウト
-  using Dim2x3 = std::extents<size_t, 2, 3>;
-  std::mdspan<double, Dim2x3, std::layout_left> mat{arr};
+  using Ext2x3 = std::extents<size_t, 2, 3>;
+  std::mdspan<double, Ext2x3, std::layout_left> mat{arr};
 
   for (size_t i = 0; i < mat.extent(0); ++i) {
     for (size_t j = 0; j < mat.extent(1); ++j) {

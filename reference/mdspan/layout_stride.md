@@ -37,10 +37,10 @@ int main()
   double arr[] = {1, 2, 3, 0, 4, 5, 6, 0};
 
   // 要素数2x3の2次元配列／行優先かつパディングありレイアウト
-  using Dim2x3 = std::extents<size_t, 2, 3>;
+  using Ext2x3 = std::extents<size_t, 2, 3>;
   std::array<int, 2> strides{4, 1};
-  std::layout_stride::mapping<Dim2x3> mapping{{}, strides};
-  std::mdspan<double, Dim2x3, std::layout_stride> mat{arr, mapping};
+  std::layout_stride::mapping<Ext2x3> mapping{{}, strides};
+  std::mdspan<double, Ext2x3, std::layout_stride> mat{arr, mapping};
 
   for (size_t i = 0; i < mat.extent(0); ++i) {
     for (size_t j = 0; j < mat.extent(1); ++j) {
