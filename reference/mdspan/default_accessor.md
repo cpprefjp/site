@@ -78,4 +78,5 @@ namespace std {
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
+- [P2604R0 `mdspan`: rename `pointer` and `contiguous`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2604r0.html)
 - [Reddit - Why is mdspan::offset_policy needed?](https://www.reddit.com/r/cpp/comments/cgc37m/why_is_mdspanoffset_policy_needed/)

@@ -33,7 +33,7 @@ namespace std {
 
 - `acc_` : `accessor_type`型の要素アクセサ
 - `map_` : `mapping_type`型のレイアウトマッピング
-- `ptr_` : `data_handle_type`型のメモリブロックへのハンドル
+- `ptr_` : `data_handle_type`型のメモリブロックへのハンドル（ポインタ）
 
 
 ## 適格要件
@@ -63,26 +63,21 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`rank`](mdspan/rank.md.nolink) | 多次元配列の次元数を取得する | C++23 |
-| [`rank_dynamic`](mdspan/rank_dynamic.md.nolink) | 多次元配列のうち動的要素数に指定された次元数を取得する | C++23 |
-| [`static_extent`](mdspan/static_extent.md.nolink) | 指定次元の静的要素数を取得する | C++23 |
-| [`extent`](mdspan/extent.md.nolink) | 指定次元の要素数を取得する | C++23 |
-
-### 多次元インデクス空間
-
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
-| [`size`](mdspan/size.md.nolink) | メモリブロックに対する最大アクセス範囲を取得 | C++23 |
-| [`empty`](mdspan/empty.md.nolink) | 最大アクセス範囲がサイズ0か否かを取得 | C++23 |
+| [`rank`](mdspan/rank.md) | 多次元配列の次元数を取得する | C++23 |
+| [`rank_dynamic`](mdspan/rank_dynamic.md) | 多次元配列のうち動的要素数に指定された次元数を取得する | C++23 |
+| [`static_extent`](mdspan/static_extent.md) | 指定次元の静的要素数を取得する | C++23 |
+| [`extent`](mdspan/extent.md) | 指定次元の要素数を取得する | C++23 |
+| [`size`](mdspan/size.md.nolink) | 多次元インデクス空間のサイズを取得する | C++23 |
+| [`empty`](mdspan/empty.md.nolink) | 多次元インデクス空間がサイズ0か否かを取得する | C++23 |
 
 ### メンバ変数アクセサ
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`extents`](mdspan/extents.md.nolink) | 多次元配列のサイズ`map_.extents()`を取得 | C++23 |
-| [`data_handle`](mdspan/data_handle.md.nolink) | メモリブロックへのハンドル`ptr_`を取得 | C++23 |
-| [`mapping`](mdspan/mapping.md.nolink) | レイアウトマッピング`map_`を取得 | C++23 |
-| [`accessor`](mdspan/accessor.md.nolink) | 要素アクセサ`acc_`を取得 | C++23 |
+| [`extents`](mdspan/extents.md) | 多次元配列のサイズを取得する | C++23 |
+| [`data_handle`](mdspan/data_handle.md) | メモリブロックへのハンドル`ptr_`を取得する | C++23 |
+| [`mapping`](mdspan/mapping.md) | レイアウトマッピング`map_`を取得する | C++23 |
+| [`accessor`](mdspan/accessor.md) | 要素アクセサ`acc_`を取得する | C++23 |
 
 ### レイアウトマッピング
 
@@ -117,7 +112,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `swap` | 2つのオブジェクトを入れ替える | C++23 |
+| [`swap`](mdspan/swap_free.md.nolink) | 2つのオブジェクトを入れ替える | C++23 |
 
 
 ## 例
@@ -127,10 +122,10 @@ namespace std {
 
 int main()
 {
-  // メモリブロックに対する2次元配列/2x3要ビューを作成
   double arr[] = {1, 2, 3, 4, 5, 6};
-  using Mat2x3 = std::extents<size_t, 2, 3>;
-  std::mdspan<double, Mat2x3> mat{arr};
+  // メモリブロックに対する2x3要素の2次元配列ビューを作成
+  using Ext2x3 = std::extents<size_t, 2, 3>;
+  std::mdspan<double, Ext2x3> mat{arr};
 
   // 2次元配列の各要素を表示
   for (size_t i = 0; i < mat.extent(0); ++i) {
@@ -143,7 +138,7 @@ int main()
 ```
 * std::mdspan[color ff0000]
 * std::extents[link extents.md]
-* extent[link mdspan/extent.md.nolink]
+* extent[link mdspan/extent.md]
 
 ### 出力
 ```
