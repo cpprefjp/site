@@ -29,11 +29,7 @@ int main()
 {
   // 動的要素数 3x3 の2次元配列サイズ
   std::extents ext3x3{3, 3};
-
-  static_assert(std::same_as<
-    decltype(ext3x3),
-    std::dextens<2, std::dynamic_extent, std::dynamic_extent>
-  >);
+  static_assert(std::same_as<decltype(ext3x3), std::dextents<size_t, 2>>);
 }
 ```
 * std::extents[link ../extents.md]

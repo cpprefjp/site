@@ -47,8 +47,8 @@ int main()
   assert(ext2.extent(1) == 10);
 }
 ```
-* static_extent()[color ff0000]
-* extent()[link extent.md]
+* static_extent[color ff0000]
+* extent[link extent.md]
 * std::extents[link ../extents.md]
 
 
