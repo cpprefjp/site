@@ -13,7 +13,7 @@ namespace std {
   class mdspan;
 }
 ```
-* layout_right[link layout_right.md.nolink]
+* layout_right[link layout_right.md]
 * default_accessor[link default_accessor.md]
 
 ## 概要
@@ -150,9 +150,16 @@ int main()
 4 5 6 
 ```
 
+
 ## バージョン
 ### 言語
 - C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目

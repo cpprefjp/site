@@ -17,9 +17,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`layout_left`](mdspan/layout_left.md.nolink)     | 最左次元が隣接するレイアウトマッピング (class) | C++23 |
-| [`layout_right`](mdspan/layout_right.md.nolink)   | 最右次元が隣接するレイアウトマッピング (class) | C++23 |
-| [`layout_stride`](mdspan/layout_stride.md.nolink) | 汎用ストライド配置レイアウトマッピング (class) | C++23 |
+| [`layout_left`](mdspan/layout_left.md)     | 列優先(Fortran/Matlabスタイル)レイアウトマッピングポリシー (class) | C++23 |
+| [`layout_right`](mdspan/layout_right.md)   | 行優先(C/C++スタイル)レイアウトマッピングポリシー (class) | C++23 |
+| [`layout_stride`](mdspan/layout_stride.md) | 汎用ストライド配置レイアウトマッピングポリシー (class) | C++23 |
 
 
 ## 要素アクセサ

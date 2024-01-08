@@ -85,7 +85,7 @@ int main()
   Ext2D ext2d{4, 2};
 
   // 2個の動的次元(高さ,幅)と固定次元(RGBA;4)からなる3次元配列サイズ
-  using ColorImageExt = std::dextents<size_t, std::dynamic_extent, std::dynamic_extent, 4>;
+  using ColorImageExt = std::extents<size_t, std::dynamic_extent, std::dynamic_extent, 4>;
   ColorImageExt image_ext{128, 128};
 }
 ```
@@ -101,6 +101,12 @@ int main()
 ## バージョン
 ### 言語
 - C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
