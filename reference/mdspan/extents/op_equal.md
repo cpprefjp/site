@@ -23,7 +23,7 @@ friend constexpr bool operator!=(
 
 
 ## 戻り値
-`lhs`と`rhs`の次元数が等しく、かつ全事前の要素数が等しいときに`true`を返す。そうでなければ`false`を返す。
+`lhs`と`rhs`の次元数[`rank`](rank.md)が等しく、かつ全次元の要素数[`extent`](extent.md)が等しいときに`true`を返す。そうでなければ`false`を返す。
 
 
 ## 例外

@@ -22,7 +22,7 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <concept>
+#include <concepts>
 #include <mdspan>
 
 int main()

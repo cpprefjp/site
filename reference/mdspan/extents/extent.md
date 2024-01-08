@@ -14,7 +14,7 @@ constexpr index_type extent(rank_type i) const noexcept;
 
 
 ## 事前条件
-`i <` [`rank()`](rank.md)が`true`
+`i <` [`rank()`](rank.md)
 
 
 ## 戻り値

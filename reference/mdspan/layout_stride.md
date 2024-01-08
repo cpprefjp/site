@@ -16,7 +16,7 @@ namespace std {
 * mapping[link mapping.md.nolink]
 
 ## 概要
-`layout_right`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、次元毎に任意ストライド幅を指定したレイアウトマッピングを表現するポリシークラスである。
+`layout_stride`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、次元毎に任意ストライド幅を指定したレイアウトマッピングを表現するポリシークラスである。
 
 
 ## メンバ型

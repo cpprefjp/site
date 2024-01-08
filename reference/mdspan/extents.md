@@ -16,14 +16,28 @@ namespace std {
 * see below[italic]
 
 ## 概要
-`extents`は、多次元配列の次元数、各次元の要素数、要素数が静的（コンパイル時）または動的（プログラム実行時）いずれのタイミングで指定されるかを表現する。
+`extents`は、多次元配列の次元数(rank)と各次元の要素数(extent)を表現する。
 多次元配列ビュー[`std::mdspan`](mdspan.md)に対して、多次元配列のサイズを指示するために用いる。
 
-- 多次元配列の次元数は`sizeof...(Extents)`に等しい
-- `Extents`要素のうち[`dynamic_extent`](/reference/span/dynamic_extent.md)に等しい次元は、動的要素数(dynamic extent)となる
-- それ以外の`Extents`要素の次元は、静的要素数(static extent)となる
-
 `extents`の特殊化は[`regular`](/reference/concepts/regular.md)のモデルであり、かつ[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)である。
+
+### 要素数の動的／静的指定
+多次元配列における次元の要素数が静的（コンパイル時）または動的（プログラム実行時）いずれのタイミングで決定するかを、各次元毎に指定する。
+
+- 多次元配列の次元数は`sizeof...(Extents)`に等しい
+- `Extents`要素が[`dynamic_extent`](/reference/span/dynamic_extent.md)に等しい次元は、動的要素数(dynamic extent)となる
+- `Extents`要素がコンパイル時に整数値指定された次元は、静的要素数(static extent)となる
+
+`extents`は、下記の説明専用メンバ変数を保持する。
+
+```cpp
+array<IndexType, rank_dynamic()> dynamic-extents;
+```
+* array[link /reference/array/array.md]
+* rank_dynamic()[link extents/rank_dynamic.md]
+
+`extents`オブジェクトサイズ最小化のため、動的要素数次元のサイズ情報のみを`IndexType`型配列として管理する。
+動的要素数次元のサイズ情報は非型テンプレートパラメータとして型情報に埋め込まれるため、プログラム実行時のメモリ使用量には影響しない。
 
 ### エイリアステンプレート
 エイリアステンプレート`dextents`は、次元数`Rank`かつ全次元が動的要素数で指定される`extents`を生成する。
@@ -53,7 +67,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `index_type` | `IndexType` | C++23 |
-| `size_type`  | [`make_unsigned_t`](/reference/type_traits/make_unsigned.md)`<index_type>` | C++23 |
+| `size_type`  | [`make_unsigned_t`](/reference/type_traits/make_unsigned.md)`<IndexType>` | C++23 |
 | `rank_type`  | `size_t` | C++23 |
 
 

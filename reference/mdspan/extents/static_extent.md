@@ -14,7 +14,7 @@ static constexpr size_t static_extent(rank_type i) noexcept;
 
 
 ## 事前条件
-`i <` [`rank()`](rank.md)が`true`
+`i <` [`rank()`](rank.md)
 
 
 ## 戻り値

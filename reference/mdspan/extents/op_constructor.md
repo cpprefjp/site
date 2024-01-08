@@ -88,7 +88,7 @@ constexpr explicit(N != rank_dynamic())
 #include <span>
 
 using Ext3x4 = std::extents<size_t, 3, 4>;
-using Ext3xN = std::extents<size_t, 3, std::dynamic_extents>;
+using Ext3xN = std::extents<size_t, 3, std::dynamic_extent>;
 
 int main()
 {
@@ -127,6 +127,8 @@ int main()
   }
 }
 ```
+* std::extents[link ../extents.md]
+* std::span[link /reference/span/span.md]
 
 ### 出力
 ```
