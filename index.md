@@ -95,6 +95,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 <div style="text-align: center"><a href="https://mkohana.github.io/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/m_kohana/m_kohana.jpg" alt="M.Kohana" width="320"/></a></div>
 
+<div style="text-align: center"><a href="https://www.pegasys-inc.com/"><img src="https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png" alt="pegasys" width="320"/></a></div>
+
 
 ### ブロンズスポンサー
 
