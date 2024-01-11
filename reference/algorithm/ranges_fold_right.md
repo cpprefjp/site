@@ -55,7 +55,7 @@ namespace std::ranges {
 - `init` -- 初期値
 - `f` -- 適用する二項演算
     - `f(*first, std::move(init))`のような呼び出しが可能であり、その戻り値型のオブジェクトを`acc`とすると
-    - `f(*first, std::move(acc))`のような呼び出しも可能である必要がある
+    - `acc = f(*first, std::move(acc))`のような呼び出しも可能である必要がある
 
 ## テンプレートパラメータ制約
 

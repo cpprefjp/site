@@ -163,7 +163,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - [`std::ranges::fold_left()`](/reference/algorithm/ranges_fold_left.md)
     - [`std::ranges::fold_left_first()`](/reference/algorithm/ranges_fold_left_first.md)
     - [`std::ranges::fold_right()`](/reference/algorithm/ranges_fold_right.md)
-    - [`std::ranges::fold_right_last()`](/reference/algorithm/ranges_fold_right_last.md.nolink)
+    - [`std::ranges::fold_right_last()`](/reference/algorithm/ranges_fold_right_last.md)
     - [`std::ranges::fold_left_with_iter()`](/reference/algorithm/ranges_fold_left_with_iter.md.nolink)
     - [`std::ranges::fold_left_first_with_iter()`](/reference/algorithm/ranges_fold_left_first_with_iter.md.nolink)
 - [`<numeric>`](/reference/numeric.md)に、連番を生成するRangeアルゴリズム[`std::ranges::iota()`](/reference/numeric/ranges_iota.md)を追加

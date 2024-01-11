@@ -1,4 +1,4 @@
-# fold_left_first
+# fold_right_last
 * algorithm[meta header]
 * function template[meta id-type]
 * std::ranges[meta namespace]
@@ -6,31 +6,31 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S,
-           indirectly-binary-left-foldable<iter_value_t<I>, I> F>
+  template<bidirectional_iterator I, sentinel_for<I> S,
+           indirectly-binary-right-foldable<iter_value_t<I>, I> F>
     requires constructible_from<iter_value_t<I>, iter_reference_t<I>>
-  constexpr auto fold_left_first(I first, S last, F f);                         // (1)
+  constexpr auto fold_right_last(I first, S last, F f);                         // (1)
 
-  template<input_range R,
-           indirectly-binary-left-foldable<range_value_t<R>, iterator_t<R>> F>
+  template<bidirectional_range R,
+           indirectly-binary-right-foldable<range_value_t<R>, iterator_t<R>> F>
     requires constructible_from<range_value_t<R>, range_reference_t<R>>
-  constexpr auto fold_left_first(R&& r, F f);                                   // (2)
+  constexpr auto fold_right_last(R&& r, F f);                                   // (2)
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
+* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* input_range[link /reference/ranges/input_range.md]
+* bidirectional_range[link /reference/ranges/bidirectional_range.md]
 * range_value_t[link /reference/ranges/range_value_t.md]
 * range_reference_t[link /reference/ranges/range_reference_t.md]
 * iterator_t[link /reference/ranges/iterator_t.md]
-* indirectly-binary-left-foldable[link ./ranges_fold_left.md]
+* indirectly-binary-right-foldable[link ./ranges_fold_right.md]
 
 ## 概要
 
-初期値の指定を省略する[`fold_left`](./ranges_fold_left.md)。入力範囲の先頭要素が初期値として使用される。
+初期値の指定を省略する[`fold_right`](./ranges_fold_right.md)。入力範囲の末尾要素が初期値として使用される。
 
 - (1) : 入力としてイテレータ範囲をとるオーバーロード
 - (2) : 入力として範囲を直接とるオーバーロード
@@ -42,22 +42,27 @@ namespace std::ranges {
 - `r` -- 入力範囲のオブジェクト
 - `f` -- 適用する二項演算
     - `f(*first, *first)`のような呼び出しが可能であり（実際にこの様に呼ばれるわけではない）、その戻り値型のオブジェクトを`acc`とすると
-    - `acc = f(std::move(acc), *first)`のような呼び出しも可能である必要がある
+    - `acc = f(*first, std::move(acc))`のような呼び出しも可能である必要がある
 
 ## 戻り値
 
-- (1) : 以下と等価
-    ```cpp
-    return ranges::fold_left_first_with_iter(std::move(first), last, f).value;
-    ```
-    * fold_left_first_with_iter[link /reference/algorithm/ranges_fold_left_first_with_iter.md.nolink]
+(1)(2)ともに、以下と等価
 
-- (2) : `r`からイテレータを取得して(1)に委譲
-    ```cpp
-    return ranges::fold_left_first(ranges::begin(r), ranges::end(r), f);
-    ```
-    * begin[link /reference/ranges/begin.md]
-    * end[link /reference/ranges/end.md]
+```cpp
+using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, T>>;
+if (first == last)
+  return optional<U>();
+I tail = ranges::prev(ranges::next(first, std::move(last)));
+return optional<U>(in_place, ranges::fold_right(std::move(first), tail, iter_value_t<I>(*tail), std::move(f)));
+```
+* decay_t[link /reference/type_traits/decay.md]
+* invoke_result_t[link /reference/type_traits/invoke_result.md]
+* iter_reference_t[link /reference/iterator/iter_reference_t.md]
+* prev[link /reference/iterator/ranges_prev.md]
+* invoke[link /reference/functional/invoke.md]
+* optional[link /reference/optional/optional.md]
+* fold_right[link ./ranges_fold_right.md]
+* iter_value_t[link /reference/iterator/iter_value_t.md]
 
 空の入力範囲に対しては無効値を保持する[`optional`](/reference/optional/optional.md)を返す。
 
@@ -67,17 +72,18 @@ namespace std::ranges {
 
 ## 備考
 
-この関数の戻り値型は[`optional`](/reference/optional/optional.md)`<U>`であり、`U`は引数と入力の型`I`から次のように取得される
+この関数の戻り値型は[`optional`](/reference/optional/optional.md)`<U>`であり、`U`は次のように求められる型と一致する
 
 ```cpp
-using U = decltype(ranges::fold_left(std::move(first), last, iter_value_t<I>(*first), f));
+auto tail = --last;
+decltype(ranges::fold_right(std::move(first), tail, iter_value_t<I>(*tail), f));
 ```
-* fold_left[link ./ranges_fold_left.md]
+* fold_right[link ./ranges_fold_right.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
 
-すなわち、他の引数はそのままに初期値として入力範囲`r`の要素を手動で指定して`fold_left`を呼び出した際の戻り値型を包む`optional`となる。
+すなわち、他の引数はそのままに初期値として入力範囲`r`の要素を手動で指定して`fold_right`を呼び出した際の戻り値型を包む`optional`となる。
 
-`fold_left`と同様に、この型`U`は`fold_left_first`の処理内部で積算値の型として使用されるものでもあり、`f`は`*first`の代わりに`U`の右辺値も受け取れる必要がある。詳細は下の実装例を参照。
+`fold_right`と同様に、この型`U`は`fold_right_last`の処理内部で積算値の型として使用されるものでもあり、`f`は`*first`の代わりに`U`の右辺値も受け取れる必要がある。詳細は下の実装例を参照。
 
 ## 例
 
@@ -98,7 +104,7 @@ int main() {
   // 二項演算
   auto op = std::plus<>{};
   
-  auto resl = fold_left_first(rng, op);
+  auto resl = fold_right_last(rng, op);
 
   std::println("{:d}", resl.value());
 
@@ -107,12 +113,12 @@ int main() {
   std::vector<float> rngf = { 0.125f, 0.25f, 0.75f };
   
   // 計算結果はoptional<float>
-  auto reslf = fold_left_first(rngf, op);
+  auto reslf = fold_right_last(rngf, op);
 
   std::println("{:g}", reslf.value());
 }
 ```
-* fold_left_first[color ff0000]
+* fold_right_last[color ff0000]
 * iota[link /reference/ranges/iota_view.md]
 * plus[link /reference/functional/plus.md]
 * println[link /reference/print/println.md]
@@ -139,13 +145,13 @@ int main() {
   auto op = std::plus<>{};
 
   auto res1 = fold_left(rng, -1, op);
-  auto res2 = fold_left_first(rng, op);
+  auto res2 = fold_right_last(rng, op);
 
   std::println("{:d}", res1);
   std::println("{:d}", res2.value_or(-1));
 }
 ```
-* fold_left_first[color ff0000]
+* fold_right_last[color ff0000]
 * fold_left[link ranges_fold_right.md]
 * println[link /reference/print/println.md]
 * value_or[link /reference/optional/optional/value_or.md]
@@ -159,25 +165,30 @@ int main() {
 ## 実装例
 
 ```cpp
-template<input_iterator I, sentinel_for<I> S,
-         indirectly-binary-left-foldable<iter_value_t<I>, I> F>
+template<bidirectional_iterator I, sentinel_for<I> S,
+         indirectly-binary-right-foldable<iter_value_t<I>, I> F>
   requires constructible_from<iter_value_t<I>, iter_reference_t<I>>
-constexpr auto fold_left_first(I first, S last, F f) {
-  using U = decltype(ranges::fold_left(std::move(first), last, iter_value_t<I>(*first), f));
+constexpr auto fold_right_last(I first, S last, F f) {
+  using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, T>>;
 
   if (first == last) {
     return optional<U>();
   }
 
-  optional<U> accum(in_place, *first);
+  I tail = ranges::prev(ranges::next(first, std::move(last)));
 
-  ++first;
-
-  for (; first != last; ++first) {
-    *accum = invoke(f, std::move(*accum), *first);
+  if (first == tail) {
+    return optional<U>(in_place, *tail);
   }
 
-  return accum; // 暗黙ムーブ or NRVO
+  const auto copy_tail = tail;
+  U accum = invoke(f, *--tail, *copy_tail);
+  
+  while (first != tail) {
+    accum = invoke(f, *--tail, std::move(accum));
+  }
+  
+  return optional<U>(in_place, std::move(accum));
 }
 ```
 
@@ -196,7 +207,7 @@ constexpr auto fold_left_first(I first, S last, F f) {
     - 範囲の左からの`fold`
 - [`ranges::fold_right`](ranges_fold_right.md)
     - 範囲の右からの`fold`
-- [`ranges::fold_right_last`](ranges_fold_right_last.md)
+- [`ranges::fold_left_first`](ranges_fold_left_first.md)
     - 範囲の最後の要素を初期値として`fold_right`
 - [`ranges::fold_left_with_iter`](ranges_fold_left_with_iter.md.nolink)
     - `fold_left`の結果と共に、計算した終端イテレータも返す
