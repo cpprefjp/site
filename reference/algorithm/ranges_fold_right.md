@@ -76,7 +76,8 @@ class flipped {
   F f;
 
 public:
-  template<class T, class U> requires invocable<F&, U, T>
+  template<class T, class U>
+    requires invocable<F&, U, T>
   invoke_result_t<F&, U, T> operator()(T&&, U&&);
 };
 ```

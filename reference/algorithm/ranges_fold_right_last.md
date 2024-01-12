@@ -44,6 +44,12 @@ namespace std::ranges {
     - `f(*first, *first)`のような呼び出しが可能であり（実際にこの様に呼ばれるわけではない）、その戻り値型のオブジェクトを`acc`とすると
     - `acc = f(*first, std::move(acc))`のような呼び出しも可能である必要がある
 
+## テンプレートパラメータ制約
+
+`indirectly-binary-right-foldable`は`F`の引数順が逆になることを除いて[`indirectly-binary-left-foldable`](ranges_fold_left.md)と同様の制約となる。
+
+`indirectly-binary-left-foldable`では、初期値の型`T`が戻り値型（積算値の型）`U`に変換可能であることが要求（[`convertible_to`](/reference/concepts/convertible_to.md)`<T, U>`）されており、この関数では初期値の型を指定できない（`range_value_t<R>`が使用される）ため戻り値型を大きく制御することが困難になる（例えば、[`fold_right`](./ranges_fold_right.md)の例にある入力範囲を反転させる例の様なことは素直にはできない）。
+
 ## 戻り値
 
 (1)(2)ともに、以下と等価
@@ -208,7 +214,7 @@ constexpr auto fold_right_last(I first, S last, F f) {
 - [`ranges::fold_right`](ranges_fold_right.md)
     - 範囲の右からの`fold`
 - [`ranges::fold_left_first`](ranges_fold_left_first.md)
-    - 範囲の最後の要素を初期値として`fold_right`
+    - 範囲の最初の要素を初期値として`fold_left`
 - [`ranges::fold_left_with_iter`](ranges_fold_left_with_iter.md.nolink)
     - `fold_left`の結果と共に、計算した終端イテレータも返す
 - [`ranges::fold_left_first_with_iter`](ranges_fold_left_first_with_iter.md.nolink)
