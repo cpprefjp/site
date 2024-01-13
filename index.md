@@ -82,6 +82,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 <div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="560"/></a></div>
 
+<div style="text-align: center"><a href="https://www.cocotone.jp"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/cocotone/cocotone.png" alt="cocotone" width="560"/></a></div>
+
 
 ### シルバースポンサー
 
