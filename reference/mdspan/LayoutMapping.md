@@ -63,11 +63,11 @@ LayoutMappingを満たす型`M`は
 
 説明用の変数`m`を`(const) M`の値、パック`i`を[`M::extents_type::rank()`](extents/rank.md)個からなる整数値、変数`r`を多次元の次元番号としたとき、下記の式が妥当であること
 
-- `m.extents()` : `const M​::​extents_type&`型を返すこと。
-- `m(i...)` : `M​::​index_type`型を返すこと。
+- `m.extents()` : `const M::extents_type&`型を返すこと。
+- `m(i...)` : `M::index_type`型を返すこと。
     - 戻り値 : 非負整数値
 - `m(i...) == m(static_cast<M::index_type>(i)...)` : `true`となること。
-- `m.required_span_size()` : `M​::​index_type`型を返すこと。
+- `m.required_span_size()` : `M::index_type`型を返すこと。
     - 戻り値 : `m.extents()`の多次元インデクス空間サイズが0のときは値`0`。そうでなければ、レイアウトマッピングによりアクセスする可能性のあるメモリブロック範囲の最大値に`1`を足した値。
 - `m.is_unique()` : `bool`型を返すこと。
     - 戻り値 : Unique特性を満たすときに限り`true`。
@@ -75,7 +75,7 @@ LayoutMappingを満たす型`M`は
     - 戻り値 : Exhaustive特性を満たすときに限り`true`。
 - `m.is_strided()` : `bool`型を返すこと。
     - 戻り値 : Strided特性を満たすときに限り`true`。
-- `m.stride(r)` : `M​::​index_type`型を返すこと。
+- `m.stride(r)` : `M::index_type`型を返すこと。
     - 前提条件 : `m.is_strided() == true`
     - 戻り値 : `r`番目次元のストライド幅
 - `M::is_always_unique()` : `bool`型の定数式となること。
