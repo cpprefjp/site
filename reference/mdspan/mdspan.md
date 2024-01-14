@@ -14,6 +14,9 @@ namespace std {
   class mdspan;
 }
 ```
+* Extents[link extents.md]
+* LayoutPolicy[link LayoutMappingPolicy.md]
+* AccessorPolicy[link AccessorPolicy.md]
 * layout_right[link layout_right.md]
 * default_accessor[link default_accessor.md]
 
@@ -31,8 +34,8 @@ namespace std {
 ### 説明専用メンバ変数
 `mdspan`クラスは、下記の説明専用メンバ変数を保持する。
 
-- `acc_` : `accessor_type`型の要素アクセサ
-- `map_` : `mapping_type`型のレイアウトマッピング
+- `acc_` : `accessor_type`型の[要素アクセサ](AccessorPolicy.md)
+- `map_` : `mapping_type`型の[レイアウトマッピング](LayoutMapping.md)
 - `ptr_` : `data_handle_type`型のメモリブロックへのハンドル（ポインタ）
 
 
@@ -41,7 +44,7 @@ namespace std {
 - `Extents`は[`extents`](extents.md)の特殊化であり、かつ
 - [`is_same_v`](/reference/type_traits/is_same.md)`<ElementType, typename AccessorPolicy::element_type>`が`true`であること。
 
-`LayoutPolicy`はレイアウトマッピングポリシー要件を満たし、かつ`AccessorPolicy`はアクセサポリシー要件を満たすこと。
+`LayoutPolicy`は[レイアウトマッピングポリシー要件](LayoutMappingPolicy.md)を満たし、かつ`AccessorPolicy`は[アクセサポリシー要件](AccessorPolicy.md)を満たすこと。
 
 
 ## メンバ関数
@@ -83,13 +86,13 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `is_always_unique()`     | `mapping_type::is_always_unique()`     | C++23 |
-| `is_always_exhaustive()` | `mapping_type::is_always_exhaustive()` | C++23 |
-| `is_always_strided()`    | `mapping_type::is_always_strided()`    | C++23 |
-| `is_unique()`     | `map_.is_unique()`     | C++23 |
-| `is_exhaustive()` | `map_.is_exhaustive()` | C++23 |
-| `is_strided()`    | `map_.is_strided()`    | C++23 |
-| `stride(rank_type r)` | `map_.stride(r)`   | C++23 |
+| `is_always_unique()`     | [`mapping_type::is_always_unique()`](LayoutMapping.md)     | C++23 |
+| `is_always_exhaustive()` | [`mapping_type::is_always_exhaustive()`](LayoutMapping.md) | C++23 |
+| `is_always_strided()`    | [`mapping_type::is_always_strided()`](LayoutMapping.md)    | C++23 |
+| `is_unique()`         | [`map_.is_unique()`](LayoutMapping.md)     | C++23 |
+| `is_exhaustive()`     | [`map_.is_exhaustive()`](LayoutMapping.md) | C++23 |
+| `is_strided()`        | [`map_.is_strided()`](LayoutMapping.md)    | C++23 |
+| `stride(rank_type r)` | [`map_.stride(r)`](LayoutMapping.md)       | C++23 |
 
 
 ## メンバ型
@@ -97,15 +100,15 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `extents_type`  | 多次元配列サイズ型[`Extents`](extents.md) | C++23 |
-| `layout_type`   | レイアウトマッピングポリシー`LayoutPolicy` | C++23 |
-| `accessor_type` | アクセサポリシー`AccessorPolicy` | C++23 |
-| `mapping_type` | レイアウトマッピング`LayoutPolicy::mapping<Extents>` | C++23 |
+| `layout_type`   | [レイアウトマッピングポリシー型`LayoutPolicy`](LayoutMappingPolicy.md) | C++23 |
+| `accessor_type` | [アクセサポリシー型`AccessorPolicy`](AccessorPolicy.md) | C++23 |
+| `mapping_type` | [レイアウトマッピング型`LayoutPolicy::mapping<Extents>`](LayoutMapping.md) | C++23 |
 | `element_type` | 要素型`ElementType` | C++23 |
 | `value_type`   | 要素の値型[`remove_cv_t`](/reference/type_traits/remove_cvref.md)`<ElementType>` | C++23 |
 | `size_type` | [`Extents::size_type`](extents.md) | C++23 |
 | `rank_type` | [`Extents::rank_type`](extents.md) | C++23 |
-| `pointer`   | `AccessorPolicy::pointer` | C++23 |
-| `reference` | `AccessorPolicy::reference` | C++23 |
+| `pointer`   | [`AccessorPolicy::pointer`](AccessorPolicy.md) | C++23 |
+| `reference` | [`AccessorPolicy::reference`](AccessorPolicy.md) | C++23 |
 
 
 ## 非メンバ（*Hidden friends*）関数

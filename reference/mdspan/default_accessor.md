@@ -18,27 +18,7 @@ namespace std {
 
 `default_accessor`は[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であり、[`semiregular`](/reference/concepts/semiregular.md)のモデルである。
 
-### アクセサポリシー要件
-`default_accessor`は、下記のアクセサポリシー要件を満たす。
-
-説明用の型`A`をアクセサポリシーとしたとき
-
-- `A`は[`copyable`](/reference/concepts/copyable.md)のモデルであり、かつ
-- [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<A>`は`true`であり、かつ
-- [`is_nothrow_move_assignable_v`](/reference/type_traits/is_nothrow_move_assignable.md)`<A>`は`true`であり、かつ
-- [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<A>`は`true`であること
-
-型`A`は下記のメンバ型を持つこと
-
-- `A::element_type` : 要素型
-- `A::data_handle_type` : メモリブロックのポインタ型
-- `A::reference` : 要素への参照型
-- `A::offset_policy` : `offset`適用後のアクセサポリシー
-
-説明用の変数`a`を`(const) A`の値、`p`を`(const) A::data_handle_type`の値、`i`を`size_t`の値としたとき、下記の式が妥当であること
-
-- `a.access(p, i)` : `A::eference`を返す
-- `a.offset(p, i)` : `A::offset_policy::data_handle_type`を返す
+`default_accessor`は[アクセサポリシー要件](AccessorPolicy.md)を満たす。
 
 
 ## メンバ関数

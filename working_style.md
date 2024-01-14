@@ -71,6 +71,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | derived class                      | 派生クラス                   |
 | direct base class                  | 直接基底クラス               |
 | delegate                           | 委譲                         |
+| dynamic extent                     | (std::mdspanの) 動的要素数   |
 | effects                            | 効果                         |
 | emplace                            | 直接構築                     |
 | empty                              | 空                           |
@@ -94,6 +95,8 @@ C++11以降対応については対応バージョンを明記します。バー
 | move                               | (std::move 的な意味で)ムーブ |
 | move assignment                    | ムーブ代入                   |
 | move constructor                   | ムーブコンストラクタ         |
+| multidimensional index             | 多次元インデクス             |
+| multidimensional index space       | 多次元インデクス空間         |
 | mutable iterator                   | 可変イテレータ               |
 | non-virtual base class             | 非仮想基底クラス             |
 | note                               | 注                           |
@@ -117,6 +120,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | rvalue reference                   | 右辺値参照                   |
 | sequence container(s)              | シーケンスコンテナ           |
 | signed                             | 符号付き                     |
+| static extent                      | (std::mdspanの) 静的要素数   |
 | stop request                       | 停止要求                     |
 | stop state                         | 停止状態                     |
 | Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |

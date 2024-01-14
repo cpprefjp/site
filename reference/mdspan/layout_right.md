@@ -16,9 +16,11 @@ namespace std {
 * mapping[link mapping.md.nolink]
 
 ## 概要
-`layout_right`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、C/C++多次元配列と互換性のある行優先(row major)レイアウトマッピングを表現するポリシークラスである。
+`layout_right`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、C/C++多次元配列と互換性のある行優先(row major)[レイアウトマッピング](LayoutMapping.md)を表現するポリシークラスである。
 
-ポリシークラス名の由来は、多次元配列インデクスのうち最右次元が隣接配置（ストライド=1）されるところから来ている。
+`layout_right`は、[レイアウトマッピングポリシー要件](LayoutMappingPolicy.md)を満たす[トリビアル型](/reference/type_traits/is_trivial.md)である。
+
+ポリシークラス名の由来は、多次元インデクスのうち最右次元が隣接配置（ストライド=1）され、インデクス次元の右から左の順にストライドが増大するところから来ている。
 
 
 ## メンバ型

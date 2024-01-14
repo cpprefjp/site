@@ -16,7 +16,9 @@ namespace std {
 * mapping[link mapping.md.nolink]
 
 ## 概要
-`layout_stride`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、次元毎に任意ストライド幅を指定したレイアウトマッピングを表現するポリシークラスである。
+`layout_stride`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、次元毎に任意ストライド幅を指定した[レイアウトマッピング](LayoutMapping.md)を表現するポリシークラスである。
+
+`layout_stride`は、[レイアウトマッピングポリシー要件](LayoutMappingPolicy.md)を満たす[トリビアル型](/reference/type_traits/is_trivial.md)である。
 
 
 ## メンバ型

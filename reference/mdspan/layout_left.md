@@ -16,9 +16,11 @@ namespace std {
 * mapping[link mapping.md.nolink]
 
 ## 概要
-`layout_left`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、FortranやMatlab多次元配列と互換性のある列優先(column major)レイアウトマッピングを表現するポリシークラスである。
+`layout_left`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、FortranやMatlab多次元配列と互換性のある列優先(column major)[レイアウトマッピング](LayoutMapping.md)を表現するポリシークラスである。
 
-ポリシークラス名の由来は、多次元配列インデクスのうち最左次元が隣接配置（ストライド=1）されるところから来ている。
+`layout_left`は、[レイアウトマッピングポリシー要件](LayoutMappingPolicy.md)を満たす[トリビアル型](/reference/type_traits/is_trivial.md)である。
+
+ポリシークラス名の由来は、多次元インデクスのうち最左次元が隣接配置（ストライド=1）され、インデクス次元の左から右の順にストライドが増大するところから来ている。
 
 
 ## メンバ型
