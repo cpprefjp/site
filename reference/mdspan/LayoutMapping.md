@@ -1,6 +1,8 @@
 # LayoutMapping
-* named requirement[meta id-type]
 * cpp23[meta cpp]
+* mdspan[meta header]
+* named requirement[meta id-type]
+* [meta namespace]
 
 
 ## 概要
