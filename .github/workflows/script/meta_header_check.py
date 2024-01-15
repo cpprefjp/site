@@ -8,6 +8,10 @@ def find_header_or_module(line: str) -> (re.Match, str):
     if m:
         return m, "header"
 
+    m = re.fullmatch(r'[\*-] (.*?)\[meta category\]', line, re.MULTILINE)
+    if m:
+        return m, "category"
+
     m = re.fullmatch(r'[\*-] (.*?)\[meta module\]', line, re.MULTILINE)
     if m:
         return m, "module"
@@ -15,11 +19,11 @@ def find_header_or_module(line: str) -> (re.Match, str):
 
 def check_header(text: str, filename: str) -> bool:
     found_error: bool = False
+    dirs = filename.split("/")
 
     for line in text.split("\n"):
         m, header = find_header_or_module(line)
         if m:
-            dirs = filename.split("/")
             meta_header = m.group(1)
             if len(dirs) < 2:
                 found_error = True
@@ -36,8 +40,11 @@ def check_header(text: str, filename: str) -> bool:
                     found_error = True
                     print("[{0}] invalid meta {1} \"{2}\". You should specify \"{3}\" as meta {1}".format(
                             filename, header, meta_header, own_header))
+            return not found_error
 
-            break
+    if len(dirs) >= 2 and dirs[0] in ("reference", "module"):
+        found_error = True
+        print("[{0}] meta header is empty.".format(filename))
 
     return not found_error
 
