@@ -41,7 +41,7 @@ constexpr explicit(extents_type::rank() > 0)
 ## テンプレートパラメータ制約
 - (4) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, OtherExtents>`が`true`であること。
 - (5) :
-    - `extents_type​::​`[`rank()`](../../extents/rank.md) `<= 1`、かつ
+    - `extents_type::`[`rank()`](../../extents/rank.md) `<= 1`、かつ
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, OtherExtents>`が`true`であること。
 - (6) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, OtherExtents>`が`true`であること。
 
@@ -51,7 +51,7 @@ constexpr explicit(extents_type::rank() > 0)
 - (4) : `other.`[`required_span_size()`](required_span_size.md)を、`index_type`型で表現できること。
 - (5) : `other.`[`required_span_size()`](../../layout_left/mapping/required_span_size.md.nolink)を、`index_type`型で表現できること。
 - (6) :
-    - `extents_type​::​`[`rank()`](../../extents/rank.md) `> 0`のとき、`other`における全次元のストライド幅が[`layout_right::mapping`相当の制約](stride.md)をもつこと。
+    - `extents_type::`[`rank()`](../../extents/rank.md) `> 0`のとき、`other`における全次元のストライド幅が[`layout_right::mapping`相当の制約](stride.md)をもつこと。
     - `other.`[`required_span_size()`](../../layout_stride/mapping/required_span_size.md.nolink)を、`index_type`型で表現できること。
 
 
