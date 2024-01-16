@@ -96,6 +96,7 @@ int main()
   {
     Ext3x4 ext1_3x4;
     Ext3xN ext1_3xN;
+    assert(ext1_3xN.extent(1) == 0);
   }
   // (2) : 変換コンストラクタ
   {
