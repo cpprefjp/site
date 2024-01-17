@@ -1,6 +1,6 @@
 # all
 * ranges[meta header]
-* std::ranges[meta namespace]
+* std::ranges::views[meta namespace]
 * cpo[meta id-type]
 * cpp20[meta cpp]
 
