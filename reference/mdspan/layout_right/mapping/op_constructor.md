@@ -2,7 +2,7 @@
 * mdspan[meta header]
 * function template[meta id-type]
 * std[meta namespace]
-* mapping[meta class]
+* layout_right::mapping[meta class]
 * cpp23[meta cpp]
 
 ```cpp
@@ -143,6 +143,11 @@ int main()
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`layout_left::mapping`](../../layout_left/mapping.md.nolink)
+- [`layout_stride::mapping`](../../layout_stride/mapping.md.nolink)
 
 
 ## 参照

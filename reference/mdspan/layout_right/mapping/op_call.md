@@ -2,7 +2,7 @@
 * mdspan[meta header]
 * function template[meta id-type]
 * std[meta namespace]
-* mapping[meta class]
+* layout_right::mapping[meta class]
 * cpp23[meta cpp]
 
 ```cpp
@@ -21,7 +21,7 @@ constexpr index_type operator()(Indices... i) const noexcept;
 
 
 ## 事前条件
-多次元インデクス値`i...`は、多次元配列サイズ`extents_`における有効なインデクスであること。
+多次元インデクス値[`extents_type::index-cast(i)`](../../extents/index-cast.md)は、多次元配列サイズ`extents_`における有効なインデクスであること。
 
 
 ## 戻り値

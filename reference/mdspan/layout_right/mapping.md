@@ -2,7 +2,7 @@
 * mdspan[meta header]
 * class template[meta id-type]
 * std[meta namespace]
-* mdspan[meta class]
+* layout_right[meta class]
 * cpp23[meta cpp]
 
 ```cpp
