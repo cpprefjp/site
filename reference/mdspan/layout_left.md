@@ -13,7 +13,7 @@ namespace std {
 }
 ```
 * Extents[link extents.md]
-* mapping[link mapping.md.nolink]
+* mapping[link layout_left/mapping.md]
 
 ## 概要
 `layout_left`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、FortranやMatlab多次元配列と互換性のある列優先(column major)[レイアウトマッピング](LayoutMapping.md)を表現するポリシークラスである。
@@ -27,7 +27,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`mapping`](mapping.md.nolink) | レイアウトマッピング | C++23 |
+| [`mapping`](layout_left/mapping.md) | レイアウトマッピング | C++23 |
 
 
 ## 例
@@ -37,7 +37,7 @@ namespace std {
 
 int main()
 {
-  double arr[] = {1, 4, 2, 5, 3, 6};
+  double arr[] = {1, 2, 3, 4, 5, 6};
 
   // 要素数2x3の2次元配列／列優先レイアウト
   using Ext2x3 = std::extents<size_t, 2, 3>;
@@ -57,8 +57,8 @@ int main()
 
 ### 出力
 ```
-1 2 3
-4 5 6
+1 3 5
+2 4 6
 ```
 
 

@@ -2,25 +2,25 @@
 * mdspan[meta header]
 * class template[meta id-type]
 * std[meta namespace]
-* layout_right[meta class]
+* layout_left[meta class]
 * cpp23[meta cpp]
 
 ```cpp
 namespace std {
   template<class Extents>
-  class layout_right::mapping;
+  class layout_left::mapping;
 }
 ```
-* layout_right[link ../layout_right.md]
+* layout_left[link ../layout_left.md]
 * Extents[link ../extents.md]
 
 ## 概要
-`layout_right::mapping<E>`は、[`extents`](../extents.md)型の多次元配列サイズ`E`をパラメータとして、C/C++多次元配列と互換性のある行優先(row major)[レイアウトマッピング](../LayoutMapping.md)を表現するクラスである。
+`layout_left::mapping<E>`は、[`extents`](../extents.md)型の多次元配列サイズ`E`をパラメータとして、Fortran/Matlab多次元配列と互換性のある列優先(column major)[レイアウトマッピング](../LayoutMapping.md)を表現するクラスである。
 
-`layout_right::mapping<E>`は[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であり、[`regular`](/reference/concepts/regular.md)のモデルである。
+`layout_left::mapping<E>`は[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であり、[`regular`](/reference/concepts/regular.md)のモデルである。
 
 ### 説明専用メンバ変数
-`layout_right::mapping`クラステンプレートは、下記の説明専用メンバ変数を保持する。
+`layout_left::mapping`クラステンプレートは、下記の説明専用メンバ変数を保持する。
 
 - `extents_` : `extents_type`型の[多次元配列サイズ情報](../extents.md)
 
@@ -69,7 +69,7 @@ namespace std {
 | `index_type` | [`Extents::index_type`](../extents.md) | C++23 |
 | `size_type` | [`Extents::size_type`](../extents.md) | C++23 |
 | `rank_type` | [`Extents::rank_type`](../extents.md) | C++23 |
-| `layout_type` | [`layout_right`](../layout_right.md) | C++23 |
+| `layout_type` | [`layout_left`](../layout_left.md) | C++23 |
 
 
 ### 比較演算子
@@ -89,9 +89,9 @@ int main()
 {
   double arr[] = {1, 2, 3, 4, 5, 6};
 
-  // 要素数2x3の2次元配列／行優先レイアウト
+  // 要素数2x3の2次元配列／列優先レイアウト
   using Ext2x3 = std::extents<size_t, 2, 3>;
-  using Mapping = std::layout_right::mapping<Ext2x3>;
+  using Mapping = std::layout_left::mapping<Ext2x3>;
   std::mdspan mat{arr, Mapping{}};
 
   for (size_t i = 0; i < mat.extent(0); ++i) {
@@ -102,14 +102,14 @@ int main()
   }
 }
 ```
-* std::layout_right::mapping[color ff0000]
+* std::layout_left::mapping[color ff0000]
 * std::mdspan[link ../mdspan.md]
 * std::extents[link ../extents.md]
 
 ### 出力
 ```
-1 2 3
-4 5 6
+1 3 5
+2 4 6
 ```
 
 
