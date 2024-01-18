@@ -36,8 +36,6 @@ int main()
 }
 ```
 * rank()[color ff0000]
-* std::mdspan[link ../mdspan.md]
-* std::extents[link ../extents.md]
 
 ### 出力
 ```

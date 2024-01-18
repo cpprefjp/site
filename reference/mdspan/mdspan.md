@@ -139,8 +139,6 @@ int main()
   }
 }
 ```
-* std::mdspan[color ff0000]
-* std::extents[link extents.md]
 * extent[link mdspan/extent.md]
 
 ### 出力

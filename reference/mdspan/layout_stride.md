@@ -53,8 +53,8 @@ int main()
 }
 ```
 * std::layout_stride[color ff0000]
-* std::mdspan[link mdspan.md]
-* std::extents[link extents.md]
+* std::layout_stride::mapping[link layout_stride/mapping.md]
+* extent[link mdspan/extent.md]
 
 ### 出力
 ```

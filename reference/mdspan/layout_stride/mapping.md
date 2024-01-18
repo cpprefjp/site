@@ -23,7 +23,7 @@ namespace std {
 `layout_stride::mapping`クラステンプレートは、下記の説明専用メンバ変数を保持する。
 
 - `extents_` : `extents_type`型の[多次元配列サイズ情報](../extents.md)
-- `strides_` : `array<index_type,` [`extents_type::rank()`](../extents/rank.md)`>`型のストライド幅配列
+- `strides_` : [`array`](/reference/array/array.md)`<index_type,` [`extents_type::rank()`](../extents/rank.md)`>`型のストライド幅配列
 
 
 ## 適格要件
@@ -107,8 +107,6 @@ int main()
 }
 ```
 * std::layout_stride::mapping[color ff0000]
-* std::mdspan[link ../mdspan.md]
-* std::extents[link ../extents.md]
 
 ### 出力
 ```

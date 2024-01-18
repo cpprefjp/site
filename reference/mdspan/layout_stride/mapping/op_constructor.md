@@ -136,7 +136,6 @@ int main()
 }
 ```
 * std::layout_stride::mapping[color ff0000]
-* std::extents[link ../../extents.md]
 * std::layout_right::mapping[link ../../layout_right/mapping.md]
 * std::layout_left::mapping[link ../../layout_left/mapping.md]
 * stride[link stride.md]

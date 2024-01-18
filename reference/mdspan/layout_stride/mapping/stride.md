@@ -39,7 +39,6 @@ int main()
 }
 ```
 * stride[color ff0000]
-* std::dextents[link ../../extents.md]
 * std::layout_stride::mapping[link ../mapping.md]
 
 ### 出力

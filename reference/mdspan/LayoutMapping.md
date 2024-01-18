@@ -90,9 +90,9 @@ LayoutMappingを満たす型`M`は
 
 ## `LayoutMapping`に該当する型
 
-- `layout_left::mapping<E>`
-- `layout_right::mapping<E>`
-- `layout_stride::mapping<E>`
+- [`layout_left::mapping<E>`](layout_left/mapping.md)
+- [`layout_right::mapping<E>`](layout_right/mapping.md)
+- [`layout_stride::mapping<E>`](layout_stride/mapping.md)
 
 
 ## バージョン

@@ -37,9 +37,7 @@ int main()
 }
 ```
 * accessor()[color ff0000]
-* std::mdspan[link ../mdspan.md]
-* std::extents[link ../extents.md]
-* acc.access[link ../default_accessor/access.md]
+* access[link ../default_accessor/access.md]
 
 ### 出力
 ```

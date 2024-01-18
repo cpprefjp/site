@@ -55,7 +55,6 @@ int main()
 }
 ```
 * required_span_size()[color ff0000]
-* std::extents[link ../../extents.md]
 * std::layout_stride::mapping[link ../mapping.md]
 
 ### 出力

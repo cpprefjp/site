@@ -37,8 +37,6 @@ int main()
 }
 ```
 * static_extent[color ff0000]
-* std::mdspan[link ../mdspan.md]
-* std::dextents[link ../extents.md]
 * extent[link extent.md]
 
 ### 出力

@@ -120,8 +120,6 @@ int main()
 }
 ```
 * std::layout_right::mapping[color ff0000]
-* std::extents[link ../../extents.md]
-* std::dextents[link ../../extents.md]
 * std::layout_left::mapping[link ../../layout_left/mapping.md]
 * std::layout_stride::mapping[link ../../layout_stride/mapping.md]
 * required_span_size()[link required_span_size.md]

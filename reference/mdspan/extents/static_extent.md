@@ -49,8 +49,6 @@ int main()
 ```
 * static_extent[color ff0000]
 * extent[link extent.md]
-* std::extents[link ../extents.md]
-
 
 ### 出力
 ```

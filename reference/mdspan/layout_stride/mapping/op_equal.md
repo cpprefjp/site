@@ -66,7 +66,6 @@ int main()
 }
 ```
 * ==[color ff0000]
-* std::extents[link ../../extents.md]
 * std::layout_stride::mapping[link ../mapping.md]
 * std::layout_left::mapping[link ../../layout_left/mapping.md]
 * std::layout_right::mapping[link ../../layout_right/mapping.md]

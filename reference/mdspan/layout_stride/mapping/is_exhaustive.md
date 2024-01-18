@@ -28,6 +28,7 @@ constexpr bool is_exhaustive() const noexcept;
 ## 例
 ```cpp example
 #include <cassert>
+#include <array>
 #include <mdspan>
 
 int main()
@@ -43,7 +44,6 @@ int main()
 }
 ```
 * is_exhaustive()[color ff0000]
-* std::extents[link ../../extents.md]
 * std::layout_stride::mapping[link ../mapping.md]
 
 ### 出力

@@ -47,7 +47,6 @@ int main()
 }
 ```
 * ==[color ff0000]
-* std::extents[link ../extents.md]
 
 
 ### 出力

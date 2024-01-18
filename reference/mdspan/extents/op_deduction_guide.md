@@ -32,8 +32,6 @@ int main()
   static_assert(std::same_as<decltype(ext3x3), std::dextents<size_t, 2>>);
 }
 ```
-* std::extents[link ../extents.md]
-* std::dextents[link ../extents.md]
 
 ### 出力
 ```

@@ -38,8 +38,6 @@ int main()
 ```
 * rank_dynamic()[color ff0000]
 * rank()[link rank.md]
-* std::extents[link ../extents.md]
-
 
 ### 出力
 ```

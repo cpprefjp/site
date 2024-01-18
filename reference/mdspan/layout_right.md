@@ -52,8 +52,7 @@ int main()
 }
 ```
 * std::layout_right[color ff0000]
-* std::mdspan[link mdspan.md]
-* std::extents[link extents.md]
+* extent[link mdspan/extent.md]
 
 ### 出力
 ```

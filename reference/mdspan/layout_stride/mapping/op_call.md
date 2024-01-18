@@ -40,6 +40,7 @@ return ((static_cast<index_type>(Indices...) * stride(P)) + ... + 0);
 ## 例
 ```cpp example
 #include <cassert>
+#include <array>
 #include <mdspan>
 
 int main()
@@ -62,7 +63,6 @@ int main()
   assert(map(3,2,1) == 23);
 }
 ```
-* std::dextents[link ../../extents.md]
 * std::layout_stride::mapping[link ../mapping.md]
 
 ### 出力

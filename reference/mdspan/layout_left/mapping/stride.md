@@ -54,8 +54,6 @@ int main()
 }
 ```
 * stride[color ff0000]
-* std::extents[link ../../extents.md]
-* std::dextents[link ../../extents.md]
 * std::layout_left::mapping[link ../mapping.md]
 
 ### 出力

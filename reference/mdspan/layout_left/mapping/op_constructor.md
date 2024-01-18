@@ -78,9 +78,6 @@ constexpr explicit(extents_type::rank() > 0)
 using Ext3x4 = std::extents<size_t, 3, 4>;
 using Ext3xN = std::extents<size_t, 3, std::dynamic_extent>;
 
-using Mapping3x4 = ;
-using Mapping3xN = ;
-
 int main()
 {
   // (1) : デフォルトコンストラクタ
@@ -123,8 +120,6 @@ int main()
 }
 ```
 * std::layout_left::mapping[color ff0000]
-* std::extents[link ../../extents.md]
-* std::dextents[link ../../extents.md]
 * std::layout_right::mapping[link ../../layout_right/mapping.md]
 * std::layout_stride::mapping[link ../../layout_stride/mapping.md]
 * required_span_size()[link required_span_size.md]

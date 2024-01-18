@@ -45,10 +45,6 @@ return ((static_cast<index_type>(Indices...) * stride(P)) + ... + 0);
 int main()
 {
   using Ext3x4 = std::extents<size_t, 3, 4>;
-  using Mapping = std::layout_stride::mapping<Ext2x3>;
-  std::array strides{4, 1};
-  std::mdspan mat{arr, Mapping{{}, strides}};
-
   using Mapping3x4 = std::layout_right::mapping<Ext3x4>;
   Mapping3x4 map;
   assert(map(0,0) == 0);
@@ -57,8 +53,7 @@ int main()
   assert(map(2,3) == 11);
 }
 ```
-* std::extents[link ../../extents.md]
-* std::layout_stride::mapping[link ../mapping.md]
+* std::layout_right::mapping[link ../mapping.md]
 
 ### 出力
 ```
