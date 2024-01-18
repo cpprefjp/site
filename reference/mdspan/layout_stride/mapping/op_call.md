@@ -2,7 +2,7 @@
 * mdspan[meta header]
 * function template[meta id-type]
 * std[meta namespace]
-* layout_right::mapping[meta class]
+* layout_stride::mapping[meta class]
 * cpp23[meta cpp]
 
 ```cpp
@@ -44,20 +44,25 @@ return ((static_cast<index_type>(Indices...) * stride(P)) + ... + 0);
 
 int main()
 {
-  using Ext3x4 = std::extents<size_t, 3, 4>;
-  using Mapping = std::layout_stride::mapping<Ext2x3>;
-  std::array strides{4, 1};
-  std::mdspan mat{arr, Mapping{{}, strides}};
-
-  using Mapping3x4 = std::layout_right::mapping<Ext3x4>;
-  Mapping3x4 map;
-  assert(map(0,0) == 0);
-  assert(map(0,1) == 1);
-  assert(map(1,0) == 4);
-  assert(map(2,3) == 11);
+  using Ext3D = std::dextents<size_t, 3>;
+  using Mapping = std::layout_stride::mapping<Ext3D>;
+  std::array strides{6, 1, 3};
+  Mapping map{Ext3D{4, 3, 2}, strides};
+  // map(i,j,k):
+  // i=   0  |   1   |   2   |   3
+  //   ------+-------+-------+-------
+  // j/k ->
+  // |  0  3 |  6  9 | 12 15 | 18 21
+  // V  1  4 |  7 10 | 13 16 | 19 22
+  //    2  5 |  8 11 | 14 17 | 20 23
+  assert(map(0,0,0) == 0);
+  assert(map(1,0,0) == 6);
+  assert(map(0,1,0) == 1);
+  assert(map(0,0,1) == 3);
+  assert(map(3,2,1) == 23);
 }
 ```
-* std::extents[link ../../extents.md]
+* std::dextents[link ../../extents.md]
 * std::layout_stride::mapping[link ../mapping.md]
 
 ### 出力

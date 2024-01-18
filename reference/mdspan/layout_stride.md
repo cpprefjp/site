@@ -13,7 +13,7 @@ namespace std {
 }
 ```
 * Extents[link extents.md]
-* mapping[link layout_stride/mapping.md.nolink]
+* mapping[link layout_stride/mapping.md]
 
 ## 概要
 `layout_stride`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、次元毎に任意ストライド幅を指定した[レイアウトマッピング](LayoutMapping.md)を表現するポリシークラスである。
@@ -25,7 +25,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`mapping`](mapping.md.nolink) | レイアウトマッピング | C++23 |
+| [`mapping`](layout_stride/mapping.md) | レイアウトマッピング | C++23 |
 
 
 ## 例

@@ -6,7 +6,7 @@
 * cpp23[meta cpp]
 
 ```cpp
-index_type required_span_size() const noexcept;
+constexpr index_type required_span_size() const noexcept;
 ```
 
 ## 概要

@@ -15,7 +15,7 @@ constexpr index_type operator()(Indices... i) const noexcept;
 
 
 ## テンプレートパラメータ制約
-- `sizeof...(Indices) ==` [`extents_tyoe::rank()`](../../extents/rank.md)が`true`、かつ
+- `sizeof...(Indices) ==` [`extents_type::rank()`](../../extents/rank.md)が`true`、かつ
 - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<Indices, index_type> && ...)`が`true`、かつ
 - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, Indices> && ...)`が`true`であること。
 

@@ -1,0 +1,136 @@
+# mapping
+* mdspan[meta header]
+* class template[meta id-type]
+* std[meta namespace]
+* layout_stride[meta class]
+* cpp23[meta cpp]
+
+```cpp
+namespace std {
+  template<class Extents>
+  class layout_stride::mapping;
+}
+```
+* layout_stride[link ../layout_stride.md]
+* Extents[link ../extents.md]
+
+## 概要
+`layout_stride::mapping<E>`は、[`extents`](../extents.md)型の多次元配列サイズ`E`をパラメータとして、次元毎に任意ストライド幅を指定した[レイアウトマッピング](../LayoutMapping.md)を表現するクラスである。
+
+`layout_stride::mapping<E>`は[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であり、[`regular`](/reference/concepts/regular.md)のモデルである。
+
+### 説明専用メンバ変数
+`layout_stride::mapping`クラステンプレートは、下記の説明専用メンバ変数を保持する。
+
+- `extents_` : `extents_type`型の[多次元配列サイズ情報](../extents.md)
+- `strides_` : `array<index_type,` [`extents_type::rank()`](../extents/rank.md)`>`型のストライド幅配列
+
+
+## 適格要件
+- `Extents`は[`extents`](../extents.md)の特殊化であること。
+- [`Extents::rank_dynamic()`](../extents/rank_dynamic.md) `== 0`が`true`のとき、多次元インデクス空間`Extents()`のサイズが`Extents::index_type`型で表現できること。
+
+
+## メンバ関数
+### 構築・破棄
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(constructor)`](mapping/op_constructor.md) | コンストラクタ | C++23 |
+| `(destructor)` | デストラクタ | C++23 |
+| `operator=`    | コピー代入演算子 | C++23 |
+
+### 観測
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `extents` | 多次元配列のサイズ`extents_`を取得する | C++23 |
+| `strides` | ストライド配列`strides_`を取得する | C++23 |
+| [`required_span_size`](mapping/required_span_size.md) | 要素アクセス範囲を取得する | C++23 |
+| [`operator()`](mapping/op_call.md) | 多次元配列インデクスから要素位置へ変換する | C++23 |
+| [`is_exhaustive`](mapping/is_exhaustive.md) | [Exhaustive特性](../LayoutMapping.md)を取得する | C++23 |
+| [`stride`](mapping/stride.md) | 指定次元のストライド幅を取得する | C++23 |
+
+
+## 静的メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `is_always_unique`     | `true`を返す | C++23 |
+| `is_always_exhaustive` | `false`を返す | C++23 |
+| `is_always_strided`    | `true`を返す | C++23 |
+| `is_unique`     | `true`を返す | C++23 |
+| `is_strided`    | `true`を返す | C++23 |
+
+
+## メンバ型
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `extents_type` | [`Extents`](../extents.md) | C++23 |
+| `index_type` | [`Extents::index_type`](../extents.md) | C++23 |
+| `size_type` | [`Extents::size_type`](../extents.md) | C++23 |
+| `rank_type` | [`Extents::rank_type`](../extents.md) | C++23 |
+| `layout_type` | [`layout_stride`](../layout_stride.md) | C++23 |
+
+
+### 比較演算子
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator==`](mapping/op_equal.md) | 等値比較 | C++23 |
+| [`operator!=`](mapping/op_equal.md) | 非等値比較 (`==`により使用可能) | C++23 |
+
+
+## 例
+```cpp example
+#include <mdspan>
+#include <array>
+#include <iostream>
+
+int main()
+{
+  double arr[] = {1, 2, 3, 0, 4, 5, 6, 0};
+
+  // 要素数2x3の2次元配列／パディングあり行優先レイアウト
+  using Ext2x3 = std::extents<size_t, 2, 3>;
+  using Mapping = std::layout_stride::mapping<Ext2x3>;
+  std::array strides{4, 1};
+  std::mdspan mat{arr, Mapping{{}, strides}};
+
+  for (size_t i = 0; i < mat.extent(0); ++i) {
+    for (size_t j = 0; j < mat.extent(1); ++j) {
+      std::cout << (j ? " " : "") << mat[i, j];
+    }
+    std::cout << "\n";
+  }
+}
+```
+* std::layout_stride::mapping[color ff0000]
+* std::mdspan[link ../mdspan.md]
+* std::extents[link ../extents.md]
+
+### 出力
+```
+1 2 3
+4 5 6
+```
+
+
+## バージョン
+### 言語
+- C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`mdspan`](../mdspan.md)
+
+
+## 参照
+- [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
