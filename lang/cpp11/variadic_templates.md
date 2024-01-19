@@ -381,6 +381,7 @@ void f(const T1& t1, const T2& t2, const T3& t3);
 ## 関連項目
 - [C++11 可変引数マクロ](variadic_macros.md)
 - [C++17 畳み込み式](/lang/cpp17/folding_expressions.md)
+- [C++26 パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink)
 
 
 ## 参照

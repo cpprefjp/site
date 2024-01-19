@@ -304,6 +304,8 @@
 | P2738R1: [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md.nolink) | 型消去のために`void*`からポインタ型へのキャストを許可する | | 14 | 17 | |
 | P2741R3: [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md.nolink) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする | | | | |
 | P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md.nolink) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | | Yes | | |
+| P2662R3: [パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink) | 可変引数テンプレートのパラメータパックに添字アクセスできるようにする | | | | |
+| P2864R2: [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md.nolink) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 | 14 | 18 | | |
 
 各処理系のC++26実装状況ページ：
 
