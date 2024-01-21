@@ -6,6 +6,11 @@
 * cpp23[meta cpp]
 
 ```cpp
+template<class T>
+  constexpr bool is-extents = false;                              // exposition only
+template<class IndexType, size_t... Args>
+  constexpr bool is-extents<extents<IndexType, Args...>> = true;  // exposition only
+
 template<class M>
 concept layout-mapping-alike = requires {  // exposition only
   requires is-extents<typename M::extents_type>;
@@ -17,9 +22,10 @@ concept layout-mapping-alike = requires {  // exposition only
   bool_constant<M::is_always_unique()>::value;
 };
 ```
+* bool_constant[link /reference/type_traits/bool_constant.md]
 
 ## 概要
-`layout_stride::mapping`動作仕様のための説明専用コンセプトである。
+`layout-mapping-alike`は、`layout_stride::mapping`動作仕様定義で用いられる説明専用コンセプトである。
 
 
 ## バージョン

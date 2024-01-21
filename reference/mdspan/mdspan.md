@@ -52,15 +52,15 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](mdspan/op_constructor.md.nolink) | コンストラクタ | C++23 |
+| [`(constructor)`](mdspan/op_constructor.md) | コンストラクタ | C++23 |
 | `(destructor)` | デストラクタ | C++23 |
-| [`operator=`](mdspan/op_assign.md.nolink) | 代入演算子 | C++23 |
+| [`operator=`](mdspan/op_assign.md) | 代入演算子 | C++23 |
 
 ### 要素へのアクセス
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator[]`](mdspan/op_at.md.nolink) | 多次元配列の要素アクセス | C++23 |
+| [`operator[]`](mdspan/op_at.md) | 多次元配列の要素アクセス | C++23 |
 
 ### 多次元配列サイズ
 
@@ -70,8 +70,8 @@ namespace std {
 | [`rank_dynamic`](mdspan/rank_dynamic.md) | 多次元配列のうち動的要素数に指定された次元数を取得する | C++23 |
 | [`static_extent`](mdspan/static_extent.md) | 指定次元の静的要素数を取得する | C++23 |
 | [`extent`](mdspan/extent.md) | 指定次元の要素数を取得する | C++23 |
-| [`size`](mdspan/size.md.nolink) | 多次元インデクス空間のサイズを取得する | C++23 |
-| [`empty`](mdspan/empty.md.nolink) | 多次元インデクス空間がサイズ0か否かを取得する | C++23 |
+| [`size`](mdspan/size.md) | 多次元インデクス空間のサイズを取得する | C++23 |
+| [`empty`](mdspan/empty.md) | 多次元インデクス空間がサイズ0か否かを取得する | C++23 |
 
 ### メンバ変数アクセサ
 
@@ -115,7 +115,14 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](mdspan/swap_free.md.nolink) | 2つのオブジェクトを入れ替える | C++23 |
+| [`swap`](mdspan/swap_free.md) | 2つのオブジェクトを入れ替える | C++23 |
+
+
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`(deduction_guide)`](mdspan/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23 |
 
 
 ## 例
@@ -161,7 +168,6 @@ int main()
 
 ## 関連項目
 - [`extents`](extents.md)
-- [`default_accessor`](default_accessor.md)
 
 
 ## 参照

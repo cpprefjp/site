@@ -1,6 +1,6 @@
 # コンストラクタ
 * mdspan[meta header]
-* function template[meta id-type]
+* function[meta id-type]
 * std[meta namespace]
 * layout_right::mapping[meta class]
 * cpp23[meta cpp]

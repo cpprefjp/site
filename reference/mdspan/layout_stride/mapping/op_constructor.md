@@ -1,6 +1,6 @@
 # コンストラクタ
 * mdspan[meta header]
-* function template[meta id-type]
+* function[meta id-type]
 * std[meta namespace]
 * layout_stride::mapping[meta class]
 * cpp23[meta cpp]
@@ -36,16 +36,16 @@ template<class StridedLayoutMapping>
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const OtherIndexType&, index_type>`が`true`、かつ
     - [`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, const OtherIndexType&>`が`true`であること。
 - (5) :
-   - [`layout-mapping-alike`](layout-mapping-alike.md)`<StridedLayoutMapping>`を満たす
-   - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, typename StridedLayoutMapping::extents_type> == true`
-   - `StridedLayoutMapping::is_always_unique() == true`
-   - `StridedLayoutMapping::is_always_strided() == true`
+    - [`layout-mapping-alike`](layout-mapping-alike.md)`<StridedLayoutMapping>`を満たす
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, typename StridedLayoutMapping::extents_type> == true`
+    - `StridedLayoutMapping::is_always_unique() == true`
+    - `StridedLayoutMapping::is_always_strided() == true`
 
 
 ## 事前条件
 - (1) : [`layout_right::mapping<extents_type>()`](../../layout_right/mapping.md)`.`[`required_span_size()`](../../layout_right/mapping/required_span_size.md)を、`index_type`型で表現できること。
 - (3), (4) :
-    -　半開区間`[0, rank_)`の全ての`i`に対して、`s[i]`を`index_type`へ変換した結果が`0`より大きいこと。
+    - 半開区間`[0, rank_)`の全ての`i`に対して、`s[i]`を`index_type`へ変換した結果が`0`より大きいこと。
     - [`REQUIRED-SPAN-SIZE`](required_span_size.md)`(e, s)`を`index_type`型で表現できること。
     - `rank_`が`0`より大きいとき、半開区間`[1, rank_)`の全ての`i`に対して`j = i-1`として`s[Pi] >= s[Pj] * e.extents(Pj)`を満たすの整数値の組合せ`P`が存在すること。
 - (5) :
