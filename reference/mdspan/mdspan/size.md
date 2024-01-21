@@ -18,7 +18,7 @@ constexpr size_type size() const noexcept;
 
 
 ## 戻り値
-多次元配列サイズ[`extents()`]に対して、全次元の要素数を乗算した値。
+多次元配列サイズ[`extents()`](extents.md)に対して、全次元の要素数を乗算した値。
 
 
 ## 例外
@@ -59,6 +59,7 @@ int main()
 
 ## 関連項目
 - [`extents`](../extents.md)
+- [`empty()`](empty.md)
 
 
 ## 参照

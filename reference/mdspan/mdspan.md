@@ -21,7 +21,10 @@ namespace std {
 * default_accessor[link default_accessor.md]
 
 ## 概要
-`mdspan`は、任意のメモリブロックに対して多次元配列のようにアクセスする機能を提供するクラスである。
+`mdspan`は、任意のメモリブロックに対して多次元配列のようにアクセスする機能を提供するクラスである。 
+`mdspan`それ自体は参照先メモリブロックを所有せず、[`[]`演算子](mdspan/op_at.md)を介して多次元配列のように見せかけるビュー(view)にすぎない。
+
+クラスの名称`mdspan`は、1次元の範囲[`std::span`](../span/span.md)に対する多次元(MultiDimentional)拡張に由来する。
 
 `mdspan`の特殊化`MDS`は[`copyable`](/reference/concepts/copyable.md)のモデルであり、かつ
 
@@ -30,6 +33,14 @@ namespace std {
 - [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<MDS>`が`true`となる。
 
 そのメンバ型`accessor_type`, `mapping_type`, `pointer`が[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であるとき、`mdspan`の特殊化もトリビアルコピー可能である。
+
+### テンプレートパラメータ
+`mdspan`クラスでは、テンプレートパラメータを介して多次元配列ビューをカスタマイズできる。
+
+- `ElementType` : 多次元配列ビューの要素型
+- `Extents` : 多次元配列の次元数(rank)と要素数(extent)
+- `LayoutPolicy` : 多次元配列インデクスと要素位置の対応関係
+- `AccessorPolicy` : 要素アクセス時の詳細挙動
 
 ### 説明専用メンバ変数
 `mdspan`クラスは、下記の説明専用メンバ変数を保持する。
@@ -168,6 +179,8 @@ int main()
 
 ## 関連項目
 - [`extents`](extents.md)
+- [LayoutMappingPolicy](LayoutMappingPolicy.md)
+- [AccessorPolicy](AccessorPolicy.md)
 
 
 ## 参照

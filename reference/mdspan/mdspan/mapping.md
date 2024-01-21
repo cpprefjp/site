@@ -10,7 +10,7 @@ constexpr const mapping_type& mapping() const noexcept;
 ```
 
 ## 概要
-レイアウトマッピング`map_`を取得する。
+[レイアウトマッピング](../LayoutMapping.md)`map_`を取得する。
 
 
 ## 戻り値

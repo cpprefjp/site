@@ -59,6 +59,7 @@ int main()
 
 ## 関連項目
 - [`extents`](../extents.md)
+- [`size()`](size.md)
 
 
 ## 参照
