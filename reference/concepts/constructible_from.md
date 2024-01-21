@@ -54,7 +54,6 @@ int main() {
 }
 ```
 * std::constructible_from[color ff0000]
-* std::span[link /reference/span/span.md]
 
 ### 出力
 ```

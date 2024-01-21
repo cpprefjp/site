@@ -128,7 +128,6 @@ int main()
   }
 }
 ```
-* std::span[link /reference/span/span.md]
 
 ### 出力
 ```

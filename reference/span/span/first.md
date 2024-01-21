@@ -73,7 +73,6 @@ int main()
 }
 ```
 * first[color ff0000]
-* std::dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ### 出力
 ```

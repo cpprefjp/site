@@ -171,6 +171,7 @@
 * <shared_mutex>[link /reference/shared_mutex.md]
 * <source_location>[link /reference/source_location.md]
 * <span>[link /reference/span.md]
+    * std::span[link /reference/span/span.md]
     * std::dynamic_extent[link /reference/span/dynamic_extent.md]
 * <sstream>[link /reference/sstream.md]
 * <stack>[link /reference/stack.md]
