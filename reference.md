@@ -13,6 +13,7 @@
 - [レンジライブラリ](#ranges)
 - [アルゴリズムライブラリ](#algorithm)
 - [数値ライブラリ](#numerics)
+- [デバッグライブラリ](#debug)
 - [入出力ライブラリ](#io)
 - [正規表現ライブラリ](#regular-expressions)
 - [アトミック操作ライブラリ](#atomic-operations)
@@ -92,7 +93,7 @@
 |--------------------------------------|----------------------|----------------|
 | [`<locale>`](/reference/locale.md)   | ロケール             |                |
 | [`<text_encoding>`](/reference/text_encoding.md.nolink) | 文字列エンコーディングの識別 | C++26 |
-| [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨 |
+| [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨<br/> C++26で削除 |
 
 
 ## <a id="container" href="#container">コンテナライブラリ</a>
@@ -148,6 +149,14 @@
 | [`<valarray>`](/reference/valarray.md) | 数値の配列       |                |
 | [`<numeric>`](/reference/numeric.md)   | 一般的な数値操作 |                |
 | [`<numbers>`](/reference/numbers.md)   | 数値             | C++20          |
+| [`<linalg>`](/reference/linalg.md.nolink) | 線形代数 | C++26 |
+
+
+## <a id="debug" href="debug">デバッグライブラリ</a>
+
+| ヘッダ                                 | 説明             | 対応バージョン |
+|----------------------------------------|------------------|----------------|
+| [`<debugging>`](/reference/debugging.md.nolink) | デバッグサポート | C++26 |
 
 
 ## <a id="io" href="#io">入出力ライブラリ</a>

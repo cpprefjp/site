@@ -58,10 +58,15 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 文字列エンコーディングを識別するライブラリとして、[`<text_encoding>`](/reference/text_encoding.md.nolink)を追加
 - 並行処理におけるデータの参照・更新を行うRCU (Read Copy Update) のライブラリとして、[`<rcu>`](/reference/rcu.md.nolink)を追加
 - 並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加
+- デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md.nolink)を追加
+- 線形代数ライブラリとして[`<linalg>`](/reference/linalg.md.nolink)を追加
 
 
 ### コンテナ
 - [`std::mdspan`](/reference/mdspan/mdspan.md)のサブ配列版として[`std::submdspan`](/reference/mdspan/submdspan.md.nolink)を追加
+- [`std::span`](/reference/span/span.md)に、以下を追加
+    - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタ
+    - インデックスアクセスのための[`at()`](/reference/span/span/at.md.nolink)メンバ関数
 - 連想コンテナの以下のメンバ関数に、一時オブジェクトが生成されるコストを抑える拡張を追加
     - [`std::map`](/reference/map/map.md)
         - [`operator[]`](/reference/map/map/op_at.md)
@@ -104,8 +109,10 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`<charconv>`](/reference/charconv.md)の変換結果[`std::to_chars_result`](/reference/charconv/to_chars_result.md)と[`std::from_chars_result`](/reference/charconv/from_chars_result.md)に、変換が正しく完了したかを判定する`operator bool`を追加
 - [`std::to_string()`](/reference/string/to_string.md)の仕様が`std::sprintf()`で説明されていたが、[`std::format()`](/reference/format/format.md)で定義するよう仕様を変更
 - [`std::basic_istringstream`](/reference/sstream/basic_istringstream.md)および[`std::basic_ostringstream`](/reference/sstream/basic_ostringstream.md)のコンストラクタおよび`str()`メンバ関数に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るオーバーロードを追加
-- [`std::format()`](/reference/format/format.md)に、ポインタ出力のサポートを追加
-- [`std::format()`](/reference/format/format.md)で幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
+- [`std::format()`](/reference/format/format.md)に、以下の改善を導入
+    - ポインタ出力のサポートを追加
+    - 幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
+    - コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正
 
 
 ### ファイル
@@ -146,7 +153,13 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::chrono::leap_second`](/reference/chrono/leap_second.md)
 
 
-### 数学
+### 数値
+- [`<numeric>`](/reference/numeric.md)に、飽和演算 (Saturation Arithmetic) として、型の表現可能な範囲で演算を行う以下の関数を追加
+    - [`std::add_sat()`](/reference/numeric/add_sat.md.nolink)
+    - [`std::sub_sat()`](/reference/numeric/sub_sat.md.nolink)
+    - [`std::mul_sat()`](/reference/numeric/mul_sat.md.nolink)
+    - [`std::div_sat()`](/reference/numeric/div_sat.md.nolink)
+    - [`std::saturation_cast()`](/reference/numeric/saturation_cast.md.nolink)
 - [`<cmath>`](/reference/cmath.md)の以下の関数を、`constexpr`に対応
     - [`std::cos()`](/reference/cmath/cos.md)
     - [`std::sin()`](/reference/cmath/sin.md)
@@ -198,6 +211,9 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::log10()`](/reference/complex/complex/log10.md)
     - [`std::pow()`](/reference/complex/complex/pow.md)
     - [`std::sqrt()`](/reference/complex/complex/sqrt.md)
+- [`std::complex`](/reference/complex/complex.md)を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加
+- [`<random>`](/reference/random.md)の範囲`[0, 1)`の乱数を生成する[`std::generate_canonical()`](/reference/random/generate_canonical.md)を、望ましい統計的性質を保証するようアルゴリズムと制約を変更
+
 
 ### ユーティリティ
 - [`std::variant`](/reference/variant/variant.md)クラスに、メンバ関数版の[`visit()`](/reference/variant/variant/visit.md.nolink)を追加
@@ -208,7 +224,16 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`quecto`](/reference/ratio/si_prefix.md) (10<sup>−30</sup>)
 
 
+### デバッグ
+- [`assert`](/reference/cassert/assert.md)マクロの引数としてカンマを含む式を指定できるよう、可変引数化
+
+
 ### 型特性
 - 共用体のどのメンバがアクティブかを判定するための関数として、[`<type_traits>`](/reference/type_traits.md)に[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md.nolink)を追加
 - [`std::bitset`](/reference/bitset/bitset.md)に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るコンストラクタを追加
+
+### 機能の削除
+- C++20から非推奨となっていた、[`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)のパラメータなしのオーバーロードを削除
+- C++23から非推奨となっていた、[`std::allocator`](/reference/memory/allocator.md)のメンバ型`is_always_equal`を削除
+- C++17から非推奨となっていたUnicode変換ライブラリ[`<codecvt>`](/reference/codecvt.md)を削除
 

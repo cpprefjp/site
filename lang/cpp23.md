@@ -228,10 +228,11 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 
 ### 機能の非推奨化
-- [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)と[`std::aligned_union`](/reference/type_traits/aligned_union.md)を非推奨化。これらの機能は未定義動作を引き起こし、間違った保証が行われ、よくないAPI設計が行われていたため、非推奨となる
+- [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)と[`std::aligned_union`](/reference/type_traits/aligned_union.md)を非推奨化。これらの機能は未定義動作を引き起こし、間違った保証が行われ、よくないAPI設計が行われていたため、非推奨とする
     - [`std::aligned_storage`](/reference/type_traits/aligned_storage.md)の代わりに`alignas(T)` [`std::byte`](/reference/cstddef/byte.md)`[sizeof(T)];`を使用することを推奨する
     - [`std::aligned_union`](/reference/type_traits/aligned_union.md)の代わりに`alignas(Ts...)` [`std::byte`](/reference/cstddef/byte.md)`[`[`std::max`](/reference/algorithm/max.md)`({sizeof(Ts)...})];`を使用することを推奨する
-- [`<limits>`](/reference/limits.md)の以下の非正規化数に関する機能を非推奨化。これらの機能は必ずしもコンパイル時に決まらない可能性のある値であり有用でないため、非推奨となる
+- [`std::allocator`](/reference/memory/allocator.md)のメンバ型`is_always_equal`を非推奨化。これはアロケータが状態をもたないことを表す型でありデフォルトでは[`true_type`](/reference/type_traits/true_type.md)となっている。状態をもつユーザー定義のアロケータ型でこのメンバ型の上書きを忘れることでバグが埋め込まれてしまっていたため誤用防止のために非推奨とする
+- [`<limits>`](/reference/limits.md)の以下の非正規化数に関する機能を非推奨化。これらの機能は必ずしもコンパイル時に決まらない可能性のある値であり有用でないため、非推奨とする
     - [`std::numeric_limits`](/reference/limits/numeric_limits.md)`::`[`has_denorm`](/reference/limits/numeric_limits/has_denorm.md)
     - [`std::numeric_limits`](/reference/limits/numeric_limits.md)`::`[`has_denorm_loss`](/reference/limits/numeric_limits/has_denorm_loss.md)
     - [`std::float_denorm_style`](/reference/limits/float_denorm_style.md)
