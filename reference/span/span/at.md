@@ -1,20 +1,16 @@
-# operator[]
+# at
 * span[meta header]
 * std[meta namespace]
 * span[meta class]
 * function[meta id-type]
-* cpp20[meta cpp]
+* cpp26[meta cpp]
 
 ```cpp
-constexpr reference operator[](size_type i) const;
+constexpr reference at(size_type i) const;
 ```
 
 ## 概要
 参照範囲から、任意の位置の要素を取得する。
-
-
-## 事前条件
-- `i <` [`size()`](size.md)が`true`であること
 
 
 ## 戻り値
@@ -30,6 +26,10 @@ return *(data() + i);
 定数時間
 
 
+## 例外
+`i >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+
+
 ## 例
 ```cpp example
 #include <cassert>
@@ -40,15 +40,14 @@ int main()
 {
   std::vector<int> v = {1, 2, 3, 4, 5};
 
-  int& x = std::span{v}[2];
+  int& x = std::span{v}.at(2);
   assert(x == 3);
 
-  int& y = std::span{v}.subspan(2, 3)[1];
+  int& y = std::span{v}.subspan(2, 3).at(1);
   assert(y == 4);
 }
 ```
-* [2][color ff0000]
-* [1][color ff0000]
+* at[color ff0000]
 * subspan[link subspan.md]
 
 ### 出力
@@ -57,17 +56,17 @@ int main()
 
 ## バージョン
 ### 言語
-- C++20
+- C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
-- [GCC](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 14
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
-- [`at`](at.md)
+- [`operator[]`](op_at.md)
 
 
 ## 参照
-- [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
+- [P2821R5 `span.at()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2821r5.html)
