@@ -10,7 +10,7 @@ namespace std {
   template<input_or_output_iterator I, sentinel_for<I> S>
   class common_iterator {
 
-    friend iter_rvalue_reference_t<I> iter_move(const common_iterator& i)
+    friend decltype(auto) iter_move(const common_iterator& i)
       noexcept(noexcept(ranges::iter_move(declval<const I&>())))
         requires input_iterator<I>;
   };
@@ -18,7 +18,6 @@ namespace std {
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 * ranges::iter_move[link /reference/iterator/iter_move.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 
@@ -94,3 +93,4 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3953. `iter_move` for `common_iterator` and `counted_iterator` should return `decltype(auto)`](https://cplusplus.github.io/LWG/issue3953)
