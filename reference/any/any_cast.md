@@ -31,13 +31,14 @@ namespace std {
 - (4), (5) : `std::any`オブジェクトが保持している型を指定して、その値を指すポインタを取得する。型の指定を間違った場合はヌルポインタが返る
 
 
-## 要件
+## 適格要件
 `using U =` [`remove_cv_t`](/reference/type_traits/remove_cv.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<T>>;`であるとして、
 
 - (1) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const U&> == true`であること。そうでない場合、プログラムは不適格となる
 - (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U&> == true`であること。そうでない場合、プログラムは不適格となる
 - (3) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`であること。そうでない場合、プログラムは不適格となる
-
+- (4)(5) : [`is_void_v`](/reference/type_traits/is_void.md)`<T> == false`であること
+    - C++26から
 
 ## 効果
 `using U =` [`remove_cv_t`](/reference/type_traits/remove_cv.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<T>>;`であるとして、
@@ -148,3 +149,7 @@ int main()
 - [Clang](/implementation.md#clang): 4.0.1
 - [GCC](/implementation.md#gcc): 7.3
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+
+- [LWG Issue 3305. `any_cast<void>`](https://cplusplus.github.io/LWG/issue3305)
