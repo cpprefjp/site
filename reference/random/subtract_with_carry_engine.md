@@ -83,6 +83,7 @@ namespace std {
 | `static constexpr size_t short_lag` | 短いラグ。進める要素数。テンプレートパラメータ`s`。 | C++11 |
 | `static constexpr size_t long_lag`  | 長いラグ。オペランドの値間の距離。テンプレートパラメータ`r`。 | C++11 |
 | `static constexpr result_type default_seed` | デフォルトのシード値。`19780503u` | C++11 |
+| `static constexpr uint_least32_t default_seed` | デフォルトのシード値。`19780503u` | C++26 |
 
 
 ## 非メンバ関数
@@ -150,3 +151,4 @@ int main()
 - [Subtract with carry - Wikipedia](https://en.wikipedia.org/wiki/Subtract_with_carry)
 - [A New Class of Random Number Generators](http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoap/1177005878), George Marsaglia and Arif Zaman, The Annals of Applied Probability, Vol. 1, No. 3, 1991
 - [M. Matsumoto, et al., Common Defects in Initialization of Pseudorandom Number Generators, *ACM Trans. Model. Comput. Simul.* **17**, 15 (2007)](https://doi.org/10.1145/1276927.1276928)
+- [LWG Issue 3809. Is `std::subtract_with_carry_engine<uint16_t>` supposed to work?](https://cplusplus.github.io/LWG/issue3809)

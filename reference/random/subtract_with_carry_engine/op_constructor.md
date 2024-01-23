@@ -9,6 +9,7 @@
 ```cpp
 explicit subtract_with_carry_engine(result_type value = default_seed);     // (1)
 subtract_with_carry_engine() : subtract_with_carry_engine(default_seed) {} // (1) C++20
+subtract_with_carry_engine() : subtract_with_carry_engine(0u) {}           // (1) C++26
 
 explicit subtract_with_carry_engine(result_type value);                    // (2) C++20
 
@@ -23,8 +24,10 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (5
 - (1) : デフォルトコンストラクタ
     - C++17まで：シード値が指定されない場合はデフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で構築される
       - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
-    - C++20 : デフォルトのシード値 (`mersenne_twister_engine::default_seed`) で(2)に委譲
+    - C++20から : デフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で(2)に委譲
+    - C++26から : シード値を`0u`として(2)に委譲
 - (2) : シード値を受け取って状態シーケンスを構築する
+    - `value == 0`なら、デフォルトのシード値 (`subtract_with_carry_engine::default_seed`) が使用される
     - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
 - (3) : シードのシーケンスを受け取って状態シーケンスを構築する
 - (4) : コピーコンストラクタ。状態シーケンスをコピーする
@@ -109,3 +112,4 @@ int main()
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 3809. Is `std::subtract_with_carry_engine<uint16_t>` supposed to work?](https://cplusplus.github.io/LWG/issue3809)

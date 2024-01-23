@@ -7,7 +7,10 @@
 
 ```cpp
 void seed(result_type value = default_seed); // (1)
-template<class Sseq> void seed(Sseq& q);     // (2)
+void seed(result_type value = 0u);           // (1) C++26
+
+template<class Sseq>
+void seed(Sseq& q);     // (2)
 ```
 
 ## 概要
@@ -109,4 +112,4 @@ int main()
 
 ## 参照
 
-
+- [LWG Issue 3809. Is `std::subtract_with_carry_engine<uint16_t>` supposed to work?](https://cplusplus.github.io/LWG/issue3809)
