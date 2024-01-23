@@ -25,7 +25,7 @@ namespace std {
   template<input_iterator I, class S>
   struct iterator_traits<common_iterator<I, S>> {
     using iterator_concept = /*see below*/;
-    using iterator_category = /*see below*/;
+    using iterator_category = /*see below*/;  // 定義されない場合がある
     using value_type = iter_value_t<I>;
     using difference_type = iter_difference_t<I>;
     using pointer = /*see below*/;
@@ -80,6 +80,7 @@ namespace std {
 | `pointer` | `void` <br/> ただし、[`operator->`](common_iterator/op_arrow.md)が利用可能である場合はその戻り値型 | C++20 |
 | `reference` | [`iter_reference_t`](/reference/iterator/iter_reference_t.md)`<I>`  | C++20 |
 
+- `iterator_category`は`iter_difference_t<I>`が組み込みの整数型の場合にのみ定義される（[*integer-class*](/reference/iterator/is_integer_like.md)型の場合には定義されない）
 
 ## 例
 
@@ -147,3 +148,4 @@ int main() {
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [Hidden Friends - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190531/p1)
+- [LWG Issue 3749. `common_iterator` should handle integer-class difference types](https://cplusplus.github.io/LWG/issue3749)
