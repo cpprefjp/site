@@ -27,7 +27,7 @@ Rangeの要素が格納されたメモリ領域へのポインタを取得する
         - `as-const-pointer`は次のような説明専用関数テンプレートである
           ```cpp
           template<class T>
-          constexpr auto as-const-pointer(const T* p) { return p; }
+          constexpr auto as-const-pointer(const T* p) noexcept { return p; }
           ```
 
 ## 戻り値
@@ -81,3 +81,4 @@ array size:1 at 0x556ec23ba2b0
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3948. `possibly-const-range` and `as-const-pointer` should be `noexcept`](https://cplusplus.github.io/LWG/issue3948)

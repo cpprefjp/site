@@ -7,7 +7,7 @@
 ```cpp
 namespace std::ranges {
   template<input_range R>
-  constexpr auto& possibly-const-range(R& r) {
+  constexpr auto& possibly-const-range(R& r) noexcept {
     if constexpr (constant_range<const R> && !constant_range<R>) {
       return const_cast<const R&>(r);
     } else {
@@ -33,3 +33,4 @@ namespace std::ranges {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3948. `possibly-const-range` and `as-const-pointer` should be `noexcept`](https://cplusplus.github.io/LWG/issue3948)
