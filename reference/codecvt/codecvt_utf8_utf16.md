@@ -4,6 +4,7 @@
 * class template[meta id-type]
 * cpp11[meta cpp]
 * cpp17deprecated[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -26,12 +27,12 @@ UTF-8とUTF-16との変換を行うファセットクラス。`char`列と`Elem`
 UTF-8文字列におけるBOMの有無を[`codecvt_mode`](codecvt_mode.md)で指定できる。
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 Unicodeの文字コード変換を行うこれらのクラスは、不正なコードポイントに対する安全なエラー処理の方法を提供していなかったため、セキュリティ上の欠陥があった。
 
 仕様もあいまいであったため、不正なコードポイントに対してどのように振る舞うかも不明であった。
 
-Unicode以外のShift_JISやBig5といった文字コードの利用が急激に減少している。標準ライブラリでの現代的なUnicodeの変換機能は非常に必要とされているが、`<codecvt>`の設計はお粗末なものだった。将来より良いものを作るために、これらの機能は非推奨とする。
+Unicode以外のShift_JISやBig5といった文字コードの利用が急激に減少している。標準ライブラリでの現代的なUnicodeの変換機能は非常に必要とされているが、`<codecvt>`の設計はお粗末なものだった。将来より良いものを作るために、これらの機能は非推奨・削除とする。
 
 標準ライブラリにUnicodeの文字コード変換をする代替機能はないため、他の専門特化した文字コード変換のライブラリを使用すること。
 
@@ -92,3 +93,4 @@ int main()
 ## 参照
 - [N2401 Code Conversion Facets for the Standard C++ Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2401.htm)
 - [P0618R0 Deprecating `<codecvt>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html)
+- [P2871R3 Remove Deprecated Unicode Conversion Facets from C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2871r3.pdf)
