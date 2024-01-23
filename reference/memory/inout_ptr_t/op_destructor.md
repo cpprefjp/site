@@ -34,10 +34,8 @@
 - [`is_pointer_v`](/reference/type_traits/is_pointer.md)`<Smart>`が`true`ならば、
 
     ```cpp
-    if (p) {
-      apply([&](auto&&... args) {
-        s = Smart(static_cast<SP>(p), std::forward<Args>(args)...); }, std::move(a));
-    }
+    apply([&](auto&&... args) {
+      s = Smart(static_cast<SP>(p), std::forward<Args>(args)...); }, std::move(a));
     ```
 
 - 式 `s.reset(static_cast<SP>(p),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)` が適格ならば、
@@ -85,3 +83,4 @@
 
 ## 参照
 - [P1132R8 out_ptr - a scalable output pointer abstraction](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html)
+- [LWG Issue 3897. `inout_ptr` will not update raw pointer to 0](https://cplusplus.github.io/LWG/issue3897)
