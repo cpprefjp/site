@@ -7,12 +7,12 @@
 ```cpp
 namespace std::ranges {
   template<range R>
-  using const_iterator_t = const_iterator<iterator_t<R>>;
+  using const_iterator_t = decltype(ranges::cbegin(declval<R&>()));
 }
 ```
 * range[link range.md]
-* const_iterator[link /reference/iterator/const_iterator.md]
-* iterator_t[link iterator_t.md]
+* cbegin[link cbegin.md]
+* declval[link /reference/utility/declval.md]
 
 ## 概要
 
@@ -47,3 +47,4 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3946. The definition of `const_iterator_t` should be reworked](https://cplusplus.github.io/LWG/issue3946)
