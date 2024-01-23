@@ -35,6 +35,9 @@ constexpr span(const span& other) noexcept = default;          // (8) C++20
 template <class OtherElementType, size_t OtherExtent>
 constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
   span(const span<OtherElementType, OtherExtent>& s) noexcept; // (9) C++20
+
+constexpr explicit(extent != dynamic_extent)
+  span(std::initializer_list<value_type> il);                  // (10) C++26
 ```
 * size_t[link /reference/cstddef/size_t.md]
 * array[link /reference/array/array.md]
@@ -57,6 +60,7 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
     - 動的な要素数をもつ`span`同士の変換
     - `span<T>`から`span<const T>`への変換
     - バイト数が同じ暗黙の型変換が可能な要素型をもつ`span`同士の変換
+- (10) : 初期化子リストから`span`オブジェクトを構築する
 
 
 ## テンプレートパラメータ制約
@@ -88,6 +92,9 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 - (9) :
     - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| OtherExtent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| extent == OtherExtent`が`true`であること (受け取り側が[`dynamic_extent`](/reference/span/dynamic_extent.md)を持っていれば任意の`Extent`から変換できる)
     - `OtherElementType(*)[]`型が`ElementType(*)[]`型に変換可能であること
+- (10) :
+    - [`is_const_v`](/reference/type_traits/is_const.md)`<element_type>`が`true`であること
+        - (`std::span<const T>`に対してのみ使用できる)
 
 
 ## 事前条件
@@ -106,6 +113,8 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
     - [`std::is_const_v`](/reference/type_traits/is_const.md)`<element_type>` が `false`であるとき、型 `R` はコンセプト [`std::ranges::borrowed_range`](/reference/ranges/borrowed_range.md) のモデルであること
 - (9) :
     - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`s.size()`](size.md)と等値になる
+- (10) :
+    - `extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等値でない場合、`extent`は[`il.size()`](/reference/initializer_list/initializer_list/size.md)と等値になる
 
 
 ## 効果
@@ -114,6 +123,7 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 - (4), (5), (6) : 範囲`[`[`data`](/reference/iterator/data.md)`(arr),` [`data`](/reference/iterator/data.md)`(arr) + N)`を参照する`span`オブジェクトを構築する
 - (7) : 範囲`[std::ranges::data(r), std::ranges::data(r) + std::ranges::size(r))`を参照する`span`オブジェクトを構築する
 - (9) : 範囲`[s.`[`data()`](data.md)`, s.`[`data()`](data.md) `+ s.`[`size()`](size.md)`)`を参照する`span`オブジェクトを構築する
+- (10) : 範囲`[il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md) `+ il.`[`size()`](/reference/initializer_list/initializer_list/size.md)`)`を参照する`span`オブジェクトを構築する
 
 
 ## 事後条件
@@ -130,10 +140,20 @@ constexpr explicit(extent != dynamic_extent && OtherExtent == dynamic_extent)
 
 
 ## 計算量
-- (1)-(9) : 定数時間
+- (1)-(10) : 定数時間
+
+
+## この機能が必要になった背景・経緯
+- (10) :
+    - [`std::string_view`](/reference/string_view/basic_string_view.md)が文字列リテラル (たとえば`"abc"`) をとれるのと同様に、`std::span`クラスも[`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとれるようにした
+
+
+## 備考
+- (10) : `std::span<const int> v = {1, 2, 3};` のような使い方は初期化子リストの寿命が尽きてしまうので注意。関数のパラメータを`span`として受け取るような使い方が想定される
 
 
 ## 例
+### 基本的な使い方 (C++20)
 ```cpp example
 #include <cassert>
 #include <span>
@@ -261,8 +281,47 @@ int main()
 * str.size()[link /reference/string/basic_string/size.md]
 * str.data()[link /reference/string/basic_string/data.md]
 
-### 出力
+#### 出力
 ```
+```
+
+
+### 初期化子リストからspanを構築する (C++26)
+```cpp example
+#include <iostream>
+#include <span>
+#include <vector>
+
+void print_list(std::span<const int> s) {
+  bool first = true;
+  for (const int& x : s) {
+    if (first) {
+      first = false;
+    }
+    else {
+      std::cout << ',';
+    }
+    std::cout << x;
+  }
+  std::cout << std::endl;
+}
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5};
+  print_list(v);
+
+  print_list({{3, 1, 4}}); // C++20からOK
+  print_list({3, 1, 4});   // C++26からOK
+}
+```
+
+
+#### 出力
+```
+1,2,3,4,5
+3,1,4
+3,1,4
 ```
 
 ## バージョン
@@ -283,3 +342,5 @@ int main()
 - [P1394R4 Range constructor for `std::span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1394r4.pdf)
 - [P1976R2 Fixed-size `span` construction from dynamic range](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1976r2.html)
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [P2447R6 `std::span` over an initializer list](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2447r6.html)
+    - C++26から初期化子リストをとるコンストラクタが追加された
