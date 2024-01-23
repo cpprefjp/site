@@ -9,16 +9,28 @@ namespace std {
   complex<T>
     pow(const complex<T>& x,
         const complex<T>& y);    // (1) C++03
+  template <class T>
+  constexpr complex<T>
+    pow(const complex<T>& x,
+        const complex<T>& y);    // (1) C++26
 
   template <class T>
   complex<T>
     pow(const complex<T>& x,
         const T& y);             // (2) C++03
+  template <class T>
+  constexpr complex<T>
+    pow(const complex<T>& x,
+        const T& y);             // (2) C++26
 
   template <class T>
   complex<T>
     pow(const T& x,
         const complex<T>& y);    // (3) C++03
+  template <class T>
+  constexpr complex<T>
+    pow(const T& x,
+        const complex<T>& y);    // (3) C++26
 
   template <class T>
   complex<T>
@@ -27,7 +39,10 @@ namespace std {
 
   complex<Promoted>
     pow(ArithmeticOrComplex1 x,
-        ArithmeticOrComplex2 y); // (5) C++11 追加のオーバーロード
+        ArithmeticOrComplex2 y); // (5) C++11
+  constexpr complex<Promoted>
+    pow(ArithmeticOrComplex1 x,
+        ArithmeticOrComplex2 y); // (5) C++26
 }
 ```
 * Promoted[italic]
@@ -138,3 +153,5 @@ pow( (1,2), (3,4) ) = (0.12901,0.0339241)
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型への対応が行われた
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

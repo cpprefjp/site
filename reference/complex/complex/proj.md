@@ -7,9 +7,16 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> proj(const complex<T>& x); // (1) C++11
+  complex<T>
+    proj(const complex<T>& x); // (1) C++11
+  template <class T>
+  constexpr complex<T>
+    proj(const complex<T>& x); // (1) C++26
 
-  complex<Promoted> proj(Arithmetic x); // (2) C++11 追加のオーバーロード
+  complex<Promoted>
+    proj(Arithmetic x);        // (2) C++11
+  constexpr complex<Promoted>
+    proj(Arithmetic x);        // (2) C++26
 }
 ```
 * Promoted[italic]
@@ -119,3 +126,5 @@ proj( (nan,-inf) ) = (inf,-0)
 - [LWG Issue 781. `std::complex` should add missing C99 functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#781)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型への対応が行われ、整数型も考慮されるようになった
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

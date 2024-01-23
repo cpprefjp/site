@@ -6,7 +6,11 @@
 ```cpp
 namespace std {
   template <class T>
-  T abs(const complex<T>& x);
+  T
+    abs(const complex<T>& x); // (1) C++03
+  template <class T>
+  constexpr T
+    abs(const complex<T>& x); // (1) C++26
 }
 ```
 
@@ -90,3 +94,8 @@ abs( (1,2) ) = 2.23607
 | [`abs`](/reference/cmath/abs.md)   | 絶対値を得る。（浮動小数点版）         |
 | [`fabs`](/reference/cmath/fabs.md) | 絶対値を得る。（浮動小数点版）         |
 | [`abs`](/reference/cstdlib/abs.md) | 絶対値を得る。（整数版）               |
+
+
+## 参照
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

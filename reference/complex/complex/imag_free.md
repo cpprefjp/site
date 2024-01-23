@@ -11,9 +11,9 @@ namespace std {
   constexpr T imag(const complex<T>& x); // (1) C++14
 
   complex<Promoted>
-    imag(Arithmetic x);                 // (2) C++11 追加のオーバーロード
+    imag(Arithmetic x);                 // (2) C++11
   constexpr complex<Promoted>
-    imag(Arithmetic x);                 // (2) C++14 追加のオーバーロード
+    imag(Arithmetic x);                 // (2) C++26
 }
 ```
 * Promoted[italic]
@@ -99,3 +99,5 @@ int main()
 - [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型への対応が行われ、整数型も考慮されるようになった
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で(2)が`constexpr`対応した

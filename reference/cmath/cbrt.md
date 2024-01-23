@@ -7,17 +7,29 @@
 
 ```cpp
 namespace std {
-  float cbrt(float x);              // (1) C++11からC++20まで
-  double cbrt(double x);            // (2) C++11からC++20まで
-  long double cbrt(long double x);  // (3) C++11からC++20まで
+  float cbrt(float x);             // (1) C++11からC++20まで
+  double cbrt(double x);           // (2) C++11からC++20まで
+  long double cbrt(long double x); // (3) C++11からC++20まで
 
   floating-point-type
-    cbrt(floating-point-type x);    // (4) C++23
+    cbrt(floating-point-type x);   // (4) C++23
+  constexpr floating-point-type
+    cbrt(floating-point-type x);   // (4) C++26
 
-  double cbrt(Integral x);          // (5) C++11
+  double
+    cbrt(Integral x);              // (5) C++11
+  constexpr double
+    cbrt(Integral x);              // (5) C++26
 
-  float cbrtf(float x);             // (6) C++17
-  long double cbrtl(long double x); // (7) C++17
+  float
+    cbrtf(float x);                // (6) C++17
+  constexpr float
+    cbrtf(float x);                // (6) C++26
+
+  long double
+    cbrtl(long double x);          // (7) C++17
+  constexpr long double
+    cbrtl(long double x);          // (7) C++26
 }
 ```
 * Integral[italic]
@@ -85,7 +97,7 @@ cbrt(-1.0) = -1.000000
 - [GCC](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -93,3 +105,5 @@ cbrt(-1.0) = -1.000000
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

@@ -6,7 +6,11 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> exp(const complex<T>& x);
+  complex<T>
+    exp(const complex<T>& x); // (1) C++03
+  template <class T>
+  constexpr complex<T>
+    exp(const complex<T>& x); // (1) C++26
 }
 ```
 
@@ -104,3 +108,8 @@ exp( (1,2) ) = (-1.1312,2.47173)
 | [`tan`](tan.md)                    | 複素数の正接を求める。                    |
 | [`tanh`](tanh.md)                  | 複素数の双曲線正接を求める。              |
 | [`exp`](/reference/cmath/exp.md)   | 自然対数の底 e の累乗（実数）を求める。   |
+
+
+## 参照
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

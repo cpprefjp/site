@@ -6,17 +6,29 @@
 
 ```cpp
 namespace std {
-  float tanh(float x);              // (1) C++03からC++20まで
-  double tanh(double x);            // (2) C++03からC++20まで
-  long double tanh(long double x);  // (3) C++03からC++20まで
+  float tanh(float x);             // (1) C++03からC++20まで
+  double tanh(double x);           // (2) C++03からC++20まで
+  long double tanh(long double x); // (3) C++03からC++20まで
 
   floating-point-type
-    tanh(floating-point-type x);    // (4) C++23
+    tanh(floating-point-type x);   // (4) C++23
+  constexpr floating-point-type
+    tanh(floating-point-type x);   // (4) C++26
 
-  double tanh(Integral x);          // (5) C++11
+  double
+    tanh(Integral x);              // (5) C++11
+  constexpr double
+    tanh(Integral x);              // (5) C++26
 
-  float tanhf(float x);             // (6) C++17
-  long double tanhl(long double x); // (7) C++17
+  float
+    tanhf(float x);                // (6) C++17
+  constexpr float
+    tanhf(float x);                // (6) C++26
+
+  long double
+    tanhl(long double x);          // (7) C++17
+  constexpr long double
+    tanhl(long double x);          // (7) C++26
 }
 ```
 * Integral[italic]
@@ -78,7 +90,8 @@ tanh(1.0)  = 0.761594
 - [Visual C++](/implementation.md#visual_cpp): 2003, 2005, 2008, 2010
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
+
 - GCC 4.6.1 以上
 
 ## 実装例
@@ -94,3 +107,5 @@ $$ \tanh x = \frac{\sinh x}{\cosh x} $$
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

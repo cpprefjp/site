@@ -6,7 +6,11 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> sin(const complex<T>& x);
+  complex<T>
+    sin(const complex<T>& x); // (1) C++03
+  template <class T>
+  constexpr complex<T>
+    sin(const complex<T>& x); // (1) C++26
 }
 ```
 
@@ -85,3 +89,8 @@ sin( (1,2) ) = (3.16578,1.9596)
 | [`tan`](tan.md)                    | 複素数の正接を求める。                    |
 | [`tanh`](tanh.md)                  | 複素数の双曲線正接を求める。              |
 | [`sin`](/reference/cmath/sin.md)   | 実数の正弦を求める。                      |
+
+
+## 参照
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

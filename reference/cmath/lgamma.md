@@ -7,17 +7,29 @@
 
 ```cpp
 namespace std {
-  float lgamma(float x);              // (1) C++11からC++20まで
-  double lgamma(double x);            // (2) C++11からC++20まで
-  long double lgamma(long double x);  // (3) C++11からC++20まで
+  float lgamma(float x);             // (1) C++11からC++20まで
+  double lgamma(double x);           // (2) C++11からC++20まで
+  long double lgamma(long double x); // (3) C++11からC++20まで
 
   floating-point-type
-    lgamma(floating-point-type x);    // (4) C++23
+    lgamma(floating-point-type x);   // (4) C++23
+  constexpr floating-point-type
+    lgamma(floating-point-type x);   // (4) C++26
 
-  double lgamma(Integral x);          // (5) C++11
+  double
+    lgamma(Integral x);              // (5) C++11
+  constexpr double
+    lgamma(Integral x);              // (5) C++26
 
-  float lgammaf(float x);             // (6) C++17
-  long double lgammal(long double x); // (7) C++17
+  float
+    lgammaf(float x);                // (6) C++17
+  constexpr float
+    lgammaf(float x);                // (6) C++26
+
+  long double
+    lgammal(long double x);          // (7) C++17
+  constexpr long double
+    lgammal(long double x);          // (7) C++26
 }
 ```
 * Integral[italic]
@@ -91,7 +103,7 @@ lgamma(+∞)  = inf
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -99,3 +111,5 @@ lgamma(+∞)  = inf
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

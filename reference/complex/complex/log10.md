@@ -6,7 +6,11 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> log10(const complex<T>& x);
+  complex<T>
+    log10(const complex<T>& x); // (1) C++03
+  template <class T>
+  constexpr complex<T>
+    log10(const complex<T>& x); // (1) C++26
 }
 ```
 
@@ -84,3 +88,8 @@ log10( (1,2) ) = (0.349485,0.480829)
 | [`tan`](tan.md)                      | 複素数の正接を求める。                    |
 | [`tanh`](tanh.md)                    | 複素数の双曲線正接を求める。              |
 | [`log10`](/reference/cmath/log10.md) | 実数の常用対数を求める。                  |
+
+
+## 参照
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

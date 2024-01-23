@@ -6,12 +6,16 @@
 ```cpp
 namespace std {
   template <class T>
-  T norm(const complex<T>& x);           // (1) C++03
-
+  T
+    norm(const complex<T>& x); // (1) C++03
   template <class T>
-  constexpr T norm(const complex<T>& x); // (1) C++20
+  constexpr T
+    norm(const complex<T>& x); // (1) C++20
 
-  complex<Promoted> norm(Arithmetic x);  // (2) C++11 追加のオーバーロード
+  complex<Promoted>
+    norm(Arithmetic x);        // (2) C++11
+  constexpr complex<Promoted>
+    norm(Arithmetic x);        // (2) C++26
 }
 ```
 * Promoted[italic]
@@ -91,3 +95,5 @@ norm( (1,2) ) = 5
 - [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型への対応が行われ、整数型も考慮されるようになった
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で(2)が`constexpr`対応した

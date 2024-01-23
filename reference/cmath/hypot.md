@@ -7,35 +7,74 @@
 
 ```cpp
 namespace std {
-  float hypot(float x, float y);                    // (1) C++11からC++20まで
-  double hypot(double x, double y);                 // (2) C++11からC++20まで
-  long double hypot(long double x, long double y);  // (3) C++11からC++20まで
+  float
+    hypot(float x,
+          float y);               // (1) C++11からC++20まで
+  double
+    hypot(double x,
+          double y);              // (2) C++11からC++20まで
+  long double
+    hypot(long double x,
+          long double y);         // (3) C++11からC++20まで
 
   floating-point-type
     hypot(floating-point-type x,
-          floating-point-type y);                   // (4) C++23
+          floating-point-type y); // (4) C++23
+  constexpr floating-point-type
+    hypot(floating-point-type x,
+          floating-point-type y); // (4) C++26
 
-  Promoted hypot(Arithmetic1 x, Arithmetic2 y);     // (5) C++11
+  Promoted
+    hypot(Arithmetic1 x,
+          Arithmetic2 y);         // (5) C++11
+  constexpr Promoted
+    hypot(Arithmetic1 x,
+          Arithmetic2 y);         // (5) C++26
 
-  float hypotf(float x, float y);                   // (6) C++17
-  long double hypotl(long double x, long double y); // (7) C++17
+  float
+    hypotf(float x,
+           float y);              // (6) C++17
+  constexpr float
+    hypotf(float x,
+           float y);              // (6) C++26
 
-  float hypot(float x, float y, float z);           // (8) C++17からC++20まで
-  double hypot(double x, double y, double z);       // (9) C++17からC++20まで
+  long double
+    hypotl(long double x,
+           long double y);        // (7) C++17
+  constexpr long double
+    hypotl(long double x,
+           long double y);        // (7) C++26
+
+  float
+    hypot(float x,
+          float y,
+          float z);               // (8) C++17からC++20まで
+  double
+    hypot(double x,
+          double y,
+          double z);              // (9) C++17からC++20まで
   long double
     hypot(long double x,
           long double y,
-          long double z);                           // (10) C++17からC++20まで
+          long double z);         // (10) C++17からC++20まで
 
   floating-point-type
     hypot(floating-point-type x,
           floating-point-type y,
-          floating-point-type z);                   // (11) C++23
+          floating-point-type z); // (11) C++23
+  constexpr floating-point-type
+    hypot(floating-point-type x,
+          floating-point-type y,
+          floating-point-type z); // (11) C++26
 
   Promoted
     hypot(Arithmetic1 x,
           Arithmetic2 y,
-          Arithmetic3 z);                           // (12) C++17
+          Arithmetic3 z);         // (12) C++17
+  constexpr Promoted
+    hypot(Arithmetic1 x,
+          Arithmetic2 y,
+          Arithmetic3 z);         // (12) C++26
 }
 ```
 * Promoted[italic]
@@ -189,7 +228,7 @@ int main()
     - 2013以降、`_hypotl`と`hypotl`は関数として定義されている。
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -204,3 +243,5 @@ $$ \sqrt{x^2 + y^2} = \left| u \right| \sqrt{1 + \left( \frac{v}{u} \right)^2} \
 - [P0030R1 Proposal to Introduce a 3-Argument Overload to `std::hypot`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0030r1.pdf)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

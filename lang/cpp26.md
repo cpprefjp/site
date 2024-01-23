@@ -160,7 +160,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::mul_sat()`](/reference/numeric/mul_sat.md.nolink)
     - [`std::div_sat()`](/reference/numeric/div_sat.md.nolink)
     - [`std::saturation_cast()`](/reference/numeric/saturation_cast.md.nolink)
-- [`<cmath>`](/reference/cmath.md)の以下の関数を、`constexpr`に対応
+- [`<cmath>`](/reference/cmath.md)の以下の関数を、`constexpr`に対応 (特殊関数と、グローバルの丸めモードに依存する丸め関数以外の全て)
     - [`std::cos()`](/reference/cmath/cos.md)
     - [`std::sin()`](/reference/cmath/sin.md)
     - [`std::tan()`](/reference/cmath/tan.md)
@@ -189,7 +189,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::erfc()`](/reference/cmath/erfc.md)
     - [`std::lgamma()`](/reference/cmath/lgamma.md)
     - [`std::tgamma()`](/reference/cmath/tgamma.md)
-- [`<complex>`](/reference/complex.md)の以下の関数を、`constexpr`に対応
+- [`<complex>`](/reference/complex.md)の以下の関数を、`constexpr`に対応 (すべて)
     - [`std::abs()`](/reference/complex/complex/abs.md)
     - [`std::arg()`](/reference/complex/complex/arg.md)
     - [`std::proj()`](/reference/complex/complex/proj.md)
@@ -211,6 +211,10 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::log10()`](/reference/complex/complex/log10.md)
     - [`std::pow()`](/reference/complex/complex/pow.md)
     - [`std::sqrt()`](/reference/complex/complex/sqrt.md)
+    - [`std::norm()`](/reference/complex/complex/norm.md) (算術型オーバーロード)
+    - [`std::conj()`](/reference/complex/complex/conj.md) (算術型オーバーロード)
+    - [`std::imag()`](/reference/complex/complex/imag_free.md) (算術型オーバーロード)
+    - [`std::real()`](/reference/complex/complex/real_free.md) (算術型オーバーロード)
 - [`std::complex`](/reference/complex/complex.md)を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加
 - [`<random>`](/reference/random.md)の範囲`[0, 1)`の乱数を生成する[`std::generate_canonical()`](/reference/random/generate_canonical.md)を、望ましい統計的性質を保証するようアルゴリズムと制約を変更
 

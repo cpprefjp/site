@@ -6,17 +6,29 @@
 
 ```cpp
 namespace std {
-  float exp(float x);              // (1) C++03からC++20まで
-  double exp(double x);            // (2) C++03からC++20まで
-  long double exp(long double x);  // (3) C++03からC++20まで
+  float exp(float x);             // (1) C++03からC++20まで
+  double exp(double x);           // (2) C++03からC++20まで
+  long double exp(long double x); // (3) C++03からC++20まで
 
   floating-point-type
-    exp(floating-point-type x);    // (4) C++23
+    exp(floating-point-type x);   // (4) C++23
+  constexpr floating-point-type
+    exp(floating-point-type x);   // (4) C++26
 
-  double exp(Integral x);          // (5) C++11
+  double
+    exp(Integral x);              // (5) C++11
+  constexpr double
+    exp(Integral x);              // (5) C++26
 
-  float expf(float x);             // (6) C++17
-  long double expl(long double x); // (7) C++17
+  float
+    expf(float x);                // (6) C++17
+  constexpr float
+    expf(float x);                // (6) C++26
+
+  long double
+    expl(long double x);          // (7) C++17
+  constexpr long double
+    expl(long double x);          // (7) C++26
 }
 ```
 * Integral[italic]
@@ -86,7 +98,7 @@ exp(-∞) = 0.000000
 - [Visual C++](/implementation.md#visual_cpp): 2003, 2005, 2008, 2010
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -100,3 +112,5 @@ $$ e^x = \sum_{n = 0}^{\infty} \frac{x^n}{n!} \quad \mathrm{for~all} \; x $$
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した
