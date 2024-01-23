@@ -61,12 +61,13 @@ namespace std::ranges {
 | [`begin`](iota_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
 | [`end`](iota_view/end.md)                       | 番兵を取得する                   | C++20          |
 | [`size`](iota_view/size.md)                     | 有限長のとき、要素数を取得する   | C++20          |
+| [`empty`](iota_view/empty.md)                   | Rangeが空かどうかを判定する              | C++26         |
 
 ## 継承しているメンバ関数
 
 | 名前                                         | 説明                                     | 対応バージョン |
 |----------------------------------------------|------------------------------------------|----------------|
-| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する              | C++20          |
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する              | C++20（C++23まで）  |
 | [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する        | C++20          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する               | C++20          |
 | [`back`](view_interface/back.md)             | 有限長のとき、末尾要素への参照を取得する | C++20          |
@@ -201,3 +202,5 @@ FizzBuzz
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html) (本提案文書はC++20に遡って適用されている)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
+- [LWG Issue 4001. `iota_view` should provide `empty`](https://cplusplus.github.io/LWG/issue4001)
+
