@@ -6,38 +6,56 @@
 
 ```cpp
 namespace std {
-  string to_string(int val);
-  string to_string(unsigned int val);
-  string to_string(long val);
-  string to_string(unsigned long val);
-  string to_string(long long val);
-  string to_string(unsigned long long val);
-  string to_string(float val);
-  string to_string(double val);
-  string to_string(long double val);
+  string to_string(int val);                // (1) C++11
+  string to_string(unsigned int val);       // (2) C++11
+  string to_string(long val);               // (3) C++11
+  string to_string(unsigned long val);      // (4) C++11
+  string to_string(long long val);          // (5) C++11
+  string to_string(unsigned long long val); // (6) C++11
+  string to_string(float val);              // (7) C++11
+  string to_string(double val);             // (8) C++11
+  string to_string(long double val);        // (9) C++11
 }
 ```
+* string[link basic_string.md]
 
 ## 概要
-数値`val`を`string`型文字列に変換する。
+数値`val`を[`string`](basic_string.md)型文字列に変換する。
+
+- (1) : `int`型の値を[`string`](basic_string.md)型に変換する
+- (2) : `unsigned int`型の値を[`string`](basic_string.md)型に変換する
+- (3) : `long`型の値を[`string`](basic_string.md)型に変換する
+- (4) : `unsigned long`型の値を[`string`](basic_string.md)型に変換する
+- (5) : `long long`型の値を[`string`](basic_string.md)型に変換する
+- (6) : `unsigned long long`型の値を[`string`](basic_string.md)型に変換する
+- (7) : `float`型の値を[`string`](basic_string.md)型に変換する
+- (8) : `double`型の値を[`string`](basic_string.md)型に変換する
+- (9) : `long double`型の値を[`string`](basic_string.md)型に変換する
 
 
 ## 戻り値
-各数値型に対して、`sprintf(buf, fmt, val)`によって生成された文字列の`string`オブジェクトを返す。使用されるバッファサイズは未規定。
+- C++11まで
+    各数値型に対して、`sprintf(buf, fmt, val)`によって生成された文字列の`string`オブジェクトを返す。使用されるバッファサイズは未規定。
 
-各型で使用されるフォーマットは以下のようになる：
+    各型で使用されるフォーマットは以下のようになる：
 
-| 型                   | フォーマット |
-|----------------------|--------------|
-| `int`                | `"%d"`       |
-| `unsigned int`       | `"%u"`       |
-| `long`               | `"%ld"`      |
-| `unsigned long`      | `"%lu"`      |
-| `long long`          | `"%lld"`     |
-| `unsigned long long` | `"%llu"`     |
-| `float`              | `"%f"`       |
-| `double`             | `"%f"`       |
-| `long double`        | `"%Lf"`      |
+    | 型                   | フォーマット |
+    |----------------------|--------------|
+    | `int`                | `"%d"`       |
+    | `unsigned int`       | `"%u"`       |
+    | `long`               | `"%ld"`      |
+    | `unsigned long`      | `"%lu"`      |
+    | `long long`          | `"%lld"`     |
+    | `unsigned long long` | `"%llu"`     |
+    | `float`              | `"%f"`       |
+    | `double`             | `"%f"`       |
+    | `long double`        | `"%Lf"`      |
+
+- C++26から
+    ```cpp
+    return format("{}", val);
+    ```
+    * format[link /reference/format/format.md]
 
 
 ## 例
@@ -155,10 +173,10 @@ std::string to_string(long double val)
 - [GCC](/implementation.md#gcc): 4.5.4
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
-	- 2010は、不完全な実装。以下の型のみ多重定義されている。
-		- `long long`
-		- `unsigned long long`
-		- `long double`
+    - 2010は、不完全な実装。以下の型のみ多重定義されている。
+        - `long long`
+        - `unsigned long long`
+        - `long double`
 
 
 ## 関連項目
@@ -171,5 +189,5 @@ std::string to_string(long double val)
 
 ## 参照
 - [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
-
-
+- [P2587R3 `to_string` or not `to_string`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2587r3.html)
+    - C++26から`sprintf`ベースの仕様をやめて`std::format()`ベースの仕様になった
