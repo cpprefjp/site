@@ -123,6 +123,7 @@ prog.cc:45:3: warning: 'class_templ<int>' is deprecated: don't use class_templ<i
 
 ## 関連項目
 - [C++11 属性構文](/lang/cpp11/attributes.md)
+- [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
 
 
 ## 参照
