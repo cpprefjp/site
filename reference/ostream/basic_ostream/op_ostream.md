@@ -7,33 +7,33 @@
 ```cpp
 // マニピュレータの実行
 // 3つとも関数へのポインタを引数に取る。
+basic_ostream&
+  operator<<(basic_ostream& (*pf)(basic_ostream&));                       // (1) C++03
 basic_ostream<CharT, Traits>&
-  operator<<(basic_ostream<CharT, Traits>& (*pf)(basic_ostream<CharT, Traits>&)); // (1) C++03
+  operator<<(basic_ios<CharT, Traits>& (*pf)(basic_ios<CharT, Traits>&)); // (2) C++03
 basic_ostream<CharT, Traits>&
-  operator<<(basic_ios<CharT, Traits>& (*pf)(basic_ios<CharT, Traits>&));         // (2) C++03
-basic_ostream<CharT, Traits>&
-  operator<<(ios_base& (*pf)(ios_base&));                                         // (3) C++03
+  operator<<(ios_base& (*pf)(ios_base&));                                 // (3) C++03
 
 // bool値・数値・ポインタの書式化出力
-basic_ostream<CharT, Traits>& operator<<(bool n);               // (4) C++03
-basic_ostream<CharT, Traits>& operator<<(short n);              // (5) C++03
-basic_ostream<CharT, Traits>& operator<<(unsigned short n);     // (6) C++03
-basic_ostream<CharT, Traits>& operator<<(int n);                // (7) C++03
-basic_ostream<CharT, Traits>& operator<<(unsigned int n);       // (8) C++03
-basic_ostream<CharT, Traits>& operator<<(long n);               // (9) C++03
-basic_ostream<CharT, Traits>& operator<<(unsigned long n);      // (10) C++03
-basic_ostream<CharT, Traits>& operator<<(long long n);          // (11) C++11
-basic_ostream<CharT, Traits>& operator<<(unsigned long long n); // (12) C++11
-basic_ostream<CharT, Traits>& operator<<(float f);              // (13) C++03
-basic_ostream<CharT, Traits>& operator<<(double f);             // (14) C++03
-basic_ostream<CharT, Traits>& operator<<(long double f);        // (15) C++03
-basic_ostream<CharT, Traits>&
-  operator<<(extended-floating-point-type f);                   // (16) C++23
-basic_ostream<CharT, Traits>& operator<<(const void* p);        // (17) C++03
-basic_ostream<charT, traits>& operator<<(nullptr_t);            // (18) C++17
+basic_ostream& operator<<(bool n);                   // (4) C++03
+basic_ostream& operator<<(short n);                  // (5) C++03
+basic_ostream& operator<<(unsigned short n);         // (6) C++03
+basic_ostream& operator<<(int n);                    // (7) C++03
+basic_ostream& operator<<(unsigned int n);           // (8) C++03
+basic_ostream& operator<<(long n);                   // (9) C++03
+basic_ostream& operator<<(unsigned long n);          // (10) C++03
+basic_ostream& operator<<(long long n);              // (11) C++11
+basic_ostream& operator<<(unsigned long long n);     // (12) C++11
+basic_ostream& operator<<(float f);                  // (13) C++03
+basic_ostream& operator<<(double f);                 // (14) C++03
+basic_ostream& operator<<(long double f);            // (15) C++03
+basic_ostream& operator<<(extended-floating-point-type f); // (16) C++23
+basic_ostream& operator<<(const void* p);            // (17) C++03
+basic_ostream& operator<<(const volatile void* val); // (18) C++26
+basic_ostream& operator<<(nullptr_t);                // (19) C++17
 
 // ストリームバッファの非書式化出力
-basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb); // (19) C++03
+basic_ostream& operator<<(basic_streambuf<CharT, Traits>* sb); // (20) C++03
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 * extended-floating-point-type[link /reference/stdfloat.md]
@@ -43,8 +43,8 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb); //
 ストリームへの出力またはマニピュレータの実行を行う。
 
 - (1)-(3) : マニピュレータを実行するオーバーロードそれ自体は、書式化出力関数・非書式化出力関数いずれにも該当しない
-- (4)-(18) : 数値型（`bool`も含む）とポインタに対するオーバーロードは、書式化出力関数である
-- (19) : `basic_streambuf`に対するオーバーロードは、非書式化出力関数である
+- (4)-(19) : 数値型（`bool`も含む）とポインタに対するオーバーロードは、書式化出力関数である
+- (20) : `basic_streambuf`に対するオーバーロードは、非書式化出力関数である
 
 ## 効果
 
@@ -52,7 +52,7 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb); //
 
 1. `pf(*this)`を呼び出す。
 
-### (4)-(17) : bool値・数値・ポインタの書式化出力
+### (4)-(18) : bool値・数値・ポインタの書式化出力
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない
 1. `num_put::put`を使用して入力のパース・数値への変換を行う。実引数を渡すに際し、一部の型では以下のように型変換を行う
@@ -69,15 +69,17 @@ basic_ostream<CharT, Traits>& operator<<(basic_streambuf<CharT, Traits>* sb); //
         - 変換順位が`double`以下であれば、`static_cast<double>(f)`
         - そうでなく変換順位が`long double`以下であれば、`static_cast<long double>(f)`
         - そうでなければ実装定義の意味論を持ち、この演算子は条件付きサポートとなる
+    - (18) `const volatile void*`:
+        - `return operator<<(const_cast<const void*>(val));`
 1. `num_put::put`から得られた`iostate`値を実引数にして`setstate`関数を呼び出す
 
 
-### (18) : `nullptr_t`の出力
+### (19) : `nullptr_t`の出力
 
 - C++17 : 実装定義の出力文字列`s`を、`return operator<<(s)`として渡した場合と等価である。
 
 
-### (19) : ストリームバッファの非書式化出力
+### (20) : ストリームバッファの非書式化出力
 
 別のストリームバッファからの入力をストリームに出力する。
 
@@ -168,3 +170,5 @@ int main() {
 - [LWG Issue 2221. No formatted output operator for `nullptr`](https://wg21.cmeerw.net/lwg/issue2221)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型の`ostream`出力がサポートされた
+- [P1147R1 Printing `volatile` Pointers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1147r1.html)
+    - C++26で`const volatile void*`のオーバーロードが追加された
