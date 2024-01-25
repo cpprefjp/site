@@ -47,11 +47,11 @@ class expected {
 ## 効果
 - (1), (2) : 次の効果をもつ
     - エラー値を保持していたら、`expected<U, E>(`[`unexpect`](../unexpect_t.md)`,` [`error()`](error.md)`)`を返す。
-    - 型`U`が（CV修飾された）`void`でなければ、正常値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f))`で非直接リスト初期化した`expected<U, E>`オブジェクトを返す。
+    - 型`U`が（CV修飾された）`void`でなければ、正常値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f))`で直接非リスト初期化した`expected<U, E>`オブジェクトを返す。
     - そうでなければ、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f))`を評価し、`expected<U, E>()`を返す。
 - (3), (4) : 次の効果をもつ
     - エラー値を保持していたら、`expected<U, E>(`[`unexpect`](../unexpect_t.md)`,` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`を返す。
-    - 型`U`が（CV修飾された）`void`でなければ、正常値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f))`で非直接リスト初期化した`expected<U, E>`オブジェクトを返す。
+    - 型`U`が（CV修飾された）`void`でなければ、正常値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f))`で直接非リスト初期化した`expected<U, E>`オブジェクトを返す。
     - そうでなければ、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f))`を評価し、`expected<U, E>()`を返す。
 
 

@@ -45,8 +45,8 @@ class optional {
 
 
 ## 効果
-- (1), (3) : `*this`が有効値を保持するときは、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`)`で非リスト初期化した`optional<U>`オブジェクトを返す。有効値を保持しないときは、`optional<U>()`を返す。
-- (2), (4) : `*this`が有効値を保持するときは、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`で非リスト初期化した`optional<U>`オブジェクトを返す。有効値を保持しないときは、`optional<U>()`を返す。
+- (1), (3) : `*this`が有効値を保持するときは、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`value()`](value.md)`)`で直接非リスト初期化した`optional<U>`オブジェクトを返す。有効値を保持しないときは、`optional<U>()`を返す。
+- (2), (4) : `*this`が有効値を保持するときは、[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`で直接非リスト初期化した`optional<U>`オブジェクトを返す。有効値を保持しないときは、`optional<U>()`を返す。
 
 
 ## 備考

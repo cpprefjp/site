@@ -42,10 +42,10 @@ class expected {
 ## 効果
 - (1), (2) : 次の効果をもつ
     - 正常値を保持していたら、`expected<T, G>()`を返す。
-    - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`error()`](error.md)`)`で非直接リスト初期化した`expected<T, G>`オブジェクトを返す。
+    - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`error()`](error.md)`)`で直接非リスト初期化した`expected<T, G>`オブジェクトを返す。
 - (3), (4) : 次の効果をもつ
     - 正常値を保持していたら、`expected<T, G>()`を返す。
-    - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`で非直接リスト初期化した`expected<T, G>`オブジェクトを返す。
+    - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`で直接非リスト初期化した`expected<T, G>`オブジェクトを返す。
 
 
 ## 備考
