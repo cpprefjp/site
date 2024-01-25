@@ -205,6 +205,7 @@ if (it != m.end()) { return it->size(); }
 
 ## 関連項目
 - [C++20 初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md)
+- [C++23 初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md)
 
 
 ## 参照

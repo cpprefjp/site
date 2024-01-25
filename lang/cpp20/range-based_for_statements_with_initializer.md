@@ -115,6 +115,7 @@ int main()
 
 ## 関連項目
 - [C++17 if文とswitch文の条件式と初期化を分離](/lang/cpp17/selection_statements_with_initializer.md)
+- [C++23 初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md)
 
 
 ## 参照
