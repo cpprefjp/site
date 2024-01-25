@@ -532,6 +532,7 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 - [C++20 ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md)
 - [C++23 ラムダ式で()を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md)
 - [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
+- [C++23 `this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md)
 
 
 ## 参照

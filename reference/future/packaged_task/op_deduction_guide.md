@@ -1,21 +1,23 @@
 # 推論補助
-* functional[meta header]
+* future[meta header]
 * std[meta namespace]
-* function[meta class]
-* cpp17[meta cpp]
+* packaged_task[meta class]
+* cpp20[meta cpp]
 
 ```cpp
 namespace std {
   template <class R, class... ArgTypes>
-  function(R(*)(ArgTypes...)) -> function<R(ArgTypes...)>; // (1) C++17
+  packaged_task(R(*)(ArgTypes...))
+    -> packaged_task<R(ArgTypes...)>; // (1) C++20
 
   template <class F>
-  function(F) -> function<Signature>;                      // (2) C++17
+  packaged_task(F)
+    -> packaged_task<Signature>;      // (2) C++20
 }
 ```
 
 ## 概要
-`std::function`クラステンプレートの型推論補助。
+`std::packaged_task`クラステンプレートの型推論補助。
 
 - (1) : 関数ポインタからの推論
 - (2) : 関数オブジェクトからシグニチャの推論。このオーバーロードは、関数呼び出し演算子がひとつだけオーバーロードされている場合に有効
@@ -25,7 +27,7 @@ namespace std {
 - (2) :
     - `&F::operator()`は評価されないオペランドとして扱われ、以下のいずれかの場合に適格である：
         - C++17 :
-            - `decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式もしくは`R(*)(G cv ref(opt), A...) noexcept(opt)`形式であること
+            - `decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式であること
         - C++26 :
             - `F::operator()`が非静的メンバ関数であり、`decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式もしくは`R(*)(G cv ref(opt), A...) noexcept(opt)`形式であること
             - `F::operator()`静的メンバ関数であり、`decltype(&F::operator())`は`R(*)(A...) noexcept(opt)`形式であること
@@ -33,46 +35,43 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <functional>
-#include <type_traits>
+#include <iostream>
+#include <future>
 
 int foo(int, char) { return 0; }
 
 struct Functor {
-  void operator()(double) {}
+  int operator()(double) { return 1; }
 };
 
 int main()
 {
   // (1)
   // 関数ポインタからの型推論
-  std::function f = foo;
-  static_assert(std::is_same_v<
-    decltype(f),
-    std::function<int(int, char)>
-  >);
-
-  // (2)
-  // ラムダ式からの型推論。
-  std::function g = [](int) { return 1; };
-  static_assert(std::is_same_v<
-    decltype(g),
-    std::function<int(int)>
-  >);
+  std::packaged_task f{foo};
+  f(1, '3');
+  std::cout << f.get_future().get() << std::endl;
 
   // (2)
   // 関数オブジェクトからの型推論。
   // 関数呼び出し演算子がひとつだけオーバーロードされていること
-  std::function h = Functor();
-  static_assert(std::is_same_v<
-    decltype(h),
-    std::function<void(double)>
-  >);
+  std::packaged_task g{Functor{}};
+  g(1.23);
+  std::cout << g.get_future().get() << std::endl;
+
+  // (3)
+  // ラムダ式からの型推論
+  std::packaged_task h{[](int) { return 2; }};
+  h(3);
+  std::cout << h.get_future().get() << std::endl;
 }
 ```
 
 ### 出力
 ```
+0
+1
+2
 ```
 
 
@@ -81,8 +80,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 18
+- [GCC](/implementation.md#gcc): 11
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
@@ -93,4 +92,5 @@ int main()
 
 
 ## 参照
-- [LWG issue 3117. Missing `packaged_task` deduction guides](https://wg21.cmeerw.net/lwg/issue3117)
+- [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
+

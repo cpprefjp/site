@@ -5,6 +5,7 @@
 C++23では、ラムダ式のパラメータリストが空であれば、以下の要素を含む場合であってもパラメータリストの `()` を省略できる。
 
 - `constexpr`
+- `static`
 - `mutable`
 - `consteval`
 - `noexcept`
@@ -25,6 +26,7 @@ auto f5 = [] constexpr mutable noexcept -> bool { return true; }; // C++23 OK
 
 ## 関連項目
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
+- [C++23 `this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md)
 
 
 ## 参照
