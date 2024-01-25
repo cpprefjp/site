@@ -286,11 +286,10 @@ int main()
 {
   {
     const char str[] = "00000123456789 is decimal";
-    int value{};
 
     //(1) 10進数文字列からintへ変換
     //変換変換の成否判定に`operator bool`を使用
-    if (std::from_chars(std::begin(str), std::end(str), value)) {
+    if (int value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }
     else {
@@ -300,10 +299,9 @@ int main()
 
   {
     const char str[] = "1111111111111111 is (65535)_10";
-    int value{};
 
     //(1) 2進数文字列からintへ変換
-    if (std::from_chars(std::begin(str), std::end(str), value, 2)) {
+    if (int value{}; std::from_chars(std::begin(str), std::end(str), value, 2)) {
       std::cout << value << std::endl;
     }
     else {
@@ -313,10 +311,9 @@ int main()
 
   {
     const char str[] = "Z is (35)_10";
-    int value{};
 
     //(1) 36進数文字列からintへ変換
-    if (std::from_chars(std::begin(str), std::end(str), value, 36)) {
+    if (int value{}; std::from_chars(std::begin(str), std::end(str), value, 36)) {
       std::cout << value << std::endl;
     }
     else {
@@ -326,10 +323,9 @@ int main()
 
   {
     const char str[] = "255";
-    char value{};
 
     //(1) 失敗する例 MSVCにおけるcharの範囲は-128～127
-    if (std::from_chars(std::begin(str), std::end(str), value)) {
+    if (char value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }
     else {
@@ -341,10 +337,9 @@ int main()
 
   {
     const char str[] = "3.1415926535897932384626433832795 is pi";
-    double value{};
 
     //(3) 固定小数表記文字列からdoubleへ変換
-    if (std::from_chars(std::begin(str), std::end(str), value)) {
+    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }
     else {
@@ -354,10 +349,9 @@ int main()
 
   {
     const char str[] = "1.10001e-01 is Liouville number";
-    double value{};
 
     //(3) 指数表記文字列からdoubleへ変換
-    if (std::from_chars(std::begin(str), std::end(str), value)) {
+    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }
     else {
@@ -367,10 +361,9 @@ int main()
 
   {
     const char str[] = "1.c29068986fcdf000p-4 is Liouville number";
-    double value{};
 
     //(3) 16進指数表記文字列からdoubleへ変換
-    if (std::from_chars(std::begin(str), std::end(str), value, std::chars_format::hex)) {
+    if (double value{}; std::from_chars(std::begin(str), std::end(str), value, std::chars_format::hex)) {
       std::cout << value << std::endl;
     }
     else {
@@ -380,10 +373,9 @@ int main()
 
   {
     const char str[] = " 3.1415926535897932384626433832795 is pi";
-    double value{};
 
     //(3) 失敗する例 ホワイトスペース読み飛ばし
-    if (std::from_chars(std::begin(str), std::end(str), value)) {
+    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }
     else {
@@ -393,10 +385,9 @@ int main()
 
   {
     const char str[] = "NaN";
-    double value{};
 
     //(3) NaNの読み取り
-    if (std::from_chars(std::begin(str), std::end(str), value)) {
+    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }
     else {
@@ -406,10 +397,9 @@ int main()
 
   {
     const char str[] = "-INF";
-    double value{};
 
     //(3) INFの読み取り
-    if (std::from_chars(std::begin(str), std::end(str), value)) {
+    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }
     else {
