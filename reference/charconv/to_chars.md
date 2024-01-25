@@ -175,7 +175,7 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
 
 
 ## 例
-
+### 基本の使用例 (C++17)
 ```cpp example
 #include <iostream>
 #include <charconv>
@@ -268,7 +268,111 @@ int main()
 * std::chars_format[link chars_format.md]
 * std::errc[link /reference/system_error/errc.md]
 
-### 出力例（VS2019 16.5 preview 1）
+#### 出力例（VS2019 16.5 preview 1）
+```
+10
+1111111111111111
+z
+0.110001
+1.10001e-01
+0.110001
+1.c29068986fcdfp-4
+1.1000100000000000e-01
+0.1100010000000000
+1.c29068986fcdf000p-4
+```
+
+### 基本の使用例 (C++26)
+```cpp example
+#include <iostream>
+#include <charconv>
+
+int main()
+{
+  char out[50]{};
+  auto begin = std::begin(out);
+  auto end = std::end(out);
+
+  //(1) 10進数文字列へ変換
+  if (auto result = std::to_chars(begin, end, 10)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+  //(1) 2進数文字列へ変換
+  if (auto result = std::to_chars(begin, end, 65535, 2)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+  //(1) 36進数文字列へ変換
+  if (auto result = std::to_chars(begin, end, 35, 36)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+
+  //リウヴィル数 
+  constexpr double l = 0.11000100000000000000000100000000000;
+
+  //(3) 精度・フォーマット指定なしの浮動小数点数変換
+  if (auto result = std::to_chars(begin, end, l)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+
+  //(7) 精度指定なしの浮動小数点数変換、指数表記
+  if (auto result = std::to_chars(begin, end, l, std::chars_format::scientific)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+  //(7) 精度指定なしの浮動小数点数変換、固定小数表記
+  if (auto result = std::to_chars(begin, end, l, std::chars_format::fixed)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+  //(7) 精度指定なしの浮動小数点数変換、16進指数表記
+  if (auto result = std::to_chars(begin, end, l, std::chars_format::hex)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+
+  //(11) 精度指定ありの浮動小数点数変換、指数表記
+  if (auto result = std::to_chars(begin, end, l, std::chars_format::scientific, 16)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+  //(11) 精度指定ありの浮動小数点数変換、固定小数表記
+  if (auto result = std::to_chars(begin, end, l, std::chars_format::fixed, 16)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+  //(11) 精度指定ありの浮動小数点数変換、16進指数表記
+  if (auto result = std::to_chars(begin, end, l, std::chars_format::hex, 16)) {
+    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  }
+  else {
+    std::cout << "conversion failed." << std::endl;
+  }
+}
+```
+
+#### 出力例
 ```
 10
 1111111111111111

@@ -25,6 +25,13 @@ namespace std {
 | ec | 成功なら`ec == errc{}`、失敗ならば`errc::invalid_argument`を表す[`errc`](/reference/system_error/errc.md)の値。 | C++17 |
 
 ## メンバ関数
+### 成否判定
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`operator bool`](from_chars_result/op_bool.md) | 変換に成功したかを判定する | C++26 |
+
+
 ### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
