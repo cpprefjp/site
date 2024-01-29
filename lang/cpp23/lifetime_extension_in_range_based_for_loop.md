@@ -14,7 +14,7 @@ for ( init-statement(opt) for-range-declaration : for-range-initializer ) statem
 
 ただし、次の場合には適用されない。
 
-- 一時オブジェクトが関数の引数の場合
+- 一時オブジェクトが関数の引数として生成された場合
 - 一時オブジェクトの(この規定が適用されない場合の)寿命が `for-range-initializer` 完全式の終わりではない場合
 
 ## 例
@@ -45,39 +45,20 @@ U
 B
 ```
 
-以下の例では、`getstr()` が返す一時オブジェクトは関数の引数だから、延命されない。
+範囲for文の危険性を減らすだけではなく、この仕様はRAIIのためのオブジェクトを無名で作るのに使うことができる。
 
-```cpp example
-import std;
-
-std::vector<std::string> getstr() {
-  return {"hello", "UB"};
-}
-
-std::string wrap(const std::string& x) {
-    return "[" + x + "]"; 
-}
-
-int main()
-{
-  for(auto&& c : wrap(getstr()[0])) {
-    std::println("{}", c);
-  }
+```
+// P2718R0より引用
+void f() {
+    std::vector<int> v = { 42, 17, 13 };
+    std::mutex m;
+    for (int x : static_cast<void>(std::lock_guard<std::mutex>(m)), v) {
+        ...
+    }
 }
 ```
-
-### 出力
-```
-[
-h
-e
-l
-l
-o
-]
-```
-
-
+ここでは、カンマ演算子を活用して実際にイテレートする範囲とは別にロックを獲得している。
+この一時オブジェクトは `for-range-initializer` の中で生じているから、範囲for文の終わりまでロックを維持できる。
 
 ## この機能が必要になった背景・経緯
 
@@ -133,6 +114,32 @@ int main()
 
 C++23では、`getstr()` の呼び出しが `for-range-initializer` の中にあるため、返った一時オブジェクトは参照 `r` と同じ寿命になる。したがってダングリング参照は発生せず、このコードは安全である。
 
+### 例外規定について
+
+"一時オブジェクトが関数の引数として生成された場合" とは、次のサンプルコードにおける `f2(T t)` の実引数 `t` として、呼び出される関数のスコープで生成されるような場合である。
+
+```cpp
+// P2718R0より引用
+using T = std::list<int>;
+const T& f1(const T& t) { return t; }
+const T& f2(T t)        { return t; }
+T g();
+
+void foo() {
+  for (auto e : f1(g())) {}  // OK: g()の戻り値は延命される
+  for (auto e : f2(g())) {}  // 未定義動作
+}
+```
+
+このような `t` は呼び出される関数から戻ると破棄されるから、その参照を返すことは未定義動作である。
+ここで未定義動作になることは範囲for文の危険性と無関係なので、寿命を延長するという解釈ができないようにこの例外規定が入った。
+
+議論:
+- この `t` は "一時オブジェクトの寿命が `for-range-initializer` 完全式の終わりではない場合" にも該当すると考えられる
+- この `t` は、構文的に見ると `for-range-initializer` の中で生じたとは言えないという意見もある
+- "`for-range-initializer` の中" を実行時のことだと解釈すると、そこから呼び出された関数の中なども含むことになるが、それを排除する規定が "一時オブジェクトの寿命が `for-range-initializer` 完全式の終わりではない場合" ではないか
+  - インライン展開されたときなどに効いてくるのかもしれない
+
 ## 検討されたほかの選択肢
 
 一時オブジェクトの寿命について、範囲for文に限定しない汎用的な方法も検討されたが、最終的には範囲for文の例外規定となった。
@@ -141,7 +148,8 @@ C++23では、`getstr()` の呼び出しが `for-range-initializer` の中にあ
 
 - [範囲for文](/lang/cpp11/range_based_for.md)
 
-
 ## 参照
-
+- [P2718R0 Wording for P2644R1 Fix for Range-based for Loop](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2718r0.html)
 - [地に足のついた範囲for文 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2022/12/05/000923)
+- [範囲for文範囲初期化子内の一時オブジェクト延命の説明見直し
+ #1246](https://github.com/cpprefjp/site/issues/1246)
