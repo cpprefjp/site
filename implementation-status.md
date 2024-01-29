@@ -248,7 +248,7 @@
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
 |----------|------|------------|----------------|------------|--------------|
 | P0330R8: [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | 13 | 2022.2 | - |
-| P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md.nolink) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | 2023.2 | - |
+| P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | 2023.2 | - |
 | P2266R3: [暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 | 13 | 13 | 2022.2 | - |
 | P1787R6: [スコープと名前ルックアップの仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する | - | - | - | - |
 | P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md.nolink) | | - | - | - | - |
