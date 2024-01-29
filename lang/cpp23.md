@@ -12,7 +12,6 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [(符号付き)`size_t`リテラルのためのサフィックス](cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする |
-| [エスケープシーケンスの区切り](cpp23/delimited_escape_sequences.md) | エスケープシーケンスの範囲を明確にする構文を追加する |
 | [暗黙的なムーブを簡略化](cpp23/simpler_implicit_move.md.nolink) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 |
 
 これらに加えて、ライブラリ機能として拡張浮動小数点数型が定義された。[`<stdfloat>`](/reference/stdfloat.md)を参照。
@@ -50,6 +49,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する |
+| [エスケープシーケンスの区切り](cpp23/delimited_escape_sequences.md) | エスケープシーケンスの範囲を明確にする構文を追加する |
 | [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | |
 | [1ワイド文字に収まらないワイド文字リテラルを禁止する](cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md.nolink) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する |
 | [名前付きユニバーサルキャラクタ名](cpp23/named_universal_character_escapes.md) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする |
