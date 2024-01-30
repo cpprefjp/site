@@ -45,21 +45,6 @@ U
 B
 ```
 
-範囲for文の危険性を減らすだけではなく、この仕様はRAIIのためのオブジェクトを無名で作るのに使うことができる。
-
-```
-// P2718R0より引用
-void f() {
-    std::vector<int> v = { 42, 17, 13 };
-    std::mutex m;
-    for (int x : static_cast<void>(std::lock_guard<std::mutex>(m)), v) {
-        ...
-    }
-}
-```
-ここでは、カンマ演算子を活用して実際にイテレートする範囲とは別にロックを獲得している。
-この一時オブジェクトは `for-range-initializer` の中で生じているから、範囲for文の終わりまでロックを維持できる。
-
 ## この機能が必要になった背景・経緯
 
 範囲for文をより安全に使えるように改善するために仕様が変更された。
@@ -135,6 +120,9 @@ void foo() {
 ここで未定義動作になることは範囲for文の危険性と無関係なので、寿命を延長するという解釈ができないようにこの例外規定が入った。
 
 議論:
+
+この例外規定の解釈は難解であり議論がある。
+
 - この `t` は "一時オブジェクトの寿命が `for-range-initializer` 完全式の終わりではない場合" にも該当すると考えられる
 - この `t` は、構文的に見ると `for-range-initializer` の中で生じたとは言えないという意見もある
 - "`for-range-initializer` の中" を実行時のことだと解釈すると、そこから呼び出された関数の中なども含むことになるが、それを排除する規定が "一時オブジェクトの寿命が `for-range-initializer` 完全式の終わりではない場合" ではないか
@@ -153,3 +141,4 @@ void foo() {
 - [地に足のついた範囲for文 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2022/12/05/000923)
 - [範囲for文範囲初期化子内の一時オブジェクト延命の説明見直し
  #1246](https://github.com/cpprefjp/site/issues/1246)
+- [Are function parameter objects temporary objects?](https://stackoverflow.com/questions/77676199/are-function-parameter-objects-temporary-objects/77676480)
