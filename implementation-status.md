@@ -254,7 +254,7 @@
 | P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md.nolink) | | - | - | - | - |
 | P2360R0: [初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md) | `for (using T = int; T e : v) {}`を許可 | 12 | 14 | 2022.2 | - |
 | P2718R0: [範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](lang/cpp23/lifetime_extension_in_range_based_for_loop.md) | | - | - | - | - |
-| P2324R2: [関数末尾のラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する | 13 | 16 | 2023.2 | - |
+| P2324R2: [複合文の末尾へのラベルを許可](/lang/cpp23/labels_at_the_end_of_compound_statements.md) | C互換のため、複合文の末尾でのgoto文のラベルを許可する | 13 | 16 | 2023.2 | - |
 | P0847R7: [自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする | - | 18 | - | 2022 Update 2 (partial) |
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | 2022 |
 | P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | - |

@@ -31,7 +31,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [初期化文での型の別名宣言を許可](cpp23/extend_init_statement_to_allow_alias_declaration.md) | `for (using T = int; T e : v) {}`を許可 |
 | [範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](cpp23/lifetime_extension_in_range_based_for_loop.md) | 範囲初期化子内で生じた一時オブジェクトは範囲for文の終わりまで延命される |
-| [関数末尾のラベルを許可](cpp23/labels_at_the_end_of_compound_statements.md.nolink) | C互換のため、関数末尾でのgoto文のラベルを許可する |
+| [複合文の末尾へのラベルを許可](cpp23/labels_at_the_end_of_compound_statements.md) | C互換のため、複合文の末尾でのgoto文のラベルを許可する |
 
 
 ### クラス
