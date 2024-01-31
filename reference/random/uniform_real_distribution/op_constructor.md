@@ -83,3 +83,5 @@ int main()
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [C++ の std::uniform_real_distribution はあまり信用できない。](https://qiita.com/Nabetani/items/b6b5f80c77b92ff8bd9f)
+    -　a ≤ x < b なるx を返すはずであるが、その範囲外の値が返ってくるライブラリ実装が存在することの指摘。
