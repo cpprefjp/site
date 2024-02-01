@@ -259,7 +259,7 @@
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md.nolink) | アクセス制御の異なるメンバ変数のレイアウトが実装によって異なっていたため仕様を規定 | Yes | Yes | - | 2022 |
 | P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | - |
 | P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md) | 状態をもたないいくつかの演算子を`static`として宣言できるようにする | 13 | 16 | 2023.2 | - |
-| P2201R1: [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
+| P2201R1: [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
 | P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
 | P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | 2023.2 | - |
 | P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | 2023.2 | - |

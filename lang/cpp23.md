@@ -48,7 +48,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](cpp23/mixed_string_literal_concatenation.md.nolink) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する |
+| [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](cpp23/mixed_string_literal_concatenation.md) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する |
 | [エスケープシーケンスの区切り](cpp23/delimited_escape_sequences.md) | エスケープシーケンスの範囲を明確にする構文を追加する |
 | [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | |
 | [1ワイド文字に収まらないワイド文字リテラルを禁止する](cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する |
