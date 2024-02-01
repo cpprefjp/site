@@ -106,7 +106,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 * eofbit[link /reference/ios/ios_base/type-iostate.md]
 * sentry[link sentry.md]
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
-* pubseekpos[link /reference/streambuf/basic_streambuf/pubseekpos.md.nolink]
+* pubseekpos[link /reference/streambuf/basic_streambuf/pubseekpos.md]
 * ios_base[link /reference/ios/ios_base.md]
 * in[link /reference/ios/ios_base/type-openmode.md]
 * failbit[link /reference/ios/ios_base/type-iostate.md]

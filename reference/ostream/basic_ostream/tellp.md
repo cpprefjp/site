@@ -13,7 +13,7 @@ pos_type tellp();
 
 ## 戻り値
 
-- [`fail`](../../ios/basic_ios/fail.md)`() == false` であれば、[`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)`(0, cur, out)`。
+- [`fail`](../../ios/basic_ios/fail.md)`() == false` であれば、[`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)`(0, cur, out)`。
 - [`fail`](../../ios/basic_ios/fail.md)`() == true` であれば、`pos_type(-1)`。
 
 ## 備考
@@ -61,7 +61,7 @@ pos_type tellp(pos_type pos) {
 * sentry[link sentry.md]
 * fail[link ../../ios/basic_ios/fail.md]
 * rdbuf[link ../../ios/basic_ios/rdbuf.md]
-* pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md.nolink]
+* pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md]
 
 ## バージョン
 ### 言語
@@ -70,4 +70,4 @@ pos_type tellp(pos_type pos) {
 ## 参照
 
 - [`basic_ostream::seekp`](seekp.md)
-- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)
