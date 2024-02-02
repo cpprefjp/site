@@ -26,7 +26,7 @@ namespace std {
 protected virtualの[`seekoff()`](seekoff.md)を呼ぶ。
 
 ## 戻り値
-[`seekoff`](seekoff.md)(off, way, which)。
+[`seekoff`](seekoff.md)`(off, way, which)`。
 
 ## バージョン
 ### 言語

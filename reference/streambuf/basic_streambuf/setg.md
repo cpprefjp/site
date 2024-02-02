@@ -20,7 +20,7 @@ namespace std {
 入力部分列の各ポインタを設定する。
 
 ## 事後条件
-gbeg == [`eback()`](eback.md) および gnext == [`gptr()`](gptr.md) および gend == [`egptr()`](egptr.md)。
+`gbeg == `[`eback()`](eback.md) および `gnext == `[`gptr()`](gptr.md) および `gend == `[`egptr()`](egptr.md)。
 
 ## 例
 ```cpp example

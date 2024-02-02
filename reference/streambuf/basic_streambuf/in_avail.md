@@ -21,7 +21,7 @@ namespace std {
 現在の入力列の読み取り可能な文字数を返す。
 
 ## 戻り値
-- 読み取り可能な文字列が存在する場合、[`egptr()`](egptr.md) - [`gptr()`](gptr.md)を返す。
+- 読み取り可能な文字列が存在する場合、[`egptr()`](egptr.md)` - `[`gptr()`](gptr.md)を返す。
 - それ以外の場合、[`showmanyc()`](showmanyc.md)を返す。
 
 ## 例

@@ -21,11 +21,11 @@ namespace std {
 
 ## 効果
 - 入力文字列の現在位置を1つ戻すことができる場合、現在位置を1つ戻す。
-- それ以外の場合、[`pbackfail`](pbackfail.md)([`Traits::to_int_type`](../../string/char_traits/to_int_type.md)(c))を呼ぶ。
+- それ以外の場合、[`pbackfail`](pbackfail.md)`(`[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(c))`を呼ぶ。
 
 ## 戻り値
-- 読み取り可能な文字列が存在する場合、更新された現在位置のTraits::to_int_type(*gptr())。
-- それ以外の場合、[`pbackfail`](pbackfail.md)([`Traits::to_int_type`](../../string/char_traits/to_int_type.md)(c))の戻り値を返す。
+- 読み取り可能な文字列が存在する場合、更新された現在位置の[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(*gptr())`。
+- それ以外の場合、[`pbackfail`](pbackfail.md)`(`[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(c))`の戻り値を返す。
 
 ## 例
 ```cpp example

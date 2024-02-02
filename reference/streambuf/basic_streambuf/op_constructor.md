@@ -25,7 +25,7 @@ namespace std {
 - (1) :
 	- 入力列・出力列の各ポインタをヌルにする。
 	- 現在のグローバルロケールを`locale`デフォルトコンストラクタで取得し、`getloc()`の初期値とする。
-- (2) : rhs の入力列・出力列の各ポインタをコピーする。
+- (2) : `rhs`の入力列・出力列の各ポインタをコピーする。
 
 
 ## 事後条件
@@ -44,6 +44,7 @@ namespace std {
   - `pbase()` == `rhs.pbase()`
   - `pptr()` == `rhs.pptr()`
   - `epptr()` == `rhs.epptr()`
+  - `getloc()` == `rhs.getloc()`
 
 
 ## 実装例

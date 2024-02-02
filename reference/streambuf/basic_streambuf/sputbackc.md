@@ -20,12 +20,12 @@ namespace std {
 任意の1文字を入力列に戻す。
 
 ## 効果
-- 入力文字列の現在位置を1つ戻すことができ、かつ、1つ戻った位置の値がcと等しければ、現在位置を1つ戻す。
-- それ以外の場合、[`pbackfail`](pbackfail.md)([`Traits::to_int_type`](../../string/char_traits/to_int_type.md)(c))を呼ぶ。
+- 入力文字列の現在位置を1つ戻すことができ、かつ、1つ戻った位置の値が`c`と等しければ、現在位置を1つ戻す。
+- それ以外の場合、[`pbackfail`](pbackfail.md)`(`[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(c))`を呼ぶ。
 
 ## 戻り値
-- 入力文字列の現在位置を1つ戻すことができ、かつ、1つ戻った位置の値がcと等しければ、[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)(c)。
-- それ以外の場合、[`pbackfail`](pbackfail.md)([`Traits::to_int_type`](../../string/char_traits/to_int_type.md)(c))の戻り値を返す。
+- 入力文字列の現在位置を1つ戻すことができ、かつ、1つ戻った位置の値が`c`と等しければ、[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(c)`。
+- それ以外の場合、[`pbackfail`](pbackfail.md)`(`[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(c))`の戻り値を返す。
 
 ## 例
 ```cpp example

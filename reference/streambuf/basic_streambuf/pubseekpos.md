@@ -25,7 +25,7 @@ namespace std {
 protected virtualの[`seekpos()`](seekpos.md)を呼ぶ。
 
 ## 戻り値
-[`seekpos`](seekpos.md)(sp, which)。
+[`seekpos`](seekpos.md)`(sp, which)`。
 
 ## バージョン
 ### 言語

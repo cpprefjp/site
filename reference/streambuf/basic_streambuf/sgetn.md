@@ -21,7 +21,7 @@ namespace std {
 入力列から複数文字を読み取る。
 
 ## 戻り値
-xsgetn(s, n)。
+[`xsgetn`](xsgetn.md)`(s, n)`。
 
 ## 例
 ```cpp example

@@ -21,10 +21,10 @@ namespace std {
 出力列に複数文字を書き込む。
 
 ## 効果
-[`xsputn`](xsputn.md)(s, n)を呼ぶ。xsputn()はprotected virtualなので、継承されていれば、継承先のxsputn()が呼ばれる。
+[`xsputn`](xsputn.md)`(s, n)`を呼ぶ。[`xsputn()`](xsputn.md)はprotected virtualなので、継承されていれば、継承先の[`xsputn()`](xsputn.md)が呼ばれる。
 
 ## 戻り値
-[`xsputn`](xsputn.md)(s, n)の戻り値。
+[`xsputn`](xsputn.md)`(s, n)`の戻り値。
 
 ## 例
 ```cpp example

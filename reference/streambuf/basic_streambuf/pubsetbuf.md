@@ -21,10 +21,10 @@ namespace std {
 バッファ領域を与える。
 
 ## 効果
-protected virtualの[`setbuf()`setbuf.md)を呼ぶ。
+protected virtualの[`setbuf()`](setbuf.md)を呼ぶ。
 
 ## 戻り値
-[`setbuf`](setbuf.md)(s, n)。
+[`setbuf`](setbuf.md)`(s, n)`。
 
 ## バージョン
 ### 言語

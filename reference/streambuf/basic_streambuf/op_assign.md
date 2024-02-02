@@ -21,13 +21,13 @@ namespace std {
 入力部分列ポインタ、出力部分列ポインタ、ロケールをコピーする。
 
 ## 事後条件
-- [`eback()`](eback.md) == rhs.[`eback()`](eback.md)
-- [`gptr()`](gptr.md) == rhs.[`gptr()`](gptr.md)
-- [`egptr()`](egptr.md) == rhs.[`egptr()`](egptr.md)
-- [`pbase()`](pbase.md) == rhs.[`pbase()`](pbase.md)
-- [`pptr()`](pptr.md) == rhs.[`pptr()`](pptr.md)
-- [`epptr()`](epptr.md) == rhs.[`epptr()`](epptr.md)
-- [`getloc()`](getloc.md) == rhs.[`getloc()`](getloc.md)
+- [`eback()`](eback.md) == `rhs.`[`eback()`](eback.md)
+- [`gptr()`](gptr.md) == `rhs.`[`gptr()`](gptr.md)
+- [`egptr()`](egptr.md) == `rhs.`[`egptr()`](egptr.md)
+- [`pbase()`](pbase.md) == `rhs.`[`pbase()`](pbase.md)
+- [`pptr()`](pptr.md) == `rhs.`[`pptr()`](pptr.md)
+- [`epptr()`](epptr.md) == `rhs.`[`epptr()`](epptr.md)
+- [`getloc()`](getloc.md) == `rhs.`[`getloc()`](getloc.md)
 
 ## 戻り値
 *this。

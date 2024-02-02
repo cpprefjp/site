@@ -20,11 +20,11 @@ namespace std {
 出力列に1文字書き込む。
 
 ## 効果
-- 出力列が存在する場合、現在位置にcを書き込み、現在位置を1つ進める。
+- 出力列が存在する場合、現在位置に`c`を書き込み、現在位置を1つ進める。
 - それ以外の場合、[`overflow()`](overflow.md)を呼ぶ。
 
 ## 戻り値
-- 出力列が存在する場合、[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)(c)。
+- 出力列が存在する場合、[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(c)`。
 - それ以外の場合、[`overflow()`](overflow.md)の戻り値を返す。
 
 ## 例

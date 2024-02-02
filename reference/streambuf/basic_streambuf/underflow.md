@@ -26,7 +26,7 @@ namespace std {
 [`Traits::eof()`](../../string/char_traits/eof.md)。
 
 ## 備考
-入力部分列の領域を消費し切った状態で[`sgetc()`](sgetc.md)を呼ぶと、underflow()が呼ばれる。
+入力部分列の領域を消費し切った状態で[`sgetc()`](sgetc.md)を呼ぶと、`underflow()`が呼ばれる。
 
 ## 例
 ```cpp example
