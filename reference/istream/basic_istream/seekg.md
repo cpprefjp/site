@@ -121,7 +121,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 ## 参照
 
 - [`basic_istream::tellg`](tellg.md)
-- `basic_streambuf::pubseekpos`
-- `basic_streambuf::pubseekoff`
-- `basic_streambuf::seekpos`
-- `basic_streambuf::seekoff`
+- [`basic_streambuf::pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md)
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)
+- [`basic_streambuf::seekpos`](../../streambuf/basic_streambuf/seekpos.md)
+- [`basic_streambuf::seekoff`](../../streambuf/basic_streambuf/seekoff.md)

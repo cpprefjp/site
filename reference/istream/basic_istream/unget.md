@@ -108,4 +108,4 @@ basic_istream<CharT, Traits>& unget() {
 ## 参照
 
 - [`basic_istream::putback`](putback.md)
-- `basic_streambuf::sungetc`
+- [`basic_streambuf::sungetc`](../../streambuf/basic_streambuf/sungetc.md)

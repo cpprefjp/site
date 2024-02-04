@@ -72,7 +72,7 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 | `sync`                                      | 出力列の同期 (protected virtual) | |
 | `uflow`                                     | (protected virtual) |
 | `underflow`                                 | (protected virtual) |
-| `showmasync`                                | ブロックせずに読み取れると期待される文字数を得る (protected virtual) | |
+| `showmanyc`                                 | ブロックせずに読み取れると期待される文字数を得る (protected virtual) | |
 | `pbackfail`                                 | 1文字を入力列に戻す (protected virtual) | |
 | `overflow`                                  | (protected virtual) |
 

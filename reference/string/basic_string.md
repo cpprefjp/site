@@ -151,7 +151,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
-| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。<br/>`static const size_type npos = -1;` | |
+| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。<br/>`static const size_type npos = -1;` | C++23からconstexpr |
 
 
 ### メンバ型

@@ -56,5 +56,4 @@ int sync() {
 - C++98
 
 ## 参照
-
-- `basic_streambuf::pubsync`
+- [`basic_streambuf::pubsync`](../../streambuf/basic_streambuf/pubsync.md)

@@ -83,7 +83,6 @@ pos_type tellg(pos_type pos) {
 - C++98
 
 ## 参照
-
 - [`basic_istream::seekg`](seekg.md)
-- `basic_streambuf::pubseekoff`
-- `basic_streambuf::seekoff`
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)
+- [`basic_streambuf::seekoff`](../../streambuf/basic_streambuf/seekoff.md)
