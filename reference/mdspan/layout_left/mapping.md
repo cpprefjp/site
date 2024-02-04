@@ -72,6 +72,12 @@ namespace std {
 | `layout_type` | [`layout_left`](../layout_left.md) | C++23 |
 
 
+## 非メンバ（*Hidden friends*）関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`submdspan_mapping`](mapping/submdspan_mapping.md.nolink) | [`submdspan`](../submdspan.md)サポート | C++26 |
+
 ### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
@@ -124,7 +130,9 @@ int main()
 
 ## 関連項目
 - [`mdspan`](../mdspan.md)
+- [`submdspan`](../submdspan.md)
 
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
+- [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)

@@ -63,7 +63,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### コンテナ
-- [`std::mdspan`](/reference/mdspan/mdspan.md)のサブ配列版として[`std::submdspan`](/reference/mdspan/submdspan.md.nolink)を追加
+- [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
 - [`std::span`](/reference/span/span.md)に、以下を追加
     - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタ
     - インデックスアクセスのための[`at()`](/reference/span/span/at.md)メンバ関数
