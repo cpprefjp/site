@@ -14,6 +14,7 @@ namespace std {
 }
 ```
 * LayoutMapping[link LayoutMapping.md]
+* no_unique_address[link /lang/cpp20/language_support_for_empty_objects.md]
 
 ## 概要
 `submdspan_mapping_result`は、多次元配列ビュー[mdspan](mdspan.md)からの部分ビュー[`submdspan`](submdspan.md)取り出しサポートのために定義するカスタマイズポイント`submdspan_mapping`の戻り値型である。

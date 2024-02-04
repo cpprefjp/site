@@ -18,6 +18,7 @@ namespace std {
   };
 }
 ```
+* no_unique_address[link /lang/cpp20/language_support_for_empty_objects.md]
 
 ## 概要
 `strided_slice`は、多次元配列の特定次元に対してストライド幅を指定した要素取り出しを指示する集成体クラステンプレートである。
@@ -35,7 +36,7 @@ std::strided_slice{.offset=1, .extent=10, .stride=3}
 
 
 ## 適格要件
-`OffsetType`, `ExtentType`, `StrideType`は符号付き整数型または符号無し整数型、もしくは[`integral-constant-like`](integral-constant-like.md.nolink)のモデルであること。
+`OffsetType`, `ExtentType`, `StrideType`は符号付き整数型または符号無し整数型、もしくは[`integral-constant-like`](integral-constant-like.md)のモデルであること。
 
 
 ## メンバ型
@@ -63,7 +64,7 @@ int main()
   // オフセット位置1から10要素の範囲よりストライド幅3で要素抽出
   auto vec1 = std::submdspan(vec0, std::strided_slice{1, 10, 3});
   // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
-  //    ^  .  .  ^  .  .  ^   .  .  ^
+  //    ^  .  .  ^  .  .  ^  .  .   ^
   std::println("vec1:");
   for (size_t i = 0; i < vec1.extent(0); i++) {
     std::print(" {}", vec1[i]);
@@ -81,9 +82,10 @@ int main()
 }
 ```
 * std::strided_slice[color ff0000]
-* std::ranges::iota[link /reference/numeric/ranges_iota.md]
 * std::submdspan[link submdspan.md]
-* extent[link mdspan/extent.md]
+* std::print[link /reference/print/print.md]
+* std::println[link /reference/print/println.md]
+* std::ranges::iota[link /reference/numeric/ranges_iota.md]
 
 ### 出力
 ```

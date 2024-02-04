@@ -26,9 +26,10 @@ namespace std {
 int main()
 {
   int arr[] = {1, 2, 3, 4, 5, 6};
+
+  // 2x3要素の2次元配列ビュー
   using Ext2x3 = std::extents<size_t, 2, 3>;
   std::mdspan<int, Ext2x3> mat{arr};
-  // 2x3要素の2次元配列ビュー
   // i/j ->
   // |  1 2 3
   // V  4 5 6
@@ -51,6 +52,8 @@ int main()
 * std::full_extent[color ff0000]
 * std::submdspan[link submdspan.md]
 * extent[link mdspan/extent.md]
+* std::print[link /reference/print/print.md]
+* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

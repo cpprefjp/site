@@ -31,7 +31,7 @@ namespace std {
 スライス指定子リスト`slices...`にインデクス値指定が含まれる場合、戻り値の次元数(rank)は元の多次元配列ビューに対してインデクス値指定した次元数だけ削減される。
 
 - インデクス値指定 : 整数値。指定次元に対する多次元インデクス値を固定する。
-- インデクス範囲指定 : [インデクス・ペア互換型](index-pair-like.md.nolink)の値。開始位置(begin)と終了位置(end)で表現される半開区間から要素群を取り出す。
+- インデクス範囲指定 : [インデクス・ペア互換型](index-pair-like.md)の値。開始位置(begin)と終了位置(end)で表現される半開区間から要素群を取り出す。
 - ストライド・スライス指定 : [`std::strided_slice`](strided_slice.md)の値。オフセット(offset)と要素数(extent)とストライド幅(stride)で指定される要素群を取り出す。
 - 全要素指定 : [`std::full_extent`](full_extent_t.md)。指定次元の全要素を取り出す。
 
@@ -48,7 +48,7 @@ namespace std {
 - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(`[`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents())>, decltype(`[`submdspan_extents`](submdspan_extents.md.nolink)`(`[`src.mapping()`](mdspan/mapping.md)`, slices...))>`が`true`、かつ
 - [`src.extents()`](mdspan/extents.md)の各次元インデクス`k`において、`S_k`を`SliceSpecifiers`の`k`番目の型としたき、下記いずれかの1つのみを満たすこと。
     - 型`S_k`が[`convertible_to`](/reference/concepts/convertible_to.md)`<index_type>`のモデル
-    - 型`S_k`が[`index-pair-like`](index-pair-like.md.nolink)`<index_type>`のモデル
+    - 型`S_k`が[`index-pair-like`](index-pair-like.md)`<index_type>`のモデル
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](full_extent_t.md)`>`が`true`
     - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化
 
@@ -58,9 +58,9 @@ namespace std {
     - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化のとき
         - `s_k.extent == 0`、または
         - `s_k.stride > 0`
-    - `0` ≤ [`first_<index_type, k>`](first_.md.nolink)`(slices...)` ≤ [`last_<k>`](last_.md.nolink)`(`[`src.extents()`](mdspan/extents.md)`, slices...)` ≤ [`src.extent(k)`](mdspan/extent.md)
+    - `0` ≤ [`first_<index_type, k>`](first_.md)`(slices...)` ≤ [`last_<k>`](last_.md)`(`[`src.extents()`](mdspan/extents.md)`, slices...)` ≤ [`src.extent(k)`](mdspan/extent.md)
 - [`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents() ==` [`submdspan_extents`](submdspan_extents.md.nolink)`(`[`src.mapping()`](mdspan/mapping.md)`, slices...)`が`true`、かつ
-- [`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents()`の多次元インデクス値を表す任意の整数パック`I`に対して、`sub_map_offset.mapping(I...) +` [`sub_map_offset.offset`](submdspan_mapping_result.md) `==` [`src.mapping()`](mdspan/mapping.md)`(`[`src-indices`](src-indices.md.nolink)`(`[`array`](/reference/array/array.md)`{I...}, slices...))`が`true`であること。
+- [`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents()`の多次元インデクス値を表す任意の整数パック`I`に対して、`sub_map_offset.mapping(I...) +` [`sub_map_offset.offset`](submdspan_mapping_result.md) `==` [`src.mapping()`](mdspan/mapping.md)`(`[`src-indices`](src-indices.md)`(`[`array`](/reference/array/array.md)`{I...}, slices...))`が`true`であること。
 
 
 ## 効果
@@ -145,9 +145,11 @@ int main()
 }
 ```
 * std::submdspan[color ff0000]
-* std::ranges::iota[link /reference/numeric/ranges_iota.md]
 * std::full_extent[link full_extent_t.md]
 * std::strided_slice[link strided_slice.md]
+* std::print[link /reference/print/print.md]
+* std::println[link /reference/print/println.md]
+* std::ranges::iota[link /reference/numeric/ranges_iota.md]
 
 #### 出力
 ```
@@ -202,13 +204,14 @@ int main()
     std::strided_slice{.offset=0, .extent=Int<5>, .stride=Int<2>});
   // (strided_slice::offset は戻り値型に影響を与えない)
   static_assert(std::same_as<decltype(submat_2x3)::extents_type, std::extents<size_t, 2, 3>>);
-  std::println("submat_2x3 {}x{}", submat_dyn.extent(0), submat_dyn.extent(1));
+  std::println("submat_2x3 {}x{}", submat_2x3.extent(0), submat_2x3.extent(1));
 }
 ```
 * std::submdspan[color ff0000]
+* std::strided_slice[link strided_slice.md]
 * std::integral_constant[link /reference/type_traits/integral_constant.md]
 * std::ranges::iota[link /reference/numeric/ranges_iota.md]
-* std::strided_slice[link strided_slice.md]
+* std::println[link /reference/print/println.md]
 
 #### 出力
 ```
