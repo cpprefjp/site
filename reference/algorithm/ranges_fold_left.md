@@ -100,7 +100,7 @@ concept indirectly-binary-left-foldable =
     ```cpp
     return ranges::fold_left_with_iter(std::move(first), last, std::move(init), f).value;
     ```
-    * fold_left_with_iter[link /reference/algorithm/ranges_fold_left_with_iter.md.nolink]
+    * fold_left_with_iter[link /reference/algorithm/ranges_fold_left_with_iter.md]
 
 - (2) : `r`からイテレータを取得して(1)に委譲
     ```cpp
@@ -264,7 +264,7 @@ constexpr auto fold_left(I first, S last, T init, F f) {
     - 範囲の最初の要素を初期値として`fold_left`
 - [`ranges::fold_right_last`](ranges_fold_right_last.md)
     - 範囲の最後の要素を初期値として`fold_right`
-- [`ranges::fold_left_with_iter`](ranges_fold_left_with_iter.md.nolink)
+- [`ranges::fold_left_with_iter`](ranges_fold_left_with_iter.md)
     - `fold_left`の結果と共に、計算した終端イテレータも返す
 - [`ranges::fold_left_first_with_iter`](ranges_fold_left_first_with_iter.md.nolink)
     - `fold_left_first`の結果と共に、計算した終端イテレータも返す
