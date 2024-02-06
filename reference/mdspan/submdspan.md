@@ -45,8 +45,8 @@ namespace std {
 説明用の型`index_type`を[`Extents::index_type`](extents.md)、変数`sub_map_offset`を`submdspan_mapping(`[`src.mapping()`](mdspan/mapping.md)`, slices...)`の結果としたとき、
 
 - 型`decltype(submdspan_mapping(`[`src.mapping()`](mdspan/mapping.md)`, slices...))`が[`submdspan_mapping_result`](submdspan_mapping_result.md)の特殊化であり、
-- [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(`[`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents())>, decltype(`[`submdspan_extents`](submdspan_extents.md.nolink)`(`[`src.mapping()`](mdspan/mapping.md)`, slices...))>`が`true`、かつ
-- [`src.extents()`](mdspan/extents.md)の各次元インデクス`k`において、`S_k`を`SliceSpecifiers`の`k`番目の型としたき、下記いずれかの1つのみを満たすこと。
+- [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(`[`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents())>, decltype(`[`submdspan_extents`](submdspan_extents.md)`(`[`src.mapping()`](mdspan/mapping.md)`, slices...))>`が`true`、かつ
+- [`src.extents()`](mdspan/extents.md)の各次元インデクス`k`において、`S_k`を`SliceSpecifiers`の`k`番目の型としたき、下記いずれかのうち1つだけを満たすこと。
     - 型`S_k`が[`convertible_to`](/reference/concepts/convertible_to.md)`<index_type>`のモデル
     - 型`S_k`が[`index-pair-like`](index-pair-like.md)`<index_type>`のモデル
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](full_extent_t.md)`>`が`true`
@@ -58,8 +58,8 @@ namespace std {
     - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化のとき
         - `s_k.extent == 0`、または
         - `s_k.stride > 0`
-    - `0` ≤ [`first_<index_type, k>`](first_.md)`(slices...)` ≤ [`last_<k>`](last_.md)`(`[`src.extents()`](mdspan/extents.md)`, slices...)` ≤ [`src.extent(k)`](mdspan/extent.md)
-- [`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents() ==` [`submdspan_extents`](submdspan_extents.md.nolink)`(`[`src.mapping()`](mdspan/mapping.md)`, slices...)`が`true`、かつ
+    - `0` ≤ [`first_`](first_.md)`<index_type, k>(slices...)` ≤ [`last_`](last_.md)`<k>(`[`src.extents()`](mdspan/extents.md)`, slices...)` ≤ [`src.extent(k)`](mdspan/extent.md)
+- [`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents() ==` [`submdspan_extents`](submdspan_extents.md)`(`[`src.mapping()`](mdspan/mapping.md)`, slices...)`が`true`、かつ
 - [`sub_map_offset.mapping`](submdspan_mapping_result.md)`.extents()`の多次元インデクス値を表す任意の整数パック`I`に対して、`sub_map_offset.mapping(I...) +` [`sub_map_offset.offset`](submdspan_mapping_result.md) `==` [`src.mapping()`](mdspan/mapping.md)`(`[`src-indices`](src-indices.md)`(`[`array`](/reference/array/array.md)`{I...}, slices...))`が`true`であること。
 
 
@@ -68,13 +68,14 @@ namespace std {
 
 ```cpp
 auto sub_map_offset = submdspan_mapping(src.mapping(), slices...);
-return mdspan(src.accessor().offset(src.data(), sub_map_offset.offset),
+return mdspan(src.accessor().offset(src.data_handle(), sub_map_offset.offset),
               sub_map_offset.mapping,
               AccessorPolicy::offset_policy(src.accessor()));
 ```
 * mdspan[link mdspan.md]
 * sub_map_offset[link submdspan_mapping_result.md]
 * src.mapping()[link mdspan/mapping.md]
+* src.data_handle()[link mdspan/mapping.md]
 * src.accessor()[link mdspan/accessor.md]
 * AccessorPolicy::offset_policy[link AccessorPolicy.md]
 

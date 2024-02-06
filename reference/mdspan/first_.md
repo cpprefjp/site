@@ -13,8 +13,8 @@ constexpr IndexType first_(SliceSpecifiers... slices);
 
 `S_k`を`SliceSpecifiers`の`k`番目の型、`s_k`を`slices`の`k`番目の値としたとき、説明用の`P_k`の値を次のように定義する。
 
-- 型`S_k`が[`convertible_to`](/reference/concepts/convertible_to.md)`<index_type>`のモデルのとき`s_k`、そうでなければ
-- 型`S_k`が[`index-pair-like`](index-pair-like.md)`<index_type>`のモデルのとき`get<0>(s_k)`、そうでなければ
+- 型`S_k`が[`convertible_to`](/reference/concepts/convertible_to.md)`<IndexType>`のモデルのとき`s_k`、そうでなければ
+- 型`S_k`が[`index-pair-like`](index-pair-like.md)`<IndexType>`のモデルのとき`get<0>(s_k)`、そうでなければ
 - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化のとき[`de-ice`](de-ice.md)`(s_k.offset)`、そうでなければ
 - 値`0`
 
