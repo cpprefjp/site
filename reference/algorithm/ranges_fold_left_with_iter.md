@@ -63,10 +63,6 @@ for (++first; first != last; ++first)
   accum = invoke(f, std::move(accum), *first);
 return {std::move(first), std::move(accum)};
 ```
-* decay_t[link /reference/type_traits/decay.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
-* iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* next[link /reference/iterator/ranges_next.md]
 * invoke[link /reference/functional/invoke.md]
 
 空の入力範囲に対しては初期値`init`を返す。入力範囲によらず、戻り値の1つ目の値（イテレータ値）は渡した範囲の終端イテレータ（`last`/`ranges::end(r)`）と同じ位置を指すイテレータとなる（必ずしも同じ型もしくは同じイテレータにならない）。
