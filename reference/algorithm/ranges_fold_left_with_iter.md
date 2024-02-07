@@ -182,10 +182,14 @@ int main() {
 ## 実装例
 
 ```cpp
+template<typename F, typename T, typename I>
+using R = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
+
+
 template<input_iterator I, sentinel_for<I> S, class T,
          indirectly-binary-left-foldable<T, I> F>
-constexpr auto fold_left_with_iter(I first, S last, F f) -> fold_left_with_iter_result<I, U> {
-  using U = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
+constexpr auto fold_left_with_iter(I first, S last, T init, F f) -> fold_left_with_iter_result<I, R<F, T, I>> {
+  using U = R<F, T, I>;
 
   if (first == last) {
     return {std::move(first), U(std::move(init))};
