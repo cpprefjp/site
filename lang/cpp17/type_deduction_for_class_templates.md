@@ -283,6 +283,7 @@ int main()
     - `std::array`の推論補助からは、非トリビアルなコンストラクタを持たないクラステンプレートであっても、推論補助を定義できることがわかる。ただし、配列の要素型を推論するためには、推論しない場合とは違った制限が必要となる
 - [C++20 集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md)
 - [C++20 エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md)
+- [C++23 継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md)
 
 
 ## 参照

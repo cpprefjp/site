@@ -60,7 +60,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [部分特殊化の汎用化仕様](cpp23/generalized_wording_for_partial_specializations.md.nolink) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 |
-| [継承コンストラクタからのクラステンプレート引数の推論](cpp23/class_template_argument_deduction_from_inherited.md.nolink) | |
+| [継承コンストラクタからのクラステンプレート引数の推論](cpp23/class_template_argument_deduction_from_inherited.md) | 継承コンストラクタからもクラステンプレート引数を推論できるようにする |
 
 
 ### 定数式
