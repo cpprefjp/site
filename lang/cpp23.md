@@ -96,7 +96,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [文字リテラルエンコーディングを一貫させる](cpp23/consistent_character_literal_encoding.md) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする |
-| [`elif`/`elifdef`/`elifndef`のサポートを追加](cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md.nolink) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する |
+| [`elif`/`elifdef`/`elifndef`のサポートを追加](cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する |
 | [`#warning`のサポートを追加](cpp23/warning.md) | 多くのC++コンパイラが実装していたプリプロセス時の警告`#warning message`を正式サポート |
 | [汎用的なソースコードのエンコーディングとしてUTF-8をサポート](cpp23/support_for_utf8_as_a_portable_source_file_encoding.md.nolink) | |
 
