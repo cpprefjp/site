@@ -35,6 +35,9 @@ namespace std {
 - ストライド・スライス指定 : [`std::strided_slice`](strided_slice.md)の値。オフセット(offset)と要素数(extent)とストライド幅(stride)で指定される要素群を取り出す。
 - 全要素指定 : [`std::full_extent`](full_extent_t.md)。指定次元の全要素を取り出す。
 
+### カスタマイゼーションポイント
+`submdspan`関数により[`mdspan`](mdspan.md)から部分ビューを取り出すには、変換元の[レイアウトマッピング型](LayoutMapping.md)がカスタマイゼーションポイント`submdspan_mapping`を実装している必要がある。
+
 
 ## テンプレートパラメータ制約
 - `sizeof...(slices)`が[`Extents::rank()`](extents/rank.md)と等しく、かつ

@@ -76,7 +76,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`submdspan_mapping`](mapping/submdspan_mapping.md.nolink) | [`submdspan`](../submdspan.md)サポート | C++26 |
+| [`submdspan_mapping`](mapping/submdspan_mapping.md) | [`submdspan`](../submdspan.md)サポート | C++26 |
 
 ### 比較演算子
 

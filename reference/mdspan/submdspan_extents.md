@@ -15,6 +15,8 @@ namespace std {
 ## 概要
 多次元配列サイズ[`extents`](extents.md)と各次元からの要素取り出し（スライス）方式を指定して、新しい多次元配列サイズ[`extents`](extents.md)を取得する。
 
+各次元からの要素取り出し方式は、[`submdspan`](submdspan.md)を参照のこと。
+
 ### 動作説明用
 - 型`S_k` : `SliceSpecifiers`の`k`番目の型
 - 値`s_k` : `slices`の`k`番目の値
