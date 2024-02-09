@@ -72,7 +72,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | [定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する](cpp23/non_literal_variables_in_constexpr_functions.md) | コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する |
 | [静的な診断メッセージの文字エンコーディング](cpp23/character_encoding_of_diagnostic_text.md) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす |
 | [`constexpr`関数が定数実行できない場合でも適格とする](cpp23/relaxing_some_constexpr_restrictions.md) | 定数式実行できない関数であっても、実際にコンパイル時に評価されない限り`constexpr`指定することを許可する |
-| [`constexpr`関数内での`static constexpr`変数を許可](cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md.nolink) | |
+| [`constexpr`関数内での`static constexpr`変数を許可](cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md) | `constexpr`関数のローカルで定数を定義できるようにする |
 | [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](cpp23/consteval_needs_to_propagate_up.md.nolink) | |
 
 

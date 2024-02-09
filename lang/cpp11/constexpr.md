@@ -194,9 +194,19 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
 ## 関連項目
 - [C++11 ユーザー定義リテラル](user_defined_literals.md)
 - [C++14 `constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
-- [C++20 定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md)
-- [C++20 `constexpr`関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
+- [C++17 `constexpr`ラムダ](/lang/cpp17/constexpr_lambda.md)
 - [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md)
+- [C++20 定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md)
+- [C++20 `constexpr`関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
+- [C++20 定数式内での共用体のアクティブメンバの変更を許可](/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.md)
+- [C++20 constexpr関数内でのトリビアルなデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md)
+- [C++20 constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
+- [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md)
+- [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
+- [C++23 `constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md)
+- [C++23 `constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md)
+- [C++23 `constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md.nolink)
 
 
 ## 参照
