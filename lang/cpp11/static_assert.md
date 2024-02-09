@@ -78,8 +78,8 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 
 
 ## 関連項目
-- [C++17 `static_assert`](/lang/cpp17/extending_static_assert.md) — 第2引数の診断メッセージを省略できるようになった
-
+- [C++17 `static_assert`のメッセージ省略を許可](/lang/cpp17/extending_static_assert.md)
+- [C++23 定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md)
 
 
 ## 参照

@@ -412,6 +412,7 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 ## 関連項目
 
 - [`std::conditional`](/reference/type_traits/conditional.md)
+- [C++23 定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md)
 
 ## 参照
 
