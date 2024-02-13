@@ -44,7 +44,7 @@ namespace std::ranges {
 
 * (1): イテレータと値を格納する型
 * (2): [`ranges::fold_left_with_iter`](/reference/algorithm/ranges_fold_left_with_iter.md)で使用するエイリアス
-* (3): [`ranges::fold_left_first_with_iter`](/reference/algorithm/ranges_fold_left_first_with_iter.md.nolink)で使用するエイリアス
+* (3): [`ranges::fold_left_first_with_iter`](/reference/algorithm/ranges_fold_left_first_with_iter.md)で使用するエイリアス
 
 この型は、関数が入力用に範囲を受け取る場合に、処理した範囲の末尾と、それとは別の出力を返すために使用される。
 
