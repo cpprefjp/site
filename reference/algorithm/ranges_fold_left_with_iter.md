@@ -63,6 +63,7 @@ using U = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
     return {std::move(first), std::move(accum)};
     ```
     * invoke[link /reference/functional/invoke.md]
+
 - (2) : `r`からイテレータを取得して(1)に委譲
     ```cpp
     return ranges::fold_left_with_iter(ranges::begin(r), ranges::end(r), std::move(init), f);

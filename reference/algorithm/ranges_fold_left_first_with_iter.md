@@ -69,6 +69,7 @@ using U = decltype(ranges::fold_left(std::move(first), last, iter_value_t<I>(*fi
     ```
     * optional[link /reference/optional/optional.md]
     * invoke[link /reference/functional/invoke.md]
+
 - (2) : `r`からイテレータを取得して(1)に委譲
     ```cpp
     return ranges::fold_left_first_with_iter(ranges::begin(r), ranges::end(r), f);
