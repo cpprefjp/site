@@ -172,6 +172,11 @@ OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
 * std::copy[link copy.md]
 
 
+## 関連項目
+- [`std::set::merge()`](/reference/set/set/merge.md)
+- [`std::set_union()`](set_union.md)
+
+
 ## 参照
 - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
