@@ -102,6 +102,7 @@ C++11で導入された`constexpr`指定子によって、関数を定数式評�
 * [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 * [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](constinit.md)
 * [C++23 `if consteval`](/lang/cpp23/if_consteval.md)
+* [C++23 `constexpr`関数内で`consteval`関数を呼び出せない問題を軽減](/lang/cpp23/consteval_needs_to_propagate_up.md)
 
 ## 参照
 

@@ -73,7 +73,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | [静的な診断メッセージの文字エンコーディング](cpp23/character_encoding_of_diagnostic_text.md) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす |
 | [`constexpr`関数が定数実行できない場合でも適格とする](cpp23/relaxing_some_constexpr_restrictions.md) | 定数式実行できない関数であっても、実際にコンパイル時に評価されない限り`constexpr`指定することを許可する |
 | [`constexpr`関数内での`static constexpr`変数を許可](cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md) | `constexpr`関数のローカルで定数を定義できるようにする |
-| [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](cpp23/consteval_needs_to_propagate_up.md.nolink) | |
+| [`constexpr`関数内で`consteval`関数を呼び出せない問題を軽減](cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする |
 
 
 ### ラムダ式

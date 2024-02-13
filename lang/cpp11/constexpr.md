@@ -206,7 +206,7 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
 - [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
 - [C++23 `constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md)
 - [C++23 `constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md)
-- [C++23 `constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md.nolink)
+- [C++23 `constexpr`関数内で`consteval`関数を呼び出せない問題を軽減](/lang/cpp23/consteval_needs_to_propagate_up.md)
 
 
 ## 参照
