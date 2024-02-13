@@ -159,6 +159,19 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::starts_with`](algorithm/ranges_starts_with.md)     | 先頭が指定されたシーケンスと一致するかを調べる       | C++23 |
 | [`ranges::ends_with`](algorithm/ranges_ends_with.md)         | 末尾が指定されたシーケンスと一致するかを調べる       | C++23 |
 
+### `fold`アルゴリズム
+
+`fold`操作は、初期値及び累積値とともに範囲の各要素について与えられた関数を適用していき、その結果を返すものである。これは、数値集計処理に特化した[`accumulate`](/reference/numeric/accumulate.md)を改善しより汎用的にしたものである。処理を範囲のどちら側から始めるかによって、`foldl`（`fold_left`）と`foldr`（`fold_right`）の2種類がある。
+
+| 名前                                                                                 | 説明                                                             | 対応バージョン |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------- |
+| [`ranges::fold_left`](algorithm/ranges_fold_left.md)                                 | 範囲の左（先頭）からの`fold`                                     | C++23          |
+| [`ranges::fold_right`](algorithm/ranges_fold_right.md)                               | 範囲の右（終端）からの`fold`                                     | C++23          |
+| [`ranges::fold_left_first`](algorithm/ranges_fold_left_first.md)                     | 範囲の左（先頭）からの`fold`、初期値を省略する                   | C++23          |
+| [`ranges::fold_right_last`](algorithm/ranges_fold_right_last.md)                     | 範囲の右（終端）からの`fold`、初期値を省略する                   | C++23          |
+| [`ranges::fold_left_with_iter`](algorithm/ranges_fold_left_with_iter.md)             | 範囲の左（先頭）からの`fold`、終端イテレータを返す               | C++23          |
+| [`ranges::fold_left_first_with_iter`](algorithm/ranges_fold_left_first_with_iter.md) | 範囲の左（先頭）からの`fold`、初期値を省略し終端イテレータを返す | C++23          |
+
 ## シーケンスを変更する操作
 
 | 名前 | 説明 | 対応バージョン |
@@ -420,20 +433,7 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::prev_permutation`](algorithm/ranges_prev_permutation.md) | 前の順列を生成する     | C++20 |
 | [`ranges::is_permutation`](algorithm/ranges_is_permutation.md)     | 範囲が順列かを判定する | C++20 |
 
-### `fold`アルゴリズム
-
-`fold`操作は、初期値及び累積値とともに範囲の各要素について与えられた関数を適用していき、その結果を返すものである。これは、数値集計処理に特化した[`accumulate`](/reference/numeric/accumulate.md)を改善しより汎用的にしたものである。処理を範囲のどちら側から始めるかによって、`foldl`（`fold_left`）と`foldr`（`fold_right`）の2種類がある。
-
-| 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------|------------------------|-------|
-| [`ranges::fold_left`](algorithm/ranges_fold_left.md)  | 範囲の左（先頭）からの`fold` | C++23 |
-| [`ranges::fold_right`](algorithm/ranges_fold_right.md)| 範囲の右（終端）からの`fold` | C++23 |
-| [`ranges::fold_left_first`](algorithm/ranges_fold_left_first.md)| 範囲の左（先頭）からの`fold`、初期値を省略する | C++23 |
-| [`ranges::fold_right_last`](algorithm/ranges_fold_right_last.md)| 範囲の右（終端）からの`fold`、初期値を省略する | C++23 |
-| [`ranges::fold_left_with_iter`](algorithm/ranges_fold_left_with_iter.md)  | 範囲の左（先頭）からの`fold`、終端イテレータを返す      | C++23 |
-| [`ranges::fold_left_first_with_iter`](algorithm/ranges_fold_left_first_with_iter.md)  | 範囲の左（先頭）からの`fold`、初期値を省略し終端イテレータを返す      | C++23 |
-
-### 戻り値
+## アルゴリズムの戻り値型
 
 これらの型は、複数の値を1つの戻り値として返すために使われる汎用的な型である。構造化束縛で受け取ることが想定されている。
 
