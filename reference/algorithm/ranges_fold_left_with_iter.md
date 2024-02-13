@@ -53,17 +53,22 @@ using U = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
-(1)(2)ともに、以下と等価
-
-```cpp
-if (first == last)
-  return {std::move(first), U(std::move(init))};
-U accum = invoke(f, std::move(init), *first);
-for (++first; first != last; ++first)
-  accum = invoke(f, std::move(accum), *first);
-return {std::move(first), std::move(accum)};
-```
-* invoke[link /reference/functional/invoke.md]
+- (1) : 以下と等価
+    ```cpp
+    if (first == last)
+      return {std::move(first), U(std::move(init))};
+    U accum = invoke(f, std::move(init), *first);
+    for (++first; first != last; ++first)
+      accum = invoke(f, std::move(accum), *first);
+    return {std::move(first), std::move(accum)};
+    ```
+    * invoke[link /reference/functional/invoke.md]
+- (2) : `r`からイテレータを取得して(1)に委譲
+    ```cpp
+    return ranges::fold_left_with_iter(ranges::begin(r), ranges::end(r), std::move(init), f);
+    ```
+    * begin[link /reference/ranges/begin.md]
+    * end[link /reference/ranges/end.md]
 
 空の入力範囲に対しては初期値`init`を返す。入力範囲によらず、戻り値の1つ目の値（イテレータ値）は渡した範囲の終端イテレータ（`last`/`ranges::end(r)`）と同じ位置を指すイテレータとなる（必ずしも同じ型もしくは同じイテレータにならない）。
 
@@ -226,7 +231,7 @@ constexpr auto fold_left_with_iter(I first, S last, T init, F f) -> fold_left_wi
     - 範囲の最初の要素を初期値として`fold_left`
 - [`ranges::fold_right_last`](ranges_fold_right_last.md)
     - 範囲の最後の要素を初期値として`fold_right`
-- [`ranges::fold_left_first_with_iter`](ranges_fold_left_first_with_iter.md.nolink)
+- [`ranges::fold_left_first_with_iter`](ranges_fold_left_first_with_iter.md)
     - `fold_left_first`の結果と共に、計算した終端イテレータも返す
 
 ## 参照

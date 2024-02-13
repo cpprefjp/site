@@ -431,7 +431,7 @@ ranges::sort(pv, {}, &Parson::name);
 | [`ranges::fold_left_first`](algorithm/ranges_fold_left_first.md)| 範囲の左（先頭）からの`fold`、初期値を省略する | C++23 |
 | [`ranges::fold_right_last`](algorithm/ranges_fold_right_last.md)| 範囲の右（終端）からの`fold`、初期値を省略する | C++23 |
 | [`ranges::fold_left_with_iter`](algorithm/ranges_fold_left_with_iter.md)  | 範囲の左（先頭）からの`fold`、終端イテレータを返す      | C++23 |
-| [`ranges::fold_left_first_with_iter`](algorithm/ranges_fold_left_first_with_iter.md.nolink)  | 範囲の左（先頭）からの`fold`、初期値を省略し終端イテレータを返す      | C++23 |
+| [`ranges::fold_left_first_with_iter`](algorithm/ranges_fold_left_first_with_iter.md)  | 範囲の左（先頭）からの`fold`、初期値を省略し終端イテレータを返す      | C++23 |
 
 ### 戻り値
 
