@@ -103,6 +103,7 @@ constexpr size_t strlen(char const* s) {
 
 ## 関連項目
 - [`std::is_constant_evaluated()`](/reference/type_traits/is_constant_evaluated.md)
+- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
 
 
 ## 参照
