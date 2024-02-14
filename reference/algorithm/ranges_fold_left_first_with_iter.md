@@ -191,6 +191,51 @@ int main() {
 -1
 ```
 
+### 戻り値のイテレータを活用する例
+
+```cpp example
+#include <ranges>
+#include <algorithm>
+#include <functional>
+#include <print>
+#include <forward_list>
+
+using namespace std::ranges;
+
+int main() {
+  // forward_rangeな入力
+  std::forward_list flist = {2, 4, 6, 7, 9, 3, 1, 4, 10, 3, 2, 6};
+
+  // take_whileを使用して、先頭から10未満の要素だけを取り出す
+  forward_range auto rng = flist | views::take_while([](int n) { return n < 10; });
+
+  auto [last, sum] = fold_left_first_with_iter(rng, std::plus<>{});
+
+  std::println("sum = {:d}", sum.value_or(0));
+
+  // 同じ範囲に対して別の処理をしたい
+  // rng（take_while）をそのまま使うとイテレーション時に終端判定をもう一度行うことになり非効率
+  auto [unuse1, mul1] = fold_left_first_with_iter(rng, std::multiplies<>{});
+
+  // 先ほど求めた終端を使用して元の範囲の上で部分範囲を構築
+  auto [unuse2, mul2] = fold_left_first_with_iter(subrange{flist.begin(), last}, std::multiplies<>{});
+
+  std::println("mul = {:d}, {:d}", mul1.value_or(0), mul2.value_or(0));
+}
+```
+* fold_left_first_with_iter[color ff0000]
+* take_while[link /reference/ranges/take_while_view.md]
+* subrange[link /reference/ranges/subrange.md]
+* println[link /reference/print/println.md]
+* value_or[link /reference/optional/optional/value_or.md]
+
+### 出力
+
+```
+sum = 36
+mul = 36288, 36288
+```
+
 ## 実装例
 
 ```cpp
