@@ -163,7 +163,7 @@ std::generator<int> evens()
 
 int main()
 {
-  // ジェネレータにより生成されるレンジのうち
+  // ジェネレータにより生成されるRangeのうち
   // 先頭から5個までの要素値を列挙する
   for (int n : evens() | std::views::take(5)) {
     std::cout << n << std::endl;
@@ -183,7 +183,7 @@ int main()
 8
 ```
 
-### 例2: レンジ要素値の逐次生成
+### 例2: Range要素値の逐次生成
 ```cpp example
 #include <generator>
 #include <iostream>
@@ -191,7 +191,7 @@ int main()
 #include <ranges>
 #include <vector>
 
-// レンジの要素値を逐次生成するコルーチン
+// Rangeの要素値を逐次生成するコルーチン
 std::generator<int> ints()
 {
   int arr[] = {1, 2, 3};
@@ -279,6 +279,74 @@ int main()
 3
 4
 5
+```
+
+
+### 例4: 第2テンプレートパラメータVの利用
+```cpp example
+#include <iostream>
+#include <generator>
+#include <ranges>
+#include <string>
+#include <string_view>
+#include <vector>
+
+// Ref=string_view, V=string のジェネレータコルーチン
+auto fizzbuzz() ->
+  std::generator<std::string_view, std::string>
+{
+  for (size_t i = 1; ; ++i) {
+    if (i % 15 == 0) {
+      co_yield "FizzBuzz";
+    } else if (i % 3 == 0) {
+      co_yield "Fizz";
+    } else if (i % 5 == 0) {
+      co_yield "Buzz";
+    } else {
+      co_yield std::to_string(i);
+    }
+  }
+}
+
+int main()
+{
+  // std::ranges::to<C>() は変換元Rangeの range_value_t を利用して戻り値型を決定する。
+  // ここでは std::vector<std::string> 型を導出するために、ジェネレータコルーチンの
+  // 第2テンプレートパラメータ V = std::string として明示指定する必要がある。
+  auto vec = fizzbuzz() | std::views::take(15) | std::ranges::to<std::vector>();
+
+  // もし fizzbuzz() 戻り値型が std::generator<std::string_view> であった場合、
+  // 変数 vec は std::vector<std::string_view> 型となる。このときコルーチン内部実装の
+  // std::to_string() の戻り値 std::string オブジェクトはco_yield式末尾で寿命が切れるため、
+  // 各要素 vec[i] に格納される std::string_view はダングリング(dangling)状態になってしまう。
+
+  for (const auto& e : vec) {
+    std::cout << e << std::endl;
+  }
+}
+```
+* std::generator[color ff0000]
+* co_yield[link /lang/cpp20/coroutines.md]
+* std::to_string[link /reference/string/to_string.md]
+* std::views::take[link /reference/ranges/take_view.md]
+
+#### 出力
+```
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
 ```
 
 
