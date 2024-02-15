@@ -15,5 +15,8 @@ ar[x, y]   // C++17:OK, C++20:非推奨
 既存のカンマ演算子をオーバーロードしたコードを使用する場合は、丸カッコで囲むこと。
 
 
+## 関連項目
+- [C++23 添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.md)
+
 ## 参照
 - [P1161R3 Deprecate uses of the comma operator in subscripting expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1161r3.html)

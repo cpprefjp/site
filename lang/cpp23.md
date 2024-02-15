@@ -40,7 +40,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [自身のオブジェクトを明示的にパラメータとして指定する](cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする |
 | [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](cpp23/make_declaration_order_layout_mandated.md) | アクセス制御の異なるメンバ変数のレイアウトは並び替えを許可されていたが宣言順に規定する |
-| [添字演算子の多次元サポート](cpp23/multidimensional_subscript_operator.nd.nolink) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 |
+| [添字演算子の多次元サポート](cpp23/multidimensional_subscript_operator.md) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 |
 | [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](cpp23/static_operator.md) | 状態をもたないいくつかの演算子を`static`として宣言できるようにする |
 
 
