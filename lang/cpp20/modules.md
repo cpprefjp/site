@@ -479,6 +479,11 @@ int main() {
 
 モジュールは、以上のような問題のないプログラム分割の仕組みとして導入された。
 
+
+## 関連項目
+- [C++23 無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md)
+
+
 ## 参照
 - [［C++］C++20モジュールの変遷 - Module TSからC++20DISまで - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/05/28/214612)
 - [P1103R3 Merging Modules](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf)

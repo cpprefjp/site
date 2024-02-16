@@ -22,7 +22,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [スコープと名前ルックアップの仕様整理](cpp23/declarations_and_where_to_find_them.md.nolink) | 複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する |
-| [無意味なexport宣言を禁止する](cpp23/meaningful_exports.md.nolink) | |
+| [無意味なexport宣言を禁止する](cpp23/meaningful_exports.md) | いくつかの不必要な宣言に対するモジュールexportを禁止する |
 
 
 ### 制御構文
