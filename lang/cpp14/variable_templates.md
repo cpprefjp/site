@@ -123,6 +123,7 @@ auto main() -> int
 ## 関連項目
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 - [C++17 変数テンプレートのデフォルトテンプレート引数を許可](/lang/cpp17/allow_default_template_arguments_of_variable_templates.md)
+- [C++23 変数テンプレートの部分特殊化を許可](/lang/cpp23/generalized_wording_for_partial_specializations.md)
 
 ## 参照
 - [N3651 Variable Templates (Revision 1)](http://open-std.org/JTC1/SC22/WG21/docs/papers/2013/n3651.pdf)
