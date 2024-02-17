@@ -83,7 +83,7 @@ int main()
 }
 ```
 * wait[color ff0000]
-* arrive[link wait.md]
+* arrive[link arrive.md]
 * arrive_and_wait[link arrive_and_wait.md]
 * std::move[link /reference/utility/move.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]

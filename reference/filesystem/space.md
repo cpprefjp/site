@@ -59,8 +59,8 @@ int main()
   print_space("available", info.available);
 }
 ```
-* fs::space_info[color ff0000]
-* fs::space[link space.md]
+* fs::space[color ff0000]
+* fs::space_info[link space_info.md]
 * std::uintmax_t[link /reference/cstdint/uintmax_t.md]
 
 #### 出力例

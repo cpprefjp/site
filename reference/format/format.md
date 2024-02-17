@@ -342,11 +342,11 @@ int main() {
 
 #### 出力
 ```
-hello
-"hello"
-hello
+0. hello
+1. "hello"
+2. hello
 world
-"hello\nworld"
+3. "hello\nworld"
 ```
 
 ### コンテナ・Rangeを出力する (C++23)

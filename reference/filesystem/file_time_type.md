@@ -60,8 +60,8 @@ int main()
   fs::last_write_time("regular.txt", fs::file_time_type::clock::now());
 }
 ```
-* fs::last_write_time[color ff0000]
-* fs::file_time_type[link file_time_type.md]
+* fs::file_time_type[color ff0000]
+* fs::last_write_time[link last_write_time.md]
 * fs::create_directory[link create_directory.md]
 * tp.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * sec.count()[link /reference/chrono/duration/count.md]

@@ -154,7 +154,7 @@ int main()
   std::cout << a.compare(c) << std::endl;
 }
 ```
-* compare[link compare.md]
+* compare[color ff0000]
 
 ### 出力例
 ```

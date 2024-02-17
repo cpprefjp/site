@@ -107,11 +107,11 @@ int main()
   }
 }
 ```
+* request_stop()[color ff0000]
 * stop_source[link ../stop_source.md]
 * nostopstate[link ../nostopstate.md]
 * stop_callback[link ../stop_callback.md]
 * get_token()[link get_token.md]
-* request_stop()[link request_stop.md]
 * condition_variable_any[link /reference/condition_variable/condition_variable_any.md]
 * cv.wait[link /reference/condition_variable/condition_variable_any/wait.md]
 * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]

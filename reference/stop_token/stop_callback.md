@@ -70,9 +70,9 @@ int main()
   assert(msg == "hello world");
 }
 ```
+* std::stop_callback[color ff0000]
 * std::stop_token[link stop_token.md]
 * std::stop_source[link stop_source.md]
-* std::stop_callback[link stop_callback.md]
 * request_stop()[link stop_source/request_stop.md]
 * get_token()[link stop_source/get_token.md]
 

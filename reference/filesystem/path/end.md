@@ -41,7 +41,7 @@ int main()
 }
 ```
 * end()[color ff0000]
-* p.begin()[link end.md]
+* p.begin()[link begin.md]
 * iterator[link iterator.md]
 
 #### 出力
@@ -73,7 +73,7 @@ int main()
 }
 ```
 * end()[color ff0000]
-* p.begin()[link end.md]
+* p.begin()[link begin.md]
 * iterator[link iterator.md]
 
 #### 出力

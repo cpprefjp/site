@@ -54,8 +54,8 @@ int main()
   std::cout << std::ctime(&ts.tv_sec) << std::endl;
 }
 ```
-* std::timespec[color ff0000]
-* std::timespec_get[link timespec_get.md]
+* std::timespec_get[color ff0000]
+* std::timespec[link timespec.md]
 * TIME_UTC[link time_utc.md]
 * ms.count()[link /reference/chrono/duration/count.md]
 

@@ -65,7 +65,7 @@ int main() {
   }
 }
 ```
-* std::static_pointer_cast[link static_pointer_cast.md]
+* std::static_pointer_cast[color ff0000]
 * std::make_shared[link /reference/memory/make_shared.md]
 
 ### 出力

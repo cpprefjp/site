@@ -153,7 +153,7 @@ int main()
   return 0;
 }
 ```
-* std::jthread[link jthread.md]
+* std::jthread[color ff0000]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * std::stop_callback[link /reference/stop_token/stop_callback.md]
 * get_stop_token()[link jthread/get_stop_token.md]

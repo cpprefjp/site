@@ -51,8 +51,8 @@ int main()
   return 0;
 }
 ```
+* c.at[color ff0000]
 * um.insert[link insert.md]
-* c.at[link at.md]
 
 ### 出力
 ```
