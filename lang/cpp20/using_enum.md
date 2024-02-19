@@ -81,20 +81,20 @@ int main() {
   using enum Enum1;
   using enum Enum2::Enum;
   using Enum3::Value3;
-  std::cout << Value1 << std::endl;
+  std::cout << static_cast<int>(Value1) << std::endl;
   std::cout << ::Value1 << std::endl;
   std::cout << Value2 << std::endl;
-  std::cout << Value3 << std::endl;
-  std::cout << Enum3::Value4 << std::endl;
-  std::cout << Type::Value4 << std::endl;
-  std::cout << Type().Value4 << std::endl;
+  std::cout << static_cast<int>(Value3) << std::endl;
+  std::cout << static_cast<int>(Enum3::Value4) << std::endl;
+  std::cout << static_cast<int>(Type::Value4) << std::endl;
+  std::cout << static_cast<int>(Type().Value4) << std::endl;
 }
 ```
 
 ### 出力
 ```
 0
-10
+1
 0
 0
 1
