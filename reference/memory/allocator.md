@@ -75,9 +75,17 @@ C++11から：
 
 
 ## 非推奨・削除の詳細
-C++17から`void`の特殊化版が非推奨となり、C++20で削除された。代わりに[`std::allocator_traits`](allocator_traits.md)クラスの`rebind`機能を使用すること。
+- `address`/`max_size`/`construct`/`destroy`/`pointer`/`const_pointer`/`reference`/`const_reference`/`rebind<U>`メンバがC++17から非推奨となり、C++20で削除された。
+    - これらは特殊なアロケータの実装でない限り共通に定義できるものであるため、アロケータの中間インタフェースである[`std::allocator_traits`](/reference/memory/allocator_traits.md)クラスに、共通のデフォルト実装を定義することとなった。
+    - 以後は[`std::allocator_traits`](allocator_traits.md)`<std::allocator<T>>`クラスの各機能を代替として使用すること。
 
-メンバ型の`size_type`と`difference_type`は、C++17で非推奨となったがC++20で非推奨が取り消された。
+- C++17から`void`の特殊化版が非推奨となり、C++20で削除された。
+    - 従来`void`の特殊化版は`allocate`/`deallocate`メンバ関数が存在せず、実際に確保するオブジェクトの型(`R`とする)を隠蔽しつつメモリアロケータとしては`std::allocator`を使うことを表明するためにのみ用いられた。
+      この際`typename std::allocator<void>::template rebind<R>::other`型から実際に確保するオブジェクト型の`std::allocator<R>`を再束縛していた。
+    - この非推奨・削除は`std::allocator<void>`もプライマリテンプレートからインスタンス化されるようになったことを意味し、C++20以降も`std::allocator<void>`の使用自体は問題なく可能であることに注意。
+        - なお、プライマリテンプレートからインスタンス化されるようになっても`allocate`/`deallocate`メンバは内部で`sizeof(void)`を要求するため引き続き使用不可能であり、`std::allocator<void>`の使用用途としては従来と同じく再束縛を目的とすることになる(上述のように[`std::allocator_traits`](allocator_traits.md)の代替機能を用いて`typename` [`std::allocator_traits`](allocator_traits.md)`<std::allocator<void>>::template rebind_alloc<R>`のようにする)。
+
+- メンバ型の`size_type`と`difference_type`は、C++17で非推奨となったがC++20で非推奨が取り消された。
 
 ## 例
 ```cpp example
