@@ -29,9 +29,3 @@ jobs:
       run: python3 .github/workflows/script/create_github_issue_when_not_empty.py check_result.txt ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} ${{ github.sha }}
     - name: detect link check check_result
       run: test -f check_result.txt && test $(wc -l < check_result.txt) -eq 0
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v4
-      with:
-        name: result
-        path: check_result.tx
-        retention-days: 5
