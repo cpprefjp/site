@@ -26,7 +26,7 @@ jobs:
       run: |
         { python3 .github/workflows/script/link_check.py --check-outer-link  3>&2 2>&1 1>&3 | tee check_result.txt; } 3>&2 2>&1 1>&3
     - name: create github issue when needed
-      run: .github/workflows/script/create_github_issue_when_not_empty.sh check_result.txt ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} ${{ github.sha }}
+      run: python3 .github/workflows/script/create_github_issue_when_not_empty.py check_result.txt ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} ${{ github.sha }}
     - name: detect link check check_result
       run: test -f check_result.txt && test $(wc -l < check_result.txt) -eq 0
     - name: 'Upload Artifact'
