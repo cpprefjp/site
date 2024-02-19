@@ -19,6 +19,7 @@ def main():
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {token}",
+        "X-GitHub-Api-Version": "2022-11-28",
     }
     try:
         with open(file_name, 'r') as file:
