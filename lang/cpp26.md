@@ -155,11 +155,11 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### 数値
 - [`<numeric>`](/reference/numeric.md)に、飽和演算 (Saturation Arithmetic) として、型の表現可能な範囲で演算を行う以下の関数を追加
-    - [`std::add_sat()`](/reference/numeric/add_sat.md.nolink)
-    - [`std::sub_sat()`](/reference/numeric/sub_sat.md.nolink)
-    - [`std::mul_sat()`](/reference/numeric/mul_sat.md.nolink)
-    - [`std::div_sat()`](/reference/numeric/div_sat.md.nolink)
-    - [`std::saturation_cast()`](/reference/numeric/saturation_cast.md.nolink)
+    - [`std::add_sat()`](/reference/numeric/add_sat.md)
+    - [`std::sub_sat()`](/reference/numeric/sub_sat.md)
+    - [`std::mul_sat()`](/reference/numeric/mul_sat.md)
+    - [`std::div_sat()`](/reference/numeric/div_sat.md)
+    - [`std::saturate_cast()`](/reference/numeric/saturate_cast.md)
 - [`<cmath>`](/reference/cmath.md)の以下の関数を、`constexpr`に対応 (特殊関数と、グローバルの丸めモードに依存する丸め関数以外の全て)
     - [`std::cos()`](/reference/cmath/cos.md)
     - [`std::sin()`](/reference/cmath/sin.md)
