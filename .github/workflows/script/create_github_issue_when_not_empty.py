@@ -23,7 +23,10 @@ def main():
     }
     try:
         with open(file_name, 'r') as file:
-            body = f"The commit hash was: {commit_hash}\n\n" + file.read()
+            data = file.read();
+            if len(data) == 0:
+                return
+            body = f"The commit hash was: {commit_hash}\n\n" + data
 
         response = requests.post(
             f"https://api.github.com/repos/{path}/issues",
