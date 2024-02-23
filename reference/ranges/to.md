@@ -47,7 +47,7 @@ Rangeの各要素を要素とするコンテナを構築する。
     - `C(`[`std::forward`](/reference/utility/forward.md)`<R>(r), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 2. [`constructible_from`](/reference/concepts/constructible_from.md)`<C, `[`from_range_t`](from_range_t.md)`, R, Args...>`である(`C`が[`from_range_t`](from_range_t.md)、`R`、残りの引数で構築できる)場合
     - `C(`[`from_range`](from_range_t.md)`, `[`std::forward`](/reference/utility/forward.md)`<R>(r), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
-3. [`common_range`](common_range.md)`<R>`が`true`で、[`iterator_traits`](/reference/iterator/iterator_traits.md)`<`[`iterator_t`](iterator_t.md)`<R>>​::​iterator_category`が `input_iterator_tag` から派生する有効な型であり、[`constructible_from`](/reference/concepts/constructible_from.md)`<C, `[`iterator_t`](iterator_t.md)`<R>, `[`sentinel_t`](sentinel_t.md)`<R>, Args...>`である(`C`が`R`のイテレータおよび番兵と残りの引数で構築できる)場合
+3. [`common_range`](common_range.md)`<R>`が`true`で、[`iterator_traits`](/reference/iterator/iterator_traits.md)`<`[`iterator_t`](iterator_t.md)`<R>>::iterator_category`が `input_iterator_tag` から派生する有効な型であり、[`constructible_from`](/reference/concepts/constructible_from.md)`<C, `[`iterator_t`](iterator_t.md)`<R>, `[`sentinel_t`](sentinel_t.md)`<R>, Args...>`である(`C`が`R`のイテレータおよび番兵と残りの引数で構築できる)場合
     - `C(`[`ranges::begin(r)`](begin.md)`, `[`ranges::end(r)`](end.md)`, `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 4. [`constructible_from`](/reference/concepts/constructible_from.md)`<C, Args...>`が`true`で、`container-insertable<C, `[`range_reference_t`](range_reference_t.md)`<R>>`が`true`である場合
     - 以下のコードで初期化する
@@ -194,4 +194,4 @@ int main() {
 
 ## 参照
 
-- [26.5.7.2 ranges​::​to](https://timsong-cpp.github.io/cppwp/range.utility.conv.to)
+- [26.5.7.2 ranges::to](https://timsong-cpp.github.io/cppwp/range.utility.conv.to)
