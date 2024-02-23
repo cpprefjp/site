@@ -403,7 +403,7 @@ range | adaptor(args...)
 
 | 名前                 | 説明                                                           | 対応バージョン |
 |----------------------|----------------------------------------------------------------|----------------|
-| [`to`](ranges/to.md.nolink) | パイプライン記法でRangeからコンテナを構築する (class template) | C++23          |
+| [`to`](ranges/to.md) | パイプライン記法でRangeからコンテナを構築する (class template) | C++23          |
 | [`from_range_t`](ranges/from_range_t.md) | Rangeからコンテナへの変換を示すタグ型 (class) | C++23          |
 | [`from_range`](ranges/from_range_t.md) | Rangeからコンテナへの変換を示すタグ値 (variable) | C++23          |
 
