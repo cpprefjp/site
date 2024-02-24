@@ -54,10 +54,13 @@ Rangeの各要素を要素とするコンテナを構築する。
 
 ```cpp
 C c(std::forward<Args>(args)...);
-if constexpr (sized_range<R> && reservable-container<C>)
+if constexpr (sized_range<R> && reservable-container<C>) {
   c.reserve(static_cast<range_size_t<C>>(ranges::size(r)));
+}
 ranges::copy(r, container-inserter<range_reference_t<R>>(c));
 ```
+* ranges::size[link /reference/ranges/size.md]
+* ranges::copy[link /reference/algorithm/ranges_copy.md]
 
 [`input_range`](input_range.md)`<`[`range_reference_t`](range_reference_t.md)`<R>>`である場合:
 
@@ -66,6 +69,7 @@ to<C>(r | views::transform([](auto&& elem) {
   return to<range_value_t<C>>(std::forward<decltype(elem)>(elem));
 }), std::forward<Args>(args)...);
 ```
+* views::transform[link transform_view.md]
 
 どの条件にもあてはまらない場合、プログラムは不適格である。
 
@@ -85,6 +89,9 @@ struct input-iterator {
   bool operator==(const input-iterator&) const;
 };
 ```
+* input_iterator_tag[link /reference/iterator/iterator_tag.md]
+* ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
+* add_pointer_t[link /reference/type_traits/add_pointer.md]
 
 また、`DEDUCE_EXPR` を次のように定義する。
 
@@ -104,18 +111,20 @@ struct input-iterator {
 
 ## 備考
 
-本説明に用いる説明専用コンセプトを以下のように定義する。
+本説明に用いる説明専用要素を以下のように定義する。
 
 ```cpp
+// reservable-container: 容量をあらかじめ確保できることを要求するコンセプト
 template<class Container>
 constexpr bool reservable-container =
   sized_range<Container> &&
   requires(Container& c, range_size_t<Container> n) {
-    c.reserve(n);
-    { c.capacity() } -> same_as<decltype(n)>;
-    { c.max_size() } -> same_as<decltype(n)>;
+    c.reserve(n);                              // コンテナのサイズ型を引数とするreserveメンバ関数がある
+    { c.capacity() } -> same_as<decltype(n)>;  // コンテナのサイズ型を返すcapacityメンバ関数がある
+    { c.max_size() } -> same_as<decltype(n)>;  // コンテナのサイズ型を返すmax_sizeメンバ関数がある
   };
 
+// container-insertable: push_backまたはinsertが使えることを要求するコンセプト
 template<class Container, class Ref>
 constexpr bool container-insertable =
   requires(Container& c, Ref&& ref) {
@@ -123,14 +132,19 @@ constexpr bool container-insertable =
               requires { c.insert(c.end(), std::forward<Ref>(ref)); });
   };
 
+// container-inserter: push_backが使えればback_inserter, そうでなければinserterを返す関数
 template<class Ref, class Container>
 constexpr auto container-inserter(Container& c) {
-  if constexpr (requires { c.push_back(declval<Ref>()); })
+  if constexpr (requires { c.push_back(declval<Ref>()); }) {
     return back_inserter(c);
-  else
+  } else {
     return inserter(c, c.end());
+  }
 }
 ```
+* back_inserter[link /reference/iterator/back_inserter.md]
+* inserter[link /reference/iterator/inserter.md]
+
 
 ## この機能が必要になった背景・経緯
 
@@ -155,6 +169,9 @@ int main() {
   println("{}", words);
 }
 ```
+* views::split[link split_view.md]
+* vector[link /reference/vector/vector.md]
+* string[link /reference/string/basic_string.md]
 
 これを簡潔に書くために、`to`関数が提案された。
 
@@ -176,6 +193,9 @@ int main() {
 }
 ```
 * ranges::to[color ff0000]
+* views::split[link split_view.md]
+* vector[link /reference/vector/vector.md]
+* string[link /reference/string/basic_string.md]
 
 ### 出力
 ```
