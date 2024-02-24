@@ -329,6 +329,7 @@ int main()
 * co_yield[link /lang/cpp20/coroutines.md]
 * std::to_string[link /reference/string/to_string.md]
 * std::views::take[link /reference/ranges/take_view.md]
+* std::ranges::to[link /reference/ranges/to.md]
 
 #### 出力
 ```
