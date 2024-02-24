@@ -18,7 +18,6 @@ namespace std::ranges {
 }
 ```
 * compatible-joinable-ranges[italic]
-* bidirectional-common[italic]
 
 ## 概要
 
