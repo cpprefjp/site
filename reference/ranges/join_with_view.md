@@ -19,8 +19,6 @@ namespace std::ranges {
 ```
 * compatible-joinable-ranges[italic]
 * bidirectional-common[italic]
-* common_with[link /reference/concepts/common_with.md]
-* common_reference_with[link /reference/concepts/common_reference_with.md]
 
 ## 概要
 
@@ -107,7 +105,7 @@ int main() {
   }
 }
 ```
-* views::join[color ff0000]
+* views::join_with[color ff0000]
 
 ### 出力
 ```
@@ -140,7 +138,8 @@ int main() {
   println("{}", sv | views::join_with("-C++23-"sv) | ranges::to<string>());
 }
 ```
-* views::join[color ff0000]
+* views::join_with[color ff0000]
+* ranges::to[link to.md]
 
 ### 出力
 ```
