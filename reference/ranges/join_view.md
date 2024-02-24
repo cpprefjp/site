@@ -56,8 +56,6 @@ namespace std::ranges {
 | [`begin`](join_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
 | [`end`](join_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
 
-`r`を元のRangeとする。`size`は[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
-
 ## 継承しているメンバ関数
 
 | 名前                                         | 説明                              | 対応バージョン |
@@ -99,6 +97,8 @@ int main() {
 h,e,l,l,o,w,o,r,l,d,
 ```
 
+ネストされた `char` のRangeが平坦な `char` のRangeになっている。
+
 ## バージョン
 ### 言語
 - C++20
@@ -108,6 +108,9 @@ h,e,l,l,o,w,o,r,l,d,
 - [GCC](/implementation.md#gcc): 10.1.0
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+
+## 関連項目
+- [`join_with_view`](join_with_view.md)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)

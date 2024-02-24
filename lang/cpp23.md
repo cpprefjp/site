@@ -142,7 +142,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - Rangeを末尾に追加する`append_range()`メンバ関数
     - Rangeを代入する`assign_range()`メンバ関数
 - ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、[`<ranges>`](/reference/ranges.md)に[`std::ranges::range_adaptor_closure`](/reference/ranges/range_adaptor_closure.md.nolink)クラスを追加
-- [`<ranges>`](/reference/ranges.md)に、Rangeを連結させる[`join_with`](/reference/ranges/join_with.md.nolink)を追加
+- [`<ranges>`](/reference/ranges.md)に、Rangeを連結させる[`join_with`](/reference/ranges/join_with_view.md)を追加
 - Rangeを指定の大きさで分割する[`std::views::chunk`](/reference/ranges/chunk_view.md.nolink)と、Rangeを指定の大きさの隣接要素で分割する[`std::views::slide`](/reference/ranges/slide_view.md.nolink)を追加
 - Rangeを条件一致する間の要素で分割する[`std::views::chunk_by`](/reference/ranges/chunk_by_view.md.nolink)を追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeを等間隔からなるRangeに変換する[`std::views::stride`](/reference/ranges/stride_view.md.nolink)を追加
