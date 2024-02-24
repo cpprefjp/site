@@ -18,7 +18,7 @@ namespace std {
 }
 ```
 * ranges::view_interface[link /reference/ranges/view_interface.md]
-
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
 `generator`クラステンプレートは、[コルーチン](/lang/cpp20/coroutines.md)の評価により生成される要素列のビュー(view)を表現する。
@@ -29,9 +29,9 @@ namespace std {
 ジェネレータコルーチンでは`co_await`式を利用できない。
 
 ジェネレータコルーチンは遅延評価される。
-ジェネレータコルーチンが返す`generator`オブジェクトを利用するコード（以下、ジェネレータ利用側）において、先頭要素を指す[イテレータ](generator/iterator.md)を取得する([`begin`](generator/begin.md))、またはイテレータのインクリメント操作を行う(`operator++`)までジェネレータコルーチンは再開(resume)されない。
+ジェネレータコルーチンが返す`generator`オブジェクトを利用するコード（以下、ジェネレータ利用側）において、先頭要素を指す[イテレータ](generator/iterator.md)を取得する([`begin`](generator/begin.md))、またはイテレータの[インクリメント操作](generator/iterator/op_increment.md)を行うまでジェネレータコルーチンは再開(resume)されない。
 ジェネレータコルーチン本体処理において`co_yield`式に到達すると、生成値を保持してから中断(suspend)しジェネレータ利用側へと制御を戻す。
-ジェネレータ利用側ではイテレータの間接参照(単項`operator*`)を行うことで、ジェネレータによる生成値を取得する。
+ジェネレータ利用側では[イテレータの間接参照](generator/iterator/op_deref.md)を行うことで、ジェネレータによる生成値を取得する。
 
 
 ### 説明用メンバ
@@ -41,10 +41,10 @@ namespace std {
 - `reference` : [`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_void_v`](/reference/type_traits/is_void.md)`<V>, Ref&&, Ref>`
 - [`iterator`](generator/iterator.md) : ジェネレータが返すイテレータ型。
 
-`generator`および[`promise_type`](generator/promise_type.md)の動作説明のため、下記の説明用メンバを用いる。
+`generator`および[`promise_type`](generator/promise_type.md)と[`iterator`](generator/iterator.md)の動作説明のため、下記の説明用メンバを用いる。
 
-- [`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<`[`promise_type`](generator/promise_type.md)`>` : コルーチンハンドル(`coroutine_`)
-- [`unique_ptr`](/reference/memory/unique_ptr.md)`<`[`stack`](/reference/stack/stack.md)`<`[`coroutine_handle<>`](/reference/coroutine/coroutine_handle.md)`>>`: アクティブスタック(`active_`)
+- `coroutine_` : [`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<`[`promise_type`](generator/promise_type.md)`>`型のコルーチンハンドル
+- `active_` : [`unique_ptr`](/reference/memory/unique_ptr.md)`<`[`stack`](/reference/stack/stack.md)`<`[`coroutine_handle<>`](/reference/coroutine/coroutine_handle.md)`>>`型のアクティブスタック
 
 
 ### 第1テンプレートパラメータ`Ref`の概要

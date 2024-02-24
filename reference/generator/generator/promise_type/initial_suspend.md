@@ -16,7 +16,7 @@ suspend_always initial_suspend() const noexcept;
 
 
 ## 戻り値
-[`suspend_always`](/reference/coroutine/suspend_always.md)
+[`suspend_always{}`](/reference/coroutine/suspend_always.md)
 
 
 ## 例外

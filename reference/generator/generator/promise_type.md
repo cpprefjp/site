@@ -22,8 +22,8 @@ namespace std {
 
 `generator::promise_type`クラスの動作説明のため、以下の説明専用メンバを用いる。
 
-- [`add_pointer_t`](/reference/type_traits/add_pointer.md)`<`[`yielded`](../generator.md)`>`型 : `value_`
-- [`exception_ptr`](/reference/exception/exception_ptr.md)型 : `except_`
+- `value_` : [`add_pointer_t`](/reference/type_traits/add_pointer.md)`<`[`yielded`](../generator.md)`>`型の生成値 
+- `except_` : [`exception_ptr`](/reference/exception/exception_ptr.md)型の例外ポインタ
 
 
 ## メンバ関数

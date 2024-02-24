@@ -11,12 +11,15 @@ generator get_return_object() noexcept;
 * generator[link ../../generator.md]
 
 ## 概要
-ジェネレータ[コルーチン](/lang/cpp20/coroutines.md)の戻り値オブジェクトを生成する。
+ジェネレータ[コルーチン](/lang/cpp20/coroutines.md)の戻り値[`generator`](../../generator.md)オブジェクトを生成する。
 プログラマが本関数を直接利用することは想定されていない。
 
 
 ## 戻り値
-[`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<promise_type>::`[`from_promise`](/reference/coroutine/coroutine_handle/from_promise.md)`(*this)`で取得したコルーチンハンドルを保持し、[アクティブスタック](../../generator.md)を空(empty)で初期化した、[`generator`](../../generator.md)オブジェクト。
+下記の通り説明専メンバ初期化を行なった[`generator`](../../generator.md)オブジェクト。
+
+- コルーチンハンドル`coroutine_` : [`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<promise_type>::`[`from_promise`](/reference/coroutine/coroutine_handle/from_promise.md)`(*this)`
+- アクティブスタック`active_` : 空(empty)スタック
 
 
 ## 例外

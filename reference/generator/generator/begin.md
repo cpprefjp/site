@@ -16,15 +16,16 @@ iterator begin();
 
 
 ## 事前条件
-ジェネレータコルーチンは[初期サスペンドポイント](/lang/cpp20/coroutines.md)で中断している。
+ジェネレータコルーチンは[初期サスペンドポイント](promise_type/initial_suspend.md)で中断している。
 
 
 ## 効果
-ジェネレータコルーチンを再開(resume)する。
+[コルーチンハンドル](/reference/coroutine/coroutine_handle.md)をアクティブスタック`*active_`にpushし、ジェネレータコルーチンを[再開(resume)](/reference/coroutine/coroutine_handle/resume.md)する。
 
 
 ## 戻り値
 ジェネレータコルーチンに対応する[`iterator`](iterator.md)オブジェクト。
+同`iterator`オブジェクトの説明用メンバ`coroutine_`は自ジェネレータコルーチンを参照する。
 
 
 ## 備考
@@ -40,3 +41,7 @@ iterator begin();
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`generator::iterator::operator++`](iterator/op_increment.md)

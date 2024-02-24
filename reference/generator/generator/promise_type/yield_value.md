@@ -38,8 +38,8 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
 
 
 ## 事前条件
-- (2) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタックのトップにあること。
-- (3) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタックのトップにあること。ジェネレータ`g.range`に対応するコルーチンが、初期サスペンドポイントにて中断されていること。
+- (2) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタック`x.active_`のトップにあること。
+- (3) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタック`x.active_`のトップにあること。ジェネレータ`g.range`に対応するコルーチンが、[初期サスペンドポイント](initial_suspend.md)にて中断されていること。
 
 
 ## 効果
@@ -79,8 +79,14 @@ return yield_value(ranges::elements_of(nested(
 
 ## 戻り値
 - (1) : [`suspend_always{}`](/reference/coroutine/suspend_always.md)
-- (2) : `lval`を用いて直接非リスト初期化された[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`yielded`](../../generator.md)`>`型オブジェクトを保持し、[説明専用メンバ`value_`](../promise_type.md)が保持されたオブジェクトを指してコルーチンを中断(suspend)するメンバ関数をもつ、未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)。
-- (3) : ジェネレータ`g.range`の所有権を受け取り、メンバ関数`await_ready`は`false`を返し、メンバ関数`await_suspend`は`x`のアクティブスタックに`g.range`に対応する[コルーチンハンドル](/reference/coroutine/coroutine_handle.md)をpushしてから`g.range`を再開(resume)し、メンバ関数`await_resume`は[説明専用メンバ`except_`](../promise_type.md)が例外を保持している場合に[`rethrow_exception`](/reference/exception/rethrow_exception.md)`(except_)`を行う、未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)。
+- (2) : 以下の動作をする未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)
+    - `lval`で直接非リスト初期化された[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`yielded`](../../generator.md)`>`型オブジェクトを保持する。
+    - [説明専用メンバ`value_`](../promise_type.md)が保持オブジェクトを指してコルーチンを中断(suspend)するメンバ関数を持つ。
+- (3) : 以下の動作をする未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)
+    - Range[`g.range`](/reference/ranges/elements_of.md)の所有権を受け取る。
+    - メンバ関数`await_ready` : `false`を返す。
+    - メンバ関数`await_suspend` : `x`のアクティブスタック`*x.active_`に`g.range.`[`coroutine_`](/reference/coroutine/coroutine_handle.md)をpushしてから`g.range.coroutine_`を[再開(resume)](/reference/coroutine/coroutine_handle/resume.md)する。
+    - メンバ関数`await_resume` : [説明専用メンバ`except_`](../promise_type.md)が例外を保持している場合に[`rethrow_exception`](/reference/exception/rethrow_exception.md)`(except_)`を行う。そうでなければ、何もしない。
 
 
 ## 例外
@@ -89,7 +95,7 @@ return yield_value(ranges::elements_of(nested(
 
 
 ## 備考
-この関数を呼び出す`co_yield`式は`void`型となる。
+ジェネレータコルーチンの`co_yield`式は`void`型となる。
 
 
 ## バージョン
