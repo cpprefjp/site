@@ -104,6 +104,40 @@ int main() {
 149
 ```
 
+## 例 特定のメンバを選択する
+
+```cpp example
+#include <ranges>
+#include <string>
+#include <iostream>
+
+struct Record {
+  int id = 0;
+  std::string name;
+};
+
+int main() {
+  using namespace std;
+  Record records[] = {
+    {1, "Alice"},
+    {2, "Bob"},
+    {3, "Charlie"}
+  };
+
+  for (int id : records | views::transform(&Record::id)) {
+    cout << id << '\n';
+  }
+}
+```
+* views::transform[color ff0000]
+
+### 出力
+```
+1
+2
+3
+```
+
 ## バージョン
 ### 言語
 - C++20
