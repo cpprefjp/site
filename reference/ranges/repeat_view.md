@@ -105,4 +105,4 @@ int main() {
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 参照
-- [N4917 26 Ranges library](https://timsong-cpp.github.io/cppwp/ranges)
+- [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)

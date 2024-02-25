@@ -430,5 +430,6 @@ range | adaptor(args...)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
+- [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)

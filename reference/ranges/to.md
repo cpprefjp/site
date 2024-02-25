@@ -214,4 +214,4 @@ int main() {
 
 ## 参照
 
-- [26.5.7.2 ranges::to](https://timsong-cpp.github.io/cppwp/range.utility.conv.to)
+- [26.5.7.2 ranges::to](https://timsong-cpp.github.io/cppwp/n4950/range.utility.conv.to)

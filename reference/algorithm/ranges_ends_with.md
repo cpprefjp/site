@@ -156,4 +156,4 @@ inline constexpr ends_with_impl ends_with;
 
 
 ## 参照
-- [N4892 25 Algorithms library](https://timsong-cpp.github.io/cppwp/algorithms)
+- [N4950 27 Algorithms library](https://timsong-cpp.github.io/cppwp/n4950/algorithms)
