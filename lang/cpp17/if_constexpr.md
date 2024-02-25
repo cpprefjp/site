@@ -164,6 +164,30 @@ int main()
 }
 ```
 
+### (C++23以降 or CWG 2518が適用された環境) `static_assert`文に関する例外
+
+上に述べたように、`constexpr if`文の中の文は破棄文においても、非依存名の検証を行う。このため特に`static_assert`文を使う時に直感的ではない挙動を示していた。
+
+C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
+
+```cpp example
+#include <cstdint>
+template <class T>
+void f(T t) {
+  if constexpr (sizeof(T) == sizeof(std::int32_t)) {
+    use(t);
+  } else {
+    static_assert(false, "must be 32bit");
+  }
+}
+
+void g(std::int8_t c) {
+  std::int32_t n = 0;
+  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。
+  f(c); // error: cはstd::int8_t型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する
+}
+```
+
 ### 類似機能との比較
 
 `constexpr if`文の導入によってC++の`if`系の条件分岐は3種類になった。
@@ -429,6 +453,7 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 - [P0292R1: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r1.html)
 - [P0292R2: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html)
 - [N4603 Editor's Report -- Committee Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html)
+- [P2593R1: Allowing static_assert(false)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2593r1.html)
 
 ### 2段階名前探索における注意点について
 
@@ -439,7 +464,9 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 
 ### その他
 
+- [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
 - [Static If I Had a Hammer - Andrei Alexandrescu](http://web.archive.org/web/20201202042515/https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer)
 - [C++1z if constexpr文 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/12/22/171238)
 - [[cfe-dev] Clang getting involved](https://lists.llvm.org/pipermail/cfe-dev/2014-March/035801.html)
 - [`__if_exists` Statement | Microsoft Docs](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)
+- [Issue 2518: Conformance requirements and #error/#warning - WG21 CWG Issues](https://wg21.cmeerw.net/cwg/issue2518)
