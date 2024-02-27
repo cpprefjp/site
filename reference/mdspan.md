@@ -55,6 +55,7 @@
 
 ## 関連項目
 - C++20 [`<span>`](span.md)
+- C++26 [`<linalg>`](linalg.md)
 
 
 ## 参照
