@@ -59,7 +59,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 並行処理におけるデータの参照・更新を行うRCU (Read Copy Update) のライブラリとして、[`<rcu>`](/reference/rcu.md.nolink)を追加
 - 並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加
 - デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md.nolink)を追加
-- 線形代数ライブラリとして[`<linalg>`](/reference/linalg.md.nolink)を追加
+- 線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加
 
 
 ### コンテナ

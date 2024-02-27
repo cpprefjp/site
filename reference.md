@@ -149,7 +149,7 @@
 | [`<valarray>`](/reference/valarray.md) | 数値の配列       |                |
 | [`<numeric>`](/reference/numeric.md)   | 一般的な数値操作 |                |
 | [`<numbers>`](/reference/numbers.md)   | 数値             | C++20          |
-| [`<linalg>`](/reference/linalg.md.nolink) | 線形代数 | C++26 |
+| [`<linalg>`](/reference/linalg.md)     | 線形代数 | C++26 |
 
 
 ## <a id="debug" href="debug">デバッグライブラリ</a>

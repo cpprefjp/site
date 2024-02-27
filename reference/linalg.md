@@ -1,0 +1,128 @@
+# linalg
+* linalg[meta header]
+* cpp26[meta cpp]
+
+`<linalg>`ヘッダでは、線形代数(linear algebra)に関する基礎的な演算アルゴリズムを提供する。
+本ヘッダが提供するエンティティは、すべて名前空間`std::linalg`に属する。
+
+1次元データであるベクトル(vector)や2次元データである行列(matrix)に対して、線形代数分野のデファクトスタンダードとなされる BLAS(Basic Linear Algebra Subprograms) 互換のアルゴリズム、および一部は LAPACK(Linear Algebra PACKage) 互換のアルゴリズム群が提供される。
+BLAS互換アルゴリズムは、演算対象データの次元数に応じて3段階に区分される。
+
+- Level 1 BLAS : ベクトルーベクトルの演算
+- Level 2 BLAS : 行列ーベクトルの演算
+- Level 3 BLAS : 行列ー行列の演算
+
+例えば、2個の一般行列の積を求める`std::linalg::matrix_product`はLevel 3 BLASルーチン`xGEMM`に対応する。
+（実際のBLASルーチン名は、浮動小数点型の単精度`S`／倍精度`D`とそれぞれの複素数版`C`,`Z`として、プレフィックス`x`部は4種類の文字のいずれかになる。）
+
+また、多次元配列ビュー[`std::mdpan`](mdspan/mdspan.md)と組み合わせて利用する拡張機能が提供される。
+
+
+## `std::mdspan`向け機能拡張
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `layout_blas_packed` | BLAS互換の圧縮行列表現に対応する[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
+| `scaled` | 読み取り専用の要素値をスカラ倍した`std::mdspan`を作る (function template) | C++26 |
+| `scaled_accessor` | `scaled`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
+| `conjugated_accessor` | `conjugated`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
+| `conjugated` | 読み取り専用の複素共役ビュー`std::mdspan`を作る (function template) | C++26 |
+| `layout_transpose` | `transposed`関数用の[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
+| `transposed` | 2次元`std::mdspan`の転置ビューを作る (function template) | C++26 |
+| `conjugate_transposed` | 読み取り専用の複素共役転置ビュー`std::mdspan`を作る (function template) | C++26 |
+
+
+## BLAS 1アルゴリズム
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `setup_givens_rotation_result` | `setup_givens_rotation`の結果型 (class template) | C++26 |
+| `setup_givens_rotation` | xLARTG: ギブンス回転をセットアップする (function template) | C++26 |
+| `apply_givens_rotation` | xROT: ベクトルにギブンス回転を適用する (function template) | C++26 |
+| `swap_elements` | xSWAP: 2つのベクトル／行列の要素を交換する (function template) | C++26 |
+| `scale` | xSCAL: ベクトル／行列の要素にスカラ値を乗算する (function template) | C++26 |
+| `copy` | xCOPY: ベクトル／行列の要素をコピー代入する (function template) | C++26 |
+| `add` | xAXPY: 2つのベクトル／行列の要素を加算する (function template) | C++26 |
+| `dot` | xDOT, xDOTU: 2つのベクトルのドット積を求める (function template) | C++26 |
+| `dotc` | xDOTC: 2つのベクトルの複素共役ドット積を求める (function template) | C++26 |
+| `sum_of_squares_result` | `vector_sum_of_squares`の結果型 (class template) | C++26 |
+| `vector_sum_of_squares` | xLASSQ: ベクトル要素の平方和を求める (class template) | C++26 |
+| `vector_two_norm` | xNRM2: ベクトルのユークリッドノルム(Euclidean norm)を求める (class template) | C++26 |
+| `vector_abs_sum` | xASUM: ベクトル要素の絶対値和を求める (class template) | C++26 |
+| `vector_idx_abs_max` | xIAMAX: ベクトル要素のうち最大絶対値インデクスを返す (class template) | C++26 |
+| `matrix_frob_norm` | 行列のフロベニウスノルム(Frobenius norm)を求める (class template) | C++26 |
+| `matrix_one_norm` | 行列の1ノルム(One norm)を求める (class template) | C++26 |
+| `matrix_inf_norm` | 行列の無限大ノルム(Infinity norm)を求める (class template) | C++26 |
+
+
+## BLAS 2アルゴリズム
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `matrix_vector_product` | xGEMV: 一般行列とベクトルの積を求める (class template) | C++26 |
+| `symmetric_matrix_vector_product` | xSYMV: 対称行列とベクトルの積を求める (class template) | C++26 |
+| `hermitian_matrix_vector_product` | xHEMV: ハミルトニアン行列とベクトルの積を求める (class template) | C++26 |
+| `triangular_matrix_vector_product` | xTRMV: 三角行列とベクトルの積を求める (class template) | C++26 |
+| `triangular_matrix_vector_solve` | xTRSV: 三角行列を係数とする行列方程式を解く (class template) | C++26 |
+| `matrix_rank_1_update` | xGER, xGERU: 行列のRank-1更新 (class template) | C++26 |
+| `matrix_rank_1_update_c` | xGERC: 複素行列のRank-1更新 (class template) | C++26 |
+| `symmetric_matrix_rank_1_update` | xSYR: 対称行列のRank-1更新 (class template) | C++26 |
+| `hermitian_matrix_rank_1_update` | xHER: ハミルトニアン行列のRank-1更新 (class template) | C++26 |
+| `symmetric_matrix_rank_2_update` | xSYR2: 対称行列のRank-2更新 (class template) | C++26 |
+| `hermitian_matrix_rank_2_update` | xHER2: ハミルトニアン行列のRank-2更新 (class template) | C++26 |
+
+
+## BLAS 3アルゴリズム
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `matrix_product` | xGEMM: 2つの一般行列の積を求める (class template) | C++26 |
+| `symmetric_matrix_product` | xSYMM: 対称行列と行列の積を求める (class template) | C++26 |
+| `hermitian_matrix_product` | xHEMM: ハミルトニアン行列と行列の積を求める (class template) | C++26 |
+| `triangular_matrix_product` | xTRMM: 三角行列と行列の積を求める (class template) | C++26 |
+| `triangular_matrix_left_product` | xTRMM: In-placeに三角行列と行列の積を求める (class template) | C++26 |
+| `triangular_matrix_right_product` | xTRMM: In-placeに三角行列と行列の積を求める (class template) | C++26 |
+| `symmetric_matrix_rank_k_update` | xSYRK: 対称行列のRank-k更新 (class template) | C++26 |
+| `hermitian_matrix_rank_k_update` | xHERK: ハミルトニアン行列のRank-k更新 (class template) | C++26 |
+| `symmetric_matrix_rank_2k_update` | xSYR2K: 対称行列のRank-2k更新 (class template) | C++26 |
+| `hermitian_matrix_rank_2k_update` | xHER2K: ハミルトニアン行列のRank-2k更新 (class template) | C++26 |
+| `triangular_matrix_matrix_left_solve` | xTRSM: 三角行列の連立一次方程式を解く (class template) | C++26 |
+| `triangular_matrix_matrix_right_solve` | xTRSM: 三角行列の連立一次方程式を解く (class template) | C++26 |
+
+
+## タグ型
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `column_major_t` | 列優先メモリレイアウトを表現するためのタグ型 (class) | C++26 |
+| `column_major`   | 列優先メモリレイアウトを表現するためのタグ値 (variable) | C++26 |
+| `row_major_t`    | 行優先メモリレイアウトを表現するためのタグ型 (class) | C++26 |
+| `row_major`      | 行優先メモリレイアウトを表現するためのタグ値 (variable) | C++26 |
+| `upper_triangle_t` | 上三角行列を表現するためのタグ型 (class) | C++26 |
+| `upper_triangle`   | 上三角行列を表現するためのタグ値 (variable) | C++26 |
+| `lower_triangle_t` | 下三角行列を表現するためのタグ型 (class) | C++26 |
+| `lower_triangle`   | 下三角行列を表現するためのタグ値 (variable) | C++26 |
+| `implicit_unit_diagonal_t` | implicit unit diagonalを表現するためのタグ型 (class) | C++26 |
+| `implicit_unit_diagonal`   | implicit unit diagonalを表現するためのタグ値 (variable) | C++26 |
+| `explicit_diagonal_t` | explicit diagonalを表現するためのタグ型 (class) | C++26 |
+| `explicit_diagonal`   | explicit diagonalを表現するためのタグ値 (variable) | C++26 |
+
+
+## バージョン
+### 言語
+- C++26
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`<mdspan>`](mdspan.md)
+
+
+## 参照
+- [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+- [BLAS (Basic Linear Algebra Subprograms)](https://www.netlib.org/blas/)

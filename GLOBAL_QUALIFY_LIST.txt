@@ -128,6 +128,7 @@
 * <latch>[link /reference/latch.md]
 * <limits>[link /reference/limits.md]
     * std::numeric_limits[link /reference/limits/numeric_limits.md]
+* <linalg>[link /reference/linalg.md]
 * <list>[link /reference/list.md]
     * std::list[link /reference/list/list.md]
 * <locale>[link /reference/locale.md]
