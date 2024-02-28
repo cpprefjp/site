@@ -170,10 +170,10 @@ auto f() -> int&& {
 |`auto f(T x) -> decltype((x)) { return (x); }`   |`T&` : 〇|`T&` : **×**|ローカル参照を返していた|
 |`auto f(T x) -> decltype(auto) { return x; }`    |`T` : 〇|`T` : 〇||
 |`auto f(T x) -> decltype(auto) { return (x); }`  |`T&` : 〇|**`T&&` :** 〇|ローカル参照を返す|
-|`auto f(T&& x) -> decltype(x) { return x; }`     |`T&&` : ×|`T&&` : **〇**|`x`がローカル変数の場合ローカル参照を返す|
+|`auto f(T&& x) -> decltype(x) { return x; }`     |`T&&` : ×|`T&&` : **〇**||
 |`auto f(T&& x) -> decltype((x)) { return (x); }` |`T&` : 〇|`T&` : **×**||
-|`auto f(T&& x) -> decltype(auto) { return x; }`  |`T&&` : ×|`T&&` : **〇**||
-|`auto f(T&& x) -> decltype(auto) { return (x); }`|`T&` : 〇|**`T&&` :** 〇||
+|`auto f(T&& x) -> decltype(auto) { return x; }`  |`T&&` : ×|`T&&` : **〇**|`x`がローカル変数の場合ローカル参照を返す|
+|`auto f(T&& x) -> decltype(auto) { return (x); }`|`T&` : 〇|**`T&&` :** 〇|`x`がローカル変数の場合ローカル参照を返す|
 |`auto f(T x) -> auto&& { return x; }`       |`T&` : 〇|**`T&&` :** 〇|ローカル参照を返す|
 |`auto f(T x) -> auto&& { return (x); }`   |`T&` : 〇|**`T&&` :** 〇|ローカル参照を返す|
 |`auto f(T&& x) -> auto&& { return x; }`       |`T&` : 〇|**`T&&` :** 〇|`x`がローカル変数の場合ローカル参照を返す|
