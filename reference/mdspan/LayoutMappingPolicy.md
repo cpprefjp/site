@@ -40,6 +40,7 @@ LayoutMappingPolicyを満たす型`MP`は
 - [`layout_left`](layout_left.md)
 - [`layout_right`](layout_right.md)
 - [`layout_stride`](layout_stride.md)
+- [`linalg::layout_blas_packed<T,SO>`](/reference/linalg/layout_blas_packed.md)
 
 
 ## バージョン

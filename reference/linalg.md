@@ -31,7 +31,7 @@ BLAS互換アルゴリズムは、演算対象データの次元数に応じて3
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `layout_blas_packed` | 行列要素のBLAS互換パックレイアウトに対応する[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
+| [`layout_blas_packed`](linalg/layout_blas_packed.md) | 行列要素のBLAS互換パックレイアウトに対応する[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
 | `scaled` | 要素値をスカラ倍した読み取り専用`std::mdspan`を作る (function template) | C++26 |
 | `scaled_accessor` | `scaled`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
 | `conjugated_accessor` | `conjugated`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
@@ -134,4 +134,6 @@ BLAS互換アルゴリズムは、演算対象データの次元数に応じて3
 
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+- [P1674R2: Evolving a Standard C++ Linear Algebra Library from the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1674r2.html)
+- [std::linalg: Linear Algebra Coming to Standard C++](https://github.com/CppCon/CppCon2023/blob/main/Presentations/stdlinalg_linear_algebra_coming_to_standard_cpp.pdf), CppCon 2023
 - [BLAS (Basic Linear Algebra Subprograms)](https://www.netlib.org/blas/)
