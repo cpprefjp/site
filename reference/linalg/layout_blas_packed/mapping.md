@@ -101,13 +101,14 @@ int main()
 {
   double arr[] = {1, 2, 3, 4, 5, 6};
 
-  // 行優先レイアウトの下三角要素から3x3対称行列を構築
-  using LayoutPacked = linalg::layout_blas_packed<linalg::lower_triangle, linalg::column_major>;
-  using Mapping = LayoutPacked::mapping<std::extents<size_t, 3, 3>>;
-  std::mdspan mat{arr, Mapping{}};
-  // 1 . .
-  // 2 4 .
-  // 3 5 6
+  // 行優先格納順の上三角要素から3x3対称行列を構築
+  using Ext2D = std::dextents<size_t, 2>;
+  using LayoutPacked = linalg::layout_blas_packed<linalg::upper_triangle_t, linalg::row_major_t>;
+  using Mapping = LayoutPacked::mapping<Ext2D>;
+  std::mdspan mat{arr, Mapping{Ext2D{3, 3}}};
+  // 1 2 3
+  // - 4 5
+  // - - 6
 
   for (size_t i = 0; i < mat.extent(0); i++) {
     for (size_t j = 0; j < mat.extent(1); j++) {
@@ -118,7 +119,12 @@ int main()
 }
 ```
 * linalg::layout_blas_packed[color ff0000]
-* ::mapping[color ff0000]
+* LayoutPacked::mapping[color ff0000]
+* linalg::upper_triangle_t[link upper_triangle_t.md.nolink]
+* linalg::row_major_t[link row_major_t.md.nolink]
+* mat.extent[link /reference/mdspan/mdspan/extent.md]
+* std::print[link /reference/print/print.md]
+* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

@@ -6,14 +6,14 @@
 本ヘッダが提供するエンティティは、すべて名前空間`std::linalg`に属する。
 
 1次元データであるベクトル(vector)や2次元データである行列(matrix)に対して、線形代数分野のデファクトスタンダードとされる BLAS(Basic Linear Algebra Subprograms) 互換のアルゴリズム群、いくつかの LAPACK(Linear Algebra PACKage) 互換のアルゴリズムが提供される。
-BLAS互換アルゴリズムは、演算対象データの次元数に応じて3段階に区分される。
+BLAS互換アルゴリズムは、演算対象データの次元数や計算オーダーに応じて3段階に区分される。
 
 - Level 1 BLAS : ベクトルーベクトルの演算
 - Level 2 BLAS : 行列ーベクトルの演算
 - Level 3 BLAS : 行列ー行列の演算
 
 例えば、2個の一般行列の積を求める`std::linalg::matrix_product`はLevel 3 BLASルーチン`xGEMM`に対応する。
-（実際のBLASルーチン名は、浮動小数点数型の単精度`S`／倍精度`D`とそれぞれの複素数版`C`,`Z`として、プレフィックス`x`部は4種類の文字のいずれかになる。）
+（実際のBLASルーチン名は、浮動小数点数型の単精度`S`／倍精度`D`とそれぞれの複素数版`C`,`Z`として、プレフィックス`x`部は文字4種類のいずれか。）
 
 また、多次元配列ビュー[`std::mdpan`](mdspan/mdspan.md)と組み合わせて利用する拡張機能が提供される。
 
@@ -21,7 +21,7 @@ BLAS互換アルゴリズムは、演算対象データの次元数に応じて3
 ## 共通要件
 `<linalg>`ヘッダが提供する演算アルゴリズムは、スカラ値およびベクトル／行列の要素型として線形代数値型(linear algebra value types)を取り扱う。
 
-線形代数値型はBLASが取り扱う`float`, `double`, `std::complex<float>`, `std::complex<double>`をはじめ、[`semiregular`](/reference/concepts/semiregular.md)のモデルであれば良い。
+線形代数値型はBLASが取り扱う`float`, `double`, `std::complex<float>`, `std::complex<double>`をはじめ、[`semiregular`](concepts/semiregular.md)のモデルであれば良い。
 また、線形代数値型の値初期化は加法元（算術型であれば値`0`）であること。
 
 プログラム定義型を利用する場合、演算アルゴリズムはカスタマイゼーションポイントとして`abs`, `real`, `imag`, `conj`を非修飾名で呼び出す。
@@ -36,7 +36,7 @@ BLAS互換アルゴリズムは、演算対象データの次元数に応じて3
 | `scaled_accessor` | `scaled`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
 | `conjugated_accessor` | `conjugated`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
 | `conjugated` | 読み取り専用の複素共役ビュー`std::mdspan`を作る (function template) | C++26 |
-| `layout_transpose` | `transposed`関数用の[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
+| [`layout_transpose`](linalg/layout_transpose.md) | `transposed`関数用の[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
 | `transposed` | 2次元`std::mdspan`の行列転置ビューを作る (function template) | C++26 |
 | `conjugate_transposed` | 読み取り専用の複素共役転置ビュー`std::mdspan`を作る (function template) | C++26 |
 
@@ -103,14 +103,14 @@ BLAS互換アルゴリズムは、演算対象データの次元数に応じて3
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `column_major_t` | 列優先メモリレイアウトを表現するためのタグ型 (class) | C++26 |
-| `column_major`   | 列優先メモリレイアウトを表現するためのタグ値 (variable) | C++26 |
-| `row_major_t`    | 行優先メモリレイアウトを表現するためのタグ型 (class) | C++26 |
-| `row_major`      | 行優先メモリレイアウトを表現するためのタグ値 (variable) | C++26 |
-| `upper_triangle_t` | 上三角行列を表現するためのタグ型 (class) | C++26 |
-| `upper_triangle`   | 上三角行列を表現するためのタグ値 (variable) | C++26 |
-| `lower_triangle_t` | 下三角行列を表現するためのタグ型 (class) | C++26 |
-| `lower_triangle`   | 下三角行列を表現するためのタグ値 (variable) | C++26 |
+| [`column_major_t`](column_major_t.md.nolink) | 列優先(colmun-major)順序を表現するためのタグ型 (class) | C++26 |
+| [`column_major`](column_major_t.md.nolink)   | 列優先(colmun-major)順序を表現するためのタグ値 (variable) | C++26 |
+| [`row_major_t`](row_major_t.md.nolink) | 行優先(row-major)順序を表現するためのタグ型 (class) | C++26 |
+| [`row_major`](row_major_t.md.nolink)   | 行優先(row-major)順序を表現するためのタグ値 (variable) | C++26 |
+| [`upper_triangle_t`](upper_triangle_t.md.nolink) | 上三角行列を表現するためのタグ型 (class) | C++26 |
+| [`upper_triangle`](upper_triangle_t.md.nolink)   | 上三角行列を表現するためのタグ値 (variable) | C++26 |
+| [`lower_triangle_t`](lower_triangle_t.md.nolink) | 下三角行列を表現するためのタグ型 (class) | C++26 |
+| [`lower_triangle`](lower_triangle_t.md.nolink)   | 下三角行列を表現するためのタグ値 (variable) | C++26 |
 | `implicit_unit_diagonal_t` | implicit unit diagonalを表現するためのタグ型 (class) | C++26 |
 | `implicit_unit_diagonal`   | implicit unit diagonalを表現するためのタグ値 (variable) | C++26 |
 | `explicit_diagonal_t` | explicit diagonalを表現するためのタグ型 (class) | C++26 |
@@ -120,12 +120,6 @@ BLAS互換アルゴリズムは、演算対象データの次元数に応じて3
 ## バージョン
 ### 言語
 - C++26
-
-### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
