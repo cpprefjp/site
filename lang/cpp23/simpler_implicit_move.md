@@ -164,16 +164,20 @@ auto f() -> int&& {
 
 任意の型名を`T`（`T&&`は右辺値参照型）として、戻り値型推論とコンパイル可否の変化は次のようにまとめられる
 
-|関数宣言と`return`文|C++20|C++23|
-|---|---|---|
-|`auto f(T x) -> decltype(x) { return x; }`       |`T` : 〇|`T` : 〇|
-|`auto f(T x) -> decltype((x)) { return (x); }`   |`T&` : 〇|`T&` : **×**|
-|`auto f(T x) -> decltype(auto) { return x; }`    |`T` : 〇|`T` : 〇|
-|`auto f(T x) -> decltype(auto) { return (x); }`  |`T&` : 〇|**`T&&` :** 〇|
-|`auto f(T&& x) -> decltype(x) { return x; }`     |`T&&` : ×|`T&&` : **〇**|
-|`auto f(T&& x) -> decltype((x)) { return (x); }` |`T&` : 〇|`T&` : **×**|
-|`auto f(T&& x) -> decltype(auto) { return x; }`  |`T&&` : ×|`T&&` : **〇**|
-|`auto f(T&& x) -> decltype(auto) { return (x); }`|`T&` : 〇|**`T&&` :** 〇|
+|関数宣言と`return`文|C++20まで|C++23から|備考|
+|---|---|---|---|
+|`auto f(T x) -> decltype(x) { return x; }`       |`T` : 〇|`T` : 〇||
+|`auto f(T x) -> decltype((x)) { return (x); }`   |`T&` : 〇|`T&` : **×**|ローカル参照を返していた|
+|`auto f(T x) -> decltype(auto) { return x; }`    |`T` : 〇|`T` : 〇||
+|`auto f(T x) -> decltype(auto) { return (x); }`  |`T&` : 〇|**`T&&` :** 〇|ローカル参照を返す|
+|`auto f(T&& x) -> decltype(x) { return x; }`     |`T&&` : ×|`T&&` : **〇**|`x`がローカル変数の場合ローカル参照を返す|
+|`auto f(T&& x) -> decltype((x)) { return (x); }` |`T&` : 〇|`T&` : **×**|`x`がローカル変数の場合ローカル参照を返していた|
+|`auto f(T&& x) -> decltype(auto) { return x; }`  |`T&&` : ×|`T&&` : **〇**|`x`がローカル変数の場合ローカル参照を返すようになる|
+|`auto f(T&& x) -> decltype(auto) { return (x); }`|`T&` : 〇|**`T&&` :** 〇|`x`がローカル変数の場合ローカル参照を返す|
+|`auto f(T x) -> auto&& { return x; }`       |`T&` : 〇|`T&&` : 〇|ローカル参照を返す|
+|`auto f(T x) -> auto&& { return (x); }`   |`T&` : 〇|`T&&` : 〇|ローカル参照を返す|
+|`auto f(T&& x) -> auto&& { return x; }`       |`T&` : 〇|**`T&&` :** 〇|`x`がローカル変数の場合ローカル参照を返す|
+|`auto f(T&& x) -> auto&& { return (x); }`   |`T&` : 〇|**`T&&` :** 〇|`x`がローカル変数の場合ローカル参照を返す|
 
 右側2列の各項目内は、推論される戻り値型:コンパイル可否、のように記述しており、コンパイル可否は、〇が適格（コンパイルが通る）、×が不適格（コンパイルエラー）を表す。
 
