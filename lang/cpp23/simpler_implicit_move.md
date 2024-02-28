@@ -99,23 +99,23 @@ auto g(int n) -> auto&& {
 この他の場合には結果は変化しない。
 
 ```cpp
-auto f1(int n)-> decltype(auto) {
+auto f1(int n) -> decltype(auto) {
   return n;
 }
 // C++20/23共に戻り値型はint
 
-auto f2(int n)-> auto {
+auto f2(int n) -> auto {
   return n;
 }
 // C++20/23共に戻り値型はint
 
-auto f3(int n)-> auto& {
+auto f3(int n) -> auto& {
   return n;
 }
 // C++20/23共に戻り値型はint&
 // ただし、後述のようにC++23ではエラー
 
-auto f4(int n)-> const auto& {
+auto f4(int n) -> const auto& {
   return n;
 }
 // C++20/23共に戻り値型はconst int&
@@ -160,6 +160,23 @@ auto f() -> int&& {
 }
 ```
 
+### 副作用早見表
+
+任意の型名を`T`（`T&&`は右辺値参照型）として、戻り値型推論とコンパイル可否の変化は次のようにまとめられる
+
+|関数宣言と`return`文|C++20|C++23|
+|---|---|---|
+|`auto f(T x) -> decltype(x) { return x; }`       |`T` : 〇|`T` : 〇|
+|`auto f(T x) -> decltype((x)) { return (x); }`   |`T&` : 〇|`T&` : **×**|
+|`auto f(T x) -> decltype(auto) { return x; }`    |`T` : 〇|`T` : 〇|
+|`auto f(T x) -> decltype(auto) { return (x); }`  |`T&` : 〇|**`T&&` :** 〇|
+|`auto f(T&& x) -> decltype(x) { return x; }`     |`T&&` : ×|`T&&` : **〇**|
+|`auto f(T&& x) -> decltype((x)) { return (x); }` |`T&` : 〇|`T&` : **×**|
+|`auto f(T&& x) -> decltype(auto) { return x; }`  |`T&&` : ×|`T&&` : **〇**|
+|`auto f(T&& x) -> decltype(auto) { return (x); }`|`T&` : 〇|**`T&&` :** 〇|
+
+右側2列の各項目内は、推論される戻り値型:コンパイル可否、のように記述しており、コンパイル可否は、〇が適格（コンパイルが通る）、×が不適格（コンパイルエラー）を表す。
+
 ## 例
 (執筆中)
 
@@ -200,3 +217,4 @@ int main()
 ## 参照
 
 - [P2266R3 Simpler implicit move](https://wg21.link/p2266r3)
+- [The Complete Guide to `return x;` - Arthur O'Dwyer - [CppNow 2021] - YouTube](https://www.youtube.com/watch?v=OGKAJD7bmr8)
