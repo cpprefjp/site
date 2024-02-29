@@ -21,12 +21,12 @@ struct RRefTaker {
 
 auto example1(Widget w) -> RRefTaker {
   // ローカル変数の暗黙ムーブ
-  return w;  // ok、C++11(CWG1579)から
+  return w;  // ok、C++11から
 }
 
 auto example2(Widget&& w) -> RRefTaker {
   // ローカル右辺値参照の暗黙ムーブ
-  return w;  // ok、C++20(P0527)から
+  return w;  // ok、C++20から
 }
 
 auto example3(Widget&& w) -> Widget&& {
@@ -96,7 +96,9 @@ auto g(int n) -> auto&& {
 
 `auto&&`による戻り値型推論は`decltype`と推論方法が異なるものの、やはり`return`文のオペランドの値カテゴリに応じて参照修飾が決定されるため、従来左辺値（*lvalue*）だったオペランドがC++23でムーブする資格がある式となる場合に、値カテゴリが*xvalue*となることによって推論結果が変化する。
 
-この他の場合には結果は変化しない。
+ただし、変更に関わらず、この例のような関数はどちらもローカル変数への参照を返すものであるため、書くべきではない。
+
+戻り値型推論においては、この他の場合には結果は変化しない。
 
 ```cpp
 auto f1(int n) -> decltype(auto) {
@@ -172,7 +174,7 @@ auto f() -> int&& {
 |`auto f(T x) -> decltype(auto) { return (x); }`  |`T&` : 〇|**`T&&` :** 〇|ローカル参照を返す|
 |`auto f(T&& x) -> decltype(x) { return x; }`     |`T&&` : ×|`T&&` : **〇**||
 |`auto f(T&& x) -> decltype((x)) { return (x); }` |`T&` : 〇|`T&` : **×**||
-|`auto f(T&& x) -> decltype(auto) { return x; }`  |`T&&` : ×|`T&&` : **〇**|`x`がローカル変数の場合ローカル参照を返す|
+|`auto f(T&& x) -> decltype(auto) { return x; }`  |`T&&` : ×|`T&&` : **〇**|`x`がローカル変数の場合ローカル参照を返すようになる|
 |`auto f(T&& x) -> decltype(auto) { return (x); }`|`T&` : 〇|**`T&&` :** 〇|`x`がローカル変数の場合ローカル参照を返す|
 |`auto f(T x) -> auto&& { return x; }`       |`T&` : 〇|**`T&&` :** 〇|ローカル参照を返す|
 |`auto f(T x) -> auto&& { return (x); }`   |`T&` : 〇|**`T&&` :** 〇|ローカル参照を返す|
@@ -182,32 +184,100 @@ auto f() -> int&& {
 右側2列の各項目内は、推論される戻り値型:コンパイル可否、のように記述しており、コンパイル可否は、〇が適格（コンパイルが通る）、×が不適格（コンパイルエラー）を表す。
 
 ## 例
-(執筆中)
 
-```cpp example
-// (ここには、言語機能の使い方を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。そのようなコードブロックにはexampleタグを付けます。)
+```cpp
+struct Weird {
+  Weird();
+  Weird(Weird&);
+};
 
-#include <iostream>
+auto g(bool b) -> Weird {
+  static Weird w1;
+  Weird w2;
 
-int main()
-{
-  int variable = 0;
-  std::cout << variable << std::endl;
+  if (b) {
+    return w1;  // ok、w1はムーブする資格のある式ではなく、Weird(Weird&)が呼ばれる
+  } else {
+    return w2;  // ng、w2はムーブする資格のある式であり、xvalue（Weird&&）となる
+  }
 }
 ```
-* variable[color ff0000]
 
-(コードブロック中の識別子に、文字色を付ける例です。)
+```cpp
+// 例示用のムーブ可能な型
+struct Widget {
+  Widget(Widget&&);
+};
 
-### 出力
+auto f1(Widget w) -> Widget {
+  return w;  // ローカル変数の暗黙ムーブ、C++11から
+}
+
+// Widgetの右辺値から構築可能な型
+struct RRefTaker {
+  // Widgetの右辺値からの変換コンストラクタ
+  RRefTaker(Widget&&);
+};
+
+auto f2(Widget w) -> RRefTaker {
+  return w;  // 暗黙ムーブされて構築（変換）、C++11から
+}
+
+auto f3(Widget&& w) -> RRefTaker {
+  return w;  // ローカル右辺値参照の暗黙ムーブ、C++20から
+}
+
+[[noreturn]]
+void f4(Widget w) {
+  throw w;  // throw式における暗黙ムーブ、C++20から
+}
+
+struct From {
+  From(Widget const &);
+  From(Widget&&);
+};
+
+auto f5() -> From {
+  Widget w;
+  return w;  // 暗黙ムーブ（コンストラクタによる変換）、C++11から
+}
+
+struct To {
+  operator Widget() &&;
+};
+
+auto f6() -> Widget {
+  To t;
+  return t;  // 暗黙ムーブ（変換演算子による変換）、C++20から
+}
+
+struct V {
+  V(Widget); // 値で受け取るコンストラクタ
+};
+
+auto f7() -> V {
+  Widget w;
+  return w;  // 暗黙ムーブ（コンストラクタ引数へのムーブ）、C++20から
+}
+
+// DerivedはBaseを公開継承しているとき
+auto f8() -> Base {
+  Derived result;
+  return result;  // 暗黙ムーブ（基底クラスへの変換）、C++20から
+}
+
+auto f9(Widget&& w) -> Widget&& {
+  return w;  // 戻り値型が参照型の場合の暗黙ムーブ、C++23から
+}
+
+struct J {
+  operator Widget&() &&;
+};
+
+auto f10(J x) -> Widget& {
+  return x;  // 戻り値型が参照型の場合の暗黙ムーブ（変換演算子による変換）、C++23から
+}
 ```
-0
-```
-
-(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)  
-(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)
-
 
 ## この機能が必要になった背景・経緯
 (執筆中)
