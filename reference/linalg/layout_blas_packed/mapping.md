@@ -44,7 +44,7 @@ namespace std::linalg {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](mapping/op_constructor.md.nolink) | コンストラクタ | C++26 |
+| [`(constructor)`](mapping/op_constructor.md) | コンストラクタ | C++26 |
 | `(destructor)` | デストラクタ | C++26 |
 | `operator=`    | コピー代入演算子 | C++26 |
 
@@ -53,8 +53,8 @@ namespace std::linalg {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `extents` | 多次元配列のサイズ`extents_`を取得する | C++26 |
-| [`required_span_size`](mapping/required_span_size.md.nolink) | 要素アクセス範囲を取得する | C++26 |
-| [`operator()`](mapping/op_call.md.nolink) | 多次元配列インデクスから要素位置へ変換する | C++26 |
+| [`required_span_size`](mapping/required_span_size.md) | 要素アクセス範囲を取得する | C++26 |
+| [`operator()`](mapping/op_call.md) | 多次元配列インデクスから要素位置へ変換する | C++26 |
 | `stride` | 行列サイズ1x1ならば`1` | C++26 |
 | `is_unique`     | 行列サイズ1x1ならば`true` | C++26 |
 | `is_exhaustive` | `true`を返す | C++26 |
@@ -67,7 +67,7 @@ namespace std::linalg {
 |------|------|----------------|
 | `is_always_unique` | 行または列の静的要素数が1ならば`true` | C++26 |
 | `is_always_exhaustive` | `true`を返す | C++26 |
-| `is_always_strided` | `is_always_unique();` | C++26 |
+| `is_always_strided` | `is_always_unique()` | C++26 |
 
 
 ## メンバ型
@@ -86,8 +86,8 @@ namespace std::linalg {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](mapping/op_equal.md.nolink) | 等値比較 | C++26 |
-| [`operator!=`](mapping/op_equal.md.nolink) | 非等値比較 (`==`により使用可能) | C++26 |
+| [`operator==`](mapping/op_equal.md) | 等値比較 | C++26 |
+| [`operator!=`](mapping/op_equal.md) | 非等値比較 (`==`により使用可能) | C++26 |
 
 
 ## 例
@@ -120,8 +120,6 @@ int main()
 ```
 * linalg::layout_blas_packed[color ff0000]
 * LayoutPacked::mapping[color ff0000]
-* linalg::upper_triangle_t[link upper_triangle_t.md.nolink]
-* linalg::row_major_t[link row_major_t.md.nolink]
 * mat.extent[link /reference/mdspan/mdspan/extent.md]
 * std::print[link /reference/print/print.md]
 * std::println[link /reference/print/println.md]
@@ -151,4 +149,3 @@ int main()
 
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
-- [P1674R2: Evolving a Standard C++ Linear Algebra Library from the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1674r2.html)

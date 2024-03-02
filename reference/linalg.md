@@ -103,14 +103,14 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`column_major_t`](column_major_t.md.nolink) | 列優先(colmun-major)順序を表現するためのタグ型 (class) | C++26 |
-| [`column_major`](column_major_t.md.nolink)   | 列優先(colmun-major)順序を表現するためのタグ値 (variable) | C++26 |
-| [`row_major_t`](row_major_t.md.nolink) | 行優先(row-major)順序を表現するためのタグ型 (class) | C++26 |
-| [`row_major`](row_major_t.md.nolink)   | 行優先(row-major)順序を表現するためのタグ値 (variable) | C++26 |
-| [`upper_triangle_t`](upper_triangle_t.md.nolink) | 上三角行列を表現するためのタグ型 (class) | C++26 |
-| [`upper_triangle`](upper_triangle_t.md.nolink)   | 上三角行列を表現するためのタグ値 (variable) | C++26 |
-| [`lower_triangle_t`](lower_triangle_t.md.nolink) | 下三角行列を表現するためのタグ型 (class) | C++26 |
-| [`lower_triangle`](lower_triangle_t.md.nolink)   | 下三角行列を表現するためのタグ値 (variable) | C++26 |
+| [`column_major_t`](linalg/column_major_t.md) | 列優先(column-major)順序を表現するためのタグ型 (class) | C++26 |
+| [`column_major`](linalg/column_major_t.md)   | 列優先(column-major)順序を表現するためのタグ値 (variable) | C++26 |
+| [`row_major_t`](linalg/row_major_t.md) | 行優先(row-major)順序を表現するためのタグ型 (class) | C++26 |
+| [`row_major`](linalg/row_major_t.md)   | 行優先(row-major)順序を表現するためのタグ値 (variable) | C++26 |
+| [`upper_triangle_t`](linalg/upper_triangle_t.md.nolink) | 上三角行列を表現するためのタグ型 (class) | C++26 |
+| [`upper_triangle`](linalg/upper_triangle_t.md.nolink)   | 上三角行列を表現するためのタグ値 (variable) | C++26 |
+| [`lower_triangle_t`](linalg/lower_triangle_t.md.nolink) | 下三角行列を表現するためのタグ型 (class) | C++26 |
+| [`lower_triangle`](linalg/lower_triangle_t.md.nolink)   | 下三角行列を表現するためのタグ値 (variable) | C++26 |
 | `implicit_unit_diagonal_t` | implicit unit diagonalを表現するためのタグ型 (class) | C++26 |
 | `implicit_unit_diagonal`   | implicit unit diagonalを表現するためのタグ値 (variable) | C++26 |
 | `explicit_diagonal_t` | explicit diagonalを表現するためのタグ型 (class) | C++26 |

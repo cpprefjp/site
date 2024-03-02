@@ -15,14 +15,14 @@ namespace std::linalg {
 `layout_blas_packed`は、多次元配列ビュー[`mdspan`](/reference/mdspan/mdspan.md)を用いた正方行列(square matrix)に対して、BLASにおけるパックレイアウトと互換性のある行列要素メモリ配置を表現する[レイアウトマッピングポリシー](/reference/mdspan/LayoutMappingPolicy.md)クラスである。
 
 - `Triangle` : 指定する行列要素の種別を、上三角[`upper_triangle_t`](upper_triangle_t.md.nolink)または下三角[`lower_triangle_t`](lower_triangle_t.md.nolink)から指定する。
-- `StorageOrder` : 行列要素の格納順を、列優先[`column_major_t`](column_major_t.md.nolink)または行優先[`row_major_t`](row_major_t.md.nolink)から指定する。
+- `StorageOrder` : 行列要素の格納順を、列優先[`column_major_t`](column_major_t.md)または行優先[`row_major_t`](row_major_t.md)から指定する。
 
-`layout_blas_packed`を用いて、BLASの Symmetric Packed (SP), Hermitian Packed (HP), Triangular Packed (TP) 行列レイアウトを表現できる。
+`layout_blas_packed`を用いて、BLASの Symmetric Packed (SP), Hermitian Packed (HP), Triangular Packed (TP) で利用される行列レイアウトを表現できる。
 
 
 ## 適格要件
 - `Triangle`は[`upper_triangle_t`](upper_triangle_t.md.nolink)または[`lower_triangle_t`](lower_triangle_t.md.nolink)のいずれか
-- `StorageOrder`は[`column_major_t`](column_major_t.md.nolink)または[`row_major_t`](row_major_t.md.nolink)のいずれか
+- `StorageOrder`は[`column_major_t`](column_major_t.md)または[`row_major_t`](row_major_t.md)のいずれか
 
 
 ## メンバ型
@@ -31,7 +31,7 @@ namespace std::linalg {
 |------|------|----------------|
 | `triangle_type` | `Triangle` | C++26 |
 | `storage_order_type` | `StorageOrder` | C++26 |
-| [`mapping`](layout_blas_packed/mapping.md) | レイアウトマッピング | C++26 |
+| [`mapping`](layout_blas_packed/mapping.md) | レイアウトマッピング (class template) | C++26 |
 
 
 ## 例
@@ -87,8 +87,8 @@ int main()
 ```
 * linalg::layout_blas_packed[color ff0000]
 * linalg::lower_triangle_t[link lower_triangle_t.md.nolink]
-* linalg::column_major_t[link column_major_t.md.nolink]
-* linalg::row_major_t[link row_major_t.md.nolink]
+* linalg::column_major_t[link column_major_t.md]
+* linalg::row_major_t[link row_major_t.md]
 * mat.extent[link /reference/mdspan/mdspan/extent.md]
 * std::print[link /reference/print/print.md]
 * std::println[link /reference/print/println.md]

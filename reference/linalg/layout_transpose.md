@@ -26,7 +26,7 @@ namespace std::linalg {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `nested_layout_type` | `Layout` | C++26 |
-| [`mapping`](layout_transpose/mapping.md.nolink) | レイアウトマッピング | C++26 |
+| [`mapping`](layout_transpose/mapping.md) | レイアウトマッピング (class template) | C++26 |
 
 
 ## バージョン
@@ -42,6 +42,7 @@ namespace std::linalg {
 
 ## 関連項目
 - [`mdspan`](/reference/mdspan/mdspan.md)
+- [`transpose`](transpose.md.nolink)
 
 
 ## 参照
