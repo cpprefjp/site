@@ -138,7 +138,7 @@ void insert(sorted_unique_t s,
     ```
     * c.keys[link containers.md]
     * c.values[link containers.md]
-    * ranges::zip_view[link /ranges/zip_view.md.nolink]
+    * ranges::zip_view[link /ranges/zip_view.md]
     * ranges::unique[link /reference/algorithm/ranges_unique.md]
     * key_equiv[link key_equiv.md]
     * distance[link /reference/iterator/distance.md]
@@ -171,7 +171,7 @@ void insert(sorted_unique_t s,
     ```
     * c.keys[link containers.md]
     * c.values[link containers.md]
-    * ranges::zip_view[link /ranges/zip_view.md.nolink]
+    * ranges::zip_view[link /ranges/zip_view.md]
     * ranges::unique[link /reference/algorithm/ranges_unique.md]
     * key_equiv[link key_equiv.md]
     * distance[link /reference/iterator/distance.md]

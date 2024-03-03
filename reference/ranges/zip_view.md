@@ -1,0 +1,138 @@
+# zip_view
+* ranges[meta header]
+* std::ranges[meta namespace]
+* class template[meta id-type]
+* cpp23[meta cpp]
+
+```cpp
+namespace std::ranges {
+  template<input_range... Views>
+  requires (view<Views> && ...) && (sizeof...(Views) > 0)
+  class zip_view : public view_interface<zip_view<Views...>> {…… }; // (1)
+
+  namespace views {
+    inline constexpr /*unspecified*/ zip = /*unspecified*/;      // (2)
+  }
+}
+```
+
+## 概要
+
+`zip_view`は複数のRangeから要素を1つずつ取得した[`tuple`](/reference/tuple/tuple.md)を要素とする[`view`](view.md)。
+
+`zip_view`の要素を1つ取得するごとに、各Rangeの要素を1つずつ取得する。
+
+zipするRangeのサイズが異なっている場合、`zip_view`のサイズはそれらの中で最小のサイズとなる。
+
+- (1): `zip_view`のクラス定義
+- (2): `zip_view`を生成するRangeアダプタオブジェクト
+
+### Rangeコンセプト
+
+| borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
+|----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
+|          | (1)   | 〇     | 〇    | (2)     | (3)           | (4)           |            | (5)    | ○       | ○   |
+
+- (1): zipするすべてのRangeが[`sized_range`](sized_range.md)のとき
+- (2): zipするすべてのRangeが[`forward_range`](forward_range.md)のとき
+- (3): zipするすべてのRangeが[`bidirectional_range`](bidirectional_range.md)のとき
+- (4): zipするすべてのRangeが[`random_access`](forward_range.md)のとき
+- (5): *zip-is-common*のとき
+
+## 効果
+
+- (2): 式`views::zip(Es...)`の効果は[`zip_view{Es...}`](zip_view/op_constructor.md.nolink)と等しい。
+
+## 備考
+
+本説明に用いる説明専用要素を以下のように定義する。
+
+```cpp
+namespace std::ranges {
+  // 説明専用
+  template<class... Rs>
+  concept zip-is-common =
+    (sizeof...(Rs) == 1 && (common_range<Rs> && ...)) ||
+    (!(bidirectional_range<Rs> && ...) && (common_range<Rs> && ...)) ||
+    ((random_access_range<Rs> && ...) && (sized_range<Rs> && ...));
+}
+```
+
+## メンバ関数
+
+| 名前                                             | 説明                             | 対応バージョン |
+|--------------------------------------------------|----------------------------------|----------------|
+| [`(constructor)`](zip_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
+| [`base`](zip_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
+| [`begin`](zip_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
+| [`end`](zip_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
+| [`size`](take_view/size.md.nolink)                    | 要素数を取得する                 | C++23          |
+
+## 継承しているメンバ関数
+
+| 名前                                         | 説明                              | 対応バージョン |
+|----------------------------------------------|-----------------------------------|----------------|
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++20          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+
+## 推論補助
+
+| 名前                                                  | 説明                         | 対応バージョン |
+|-------------------------------------------------------|------------------------------|----------------|
+| [`(deduction_guide)`](zip_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23          |
+
+## 例
+```cpp example
+#include <ranges>
+#include <vector>
+#include <list>
+#include <print>
+
+int main() {
+  std::vector v = {1, 2};
+  const std::list l = {'a', 'b', 'c'};
+
+  for (auto&& t : std::views::zip(v, l)) {
+    println("{}", t);
+  }
+
+  for (auto&& [i, c] : std::views::zip(v, l)) {
+    i *= 10; // 要素を書き換えても良い
+  }
+
+  for (auto&& t : std::views::zip(v, l)) {
+    println("{}", t);
+  }
+}
+```
+* std::views::zip[color ff0000]
+
+### 出力
+```
+(1, 'a')
+(2, 'b')
+(10, 'a')
+(20, 'b')
+```
+
+## バージョン
+### 言語
+- C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): 16.0
+- [GCC](/implementation.md#gcc): 13.2
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+## 関連項目
+- [`elements_view`](elements_view.md) zipの逆(タプルから要素を取り出す)
+- [`zip_transform_view`](zip_transform_view.md.nolink) zipして関数を適用する
+
+## 参照
+- [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)

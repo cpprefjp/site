@@ -146,7 +146,7 @@ hello
 
 
 ### プロキシ参照としての使い方（C++23）
-C++23 で[`zip_view`](/reference/ranges/zip_view.md.nolink)などが追加されたことに伴い、すべての要素がプロキシ参照であるような`tuple`は[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用することが出来るようになった。
+C++23 で[`zip_view`](/reference/ranges/zip_view.md)などが追加されたことに伴い、すべての要素がプロキシ参照であるような`tuple`は[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用することが出来るようになった。
 
 ```cpp example
 #include <iostream>

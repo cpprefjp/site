@@ -339,8 +339,8 @@ range | adaptor(args...)
 
 | 名前                                                   | 説明                                                                                | 対応バージョン |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------|----------------|
-| [`zip_view`](ranges/zip_view.md.nolink)                       | 2つのシーケンスから値を1つずつ取り出した`tuple`のビュー (class template)            | C++23          |
-| [`views::zip`](ranges/zip_view.md.nolink)                     | `zip_view`を生成する (customization point object)                                   | C++23          |
+| [`zip_view`](ranges/zip_view.md)                       | 2つのシーケンスから値を1つずつ取り出した`tuple`のビュー (class template)            | C++23          |
+| [`views::zip`](ranges/zip_view.md)                     | `zip_view`を生成する (customization point object)                                   | C++23          |
 
 ### zip transform view
 

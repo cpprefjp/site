@@ -132,7 +132,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - 順序付き連想コンテナの要素削除の処理について、一時オブジェクトのコストを抑える拡張が行われた
     - [`std::map::erase()`](/reference/map/map/erase.md)
     - [`std::map::extract()`](/reference/map/map/extract.md)
-- [`<ranges>`](/reference/ranges.md)に、複数の範囲を綴じ合わせる[`std::views::zip`](/reference/ranges/zip_view.md.nolink)を追加
+- [`<ranges>`](/reference/ranges.md)に、複数の範囲を綴じ合わせる[`std::views::zip`](/reference/ranges/zip_view.md)を追加
 - [`<ranges>`](/reference/ranges.md)に、複数の範囲の直積をとる[`std::views::cartesian_product`](/reference/ranges/cartesian_product_view.md.nolink)を追加
 - Rangeから任意のコンテナに変換するRangeアダプタ[`std::ranges::to()`](/reference/ranges/to.md)を追加
 - Rangeから任意のコンテナに変換するために、可変長のコンテナ ([`std::array`](/reference/array/array.md)以外) に、以下の機能を追加：
