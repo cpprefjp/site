@@ -51,7 +51,7 @@ Rangeを挿入し、コンテナを拡張する。
     ```
     * c.keys[link containers.md]
     * c.values[link containers.md]
-    * ranges::zip_view[link /ranges/zip_view.md]
+    * ranges::zip_view[link /reference/ranges/zip_view.md]
     * ranges::unique[link /reference/algorithm/ranges_unique.md]
     * key_equiv[link key_equiv.md]
     * distance[link /reference/iterator/distance.md]
