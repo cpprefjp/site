@@ -36,7 +36,7 @@ zipするRangeのサイズが異なっている場合、`zip_view`のサイズ�
 - (1): zipするすべてのRangeが[`sized_range`](sized_range.md)のとき
 - (2): zipするすべてのRangeが[`forward_range`](forward_range.md)のとき
 - (3): zipするすべてのRangeが[`bidirectional_range`](bidirectional_range.md)のとき
-- (4): zipするすべてのRangeが[`random_access`](forward_range.md)のとき
+- (4): zipするすべてのRangeが[`random_access_range`](random_access_range.md)のとき
 - (5): *zip-is-common*のとき
 
 ## 効果
