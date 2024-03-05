@@ -84,7 +84,7 @@ int main() {
   std::vector d = {1, 2, 3};
   std::vector p = {1, 10, 100, 1000};
 
-  std::println("{}", std::views::zip_transform([](auto x, auto y){ return x * y }, d, p));
+  std::println("{}", std::views::zip_transform([](auto x, auto y){ return x * y; }, d, p));
 }
 ```
 * std::views::zip_transform[color ff0000]
