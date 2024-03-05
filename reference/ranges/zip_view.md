@@ -25,7 +25,7 @@ namespace std::ranges {
 zipするRangeのサイズが異なっている場合、`zip_view`のサイズはそれらの中で最小のサイズとなる。
 
 - (1): `zip_view`のクラス定義
-- (2): `zip_view`を生成するRangeアダプタオブジェクト
+- (2): `zip_view`を生成するカスタマイゼーションポイントオブジェクト(Rangeアダプタオブジェクトではない)
 
 ### Rangeコンセプト
 
