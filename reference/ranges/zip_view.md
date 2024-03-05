@@ -41,7 +41,10 @@ zipするRangeのサイズが異なっている場合、`zip_view`のサイズ�
 
 ## 効果
 
-- (2): 式`views::zip(Es...)`の効果は[`zip_view{Es...}`](zip_view/op_constructor.md.nolink)と等しい。
+- (2): 式`views::zip(Es...)`の効果は次の通り
+    - `Es`が空でないとき、`zip_view<`[`views​::​all_t`](all.md)`<decltype((Es))>...>(Es...)` と等しい
+    - `Es`が空のとき、`auto(`[`views​::empty`](empty_view.md)`<`[`tuple`](/reference/tuple/tuple.md)`<>>)` と等しい
+
 
 ## 備考
 
@@ -63,7 +66,6 @@ namespace std::ranges {
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
 | [`(constructor)`](zip_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`base`](zip_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
 | [`begin`](zip_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](zip_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
 | [`size`](take_view/size.md.nolink)                    | 要素数を取得する                 | C++23          |
@@ -108,6 +110,9 @@ int main() {
   // zipした結果を連想コンテナに変換する
   const auto m = std::views::zip(v, l) | std::ranges::to<std::unordered_map<int, char>>();
   std::println("{}", m);
+
+  // 何もzipしていないときは空になる
+  std::println("{}", std::views::zip());
 }
 ```
 * std::views::zip[color ff0000]
