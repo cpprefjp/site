@@ -91,33 +91,33 @@ namespace std::ranges {
 #include <ranges>
 #include <vector>
 #include <list>
+#include <unordered_map>
 #include <print>
 
 int main() {
   std::vector v = {1, 2};
   const std::list l = {'a', 'b', 'c'};
 
-  for (auto&& t : std::views::zip(v, l)) {
-    println("{}", t);
-  }
+  std::println("{}", std::views::zip(v, l));
 
   for (auto&& [i, c] : std::views::zip(v, l)) {
     i *= 10; // 要素を書き換えても良い
   }
+  std::println("{}", std::views::zip(v, l));
 
-  for (auto&& t : std::views::zip(v, l)) {
-    println("{}", t);
-  }
+  // zipした結果を連想コンテナに変換する
+  const auto m = std::views::zip(v, l) | std::ranges::to<std::unordered_map<int, char>>();
+  std::println("{}", m);
 }
 ```
 * std::views::zip[color ff0000]
+* std::ranges::to[link to.md]
 
 ### 出力
 ```
-(1, 'a')
-(2, 'b')
-(10, 'a')
-(20, 'b')
+[(1, 'a'), (2, 'b')]
+[(10, 'a'), (20, 'b')]
+{20: 'b', 10: 'a'}
 ```
 
 ## バージョン
