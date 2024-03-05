@@ -353,8 +353,8 @@ range | adaptor(args...)
 
 | 名前                                                             | 説明                                                                               | 対応バージョン |
 |------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
-| [`adjacent_view`](ranges/adjacent_view.md.nolink)                       | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
-| [`views::adjacent`](ranges/adjacent_view.md.nolink)                     | `adjacent_view`を生成する (customization point object)                             | C++23          |
+| [`adjacent_view`](ranges/adjacent_view.md)                       | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
+| [`views::adjacent`](ranges/adjacent_view.md)                     | `adjacent_view`を生成する (customization point object)                             | C++23          |
 
 ### adjacent transform view
 
