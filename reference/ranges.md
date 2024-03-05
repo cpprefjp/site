@@ -360,8 +360,8 @@ range | adaptor(args...)
 
 | 名前                                                             | 説明                                                                               | 対応バージョン |
 |------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
-| [`adjacent_transform_view`](ranges/adjacent_transform_view.md.nolink)   | `adjacent_view`と同様に取り出し、関数を適用した結果のビュー (class template)       | C++23          |
-| [`views::adjacent_transform`](ranges/adjacent_transform_view.md.nolink) | `adjacent_transform_view`を生成する (customization point object)                   | C++23          |
+| [`adjacent_transform_view`](ranges/adjacent_transform_view.md)   | `adjacent_view`と同様に取り出し、関数を適用した結果のビュー (class template)       | C++23          |
+| [`views::adjacent_transform`](ranges/adjacent_transform_view.md) | `adjacent_transform_view`を生成する (customization point object)                   | C++23          |
 
 ### chunk view
 

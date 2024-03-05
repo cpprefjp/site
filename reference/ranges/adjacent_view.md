@@ -25,7 +25,7 @@ namespace std::ranges {
 `N` が元となるRangeの要素数より大きい場合、この[`view`](view.md)は空である。
 
 - (1): `adjacent_view`のクラス定義
-- (2): `adjacent_view`を生成するカスタマイゼーションポイントオブジェクト(Rangeアダプタオブジェクトではない)
+- (2): `adjacent_view`を生成するカスタマイゼーションポイントオブジェクト
 
 ### Rangeコンセプト
 
@@ -47,10 +47,10 @@ namespace std::ranges {
 | 名前                                                | 説明                             | 対応バージョン |
 |-----------------------------------------------------|----------------------------------|----------------|
 | [`(constructor)`](adjacent_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`base`](take_view/base.md.nolink)                         | `V`の参照を取得する              | C++23          |
+| [`base`](adjacent_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
 | [`begin`](adjacent_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](adjacent_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](take_view/size.md.nolink)                         | 要素数を取得する                 | C++23          |
+| [`size`](adjacent_view/size.md.nolink)                     | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
@@ -107,7 +107,7 @@ int main() {
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
-- [`adjacent_transform_view`](adjacent_transform_view.md.nolink) `adjacent_view` と同じように要素を取得して関数を適用する
+- [`adjacent_transform_view`](adjacent_transform_view.md) `adjacent_view` と同じように要素を取得して関数を適用する
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
