@@ -32,13 +32,13 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`layout_blas_packed`](linalg/layout_blas_packed.md) | 行列要素のBLAS互換パックレイアウトに対応する[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
-| `scaled` | 要素値をスカラ倍した読み取り専用`std::mdspan`を作る (function template) | C++26 |
-| `scaled_accessor` | `scaled`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
-| `conjugated_accessor` | `conjugated`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
-| `conjugated` | 読み取り専用の複素共役ビュー`std::mdspan`を作る (function template) | C++26 |
+| [`scaled_accessor`](linalg/scaled_accessor.md.nolink) | `scaled`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
+| [`scaled`](linalg/scaled.md.nolink) | 要素値をスカラ倍した読み取り専用`std::mdspan`を作る (function template) | C++26 |
+| [`conjugated_accessor`](linalg/conjugated_accessor.md.nolink) | `conjugated`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
+| [`conjugated`](linalg/conjugated.md.nolink) | 読み取り専用の複素共役ビュー`std::mdspan`を作る (function template) | C++26 |
 | [`layout_transpose`](linalg/layout_transpose.md) | `transposed`関数用の[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
-| `transposed` | 2次元`std::mdspan`の行列転置ビューを作る (function template) | C++26 |
-| `conjugate_transposed` | 読み取り専用の複素共役転置ビュー`std::mdspan`を作る (function template) | C++26 |
+| [`transposed`](linalg/transposed.md) | 2次元`std::mdspan`の行列転置ビューを作る (function template) | C++26 |
+| [`conjugate_transposed`](linalg/conjugate_transposed.md.nolink) | 読み取り専用の複素共役転置ビュー`std::mdspan`を作る (function template) | C++26 |
 
 
 ## BLAS 1アルゴリズム

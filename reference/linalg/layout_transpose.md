@@ -14,7 +14,7 @@ namespace std::linalg {
 ## 概要
 `layout_transpose`は、多次元配列ビュー[`mdspan`](/reference/mdspan/mdspan.md)を用いた行列(matrix)において、転置行列を表現する[レイアウトマッピングポリシー](/reference/mdspan/LayoutMappingPolicy.md)クラスである。
 
-`layout_transpose`クラステンプレートは、行列転置操作[`transpose`](transpose.md.nolink)の戻り値型として利用される。
+`layout_transpose`クラステンプレートは、行列転置操作[`transposed`](transposed.md)の戻り値型として利用される。
 
 
 ## 適格要件
@@ -42,7 +42,7 @@ namespace std::linalg {
 
 ## 関連項目
 - [`mdspan`](/reference/mdspan/mdspan.md)
-- [`transpose`](transpose.md.nolink)
+- [`transposed`](transposed.md)
 
 
 ## 参照

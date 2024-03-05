@@ -21,7 +21,7 @@ namespace std::linalg {
 `layout_transpose::mapping`は、任意の[レイアウトマッピングポリシー](/reference/mdspan/LayoutMappingPolicy.md)に対して行列転置操作を行った[レイアウトマッピング](/reference/mdspan/LayoutMapping.md)を表現するクラスである。
 
 ### 説明専用メンバ
-説明専用メンバ型`nested-mapping-type`を`Layout::mapping<transpose-extents-t<Extents>>`とする。
+説明専用メンバ型`nested-mapping-type`を`Layout::mapping<`[`transpose-extents-t`](transpose-extents.md)`<Extents>>`とする。
 
 `layout_transpose::mapping`クラステンプレートは、下記の説明専用メンバ変数を保持する。
 
@@ -94,10 +94,6 @@ namespace std::linalg {
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 関連項目
-- [`transpose`](transpose.md.nolink)
 
 
 ## 参照

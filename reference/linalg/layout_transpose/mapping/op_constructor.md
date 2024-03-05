@@ -14,7 +14,7 @@ constexpr explicit mapping(const nested-mapping-type& map);
 
 
 ## 効果
-説明専用メンバ`nested-mapping_`を`map`で、`extents_`を`transpose-extents(map.extents())`で初期化する。
+説明専用メンバ`nested-mapping_`を`map`で、`extents_`を[`transpose-extents`](../transpose-extents.md)`(map.extents())`で初期化する。
 
 
 ## バージョン
