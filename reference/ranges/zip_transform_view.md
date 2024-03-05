@@ -35,13 +35,9 @@ zipするRangeのサイズが異なっている場合、`zip_transform_view`の�
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
-|          | (1)   | 〇     | 〇    | (2)     | (3)           | (4)           |            | (5)    | ○       | ○   |
+|          | (1)   | 〇     | 〇    | (1)     | (1)           | (1)           |            | (1)    | ○       | ○   |
 
-- (1): zipするすべてのRangeが[`sized_range`](sized_range.md)のとき
-- (2): zipするすべてのRangeが[`forward_range`](forward_range.md)のとき
-- (3): zipするすべてのRangeが[`bidirectional_range`](bidirectional_range.md)のとき
-- (4): zipするすべてのRangeが[`random_access_range`](random_access_range.md)のとき
-- (5): *zip-is-common*のとき
+- (1): [`zip_view`](zip_view.md)`<Views...>`に従う
 
 ## 効果
 
