@@ -43,8 +43,7 @@ zipするRangeのサイズが異なっている場合、`zip_transform_view`の�
 
 - (2): `F`を部分式、`Es...`を部分式のパックとする。式 `views::zip_transform(F, Es...)` の効果は以下の通り。
     - `Es` が空でないとき、`zip_transform_view(F, Es...)` と等しい
-    - `Es` が空のとき、 `FD` を [`decay_t`](/reference/type_traits/decay.md)`<decltype((F))>`として、
-        - `((void)F, auto(`[`views::empty`](empty_view.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<FD&>>>))` と等しい
+    - `Es` が空のとき、 `FD` を [`decay_t`](/reference/type_traits/decay.md)`<decltype((F))>`として、`((void)F, auto(`[`views::empty`](empty_view.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<FD&>>>))` と等しい
         - ただし、 [`move_constructible`](/reference/concepts/move_constructible.md)`<FD> && `[`regular_invocable`](/reference/concepts/invocable.md)`<FD&>` が `false`、または [`decay_t`](/reference/type_traits/decay.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<FD&>>` がオブジェクト型でないとき、ill-formed
 
 
