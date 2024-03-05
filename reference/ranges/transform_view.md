@@ -150,6 +150,7 @@ int main() {
 
 ## 関連項目
 - [`std::transform`](/reference/algorithm/transform.md), [`std::ranges::transform`](/reference/algorithm/ranges_transform.md): Rangeの要素に先行評価で関数を適用する標準アルゴリズム関数
+- [`zip_transform_view`](zip_transform_view.md) : 複数の範囲から要素を取り出し、関数を適用した結果をビューとして提供する
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)

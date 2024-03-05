@@ -212,3 +212,4 @@ cccc
 ## 関連項目
 
 - [`transform_view`](/reference/ranges/transform_view.md) : 要素に関数を適用した結果をビューとして提供する
+- [`zip_transform_view`](/reference/ranges/zip_transform_view.md) : 複数の範囲から要素を取り出し、関数を適用した結果をビューとして提供する
