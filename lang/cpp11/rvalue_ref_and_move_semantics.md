@@ -382,6 +382,7 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 - [`move_backward`](/reference/algorithm/move_backward.md)
 - [`unique_ptr`](/reference/memory/unique_ptr.md)
 - [`move_iterator`](/reference/iterator/move_iterator.md)
+- [C++23 暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md)
 
 
 ## 参照
