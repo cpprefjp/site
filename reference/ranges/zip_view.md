@@ -42,8 +42,8 @@ zipするRangeのサイズが異なっている場合、`zip_view`のサイズ�
 ## 効果
 
 - (2): 式`views::zip(Es...)`の効果は次の通り
-    - `Es`が空でないとき、`zip_view<`[`views​::​all_t`](all.md)`<decltype((Es))>...>(Es...)` と等しい
-    - `Es`が空のとき、`auto(`[`views​::empty`](empty_view.md)`<`[`tuple`](/reference/tuple/tuple.md)`<>>)` と等しい
+    - `Es`が空でないとき、`zip_view<`[`views::all_t`](all.md)`<decltype((Es))>...>(Es...)` と等しい
+    - `Es`が空のとき、`auto(`[`views::empty`](empty_view.md)`<`[`tuple`](/reference/tuple/tuple.md)`<>>)` と等しい
 
 
 ## 備考
