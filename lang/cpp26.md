@@ -94,7 +94,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 以下のアルゴリズムを`constexpr`に対応
     - [`std::stable_sort()`](/reference/algorithm/stable_sort.md) / [`std::ranges::stable_sort()`](/reference/algorithm/ranges_stable_sort.md)
     - [`std::stable_partition()`](/reference/algorithm/stable_partition.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_stable_partition.md)
-    - [`std::inplace_merge()`](/reference/algorithm/inplace_merge.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_inplace_merge.md)
+    - [`std::inplace_merge()`](/reference/algorithm/inplace_merge.md) / [`std::ranges::inplace_merge()`](/reference/algorithm/ranges_inplace_merge.md)
 - Rangeアルゴリズムが完全型を要求しないようにするため、[`std::projected`](/reference/iterator/projected.md)の制約を緩和
 
 
