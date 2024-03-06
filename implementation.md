@@ -144,7 +144,7 @@
 | 2022          | Visual Studio 2022 version 17.9.2      | 14.39           | 1939       | 193933521       |
 | 2022          | Visual Studio 2022 version 17.8.3      | 14.38           | 1938       | 193833133       |
 | 2022          | Visual Studio 2022 version 17.7.0      | 14.37           | 1937       | 193732822       |
-| 2022 Update 6 | Visual Studio 2022 version 17.6.5      | ??              | 1936       | 193632530       |
+| 2022 Update 6 | Visual Studio 2022 version 17.6.2      | 14.36           | 1936       | 193632532       |
 | 2022 Update 5 | Visual Studio 2022 version 17.5.4      | ??              | 1935       | 193532217       |
 | 2022 Update 4 | Visual Studio 2022 version 17.4.9      | ??              | 1934       | 193431944       |
 | 2022 Update 3 | Visual Studio 2022 version 17.3.6      | 14.33           | 1933       | 193331630       |
