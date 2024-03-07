@@ -40,11 +40,11 @@ int main()
   std::println("{}", std::sub_sat(3, 1));
 
   // 1 - 3 = -2 -> 0
-  std::println("{}", std::add_sat(1u, 3u));
+  std::println("{}", std::sub_sat(1u, 3u));
 
   // -100 - 50 = -150 -> -128(-2**7)
   std::int8_t x = -100, y = 50;
-  std::println("{}", std::add_sat(x, y));
+  std::println("{}", std::sub_sat(x, y));
 }
 ```
 * std::sub_sat[color ff0000]
