@@ -18,7 +18,7 @@ namespace std::ranges {
 
 ## 概要
 
-`adjacent_view`は各要素とそれに隣接する要素を指定個数ずつ取り出した[`tuple`](/reference/tuple/tuple.md)を要素とする[`view`](view.md)。
+`adjacent_view`は各要素とそれに隣接する要素をコンパイル時指定の個数ずつ取り出した[`tuple`](/reference/tuple/tuple.md)を要素とする[`view`](view.md)。
 
 `adjacent_view`の要素を1つ取得するごとに、`V` の要素を `N` 個取得する。
 
@@ -107,7 +107,8 @@ int main() {
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
-- [`adjacent_transform_view`](adjacent_transform_view.md) `adjacent_view` と同じように要素を取得して関数を適用する
+- [`adjacent_transform_view`](adjacent_transform_view.md): `adjacent_view` と同じように要素を取得して関数を適用する
+- [`slide_view`](slide_view.md): `adjacent_view` と同じように要素を取得するが、個数を実行時に指定する。内側は[`tuple`](/reference/tuple/tuple.md)ではなく[`view`](view.md)となる
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)

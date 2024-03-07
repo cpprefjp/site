@@ -22,7 +22,7 @@ namespace std::ranges {
 
 ## 概要
 
-`adjacent_transform_view`は各要素とそれに隣接する要素を指定個数ずつ取り出し、それらを引数として関数を呼び出した結果を要素とする[`view`](view.md)。
+`adjacent_transform_view`は各要素とそれに隣接する要素をコンパイル時指定の個数ずつ取り出し、それらを引数として関数を呼び出した結果を要素とする[`view`](view.md)。
 
 `adjacent_transform_view`の要素を1つ取得するごとに、`V` の要素を `N` 個取得する。
 

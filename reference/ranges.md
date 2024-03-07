@@ -381,8 +381,8 @@ range | adaptor(args...)
 
 | 名前                                   | 説明                                                                            | 対応バージョン |
 |----------------------------------------|---------------------------------------------------------------------------------|----------------|
-| [`slide_view`](ranges/slide_view.md.nolink)   | 各要素とそれに隣接する要素を指定個数ずつ見る`view`のシーケンス (class template) | C++23          |
-| [`views::slide`](ranges/slide_view.md.nolink) | `slide_view`を生成する (customization point object)                             | C++23          |
+| [`slide_view`](ranges/slide_view.md)   | 各要素とそれに隣接する要素を指定個数ずつ見る`view`のシーケンス (class template) | C++23          |
+| [`views::slide`](ranges/slide_view.md) | `slide_view`を生成する (customization point object)                             | C++23          |
 
 ### stride view
 
