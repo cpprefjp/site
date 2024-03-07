@@ -87,7 +87,7 @@ int main() {
 }
 ```
 * std::views::chunk_by[color ff0000]
-* std::ranges::less_equal[link /reference/functional/functional.md]
+* std::ranges::less_equal[link /reference/functional/ranges_less_equal.md]
 * 転倒[link https://ja.wikipedia.org/wiki/%E8%BB%A2%E5%80%92_(%E6%95%B0%E5%AD%A6)]
 
 ### 出力
