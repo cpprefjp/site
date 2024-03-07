@@ -144,7 +144,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、[`<ranges>`](/reference/ranges.md)に[`std::ranges::range_adaptor_closure`](/reference/ranges/range_adaptor_closure.md.nolink)クラスを追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeを連結させる[`join_with`](/reference/ranges/join_with_view.md)を追加
 - Rangeを指定の大きさで分割する[`std::views::chunk`](/reference/ranges/chunk_view.md)と、Rangeを指定の大きさの隣接要素で分割する[`std::views::slide`](/reference/ranges/slide_view.md)を追加
-- Rangeを条件一致する間の要素で分割する[`std::views::chunk_by`](/reference/ranges/chunk_by_view.md.nolink)を追加
+- Rangeを条件一致する間の要素で分割する[`std::views::chunk_by`](/reference/ranges/chunk_by_view.md)を追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeを等間隔からなるRangeに変換する[`std::views::stride`](/reference/ranges/stride_view.md.nolink)を追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeをムーブするための[`std::views::as_rvalue`](/reference/ranges/as_rvalue_view.md)を追加
 - [`<ranges>`](/reference/ranges.md)に、指定した値をN回繰り返すRangeを生成する[`std::views::repeat`](/reference/ranges/repeat_view.md)を追加

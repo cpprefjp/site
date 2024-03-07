@@ -365,17 +365,17 @@ range | adaptor(args...)
 
 ### chunk view
 
-| 名前                                        | 説明                                                               | 対応バージョン |
-|---------------------------------------------|--------------------------------------------------------------------|----------------|
+| 名前                                         | 説明                                                               | 対応バージョン |
+|----------------------------------------------|--------------------------------------------------------------------|----------------|
 | [`chunk_view`](ranges/chunk_view.md)         | シーケンスを指定個数で区切った`view`のシーケンス (class template)  | C++23          |
 | [`views::chunk`](ranges/chunk_view.md)       | `chunk_view`を生成する (customization point object)                | C++23          |
 
 ### chunk by view
 
-| 名前                                        | 説明                                                               | 対応バージョン |
-|---------------------------------------------|--------------------------------------------------------------------|----------------|
-| [`chunk_by_view`](ranges/chunk_by_view.md.nolink)   | 2項述語が偽となる部分で区切った`view`のシーケンス (class template) | C++23          |
-| [`views::chunk_by`](ranges/chunk_by_view.md.nolink) | `chunk_by_view`を生成する (customization point object)             | C++23          |
+| 名前                                         | 説明                                                               | 対応バージョン |
+|----------------------------------------------|--------------------------------------------------------------------|----------------|
+| [`chunk_by_view`](ranges/chunk_by_view.md)   | 2項述語が偽となる部分で区切った`view`のシーケンス (class template) | C++23          |
+| [`views::chunk_by`](ranges/chunk_by_view.md) | `chunk_by_view`を生成する (customization point object)             | C++23          |
 
 ### slide view
 
