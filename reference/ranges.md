@@ -367,8 +367,8 @@ range | adaptor(args...)
 
 | 名前                                        | 説明                                                               | 対応バージョン |
 |---------------------------------------------|--------------------------------------------------------------------|----------------|
-| [`chunk_view`](ranges/chunk_view.md.nolink)         | シーケンスを指定個数で区切った`view`のシーケンス (class template)  | C++23          |
-| [`views::chunk`](ranges/chunk_view.md.nolink)       | `chunk_view`を生成する (customization point object)                | C++23          |
+| [`chunk_view`](ranges/chunk_view.md)         | シーケンスを指定個数で区切った`view`のシーケンス (class template)  | C++23          |
+| [`views::chunk`](ranges/chunk_view.md)       | `chunk_view`を生成する (customization point object)                | C++23          |
 
 ### chunk by view
 
