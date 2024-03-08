@@ -396,7 +396,7 @@ range | adaptor(args...)
 | 名前                                                          | 説明                                                             | 対応バージョン |
 |---------------------------------------------------------------|------------------------------------------------------------------|----------------|
 | [`cartesian_product_view`](ranges/cartesian_product_view.md)  | シーケンスの直積集合のビュー (class template)                    | C++23          |
-| [`views::cartesian_product`](ranges/cartesian_product.md)     | `cartesian_product_view`を生成する (customization point object)  | C++23          |
+| [`views::cartesian_product`](ranges/cartesian_product_view.md)     | `cartesian_product_view`を生成する (customization point object)  | C++23          |
 
 
 ## Range変換

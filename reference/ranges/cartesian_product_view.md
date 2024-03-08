@@ -137,7 +137,6 @@ int main() {
 }
 ```
 * std::views::cartesian_product[color ff0000]
-* std::ranges::to[link to.md]
 
 ### 出力
 ```
