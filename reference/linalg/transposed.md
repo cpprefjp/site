@@ -42,13 +42,16 @@ constexpr auto transposed(
 型`ReturnMapping`を`ReturnLayout::mapping<ReturnExtents>`として、次の値を返す。
 
 - `Layout`が[`layout_left`](/reference/mdspan/layout_left.md)または[`layout_right`](/reference/mdspan/layout_right.md)または[`layout_blas_packed`](layout_blas_packed.md)の特殊化であるとき、
+
     ```cpp
     R(a.data_handle(),
       ReturnMapping(transpose-extents(a.mapping().extents())),
       a.accessor())
     ```
     * transpose-extents[link layout_transpose/transpose-extents.md]
+
 - `Layout`が[`layout_stride`](/reference/mdspan/layout_stride.md)の特殊化であるとき、
+
     ```cpp
     R(a.data_handle(),
       ReturnMapping(transpose-extents(a.mapping().extents()),
@@ -56,11 +59,15 @@ constexpr auto transposed(
       a.accessor())
     ```
     * transpose-extents[link layout_transpose/transpose-extents.md]
+
 - `Layout`が[`layout_transpose`](layout_transpose.md)の特殊化であるとき、
+
     ```cpp
     R(a.data_handle(), a.mapping().nested_mapping(), a.accessor())
     ```
+
 - それ以外のとき、
+
     ```cpp
     R(a.data_handle(), ReturnMapping(a.mapping()), a.accessor())
     ```
