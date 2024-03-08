@@ -388,8 +388,8 @@ range | adaptor(args...)
 
 | 名前                                     | 説明                                                  | 対応バージョン |
 |------------------------------------------|-------------------------------------------------------|----------------|
-| [`stride_view`](ranges/stride_view.md.nolink)   | 要素を指定個数飛ばしに見るビュー (class template)     | C++23          |
-| [`views::stride`](ranges/stride_view.md.nolink) | `stride_view`を生成する (customization point object)  | C++23          |
+| [`stride_view`](ranges/stride_view.md)   | 要素を指定個数飛ばしに見るビュー (class template)     | C++23          |
+| [`views::stride`](ranges/stride_view.md) | `stride_view`を生成する (customization point object)  | C++23          |
 
 ### cartesian product view
 
