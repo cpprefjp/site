@@ -8,16 +8,17 @@
 namespace std::ranges {
   template<copy_constructible T>
     requires is_object_v<T>
-  class single_view : public view_interface<single_view<T>> { …… }; // (1)
+  class single_view : public view_interface<single_view<T>> { …… }; // (1) C++20
+
+  template<move_constructible T>
+    requires is_object_v<T>
+  class single_view : public view_interface<single_view<T>> { …… }; // (1) C++23
 
   namespace views {
     inline constexpr /*unspecified*/ single = /*unspecified*/; // (2)
   }
 }
 ```
-* copy_constructible[link /reference/concepts/copy_constructible.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): 値を要素1つのRangeに見せる[`view`](view.md)
@@ -28,10 +29,6 @@ namespace std::ranges {
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
 |          | ○    | ○     | ○    | ○      | ○            | ○            | ○         | ○     | ○       | ○   |
-
-## テンプレートパラメータ制約
-- [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T>`
-- [`is_object_v`](/reference/type_traits/is_object.md)`<T>`
 
 ## 効果
 - 式`views::single(E)`の効果は`single_view<decay_t<decltype((E))>>(E)`と等しい。

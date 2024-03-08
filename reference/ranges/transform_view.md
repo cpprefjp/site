@@ -10,22 +10,20 @@ namespace std::ranges {
     requires view<V> && is_object_v<F> &&
              regular_invocable<F&, range_reference_t<V>> &&
              can-reference<invoke_result_t<F&, range_reference_t<V>>>
-  class transform_view : public view_interface<transform_view<R>> { …… }; // (1)
+  class transform_view : public view_interface<transform_view<R>> { …… }; // (1) C++20
+
+  template<input_range V, move_constructible F>
+    requires view<V> && is_object_v<F> &&
+             regular_invocable<F&, range_reference_t<V>> &&
+             can-reference<invoke_result_t<F&, range_reference_t<V>>>
+  class transform_view : public view_interface<transform_view<R>> { …… }; // (1) C++23
 
   namespace views {
     inline constexpr /*unspecified*/ transform = /*unspecified*/;         // (2)
   }
 }
 ```
-* input_range[link input_range.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
-* view[link view.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* regular_invocable[link /reference/concepts/invocable.md]
-* range_reference_t[link range_reference_t.md]
 * can-reference[link /reference/iterator/dereferenceable.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): 指定した関数で各要素を変換した値のRangeとして振る舞う[`view`](view.md)
@@ -39,15 +37,6 @@ namespace std::ranges {
 
 - (1): `V`に従う
 - (2): 述語が参照を返す場合
-
-## テンプレートパラメータ制約
-
-- [`input_range`](input_range.md)`<V>`
-- [`view`](view.md)`<V>`
-- [`copy_constructible`](/reference/concepts/copy_constructible.md)`<F>`
-- [`is_object_v`](/reference/type_traits/is_object.md)`<F>`
-- [`regular_invocable`](/reference/concepts/invocable.md)`<F&, `[`range_reference_t`](range_reference_t.md)`<V>>`
-- [`can-reference`](/reference/iterator/dereferenceable.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F&, `[`range_reference_t`](range_reference_t.md)`<V>>>`
 
 ## 効果
 

@@ -39,7 +39,8 @@
 
 | 名前                                         | 説明                                                                                                   | 対応バージョン |
 |----------------------------------------------|------------------------------------------------------------------------------------------------------|-----------|
-| [`copyable-box`](ranges/copyable_box.md)     | コピー可能、または例外なしでムーブ可能な場合のみ値を保持する型 (class template)                                           | C++20     |
+| [`copyable-box`](ranges/copyable_box.md)     | コピー可能、または例外なしでムーブ可能な場合のみ値を保持する型 (class template)                                           | C++20<br/> C++23で削除     |
+| [`movable-box`](ranges/movable_box.md)     | 例外なしでムーブ可能な場合のみ値を保持する型 (class template)                                           | C++23     |
 | [`simple-view`](ranges/simple-view.md)       | 単純なビューを表す (concept)                                                                                 | C++20     |
 | [`has-arrow`](ranges/has-arrow.md)           | [`std::input_iterator`](/reference/iterator/input_iterator.md)を満たし、アロー演算子が使用できる型かを表す (concept) | C++20     |
 | [`range-with-movable-references`](ranges/range-with-movable-references.md)           | 要素の参照と右辺値参照がムーブ構築できる[`input_range`](/reference/ranges/input_range.md) (concept) | C++23     |
@@ -60,3 +61,4 @@
 * [N4861 16.4.2.1 Exposition-only functions](https://timsong-cpp.github.io/cppwp/n4861/expos.only.func)
 * [LWG 3404 Finish removing `subrange`'s conversions from `pair-like`](https://cplusplus.github.io/LWG/issue3404)
 * [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+* [P2494R2 Relaxing range adaptors to allow for move only types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2494r2.html)
