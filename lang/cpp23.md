@@ -148,7 +148,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 - [`<ranges>`](/reference/ranges.md)に、Rangeを等間隔からなるRangeに変換する[`std::views::stride`](/reference/ranges/stride_view.md)を追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeをムーブするための[`std::views::as_rvalue`](/reference/ranges/as_rvalue_view.md)を追加
 - [`<ranges>`](/reference/ranges.md)に、指定した値をN回繰り返すRangeを生成する[`std::views::repeat`](/reference/ranges/repeat_view.md)を追加
-- [`<ranges>`](/reference/ranges.md)に、Rangeをインデックス付きでループさせる[`std::views::enumerate`](/reference/ranges/enumerate.md.nolink)を追加
+- [`<ranges>`](/reference/ranges.md)に、Rangeをインデックス付きでループさせる[`std::views::enumerate`](/reference/ranges/enumerate_view.md)を追加
 
 
 ### アルゴリズム

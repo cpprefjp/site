@@ -321,8 +321,8 @@ range | adaptor(args...)
 
 | 名前                                          | 説明                                                         | 対応バージョン |
 |-----------------------------------------------|--------------------------------------------------------------|----------------|
-| [`as_const_view`](ranges/as_const_view.md)    | 各要素をconstにするビュー (class template)                       | C++23          |
-| [`views::as_const`](ranges/as_const_view.md)  | `as_const_view`を生成する (customization point object)         | C++23          |
+| [`as_const_view`](ranges/as_const_view.md)    | 各要素をconstにするビュー (class template)                   | C++23          |
+| [`views::as_const`](ranges/as_const_view.md)  | `as_const_view`を生成する (customization point object)       | C++23          |
 
 ### elements view
 
@@ -334,6 +334,13 @@ range | adaptor(args...)
 | [`views::elements`](ranges/elements_view.md)      | `elements_view`を生成する (customization point object) | C++20          |
 | [`views::keys`](ranges/elements_view.md)          | `keys_view`を生成する (customization point object)     | C++20          |
 | [`views::values`](ranges/elements_view.md)        | `values_view`を生成する (customization point object)   | C++20          |
+
+### enumerate view
+
+| 名前                                            | 説明                                                     | 対応バージョン |
+|-------------------------------------------------|----------------------------------------------------------|----------------|
+| [`enumerate_view`](ranges/enumerate_view.md)    | シーケンスにインデックスを付ける`view` (class template)  | C++23          |
+| [`views::enumerate`](ranges/enumerate_view.md)  | `enumerate_view`を生成する (customization point object)  | C++23          |
 
 ### zip view
 
