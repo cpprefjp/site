@@ -42,6 +42,7 @@
 | [`copyable-box`](ranges/copyable_box.md)     | コピー可能、または例外なしでムーブ可能な場合のみ値を保持する型 (class template)                                           | C++20     |
 | [`simple-view`](ranges/simple-view.md)       | 単純なビューを表す (concept)                                                                                 | C++20     |
 | [`has-arrow`](ranges/has-arrow.md)           | [`std::input_iterator`](/reference/iterator/input_iterator.md)を満たし、アロー演算子が使用できる型かを表す (concept) | C++20     |
+| [`range-with-movable-references`](ranges/range-with-movable-references.md)           | 要素の参照と右辺値参照がムーブ構築できる[`input_range`](/reference/ranges/input_range.md) (concept) | C++23     |
 | [`different-from`](ranges/different-from.md) | `const`/`volatile`修飾を無視して、2つの型が同じでないことを表す (concept)                                             | C++20     |
 | [`uses-nonqualification-pointer-conversion`](ranges/subrange/uses-nonqualification-pointer-conversion.md) | 直接変換できない型同士のポインタの変換が必要かどうかを表す (concept)                                                    | C++20     |
 | [`convertible-to-non-slicing`](ranges/subrange/convertible-to-non-slicing.md)                             | スライシングを起こさずに変換できるかどうかを表す (concept)                                                                 | C++20     |
