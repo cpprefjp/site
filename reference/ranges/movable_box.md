@@ -10,7 +10,7 @@
 `movable-box<T>` は、[`std::optional`](/reference/optional/optional.md)`<T>`とほとんど同じであるが、以下の差分をもつ。
 
 ### 差分1
-テンプレートパラメーター制約 [`move_constructible`](/reference/concepts//move_constructible.md)`<T> && `[`is_object_v`](/reference/type_traits/is_object.md)`<T>` をもつ。
+テンプレートパラメーター制約 [`move_constructible`](/reference/concepts/move_constructible.md)`<T> && `[`is_object_v`](/reference/type_traits/is_object.md)`<T>` をもつ。
 
 ### 差分2
 `T`が[`copyable`](/reference/concepts/copyable.md)のモデルでない場合、コピー代入演算子は以下のように定義される。
