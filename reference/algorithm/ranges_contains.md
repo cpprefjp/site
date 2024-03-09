@@ -27,9 +27,9 @@ namespace ranges {
 
 ## 戻り値
 ```cpp
-ranges​::​find(std​::​move(first), last, value, proj) != last
+ranges::find(std::move(first), last, value, proj) != last
 ```
-* ranges​::​find[link ranges_find.md]
+* ranges::find[link ranges_find.md]
 
 ## 計算量
 最大で `last - first` 回比較を行う
@@ -64,19 +64,19 @@ struct contains_impl {
   template<input_iterator I, sentinel_for<I> S, class T, class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
   constexpr bool operator()(I first, S last, const T& value, Proj proj = {}) const {
-    return ranges​::​find(std​::​move(first), last, value, proj) != last;
+    return ranges::find(std::move(first), last, value, proj) != last;
   }
 
   template<input_range R, class T, class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
   constexpr bool operator()(R&& r, const T& value, Proj proj = {}) const {
-    return ranges​::​find(std::forward(r), value, proj) != last;
+    return ranges::find(std::forward(r), value, proj) != last;
   }
 };
 
 inline constexpr contains_impl contains;
 ```
-* ranges​::​find[link ranges_find.md]
+* ranges::find[link ranges_find.md]
 
 ## バージョン
 ### 言語
