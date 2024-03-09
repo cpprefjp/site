@@ -45,7 +45,7 @@ namespace std::ranges {
         - それ以外のとき、[`subrange`](subrange.md)`<I, I, K>(E.end().base(), E.begin().base())`と等しい
     - それ以外のとき、`reverse_view{E}`と等しい
 
-`V | views::reverse | views::reverse`のように連続して適用したとき、結果として元に戻るのではなく、式の効果自体が`V`と等しくなる。
+`V | views::reverse | views::reverse`のように連続して適用したとき、結果として元に戻るのではなく、初めから逆順にしないようになる。
 
 ## メンバ関数
 
