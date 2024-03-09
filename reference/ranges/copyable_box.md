@@ -58,7 +58,7 @@ constexpr copyable-box& operator=(copyable-box&& that) noexcept(is_nothrow_move_
 
 ## 備考
 
-このクラスはC++23で['movable-box'](movable_box.md)に置き換えられた。
+このクラスはC++23で[`movable-box`](movable_box.md)に置き換えられた。
 
 ## バージョン
 ### 言語
