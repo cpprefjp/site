@@ -139,25 +139,27 @@ ranges::sort(pv, {}, &Parson::name);
 | [`equal`](algorithm/equal.md)                 | 2つの範囲を等値比較する | |
 | [`search`](algorithm/search.md)               | 指定された最初のサブシーケンスを検索する | |
 | [`search_n`](algorithm/search_n.md)           | 指定された最初のサブシーケンスを検索する | |
-| [`ranges::all_of`](algorithm/ranges_all_of.md)               | 全ての要素が条件を満たしているかを調べる             | C++20 |
-| [`ranges::any_of`](algorithm/ranges_any_of.md)               | どれかの要素が条件を満たしているかを調べる           | C++20 |
-| [`ranges::none_of`](algorithm/ranges_none_of.md)             | 全ての要素が条件を満たしていないかを調べる           | C++20 |
-| [`ranges::for_each`](algorithm/ranges_for_each.md)           | 全ての要素に対して処理を行う                         | C++20 |
-| [`ranges::for_each_n`](algorithm/ranges_for_each_n.md)       | 範囲の先頭N個の要素に対して処理を行う                | C++20 |
-| [`ranges::find`](algorithm/ranges_find.md)                   | 指定された値を検索する                               | C++20 |
-| [`ranges::find_if`](algorithm/ranges_find_if.md)             | 条件を満たす最初の要素を検索する                     | C++20 |
-| [`ranges::find_if_not`](algorithm/ranges_find_if_not.md)     | 条件を満たしていない最初の要素を検索する             | C++20 |
-| [`ranges::find_end`](algorithm/ranges_find_end.md)           | 指定された最後のサブシーケンスを検索する             | C++20 |
-| [`ranges::find_first_of`](algorithm/ranges_find_first_of.md) | ある集合の1つとマッチする最初の要素を検索する        | C++20 |
-| [`ranges::adjacent_find`](algorithm/ranges_adjacent_find.md) | 隣接する要素で条件を満たしている最初の要素を検索する | C++20 |
-| [`ranges::count`](algorithm/ranges_count.md)                 | 指定された値である要素の数を数える                   | C++20 |
-| [`ranges::count_if`](algorithm/ranges_count_if.md)           | 条件を満たしている要素の数を数える                   | C++20 |
-| [`ranges::mismatch`](algorithm/ranges_mismatch.md)           | 2つの範囲が一致していない場所を検索する              | C++20 |
-| [`ranges::equal`](algorithm/ranges_equal.md)                 | 2つの範囲を等値比較する                              | C++20 |
-| [`ranges::search`](algorithm/ranges_search.md)               | 指定された最初のサブシーケンスを検索する             | C++20 |
-| [`ranges::search_n`](algorithm/ranges_search_n.md)           | 指定された最初のサブシーケンスを検索する             | C++20 |
-| [`ranges::starts_with`](algorithm/ranges_starts_with.md)     | 先頭が指定されたシーケンスと一致するかを調べる       | C++23 |
-| [`ranges::ends_with`](algorithm/ranges_ends_with.md)         | 末尾が指定されたシーケンスと一致するかを調べる       | C++23 |
+| [`ranges::all_of`](algorithm/ranges_all_of.md)                       | 全ての要素が条件を満たしているかを調べる             | C++20 |
+| [`ranges::any_of`](algorithm/ranges_any_of.md)                       | どれかの要素が条件を満たしているかを調べる           | C++20 |
+| [`ranges::none_of`](algorithm/ranges_none_of.md)                     | 全ての要素が条件を満たしていないかを調べる           | C++20 |
+| [`ranges::contains`](algorithm/ranges_contains.md)                   | シーケンスの中に指定された要素があるか調べる         | C++23 |
+| [`ranges::contains_subrange`](algorithm/ranges_contains_subrange.md) | シーケンスの中に指定されたシーケンスがあるか調べる   | C++23 |
+| [`ranges::for_each`](algorithm/ranges_for_each.md)                   | 全ての要素に対して処理を行う                         | C++20 |
+| [`ranges::for_each_n`](algorithm/ranges_for_each_n.md)               | 範囲の先頭N個の要素に対して処理を行う                | C++20 |
+| [`ranges::find`](algorithm/ranges_find.md)                           | 指定された値を検索する                               | C++20 |
+| [`ranges::find_if`](algorithm/ranges_find_if.md)                     | 条件を満たす最初の要素を検索する                     | C++20 |
+| [`ranges::find_if_not`](algorithm/ranges_find_if_not.md)             | 条件を満たしていない最初の要素を検索する             | C++20 |
+| [`ranges::find_end`](algorithm/ranges_find_end.md)                   | 指定された最後のサブシーケンスを検索する             | C++20 |
+| [`ranges::find_first_of`](algorithm/ranges_find_first_of.md)         | ある集合の1つとマッチする最初の要素を検索する        | C++20 |
+| [`ranges::adjacent_find`](algorithm/ranges_adjacent_find.md)         | 隣接する要素で条件を満たしている最初の要素を検索する | C++20 |
+| [`ranges::count`](algorithm/ranges_count.md)                         | 指定された値である要素の数を数える                   | C++20 |
+| [`ranges::count_if`](algorithm/ranges_count_if.md)                   | 条件を満たしている要素の数を数える                   | C++20 |
+| [`ranges::mismatch`](algorithm/ranges_mismatch.md)                   | 2つの範囲が一致していない場所を検索する              | C++20 |
+| [`ranges::equal`](algorithm/ranges_equal.md)                         | 2つの範囲を等値比較する                              | C++20 |
+| [`ranges::search`](algorithm/ranges_search.md)                       | 指定された最初のサブシーケンスを検索する             | C++20 |
+| [`ranges::search_n`](algorithm/ranges_search_n.md)                   | 指定された最初のサブシーケンスを検索する             | C++20 |
+| [`ranges::starts_with`](algorithm/ranges_starts_with.md)             | 先頭が指定されたシーケンスと一致するかを調べる       | C++23 |
+| [`ranges::ends_with`](algorithm/ranges_ends_with.md)                 | 末尾が指定されたシーケンスと一致するかを調べる       | C++23 |
 
 ### `fold`アルゴリズム
 
