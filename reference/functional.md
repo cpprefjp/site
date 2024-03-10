@@ -42,6 +42,7 @@ struct doubler {
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
 | [`bind_front`](functional/bind_front.md) | 関数の引数を先頭から順に部分適用する(function template) | C++20 |
+| [`bind_back`](functional/bind_back.md) | 関数の引数を末尾から順に部分適用する(function template) | C++23 |
 | [`bind`](functional/bind.md) | 関数の引数を部分適用する(function template) | C++11 |
 | [`is_bind_expression`](functional/is_bind_expression.md) | 型を`bind`の式と見なすか判定する(class template) | C++11 |
 | [`is_placeholder`](functional/is_placeholder.md) | 型がプレースホルダーかどうかを判定する(class template) | C++11 |

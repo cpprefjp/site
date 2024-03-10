@@ -141,7 +141,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
     - Rangeを先頭に追加する`prepend_range()`メンバ関数
     - Rangeを末尾に追加する`append_range()`メンバ関数
     - Rangeを代入する`assign_range()`メンバ関数
-- ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、[`<ranges>`](/reference/ranges.md)に[`std::ranges::range_adaptor_closure`](/reference/ranges/range_adaptor_closure.md.nolink)クラスを追加
+- ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、[`<ranges>`](/reference/ranges.md)に[`std::ranges::range_adaptor_closure`](/reference/ranges/range_adaptor_closure.md)クラスを追加
 - [`<ranges>`](/reference/ranges.md)に、Rangeを連結させる[`join_with`](/reference/ranges/join_with_view.md)を追加
 - Rangeを指定の大きさで分割する[`std::views::chunk`](/reference/ranges/chunk_view.md)と、Rangeを指定の大きさの隣接要素で分割する[`std::views::slide`](/reference/ranges/slide_view.md)を追加
 - Rangeを条件一致する間の要素で分割する[`std::views::chunk_by`](/reference/ranges/chunk_by_view.md)を追加
@@ -192,7 +192,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 ### 関数オブジェクト
 - [`std::invoke()`](/reference/functional/invoke.md)の戻り値型を指定するバージョンである[`std::invoke_r()`](/reference/functional/invoke_r.md)を追加
 - [`std::function`](/reference/functional/function.md)クラスと等価な機能をもつ、ムーブのみ可能な[`std::move_only_function`](/reference/functional/move_only_function.md)クラスを追加
-- ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、末尾から引数を束縛する[`std::bind_back()`](/reference/functional/bind_back.md.nolink)関数を追加
+- ユーザー定義のRangeアダプタがパイプライン演算子 `|` をサポートしやすくするために、末尾から引数を束縛する[`std::bind_back()`](/reference/functional/bind_back.md)関数を追加
 
 
 ### メモリ

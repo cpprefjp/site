@@ -101,7 +101,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### 関数オブジェクト
 - 所有権を保持しない[`std::function`](/reference/functional/function.md)として、[`<functional>`](/reference/functional.md)に[`std::function_ref`](/reference/functional/function_ref.md)クラスを追加
 - [`std::move_only_function`](/reference/functional/move_only_function.md)のコピー可能版として、[`<functional>`](/reference/functional.md)に[`std::copyable_function`](/reference/functional/copyable_function.md)クラスを追加
-- [`std::bind_front()`](/reference/functional/bind_front.md)と[`std::bind_back()`](/reference/functional/bind_back.md.nolink)に、非型テンプレート引数として関数を指定するオーバーロードを追加
+- [`std::bind_front()`](/reference/functional/bind_front.md)と[`std::bind_back()`](/reference/functional/bind_back.md)に、非型テンプレート引数として関数を指定するオーバーロードを追加
     - 関連して、非型テンプレート引数の関数オブジェクトを反転させられるよう、[`not_fn()`](/reference/functional/not_fn.md)に非型テンプレート引数版のオーバーロードを追加
 
 

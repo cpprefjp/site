@@ -172,8 +172,7 @@ Rangeファクトリは、Rangeではないオブジェクトから[`view`](rang
 
 ## Rangeアダプタ
 
-Rangeアダプタは、既存のRangeに作用して新たな[`view`](ranges/view.md)を生成するものである。
-その実体はカスタマイゼーションポイントオブジェクトとなっている。
+Rangeアダプタは、既存のRangeに作用して新たなRangeを生成するものである。
 
 RangeアダプタをRangeに作用させる方法には、一部の例外を除き、関数記法とパイプライン記法の2つがある。
 
@@ -199,7 +198,14 @@ for (auto&& item : r | R) {
 }
 ```
 
-第1引数に[`viewable_range`](ranges/viewable_range.md)を受け取って[`view`](ranges/view.md)を返すカスタマイゼーションポイントオブジェクトを、**Rangeアダプタオブジェクト**という。とくに、1引数のものを**Rangeアダプタクロージャオブジェクト**という。
+**Rangeアダプタオブジェクト**は次のように定義される。
+
+- 第1引数に[`viewable_range`](ranges/viewable_range.md)を受け取って[`view`](ranges/view.md)を返すカスタマイゼーションポイントオブジェクト
+
+また、**Rangeアダプタクロージャオブジェクト**は次のように定義される。
+
+- (C++20) [`viewable_range`](ranges/viewable_range.md)を受け取って[`view`](ranges/view.md)を返す単項関数オブジェクト
+- (C++23) Rangeを受け取る単項関数オブジェクト
 
 Rangeアダプタオブジェクト`adaptor`が2つ以上の引数をとる場合、以下の3つの式は等しい。
 
@@ -209,7 +215,12 @@ adaptor(args...)(range)
 range | adaptor(args...)
 ```
 
-このとき、`adaptor(args...)`はRangeアダプタクロージャオブジェクトになっている。
+このとき、式`adaptor(args...)`の値がRangeアダプタクロージャオブジェクトになっている。
+
+| 名前                                                         | 説明                                                                | 対応バージョン |
+|--------------------------------------------------------------|---------------------------------------------------------------------|----------------|
+| [`range_adaptor_closure`](ranges/range_adaptor_closure.md)   | Rangeアダプタクロージャオブジェクトの基底クラス (class template)    | C++23          |
+
 
 ### all view
 
