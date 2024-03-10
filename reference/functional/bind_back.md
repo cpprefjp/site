@@ -40,9 +40,9 @@ namespace std {
 
 ## この機能が必要になった背景・経緯
 
-C++23で[`Rangeアダプタ`](/reference/ranges/range.md)のユーザー定義がサポートされた。
+C++23で[Rangeアダプタ](/reference/ranges/range.md)のユーザー定義がサポートされた。
 
-[`Rangeアダプタオブジェクト`](/reference/ranges/range.md)である`adaptor`が2つ以上の引数をとる場合、以下の3つの式は等しい。
+[Rangeアダプタオブジェクト](/reference/ranges/range.md)である`adaptor`が2つ以上の引数をとる場合、以下の3つの式は等しい。
 
 ```cpp
 adaptor(range, args...)
@@ -50,7 +50,7 @@ adaptor(args...)(range)
 range | adaptor(args...)
 ```
 
-ここで、Rangeアダプタオブジェクトの第2引数以降を部分適用した結果が[`Rangeアダプタクロージャオブジェクト`](/reference/ranges/range.md)となる。
+ここで、Rangeアダプタオブジェクトの第2引数以降を部分適用した結果が[Rangeアダプタクロージャオブジェクト](/reference/ranges/range.md)となる。
 ユーザー定義するRangeアダプタオブジェクトの`operator()`において、この部分適用を行うためのユーティリティとして`bind_back`が提案された。
 
 ## 例
