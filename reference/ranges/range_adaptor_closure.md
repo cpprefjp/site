@@ -145,7 +145,7 @@ inline constexpr positive_impl positive;
 int main() {
   std::vector v = {0, -1, 2, -3, 4, -5, 6, -7};
 
-  std::println(v | positive);
+  std::println("{}", v | positive);
 }
 ```
 * std::ranges::range_adaptor_closure[color ff0000]
