@@ -110,7 +110,6 @@ int main() {
 * std::ranges::range_adaptor_closure[color ff0000]
 * std::bind_back[link /reference/functional/bind_back.md]
 * std::invocable[link /reference/concepts/invocable.md]
-* std::views::all[link all.md]
 * std::ranges::range[link range.md]
 * std::ranges::viewable_range[link viewable_range.md]
 * std::ranges::join_view[link join_view.md]
