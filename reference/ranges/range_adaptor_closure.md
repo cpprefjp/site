@@ -170,4 +170,5 @@ int main() {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
-- [rangesのパイプにアダプトするには](https://onihusube.hatenablog.com/entry/2022/04/24/010041)
+- [rangesのパイプにアダプトするには](https://onihusube.hatenablog.com/entry/2022/04/24/010041
+- [P2387R3 Pipe support for user-defined range adaptors](https://wg21.link/p2387r3)
