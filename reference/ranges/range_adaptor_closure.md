@@ -66,10 +66,10 @@ class closure_t : public std::ranges::range_adaptor_closure<closure_t<F>> {
 public:
   constexpr closure_t(F f) : f(f) { }
 
-  template <std::ranges::range R>
+  template <std::ranges::viewable_range R>
   requires std::invocable<F const&, R>
   constexpr auto operator()(R&& r) const {
-    return f(std::views::all(std::forward<R>(r)));
+    return f(std::forward<R>(r));
   }
 };
 
@@ -170,5 +170,5 @@ int main() {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
-- [rangesのパイプにアダプトするには](https://onihusube.hatenablog.com/entry/2022/04/24/010041
+- [rangesのパイプにアダプトするには](https://onihusube.hatenablog.com/entry/2022/04/24/010041)
 - [P2387R3 Pipe support for user-defined range adaptors](https://wg21.link/p2387r3)
