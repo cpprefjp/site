@@ -5,12 +5,10 @@
 * cpp26[meta cpp]
 
 ```cpp
-template<class ElementType,
-         class Extents,
-         class Layout,
-         class Accessor>
-constexpr auto transposed(
-  mdspan<ElementType, Extents, Layout, Accessor> a);
+namespace std::linalg {
+  template<class ElementType, class Extents, class Layout, class Accessor>
+    constexpr auto transposed(mdspan<ElementType, Extents, Layout, Accessor> a);
+}
 ```
 * Extents[link /reference/mdspan/extents.md]
 * Layout[link /reference/mdspan/LayoutMappingPolicy.md]
@@ -82,9 +80,8 @@ constexpr auto transposed(
 int main()
 {
   int arr[] = {1, 2, 3, 4, 5, 6};
-  using Ext2D = std::dextents<size_t, 2>;
 
-  std::mdspan mat0{arr, Ext2D{2, 3}};
+  std::mdspan mat0{arr, 2, 3};
   assert(mat0.extent(0) == 2 && mat0.extent(1) == 3);
   // 1 2
   // 3 4

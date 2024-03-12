@@ -5,9 +5,11 @@
 * cpp26[meta cpp]
 
 ```cpp
-template<class ScalingFactor,
-         class ElementType, class Extents, class Layout, class Accessor>
-constexpr auto scaled(ScalingFactor alpha, mdspan<ElementType, Extents, Layout, Accessor> x);
+namespace std::linalg {
+  template<class ScalingFactor,
+           class ElementType, class Extents, class Layout, class Accessor>
+  constexpr auto scaled(ScalingFactor alpha, mdspan<ElementType, Extents, Layout, Accessor> x);
+}
 ```
 * Extents[link /reference/mdspan/extents.md]
 * Layout[link /reference/mdspan/LayoutMappingPolicy.md]
@@ -41,15 +43,15 @@ mdspan<typename SA::element_type, Extents, Layout, SA>(
 int main()
 {
   int arr[] = {1, 2, 3, 4};
-  std::mdspan vec0{arr, std::extents<size_t, 4>{}};
-  // 1 2 3 4 
+  std::mdspan vec0{arr, 4};
+  // 1 2 3 4
 
   auto vec1 = std::linalg::scaled(2, vec0);
   // 2 4 6 8
   assert(vec1[0] == 2);
 
-  // linalg::scaled適用後のmdspan要素は読み取り専用となため、
-  // 例えば vec1[0] == 42; はコンパイルエラーを引き起こす。
+  // linalg::scaled適用後のmdspan要素は読み取り専用となり、
+  // 例えば vec1[0] = 42; はコンパイルエラーを引き起こす。
 }
 ```
 * std::linalg::scaled[color ff0000]

@@ -43,6 +43,7 @@ namespace std::linalg {
 ## 関連項目
 - [`mdspan`](/reference/mdspan/mdspan.md)
 - [`transposed`](transposed.md)
+- [`conjugate_transposed`](conjugate_transposed.md)
 
 
 ## 参照

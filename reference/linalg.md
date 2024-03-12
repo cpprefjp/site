@@ -21,7 +21,7 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 ## 共通要件
 `<linalg>`ヘッダが提供する演算アルゴリズムは、スカラ値およびベクトル／行列の要素型として線形代数値型(linear algebra value types)を取り扱う。
 
-線形代数値型はBLASが取り扱う`float`, `double`, `std::complex<float>`, `std::complex<double>`をはじめ、[`semiregular`](concepts/semiregular.md)のモデルであれば良い。
+線形代数値型はBLASが取り扱う`float`, `double`, [`std::complex`](/reference/complex/complex.md)`<float>`, [`std::complex`](/reference/complex/complex.md)`<double>`をはじめ、[`semiregular`](concepts/semiregular.md)のモデルであれば良い。
 また、線形代数値型の値初期化は加法元（算術型であれば値`0`）であること。
 
 プログラム定義型を利用する場合、演算アルゴリズムはカスタマイゼーションポイントとして`abs`, `real`, `imag`, `conj`を非修飾名で呼び出す。
@@ -34,11 +34,11 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 | [`layout_blas_packed`](linalg/layout_blas_packed.md) | 行列要素のBLAS互換パックレイアウトに対応する[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
 | [`scaled_accessor`](linalg/scaled_accessor.md) | `scaled`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
 | [`scaled`](linalg/scaled.md) | 要素値をスカラー倍した読み取り専用`std::mdspan`を作る (function template) | C++26 |
-| [`conjugated_accessor`](linalg/conjugated_accessor.md.nolink) | `conjugated`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
-| [`conjugated`](linalg/conjugated.md.nolink) | 読み取り専用の複素共役ビュー`std::mdspan`を作る (function template) | C++26 |
+| [`conjugated_accessor`](linalg/conjugated_accessor.md) | `conjugated`関数用の[アクセサポリシー](mdspan/AccessorPolicy.md) (class template) | C++26 |
+| [`conjugated`](linalg/conjugated.md) | 読み取り専用の複素共役ビュー`std::mdspan`を作る (function template) | C++26 |
 | [`layout_transpose`](linalg/layout_transpose.md) | `transposed`関数用の[レイアウトマッピングポリシー](mdspan/LayoutMappingPolicy.md) (class template) | C++26 |
 | [`transposed`](linalg/transposed.md) | 2次元`std::mdspan`の行列転置ビューを作る (function template) | C++26 |
-| [`conjugate_transposed`](linalg/conjugate_transposed.md.nolink) | 読み取り専用の複素共役転置ビュー`std::mdspan`を作る (function template) | C++26 |
+| [`conjugate_transposed`](linalg/conjugate_transposed.md) | 読み取り専用の複素共役転置ビュー`std::mdspan`を作る (function template) | C++26 |
 
 
 ## BLAS 1アルゴリズム
