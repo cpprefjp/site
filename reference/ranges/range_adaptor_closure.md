@@ -50,8 +50,22 @@ public:
 
 inline constexpr user_defined_closure_t user_defined;
 ```
+* std::ranges::range_adaptor_closure[color ff0000]
+* std::ranges::viewable_range[link viewable_range.md]
 
-パイプライン記法をサポートする方法は規定されていないが、一般には処理系がRangeと`range_adaptor_closure`を引数とする`operator|`を定義することで行われる。
+パイプライン記法をサポートする方法は規定されていないが、一般には処理系がRangeと`range_adaptor_closure`を引数とする以下のような`operator|`を定義することで行われると考えられる。
+
+```cpp
+template<std::ranges::viewable_range R, class T>
+  requires std::derived_from<T, std::ranges::range_adaptor_closure<T>> && std::invocable<T, R>
+constexpr auto operator| (R&& r, T&& raco) {
+  return raco(std::forward<R>(r));
+}
+```
+* std::ranges::range_adaptor_closure[color ff0000]
+* std::ranges::viewable_range[link viewable_range.md]
+* std::invocable[link /reference/concepts/invocable.md]
+* std::derived_from[link /reference/concepts/derived_from.md]
 
 ## 例
 ```cpp example
