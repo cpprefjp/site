@@ -1,5 +1,5 @@
 # conj-if-needed
-* lingalg[meta header]
+* linalg[meta header]
 * function[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
