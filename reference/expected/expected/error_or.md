@@ -6,8 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-template<class G = E> constexpr T error_or(G&& e) const &; // (1)
-template<class G = E> constexpr T error_or(G&& e) &&;      // (2)
+template<class G = E> constexpr E error_or(G&& e) const &; // (1)
+template<class G = E> constexpr E error_or(G&& e) &&;      // (2)
 ```
 
 ## 概要
