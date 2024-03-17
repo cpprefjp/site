@@ -68,9 +68,81 @@ void f(Out& o, A1 const& a1, A2 const& a2)
 それでも記述が実際にしたい処理に比べて不必要に複雑になる。
 constexpr if文の導入によりそのような複雑な手法を用いずに素直に条件付きのコンパイルを実現できるようになった。
 
+`constexpr if`文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。
+
+```cpp example
+#include <type_traits>
+#include <iostream>
+
+struct Hoge {
+  using type = int;
+};
+
+template <typename T>
+void f()
+{
+  if constexpr (std::is_same_v<T::type, int> || std::is_same_v<T::value_type, int>) {
+    std::cout << "is int" << std::endl;
+  }
+}
+
+int main()
+{
+  f<Hoge>(); //error: Hoge::value_typeは存在しないのでif constexpr文の条件式がコンパイルエラーになる
+}
+```
+
+### `static_assert`文に関する例外
+
+後に述べる2段階名前探索に関する注意点とは関係なく、C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
+
+```cpp example
+#include <cstdint>
+template <class T>
+void f(T t) {
+  if constexpr (sizeof(T) == sizeof(std::int32_t)) {
+    use(t);
+  } else {
+    static_assert(false, "must be 32bit");
+  }
+}
+
+void g(std::int8_t c) {
+  std::int32_t n = 0;
+  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。
+  f(c); // error: cはstd::int8_t型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する
+}
+```
+
 ### 2段階名前探索における注意点
 
 `constexpr if`文で、実行されない方の`statement`は廃棄文(discarded statement)となり、文の実体化を防ぐ。言い換えると、2段階名前探索における依存名(dependent name)は、廃棄文の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
+
+```cpp
+template<bool> struct inferior_static_assert_failure;
+template<> struct inferior_static_assert_failure<true>{ enum { value = 1 }; };
+#define INFERIOR_STATIC_ASSERT(B) typedef char inferior_static_assert[sizeof(inferior_static_assert_failure<bool(B)>::value)]
+#include <type_traits>
+
+template <typename T>
+void f(T)
+{
+  if constexpr (std::is_same_v<T, int>)
+  {
+    // Tがintのときのみ評価されてほしい
+    // 実際は常に評価される
+    INFERIOR_STATIC_ASSERT(false);
+  }
+}
+
+int main()
+{
+  f(2.4);
+  f(3);
+}
+```
+
+CWG 2518が適用されていない環境においては`static_assert`でも同じ現象が発生する。
 
 ```cpp example
 #include <type_traits>
@@ -93,7 +165,11 @@ int main()
 }
 ```
 
-なぜならば廃棄文はテンプレートの実体化を防ぐ (依存名の検証をしない) だけで、非依存名は検証されるからである。この例の[`static_assert`](/lang/cpp11/static_assert.md)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。
+なぜならば廃棄文はテンプレートの実体化を防ぐ (依存名の検証をしない) だけで、非依存名は検証されるからである。この例の[`static_assert`](/lang/cpp11/static_assert.md)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。
+
+#### CWG 2518が適用されていない環境でのワークアラウンド
+
+言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。
 
 ```cpp example
 #include <type_traits>
@@ -137,54 +213,6 @@ int main()
 {
   f(2.4);
   f(3);
-}
-```
-
-`constexpr if`文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。
-
-```cpp example
-#include <type_traits>
-#include <iostream>
-
-struct Hoge {
-  using type = int;
-};
-
-template <typename T>
-void f()
-{
-  if constexpr (std::is_same_v<T::type, int> || std::is_same_v<T::value_type, int>) {
-    std::cout << "is int" << std::endl;
-  }
-}
-
-int main()
-{
-  f<Hoge>(); //error: Hoge::value_typeは存在しないのでif constexpr文の条件式がコンパイルエラーになる
-}
-```
-
-### (CWG 2518が適用された環境) `static_assert`文に関する例外
-
-上に述べたように、`constexpr if`文の中の文は廃棄文においても、非依存名の検証を行う。このため特に`static_assert`文を使う時に直感的ではない挙動を示していた。
-
-C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
-
-```cpp example
-#include <cstdint>
-template <class T>
-void f(T t) {
-  if constexpr (sizeof(T) == sizeof(std::int32_t)) {
-    use(t);
-  } else {
-    static_assert(false, "must be 32bit");
-  }
-}
-
-void g(std::int8_t c) {
-  std::int32_t n = 0;
-  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。
-  f(c); // error: cはstd::int8_t型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する
 }
 ```
 
