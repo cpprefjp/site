@@ -94,7 +94,7 @@ int main()
 
 ### `static_assert`文に関する例外
 
-後に述べる2段階名前探索に関する注意点とは関係なく、C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
+後に述べる2段階名前探索に関する注意点とは関係なく、C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際にインスタンス化されない限り、`static_assert`宣言による失敗は無視される。
 
 ```cpp example
 #include <cstdint>
@@ -109,8 +109,8 @@ void f(T t) {
 
 void g(std::int8_t c) {
   std::int32_t n = 0;
-  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。
-  f(c); // error: cはstd::int8_t型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する
+  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうがインスタンス化されるために、static_assert宣言の失敗は無視される。
+  f(c); // error: cはstd::int8_t型なので、static_assert宣言は失敗し、"must be 32bit"とコンパイラが診断メッセージを出力する
 }
 ```
 
