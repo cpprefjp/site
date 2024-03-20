@@ -139,7 +139,7 @@ namespace std {
 | [`find_first_of`](basic_string/find_first_of.md)                     | 最初に現れる指定文字を検索する                 |                |
 | [`find_last_of`](basic_string/find_last_of.md)                       | 最後に現れる指定文字を検索する                 |                |
 | [`find_first_not_of`](basic_string/find_first_not_of.md)             | 先頭から、指定文字が見つからない位置を検索する |                |
-| [`find_last_nof_of`](basic_string/find_last_not_of.md)               | 末尾から、指定文字が見つからない位置を検索する |                |
+| [`find_last_not_of`](basic_string/find_last_not_of.md)               | 末尾から、指定文字が見つからない位置を検索する |                |
 | [`substr`](basic_string/substr.md)                                   | 部分文字列を取得する                           |                |
 | [`compare`](basic_string/compare.md)                                 | 他の文字列との比較を行う                       |                |
 | [`starts_with`](basic_string/starts_with.md)                         | 指定の文字列で始まるかを判定する               | C++20          |
