@@ -154,6 +154,11 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
 	- 値版はそれより前から実装されている。
 
+## 関連項目
+- [`std::ranges::swap()`](/reference/concepts/swap.md)
+- [`std::iter_swap()`](/reference/algorithm/iter_swap.md)
+
+
 ## 参照
 - [LWG Issue 809. `std::swap` should be overloaded for array types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#809)
     - C++11で、配列に対するオーバーロードが追加された経緯のレポート
