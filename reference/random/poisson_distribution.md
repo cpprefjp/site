@@ -124,7 +124,7 @@ int main()
 
 ### 参考
 - [ポワソン分布 - Wikipedia](https://ja.wikipedia.org/wiki/ポアソン分布)
-- [ポアソン分布 - 統計・データ解析](http://oku.edu.mie-u.ac.jp/~okumura/stat/poisson.php)
+- [ポアソン分布 - 統計・データ解析](https://okumuralab.org/~okumura/stat/poisson.html)
 - [ポアソン分布 - NtRand](http://www.ntrand.com/jp/poisson-distribution/)
 
 
