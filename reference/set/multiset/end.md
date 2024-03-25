@@ -23,7 +23,7 @@ const_iterator end() const noexcept;  // (2) C++11
 
 
 ## 備考
-`const` 版ではない `begin` が返す `iterator` も読み取り専用イテレータである。
+`const` 版ではない `end` が返す `iterator` も読み取り専用イテレータである。
 
 （が、`iterator` と `const_iterator` が同じ型とは限らない）
 

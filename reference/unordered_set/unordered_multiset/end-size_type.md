@@ -29,7 +29,7 @@ const_local_iterator end(size_type n) const;
 
 
 ## 備考
-`const` 版ではない `begin` が返す `local_iterator` も読み取り専用イテレータである。
+`const` 版ではない `end` が返す `local_iterator` も読み取り専用イテレータである。
 
 （が、`local_iterator` と `const_local_iterator` が同じ型とは限らないと思われる）
 
