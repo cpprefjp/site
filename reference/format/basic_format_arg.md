@@ -7,7 +7,31 @@
 ```cpp
 namespace std {
   template<class Context>
-  class basic_format_arg;
+  class basic_format_arg {
+  public:
+    class handle;
+
+  private:
+    using char_type = typename Context::char_type;                              // exposition only
+
+    variant<monostate, bool, char_type,
+            int, unsigned int, long long int, unsigned long long int,
+            float, double, long double,
+            const char_type*, basic_string_view<char_type>,
+            const void*, handle> value;                                         // exposition only
+
+    template<class T> explicit basic_format_arg(T& v) noexcept;                 // exposition only
+
+  public:
+    basic_format_arg() noexcept;
+
+    explicit operator bool() const noexcept;
+
+    template<class Visitor>
+      decltype(auto) visit(this basic_format_arg arg, Visitor&& vis);
+    template<class R, class Visitor>
+      R visit(this basic_format_arg arg, Visitor&& vis);
+  };
 }
 ```
 
@@ -26,7 +50,7 @@ namespace std {
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `(constructor)` | コンストラクタ | C++20          |
+| [`(constructor)`](basic_format_arg/op_constructor.md) | コンストラクタ | C++20          |
 
 ### 変換演算子
 
