@@ -26,8 +26,8 @@ namespace std {
   };
 }
 ```
-* varialt[link /reference/varialt/varialt.md]
-* monostate[link /reference/varialt/monostate.md]
+* variant[link /reference/variant/variant.md]
+* monostate[link /reference/variant/monostate.md]
 * basic_string_view[link /reference/string_view/basic_string_view.md]
 * handle[link handle.md]
 * basic_format_arg[italic]
@@ -56,7 +56,7 @@ namespace std {
 
 ## 効果
 
-- (1): `value`を[`monostate`](/reference/varialt/monostate.md)で初期化する。
+- (1): `value`を[`monostate`](/reference/variant/monostate.md)で初期化する。
 
 - (2): `TD`を`remove_const<T>`として、以下の順に`value`を初期化する。
     - `TD`が`bool`なら、`v`で初期化
