@@ -229,21 +229,24 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
 
 | range-type | 意味 | 効果 | 対応バージョン |
 |------------|------|------|----------------|
-| m    | `std::map`出力向けの書式 | 全体の囲み文字を`[ ]`の代わりに`{ }`とする。要素型がtuple-like型であれば要素型にも`m`書式を適用する | C++23 |
+| m    | `std::map`出力向けの書式 | 全体の囲み文字を`[ ]`の代わりに`{ }`とする。要素型にも`m`書式を適用する | C++23 |
 | s    | 文字列として出力 | 要素型が文字型であること。エスケープ処理しない文字列として書式化する | C++23 |
 | ?s   | デバッグ文字列として出力 | 要素型が文字型であること。エスケープした文字列として書式化する | C++23 |
 
-- `?s`書式を指定した場合、`n`オプションと、`range-underlying-spec`は指定できない。
+- `m`書式は、要素が[`std::pair`](/reference/utility/pair.md)とサイズ2の[`std::tuple`](/reference/tuple/tuple.md)の場合のみ指定できる
+- `?s`書式を指定した場合、`n`オプションと、`range-underlying-spec`は指定できない
 - コンテナが[`std::vector`](/reference/vector/vector.md)`<bool>`である場合、その要素型は`bool`として処理される
 - Range・シーケンスコンテナでは、要素型がデバッグ出力可能である場合、それがデフォルトで有効となる
     - 要素型の書式を指定して、デバッグ出力指定をしなければ、デフォルトで有効になっているデバッグ出力を解除できる
 - コンテナアダプタである[`std::queue`](/reference/queue/queue.md)、[`std::priority_queue`](/reference/queue/priority_queue.md)、[`std::stack`](/reference/stack/stack.md)も使用できる
-
+- [`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)はRangeでもあるが、特殊化の優先順位によって標準のフォーマッターが選択されるため、Rangeとしてフォーマットすることはできない
 
 #### <a id="assoc-format-options" href="#assoc-format-options">連想コンテナの書式 (C++23)</a>
 
-Range・シーケンスコンテナと同じだが、デフォルトで`m`書式を適用する。
+Range・シーケンスコンテナと同じだが、デフォルトで囲み文字を`{ }`とする。
 
+- メンバ型`key_type`を持つ場合、連想コンテナとみなされる
+- さらに、メンバ型`mapped_type`を持ち、要素が[`std::pair`](/reference/utility/pair.md)またはサイズ2の[`std::tuple`](/reference/tuple/tuple.md)の場合、`map`互換のコンテナとみなされる。このとき、要素にも`m`書式を用いる
 
 #### <a id="tuple-format-options" name="#tuple-format-options">pair、tupleの書式 (C++23)</a>
 
