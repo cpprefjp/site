@@ -75,8 +75,8 @@ int main() {
   std::vector<int> v2(v.size()); // ちゃんと確保しておくこと
   std::ranges::copy(v, v2.begin());
 
-  // back_inserter を使って v3 へ設定。
-  // back_inserter は要素をコピーするときに v3.push_back() するイテレータを作る関数。
+  // back_inserter を使って ls3 へ設定。
+  // back_inserter は要素をコピーするときに ls3.push_back() するイテレータを作る関数。
   std::list<int> ls3;
   std::ranges::copy(v2, std::back_inserter(ls3));
 
