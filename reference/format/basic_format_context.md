@@ -26,6 +26,9 @@ namespace std {
 ## テンプレートパラメータ制約
 - `Out`は`OutputIterator<const charT&>`であること
 
+## 備考
+
+出力イテレータの型はフォーマット関数に指定したイテレータである必要はない。内部でバッファリングを行う実装が可能である。
 
 ## メンバ関数
 
@@ -51,26 +54,33 @@ namespace std {
   class basic_format_context {
     basic_format_args<basic_format_context> args_;
     Out out_;
+    std::optional<std::locale> locale;
 
   public:
     using iterator = Out;
     using char_type = charT;
     template<class T> using formatter_type = formatter<T, charT>;
 
-    basic_format_arg<basic_format_context> arg(size_t id) const
+    basic_format_context(iterator out, std::basic_format_args<basic_format_context> args, std::optional<std::locale> locale = std::nullopt)
+      :args_(args)
+      ,out_(out)
+      ,locale_(locale)
     {
+    }
+
+    basic_format_arg<basic_format_context> arg(size_t id) const {
       return args_.get(id);
     }
 
-    std::locale locale();
+    std::locale locale() {
+      return locale_.value_or(std::locale());
+    }
 
-    iterator out();
-    {
+    iterator out() {
       return out_;
     }
 
-    void advance_to(iterator it)
-    {
+    void advance_to(iterator it) {
       out_ = it;
     }
   };
