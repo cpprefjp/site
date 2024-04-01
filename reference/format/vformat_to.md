@@ -154,6 +154,8 @@ Out vformat_to(Out out, std::string_view fmt, std::basic_format_args<Context> ar
 * std::basic_format_parse_context[link /reference/format/basic_format_parse_context.md]
 * std::basic_format_context[link /reference/format/basic_format_context.md]
 * std::basic_format_args[link /reference/format/basic_format_args.md]
+* std::basic_format_arg[link /reference/format/basic_format_arg.md]
+* handle[link /reference/format/basic_format_arg/handle.md]
 * std::visit_format_arg[link /reference/format/visit_format_arg.md]
 * std::from_chars[link /reference/charconv/from_chars.md]
 
