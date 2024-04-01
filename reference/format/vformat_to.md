@@ -90,7 +90,7 @@ struct ArgVisitor {
   }
 };
 
-template<std::output_iterator<char> Out, class Context = basic_format_context<Out, char>>
+template<std::output_iterator<char> Out, class Context = std::basic_format_context<Out, char>>
 Out vformat_to(Out out, std::string_view fmt, std::basic_format_args<Context> args) {
   using ParseContext = std::basic_format_parse_context<decltype(fmt)::value_type>;
   ParseContext pctx{fmt};
