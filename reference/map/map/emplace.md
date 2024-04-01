@@ -61,6 +61,41 @@ int main()
 4 : C
 ```
 
+### 戻り値の例
+```cpp example
+#include <iostream>
+#include <map>
+
+int main()
+{
+  std::map<int, char> m;
+
+  std::pair<std::map<int, char>::iterator, bool> x = m.emplace(3, 'A');
+  const std::pair<const int, char>& v = *x.first;
+  std::cout << v.first << std::endl;  // キー
+  std::cout << v.second << std::endl; // 値
+  std::cout << x.second << std::endl; // 挿入が成功したかどうか
+  std::cout << std::endl;
+
+  auto y = m.emplace(3, 'A');
+  std::cout << y.first->first << std::endl;  // キー
+  std::cout << y.first->second << std::endl; // 値
+  std::cout << y.second << std::endl;        // 挿入が成功したかどうか
+}
+```
+* emplace[color ff0000]
+
+#### 出力
+```
+3
+A
+1
+
+3
+A
+0
+```
+
 ### キーと値もそれぞれコンストラクタ引数を渡す例
 ```cpp example
 #include <iostream>
