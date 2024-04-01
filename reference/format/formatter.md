@@ -44,28 +44,14 @@ namespace std {
 
 (1)は、`charT`を`char`または`wchar_t`とすると、標準で以下の特殊化が利用できる。
 
-- 1 以下のもの。
-    ```cpp
-    template<> struct formatter<charT, charT>;
-
-    template<> struct formatter<char, wchar_t>;
-
-    template<> struct formatter<charT*, charT>;
-
-    template<> struct formatter<const charT*, charT>;
-
-    template<size_t N> struct formatter<const charT[N], charT>;
-
-    template<class traits, class Allocator>
-    struct formatter<basic_string<charT, traits, Allocator>, charT>;
-
-    template<class traits>
-    struct formatter<basic_string_view<charT, traits>, charT>;
-    ```
-    * basic_string[link /reference/string/basic_string.md]
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
-
-- 2 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
+- `template<> struct formatter<charT, charT>`
+- `template<> struct formatter<char, wchar_t>`
+- `template<> struct formatter<charT*, charT>`
+- `template<> struct formatter<const charT*, charT>`
+- `template<size_t N> struct formatter<const charT[N], charT>`
+- `template<class traits, class Allocator> struct formatter<`[`basic_string`](/reference/string/basic_string.md)`<charT, traits, Allocator>, charT>`
+- `template<class traits> struct formatter<`[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>, charT>`
+- 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
 
 さらに、ユーザーが`formatter`を特殊化した場合、それも有効である。
 
@@ -96,7 +82,7 @@ namespace std {
     - 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
     - `u`を変更しない
 
-条件内の各要素を、以下のように定義する
+条件内の各要素を、以下のように定義する。
 
 - 文字の型を`charT`
 - 出力イテレータの型を`Out`
@@ -109,11 +95,28 @@ namespace std {
 - `FC`を[`basic_format_context`](basic_format_context.md)`<Out, charT>`
 - `pc`を`PC`のlvalue
 - `fc`を`FC`のlvalue
-- `pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す
+
+ただし、[`parse`](formatter/parse.md)の呼び出し前の状態で、`pc.begin()`は書式文字列中の対応する置換フィールドのオプションの先頭を指す。
+
+- オプションが空でなければ、`*pc.begin()`は`:`の次の文字
 - オプションが空なら、`pc.begin() == pc.end()`または`*pc.begin() == '}'`である
 
 [`std::formattable`](/reference/format/formattable.md)コンセプトも参照。
 
+フォーマッターは、書式文字列中に置換フィールドが見つかるたびに次のコードと近い形で呼び出される。
+
+```cpp
+typename FC::template formatter_type<T> f;
+pc.advance_to(f.parse(pc));      // オプションを解析し状態を保存する
+fc.advance_to(f.format(u, fc));  // 状態をもとにフォーマットを行う
+assert(pc.begin() == pc.end() || *pc.begin() == '}');
+```
+* pc.advance_to[link /reference/format/basic_format_parse_context/advance_to.md]
+* fc.advance_to[link /reference/format/basic_format_context/advance_to.md]
+* f.parse[link formatter/parse.md]
+* f.format[link formatter/format.md]
+
+[handle](/reference/format/basic_format_arg/handle.md)も参照。
 
 ## メンバ関数
 
