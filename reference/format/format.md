@@ -622,25 +622,25 @@ int main()
 template<class... Args>
 string format(format_string<Args...> fmt, const Args&... args)
 {
-  return vformat(fmt.str, make_format_args(args...));
+  return vformat(fmt.get(), make_format_args(args...));
 }
 
 template<class... Args>
 wstring format(wformat_string<Args...> fmt, const Args&... args)
 {
-  return vformat(fmt.str, make_wformat_args(args...));
+  return vformat(fmt.get(), make_wformat_args(args...));
 }
 
 template<class... Args>
 string format(const locale& loc, format_string<Args...> fmt, const Args&... args)
 {
-  return vformat(loc, fmt.str, make_format_args(args...));
+  return vformat(loc, fmt.get(), make_format_args(args...));
 }
 
 template<class... Args>
 wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... args)
 {
-  return vformat(loc, fmt.str, make_wformat_args(args...));
+  return vformat(loc, fmt.get(), make_wformat_args(args...));
 }
 ```
 * string[link /reference/string/basic_string.md]
