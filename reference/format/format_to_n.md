@@ -111,6 +111,74 @@ int main()
 The answer is 42.
 ```
 
+
+## 実装例
+
+```cpp
+template<class CharT, class Out>
+class Wrapper {
+  std::iter_difference_t<Out> count_ = 0;
+  std::iter_difference_t<Out> max_count_;
+  Out out_;
+  
+public:
+  using value_type = CharT;
+
+  Wrapper(Out out, std::iter_difference_t<Out> max_count)
+    : max_count_(max_count)
+    , out_(std::move(out))
+  {}
+
+  constexpr void push_back(const value_type& value) {
+    if (count_ < max_count_) {
+      *out_ = value;
+      ++out_;
+    }
+    ++count_;
+  }
+
+  constexpr std::format_to_n_result<Out> result() const {
+    return {out_, count_};
+  }
+};
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, format_string<Args...> fmt, Args&&... args) {
+  Wrapper<char, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wformat_string<Args...> fmt, Args&&... args) {
+  Wrapper<wchar_t, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, format_string<Args...> fmt, Args&&... args) {
+  Wrapper<char, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), loc, fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, wformat_string<Args...> fmt, Args&&... args) {
+  Wrapper<wchar_t, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), loc, fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+```
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
+* format_to[link format_to.md]
+* locale[link /reference/locale/locale.md]
+* forward[link /reference/utility/forward.md]
+* back_inserter[link /reference/iterator/back_inserter.md]
+* iter_difference_t[link /reference/iterator/iter_difference_t.md]
+
+
 ## バージョン
 ### 言語
 - C++20

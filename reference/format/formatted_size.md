@@ -78,6 +78,59 @@ int main()
 17
 ```
 
+## 実装例
+
+```cpp
+template<class CharT>
+class Counter {
+  size_t count_ = 0;
+public:
+  using value_type = CharT;
+
+  constexpr void push_back(const value_type&) {
+    count_++;
+  }
+
+  constexpr size_t size() const {
+    return count_;
+  }
+};
+
+template<class Out, class... Args>
+size_t formatted_size(format_string<Args...> fmt, const Args&... args) {
+  Counter<char> counter;
+  format_to(back_inserter(counter), fmt, forward<Args>(args)...);
+  return counter.size();
+}
+
+template<class Out, class... Args>
+size_t formatted_size(wformat_string<Args...> fmt, const Args&... args) {
+  Counter<wchar_t> counter;
+  format_to(back_inserter(counter), fmt, forward<Args>(args)...);
+  return counter.size();
+}
+
+template<class Out, class... Args>
+size_t formatted_size(const locale& loc, format_string<Args...> fmt, const Args&... args) {
+  Counter<char> counter;
+  format_to(loc, back_inserter(counter), fmt, forward<Args>(args)...);
+  return counter.size();
+}
+
+template<class Out, class... Args>
+size_t formatted_size(const locale& loc, wformat_string<Args...> fmt, const Args&... args) {
+  Counter<wchar_t> counter;
+  format_to(loc, back_inserter(counter), fmt, forward<Args>(args)...);
+  return counter.size();
+}
+```
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
+* format_to[link format_to.md]
+* locale[link /reference/locale/locale.md]
+* forward[link /reference/utility/forward.md]
+* back_inserter[link /reference/iterator/back_inserter.md]
+
 ## バージョン
 ### 言語
 - C++20
