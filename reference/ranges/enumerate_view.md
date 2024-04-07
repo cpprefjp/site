@@ -21,7 +21,7 @@ namespace std::ranges {
 
 `enumerate_view`はインデックスを付ける[`view`](view.md)。
 
-`enumerate_view`の要素は、インデックスと元のRangeの要素からなる[`tuple`](/reference/tuple/tuple.md)である。
+`enumerate_view`の要素は、インデックスと元のRangeの要素からなる[`tuple`](/reference/tuple/tuple.md) ([`tuple`](/reference/tuple/tuple.md)`<`[`range_difference_t`](range_difference_t.md)`<Base>, `[`range_value_t`](range_value_t.md)`<Base>>`)である。
 
 - (1): `enumerate_view`のクラス定義
 - (2): `enumerate_view`を生成するRangeアダプタオブジェクト
