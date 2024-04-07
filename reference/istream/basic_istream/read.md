@@ -15,14 +15,14 @@ basic_istream<CharT, Traits>& read(char_type* s, streamsize n);
 実引数として配列要素へのポインタ`s`とその要素数`n`を受け取る。
 [`get`](get.md)メンバ関数などと異なり、`s`の末尾にヌル文字を書き込む処理がない。
 
-また、`n`文字より少ない段階でEOFに達した場合を入力失敗として扱う（`failbit`を立てる）点も、他の多くのメンバ関数と異なる。
+また、`n`文字より少ない段階でEOFに達した場合を入力失敗として扱う（[`failbit`](../../ios/ios_base/type-iostate.md)を立てる）点も、他の多くのメンバ関数と異なる。
 
 ## 効果
-1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
-1. `good()`メンバ関数を呼び出して`false`であったら、`setstate(failbit)`を呼び出して終了する。
+1. [`sentry`](sentry.md)オブジェクトを構築する。[`sentry`](sentry.md)オブジェクトが失敗を示した場合、何もしない。
+1. [`good`](../../ios/basic_ios/good.md)`()`メンバ関数を呼び出して`false`であったら、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`failbit`](../../ios/ios_base/type-iostate.md)`)`を呼び出して終了する。
 1. 以下のいずれかを満たすまで、文字を入力して書き込む。
     - 実引数で指定された`n`文字まで入力した。
-    - EOFに達した。この場合、`setstate(failbit | eofbit)`を呼び出す。
+    - EOFに達した。この場合、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`failbit`](../../ios/ios_base/type-iostate.md)` | `[`eofbit`](../../ios/ios_base/type-iostate.md)`)`を呼び出す。
 
 ## 戻り値
 `*this`
@@ -84,6 +84,12 @@ basic_istream<CharT, Traits>& read(char_type* s, streamsize n) {
   return *this;
 }
 ```
+* iostate[link ../../ios/ios_base/type-iostate.md]
+* failbit[link ../../ios/ios_base/type-iostate.md]
+* eofbit[link ../../ios/ios_base/type-iostate.md]
+* sentry[link sentry.md]
+* good[link ../../ios/basic_ios/good.md]
+* setstate[link ../../ios/basic_ios/setstate.md]
 
 ## バージョン
 ### 言語
