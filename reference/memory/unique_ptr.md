@@ -85,9 +85,9 @@ namespace std {
 ## ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------------------------------------------------|------------------------------------------|-------|
-| `template <class T> struct hash;`                         | `hash`クラスの先行宣言                   | C++11 |
-| `template <class T, class D> struct hash<unique_ptr<N>>;` | `hash`クラスの`unique_ptr`に対する特殊化 | C++11 |
+|--------------------------------------------------------------|------------------------------------------|-------|
+| `template <class T> struct hash;`                            | `hash`クラスの先行宣言                   | C++11 |
+| `template <class T, class D> struct hash<unique_ptr<T, D>>;` | `hash`クラスの`unique_ptr`に対する特殊化 | C++11 |
 
 
 ## 例
@@ -144,7 +144,7 @@ hoge::~hoge()
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 - [Rvalue Reference Recommendations for Chapter 20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1856.html)
     - `unique_ptr`の追加と`auto_ptr`の非推奨の提案文書。
-- [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#672)
+- [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#673)
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)

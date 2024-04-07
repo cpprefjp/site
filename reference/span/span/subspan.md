@@ -73,7 +73,7 @@ constexpr span<element_type, dynamic_extent>
 int main()
 {
   std::vector<int> v = {1, 2, 3, 4, 5};
-  std::span<int, 5> s = std::span{v};
+  std::span<int> s = std::span{v};
 
   // (1) : テンプレート引数として開始位置と要素数を指定して、要素を取得する。
   // テンプレート内でこのオーバーロードを使用する場合、s.template subspan<2, 3>(); のように、

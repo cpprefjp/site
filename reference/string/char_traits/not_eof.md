@@ -10,7 +10,7 @@ static constexpr int_type not_eof(int_type c) noexcept; // C++11
 ```
 
 ## 概要
-文字がファイル終端文字(EOF)じゃないかを判定する。
+文字がファイル終端文字(EOF)ではないかを判定する。
 
 
 ## 戻り値
