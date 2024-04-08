@@ -116,33 +116,9 @@ void g(std::int8_t c) {
 
 ### 2段階名前探索における注意点
 
-`constexpr if`文で、実行されない方の`statement`は廃棄文(discarded statement)となり、文の実体化を防ぐ。言い換えると、2段階名前探索における依存名(dependent name)は、廃棄文の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
+`constexpr if`文で、実行されない方の`statement`は廃棄文(discarded statement)となり、文の実体化を防ぐ。言い換えると、2段階名前探索における依存名(dependent name)は、廃棄文の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。
 
-```cpp
-template<bool> struct inferior_static_assert_failure;
-template<> struct inferior_static_assert_failure<true>{ enum { value = 1 }; };
-#define INFERIOR_STATIC_ASSERT(B) typedef char inferior_static_assert[sizeof(inferior_static_assert_failure<bool(B)>::value)]
-#include <type_traits>
-
-template <typename T>
-void f(T)
-{
-  if constexpr (std::is_same_v<T, int>)
-  {
-    // Tがintのときのみ評価されてほしい
-    // 実際は常に評価される
-    INFERIOR_STATIC_ASSERT(false);
-  }
-}
-
-int main()
-{
-  f(2.4);
-  f(3);
-}
-```
-
-CWG 2518が適用されていない環境においては`static_assert`でも同じ現象が発生する。
+CWG 2518が適用されていない環境においては`static_assert`を用いる時に直感的ではない挙動を示していた。
 
 ```cpp example
 #include <type_traits>
