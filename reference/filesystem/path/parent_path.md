@@ -32,6 +32,7 @@ int main()
   fs::path ps[] = {
     "/foo/bar.txt", // ファイル名を含むパス
     "/foo/bar/",    // ディレクトリパス
+    "/foo/bar",     // ディレクトリパス（末尾/なし）
     "/"             // ルートパスのみ (ルートパスの親はルートパスなのでそのまま返る)
   };
 
@@ -46,6 +47,7 @@ int main()
 ```
 "/foo/bar.txt" : "/foo"
 "/foo/bar/" : "/foo/bar"
+"/foo/bar" : "/foo"
 "/" : "/"
 ```
 
