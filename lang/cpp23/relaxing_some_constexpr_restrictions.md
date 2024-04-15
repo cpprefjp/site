@@ -64,7 +64,7 @@ constexpr
 #endif
 void f(std::optional<T>& opt)
 {
-  o.reset();
+  opt.reset();
 }
 ```
 
