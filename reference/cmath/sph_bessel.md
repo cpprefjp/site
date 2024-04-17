@@ -114,6 +114,7 @@ $$
 
 
 ## 関連項目
+- 第2種球ベッセル関数 [`sph_neumann`](sph_neumann.md)
 - 第1種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
 
 

@@ -134,6 +134,8 @@ GCC 7.1.0–8.0.0 では `1 - nu * sin^2(phi) < 0` のときに [`std::domain_er
 
 
 ## 関連項目
+- 第1種不完全楕円積分 [`ellint_1`](ellint_1.md)
+- 第2種不完全楕円積分 [`ellint_2`](ellint_2.md)
 - 第3種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md)
 
 

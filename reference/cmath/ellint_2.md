@@ -106,6 +106,8 @@ ellint_2(1, 0.5 pi) = 1
 
 
 ## 関連項目
+- 第1種不完全楕円積分 [`ellint_1`](ellint_1.md)
+- 第3種不完全楕円積分 [`ellint_3`](ellint_3.md)
 - 第2種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md)
 
 

@@ -90,6 +90,8 @@ $$
 
 
 ## 関連項目
+- 第1種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md)
+- 第3種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md)
 - 第2種不完全楕円積分 [`ellint_2`](ellint_2.md)
 
 

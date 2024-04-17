@@ -111,6 +111,8 @@ GCC 7.1.0–8.0.0 では `|k| == 1 && |phi| >= π / 2` の場合 `nan` を返す
 
 
 ## 関連項目
+- 第2種不完全楕円積分 [`ellint_2`](ellint_2.md)
+- 第3種不完全楕円積分 [`ellint_3`](ellint_3.md)
 - 第1種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md)
 
 
