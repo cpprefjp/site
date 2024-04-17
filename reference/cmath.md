@@ -307,24 +307,24 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 | [`assoc_laguerre`](cmath/assoc_laguerre.md) | ラゲール陪多項式        | C++17 |
 | [`assoc_legendre`](cmath/assoc_legendre.md) | ルジャンドル陪関数      | C++17 |
 | [`beta`](cmath/beta.md)                     | ベータ関数              | C++17 |
-| [`comp_ellint_1`](cmath/comp_ellint_1.md)   | 第一種完全楕円積分      | C++17 |
-| [`comp_ellint_2`](cmath/comp_ellint_2.md)   | 第二種完全楕円積分      | C++17 |
-| [`comp_ellint_3`](cmath/comp_ellint_3.md)   | 第三種完全楕円積分      | C++17 |
-| [`cyl_bessel_i`](cmath/cyl_bessel_i.md)     | 第一種変形ベッセル関数  | C++17 |
-| [`cyl_bessel_j`](cmath/cyl_bessel_j.md)     | 第一種ベッセル関数      | C++17 |
-| [`cyl_bessel_k`](cmath/cyl_bessel_k.md)     | 第二種変形ベッセル関数  | C++17 |
-| [`cyl_neumann`](cmath/cyl_neumann.md)       | 第二種ベッセル関数      | C++17 |
-| [`ellint_1`](cmath/ellint_1.md)             | 第一種不完全楕円積分    | C++17 |
-| [`ellint_2`](cmath/ellint_2.md)             | 第二種不完全楕円積分    | C++17 |
-| [`ellint_3`](cmath/ellint_3.md)             | 第三種不完全楕円積分    | C++17 |
+| [`comp_ellint_1`](cmath/comp_ellint_1.md)   | 第1種完全楕円積分      | C++17 |
+| [`comp_ellint_2`](cmath/comp_ellint_2.md)   | 第2種完全楕円積分      | C++17 |
+| [`comp_ellint_3`](cmath/comp_ellint_3.md)   | 第3種完全楕円積分      | C++17 |
+| [`cyl_bessel_i`](cmath/cyl_bessel_i.md)     | 第1種変形ベッセル関数  | C++17 |
+| [`cyl_bessel_j`](cmath/cyl_bessel_j.md)     | 第1種ベッセル関数      | C++17 |
+| [`cyl_bessel_k`](cmath/cyl_bessel_k.md)     | 第2種変形ベッセル関数  | C++17 |
+| [`cyl_neumann`](cmath/cyl_neumann.md)       | 第2種ベッセル関数      | C++17 |
+| [`ellint_1`](cmath/ellint_1.md)             | 第1種不完全楕円積分    | C++17 |
+| [`ellint_2`](cmath/ellint_2.md)             | 第2種不完全楕円積分    | C++17 |
+| [`ellint_3`](cmath/ellint_3.md)             | 第3種不完全楕円積分    | C++17 |
 | [`expint`](cmath/expint.md)                 | 指数積分                | C++17 |
 | [`hermite`](cmath/hermite.md)               | エルミート多項式        | C++17 |
 | [`laguerre`](cmath/laguerre.md)             | ラゲール多項式          | C++17 |
 | [`legendre`](cmath/legendre.md)             | ルジャンドル多項式      | C++17 |
 | [`riemann_zeta`](cmath/riemann_zeta.md)     | リーマンのゼータ関数    | C++17 |
-| [`sph_bessel`](cmath/sph_bessel.md)         | 第一種球ベッセル関数    | C++17 |
+| [`sph_bessel`](cmath/sph_bessel.md)         | 第1種球ベッセル関数    | C++17 |
 | [`sph_legendre`](cmath/sph_legendre.md)     | 球面調和関数の *θ* 成分 | C++17 |
-| [`sph_neumann`](cmath/sph_neumann.md)       | 第二種球ベッセル関数    | C++17 |
+| [`sph_neumann`](cmath/sph_neumann.md)       | 第2種球ベッセル関数    | C++17 |
 
 ## <a id="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>
 

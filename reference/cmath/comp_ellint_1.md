@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 概要
-第一種完全楕円積分 (complete elliptic integral of the first kind) を計算する。
+第1種完全楕円積分 (complete elliptic integral of the first kind) を計算する。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -38,13 +38,13 @@ namespace std {
 
 
 ## 戻り値
-引数 `k` の第一種完全楕円積分
+引数 `k` の第1種完全楕円積分
 $$
 K(k) = F(k, \pi/2) = \int_0^{\pi/2} \frac{\mathrm d\theta}{\sqrt{1 - k^2 \sin^2 \theta}}
 \quad \text{for } |k| \le 1
 $$
 を返す。
-$ F(k, \phi) $ は第一種不完全楕円積分 ([`ellint_1`](ellint_1.md))。
+$ F(k, \phi) $ は第1種不完全楕円積分 ([`ellint_1`](ellint_1.md))。
 
 
 ## 備考
@@ -73,7 +73,7 @@ comp_ellint_1(1)   = nan
 
 ## 単振り子の周期と等時性の破れ
 
-単振り子の周期$ T $は、第一種完全楕円積分$ K $を用いて、$ T = 4 \sqrt{\frac{l}{g}} K(\sin(\frac{\theta}{2})) $と書ける（$ l $は長さ、$ g $は重力加速度）。$ l = 1 [m]$の時の周期 $ T [s]$と、近似値$ T_0 = 2\pi\sqrt{\frac{l}{g}}$との比$T/T_0$を計算する例。
+単振り子の周期$ T $は、第1種完全楕円積分$ K $を用いて、$ T = 4 \sqrt{\frac{l}{g}} K(\sin(\frac{\theta}{2})) $と書ける（$ l $は長さ、$ g $は重力加速度）。$ l = 1 [m]$の時の周期 $ T [s]$と、近似値$ T_0 = 2\pi\sqrt{\frac{l}{g}}$との比$T/T_0$を計算する例。
 
 ```cpp example
 #include <iostream>
@@ -136,7 +136,7 @@ $$
 
 
 ## 関連項目
-- 第一種不完全楕円積分 [`ellint_1`](ellint_1.md)
+- 第1種不完全楕円積分 [`ellint_1`](ellint_1.md)
 
 
 ## 参照

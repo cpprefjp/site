@@ -32,7 +32,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-第一種不完全楕円積分 (incomplete elliptic integral of the first kind) を計算する。
+第1種不完全楕円積分 (incomplete elliptic integral of the first kind) を計算する。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 戻り値
-引数 `k`, `phi` の第一種不完全楕円積分
+引数 `k`, `phi` の第1種不完全楕円積分
 $$
 F(k, \phi) = \int_0^\phi \frac{\mathrm d\theta}{\sqrt{1 - k^2 \sin^2 \theta}}
 \quad \text{for } |k| \le 1
@@ -52,7 +52,7 @@ $$
 
 
 ## 備考
-- $ F(k, \pi/2) = K(k)$ (第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))
+- $ F(k, \pi/2) = K(k)$ (第1種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))
 - (1) : C++23では、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
@@ -111,7 +111,7 @@ GCC 7.1.0–8.0.0 では `|k| == 1 && |phi| >= π / 2` の場合 `nan` を返す
 
 
 ## 関連項目
-- 第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md)
+- 第1種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md)
 
 
 ## 参照

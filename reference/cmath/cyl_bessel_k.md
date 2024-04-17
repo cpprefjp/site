@@ -32,7 +32,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-第二種変形ベッセル関数 (modified Bessel functions of the second kind) を求める。
+第2種変形ベッセル関数 (modified Bessel functions of the second kind) を求める。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 戻り値
-引数 `nu`, `x` の第二種変形ベッセル関数
+引数 `nu`, `x` の第2種変形ベッセル関数
 $$
 K_\nu(x) = \frac{\pi}{2} i^{\nu + 1} \left( J_\nu(ix) + i N_\nu(ix) \right)
 = \frac{\pi}{2} \frac{I_{-\nu}(x) - I_{\nu}(x)}{\sin \nu \pi}
@@ -51,9 +51,9 @@ K_\nu(x) = \frac{\pi}{2} i^{\nu + 1} \left( J_\nu(ix) + i N_\nu(ix) \right)
 $$
 を返す。
 $I$, $J$, $N$ はそれぞれ
-第一種変形ベッセル関数 ([`cyl_bessel_i`](cyl_bessel_i.md))、
-第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md))、
-第二種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md))
+第1種変形ベッセル関数 ([`cyl_bessel_i`](cyl_bessel_i.md))、
+第1種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md))、
+第2種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md))
 である。
 
 
@@ -115,9 +115,9 @@ GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/
 
 
 ## 関連項目
-- 第一種変形ベッセル関数 [`cyl_bessel_i`](cyl_bessel_i.md)
-- 第一種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
-- 第二種ベッセル関数 [`cyl_neumann`](cyl_neumann.md)
+- 第1種変形ベッセル関数 [`cyl_bessel_i`](cyl_bessel_i.md)
+- 第1種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
+- 第2種ベッセル関数 [`cyl_neumann`](cyl_neumann.md)
 
 
 ## 参照

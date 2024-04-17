@@ -31,7 +31,7 @@ namespace std {
 * Arithmetic[italic]
 
 ## 概要
-第一種球ベッセル関数 (spherical Bessel functions of the first kind) を求める。
+第1種球ベッセル関数 (spherical Bessel functions of the first kind) を求める。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -42,13 +42,13 @@ namespace std {
 
 
 ## 戻り値
-引数 `n`, `x` の第一種球ベッセル関数
+引数 `n`, `x` の第1種球ベッセル関数
 $$
 j_n(x) = \sqrt{\frac{\pi}{2x}} J_{n + 1/2}(x)
 \quad \text{for } x \ge 0
 $$
 を返す。
-$J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md))。
+$J$ は第1種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md))。
 
 
 ## 備考
@@ -114,7 +114,7 @@ $$
 
 
 ## 関連項目
-- 第一種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
+- 第1種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
 
 
 ## 参照

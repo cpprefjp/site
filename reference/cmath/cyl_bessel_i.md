@@ -32,7 +32,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-第一種変形ベッセル関数 (modified Bessel functions of the first kind) を求める。
+第1種変形ベッセル関数 (modified Bessel functions of the first kind) を求める。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -43,13 +43,13 @@ namespace std {
 
 
 ## 戻り値
-引数 `nu`, `x` の第一種変形ベッセル関数
+引数 `nu`, `x` の第1種変形ベッセル関数
 $$
 I_\nu(x) = i^{-\nu} J_\nu(ix) = \sum_{k=0}^\infty \frac{1}{k! \Gamma(\nu + k + 1)} \left( \frac{x}{2} \right)^{\nu + 2k}
 \quad \text{for } x \ge 0
 $$
 を返す。
-$J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
+$J$ は第1種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
 
 
 ## 備考
@@ -110,8 +110,8 @@ GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/
 
 
 ## 関連項目
-- 第一種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
-- 第二種変形ベッセル関数 [`cyl_bessel_k`](cyl_bessel_k.md)
+- 第1種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
+- 第2種変形ベッセル関数 [`cyl_bessel_k`](cyl_bessel_k.md)
 
 
 ## 参照

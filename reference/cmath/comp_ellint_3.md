@@ -32,7 +32,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-第三種完全楕円積分 (complete elliptic integral of the third kind) を計算する。
+第3種完全楕円積分 (complete elliptic integral of the third kind) を計算する。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 戻り値
-引数 `k`, `nu` の第三種完全楕円積分
+引数 `k`, `nu` の第3種完全楕円積分
 $$
 \Pi(\nu, k) = \Pi(\nu, k, \pi/2)
 = \int_0^{\pi/2} \frac{\mathrm d\theta}{(1 - \nu \sin^2 \theta) \sqrt{1 - k^2 \sin^2 \theta}}
@@ -51,11 +51,11 @@ $$
 $$
 を返す。
 
-$ \Pi(\nu, k) $ は第三種不完全楕円積分 ([`ellint_3`](ellint_3.md))。
+$ \Pi(\nu, k) $ は第3種不完全楕円積分 ([`ellint_3`](ellint_3.md))。
 
 
 ## 備考
-- $\Pi(0, k) = K(k)$ (第一種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))
+- $\Pi(0, k) = K(k)$ (第1種完全楕円積分 [`comp_ellint_1`](comp_ellint_1.md))
 - (1) : C++23では、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
@@ -120,7 +120,7 @@ GCC 7.1.0–8.0.0 では
 
 
 ## 関連項目
-* 第三種不完全楕円積分 [`ellint_3`](ellint_3.md)
+* 第3種不完全楕円積分 [`ellint_3`](ellint_3.md)
 
 
 ## 参照

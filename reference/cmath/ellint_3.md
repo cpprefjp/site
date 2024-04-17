@@ -32,7 +32,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-第三種不完全楕円積分 (incomplete elliptic integral of the third kind) を計算する。
+第3種不完全楕円積分 (incomplete elliptic integral of the third kind) を計算する。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 戻り値
-引数 `k`, `nu`, `phi` の第三種不完全楕円積分
+引数 `k`, `nu`, `phi` の第3種不完全楕円積分
 $$
 \Pi(\nu, k, \phi)
 = \int_0^\phi \frac{\mathrm d\theta}{(1 - \nu \sin^2 \theta) \sqrt{1 - k^2 \sin^2 \theta}}
@@ -53,8 +53,8 @@ $$
 
 
 ## 備考
-- $ \Pi(\nu, k, \pi/2) = \Pi(\nu, k) $ (第三種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md))
-- $ \Pi(0, k, \phi) = F(k, \phi) $ (第一種不完全楕円積分 [`ellint_1`](ellint_1.md))
+- $ \Pi(\nu, k, \pi/2) = \Pi(\nu, k) $ (第3種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md))
+- $ \Pi(0, k, \phi) = F(k, \phi) $ (第1種不完全楕円積分 [`ellint_1`](ellint_1.md))
 - (1) : C++23では、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
@@ -134,7 +134,7 @@ GCC 7.1.0–8.0.0 では `1 - nu * sin^2(phi) < 0` のときに [`std::domain_er
 
 
 ## 関連項目
-- 第三種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md)
+- 第3種完全楕円積分 [`comp_ellint_3`](comp_ellint_3.md)
 
 
 ## 参照

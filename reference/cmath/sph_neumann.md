@@ -31,7 +31,7 @@ namespace std {
 * Arithmetic[italic]
 
 ## 概要
-第二種球ベッセル関数 (spherical Bessel functions of the second kind)、球ノイマン関数 (spherical Neumann functions) を求める。
+第2種球ベッセル関数 (spherical Bessel functions of the second kind)、球ノイマン関数 (spherical Neumann functions) を求める。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -42,13 +42,13 @@ namespace std {
 
 
 ## 戻り値
-引数 `n`, `x` の第二種球ベッセル関数
+引数 `n`, `x` の第2種球ベッセル関数
 $$
 n_n(x) = \sqrt{\frac{\pi}{2x}} N_{n + 1/2}(x)
 \quad \text{for } x \ge 0
 $$
 を返す。
-$N$ は第二種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md))。
+$N$ は第2種ベッセル関数 ([`cyl_neumann`](cyl_neumann.md))。
 
 
 ## 備考
@@ -114,7 +114,7 @@ $$
 
 
 ## 関連項目
-- 第二種ベッセル関数 [`cyl_neumann`](cyl_neumann.md)
+- 第2種ベッセル関数 [`cyl_neumann`](cyl_neumann.md)
 
 
 ## 参照

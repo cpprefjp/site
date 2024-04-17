@@ -32,7 +32,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-第二種不完全楕円積分 (incomplete elliptic integral of the second kind) を計算する。
+第2種不完全楕円積分 (incomplete elliptic integral of the second kind) を計算する。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 戻り値
-引数 `k`, `phi` の第二種不完全楕円積分
+引数 `k`, `phi` の第2種不完全楕円積分
 $$
 E(k, \phi) = \int_0^\phi \mathrm d\theta ~ \sqrt{1 - k^2 \sin^2 \theta}
 \quad \text{for } |k| \le 1
@@ -52,7 +52,7 @@ $$
 
 
 ## 備考
-- $ E(k, \pi/2) = E(k) $ (第二種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md))
+- $ E(k, \pi/2) = E(k) $ (第2種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md))
 - (1) : C++23では、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
@@ -106,7 +106,7 @@ ellint_2(1, 0.5 pi) = 1
 
 
 ## 関連項目
-- 第二種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md)
+- 第2種完全楕円積分 [`comp_ellint_2`](comp_ellint_2.md)
 
 
 ## 参照

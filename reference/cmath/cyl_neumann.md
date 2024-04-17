@@ -32,7 +32,7 @@ namespace std {
 * Arithmetic2[italic]
 
 ## 概要
-第二種ベッセル関数 (Bessel functions of the second kind)、ノイマン関数 (Neumann functions) を求める。
+第2種ベッセル関数 (Bessel functions of the second kind)、ノイマン関数 (Neumann functions) を求める。
 
 - (1) :
     - C++17 : `double`に対するオーバーロード
@@ -43,13 +43,13 @@ namespace std {
 
 
 ## 戻り値
-引数 `x` の第二種ベッセル関数
+引数 `x` の第2種ベッセル関数
 $$
 N_\nu(x) = \frac{J_{\nu}(x) \cos \nu \pi - J_{-\nu}(x)}{\sin \nu \pi}
 \quad \text{for } x \ge 0
 $$
 を返す。
-$J$ は第一種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
+$J$ は第1種ベッセル関数 ([`cyl_bessel_j`](cyl_bessel_j.md)) である。
 
 
 ## 備考
@@ -112,9 +112,9 @@ GCC 7.1.0–8.0.0 では `nu < 0` のときに [`std::domain_error`](/reference/
 
 
 ## 関連項目
-* 第一種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
-* 第二種変形ベッセル関数 [`cyl_bessel_k`](cyl_bessel_k.md)
-* 第二種球ベッセル関数 [`sph_neumann`](sph_neumann.md)
+* 第1種ベッセル関数 [`cyl_bessel_j`](cyl_bessel_j.md)
+* 第2種変形ベッセル関数 [`cyl_bessel_k`](cyl_bessel_k.md)
+* 第2種球ベッセル関数 [`sph_neumann`](sph_neumann.md)
 
 
 ## 参照
