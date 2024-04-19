@@ -136,7 +136,7 @@ int main()
     // (5) char 配列のスタック領域に、cl 型変数を動的に作成
     // 領域のアライメントに注意
     alignas(cl) char one_field[sizeof(cl)] = {};
-    int* p3 = new(one_field) cl();
+    cl* p3 = new(one_field) cl();
     p3->~cl();  // delete は使えないため、デストラクタを直接呼び出す
   }
   catch (std::bad_alloc& e) {
