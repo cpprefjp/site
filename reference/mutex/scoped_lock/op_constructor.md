@@ -7,7 +7,7 @@
 
 ```cpp
 explicit scoped_lock(MutexTypes&... m);               // (1)
-explicit scoped_lock(MutexTypes&... m, adopt_lock_t); // (2)
+explicit scoped_lock(adopt_lock_t, MutexTypes&... m); // (2)
 
 scoped_lock(const scoped_lock&) = delete;             // (3)
 ```
