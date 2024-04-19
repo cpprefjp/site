@@ -109,7 +109,7 @@ sort(pv.begin(), pv.end(), [](auto&& a, auto&& b){ return a.name < b.name; });
 // デフォルトの述語(ranges::less{})で、nameでソート
 ranges::sort(pv, {}, [](auto&& a){ return a.name; });
 // std::invokeで呼び出されるため、メンバ変数ポインタでもよい
-ranges::sort(pv, {}, &Parson::name);
+ranges::sort(pv, {}, &Person::name);
 ```
 * ranges::sort[link algorithm/ranges_sort.md]
 * ranges::less[link /reference/functional/ranges_less.md]
