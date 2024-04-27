@@ -85,9 +85,9 @@ namespace std {
 非同期実行される関数オブジェクト`f`の結果値取得のための`future`オブジェクトを返す。
 
 ## 例外
-この関数は、以下のerror conditionを持つ[`future_error`](future_error.md)例外オブジェクトを送出する可能性がある：
+この関数は、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
-- [`resource_unavailable_try_again`](future_errc.md) ： [`launch::async`](launch.md)が指定され、新たなスレッドを起動しようとしたができなかった
+- [`resource_unavailable_try_again`](/reference/system_error/errc.md) ： [`launch::async`](launch.md)が指定され、新たなスレッドを起動しようとしたができなかった
 
 ## launch::asyncポリシーを指定した場合の注意点
 
