@@ -109,7 +109,6 @@ namespace std {
 typename FC::template formatter_type<T> f;
 pc.advance_to(f.parse(pc));      // オプションを解析し状態を保存する
 fc.advance_to(f.format(u, fc));  // 状態をもとにフォーマットを行う
-assert(pc.begin() == pc.end() || *pc.begin() == '}');
 ```
 * pc.advance_to[link /reference/format/basic_format_parse_context/advance_to.md]
 * fc.advance_to[link /reference/format/basic_format_context/advance_to.md]
