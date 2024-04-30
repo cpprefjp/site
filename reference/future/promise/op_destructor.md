@@ -18,11 +18,44 @@
 2. 共有状態を解放する。
 
 ## 例
-```cpp
-```
+```cpp example
+#include <iostream>
+#include <future>
+#include <thread>
+#include <utility>
 
-### 出力
+void calc(std::promise<int> p)
+{
+  // 通常行う p.set_value() をしなかったとする
+
+  // ここで promise のデストラクタが例外オブジェクトを書き込む
+}
+
+int main()
+{
+  std::promise<int> p;
+  std::future<int> f = p.get_future();
+
+  std::thread t(calc, std::move(p));
+
+  try {
+    std::cout << f.get() << std::endl; // 上で書き込まれた例外が送出される
+  }
+  catch (std::future_error& e) {
+    std::cout << e.what() << std::endl;
+  }
+
+  t.join();
+}
 ```
+* std::future[link /reference/future/future.md]
+* p.get_future()[link get_future.md]
+* std::move[link /reference/utility/move.md]
+* f.get()[link /reference/future/future/get.md]
+
+### 出力例
+```
+std::future_error: Broken promise
 ```
 
 ## バージョン
