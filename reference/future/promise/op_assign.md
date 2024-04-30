@@ -16,8 +16,10 @@ promise& operator=(const promise& rhs) = delete; // (2)
 
 
 ## 効果
-- (1) : 現在の共有状態を放棄し、`promise(std::`[`move`](/reference/utility/move.md)`(rhs)).swap(*this)`する。
-
+- (1) :
+    1. まず現在の共有状態が準備完了状態([`future_status::ready`](../future_status.md))でなければ、error conditionとして[`broken_promise`](../future_errc.md)を持つ[`future_error`](../future_error.md)例外オブジェクトを格納したのち、準備完了状態にする。
+    2. 現在の共有状態を解放する。
+    3. `promise(std::`[`move`](/reference/utility/move.md)`(rhs)).swap(*this)`する。
 
 ## 戻り値
 - (1) : `*this`

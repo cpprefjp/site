@@ -14,8 +14,8 @@
 
 
 ## 効果
-- 共有状態を持っていればそれを解放する。
-- ただし、持っている共有状態が準備完了状態([`future_status::ready`](../future_status.md))でなければ、error conditionとして[`broken_promise`](../future_errc.md)を持つ[`future_error`](../future_error.md)例外オブジェクトを格納して、準備完了状態にしたのち、それを解放する。
+1. まず共有状態が準備完了状態([`future_status::ready`](../future_status.md))でなければ、error conditionとして[`broken_promise`](../future_errc.md)を持つ[`future_error`](../future_error.md)例外オブジェクトを格納したのち、準備完了状態にする。
+2. 共有状態を解放する。
 
 ## 例
 ```cpp
