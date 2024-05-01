@@ -39,7 +39,8 @@ int main()
   std::thread t(calc, std::move(p));
 
   try {
-    std::cout << f.get() << std::endl; // 上で書き込まれた例外が送出される
+    // 上で書き込まれた例外が送出される
+    std::cout << f.get() << std::endl;
   }
   catch (std::future_error& e) {
     std::cout << e.what() << std::endl;
