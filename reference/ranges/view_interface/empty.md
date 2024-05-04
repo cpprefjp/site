@@ -7,12 +7,13 @@
 
 ```cpp
 constexpr bool empty()
-  requires forward_range<D>;       // (1)
+  requires sized_range<D> || forward_range<D>;       // (1)
 
 constexpr bool empty() const
-  requires forward_range<const D>; // (2)
+  requires sized_range<const D> || forward_range<const D>; // (2)
 ```
 * forward_range[link ../forward_range.md]
+* forward_range[link ../sized_range.md]
 
 ## 概要
 Rangeが空かどうかを判定する。
@@ -20,8 +21,8 @@ Rangeが空かどうかを判定する。
 ## テンプレートパラメータ制約
 [`view_interface`](../view_interface.md)`<D>`に対して、
 
-- (1): `D`が[`forward_range`](../forward_range.md)であること。
-- (2): `const D`が[`forward_range`](../forward_range.md)であること。
+- (1): `D`が[`sized_range`](../sized_range.md)もしくは[`forward_range`](../forward_range.md)であること。
+- (2): `const D`が[`sized_range`](../sized_range.md)もしくは[`forward_range`](../forward_range.md)であること。
 
 ## 戻り値
 (1)、(2)共に、以下と等価：
@@ -49,3 +50,4 @@ ranges::begin(derived()) == ranges::end(derived())
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3715. `view_interface::empty` is overconstrained](https://cplusplus.github.io/LWG/issue3715)
