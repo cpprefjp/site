@@ -43,7 +43,7 @@ int main()
   int b[N] = {1, 2, 3, 4, 5};
   int c[N] = {};
 
-  // OMP_PARALLEL_FORは、 #pragma omp parallel for に展開される
+  // OMP_PARALLEL_FORは、 _Pragma("omp parallel for") に展開される
   OMP_PARALLEL_FOR
   for (int i = 0; i < N; ++i) {
     c[i] = a[i] + b[i];
