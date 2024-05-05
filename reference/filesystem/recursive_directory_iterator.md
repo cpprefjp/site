@@ -92,7 +92,7 @@ int main()
   fs::create_directory("dir_a/dir_b");
   std::ofstream{"dir_a/dir_b/b.txt"};
 
-  // dir_aディレクトリに含まれる全ファイルを再帰的に出力
+  // dir_aディレクトリに含まれる全ファイル・ディレクトリを再帰的に出力
   for (const fs::directory_entry& x : fs::recursive_directory_iterator("dir_a")) {
     std::cout << x.path() << std::endl;
   }

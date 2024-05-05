@@ -74,7 +74,7 @@ int main()
   fs::create_directory("dir_a/dir_b");
   std::ofstream{"dir_a/dir_b/b.txt"};
 
-  // dir_aディレクトリ直下に含まれる全ファイルを出力
+  // dir_aディレクトリ直下に含まれる全ファイル・ディレクトリを出力
   for (const fs::directory_entry& x : fs::directory_iterator("dir_a")) {
     std::cout << x.path() << std::endl;
   }
