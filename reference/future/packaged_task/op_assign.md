@@ -37,7 +37,7 @@ C++11の仕様では、ムーブ代入演算子の効果として古い共有状
 
 「(共有状態を)放棄する(abandon)」とは効果の項(2)の1と2が行われることをいい、「(共有状態を)解放する(release)」とは効果の項(2)の2のみが行われることである。通常、[`promise`](../promise.md)および`packaged_task`は処理結果を提供する側であるため共有状態を所有しなくなるときには前者を行い、[`future`](../future.md)および[`shared_future`](../shared_future.md)は処理結果を受け取る側であるため共有状態を所有しなくなるときには後者を行う。
 
-なお、実際の実装ではClangおよびGCCでは「放棄する(abandon)」の動作になっているが、Visual C++では「解放する(release)」の動作になっている。
+なお、`operator=`の実際の実装では、ClangおよびGCCでは「放棄する(abandon)」の動作になっているが、Visual C++では「解放する(release)」の動作になっている。また、[`reset`](reset.md)では、Clang,GCC,Visual C++のいずれも「放棄する(abandon)」の動作になっている。
 
 ## 例
 ```cpp example
