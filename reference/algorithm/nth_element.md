@@ -87,7 +87,7 @@ int main()
 ```
 * std::nth_element[color ff0000]
 
-### 出力
+### 出力例
 ```
 2
 1

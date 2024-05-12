@@ -159,6 +159,8 @@ int main()
   }
 }
 ```
+* std::execution::par[color ff0000]
+* std::execution::par_unseq[color ff0000]
 * count.load[link /reference/atomic/atomic/load.md]
 * is_always_lock_free[link /reference/atomic/atomic/is_always_lock_free.md.nolink]
 
