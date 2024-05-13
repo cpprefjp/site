@@ -36,9 +36,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`description`](stacktrace_entry/description.md.nolink) | このオブジェクトを説明する文字列を取得する | C++23 |
-| [`source_file`](stacktrace_entry/source_file.md.nolink) | ソースファイル名を取得する | C++23 |
-| [`source_line`](stacktrace_entry/source_line.md.nolink) | 行番号を取得する | C++23 |
+| [`description`](stacktrace_entry/description.md) | このオブジェクトを説明する文字列を取得する | C++23 |
+| [`source_file`](stacktrace_entry/source_file.md) | ソースファイル名を取得する | C++23 |
+| [`source_line`](stacktrace_entry/source_line.md) | 行番号を取得する | C++23 |
 
 
 ## メンバ型
@@ -109,14 +109,14 @@ int main() {
 * std::stacktrace_entry[color ff0000]
 * std::stacktrace[link basic_stacktrace.md]
 * current[link basic_stacktrace/current.md]
-* entry.description()[link stacktrace_entry/description.md.nolink]
-* entry.source_file()[link stacktrace_entry/source_file.md.nolink]
-* entry.source_line()[link stacktrace_entry/source_line.md.nolink]
+* entry.description()[link stacktrace_entry/description.md]
+* entry.source_file()[link stacktrace_entry/source_file.md]
+* entry.source_line()[link stacktrace_entry/source_line.md]
 
-### 出力例
+### 出力例 (GCC)
 ```
-g() at main.cpp:5
-main.cpp
+g()
+/app/example.cpp
 5
 ```
 
@@ -126,5 +126,5 @@ main.cpp
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12
 - [Visual C++](/implementation.md#visual_cpp): ??
