@@ -4,9 +4,11 @@
 
 ```cpp
 # if !defined(NDEBUG)
-  #define assert(expr) implementation-defined
+  #define assert(expr) implementation-defined // (1) C++03
+  #define assert(...) implementation-defined  // (1) C++26
 # else
-  #define assert(ignore) ((void)0)
+  #define assert(ignore) ((void)0)            // (2) C++03
+  #define assert(...) ((void)0)               // (2) C++26
 # endif
 ```
 
@@ -19,14 +21,18 @@
 
 
 ## 要件
-パラメータの式の型はスカラ型でなければならない。
+- C++14まで : パラメータの式の型はスカラ型でなければならない
+    - C言語への参照として定義されていた仕様では、`assert`は`void assert(scalar expression);`のような関数として定義されていた
 
 
 ## 効果
 - 有効な場合:
-    - パラメータの式を評価し、偽であった場合（`0`と等しい場合）、式をテキスト化したものに加え`__FILE__`, `__LINE__`, `__func__`の値を標準エラー出力に処理系定義の書式で書き込み、[`abort()`](/reference/cstdlib/abort.md)関数を呼び出してプログラムを異常終了させる。
+    - C++03 : パラメータの式を評価し、
+    - C++26 : 可変引数パラメータ`__VA_ARGS__`を`bool`に変換し、
+    - 真に評価された場合は、なにもしない
+    - そうでない場合（`0`と等しい場合）、式をテキスト化したもの、（[`std::source_location`](/reference/source_location/source_location.md)`::`[`current()`](/reference/source_location/source_location/current.md)で取得できるような) ソースファイル名、行番号、関数名を標準エラー出力に処理系定義の書式で書き込み、[`abort()`](/reference/cstdlib/abort.md)関数を呼び出してプログラムを異常終了させる
 - 無効な場合:
-    - パラメータの式は評価はされず、何もしない。
+    - パラメータの式は評価はされず、なにもしない
 
 このマクロは、定数式内で使用できる。(C++17)
 
@@ -89,6 +95,29 @@ int main()
 ```
 ```
 
+### カンマを含む条件式をassertマクロで使用する (C++26)
+```cpp example
+#include <cassert>
+#include <type_traits>
+
+template <class T>
+void f()
+{
+  assert(std::is_same_v<int, T>);   // C++26 : OK
+  assert((std::is_same_v<int, T>)); // C++23までは、カンマを含む式は全体を丸カッコで囲む必要がある
+}
+
+int main()
+{
+  f<int>();
+  f<double>();
+}
+```
+
+### 出力
+```
+```
+
 
 ## 参照
 - C++14 - 19.3 [assertions]
@@ -96,4 +125,5 @@ int main()
 - [What does it mean for C++ that assert takes a scalar argument?](https://groups.google.com/a/isocpp.org/d/topic/std-discussion/6EHDRo1A2EE/discussion)
   パラメータの式の型についての要件は参照規格であるCの規定によるものであり、「スカラ型」が[C++におけるスカラ型](/reference/type_traits/is_scalar.md)となるのか、あるいはCにおけるスカラ型の範囲に限定されるのか、少なくともC++14時点でははっきりしていない。
 - [LWG Issue 2234. `assert()` should allow usage in constant expressions](http://wg21.cmeerw.net/lwg/issue2234)
-
+- [P2264R7 Make `assert()` macro user friendly for C and C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2264r7.html)
+    - C++26から、カンマを含む式を条件式として使用できるようになった
