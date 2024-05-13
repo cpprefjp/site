@@ -28,8 +28,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`native_handle`](stacktrace_entry/native_handle.md.nolink) | ハンドルを取得する | C++23 |
-| [`operator bool`](stacktrace_entry/op_bool.md.nolink) | 空でないかを判定する | C++23 |
+| [`native_handle`](stacktrace_entry/native_handle.md) | ハンドルを取得する | C++23 |
+| [`operator bool`](stacktrace_entry/op_bool.md) | 空でないかを判定する | C++23 |
 
 
 ### 照会
