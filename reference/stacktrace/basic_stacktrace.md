@@ -173,11 +173,15 @@ int main() {
 ```
 * current()[link basic_stacktrace/current.md]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
- 0# g() at main.cpp:5
- 1# f() at main.cpp:9
- 2# main at main.cpp:13
+   0#  g() at /app/example.cpp:5
+   1#  f() at /app/example.cpp:10
+   2# main at /app/example.cpp:14
+   3#      at :0
+   4# __libc_start_main at :0
+   5# _start at :0
+   6# 
 ```
 
 ### スタックトレースを出力するアサーションマクロを作る
@@ -208,9 +212,9 @@ int main() {
 * std::abort()[link /reference/cstdlib/abort.md]
 * std::cerr[link /reference/iostream/cerr.md]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
-Expression 'i >= 0' is false in f() at main.cpp:15
+Expression 'i >= 0' is false in f(int) at /app/example.cpp:15
 ```
 
 ## バージョン
@@ -219,5 +223,12 @@ Expression 'i >= 0' is false in f() at main.cpp:15
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+### 備考
+- GCCでは、以下のコンパイルオプションを追加で指定する必要がある：
+    - 13まで : `-lstdc++_libbacktrace`
+    - 14以降 : `-lstdc++exp`
+

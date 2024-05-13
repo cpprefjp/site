@@ -46,9 +46,9 @@ int main() {
 * st[0][color ff0000]
 * current()[link current.md]
 
-### 出力例
+### 出力例 (GCC)
 ```
-g() at main.cpp:5
+ g() at /app/example.cpp:5
 ```
 
 
@@ -58,5 +58,5 @@ g() at main.cpp:5
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12
 - [Visual C++](/implementation.md#visual_cpp): ??

@@ -43,3 +43,7 @@ int main() {
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+### 備考
+- GCCでは14時点でコンパイルエラーになる
+    - [Bug 115063 - compilation error: `std::basic_stracktrace::max_size()`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=115063)

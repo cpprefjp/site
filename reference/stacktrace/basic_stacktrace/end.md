@@ -27,7 +27,7 @@ void g() {
   std::stacktrace st = std::stacktrace::current();
   std::for_each(st.begin(), st.end(), [](const std::stacktrace_entry& x) {
     std::cout << x << std::endl;
-  }):
+  });
 }
 
 void f() {
@@ -43,11 +43,15 @@ int main() {
 * current()[link current.md]
 * std::stacktrace_entry[link /reference/stacktrace/stacktrace_entry.md]
 
-### 出力
+### 出力例 (GCC)
 ```
-g() at main.cpp:6
-f() at main.cpp:13
-main at main.cpp:17
+ g() at /app/example.cpp:6
+ f() at /app/example.cpp:13
+main at /app/example.cpp:17
+     at :0
+__libc_start_main at :0
+_start at :0
+
 ```
 
 
@@ -57,5 +61,5 @@ main at main.cpp:17
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12
 - [Visual C++](/implementation.md#visual_cpp): ??

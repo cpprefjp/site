@@ -40,12 +40,16 @@ int main() {
 * trace.size()[color ff0000]
 * current()[link current.md]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
-3
- 0# g() at main.cpp:5
- 1# f() at main.cpp:11
- 2# main at main.cpp:15
+7
+   0#  g() at /app/example.cpp:5
+   1#  f() at /app/example.cpp:11
+   2# main at /app/example.cpp:15
+   3#      at :0
+   4#      at :0
+   5# _start at :0
+   6# 
 ```
 
 
@@ -71,10 +75,10 @@ int main() {
 * trace.size()[color ff0000]
 * current[link current.md]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
 1
- 0# f() at main.cpp:11
+   0#  f() at /app/example.cpp:11
 ```
 
 
@@ -84,5 +88,5 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12
 - [Visual C++](/implementation.md#visual_cpp): ??

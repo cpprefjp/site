@@ -45,11 +45,15 @@ int main() {
 ```
 * current()[link current.md]
 
-### 出力例
+### 出力例 (GCC)
 ```
- 0# g() at main.cpp:5
- 1# f() at main.cpp:9
- 2# main at main.cpp:13
+   0#  g() at /app/example.cpp:5
+   1#  f() at /app/example.cpp:9
+   2# main at /app/example.cpp:13
+   3#      at :0
+   4#      at :0
+   5# _start at :0
+   6# 
 ```
 
 
@@ -59,5 +63,5 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12
 - [Visual C++](/implementation.md#visual_cpp): ??
