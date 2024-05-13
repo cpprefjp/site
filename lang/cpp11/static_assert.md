@@ -82,6 +82,7 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 - [C++17 `static_assert`のメッセージ省略を許可](/lang/cpp17/extending_static_assert.md)
 - [C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)
 - [C++23 定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md)
+- [C++26 `static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md)
 
 
 ## 参照
