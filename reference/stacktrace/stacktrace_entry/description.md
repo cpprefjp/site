@@ -42,7 +42,7 @@ int main() {
   f();
 }
 ```
-* entry.source_file()[color ff0000]
+* entry.description()[color ff0000]
 * std::stacktrace[link /reference/stacktrace/basic_stacktrace.md]
 * current[link /reference/stacktrace/basic_stacktrace/current.md]
 
