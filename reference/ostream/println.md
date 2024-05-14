@@ -62,10 +62,10 @@ Hello 42 World
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [Clang](/implementation.md#clang): 19
+- [GCC](/implementation.md#gcc): 14
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 7
 
 
 ## 関連項目
