@@ -27,9 +27,11 @@ namespace std {
 
 
 ### 備考
-- このクラスは、シグナル安全ではない
+- このクラスは、仕様としてシグナル安全ではない
     - 元となった[Boost.Stacktraceライブラリ](https://boost.org/libs/stacktrace)の実装はシグナルハンドラ中でもスタックトレースを出力できる機能を提供するが、標準の本機能はその機能を提供しない
     - そのような機能は一部のプラットフォームでは実装できないためである
+    - ただし、実装がシグナル安全である場合がある
+        - GCC (libstdc++) が内部で使用している[libbacktrace](https://github.com/ianlancetaylor/libbacktrace)ライブラリは、シグナル安全である。ただしlibstdc++の実装仕様としてシグナル安全であるという明記はない
 
 
 ## メンバ関数
