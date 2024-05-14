@@ -19,9 +19,9 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](stacktrace_entry/op_constructor.md.nolink) | コンストラクタ | C++23 |
+| [`(constructor)`](stacktrace_entry/op_constructor.md) | コンストラクタ | C++23 |
 | `~stacktrace_entry();` | デストラクタ | C++23 |
-| [`operator=`](stacktrace_entry/op_assign.md.nolink) | 代入演算子 | C++23 |
+| `constexpr stacktrace_entry& operator=(const stacktrace_entry& other) noexcept;` | 代入演算子 | C++23 |
 
 
 ### 観測
@@ -53,23 +53,23 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator<<`](stacktrace_entry/op_ostream.md.nolink) | 出力ストリームに出力する | C++23 |
+| [`operator<<`](stacktrace_entry/op_ostream.md) | 出力ストリームに出力する | C++23 |
 
 
 ### 文字列への変換
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`to_string`](stacktrace_entry/to_string.md.nolink) | 文字列に変換する | C++23 |
+| [`to_string`](stacktrace_entry/to_string.md) | 文字列に変換する | C++23 |
 
 
 ### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](stacktrace_entry/op_equal.md.nolink) | 等値比較を行う | C++23 |
+| [`operator==`](stacktrace_entry/op_equal.md) | 等値比較を行う | C++23 |
 | `bool operator!=(const stacktrace_entry&, const stacktrace_entry&) noexcept;` | 非等値比較を行う (`==`により使用可能) | C++23 |
-| [`operator<=>`](stacktrace_entry/op_compare_3way.md.nolink) | 三方比較を行う | C++23 |
+| `friend constexpr strong_ordering operator<=>(const stacktrace_entry& x, const stacktrace_entry& y) noexcept;` | 三方比較を行う | C++23 |
 | `strong_ordering operator<(const stacktrace_entry&, const stacktrace_entry&) noexcept;` | 左辺が右辺より小さいかを判定する (`<=>`により使用可能) | C++23 |
 | `strong_ordering operator<=(const stacktrace_entry&, const stacktrace_entry&) noexcept;` | 左辺が右辺以下かを判定する (`<=>`により使用可能) | C++23 |
 | `strong_ordering operator>(const stacktrace_entry&, const stacktrace_entry&) noexcept;` | 左辺が右辺より大きいかを判定する (`<=>`により使用可能) | C++23 |
