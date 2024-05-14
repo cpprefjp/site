@@ -4,7 +4,7 @@
 ## 概要
 C++26では、[`static_assert`](/lang/cpp11/static_assert.md)に指定する表明失敗時の診断メッセージとして、文字列リテラルだけでなくユーザー定義型の文字列オブジェクトも指定できるようになる。
 
-例として、[`std::format()`](/reference/format/format.md)関数によって作られた[`std::string`](/reference/string/basic_string.md)オブジェクトも診断メッセージとして使用できる。
+例えば、将来的に[`std::format()`](/reference/format/format.md)関数が`constexpr`対応した場合、それによって作られた[`std::string`](/reference/string/basic_string.md)オブジェクトを診断メッセージとして使用できる。
 
 ```cpp example
 #include <cstdint>
