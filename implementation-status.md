@@ -310,7 +310,9 @@
 各処理系のC++26実装状況ページ：
 
 - GCC: [C++26 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx26)
-- Clang: [C++2c implementation status](https://clang.llvm.org/cxx_status.html#cxx26)
+- Clang:
+    - [C++2c implementation status](https://clang.llvm.org/cxx_status.html#cxx26)
+    - [libc++ Format Status](https://libcxx.llvm.org/Status/Format.html)
 - Visual C++ (MSVC):
     - [Change log](https://github.com/microsoft/STL/wiki/Changelog)
 
