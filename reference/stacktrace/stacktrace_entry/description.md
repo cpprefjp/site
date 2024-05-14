@@ -22,6 +22,10 @@ string description() const; // (1) C++23
 内部のデータ構造、または結果文字列のためのメモリ確保ができない場合、[`std::bad_alloc`](/reference/new/bad_alloc.md)例外を送出する。
 
 
+## 備考
+- この関数はメモリ確保以外のエラーを「利用可能な情報がない」ものとして扱い、その場合は例外を送出しない
+
+
 ## 例
 ```cpp example
 #include <iostream>
