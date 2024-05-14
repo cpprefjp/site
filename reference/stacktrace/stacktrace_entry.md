@@ -11,7 +11,9 @@ namespace std {
 ```
 
 ## 概要
+`stacktrace_entry`は、スタックトレースの各エントリ (行) を表すクラスであり、各エントリの情報を問い合せる操作を提供する。
 
+このクラスは、[`regular`](/reference/concepts/regular.md)および[`three_way_comparable`](/reference/compare/three_way_comparable.md)`<`[`strong_ordering`](/reference/compare/strong_ordering.md)`>`のモデルである。
 
 
 ## メンバ関数
