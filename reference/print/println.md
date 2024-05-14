@@ -77,21 +77,22 @@ Hello 42 World
 ### モジュールをインポートする例
 ```cpp example
 import std;
-import std.compat;
+#include <cstdio>
 
 int main()
 {
-  std::println("Hello {} World", 42); // OK
+  std::println("Hello {} World", 42);
 
   // stdout / stderrはマクロとして定義される。
   // モジュールはマクロをエクスポートしないので、
-  // stdout / stderrは使用できない
-  // std::println(stdout, "Hello {} World", 42); // エラー！stdoutが見つからない
+  // stdout / stderrを使用する場合は<cstdio>をインクルードする必要がある
+  std::println(stdout, "Hello {} World", 42);
 }
 ```
 
 #### 出力
 ```
+Hello 42 World
 Hello 42 World
 ```
 
