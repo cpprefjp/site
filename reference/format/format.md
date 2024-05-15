@@ -155,9 +155,10 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 #### ポインタの場合
 
-| type       | 意味               | 効果                                                                                                            |
-|:-----------|:-------------------|:----------------------------------------------------------------------------------------------------------------|
-| p          | アドレスを出力する | `0x` につづいて、`to_chars(first, last, reinterpret_cast<uintptr_t>(value), 16)` の結果を出力する               |
+| type | 意味               | 効果                                                                                              | 対応バージョン |
+|:-----|:-------------------|:--------------------------------------------------------------------------------------------------|----------------|
+| p    | アドレスを出力する | `0x` につづいて、`to_chars(first, last, reinterpret_cast<uintptr_t>(value), 16)` の結果を出力する | C++20 |
+| P    | アドレスを出力する | pと基本的に同じだが、9桁を超える場合に大文字にし、先頭に`0X`をつける | C++26 |
 
 デフォルトは `p`。
 
@@ -682,3 +683,5 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
 - [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
+- [P2510R3 Formatting pointers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2510r3.pdf)
+    - C++26から、ポインタ値を大文字で出力する`P`オプションが追加された
