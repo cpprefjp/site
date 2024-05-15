@@ -155,6 +155,13 @@ namespace std {
 | `template <class Allocator>`<br/> `struct hash<basic_stacktrace<Allocator>>;` | `hash`クラスの`basic_stacktrace`に対する特殊化 | C++23 |
 
 
+### 文字列フォーマットサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `template <class Allocator>`<br/> `struct formatter<basic_stacktrace<Allocator>>;` | [`formatter`](/reference/format/formatter.md)の特殊化 | C++23 |
+
+
 ## 例
 ### 基本的な使い方
 ```cpp example
@@ -234,3 +241,6 @@ Expression 'i >= 0' is false in f(int) at /app/example.cpp:15
     - 13まで : `-lstdc++_libbacktrace`
     - 14以降 : `-lstdc++exp`
 
+
+## 参照
+- [P2693R1 Formatting `thread::id` and `stacktrace`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2693r1.pdf)

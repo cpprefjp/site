@@ -86,6 +86,13 @@ namespace std {
 | `template <>`<br/> `struct hash<stacktrace_entry>;` | `hash`クラスの`stacktrace_entry`に対する特殊化 | C++23 |
 
 
+## 文字列フォーマットサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](stacktrace_entry/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++23 |
+
+
 ## 例
 ```cpp example
 #include <iostream>
