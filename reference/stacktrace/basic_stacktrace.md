@@ -10,9 +10,14 @@ namespace std {
   class basic_stacktrace;
 
   using stacktrace = basic_stacktrace<allocator<stacktrace_entry>>;
+
+  namespace pmr {
+    using stacktrace = basic_stacktrace<polymorphic_allocator<stacktrace_entry>>;
+  }
 }
 ```
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 * stacktrace_entry[link stacktrace_entry.md]
 
 ## 概要
@@ -244,3 +249,4 @@ Expression 'i >= 0' is false in f(int) at /app/example.cpp:15
 
 ## 参照
 - [P2693R1 Formatting `thread::id` and `stacktrace`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2693r1.pdf)
+- [P2301R1 Add a `pmr` alias for `std::stacktrace`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2301r1.html)
