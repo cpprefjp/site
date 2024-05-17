@@ -7,11 +7,17 @@
 
 ```cpp
 template <class T>
-consteval basic_format_string(const T& s);
+consteval basic_format_string(const T& s); // (1) C++23
+
+basic_format_string(runtime-format-string<charT> s) noexcept; // (2) C++26
 ```
+* runtime-format-string[link /reference/format/runtime-format-string.md]
 
 ## 概要
 `basic_format_string`オブジェクトを構築する。
+
+- (1) : コンパイル時の書式文字列を受け取る
+- (2) : 実行時の書式文字列を受け取る
 
 
 ## テンプレートパラメータ制約
@@ -90,3 +96,4 @@ namespace std {
 
 ## 参照
 - [P2216R3 `std::format` improvements](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
+- [P2918R2 Runtime format strings II](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2918r2.html)

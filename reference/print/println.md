@@ -96,6 +96,23 @@ Hello 42 World
 Hello 42 World
 ```
 
+### 実行時の書式文字列を使用する (C++26)
+```cpp example
+#include <print>
+
+int main()
+{
+  std::string fmt = "{}";
+  std::println(std::runtime_format(fmt), "Hello");
+}
+```
+* std::runtime_format[link /reference/format/runtime_format.md]
+
+#### 出力
+```
+Hello
+```
+
 ## バージョン
 ### 言語
 - C++23
@@ -109,6 +126,7 @@ Hello 42 World
 
 ## 関連項目
 - [`std::format()`](/reference/format/format.md)
+- [`std::runtime_format()`](/reference/format/runtime_format.md)
 - [`std::print()`](print.md)
 
 

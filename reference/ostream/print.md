@@ -72,6 +72,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 
@@ -83,10 +84,27 @@ int main()
 ```
 * std::print[color ff0000]
 
-### 出力
+#### 出力
 ```
 Hello 42 World
 Hello 42 World
+```
+
+### 実行時の書式文字列を使用する (C++26)
+```cpp example
+#include <iostream>
+
+int main()
+{
+  std::string fmt = "{}\n";
+  std::print(std::cout, std::runtime_format(fmt), "Hello");
+}
+```
+* std::runtime_format[link /reference/format/runtime_format.md]
+
+#### 出力
+```
+Hello
 ```
 
 ## バージョン
@@ -102,6 +120,7 @@ Hello 42 World
 
 ## 関連項目
 - [`std::format()`](/reference/format/format.md)
+- [`std::runtime_format()`](/reference/format/runtime_format.md)
 - [`std::println()`](println.md)
 
 

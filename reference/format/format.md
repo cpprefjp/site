@@ -618,6 +618,27 @@ int main()
 ```
 
 
+### 実行時文字列を書式文字列として使用する (C++26)
+```cpp example
+#include <iostream>
+#include <format>
+
+int main()
+{
+  std::string fmt = "{}";
+  std::string s = std::format(std::runtime_format(fmt), "Hello");
+
+  std::cout << s << std::endl;
+}
+```
+* std::runtime_format[link runtime_format.md]
+
+#### 出力
+```
+Hello
+```
+
+
 ## 実装例
 ```cpp
 template<class... Args>
@@ -672,6 +693,7 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 - [`<ostream>`](/reference/ostream.md)
     - [`std::print()`](/reference/ostream/print.md)
     - [`std::println()`](/reference/ostream/println.md)
+- [`std::runtime_format()`](runtime_format.md)
 
 
 ## 参照

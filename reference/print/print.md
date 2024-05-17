@@ -118,7 +118,7 @@ int main()
   // stdout / stderrはマクロとして定義される。
   // モジュールはマクロをエクスポートしないので、
   // stdout / stderrを使用する場合は<cstdio>をインクルードする必要がある
-  std::println(stdout, "Hello {} World\n", 42);
+  std::print(stdout, "Hello {} World\n", 42);
 }
 ```
 
@@ -126,6 +126,23 @@ int main()
 ```
 Hello 42 World
 Hello 42 World
+```
+
+### 実行時の書式文字列を使用する (C++26)
+```cpp example
+#include <print>
+
+int main()
+{
+  std::string fmt = "{}\n";
+  std::print(std::runtime_format(fmt), "Hello");
+}
+```
+* std::runtime_format[link /reference/format/runtime_format.md]
+
+#### 出力
+```
+Hello
 ```
 
 ## バージョン
@@ -141,6 +158,7 @@ Hello 42 World
 
 ## 関連項目
 - [`std::format()`](/reference/format/format.md)
+- [`std::runtime_format()`](/reference/format/runtime_format.md)
 - [`std::println()`](println.md)
 
 

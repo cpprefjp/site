@@ -57,6 +57,8 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`basic_format_string`](format/basic_format_string.md) | 書式のコンパイル時文字列クラス (class template) | C++23 |
+| [`runtime-format-string`](format/runtime-format-string.md) | 説明用としての書式の実行時文字列クラス (class template) | C++26 |
+| [`runtime_format`](format/runtime_format.md) | 書式の実行時文字列を指定するために文字列をラップする (function) | C++26 |
 
 
 ## 例外
