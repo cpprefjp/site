@@ -122,16 +122,16 @@ inline constexpr tag_name_t tag_name;
 
 | 型名 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`upper_triangle_t`](linalg/upper_triangle_t.md.nolink) | 上三角行列 | C++26 |
-| [`lower_triangle_t`](linalg/lower_triangle_t.md.nolink) | 下三角行列 | C++26 |
+| [`upper_triangle_t`](linalg/upper_triangle_t.md) | 上三角行列 | C++26 |
+| [`lower_triangle_t`](linalg/lower_triangle_t.md) | 下三角行列 | C++26 |
 
 ### 対角成分
 行列の全ての対角成分を暗黙に乗法における単位元とみなすかどうかを表すタグ。みなした場合、行列の対角成分にはアクセスせず、値が乗法における単位元であるとして計算する。
 
 | 型名 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `implicit_unit_diagonal_t` | 全ての対角成分を暗黙に乗法における単位元とみなす | C++26 |
-| `explicit_diagonal_t` | 全ての対角成分にアクセスする | C++26 |
+| [`implicit_unit_diagonal_t`](linalg/implicit_unit_diagonal_t.md) | 全ての対角成分を暗黙に乗法における単位元とみなす | C++26 |
+| [`explicit_diagonal_t`](linalg/explicit_diagonal_t.md) | 全ての対角成分にアクセスする | C++26 |
 
 
 ## バージョン
