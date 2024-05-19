@@ -3,6 +3,7 @@
 * cpp26[meta cpp]
 
 `<linalg>`ヘッダでは、線形代数(linear algebra)に関する基礎的な演算アルゴリズムを提供する。
+配列要素にアクセスするアルゴリズムは、多次元配列ビュー[ `std::mdspan` ](mdspan/mdspan.md)を通してその要素にアクセスする。
 本ヘッダが提供するエンティティは、すべて名前空間`std::linalg`に属する。
 
 1次元データであるベクトル(vector)や2次元データである行列(matrix)に対して、線形代数分野のデファクトスタンダードとされる BLAS(Basic Linear Algebra Subprograms) 互換のアルゴリズム群、いくつかの LAPACK(Linear Algebra PACKage) 互換のアルゴリズムが提供される。
@@ -15,7 +16,7 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 例えば、2個の一般行列の積を求める`std::linalg::matrix_product`はLevel 3 BLASルーチン`xGEMM`に対応する。
 （実際のBLASルーチン名は、浮動小数点数型の単精度`S`／倍精度`D`とそれぞれの複素数版`C`,`Z`として、プレフィックス`x`部は文字4種類のいずれか。）
 
-また、多次元配列ビュー[`std::mdpan`](mdspan/mdspan.md)と組み合わせて利用する拡張機能が提供される。
+また、`std::mdpan`と組み合わせて利用する拡張機能が提供される。
 
 
 ## 共通要件
