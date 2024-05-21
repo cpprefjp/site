@@ -103,10 +103,10 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 ## タグ
 `<linalg>`ヘッダでは、行列の格納順序や三角行列の上下をタグを使って表現している。
 
-以下、型名を掲載するが、変数も次のように宣言されている。
+以下、型名を掲載するが、定数も次のように定義されている。
 
 ```cpp
-inline constexpr tag_name_t tag_name;
+inline constexpr tag_name_t tag_name{};
 ```
 
 ### 格納順序
