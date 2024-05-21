@@ -164,7 +164,7 @@ double stod(const std::wstring& str, std::size_t* idx = nullptr) {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ?
-- [GCC](/implementation.md#gcc): ?
+- [GCC](/implementation.md#gcc): 4.8.5
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
 
