@@ -30,8 +30,6 @@ namespace std::linalg {
 
 
 ## 関連項目
-- [`mdspan`](/reference/mdspan/mdspan.md)
-- [`layout_blas_packed`](layout_blas_packed.md)
 
 
 ## 参照

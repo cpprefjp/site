@@ -121,6 +121,10 @@ mat2:
 
 ## 関連項目
 - [`mdspan`](/reference/mdspan/mdspan.md)
+- [`upper_triangle_t`](upper_triangle_t.md)
+- [`lower_triangle_t`](lower_triangle_t.md)
+- [`column_major_t`](column_major_t.md)
+- [`row_major_t`](row_major_t.md)
 
 
 ## 参照
