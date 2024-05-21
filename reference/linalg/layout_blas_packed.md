@@ -86,7 +86,7 @@ int main()
 }
 ```
 * linalg::layout_blas_packed[color ff0000]
-* linalg::lower_triangle_t[link lower_triangle_t.md.nolink]
+* linalg::lower_triangle_t[link lower_triangle_t.md]
 * linalg::column_major_t[link column_major_t.md]
 * linalg::row_major_t[link row_major_t.md]
 * mat.extent[link /reference/mdspan/mdspan/extent.md]
