@@ -174,8 +174,8 @@ double stod(const std::wstring& str, std::size_t* idx = nullptr) {
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atof`: `stod`は`atof`を`std::string`および`std::wsting`に対応させたものと見なせる。
-- `strtod`, `wcstod`: `stod`は`strtod`および`wcstod`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `atof`: `stod`は`atof`を`std::string`および`std::wstring`に対応させたものと見なせる。
+- `strtod`, `wcstod`: `stod`は`strtod`および`wcstod`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

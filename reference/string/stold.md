@@ -173,8 +173,8 @@ long double stold(const std::wstring& str, std::size_t* idx = nullptr) {
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atof`: `stold`は`atof`を`std::string`および`std::wsting`に対応させ、戻り値の型を`long double`に変更したものと見なせる。
-- `strtold`, `wcstold`: `stold`は`strtold`および`wcstold`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `atof`: `stold`は`atof`を`std::string`および`std::wstring`に対応させ、戻り値の型を`long double`に変更したものと見なせる。
+- `strtold`, `wcstold`: `stold`は`strtold`および`wcstold`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

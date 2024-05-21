@@ -237,8 +237,8 @@ long long stoll(const std::wstring& str, std::size_t* idx = nullptr, long long b
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atoll`: `stoll`は`atoll`を`std::string`および`std::wsting`に対応させたものと見なせる。
-- `strtoll`, `wcstlol`: `stoll`は`strtoll`および`wcstoll`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `atoll`: `stoll`は`atoll`を`std::string`および`std::wstring`に対応させたものと見なせる。
+- `strtoll`, `wcstlol`: `stoll`は`strtoll`および`wcstoll`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

@@ -232,8 +232,8 @@ long stol(const std::wstring& str, std::size_t* idx = nullptr, long base = 10) {
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atol`: `stol`は`atol`を`std::string`および`std::wsting`に対応させたものと見なせる。
-- `strtol`, `wcstol`: `stol`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `atol`: `stol`は`atol`を`std::string`および`std::wstring`に対応させたものと見なせる。
+- `strtol`, `wcstol`: `stol`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wsrting`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

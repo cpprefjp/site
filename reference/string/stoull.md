@@ -237,8 +237,8 @@ unsigned long long stoull(const std::wstring& str, std::size_t* idx = nullptr, u
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atoll`: `stoull`は`atoll`を`std::string`および`std::wsting`に対応させ、戻り値の型を`unsigned long long`に変更したものと見なせる。
-- `strtoll`, `wcstoll`: `stoull`は`strtoll`および`wcstoull`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `atoll`: `stoull`は`atoll`を`std::string`および`std::wstring`に対応させ、戻り値の型を`unsigned long long`に変更したものと見なせる。
+- `strtoll`, `wcstoll`: `stoull`は`strtoll`および`wcstoull`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。
