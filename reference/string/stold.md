@@ -101,8 +101,10 @@ int main()
 
 ### 出力例
 ```
+---- decimal point
 1.5
 1
+---- base = 8
 500
 250
 ---- base = 16
