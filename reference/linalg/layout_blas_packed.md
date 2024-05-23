@@ -12,16 +12,16 @@ namespace std::linalg {
 ```
 
 ## 概要
-`layout_blas_packed`は、多次元配列ビュー[`mdspan`](/reference/mdspan/mdspan.md)を用いた正方行列(square matrix)に対して、BLASにおけるパックレイアウトと互換性のある行列要素メモリ配置を表現する[レイアウトマッピングポリシー](/reference/mdspan/LayoutMappingPolicy.md)クラスである。
+`layout_blas_packed`は、0でない成分だけを配列で過不足なく持つ三角行列を表す、多次元配列ビュー[`mdspan`](/reference/mdspan/mdspan.md)の[レイアウトマッピングポリシー](/reference/mdspan/LayoutMappingPolicy.md)クラスであり、BLASにおけるパックレイアウトと互換性がある。
 
-- `Triangle` : 指定する行列要素の種別を、上三角[`upper_triangle_t`](upper_triangle_t.md.nolink)または下三角[`lower_triangle_t`](lower_triangle_t.md.nolink)から指定する。
+- `Triangle` : 三角行列の種別を、上三角[`upper_triangle_t`](upper_triangle_t.md)または下三角[`lower_triangle_t`](lower_triangle_t.md)から指定する。
 - `StorageOrder` : 行列要素の格納順を、列優先[`column_major_t`](column_major_t.md)または行優先[`row_major_t`](row_major_t.md)から指定する。
 
-`layout_blas_packed`を用いて、BLASの Symmetric Packed (SP), Hermitian Packed (HP), Triangular Packed (TP) で利用される行列レイアウトを表現できる。
+`layout_blas_packed`は、BLASの Symmetric Packed (SP), Hermitian Packed (HP), Triangular Packed (TP) で利用される行列レイアウトを表す。
 
 
 ## 適格要件
-- `Triangle`は[`upper_triangle_t`](upper_triangle_t.md.nolink)または[`lower_triangle_t`](lower_triangle_t.md.nolink)のいずれか
+- `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)のいずれか
 - `StorageOrder`は[`column_major_t`](column_major_t.md)または[`row_major_t`](row_major_t.md)のいずれか
 
 
@@ -86,7 +86,7 @@ int main()
 }
 ```
 * linalg::layout_blas_packed[color ff0000]
-* linalg::lower_triangle_t[link lower_triangle_t.md.nolink]
+* linalg::lower_triangle_t[link lower_triangle_t.md]
 * linalg::column_major_t[link column_major_t.md]
 * linalg::row_major_t[link row_major_t.md]
 * mat.extent[link /reference/mdspan/mdspan/extent.md]
@@ -121,6 +121,10 @@ mat2:
 
 ## 関連項目
 - [`mdspan`](/reference/mdspan/mdspan.md)
+- [`upper_triangle_t`](upper_triangle_t.md)
+- [`lower_triangle_t`](lower_triangle_t.md)
+- [`column_major_t`](column_major_t.md)
+- [`row_major_t`](row_major_t.md)
 
 
 ## 参照

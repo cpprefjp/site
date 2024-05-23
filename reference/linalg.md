@@ -3,6 +3,7 @@
 * cpp26[meta cpp]
 
 `<linalg>`ヘッダでは、線形代数(linear algebra)に関する基礎的な演算アルゴリズムを提供する。
+ベクトルや行列の成分にアクセスするアルゴリズムは、多次元配列ビュー[ `std::mdspan` ](mdspan/mdspan.md)を通してその要素にアクセスする。
 本ヘッダが提供するエンティティは、すべて名前空間`std::linalg`に属する。
 
 1次元データであるベクトル(vector)や2次元データである行列(matrix)に対して、線形代数分野のデファクトスタンダードとされる BLAS(Basic Linear Algebra Subprograms) 互換のアルゴリズム群、いくつかの LAPACK(Linear Algebra PACKage) 互換のアルゴリズムが提供される。
@@ -15,7 +16,7 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 例えば、2個の一般行列の積を求める`std::linalg::matrix_product`はLevel 3 BLASルーチン`xGEMM`に対応する。
 （実際のBLASルーチン名は、浮動小数点数型の単精度`S`／倍精度`D`とそれぞれの複素数版`C`,`Z`として、プレフィックス`x`部は文字4種類のいずれか。）
 
-また、多次元配列ビュー[`std::mdpan`](mdspan/mdspan.md)と組み合わせて利用する拡張機能が提供される。
+また、`std::mdspan`と組み合わせて利用する拡張機能が提供される。
 
 
 ## 共通要件
@@ -99,22 +100,38 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 | `triangular_matrix_matrix_right_solve` | xTRSM: 三角行列の連立一次方程式を解く (function template) | C++26 |
 
 
-## タグ型
+## タグ
+`<linalg>`ヘッダでは、行列の格納順序や三角行列の上下をタグを使って表現している。
 
-| 名前 | 説明 | 対応バージョン |
+以下、型名を掲載するが、定数も次のように定義されている。
+
+```cpp
+inline constexpr tag_name_t tag_name{};
+```
+
+### 格納順序
+行列の格納順序を表すタグ。
+
+| 型名 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`column_major_t`](linalg/column_major_t.md) | 列優先(column-major)順序を表現するためのタグ型 (class) | C++26 |
-| [`column_major`](linalg/column_major_t.md)   | 列優先(column-major)順序を表現するためのタグ値 (variable) | C++26 |
-| [`row_major_t`](linalg/row_major_t.md) | 行優先(row-major)順序を表現するためのタグ型 (class) | C++26 |
-| [`row_major`](linalg/row_major_t.md)   | 行優先(row-major)順序を表現するためのタグ値 (variable) | C++26 |
-| [`upper_triangle_t`](linalg/upper_triangle_t.md.nolink) | 上三角行列を表現するためのタグ型 (class) | C++26 |
-| [`upper_triangle`](linalg/upper_triangle_t.md.nolink)   | 上三角行列を表現するためのタグ値 (variable) | C++26 |
-| [`lower_triangle_t`](linalg/lower_triangle_t.md.nolink) | 下三角行列を表現するためのタグ型 (class) | C++26 |
-| [`lower_triangle`](linalg/lower_triangle_t.md.nolink)   | 下三角行列を表現するためのタグ値 (variable) | C++26 |
-| `implicit_unit_diagonal_t` | implicit unit diagonalを表現するためのタグ型 (class) | C++26 |
-| `implicit_unit_diagonal`   | implicit unit diagonalを表現するためのタグ値 (variable) | C++26 |
-| `explicit_diagonal_t` | explicit diagonalを表現するためのタグ型 (class) | C++26 |
-| `explicit_diagonal`   | explicit diagonalを表現するためのタグ値 (variable) | C++26 |
+| [`column_major_t`](linalg/column_major_t.md) | 列優先(column-major) | C++26 |
+| [`row_major_t`](linalg/row_major_t.md) | 行優先(row-major) | C++26 |
+
+### 三角行列
+上三角行列か下三角行列かを表すタグ。
+
+| 型名 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`upper_triangle_t`](linalg/upper_triangle_t.md) | 上三角行列 | C++26 |
+| [`lower_triangle_t`](linalg/lower_triangle_t.md) | 下三角行列 | C++26 |
+
+### 対角成分
+行列の全ての対角成分を暗黙に乗法における単位元とみなすかどうかを表すタグ。みなした場合、行列の対角成分にはアクセスせず、値が乗法における単位元であるとして計算する。
+
+| 型名 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`implicit_unit_diagonal_t`](linalg/implicit_unit_diagonal_t.md) | 全ての対角成分を暗黙に乗法における単位元とみなす | C++26 |
+| [`explicit_diagonal_t`](linalg/explicit_diagonal_t.md) | 全ての対角成分にアクセスする | C++26 |
 
 
 ## バージョン
