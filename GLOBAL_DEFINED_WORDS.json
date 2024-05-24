@@ -88,5 +88,8 @@
   },
   "標準浮動小数点数型": {
     "desc": "拡張浮動小数点数型の対義語としてfloat / double / long doubleを指す用語"
+  },
+  "ADL": {
+    "desc": "実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能"
   }
 }
