@@ -44,7 +44,7 @@ $$
 - (1) `a`と`b`の型が`Real`の場合、`s`と`r`の型も`Real`。`r`は$(a, b)^T$のユークリッドノルム、つまり$\sqrt{|a|^2 + |b|^2}$である。
 - (2) `a`と`b`の型が`complex<Real>`の場合、`s`と`r`の型も`complex<Real>`。以下で定義される$sgn$関数を用いると、`r`は$sgn(a) * \sqrt{|a|^2 + |b|^2}$である。
 $$
-sgn(x)=
+sgn(x):=
     \begin{cases}
         \frac{x}{|x|}   &   \text{($x \neq 0$)}  \\
         1        &   \text{($x = 0$)}
