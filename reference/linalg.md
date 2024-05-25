@@ -42,12 +42,24 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 | [`conjugate_transposed`](linalg/conjugate_transposed.md) | 読み取り専用の複素共役転置ビュー`std::mdspan`を作る (function template) | C++26 |
 
 
+## BLASの要件
+BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に制約されていない場合、テンプレートパラメータの名前によって以下の制約を満たすとする。
+
+| 名前 | 制約 |
+|------|------|
+| `ExecutionPolicy` | `is_execution_policy<ExecutionPolicy>::value == true` |
+| `Real` | `complex<Real>`が規定できる型 |
+| `Triangle` | `upper_triangle_t`または`lower_triangle_t` |
+| `DiagonalStorage` | `implicit_unit_diagonal_t`または`implicit_unit_diagonal_t` |
+
+
 ## BLAS 1アルゴリズム
+`std::mpspan`をパラメータに持つ、この節の全てのアルゴリズムの計算量は渡された`std::mdspan`の`extents`の積の最大値、つまりベクトルや行列の要素数の最大値に線形である。
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `setup_givens_rotation_result` | `setup_givens_rotation`の結果型 (class template) | C++26 |
-| `setup_givens_rotation` | xLARTG: ギブンス回転をセットアップする (function template) | C++26 |
+| [`setup_givens_rotation_result`](linalg/setup_givens_rotation_result.md) | `setup_givens_rotation`の結果型 (class template) | C++26 |
+| [`setup_givens_rotation`](linalg/setup_givens_rotation.md) | xLARTG: ギブンス回転をセットアップする (function template) | C++26 |
 | `apply_givens_rotation` | xROT: ベクトルにギブンス回転を適用する (function template) | C++26 |
 | `swap_elements` | xSWAP: 2つのベクトル／行列の要素を交換する (function template) | C++26 |
 | `scale` | xSCAL: ベクトル／行列の要素にスカラ値を乗算する (function template) | C++26 |
@@ -103,35 +115,38 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 ## タグ
 `<linalg>`ヘッダでは、行列の格納順序や三角行列の上下をタグを使って表現している。
 
-以下、型名を掲載するが、定数も次のように定義されている。
-
-```cpp
-inline constexpr tag_name_t tag_name{};
-```
 
 ### 格納順序
 行列の格納順序を表すタグ。
 
-| 型名 | 説明 | 対応バージョン |
+| 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`column_major_t`](linalg/column_major_t.md) | 列優先(column-major) | C++26 |
-| [`row_major_t`](linalg/row_major_t.md) | 行優先(row-major) | C++26 |
+| [`column_major_t`](linalg/column_major_t.md) | 列優先(column-major)を表すタグ型 | C++26 |
+| [`column_major`](linalg/column_major_t.md) | 列優先(column-major)を表すタグ値 | C++26 |
+| [`row_major_t`](linalg/row_major_t.md) | 行優先(row-major)を表すタグ型 | C++26 |
+| [`row_major`](linalg/row_major_t.md) | 行優先(row-major)を表すタグ値 | C++26 |
+
 
 ### 三角行列
 上三角行列か下三角行列かを表すタグ。
 
-| 型名 | 説明 | 対応バージョン |
+| 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`upper_triangle_t`](linalg/upper_triangle_t.md) | 上三角行列 | C++26 |
-| [`lower_triangle_t`](linalg/lower_triangle_t.md) | 下三角行列 | C++26 |
+| [`upper_triangle_t`](linalg/upper_triangle_t.md) | 上三角行列を表すタグ型 | C++26 |
+| [`upper_triangle`](linalg/upper_triangle_t.md) | 上三角行列を表すタグ値 | C++26 |
+| [`lower_triangle_t`](linalg/lower_triangle_t.md) | 下三角行列を表すタグ型 | C++26 |
+| [`lower_triangle`](linalg/lower_triangle_t.md) | 下三角行列を表すタグ値 | C++26 |
+
 
 ### 対角成分
 行列の全ての対角成分を暗黙に乗法における単位元とみなすかどうかを表すタグ。みなした場合、行列の対角成分にはアクセスせず、値が乗法における単位元であるとして計算する。
 
-| 型名 | 説明 | 対応バージョン |
+| 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`implicit_unit_diagonal_t`](linalg/implicit_unit_diagonal_t.md) | 全ての対角成分を暗黙に乗法における単位元とみなす | C++26 |
-| [`explicit_diagonal_t`](linalg/explicit_diagonal_t.md) | 全ての対角成分にアクセスする | C++26 |
+| [`implicit_unit_diagonal_t`](linalg/implicit_unit_diagonal_t.md) | 全ての対角成分を暗黙に乗法における単位元とみなすタグ型 | C++26 |
+| [`implicit_unit_diagonal`](linalg/implicit_unit_diagonal_t.md) | 全ての対角成分を暗黙に乗法における単位元とみなすタグ値 | C++26 |
+| [`explicit_diagonal_t`](linalg/explicit_diagonal_t.md) | 全ての対角成分にアクセスするタグ型 | C++26 |
+| [`explicit_diagonal`](linalg/explicit_diagonal_t.md) | 全ての対角成分にアクセスするタグ値 | C++26 |
 
 
 ## バージョン
@@ -148,3 +163,4 @@ inline constexpr tag_name_t tag_name{};
 - [P1674R2: Evolving a Standard C++ Linear Algebra Library from the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1674r2.html)
 - [std::linalg: Linear Algebra Coming to Standard C++](https://github.com/CppCon/CppCon2023/blob/main/Presentations/stdlinalg_linear_algebra_coming_to_standard_cpp.pdf), CppCon 2023
 - [BLAS (Basic Linear Algebra Subprograms)](https://www.netlib.org/blas/)
+- [Numerics library](https://eel.is/c++draft/complex.numbers)
