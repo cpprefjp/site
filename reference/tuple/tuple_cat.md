@@ -26,7 +26,7 @@ namespace std {
 ## 要件
 - C++20まで :
     - `Tuples...`の全ての型が[`std::tuple`](tuple.md)`<Args...>`であること。
-    - `Args...`の各型が左辺値参照であればコピー構築可能、そうでなければムーブ構築可能であること。
+    - `Tuples...`の各型が左辺値参照であればその要素型`Args...`の各型はコピー構築可能、そうでなければムーブ構築可能であること。
 - C++23から :
     - 本関数の戻り値の[`tuple`](tuple.md)のテンプレートパラメーターパックを`Ctypes`とし、`Ctypes`の全ての要素について、引数`tpls`において対応する要素の型から構築可能であること。
     - より厳密には、次のように定義を行い、`(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<CTypes, decltype(celems)> && ...) == true`であること。
