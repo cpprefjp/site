@@ -4,7 +4,7 @@
 * function template[meta id-type]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator, class T>
   T accumulate(InputIterator first, InputIterator last, T init);           // (1) C++03
   template <class InputIterator, class T>

@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator1, class InputIterator2, class T>
   T transform_reduce(InputIterator1 first1,
                      InputIterator1 last1,

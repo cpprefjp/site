@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator, class OutputIterator,
             class BinaryOperation, class UnaryOperation>
   OutputIterator

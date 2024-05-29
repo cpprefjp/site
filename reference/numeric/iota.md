@@ -5,7 +5,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class ForwardIterator, class T>
   void
     iota(ForwardIterator first, ForwardIterator last, T value); // (1) C++11

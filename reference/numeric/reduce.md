@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator>
   typename iterator_traits<InputIterator>::value_type
     reduce(InputIterator first, InputIterator last);         // (1) C++17
