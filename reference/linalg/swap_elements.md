@@ -10,16 +10,16 @@
 ```cpp
 namespace std::linalg {
   template<inout-object InOutObj1,
-         inout-object InOutObj2>
+           inout-object InOutObj2>
   void swap_elements(InOutObj1 x,
-                    InOutObj2 y); // (1)
+                     InOutObj2 y);          // (1)
 
   template<class ExecutionPolicy,
-          inout-object InOutObj1,
-          inout-object InOutObj2>
+           inout-object InOutObj1,
+           inout-object InOutObj2>
   void swap_elements(ExecutionPolicy&& exec,
-                    InOutObj1 x,
-                    InOutObj2 y); // (2)
+                     InOutObj1 x,
+                     InOutObj2 y);          // (2)
 }
 ```
 
@@ -77,5 +77,5 @@ namespace std::linalg {
 
 ## 参照
 - [P0788R3 Standard Library Specification in a Concepts and Contracts World](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0788r3.pdf)
-- [`LAPACK: cswap`](https://netlib.org/lapack/explore-html/d1/d45/group__rot_ga25544801d45dcabdec7b24d863ebea9c.html#ga25544801d45dcabdec7b24d863ebea9c)
+- [`LAPACK: cswap`](https://netlib.org/lapack/explore-html/d7/d51/group__swap_ga1e8d1bbcbd0307e7a3839d0bd10e4118.html#ga1e8d1bbcbd0307e7a3839d0bd10e4118)
 
