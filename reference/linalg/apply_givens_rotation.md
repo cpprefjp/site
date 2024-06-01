@@ -112,6 +112,7 @@ $$
 
 ## 関連項目
 - [`execution`](/reference/execution.md)
+- [`mdspan`](/reference/mdspan.md)
 
 
 ## 参照
