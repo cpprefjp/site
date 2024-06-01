@@ -63,7 +63,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`apply_givens_rotation`](linalg/apply_givens_rotation.md) | xROT: ベクトルにギブンス回転を適用する (function template) | C++26 |
 | [`swap_elements`](linalg/swap_elements.md) | xSWAP: 2つのベクトル／行列の要素を交換する (function template) | C++26 |
 | [`scale`](linalg/scale.md) | xSCAL: ベクトル／行列の要素にスカラ値を乗算する (function template) | C++26 |
-| `copy` | xCOPY: ベクトル／行列の要素をコピーする (function template) | C++26 |
+| [`copy`](linalg/copy.md) | xCOPY: ベクトル／行列の要素をコピーする (function template) | C++26 |
 | `add` | xAXPY: 2つのベクトル／行列の要素を加算する (function template) | C++26 |
 | `dot` | xDOT, xDOTU: 2つのベクトルのドット積を求める (function template) | C++26 |
 | `dotc` | xDOTC: 2つのベクトルの複素共役ドット積を求める (function template) | C++26 |
