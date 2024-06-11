@@ -26,6 +26,7 @@ popd
 mkdir -p cpprefjp/static/static/crsearch
 pushd cpprefjp/static/static/crsearch
   ln -s ../../../../crsearch.json/crsearch.json crsearch.json
+  ln -s ../../../../crsearch.json/crsearch.js crsearch.js
 popd
 
 # サイトの生成
