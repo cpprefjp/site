@@ -12,6 +12,12 @@
 本サイトでは、他サイトおよび規格書の直接的な翻訳ではなく、編集者の調査と考えに基づいた解説を提供していきます。
 
 
+## HTMLデータのダウンロード
+- [cpprefjp.github.io-master.zip](https://github.com/cpprefjp/cpprefjp.github.io/archive/refs/heads/master.zip)
+
+ローカルで閲覧できるHTMLを用意しています。
+
+
 ## スポンサーシップ
 
 - [cpprefjp - Open Collective](https://opencollective.com/cpprefjp)
