@@ -80,8 +80,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 18
-- [GCC](/implementation.md#gcc): 11
+- [Clang](/implementation.md#clang): 18 [mark verified]
+- [GCC](/implementation.md#gcc): 11 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

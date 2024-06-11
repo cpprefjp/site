@@ -100,7 +100,7 @@ sph_bessel(2, 0.5 pi) = 0.137417
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 7.1.0
+- [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

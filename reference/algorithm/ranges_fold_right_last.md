@@ -204,8 +204,8 @@ constexpr auto fold_right_last(I first, S last, F f) {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 13.1
-- [Visual C++](/implementation.md#visual_cpp): 2022 Update 5
+- [GCC](/implementation.md#gcc): 13.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 5 [mark verified]
 
 ## 関連項目
 

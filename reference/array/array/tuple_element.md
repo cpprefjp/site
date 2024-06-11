@@ -58,9 +58,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified]
 
 #### 備考
 GCC 4.7、およびVisual C++ 10.0の`array`に対する`tuple_element`の特殊化では、`I`の境界チェックがない。

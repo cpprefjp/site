@@ -329,8 +329,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (10.0.0 現在、実装は P1394R4 以前の不完全なものである)
-- [GCC](/implementation.md#gcc): 10.0.1
+- [Clang](/implementation.md#clang): (10.0.0 現在、実装は P1394R4 以前の不完全なものである) [mark verified]
+- [GCC](/implementation.md#gcc): 10.0.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

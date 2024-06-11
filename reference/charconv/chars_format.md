@@ -36,7 +36,7 @@ namespace std {
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 8
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 8 [mark verified]
 
 ## 関連項目
 - [`to_chars`](../charconv/to_chars.md)

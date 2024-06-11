@@ -63,7 +63,7 @@ iostream stream error
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified]
 
 
 ## 参照

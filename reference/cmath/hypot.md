@@ -215,9 +215,9 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 2.9, 3.1
-- [GCC](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015, 2017
+- [Clang](/implementation.md#clang): 2.9 [mark verified], 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.4.5 [mark verified], 4.5.2 [mark verified], 4.6.1 [mark verified], 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
     - 2002, 2003, 2005, 2008, 2010およびそれ以降では、`<math.h>`でグローバル名前空間に以下が定義されている。
         - 仮引数・戻り値が`float`型の`_hypotf`関数が定義されている。
         - 仮引数・戻り値が`double`型の`hypot`関数と`_hypot`関数が定義されている。

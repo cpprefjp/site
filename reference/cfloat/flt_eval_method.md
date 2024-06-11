@@ -37,7 +37,7 @@
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 	- `/fp:fast`コンパイラオプションが指定されている場合、-1と定義されている。
 	- ターゲットのCPUアーキテクチャが`x86`以外である場合、0と定義されている。
 	- ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用する場合（`/arch:SSE2`以上のコンパイラオプション）、0と定義されている。

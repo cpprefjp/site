@@ -174,8 +174,8 @@ Pull Requestのレビューが滞っていた場合、Pull Requestの提出者�
 ## 処理系
 ### バージョン
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1
+- [GCC](/implementation.md#gcc): 10 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1 [mark verified]
 ```
 
 バージョンの表記としては、とくにVisual C++は本サイト独自の表記法がありますので、以下のページを確認してください。

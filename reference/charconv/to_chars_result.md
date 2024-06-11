@@ -45,9 +45,9 @@ namespace std {
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.0
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 7
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 7 [mark verified]
 
 ## 関連項目
 - [`to_chars`](../charconv/to_chars.md)

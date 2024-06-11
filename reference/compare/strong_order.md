@@ -165,7 +165,7 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1(浮動小数点数の比較が未実装)
+- [GCC](/implementation.md#gcc): 10.1(浮動小数点数の比較が未実装) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目

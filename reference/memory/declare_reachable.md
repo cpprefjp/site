@@ -80,9 +80,9 @@ int main()
 
 ### 処理系
 - [GCC](/implementation.md#gcc): ?
-- [Clang](/implementation.md#clang): 3.4 (relaxed実装)
+- [Clang](/implementation.md#clang): 3.4 (relaxed実装) [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013 (relaxed実装)
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 (relaxed実装) [mark verified]
 
 ## 参照
 * [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)

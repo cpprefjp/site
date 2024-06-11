@@ -100,8 +100,8 @@ um2 after : (7th, 7), (7th, 7), (5th, 5), (5th, 5), (9th, 9), (9th, 9), (3rd, 3)
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.2
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

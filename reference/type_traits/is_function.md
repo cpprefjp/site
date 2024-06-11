@@ -59,9 +59,9 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.5.3, 4.6.1, 4.7.0
+- [GCC](/implementation.md#gcc): 4.5.3 [mark verified], 4.6.1 [mark verified], 4.7.0 [mark verified]
 - [Clang](/implementation.md#clang) 3.1, 3.2, 3.3
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2010までは、関数への右辺値参照型をテンプレート実引数に渡すとコンパイルエラーになる。上記例では、`std::is_function<f&&>`の場合が該当する。
 
 #### 備考

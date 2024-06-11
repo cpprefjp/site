@@ -68,9 +68,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
     - 2010にも`emplace`は存在するが、`insert`相当の機能しかない。
 
 

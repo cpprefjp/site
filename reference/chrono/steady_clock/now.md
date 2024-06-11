@@ -52,5 +52,5 @@ int main()
 - C++11
 
 ### 処理系
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012, 2013は逆行が起こり得る、すなわち正しくない実装であった。

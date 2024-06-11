@@ -23,9 +23,9 @@ C++20にて追加された[*destroying operator delete*](/lang/cpp20/efficient_s
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 16
-- [GCC](/implementation.md#gcc): 9
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 7
+- [Clang](/implementation.md#clang): 16 [mark verified]
+- [GCC](/implementation.md#gcc): 9 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 7 [mark verified]
 
 ## 関連項目
 - [C++20 可変長データを扱うクラスの効率的な`delete`](/lang/cpp20/efficient_sized_delete_for_variable_sized_classes.md)

@@ -24,7 +24,7 @@ std::locale locale();
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 13
+- [GCC](/implementation.md#gcc): 13 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

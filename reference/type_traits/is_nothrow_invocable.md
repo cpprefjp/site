@@ -72,7 +72,7 @@ false
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 Update 3
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 3 [mark verified]
 
 ## 参照
 - [C++1z 関数が呼び出し可能かを判定する型特性 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/05/13/183857)

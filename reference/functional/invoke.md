@@ -126,7 +126,7 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified], 2017 [mark verified]
 
 
 ## 関連項目

@@ -76,8 +76,8 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.8.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.8.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012～2013には、提案時の名前である`has_nothrow_constructor`, `has_nothrow_default_constructor`も存在する。
 	- 2012は`void`において、誤って`false_type`になっている。
 	- 2013までは`std::is_default_constructible<int[]>`のような要素数の指定がない配列型において、誤って`false_type`になっている。

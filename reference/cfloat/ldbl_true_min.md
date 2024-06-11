@@ -53,8 +53,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): (9.1時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.1 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

@@ -127,10 +127,10 @@ template <class T, class U>
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): 16.0.0
+- [Clang](/implementation.md#clang): 16.0.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2022 17.4
+- [Visual C++](/implementation.md#visual_cpp): 2022 17.4 [mark verified]
 
 
 ## 参照

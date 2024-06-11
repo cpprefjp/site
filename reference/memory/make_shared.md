@@ -105,10 +105,10 @@ int main() {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2, 3.3
-- [GCC](/implementation.md#gcc): 4.4, 4.7.3, 4.8.2
+- [Clang](/implementation.md#clang): 3.2 [mark verified], 3.3 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4 [mark verified], 4.7.3 [mark verified], 4.8.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2010〜2012 でも使用可能だが、コンパイラが可変引数テンプレートに対応していないため、最大10個の引数を受け取れる形で実装されている。
 
 

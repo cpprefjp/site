@@ -165,9 +165,9 @@ inline constexpr mismatch_impl mismatch;
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1.0
+- [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
 
 ## 参照

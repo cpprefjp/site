@@ -60,8 +60,8 @@ not empty
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.6.4
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.6.4 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

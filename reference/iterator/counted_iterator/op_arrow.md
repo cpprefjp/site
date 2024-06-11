@@ -67,8 +67,8 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 12.0
-- [Visual C++](/implementation.md#visual_cpp): 2022
+- [GCC](/implementation.md#gcc): 12.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2022 [mark verified]
 
 ## 参照
 - [P2259R1 Repairing input range adaptors and `counted_iterator`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2259r1.html)

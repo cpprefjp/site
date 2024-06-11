@@ -78,7 +78,7 @@ false
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015 update3, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2015 update3 [mark verified], 2017 [mark verified]
 	- 2015 update3では、インテリセンスで表示されないが変数テンプレート共々定義されており利用可能である
 
 ## 参照

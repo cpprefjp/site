@@ -130,9 +130,9 @@ hoge::~hoge()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.4, 4.7.2
+- [GCC](/implementation.md#gcc): 4.4 [mark verified], 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 
 ## 関連項目

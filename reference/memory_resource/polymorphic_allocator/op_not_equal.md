@@ -58,8 +58,8 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 9.1 (2), 13.1 (1)
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 6 (2), 2022 17.4 (1)
+- [GCC](/implementation.md#gcc): 9.1 (2) [mark verified], 13.1 (1) [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 6 (2) [mark verified], 2022 17.4 (1) [mark verified]
 
 ## 関連項目
 - [`operator!=`](/reference/memory_resource/memory_resource/op_not_equal.md)

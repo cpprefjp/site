@@ -66,10 +66,10 @@ namespace std {
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): 19
-- [GCC](/implementation.md#gcc): 14
+- [Clang](/implementation.md#clang): 19 [mark verified]
+- [GCC](/implementation.md#gcc): 14 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2022 Update 7
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 7 [mark verified]
 
 
 ## 関連項目

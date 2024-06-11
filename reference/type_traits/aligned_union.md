@@ -112,9 +112,9 @@ hello
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.3
-- [GCC](/implementation.md#gcc): 5.0
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.3 [mark verified]
+- [GCC](/implementation.md#gcc): 5.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012は、`alignment_value`が定義されていない。
 	- 2012は、可変引数テンプレートに対応していないため、不完全な実装である。
 	- `aligned_union_t`は2013から

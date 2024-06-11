@@ -103,7 +103,7 @@ phase-3  @140171067340544
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 11.0
+- [Clang](/implementation.md#clang): 11.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
