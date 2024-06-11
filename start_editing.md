@@ -174,9 +174,14 @@ Pull Requestのレビューが滞っていた場合、Pull Requestの提出者�
 ## 処理系
 ### バージョン
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10 [mark verified]
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1 [mark verified]
+- [GCC](/implementation.md#gcc): 9, [mark noimpl], 10 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1 [mark impl]
 ```
+
+- mark noimpl : 未実装を表す絵文字
+- mark impl : 動作確認はできていないけど、リリースノートやそれに類するドキュメントには実装済みと書かれていることを表す絵文字
+- mark verified : 動作検証済み
+
 
 バージョンの表記としては、とくにVisual C++は本サイト独自の表記法がありますので、以下のページを確認してください。
 
