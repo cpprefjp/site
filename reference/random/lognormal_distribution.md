@@ -107,9 +107,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[lognormal_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/lognormal_distribution/lognormal_distribution.tsv)）を図示する。 
+このプログラムによってある時に得られた結果（[lognormal_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/lognormal_distribution/lognormal_distribution.tsv)）を図示する。 
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/lognormal_distribution/lognormal_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/lognormal_distribution/lognormal_distribution.png)
 
 ## バージョン
 ### 言語

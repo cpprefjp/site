@@ -99,7 +99,7 @@ rscript random_stats.R
 これで、`png()`関数で指定された画像ファイル名で、図が出力されます。  
 `std::uniform_int_distribution`クラスのサンプルコードでは、以下のような図が得られました。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/random/uniform_int_distribution/uniform_int_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/uniform_int_distribution/uniform_int_distribution.png)
 
 この図は「プロット」と呼ばれる種類の図ですが、そのほか「ヒストグラム」等、いろいろな種類の図を出力できます。先ほどのrandom_stats.Rスクリプトに、ヒストグラムの図出力をコメントアウトしてあるので、分布クラスの特性に合わせて、図の種類を使い分けてください。
 

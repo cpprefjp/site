@@ -89,15 +89,15 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### シルバースポンサー
 
-<div style="text-align: center"><a href="https://www.fixstars.com/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></a></div>
+<div style="text-align: center"><a href="https://www.fixstars.com/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></a></div>
 
-<div style="text-align: center"><a href="https://acerola-software.jp/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></a></div>
+<div style="text-align: center"><a href="https://acerola-software.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></a></div>
 
-<div style="text-align: center"><a href="https://vaporoid.com/sys/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/cpprefjp-400x150.png" alt="vaporoid" width="400"/></a></div>
+<div style="text-align: center"><a href="https://vaporoid.com/sys/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/vaporoid/cpprefjp-400x150.png" alt="vaporoid" width="400"/></a></div>
 
 <div style="text-align: center"><a href="https://www.cube-soft.jp/"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="CubeSoft" width="400"/></a></div>
 
-<div style="text-align: center"><a href="https://mkohana.github.io/"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/m_kohana/m_kohana.jpg" alt="M.Kohana" width="320"/></a></div>
+<div style="text-align: center"><a href="https://mkohana.github.io/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/m_kohana/m_kohana.jpg" alt="M.Kohana" width="320"/></a></div>
 
 <div style="text-align: center"><a href="https://www.pegasys-inc.com/"><img src="https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png" alt="pegasys" width="320"/></a></div>
 
@@ -118,7 +118,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 - [Hashitaku様](https://opencollective.com/hashitaku)
 
-<div style="text-align: center"><img src="https://github.com/cpprefjp/image/raw/master/sponsors/yukika2e/yukika2e.png" alt="yukika2e"/></div>
+<div style="text-align: center"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/yukika2e/yukika2e.png" alt="yukika2e"/></div>
 
 - [ugai様](https://opencollective.com/ugai)
 

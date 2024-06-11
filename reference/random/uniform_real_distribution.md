@@ -98,9 +98,9 @@ int main()
 
 このプログラムによってある時に得られた結果（[uniform_real_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/uniform_real_distribution/uniform_real_distribution.tsv)）を図示する。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/random/uniform_real_distribution/uniform_real_distribution_hist.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/uniform_real_distribution/uniform_real_distribution_hist.png)
 
-![](https://raw.github.com/cpprefjp/image/master/reference/random/uniform_real_distribution/uniform_real_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/uniform_real_distribution/uniform_real_distribution.png)
 
 1,000個程度のデータのため、ある程度は偏りがあるが、誤差の範囲でほぼ等確率で0.0から1.0までの値が生成されていることがわかる。
 
