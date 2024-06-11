@@ -236,9 +236,9 @@ Expression 'i >= 0' is false in f(int) at /app/example.cpp:15
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 18 [mark noimpl]
 - [GCC](/implementation.md#gcc): 12 [mark verified]
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 4 [mark impl]
 
 
 ### 備考
