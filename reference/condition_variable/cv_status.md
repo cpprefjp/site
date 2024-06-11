@@ -40,9 +40,9 @@ namespace std {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012 (partial), 2013
+- [Visual C++](/implementation.md#visual_cpp): 2012 (partial) [mark verified], 2013 [mark verified]
 	- 2012までは、スコープ付き列挙体(`enum class`)に対応していないため、代わりに名前空間`std::cv_status`に`enum cv_status`を定義する形になっている。
 
 

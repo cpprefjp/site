@@ -113,10 +113,10 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 1.9, 2.9, 3.0, 3.1, 3.2, 3.3
-- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.3, 4.6.3, 4.7.2, 4.8.1
-- [ICC](/implementation.md#icc): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation.md#visual_cpp): 2003, 2005, 2008, 2010, 2012, 2019 Update 3
+- [Clang](/implementation.md#clang): 1.9 [mark verified], 2.9 [mark verified], 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified], 4.4.7 [mark verified], 4.5.3 [mark verified], 4.6.3 [mark verified], 4.7.2 [mark verified], 4.8.1 [mark verified]
+- [ICC](/implementation.md#icc): 10.1 [mark verified], 11.0 [mark verified], 11.1 [mark verified], 12.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2003 [mark verified], 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2019 Update 3 [mark verified]
 
 (ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
 (確認のテストできないときは、??を記述してください。)

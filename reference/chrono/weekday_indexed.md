@@ -104,7 +104,7 @@ int main() {
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし)
-- [GCC](/implementation.md#gcc): (10.1時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし) [mark verified]
+- [GCC](/implementation.md#gcc): 10.1 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 

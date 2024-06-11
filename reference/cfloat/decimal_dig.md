@@ -78,6 +78,6 @@ int main()
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 	- 2013は、正しく実装されていない。C++11での最低値である10と定義されている。しかし、`double`および`long double`がIEEE 754倍精度で実装されているため、少なくとも17以上でなければならない。
 	- 2015は、正しく17と定義されている。

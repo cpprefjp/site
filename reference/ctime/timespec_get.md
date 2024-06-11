@@ -72,8 +72,8 @@ Fri May 24 16:19:59 2019
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 9.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 #### 備考

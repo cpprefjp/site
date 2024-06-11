@@ -54,9 +54,9 @@ int main(){}
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.4
-- [GCC](/implementation.md#gcc): 4.9
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
 ## 参照

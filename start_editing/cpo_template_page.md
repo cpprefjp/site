@@ -100,8 +100,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 11.0
-- [GCC](/implementation.md#gcc): 10.0
+- [Clang](/implementation.md#clang): 11.0 [mark verified]
+- [GCC](/implementation.md#gcc): 10.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 (ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)

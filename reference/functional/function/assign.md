@@ -68,8 +68,8 @@ int main()
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): (4.8.2時点で実装していない)
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.8.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

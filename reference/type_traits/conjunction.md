@@ -80,9 +80,9 @@ Tはムーブ構築/代入どちらかが不可
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.8
-- [GCC](/implementation.md#gcc): 6.3
-- [Visual C++](/implementation.md#visual_cpp): 2015 update2, 2017
+- [Clang](/implementation.md#clang): 3.8 [mark verified]
+- [GCC](/implementation.md#gcc): 6.3 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2015 update2 [mark verified], 2017 [mark verified]
 	- `conjunction_v`は、2015 update3までは定義されているが有効化されていない。
 
 

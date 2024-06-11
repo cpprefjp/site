@@ -125,9 +125,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 16.0
-- [GCC](/implementation.md#gcc): 10.2.0
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+- [Clang](/implementation.md#clang): 16.0 [mark verified]
+- [GCC](/implementation.md#gcc): 10.2.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
 
 ## 関連項目

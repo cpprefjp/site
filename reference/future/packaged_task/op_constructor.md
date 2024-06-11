@@ -106,9 +106,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012 (11.0はアロケータを引数に取るものがコンパイルできない？)
+- [Visual C++](/implementation.md#visual_cpp): 2012 (11.0はアロケータを引数に取るものがコンパイルできない？) [mark verified]
 
 
 ## 参照

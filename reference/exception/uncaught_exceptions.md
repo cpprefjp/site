@@ -81,9 +81,9 @@ catch exception 2
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 6
-- [GCC](/implementation.md#gcc): 3.7
-- [Visual C++](/implementation.md#visual_cpp): 2015, 2017
+- [Clang](/implementation.md#clang): 6 [mark verified]
+- [GCC](/implementation.md#gcc): 3.7 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified], 2017 [mark verified]
 
 ## 参照
 - [C++1z 現在発生している例外の数を取得するuncaught_exceptions()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/06/22/171639)

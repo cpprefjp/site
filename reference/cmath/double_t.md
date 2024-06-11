@@ -24,7 +24,7 @@ namespace std {
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2013, 2015, 2017, 2019, 2022
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified], 2017 [mark verified], 2019 [mark verified], 2022 [mark verified]
 	- 2013, 2015では、常に`double`の別名。
 	- 2017以降で、ターゲットのCPUアーキテクチャが`x86`以外である場合、`double`の別名。
 	- 2017以降で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用する場合（`/arch:SSE2`以上のコンパイラオプション）、`double`の別名。

@@ -29,9 +29,9 @@ namespace std {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 5.0
-- [Visual C++](/implementation.md#visual_cpp): 2008, 2010, 2012
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 5.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2008 [mark verified], 2010 [mark verified], 2012 [mark verified]
 
 
 #### 備考

@@ -114,10 +114,10 @@ world
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 13.0.0
-- [GCC](/implementation.md#gcc): 10.1.0
+- [Clang](/implementation.md#clang): 13.0.0 [mark verified]
+- [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
 ## 参照
 - [P2210R2 Superior String Splitting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2210r2.html)

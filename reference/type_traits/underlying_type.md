@@ -116,17 +116,17 @@ int main() {}
 
 ### 処理系
 #### underlying_type
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 #### P0340R3: Making `std::underlying_type` SFINAE-friendly
 
 以下の処理系ではコンパイル時の言語バージョンスイッチに関わらずP0340R3の修正が適用されている
 
-- [Clang](/implementation.md#clang): 9.0
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5 [mark verified]
 
 ## 関連項目
 - [C++11 スコープを持つ列挙型](/lang/cpp11/scoped_enum.md)

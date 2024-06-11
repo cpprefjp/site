@@ -90,7 +90,7 @@ p2 is nullptr
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 10
+- [GCC](/implementation.md#gcc): 10 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

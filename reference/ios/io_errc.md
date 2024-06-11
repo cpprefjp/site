@@ -34,10 +34,10 @@ namespace std {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5.0, 3.6.0, 3.7.0, 3.8.0
-- [GCC](/implementation.md#gcc): 5.1.0, 5.2.0, 6.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5.0 [mark verified], 3.6.0 [mark verified], 3.7.0 [mark verified], 3.8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 5.1.0 [mark verified], 5.2.0 [mark verified], 6.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012 (ただし、10.0はenum class非対応のため不完全)
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 (ただし、10.0はenum class非対応のため不完全) [mark verified]
 
 
 ## 参照

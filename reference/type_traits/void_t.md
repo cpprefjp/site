@@ -94,9 +94,9 @@ false
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.6
-- [GCC](/implementation.md#gcc): 6.3
-- [Visual C++](/implementation.md#visual_cpp): 2015, 2017
+- [Clang](/implementation.md#clang): 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 6.3 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified], 2017 [mark verified]
 	- 2015では備考にある複雑な実装になっている。
 
 ## 参照

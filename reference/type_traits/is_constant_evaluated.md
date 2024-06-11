@@ -137,10 +137,10 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9
-- [GCC](/implementation.md#gcc): 9.1
+- [Clang](/implementation.md#clang): 9 [mark verified]
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2019 update5
+- [Visual C++](/implementation.md#visual_cpp): 2019 update5 [mark verified]
 
 ## 関連項目
 - [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md)

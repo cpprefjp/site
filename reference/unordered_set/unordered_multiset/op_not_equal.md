@@ -94,8 +94,8 @@ ums1 != ums3:false
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1
-- [GCC](/implementation.md#gcc): 4.4.7, 4.5.3, 4.6.3, 4.7.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified], 4.5.3 [mark verified], 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

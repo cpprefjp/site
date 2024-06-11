@@ -98,10 +98,10 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 13.0.0
-- [GCC](/implementation.md#gcc): 10.1.0
+- [Clang](/implementation.md#clang): 13.0.0 [mark verified]
+- [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
 ## 関連項目
 - [`std::rbegin`](/reference/iterator/rbegin.md)

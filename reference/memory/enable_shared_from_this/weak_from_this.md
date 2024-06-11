@@ -56,8 +56,8 @@ int main()
 - C++17
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 7.3
-- [Clang](/implementation.md#clang): 3.9
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
+- [Clang](/implementation.md#clang): 3.9 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

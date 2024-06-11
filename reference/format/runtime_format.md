@@ -54,7 +54,7 @@ Hello
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 14
+- [GCC](/implementation.md#gcc): 14 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

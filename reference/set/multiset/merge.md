@@ -84,10 +84,10 @@ s2 = { 10, 10, 20, 30 }
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0.0
-- [GCC](/implementation.md#gcc): 7.1.0
+- [Clang](/implementation.md#clang): 8.0.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5 [mark verified]
 
 
 ## 参照

@@ -193,7 +193,7 @@ sum3 : 30
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 5.0.0
+- [Clang](/implementation.md#clang): 5.0.0 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 

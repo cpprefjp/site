@@ -121,9 +121,9 @@ inline constexpr is_sorted_until_impl is_sorted_until;
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1.0
+- [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)

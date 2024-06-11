@@ -59,8 +59,8 @@ int main() {
 - C++23
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 11.1
-- [Clang](/implementation.md#clang): 13.0
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [Clang](/implementation.md#clang): 13.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

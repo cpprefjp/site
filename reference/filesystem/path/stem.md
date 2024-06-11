@@ -99,6 +99,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
-- [GCC](/implementation.md#gcc): 8.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]

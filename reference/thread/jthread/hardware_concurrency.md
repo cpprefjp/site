@@ -48,5 +48,5 @@ concurrency=12
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 10.2.0
+- [GCC](/implementation.md#gcc): 10.2.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

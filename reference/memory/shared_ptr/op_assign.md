@@ -131,10 +131,10 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.3.6(unique_ptr以外), 4.4.7
-- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.3.6(unique_ptr以外) [mark verified], 4.4.7 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2008は(1), (2), (5)変形のみ
 	- 2008, 2010の(5)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
 

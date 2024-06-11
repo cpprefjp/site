@@ -103,10 +103,10 @@ new load_factor: 0.363636
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.4.7
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 ### 備考
 - Clang 3.3 以降は C++17 モードでなくても C++17 の条件でのリハッシュとなっている。

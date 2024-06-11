@@ -168,7 +168,7 @@ long double stold(const std::wstring& str, std::size_t* idx = nullptr) {
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 

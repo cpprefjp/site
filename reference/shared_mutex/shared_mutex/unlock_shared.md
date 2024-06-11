@@ -82,7 +82,7 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.7.1
-- [GCC](/implementation.md#gcc): 6.3
+- [Clang](/implementation.md#clang): 3.7.1 [mark verified]
+- [GCC](/implementation.md#gcc): 6.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

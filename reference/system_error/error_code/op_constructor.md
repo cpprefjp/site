@@ -190,8 +190,8 @@ not found
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010 (enum class未対応のため、ErrorCodeEnumのコンストラクタは動作しない)
+- [Visual C++](/implementation.md#visual_cpp): 2010 (enum class未対応のため、ErrorCodeEnumのコンストラクタは動作しない) [mark verified]
 
 

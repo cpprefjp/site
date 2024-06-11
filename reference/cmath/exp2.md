@@ -115,8 +115,8 @@ namespace std {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 2.9, 3.1
-- [GCC](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
+- [Clang](/implementation.md#clang): 2.9 [mark verified], 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.4.5 [mark verified], 4.5.2 [mark verified], 4.6.1 [mark verified], 4.7.0 [mark verified]
 
 #### 備考
 特定の環境では、早期に `constexpr` 対応されている場合がある：
