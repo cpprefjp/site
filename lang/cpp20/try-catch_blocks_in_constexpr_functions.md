@@ -1,4 +1,4 @@
-# constexpr関数内でのtry-catchブロックを許可
+# constexpr関数内でのtry-catchブロックを許可 [P1002R1]
 * cpp20[meta cpp]
 
 ## 概要

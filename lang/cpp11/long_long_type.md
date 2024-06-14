@@ -1,4 +1,4 @@
-# long long型
+# long long型 [N1811]
 * cpp11[meta cpp]
 
 ## 概要

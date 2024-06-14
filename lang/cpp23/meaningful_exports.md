@@ -1,4 +1,4 @@
-# 無意味なexport宣言を禁止する
+# 無意味なexport宣言を禁止する [P2615R1]
 * cpp23[meta cpp]
 
 ## 概要

@@ -1,4 +1,4 @@
-# 型の文脈でtypenameの省略を許可
+# 型の文脈でtypenameの省略を許可 [P0634R3]
 
 * cpp20[meta cpp]
 

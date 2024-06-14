@@ -1,4 +1,4 @@
-# ほとんどの`volatile`を非推奨化
+# ほとんどの`volatile`を非推奨化 [P1152R4]
 * cpp20[meta cpp]
 
 ## 概要

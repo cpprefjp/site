@@ -1,4 +1,4 @@
-# decltype
+# decltype [N2343]
 * cpp11[meta cpp]
 
 ## 概要

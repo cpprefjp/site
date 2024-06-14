@@ -1,4 +1,4 @@
-# alignas
+# alignas [N2341]
 * cpp11[meta cpp]
 
 ## 概要

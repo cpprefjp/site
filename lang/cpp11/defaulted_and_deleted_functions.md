@@ -1,4 +1,4 @@
-# 関数のdefault／delete宣言
+# 関数のdefault／delete宣言 [N2346]
 * cpp11[meta cpp]
 
 ## 概要

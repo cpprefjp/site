@@ -1,4 +1,4 @@
-# constexpr関数内でconsteval関数を呼び出せない問題を軽減
+# constexpr関数内でconsteval関数を呼び出せない問題を軽減 [P2564R3]
 * cpp23[meta cpp]
 
 ## 概要

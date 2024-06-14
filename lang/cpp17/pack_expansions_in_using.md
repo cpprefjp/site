@@ -1,4 +1,4 @@
-# using宣言のパック展開
+# using宣言のパック展開 [P0195R2]
 * cpp17[meta cpp]
 
 ## 概要

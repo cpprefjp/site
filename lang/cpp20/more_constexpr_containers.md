@@ -1,4 +1,4 @@
-# 可変サイズをもつコンテナのconstexpr化
+# 可変サイズをもつコンテナのconstexpr化 [P0784R7]
 * cpp20[meta cpp]
 
 ## 概要

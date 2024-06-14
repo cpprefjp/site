@@ -1,4 +1,4 @@
-# [[nodiscard]]属性
+# [[nodiscard]]属性 [P0189R1]
 * cpp17[meta cpp]
 
 ## 概要

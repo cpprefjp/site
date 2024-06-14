@@ -1,4 +1,4 @@
-# [[fallthrough]]属性
+# [[fallthrough]]属性 [P0188R1]
 * cpp17[meta cpp]
 
 ## 概要

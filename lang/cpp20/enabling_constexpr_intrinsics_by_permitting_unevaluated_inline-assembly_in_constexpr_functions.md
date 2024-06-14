@@ -1,4 +1,4 @@
-# constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化
+# constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化 [P1668R1]
 * cpp20[meta cpp]
 
 ## 概要

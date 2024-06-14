@@ -1,4 +1,4 @@
-# #warningのサポートを追加
+# #warningのサポートを追加 [P2437R1]
 * cpp23[meta cpp]
 
 ## 概要

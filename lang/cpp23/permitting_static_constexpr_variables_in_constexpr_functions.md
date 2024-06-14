@@ -1,4 +1,4 @@
-# constexpr関数内でのstatic constexpr変数を許可
+# constexpr関数内でのstatic constexpr変数を許可 [P2647R1]
 * cpp23[meta cpp]
 
 ## 概要

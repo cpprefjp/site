@@ -1,4 +1,4 @@
-# nullptr
+# nullptr [N2431]
 * cpp11[meta cpp]
 
 ## 概要

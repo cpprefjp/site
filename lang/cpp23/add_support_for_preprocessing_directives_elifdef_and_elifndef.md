@@ -1,4 +1,4 @@
-# elif/elifdef/elifndefのサポートを追加
+# elif/elifdef/elifndefのサポートを追加 [P2334R1]
 * cpp23[meta cpp]
 
 ## 概要

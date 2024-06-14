@@ -1,4 +1,4 @@
-# 関数を条件付きでexplicitにする構文を追加
+# 関数を条件付きでexplicitにする構文を追加 [P0892R2]
 * cpp20[meta cpp]
 
 ## 概要
