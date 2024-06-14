@@ -1,4 +1,4 @@
-# 十六進浮動小数点数リテラル
+# 十六進浮動小数点数リテラル [P0245R1]
 * cpp17[meta cpp]
 * [mathjax enable]
 

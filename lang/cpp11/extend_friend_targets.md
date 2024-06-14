@@ -1,4 +1,4 @@
-# friend宣言できる対象を拡張
+# friend宣言できる対象を拡張 [N1791]
 * cpp11[meta cpp]
 
 ## 概要

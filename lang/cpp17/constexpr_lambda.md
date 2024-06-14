@@ -1,4 +1,4 @@
-# constexpr ラムダ
+# constexpr ラムダ [P0170R1]
 
 * cpp17[meta cpp]
 

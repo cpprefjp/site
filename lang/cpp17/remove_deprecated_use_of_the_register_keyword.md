@@ -1,4 +1,4 @@
-# 非推奨だったregisterキーワードを削除
+# 非推奨だったregisterキーワードを削除 [P0001R1]
 * cpp17[meta cpp]
 
 ## 概要

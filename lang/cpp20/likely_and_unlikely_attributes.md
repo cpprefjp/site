@@ -1,4 +1,4 @@
-# 確率が高い分岐と低い分岐を伝える属性 [[likely]], [[unlikely]]
+# 確率が高い分岐と低い分岐を伝える属性 [[likely]], [[unlikely]] [P0479R5]
 * cpp20[meta cpp]
 
 ## 概要

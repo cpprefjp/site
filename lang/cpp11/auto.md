@@ -1,4 +1,4 @@
-# auto
+# auto [N1984]
 * cpp11[meta cpp]
 
 ## 概要

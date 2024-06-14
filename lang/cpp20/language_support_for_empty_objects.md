@@ -1,4 +1,4 @@
-# 空オブジェクトに対する最適化を支援する属性[[no_unique_address]]
+# 空オブジェクトに対する最適化を支援する属性[[no_unique_address]] [P0840R2]
 
 * cpp20[meta cpp]
 

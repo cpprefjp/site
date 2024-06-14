@@ -1,4 +1,4 @@
-# 定数式での`dynamic_cast`、多態的な`typeid`を許可
+# 定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1]
 * cpp20[meta cpp]
 
 ## 概要
