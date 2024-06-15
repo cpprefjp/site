@@ -34,9 +34,9 @@ for (const auto& e : v) {
 
 | 変数宣言        | e を変更可能か？ | コンテナ内の要素を変更可能か？ |
 |-----------------|------------------|--------------------------------|
-| const auto& e   | No  | No  |
-| auto& e         | Yes | Yes |
-| auto e          | Yes | No  |
+| `const auto& e` | No  | No  |
+| `auto& e`       | Yes | Yes |
+| `auto e`        | Yes | No  |
 
 [auto]: /lang/cpp11/auto.md
 
