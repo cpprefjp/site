@@ -67,8 +67,8 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`add`](linalg/add.md) | xAXPY: 2つのベクトル／行列の要素を加算する (function template) | C++26 |
 | [`dot`](linalg/dot.md) | xDOT, xDOTU: 2つのベクトルのドット積を求める (function template) | C++26 |
 | [`dotc`](linalg/dotc.md) | xDOTC: 2つのベクトルの複素共役ドット積を求める (function template) | C++26 |
-| `sum_of_squares_result` | `vector_sum_of_squares`の結果型 (class template) | C++26 |
-| `vector_sum_of_squares` | xLASSQ: ベクトル要素の平方和を求める (function template) | C++26 |
+| [`sum_of_squares_result`](linalg/sum_of_squares_result.md) | `vector_sum_of_squares`の結果型 (class template) | C++26 |
+| [`vector_sum_of_squares`](linalg/vector_sum_of_squares.md) | xLASSQ: ベクトル要素の平方和を求める (function template) | C++26 |
 | `vector_two_norm` | xNRM2: ベクトルのユークリッドノルム(Euclidean norm)を求める (function template) | C++26 |
 | `vector_abs_sum` | xASUM: ベクトル要素の絶対値和を求める (function template) | C++26 |
 | `vector_idx_abs_max` | xIAMAX: ベクトル要素のうち最大絶対値インデクスを返す (function template) | C++26 |
