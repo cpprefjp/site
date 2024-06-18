@@ -8,17 +8,21 @@
 
 ```cpp
 namespace std::linalg {
-  template<in-vector InVec,
-           class Scalar>
-  Scalar vector_two_norm(InVec v,
-                         Scalar init); // (1)
+  template<in-vector InVec, class Scalar>
+  Scalar vector_two_norm(InVec v, Scalar init);          // (1)
 
   template<class ExecutionPolicy,
            in-vector InVec,
            class Scalar>
   Scalar vector_two_norm(ExecutionPolicy&& exec,
                          InVec v,
-                         Scalar init); // (2)
+                         Scalar init);                   // (2)
+
+  template<in-vector InVec>
+  auto vector_two_norm(InVec v);                         // (3)
+
+  template<class ExecutionPolicy, in-vector InVec>
+  auto vector_two_norm(ExecutionPolicy&& exec, InVec v); // (4)
 }
 ```
 
@@ -28,25 +32,34 @@ namespace std::linalg {
 
 - (1): 逐次実行する。
 - (2): 指定された実行ポリシーに応じて実行する。
+- (3): (1)で`init`に`InVec::value_type`のデフォルト値を与えて逐次実行する。
+- (4): (2)で`init`に`InVec::value_type`のデフォルト値を与えて、指定された実行ポリシーに応じて実行する。
 
 
 ## 適格要件
-- `decltype(init + `[`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
+- (1), (2): `decltype(init + `[`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
+
+## 効果
+- (3), (4): `T`を`decltype(abs-if-needed(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`とすると、
+  + (3): `vector_two_norm(v, T{})`を返す。
+  + (4): `vector_two_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
 
 
 ## 戻り値
-`n`を`v`の次元とすると、
+- (1), (2): `n`を`v`の次元とすると、以下の式の値を返す。
 
 $$
 \sqrt{\sum_{i = 0}^{n - 1} |\verb|v[|i\verb|]||^2 + \verb|init|^2}
 $$
 
-を返す。
+
+- (3), (4): `T`を`decltype(abs-if-needed(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`とすると、
+  + (3): `vector_two_norm(v, T{})`を返す。
+  + (4): `vector_two_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
 
 
 ## 備考
-- `init.scaled_sum_of_squares`は0以上でなければならない。
-- もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または`std::complex`の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
+- (1), (2): もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または`std::complex`の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
 
 
 ## 例
