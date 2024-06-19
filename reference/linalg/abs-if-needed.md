@@ -16,7 +16,8 @@
 
 3. そうでない場合、式`abs(E)`が下記宣言を含むコンテキストにおいてオーバーロード解決を行った結果が妥当であるとき、`abs(E)`
     ```cpp
-    template<class T> T conj(const T&) = delete; 
+    template<class T>
+    T abs(const T&) = delete; 
     ```
 
 
