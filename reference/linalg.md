@@ -70,7 +70,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`sum_of_squares_result`](linalg/sum_of_squares_result.md) | `vector_sum_of_squares`の結果型 (class template) | C++26 |
 | [`vector_sum_of_squares`](linalg/vector_sum_of_squares.md) | xLASSQ: ベクトル要素の平方和を求める (function template) | C++26 |
 | [`vector_two_norm`](linalg/vector_two_norm.md) | xNRM2: ベクトルのユークリッドノルム(Euclidean norm)を求める (function template) | C++26 |
-| `vector_abs_sum` | xASUM: ベクトル要素の絶対値和を求める (function template) | C++26 |
+| [`vector_abs_sum`](linalg/vector_abs_sum.md) | xASUM: ベクトル要素の絶対値和を求める (function template) | C++26 |
 | `vector_idx_abs_max` | xIAMAX: ベクトル要素のうち最大絶対値インデクスを返す (function template) | C++26 |
 | `matrix_frob_norm` | 行列のフロベニウスノルム(Frobenius norm)を求める (function template) | C++26 |
 | `matrix_one_norm` | 行列の1ノルム(One norm)を求める (function template) | C++26 |
