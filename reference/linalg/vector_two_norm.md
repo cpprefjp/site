@@ -63,9 +63,43 @@ $$
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp
+#include <array>
+#include <cmath>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+
+int main()
+{
+  constexpr size_t N = 4;
+
+  std::array<double, N> vec(N);
+
+  std::mdspan v(vec.data(), N);
+
+  for(int i = 0; i < v.extent(0); ++i) v(i) = std::pow(-1.0, i) / (i + 1);
+
+  std::cout << std::linalg::vector_two_norm(v, 1.0 / 5) << '\n'                      // (1)
+            << std::linalg::vector_two_norm(std::execution::par, v, 1.0 / 5) << '\n' // (2)
+            << std::linalg::vector_two_norm(v) << '\n'                                // (3)
+            << std::linalg::vector_two_norm(std::execution::par, v) << '\n';          // (4)
+
+  return 0;
+}
+```
 
 
 ### 出力
+```
+1.46361
+1.46361
+1.42361
+1.42361
+```
 
 
 ## バージョン
