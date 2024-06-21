@@ -85,7 +85,7 @@ int main()
 {
   constexpr size_t N = 4;
 
-  std::array<double, N> vec(N);
+  std::array<double, N> vec;
 
   std::mdspan v(vec.data(), N);
 

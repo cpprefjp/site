@@ -77,11 +77,13 @@ int main()
 {
   constexpr size_t N = 4;
 
-  std::array<double, N> vec(N);
+  std::array<double, N> vec;
 
   std::mdspan v(vec.data(), N);
 
-  for(int i = 0; i < v.extent(0); ++i) v(i) = std::pow(-1.0, i) / (i + 1);
+  for(int i = 0; i < v.extent(0); ++i) {
+    v(i) = std::pow(-1.0, i) / (i + 1);
+  }
 
   std::cout << std::linalg::vector_two_norm(v, 1.0 / 5) << '\n'                      // (1)
             << std::linalg::vector_two_norm(std::execution::par, v, 1.0 / 5) << '\n' // (2)
