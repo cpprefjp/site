@@ -64,9 +64,59 @@ $$
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp
+#include <array>
+#include <cmath>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+
+
+template<class Scalar>
+Scalar get_sum_of_squares(std::linalg::sum_of_squares_result<Scalar> result) {
+  return std::pow(result.scaling_factor, 2) * result.scaled_sum_of_squares;
+}
+
+
+int main()
+{
+  constexpr size_t N = 4;
+
+  std::array<double, N> vec;
+
+  std::mdspan v(vec.data(), N);
+
+  for(int i = 0; i < v.extent(0); ++i) {
+    v(i) = std::pow(-1.0, i) / (i + 1);
+  }
+
+  auto init = std::linalg::sum_of_squares_result<double>{.scaling_factor = 1.0 / 5,
+                                                         .scaled_sum_of_squares = 1.0};
+
+  std::cout << get_sum_of_squares(
+                std::linalg::vector_sum_of_squares(v, init))                              // (1)
+            << get_sum_of_squares(
+                std::linalg::vector_sum_of_squares(std::execution::par, v, init)) << '\n' // (2)
+            << get_sum_of_squares(
+                std::linalg::vector_sum_of_squares(v)) << '\n'                            // (3)
+            << get_sum_of_squares(
+                std::linalg::vector_sum_of_squares(std::execution::par, v)) << '\n';      // (4)
+
+  return 0;
+}
+```
 
 
 ### 出力
+```
+1.46361
+1.46361
+1.42361
+1.42361
+```
 
 
 ## バージョン
