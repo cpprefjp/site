@@ -19,12 +19,6 @@ namespace std::linalg {
 スケールされた、ベクトルの成分の2乗和の結果を表すクラス。詳しくは、[`vector_sum_of_squares`](vector_sum_of_squares.md)にて。
 
 
-## 例
-
-
-### 出力
-
-
 ## バージョン
 ### 言語
 - C++26
