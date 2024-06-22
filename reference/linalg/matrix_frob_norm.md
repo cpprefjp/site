@@ -42,8 +42,8 @@ namespace std::linalg {
 
 ## 効果
 - (3), (4): `T`を`decltype(abs-if-needed(declval<typename InMat::value_type>()) * abs-if-needed(declval<typename InMat::value_type>()))`とすると、
-  + (3): `matrix_frob_norm(v, T{})`を返す。
-  + (4): `matrix_frob_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
+  + (3): `matrix_frob_norm(A, T{})`を返す。
+  + (4): `matrix_frob_norm(std::forward<ExecutionPolicy>(exec), A, T{})`を返す。
 
 
 ## 戻り値
@@ -54,8 +54,8 @@ $$
 $$
 
 - (3), (4): `T`を`decltype(abs-if-needed(declval<typename InMat::value_type>()) * abs-if-needed(declval<typename InMat::value_type>()))`とすると、
-  + (3): `matrix_frob_norm(v, T{})`を返す。
-  + (4): `matrix_frob_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
+  + (3): `matrix_frob_norm(A, T{})`を返す。
+  + (4): `matrix_frob_norm(std::forward<ExecutionPolicy>(exec), A, T{})`を返す。
 
 
 ## 備考
@@ -88,10 +88,10 @@ int main()
     }
   }
 
-  std::cout << stdex::linalg::matrix_frob_norm(A, 1.0 / (M + N + 1)) << '\n'
-            << stdex::linalg::matrix_frob_norm(std::execution::par, A, 1.0 / (M + N + 1)) << '\n'
-            << stdex::linalg::matrix_frob_norm(A) << '\n'
-            << stdex::linalg::matrix_frob_norm(std::execution::par, A) << '\n';
+  std::cout << std::linalg::matrix_frob_norm(A, 1.0 / (M * N + 1)) << '\n'
+            << std::linalg::matrix_frob_norm(std::execution::par, A, 1.0 / (M * N + 1)) << '\n'
+            << std::linalg::matrix_frob_norm(A) << '\n'
+            << std::linalg::matrix_frob_norm(std::execution::par, A) << '\n';
 
   return 0;
 }

@@ -66,8 +66,8 @@ int main()
     v(i) = std::pow(-1.0, i) / (i + 1);
   }
 
-  std::cout << stdex::linalg::vector_idx_abs_max(v) << '\n'                       // (1)
-            << stdex::linalg::vector_idx_abs_max(std::execution::par, v) << '\n'; // (2)
+  std::cout << std::linalg::vector_idx_abs_max(v) << '\n'                       // (1)
+            << std::linalg::vector_idx_abs_max(std::execution::par, v) << '\n'; // (2)
 
   return 0;
 }
