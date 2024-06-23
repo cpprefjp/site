@@ -81,9 +81,9 @@ int main()
   constexpr size_t M = 4;
   constexpr size_t N = 4;
 
-  std::array<double, M * N> vec;
+  std::array<double, M * N> mat;
 
-  std::mdspan v(vec.data(), M, N);
+  std::mdspan A(mat.data(), M, N);
 
   for(int i = 0; i < A.extent(0); ++i) {
     for(int j = 0; j < A.extent(1); ++j) {
