@@ -78,9 +78,51 @@ $$
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp
+#include <cmath>
+#include <complex>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+#include <numbers>
+#include <vector>
+
+int main()
+{
+  constexpr size_t N = 4;
+
+  std::vector<std::complex<double>> a_vec(N);
+  std::mdspan a(a_vec.data(), N);
+
+  for(int i = 0; i < a.extent(0); ++i) {
+    auto sign = i % 2 == 0 ? 1.0 : -1.0;
+    a[i].real(sign / (2 * i + 1));
+    a[i].imag(-sign / (2 * (i + 1)));
+  }
+
+  std::vector<std::complex<double>> b_vec(a_vec);
+  std::mdspan b(b_vec.data(), N);
+
+  std::cout << std::linalg::dotc(a, b, std::complex<double>(-std::numbers::pi * std::numbers::pi / 6, 0)) << '\n'                      // (1)
+            << std::linalg::dotc(std::execution::par, a, b, std::complex<double>(-std::numbers::pi * std::numbers::pi / 6, 0)) << '\n' // (2)
+            << std::linalg::dotc(a, b) << '\n'                                // (3)
+            << std::linalg::dotc(std::execution::par, a, b) << '\n';          // (4)
+
+  return 0;
+}
+```
 
 
 ### 出力
+```
+(-0.117512,-4.62593e-19)
+(-0.117512,0)
+(1.52742,-4.62593e-19)
+(1.52742,0)
+```
 
 
 ## バージョン
