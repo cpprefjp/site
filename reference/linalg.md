@@ -74,7 +74,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`vector_idx_abs_max`](linalg/vector_idx_abs_max.md) | xIAMAX: ベクトル要素のうち最大絶対値インデクスを返す (function template) | C++26 |
 | [`matrix_frob_norm`](linalg/matrix_frob_norm.md) | 行列のフロベニウスノルム(Frobenius norm)を求める (function template) | C++26 |
 | [`matrix_one_norm`](linalg/matrix_one_norm.md) | 行列の1ノルム(One norm)を求める (function template) | C++26 |
-| `matrix_inf_norm` | 行列の無限大ノルム(Infinity norm)を求める (function template) | C++26 |
+| [`matrix_inf_norm`](linalg/matrix_inf_norm.md) | 行列の無限大ノルム(Infinity norm)を求める (function template) | C++26 |
 
 
 ## BLAS 2アルゴリズム
