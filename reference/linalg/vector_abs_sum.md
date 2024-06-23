@@ -89,7 +89,9 @@ int main()
 
   std::mdspan v(vec.data(), N);
 
-  for(int i = 0; i < v.extent(0); ++i) v(i) = std::pow(-1.0, i) / (i + 1);
+  for(int i = 0; i < v.extent(0); ++i) {
+    v[i] = std::pow(-1.0, i) / (i + 1);
+  }
 
   std::cout << std::linalg::vector_abs_sum(v, -5.0 / 6) << '\n'                      // (1)
             << std::linalg::vector_abs_sum(std::execution::par, v, -5.0 / 6) << '\n' // (2)

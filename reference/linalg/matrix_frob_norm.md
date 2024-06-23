@@ -84,7 +84,7 @@ int main()
 
   for(int i = 0; i < A.extent(0); ++i) {
     for(int j = 0; j < A.extent(1); ++j) {
-      A(i,j) = ((i + j) % 2 == 0 ? 1.0 : -1.0) / (i * A.extent(1) + j + 1);
+      A[i,j] = ((i + j) % 2 == 0 ? 1.0 : -1.0) / (i * A.extent(1) + j + 1);
     }
   }
 

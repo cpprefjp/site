@@ -82,7 +82,7 @@ int main()
   std::mdspan v(vec.data(), N);
 
   for(int i = 0; i < v.extent(0); ++i) {
-    v(i) = std::pow(-1.0, i) / (i + 1);
+    v[i] = std::pow(-1.0, i) / (i + 1);
   }
 
   std::cout << std::linalg::vector_two_norm(v, 1.0 / 5) << '\n'                      // (1)
