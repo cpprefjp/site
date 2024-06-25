@@ -88,7 +88,7 @@ $$
 
 ## バージョン
 ### 言語
-- C++11
+- C++26
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
