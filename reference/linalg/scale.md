@@ -66,6 +66,6 @@ $$
 
 
 ## 参照
-- [P0788R3 Standard Library Specification in a Concepts and Contracts World](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0788r3.pdf)
+- [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [`LAPACK: cscal`](https://netlib.org/lapack/explore-html/d2/de8/group__scal_gacce468103c83fa18bae078d5f49fefe2.html#gacce468103c83fa18bae078d5f49fefe2)
 

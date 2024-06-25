@@ -77,5 +77,5 @@ namespace std::linalg {
 
 
 ## 参照
-- [P0788R3 Standard Library Specification in a Concepts and Contracts World](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0788r3.pdf)
+- [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [`LAPACK: ccopy`](https://netlib.org/lapack/explore-html/d5/d2b/group__copy_gab395a30db1137d3deabe520b8e73097d.html#gab395a30db1137d3deabe520b8e73097d)

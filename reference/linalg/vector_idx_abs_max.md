@@ -46,7 +46,7 @@ namespace std::linalg {
 ## 例
 **[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
 
-```cpp
+```cpp example
 #include <array>
 #include <cmath>
 #include <execution>
@@ -98,7 +98,7 @@ int main()
 
 
 ## 参照
-- [P0788R3 Standard Library Specification in a Concepts and Contracts World](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0788r3.pdf)
+- [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: icamax](https://netlib.org/lapack/explore-html/dd/d52/group__iamax_gafdf273dcc3f020e2aa5c716c1b3d7265.html#gafdf273dcc3f020e2aa5c716c1b3d7265)
 
 

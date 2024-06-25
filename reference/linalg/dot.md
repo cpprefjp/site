@@ -103,5 +103,5 @@ $$
 
 
 ## 参照
-- [P0788R3 Standard Library Specification in a Concepts and Contracts World](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0788r3.pdf)
+- [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [`LAPACK: cdotu`](https://netlib.org/lapack/explore-html/d1/dcc/group__dot_ga2cce681b6aed3728b893a555b3bee55c.html#ga2cce681b6aed3728b893a555b3bee55c)

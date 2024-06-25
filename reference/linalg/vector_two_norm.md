@@ -65,7 +65,7 @@ $$
 ## 例
 **[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
 
-```cpp
+```cpp example
 #include <array>
 #include <cmath>
 #include <execution>
@@ -121,6 +121,6 @@ int main()
 
 
 ## 参照
-- [P0788R3 Standard Library Specification in a Concepts and Contracts World](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0788r3.pdf)
+- [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: dnrm2](https://netlib.org/lapack/explore-html/d1/d2a/group__nrm2_gab5393665c8f0e7d5de9bd1dd2ff0d9d0.html#gab5393665c8f0e7d5de9bd1dd2ff0d9d0)
 
