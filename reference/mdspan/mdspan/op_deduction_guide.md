@@ -19,7 +19,11 @@ namespace std {
   template<class ElementType, class... Integrals>
     requires ((is_convertible_v<Integrals, size_t> && ...) && sizeof...(Integrals) > 0)
     explicit mdspan(ElementType*, Integrals...)
-      -> mdspan<ElementType, extents<size_t, maybe-static-ext<Integrals>...>>;  // (3)
+      -> mdspan<ElementType, dextents<size_t, sizeof...(Integrals)>>;           // (3) C++23
+  template<class ElementType, class... Integrals>
+    requires ((is_convertible_v<Integrals, size_t> && ...) && sizeof...(Integrals) > 0)
+    explicit mdspan(ElementType*, Integrals...)
+      -> mdspan<ElementType, extents<size_t, maybe-static-ext<Integrals>...>>;  // (3) C++26
 
   template<class ElementType, class OtherIndexType, size_t N>
     mdspan(ElementType*, span<OtherIndexType, N>)
@@ -105,12 +109,13 @@ int main()
     assert(m2[] == *ptr);
     // m2 := 0次元配列ビュー
   }
-  { // (3) : 要素数リストから型推論
+  { // (3) : C++23 要素数リストから型推論
     std::mdspan m3a{arr, 2, 3};
     static_assert(m3a.rank_dynamic() == 2);
     assert(m3a.size() == 6);
     // m3a := 動的要素数 2x3 の2次元配列ビュー
-
+  }
+  { // (3) : C++26 整数定数要素数リストから型推論
     std::mdspan m3b{arr, Int<2>, Int<3>};
     static_assert(m3b.rank_dynamic() == 0);
     assert(m3b.size() == 6);
@@ -190,3 +195,4 @@ int main()
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P3029R1 Better `mdspan`'s CTAD](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3029r1.html)
+    - C++26から、(3)で静的要素数への推論がサポートされる。
