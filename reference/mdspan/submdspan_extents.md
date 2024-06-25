@@ -55,9 +55,9 @@ namespace std {
 - [`SubExtents::rank()`](extents/rank.md)は、型`S_k`が[`convertible_to`](/reference/concepts/convertible_to.md)`<IndexType>`のモデルではない`k`の個数に等しく、かつ
 - `map-rank[k] !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)を満たす`Extents`の次元インデクス`k`について、[`SubExtents::static_extent`](extents/static_extent.md)`(map-rank[k])`が下記と等しいこと
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](full_extent_t.md)`>`が`true`のとき、[`SubExtents::static_extent`](extents/static_extent.md)`(k)`、そうでなければ、
-    - 型`S_k`が[`index-pair-like`](index-pair-like.md)のモデルかつ`tuple_element_t<0, S_k>`および`tuple_element_t<1, S_k>`がいずれも[`integral-constant-like`](integral-constant-like.md)のモデルであるとき、[`de-ice`](de-ice.md)`(tuple_element_t<1, S_k>) -` [`de-ice`](de-ice.md)`(tuple_element_t<0, S_k>)`、そうでなければ
-    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`extent_type`が`S_k::extent_type() == 0`かつ[`integral-constant-like`](integral-constant-like.md)のモデルであるとき、値`0`、そうでなければ
-    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`extent_type`および`stride_type`がいずれも[`integral-constant-like`](integral-constant-like.md)のモデルであるとき、`1 + (`[`de-ice`](de-ice.md)`(S_k::extent_type()) - 1) /` [`de-ice`](de-ice.md)`(S_k::stride_type())`、そうでなければ
+    - 型`S_k`が[`index-pair-like`](index-pair-like.md)のモデルかつ`tuple_element_t<0, S_k>`および`tuple_element_t<1, S_k>`がいずれも[`integral-constant-like`](/reference/span/integral-constant-like.md)のモデルであるとき、[`de-ice`](de-ice.md)`(tuple_element_t<1, S_k>) -` [`de-ice`](de-ice.md)`(tuple_element_t<0, S_k>)`、そうでなければ
+    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`extent_type`が`S_k::extent_type() == 0`かつ[`integral-constant-like`](/reference/span/integral-constant-like.md)のモデルであるとき、値`0`、そうでなければ
+    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`extent_type`および`stride_type`がいずれも[`integral-constant-like`](/reference/span/integral-constant-like.md)のモデルであるとき、`1 + (`[`de-ice`](de-ice.md)`(S_k::extent_type()) - 1) /` [`de-ice`](de-ice.md)`(S_k::stride_type())`、そうでなければ
     - [`dynamic_extent`](/reference/span/dynamic_extent.md)
 
 以下を満たす`SubExtents`型の値`ext`を返す。

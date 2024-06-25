@@ -10,7 +10,7 @@ constexpr T de-ice(T val) { return val; }
 template<integral-constant-like T>
 constexpr auto de-ice(T) { return T::value; }
 ```
-* integral-constant-like[link integral-constant-like.md]
+* integral-constant-like[link /reference/span/integral-constant-like.md]
 
 ## 概要
 `de-ice`は[`submdspan`](submdspan.md)動作説明用の関数テンプレートである。

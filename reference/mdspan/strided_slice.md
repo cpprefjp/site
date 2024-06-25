@@ -36,7 +36,7 @@ std::strided_slice{.offset=1, .extent=10, .stride=3}
 
 
 ## 適格要件
-`OffsetType`, `ExtentType`, `StrideType`は符号付き整数型または符号無し整数型、もしくは[`integral-constant-like`](integral-constant-like.md)のモデルであること。
+`OffsetType`, `ExtentType`, `StrideType`は符号付き整数型または符号無し整数型、もしくは[`integral-constant-like`](/reference/span/integral-constant-like.md)のモデルであること。
 
 
 ## メンバ型

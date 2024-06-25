@@ -19,7 +19,7 @@ namespace std {
   template<class ElementType, class... Integrals>
     requires ((is_convertible_v<Integrals, size_t> && ...) && sizeof...(Integrals) > 0)
     explicit mdspan(ElementType*, Integrals...)
-      -> mdspan<ElementType, dextents<size_t, sizeof...(Integrals)>>;  // (3)
+      -> mdspan<ElementType, extents<size_t, maybe-static-ext<Integrals>...>>;  // (3)
 
   template<class ElementType, class OtherIndexType, size_t N>
     mdspan(ElementType*, span<OtherIndexType, N>)
@@ -52,6 +52,7 @@ namespace std {
 * extents[link ../extents.md]
 * dextents[link ../extents.md]
 * span[link /reference/span/span.md]
+* maybe-static-ext[link /reference/span/maybe-static-ext.md]
 * array[link /reference/array/array.md]
 * is_array_v[link /reference/type_traits/is_array.md]
 * is_pointer_v[link /reference/type_traits/is_pointer.md]
@@ -76,6 +77,10 @@ namespace std {
 #include <array>
 #include <span>
 #include <mdspan>
+#include <type_traits>
+
+template <int N>
+constexpr auto Int = std::integral_constant<int, N>{};
 
 int main()
 {
@@ -101,10 +106,15 @@ int main()
     // m2 := 0次元配列ビュー
   }
   { // (3) : 要素数リストから型推論
-    std::mdspan m3{arr, 2, 3};
-    static_assert(m3.rank_dynamic() == 2);
-    assert(m3.size() == 6);
-    // m3 := 動的要素数 2x3 の2次元配列ビュー
+    std::mdspan m3a{arr, 2, 3};
+    static_assert(m3a.rank_dynamic() == 2);
+    assert(m3a.size() == 6);
+    // m3a := 動的要素数 2x3 の2次元配列ビュー
+
+    std::mdspan m3b{arr, Int<2>, Int<3>};
+    static_assert(m3b.rank_dynamic() == 0);
+    assert(m3b.size() == 6);
+    // m3b := 静的要素数 2x3 の2次元配列ビュー
   }
   { // (4) : 要素数spanから型推論
     int exts[] = {2, 3};
@@ -179,3 +189,4 @@ int main()
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
+- [P3029R1 Better `mdspan`'s CTAD](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3029r1.html)

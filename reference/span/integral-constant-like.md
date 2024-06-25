@@ -1,5 +1,5 @@
 # integral-constant-like
-* mdspan[meta header]
+* span[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]
 
@@ -21,7 +21,7 @@ concept integral-constant-like =  // exposition only
 * equality_comparable_with[link /reference/concepts/equality_comparable.md]
 
 ## 概要
-`integral-constant-like`は、型`T`が整数定数と互換があることを表す説明専用コンセプトである。
+`integral-constant-like`は、型`T`が整数定数型[`std::integral_constant`](/reference/type_traits/integral_constant.md)と互換があることを表す説明専用コンセプトである。
 
 
 ## バージョン
@@ -31,3 +31,4 @@ concept integral-constant-like =  // exposition only
 
 ## 参照
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
+- [P3029R1 Better `mdspan`'s CTAD](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3029r1.html)
