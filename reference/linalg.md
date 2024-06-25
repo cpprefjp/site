@@ -81,7 +81,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `matrix_vector_product` | xGEMV: 一般行列とベクトルの積を求める (function template) | C++26 |
+| [`matrix_vector_product`](linalg/matrix_vector_product.md) | xGEMV: 一般行列とベクトルの積を求める (function template) | C++26 |
 | `symmetric_matrix_vector_product` | xSYMV: 対称行列とベクトルの積を求める (function template) | C++26 |
 | `hermitian_matrix_vector_product` | xHEMV: ハミルトニアン行列とベクトルの積を求める (function template) | C++26 |
 | `triangular_matrix_vector_product` | xTRMV: 三角行列とベクトルの積を求める (function template) | C++26 |
