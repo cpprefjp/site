@@ -15,7 +15,7 @@ namespace std::linalg {
            out-vector OutVec>
   void matrix_vector_product(InMat A,
                              InVec x,
-                             OutVec y);
+                             OutVec y); // (1)
 
   template<class ExecutionPolicy,
            in-matrix InMat,
@@ -24,7 +24,7 @@ namespace std::linalg {
   void matrix_vector_product(ExecutionPolicy&& exec,
                              InMat A,
                              InVec x,
-                             OutVec y);
+                             OutVec y); // (2)
 
   template<in-matrix InMat,
            in-vector InVec1,
@@ -33,7 +33,7 @@ namespace std::linalg {
   void matrix_vector_product(InMat A,
                              InVec1 x,
                              InVec2 y,
-                             OutVec z);
+                             OutVec z); // (3)
 
   template<class ExecutionPolicy,
            in-matrix InMat,
@@ -44,19 +44,18 @@ namespace std::linalg {
                              InMat A,
                              InVec1 x,
                              InVec2 y,
-                             OutVec z);
+                             OutVec z); // (4)
 }
 ```
 
 
 ## 概要
-(ここには、関数・変数・定数の概要を記述します。必須事項です。)
+行列とベクトルの積を計算する。
 
-(必要な項目を省略する場合には、「(執筆中)」と書いておいてください。)
-
-
-## テンプレートパラメータ制約
-(ここには、関数がオーバーロード解決に参加するための条件を記載します。SFINAE-friendlyな関数の条件、制約テンプレートによるオーバーロードの条件などを記載します。)
+- (1): $y \leftarrow Ax$
+- (2): (1)を指定された実行ポリシーで実行する。
+- (3): $z \leftarrow y + Ax$
+- (4): (3)を指定された実行ポリシーで実行する。
 
 
 ## 適格要件
@@ -87,6 +86,8 @@ $O(\verb|A.extent(1)|\times \verb|x.extent(0)|)$
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
 ```cpp example
 #include <array>
 #include <iostream>
@@ -180,7 +181,7 @@ z[3] = 602
 
 ## バージョン
 ### 言語
-- C++11
+- C++26
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
