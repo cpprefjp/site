@@ -70,7 +70,7 @@ int main()
   // 2 5 -  -
   // 3 6 8  -
   // 4 7 9 10
-  print_mat("mat1", mat);
+  print_mat("mat1", mat1);
 
   // 行優先格納順の下三角要素から4x4対称行列を構築
   std::mdspan<

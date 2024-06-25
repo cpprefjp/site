@@ -64,7 +64,7 @@ namespace std::linalg {
 
 
 ## 事前条件
-- (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A,x,y) == true`
+- (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A, x, y) == true`
 - (3), (4): [`addable`](addable.md)`(x, y, z) == true`
 
 
@@ -123,10 +123,10 @@ int main()
   }
 
   for(int j = 0; j < x.extent(0); ++j) {
-    x[j] = 1.0 * j;
+    x[j] = j;
   }
   for(int i = 0; i < y.extent(0); ++i) {
-    y[i] = -1.0 * i;
+    y[i] = -i;
   }
 
   // (1)
