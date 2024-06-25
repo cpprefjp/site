@@ -27,6 +27,7 @@ constexpr index_type operator() (Index0 ind0, Index1 ind1) const noexcept;
 
 ## 戻り値
 `N`を[`extetns_.extent`](/reference/mdspan/extents/extent.md)`(0)`としたとき
+
 - `i > j`ならば`(*this)(j, i)`、そうでなければ
 - 下記いずれの条件を満たすならば`i + j * (j + 1)/2`、そうでなければ
     - [`is_same_v`](/reference/type_traits/is_same.md)`<StorageOrder, column_major_t> &&` [`is_same_v`](/reference/type_traits/is_same.md)`<Triangle, upper_triangle_t>`が`true`または
