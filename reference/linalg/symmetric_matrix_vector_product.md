@@ -147,9 +147,6 @@ int main()
   for(int j = 0; j < x.extent(0); ++j) {
     x[j] = j;
   }
-  for(int i = 0; i < y.extent(0); ++i) {
-    y[i] = -i;
-  }
 
   // (1)
   std::cout << "(1)\n";
@@ -160,6 +157,10 @@ int main()
   std::cout << "(2)\n";
   std::linalg::symmetric_matrix_vector_product(std::execution::par, A, std::linalg::upper_triangle, x, y);
   print(y, "y");
+
+  for(int i = 0; i < y.extent(0); ++i) {
+    y[i] = -i;
+  }
 
   // (3)
   std::cout << "(3)\n";
@@ -189,15 +190,15 @@ y[1] = 38
 y[2] = 59
 y[3] = 74
 (3)
-z[0] = 28
-z[1] = 76
-z[2] = 118
-z[3] = 148
+z[0] = 14
+z[1] = 37
+z[2] = 57
+z[3] = 71
 (4)
-z[0] = 28
-z[1] = 76
-z[2] = 118
-z[3] = 148
+z[0] = 14
+z[1] = 37
+z[2] = 57
+z[3] = 71
 ```
 
 
