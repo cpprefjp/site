@@ -129,7 +129,7 @@ int main()
   std::array<double, N> y_vec, z_vec;
 
   std::mdspan<
-    double,
+    std::complex<double>,
     std::extents<size_t, N, M>,
     std::linalg::layout_blas_packed<
       std::linalg::upper_triangle_t,
