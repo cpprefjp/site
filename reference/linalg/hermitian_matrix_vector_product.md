@@ -70,15 +70,18 @@ namespace std::linalg {
 
 
 ## 適格要件
-- (1), (2), (3), (4): `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-- (1), (2), (3), (4): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-- (1), (2), (3), (4): [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(x), decltype(y)>()`が`true`
+- 共通:
+  + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
+  + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
+  + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(x), decltype(y)>()`が`true`
 - (3), (4): [`possibly-addable`](possibly-addable.md)`<decltype(x),decltype(y),decltype(z)>()`が`true`
 
 
 ## 事前条件
-- (1), (2), (3), (4): `A.extent(0) == A.extent(1)`
-- (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A, x, y) == true`
+- 共通:
+  + `A.extent(0) == A.extent(1)`
+  + [`multipliable`](multipliable.md)`(A, x, y) == true`
 - (3), (4): [`addable`](addable.md)`(x, y, z) == true`
 
 
@@ -218,6 +221,8 @@ z[3] = (11,-9)
 ## 関連項目
 - [`execution`](/reference/execution.md)
 - [`mdspan`](/reference/mdspan.md)
+- [`upper_triangle_t`](upper_triangle_t.md)
+- [`lower_triangle_t`](lower_triangle_t.md)
 
 
 ## 参照
