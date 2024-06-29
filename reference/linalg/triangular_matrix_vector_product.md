@@ -99,7 +99,7 @@ namespace std::linalg {
 - (3): $y \leftarrow Ay$
 - (4): (3)を指定された実行ポリシーで実行する。
 - (5): $z \leftarrow y + Ax$
-- (6): (3)を指定された実行ポリシーで実行する。
+- (6): (5)を指定された実行ポリシーで実行する。
 
 
 ## 適格要件
@@ -108,9 +108,9 @@ namespace std::linalg {
   + `DiagonalStorage`は[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
   + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
   + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(y)>(0, 0)`が`true` (つまり`y`に結果を代入できること)
-- (1), (2), (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり$Ax$を計算できること)
-- (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(z)>(0, 0)`が`true` (つまり`z`に結果を代入できること)
+  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(y)>(0, 0)`が`true` (つまり`A`の次元と`y`の次元が同じであること)
+- (1), (2), (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
+- (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(z)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
 
 
 ## 事前条件
