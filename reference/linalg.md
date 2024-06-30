@@ -86,7 +86,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`hermitian_matrix_vector_product`](linalg/hermitian_matrix_vector_product.md) | xHEMV: ハミルトニアン行列とベクトルの積を求める (function template) | C++26 |
 | [`triangular_matrix_vector_product`](linalg/triangular_matrix_vector_product.md) | xTRMV: 三角行列とベクトルの積を求める (function template) | C++26 |
 | [`triangular_matrix_vector_solve`](linalg/triangular_matrix_vector_solve.md) | xTRSV: 三角行列を係数とする行列方程式を解く (function template) | C++26 |
-| `matrix_rank_1_update` | xGER, xGERU: 行列のRank-1更新 (function template) | C++26 |
+| [`matrix_rank_1_update`](linalg/matrix_rank_1_update.md) | xGER, xGERU: 行列のRank-1更新 (function template) | C++26 |
 | `matrix_rank_1_update_c` | xGERC: 複素行列のRank-1更新 (function template) | C++26 |
 | `symmetric_matrix_rank_1_update` | xSYR: 対称行列のRank-1更新 (function template) | C++26 |
 | `hermitian_matrix_rank_1_update` | xHER: ハミルトニアン行列のRank-1更新 (function template) | C++26 |
