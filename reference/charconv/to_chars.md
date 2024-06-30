@@ -144,7 +144,12 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
     出力文字列が最も短くなるように変換される。  
     `chars_format::general`が指定された場合は(2)(3)(4)(5)と同等。
     
-- (10)(11)(12)(13) : `fmt`と`precision`によって指定されたフォーマット指定子と精度を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。
+- (10)(11)(12)(13) : `fmt`と`precision`によって指定されたフォーマット指定子と精度を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
+    精度は、`chars_format::fixed`では小数点以下の正確な桁数、`chars_format::scientific`と`chars_format::hex`では最小の桁数を表す。  
+    `chars_format::general`が指定された場合は次のようになる。
+    - 指数表記したときの指数を`X`、`precision`と1の大きいほうを`P`とする。
+    - `P > X ≥ −4` のとき、精度 `P - 1 - X` で固定小数形式を使用する。
+    - それ以外の場合は、精度 `P - 1` で指数形式を使用する。
 
 出力文字列が最も短くなるようにとは、小数点の前に少なくとも1桁あり、対応する[`from_chars`](../charconv/from_chars.md)関数によって値を正確に復元できるような最小の文字数、になることである。  
 そのような文字列表現が複数ある場合、`value`の値との差が最も小さくなる物が選ばれ、それも複数あるときは[`std::round_to_nearest`](/reference/limits/float_round_style.md)に従った丸めによって一つを選択する。
@@ -409,3 +414,4 @@ z
     - C++23での(1)constexpr指定
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型に対応した
+- [C言語リファレンス - fprintf](https://ja.cppreference.com/w/c/io/fprintf)
