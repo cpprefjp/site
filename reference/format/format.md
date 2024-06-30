@@ -69,7 +69,7 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 ### <a id="std-format-options" href="#std-format-options">標準のオプション書式</a>
 
 組み込みの型に対して使える標準のオプション書式は次の通り(`[]`は省略可の意味)。
-基本的に`printf`の書式を踏襲しているが、あくまでもオプションであり、省略しても`<iostream>`と同じようにデフォルトの書式が使われる。
+基本的に`printf`の書式を踏襲しているが、オプションをすべて省略しても(`{}`だけでも)デフォルトの書式が使われる。
 
 ```
 [[fill] align] [sign] ['#'] ['0'] [width] ['.' precision] ['L'] [type]
@@ -153,6 +153,8 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 大文字のオプションを指定すると数値中のアルファベットが大文字になる。
 
+精度のふるまいについては[`to_chars`](/reference/charconv/to_chars.md)を参照。
+
 #### ポインタの場合
 
 | type | 意味               | 効果                                                                                              | 対応バージョン |
@@ -190,8 +192,6 @@ std::format("{:*>6}", "あ"); // "****あ"
 std::format("{:あ>6}", 'x'); // "あああああx"
 ```
 
-##### 0埋めとの関係
-
 アライメント方向が指定されていると、0埋めは無効となる。
 
 ```cpp
@@ -210,6 +210,12 @@ std::format("{:0>05}", -42);  // "00-42"
 ```
 
 #### <a id="range-format-options" href="#range-format-options">Range・シーケンスコンテナの書式 (C++23)</a>
+
+Range・シーケンスコンテナのフォーマットでは、要素の間に区切り文字を挿入して、全体を囲み文字で囲んで出力する。各要素は再帰的にフォーマットされる。
+
+```cpp
+std::format("{}", std::vector<int>{1, 2, 3}); // "[1, 2, 3]"
+```
 
 Range・シーケンスコンテナに対して使用できる標準のオプション書式は次の通り(`[]`は省略可の意味)。
 
@@ -233,6 +239,7 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
 | m    | `std::map`出力向けの書式 | 全体の囲み文字を`[ ]`の代わりに`{ }`とする。要素型にも`m`書式を適用する | C++23 |
 | s    | 文字列として出力 | 要素型が文字型であること。エスケープ処理しない文字列として書式化する | C++23 |
 | ?s   | デバッグ文字列として出力 | 要素型が文字型であること。エスケープした文字列として書式化する | C++23 |
+| (なし) | デフォルト | 囲み文字を`[ ]`、区切り文字を`, `として書式化する | C++23 |
 
 - `m`書式は、要素が[`std::pair`](/reference/utility/pair.md)とサイズ2の[`std::tuple`](/reference/tuple/tuple.md)の場合のみ指定できる
 - `?s`書式を指定した場合、`n`オプションと、`range-underlying-spec`は指定できない
@@ -241,6 +248,7 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
     - 要素型の書式を指定して、デバッグ出力指定をしなければ、デフォルトで有効になっているデバッグ出力を解除できる
 - コンテナアダプタである[`std::queue`](/reference/queue/queue.md)、[`std::priority_queue`](/reference/queue/priority_queue.md)、[`std::stack`](/reference/stack/stack.md)も使用できる
 - [`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)はRangeでもあるが、特殊化の優先順位によって標準のフォーマッターが選択されるため、Rangeとしてフォーマットすることはできない
+- デフォルト書式に対応する`type`がないため、明示的に指定することはできない
 
 #### <a id="assoc-format-options" href="#assoc-format-options">連想コンテナの書式 (C++23)</a>
 
@@ -248,6 +256,11 @@ Range・シーケンスコンテナと同じだが、デフォルトで囲み文
 
 - メンバ型`key_type`を持つ場合、連想コンテナとみなされる
 - さらに、メンバ型`mapped_type`を持ち、要素が[`std::pair`](/reference/utility/pair.md)またはサイズ2の[`std::tuple`](/reference/tuple/tuple.md)の場合、`map`互換のコンテナとみなされる。このとき、要素にも`m`書式を用いる
+
+```cpp
+std::map<int, std::string> m {{1, "aaa"}, {2, "bbb"}};
+std::format("{}", m); // {1: "aaa", 2: "bbb"}
+```
 
 #### <a id="tuple-format-options" name="#tuple-format-options">pair、tupleの書式 (C++23)</a>
 
@@ -275,7 +288,7 @@ Range・シーケンスコンテナと同じだが、デフォルトで囲み文
 
 - 要素型ごとに個別に書式を指定することはできない
 - デバッグ出力可能な要素型の場合、デバッグ出力は常に有効
-
+- デフォルト書式に対応する`type`がないため、明示的に指定することはできない
 
 ### 書式例
 
@@ -359,10 +372,9 @@ return vformat(loc, fmt.str, make_wformat_args(args...)); // (4)
 
 * マルチバイト文字列、ワイド文字列の区別は、可変長引数部分で受け取れる文字列の型にも適用される。
     * 例えば、フォーマット文字列がマルチバイトの場合、引数にワイド文字列を渡すことは標準ではできない。
-    * ユーザー定義フォーマッターで拡張することは可能。
-* [`to_chars`](/reference/charconv/to_chars.md)はワイド文字列に対応していない。
-    * ワイド文字列版のときはマルチバイト文字列から変換すると考えられる。
-    * あるいは、`to_wchars`のようなものを作り、それを使うことも考えられる。
+    * ユーザー定義フォーマッターで拡張することは可能。ただし、ユーザー定義の名前に依存しない特殊化は`std`名前空間に追加できない。
+* `format`の結果は一部[`to_chars`](/reference/charconv/to_chars.md)によって定義されているが、[`to_chars`](/reference/charconv/to_chars.md)自体はワイド文字列に対応していない。
+    * もし何らかの手段でマルチバイト文字列に変換すれば、[`to_chars`](/reference/charconv/to_chars.md)に一致する、と解釈できる。
 
 ## 例
 ### 基本的な使い方 (C++20)
