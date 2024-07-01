@@ -18,7 +18,7 @@ namespace std {
 ```
 
 ## 概要
-イテレータを`N`回進める。
+イテレータを`n`回進める。
 
 `reverse_iterator`は逆方向に進める。
 

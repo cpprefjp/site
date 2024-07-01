@@ -10,7 +10,7 @@ constexpr reverse_iterator& operator+=(difference_type n); // C++17
 ```
 
 ## 概要
-イテレータ自身を`N`回進める。
+イテレータ自身を`n`回進める。
 
 `reverse_iterator`なので逆方向に進める。
 

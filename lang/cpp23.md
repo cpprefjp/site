@@ -217,7 +217,6 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 ### 型特性
 - [`<type_traits>`](/reference/type_traits.md)に、スコープ付き列挙型かを判定する型特性[`std::is_scoped_enum`](/reference/type_traits/is_scoped_enum.md)を追加
-- [`<type_traits>`](/reference/type_traits.md)に、第1テンプレート引数についている型修飾を外す型特性として、以下を追加：
 - [`<type_traits>`](/reference/type_traits.md)に、一時オブジェクトの参照への束縛を検出するための型特性として、以下を追加：
     - [`std::reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)
     - [`std::reference_converts_from_temporary`](/reference/type_traits/reference_converts_from_temporary.md)

@@ -133,7 +133,7 @@ int main()
 
     // マルチスレッド化の場合は、ミューテックスかアトミック操作でデータ競合を回避する
     std::mutex m;
-    std::for_each(std::execution::par, a.begin(), b.end(), [&](int x) {
+    std::for_each(std::execution::par, a.begin(), a.end(), [&](int x) {
       std::lock_guard lk{m};
       b.push_back(x);
     });
