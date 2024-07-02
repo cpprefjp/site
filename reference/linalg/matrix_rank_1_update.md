@@ -70,7 +70,7 @@ $O(\verb|x.extent(0)|\times \verb|y.extent(0)|)$
 #include <vector>
 
 template <class Matrix>
-void print_mat(const Matrix& v) {
+void print_mat(const Matrix& A) {
   for(int i = 0; i < A.extent(0); ++i) {
     for(int j = 0; j < A.extent(1) - 1; ++j) {
       std::cout << A[i, j] << ' ';
@@ -109,7 +109,7 @@ int main()
   std::mdspan x(x_vec.data(), N);
   std::mdspan y(y_vec.data(), N);
 
-  init_mat(A)
+  init_mat(A);
   init_vec(x);
   init_vec(y);
 
@@ -166,6 +166,7 @@ int main()
 ## 関連項目
 - [`execution`](/reference/execution.md)
 - [`mdspan`](/reference/mdspan.md)
+- [`matrix_rank_1_update_c`](matrix_rank_1_update_c.md)
 
 
 ## 参照
