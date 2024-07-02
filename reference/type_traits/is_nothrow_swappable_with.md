@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 効果
-型`T`と`U`の間で[`std::swappable_with`](/reference/concepts/swappable_with.md.nolink)要件を満たしており、2つのswap関数が共に例外を投げない場合は[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+型`T`と`U`の間で[`std::swappable_with`](/reference/concepts/swappable.md)要件を満たしており、2つのswap関数が共に例外を投げない場合は[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 型`T`と`U`は参照でなければswapできないので`T`と`U`が参照でない場合、結果は`false`となる。
 
