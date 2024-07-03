@@ -105,6 +105,7 @@ C++23とは、2023年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
+| [更新された定義済みマクロ](cpp23/predefined_macros.md) | 標準規格で定義されたマクロの更新 |
 | [参照するPOSIX規格を更新](cpp23/update_normative_reference_to_posix.md) | 新しいPOSIX規格の機能を標準C++が参照していたため、参照するPOSIX規格のバージョンを更新 |
 | [行末スペースを無視するよう規定](cpp23/trimming_whitespaces_before_line_splicing.md) | 行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定 |
 
