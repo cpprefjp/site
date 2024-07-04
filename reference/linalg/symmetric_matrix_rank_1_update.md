@@ -155,7 +155,7 @@ int main()
 
   // (1)
   std::cout << "(1)\n";
-  std::linalg::matrix_rank_1_update(
+  std::linalg::symmetric_matrix_rank_1_update(
     x,
     A,
     std::linalg::upper_triangle);
@@ -164,7 +164,7 @@ int main()
   // (2)
   init_mat(A);
   std::cout << "(2)\n";
-  std::linalg::matrix_rank_1_update(
+  std::linalg::symmetric_matrix_rank_1_update(
     std::execution::par,
     x,
     A,
@@ -174,7 +174,7 @@ int main()
   // (3)
   init_mat(A);
   std::cout << "(3)\n";
-  std::linalg::matrix_rank_1_update(
+  std::linalg::symmetric_matrix_rank_1_update(
     -1.0,
     x,
     A,
@@ -184,7 +184,7 @@ int main()
   // (4)
   init_mat(A);
   std::cout << "(4)\n";
-  std::linalg::matrix_rank_1_update(
+  std::linalg::symmetric_matrix_rank_1_update(
     std::execution::par,
     -1.0,
     x,
