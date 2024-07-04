@@ -89,7 +89,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`matrix_rank_1_update`](linalg/matrix_rank_1_update.md) | xGER, xGERU: 行列のRank-1更新 (function template) | C++26 |
 | [`matrix_rank_1_update_c`](linalg/matrix_rank_1_update_c.md) | xGERC: 複素行列のRank-1更新 (function template) | C++26 |
 | [`symmetric_matrix_rank_1_update`](linalg/symmetric_matrix_rank_1_update.md) | xSYR: 対称行列のRank-1更新 (function template) | C++26 |
-| `hermitian_matrix_rank_1_update` | xHER: ハミルトニアン行列のRank-1更新 (function template) | C++26 |
+| [`hermitian_matrix_rank_1_update`](linalg/hermitian_matrix_rank_1_update.md) | xHER: ハミルトニアン行列のRank-1更新 (function template) | C++26 |
 | `symmetric_matrix_rank_2_update` | xSYR2: 対称行列のRank-2更新 (function template) | C++26 |
 | `hermitian_matrix_rank_2_update` | xHER2: ハミルトニアン行列のRank-2更新 (function template) | C++26 |
 
