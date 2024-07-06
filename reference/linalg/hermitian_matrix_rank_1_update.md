@@ -138,7 +138,6 @@ int main()
 
   std::vector<std::complex<double>> A_vec(N * N);
   std::vector<std::complex<double>> x_vec(N);
-  std::array<std::complex<double>, N> y_vec;
 
   std::mdspan<
     std::complex<double>,
@@ -148,15 +147,13 @@ int main()
       std::linalg::row_major_t>
   > A(A_vec.data());
   std::mdspan x(x_vec.data(), N);
-  std::mdspan y(y_vec.data(), N);
 
   init_mat(A);
   init_vec(x);
-  init_vec(y);
 
   // (1)
   std::cout << "(1)\n";
-  std::linalg::matrix_rank_1_update(
+  std::linalg::hermitian_matrix_rank_1_update(
     x,
     A,
     std::linalg::upper_triangle);
