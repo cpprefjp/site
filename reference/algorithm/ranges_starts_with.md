@@ -21,7 +21,7 @@ namespace std::ranges {
                 S2 last2,
                 Pred pred = {},
                 Proj1 proj1 = {},
-                Proj2 proj2 = {}); // (1) C++20
+                Proj2 proj2 = {}); // (1) C++23
 
   template <input_range R1,
             input_range R2,
@@ -34,7 +34,7 @@ namespace std::ranges {
                 R2&& r2,
                 Pred pred = {},
                 Proj1 proj1 = {},
-                Proj2 proj2 = {}); // (2) C++20
+                Proj2 proj2 = {}); // (2) C++23
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]

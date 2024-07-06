@@ -44,7 +44,7 @@ namespace std {
 
 
 ## 戻り値
-`Tuples...`の全ての`tuple`型の要素型全てを取り出し、`std::`[`forward`](/reference/utility/forward.md)`<T>(x)`して構築される1つの[`tuple`](tuple.md)`オブジェクト。
+`Tuples...`の全ての`tuple`型の要素型全てを取り出し、`std::`[`forward`](/reference/utility/forward.md)`<T>(x)`して構築される1つの[`tuple`](tuple.md)オブジェクト。
 
 
 ## 備考

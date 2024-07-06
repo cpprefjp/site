@@ -42,15 +42,21 @@ struct C {
 
 int main()
 {
-  std::optional<A> a;
-  std::optional<B> b;
-  std::optional<C> c;
+  {
+    std::optional<A> a = std::make_optional<A>();
+    std::optional<B> b = std::make_optional<B>();
+    std::optional<C> c = std::make_optional<C>();
 
-  std::optional<int> opt_int;
-} // Aのデストラクタが呼ばれる
-  // Bのデストラクタは呼ばれない
-  // Cのデストラクタは呼ばれる
-  // opt_intのデストラクタは呼ばれない
+    std::optional<int> opt_int = 1;
+  } // Aのデストラクタが呼ばれる
+    // Bのデストラクタは呼ばれない
+    // Cのデストラクタは呼ばれる
+    // opt_intのデストラクタは呼ばれない
+
+  {
+    std::optional<A> a_null;
+  } // Aのデストラクタは呼ばれない
+}
 ```
 
 ### 出力

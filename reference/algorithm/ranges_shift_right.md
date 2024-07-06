@@ -11,13 +11,13 @@ namespace std::ranges {
   constexpr subrange<I>
     shift_right(I first,
                 S last,
-                iter_difference_t<I> n); // (1) C++20
+                iter_difference_t<I> n); // (1) C++23
 
   template <forward_range R>
     requires permutable<iterator_t<R>>
   constexpr borrowed_subrange_t<R>
     shift_right(R&& r,
-                range_difference_t<R> n); // (2) C++20
+                range_difference_t<R> n); // (2) C++23
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
