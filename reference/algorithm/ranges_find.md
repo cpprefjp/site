@@ -59,7 +59,7 @@ namespace std::ranges {
 
 int main() {
   constexpr std::array v = { 3, 1, 4 };
-  constexpr auto result = std::ranges::find(v, 1);
+  const auto result = std::ranges::find(v, 1);
   if (result == v.end()) {
     std::cout << "not found" << std::endl;
   } else {
