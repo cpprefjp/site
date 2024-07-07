@@ -29,7 +29,6 @@ namespace std::ranges {
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
-* borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * iterator_t[link /reference/ranges/iterator_t.md]
 * identity[link /reference/functional/identity.md]
 * indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
