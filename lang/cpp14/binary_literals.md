@@ -1,13 +1,13 @@
 # 2進数リテラル [N3472]
 * cpp14[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++14に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 整数リテラルのプレフィックスとして`0b`もしくは`0B`を付けることで、2進数を表す値を記述できる。

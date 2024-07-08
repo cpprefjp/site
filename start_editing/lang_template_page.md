@@ -32,24 +32,24 @@
 
 (確定した言語バージョンに対する注意事項は以下)
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++XXに採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 
 (確定前の言語バージョンに対する注意事項は以下)
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++26に採用される見込みの言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 (ここには、言語機能の概要を記載します。)

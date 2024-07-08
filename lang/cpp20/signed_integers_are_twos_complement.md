@@ -1,13 +1,13 @@
 # 符号付き整数型が2の補数表現であることを規定 [P1236R1]
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++20では、符号付き整数型のビット表現を「2の補数 (Two's Complement)」に規定する。

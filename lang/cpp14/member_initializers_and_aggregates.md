@@ -1,13 +1,13 @@
 # 宣言時のメンバ初期化を持つ型の集成体初期化を許可
 * cpp14[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++14に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++11で導入された[メンバ初期化子](/lang/cpp11/non_static_data_member_initializers.md)は集成体の初期化と組み合わせて使用することができない問題があった。

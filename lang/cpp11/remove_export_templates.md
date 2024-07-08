@@ -1,13 +1,13 @@
 # テンプレートのエクスポート機能を削除
 * cpp11[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++11に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++11では、テンプレート定義をエクスポートする機能を削除する。

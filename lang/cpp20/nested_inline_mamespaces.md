@@ -1,13 +1,13 @@
 # 入れ子名前空間定義でのインライン名前空間 [P1094R2]
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++17で、入れ子の名前空間を`namespace ns1::ns2::ns3 {}`のように簡易的に定義できるようになったが、インライン名前空間の指定はできなかった。

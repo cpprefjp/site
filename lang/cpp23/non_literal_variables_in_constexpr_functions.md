@@ -1,13 +1,13 @@
 # 定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する [P2242R3]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 

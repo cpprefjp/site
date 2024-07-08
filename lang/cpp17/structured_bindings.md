@@ -1,13 +1,13 @@
 # 構造化束縛 [P0217R3]
 * cpp17[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++17に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 「構造化束縛 (structured bindings)」は、組やタプル、配列や構造体を分解して各要素を取り出す機能である。

@@ -1,13 +1,13 @@
 # 非推奨だった古い例外仕様を削除 [P0003R5]
 * cpp17[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++17に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++11で[`noexcept`](/lang/cpp11/noexcept.md)機能が入ったことにより、従来の`throw`キーワードを使用した「例外仕様 (Exception Specification)」は「動的例外仕様 (Dynamic Exception Specification)」という名前に変更され、非推奨となっていた。

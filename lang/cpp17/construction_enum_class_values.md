@@ -1,13 +1,13 @@
 # enum class変数の初期値として整数を指定する際の規則を調整 [P0138R2]
 * cpp17[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++17に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++11にてスコープを持つ列挙型が導入された。これは基底型を明示することができ、従来の列挙型と異なり整数型への暗黙の型変換を行わない。

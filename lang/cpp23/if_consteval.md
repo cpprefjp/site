@@ -1,13 +1,13 @@
 # if consteval [P1938R3]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++23では、`constexpr`関数がコンパイル時に呼ばれたかを判定するための構文として、`if consteval`を導入する。これは「consteval if文」と呼ばれる。

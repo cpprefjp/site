@@ -17,8 +17,8 @@ FUTURE_LANG_CAUTION = '''このページはC++{}に採用される見込みの�
 
 FUTURE_LANG_VERSION = 26
 
-START_CAUTION = "<-- start lang caution -->"
-LAST_CAUTION = "<-- last lang caution -->"
+START_CAUTION = "<!-- start lang caution -->"
+LAST_CAUTION = "<!-- last lang caution -->"
 
 def update_lang_caution(text: str, filename: str) -> str:
     version = 0

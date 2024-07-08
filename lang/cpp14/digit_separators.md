@@ -1,13 +1,13 @@
 # 数値リテラルの桁区切り文字 [N3781]
 * cpp14[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++14に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 整数リテラルと浮動小数点数リテラルには、途中にシングルクォーテーション(`'`)を入力することで、値を読みやすくできる。
@@ -143,4 +143,3 @@ C++14という言語バージョンは、C++11の仕様に対するバグ修正�
 - Ruby : [アンダーバーによる数値の区切り](http://www.rubylife.jp/ini/num/index2.html)
 - Java 7 : [Underscores in Numeric Literals](http://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html)
 - Ada : [Ada '83 Language Reference Manual](http://archive.adaic.com/standards/83lrm/html/lrm-02-04.html#2.4)
-

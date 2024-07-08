@@ -1,13 +1,13 @@
 # [[nodiscard]]をコンストラクタのオーバーロードごとに付加できるようにする
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 戻り値が使用されない場合に警告を出力させる[`[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)を、コンストラクタのオーバーロードに付加できるようにする。

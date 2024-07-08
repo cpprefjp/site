@@ -1,13 +1,13 @@
 # 関数のdefault／delete宣言 [N2346]
 * cpp11[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++11に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 クラスを定義した際、以下のメンバ関数が暗黙的に定義される：

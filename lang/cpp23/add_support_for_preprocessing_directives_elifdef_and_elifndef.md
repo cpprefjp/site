@@ -1,13 +1,13 @@
 # elif/elifdef/elifndefのサポートを追加 [P2334R1]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++23では、以下のプリプロセス時条件式が追加される：

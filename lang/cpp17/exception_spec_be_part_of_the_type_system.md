@@ -1,13 +1,13 @@
 # 例外仕様を型システムの一部にする [P0012R1]
 * cpp17[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++17に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 [`noexcept`](/lang/cpp11/noexcept.md)による例外仕様が、関数の型の一部として扱われるようになる。

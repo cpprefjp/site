@@ -1,13 +1,13 @@
 # 初期化文での型の別名宣言を許可 [P2360R0]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 `if`文、`switch`文、範囲`for`文で初期化文を指定できるが、C++20までその初期化文では`typedef`による型の別名定義はできたが、`using`による型の別名定義はできなかった。

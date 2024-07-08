@@ -1,13 +1,13 @@
 # decltype(auto)
 * cpp14[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++14に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 `decltype(auto)`は、`decltype`に与える式を右辺の式で置き換えて型推論する機能である。

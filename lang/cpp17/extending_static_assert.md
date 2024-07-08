@@ -1,13 +1,13 @@
 # static_assert のメッセージ省略を許可 [N3928]
 * cpp17[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++17に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 `static_assert` は [C++11](/lang/cpp11/static_assert.md) で導入されたが、第2引数に診断メッセージを指定しなければならなかった。
