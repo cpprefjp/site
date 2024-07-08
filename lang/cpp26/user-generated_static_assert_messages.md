@@ -1,6 +1,14 @@
 # static_assertの診断メッセージにユーザーが生成した文字列の指定を許可 [P2741R3]
 * cpp26[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++26に採用される見込みの言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++26では、[`static_assert`](/lang/cpp11/static_assert.md)に指定する表明失敗時の診断メッセージとして、文字列リテラルだけでなくユーザー定義型の文字列オブジェクトも指定できるようになる。
 
@@ -43,7 +51,7 @@ static_assert(定数式, 診断メッセージ);
     - `"message"`はOK
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
 
 

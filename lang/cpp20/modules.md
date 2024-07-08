@@ -1,6 +1,14 @@
 # モジュール [P1103R3]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++20では、ヘッダーファイル・ソースファイルに代わる新たなファイル分割の仕組みとしてモジュールが導入された。
 
@@ -480,7 +488,7 @@ int main() {
 モジュールは、以上のような問題のないプログラム分割の仕組みとして導入された。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++23 無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md)
 
 

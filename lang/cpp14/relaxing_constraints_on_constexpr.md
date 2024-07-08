@@ -1,6 +1,14 @@
 # constexprの制限緩和 [N3652]
 * cpp14[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++11で、汎用定数式の機能である[`constexpr`](/lang/cpp11/constexpr.md)が導入された。
 
@@ -197,7 +205,7 @@ C++は直交性を重視して設計されており、直接関係ない機能�
 C++14では、`constexpr`関数、`constexpr`メンバ関数、暗黙の`const`といった制限を緩和する。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 
 
@@ -205,4 +213,3 @@ C++14では、`constexpr`関数、`constexpr`メンバ関数、暗黙の`const`�
 - [N3597 Relaxing constraints on `constexpr` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3597.html)
 - [N3598 `constexpr` member functions and implicit `const`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3598.html)
 - [N3652 Relaxing constraints on `constexpr` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3652.html)
-

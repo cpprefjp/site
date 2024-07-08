@@ -1,6 +1,14 @@
 # 宣言時のメンバ初期化を持つ型の集成体初期化を許可
 * cpp14[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++11で導入された[メンバ初期化子](/lang/cpp11/non_static_data_member_initializers.md)は集成体の初期化と組み合わせて使用することができない問題があった。
 
@@ -27,9 +35,8 @@ int main()
 - 集成体の定義として「非静的メンバ変数の初期化をもたない」ことが条件になっていたが、それを削除
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 非静的メンバ変数の初期化](/lang/cpp11/non_static_data_member_initializers.md)
 
 ## 参照
 - [N3653 - Member initializers and aggregates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3653.html)
-

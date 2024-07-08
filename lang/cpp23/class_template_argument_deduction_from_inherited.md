@@ -1,6 +1,14 @@
 # 継承コンストラクタからのクラステンプレート引数の推論 [P2582R1]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++23では、派生クラスで定義した継承コンストラクタからでも、クラステンプレート引数を推論できるようになる。
 
@@ -53,7 +61,7 @@ G g(true, 'a', 1); // OK。G<char, bool>に推論される
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 継承コンストラクタ](/lang/cpp11/inheriting_constructors.md)
 - [C++17 クラステンプレートのテンプレート引数推論](/lang/cpp17/type_deduction_for_class_templates.md)
 

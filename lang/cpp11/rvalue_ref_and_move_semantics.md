@@ -1,6 +1,14 @@
 # 右辺値参照・ムーブセマンティクス [N2118]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 ムーブセマンティクスはコピーコストの削減を主な目的としており、また所有権の移動を実現する。  
 右辺値参照はムーブ元のオブジェクト（右辺値）を束縛するための言語機能である。
@@ -374,7 +382,7 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`move`](/reference/utility/move.md)
 - [`forward`](/reference/utility/forward.md)
 - [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)

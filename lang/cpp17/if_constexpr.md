@@ -1,6 +1,14 @@
 # constexpr if 文 [P0292R2]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 constexpr if文とは、文を条件付きコンパイルすることを目的とした制御構文である。
@@ -433,7 +441,7 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 旧来のテンプレート特殊化・SFINAE・タグディスパッチ・EBO・再帰的な派生などの技法を用いた複雑な代替手段もあるが、
 それらを一つ一つここで紹介することは避ける。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`std::conditional`](/reference/type_traits/conditional.md)
 - [C++23 定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md)

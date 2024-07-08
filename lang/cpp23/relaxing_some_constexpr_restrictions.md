@@ -1,6 +1,14 @@
 # constexpr関数が定数実行できない場合でも適格とする [P2448R2]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 いかなる呼び出しにおいても定数式実行できない`constexpr`関数が存在しても、プログラムが不適格にならないようにする。
@@ -105,7 +113,7 @@ void f(std::optional<T>& opt)
 また、陽に`default`指定された関数は、それが`constexpr-suitable`である限り、暗黙に`constexpr`指定される。
 `constexpr-suitable`とは、コルーチン関数ではなく、仮想基底クラスを持つクラスのコンストラクタまたはデストラクタでもない関数を指す。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++20 - constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
 - [C++20 - constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)

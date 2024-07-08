@@ -2,6 +2,14 @@
 
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 C++20では、関数またはメンバ関数に対して、`consteval`キーワードで常に定数式評価されるよう指定できる。そのような関数を**即時関数**(immediate function)という。
@@ -97,7 +105,7 @@ C++11で導入された`constexpr`指定子によって、関数を定数式評�
 
 当初は `constexpr!`というキーワードが提案されていたが、最終的に`consteval`になった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 * [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 * [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](constinit.md)

@@ -1,6 +1,14 @@
 # ジェネリックラムダのテンプレート構文 [P0428R2]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++14では、ラムダ式のパラメータ型に`auto`キーワードを使用することで、任意の型のパラメータを受け取れるようになった：
 
@@ -124,7 +132,7 @@ auto f = []<typename... Args>(Args&&... args) {
 * std::forward[link /reference/utility/forward.md]
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++14 ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)
 

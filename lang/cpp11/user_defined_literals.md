@@ -1,6 +1,14 @@
 # ユーザー定義リテラル [N2765]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 ユーザー定義リテラル(User-defined literals)は、`123`、`3.14`、`"hello"`といったリテラルに対して付けられるサフィックスをオーバーロードできるようにすることで、ユーザーがリテラルに意味を持たせられるようにする機能である。
 
@@ -356,7 +364,7 @@ DecimalFloat f = 12.34df;
 リテラル名がサフィックスであることを明示的にするために、今日の`DecimalFloat operator"" df(long double)`という形式になった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++14 リテラル演算子のスペースを省略可能とする](/lang/cpp14/no_whitespace_literal_operators.md)
 - [`std::basic_string`の文字列リテラル`s`](/reference/string/basic_string/op_s.md)
 - [`std::complex<float>`の浮動小数点数リテラル`if`](/reference/complex/complex/op_if.md)
@@ -379,4 +387,3 @@ DecimalFloat f = 12.34df;
 - [N2765 User-defined Literals (aka. Extensible Literals (revision 5))](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2765.pdf)
 - [CWG Issue 935. Missing overloads for character types for user-defined literals](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#935)
 - [CWG Issue 1479. Literal operators and default arguments](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1479)
-

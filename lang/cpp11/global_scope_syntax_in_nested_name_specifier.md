@@ -1,6 +1,14 @@
 # 入れ子名の指定にグローバルスコープ :: を付加することを許可
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 入れ子名を指定する構文において、先頭にグローバルスコープの指定`::`を付加することが許可された。
 
@@ -37,4 +45,3 @@ nested-name-specifier:
 
 ## 参照
 - [CWG Issue 355. Global-scope `::` in nested-name-specifier](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#355)
-

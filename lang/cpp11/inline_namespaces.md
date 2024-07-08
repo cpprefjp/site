@@ -1,6 +1,14 @@
 # インライン名前空間 [N2535]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 インライン名前空間 (inline namespace)は、名前空間内の機能に透過的にアクセスするための機能である。`inline namespace`によって定義した名前空間の機能には、その名前空間を指定しなくてもアクセスできる。
 
@@ -217,7 +225,7 @@ v2
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - 時間間隔オブジェクトのリテラル
     - [`operator"" ns`](/reference/chrono/duration/op_ns.md)
     - [`operator"" us`](/reference/chrono/duration/op_us.md)
@@ -243,4 +251,3 @@ v2
 - [CWG Issue 812. Duplicate names in inline namespaces](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#812)
 - [CWG Issue 861. Unintended ambiguity in inline namespace lookup](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#861)
 - [Inline namespaces and ambigous declarations - Stackoverflow](http://stackoverflow.com/questions/27252466/inline-namespaces-and-ambigous-declarations/)
-

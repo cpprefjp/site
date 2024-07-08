@@ -1,6 +1,14 @@
 # UTF-8文字列リテラル [N2442]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `char`の文字列リテラルに`u8`プレフィックスを付けることで、その文字列リテラルはUCS/Unicode文字コードのUTF-8符号化形式にエンコードされる。
 
@@ -62,7 +70,7 @@ int main()
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `char16_t`と`char32_t`](char16_32.md)
 - [C++17 UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md)
 - [C++20 UTF-8エンコーディングされた文字の型として`char8_t`を追加](/lang/cpp20/char8_t.md)
@@ -76,4 +84,3 @@ int main()
 - [N2295 Raw and Unicode String Literals; Unified Proposal](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2295.html)
 - [N2384 Raw and Unicode String Literals; Unified Proposal (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2384.html)
 - [N2442 Raw and Unicode String Literals; Unified Proposal (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2442.htm)
-

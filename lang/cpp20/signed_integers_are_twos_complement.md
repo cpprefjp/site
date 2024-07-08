@@ -1,6 +1,14 @@
 # 符号付き整数型が2の補数表現であることを規定 [P1236R1]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++20では、符号付き整数型のビット表現を「2の補数 (Two's Complement)」に規定する。
 
@@ -130,7 +138,7 @@ Visual Studio、GCC、Clangといった主要な処理系が、2の補数以外�
 C11規格は、2の補数のほかに、1の補数表現 (Ones' complement) と符号ビット付き絶対値表現 (Signed magnitude) を許可しているが、C++では本文書の概要にも記載したように、ハッシュ値の一意性と全順序をサポートするため、2の補数に規定する。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`std::has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md)
 
 

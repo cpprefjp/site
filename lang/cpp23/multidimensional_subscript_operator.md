@@ -1,6 +1,14 @@
 # 添字演算子の多次元サポート [P2128R6]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++23では、多次元配列クラスを定義するために必要となる、添字演算子のオーバーロードを定義する際の複数引数を許可する。
 
@@ -41,7 +49,7 @@ int main() {
 3
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 添字演算子内でのカンマ演算子の使用を非推奨化](/lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md)
 - [`std::mdspan`](/reference/mdspan/mdspan.md)
 

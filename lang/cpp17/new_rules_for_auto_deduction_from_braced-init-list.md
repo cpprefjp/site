@@ -1,6 +1,14 @@
 # 波括弧初期化の型推論の新規則 [N3922]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 これまでは `auto var{arg};` (単一要素), `auto var{arg1, arg2,...};` (複数要素) で `var` はいずれも
@@ -83,7 +91,7 @@ i
 が提案されたが採用されなかった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 * [C++11 初期化リスト](/lang/cpp11/initializer_lists.md)
 

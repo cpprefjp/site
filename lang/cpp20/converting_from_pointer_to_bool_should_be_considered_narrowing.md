@@ -1,6 +1,14 @@
 # ポインタから`bool`への変換を縮小変換とする [P1957R2]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 ポインタ型（メンバポインタも含む）から`bool`型への変換が、縮小変換として規定されるようになる。
@@ -55,7 +63,7 @@ std::variant<bool, int> v = b[1]; // boolを保持して構築
 
 `{}`初期化では縮小変換が禁止されているためこれは破壊的変更となるが、そのような変換は多くの場合バグの可能性が高いこと、MSVCは非リテラルのポインタから`bool`への変換を縮小変換として扱っていたことなどから、影響は少なくメリットの方が大きいと判断されたようだ。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`std::variant::`コンストラクタ](/reference/variant/variant/op_constructor.md)
 - [`std::variant::operator=`](/reference/variant/variant/op_assign.md)

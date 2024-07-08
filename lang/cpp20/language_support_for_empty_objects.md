@@ -2,6 +2,14 @@
 
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 C++20では、空オブジェクトに対する最適化を支援する属性`[[no_unique_address]]`が追加された。
@@ -119,7 +127,7 @@ int main()
 `[[no_unique_address]]`を使うことで、基底クラスのサブオブジェクトだけでなくメンバ変数のサイズも0にできるので、EBOのために設計を変える必要がなくなる。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 - [`is_empty`](/reference/type_traits/is_empty.md)
 

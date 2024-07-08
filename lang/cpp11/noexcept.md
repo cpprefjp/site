@@ -1,6 +1,14 @@
 # noexcept [N3050]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++11で導入された`noexcept`キーワードには、以下の2つの意味がある：
 
@@ -165,7 +173,7 @@ int main()
 そういった例外を送出しない判定や指定は、従来の`throw`キーワードによる例外仕様の範囲を超えていた。そのために、`noexcept`という機能が新設され、その機能で必要十分となったために従来の例外仕様は非推奨となった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [標準ライブラリにおける、関数に`noexcept`を付けない条件](/article/lib/dont_use_noexcept.md)
 - [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
 - [`is_nothrow_constructible`](/reference/type_traits/is_nothrow_constructible.md)
@@ -189,4 +197,3 @@ int main()
 - [N3205 Delete operators default to `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3205.htm)
 - [N3103 Security impact of `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3103.pdf)
 - [ムーブによるpop - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20130604/1370327651)
-

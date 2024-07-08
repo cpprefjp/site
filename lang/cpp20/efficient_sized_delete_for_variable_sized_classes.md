@@ -1,6 +1,14 @@
 # 可変長データを扱うクラスの効率的なdelete [P0722R3]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 従来のクラススコープでの`operator delete`オーバーロードにおいて、オーバーロードされた`operator delete`が呼び出されるのはそのクラスのオブジェクトが破棄された後であり、そのオーバーロード内からはそのクラスのオブジェクト（及びメンバ）にアクセスすることはできなかった。
@@ -420,7 +428,7 @@ struct S {
 
 結局、`std::destroying_delete_t`を第二引数に取る形が一番シンプルかつ可読性が高いとして採用された。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
 - [`std::destroying_delete_t`](/reference/new/destroying_delete_t.md)

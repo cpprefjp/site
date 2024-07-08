@@ -1,6 +1,14 @@
 # サイズ付きデアロケーション [N3778]
 * cpp14[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++03ではクラス用の`delete`演算子として、サイズをとるバージョンをオーバーロードできた。C++14では、それに対応するグローバルの`delete`演算子を定義できるようにする。
 
@@ -93,7 +101,7 @@ delete with two arguments, 13
 - Clangは3.7以降、サイズをとる`delete`演算子を使用する場合、`-fsized-deallocation`オプションを付ける必要がある。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`allocator::deallocate`](/reference/memory/allocator/deallocate.md)
 - [`operator delete`](/reference/new/op_delete.md)
 - [`operator delete[]`](/reference/new/op_delete[].md)

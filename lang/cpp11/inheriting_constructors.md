@@ -1,6 +1,14 @@
 # 継承コンストラクタ [N2540]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 「継承コンストラクタ (inheriting constructors)」は、基底クラスで定義したコンストラクタ群を、派生クラスでそのまま使用できるようにするための糖衣構文である。
 
@@ -95,4 +103,3 @@ struct Derived : Base {
 - [N2438 Inheriting Constructors (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2438.htm)
 - [N2512 Inheriting Constructors (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2512.html)
 - [N2540 Inheriting Constructors (revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2540.htm)
-

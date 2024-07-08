@@ -1,6 +1,14 @@
 # 畳み込み式 [N4295]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 畳み込み式 (fold expression) は可変引数テンプレートのパラメータパックに対して二項演算を累積的に行う (畳み込む fold)。
@@ -232,7 +240,7 @@ auto res =  (std::string(args) + ...);
 で提案されていたが削除された (理由は発見できず)。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 可変引数テンプレート](/lang/cpp11/variadic_templates.md)
 - [`std::accumulate`](/reference/numeric/accumulate.md) — イテレータ範囲について累積的に二項演算を行う
 

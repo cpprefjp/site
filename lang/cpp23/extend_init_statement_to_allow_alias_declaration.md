@@ -1,6 +1,14 @@
 # 初期化文での型の別名宣言を許可 [P2360R0]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `if`文、`switch`文、範囲`for`文で初期化文を指定できるが、C++20までその初期化文では`typedef`による型の別名定義はできたが、`using`による型の別名定義はできなかった。
 
@@ -38,7 +46,7 @@ int main()
 }
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 if文とswitch文の条件式と初期化を分離](/lang/cpp17/selection_statements_with_initializer.md)
 - [C++20 初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md)
 

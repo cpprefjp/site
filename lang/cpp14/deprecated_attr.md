@@ -1,6 +1,14 @@
 # [[deprecated]]属性 [N3760]
 * cpp14[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `[[deprecated]]`は、対象となる機能が非推奨であることを示す属性である。
 
@@ -121,7 +129,7 @@ prog.cc:45:3: warning: 'class_templ<int>' is deprecated: don't use class_templ<i
 これらの機能が使われてきた経験から、この属性・アノテーションは、ユーザーにとって役立つものであることが判明していた。そのため、この機能をC++標準の属性構文でサポートすることとなった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 - [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
 
@@ -129,4 +137,3 @@ prog.cc:45:3: warning: 'class_templ<int>' is deprecated: don't use class_templ<i
 ## 参照
 - [N3394 `[[deprecated]]` attribute](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3394.html)
 - [N3760 `[[deprecated]]` attribute](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3760.html)
-

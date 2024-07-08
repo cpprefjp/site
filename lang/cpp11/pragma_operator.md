@@ -1,6 +1,14 @@
 # Pragma演算子 [N1653]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C99互換として、Pragma演算子が導入された。
 
@@ -66,4 +74,3 @@ int main()
 
 ## 参照
 - [N1653 Working draft changes for C99 preprocessor synchronization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1653.htm)
-

@@ -1,6 +1,14 @@
 # 定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する [P2242R3]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 `constexpr`関数が非リテラル変数、静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する。
@@ -20,7 +28,7 @@
 
 ただし、`constexpr`内に存在することが許可されたものの定数式として評価できるわけではないので、これらの機能は依然としてコンパイル時に使用することはできない。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++20 - constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
 - [C++20 - constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)

@@ -1,6 +1,14 @@
 # 暗黙のラムダキャプチャを簡略化 [P0588R1]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 ここでは、ラムダ式での暗黙のキャプチャについて、以下の問題を解決する：
 
@@ -24,10 +32,9 @@ void f() {
 構造化束縛で導入された名前はラムダ式でキャプチャできない、と明記された。しかしその後、「[構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)」の仕様でそれが可能となったため、この仕様変更は打ち消された。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
 - [C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)
 
 ## 参照
 - [P0588R1 Simplifying implicit lambda capture](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0588r1.html)
-

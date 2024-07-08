@@ -1,6 +1,14 @@
 # long long型 [N1811]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C99互換として、`long long`整数型が追加された。
 
@@ -51,7 +59,7 @@ int main()
 `long long`のように、`long`を2つ連続させることで「`long`より大きな型」であることを表現するのは非常に醜いものではあるが、C99およびコンパイラの実装による事実上の標準があったために、C++もそれにならった。ただし、これは128ビット整数型に対応する際に`long long long`型を定義することは意味しない。その際は、改めて型の定義を議論する必要があるが、いまは`long long`で64ビット整数型を表現することとした。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`LLONG_MIN`](/reference/climits/llong_min.md)
 - [`LLONG_MAX`](/reference/climits/llong_max.md)
 - [`ULLONG_MAX`](/reference/climits/ullong_max.md)
@@ -68,4 +76,3 @@ int main()
 - [N1565 Adding the `long long` type to C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1565.pdf)
 - [N1735 Adding the `long long` type to C++ (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1735.pdf)
 - [N1811 Adding the `long long` type to C++ (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1811.pdf)
-

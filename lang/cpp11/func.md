@@ -1,6 +1,14 @@
 # 事前定義識別子\_\_func\_\_ [N1653]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C99互換として、事前定義識別子(predefined identifier)の`__func__`が導入された。
 
@@ -83,4 +91,3 @@ S::print() : print
 - [N1534 Proposed addition of `__func__` predefined identifier from C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1534.txt)
 - [5.41 Function Names as Strings - GCC](https://gcc.gnu.org/onlinedocs/gcc-3.3.5/gcc/Function-Names.html)
 - [Predefined macros | Microsoft Docs](https://docs.microsoft.com/ja-JP/cpp/preprocessor/predefined-macros?view=vs-2019)
-

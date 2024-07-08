@@ -1,6 +1,14 @@
 # エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論 [P1814R0]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++17で導入されたクラステンプレートのテンプレート引数推論は、コンストラクタ引数からテンプレート引数を推論するものであった。しかし、そのクラステンプレートのエイリアステンプレートを定義した場合に、エイリアステンプレートの変数定義からはクラステンプレートのテンプレート引数を推論できない問題があった。
 
@@ -62,7 +70,7 @@ B b2(&d, &d); // エラー！ C<double*, double*>からB<W>を推論できない
 * std::integral[link /reference/concepts/integral.md]
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 クラステンプレートのテンプレート引数推論](/lang/cpp17/type_deduction_for_class_templates.md)
 
 

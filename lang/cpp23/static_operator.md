@@ -1,6 +1,14 @@
 # thisポインタをもつ必要のない演算子をstaticとして宣言できるようにする [P1169R4]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 以下の演算子が`this`ポインタを必要としない (状態をもたない) 場合、演算子オーバーロードを`static`として定義できる：
 
@@ -49,7 +57,7 @@ int main()
 状態をもたない関数オブジェクトでは`this`ポインタの受け渡しは必要なく、無駄である。必要ないもののためにコストを支払わないという基本的な思想に反していたため、`this`ポインタの受け渡しをなくせる機能として、`static`指定の許可を導入した。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [`std::function::`推論補助](/reference/functional/function/op_deduction_guide.md)
 

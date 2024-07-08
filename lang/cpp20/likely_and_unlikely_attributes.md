@@ -1,6 +1,14 @@
 # 確率が高い分岐と低い分岐を伝える属性 [[likely]], [[unlikely]] [P0479R5]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 if文やswitch文といった分岐制御構文において、条件分岐先のうちどれが実行される可能性が高いかという情報を、C++コンパイラへ最適化ヒントとして与える属性である。
 これらの属性を適切に用いると、C++コンパイラはより高速に動作するプログラムを生成する可能性がある。
@@ -63,7 +71,7 @@ std::string fizzbuzz(int n)
 GCCやClangなど一部C++コンパイラでは独自拡張として同等機能を提供しており、Linuxカーネルや大規模OSSによる広い利用実績があったため、C++標準の属性として採用された。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++23 `[[assume]]`属性](/lang/cpp23/portable_assumptions.md)
 
 

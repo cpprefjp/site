@@ -1,6 +1,14 @@
 # autoパラメータによる関数テンプレートの簡易定義
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++14で導入された[ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)と同様に、通常の関数もパラメータ型を`auto`にすることで、簡易的に関数テンプレートを定義できるようにする。
 
@@ -39,7 +47,7 @@ int main()
 0.3
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++14 ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)
 - [C++20 コンセプト](concepts.md)
 

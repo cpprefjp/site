@@ -1,6 +1,14 @@
 # クラステンプレートのテンプレート引数推論 [P0091R3]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 コンストラクタに渡される値によって、クラステンプレートのテンプレート引数を推論する。
 
@@ -273,7 +281,7 @@ int main()
 - 循環的な複雑さ (Cyclomatic complexity) を軽減するために大きな関数をクラスで置き換える便利な手法が、関数テンプレートでは使用できなかった
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`std::pair`の推論補助](/reference/utility/pair/op_deduction_guide.md)
 - [`std::tuple`の推論補助](/reference/tuple/tuple/op_deduction_guide.md)
     - `std::pair`と`std::tuple`の推論補助の例からは、[`std::make_pair()`](/reference/utility/make_pair.md)のような生成関数の必要性が薄くなることと、標準ライブラリ内の生成関数と推論補助で、小さな機能的差異があることがわかる

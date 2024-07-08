@@ -1,6 +1,14 @@
 # ローカル型と無名型を、テンプレート引数として使用することを許可 [N2657]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 ローカルで定義した型と、名前のない型を、テンプレート引数として渡すことが許可された。
 
@@ -42,4 +50,3 @@ int main()
 - [N2402 Names, Linkage, and Templates (rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2402.pdf)
 - [N2635 Local and Unnamed Types as Template Arguments](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2635.html)
 - [N2657 Local and Unnamed Types as Template Arguments](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2657.htm)
-

@@ -1,6 +1,14 @@
 # nullptr [N2431]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `nullptr`は、ヌルポインタ値を表すキーワードである。
 
@@ -115,7 +123,7 @@ private:
 これは言語機能ではなくライブラリで解決する案である。この案の問題としては、`nullptr`オブジェクトを使用する前に、ヘッダをインクルードしなければならない、というものがある。ヌルポインタ値は多くの一般的な状況で必要になるため、ヘッダをインクルードしない選択肢として、キーワードの`nullptr`が採用された。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`NULL`](/reference/cstddef/null.md)
 - [`nullptr_t`](/reference/cstddef/nullptr_t.md)
 
@@ -125,4 +133,3 @@ private:
 - [N1601 A name for the null pointer: `nullptr` (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1601.pdf)
 - [N2214 A name for the null pointer: `nullptr` (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2214.pdf)
 - [N2431 A name for the null pointer: `nullptr` (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2431.pdf)
-

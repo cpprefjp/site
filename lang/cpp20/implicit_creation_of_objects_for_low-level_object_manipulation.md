@@ -1,6 +1,14 @@
 # 未初期化領域への暗黙的なオブジェクト構築
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 `new`式ではなく`malloc()`等他の方法で確保されたメモリ領域には、明示的にオブジェクトの構築を行うまで想定する型のオブジェクトは生存期間内になく、そのアクセス（読み書き）は未定義動作となる。
@@ -393,7 +401,7 @@ unique_ptr<char[]> Stream::read() {
 
 なお、2番目の特殊なライブラリ関数もC++23で`std::start_lifetime_as()`として追加されている。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`start_lifetime_as()`](/reference/memory/start_lifetime_as.md.nolink)
 - [`start_lifetime_as_array()`](/reference/memory/start_lifetime_as_array.md.nolink)

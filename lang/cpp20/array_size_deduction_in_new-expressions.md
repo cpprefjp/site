@@ -2,6 +2,14 @@
 
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 C++20では、`new`式で配列の要素数を推論できる。
@@ -62,7 +70,7 @@ double* p = new double[]{1,2,3}   // エラー
 
 `new`式で要素数を必須とする強い理由がないため、推論できるようになった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 * [丸カッコの値リストからの集成体初期化を許可](allow_initializing_aggregates_from_a_parenthesized_list_of_values.md)
 

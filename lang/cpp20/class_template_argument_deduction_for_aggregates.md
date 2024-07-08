@@ -1,6 +1,14 @@
 # 集成体クラステンプレートのテンプレート引数推論 [P1816R0]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++17で導入されたクラステンプレートのテンプレート引数推論は、コンストラクタ引数からテンプレート引数を推論するものであった。
 
@@ -17,7 +25,7 @@ Point p1{3.0, 4.0}; // C++17:NG C++20:OK
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 クラステンプレートのテンプレート引数推論](/lang/cpp17/type_deduction_for_class_templates.md)
 
 
