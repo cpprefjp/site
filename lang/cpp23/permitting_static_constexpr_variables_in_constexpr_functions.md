@@ -1,13 +1,13 @@
 # constexpr関数内でのstatic constexpr変数を許可 [P2647R1]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++23からは、`constexpr`関数内で定数を定義するために、`static constexpr`変数を使用できるようになる。

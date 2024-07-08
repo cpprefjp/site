@@ -1,13 +1,13 @@
 # コード内容の仮定をコンパイラに伝える`assume`属性 [P1774R8]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 あるコード地点において実行時に満たすべき仮定(assumption)を、C++コンパイラへ最適化ヒントとして与える属性である。

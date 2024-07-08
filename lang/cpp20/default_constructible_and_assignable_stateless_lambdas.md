@@ -1,13 +1,13 @@
 # 状態を持たないラムダ式を、デフォルト構築可能、代入可能とする [P0624R2]
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 

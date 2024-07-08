@@ -1,13 +1,13 @@
 # constexpr関数内でconsteval関数を呼び出せない問題を軽減 [P2564R3]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++23では、`consteval`呼び出しを含む`constexpr`関数を、条件付きで`consteval`関数と見なすようになる。そうすることで、定数式の文脈での`consteval`関数の使用がよりかんたんになる。

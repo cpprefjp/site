@@ -1,13 +1,13 @@
 # (符号付き)size_tリテラルのためのサフィックス [P0330R8]
 * cpp23[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++23に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++23では、符号なし整数型[`size_t`](/reference/cstddef/size_t.md)に対応する符号付き整数型を表すリテラルの`z`および`Z`サフィックスを追加する。符号なしを表す`u`および`U`サフィックスをともに使用することで[`size_t`](/reference/cstddef/size_t.md)型のリテラルを記述できる。

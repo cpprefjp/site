@@ -1,13 +1,13 @@
 # 右辺値参照・ムーブセマンティクス [N2118]
 * cpp11[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++11に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 ムーブセマンティクスはコピーコストの削減を主な目的としており、また所有権の移動を実現する。  

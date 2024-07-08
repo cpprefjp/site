@@ -1,13 +1,13 @@
 # リテラル演算子のスペースを省略可能とする
 * cpp14[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++14に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 リテラル演算子を定義する際に、これまでは以下のように、`operator""`とサフィックス名の間に、ひとつ以上のスペースが必要だった。

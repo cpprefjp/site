@@ -1,12 +1,12 @@
 # 十六進浮動小数点数リテラル [P0245R1]
 * cpp17[meta cpp]
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++17に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 * [mathjax enable]
 

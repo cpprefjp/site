@@ -1,13 +1,13 @@
 # constexpr関数内でのtry-catchブロックを許可 [P1002R1]
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++20では、`constexpr`関数内でのtry-catchブロックの使用を許可する。ただし、`throw`式は従来通り許可せず、コンパイルエラーとなる (`throw`式は`constexpr`関数におけるアサーションのような役割)。

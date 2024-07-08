@@ -1,13 +1,13 @@
 # 初期化式をともなう範囲for文 [P0614R1]
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 if文、switch文、for文と同様に、範囲for文でもそのスコープで使用する変数の初期化ができるよう構文を追加する。

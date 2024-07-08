@@ -2,13 +2,13 @@
 
 * cpp17[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++17に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++17では、非型テンプレート引数(non-type template argument)で扱える型はとくに変わらないが、渡せる値についての制限緩和が行われる。

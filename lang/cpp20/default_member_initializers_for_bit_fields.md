@@ -1,13 +1,13 @@
 # ビットフィールドのメンバ変数初期化 [P0683R1]
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++11で導入された[非静的メンバ変数の初期化子](/lang/cpp11/non_static_data_member_initializers.md)では、ビットフィールドは対象外であった。

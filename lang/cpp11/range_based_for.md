@@ -1,13 +1,13 @@
 # 範囲for文 [N2930]
 * cpp11[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++11に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 範囲for文（The range-based for statement）は配列やコンテナを簡潔に扱うためのfor文の別表現である。

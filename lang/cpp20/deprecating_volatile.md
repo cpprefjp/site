@@ -1,13 +1,13 @@
 # ほとんどの`volatile`を非推奨化 [P1152R4]
 * cpp20[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++20に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 

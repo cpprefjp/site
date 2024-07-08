@@ -1,13 +1,13 @@
 # 生文字列リテラル [N2442]
 * cpp11[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++11に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 `R`プレフィックスを付けた文字列リテラル内の丸カッコ`( )`で囲まれた部分は、エスケープシーケンスが無視される。この機能を「生文字列リテラル (Raw string literals)」という。

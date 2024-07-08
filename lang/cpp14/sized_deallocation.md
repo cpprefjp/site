@@ -1,13 +1,13 @@
 # サイズ付きデアロケーション [N3778]
 * cpp14[meta cpp]
 
-<-- start lang caution -->
+<!-- start lang caution -->
 
 このページはC++14に採用された言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
 
-<-- last lang caution -->
+<!-- last lang caution -->
 
 ## 概要
 C++03ではクラス用の`delete`演算子として、サイズをとるバージョンをオーバーロードできた。C++14では、それに対応するグローバルの`delete`演算子を定義できるようにする。
