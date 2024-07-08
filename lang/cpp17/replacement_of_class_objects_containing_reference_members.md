@@ -1,6 +1,14 @@
 # 参照メンバをもつクラスの置き換え [P0137R1]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `placement new`を使用して、参照型や`const`メンバ変数を含む構造体/クラスを置き換える際、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数[`std::launder()`](/reference/new/launder.md)を用いることで、未定義動作となるような文脈で参照型や`const`メンバ変数へのアクセスができる。
 
@@ -92,4 +100,3 @@ public:
 - [Pointer safety and placement new](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4303.html)
 - [Implementability of std::optional （std :: optionalの実装可能性） ](https://groups.google.com/a/isocpp.org/forum/#!msg/std-proposals/93ebFsxCjvQ/Q5LUnO8339wJ)
 - [Lifetime - cppreference.com](https://en.cppreference.com/w/cpp/language/lifetime)
-

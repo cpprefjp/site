@@ -1,6 +1,14 @@
 # decltype [N2343]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `decltype` は、オペランドで指定した式の型を取得する機能である。  
 型を指定する必要のある個所で `decltype` を使用することによって、具体的な型名を指定する代わりに式から取得した型を指定できるようになった。
@@ -247,7 +255,7 @@ GCC や Clang には `decltype` が導入される前から、同様の機能を
 	`decltype` のオペランドは式のみしか許されていないが、`typeof` は式だけでなく型そのものも許されている。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 戻り値の型を後置する関数宣言構文](trailing_return_types.md)
 - [C++11 `auto`](auto.md)
 - [C++11 ラムダ式](lambda_expressions.md)

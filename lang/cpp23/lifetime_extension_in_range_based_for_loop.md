@@ -2,6 +2,14 @@
 
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 仕様
 
 範囲for文
@@ -132,7 +140,7 @@ void foo() {
 
 一時オブジェクトの寿命について、範囲for文に限定しない汎用的な方法も検討されたが、最終的には範囲for文の例外規定となった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [範囲for文](/lang/cpp11/range_based_for.md)
 

@@ -1,6 +1,14 @@
 # 範囲for文 [N2930]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 範囲for文（The range-based for statement）は配列やコンテナを簡潔に扱うためのfor文の別表現である。
 
@@ -355,7 +363,7 @@ int main()
 
 また、C++23からは`for-range-initializer`の寿命が条件を満たせば延長されるようになったので([C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](/lang/cpp23/lifetime_extension_in_range_based_for_loop.md))、この問題を踏みにくくなっている。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
 - [C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)

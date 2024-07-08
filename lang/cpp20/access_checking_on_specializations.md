@@ -1,6 +1,14 @@
 # 特殊化のアクセスチェック [P0692R1]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 クラス`C`の内側で宣言されたクラス（ローカルクラス`impl`）が`private/protected`で宣言されている場合、テンプレートの文脈で`C`の外側から`impl`を参照することは禁止されていた。しかし、実際にはほぼ全てのコンパイラでこれは許可されており、実際に使用されていた。
@@ -145,4 +153,3 @@ namespace option3 {
 ## 参照
 
 - [P0692R1 Access Checking on Specializations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0692r1.html)
-

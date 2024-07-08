@@ -1,6 +1,14 @@
 # 非型テンプレートパラメータとしてクラス型を許可する [P0732R2]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 これまで、非型テンプレートパラメータ (non-type template parameter) としては、整数型、ポインタ、参照、[`std::nullptr_t`](/reference/cstddef/nullptr_t.md)、[プレースホルダ型](/lang/cpp17/declaring_non-type_template_arguments_with_auto.md)の値しか受け取ることが許可されていなかった。
 
@@ -107,7 +115,7 @@ int main() {
     - GCC 10では`pair`が構造的型とみなされないバグがある。GCC 11で修正済み
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 非型テンプレートパラメータの`auto`宣言](/lang/cpp17/declaring_non-type_template_arguments_with_auto.md)
 
 

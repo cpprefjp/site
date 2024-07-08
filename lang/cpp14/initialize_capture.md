@@ -1,6 +1,14 @@
 # ラムダ式の初期化キャプチャ [N3648]
 * cpp14[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 「初期化キャプチャ(init-capture)」は、任意の式の結果をラムダ式にキャプチャする機能である。
 
@@ -137,7 +145,7 @@ int main()
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++14 ジェネリックラムダ](generic_lambdas.md)
 
@@ -145,4 +153,3 @@ int main()
 ## 参照
 - [N3610 Generic lambda-capture initializers, supporting capture-by-move](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3610.html)
 - [N3648 Wording Changes for Generalized Lambda-capture](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3648.html)
-

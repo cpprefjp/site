@@ -1,6 +1,14 @@
 # コンパイル時アサート [N1720]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `static_assert`宣言は、指定した定数式が真であることを表明するための機能である。
 
@@ -78,7 +86,7 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 コンパイル時アサートのために`BOOST_STATIC_ASSERT`や`STATIC_CHECK`のようなマクロを使用することは、名前空間を汚染する問題があるが、コア言語にその機能を追加することでその問題は解消される。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 `static_assert`のメッセージ省略を許可](/lang/cpp17/extending_static_assert.md)
 - [C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)
 - [C++23 定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md)

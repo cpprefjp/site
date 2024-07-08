@@ -1,6 +1,14 @@
 # alignof [N2341]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `alignof()`は、指定した型がメモリ上のどの位置に配置されるか（アライメント）取得する演算子である。「アライン オブ (align of)」と読む。
 
@@ -70,7 +78,7 @@ C++03で型のアライメントサイズを得るにはコンパイラの拡張
 N2341 からはわからない、恐らくないと思われる。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `alignas`](/lang/cpp11/alignas.md)
 - [`std::max_align_t`](/reference/cstddef/max_align_t.md)
 - [C++17 アライメント指定されたデータの動的メモリ確保](/lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.md)
@@ -78,4 +86,3 @@ N2341 からはわからない、恐らくないと思われる。
 
 ## 参照
 - [N2341 Adding Alignment Support to the C++ Programming Language / Wording](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf)
-

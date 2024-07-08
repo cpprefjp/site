@@ -1,6 +1,14 @@
 # コルーチン [P0912R5]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 処理途中でのサスペンド(中断)／レジューム(再開)をサポートする一般化された関数として、[コルーチン](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3)が導入される。
 
@@ -608,7 +616,7 @@ C++20コルーチンに関するキーワードは、いずれも接頭辞`co_`�
 何度かの改名提案（[P0071R0](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0071r0.html)、[P1485R1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1485r1.html)）も提出されたが、いずれも否決されてC++20仕様に落ち着いた。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - C++20 [`<coroutine>`](/reference/coroutine.md)
 - C++23 [`<generator>`](/reference/generator.md)
 

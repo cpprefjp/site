@@ -1,6 +1,14 @@
 # 関数を条件付きでexplicitにする構文を追加 [P0892R2]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++20では、関数を条件付きで`explicit`にする構文が追加された。コンストラクタと変換演算子に指定する`explicit`指定子に、`explicit(true)`、`explicit(false)`のように`bool`に変換可能な定数式を指定する。`true`に評価される値を指定することで、その関数は`explicit`となる。
 
@@ -157,7 +165,7 @@ struct pair {
 * std::is_convertible_v[link /reference/type_traits/is_convertible.md]
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`pair`のコンストラクタ](/reference/utility/pair/op_constructor.md)
 - [`tuple`のコンストラクタ](/reference/tuple/tuple/op_constructor.md)
 - [`optional`のコンストラクタ](/reference/optional/optional/op_constructor.md)

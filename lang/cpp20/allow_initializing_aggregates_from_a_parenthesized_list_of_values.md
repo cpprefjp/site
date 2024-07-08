@@ -2,6 +2,14 @@
 
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 C++20では、波カッコと同様に丸カッコでも集成体初期化できる。
@@ -122,7 +130,7 @@ explicit A(T1 t1, … , Tk tk);
 しかし、前者は参照型でないメンバーを左辺値で初期化することができない(関数テンプレートではないことに注意)。
 後者はムーブが必要になってしまうという問題があった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [一様初期化](/lang/cpp11/uniform_initialization.md)
 

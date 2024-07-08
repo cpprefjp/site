@@ -1,6 +1,14 @@
 # [=]によるthisの暗黙のキャプチャを非推奨化 [P0806R2]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++20からは、ラムダ式でのデフォルトコピーのキャプチャ指定`[=]`での`this`ポインタのキャプチャは非推奨となる。
 
@@ -38,7 +46,7 @@ int main()
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++20 ラムダ式のキャプチャとして`[=, this]`を許可する](allow_lambda_capture_equal_this.md)
 

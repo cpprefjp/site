@@ -259,7 +259,7 @@ struct derived : base {
 
 なお、[`assert`マクロ](/reference/cassert/assert.md)は関数形式のマクロなので、`[[assert]]`属性を置換してしまうことはない。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 - [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
 - [`assert`マクロ](/reference/cassert/assert.md)

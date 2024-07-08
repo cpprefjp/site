@@ -1,6 +1,14 @@
 # sizeof演算子にクラスの非静的メンバを、オブジェクトを作らずに指定できるようにする
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 クラスの非静的メンバ変数のサイズを取得したい場合、そのクラスのオブジェクトを生成してから`sizeof`演算子にメンバを指定する必要があった。その制限が外され、クラスと非静的メンバ変数を、スコープ解決演算子 `::` 区切りで`sizeof`演算子に指定できるようになった：
 
@@ -26,4 +34,3 @@ int main()
 - [CWG Issue 613. Unevaluated uses of non-static class members](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#613)
 - [N2150 Extending sizeof to apply to non-static data members without an object](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2150.html)
 - [N2253 Extending sizeof to apply to non-static data members without an object (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2253.html)
-

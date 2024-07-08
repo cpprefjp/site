@@ -2,6 +2,14 @@
 
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 C++17 から集成体初期化が拡張され、基底クラスを持つ型の初期化が簡潔に記述できるようになった。
@@ -117,7 +125,7 @@ int main()
 
 この機能により C++17 以降では記述が簡潔になり、実装労力の低減、ソースコードの可読性の向上が図られた。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 1. [C++14 / 宣言時のメンバ初期化を持つ型の集成体初期化を許可](../cpp14/brace_elision_in_array_temporary_initialization.md)
 

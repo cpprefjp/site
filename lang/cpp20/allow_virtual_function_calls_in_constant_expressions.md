@@ -1,6 +1,14 @@
 # 定数式からの仮想関数の呼び出しを許可 [P1064R0]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++20では、仮想関数に対して`constexpr`を指定し、定数式の文脈で呼び出せるようになる。
 
@@ -28,7 +36,7 @@ int main()
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 constexpr](/lang/cpp11/constexpr.md)
 
 

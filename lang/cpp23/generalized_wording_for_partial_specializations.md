@@ -1,6 +1,14 @@
 # 変数テンプレートの部分特殊化を許可 [P2096R2]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 変数テンプレートの仕様として、部分特殊化の許可を意図したような仕様はあったが、部分特殊化の多くの仕様はクラステンプレートのみを対象にしていた。
 
@@ -32,7 +40,7 @@ int main() {
 (nil)
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++14 変数テンプレート](/lang/cpp14/variable_templates.md)
 
 

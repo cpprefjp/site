@@ -1,6 +1,14 @@
 # [[nodiscard]]属性 [P0189R1]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 `[[nodiscard]]`属性は関数の戻り値を破棄してはならないことをコンパイラに伝え、破棄した場合に警告するための属性である。
@@ -48,7 +56,7 @@ nodiscard.cpp:11:3: warning: ignoring return value of function declared with 'no
 2 warnings generated.
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 - [C++20 `[[nodiscard]]`をコンストラクタのオーバーロードごとに付加できるようにする](/lang/cpp20/nodiscard_for_constructors.md)
     - C++17対応のコンパイラでも使用できる可能性がある

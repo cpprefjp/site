@@ -1,6 +1,14 @@
 # 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和 [P0962R1]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++17までは、範囲for文に指定するシーケンスの型が`begin`/`end`メンバのどちらかでも持っていれば`begin()`/`end()`メンバ関数を使用し、どちらも持っていなければADLで非メンバ関数の`begin()`/`end()`を探索する仕様となっていた。
 
@@ -55,7 +63,7 @@ o
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 範囲for文](/lang/cpp11/range_based_for.md)
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
 

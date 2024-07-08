@@ -1,6 +1,14 @@
 # 可変引数テンプレート [N2242]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 「可変引数テンプレート (variadic templates)」は、任意の型とそのオブジェクトを任意の数だけ受け取る機能である。これによって、「最大でN個のパラメータを受け取る関数テンプレートやクラステンプレート」を実装する際に、N個のオーバーロードをユーザーが用意する必要なく、ひとつの実装だけで済むようになる。
 
@@ -378,7 +386,7 @@ void f(const T1& t1, const T2& t2, const T3& t3);
 この問題を解決するために、任意の数だけ任意の型のパラメータを受け取る機能が必要とされ、可変引数テンプレートが導入された。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 可変引数マクロ](variadic_macros.md)
 - [C++17 畳み込み式](/lang/cpp17/folding_expressions.md)
 - [C++26 パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink)
@@ -394,4 +402,3 @@ void f(const T1& t1, const T2& t2, const T3& t3);
 - [N2242 Proposed Wording for Variadic Templates (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2242.pdf)
 - [N2488 Extending Variadic Template Template Parameters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2488.pdf)
 - [N2555 Extending Variadic Template Template Parameters (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2555.pdf)
-

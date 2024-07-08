@@ -1,6 +1,14 @@
 # 構造化束縛 [P0217R3]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 「構造化束縛 (structured bindings)」は、組やタプル、配列や構造体を分解して各要素を取り出す機能である。
 
@@ -326,7 +334,7 @@ auto { w, {x, y}, z } = f(); // このような、tuple内にあるpairを同時
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md)
 - [C++20 構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md)
 - [C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md)

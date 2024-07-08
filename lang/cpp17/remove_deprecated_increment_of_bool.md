@@ -1,6 +1,14 @@
 # 非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 C++17では`bool`型に対する前置および後置の`operator ++`を削除する。
@@ -146,7 +154,7 @@ Therac-25はカナダ原子力公社(AECL)とフランスCGR-MeV社によって�
 C++14で`std::exchange()`が導入されたことにより、唯一使いみちのあった後置の`operator++`の必要性もなくなり、C++17で削除されたと推測される。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`std::exchange()`](/reference/utility/exchange.md)
 

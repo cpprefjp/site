@@ -1,6 +1,14 @@
 # static_assert のメッセージ省略を許可 [N3928]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `static_assert` は [C++11](/lang/cpp11/static_assert.md) で導入されたが、第2引数に診断メッセージを指定しなければならなかった。
 C++17 ではこれを省略できるようになった。
@@ -64,7 +72,7 @@ example_static_assert.cpp:5:3: error: static_assert failed
 * 『`static_assert` は1つ以上の`定数式`を取り、診断メッセージはテキストに変換した`定数式`を含む』
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `static_assert`](/lang/cpp11/static_assert.md)
 
 

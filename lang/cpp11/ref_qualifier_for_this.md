@@ -1,6 +1,14 @@
 # メンバ関数の左辺値／右辺値修飾 [N2439]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 メンバ関数の`CV`修飾は、`*this`が`const`／`volatile`である場合とそうでない場合でメンバ関数をオーバーロードできる。
 
@@ -103,7 +111,7 @@ int main()
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 `const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md)
 
 
@@ -112,4 +120,3 @@ int main()
 - [N1821 Extending Move Semantics To `*this` (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1821.htm)
 - [N2377 Extending move semantics to `*this` (revised wording)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2377.htm)
 - [N2439 Extending move semantics to `*this` (revised wording)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2439.htm)
-

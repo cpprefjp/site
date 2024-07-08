@@ -1,6 +1,14 @@
 # 名前付きユニバーサルキャラクタ名 [P2071R2]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 これまで、Unicodeのユニバーサルキャラクタ名を指定するためには、`u8"\u0100"`のように`\u`または`\U`に続いてコードポイントを記述していた。
 
@@ -49,7 +57,7 @@ int main()
 Ā̀
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `char16_t`と`char32_t`](/lang/cpp11/char16_32.md)
 
 ## 参照

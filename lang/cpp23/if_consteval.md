@@ -1,6 +1,14 @@
 # if consteval [P1938R3]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++23では、`constexpr`関数がコンパイル時に呼ばれたかを判定するための構文として、`if consteval`を導入する。これは「consteval if文」と呼ばれる。
 
@@ -101,7 +109,7 @@ constexpr size_t strlen(char const* s) {
 
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`std::is_constant_evaluated()`](/reference/type_traits/is_constant_evaluated.md)
 - [C++20 即時関数](/lang/cpp20/immediate_functions.md)
 

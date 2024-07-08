@@ -1,6 +1,14 @@
 # ジェネリックラムダ [N3649]
 * cpp14[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 ジェネリックラムダ(generic lambdas)は、[C++11のラムダ式](/lang/cpp11/lambda_expressions.md)を拡張して、パラメータにテンプレートを使用できるようにした機能である。
 
@@ -120,7 +128,7 @@ HelloWorld
 これが現在`auto`を書くようになったのは、可読性のためである。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++14 ラムダ式の初期化キャプチャ](initialize_capture.md)
 - [C++14 通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md)

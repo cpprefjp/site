@@ -1,6 +1,14 @@
 # constexpr [N2235]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 `constexpr`は、汎用的に定数式を表現するための機能である。
 
@@ -191,7 +199,7 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
 また、`constexpr`は、値を計算するテンプレートメタプログラムを置き換えて使用できる。テンプレートメタプログラミングでは、非型テンプレートパラメータによって整数型の値をコンパイル時に計算することはできた。しかし、浮動小数点数型の値や、その他多くの値に関する計算が難しく、構文もまた通常の関数とはかけ離れていた(浮動小数点数型の値の計算は、分数形式にすれば、できることはできる)。値をコンパイル時に計算するためには、今後はテンプレートメタプログラミングよりも`constexpr`を積極的に使用していくとよいだろう。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ユーザー定義リテラル](user_defined_literals.md)
 - [C++14 `constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
 - [C++17 `constexpr`ラムダ](/lang/cpp17/constexpr_lambda.md)
@@ -219,4 +227,3 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
     - リテラル型のメンバ変数のみを持つクラスは、`constexpr`コンストラクタを明示的に定義しなくても、リテラル型となる
 - [CWG Issue 699. Must constexpr member functions be defined in the class member-specification?](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#699)
     - ゼロ割りの扱い、再帰回数の規定
-

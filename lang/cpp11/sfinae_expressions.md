@@ -1,6 +1,14 @@
 # 任意の式によるSFINAE [N2634]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 「SFINAE (Substitution Failure Is Not An Errorの略称、スフィネェと読む)」は、テンプレートの置き換えに失敗した際に、即時にコンパイルエラーとはせず、置き換えに失敗した関数をオーバーロード解決の候補から除外するという言語機能である。
 
@@ -268,7 +276,7 @@ int main()
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`<type_traits>`](/reference/type_traits.md)
 - [`declval`](/reference/utility/declval.md)
 - [`enable_if`](/reference/type_traits/enable_if.md)
@@ -277,4 +285,3 @@ int main()
 ## 参照
 - [CWG Issue 339. Overload resolution in operand of `sizeof` in constant expression](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#339)
 - [N2634 Solving the SFINAE problem for expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2634.html)
-

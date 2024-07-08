@@ -1,6 +1,14 @@
 # 属性の名前空間指定に繰り返しをなくす [P0028R4]
 * cpp17[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 複数の属性を指定する際`using`により名前空間を指定できる。
@@ -57,7 +65,7 @@ using_attribute_namespaces.cpp:13:13: error: attribute with scope specifier cann
 1 error generated.
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 
 ## 参照

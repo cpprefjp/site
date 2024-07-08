@@ -1,6 +1,14 @@
 # 通常関数の戻り値型推論 [N3638]
 * cpp14[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 関数宣言の構文において、先頭の戻り値型を`auto`もしくは[`decltype(auto)`](decltype_auto.md)とすることで、戻り値の型が関数の`return`文から推論される。
 
@@ -224,7 +232,7 @@ auto g(F f) { return f(); }
 [戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)のページを参照。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)
 - [C++14 `decltype(auto)`](decltype_auto.md)
 - [C++14 後置戻り値型をプレースホルダーにすることを許可](placeholder_type_in_trailing_return_type.md)
@@ -237,4 +245,3 @@ auto g(F f) { return f(); }
 - [N3638 Return type deduction for normal functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3638.html)
 - [CWG Issue 1048. `auto` deduction and lambda return type deduction.](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1048)
 - [CWG Issue 1588. Deducing cv-qualified `auto`](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1588)
-

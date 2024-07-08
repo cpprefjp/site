@@ -1,6 +1,14 @@
 # テンプレート再帰回数の制限緩和
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++03まで、テンプレートの再帰回数は、「17回以上であることを実装に推奨する」というものであった。
 
@@ -60,4 +68,3 @@ int main()
     - テンプレートの再帰によって、コンパイル時間がどれくらい延びるかのレポートがある記事
 - [C++ Language Features/Controlling implementation limits - Clang Compiler User’s Manual](http://clang.llvm.org/docs/UsersManual.html#cmdoption-ftemplate-depth)
 - [3.5 Options Controlling C++ Dialect - GCC Command Options](https://gcc.gnu.org/onlinedocs/gcc/gcc-command-options/options-controlling-c%2B%2B-dialect.html)
-

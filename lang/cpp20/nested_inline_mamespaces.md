@@ -1,6 +1,14 @@
 # 入れ子名前空間定義でのインライン名前空間 [P1094R2]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++17で、入れ子の名前空間を`namespace ns1::ns2::ns3 {}`のように簡易的に定義できるようになったが、インライン名前空間の指定はできなかった。
 
@@ -25,7 +33,7 @@ namespace ns3 {
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 インライン名前空間](/lang/cpp11/inline_namespaces.md)
 - [C++17 入れ子名前空間の定義](/lang/cpp17/nested_namespace.md)
 

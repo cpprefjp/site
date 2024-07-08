@@ -1,6 +1,14 @@
 # UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6]
 * cpp20[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 
 UTF-8でエンコードされた文字を格納することを想定した型として、符号なし文字型`char8_t`型を追加する。
@@ -140,7 +148,7 @@ enum class char8_t : unsigned char {};
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [char16_tとchar32_t](/lang/cpp11/char16_32.md)
 - [UTF-8文字列リテラル](/lang/cpp11/utf8_string_literals.md)

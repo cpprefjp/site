@@ -1,6 +1,14 @@
 # 整数に対する除算と剰余算の丸め結果を規定
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 整数`a`, `b`に対する除算`a/b`の結果(商)と剰余算`a%b`の結果(余り)について`(a/b)*b + a%b = a`という等式が成り立つことが規定されているが、C++03まで、少なくとも一方が負の数である場合の余りの符号は実装定義だった。このため先述の等式により商も実装定義となっていた。C++11ではC99に合わせて「商の小数部がゼロ方向に切り捨てられた結果となること」が規定された。
 
@@ -40,4 +48,3 @@ int main()
 - [N2730 Expedited core issues handling (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2730.html)
 - [N2757 Expedited core issues handling (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2757.htm)
 - [C++ における整数型の怪と "移植性のある" オーバーフローチェッカー (第1回 : 整数型の怪と対策の不足)](http://qiita.com/a4lg/items/541c9d9dd5d874eeef2f)
-

@@ -1,6 +1,14 @@
 # スレッドローカルストレージ [N2659]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 変数宣言の際に、記憶域として`thread_local`キーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。
 
@@ -100,7 +108,7 @@ thread2 : 4
 各ベンダーのこれらの経験を標準C++に導入することとなった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`exit`](/reference/cstdlib/exit.md)
 - [`quick_exit`](/reference/cstdlib/quick_exit.md)
 - [`_at_thread_exit`系の関数が存在している理由](/article/lib/at_thread_exit.md)
@@ -115,4 +123,3 @@ thread2 : 4
 - [N2659 Thread-Local Storage](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2659.htm)
 - [Why does Apple clang disallow C++11 `thread_local` when 'official' clang supports it - Stack Overflow](http://stackoverflow.com/a/29929949/463412)
     - Apple実装のClang（Xcode 7以下に付属のもの）が`thread_local`機能をサポートしない理由
-

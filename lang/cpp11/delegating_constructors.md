@@ -1,6 +1,14 @@
 # 委譲コンストラクタ [N1986]
 * cpp11[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 「委譲コンストラクタ (delegating constructors)」は、コンストラクタから、同じクラスの他のコンストラクタに処理を委譲する機能である。
 
@@ -82,4 +90,3 @@ ECMA規格となっているC++/CLIには、この問題を解決するための
 - [N1618 Delegating Constructors (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1618.pdf)
 - [N1895 Delegating Constructors (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1895.pdf)
 - [N1986 Delegating Constructors (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1986.pdf)
-

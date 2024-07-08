@@ -1,6 +1,14 @@
 # 1ワイド文字に収まらないワイド文字リテラルを禁止する [P2362R3]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため関連項目を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++23では、ワイド文字リテラルとして、以下を禁止する：
 
@@ -24,4 +32,3 @@ wchar_t c = 'é́';  // C++20:OK, C++23:NG \u0065\u0301
 
 ## 参照
 - [P2362R3 Remove non-encodable wide character literals and multicharacter wide character literals](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2362r3.pdf)
-

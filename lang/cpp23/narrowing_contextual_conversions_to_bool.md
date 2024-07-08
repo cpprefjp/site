@@ -1,6 +1,14 @@
 # 定数式の文脈でのboolへの縮小変換を許可 [P1401R5]
 * cpp23[meta cpp]
 
+<-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative_page)を参照してください。
+
+<-- last lang caution -->
+
 ## 概要
 C++23では、以下の定数式文脈での`bool`への縮小変換を許可する：
 
@@ -31,7 +39,7 @@ if constexpr(flags & Flags::Exec) { … }        // C++23以降
 if constexpr (sizeof(int[2])) { … } // C++23:OK 縮小変換
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
 - [C++17 `constexpr if`文](/lang/cpp17/if_constexpr.md)
 
