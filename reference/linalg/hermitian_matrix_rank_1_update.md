@@ -97,6 +97,7 @@ $O((\verb|x.extent(0)|)^2)$
 
 ```cpp example
 #include <array>
+#include <complex>
 #include <iostream>
 #include <linalg>
 #include <mdspan>

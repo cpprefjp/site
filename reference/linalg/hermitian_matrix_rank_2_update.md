@@ -71,6 +71,7 @@ $O(\verb|x.extent(0)| \times \verb|y.extent(0)|)$
 
 ```cpp example
 #include <array>
+#include <complex>
 #include <iostream>
 #include <linalg>
 #include <mdspan>
