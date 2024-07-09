@@ -112,13 +112,13 @@ namespace std::linalg {
 ## 概要
 行列同士の積を計算する。
 
-- (1): 三角行列`A`と行列`B`に対し、$C \leftarrow AB$
+- (1): 対称行列`A`と行列`B`に対し、$C \leftarrow AB$
 - (2): (1)を指定された実行ポリシーで実行する。
-- (3): 行列`A`と三角行列`B`に対し、$C \leftarrow AB$
+- (3): 行列`A`と対称行列`B`に対し、$C \leftarrow AB$
 - (4): (3)を指定された実行ポリシーで実行する。
-- (5): 三角行列`A`と行列`B`に対し、$C \leftarrow E + AB$
+- (5): 対称行列`A`と行列`B`に対し、$C \leftarrow E + AB$
 - (6): (5)を指定された実行ポリシーで実行する。
-- (7): 行列`A`と三角行列`B`に対し、$C \leftarrow E + AB$
+- (7): 行列`A`と対称行列`B`に対し、$C \leftarrow E + AB$
 - (8): (7)を指定された実行ポリシーで実行する。
 
 
@@ -142,10 +142,10 @@ namespace std::linalg {
 
 
 ## 効果
-- (1), (2): 三角行列`A`と行列`B`に対し、$C \leftarrow AB$
-- (3), (4): 行列`A`と三角行列`B`に対し、$C \leftarrow AB$
-- (5), (6): 三角行列`A`と行列`B`に対し、$C \leftarrow E + AB$
-- (7), (8): 行列`A`と三角行列`B`に対し、$C \leftarrow E + AB$
+- (1), (2): 対称行列`A`と行列`B`に対し、$C \leftarrow AB$
+- (3), (4): 行列`A`と対称行列`B`に対し、$C \leftarrow AB$
+- (5), (6): 対称行列`A`と行列`B`に対し、$C \leftarrow E + AB$
+- (7), (8): 行列`A`と対称行列`B`に対し、$C \leftarrow E + AB$
 
 
 ## 戻り値
