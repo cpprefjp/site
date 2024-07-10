@@ -110,7 +110,7 @@ namespace std::linalg {
 
 
 ## 概要
-行列同士の積を計算する。
+対称行列と行列の積を計算する。
 
 - (1): 対称行列`A`と行列`B`に対し、$C \leftarrow AB$
 - (2): (1)を指定された実行ポリシーで実行する。
@@ -126,10 +126,12 @@ namespace std::linalg {
 - 共通
   + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
   + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(B), decltype(C)>()`が`true`
-- (1), (2), (5), (6): `InMat1`(`A`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-- (1), (2), (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-- (3), (4), (7), (8): `InMat2`(`B`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-- (3), (4), (7), (8): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(B), decltype(B)>(0, 1)`が`true` (つまり`B`が正方行列であること)
+- (1), (2), (5), (6):
+  + `InMat1`(`A`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
+- (3), (4), (7), (8):
+  + `InMat2`(`B`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(B), decltype(B)>(0, 1)`が`true` (つまり`B`が正方行列であること)
 - (5), (6), (7), (8): [`possibly-addable`](possibly-addable.md)`<decltype(E),decltype(E),decltype(C)>()`が`true`
 
 
@@ -202,10 +204,20 @@ int main()
 {
   constexpr size_t N = 2;
 
-  std::vector<double> A_vec(N * N);
-  std::vector<double> B_vec(N * N);
-  std::vector<double> C_vec(N * N);
-  std::vector<double> E_vec(N * N);
+  using Scalar = double;
+  using Vector = std::vector<Scalar>;
+  using SymmetricMatrix = std::mdspan<
+      Scalar,
+      std::extents<size_t, N, N>,
+      std::linalg::layout_blas_packed<
+        std::linalg::upper_triangle_t,
+        std::linalg::row_major_t>
+    >;
+
+  Vector A_vec(N * N);
+  Vector B_vec(N * N);
+  Vector C_vec(N * N);
+  Vector E_vec(N * N);
 
   std::mdspan C(C_vec.data(), N, N);
   std::mdspan E(E_vec.data(), N, N);
@@ -213,14 +225,8 @@ int main()
   init_mat(E, N * N);
 
   {
-    std::mdspan<
-      double,
-      std::extents<size_t, N, N>,
-      std::linalg::layout_blas_packed<
-        std::linalg::upper_triangle_t,
-        std::linalg::row_major_t>
-    > A(A_vec.data());
-    std::mdspan B(B_vec.data(), N, N);
+    SymmetricMatrix A(A_vec.data());
+    std::mdspan     B(B_vec.data(), N, N);
 
     init_symm_mat(A);
     init_mat(B);
@@ -237,14 +243,8 @@ int main()
   }
 
   {
-    std::mdspan A(A_vec.data(), N, N);
-    std::mdspan<
-      double,
-      std::extents<size_t, N, N>,
-      std::linalg::layout_blas_packed<
-        std::linalg::upper_triangle_t,
-        std::linalg::row_major_t>
-    > B(B_vec.data());
+    std::mdspan     A(A_vec.data(), N, N);
+    SymmetricMatrix B(B_vec.data());
 
     init_mat(A);
     init_symm_mat(B);
@@ -261,14 +261,8 @@ int main()
   }
 
   {
-    std::mdspan<
-      double,
-      std::extents<size_t, N, N>,
-      std::linalg::layout_blas_packed<
-        std::linalg::upper_triangle_t,
-        std::linalg::row_major_t>
-    > A(A_vec.data());
-    std::mdspan B(B_vec.data(), N, N);
+    SymmetricMatrix A(A_vec.data());
+    std::mdspan     B(B_vec.data(), N, N);
 
     init_symm_mat(A);
     init_mat(B);
@@ -285,14 +279,8 @@ int main()
   }
 
   {
-    std::mdspan A(A_vec.data(), N, N);
-    std::mdspan<
-      double,
-      std::extents<size_t, N, N>,
-      std::linalg::layout_blas_packed<
-        std::linalg::upper_triangle_t,
-        std::linalg::row_major_t>
-    > B(B_vec.data());
+    std::mdspan     A(A_vec.data(), N, N);
+    SymmetricMatrix B(B_vec.data());
 
     init_mat(A);
     init_symm_mat(B);
