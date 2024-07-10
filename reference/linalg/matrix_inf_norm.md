@@ -39,6 +39,7 @@ namespace std::linalg {
 
 ## 適格要件
 - (1), (2): `decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InMat::value_type>()))`が`Scalar`に変換可能。
+- (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 効果

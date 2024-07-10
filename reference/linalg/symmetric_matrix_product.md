@@ -133,6 +133,7 @@ namespace std::linalg {
   + `InMat2`(`B`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
   + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(B), decltype(B)>(0, 1)`が`true` (つまり`B`が正方行列であること)
 - (5), (6), (7), (8): [`possibly-addable`](possibly-addable.md)`<decltype(E),decltype(E),decltype(C)>()`が`true`
+- (2), (4), (6), (8): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件

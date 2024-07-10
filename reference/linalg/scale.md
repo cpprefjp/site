@@ -32,6 +32,10 @@ $$
 $$
 
 
+## 適格要件
+- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
+
+
 ## 効果
 ベクトル`x`を`alpha`倍する。
 

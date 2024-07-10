@@ -111,6 +111,7 @@ namespace std::linalg {
   + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(y)>(0, 0)`が`true` (つまり`A`の次元と`y`の次元が同じであること)
 - (1), (2), (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
 - (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(z)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
+- (2), (4), (6): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件

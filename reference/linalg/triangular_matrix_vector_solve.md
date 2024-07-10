@@ -141,6 +141,7 @@ namespace std::linalg {
   + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
   + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(b)>(0, 0)`が`true` (つまり`A`の次元と`b`の次元が同じであること)
 - (1), (2), (3), (4): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり`A`の次元と`b`の次元が同じであること)
+- (2), (4), (6), (8): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件

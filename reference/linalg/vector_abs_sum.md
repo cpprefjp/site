@@ -38,6 +38,7 @@ namespace std::linalg {
 
 ## 適格要件
 - (1), (2): `decltype(init + `[`abs-if-needed`](abs-if-needed.md)`(`[`real-if-needed`](real-if-needed.md)`(declval<typename InVec::value_type>())) + abs-if-needed(`[`imag-if-needed`](imag-if-needed.md)`(declval<typename InVec::value_type>())))`が`Scalar`に変換可能。
+- (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 ## 効果
 - (3), (4): `T`を`typename InVec::value_type`とすると、

@@ -72,7 +72,10 @@ $$
 
 
 ## 適格要件
-- [`compatible-static-extents`](/reference/linalg/compatible-static-extents.md)`<InOutVec1, InOutVec2>(0,0) == true`
+- 共通:
+  + `Real`が`complex<Real>`を規定できる型であること
+  + [`compatible-static-extents`](/reference/linalg/compatible-static-extents.md)`<InOutVec1, InOutVec2>(0,0) == true`
+- (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件

@@ -44,9 +44,9 @@ namespace std::linalg {
 
 
 ## 適格要件
-2つのベクトルの静的な要素数が同じであること。
-
-- [`compatible-static-extents`](compatible-static-extents.md)`<InVec1, InVec2>(0, 0) == true`
+- 共通:
+  + [`compatible-static-extents`](compatible-static-extents.md)`<InVec1, InVec2>(0, 0)`が`true` (2つのベクトルの静的な要素数が同じ)
+- (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件

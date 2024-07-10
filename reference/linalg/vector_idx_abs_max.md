@@ -27,6 +27,7 @@ namespace std::linalg {
 
 ## 適格要件
 - (1), (2): `T`を`decltype(`[`abs-if-needed`](abs-if-needed.md)`(`[`real-if-needed`](real-if-needed.md)`(declval<typename InVec::value_type>())) + abs-if-needed(`[`imag-if-needed`](imag-if-needed.md)`(declval<typename InVec::value_type>())))`とすると、`declval<T>() < declval<T>()`が有効な式であること。
+- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 戻り値

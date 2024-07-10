@@ -34,8 +34,8 @@ namespace std::linalg {
 
 
 ## 適格要件
-- 0以上`x.rank()`未満の整数rに対して、[`compatible-static-extents`](/reference/linalg/compatible-static-extents.md)`<InVec, OutVec>(r,r)`が`true`
-
+- (1), (2): 0以上`x.rank()`未満の整数rに対して、[`compatible-static-extents`](/reference/linalg/compatible-static-extents.md)`<InVec, OutVec>(r,r)`が`true`
+- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 ## 事前条件
 `x`と`y`の各次元の要素数が等しくなければならない。

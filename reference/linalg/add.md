@@ -42,9 +42,8 @@ $$
 
 
 ## 適格要件
-行列またはベクトルの`x`、`y`、`z`の各次元の静的要素数が同じであること。
-
-- [`possibly-addable`](possibly-addable.md)`<InObj1, InObj2, OutObj>() == true`
+- (1), (2): [`possibly-addable`](possibly-addable.md)`<InObj1, InObj2, OutObj>()`が`true` (行列またはベクトルの`x`、`y`、`z`の各次元の静的要素数が同じ)
+- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件

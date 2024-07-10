@@ -39,7 +39,8 @@ namespace std::linalg {
 
 
 ## 適格要件
-- [`possibly-multipliable`](possibly-multipliable.md)`<InOutMat, InVec2, InVec1>() == true`
+- (1), (2): [`possibly-multipliable`](possibly-multipliable.md)`<InOutMat, InVec2, InVec1>() == true`
+- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件

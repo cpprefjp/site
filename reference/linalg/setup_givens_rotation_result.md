@@ -26,7 +26,7 @@ namespace std::linalg {
 ギブンス回転の結果を表すクラス。詳しくは、[`setup_givens_rotation`](setup_givens_rotation.md)にて。
 
 
-## テンプレートパラメータ制約
+## 適格要件
 - `Real`は`complex<Real>`が規定できる型であること。
 
 

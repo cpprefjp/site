@@ -44,7 +44,8 @@ $$
 
 
 ## 適格要件
-- `decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
+- (1), (2): `decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
+- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 効果
