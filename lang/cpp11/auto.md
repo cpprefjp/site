@@ -1,4 +1,4 @@
-# auto [N1984]
+# 変数の型推論のためのauto [N1984]
 * cpp11[meta cpp]
 
 <!-- start lang caution -->

@@ -16,7 +16,7 @@
 |----------------------------------|------|-----|-------|-----|------|
 | N2341: [`alignas`](/lang/cpp11/alignas.md) | アライメント指定 | 4.8 | 3.0 | 15.0 | 2015<br/>2003あるいはそれ以前からある`__declspec(align(x))`構文で代替可能。 |
 | N2341: [`alignof`](/lang/cpp11/alignof.md) | アライメント取得 | 4.5 | 3.3 | 15.0 | 2015<br/>2003あるいはそれ以前よりある`__alignof`で代替可能。 |
-| N1984: [`auto`](/lang/cpp11/auto.md) | 型推論 | 4.4 | 2.9 | 12.0 | 2010 |
+| N1984: [変数の型推論のためのauto](/lang/cpp11/auto.md) | 型推論 | 4.4 | 2.9 | 12.0 | 2010 |
 | N2343: [`decltype`](/lang/cpp11/decltype.md) | 式の型を取得 | 4.3 | 2.9 | 13.0 | 2010 (partial)<br/> 2012 |
 | N1653: C99互換のプリプロセッサ | [可変引数マクロ](/lang/cpp11/variadic_macros.md)、[Pragma演算子](/lang/cpp11/pragma_operator.md)、[`__func__`](/lang/cpp11/func.md) | 4.3 | 2.9 | 11.1 | 2005 (partial): 可変引数のみ `_Pragma`の代わりに`__pragma`が存在する。<br/> 2019 Update 6 |
 | N2235: [`constexpr`](/lang/cpp11/constexpr.md) | 定数式 | 4.6 | 3.1 | 13.0 (partial)<br/> 14.0 | 2015 (partial)<br/> 2015 Update 1 |
@@ -36,13 +36,13 @@
 | N2765: [ユーザー定義リテラル](/lang/cpp11/user_defined_literals.md) | リテラルのサフィックスをユーザー定義する | 4.7 | 3.1 | 15.0 | 2015 |
 | N2541: [戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md) | 以下のような形式での関数宣言<br/> `auto f(arg_types...) -> return_type` | 4.4 | 2.9 | 12.0 | 2010 |
 | N2431: [`nullptr`](/lang/cpp11/nullptr.md) | ヌルポインタを表すポインタリテラル | 4.6 | 3.0 | 11.1 | 2010 |
-| N1757: [テンプレートの右山カッコ](/lang/cpp11/right_angle_brackets.md) | `vector<basic_string<char>>`のように、`>>`をスペースを空けずに記述可能にする | 4.3 | 2.9 | 11.1 | 2005 |
+| N1757: [テンプレートでの連続した右山カッコを許可](/lang/cpp11/right_angle_brackets.md) | `vector<basic_string<char>>`のように、`>>`をスペースを空けずに記述可能にする | 4.3 | 2.9 | 11.1 | 2005 |
 | N2118: [右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md) | 右辺値によるオーバーロード、およびそれによるリソースの所有権移動 | 4.3 (partial)<br/> 4.6 | 2.9 | 12.0 | 2010 (partial) ムーブコンストラクタと代入演算子の暗黙定義に対応していない。<br/> 2015 |
 | N1720: [コンパイル時アサート](/lang/cpp11/static_assert.md) | コンパイル時に条件式が真であることを表明する | 4.3 | 2.9 | 11.1 | 2010 |
 | N2347: [`enum`の先行宣言](/lang/cpp11/scoped_enum.md#extended-unscoped-enum) |  | 4.6 | 3.1 | 11.1 (partial)<br/> 14.0 | 2012 |
 | N2347: [スコープを持つ列挙型](/lang/cpp11/scoped_enum.md) | 強い型付けとスコープを持つ列挙型 | 4.4 | 2.9 | 11.1 (partial)<br/> 14.0 | 2012 |
 | N2258: [エイリアステンプレート](/lang/cpp11/alias_templates.md) | テンプレートによって型の別名を定義する | 4.7 | 3.0 | 12.1 | 2013 |
-| N2544: [共用体の制限解除](/lang/cpp11/unrestricted_unions.md) | 共用体のメンバ変数として、クラスオブジェクトを持つ | 4.6 | 3.1 | 14.0(Linux系OSおよびMacのみ。Windowsは非対応) | 2015 |
+| N2544: [共用体でクラスオブジェクトをもつことを許可](/lang/cpp11/unrestricted_unions.md) | 共用体のメンバ変数として、クラスオブジェクトを持つ | 4.6 | 3.1 | 14.0(Linux系OSおよびMacのみ。Windowsは非対応) | 2015 |
 | N2242: [可変引数テンプレート](/lang/cpp11/variadic_templates.md) | 任意の数のテンプレートパラメータを受け取れるようにする | 4.3 (partial)<br/> 4.4 | 2.9 | 12.1 | 2013 |
 | N2930: [範囲for文](/lang/cpp11/range_based_for.md) | 配列やコンテナといった範囲を表すオブジェクトを、簡潔に走査する | 4.6 | 3.0 | 13.0 | 2012 |
 | N2928: [`override`と`final`](/lang/cpp11/override_final.md) | メンバ関数のオーバーライド指定、および派生クラスでのオーバーロードを禁止する指定 | 4.7 | 2.9 | 14.0 | 2005 (partial): `override`のみ。`final`の代わりにsealedが存在する。ただし両者ともデストラクタには指定できない。<br/> 2012 |
@@ -79,7 +79,7 @@
 | N3648: [ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md) | キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする | 4.9 | 3.4 | 15.0 | 2015 |
 | N3649: [ジェネリックラムダ](/lang/cpp14/generic_lambdas.md) | ラムダ式のパラメータを`auto`にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する | 4.9 | 3.4 | 16.0 | 2015 |
 | N3651: [変数テンプレート](/lang/cpp14/variable_templates.md) | 変数定義時のテンプレート指定を可能にする。 | 5.1 | 3.4 | 16.0 | 2015 Update 2 |
-| N3652: [`constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md) | `if`文、`switch`文による条件分岐の許可。<br/>`for`文、`while`文、`do-while`文によるループの許可。<br/>`void`戻り値型の許可<br/>初期化を伴う変数宣言の許可。<br/>変数書き換えの許可。 | 5.1 | 3.3(partial) <br/> 3.4 | 16.0 | 2017 |
+| N3652: [`constexpr`関数内での条件分岐とループの文を許可](/lang/cpp14/relaxing_constraints_on_constexpr.md) | `if`文、`switch`文による条件分岐の許可。<br/>`for`文、`while`文、`do-while`文によるループの許可。<br/>`void`戻り値型の許可<br/>初期化を伴う変数宣言の許可。<br/>変数書き換えの許可。 | 5.1 | 3.3(partial) <br/> 3.4 | 16.0 | 2017 |
 | N3653: [宣言時のメンバ初期化を持つ型の集成体初期化を許可](/lang/cpp14/brace_elision_in_array_temporary_initialization.md) | 一様初期化と初期化子リストを組み合わせた際、二重に波カッコが必要となっていた仕様を緩和し、波カッコを省略できるようにする | 5.1 | 3.3 | 16.0 | 2017 |
 | N3760: [`[[deprecated]]`属性](/lang/cpp14/deprecated_attr.md) | 非推奨の機能であることを示す属性。 | 4.9 | 3.4 | 15.0<br/> (Linux/Mac OS) | 2015<br/>それ以前は`__declspec(deprecated)`で代替可能 |
 | N3781: [数値リテラルの桁区切り文字](/lang/cpp14/digit_separators.md) | シングルクォーテーションで数値リテラルを桁区切りする。 | 4.9 | 3.4 | 16.0 | 2015 |
@@ -106,7 +106,7 @@
 | N3928: [メッセージなしの`static_assert`](/lang/cpp17/extending_static_assert.md) | デフォルトの表明メッセージを使用する | 6 | 3.5 | 18.0 | 2017 |
 | N4086: [トライグラフを削除](/lang/cpp17/removing_trigraphs.md) | | 5.1 | 3.5 | 19.1 | 2010 |
 | N4051: [テンプレートテンプレートパラメータに`typename`を許可](/lang/cpp17/allow_typename_in_a_template_template_parameter.md) | `class`キーワードしか使用できなかった部分に、`typename`を許可 | 5.0 | 3.5 | 17.0 | 2015 |
-| N3922: [単一要素初期化子リストを`auto`で受け取った場合の型を変更](/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md) | `initializer_list<T>`だったのを`T`に変更 | 5 | 3.8 | 17.0 | 2015 |
+| N3922: [単一要素の波カッコ初期化を非配列とする](/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md) | `initializer_list<T>`だったのを`T`に変更 | 5 | 3.8 | 17.0 | 2015 |
 | N4295: [畳み込み式](/lang/cpp17/folding_expressions.md) | パラメータパックに対する2項演算の集積処理 | 6 | 3.6 | 19.0 | 2017 Update 5 |
 | N4267: [UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md) | 文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする | 6 | 3.6 | 17.0 | 2015 |
 | N4230: [入れ子名前空間の定義](/lang/cpp17/nested_namespace.md) | `namespace A::B {}`のように、入れ子の名前空間を簡単に定義できるようにする | 6 | 3.6 | 17.0 | 2015 Update 3 |
@@ -122,10 +122,10 @@
 | P0212R1: [`[[maybe_unused]]`属性](/lang/cpp17/maybe_unused.md) | 使用しない可能性がある変数であることをコンパイラに伝える属性 | 4.8からは`[[gnu::unused]]`を使用すること<br/> 7からサポート | 3.9 | 18.0 | 2017 Update 3 |
 | P0017R1: [基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする](/lang/cpp17/extension_to_aggregate_initialization.md) | 基底クラスのメンバを集成体初期化するために、`derived d {{42}};`の代わりに`derived d {42};`と書けるようにする | 7 | 3.9 | 19.1 | 2017 Update 7 |
 | P0170R1: [ラムダ式を`constexpr`として使用できるようにする](/lang/cpp17/constexpr_lambda.md) | ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする | 7 | 5 | 19.0 | 2017 Update 3 |
-| P0184R0: [範囲for文のための`begin()`と`end()`関数が、異なる型を返すことを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md) | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | 18.0 | 2017 |
+| P0184R0: [範囲for文のイテレータ型が一致しないことを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md) | `begin()`と`end()`が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする | 6 | 3.9 | 18.0 | 2017 |
 | P0018R3: [ラムダ式での`*this`のコピーキャプチャ](/lang/cpp17/lambda_capture_of_this_by_value.md) | キャプチャリストに`*this`を指定することで、`*this`をコピーキャプチャする | 7 | 3.9 | 19.0 | 2017 Update 3 |
 | P0138R2: [`enum class`変数の初期値として整数を指定する際の規則を調整](/lang/cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 | 7 | 3.9 | 19.0 | 2017 Update 3 |
-| P0245R1: [浮動小数点数の16進数リテラル](/lang/cpp17/hexadecimal_floating_literals.md) | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 3.0 | 3.0 | 18.0 | 2017 Update 5 |
+| P0245R1: [16進浮動小数点数リテラル](/lang/cpp17/hexadecimal_floating_literals.md) | `hexfloat`マニピュレータや`printf()`の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする | 3.0 | 3.0 | 18.0 | 2017 Update 5 |
 | P0028R4: [属性の名前空間指定に繰り返しをなくす](/lang/cpp17/using_attribute_namespaces.md) | `[[using CC: opt(1), debug]]`のように属性の名前空間宣言をまとめて行う | 7 | 3.9 | 18.0 | 2017 Update 3 |
 | P0035R4: [アライメント指定されたデータの動的メモリ確保](/lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.md) | `operator new`と`operator delete`でアライメント値を取得できるようにする | 7 | 4 | No | 2017 Update 5 |
 | P0091R3: [クラステンプレートのテンプレート引数推論](/lang/cpp17/type_deduction_for_class_templates.md) | コンストラクタの引数からクラスのテンプレート引数を推論できるようにする | 7 | 5 | 19.1 | 2017 Update 7 |
@@ -179,7 +179,7 @@
 | P0846R0: [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 | 9 | 9.0 | 2021.4 | 2019 Update 1 |
 | P0641R2: [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md) | 非`const`なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが不適格になってしまう問題を修正 | 9 | 8.0 | 2021.4 | 2015 |
 | P0859R0: [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 | 9 | 8 | | Partial in 2019 Update 7 |
-| P0515R3: [一貫比較](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial) | 2021.4 | 2019 |
+| P0515R3: [`<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial) | 2021.4 | 2019 |
 | P0692R1: [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md) | | Yes | partial | 2021.4 | 2019 Update 6 |
 | P0624R2: [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする | 9 | 8.0 | 2021.4 | 2019 Update 2 |
 | P0767R1: [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | | | 2021.4 | 2019 Update 5 |
@@ -197,7 +197,7 @@
 | P1064R0: [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | 2021.4 | 2019 Update 9 |
 | P1327R1: [定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md) | 定数式での動的多態を許可 | 10 | 9.0 | 2021.4 | 2019 Update 9 |
 | P1002R1: [constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md) | constexpr関数内でtry-catchブロックを書けるようにする | 9 | 8.0 | 2023.1  | 2019 Update 5 |
-| P1073R3: [即時関数](/lang/cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | 11 | 15 | 2021.4 | 2019 Update 10 |
+| P1073R3: [常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする | 11 | 15 | 2021.4 | 2019 Update 10 |
 | P1330R0: [定数式内での共用体のアクティブメンバの変更を許可](/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.md) | 共用体メンバの書き換えを定数式内で行えるようにする | 9 | 9.0 | 2021.4 | 2017 |
 | P1008R1: [ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止](/lang/cpp20/prohibit_aggregates_with_user-declared_constructors.md) | コンストラクタが`delete`／`default`宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止 | 9 | 8.0 | 2021.4 | 2019 |
 | P0892R2: [関数を条件付きで`explicit`にする構文を追加](/lang/cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする | 9 | 9.0 | 2021.4 | 2019 Update 2 |

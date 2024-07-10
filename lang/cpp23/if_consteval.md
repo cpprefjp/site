@@ -111,7 +111,7 @@ constexpr size_t strlen(char const* s) {
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`std::is_constant_evaluated()`](/reference/type_traits/is_constant_evaluated.md)
-- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md)
 
 
 ## 参照

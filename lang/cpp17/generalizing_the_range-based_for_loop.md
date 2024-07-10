@@ -1,4 +1,4 @@
-# 範囲 for ループの制限緩和 [P0184R0]
+# 範囲for文のイテレータ型が一致しないことを許可 [P0184R0]
 * cpp17[meta cpp]
 
 <!-- start lang caution -->

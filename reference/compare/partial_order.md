@@ -160,7 +160,7 @@ true
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 - [`weak_order`](weak_order.md)
 - [`partial_ordering`](partial_ordering.md)
 - [`compare_partial_order_fallback`](compare_partial_order_fallback.md)

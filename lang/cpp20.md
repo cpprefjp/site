@@ -11,7 +11,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [一貫比較](cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする |
+| [`<=>`/`==`による比較演算子の自動定義](cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする |
 | [ビットフィールドのメンバ変数初期化](cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する |
 | [関数を条件付きで`explicit`にする構文を追加](cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする |
 | [`const`修飾されたメンバポインタの制限を修正](cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する |
@@ -99,7 +99,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | [定数式からの仮想関数の呼び出しを許可](cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 |
 | [定数式での`dynamic_cast`、多態的な`typeid`を許可](cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md) | 定数式での動的多態を許可 |
 | [constexpr関数内でのtry-catchブロックを許可](cpp20/try-catch_blocks_in_constexpr_functions.md) | constexpr関数内で`try-catch`ブロックを書けるようにする |
-| [即時関数](cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする |
+| [常に定数式評価する`consteval`](cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする |
 | [定数式内での共用体のアクティブメンバの変更を許可](cpp20/changing_the_active_member_of_a_union_inside_constexpr.md) | 共用体メンバの書き換えを定数式内で行えるようにする |
 | [constexpr関数内でのトリビアルなデフォルト初期化を許可](cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する |
 | [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 |
