@@ -1,4 +1,4 @@
-# constexprの制限緩和 [N3652]
+# `constexpr`関数内での条件分岐とループの文を許可 [N3652]
 * cpp14[meta cpp]
 
 <!-- start lang caution -->

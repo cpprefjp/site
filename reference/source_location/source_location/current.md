@@ -113,7 +113,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
-- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md)
 
 ## 参照
 

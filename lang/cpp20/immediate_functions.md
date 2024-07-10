@@ -1,4 +1,4 @@
-# 即時関数 [P1073R3]
+# 常に定数式評価する`consteval` [P1073R3]
 
 * cpp20[meta cpp]
 

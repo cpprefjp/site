@@ -17,7 +17,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 
 | マクロ名 | 値 | 機能 |
 |----------|----|------|
-| `__cpp_hex_float`                            | `201603` | [十六進浮動小数点数リテラル](hexadecimal_floating_literals.md) |
+| `__cpp_hex_float`                            | `201603` | [16進浮動小数点数リテラル](hexadecimal_floating_literals.md) |
 | `__cpp_inline_variables`                     | `201606` | [インライン変数](inline_variables.md) |
 | `__cpp_aligned_new`                          | `201606` | [アライメント指定されたデータの動的メモリ確保](dynamic_memory_allocation_for_over-aligned_data.md) |
 | `__cpp_guaranteed_copy_elision`              | `201606` | [値のコピー省略を保証](guaranteed_copy_elision.md) |

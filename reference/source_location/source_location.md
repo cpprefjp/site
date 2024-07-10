@@ -97,7 +97,7 @@ C言語から引き継いだ定義済みマクロ`__LINE__`、`__FILE__`や[事�
 ## 関連項目
 
 - [C++11 事前定義識別子`__func__`](/lang/cpp11/func.md)
-- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md)
 
 ## 参照
 

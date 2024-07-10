@@ -109,7 +109,7 @@ constexpr int k(int) {  // k<int>は即時関数ではない
 
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
-- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md)
 
 
 ## 参照

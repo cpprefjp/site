@@ -22,14 +22,14 @@
 |`__cpp_constexpr`|`201907L`<br/>`202002L`|[定数式からの仮想関数の呼び出しを許可](allow_virtual_function_calls_in_constant_expressions.md)<br/>[定数式での`dynamic_cast`、多態的な`typeid`を許可](allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md)<br/>[constexpr関数内でのtry-catchブロックを許可](try-catch_blocks_in_constexpr_functions.md)<br/>[定数式内での共用体のアクティブメンバの変更を許可](changing_the_active_member_of_a_union_inside_constexpr.md)<br/>[constexpr関数内でのトリビアルなデフォルト初期化を許可](permitting_trivial_default_initialization_in_constexpr_contexts.md)<br/>[constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)|
 |`__cpp_constexpr_dynamic_alloc`|`201907L`|[可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md)|
 |`__cpp_constexpr_in_decltype`|`201711L`|[評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](less_eager_instantiation_of_constexpr_functions.md)|
-|`__cpp_consteval`|`201811L`|[即時関数](immediate_functions.md)|
+|`__cpp_consteval`|`201811L`|[常に定数式評価する`consteval`](immediate_functions.md)|
 |`__cpp_constinit`|`201907L`|[コンパイル時初期化を強制する`constinit`キーワードを追加](constinit.md)|
 |`__cpp_deduction_guides`|`201907L`|[集成体クラステンプレートのテンプレート引数推論](class_template_argument_deduction_for_aggregates.md)<br/>[エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](class_template_argument_deduction_for_alias_templates.md)|
 |`__cpp_designated_initializers`|`201707L`|[指示付き初期化](designated_initialization.md)|
 |`__cpp_generic_lambdas`|`201707L`|[ジェネリックラムダのテンプレート構文](familiar_template_syntax_for_generic_lambdas.md)|
 |`__cpp_impl_coroutine`|`201902L`|[コルーチン](coroutines.md)|
 |`__cpp_impl_destroying_delete`|`201806L`|[可変長データを扱うクラスの効率的な`delete`](efficient_sized_delete_for_variable_sized_classes.md)|
-|`__cpp_impl_three_way_comparison`|`201907L`|[一貫比較](consistent_comparison.md)|
+|`__cpp_impl_three_way_comparison`|`201907L`|[`<=>`/`==`による比較演算子の自動定義](consistent_comparison.md)|
 |`__cpp_init_captures`|`201803L`|[ラムダ式の初期化キャプチャでのパック展開を許可](allow_pack_expansion_in_lambda_init_capture.md)|
 |`__cpp_modules`|`201907L`|[モジュール](modules.md)|
 |`__cpp_nontype_template_args`|`201911L`|[非型テンプレートパラメータとしてクラス型を許可する](class_types_in_non-type_template_parameters.md)|
