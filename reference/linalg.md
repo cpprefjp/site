@@ -50,7 +50,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | `ExecutionPolicy` | `is_execution_policy<ExecutionPolicy>::value == true` |
 | `Real` | `complex<Real>`が規定できる型 |
 | `Triangle` | `upper_triangle_t`または`lower_triangle_t` |
-| `DiagonalStorage` | `implicit_unit_diagonal_t`または`implicit_unit_diagonal_t` |
+| `DiagonalStorage` | `implicit_unit_diagonal_t`または`explicit_diagonal_t` |
 
 
 ## BLAS 1アルゴリズム
@@ -101,7 +101,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`matrix_product`](linalg/matrix_product.md) | xGEMM: 2つの一般行列の積を求める (function template) | C++26 |
 | [`symmetric_matrix_product`](linalg/symmetric_matrix_product.md) | xSYMM: 対称行列と行列の積を求める (function template) | C++26 |
 | [`hermitian_matrix_product`](linalg/hermitian_matrix_product.md) | xHEMM: ハミルトニアン行列と行列の積を求める (function template) | C++26 |
-| `triangular_matrix_product` | xTRMM: 三角行列と行列の積を求める (function template) | C++26 |
+| [`triangular_matrix_product`](linalg/triangular_matrix_product.md) | xTRMM: 三角行列と行列の積を求める (function template) | C++26 |
 | `triangular_matrix_left_product` | xTRMM: In-placeに三角行列と行列の積を求める (function template) | C++26 |
 | `triangular_matrix_right_product` | xTRMM: In-placeに三角行列と行列の積を求める (function template) | C++26 |
 | `symmetric_matrix_rank_k_update` | xSYRK: 対称行列のRank-k更新 (function template) | C++26 |
