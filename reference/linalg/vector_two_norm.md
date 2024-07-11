@@ -37,14 +37,14 @@ namespace std::linalg {
 
 
 ## 適格要件
-- (1), (2): `decltype(init + `[`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
+- (1), (2): `decltype(init +` [`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 効果
-- (3), (4): `T`を`decltype(abs-if-needed(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`とすると、
-  + (3): `vector_two_norm(v, T{})`を返す。
-  + (4): `vector_two_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
+- (3), (4): `T`を`decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`とすると、
+    + (3): `vector_two_norm(v, T{})`を返す。
+    + (4): `vector_two_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
 
 
 ## 戻り値
@@ -55,13 +55,13 @@ $$
 $$
 
 
-- (3), (4): `T`を`decltype(abs-if-needed(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`とすると、
-  + (3): `vector_two_norm(v, T{})`を返す。
-  + (4): `vector_two_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
+- (3), (4): `T`を`decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`とすると、
+    + (3): `vector_two_norm(v, T{})`を返す。
+    + (4): `vector_two_norm(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
 
 
 ## 備考
-- (1), (2): もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または`std::complex`の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
+- (1), (2): もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または[`std::complex`](/reference/complex/complex.md)の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
 
 
 ## 例
@@ -95,7 +95,7 @@ int main()
   return 0;
 }
 ```
-
+* std::linalg::vector_two_norm[color ff0000]
 
 ### 出力
 ```

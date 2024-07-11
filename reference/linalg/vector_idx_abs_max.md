@@ -32,16 +32,18 @@ namespace std::linalg {
 
 ## 戻り値
 - (1), (2): `N`を`v`の次元`v.extent(0)`とすると、以下を返す。
-  1. もし`N`が0なら`std::numeric_limits<typename InVec::size_type>::max()`
-  2. そうでない場合、もし`InVec::value_type`が算術型なら絶対値が最大の最初の`v`の成分のインデックス。つまり、
-  $$
-  \argmax_{i = 0, \dots, N - 1} |\verb|v[|i\verb|]||
-  $$
-  3. そうでない場合、
+    + もし`N`が0なら[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<typename InVec::size_type>::max()`
+    + そうでない場合、もし`InVec::value_type`が算術型なら絶対値が最大の最初の`v`の成分のインデックス。つまり、
 
-  $$
-  \argmax_{i = 0, \dots, N - 1}\left\{|\mathrm{Re}(\verb|v[|i\verb|]|)| + |\mathrm{Im}(\verb|v[|i\verb|]|)|\right\}
-  $$
+$$
+\argmax_{i = 0, \dots, N - 1} |\verb|v[|i\verb|]||
+$$
+
+    + そうでない場合、
+
+$$
+\argmax_{i = 0, \dots, N - 1}\left\{|\mathrm{Re}(\verb|v[|i\verb|]|)| + |\mathrm{Im}(\verb|v[|i\verb|]|)|\right\}
+$$
 
 
 ## 例
@@ -73,7 +75,7 @@ int main()
   return 0;
 }
 ```
-
+* std::linalg::vector_idx_abs_max[color ff0000]
 
 ### 出力
 ```

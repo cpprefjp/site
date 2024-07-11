@@ -45,7 +45,7 @@ namespace std::linalg {
 
 ## 適格要件
 - 共通:
-  + [`compatible-static-extents`](compatible-static-extents.md)`<InVec1, InVec2>(0, 0)`が`true` (2つのベクトルの静的な要素数が同じ)
+    + [`compatible-static-extents`](compatible-static-extents.md)`<InVec1, InVec2>(0, 0)`が`true` (2つのベクトルの静的な要素数が同じ)
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
@@ -58,8 +58,8 @@ namespace std::linalg {
 ## 効果
 - (1), (2): なし
 - (3), (4): `T`を各ベクトルの値型の積の型`decltype(declval<typename InVec1::value_type>() * declval<typename InVec2::value_type>())`とする。
-  + (3): `dot(v1, v2, T{})`を返す。
-  + (4): `dot(std::forward<ExecutionPolicy>(exec), v1, v2, T{})`を返す。
+    + (3): `dot(v1, v2, T{})`を返す。
+    + (4): `dot(std::forward<ExecutionPolicy>(exec), v1, v2, T{})`を返す。
 
 
 ## 戻り値
@@ -77,7 +77,7 @@ $$
 
 
 ## 備考
-- (1), (2): もし`InVec1::value_type`、`InVec2::value_type`、`Scalar`が全て浮動小数点数型または`std::complex`の特殊化で、`Scalar`が`InVec1::value_type`と`InVec2::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
+- (1), (2): もし`InVec1::value_type`、`InVec2::value_type`、`Scalar`が全て浮動小数点数型または[`std::complex`](/reference/complex/complex.md)の特殊化で、`Scalar`が`InVec1::value_type`と`InVec2::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
 
 
 ## 例

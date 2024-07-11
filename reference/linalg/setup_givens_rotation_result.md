@@ -21,13 +21,15 @@ namespace std::linalg {
   };
 }
 ```
+* complex[link /reference/complex/complex.md]
+
 
 ## 概要
 ギブンス回転の結果を表すクラス。詳しくは、[`setup_givens_rotation`](setup_givens_rotation.md)にて。
 
 
 ## 適格要件
-- `Real`は`complex<Real>`が規定できる型であること。
+- `Real`は[`complex`](/reference/complex/complex.md)`<Real>`が規定できる型であること。
 
 
 ## 例

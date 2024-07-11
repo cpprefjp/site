@@ -50,6 +50,7 @@ namespace std::linalg {
     complex<Real> s); // (4)
 }
 ```
+* complex[link /reference/complex/complex.md]
 
 
 ## 概要
@@ -73,8 +74,8 @@ $$
 
 ## 適格要件
 - 共通:
-  + `Real`が`complex<Real>`を規定できる型であること
-  + [`compatible-static-extents`](/reference/linalg/compatible-static-extents.md)`<InOutVec1, InOutVec2>(0,0) == true`
+    + `Real`が[`complex`](/reference/complex/complex.md)`<Real>`を規定できる型であること
+    + [`compatible-static-extents`](/reference/linalg/compatible-static-extents.md)`<InOutVec1, InOutVec2>(0,0) == true`
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 

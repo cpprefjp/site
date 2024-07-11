@@ -43,9 +43,9 @@ namespace std::linalg {
 
 
 ## 効果
-- (3), (4): `T`を`decltype(abs-if-needed(declval<typename InMat::value_type>()))`とすると、
-  + (3): `matrix_one_norm(A, T{})`を返す。
-  + (4): `matrix_one_norm(std::forward<ExecutionPolicy>(exec), A, T{})`を返す。
+- (3), (4): `T`を`decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InMat::value_type>()))`とすると、
+    + (3): `matrix_one_norm(A, T{})`を返す。
+    + (4): `matrix_one_norm(std::forward<ExecutionPolicy>(exec), A, T{})`を返す。
 
 
 ## 戻り値
@@ -57,13 +57,13 @@ $$
 \verb|init| + \max_{j = 0, \dots ,n - 1}\sum_{i = 0}^{m - 1} |\verb|A[|i, j\verb|]||
 $$
 
-- (3), (4): `T`を`decltype(abs-if-needed(declval<typename InMat::value_type>()))`とすると、
-  + (3): `matrix_one_norm(A, T{})`を返す。
-  + (4): `matrix_one_norm(std::forward<ExecutionPolicy>(exec), A, T{})`を返す。
+- (3), (4): `T`を`decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InMat::value_type>()))`とすると、
+    + (3): `matrix_one_norm(A, T{})`を返す。
+    + (4): `matrix_one_norm(std::forward<ExecutionPolicy>(exec), A, T{})`を返す。
 
 
 ## 備考
-- (1), (2): もし`InMat::value_type`と`Scalar`がどちらも浮動小数点数型または`std::complex`の特殊化で、`Scalar`が`InMat::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
+- (1), (2): もし`InMat::value_type`と`Scalar`がどちらも浮動小数点数型または[`std::complex`](/reference/complex/complex.md)の特殊化で、`Scalar`が`InMat::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
 
 
 ## 例
@@ -100,7 +100,7 @@ int main()
   return 0;
 }
 ```
-
+* std::linalg::matrix_one_norm[color ff0000]
 
 ### 出力
 ```

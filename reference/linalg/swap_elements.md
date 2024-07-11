@@ -30,6 +30,7 @@ namespace std::linalg {
 
 ## テンプレートパラメータ制約
 `x`と`y`の次元が等しくなければならない。
+
 - `x.rank() == y.rank()`
 
 
@@ -40,6 +41,7 @@ namespace std::linalg {
 
 ## 事前条件
 `x`と`y`の各次元の要素数が等しくなければならない。
+
 - `x.extents() == y.extents()`
 
 

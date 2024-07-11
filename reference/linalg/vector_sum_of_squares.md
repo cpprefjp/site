@@ -22,6 +22,7 @@ namespace std::linalg {
     sum_of_squares_result<Scalar> init); // (2)
 }
 ```
+* sum_of_squares_result[link sum_of_squares_result.md]
 
 
 ## 概要
@@ -33,6 +34,7 @@ namespace std::linalg {
     return std::pow(result.scaling_factor, 2) * result.scaled_sum_of_squares;
   }
 ```
+* sum_of_squares_result[link sum_of_squares_result.md]
 
 を定義すると、以下の式が成り立つように計算する。
 
@@ -49,19 +51,19 @@ $$
 
 
 ## 効果
-- (1): 以下の条件を満たす`sum_of_squares_result<Scalar>`型の値`result`を返す。
-  + `result.scaling_factor`が`init.scaling_factor`と$\max_{i = 0, \dots, n - 1}|\verb|v[|i\verb|]||$の最大値。ただし、`n`は`v`の次元である。
-  + 概要に記載した式を満たす。
+- (1): 以下の条件を満たす[`sum_of_squares_result`](sum_of_squares_result.md)`<Scalar>`型の値`result`を返す。
+    + `result.scaling_factor`が`init.scaling_factor`と$\max_{i = 0, \dots, n - 1}|\verb|v[|i\verb|]||$の最大値。ただし、`n`は`v`の次元である。
+    + 概要に記載した式を満たす。
 - (2): (1)の並列アルゴリズム版。
 
 
 ## 戻り値
-`sum_of_squares_result<Scalar>`
+[`sum_of_squares_result`](sum_of_squares_result.md)`<Scalar>`
 
 
 ## 備考
 - `init.scaled_sum_of_squares`は0以上でなければならない。
-- もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または`std::complex`の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
+- もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または[`std::complex`](/reference/complex/complex.md)の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
 
 
 ## 例
@@ -109,7 +111,8 @@ int main()
   return 0;
 }
 ```
-
+* std::linalg::vector_sum_of_squares[color ff0000]
+* std::linalg::sum_of_squares_result[link sum_of_squares_result.md]
 
 ### 出力
 ```

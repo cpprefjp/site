@@ -9,13 +9,16 @@
 ```cpp
 namespace std::linalg {
   template<class Real>
-  setup_givens_rotation_result<Real> setup_givens_rotation(Real a, Real b) noexcept; // (1)
+  setup_givens_rotation_result<Real>
+    setup_givens_rotation(Real a, Real b) noexcept; // (1)
 
   template<class Real>
-  setup_givens_rotation_result<complex<Real>> setup_givens_rotation(complex<Real> a, complex<Real> b) noexcept; // (2)
+  setup_givens_rotation_result<complex<Real>>
+    setup_givens_rotation(complex<Real> a, complex<Real> b) noexcept; // (2)
 }
 ```
-
+* setup_givens_rotation_result[link setup_givens_rotation_result.md]
+* complex[link /reference/complex/complex.md]
 
 ## 概要
 ギブンス回転を計算する。すなわち、以下の式が成り立つような、`Real`型の値`c`と `s`, `r`を計算する。
@@ -53,7 +56,7 @@ $$
 
 
 ## 適格要件
-- `Real`は`complex<Real>`が規定できる型であること。
+- `Real`は[`complex`](/reference/complex/complex.md)`<Real>`が規定できる型であること。
 
 
 ## 戻り値

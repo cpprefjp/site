@@ -37,25 +37,25 @@ namespace std::linalg {
 
 
 ## 適格要件
-- (1), (2): `decltype(init + `[`abs-if-needed`](abs-if-needed.md)`(`[`real-if-needed`](real-if-needed.md)`(declval<typename InVec::value_type>())) + abs-if-needed(`[`imag-if-needed`](imag-if-needed.md)`(declval<typename InVec::value_type>())))`が`Scalar`に変換可能。
+- (1), (2): `decltype(init +` [`abs-if-needed`](abs-if-needed.md)`(`[`real-if-needed`](real-if-needed.md)`(declval<typename InVec::value_type>())) + abs-if-needed(`[`imag-if-needed`](imag-if-needed.md)`(declval<typename InVec::value_type>())))`が`Scalar`に変換可能。
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 ## 効果
 - (3), (4): `T`を`typename InVec::value_type`とすると、
-  + (3): `vector_abs_sum(v, T{})`を返す。
-  + (4): `vector_abs_sum(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
+    + (3): `vector_abs_sum(v, T{})`を返す。
+    + (4): `vector_abs_sum(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
 
 
 ## 戻り値
 - (1), (2): `N`を`v`の次元`v.extent(0)`とすると、以下を返す。
-  1. もし`N`が0なら`init`
-  2. そうでない場合、もし`InVec::value_type`が算術型なら以下の式の値
+    - もし`N`が0なら`init`
+    - そうでない場合、もし`InVec::value_type`が算術型なら以下の式の値
 
 $$
 \sum_{i = 0}^{N - 1} |\verb|v[|i\verb|]|| + \verb|init|
 $$
 
-  3. そうでない場合、以下の式の値
+    - そうでない場合、以下の式の値
 
 $$
 \sum_{i = 0}^{N - 1} \left\{|\mathrm{Re}(\verb|v[|i\verb|]|)| + |\mathrm{Im}(\verb|v[|i\verb|]|)|\right\} + \verb|init|
@@ -63,12 +63,12 @@ $$
 
 
 - (3), (4): `T`を`typename InVec::value_type`とすると、
-  + (3): `vector_abs_sum(v, T{})`を返す。
-  + (4): `vector_abs_sum(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
+    + (3): `vector_abs_sum(v, T{})`を返す。
+    + (4): `vector_abs_sum(std::forward<ExecutionPolicy>(exec), v, T{})`を返す。
 
 
 ## 備考
-- (1), (2): もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または`std::complex`の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
+- (1), (2): もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または[`std::complex`](/reference/complex/complex.md)の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
 
 
 ## 例
@@ -102,7 +102,7 @@ int main()
   return 0;
 }
 ```
-
+* std::linalg::vector_abs_sum[color ff0000]
 
 ### 出力
 ```

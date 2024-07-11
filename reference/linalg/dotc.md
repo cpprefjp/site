@@ -45,7 +45,7 @@ namespace std::linalg {
 
 ## 適格要件
 - 共通:
-  + [`compatible-static-extents`](compatible-static-extents.md)`<InVec1, InVec2>(0, 0)`が`true` (2つのベクトルの静的な要素数が同じ)
+    + [`compatible-static-extents`](compatible-static-extents.md)`<InVec1, InVec2>(0, 0)`が`true` (2つのベクトルの静的な要素数が同じ)
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
@@ -57,10 +57,10 @@ namespace std::linalg {
 
 ## 効果
 - (1): [`dot`](dot.md)`(`[`conjugated`](conjugated.md)`(v1), v2, init)`を返す。
-- (2): `dot(std::forward<ExecutionPolicy>(exec), conjugated(v1), v2, init)`を返す。
-- (3), (4): `T`を各ベクトルの値型の積の型`decltype(conj-if-needed(declval<typename InVec1::value_type>()) * declval<typename InVec2::value_type>())`とする。
-  + (3): `dotc(v1, v2, T{})`を返す。
-  + (4): `dotc(std::forward<ExecutionPolicy>(exec), v1, v2, T{})`を返す。
+- (2): [`dot`](dot.md)`(std::forward<ExecutionPolicy>(exec),` [`conjugated`](conjugated.md)`(v1), v2, init)`を返す。
+- (3), (4): `T`を各ベクトルの値型の積の型`decltype(`[`conj-if-needed`](conj-if-needed.md)`(declval<typename InVec1::value_type>()) * declval<typename InVec2::value_type>())`とする。
+    + (3): `dotc(v1, v2, T{})`を返す。
+    + (4): `dotc(std::forward<ExecutionPolicy>(exec), v1, v2, T{})`を返す。
 
 
 ## 戻り値
@@ -114,7 +114,7 @@ int main()
   return 0;
 }
 ```
-
+* std::linalg::dotc[color ff0000]
 
 ### 出力
 ```
