@@ -1,4 +1,4 @@
-# vector_abs_sum
+# vector_idx_abs_sum
 
 * [mathjax enable]
 * linalg[meta header]
