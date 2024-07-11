@@ -102,7 +102,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`symmetric_matrix_product`](linalg/symmetric_matrix_product.md) | xSYMM: 対称行列と行列の積を求める (function template) | C++26 |
 | [`hermitian_matrix_product`](linalg/hermitian_matrix_product.md) | xHEMM: ハミルトニアン行列と行列の積を求める (function template) | C++26 |
 | [`triangular_matrix_product`](linalg/triangular_matrix_product.md) | xTRMM: 三角行列と行列の積を求める (function template) | C++26 |
-| `triangular_matrix_left_product` | xTRMM: In-placeに三角行列と行列の積を求める (function template) | C++26 |
+| [`triangular_matrix_left_product`](linalg/triangular_matrix_left_product.md) | xTRMM: In-placeに三角行列と行列の積を求める (function template) | C++26 |
 | `triangular_matrix_right_product` | xTRMM: In-placeに三角行列と行列の積を求める (function template) | C++26 |
 | `symmetric_matrix_rank_k_update` | xSYRK: 対称行列のRank-k更新 (function template) | C++26 |
 | `hermitian_matrix_rank_k_update` | xHERK: ハミルトニアン行列のRank-k更新 (function template) | C++26 |
