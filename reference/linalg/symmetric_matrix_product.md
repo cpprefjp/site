@@ -139,8 +139,8 @@ namespace std::linalg {
 ## 事前条件
 - 共通
   + [`multipliable`](multipliable.md)`(A, B, C) == true`
-- (1), (2), (5), (6): [`A.extent(0) == A.extent(1)`]
-- (3), (4), (7), (8): [`B.extent(0) == B.extent(1)`]
+- (1), (2), (5), (6): `A.extent(0) == A.extent(1)`
+- (3), (4), (7), (8): `B.extent(0) == B.extent(1)`
 - (5), (6), (7), (8): [`addable`](addable.md)`(E, E, C) == true`
 
 
