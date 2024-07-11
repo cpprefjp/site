@@ -107,7 +107,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 <div style="text-align: center"><a href="https://www.pegasys-inc.com/"><img src="https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png" alt="pegasys" width="320"/></a></div>
 
-<div style="text-align: center"><a href="https://www.techarts.co.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/technical_arts/TechnicalArtsLogo3.png" alt="technical arts" width="320"/></a></div>
+<div style="text-align: center"><a href="https://www.techarts.co.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/technical_arts/TechnicalArtsLogo3.png" alt="technical arts" width="400"/></a></div>
 
 
 ### ブロンズスポンサー
