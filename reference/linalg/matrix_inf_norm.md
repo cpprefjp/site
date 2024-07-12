@@ -50,8 +50,8 @@ namespace std::linalg {
 
 ## 戻り値
 - (1), (2): `A`が $m \times n$ 行列とすると、以下の値を返す。
-  1. もし、`m`が0なら`init`
-  2. そうでないなら、以下の式の値
+    1. もし、`m`が0なら`init`
+    2. そうでないなら、以下の式の値
 
 $$
 \verb|init| + \max_{i = 0, \dots ,m - 1}\sum_{j = 0}^{n - 1} |\verb|A[|i, j\verb|]||
