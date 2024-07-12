@@ -364,7 +364,7 @@ constexpr_if (condition)
 constexpr_else
   statement
 
-// P0128R0
+// P0128R1
 constexpr if (condition)
   statement
 constexpr_else constexpr if (condition)
