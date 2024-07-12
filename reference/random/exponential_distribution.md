@@ -79,6 +79,7 @@ $$ p(x \mid \lambda) = \lambda e^{-\lambda x} $$
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <random>
 #include <fstream>
@@ -102,7 +103,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link exponential_distribution/op_call.md]
 
-### 出力
+#### 出力
 ```
 ```
 
@@ -110,14 +111,77 @@ int main()
 
 ![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/exponential_distribution/exponential_distribution.png)
 
+### コールセンターに電話がかかってくる時間間隔をシミュレート
+```cpp example
+#include <iostream>
+#include <random>
+
+int main() {
+  // 平均的に1時間に30回（1回あたり2分間隔）の電話がかかってくる
+  double average_calls_per_hour = 30.0;
+
+  std::random_device seed_gen;
+  std::default_random_engine engine{seed_gen()};
+
+  // 指数分布を定義 (平均値は1/lambdaで定義されるため逆数をとる)
+  std::exponential_distribution<double> dist{average_calls_per_hour / 60.0};
+
+  // 1時間分の電話の間隔をシミュレート
+  double time = 0;
+  while (time < 60) {
+    double wait_time = dist(engine);
+    time += wait_time;
+    if (time < 60) {
+      std::cout << "Phone call after " << wait_time << " minute wait\n";
+    }
+  }
+}
+```
+* std::exponential_distribution[color ff0000]
+* dist(engine)[link exponential_distribution/op_call.md]
+
+#### 出力例
+```
+Phone call after 0.118293 minute wait
+Phone call after 2.67793 minute wait
+Phone call after 3.46596 minute wait
+Phone call after 1.58166 minute wait
+Phone call after 0.704957 minute wait
+Phone call after 2.09809 minute wait
+Phone call after 0.168292 minute wait
+Phone call after 1.05299 minute wait
+Phone call after 3.4055 minute wait
+Phone call after 1.06941 minute wait
+Phone call after 4.99887 minute wait
+Phone call after 3.4023 minute wait
+Phone call after 3.37294 minute wait
+Phone call after 1.69335 minute wait
+Phone call after 1.21446 minute wait
+Phone call after 0.765484 minute wait
+Phone call after 0.590176 minute wait
+Phone call after 0.0506416 minute wait
+Phone call after 1.64168 minute wait
+Phone call after 1.93174 minute wait
+Phone call after 0.903994 minute wait
+Phone call after 3.06768 minute wait
+Phone call after 2.37803 minute wait
+Phone call after 0.597241 minute wait
+Phone call after 1.67885 minute wait
+Phone call after 0.756916 minute wait
+Phone call after 2.09694 minute wait
+Phone call after 1.22043 minute wait
+Phone call after 3.05816 minute wait
+Phone call after 3.10884 minute wait
+Phone call after 2.60918 minute wait
+```
+
 ## バージョン
 ### 言語
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 
+- [Clang](/implementation.md#clang): 7.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
-- [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ### 参考
