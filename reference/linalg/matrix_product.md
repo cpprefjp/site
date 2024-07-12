@@ -164,7 +164,6 @@ int main()
 ```
 * .extent[link /reference/mdspan/extents/extent.md]
 * std::mdspan[link /reference/mdspan/mdspan.md]
-* std::extents[link /reference/mdspan/extents.md]
 * std::execution::par[link /reference/execution/execution/execution_policy.md]
 
 
