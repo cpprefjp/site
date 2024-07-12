@@ -1,4 +1,4 @@
-# sum_of_squares_result
+# vector_sum_of_squares
 
 * [mathjax enable]
 * linalg[meta header]

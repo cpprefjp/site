@@ -48,18 +48,18 @@ namespace std::linalg {
 
 ## 戻り値
 - (1), (2): `N`を`v`の次元`v.extent(0)`とすると、以下を返す。
-    - もし`N`が0なら`init`
-    - そうでない場合、もし`InVec::value_type`が算術型なら以下の式の値
+    + もし`N`が0なら`init`
+    + そうでない場合、もし`InVec::value_type`が算術型なら以下の式の値
 
-$$
-\sum_{i = 0}^{N - 1} |\verb|v[|i\verb|]|| + \verb|init|
-$$
+    $$
+    \sum_{i = 0}^{N - 1} |\verb|v[|i\verb|]|| + \verb|init|
+    $$
 
-    - そうでない場合、以下の式の値
+    + そうでない場合、以下の式の値
 
-$$
-\sum_{i = 0}^{N - 1} \left\{|\mathrm{Re}(\verb|v[|i\verb|]|)| + |\mathrm{Im}(\verb|v[|i\verb|]|)|\right\} + \verb|init|
-$$
+    $$
+    \sum_{i = 0}^{N - 1} \left\{|\mathrm{Re}(\verb|v[|i\verb|]|)| + |\mathrm{Im}(\verb|v[|i\verb|]|)|\right\} + \verb|init|
+    $$
 
 
 - (3), (4): `T`を`typename InVec::value_type`とすると、

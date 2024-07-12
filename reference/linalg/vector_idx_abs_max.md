@@ -35,15 +35,15 @@ namespace std::linalg {
     + もし`N`が0なら[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<typename InVec::size_type>::max()`
     + そうでない場合、もし`InVec::value_type`が算術型なら絶対値が最大の最初の`v`の成分のインデックス。つまり、
 
-$$
-\argmax_{i = 0, \dots, N - 1} |\verb|v[|i\verb|]||
-$$
+    $$
+    \mathop{\mathrm{argmax}}\limits_{i = 0, \dots, N - 1} |\verb|v[|i\verb|]||
+    $$
 
     + そうでない場合、
 
-$$
-\argmax_{i = 0, \dots, N - 1}\left\{|\mathrm{Re}(\verb|v[|i\verb|]|)| + |\mathrm{Im}(\verb|v[|i\verb|]|)|\right\}
-$$
+    $$
+    \mathop{\mathrm{argmax}}\limits_{i = 0, \dots, N - 1}\left\{|\mathrm{Re}(\verb|v[|i\verb|]|)| + |\mathrm{Im}(\verb|v[|i\verb|]|)|\right\}
+    $$
 
 
 ## 例
