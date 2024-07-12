@@ -22,7 +22,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^x}{x!} $$
 この数式においてμ(mu)は、平均値(mean)である。
 
 
-ポワソン分布は、以下のような用途に使用できる：
+ポワソン分布は、まれにしか起こらない事象が何回起こるかを求めるために使用できる確率分布である。以下のような用途に使用できる：
 
 - ある交差点で1時間に起きる事故の件数
 - 国道1キロメートル当たりのレストランの数
@@ -80,6 +80,7 @@ $$ p(x \mid \mu) = \frac{e^{-\mu} \mu^x}{x!} $$
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <random>
 #include <fstream>
@@ -104,7 +105,7 @@ int main()
 * std::ofstream[link /reference/fstream/basic_ofstream.md]
 * dist(engine)[link poisson_distribution/op_call.md]
 
-### 出力
+#### 出力
 ```
 ```
 
@@ -112,19 +113,58 @@ int main()
 
 ![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/poisson_distribution/poisson_distribution.png)
 
+
+### 地震が1ヶ月に平均1回起こるとして1年間をシミュレート
+```cpp example
+#include <iostream>
+#include <random>
+
+int main() {
+  // 平均的に1ヶ月に1回の地震が起こるとする
+  double average_quakes = 1.0;
+
+  std::random_device seed_gen;
+  std::default_random_engine engine{seed_gen()};
+  std::poisson_distribution<int> dist{average_quakes};
+
+  // 1年間 (12ヶ月) の地震の回数をシミュレート
+  for (int month = 1; month <= 12; ++month) {
+    int quakes = dist(engine);
+    std::cout << "Month " << month << ": " << quakes << " earthquake(s)\n";
+  }
+}
+```
+* std::poisson_distribution[color ff0000]
+* dist(engine)[link poisson_distribution/op_call.md]
+
+#### 出力例
+```
+Month 1: 1 earthquake(s)
+Month 2: 2 earthquake(s)
+Month 3: 2 earthquake(s)
+Month 4: 0 earthquake(s)
+Month 5: 0 earthquake(s)
+Month 6: 1 earthquake(s)
+Month 7: 1 earthquake(s)
+Month 8: 1 earthquake(s)
+Month 9: 2 earthquake(s)
+Month 10: 2 earthquake(s)
+Month 11: 2 earthquake(s)
+Month 12: 1 earthquake(s)
+```
+
 ## バージョン
 ### 言語
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 
+- [Clang](/implementation.md#clang): 7 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
-- [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ### 参考
 - [ポワソン分布 - Wikipedia](https://ja.wikipedia.org/wiki/ポアソン分布)
 - [ポアソン分布 - 統計・データ解析](https://okumuralab.org/~okumura/stat/poisson.html)
 - [ポアソン分布 - NtRand](http://www.ntrand.com/jp/poisson-distribution/)
-
+- [［データ分析］ポアソン分布 ～ 100年に1人の天才は何人現れる？：やさしい確率分布 - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/2407/11/news002.html)
 
