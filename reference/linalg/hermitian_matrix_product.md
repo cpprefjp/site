@@ -124,21 +124,21 @@ namespace std::linalg {
 
 ## 適格要件
 - 共通
-  + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
-  + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(B), decltype(C)>()`が`true`
-- (1), (2), (5), (6):
-  + `InMat1`(`A`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-- (3), (4), (7), (8):
-  + `InMat2`(`B`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(B), decltype(B)>(0, 1)`が`true` (つまり`B`が正方行列であること)
+    + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
+    + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(B), decltype(C)>()`が`true`
+  - (1), (2), (5), (6):
+    + `InMat1`(`A`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
+  - (3), (4), (7), (8):
+    + `InMat2`(`B`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(B), decltype(B)>(0, 1)`が`true` (つまり`B`が正方行列であること)
 - (5), (6), (7), (8): [`possibly-addable`](possibly-addable.md)`<decltype(E),decltype(E),decltype(C)>()`が`true`
 - (2), (4), (6), (8): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
 - 共通
-  + [`multipliable`](multipliable.md)`(A, B, C) == true`
+    + [`multipliable`](multipliable.md)`(A, B, C) == true`
 - (1), (2), (5), (6): `A.extent(0) == A.extent(1)`
 - (3), (4), (7), (8): `B.extent(0) == B.extent(1)`
 - (5), (6), (7), (8): [`addable`](addable.md)`(E, E, C) == true`
@@ -302,7 +302,7 @@ int main()
   return 0;
 }
 ```
-* .extent[link /reference/mdspan/extents/extent.md]
+* A.extent[link /reference/mdspan/extents/extent.md]
 * std::mdspan[link /reference/mdspan/mdspan.md]
 * std::extents[link /reference/mdspan/extents.md]
 * std::linalg::layout_blas_packed[link /reference/linalg/layout_blas_packed.md]

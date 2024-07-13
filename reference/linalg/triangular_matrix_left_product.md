@@ -44,11 +44,11 @@ namespace std::linalg {
 
 ## 適格要件
 - 共通
-  + `DiagonalStorage`が[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
-  + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
-  + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(C), decltype(C)>()`が`true`
-  + `InMat`(`A`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
+    + `DiagonalStorage`が[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
+    + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
+    + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(C), decltype(C)>()`が`true`
+    + `InMat`(`A`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
 - (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
@@ -153,7 +153,7 @@ int main()
   return 0;
 }
 ```
-* .extent[link /reference/mdspan/extents/extent.md]
+* A.extent[link /reference/mdspan/extents/extent.md]
 * std::mdspan[link /reference/mdspan/mdspan.md]
 * std::extents[link /reference/mdspan/extents.md]
 * std::linalg::layout_blas_packed[link /reference/linalg/layout_blas_packed.md]
