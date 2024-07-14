@@ -308,6 +308,7 @@ int main()
 * std::linalg::row_major_t[link /reference/linalg/row_major_t.md]
 * std::linalg::upper_triangle[link /reference/linalg/upper_triangle_t.md]
 * std::execution::par[link /reference/execution/execution/execution_policy.md]
+* std::linalg::symmetric_matrix_product[color ff0000]
 
 
 ### 出力

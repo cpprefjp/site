@@ -374,6 +374,7 @@ int main()
 * std::linalg::upper_triangle[link /reference/linalg/upper_triangle_t.md]
 * std::linalg::implicit_unit_diagonal[link /reference/linalg/implicit_unit_diagonal_t.md]
 * std::execution::par[link /reference/execution/execution/execution_policy.md]
+* std::linalg::triangular_matrix_product[color ff0000]
 
 
 ### 出力
