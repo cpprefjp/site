@@ -134,7 +134,7 @@ int main()
 
   // (1)
   std::cout << "(1)\n";
-  std::linalg::symmetric_matrix_rank_k_update(
+  std::linalg::symmetric_matrix_rank_2k_update(
     A,
     B,
     C,
@@ -144,7 +144,7 @@ int main()
   // (2)
   init_symm_mat(C);
   std::cout << "(2)\n";
-  std::linalg::symmetric_matrix_rank_k_update(
+  std::linalg::symmetric_matrix_rank_2k_update(
     std::execution::par,
     A,
     B,
