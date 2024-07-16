@@ -60,11 +60,11 @@ namespace std {
 
 ## 効果
 - (1) :
-    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
-    - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc =` [`std::move`](/reference/utility/move.md)`(acc) + (*i) * (*j);` の演算を行い、`acc`を返す
+    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
+    - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc =` [`std::move`](/reference/utility/move.md)`(acc) + (*i) * (*j);` の演算を行い、`acc`を返す
 - (2) :
-    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
-    - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(`[`std::move`](/reference/utility/move.md)`(acc), binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
+    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
+    - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = binary_op1(`[`std::move`](/reference/utility/move.md)`(acc), binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
 
 
 ## 戻り値

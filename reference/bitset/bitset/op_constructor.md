@@ -68,7 +68,7 @@ constexpr explicit bitset(
 - (1) : デフォルトコンストラクタ
 - (2) : 整数値を受け取るコンストラクタ
 - (3) : `'0'`と`'1'`の文字で構成される`basic_string`文字列からビット列を構築する
-- (4) : `'0'と`'1'`の文字で構成される`[`basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからビット列を構築する
+- (4) : `'0'`と`'1'`の文字で構成される[`basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからビット列を構築する
 - (5) : `'0'`と`'1'`の文字で構成される文字配列からビット列を構築する
 
 

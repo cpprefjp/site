@@ -126,7 +126,7 @@ int main() {
 | [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
 | [`advance()`](advance.md) | `n`回イテレータを進める |
 | [`ranges::next()`](ranges_next.md) | `n`回あるいは`bound`まで前方に進めたイテレータを返す |
-| [`ranges::advance()`](ranges_advance.md) |`n`回あるいは`boundまで`イテレータを進める |
+| [`ranges::advance()`](ranges_advance.md) |`n`回あるいは`bound`までイテレータを進める |
 
 
 ## 参照

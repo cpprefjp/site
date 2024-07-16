@@ -32,7 +32,7 @@ constexpr T& emplace(std::initializer_list<U> il, Args&&... args); // (2) C++23
 まず、共通の動作として、[`reset()`](reset.md)メンバ関数を呼び出す。
 
 - (1) : 型`T`の有効値を、[`std::forward<Args>`](/reference/utility/forward.md)`(args)...`を引数として構築する
-- (2) : 型`T`の有効値を、`ilと`[`std::forward<Args>`](/reference/utility/forward.md)`(args)...`を引数として構築する
+- (2) : 型`T`の有効値を、`il`と[`std::forward<Args>`](/reference/utility/forward.md)`(args)...`を引数として構築する
 
 
 ## 戻り値
