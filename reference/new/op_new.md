@@ -131,7 +131,7 @@ int main()
     // (3) cl 型変数を動的に作成
     // 確保失敗時にヌルポインタが返される
     cl* p2 = new (std::nothrow) cl();
-    delete p2;  // 通常の delete 式で記憶域を解放する
+    delete p2;  // 配置 delete と言うものはないので、通常の delete 式で記憶域を解放する
 
     // (5) char 配列のスタック領域に、cl 型変数を動的に作成
     // 領域のアライメントに注意
