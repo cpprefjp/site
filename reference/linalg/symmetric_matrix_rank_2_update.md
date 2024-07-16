@@ -128,7 +128,7 @@ int main()
 
   // (1)
   std::cout << "(1)\n";
-  std::linalg::symmetric_matrix_rank_1_update(
+  std::linalg::symmetric_matrix_rank_2_update(
     x,
     y,
     A,
@@ -138,7 +138,7 @@ int main()
   // (2)
   init_mat(A);
   std::cout << "(2)\n";
-  std::linalg::symmetric_matrix_rank_1_update(
+  std::linalg::symmetric_matrix_rank_2_update(
     std::execution::par,
     x,
     y,
@@ -149,6 +149,17 @@ int main()
   return 0;
 }
 ```
+* A.extent[link /reference/mdspan/extents/extent.md]
+* x.extent[link /reference/mdspan/extents/extent.md]
+* y.extent[link /reference/mdspan/extents/extent.md]
+* std::mdspan[link /reference/mdspan/mdspan.md]
+* std::extents[link /reference/mdspan/extents.md]
+* std::linalg::layout_blas_packed[link /reference/linalg/layout_blas_packed.md]
+* std::linalg::upper_triangle_t[link /reference/linalg/upper_triangle_t.md]
+* std::linalg::row_major_t[link /reference/linalg/row_major_t.md]
+* std::linalg::upper_triangle[link /reference/linalg/upper_triangle_t.md]
+* std::execution::par[link /reference/execution/execution/execution_policy.md]
+* std::linalg::symmetric_matrix_rank_2_update[color ff0000]
 
 
 ### 出力

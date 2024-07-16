@@ -65,6 +65,7 @@ $O(\verb|x.extent(0)|\times \verb|y.extent(0)|)$
 
 ```cpp example
 #include <array>
+#include <complex>
 #include <iostream>
 #include <linalg>
 #include <mdspan>
@@ -140,6 +141,13 @@ int main()
   return 0;
 }
 ```
+* A.extent[link /reference/mdspan/extents/extent.md]
+* v.extent[link /reference/mdspan/extents/extent.md]
+* y.extent[link /reference/mdspan/extents/extent.md]
+* std::complex[link /reference/complex/complex.md]
+* std::mdspan[link /reference/mdspan/mdspan.md]
+* std::execution::par[link /reference/execution/execution/execution_policy.md]
+* std::linalg::matrix_rank_1_update[color ff0000]
 
 
 ### 出力
