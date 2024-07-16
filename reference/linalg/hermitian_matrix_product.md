@@ -303,6 +303,7 @@ int main()
 }
 ```
 * A.extent[link /reference/mdspan/extents/extent.md]
+* std::complex[link /reference/complex/complex.md]
 * std::mdspan[link /reference/mdspan/mdspan.md]
 * std::extents[link /reference/mdspan/extents.md]
 * std::linalg::layout_blas_packed[link /reference/linalg/layout_blas_packed.md]
