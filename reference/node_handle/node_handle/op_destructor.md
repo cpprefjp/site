@@ -14,7 +14,7 @@
 
 
 ## 効果
-`ptr_！= nullptr` の場合、`std::allocator_traits<allocator_type>::destroy` を呼び出して `ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトを破棄し、次に `std::allocator_traits<allocator_type>::template rebind_traits<container_node_type>::deallocate` を呼び出して `ptr_` の割り当てを解除する。
+`ptr_ != nullptr` の場合、`std::allocator_traits<allocator_type>::destroy` を呼び出して `ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトを破棄し、次に `std::allocator_traits<allocator_type>::template rebind_traits<container_node_type>::deallocate` を呼び出して `ptr_` の割り当てを解除する。
 
 
 ## 戻り値

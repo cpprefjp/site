@@ -16,12 +16,12 @@ istream_iterator<T, CharT, Traits, Distance> operator++(int);
 
 ## 効果
 前置`operator++`：
-`*in_stream ≫ value;`
+`*in_stream >> value;`
 `return *this;`
 
 後置`operator++`：
 `istream_iterator<T, CharT, Traits, Distance> tmp = *this;`
-`*in_stream ≫ value;`
+`*in_stream >> value;`
 `return tmp;`
 
 ※`in_stream`は、メンバ変数として保持している入力ストリームオブジェクトへのポインタ

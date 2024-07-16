@@ -17,7 +17,7 @@ namespace std {
 
 
 ## 効果
-`os.rdbuf()`が`std::basic_syncbuf<charT、traits、Allocator>*`である場合、これを`buf`とすると、`buf->set_emit_on_sync(false)`を呼び出す。  
+`os.rdbuf()`が`std::basic_syncbuf<charT, traits, Allocator>*`である場合、これを`buf`とすると、`buf->set_emit_on_sync(false)`を呼び出す。  
 それ以外の場合、このマニピュレータは効果がない。
 
 
