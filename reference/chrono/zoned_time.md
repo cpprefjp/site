@@ -116,7 +116,7 @@ int main()
 
   // UTCタイムゾーンのシステム時間を、日本のローカル時間に変換
   chrono::local_time lt = chrono::zoned_time{"Asia/Tokyo", now}.get_local_time();
-  std::cout << "7 : "lt << std::endl;
+  std::cout << "7 : " << lt << std::endl;
 }
 ```
 * chrono::zoned_time[color ff0000]
@@ -206,7 +206,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 

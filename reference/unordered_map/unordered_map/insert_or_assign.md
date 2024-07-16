@@ -21,7 +21,7 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 * pair[link /reference/utility/pair.md]
 
 ## 概要
-引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` の値として要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。
+引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` のキーとして要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。（が、実際に使用されることはないものと思われる。[`emplace_hint`](emplace_hint.md) の備考を参照）
 
@@ -32,8 +32,8 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 
 
 ## 効果
-- (1)、(3) : `Unordered_map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
-- (2)、(4) : `Unordered_map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (1)、(3) : `unordered_map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (2)、(4) : `unordered_map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
 
 
 ## 戻り値
@@ -51,9 +51,9 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 
 
 ## 備考
-- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と等価と考えて問題ないと思われる。
+- 規格にはこの関数の例外安全性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) と等価と考えて問題ないと思われる。
 
-- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`] と等価と考えて問題ないと思われる。
+- 規格にはこの関数が呼ばれた後のイテレータや要素へのポインタ・参照の有効性についての記載が無いが、[`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) と等価と考えて問題ないと思われる。
 
 - このメンバ関数の[`機能テストマクロ`](/lang/cpp17/feature_test_macros.md)は以下の通り。
 
@@ -115,8 +115,8 @@ key = two, value = 42, is inserted = false, is empty = true
 
 ### 処理系
 
-- [Clang](/implementation.md#clang): 3.7.0
-- [GCC](/implementation.md#gcc): 6.1.0
+- [Clang](/implementation.md#clang): 3.7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 6.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -128,7 +128,6 @@ key = two, value = 42, is inserted = false, is empty = true
 | [`emplace`](emplace.md)                   | コンテナ内への要素の直接構築                           |
 | [`emplace_hint`](emplace_hint.md)         | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
 | [`insert`](insert.md)                     | 要素の追加                                             |
-| [`insert_or_assign`](insert_or_assign.md) | 要素の追加、あるいは代入                               |
 | [`erase`](erase.md)                       | 要素の削除                                             |
 | [`clear`](clear.md)                       | 全要素の削除                                           |
 | [`swap`](swap.md)                         | 内容の交換                                             |

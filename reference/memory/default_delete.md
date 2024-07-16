@@ -26,9 +26,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `constexpr default_delete() noexcept=default;`<br/>`template <class U> default_delete()(default_delete<U> const& other) noexcept;` | コンストラクタ。 変換可能な型からのコピーも可能。 | C++11 |
+| `constexpr default_delete() noexcept = default;` | コンストラクタ。 | C++11 |
+| `template<class U> default_delete()(default_delete<U> const& other) noexcept;` | 変換可能な型からのコピーコンストラクタ。 | C++11<br/>C++23からconstexpr指定 |
 | `~default_delete() = default;` | デストラクタ | C++11 |
-| `void operator()(T* ptr) const;` | 関数呼び出し演算子。渡されたポインタ`ptr`を `delete ptr;`で削除する | C++11 |
+| `void operator()(T* ptr) const;` | 関数呼び出し演算子。渡されたポインタ`ptr`を `delete ptr;`で削除する | C++11<br/>C++23からconstexpr指定 |
 
 
 ## 配列版のメンバ関数
@@ -36,10 +37,10 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `constexpr default_delete() noexcept=default;` | デフォルトコンストラクタ。 | C++11|
-| `template <class U> default_delete()(const default_delete<U[]>&) noexcept;` | 変換可能な型からのコピーコンストラクタ。 | C++17 |
+| `template <class U> default_delete()(const default_delete<U[]>&) noexcept;` | 変換可能な型からのコピーコンストラクタ。 | C++17<br/>C++23からconstexpr指定 |
 | `~default_delete() = default;` | デストラクタ | C++11 |
 | `void operator()(T* ptr) const;`<br/>`template <class U>`<br/>`void operator()(U*) const = delete;` | 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する | C++11<br/>C++14まで |
-| `template <class U> void operator()(U* ptr) const;`| 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する。変換可能な型の配列へのポインタも削除可能。 | C++17 |
+| `template <class U> void operator()(U* ptr) const;`| 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する。変換可能な型の配列へのポインタも削除可能。 | C++17<br/>C++23からconstexpr指定 |
 
 
 ## 例
@@ -77,10 +78,10 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.4, 4.7.2
+- [GCC](/implementation.md#gcc): 4.4 [mark verified], 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 
 ## 参照
-
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

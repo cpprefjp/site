@@ -8,7 +8,6 @@ namespace std {
   template <class T>
   bool operator==(const complex<T>& lhs,
                   const complex<T>& rhs);           // (1) C++03
-
   template <class T>
   constexpr bool operator==(const complex<T>& lhs,
                             const complex<T>& rhs); // (1) C++14
@@ -16,15 +15,14 @@ namespace std {
   template <class T>
   bool operator==(const complex<T>& lhs,
                   const T& rhs);                    // (2) C++03
-
   template <class T>
   constexpr bool operator==(const complex<T>& lhs,
                             const T& rhs);          // (2) C++14
 
+  // (2)により、以下のオーバーロードが使用可能になる (C++20)
   template <class T>
   bool operator==(const T& lhs,
                   const complex<T>& rhs);           // (3) C++03
-
   template <class T>
   constexpr bool operator==(const T& lhs,
                             const complex<T>& rhs); // (3) C++14
@@ -40,7 +38,9 @@ namespace std {
 
 
 ## 備考
-引数の型が `const T&` の場合、虚部（[`imag`](imag.md)`()`）は `T()`、あるいは、`0.0` とみなされる。
+- 引数の型が `const T&` の場合、虚部（[`imag`](imag.md)`()`）は `T()`、あるいは、`0.0` とみなされる。
+- この演算子により、以下の演算子が使用可能になる (C++20)：
+    - `operator!=`
 
 
 ## 例
@@ -69,9 +69,6 @@ int main()
 4 == (1,4):false
 ```
 
-## 参照
-- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
-
 
 ## 関連項目
 
@@ -81,3 +78,8 @@ int main()
 | [`real`](real.md)               | 実部を取得、あるいは、設定する。（メンバ関数） |
 | [`imag`](imag.md)               | 虚部を取得、あるいは、設定する。（メンバ関数） |
 
+
+## 参照
+- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

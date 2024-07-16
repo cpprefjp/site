@@ -78,7 +78,6 @@ int main()
 ```
 * std::tie[color ff0000]
 * std::ignore[link ignore.md]
-* std::tuple[link tuple.md]
 
 #### 出力
 ```
@@ -149,9 +148,9 @@ text, b.txt
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008, 2010
+- [Visual C++](/implementation.md#visual_cpp): 2008 [mark verified], 2010 [mark verified]
 
 
 ## 関連項目

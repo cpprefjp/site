@@ -5,9 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-void resize(size_type sz);             // (1) C++11
-void resize(size_type sz, const T& c); // (2) C++11
-void resize(size_type sz, T c = T());  // (1) + (2) C++03
+void resize(size_type sz);                       // (1) C++11
+constexpr void resize(size_type sz);             // (1) C++20
+
+void resize(size_type sz, const T& c);           // (2) C++11
+constexpr void resize(size_type sz, const T& c); // (2) C++20
+
+void resize(size_type sz, T c = T()); // (1) + (2) C++03
 ```
 
 ## 要件
@@ -109,3 +113,4 @@ int main()
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](https://wg21.cmeerw.net/lwg/issue2033)
 - [LWG Issue 2323. `vector::resize(n, t)`'s specification should be simplified](https://wg21.cmeerw.net/lwg/issue2323)
 - [LWG Issue 2160. Unintended destruction ordering-specification of `resize`](https://wg21.cmeerw.net/lwg/issue2160)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

@@ -16,8 +16,8 @@ namespace std {
 
 
 ## 概要
-`placement new`構文を使用して、参照型や`const`データメンバを含む構造体/クラスのオブジェクトを再構築するケースで、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数。
-適切に`std::launder()`を用いることで、ポインタ値の直接利用が未定義動作となってしまう文脈において、参照型や`const`データメンバへの安全なアクセスが可能となる。
+`placement new`構文を使用して、参照型や`const`メンバ変数を含む構造体/クラスのオブジェクトを再構築するケースで、オブジェクト生存期間(lifetime)に基づいた最適化の抑止をコンパイラに伝える関数。
+適切に`std::launder()`を用いることで、ポインタ値の直接利用が未定義動作となってしまう文脈において、参照型や`const`メンバ変数への安全なアクセスが可能となる。
 
 
 ## 要件
@@ -41,12 +41,12 @@ namespace std {
 
 - 新しいオブジェクト用の記憶域は、元のオブジェクトが占めていた記憶域を正確にオーバーレイする。
 - 新しいオブジェクトは元のオブジェクトと同じ型である（最上位の cv 修飾子は無視される）。
-- 元のオブジェクトの型が`const`修飾ではなく、クラス型の場合は、型が`const`修飾または参照型の非静的データメンバを含まない。
+- 元のオブジェクトの型が`const`修飾ではなく、クラス型の場合は、型が`const`修飾または参照型の非静的メンバ変数を含まない。
 - 元のオブジェクトも新しいオブジェクトも、潜在的に重複するサブオブジェクト(potentially-overlapping subobject)ではない。
 
 注：サブオブジェクトとは、あるオブジェクトに含まれている非staticメンバ変数、 基底クラス及び基底クラスのサブオブジェクト、または配列要素、のそれぞれのオブジェクトのことである。
 
-注：潜在的に重複するサブオブジェクト(potentially-overlapping subobject)とは、基底クラスのサブオブジェクト、または no_unique_address 属性(C++20)で宣言された非静的データメンバのいずれかである。
+注：潜在的に重複するサブオブジェクト(potentially-overlapping subobject)とは、基底クラスのサブオブジェクト、または no_unique_address 属性(C++20)で宣言された非静的メンバ変数のいずれかである。
 
 注：基底クラスのサブオブジェクトについて、以下の例ではクラス`Derived2`のオブジェクトは、クラス`Derived`のサブオブジェクト（`b`及び`Base`）を持ち、そのサブオブジェクトはクラス`Base`のサブオブジェクト（`a, b, c`）を持つ。
 
@@ -136,10 +136,10 @@ void tong() {
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 6.0.0
-- [GCC](/implementation.md#gcc): 7.1.0
+- [Clang](/implementation.md#clang): 6.0.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 7
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 7 [mark verified]
 
 
 ## 関連項目

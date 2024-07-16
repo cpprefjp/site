@@ -1,5 +1,13 @@
-# char16_tとchar32_tの文字・文字列リテラルを、文字コードUTF-16/32に規定
+# char16_tとchar32_tの文字・文字列リテラルを、文字コードUTF-16/32に規定 [P1041R4]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++11で追加された文字型[`char16_t`と`char32_t`](/lang/cpp11/char16_32.md)の文字・文字列リテラルの文字コード、C++20からはUTF-16とUTF-32であることが規定される。
@@ -22,7 +30,7 @@ C++20では、無条件にUTF-16とUTF-32であることが規定される。
 実際にはすべての実装でこれらの文字・文字列リテラルはUTF-16とUTF-32にエンコーディングされるため、要件を示すだけではなく、より明確にするために、`char16_t`と`char32_t`の文字・文字列リテラルがUTF-16とUTF-32文字コードであることを規定する。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `char16_t`と`char32_t`](/lang/cpp11/char16_32.md)
 - [C++11 UTF-8文字列リテラル](/lang/cpp11/utf8_string_literals.md)
 - [C++17 UTF-8文字リテラル](/lang/cpp17/utf8_character_literals.md)

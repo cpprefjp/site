@@ -7,10 +7,13 @@
 
 ```cpp
 match_results(const Allocator& a = Allocator());    // (1)
+match_results() : match_results(Allocator()) {}     // (1) C++20
 
-match_results(const match_results& m);              // (2)
+match_results(const Allocator& a);                  // (2) C++20
 
-match_results(match_results&& m) noexcept;          // (3)
+match_results(const match_results& m);              // (3)
+
+match_results(match_results&& m) noexcept;          // (4)
 ```
 
 ## 概要
@@ -18,19 +21,22 @@ match_results(match_results&& m) noexcept;          // (3)
 
 
 ## 要件
-- (3) `Allocator` のムーブコンストラクタは例外で終了しないこと。
+- (4) `Allocator` のムーブコンストラクタは例外で終了しないこと。
 
 
 ## 効果
-- (1) デフォルトコンストラクタ。`match_results` オブジェクトを構築する。
-- (2) コピーコンストラクタ。引数 `m` をコピーした `match_results` オブジェクトを構築する。
-- (3) ムーブコンストラクタ。引数 `m` をムーブした `match_results` オブジェクトを構築する。
+- (1) デフォルトコンストラクタ。
+    - C++17まで : 指定したアロケータ`a`を用いて`match_results` オブジェクトを構築する。
+    - C++20 : アロケータをデフォルト構築して`match_results` オブジェクトを構築する。
+- (2) 指定したアロケータ`a`を用いて`match_results` オブジェクトを構築する。
+- (3) コピーコンストラクタ。引数 `m` をコピーした `match_results` オブジェクトを構築する。
+- (4) ムーブコンストラクタ。引数 `m` をムーブした `match_results` オブジェクトを構築する。
 
 
 ## 事後条件
-- (1) [`ready`](ready.md)`() == false`、かつ、[`size`](size.md)`() == 0`、かつ、[`get_allocator`](get_allocator.md)`() == a`
-- (2) 構築したオブジェクトを `u` とすると、`u == m`
-- (3) 以下の表を満たす。
+- (1)(2) [`ready`](ready.md)`() == false`、かつ、[`size`](size.md)`() == 0`、かつ、[`get_allocator`](get_allocator.md)`() == a`
+- (3) 構築したオブジェクトを `u` とすると、`u == m`
+- (4) 以下の表を満たす。
 
     | 要素                                    | 値                                                                                            |
     |-----------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -46,15 +52,15 @@ match_results(match_results&& m) noexcept;          // (3)
 
 
 ## 計算量
-- (1) 定数時間
-- (2) 線形時間
-- (3) 定数時間
+- (1)(2) 定数時間
+- (3) 線形時間
+- (4) 定数時間
 
 
 ## 備考
-規格では明確ではないものの、(2) の形式でも以下の事後条件を満たすべきであると思われる。
+規格では明確ではないものの、(3) の形式でも以下の事後条件を満たすべきであると思われる。
 
-- (3) の事後条件のアロケータ以外のもの
+- (4) の事後条件のアロケータ以外のもの
 - [`get_allocator`](get_allocator.md)`() ==` [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](../../memory/allocator_traits/select_on_container_copy_construction.md)`(m.`[`get_allocator`](get_allocator.md)`())`
 
 
@@ -87,10 +93,10 @@ int main()
   std::regex_search(s, m1, re);
   print(m1);
 
-  std::cmatch m2(m1);               // (2) の形式
+  std::cmatch m2(m1);               // (3) の形式
   print(m2);
 
-  std::cmatch m3(std::move(m1));    // (3) の形式
+  std::cmatch m3(std::move(m1));    // (4) の形式
   print(m3);
 }
 ```
@@ -139,11 +145,14 @@ suffix:' '
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
 GCC(libstdc++) の 4.9.2 までは、[`regex_iterator`](../regex_iterator.md) を間接参照した結果から (2)、あるいは、(3) の形式で構築した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
+
+## 参照
+
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)

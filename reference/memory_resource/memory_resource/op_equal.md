@@ -19,6 +19,13 @@ namespace std::pmr {
 
 結果が`true`となる場合、`a`で確保したメモリ領域を`b`で解放してもその逆を行っても問題ないことを示す。
 
+## 備考
+
+C++20以降、この演算子により以下の演算子が使用可能になる（制約は使用する`==`に準ずる）。
+
+```cpp
+bool operator!=(const memory_resource& a, const memory_resource& b) noexcept;
+```
 
 ## 例
 ```cpp example
@@ -53,8 +60,8 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 6 [mark verified]
 
 ## 関連項目
 - [`is_equal`](is_equal.md)

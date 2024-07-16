@@ -30,13 +30,13 @@ void splice(const_iterator position, list&& x,
 ## 概要
 他の`list`オブジェクトから、要素を移動する。
 
-- (1), (2) : `position`の指す要素の前に、`x`の全ての要素を移動する。  
-- (3), (4) : `position`の指す要素の前に、`x`の要素のうち`i`の指す要素を移動する。  
-- (5), (6) : `position`の指す要素の前に、`x`の要素のうち`[first, last)`の範囲を移動する。  
+- (1), (2) : `position`の指す要素の前に、`x`の全ての要素を移動する
+- (3), (4) : `position`の指す要素の前に、`x`の要素のうち`i`の指す要素を移動する
+- (5), (6) : `position`の指す要素の前に、`x`の要素のうち`[first, last)`の範囲を移動する
 
 
 ## 要件
-- 第1パラメータ`position`が、`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の範囲の間接参照可能なイテレータであること。
+- 第1パラメータ`position`が、イテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
 - (1), (2) :
     - C++03 : `&x != this`であること
@@ -50,9 +50,9 @@ void splice(const_iterator position, list&& x,
 
 ## 計算量
 - C++03まで
-    - (1), (2) : `x`の要素数に対して線形時間
-    - (3), (4) : 定数時間
-    - (5), (6) : `[first, last)`の要素数に対して線形時間
+    - (1) : `x`の要素数に対して線形時間
+    - (3) : 定数時間
+    - (5) : `[first, last)`の要素数に対して線形時間
 - C++11から
     - (1), (2) : 定数時間
     - (3), (4) : 定数時間
@@ -137,7 +137,7 @@ int main()
 
 ## 参照
 - [LWG Issue 250. splicing invalidates iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
-- [LWG Issue 1133. Does N2844 break current specification of `list::splice`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#250)
+- [LWG Issue 1133. Does N2844 break current specification of `list::splice`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1133)
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)
 - [LWG Issue 3087. One final `&x` in §[list.ops]](https://wg21.cmeerw.net/lwg/issue3087)

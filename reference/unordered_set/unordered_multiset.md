@@ -30,7 +30,7 @@ namespace std {
 
 一般的には `hash multiset` と呼ばれるコンテナであるが、標準への採用が遅かったことから、既に存在する各種コンテナとの名前の衝突を避けるため、`unordered_multiset` と名付けられた。
 
-`hash_multiset` の特徴は以下の通りである。
+`unordered_multiset` の特徴は以下の通りである。
 
 
 - 連想  
@@ -232,8 +232,8 @@ int main()
 ```
 * std::unordered_multiset[color ff0000]
 * std::ostream[link /reference/ostream.md]
-* us.insert[link unordered_multiset/insert.md]
-* us.erase[link unordered_multiset/erase.md]
+* ums.insert[link unordered_multiset/insert.md]
+* ums.erase[link unordered_multiset/erase.md]
 
 ### 出力
 ```

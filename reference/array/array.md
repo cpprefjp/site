@@ -92,10 +92,11 @@ namespace std {
 
 ## 非メンバ関数
 
-| 名前                                        | 説明                                   | 対応バージョン |
-|---------------------------------------------|----------------------------------------|----------------|
+| 名前                                      | 説明                                   | 対応バージョン |
+|-------------------------------------------|----------------------------------------|----------------|
 | [`operator==`](array/op_equal.md)         | 等値比較                               | C++11          |
 | [`operator!=`](array/op_not_equal.md)     | 非等値比較                             | C++11          |
+| [`operator<=>`](array/op_compare_3way.md) | 三方比較                               | C++20          |
 | [`operator<`](array/op_less.md)           | 左辺が右辺より小さいかの判定を行う     | C++11          |
 | [`operator<=`](array/op_less_equal.md)    | 左辺が右辺以下かの判定を行う           | C++11          |
 | [`operator>`](array/op_greater.md)        | 左辺が右辺より大きいかの判定を行う     | C++11          |
@@ -166,9 +167,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified]
 
 
 ## 関連項目

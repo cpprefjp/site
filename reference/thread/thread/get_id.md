@@ -16,7 +16,7 @@ id get_id() const noexcept;
 
 
 ## 戻り値
-`thread`オブジェクトがスレッドに関連付けられている場合は、そのスレッドのスレッド識別子。そうでなければデフォルトコンストラクトされた[`thread::id`](id.md)オブジェクト。
+`thread`オブジェクトがスレッドに関連付けられている場合は、そのスレッドのスレッド識別子。そうでなければデフォルト構築された[`thread::id`](id.md)オブジェクト。
 
 
 ## 例外
@@ -53,9 +53,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
+- [GCC](/implementation.md#gcc): 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

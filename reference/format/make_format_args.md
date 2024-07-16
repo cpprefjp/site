@@ -8,10 +8,10 @@
 ```cpp
 namespace std {
   template<class Context = format_context, class... Args>
-  format_arg_store<Context, Args...> make_format_args(const Args&... args); // (1)
+  format_arg_store<Context, Args...> make_format_args(Args&&... args); // (1)
 
   template<class... Args>
-  format_arg_store<wformat_context, Args...> make_wformat_args(const Args&... args); // (2)
+  format_arg_store<wformat_context, Args...> make_wformat_args(Args&&... args); // (2)
 }
 ```
 * format_arg_store[italic]
@@ -47,92 +47,21 @@ string format(string_view fmt, const Args&... args)
 ## 事前条件
 すべての引数の型`Ti`について`Context::formatter_type<Ti>`が`Formatter`要件を満たすこと。
 
-## 効果
+## 戻り値
 
-(2)は次と等しい。
+### (1)
+
+```cpp
+return {basic_format_arg<Context>(args)...}
+```
+* basic_format_arg[link /reference/format/basic_format_arg/op_constructor.md]
+
+### (2)
 
 ```cpp
 return make_format_args<wformat_context>(args...);
 ```
 * wformat_context[link /reference/format/basic_format_context.md]
-
-(1)は次と等しい。
-
-```cpp
-return {basic_format_arg<Context>(args)...}
-```
-* basic_format_arg[link /reference/format/basic_format_arg.md]
-
-ただし、便宜上、[`basic_format_arg`](/reference/format/basic_format_arg.md)は次のprivateメンバを持つとする。
-(これらのprivateメンバは規格に含まれない)
-
-```cpp
-namespace std {
-  template<class Context>
-  class basic_format_arg {
-  public:
-    class handle;
-
-  private:
-    using charT = typename Context::char_type;
-
-    variant<monostate, bool, charT,
-            int, unsigned int, long long int, unsigned long long int,
-            float, double, long double,
-            const charT*, basic_string_view<charT>,
-            const void*, handle> value;
-
-    template<typename T> explicit basic_format_arg(const T& v) noexcept; // (a)
-    explicit basic_format_arg(float n) noexcept;                         // (b)
-    explicit basic_format_arg(double n) noexcept;                        // (c)
-    explicit basic_format_arg(long double n) noexcept;                   // (d)
-    explicit basic_format_arg(const charT* s);                           // (e)
-
-    template<class traits>
-      explicit basic_format_arg(
-        basic_string_view<charT, traits> s) noexcept;                    // (f)
-
-    template<class traits, class Allocator>
-      explicit basic_format_arg(
-        const basic_string<charT, traits, Allocator>& s) noexcept;       // (g)
-
-    explicit basic_format_arg(nullptr_t) noexcept;                       // (h)
-
-    template<class T>
-      explicit basic_format_arg(const T* p) noexcept;                    // (i)
-
-    template<class Ctx, class... Args>
-      friend format_arg_store<Ctx, Args...>
-        make_format_args(const Args&... args);
-  };
-}
-```
-* variant[link /reference/variant/variant.md]
-* monostate[link /reference/variant/monostate.md]
-* handle[link /reference/format/basic_format_arg/handle.md]
-* basic_string[link /reference/string/basic_string.md]
-* basic_string_view[link /reference/string_view/basic_string_view.md]
-* basic_format_arg[link /reference/format/basic_format_arg.md]
-
-ここで、それぞれの効果は次と等しい。
-
-* (a):
-    * `T`が`bool`または`charT`なら、`value`を`v`で初期化
-    * または、`T`が`char`かつ`charT`が`wchar_t`なら、`value`を`static_cast<wchar_t>(v)`で初期化
-    * または、`T`が符号つき整数型かつ`sizeof(T) <= sizeof(int)`なら、`value`を`static_cast<int>(v)`で初期化
-    * または、`T`が符号なし整数型かつ`sizeof(T) <= sizeof(unsigned int)`なら、`value`を`static_cast<unsigned int>(v)`で初期化
-    * または、`T`が符号つき整数型かつ`sizeof(T) <= sizeof(long long int)`なら、`value`を`static_cast<long long int>(v)`で初期化
-    * または、`T`が符号なし整数型かつ`sizeof(T) <= sizeof(unsigned long long int)`なら、`value`を`static_cast<unsigned long long int>(v)`で初期化
-    * または、`value`を`handle(v)`で初期化
-* (b),(c),(d): `value`を`n`で初期化
-* (e): `value`を`s`で初期化 (`s`は有効なC文字列であること)
-* (f): `value`を`s`で初期化
-* (g): `value`を`basic_string_view<charT>(s.data(), s.size())`で初期化
-* (h): `value`を`static_cast<const void*>(nullptr)`で初期化
-* (i): `value`を`p`で初期化 (`is_void_v<T>`が`true`であること)
-
-## 戻り値
-`{basic_format_arg<Context>(args)...}`
 
 ## 実装例
 ```cpp
@@ -150,7 +79,7 @@ namespace std {
   }
 }
 ```
-* basic_format_arg[link /reference/format/basic_format_arg.md]
+* basic_format_arg[link /reference/format/basic_format_arg/op_constructor.md]
 * wformat_context[link /reference/format/basic_format_context.md]
 
 ## バージョン
@@ -166,3 +95,4 @@ namespace std {
 ## 参照
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)

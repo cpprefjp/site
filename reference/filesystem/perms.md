@@ -25,7 +25,7 @@ namespace std::filesystem {
     set_gid      = 02000,
     sticky_bit   = 01000,
     mask         = 07777, // all | set_uid | set_gid | sticky_bit
-    unknown      = 0xFFF
+    unknown      = 0xFFFF
   };
 }
 ```
@@ -95,6 +95,6 @@ owner can write the file
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

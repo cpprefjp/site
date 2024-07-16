@@ -1,6 +1,14 @@
-# 型の文脈でtypenameの省略を許可
+# 型の文脈でtypenameの省略を許可 [P0634R3]
 
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 

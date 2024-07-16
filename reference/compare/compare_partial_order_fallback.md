@@ -93,7 +93,7 @@ int main()
 {
   std::cout << std::boolalpha;
 
-  legacy l1 = {+0.0}, l2 = {-0.0}, l3 = {-std::numeric_limits<double>::quiet_NaN()}, l4 = {std::numeric_limits<double>::quiet_NaN()};;
+  legacy l1 = {+0.0}, l2 = {-0.0}, l3 = {-std::numeric_limits<double>::quiet_NaN()}, l4 = {std::numeric_limits<double>::quiet_NaN()};
   std::cout << (std::compare_partial_order_fallback(l1, l2) <  0) << std::endl;
   std::cout << (std::compare_partial_order_fallback(l1, l2) == 0) << std::endl;
 
@@ -139,12 +139,12 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 
 
 ## 参照

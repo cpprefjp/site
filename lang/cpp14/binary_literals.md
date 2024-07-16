@@ -1,5 +1,13 @@
-# 2進数リテラル
+# 2進数リテラル [N3472]
 * cpp14[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 整数リテラルのプレフィックスとして`0b`もしくは`0B`を付けることで、2進数を表す値を記述できる。
@@ -55,11 +63,10 @@ int main()
 こういった経緯から、C++標準で2進数リテラルをサポートすることとなった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++14 数値リテラルの桁区切り文字](digit_separators.md)
 - [`bitset`](/reference/bitset/bitset.md)
 
 
 ## 参照
 - [N3472 - Binary Literals in the C++ Core Language](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3472.pdf)
-

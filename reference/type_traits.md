@@ -6,6 +6,7 @@
 
 このライブラリに含まれるクラステンプレートは、メタ関数(meta function)と呼ばれている。
 
+本ヘッダはフリースタンディング環境でも提供される。
 
 ## ヘルパークラス
 
@@ -29,7 +30,7 @@
 | [`is_pointer`](type_traits/is_pointer.md)                   | 型がポインタ型か調べる (class template) | C++11 |
 | [`is_lvalue_reference`](type_traits/is_lvalue_reference.md) | 型が左辺値参照型か調べる (class template) | C++11 |
 | [`is_rvalue_reference`](type_traits/is_rvalue_reference.md) | 型が右辺値参照型か調べる (class template) | C++11 |
-| [`is_member_object_pointer`](type_traits/is_member_object_pointer.md)     | 型がデータメンバへのポインタ型か調べる (class template) | C++11 |
+| [`is_member_object_pointer`](type_traits/is_member_object_pointer.md)     | 型がメンバ変数へのポインタ型か調べる (class template) | C++11 |
 | [`is_member_function_pointer`](type_traits/is_member_function_pointer.md) | 型がメンバ関数へのポインタ型か調べる (class template) | C++11 |
 | [`is_enum`](type_traits/is_enum.md)                         | 型が列挙型か調べる (class template) | C++11 |
 | [`is_union`](type_traits/is_union.md)                       | 型が共用型か調べる (class template) | C++11 |
@@ -122,6 +123,8 @@
 | [`is_nothrow_convertible`](type_traits/is_nothrow_convertible.md) | ある型から別の型へ、例外を投げずに変換可能か調べる (class template) | C++20 |
 | [`is_layout_compatible`](type_traits/is_layout_compatible.md) | 2つの型にレイアウト互換があるかを判定する (class template) | C++20 |
 | [`is_pointer_interconvertible_base_of`](type_traits/is_pointer_interconvertible_base_of.md) | 基底クラスと派生クラスの間でポインタ相互交換可能かを判定する (class template) | C++20 |
+| [`reference_constructs_from_temporary`](type_traits/reference_constructs_from_temporary.md) | 参照が一時オブジェクトを直接初期化（丸括弧による初期化）で束縛した時、一時オブジェクトの寿命が延長されているかを判定する (class template) | C++23 |
+| [`reference_converts_from_temporary`](type_traits/reference_converts_from_temporary.md) | 参照が一時オブジェクトをコピー初期化（代入形式による初期化）で束縛した時、一時オブジェクトの寿命が延長されているかを判定する (class template) | C++23 |
 
 
 ## const-volatile の変更
@@ -184,8 +187,8 @@
 | 名前 | 説明 | 対応バージョン |
 |------------------------|-------------------------------------------|-------|
 | [`type_identity`](type_traits/type_identity.md) | 受け取った型を返す (class template) | C++20 |
-| [`aligned_storage`](type_traits/aligned_storage.md) | アライメント調整された領域を作る (class template) | C++11 |
-| [`aligned_union`](type_traits/aligned_union.md) | アライメント調整された共用体領域を作る (class template) | C++11 |
+| [`aligned_storage`](type_traits/aligned_storage.md) | アライメント調整された領域を作る (class template) | C++11<br/>C++23で非推奨 |
+| [`aligned_union`](type_traits/aligned_union.md) | アライメント調整された共用体領域を作る (class template) | C++11<br/>C++23で非推奨 |
 | [`remove_cvref`](type_traits/remove_cvref.md) | 型の`const-volatile`修飾と参照を除去する (class template) | C++20 |
 | [`decay`](type_traits/decay.md) | 配列と関数ポインタに関して、関数テンプレートと同様に推論された型を取得する (class template) | C++11 |
 | [`enable_if`](type_traits/enable_if.md) | コンパイル時条件式が真の場合のみ有効な型 (class template) | C++11 |
@@ -240,3 +243,4 @@
 - [型特性 - Boost逆引きリファレンス](https://boostjp.github.io/tips/type_traits.html)
 - [LWG Issue 2581. Specialization of `<type_traits>` variable templates should be prohibited](https://wg21.cmeerw.net/lwg/issue2581)
     - C++14までは`<type_traits>`で定義されるクラステンプレートの特殊化を禁止していたが、C++17で定義される変数テンプレートも特殊化の禁止対象とされた
+- [P1413R3 Deprecate `std::aligned_storage` and `std::aligned_union`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf)

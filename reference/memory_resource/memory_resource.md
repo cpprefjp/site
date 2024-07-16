@@ -148,8 +148,8 @@ int main(){
 ```
 * std::pmr::memory_resource[color ff0000]
 * std::byte[link /reference/cstddef/byte.md]
-* std::allocate[link /reference/memory_resource/memory_resource/allocate.md]
-* std::deallocate[link /reference/memory_resource/memory_resource/deallocate.md]
+* allocate[link /reference/memory_resource/memory_resource/allocate.md]
+* deallocate[link /reference/memory_resource/memory_resource/deallocate.md]
 * std::bad_alloc[link /reference/new/bad_alloc.md]
 * std::max_align_t[link /reference/cstddef/max_align_t.md]
 * std::uintptr_t[link /reference/cstdint/uintptr_t.md]
@@ -170,8 +170,8 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 6 [mark verified]
 
 ## 関連項目
 - [`synchronized_pool_resource`](/reference/memory_resource/pool_resource.md)

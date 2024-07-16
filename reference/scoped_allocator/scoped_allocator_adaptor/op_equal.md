@@ -19,7 +19,7 @@ namespace std {
 ## 戻り値
 `sizeof...(InnerAlloc) == 0`であるならば、`a.`[outer_allocator()](outer_allocator.md) `== b.`[`outer_allocator()`](outer_allocator.md)の結果を返す。
 
-そうでなければ、`a.`[outer_allocator()](outer_allocator.md) `== b.`[`outer_allocator()`](outer_allocator.md) `&& a.`[`inner_allocator()`](inner_allocator.md) `== b.`[`inner_allocator()`]の結果を返す。
+そうでなければ、`a.`[outer_allocator()](outer_allocator.md) `== b.`[`outer_allocator()`](outer_allocator.md) `&& a.`[`inner_allocator()`](inner_allocator.md) `== b.`[`inner_allocator()`](inner_allocator.md)の結果を返す。
 
 
 ## 例
@@ -70,7 +70,7 @@ equal
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.7.3
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

@@ -10,6 +10,7 @@ namespace std {
   class barrier;
 }
 ```
+* see below[italic]
 
 ## 概要
 `barrier`クラスは、複数スレッドにより並行実行される反復的なタスク制御に便利な、スレッド調整機構（同期プリミティブ）である。
@@ -25,14 +26,14 @@ namespace std {
 バリアオブジェクトは複数スレッド間の合流制御を繰り返して行えるが、1回のみの制御で十分ならばラッチ[`latch`](/reference/latch/latch.md)も利用候補となりえる。
 
 ### 詳細説明
-説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のデータメンバを`completion`と表記する。
-同データメンバ`completion`は、[コンストラクタ](barrier/op_constructor.md)にて設定される。
+説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のメンバ変数を`completion`と表記する。
+同メンバ変数`completion`は、[コンストラクタ](barrier/op_constructor.md)にて設定される。
 
 各バリアフェーズ(barrier phase)は下記のステップで構成される：
 
-- [`arrive()`](barrier/arrive.md)または[`arrive_and_drop`](barrier/arrive_and_drop.md)呼び出しによって、予定カウントを減算する。
-- 予定カウントが`0`に到達したら、完了ステップを実行する。テンプレートパラメータ`CompletionFunction`のデフォルト値に対する特殊化では、完了ステップは予定カウントを`0`とした[`arrive()`](barrier/arrive.md)または[`arrive_and_drop`](barrier/arrive_and_drop.md)呼び出しの一部として実行される。それ以外の特殊化では、完了ステップはそのフェーズ内でバリア到達したスレッドのいずれか1つの上で実行される。
-- 完了ステップが終了したのち、予定カウントをコンストラクタ実引数`expected`でリセットし、[`arrive_and_drop`](barrier/arrive_and_drop.md)呼び出しの場合は調整を行って、次のフェーズを開始する。
+- [`arrive()`](barrier/arrive.md)または[`arrive_and_drop()`](barrier/arrive_and_drop.md)呼び出しによって、予定カウントを減算する。
+- 予定カウントが`0`に到達した後、[`arrive()`](barrier/arrive.md)／[`arrive_and_drop()`](barrier/arrive_and_drop.md)／[`wait()`](barrier/wait.md)いずれかの呼び出しの間に、いずれかのスレッドにより正確に1回だけ完了ステップが実行される。だだし[`wait()`](barrier/wait.md)呼び出しを行うスレッドがない場合に、完了ステップが実行されるか否かは処理系定義とされる。
+- 完了ステップが終了したのち、予定カウントをコンストラクタ実引数`expected`でリセットし、[`arrive_and_drop()`](barrier/arrive_and_drop.md)呼び出しの場合は調整を行って、次のフェーズを開始する。
 
 各フェーズは、フェーズ同期ポイント(phase synchronization point)を定義する。
 フェーズ内でバリアに到達したスレッドは、[`wait()`](barrier/wait.md)呼び出しによりフェーズ同期ポイント上でブロックされ、フェーズ完了ステップが実行されるまでブロック状態は継続する。
@@ -152,17 +153,21 @@ Main     3
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 11.0
+- [Clang](/implementation.md#clang): 11.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
-- [`<latch>`](/reference/latch.md)
+- [`latch`](/reference/latch/latch.md)
 
 
 ## 参照
+- [P0666R2 Revised Latches and Barriers for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0666r2.pdf)
+- [P1135R6 The C++20 Synchronization Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html)
+- [P2588R3 `barrier`'s phase completion guarantees](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2588r3.html)
+    - バリアフェーズ動作仕様の完了ステップを呼び出すスレッド要件が緩和された。
 - [Boost.Threadライブラリ, Barriers](https://www.boost.org/doc/libs/1_73_0/doc/html/thread/synchronization.html#thread.synchronization.barriers)
 - [Java標準ライブラリ, java.util.concurrent.CyclicBarrier](https://docs.oracle.com/javase/jp/6/api/java/util/concurrent/CyclicBarrier.html)
 - [C#標準ライブラリ, System.Threading.Barrier](https://docs.microsoft.com/en-us/dotnet/api/system.threading.barrier)

@@ -4,6 +4,8 @@
 
 `<source_location>`ヘッダは、ソースコード上の位置を表す型を提供する。
 
+本ヘッダはフリースタンディング環境でも提供される。
+
 | 名前                                                    | 説明                                     | 対応バージョン |
 |---------------------------------------------------------|------------------------------------------|----------------|
 | [`source_location`](source_location/source_location.md) | ソースコード上の位置を表すクラス (class) | C++20          |
@@ -14,7 +16,7 @@
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.1
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

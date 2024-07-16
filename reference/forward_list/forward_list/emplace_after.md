@@ -19,7 +19,7 @@ iterator emplace_after(const_iterator position, Args&&... args);
 
 
 ## 要件
-第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の範囲の間接参照可能なイテレータであること。
+第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくはイテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の間接参照可能なイテレータであること。
 
 
 ## 戻り値
@@ -73,9 +73,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- 2010は、可変引数テンプレートに対応していないため、`args`に1つしか実引数を渡せない。
 	- 2012は、可変引数テンプレートに対応していないため、不完全な実装である。
 

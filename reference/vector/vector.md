@@ -90,7 +90,7 @@ namespace std {
 |-----------------------------------|---------------|-------|
 | [`operator[]`](vector/op_at.md) | 要素アクセス | |
 | [`at`](vector/at.md)            | 要素アクセス | |
-| [`data`](vector/data.md)        | 配列の先頭へのポインタを取得する | C++11 |
+| [`data`](vector/data.md)        | 配列の先頭へのポインタを取得する | |
 | [`front`](vector/front.md)      | 先頭要素への参照を取得する | |
 | [`back`](vector/back.md)        | 末尾要素への参照を取得する | |
 
@@ -142,6 +142,7 @@ namespace std {
 |----------------------------------------------|------------------------------------|-------|
 | [`operator==`](vector/op_equal.md)         | 等値比較 | |
 | [`operator!=`](vector/op_not_equal.md)     | 非等値比較 | |
+| [`operator<=>`](vector/op_compare_3way.md) | 三方比較 | C++20 |
 | [`operator<`](vector/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
 | [`operator<=`](vector/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | |
 | [`operator>`](vector/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
@@ -173,27 +174,38 @@ namespace std {
 
 この特殊化はメモリ領域を最小化するために提供されていて、各要素は1bitの領域のみを必要とする。
 
-`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである。
+`vector<bool>::reference`は`bool`への参照ではなく、領域内の1bitを指す型であり、以下のようなインタフェースである (`noexcept`はC++11から、`constexpr`はC++20から付加される)。
+
+C++23には`vector<bool>::iterator`が出力イテレータとなるために、`vector<bool>::reference`が`const`修飾を持つ`bool`からの代入演算子が追加され、[`indirectly_writable<vector<bool>::iterator,` `bool>`](/reference/iterator/indirectly_writable.md)がモデルを満たすようになった。
 
 ```cpp
 class vector<bool>::reference {
   friend class vector;
-  reference();                              // コンストラクタは非公開
+  constexpr reference();                                       // コンストラクタは非公開
 public:
-  ~reference();
-  operator bool() const;                    // boolへの暗黙変換
-  reference& operator=(const bool x);       // boolからの代入
-  reference& operator=(const reference& x); // vector<bool>のビットからの代入
-  void flip();                              // ビットの反転
+  constexpr reference(const reference&) = default;             // コピーコンストラクタ（C++17）
+  constexpr ~reference();
+  constexpr operator bool() const noexcept;                    // boolへの暗黙変換
+  constexpr reference& operator=(const bool x) noexcept;       // boolからの代入
+  constexpr reference& operator=(const reference& x) noexcept; // vector<bool>のビットからの代入
+  constexpr const reference& operator=(bool x) const noexcept; // *thisがconst時のboolからの代入（C++23）
+  constexpr void flip() noexcept;                              // ビットの反転
 }
 ```
 
-## ハッシュサポート
+### ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------------------------|------------------------------------------|-------|
 | `template <class T> struct hash;`                                  | `hash`クラスの先行宣言                   | C++11 |
 | `template <class Allocator> struct hash<vector<bool, Allocator>>;` | `hash`クラスの`vector<bool>`に対する特殊化 | C++11 |
+
+
+### 文字列フォーマットサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `template <class T, class charT> requires is-vector-bool-reference<T>`<br/> `struct formatter<T, charT>;` | `vector<bool>::reference`を`bool`として出力するための[`formatter`](/reference/format/formatter.md)の特殊化 | C++23 |
 
 
 ## 例
@@ -382,6 +394,41 @@ v[3] : 0
 ```
 
 `vector<bool>`の要素は参照するとプロキシオブジェクトのコピーが返ってくるため、RandomAccessIteratorの要件を満たさない。
+ただし、C++20以降のランダムアクセスイテレータの定義である[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルは満たす。
+
+
+### 定数式内でvectorを使用する (C++20)
+```cpp
+#include <cassert>
+#include <vector>
+
+constexpr bool f()
+{
+  std::vector<int> v = {1, 2, 3};
+  v.push_back(4);
+
+  auto* p = v.data();
+  assert(p);
+
+  int sum = 0;
+  for (auto x : v) {
+    sum += x;
+  }
+  return sum != 0;
+}
+
+int main()
+{
+  static_assert(f());
+}
+```
+* v.push_back[link vector/push_back.md]
+* v.data[link vector/data.md]
+
+
+#### 出力
+```
+```
 
 
 ## 参照
@@ -395,4 +442,5 @@ v[3] : 0
 - 可変長のビット配列の実装としては、Boost C++ Librariesの[`dynamic_bitset`](http://www.boost.org/doc/libs/release/libs/dynamic_bitset/dynamic_bitset.html)がある。
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
 - [N4510 Minimal incomplete type support for standard containers, revision 4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html)
-
+- [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
+    - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された

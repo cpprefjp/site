@@ -7,7 +7,14 @@
 namespace std {
   template <class CharT, class Traits>
   bool operator==(const istreambuf_iterator<CharT, Traits>& a,
-                  const istreambuf_iterator<CharT, Traits>& b);
+                  const istreambuf_iterator<CharT, Traits>& b); // (1) C++03
+
+  template <class charT,
+            class traits = char_traits<charT>>
+  class istream_iterator {
+  public:
+    friend bool operator==(const istreambuf_iterator& i, default_sentinel_t); // (2) C++20
+  };
 }
 ```
 
@@ -16,7 +23,16 @@ namespace std {
 
 
 ## 戻り値
-`a.equal(b)`
+- (1) : `a.equal(b)`
+- (2) : `i`が有効な入力ストリームオブジェクトを指していれば`true`、そうでなければ`false`を返す
+
+
+## 備考
+- この演算子により、以下の演算子が自動導出される (C++20)：
+    - `operator==(default_sentinel_t, const istreambuf_iterator&)`
+    - `operator!=(const istreambuf_iterator&, const istreambuf_iterator&)`
+    - `operator!=(const istreambuf_iterator&, default_sentinel_t)`
+    - `operator!=(default_sentinel_t, const istream_iteratorbuf&)`
 
 
 ## 例
@@ -52,7 +68,7 @@ int main()
   }
 }
 ```
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ### 出力
 ```

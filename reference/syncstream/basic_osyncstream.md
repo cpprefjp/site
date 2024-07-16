@@ -110,16 +110,58 @@ and more!
 Goodbye, Planet!
 ```
 
+## 間違った使用の例
+
+`std::basic_osyncstream`のオブジェクトはストリーム出力をアトミックにしたいスレッド毎に持つ必要がある。1つの`std::basic_osyncstream`のオブジェクトを複数のスレッドで共有して使用してしまうと、出力は競合する。
+
+```cpp example
+#include <iostream>
+#include <syncstream>
+#include <thread>
+
+// 1つのosyncstreamを複数スレッドで共有してしまうと出力の競合が起こる
+std::osyncstream bout{std::cout};
+
+void thread1()
+{
+  {
+    bout << "Hello, ";
+    bout << "World!";
+    bout << std::endl;
+    bout << "and more!\n";
+  }
+}
+
+void thread2()
+{
+  bout << "Goodbye, " << "Planet!" << '\n';
+}
+
+int main()
+{
+  std::thread th1(thread1);
+  std::thread th2(thread2);
+  th1.join();
+  th2.join();
+}
+```
+* osyncstream[color ff0000]
+
+### 出力例
+
+```
+Hello, World!
+aGoodbye, Planet!
+```
 
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0.0 現在未対応
-- [GCC](/implementation.md#gcc): 10.0.0 現在未対応
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 update 10 [mark verified]
 
 
 ## 関連項目

@@ -44,7 +44,7 @@ int main() {
 }
 ```
 * back()[color ff0000]
-* q.push[link push.md]
+* que.push[link push.md]
 
 ### 出力
 ```

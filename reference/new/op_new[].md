@@ -114,7 +114,7 @@ int main()
     cl* p1 = new cl[3];
     delete[] p1;
 
-    // 32) 3 要素の cl 型配列を動的に作成
+    // (3) 3 要素の cl 型配列を動的に作成
     // 確保失敗時にヌルポインタが返される
     cl* p2 = new (std::nothrow) cl[3];
     delete[] p2;    // 通常の delete 式で記憶域を解放する

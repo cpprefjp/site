@@ -5,11 +5,15 @@
 * function[meta id-type]
 
 ```cpp
-iterator erase(iterator position);       // (1) C++03
-iterator erase(const_iterator position); // (1) C++11
+iterator erase(iterator position);                 // (1) C++03
+iterator erase(const_iterator position);           // (1) C++11
+constexpr iterator erase(const_iterator position); // (1) C++20
 
-iterator erase(iterator first, iterator last);             // (2) C++03
-iterator erase(const_iterator first, const_iterator last); // (2) C++11
+iterator erase(iterator first, iterator last);  // (2) C++03
+iterator erase(const_iterator first,
+               const_iterator last);            // (2) C++11
+constexpr iterator erase(const_iterator first,
+                         const_iterator last);  // (2) C++20
 ```
 
 ## 概要
@@ -22,7 +26,7 @@ iterator erase(const_iterator first, const_iterator last); // (2) C++11
 
 ## 効果
 - (1) : `position`が指す要素が削除される。
-- (2) : `[first, last)`で示される範囲の要素が削除される。
+- (2) : `[first, last)`で示されるイテレータ範囲の要素が削除される。
 
 削除された要素またはそれ以降の要素を指すイテレータや参照は無効になる。
 
@@ -135,4 +139,4 @@ int main()
 
 ## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
-
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

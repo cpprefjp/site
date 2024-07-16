@@ -50,9 +50,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
 - [LWG Issue 2313. `tuple_size` should always derive from `integral_constant<size_t, N>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2313)

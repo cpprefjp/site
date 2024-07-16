@@ -229,13 +229,13 @@ int stoi(const std::wstring& str, std::size_t* idx = nullptr, int base = 10) {
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atoi`: `stoi`は`atoi`を`std::string`および`std::wsting`に対応させたものと見なせる。
-- `strtol`, `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wsting`に対応させ、戻り値の型を`int`に変更したものと見なせる。
+- `atoi`: `stoi`は`atoi`を`std::string`および`std::wstring`に対応させたものと見なせる。
+- `strtol`, `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させ、戻り値の型を`int`に変更したものと見なせる。
 
 ### ファミリー
 - (`stoi`: この関数自身)

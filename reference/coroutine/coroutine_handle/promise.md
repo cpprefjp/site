@@ -21,13 +21,17 @@ Promise& promise() const;
 コルーチンのPromiseオブジェクトへの参照。
 
 
+## 備考
+型消去されたコルーチンハンドル`coroutine_handle<>`では、本メンバ関数は提供されない。
+
+
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.1
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

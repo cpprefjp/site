@@ -6,11 +6,15 @@
 
 ```cpp
 template <class InputIterator>
-void assign(InputIterator first, InputIterator last); // (1)
+void assign(InputIterator first, InputIterator last);           // (1) C++03
+template <class InputIterator>
+constexpr void assign(InputIterator first, InputIterator last); // (1) C++20
 
-void assign(size_type n, const T& u);                 // (2)
+void assign(size_type n, const T& t);           // (2) C++03
+constexpr void assign(size_type n, const T& t); // (2) C++20
 
-void assign(initializer_list<T>);                     // (3) C++11
+void assign(initializer_list<T> il);           // (3) C++11
+constexpr void assign(initializer_list<T> il); // (3) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -23,13 +27,13 @@ void assign(initializer_list<T>);                     // (3) C++11
 
 
 ## 要件
-- (1) : 型`T`は`*first`から`X`に対してEmplaceConstructibleでなければならない。イテレーターがForward iterators の要件を満たさない場合、型`T`は`X`に対してMoveInsertableでなければならない。`[first, last)`の範囲のそれぞれのイテレーターは１回だけ間接参照される。`first`, `last`は自身のイテレーターであってはならない。
-- (2) : `u`は`*this`の要素への参照であってはならない。
+- (1) : 型`T`は`*first`から`X`に対してEmplaceConstructibleでなければならない。イテレータがForward iterators の要件を満たさない場合、型`T`は`X`に対してMoveInsertableでなければならない。`[first, last)`の範囲のそれぞれのイテレータは１回だけ間接参照される。`first`, `last`は自身のイテレータであってはならない。
+- (2) : `t`は`*this`の要素への参照であってはならない。
 
 
 ## 効果
-- (1) : `[first, last)`の範囲の要素のコピーで`*this`の要素を置き換える。
-- (2) : `*this`の要素をすべて`n`個の`u`のコピーに置き換える。
+- (1) : イテレータ範囲`[first, last)`の要素のコピーで`*this`の要素を置き換える。
+- (2) : `*this`の要素をすべて`n`個の`t`のコピーに置き換える。
 - (3) : `assign(il.begin(), il.end())`と等価。
 
 
@@ -95,3 +99,4 @@ a.assign(il) example:
 
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

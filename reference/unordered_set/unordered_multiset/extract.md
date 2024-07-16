@@ -2,7 +2,7 @@
 * unordered_set[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* unordered_miltiset[meta class]
+* unordered_multiset[meta class]
 * cpp17[meta cpp]
 
 ```cpp
@@ -29,7 +29,6 @@ node_type extract(const key_type& x);       (2)
 
 ```cpp example
 #include <iostream>
-#include <string>
 #include <unordered_set>
 
 class noncopyable {
@@ -125,10 +124,10 @@ s2 = { 3, 1 }
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0.0
-- [GCC](/implementation.md#gcc): 7.1.0
+- [Clang](/implementation.md#clang): 7.0.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5 [mark verified]
 
 
 ## 関連項目

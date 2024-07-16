@@ -1,5 +1,13 @@
-# (符号付き)size_tリテラルのためのサフィックス
+# (符号付き)size_tリテラルのためのサフィックス [P0330R8]
 * cpp23[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++23では、符号なし整数型[`size_t`](/reference/cstddef/size_t.md)に対応する符号付き整数型を表すリテラルの`z`および`Z`サフィックスを追加する。符号なしを表す`u`および`U`サフィックスをともに使用することで[`size_t`](/reference/cstddef/size_t.md)型のリテラルを記述できる。
@@ -52,7 +60,7 @@ case 1はコンパイルエラーとなる。[`std::min()`](/reference/algorithm
 case 2はC++23で導入する[`size_t`](/reference/cstddef/size_t.md)型リテラルを使用するため、問題なく動作する。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`std::cmp_less()`](/reference/utility/cmp_less.md)
 - [`std::ssize()`](/reference/iterator/ssize.md)
 

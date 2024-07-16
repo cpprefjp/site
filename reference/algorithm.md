@@ -4,10 +4,14 @@
 
 全てのアルゴリズムはデータ構造の実装の詳細から切り離されていて、イテレータによってパラメータ化されている。これはアルゴリズムの要件を満たすイテレータを提供しているなら、どのようなデータ構造であっても動作するということを示している。
 
-関数オブジェクトを使用するアルゴリズムでは、`for_each`と`for_each_n`以外、引数として渡されたオブジェクトを書き換えてはならない。
+このヘッダでは、以下の標準ヘッダをインクルードする：
 
-ここでは、各アルゴリズムのテンプレートパラメータ名を、型の要件を表すために使っている。アルゴリズムを正しく利用するためには、テンプレートパラメータ名に応じたこれらの要件を満たしている必要がある。以下の通りである。
+- [`<initializer_list>`](initializer_list.md) (C++11)
 
+
+### テンプレートパラメータ名とイテレータ要件
+
+`<algorithm>`ヘッダでは、各アルゴリズムのテンプレートパラメータ名を、型の要件を表すために使っている。アルゴリズムを正しく利用するためには、テンプレートパラメータ名に応じたこれらの要件を満たしている必要がある。以下の通りである。
 
 | テンプレートパラメータ名 | 要件 |
 |-------------------------------------------------------------------------|------------------------|
@@ -20,8 +24,6 @@
 もし「効果」のセクションで、イテレータの値を書き換えるという旨の文章が書かれている場合、その引数の型は mutable iterator の要件を満たしていなければならないという追加の要件がある。
 もちろん、output iterator は常に書き換え可能であるため、この追加の要件は無意味である。
 
-いくつかのアルゴリズムは `_copy` というサフィックスが付いている。これは `_copy` サフィックスの付いていないアルゴリズムと違い、処理の結果を別のイテレータへ出力するアルゴリズムである。コピーバージョンを含めるかどうかの判断は、通常バージョンの計算量を考慮する。操作を行うコストがコピーのコストを大きく上回る場合、コピーバージョンは含めないようになっている。例えば `sort_copy` は存在しない。なぜなら、ソートのコストは大きいし、そのような場合、ユーザは `copy` してから `sort` するからだ。
-
 テンプレートパラメータ名が `Predicate` となっている場合、`Predicate` の値 `pred` と、引数として渡すイテレータ `i` について以下の要件を満たす必要がある
 
 - `pred(*i)` が `bool` として評価できなければならない。
@@ -32,8 +34,20 @@
 - `binary_pred(*i1, *i2)` が `bool` として評価できなければならない。
 - `binary_pred(*i1, *i2)` 内で `*i1` や `*i2` を書き変えてはならない。
 
-関数オブジェクトを引数に取る `for_each` 以外のアルゴリズムは、その関数オブジェクトを自由にコピーしても構わない。そのため、アルゴリズムの利用者はそのことに注意する必要がある。コピーされてしまうことが問題である場合、`reference_wrapper<T>` や同様の解決手段を使ってオブジェクトの中身をコピーしないようなラッパークラスを使うといった対策を行う必要がある。
+### 要素の書き換え操作
+関数オブジェクトを使用するアルゴリズムでは、`for_each`と`for_each_n`以外、プログラム定義の関数に引数として渡された要素を書き換えてはならない。
 
+### 関数オブジェクトの取り扱い
+関数オブジェクトを引数に取る `for_each`, `for_each_n` 以外のアルゴリズムは、内部処理においてその関数オブジェクトをコピーする可能性がある。
+
+そのため、アルゴリズムの利用者はそのことに注意する必要がある。コピーされてしまうことが問題である場合、`reference_wrapper<T>` や同様の解決手段を使ってオブジェクトの中身をコピーしないようなラッパークラスを使うといった対策を行う必要がある。
+
+### `_copy`サフィックス付きアルゴリズム
+いくつかのアルゴリズムは `_copy` というサフィックスが付いている。これは `_copy` サフィックスの付いていないアルゴリズムと違い、処理の結果を別のイテレータへ出力するアルゴリズムである。
+
+コピーバージョンを含めるかどうかの判断は、通常バージョンの計算量を考慮する。操作を行うコストがコピーのコストを大きく上回る場合、コピーバージョンは含めないようになっている。例えば `sort_copy` は存在しない。なぜなら、ソートのコストは大きいし、そのような場合、ユーザは `copy` してから `sort` するからだ。
+
+### イテレータ操作に関する補足
 アルゴリズムの説明で `+` や `-` を使っているが、random-access iterator 以外のイテレータはそれを定義していない。そういった場合、 `a+n` というのは
 
 ```cpp
@@ -41,18 +55,67 @@ X tmp = a;
 advance(tmp, n);
 return tmp;
 ```
+* advance[link /reference/iterator/advance.md]
 
 を意味する。また、`b-a` は
 
 ```cpp
 return distance(a, b);
 ```
+* distance[link /reference/iterator/distance.md]
 
 を意味する。
 
-このヘッダでは、以下の標準ヘッダをインクルードする：
+### 射影とRangeサポート（C++20）
+C++20ではアルゴリズム関数の新しいバージョンが`std::ranges`名前空間に追加された。従来の関数と比べて以下の点が異なる：
 
-- [`<initializer_list>`](initializer_list.md) (C++11)
+* テンプレート引数がコンセプトによって制約される
+* イテレータの組に加えて、範囲(Range)も直接渡せる
+* 射影(Projection)をサポートする
+* [ADLで発見されない](/article/lib/disable_adl_function.md)
+
+新しいアルゴリズム関数には範囲(Range)を直接渡すことができる。
+
+```cpp
+// 従来のアルゴリズム関数
+sort(v.begin(), v.end());
+// C++20以降の新しいアルゴリズム関数: Rangeを直接渡せる
+ranges::sort(v);
+// イテレータ対も渡せる
+ranges::sort(v.begin(), v.end());
+```
+* sort[link algorithm/sort.md]
+* ranges::sort[link algorithm/ranges_sort.md]
+
+射影は、述語とは別に渡すことができる関数オブジェクトで、特定のメンバだけを対象にアルゴリズムを実行するために用いる。
+
+例えば、クラス型の配列のソートでは、特定のメンバによってソートしたいことはよくある。しかし、従来のアルゴリズム関数では特定のメンバで比較を行う述語を用意しなければならなかった。
+
+```cpp
+struct Person {
+  string name;
+  int age = 0;
+};
+
+vector<Person> pv = { … };
+
+sort(pv.begin(), pv.end(), [](auto&& a, auto&& b){ return a.name < b.name; });
+```
+* sort[link algorithm/sort.md]
+
+これは、述語がメンバの選択と比較という2つの仕事をしてしまっている点でよくない。この責務を分割し、メンバの選択だけを行うようにしたものが射影である。
+
+```cpp
+// デフォルトの述語(ranges::less{})で、nameでソート
+ranges::sort(pv, {}, [](auto&& a){ return a.name; });
+// std::invokeで呼び出されるため、メンバ変数ポインタでもよい
+ranges::sort(pv, {}, &Person::name);
+```
+* ranges::sort[link algorithm/ranges_sort.md]
+* ranges::less[link /reference/functional/ranges_less.md]
+* std::invoke[link /reference/functional/invoke.md]
+
+なお、各関数の説明においては、射影の影響は無視していることがある。
 
 
 ## シーケンスを変更しない操作
@@ -76,7 +139,43 @@ return distance(a, b);
 | [`equal`](algorithm/equal.md)                 | 2つの範囲を等値比較する | |
 | [`search`](algorithm/search.md)               | 指定された最初のサブシーケンスを検索する | |
 | [`search_n`](algorithm/search_n.md)           | 指定された最初のサブシーケンスを検索する | |
+| [`ranges::all_of`](algorithm/ranges_all_of.md)                       | 全ての要素が条件を満たしているかを調べる             | C++20 |
+| [`ranges::any_of`](algorithm/ranges_any_of.md)                       | どれかの要素が条件を満たしているかを調べる           | C++20 |
+| [`ranges::none_of`](algorithm/ranges_none_of.md)                     | 全ての要素が条件を満たしていないかを調べる           | C++20 |
+| [`ranges::contains`](algorithm/ranges_contains.md)                   | シーケンスの中に指定された要素があるか調べる         | C++23 |
+| [`ranges::contains_subrange`](algorithm/ranges_contains_subrange.md) | シーケンスの中に指定されたシーケンスがあるか調べる   | C++23 |
+| [`ranges::for_each`](algorithm/ranges_for_each.md)                   | 全ての要素に対して処理を行う                         | C++20 |
+| [`ranges::for_each_n`](algorithm/ranges_for_each_n.md)               | 範囲の先頭N個の要素に対して処理を行う                | C++20 |
+| [`ranges::find`](algorithm/ranges_find.md)                           | 指定された値を検索する                               | C++20 |
+| [`ranges::find_if`](algorithm/ranges_find_if.md)                     | 条件を満たす最初の要素を検索する                     | C++20 |
+| [`ranges::find_if_not`](algorithm/ranges_find_if_not.md)             | 条件を満たしていない最初の要素を検索する             | C++20 |
+| [`ranges::find_last`](algorithm/ranges_find_last.md)                 | 指定された値を末尾から検索する                               | C++23 |
+| [`ranges::find_last_if`](algorithm/ranges_find_last_if.md)           | 条件を満たす最後の要素を検索する                     | C++23 |
+| [`ranges::find_last_if_not`](algorithm/ranges_find_last_if_not.md)   | 条件を満たしていない最後の要素を検索する             | C++23 |
+| [`ranges::find_end`](algorithm/ranges_find_end.md)                   | 指定された最後のサブシーケンスを検索する             | C++20 |
+| [`ranges::find_first_of`](algorithm/ranges_find_first_of.md)         | ある集合の1つとマッチする最初の要素を検索する        | C++20 |
+| [`ranges::adjacent_find`](algorithm/ranges_adjacent_find.md)         | 隣接する要素で条件を満たしている最初の要素を検索する | C++20 |
+| [`ranges::count`](algorithm/ranges_count.md)                         | 指定された値である要素の数を数える                   | C++20 |
+| [`ranges::count_if`](algorithm/ranges_count_if.md)                   | 条件を満たしている要素の数を数える                   | C++20 |
+| [`ranges::mismatch`](algorithm/ranges_mismatch.md)                   | 2つの範囲が一致していない場所を検索する              | C++20 |
+| [`ranges::equal`](algorithm/ranges_equal.md)                         | 2つの範囲を等値比較する                              | C++20 |
+| [`ranges::search`](algorithm/ranges_search.md)                       | 指定された最初のサブシーケンスを検索する             | C++20 |
+| [`ranges::search_n`](algorithm/ranges_search_n.md)                   | 指定された最初のサブシーケンスを検索する             | C++20 |
+| [`ranges::starts_with`](algorithm/ranges_starts_with.md)             | 先頭が指定されたシーケンスと一致するかを調べる       | C++23 |
+| [`ranges::ends_with`](algorithm/ranges_ends_with.md)                 | 末尾が指定されたシーケンスと一致するかを調べる       | C++23 |
 
+### `fold`アルゴリズム
+
+`fold`操作は、初期値及び累積値とともに範囲の各要素について与えられた関数を適用していき、その結果を返すものである。これは、数値集計処理に特化した[`accumulate`](/reference/numeric/accumulate.md)を改善しより汎用的にしたものである。処理を範囲のどちら側から始めるかによって、`foldl`（`fold_left`）と`foldr`（`fold_right`）の2種類がある。
+
+| 名前                                                                                 | 説明                                                             | 対応バージョン |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------- |
+| [`ranges::fold_left`](algorithm/ranges_fold_left.md)                                 | 範囲の左（先頭）からの`fold`                                     | C++23          |
+| [`ranges::fold_right`](algorithm/ranges_fold_right.md)                               | 範囲の右（終端）からの`fold`                                     | C++23          |
+| [`ranges::fold_left_first`](algorithm/ranges_fold_left_first.md)                     | 範囲の左（先頭）からの`fold`、初期値を省略する                   | C++23          |
+| [`ranges::fold_right_last`](algorithm/ranges_fold_right_last.md)                     | 範囲の右（終端）からの`fold`、初期値を省略する                   | C++23          |
+| [`ranges::fold_left_with_iter`](algorithm/ranges_fold_left_with_iter.md)             | 範囲の左（先頭）からの`fold`、終端イテレータを返す               | C++23          |
+| [`ranges::fold_left_first_with_iter`](algorithm/ranges_fold_left_first_with_iter.md) | 範囲の左（先頭）からの`fold`、初期値を省略し終端イテレータを返す | C++23          |
 
 ## シーケンスを変更する操作
 
@@ -119,7 +218,41 @@ return distance(a, b);
 | [`stable_partition`](algorithm/stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する | |
 | [`partition_copy`](algorithm/partition_copy.md)   | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする | C++11 |
 | [`partition_point`](algorithm/partition_point.md) | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る | C++11 |
-
+| [`ranges::copy`](algorithm/ranges_copy.md)                         | 指定された範囲の要素をコピーする                                                                                | C++20 |
+| [`ranges::copy_n`](algorithm/ranges_copy_n.md)                     | 指定された数の要素をコピーする                                                                                  | C++20 |
+| [`ranges::copy_if`](algorithm/ranges_copy_if.md)                   | 条件を満たす要素のみをコピーする                                                                                | C++20 |
+| [`ranges::copy_backward`](algorithm/ranges_copy_backward.md)       | 指定された範囲の要素を後ろからコピーする                                                                        | C++20 |
+| [`ranges::move`](algorithm/ranges_move.md)                         | 指定された範囲の要素をムーブする                                                                                | C++20 |
+| [`ranges::move_backward`](algorithm/ranges_move_backward.md)       | 指定された範囲の要素を後ろからムーブする                                                                        | C++20 |
+| [`ranges::swap_ranges`](algorithm/ranges_swap_ranges.md)           | 指定された2つの範囲同士を swap する                                                                             | C++20 |
+| [`ranges::transform`](algorithm/ranges_transform.md)               | 全ての要素に関数を適用する                                                                                      | C++20 |
+| [`ranges::replace`](algorithm/ranges_replace.md)                   | 指定された値と一致する要素を指定された値に置き換える                                                            | C++20 |
+| [`ranges::replace_if`](algorithm/ranges_replace_if.md)             | 条件を満たす要素を指定された値に置き換える                                                                      | C++20 |
+| [`ranges::replace_copy`](algorithm/ranges_replace_copy.md)         | 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする                            | C++20 |
+| [`ranges::replace_copy_if`](algorithm/ranges_replace_copy_if.md)   | 条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする                                      | C++20 |
+| [`ranges::fill`](algorithm/ranges_fill.md)                         | 指定された値で出力の範囲に書き込む                                                                              | C++20 |
+| [`ranges::fill_n`](algorithm/ranges_fill_n.md)                     | 指定された値で出力の範囲に n 個書き込む                                                                         | C++20 |
+| [`ranges::generate`](algorithm/ranges_generate.md)                 | 出力の範囲へ関数の結果を書き込む                                                                                | C++20 |
+| [`ranges::generate_n`](algorithm/ranges_generate_n.md)             | 出力の範囲へ関数の結果を n 個書き込む                                                                           | C++20 |
+| [`ranges::remove`](algorithm/ranges_remove.md)                     | 指定された要素を除ける                                                                                          | C++20 |
+| [`ranges::remove_if`](algorithm/ranges_remove_if.md)               | 条件を満たす要素を除ける                                                                                        | C++20 |
+| [`ranges::remove_copy`](algorithm/ranges_remove_copy.md)           | 指定された要素を除け、その結果を出力の範囲へコピーする                                                          | C++20 |
+| [`ranges::remove_copy_if`](algorithm/ranges_remove_copy_if.md)     | 条件を満たす要素を除け、その結果を出力の範囲へコピーする                                                        | C++20 |
+| [`ranges::unique`](algorithm/ranges_unique.md)                     | 重複した要素を除ける                                                                                            | C++20 |
+| [`ranges::unique_copy`](algorithm/ranges_unique_copy.md)           | 重複した要素を除け、その結果を出力の範囲へコピーする                                                            | C++20 |
+| [`ranges::reverse`](algorithm/ranges_reverse.md)                   | 要素の並びを逆にする                                                                                            | C++20 |
+| [`ranges::reverse_copy`](algorithm/ranges_reverse_copy.md)         | 要素の並びを逆にし、その結果を出力の範囲へコピーする                                                            | C++20 |
+| [`ranges::rotate`](algorithm/ranges_rotate.md)                     | 要素の並びを回転させる                                                                                          | C++20 |
+| [`ranges::rotate_copy`](algorithm/ranges_rotate_copy.md)           | 要素の並びを回転させ、その結果を出力の範囲へコピーする                                                          | C++20 |
+| [`ranges::shift_left`](algorithm/ranges_shift_left.md)             | 要素を左にシフトさせる                                                                                          | C++23 |
+| [`ranges::shift_right`](algorithm/ranges_shift_right.md)           | 要素を右にシフトさせる                                                                                          | C++23 |
+| [`ranges::sample`](algorithm/ranges_sample.md)                     | 範囲から指定された個数の要素をランダムに抽出する                                                                | C++20 |
+| [`ranges::shuffle`](algorithm/ranges_shuffle.md)                   | それぞれの要素をランダムな位置に移動させる                                                                      | C++20 |
+| [`ranges::is_partitioned`](algorithm/ranges_is_partitioned.md)     | 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する       | C++20 |
+| [`ranges::partition`](algorithm/ranges_partition.md)               | 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する                       | C++20 |
+| [`ranges::stable_partition`](algorithm/ranges_stable_partition.md) | 与えられた範囲を相対順序を保ちながら条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する   | C++20 |
+| [`ranges::partition_copy`](algorithm/ranges_partition_copy.md)     | 与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする                                                 | C++20 |
+| [`ranges::partition_point`](algorithm/ranges_partition_point.md)   | 与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る     | C++20 |
 
 ## ソートや、それに関連した操作
 
@@ -175,13 +308,19 @@ return distance(a, b);
 | [`partial_sort_copy`](algorithm/partial_sort_copy.md) | 範囲を部分的にソートした結果を他の範囲にコピーする | |
 | [`is_sorted`](algorithm/is_sorted.md)                 | ソート済みか判定する | C++11 |
 | [`is_sorted_until`](algorithm/is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++11 |
-
+| [`ranges::sort`](algorithm/ranges_sort.md)                           | 範囲を並べ替える                                                 | C++20 |
+| [`ranges::stable_sort`](algorithm/ranges_stable_sort.md)             | 範囲を安定ソートで並べ替える                                     | C++20 |
+| [`ranges::partial_sort`](algorithm/ranges_partial_sort.md)           | 範囲を部分的にソートし、先頭N個を並んだ状態にする                | C++20 |
+| [`ranges::partial_sort_copy`](algorithm/ranges_partial_sort_copy.md) | 範囲を部分的にソートした結果を他の範囲にコピーする               | C++20 |
+| [`ranges::is_sorted`](algorithm/ranges_is_sorted.md)                 | ソート済みか判定する                                             | C++20 |
+| [`ranges::is_sorted_until`](algorithm/ranges_is_sorted_until.md)     | ソート済みか判定し、ソートされていない位置のイテレータを取得する | C++20 |
 
 ### N 番目の要素
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|----------------------------------------------------------|-------|
 | [`nth_element`](algorithm/nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | |
+| [`ranges::nth_element`](algorithm/ranges_nth_element.md) | 基準となる要素よりも小さい要素が、前に来るよう並べ替える | C++20 |
 
 
 ### <a id="alg.binary.search"></a>二分探索
@@ -196,6 +335,10 @@ return distance(a, b);
 | [`upper_bound`](algorithm/upper_bound.md) | 指定された要素より大きい値が現れる最初の位置のイテレータを取得する | |
 | [`equal_range`](algorithm/equal_range.md) | `lower_bound`と`upper_bound`の結果を組で取得する | |
 | [`binary_search`](algorithm/binary_search.md) | 二分探索法による検索を行う | |
+| [`ranges::lower_bound`](algorithm/ranges_lower_bound.md)     | 指定された要素以上の値が現れる最初の位置のイテレータを取得する     | C++20 |
+| [`ranges::upper_bound`](algorithm/ranges_upper_bound.md)     | 指定された要素より大きい値が現れる最初の位置のイテレータを取得する | C++20 |
+| [`ranges::equal_range`](algorithm/ranges_equal_range.md)     | 指定した値と等しい範囲を取得する                                   | C++20 |
+| [`ranges::binary_search`](algorithm/ranges_binary_search.md) | 二分探索法による検索を行う                                         | C++20 |
 
 
 ### マージ
@@ -204,7 +347,8 @@ return distance(a, b);
 |-------------------------------------------------|---------------------------------|-------|
 | [`merge`](algorithm/merge.md)                 | 2つのソート済み範囲をマージする | |
 | [`inplace_merge`](algorithm/inplace_merge.md) | 2つの連続したソート済み範囲をマージする | |
-
+| [`ranges::merge`](algorithm/ranges_merge.md)                 | 2つのソート済み範囲をマージする         | C++20 |
+| [`ranges::inplace_merge`](algorithm/ranges_inplace_merge.md) | 2つの連続したソート済み範囲をマージする | C++20 |
 
 ### ソート済み構造に対する集合演算
 
@@ -219,7 +363,11 @@ return distance(a, b);
 | [`set_difference`](algorithm/set_difference.md)     | 2つのソート済み範囲の差集合を得る | |
 | [`set_symmetric_difference`](algorithm/set_symmetric_difference.md) | 2つのソート済み範囲の対称差集合を得る | |
 | [`includes`](algorithm/includes.md) | 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する | |
-
+| [`ranges::set_union`](algorithm/ranges_set_union.md)                               | 2つのソート済み範囲の和集合を得る                                                           | C++20 |
+| [`ranges::set_intersection`](algorithm/ranges_set_intersection.md)                 | 2つのソート済み範囲の積集合を得る                                                           | C++20 |
+| [`ranges::set_difference`](algorithm/ranges_set_difference.md)                     | 2つのソート済み範囲の差集合を得る                                                           | C++20 |
+| [`ranges::set_symmetric_difference`](algorithm/ranges_set_symmetric_difference.md) | 2つのソート済み範囲の対称差集合を得る                                                       | C++20 |
+| [`ranges::includes`](algorithm/ranges_includes.md)                                 | 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する | C++20 |
 
 ### ヒープ
 
@@ -233,13 +381,18 @@ return distance(a, b);
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------------|-----------------------------------|-------|
-| [`push_heap`](algorithm/push_heap.md)         | ヒープ化された範囲に要素を追加したヒープ範囲を得る | |
+| [`push_heap`](algorithm/push_heap.md)         | ヒープ化された範囲に要素を追加する | |
 | [`pop_heap`](algorithm/pop_heap.md)           | ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す | |
 | [`make_heap`](algorithm/make_heap.md)         | 範囲をヒープ化する | |
 | [`sort_heap`](algorithm/sort_heap.md)         | ヒープ化された範囲を並べ替える | |
 | [`is_heap_until`](algorithm/is_heap_until.md) | 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する | C++11 |
 | [`is_heap`](algorithm/is_heap.md)             | 範囲がヒープ化されているか判定する | C++11 |
-
+| [`ranges::push_heap`](algorithm/ranges_push_heap.md)         | ヒープ化された範囲に要素を追加する                                         | C++20 |
+| [`ranges::pop_heap`](algorithm/ranges_pop_heap.md)           | ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す                             | C++20 |
+| [`ranges::make_heap`](algorithm/ranges_make_heap.md)         | 範囲をヒープ化する                                                                         | C++20 |
+| [`ranges::sort_heap`](algorithm/ranges_sort_heap.md)         | ヒープ化された範囲を並べ替える                                                             | C++20 |
+| [`ranges::is_heap_until`](algorithm/ranges_is_heap_until.md) | 範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する | C++20 |
+| [`ranges::is_heap`](algorithm/ranges_is_heap.md)             | 範囲がヒープ化されているか判定する                                                         | C++20 |
 
 ### 最小と最大
 
@@ -252,19 +405,26 @@ return distance(a, b);
 | [`max_element`](algorithm/max_element.md)       | 範囲内の最大要素へのイテレータを取得する | |
 | [`minmax_element`](algorithm/minmax_element.md) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++11 |
 | [`clamp`](algorithm/clamp.md)                   | 値を範囲内に収める | C++17 |
-
+| [`ranges::min`](algorithm/ranges_min.md)                       | 最小値を取得する                                   | C++20 |
+| [`ranges::max`](algorithm/ranges_max.md)                       | 最大値を取得する                                   | C++20 |
+| [`ranges::minmax`](algorithm/ranges_minmax.md)                 | 最小値と最大値を取得する                           | C++20 |
+| [`ranges::min_element`](algorithm/ranges_min_element.md)       | 範囲内の最小要素へのイテレータを取得する           | C++20 |
+| [`ranges::max_element`](algorithm/ranges_max_element.md)       | 範囲内の最大要素へのイテレータを取得する           | C++20 |
+| [`ranges::minmax_element`](algorithm/ranges_minmax_element.md) | 範囲内の最小要素と最大要素へのイテレータを取得する | C++20 |
+| [`ranges::clamp`](algorithm/ranges_clamp.md)                   | 値を範囲内に収める                                 | C++20 |
 
 ### 辞書式比較
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|---------------------------------|-------|
 | [`lexicographical_compare`](algorithm/lexicographical_compare.md) | 2つの範囲を辞書式順序で比較する | |
+| [`ranges::lexicographical_compare`](algorithm/ranges_lexicographical_compare.md) | 2つの範囲を辞書式順序で比較する | C++20 |
 
 ### 三方比較アルゴリズム
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------------------------------|---------------------------------|-------|
-| [`lexicographical_compare_three_way`](algorithm/lexicographical_compare_three_way.md) | 2つの範囲を辞書式順序で比較する | |
+| [`lexicographical_compare_three_way`](algorithm/lexicographical_compare_three_way.md) | 2つの範囲を辞書式順序で比較する | C++20 |
 
 
 ### 順列
@@ -274,6 +434,25 @@ return distance(a, b);
 | [`next_permutation`](algorithm/next_permutation.md) | 次の順列を生成する     | |
 | [`prev_permutation`](algorithm/prev_permutation.md) | 前の順列を生成する     | |
 | [`is_permutation`](algorithm/is_permutation.md)     | 範囲が順列かを判定する | C++11 |
+| [`ranges::next_permutation`](algorithm/ranges_next_permutation.md) | 次の順列を生成する     | C++20 |
+| [`ranges::prev_permutation`](algorithm/ranges_prev_permutation.md) | 前の順列を生成する     | C++20 |
+| [`ranges::is_permutation`](algorithm/ranges_is_permutation.md)     | 範囲が順列かを判定する | C++20 |
+
+## アルゴリズムの戻り値型
+
+これらの型は、複数の値を1つの戻り値として返すために使われる汎用的な型である。構造化束縛で受け取ることが想定されている。
+
+| 名前                                                                 | 説明                                     | 対応バージョン |
+|----------------------------------------------------------------------|------------------------------------------|----------------|
+| [`ranges::in_fun_result`](algorithm/ranges_in_fun_result.md)         | イテレータと関数オブジェクトを格納する型 | C++20          |
+| [`ranges::in_in_result`](algorithm/ranges_in_in_result.md)           | 2つのイテレータを格納する型              | C++20          |
+| [`ranges::in_out_result`](algorithm/ranges_in_out_result.md)         | 2つのイテレータを格納する型              | C++20          |
+| [`ranges::in_in_out_result`](algorithm/ranges_in_in_out_result.md)   | 3つのイテレータを格納する型              | C++20          |
+| [`ranges::in_out_out_result`](algorithm/ranges_in_out_out_result.md) | 3つのイテレータを格納する型              | C++20          |
+| [`ranges::min_max_result`](algorithm/ranges_min_max_result.md)       | 2つの値または参照を格納する型            | C++20          |
+| [`ranges::in_found_result`](algorithm/ranges_in_found_result.md)     | イテレータとbool値を格納する型           | C++20          |
+| [`ranges::in_value_result`](algorithm/ranges_in_value_result.md)     | イテレータと値を格納する型               | C++23          |
+| [`ranges::out_value_result`](algorithm/ranges_out_value_result.md)   | イテレータと値を格納する型               | C++23          |
 
 
 ## 関連項目
@@ -283,3 +462,4 @@ return distance(a, b);
 
 ## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
+- [N4821 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)

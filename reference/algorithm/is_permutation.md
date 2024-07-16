@@ -57,17 +57,17 @@ namespace std {
 ```
 
 ## 概要
-`first2` で始まる範囲を並べ替えたものが、`[first1, last1)` の範囲と一致するか判定する。
+`first2` で始まる範囲を並べ替えたものが、イテレータ範囲`[first1, last1)`と一致するか判定する。
 
 
-## 要件
+## テンプレートパラメータ制約
 - `decltype(*first1)` と `decltype(*first2)` の型が同じであること。
 - `BinaryPredicate` は同値関係を持っていること。
 
 
 ## 戻り値
 `last2` が与えられている形式の場合、`last1 - first1 != last2 - first2` であれば `false` を返す。  
-そうでなければ、`[first1, last1)` の範囲と `[first2, first2 + (last1 - first1))` の範囲を並び変えたもので、[`equal`](equal.md)`(first1, last1, first2)`、あるいは [`equal`](equal.md)`(first1, last1, first2, pred)` が `true` を返すようなものがあれば `true` を、そうでなければ `false` を返す。  
+そうでなければ、イテレータ範囲`[first1, last1)`とイテレータ範囲`[first2, first2 + (last1 - first1))`を並び変えたもので、[`equal`](equal.md)`(first1, last1, first2)`、あるいは [`equal`](equal.md)`(first1, last1, first2, pred)` が `true` を返すようなものがあれば `true` を、そうでなければ `false` を返す。  
 なお、実際に並べ替えが行われるわけではない。
 
 
@@ -219,9 +219,9 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - C++14で追加されたオーバーロードは2015から実装されている。
 
 ## 参照

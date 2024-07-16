@@ -70,7 +70,7 @@ struct optional {
         = default;
     // #2
     optional(optional const& rhs)
-            requires copy_constructible<T>;
+            requires std::copy_constructible<T>;
 };
 ```
 * std::is_trivially_copy_constructible_v[link /reference/type_traits/is_trivially_copy_constructible.md]
@@ -203,7 +203,7 @@ static_assert(std::is_trivially_copyable<DeletedDestructor>::value == false, "De
 #ifdef __cpp_concepts
 // #1も#2も資格のあるコピーコンストラクタではなく、他に資格のあるコピー/ムーブ コンストラクタ/代入演算子がないためトリビアルコピー可能ではない
 static_assert(std::is_trivially_copyable<optional<std::unique_ptr<int>>>::value == false, "std::unique_ptr<int> isn't trivially copyable");
-// #2が資格のあるコピーコンストラクタであるが、user-proviedであるためトリビアルコピー可能ではない
+// #2が資格のあるコピーコンストラクタであるが、user-providedであるためトリビアルコピー可能ではない
 static_assert(std::is_trivially_copyable<optional<std::string>>::value == false, "optional<std::string> isn't trivially copyable");
 // #1が資格のあるコピーコンストラクタであるのでトリビアルコピー可能
 static_assert(std::is_trivially_copyable<optional<int>>::value == true, "optional<int> is trivially copyable");
@@ -224,9 +224,9 @@ int main() {}
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 5.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 5.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012～2013は、正しく実装されていない。`is_trivially_copy_constructible<T, U>`と同一の実装になっている。
 
 

@@ -1,5 +1,13 @@
-# 例外仕様を型システムの一部にする
+# 例外仕様を型システムの一部にする [P0012R1]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 [`noexcept`](/lang/cpp11/noexcept.md)による例外仕様が、関数の型の一部として扱われるようになる。
@@ -78,7 +86,7 @@ C++11で[`noexcept`](/lang/cpp11/noexcept.md)が導入されたことにより�
 そのほか、次期標準で考えられているトランザクショナルメモリ機能において、トランザクション内で安全に使える機能の条件を決める上で、「関数に`noexcept`が付いていること」というものが必要となった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 noexcept](/lang/cpp11/noexcept.md)
 - [C++17 noexcept付きのラムダ式から変換する関数ポインタにnoexceptを付加する](lambda_to_noexcept_function_pointer.md)
 

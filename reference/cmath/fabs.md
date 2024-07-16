@@ -6,20 +6,41 @@
 
 ```cpp
 namespace std {
-  float fabs(float x);
-  double fabs(double x);
-  long double fabs(long double x);
+  float fabs(float x);              // (1) C++03からC++20まで
+  double fabs(double x);            // (2) C++03からC++20まで
+  long double fabs(long double x);  // (3) C++03からC++20まで
 
-  double fabs(Integral x);          // C++11 から
+  constexpr floating-point-type
+    fabs(floating-point-type x);    // (4) C++23
 
-  float fabsf(float x);             // C++17 から
-  long double fabsl(long double x); // C++17 から
+  double
+    fabs(Integral x);               // (5) C++11
+  constexpr double
+    fabs(Integral x);               // (5) C++23
+
+  float
+    fabsf(float x);                 // (6) C++17
+  constexpr float
+    fabsf(float x);                 // (6) C++23
+
+  long double
+    fabsl(long double x);           // (7) C++17
+  constexpr long double
+    fabsl(long double x);           // (7) C++23
 }
 ```
 * Integral[italic]
 
 ## 概要
 算術型の絶対値を求める。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -34,6 +55,7 @@ namespace std {
 - `value = ±0` の場合、戻り値は `+0` となる。
 - `value = ±∞` の場合、戻り値は `+∞` となる。
 - 戻り値は正確で、現在の丸め方式には依存しない。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -71,13 +93,13 @@ fabs(-∞)   = inf
 - C++03
 
 ### 処理系
-- [Clang](/implementation.md#clang): 1.9, 2.9, 3.1
-- [GCC](/implementation.md#gcc): 3.4.6, 4.2.4, 4.3.5, 4.4.5, 4.5.1, 4.5.2, 4.6.1, 4.7.0
-- [ICC](/implementation.md#icc): 10.1, 11.0, 11.1, 12.0
-- [Visual C++](/implementation.md#visual_cpp): 2003, 2005, 2008, 2010
+- [Clang](/implementation.md#clang): 1.9 [mark verified], 2.9 [mark verified], 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 3.4.6 [mark verified], 4.2.4 [mark verified], 4.3.5 [mark verified], 4.4.5 [mark verified], 4.5.1 [mark verified], 4.5.2 [mark verified], 4.6.1 [mark verified], 4.7.0 [mark verified]
+- [ICC](/implementation.md#icc): 10.1 [mark verified], 11.0 [mark verified], 11.1 [mark verified], 12.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2003 [mark verified], 2005 [mark verified], 2008 [mark verified], 2010 [mark verified]
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -108,3 +130,9 @@ namespace std {
 * signbit[link signbit.md]
 * is_integral[link ../type_traits/is_integral.md]
 * enable_if[link ../type_traits/enable_if.md]
+
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

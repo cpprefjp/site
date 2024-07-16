@@ -16,6 +16,7 @@ namespace std::numbers {
 }
 ```
 * unspecified[italic]
+* see below[italic]
 * floating_point[link /reference/concepts/floating_point.md]
 
 ## 概要
@@ -27,7 +28,7 @@ namespace std::numbers {
 
 
 ## 備考
-- 1/√2を表す`inv_sqrt2`は定義されない。`inv_sqrt2`は[`sqrt2`](sqrt2.md)`/2`もしくは[`sqrt2`](sqrt2.md)から指数を1引けば精度の低下なくかんたんに求められるが、`inv_sqrt3`はかんたんではないため、標準ライブラリでは`inv_sqrt3`のみが定義される
+- 1/√2を表す`inv_sqrt2`は定義されない。`inv_sqrt2`は[`sqrt2`](sqrt2.md)`/2`もしくは[`sqrt2`](sqrt2.md)から指数を1引けば精度の低下なく簡単に求められるが、`inv_sqrt3`は簡単ではないため、標準ライブラリでは`inv_sqrt3`のみが定義される
     ```cpp
     #include <iostream>
     #include <numbers>
@@ -88,7 +89,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

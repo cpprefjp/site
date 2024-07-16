@@ -43,7 +43,7 @@ int main()
   std::vector<int> v = {1, 2, 3, 4, 5};
 
   // vの先頭3要素を部分シーケンスとして参照する
-  std::span<int, 3> s = std::span(v).first(3);
+  std::span<int> s = std::span(v).first(3);
 
   // (1)
   std::for_each(s.begin(), s.end(), [](int x) {
@@ -91,7 +91,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

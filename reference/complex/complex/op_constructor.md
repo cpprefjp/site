@@ -10,51 +10,18 @@ constexpr complex(const T& re = T(), const T& im = T());  // (1) C++14
 
 complex(const complex& other);                            // (2) C++03
 constexpr complex(const complex& other);                  // (2) C++14
+constexpr complex(const complex& other) = default;        // (2) C++23
 
 template <class X>
 complex(const complex<X>& other);                         // (3) C++03
-
 template <class X>
 constexpr complex(const complex<X>& other);               // (3) C++14
+template <class X>
+constexpr explicit(see below)
+  complex(const complex<X>& other);                       // (3) C++23
 ```
 
-### float 特殊化
-```cpp
-complex(const float& re = 0.0f, const float& im = 0.0f);			// (1) C++03
-constexpr complex(const float& re = 0.0f, const float& im = 0.0f);	// (1) C++14
-
-explicit complex(const complex<double>& other);						// (3)' C++03
-explicit constexpr complex(const complex<double>& other);			// (3)' C++14
-
-explicit complex(const complex<long double>& other);				// (3)' C++03
-explicit constexpr complex(const complex<long double>& other);		// (3)' C++14
-```
-
-### double 特殊化
-```cpp
-complex(const double& re = 0.0, const double& im = 0.0);			// (1) C++03
-constexpr complex(const double& re = 0.0, const double& im = 0.0);	// (1) C++14
-
-complex(const complex<float>& other);								// (3)' C++03
-constexpr complex(const complex<float>& other);						// (3)' C++14
-
-explicit complex(const complex<long double>& other);				// (3)' C++03
-explicit constexpr complex(const complex<long double>& other);		// (3)' C++14
-```
-
-### long double 特殊化
-```cpp
-complex(const long double& re = 0.0L, const long double& im = 0.0L);			// (1) C++03
-constexpr complex(const long double& re = 0.0L, const long double& im = 0.0L);	// (1) C++14
-
-complex(const complex<float>& other);											// (3)' C++03
-constexpr complex(const complex<float>& other);									// (3)' C++14
-
-complex(const complex<double>& other);											// (3)' C++03
-constexpr complex(const complex<double>& other);								// (3)' C++14
-```
-
-## complexオブジェクトの構築
+## 概要
 - (1) : 実部(`re`)と虚部(`im`)の値をそれぞれ受け取って構築
 - (2) : コピーコンストラクタ
 - (3) : 変換可能な要素型の`complex`オブジェクトからのコピー
@@ -66,9 +33,7 @@ constexpr complex(const complex<double>& other);								// (3)' C++14
 
 
 ## 備考
-各浮動小数点型の特殊化では、変換コンストラクタとして (3) の関数テンプレート形式ではなく、(3)' のように個別の関数群を提供している。  
-これらのうち、各要素が縮小変換となるものは `explicit` と宣言されているため、暗黙の型変換には使用されない。  
-また、テンプレート形式ではないため、浮動小数点型以外の特殊化からの変換は（たとえ要素型同士での型変換ができたとしても）行うことができない。
+- (3) : 浮動小数点数型として縮小変換となるものは `explicit` と宣言されているため、暗黙の型変換には使用されない
 
 
 ## 例
@@ -86,11 +51,11 @@ int main()
   // コピー構築
   std::complex<float> c2 = c1;
 
-  // (3)'
+  // (3)
   // 変換可能なcomplexオブジェクトからコピー
   std::complex<double> c3 = c2;
 
-  // (3)'
+  // (3)
   // 縮小変換となるコンストラクタは explicit
   // std::complex<float> c4 = c3; // エラー
   std::complex<float> c4(c3);     // 直接初期化なら OK
@@ -111,13 +76,15 @@ c4 : (1,2)
 ```
 
 
-## 参照
-- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
-
-
 ## 関連項目
 
 | 名前             | 説明                             |
 |------------------|----------------------------------|
 |[`real`](real.md) | 実部を取得、あるいは、設定する。 |
 |[`imag`](imag.md) | 虚部を取得、あるいは、設定する。 |
+
+
+## 参照
+- [N3302 Constexpr Library Additions: complex, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3302.html)
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型に対応した

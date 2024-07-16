@@ -31,12 +31,15 @@ namespace std {
 ```
 
 ## 概要
-条件を満たす要素を除け、その結果を出力の範囲へコピーする。
+イテレータ範囲`[first, last)`から条件を満たす要素を除け、その結果を出力の範囲へコピーする。
 
 
-## 要件
-- `[first,last)` と `[result,result + (last - first)` は重なってはならない。
-- `*result = *first` という式が有効でなければならない。
+## テンプレートパラメータ制約
+- `*result = *first` という式が有効であること
+
+
+## 事前条件
+- `[first,last)` と `[result,result + (last - first)` は重なってはならない
 
 
 ## 効果

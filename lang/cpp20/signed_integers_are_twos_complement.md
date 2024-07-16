@@ -1,5 +1,13 @@
-# 符号付き整数型が2の補数表現であることを規定
+# 符号付き整数型が2の補数表現であることを規定 [P1236R1]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++20では、符号付き整数型のビット表現を「2の補数 (Two's Complement)」に規定する。
@@ -8,9 +16,11 @@ C++20では、符号付き整数型のビット表現を「2の補数 (Two's Com
 
 値`-0`は、`0`を意味する。
 
-符号付き整数型に対する右シフトは「符号拡張 (sign extension)」を行い、符号ビットが右に伝播する。
+符号付き整数型に対する左シフト`<<`は[論理シフト(Logical shift)](https://en.wikipedia.org/wiki/Logical_shift)となる。対応する符号無し整数型における左シフト演算とビット表現が等しい結果が得られる。
 
-ただし、符号付き整数型のオーバーフロー時の動作は、これまでと変わらず未定義動作である。[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<符号付き整数型>::`[`is_modulo`](/reference/limits/numeric_limits/is_modulo.md)はデフォルトで`false`のままとなる。
+符号付き整数型に対する右シフト`>>`は[算術シフト(Arithmetic shift)](https://en.wikipedia.org/wiki/Arithmetic_shift)となる。右シフトでは「符号拡張 (sign extension)」が行われ、符号ビットが右に伝播する。
+
+ただし、符号付き整数型に対する算術演算におけるオーバーフロー時の動作は、これまでと変わらず未定義動作である。[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<符号付き整数型>::`[`is_modulo`](/reference/limits/numeric_limits/is_modulo.md)はデフォルトで`false`のままとなる。
 
 
 ## 備考
@@ -43,13 +53,24 @@ int main()
     assert(x == static_cast<std::int8_t>(0b0000'0000));
     assert(y == static_cast<std::int8_t>(0b0000'0000));
   }
-  // 右シフト時の符号拡張
+  // 論理左シフト演算
+  {
+    std::int8_t x = 64;
+    assert(x == static_cast<std::int8_t>(0b0100'0000));
+
+    x <<= 1;
+
+    assert(x == static_cast<std::int8_t>(-128));
+    assert(x == static_cast<std::int8_t>(0b1000'0000));
+  }
+  // 算術右シフト演算
   {
     std::int8_t x = -124;
     assert(x == static_cast<std::int8_t>(0b1000'0100));
 
     x >>= 2;
 
+    assert(x == static_cast<std::int8_t>(-31));
     assert(x == static_cast<std::int8_t>(0b1110'0001));
   }
 }
@@ -117,14 +138,14 @@ Visual Studio、GCC、Clangといった主要な処理系が、2の補数以外�
 C11規格は、2の補数のほかに、1の補数表現 (Ones' complement) と符号ビット付き絶対値表現 (Signed magnitude) を許可しているが、C++では本文書の概要にも記載したように、ハッシュ値の一意性と全順序をサポートするため、2の補数に規定する。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`std::has_unique_object_representations`](/reference/type_traits/has_unique_object_representations.md)
 
 
 ## 参照
 - [P1236R1: Alternative Wording for P0907R4 Signed Integers are Two's Complement](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1236r1.html)
     - C++20に採択された提案文書
-- [P0907R3 Signed Integers are Two's Complement](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0907r3.html)
+- [P0907R4 Signed Integers are Two's Complement](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0907r4.html)
     - 元になった提案文書
 - [符号付き整数型の負数表現を 2 の補数と規定 (P1236R1) - cppmap](https://cppmap.github.io/standardization/cpp20/#2-p1236r1)
 - [2の補数表現における演算](http://www.cc.kyoto-su.ac.jp/~kbys/kiso/number/int-op.html)

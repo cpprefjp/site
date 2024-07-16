@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template<class T, class U>
+  template<class T>
   concept totally_ordered =
     equality_comparable<T> &&
     partially-ordered-with<T, T>;
@@ -22,8 +22,6 @@ namespace std {
     partially-ordered-with<T, U>;
 }
 ```
-* boolean[link /reference/concepts/boolean-testable.md]
-* common_reference_with[link /reference/concepts/common_reference_with.md]
 * common_reference_t[link /reference/type_traits/common_reference.md]
 * equality_comparable[link /reference/concepts/equality_comparable.md]
 * equality_comparable_with[link /reference/concepts/equality_comparable.md]
@@ -38,7 +36,6 @@ namespace std {
 - (1) : `const remove_reference_t<T>`型の左辺値`a, b, c`について次の条件を満たす場合に限って、型`T`は`totally_ordered`のモデルである。
     - `bool(a < b)`、`bool(a > b)`、`bool(a == b)`はいずれか1つだけが`true`となる
     - `bool(a < b)`かつ`bool(b < c)`ならば、`bool(a < c)`
-    - `bool(a > b) == bool(b < a)`が`true`であること
     - `bool(a <= b) == !bool(b < a)`が`true`であること
     - `bool(a >= b) == !bool(a < b)`が`true`であること
 
@@ -214,8 +211,8 @@ S2 is not totally ordered with int
 ### 処理系
 
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

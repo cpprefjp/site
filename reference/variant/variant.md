@@ -43,7 +43,7 @@ std::visit([](auto& x) {
 
 このクラスと同様のことは共用体を使用しても達成できるが、このクラスはより使いやすいよう設計されている。
 
-このクラスは動的メモリ確保は行わず、スタック領域のみを使用する。
+このクラスは追加の動的メモリ確保は行わず、保持するオブジェクトを自身のオブジェクト表現内に直接割り当てる。
 
 
 ### 備考
@@ -56,6 +56,7 @@ std::visit([](auto& x) {
 
 ## テンプレートパラメータ制約
 - `Types...`の全ての型が、[`std::destructible`](/reference/concepts/destructible.md)要件を満たすこと
+    - 例えば`void`はこれを満たさない。空、あるいは無効な型を入れ込みたい場合には[`std::monostate`](/reference/variant/monostate.md)が使用できる
 - コンストラクタや代入の制約として、`variant<`[`std::string`](/reference/string/basic_string.md)`,` [`std::string`](/reference/string/basic_string.md)`>`のように、`Types...`内に同じ型が複数回現れる指定をする場合は、型のインデックスを指定する形式の機能のみ使用できる
     - こういった指定は、正常データかエラーデータどちらかが代入されるオブジェクトを用意する状況で、正常データとエラーデータがどちらも文字列、という場合に必要になる
 
@@ -119,6 +120,7 @@ std::visit([](auto& x) {
 |------|------|----------------|
 | [`operator==`](variant/op_equal.md)         | 等値比較 | C++17 |
 | [`operator!=`](variant/op_not_equal.md)     | 非等値比較 | C++17 |
+| [`operator<=>`](variant/op_compare_3way.md) | 三方比較 | C++20 |
 | [`operator<`](variant/op_less.md)           | 左辺が右辺より小さいかを判定する | C++17 |
 | [`operator<=`](variant/op_less_equal.md)    | 左辺が右辺以下かを判定する | C++17 |
 | [`operator>`](variant/op_greater.md)        | 左辺が右辺より大きいかを判定する | C++17 |
@@ -183,8 +185,8 @@ Hello
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

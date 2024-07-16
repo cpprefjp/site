@@ -61,7 +61,15 @@ namespace std {
 2. --
 3. --
 
+
+## 備考
+
+一見するとこのCPOは冗長であるように見えるが、イテレータ`i`についての`*i`の結果が*prvalue*を返す（イテレータの要素型`T`のオブジェクトをそのまま返す）場合に不要なキャストを回避することでより効率的なムーブ（[コピー省略](/lang/cpp17/guaranteed_copy_elision.md)による直接構築）を行うことができる。
+
+イテレータを利用したジェネリックなアルゴリズムの実装においてイテレータの要素をムーブする必要がある場合には、`std::move(*i)`のようなコードを直接書くよりもこのCPOを使用したほうがより効率的になりうる。
+
 ## 例
+
 ```cpp example
 #include <iterator>
 #include <vector>
@@ -70,7 +78,7 @@ namespace std {
 struct I {
   int n = 0;
 
-  // HIdden friendsとして定義、prvalueを返す
+  // Hidden friendsとして定義、prvalueを返す
   friend auto iter_move(I& self) -> I {
     return std::move(self);
   }
@@ -108,8 +116,8 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 4
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 4 [mark verified]
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

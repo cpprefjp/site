@@ -47,8 +47,7 @@ int main()
   std::cout << std::bitset<4>(value).to_string() << std::endl;
 }
 ```
-* x |= b;[color ff0000]
-* x.load()[link load.md]
+* x |= 0b1110;[color ff0000]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 
 #### 出力
@@ -95,7 +94,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): 10.1
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

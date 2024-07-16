@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-void clear() noexcept;
+void clear();                    // (1) C++03
+void clear() noexcept;           // (1) C++11
+constexpe void clear() noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -47,3 +49,4 @@ int main()
 ```
 
 ## 参照
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

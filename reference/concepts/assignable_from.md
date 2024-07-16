@@ -17,8 +17,7 @@ namespace std {
 ```
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* common_reference_with[link /reference/concepts/common_reference_with.md]
-* same_as[link /reference/concepts/same_as.md]
+* common_reference_with[link common_reference_with.md]
 
 ## 概要
 
@@ -26,18 +25,21 @@ namespace std {
 
 ## モデル
 
-まず、`lhs`を`decltype((lhs))`が`LHS`であるような`lcopy`オブジェクトを参照する左辺値、`rhs`を`decltype((rhs))`が`RHS`であるような式、`rcopy`を`rhs`と等値な個別のオブジェクトとして定義する。
+まず、`lhs`を`decltype((lhs))`が`LHS`であるような`lcopy`オブジェクトを参照する左辺値（参照）、`rhs`を`decltype((rhs))`が`RHS`であるような式、`rcopy`を`rhs`と等値な別のオブジェクトとして定義する。
 
 これらの`lhs, rhs, lcopy, rcopy`について、以下の条件を満たす場合に限って、型`LHS, RHS`は`assignable_from`のモデルである。
 
-- `addressof(lhs = rhs) == addressof(lcopy)`となる
-- `lhs = rhs;`という式の評価の後で以下のいずれかのことが成り立っている
-    - `rhs`が`lcopy`を参照する非`const` *xvalue*でないならば
+- [`addressof`](/reference/memory/addressof.md)`(lhs = rhs) == `[`addressof`](/reference/memory/addressof.md)`(lcopy)`となる
+- `lhs = rhs;`という式の評価の後で以下のことが成り立っている
+    - `rhs`が`lcopy`を参照する非`const` *xvalue*でない（ムーブが起こる自己代入ではない）場合
         - `lhs`は`rcopy`と等値である
     - `rhs`が非`const` *xvalue*ならば
         - `rhs`が参照するオブジェクトの状態は有効だが未規定
     - それ以外の場合で、`rhs`が*glvalue*ならば
         - `rhs`が参照するオブジェクトは変更されない
+
+`rhs`が*prvalue*の場合、2つめの条件のいずれにも該当しない。これはコピー省略等の最適化を考慮したものである。
+
 ## 備考
 
 代入操作では、引数型の一部の値が本コンセプトが要求する構文・意味論的制約を必ずしも満たしていなくても構わない。特に、あるオブジェクト`x`への代入操作によって別のオブジェクト`y`が変更される時、`x, y`はその場合の`=`の定義域に含まれない事がある。
@@ -53,7 +55,7 @@ namespace std {
 #include <memory>
 
 template<typename LHS, typename RHS>
-requires std::assignable_from<LHS, RHS>
+  requires std::assignable_from<LHS, RHS>
 void f(const char* name, const char* arg) {
   std::cout << name << " is assignable from " << arg << std::endl;
 }
@@ -99,8 +101,8 @@ S& is not assignable from S
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

@@ -42,18 +42,19 @@ namespace std {
 #include <type_traits>
 
 template<typename T, typename Cat>
-using fallback_comp3way = std::conditional_t<std::three_way_comparable<T>, std::compare_three_way_result_t<T>, Cat>;
+using fallback_comp3way_t = std::conditional_t<std::three_way_comparable<T>, std::compare_three_way_result<T>, std::type_identity<Cat>>::type;
 
 template<typename T>
 struct wrap {
   T t;
 
-  //<=>を使用可能ならそれを、そうでないなら< ==を使ってdefault実装
+  // <=>を使用可能ならそれを、そうでないなら< ==を使ってdefault実装
   auto operator<=>(const wrap&) const
-    -> fallback_comp3way<T, std::weak_ordering>
+    -> fallback_comp3way_t<T, std::weak_ordering>
       = default;
 }
 
+// <=>を定義しない型
 struct no_spaceship {
   int n;
 
@@ -77,7 +78,8 @@ int main()
   std::cout << (t1 >= t2) << std::endl;
 }
 ```
-* compare_three_way_result_t[color ff0000]
+* compare_three_way_result[color ff0000]
+* type_identity[link /reference/type_traits/type_identity.md]
 
 ### 出力
 ```
@@ -93,7 +95,7 @@ false
 
 ```cpp
 template<typename T, typename U = T>
-concept simple_3way_compareble = requires(const std::remove_reference_t<T>& t, const std::remove_reference_t<U>& u) {
+concept simple_3way_comparable = requires(const std::remove_reference_t<T>& t, const std::remove_reference_t<U>& u) {
   t <=> u;
 };
 
@@ -101,7 +103,7 @@ template<typename T, typename U = T>
 struct compare_three_way_result {};
 
 template<typename T, typename U>
-requires simple_3way_compareble<T, U>
+requires simple_3way_comparable<T, U>
 struct compare_three_way_result<T, U> {
   using type = decltype(declval<const remove_reference_t<T>&>() <=> declval<const remove_reference_t<U>&>());
 };
@@ -114,12 +116,12 @@ struct compare_three_way_result<T, U> {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 
 
 ## 参照

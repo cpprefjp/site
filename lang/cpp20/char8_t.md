@@ -1,5 +1,13 @@
-# UTF-8エンコーディングされた文字の型として`char8_t`を追加
+# UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -27,12 +35,12 @@ UTF-8でエンコードされた文字を格納することを想定した型と
 
 ## 備考
 
-[機能テストマクロ](../../lang/cpp20/feature_test_macros.md.nolink)は以下の通り。
+[機能テストマクロ](../../lang/cpp20/feature_test_macros.md)は以下の通り。
 
 | マクロ名            | 値       |
 |---------------------|----------|
 | `__cpp_char8_t`     | `201811` |
-| `__cpp_lib_char8_t` | `201811` |
+| `__cpp_lib_char8_t` | `201811` <br/> `201907` （P1423R3によって更新） |
 
 ## 例
 ```cpp example
@@ -127,20 +135,20 @@ UTF-8の利用が広く利用されていく中で、C++でもUTF-8を扱う上�
 
 ## 検討されたほかの選択肢
 
-N3398提案では以下のように`char8_t`型を`unsigned char`型の別名にすることが提案されていた。
+提案文書N3398では以下のように`char8_t`型を`unsigned char`型の別名にすることが提案されていた。
 
 ```cpp
 typedef unsigned char char8_t;
 ```
 
-以下のように`enum class`を利用する選択肢もあったが、P0372R0提案は`char8_t`型を使うためにヘッダのインクルードが必要になることは望ましくないと述べている。
+以下のように`enum class`を利用する選択肢もあったが、提案文書P0372R0は`char8_t`型を使うためにヘッダのインクルードが必要になることは望ましくないと述べている。
 
 ```cpp
 enum class char8_t : unsigned char {};
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [char16_tとchar32_t](/lang/cpp11/char16_32.md)
 - [UTF-8文字列リテラル](/lang/cpp11/utf8_string_literals.md)
@@ -150,11 +158,11 @@ enum class char8_t : unsigned char {};
 - [`path::generic_u8string`](/reference/filesystem/path/generic_u8string.md)
 - [`operator ""s`](/reference/string/basic_string/op_s.md)
 - [`operator ""sv`](/reference/string_view/basic_string_view/op_sv.md)
-
+- [`operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)
 
 ## 参照
 
-### `char8_t`型を追加する提案文章
+### `char8_t`型を追加する提案文書
 
 - [N3398: String Interoperation Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3398.html)
 - [P0372R0: A type for utf-8 data](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0372r0.html)
@@ -169,5 +177,6 @@ enum class char8_t : unsigned char {};
 
 ### その他
 
+- [P1423R3: char8_t backward compatibility remediation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r3.html)
 - [Proposal for a C/C++ language extension to support portable UTF-16](http://web.archive.org/web/20140701223639/http://www.unicode.org/~asmus/stdc-utf-16.txt)
 - [char8_tによせて - なるせにっき](https://naruse.hateblo.jp/entry/2018/12/24/013446)

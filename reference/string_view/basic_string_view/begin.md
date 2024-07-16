@@ -14,7 +14,7 @@ constexpr const_iterator begin() const noexcept;
 
 
 ## 戻り値
-`!`[`empty()`](empty.md)である場合、[`data()`](data.md)を指すイテレータを返す。そうでない場合、`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`を妥当な範囲とする未規定の値を返す。
+`!`[`empty()`](empty.md)である場合、[`data()`](data.md)を指すイテレータを返す。そうでない場合、`[begin(),` [`end()`](end.md)`)`を妥当な範囲とする未規定の値を返す。
 
 
 ## 例
@@ -50,7 +50,7 @@ o
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

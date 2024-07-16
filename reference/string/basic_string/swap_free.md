@@ -5,14 +5,18 @@
 
 ```cpp
 namespace std {
-    template <class CharT, class Traits, class Allocator>
+  template <class CharT, class Traits, class Allocator>
   void swap(basic_string<CharT, Traits, Allocator>& x,
-            basic_string<CharT, Traits, Allocator>& y);
-
+            basic_string<CharT, Traits, Allocator>& y); // (1) C++03
   template <class CharT, class Traits, class Allocator>
   void swap(basic_string<CharT, Traits, Allocator>& x,
             basic_string<CharT, Traits, Allocator>& y)
-    noexcept(noexcept(lhs.swap(rhs)));                 // C++17
+    noexcept(noexcept(lhs.swap(rhs)));                 // (1) C++17
+  template <class CharT, class Traits, class Allocator>
+  constexpr
+  void swap(basic_string<CharT, Traits, Allocator>& x,
+            basic_string<CharT, Traits, Allocator>& y)
+    noexcept(noexcept(lhs.swap(rhs)));                 // (1) C++20
 }
 ```
 
@@ -55,4 +59,4 @@ hello
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

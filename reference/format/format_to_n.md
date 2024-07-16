@@ -8,26 +8,44 @@
 ```cpp
 namespace std {
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, format_string<Args...> fmt, const Args&... args); // (1)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                format_string<Args...> fmt,
+                Args&&... args);       // (1)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wformat_string<Args...> fmt, const Args&... args); // (2)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                wformat_string<Args...> fmt,
+                Args&&... args);       // (2)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, format_string<Args...> fmt, const Args&... args); // (3)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                const locale& loc,
+                format_string<Args...> fmt,
+                Args&&... args);       // (3)
 
   template<class Out, class... Args>
-  format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, wformat_string<Args...> fmt, const Args&... args); // (4)
+  format_to_n_result<Out>
+    format_to_n(Out out,
+                iter_difference_t<Out> n,
+                const locale& loc,
+                wformat_string<Args...> fmt,
+                Args&&... args);       // (4)
 }
 ```
-* format_string[italic]
-* wformat_string[italic]
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
 * format_to_n_result[link format_to_n_result.md]
 * locale[link /reference/locale/locale.md]
 
 ## 概要
 
-書式文字列`fmt`に従ったフォーマットで`args...`の文字列表現を、最大で`n`文字だけ出力イテレーター`out`に出力する。
+書式文字列`fmt`に従ったフォーマットで`args...`の文字列表現を、最大で`n`文字だけ出力イテレータ`out`に出力する。
 
 * (1): マルチバイト文字列版
 * (2): ワイド文字列版
@@ -59,7 +77,7 @@ cout << buffer; // The answer is 42.
 `charT`を`decltype(fmt)::value_type`として、
 
 * `out`は`OutputIterator<const charT&>`を満たす型の有効なオブジェクトである。
-* `Args`のそれぞれの引数`Ti`に対応するフォーマッター`formatter<Ti, charT>`が`Formatter`要件を満たす。
+* `Args`のそれぞれの引数`Ti`に対応するフォーマッター`formatter<remove_cvref_t<Ti>, charT>`が`BasicFormatter`要件を満たす。
 
 ## 戻り値
 
@@ -93,6 +111,74 @@ int main()
 The answer is 42.
 ```
 
+
+## 実装例
+
+```cpp
+template<class CharT, class Out>
+class Wrapper {
+  std::iter_difference_t<Out> count_ = 0;
+  std::iter_difference_t<Out> max_count_;
+  Out out_;
+  
+public:
+  using value_type = CharT;
+
+  Wrapper(Out out, std::iter_difference_t<Out> max_count)
+    : max_count_(max_count)
+    , out_(std::move(out))
+  {}
+
+  constexpr void push_back(const value_type& value) {
+    if (count_ < max_count_) {
+      *out_ = value;
+      ++out_;
+    }
+    ++count_;
+  }
+
+  constexpr std::format_to_n_result<Out> result() const {
+    return {out_, count_};
+  }
+};
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, format_string<Args...> fmt, Args&&... args) {
+  Wrapper<char, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, wformat_string<Args...> fmt, Args&&... args) {
+  Wrapper<wchar_t, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, format_string<Args...> fmt, Args&&... args) {
+  Wrapper<char, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), loc, fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+
+template<class Out, class... Args>
+format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const locale& loc, wformat_string<Args...> fmt, Args&&... args) {
+  Wrapper<wchar_t, Out> wrapper(out, n);
+  format_to(back_inserter(wrapper), loc, fmt, forward<Args>(args)...);
+  return wrapper.result();
+}
+```
+* format_string[link basic_format_string.md]
+* wformat_string[link basic_format_string.md]
+* format_to[link format_to.md]
+* locale[link /reference/locale/locale.md]
+* forward[link /reference/utility/forward.md]
+* back_inserter[link /reference/iterator/back_inserter.md]
+* iter_difference_t[link /reference/iterator/iter_difference_t.md]
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -109,3 +195,4 @@ The answer is 42.
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 * [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
 * [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
+* [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)

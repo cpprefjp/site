@@ -1,5 +1,13 @@
-# 構造化束縛
+# 構造化束縛 [P0217R3]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 「構造化束縛 (structured bindings)」は、組やタプル、配列や構造体を分解して各要素を取り出す機能である。
@@ -40,8 +48,8 @@ std::cout << message << std::endl; // 「Hello」が出力される
 - 右辺の型が配列である場合、識別子リストの要素数は、配列の要素と同じであること。配列の0番目の要素が識別子リストの0番目の要素に代入され、配列の1番目の要素が識別子の1番目の要素に代入され、それが配列の要素数 - 1の添字まで繰り返される
 - 右辺の型が式[`std::tuple_size`](/reference/tuple/tuple_size.md)`<T>::value`が妥当である場合 (タプルとしてi番目の要素を参照できる型)、識別子の要素数はその式の値と同じであること
 - 右辺の型がメンバ関数`get()`を持っている場合は式`x.get<i>()`の呼び出しで`i`番目の要素が識別子リストの`i`番目の要素に代入される。そうでなければ、名前空間修飾なしの`get<i>(x)`呼び出しの結果が識別子リストの`i`番目の要素に代入され (`get`関数はADLによって関連名前空間で探索される)、それがタプルの要素数 - 1の添字まで繰り返される
-- 右辺の型がクラスで、非静的データメンバを直接持つ、あるいは非静的データメンバを曖昧さのない基底クラスが持つ場合、識別子リストの要素数は、非静的データメンバの数と同じであること。そのクラスは、無名共用体メンバを持ってはならない。そのクラスの非静的データメンバは、宣言順に識別子リストの変数に代入される
-    - クラスの非静的データメンバがビットフィールドであった場合、分解された識別子の変数もまたビットフィールドとなる
+- 右辺の型がクラスで、非静的メンバ変数を直接持つ、あるいは非静的メンバ変数を曖昧さのない基底クラスが持つ場合、識別子リストの要素数は、非静的メンバ変数の数と同じであること。そのクラスは、無名共用体メンバを持ってはならない。そのクラスの非静的メンバ変数は、宣言順に識別子リストの変数に代入される
+    - クラスの非静的メンバ変数がビットフィールドであった場合、分解された識別子の変数もまたビットフィールドとなる
 - 右辺のオブジェクトの要素が参照である場合、宣言子全体が参照修飾されていない場合でも、対応する識別子の各変数は参照となる
 
 
@@ -122,7 +130,6 @@ int main()
   }
 }
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 * std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
 #### 出力
@@ -189,7 +196,7 @@ int main()
 4
 ```
 
-### 非静的データメンバを持つクラスを分解する
+### 非静的メンバ変数を持つクラスを分解する
 ```cpp example
 #include <iostream>
 #include <utility>
@@ -201,7 +208,7 @@ struct X {
   std::string message = "Hello";
   double value = 3.14;
 
-  // 静的データメンバや定数は、構造化束縛宣言では無視される
+  // 静的メンバ変数や定数は、構造化束縛宣言では無視される
   static int static_value;
   static const int constant_value = 456;
 
@@ -325,12 +332,12 @@ C++17時点の構造化束縛では、使用しない変数もコピーあるい
 std::tuple<T1, std::pair<T2, T3>, T4> f();
 auto { w, {x, y}, z } = f(); // このような、tuple内にあるpairを同時に分解はできない
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md)
 - [C++20 構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md)
+- [C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md)
 - [C++20 構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md)
 
 

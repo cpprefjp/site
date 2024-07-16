@@ -1,5 +1,13 @@
-# constexpr
+# constexpr [N2235]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 `constexpr`は、汎用的に定数式を表現するための機能である。
@@ -191,12 +199,22 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
 また、`constexpr`は、値を計算するテンプレートメタプログラムを置き換えて使用できる。テンプレートメタプログラミングでは、非型テンプレートパラメータによって整数型の値をコンパイル時に計算することはできた。しかし、浮動小数点数型の値や、その他多くの値に関する計算が難しく、構文もまた通常の関数とはかけ離れていた(浮動小数点数型の値の計算は、分数形式にすれば、できることはできる)。値をコンパイル時に計算するためには、今後はテンプレートメタプログラミングよりも`constexpr`を積極的に使用していくとよいだろう。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ユーザー定義リテラル](user_defined_literals.md)
-- [C++14 `constexpr`の制限緩和](/lang/cpp14/relaxing_constraints_on_constexpr.md)
+- [C++14 `constexpr`関数内での条件分岐とループの文を許可](/lang/cpp14/relaxing_constraints_on_constexpr.md)
+- [C++17 `constexpr`ラムダ](/lang/cpp17/constexpr_lambda.md)
+- [C++20 常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md)
 - [C++20 定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md)
+- [C++20 定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md)
 - [C++20 `constexpr`関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
-- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 定数式内での共用体のアクティブメンバの変更を許可](/lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.md)
+- [C++20 `constexpr`関数内でのトリビアルなデフォルト初期化を許可](/lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md)
+- [C++20 `constexpr`関数内で未評価のインラインアセンブリを許可することによる組み込み関数の`constexpr`有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
+- [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md)
+- [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
+- [C++23 `constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md)
+- [C++23 `constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md)
+- [C++23 `constexpr`関数内で`consteval`関数を呼び出せない問題を軽減](/lang/cpp23/consteval_needs_to_propagate_up.md)
 
 
 ## 参照
@@ -209,4 +227,3 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
     - リテラル型のメンバ変数のみを持つクラスは、`constexpr`コンストラクタを明示的に定義しなくても、リテラル型となる
 - [CWG Issue 699. Must constexpr member functions be defined in the class member-specification?](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#699)
     - ゼロ割りの扱い、再帰回数の規定
-

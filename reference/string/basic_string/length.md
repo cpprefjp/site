@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-size_type length() const;          // C++03
-size_type length() const noexcept; // C++11
+size_type length() const;                    // (1) C++03
+size_type length() const noexcept;           // (1) C++11
+constexpr size_type length() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -48,3 +49,4 @@ int main()
 ```
 
 ## 参照
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

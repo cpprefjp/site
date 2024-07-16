@@ -5,17 +5,46 @@
 * function[meta id-type]
 
 ```cpp
-size_type find_last_of(const basic_string& str, size_type pos = npos) const;          // (1) C++03
-size_type find_last_of(const basic_string& str, size_type pos = npos) const noexcept; // (1) C++11
+size_type
+  find_last_of(const basic_string& str,
+               size_type pos = npos) const;          // (1) C++03
+size_type
+  find_last_of(const basic_string& str,
+               size_type pos = npos) const noexcept; // (1) C++11
+constexpr size_type
+  find_last_of(const basic_string& str,
+               size_type pos = npos) const noexcept; // (1) C++20
 
-size_type find_last_of(const charT* s, size_type pos, size_type n) const;             // (2)
-size_type find_last_of(const charT* s, size_type pos = npos) const;                   // (3)
+size_type
+  find_last_of(const charT* s,
+               size_type pos, size_type n) const; // (2) C++03
+constexpr size_type
+  find_last_of(const charT* s,
+               size_type pos, size_type n) const; // (2) C++20
 
-size_type find_last_of(charT c, size_type pos = npos) const;                          // (4)
+size_type
+  find_last_of(const charT* s,
+               size_type pos = npos) const; // (3) C++03
+constexpr size_type
+  find_last_of(const charT* s,
+               size_type pos = npos) const; // (3) C++20
+
+size_type
+  find_last_of(charT c,
+               size_type pos = npos) const; // (4) C++03
+constexpr size_type
+  find_last_of(charT c,
+               size_type pos = npos) const; // (4) C++20
 
 // string_viewを引数に取るオーバーロード
 template <class T>
-size_type find_last_of(const T& t, size_type pos = npos) const noexcept(see below);   // (5) C++17
+size_type
+  find_last_of(const T& t,
+               size_type pos = npos) const noexcept(下記参照); // (5) C++17
+template <class T>
+constexpr size_type
+  find_last_of(const T& t,
+               size_type pos = npos) const noexcept(下記参照); // (5) C++20
 ```
 
 ## 概要
@@ -121,3 +150,4 @@ size_type basic_string<charT, traits, Allocator>::find_last_of(charT c, size_typ
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(5)の引数型を`const T&`に変更
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

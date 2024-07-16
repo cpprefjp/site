@@ -1,5 +1,13 @@
-# クラステンプレートのテンプレート引数推論
+# クラステンプレートのテンプレート引数推論 [P0091R3]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 コンストラクタに渡される値によって、クラステンプレートのテンプレート引数を推論する。
@@ -191,10 +199,9 @@ int main()
 * std::function[link /reference/functional/function.md]
 * std::weak_ptr[link /reference/memory/weak_ptr.md]
 * wp.lock()[link /reference/memory/weak_ptr/lock.md]
-* std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 * std::promise[link /reference/future/promise.md]
-* p.get_future()[link /reference/future/promise/get_future.md]
+* pro.get_future()[link /reference/future/promise/get_future.md]
 * std::future[link /reference/future/future.md]
 
 #### 出力
@@ -204,11 +211,17 @@ int main()
 
 ### クラステンプレートの型推論を回避する例
 ```cpp
+// C++20 で追加された std::type_identity と同じことをするクラス
+template <class T>
+struct identity {
+  using type = T;
+};
+
 template <class T>
 struct X {
-  using T_ = T;
+  using T_ = typename identity<T>::type;
 
-  // テンプレートパラメータを直接使用せず、型の別名を付けてから使用する。
+  // テンプレートパラメータを直接使用せず、identityを介して使用する。
   // これによって、テンプレート引数を明示的に指定させられる
   X(T_) {}
 };
@@ -268,7 +281,7 @@ int main()
 - 循環的な複雑さ (Cyclomatic complexity) を軽減するために大きな関数をクラスで置き換える便利な手法が、関数テンプレートでは使用できなかった
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`std::pair`の推論補助](/reference/utility/pair/op_deduction_guide.md)
 - [`std::tuple`の推論補助](/reference/tuple/tuple/op_deduction_guide.md)
     - `std::pair`と`std::tuple`の推論補助の例からは、[`std::make_pair()`](/reference/utility/make_pair.md)のような生成関数の必要性が薄くなることと、標準ライブラリ内の生成関数と推論補助で、小さな機能的差異があることがわかる
@@ -278,6 +291,7 @@ int main()
     - `std::array`の推論補助からは、非トリビアルなコンストラクタを持たないクラステンプレートであっても、推論補助を定義できることがわかる。ただし、配列の要素型を推論するためには、推論しない場合とは違った制限が必要となる
 - [C++20 集成体クラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_aggregates.md)
 - [C++20 エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論](/lang/cpp20/class_template_argument_deduction_for_alias_templates.md)
+- [C++23 継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md)
 
 
 ## 参照
@@ -285,4 +299,4 @@ int main()
 - [P0620R0 Drafting for class template argument deduction issues](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0620r0.html)
 - [LWG Issue 2981. Remove redundant deduction guides from standard library](https://wg21.cmeerw.net/lwg/issue2981)
 - [P0702R1 Language support for Constructor Template Argument Deduction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0702r1.html)
-- [Class Template Argument Deduction - A New Abstraction - Zhihao Yuan - CppCon 2017](https://github.com/CppCon/CppCon2017/raw/master/Presentations/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction%20-%20Zhihao%20Yuan%20-%20CppCon%202017.pdf)
+- [Class Template Argument Deduction - A New Abstraction - Zhihao Yuan - CppCon 2017](https://raw.githubusercontent.com/CppCon/CppCon2017/master/Presentations/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction%20-%20Zhihao%20Yuan%20-%20CppCon%202017.pdf)

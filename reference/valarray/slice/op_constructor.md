@@ -65,7 +65,7 @@ auto main()
 * s.size()[link size.md]
 * s.stride()[link stride.md]
 
-### 出力
+### 出力例
 ```
 0x7fffe0c71c98: 0 0 0
 0x7fffe0c71c70: 3 5 7

@@ -44,7 +44,6 @@ int main()
 * to_sys[color ff0000]
 * from_sys[link from_sys.md]
 * sys_days[link /reference/chrono/sys_time.md]
-* system_clock[link /reference/chrono/system_clock.md]
 * July[link /reference/chrono/month_constants.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 
@@ -60,9 +59,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 参照

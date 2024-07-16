@@ -54,7 +54,6 @@ int main()
 }
 ```
 * std::make_tuple[color ff0000]
-* std::tuple[link tuple.md]
 * std::ref[link /reference/functional/ref.md]
 * std::cref[link /reference/functional/cref.md]
 
@@ -68,9 +67,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ?
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2008, 2010
+- [Visual C++](/implementation.md#visual_cpp): 2008 [mark verified], 2010 [mark verified]
 
 
 ## 参照

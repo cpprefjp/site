@@ -1,5 +1,13 @@
-# 波括弧初期化の型推論の新規則
+# 単一要素の波カッコ初期化を非配列とする [N3922]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -83,7 +91,7 @@ i
 が提案されたが採用されなかった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 * [C++11 初期化リスト](/lang/cpp11/initializer_lists.md)
 

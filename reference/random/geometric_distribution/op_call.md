@@ -38,7 +38,7 @@ int main()
 
   // (1)
   {
-    // 確率0.5で成功する事象を、成功するまで施行する
+    // 確率0.5で成功する事象を、成功するまで試行する
     std::geometric_distribution<> dist(0.5);
 
     // 成功するまでに失敗した回数を取得
@@ -51,7 +51,7 @@ int main()
     using dist_type = std::geometric_distribution<>;
     dist_type dist;
 
-    // 確率0.5で成功する事象を、成功するまで施行する
+    // 確率0.5で成功する事象を、成功するまで試行する
     dist_type::param_type param(0.5);
 
     // 成功するまでに失敗した回数を取得
@@ -74,8 +74,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.7.2(パラメータを渡さないバージョンのみ)
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.2(パラメータを渡さないバージョンのみ) [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

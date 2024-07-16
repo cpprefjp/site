@@ -7,19 +7,24 @@
 ```cpp
 namespace std {
   template <class T, class U=T>
-  T exchange(T& obj, U&& new_val);           // C++14
+  T exchange(T& obj, U&& new_val);           // (1) C++14
 
   template <class T, class U=T>
-  constexpr T exchange(T& obj, U&& new_val); // C++20
+  constexpr T exchange(T& obj, U&& new_val); // (1) C++20
+
+  template <class T, class U=T>
+  constexpr T exchange(T& obj, U&& new_val)
+    noexcept(see below);                     // (1) C++23
 }
 ```
+* see below[italic]
 
 ## 概要
 値を書き換え、書き換え前の値を返す。
 
 
 ## 効果
-第1パラメータ`obj`で受け取った変数への参照に、第2パラメータ`new_val`の値をムーブ代入し、代入前の`obj`の状態を返す。
+第1パラメータ`obj`で受け取った変数への参照に、第2パラメータ`new_val`の値をコピー代入または可能ならムーブ代入し、代入前の`obj`の状態を返す。
 
 以下と等価の効果を持つ：
 
@@ -34,6 +39,10 @@ return old_val;
 
 ## 戻り値
 この関数を呼び出す前の、第1パラメータ`obj`の状態を返す。
+
+
+## 例外
+C++23から : 例外指定の式は次と等価 : [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> &&` [`is_nothrow_assignable_v`](/reference/type_traits/is_nothrow_assignable.md)`<T&, U>`
 
 
 ## 備考
@@ -190,10 +199,10 @@ Hello 0x7ffc560ca4cc
 - C++14
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.9.0
-- [Clang](/implementation.md#clang): 3.4
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified]
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 ## 関連項目
 
@@ -206,3 +215,4 @@ Hello 0x7ffc560ca4cc
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [`std::exchange` Patterns: Fast, Safe, Expressive, and Probably Underused](https://www.fluentcpp.com/2020/09/25/stdexchange-patterns-fast-safe-expressive-and-probably-underused/)
 - [`std::exchange`によるmoveしてリセットするイディオムの御紹介](https://onihusube.hatenablog.com/entry/2020/10/31/163244)
+- [P2401R0 Add a conditional noexcept specification to std::exchange](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2401r0.html)

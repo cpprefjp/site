@@ -5,21 +5,24 @@
 * function[meta id-type]
 
 ```cpp
-iterator begin() noexcept;
-const_iterator begin() const noexcept;
+iterator begin();           // (1) C++03
+iterator begin() noexcept;  // (1) C++11
+
+const_iterator begin() const;           // (2) C++03
+const_iterator begin() const noexcept;  // (2) C++11
 ```
 
 
 ## 概要
-`miltiset` コンテナの先頭要素を参照するイテレータを返す。
+`multiset` コンテナの先頭要素を参照するイテレータを取得する。
 
-内部的に、`multiset`コンテナは要素を下位から上位へと並べており、従って `begin()` は `miltiset` 内の最下位のキーにあたる値を返す。
+内部的に、`multiset`コンテナは要素を下位から上位へと並べており、従って `begin()` は `multiset` 内の最下位のキーにあたる値へのイテレータを返す。
 
 
 ## 戻り値
 コンテナの先頭要素へのイテレータ。
 
-`iterator` と `const_iterator` はともにメンバ型である。`miltiset` クラステンプレートにおいて、これらは双方向イテレータである。
+`iterator` と `const_iterator` はともにメンバ型である。`multiset` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
 ## 備考
@@ -67,6 +70,6 @@ int main()
 
 | 名前                       | 説明                             |
 |----------------------------|----------------------------------|
-| [`multiset::end`](end.md)       | 末尾を指すイテレータを取得する   |
+| [`multiset::end`](end.md)       | 末尾の次を指すイテレータを取得する |
 | [`multiset::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`multiset::rend`](rend.md)     | 先頭を指す逆イテレータを取得する |
+| [`multiset::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |

@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void clear() noexcept;
+void clear();           // C++03
+void clear() noexcept;  // C++11
 ```
 
 ## 概要
@@ -59,7 +60,7 @@ int main()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 ## 関連項目
 

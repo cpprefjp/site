@@ -24,12 +24,12 @@ namespace std::filesystem {
 
 ## 効果
 - (3), (4) : パス`p`を、現在の作業ディレクトリとして設定する
-    - POSIX環境では、[`chdir()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/chdir.2.html)関数を使用する
+    - POSIX環境では、[`chdir()`](https://web.archive.org/web/20230605001127/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/chdir.2.html)関数を使用する
 
 
 ## 戻り値
 - (1), (2) : 現在の作業ディレクトリの絶対パスを、ネイティブフォーマットとして返す
-    - POSIX環境では、[`getcwd()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/getcwd.3.html)関数を使用する
+    - POSIX環境では、[`getcwd()`](https://web.archive.org/web/20230208075801/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/getcwd.3.html)関数を使用する
     - エラーが発生した場合、 (2) では`path()`が返る
 - (3), (4) : なし
 
@@ -76,6 +76,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

@@ -28,11 +28,12 @@ namespace std {
 ```
 
 ## 概要
-範囲を安定ソートで並べ替える
+イテレータ範囲`[first, last)`を安定ソートで並べ替える
 
 
-## 要件
-`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+## テンプレートパラメータ制約
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしていること
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
 
 
 ## 効果

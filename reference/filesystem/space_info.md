@@ -16,6 +16,15 @@ namespace std::filesystem {
 `available`の値はOS依存であるが、値としては`free`以下となるだろう。POSIX環境では、非特権プロセスが使用できる容量を表す。
 
 
+## メンバ関数
+### 比較演算子
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `friend bool operator==(const space_info&, const space_info&) = default;` | 等値比較 | C++20 |
+| `friend bool operator!=(const space_info&, const space_info&);` | 非等値比較 (`==`により使用可能) | C++20 |
+
+
 ## メンバ変数
 
 | 名前 | 説明 | 対応バージョン |
@@ -71,6 +80,11 @@ available : 1048580096[B] (1000[MB])
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

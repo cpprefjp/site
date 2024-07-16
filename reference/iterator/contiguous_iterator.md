@@ -23,9 +23,7 @@ namespace std {
 * contiguous_iterator_tag[link /reference/iterator/iterator_tag.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* same_as[link /reference/concepts/same_as.md]
 * iter_value_t[link /reference/iterator/iter_value_t.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * to_address[link /reference/memory/to_address.md]
 * add_pointer_t[link /reference/type_traits/add_pointer.md]
 
@@ -100,8 +98,8 @@ std::ostream_iterator<double> is not contiguous_iterator
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 ## 関連項目
 

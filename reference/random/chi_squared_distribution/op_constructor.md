@@ -6,17 +6,25 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit chi_squared_distribution(RealType n = 1);         // (1)
-explicit chi_squared_distribution(const param_type& parm); // (2)
+explicit chi_squared_distribution(RealType n = 1);            // (1)
+chi_squared_distribution() : chi_squared_distribution(1.0) {} // (1) C++20
+
+explicit chi_squared_distribution(RealType n);                // (2) C++20
+
+explicit chi_squared_distribution(const param_type& parm);    // (3)
 ```
 
 ## 概要
-- (1) : カイ二乗分布の自由度`n`を受け取るコンストラクタ。
-- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
+
+- (1) : デフォルトコンストラクタ
+    - C++17まで : カイ二乗分布の自由度`n`を受け取るコンストラクタ。
+    - C++20 : カイ二乗分布の自由度`n = 1.0`として(2)に委譲。
+- (2) : カイ二乗分布の自由度`n`を受け取るコンストラクタ。
+- (3) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
 ## 要件
-- (1) : `n > 0`であること
+- (2) : `n > 0`であること
 
 
 ## 例
@@ -87,11 +95,11 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 
-
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)

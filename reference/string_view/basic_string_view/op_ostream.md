@@ -8,7 +8,7 @@
 namespace std {
   template <class CharT, class Traits>
   std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<charT, traits>& os, std::basic_string_view<CharT, Traits> sv);
+    operator<<(std::basic_ostream<CharT, Traits>& os, std::basic_string_view<CharT, Traits> sv);
 }
 ```
 
@@ -16,7 +16,7 @@ namespace std {
 文字列をストリームへ出力する。
 
 ## 効果
-`[sv.`[`begin()`](begin.md)`, sv.`[`end()`](end.md)`)`の範囲の文字を`os`に出力する。
+イテレータ範囲`[sv.`[`begin()`](begin.md)`, sv.`[`end()`](end.md)`)`の文字を`os`に出力する。
 
 
 ## 戻り値
@@ -49,7 +49,7 @@ Hello
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

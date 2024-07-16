@@ -100,7 +100,7 @@ unordered_multimap(initializer_list<value_type> il,
 - (1) + (2) バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、キー比較用関数オブジェクト `eql`、アロケータオブジェクト `a` で、要素を持たない空の `unordered_multimap` を構築する。
     引数 `n` のデフォルト値は実装依存である。
 
-- (3) : (1)と同様に `unordered_multimap` が構築された後、`[first, last)` の範囲の要素が挿入される。
+- (3) : (1)と同様に `unordered_multimap` が構築された後、イテレータ範囲`[first, last)`の要素が挿入される。
 
 - (4) : コピーコンストラクタ。`v` の全ての要素をコピーした、`unordered_multimap` を構築する。
     ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、[`max_load_factor`](max_load_factor.md)`()` の値も `v` からコピーされる。
@@ -214,9 +214,8 @@ unordered_multimap(initializer_list<value_type> il,
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.0, 3.1
-- [GCC](/implementation.md#gcc): 4.4.7, 4.5.3, 4.6.3, 4.7.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified], 4.5.3 [mark verified], 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

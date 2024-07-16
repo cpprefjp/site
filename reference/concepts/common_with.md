@@ -23,7 +23,6 @@ namespace std {
         add_lvalue_reference_t<const U>>>;
 }
 ```
-* same_as[link /reference/concepts/same_as.md]
 * common_type_t[link /reference/type_traits/common_type.md]
 * add_lvalue_reference_t[link /reference/type_traits/add_lvalue_reference.md]
 * common_reference_with[link /reference/concepts/common_reference_with.md]
@@ -73,7 +72,7 @@ int main()
   f<std::pair<int&, double&>, std::pair<int, double>>();
 }
 ```
-* std::common_reference_with[color ff0000]
+* std::common_with[color ff0000]
 
 ### 出力
 ```
@@ -90,8 +89,8 @@ T, U share a common type
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

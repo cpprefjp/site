@@ -5,15 +5,18 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator rbegin() noexcept;
-const_reverse_iterator rbegin() const noexcept;
+reverse_iterator rbegin();           // (1) C++03
+reverse_iterator rbegin() noexcept;  // (1) C++11
+
+const_reverse_iterator rbegin() const;           // (2) C++03
+const_reverse_iterator rbegin() const noexcept;  // (2) C++11
 ```
 
 
 ## 概要
-`set` コンテナ内の最後の要素を指す逆イテレータを返す。
+`set` コンテナ内の末尾の要素を指す逆イテレータを取得する。
 
-内部的に、`set` コンテナは各要素を下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値を返す。
+内部的に、`set` コンテナは各要素を下位から上位へと並べており、従って `rbegin()` は最上位のキーにあたる値を指すイテレータを返す。
 
 `rbegin()` は [`end()`](end.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
@@ -63,7 +66,7 @@ int main()
 
 | 名前                  | 説明                             |
 |-----------------------|----------------------------------|
-| [`rend`](rend.md)   | 先頭を指す逆イテレータを取得する |
+| [`rend`](rend.md)   | 先頭の前を指す逆イテレータを取得する |
 | [`begin`](begin.md) | 先頭を指すイテレータを取得する   |
-| [`end`](end.md)     | 末尾を指すイテレータを取得する   |
+| [`end`](end.md)     | 末尾の次を指すイテレータを取得する   |
 

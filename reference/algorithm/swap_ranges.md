@@ -27,16 +27,16 @@ namespace std {
 ```
 
 ## 概要
-指定された2つの範囲同士を swap する。
+指定された2つの範囲`[first1, last1)`と`[first2, first2 + (last1 - first1))`を入れ替える。
+
+
+## 事前条件
+- `[first1,last1)` と `[first2,first2 + (last1 - first1))` の範囲が重なってはならない。
+- 0 以上 `last1 - first1` 未満のそれぞれの `n` について、`*(first1 + n) と *(first2 + n)` は `Swappable` でなければならない。
 
 
 ## 効果
-0 以上 `last1 - first1` 以下のそれぞれの `n` について [`swap`](/reference/utility/swap.md)`(*(first1 + n), *(first2 + n))` を行う
-
-
-## 要件
-`[first1,last1)` と `[first2,first2 + (last1 - first1))` の範囲が重なってはならない。
-0 以上 `last1 - first1` 未満のそれぞれの `n` について、`*(first1 + n) と *(first2 + n)` は `Swappable` でなければならない。
+0 以上 `last1 - first1` 未満のそれぞれの `n` について [`swap`](/reference/utility/swap.md)`(*(first1 + n), *(first2 + n))` を行う
 
 
 ## 戻り値

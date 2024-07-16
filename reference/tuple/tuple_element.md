@@ -80,7 +80,6 @@ int main()
 }
 ```
 * std::tuple_element[color ff0000]
-* std::tuple[link tuple.md]
 
 ### 出力
 ```
@@ -92,7 +91,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

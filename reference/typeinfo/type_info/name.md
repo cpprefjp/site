@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-const char* name() const noexcept;
+const char* name() const;          // C++03
+const char* name() const noexcept; // C++11
 ```
 
 ## 概要
@@ -40,7 +41,7 @@ int main()
 ```
 * name()[color ff0000]
 
-### 出力
+### 出力例
 ```
 i
 c

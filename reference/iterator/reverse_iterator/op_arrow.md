@@ -29,7 +29,7 @@ constexpr pointer operator->() const  // C++20
 
     - それ以外の場合
       ```cpp
-      return prev(current).operator->();;
+      return prev(current).operator->();
       ```
       * prev[link /reference/iterator/prev.md]
 

@@ -39,7 +39,6 @@ int main()
 }
 ```
 * std::index_sequence[color ff0000]
-* std::integer_sequence[link integer_sequence.md]
 
 ## 出力
 ```
@@ -51,10 +50,10 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.4
-- [GCC](/implementation.md#gcc): 4.9.0
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 ### 備考
 - GCC 4.9.2で、`std::index_sequence`を関数のパラメータとして受け取るとコンパイルエラーになる問題があった([Bug 65790](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65790))。GCC 5.2.0で修正された。

@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 効果
-`is_arithmetic`は、型`T`が算術型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](true_type.md)から派生する。
+`is_arithmetic`は、型`T`が算術型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 
 ## 例
@@ -60,8 +60,8 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.5.3 [mark verified], 4.6.2 [mark verified], 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 #### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。

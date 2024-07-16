@@ -16,7 +16,7 @@ namespace std {
 * shared_ptr[link shared_ptr.md]
 
 ## 概要
-デフォルトの初期値を持つ`T`型のオブジェクト、またはその配列への[`shared_ptr`](shared_ptr.md)を構築し、返却する。
+`T`型のオブジェクト、またはその配列への[`shared_ptr`](shared_ptr.md)を構築し、返却する。
 
 
 ## 要件
@@ -26,13 +26,11 @@ namespace std {
 ## 効果
 型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は`U[N]`。`N`はそれぞれのオーバーロードで指定された引数から決定される）。メモリは、引数`a`のコピー(参照カウンタと型`T`の本体を連続メモリ領域に配置するためには`T`のサイズより大きい領域をアロケートする必要があるために`allocator_traits<Alloc>::rebind_alloc<value_type>`を用いて再束縛されたもの)を使用して割り当てられる。
 
-オブジェクトは、デフォルト初期化される。
+すべてのオーバーロードにおいて、確保された領域のオブジェクトはデフォルト構築される。
 
 例外がスローされた場合、関数は効果がない。
 
-配列型`U`のオブジェクトが（同じ型の）`u`の初期値を持つように指定されている場合、これは、オブジェクトの各配列要素が初期値として`u`からの対応する要素を持つことを意味すると解釈される。
-
-配列タイプのオブジェクトがデフォルトの初期値を持つように指定されている場合、これはオブジェクトの各配列要素がデフォルトの初期値を持つことを意味すると解釈される。
+非配列型`U`の（サブ）オブジェクトがこの関数によって初期化されるときは、式`::new(pv) U`によって初期化される。ここで、`pv`は型 `void *`を持ち、型`U`のオブジェクトを保持するための適切なストレージを指す。
 
 配列要素は、アドレスの昇順で初期化される。
 
@@ -57,6 +55,7 @@ namespace std {
 同様の効果を持つ関数に、[`make_shared_for_overwrite()`](make_shared_for_overwrite.md)があるが、
 この関数はメモリの確保にユーザー定義のアロケータを使用したい場合などに用いることができる。
 
+デフォルト構築においては、[トリビアルにデフォルト構築可能](/reference/type_traits/is_trivially_default_constructible.md)な型のオブジェクトは未初期化状態となるため、値を読みだす前に明示的に初期化（*overwrite*）する必要がある。初期化後の状態が不定になってほしくない場合はこの関数ではなく[`allocate_shared()`](allocate_shared.md)を使用すべき。
 
 ## 例
 ```cpp example
@@ -67,6 +66,7 @@ int main() {
   std::allocator<int> alloc;
   std::shared_ptr<int> sp = std::allocate_shared_for_overwrite<int>(alloc);
   if (sp) {
+    *sp = 0;  // 必ず初期化する
     std::cout << *sp << std::endl;
   }
 }
@@ -75,7 +75,7 @@ int main() {
 
 ### 出力
 ```
-42
+0
 ```
 
 
@@ -84,8 +84,8 @@ int main() {
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 10.0.0 現在未対応
-- [GCC](/implementation.md#gcc): 10.0.0 現在未対応
+- [Clang](/implementation.md#clang): 10.0.0 現在未対応 [mark verified]
+- [GCC](/implementation.md#gcc): 10.0.0 現在未対応 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

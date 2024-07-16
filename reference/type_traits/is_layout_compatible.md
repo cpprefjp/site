@@ -32,30 +32,36 @@ namespace std {
 - `T1`と`U1`が同一の型である。
 - `T1`と`U1`がレイアウト互換な列挙型(layout-compatible enumerations)である。
     - つまり、2つの列挙型`T1`, `U1`の[基底型](underlying_type.md)が同一の型をもつ。
-- `T1`と`U1`が[スタンダードレイアウト](is_standard_layout.md)かつレイアウト互換なクラス(compatible-compatible class)である。
-    - つまり、2つのスタンダードレイアウトなクラス`T1`, `U1`に含まれる全てのデータメンバおよびビットフィールドが、同一の先頭のメンバの並び(common initial sequence)を構成している。
-    - 2つ型の同一の先頭のメンバの並びとは、各クラスにおける非静的データメンバおよびビットフィールドの宣言順序において、対応するエンティティがレイアウト互換な型であり、両エンティティともに[`no_unique_address`属性](/lang/cpp20/language_support_for_empty_objects.md)の指定有無が同一であり、かつ両エンティティが同一幅ビットフィールドもしくは（ビットフィールドではなく）非静的データメンバという条件を満たす、先頭からの最長の並びを指す。
+- `T1`と`U1`が[スタンダードレイアウト](is_standard_layout.md)かつレイアウト互換なクラス(layout-compatible class)である。
+    - つまり、2つのスタンダードレイアウトなクラス`T1`, `U1`に含まれる全てのメンバ変数およびビットフィールドが、同一の先頭のメンバの並び(common initial sequence)を構成している。
+    - 2つ型の同一の先頭のメンバの並びとは、各クラスにおける非静的メンバ変数およびビットフィールドの宣言順序において、対応するエンティティがレイアウト互換な型であり、両エンティティともに[`no_unique_address`属性](/lang/cpp20/language_support_for_empty_objects.md)の指定有無が同一であり、かつ両エンティティが同一幅ビットフィールドもしくは（ビットフィールドではなく）非静的メンバ変数という条件を満たす、先頭からの最長の並びを指す。
 
 
 ## 例
 ```cpp example
 #include <type_traits>
 
-struct X { int a; };
-struct Y { int b; };
-struct Z { char c; };
-
 enum class E0 : int { A, B, C };
 enum class E1 : int { X, Y, Z };
 enum class E2 : char { A, B, C };
 
+struct X { int a; };
+struct Y { const int b; };
+struct Z { char c; };
+struct X1 { static int s; int m; };
+
 int main()
 {
-  static_assert( std::is_layout_compatible_v<X, X>);
-  static_assert( std::is_layout_compatible_v<X, Y>);
-  static_assert(!std::is_layout_compatible_v<X, Z>);
-  static_assert( std::is_layout_compatible_v<E0, E1>);
-  static_assert(!std::is_layout_compatible_v<E0, E2>);
+  static_assert(    std::is_layout_compatible_v<int, int>);
+  static_assert(not std::is_layout_compatible_v<char, unsigned char>);
+
+  static_assert(    std::is_layout_compatible_v<E0, E1>);
+  static_assert(not std::is_layout_compatible_v<E0, E2>);
+  static_assert(not std::is_layout_compatible_v<E0, int>);
+
+  static_assert(    std::is_layout_compatible_v<X, Y>);
+  static_assert(not std::is_layout_compatible_v<X, Z>);
+  static_assert(    std::is_layout_compatible_v<X, X1>);
 }
 ```
 * std::is_layout_compatible_v[color ff0000]
@@ -71,7 +77,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

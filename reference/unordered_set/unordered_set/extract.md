@@ -29,7 +29,6 @@ node_type extract(const key_type& x);       (2)
 
 ```cpp example
 #include <iostream>
-#include <string>
 #include <unordered_set>
 
 class noncopyable {
@@ -59,7 +58,7 @@ auto my_hash = [](my_struct const& s) noexcept -> std::size_t
 
 int main()
 {
-  // ムーブオンリーな型をキーとして扱う multiset
+  // ムーブオンリーな型をキーとして扱う unordered_set
   std::unordered_set<my_struct, decltype(my_hash)> s;
 
   // 挿入
@@ -125,10 +124,10 @@ s2 = { 3, 2 }
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0.0
-- [GCC](/implementation.md#gcc): 7.1.0
+- [Clang](/implementation.md#clang): 7.0.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5 [mark verified]
 
 
 ## 関連項目

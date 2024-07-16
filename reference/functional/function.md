@@ -113,6 +113,13 @@ int main()
 ### 言語
 - C++11
 
+
+## 関連項目
+- C++23 [`move_only_function`](move_only_function.md)
+- C++26 [`copyable_function`](copyable_function.md)
+- C++26 [`function_ref`](function_ref.md)
+
+
 ## 参照
 - [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)

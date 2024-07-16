@@ -69,7 +69,7 @@ namespace std::execution {
 
 
 ## 計算量
-実行ポリシーをとらないアルゴリズムは「最大N回だけ関数`f()`を呼び出す」や「正確にN回だけ関数`f()`を呼び出す」のように計算量を規定する。実行ポリシーはそれを緩和し、ビッグオー記法を使用して「O(N)計算量の回数だけ関数`f()`を呼び出す」のように表記する。
+実行ポリシーをとらないアルゴリズムは「最大N回だけ関数`f()`を呼び出す」や「正確にN回だけ関数`f()`を呼び出す」のように計算量を規定する。実行ポリシーはそれを緩和し、ビッグオー記法を使用して「O(N)回だけ関数`f()`を呼び出す」のように表記する。
 
 
 ## 例
@@ -133,7 +133,7 @@ int main()
 
     // マルチスレッド化の場合は、ミューテックスかアトミック操作でデータ競合を回避する
     std::mutex m;
-    std::for_each(std::execution::par, a.begin(), b.end(), [&](int x) {
+    std::for_each(std::execution::par, a.begin(), a.end(), [&](int x) {
       std::lock_guard lk{m};
       b.push_back(x);
     });
@@ -159,6 +159,8 @@ int main()
   }
 }
 ```
+* std::execution::par[color ff0000]
+* std::execution::par_unseq[color ff0000]
 * count.load[link /reference/atomic/atomic/load.md]
 * is_always_lock_free[link /reference/atomic/atomic/is_always_lock_free.md.nolink]
 

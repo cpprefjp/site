@@ -10,6 +10,7 @@ namespace std {
   concept default_initializable = /*see below*/;
 }
 ```
+* see below[italic]
 
 ## 概要
 
@@ -78,8 +79,8 @@ S is not default initializable
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

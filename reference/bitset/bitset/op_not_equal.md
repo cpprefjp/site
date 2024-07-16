@@ -5,8 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-bool operator!=(const bitset<N>& rhs) const;          // C++03
-bool operator!=(const bitset<N>& rhs) const noexcept; // C++11
+// operator==により、以下のオーバーロードが使用可能になる (C++20)
+bool operator!=(const bitset<N>& rhs) const;          // (1) C++03
+bool operator!=(const bitset<N>& rhs) const noexcept; // (1) C++11
+constexpr bool operator!=(const bitset<N>& rhs) const noexcept; // (1) C++23
 ```
 
 ## 概要
@@ -47,4 +49,6 @@ not equal
 
 
 ## 参照
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

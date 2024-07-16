@@ -1,5 +1,13 @@
-# friend宣言できる対象を拡張
+# friend宣言できる対象を拡張 [N1791]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++03までの`friend`宣言は、直接のクラス型のみを指定できた。
@@ -53,4 +61,3 @@ int main()
 - [N1616 Extended friend Declarations (Rev. 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1616.pdf)
 - [N1722 Extended friend Declarations (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1722.pdf)
 - [N1791 Extended friend Declarations (Rev. 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1791.pdf)
-

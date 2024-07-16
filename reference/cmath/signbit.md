@@ -6,17 +6,29 @@
 
 ```cpp
 namespace std {
-  bool signbit(float x);
-  bool signbit(double x);
-  bool signbit(long double x);
+  bool signbit(float x);            // (1) C++11からC++20まで
+  bool signbit(double x);           // (2) C++11からC++20まで
+  bool signbit(long double x);      // (3) C++11からC++20まで
 
-  bool signbit(Integral x);
+  constexpr bool
+    signbit(floating-point-type x); // (4) C++23
+
+  bool
+    signbit(Integral x);            // (5) C++11
+  constexpr bool
+    signbit(Integral x);            // (5) C++23
 }
 ```
 * Integral[italic]
 
 ## 概要
 数値の符号が負であるか判定する。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
 
 
 ## 戻り値
@@ -27,7 +39,8 @@ namespace std {
 
 
 ## 備考
-C標準ライブラリでは`signbit`は関数マクロとして定義されるが、C++標準ライブラリでは関数として定義される。
+- C標準ライブラリでは`signbit`は関数マクロとして定義されるが、C++標準ライブラリでは関数として定義される
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -42,7 +55,7 @@ int main()
 
   assert(!std::signbit(1.0f));
   assert(!std::signbit(0.0f));
-  
+
   constexpr float nan = std::numeric_limits<float>::quiet_NaN();
   assert(!std::signbit(nan));
   assert(std::signbit(-nan));
@@ -55,7 +68,7 @@ int main()
 ```
 
 ### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -65,7 +78,14 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

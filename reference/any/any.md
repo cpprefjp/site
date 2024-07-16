@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`any`クラスは、あらゆる型の値を保持できる記憶域型である。保持する値と型は動的に切り替えることができる。
+`any`クラスは、コピー可能なあらゆる型の値を保持できる記憶域型である。保持する値と型は動的に切り替えることができる。
 
 ```cpp
 std::any x = 3; // int型の値3で初期化
@@ -33,6 +33,10 @@ assert(s == "Hello");
     - `list<function<void(any)>>`のようなイベントのリストを保持しておき、たとえば0番目のイベントハンドラにはマウスクリック、1番目のイベントハンドラにはボタンクリックに使用すると想定する
     - マウスクリックにはイベントの引数としてクリックした位置情報 (xとy) が渡され、ボタンクリックにはイベントの引数としてボタンのIDが渡される、というような、イベントの種類ごとに引数の型が異なるという状況がでてくる
     - イベントの種類ごとに異なるイベント変数 (`function<void(Point)>`と`function<void(ButtonID)>`) を用意するかまとめて扱うかで設計選択があるが、そこで`any`を使用するという選択肢がありうる
+
+
+## 要件
+- 代入する型はコピー構築可能であること
 
 
 ## 備考
@@ -133,8 +137,8 @@ bad any_cast
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

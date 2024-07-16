@@ -1,5 +1,13 @@
-# テンプレートの右山カッコ
+# テンプレートでの連続した右山カッコを許可 [N1757]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++03では、2つ以上連続する右山カッコが出現する場合には、間にスペースを入力する必要があった：
@@ -100,4 +108,3 @@ C++11で採択された方式は、テンプレートの型パラメータと非
 - [N1649 Right Angle Brackets](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1649.html)
 - [N1699 Right Angle Brackets (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1699.html)
 - [N1757 Right Angle Brackets (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1757.html)
-

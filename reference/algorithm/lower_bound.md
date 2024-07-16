@@ -34,9 +34,9 @@ namespace std {
 ```
 
 ## 概要
-指定された要素以上の値が現れる最初の位置のイテレータを取得する。
+イテレータ範囲`[first, last)`のうち、指定された要素以上の値が現れる最初の位置のイテレータを取得する。
 
-この関数の用途としては、ソート済み範囲に対して、任意の値を二分探索で見つけるために使用できる。[`std::multiset`](/reference/set/multiset.md)のように同じキーを持つ要素が複数あり、その全てを列挙したい場合にはこの関数の代わりに[`std::equal_range()`](equal_range.md)関数を使用できる。
+この関数の用途としては、ソート済みイテレータ範囲に対して、任意の値を二分探索で見つけるために使用できる。[`std::multiset`](/reference/set/multiset.md)のように同じキーを持つ要素が複数あり、その全てを列挙したい場合にはこの関数の代わりに[`std::equal_range()`](equal_range.md)関数を使用できる。
 
 
 ## 要件
@@ -45,11 +45,11 @@ namespace std {
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
 	- `T` は `LessThanComparable` であること。
 	- `operator<` または `comp` は「[狭義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
-	- 範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
+	- イテレータ範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
 - C++11 から  
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
-	- `[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていること。
+	- イテレータ範囲`[first,last)` の要素 `e` は `e < value` または `comp(e, value)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていること。
 		つまり、`e < value` または `comp(e, value)` が `true` となる全ての要素 `e` は、`false` となる全ての要素よりも左側（`first` に近い方）になければならない。
 
 
@@ -62,10 +62,11 @@ namespace std {
 
 
 ## 計算量
-最大で log2(`last - first`) + 1 回の比較を行う
+最大で log2(`last - first`) + O(1) 回の比較を行う
 
 
 ## 備考
+- [`std::set`](/reference/set/set.md)や[`std::multiset`](/reference/set/multiset.md)に対しては専用の[`lower_bound`](/reference/set/set/lower_bound.md)メンバ関数が定義されているため、そちらを使用すること
 - 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と等価である。  
 	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return e < value; })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return comp(e, value); })` とすることで等価の結果が得られる。
 - 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。
@@ -102,7 +103,7 @@ int main()
   }
 
   // 基本的な用途
-  // ソート済み範囲から、特定の値を二分探索で見つける
+  // ソート済みイテレータ範囲から、特定の値を二分探索で見つける
   {
     std::vector<int> v = {3, 1, 4, 6, 5};
     std::sort(v.begin(), v.end());
@@ -120,17 +121,18 @@ int main()
   {
     // 要素は複数のメンバ変数をもつ
     std::vector<X> v = {
-      {1, "Carol"},
+      {1, "Bob"},
       {3, "Alice"},
-      {4, "Bob"},
+      {4, "Carol"},
+      {2, "Franklin"},
       {5, "Eve"},
       {6, "Dave"}
     };
 
-    const std::string key = "Bob";
+    const std::string key = "Carol";
 
     // X::nameメンバ変数をキーにして、
-    // X::name == "Bob"となる要素を二分探索で見つける
+    // X::name == "Carol"となる要素を二分探索で見つける
     decltype(v)::iterator it = std::lower_bound(
       v.begin(),
       v.end(),
@@ -154,7 +156,7 @@ int main()
 ```
 4 pos=2
 4 pos=2
-id=4 name=Bob pos=2
+id=4 name=Carol pos=2
 ```
 
 

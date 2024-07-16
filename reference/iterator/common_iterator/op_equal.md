@@ -33,7 +33,7 @@ namespace std {
 
 ## 戻り値
 
-`I, S`（`I2, S2`）の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`_v`に保持しており、`i = x.v_.`[`index()`](/reference/variant/variant/index.md)、`j = y.v_.`[`index()`](/reference/variant/variant/index.md)として
+`I, S`（`I2, S2`）の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`v_`に保持しており、`i = x.v_.`[`index()`](/reference/variant/variant/index.md)、`j = y.v_.`[`index()`](/reference/variant/variant/index.md)として
 
 - (1)
     - `i == j`の場合 : `true`
@@ -84,11 +84,11 @@ int main() {
   std::cout << (ci != ce) << std::endl;
 }
 ```
-* views::iota[link /reference/ranges/iota_view.md.nolink]
-* views::take[link /reference/ranges/take_view.md.nolink]
-* iterator_t[link /reference/ranges/iterator_t.md.nolink]
-* sentinel_t[link /reference/ranges/sentinel_t.md.nolink]
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* views::iota[link /reference/ranges/iota_view.md]
+* views::take[link /reference/ranges/take_view.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* sentinel_t[link /reference/ranges/sentinel_t.md]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```
@@ -104,8 +104,8 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9 [mark verified]
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

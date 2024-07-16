@@ -39,8 +39,6 @@ os << tp << " is ambiguous. It could be\n"
 
 return os.str().c_str();
 ```
-* local_seconds[link local_time.md]
-* time_since_epoch()[link time_point/time_since_epoch.md]
 
 
 ## 例
@@ -81,6 +79,6 @@ int main()
 ```
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

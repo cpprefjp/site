@@ -30,57 +30,12 @@ template <size_t I, class U, class... Args>
 constexpr explicit variant(in_place_index_t<I>,
                            initializer_list<U> il,
                            Args&&... args);              // (8)
-
-template <class Alloc>
-variant(allocator_arg_t,
-        const Alloc& a);                                 // (9)
-
-template <class Alloc>
-variant(allocator_arg_t,
-        const Alloc& a,
-        const variant& other);                           // (10)
-
-template <class Alloc>
-variant(allocator_arg_t,
-        const Alloc& a,
-        variant&& other);                                // (11)
-
-template <class Alloc, class T>
-variant(allocator_arg_t,
-        const Alloc& a,
-        T&& x);                                          // (12)
-
-template <class Alloc, class T, class... Args>
-variant(allocator_arg_t,
-        const Alloc& a,
-        in_place_type_t<T> il,
-        Args&&... args);                                 // (13)
-
-template <class Alloc, class T, class U, class... Args>
-variant(allocator_arg_t,
-        const Alloc& a,
-        in_place_type_t<T>,
-        initializer_list<U> il,
-        Args&&... args);                                 // (14)
-
-template <class Alloc, size_t I, class... Args>
-variant(allocator_arg_t,
-       const Alloc& a,
-       in_place_index_t<I>,
-       Args&&... args);                                  // (15)
-
-template <class Alloc, size_t I, class U, class... Args>
-variant(allocator_arg_t,
-        const Alloc& a,
-        in_place_index_t<I>,
-        initializer_list<U> il,
-        Args&&... args);                                 // (16)
 ```
+* see below[italic]
 * size_t[link /reference/cstddef/size_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * in_place_type_t[link /reference/utility/in_place_type_t.md]
 * in_place_index_t[link /reference/utility/in_place_index_t.md]
-* allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ## 概要
 `variant`オブジェクトを構築する。
@@ -93,7 +48,6 @@ variant(allocator_arg_t,
 - (6) : 候補型のうち、指定した型のコンストラクタ引数`il`と`args...`を受け取ってコンストラクタ内でそのオブジェクトを構築して保持する
 - (7) : 候補型のうち、指定したインデックスの型のコンストラクタ引数を受け取ってコンストラクタ内でそのオブジェクトを構築して保持する
 - (8) : 候補型のうち、指定したインデックスの型のコンストラクタ引数`il`と`args...`を受け取ってコンストラクタ内でそのオブジェクトを構築して保持する
-- (9)-(16) : (1)-(8)のuses-allocator構築版
 
 
 ## テンプレートパラメータ制約
@@ -107,9 +61,10 @@ variant(allocator_arg_t,
 - (4) :
     - C++17 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
     - C++20 : ここで説明用に、`*this`が保持している型`Tj`と、そのインデックス値`j`を定義する。`Types...`の各型`Ti`を、縮小変換を受け付けない型であり (`Ti x[] = {`[`std::forward`](/reference/utility/forward.md)`<T>(t)};`)、CV修飾付き`bool`の場合にCV修飾を外した`bool`型になるとして、その型に対して擬似的な関数`FUN(Ti)`を定義したとして、`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(t))`呼び出しによって選択されたオーバーロードされた関数のパラメータ型を、構築してその後含まれる値の型を`Tj`とする
-    - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<T>, variant>`が`false`であること
-    - 型[`decay_t`](/reference/type_traits/decay.md)`<T>`が[`in_place_type_t`](/reference/utility/in_place_type_t.md)および[`in_place_index_t`](/reference/utility/in_place_index_t.md)の特殊化ではないこと
-    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
+    - C++17 : [`is_same_v`](/reference/type_traits/is_same.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<T>, variant>`が`false`であること
+    - C++20 : [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<T>, variant>`が`false`であること
+    - C++17 : 型[`decay_t`](/reference/type_traits/decay.md)`<T>`が[`in_place_type_t`](/reference/utility/in_place_type_t.md)および[`in_place_index_t`](/reference/utility/in_place_index_t.md)の特殊化ではないこと
+    - C++20 : 型[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<T>`が[`in_place_type_t`](/reference/utility/in_place_type_t.md)および[`in_place_index_t`](/reference/utility/in_place_index_t.md)の特殊化ではないこと    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Tj, T>`が`true`であること
     - 式`FUN(`[`std::forward`](/reference/utility/forward.md)`<T>(x))`が適格であること
 - (5) :
     - `Types...`内に`T`が一度だけ現れること
@@ -146,8 +101,6 @@ variant(allocator_arg_t,
     - [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`Ti`型オブジェクトを直接構築して`*this`に保持する
 - (8) :
     - `il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として`Ti`型オブジェクトを直接構築して`*this`に保持する
-- (9)-(16) :
-    - uses-allocator構築すること以外は、対応するコンストラクタと等価
 
 
 ## 事後条件
@@ -404,10 +357,14 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
+- [LWG Issue 2901 Variants cannot properly support allocators](https://cplusplus.github.io/LWG/issue2901)
 - [P0608R3 A sane variant converting constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html)
+- [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
+- [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
+    - C++20からテンプレートパラメータ制約の`decay_t`を`remove_cvref_t`へ変更。

@@ -6,10 +6,12 @@
 
 ```cpp
 namespace std {
-  bool operator==(const error_code& lhs, const error_code& rhs) noexcept;           // (1)
-  bool operator==(const error_code& lhs, const error_condition& rhs) noexcept;      // (2)
-  bool operator==(const error_condition& lhs, const error_code& rhs) noexcept;      // (3)
-  bool operator==(const error_condition& lhs, const error_condition& rhs) noexcept; // (4)
+  bool operator==(const error_code& lhs, const error_code& rhs) noexcept;           // (1) C++11
+  bool operator==(const error_code& lhs, const error_condition& rhs) noexcept;      // (2) C++11
+  bool operator==(const error_condition& lhs, const error_condition& rhs) noexcept; // (3) C++11
+
+  // (2)により以下のオーバーロードが使用可能になる (C++20)
+  bool operator==(const error_condition& lhs, const error_code& rhs) noexcept;      // (4) C++11
 }
 ```
 * error_code[link /reference/system_error/error_code.md]
@@ -21,7 +23,6 @@ namespace std {
 
 ## 戻り値
 - (1) :
-
     ```cpp
     lhs.category() == rhs.category() && lhs.value() == rhs.value()
     ```
@@ -30,7 +31,6 @@ namespace std {
 
 
 - (2) :
-
     ```cpp
     lhs.category().equivalent(lhs.value(), rhs) || rhs.category().equivalent(lhs, rhs.value())
     ```
@@ -40,9 +40,15 @@ namespace std {
     * lhs.value()[link error_code/value.md]
     * rhs.value()[link error_condition/value.md]
 
-
 - (3) :
+    ```cpp
+    lhs.category() == rhs.category() && lhs.value() == rhs.value()
+    ```
+    * category()[link error_condition/category.md]
+    * value()[link error_condition/value.md]
 
+
+- (4) :
     ```cpp
     rhs.category().equivalent(rhs.value(), lhs) || lhs.category().equivalent(rhs, lhs.value())
     ```
@@ -51,15 +57,6 @@ namespace std {
     * equivalent[link error_category/equivalent.md]
     * lhs.value()[link error_condition/value.md]
     * rhs.value()[link error_code/value.md]
-
-
-- (4) :
-
-    ```cpp
-    lhs.category() == rhs.category() && lhs.value() == rhs.value()
-    ```
-    * category()[link error_condition/category.md]
-    * value()[link error_condition/value.md]
 
 
 ## 例外
@@ -114,11 +111,11 @@ error_condition == error_condition : false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 
 ## 参照
-
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

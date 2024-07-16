@@ -49,7 +49,7 @@ int main()
 * Sunday[link /reference/chrono/weekday_constants.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * last[link /reference/chrono/last_spec.md]
-* chrono::year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md]
+* year_month_weekday_last[link /reference/chrono/year_month_weekday_last.md]
 
 ### 出力
 ```
@@ -60,6 +60,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): 11.1
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

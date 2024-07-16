@@ -6,7 +6,11 @@
 ```cpp
 namespace std {
   template <class T>
-  T abs(const complex<T>& x);
+  T
+    abs(const complex<T>& x); // (1) C++03
+  template <class T>
+  constexpr T
+    abs(const complex<T>& x); // (1) C++26
 }
 ```
 
@@ -24,21 +28,21 @@ namespace std {
 - 処理系が ISO IEC 60559 に準拠しているかどうかは、C99 の場合はマクロ `__STDC_IEC_559_COMPLEX__` が `1` に定義されている事で判別可能であるが、C++ の規格書には該当する記載を見つける事ができなかった。
 - 絶対値の算出については、一部の算術型、および、[`valarray`](/reference/valarray/valarray.md) クラステンプレートに対しても、他のヘッダで定義されている。  
 
-	| 引数の型                                           | 関数                                          | ヘッダ                               | 備考       |
-	|----------------------------------------------------|-----------------------------------------------|--------------------------------------|------------|
-	| `float`                                            | [`abs`](/reference/cmath/abs.md)              | [`cmath`](/reference/cmath.md)       |            |
-	|                                                    | [`fabs`](/reference/cmath/fabs.md)            | [`cmath`](/reference/cmath.md)       |            |
-	| `double`                                           | [`abs`](/reference/cmath/abs.md)              | [`cmath`](/reference/cmath.md)       |            |
-	|                                                    | [`fabs`](/reference/cmath/fabs.md)            | [`cmath`](/reference/cmath.md)       |            |
-	| `long double`                                      | [`abs`](/reference/cmath/abs.md)              | [`cmath`](/reference/cmath.md)       |            |
-	|                                                    | [`fabs`](/reference/cmath/fabs.md)            | [`cmath`](/reference/cmath.md)       |            |
-	| 任意の整数型                                       | [`abs`](/reference/cmath/abs.md)              | [`cmath`](/reference/cmath.md)       | C++11 から |
-	|                                                    | [`fabs`](/reference/cmath/fabs.md)            | [`cmath`](/reference/cmath.md)       | C++11 から |
-	| `int`                                              | [`abs`](/reference/cstdlib/abs.md.nolink)     | [`cstdlib`](/reference/cstdlib.md)   |            |
-	| `long int`                                         | [`labs`](/reference/cstdlib/labs.md.nolink)   | [`cstdlib`](/reference/cstdlib.md)   |            |
-	|                                                    | [`abs`](/reference/cstdlib/abs.md.nolink)     | [`cstdlib`](/reference/cstdlib.md)   |            |
-	| `long long int`                                    | [`llabs`](/reference/cstdlib/llabs.md.nolink) | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
-	|                                                    | [`abs`](/reference/cstdlib/abs.md.nolink)     | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	| 引数の型                                           | 関数                                 | ヘッダ                               | 備考       |
+	|----------------------------------------------------|--------------------------------------|--------------------------------------|------------|
+	| `float`                                            | [`abs`](/reference/cmath/abs.md)     | [`cmath`](/reference/cmath.md)       |            |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)   | [`cmath`](/reference/cmath.md)       |            |
+	| `double`                                           | [`abs`](/reference/cmath/abs.md)     | [`cmath`](/reference/cmath.md)       |            |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)   | [`cmath`](/reference/cmath.md)       |            |
+	| `long double`                                      | [`abs`](/reference/cmath/abs.md)     | [`cmath`](/reference/cmath.md)       |            |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)   | [`cmath`](/reference/cmath.md)       |            |
+	| 任意の整数型                                       | [`abs`](/reference/cmath/abs.md)     | [`cmath`](/reference/cmath.md)       | C++11 から |
+	|                                                    | [`fabs`](/reference/cmath/fabs.md)   | [`cmath`](/reference/cmath.md)       | C++11 から |
+	| `int`                                              | [`abs`](/reference/cstdlib/abs.md)   | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long int`                                         | [`labs`](/reference/cstdlib/abs.md)  | [`cstdlib`](/reference/cstdlib.md)   |            |
+	|                                                    | [`abs`](/reference/cstdlib/abs.md)   | [`cstdlib`](/reference/cstdlib.md)   |            |
+	| `long long int`                                    | [`llabs`](/reference/cstdlib/abs.md) | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
+	|                                                    | [`abs`](/reference/cstdlib/abs.md)   | [`cstdlib`](/reference/cstdlib.md)   | C++11 から |
 	| [`valarray`](/reference/valarray/valarray.md)`<T>` | [`abs`](/reference/valarray/valarray/abs.md)  | [`valarray`](/reference/valarray.md) |            |
 
 	なお、上記のうち、任意の整数型に対する [`abs`](/reference/cmath/abs.md) については C++11 で追加されたが、ある種の問題を引き起こすことから、今後削除される可能性がある。[Validity and return type of std::abs(0u) is unclear](http://wg21.cmeerw.net/lwg/issue2192) 参照。  
@@ -71,8 +75,8 @@ abs( (1,2) ) = 2.23607
 - C++98
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
-- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified], 4.4.7 [mark verified], 4.5.4 [mark verified], 4.6.4 [mark verified], 4.7.3 [mark verified], 4.8.1 [mark verified], 4.8.2 [mark verified], 4.9.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -89,4 +93,9 @@ abs( (1,2) ) = 2.23607
 | [`polar`](polar.md)                | 指定した絶対値と偏角の複素数値を得る。 |
 | [`abs`](/reference/cmath/abs.md)   | 絶対値を得る。（浮動小数点版）         |
 | [`fabs`](/reference/cmath/fabs.md) | 絶対値を得る。（浮動小数点版）         |
-| [`abs`](/reference/cstdlib/abs.md.nolink) | 絶対値を得る。（整数版）               |
+| [`abs`](/reference/cstdlib/abs.md) | 絶対値を得る。（整数版）               |
+
+
+## 参照
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

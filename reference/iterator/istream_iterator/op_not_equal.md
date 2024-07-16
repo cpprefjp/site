@@ -5,9 +5,20 @@
 
 ```cpp
 namespace std {
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class T, class CharT, class Traits, class Distance>
   bool operator!=(const istream_iterator<T, CharT, Traits, Distance>& x,
-                  const istream_iterator<T, CharT, Traits, Distance>& y);
+                  const istream_iterator<T, CharT, Traits, Distance>& y); // (1) C++03
+
+  template <class T,
+           class charT = char,
+           class traits = char_traits<charT>,
+           class Distance = ptrdiff_t>
+  class istream_iterator {
+  public:
+    friend bool operator!=(const istream_iterator& i, default_sentinel_t); // (2) C++20
+    friend bool operator!=(default_sentinel_t, const istream_iterator& i); // (3) C++20
+  };
 }
 ```
 
@@ -45,7 +56,7 @@ int main()
   std::cout << "it1 == last : " << (it1 != last) << std::endl;
 }
 ```
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ### 出力
 ```
@@ -55,5 +66,5 @@ it1 == last : false
 ```
 
 ## 参照
-
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

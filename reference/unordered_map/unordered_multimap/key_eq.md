@@ -66,9 +66,8 @@ eq("1st", "2nd") = true
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.0
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

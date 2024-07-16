@@ -20,8 +20,7 @@ namespace std {
 
 
 ## 事前条件
-- `x`以上となる最小の2の累乗値を`N`として、
-- 型`T`において値`N`が表現できること
+- `x`以上となる最小の2の累乗値を`N`として、型`T`において値`N`が表現できること
 
 ## 戻り値
 `N`を返す
@@ -104,8 +103,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
-- [GCC](/implementation.md#gcc): 9.1
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

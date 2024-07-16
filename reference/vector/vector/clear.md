@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void clear();
+void clear();           // (1) C++03
+constexpr void clear(); // (1) C++20
 ```
 
 ## 効果
@@ -60,4 +61,4 @@ int main()
 ## 参照
 - [LWG Issue 2231. DR 704 removes complexity guarantee for `clear()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2231)
     - C++03までこの関数の効果は`erase(begin(), end())`だったため、それによって線形時間の計算量が保証されていたが、C++11で効果の表記が変わったために、保証がなくなってしまっていた。C++14であらためて保証を追加。
-
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

@@ -13,6 +13,7 @@ namespace std {
   inline constexpr bool is-signed-integer-like = /*see below*/;
 }
 ```
+* see below[italic]
 
 ## 概要
 
@@ -53,6 +54,28 @@ namespace std {
 - [`numeric_limits<I>::digits10`](/reference/limits/numeric_limits/digits10.md)は`static_cast<int>(digits * log10(2))`と等しい
 - [`numeric_limits<I>::min()`](/reference/limits/numeric_limits/min.md)と[`numeric_limits<I>::max()`](/reference/limits/numeric_limits/max.md)はそれぞれ、`I`の表現可能な値の最小値と最大値を返す。[`numeric_limits<I>::lowest()`](/reference/limits/numeric_limits/lowest.md)は`numeric_limits<I>::max()`を返す。
 
+## 実装例 (MSVC)
+
+```cpp
+inline constexpr bool _Is_nonbool_integral = is_integral_v<_Ty> && !is_same_v<remove_cv_t<_Ty>, bool>;
+
+template <class _Ty>
+inline constexpr bool _Integer_class = requires {
+  typename _Ty::_Signed_type;
+  typename _Ty::_Unsigned_type;
+};
+
+template <class _Ty>
+concept _Integer_like = _Is_nonbool_integral<remove_cv_t<_Ty>> || _Integer_class<_Ty>;
+
+template <class _Ty>
+concept _Signed_integer_like = _Integer_like<_Ty> && static_cast<_Ty>(-1) < static_cast<_Ty>(0);
+```
+* is_integral_v[like /reference/type_traits/is_integral.md]
+* is_same_v[like /reference/type_traits/is_same.md]
+* remove_cv_t[like /reference/type_traits/remove_cv.md]
+
+上記の説明のうち構文的な要件を素直に実装している。MSVCでは、128ビット整数が*integer-class*型である。
 
 ## バージョン
 ### 言語
@@ -61,7 +84,7 @@ namespace std {
 ## 関連項目
 
 - [`weakly_incrementable`](weakly_incrementable.md)
-- [`iota_view`](/reference/ranges/iota_view.md.nolink)
+- [`iota_view`](/reference/ranges/iota_view.md)
 
 ## 参照
 

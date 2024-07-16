@@ -21,10 +21,17 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 * pair[link /reference/utility/pair.md]
 
 ## 概要
+指定されたキーが存在しない場合のみ要素を直接構築で挿入する。
+
 引数 `k` と等価のキーを持つ要素が存在しない場合、コンテナに新しい要素を挿入する。要素は引数からコンテナ内に直接構築されるため、構築されたオブジェクトはコピーもムーブもされない。  
 なお、本メンバ関数は [`emplace`](emplace.md) や [`emplace_hint`](emplace_hint.md) 等と異なり、引数 `k` と等価のキーを持つ要素が既に存在する場合には、`k` や `args` がムーブされてしまうことはない。
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。
+
+- (1) : 指定されたキーが存在しない場合に、要素を直接構築で挿入する
+- (2) : 指定された一時オブジェクトのキーが存在しない場合に、要素を直接構築で挿入する
+- (3) : キーを検索するヒントを指定し、指定されたキーが存在しない場合に、要素を直接構築で挿入する
+- (4) : キーを検索するヒントを指定し、指定された一時オブジェクトのキーが存在しない場合に、要素を直接構築で挿入する
 
 
 ## テンプレートパラメータ制約
@@ -101,8 +108,8 @@ false, 114, false
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.7.0
-- [GCC](/implementation.md#gcc): 6.1.0
+- [Clang](/implementation.md#clang): 3.7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 6.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

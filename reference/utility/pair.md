@@ -32,7 +32,7 @@ namespace std {
 |---------------------------------------------|----------------------------------------|-------|
 | [`(constructor)`](pair/op_constructor.md) | コンストラクタ | |
 | [`operator=`](pair/op_assign.md)          | 代入演算子 | |
-| [`swap`](pair/swap.md)                    | 他の`pair`オブジェクトと値を入れ替える | |
+| [`swap`](pair/swap.md)                    | 他の`pair`オブジェクトと値を入れ替える | C++11 |
 
 
 ## メンバ型
@@ -47,9 +47,10 @@ namespace std {
 ### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
-|--------------------------------------------|----------------------------|-------|
+|------------------------------------------|----------------------------|-------|
 | [`operator==`](pair/op_equal.md)         | 等値比較を行う | |
 | [`operator!=`](pair/op_not_equal.md)     | 非等値比較を行う | |
+| [`operator<=>`](pair/op_compare_3way.md) | 三方比較を行う | C++20 |
 | [`operator<`](pair/op_less.md)           | 左辺が右辺よりも小さいか判定を行う | |
 | [`operator<=`](pair/op_less_equal.md)    | 左辺が右辺以下か判定を行う | |
 | [`operator>`](pair/op_greater.md)        | 左辺が右辺より大きいか判定を行う | |
@@ -60,7 +61,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------|-------------------------------------|-------|
-| [`swap`](pair/swap_free.md) | 2つの`pair`オブジェクトを入れ替える | |
+| [`swap`](pair/swap_free.md) | 2つの`pair`オブジェクトを入れ替える | C++11 |
 
 
 ### ヘルパ関数
@@ -84,6 +85,14 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
 | [`(deduction_guide)`](pair/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+
+
+## 特殊化
+
+| 名前                                                       | 説明                                                     | 対応バージョン |
+|------------------------------------------------------------|--------------------------------------------------------|-----------|
+| [`common_type`](pair/common_type.md)                       | 異なる`pair`間の共通型を取得できるようにする特殊化        | C++23     |
+| [`basic_common_reference`](pair/basic_common_reference.md) | 異なる`pair`間の共通の参照型を取得出来るようにする特殊化 | C++23     |
 
 
 ## 例
@@ -142,6 +151,110 @@ hello
 ```
 
 
+### プロキシ参照としての使い方（C++23）
+C++23 で[`zip_view`](/reference/ranges/zip_view.md)などが追加されたことに伴い、どちらの要素も[プロキシ参照](/reference/iterator/indirectly_writable.md)であるような`pair`は[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用することが出来るようになった。
+
+```cpp example
+#include <iostream>
+#include <utility>
+#include <string_view>
+#include <format>
+
+struct A
+{
+	A(int i, double d)
+		: i(i)
+		, d(d)
+	{}
+
+	std::pair<int&, double&> f()
+	{
+		// this が A* なので
+		// i: int
+		// d: double
+		// ということと同じ
+		return {i, d};
+	}
+
+	std::pair<const int&, const double&> f() const
+	{
+		// this が const A* なので
+		// i: const int
+		// d: const double
+		// ということと同じ
+		return {i, d};
+	}
+
+private:
+	int    i;
+	double d;
+};
+
+int main()
+{
+	// プロキシ参照である pair の性質
+	{
+		A a{0, 0.0};
+
+		// std::pair<int&, double&>
+		/***/ auto /***/ proxy = a.f();
+
+		// const std::pair<int&, double&>
+		const auto const_proxy = a.f();
+
+		// std::pair<const int&, const double&>
+		/***/ auto /***/ proxy_to_const = std::as_const(a).f();
+
+		// const std::pair<const int&, const double&>
+		const auto const_proxy_to_const = std::as_const(a).f();
+
+		// OK（各要素が指すオブジェクトの値について、代入操作がなされる）
+		proxy       = a.f();
+		const_proxy = a.f();
+
+		// NG（各要素が指すオブジェクトを変更できない！）
+		// proxy_to_const       = a.f();
+		// const_proxy_to_const = a.f();
+	}
+
+	// 使い方
+	{
+		auto print = [](std::string_view prefix, A& a) {
+
+			// 構造化束縛で分解
+			// i: int&
+			// d: double&
+			auto [i, d] = a.f();
+
+			std::cout << std::format("{}: i={}, d={}\n", prefix, i, d);
+		};
+
+		A a{0, 0.0}, b{1, 1.0};
+
+		print("before a", a);
+		print("before b", b);
+
+		// プロキシ参照として使える pair 同士の swap 操作で
+		// 問題なく各要素が指す先のオブジェクトについて swap 操作が行える
+		std::ranges::swap(a.f(), b.f());
+
+		print("after  a", a);
+		print("after  b", b);
+	}
+}
+
+```
+
+#### 出力
+```
+before a: i=0, d=0
+before b: i=1, d=1
+after  a: i=1, d=1
+after  b: i=0, d=0
+
+```
+
+
 ## 関連項目
 - [`std::tuple`](/reference/tuple/tuple.md)
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
@@ -149,4 +262,4 @@ hello
 
 ## 参照
 - [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)
-
+- [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)

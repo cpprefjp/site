@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator rend() noexcept;
-const_reverse_iterator rend() const noexcept;
+reverse_iterator rend();           // (1) C++03
+reverse_iterator rend() noexcept;  // (1) C++11
+
+const_reverse_iterator rend() const;           // (2) C++03
+const_reverse_iterator rend() const noexcept;  // (2) C++11
 ```
 
 ## 概要
@@ -68,10 +71,10 @@ int main()
 
 | 名前 | 説明 |
 |--------------------------|--------------------------------------|
-| [`rbegin`](rbegin.md)  | 末尾要素を指す逆イテレータを取得する |
-| [`crbegin`](cbegin.md) | 末尾要素を指す読み取り専用逆イテレータを取得する |
-| [`crend`](crend.md)    | 先頭要素の前を指す読み取り専用逆イテレータを取得する |
-| [`begin`](begin.md)    | 先頭要素を指すイテレータの取得する |
-| [`end`](end.md)        | 末尾要素の次を指すイテレータを取得する |
+| [`rbegin`](rbegin.md)   | 末尾要素を指す逆イテレータを取得する |
+| [`crbegin`](crbegin.md) | 末尾要素を指す読み取り専用逆イテレータを取得する |
+| [`crend`](crend.md)     | 先頭要素の前を指す読み取り専用逆イテレータを取得する |
+| [`begin`](begin.md)     | 先頭要素を指すイテレータの取得する |
+| [`end`](end.md)         | 末尾要素の次を指すイテレータを取得する |
 
 

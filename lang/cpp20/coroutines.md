@@ -1,5 +1,13 @@
-# コルーチン
+# コルーチン [P0912R5]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 処理途中でのサスペンド(中断)／レジューム(再開)をサポートする一般化された関数として、[コルーチン](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3)が導入される。
@@ -8,7 +16,7 @@ C++20時点では、コルーチン動作に関する言語仕様と新キーワ
 
 ```cpp
 // コルーチンiotaを定義
-generator iota(int end)
+my_generator iota(int end)
 {
   for (int n = 0; n < end; ++n) {
     co_yield n;
@@ -21,12 +29,15 @@ for (int v: g) {
   std::cout << v;
 }
 
-// "generator"はライブラリが提供するべきクラス。
+// "my_generator"はライブラリが提供するべきクラス。
 // 動作可能なサンプルコード全体は後述例を参照のこと。
 ```
 * co_yield[color ff0000]
 
 一般的なアプリケーション実装者からの利用を想定した、ジェネレータや非同期タスク・非同期I/Oといったハイレベルなコルーチンライブラリは、C++23以降での導入にむけて検討されている。
+
+C++23ではジェネレータコルーチンを実現する[`<generator>`](/reference/generator.md)が追加された。
+
 
 ### 特徴
 C++コルーチンの特徴は次の通り：
@@ -63,7 +74,7 @@ C++コルーチン動作理解の助けとなるよう、ここでは細部を�
 
 ```cpp
 // プログラマが記述するコルーチン
-generator iota(int end)
+my_generator iota(int end)
 {
   for (int n = 0; n < end; ++n) {
     co_yield n;
@@ -71,13 +82,13 @@ generator iota(int end)
 }
 
 // C++コンパイラにより展開されたコード
-generator iota(int end)
+my_generator iota(int end)
 {
   // コルーチンに対応するPromiseオブジェクトを初期化
-  generator::promise_type promise;
+  my_generator::promise_type promise;
 
   // 戻り値型オブジェクトの初期化
-  generator result = promise.get_return_object();
+  my_generator result = promise.get_return_object();
   // コルーチンハンドルをget_return_object内で取得し、resultメンバで保持する。
   // 生成したresultオブジェクトは、初回のコルーチン中断時に呼出元へ返される。
 
@@ -142,8 +153,8 @@ task<void> g3(int a, ...) { // エラー: 可変引数リストは許可され�
 ### Promise型とコルーチン動作仕様
 コルーチンのPromise型は、コルーチンの戻り値型`R`と引数リスト`P1`, `P2`, ..., `Pn`から決定されるクラス型である。
 
-- デフォルト動作では`R::protmise_type`がPromise型となる。
-- ユーザプログラム中で[`std::coroutine_traits`](/reference/coroutine/coroutine_traits.md)トレイトを特殊化した場合は、`coroutine_traits<R, P1, P2, ..., Pn>::protmise_type`がPromise型となる。
+- デフォルト動作では`R::promise_type`がPromise型となる。
+- ユーザプログラム中で[`std::coroutine_traits`](/reference/coroutine/coroutine_traits.md)トレイトを特殊化した場合は、`coroutine_traits<R, P1, P2, ..., Pn>::promise_type`がPromise型となる。
 - コルーチンがクラスの非静的メンバの場合、`P1`は暗黙のオブジェクトパラメータ(`*this`の型)となる。
 
 コルーチンは、その本体 _function-body_ が下記の通り置き換えられたかのように動作する：
@@ -217,7 +228,7 @@ struct generator {
     static auto get_return_object_on_allocation_failure() { return generator{nullptr}; }
     auto get_return_object() { return generator{handle::from_promise(*this)}; }
     auto initial_suspend() { return std::suspend_always{}; }
-    auto final_suspend() { return std::suspend_always{}; }
+    auto final_suspend() noexcept { return std::suspend_always{}; }
     void unhandled_exception() { std::terminate(); }
     void return_void() {}
     auto yield_value(int value) {
@@ -289,7 +300,7 @@ Await式は、静的記憶域もしくは[スレッドローカル](/lang/cpp11/
 
 Await式の評価では、次のような補助的な型、式、オブジェクトを用いる：
 
-- _p_ を同Await式を含むコルーチンのPrimiseオブジェクトの左辺値名とし、`P`を同オブジェクトの型とする。
+- _p_ を同Await式を含むコルーチンのPromiseオブジェクトの左辺値名とし、`P`を同オブジェクトの型とする。
 - _a_ (Awaitable) を下記のように定義する：
     - Await式がYield式または初期サスペンドポイントまたは最終サスペンドポイントにより暗黙に生成された場合、_a_ をその _cast-expression_ とする。
     - `P`のスコープで非修飾な`await_transform`の探索により一つ以上の名前がみつかった場合は、 _a_ を _p_`.await_transform(` _cast-expression_ `)`とする。
@@ -370,7 +381,7 @@ _e_ をYield式のオペランド、_p_ を同式を含むコルーチンのProm
 
 ```cpp
 template <typename T>
-struct my_generator {
+struct generator {
   struct promise_type {
     T current_value;
     /* ... */
@@ -384,10 +395,10 @@ struct my_generator {
   iterator end();
 };
 
-my_generator<pair<int,int>> g1() {
+generator<pair<int,int>> g1() {
   for (int i = i; i < 10; ++i) co_yield {i,i};
 }
-my_generator<pair<int,int>> g2() {
+generator<pair<int,int>> g2() {
   for (int i = i; i < 10; ++i) co_yield make_pair(i,i);
 }
 
@@ -431,8 +442,8 @@ _p_ をコルーチンPromiseオブジェクトのlvalue名とすると、`co_re
 
 ここで _final-suspend_ はコルーチン動作説明用の最終サスペンドポイントラベル名であり、_S_ は次の通り定義される：
 
-- オペランドが _braced-init-list_ または非`void`型の式の場合、_S_ を _p_`.return_value(` _expr-or-braced-init-list_ `)`とする。式 _S_ は `void`型のpvalueであるべき。
-- そうでなければ、_S_ を複合文 `{` _expression_ _opt_ `;` _p_`.return_void(); }`とする。式 _p_`.return_void()`は`void`型のpvalueであるべき。
+- オペランドが _braced-init-list_ または非`void`型の式の場合、_S_ を _p_`.return_value(` _expr-or-braced-init-list_ `)`とする。式 _S_ は `void`型のprvalueであるべき。
+- そうでなければ、_S_ を複合文 `{` _expression_ _opt_ `;` _p_`.return_void(); }`とする。式 _p_`.return_void()`は`void`型のprvalueであるべき。
 
 _p_`.return_void()`が有効な式のとき、コルーチン本体の終端到達はオペランド無し`co_return`と等価である。
 そうでなければ、コルーチン本体の終端到達は未定義の動作を引き起こす。
@@ -445,7 +456,7 @@ _p_`.return_void()`が有効な式のとき、コルーチン本体の終端到�
 #include <utility>
 
 // コルーチン利用ライブラリ: ジェネレータ型
-struct generator {
+struct my_generator {
   // ジェネレータに関連付けられるPromise型
   struct promise_type {
     // co_yield式で指定されるint値を保持する変数
@@ -455,14 +466,14 @@ struct generator {
     {
       // コルーチンに紐づくPromiseオブジェクト(*this)から
       // ジェネレータ型のコルーチン戻り値オブジェクトを生成
-      return generator{*this};
+      return my_generator{*this};
     };
     auto initial_suspend()
     {
       // コルーチン本体処理の開始前に無条件サスペンド
       return std::suspend_always{};
     }
-    auto final_suspend()
+    auto final_suspend() noexcept
     {
       // コルーチン本体処理の終了後に無条件サスペンド
       return std::suspend_always{};
@@ -505,14 +516,14 @@ struct generator {
     }
   };
 
-  ~generator()
+  ~my_generator()
   {
     if (coro_)
       coro_.destroy();
   }
 
-  generator(generator const&) = delete;
-  generator(generator&& rhs) 
+  my_generator(my_generator const&) = delete;
+  my_generator(my_generator&& rhs) 
     : coro_(std::exchange(rhs.coro_, nullptr)) {}
 
   // 範囲for構文サポート用のメンバ関数
@@ -531,7 +542,7 @@ struct generator {
 
 private:
   // Promiseオブジェクト経由でコルーチンハンドルを取得する
-  explicit generator(promise_type& p)
+  explicit my_generator(promise_type& p)
     : coro_(coro_handle::from_promise(p)) {}
 
   coro_handle coro_;
@@ -539,7 +550,7 @@ private:
 
 
 // ユーザ定義コルーチン
-generator iota(int end)
+my_generator iota(int end)
 {
   // コルーチンに対応したPromise型 generator::promise_typeの
   // Promiseオブジェクト(p)が生成される。
@@ -598,15 +609,16 @@ C++20コルーチンはスタックレスコルーチンとして導入された
 （本ページ執筆時点では[提案文書P0876R10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p0876r10.pdf)が最新）
 
 C++20コルーチンでは、コルーチン・ステートのために動的メモリ確保が行われる可能性がある。
-一定条件を満たせばコンパイラ最適化によって動的メモリ確保が省略されるとしているが、言語仕様として動的メモリ確保を避ける仕様も検討された（通称"Core Coroutines")。
+一定条件を満たせばコンパイラ最適化によって動的メモリ確保が省略されるとしているが、言語仕様として動的メモリ確保を避ける仕様も検討された（通称"Core Coroutines"）。
 最終的には既に実績のあるCoroutinesTS（発案者の名前にちなみ"Gor-routines"と呼ばれた）ベースのコルーチン仕様が採用されることになった。
 
 C++20コルーチンに関するキーワードは、いずれも接頭辞`co_`が付与されている。
 何度かの改名提案（[P0071R0](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0071r0.html)、[P1485R1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1485r1.html)）も提出されたが、いずれも否決されてC++20仕様に落ち着いた。
 
 
-## 関連項目
-- [`<coroutine>`](/reference/coroutine.md)
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- C++20 [`<coroutine>`](/reference/coroutine.md)
+- C++23 [`<generator>`](/reference/generator.md)
 
 
 ## 参照
@@ -621,5 +633,5 @@ C++20コルーチンに関するキーワードは、いずれも接頭辞`co_`�
 - [C++ Coroutines: Understanding operator co_await](https://lewissbaker.github.io/2017/11/17/understanding-operator-co-await)
 - [C++ Coroutines: Understanding the promise type](https://lewissbaker.github.io/2018/09/05/understanding-the-promise-type)
 - [C++ Coroutines: Understanding Symmetric Transfer](https://lewissbaker.github.io/2020/05/11/understanding_symmetric_transfer)
-- [C++ co_awaiting coroutines](https://blog.panicsoftware.com/co_awaiting-coroutines/)
+- [C++ co_awaiting coroutines](https://web.archive.org/web/20210421165652/https://blog.panicsoftware.com/co_awaiting-coroutines/)
 - [20分くらいでわかった気分になれるC++20コルーチン](https://www.slideshare.net/yohhoy/20c20)

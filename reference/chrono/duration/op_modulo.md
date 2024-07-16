@@ -6,6 +6,7 @@
 
 ```cpp
 namespace std {
+namespace chrono {
   // duration % N = duration
   template <class Rep1, class Period, class Rep2>
   duration<typename common_type<Rep1, Rep2>::type, Period>
@@ -17,7 +18,7 @@ namespace std {
   typename common_type<duration<Rep1, Period1>, duration<Rep2, Period2>>::type
     constexpr operator%(const duration<Rep1, Period1>& lhs,
                         const duration<Rep2, Period2>& rhs); // (2)
-}
+}}
 ```
 * common_type[link /reference/type_traits/common_type.md]
 
@@ -26,7 +27,7 @@ durationの剰余演算を行う
 
 
 ## テンプレートパラメータ制約
-- (1) : [`is_convertible_v`](/reference/chrono/d)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
+- (1) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
 
 
 ## 戻り値
@@ -66,7 +67,7 @@ int main()
     std::cout << ms.count() << std::endl;
   }
 
-  // duration / duration
+  // duration % duration
   {
     seconds s = seconds(8) % seconds(3);
     std::cout << s.count() << std::endl;
@@ -92,9 +93,9 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-    - 2012, 2013でサンプルコードをコンパイルしたところ、dulation % dulationでコンパイルエラーになった。
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+    - 2012, 2013でサンプルコードをコンパイルしたところ、duration % durationでコンパイルエラーになった。
 
 
 ## 参照

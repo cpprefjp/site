@@ -40,8 +40,6 @@ iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);        
 
 
 ## 戻り値
-挿入されたかどうかを示す `bool` と、挿入された要素へのイテレータからなる `pair` を返す。挿入されなかったときは、既存要素へのイテレータを返す。
-
 - (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
     - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
     - 挿入されなかった場合には、`first` に `k` と等価のキーを持つ既存の要素へのイテレータ、`second` に `false` が設定される。
@@ -121,8 +119,8 @@ key = two, value = 2, is inserted = false, is empty = false
 
 ### 処理系
 
-- [Clang](/implementation.md#clang): 3.7.0
-- [GCC](/implementation.md#gcc): 6.1.0
+- [Clang](/implementation.md#clang): 3.7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 6.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -5,7 +5,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class ForwardIterator, class T>
   void
     iota(ForwardIterator first, ForwardIterator last, T value); // (1) C++11
@@ -29,7 +29,7 @@ namespace std{
 
 
 ## 効果
-範囲`[first, last)`の各要素`it`について、先頭から順番に `*it = value; ++value;` を行う
+イテレータ範囲`[first, last)`の各要素`it`について、先頭から順番に `*it = value; ++value;` を行う
 
 
 ## 戻り値
@@ -37,7 +37,7 @@ namespace std{
 
 
 ## 計算量
-範囲`[first, last)`の要素数をnとして、n回のインクリメントと代入が行われる。
+イテレータ範囲`[first, last)`の要素数をnとして、n回のインクリメントと代入が行われる。
 
 
 ## 備考
@@ -87,10 +87,10 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.5
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.5 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008
+- [Visual C++](/implementation.md#visual_cpp): 2008 [mark verified]
 
 
 ## 実装例

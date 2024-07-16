@@ -1,7 +1,7 @@
 # erase_if
 * map[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
@@ -15,7 +15,7 @@ namespace std {
 ## 概要
 指定した条件に合致する要素とその分の領域を、コンテナから削除する。
 
-述語関数オブジェクトには、キーではなく、要素全体 (キーと値の組) が渡されるので注意。
+述語関数オブジェクトには、キーではなく、要素全体 (キーと値の[`pair`](/reference/utility/pair.md)) が渡されるので注意。
 
 
 ## 効果
@@ -76,8 +76,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): 9.1
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

@@ -7,7 +7,7 @@
 
 ```cpp
 explicit scoped_lock(MutexTypes&... m);               // (1)
-explicit scoped_lock(MutexTypes&... m, adopt_lock_t); // (2)
+explicit scoped_lock(adopt_lock_t, MutexTypes&... m); // (2)
 
 scoped_lock(const scoped_lock&) = delete;             // (3)
 ```
@@ -73,6 +73,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 5.0
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 5.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

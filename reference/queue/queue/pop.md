@@ -39,7 +39,7 @@ int main() {
   return 0;
 }
 ```
-* pop()[link pop.md]
+* pop()[color ff0000]
 * que.push[link push.md]
 * que.front()[link front.md]
 

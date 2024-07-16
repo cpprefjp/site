@@ -17,7 +17,7 @@ iterator insert(const_iterator position,
 
 template <class InputIterator>
 void insert(iterator position,
-            InputIterator first, InputIterator last);               // (4) C++11
+            InputIterator first, InputIterator last);               // (4) C++03
 template <class InputIterator>
 iterator insert(const_iterator position,
                 InputIterator first, InputIterator last);           // (4) C++11
@@ -43,11 +43,11 @@ iterator insert(const_iterator position, initializer_list<T> init); // (5) C++11
 - `x`挿入される要素の初期化に使われる値。`T`はひとつめのテンプレートパラメータ（コンテナに格納される要素の型）である。
 - `y`直接挿入される値。`T`はひとつめのテンプレートパラメータ（コンテナに格納される要素の型）である。
 - `n`挿入する要素の数。それぞれの要素は x の値によって初期化される。メンバ型`size_type`は符号なし整数型である。
-- `first, last`要素の範囲を指定する。範囲 `[first, last)` の中にある要素のコピーが位置`position`に挿入される。`first`と`last`の間の範囲は、`first`で指定された要素を含むが、`last`で指定された要素を含まない点に注意。テンプレート型はどんな入力イテレータでも構わない。
+- `first, last`要素のイテレータ範囲を指定する。イテレータ範囲 `[first, last)` の中にある要素のコピーが位置`position`に挿入される。`first`と`last`の間の範囲は、`first`で指定された要素を含むが、`last`で指定された要素を含まない点に注意。テンプレート型はどんな入力イテレータでも構わない。
 
 
 ## 戻り値
-- C++03まで一番上のバージョンがのみ、新しい要素が挿入された場所を指すイテレータを返す。
+- C++03まで一番上のバージョンのみ、新しい要素が挿入された場所を指すイテレータを返す。
 - C++11以降新しい要素が挿入された場所を示すイテレータ。
 
 

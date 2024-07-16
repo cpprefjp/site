@@ -13,7 +13,7 @@ size_type count(const K& k) const;                     // (2) C++20
 ```
 
 ## 概要
-キーを検索し、コンテナ内に見つかった要素の数を返す。`map` コンテナはキーの重複を許さないため、この関数は実際には要素が見つかったときに 1 を、そうでないときに 0 を返す。
+キーを検索し、コンテナ内に見つかった要素の数を返す。`unordered_map` コンテナはキーの重複を許さないため、この関数は実際には要素が見つかったときに 1 を、そうでないときに 0 を返す。
 
 - (1) : キー`x`を検索し、合致する要素数を取得する
 - (2) : キー`k`を透過的に検索し、合致する要素数を取得する
@@ -22,7 +22,7 @@ size_type count(const K& k) const;                     // (2) C++20
 
 
 ## パラメータ
-- `x` : 検索するキー値。`key_type` はメンバ型であり、`map` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータである。
+- `x` : 検索するキー値。`key_type` はメンバ型であり、`unordered_map` コンテナの中で `Key` の別名として定義される。ここで `Key` は 1 番目のテンプレートパラメータである。
 - `k` : 検索するキー。`key_type`と透過的に比較可能な型`K`型のキーである。
 
 
@@ -80,7 +80,7 @@ int main()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

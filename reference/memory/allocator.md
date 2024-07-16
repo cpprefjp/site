@@ -41,7 +41,7 @@ C++11から：
 |---------------------------------------------|----------------------------------------------|-------|
 | [`(constructor)`](allocator/op_constructor.md) | コンストラクタ                          | |
 | [`(destructor)`](allocator/op_destructor.md) | デストラクタ                              | |
-| `operator=(const allocator&) = default`   | 代入演算子                                   | |
+| [`operator=`](allocator/op_assign.md)     | 代入演算子                                   | |
 | [`allocate`](allocator/allocate.md)       | メモリを確保する                             | |
 | [`deallocate`](allocator/deallocate.md)   | メモリを解放する                             | |
 | [`address`](allocator/address.md)         | 変数のアドレスを取得する                     | C++17から非推奨<br/> C++20で削除 |
@@ -56,8 +56,8 @@ C++11から：
 |-------------------|----------------------------------------------|-------|
 | `value_type`      | 要素の型 `T`                                 | |
 | `propagate_on_container_move_assignment` | コンテナのムーブ代入時に、アロケータの状態を伝播するか。 [`true_type`](/reference/type_traits/true_type.md) | C++14 |
-| `size_type`       | 要素数を表す符号なし整数型 `size_t`          | C++17から非推奨<br/> C++20で削除 |
-| `difference_type` | ポインタの差を表す符号付き整数型 `ptrdiff_t` | C++17から非推奨<br/> C++20で削除 |
+| `size_type`       | 要素数を表す符号なし整数型 `size_t`          | |
+| `difference_type` | ポインタの差を表す符号付き整数型 `ptrdiff_t` | |
 | `pointer`         | 要素のポインタ型 `T*`                        | C++17から非推奨<br/> C++20で削除 |
 | `const_pointer`   | 読み取り専用の要素のポインタ型 `const T*`    | C++17から非推奨<br/> C++20で削除 |
 | `reference`       | 要素の参照型 `T&`                            | C++17から非推奨<br/> C++20で削除 |
@@ -75,8 +75,17 @@ C++11から：
 
 
 ## 非推奨・削除の詳細
-C++17から`void`の特殊化版が非推奨となり、C++20で削除された。代わりに[`std::allocator_traits`](allocator_traits.md)クラスの`rebind`機能を使用すること。
+- `address`/`max_size`/`construct`/`destroy`/`pointer`/`const_pointer`/`reference`/`const_reference`/`rebind<U>`メンバがC++17から非推奨となり、C++20で削除された。
+    - これらは特殊なアロケータの実装でない限り共通に定義できるものであるため、アロケータの中間インタフェースである[`std::allocator_traits`](/reference/memory/allocator_traits.md)クラスに、共通のデフォルト実装を定義することとなった。
+    - 以後は[`std::allocator_traits`](allocator_traits.md)`<std::allocator<T>>`クラスの各機能を代替として使用すること。
 
+- C++17から`void`の特殊化版が非推奨となり、C++20で削除された。
+    - 従来`void`の特殊化版は`allocate`/`deallocate`メンバ関数が存在せず、実際に確保するオブジェクトの型(`R`とする)を隠蔽しつつメモリアロケータとしては`std::allocator`を使うことを表明するためにのみ用いられた。
+      この際`typename std::allocator<void>::template rebind<R>::other`型から実際に確保するオブジェクト型の`std::allocator<R>`を再束縛していた。
+    - この非推奨・削除は`std::allocator<void>`もプライマリテンプレートからインスタンス化されるようになったことを意味し、C++20以降も`std::allocator<void>`の使用自体は問題なく可能であることに注意。
+        - なお、プライマリテンプレートからインスタンス化されるようになっても`allocate`/`deallocate`メンバは内部で`sizeof(void)`を要求するため引き続き使用不可能であり、`std::allocator<void>`の使用用途としては従来と同じく再束縛を目的とすることになる(上述のように[`std::allocator_traits`](allocator_traits.md)の代替機能を用いて`typename` [`std::allocator_traits`](allocator_traits.md)`<std::allocator<void>>::template rebind_alloc<R>`のようにする)。
+
+- メンバ型の`size_type`と`difference_type`は、C++17で非推奨となったがC++20で非推奨が取り消された。
 
 ## 例
 ```cpp example

@@ -1,5 +1,13 @@
-# [[nodiscard]]属性に理由となる文字列を付加できるようにする
+# [[nodiscard]]属性に理由となる文字列を付加できるようにする [P1301R4]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 戻り値が使用されない場合に警告を出力させる[`[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)に、戻り値を無視してはならない理由を文字列リテラルとして指定できるようにする。
@@ -84,7 +92,7 @@ prog.cc:26:8: note: declared here
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 `[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)
 - [C++20 `[[nodiscard]]`をコンストラクタのオーバーロードごとに付加できるようにする](nodiscard_for_constructors.md)
 

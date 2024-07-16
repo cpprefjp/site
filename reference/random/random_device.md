@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `random_device`クラスは、非決定論的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。
 
-`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
+`random_device`の実装は処理系定義だが、Windows環境では[`CryptGenRandom()`](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)関数のラッパーとして、UNIX系環境では[`/dev/random`](https://web.archive.org/web/20230207121147/http://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)や[`/dev/urandom`](https://web.archive.org/web/20230207121147/http://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)から値を読み取る形で定義される場合がある。
 実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは**擬似乱数生成器で定義される可能性がある**ため、特にクロスプラットフォームなコードを書く場合は注意すること。
 
 予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといった環境ノイズをエントロピープールとして乱数を生成する。
@@ -161,10 +161,10 @@ jyiasder
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2
-- [GCC](/implementation.md#gcc): 4.7.2
+- [Clang](/implementation.md#clang): 3.2 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 
 ## 備考
@@ -323,11 +323,11 @@ int main()
 - GCC: [Implementation Status 26.5.6 [rand.device]](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific)
 - Microdoft Visual Studio 2017: [random\_device Class](https://docs.microsoft.com/en-us/cpp/standard-library/random-device-class)
 - [/dev/random - Wikipedia](https://ja.wikipedia.org/wiki//dev/random)
-- [Man page of RANDOM](https://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
+- [Man page of RANDOM](https://web.archive.org/web/20230207121147/http://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html)
 - [CryptGenRandom function (wincrypt.h) - Win32 apps | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom)
 - [random_deviceの実装（再訪） - 煙人計画](http://vaporoid.hateblo.jp/entry/2014/07/25/154852)
 - [Replacing `/dev/urandom` May 4, 2016 - Security](https://lwn.net/Articles/685371/)
 - [gccをwindowsで使うならstd::random_deviceを使ってはいけない - Qiita](http://qiita.com/nanashi/items/f94b78398a6c79d939e1)
-- [MSC30-C. 疑似乱数の生成に rand() 関数を使用しない](https://www.jpcert.or.jp/sc-rules/c-msc30-c.html)
+- [MSC30-C. 擬似乱数の生成に rand() 関数を使用しない](https://www.jpcert.or.jp/sc-rules/c-msc30-c.html)
 - `CryptGenRandom`のエントロピー源(2005年時点): [Cryptographically Secure Random number on Windows without using CryptoAPI – Michael Howard's Web Log](https://blogs.msdn.microsoft.com/michael_howard/2005/01/14/cryptographically-secure-random-number-on-windows-without-using-cryptoapi/#div-comment-5543)
 

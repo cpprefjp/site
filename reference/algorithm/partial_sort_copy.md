@@ -56,15 +56,15 @@ namespace std {
 ```
 
 ## 概要
-範囲を部分的にソートした結果を他の範囲にコピーする
+イテレータ範囲`[first, last)`を部分的にソートした結果を他の範囲`[result_first, result_last)`にコピーする。
 
 
-## 要件
-`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*result_first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+## テンプレートパラメータ制約
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*result_first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
 
 
 ## 効果
-`[first,last)` にある要素の中から、[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` 個の要素をソート済みの状態で `[result_first,result_first +` [`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first))` に配置する。
+イテレータ範囲`[first,last)` にある要素の中から、[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` 個の要素をソート済みの状態で `[result_first,result_first +` [`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first))` に配置する。
 
 
 ## 戻り値

@@ -21,9 +21,9 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 
 からなる。但し、一部の動作については処理系に対して自由度が認められている。
 
-- **処理系定義の動作** (implementation-defined behavior) または**実装定義の動作**とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系はその説明書にその動作を定義する必要がある。
-- **未規定の動作** (unspecified behavior) とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系は説明書にその動作を定義しなくて良い。
-- **未定義の動作** (undefined behavior; 通称 UB) は、処理系が実際に行う動作について標準規格が如何なる要件もおかないことを表す。
+- <dfn id="dfn-implementation-defined-behavior">処理系定義の動作</dfn> (implementation-defined behavior) または<dfn>実装定義の動作</dfn>とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系はその説明書にその動作を定義する必要がある。
+- <dfn id="dfn-unspecified-behavior">未規定の動作</dfn> (unspecified behavior) とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系は説明書にその動作を定義しなくて良い。
+- <dfn id="dfn-undefined-behavior">未定義の動作</dfn> (undefined behavior; 通称 UB) は、処理系が実際に行う動作について標準規格が如何なる要件もおかないことを表す。
 - **文化圏固有動作** (locale-specific behavior) に対しては、処理系は現地の国家・文化・言語の風習に依存した動作を行う。処理系はその動作を説明書に記述する必要がある。
 
 これらの用語は処理系が取りうる動作の範囲を示すものであって、例えば "未定義の動作" という名前の具体的な動作がある訳ではないことに注意する。
@@ -37,15 +37,15 @@ C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレ�
 - **制約** (constraints): C言語において構文記法によって表現しきれない構文的な制限を文章で述べたもの。C++ には現れない
 - **意味規則** (semantic rule): 構文規則と制約のどちらでもないプログラムに対する規則
 
-各規則には**診断不要**<sup><a href="#note-1" id="note_ref-1">[注1]</a></sup> (no diagnostics required; 通称 NDR) や「違反すると未定義の動作になる」などの属性が明記されることがあり、
+各規則には<dfn id="dfn-no-diagnostic-required">診断不要</dfn><sup><a href="#note-1" id="note_ref-1">[注1]</a></sup> (no diagnostic required; 通称 NDR) や「違反すると未定義の動作になる」などの属性が明記されることがあり、
 診断不要とも未定義の動作になるとも明記されない規則を**診断対象規則** (diagnosable rule) と呼ぶ。
 **単一定義規則** (ODR; one definition rule) は "使用される変数・関数・クラスについてただ1つの定義を与えなければならない" という一連の規則である。
 
-- **適格** (well-formed) とはプログラムが全ての構文規則・診断対象の意味規則・単一定義規則を満たすことである
-- **不適格** (ill-formed) とはプログラムが適格でないことである
+- <dfn id="dfn-well-formed">適格</dfn> (well-formed) とはプログラムが全ての構文規則・診断対象の意味規則・単一定義規則を満たすことである
+- <dfn id="dfn-ill-formed">不適格</dfn> (ill-formed) とはプログラムが適格でないことである
 
 プログラムが規則に違反するとき、処理系はエラーメッセージまたは警告などを出力する。
-この出力を総称して**診断情報** (diagnostic message) または**診断メッセージ**<sup><a href="#note-2" id="note_ref-2">[注2]</a></sup> と呼び、その内容は処理系定義である。
+この出力を総称して<dfn id="dfn-diagnostic-message">診断情報</dfn> (diagnostic message) または<dfn>診断メッセージ</dfn><sup><a href="#note-2" id="note_ref-2">[注2]</a></sup> と呼び、その内容は処理系定義である。
 
 適合する処理系は、
 
@@ -140,7 +140,7 @@ ToDo
 
 ## 注釈
 
-1. <a href="#note_ref-1" id="note-1">**^**</a> no diagnostics required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
+1. <a href="#note_ref-1" id="note-1">**^**</a> no diagnostic required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
   ここでは "診断不要" という語を割り当てることにする。
 2. <a href="#note_ref-2" id="note-2">**^**</a> diagnostic message: JIS C++ では "診断情報" としている。
   JIS C言語 (JIS X 3010:2003) では "診断メッセージ" としている。

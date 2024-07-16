@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-bool operator!=(const regex_iterator& right) const;
+// operator==により、以下の演算子が使用可能になる (C++20)
+bool operator!=(const regex_iterator& right) const; // (1) C++11
 ```
 
 ## 概要
@@ -65,9 +66,8 @@ it2:'1'(1, 2)
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -77,3 +77,7 @@ it2:'1'(1, 2)
 |-----------------------------|----------|
 | [`operator==`](op_equal.md) | 等値比較 |
 
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

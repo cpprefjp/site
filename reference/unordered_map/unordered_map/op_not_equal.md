@@ -6,14 +6,15 @@
 
 ```cpp
 namespace std {
+  // operator==により、以下の演算子が使用可能になる (C++20)
   template <class Key, class T, class Hash, class Pred, class Alloc>
-  bool operator!= (const unordered_map<Key,T,Hash,Pred,Alloc>& a,
-                   const unordered_map<Key,T,Hash,Pred,Alloc>& b);
+  bool operator!=(const unordered_map<Key,T,Hash,Pred,Alloc>& a,
+                  const unordered_map<Key,T,Hash,Pred,Alloc>& b); // (1) C++11
 }
 ```
 
 ## 概要
-`unordered_set` オブジェクトを非等値比較する。
+`unordered_map` オブジェクトを非等値比較する。
 
 
 ## 要件
@@ -65,7 +66,6 @@ int main()
   return 0;
 }
 ```
-* insert[link insert.md]
 
 ### 出力
 ```
@@ -77,8 +77,10 @@ int main()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 参照
 - [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

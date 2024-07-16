@@ -28,6 +28,11 @@ pair<iterator, bool> emplace(Args&&... args);
 コンテナサイズについて対数時間。
 
 
+## 備考
+この関数が呼ばれた後も、当該コンテナ内の要素を指す参照やイテレータは無効にはならない。  
+なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -46,7 +51,7 @@ bool operator<(const s& lhs, const s& rhs)
 
 int main()
 {
-  std::set<s> c;
+  std::multiset<s> c;
 
   c.emplace(42);
 

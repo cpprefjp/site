@@ -14,6 +14,7 @@ namespace std {
   };
 }
 ```
+* see below[italic]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
 * iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 
@@ -85,8 +86,8 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 ## 関連項目
 

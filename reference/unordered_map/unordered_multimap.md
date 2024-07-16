@@ -237,7 +237,7 @@ int main()
   print(um);
 }
 ```
-* std::unordered_map[color ff0000]
+* std::unordered_multimap[color ff0000]
 * std::ostream[link /reference/ostream/basic_ostream.md]
 * um.emplace[link unordered_multimap/emplace.md]
 * um.insert[link unordered_multimap/insert.md]

@@ -21,7 +21,7 @@ namespace std {
 Traits内の全ての型は基底クラスとして使用可能で（final指定されていない）、boolに変換可能なメンバ変数valueを持つこと。
 
 ## 効果
-`sizeof...(Traits) == 0`ならば[`true_type`](true_type.md)から派生し
+`sizeof...(Traits) == 0`ならば[`false_type`](false_type.md)から派生し
 
 `sizeof...(Traits) == 1`ならばそのTraitsから派生し
 
@@ -87,9 +87,9 @@ Tは何らかのポインタ
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.8
-- [GCC](/implementation.md#gcc): 6.3
-- [Visual C++](/implementation.md#visual_cpp): 2015 update2, 2017
+- [Clang](/implementation.md#clang): 3.8 [mark verified]
+- [GCC](/implementation.md#gcc): 6.3 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2015 update2 [mark verified], 2017 [mark verified]
 	- `disjunction_v`は、2015 update3までは定義されているが有効化されていない。
 
 

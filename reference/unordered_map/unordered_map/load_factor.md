@@ -67,7 +67,7 @@ current load_factor: 0.5
 ```
 
 ### 検証
-[`load_factor`](load_factor.md) = [`size`](size.md) / [`bucket_count`](bucket_count.md) を満たしている。
+`load_factor` = [`size`](size.md) / [`bucket_count`](bucket_count.md) を満たしている。
 
 
 ## バージョン
@@ -78,7 +78,7 @@ current load_factor: 0.5
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 ## 関連項目
 

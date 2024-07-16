@@ -16,6 +16,7 @@ namespace std::numbers {
 }
 ```
 * unspecified[italic]
+* see below[italic]
 * floating_point[link /reference/concepts/floating_point.md]
 
 ## 概要
@@ -63,6 +64,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 11
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5
+- [Clang](/implementation.md#clang): 11 [mark verified]
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5 [mark verified]

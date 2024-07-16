@@ -1,5 +1,13 @@
-# alignas
+# alignas [N2341]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 `alignas()`は、コンパイラに対し変数をメモリ上の特定の位置に配置（アライメント）するように要求するキーワードである。「アライン アズ (align as)」と読む。
@@ -101,11 +109,10 @@ C++03で変数のアライメントを行うにはコンパイラの拡張機能
 N2341 からはわからない、恐らくないと思われる。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `alignof`](/lang/cpp11/alignof.md)
 - [C++17 アライメント指定されたデータの動的メモリ確保](/lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.md)
 
 
 ## 参照
 - [N2341 Adding Alignment Support to the C++ Programming Language / Wording](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf)
-

@@ -86,16 +86,16 @@ namespace std {
 ```
 
 ## 概要
-2つの範囲を等値比較する。
+2つのイテレータ範囲を等値比較する。
 
-- (1) : 範囲`[first1, last1)`と範囲`[first2, first2 + (last1 - first1))`が等値かを判定する
+- (1) : イテレータ範囲`[first1, last1)`とイテレータ範囲`[first2, first2 + (last1 - first1))`が等値かを判定する
 - (2) : (1)の等値比較を任意の2引数関数オブジェクトで行う
-- (3) : 範囲`[first1, last1)`と範囲`[first2, last2)`が等値かを判定する
+- (3) : イテレータ範囲`[first1, last1)`とイテレータ範囲`[first2, last2)`が等値かを判定する
 - (4) : (3)の等値比較を任意の2引数関数オブジェクトで行う
 
-2つの範囲が異なる要素数であった場合、`false`を返す。
+2つのイテレータ範囲が異なる要素数であった場合、`false`を返す。
 
-2つの範囲が要素数および各要素が等値であった場合、`true`を返す。
+2つのイテレータ範囲が要素数および各要素が等値であった場合、`true`を返す。
 
 
 ## 戻り値
@@ -108,7 +108,7 @@ namespace std {
 `last2` が与えられていない形式では、`last2 = first2 + (last1 - first1)`であるとして説明する。
 
 - (1), (2), (3), (4) : `InputIterator1` と `InputIterator2` が共にランダムアクセスイテレータの要件を満たす場合で、かつ、`last1 - first1 != last2 - first2` の場合、1 度も比較または述語は適用されない。そうでない場合、最大で `min(last1 - first1, last2 - first2)` 回の比較または述語が適用される。
-- (5), (6), (7), (8) : `ForwardIterator1` と `ForwardIterator2` が共にランダムアクセスイテレータの要件を満たす場合で、かつ、`last1 - first1 != last2 - first2` の場合、1 度も比較または述語は適用されない。そうでない場合、O(`min(last1 - first1, last2 - first2)`) の計算量で比較または述語が適用される。
+- (5), (6), (7), (8) : `ForwardIterator1` と `ForwardIterator2` が共にランダムアクセスイテレータの要件を満たす場合で、かつ、`last1 - first1 != last2 - first2` の場合、1 度も比較または述語は適用されない。そうでない場合、O(`min(last1 - first1, last2 - first2)`) 回の比較または述語が適用される。
 
 
 ## 備考
@@ -214,10 +214,10 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
 - C++14: 2つ目の終端のイテレータ`last2`を実引数に取るオーバーロードの追加。
 
 ### 処理系(last2を受け取るバージョン)
-- [Clang](/implementation.md#clang): 3.4
-- [GCC](/implementation.md#gcc): 4.9
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
 ## 参照

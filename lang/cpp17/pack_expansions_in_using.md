@@ -1,5 +1,13 @@
-# using宣言のパック展開
+# using宣言のパック展開 [P0195R2]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -174,7 +182,7 @@ ForString:hello2
 この問題を解決するためC++17では`using`でパック展開ができるようになった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [可変引数テンプレート](/lang/cpp11/variadic_templates.md)
 
 ## 参照

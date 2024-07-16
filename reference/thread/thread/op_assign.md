@@ -42,14 +42,14 @@ int main()
   std::thread t2;
   assert(t1.joinable() && !t2.joinable());
 
-  // th1からth2へムーブ代入
+  // t1からt2へムーブ代入
   t2 = std::move(t1);
   assert(!t1.joinable() && t2.joinable());
 
   t2.join();
 }
 ```
-* th2 = std::move(th1);[color ff0000]
+* t2 = std::move(t1);[color ff0000]
 * joinable()[link joinable.md]
 
 ### 出力
@@ -62,9 +62,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
+- [GCC](/implementation.md#gcc): 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

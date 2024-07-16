@@ -41,7 +41,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 - 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。  
 	なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
 
-- 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
+- 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、イテレータ範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
 	また、引数 `first`、および、`last` を引数にとる形式（(3)）では、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
 	ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
@@ -58,13 +58,13 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 - (1) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
 - (2) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
 	引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-- (3) : 範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
+- (3) : イテレータ範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
 - (4) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
 - (5) : `nh`が空の場合、効果はない。
 それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
 - (6) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。
 それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と等価のキーの要素を指すイテレータを常に返す。
-要素は、`p`の直前の位置のできるだけ近くに挿入される。
+要素は、`hint`の直前の位置のできるだけ近くに挿入される。
 
 
 ## 戻り値
@@ -174,7 +174,6 @@ int main()
 * c.begin()[link begin.md]
 * c.end()[link end.md]
 * us.begin()[link begin.md]
-* us.end()[link end.md]
 * second[link /reference/utility/pair.md]
 * first[link /reference/utility/pair.md]
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
@@ -198,9 +197,8 @@ insert initializer_list : 7 8 6 5 4 3 2 1 0
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.0
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

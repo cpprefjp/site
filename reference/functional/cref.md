@@ -10,7 +10,7 @@ namespace std {
   reference_wrapper<const T> cref(const T& t) noexcept;             // (1) C++11
 
   template <class T>
-  constepxr reference_wrapper<const T> cref(const T& t) noexcept;   // (1) C++20
+  constexpr reference_wrapper<const T> cref(const T& t) noexcept;   // (1) C++20
 
   template <class T>
   reference_wrapper<const T> cref(reference_wrapper<T> t) noexcept; // (2) C++11
@@ -71,7 +71,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -1,6 +1,14 @@
 # 参照するPOSIX規格を更新
 * cpp23[meta cpp]
 
+<!-- start lang caution -->
+
+このページはC++23に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
+
 ## 概要
 C++20まではPOSIX規格としてISO/IEC 9945:2003 (別名POSIX.1-2001 aka The Single UNIX Specification, version 3) を参照していた。
 

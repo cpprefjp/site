@@ -5,8 +5,14 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T, class Allocator>
-  bool operator>=(const vector<T, Allocator>& x, const vector<T, Allocator>& y);
+  bool operator>=(const vector<T, Allocator>& x,
+                  const vector<T, Allocator>& y);           // (1) C++03
+
+  template <class T, class Allocator>
+  constexpr bool operator>=(const vector<T, Allocator>& x,
+                            const vector<T, Allocator>& y); // (1) C++20
 }
 ```
 
@@ -44,5 +50,6 @@ true
 ```
 
 ## 参照
-
-
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

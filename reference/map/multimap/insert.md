@@ -32,7 +32,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 ## 概要
 新しく一つの要素(引数 `x`, `y`を使う)、要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `multimap` コンテナを拡張する。
 
-これは、挿入された要素の数だけコンテナの [`size()`](/reference/map/multimap/size.md) を増やす。
+これは、挿入された要素の数だけコンテナの [`size()`](size.md) を増やす。
 
 内部的に `multimap` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
 
@@ -43,7 +43,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (1), (4) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
 - (2), (5) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
 - (3), (6) : `P`から`value_type`が構築可能であること。
-- (7), (8) : 範囲`[first, last)`（`[list.begin(), list.end())`）の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの`Cpp17EmplaceConstructible`であること。
+- (7), (8) : イテレータ範囲`[first, last)`の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの`Cpp17EmplaceConstructible`であること。
 - (9), (10) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
 
 ## 効果
@@ -53,10 +53,10 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (4) : 新たな要素`x`を`position`より前の出来るだけ近い位置にコピー挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる。
 - (5) : 新たな要素`y`を`position`より前の出来るだけ近い位置にムーブ挿入する。`position`パラメータに適切な挿入位置を指定すれば、高速に挿入できる。
 - (6) : [`emplace_hint`](emplace_hint.md)`(position,` [`std::forward`](/reference/utility/forward.md)`<P>(x))`と等価。
-- (7) : 範囲`[first, last)`の各要素を`*this`の要素として挿入する。
+- (7) : イテレータ範囲`[first, last)`の各要素を`*this`の要素として挿入する。
 - (8) : `insert(init.begin(), init.end())`と等価（(7)へ委譲）。
 - (9) : `nh`が空の場合、効果はない。そうでなければ、`nh`によって所有されている要素を挿入する。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
-- (10) : `nh`が空の場合、効果はない。そうでなければ、`nh` によって所有されている要素を`p`より前の出来るだけ近い位置に挿入する。 `nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
+- (10) : `nh`が空の場合、効果はない。そうでなければ、`nh` によって所有されている要素を`hint`より前の出来るだけ近い位置に挿入する。 `nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。
 
 
 ## 戻り値
@@ -75,7 +75,9 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (10) : 挿入が `hint` の直前の位置に行われた場合、償却定数時間。 そうでなければ、コンテナのサイズの対数。
 
 ## 備考
-(9), (10) の場合、要素はコピーもムーブもされない。
+- これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照やイテレータは無効にはならない。  
+	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+- (9), (10) の場合、要素はコピーもムーブもされない。
 
 ## 例
 ```cpp example
@@ -116,7 +118,7 @@ int main ()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

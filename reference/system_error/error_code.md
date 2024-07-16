@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `error_code`は、OSのAPIで発生するエラー値およびそのエラーメッセージを扱うクラスである。
 
-このクラス主に、[`system_error`](system_error.md)例外クラスに付加する情報として使用する。
+このクラスは主に、[`system_error`](system_error.md)例外クラスに付加する情報として使用する。
 
 
 ## メンバ関数
@@ -37,8 +37,12 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator==`](op_equal.md) | 等値比較 | C++11 |
-| [`operator!=`](op_not_equal.md) | 非等値比較 | C++11 |
-| [`operator<`](error_code/op_less.md) | 左辺が右辺より小さいか判定する | C++11 |
+| [`operator!=`](op_not_equal.md) | 非等値比較 (C++20から`operator==`により使用可能) | C++11 |
+| [`operator<=>`](error_code/op_compare_3way.md) | 三方比較 | C++20 |
+| [`operator<`](error_code/op_less.md) | 左辺が右辺より小さいか判定する (C++20から`operator<=>`により使用可能) | C++11 |
+| `bool operator<=(const error_code&, const error_code&) noexcept;` | 左辺が右辺以下か判定する (`operator<=>`により使用可能) | C++20 |
+| `bool operator>(const error_code&, const error_code&) noexcept;` | 左辺が右辺より大きいか判定する (`operator<=>`により使用可能) | C++20 |
+| `bool operator>=(const error_code&, const error_code&) noexcept;` | 左辺が右辺以上か判定する (`operator<=>`により使用可能) | C++20 |
 | [`operator<<`](error_code/op_ostream.md) | ストリームへ出力 | C++11 |
 | [`make_error_code`](make_error_code.md) | `errc`から`error_code`オブジェクトを生成する | C++11 |
 
@@ -93,9 +97,9 @@ Invalid argument
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 
 ## 参照

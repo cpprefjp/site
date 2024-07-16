@@ -61,8 +61,8 @@ namespace std {
 |-------------------------------------------------------|----------------------------|----------------|
 | [`(constructor)`](basic_streambuf/op_constructor.md) | コンストラクタ (protected) |                |
 | `(destructor)`                                        | デストラクタ (virtual)     |                |
-| `operator=`                                           | コピー代入 (protected)     | C++11          |
-| `swap`                                                | 値の交換 (protected)       | C++11          |
+| [`operator=`](basic_streambuf/op_assign.md)           | コピー代入 (protected)     | C++11          |
+| [`swap`](basic_streambuf/swap.md)                     | 値の交換 (protected)       | C++11          |
 
 ### ロケール
 
@@ -76,65 +76,64 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `pubsetbuf` | バッファ領域を与える。 | |
-| `pubseekoff` | 相対位置指定での移動。 | |
-| `pubseekpos` | 絶対位置指定での移動。 | |
-| `pubsync` | 出力列の同期。 | |
-| `setbuf` | バッファ領域を与える (protected virtual)。 | |
-| `seekoff` | 相対位置指定での移動 (protected virtual)。 | |
-| `seekpos` | 絶対位置指定での移動 (protected virtual)。 | |
-| `sync` | 出力列の同期 (protected virtual)。 | |
+| [`pubsetbuf`](basic_streambuf/pubsetbuf.md) | バッファ領域を与える。 | |
+| [`pubseekoff`](basic_streambuf/pubseekoff.md) | 相対位置指定での移動。 | |
+| [`pubseekpos`](basic_streambuf/pubseekpos.md) | 絶対位置指定での移動。 | |
+| [`pubsync`](basic_streambuf/pubsync.md) | 出力列の同期。 | |
+| [`setbuf`](basic_streambuf/setbuf.md) | バッファ領域を与える (protected virtual)。 | |
+| [`seekoff`](basic_streambuf/seekoff.md) | 相対位置指定での移動 (protected virtual)。 | |
+| [`seekpos`](basic_streambuf/seekpos.md) | 絶対位置指定での移動 (protected virtual)。 | |
+| [`sync`](basic_streambuf/sync.md) | 出力列の同期 (protected virtual)。 | |
 
 ### 入力
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `in_avail` | 現在の部分列から読み取り可能な文字数を返す。 | |
-| `snextc` | 1文字捨てて、次の文字を読み取る。 | |
-| `sbumpc` | 現在位置の文字を読み取り、現在位置を1文字進める。 | |
-| `uflow` | (protected virtual) |
-| `sgetc` | 現在位置の文字を読み取る。 | |
-| `underflow` | (protected virtual) |
-| `sgetn` | 複数文字を読み取る。 | |
-| `xsgetn` | 複数文字を読み取る (protected virtual)。 | |
-| `showmasync` | ブロックせずに読み取れると期待される文字数を得る (protected virtual)。 | |
+| [`in_avail`](basic_streambuf/in_avail.md) | 現在の入力列の読み取り可能な文字数を返す。 | |
+| [`snextc`](basic_streambuf/snextc.md) | 入力列の1文字を捨てて、次の文字を読み取る。 | |
+| [`sbumpc`](basic_streambuf/sbumpc.md) | 入力列の現在位置の文字を読み取り、現在位置を1文字進める。 | |
+| [`uflow`](basic_streambuf/uflow.md) | 入力部分列の領域を消費し切った際の処理 (protected virtual)。 |
+| [`sgetc`](basic_streambuf/sgetc.md) | 入力列の現在位置の文字を読み取る。 | |
+| [`underflow`](basic_streambuf/underflow.md) | 入力部分列の領域を消費し切った際の処理 (protected virtual)。 |
+| [`sgetn`](basic_streambuf/sgetn.md) | 入力列から複数文字を読み取る。 | |
+| [`xsgetn`](basic_streambuf/xsgetn.md) | 入力列から複数文字を読み取る (protected virtual)。 | |
+| [`showmanyc`](basic_streambuf/showmanyc.md) | ブロックせずに読み取れると期待される文字数を得る (protected virtual)。 | |
 
 ### 入力の読み戻し
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `sputbackc` | 任意の1文字を入力列に戻す。 | |
-| `sungetc` | 直前に読み取った1文字を入力列に戻す。 | |
-| `pbackfail` | 1文字を入力列に戻す (protected virtual) | |
+| [`sputbackc`](basic_streambuf/sputbackc.md) | 任意の1文字を入力列に戻す。 | |
+| [`sungetc`](basic_streambuf/sungetc.md) | 直前に読み取った1文字を入力列に戻す。 | |
+| [`pbackfail`](basic_streambuf/pbackfail.md) | 1文字を入力列に戻す (protected virtual)。 | |
 
 ### 入力部分列の操作
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `eback` | 入力部分列の先頭へのポインタを返す (protected)。 | |
-| `gptr` | 入力部分列の現在位置へのポインタを返す (protected)。 | |
-| `egptr` | 入力部分列の終端へのポインタを返す (protected)。 | |
-| `gbump` | 入力部分列の現在位置を指定した量だけ進める (protected)。 | |
-| `setg` | 入力部分列の各ポインタを設定する (protected)。 | |
+| [`eback`](basic_streambuf/eback.md) | 入力部分列の先頭へのポインタを返す (protected)。 | |
+| [`gptr`](basic_streambuf/gptr.md) | 入力部分列の現在位置へのポインタを返す (protected)。 | |
+| [`egptr`](basic_streambuf/egptr.md) | 入力部分列の終端へのポインタを返す (protected)。 | |
+| [`gbump`](basic_streambuf/gbump.md) | 入力部分列の現在位置を指定した量だけ進める (protected)。 | |
+| [`setg`](basic_streambuf/setg.md) | 入力部分列の各ポインタを設定する (protected)。 | |
 
 ### 出力
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `sputc` | 1文字を出力。 | |
-| `overflow` | (protected virtual) |
-| `sputn` | 複数文字を出力。 | |
-| `xsputn` | 複数文字を出力 (protected virtual)。 | |
+| [`sputc`](basic_streambuf/sputc.md) | 出力列に1文字書き込む。 | |
+| [`overflow`](basic_streambuf/overflow.md) | 出力部分列の領域を消費し切った際の処理 (protected virtual)。 |
+| [`sputn`](basic_streambuf/sputn.md) | 出力列に複数文字を書き込む。 | |
+| [`xsputn`](basic_streambuf/xsputn.md) | 出力列に複数文字を書き込む (protected virtual)。 | |
 
 ### 出力部分列の操作
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `pbase` | 出力部分列の先頭へのポインタを返す (protected)。 | |
-| `pptr` | 出力部分列の現在位置へのポインタを返す (protected)。 | |
-| `epptr` | 出力部分列の終端へのポインタを返す (protected)。 | |
-| `pbump` | 出力部分列の現在位置を指定した量だけ進める (protected)。 | |
-| `setp` | 出力部分列の各ポインタを設定する (protected)。 | |
+| [`pbase`](basic_streambuf/pbase.md) | 出力部分列の先頭へのポインタを返す (protected)。 | |
+| [`pptr`](basic_streambuf/pptr.md) | 出力部分列の現在位置へのポインタを返す (protected)。 | |
+| [`epptr`](basic_streambuf/epptr.md) | 出力部分列の終端へのポインタを返す (protected)。 | |
+| [`pbump`](basic_streambuf/pbump.md) | 出力部分列の現在位置を指定した量だけ進める (protected)。 | |
+| [`setp`](basic_streambuf/setp.md) | 出力部分列の各ポインタを設定する (protected)。 | |
 
 ## 参照
-

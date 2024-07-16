@@ -2,25 +2,33 @@
 * variant[meta header]
 * std[meta namespace]
 * variant[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
-namespace std {
-  template <class T, class... Args>
-  T& emplace(Args&&... args);                              // (1)
+template <class T, class... Args>
+T& emplace(Args&&... args);                                        // (1) C++17
+template <class T, class... Args>
+constexpr T& emplace(Args&&... args);                              // (1) C++23
 
-  template <class T, class U, class... Args>
-  T& emplace(std::initializer_list<U> il, Args&&... args); // (2)
+template <class T, class U, class... Args>
+T& emplace(std::initializer_list<U> il, Args&&... args);           // (2) C++17
+template <class T, class U, class... Args>
+constexpr T& emplace(std::initializer_list<U> il, Args&&... args); // (2) C++23
 
-  template <std::size_t I, class... Args>
-  variant_alternative_t<I, variant<Types...>>&
-    emplace(Args&&... args);                               // (3)
+template <std::size_t I, class... Args>
+variant_alternative_t<I, variant<Types...>>&
+  emplace(Args&&... args);                                         // (3) C++17
+template <std::size_t I, class... Args>
+constexpr variant_alternative_t<I, variant<Types...>>&
+  emplace(Args&&... args);                                         // (3) C++23
 
-  template <std::size_t I, class U, class... Args>
-  variant_alternative_t<I, variant<Types...>>&
-    emplace(std::initializer_list<U> il, Args&&... args);  // (4)
-}
+template <std::size_t I, class U, class... Args>
+variant_alternative_t<I, variant<Types...>>&
+  emplace(std::initializer_list<U> il, Args&&... args);            // (4) C++17
+template <std::size_t I, class U, class... Args>
+constexpr variant_alternative_t<I, variant<Types...>>&
+  emplace(std::initializer_list<U> il, Args&&... args);            // (4) C++23
 ```
 * variant_alternative_t[link /reference/variant/variant_alternative.md]
 
@@ -165,7 +173,7 @@ int main()
 * std::get[link get.md]
 * std::holds_alternative[link /reference/variant/holds_alternative.md]
 * index()[link index.md]
-* std::in_place_index[link /reference/utility/in_place_index_t.md]
+* in_place_index[link /reference/utility/in_place_index_t.md]
 
 #### 出力
 ```
@@ -176,6 +184,9 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

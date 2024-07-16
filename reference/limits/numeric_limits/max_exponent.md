@@ -13,17 +13,17 @@ static constexpr int max_exponent;
 ```
 
 ## 概要
-浮動小数点数型において、型`T`の指数下限値を得る。  
-基数[`radix`](radix.md)を`max_exponent`の値で累乗した値が、型`T`で表現可能な正規化された値となる最大の正の値。  
+浮動小数点数型において、型`T`の指数上限値を得る。  
+基数[`radix`](radix.md)を`max_exponent - 1`の値で累乗した値が、型`T`で表現可能な正規化された値となる最大の正の値。  
 浮動小数点数型以外は0になる。  
 
 対応するマクロを次の表に挙げる。
 
 | 型            | 対応するマクロ |
 |---------------|----------------|
-| `float`       | `FLT_MAX_EXP`  |
-| `double`      | `DBL_MAX_EXP`  |
-| `long double` | `LDBL_MAX_EXP` |
+| `float`       | [`FLT_MAX_EXP`](/reference/cfloat/flt_max_exp.md)   |
+| `double`      | [`DBL_MAX_EXP`](/reference/cfloat/dbl_max_exp.md)   |
+| `long double` | [`LDBL_MAX_EXP`](/reference/cfloat/ldbl_max_exp.md) |
 
 
 ## 例

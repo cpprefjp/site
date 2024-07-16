@@ -20,7 +20,7 @@ namespace std::filesystem {
 
 
 ## 効果
-- POSIX環境では、[`symlink()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/symlink.2.html)関数を使用して、パス`to`のファイル・ディレクトリに対するシンボリックリンクをパス`new_symlink`に作成する
+- POSIX環境では、[`symlink()`](https://web.archive.org/web/20230205210429/http://linuxjm.osdn.jp/html/LDP_man-pages/man2/symlink.2.html)関数を使用して、パス`to`のファイル・ディレクトリに対するシンボリックリンクをパス`new_symlink`に作成する
 
 
 ## 戻り値
@@ -68,6 +68,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

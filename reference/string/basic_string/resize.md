@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void resize(size_type n, charT c);
-void resize(size_type n);
+void resize(size_type n, charT c);           // (1) C++03
+constexpr void resize(size_type n, charT c); // (1) C++20
+
+void resize(size_type n);                    // (2) C++03
+constexpr void resize(size_type n);          // (2) C++20
 ```
 
 ## 概要
@@ -18,10 +21,11 @@ void resize(size_type n);
 
 
 ## 効果
-`n <=` [`size()`](size.md) のとき、元の文字列の先頭 `n` 文字をコピーした文字列で置き換える。  
-`n >` [`size()`](size.md) のとき、先頭 `n` 文字は元の文字列のコピー、残りは文字 `c` を並べた文字列で置き換える。  
-`resize(n)` は、 `resize(n, charT())` と等しい。
 
+- `n <=` [`size()`](size.md) のとき、元の文字列末尾の`size() - n`要素を削除する。
+- `n >` [`size()`](size.md) のとき、`n - size()`個の`c`を元の文字列末尾にコピーして追加する
+
+`resize(n)` は、 `resize(n, charT())` と等しい。
 
 ## 戻り値
 なし
@@ -54,3 +58,7 @@ helloxxxxx
 ```
 
 ## 参照
+
+- [LWG Issue 2318 `basic_string`'s wording has confusing relics from the copy-on-write era](https://wg21.cmeerw.net/lwg/issue2318)
+- [P1148R0 Cleaning up Clause 20](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1148r0.pdf)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

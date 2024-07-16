@@ -6,7 +6,6 @@
 
 ```cpp
 namespace std {
-
   template<class T, class Cat = partial_ordering>
   concept three_way_comparable = /*see below*/;             // (1)
 
@@ -14,6 +13,7 @@ namespace std {
   concept three_way_comparable_with = /*see below*/;        // (2)
 }
 ```
+* see below[italic]
 
 ## 概要
 `three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`<=>`による三方比較を使用可能であり、その戻り値型が指定した[比較カテゴリ型](/reference/compare.md)`Cat`に変換可能であることを表すコンセプトである。
@@ -60,7 +60,6 @@ concept three_way_comparable =
 * partial_ordering[link /reference/compare/partial_ordering.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 - (2) : 以下のように定義される。
 
@@ -82,7 +81,6 @@ concept three_way_comparable_with =
 * partial_ordering[link /reference/compare/partial_ordering.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * common_reference_with[link /reference/concepts/common_reference_with.md]
 * common_reference_t[link /reference/type_traits/common_reference.md]
 
@@ -91,17 +89,17 @@ concept three_way_comparable_with =
 - (1) : `const remove_reference_t<T>`の左辺値`a, b`について次の条件を満たす場合に限って、型`T, Cat`は`three_way_comparable`のモデルである
     - `(a <=> b == 0) == bool(a == b)`が`true`であること
     - `(a <=> b != 0) == bool(a != b)`が`true`であること
-    - `((a <=> b) <=> 0) == (0 <=> (a <=> b))`が等値
+    - `((a <=> b) <=> 0)`と`(0 <=> (a <=> b))`が等値
     - `(a <=> b < 0) == bool(a < b)`が`true`であること
     - `(a <=> b > 0) == bool(a > b)`が`true`であること
     - `(a <=> b <= 0) == bool(a <= b)`が`true`であること
     - `(a <=> b >= 0) == bool(a >= b)`が`true`であること
     - `Cat`が`strong_ordering`に変換可能ならば
-        - `T`は`totally_orderd`のモデルである
+        - `T`は`totally_ordered`のモデルである
   
 - (2) : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`、`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U, Cat`は`three_way_comparable_with`のモデルである
     - `t <=> u`と`u <=> t`が同じ[定義域](/reference/concepts.md)を持つ
-    - `((t <=> u) <=> 0) == (0 <=> (t <=> u))`が等値
+    - `((t <=> u) <=> 0)`と`(0 <=> (t <=> u))`が等値
     - `(t <=> u == 0) == bool(t == u)`が`true`であること
     - `(t <=> u != 0) == bool(t != u)`が`true`であること
     - `Cat(t <=> u) == Cat(C(t) <=> C(u))`が`true`であること
@@ -110,7 +108,7 @@ concept three_way_comparable_with =
     - `(t <=> u <= 0) == bool(t <= u)`が`true`であること
     - `(t <=> u >= 0) == bool(t >= u)`が`true`であること
     - `Cat`が`strong_ordering`に変換可能ならば
-        - `T, U`は`totally_orderd_with`のモデルである
+        - `T, U`は`totally_ordered_with`のモデルである
 
 - `partially-ordered-with` : `const remove_reference_t<T>, const remove_reference_t<U>`の左辺値`t, u`について次の条件を満たす場合に限って、型`T, U, Cat`は`partially-ordered-with`のモデルである
     - `t < u, t <= u, t > u, t >= u, u < t, u <= t, u > t, u >= t`が全て同じ[定義域](/reference/concepts.md)を持つ
@@ -258,12 +256,12 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 
 
 ## 参照

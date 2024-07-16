@@ -1,5 +1,13 @@
-# スコープを持つ列挙型
+# スコープを持つ列挙型 [N2347]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 `enum class`で定義した列挙型は、従来の`enum`に加えて、「整数型への暗黙の型変換を行わない」「列挙型のスコープを持つ」という機能を持つ。
@@ -90,7 +98,7 @@ C++03は、C99の列挙型に対する改善は提供していたが、依然と
 ECMA規格になっているC++/CLIが、現在のスコープを持つ列挙型と等価の機能を持っていたために、その経験を標準C++に取り入れることとなった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`underlying_type`](/reference/type_traits/underlying_type.md)
 
 
@@ -101,4 +109,3 @@ ECMA規格になっているC++/CLIが、現在のスコープを持つ列挙型
 - [N2213 Strongly Typed Enums (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2213.pdf)
 - [N2347 Strongly Typed Enums (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2347.pdf)
 - [N2499 Forward declaration of enumerations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2499.pdf)
-

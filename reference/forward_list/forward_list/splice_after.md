@@ -28,7 +28,7 @@ void splice_after(const_iterator position, forward_list&& x,
 
 
 ## 要件
-- 第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](end.md))の範囲の間接参照可能なイテレータであること。
+- 第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくはイテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md))の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
 - [`get_allocator()`](get_allocator.md) `== x.`[`get_allocator()`](get_allocator.md)であること。(C++14)
 - [`addressof`](/reference/memory/addressof.md)`(x) != this`であること
@@ -110,7 +110,6 @@ int main()
 ```
 * splice_after[color ff0000]
 * begin()[link begin.md]
-* end()[link end.md]
 * std::move[link /reference/utility/move.md]
 * std::next[link /reference/iterator/next.md]
 
@@ -127,7 +126,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0(右辺値参照バージョンのみ実装されている)
+- [GCC](/implementation.md#gcc): 4.7.0(右辺値参照バージョンのみ実装されている) [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

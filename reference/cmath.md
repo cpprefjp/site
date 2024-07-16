@@ -30,14 +30,14 @@
 ## <a id="difference-from-c" href="#difference-from-c">標準Cライブラリとの差異</a>
 `<cmath>`は基本的には、標準 C ライブラリの `<math.h>` に準拠しているが、いくつかの変更点がある。
 
-### C++03のC90との差異
+### <a id="cpp03" href="#cpp03">C++03のC90との差異</a>
 - 各関数は std 名前空間に定義されている。
 - `fabs` と等価の関数 `abs` を追加している。
 - `pow` の第 2 引数が `int` のオーバーロードを追加している。
 - 各関数（上記 2 関数を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` および `long double` になっているオーバーロードバージョンを追加している。
 
 
-### C++11のC99との差異
+### <a id="cpp11" href="#cpp11">C++11のC99との差異</a>
 - 各関数は std 名前空間に定義されている。
 - `fabs` と等価の関数 `abs` を追加している。
 - 引数に `double` を含む各関数（上記 `abs` を含む）に対して、引数および戻り値の `double` に対応する箇所が `float` と `long double` のオーバーロードバージョンを追加している。  
@@ -62,11 +62,11 @@
 	なお、C++11 の記載にある無条件のキャストは規格のバグとされたため、C++11 であってもスコープ付き列挙型や explicit な変換演算子のあるクラス型に、上記規則にある無条件のキャストが適用されると想定すべきではない。  
 	（[LWG 2086. Overly generic type support for math functions](http://cplusplus.github.io/LWG/lwg-defects.html#2086) 参照）
 
-	各関数の個別ページでは、上記のオーバーロード関数をコードで示す際には、引数や返値の型を斜体で示す。
+	各関数の個別ページでは、上記のオーバーロード関数をコードで示す際には、引数や戻り値の型を斜体で示す。
     ```cpp
     Integral      // 任意の整数型
     Arithmetic    // 任意の算術型
-    Promoted      // 決定された返値型
+    Promoted      // 決定された戻り値型
     ```
     * Integral[italic]
     * Arithmetic[italic]
@@ -83,6 +83,39 @@
     * Arithmetic1[italic]
     * Arithmetic2[italic]
     * Promoted[italic]
+
+
+### <a id="cpp23" href="#cpp23">C++23での差異</a>
+#### constexpr対応
+C++23では、多くの数学関数が`constexpr`に対応し、定数式内で使用できるようになった。C++23時点では、コンパイラベンダの負担が少ない機能を`constexpr`対応した。
+
+C++23で`constexpr`対応する関数の条件は以下：
+
+1. 有理数の集合、または実数のどこにも密でない部分集合に作用すると見なされ、関数が閉じていること
+2. 関数が丸めモードに強く依存しないこと
+
+[`exp()`](cmath/exp.md)、[`log()`](cmath/log.md)、[`sqrt()`](cmath/sqrt.md)、[`cos()`](cmath/cos.md)、[`sin()`](cmath/sin.md)は1. の条件を満たさないため、C++23では`constexpr`に対応しない。
+
+[`nearbyint()`](cmath/nearbyint.md)は2. の条件を満たさないため、C++23では`constexpr`に対応しない。
+
+ただし、コンパイラが先行して`constexpr`非対応の関数も対応している可能性がある。
+
+なお、C++20では[`lerp()`](cmath/lerp.md)のみ`constexpr`に対応している。これはC標準ライブラリからの移植ではなく、C++で標準化された関数だからである ([`errno`](cerrno/errno.md)や浮動小数点例外のようなグローバル状態を使用しない)。
+
+#### 拡張浮動小数点数型への対応
+C++23では[`<stdfloat>`](stdfloat.md)に拡張浮動小数点数型が追加された。その対応として、以下のような`float`、`double`、`long double`に対するオーバーロードは、
+
+```cpp
+float abs(float x);
+double abs(double x);
+long double abs(long double x);
+```
+
+以下のように`floating-point-type`へのオーバーロードに統合され、拡張浮動小数点数型も扱えるようになった。
+
+```cpp
+floating-point-type abs(floating-point-type x);
+```
 
 
 ## <a id="error-handling" href="#error-handling">エラーの扱い</a>
@@ -169,76 +202,88 @@ C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない�
 特に、[`fesetround`](cfenv/fesetround.md) で設定した丸め方式に従うとは限らないため、注意が必要である。
 
 
+## 定数式になる条件
+
+`constexpr`対応する数学関数において、以下のいずれかの条件に合致する場合、定数式とならない (引数によってコンパイルエラーになる)
+
+- [`FE_INEXACT`](cfenv/fe_inexact.md)以外の、以下の浮動小数点例外が発生した場合：
+    - [`FE_DIVBYZERO`](cfenv/fe_divbyzero.md) (ゼロ除算)
+    - [`FE_INVALID`](cfenv/fe_invalid.md) (不正な演算)
+    - [`FE_OVERFLOW`](cfenv/fe_overflow.md) (オーバーフロー)
+    - [`FE_UNDERFLOW`](cfenv/fe_underflow.md) (アンダーフロー)
+- [`math_errhandling`](cmath/math_errhandling.md) `&` [`MATH_ERRNO`](cmath/math_errno.md)が真で、[`errno`](cerrno/errno.md)が設定された場合
+
+
 ## <a id="trigonometric-functions" href="#trigonometric-functions">三角関数</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------|----------------------------------------------|-------|
-| [`sin`](cmath/sin.md)     | 正弦関数（サイン） | |
-| [`cos`](cmath/cos.md)     | 余弦関数（コサイン） | |
-| [`tan`](cmath/tan.md)     | 正接関数（タンジェント） | |
-| [`asin`](cmath/asin.md)   | 逆正弦関数（アークサイン） | |
-| [`acos`](cmath/acos.md)   | 逆余弦関数（アークコサイン） | |
-| [`atan`](cmath/atan.md)   | 逆正接関数（アークタンジェント） | |
-| [`atan2`](cmath/atan2.md) | 対辺と隣辺からの逆正接関数（アークタンジェント） | |
+| 名前                      | 説明                                             | 対応バージョン |
+|---------------------------|--------------------------------------------------|----------------|
+| [`sin`](cmath/sin.md)     | 正弦関数（サイン）                               |                |
+| [`cos`](cmath/cos.md)     | 余弦関数（コサイン）                             |                |
+| [`tan`](cmath/tan.md)     | 正接関数（タンジェント）                         |                |
+| [`asin`](cmath/asin.md)   | 逆正弦関数（アークサイン）                       |                |
+| [`acos`](cmath/acos.md)   | 逆余弦関数（アークコサイン）                     |                |
+| [`atan`](cmath/atan.md)   | 逆正接関数（アークタンジェント）                 |                |
+| [`atan2`](cmath/atan2.md) | 対辺と隣辺からの逆正接関数（アークタンジェント） |                |
 
 ## <a id="hyperbolic-functions" href="#hyperbolic-functions">双曲線関数</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------|----------------------------------------------|-------|
-| [`sinh`](cmath/sinh.md)   | 双曲線正弦関数（ハイパボリックサイン） | |
-| [`cosh`](cmath/cosh.md)   | 双曲線余弦関数（ハイパボリックコサイン） | |
-| [`tanh`](cmath/tanh.md)   | 双曲線正接関数（ハイパボリックタンジェント） | |
-| [`asinh`](cmath/asinh.md) | 逆双曲線正弦関数（エリアハイパボリックサイン）       | C++11 |
-| [`acosh`](cmath/acosh.md) | 逆双曲線余弦関数（エリアハイパボリックコサイン）     | C++11 |
-| [`atanh`](cmath/atanh.md) | 逆双曲線正接関数（エリアハイパボリックタンジェント） | C++11 |
+| 名前                      | 説明                                                 | 対応バージョン |
+|---------------------------|------------------------------------------------------|----------------|
+| [`sinh`](cmath/sinh.md)   | 双曲線正弦関数（ハイパボリックサイン）               |                |
+| [`cosh`](cmath/cosh.md)   | 双曲線余弦関数（ハイパボリックコサイン）             |                |
+| [`tanh`](cmath/tanh.md)   | 双曲線正接関数（ハイパボリックタンジェント）         |                |
+| [`asinh`](cmath/asinh.md) | 逆双曲線正弦関数（エリアハイパボリックサイン）       | C++11          |
+| [`acosh`](cmath/acosh.md) | 逆双曲線余弦関数（エリアハイパボリックコサイン）     | C++11          |
+| [`atanh`](cmath/atanh.md) | 逆双曲線正接関数（エリアハイパボリックタンジェント） | C++11          |
 
 
 ## <a id="exponential-and-logarithmic-functions" href="#exponential-and-logarithmic-functions">指数関数と対数関数</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------|-----------------------------------|-------|
-| [`exp`](cmath/exp.md)     | e (ネイピア数) を底とする指数関数 | |
-| [`exp2`](cmath/exp2.md)   | 2 を底とする指数関数 | C++11 |
-| [`expm1`](cmath/expm1.md) | e (ネイピア数) を底とする指数関数から 1 を引いた値 | C++11 |
-| [`log`](cmath/log.md)     | e (ネイピア数) を底とする自然対数 | |
-| [`log10`](cmath/log10.md) | 10 を底とする常用対数 | |
-| [`log1p`](cmath/log1p.md) | 引数に 1 を足した値の、e (ネイピア数) を底とする自然対数 | C++11 |
-| [`log2`](cmath/log2.md)   | 2 を底とする二進対数 | C++11 |
+| 名前                      | 説明                                                     | 対応バージョン |
+|---------------------------|----------------------------------------------------------|----------------|
+| [`exp`](cmath/exp.md)     | e (ネイピア数) を底とする指数関数                        |                |
+| [`exp2`](cmath/exp2.md)   | 2 を底とする指数関数                                     | C++11          |
+| [`expm1`](cmath/expm1.md) | e (ネイピア数) を底とする指数関数から 1 を引いた値       | C++11          |
+| [`log`](cmath/log.md)     | e (ネイピア数) を底とする自然対数                        |                |
+| [`log10`](cmath/log10.md) | 10 を底とする常用対数                                    |                |
+| [`log1p`](cmath/log1p.md) | 引数に 1 を足した値の、e (ネイピア数) を底とする自然対数 | C++11          |
+| [`log2`](cmath/log2.md)   | 2 を底とする二進対数                                     | C++11          |
 
 
 ## <a id="fraction-and-exponent-functions" href="#fraction-and-exponent-functions">仮数と指数</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-----------|----------------------------------|-------|
-| [`ldexp`](cmath/ldexp.md)    | 2 の累乗との乗算                 | |
-| [`frexp`](cmath/frexp.md)    | 仮数部と 2 の累乗への分解        | |
-| [`ilogb`](cmath/ilogb.md)    | 指数部を符号付き整数値として抽出 | C++11 |
-| [`logb`](cmath/logb.md)      | 指数部を浮動小数点数値として抽出 | C++11 |
-| [`modf`](cmath/modf.md)      | 整数部と小数部への分解           | |
-| [`scalbn`](cmath/scalbn.md)  | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算 | C++11 |
-| [`scalbln`](cmath/scalbn.md) | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算 | C++11 |
+| 名前                          | 説明                                                                | 対応バージョン |
+|-------------------------------|---------------------------------------------------------------------|----------------|
+| [`ldexp`](cmath/ldexp.md)     | 2 の累乗との乗算                                                    |                |
+| [`frexp`](cmath/frexp.md)     | 仮数部と 2 の累乗への分解                                           |                |
+| [`ilogb`](cmath/ilogb.md)     | 指数部を符号付き整数値として抽出                                    | C++11          |
+| [`logb`](cmath/logb.md)       | 指数部を浮動小数点数値として抽出                                    | C++11          |
+| [`modf`](cmath/modf.md)       | 整数部と小数部への分解                                              |                |
+| [`scalbn`](cmath/scalbn.md)   | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算                         | C++11          |
+| [`scalbln`](cmath/scalbln.md) | 内部表現の基数 (`FLT_RADIX`) の累乗との乗算。乗数として`long`をとる | C++11          |
 
 
 ## <a id="power-and-absolute-value-functions" href="#power-and-absolute-value-functions">累乗・冪根と絶対値</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------|----------------|-------|
-| [`pow`](cmath/pow.md)     | 累乗           | |
-| [`sqrt`](cmath/sqrt.md)   | 平方根         | |
-| [`cbrt`](cmath/cbrt.md)   | 立方根         | C++11 |
-| [`hypot`](cmath/hypot.md) | 平方和の平方根 | C++11 |
-| [`abs`](cmath/abs.md)     | 絶対値         | |
-| [`fabs`](cmath/fabs.md)   | 絶対値         | |
+| 名前                      | 説明           | 対応バージョン |
+|---------------------------|----------------|----------------|
+| [`pow`](cmath/pow.md)     | 累乗           |                |
+| [`sqrt`](cmath/sqrt.md)   | 平方根         |                |
+| [`cbrt`](cmath/cbrt.md)   | 立方根         | C++11          |
+| [`hypot`](cmath/hypot.md) | 平方和の平方根 | C++11          |
+| [`abs`](cmath/abs.md)     | 絶対値         |                |
+| [`fabs`](cmath/fabs.md)   | 絶対値         |                |
 
 
 ## <a id="error-and-gamma-functions" href="#error-and-gamma-functions">誤差関数とガンマ関数</a>
 
-| 名前 | 説明 | 対応バージョン |
-|----------|----------------------|-------|
-| [`erf`](cmath/erf.md)       | 誤差関数             | C++11 |
-| [`erfc`](cmath/erfc.md)     | 相補誤差関数         | C++11 |
-| [`tgamma`](cmath/tgamma.md) | ガンマ関数           | C++11 |
-| [`lgamma`](cmath/lgamma.md) | ガンマ関数の自然対数 | C++11 |
+| 名前                        | 説明                 | 対応バージョン |
+|-----------------------------|----------------------|----------------|
+| [`erf`](cmath/erf.md)       | 誤差関数             | C++11          |
+| [`erfc`](cmath/erfc.md)     | 相補誤差関数         | C++11          |
+| [`tgamma`](cmath/tgamma.md) | ガンマ関数           | C++11          |
+| [`lgamma`](cmath/lgamma.md) | ガンマ関数の自然対数 | C++11          |
 
 ## <a id="mathematical-special-functions" href="#mathematical-special-functions">その他特殊関数</a>
 
@@ -257,29 +302,29 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 
 特記のない限り、以下の関数は全ての有限値と正負の無限大において定義される。
 
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
-| [`assoc_laguerre`](cmath/assoc_laguerre.md) | ラゲール陪多項式        | C++17 |
-| [`assoc_legendre`](cmath/assoc_legendre.md) | ルジャンドル陪関数      | C++17 |
-| [`beta`](cmath/beta.md)                     | ベータ関数              | C++17 |
-| [`comp_ellint_1`](cmath/comp_ellint_1.md)   | 第一種完全楕円積分      | C++17 |
-| [`comp_ellint_2`](cmath/comp_ellint_2.md)   | 第二種完全楕円積分      | C++17 |
-| [`comp_ellint_3`](cmath/comp_ellint_3.md)   | 第三種完全楕円積分      | C++17 |
-| [`cyl_bessel_i`](cmath/cyl_bessel_i.md)     | 第一種変形ベッセル関数  | C++17 |
-| [`cyl_bessel_j`](cmath/cyl_bessel_j.md)     | 第一種ベッセル関数      | C++17 |
-| [`cyl_bessel_k`](cmath/cyl_bessel_k.md)     | 第二種変形ベッセル関数  | C++17 |
-| [`cyl_neumann`](cmath/cyl_neumann.md)       | 第二種ベッセル関数      | C++17 |
-| [`ellint_1`](cmath/ellint_1.md)             | 第一種不完全楕円積分    | C++17 |
-| [`ellint_2`](cmath/ellint_2.md)             | 第二種不完全楕円積分    | C++17 |
-| [`ellint_3`](cmath/ellint_3.md)             | 第三種不完全楕円積分    | C++17 |
-| [`expint`](cmath/expint.md)                 | 指数積分                | C++17 |
-| [`hermite`](cmath/hermite.md)               | エルミート多項式        | C++17 |
-| [`laguerre`](cmath/laguerre.md)             | ラゲール多項式          | C++17 |
-| [`legendre`](cmath/legendre.md)             | ルジャンドル多項式      | C++17 |
-| [`riemann_zeta`](cmath/riemann_zeta.md)     | リーマンのゼータ関数    | C++17 |
-| [`sph_bessel`](cmath/sph_bessel.md)         | 第一種球ベッセル関数    | C++17 |
-| [`sph_legendre`](cmath/sph_legendre.md)     | 球面調和関数の *θ* 成分 | C++17 |
-| [`sph_neumann`](cmath/sph_neumann.md)       | 第二種球ベッセル関数    | C++17 |
+| 名前                                        | 説明                     | 対応バージョン |
+|---------------------------------------------|--------------------------|----------------|
+| [`assoc_laguerre`](cmath/assoc_laguerre.md) | ラゲール陪多項式         | C++17          |
+| [`assoc_legendre`](cmath/assoc_legendre.md) | ルジャンドル陪関数       | C++17          |
+| [`beta`](cmath/beta.md)                     | ベータ関数               | C++17          |
+| [`comp_ellint_1`](cmath/comp_ellint_1.md)   | 第1種完全楕円積分        | C++17          |
+| [`comp_ellint_2`](cmath/comp_ellint_2.md)   | 第2種完全楕円積分        | C++17          |
+| [`comp_ellint_3`](cmath/comp_ellint_3.md)   | 第3種完全楕円積分        | C++17          |
+| [`cyl_bessel_i`](cmath/cyl_bessel_i.md)     | 第1種変形ベッセル関数    | C++17          |
+| [`cyl_bessel_j`](cmath/cyl_bessel_j.md)     | 第1種ベッセル関数        | C++17          |
+| [`cyl_bessel_k`](cmath/cyl_bessel_k.md)     | 第2種変形ベッセル関数    | C++17          |
+| [`cyl_neumann`](cmath/cyl_neumann.md)       | 第2種ベッセル関数        | C++17          |
+| [`ellint_1`](cmath/ellint_1.md)             | 第1種不完全楕円積分      | C++17          |
+| [`ellint_2`](cmath/ellint_2.md)             | 第2種不完全楕円積分      | C++17          |
+| [`ellint_3`](cmath/ellint_3.md)             | 第3種不完全楕円積分      | C++17          |
+| [`expint`](cmath/expint.md)                 | 指数積分                 | C++17          |
+| [`hermite`](cmath/hermite.md)               | エルミート多項式         | C++17          |
+| [`laguerre`](cmath/laguerre.md)             | ラゲール多項式           | C++17          |
+| [`legendre`](cmath/legendre.md)             | ルジャンドル多項式       | C++17          |
+| [`riemann_zeta`](cmath/riemann_zeta.md)     | リーマンのゼータ関数     | C++17          |
+| [`sph_bessel`](cmath/sph_bessel.md)         | 第1種球ベッセル関数      | C++17          |
+| [`sph_legendre`](cmath/sph_legendre.md)     | 球面調和関数の *θ* 成分 | C++17          |
+| [`sph_neumann`](cmath/sph_neumann.md)       | 第2種球ベッセル関数      | C++17          |
 
 ## <a id="nearest-integer-functions" href="#nearest-integer-functions">最近傍整数</a>
 
@@ -299,114 +344,114 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 
 ## <a id="remainder-functions" href="#remainder-functions">剰余</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-------------|--------------------------|-------|
-| [`fmod`](cmath/fmod.md)           | 浮動小数点剰余           | |
-| [`remainder`](cmath/remainder.md) | 符号付きの浮動小数点剰余 | C++11 |
-| [`remquo`](cmath/remquo.md)       | 商と浮動小数点剰余       | C++11 |
+| 名前                              | 説明                     | 対応バージョン |
+|-----------------------------------|--------------------------|----------------|
+| [`fmod`](cmath/fmod.md)           | 浮動小数点剰余           |                |
+| [`remainder`](cmath/remainder.md) | 符号付きの浮動小数点剰余 | C++11          |
+| [`remquo`](cmath/remquo.md)       | 商と浮動小数点剰余       | C++11          |
 
 
 ## <a id="manipulation-functions" href="#manipulation-functions">浮動小数点操作</a>
 
-| 名前 | 説明 | 対応バージョン |
-|--------------|-------------------------------|-------|
-| [`copysign`](cmath/copysign.md)     | 符号のコピー                  | C++11 |
-| [`nan`](cmath/nanf.md)              | 文字列から quiet NaN への変換 | C++11 |
-| [`nanf`](cmath/nanf.md)             | 文字列から quiet NaN への変換 | C++11 |
-| [`nanl`](cmath/nanf.md)             | 文字列から quiet NaN への変換 | C++11 |
-| [`nextafter`](cmath/nextafter.md)   | 指定方向への次の表現可能な値  | C++11 |
-| [`nexttoward`](cmath/nexttoward.md) | 指定方向への次の表現可能な値  | C++11 |
+| 名前                                | 説明                          | 対応バージョン |
+|-------------------------------------|-------------------------------|----------------|
+| [`copysign`](cmath/copysign.md)     | 符号のコピー                  | C++11          |
+| [`nan`](cmath/nanf.md)              | 文字列から quiet NaN への変換 | C++11          |
+| [`nanf`](cmath/nanf.md)             | 文字列から quiet NaN への変換 | C++11          |
+| [`nanl`](cmath/nanf.md)             | 文字列から quiet NaN への変換 | C++11          |
+| [`nextafter`](cmath/nextafter.md)   | 指定方向への次の表現可能な値  | C++11          |
+| [`nexttoward`](cmath/nexttoward.md) | 指定方向への次の表現可能な値  | C++11          |
 
 
 ## <a id="maximum-minimum-and-positive-difference-functions" href="#maximum-minimum-and-positive-difference-functions">最大値・最小値と正の差</a>
 
-| 名前 | 説明 | 対応バージョン |
-|--------|--------|-------|
-| [`fmax`](cmath/fmax.md) | 最大値 | C++11 |
-| [`fmin`](cmath/fmin.md) | 最小値 | C++11 |
-| [`fdim`](cmath/fdim.md) | 正の差 | C++11 |
+| 名前                    | 説明   | 対応バージョン |
+|-------------------------|--------|----------------|
+| [`fmax`](cmath/fmax.md) | 最大値 | C++11          |
+| [`fmin`](cmath/fmin.md) | 最小値 | C++11          |
+| [`fdim`](cmath/fdim.md) | 正の差 | C++11          |
 
 
 ## <a id="floating-multiply-add" href="#floating-multiply-add">乗算-加算</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------------|------------------|-------|
-| [`fma`](cmath/fma.md) | 乗算と加算の合成 | C++11 |
+| 名前                  | 説明             | 対応バージョン |
+|-----------------------|------------------|----------------|
+| [`fma`](cmath/fma.md) | 乗算と加算の合成 | C++11          |
 
 
 ## <a id="linear-interpolation" href="#linear-interpolation">線形補完</a>
 
-| 名前 | 説明 | 対応バージョン |
-|------|------|----------------|
-| [`lerp`](cmath/lerp.md) | 線形補間 | C++20 |
+| 名前                    | 説明     | 対応バージョン |
+|-------------------------|----------|----------------|
+| [`lerp`](cmath/lerp.md) | 線形補間 | C++20          |
 
 
 ## <a id="classification-functions" href="#classification-functions">数値分類</a>
 
-| 名前 | 説明 | 対応バージョン |
-|--------------|------------------|-------|
-| [`fpclassify`](cmath/fpclassify.md) | 数値を NaN、無限大、正規化数、非正規化数、0 または他の処理系定義のカテゴリに分類 | C++11 |
-| [`isfinite`](cmath/isfinite.md) | 数値が有限であるか判定      | C++11 |
-| [`isinf`](cmath/isinf.md)       | 数値が無限大であるか判定    | C++11 |
-| [`isnan`](cmath/isnan.md)       | 数値が NaN であるか判定     | C++11 |
-| [`isnormal`](cmath/isnormal.md) | 数値が正規化数であるか判定  | C++11 |
-| [`signbit`](cmath/signbit.md)   | 数値の符号が負であるか判定  | C++11 |
+| 名前                                | 説明                                                                             | 対応バージョン |
+|-------------------------------------|----------------------------------------------------------------------------------|----------------|
+| [`fpclassify`](cmath/fpclassify.md) | 数値を NaN、無限大、正規化数、非正規化数、0 または他の処理系定義のカテゴリに分類 | C++11          |
+| [`isfinite`](cmath/isfinite.md)     | 数値が有限であるか判定                                                           | C++11          |
+| [`isinf`](cmath/isinf.md)           | 数値が無限大であるか判定                                                         | C++11          |
+| [`isnan`](cmath/isnan.md)           | 数値が NaN であるか判定                                                          | C++11          |
+| [`isnormal`](cmath/isnormal.md)     | 数値が正規化数であるか判定                                                       | C++11          |
+| [`signbit`](cmath/signbit.md)       | 数値の符号が負であるか判定                                                       | C++11          |
 
 
 ## <a id="comparison-functions" href="#comparison-functions">数値比較</a>
 
-| 名前             | 説明                                                   | 対応バージョン |
-|------------------|--------------------------------------------------------|----------------|
-| [`isgreater`](cmath/isgreater.md)           | 第 1 引数が第 2 引数より大きいか判定                   | C++11 |
-| [`isgreaterequal`](cmath/isgreaterequal.md) | 第 1 引数が第 2 引数以上か判定                         | C++11 |
-| [`isless`](cmath/isless.md)                 | 第 1 引数が第 2 引数より小さいか判定                   | C++11 |
-| [`islessequal`](cmath/islessequal.md)       | 第 1 引数が第 2 引数以下か判定                         | C++11 |
-| [`islessgreater`](cmath/islessgreater.md)   | 第 1 引数が第 2 引数より小さいか、あるいは大きいか判定 | C++11 |
-| [`isunordered`](cmath/isunordered.md)       | 第 1 引数と第 2 引数が順序付けられていないか判定       | C++11 |
+| 名前                                        | 説明                                                   | 対応バージョン |
+|---------------------------------------------|--------------------------------------------------------|----------------|
+| [`isgreater`](cmath/isgreater.md)           | 第 1 引数が第 2 引数より大きいか判定                   | C++11          |
+| [`isgreaterequal`](cmath/isgreaterequal.md) | 第 1 引数が第 2 引数以上か判定                         | C++11          |
+| [`isless`](cmath/isless.md)                 | 第 1 引数が第 2 引数より小さいか判定                   | C++11          |
+| [`islessequal`](cmath/islessequal.md)       | 第 1 引数が第 2 引数以下か判定                         | C++11          |
+| [`islessgreater`](cmath/islessgreater.md)   | 第 1 引数が第 2 引数より小さいか、あるいは大きいか判定 | C++11          |
+| [`isunordered`](cmath/isunordered.md)       | 第 1 引数と第 2 引数が順序付けられていないか判定       | C++11          |
 
 
 ## <a id="types" href="#types">型</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-----------------------------------|-------------------------------|-------|
-| [`float_t`](cmath/float_t.md)   | `float` 以上の浮動小数点数型  | C++11 |
-| [`double_t`](cmath/double_t.md) | `double` 以上の浮動小数点数型 | C++11 |
+| 名前                            | 説明                          | 対応バージョン |
+|---------------------------------|-------------------------------|----------------|
+| [`float_t`](cmath/float_t.md)   | `float` 以上の浮動小数点数型  | C++11          |
+| [`double_t`](cmath/double_t.md) | `double` 以上の浮動小数点数型 | C++11          |
 
 
 ## <a id="value-macros" href="#value-macros">数値のマクロ</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------------------------|------------------------------|-------|
-| [`HUGE_VAL`](cmath/huge_val.md)   | `double` 型の正の巨大値      | |
-| [`HUGE_VALF`](cmath/huge_valf.md) | `float` 型の正の巨大値       | C++11 |
-| [`HUGE_VALL`](cmath/huge_vall.md) | `long double` 型の正の巨大値 | C++11 |
-| [`INFINITY`](cmath/infinity.md)   | `float` 型の正の無限大       | C++11 |
-| [`NAN`](cmath/nan.md)             | `float` 型の `quiet NaN`     | C++11 |
+| 名前                              | 説明                         | 対応バージョン |
+|-----------------------------------|------------------------------|----------------|
+| [`HUGE_VAL`](cmath/huge_val.md)   | `double` 型の正の巨大値      |                |
+| [`HUGE_VALF`](cmath/huge_valf.md) | `float` 型の正の巨大値       | C++11          |
+| [`HUGE_VALL`](cmath/huge_vall.md) | `long double` 型の正の巨大値 | C++11          |
+| [`INFINITY`](cmath/infinity.md)   | `float` 型の正の無限大       | C++11          |
+| [`NAN`](cmath/nan.md)             | `float` 型の `quiet NaN`     | C++11          |
 
 
 ## <a id="classification-macros" href="#classification-macros">数値分類のマクロ</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------------------------------|---------------------------------------------|-------|
-| [`FP_INFINITE`](cmath/fp_infinite.md)   | 数値分類で無限大を表す整数定数式            | C++11 |
-| [`FP_NAN`](cmath/fp_nan.md)             | 数値分類で `NaN` を表す整数定数式           | C++11 |
-| [`FP_NORMAL`](cmath/fp_normal.md)       | 数値分類で正規化数を表す整数定数式          | C++11 |
-| [`FP_SUBNORMAL`](cmath/fp_subnormal.md) | 数値分類で非正規化数を表す整数定数式        | C++11 |
-| [`FP_ZERO`](cmath/fp_zero.md)           | 数値分類で浮動小数点数の 0 を表す整数定数式 | C++11 |
+| 名前                                    | 説明                                        | 対応バージョン |
+|-----------------------------------------|---------------------------------------------|----------------|
+| [`FP_INFINITE`](cmath/fp_infinite.md)   | 数値分類で無限大を表す整数定数式            | C++11          |
+| [`FP_NAN`](cmath/fp_nan.md)             | 数値分類で `NaN` を表す整数定数式           | C++11          |
+| [`FP_NORMAL`](cmath/fp_normal.md)       | 数値分類で正規化数を表す整数定数式          | C++11          |
+| [`FP_SUBNORMAL`](cmath/fp_subnormal.md) | 数値分類で非正規化数を表す整数定数式        | C++11          |
+| [`FP_ZERO`](cmath/fp_zero.md)           | 数値分類で浮動小数点数の 0 を表す整数定数式 | C++11          |
 
 
 ## <a id="other-macros" href="#other-macros">その他のマクロ</a>
 
-| 名前 | 説明 | 対応バージョン |
-|-------------------------------------------|---------------------------------------------|-------|
-| [`FP_FAST_FMA`](cmath/fp_fast_fma.md)   | `double` 型の `fma` 関数がより高速な実装であるか | C++11 |
-| [`FP_FAST_FMAF`](cmath/fp_fast_fmaf.md) | `float` 型の `fma` 関数がより高速な実装であるか  | C++11 |
-| [`FP_FAST_FMAL`](cmath/fp_fast_fmal.md) | `long double` 型の `fma` 関数がより高速な実装であるか | C++11 |
-| [`FP_ILOGB0`](cmath/fp_ilogb0.md)       | `ilogb(0)` の返値を表す整数定数式 | C++11 |
-| [`FP_ILOGBNAN`](cmath/fp_ilogbnan.md)   | `ilogb(NaN)` の返値を表す整数定数式 | C++11 |
-| [`MATH_ERRNO`](cmath/math_errno.md)             | 数学ライブラリ内で`errno`にエラーが設定されたかを表す整数定数 | C++11 |
-| [`MATH_ERREXCEPT`](cmath/math_errexcept.md)     | 数学ライブラリ内で浮動小数点例外が発生したかを表す整数定数 | C++11 |
-| [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ | C++11 |
+| 名前                                            | 説明                                                          | 対応バージョン |
+|-------------------------------------------------|---------------------------------------------------------------|----------------|
+| [`FP_FAST_FMA`](cmath/fp_fast_fma.md)           | `double` 型の `fma` 関数がより高速な実装であるか              | C++11          |
+| [`FP_FAST_FMAF`](cmath/fp_fast_fmaf.md)         | `float` 型の `fma` 関数がより高速な実装であるか               | C++11          |
+| [`FP_FAST_FMAL`](cmath/fp_fast_fmal.md)         | `long double` 型の `fma` 関数がより高速な実装であるか         | C++11          |
+| [`FP_ILOGB0`](cmath/fp_ilogb0.md)               | `ilogb(0)` の戻り値を表す整数定数式                           | C++11          |
+| [`FP_ILOGBNAN`](cmath/fp_ilogbnan.md)           | `ilogb(NaN)` の戻り値を表す整数定数式                         | C++11          |
+| [`MATH_ERRNO`](cmath/math_errno.md)             | 数学ライブラリ内で`errno`にエラーが設定されたかを表す整数定数 | C++11          |
+| [`MATH_ERREXCEPT`](cmath/math_errexcept.md)     | 数学ライブラリ内で浮動小数点例外が発生したかを表す整数定数    | C++11          |
+| [`math_errhandling`](cmath/math_errhandling.md) | `<cmath>` 内の関数がエラーをどのように取り扱うかを表すマクロ  | C++11          |
 
 
 ## 関連項目
@@ -417,3 +462,5 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
 - [P00175R0 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r0.html)
     - C++17 から`f`、`l`サフィックス付きのC関数を導入
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応

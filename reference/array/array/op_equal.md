@@ -35,6 +35,11 @@ namespace std {
 線形時間
 
 
+## 備考
+- この演算子により、以下の演算子が使用可能になる (C++20)：
+    - `operator!=`
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -65,12 +70,14 @@ equal
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified]
 
 
 ## 参照
 - [LWG Issue 2257. Simplify container requirements with the new algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2257)
-    - C++14から、2つ目の範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
+    - C++14から、2つ目のイテレータ範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
 - [P1023R0 `constexpr` comparison operators for `std::array`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1023r0.pdf)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

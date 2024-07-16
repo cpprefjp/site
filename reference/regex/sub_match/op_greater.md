@@ -1,4 +1,4 @@
-# operator> (非メンバ関数)
+# operator>
 * regex[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -6,38 +6,49 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class BiIter>
-    bool operator>(const sub_match<BiIter>& lhs, const sub_match<BiIter>& rhs);         // (1)
+    bool operator>(
+      const sub_match<BiIter>& lhs,
+      const sub_match<BiIter>& rhs);         // (1) C++11
 
   template <class BiIter, class ST, class SA>
     bool operator>(
-      const basic_string<typename iterator_traits<BiIter>::value_type, ST, SA>& lhs,
-      const sub_match<BiIter>& rhs);                                                    // (2)
+      const basic_string<
+        typename iterator_traits<BiIter>::value_type,
+        ST,
+        SA
+      >& lhs,
+      const sub_match<BiIter>& rhs);                            // (2) C++11
 
   template <class BiIter, class ST, class SA>
     bool operator>(
       const sub_match<BiIter>& lhs,
-      const basic_string<typename iterator_traits<BiIter>::value_type, ST, SA>& rhs)    // (3)
+      const basic_string<
+        typename iterator_traits<BiIter>::value_type,
+        ST,
+        SA
+      >& rhs);                                                  // (3) C++11
 
   template <class BiIter>
     bool operator>(
       const typename iterator_traits<BiIter>::value_type* lhs,
-      const sub_match<BiIter>& rhs);                                                    // (4)
+      const sub_match<BiIter>& rhs);                            // (4) C++11
 
   template <class BiIter>
     bool operator>(
       const sub_match<BiIter>& lhs,
-      const typename iterator_traits<BiIter>::value_type* rhs);                         // (5)
+      const typename iterator_traits<BiIter>::value_type* rhs); // (5) C++11
 
   template <class BiIter>
     bool operator>(
       const typename iterator_traits<BiIter>::value_type& lhs,
-      const sub_match<BiIter>& rhs);                                                    // (6)
+      const sub_match<BiIter>& rhs);                            // (6) C++11
 
   template <class BiIter>
     bool operator>(
       const sub_match<BiIter>& lhs,
-      const typename iterator_traits<BiIter>::value_type& rhs);                         // (7)
+      const typename iterator_traits<BiIter>::value_type& rhs); // (7) C++11
 }
 ```
 
@@ -106,8 +117,12 @@ true
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

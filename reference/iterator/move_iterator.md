@@ -76,7 +76,7 @@ namespace std {
 | [`operator<=`](move_iterator/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
 | [`operator>`](move_iterator/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++11 |
 | [`operator>=`](move_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
-| [`operator<=>`](move_iterator/op_compare_3way.md.nolink)           | 三方比較を行う | C++20 |
+| [`operator<=>`](move_iterator/op_compare_3way.md)           | 三方比較を行う | C++20 |
 | [`operator-`](move_iterator/op_minus.md)          | 2つの`move_iterator`の差を求める | C++11 |
 | [`operator+`](move_iterator/op_plus.md)           | イテレータを進める | C++11 |
 | [`make_move_iterator`](make_move_iterator.md)     | `move_iterator`のヘルパ関数 | C++11 |
@@ -132,7 +132,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

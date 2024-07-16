@@ -30,7 +30,7 @@ int main()
   std::stop_source ss2 = ss1;
   std::stop_source ss3;
   std::stop_source ss4(std::nostopstate);
-  std::stop_source ss5(std::nostopstate);;
+  std::stop_source ss5(std::nostopstate);
 
   assert(ss1 == ss2);
   assert(ss1 != ss3);

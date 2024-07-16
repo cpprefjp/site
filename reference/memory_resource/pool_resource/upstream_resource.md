@@ -8,7 +8,7 @@
 ```cpp
 memory_resource* upstream_resource() const;
 ```
-* memory_source[link /reference/memory_resource/memory_resource.md]
+* memory_resource[link /reference/memory_resource/memory_resource.md]
 
 ## 概要
 利用中の上流メモリリソースを取得する。
@@ -47,8 +47,8 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 6 [mark verified]
 
 ## 関連項目
 - [`memory_resource`](/reference/memory_resource/memory_resource.md)

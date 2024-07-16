@@ -59,6 +59,7 @@ namespace std {
 |-----------------------------------------------|------------------------------------|----------------|
 | [`operator==`](sub_match/op_equal.md)         | 等値比較を行う                     | C++11          |
 | [`operator!=`](sub_match/op_not_equal.md)     | 非等値比較を行う                   | C++11          |
+| [`operator<=>`](sub_match/op_compare_3way.md) | 三方比較を行う                     | C++20          |
 | [`operator<`](sub_match/op_less.md)           | 左辺が右辺よりも小さいか判定を行う | C++11          |
 | [`operator<=`](sub_match/op_less_equal.md)    | 左辺が右辺以下か判定を行う         | C++11          |
 | [`operator>`](sub_match/op_greater.md)        | 左辺が右辺より大きいか判定を行う   | C++11          |
@@ -122,8 +123,7 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

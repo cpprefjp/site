@@ -39,7 +39,7 @@ namespace std {
 
 ## 備考
 
-これは主に[`<ranges>`](/reference/ranges.md.nolink)において、カスタマイズ可能な射影操作のデフォルトとして利用される。
+これは主にRangeをとるアルゴリズムにおいて、カスタマイズ可能な射影操作のデフォルトとして利用される。
 
 ## 例
 
@@ -79,8 +79,8 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1 [mark verified]
 
 ## 参照
 

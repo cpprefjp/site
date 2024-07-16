@@ -22,8 +22,12 @@
 
 
 ## 備考
-C++における「ヌルポインタ定数」の定義により、マクロ`NULL`の値として`0`や`0L`は規格に適合する定義だが、`(void*)0`は不正である。
+C++03において、「ヌルポインタ定数」は「値が0になる整数定数式」と定義されていた。したがって、マクロ`NULL`の値として`0`や`0L`は規格に適合するが、`(void*)0`は整数定数式ではないため適合しない。
 
+C++11では、「ヌルポインタ定数」の定義に「[`std::nullptr_t`](/reference/cstddef/nullptr_t.md)型のprvalue」が追加されたため、`nullptr`も規格に適合する。しかし、`NULL`の値の型が変わるとコードの互換性を損なうことから、当面の間`NULL`の値は整数定数式であると思われる。C++11以降は`NULL`ではなく[`nullptr`](/lang/cpp11/nullptr.md)を使用するとよい。
 
 ## 関連項目
 - [C++11 `nullptr`](/lang/cpp11/nullptr.md)
+
+## 参照
+- [Does any major C++ implementation actually define `NULL` as `nullptr`? - Stack Overflow](https://stackoverflow.com/questions/61699775/does-any-major-c-implementation-actually-define-null-as-nullptr)

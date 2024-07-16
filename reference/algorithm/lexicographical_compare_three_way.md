@@ -29,7 +29,8 @@ namespace std {
 
 ## 概要
 
-`[first1, last1)`および`[first2, last2)`の2つの範囲を[辞書式順序](lexicographical_compare.md)による三方比較によって比較する。
+2つのイテレータ範囲`[first1, last1)`と`[first2, last2)`を[辞書式順序](lexicographical_compare.md)による三方比較によって比較する。
+
 このアルゴリズムは、コンテナの`operator<=>()`の実装で使用される。
 
 
@@ -39,23 +40,21 @@ namespace std {
 
 ## 引数
 
-- `first1` -- 比較する1つ目の範囲の先頭のイテレータ。
-- `last1` -- 比較する1つ目の範囲の終端のイテレータ。
-- `first2` -- 比較する2つ目の範囲の先頭のイテレータ。
-- `last2` -- 比較する2つ目の範囲の終端のイテレータ。
+- `first1` -- 比較する1つ目のイテレータ範囲の先頭イテレータ。
+- `last1` -- 比較する1つ目のイテレータ範囲の終端イテレータ。
+- `first2` -- 比較する2つ目のイテレータ範囲の先頭イテレータ。
+- `last2` -- 比較する2つ目のイテレータ範囲の終端イテレータ。
 - `comp` -- 使用する三方比較をカスタマイズする関数オブジェクト。
 
 ## 効果
 
-- (1) : 以下と等価
-  ```cpp
-  for ( ; first1 != last1 && first2 != last2; void(++first1), void(++first2) )
-    if (auto cmp = comp(*first1, *first2); cmp != 0)
-      return cmp;
-  return first1 != last1 ? strong_ordering::greater :
-         first2 != last2 ? strong_ordering::less :
-                           strong_ordering::equal;
-  ```
+まず、`N`をmin`(last1 - first1, last2 - first2)`、`E(n)`を`comp(*(first1 + n), *(first2 + n))`で定義する。
+
+- (1) : 次のいずれか
+    - `E(i) != 0`が`true`となる`[0, N)`内の最小の整数`i`について、`E(i)`
+        - `comp`の意味で異なる最初の要素についての三方比較の結果を返す
+    - そのような`i`が存在しない場合 : `(last1 - first1) <=> (last2 - first2)`
+        - 全ての要素が等しいならば、長さを比較する
 
 - (2) : 以下と等価、すなわち(1)に委譲
   ```cpp
@@ -67,7 +66,13 @@ namespace std {
 ## 戻り値
 
 戻り値型となる比較カテゴリ型を`Cat`とすると、  
-範囲`[first1, last1)`が、辞書式比較で範囲`[first2, last2)`より大きい場合は`Cat::greator`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
+イテレータ範囲`[first1, last1)`が、辞書式比較でイテレータ範囲`[first2, last2)`より大きい場合は`Cat::greater`を返し、小さい場合`Cat::less`を返し、等しいのならば`Cat::equivalent`を返す。
+
+## 計算量
+
+「効果」節の`N`について
+
+高々`N`回の`comp`による比較が行われる。
 
 ## 例
 ```cpp example
@@ -96,13 +101,13 @@ int main() {
 
   std::cout << std::boolalpha;
 
-  //カスタマイズした比較による同じ長さの範囲の比較
+  //カスタマイズした比較による同じ長さのイテレータ範囲の比較
   {
     auto comp = std::lexicographical_compare_three_way(str1.begin(), str1.end(), str2.begin(), str2.end(), weak_comp);
     std::cout << (comp == 0) << std::endl;
   }
 
-  //デフォルトの比較による異なる長さの範囲の比較
+  //デフォルトの比較による異なる長さのイテレータ範囲の比較
   {
     auto comp = std::lexicographical_compare_three_way(str1.begin(), str1.end(), str3.begin(), str3.end());
     std::cout << (comp > 0) << std::endl;
@@ -123,13 +128,13 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
-- [lexicographical_compare()](lexicographical_compare.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
+- [`lexicographical_compare()`](lexicographical_compare.md)
 
 
 ## 参照
@@ -137,3 +142,4 @@ true
 - [P0768R1 Library support for the spaceship (comparison) operator](http://wg21.link/p0768)
 - [P1614R2 The Mothership has Landed (Adding `<=>` to the Library)](http://wg21.link/p1614)
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
+- [LWG Issue 3410. lexicographical_compare_three_way is overspecified](https://cplusplus.github.io/LWG/issue3410)

@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void clear() noexcept;
+void clear();           // C++03
+void clear() noexcept;  // C++11
 ```
 
 ## 概要

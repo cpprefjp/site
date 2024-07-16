@@ -34,7 +34,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator++`](weekday/op_increment.md)    | インクリメント | C++20 |
-| [`operator-=`](weekday/op_decrement.md)    | デクリメント   | C++20 |
+| [`operator--`](weekday/op_decrement.md)    | デクリメント   | C++20 |
 | [`operator+=`](weekday/op_plus_assign.md)  | 加算の複合代入 | C++20 |
 | [`operator-=`](weekday/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
@@ -133,9 +133,9 @@ Sat
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし) [mark verified]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 関連項目

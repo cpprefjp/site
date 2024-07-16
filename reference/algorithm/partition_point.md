@@ -21,12 +21,15 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る。
+イテレータ範囲`[first, last)`から条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されている位置を得る。
 
 
-## 要件
-- `ForwardIterator` の value type は `Predicate` の argument type へ変換可能でなければならない。
-- `[first,last)` は `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない。
+## テンプレートパラメータ制約
+- `ForwardIterator` の value type は `Predicate` の引数型へ変換可能であること
+
+
+## 事前条件
+- イテレータ範囲`[first,last)` は `pred` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていなければならない。つまり、`pred` を満たす全ての要素が、`pred` を満たさない全ての要素より前に出現してなければならない
 
 
 ## 戻り値
@@ -34,7 +37,7 @@ namespace std {
 
 
 ## 計算量
-O(log(`last - first`)) のオーダーで `pred` が適用される。
+`pred` が O(log(`last - first`)) 回適用される。
 
 
 ## 例
@@ -105,9 +108,9 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

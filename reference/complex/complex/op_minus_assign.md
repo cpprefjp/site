@@ -6,7 +6,7 @@
 
 ```cpp
 complex<T>& operator-=(const T& rhs);                    // (1) C++03
-constexpr complex<T>& operator-=(const T& rhs);          // (1) C++03
+constexpr complex<T>& operator-=(const T& rhs);          // (1) C++20
 
 template <class X>
 complex<T>& operator-=(const complex<X>& rhs);           // (2) C++03

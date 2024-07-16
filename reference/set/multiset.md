@@ -1,7 +1,7 @@
 # multiset
 * set[meta header]
 * std[meta namespace]
-* class[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {
@@ -57,12 +57,12 @@ namespace std {
 |-------------------------------|----------------------------------------------|-------|
 | [`begin`](multiset/begin.md)     | 先頭を指すイテレータを取得する               | |
 | [`cbegin`](multiset/cbegin.md)   | 先頭を指す読み取り専用イテレータを取得する   | C++11 |
-| [`end`](multiset/end.md)         | 末尾を指すイテレータを取得する               | |
-| [`cend`](multiset/cend.md)       | 末尾を指す読み取り専用イテレータを取得する   | C++11 |
+| [`end`](multiset/end.md)         | 末尾の次を指すイテレータを取得する               | |
+| [`cend`](multiset/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する   | C++11 |
 | [`rbegin`](multiset/rbegin.md)   | 末尾を指す逆イテレータを取得する             | |
 | [`crbegin`](multiset/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++11 |
-| [`rend`](multiset/rend.md)       | 先頭を指す逆イテレータを取得する             | |
-| [`crend`](multiset/crend.md)     | 先頭を指す読み取り専用逆イテレータを取得する | C++11 |
+| [`rend`](multiset/rend.md)       | 先頭の前を指す逆イテレータを取得する             | |
+| [`crend`](multiset/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++11 |
 
 
 ### 領域
@@ -124,7 +124,7 @@ namespace std {
 | `size_type`              | 要素数を表す符号なし整数型。`difference_type` で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は [`size_t`](/reference/cstddef/size_t.md)) | |
 | `difference_type`        | 同一のコンテナを指す `iterator` の差を表す符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) <br/>`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<iterator>::difference_type`、および、`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<const_iterator>::difference_type` と同じ。 | |
 | `pointer`                | 要素 `value_type`へのポインタ。<br/> C++03 : `typename Allocator::pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`。 | |
-| `const pointer`          | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
+| `const_pointer`          | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
 | `reverse_iterator` | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。 | |
 | `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。 | |
 | `node_type`              | [`node_handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。 | C++17 |
@@ -137,8 +137,9 @@ namespace std {
 |-------------------------------------------|--------------------------------------------|-------|
 | [`operator==`](multiset/op_equal.md)         | 左辺と右辺が等しいかの判定を行う | |
 | [`operator!=`](multiset/op_not_equal.md)     | 左辺と右辺が等しくないかの判定を行う | |
+| [`operator<=>`](multiset/op_compare_3way.md) | 三方比較を行う | C++20 |
 | [`operator<`](multiset/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
-| [`operator<=`](multiset/op_greater_equal.md) | 左辺が右辺より小さいか等しいかの判定を行う | |
+| [`operator<=`](multiset/op_less_equal.md)    | 左辺が右辺より小さいか等しいかの判定を行う | |
 | [`operator>`](multiset/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
 | [`operator>=`](multiset/op_greater_equal.md) | 左辺が右辺より大きいか等しいかの判定を行う | |
 

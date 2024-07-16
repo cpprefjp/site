@@ -8,6 +8,7 @@
 namespace std {
   template <std::size_t N, class T>
   [[nodiscard]] constexpr T* assume_aligned(T* ptr);
+}
 ```
 
 ## 概要
@@ -326,10 +327,10 @@ template < std::size_t N, typename T >
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): †
-- [GCC](/implementation.md#gcc): † ‡
-- [ICC](/implementation.md#icc): †
-- [Visual C++](/implementation.md#visual_cpp): †
+- [Clang](/implementation.md#clang): † [mark verified]
+- [GCC](/implementation.md#gcc): † ‡ [mark verified]
+- [ICC](/implementation.md#icc): † [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): † [mark verified]
 
 †2019-04-29 時点で正式リリース版の対応はまだ無い。処理系独自拡張による等価な実装はあり。
 ‡2019-04-29 時点で `GCC-10.0.0 20190426 (experimental)` では使用可能を確認。

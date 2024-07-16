@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bool any() const;          // C++03
-bool any() const noexcept; // C++11
+bool any() const;                    // (1) C++03
+bool any() const noexcept;           // (1) C++11
+constexpr bool any() const noexcept; // (1) C++23
 ```
 
 ## 概要
@@ -49,5 +50,6 @@ int main()
 ```
 ```
 
-## 参照
 
+## 参照
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

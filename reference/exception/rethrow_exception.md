@@ -7,13 +7,23 @@
 ```cpp
 [[noreturn]] void rethrow_exception(exception_ptr p);
 ```
+* exception_ptr[link exception_ptr.md]
 
 ## 概要
 `exception_ptr`が指す例外オブジェクトを再スローする。
 
 
-## 要件
+## 事前条件
 `p`がヌルを指す`exception_ptr`ではないこと。
+
+
+## 効果
+説明用の変数`u`を、`p`が指す例外オブジェクトもしくはそのコピーとする。
+コピーが行われるか否か、コピー時にメモリ確保が行われるか否かは未規定とされる。
+
+- `u`用のメモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外がスローされる。
+- そうでなければ、`p`が指す例外オブジェクトから`u`へのコピー時に例外スローされた場合、その例外がスローされる。
+- そうでなければ、`throw u;`
 
 
 ## 戻り値
@@ -66,12 +76,12 @@ terminate called after throwing an instance of 'std::runtime_error'
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
-
-
+- [P1675R2 `rethrow_exception` must be allowed to copy](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1675r2.pdf)
+    - 既存C++コンパイラの挙動にあわせて効果(Effects)文面を修正。

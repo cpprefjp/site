@@ -6,7 +6,10 @@
 
 ```cpp
 namespace std {
-  bool operator<(const error_code& lhs, const error_code& rhs) noexcept;
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
+  bool
+    operator<(const error_code& lhs,
+              const error_code& rhs) noexcept; // (1) C++11
 }
 ```
 
@@ -55,8 +58,8 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 ## 参照

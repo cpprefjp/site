@@ -1,5 +1,13 @@
-# 可変引数マクロ
+# 可変引数マクロ [N1653]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C99互換として、可変引数マクロ(variadic macros)が導入された。
@@ -69,11 +77,10 @@ f2
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 可変引数テンプレート](variadic_templates.md)
 - [C++20 可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md)
 
 
 ## 参照
 - [N1653 Working draft changes for C99 preprocessor synchronization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1653.htm)
-

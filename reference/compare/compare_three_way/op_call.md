@@ -49,7 +49,7 @@ constexpr auto operator()(T&& t, U&& u) const;
 ポインタ比較時の順序付けは、ポインタ型`P`に対する実装定義の狭義全順序の上で行われ、`P`に対する組み込みの比較演算子が持つ半順序関係との一貫性がある。  
 すなわちこの関数オブジェクトによるポインタ値の比較では、組み込みの`< <= > >= == !=`演算子の結果が未規定の場合でも実装定義ではあるが大小もしくは等価性を判定でき、順序が規定されている範囲での順序関係は組み込みの演算子の結果と一致する。
 
-例えば、同じ型の異なるオブジェクトに対するポインタ間やポインタと`nullptr`の間に何らかの順序を付ける事ができる。  
+例えば、同じ型の異なる（1つの配列内に含まれていない）オブジェクトに対するポインタ間に何らかの順序を付ける事ができる。  
 ただし、そのような順序付けの結果がコンパイラや実行環境を超えて一致する保証はないので注意が必要である。
 
 
@@ -72,16 +72,14 @@ int main() {
   std::cout << (comp(pa, pb) == 0) << std::endl;
   std::cout << (comp(pa, pb) <  0) << std::endl;
   std::cout << (comp(pa, pb) >  0) << std::endl;
-  std::cout << (comp(pa, nullptr) >  0) << std::endl;
 }
 ```
 
-### 出力例（GCC 10.0.0）
+### 出力
 ```
 true
 false
 false
-true
 true
 ```
 
@@ -91,12 +89,12 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 
 
 ## 参照

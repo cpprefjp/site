@@ -48,7 +48,7 @@ namespace std {
 | [`intervals`](piecewise_linear_distribution/intervals.md) | 区間の数列を取得する             | C++11 |
 | [`densities`](piecewise_linear_distribution/densities.md) | 重み付けの数列を取得する         | C++11 |
 | [`param`](piecewise_linear_distribution/param.md)         | 分布のパラメータを取得／設定する | C++11 |
-| [`mix`](piecewise_linear_distribution/min.md)             | 下限を取得する                 | C++11 |
+| [`min`](piecewise_linear_distribution/min.md)             | 下限を取得する                 | C++11 |
 | [`max`](piecewise_linear_distribution/max.md)             | 上限を取得する                 | C++11 |
 
 
@@ -101,9 +101,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[piecewise_linear_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.tsv)）を図示する。
+このプログラムによってある時に得られた結果（[piecewise_linear_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.tsv)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_linear_distribution/piecewise_linear_distribution.png)
 
 ## バージョン
 ### 言語
@@ -111,7 +111,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 

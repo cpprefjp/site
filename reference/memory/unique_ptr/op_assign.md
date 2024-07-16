@@ -6,14 +6,19 @@
 * cpp11[meta cpp]
 
 ```cpp
-unique_ptr& operator=(unique_ptr&& u) noexcept;       // (1) 単一オブジェクト、配列
+unique_ptr& operator=(unique_ptr&& u) noexcept;           // (1) C++11
+constexpr unique_ptr& operator=(unique_ptr&& u) noexcept; // (1) C++23
 
 template <class U, class E>
-unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) 単一オブジェクト、配列（C++17）
+unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept;           // (2) C++11 単一オブジェクト版
+                                                                // (2) C++17 配列版
+template <class U, class E>
+constexpr unique_ptr& operator=(unique_ptr<U, E>&& u) noexcept; // (2) C++23
 
-unique_ptr& operator=(nullptr_t) noexcept;            // (3) 単一オブジェクト、配列
+unique_ptr& operator=(nullptr_t) noexcept;            // (3) C++11
+constexpr unique_ptr& operator=(nullptr_t) noexcept;  // (3) C++23
 
-unique_ptr& operator=(const unique_ptr&) = delete;    // (4) 単一オブジェクト、配列
+unique_ptr& operator=(const unique_ptr&) = delete;    // (4) C++11
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 
@@ -79,9 +84,9 @@ int main()
 
   // (2) 変換可能な型からの所有権移動
   // p1の所有権をp2に譲渡する
-  std::unique_ptr<void> p2;
+  std::unique_ptr<const int> p2;
   p2 = std::move(p1);
-  assert(*static_cast<int*>(p2.get()) == 3);
+  assert(*static_cast<const int*>(p2.get()) == 3);
 
   // (3) リソース解放
   std::unique_ptr<int> p3(new int(3));
@@ -100,10 +105,10 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバーロード以外), 4.6.4
-- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバーロード以外) [mark verified], 4.6.4 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2010にはnullptr_tのオーバーロードがない。
 	- 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
@@ -112,3 +117,4 @@ int main()
 - [LWG 2246. `unique_ptr` assignment effects w.r.t. deleter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246)
 - [LWG 2228: Missing SFINAE rule in unique_ptr templated assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4366)
     - (2)のSFINAEルール不足の欠陥修正の提案文書
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

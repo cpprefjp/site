@@ -1,5 +1,13 @@
-# constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化
+# constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化 [P1668R1]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -93,7 +101,7 @@ int main() {
 
 副次的だが、複雑なインラインアセンブリによる記述とともにシンプルなC++コードによる記述が同居している事で、インラインアセンブリが何をしているのかをユーザーが理解しやすくなるという効果もある。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`is_constant_evaluated`](/reference/type_traits/is_constant_evaluated.md)
 

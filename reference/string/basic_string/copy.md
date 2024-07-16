@@ -5,7 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-size_type copy(charT* s, size_type n, size_type pos = 0) const;
+size_type
+  copy(charT* s, size_type n, size_type pos = 0) const; // (1) C++03
+constexpr size_type
+  copy(charT* s, size_type n, size_type pos = 0) const; // (1) C++20
 ```
 
 ## 概要
@@ -75,4 +78,4 @@ llo
 ```
 
 ## 参照
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

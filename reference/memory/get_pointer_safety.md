@@ -3,6 +3,7 @@
 * std[meta namespace]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp23removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -10,6 +11,8 @@ namespace std {
 }
 ```
 * pointer_safety[link /reference/memory/pointer_safety.md]
+
+この関数はC++23で削除された。
 
 ## 概要
 ポインタの安全性が、使用している処理系においてどのように実装されているかを確認する。
@@ -29,6 +32,8 @@ namespace std {
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 
+## 参照
+- [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)

@@ -25,12 +25,12 @@ namespace std {
 ```
 
 ## 概要
-範囲のいずれかの要素が条件を満たすかを判定する。
+イテレータ範囲`[first, last)`のいずれかの要素が条件を満たすかを判定する。
 
 
 ## 戻り値
-`[first,last)` 内のイテレータ `i` について `pred(*i)` が `true` になるような要素があれば`true`を返し、そうでなければ`false`を返す。
-`[first,last)`の範囲が空の場合は`false`を返す。
+イテレータ範囲`[first,last)` 内のイテレータ `i` について `pred(*i)` が `true` になるような要素があれば`true`を返し、そうでなければ`false`を返す。
+イテレータ範囲`[first,last)`が空の場合は`false`を返す。
 
 
 ## 計算量
@@ -81,9 +81,9 @@ bool any_of(InputIterator first, InputIterator last, Predicate pred) {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.4.7
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 関連項目

@@ -29,7 +29,7 @@ future操作に関するエラー値。
 
 | 列挙値 | 説明 | 対応バージョン |
 |-----------------------------|----------------------------|-------|
-| `broken_primise`            | 共有状態の準備ができていない | C++11 |
+| `broken_promise`            | 共有状態の準備ができていない | C++11 |
 | `future_already_retrieved`  | すでに[`promise`](promise.md)オブジェクトから[`future`](future.md)オブジェクトを取り出している | C++11 |
 | `promise_already_satisfied` | [`promise`](promise.md)オブジェクトに、すでに値もしくは例外オブジェクトが設定されている | C++11 |
 | `no_state`                  | [`promise`](promise.md)オブジェクトが共有状態を持っていない | C++11 |
@@ -42,9 +42,9 @@ future操作に関するエラー値。
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 参照

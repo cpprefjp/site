@@ -108,9 +108,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[chi_squared_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv)）を図示する。
+このプログラムによってある時に得られた結果（[chi_squared_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/chi_squared_distribution/chi_squared_distribution.tsv)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/chi_squared_distribution/chi_squared_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/chi_squared_distribution/chi_squared_distribution.png)
 
 ## バージョン
 ### 言語
@@ -118,12 +118,12 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ### 参考
 - [カイ二乗分布 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83)
-- [χ2（カイ２乗）分布](http://staff.aist.go.jp/t.ihara/chi2.html)
+- [χ2（カイ２乗）分布](https://web.archive.org/web/20211102213228/http://staff.aist.go.jp/t.ihara/chi2.html)
 - [カイ２乗分布とは](https://web.archive.org/web/20161213042559/http://ogawas.cerp.u-toyama.ac.jp/e-stat/kai.html)
 

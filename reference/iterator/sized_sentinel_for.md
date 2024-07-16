@@ -19,7 +19,6 @@ namespace std {
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * disable_sized_sentinel_for[link disable_sized_sentinel_for.md]
 * remove_cv_t[link /reference/type_traits/remove_cv.md]
-* same_as[link /reference/concepts/same_as.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
@@ -117,8 +116,8 @@ sample_sentinel is not sized sentinel for sample_sized_iterator
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 ## 関連項目
 

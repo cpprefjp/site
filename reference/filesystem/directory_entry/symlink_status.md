@@ -23,7 +23,7 @@ file_status symlink_status(std::error_code& ec) const noexcept; // (2)
 
 
 ## 例外
-- (1) : [`std::filesystem::symlink_staus()`](/reference/filesystem/symlink_status.md)関数が例外を送出する可能性がある
+- (1) : [`std::filesystem::symlink_status()`](/reference/filesystem/symlink_status.md)関数が例外を送出する可能性がある
 - (2) : 投げない
 
 
@@ -88,5 +88,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 8.1
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

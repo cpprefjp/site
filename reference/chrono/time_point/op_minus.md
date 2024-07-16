@@ -7,6 +7,7 @@
 ```cpp
 namespace std {
 namespace chrono {
+  // time_point - duration = time_point
   template <class Clock, class Duration1, class Rep2, class Period2>
   time_point<Clock, typename common_type<Duration1, duration<Rep2, Period2>>::type>
     operator-(const time_point<Clock, Duration1>& lhs,
@@ -18,13 +19,13 @@ namespace chrono {
     operator-(const time_point<Clock, Duration1>& lhs,
               const duration<Rep2, Period2>& rhs);      // (1) C++14
 
-  // time_point - time_point - duration
+  // time_point - time_point = duration
   template <class Clock, class Duration1, class Duration2>
   typename common_type<Duration1, Duration2>::type
     operator-(const time_point<Clock, Duration1>& lhs,
               const time_point<Clock, Duration2>& rhs); // (2) C++11
 
-  // time_point - time_point - duration
+  // time_point - time_point = duration
   template <class Clock, class Duration1, class Duration2>
   constexpr typename common_type<Duration1, Duration2>::type
     operator-(const time_point<Clock, Duration1>& lhs,
@@ -41,13 +42,13 @@ namespace chrono {
 
 
 ## 戻り値
-- (2)
+- (1)
 
 ```cpp
 return lhs + (-rhs);
 ```
 
-- (3)
+- (2)
 
 ```cpp
 return lhs.time_since_epoch() - rhs.time_since_epoch();
@@ -94,9 +95,9 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2
-- [GCC](/implementation.md#gcc): 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.2 [mark verified]
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)

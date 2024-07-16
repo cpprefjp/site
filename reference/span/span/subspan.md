@@ -13,6 +13,7 @@ constexpr span<element_type, see below>
 constexpr span<element_type, dynamic_extent>
   subspan(size_type offset, size_type count = dynamic_extent) const; // (2)
 ```
+* see below[italic]
 * dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ## 概要
@@ -72,7 +73,7 @@ constexpr span<element_type, dynamic_extent>
 int main()
 {
   std::vector<int> v = {1, 2, 3, 4, 5};
-  std::span<int, 5> s = std::span{v};
+  std::span<int> s = std::span{v};
 
   // (1) : テンプレート引数として開始位置と要素数を指定して、要素を取得する。
   // テンプレート内でこのオーバーロードを使用する場合、s.template subspan<2, 3>(); のように、
@@ -91,7 +92,6 @@ int main()
 }
 ```
 * subspan[color ff0000]
-* std::dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ### 出力
 ```
@@ -109,7 +109,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

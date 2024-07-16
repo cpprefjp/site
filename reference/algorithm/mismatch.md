@@ -90,7 +90,7 @@ namespace std {
 
 
 ## 概要
-2つのシーケンスが一致していない場所を検索する。
+2つのシーケンス`[first1, last1)`と`[first2, last2)`が一致していない位置を検索する。
 
 
 ## 戻り値
@@ -188,7 +188,7 @@ std::pair<InputIterator1, InputIterator2> mismatch(
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2005, 2008, 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - C++14で追加されたオーバーロードは2015から実装されている。
 
 ## 参照

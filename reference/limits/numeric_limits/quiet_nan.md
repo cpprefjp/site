@@ -38,7 +38,7 @@ static constexpr T quiet_NaN() noexcept;
 int main()
 {
   constexpr float f = std::numeric_limits<float>::quiet_NaN();
-  constexpr float d = std::numeric_limits<double>::quiet_NaN();
+  constexpr double d = std::numeric_limits<double>::quiet_NaN();
 
   std::cout << "float : " << f << std::endl;
   std::cout << "double : " << d << std::endl;
@@ -53,6 +53,6 @@ double : 1.#QNAN
 ```
 
 ## 参照
-* [`numeric_limits::has_quiet_NaN`](quiet_nan.md)
+* [`numeric_limits::has_quiet_NaN`](has_quiet_nan.md)
 * [NANの定義について - ぴょぴょぴょ？ - Linuxとかプログラミングの覚え書き](http://d.hatena.ne.jp/pyopyopyo/20100330/p1)
 

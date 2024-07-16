@@ -54,7 +54,7 @@ int main()
   assert(chrono::year_month_day{chrono::sys_days{date}} == 2020y/3/8);
 }
 ```
-* 2019y[link /reference/chrono/year/op_y.md]
+* 2021y[link /reference/chrono/year/op_y.md]
 * 2020y[link /reference/chrono/year/op_y.md]
 * chrono::Sunday[link /reference/chrono/weekday_constants.md]
 * chrono::year_month_day[link /reference/chrono/year_month_day.md]
@@ -69,9 +69,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): 11.1
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 参照

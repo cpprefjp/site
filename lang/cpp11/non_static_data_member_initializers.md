@@ -1,5 +1,13 @@
-# 非静的メンバ変数の初期化
+# 非静的メンバ変数の初期化 [N2756]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 非静的メンバ変数の定義時に、`=`演算子もしくは`{ }`波カッコ初期化子によるコンストラクタ構文で、初期化式を記述できる。
@@ -51,9 +59,10 @@ int main()
     ```
 
 
-## 関連項目
-- [C++17 インライン変数](/lang/cpp17/inline_variables.md)  
-  静的メンバ変数は、インライン変数とすることで定義時に初期化できる。
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++14 宣言時のメンバ初期化を持つ型の集成体初期化を許可](/lang/cpp14/member_initializers_and_aggregates.md)
+- [C++17 インライン変数](/lang/cpp17/inline_variables.md)
+    - 静的メンバ変数は、インライン変数とすることで定義時に初期化できる
 - [C++20 ビットフィールドのメンバ変数初期化](/lang/cpp20/default_member_initializers_for_bit_fields.md)
 
 
@@ -63,4 +72,3 @@ int main()
 - [N2426 Class member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2426.htm)
 - [N2628 Non-static data member initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2628.html)
 - [N2756 Non-static data member initializers](http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2008/n2756.htm)
-

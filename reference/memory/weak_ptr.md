@@ -62,7 +62,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
-| [`(deduction_guide)`](shared_ptr/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
+| [`(deduction_guide)`](weak_ptr/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
 
 
 ## 例
@@ -106,10 +106,10 @@ shared_ptr managed object deleted.
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ## 参照
 

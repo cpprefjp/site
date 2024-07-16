@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  constexpr T bit_width(T x) noexcept;
+  constexpr int bit_width(T x) noexcept;
 }
 ```
 
@@ -78,7 +78,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 9.1
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
@@ -86,3 +86,5 @@ int main()
 - [P0556R3 Integral power-of-2 operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0556r3.html)
 - [P1956R1 On the names of low-level bit manipulation functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1956r1.pdf)
 -- `std::log2p1`から`std::bit_width`に名称変更。変更前の関数名`log2p1`の`p1`は、1を足す (plus one) ことを示していた。
+- [LWG Issue 3656. Inconsistent bit operations returning a count](https://wg21.cmeerw.net/lwg/issue3656)
+    - 戻り値の型を`T`から`int`に変更

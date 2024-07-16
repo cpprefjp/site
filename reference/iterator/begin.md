@@ -29,6 +29,12 @@ namespace std {
 ## 概要
 範囲から先頭要素へのイテレータを取得する。
 
+この関数は、メンバ関数版の`begin()`とちがい、組み込み配列に対しても使用できる。
+
+- (1) : 非`const`のコンテナの、先頭要素へのイテレータを取得する
+- (2) : `const`のコンテナの、先頭要素へのイテレータを取得する
+- (3) : 組み込み配列の、先頭要素へのポインタを取得する
+
 
 ## 戻り値
 - (1) : `return c.begin();`
@@ -90,7 +96,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

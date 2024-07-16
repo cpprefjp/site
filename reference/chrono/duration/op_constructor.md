@@ -45,7 +45,7 @@ using std::chrono::duration;
 int main()
 {
   duration<int, std::milli> d1;        // デフォルト構築 d1.count()は未初期化の値
-  duration<int, std::milli> d2 {};     // デフォルト構築 d1.count()の値は0
+  duration<int, std::milli> d2 {};     // デフォルト構築 d2.count()の値は0
 
   duration<int, std::milli> d3(3);     // 値を指定して構築(ミリ秒)
   duration<int, std::micro> d4 = d3;   // ミリ秒からマイクロ秒に変換
@@ -75,9 +75,9 @@ d5 : 3000
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.4.7
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

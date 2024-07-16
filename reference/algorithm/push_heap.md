@@ -26,16 +26,21 @@ namespace std {
 ```
 
 ## 概要
-ヒープ化された範囲に要素を追加したヒープ範囲を得る
+ヒープ化されたイテレータ範囲`[first, last - 1)`に要素を追加する。
+
+この関数は、イテレータ範囲の末尾要素`*(last - 1)`を、範囲全体がヒープとなるよう配置し直す。
 
 
-## 要件
-- `[first,last - 1)` は有効な heap である必要がある。
-- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+## テンプレートパラメータ制約
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
+
+
+## 事前条件
+- `[first,last - 1)` は有効なヒープであること
 
 
 ## 効果
-`last - 1` の値を、`[first,last)` が有効な heap となるように配置する
+`last - 1` の値を、`[first,last)` が有効なヒープとなるように配置する
 
 
 ## 戻り値

@@ -35,6 +35,7 @@ int main()
     "/foo/",           // ディレクトリパス
     "/foo/.",          // カレントディレクトリ
     "..",              // 親ディレクトリ
+    ".file",           // 隠しファイル (拡張子なし)
   };
 
   for (const fs::path& p : ps) {
@@ -52,6 +53,7 @@ int main()
 "/foo/" : ""
 "/foo/." : "."
 ".." : ".."
+".file" : ".file"
 ```
 
 
@@ -70,6 +72,7 @@ int main()
     "C:/foo/",           // ディレクトリパス
     "C:/foo/.",          // カレントディレクトリ
     "..",                // 親ディレクトリ
+    ".file",             // UNIX系OSでの隠しファイル (拡張子なし)
   };
 
   for (const fs::path& p : ps) {
@@ -81,14 +84,14 @@ int main()
 
 #### 出力
 ```
-"C:\foo\bar.txt" : "bar"
-"C:\foo\bar.tar.gz" : "bar.tar"
-"C:\foo\" : ""
-"C:\foo\." : "."
+"C:/foo/bar.txt" : "bar"
+"C:/foo/bar.tar.gz" : "bar.tar"
+"C:/foo/" : ""
+"C:/foo/." : "."
 ".." : ".."
+".file" : ".file"
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 
 ## バージョン
@@ -96,6 +99,6 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 8.1
-- [Visual C++](/implementation.md#visual_cpp):
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]

@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-size_type size() const noexcept;
+size_type size() const;           // C++03
+size_type size() const noexcept;  // C++11
 ```
 
 ## 概要

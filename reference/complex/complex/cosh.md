@@ -6,7 +6,11 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> cosh(const complex<T>& x);
+  complex<T>
+    cosh(const complex<T>& x); // (1) C++03
+  template <class T>
+  constexpr complex<T>
+    cosh(const complex<T>& x); // (1) C++26
 }
 ```
 
@@ -72,8 +76,8 @@ cosh( (1,2) ) = (-0.642148,1.06861)
 - C++98
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4
-- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified], 4.4.7 [mark verified], 4.5.4 [mark verified], 4.6.4 [mark verified], 4.7.3 [mark verified], 4.8.1 [mark verified], 4.8.2 [mark verified], 4.9.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -102,3 +106,8 @@ cosh( (1,2) ) = (-0.642148,1.06861)
 | [`tan`](tan.md)                    | 複素数の正接を求める。                    |
 | [`tanh`](tanh.md)                  | 複素数の双曲線正接を求める。              |
 | [`cosh`](/reference/cmath/cosh.md) | 実数の双曲線余弦を求める。                |
+
+
+## 参照
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

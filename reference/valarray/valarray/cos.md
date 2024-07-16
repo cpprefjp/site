@@ -25,7 +25,7 @@ return va.apply(static_cast<T(*)(T)>(std::cos));
 * std::cos[link /reference/cmath/cos.md]
 
 
-##備考
+## 備考
 - 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 

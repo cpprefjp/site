@@ -35,7 +35,7 @@ namespace std {
 
 
 ## 備考
-- `shared_ptr<T>(reinterpret_cast<T*>(r.get()))` という方法は動作未定義となるので使用しないこと。
+- `shared_ptr<T>(reinterpret_cast<T*>(r.get()))` という方法は未定義動作となるので使用しないこと。
 
 
 ## 例外
@@ -74,7 +74,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 7.3
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

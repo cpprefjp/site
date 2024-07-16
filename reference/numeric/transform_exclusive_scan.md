@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator, class OutputIterator, class T,
             class BinaryOperation, class UnaryOperation>
   OutputIterator
@@ -40,7 +40,7 @@ namespace std{
 ```
 
 ## 概要
-範囲の要素を変換しながら部分和を計算する。この関数は、i番目の部分和を求める際にi番目の要素を含めず範囲`[0, i)`までの部分和を計算する。
+イテレータ範囲`[first, last)`の要素を変換しながら部分和を計算する。この関数は、i番目の部分和を求める際にi番目の要素を含めず範囲`[0, i)`までの部分和を計算する。
 
 `transform_exclusive_scan()`の引数として初期値`0`、シーケンス`{1, 2, 3}`が与えられ、和に相当する二項演算関数オブジェクト`binary_op`を`operator+`、要素変換の関数オブジェクト`unary_op`をパラメータをそのまま返す関数`f()`であるとして、、以下のような結果が行われる：
 
@@ -58,7 +58,7 @@ namespace std{
 
 ## 要件
 - (1), (2) :
-    - 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
+    - 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、イテレータ範囲`[first, last]`およびイテレータ範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## テンプレートパラメータ制約
@@ -79,7 +79,7 @@ namespace std{
 
 
 ## 計算量
-関数オブジェクト`unary_op`と`binary_op`をO(`last - first`)計算量の回数だけ適用する
+関数オブジェクト`unary_op`と`binary_op`をO(`last - first`)回だけ適用する
 
 
 ## 備考
@@ -130,7 +130,7 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 

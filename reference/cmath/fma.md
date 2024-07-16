@@ -6,14 +6,50 @@
 
 ```cpp
 namespace std {
-  float fma(float x, float y, float z);
-  double fma(double x, double y, double z);
-  long double fma(long double x, long double y, long double z);
+  float
+    fma(float x,
+        float y,
+        float z);                 // (1) C++11からC++20まで
+  double
+    fma(double x,
+        double y,
+        double z);                // (2) C++11からC++20まで
+  long double
+    fma(long double x,
+        long double y,
+        long double z);           // (3) C++11からC++20まで
 
-  Promoted fma(Arithmetic1 x, Arithmetic2 y, Arithmetic3 z);
+  constexpr floating-point-type
+    fma(floating-point-type x,
+        floating-point-type y,
+        floating-point-type z);   // (4) C++23
 
-  float fmaf(float x, float y, float z);                         // C++17 から
-  long double fmal(long double x, long double y, long double z); // C++17 から
+  Promoted
+    fma(Arithmetic1 x,
+        Arithmetic2 y,
+        Arithmetic3 z);           // (5) C++11
+  constexpr Promoted
+    fma(Arithmetic1 x,
+        Arithmetic2 y,
+        Arithmetic3 z);           // (5) C++23
+
+  float
+    fmaf(float x,
+         float y,
+         float z);                // (6) C++17
+  constexpr float
+    fmaf(float x,
+         float y,
+         float z);                // (6) C++23
+
+  long double
+    fmal(long double x,
+         long double y,
+         long double z);          // (7) C++17
+  constexpr long double
+    fmal(long double x,
+         long double y,
+         long double z);          // (7) C++23
 }
 ```
 * Promoted[italic]
@@ -28,6 +64,14 @@ namespace std {
 丸めは乗算と加算のあとに1回だけ行われる。
 
 `fma` は fused multiply-add の略。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 算術型に対するオーバーロード (大きい精度にキャストして計算される。整数は`double`で計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -46,6 +90,7 @@ namespace std {
 
 - 本関数が単純に `x * y + z` を計算するのと等価か、より速い場合には、引数の型に応じて [`FP_FAST_FMA`](fp_fast_fma.md)（`double` の場合）、[`FP_FAST_FMAF`](fp_fast_fmaf.md)（`float` の場合）、[`FP_FAST_FMAL`](fp_fast_fmal.md)（`long double` の場合）と言ったマクロが定義される。  
 	これらのマクロは、一般的に本関数がハードウェアによる積和演算命令を使用している場合にのみ定義される。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -162,3 +207,9 @@ FE_INVALID
 inf * 1.0 + -inf = -nan
 
 ```
+
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

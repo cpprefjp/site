@@ -14,7 +14,7 @@ namespace std::chrono {
 ```
 
 ## 概要
-`choose`は、タイムゾーン情報に従ってローカル時間からシステム時間に変換する際にあいまいになる場合、早い時間と遅い時間どちら側の候補に変換するかをユーザーが選択できるようにするために列挙型である。
+`choose`は、タイムゾーン情報に従ってローカル時間からシステム時間に変換する際にあいまいになる場合、早い時間と遅い時間どちら側の候補に変換するかをユーザーが選択できるようにするための列挙型である。
 
 各列挙値は、以下を意味する：
 
@@ -69,9 +69,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 関連項目

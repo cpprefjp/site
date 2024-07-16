@@ -27,7 +27,9 @@ pair<iterator, bool> emplace(Args&&... args);
 
 
 ## 備考
-C++17 で導入された [`try_emplace`](try_emplace.md) と異なり、たとえ要素が挿入されなかった場合でも `value_type` 型のオブジェクトが構築される可能性があり、結果として引数 `args` が [`move`](/reference/utility/move.md) の対象となって変更されてしまっている可能性があるため、注意が必要である。
+- この関数が呼ばれた後も、当該コンテナ内の要素を指す参照やイテレータは無効にはならない。  
+	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+- C++17 で導入された [`try_emplace`](try_emplace.md) と異なり、たとえ要素が挿入されなかった場合でも `value_type` 型のオブジェクトが構築される可能性があり、結果として引数 `args` が [`move`](/reference/utility/move.md) の対象となって変更されてしまっている可能性があるため、注意が必要である。
 
 
 ## 例
@@ -57,6 +59,41 @@ int main()
 1 : B
 3 : A
 4 : C
+```
+
+### 戻り値の例
+```cpp example
+#include <iostream>
+#include <map>
+
+int main()
+{
+  std::map<int, char> m;
+
+  std::pair<std::map<int, char>::iterator, bool> x = m.emplace(3, 'A');
+  const std::pair<const int, char>& v = *x.first;
+  std::cout << v.first << std::endl;  // キー
+  std::cout << v.second << std::endl; // 値
+  std::cout << x.second << std::endl; // 挿入が成功したかどうか
+  std::cout << std::endl;
+
+  auto y = m.emplace(3, 'A');
+  std::cout << y.first->first << std::endl;  // キー
+  std::cout << y.first->second << std::endl; // 値
+  std::cout << y.second << std::endl;        // 挿入が成功したかどうか
+}
+```
+* emplace[color ff0000]
+
+#### 出力
+```
+3
+A
+1
+
+3
+A
+0
 ```
 
 ### キーと値もそれぞれコンストラクタ引数を渡す例
@@ -108,10 +145,10 @@ CCC : (1, 2)
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2 3.3
-- [GCC](/implementation.md#gcc): 4.8.5
+- [Clang](/implementation.md#clang): 3.2 3.3 [mark verified]
+- [GCC](/implementation.md#gcc): 4.8.5 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

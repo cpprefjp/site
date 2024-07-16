@@ -1,5 +1,13 @@
-# 不明な属性を無視する
+# 不明な属性を無視する [P0283R2]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -46,7 +54,7 @@ non_standard_attributes.cpp:7:3: warning: unknown attribute 'unknown_attribute' 
 
 プログラマが意図的に未知の属性を指定していて、警告が不要な場合はコンパイラオプションで警告を抑制できる。Clang++の場合は`-Wno-unknown-attributes`オプション、GCCの場合は`-Wno-attributes`オプションを指定する。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 
 ## 参照

@@ -31,7 +31,7 @@ namespace std {
 
 ## 備考
 - このクラスは現状、書き込みロックと読み込みロックについてのスケジューリング戦略を規定せず、カスタマイズもできない。そのため、書き込みロックがなかなか取得できない、読み込みロックがなかなか取得できないというスタベーションの問題が発生した場合に、ユーザーの状況に合わせて戦略を変更することができない。POSIXのReaders-writer lockの実装では、スケジューリングのオプションを指定できる
-    - [`pthread_rwlockattr_setkind_np()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/pthread_rwlockattr_setkind_np.3.html)
+    - [`pthread_rwlockattr_setkind_np()`](https://web.archive.org/web/20230130174238/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/pthread_rwlockattr_setkind_np.3.html)
 
 
 ## メンバ関数
@@ -96,7 +96,7 @@ public:
   {
     int local_count;
     {
-      std::shared_lock<std::shared_mutex> lock(mtx_);
+      std::shared_lock<std::shared_timed_mutex> lock(mtx_);
       local_count = count_;
     } // 共有ロックをここで手放す
     print_value(local_count);
@@ -179,10 +179,10 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.5
-- [GCC](/implementation.md#gcc): 4.9
+- [Clang](/implementation.md#clang): 3.5 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
 ## 関連項目

@@ -11,7 +11,7 @@ T operator-=(T operand) noexcept;          // (2) C++11
 ```
 
 ## 概要
-加算を行う
+減算を行う
 
 
 ## テンプレートパラメータ制約
@@ -23,7 +23,7 @@ T operator-=(T operand) noexcept;          // (2) C++11
 以下と等価の式により、演算結果の値が返る：
 
 ```cpp
-return fetch_sub(operand) + operand;
+return fetch_sub(operand) - operand;
 ```
 * fetch_sub[link fetch_sub.md]
 
@@ -130,9 +130,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
 
 ## 関連項目

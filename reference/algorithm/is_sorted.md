@@ -38,7 +38,7 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲がソート済みか判定する。
+イテレータ範囲`[first, last)`がソート済みか判定する。
 
 ### 戻り値
 - (1) : [`is_sorted_until`](/reference/algorithm/is_sorted_until.md)`(first, last) == last`
@@ -77,9 +77,9 @@ before: is sorted? false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - 2008では、`_HAS_TRADITIONAL_STL`を1に定義してから`<algorithm>`をインクルードすると、`stdext`名前空間で`is_sorted`が定義される。
 
 

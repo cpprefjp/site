@@ -40,7 +40,7 @@ unordered_map& operator=(initializer_list<value_type> il); // (3)
 	[`max_load_factor`](max_load_factor.md)`()` の値はコピーされる。
 	アロケータオブジェクトは、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value` が `true` の場合に限りムーブされる。コンテナ内に元々存在していた要素は、代入されるか、破棄される（デストラクタが呼び出される）。
 
-- (3) : 範囲 `[il.begin(), il.end())` がコピー代入される。
+- (3) : イテレータ範囲 `[il.begin(), il.end())` がコピー代入される。
 	コンテナ内に元々存在していた要素は、代入されるか、破棄される（デストラクタが呼び出される）。
 
 
@@ -76,8 +76,8 @@ unordered_map& operator=(initializer_list<value_type> il); // (3)
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1
-- [GCC](/implementation.md#gcc): 4.4.7, 4.5.3, 4.6.3, 4.7.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified], 4.5.3 [mark verified], 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

@@ -1,14 +1,12 @@
 # swap (非メンバ関数)
 * stop_token[meta header]
 * std[meta namespace]
+* stop_token[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  friend
-  void swap(stop_token& x, stop_token& y) noexcept;
-}
+friend void swap(stop_token& x, stop_token& y) noexcept;
 ```
 
 ## 概要
@@ -46,16 +44,15 @@ int main()
   assert(st1.stop_possible() == true);
   assert(st2.stop_possible() == false);
 
-  std::swap(st1, st2);
+  swap(st1, st2);
 
   assert(st1.stop_possible() == false);
   assert(st2.stop_possible() == true);
 }
 ```
-* std::swap[color ff0000]
+* swap[color ff0000]
 * std::stop_token[link ../stop_token.md]
 * std::stop_source[link ../stop_source.md]
-* request_stop()[link ../stop_source/request_stop.md]
 * stop_possible()[link stop_possible.md]
 
 ### 出力

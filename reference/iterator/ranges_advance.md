@@ -35,11 +35,11 @@ namespace std::ranges {
 ## 事前条件
 
 - (1) : `I`が[`bidirectional_iterator`](bidirectional_iterator.md)のモデルとならない場合、`n`は負数ではない
-- (2) : `[i, bound)`は有効な範囲である
+- (2) : `[i, bound)`は有効なイテレータ範囲である
 - (3) : 次のいずれか
-    - `n >  0` : `[i, bound)`は有効な範囲である
-    - `n == 0` : `[i, bound)`もしくは`[bound, i)`は有効な範囲である
-    - `n <  0` : `[bound, i)`は有効な範囲であり、`I`は[`bidirectional_iterator`](bidirectional_iterator.md)のモデルであり、`I, S`は[`same_as`](/reference/concepts/same_as.md)`<I, S>`のモデルとなる。
+    - `n >  0` : `[i, bound)`は有効なイテレータ範囲である
+    - `n == 0` : `[i, bound)`もしくは`[bound, i)`は有効なイテレータ範囲である
+    - `n <  0` : `[bound, i)`は有効なイテレータ範囲であり、`I`は[`bidirectional_iterator`](bidirectional_iterator.md)のモデルであり、`I, S`は[`same_as`](/reference/concepts/same_as.md)`<I, S>`のモデルとなる。
 
 ## 効果
 
@@ -119,17 +119,18 @@ diff : 2
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5 [mark verified]
 
 ## 関連項目
 
 | 名前                | 説明                              |
 |---------------------|-----------------------------------|
 | [`next()`](next.md) | `n`回前方に進めたイテレータを返す |
-| [`advance()`](advance.md) | `n`回イテレータを進める       |
+| [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
+| [`advance()`](advance.md) | `n`回イテレータを進める |
 | [`ranges::next()`](ranges_next.md) | `n`回あるいは`bound`まで前方に進めたイテレータを返す |
-| [`ranges::advance()`](/reference/iterator/ranges_advance.md) |`n`回あるいは`boundまで`イテレータを進める  |
+| [`rangse::prev()`](ranges_prev.md) | `n`回後方に進めたイテレータを返す |
 
 ## 参照
 

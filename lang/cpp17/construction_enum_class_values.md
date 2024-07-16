@@ -1,5 +1,13 @@
-# enum class変数の初期値として整数を指定する際の規則を調整
+# enum class変数の初期値として整数を指定する際の規則を調整 [P0138R2]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++11にてスコープを持つ列挙型が導入された。これは基底型を明示することができ、従来の列挙型と異なり整数型への暗黙の型変換を行わない。
@@ -96,7 +104,7 @@ enum class byte : unsigned char { };
 C++17ではスコープを持つ列挙型の初期化ルールを緩和し、簡潔な記述を実現するとともに、意図せず精度を失う変換を行う危険性を排除した。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 スコープを持つ列挙型](/lang/cpp11/scoped_enum.md)
 - [`std::byte`](/reference/cstddef/byte.md)
 

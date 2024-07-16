@@ -21,7 +21,7 @@ namespace std::filesystem {
 
 ## 効果
 - パス`p`のコンテンツを、再帰的に削除する
-- POSIX環境では、それぞれのコンテンツの削除に、[`remove()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/remove.3.html)関数を使用する
+- POSIX環境では、それぞれのコンテンツの削除に、[`remove()`](https://web.archive.org/web/20230207183630/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/remove.3.html)関数を使用する
 
 
 ## 戻り値
@@ -79,8 +79,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
 
 

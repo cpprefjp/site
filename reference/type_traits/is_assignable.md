@@ -69,7 +69,7 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 
 
 ## 参照

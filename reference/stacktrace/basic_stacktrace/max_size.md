@@ -24,7 +24,7 @@ size_type max_size() const noexcept; // (1) C++23
 
 int main() {
   std::stacktrace trace{};
-  std::cout << tract.max_size() << std::endl;
+  std::cout << trace.max_size() << std::endl;
 }
 ```
 * trace.max_size()[color ff0000]
@@ -43,3 +43,7 @@ int main() {
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+### 備考
+- GCCでは14時点でコンパイルエラーになる
+    - [Bug 115063 - compilation error: `std::basic_stracktrace::max_size()`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=115063)

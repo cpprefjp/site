@@ -39,7 +39,7 @@ int main()
 * chrono::is_pm[color ff0000]
 * chrono::hh_mm_ss[link hh_mm_ss.md]
 * time.hours()[link hh_mm_ss/hours.md]
-* chrono::is_am[link is_pm.md]
+* chrono::is_am[link is_am.md]
 
 ### 出力
 ```
@@ -50,6 +50,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 10.0
-- [GCC](/implementation.md#gcc): 11.1
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 10.0 [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-const charT* c_str() const;          // C++03 まで
-
-const charT* c_str() const noexcept; // C++11 から
+const charT* c_str() const;                    // (1) C++03
+const charT* c_str() const noexcept;           // (1) C++11
+constexpr const charT* c_str() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -81,3 +81,4 @@ Hello
 
 ## 参照
 - [LWG Issue 3131. `addressof` all the things](https://wg21.cmeerw.net/lwg/issue3131)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

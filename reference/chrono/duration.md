@@ -114,13 +114,14 @@ namespace chrono {
 ### 比較演算
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------------------|----------------------------|-------|
-| [`operator==`](duration/op_equal.md)         | 等値判定を行う | C++11 |
-| [`operator!=`](duration/op_not_equal.md)     | 非等値判定を行う | C++11 |
-| [`operator<`](duration/op_less.md)           | 左辺が右辺より小さいか判定を行う | C++11 |
-| [`operator<=`](duration/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
-| [`operator>`](duration/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
-| [`operator>=`](duration/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
+|----------------------------------------------|----------------------------|-------|
+| [`operator==`](duration/op_equal.md)         | 等値比較を行う | C++11 |
+| [`operator!=`](duration/op_not_equal.md)     | 非等値比較を行う | C++11 |
+| [`operator<=>`](duration/op_compare_3way.md) | 三方比較を行う | C++20 |
+| [`operator<`](duration/op_less.md)           | 左辺が右辺より小さいか比較を行う | C++11 |
+| [`operator<=`](duration/op_less_equal.md)    | 左辺が右辺以下かの比較を行う | C++11 |
+| [`operator>`](duration/op_greater.md)        | 左辺が右辺より大きいか比較を行う | C++11 |
+| [`operator>=`](duration/op_greater_equal.md) | 左辺が右辺以上かの比較を行う | C++11 |
 
 
 ### 入出力
@@ -203,7 +204,7 @@ Tue Oct 16 16:25:11 2012
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照

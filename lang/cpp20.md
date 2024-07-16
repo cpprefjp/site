@@ -11,18 +11,19 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [一貫比較](cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする |
+| [`<=>`/`==`による比較演算子の自動定義](cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする |
 | [ビットフィールドのメンバ変数初期化](cpp20/default_member_initializers_for_bit_fields.md) | ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する |
 | [関数を条件付きで`explicit`にする構文を追加](cpp20/explicit_bool.md) | `explicit(true)`のように`explicit`に真理値パラメータを指定できるようにする |
 | [`const`修飾されたメンバポインタの制限を修正](cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する |
-| [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md.nolink) | |
-| [特殊化のアクセスチェック](cpp20/access_checking_on_specializations.md.nolink) | |
+| [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md) | 非`const`なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが不適格になってしまう問題を修正 |
+| [特殊化のアクセスチェック](cpp20/access_checking_on_specializations.md) | |
 | [空オブジェクトに対する最適化を支援する属性`[[no_unique_address]]`](cpp20/language_support_for_empty_objects.md) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する |
 | [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする |
 | [構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md) | 非テンプレートの`get()`メンバ関数が見つかった場合は、非メンバ関数の`get()`を探しにいく |
-| [抽象型のチェック](cpp20/checking_for_abstract_class_types.md.nolink) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | | | | |
-| [可変長データを扱うクラスの効率的な`delete`](cpp20/efficient_sized_delete_for_variable_sized_classes.md.nolink) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 |
+| [抽象型のチェック](cpp20/checking_for_abstract_class_types.md) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする |
+| [可変長データを扱うクラスの効率的な`delete`](cpp20/efficient_sized_delete_for_variable_sized_classes.md) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 |
 | [条件付きで特殊メンバ関数をトリビアルに定義するように](cpp20/conditionally_trivial_special_member_functions.md.nolink) | 制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数をオーバーロードできるようにする |
+| [未初期化領域への暗黙的なオブジェクト構築](cpp20/implicit_creation_of_objects_for_low-level_object_manipulation.md) | 未初期化領域の利用時に自動的にトリビアルな型のオブジェクトを構築する |
 
 
 ### 列挙型
@@ -42,6 +43,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md) | `double* p = new double[]{1,2,3};`を許可 |
 | [要素数不明の配列への変換を許可](cpp20/permit_conversions_to_arrays_of_unknown_bound.md) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 |
 | [ほとんどの`volatile`を非推奨化](cpp20/deprecating_volatile.md) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する |
+| [ポインタから`bool`への変換を縮小変換とする](cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md) | ポインタから`bool`値への変換を縮小変換と規定することで、意図しない変換を防止する |
 
 
 ### 整数
@@ -93,11 +95,11 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [積極的でない`constexpr`関数のインスタンス化](cpp20/less_eager_instantiation_of_constexpr_functions.md.nolink) | |
+| [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 |
 | [定数式からの仮想関数の呼び出しを許可](cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 |
 | [定数式での`dynamic_cast`、多態的な`typeid`を許可](cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md) | 定数式での動的多態を許可 |
 | [constexpr関数内でのtry-catchブロックを許可](cpp20/try-catch_blocks_in_constexpr_functions.md) | constexpr関数内で`try-catch`ブロックを書けるようにする |
-| [即時関数](cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする |
+| [常に定数式評価する`consteval`](cpp20/immediate_functions.md) | `consteval`キーワードを追加し、常に定数式評価されるよう指定できるようにする |
 | [定数式内での共用体のアクティブメンバの変更を許可](cpp20/changing_the_active_member_of_a_union_inside_constexpr.md) | 共用体メンバの書き換えを定数式内で行えるようにする |
 | [constexpr関数内でのトリビアルなデフォルト初期化を許可](cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.md) | constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する |
 | [constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md) | コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可 |
@@ -112,7 +114,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | [ジェネリックラムダのテンプレート構文](cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする |
 | [ラムダ式のキャプチャとして`[=, this]`を許可する](cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする |
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする |
-| [暗黙のラムダキャプチャを簡略化](cpp20/simplifying_implicit_lambda_capture.md.nolink) | |
+| [暗黙のラムダキャプチャを簡略化](cpp20/simplifying_implicit_lambda_capture.md) | ラムダ式のキャプチャに関する仕様整理 |
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする |
 | [評価されない文脈でのラムダ式](cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする |
 | [ラムダ式の初期化キャプチャでのパック展開を許可](cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 |
@@ -153,7 +155,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | 言語機能 | 説明 |
 |----------|------|
 | [PODを非推奨化](cpp20/deprecate_pod.md) | PODという用語を非推奨化する |
-| [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする |
+| [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタのキャプチャを非推奨化する |
 | [添字演算子内でのカンマ演算子の使用を非推奨化](cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK |
 
 
@@ -197,7 +199,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 - スレッドの実行を停止させるメカニズムとして[`<stop_token>`](/reference/stop_token.md)を追加し、停止に対応したスレッドクラスとして[`<thread>`](/reference/thread.md)に[`std::jthread`](/reference/thread/jthread.md)クラスを追加
 - 軽量な同期プリミティブであるセマフォのライブラリとして[`<semaphore>`](/reference/semaphore.md)を追加
 - スレッド調整メカニズムとして、ラッチライブラリの[`<latch>`](/reference/latch.md)、バリアライブラリの[`<barrier>`](/reference/barrier.md)を追加
-- イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして[`<ranges>`](/reference/ranges.md.nolink)を追加
+- イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして[`<ranges>`](/reference/ranges.md)を追加
     - 既存のイテレータの組を扱うアルゴリズムは、`std::ranges`名前空間に範囲版アルゴリズムが追加される
 - ソースコードの位置を取得するライブラリとして[`<source_location>`](/reference/source_location.md)を追加
 
@@ -233,7 +235,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 ### 関数オブジェクト
 - [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)クラス、[`std::ref()`](/reference/functional/ref.md)関数、[`std::cref()`](/reference/functional/cref.md)関数のテンプレートパラメータ`T`型に不完全型を指定することを許可
-- メンバ関数の部分適用をかんたんにするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
+- メンバ関数の部分適用を簡単にするために、プレースホルダーの指定なく引数を先頭から順に束縛する[`std::bind_front()`](/reference/functional/bind_front.md)関数を追加
 - [`std::invoke()`](/reference/functional/invoke.md)、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)の各操作、[`std::not_fn()`](/reference/functional/not_fn.md)、[`std::bind()`](/reference/functional/bind.md)、[`std::mem_fn()`](/reference/functional/mem_fn.md)を`constexpr`対応
 - コンセプトの導入にともない、[`<functional>`](/reference/functional.md)に、受け取った値をそのまま返す関数オブジェクト[`std::identity`](/reference/functional/identity.md)を追加
 
@@ -317,17 +319,27 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 ### 機能の非推奨化
 - 一貫比較機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である[`std::rel_ops`](/reference/utility/rel_ops.md)を非推奨化
-- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨可
+- [`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数`0`を非推奨化
 - [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：
     - [`std::atomic_init()`](/reference/atomic/atomic_init.md)関数
     - [`ATOMIC_VAR_INIT`](/reference/atomic/atomic_var_init.md)マクロ
     - [`ATOMIC_FLAG_INIT`](/reference/atomic/atomic_flag_init.md)マクロ
+- [`std::shared_ptr`](/reference/memory/shared_ptr.md)の[`std::atomic`特殊化](/reference/memory/atomic.md)追加にともない、[`std::shared_ptr`](/reference/memory/shared_ptr.md)に対する以下のアトミック操作を非推奨化：
+    - [`atomic_is_lock_free`](/reference/memory/shared_ptr/atomic_is_lock_free.md)
+    - [`atomic_load`](/reference/memory/shared_ptr/atomic_load.md)
+    - [`atomic_load_explicit`](/reference/memory/shared_ptr/atomic_load_explicit.md)
+    - [`atomic_store`](/reference/memory/shared_ptr/atomic_store.md)
+    - [`atomic_store_explicit`](/reference/memory/shared_ptr/atomic_store_explicit.md)
+    - [`atomic_exchange`](/reference/memory/shared_ptr/atomic_exchange.md)
+    - [`atomic_exchange_explicit`](/reference/memory/shared_ptr/atomic_exchange_explicit.md)
+    - [`atomic_compare_exchange_weak`](/reference/memory/shared_ptr/atomic_compare_exchange_weak.md)
+    - [`atomic_compare_exchange_strong`](/reference/memory/shared_ptr/atomic_compare_exchange_strong.md)
+    - [`atomic_compare_exchange_weak_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.md)
+    - [`atomic_compare_exchange_strong_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.md)
 
 
 ### 機能の削除
-- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、[`allocator`](/reference/memory/allocator.md)の以下のメンバを削除：
-    - `size_type`型
-    - `difference_type`型
+- C++11で[`allocator_traits`](/reference/memory/allocator_traits.md)クラスが導入されたことでC++17から非推奨化されていた、[`allocator`](/reference/memory/allocator.md)の以下のメンバを削除。なお、`size_type`型と`difference_type`型の非推奨は取り消された。
     - `pointer`型
     - `const_pointer`型
     - `reference`型

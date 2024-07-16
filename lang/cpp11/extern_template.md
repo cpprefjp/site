@@ -1,5 +1,13 @@
-# extern template
+# extern template [N1987]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 `extern template`は、指定したテンプレートを、その翻訳単位でインスタンス化しないことを指示するための機能である。
@@ -56,4 +64,3 @@ void user2()
 ## 参照
 - [N1448 Controlling Implicit Template Instantiation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1448.pdf)
 - [N1987 Adding "extern template" (version 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1987.htm)
-

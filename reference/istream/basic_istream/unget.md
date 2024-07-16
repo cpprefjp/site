@@ -97,7 +97,7 @@ basic_istream<CharT, Traits>& unget() {
 * eofbit[link /reference/ios/ios_base/type-iostate.md]
 * sentry[link sentry.md]
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
-* sungetc()[link /reference/streambuf/basic_streambuf/sungetc.md.nolink]
+* sungetc()[link /reference/streambuf/basic_streambuf/sungetc.md]
 * exceptions()[link /reference/ios/basic_ios/exceptions.md]
 * badbit[link /reference/ios/ios_base/type-iostate.md]
 
@@ -108,4 +108,4 @@ basic_istream<CharT, Traits>& unget() {
 ## 参照
 
 - [`basic_istream::putback`](putback.md)
-- `basic_streambuf::sungetc`
+- [`basic_streambuf::sungetc`](../../streambuf/basic_streambuf/sungetc.md)

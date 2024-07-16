@@ -88,11 +88,14 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.6
-- [GCC](/implementation.md#gcc): 6.1
+- [Clang](/implementation.md#clang): 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
+## 関連項目
+
+- [`std::ranges::size`](/reference/ranges/size.md)
 
 ## 参照
 - [`boost::size()` - Boost Range Library](http://www.boost.org/doc/libs/release/libs/range/doc/html/range/reference/concept_implementation/semantics/functions.html)

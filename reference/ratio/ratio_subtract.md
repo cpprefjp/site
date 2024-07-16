@@ -18,6 +18,8 @@ namespace std {
 ## 効果
 減算結果は、[`ratio`](ratio.md)`<R1::num * R2::den - R2::num * R1::den, R1::den * R2::den>`という型になる。
 
+実装によっては、演算アルゴリズムによってオーバーフローが起こる可能性がある。オーバーフローが起こった場合、プログラムは不適格となる。
+
 
 ## 例
 ```cpp example
@@ -46,8 +48,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.6.4
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.6.4 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

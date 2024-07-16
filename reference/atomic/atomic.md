@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  template<class T> struct atomic;
+  template<class T> struct atomic;          // (1) C++11
 
-  template<> struct atomic<integral>;
-  template<> struct atomic<floating-point>; // C++20
-  template<class T> struct atomic<T*>;
+  template<> struct atomic<integral>;       // (2) C++11
+  template<> struct atomic<floating-point>; // (3) C++20
+  template<class T> struct atomic<T*>;      // (4) C++11
 }
 ```
 * integral[italic]
@@ -18,6 +18,14 @@ namespace std {
 
 ## 概要
 `atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。組み込み型に対する特殊化が提供されており、それぞれに特化した演算が用意されている。
+
+- (1) : プライマリテンプレート。宣言のみ
+- (2) : 整数型に対する特殊化
+- (3) : (CV修飾されていない) 浮動小数点数型に対する特殊化
+    - (C++23) : 拡張浮動小数点数型を含む
+- (4) : 任意の型のポインタに対する特殊化
+
+これらのほか、[`<memory>`](/reference/memory.md)ヘッダで[`std::shared_ptr`と`std::weak_ptr`に対する`atomic`クラスの特殊化](/reference/memory/atomic.md)が定義される。
 
 
 ## テンプレートパラメータ制約
@@ -176,7 +184,7 @@ namespace std {
 ### atomic&lt;floating-point&gt;専用メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `difference_type` | 2つの値の差を表す整数型`value_type` | C++20 |
+| `difference_type` | 2つの値の差を表す型`value_type` | C++20 |
 
 
 ### atomic&lt;T*&gt;専用メンバ関数
@@ -279,9 +287,9 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2
-- [GCC](/implementation.md#gcc): 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+- [Clang](/implementation.md#clang): 3.2 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
 ### 備考
 - GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。([Bug 65147](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147))
@@ -302,3 +310,7 @@ int main()
 - [LWG Issue 3045. `atomic` doesn't have `value_type` or `difference_type`](https://wg21.cmeerw.net/lwg/issue3045)
 - [LWG Issue 3012. `atomic` is unimplementable for non-`is_trivially_copy_constructible` `T`](https://wg21.cmeerw.net/lwg/issue3012)
 - [Correctly implementing a spinlock in C++](https://rigtorp.se/spinlock/)
+- [P1135R6 The C++20 Synchronization Library](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html)
+    - C++20での`atomic_signed_lock_free`と`atomic_unsigned_lock_free`の追加
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型もテンプレート引数として指定することが許可された

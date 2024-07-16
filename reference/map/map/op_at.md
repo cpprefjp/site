@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-T& operator[](const key_type& x);
-T& operator[](key_type&& x);
+T& operator[](const key_type& x); // (1) C++03
+T& operator[](key_type&& x);      // (2) C++11
 ```
 
 ## 概要
@@ -14,7 +14,7 @@ T& operator[](key_type&& x);
 
 
 ## 戻り値
-キー`x`に対応する値を返す。対応する要素が存在しない場合は、要素をデフォルト構築して参照を返す。
+キー`x`に対応する値を返す。対応する要素が存在しない場合は、要素を値初期化して参照を返す。
 
 
 ## 計算量

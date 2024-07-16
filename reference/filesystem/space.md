@@ -18,7 +18,7 @@ namespace std::filesystem {
 
 
 ## 戻り値
-- POSIX環境であれば、[`statvfs()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/statvfs.3.html)関数を使用して、残り容量を取得する。
+- POSIX環境であれば、[`statvfs()`](https://web.archive.org/web/20230129184216/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/statvfs.3.html)関数を使用して、残り容量を取得する。
     - [`space_info::capacity`](space_info.md)の値は`statvfs::f_blocks * statvfs::f_frsize`
     - [`space_info::free`](space_info.md)の値は`statvfs::f_bfree * statvfs::f_frsize`
     - [`space_info::available`](space_info.md)の値は`statvfs::f_bavail * statvfs::f_frsize`
@@ -59,8 +59,8 @@ int main()
   print_space("available", info.available);
 }
 ```
-* fs::space_info[color ff0000]
-* fs::space[link space.md]
+* fs::space[color ff0000]
+* fs::space_info[link space_info.md]
 * std::uintmax_t[link /reference/cstdint/uintmax_t.md]
 
 #### 出力例
@@ -79,6 +79,6 @@ available : 1048580096[B] (1000[MB])
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

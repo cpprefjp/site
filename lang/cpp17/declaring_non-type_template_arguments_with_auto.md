@@ -1,6 +1,14 @@
-# 非型テンプレートパラメータのauto宣言
+# 非型テンプレートパラメータのauto宣言 [P0127R2]
 
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++14まで、以下のように書いていた「指定された型の定数を受け取る」意図の非型テンプレートパラメータ(non-type template parameter)だが、
@@ -91,7 +99,7 @@ S<x> s; // desired instantiation
 template <auto v> struct S; // type of v is deduced
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 全ての非型テンプレート引数の定数式評価を許可](/lang/cpp17/allow_constant_evaluation_for_all_non-type_template_arguments.md)
 - [C++20 非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md)
 

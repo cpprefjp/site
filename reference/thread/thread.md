@@ -20,7 +20,7 @@ namespace std {
 
 新しいスレッド上で呼び出される関数オブジェクトから例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出されてプログラムは終了する。この動作が好ましくないのであれば、同関数オブジェクトから外に例外送出されないことをプログラマが保証しなければならない。
 
-また、デフォルトコンストラクトされた`thread`オブジェクトは、何も指さない空の`thread`オブジェクトとなる。
+また、デフォルト構築された`thread`オブジェクトは、何も指さない空の`thread`オブジェクトとなる。
 
 ### join操作とdetach操作
 
@@ -100,9 +100,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012はメモリリークするバグあり [link](http://stackoverflow.com/questions/14238670/is-this-a-big-bug-of-microsofts-implementation-of-stdthread)
 
 ## 参照

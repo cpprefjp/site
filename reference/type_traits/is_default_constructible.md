@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 効果
-`is_default_constructible`は、型`T`がデフォルトコンストラクト可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`is_default_constructible`は、型`T`がデフォルト構築可能であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 [`is_constructible`](is_constructible.md)`<T>::value == true`の時に、デフォルト構築可能であると判断される。
 
@@ -36,7 +36,7 @@ namespace std {
 struct s {
   s(int){}
   // デフォルトコンストラクタは暗黙に = delete されている。
-  // そのためデフォルトコンストラクトできない。
+  // そのためデフォルト構築できない。
 };
 
 static_assert(std::is_default_constructible<int>::value == true, "value == true, int is default constructible");
@@ -73,9 +73,9 @@ int main(){}
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012～2013には、提案時の名前である`has_default_constructor`も存在する。
 	- 2012～2013は、`std::is_default_constructible<int[]>`のような要素数の指定がない配列型において、誤って`true_type`になっている。`has_default_constructor`も同様である。
 

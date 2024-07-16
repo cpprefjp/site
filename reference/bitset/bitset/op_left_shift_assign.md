@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bitset<N>& operator<<=(size_t pos) noexcept;
+bitset<N>& operator<<=(size_t pos);                    // (1) C++03
+bitset<N>& operator<<=(size_t pos) noexcept;           // (1) C++11
+constexpr bitset<N>& operator<<=(size_t pos) noexcept; // (1) C++23
 ```
 
 ## 概要
@@ -46,4 +48,4 @@ int main()
 
 
 ## 参照
-
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

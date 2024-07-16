@@ -23,11 +23,11 @@ path lexically_relative(const path& base) const;
 2. 以下の式で、`*this`と`base`が異なる最初の位置を見つける：
     - `auto [a, b] =` [`std::mismatch`](/reference/algorithm/mismatch.md)`(`[`begin()`](begin.md)`,` [`end()`](end.md)`, base.`[`begin()`](begin.md)`, base.`[`end()`](end.md)`);`
 3. `a ==` [`end()`](end.md)かつ`b == base.`[`end()`](end.md)の場合、`path(".")`が返る
-4. 範囲`[b, base.`[`end()`](end.md)`)`の非`"."` (ドットx1) かつ非`".."` (ドットx2) の数から、同範囲内の `".."` の数を引いたものを`n`とする
+4. イテレータ範囲`[b, base.`[`end()`](end.md)`)`の非`"."` (ドットx1) かつ非`".."` (ドットx2) の数から、同範囲内の `".."` の数を引いたものを`n`とする
 5. `n < 0`であれば、空のパスが返る
 6. 新たな`path`型オブジェクト`p`をデフォルト構築し、
 7. 式`p /= path("..")`をn回を適用する
-8. 範囲`[a,` [`end()`](end.md)`)`の各要素`x`を、式`p /= x`で加算する
+8. イテレータ範囲`[a,` [`end()`](end.md)`)`の各要素`x`を、式`p /= x`で加算する
 
 
 ## 備考
@@ -63,5 +63,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 8.1
-- [Visual C++](/implementation.md#visual_cpp):
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]

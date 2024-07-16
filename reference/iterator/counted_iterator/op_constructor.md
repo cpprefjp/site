@@ -6,14 +6,15 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr counted_iterator() = default;                     // (1)
+constexpr counted_iterator() requires default_initializable<I> = default; // (1)
 
-constexpr counted_iterator(I x, iter_difference_t<I> n);    // (2)
+constexpr counted_iterator(I x, iter_difference_t<I> n);                  // (2)
 
 template<class I2>
   requires convertible_to<const I2&, I>
-constexpr counted_iterator(const counted_iterator<I2>& x);  // (3)
+constexpr counted_iterator(const counted_iterator<I2>& x);                // (3)
 ```
+* default_initializable[link /reference/concepts/default_initializable.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 
@@ -54,7 +55,7 @@ int main() {
 }
 ```
 * std::counted_iterator[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```
@@ -66,8 +67,9 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update ８
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update ８ [mark verified]
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)

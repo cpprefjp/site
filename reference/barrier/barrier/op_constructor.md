@@ -18,7 +18,7 @@ barrier(const barrier&) = delete;                     // (2)
 - (1) : `barrier`オブジェクトの初期化を行う。
 - (2) : コピーコンストラクタ。コピー不可。
 
-説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のデータメンバを`completion`と表記する。
+説明のため、ここではバリアオブジェクトが保持する`CompletionFunction`型のメンバ変数を`completion`と表記する。
 
 
 ## 事前条件
@@ -103,7 +103,7 @@ phase-3  @140171067340544
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 11.0
+- [Clang](/implementation.md#clang): 11.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

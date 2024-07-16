@@ -38,7 +38,7 @@ std::string get_word(std::istream& is) {
   std::string s;
   char c;
   if (is >> c) {
-    // 大文字にしてからput_backで戻す。
+    // 大文字にしてからputbackで戻す。
     is.putback(std::toupper(c, is.getloc()));
 
     is >> s;
@@ -50,7 +50,7 @@ int main() {
   std::cout << get_word(std::cin) << std::endl;
 }
 ```
-* putback[color ff0000]
+* is.putback[color ff0000]
 * std::toupper[link /reference/locale/toupper.md]
 * getloc()[link /reference/ios/ios_base/getloc.md]
 * std::cin[link /reference/iostream/cin.md]
@@ -96,4 +96,4 @@ basic_istream<CharT, Traits>& putback(char_type c) {
 ## 参照
 
 - [`basic_istream::unget`](unget.md)
-- `basic_streambuf::sputbackc`
+- [`basic_streambuf::sputbackc`](../../streambuf/basic_streambuf/sputbackc.md)

@@ -132,6 +132,6 @@ Mar/Sun[last]
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0 (出力ストリームなし)
-- [GCC](/implementation.md#gcc): 11.1 (出力ストリームなし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 (出力ストリームなし) [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 (出力ストリームなし) [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

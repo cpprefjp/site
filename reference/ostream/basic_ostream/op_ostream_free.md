@@ -229,7 +229,7 @@ int main()
 
 そこで(6)～(12)、(18)～(24)のように`delete`指定された`operator<<`を追加することで不適格にし、このような直感的ではない挙動を避ける。
 
-[機能テストマクロ](/lang/cpp20/feature_test_macros.md.nolink)は`__cpp_lib_char8_t`で、値は`201907`。
+[機能テストマクロ](/lang/cpp20/feature_test_macros.md)は`__cpp_lib_char8_t`で、値は`201907`。
 
 ## バージョン
 ### 言語

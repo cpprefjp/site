@@ -16,6 +16,7 @@ reference_wrapper(const reference_wrapper& x) noexcept;           // (2) C++11
 
 constexpr reference_wrapper(const reference_wrapper& x) noexcept; // (2) C++20
 ```
+* see below[italic]
 
 ## 概要
 与えられた参照で、参照オブジェクトを構築する。
@@ -69,7 +70,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

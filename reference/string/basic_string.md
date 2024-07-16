@@ -139,7 +139,7 @@ namespace std {
 | [`find_first_of`](basic_string/find_first_of.md)                     | 最初に現れる指定文字を検索する                 |                |
 | [`find_last_of`](basic_string/find_last_of.md)                       | 最後に現れる指定文字を検索する                 |                |
 | [`find_first_not_of`](basic_string/find_first_not_of.md)             | 先頭から、指定文字が見つからない位置を検索する |                |
-| [`find_last_nof_of`](basic_string/find_last_not_of.md)               | 末尾から、指定文字が見つからない位置を検索する |                |
+| [`find_last_not_of`](basic_string/find_last_not_of.md)               | 末尾から、指定文字が見つからない位置を検索する |                |
 | [`substr`](basic_string/substr.md)                                   | 部分文字列を取得する                           |                |
 | [`compare`](basic_string/compare.md)                                 | 他の文字列との比較を行う                       |                |
 | [`starts_with`](basic_string/starts_with.md)                         | 指定の文字列で始まるかを判定する               | C++20          |
@@ -151,7 +151,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
-| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。<br/>`static const size_type npos = -1;` | |
+| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。<br/>`static const size_type npos = -1;` | C++23からconstexpr |
 
 
 ### メンバ型
@@ -186,6 +186,7 @@ namespace std {
 |------|------|----------------|
 | [`operator==`](basic_string/op_equal.md)         | 等値比較                           | |
 | [`operator!=`](basic_string/op_not_equal.md)     | 非等値比較                         | |
+| [`operator<=>`](basic_string/op_compare_3way.md) | 三方比較                           | C++20 |
 | [`operator<`](basic_string/op_less.md)           | 左辺が右辺より小さいかの判定を行う | |
 | [`operator<=`](basic_string/op_less_equal.md)    | 左辺が右辺以下かの判定を行う       | |
 | [`operator>`](basic_string/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | |
@@ -231,6 +232,7 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方 (C++03)
 ```cpp example
 #include <iostream>
 #include <cstdio>
@@ -258,11 +260,34 @@ int main()
 * s.substr[link basic_string/substr.md]
 * s.c_str()[link basic_string/c_str.md]
 
-### 出力
+#### 出力
 ```
 hello
 hello world
 ```
+
+### 定数式内でbasic_stringを使用する (C++20)
+```cpp
+#include <cassert>
+#include <string>
+
+constexpr bool f()
+{
+  std::string s = "Hello";
+  s += " World";
+
+  auto* p = s.data();
+  assert(p);
+
+  return true;
+}
+
+int main()
+{
+  static_assert(f());
+}
+```
+* s.data()[link basic_string/data.md]
 
 ## 参照
 - [N2668 Concurrency Modifications to Basic String](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2668.htm)

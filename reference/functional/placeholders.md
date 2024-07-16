@@ -13,6 +13,7 @@ namespace placeholders {
   /*see below*/ unspecified _N;
 }}
 ```
+* see below[italic]
 * unspecified[italic]
 
 ## 概要

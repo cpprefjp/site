@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-size_t count() const;          // C++03
-size_t count() const noexcept; // C++11
+size_t count() const;                    // (1) C++03
+size_t count() const noexcept;           // (1) C++11
+constexpr size_t count() const noexcept; // (1) C++23
 ```
 
 ## 概要
@@ -71,3 +72,7 @@ int main()
 
 ## 関連項目
 - [`std::popcount()`](/reference/bit/popcount.md)
+
+
+## 参照
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

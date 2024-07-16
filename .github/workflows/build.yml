@@ -23,7 +23,7 @@ jobs:
         chmod 600 $HOME/.ssh/id_ed25519
 
     # site_generator
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         repository: cpprefjp/site_generator
         path: site_generator
@@ -31,7 +31,7 @@ jobs:
       working-directory: site_generator
 
     # kunai
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         repository: cpprefjp/kunai
         path: site_generator/kunai
@@ -39,13 +39,13 @@ jobs:
       working-directory: site_generator/kunai
 
     # cpprefjp.github.io
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         repository: cpprefjp/cpprefjp.github.io
         path: site_generator/cpprefjp/cpprefjp.github.io
 
     # site
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         repository: cpprefjp/site
         path: site_generator/cpprefjp/site
@@ -54,11 +54,22 @@ jobs:
     - run: git submodule update -i
       working-directory: site_generator/cpprefjp/site
 
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v1
+    # site
+    - uses: actions/checkout@v2
       with:
-        python-version: 3.x
+        repository: cpprefjp/image
+        path: site_generator/cpprefjp/image
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.11
+        # 3.12でUndefined symbolエラーがでた
 
     # あとはスクリプトで頑張る
     - run: ./cpprefjp/site/.github/workflows/script/build.sh
       working-directory: site_generator
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

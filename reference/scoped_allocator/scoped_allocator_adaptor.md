@@ -17,16 +17,16 @@ namespace std {
 以下は、このアダプタクラスを使用することによって変化する、コンテナのメモリイメージである。
 
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_01.png)
 
 図1 コンテナ、および各要素がそれぞれに別個のアロケータオブジェクトを持つ
 
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_02.png)
 
 図2 コンテナとその要素で、アロケータオブジェクトの状態を伝播させる(例1)
 
-![](https://raw.github.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/scoped_allocator/scoped_allocator_adaptor/ScopedAllocatorModel_03.png)
 
 図3 全ての要素にアロケータオブジェクトの状態を伝播させる(例2)
 
@@ -265,9 +265,8 @@ element allocator : 2
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 5.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.3 [mark verified], 4.8.1 [mark verified], 4.8.2 [mark verified], 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

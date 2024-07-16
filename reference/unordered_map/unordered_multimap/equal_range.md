@@ -34,7 +34,7 @@ pair<const_iterator, const_iterator>
 
 
 ## パラメータ
-- `x` : 比較されるキー値。`key_type` はメンバ型であり、`map` コンテナ内で `Key` の別名として定義される。ここで `Key` は最初のテンプレートパラメータである。
+- `x` : 比較されるキー値。`key_type` はメンバ型であり、`unordered_multimap` コンテナ内で `Key` の別名として定義される。ここで `Key` は最初のテンプレートパラメータである。
 - `k` : 検索するキー。`key_type`と透過的に比較可能な型`K`型のキーである。
 
 
@@ -112,7 +112,7 @@ second:1
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

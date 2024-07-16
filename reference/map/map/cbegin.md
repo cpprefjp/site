@@ -11,8 +11,8 @@ const_iterator cbegin() const noexcept;
 
 
 ## 概要
-`map` コンテナの先頭のキーと要素のpairを参照するイテレータを返す。 
-内部的に、`map`コンテナは要素を下位から上位へと並べており、従って `cbegin()` は `map` 内の最下位のキーにあたるpairのイテレータを返す。
+`map` コンテナの先頭のキーと要素のpairを参照するイテレータを取得する。 
+内部的に、`map`コンテナは要素を下位から上位へと並べており、従って `cbegin()` は `map` 内の最下位のキーにあたるpairへのイテレータを返す。
 
 
 ## 戻り値
@@ -64,7 +64,7 @@ int main()
 ```
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
@@ -73,14 +73,14 @@ int main()
 ## 関連項目
 
 | 名前 | 説明 |
-|------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| [`map::begin`](/reference/map/map/begin.md) | 先頭を指すイテレータを取得する |
-| [`map::end`](/reference/map/map/end.md) | 末尾を指すイテレータを取得する |
-| [`map::cend`](/reference/map/map/cend.md) | 末尾を指すconstイテレータを取得する |
-| [`map::rbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`map::rend`](/reference/map/map/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`map::crbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆constイテレータを取得する |
-| [`map::crend`](/reference/map/map/rend.md) | 先頭を指す逆constイテレータを取得する |
+|------------------------------|-------------------------------------------|
+| [`map::begin`](begin.md)     | 先頭を指すイテレータを取得する |
+| [`map::end`](end.md)         | 末尾の次を指すイテレータを取得する |
+| [`map::cend`](cend.md)       | 末尾の次を指すconstイテレータを取得する |
+| [`map::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+| [`map::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+| [`map::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+| [`map::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
 
 
 

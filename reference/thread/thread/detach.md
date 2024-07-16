@@ -18,7 +18,7 @@ void detach();
 
 
 ## 効果
-`this`に関連付けられていたスレッドはそのまま処理が続行される。またそのスレッドが完了した後には、処理系が同スレッドで利用していたリソース（スレッドローカル変数など）を開放する。一方、この関数を呼び出したスレッドはブロックされない。
+`this`に関連付けられていたスレッドはそのまま処理が続行される。またそのスレッドが完了した後には、処理系が同スレッドで利用していたリソース（スレッドローカル変数など）を解放する。一方、この関数を呼び出したスレッドはブロックされない。
 
 
 ## 事後条件
@@ -81,8 +81,8 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
+- [GCC](/implementation.md#gcc): 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照

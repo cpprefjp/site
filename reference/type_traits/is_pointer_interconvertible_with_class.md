@@ -1,6 +1,6 @@
 # is_pointer_interconvertible_with_class
 * type_traits[meta header]
-* function[meta id-type]
+* function template[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
 

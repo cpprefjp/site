@@ -59,8 +59,8 @@ int main()
 }
 ```
 * bucket[color ff0000]
-* us.bucket_count()[link bucket_count.md]
-* us.bucket_size[link bucket_size.md]
+* ums.bucket_count()[link bucket_count.md]
+* ums.bucket_size[link bucket_size.md]
 
 ### 出力
 ```
@@ -83,9 +83,8 @@ key = H, bucket = 3, bucket_size = 0
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.2
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++:](/implementation.md#visual_cpp) ?
 

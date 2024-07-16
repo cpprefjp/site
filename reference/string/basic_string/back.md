@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-const charT& back() const;
-charT& back();
+const charT& back() const;           // (1) C++11
+constexpr const charT& back() const; // (1) C++20
+
+charT& back();                       // (2) C++11
+constexpr charT& back();             // (2) C++20
 ```
 
 ## 概要
@@ -44,4 +47,4 @@ o
 
 ## 参照
 - [LWG Issue 534. Missing `basic_string` members](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#534)
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

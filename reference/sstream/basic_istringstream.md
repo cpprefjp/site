@@ -1,7 +1,7 @@
 # basic_istringstream
 * sstream[meta header]
 * std[meta namespace]
-* class[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {
@@ -18,18 +18,20 @@ namespace std {
 * basic_istream[link /reference/istream/basic_istream.md]
 
 ## 概要
+バッファに保持された文字列への読み取り操作ができるストリーム
 
 
 ## メンバ関数
 
-| 名前          | 説明                                       | 対応バージョン |
-|---------------|--------------------------------------------|----------------|
-| (constructor) | コンストラクタ                             | |
-| (destructor)  | デストラクタ                               | |
-| `operator=`   | ムーブ代入                                 | C++11 |
-| `swap`        | 値の交換                                   | C++11 |
-| `rdbuf`       | ストリームバッファオブジェクトの設定・取得 | |
-| `str`         | 文字列オブジェクトの設定・取得             | |
+| 名前                                | 説明                                       | 対応バージョン |
+|-------------------------------------|--------------------------------------------|----------------|
+| `(constructor)`                     | コンストラクタ                             | |
+| `(destructor)`                      | デストラクタ                               | |
+| `operator=`                         | ムーブ代入                                 | C++11 |
+| `swap`                              | 値の交換                                   | C++11 |
+| `rdbuf`                             | ストリームバッファオブジェクトの設定・取得 | |
+| [`str`](basic_istringstream/str.md) | 文字列オブジェクトの設定・取得             | |
+| `view`                              | 文字列ビューオブジェクトの取得             | C++20 |
 
 
 ## 非メンバ関数
@@ -58,3 +60,5 @@ namespace std {
 ```
 ```
 
+## 参照
+- [P0408R7 Efficient Access to `basic_stringbuf`’s Buffer](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0408r7.pdf)

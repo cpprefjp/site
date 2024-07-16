@@ -1,5 +1,13 @@
-# [[maybe_unused]]属性
+# [[maybe_unused]]属性 [P0212R1]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -113,7 +121,7 @@ maybe_unused.cpp:12:8: warning: unused variable 'b2' [-Wunused-variable]
 
 P0068R0では`[[unused]]`という名前で提案されたが、いわゆる自転車置き場の議論の末の投票によって、採用された名前は`[[maybe_unused]]`になった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 
 ## 参照

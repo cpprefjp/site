@@ -5,67 +5,186 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& replace(size_type pos1, size_type n1,
-                      const basic_string& str);                     // (1)
+basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const basic_string& str); // (1) C++03
+constexpr basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const basic_string& str); // (1) C++20
 
-basic_string& replace(size_type pos1, size_type n1,
-                      const basic_string& str,
-                      size_type pos2, size_type n2);                // (2) C++11
-basic_string& replace(size_type pos1, size_type n1,
-                      const basic_string& str,
-                      size_type pos2, size_type n2 = npos);         // (2) C++14
+basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const basic_string& str,
+          size_type pos2,
+          size_type n2);           // (2) C++11
+basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const basic_string& str,
+          size_type pos2,
+          size_type n2 = npos);    // (2) C++14
+constexpr basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const basic_string& str,
+          size_type pos2,
+          size_type n2 = npos);    // (2) C++20
 
-basic_string& replace(size_type pos, size_type n1, const charT* s,
-                      size_type n2);                                // (3)
-basic_string& replace(size_type pos, size_type n1, const charT* s); // (4)
-basic_string& replace(size_type pos, size_type n1, size_type n2,
-                      charT c);                                     // (5)
+basic_string&
+  replace(size_type pos,
+          size_type n1,
+          const charT* s,
+          size_type n2);  // (3) C++03
+constexpr basic_string&
+  replace(size_type pos,
+          size_type n1,
+          const charT* s,
+          size_type n2);  // (3) C++20
 
-basic_string& replace(iterator i1, iterator i2,
-                      const basic_string& str);                     // (6) C++03
-basic_string& replace(const_iterator i1, const_iterator i2,
-                      const basic_string& str);                     // (6) C++11
+basic_string&
+  replace(size_type pos,
+          size_type n1,
+          const charT* s); // (4) C++03
+constexpr basic_string&
+  replace(size_type pos,
+          size_type n1,
+          const charT* s); // (4) C++20
 
-basic_string& replace(iterator i1, iterator i2,
-                      const charT* s, size_type n);                 // (7) C++03
-basic_string& replace(const_iterator i1, const_iterator i2,
-                      const charT* s, size_type n);                 // (7) C++11
+basic_string&
+  replace(size_type pos,
+          size_type n1,
+          size_type n2,
+          charT c);      // (5) C++03
+constexpr basic_string&
+  replace(size_type pos,
+          size_type n1,
+          size_type n2,
+          charT c);      // (5) C++20
 
-basic_string& replace(iterator i1, iterator i2,
-                      const charT* s);                              // (8) C++03
-basic_string& replace(const_iterator i1, const_iterator i2,
-                      const charT* s);                              // (8) C++11
+basic_string&
+  replace(iterator i1,
+          iterator i2,
+          const basic_string& str); // (6) C++03
+basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const basic_string& str); // (6) C++11
+constexpr basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const basic_string& str); // (6) C++20
 
-basic_string& replace(iterator i1, iterator i2,
-                      size_type n, charT c);                        // (9) C++03
-basic_string& replace(const_iterator i1, const_iterator i2,
-                      size_type n, charT c);                        // (9) C++11
+basic_string&
+  replace(iterator i1,
+          iterator i2,
+          const charT* s,
+          size_type n);      // (7) C++03
+basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const charT* s,
+          size_type n);      // (7) C++11
+constexpr basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const charT* s,
+          size_type n);      // (7) C++20
+
+basic_string&
+  replace(iterator i1,
+          iterator i2,
+          const charT* s);   // (8) C++03
+basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const charT* s);   // (8) C++11
+constexpr basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const charT* s);   // (8) C++20
+
+basic_string&
+  replace(iterator i1,
+          iterator i2,
+          size_type n,
+          charT c);              // (9) C++03
+basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          size_type n, charT c); // (9) C++11
+constexpr basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          size_type n, charT c); // (9) C++20
 
 template <class InputIterator>
-basic_string& replace(iterator i1, iterator i2,
-                      InputIterator j1, InputIterator j2);          // (10) C++03
+basic_string&
+  replace(iterator i1,
+          iterator i2,
+          InputIterator j1,
+          InputIterator j2);     // (10) C++03
 template <class InputIterator>
-basic_string& replace(const_iterator i1, const_iterator i2,
-                      InputIterator j1, InputIterator j2);          // (10) C++11
+basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          InputIterator j1,
+          InputIterator j2);     // (10) C++11
+template <class InputIterator>
+constexpr basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          InputIterator j1,
+          InputIterator j2);     // (10) C++20
 
-basic_string& replace(const_iterator i1, const_iterator i2,
-                      initializer_list<charT> il);                  // (11) C++11
+basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          initializer_list<charT> il); // (11) C++11
+constexpr basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          initializer_list<charT> il); // (11) C++20
 
 // string_viewを引数に取るオーバーロード
 template<class T>
-basic_string& replace(size_type pos1,
-                      size_type n1,
-                      const T& t);                                  // (12) C++17
+basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const T& t);    // (12) C++17
 template<class T>
-basic_string& replace(size_type pos1, 
-                      size_type n1,
-                      const T& t,
-                      size_type pos2,
-                      size_type n2 = npos);                         // (13) C++17
+constexpr basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const T& t);    // (12) C++17
+
 template<class T>
-basic_string& replace(const_iterator i1,
-                      const_iterator i2,
-                      const T& t);                                  // (14) C++17
+basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const T& t,
+          size_type pos2,
+          size_type n2 = npos); // (13) C++17
+template<class T>
+constexpr basic_string&
+  replace(size_type pos1,
+          size_type n1,
+          const T& t,
+          size_type pos2,
+          size_type n2 = npos); // (13) C++20
+
+template<class T>
+basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const T& t);       // (14) C++17
+template<class T>
+constexpr basic_string&
+  replace(const_iterator i1,
+          const_iterator i2,
+          const T& t);       // (14) C++20
 ```
 
 ## 概要
@@ -82,19 +201,19 @@ basic_string& replace(const_iterator i1,
 - (2) : `pos1 <=` [`size()`](size.md)、および`pos2 <= str.`[`size()`](size.md)であること。
 - (3) : `pos1 <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても`n2`個の要素を持つ配列を指していること。
 - (4) : `pos <=` [`size()`](size.md)、および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
-- (6) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
-- (7) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。また、文字配列へのポインタ`s`が、少なくても`n`個の要素を持つ配列を指していること。
-- (8) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
-- (9) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
-- (10) : `[`[`begin()`](begin.md)`, i1)`、`[i1, i2)`、および`[j1, j2)`が有効な範囲であること。
-- (11) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
-- (14) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効な範囲であること。
+- (6) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効なイテレータ範囲であること。
+- (7) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効なイテレータ範囲であること。また、文字配列へのポインタ`s`が、少なくても`n`個の要素を持つ配列を指していること。
+- (8) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効なイテレータ範囲であること。および文字配列へのポインタ`s`が、少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個の要素を指す配列を指していること。
+- (9) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効なイテレータ範囲であること。
+- (10) : `[`[`begin()`](begin.md)`, i1)`、`[i1, i2)`、および`[j1, j2)`が有効なイテレータ範囲であること。
+- (11) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効なイテレータ範囲であること。
+- (14) : `[`[`begin()`](begin.md)`, i1)`および`[i1, i2)`が有効なイテレータ範囲であること。
 
 
 ## 効果
 - (1) : `replace(pos1, n1, str.`[`data()`](data.md)`, str.`[`size()`](size.md)`)`を呼び出す。
 - (2) :
-    - `n2`と`str.`[`size()`](size.md) `- pos2`のうち小さい方を`rlen`とする。`n == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
+    - `n2`と`str.`[`size()`](size.md) `- pos2`のうち小さい方を`rlen`とする。`n2 == npos` の場合は、 `str.`[`size`](size.md)`() - pos2` が使用される。
     - `replace(pos1, n1, str.`[`data()`](data.md) `+ pos2, rlen)`を呼び出す。
 - (3) : `n1`と[`size()`](size.md) `- pos1`のうち小さい方を`xlen`とし、自身の`pos1`番目から`xlen`個の要素を、文字配列`s`の先頭`n2`文字で置き換える。
 - (4) : `replace(pos, n, s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
@@ -157,7 +276,7 @@ int main()
     std::cout << "(1) : " << s1 << std::endl;
   }
 
-  // (2) 指定した一からN文字を、文字列の一部で置き換える
+  // (2) 指定した位置からN文字を、文字列の一部で置き換える
   {
     std::string s1 = "12345";
     std::string s2 = "abcde";
@@ -322,3 +441,4 @@ int main()
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(12)(13)(14)の引数型を`const T&`に変更
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

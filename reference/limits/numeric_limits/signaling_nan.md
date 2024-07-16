@@ -6,7 +6,7 @@
 
 ```cpp
 // C++03
-static const T signaling_NaN() noexcept;
+static const T signaling_NaN() throw();
 
 // C++11
 static constexpr T signaling_NaN() noexcept;
@@ -36,7 +36,7 @@ static constexpr T signaling_NaN() noexcept;
 int main()
 {
   constexpr float f = std::numeric_limits<float>::signaling_NaN();
-  constexpr float d = std::numeric_limits<double>::signaling_NaN();
+  constexpr double d = std::numeric_limits<double>::signaling_NaN();
 
   std::cout << "float : " << f << std::endl;
   std::cout << "double : " << d << std::endl;
@@ -51,6 +51,6 @@ double : 1.#QNAN
 ```
 
 ## 参照
-* [`numeric_limits::has_quiet_NaN`](signaling_nan.md)
+* [`numeric_limits::has_quiet_NaN`](has_quiet_nan.md)
 * [NANの定義について - ぴょぴょぴょ？ - Linuxとかプログラミングの覚え書き](http://d.hatena.ne.jp/pyopyopyo/20100330/p1)
 

@@ -8,6 +8,7 @@
 ```cpp
 static consteval source_location current() noexcept;
 ```
+* consteval[link /lang/cpp20/immediate_functions.md]
 * source_location[link ../source_location.md]
 
 ## 概要
@@ -24,7 +25,7 @@ static consteval source_location current() noexcept;
 * [`line()`](line.md)の値は`__LINE__`が表すような行番号であり、1オリジンだが、行番号が不明のときは0になる可能性がある。
 * [`column()`](column.md)の値は行頭からのオフセットを表す処理系定義の値で、1オリジンだが、列番号が不明のときは0になる可能性がある。
 * [`file_name()`](file_name.md)の値は`__FILE__`が表すような現在のファイル名である。
-* [`function_name()`](file_name.md)の値は[`__func__`](/lang/cpp11/func.md)が表すような現在の関数名であり、[`__func__`](/lang/cpp11/func.md)が定義されないような状況では空文字列である。
+* [`function_name()`](function_name.md)の値は[`__func__`](/lang/cpp11/func.md)が表すような現在の関数名であり、[`__func__`](/lang/cpp11/func.md)が定義されないような状況では空文字列である。
 
 その他の方法で呼び出されたときは、未規定の有効な値を返す。
 
@@ -39,7 +40,7 @@ static consteval source_location current() noexcept;
 投げない。
 
 ## 備考
-* 波カッコまたは`=`による非静的データメンバ初期化の中で`current()`を使う場合、`current()`の値は初期値が宣言された場所ではなく、その初期化をするに至ったコンストラクタや集成体を指す。
+* 波カッコまたは`=`による非静的メンバ変数初期化の中で`current()`を使う場合、`current()`の値は初期値が宣言された場所ではなく、その初期化をするに至ったコンストラクタや集成体を指す。
 * 引数のデフォルト値に`current()`を使う場合、`current()`の値はデフォルト値が宣言された場所ではなく、その関数の呼び出し側を表す。
 
 ```cpp
@@ -57,7 +58,7 @@ struct Type {
 };
 ```
 
-- (1): 非静的データメンバの初期化に`current()`を使う
+- (1): 非静的メンバ変数の初期化に`current()`を使う
 - (2): 引数`loc`はデフォルトで呼び出し側の位置を表す。`loc_`の値はコンストラクタを呼び出した側の位置になる
 - (3): このコンストラクタには`loc_`の初期化子がないので、(1)で初期化され、`loc_`の値は(3)のコンストラクタの位置になる
 
@@ -67,10 +68,10 @@ void func(source_location a = source_location::current()) {
 }
 
 int main() {
-  f(); // (2)
+  func(); // (2)
 
   source_location c = source_location::current();
-  f(c); // (3)
+  func(c); // (3)
 }
 ```
 
@@ -107,12 +108,12 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.1
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
-- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md)
 
 ## 参照
 

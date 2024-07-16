@@ -1,6 +1,14 @@
 # 列挙子の末尾へのカンマ付加を許可
 * cpp11[meta cpp]
 
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
+
 ## 概要
 C99互換として、末尾の列挙子の後ろにカンマを書くことが許可された。
 
@@ -41,4 +49,3 @@ int main() {}
 
 ## 参照
 - [CWG Issue 518. Trailing comma following enumerator-list](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#518)
-

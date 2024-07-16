@@ -10,7 +10,7 @@ constexpr reverse_iterator rend() const noexcept;
 ```
 
 ## 概要
-末尾要素の次を指す逆順イテレータを取得する。
+先頭要素の前を指す逆順イテレータを取得する。
 
 
 ## 戻り値
@@ -42,7 +42,7 @@ int main()
   std::vector<int> v = {1, 2, 3, 4, 5};
 
   // vの先頭3要素を部分シーケンスとして参照する
-  std::span<int, 3> s = std::span(v).first(3);
+  std::span<int> s = std::span(v).first(3);
 
   // 逆順に出力
   std::for_each(s.rbegin(), s.rend(), [](int x) {
@@ -66,6 +66,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

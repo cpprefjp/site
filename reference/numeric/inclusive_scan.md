@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator, class OutputIterator>
   OutputIterator
     inclusive_scan(InputIterator first,
@@ -74,7 +74,7 @@ namespace std{
 ```
 
 ## 概要
-範囲の部分和を計算する。この関数は、i番目の部分和を求める際にi番目の要素を含め、範囲`[0, i]`までの部分和を計算する。
+イテレータ範囲`[first, last)`の部分和を計算する。この関数は、i番目の部分和を求める際にi番目の要素を含め、範囲`[0, i]`までの部分和を計算する。
 
 `inclusive_scan()`の引数として、初期値`0`、およびシーケンス`{1, 2, 3}`が与えられた場合、以下のような結果が行われる：
 
@@ -97,7 +97,7 @@ namespace std{
 
 
 ## 要件
-- (2), (3), (5), (6) : 関数オブジェクト`binary_op`の呼び出しは、範囲`[first, last]`および範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
+- (2), (3), (5), (6) : 関数オブジェクト`binary_op`の呼び出しは、イテレータ範囲`[first, last]`およびイテレータ範囲`[result, result + (last - first)]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## テンプレートパラメータ制約
@@ -136,7 +136,7 @@ namespace std{
 
 
 ## 計算量
-関数オブジェクト`binary_op`をO(`last - first`)計算量の回数だけ適用する
+関数オブジェクト`binary_op`をO(`last - first`)回だけ適用する
 
 
 ## 備考
@@ -223,7 +223,7 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 

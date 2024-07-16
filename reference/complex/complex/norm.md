@@ -6,12 +6,16 @@
 ```cpp
 namespace std {
   template <class T>
-  T norm(const complex<T>& x);           // (1) C++03
-
+  T
+    norm(const complex<T>& x); // (1) C++03
   template <class T>
-  constexpr T norm(const complex<T>& x); // (1) C++20
+  constexpr T
+    norm(const complex<T>& x); // (1) C++20
 
-  Promoted norm(Arithmetic x);           // (2) C++11 追加のオーバーロード
+  complex<Promoted>
+    norm(Arithmetic x);        // (2) C++11
+  constexpr complex<Promoted>
+    norm(Arithmetic x);        // (2) C++26
 }
 ```
 * Promoted[italic]
@@ -20,11 +24,13 @@ namespace std {
 ## 概要
 複素数体のノルム（field norm。絶対値の 2 乗）を得る。
 
-なお、C++11 で追加されたオーバーロードは、以下のように規定されている。
+- (1) : `complex<T>`に対するオーバーロード
+- (2) : 算術型に対する追加のオーバーロード
 
-- 実引数の型が `long double` の場合、`complex<long double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `double` か整数型の場合、`complex<double>` にキャストされているかのように振る舞う。
-- そうでなくて、実引数の型が `float` の場合、`complex<float>` にキャストされているかのように振る舞う。
+(2)は、以下のように振る舞う：
+
+- 実引数の型が浮動小数点数型 `T` の場合、`complex<T>` にキャストされているかのように振る舞う
+- そうでなくて、実引数が整数型の場合、`complex<double>` にキャストされているかのように振る舞う (C++23)
 
 また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない。
 
@@ -64,9 +70,9 @@ norm( (1,2) ) = 5
 - C++98（追加のオーバーロードは C++11 から）
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4（追加のオーバーロード含む）
-- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード以外）
-- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0（追加のオーバーロード含む）
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4（追加のオーバーロード含む） [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified], 4.4.7 [mark verified], 4.5.4 [mark verified], 4.6.4 [mark verified], 4.7.3 [mark verified], 4.8.1 [mark verified], 4.8.2 [mark verified], 4.9.0（追加のオーバーロード以外） [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified], 4.4.7 [mark verified], 4.5.4 [mark verified], 4.6.4 [mark verified], 4.7.3 [mark verified], 4.8.1 [mark verified], 4.8.2 [mark verified], 4.9.0（追加のオーバーロード含む） [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -87,3 +93,7 @@ norm( (1,2) ) = 5
 - [ノルム (体論) - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0_(%E4%BD%93%E8%AB%96))
 - [ノルム - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%83%A0)
 - [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型への対応が行われ、整数型も考慮されるようになった
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で(2)が`constexpr`対応した

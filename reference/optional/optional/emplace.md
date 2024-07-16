@@ -7,10 +7,14 @@
 
 ```cpp
 template <class... Args>
-T& emplace(Args&&... args);                              // (1)
+T& emplace(Args&&... args);                                        // (1) C++17
+template <class... Args>
+constexpr T& emplace(Args&&... args);                              // (1) C++23
 
 template <class U, class... Args>
-T& emplace(std::initializer_list<U> il, Args&&... args); // (2)
+T& emplace(std::initializer_list<U> il, Args&&... args);           // (2) C++17
+template <class U, class... Args>
+constexpr T& emplace(std::initializer_list<U> il, Args&&... args); // (2) C++23
 ```
 
 ## 概要
@@ -99,8 +103,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.2
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -109,3 +113,4 @@ int main()
 - [N3406 A proposal to add a utility class to represent optional objects (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3406.html)
 - [LWG Issue 2857. {`variant`,`optional`,`any`}`::emplace` should return the constructed value](https://wg21.cmeerw.net/lwg/issue2857)
 - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

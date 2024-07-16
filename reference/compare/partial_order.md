@@ -66,7 +66,7 @@ namespace std {
 3. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
 4. 引数`a, b`の型`T`を[`weak_order`](weak_order.md)にアダプトしておく。
 
-ただし、どのケースにおいてもその戻り値型は[`partial_ordering`](weak_ordering.md)に変換可能でなければならない。
+ただし、どのケースにおいてもその戻り値型は[`partial_ordering`](partial_ordering.md)に変換可能でなければならない。
 
 
 ## 例
@@ -155,12 +155,12 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 - [`weak_order`](weak_order.md)
 - [`partial_ordering`](partial_ordering.md)
 - [`compare_partial_order_fallback`](compare_partial_order_fallback.md)

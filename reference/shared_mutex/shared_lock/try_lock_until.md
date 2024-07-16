@@ -72,7 +72,7 @@ int main()
   }
 }
 ```
-* try_lock_until()[color ff0000]
+* try_lock_until[color ff0000]
 * std::shared_timed_mutex[link /reference/shared_mutex/shared_timed_mutex.md]
 * std::defer_lock[link /reference/mutex/defer_lock.md]
 * owns_lock()[link owns_lock.md]
@@ -91,7 +91,7 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.5
-- [GCC](/implementation.md#gcc): 4.9
+- [Clang](/implementation.md#clang): 3.5 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]

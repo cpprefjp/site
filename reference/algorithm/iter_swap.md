@@ -6,10 +6,10 @@
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
-  void iter_swap(ForwardIterator1 a, ForwardIterator2 b);           // C++03
+  void iter_swap(ForwardIterator1 a, ForwardIterator2 b);           // (1) C++03
 
   template <class ForwardIterator1, class ForwardIterator2>
-  constexpr void iter_swap(ForwardIterator1 a, ForwardIterator2 b); // C++20
+  constexpr void iter_swap(ForwardIterator1 a, ForwardIterator2 b); // (1) C++20
 }
 ```
 

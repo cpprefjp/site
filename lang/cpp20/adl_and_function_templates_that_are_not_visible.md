@@ -1,5 +1,13 @@
-# 関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正
+# 関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正 [P0846R0]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++17までは、以下のコードが不適格だった：
@@ -53,7 +61,6 @@ int main() {
   std::cout << get<0>(t) << std::endl; // C++17:NG C++20:OK
 }
 ```
-* std::tuple[link /reference/tuple/tuple.md]
 * get[link /reference/tuple/tuple/get.md]
 
 ### 出力

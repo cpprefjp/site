@@ -44,7 +44,7 @@ int main()
 {
   // (1)
   {
-    std::multiset<std::string> s = { "Alice", "Bob", "Bob", "Carol" };
+    std::set<std::string> s = { "Alice", "Bob", "Bob", "Carol" };
 
     std::size_t n = s.count("Bob");
     std::cout << n << std::endl;
@@ -52,7 +52,7 @@ int main()
 
   // (2)
   {
-    std::multiset<std::string, std::less<>> s = { "Alice", "Bob", "Bob", "Carol" };
+    std::set<std::string, std::less<>> s = { "Alice", "Bob", "Bob", "Carol" };
 
     // std::lessのvoidに対する特殊化を使用することで、
     // 文字列リテラルをcount()関数の引数として渡した際に、
@@ -67,8 +67,8 @@ int main()
 
 ### 出力
 ```
-2
-2
+1
+1
 ```
 
 ## 関連項目

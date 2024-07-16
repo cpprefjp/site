@@ -1,7 +1,7 @@
 # basic_filebuf
 * fstream[meta header]
 * std[meta namespace]
-* class[meta id-type]
+* class template[meta id-type]
 
 ```cpp
 namespace std {
@@ -22,7 +22,7 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 位置操作（`seekoff`と`seekpos`）は、入力・出力双方で共有される。
 
 テンプレートパラメータとして文字型を受け取るようになっており、使用を容易にするため、以下のパラメータ設定済みエイリアスが定義されている。
-このエイリアスは`<fstream>`ヘッダと`<iosfwd>`ヘッダで定義されている。
+このエイリアスは[`<fstream>`](/reference/fstream.md)ヘッダと`<iosfwd>`ヘッダで定義されている。
 
 | エイリアス | 説明 | 対応バージョン |
 |------------|------|----------------|
@@ -72,7 +72,7 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 | `sync`                                      | 出力列の同期 (protected virtual) | |
 | `uflow`                                     | (protected virtual) |
 | `underflow`                                 | (protected virtual) |
-| `showmasync`                                | ブロックせずに読み取れると期待される文字数を得る (protected virtual) | |
+| `showmanyc`                                 | ブロックせずに読み取れると期待される文字数を得る (protected virtual) | |
 | `pbackfail`                                 | 1文字を入力列に戻す (protected virtual) | |
 | `overflow`                                  | (protected virtual) |
 

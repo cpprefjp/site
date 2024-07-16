@@ -1,5 +1,13 @@
-# 一貫比較
+# `<=>`/`==`による比較演算子の自動定義 [P0515R3]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 新しく三方比較演算子`<=>`が導入されることにより、順序付けと同値比較の6つの関係演算子（`<`, `<=`, `>`, `>=`, `==`, `!=`）を容易に実装することができるようになる。
@@ -80,7 +88,7 @@ auto comp = a <=> b;
 
 //全て未定義動作
 bool is_less = comp == 1;
-bool is_greator = -1 < comp
+bool is_greater = -1 < comp
 bool is_equal = comp == 0.0;
 ```
 
@@ -304,7 +312,7 @@ inline bool operator== (const C&, const C&) = default;
 
 `default`指定された三方比較演算子の戻り値型は基底クラス及び全メンバの`<=>`の結果型の共通比較カテゴリ型となるが、その中に比較カテゴリ型を返さない`<=>`による比較がある場合は暗黙的に`delete`される。
 
-`delete`されていない全ての`default`比較演算子は、通常の特殊メンバ関数と同様にODR使用された時あるいは定数式で評価された時に、最初の`default`宣言の位置で暗黙的に定義される（詳細は「評価されない文脈で`constexpr`関数が定数式評価されることを規定」を参照）。
+`delete`されていない全ての`default`比較演算子は、通常の特殊メンバ関数と同様にODR使用された時あるいは定数式で評価された時に、最初の`default`宣言の位置で暗黙的に定義される（詳細は[「評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定」](less_eager_instantiation_of_constexpr_functions.md)を参照）。
 
 #### operator==の暗黙宣言
 
@@ -776,7 +784,7 @@ struct has_vector {
 |関数/メンバポインタ|`std::strong_equality`|あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可|
 |[`std::nullptr_t`](/reference/cstddef/nullptr_t.md)|`std::strong_equality`||
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`<compare>`](/reference/compare.md)
     - 比較カテゴリ型
@@ -794,6 +802,8 @@ struct has_vector {
         - [`compare_three_way`](/reference/compare/compare_three_way.md)
 - [`<algorithm>`](/reference/algorithm.md)
     - [`lexicographical_compare_three_way`](/reference/algorithm/lexicographical_compare_three_way.md)
+- [C++26 非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md.nolink)
+
 
 ## 参照
 

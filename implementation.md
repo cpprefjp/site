@@ -35,6 +35,7 @@
     - GNU拡張を有効にする`-std=gnu++1z`オプションもある。
 - Clang 5.0以降は、`-std=c++17`オプションを使用する(以前までのオプションも使用できる)。
     - GNU拡張を有効にする`-std=gnu++17`オプションもある。
+- Clang 16.0以降はC++17がデフォルトとなる。デフォルトバージョンのコンパイルオプションは`-std=gnu++17`
 
 ### C++20の機能を有効にする
 - Clang 6.0以降は、`-std=c++2a`オプションを使用する。
@@ -45,6 +46,12 @@
 ### C++23の機能を有効にする
 - Clang 12.0以降は、`-std=c++2b`オプションを使用する。
     - GNU拡張を有効にする`-std=gnu++2b`オプションもある。
+- Clang 17.0以降は、`-std=c++23`オプションを使用する(以前までのオプションも使用できる)。
+    - GNU拡張を有効にする`-std=gnu++23`オプションもある。
+
+### C++26の機能を有効にする
+- Clang 17.0以降は、`-std=c++2c`オプションを使用する。
+    - GNU拡張を有効にする`-std=gnu++2c`オプションもある。
 
 
 ## <a id="gcc" href="#gcc">GNU Compiler Collection</a>
@@ -134,7 +141,18 @@
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
-| 2019 Update 9 | Visual Studio 2019 バージョン 16.9.2   | 14.28           | 1928       | 192829913        |
+| 2022          | Visual Studio 2022 version 17.9.2      | 14.39           | 1939       | 193933521       |
+| 2022          | Visual Studio 2022 version 17.8.3      | 14.38           | 1938       | 193833133       |
+| 2022          | Visual Studio 2022 version 17.7.0      | 14.37           | 1937       | 193732822       |
+| 2022 Update 6 | Visual Studio 2022 version 17.6.2      | 14.36           | 1936       | 193632532       |
+| 2022 Update 5 | Visual Studio 2022 version 17.5.4      | ??              | 1935       | 193532217       |
+| 2022 Update 4 | Visual Studio 2022 version 17.4.9      | ??              | 1934       | 193431944       |
+| 2022 Update 3 | Visual Studio 2022 version 17.3.6      | 14.33           | 1933       | 193331630       |
+| 2022 Update 2 | Visual Studio 2022 version 17.2.2      | 14.32           | 1932       | 193231329       |
+| 2022 Update 1 | Visual Studio 2022 version 17.0.2      | 14.30           | 1930       | 193030706       |
+| 2022          | Visual Studio 2022 version 17.0.1      | 14.30           | 1930       | 193030705       |
+| 2019 Update 11 | Visual Studio 2019 バージョン 16.11.2  | 14.28           | 1929       | 192930133       |
+| 2019 Update 9 | Visual Studio 2019 バージョン 16.9.2   | 14.28           | 1928       | 192829913       |
 | 2019 Update 8 | Visual Studio 2019 バージョン 16.8.2   | 14.28           | 1928       | 192829334       |
 | 2019 Update 8 | Visual Studio 2019 バージョン 16.8.1   | 14.28           | 1928       | 192829333       |
 | 2019 Update 7 | Visual Studio 2019 バージョン 16.7     | 14.27           | 1927       | 192729112       |
@@ -215,7 +233,7 @@
 |               | Microsoft C 6.0                        |                 | 600        |                 |
 
 1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。製品バージョンは、2017以降、メインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
-2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。
+2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。Visual Studio 2022においては`C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC`配下のフォルダ名(`14.39.33519`など)で確認できる。
 3. <a id="note-t1-3">^</a> <sup>[**a**](#note_ref-t1-3-a)</sup> <sup>[**b**](#note_ref-t1-3-b)</sup> <sup>[**c**](#note_ref-t1-3-c)</sup> IDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は変更されなかった。
 	- [C++17 Features And STL Fixes In VS 2017 15.3 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/08/11/c17-features-and-stl-fixes-in-vs-2017-15-3/) - "*After VS 2017 RTM, the 15.1 and 15.2 updates improved the IDE. The 15.3 update improves both the IDE and the toolset.*"
 	- [Description of Visual Studio 2013 Update 1](https://support.microsoft.com/en-us/help/2911573/description-of-visual-studio-2013-update-1)

@@ -21,7 +21,7 @@ boyer_moore_searcher(boyer_moore_searcher&& other) = default;      // (3)
 
 このクラスにデフォルトコンストラクタは定義されない。
 
-- (1) : 検索対象 (pattern) の範囲`[pat_first, pat_last)`を登録する
+- (1) : 検索対象 (pattern) のイテレータ範囲`[pat_first, pat_last)`を登録する
 - (2) : コピーコンストラクタ
 - (3) : ムーブコンストラクタ
 
@@ -81,5 +81,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 7.3
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

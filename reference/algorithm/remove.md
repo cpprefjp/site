@@ -27,11 +27,11 @@ namespace std {
 ```
 
 ## 概要
-指定された要素を取り除く。
+イテレータ範囲`[first, last)`から指定された要素を取り除く。
 
 
-## 要件
-`*first` の型は `MoveAssignable` の要件を満たす必要がある
+## テンプレートパラメータ制約
+- `*first` の型は `MoveAssignable` の要件を満たすこと
 
 
 ## 効果

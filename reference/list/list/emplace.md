@@ -18,7 +18,7 @@ iterator emplace(const_iterator position, Args&&... args);
 
 
 ## 要件
-第1パラメータ`position`が、`[`[`begin()`](begin.md)`,` [`end()`](end.md)`]`の範囲の間接参照可能なイテレータであること。
+第1パラメータ`position`が、イテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md)`]`の間接参照可能なイテレータであること。
 
 
 ## 戻り値
@@ -68,8 +68,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.6.4
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.6.4 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

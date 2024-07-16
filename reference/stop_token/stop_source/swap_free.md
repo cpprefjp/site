@@ -1,13 +1,12 @@
 # swap (非メンバ関数)
 * stop_token[meta header]
 * std[meta namespace]
+* stop_source[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
-namespace std {
-  void swap(stop_source& x, stop_source& y) noexcept;
-}
+friend void swap(stop_source& x, stop_source& y) noexcept;
 ```
 
 ## 概要
@@ -44,7 +43,7 @@ int main()
   assert(ss1.stop_possible() == true);
   assert(ss2.stop_possible() == false);
 
-  std::swap(ss1, ss2);
+  swap(ss1, ss2);
 
   assert(ss1.stop_possible() == false);
   assert(ss2.stop_possible() == true);

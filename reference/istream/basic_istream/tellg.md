@@ -74,7 +74,7 @@ pos_type tellg(pos_type pos) {
 ```
 * sentry[link sentry.md]
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
-* pubseekoff[link /reference/streambuf/basic_streambuf/pubseekoff.md.nolink]
+* pubseekoff[link /reference/streambuf/basic_streambuf/pubseekoff.md]
 * exceptions()[link /reference/ios/basic_ios/exceptions.md]
 * badbit[link /reference/ios/ios_base/type-iostate.md]
 
@@ -83,7 +83,6 @@ pos_type tellg(pos_type pos) {
 - C++98
 
 ## 参照
-
 - [`basic_istream::seekg`](seekg.md)
-- `basic_streambuf::pubseekoff`
-- `basic_streambuf::seekoff`
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)
+- [`basic_streambuf::seekoff`](../../streambuf/basic_streambuf/seekoff.md)

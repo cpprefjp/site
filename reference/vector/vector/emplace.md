@@ -7,10 +7,20 @@
 
 ```cpp
 template <class... Args>
-iterator emplace(const_iterator position, Args&&... args);
+iterator
+  emplace(const_iterator position, Args&&... args); // (1) C++11
+template <class... Args>
+constexpr iterator
+  emplace(const_iterator position, Args&&... args); // (1) C++20
 
 template <class... Args>
-iterator vector<bool>::emplace(const_iterator position, Args&&... args); // C++14
+iterator
+  vector<bool>::emplace(const_iterator position,
+                        Args&&... args);         // (2) C++14
+template <class... Args>
+constexpr iterator
+  vector<bool>::emplace(const_iterator position,
+                        Args&&... args);         // (2) C++20
 ```
 
 ## 概要
@@ -72,9 +82,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2013
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified]
 
 
 ## 参照
@@ -82,4 +92,4 @@ int main()
 - [LWG Issue 2187. `vector<bool>` is missing emplace and `emplace_back` member functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2187)
 - [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
     - 経緯の説明は、[`vector::push_back()`](/reference/vector/vector/push_back.md)ページを参照。
-
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

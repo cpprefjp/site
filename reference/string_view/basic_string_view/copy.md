@@ -6,7 +6,9 @@
 * cpp17[meta cpp]
 
 ```cpp
-size_type copy(CharT* s, size_type n, size_type pos = 0) const;
+size_type copy(CharT* s, size_type n, size_type pos = 0) const;           // C++17
+
+constexpr size_type copy(CharT* s, size_type n, size_type pos = 0) const; // C++20
 ```
 
 ## 概要
@@ -86,7 +88,12 @@ llo
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+
+- [P1032R1 Misc constexpr bits](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)

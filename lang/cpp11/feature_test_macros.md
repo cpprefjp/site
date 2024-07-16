@@ -1,6 +1,14 @@
 # 機能テストマクロ
 * cpp11[meta cpp]
 
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
+
 ## 概要
 
 SD-6 は C++11 の機能について以下のテストマクロを定義することを推奨している：
@@ -15,7 +23,7 @@ SD-6 は C++11 の機能について以下のテストマクロを定義する�
 | `__cpp_inheriting_constructors`           | `200802` | [継承コンストラクタ](inheriting_constructors.md) | predefined |
 | `__cpp_initializer_lists`                 | `200806` | [初期化子リスト](initializer_lists.md)           | predefined |
 | `__cpp_lambdas`                           | `200907` | [ラムダ式](lambda_expressions.md)                | predefined |
-| `__cpp_nsdmi`                             | `200809` | [非静的データメンバ初期化子](non_static_data_member_initializers.md) | predefined |
+| `__cpp_nsdmi`                             | `200809` | [非静的メンバ変数初期化子](non_static_data_member_initializers.md) | predefined |
 | `__cpp_range_based_for`                   | `200907` | [範囲for文](range_based_for.md)                  | predefined |
 | `__cpp_raw_strings`                       | `200710` | [生文字列リテラル](raw_string_literals.md)       | predefined |
 | `__cpp_ref_qualifiers`                    | `200710` | [`*this` のムーブセマンティクス](ref_qualifier_for_this.md) | predefined |

@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  template<class T> struct atomic_ref;
+  template<class T> struct atomic_ref;          // (1) C++20
 
-  template<> struct atomic_ref<integral>;
-  template<> struct atomic_ref<floating-point>;
-  template<class T> struct atomic_ref<T*>;
+  template<> struct atomic_ref<integral>;       // (2) C++20
+  template<> struct atomic_ref<floating-point>; // (3) C++20
+  template<class T> struct atomic_ref<T*>;      // (4) C++20
 }
 ```
 * integral[italic]
@@ -26,6 +26,12 @@ namespace std {
 オブジェクトを参照してアトミック操作をするための制約として、アーキテクチャ固有のアライメント制約を満たすことが要求される。コンストラクタと代入演算子でオブジェクトを参照する際、メンバ定数としてのアライメント値`required_alignment`の位置にオブジェクトが配置されていること。
 
 `atomic_ref`クラステンプレートは型`T`の値をコピーではなく参照で保持するため、`atomic_ref`オブジェクトより先に参照先の変数の寿命が尽きてはならない。
+
+- (1) : プライマリテンプレート。宣言のみ
+- (2) : 整数型に対する特殊化
+- (3) : (CV修飾されていない) 浮動小数点数型に対する特殊化
+    - (C++23) : 拡張浮動小数点数型を含む
+- (4) : 任意の型のポインタに対する特殊化
 
 
 ## テンプレートパラメータ制約
@@ -174,8 +180,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): 10.1
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
@@ -185,3 +191,5 @@ int main()
 
 ### 参照
 - [P0019R8 Atomic Ref](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0019r8.html)
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型もテンプレート引数として指定することが許可された

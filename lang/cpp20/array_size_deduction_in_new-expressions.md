@@ -1,6 +1,14 @@
-# new式での配列要素数の推論
+# new式での配列要素数の推論 [P1009R2]
 
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -11,9 +19,9 @@ C++20では、`new`式で配列の要素数を推論できる。
 double a[3] {1,2,3};               // OK
 double a[] {1,2,3};                // OK
 double* p = new double[3]{1,2,3};  // OK
-double* p = new double[]{1,2,3};   // OK (C++17ではエラー)
+double* p = new double[]{1,2,3};   // OK (P1009R2非対応の環境ではエラー)
 double* p = new double[](1,2,3);   // OK (丸カッコでの集成体初期化:C++20)
-char*   p = new char[]{"hello"};   // OK (C++17ではエラー)
+char*   p = new char[]{"hello"};   // OK (P1009R2非対応の環境ではエラー)
 ```
 
 要素数が推論できない場合、エラーとなる。
@@ -23,6 +31,9 @@ char*   p = new char[]{"hello"};   // OK (C++17ではエラー)
 double a[];               // エラー
 double* p = new double[]; // エラー
 ```
+
+この変更(P1009R2)は過去すべてのC++規格に遡って適用された。そのため、P1009R2に対応した環境では、言語バージョンにかかわらず使用できる。
+また、clangは以前から独自にサポートしていた。
 
 ## 例
 ```cpp example
@@ -59,9 +70,7 @@ double* p = new double[]{1,2,3}   // エラー
 
 `new`式で要素数を必須とする強い理由がないため、推論できるようになった。
 
-なお、clangは以前から`new`式での配列要素数を推論できていたが、clang独自の拡張である。
-
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 * [丸カッコの値リストからの集成体初期化を許可](allow_initializing_aggregates_from_a_parenthesized_list_of_values.md)
 

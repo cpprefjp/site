@@ -51,8 +51,8 @@ int main()
   return 0;
 }
 ```
+* c.at[color ff0000]
 * um.insert[link insert.md]
-* c.at[link at.md]
 
 ### 出力
 ```
@@ -69,7 +69,7 @@ exception std::out_of_range
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 ## 関連項目
 

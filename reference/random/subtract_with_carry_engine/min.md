@@ -33,7 +33,7 @@ int main()
   std::cout << min_value << std::endl;
 }
 ```
-* max()[color ff0000]
+* min()[color ff0000]
 * std::ranlux24_base[link /reference/random/ranlux24_base.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 
@@ -48,9 +48,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 
 ## 参照

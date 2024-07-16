@@ -40,7 +40,7 @@ namespace std {
 
 ```cpp example
 #include <iostream>
-#include <complex>
+#include <functional>
 
 struct functor {
   auto operator()() -> int {
@@ -126,15 +126,15 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified], 2017 [mark verified]
 
 
 ## 関連項目
-- [invoke_result](/reference/type_traits/invoke_result.md)
-- [is_invocable](/reference/type_traits/is_invocable.md)
-- [is_invocable_r](/reference/type_traits/is_invocable_r.md)
-- [is_nothrow_invocable](/reference/type_traits/is_nothrow_invocable.md)
-- [is_nothrow_invocable_r](/reference/type_traits/is_nothrow_invocable_r.md)
+- [`invoke_r`](invoke_r.md)
+- [`invoke_result`](/reference/type_traits/invoke_result.md)
+- [`is_invocable`](/reference/type_traits/is_invocable.md)
+- [`is_nothrow_invocable`](/reference/type_traits/is_nothrow_invocable.md)
+
 
 ## 参照
 - [C++1z INVOKEコンセプトに従った関数呼び出しをするinvoke()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/09/07/173344)

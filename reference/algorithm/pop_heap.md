@@ -26,13 +26,16 @@ namespace std {
 ```
 
 ## 概要
-ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す
+ヒープ化されたイテレータ範囲`[first, last)`の先頭と末尾を入れ替え、ヒープ範囲を作り直す
 
 
-## 要件
-- `[first,last)` は空でない heap でなければならない。
-- `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。
-- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+## テンプレートパラメータ制約
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしていること
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
+
+
+## 事前条件
+- `[first,last)` は空でないヒープであること
 
 
 ## 効果

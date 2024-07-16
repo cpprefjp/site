@@ -10,14 +10,16 @@
 - [ローカライズライブラリ](#localization)
 - [コンテナライブラリ](#container)
 - [イテレータライブラリ](#iterator)
-- [レンジライブラリ](#ranges")
+- [レンジライブラリ](#ranges)
 - [アルゴリズムライブラリ](#algorithm)
 - [数値ライブラリ](#numerics)
+- [デバッグライブラリ](#debug)
 - [入出力ライブラリ](#io)
 - [正規表現ライブラリ](#regular-expressions)
 - [アトミック操作ライブラリ](#atomic-operations)
 - [スレッドサポートライブラリ](#thread-support)
 - [C言語互換ライブラリ](#clib-facilities)
+- [説明専用ライブラリ](#exposition-only)
 
 ***
 
@@ -27,10 +29,10 @@
 |--------------------------------------------------------|--------------------------|----------------|
 | [`<limits>`](/reference/limits.md)                     | 実装プロパティ           |                |
 | [`<version>`](/reference/version.md)                   | 実装依存のバージョン情報 | C++20          |
+| [`<stdfloat>`](/reference/stdfloat.md)                 | 拡張浮動小数点数型       | C++23          |
 | [`<new>`](/reference/new.md)                           | 動的メモリ管理           |                |
 | [`<typeinfo>`](/reference/typeinfo.md)                 | 型情報                   |                |
 | [`<source_location>`](/reference/source_location.md)   | ソースコード上の位置     | C++20          |
-| [`<contract>`](/reference/contract.md)                 | 契約違反のハンドリング   | C++23          |
 | [`<exception>`](/reference/exception.md)               | 例外ハンドリング         |                |
 | [`<initializer_list>`](/reference/initializer_list.md) | 初期化子リスト           | C++11          |
 | [`<compare>`](/reference/compare.md)                   | 比較演算                 | C++20          |
@@ -63,6 +65,7 @@
 | [`<optional>`](/reference/optional.md)       | 任意で値を持たせられるオブジェクト | C++17 |
 | [`<variant>`](/reference/variant.md)         | 候補の型を切り替えながら保持できる記憶域型 | C++17 |
 | [`<any>`](/reference/any.md)                 | あらゆる型の値を保持できる記憶域型 | C++17 |
+| [`<expected>`](/reference/expected.md)       | 正常値かエラー値のどちらかを持たせられるオブジェクト | C++23 |
 | [`<type_traits>`](/reference/type_traits.md) | 型特性                       | C++11          |
 | [`<functional>`](/reference/functional.md)   | 関数オブジェクト             |                |
 | [`<memory>`](/reference/memory.md)           | メモリ                       |                |
@@ -89,7 +92,8 @@
 | ヘッダ                               | 説明                 | 対応バージョン |
 |--------------------------------------|----------------------|----------------|
 | [`<locale>`](/reference/locale.md)   | ロケール             |                |
-| [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨 |
+| [`<text_encoding>`](/reference/text_encoding.md.nolink) | 文字列エンコーディングの識別 | C++26 |
+| [`<codecvt>`](/reference/codecvt.md) | コード変換ファセット | C++11<br/> C++17から非推奨<br/> C++26で削除 |
 
 
 ## <a id="container" href="#container">コンテナライブラリ</a>
@@ -103,11 +107,14 @@
 | [`<queue>`](/reference/queue.md)                 | FIFOキュー            |                |
 | [`<stack>`](/reference/stack.md)                 | LIFOスタック          |                |
 | [`<vector>`](/reference/vector.md)               | ベクタ配列            |                |
-| [`<map>`](/reference/map.md)                     | 連想配列              |                |
-| [`<set>`](/reference/set.md)                     | 集合                  |                |
+| [`<map>`](/reference/map.md)                     | 順序付き連想配列      |                |
+| [`<set>`](/reference/set.md)                     | 順序付き集合          |                |
+| [`<flat_map>`](/reference/flat_map.md)           | ソート済みキーによる順序付き連想配列 | C++23 |
+| [`<flat_set>`](/reference/flat_set.md.nolink)           | ソート済みキーによる順序付き集合 | C++23 |
 | [`<unordered_map>`](/reference/unordered_map.md) | 非順序連想配列        | C++11          |
 | [`<unordered_set>`](/reference/unordered_set.md) | 非順序集合            | C++11          |
 | [`<span>`](/reference/span.md)                   | 部分シーケンスの参照  | C++20          |
+| [`<mdspan>`](/reference/mdspan.md)               | 多次元配列ビュー      | C++23          |
 
 
 ## <a id="iterator" href="#iterator">イテレータライブラリ</a>
@@ -121,7 +128,8 @@
 
 | ヘッダ                                 | 説明             | 対応バージョン |
 |----------------------------------------|------------------|----------------|
-| [`<ranges>`](/reference/ranges.md.nolink) | レンジアルゴリズム | C++20          |
+| [`<ranges>`](/reference/ranges.md)       | レンジアルゴリズム | C++20          |
+| [`<generator>`](/reference/generator.md) | コルーチンによるレンジ生成 | C++23          |
 
 
 ## <a id="algorithm" href="#algorithm">アルゴリズムライブラリ</a>
@@ -141,6 +149,14 @@
 | [`<valarray>`](/reference/valarray.md) | 数値の配列       |                |
 | [`<numeric>`](/reference/numeric.md)   | 一般的な数値操作 |                |
 | [`<numbers>`](/reference/numbers.md)   | 数値             | C++20          |
+| [`<linalg>`](/reference/linalg.md)     | 線形代数 | C++26 |
+
+
+## <a id="debug" href="#debug">デバッグライブラリ</a>
+
+| ヘッダ                                 | 説明             | 対応バージョン |
+|----------------------------------------|------------------|----------------|
+| [`<debugging>`](/reference/debugging.md.nolink) | デバッグサポート | C++26 |
 
 
 ## <a id="io" href="#io">入出力ライブラリ</a>
@@ -159,6 +175,7 @@
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 | [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー | C++20          |
 | [`<spanstream>`](/reference/spanstream.md.nolink) | メモリバッファの所有権をもたないストリーム | C++23 |
+| [`<print>`](/reference/print.md)           | 書式指定による出力 | C++23 |
 
 
 ## <a id="regular-expressions" href="#regular-expressions">正規表現ライブラリ</a>
@@ -189,6 +206,8 @@
 | [`<latch>`](/reference/latch.md)                           | ラッチ同期            | C++20          |
 | [`<barrier>`](/reference/barrier.md)                       | バリア同期            | C++20          |
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
+| [`<rcu>`](/reference/rcu.md.nolink)                               | データの参照・更新    | C++26          |
+| [`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)         | ハザードポインタ      | C++26          |
 
 
 ## <a id="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>
@@ -197,7 +216,7 @@
 |--------------------------------------|-------------------------------------|----------------|
 | [`<cassert>`](/reference/cassert.md) | アサート                            |                |
 | `<ccomplex>`                         | 複素数                              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
-| `<cctype>`                           | 文字種別の判定と変換                |                |
+| [`<cctype>`](/reference/cctype.md)   | 文字種別の判定と変換                |                |
 | [`<cerrno>`](/reference/cerrno.md)   | エラー番号                          |                |
 | [`<cfenv>`](/reference/cfenv.md)     | 浮動小数点環境へのアクセス          | C++11 (C99)    |
 | [`<cfloat>`](/reference/cfloat.md)   | 浮動小数点数の定数                  |                |
@@ -221,3 +240,9 @@
 | `<cuchar>`                           | ユニコード文字型                    | C++11 (C11)    |
 | `<cwchar>`                           | ワイド文字型                        |                |
 | `<cwctype>`                          | ワイド文字の種別と判定              |                |
+
+## <a id="exposition-only" href="#exposition-only">説明専用ライブラリ</a>
+
+| ヘッダ                                             | 説明                                                      | 対応バージョン |
+|----------------------------------------------------|-----------------------------------------------------------|----------------|
+| [`exposition-only`](/reference/exposition-only.md) | 説明のためのものを集めたページ (実際のライブラリではない) |                |

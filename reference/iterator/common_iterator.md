@@ -25,7 +25,7 @@ namespace std {
   template<input_iterator I, class S>
   struct iterator_traits<common_iterator<I, S>> {
     using iterator_concept = /*see below*/;
-    using iterator_category = /*see below*/;
+    using iterator_category = /*see below*/;  // 定義されない場合がある
     using value_type = iter_value_t<I>;
     using difference_type = iter_difference_t<I>;
     using pointer = /*see below*/;
@@ -33,9 +33,9 @@ namespace std {
   };
 }
 ```
+* see below[italic]
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
-* same_as[link /reference/concepts/same_as.md]
 * copyable[link /reference/concepts/copyable.md]
 * variant[link /reference/variant/variant.md]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
@@ -80,6 +80,7 @@ namespace std {
 | `pointer` | `void` <br/> ただし、[`operator->`](common_iterator/op_arrow.md)が利用可能である場合はその戻り値型 | C++20 |
 | `reference` | [`iter_reference_t`](/reference/iterator/iter_reference_t.md)`<I>`  | C++20 |
 
+- `iterator_category`は`iter_difference_t<I>`が組み込みの整数型の場合にのみ定義される（[*integer-class*](/reference/iterator/is_integer_like.md)型の場合には定義されない）
 
 ## 例
 
@@ -113,12 +114,12 @@ int main() {
 }
 ```
 * std::common_iterator[color ff0000]
-* views::iota[link /reference/ranges/iota_view.md.nolink]
-* views::take[link /reference/ranges/take_view.md.nolink]
-* iterator_t[link /reference/ranges/iterator_t.md.nolink]
-* sentinel_t[link /reference/ranges/sentinel_t.md.nolink]
-* ranges::begin[link /reference/ranges/begin.md.nolink]
-* ranges::end[link /reference/ranges/end.md.nolink]
+* views::iota[link /reference/ranges/iota_view.md]
+* views::take[link /reference/ranges/take_view.md]
+* iterator_t[link /reference/ranges/iterator_t.md]
+* sentinel_t[link /reference/ranges/sentinel_t.md]
+* ranges::begin[link /reference/ranges/begin.md]
+* ranges::end[link /reference/ranges/end.md]
 
 ### 出力
 
@@ -136,14 +137,15 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9 [mark verified]
 
 ## 関連項目
 
-- [`common_range`](/reference/ranges/common_range.md.nolink)
-- [`common_view`](/reference/ranges/common_view.md.nolink)
+- [`common_range`](/reference/ranges/common_range.md)
+- [`common_view`](/reference/ranges/common_view.md)
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [Hidden Friends - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20190531/p1)
+- [LWG Issue 3749. `common_iterator` should handle integer-class difference types](https://cplusplus.github.io/LWG/issue3749)

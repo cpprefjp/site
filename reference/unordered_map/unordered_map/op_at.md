@@ -7,19 +7,17 @@
 
 ```cpp
 T& operator[](const key_type& x);
-T& operator[](const key_type&& x);
+T& operator[](key_type&& x);
 ```
 
 ## 概要
 要素へのアクセス
 
 ## 戻り値
-キーxに対応する値を返す。
-オブジェクトが存在しないときは、新しい要素が追加される。
+キー`x`に対応する値を返す。対応する要素が存在しない場合は、要素を値初期化して参照を返す。
 
 ## 例外
-投げない。
-
+ハッシュ関数以外から例外が投げられた場合には、対応する要素がない場合の新規要素の挿入処理は実施されない。
 
 ## 計算量
 - 平均： 定数時間
@@ -72,7 +70,7 @@ size=2
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 ## 関連項目
 

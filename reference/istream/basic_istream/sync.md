@@ -46,7 +46,7 @@ int sync() {
 ```
 * sentry[link sentry.md]
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
-* pubsync()[link /reference/streambuf/basic_streambuf/pubsync.md.nolink]
+* pubsync()[link /reference/streambuf/basic_streambuf/pubsync.md]
 * setstate[link /reference/ios/basic_ios/setstate.md]
 * badbit[link /reference/ios/ios_base/type-iostate.md]
 * exceptions()[link /reference/ios/basic_ios/exceptions.md]
@@ -56,5 +56,4 @@ int sync() {
 - C++98
 
 ## 参照
-
-- `basic_streambuf::pubsync`
+- [`basic_streambuf::pubsync`](../../streambuf/basic_streambuf/pubsync.md)

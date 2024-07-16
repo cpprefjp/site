@@ -12,7 +12,8 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 
 | 通称<sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup> | 名称 | 参照する規格案<sup><a href="#note-t1-2" id="note_ref-t1-2">†2</a></sup> | 規格案・原案 | `__cplusplus` |
 |:--|:--|:--|:--|:--|
-| [C++23](lang/cpp23.md) (C++2b) | ISO/IEC 14882:2023 (予定) | N4892([PDF](http://open-std.org/jtc1/sc22/wg21/docs/papers/2021/n4892.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/)) | N4892 N4885 N4878 N4871 N4861 | -- |
+| [C++26](lang/cpp26.md) (C++2c) | ISO/IEC 14882:2026 (予定) | N4981([PDF](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/n4981.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/)) | N4981 N4971 N4964 N4958 | -- |
+| [C++23](lang/cpp23.md) (C++2b) | ISO/IEC 14882:2023 (予定) | N4950([PDF](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/n4950/)) | N4950 N4944 N4928 N4917 N4910 N4901 N4892 N4885 N4878<br/>N4868 N4861 | `202302L` |
 | [C++20](lang/cpp20.md) (C++2a) | ISO/IEC 14882:2020 | N4861<sup><a href="#note-t1-3" id="note_ref-t1-3">†3</a></sup>([PDF](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/n4861/)) | N4860 N4849 N4842 N4835 N4830<br/>N4820 N4810 N4800 N4791 <del>N4788</del><sup><a href="#note-t1-4" id="note_ref-t1-4">†4</a></sup><br/>N4778 N4762 N4750 N4741 N4727<br/>N4713 N4700 N4687 | `202002L` |
 | [C++17](lang/cpp17.md) (C++1z) | ISO/IEC 14882:2017 | N4659([PDF](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/n4659/)) | N4660 N4659 N4640 N4618 N4606<br/>N4594 N4582 N4567 N4527 N4431<br/>N4296 | `201703L` |
 | [C++14](lang/cpp14.md) (C++1y) | ISO/IEC 14882:2014 | N4140([PDF](https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true)/[HTML](https://timsong-cpp.github.io/cppwp/n4140/)) | N4141 N4140 N3937 N3936 N3797<br/>N3691 N3690 N3485 N3376 N3337 | `201402L` |
@@ -47,7 +48,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 
 ## <a href="#iso-cpp-documents" id="iso-cpp-documents">用語: 国際標準規格の文書</a>
 
-- **提案** (proposal): 標準規格の変更についての提案文書
+- **提案文書** (proposal paper): 標準規格の変更についての提案文書
 - **問題** (issue): C++標準規格の問題や課題のこと
 - **欠陥** (defect): C++標準規格に含まれるいわば "バグ" のこと
     - **DR** (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと

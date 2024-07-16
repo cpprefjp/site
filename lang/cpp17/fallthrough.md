@@ -1,5 +1,13 @@
-# [[fallthrough]]属性
+# [[fallthrough]]属性 [P0188R1]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -51,7 +59,7 @@ fallthrough.cpp:12:3: note: here
    ^~~~
 ```
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
 
 ## 参照

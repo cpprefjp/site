@@ -45,8 +45,8 @@ int main()
   });
 }
 ```
-* std::cbegin[color ff0000]
-* std::cend[link cend.md]
+* std::cend[color ff0000]
+* std::cbegin[link cbegin.md]
 
 ### 出力
 ```
@@ -60,8 +60,8 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.4
-- [GCC](/implementation.md#gcc): 5.0
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 5.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

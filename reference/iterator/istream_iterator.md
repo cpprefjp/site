@@ -82,7 +82,7 @@ int main()
 }
 ```
 * std::istream_iterator[color ff0000]
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ### 出力
 ```
@@ -90,6 +90,9 @@ int main()
 2
 3
 ```
+
+## 関連項目
+- [`basic_istream_view`](/reference/ranges/basic_istream_view.md): ストリームからデータを読み込むRange
 
 ### 参照
 

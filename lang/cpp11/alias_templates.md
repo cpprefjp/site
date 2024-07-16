@@ -1,5 +1,13 @@
-# エイリアステンプレート
+# エイリアステンプレート [N2258]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 「エイリアステンプレート (alias templates)」は、テンプレートによって型の別名を定義する機能である。これによって、パラメータ化した型の別名付けができる。
@@ -100,4 +108,3 @@ typedef void_alloc::rebind<int>::other int_alloc;
 - [N1489 Templates aliases for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1489.pdf)
 - [N2112 Templates Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2112.pdf)
 - [N2258 Templates Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2258.pdf)
-

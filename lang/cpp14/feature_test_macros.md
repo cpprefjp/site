@@ -1,6 +1,14 @@
 # 機能テストマクロ
 * cpp14[meta cpp]
 
+<!-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
+
 ## 概要
 
 SD-6 は C++14 の機能について以下のテストマクロを定義することを推奨している：
@@ -9,7 +17,7 @@ SD-6 は C++14 の機能について以下のテストマクロを定義する�
 |----------|----|------|--------|
 | `__cpp_aggregate_nsdmi`                  | `201304` | メンバ初期化子と集約 | predefined |
 | `__cpp_binary_literals`                  | `201304` | [二進数リテラル](binary_literals.md) | predefined |
-| `__cpp_constexpr`                        | `201304` | [`constexpr`の制限緩和/`constexpr` メンバ関数の暗黙的な `const`](relaxing_constraints_on_constexpr.md) | predefined |
+| `__cpp_constexpr`                        | `201304` | [`constexpr`関数内での条件分岐とループの文を許可/`constexpr` メンバ関数の暗黙的な `const`](relaxing_constraints_on_constexpr.md) | predefined |
 | `__cpp_decltype_auto`                    | `201304` | [通常関数の戻り値型推論](return_type_deduction_for_normal_functions.md) | predefined |
 | `__cpp_generic_lambdas`                  | `201304` | [ジェネリックラムダ](generic_lambdas.md) | predefined |
 | `__cpp_init_captures`                    | `201304` | [ラムダ式の初期化キャプチャ](initialize_capture.md) | predefined |

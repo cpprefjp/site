@@ -1,8 +1,9 @@
 # new
 * new[meta header]
 
-`<new>`ヘッダは、プログラムが動的に記憶域を確保し、管理するための機能を定義し、記憶域の管理のエラー報告（例外の送出）についても定義する。このヘッダはグローバルネームスペースの`new`演算子および`delete`演算子をオーバーロードする。replacement-new を行いたい場合などに用いる。
+`<new>`ヘッダは、プログラムが動的に記憶域を確保し、管理するための機能を定義し、記憶域の管理のエラー報告（例外の送出）についても定義する。このヘッダはグローバルネームスペースの`new`演算子および`delete`演算子をオーバーロードする。placement new を行いたい場合などに用いる。
 
+本ヘッダはフリースタンディング環境でも提供される。
 
 ## 型
 
@@ -13,6 +14,7 @@
 | [`align_val_t`](new/align_val_t.md) | デフォルトよりも大きなアライメントを要求するとき、`new` に渡されるアライメント値の型 | C++17 |
 | [`nothrow_t`](new/nothrow_t.md) | 例外をスローしないための`std::nothrow`の型 | |
 | [`new_handler`](new/new_handler.md) | `new`失敗時に呼ばれる関数の型 | |
+| [`destroying_delete_t`](new/destroying_delete_t.md) | *destroying operator delete*を定義するためのタグ型 | C++20 |
 
 
 ## 関数

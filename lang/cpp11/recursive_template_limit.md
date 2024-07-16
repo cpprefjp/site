@@ -1,6 +1,14 @@
 # テンプレート再帰回数の制限緩和
 * cpp11[meta cpp]
 
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
+
 ## 概要
 C++03まで、テンプレートの再帰回数は、「17回以上であることを実装に推奨する」というものであった。
 
@@ -56,8 +64,7 @@ int main()
 
 ## 参照
 - [CWG Issue 831. Limit on recursively nested template instantiations](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#831)
-- [Variadic Templates for C++0x](http://www.jot.fm/issues/issue_2008_02/article2/)
+- [Variadic Templates for C++0x](https://web.archive.org/web/20230430062038/http://www.jot.fm/issues/issue_2008_02/article2/)
     - テンプレートの再帰によって、コンパイル時間がどれくらい延びるかのレポートがある記事
 - [C++ Language Features/Controlling implementation limits - Clang Compiler User’s Manual](http://clang.llvm.org/docs/UsersManual.html#cmdoption-ftemplate-depth)
-- [3.5 Options Controlling C++ Dialect - GCC Command Options](https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html)
-
+- [3.5 Options Controlling C++ Dialect - GCC Command Options](https://gcc.gnu.org/onlinedocs/gcc/gcc-command-options/options-controlling-c%2B%2B-dialect.html)

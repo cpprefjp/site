@@ -83,12 +83,13 @@ namespace chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------|------|-------|
-| [`operator==`](time_point/op_equal.md)         | 等値判定を行う | C++11 |
-| [`operator!=`](time_point/op_not_equal.md)     | 非等値判定を行う | C++11 |
-| [`operator<`](time_point/op_less.md)           | 左辺が右辺より小さいか判定を行う | C++11 |
-| [`operator<=`](time_point/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
-| [`operator>`](time_point/op_greater.md)        | 左辺が右辺より大きいか判定を行う | C++11 |
-| [`operator>=`](time_point/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++11 |
+| [`operator==`](time_point/op_equal.md)         | 等値比較を行う | C++11 |
+| [`operator!=`](time_point/op_not_equal.md)     | 非等値比較を行う | C++11 |
+| [`operator<=>`](time_point/op_compare_3way.md) | 三方比較を行う | C++20 |
+| [`operator<`](time_point/op_less.md)           | 左辺が右辺より小さいか比較を行う | C++11 |
+| [`operator<=`](time_point/op_less_equal.md)    | 左辺が右辺以下かの比較を行う | C++11 |
+| [`operator>`](time_point/op_greater.md)        | 左辺が右辺より大きいか比較を行う | C++11 |
+| [`operator>=`](time_point/op_greater_equal.md) | 左辺が右辺以上かの比較を行う | C++11 |
 
 ### common_type特殊化
 
@@ -133,8 +134,8 @@ Thu Jul 18 13:46:26 2013
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
 

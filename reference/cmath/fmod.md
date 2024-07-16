@@ -5,14 +5,31 @@
 
 ```cpp
 namespace std {
-  double fmod(double x, double y);
-  float fmod(float x, float y);
-  long double fmod(long double x, long double y);
+  float fmod(float x, float y);    // (1) C++03からC++20まで
+  double fmod(double x, double y); // (2) C++03からC++20まで
+  long double fmod(long double x,
+                   long double y); // (3) C++03からC++20まで
 
-  Integral fmod(Integral x, Integral y);           // C++11 から
+  constexpr floating-point-type
+    fmod(floating-point-type x,
+         floating-point-type y);   // (4) C++23
 
-  float fmodf(float x, float y);                   // C++17 から
-  long double fmodl(long double x, long double y); // C++17 から
+  Integral
+    fmod(Integral x, Integral y);  // (5) C++11
+  constexpr Integral
+    fmod(Integral x, Integral y);  // (5) C++23
+
+  float
+    fmodf(float x, float y);       // (6) C++17
+  constexpr float
+    fmodf(float x, float y);       // (6) C++23
+
+  long double
+    fmodl(long double x,
+          long double y);          // (7) C++17
+  constexpr long double
+    fmodl(long double x,
+          long double y);          // (8) C++17
 }
 ```
 * Integral[italic]
@@ -21,6 +38,14 @@ namespace std {
 浮動小数点数の剰余を求める。
 
 整数に対する剰余は`%`演算子で求められるが、浮動小数点数に対しては本関数を使用する必要がある。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -97,3 +122,8 @@ fmod(6.3, 3.15) = 0
 fmod(6, 2) = 0
 ```
 
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

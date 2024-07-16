@@ -18,7 +18,6 @@ namespace std {
 ```
 * invocable[link /reference/concepts/invocable.md]
 * unsigned_integral[link /reference/concepts/unsigned_integral.md]
-* same_as[link /reference/concepts/same_as.md]
 * invoke_result_t[link /reference/type_traits/invoke_result.md]
 * bool_constant[link /reference/type_traits/bool_constant.md]
 
@@ -83,8 +82,8 @@ std::exponential_distribution<> is not uniform random bit generator
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

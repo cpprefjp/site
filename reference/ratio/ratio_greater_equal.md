@@ -32,7 +32,7 @@ int main()
   using r1 = std::ratio<3, 5>;
   using r2 = std::ratio<2, 5>;
 
-  static_assert(std::ratio_greater_equal<r1, r2>::value == true, "r1 > r2");
+  static_assert(std::ratio_greater_equal<r1, r2>::value == true, "r1 >= r2");
 }
 ```
 * std::ratio_greater_equal[color ff0000]
@@ -47,8 +47,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.4.7
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

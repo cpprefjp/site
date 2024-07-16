@@ -38,7 +38,7 @@ int main()
 
   // (1)
   {
-    // 確率0.5で成功する事象を3回施行する
+    // 確率0.5で成功する事象を3回試行する
     std::binomial_distribution<> dist(3, 0.5);
 
     // 成功回数を取得
@@ -51,7 +51,7 @@ int main()
     using dist_type = std::binomial_distribution<>;
     dist_type dist;
 
-    // 確率0.5で成功する事象を3回施行する
+    // 確率0.5で成功する事象を3回試行する
     dist_type::param_type param(3, 0.5);
 
     // 成功回数を取得
@@ -75,7 +75,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

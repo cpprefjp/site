@@ -25,28 +25,27 @@ namespace std {
 
 ## モデル
 
-`FromR = add_rvalue_reference_t<From>`として、説明のための関数`test(), f()`を以下のように定義、宣言する。
+`FromR = add_rvalue_reference_t<From>`として、説明のための関数`test()`を以下のように定義する。
 
 ```cpp
-To test(FromR (&func)()) {
-  return func();
+To test(FromR (&f)()) {
+  return f();
 }
-
-FromR f();
 ```
 
-この`test()`関数、型`FromR, To`及び、[等しさを保持](/reference/concepts.md)し`FromR`型を返す引数なしの関数`f`について、以下の条件を満たす場合に限って型`From, To`は`convertible_to`のモデルである。
+この`f`は引数をとらず`FromR`を返す関数であり、`f()`の呼び出しは[等しさを保持](/reference/concepts.md)する。
+
+この`test()`と`FromR, To`について、以下の条件を満たす場合に限って型`From, To`は`convertible_to`のモデルである。
 
 - 次のどちらかを満たす
     - `To`は[オブジェクト型](/reference/type_traits/is_object.md)でもオブジェクトへの参照型でもない
     - `static_cast<To>(f())`と`test(f)`は等しい
-- 次のいずれかを満たす
-    - `FromR`はオブジェクトへの参照型ではない
-    - `FromR`が非`const`右辺値参照型の場合、`f()`の呼び出しによって参照されるオブジェクトの状態は、上記の式の実行の後でも有効だが未規定となる
+- `FromR`がオブジェクトへの参照型ではない場合、次のどちらかを満たす
+    - `FromR`が非`const`右辺値参照型の場合、`f()`の呼び出しによって参照されるオブジェクトの状態は、上記の式の実行の後で有効だが未規定となる
         - 標準ライブラリの型のオブジェクトは特に指定がない場合、ムーブされた後の状態は有効だが未規定となる
-    - `f()`の呼び出しによって参照されるオブジェクトは上記の式の実行によって変更されない
+    - それ以外の場合、`f()`の呼び出しによって参照されるオブジェクトは上記の式の実行によって変更されない
 
-2つ目のor条件列に出てくる「上記の式」とは、`static_cast<To>(f())`と`test(f)`のこと。
+2つ目の条件内に出てくる「上記の式」とは、`static_cast<To>(f())`と`test(f)`のこと。
 
 ## 例
 ```cpp example
@@ -87,7 +86,7 @@ int main()
   std::cout << std::convertible_to<int*, const int*> << std::endl;
   std::cout << std::convertible_to<const int*, int*> << std::endl;
 
-  std::cout << "\n--- program defined type ---\n";
+  std::cout << "\n--- program-defined type ---\n";
   std::cout << std::convertible_to<convert_int, int> << std::endl;
   std::cout << std::convertible_to<int, convert_int> << std::endl;
   std::cout << std::convertible_to<convert_double, double> << std::endl;
@@ -114,7 +113,7 @@ true
 true
 false
 
---- program defined type ---
+--- program-defined type ---
 true
 true
 false
@@ -129,8 +128,8 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

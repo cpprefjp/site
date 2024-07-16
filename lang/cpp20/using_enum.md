@@ -1,6 +1,14 @@
-# スコープ付き列挙型のusing宣言
+# スコープ付き列挙型のusing宣言 [P1099R5]
 
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -81,20 +89,20 @@ int main() {
   using enum Enum1;
   using enum Enum2::Enum;
   using Enum3::Value3;
-  std::cout << Value1 << std::endl;
+  std::cout << static_cast<int>(Value1) << std::endl;
   std::cout << ::Value1 << std::endl;
   std::cout << Value2 << std::endl;
-  std::cout << Value3 << std::endl;
-  std::cout << Enum3::Value4 << std::endl;
-  std::cout << Type::Value4 << std::endl;
-  std::cout << Type().Value4 << std::endl;
+  std::cout << static_cast<int>(Value3) << std::endl;
+  std::cout << static_cast<int>(Enum3::Value4) << std::endl;
+  std::cout << static_cast<int>(Type::Value4) << std::endl;
+  std::cout << static_cast<int>(Type().Value4) << std::endl;
 }
 ```
 
 ### 出力
 ```
 0
-10
+1
 0
 0
 1
@@ -110,7 +118,7 @@ C言語形式の列挙型を改善するために[スコープを持つ列挙型
 
 これにより、C言語形式の列挙型をスコープを持つ列挙型へ置き換えるというリファクタリングをする際、(整数との暗黙変換を別とすれば)ソースコードレベルの互換性を保って置き換えることができるようにもなった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [スコープを持つ列挙型](/lang/cpp11/scoped_enum.md)
 

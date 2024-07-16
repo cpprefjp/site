@@ -57,7 +57,7 @@ namespace std {
 
 int main()
 {
-  // (6) CV修飾なしのstd::variant型の、候補型 (int, std::tring, double) の数を取得する
+  // (6) CV修飾なしのstd::variant型の、候補型 (int, std::string, double) の数を取得する
   static_assert(std::variant_size<
     std::variant<int, std::string, double>
   >::value == 3);
@@ -86,8 +86,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

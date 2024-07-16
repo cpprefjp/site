@@ -69,13 +69,10 @@ int main()
 * std::data[color ff0000]
 * std::size[link size.md]
 
-### 出力
+### 出力例
 ```
-false
-false
-true
-false
-false
+array size:4 at 0x7fff0833f980
+array size:1 at 0x22e42b0
 ```
 
 ## バージョン
@@ -83,10 +80,10 @@ false
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.6
-- [GCC](/implementation.md#gcc): 6.1
+- [Clang](/implementation.md#clang): 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
 ## 参照

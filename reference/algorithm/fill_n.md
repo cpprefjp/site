@@ -34,7 +34,7 @@ namespace std {
 ```
 
 ## 概要
-指定された値で出力の範囲に `n` 個を書き込む。
+イテレータ範囲`[first, first + n)`のすべての要素に指定された値を書き込む。
 
 
 ## 要件
@@ -98,7 +98,7 @@ fill_n(OutputIterator first, Size n, const T& value) {
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 
 - [ICC](/implementation.md#icc): 
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- C++11への対応（戻り値の変更）は2012から。
 
 

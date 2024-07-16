@@ -1,5 +1,13 @@
-# 状態を持たないラムダ式を、デフォルト構築可能、代入可能とする
+# 状態を持たないラムダ式を、デフォルト構築可能、代入可能とする [P0624R2]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -155,7 +163,7 @@ set1 = set2;  // C++17まではコンパイルエラー
 
 C++20では同時に[評価されない文脈にラムダ式を書くことができるようになった](./wording_for_lambdas_in_unevaluated_contexts.md)ため、この様な場合にラムダ式のクロージャ型を直接取得し渡すことができ、余計なコードをほとんど削減することができるようになる。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [評価されない文脈でのラムダ式](./wording_for_lambdas_in_unevaluated_contexts.md)
 
 ## 参照

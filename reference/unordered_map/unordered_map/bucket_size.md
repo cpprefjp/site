@@ -62,7 +62,7 @@ int main()
 * um.cbegin[link cbegin-size_type.md]
 * um.cend[link cend-size_type.md]
 
-### 出力
+### 出力例
 ```
 bucket_count() = 11
 bucket = 0, bucket_size = 1, keys = { B, }
@@ -83,9 +83,8 @@ bucket = 10, bucket_size = 1, keys = { A, }
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.2
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++:](/implementation.md#visual_cpp) ?
 

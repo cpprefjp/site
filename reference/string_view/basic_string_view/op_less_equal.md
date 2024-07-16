@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class CharT, class Traits>
   constexpr bool operator<=(basic_string_view<CharT, Traits> x,
-                            basic_string_view<CharT, Traits> y) noexcept;
+                            basic_string_view<CharT, Traits> y) noexcept; // (1) C++17
 }
 ```
 
@@ -52,7 +53,12 @@ less equal
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

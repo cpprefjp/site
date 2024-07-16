@@ -280,7 +280,6 @@ int main()
 ```
 * 1985y[link year/op_y.md]
 * 1954y[link year/op_y.md]
-* 2000y[link year/op_y.md]
 * date.ok()[link year_month_day/ok.md]
 * year()[link year_month_day/year.md]
 * month()[link year_month_day/month.md]
@@ -309,6 +308,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし) [mark verified]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

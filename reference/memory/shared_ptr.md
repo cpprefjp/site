@@ -58,9 +58,10 @@ namespace std {
 ## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------------------------------------|-------------------------------------------|-------|
+|--------------------------------------------------------------|-------------------------------------------|-------|
 | [`operator==`](shared_ptr/op_equal.md)                       | 等値比較                                  | C++11 |
 | [`operator!=`](shared_ptr/op_not_equal.md)                   | 非等値比較                                | C++11 |
+| [`operator<=>`](shared_ptr/op_compare_3way.md)               | 三方比較                                  | C++20 |
 | [`operator<`](shared_ptr/op_less.md)                         | 左辺が右辺より小さいかを判定する          | C++11 |
 | [`operator<=`](shared_ptr/op_less_equal.md)                  | 左辺が右辺以下かを判定する                | C++11 |
 | [`operator>`](shared_ptr/op_greater.md)                      | 左辺が右辺より大きいかを判定する          | C++11 |
@@ -80,17 +81,17 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------------------------|-------|
-| [`atomic_is_lock_free`][is_lock_free]     | 指定されたオブジェクトがロックフリーに振る舞えるかを調べる | C++11 |
-| [`atomic_store`][store]                   | 値を書き込む | C++11 |
-| [`atomic_store_explicit`][store_ex]       | メモリオーダーを指定して値を書き込む | C++11 |
-| [`atomic_load`][load]                     | 値を読み込む | C++11 |
-| [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を読み込む | C++11 |
-| [`atomic_exchange`][exchange]             | 値を入れ替える | C++11 |
-| [`atomic_exchange_explicit`][exchange_ex] | メモリオーダーを指定して値を入れ替える | C++11 |
-| [`atomic_compare_exchange_weak`][exchange_weak] | 弱い比較で値の入れ替えを行う | C++11 |
-| [`atomic_compare_exchange_strong`][exchange_strong] | 強い比較で値の入れ替えを行う | C++11 |
-| [`atomic_compare_exchange_weak_explicit`][exchange_weak_ex] | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
-| [`atomic_compare_exchange_strong_explicit`][exchange_strong_ex] | 強い比較でメモリオーダーを指定して値の入れ替えを行う | C++11 |
+| [`atomic_is_lock_free`][is_lock_free]     | 指定されたオブジェクトがロックフリーに振る舞えるかを調べる | C++11<br/> C++20から非推奨 |
+| [`atomic_store`][store]                   | 値を書き込む | C++11<br/> C++20から非推奨 |
+| [`atomic_store_explicit`][store_ex]       | メモリオーダーを指定して値を書き込む | C++11<br/> C++20から非推奨 |
+| [`atomic_load`][load]                     | 値を読み込む | C++11<br/> C++20から非推奨 |
+| [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を読み込む | C++11<br/> C++20から非推奨 |
+| [`atomic_exchange`][exchange]             | 値を入れ替える | C++11<br/> C++20から非推奨 |
+| [`atomic_exchange_explicit`][exchange_ex] | メモリオーダーを指定して値を入れ替える | C++11<br/> C++20から非推奨 |
+| [`atomic_compare_exchange_weak`][exchange_weak] | 弱い比較で値の入れ替えを行う | C++11<br/> C++20から非推奨 |
+| [`atomic_compare_exchange_strong`][exchange_strong] | 強い比較で値の入れ替えを行う | C++11<br/> C++20から非推奨 |
+| [`atomic_compare_exchange_weak_explicit`][exchange_weak_ex] | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11<br/> C++20から非推奨 |
+| [`atomic_compare_exchange_strong_explicit`][exchange_strong_ex] | 強い比較でメモリオーダーを指定して値の入れ替えを行う | C++11<br/> C++20から非推奨 |
 
 [is_lock_free]: shared_ptr/atomic_is_lock_free.md
 [store]: shared_ptr/atomic_store.md
@@ -206,10 +207,10 @@ Y dtor
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 
 ## 関連項目

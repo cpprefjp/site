@@ -1,5 +1,13 @@
-# 変数テンプレート
+# 変数テンプレート [N3651]
 * cpp14[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++14に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 変数定義時のテンプレート指定を可能にする。
@@ -120,12 +128,12 @@ auto main() -> int
 - `const`または`constexpr`と組み合わせて用いる提案があったが、ワーキンググループの多数意見によりC++14の対象では制限しない事にした。（N3651）
 - テンプレートテンプレートについても提案があったが、ワーキンググループで複数の不要論がありC++14では含めない事にした。（N3651）
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 - [C++17 変数テンプレートのデフォルトテンプレート引数を許可](/lang/cpp17/allow_default_template_arguments_of_variable_templates.md)
+- [C++23 変数テンプレートの部分特殊化を許可](/lang/cpp23/generalized_wording_for_partial_specializations.md)
 
 ## 参照
 - [N3651 Variable Templates (Revision 1)](http://open-std.org/JTC1/SC22/WG21/docs/papers/2013/n3651.pdf)
 - [Trip Report: ISO C++ Spring 2013 Meeting](https://isocpp.org/blog/2013/04/trip-report-iso-c-spring-2013-meeting)
 - [変数テンプレートをラムダ式でキャプチャするときの注意 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/2014/01/21/162701)
-

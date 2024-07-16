@@ -37,8 +37,8 @@ namespace std {
 - 以下の全ての特性を持つクラス型
 	- [トリビアルなデストラクタを持つ](is_trivially_destructible.md)
 	- 全てのコンストラクタが、定数式で初期化できること
-	- 集成体であること、もしくは一つ以上の`constexpr`コンストラクタ、もしくはコピー／ムーブコンストラクタ以外のコンストラクタテンプレートを持っていること
-	- 全てのデータメンバおよび基底クラスがリテラル型であること
+	- 集成体であること、もしくはコピー／ムーブコンストラクタ以外の`constexpr`コンストラクタや`constexpr`コンストラクタテンプレートを一つ以上持っていること
+	- 全てのメンバ変数および基底クラスがリテラル型であること
 - `void` (C++14から)
 
 リテラル型は、`constexpr`関数のパラメータおよび戻り値の型に対する制約として使用されている。
@@ -78,9 +78,9 @@ int main() {}
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.6.4
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.6.4 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012～2013は、C++11の定義に基づく実装となっている。すなわち、テンプレート実引数として`void`を渡すと`std::false_type`からの派生になる。
 
 ### 備考

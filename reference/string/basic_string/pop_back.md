@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void pop_back();
+void pop_back();           // (1) C++11
+constexpr void pop_back(); // (1) C++20
 ```
 
 ## 概要
@@ -52,12 +53,12 @@ hello
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.7.3
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 
 ## 参照
 - [LWG Issue 534. Missing `basic_string` members](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#534)
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

@@ -25,6 +25,9 @@ namespace std {
 - `num` : [`sign`](https://ja.wikipedia.org/wiki/符号関数)`(N) *` [`sign`](https://ja.wikipedia.org/wiki/符号関数)`(D) *` [`abs`](/reference/cmath/abs.md)`(N) /` [`gcd`](https://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
 - `den` : [`abs`](/reference/cmath/abs.md)`(D) /` [`gcd`](https://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
 
+## 要件
+`den`の値が`0`でもなく、[`intmax_t`](/reference/cstdint/intmax_t.md)の最小値でもないこと。
+
 
 ## 例
 ```cpp example
@@ -49,8 +52,8 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.4.7
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

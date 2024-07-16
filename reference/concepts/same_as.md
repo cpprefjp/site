@@ -10,6 +10,7 @@ namespace std {
   concept same_as = /*see below*/;
 }
 ```
+* see below[italic]
 
 ## 概要
 
@@ -30,7 +31,7 @@ concept same-as-impl = is_same_v<T, U>;
 
 ```cpp
 template <class T, class U>
-concept C = same-as-impl<T, U> && same-as-impl<U, T>;
+concept same_as = same-as-impl<T, U> && same-as-impl<U, T>;
 ```
 
 ## 備考
@@ -76,8 +77,8 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

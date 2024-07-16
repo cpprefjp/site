@@ -21,15 +21,15 @@ namespace std {
 ```
 
 ## 概要
-指定された範囲の要素を後ろからムーブする。
+イテレータ範囲`[first, last)`の要素を出力イテレータ範囲に後ろからムーブする。
 
 
-## 要件
-`result` は `(first,last]` の範囲に含まれてはならない。
+## 事前条件
+- `result` はイテレータ範囲`(first,last]` に含まれてはならない
 
 
 ## 効果
-`[first,last)` 内にある要素を、それぞれ `[result - (last-first),result)` へムーブする。
+イテレータ範囲`[first,last)` 内にある要素を、それぞれ出力イテレータ範囲`[result - (last-first),result)` へムーブする。
 
 ムーブは `last - 1` から順番に行い、1 以上 `last - first` 以下であるそれぞれの `n` について、`*(result - n) = std::move(*(last - n))` を行う。
 
@@ -68,7 +68,7 @@ int main() {
   std::move_backward(v.begin(), v.begin() + 3, v.end());
 
   // 以下のコードだと期待した結果にならないことを確認しよう。
-  // 移動元の後方と移動先の前方で範囲が重なっている場合は、move_backwardを使わないといけない
+  // 移動元の後方と移動先の前方でイテレータ範囲が重なっている場合は、move_backwardを使わないといけない
   // std::move(v.begin(), v.begin() + 3, v.begin() + 2);
 
   std::for_each(v.begin(), v.end(), &print);
@@ -107,10 +107,10 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 関連項目

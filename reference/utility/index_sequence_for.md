@@ -13,7 +13,9 @@ namespace std {
 * make_index_sequence[link make_index_sequence.md]
 
 ## 概要
-`index_sequence_for`は、型のシーケンス、0から始まる[`size_t`](/reference/cstddef/size_t.md)型整数シーケンスに変換する、[`make_index_sequence`](make_index_sequence.md)の別名である。
+`index_sequence_for`は、型のシーケンスを0から始まる[`size_t`](/reference/cstddef/size_t.md)型整数シーケンスに変換する、[`make_index_sequence`](make_index_sequence.md)の別名である。
+
+別の言い方をすると、パラメータパック`Ts...`に含まれる各型に対して先頭から順番に`0`始まりのインデックスを振り、そのインデックスの列（[`integer_sequence`](/reference/utility/integer_sequence.md)）を返す。
 
 テンプレートパラメータは、以下を意味する：
 
@@ -51,7 +53,6 @@ int main()
 ```
 * std::index_sequence_for[color ff0000]
 * std::integer_sequence[link integer_sequence.md]
-* std::tuple[link /reference/tuple/tuple.md]
 * std::make_tuple[link /reference/tuple/make_tuple.md]
 
 ## 出力
@@ -65,10 +66,10 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.4
-- [GCC](/implementation.md#gcc): 4.9.0
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
 ## 参照

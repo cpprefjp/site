@@ -108,9 +108,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[weibull_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull_distribution.tsv)）を図示する。 
+このプログラムによってある時に得られた結果（[weibull_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/weibull_distribution/weibull_distribution.tsv)）を図示する。 
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/weibull_distribution/weibull_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/weibull_distribution/weibull_distribution.png)
 
 この図において、破線はdist1(a = 1.0, b = 1.0)、実線はdist2(a = 1.0, b = 2.0)を意味する。
 
@@ -121,12 +121,12 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 
 ### 参考
 - [ワイブル分布 - Wikipedia](https://ja.wikipedia.org/wiki/ワイブル分布)
 - [ワイブル分布 = NtRand](http://www.ntrand.com/jp/weibull-distribution/)
-- [疲労や破壊現象とワイブル分布](http://www.mogami.com/notes/weibull.html)
+- [疲労や破壊現象とワイブル分布](http://web.archive.org/web/20220706102605/http://www.mogami.com/notes/weibull.html)
 

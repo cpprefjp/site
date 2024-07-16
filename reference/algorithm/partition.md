@@ -33,7 +33,7 @@ namespace std {
 ```
 
 ## 概要
-与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
+イテレータ範囲`[first, last)`を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
 
 ## 要件
@@ -49,8 +49,11 @@ namespace std {
 
 
 ## 計算量
-- (1) : `ForwardIterator` が `BidirectionalIterator` の要求を満たしている場合、最大で `(last - first) / 2` 回 swap され、そうでない場合、最大で `last - first` 回 swap される。それに加えて、正確に `last - first` 回だけ述語が適用される
-- (2) : O(NlogN)計算量でswapが行われ、それに加えてO(N)計算量の回数だけ述語が適用される
+
+`N = last - first`として
+
+- (1) : `ForwardIterator` が `BidirectionalIterator` の要求を満たしている場合、最大で `N / 2` 回 swap され、そうでない場合、最大で `N` 回 swap される。それに加えて、正確に `N` 回だけ述語が適用される
+- (2) : O(NlogN) 回の swap に加え、述語が O(N) 回適用される
 
 
 ## 例

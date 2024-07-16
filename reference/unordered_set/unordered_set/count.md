@@ -13,7 +13,7 @@ size_type count(const K& k) const;        // (2) C++20
 ```
 
 ## 概要
-キーを検索し、コンテナ内に見つかった要素の数を返す。`set` コンテナはキーの重複を許さないため、この関数は実際には要素が見つかったときに 1 を、そうでないときに 0 を返す。
+キーを検索し、コンテナ内に見つかった要素の数を返す。`unordered_set` コンテナはキーの重複を許さないため、この関数は実際には要素が見つかったときに 1 を、そうでないときに 0 を返す。
 
 - (1) : キー`x`を検索し、合致する要素数を取得する
 - (2) : キー`k`を透過的に検索し、合致する要素数を取得する
@@ -79,9 +79,8 @@ count of 8:0
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.0
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

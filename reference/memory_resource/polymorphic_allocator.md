@@ -1,6 +1,6 @@
 # polymorphic_allocator
 * memory_resource[meta header]
-* class[meta id-type]
+* class template[meta id-type]
 * std::pmr[meta namespace]
 * cpp17[meta cpp]
 
@@ -46,7 +46,7 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`construct`](polymorphic_allocator/construct.md) | 指定された領域にオブジェクトを構築する | C++17 |
-| [`destroy`](polymorphic_allocator/destroy.md) | 指定された領域のオブジェクトを破棄する | C++17 |
+| [`destroy`](polymorphic_allocator/destroy.md) | 指定された領域のオブジェクトを破棄する | C++17<br/>C++20より非推奨 |
 | [`new_object`](polymorphic_allocator/new_object.md) | メモリを確保し指定した型の構築（`new`式相当の処理）を行う | C++20 |
 | [`delete_object`](polymorphic_allocator/delete_object.md) | 指定した型の破棄とそのメモリ領域の解放（`delete`式相当の処理）を行う | C++20 |
 
@@ -76,8 +76,8 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): 2017 update 6
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 update 6 [mark verified]
 
 ## 関連項目
 - [`memory_resource`](memory_resource.md)
@@ -92,3 +92,4 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
 - [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf)
 - [LWG Issue 3037. `polymorphic_allocator` and incomplete types](https://wg21.cmeerw.net/lwg/issue3037)
+- [LWG Issue 3036. `polymorphic_allocator::destroy` is extraneous](https://cplusplus.github.io/LWG/issue3036)

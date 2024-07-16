@@ -19,9 +19,9 @@ void assign(initializer_list<T> init);                // (3)
 
 コンテナの再代入
 
-- (1) : 範囲を代入。
-- (2) : `n`個の値`t`を代入。
-- (3) : 初期化子リストを代入。
+- (1) : イテレータ範囲を代入
+- (2) : `n`個の値`t`を代入
+- (3) : 初期化子リストを代入
 
 
 ## 効果
@@ -122,9 +122,9 @@ ls3 : 1 2 3
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- (3) `initializer_list`のオーバーロードは2013から。
 
 

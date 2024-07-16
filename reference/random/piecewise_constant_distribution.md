@@ -48,7 +48,7 @@ namespace std {
 | [`intervals`](piecewise_constant_distribution/intervals.md) | 区間の数列を取得する             | C++11 |
 | [`densities`](piecewise_constant_distribution/densities.md) | 重み付けの数列を取得する         | C++11 |
 | [`param`](piecewise_constant_distribution/param.md)         | 分布のパラメータを取得／設定する | C++11 |
-| [`mix`](piecewise_constant_distribution/min.md)             | 下限を取得する                 | C++11 |
+| [`min`](piecewise_constant_distribution/min.md)             | 下限を取得する                 | C++11 |
 | [`max`](piecewise_constant_distribution/max.md)             | 上限を取得する                 | C++11 |
 
 
@@ -100,9 +100,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[piecewise_constant_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv)）を図示する。
+このプログラムによってある時に得られた結果（[piecewise_constant_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.tsv)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/piecewise_constant_distribution/piecewise_constant_distribution.png)
 
 
 ## バージョン
@@ -111,7 +111,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 4.5.3, 4.6.1
+- [GCC](/implementation.md#gcc): 4.5.3 [mark verified], 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 

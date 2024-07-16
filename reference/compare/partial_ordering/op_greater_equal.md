@@ -79,13 +79,13 @@ false
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 [mark verified]
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 
 
 ## 参照

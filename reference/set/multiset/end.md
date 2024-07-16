@@ -1,26 +1,29 @@
-# end, cend
+# end
 * set[meta header]
 * std[meta namespace]
 * multiset[meta class]
 * function[meta id-type]
 
 ```cpp
-iterator end() noexcept;
-const_iterator end() const noexcept;
+iterator end();           // (1) C++03
+iterator end() noexcept;  // (1) C++11
+
+const_iterator end() const;           // (2) C++03
+const_iterator end() const noexcept;  // (2) C++11
 ```
 
 ## 概要
-`multiset` コンテナの最後の要素の次を参照するイテレータを返す。
+`multiset` コンテナの末尾の次を参照するイテレータを取得する。
 
 
 ## 戻り値
-コンテナの最後の要素の次を参照するイテレータ。
+コンテナの末尾の次を参照するイテレータ。
 
 `iterator` と `const_iterator` はいずれもメンバ型である。`multiset` クラステンプレートにおいて、これらは双方向イテレータである。
 
 
 ## 備考
-`const` 版ではない `begin` が返す `iterator` も読み取り専用イテレータである。
+`const` 版ではない `end` が返す `iterator` も読み取り専用イテレータである。
 
 （が、`iterator` と `const_iterator` が同じ型とは限らない）
 
@@ -70,5 +73,5 @@ int main()
 |-------------------------|----------------------------------|
 | [`begin`](begin.md)   | 先頭を指すイテレータを取得する   |
 | [`rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`rend`](rend.md)     | 先頭を指す逆イテレータを取得する |
+| [`rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
 

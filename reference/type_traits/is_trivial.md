@@ -45,14 +45,13 @@ static_assert(std::is_same<std::is_trivial<int&>::type, std::false_type>::value,
 static_assert(std::is_trivial<int&>() == false, "is_trivial<int&>() == false");
 
 static_assert(std::is_trivial<const volatile int>::value == true, "const volatile int is trivial");
-static_assert(std::is_trivial<int&>::value == false, "int& is not trivial");
 
 class trivial_class{};
 struct non_trivial_class {
   non_trivial_class() {}    // デフォルトコンストラクタが非トリビアル
 };
 static_assert(std::is_trivial<trivial_class>::value == true, "trivial_class is trivial");
-static_assert(std::is_trivial<trivial_class&>::value == true, "trivial_class& is trivial");
+static_assert(std::is_trivial<trivial_class&>::value == false, "trivial_class& is not trivial");
 static_assert(std::is_trivial<non_trivial_class>::value == false, "non_trivial_class is not trivial");
 static_assert(std::is_trivial<non_trivial_class&>::value == false, "non_trivial_class& is not trivial");
 
@@ -69,8 +68,8 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.5.3 [mark verified], 4.6.2 [mark verified], 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2010は、クラスへの参照型（上記例のうち`trivial_class&`）において、誤って`false_type`になっている。
 
 #### 備考

@@ -13,7 +13,6 @@ public:
   void operator=(const ValOrProxy<T>& ar) const;               // (2)
   void operator=(const T& value) const;                        // (3)
 ```
-* valarray[link /reference/valarray/valarray.md]
 * ValOrProxy[italic]
 
 ## 概要

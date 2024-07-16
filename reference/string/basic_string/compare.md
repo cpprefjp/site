@@ -5,36 +5,95 @@
 * function[meta id-type]
 
 ```cpp
-int compare(const basic_string& str) const noexcept;                  // (1)
-int compare(size_type pos1, size_type n1,
-            const basic_string& str) const;                           // (2)
+int compare(const basic_string& str) const;          // (1) C++03
+int compare(const basic_string& str) const noexcept; // (1) C++11
+constexpr int
+  compare(const basic_string& str) const noexcept;   // (1) C++20
 
-int compare(size_type pos1, size_type n1,
-            const basic_string& str,
-            size_type pos2, size_type n2) const;                      // (3) C++11まで
-int compare(size_type pos1, size_type n1,
-            const basic_string& str,
-            size_type pos2, size_type n2 = npos) const;               // (3) C++14から
+int
+  compare(size_type pos1,
+          size_type n1,
+          const basic_string& str) const; // (2) C++03
+constexpr int
+  compare(size_type pos1,
+          size_type n1,
+          const basic_string& str) const; // (2) C++20
 
-int compare(const charT* s) const;                                    // (4)
-int compare(size_type pos1, size_type n1,
-            const charT* s) const;                                    // (5)
-int compare(size_type pos1, size_type n1,
-            const charT* s, size_type n2) const;                      // (6)
+int
+  compare(size_type pos1,
+          size_type n1,
+          const basic_string& str,
+          size_type pos2,
+          size_type n2) const;        // (3) C++03
+int
+  compare(size_type pos1,
+          size_type n1,
+          const basic_string& str,
+          size_type pos2,
+          size_type n2 = npos) const; // (3) C++14
+constexpr int
+  compare(size_type pos1,
+          size_type n1,
+          const basic_string& str,
+          size_type pos2,
+          size_type n2 = npos) const; // (3) C++20
+
+int compare(const charT* s) const;           // (4) C++03
+constexpr int compare(const charT* s) const; // (4) C++20
+
+int
+  compare(size_type pos1,
+          size_type n1,
+          const charT* s) const; // (5) C++03
+constexpr int
+  compare(size_type pos1,
+          size_type n1,
+          const charT* s) const; // (5) C++20
+
+int
+  compare(size_type pos1,
+          size_type n1,
+          const charT* s,
+          size_type n2) const; // (6) C++03
+constexpr int
+  compare(size_type pos1,
+          size_type n1,
+          const charT* s,
+          size_type n2) const; // (6) C++20
 
 // string_viewを引数に取るオーバーロード
 template<class T>
-int compare(const T& t) const noexcept(/*see below*/);                // (7) C++17
+int
+  compare(const T& t) const noexcept(下記参照); // (7) C++17
 template<class T>
-int compare(size_type pos1,
-            size_type n1,
-            const T& t) const;                                        // (8) C++17
+constexpr int
+  compare(const T& t) const noexcept(下記参照); // (7) C++20
+
 template<class T>
-int compare(size_type pos1,
-            size_type n1,
-            const T& t,
-            size_type pos2,
-            size_type n2 = npos) const;                               // (9) C++17
+int
+  compare(size_type pos1,
+          size_type n1,
+          const T& t) const; // (8) C++17
+template<class T>
+constexpr int
+  compare(size_type pos1,
+          size_type n1,
+          const T& t) const; // (8) C++20
+
+template<class T>
+int
+  compare(size_type pos1,
+          size_type n1,
+          const T& t,
+          size_type pos2,
+          size_type n2 = npos) const; // (9) C++17
+template<class T>
+constexpr int
+  compare(size_type pos1,
+          size_type n1,
+          const T& t,
+          size_type pos2,
+          size_type n2 = npos) const; // (9) C++20
 ```
 
 ## 概要
@@ -95,7 +154,7 @@ int main()
   std::cout << a.compare(c) << std::endl;
 }
 ```
-* compare[link compare.md]
+* compare[color ff0000]
 
 ### 出力例
 ```
@@ -110,3 +169,4 @@ int main()
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(7)(8)(9)の引数型を`const T&`に変更
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

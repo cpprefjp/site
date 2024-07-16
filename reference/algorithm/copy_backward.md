@@ -20,11 +20,11 @@ namespace std {
 ```
 
 ## 概要
-指定された範囲の要素を後ろからコピーする。
+指定されたイテレータ範囲`[first, last)`の要素を、出力イテレータ範囲に後ろからコピーする。
 
 
 ## 要件
-`result` は `(first,last]` の範囲に含まれてはならない。
+`result` はイテレータ範囲 `(first,last]` に含まれてはならない。
 
 
 ## 効果
@@ -42,7 +42,7 @@ namespace std {
 
 
 ## 備考
-`last` が `[result - (last-first), result)` の範囲内にあるときには、`copy()` の代わりに `copy_backward()` を使うべきである。
+`last` がイテレータ範囲 `[result - (last-first), result)` に含まれる場合には、`copy()` の代わりに `copy_backward()` を使うべきである。
 
 
 ## 例

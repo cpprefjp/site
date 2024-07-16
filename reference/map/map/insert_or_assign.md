@@ -25,6 +25,11 @@ iterator insert_or_assign(const_iterator hint, key_type&& k, M&& obj);          
 
 引数 `hint` は、`k` を検索する際のヒントに使用される。
 
+- (1) : `key_type`型のキーをとって挿入もしくは代入する
+- (2) : `key_type`型の一時オブジェクトのキーをとって挿入もしくは代入する
+- (3) : 挿入位置のヒントをともない、`key_type`型のキーをとって挿入もしくは代入する
+- (4) : 挿入位置のヒントをともない、`key_type`型の一時オブジェクトのキーをとって挿入もしくは代入する
+
 
 ## テンプレートパラメータ制約
 - (1)、(3) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
@@ -90,8 +95,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.7.0
-- [GCC](/implementation.md#gcc): 6.1.0
+- [Clang](/implementation.md#clang): 3.7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 6.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

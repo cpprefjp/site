@@ -70,23 +70,24 @@ namespace std {
 ## 非メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|--------------------------------------------------|-------------------------------------------|-------|
+|------------------------------------------------|-------------------------------------------|-------|
 | [`operator==`](unique_ptr/op_equal.md)         | 等値比較                                  | C++11 |
 | [`operator!=`](unique_ptr/op_not_equal.md)     | 非等値比較                                | C++11 |
+| [`operator<=>`](unique_ptr/op_compare_3way.md) | 三方比較                                  | C++20 |
 | [`operator<`](unique_ptr/op_less.md)           | 左辺が右辺より小さいかを判定する          | C++11 |
 | [`operator<=`](unique_ptr/op_less_equal.md)    | 左辺が右辺以下かを判定する                | C++11 |
 | [`operator>`](unique_ptr/op_greater.md)        | 左辺が右辺より大きいかを判定する          | C++11 |
 | [`operator>=`](unique_ptr/op_greater_equal.md) | 左辺が右辺以上かを判定する                | C++11 |
 | [`swap`](unique_ptr/swap_free.md)              | 2つの`unique_ptr`オブジェクトを入れ替える | C++11 |
 | [`make_unique`](make_unique.md)                | `unique_ptr`を構築するヘルパ関数          | C++14 |
-| `template<class E, class T, class Y, class D>`<br/>`basic_ostream<E, T>& operator<<(basic_ostream<E, T>& os, const unique_ptr<Y, D>& p);`                | 保持するポインタ値を出力する。この関数は`os << p.get()`が有効である場合にのみオーバーロード解決に参加する。          | C++17 |
+| [`operator<<`](unique_ptr/op_ostream.md)       | ストリームへ出力する                      | C++17 |
 
 ## ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
-|-----------------------------------------------------------|------------------------------------------|-------|
-| `template <class T> struct hash;`                         | `hash`クラスの先行宣言                   | C++11 |
-| `template <class T, class D> struct hash<unique_ptr<N>>;` | `hash`クラスの`unique_ptr`に対する特殊化 | C++11 |
+|--------------------------------------------------------------|------------------------------------------|-------|
+| `template <class T> struct hash;`                            | `hash`クラスの先行宣言                   | C++11 |
+| `template <class T, class D> struct hash<unique_ptr<T, D>>;` | `hash`クラスの`unique_ptr`に対する特殊化 | C++11 |
 
 
 ## 例
@@ -129,21 +130,22 @@ hoge::~hoge()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.4, 4.7.2
+- [GCC](/implementation.md#gcc): 4.4 [mark verified], 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
+
+
+## 関連項目
+
+- [`std::shared_ptr`の推論補助](/reference/memory/shared_ptr/op_deduction_guide.md)
 
 
 ## 参照
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
 - [Rvalue Reference Recommendations for Chapter 20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1856.html)
-    - `unique_ptr`の追加と`auto_ptr`の非推奨が提案された文書。
-- [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#672)
+    - `unique_ptr`の追加と`auto_ptr`の非推奨の提案文書。
+- [LWG Issue 673. `unique_ptr` update](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#673)
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
-- [LWG Issue 2948. `unique_ptr` does not define `operator<<` for stream output](https://wg21.cmeerw.net/lwg/issue2948)
 
-## 関連項目
-
-- [`std::shared_ptr`の推論補助](/reference/memory/shared_ptr/op_deduction_guide.md)

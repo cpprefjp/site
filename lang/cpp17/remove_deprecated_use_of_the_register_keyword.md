@@ -1,5 +1,13 @@
-# 非推奨だったregisterキーワードを削除
+# 非推奨だったregisterキーワードを削除 [P0001R1]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -17,7 +25,7 @@ register int v = 42;
 
 `register`キーワードはC++17標準では使用しなくなるが、将来のために予約されたままとなる。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++11 registerキーワードを非推奨化](/lang/cpp11/deprecation_of_the_register_keyword.md)
 

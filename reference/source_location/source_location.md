@@ -23,6 +23,7 @@ namespace std {
   };
 }
 ```
+* consteval[link /lang/cpp20/immediate_functions.md]
 * uint_least32_t[link /reference/cstdint/uint_least32_t.md]
 
 ## 概要
@@ -89,14 +90,14 @@ C言語から引き継いだ定義済みマクロ`__LINE__`、`__FILE__`や[事�
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.1
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
 
 - [C++11 事前定義識別子`__func__`](/lang/cpp11/func.md)
-- [C++20 即時関数](/lang/cpp20/immediate_functions.md)
+- [C++20 常に定数式評価する`consteval`](/lang/cpp20/immediate_functions.md)
 
 ## 参照
 

@@ -50,7 +50,9 @@ shared_ptr(auto_ptr<Y>&& r);                             // (13)
 template <class Y, class Deleter>
 shared_ptr(unique_ptr<Y, Deleter>&& r);                  // (14)
 
-constexpr shared_ptr(nullptr_t);                         // (15)
+constexpr shared_ptr(nullptr_t);                         // (15)  C++14
+
+constexpr shared_ptr(nullptr_t) noexcept;                // (15)  C++17
 
 template <class Y>
 shared_ptr(shared_ptr<Y>&& r, element_type* p) noexcept; // (16) C++20
@@ -265,10 +267,10 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6 (unique_ptr, nullptr以外), 4.4.7 (nullptr以外), 4.6.4
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 (unique_ptr [mark verified], nullptr以外) [mark verified], 4.4.7 (nullptr以外) [mark verified], 4.6.4 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
     - 2008は(1), (2), (3), (4), (8), (9), (12), (13)のみ
     - 2008, 2010の(13)は、仮引数の型が`auto_ptr<Y>&&`ではなく`auto_ptr<Y>&`になっている。
 
@@ -283,3 +285,4 @@ int main()
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
 - [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)
 - [LWG Issue 2996. Missing rvalue overloads for `shared_ptr` operations](https://wg21.cmeerw.net/lwg/issue2996)
+- [LWG Issue 2365. Missing `noexcept` in `shared_ptr::shared_ptr(nullptr_t)`](https://wg21.cmeerw.net/lwg/issue2365)

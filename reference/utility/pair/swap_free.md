@@ -2,12 +2,13 @@
 * utility[meta header]
 * std[meta namespace]
 * function template[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
 namespace std {
   template <class T1, class T2>
   void swap(pair<T1,T2>& x, pair<T1,T2>& y)
-    noexcept(noexcept(x.swap(y)));          // (1) C++03
+    noexcept(noexcept(x.swap(y)));          // (1) C++11
   template <class T1, class T2>
   constexpr void swap(pair<T1,T2>& x, pair<T1,T2>& y)
     noexcept(noexcept(x.swap(y)));          // (1) C++20
@@ -28,7 +29,7 @@ x.swap(y);
 
 
 ## 例外
-式`x.swap(y))`が例外を投げない場合、この関数は決して例外を送出しない
+式`x.swap(y)`が例外を投げない場合、この関数は決して例外を送出しない
 
 
 ## 例

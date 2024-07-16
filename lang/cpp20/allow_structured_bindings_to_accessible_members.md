@@ -1,5 +1,13 @@
-# friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可
+# friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可 [P0969R0]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++17までの構造化束縛では、publicアクセス指定されたメンバ変数のみ抽出できる仕様となっていた。
@@ -43,7 +51,7 @@ int main() {
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
 
 

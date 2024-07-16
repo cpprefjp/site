@@ -28,11 +28,11 @@ namespace std {
 
 スタンダードレイアウト型は、以下の全てを満たす型を指す：
 
-- 非スタンダードレイアウト型の非静的データメンバもしくは参照を持たない
+- 非スタンダードレイアウト型の非静的メンバ変数もしくは参照を持たない
 - 仮想関数を持たず、仮想基底クラスを持たない
 - 非スタンダードレイアウト型の基底クラスを持たない
-- 最派生クラスに非静的データメンバを持つ場合、基底クラスに非静的データメンバを持たない
-- 最初の非静的データメンバと同じ基底クラスを持たない
+- 最派生クラスに非静的メンバ変数を持つ場合、基底クラスに非静的メンバ変数を持たない
+- 最初の非静的メンバ変数と同じ基底クラスを持たない
 
 
 ## 備考
@@ -54,7 +54,7 @@ static_assert(
   std::is_standard_layout<int>::value == true,
   "int is standard-layout type");
 
-// スタンダードレイアウト型のデータメンバのみを
+// スタンダードレイアウト型のメンバ変数のみを
 // 持つ型はスタンダードレイアウト型
 static_assert(
   std::is_standard_layout<X>::value == true,
@@ -73,9 +73,9 @@ int main() {}
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.5.4
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.5.4 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 関連項目

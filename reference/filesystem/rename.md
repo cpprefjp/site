@@ -21,7 +21,7 @@ namespace std::filesystem {
 
 ## 効果
 - パス`old_p`のファイル・ディレクトリを、パス`new_p`に名称変更する
-    - POSIX環境では、[`rename()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/rename.2.html)関数を使用する
+    - POSIX環境では、[`rename()`](https://web.archive.org/web/20230207112323/http://linuxjm.osdn.jp/html/LDP_man-pages/man2/rename.2.html)関数を使用する
 - パス`old_p`とパス`new_p`が同じファイルに解決される場合、本関数はなにもしない
 - そうでない場合、名称変更操作には、以下のような効果も含む：
     - `new_p`がすでに存在する非ディレクトリのファイルに解決される場合、すでに存在している`new_p`のファイルは削除される
@@ -103,6 +103,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

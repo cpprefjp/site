@@ -20,7 +20,7 @@ namespace std::filesystem {
 
 
 ## 効果
-- POSIX環境では、[`link()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/link.2.html)関数を使用して、パス`to`のファイルと同じinodeを参照するハードリンクをパス`new_hard_link`に作成する
+- POSIX環境では、[`link()`](https://web.archive.org/web/20230206201555/http://linuxjm.osdn.jp/html/LDP_man-pages/man2/link.2.html)関数を使用して、パス`to`のファイルと同じinodeを参照するハードリンクをパス`new_hard_link`に作成する
 
 
 ## 戻り値
@@ -71,6 +71,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

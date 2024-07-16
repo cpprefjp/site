@@ -1,5 +1,13 @@
-# ほとんどの`volatile`を非推奨化
+# ほとんどの`volatile`を非推奨化 [P1152R4]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -8,6 +16,7 @@ C++20より、`volatile`の本来の役割に照らして不正確、あるい�
 非推奨となるのは次のもの
 
 1. `volatile`値に対する複合代入演算子（算術型・ポインタ型のみ）
+    - C++23で非推奨化解除
 2. `volatile`値に対するインクリメント／デクリメント演算子（算術型・ポインタ型のみ）
 3. 間に`volatile`値がある場合の連鎖した代入演算子（非クラス型のみ）
 4. 関数引数のトップレベル`volatile`修飾
@@ -65,6 +74,8 @@ a--;
 従って、算術型・ポインタ型の`volatile`変数に対する組み込みの複合代入演算子およびインクリメント演算子の使用はバグの元であるので、非推奨とされる。
 
 この場合、これらの複合的な演算子を用いず、明示的に「読み出し - 更新 - 書き込み」を分けて書くことで`volatile`変数へのアクセスをコード上でも明確にする事が推奨される。
+
+ただし、複合代入演算子についてはC++23で非推奨化が解除された。
 
 ### 連鎖した代入演算子
 
@@ -251,7 +262,7 @@ auto&& [a, b, c] = f();  // OK、一時オブジェクト内各要素へのバ�
 
 あるクラスが`volatile`な領域に配置されることもあればそうでない場合もある、という状況は考えづらく、そのような状況にあったとして、メンバ関数がどう有意義に異なるのかはさらに不明瞭である。
 
-さらに、コンストラクタやデストラクタは`const`も`voaltile`修飾もできないため、クラスのオブジェクトへの`volatile`性が有効になるのは派生先も含めてコンストラクタの呼び出しが完了した後からとなる（同様に、`volatile`性はデストラクタの呼び出し前までしか有効ではない）。
+さらに、コンストラクタやデストラクタは`const`も`volatile`修飾もできないため、クラスのオブジェクトへの`volatile`性が有効になるのは派生先も含めてコンストラクタの呼び出しが完了した後からとなる（同様に、`volatile`性はデストラクタの呼び出し前までしか有効ではない）。
 
 `volatile`においてはその領域へのアクセスが重要であり、1度のアクセスは正確に1度だけ行われる必要があり、その順序は前後してはならない。クラスのオブジェクトが`volatile`な領域に配置されるとき、`volatile`の保証なしで構築や破棄をすることは間違っている。クラスオブジェクトが`volatile`な領域に配置される場合は、そのメンバ変数を`volatile`修飾しておく事が望ましい。
 
@@ -309,7 +320,7 @@ volatile int i;
 
 // iの領域へ何回のアクセスが発生するか不透明
 // これはどちらも非推奨化
-i += 42;
+i += 42;  // C++23で非推奨化解除
 ++i;
 ```
 
@@ -377,3 +388,5 @@ volatile device dev;
 - [P1152R4 Deprecating `volatile`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r4.html)
 - [P1831R0 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1831r0.html)
 - [P1831R0 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+- [P2327R0 De-deprecating volatile compound assignment](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2327r1.pdf)
+- [CWG Issue 2654. Un-deprecation of compound volatile assignments](https://cplusplus.github.io/CWG/issues/2654.html)

@@ -32,9 +32,9 @@ int main()
   assert(ss2.stop_possible() == false);
 }
 ```
+* stop_possible()[color ff0000]
 * stop_source[link ../stop_source.md]
 * nostopstate[link ../nostopstate.md]
-* stop_possible()[link stop_possible.md]
 
 ### 出力
 ```

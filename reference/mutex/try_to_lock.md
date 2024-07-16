@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  struct try_to_lock_t { };
+  struct try_to_lock_t { explicit try_to_lock_t() = default; };
   constexpr try_to_lock_t try_to_lock { };        // C++11
   inline constexpr try_to_lock_t try_to_lock { }; // C++17
 }
@@ -55,12 +55,11 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - 2012, 2013は`constexpr`が実装されていないため、代わりに`try_to_lock`には`const`が修飾されている。
 
 
 ## 参照
-
-
+- [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510

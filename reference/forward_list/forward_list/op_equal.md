@@ -7,7 +7,8 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator==(const forward_list<T, Allocator>& x, const forward_list<T, Allocator>& y);
+  bool operator==(const forward_list<T, Allocator>& x,
+                  const forward_list<T, Allocator>& y); // (1) C++11
 }
 ```
 
@@ -30,6 +31,11 @@ namespace std {
 
 ## 計算量
 線形時間
+
+
+## 備考
+- この演算子により、以下の演算子が使用可能になる (C++20)：
+    - `operator!=`
 
 
 ## 例
@@ -66,12 +72,12 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 
 ## 参照
 - [LWG Issue 2257. Simplify container requirements with the new algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2257)
-    - C++14から、2つ目の範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
+    - C++14から、2つ目のイテレータ範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
 

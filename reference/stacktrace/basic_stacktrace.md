@@ -10,9 +10,14 @@ namespace std {
   class basic_stacktrace;
 
   using stacktrace = basic_stacktrace<allocator<stacktrace_entry>>;
+
+  namespace pmr {
+    using stacktrace = basic_stacktrace<polymorphic_allocator<stacktrace_entry>>;
+  }
 }
 ```
 * allocator[link /reference/memory/allocator.md]
+* polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 * stacktrace_entry[link stacktrace_entry.md]
 
 ## 概要
@@ -27,9 +32,11 @@ namespace std {
 
 
 ### 備考
-- このクラスは、シグナル安全ではない
+- このクラスは、仕様としてシグナル安全ではない
     - 元となった[Boost.Stacktraceライブラリ](https://boost.org/libs/stacktrace)の実装はシグナルハンドラ中でもスタックトレースを出力できる機能を提供するが、標準の本機能はその機能を提供しない
     - そのような機能は一部のプラットフォームでは実装できないためである
+    - ただし、実装がシグナル安全である場合がある
+        - GCC (libstdc++) が内部で使用している[libbacktrace](https://github.com/ianlancetaylor/libbacktrace)ライブラリは、シグナル安全である。ただしlibstdc++の実装仕様としてシグナル安全であるという明記はない
 
 
 ## メンバ関数
@@ -153,6 +160,13 @@ namespace std {
 | `template <class Allocator>`<br/> `struct hash<basic_stacktrace<Allocator>>;` | `hash`クラスの`basic_stacktrace`に対する特殊化 | C++23 |
 
 
+### 文字列フォーマットサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `template <class Allocator>`<br/> `struct formatter<basic_stacktrace<Allocator>>;` | [`formatter`](/reference/format/formatter.md)の特殊化 | C++23 |
+
+
 ## 例
 ### 基本的な使い方
 ```cpp example
@@ -173,11 +187,15 @@ int main() {
 ```
 * current()[link basic_stacktrace/current.md]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
- 0# g() at main.cpp:5
- 1# f() at main.cpp:9
- 2# main at main.cpp:13
+   0#  g() at /app/example.cpp:5
+   1#  f() at /app/example.cpp:10
+   2# main at /app/example.cpp:14
+   3#      at :0
+   4# __libc_start_main at :0
+   5# _start at :0
+   6# 
 ```
 
 ### スタックトレースを出力するアサーションマクロを作る
@@ -208,9 +226,9 @@ int main() {
 * std::abort()[link /reference/cstdlib/abort.md]
 * std::cerr[link /reference/iostream/cerr.md]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
-Expression 'i >= 0' is false in f() at main.cpp:15
+Expression 'i >= 0' is false in f(int) at /app/example.cpp:15
 ```
 
 ## バージョン
@@ -218,6 +236,17 @@ Expression 'i >= 0' is false in f() at main.cpp:15
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 18 [mark noimpl]
+- [GCC](/implementation.md#gcc): 12 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 4 [mark impl]
+
+
+### 備考
+- GCCでは、以下のコンパイルオプションを追加で指定する必要がある：
+    - 13まで : `-lstdc++_libbacktrace`
+    - 14以降 : `-lstdc++exp`
+
+
+## 参照
+- [P2693R1 Formatting `thread::id` and `stacktrace`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2693r1.pdf)
+- [P2301R1 Add a `pmr` alias for `std::stacktrace`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2301r1.html)

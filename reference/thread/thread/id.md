@@ -31,7 +31,7 @@ namespace std {
 ## 概要
 スレッド識別子。trivially copyable class。
 
-実行のスレッドに対して一意な`thread::id`が対応づけられる。デフォルトコンストラクトされた`thread::id`はいかなるスレッドとも対応付けられない（ポインタ型における`nullptr`のようなもの）。
+実行のスレッドに対して一意な`thread::id`が対応づけられる。デフォルト構築された`thread::id`はいかなるスレッドとも対応付けられない（ポインタ型における`nullptr`のようなもの）。
 
 終了したスレッドを表す識別子の値は、再利用される可能性がある。
 
@@ -48,11 +48,12 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |--------------|------------------------------------|-------|
 | `operator==` | 等値比較                           | C++11 |
-| `operator!=` | 非等値比較                         | C++11 |
-| `operator<`  | 左辺が右辺より小さいかの判定を行う | C++11 |
-| `operator<=` | 左辺が右辺以下かの判定を行う       | C++11 |
-| `operator>`  | 左辺が右辺より大きいかの判定を行う | C++11 |
-| `operator>=` | 左辺が右辺以上かの判定を行う       | C++11 |
+| `operator!=` | 非等値比較 (C++20から`operator==`により使用可能)                         | C++11 |
+| `operator<`  | 左辺が右辺より小さいかの判定を行う (C++20から`operator<=>`により使用可能) | C++11 |
+| `operator<=` | 左辺が右辺以下かの判定を行う (C++20から`operator<=>`により使用可能)       | C++11 |
+| `operator>`  | 左辺が右辺より大きいかの判定を行う (C++20から`operator<=>`により使用可能) | C++11 |
+| `operator>=` | 左辺が右辺以上かの判定を行う (C++20から`operator<=>`により使用可能)       | C++11 |
+| `strong_ordering operator<=>(thread::id x, thread::id y) noexcept;` | 三方比較 | C++20 |
 
 ### ストリーム出力
 
@@ -61,11 +62,18 @@ namespace std {
 | `operator<<` | `thread::id`のストリーム出力。 フォーマットは未規定だが、他の識別子と異なることがわかる表現となる。 | C++11 |
 
 
-## hashサポート
+## ハッシュサポート
 
 | 名前 | 説明 | 対応バージョン |
 |--------|-----------------------------------------|-------|
 | `hash` | `thread::id`での特殊化 (class template) | C++11 |
+
+
+## 文字列フォーマットサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](id/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++23 |
 
 
 ## 例
@@ -96,8 +104,9 @@ main=824a30
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
 - [LWG Issue 783. `thread::id` reuse](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#783)
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

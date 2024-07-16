@@ -99,7 +99,6 @@ int main()
 * std::smatch[link ../match_results.md]
 * std::regex_match[link ../regex_match.md]
 * std::regex_search[link ../regex_search.md]
-* std::regex_iterator[link ../regex_iterator.md]
 * std::sregex_iterator[link ../regex_iterator.md]
 * sub.str()[link str.md]
 * std::ssub_match[link ../sub_match.md]
@@ -128,8 +127,7 @@ suffix(): str() = '', range = [8, 8), matched = false
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
-- [GCC](/implementation.md#gcc): 4.9.0, 4.9.1, 5.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

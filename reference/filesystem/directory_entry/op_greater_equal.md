@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-bool operator>=(const directory_entry& rhs) const noexcept;
+// operator<=>により、以下のオーバーロードが使用可能になる (C++20)
+bool operator>=(const directory_entry& rhs) const noexcept; // (1) C++17
 ```
 
 ## 概要
@@ -53,5 +54,9 @@ greater equal
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 8.1
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

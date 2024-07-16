@@ -70,9 +70,9 @@ void producer() {
 void consumer() {
   // データが供給されたら、resourceとyを入れ替える (resourceが空になり、yにデータが入る)。
   std::shared_ptr<int> y;
-  while (!resource.exchange(y)) {
-    std::cout << *y << std::endl;
+  while (!(y = resource.exchange(y))) {
   }
+  std::cout << *y << std::endl;
 }
 
 int main()

@@ -10,11 +10,21 @@ namespace std {
   stack(Container)
     -> stack<typename Container::value_type, Container>; // (1)
 
+  template<class InputIterator>
+  stack(InputIterator, InputIterator)
+    -> stack<iter-value-type<InputIterator>>;  // (2) C++23
+
   template<class Container, class Allocator>
   stack(Container, Allocator)
-    -> stack<typename Container::value_type, Container>; // (2)
+    -> stack<typename Container::value_type, Container>; // (3)
+
+  template<class InputIterator, class Allocator>
+  stack(InputIterator, InputIterator, Allocator)
+    -> stack<iter-value-type<InputIterator>, deque<iter-value-type<InputIterator>,
+             Allocator>>;  // (4) C++23
 }
 ```
+* iter-value-type[italic]
 
 ## 概要
 `std::stack`クラステンプレートの型推論補助。元となるコンテナから推論する。
@@ -71,4 +81,5 @@ int main()
 
 ## 参照
 - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
-
+- [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
+    - C++23でのイテレータペアへの対応

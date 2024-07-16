@@ -47,7 +47,7 @@ namespace std {
 #include <type_traits>
 
 template<typename T, typename Cat>
-using fallback_comp3way = std::conditional_t<std::three_way_comparable<T>, std::compare_three_way_result_t<T>, Cat>;
+using fallback_comp3way_t = std::conditional_t<std::three_way_comparable<T>, std::compare_three_way_result<T>, std::type_identity<Cat>>::type;
 
 using category = std::weak_ordering;
 
@@ -57,11 +57,11 @@ struct triple {
   T2 t2;
   T3 t3;
 
-  //<=>を使用可能ならそれを、そうでないなら< ==を使ってdefault実装
+  // <=>を使用可能ならそれを、そうでないなら< ==を使ってdefault実装
   auto operator<=>(const triple&) const
-    -> std::common_comparison_category_t<fallback_comp3way<T1, category>, fallback_comp3way<T2, category>, fallback_comp3way<T3, category>>
+    -> std::common_comparison_category_t<fallback_comp3way_t<T1, category>, fallback_comp3way_t<T2, category>, fallback_comp3way_t<T3, category>>
       = default;
-}
+};
 
 struct no_spaceship {
   int n;
@@ -75,8 +75,7 @@ struct no_spaceship {
   }
 };
 
-int main()
-{
+int main() {
   triple<int, double, no_spaceship> t1 = {10, 3.14, {20}}, t2 = {10, 3.14, {30}};
 
   std::cout << std::boolalpha;
@@ -87,6 +86,7 @@ int main()
 }
 ```
 * common_comparison_category_t[color ff0000]
+* type_identity[link /reference/type_traits/type_identity.md]
 
 ### 出力
 ```
@@ -96,20 +96,18 @@ false
 false
 ```
 
-このコードをコンパイルできるコンパイラがまだないため、結果は予想。
-
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 [mark verified]
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 
 
 ## 参照

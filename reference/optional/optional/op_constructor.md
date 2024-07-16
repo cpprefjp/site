@@ -6,35 +6,41 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr optional() noexcept;                           // (1) C++17
-constexpr optional(nullopt_t) noexcept;                  // (2) C++17
-constexpr optional(const optional& rhs);                 // (3) C++17
-constexpr optional(optional&& rhs) noexcept(see below);  // (4) C++17
+constexpr optional() noexcept;                                  // (1) C++17
+constexpr optional(nullopt_t) noexcept;                         // (2) C++17
+constexpr optional(const optional& rhs);                        // (3) C++17
+constexpr optional(optional&& rhs) noexcept(see below);         // (4) C++17
 
 template <class... Args>
-constexpr explicit optional(in_place_t, Args&&... args); // (5) C++17
+constexpr explicit optional(in_place_t, Args&&... args);        // (5) C++17
 
 template <class U, class... Args>
 constexpr explicit optional(
                      in_place_t,
                      initializer_list<U> il,
-                     Args&&... args);                    // (6) C++17
+                     Args&&... args);                           // (6) C++17
 
 template <class U = T>
-EXPLICIT constexpr optional(U&& rhs);                    // (7) C++17
+EXPLICIT constexpr optional(U&& rhs);                           // (7) C++17
 template <class U = T>
-explicit(see below) constexpr optional(U&& rhs);         // (7) C++20
+explicit(see below) constexpr optional(U&& rhs);                // (7) C++20
 
 template <class U>
-EXPLICIT optional(const optional<U>& rhs);               // (8) C++17
+EXPLICIT optional(const optional<U>& rhs);                      // (8) C++17
 template <class U>
-explicit(see below) optional(const optional<U>& rhs);    // (8) C++20
+explicit(see below) optional(const optional<U>& rhs);           // (8) C++20
+template <class U>
+explicit(see below) constexpr optional(const optional<U>& rhs); // (8) C++23
 
 template <class U>
-EXPLICIT optional(optional<U>&& rhs);                    // (9) C++17
+EXPLICIT optional(optional<U>&& rhs);                           // (9) C++17
 template <class U>
-explicit(see below) optional(optional<U>&& rhs);         // (9) C++20
+explicit(see below) optional(optional<U>&& rhs);                // (9) C++20
+template <class U>
+explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
 ```
+* see below[italic]
+* EXPLICIT[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]
 * in_place_t[link /reference/utility/in_place_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -85,12 +91,16 @@ explicit(see below) optional(optional<U>&& rhs);         // (9) C++20
 
 
 ## 定数式に評価される条件
-- (3) : 型`T`がトリビアルにコピー構築可能であること
-- (4) : 型`T`がトリビアルにムーブ構築可能であること
+- (3) : 型`T`が[トリビアルにコピー構築可能](/reference/type_traits/is_trivially_copy_constructible.md)であること
+- (4) : 型`T`が[トリビアルにムーブ構築可能](/reference/type_traits/is_trivially_move_constructible.md)であること
 - (5) : 型`T`の選択されたコンストラクタが`constexpr`であること
 - (6) : 型`T`の選択されたコンストラクタが`constexpr`であること
 - (7) : 型`T`の選択されたコンストラクタが`constexpr`であること
 
+## トリビアルに定義される条件
+
+- (3) : 型`T`が[トリビアルにコピー構築可能](/reference/type_traits/is_trivially_copy_constructible.md)であること
+- (4) : 型`T`が[トリビアルにムーブ構築可能](/reference/type_traits/is_trivially_move_constructible.md)であること
 
 ## explicitになる条件
 - (7) : 型`U`から型`T`に暗黙的に型変換ができる場合、このオーバーロードは非`explicit`となる。型`U`から型`T`に明示的な型変換ならできる場合、このオーバーロードは`explicit`となる
@@ -201,8 +211,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.2
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -217,5 +227,8 @@ int main()
 - [LWG Issue 2842. `in_place_t` check for `optional::optional(U&&)` should decay `U`](https://wg21.cmeerw.net/lwg/issue2842)
     - 説明の簡略化のため、このオーバーロードで`in_place_t`への言及は現在していない
 - [LWG Issue 2900. The copy and move constructors of `optional` are not `constexpr`](https://wg21.cmeerw.net/lwg/issue2900)
+- [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応
+- [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

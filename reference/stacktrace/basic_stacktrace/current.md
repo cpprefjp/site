@@ -37,10 +37,10 @@ static basic_stacktrace
     - `alloc`は[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数に渡される
 - (2) :
     - `basic_stacktrace::current(alloc)`で構築されたオブジェクト`st`の[`st.size()`](size.md)を`n`として、
-    - 範囲`[st.begin() + min(n, skip), st.end())`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
+    - イテレータ範囲`[st.begin() + min(n, skip), st.end())`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
 - (3) :
     - `basic_stacktrace::current(alloc)`で構築されたオブジェクト`st`の[`st.size()`](size.md)を`n`として、
-    - 範囲`[st.begin() + min(n, skip), st.begin() + min(n, skip + max_depth))`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
+    - イテレータ範囲`[st.begin() + min(n, skip), st.begin() + min(n, skip + max_depth))`と`alloc`を、[`stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md)オブジェクトの配列を保持する[`std::vector`](/reference/vector/vector.md)型メンバ変数として保持する。ただし、その初期化に失敗した場合、`basic_stacktrace`オブジェクトは空になる
 
 
 ## 備考
@@ -67,11 +67,15 @@ int main() {
 ```
 * current()[color ff0000]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
- 0# g() at main.cpp:5
- 1# f() at main.cpp:9
- 2# main at main.cpp:13
+   0#  g() at /app/example.cpp:5
+   1#  f() at /app/example.cpp:9
+   2# main at /app/example.cpp:13
+   3#      at :0
+   4# __libc_start_main at :0
+   5# _start at :0
+   6# 
 ```
 
 ### 現在位置からN個を除いたスタックトレースを取得する
@@ -91,12 +95,16 @@ int main() {
   f();
 }
 ```
-* current()[color ff0000]
+* current[color ff0000]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
- 0# f() at main.cpp:9
- 1# main at main.cpp:13
+   0#  f() at /app/example.cpp:9
+   1# main at /app/example.cpp:13
+   2#      at :0
+   3# __libc_start_main at :0
+   4# _start at :0
+   5# 
 ```
 
 ### 指定範囲のスタックトレースを取得する
@@ -116,12 +124,12 @@ int main() {
   f();
 }
 ```
-* current()[color ff0000]
+* current[color ff0000]
 
-#### 出力例
+#### 出力例 (GCC)
 ```
- 0# f() at main.cpp:9
- 1# main at main.cpp:13
+   0#  f() at /app/example.cpp:9
+   1# main at /app/example.cpp:13
 ```
 
 
@@ -131,5 +139,5 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

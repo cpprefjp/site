@@ -7,12 +7,14 @@
 
 型修飾のスタイル：
 
-- A) const T &v
-- B) const T& v
-- C) const T & v
-- D) T const &v
-- E) T const& v
-- F) T const & v
+```cpp
+/* (A) */ const T &v
+/* (B) */ const T& v
+/* (C) */ const T & v
+/* (D) */ T const &v
+/* (E) */ T const& v
+/* (F) */ T const & v
+```
 
 本サイトでは、Bのスタイルで型修飾を行います。
 
@@ -43,9 +45,19 @@ C++11以降対応については対応バージョンを明記します。バー
 - Visual C++: 2003, 2008, 2010
 - pgCC: 11.2
 
-それと、訳語表を随時更新していってください。
+表記するバージョンには、「未実装」「実装済み」「動作検証済み」を表す絵文字指定を併記してください。
+
+- GCC: 12.0 [mark noimpl], 13.1 [mark impl], 14.1 [mark verified]
+
+ここで、各指定は以下を意味します。
+
+- mark noimpl : 未実装を表す絵文字
+- mark impl : 動作確認はできていないけど、リリースノートやそれに類するドキュメントには実装済みと書かれていることを表す絵文字
+- mark verified : 動作検証済み
+
 
 ### 訳語表
+訳語表は随時更新していってください。
 
 | 英語               | 日本語 |
 |--------------------|----------------------------------------------|
@@ -63,11 +75,13 @@ C++11以降対応については対応バージョンを明記します。バー
 | const iterator                     | 読み取り専用イテレータ       |
 | const reverse iterator             | 読み取り専用逆イテレータ     |
 | covariant                          | 共変的                       |
+| data member                        | メンバ変数 (ユーザー視点ではデータメンバより一般的のため) |
 | dereference                        | 間接参照                     |
 | dereferenceable                    | 間接参照可能                 |
 | derived class                      | 派生クラス                   |
 | direct base class                  | 直接基底クラス               |
 | delegate                           | 委譲                         |
+| dynamic extent                     | (std::mdspanの) 動的要素数   |
 | effects                            | 効果                         |
 | emplace                            | 直接構築                     |
 | empty                              | 空                           |
@@ -91,11 +105,14 @@ C++11以降対応については対応バージョンを明記します。バー
 | move                               | (std::move 的な意味で)ムーブ |
 | move assignment                    | ムーブ代入                   |
 | move constructor                   | ムーブコンストラクタ         |
+| multidimensional index             | 多次元インデクス             |
+| multidimensional index space       | 多次元インデクス空間         |
 | mutable iterator                   | 可変イテレータ               |
 | non-virtual base class             | 非仮想基底クラス             |
 | note                               | 注                           |
 | output iterator                    | 出力イテレータ               |
 | overload                           | オーバーロード               |
+| (proposal) paper                   | 提案文書                     |
 | partial ordering                   | 半順序                       |
 | partition                          | 区分化                       |
 | pointer                            | ポインタ                     |
@@ -105,7 +122,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | propagation, propagate             | 伝播<br/> (伝搬は誤用が広まったものなので使わない) |
 | pure virtual function              | 純粋仮想関数                 |
 | random access iterator             | ランダムアクセスイテレータ   |
-| range                              | 範囲                         |
+| range                              | 一般用途の場合：範囲<br/> Rangeアルゴリズム・Rangeアダプタ・Rangeオブジェクトの場合：Range<br/> range-based for：範囲for文<br/> 2つのイテレータによる範囲：イテレータ範囲 |
 | remarks                            | 備考                         |
 | requires                           | 要件                         |
 | returns                            | 戻り値                       |
@@ -113,10 +130,12 @@ C++11以降対応については対応バージョンを明記します。バー
 | rvalue reference                   | 右辺値参照                   |
 | sequence container(s)              | シーケンスコンテナ           |
 | signed                             | 符号付き                     |
+| static extent                      | (std::mdspanの) 静的要素数   |
 | stop request                       | 停止要求                     |
 | stop state                         | 停止状態                     |
 | Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |
 | strict weak ordering               | 狭義の弱順序                 |
+| stride                             | (std::mdspanの) ストライド幅 |
 | strong ordering                    | 全順序                       |
 | structural type                    | 構造的型                     |
 | synchronization                    | 同期                         |
@@ -127,8 +146,8 @@ C++11以降対応については対応バージョンを明記します。バー
 | underlying type                    | 基底型                       |
 | unordered associative container(s) | 非順序連想コンテナ           |
 | unspecified                        | 未規定                       |
+| program-defined type               | プログラム定義型             |
 | virtual base class                 | 仮想基底クラス               |
 | weak ordering                      | 弱順序                       |
 | well-formed                        | 適格                         |
 | eligible                           | 資格のある                   |
-

@@ -24,7 +24,7 @@ namespace std {
 ```
 
 ## 概要
-範囲の全ての要素に、指定された関数を適用する。
+イテレータ範囲`[first, last)`の全ての要素に、指定された関数を適用する。
 
 
 ## 要件
@@ -142,7 +142,7 @@ int main() {
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc):
 - [ICC](/implementation.md#icc): 
-- [Visual C++](/implementation.md#visual_cpp): 2005, 2008, 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - C++11への対応（戻り値のムーブ）は2012から。
 
 

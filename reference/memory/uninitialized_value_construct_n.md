@@ -22,7 +22,7 @@ namespace std {
 ## 概要
 未初期化領域の範囲のうち、先頭N個の要素を値構築する。
 
-未初期化領域の入力範囲`[first, first + n)`の各要素を値構築する (ゼロ初期化する)。
+未初期化領域の入力イテレータ範囲`[first, first + n)`の各要素を値構築する (ゼロ初期化する)。
 
 
 ## 効果
@@ -36,6 +36,10 @@ return first;
 ```
 * addressof[link addressof.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
+
+## 例外
+
+呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
 
 
 ### 例
@@ -90,9 +94,13 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`ranges::uninitialized_value_construct_n`](ranges_uninitialized_value_construct_n.md)
 
 
 ## 参照

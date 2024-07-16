@@ -2,7 +2,7 @@
 * functional[meta header]
 * std[meta namespace]
 * default_searcher[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
@@ -96,7 +96,7 @@ abaa
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 7.3
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

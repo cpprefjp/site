@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std {
+  // operator==により、以下のオーバーロードが使用可能になる (C++20)
   template <class OuterA1, class OuterA2, class... InnerAllocs>
   bool operator!=(const scoped_allocator_adaptor<OuterA1, InnerAllocs...>& a,
-                  const scoped_allocator_adaptor<OuterA2, InnerAllocs...>& b) noexcept;
+                  const scoped_allocator_adaptor<OuterA2, InnerAllocs...>& b) noexcept; // (1) C++11
 }
 ```
 
@@ -68,7 +69,11 @@ equal
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.7.3
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

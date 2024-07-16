@@ -33,16 +33,16 @@ namespace std {
 ```
 
 ## 概要
-出力の範囲へ関数の結果を `n` 個書き込む。
+イテレータ範囲`[first, first + n)` (範囲の先頭N要素) に関数`gen`の結果を書き込む。
 
 
-## 要件
+## テンプレートパラメータ制約
 - `gen` は引数をとらないこと。
-- `Size` は integral type に変換可能であること。
+- `Size` は整数型に変換可能であること。
 
 
 ## 効果
-`n` が 1 以上の場合、`[first,last)` のそれぞれのイテレータについて関数オブジェクト `gen` を呼び出し、その戻り値を代入する。
+`n` が 1 以上の場合、イテレータ範囲`[first,last)` のそれぞれのイテレータについて関数オブジェクト `gen` を呼び出し、その戻り値を代入する。
 
 そうでない場合、何もしない。
 
@@ -104,7 +104,7 @@ generate_n(OutputIterator first, Size n, Generator gen) {
 - [Clang](/implementation.md#clang): 
 - [GCC](/implementation.md#gcc):
 - [ICC](/implementation.md#icc): 
-- [Visual C++](/implementation.md#visual_cpp): 2005, 2008, 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - C++11への対応（戻り値の変更）は2012から。
 
 

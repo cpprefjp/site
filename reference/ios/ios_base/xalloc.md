@@ -87,7 +87,7 @@ int main()
 * std::ios_base::xalloc()[color ff0000]
 * std::ostream[link /reference/ostream/basic_ostream.md]
 * pword[link pword.md]
-* std::ostringstream[link /reference/sstream/basic_ostringstream.md.nolink]
+* std::ostringstream[link /reference/sstream/basic_ostringstream.md]
 * std::hex[link /reference/ios/hex.md]
 
 ### 出力

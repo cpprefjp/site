@@ -7,16 +7,24 @@
 
 ```cpp
 explicit weibull_distribution(RealType a = 1.0, RealType b = 1.0); // (1)
-explicit weibull_distribution(const param_type& parm);             // (2)
+weibull_distribution() : weibull_distribution(1.0) {}              // (1) C++20
+
+explicit weibull_distribution(RealType a, RealType b = 1.0);       // (2) C++20
+
+explicit weibull_distribution(const param_type& parm);             // (3)
 ```
 
 ## 概要
-- (1) : ワイブル分布の形状パラメータ(ワイブル係数)`a`と尺度パラメータ`b`を受け取るコンストラクタ
-- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
+
+- (1) : デフォルトコンストラクタ
+    - C++17まで : ワイブル分布の形状パラメータ(ワイブル係数)`a`と尺度パラメータ`b`を受け取るコンストラクタ。
+    - C++20 : ワイブル分布の形状パラメータ`a = 1.0`、尺度パラメータ`b = 1.0`として(2)に委譲。
+- (2) : ワイブル分布の形状パラメータ(ワイブル係数)`a`と尺度パラメータ`b`を受け取るコンストラクタ
+- (3) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
 ## 要件
-- (1) : `a > 0`かつ`b > 0`であること
+- (2) : `a > 0`かつ`b > 0`であること
 
 
 ## 例
@@ -86,11 +94,11 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 
-
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)

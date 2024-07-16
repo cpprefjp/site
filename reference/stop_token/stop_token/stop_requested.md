@@ -20,7 +20,7 @@
 投げない。
 
 ## 備考
-一度[`stop_requested()`](stop_requested.md) `==` `true`となった[`stop_token`](../stop_token.md)は、自身と停止状態を共有する[`stop_source`](../stop_source.md)が破棄されても[`stop_requested()`](stop_requested.md) `==` `true`かつ[`stop_possible()`](stop_possible.md) `==` `true`の状態のままになる。
+一度`stop_requested()` `==` `true`となった[`stop_token`](../stop_token.md)は、自身と停止状態を共有する[`stop_source`](../stop_source.md)が破棄されても`stop_requested()` `==` `true`かつ[`stop_possible()`](stop_possible.md) `==` `true`の状態のままになる。
 
 ## 例
 ```cpp example
@@ -53,10 +53,9 @@ int main()
   assert(st1.stop_requested() == true);
 }
 ```
+* stop_requested()[color ff0000]
 * std::stop_token[link ../stop_token.md]
 * std::stop_source[link ../stop_source.md]
-* nostopstate[link ../nostopstate.md]
-* stop_requested()[link stop_requested.md]
 * request_stop()[link ../stop_source/request_stop.md]
 * get_token()[link ../stop_source/get_token.md]
 

@@ -25,7 +25,7 @@ namespace std {
 ```
 
 ## 概要
-範囲の全ての要素が条件を満たすかを判定する。
+イテレータ範囲`[first, last)`の全ての要素が条件を満たすかを判定する。
 
 
 ## 戻り値
@@ -79,10 +79,10 @@ bool all_of(InputIterator first, InputIterator last, Predicate pred) {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.4.7
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 関連項目

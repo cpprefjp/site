@@ -5,8 +5,10 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T, class Allocator>
-  bool operator<(const deque<T, Allocator>& x, const deque<T, Allocator>& y);
+  bool operator<(const deque<T, Allocator>& x,
+                 const deque<T, Allocator>& y); // (1) C++03
 }
 ```
 
@@ -28,7 +30,7 @@ lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
 
 
 ## 計算量
-線形時間
+[`size()`](size.md) に対して線形時間。
 
 
 ## 例
@@ -53,5 +55,5 @@ true
 ```
 
 ## 参照
-
-
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

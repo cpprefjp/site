@@ -38,7 +38,6 @@ int main()
 }
 ```
 * value_comp()[color ff0000]
-* insert[link insert.md]
 
 ### 出力
 ```

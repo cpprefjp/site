@@ -7,6 +7,9 @@
 - [C++17](lang/cpp17.md)
 - [C++20](lang/cpp20.md)
 - [C++23](lang/cpp23.md)
+- [C++26](lang/cpp26.md)
+- [C++ (将来)](lang/future.md)
+- [C++ (廃案)](lang/archive.md)
 - [言語拡張](lang/extension.md.nolink)
 
 

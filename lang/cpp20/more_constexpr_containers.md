@@ -1,5 +1,13 @@
-# 可変サイズをもつコンテナの`constexpr`化
+# 可変サイズをもつコンテナのconstexpr化 [P0784R7]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -19,12 +27,13 @@ constexpr int test_vector() {
 }
 
 constexpr bool check_cpp_file(const std::string& filename) {
-  return filename.end_with(".cpp") || filename.end_with(".hpp");
+  return filename.ends_with(".cpp") || filename.ends_with(".hpp");
 }
 
 static_assert(test_vector() == 35);         // OK
 static_assert(check_cpp_file("main.cpp"));  // OK
 ```
+* ends_with[link /reference/string/basic_string/ends_with.md]
 
 これは主に以下の変更によって達成されている。
 
@@ -327,12 +336,12 @@ int main() {
 
 これらの問題について、`std::mark_immutable_if_constexpr()`によるアプローチを標準化委員会が嫌ったことと、2つ目の問題の解決が簡単ではなかった（時間がかかり得た）事から、コンパイル時に確保したメモリを実行時に持ち越すことについてはC++20への導入を見送ることとなった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [動的メモリ確保の省略の許可](/lang/cpp14/clarifying_memory_allocation.md)
 - [`allocator`](/reference/memory/allocator.md)
 - [`allocator_traits`](/reference/memory/allocator_traits.md)
-- [`construct_at`](/reference/memory/construct.md.nolink)
+- [`construct_at`](/reference/memory/construct_at.md)
 - [`destroy_at`](/reference/memory/destroy_at.md)
 - [`destroy_n`](/reference/memory/destroy_n.md)
 - [`vector`](/reference/vector/vector.md)

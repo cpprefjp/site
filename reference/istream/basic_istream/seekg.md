@@ -106,7 +106,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 * eofbit[link /reference/ios/ios_base/type-iostate.md]
 * sentry[link sentry.md]
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
-* pubseekpos()[link /reference/streambuf/basic_streambuf/pubseekpos.md.nolink]
+* pubseekpos[link /reference/streambuf/basic_streambuf/pubseekpos.md]
 * ios_base[link /reference/ios/ios_base.md]
 * in[link /reference/ios/ios_base/type-openmode.md]
 * failbit[link /reference/ios/ios_base/type-iostate.md]
@@ -121,7 +121,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 ## 参照
 
 - [`basic_istream::tellg`](tellg.md)
-- `basic_streambuf::pubseekpos`
-- `basic_streambuf::pubseekoff`
-- `basic_streambuf::seekpos`
-- `basic_streambuf::seekoff`
+- [`basic_streambuf::pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md)
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)
+- [`basic_streambuf::seekpos`](../../streambuf/basic_streambuf/seekpos.md)
+- [`basic_streambuf::seekoff`](../../streambuf/basic_streambuf/seekoff.md)

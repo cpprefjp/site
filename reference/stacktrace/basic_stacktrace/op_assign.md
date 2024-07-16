@@ -54,9 +54,9 @@ int main() {
 ```
 * current()[link current.md]
 
-### 出力例
+### 出力例 (GCC)
 ```
-g() at main.cpp:5
+ g() at /app/example.cpp:5
 ```
 
 
@@ -66,5 +66,5 @@ g() at main.cpp:5
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

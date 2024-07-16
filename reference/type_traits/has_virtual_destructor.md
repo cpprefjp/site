@@ -27,6 +27,8 @@ namespace std {
 `has_virtual_destructor`は、型`T`が仮想デストラクタを持っていれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 ## 例
+
+### 例1
 ```cpp example
 #include <type_traits>
 
@@ -56,14 +58,87 @@ int main() {}
 ```
 ```
 
+### 例2
+```cpp example
+#include <type_traits>
+#include <cstddef>
+#include <iostream>
+#include <memory>
+
+struct nonvirtual_base {
+  ~nonvirtual_base() { std::cout << "  nonvirtual_base::~nonvirtual_base()" << std::endl; }
+};
+
+struct virtual_base {
+  virtual ~virtual_base() { std::cout << "  virtual_base::~virtual_base()" << std::endl; }
+};
+
+template<typename Base>
+struct unsafe_derived : Base {  // 任意の型を基底クラスに取れてしまう
+  ~unsafe_derived() { std::cout << "  unsafe_derived::~unsafe_derived()" << std::endl; }
+};
+
+template<typename Base, typename std::enable_if<std::has_virtual_destructor<Base>::value, std::nullptr_t>::type = nullptr>
+struct safe_derived : Base {  // 仮想デストラクタを持つクラスでないと基底クラスに取れない
+  ~safe_derived() { std::cout << "  safe_derived::~safe_derived()" << std::endl; }
+};
+
+int main() {
+  {
+    std::cout << "unsafe_derived<virtual_base> :" << std::endl;
+    std::unique_ptr<virtual_base> p{new unsafe_derived<virtual_base>};
+    // virtual_baseは仮想デストラクタを持つので ~unsafe_derived() と ~virtual_base() が呼ばれる
+  }
+  std::cout << "---" << std::endl;
+  {
+    std::cout << "unsafe_derived<nonvirtual_base> :" << std::endl;
+    std::unique_ptr<nonvirtual_base> p{new unsafe_derived<nonvirtual_base>};
+    // nonvirtual_baseは仮想デストラクタを持たないので ~nonvirtual_base() しか呼ばれない
+    //   (unsafe_derived のメンバのデストラクトが行われなくなるのでリソースリークを起こす)
+  }
+  std::cout << "---" << std::endl;
+  {
+    std::cout << "safe_derived<virtual_base> :" << std::endl;
+    std::unique_ptr<virtual_base> p{new safe_derived<virtual_base>};
+    // virtual_baseは仮想デストラクタを持つので ~safe_derived() と ~virtual_base() が呼ばれる
+  }
+  std::cout << "---" << std::endl;
+  {
+    std::cout << "safe_derived<nonvirtual_base> :" << std::endl;
+    // std::unique_ptr<nonvirtual_base> p{new safe_derived<nonvirtual_base>};
+    // nonvirtual_baseは仮想デストラクタを持たないので safe_derived のテンプレートパラメータに指定できないため，コメントアウトを外すとコンパイルエラーになる
+    //   (std::has_virtual_destructor を用いることでリソースリークが起こるようなコードをコンパイルできなくすることができる)
+  }
+  std::cout << "---" << std::endl;
+}
+```
+* std::has_virtual_destructor[color ff0000]
+
+### 出力
+```
+unsafe_derived<virtual_base> :
+  unsafe_derived::~unsafe_derived()
+  virtual_base::~virtual_base()
+---
+unsafe_derived<nonvirtual_base> :
+  nonvirtual_base::~nonvirtual_base()
+---
+safe_derived<virtual_base> :
+  safe_derived::~safe_derived()
+  virtual_base::~virtual_base()
+---
+safe_derived<nonvirtual_base> :
+---
+```
+
 ## バージョン
 ### 言語
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.3
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

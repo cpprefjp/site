@@ -26,6 +26,9 @@ namespace std {
 
 入力範囲`[first, last)`からムーブして未初期化出力範囲`[result, )`に書き込む。
 
+## 事前条件
+
+- イテレータ範囲`[result, result + (last - first))`が`[first, last)`と重ならないこと
 
 ## 効果
 以下と等価：
@@ -43,6 +46,9 @@ for (; first != last; ++result, ++first)
 ## 戻り値
 `result`
 
+## 例外
+
+呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
 
 ### 例
 ```cpp example
@@ -98,10 +104,13 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 関連項目
+- [`ranges::uninitialized_move`](ranges_uninitialized_move.md)
 
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)

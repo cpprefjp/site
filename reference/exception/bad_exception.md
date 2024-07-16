@@ -74,7 +74,7 @@ int main()
 * std::bad_exception[color ff0000]
 * std::runtime_error[link /reference/stdexcept.md]
 * std::invalid_argument[link /reference/stdexcept.md]
-* std::unexpected[link unexpected.md]
+* std::set_unexpected[link set_unexpected.md]
 
 
 #### 出力

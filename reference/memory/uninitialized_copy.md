@@ -25,6 +25,9 @@ namespace std {
 
 入力範囲`[first, last)`のコピーを未初期化出力範囲`[result, )`に書き込む。
 
+## 事前条件
+
+- イテレータ範囲`[result, result + (last - first))`が`[first, last)`と重ならないこと
 
 ## 効果
 - C++03 : 以下と等価
@@ -47,6 +50,10 @@ namespace std {
 
 ## 戻り値
 `result`
+
+## 例外
+
+呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
 
 
 ### 例
@@ -97,6 +104,10 @@ int main()
 2
 3
 ```
+
+
+## 関連項目
+- [`ranges::uninitialized_copy`](ranges_uninitialized_copy.md)
 
 
 ## 参照

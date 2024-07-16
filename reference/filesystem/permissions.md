@@ -20,7 +20,7 @@ namespace std::filesystem {
 
 
 ## 効果
-- POSIX環境では、[`fchmodat()`](http://surf.ml.seikei.ac.jp/~nakano/JMwww/html/LDP_man-pages/man2/fchmodat.2.html)関数を使用して、パス`to`のファイルに対する権限を設定する
+- POSIX環境では、[`fchmodat()`](http://ja.manpages.org/fchmodat/2)関数を使用して、パス`to`のファイルに対する権限を設定する
 - (2) は、権限オプションとして[`perm_options::replace`](perm_options.md)が使用される
 
 
@@ -61,8 +61,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
 
 

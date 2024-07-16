@@ -8,7 +8,7 @@
 namespace std {
   template <class Iterator>
   reverse_iterator<Iterator>
-    make_reverse_iterator(Iterator i); // C++03
+    make_reverse_iterator(Iterator i); // C++14
 
   template <class Iterator>
   constexpr reverse_iterator<Iterator>
@@ -61,8 +61,8 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.5
-- [GCC](/implementation.md#gcc): 5.0
+- [Clang](/implementation.md#clang): 3.5 [mark verified]
+- [GCC](/implementation.md#gcc): 5.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

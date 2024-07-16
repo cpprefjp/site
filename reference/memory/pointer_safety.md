@@ -3,6 +3,7 @@
 * std[meta namespace]
 * enum[meta id-type]
 * cpp11[meta cpp]
+* cpp23removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -13,6 +14,8 @@ namespace std {
   };
 }
 ```
+
+この列挙型はC++23で削除された。
 
 ## 概要
 `pointer_safety`は、ポインタ安全性について、その挙動／規則について確認するための列挙型である。
@@ -40,10 +43,10 @@ namespace std {
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ## 参照
 - [C++0x ガベージコレクションと到達可能性ベースリーク検知の最小支援 - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081117/1226913980)
 * [N2670: Minimal Support for Garbage Collection and Reachability-Based Leak Detection (revised)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2670.htm)
 - [Garbage Collection ABI - C++ FAQ - www.stroustrup.com](http://www.stroustrup.com/C++11FAQ.html#gc-abi)
-
+- [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)

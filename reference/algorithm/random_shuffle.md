@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 概要
-`[first,last)` のそれぞれの要素を同じ確率で並び替える。
+イテレータ範囲`[first,last)`のそれぞれの要素を同じ確率で並び替える。
 
 
 ## 要件
@@ -116,6 +116,6 @@ void random_shuffle(RandomAccessIterator first, RandomAccessIterator last, Rando
 
 
 ## 参照
-- [rand() Considered Harmful - Going Native 2013](https://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful)
+- [rand() Considered Harmful - Going Native 2013](http://web.archive.org/web/20201123200831/https://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful)
 - [N3924 Discouraging rand() in C++14, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3924.pdf)
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)

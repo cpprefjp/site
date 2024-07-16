@@ -43,5 +43,5 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

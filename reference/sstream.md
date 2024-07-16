@@ -7,9 +7,9 @@
 
 | 名前                  | 説明                                           | 対応バージョン |
 |-----------------------|------------------------------------------------|----------------|
-| `basic_stringbuf`     | 文字列ストリームバッファ(class template)       | |
-| `stringbuf`           | `char`版の文字列ストリームバッファ(type-alias)    | |
-| `wstringbuf`          | `wchar_t`版の文字列ストリームバッファ(type-alias) | |
+| [`basic_stringbuf`](sstream/basic_stringbuf.md) | 文字列ストリームバッファ(class template)       | |
+| [`stringbuf`](sstream/basic_stringbuf.md)       | `char`版の文字列ストリームバッファ(type-alias)    | |
+| [`wstringbuf`](sstream/basic_stringbuf.md)      | `wchar_t`版の文字列ストリームバッファ(type-alias) | |
 
 ## 入力ストリーム
 
@@ -23,16 +23,16 @@
 
 | 名前                  | 説明                                           | 対応バージョン |
 |-----------------------|------------------------------------------------|----------------|
-| `basic_ostringstream` | 文字列出力ストリーム(class template)           | |
-| `ostringstream`       | `char`版の文字列出力ストリーム(type-alias)        | |
-| `wostringstream`      | `wchar_t`版の文字列出力ストリーム(type-alias)     | |
+| [`basic_ostringstream`](sstream/basic_ostringstream.md) | 文字列出力ストリーム(class template)           | |
+| [`ostringstream`](sstream/basic_ostringstream.md)       | `char`版の文字列出力ストリーム(type-alias)        | |
+| [`wostringstream`](sstream/basic_ostringstream.md)      | `wchar_t`版の文字列出力ストリーム(type-alias)     | |
 
 ## 入出力ストリーム
 
 | 名前                  | 説明                                           | 対応バージョン |
 |-----------------------|------------------------------------------------|----------------|
-| `basic_stringstream`  | 文字列入出力ストリーム(class template)         | |
-| `stringstream`        | `char`版の文字列入出力ストリーム(type-alias)      | |
-| `wstringstream`       | `wchar_t`版の文字列入出力ストリーム(type-alias)   | |
+| [`basic_stringstream`](sstream/basic_stringstream.md) | 文字列入出力ストリーム(class template)         | |
+| [`stringstream`](sstream/basic_stringstream.md)       | `char`版の文字列入出力ストリーム(type-alias)      | |
+| [`wstringstream`](sstream/basic_stringstream.md)      | `wchar_t`版の文字列入出力ストリーム(type-alias)   | |
 
 

@@ -5,15 +5,18 @@
 * function[meta id-type]
 
 ```cpp
-iterator begin() noexcept;
-const_iterator begin() const noexcept;
+iterator begin();           // (1) C++03
+iterator begin() noexcept;  // (1) C++11
+
+const_iterator begin() const;           // (2) C++03
+const_iterator begin() const noexcept;  // (2) C++11
 ```
 
 
 ## 概要
-`set` コンテナの先頭要素を参照するイテレータを返す。
+`set` コンテナの先頭要素を参照するイテレータを取得する。
 
-内部的に、`set`コンテナは要素を下位から上位へと並べており、従って `begin()` は `set` 内の最下位のキーにあたる値を返す。
+内部的に、`set`コンテナは要素を下位から上位へと並べており、従って `begin()` は `set` 内の最下位のキーにあたる値へのイテレータを返す。
 
 
 ## 戻り値
@@ -67,6 +70,6 @@ int main()
 
 | 名前                       | 説明                             |
 |----------------------------|----------------------------------|
-| [`set::end`](end.md)       | 末尾を指すイテレータを取得する   |
+| [`set::end`](end.md)       | 末尾の次を指すイテレータを取得する   |
 | [`set::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`set::rend`](rend.md)     | 先頭を指す逆イテレータを取得する |
+| [`set::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |

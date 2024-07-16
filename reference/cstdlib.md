@@ -3,6 +3,9 @@
 
 `<cstdlib>`ヘッダでは、一般的なユーティリティの関数を定義する。これらの機能は基本的には、`std`名前空間に属することを除いてC言語の標準ライブラリ`<stdlib.h>`ヘッダと同じである。
 
+本ヘッダはフリースタンディング環境でも提供される。
+フリースタンディング環境の場合、少なくとも`abort`, `atexit`, `at_quick_exit`, `exit`, `quick_exit`関数がサポートされる。
+
 ただし、一部の機能には、`[[noreturn]]`属性、`noexcept`キーワード、スレッドローカルストレージのような、C++特有の言語機能に関する規定がある。
 
 
@@ -69,7 +72,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `bsearch` | 二分木探索を行う (function) | |
+| `bsearch` | 二分探索を行う (function) | |
 | `qsort`   | 範囲の並べ替えを行う (function) | |
 
 
@@ -77,15 +80,15 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `abs`     | `int`の絶対値を取得する (function) | |
-| `labs`    | `long`の絶対値を取得する (function) | |
-| `llabs`   | `long long`の絶対値を取得する (function) | C++11 |
-| `div_t`   | `div`関数の戻り値型 (class) | |
-| `div`     | `int`の除算を行う (function) | |
-| `ldiv_t`  | `div`関数の戻り値型 (class) | |
-| `ldiv`    | `long`の除算を行う (functon) | |
-| `lldiv_t` | `div`関数の戻り値型 (class) | C++11 |
-| `lldiv`   | `long long`の除算を行う (function) | C++11 |
+| [`abs`](cstdlib/abs.md)         | `int`の絶対値を取得する (function) | |
+| [`labs`](cstdlib/abs.md)        | `long`の絶対値を取得する (function) | |
+| [`llabs`](cstdlib/abs.md)       | `long long`の絶対値を取得する (function) | C++11 |
+| [`div_t`](cstdlib/div_t.md)     | `div`関数の戻り値型 (class) | |
+| [`div`](cstdlib/div.md)         | `int`の除算と剰余算を行う (function) | |
+| [`ldiv_t`](cstdlib/ldiv_t.md)   | `ldiv`関数の戻り値型 (class) | |
+| [`ldiv`](cstdlib/div.md)        | `long`の除算と剰余算を行う (functon) | |
+| [`lldiv_t`](cstdlib/lldiv_t.md) | `lldiv`関数の戻り値型 (class) | C++11 |
+| [`lldiv`](cstdlib/div.md)       | `long long`の除算と剰余算を行う (function) | C++11 |
 
 
 ## マルチバイト文字とワイド文字の変換

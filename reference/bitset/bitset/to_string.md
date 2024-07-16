@@ -5,16 +5,20 @@
 * function template[meta id-type]
 
 ```cpp
-// C++03
 template <class CharT, class Traits, class Allocator>
-basic_string<CharT, Traits, Allocator> to_string() const;
+basic_string<CharT, Traits, Allocator> to_string() const;           // (1) C++03
 
-// C++11
 template <class CharT = char,
           class Traits = char_traits<CharT>,
           class Allocator = allocator<CharT>>
 basic_string<CharT, Traits, Allocator>
-  to_string(CharT zero = CharT('0'), CharT one = CharT('1')) const;
+  to_string(CharT zero = CharT('0'), CharT one = CharT('1')) const; // (1) C++11
+
+template <class CharT = char,
+          class Traits = char_traits<CharT>,
+          class Allocator = allocator<CharT>>
+constexpr basic_string<CharT, Traits, Allocator>
+  to_string(CharT zero = CharT('0'), CharT one = CharT('1')) const; // (1) C++23
 ```
 * basic_string[link /reference/string/basic_string.md]
 
@@ -65,4 +69,4 @@ int main()
     - C++11で、`0`を表す文字と`1`を表す文字を指定できるようになった経緯のレポート
 - [LWG Issue 1113. `bitset::to_string` could be simplified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#1113)
     - C++11で、デフォルトの文字型が設定された経緯のレポート
-
+- [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)

@@ -5,17 +5,23 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& operator+=(const basic_string& str);    // (1)
+basic_string& operator+=(const basic_string& str);           // (1) C++03
+constexpr basic_string& operator+=(const basic_string& str); // (1) C++20
 
-basic_string& operator+=(const charT* s);             // (2)
+basic_string& operator+=(const charT* s);           // (2) C++03
+constexpr basic_string& operator+=(const charT* s); // (2) C++20
 
-basic_string& operator+=(charT c);                    // (3)
+basic_string& operator+=(charT c);           // (3) C++03
+constexpr basic_string& operator+=(charT c); // (3) C++20
 
-basic_string& operator+=(initializer_list<charT> il); // (4) C++11 から
+basic_string& operator+=(initializer_list<charT> il);           // (4) C++11
+constexpr basic_string& operator+=(initializer_list<charT> il); // (4) C++20
 
 // string_viewを引数に取るオーバーロード
 template<class T>
-basic_string& operator+=(const T& t);                 // (5) C++17 から
+basic_string& operator+=(const T& t);           // (5) C++17
+template<class T>
+constexpr basic_string& operator+=(const T& t); // (5) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -136,3 +142,4 @@ Hello, world! :) :)
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(5)の引数型を`const T&`に変更
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

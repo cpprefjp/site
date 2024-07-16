@@ -1,5 +1,13 @@
-# 入れ子名前空間の定義
+# 入れ子名前空間の定義 [N4230]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 一度の定義だけで入れ子状になった名前空間を定義可能となる。
@@ -53,7 +61,7 @@ a legacy nested namespace definition is workded.
 この機能はC++0x当時から提案されており、以前の提案等については以下参照されたい。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 入れ子名前空間定義でのインライン名前空間](/lang/cpp20/nested_inline_mamespaces.md)
 
 

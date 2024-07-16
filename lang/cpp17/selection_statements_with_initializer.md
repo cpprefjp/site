@@ -1,5 +1,13 @@
-# if文とswitch文の条件式と初期化を分離
+# if文とswitch文の条件式と初期化を分離 [P0305R1]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -203,8 +211,9 @@ if (it != m.end()) { return it->size(); }
 新しい概念を教えたり広めたりするコストが掛かる。さらに`for`文と文法の一貫性を取れる機会が失われてしまう問題がある。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md)
+- [C++23 初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md)
 
 
 ## 参照

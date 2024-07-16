@@ -4,7 +4,7 @@
 * function template[meta id-type]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator, class T>
   T accumulate(InputIterator first, InputIterator last, T init);           // (1) C++03
   template <class InputIterator, class T>
@@ -20,9 +20,9 @@ namespace std{
 ```
 
 ## 概要
-`accumulate()`は、範囲を集計する関数である。
+`accumulate()`は、イテレータ範囲`[first, last)`を集計する関数である。
 
-初期値(`init`)に対して、範囲`[first, last)`の各要素`i`を前から順番に、任意の二項演算関数`binary_op`を`init = f(init, *i)`のように適用していき、範囲の全ての要素を集計した結果を戻り値として返す。
+初期値(`init`)に対して、イテレータ範囲`[first, last)`の各要素`i`を前から順番に、任意の二項演算関数`binary_op`を`init = f(init, *i)`のように適用していき、範囲の全ての要素を集計した結果を戻り値として返す。
 
 他の言語でこのような処理は、`foldL` (Haskell)、`reduce` (Common Lisp, Ruby)、`aggregate` (C#)などと呼ばれている。
 
@@ -32,7 +32,7 @@ namespace std{
 
 ## 要件
 - C++03まで : `binary_op`は副作用を起こしてはならない
-- C++11から : `binary_op`は、範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
+- C++11から : `binary_op`は、イテレータ範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## テンプレートパラメータ制約
@@ -52,7 +52,7 @@ namespace std{
 
 
 ## 計算量
-範囲`[first, last)`の要素数に対して線形時間
+イテレータ範囲`[first, last)`の要素数に対して線形時間
 
 
 ## 備考
@@ -60,6 +60,7 @@ namespace std{
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -95,12 +96,46 @@ int main()
 ```
 * std::accumulate[color ff0000]
 
-### 出力
+#### 出力
 ```
 sum : 15
 sum_ll : 15
 concat : aaabbbccc
 product : 120
+```
+
+
+### クラスの一部のメンバ変数を集計する
+```cpp
+#include <iostream>
+#include <numeric>
+#include <vector>
+#include <string>
+
+struct X {
+  int value;
+  std::string name;
+};
+
+int main() {
+  std::vector<X> v = {
+    {1, "AAA"},
+    {2, "BBB"},
+    {3, "CCC"}
+  };
+
+  int sum = std::accumulate(v.begin(), v.end(), 0, [](int acc, const X& x) {
+    return acc + x.value;
+  });
+
+  std::cout << sum << std::endl;
+}
+```
+* std::accumulate[color ff0000]
+
+#### 出力
+```
+6
 ```
 
 

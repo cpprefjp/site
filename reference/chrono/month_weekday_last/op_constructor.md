@@ -15,7 +15,6 @@ month_weekday_last(const month_weekday_last&) = default; // (3) C++20
 month_weekday_last(month_weekday_last&&) = default;      // (4) C++20
 ```
 * chrono::month[link /reference/chrono/month.md]
-* chrono::weekday_indexed[link /reference/chrono/weekday_indexed.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。定義されない
@@ -64,6 +63,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): 11.1
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

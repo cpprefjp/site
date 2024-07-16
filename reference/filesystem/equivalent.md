@@ -11,7 +11,6 @@ namespace std::filesystem {
 }
 ```
 * path[link path.md]
-* std::uintmax_t[link /reference/cstdint/uintmax_t.md]
 
 ## 概要
 2つのエンティティが等価かを確認する。
@@ -74,6 +73,6 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

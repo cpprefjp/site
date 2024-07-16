@@ -27,8 +27,8 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir); // (2)
 
 1. [`sentry`](sentry.md) オブジェクトを構築する（C++11 以降のみ）。
 1. 与えられた実引数により、以下のいずれかを実行する。
-    - (1) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md.nolink)`(pos, ios_base::out)`
-    - (2) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)`(off, dir, ios_base::out)`
+    - (1) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md)`(pos, ios_base::out)`
+    - (2) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)`(off, dir, ios_base::out)`
 1. 処理に失敗した場合（上記の戻り値が `-1` だった場合）、[`setstate`](../../ios/basic_ios/setstate.md)`(failbit)`を呼び出す。
 
 ## 例
@@ -47,9 +47,9 @@ int main() {
   std::cout << os.str() << std::endl;
 }
 ```
-* std::ostringstream[link ../../sstream/basic_ostringstream.md.nolink]
+* std::ostringstream[link ../../sstream/basic_ostringstream.md]
 * seekp[color ff0000]
-* str()[link ../../sstream/basic_ostringstream/str.md.nolink]
+* str()[link ../../sstream/basic_ostringstream/str.md]
 
 ### 出力
 ```
@@ -81,8 +81,8 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir) {
 * sentry[link sentry.md]
 * fail[link ../../ios/basic_ios/fail.md]
 * rdbuf[link ../../ios/basic_ios/rdbuf.md]
-* pubseekpos[link ../../streambuf/basic_streambuf/pubseekpos.md.nolink]
-* pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md.nolink]
+* pubseekpos[link ../../streambuf/basic_streambuf/pubseekpos.md]
+* pubseekoff[link ../../streambuf/basic_streambuf/pubseekoff.md]
 * setstate[link ../../ios/basic_ios/setstate.md]
 
 ## バージョン
@@ -92,5 +92,5 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir) {
 ## 参照
 
 - [`basic_ostream::tellp`](tellp.md)
-- [`basic_streambuf::pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md.nolink)
-- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md.nolink)
+- [`basic_streambuf::pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md)
+- [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)

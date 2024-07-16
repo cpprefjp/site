@@ -40,7 +40,7 @@ namespace std::chrono {
 | [`operator+`](year/op_unary_plus.md)    | 正の符号       | C++20 |
 | [`operator-`](year/op_unary_minus.md)   | 負の符号 (符号反転する) | C++20 |
 | [`operator++`](year/op_increment.md)    | インクリメント | C++20 |
-| [`operator-=`](year/op_decrement.md)    | デクリメント   | C++20 |
+| [`operator--`](year/op_decrement.md)    | デクリメント   | C++20 |
 | [`operator+=`](year/op_plus_assign.md)  | 加算の複合代入 | C++20 |
 | [`operator-=`](year/op_minus_assign.md) | 減算の複合代入 | C++20 |
 
@@ -160,7 +160,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし) [mark verified]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 

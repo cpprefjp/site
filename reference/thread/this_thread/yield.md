@@ -28,7 +28,7 @@ namespace this_thread {
 
 
 ## 備考
-C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched_yield()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/sched_yield.2.html)関数やWindows APIの[`SwitchToThread()`](https://docs.microsoft.com/ja-JP/windows/win32/api/processthreadsapi/nf-processthreadsapi-switchtothread)関数などを参考のこと。
+C++11標準の定義では処理系依存だが、その動作はPOSIXの[`sched_yield()`](https://web.archive.org/web/20230205233555/http://linuxjm.osdn.jp/html/LDP_man-pages/man2/sched_yield.2.html)関数やWindows APIの[`SwitchToThread()`](https://docs.microsoft.com/ja-JP/windows/win32/api/processthreadsapi/nf-processthreadsapi-switchtothread)関数などを参考のこと。
 
 Visual C++では、Windows APIの[`Sleep()`](https://docs.microsoft.com/ja-jp/windows/win32/api/synchapi/nf-synchapi-sleep)関数を使った実装となっている。ただし、12.0でWindowsストア向けアプリケーションを対象とする場合は、`Sleep()`関数が許可されていないため、`WaitForSingleObject()`関数のタイムアウト時間に最小値1ミリ秒を指定して呼び出す実装となっている。
 
@@ -73,9 +73,9 @@ result=42
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
+- [GCC](/implementation.md#gcc): 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

@@ -7,16 +7,27 @@
 ```cpp
 namespace std {
   template <class ForwardIterator>
-  void destroy(ForwardIterator first, ForwardIterator last); // (1)
+  void destroy(ForwardIterator first,
+               ForwardIterator last);           // (1) C++17
+
+  template <class ForwardIterator>
+  constexpr void destroy(ForwardIterator first,
+                         ForwardIterator last); // (1) C++20
 
   template <class ExecutionPolicy, class ForwardIterator>
   void destroy(ExecutionPolicy&& exec,
-               ForwardIterator first, ForwardIterator last); // (2)
+               ForwardIterator first,
+               ForwardIterator last);           // (2) C++17
+
+  template <class ExecutionPolicy, class ForwardIterator>
+  constexpr void destroy(ExecutionPolicy&& exec,
+                         ForwardIterator first,
+                         ForwardIterator last); // (2) C++20
 }
 ```
 
 ## 概要
-範囲`[first, last)`の各要素に対してデストラクタを呼び出す。
+イテレータ範囲`[first, last)`の各要素に対してデストラクタを呼び出す。
 
 この関数は、配置`new`で構築したオブジェクトの配列を破棄するために使用する。
 
@@ -74,10 +85,16 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
+- [`ranges::destroy`](ranges_destroy.md)
 
 
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+- [P0784R7 More `constexpr` containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)

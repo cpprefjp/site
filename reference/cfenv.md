@@ -83,7 +83,7 @@
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 
 ## 関連項目
 - [`<cmath>`](/reference/cmath.md)

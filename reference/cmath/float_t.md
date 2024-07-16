@@ -24,8 +24,9 @@ namespace std {
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc):
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2013, 2015, 2017
-	- 2013では、常に`float`の別名。
-	- 2015で、ターゲットのCPUアーキテクチャが`x86`以外である場合、`float`の別名。
-	- 2015で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用する場合（`/arch:SSE2`以上のコンパイラオプション）、`double`の別名。
-	- 2015で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用しない場合（`/arch:IA32`や`/arch:SSE`コンパイラオプション）、`long double`の別名。
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified], 2017 [mark verified], 2019 [mark verified], 2022 [mark verified]
+	- 2013, 2015では、常に`float`の別名。
+	- 2017以降で、ターゲットのCPUアーキテクチャが`x86`以外である場合、`float`の別名。
+	- 2017以降で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用する場合（`/arch:SSE2`以上のコンパイラオプション）、`float`の別名。
+	- 2017以降で、ターゲットのCPUアーキテクチャが`x86`で、`/fp:fast`コンパイラオプションが指定されている場合、`float`の別名。
+	- 2017以降で、ターゲットのCPUアーキテクチャが`x86`で、SSE2を使用せず（`/arch:IA32`や`/arch:SSE`コンパイラオプション）、`/fp:fast`コンパイラオプションが指定されていない場合、`long double`の別名。

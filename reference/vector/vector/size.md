@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-size_type size() const;          // (1) C++03
-size_type size() const noexcept; // (1) C++11
+size_type size() const;                    // (1) C++03
+size_type size() const noexcept;           // (1) C++11
+constexpr size_type size() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -49,3 +50,6 @@ int main()
 5
 ```
 
+
+## 参照
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

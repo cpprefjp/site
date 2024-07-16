@@ -15,7 +15,7 @@ namespace std {
 }
 ```
 * insert_iterator[link insert_iterator.md]
-* ranges::iterator_t[link /reference/iterator/iterator_t.md.nolink]
+* ranges::iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 `insert_iterator`のヘルパ関数
@@ -48,7 +48,7 @@ int main()
   }
 }
 ```
-* std::front_inserter[color ff0000]
+* std::inserter[color ff0000]
 * src.begin()[link /reference/set/set/begin.md]
 * src.end()[link /reference/set/set/end.md]
 * dest.end()[link /reference/set/set/end.md]

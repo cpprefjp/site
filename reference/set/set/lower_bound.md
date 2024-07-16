@@ -50,7 +50,7 @@ int main()
 {
   // (1)
   {
-    std::multiset<std::string> s = { "A", "B", "B", "C", "D" };
+    std::set<std::string> s = { "A", "B", "B", "C", "D" };
 
     // B以上D以下の範囲を取得
     decltype(s)::iterator it = s.lower_bound("B");
@@ -65,7 +65,7 @@ int main()
 
   // (2)
   {
-    std::multiset<std::string, std::less<>> s = { "A", "B", "B", "C", "D" };
+    std::set<std::string, std::less<>> s = { "A", "B", "B", "C", "D" };
 
     // std::lessのvoidに対する特殊化を使用することで、
     // 文字列リテラルをlower_bound()関数の引数として渡した際に、
@@ -87,11 +87,9 @@ int main()
 ### 出力
 ```
 B
-B
 C
 D
 
-B
 B
 C
 D

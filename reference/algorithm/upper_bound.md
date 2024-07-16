@@ -34,7 +34,7 @@ namespace std {
 ```
 
 ## 概要
-指定された要素より大きい値が現れる最初の位置のイテレータを取得する
+イテレータ範囲`[first, last)`のうち、指定された要素より大きい値が現れる最初の位置のイテレータを取得する
 
 
 ## 要件
@@ -43,11 +43,11 @@ namespace std {
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
 	- `T` は `LessThanComparable` であること。
 	- `operator<` または `comp` は「[狭義の弱順序](../algorithm.md#strict-weak-ordering)」であること。
-	- 範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
+	- イテレータ範囲 `[first, last)` は `operator<` または `comp` を基準として昇順に並んでいること。
 - C++11 から
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
-	- `[first,last)` の要素 `e` は `!(value < e)` または `!comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていること。  
+	- イテレータ範囲`[first,last)` の要素 `e` は `!(value < e)` または `!comp(value, e)` によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されていること。  
 		つまり、`!(value < e)` または `!comp(value, e)` が `true` となる全ての要素 `e` は、`false` となる全ての要素よりも左側（`first` に近い方）になければならない。
 
 
@@ -60,7 +60,7 @@ namespace std {
 
 
 ## 計算量
-最大で log2(`last - first`) + 1 回の比較を行う
+最大で log2(`last - first`) + O(1) 回の比較を行う
 
 
 ## 備考

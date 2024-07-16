@@ -29,24 +29,25 @@ namespace {
 
 ## 例
 ```cpp example
-#include <iostream>
 #include <tuple>
 #include <string>
+#include <type_traits>
 
 int main()
 {
   // 一時オブジェクトからは右辺値参照のtupleが作られる
-  std::tuple<int&&, char&&, std::string&&> t1 = std::forward_as_tuple(1, 'a', std::string("Hello"));
+  auto t1 = std::forward_as_tuple(1, 'a', std::string("Hello"));
+  static_assert(std::is_same<decltype(t1), std::tuple<int&&, char&&, std::string&&>>());
 
   // 左辺値からは左辺値参照のtupleが作られる
   int a = 1;
   char b = 'a';
   std::string c = "Hello";
-  std::tuple<int&, char&, std::string&> t2 = std::forward_as_tuple(a, b, c);
+  auto t2 = std::forward_as_tuple(a, b, c);
+  static_assert(std::is_same<decltype(t2), std::tuple<int&, char&, std::string&>>());
 }
 ```
 * std::forward_as_tuple[color ff0000]
-* std::tuple[link tuple.md]
 
 ### 出力
 ```
@@ -58,7 +59,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 
 

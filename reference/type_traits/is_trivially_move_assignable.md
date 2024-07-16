@@ -89,9 +89,9 @@ int main() {}
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.3
-- [GCC](/implementation.md#gcc): 5.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.3 [mark verified]
+- [GCC](/implementation.md#gcc): 5.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ### 備考
 Clang 3.0から3.2は、上記例の`Y`クラスがトリビアルにムーブ代入可能と判定される。Clang 3.3から修正されている。

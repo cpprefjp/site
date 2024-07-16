@@ -31,6 +31,8 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 このクラスの実装としては、文字配列の参照する先頭文字へのポインタと、文字数の2つをメンバ変数として持つ。これらの変数を変動させることによって、部分文字列の抽出や、限定された範囲内での検索といったことを実現する。
 
+このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)である（C++23）
+
 
 ## メンバ関数
 ### 構築・破棄
@@ -114,7 +116,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
-| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。<br/>`static const size_type npos = -1;` | C++17 |
+| `npos` | 無効な位置を表す。`find`や`substr`などで使われる。<br/>`static constexpr size_type npos = -1;` | C++17 |
 
 
 ### メンバ型
@@ -142,6 +144,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 |------|------|----------------|
 | [`operator==`](basic_string_view/op_equal.md)         | 等値比較                           | C++17 |
 | [`operator!=`](basic_string_view/op_not_equal.md)     | 非等値比較                         | C++17 |
+| [`operator<=>`](basic_string_view/op_compare_3way.md) | 三方比較                           | C++20 |
 | [`operator<`](basic_string_view/op_less.md)           | 左辺が右辺より小さいかの判定を行う | C++17 |
 | [`operator<=`](basic_string_view/op_less_equal.md)    | 左辺が右辺以下かの判定を行う       | C++17 |
 | [`operator>`](basic_string_view/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++17 |
@@ -178,6 +181,8 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 | `template <> struct hash<u8string_view>;`  | `hash`クラスの`u8string_view`に対する特殊化  | C++20 |
 | `template <> struct hash<u16string_view>;` | `hash`クラスの`u16string_view`に対する特殊化 | C++17 |
 | `template <> struct hash<u32string_view>;` | `hash`クラスの`u32string_view`に対する特殊化 | C++17 |
+
+上記の各`*string_view`に対する`hash`クラスの特殊化は、それぞれ対応する[`*string`型に対する特殊化](/reference/string.md)と同じハッシュ値を算出する。
 
 
 ## 例
@@ -255,7 +260,7 @@ Hell
 ```
 
 ### 文字列リテラルを範囲として使用する場合にヌル文字が含まれないようにする
-```cpp
+```cpp example
 #include <iostream>
 #include <string_view>
 
@@ -298,8 +303,8 @@ C
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -319,4 +324,7 @@ C
 - [P0254R1 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r1.pdf)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [P0403R0 Literal suffixes for `basic_string_view`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0403r0.html)
+- [LWG 2791 - `string_view` objects and strings should yield the same hash values](https://cplusplus.github.io/LWG/issue2791)
 - [String literals make bad ranges - Andrzej's C++ blog](https://akrzemi1.wordpress.com/2019/09/25/string-literals-make-bad-ranges/)
+- [Require `span` & `basic_string_view` to be Trivially Copyable](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2251r1.pdf)
+    - C++23から、トリビアルコピー可能が保証される。

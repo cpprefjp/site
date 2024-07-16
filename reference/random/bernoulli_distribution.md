@@ -101,7 +101,7 @@ int main()
 
 このプログラムによってある時に得られた結果（[bernoulli_distribution.tsv](https://github.com/cpprefjp/image/blob/master/reference/random/bernoulli_distribution/bernoulli_distribution.tsv)）を図示する。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/random/bernoulli_distribution/bernoulli_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/bernoulli_distribution/bernoulli_distribution.png)
 
 
 ## バージョン
@@ -110,7 +110,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

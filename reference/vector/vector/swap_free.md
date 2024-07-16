@@ -11,6 +11,10 @@ namespace std {
   template <class T, class Allocator>
   void swap(vector<T,Allocator>& x, vector<T,Allocator>& y)
     noexcept(noexcept(x.swap(y)));                             // (1) C++17
+
+  template <class T, class Allocator>
+  constexpr void swap(vector<T,Allocator>& x, vector<T,Allocator>& y)
+    noexcept(noexcept(x.swap(y)));                             // (1) C++20
 }
 ```
 
@@ -65,3 +69,4 @@ v2 : {1 2 3 }
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

@@ -7,22 +7,29 @@
 
 ```cpp
 explicit linear_congruential_engine(result_type s = default_seed);         // (1)
-template<class Sseq> explicit linear_congruential_engine(Sseq& q);         // (2)
+linear_congruential_engine() : linear_congruential_engine(default_seed) {} // (1) C++20
 
-linear_congruential_engine(const linear_congruential_engine& e) = default; // (3)
-linear_congruential_engine(linear_congruential_engine&& e) = default;      // (4)
+explicit linear_congruential_engine(result_type s);                        // (2) C++20
+
+template<class Sseq>
+explicit linear_congruential_engine(Sseq& q);         // (3)
+
+linear_congruential_engine(const linear_congruential_engine& e) = default; // (4)
+linear_congruential_engine(linear_congruential_engine&& e) = default;      // (5)
 ```
 
 ## 概要
-- (1) : シード値を受け取って状態シーケンスを構築する
-    - シード値が指定されない場合はデフォルトのシード値 (`linear_congruential_engine::default_seed`) で構築される
-- (2) : シードのシーケンスを受け取って状態シーケンスを構築する
-- (3) : コピーコンストラクタ。状態シーケンスをコピーする
-- (4) : ムーブコンストラクタ。可能であれば状態シーケンスを移動する
+- (1) : デフォルトコンストラクタ
+    - C++17まで : シード値が指定されない場合はデフォルトのシード値 (`linear_congruential_engine::default_seed`) で構築される
+    - C++20 : デフォルトのシード値 (`linear_congruential_engine::default_seed`) で(2)に委譲
+- (2) : シード値を受け取って状態シーケンスを構築する
+- (3) : シードのシーケンスを受け取って状態シーケンスを構築する
+- (4) : コピーコンストラクタ。状態シーケンスをコピーする
+- (5) : ムーブコンストラクタ。可能であれば状態シーケンスを移動する
 
 
 ## 計算量
-- (1) : O(1)
+- (1)(2) : O(1)
 
 
 ## 例
@@ -34,7 +41,7 @@ linear_congruential_engine(linear_congruential_engine&& e) = default;      // (4
 int main()
 {
   // (1) デフォルト構築
-  // デフォルトのシード値(default_seed静的データメンバ)から構築する
+  // デフォルトのシード値(default_seed静的メンバ変数)から構築する
   {
     std::minstd_rand engine;
 
@@ -42,7 +49,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // (1) シード値を指定して構築
+  // (2) シード値を指定して構築
   {
     std::uint32_t seed = std::random_device()();
     std::minstd_rand engine(seed);
@@ -51,7 +58,7 @@ int main()
     std::cout << result << std::endl;
   }
 
-  // (2) シードのシーケンスを指定して構築
+  // (3) シードのシーケンスを指定して構築
   {
     // シードのシーケンスを作る
     std::random_device seed_gen;
@@ -89,11 +96,11 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 
-
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)

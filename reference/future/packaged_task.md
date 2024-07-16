@@ -58,6 +58,13 @@ namespace std {
 | [`swap`](packaged_task/swap_free.md) | 2つの`packaged_task`オブジェクトを入れ替える | C++11 |
 
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](packaged_task/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
+
+
 ## その他
 
 | 名前 | 説明 | 対応バージョン |
@@ -102,7 +109,7 @@ int main()
 * std::packaged_task[color ff0000]
 * task.get_future()[link packaged_task/get_future.md]
 * std::future[link future.md]
-* std::f.get()[link future/get.md]
+* f.get()[link future/get.md]
 * std::move[link /reference/utility/move.md]
 * t.detach()[link /reference/thread/thread/detach.md]
 
@@ -117,9 +124,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 参照

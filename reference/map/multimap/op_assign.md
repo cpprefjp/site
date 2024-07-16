@@ -6,7 +6,7 @@
 
 ```cpp
 multimap& operator=(const multimap& x);                 // (1) C++03
-multimap& operator=(multimap&& y);                      // (2) C++11
+multimap& operator=(multimap&& x);                      // (2) C++11
 multimap& operator=(multimap&& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value
             && is_nothrow_move_assignable<Compare>::value) // (2) C++17
@@ -22,7 +22,7 @@ multimap& operator=(initializer_list<value_type> init); // (3) C++11
 ## 効果
 - (1) : 同じテンプレートパラメータを持つ`multimap`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
 - (2) : 同じテンプレートパラメータを持つ`multimap`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
-- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`init`の全ての要素が`*this`にコピーされる。
 
 
 ## 戻り値
@@ -32,7 +32,7 @@ multimap& operator=(initializer_list<value_type> init); // (3) C++11
 ## 事後条件
 - (1) : `*this == x`
 - (2) : `*this`は元々の`x`と等値となる
-- (3) : `*this == x`
+- (3) : `*this == multimap{init}`
 
 
 ## 計算量
@@ -80,7 +80,7 @@ Size of m2: 6
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

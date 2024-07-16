@@ -40,9 +40,9 @@ namespace std {
 ## 概要
 2つのシーケンスの内積(inner product)を計算する。
 
-この関数は、範囲`[first1, last1)`および範囲`[first2, first2 + (last1 - first1))`をそれぞれ任意次元のベクトルとみなし、その2つのベクトルの内積を計算する。
+この関数は、イテレータ範囲`[first1, last1)`およびイテレータ範囲`[first2, first2 + (last1 - first1))`をそれぞれ任意次元のベクトルとみなし、その2つのベクトルの内積を計算する。
 
-範囲`[first1, last1)`をベクトル`v`、範囲`[first2, first2 + (last1 - first1))`をベクトル`u`として、この関数は以下の効果を持つ：
+イテレータ範囲`[first1, last1)`をベクトル`v`、イテレータ範囲`[first2, first2 + (last1 - first1))`をベクトル`u`として、この関数は以下の効果を持つ：
 
 - (1) : `init + (v[0] * u[0]) + (v[1] * u[1]) + … (v[N - 1] * u[N - 1])`
 - (2) : `operator()+`を`binary_op1`、`operator*()`を`binary_op2`で代用して、(1)の演算を行う
@@ -50,7 +50,7 @@ namespace std {
 
 ## 要件
 - C++03まで : `binary_op1`および`binary_op2`は、副作用を起こしてはならない
-- C++11から : `binary_op1`および`binary_op2`が、範囲`[first1, last1]`と範囲`[first2, first2 + (last1 - first2)]`の要素変更およびイテレータの無効化をしてはならない
+- C++11から : `binary_op1`および`binary_op2`が、イテレータ範囲`[first1, last1]`とイテレータ範囲`[first2, first2 + (last1 - first2)]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## テンプレートパラメータ制約
@@ -60,11 +60,11 @@ namespace std {
 
 ## 効果
 - (1) :
-    - C++03 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
-    - C++20 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc =` [`std::move`](/reference/utility/move.md)`(acc) + (*i) * (*j);` の演算を行い、`acc`を返す
+    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
+    - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc =` [`std::move`](/reference/utility/move.md)`(acc) + (*i) * (*j);` の演算を行い、`acc`を返す
 - (2) :
-    - C++03 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
-    - C++20 : `acc = init;`、範囲`[first1, last1)`の各イテレータを`i`、範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(`[`std::move`](/reference/utility/move.md)`(acc), binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
+    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
+    - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータ`をj`として、`acc = binary_op1(`[`std::move`](/reference/utility/move.md)`(acc), binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
 
 
 ## 戻り値

@@ -15,12 +15,11 @@ namespace std {
   };
 
   template<class Promise>
-  struct coroutine_handle : coroutine_handle<> {
+  struct coroutine_handle {
     // (メンバ宣言は省略)
   };
 }
 ```
-* hash[link /reference/functional/hash.md]
 
 ## 概要
 コルーチンに対応するコルーチンハンドル。
@@ -30,7 +29,7 @@ namespace std {
 例: 後述サンプルコードでは`task`クラス内に隠蔽されており、コルーチン`f`や関数`main`から間接的に利用される。
 
 `coroutine_handle<void>`または単に`coroutine_handle<>`は、Promise型について型消去(Type-erased)されたコルーチンハンドルとして取り扱える。
-コルーチンのPromise型を明示した`coroutine_handle<Promise>`は型消去された`coroutine_handle<>`から公開派生されており、前者から後者への暗黙変換を行うことが可能となっている。
+コルーチンのPromise型を明示した`coroutine_handle<Promise>`から`coroutine_handle<>`へと暗黙変換が可能となっている。
 
 C++コルーチンとC API（コールバック関数へのポインタと`void*`をとる関数）との組合せ利用を可能とするため、`coroutine_handle`とポインタ型`void*`との相互変換がサポートされる。
 
@@ -51,6 +50,12 @@ C++コルーチンとC API（コールバック関数へのポインタと`void*
 |-----------------|----------------|----------------|
 | [`address`](coroutine_handle/address.md) | コルーチンハンドルに対応するアドレス値 | C++20 |
 
+### 変換
+
+| 名前            | 説明          | 対応バージョン |
+|-----------------|---------------|----------------|
+| `operator coroutine_handle<>` | 型消去されたコルーチンハンドルを返す | C++20 |
+
 ### 観測
 
 | 名前            | 説明           | 対応バージョン |
@@ -70,14 +75,14 @@ C++コルーチンとC API（コールバック関数へのポインタと`void*
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`promise`](coroutine_handle/promise.md) | Promiseオブジェクトの参照 | C++20 |
+| [`promise`](coroutine_handle/promise.md) | Promiseオブジェクトの参照（`coroutine_handle<Promise>`のみ） | C++20 |
 
 
 ## 静的メンバ関数
 
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| [`from_promise`](coroutine_handle/from_promise.md) | Promiseオブジェクトから対応するコルーチンハンドルへ変換 | C++20 |
+| [`from_promise`](coroutine_handle/from_promise.md) | Promiseオブジェクトから対応するコルーチンハンドルへ変換（`coroutine_handle<Promise>`のみ） | C++20 |
 | [`from_address`](coroutine_handle/from_address.md) | アドレス値から対応するコルーチンハンドルへ変換 | C++20 |
 
 
@@ -115,7 +120,7 @@ struct task {
     int value_;
     auto get_return_object() { return task{*this}; }
     auto initial_suspend() { return std::suspend_never{}; }
-    auto final_suspend() { return std::suspend_always{}; }
+    auto final_suspend() noexcept { return std::suspend_always{}; }
     void return_value(int x) { value_ = x; }
     void unhandled_exception() { std::terminate(); }
   };
@@ -182,9 +187,13 @@ result=42
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.1
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 関連項目
 - [C++20 コルーチン](/lang/cpp20/coroutines.md)
+
+
+## 参照
+- [LWG3460 Unimplementable `noop_coroutine_handle` guarantees](https://cplusplus.github.io/LWG/issue3460)

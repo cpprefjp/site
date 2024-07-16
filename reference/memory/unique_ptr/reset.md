@@ -6,14 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-void reset(pointer p = pointer()) noexcept;   // (1)
+void reset(pointer p = pointer()) noexcept;            // (1) C++11
+constexpr void reset(pointer p = pointer()) noexcept;  // (1) C++23
 
 // 配列版のみ
-void reset(nullptr_t p) noexcept;             // (2) C++14まで
-void reset(nullptr_t = nullptr) noexcept;     // (2) C++17
+void reset(nullptr_t p) noexcept;                      // (2) C++11
+void reset(nullptr_t = nullptr) noexcept;              // (2) C++17
+constexpr void reset(nullptr_t = nullptr) noexcept;    // (2) C++23
 
-template <class U> void reset(U) = delete;    // (3) C++14まで
-template <class U> void reset(U p) noexcept;  // (3) C++17
+template <class U> void reset(U) = delete;             // (3) C++11
+template <class U> void reset(U p) noexcept;           // (3) C++17
+template <class U> constexpr void reset(U p) noexcept; // (3) C++23
 ```
 
 ## 概要
@@ -71,13 +74,14 @@ p doesn't have resource
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.4.7
-- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
     - 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
 ## 参照
 - [LWG Issue 2169. Missing `reset()` requirements in `unique_ptr` specialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2169)
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

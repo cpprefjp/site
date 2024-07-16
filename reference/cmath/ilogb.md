@@ -6,20 +6,41 @@
 
 ```cpp
 namespace std {
-  int ilogb(float);
-  int ilogb(double);
-  int ilogb(long double);
+  int ilogb(float x);             // (1) C++11からC++20まで
+  int ilogb(double x);            // (2) C++11からC++20まで
+  int ilogb(long double x);       // (3) C++11からC++20まで
 
-  int ilogb(Integral);
+  constexpr int
+    ilogb(floating-point-type x); // (3) C++23
 
-  int ilogbf(float x);          // C++17 から
-  int ilogbl(long double x);    // C++17 から
+  int
+    ilogb(Integral);              // (4) C++11
+  constexpr int
+    ilogb(Integral);              // (4) C++23
+
+  int
+    ilogbf(float x);              // (5) C++17
+  constexpr int
+    ilogbf(float x);              // (5) C++23
+
+  int
+    ilogbl(long double x);        // (6) C++17
+  constexpr int
+    ilogbl(long double x);        // (6) C++23
 }
 ```
 * Integral[italic]
 
 ## 概要
 `ilogb`関数(integer log binary)は、浮動小数点数 `x` の指数部を `int` として返す。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -34,6 +55,7 @@ namespace std {
 	- 正しい結果が戻り値の型（`int`）の範囲で表現可能な場合は、戻り値は正確で、現在の丸め方式に依存しない。
 	- 正しい結果が戻り値の型（`int`）の範囲外の場合は、戻り値は未規定で、[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外）が発生する。
 	- `x` がゼロ、無限大、あるいは NaN の場合には、[`FE_INVALID`](../cfenv/fe_invalid.md)（無効演算浮動小数点例外）が発生する。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -70,7 +92,14 @@ ilogb(1e-309) = -1027
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

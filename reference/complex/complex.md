@@ -15,11 +15,7 @@ namespace std {
 
 `complex`クラステンプレートは、複素数を表すクラスである。このクラスは、実部(real part)と虚部(imaginary part)を、それぞれ型`T`の値として保持し、演算に使用する。
 
-`complex`クラステンプレートは以下の型で特殊化され、特化した実装が行われる：
-
-- `float`
-- `double`
-- `long double`
+`complex`クラステンプレートはCV修飾されていない浮動小数点数型 (C++23以降は拡張浮動小数点数型を含む) で特殊化され、特化した実装が行われる：
 
 これ以外の型がテンプレート引数として与えられた場合、その動作は未規定である。
 
@@ -190,4 +186,5 @@ polar : (-1.62921e-07,1)
 - [LWG Issue 387. `std::complex` over-encapsulated](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#387)
     - C++11で、`std::complex`型のメモリレイアウトが規定された経緯のレポート
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
-
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で拡張浮動小数点数型に対応した

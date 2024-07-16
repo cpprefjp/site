@@ -1,5 +1,13 @@
-# 非推奨だった古い例外仕様を削除
+# 非推奨だった古い例外仕様を削除 [P0003R5]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++11で[`noexcept`](/lang/cpp11/noexcept.md)機能が入ったことにより、従来の`throw`キーワードを使用した「例外仕様 (Exception Specification)」は「動的例外仕様 (Dynamic Exception Specification)」という名前に変更され、非推奨となっていた。
@@ -54,7 +62,7 @@ C++固有の問題としては、以下のような問題があった：
 C++でもJavaを含むこれらの問題は認識されており、動的例外仕様の代わりとなるnoexcept例外仕様が新設された。代わりの機能ができたことで動的例外仕様は非推奨となり、noexcept例外仕様への移行する猶予期間が設けられた後、C++17でこの機能が削除されることとなった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 noexcept](/lang/cpp11/noexcept.md)
 - [C++20 `throw()`による例外送出しない指定を削除](/lang/cpp20/remove_deprecated_nothrow_exception_specification.md)
 

@@ -33,9 +33,9 @@ constexpr int compare(size_type pos1,
 ## 概要
 他の文字列との比較を行う。
 
-- (1) : `*this`と`s`を比較する
-- (2) : `*this`の範囲`[pos1, pos1 + n1)`と`s`を比較する
-- (3) : `*this`の範囲`[pos1, pos1 + n1)`と`s`の範囲`[pos2, pos2 + n2)`を比較する
+- (1) : `*this`と`sv`を比較する
+- (2) : `*this`の範囲`[pos1, pos1 + n1)`と`sv`を比較する
+- (3) : `*this`の範囲`[pos1, pos1 + n1)`と`sv`の範囲`[pos2, pos2 + n2)`を比較する
 - (4) : `*this`と文字配列`s`を比較する
 - (5) : `*this`の範囲`[pos1, pos1 + n1)`と文字配列`s`を比較する
 - (6) : `*this`の範囲`[pos1, pos1 + n1)`と文字配列`s`の先頭`n2`文字を比較する
@@ -43,12 +43,12 @@ constexpr int compare(size_type pos1,
 
 ## 効果
 - (1) :
-    - [`size()`](size.md)と`str.`[`size()`](size.md)のうち、小さい方を`rlen`とする
+    - [`size()`](size.md)と`sv.`[`size()`](size.md)のうち、小さい方を`rlen`とする
     - `int result = Traits::`[`compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](data.md)`, rlen);`
     - `result != 0`であれば`result`を返す。そうでなければ、以下のように返す：
-        - `size() < str.size()`であれば0未満の値を返す
-        - `size() == str.size()`であれば0を返す
-        - `size() > str.size()`であれば0超の値を返す
+        - `size() < sv.size()`であれば0未満の値を返す
+        - `size() == sv.size()`であれば0を返す
+        - `size() > sv.size()`であれば0超の値を返す
 - (2) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv);` と等価
 - (3) : `return` [`substr`](substr.md)`(pos1, n1).compare(sv.`[`substr`](substr.md)`(pos2, n2));` と等価
 - (4) : `return compare(basic_string_view(s));` と等価
@@ -124,7 +124,7 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

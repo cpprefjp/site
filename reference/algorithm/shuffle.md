@@ -80,7 +80,7 @@ before: 0123456789
 int main() {
   std::string input = "0123456789abcdef";
 
-  std::cout << "before: " << input << std::endl;;
+  std::cout << "before: " << input << std::endl;
 
   // シャッフル
   std::random_device seed_gen;

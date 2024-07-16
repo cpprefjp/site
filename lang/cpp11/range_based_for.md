@@ -1,5 +1,13 @@
-# 範囲for文
+# 範囲for文 [N2930]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 範囲for文（The range-based for statement）は配列やコンテナを簡潔に扱うためのfor文の別表現である。
@@ -34,15 +42,15 @@ for (const auto& e : v) {
 
 | 変数宣言        | e を変更可能か？ | コンテナ内の要素を変更可能か？ |
 |-----------------|------------------|--------------------------------|
-| const auto& e   | No  | No  |
-| auto& e         | Yes | Yes |
-| auto e          | Yes | No  |
+| `const auto& e` | No  | No  |
+| `auto& e`       | Yes | Yes |
+| `auto e`        | Yes | No  |
 
 [auto]: /lang/cpp11/auto.md
 
 
 ## 仕様
-範囲for文は配列または、`begin()`および`end()`で表される範囲内の全ての要素に対して、処理を実行する。
+範囲for文は配列または、`begin()`および`end()`で表されるイテレータ範囲に含まれる全ての要素に対して、処理を実行する。
 
 範囲for文は以下の構文を持つ：
 
@@ -54,7 +62,7 @@ for-range-declarationには変数宣言を書く。ここで宣言した変数�
 
 for-range-initializerにはfor文が処理すべき範囲を表す値を書く。
 
-値の型が配列の場合、配列のサイズが分かるものでなければエラーとなる。値の型が配列以外（クラスなど）の場合、`begin()`と`end()`で範囲の先頭と終端が表せるものでなければエラーとなる。
+値の型が配列の場合、配列のサイズが分かるものでなければエラーとなる。値の型が配列以外（クラスなど）の場合、`begin()`と`end()`でイテレータ範囲の先頭と終端が表せるものでなければエラーとなる。
 
 語弊を恐れず言えば、メンバ関数に`begin()`および`end()`を持つクラスであれば、何でも範囲for文の範囲として指定できる。
 
@@ -86,7 +94,7 @@ C++11、C++14において、範囲for文は以下のように通常のfor文へ�
 
 展開後に現れる変数名は仮のものであり、実際に変数として見えるわけではない。しかし、デバッガーにこれらの変数が現れることがある。
 
-begin-exprとend-exprの具体的な内容は、範囲として何を渡すかによって3通りに分かれる。いずれの場合も、begin-exprとend-exprは同じ型でなければならない。
+begin-exprとend-exprの具体的な内容は、イテレータ範囲として何を渡すかによって3通りに分かれる。いずれの場合も、begin-exprとend-exprは同じ型でなければならない。
 
 配列を範囲として渡したとき、以下のように展開される：
 
@@ -107,7 +115,7 @@ begin-exprとend-exprの具体的な内容は、範囲として何を渡すか�
 
 * ただし、`__bound`は配列の要素数(要素数が不明な場合はill-formed)。
 
-範囲の型がクラスであって、メンバ`begin`**または**`end`が存在するとき、以下のように展開される：
+範囲の型がクラスであって、メンバ`begin`と`end`が両方存在するとき、以下のように展開される：
 
 ```cpp
 {
@@ -124,7 +132,8 @@ begin-exprとend-exprの具体的な内容は、範囲として何を渡すか�
 * for-range-declaration[italic]
 * statement[italic]
 
-* メンバ`begin`、`end`が片方しかない場合や、関数ではない場合でもこのように展開されるが、当然エラーとなる。この問題は[C++20で部分的に緩和される](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)。
+* メンバ`begin`、`end`が関数ではない場合でもこのように展開されるが、呼び出しができなければエラーとなる。
+* 当初のC++11では、メンバ`begin`、`end`が片方しかなくてもこのように展開されていた。これは規格の不具合であり、[修正P0962R1がC++11に遡って適用された](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)。
 
 範囲の型が配列でもメンバ`begin`、`end`のいずれかを持つクラスでもないとき、以下のように展開される：
 
@@ -352,10 +361,13 @@ int main()
 }
 ```
 
-## 関連項目
+また、C++23からは`for-range-initializer`の寿命が条件を満たせば延長されるようになったので([C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](/lang/cpp23/lifetime_extension_in_range_based_for_loop.md))、この問題を踏みにくくなっている。
+
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
 - [C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)
+- [C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](/lang/cpp23/lifetime_extension_in_range_based_for_loop.md)
 - [メンバ関数の左辺値／右辺値修飾](./ref_qualifier_for_this.md)
 
 ## 参照

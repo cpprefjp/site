@@ -19,28 +19,31 @@ namespace std {
 ## 概要
 実際に渡されたフォーマット引数を含む、フォーマット実行中の状態を保持するクラス。
 
-* (1): テンプレートの定義
-* (2): マルチバイト文字列版の特殊化 (出力イテレーターの型は未規定)
-* (3): ワイド文字列版の特殊化 (出力イテレーターの型は未規定)
+- (1): テンプレートの定義
+- (2): マルチバイト文字列版の別名 (出力イテレータの型は未規定)
+- (3): ワイド文字列版の別名 (出力イテレータの型は未規定)
 
 ## テンプレートパラメータ制約
+- `Out`は`OutputIterator<const charT&>`であること
 
-`Out`は`OutputIterator<const charT&>`であること。
+## 備考
+
+出力イテレータの型はフォーマット関数に指定したイテレータである必要はない。内部でバッファリングを行う実装が可能である。
 
 ## メンバ関数
 
-| 名前                                 | 説明                                             | 対応バージョン |
-|--------------------------------------|--------------------------------------------------|----------------|
-| [`arg`](basic_format_context/arg.md) | フォーマット引数を得る                           | C++20          |
-| `out`                                | 出力イテレーターを得る                           | C++20          |
-| `advance_to`                         | 出力イテレーターを指定したイテレーターに設定する | C++20          |
-| `locale`                             | ロケールを得る                                | C++20          |
+| 名前                                 | 説明                                         | 対応バージョン |
+|--------------------------------------|----------------------------------------------|----------------|
+| [`arg`](basic_format_context/arg.md) | フォーマット引数を取得する                   | C++20          |
+| [`out`](basic_format_context/out.md) | 出力イテレータを取得する                     | C++20          |
+| [`advance_to`](basic_format_context/advance_to.md) | 出力イテレータを指定したイテレータに設定する | C++20          |
+| [`locale`](basic_format_context/locale.md) | ロケールを取得する                     | C++20          |
 
 ## メンバ型
 
 | 名前             | 説明                                               | 対応バージョン |
 |------------------|----------------------------------------------------|----------------|
-| `iterator`       | 出力イテレーター(`Out`と等しい) (type-alias)       | C++20          |
+| `iterator`       | 出力イテレータ(`Out`と等しい) (type-alias)         | C++20          |
 | `char_type`      | 文字の型(`charT`と等しい) (type-alias)             | C++20          |
 | `formatter_type` | 型`T`に対応するフォーマッターの型 (alias-template) | C++20          |
 
@@ -51,26 +54,33 @@ namespace std {
   class basic_format_context {
     basic_format_args<basic_format_context> args_;
     Out out_;
+    std::optional<std::locale> locale;
 
   public:
     using iterator = Out;
     using char_type = charT;
     template<class T> using formatter_type = formatter<T, charT>;
 
-    basic_format_arg<basic_format_context> arg(size_t id) const
+    basic_format_context(iterator out, std::basic_format_args<basic_format_context> args, std::optional<std::locale> locale = std::nullopt)
+      :args_(args)
+      ,out_(out)
+      ,locale_(locale)
     {
+    }
+
+    basic_format_arg<basic_format_context> arg(size_t id) const {
       return args_.get(id);
     }
 
-    std::locale locale();
+    std::locale locale() {
+      return locale_.value_or(std::locale());
+    }
 
-    iterator out();
-    {
+    iterator out() {
       return out_;
     }
 
-    void advance_to(iterator it)
-    {
+    void advance_to(iterator it) {
       out_ = it;
     }
   };

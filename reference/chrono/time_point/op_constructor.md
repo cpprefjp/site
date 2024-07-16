@@ -13,7 +13,7 @@ explicit time_point(const duration& d);           // (2) C++11
 constexpr explicit time_point(const duration& d); // (2) C++14
 
 template <class Duration2>
-time_point(const time_point<clock, Duration2>& t);           // (3) C++14
+time_point(const time_point<clock, Duration2>& t);           // (3) C++11
 
 template <class Duration2>
 constexpr time_point(const time_point<clock, Duration2>& t); // (3) C++14
@@ -53,7 +53,7 @@ int main()
 * time_since_epoch()[link time_since_epoch.md]
 * count()[link /reference/chrono/duration/count.md]
 
-### 出力
+### 出力例
 ```
 0
 3000000
@@ -65,8 +65,8 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)

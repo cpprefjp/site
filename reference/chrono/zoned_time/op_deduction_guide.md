@@ -53,7 +53,6 @@ namespace std::chrono {
 * conditional_t[link /reference/type_traits/conditional.md]
 * is_convertible[link /reference/type_traits/is_convertible.md]
 * time_zone[link /reference/chrono/time_zone.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 `std::chrono::zoned_time`クラステンプレートの型推論補助。
@@ -129,7 +128,6 @@ int main()
 ```
 * chrono::locate_zone[link /reference/chrono/locate_zone.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
-* time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now()[link /reference/chrono/system_clock/now.md]
 * chrono::time_zone[link /reference/chrono/time_zone.md]
@@ -143,9 +141,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 参照

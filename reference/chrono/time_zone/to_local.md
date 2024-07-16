@@ -53,7 +53,6 @@ int main()
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::locate_zone[link /reference/chrono/locate_zone.md]
 * 9h[link /reference/chrono/duration/op_h.md]
-* chrono::sys_time[link /reference/chrono/sys_time.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
 
 ### 出力
@@ -65,9 +64,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 関連項目

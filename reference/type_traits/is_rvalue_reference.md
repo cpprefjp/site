@@ -64,8 +64,8 @@ int main(){}
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.1, 4.7.2
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.5.3 [mark verified], 4.6.1 [mark verified], 4.7.2 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2010は、関数への右辺値参照（上記例のうち`void (&&)()`）において、誤って`false_type`になっている。
 
 #### 備考

@@ -109,7 +109,7 @@ multimap(initializer_list<value_type> init,
     * ls.emplace_back[link ../../list/list/emplace_back.md]
 
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
-    （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
+    （`multimap(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `multimap` が構築され、`alloc` と共に (9) の形式に引き渡される）
 
 
 ## 例
@@ -139,7 +139,7 @@ Size of m2: 3
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

@@ -16,7 +16,8 @@ namespace std {
   };
 }
 ```
-* move_iterator[link /reference/iterator/move_iterator.md]
+* input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
+* sentinel_for[link /reference/iterator/sentinel_for.md]
 * indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
 
 ## 概要
@@ -93,8 +94,8 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9 [mark verified]
 
 ## 関連項目
 

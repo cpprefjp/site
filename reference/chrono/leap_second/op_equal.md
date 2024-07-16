@@ -47,7 +47,7 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
-#include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;
@@ -70,7 +70,7 @@ int main()
   }
 }
 ```
-* x == date[color ff0000]
+* x == ymd[color ff0000]
 * chrono::year_month_day[link /reference/chrono/year_month_day.md]
 * chrono::get_tzdb()[link /reference/chrono/get_tzdb.md]
 * 1972y[link /reference/chrono/year/op_y.md]
@@ -85,6 +85,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

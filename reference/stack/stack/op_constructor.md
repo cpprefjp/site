@@ -5,50 +5,63 @@
 * function[meta id-type]
 
 ```cpp
-explicit stack(const Container& cont = Container());  // (1) C++03まで
-explicit stack(Container&& cont = Container());       // (2) C++11
-explicit stack(const Container& cont);                // (3) C++11
+// C++03まで
+explicit stack(const Container& cont = Container());  // (1),(2)
 
-stack(const stack& st);                               // (4)
-stack(stack&& st);                                    // (5) C++11
+// C++11以降 C++17まで
+explicit stack(const Container& cont);           // (2)
+explicit stack(Container&& cont = Container());  // (1),(3)
 
-template <class Allocator>
-explicit stack(const Allocator& alloc);               // (6) C++11
+// C++20以降
+stack() : stack(Container()) {}    // (1)
+explicit stack(const Container&);  // (2)
+explicit stack(Container&&);       // (3)
 
-template <class Allocator>
-stack(const Container& cont, const Allocator& alloc); // (7) C++11
-
-template <class Allocator>
-stack(Container&& cont, const Allocator& alloc);      // (8) C++11
-
-template <class Allocator>
-stack(const stack& st, const Allocator& alloc);       // (9) C++11
+template<class InputIterator>
+stack(InputIterator first, InputIterator last);       // (4) C++23
 
 template <class Allocator>
-stack(stack&& st, const Allocator& alloc);            // (10) C++11
+explicit stack(const Allocator& alloc);               // (5) C++11
+
+template <class Allocator>
+stack(const Container& cont, const Allocator& alloc); // (6) C++11
+
+template <class Allocator>
+stack(Container&& cont, const Allocator& alloc);      // (7) C++11
+
+template <class Allocator>
+stack(const stack& st, const Allocator& alloc);       // (8) C++11
+
+template <class Allocator>
+stack(stack&& st, const Allocator& alloc);            // (9) C++11
+
+template<class InputIterator, class Alloc>
+stack(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23
 ```
 
 ## 概要
-- (1) : デフォルトコンストラクタ。元となるコンテナのコピーを受け取る。
-- (2) : デフォルトコンストラクタ。元となるコンテナの一時オブジェクトをムーブで受け取る。
-- (3) : 元となるコンテナのコピーを受け取るコンストラクタ。
-- (4) : コピーコンストラクタ。
-- (5) : ムーブコンストラクタ。
-- (6) : アロケータを受け取るコンストラクタ。
-- (7) : 元となるコンテナのコピーとアロケータを受け取るコンストラクタ。
-- (8) : 元となるコンテナの一時オブジェクトとアロケータを受け取るコンストラクタ。
-- (9) : アロケータを受け取るコピーコンストラクタ。
-- (10) : アロケータを受け取るムーブコンストラクタ。
+- (1) : デフォルトコンストラクタ。
+- (2) : 元となるコンテナのコピーを受け取るコンストラクタ。
+- (3) : 元となるコンテナの一時オブジェクトをムーブで受け取るコンストラクタ。
+- (4) : 元となるコンテナをイテレータペアで受け取るコンストラクタ。
+- (5) : アロケータを受け取るコンストラクタ。
+- (6) : 元となるコンテナのコピーとアロケータを受け取るコンストラクタ。
+- (7) : 元となるコンテナの一時オブジェクトとアロケータを受け取るコンストラクタ。
+- (8) : アロケータを受け取るコピーコンストラクタ。
+- (9) : アロケータを受け取るムーブコンストラクタ。
+- (10) : 元となるコンテナのイテレータペアとアロケータを受け取るコンストラクタ。
 
 
 ## 効果
-- (2) : メンバ変数`c`を[`std::move`](/reference/utility/move.md)`(cont)`で初期化する。
-- (3) : メンバ変数`c`を`cont`のコピーで初期化する。
-- (6) : メンバ変数`c`のメモリアロケートに`alloc`を使用する。
-- (7) : メンバ変数`c`を`Container(cont, alloc)`で初期化する。
-- (8) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(cont), alloc)`で初期化する。
-- (9) : メンバ変数`c`を`Container(st.c, alloc)`で初期化する。
-- (10) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(st.c), alloc)`で初期化する。
+- (2) : メンバ変数`c`を`cont`のコピーで初期化する。
+- (3) : メンバ変数`c`を[`std::move`](/reference/utility/move.md)`(cont)`で初期化する。
+- (4) : メンバ変数`c`を2つの引数`first`, `last`で初期化する。
+- (5) : メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+- (6) : メンバ変数`c`を`Container(cont, alloc)`で初期化する。
+- (7) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(cont), alloc)`で初期化する。
+- (8) : メンバ変数`c`を`Container(st.c, alloc)`で初期化する。
+- (9) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(st.c), alloc)`で初期化する。
+- (10) : メンバ変数`c`を3つの引数`first`, `last`, `alloc`で初期化する。
 
 
 ## 例
@@ -88,9 +101,8 @@ int main()
 3 2 1 
 ```
 
-## 関連項目
-
-| 名前 | 説明 |
-|-------------------------------------------------------------------------------------------|---------------------------------------------------------------|
-| [`operator=`](op_assign.md) | 代入 |
-
+## 参照
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+    - C++20でのデフォルトコンストラクタの分離
+- [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
+    - C++23でのイテレータペアへの対応

@@ -197,9 +197,9 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.5.4
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012, 2013, 2015
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.5.4 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2010までは、`Align`のデフォルト実引数が定義されていない。
 	- 2012からは、`Align`のデフォルト実引数は`std::alignment_of<max_align_t>::value`と定義されている。
 	- `aligned_storage_t`は2013から
@@ -215,5 +215,5 @@ int main()
     - C++14で`aligned_storage_t`が定義された
 - [P0767R1 Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
     - C++20でPOD用語の非推奨化にともない、メンバ型`type`がPOD型ではなくトリビアル型に分類されるよう規定が変更された
-- [P1413R2 Deprecate `std::aligned_storage` and `std::aligned_union`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1413r2.pdf)
+- [P1413R3 Deprecate `std::aligned_storage` and `std::aligned_union`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf)
     - C++23でこの機能が非推奨となった

@@ -31,7 +31,7 @@ namespace std {
 #include <stacktrace>
 
 void g() {
-  std::string trace = std::stacktrace::current().to_string();
+  std::string trace = std::to_string(std::stacktrace::current());
   std::cout << trace << std::endl;
 }
 
@@ -43,14 +43,18 @@ int main() {
   f();
 }
 ```
-* to_string()[color ff0000]
+* std::to_string[color ff0000]
 * current()[link current.md]
 
-### 出力例
+### 出力例 (GCC)
 ```
- 0# g() at main.cpp:5
- 1# f() at main.cpp:10
- 2# main at main.cpp:14
+   0#  g() at /app/example.cpp:5
+   1#  f() at /app/example.cpp:10
+   2# main at /app/example.cpp:14
+   3#      at :0
+   4#      at :0
+   5# _start at :0
+   6# 
 ```
 
 
@@ -60,5 +64,5 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 12 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

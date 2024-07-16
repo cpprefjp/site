@@ -16,11 +16,12 @@ namespace std {
 
 ## メンバ関数
 
-| 名前                                              | 説明                               | 対応バージョン |
-|---------------------------------------------------|------------------------------------|----------------|
+| 名前                                            | 説明                               | 対応バージョン |
+|-------------------------------------------------|------------------------------------|----------------|
 | [`(constructor)`](type_index/op_constructor.md) | コンストラクタ                     | C++11          |
 | [`operator==`](type_index/op_equal.md)          | 等値判定を行う                     | C++11          |
 | [`operator!=`](type_index/op_not_equal.md)      | 非等値判定を行う                   | C++11          |
+| [`operator<=>`](type_index/op_compare_3way.md)  | 三方判定を行う                     | C++20          |
 | [`operator<`](type_index/op_less.md)            | 左辺が右辺より小さいかの判定を行う | C++11          |
 | [`operator<=`](type_index/op_less_equal.md)     | 左辺が右辺以下かの判定を行う       | C++11          |
 | [`operator>`](type_index/op_greater.md)         | 左辺が右辺より大きいかの判定を行う | C++11          |
@@ -72,9 +73,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ?
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 
 ## 参照

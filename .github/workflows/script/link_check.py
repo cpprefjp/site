@@ -17,7 +17,8 @@ def retry_sleep():
 
 def check_url(url: str, retry: int = 5) -> (bool, str):
     try:
-        res = requests.get(url, verify=False, timeout=60.0)
+        headers = {'User-agent': 'Mozilla/5.0'}
+        res = requests.get(url, headers=headers, verify=False, timeout=60.0)
         if res.url:
             if res.url == url:
                 return res.status_code != 404, "404"
@@ -43,7 +44,27 @@ def fix_link(link: str) -> str:
             link = link + ")"
         return re.sub("#.*", "", link.strip())
     else:
-        return ""
+        if not link:
+            return ""
+
+        if link.startswith("#"):
+            return ""
+
+        return link
+
+IGNORE_LIST = [
+    "https://web.archive.org", # 確実に存在すると思われる
+    "http://cse.naro.affrc.go.jp", # 海外 (GitHub Actions) からのアクセスを排除していると思われる
+    "https://www.cryptopp.com", # アクセスチェックでよく失敗するがブラウザ上では問題なくアクセスできる
+    "https://www.microsoft.com/", # ちょくちょく失敗するが、一時的なものだと思われる
+]
+
+def is_ignore_link(link: str) -> bool:
+    for x in IGNORE_LIST:
+        if link.startswith(x):
+            return True
+    return False
+
 
 def find_all_links(text: str) -> (list, set):
     inner_links = []
@@ -53,22 +74,40 @@ def find_all_links(text: str) -> (list, set):
         link = fix_link(origin_link)
         if link:
             if "http" in link:
-                if not link.startswith("https://web.archive.org"):
+                if not is_ignore_link(link):
                     outer_links.add(link)
             else:
                 inner_links.append(link)
 
-    for m in re.finditer(r'\[(.*?)\]\((.*?)\)', text):
-        link = m.group(2)
-        if '(' in link:
-            index = text.find(')', m.end(0))
-            after_link = text[m.start(2):index]
-            add_link(after_link)
-        else:
-            add_link(link)
+    in_code_block = False
+    for line in text.split("\n"):
+        # コードブロックのなかは、チェックしない
+        is_code_block = line.strip().startswith("```")
+        if is_code_block:
+            in_code_block = not in_code_block
+            continue
 
-    for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', text):
-        add_link(m.group(2))
+        if in_code_block:
+            continue
+
+        for m in re.finditer(r'\[(.*?)\]\((.*?)\)', line):
+            pretext = line[0:m.start(0)]
+            # コード修飾のなかは、チェックしない
+            incode = pretext.count("`")
+            if pretext.count("`") % 2 != 0:
+                continue
+
+            link = m.group(2)
+            if '(' in link:
+                index = line.find(')', m.end(0))
+                after_link = line[m.start(2):index]
+                add_link(after_link)
+            else:
+                add_link(link)
+
+    for line in text.split("\n"):
+        for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', line):
+            add_link(m.group(2))
 
     return inner_links, outer_links
 

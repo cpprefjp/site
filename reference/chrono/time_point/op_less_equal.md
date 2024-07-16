@@ -26,7 +26,7 @@ namespace chrono {
 ```cpp
 return lhs.time_since_epoch() <= rhs.time_since_poch();
 ```
-* time_since_spoch[link /reference/chrono/time_point/time_since_epoch.md]
+* time_since_epoch[link /reference/chrono/time_point/time_since_epoch.md]
 
 
 ## 例
@@ -57,8 +57,8 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)

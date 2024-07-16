@@ -21,7 +21,7 @@ namespace std {
 
 ## 概要
 
-`copyable`は、任意の型`T`が[`movable`](./movable.md)であり、コピー構築・代入が可能であることを表すコンセプトである。
+`copyable`は、任意の型`T`が[`movable`](./movable.md)コンセプトを満たし、それに加えてコピー構築・代入が可能であることを表すコンセプトである。
 
 ## 例
 ```cpp example
@@ -93,8 +93,8 @@ not_copyable2 is not copyable
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

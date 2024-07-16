@@ -21,11 +21,10 @@ void insert(initializer_list<value_type> init);                // (6)
 iterator insert(node_type&& nh);                               // (7) C++17
 iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 ```
-* pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-新しく一つの要素(引数 `x`, `y`を使う)、要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `set` コンテナを拡張する。
+新しく一つの要素(引数 `x`, `y`を使う)、要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `multiset` コンテナを拡張する。
 
  `set` コンテナは重複した値を許さないため、挿入操作はそれぞれの要素が他のコンテナ内の既存要素と同じ値かどうかをチェックし、同じ要素がすでにあれば挿入されない。`multiset`の場合には、同じ値の要素でも挿入される。
 
@@ -37,7 +36,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 - (5) : イテレータ範囲`[first, last)`の要素を挿入する
 - (6) : 初期化子リスト`init`の要素を挿入する
 - (7) : `nh`が空の場合、効果はない。そうでなければ、`nh`が所有する要素を挿入し、新しく挿入された要素を指すイテレータを返す。`nh.key()` と等価なキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。`nh` が空でなく、`(*this).get_allocator() == nh.get_allocator()`であれば、動作は未定義である。
-- (8) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と等価なキーを持つ要素を指すイテレータを返す。 `nh.key()` と等しいキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。要素は、`p`の直前の位置のできるだけ近くに挿入される。`nh` が空でなく、`(*this).get_allocator() == nh.get_allocator()`であれば、動作は未定義である。
+- (8) : `nh`が空の場合、効果はなく、`(*this).end()`を返す。そうでなければ、 `nh` によって所有されている要素をコンテナに挿入し、 `nh.key()` と等価なキーを持つ要素を指すイテレータを返す。 `nh.key()` と等しいキーを持つ要素を含む範囲がコンテナ内に存在する場合、要素はその範囲の終端に挿入される。要素は、`hint`の直前の位置のできるだけ近くに挿入される。`nh` が空でなく、`(*this).get_allocator() == nh.get_allocator()`であれば、動作は未定義である。
 
 
 ## 戻り値
@@ -56,7 +55,9 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 
 
 ## 備考
-内部的に `multiset` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。 (7), (8) の場合要素は、コピーもムーブもされない。
+- これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照やイテレータは無効にはならない。  
+	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+- 内部的に `multiset` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。 (7), (8) の場合要素は、コピーもムーブもされない。
 
 
 ## 例

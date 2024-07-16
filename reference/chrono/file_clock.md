@@ -9,6 +9,7 @@ namespace std::chrono {
   using file_clock = see below;
 }
 ```
+* see below[italic]
 
 ## 概要
 `file_clock`は、ファイル時間を作るために使用されるクロックである。この時刻系は[`<filesystem>`](/reference/filesystem.md)ライブラリにおいてファイル作成日時やファイル更新日時を表現する[`file_time_type`](/reference/filesystem/file_time_type.md)のために定義される。
@@ -31,6 +32,7 @@ template<class Duration>
 static file_time<see below>
   from_sys(const sys_time<Duration>&);
 ```
+* see below[italic]
 * utc_clock[link utc_clock.md]
 * sys_time[link sys_time.md]
 * file_time[link file_time.md]
@@ -47,6 +49,7 @@ template<class Duration>
 static file_time<see below>
   from_utc(const utc_time<Duration>&);
 ```
+* see below[italic]
 * tai_clock[link tai_clock.md]
 * gps_clock[link gps_clock.md]
 * utc_time[link utc_time.md]
@@ -94,9 +97,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 参照

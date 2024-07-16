@@ -27,6 +27,11 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 一般にコンテナのサイズについて対数時間だが、新しい要素が `hint` の前に挿入された場合は償却定数時間。
 
 
+## 備考
+この関数が呼ばれた後も、当該コンテナ内の要素を指す参照やイテレータは無効にはならない。  
+なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -66,10 +71,10 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2
-- [GCC](/implementation.md#gcc): 4.8.5
+- [Clang](/implementation.md#clang): 3.2 [mark verified]
+- [GCC](/implementation.md#gcc): 4.8.5 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

@@ -1,7 +1,7 @@
 # bool_constant
 * type_traits[meta header]
 * std[meta namespace]
-* class template[meta id-type]
+* type-alias[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
@@ -60,8 +60,8 @@ true
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.7.1
-- [GCC](/implementation.md#gcc): 6.1
+- [Clang](/implementation.md#clang): 3.7.1 [mark verified]
+- [GCC](/implementation.md#gcc): 6.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

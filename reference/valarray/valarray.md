@@ -36,7 +36,7 @@ valarray<int> c = a + b;
 
 処理系によっては、このような演算を、CPUのSIMD命令によって並列に計算するよう最適化する。
 
-なお、戻り値型に *`ValOrProxy`* と表記している箇所は、[`valarray`](valarray.md)`<T>` か代理の型のいずれかであることを、引数型に *`ValOrProxy`* と表記している箇所は、[`valarray`](valarray.md)`<T>` と代理の型のいずれでも受け取ることが可能であることを表している。  
+なお、戻り値型に *`ValOrProxy`* と表記している箇所は、`valarray<T>` か代理の型のいずれかであることを、引数型に *`ValOrProxy`* と表記している箇所は、`valarray<T>` と代理の型のいずれでも受け取ることが可能であることを表している。  
 [`<valarray>`](../valarray.md) の概要も参照のこと。
 
 

@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const;                        // (1) C++03
-bool empty() const noexcept;               // (1) C++11
-[[nodiscard]] bool empty() const noexcept; // (1) C++20
+bool empty() const;                                  // (1) C++03
+bool empty() const noexcept;                         // (1) C++11
+[[nodiscard]] constexpr bool empty() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -66,3 +66,4 @@ false
 
 ## 参照
 - [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

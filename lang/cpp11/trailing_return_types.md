@@ -1,5 +1,13 @@
-# 戻り値の型を後置する関数宣言構文
+# 戻り値の型を後置する関数宣言構文 [N2541]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 従来の関数宣言構文では、戻り値の型は先頭に記述していた。
@@ -100,7 +108,7 @@ auto f = [](int a, int b) -> int { return a + b; }
 しかし、この構文は採用されなかった。ラムダ導入子は関数宣言構文にとってはただのマーキングであり機能を持たないが、`auto`の場合はプレースホルダーであるために、将来的にそれを`auto*`、`auto&`のように、置き換えられる戻り値の型をさらに修飾できるようにするためである。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++14 通常関数の戻り値型推論](/lang/cpp14/return_type_deduction_for_normal_functions.md)
 
 
@@ -113,4 +121,3 @@ auto f = [](int a, int b) -> int { return a + b; }
     - ラムダ式の仕様と合わせて「trailing-return-type」という言葉が使われるようになった
 - [N2931 Unified Function Syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2931.html)
 - [N2954 Unified Function Syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2954.html)
-

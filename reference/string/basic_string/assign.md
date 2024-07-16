@@ -5,37 +5,62 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& assign(const basic_string& str);                  // (1)
+basic_string& assign(const basic_string& str);                  // (1) C++03
+constexpr basic_string& assign(const basic_string& str);        // (1) C++20
 
 basic_string& assign(basic_string&& str) noexcept;              // (2) C++11
+constexpr basic_string& assign(basic_string&& str) noexcept;    // (2) C++20
 
-basic_string& assign(const basic_string& str,
-                     size_type pos,
-                     size_type n);                              // (3) C++03
+basic_string&
+  assign(const basic_string& str,
+         size_type pos,
+         size_type n);             // (3) C++03
+basic_string&
+  assign(const basic_string& str,
+         size_type pos,
+         size_type n = npos);      // (3) C++14
+constexpr basic_string&
+  assign(const basic_string& str,
+         size_type pos,
+         size_type n = npos);      // (3) C++20
 
-basic_string& assign(const basic_string& str,
-                     size_type pos,
-                     size_type n = npos);                       // (3) C++14
+basic_string& assign(const charT* s, size_type n);              // (4) C++03
+constexpr basic_string& assign(const charT* s, size_type n);    // (4) C++20
 
-basic_string& assign(const charT* s, size_type n);              // (4)
+basic_string& assign(const charT* s);                           // (5) C++03
+constexpr basic_string& assign(const charT* s);                 // (5) C++20
 
-basic_string& assign(const charT* s);                           // (5)
-
-basic_string& assign(size_type n, charT c);                     // (6)
+basic_string& assign(size_type n, charT c);                     // (6) C++03
+constexpr basic_string& assign(size_type n, charT c);           // (6) C++20
 
 template <class InputIterator>
-basic_string& assign(InputIterator first,
-                     InputIterator last);                       // (7)
+basic_string&
+  assign(InputIterator first,
+         InputIterator last);  // (7) C++03
+template <class InputIterator>
+constexpr basic_string&
+  assign(InputIterator first,
+         InputIterator last);  // (7) C++20
 
-basic_string& assign(initializer_list<charT>);                  // (8) C++11
+basic_string& assign(initializer_list<charT> il);           // (8) C++11
+constexpr basic_string& assign(initializer_list<charT> il); // (8) C++20
 
 // string_viewを引数に取るオーバーロード
 template<class T>
-basic_string& assign(const T& t);                               // (9) C++17
+basic_string& assign(const T& t);           // (9) C++17
 template<class T>
-basic_string& assign(const T& t,
-                     size_type pos,
-                     size_type n = npos);                       // (10) C++17
+constexpr basic_string& assign(const T& t); // (9) C++20
+
+template<class T>
+basic_string&
+  assign(const T& t,
+         size_type pos,
+         size_type n = npos);   // (10) C++17
+template<class T>
+constexpr basic_string&
+  assign(const T& t,
+         size_type pos,
+         size_type n = npos);   // (10) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -68,7 +93,7 @@ basic_string& assign(const T& t,
     - `assign(s,` [`traits::length`](/reference/string/char_traits/length.md)`(s))`を呼び出す。
 - (6) : 文字`c`の`n`回繰り返した文字列からなる`basic_string`オブジェクトを構築する。
     - `assign(basic_string(n, c))`と等価。
-- (7) : 文字列の範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
+- (7) : 文字列のイテレータ範囲`[begin, end)`から`basic_string`オブジェクトを構築する。
     - `assign(basic_string(first, last))`と等価。
 - (8) : 文字の初期化子リストから`basic_string`オブジェクトを構築する。
     - `assign(il.begin(), il.end())`を呼び出す。
@@ -186,3 +211,4 @@ s10 : Hello
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(9)(10)の引数型を`const T&`に変更
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

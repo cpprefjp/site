@@ -26,11 +26,11 @@ namespace std {
 ```
 
 ## 概要
-範囲をヒープ化する。
+イテレータ範囲`[first, last)`をヒープ化する。
 
 
-## 要件
-`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
+## テンプレートパラメータ制約
+- `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
 
 
 ## 効果

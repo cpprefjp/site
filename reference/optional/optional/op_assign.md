@@ -6,21 +6,31 @@
 * cpp17[meta cpp]
 
 ```cpp
-optional<T>& operator=(nullopt_t rhs) noexcept;          // (1)
+optional<T>& operator=(nullopt_t rhs) noexcept;                    // (1) C++17
+constexpr optional<T>& operator=(nullopt_t rhs) noexcept;          // (1) C++23
 
-optional& operator=(const optional& rhs);                // (2)
+optional& operator=(const optional& rhs);                          // (2) C++17
+constexpr optional& operator=(const optional& rhs);                // (2) C++20
 
-optional& operator=(optional&& rhs) noexcept(see below); // (3)
+optional& operator=(optional&& rhs) noexcept(see below);           // (3) C++17
+constexpr optional& operator=(optional&& rhs) noexcept(see below); // (3) C++20
 
 template <class U = T>
-optional& operator=(U&& rhs);                            // (4)
+optional& operator=(U&& rhs);                                      // (4) C++17
+template <class U = T>
+constexpr optional& operator=(U&& rhs);                            // (4) C++23
 
 template <class U>
-optional& operator=(const optional<U>& rhs);             // (5)
+optional& operator=(const optional<U>& rhs);                       // (5) C++17
+template <class U>
+constexpr optional& operator=(const optional<U>& rhs);             // (5) C++23
 
 template <class U>
-optional& operator=(optional<U>&& rhs);                  // (6)
+optional& operator=(optional<U>&& rhs);                            // (6) C++17
+template <class U>
+constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 ```
+* see below[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]
 
 ## 概要
@@ -73,6 +83,10 @@ optional& operator=(optional<U>&& rhs);                  // (6)
 - (2) : 型`T`がコピー構築可能でなく、コピー代入可能でもないこと
 - (3) : 型`T`がムーブ構築可能でなく、ムーブ代入可能でもないこと
 
+## トリビアルに定義される条件
+
+- (2) : 型`T`が、[トリビアルにコピー構築可能](/reference/type_traits/is_trivially_copy_constructible.md)であり[トリビアルにコピー代入可能](/reference/type_traits/is_trivially_copy_assignable.md)かつ、[トリビアルに破棄可能](/reference/type_traits/is_trivially_destructible.md)である
+- (3) : 型`T`が、[トリビアルにムーブ構築可能](/reference/type_traits/is_trivially_move_constructible.md)であり[トリビアルにムーブ代入可能](/reference/type_traits/is_nothrow_move_assignable.md)かつ、[トリビアルに破棄可能](/reference/type_traits/is_trivially_destructible.md)である
 
 ## 例
 ```cpp example
@@ -157,11 +171,13 @@ int main()
 - C++17
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 7.2
-- [Clang](/implementation.md#clang): 4.0.1
+- [GCC](/implementation.md#gcc): 7.2 [mark verified]
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 - [LWG Issue 2756. `optional<T>` should `forward` `T`'s implicit conversions](https://wg21.cmeerw.net/lwg/issue2756)
+- [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

@@ -10,7 +10,7 @@ T operator-=(T operand) const noexcept;
 ```
 
 ## 概要
-加算を行う
+減算を行う
 
 
 ## 戻り値
@@ -120,7 +120,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): 10.1
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

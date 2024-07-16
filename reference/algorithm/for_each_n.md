@@ -28,7 +28,7 @@ namespace std {
 ```
 
 ## 概要
-範囲の先頭N個の要素に、指定された関数を適用する。
+イテレータ範囲`[first, first + n)` (範囲の先頭N要素) のすべての要素に、指定された関数を適用する。
 
 
 ## 要件
@@ -37,7 +37,7 @@ namespace std {
 
 
 ## 効果
-範囲`[first, first + n)` 内の全てのイテレータ `i` に `f(*i)` という操作を行う。
+イテレータ範囲`[first, first + n)` 内の全てのイテレータ `i` に `f(*i)` という操作を行う。
 
 このアルゴリズムはその他のアルゴリズムと違い、関数 `f` の内部で `*i` の値を書き換えても構わない（もちろんイテレータの型が `mutable iterator` の要件を満たしている場合に限る）。
 
@@ -89,8 +89,8 @@ int main()
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 5.0
-- [GCC](/implementation.md#gcc): 9.3
+- [Clang](/implementation.md#clang): 5.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

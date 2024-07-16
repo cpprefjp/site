@@ -1,5 +1,13 @@
-# 定数式での`dynamic_cast`、多態的な`typeid`を許可
+# 定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -94,7 +102,7 @@ false
 
 その後、実装可能性に関する懸念は払拭されたため、C++23に導入される予定である。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++20 定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md)
 

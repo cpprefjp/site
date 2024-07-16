@@ -39,11 +39,12 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `constexpr bool operator==(monostate, monostate) noexcept;` | 等値比較。`true`を返す | C++17 |
-| `constexpr bool operator!=(monostate, monostate) noexcept;` | 非等値比較。`false`を返す | C++17 |
-| `constexpr bool operator<(monostate, monostate) noexcept;`  | 左辺が右辺より小さいかを判定する。`false`を返す | C++17 |
-| `constexpr bool operator<=(monostate, monostate) noexcept;` | 左辺が右辺以下かを判定する。`true`を返す | C++17 |
-| `constexpr bool operator>(monostate, monostate) noexcept;`  | 左辺が右辺より大きいかを判定する。`false`を返す | C++17 |
-| `constexpr bool operator>=(monostate, monostate) noexcept;` | 左辺が右辺以上かを判定する。`true`を返す | C++17 |
+| `constexpr bool operator!=(monostate, monostate) noexcept;` | 非等値比較。`false`を返す (C++20から`==`により使用可能) | C++17 |
+| `constexpr strong_ordering operator<=>(monostate, monostate) noexcept;` | 三方比較。`strong_ordering::equal`を返す | C++20 |
+| `constexpr bool operator<(monostate, monostate) noexcept;`  | 左辺が右辺より小さいかを判定する。`false`を返す (C++20から`<=>`により使用可能) | C++17 |
+| `constexpr bool operator<=(monostate, monostate) noexcept;` | 左辺が右辺以下かを判定する。`true`を返す (C++20から`<=>`により使用可能) | C++17 |
+| `constexpr bool operator>(monostate, monostate) noexcept;`  | 左辺が右辺より大きいかを判定する。`false`を返す (C++20から`<=>`により使用可能) | C++17 |
+| `constexpr bool operator>=(monostate, monostate) noexcept;` | 左辺が右辺以上かを判定する。`true`を返す (C++20から`<=>`により使用可能) | C++17 |
 
 
 ## 例
@@ -79,6 +80,11 @@ empty
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.3
-- [GCC](/implementation.md#gcc): 4.0
+- [Clang](/implementation.md#clang): 7.3 [mark verified]
+- [GCC](/implementation.md#gcc): 4.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

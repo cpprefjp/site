@@ -13,7 +13,7 @@ namespace std {
 
 ## 概要
 `binomial_distribution`は、離散確率分布の一種である二項分布を表すクラスである。  
-成功する確率pの事象をn回施行し、成功した回数を求める。  
+成功する確率pの事象をn回試行し、成功した回数を求める。  
 
 二項分布は、以下のような用途に使用できる：
 
@@ -82,7 +82,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // 成功確率0.5の事象を5回施行する
+  // 成功確率0.5の事象を5回試行する
   std::binomial_distribution<> dist(5, 0.5);
 
   // 成功した回数を取得(0以上5以下の値が返される)
@@ -105,7 +105,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

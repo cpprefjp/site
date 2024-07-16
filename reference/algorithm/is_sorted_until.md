@@ -44,11 +44,11 @@ namespace std {
 ```
 
 ## 概要
-ソート済みか判定し、ソートされていない位置のイテレータを取得する
+イテレータ範囲`[first, last)`がソート済みか判定し、ソートされていない位置のイテレータを取得する
 
 
 ## 戻り値
-[`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、`[first,last]` の中でソートされている範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。
+[`distance`](/reference/iterator/distance.md)`(first, last) < 2` なら `last` を返す。そうでない場合、イテレータ範囲`[first,last]` の中でソートされているイテレータ範囲を `[first,i)` としたとき、そのイテレータ `i` を返す。
 
 
 ## 計算量
@@ -106,9 +106,9 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

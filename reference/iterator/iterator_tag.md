@@ -21,7 +21,7 @@ namespace std {
 |------------------------------|----------------|-------|
 | `input_iterator_tag`         | 入力イテレータ ||
 | `output_iterator_tag`        | 出力イテレータ ||
-| `forward_iterator_tag`       | 前方イテレータ ||
+| `forward_iterator_tag`       | 前方向イテレータ ||
 | `bidirectional_iterator_tag` | 双方向イテレータ ||
 | `random_access_iterator_tag` | ランダムアクセスイテレータ ||
 | `contiguous_iterator_tag` | 隣接イテレータ | C++20 |

@@ -1,5 +1,13 @@
-# ラムダ式
+# ラムダ式 [N2927]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 「ラムダ式(lambda expressions)」は、簡易的な関数オブジェクトをその場で定義するための機能である。
@@ -523,13 +531,16 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 なお、C++11時点のラムダ式はテンプレートを扱えないが、これはコンパイラの実装が難しい、という理由での見送りである。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ローカル型と無名型を、テンプレート引数として使用することを許可](local_and_unnamed_type_as_template_arguments.md)
 - [C++14 ジェネリックラムダ](/lang/cpp14/generic_lambdas.md)
 - [C++14 ラムダ式の初期化キャプチャ](/lang/cpp14/initialize_capture.md)
 - [C++17 ラムダ式での`*this`のコピーキャプチャ](/lang/cpp17/lambda_capture_of_this_by_value.md)
 - [C++20 ラムダ式のキャプチャとして`[=, this]`を許可する](/lang/cpp20/allow_lambda_capture_equal_this.md)
 - [C++20 ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md)
+- [C++23 ラムダ式で()を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md)
+- [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
+- [C++23 `this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md)
 
 
 ## 参照
@@ -551,4 +562,3 @@ for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
 - [N3043 Converting Lambdas to Function Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3043.html)
 - [N3052 Converting Lambdas to Function Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3052.html)
 - [CWG Issue 975. Restrictions on return type deduction for lambdas](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#975)
-

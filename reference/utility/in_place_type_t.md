@@ -1,7 +1,7 @@
 # in_place_type_t
 * utility[meta header]
 * std[meta namespace]
-* class[meta id-type]
+* class template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
@@ -57,8 +57,8 @@ zzz
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

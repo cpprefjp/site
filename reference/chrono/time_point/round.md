@@ -1,7 +1,7 @@
 # round
 * chrono[meta header]
 * std::chrono[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
@@ -20,7 +20,7 @@ namespace std::chrono {
 ```cpp
 return time_point<Clock, ToDuration>{round<ToDuration>(tp.time_since_epoch())};
 ```
-* ceil[link /reference/chrono/duration/ceil.md]
+* round[link /reference/chrono/duration/round.md]
 * tp.time_since_epoch()[link time_since_epoch.md]
 
 
@@ -61,8 +61,8 @@ int main()
 - C++17
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 7.3
-- [Clang](/implementation.md#clang): 3.8
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
+- [Clang](/implementation.md#clang): 3.8 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

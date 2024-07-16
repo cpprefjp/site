@@ -60,7 +60,7 @@ int main() {
 * identity[link /reference/functional/identity.md]
 * less[link /reference/functional/less.md]
 * greater[link /reference/functional/greater.md]
-* iterator_t[link /reference/ranges/iterator_t.md.nolink]
+* iterator_t[link /reference/ranges/iterator_t.md]
 
 ### 出力
 ```
@@ -76,8 +76,8 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 ## 関連項目
 

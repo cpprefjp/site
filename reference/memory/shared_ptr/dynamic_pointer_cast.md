@@ -35,7 +35,7 @@ namespace std {
 
 
 ## 備考
-- `shared_ptr<T>(dynamic_cast<T*>(r.get()))` という方法は動作未定義となるので使用しないこと。
+- `shared_ptr<T>(dynamic_cast<T*>(r.get()))` という方法は未定義動作となるので使用しないこと。
 
 
 ## 例外
@@ -87,10 +87,10 @@ B::call()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 
 ## 参照

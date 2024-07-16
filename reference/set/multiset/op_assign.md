@@ -23,7 +23,7 @@ multiset& operator=(initializer_list<value_type> init);      // (3) C++11
 ## 効果
 - (1) : 同じテンプレートパラメータを持つ `multiset` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
 - (2) : 同じテンプレートパラメータを持つ `multiset` クラスのオブジェクトをムーブ代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にムーブされる。
-- (3) : 同じテンプレートパラメータを持つ `initializer_list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`x` の全ての要素が `*this` にコピーされる。
+- (3) : 同じテンプレートパラメータを持つ `initializer_list` クラスのオブジェクトをコピー代入する。`*this` の全ての要素が解放され、`init` の全ての要素が `*this` にコピーされる。
 
 
 ## 戻り値
@@ -33,7 +33,7 @@ multiset& operator=(initializer_list<value_type> init);      // (3) C++11
 ## 事後条件
 - (1) : `*this == x`
 - (2) : `*this`は元々の`x`と等値となる
-- (3) : `*this == x`
+- (3) : `*this == multiset{init}`
 
 
 ## 計算量
@@ -75,7 +75,7 @@ Size of c2: 7
 | 名前                         | 説明           |
 |------------------------------|----------------|
 | [`insert`](insert.md)      | 要素を挿入する |
-| [`set`](op_constructor.md) | コンストラクタ |
+| [`multiset`](op_constructor.md) | コンストラクタ |
 
 
 ## 参照

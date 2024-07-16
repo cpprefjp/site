@@ -14,7 +14,7 @@ namespace std {
 符号付き整数・浮動小数点数に対して効果がある。
 
 ## 効果
-`str.setf(std::ios_base::noshowpos)`を実行する。
+`str.unsetf(std::ios_base::showpos)`を実行する。
 
 ## 戻り値
 実引数のstrオブジェクト。

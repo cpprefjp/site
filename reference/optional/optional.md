@@ -78,6 +78,15 @@ namespace std {
 | [`value_or`](optional/value_or.md)     | 有効値もしくは指定された無効値を取得する | C++17 |
 
 
+### モナド操作
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`and_then`](optional/and_then.md)   | 有効値に対して関数を適用する | C++23 |
+| [`transform`](optional/transform.md) | 有効値を変換する | C++23 |
+| [`or_else`](optional/or_else.md)     | 無効値に対して関数を適用する | C++23 |
+
+
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
@@ -106,6 +115,7 @@ namespace std {
 |------|------|----------------|
 | [`operator==`](optional/op_equal.md)         | 等値比較 | C++17 |
 | [`operator!=`](optional/op_not_equal.md)     | 非等値比較 | C++17 |
+| [`operator<=>`](optional/op_compare_3way.md) | 三方比較 | C++20 |
 | [`operator<`](optional/op_less.md)           | 左辺が右辺より小さいかを判定する | C++17 |
 | [`operator<=`](optional/op_less_equal.md)    | 左辺が右辺以下かを判定する | C++17 |
 | [`operator>`](optional/op_greater.md)        | 左辺が右辺より大きいかを判定する | C++17 |
@@ -175,8 +185,8 @@ error
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.2
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -200,3 +210,4 @@ error
 - [P0307R2 Making Optional Greater Equal Again](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0307r2.pdf)
 - [P0504R0 Revisiting in-place tag types for `any`/`optional`/`variant`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0504r0.html)
 - [LWG Issue 3196. `std::optional<T>` is ill-formed is `T` is an array](https://wg21.cmeerw.net/lwg/issue3196)
+- [P0798R8 Monadic operations for std::optional](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0798r8.html)

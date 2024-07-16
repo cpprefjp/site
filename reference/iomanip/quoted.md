@@ -115,7 +115,7 @@ int main()
 }
 ```
 * std::quoted[color ff0000]
-* std::stringstream[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 
 ## 出力
 ```
@@ -132,8 +132,8 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.4
-- [GCC](/implementation.md#gcc): 4.9
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

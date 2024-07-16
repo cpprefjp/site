@@ -42,7 +42,7 @@ int main()
   std::cout << f << '\n';
 }
 ```
-* std::setw[color ff0000]
+* std::resetiosflags[color ff0000]
 
 
 ## 出力例

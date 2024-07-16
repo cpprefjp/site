@@ -1,5 +1,13 @@
-# 構造化束縛を拡張して通常の変数宣言のように使用できるようにする
+# 構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++17で導入された構造化束縛宣言に指定しておけるのはCV修飾のみで、記憶域クラスや`constexpr`等を指定することは出来なかった。  
@@ -125,7 +133,7 @@ int main()
 
 ただ、今回見送られた残りのものも将来的には許可される可能性がある。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
 - [C++20 構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md)
 

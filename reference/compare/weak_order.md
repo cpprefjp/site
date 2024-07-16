@@ -25,7 +25,7 @@ namespace std {
 
 1. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型が異なる場合、呼び出しは不適格（コンパイルエラー）
 
-2. `std::weak_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`weak_ordering`](strong_ordering.md)`(weak_order(a, b))`が呼び出し可能ならば`weak_ordering(weak_order(a, b))`
+2. `std::weak_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`weak_ordering`](weak_ordering.md)`(weak_order(a, b))`が呼び出し可能ならば`weak_ordering(weak_order(a, b))`
 
 3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算子および[`strong_order`](strong_order.md)による順序と一貫する[`weak_ordering`](weak_ordering.md)の値を返す。  
    さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)` == true`の場合、追加で以下の同値類の順序に従った順序付けを行う。
@@ -40,9 +40,9 @@ namespace std {
     8. `+Inf`
     9. 全ての`+NaN`
 
-4. [`weak_ordering`](strong_ordering.md)`(a <=> b)`が呼び出し可能ならば`weak_ordering(a <=> b)`
+4. [`weak_ordering`](weak_ordering.md)`(a <=> b)`が呼び出し可能ならば`weak_ordering(a <=> b)`
 
-5. [`weak_ordering(`](strong_ordering.md)[`strong_order`](strong_order.md)`(a, b))`が呼び出し可能ならば`weak_ordering(strong_order(a, b))`
+5. [`weak_ordering(`](weak_ordering.md)[`strong_order`](strong_order.md)`(a, b))`が呼び出し可能ならば`weak_ordering(strong_order(a, b))`
 
 6. それ以外の場合、呼び出しは不適格。
 
@@ -82,7 +82,7 @@ namespace std {
 4. 引数`a, b`の型`T`に対して、使用可能な`<=>`演算子を定義しておく。
 5. 引数`a, b`の型`T`を[`strong_order`](strong_order.md)にアダプトしておく。
 
-ただし、どのケースにおいてもその戻り値型は[`weak_ordering`](strong_ordering.md)に変換可能でなければならない。
+ただし、どのケースにおいてもその戻り値型は[`weak_ordering`](weak_ordering.md)に変換可能でなければならない。
 
 
 ## 備考
@@ -177,12 +177,12 @@ true
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 関連項目
 
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 - [`strong_order`](strong_order.md)
 - [`weak_ordering`](weak_ordering.md)
 - [`compare_weak_order_fallback`](compare_weak_order_fallback.md)

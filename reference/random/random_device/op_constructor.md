@@ -7,15 +7,21 @@
 
 ```cpp
 explicit random_device(const string& token = implementation-defined); // (1)
+random_device() : random_device(implementation-defined) {}            // (1) C++20
 
-random_device(const random_device&) = delete;                         // (2)
+explicit random_device(const string& token);                          // (2) C++20
+
+random_device(const random_device&) = delete;                         // (3)
 ```
 * string[link /reference/string/basic_string.md]
 
 ## 概要
-- (1) : トークンを受け取って乱数生成器を構築する。デフォルトのトークンパラメータは実装定義である。
+- (1) : デフォルトコンストラクタ
+    - C++17まで : トークンを受け取って乱数生成器を構築する。デフォルトのトークンパラメータは実装定義である。
+    - C++20 : 実装定義のデフォルトトークンパラメータによって(2)に委譲。
+- (2) : トークンを受け取って乱数生成器を構築する。
     - ※実装は、このトークンパラメータによって、異なるランダムのソースを使用してもよい。
-- (2) : コピーコンストラクタ。コピー禁止。
+- (3) : コピーコンストラクタ。コピー禁止。
     - これによって、ムーブコンストラクタも自動生成されない。
 
 ### 有効なトークン
@@ -31,7 +37,7 @@ random_device(const random_device&) = delete;                         // (2)
       デフォルトでは、CPU の `RDRAND` 命令が使用できれば (`_GLIBCXX_X86_RDRAND` が定義されていれば) それを、そうでなければ `/dev/urandom` から値を取得する
 
 ## 例外
-- (1) : 乱数生成器を初期化できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する
+- (1)(2) : 乱数生成器を初期化できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する
 
 
 ## 例
@@ -64,11 +70,11 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 
 ## 参照
 
-
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)

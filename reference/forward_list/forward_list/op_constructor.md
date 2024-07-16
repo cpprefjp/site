@@ -47,7 +47,7 @@ forward_list(initializer_list<T> il,
 - (4)
     - C++11 : `n` 個の `T()` で初期化された要素を保持した `forward_list` オブジェクトを構築する。
     - C++14 : アロケータを指定して `n` 個の `T()` で初期化された要素を保持した `forward_list` オブジェクトを構築する。
-- (5) : `[first, last)` の範囲を要素としてコピーした `forward_list` オブジェクトを構築する。
+- (5) : イテレータ範囲`[first, last)` を要素としてコピーした `forward_list` オブジェクトを構築する。
 - (6) : コピーコンストラクタ。`x` と同じ要素を保持した `forward_list` オブジェクトを構築する。
 - (7) : ムーブコンストラクタ。`x` の指す先を自分の領域として `forward_list` オブジェクトを構築する。
 - (8) : アロケータを指定したコピーコンストラクタ  
@@ -168,9 +168,9 @@ ls7 : 1 2 3
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- (1)と(2)は2010当初からC++14のとおり実装されている。
 	- (5)のオーバーロードも、2010当初から、デフォルト実引数を用いずアロケータを引数に取るものと取らないもの、2つのオーバーロードで実現されている。
 	- (8), (9)のオーバーロードは2012から。

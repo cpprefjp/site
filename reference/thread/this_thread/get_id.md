@@ -20,7 +20,7 @@ namespace this_thread {
 ## 戻り値
 現在のスレッド、すなわちこの関数を呼び出したスレッドのスレッド識別子を返す。
 
-この関数の戻り値は、デフォルトコンストラクトされた[`thread::id`](/reference/thread/thread/id.md)オブジェクトとは必ず異なる。
+この関数の戻り値は、デフォルト構築された[`thread::id`](/reference/thread/thread/id.md)オブジェクトとは必ず異なる。
 
 
 ## 例外
@@ -51,9 +51,9 @@ thread_id=538af0
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 4.6.3, 4.7.0
+- [GCC](/implementation.md#gcc): 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc):
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
 ## 参照

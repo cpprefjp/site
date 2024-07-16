@@ -45,13 +45,13 @@ namespace std {
 ## 概要
 基準となる要素よりも小さい要素が前に来るよう並べ替える。
 
-この関数は範囲 `[first,last)` の並び替えを行うが、基準位置 `nth` のみが正しい要素、つまり仮に範囲 `[first,last)` 全体を並び替えた際に`nth`に位置すべき要素となる。前半の範囲 `[first,nth)` は関数呼び出し後の位置 `nth` にある要素よりも小さいことは保証されるが、その範囲 `[first,nth)` 内での要素並び順はなんら保証されない。
+この関数はイテレータ範囲 `[first,last)` の並び替えを行うが、基準位置 `nth` のみが正しい要素、つまり仮に範囲 `[first,last)` 全体を並び替えた際に`nth`に位置すべき要素となる。前半のイテレータ範囲 `[first,nth)` は関数呼び出し後の位置 `nth` にある要素よりも小さいことは保証されるが、そのイテレータ範囲 `[first,nth)` 内での要素並び順はなんら保証されない。
 
-ある範囲に対して部分的な並び替えを行う場合、[`partial_sort()`](partial_sort.md)を使用する。また範囲全体に対して並び替えを行う場合、[`sort()`](sort.md)を使用する。
+あるイテレータ範囲に対して部分的な並び替えを行う場合は、[`partial_sort()`](partial_sort.md)を使用する。また範囲全体に対して並び替えを行う場合は、[`sort()`](sort.md)を使用する。
 
 
-## 要件
-`RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
+## テンプレートパラメータ制約
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしている必要がある。`*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしている必要がある。
 
 
 ## 効果
@@ -64,7 +64,7 @@ namespace std {
 
 ## 計算量
 - (1), (2) : 平均で線形時間
-- (3), (4) : `N = last - first`であるとして、O(N)計算量の回数だけ比較または述語の適用と、O(NlogN)計算量の回数だけswap操作を行う
+- (3), (4) : `N = last - first`であるとして、O(N)回だけ比較または述語の適用と、O(NlogN)回だけswap操作を行う
 
 
 ## 例
@@ -87,7 +87,7 @@ int main()
 ```
 * std::nth_element[color ff0000]
 
-### 出力
+### 出力例
 ```
 2
 1

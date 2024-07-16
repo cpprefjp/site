@@ -26,7 +26,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 
 ## 効果
-2つのソート済み範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
+2つのソート済みイテレータ範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
 
 マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
 
@@ -85,9 +85,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0(&&バージョンのみ実装されている)
+- [GCC](/implementation.md#gcc): 4.7.0(&&バージョンのみ実装されている) [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): , 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp):  [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- 2010は、`&`バージョン(1)と(3)のみ実装されている。
 
 ## 参照

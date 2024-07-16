@@ -8,10 +8,21 @@
 namespace std {
   template <class ElementType, size_t Extent = dynamic_extent>
   class span;
+
+
+  // viewコンセプトを有効化する
+  template<class ElementType, size_t Extent>
+  inline constexpr bool ranges::enable_view<span<ElementType, Extent>> = true;
+
+  // borrowed_rangeコンセプトを有効化する
+  template<class ElementType, size_t Extent>
+  inline constexpr bool ranges::enable_borrowed_range<span<ElementType, Extent>> = true;
 }
 ```
 * size_t[link /reference/cstddef/size_t.md]
 * dynamic_extent[link dynamic_extent.md]
+* enable_view[link /reference/ranges/enable_view.md]
+* enable_borrowed_range[link /reference/ranges/enable_borrowed_range.md]
 
 ## 概要
 `std::span`は、シーケンスの所有権を保持せず、部分シーケンスを参照するクラスである。
@@ -19,6 +30,8 @@ namespace std {
 このクラスは、[`std::vector`](/reference/vector/vector.md)や配列といったコンテナから一部の連続的な要素を抽出し、それらの要素にのみなんらかの処理を適用する、という目的に使用できる。
 
 文字列操作に特化したクラスとして[`std::basic_string_view`](/reference/string_view/basic_string_view.md)が定義されているが、こちらはメモリ連続性をもつあらゆるコンテナに適用できる。
+
+このクラスは、[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)である（C++23）
 
 
 ### メモリ連続性
@@ -80,6 +93,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator[]`](span/op_at.md) | 参照範囲から、任意の位置の要素を取得する | C++20 |
+| [`at`](span/at.md)            | 参照範囲から、任意の位置の要素を取得する | C++26 |
 | [`front`](span/front.md)      | 参照範囲の先頭要素を取得する             | C++20 |
 | [`back`](span/back.md)        | 参照範囲の末尾要素を取得する             | C++20 |
 | [`data`](span/data.md)        | 参照範囲の先頭を指すポインタを取得する   | C++20 |
@@ -93,6 +107,10 @@ namespace std {
 | [`end`](span/end.md) | 末尾要素の次を指すイテレータを取得する | C++20 |
 | [`rbegin`](span/rbegin.md) | 末尾要素を指す逆順イテレータを取得する | C++20 |
 | [`rend`](span/rend.md) | 先頭要素の前を指す逆順イテレータを取得する | C++20 |
+| [`cbegin`](span/cbegin.md)   | 先頭の要素を指す読み取り専用イテレータを取得する | C++23 |
+| [`cend`](span/cend.md)       | 末尾の次を指す読み取り専用イテレータを取得する | C++23 |
+| [`crbegin`](span/crbegin.md) | 末尾を指す読み取り専用逆イテレータを取得する | C++23 |
+| [`crend`](span/crend.md)     | 先頭の前を指す読み取り専用逆イテレータを取得する | C++23 |
 
 
 ### メンバ定数
@@ -116,6 +134,8 @@ namespace std {
 | `const_reference` | `const`参照型 `const element_type&` | C++20 |
 | `iterator` | 実装定義のイテレータ型。[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)、[`random_access_iterator`](/reference/iterator/random_access_iterator.md)、constexprイテレータのモデルであり、コンテナのイテレータに対するすべての要件を満たす | C++20 |
 | `reverse_iterator` | 逆順イテレータ [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>` | C++20 |
+| `const_iterator` | 読み取り専用イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md)`<iterator>` | C++23 |
+| `const_reverse_iterator` | 読み取り専用逆イテレータ [`std::const_iterator`](/reference/iterator/const_iterator.md)`<reverse_iterator>` | C++23 |
 
 
 ## 非メンバ関数
@@ -245,9 +265,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
-- [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 
 ## 参照
@@ -263,3 +283,8 @@ int main()
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
     - `const_iterator`, `const_reverse_iterator`, `cbegin()`, `cend()`, `crbegin()`, `crend()`を削除
 - [P2116R0 Remove tuple-like protocol support from fixed-extent `span`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2116r0.html)
+- [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html)
+- [Require `span` & `basic_string_view` to be Trivially Copyable](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2251r1.pdf)
+    - C++23から、トリビアルコピー可能が保証される。
+- [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)

@@ -6,13 +6,25 @@
 
 ```cpp
 namespace std {
+  // operator==により、以下のオーバーロードが使用可能になる (C++20)
   template <class Iterator1, class Iterator2>
   bool operator!=(const move_iterator<Iterator1>& x,
-                  const move_iterator<Iterator2>& y);           // C++11
+                  const move_iterator<Iterator2>& y);           // (1) C++11
 
   template <class Iterator1, class Iterator2>
   constexpr bool operator!=(const move_iterator<Iterator1>& x,
-                            const move_iterator<Iterator2>& y); // C++17
+                            const move_iterator<Iterator2>& y); // (1) C++17
+
+  template <class Iterator>
+  class move_iterator {
+  public:
+    template <sentinel_for<Iterator> S>
+    friend constexpr bool
+      operator!=(const move_iterator& x, const move_sentinel<S>& y); // (2) C++20
+    template <sentinel_for<Iterator> S>
+    friend constexpr bool
+      operator!=(const move_sentinel<S>& x, const move_iterator& y); // (3) C++20
+  };
 }
 ```
 
@@ -35,7 +47,6 @@ C++20以降、この演算子は[`operator==`](op_equal.md)によって使用可
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <algorithm>
 #include <iterator>
 
 int main()
@@ -70,10 +81,12 @@ not equal
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

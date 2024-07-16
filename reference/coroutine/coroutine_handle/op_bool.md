@@ -30,7 +30,7 @@ int main()
 {
   std::coroutine_handle<> h;
   if (h) {
-    std::cout << "vaild coroutine" << std::endl;
+    std::cout << "valid coroutine" << std::endl;
   } else {
     std::cout << "empty coroutine" << std::endl;
   }
@@ -50,7 +50,7 @@ empty coroutine
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 11.1
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

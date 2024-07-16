@@ -20,8 +20,7 @@ namespace std {
 `basic_common_reference`は以下の条件を満たす場合に、型`T, U`を対象に取るものに限ってユーザー定義の特殊化が許可されている（`TQual, UQual`に対しては特殊化してはならない）。
 
 - `T, U`の少なくとも片方はプログラム定義型に依存している
-    - プログラム定義型とは、標準ライブラリの型を除いた、ユーザーによって定義された型のこと
-	- 「プログラム定義型に依存している」とは例えば、プログラム定義型に対する`vector`等の特殊化のこと
+    - 「プログラム定義型に依存している」とは例えば、プログラム定義型に対する`vector`等の特殊化のこと
 - `T, U`に対する[`decay`](/reference/type_traits/decay.md)の適用はともに恒等写像となる
     - `T, U`はともに配列型ではなく
     - `T, U`はともに関数型でもなく
@@ -71,7 +70,7 @@ int main()
   static_assert(std::same_as<std::common_reference_t<U, T>, B&>);
 }
 ```
-* std::basic_common_reference[color ff0000]
+* basic_common_reference[color ff0000]
 * std::same_as[link /reference/concepts/same_as.md]
 * std::common_reference_t[link common_reference.md]
 
@@ -85,8 +84,8 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 
@@ -96,3 +95,5 @@ int main()
 ## 参照
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
+- [P2665R0 `common_reference_t`` of reference_wrapper` Should Be a Reference Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2655r0.html)
+    - `T&`と`reference_wrapper<T>`の`common_reference`を`T&`にするための`basic_common_reference`特殊化の例

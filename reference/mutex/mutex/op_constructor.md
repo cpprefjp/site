@@ -10,7 +10,7 @@ constexpr mutex() noexcept;   // (1)
 mutex(const mutex&) = delete; // (2)
 ```
 
-## mutexオブジェクトの構築
+## 概要
 - (1) : デフォルトコンストラクタ。`mutex`オブジェクトの初期化を行う。
 - (2) : コピーコンストラクタ。コピー不可。
 
@@ -99,11 +99,15 @@ A
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - 2012, 2013, 2015は、デフォルトコンストラクタに`constexpr`が修飾されていない。
     - 2012はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+
+
+## 関連項目
+- [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md)
 
 
 ## 参照

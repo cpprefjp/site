@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-bool operator==(const error_category& rhs) const noexcept;
+bool operator==(const error_category& rhs) const noexcept; // (1) C++11
 ```
 
 ## 概要
@@ -21,6 +21,11 @@ bool operator==(const error_category& rhs) const noexcept;
 
 ## 例外
 投げない
+
+
+## 備考
+- この演算子により、以下の演算子が使用可能になる (C++20)：
+    - `operator!=`
 
 
 ## 例
@@ -55,9 +60,9 @@ false
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 
 ## 参照

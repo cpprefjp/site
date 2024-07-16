@@ -6,13 +6,17 @@
 
 ```cpp
 namespace std {
-  int fpclassify(float x);
+  int fpclassify(float x);             // (1) C++11からC++20まで
+  int fpclassify(double x);            // (2) C++11からC++20まで
+  int fpclassify(long double x);       // (3) C++11からC++20まで
 
-  int fpclassify(double x);
+  constexpr int
+    fpclassify(floating-point-type x); // (4) C++23
 
-  int fpclassify(long double x);
-
-  int fpclassify(Integral x);
+  int
+    fpclassify(Integral x);            // (5) C++11
+  constexpr int
+    fpclassify(Integral x);            // (5) C++23
 }
 ```
 * Integral[italic]
@@ -20,6 +24,12 @@ namespace std {
 
 ## 概要
 指定された値の数値分類を返す。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
 
 
 ## 戻り値
@@ -37,7 +47,8 @@ namespace std {
 
 
 ## 備考
-本関数は、C 言語の `fpclassify` マクロと等価の機能を持つ。
+- C標準ライブラリでは`fpclassify`は関数マクロとして定義されるが、C++標準ライブラリでは関数として定義される
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -74,3 +85,10 @@ true
 true
 true
 ```
+
+
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

@@ -77,7 +77,7 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.4.0
+- [GCC](/implementation.md#gcc): 4.4.0 [mark verified]
 
 
 ## 関連項目

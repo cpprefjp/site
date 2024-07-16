@@ -39,9 +39,9 @@ int main(){}
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.2
-- [GCC](/implementation.md#gcc): 4.3.4, 4.5.3, 4.6.2, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Clang](/implementation.md#clang): 3.2 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.5.3 [mark verified], 4.6.2 [mark verified], 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 #### 備考
 上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は [`integral_constant`](integral_constant.md) が `operator value_type()` を持っていないためエラーになる。

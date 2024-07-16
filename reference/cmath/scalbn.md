@@ -6,14 +6,27 @@
 
 ```cpp
 namespace std {
-  float scalbn(float x, int n);
-  double scalbn(double x, int n);
-  long double scalbn(long double x, int n);
+  float scalbn(float x, int n);             // (1) C++11からC++20まで
+  double scalbn(double x, int n);           // (2) C++11からC++20まで
+  long double scalbn(long double x, int n); // (3) C++11からC++20まで
 
-  double scalbn(Integral x, int n);
+  constexpr floating-point-type
+    scalbn(floating-point-type x, int n);   // (4) C++23
 
-  float scalbnf(float x, int n);                // C++17 から
-  long double scalbnl(long double x, int n);    // C++17 から
+  double
+    scalbn(Integral x, int n);              // (5) C++11
+  constexpr double
+    scalbn(Integral x, int n);              // (5) C++23
+
+  float
+    scalbnf(float x, int n);                // (6) C++17
+  constexpr float
+    scalbnf(float x, int n);                // (6) C++23
+
+  long double
+    scalbnl(long double x, int n);          // (7) C++17
+  constexpr long double
+    scalbnl(long double x, int n);          // (7) C++23
 
   // 乗数としてlong int型を受け取るバージョン
   float scalbln(float x, long int n);
@@ -33,6 +46,14 @@ namespace std {
 
 この関数は、[`FLT_RADIX`](/reference/cfloat/flt_radix.md) が `2` であるシステム上では、[`ldexp()`](ldexp.md) 関数と等価である。
 
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
+
 
 ## 戻り値
 <code>x * [FLT_RADIX](/reference/cfloat/flt_radix.md)<sup>n</sup></code>
@@ -50,6 +71,7 @@ namespace std {
 	- もしオーバーフローエラーやアンダーフローエラーを起こさなければ、結果は正確で現在の丸め方式には依存しない。
 
 - `scalbln()` 関数は、パラメータ `n` の型が `long int` であることを除いて、`scalbn()` 関数と等価である。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -72,7 +94,7 @@ int main()
 ```
 
 ### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -104,12 +126,15 @@ namespace std {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 - [WG14 N657 Floating-Point and Complex Arithmetic Enhancements](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n657.ps)
-
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

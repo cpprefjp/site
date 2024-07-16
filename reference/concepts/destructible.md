@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  concept destructible = is_nothrow_destructible_v<T>;;
+  concept destructible = is_nothrow_destructible_v<T>;
 }
 ```
 * is_nothrow_destructible_v[link /reference/type_traits/is_nothrow_destructible.md]
@@ -51,6 +51,7 @@ int main() {
   f<std::vector<int>>("std::vector<int>");
   f<S1>("S1");
   f<S2>("S2");
+  f<void>("void");
 }
 ```
 * std::destructible[color ff0000]
@@ -61,6 +62,7 @@ int is destructible
 std::vector<int> is destructible
 S1 is not destructible
 S2 is not destructible
+void is not destructible
 ```
 
 
@@ -70,8 +72,8 @@ S2 is not destructible
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

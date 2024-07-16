@@ -104,40 +104,31 @@ int main()
     std::cout << "d : " << p << std::endl;
   }
 
-  // 右辺にルートディレクトリを含むパスを指定した場合、
+  // 右辺にルート名を持つルートディレクトリを含むパスを指定した場合、
   // 右辺を代入する動作となる
   {
     fs::path p = fs::path("foo") / "C:/bar";
-    std::cout << "d : " << p << std::endl;
-  }
-
-  // 左辺と右辺のディレクトリ区切り文字の有無に関わらず連結される
-  // (POSIXと違って、ルートディレクトリが`/`ではないため、
-  //  右辺の開始をディレクトリ区切り文字にできる)
-  {
-    fs::path p = fs::path("foo") / "/bar";
     std::cout << "e : " << p << std::endl;
   }
 
-  // 左辺がルート名を持ち、ルートディレクトリを持たないパスで、
-  // 右辺に空のパスを指定した場合、ディレクトリ区切り文字は追加されない
+  // 右辺にルート名を持たないルートディレクトリを含むパスを指定した場合、
+  // 左辺のルート名以外が右辺で上書きされる
   {
-    fs::path p = fs::path("C:") / "";
+    fs::path p = fs::path("C:foo") / "/bar";
     std::cout << "f : " << p << std::endl;
   }
 
-  // 左辺がカレントディレクトリに依存した絶対パスの場合、
-  // 相対パスを追加するとカレントディレクトリに依存したパス部分が右辺で上書きされる
+  // 左辺と右辺が同じルート名を持つ相対パスの場合、
+  // 左辺のパスに、右辺のルート名を除く相対パス部分が加算される
   {
-    fs::path p = fs::path("C:foo") / "/bar";
+    fs::path p = fs::path("C:foo") / "C:bar";
     std::cout << "g : " << p << std::endl;
   }
 
-  // 左辺がカレントディレクトリに依存した絶対パスで、
-  // 右辺もカレントディレクトリに依存した絶対パスの場合、
-  // 左辺のパスに、右辺のカレントディレクトリに依存した部分が加算される
+  // 左辺と右辺が違うルート名を持つパスの場合、
+  // 右辺を代入する動作となる
   {
-    fs::path p = fs::path("C:foo") / "C:bar";
+    fs::path p = fs::path("C:/foo") / "D:bar";
     std::cout << "h : " << p << std::endl;
   }
 }
@@ -145,17 +136,16 @@ int main()
 
 #### 出力
 ```
-a : "foo\bar"
-b : "C:\foo"
-c : "foo\"
-d : "C:\bar"
-e : "foo\bar"
-f : "C:"
-g : "C:\bar"
-h : "C:foo\bar"
+a : "foo\\bar"
+b : "C:/foo/bar"
+c : "foo\\"
+d : "C:"
+e : "C:/bar"
+f : "C:/bar"
+g : "C:foo\\bar"
+h : "D:bar"
 ```
 
-Windowsでの例は、Visual C++が正式にファイルシステムライブラリをサポートしていないことから、未検証のサンプルコード・出力となっている。
 
 ## バージョン
 ### 言語
@@ -163,5 +153,5 @@ Windowsでの例は、Visual C++が正式にファイルシステムライブラ
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 8.1
-- [Visual C++](/implementation.md#visual_cpp):
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]

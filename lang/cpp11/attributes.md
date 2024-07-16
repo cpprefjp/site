@@ -1,5 +1,13 @@
-# 属性構文
+# 属性構文 [N2761]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 属性(attributes)は、ソースコードに対して追加の情報をコンパイラに伝えるための構文である。
@@ -52,7 +60,7 @@ int main()
 
 
 ### <a id="carries_dependency" href="#carries_dependency">`[[carries_dependency]]`属性</a>
-`[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order_consume`](/reference/atomic/memory_order.md)を、関数をまたいで伝播することを明示するための属性である。
+`[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order`](/reference/atomic/memory_order.md)を、関数をまたいで伝播することを明示するための属性である。
 
 以下は、[`memory_order_consume`](/reference/atomic/memory_order.md)を使用した順序付けの例である：
 
@@ -152,7 +160,7 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - ポインタの所有者(解放する責任を持つユーザー)であることを明示する`owner`属性
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++14 `[[deprecated]]`属性](/lang/cpp14/deprecated_attr.md)
 - [C++17 `[[maybe_unused]]`属性](/lang/cpp17/maybe_unused.md)
 - [C++17 `[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)
@@ -160,6 +168,7 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - [C++20 `[[no_unique_address]]`属性](/lang/cpp20/language_support_for_empty_objects.md)
 - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
 - [C++20 属性の名前空間を予約](/lang/cpp20/reserving_attribute_namespaces_for_future_use.md)
+- [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
 
 
 ## 参照
@@ -169,4 +178,3 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - [N2643 C++ Data-Dependency Ordering: Function Annotation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html)
 - [N2761 Towards support for attributes in C++ (Revision 6) ](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2761.pdf)
 - [（抄訳）N4215 `memory_order_consume`の利用と実装に向けて［§5-6のみ］](http://d.hatena.ne.jp/yohhoy/20141115/p1)
-

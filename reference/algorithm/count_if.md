@@ -28,11 +28,11 @@ namespace std {
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 概要
-条件を満たしている要素の数を数える。
+イテレータ範囲`[first, last)`から、条件を満たしている要素の数を数える。
 
 
 ## 戻り値
-`[first,last)` 内のイテレータ `i` について、`pred(*i) != false` であるイテレータの数を返す
+イテレータ範囲`[first,last)` 内のイテレータ `i` について、`pred(*i) != false` であるイテレータの数を返す
 
 
 ## 計算量

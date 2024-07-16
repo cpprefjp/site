@@ -3,11 +3,13 @@
 * std[meta namespace]
 * pair[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
-void swap(pair& p) noexcept(see below);           // (1) C++03
+void swap(pair& p) noexcept(see below);           // (1) C++11
 constexpr void swap(pair& p) noexcept(see below); // (1) C++20
 ```
+* see below[italic]
 
 ## 概要
 他の`pair`オブジェクトと値を入れ替える

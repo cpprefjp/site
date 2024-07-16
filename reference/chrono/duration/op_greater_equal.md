@@ -22,7 +22,7 @@ namespace chrono {
 
 ```cpp
 using ct = common_type<decltype(lhs), decltype(rhs)>::type;
-return ct(lhs).count() < ct(rhs).count();
+return ct(lhs).count() >= ct(rhs).count();
 ```
 * common_type[link /reference/type_traits/common_type.md]
 * count[link /reference/chrono/duration/count.md]
@@ -51,8 +51,8 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)

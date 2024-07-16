@@ -1,12 +1,20 @@
-# constexpr if 文
+# constexpr if 文 [P0292R2]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
 constexpr if文とは、文を条件付きコンパイルすることを目的とした制御構文である。
 
 ```cpp
-if constepxr ( condition )
+if constexpr ( condition )
   statement
 else
   statement
@@ -164,6 +172,30 @@ int main()
 }
 ```
 
+### (CWG 2518が適用された環境) `static_assert`文に関する例外
+
+上に述べたように、`constexpr if`文の中の文は廃棄文においても、非依存名の検証を行う。このため特に`static_assert`文を使う時に直感的ではない挙動を示していた。
+
+C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
+
+```cpp example
+#include <cstdint>
+template <class T>
+void f(T t) {
+  if constexpr (sizeof(T) == sizeof(std::int32_t)) {
+    use(t);
+  } else {
+    static_assert(false, "must be 32bit");
+  }
+}
+
+void g(std::int8_t c) {
+  std::int32_t n = 0;
+  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。
+  f(c); // error: cはstd::int8_t型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する
+}
+```
+
 ### 類似機能との比較
 
 `constexpr if`文の導入によってC++の`if`系の条件分岐は3種類になった。
@@ -246,12 +278,12 @@ int main()
 
 ## この機能が必要になった背景・経緯
 
-一番最初の静的な条件分岐の提案 N3322 の直接のきっかけになったのは、
+一番最初の静的な条件分岐の提案文書 N3322 の直接のきっかけになったのは、
 静的な条件によってコンパイルエラーを発生させる `static_assert` の C++11 への導入である。
 その拡張として静的な条件によって宣言を切り替えられる機能を考えるのは自然な発想である。
 N3322 では、`static_assert` と同じように、
 名前空間スコープ・クラススコープ・ブロックスコープの何れでも使える `static_if` を提案している。
-次の提案 N3329 ではD言語における実装 [D0.124 `static if` (2005年)、D2.015 Template Constraints (2008年)] の実績を元に、
+次の提案文書 N3329 ではD言語における実装 [D0.124 `static if` (2005年)、D2.015 Template Constraints (2008年)] の実績を元に、
 より詳しい提案を行っている。
 
 これらの提案の目的は、従来使われた手法であるテンプレート特殊化、SFINAE、
@@ -259,8 +291,8 @@ N3322 では、`static_assert` と同じように、
 
 - (A) 関数やメンバ関数の静的な条件分岐については、従来はテンプレート特殊化やSFINAEが用いられた。
   静的な条件分岐を用いればより自然に実装することが可能である。
-- (B) データメンバの静的な条件分岐については、従来は再帰的なクラスの派生とEBO(空基底最適化)の技法を用いた。
-  データメンバの条件分岐毎にクラスを派生させる必要があり、また派生による様々な制限を避けるために複雑になる。
+- (B) メンバ変数の静的な条件分岐については、従来は再帰的なクラスの派生とEBO(空の基底の最適化)の技法を用いた。
+  メンバ変数の条件分岐毎にクラスを派生させる必要があり、また派生による様々な制限を避けるために複雑になる。
 - (C) ブロックスコープにおける静的な条件分岐に関しては、従来は分岐毎に処理を新しいテンプレートを定義して委譲する必要があった。
   処理の間で変数を明示的に共有するために処理が複雑になる。処理が複数箇所に分断されるため読みにくく、また記述も煩雑である。
 
@@ -332,7 +364,7 @@ constexpr_if (condition)
 constexpr_else
   statement
 
-// P0128R0
+// P0128R1
 constexpr if (condition)
   statement
 constexpr_else constexpr if (condition)
@@ -409,9 +441,10 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 旧来のテンプレート特殊化・SFINAE・タグディスパッチ・EBO・再帰的な派生などの技法を用いた複雑な代替手段もあるが、
 それらを一つ一つここで紹介することは避ける。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`std::conditional`](/reference/type_traits/conditional.md)
+- [C++23 定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md)
 
 ## 参照
 
@@ -428,6 +461,7 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 - [P0292R1: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r1.html)
 - [P0292R2: constexpr if: A slightly different syntax](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html)
 - [N4603 Editor's Report -- Committee Draft, Standard for Programming Language C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html)
+- [P2593R1: Allowing static_assert(false)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2593r1.html)
 
 ### 2段階名前探索における注意点について
 
@@ -438,7 +472,9 @@ template <int arg, typename ... Args> int do_something(Args... args) {
 
 ### その他
 
-- [Static If I Had a Hammer - Andrei Alexandrescu](https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer)
+- [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
+- [Static If I Had a Hammer - Andrei Alexandrescu](http://web.archive.org/web/20201202042515/https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer)
 - [C++1z if constexpr文 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/12/22/171238)
-- [Clang Developers - Clang getting involved](http://clang-developers.42468.n3.nabble.com/Clang-getting-involved-td4038330.html)
+- [[cfe-dev] Clang getting involved](https://lists.llvm.org/pipermail/cfe-dev/2014-March/035801.html)
 - [`__if_exists` Statement | Microsoft Docs](https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement)
+- [Issue 2518: Conformance requirements and #error/#warning - WG21 CWG Issues](https://wg21.cmeerw.net/cwg/issue2518)

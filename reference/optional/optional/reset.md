@@ -6,7 +6,8 @@
 * cpp17[meta cpp]
 
 ```cpp
-void reset() noexcept;
+void reset() noexcept;           // (1) C++17
+constexpr void reset() noexcept; // (1) C++23
 ```
 
 ## 概要
@@ -53,8 +54,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.2
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -62,3 +63,4 @@ int main()
 ## 関連項目
 - [`std::vector`クラスのデストラクタ](/reference/vector/vector/op_destructor.md)
 - [`std::is_trivially_destructible`](/reference/type_traits/is_trivially_destructible.md)
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

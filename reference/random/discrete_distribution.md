@@ -114,10 +114,10 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（;[discrete_distribution.tsv.7z](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution.tsv.7z)）を図示する。
+このプログラムによってある時に得られた結果（;[discrete_distribution.tsv.7z](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/discrete_distribution/discrete_distribution.tsv.7z)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution.png) 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/discrete_distribution/discrete_distribution-hist.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/discrete_distribution/discrete_distribution.png) 
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/discrete_distribution/discrete_distribution-hist.png)
 
 
 ## バージョン
@@ -126,7 +126,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 4.5.3
+- [GCC](/implementation.md#gcc): 4.5.3 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 

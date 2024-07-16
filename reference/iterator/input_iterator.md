@@ -54,11 +54,16 @@ void f(const char* name) {
 
 
 struct sample_input_iterator {
+  // *thisの参照を返さなければならない（戻り値型は自身の参照型）
   friend auto operator++(sample_input_iterator&) -> sample_input_iterator&;
+  // 戻り値型はvoidでも可
   friend auto operator++(sample_input_iterator&, int) -> sample_input_iterator;
 
+  // const修飾されていなければならない
+  // indirectly_readableコンセプトにおいて、iter_reference_tの結果がconst有無両方で一致することが求められる
   friend auto operator*(const sample_input_iterator&) -> int&;
 
+  // 少なくともこの3つは必須
   using difference_type = int;
   using value_type = int;
   using iterator_concept = std::input_iterator_tag;
@@ -97,8 +102,8 @@ std::ostream_iterator<double> is not input_iterator
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 ## 関連項目
 

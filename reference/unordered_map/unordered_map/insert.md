@@ -42,7 +42,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
         - なお、C++11 では「`P` が `value_type` に暗黙変換可能」という、より厳しい条件の記載になってしまっていた。これは規格の誤りとして C++14 で修正されたが、使用する処理系やバージョンによる挙動の差異に注意が必要である
 - (4), (6) : `position` は、このコンテナの有効な読み取り専用イテレータであること
 - (7) :
-    - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、範囲 `[first, last)` がこのコンテナ **以外を指す** 有効な範囲であること
+    - 引数 `first`、および、`last`は、入力イテレータの要件を満たし、参照先の要素は `value_type` 型で、かつ、イテレータ範囲 `[first, last)` がこのコンテナ **以外を指す** 有効な範囲であること
     - このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能であること
 - (8) : `value_type` はこのコンテナに対してコピー挿入可能であること
 - (9), (10) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`でなければならない
@@ -62,7 +62,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
     - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない
     - このバージョンの動作は、[`emplace_hint`](emplace_hint.md)`(hint,` [`std::forward`](/reference/utility/forward.md)`<P>(obj))` を呼び出した場合と等価である
 - (7) :
-    - 範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(3)の形式が呼び出される）。
+    - イテレータ範囲 `[first, last)` のすべての要素 `t` に対して、`insert(t)` を呼び出した場合と等価である（`*first` の型によって (1)、あるいは(3)の形式が呼び出される）。
 - (8) :
     - (7)の形式を `insert(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), il.`[`end`](/reference/initializer_list/initializer_list/end.md)`())` として呼び出した場合と等価である
 - (9) :
@@ -71,7 +71,7 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 - (10) :
     - `nh`が空の場合、効果はなく、`(*this).end()`を返す
     - それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。`nh.key()`と等価のキーの要素を指すイテレータを常に返す
-    - 要素は、`p`の直前の位置のできるだけ近くに挿入される
+    - 要素は、`hint`の直前の位置のできるだけ近くに挿入される
 
 
 ## 戻り値
@@ -218,7 +218,6 @@ int main()
 ```
 * insert[color ff0000]
 * um.cbegin()[link cbegin.md]
-* um.cend()[link cend.md]
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
 * fl.cend()[link /reference/forward_list/forward_list/cend.md]
 
@@ -244,9 +243,8 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,five), (4,four), (3,thre
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): -
-- [Clang](/implementation.md#clang): 3.1
-- [GCC](/implementation.md#gcc): 4.7.0
+- [Clang](/implementation.md#clang): 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

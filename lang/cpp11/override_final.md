@@ -1,5 +1,13 @@
-# overrideとfinal
+# overrideとfinal [N2928]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 `override`は仮想メンバ関数のオーバーライドを明示的に宣言するキーワードである。
@@ -152,7 +160,7 @@ class base_f final {
 
 ## 補足
 
-- なぜキーワードではなく、コンテキスト依存キーワードが選ばれたか？（N3163の提案）
+- なぜキーワードではなく、コンテキスト依存キーワードが選ばれたか？（提案文書N3163より）
     - `final`や`override`のような簡潔で良い名前が使えて、なおかつ、過去との互換性を維持できるためである。
     - `final`や`override`をキーワードとした場合`final`や`override`を関数名や変数名として使っていたコードがC++11では文法違反となってしまう。しかしコンテキスト依存キーワードであれば文法違反にならない。
 
@@ -410,7 +418,7 @@ struct D explicit : B
 - 以上の経緯を経てC++11では、`override`と`final`コンテキスト依存キーワードの追加のみが行われた。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`is_final`](/reference/type_traits/is_final.md)
 
 

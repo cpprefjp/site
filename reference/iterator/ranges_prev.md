@@ -115,17 +115,18 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5 [mark verified]
 
 ## 関連項目
 
 | 名前                | 説明                              |
 |---------------------|-----------------------------------|
+| [`next()`](next.md) | `n`回前方に進めたイテレータを返す |
 | [`prev()`](prev.md) | `n`回後方に進めたイテレータを返す |
-| [`advance()`](advance.md) | `n`回イテレータを進める       |
-| [`rangse::prev()`](ranges_prev.md) | `n`回後方に進めたイテレータを返す |
-| [`ranges::advance()`](/reference/iterator/ranges_advance.md) |`n`回あるいは`boundまで`イテレータを進める  |
+| [`advance()`](advance.md) | `n`回イテレータを進める |
+| [`ranges::next()`](ranges_next.md) | `n`回あるいは`bound`まで前方に進めたイテレータを返す |
+| [`ranges::advance()`](ranges_advance.md) |`n`回あるいは`boundまで`イテレータを進める |
 
 
 ## 参照

@@ -23,7 +23,7 @@ basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) 
 
 まず`mode & ~ios_base::ate`の結果からファイルの開くモードが決定される。`fopen`のモード文字列との対応は以下の通り。
 
-| `binary` | `in` | `out` | `trunc` | `ate` | 対応する`fopen`のモード文字列 |
+| `binary` | `in` | `out` | `trunc` | `app` | 対応する`fopen`のモード文字列 |
 |----------|------|-------|---------|-------|--------------------|
 |          |      | ○     |         |       | `"w"`              |
 |          |      | ○     |         | ○     | `"a"`              |
@@ -72,10 +72,10 @@ int main()
   }
 }
 ```
+* buf->open[color ff0000]
 * std::fstream[link /reference/fstream/basic_fstream.md]
 * std::filebuf[link /reference/fstream/basic_filebuf.md]
 * rdbuf()[link /reference/fstream/basic_fstream/rdbuf.md]
-* open()[color ff0000]
 
 ## バージョン
 ### 言語

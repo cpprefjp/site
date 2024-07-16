@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reference back();             // (1)
-const_reference back() const; // (2)
+reference back();                       // (1) C++03
+constexpr reference back();             // (1) C++20
+
+const_reference back() const;           // (2) C++03
+constexpr const_reference back() const; // (2) C++20
 ```
 
 ## 概要
@@ -53,3 +56,5 @@ int main()
 4
 ```
 
+## 参照
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

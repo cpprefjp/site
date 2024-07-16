@@ -12,15 +12,19 @@ namespace std {
 ```
 
 ## 概要
-整数を安全に非等値比較する。
+整数を安全に非等値比較（`t != u`）する。
 
 この関数は、型`T`と型`U`がそれぞれ符号付き整数と符号なし整数のどちらであったとしても、安全に比較できる関数である。以下のように符号付き整数のインデックス変数と符号なし整数の配列要素数の比較によってコンパイラに警告が出力されてしまうような状況で使用できる：
 
 ```cpp
 std::vector<X> v;
+int N = 0;
 
-// 警告：式`i < v.size()`で、符号付き整数と符号なし整数の間で比較しようとした
-for (int i = 0; i < v.size(); ++i) {}
+// 警告：式`i != v.size()`で、符号付き整数と符号なし整数の間で比較しようとした
+if (N != v.size()) {}
+
+// OK
+if (std::cmp_not_equal(N, v.size())) {}
 ```
 
 
@@ -72,8 +76,8 @@ true
 
 ## 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 7
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 7 [mark verified]
 
 
 ## 参照

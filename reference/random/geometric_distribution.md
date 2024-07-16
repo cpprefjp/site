@@ -13,9 +13,9 @@ namespace std {
 
 ## 概要
 `geometric_distribution`は、離散確率分布の一種である幾何分布を表すクラスである。  
-このクラスは、ベルヌーイ分布([`bernoulli_distribution`](bernoulli_distribution.md))を施行し、初めて成功するまでに何回失敗したかを取得する。これは、[`negative_binomial_distribution`](negative_binomial_distribution.md)`<IntType>(1, p)`と同じである。
+このクラスは、ベルヌーイ分布([`bernoulli_distribution`](bernoulli_distribution.md))を試行し、初めて成功するまでに何回失敗したかを取得する。これは、[`negative_binomial_distribution`](negative_binomial_distribution.md)`<IntType>(1, p)`と同じである。
 
-幾何分布は、無記憶性(memoryless)という性質を持つ。これにより、施行の結果が次の結果(確率)に影響せず、それぞれが独立した結果となる。
+幾何分布は、無記憶性(memoryless)という性質を持つ。これにより、試行の結果が次の結果(確率)に影響せず、それぞれが独立した結果となる。
 
 
 幾何分布は、以下のような用途で使用できる：
@@ -84,7 +84,7 @@ int main()
   std::random_device seed_gen;
   std::default_random_engine engine(seed_gen());
 
-  // 成功確率0.5の事象を、成功するまで施行する
+  // 成功確率0.5の事象を、成功するまで試行する
   std::geometric_distribution<> dist(0.5);
 
   // 成功するまでに、何回失敗したかを取得
@@ -107,7 +107,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

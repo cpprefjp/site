@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-T* data() noexcept;a                      // (1) C++11
+T* data() noexcept;                       // (1) C++11
 constexpr T* data() noexcept;             // (1) C++17
 
 const T* data() const noexcept;           // (2) C++11
@@ -63,9 +63,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1), 2010, 2012
+- [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified]
 
 
 ## 参照

@@ -16,7 +16,7 @@ namespace std {
 Visual C++ 2010、GCC 4.6.1では[`generic_category()`](generic_category.md)と[`system_category()`](system_category.md)の[`error_category`](error_category.md)オブジェクトは[`name()`](error_category/name.md)メンバ関数を除いて同じ挙動を行い、それぞれの[`default_error_condition()`](error_category/default_error_condition.md)メンバ関数も同じエラー値、同じカテゴリの`error_condition`を構築するため、実質[`error_code`](error_code.md)と`error_condition`は標準カテゴリでは等価な動作をする。だが、[`error_category`](error_category.md)を継承した新たなカテゴリを定義することにより、以下のようなエラーを表現することが可能となる：
 
 - 一つのエラー値で上位Nビット、下位Nビットで異なるエラー情報を表現する
-- 例： WindowsのHRESULT : 「[HRESULT型とは？ - UsefullCode.net](http://www.usefullcode.net/2007/03/hresult.html)」
+- 例： WindowsのHRESULT : 「[HRESULT型とは？ - UsefullCode.net](https://web.archive.org/web/20230323103136/http://www.usefullcode.net/2007/03/hresult.html)」
 - システムのエラーコードを汎用のエラーコードに変換し、[`error_code`](/reference/system_error/error_code.md)にはシステムの環境依存エラー値、`error_condition`には環境依存しない汎用エラー値を格納する
 
 
@@ -40,8 +40,13 @@ Visual C++ 2010、GCC 4.6.1では[`generic_category()`](generic_category.md)と[
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator==`](op_equal.md) | 等値比較 | C++11 |
-| [`operator!=`](op_not_equal.md) | 非等値比較 | C++11 |
-| [`operator<`](error_condition/op_less.md) | 左辺が右辺より小さいか判定する | C++11 |
+| [`operator!=`](op_not_equal.md) | 非等値比較 (C++20から`operator==`により使用可能) | C++11 |
+| [`operator<=>`](error_condition/op_compare_3way.md) | 三方比較 | C++20 |
+| [`operator<`](error_condition/op_less.md) | 左辺が右辺より小さいか判定する (C++20から`operator<=>`により使用可能) | C++11 |
+| `bool operator<=(const error_condition&, const error_condition&) noexcept;` | 左辺が右辺以下か判定する (`operator<=>`により使用可能) | C++20 |
+| `bool operator>(const error_condition&, const error_condition&) noexcept;` | 左辺が右辺より大きいか判定する (`operator<=>`により使用可能) | C++20 |
+| `bool operator>=(const error_condition&, const error_condition&) noexcept;` | 左辺が右辺以上か判定する (`operator<=>`により使用可能) | C++20 |
+
 | [`make_error_condition`](make_error_condition.md) | `errc`から`error_condition`オブジェクトを生成する | C++11 |
 
 
@@ -93,9 +98,9 @@ Invalid argument
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 
 ## 参照

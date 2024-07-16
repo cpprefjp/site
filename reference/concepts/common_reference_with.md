@@ -13,7 +13,6 @@ namespace std {
     convertible_to<U, common_reference_t<T, U>>;
 }
 ```
-* same_as[link /reference/concepts/same_as.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 * common_reference_t[link /reference/type_traits/common_reference.md]
 
@@ -84,8 +83,8 @@ T, U share a common reference type
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

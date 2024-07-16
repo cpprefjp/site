@@ -13,8 +13,8 @@
 | 名前                                                 | 説明                                                                                                                 | 対応バージョン |
 |------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
 | [`format`](format/format.md)                         | 書式文字列を使って引数をフォーマットした文字列を返す (function template)                                             | C++20          |
-| [`format_to`](format/format_to.md)                   | 書式文字列を使って引数をフォーマットし、出力イテレーターに出力する (function template)                               | C++20          |
-| [`format_to_n`](format/format_to_n.md)               | 書式文字列を使って引数をフォーマットし、指定した文字数を超えないように出力イテレーターに出力する (function template) | C++20          |
+| [`format_to`](format/format_to.md)                   | 書式文字列を使って引数をフォーマットし、出力イテレータに出力する (function template)                               | C++20          |
+| [`format_to_n`](format/format_to_n.md)               | 書式文字列を使って引数をフォーマットし、指定した文字数を超えないように出力イテレータに出力する (function template) | C++20          |
 | [`format_to_n_result`](format/format_to_n_result.md) | `format_to_n`の結果を表す (class template)                                                                           | C++20          |
 | [`formatted_size`](format/formatted_size.md)         | 書式文字列を使って引数をフォーマットした文字列を保存するのに必要な文字数を返す (function template)                   | C++20          |
 | [`vformat`](format/vformat.md)                       | [`format`](format/format.md)の非テンプレート版 (function)                                                            | C++20          |
@@ -24,6 +24,7 @@
 
 | 名前                                                                 | 説明                                                                        | 対応バージョン |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------|
+| [`formattable`](format/formattable.md)                               | 文字列フォーマット可能 (concept) | C++23          |
 | [`formatter`](format/formatter.md)                                   | 引数の型に対応する書式文字列の解析、値のフォーマットを担う (class template) | C++20          |
 | [`basic_format_parse_context`](format/basic_format_parse_context.md) | 書式文字列の解析のコンテキスト (class template)                             | C++20          |
 | [`format_parse_context`](format/basic_format_parse_context.md)       | `basic_format_parse_context`のマルチバイト文字列版 (type-alias)             | C++20          |
@@ -31,6 +32,12 @@
 | [`basic_format_context`](format/basic_format_context.md)             | 引数のフォーマットのコンテキスト (class template)                           | C++20          |
 | [`format_context`](format/basic_format_context.md)                   | `basic_format_context`のマルチバイト文字列版 (type-alias)                   | C++20          |
 | [`wformat_context`](format/basic_format_context.md)                  | `basic_format_context`のワイド文字列版 (type-alias)                         | C++20          |
+| [`range_format`](format/range_format.md)                             | Rangeの書式種別 (enum) | C++23 |
+| [`format_kind`](format/format_kind.md)                               | 指定したRangeの書式種別を取得する (variable) | C++23 |
+| [`const-formattable-range`](format/const-formattable-range.md)       | `const Range`の要素型が文字列フォーマット可能 (concept) | C++23 |
+| [`fmt-maybe-const`](format/fmt-maybe-const.md)                       | `formatter::format()`関数のパラメータ型として使用するための(const) Range型を取得 (type-alias) | C++23 |
+| [`range_formatter`](format/range_formatter.md)                       | Rangeに対する書式文字列の解析、値のフォーマットを行う (class template) | C++23 |
+| [`range-default-formatter`](format/range-default-formatter.md)       | Rangeに対する共通の書式文字列の解析、値のフォーマットを行う説明専用クラス (class template) | C++23 |
 
 ## 引数
 
@@ -43,6 +50,16 @@
 | [`basic_format_args`](format/basic_format_args.md) | 引数列へのアクセスを提供する (class template)                                                    | C++20          |
 | [`format_args`](format/basic_format_args.md)       | `basic_format_args`のマルチバイト文字列版 (type-alias)                                           | C++20          |
 | [`wformat_args`](format/basic_format_args.md)      | `basic_format_args`のワイド文字列版 (type-alias)                                                 | C++20          |
+
+
+## 書式文字列
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`basic_format_string`](format/basic_format_string.md) | 書式のコンパイル時文字列クラス (class template) | C++23 |
+| [`runtime-format-string`](format/runtime-format-string.md) | 説明用としての書式の実行時文字列クラス (class template) | C++26 |
+| [`runtime_format`](format/runtime_format.md) | 書式の実行時文字列を指定するために文字列をラップする (function) | C++26 |
+
 
 ## 例外
 

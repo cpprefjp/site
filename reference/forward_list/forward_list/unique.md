@@ -25,7 +25,7 @@ size_type unique(BinaryPredicate pred); // (2) C++20
 
 
 ## 効果
-範囲`[first + 1, last)`の全てのイテレータ`i`について、
+イテレータ範囲`[first + 1, last)`の全てのイテレータ`i`について、
 
 - (1) : `*i == *(i - 1)`
 - (2) : `pred(*i, *(i - 1))`
@@ -82,9 +82,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 
 ## 参照

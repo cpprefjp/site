@@ -5,14 +5,19 @@
 * function[meta id-type]
 
 ```cpp
-vector& operator=(const vector& x);     // (1) C++03
+vector& operator=(const vector& x);           // (1) C++03
+constexpr vector& operator=(const vector& x); // (1) C++20
 
 vector& operator=(vector&& x);          // (2) C++11
 vector& operator=(vector&& x) noexcept(
   allocator_traits<Allocator>::propagate_on_container_move_assignment::value
     || allocator_traits<Allocator>::is_always_equal::value); // (2) C++17
+constexpr vector& operator=(vector&& x) noexcept(
+  allocator_traits<Allocator>::propagate_on_container_move_assignment::value
+    || allocator_traits<Allocator>::is_always_equal::value); // (2) C++20
 
-vector& operator=(initializer_list<T>); // (3) C++11
+vector& operator=(initializer_list<T> init);           // (3) C++11
+constexpr vector& operator=(initializer_list<T> init); // (3) C++20
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * allocator_traits[link /reference/memory/allocator_traits.md]
@@ -30,7 +35,7 @@ vector& operator=(initializer_list<T>); // (3) C++11
 ## 効果
 - (1) : 同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
 - (2) : 同じテンプレートパラメータを持つ`vector`クラスのオブジェクトをムーブ代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にムーブされる。
-- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`x`の全ての要素が`*this`にコピーされる。
+- (3) : 同じテンプレートパラメータを持つ`initializer_list`クラスのオブジェクトをコピー代入する。`*this`の全ての要素が解放され、`init`の全ての要素が`*this`にコピーされる。
 
 
 ## 戻り値
@@ -40,7 +45,7 @@ vector& operator=(initializer_list<T>); // (3) C++11
 ## 事後条件
 - (1) : `*this == x`
 - (2) : `*this`は元々の`x`と等値となる
-- (3) : `*this == x`
+- (3) : `*this == vector{init}`
 
 
 ## 計算量
@@ -109,3 +114,4 @@ int main()
     - (3)の経緯となる提案文書
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

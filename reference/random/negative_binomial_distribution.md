@@ -13,10 +13,10 @@ namespace std {
 
 ## 概要
 `negative_binomial_distribution`は、離散確率分布の一種である、負の二項分布を表すクラスである。  
-二項分布([`binomial_distribution`](binomial_distribution.md)が「確率pで成功する事象をt回施行し、成功回数を取得する」のに対し、負の二項分布は「確率pで成功する事象がk回成功するまでに失敗した回数を取得する」ということを行う。  
+二項分布([`binomial_distribution`](binomial_distribution.md)が「確率pで成功する事象をt回試行し、成功回数を取得する」のに対し、負の二項分布は「確率pで成功する事象がk回成功するまでに失敗した回数を取得する」ということを行う。  
 
 
-負の二項分布は、実装によって「k回成功するまでに施行した回数を取得する」ものと、「k回成功するまでに失敗した回数を取得する」もの、2つのバリエーションが存在する。`std::negative_binomial_distribution`クラスは後者である。
+負の二項分布は、実装によって「k回成功するまでに試行した回数を取得する」ものと、「k回成功するまでに失敗した回数を取得する」もの、2つのバリエーションが存在する。`std::negative_binomial_distribution`クラスは後者である。
 
 
 テンプレートパラメータは、以下を意味する：
@@ -103,7 +103,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

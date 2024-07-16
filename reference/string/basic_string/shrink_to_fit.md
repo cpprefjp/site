@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void shrink_to_fit();
+void shrink_to_fit();           // (1) C++11
+constexpr void shrink_to_fit(); // (1) C++20
 ```
 
 ## 概要
@@ -73,10 +74,10 @@ void basic_string::shrink_to_fit() {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.4
-- [GCC](/implementation.md#gcc): 4.5.4, 4.6.4, 4.7.3, 4.8.2
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.5.4 [mark verified], 4.6.4 [mark verified], 4.7.3 [mark verified], 4.8.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified]
 
 
 ## 関連項目
@@ -88,3 +89,4 @@ void basic_string::shrink_to_fit() {
 - 『[Effective STL - STLを効果的に使いこなす50の鉄則](https://www.amazon.co.jp/dp/4894714108)』 第17項 余分な容量を取り除くには「swap技法」を使おう
 - [LWG Issue 755. `std::vector` and `std:string` lack explicit shrink-to-fit operations]
 - [LWG Issue 2223. `shrink_to_fit` effect on iterator validity](https://wg21.cmeerw.net/lwg/issue2223)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

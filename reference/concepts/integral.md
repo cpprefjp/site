@@ -38,7 +38,7 @@ int main() {
   f<int>("int");
   f<std::size_t>("std::size_t");
   f<std::uint32_t>("std::uint32_t");
-  f<int>("char");
+  f<char>("char");
   f<char8_t>("char8_t");
 
   std::cout << "\n";
@@ -70,8 +70,8 @@ std::integral_constant<int, 1> is not integral
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

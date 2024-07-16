@@ -102,9 +102,9 @@ int main()
 * dist(engine)[link fisher_f_distribution/op_call.md]
 
 ### 出力
-このプログラムによってある時に得られた結果（[fisher_f_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.tsv)）を図示する。
+このプログラムによってある時に得られた結果（[fisher_f_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/fisher_f_distribution/fisher_f_distribution.tsv)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/fisher_f_distribution/fisher_f_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/fisher_f_distribution/fisher_f_distribution.png)
 
 ## バージョン
 ### 言語
@@ -112,7 +112,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 

@@ -29,6 +29,7 @@
 | 名前                                                | 説明                                                | 対応バージョン |
 |-----------------------------------------------------|-----------------------------------------------------|----------------|
 | [`forward`](utility/forward.md)                   | 関数テンプレートの引数を転送する(function template) | C++11          |
+| [`forward_like`](utility/forward_like.md)         | 第一テンプレート引数の`const`性と参照修飾で引数を転送する(function template) | C++23          |
 | [`move`](utility/move.md)                         | 左辺値を右辺値にキャストする(function template)     | C++11          |
 | [`move_if_noexcept`](utility/move_if_noexcept.md) | 例外を投げないオブジェクトをムーブする(function template) | C++11    |
 
@@ -67,6 +68,13 @@
 | [`to_underlying`](utility/to_underlying.md) | 列挙値を基底型に変換する (function template) | C++23 |
 
 
+## 列挙型
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`unreachable`](utility/unreachable.md) | コードパス不到達を表明する (function) | C++23 |
+
+
 ## 組
 
 | 名前                                                        | 説明                                   | 対応バージョン |
@@ -88,6 +96,14 @@
 | [`in_place_type`](utility/in_place_type_t.md)   | 指定した要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable) | C++17 |
 | [`in_place_index_t`](utility/in_place_index_t.md) | 指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ型 (class) | C++17 |
 | [`in_place_index`](utility/in_place_index_t.md)   | 指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable) | C++17 |
+
+
+## 非型引数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`nontype_t`](utility/nontype_t.md) | 非型引数を表現するためのタグ型 (class template) | C++26 |
+| [`nontype`](utility/nontype_t.md)   | 非型引数を表現するためのタグ値 (variable template) | C++26 |
 
 
 ## コンパイル時の整数シーケンス

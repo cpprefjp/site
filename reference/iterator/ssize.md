@@ -44,7 +44,6 @@ int main()
   int ar[] = {1, 2, 3};
 
   // コンテナの要素数を取得。
-  // ptrdiff_tは、多くの環境ではintだと思ってよい
   std::ptrdiff_t n1 = std::ssize(v);
   assert(n1 == 3);
 
@@ -65,7 +64,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -61,7 +61,7 @@ namespace std::filesystem {
 
 
 ## 非メンバ関数
-### 範囲
+### イテレータ範囲
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
@@ -92,7 +92,7 @@ int main()
   fs::create_directory("dir_a/dir_b");
   std::ofstream{"dir_a/dir_b/b.txt"};
 
-  // dir_aディレクトリに含まれる全ファイルを再帰的に出力
+  // dir_aディレクトリに含まれる全ファイル・ディレクトリを再帰的に出力
   for (const fs::directory_entry& x : fs::recursive_directory_iterator("dir_a")) {
     std::cout << x.path() << std::endl;
   }
@@ -115,7 +115,7 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp):

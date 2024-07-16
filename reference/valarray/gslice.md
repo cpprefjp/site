@@ -48,9 +48,9 @@ auto main()
   std::iota( std::begin(a), std::end(a), 16 );
 
   // スライスの開始位置 3（start）から
-  // 10個（strides[0]）おきに 3箇所（length[0]）
+  // 10個（strides[0]）おきに 3箇所（lengths[0]）
   // について、さらにそこから、
-  //  3個（strides[1]）おきに 4箇所（legnth[1]）
+  //  3個（strides[1]）おきに 4箇所（lengths[1]）
   // を抜き出す。
   constexpr auto             start   = 3;
   std::valarray<std::size_t> lengths = {  3, 4 };

@@ -1,7 +1,7 @@
 # get
 * variant[meta header]
 * std[meta namespace]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
@@ -191,7 +191,7 @@ int main()
 #include <variant>
 
 int main() {
-  std::variant<int, char> v = 1;;
+  std::variant<int, char> v = 1;
   std::cout << get<int>(v) << std::endl; // C++17:NG C++20:OK
 }
 ```
@@ -207,8 +207,8 @@ int main() {
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

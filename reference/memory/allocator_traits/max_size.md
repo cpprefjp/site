@@ -8,7 +8,7 @@
 ```cpp
 static size_type max_size(Alloc& a);                            // C++11
 static size_type max_size(const Alloc& a) noexcept;             // C++14 から C++ 17 まで
-static constepx size_type max_size(const Alloc& a) noexcept;    // C++20 から
+static constexpr size_type max_size(const Alloc& a) noexcept;    // C++20 から
 ```
 
 ## 概要
@@ -50,10 +50,10 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.7.3
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
 ## 参照
 - [LWG Issue 2162. `allocator_traits::max_size` missing `noexcept`](https://wg21.cmeerw.net/lwg/issue2162)

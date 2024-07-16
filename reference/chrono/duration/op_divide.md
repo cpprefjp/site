@@ -30,7 +30,7 @@ namespace chrono {
 
 
 ## テンプレートパラメータ制約
-- (1) : [`is_convertible_v`](/reference/chrono/d)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
+- (1) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const Rep2&,` [`common_type_t`](/reference/type_traits/common_type.md)`<Rep1, Rep2>>`が`true`であり、かつ`Rep2`が`duration`の特殊化でないこと
 
 
 ## 戻り値
@@ -95,9 +95,9 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.6.1
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
-	- 2013でサンプルコードをコンパイルしたところ、dulation / dulationでコンパイルエラーになった。
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+	- 2013でサンプルコードをコンパイルしたところ、duration / durationでコンパイルエラーになった。
 
 
 ## 参照

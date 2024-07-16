@@ -10,11 +10,15 @@ template <class... Args>
 void emplace_back(Args&&... args);                      // (1) C++11
 template <class... Args>
 reference emplace_back(Args&&... args);                 // (1) C++17
+template <class... Args>
+constexpr reference emplace_back(Args&&... args);       // (1) C++20
 
 template <class... Args>
-void vector<bool>::emplace_back(Args&&... args);        // (2) C++11
+void vector<bool>::emplace_back(Args&&... args);                // (2) C++11
 template <class... Args>
-reference vector<bool>::emplace_back(Args&&... args);   // (2) C++17
+reference vector<bool>::emplace_back(Args&&... args);           // (2) C++17
+template <class... Args>
+constexpr reference vector<bool>::emplace_back(Args&&... args); // (2) C++20
 ```
 
 ## 概要
@@ -75,9 +79,9 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2013
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified]
 
 
 ## 参照
@@ -88,3 +92,4 @@ int main()
 - [P0084R0 Emplace Return Type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0084r0.pdf)
 - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
 - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
+- [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)

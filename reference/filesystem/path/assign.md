@@ -35,7 +35,7 @@ path& assign(InputIterator first, InputIterator last); // (3)
 ## 効果
 - (1) : `source`のパスフォーマットを検出して内部用に変換し、`*this`にムーブ代入する。この関数を呼び出したあと、`source`は「有効だが未規定の状態」となる
 - (2) : `source`のパスフォーマットを検出して内部用に変換し、`*this`にそのパスのコピーを保持する
-- (3) : 範囲`[first, last)`を`path source{first, last};`として、`source`のパスフォーマットを検出して内部用に変換し、`*this`にそのパスのコピーを保持する
+- (3) : イテレータ範囲`[first, last)`を`path source{first, last};`として、`source`のパスフォーマットを検出して内部用に変換し、`*this`にそのパスのコピーを保持する
 
 
 ## 戻り値
@@ -147,5 +147,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 8.1
-- [Visual C++](/implementation.md#visual_cpp):
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]

@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator1, class InputIterator2, class T>
   T transform_reduce(InputIterator1 first1,
                      InputIterator1 last1,
@@ -84,11 +84,11 @@ namespace std{
 ```
 
 ## 概要
-`transform_reduce()`は、範囲の要素を変換しながら集計する関数である。
+`transform_reduce()`は、イテレータ範囲の要素を変換しながら集計する関数である。
 
-(1)、(2)、(4)、(5)は、範囲`[first1, last1)`の各要素を`x`、範囲`[first2, first2+(last1 - first1))`の各要素を`y`として、初期値(`init`)と`binary_op2(x, y)`した各要素を合算したリストの任意の組み合わせに、順不同で`binary_op1(binary_op1(a, b), binary_op1(c, d))`のように適用していき、集計値を計算する。
+(1)、(2)、(4)、(5)は、イテレータ範囲`[first1, last1)`の各要素を`x`、イテレータ範囲`[first2, first2+(last1 - first1))`の各要素を`y`として、初期値(`init`)と`binary_op2(x, y)`した各要素を合算したリストの任意の組み合わせに、順不同で`binary_op1(binary_op1(a, b), binary_op1(c, d))`のように適用していき、集計値を計算する。
 
-(3)と(6)は、初期値(`init`)と、範囲`[first, last)`の各要素に関数オブジェクト`unary_op`を適用して合算したリストの任意の組み合わせに、順不同で`binary_op(binary_op(a, b), binary_op(c, d))`のように適用していき、集計値を計算する。
+(3)と(6)は、初期値(`init`)と、イテレータ範囲`[first, last)`の各要素に関数オブジェクト`unary_op`を適用して合算したリストの任意の組み合わせに、順不同で`binary_op(binary_op(a, b), binary_op(c, d))`のように適用していき、集計値を計算する。
 
 - (1) : リスト集計の二項演算に`operator+`を使用し、2つの範囲の要素を掛け合わせる二項演算に`operator*`を使用する
 - (2) : リスト集計の二項演算に`binary_op1`を使用し、2つの範囲の要素を掛け合わせる二項演算に`binary_op2`を使用する
@@ -99,8 +99,8 @@ namespace std{
 
 
 ## 要件
-- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`の呼び出しは、範囲`[first1, last1]`と`[first2, first2 + (last1 - first1)]`の要素変更およびイテレータの無効化をしてはならない
-- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
+- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`の呼び出しは、イテレータ範囲`[first1, last1]`と`[first2, first2 + (last1 - first1)]`の要素変更およびイテレータの無効化をしてはならない
+- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`の呼び出しは、イテレータ範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## テンプレートパラメータ制約
@@ -125,9 +125,9 @@ namespace std{
     * plus[link /reference/functional/plus.md]
     * multiplies[link /reference/functional/multiplies.md]
 
-- (2), (5) : 範囲`[first1, last1)`と`[first2, first2+(last1 - first1))`について、リスト`[init, binary_op2(*first1, *first2), binary_op2(*(first1 + 1), *(first2 + 1)), binary_op2(*(first1 + 2), *(first2 + 2)), ...]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op1(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op1(sum1, sum2)`のように集計して返す
+- (2), (5) : イテレータ範囲`[first1, last1)`と`[first2, first2+(last1 - first1))`について、リスト`[init, binary_op2(*first1, *first2), binary_op2(*(first1 + 1), *(first2 + 1)), binary_op2(*(first1 + 2), *(first2 + 2)), ...]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op1(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op1(sum1, sum2)`のように集計して返す
 
-- (3), (6) : 範囲`[first, last)`について、リスト`[init, unary_op(*first), unary_op(*(first + 1)), unary_op(*(first + 2)), ... unary_op(*(first + (last - first - 1)))]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op(sum1, sum2)`のように集計して返す
+- (3), (6) : イテレータ範囲`[first, last)`について、リスト`[init, unary_op(*first), unary_op(*(first + 1)), unary_op(*(first + 2)), ... unary_op(*(first + (last - first - 1)))]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op(sum1, sum2)`のように集計して返す
 
 - (4) : 以下と等価
     ```cpp
@@ -140,8 +140,8 @@ namespace std{
 
 
 ## 計算量
-- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`を、O(`last1 - first1`)計算量の回数だけ適用する
-- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`をO(`last - first`)計算量の回数だけ適用する
+- (1), (2), (4), (5) : 関数オブジェクト`binary_op1`と`binary_op2`を、O(`last1 - first1`)回だけ適用する
+- (3), (6) : 関数オブジェクト`unary_op`と`binary_op`をO(`last - first`)回だけ適用する
 
 
 ## 備考
@@ -193,7 +193,7 @@ sum3 : 30
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 5.0.0
+- [Clang](/implementation.md#clang): 5.0.0 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 

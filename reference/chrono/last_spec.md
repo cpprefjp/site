@@ -15,7 +15,7 @@ namespace std::chrono {
 ```
 
 ## 概要
-`last_spec`は、月の最終日、週の最終日など、文脈に応じた「最後」を表す型である。その型の値として`last`が定義される。
+`last_spec`は、月の最終日、月の最終曜日など、文脈に応じた「最後」を表す型である。その型の値として`last`が定義される。
 
 
 ## 非メンバ関数
@@ -65,6 +65,6 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

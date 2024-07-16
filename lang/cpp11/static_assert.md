@@ -1,5 +1,13 @@
-# コンパイル時アサート
+# コンパイル時アサート [N1720]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 `static_assert`宣言は、指定した定数式が真であることを表明するための機能である。
@@ -28,7 +36,8 @@ static_assert(定数式, 文字列リテラル);
 - この宣言は、名前空間スコープ、ブロックスコープ、メンバ宣言といった場所で記述できる
 - 定数式が真であると評価された場合は何も効果がない。定数式が偽であると評価された場合は、指定された文字列リテラルを含む診断メッセージがコンパイラによって問題報告される。ただし、基本ソース文字集合に含まれない文字集合は、診断メッセージに表示することはコンパイラに要求されない
 - `static_assert`宣言では、新たな型やオブジェクトは宣言しない。また、実行時にサイズや時間コストは発生しない
-
+- (CWG 2518が適用された環境): template文(もしくは適切な特殊化や[C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
+  - [C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)の解説を参照
 
 ## 例
 ```cpp example
@@ -77,9 +86,11 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 コンパイル時アサートのために`BOOST_STATIC_ASSERT`や`STATIC_CHECK`のようなマクロを使用することは、名前空間を汚染する問題があるが、コア言語にその機能を追加することでその問題は解消される。
 
 
-## 関連項目
-- [C++17 `static_assert`](/lang/cpp17/extending_static_assert.md) — 第2引数の診断メッセージを省略できるようになった
-
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++17 `static_assert`のメッセージ省略を許可](/lang/cpp17/extending_static_assert.md)
+- [C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)
+- [C++23 定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md)
+- [C++26 `static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md)
 
 
 ## 参照
@@ -87,4 +98,5 @@ Boost Static Assertion Libraryが開発されたときに、コンパイル時�
 - [N1604 Proposal to Add Static Assertions to the Core Language (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1604.html)
 - [N1617 Proposal to Add Static Assertions to the Core Language (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1617.html)
 - [N1720 Proposal to Add Static Assertions to the Core Language (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1720.html)
-
+- [P2593R1: Allowing static_assert(false)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2593r1.html)
+- [Issue 2518: Conformance requirements and #error/#warning - WG21 CWG Issues](https://wg21.cmeerw.net/cwg/issue2518)

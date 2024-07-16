@@ -101,8 +101,10 @@ int main()
 
 ### 出力例
 ```
+---- decimal point
 1.5
 1
+---- base = 8
 500
 250
 ---- base = 16
@@ -164,17 +166,17 @@ double stod(const std::wstring& str, std::size_t* idx = nullptr) {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ?
-- [GCC](/implementation.md#gcc): ?
+- [GCC](/implementation.md#gcc): 4.8.5 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ただし、Visual C++ 10.0, 11.0は十六進法に対応していない（12.0は未確認）。
 
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atof`: `stod`は`atof`を`std::string`および`std::wsting`に対応させたものと見なせる。
-- `strtod`, `wcstod`: `stod`は`strtod`および`wcstod`をそれぞれ`std::string`と`std::wsting`に対応させたものと見なせる。
+- `atof`: `stod`は`atof`を`std::string`および`std::wstring`に対応させたものと見なせる。
+- `strtod`, `wcstod`: `stod`は`strtod`および`wcstod`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

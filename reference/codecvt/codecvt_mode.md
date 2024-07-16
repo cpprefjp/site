@@ -4,6 +4,7 @@
 * enum[meta id-type]
 * cpp11[meta cpp]
 * cpp17deprecated[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -31,12 +32,12 @@ namespace std {
 - [`codecvt_utf8_utf16`](codecvt_utf8_utf16.md)
 
 
-## 非推奨の詳細
+## 非推奨・削除の詳細
 Unicodeの文字コード変換を行うこれらのクラスは、不正なコードポイントに対する安全なエラー処理の方法を提供していなかったため、セキュリティ上の欠陥があった。
 
 仕様もあいまいであったため、不正なコードポイントに対してどのように振る舞うかも不明であった。
 
-Unicode以外のShift_JISやBig5といった文字コードの利用が急激に減少している。標準ライブラリでの現代的なUnicodeの変換機能は非常に必要とされているが、`<codecvt>`の設計はお粗末なものだった。将来より良いものを作るために、これらの機能は非推奨とする。
+Unicode以外のShift_JISやBig5といった文字コードの利用が急激に減少している。標準ライブラリでの現代的なUnicodeの変換機能は非常に必要とされているが、`<codecvt>`の設計はお粗末なものだった。将来より良いものを作るために、これらの機能は非推奨・削除とする。
 
 標準ライブラリにUnicodeの文字コード変換をする代替機能はないため、他の専門特化した文字コード変換のライブラリを使用すること。
 
@@ -46,10 +47,11 @@ Unicode以外のShift_JISやBig5といった文字コードの利用が急激に
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 5.1
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 5.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 ## 参照
 - [P0618R0 Deprecating `<codecvt>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html)
+- [P2871R3 Remove Deprecated Unicode Conversion Facets from C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2871r3.pdf)

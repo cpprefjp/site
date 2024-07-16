@@ -32,6 +32,9 @@ namespace std {
 
 
 ## 例
+
+### ポインタの例
+
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -55,10 +58,44 @@ int main()
 ```
 * std::to_address[color ff0000]
 
-### 出力
+#### 出力
 ```
 3
 1
+```
+
+### イテレータの例
+
+```cpp example
+#include <iostream>
+#include <vector>
+
+int main()
+{
+  std::vector<int> vec = {1, 2, 3, 4};
+
+  // vectorやstring等のイテレータはcontiguousではあるが、実装によってポインタではない場合がある
+  auto it = vec.begin();
+  auto end = vec.end();
+
+  // contiguousなイテレータをその要素へのポインタに変換する
+  int* p = std::to_address(it);
+
+  // 特に、終端イテレータからポインタへの変換で未定義動作を回避できる
+  int* ep = std::to_address(end);
+  // この様にしてしまうと、オブジェクトを指していないポインタのデリファレンスとなり未定義動作
+  //int* ep = &*end;
+
+  std::cout << *p << '\n';
+  std::cout << *(ep - 1);
+}
+```
+* std::to_address[color ff0000]
+
+#### 出力
+```
+1
+4
 ```
 
 ## バージョン
@@ -66,8 +103,8 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 6.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 6.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

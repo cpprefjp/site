@@ -47,7 +47,7 @@
 
 先に挙げた擬似乱数生成器に対して一般的なパラメータを定義し、使いやすいように用意された擬似乱数生成器の型。
 
-これらの型には、パフォーマンス、オブジェクトのサイズ、周期などのトレードオフがある。ユーザーの目的に合わせて擬似乱数正器の型を選択してほしい。
+これらの型には、パフォーマンス、オブジェクトのサイズ、周期などのトレードオフがある。ユーザーの目的に合わせて擬似乱数生成器の型を選択してほしい。
 
 オブジェクトのサイズをある程度無視・許容できる状況では、多くの分野と用途に、[`mt19937`](random/mt19937.md)を推奨できる。
 
@@ -84,7 +84,7 @@
 
 
 ## 分布生成器
-分布生成器は、乱数生成器のよって生成される値の範囲や分布を調整するクラスである。
+分布生成器は、乱数生成器によって生成される値の範囲や分布を調整するクラスである。
 
 分布生成器は、環境によって異なるアルゴリズムで実装される可能性がある。擬似乱数生成器は環境によらず同じシードを与えれば同じ乱数列が生成されるが、分布生成器を介して乱数生成する場合、環境によって異なる乱数列が生成される場合がある。
 
@@ -160,18 +160,18 @@ int main()
   std::mt19937 engine(seed_gen());
 
   // 一様実数分布
-  // [-1.0, 1.0)の値の範囲で、等確率に実数を生成する
-  std::uniform_real_distribution<> dist1(-1.0, 1.0);
+  // [-1.0f, 1.0f)の値の範囲で、等確率に実数を生成する
+  std::uniform_real_distribution<float> dist1(-1.0f, 1.0f);
 
   // 正規分布
-  // 平均1.0、標準偏差0.5で分布させる
-  std::normal_distribution<> dist2(1.0, 0.5);
+  // 平均1.0f、標準偏差0.5fで分布させる
+  std::normal_distribution<float> dist2(1.0f, 0.5f);
 
   std::ofstream file("random.tsv");
   for (size_t i = 0; i < 1000*1000; ++i) {
     // 各分布法に基いて乱数を生成
-    double r1 = dist1(engine);
-    double r2 = dist2(engine);
+    float r1 = dist1(engine);
+    float r2 = dist2(engine);
 
     file << r1 << "\t" << r2 << "\n";
   }
@@ -184,9 +184,9 @@ int main()
 * dist1(engine)[link random/uniform_real_distribution/op_call.md]
 * dist2(engine)[link random/normal_distribution/op_call.md]
 
-この例である時得られた [random.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/random.tsv.xz) (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
+この例である時得られた [random.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/random.tsv.xz) (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/random.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/random.png)
 
 破線は dist1 (一様分布; min=-1.0f, max=1.0f) 、実線は dist2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。
 
@@ -264,4 +264,4 @@ int main()
 
 
 ## 編集者向けの参照
-* [乱数分布の図を作る方法](/editors_doc/random_figure.md)
+* [乱数分布の図を作る方法](/start_editing/random_figure.md)

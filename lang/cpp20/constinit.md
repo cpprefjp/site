@@ -1,5 +1,13 @@
-# コンパイル時初期化を強制する`constinit`キーワードを追加
+# コンパイル時初期化を強制する`constinit`キーワードを追加 [P1143R2]
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -193,9 +201,12 @@ int main() {}
 
 `constinit`はキーワードとして追加されており、C++コードのすべての所で予約語として扱われる。そのため、変数名や関数名などとして使用する事はできない。これは、C++17以前に対する破壊的変更となるが、一般的な単語ではなかったため問題にならないと判断されたようである。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
+- [`mutex`のコンストラクタ](/reference/mutex/mutex/op_constructor.md)
+- [`unique_ptr`のコンストラクタ](/reference/memory/unique_ptr/op_constructor.md)
+
 
 ## 参照
 

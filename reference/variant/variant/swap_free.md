@@ -7,9 +7,12 @@
 ```cpp
 namespace std {
   template <class... Types>
-  void swap(variant<Types...>& x, variant<Types...>& y) noexcept(see below);
+  void swap(variant<Types...>& x, variant<Types...>& y) noexcept(see below);            // C++17
+  template <class... Types>
+  constexpr void swap(variant<Types...>& x, variant<Types...>& y) noexcept(see below);  // C++23
 }
 ```
+* see below[italic]
 
 ## 概要
 同じ候補型をもつ2つの`variant`オブジェクトを入れ替える。
@@ -68,6 +71,9 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  void swap(T& a, T& b) noexcept(see below);           // (1) C++03
+  void swap(T& a, T& b);                               // (1) C++03 in <algorithm> header
+
+  template <class T>
+  void swap(T& a, T& b) noexcept(see below);           // (1) C++11
 
   template <class T>
   constexpr void swap(T& a, T& b) noexcept(see below); // (1) C++20
@@ -78,6 +81,10 @@ swap(a, b);
 - 配列版：配列の要素型`T`に対する`swap()`操作が例外を投げない場合、この関数もまた例外を投げない
 
 
+## 備考
+C++03では`<algorithm>`ヘッダに定義されていた。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -142,10 +149,15 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 値版はそれより前から実装されている。
+
+## 関連項目
+- [`std::ranges::swap()`](/reference/concepts/swap.md)
+- [`std::iter_swap()`](/reference/algorithm/iter_swap.md)
+
 
 ## 参照
 - [LWG Issue 809. `std::swap` should be overloaded for array types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#809)

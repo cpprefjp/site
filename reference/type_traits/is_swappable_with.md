@@ -23,11 +23,11 @@ namespace std {
 
 
 ## 効果
-型`T`と`U`の間で[`std::swappable_with`](/reference/concepts/swappable_with.md.nolink)要件を満たしていれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+型`T`と`U`の間で[`std::swappable_with`](/reference/concepts/swappable.md)要件を満たしていれば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
 型`T`と`U`は参照でなければswapできないので`T`と`U`が参照でない場合、結果は`false`となる。
 
-簡単に説明すると[`std::swappable_with`](/reference/concepts/swappable_with.md.nolink)要件を満たすとは、2引数を取りその引数の値を入れ替えるswap関数が以下のようなコードで見つかることである。
+簡単に説明すると[`std::swappable_with`](/reference/concepts/swappable.md)要件を満たすとは、2引数を取りその引数の値を入れ替えるswap関数が以下のようなコードで見つかることである。
 
 ```cpp
 #include <utility>
@@ -112,7 +112,7 @@ true
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015 update3, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2015 update3 [mark verified], 2017 [mark verified]
 	- 2015 update3では、インテリセンスで表示されないが変数テンプレート共々定義されており利用可能である
 
 ## 参照

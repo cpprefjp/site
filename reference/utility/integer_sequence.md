@@ -54,10 +54,10 @@ int main()
 - C++14
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.4
-- [GCC](/implementation.md#gcc): 4.9.0
+- [Clang](/implementation.md#clang): 3.4 [mark verified]
+- [GCC](/implementation.md#gcc): 4.9.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2015
+- [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 ## 参照
 - [N3658 Compile-time integer sequences](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html)

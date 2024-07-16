@@ -35,7 +35,7 @@ namespace std {
 
 
 ## 備考
-- `shared_ptr<T>(static_cast<T*>(r.get()))` という方法は動作未定義となるので使用しないこと。
+- `shared_ptr<T>(static_cast<T*>(r.get()))` という方法は未定義動作となるので使用しないこと。
 
 
 ## 例
@@ -65,7 +65,7 @@ int main() {
   }
 }
 ```
-* std::static_pointer_cast[link static_pointer_cast.md]
+* std::static_pointer_cast[color ff0000]
 * std::make_shared[link /reference/memory/make_shared.md]
 
 ### 出力
@@ -80,9 +80,9 @@ B::call()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.4
+- [GCC](/implementation.md#gcc): 4.4 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 
 ## 参照

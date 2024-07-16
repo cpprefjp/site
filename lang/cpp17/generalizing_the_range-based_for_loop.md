@@ -1,5 +1,13 @@
-# 範囲 for ループの制限緩和
+# 範囲for文のイテレータ型が一致しないことを許可 [P0184R0]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -138,7 +146,7 @@ Range TS (technical specification) では `Sentinel` (番兵) 等の範囲の終
 [Boost.Foreach](http://boost.org/libs/foreach) のようなマクロは避けるべきだとされた。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 範囲 for 文](/lang/cpp11/range_based_for.md)
 - [C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)
 

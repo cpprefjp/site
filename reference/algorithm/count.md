@@ -28,11 +28,11 @@ namespace std {
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 概要
-指定された値と等値な要素の数を数える。
+イテレータ範囲`[first, last)`から、指定された値と等値な要素の数を数える。
 
 
 ## 戻り値
-`[first,last)` 内のイテレータ `i` について、`*i == value` であるイテレータの数を返す
+イテレータ範囲`[first,last)` 内のイテレータ `i` について、`*i == value` であるイテレータの数を返す
 
 
 ## 計算量

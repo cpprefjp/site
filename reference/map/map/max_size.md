@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-size_type max_size() const noexcept;
+size_type max_size() const;           // C++03
+size_type max_size() const noexcept;  // C++11
 ```
 
 ## 概要
@@ -47,7 +48,7 @@ int main ()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 ## 関連項目

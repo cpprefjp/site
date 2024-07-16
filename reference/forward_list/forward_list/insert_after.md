@@ -28,12 +28,12 @@ iterator insert_after(const_iterator position,
 
 - (1), (2) : 新たな要素をひとつ挿入する
 - (3) : 新たな要素`x`のコピーを`n`個挿入する
-- (4) : `[first, last)`の範囲の要素を挿入する
+- (4) : イテレータ範囲`[first, last)`の要素を挿入する
 - (5) : `initializer_list`の全て要素を挿入する
 
 
 ## 要件
-- 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/forward_list/before_begin.md)もしくは`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/forward_list/end.md)`)`の範囲の間接参照可能なイテレータであること。
+- 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/forward_list/before_begin.md)もしくはイテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/forward_list/end.md)`)`の間接参照可能なイテレータであること。
 - `first`、`last`は`*this`のイテレータではないこと。
 
 
@@ -132,9 +132,9 @@ insert initializer_list : 1 2 3 4 5 6
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- (5) `initializer_list<T>`を仮引数に持つものは、2013から。
 
 

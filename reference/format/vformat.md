@@ -44,6 +44,43 @@ namespace std {
 
 フォーマット実行時に失敗した場合、[`format_error`](format_error.md)を投げる。
 
+## 実装例
+
+```cpp
+string vformat(string_view fmt, format_args args) {
+  string str;
+  vformat_to(back_inserter(str), fmt.str, args);
+  return str;
+}
+
+string vformat(wstring_view fmt, wformat_args args) {
+  wstring str;
+  vformat_to(back_inserter(str), fmt.str, args);
+  return str;
+}
+
+string vformat(const locale& loc, string_view fmt, format_args args) {
+  string str;
+  vformat_to(loc, back_inserter(str), fmt.str, args);
+  return str;
+}
+
+string vformat(const locale& loc, wstring_view fmt, wformat_args args) {
+  wstring str;
+  vformat_to(loc, back_inserter(str), fmt.str, args);
+  return str;
+}
+```
+* string[link /reference/string/basic_string.md]
+* wstring[link /reference/string/basic_string.md]
+* string_view[link /reference/string_view/basic_string_view.md]
+* wstring_view[link /reference/string_view/basic_string_view.md]
+* format_args[link /reference/format/basic_format_args.md]
+* wformat_args[link /reference/format/basic_format_args.md]
+* locale[link /reference/locale/locale.md]
+* vformat_to[link vformat.md]
+* back_inserter[link /reference/iterator/back_inserter.md]
+
 ## バージョン
 ### 言語
 - C++20

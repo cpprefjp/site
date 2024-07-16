@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <class T>
-  void swap(optional<T>& x, optional<T>& y) noexcept(noexcept(x.swap(y)));
+  void swap(optional<T>& x, optional<T>& y) noexcept(noexcept(x.swap(y)));           // C++17
+  template <class T>
+  constexpr void swap(optional<T>& x, optional<T>& y) noexcept(noexcept(x.swap(y))); // C++23
 }
 ```
 * x.swap(y)[link swap.md]
@@ -102,7 +104,10 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.2
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)

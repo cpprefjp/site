@@ -11,13 +11,13 @@ const_reverse_iterator crend() const noexcept;
 
 
 ## 概要
-`map` コンテナの先頭要素の前（これは反転シーケンスの末尾にあたる）を指す逆イテレータを返す。 
-`crend()` は [`begin()`](/reference/map/map/begin.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
+`map` コンテナの先頭要素の前（これは反転シーケンスの末尾にあたる）を指す逆イテレータを取得する。 
+`crend()` は [`begin()`](begin.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
 
 ## 戻り値
 反転シーケンスの終端を指す逆イテレータ。 
-`reverse_iterator` と `const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、それぞれ `reverse_iterator<iterator>`, `reverse_iterator<const_iterator>` と定義される。
+`const_reverse_iterator` はメンバ型である。`map` クラステンプレートにおいて、これらは逆双方向イテレータであり、`reverse_iterator<const_iterator>` と定義される。
 
 
 ## 例
@@ -57,18 +57,18 @@ int main()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2012
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 
 
 ## 関連項目
 
 | 名前 | 説明 |
-|------------------------------------------------------------------------------------------------|--------------------------------------------|
-| [`map::begin`](/reference/map/map/begin.md) | 先頭を指すイテレータを取得する |
-| [`map::end`](/reference/map/map/end.md) | 末尾を指すイテレータを取得する |
-| [`map::cbegin`](/reference/map/map/cbegin.md) | 先頭を指すconstイテレータを取得する |
-| [`map::cend`](/reference/map/map/cend.md) | 末尾を指すconstイテレータを取得する |
-| [`map::rbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆イテレータを取得する |
-| [`map::rend`](/reference/map/map/rend.md) | 先頭を指す逆イテレータを取得する |
-| [`map::crbegin`](/reference/map/map/rbegin.md) | 末尾を指す逆constイテレータを取得する |
+|------------------------------|-----------------------------------------|
+| [`map::begin`](begin.md)     | 先頭を指すイテレータを取得する |
+| [`map::end`](end.md)         | 末尾の次を指すイテレータを取得する |
+| [`map::cbegin`](cbegin.md)   | 先頭を指すconstイテレータを取得する |
+| [`map::cend`](cend.md)       | 末尾の次を指すconstイテレータを取得する |
+| [`map::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+| [`map::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+| [`map::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |

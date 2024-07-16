@@ -7,10 +7,13 @@
 
 ```cpp
 template <class... ArgTypes>
-typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) const;            //C++11
+typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) const; //C++11
 
 template <class... ArgTypes>
-constexpr typename result_of<T&(ArgTypes&&...)>::type operator ()(ArgTypes&&... args) const;  //C++20
+invoke_result_t<T&, ArgTypes...> operator ()(ArgTypes&&... args) const;            //C++17
+
+template <class... ArgTypes>
+constexpr invoke_result_t<T&, ArgTypes...> operator ()(ArgTypes&&... args) const;  //C++20
 ```
 
 ## 概要
@@ -66,7 +69,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

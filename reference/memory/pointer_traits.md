@@ -72,13 +72,13 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.7.3
-- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
 
 ## 参照
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
-- [Why `pointer_traits` was introduced in C++11 - Doug Judd's Blog](http://blog.nuggetwheat.org/index.php/2015/09/01/why-pointer_traits-was-introduced-in-c11/)
+- [Why `pointer_traits` was introduced in C++11 - Doug Judd's Blog](https://web.archive.org/web/20190228022724/http://blog.nuggetwheat.org/index.php/2015/09/01/why-pointer_traits-was-introduced-in-c11/)
 

@@ -6,12 +6,11 @@
 
 ```cpp
 namespace std {
-  friend constexpr iter_rvalue_reference_t<I>
+  friend constexpr decltype(auto)
     iter_move(const counted_iterator& i) noexcept(noexcept(ranges::iter_move(i.current)))
       requires input_iterator<I>;
 }
 ```
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 * ranges::iter_move[link /reference/iterator/iter_move.md]
 * input_iterator[link /reference/iterator/input_iterator.md]
 
@@ -77,8 +76,8 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9 [mark verified]
 
 ## 関連項目
 
@@ -87,3 +86,4 @@ int main() {
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [LWG Issue 3472. `counted_iterator` is missing preconditions](https://cplusplus.github.io/LWG/issue3472)
+- [LWG Issue 3953. `iter_move` for `common_iterator` and `counted_iterator` should return `decltype(auto)`](https://cplusplus.github.io/LWG/issue3953)

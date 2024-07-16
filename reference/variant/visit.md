@@ -13,6 +13,7 @@ namespace std {
   constexpr R visit(Visitor&& vis, Variants&&... vars);         // (2) C++20
 }
 ```
+* see below[italic]
 
 ## 概要
 `variant`オブジェクトが現在保持している型に対応する関数を呼び出す。
@@ -140,7 +141,7 @@ std::visit([](const auto& x) {
 
 
 ## 備考
-- この関数は、[Boost Vairant Library](https://boost.org/libs/variant)では[`apply_visitor()`](https://www.boost.org/doc/libs/release/doc/html/boost/apply_visitor.html)という名前で定義される
+- この関数は、[Boost Variant Library](https://boost.org/libs/variant)では[`apply_visitor()`](https://www.boost.org/doc/libs/release/doc/html/boost/apply_visitor.html)という名前で定義される
 
 
 ## 例
@@ -188,8 +189,8 @@ HelloHello
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

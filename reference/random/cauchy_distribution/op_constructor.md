@@ -7,16 +7,24 @@
 
 ```cpp
 explicit cauchy_distribution(RealType a = 0.0, RealType b = 1.0); // (1)
-explicit cauchy_distribution(const param_type& parm);             // (2)
+cauchy_distribution() : cauchy_distribution(0.0) {}               // (1) C++20
+
+explicit cauchy_distribution(RealType a, RealType b = 1.0);       // (2) C++20
+
+explicit cauchy_distribution(const param_type& parm);             // (3)
 ```
 
 ## 概要
-- (1) : コーシー分布の位置母数`a`および尺度母数`b`を受け取るコンストラクタ。
-- (2) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
+
+- (1) : デフォルトコンストラクタ
+    - C++17まで : コーシー分布の位置母数`a`および尺度母数`b`を受け取るコンストラクタ。
+    - C++20 : コーシー分布の位置母数`a = 0.0`および尺度母数`b = 1.0`として(2)に委譲。
+- (2) : コーシー分布の位置母数`a`および尺度母数`b`を受け取るコンストラクタ。
+- (3) : パラメータオブジェクトを受け取るコンストラクタ。`param_type`は、このクラスの(1)のコンストラクタと同じオーバーロードを持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、`param`オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。
 
 
 ## 要件
-- (1) : `b > 0`であること
+- (2) : `b > 0`であること
 
 
 ## 例
@@ -88,11 +96,11 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.2
+- [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
 ## 参照
 
-
+- [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)

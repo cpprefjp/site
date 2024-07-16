@@ -106,9 +106,9 @@ int main()
 ```
 ```
 
-このプログラムによってある時に得られた結果（[student_t_distribution.tsv](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.tsv)）を図示する。
+このプログラムによってある時に得られた結果（[student_t_distribution.tsv](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/student_t_distribution/student_t_distribution.tsv)）を図示する。
 
-![](https://github.com/cpprefjp/image/raw/master/reference/random/student_t_distribution/student_t_distribution.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/student_t_distribution/student_t_distribution.png)
 
 
 ## バージョン
@@ -117,7 +117,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 
-- [GCC](/implementation.md#gcc): 4.6.1
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): 
 - [Visual C++](/implementation.md#visual_cpp): 
 

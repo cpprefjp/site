@@ -6,20 +6,31 @@
 
 ```cpp
 namespace std {
-  long long llrint(float x);
-  long long llrint(double x);
-  long long llrint(long double x);
+  long long llrint(float x);        // (1) C++11からC++20まで
+  long long llrint(double x);       // (2) C++11からC++20まで
+  long long llrint(long double x);  // (3) C++11からC++20まで
 
-  long long llrint(Integral x);
+  long long
+    llrint(floating-point-type x);  // (4) C++23
 
-  long long llrintf(float x);       // C++17 から
-  long long llrintl(long double x); // C++17 から
+  long long llrint(Integral x);     // (5) C++11
+
+  long long llrintf(float x);       // (6) C++17
+  long long llrintl(long double x); // (7) C++17
 }
 ```
 * Integral[italic]
 
 ## 概要
 引数 `x` を現在の丸めモードで `long long` に丸めた値を得る。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 整数型に対するオーバーロード (`double`にキャストして計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
 
 
 ## 戻り値
@@ -29,12 +40,13 @@ namespace std {
 ## 備考
 - 本関数は、C99 の規格にある `llrint`（より正確には `math.h` ヘッダの `llrint`、`llrintf`、`llrintl` の 3 つ。それぞれ C++ の `double`、`float`、`long double` バージョンに相当）と等価である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
-	- 丸めの結果が `long long` で表現不可能な場合、無効演算の浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）が発生する。
-	- 他の例外が発生しておらず、引数 `x` が戻り値と異なってる場合、不正確結果の浮動小数点例外（[`FE_INEXACT`](../cfenv/fe_inexact.md)）が発生する。
+    - 丸めの結果が `long long` で表現不可能な場合、無効演算の浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）が発生する。
+    - 他の例外が発生しておらず、引数 `x` が戻り値と異なってる場合、不正確結果の浮動小数点例外（[`FE_INEXACT`](../cfenv/fe_inexact.md)）が発生する。
 - C99 では、丸めモードや浮動小数点例外へのアクセスには `#pragma STDC FENV_ACCESS ON` でなければなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。  
-	なお、C99 でも `FENV_ACCESS` のデフォルトは処理系定義である。
+    なお、C99 でも `FENV_ACCESS` のデフォルトは処理系定義である。
 - 丸めモード [`FE_TONEAREST`](../cfenv/fe_tonearest.md) は四捨五入ではなく、最近接偶数への丸めであることに注意。（例を参照）  
-	四捨五入が必要であれば、[`lround`](lround.md) を使用すること。（ただし、[`lround`](lround.md) は本関数と異なり、ISO IEC 60559 に準拠していても [`FE_INEXACT`](../cfenv/fe_inexact.md) が発生するか否かは処理系定義である）  
+    四捨五入が必要であれば、[`lround`](lround.md) を使用すること。（ただし、[`lround`](lround.md) は本関数と異なり、ISO IEC 60559 に準拠していても [`FE_INEXACT`](../cfenv/fe_inexact.md) が発生するか否かは処理系定義である）  
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -145,7 +157,12 @@ llrint(9.22337e+18) = -9223372036854775808, FE_INEXACT = false, FE_INVALID = tru
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8
-- [GCC](/implementation.md#gcc): 4.3.6, 4.4.7, 4.5.4, 4.6.4, 4.7.3, 4.8.1, 4.8.2, 4.9.0, 4.9.1, 4.9.2, 5.1.0, 5.2.0, 6.0.0
+- [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified], 3.7 [mark verified], 3.8 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified], 4.4.7 [mark verified], 4.5.4 [mark verified], 4.6.4 [mark verified], 4.7.3 [mark verified], 4.8.1 [mark verified], 4.8.2 [mark verified], 4.9.0 [mark verified], 4.9.1 [mark verified], 4.9.2 [mark verified], 5.1.0 [mark verified], 5.2.0 [mark verified], 6.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2013, 2015
+- [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
+
+
+## 参照
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

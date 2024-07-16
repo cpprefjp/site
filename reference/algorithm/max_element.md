@@ -32,12 +32,12 @@ namespace std {
 ```
 
 ## 概要
-`[first, last)`の範囲において、最大要素を指す最初のイテレータを取得する。
+イテレータ範囲`[first, last)`のうち、最大要素を指す最初のイテレータを取得する。
 
 
 
 ## 戻り値
-`*j < *i`もしくは`comp(*j, *i)`の比較によって最大と判断された最初の要素を指すイテレータ
+`*j < *i`もしくは`comp(*j, *i)`の比較によって最大と判断された最初の要素を指すイテレータを返す。
 
 
 ## 計算量
@@ -46,21 +46,28 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <cassert>
 #include <algorithm>
+#include <cassert>
+#include <utility>
 #include <vector>
 
 int main()
 {
-  std::vector<int> v = {3, 1, 4};
+  // (1)
+  std::vector<int> v1 = {3, 1, 4};
 
-  decltype(v)::iterator i = std::max_element(v.begin(), v.end());
-  assert(*i == 4);
+  decltype(v1)::iterator v1_max_element = std::max_element(v1.begin(), v1.end());
+  assert(*v1_max_element == 4);
 
-  decltype(v)::iterator j = std::max_element(v.begin(), v.end(), [](int a, int b) {
-                              return a > b;
-                            });
-  assert(*j == 1);
+
+  // (2)
+  std::vector<std::pair<int, int>> v2 = {{0, 3}, {1, 1}, {2, 4}};
+
+  decltype(v2)::iterator v2_max_element = std::max_element(v2.begin(), v2.end(), [](const auto& a, const auto& b) {
+    return a.second < b.second;
+  });
+  assert(v2_max_element->first == 2);
+  assert(v2_max_element->second == 4);
 }
 ```
 * std::max_element[color ff0000]

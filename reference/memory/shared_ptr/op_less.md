@@ -6,14 +6,18 @@
 
 ```cpp
 namespace std {
+  // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T, class U>
-  bool operator<(const shared_ptr<T>& a, const shared_ptr<U>& b) noexcept; // (1)
+  bool operator<(const shared_ptr<T>& a,
+                 const shared_ptr<U>& b) noexcept; // (1) C++11
 
   template <class T>
-  bool operator<(const shared_ptr<T>& x, nullptr_t) noexcept;              // (2)
+  bool operator<(const shared_ptr<T>& x,
+                 nullptr_t) noexcept;              // (2) C++11
 
   template <class T>
-  bool operator<(nullptr_t, const shared_ptr<T>& x) noexcept;              // (3)
+  bool operator<(nullptr_t,
+                 const shared_ptr<T>& x) noexcept; // (3) C++11
 }
 ```
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
@@ -26,8 +30,8 @@ namespace std {
 
 ## 戻り値
 - (1)
-    - C++11 : [`std::common_type`](/reference/type_traits/common_type.md)`<T*, U*>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](get.md), b.`[`get()`](get.md)`)`で比較した結果を返す。
-    - C++17 :[`std::less`](/reference/functional/less.md)`<>(a.`[`get()`](get.md), b.`[`get()`](get.md)`)`で比較した結果を返す。
+    - C++11 : [`std::common_type`](/reference/type_traits/common_type.md)`<T*, U*>::type`を、`a`と`b`が持つポインタの共通の型`CT`とし、[`std::less`](/reference/functional/less.md)`<CT>(a.`[`get()`](get.md)`, b.`[`get()`](get.md)`)`で比較した結果を返す。
+    - C++17 :[`std::less`](/reference/functional/less.md)`<>(a.`[`get()`](get.md)`, b.`[`get()`](get.md)`)`で比較した結果を返す。
 - (2)
     - C++11 : [`std::less`](/reference/functional/less.md)`<T*>()(x.`[`get()`](get.md)`, nullptr)`で比較した結果を返す。
     - C++17 : [`std::less`](/reference/functional/less.md)`<typename shared_ptr<T>::element_type*>()(x.`[`get()`](get.md)`, nullptr)`で比較した結果を返す。
@@ -71,13 +75,15 @@ true
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.3.6 (`nullptr`バージョン以外), 4.7.4
-- [Clang](/implementation.md#clang): 3.0 (`nullptr`バージョン以外), 3.3
+- [GCC](/implementation.md#gcc): 4.3.6 (`nullptr`バージョン以外) [mark verified], 4.7.4 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 (`nullptr`バージョン以外) [mark verified], 3.3 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2012までは`nullptr`バージョンがない。
 
 
 ## 参照
 - [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)
+- [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+    - C++20での三方比較演算子の追加と、関連する演算子の自動導出

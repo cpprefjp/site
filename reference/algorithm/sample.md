@@ -7,30 +7,37 @@
 
 ```cpp
 namespace std {
-  template <class PopulationIterator, class SampleIterator,
-            class Distance, class UniformRandomBitGenerator>
-  SampleIterator sample(PopulationIterator first, PopulationIterator last,
-                        SampleIterator out, Distance n,
-                        UniformRandomBitGenerator&& g);
+  template <class PopulationIterator,
+            class SampleIterator,
+            class Distance,
+            class UniformRandomBitGenerator>
+  SampleIterator
+    sample(PopulationIterator first,
+           PopulationIterator last,
+           SampleIterator out, Distance n,
+           UniformRandomBitGenerator&& g);
 }
 ```
 
 ## 概要
-範囲から指定された個数の要素をランダムに抽出する。
+イテレータ範囲`[first, last)`から指定された個数の要素をランダムに抽出する。
 
 
-## 要件
+## テンプレートパラメータ制約
 - `PopulationIterator` は `InputIterator` の要件を満たしていること
 - `SampleIterator` は `OutputIterator` の要件を満たしていること
 - `PopulationIterator`が `ForwardIterator` の要件を満たさない限り、`SampleIterator`は`RandomAccessIterator`の要件を満たさなければならない
 - `PopulationIterator`の値型は`out`に対して書き込めなければならない
 - `Distance`は整数型であること
 - `UniformRandomBitGenerator` は uniform random bit generator の要件を満たさなければならず、その戻り値の型は`Distance`型へ変換可能でなければならない
-- `out`は範囲`[first, last)`に含まれてはならない
+
+
+## 事前条件
+- `out`はイテレータ範囲`[first, last)`に含まれてはならない
 
 
 ## 効果
-範囲`[first, last)`を母集団 (population) とし、そこから[`min`](min.md)`(last - first, n)`個の要素を標本 (sample) として `out` にコピーする (`n`が入力範囲の要素数より大きい場合は、最大で入力範囲の要素数がコピーされる)。
+イテレータ範囲`[first, last)`を母集団 (population) とし、そこから[`min`](min.md)`(last - first, n)`個の要素を標本 (sample) として `out` にコピーする (`n`が入力範囲の要素数より大きい場合は、最大で入力範囲の要素数がコピーされる)。
 
 
 ## 戻り値
@@ -111,8 +118,8 @@ bcd
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0
-- [GCC](/implementation.md#gcc): 7.2
+- [Clang](/implementation.md#clang): 4.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

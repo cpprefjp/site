@@ -19,7 +19,7 @@ namespace std {
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
-`<forward_list>`ヘッダでは、単方向リンクリストの実装である`forward_list`コンテナを提供する。
+`forward_list`は、単方向リンクリストのデータ構造をもつクラスである。
 
 `forward_list`は、標準ライブラリではシーケンスコンテナの一種として定義されるが、いくつかの点でシーケンスコンテナの要件を満たさない：
 
@@ -58,7 +58,7 @@ namespace std {
 | [`begin`](forward_list/begin.md) | 先頭要素を指すイテレータを取得する | C++11 |
 | [`end`](forward_list/end.md) | 末尾の次を指すイテレータを取得する | C++11 |
 | [`cbegin`](forward_list/cbegin.md) | 先頭要素を指す読み取り専用イテレータを取得する | C++11 |
-| [`cbefore_begin`](forward_list/before_cbegin.md) | 先頭要素の前を指す読み取り専用イテレータを取得する | C++11 |
+| [`cbefore_begin`](forward_list/cbefore_begin.md) | 先頭要素の前を指す読み取り専用イテレータを取得する | C++11 |
 | [`cend`](forward_list/cend.md) | 末尾の次を指す読み取り専用イテレータを取得する | C++11 |
 
 
@@ -132,9 +132,10 @@ namespace std {
 ### 比較演算子
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------------------------|----------|-------|
+|--------------------------------------------------|----------|-------|
 | [`operator==`](forward_list/op_equal.md)         | 等値比較 | C++11 |
 | [`operator!=`](forward_list/op_not_equal.md)     | 非等値比較 | C++11 |
+| [`operator<=>`](forward_list/op_compare_3way.md) | 三方比較 | C++20 |
 | [`operator<`](forward_list/op_less.md)           | 左辺が右辺より小さいかの判定を行う | C++11 |
 | [`operator<=`](forward_list/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++11 |
 | [`operator>`](forward_list/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++11 |
@@ -307,7 +308,7 @@ root
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

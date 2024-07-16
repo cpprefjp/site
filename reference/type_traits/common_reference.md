@@ -71,7 +71,7 @@ namespace std {
 
 ポインタ型やC++17までの標準ライブラリにおける普通のイテレータ型では、その`reference`型は`value_type&`の別名として定義されるという関係性がある。そのため、`value_type`と`reference`はどちらも`const`左辺値参照を付加することで`const value_type&`に変換できる（ことが期待される）。
 
-しかし、C++20から追加される`range`ライブラリの元となった`range-v3`ライブラリにおける`zip_view`（C++20には導入されていない）のプロクシイテレータのように、特殊なイテレータではそのような関係性が必ずしも成り立つとは限らない。
+しかし、C++20から追加される`range`ライブラリの元となった`range-v3`ライブラリにおける`zip_view`（標準ライブラリへはC++23で導入される）のプロキシイテレータのように、特殊なイテレータではそのような関係性が必ずしも成り立つとは限らない。
 
 このような関係性を持つ型があるとジェネリックなアルゴリズムをより簡易に書くことができるようになるなどメリットがあるため、そのような型を求めるために`common_reference`が導入された。
 
@@ -107,8 +107,8 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

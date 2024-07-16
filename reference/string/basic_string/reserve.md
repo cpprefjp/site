@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void reserve(size_type res_arg = 0); // (1) C++03 (C++20で非推奨化)
-void reserve(size_type res_arg);     // (1) C++20
+void reserve(size_type res_arg = 0);       // (1)+(2) C++03
+
+void reserve();  // (1) C++20で非推奨化, C++26で削除
+
+constexpr void reserve(size_type res_arg); // (2) C++20
 ```
 
 ## 概要
@@ -27,13 +30,15 @@ void reserve(size_type res_arg);     // (1) C++20
 `allocator_traits<Allocator>::allocate()` が、よりふさわしい例外を投げるかもしれない。
 
 
-## 備考
-- C++03で`reserve`操作でのメモリの縮小ができたことは、以下の問題があった：
-    - パフォーマンスの罠となっていた。この関数に指定する引数の値を慎重に選ばなければ、予想外の動的な再確保によってパフォーマンスを低下させる原因となっていた
-    - 移植性の壁になっていた。メモリ縮小は実装に任せられたオプション機能であったため、環境による動作の違いがあった
-    - [`vector`](/reference/vector/vector.md)と`string`でのコードの汎用化がむずかしくなっていた。[`vector::reserve()`](/reference/vector/vector/reserve.md)はメモリ伸長のみをサポートしていたが、`string`側はメモリ縮小もサポートしていたため、引数の値を計算することが難しかった
-    - メモリ縮小のためには[`shrink_to_fit()`](shrink_to_fit.md)メンバ関数があるため、そちらと重複する機能をなくすこととした
-    - これらのことから、C++20では、メモリ縮小を許可しているように見えるデフォルト引数`0`を非推奨可し、メモリ縮小機能を効果から削除した
+## 非推奨・削除の詳細
+C++03で`reserve`操作でのメモリの縮小ができたことは、以下の問題があった：
+
+- パフォーマンスの罠となっていた。この関数に指定する引数の値を慎重に選ばなければ、予想外の動的な再確保によってパフォーマンスを低下させる原因となっていた
+- 移植性の壁になっていた。メモリ縮小は実装に任せられたオプション機能であったため、環境による動作の違いがあった
+- [`vector`](/reference/vector/vector.md)と`string`でのコードの汎用化がむずかしくなっていた。[`vector::reserve()`](/reference/vector/vector/reserve.md)はメモリ伸長のみをサポートしていたが、`string`側はメモリ縮小もサポートしていたため、引数の値を計算することが難しかった
+- メモリ縮小のためには[`shrink_to_fit()`](shrink_to_fit.md)メンバ関数があるため、そちらと重複する機能であった
+
+これらのことから、C++20では、メモリ縮小を許可しているように見えるデフォルト引数`0`を非推奨化し、メモリ縮小機能を効果から削除した。
 
 
 ## 例
@@ -68,3 +73,5 @@ int main()
 
 ## 参照
 - [P0966R1 `string::reserve` Should Not Shrink](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0966r1.html)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+- [P2870R3 Remove `basic_string::reserve()` From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2870r3.pdf)

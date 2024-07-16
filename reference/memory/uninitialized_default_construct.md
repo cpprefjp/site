@@ -20,7 +20,7 @@ namespace std {
 ## 概要
 未初期化領域の範囲の各要素をデフォルト構築する。
 
-未初期化領域の入力範囲`[first, last)`の各要素をデフォルト構築する (ゼロ初期化しない)。
+未初期化領域の入力イテレータ範囲`[first, last)`の各要素をデフォルト構築する (ゼロ初期化しない)。
 
 
 ## 効果
@@ -38,6 +38,9 @@ for (; first != last; ++first)
 ## 戻り値
 なし
 
+## 例外
+
+呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
 
 ## 備考
 - [`std::vector`](/reference/vector/vector.md)クラスの要素数を変更する操作は、要素を値構築するためゼロ初期化が行われる。その値初期化のコストが気になるような場合に、デフォルト構築することでプログラマの責任で必要な分だけ任意に初期化でき、パフォーマンス向上が期待できるようになる。
@@ -62,7 +65,7 @@ int main()
   const std::size_t size = 3;
   Vector* p = alloc.allocate(size);
 
-  // 未初期化領域[p, p + size)をデフォルト構築
+  // 未初期化領域[p, p + size)の各要素をデフォルト構築
   std::uninitialized_default_construct(p, p + size);
 
   // 各要素を出力
@@ -97,10 +100,13 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 関連項目
+- [`ranges::uninitialized_default_construct`](ranges_uninitialized_default_construct.md)
 
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)

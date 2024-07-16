@@ -1,5 +1,13 @@
-# 初期化子リスト
+# 初期化子リスト [N2672]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 「初期化子リスト (initializer lists)」は、ユーザー定義型のオブジェクトに対して、波カッコによるリスト初期化を使用できるようにするようオーバーロードする機能である。
@@ -251,18 +259,18 @@ int main()
 
 
 ### <a id="type-deduction" href="#type-deduction">型推論</a>
-- 初期化リストを`auto`で受けた場合、`std::initializer_list`型に推論される。ただし、空の初期化子リストは推論に失敗する
+- 初期化子リストを`auto`で受けた場合、`std::initializer_list`型に推論される。ただし、空の初期化子リストは推論に失敗する
 
     ```cpp
     auto x1 = {1, 2, 3}; // x1の型はstd::initializer_list<int>
     //auto x2 = {};      // コンパイルエラー！x2の型を推論できない
     ```
 
-- 単一要素の初期化子リストを`auto`で受けた場合、C++11では`std::initializer_list<T>`型に推論されるが、C++17では`T`型に推論されるよう仕様が変更されるので注意
+- 単一要素の初期化子リストを`auto`で受けた場合、C++11では`std::initializer_list<T>`型に推論されるが、C++17では直接初期化の場合`T`型に推論されるよう仕様が変更されるので注意
 
     ```cpp
-    auto x = {1}; // C++11ではxの型はstd::initializer_list<int>。
-                  // C++17ではxの型はintになる
+    auto x{1}; // C++17ではxの型はintになる
+    auto x = {1}; // C++11,17共に、xの型はstd::initializer_list<int>。
     ```
 
 - 関数テンプレートのパラメータとして初期化子リストを受けとった場合は、`std::initializer_list`型には推論されない
@@ -331,7 +339,7 @@ std::vector<int> v(ar, ar + N);
 この問題を解決するために、波カッコによるリスト初期化をユーザー定義型でオーバーロードする機能が求められ、[`std::initializer_list`](/reference/initializer_list/initializer_list.md)クラスとオーバーロード機能が導入された。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 一様初期化](uniform_initialization.md)
 
 
@@ -350,4 +358,3 @@ std::vector<int> v(ar, ar + N);
 - [N2640 Initializer Lists - Alternative Mechanism and Rationale (v. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2640.pdf)
 - [N2672 Initializer List proposed wording](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2672.htm)
 - [CWG Issue 1030. Evaluation order in initializer-lists used in aggregate initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1030)
-

@@ -12,9 +12,10 @@ namespace std {
                          Size n,
                          ForwardIterator result); // (1) C++11
 
-  template <class InputIterator, class Size, class ForwardIterator>
+  template <class ExecutionPolicy, class InputIterator, class Size, class ForwardIterator>
   ForwardIterator
-    uninitialized_copy_n(InputIterator first,
+    uninitialized_copy_n(ExecutionPolicy&& exec,
+                         InputIterator first,
                          Size n,
                          ForwardIterator result); // (2) C++17
 }
@@ -23,8 +24,11 @@ namespace std {
 ## 概要
 未初期化領域の範囲のうち、先頭`N`個の要素を配置`new`で初期化してコピー出力する。
 
-入力範囲`[first, first + n)`のコピーを未初期化出力範囲`[result, result + n)`に書き込む。
+入力イテレータ範囲`[first, first + n)`のコピーを未初期化出力イテレータ範囲`[result, result + n)`に書き込む。
 
+## 事前条件
+
+- イテレータ範囲`[result, result + n)`が`[first, first + n)`と重ならないこと
 
 ## 効果
 - C++11 : 以下と等価
@@ -49,6 +53,10 @@ namespace std {
 
 ## 戻り値
 `result`
+
+## 例外
+
+呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
 
 
 ### 例
@@ -105,8 +113,8 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.4.7
-- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 

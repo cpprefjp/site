@@ -1,7 +1,7 @@
 # numeric
 * numeric[meta header]
 
-`<numeric>` ヘッダは数値のシーケンスの処理に特化したアルゴリズムを定義する。
+`<numeric>` ヘッダでは、数値のシーケンスや数値の処理に特化したアルゴリズムを定義する。
 
 
 ## 集計
@@ -37,6 +37,7 @@
 |------|------|-------|
 | [`adjacent_difference`](numeric/adjacent_difference.md) | 隣接する要素間の差を計算する | |
 | [`iota`](numeric/iota.md)                   | 指定された値から始まる整数列を生成する | C++11 |
+| [`ranges::iota`](numeric/ranges_iota.md)                   | 指定された値から始まる整数列を生成する | C++23 |
 
 
 ## 最大公約数と最小公倍数
@@ -52,6 +53,17 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
 | [`midpoint`](numeric/midpoint.md) | 数値とポインタの中点を求める | C++20 |
+
+
+## 飽和演算
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|-------|
+| [`add_sat`](numeric/add_sat.md) | 飽和加算`x + y` | C++26 |
+| [`sub_sat`](numeric/sub_sat.md) | 飽和減算`x - y` | C++26 |
+| [`mul_sat`](numeric/mul_sat.md) | 飽和乗算`x * y` | C++26 |
+| [`div_sat`](numeric/div_sat.md) | 飽和除算`x / y` | C++26 |
+| [`saturate_cast`](numeric/saturate_cast.md) | 飽和演算あり型キャスト | C++26 |
 
 
 ## 関連項目

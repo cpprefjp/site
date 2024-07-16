@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-size_type capacity() const;          // C++03
-size_type capacity() const noexcept; // C++11
+size_type capacity() const;                    // (1) C++03
+size_type capacity() const noexcept;           // (1) C++11
+constexpr size_type capacity() const noexcept; // (1) C++20
 ```
 
 ## 概要
@@ -50,3 +51,4 @@ int main()
 
 ## 参照
 - [LWG Issue 3004. §[string.capacity] and §[vector.capacity] should specify time complexity for `capacity()`](https://wg21.cmeerw.net/lwg/issue3004)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

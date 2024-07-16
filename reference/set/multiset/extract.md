@@ -6,27 +6,35 @@
 * cpp17[meta cpp]
 
 ```cpp
-node_type extract(const_iterator position); (1)
-node_type extract(const key_type& x);       (2)
+node_type extract(const_iterator position); // (1) C++17
+
+node_type extract(const key_type& x);       // (2) C++17
+
+template <class K>
+node_type extract(K&& x);                   // (3) C++23
 ```
 
 ## 概要
-(1) `position`が指すノードを切り離し、その要素を所有する[ノードハンドル](/reference/node_handle/node_handle.md)を返す。  
-(2) `x`と等価なキーが見つかった場合、`x`が指す最初の要素を持つノードを切り離し、その要素を所有するノードハンドルを返す。それ以外の場合は空のノードハンドルを返す。
+指定された要素を`*this`から切り離し、その要素を所有する[ノードハンドル](/reference/node_handle/node_handle.md)を取得する。
+
+- (1) : `position`が指すノードを切り離す
+- (2) : `x`と等価なキーをもつノードを切り離す
+- (3) : `key_type`と比較可能な`x`と等価なキーをもつノードをすべて切り離す
 
 
 ## 戻り値
-要素を所有するノードハンドル。ただし、オーバーロード(2)の場合は空のノードハンドルの可能性がある。
+要素を所有するノードハンドル。ただし、オーバーロード(2), (3)の場合は空のノードハンドルの可能性がある。
 
 
 ## 計算量
-(1) 償却定数時間  
-(2) log((*this).size())
+- (1) : 償却定数時間
+- (2), (3) : 要素数を`N`として、`log(N)`
 
 
 ## 備考
-`extract`は、要素に対するコピーもムーブも行わずに、要素の所有権を転送することができる。
-また、`extract`は、ムーブオンリーオブジェクトを`multiset`から取り出すことができる。
+- この関数は、要素に対するコピーもムーブも行わずに、要素の所有権を転送することができる
+- この関数は、再確保なしでマップ要素のキーを変更することができる
+
 
 ```cpp example
 #include <iostream>
@@ -120,10 +128,10 @@ s2 = { 1, 2 }
 
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0.0
-- [GCC](/implementation.md#gcc): 7.1.0
+- [Clang](/implementation.md#clang): 7.0.0 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 5 [mark verified]
 
 
 ## 関連項目
@@ -132,4 +140,5 @@ s2 = { 1, 2 }
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
-
+- [P2077R3 Heterogeneous erasure overloads for associative containers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2077r3.html)
+    - C++23で、`template <class K> extract(K&& x)`のオーバーロードが追加された

@@ -17,7 +17,6 @@ namespace std {
 ```
 * regular[link /reference/concepts/regular.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
-* same_as[link /reference/concepts/same_as.md]
 
 ## 概要
 
@@ -104,8 +103,8 @@ sample_weak_incrementable is not incrementable
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 ## 関連項目
 

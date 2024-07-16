@@ -12,9 +12,7 @@ namespace std {
     predicate<R, T, U> && predicate<R, U, T>;
 }
 ```
-* regular_invocable[link /reference/concepts/invocable.md]
-* boolean-testable[link /reference/concepts/boolean-testable.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
+* predicate[link predicate.md]
 
 ## 概要
 
@@ -96,8 +94,8 @@ not_relation_s1s2 is not relation between S1 and S2
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

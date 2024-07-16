@@ -37,7 +37,7 @@ namespace std {
 ```
 
 ## 概要
-範囲を並べ替える
+イテレータ範囲`[first, last)`を並べ替える
 
 
 ## 要件
@@ -54,13 +54,13 @@ namespace std {
 
 ## 計算量
 - C++03: 平均して約N log N (N == `last - first`) 回の比較
-- C++11以降: O(N log N) (N == `last - first`) 計算量での比較
+- C++11以降: O(N log N) (N == `last - first`) 回の比較
 
 
 ## 備考
 - この関数には、特定のアルゴリズムで実装すべきという規定はない
 - 実装のアルゴリズムとしては、クイックソートの改良版であるイントロソートが使われることが多い
-- クイックソートは平均計算量がO(N Log N)だが、最悪計算量がO(n<sup>2</sup>)である。そのため、C++03の計算量要件には合致するが、C++11の要件には合致しない
+- クイックソートは平均計算量がO(N log N)だが、最悪計算量がO(n<sup>2</sup>)である。そのため、C++03の計算量要件には合致するが、C++11の要件には合致しない
 
 
 ## 例
@@ -112,11 +112,12 @@ int main()
 ```
 
 ### ユーザー定義型の配列を並べ替える (C++11)
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>
 #include <tuple>
+#include <algorithm>
 
 // 要素がひとつの場合
 struct MyInt {
@@ -182,10 +183,11 @@ Carol
 
 
 ### ユーザー定義型の配列を並べ替える (C++20)
-```cpp
+```cpp example
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 // 要素がひとつの場合
 struct MyInt {
@@ -232,7 +234,7 @@ int main() {
 
 
 ## 関連項目
-- [C++20 一貫比較](/lang/cpp20/consistent_comparison.md)
+- [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
 
 ## 参照
 - [LWG Issue 713. `sort()` complexity is too lax](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713)

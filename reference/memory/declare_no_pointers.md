@@ -3,12 +3,15 @@
 * std[meta namespace]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp23removed[meta cpp]
 
 ```cpp
-namepsace std {
+namespace std {
   void declare_no_pointers(char* p, size_t n);
 }
 ```
+
+この関数はC++23で削除された。
 
 ## 概要
 特定の領域に追跡可能なポインタが存在しないことを宣言する。
@@ -25,7 +28,7 @@ namepsace std {
 
 ## 効果
 - オブジェクトの型に関係なく、`[p, p + n)`の領域に追跡可能なポインタ位置を含まないものとして扱われる。
-- ゆえに、領域に位置する、グローバルな`operater new`でつくられ、到達可能だと宣言されないポインタは、間接参照できない。
+- ゆえに、領域に位置する、グローバルな`operator new`でつくられ、到達可能だと宣言されないポインタは、間接参照できない。
 
 
 ## 戻り値
@@ -104,6 +107,10 @@ int main()
 
 ### 処理系
 - [GCC](/implementation.md#gcc): ?
-- [Clang](/implementation.md#clang): 3.4 (relaxed実装)
+- [Clang](/implementation.md#clang): 3.4 (relaxed実装) [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013 (relaxed実装)
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 (relaxed実装) [mark verified]
+
+
+## 参照
+- [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)

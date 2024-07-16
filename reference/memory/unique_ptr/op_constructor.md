@@ -8,24 +8,36 @@
 ```cpp
 constexpr unique_ptr() noexcept;             // (1) 単一オブジェクト、配列
 
-explicit unique_ptr(pointer p) noexcept;     // (2) 単一オブジェクト、配列（C++14まで）
+explicit unique_ptr(pointer p) noexcept;           // (2) 単一オブジェクト、配列（C++14まで）
+constexpr explicit unique_ptr(pointer p) noexcept; // (2) 単一オブジェクト C++23
 template<class U>
-explicit unique_ptr(U p) noexcept;           // (2) 配列 C++17
-
-unique_ptr(pointer p, const D& d1) noexcept; // (3) 単一オブジェクト、配列（C++14まで）
+explicit unique_ptr(U p) noexcept;                 // (2) 配列 C++17
 template<class U>
-unique_ptr(U p, const D& d1) noexcept;       // (3) 配列 C++17
+constexpr explicit unique_ptr(U p) noexcept;       // (2) 配列 C++23
 
-unique_ptr(pointer p, D&& d2) noexcept;      // (4) 単一オブジェクト、配列（C++14まで）
+unique_ptr(pointer p, const D& d1) noexcept;           // (3) 単一オブジェクト、配列（C++14まで）
+constexpr unique_ptr(pointer p, const D& d1) noexcept; // (3) 単一オブジェクト C++23
 template<class U>
-unique_ptr(U p, D&& d2) noexcept;            // (4) 配列 C++17
+unique_ptr(U p, const D& d1) noexcept;                 // (3) 配列 C++17
+template<class U>
+constexpr unique_ptr(U p, const D& d1) noexcept;       // (3) 配列 C++23
 
-unique_ptr(unique_ptr&& u) noexcept;         // (5) 単一オブジェクト、配列
+unique_ptr(pointer p, D&& d2) noexcept;           // (4) 単一オブジェクト、配列（C++14まで）
+constexpr unique_ptr(pointer p, D&& d2) noexcept; // (4) 単一オブジェクト C++23
+template<class U>
+unique_ptr(U p, D&& d2) noexcept;                 // (4) 配列 C++17
+template<class U>
+constexpr unique_ptr(U p, D&& d2) noexcept;       // (4) 配列 C++23
+
+unique_ptr(unique_ptr&& u) noexcept;           // (5) 単一オブジェクト、配列
+constexpr unique_ptr(unique_ptr&& u) noexcept; // (5) 単一オブジェクト、配列 C++23
 
 constexpr unique_ptr(nullptr_t) noexcept;    // (6) 単一オブジェクト、配列
 
 template <class U, class E>
 unique_ptr(unique_ptr<U, E>&& u) noexcept;   // (7) 単一オブジェクト、配列（C++17）
+template <class U, class E>
+constexpr unique_ptr(unique_ptr<U, E>&& u) noexcept; // (7) 単一オブジェクト、配列 C++23
 
 template <class U>
 unique_ptr(auto_ptr<U>&& u) noexcept;        // (8) 単一オブジェクト
@@ -131,8 +143,8 @@ int main()
   assert(!p6);
 
   // (7) 変換可能な他のunique_ptrから所有権を譲渡する
-  std::unique_ptr<void> p7 = std::move(p5);
-  assert(*static_cast<int*>(p7.get()) == 3);
+  std::unique_ptr<const int> p7 = std::move(p5);
+  assert(*static_cast<const int*>(p7.get()) == 3);
 }
 ```
 * std::default_delete[link /reference/memory/default_delete.md]
@@ -148,11 +160,15 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバーロード以外), 4.6.4
-- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.4.7 (nullptr_tのオーバーロード以外) [mark verified], 4.6.4 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
+
+
+## 関連項目
+- [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](/lang/cpp20/constinit.md)
 
 
 ## 参照
@@ -163,3 +179,4 @@ int main()
 - [LWG Issue 2520 : N4089 broke initializing `unique_ptr<T[]>` from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)
 - [LWG Issue 2801. Default-constructibility of `unique_ptr`](https://wg21.cmeerw.net/lwg/issue2948)
 - [LWG Issue 2905. `is_constructible_v<unique_ptr<P, D>, P, D const &>` should be false when D is not copy constructible](https://wg21.cmeerw.net/lwg/issue2905)
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

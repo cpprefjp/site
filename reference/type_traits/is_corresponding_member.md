@@ -1,6 +1,6 @@
 # is_corresponding_member
 * type_traits[meta header]
-* function[meta id-type]
+* function template[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
 
@@ -20,7 +20,7 @@ namespace std {
 
 
 ## 戻り値
-`S1`および`S2`は[スタンダードレイアウト型](is_standard_layout.md)、`M1`および`M2`はオブジェクト型であり、`m1`と`m2`いずれもヌルポインタではなく、`m1`と`m2`が[同一の先頭のメンバの並び(common initial sequence)](is_layout_compatible.md)において対応するデータメンバへのポインタであるときに限って`true`を返す。それ以外の場合は`false`を返す。
+`S1`および`S2`は[スタンダードレイアウト型](is_standard_layout.md)、`M1`および`M2`はオブジェクト型であり、`m1`と`m2`いずれもヌルポインタではなく、`m1`と`m2`が[同一の先頭のメンバの並び(common initial sequence)](is_layout_compatible.md)において対応するメンバ変数へのポインタであるときに限って`true`を返す。それ以外の場合は`false`を返す。
 
 
 ## 例外
@@ -43,7 +43,7 @@ int main()
   // 見た目に反して &C::a, &C::b はそれぞれ int(A::*), int(B::*) 型を持つため、
   // このケースではS1=A, S2=Bに型推論されて前述例と同様にtrueを返す。
   static_assert( std::is_corresponding_member( &C::a, &C::b ));
-  // テンプレートパラメータを明示することでクラスCのデータメンバに対する検査となる。
+  // テンプレートパラメータを明示することでクラスCのメンバ変数に対する検査となる。
   // このケースではCはスタンダードレイアウトクラスではなくfalseを返す。
   static_assert(!std::is_corresponding_member<C, C>( &C::a, &C::b ));
 }

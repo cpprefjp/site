@@ -14,7 +14,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 
 | 言語機能       | 説明 |
 |----------------|------|
-| [`auto`](cpp11/auto.md) | 型推論 |
+| [変数の型推論のための`auto`](cpp11/auto.md) | 型推論 |
 | [`decltype`](cpp11/decltype.md) | 式の型を取得 |
 | [範囲for文](cpp11/range_based_for.md) | 配列やコンテナといった範囲を表すオブジェクトを、簡潔に走査する |
 | [初期化子リスト](cpp11/initializer_lists.md) | 波括弧による初期化をユーザー定義する。`vector<int> v = {1, 2, 3};`など。 |
@@ -47,14 +47,14 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | 言語機能       | 説明 |
 |----------------|------|
 | [スコープを持つ列挙型](cpp11/scoped_enum.md) | 強い型付けとスコープを持つ列挙型の導入と、それにともなって従来の列挙型を機能拡張 |
-| [共用体の制限解除](cpp11/unrestricted_unions.md) | 共用体のメンバ変数として、クラスオブジェクトを持てるようにする |
+| [共用体でクラスオブジェクトをもつことを許可](cpp11/unrestricted_unions.md) | 共用体のメンバ変数として、クラスオブジェクトを持てるようにする |
 
 
 ### テンプレート関係の機能
 
 | 言語機能       | 説明 |
 |----------------|------|
-| [テンプレートの右山カッコ](cpp11/right_angle_brackets.md) | `vector<basic_string<char>>`のように、`>>`をスペースを空けずに記述可能にする |
+| [テンプレートでの連続した右山カッコを許可](cpp11/right_angle_brackets.md) | `vector<basic_string<char>>`のように、`>>`をスペースを空けずに記述可能にする |
 | [`extern template`](cpp11/extern_template.md) | テンプレートのインスタンス化を抑止する |
 | [エイリアステンプレート](cpp11/alias_templates.md) | テンプレートによって型の別名を定義する |
 | [可変引数テンプレート](cpp11/variadic_templates.md) | 任意の数のテンプレートパラメータを受け取れるようにする |
@@ -146,13 +146,13 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 
 ### アルゴリズム
 
-- 範囲が特定の条件を満たしているか調べる、[`std::all_of()`](/reference/algorithm/all_of.md)、[`std::any_of()`](/reference/algorithm/any_of.md)、[`std::none_of`](/reference/algorithm/none_of.md)を追加
+- イテレータ範囲が特定の条件を満たしているか調べる、[`std::all_of()`](/reference/algorithm/all_of.md)、[`std::any_of()`](/reference/algorithm/any_of.md)、[`std::none_of`](/reference/algorithm/none_of.md)を追加
 - 条件を満たしていない最初の要素を検索する[`std::find_if_not()`](/reference/algorithm/find_if_not.md)を追加
 - 指定された数の要素をコピーする[`std::copy_n()`](/reference/algorithm/copy_n.md)を追加
 - 条件を満たす要素のみをコピーする[`std::copy_if()`](/reference/algorithm/copy_if.md)を追加
-- 範囲の要素をムーブする[`std::move()`](/reference/algorithm/move.md)、[`std::move_backward()`](/reference/algorithm/move_backward.md)を追加
-- 新たな乱数ライブラリ[`<random>`](/reference/random.md)に対応した範囲のシャッフルアルゴリズム[`std::shuffle()`](/reference/algorithm/shuffle.md)を追加
-- 範囲がソート済みか調べる[`std::is_sorted()`](/reference/algorithm/is_sorted.md)を追加
+- イテレータ範囲の要素をムーブする[`std::move()`](/reference/algorithm/move.md)、[`std::move_backward()`](/reference/algorithm/move_backward.md)を追加
+- 新たな乱数ライブラリ[`<random>`](/reference/random.md)に対応したイテレータ範囲のシャッフルアルゴリズム[`std::shuffle()`](/reference/algorithm/shuffle.md)を追加
+- イテレータ範囲がソート済みか調べる[`std::is_sorted()`](/reference/algorithm/is_sorted.md)を追加
 - 2つの値の最小値を取得する[`std::min()`](/reference/algorithm/min.md)、最大値を取得する[`std::max()`](/reference/algorithm/max.md)に、初期化子リストによる可変引数版を追加
 - 最小値と最大値を同時に取得する関数[`std::minmax()`](/reference/algorithm/minmax.md)、[`std::minmax_element()`](/reference/algorithm/minmax_element.md)を追加
 - 指定された値から始まる整数列を生成する[`std::iota()`](/reference/numeric/iota.md)を追加

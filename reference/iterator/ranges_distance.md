@@ -16,8 +16,8 @@ namespace std::ranges {
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * sentinel_for[link /reference/iterator/sentinel_for.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* range[link /reference/ranges/range.md.nolink]
-* range_difference_t[link /reference/ranges/range_difference_t.md.nolink]
+* range[link /reference/ranges/range.md]
+* range_difference_t[link /reference/ranges/range_difference_t.md]
 
 ## 概要
 
@@ -32,8 +32,8 @@ namespace std::ranges {
 ## 事前条件
 
 - (1) : 次のいずれか
-    - `[first, last)`は有効な範囲である
-    - `[last, first)`は有効な範囲であり、`S, I`は[`same_as`](/reference/concepts/same_as.md)`<S, I>`および[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる
+    - `[first, last)`は有効なイテレータ範囲である
+    - `[last, first)`は有効なイテレータ範囲であり、`S, I`は[`same_as`](/reference/concepts/same_as.md)`<S, I>`および[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる
 
 ## 効果
 
@@ -41,8 +41,8 @@ namespace std::ranges {
     - `S, I`が[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のモデルとなる : `return (last - first)`
     - それ以外の場合 : `first`から`last`に到達するのに必要なインクリメントの回数を返す。
 - (2) : 次のいずれかによって、範囲の長さを求める。
-    - `R`が[`sized_range`](/reference/ranges/sized_range.md.nolink)`<R>`のモデルとなる : `return static_cast<`[`range_difference_t`](/reference/ranges/range_difference_t.md.nolink)`<R>>(`[`ranges::size`](/reference/ranges/size.md.nolink)`(r));`
-    - それ以外の場合 : `return ranges::distance(`[`ranges::begin`](/reference/ranges/begin.md.nolink)`(r), `[`ranges::end`](/reference/ranges/end.md.nolink)`(r))` （(1)に委譲）
+    - `R`が[`sized_range`](/reference/ranges/sized_range.md)`<R>`のモデルとなる : `return static_cast<`[`range_difference_t`](/reference/ranges/range_difference_t.md)`<R>>(`[`ranges::size`](/reference/ranges/size.md)`(r));`
+    - それ以外の場合 : `return ranges::distance(`[`ranges::begin`](/reference/ranges/begin.md)`(r), `[`ranges::end`](/reference/ranges/end.md)`(r))` （(1)に委譲）
 
 ## 戻り値
 
@@ -95,8 +95,8 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 5 [mark verified]
 
 ## 関連項目
 

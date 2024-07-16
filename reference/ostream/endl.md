@@ -41,6 +41,7 @@ int main() {
 ### 出力
 ```
 Kamaboko
+cpprefjp
 ```
 
 ## 実装例

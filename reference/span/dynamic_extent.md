@@ -14,15 +14,14 @@ namespace std {
 * max()[link /reference/limits/numeric_limits/max.md]
 
 ## 概要
-`dynamic_extent`は、動的な要素数をもつことを[`std::span`](span.md)クラスに指示するための定数である。
+`dynamic_extent`は、動的な要素数をもつことを[`std::span`](span.md)や[`std::mdspan`](../mdspan/mdspan.md)に指示するための定数である。
 
-以下のような状況で、[`std::span`](span.md)クラスは動的な要素数をもつようになる：
+### std::span
+以下のような状況で、[`span`](span.md)クラスは動的な要素数をもつようになる：
 
 - デフォルトテンプレート引数を使用 (デフォルトで`dynamic_extent`が使用される)
-- 動的な長さをもつ範囲を参照する ([`std::vector`](/reference/vector/vector.md)や、ポインタと要素数の組など)
+- 動的な長さをもつ範囲を参照する ([`vector`](/reference/vector/vector.md)や、ポインタと要素数の組など)
 - 参照範囲の変更を、動的な値で指定する (`s.`[`first`](span/first.md)`<N>()`は静的な要素数、`s.`[`first`](span/first.md)`(n)`は動的な要素数をもつ`span`オブジェクトを作成する)
-
-動的な要素数をもつ[`std::span`](span.md)クラスには、タプルインタフェースを使用できないという制限がある。
 
 
 ## 例
@@ -68,11 +67,17 @@ int main()
 ```
 ```
 
+
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0
+- [Clang](/implementation.md#clang): 9.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- C++20 [`span`](span.md)
+- C++23 [`mdspan`](../mdspan/mdspan.md)

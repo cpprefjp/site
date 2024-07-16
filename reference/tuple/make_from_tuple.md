@@ -6,23 +6,33 @@
 
 ```cpp
 namespace std {
+  // C++17
   template <class T, class Tuple>
+  constexpr T make_from_tuple(Tuple&& t);
+
+  // C++23
+  template <class T, tuple-like Tuple>
   constexpr T make_from_tuple(Tuple&& t);
 }
 ```
+* tuple-like[link tuple-like.md]
 
 ## 概要
-tuple-likeな型`Tuple`のオブジェクトに含まれる値から型`T`のオブジェクトを構築する。
+[`tuple-like`](tuple-like.md)な型`Tuple`のオブジェクトに含まれる値から型`T`のオブジェクトを構築する。
 
 ## 要件
-型`T`のコンストラクタの内のいずれか一つが、型`Tuple`に含まれる全ての型の値をその順番通りに受け入れ可能であること。それができない場合はコンパイルエラーとなる。  
+型`T`のコンストラクタの内のいずれか一つが、型`Tuple`に含まれる全ての型の値をその順番通りに受け入れ可能であること。それができない場合はコンパイルエラーとなる。
+
 また、型`T`の初期化はそのコンストラクタで行われ集成体初期化は考慮されない。つまり、`Tuple`に含まれる型が空かただ一つの`T`でない場合、型`T`は集成体（aggregate）であってはならない（C++17のみ、C++20以降はok）。
 
-## 引数
-- `t` -- tuple-likeな型`Tuple`のオブジェクト
+更に、C++23以降は`make_from_tuple`の戻り値が参照である場合でダングリング参照を生成しないために、`make_from_tuple`の内部で`T`が構築される際に、`Tuple`から取得されるオブジェクト（参照の初期化であるので、`Tuple`のサイズは1である必要がある）の寿命が延長されないことも要求され、これを満たさない場合はコンパイルエラーとなる。
+正確には、[`tuple_size_v`](tuple_size.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<Tuple>> == 1`である場合、[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<T, decltype(get<0>(`[`declval`](/reference/utility/declval.md)`<Tuple>()))> == false`であること。
 
-tuple-likeな型とは主に[`std::tuple`](../tuple.md)の事であるが、[`std::pair`](/reference/utility/pair.md)や[`std::array`](/reference/array/array.md)のように[`std::tuple`](../tuple.md)と同じような扱いができる型も含んでいる。  
-より詳細には、[`std::get`](/reference/array/array/get.md)（インデックス指定）と[`std::tuple_size`](/reference/array/array/tuple_size.md)が適用可能な型である。
+## 引数
+- `t` -- [`tuple-like`](tuple-like.md)な型`Tuple`のオブジェクト
+
+[`tuple-like`](tuple-like.md)な型とは主に[`std::tuple`](../tuple.md)の事であるが、[`std::pair`](/reference/utility/pair.md)や[`std::array`](/reference/array/array.md)のように[`std::tuple`](../tuple.md)と同じような扱いができる型も含んでいる。  
+より詳細には、[`std::get`](/reference/array/array/get.md)（インデックス指定）と[`std::tuple_size`](/reference/array/array/tuple_size.md)が適用可能な型である。（C++20まで。）C++23 では[`tuple-like`](tuple-like.md)による制約が追加されたため、使用できる型は狭まった。（[`tuple-like`](tuple-like.md)を参照）
 
 ## 戻り値
 `Tuple`に含まれる型の値をその順番通りに型`T`のコンストラクタに[`std::forward`](/reference/utility/forward.md)して構築された`T`のオブジェクト。
@@ -50,7 +60,6 @@ constexpr T make_from_tuple(Tuple&& t) {
 * std::forward[link /reference/utility/forward.md]
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
 * std::index_sequence[link /reference/utility/index_sequence.md]
-* std::decay_t[link /reference/type_traits/decay.md]
 
 ## 例
 
@@ -120,11 +129,12 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2017
+- [Visual C++](/implementation.md#visual_cpp): 2017 [mark verified]
 
 
 ## 関連項目
 - [apply](../tuple/apply.md)
+- [`tuple-like`](tuple-like.md)
 
 ## 参照
 - [C++1z タプルを任意の型のオブジェクトに変換するmake_from_tuple関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/08/19/173946)

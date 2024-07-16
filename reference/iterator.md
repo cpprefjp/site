@@ -7,7 +7,7 @@
 C++標準ライブラリのイテレータは、以下のように階層的に定義される。
 この階層はC++言語機能の継承と同じように見なせる。たとえば、入力イテレータと前方向イテレータはis a関係が成り立っており、前方向イテレータは入力イテレータと見なすことができる。
 
-![](https://raw.github.com/cpprefjp/image/master/reference/iterator/iterators.png)
+![](https://raw.githubusercontent.com/cpprefjp/image/master/reference/iterator/iterators.jpg)
 
 C++20以降の標準ライブラリでは、任意のイテレータに対して可能な操作によって上記5つに隣接イテレータ（*contiguous iterator*）を加えた6つのイテレータカテゴリを定義する。それぞれ次のイテレータコンセプトが対応する。
 
@@ -78,6 +78,7 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`iter_reference_t`](iterator/iter_reference_t.md) | イテレータの`reference_type`を取得する (alias template)           | C++20          |
 | [`iter_rvalue_reference_t`](iterator/iter_rvalue_reference_t.md) | イテレータの指す要素の右辺値参照型を取得する (alias template)           | C++20          |
 | [`iter_common_reference_t`](iterator/iter_common_reference_t.md) | イテレータの`value_type`と`reference_type`の[`common_reference`](/reference/type_traits/common_reference.md)を取得する (alias template)           | C++20          |
+| [`iter_const_reference_t`](iterator/iter_const_reference_t.md) | イテレータの参照型（`iter_reference_t`）を`const`化したものを取得する (alias template)           | C++23          |
 | [`indirect_result_t`](iterator/indirect_result_t.md) | 関数呼び出し可能な型`F`を複数のイテレータ`Is...`によって呼び出した時の戻り値型を取得する (alias template)           | C++20          |
 | [`projected`](iterator/projected.md) | イテレータ`I`の`Proj`による射影操作の結果を表すことのできる[`indirectly_readable`](/reference/iterator/indirectly_readable.md)なクラス (class template)           | C++20          |
 | [`incrementable_traits`](iterator/incrementable_traits.md)   | `iter_difference_t`にアダプトするためのカスタマイゼーションポイント (class template)               | C++20          |
@@ -137,6 +138,16 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`istreambuf_iterator`](iterator/istreambuf_iterator.md) | 入力ストリームバッファイテレータ(class template) | |
 | [`ostreambuf_iterator`](iterator/ostreambuf_iterator.md) | 出力ストリームバッファイテレータ(class template) | |
 
+## 定数イテレータ
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------------|------------------------------------------|-------|
+| [`basic_const_iterator`](iterator/basic_const_iterator.md) | イテレータの要素を`const`化するラッパーイテレータ(class template) | C++23 |
+| [`const_iterator`](iterator/const_iterator.md) | 要素が`const`化されたイテレータ型を取得する (alias template)           | C++23 |
+| [`const_sentinel`](iterator/const_sentinel.md) | 要素が`const`化された番兵型を取得する (alias template)           | C++23 |
+| [`make_const_iterator`](iterator/make_const_iterator.md) | `const_iterator`オブジェクトを作るヘルパ関数(function template) | C++23 |
+| [`make_const_sentinel`](iterator/make_const_sentinel.md) | `const_sentinel`オブジェクトを作るヘルパ関数(function template) | C++23 |
+
 ## その他のイテレータアダプタ
 
 | 名前 | 説明 | 対応バージョン |
@@ -182,17 +193,8 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 | [`ranges::iter_move`](iterator/iter_move.md)   | イテレータの指す要素をムーブする (customization point object)               | C++20          |
 | [`ranges::iter_swap`](iterator/iter_swap.md) | 2つのイテレータの指す要素を*swap*する (customization point object) | C++20 |
 
-## 説明専用コンセプト
-
-| 名前                         | 説明                                            | 対応バージョン |
-|------------------------------|-------------------------------------------------|----------------|
-| [`with-reference`](iterator/dereferenceable.md)   | 型`T`に参照を付加する (alias template)               | C++20          |
-| [`can-reference`](iterator/dereferenceable.md) | `with-reference`可能 (concept) | C++20 |
-| [`dereferenceable`](iterator/dereferenceable.md) | 単純な間接参照が可能 (concept)           | C++20          |
-| [`is-integer-like`](iterator/is_integer_like.md) | 符号付整数型と同等の型か否かを表す (variable template)           | C++20          |
-| [`is-signed-integer-like`](iterator/is_integer_like.md) | 符号なし整数型と同等の型か否かを表す (variable template)           | C++20          |
-
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
+- [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)

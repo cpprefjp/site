@@ -1,5 +1,13 @@
-# 右辺値参照・ムーブセマンティクス
+# 右辺値参照・ムーブセマンティクス [N2118]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 ムーブセマンティクスはコピーコストの削減を主な目的としており、また所有権の移動を実現する。  
@@ -277,7 +285,7 @@ public:
 
 ### ユニヴァーサル参照
 関数テンプレートの型パラメータ`T`や[型推論プレースホルダ`auto`](auto.md)に参照修飾子`&&`をつけて宣言したものはユニヴァーサル参照と呼ばれ、通常の右辺値参照とは異なる動作をする。
-なお「ユニヴァーサル参照(Universal Reference)」は[Scott Mayers氏による解説](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)由来の俗称であり、後にC++17仕様において「転送参照(Fowarding Reference)」という正式名称が与えられた。
+なお「ユニヴァーサル参照(Universal Reference)」は[Scott Mayers氏による解説](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers)由来の俗称であり、後にC++17仕様において「転送参照(Forwarding Reference)」という正式名称が与えられた。
 
 ```cpp
 // ユニヴァーサル参照
@@ -291,7 +299,7 @@ void f(T&& x) {}
 
 ### 完全転送（Perfect Forwarding）
 
-あるが関数が受け取ったパラメータを別の関数へそのまま渡したいとき、
+ある関数が受け取ったパラメータを別の関数へそのまま渡したいとき、
 右辺値は右辺値として、左辺値は左辺値として別の関数へ転送したいことがある（完全転送）。  
 ユニヴァーサル参照を用いると、呼び出し元における右辺値／左辺値という情報が、受け取り側で右辺値参照／左辺値参照という型情報によって区別可能となる。  
 しかし右辺値を右辺値参照で受け取った場合、その引数をそのまま使うと左辺値になるため再び右辺値へ変換する必要が生じる。  
@@ -374,7 +382,7 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`move`](/reference/utility/move.md)
 - [`forward`](/reference/utility/forward.md)
 - [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
@@ -382,6 +390,7 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 - [`move_backward`](/reference/algorithm/move_backward.md)
 - [`unique_ptr`](/reference/memory/unique_ptr.md)
 - [`move_iterator`](/reference/iterator/move_iterator.md)
+- [C++23 暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md)
 
 
 ## 参照

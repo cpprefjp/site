@@ -55,7 +55,7 @@ return ymwdl + dm;
 - (3) :
 
 ```cpp
-return (ymwdl.year() + dy) / ywmdl.month() / ywmdl.weekday_last();
+return (ymwdl.year() + dy) / ymwdl.month() / ymwdl.weekday_last();
 ```
 * ymwdl.year()[link year.md]
 * ymwdl.month()[link month.md]
@@ -99,9 +99,9 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): 11.1
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 参照

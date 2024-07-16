@@ -215,7 +215,6 @@ int main()
 * std::allocator_arg_t[link allocator_arg_t.md]
 * std::ostream[link ../ostream/basic_ostream.md]
 * std::piecewise_construct_t[link ../utility/piecewise_construct_t.md]
-* std::tuple[link ../tuple/tuple.md]
 * std::apply[link ../tuple/apply.md]
 
 ### 出力
@@ -232,8 +231,8 @@ tuple(piecewise_construct_t, tuple(allocator_arg_t, MyAlloc, 3, ), tuple(4, MyAl
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??（9.0.0 の時点で未実装）
-- [GCC](/implementation.md#gcc): 9.1.0
+- [Clang](/implementation.md#clang): 9.0.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

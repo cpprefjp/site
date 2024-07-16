@@ -22,7 +22,7 @@ namespace std::chrono {
 return get_tzdb().locate_zone(tz_name);
 ```
 * get_tzdb()[link get_tzdb.md]
-* locate_zone()[link tzdb/locate_zone.md]
+* locate_zone[link tzdb/locate_zone.md]
 
 
 ## 例外
@@ -82,9 +82,9 @@ Asia/Nicosia
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 参照

@@ -21,8 +21,8 @@ namespace std {
 }
 ```
 * swap[link /reference/concepts/swap.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * common_reference_with[link /reference/concepts/common_reference_with.md]
+* std::forward[link /reference/utility/forward.md]
 
 ## 概要
 
@@ -203,8 +203,8 @@ NS::S2 is not swappable with NS::S1
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 
 ## 関連項目
 

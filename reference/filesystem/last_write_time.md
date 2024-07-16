@@ -27,10 +27,10 @@ namespace std::filesystem {
 
 ## 効果
 - (1), (2) : パス`p`が指すエンティティのデータが最後に変更された時間を返す
-    - POSIX環境では[`stat()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数によって返される`st_mtime`メンバを使用する
+    - POSIX環境では[`stat()`](https://web.archive.org/web/20230827123440/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)関数によって返される`st_mtime`メンバを使用する
     - (2) : エラーが発生した場合は、`ec`にエラー情報が設定され、`file_time_type::min()`が返る
 - (3), (4) : パス`p`のエンティティに、最終更新日時として`new_time`を設定する
-    - POSIX環境では[`futimens()`](https://linuxjm.osdn.jp/html/LDP_man-pages/man2/utimensat.2.html)関数を使用する
+    - POSIX環境では[`futimens()`](https://web.archive.org/web/20230129193157/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/utimensat.2.html)関数を使用する
     - この関数を実行した結果として、`last_write_time(p) == new_time`となることは保証されない。これはOSのファイルシステムの制限による
     - (4) : エラーが発生した場合は、`ec`にエラー情報が設定される
 
@@ -96,6 +96,6 @@ dir time : Fri Jun 15 14:19:03 2018
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):

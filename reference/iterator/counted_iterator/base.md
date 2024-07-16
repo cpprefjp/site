@@ -6,10 +6,9 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr I base() const & requires copy_constructible<I>;  // (1)
+constexpr const I& base() const & noexcept;  // (1)
 constexpr I base() &&;  // (2)
 ```
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 
 ## 概要
 
@@ -17,7 +16,7 @@ constexpr I base() &&;  // (2)
 
 ## 戻り値
 
-- (1) : 元のイテレータをコピーして返す。
+- (1) : 元のイテレータへの`const`参照を返す。
 - (2) : 元のイテレータをムーブして返す。
 
 ## 例
@@ -40,8 +39,8 @@ int main() {
   std::cout << *(ci.base());
 }
 ```
-* count[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md.nolink]
+* base[color ff0000]
+* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 
@@ -56,9 +55,11 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 8
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 8 [mark verified]
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1207R4 Movability of single-pass iterators](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1207r4.pdf)
+- [LWG Issue 3391. Problems with `counted_iterator/move_iterator::base() const &`](https://cplusplus.github.io/LWG/issue3391)
+- [LWG Issue 3593. Several iterators' base() const & and lazy_split_view::outer-iterator::value_type::end() missing noexcept](https://cplusplus.github.io/LWG/issue3593)

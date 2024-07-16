@@ -1,5 +1,13 @@
-# noexcept
+# noexcept [N3050]
 * cpp11[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++11に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 C++11で導入された`noexcept`キーワードには、以下の2つの意味がある：
@@ -56,13 +64,16 @@ struct X {
   // 例外を送出しない
   int getValue() const noexcept;
 //int getValue() const noexcept(true);
+
+  // noexceptは参照修飾と後置戻り値型の間
+  auto getString() const & noexcept -> std::string;
 };
 ```
 * noexcept[color ff0000]
 
 - `noexcept`もしくは`noexcept(trueに評価される整数定数式)`が指定された関数が例外を送出した場合、[`std::terminate()`](/reference/exception/terminate.md)関数を呼び出してプログラムを異常終了させる。その際、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出される前に、スタックの巻き戻しは起こらない可能性がある。
 - 従来の`throw`キーワードによる例外仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。
-
+- `noexcept`の指定可能な位置は、[参照修飾](/lang/cpp11/ref_qualifier_for_this.md)の後、[戻り値の型を後置する関数宣言構文](/lang/cpp11/trailing_return_types.md)の前である。
 
 ### 式が例外を送出する可能性があるか判定するnoexcept演算子
 - 演算子としての`noexcept`は、引数として指定した定数式が例外を送出する可能性があるかどうかをコンパイル時に判定し、`bool`型の定数値を返す
@@ -162,7 +173,7 @@ int main()
 そういった例外を送出しない判定や指定は、従来の`throw`キーワードによる例外仕様の範囲を超えていた。そのために、`noexcept`という機能が新設され、その機能で必要十分となったために従来の例外仕様は非推奨となった。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [標準ライブラリにおける、関数に`noexcept`を付けない条件](/article/lib/dont_use_noexcept.md)
 - [`move_if_noexcept`](/reference/utility/move_if_noexcept.md)
 - [`is_nothrow_constructible`](/reference/type_traits/is_nothrow_constructible.md)
@@ -186,4 +197,3 @@ int main()
 - [N3205 Delete operators default to `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3205.htm)
 - [N3103 Security impact of `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3103.pdf)
 - [ムーブによるpop - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20130604/1370327651)
-

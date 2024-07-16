@@ -83,6 +83,16 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - 便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 - [`hh_mm_ss`](hh_mm_ss.md)オブジェクトの[`is_negative()`](hh_mm_ss/is_negative.md)が`true`である場合、出力される文字列の先頭に`STATICALLY-WIDEN<charT>("-")`が挿入される
 
+```cpp example
+#include <iostream>
+#include <format>
+#include <chrono>
+int main()
+{
+  const auto now = std::chrono::system_clock::now();
+  std::cout << std::format("{:%Y}", now); // => 2021
+}
+```
 
 ## 例外
 - 指定されたフォーマットフラグに必要な情報が含まれていない場合、[`format_error`](/reference/format/format_error.md)例外が送出される (例として、[`duration`](duration.md)には曜日をフォーマットするために必要な情報が含まれていない)
@@ -94,9 +104,9 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): (9.0時点で実装なし)
-- [GCC](/implementation.md#gcc): (9.2時点で実装なし)
-- [Visual C++](/implementation.md#visual_cpp): (2019 Update 3時点で実装なし)
+- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
 ## 参照

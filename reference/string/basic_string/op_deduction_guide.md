@@ -29,6 +29,7 @@ namespace std {
     -> basic_string<CharT, Traits, Allocator>;  // (3) C++20
 }
 ```
+* see below[italic]
 * allocator[link /reference/memory/allocator.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * char_traits[link /reference/string/char_traits.md]
@@ -93,8 +94,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

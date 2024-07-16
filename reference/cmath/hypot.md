@@ -7,20 +7,74 @@
 
 ```cpp
 namespace std {
-  float hypot(float x, float y);                                  // (1)
-  double hypot(double x, double y);                               // (2)
-  long double hypot(long double x, long double y);                // (3)
+  float
+    hypot(float x,
+          float y);               // (1) C++11からC++20まで
+  double
+    hypot(double x,
+          double y);              // (2) C++11からC++20まで
+  long double
+    hypot(long double x,
+          long double y);         // (3) C++11からC++20まで
 
-  Promoted hypot(Arithmetic1 x, Arithmetic2 y);                   // (4)
+  floating-point-type
+    hypot(floating-point-type x,
+          floating-point-type y); // (4) C++23
+  constexpr floating-point-type
+    hypot(floating-point-type x,
+          floating-point-type y); // (4) C++26
 
-  float hypotf(float x, float y);                                 // (5) C++17 から
-  long double hypotl(long double x, long double y);               // (6) C++17 から
+  Promoted
+    hypot(Arithmetic1 x,
+          Arithmetic2 y);         // (5) C++11
+  constexpr Promoted
+    hypot(Arithmetic1 x,
+          Arithmetic2 y);         // (5) C++26
 
-  double hypot(double x, double y, double z);                     // (7) C++17 から
-  float hypot(float x, float y, float z);                         // (8) C++17 から
-  long double hypot(long double x, long double y, long double z); // (9) C++17 から
+  float
+    hypotf(float x,
+           float y);              // (6) C++17
+  constexpr float
+    hypotf(float x,
+           float y);              // (6) C++26
 
-  Promoted hypot(Arithmetic1 x, Arithmetic2 y, Arithmetic2 z);    // (10) C++17 から
+  long double
+    hypotl(long double x,
+           long double y);        // (7) C++17
+  constexpr long double
+    hypotl(long double x,
+           long double y);        // (7) C++26
+
+  float
+    hypot(float x,
+          float y,
+          float z);               // (8) C++17からC++20まで
+  double
+    hypot(double x,
+          double y,
+          double z);              // (9) C++17からC++20まで
+  long double
+    hypot(long double x,
+          long double y,
+          long double z);         // (10) C++17からC++20まで
+
+  floating-point-type
+    hypot(floating-point-type x,
+          floating-point-type y,
+          floating-point-type z); // (11) C++23
+  constexpr floating-point-type
+    hypot(floating-point-type x,
+          floating-point-type y,
+          floating-point-type z); // (11) C++26
+
+  Promoted
+    hypot(Arithmetic1 x,
+          Arithmetic2 y,
+          Arithmetic3 z);         // (12) C++17
+  constexpr Promoted
+    hypot(Arithmetic1 x,
+          Arithmetic2 y,
+          Arithmetic3 z);         // (12) C++26
 }
 ```
 * Promoted[italic]
@@ -43,34 +97,37 @@ $$ f(x, y) = \sqrt{x^2 + y^2} $$
 
 各オーバーロードの概要は、以下の通りである：
 
-- (1) : `double`型について、2引数の平方和の平方根を求める
-- (2) : `float`型について、2引数の平方和の平方根を求める
-- (3) : `long double`型について、2引数の平方和の平方根を求める
-- (4) : 浮動小数点数型以外の算術型について、2引数の平方和の平方根を求める
-- (5) : `float`型について、2引数の平方和の平方根を求める
-- (6) : `long double`型について、2引数の平方和の平方根を求める
-- (7) : `double`型について、3引数の平方和の平方根を求める
-- (8) : `float`型について、3引数の平方和の平方根を求める
-- (9) : `long double`型について、3引数の平方和の平方根を求める
-- (10) : 浮動小数点数型以外の算術型について、3引数の平方和の平方根を求める
+- (1) : 2引数版の`float`に対するオーバーロード
+- (2) : 2引数版の`double`に対するオーバーロード
+- (3) : 2引数版の`long double`に対するオーバーロード
+- (4) : 2引数版の浮動小数点数型に対するオーバーロード
+- (5) : 2引数版の算術型に対するオーバーロード (大きい精度にキャストして計算される。整数は`double`で計算される)
+- (6) : 2引数版の`float`型規定
+- (7) : 2引数版の`long double`型規定
+- (8) : 3引数版の`float`に対するオーバーロード
+- (9) : 3引数版の`double`に対するオーバーロード
+- (10) : 3引数版の`long double`に対するオーバーロード
+- (11) : 3引数版の浮動小数点数型に対するオーバーロード
+- (12) : 3引数版の算術型に対するオーバーロード (大きい精度にキャストして計算される。整数は`double`で計算される)
 
 
 ## 戻り値
-- (1)-(6) : 引数 `x` と引数 `y` の平方和の平方根を返す。
-- (7)-(10) : 引数 `x` 、引数 `y` 、引数 `z` の平方和の平方根を返す。
+- (1)-(7) : 引数 `x` と引数 `y` の平方和の平方根を返す。
+- (8)-(12) : 引数 `x` 、引数 `y` 、引数 `z` の平方和の平方根を返す。
 
 オーバーフローエラー、アンダーフローエラーが発生する可能性がある。
 
 
 ## 備考
-- (1)-(6) : $$ f(x, y) = \sqrt{x^2 + y^2} $$
-- (7)-(10) : $$ f(x, y, z) = \sqrt{x^2 + y^2 + z^2} $$
+- (1)-(7) : $$ f(x, y) = \sqrt{x^2 + y^2} $$
+- (8)-(12) : $$ f(x, y, z) = \sqrt{x^2 + y^2 + z^2} $$
 - 概要の「余計なオーバーフロー、アンダーフローを起こさない」とは、たとえ <code>x<sup>2</sup></code> が戻り値型の範囲を超えていても、結果が戻り値型の範囲に収まるのであればオーバーフローしないで正しい結果を返す、と言う事である。
 - オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
-	- `hypot(x, y)` と `hypot(y, x)` と `hypot(x, -y)` は等価である。
-	- `hypot(x, ±0)` は、[`fabs`](fabs.md)`(x)` と等価である。
-	- `hypot(±∞, y)` の戻り値は、たとえ `y` が NaN の場合でも `+∞` となる。
+    - `hypot(x, y)` と `hypot(y, x)` と `hypot(x, -y)` は等価である。
+    - `hypot(x, ±0)` は、[`fabs`](fabs.md)`(x)` と等価である。
+    - `hypot(±∞, y)` の戻り値は、たとえ `y` が NaN の場合でも `+∞` となる。
+- C++23では、(1)、(2)、(3)が(4)に統合、(8)、(9)、(10)が(11)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例
@@ -158,20 +215,20 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 2.9, 3.1
-- [GCC](/implementation.md#gcc): 4.3.4, 4.4.5, 4.5.2, 4.6.1, 4.7.0
-- [Visual C++](/implementation.md#visual_cpp): 2012, 2013, 2015, 2017
-	- 2002, 2003, 2005, 2008, 2010およびそれ以降では、`<math.h>`でグローバル名前空間に以下が定義されている。
-		- 仮引数・戻り値が`float`型の`_hypotf`関数が定義されている。
-		- 仮引数・戻り値が`double`型の`hypot`関数と`_hypot`関数が定義されている。
-		- 仮引数・戻り値が`long double`型の`_hypotl`マクロが定義されている。
-	- 2010, 2012およびそれ以降では、上記に加え`<math.h>`でグローバル名前空間に以下が定義されている。
-		- 仮引数・戻り値が`float`型の`hypotf`関数が定義されている。
-		- 仮引数・戻り値が`long double`型の`hypotl`マクロが定義されている。
-	- 2013以降、`_hypotl`と`hypotl`は関数として定義されている。
+- [Clang](/implementation.md#clang): 2.9 [mark verified], 3.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.4.5 [mark verified], 4.5.2 [mark verified], 4.6.1 [mark verified], 4.7.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
+    - 2002, 2003, 2005, 2008, 2010およびそれ以降では、`<math.h>`でグローバル名前空間に以下が定義されている。
+        - 仮引数・戻り値が`float`型の`_hypotf`関数が定義されている。
+        - 仮引数・戻り値が`double`型の`hypot`関数と`_hypot`関数が定義されている。
+        - 仮引数・戻り値が`long double`型の`_hypotl`マクロが定義されている。
+    - 2010, 2012およびそれ以降では、上記に加え`<math.h>`でグローバル名前空間に以下が定義されている。
+        - 仮引数・戻り値が`float`型の`hypotf`関数が定義されている。
+        - 仮引数・戻り値が`long double`型の`hypotl`マクロが定義されている。
+    - 2013以降、`_hypotl`と`hypotl`は関数として定義されている。
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -184,3 +241,7 @@ $$ \sqrt{x^2 + y^2} = \left| u \right| \sqrt{1 + \left( \frac{v}{u} \right)^2} \
 
 ## 参照
 - [P0030R1 Proposal to Introduce a 3-Argument Overload to `std::hypot`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0030r1.pdf)
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+    - C++26で`constexpr`対応した

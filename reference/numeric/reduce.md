@@ -5,7 +5,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-namespace std{
+namespace std {
   template <class InputIterator>
   typename iterator_traits<InputIterator>::value_type
     reduce(InputIterator first, InputIterator last);         // (1) C++17
@@ -50,11 +50,11 @@ namespace std{
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 概要
-`reduce()`は、範囲を集計する関数である。[`accumulate()`](accumulate.md)関数は範囲の先頭から順に要素を集計するが、この関数は並列計算のために集計順を規定しない。
+`reduce()`は、イテレータ範囲`[first, last)`を集計する関数である。[`accumulate()`](accumulate.md)関数は範囲の先頭から順に要素を集計するが、この関数は並列計算のために集計順を規定しない。
 
-初期値(`init`)と範囲`[first, last)`を合算したリストの任意の組み合わせに、順不同で`binary_op(binary_op(a, b), binary_op(c, d))`のように適用していき、集計値を計算する。
+初期値(`init`)とイテレータ範囲`[first, last)`を合算したリストの任意の組み合わせに、順不同で`binary_op(binary_op(a, b), binary_op(c, d))`のように適用していき、集計値を計算する。
 
-- (1) : 集計の初期値を範囲の要素型の値初期化値 (算術型なら`0`) とし、二項演算に`operator+`を使用する。それによって、このオーバーロードは、範囲の合計値を求める処理となる
+- (1) : 集計の初期値をイテレータ範囲の要素型の値初期化値 (算術型なら`0`) とし、二項演算に`operator+`を使用する。それによって、このオーバーロードは、範囲の合計値を求める処理となる
 - (2) : 初期値をパラメータ`init`として受け取り、二項演算は`operator+`を使用する
 - (3) : 初期値をパラメータ`init`として受け取り、任意の二項演算`binary_op`を使用して集計を行う
 - (4) : (1)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
@@ -63,7 +63,7 @@ namespace std{
 
 
 ## 要件
-- (3), (6) : 関数オブジェクト`binary_op`の呼び出しは、範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
+- (3), (6) : 関数オブジェクト`binary_op`の呼び出しは、イテレータ範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
 
 
 ## テンプレートパラメータ制約
@@ -89,7 +89,7 @@ namespace std{
     ```
     * plus[link /reference/functional/plus.md]
 
-- (3), (6) : 範囲`[first, last)`について、リスト`[init, *first, *(first + 1), *(first + 2), ... *(first + (last - first - 1))]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op(sum1, sum2)`のように集計して返す
+- (3), (6) : イテレータ範囲`[first, last)`について、リスト`[init, *first, *(first + 1), *(first + 2), ... *(first + (last - first - 1))]`を任意の部分リストへ分割し、各部分リストの要素を順不同に`binary_op(a, b)`を実行していき、それを実行していった結果同士も順不同に`binary_op(sum1, sum2)`のように集計して返す
 
 - (4) : 以下と等価
     ```cpp
@@ -108,7 +108,7 @@ namespace std{
 
 
 ## 計算量
-関数オブジェクト`binary_op`をO(`last - first`)計算量の回数だけ適用する
+関数オブジェクト`binary_op`をO(`last - first`)回だけ適用する
 
 
 ## 例
@@ -154,7 +154,7 @@ product : 120
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 5.0.0
+- [Clang](/implementation.md#clang): 5.0.0 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 

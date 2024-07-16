@@ -5,13 +5,24 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& erase(size_type pos = 0, size_type n = npos); // (1)
+basic_string&
+  erase(size_type pos = 0, size_type n = npos); // (1) C++03
+constexpr basic_string&
+  erase(size_type pos = 0, size_type n = npos); // (1) C++20
 
-iterator erase(iterator p);       // (2) C++03まで
-iterator erase(const_iterator p); // (2) C++11から
+iterator erase(iterator p);                 // (2) C++03
+iterator erase(const_iterator p);           // (2) C++11
+constexpr iterator erase(const_iterator p); // (2) C++20
 
-iterator erase(iterator first, iterator last);             // (3) C++03まで
-iterator erase(const_iterator first, const_iterator last); // (3) C++11から
+iterator
+  erase(iterator first,
+        iterator last);       // (3) C++03
+iterator
+  erase(const_iterator first,
+        const_iterator last); // (3) C++11
+constexpr iterator
+  erase(const_iterator first,
+        const_iterator last); // (3) C++20
 ```
 
 ## 概要
@@ -31,7 +42,7 @@ iterator erase(const_iterator first, const_iterator last); // (3) C++11から
 ## 効果
 - (1) : `n`と[`size()`](size.md) `- pos`のうち小さい方を`xlen`とし、`pos`番目から`xlen`個の要素を削除する。
 - (2) : イテレータ`p`が指す要素を削除する。
-- (3) : 範囲`[first, last)`の文字列を削除する。
+- (3) : イテレータ範囲`[first, last)`の文字列を削除する。
 
 
 ## 戻り値
@@ -99,4 +110,4 @@ int main()
 - [LWG Issue 180. Container member iterator arguments constness has unintended consequences](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#180)
 - [LWG Issue 2003. String exception inconsistency in erase.](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2003)
     - C++14から(2)と(3)に、「例外を投げない」という保証が追加された経緯のレポート
-
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

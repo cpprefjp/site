@@ -6,14 +6,31 @@
 
 ```cpp
 namespace std {
-  float fmax(float x, float y);
-  double fmax(double x, double y);
-  long double fmax(long double x, long double y);
+  float fmax(float x, float y);          // (1) C++11からC++20まで
+  double fmax(double x, double y);       // (2) C++11からC++20まで
+  long double
+    fmax(long double x, long double y);  // (3) C++11からC++20まで
 
-  Promoted fmax(Arithmetic1 x, Arithmetic2 y);
+  constexpr floating-point-type
+    fmax(floating-point-type x,
+         floating-point-type y);         // (4) C++23
 
-  float fmaxf(float x, float y);                   // C++17 から
-  long double fmaxl(long double x, long double y); // C++17 から
+  Promoted
+    fmax(Arithmetic1 x,
+         Arithmetic2 y);                 // (5) C++11
+  constexpr Promoted
+    fmax(Arithmetic1 x,
+         Arithmetic2 y);                 // (5) C++23
+
+  float
+    fmaxf(float x, float y);             // (6) C++17
+  constexpr float
+    fmaxf(float x, float y);             // (6) C++23
+
+  long double
+    fmaxl(long double x, long double y); // (7) C++17
+  constexpr long double
+    fmaxl(long double x, long double y); // (7) C++23
 }
 ```
 * Promoted[italic]
@@ -22,6 +39,15 @@ namespace std {
 
 ## 概要
 算術型の最大値を求める。
+
+- (1) : `float`に対するオーバーロード
+- (2) : `double`に対するオーバーロード
+- (3) : `long double`に対するオーバーロード
+- (4) : 浮動小数点数型に対するオーバーロード
+- (5) : 算術型に対するオーバーロード (大きい精度にキャストして計算される。整数は`double`で計算される)
+- (6) : `float`型規定
+- (7) : `long double`型規定
+
 
 ## 戻り値
 引数の最大値を返す。
@@ -32,6 +58,8 @@ namespace std {
     - 引数の1つが NaN の場合 NaN でない方を返す。
     - 引数が2つとも NaN の場合 NaN を返す。
 - 理想的には `fmax(-0.0, +0.0)` は `+0` を返す。
+- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
+
 
 ## 例
 ```cpp example
@@ -65,13 +93,13 @@ fmax( nan, nan)  = +nan
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.3.6
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 #### 備考
-特定の環境で `constexpr` 指定されている場合がある。（独自拡張）
+特定の環境では、早期に `constexpr` 対応されている場合がある：
 
 - GCC 4.6.1 以上
 
@@ -105,3 +133,10 @@ namespace std {
 * std::enable_if[link ../type_traits/enable_if.md]
 * std::is_arithmetic[link ../type_traits/is_arithmetic.md]
 * std::common_type[link ../type_traits/common_type.md]
+
+
+## 参照
+- [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
+    - C++23での、一部関数の`constexpr`対応
+- [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
+    - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした

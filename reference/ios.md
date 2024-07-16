@@ -47,9 +47,9 @@
 | [`dec`](ios/dec.md)                   | 十進法で入出力（整数）                           |                |
 | [`hex`](ios/hex.md)                   | 十六進法で入出力（整数）                         |                |
 | [`oct`](ios/oct.md)                   | 八進法で入出力（整数）                           |                |
-| [`fixed`](ios/fixed.md)               | 小数点数表記で出力（浮動小数点数）               |                |
-| [`scientific`](ios/scientific.md)     | 指数表記で出力（浮動小数点数）                   |                |
-| [`hexfloat`](ios/hexfloat.md)         | 十六進法での指数表記で出力（浮動小数点数）       | C++11          |
+| [`fixed`](ios/fixed.md)               | 小数点数表記で入出力（浮動小数点数）             |                |
+| [`scientific`](ios/scientific.md)     | 指数表記で入出力（浮動小数点数）                 |                |
+| [`hexfloat`](ios/hexfloat.md)         | 十六進法での指数表記で入出力（浮動小数点数）     | C++11          |
 | [`defaultfloat`](ios/defaultfloat.md) | 小数点数・指数表記の自動切り替え（浮動小数点数） | C++11          |
 
 ## バージョン

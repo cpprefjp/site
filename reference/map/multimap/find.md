@@ -23,6 +23,10 @@ const_iterator find(const K& x) const;        // (4) C++14
 - (2), (4) : `key_type`と比較可能な`K`型のキーを受け取って検索する。
 
 
+## テンプレートパラメータ制約
+- (2), (4) : `key_compare::is_transparent`が妥当な式であること
+
+
 ## 戻り値
 - (1), (3) : `x`と等価なキーの要素が見つかった場合は、見つかった要素へのイテレータを返す。そうでない場合は、 [`end()`](/reference/map/map/end.md) を返す。
 - (2), (4) : `key_compare`型の関数オブジェクトを`c`、コンテナ内の各要素が持つキーを`k`として、キーが等価か判定する式`!c(k, x) && !c(x, k)`が`true`となる要素へのイテレータを返す。そのような要素がない場合は、[`end()`](/reference/map/map/end.md) を返す。
@@ -35,7 +39,7 @@ const_iterator find(const K& x) const;        // (4) C++14
 
 
 ## 備考
-- (2), (4) : `key_compare::is_transparent`が妥当な式である場合のみ、この関数はオーバーロード解決に参加する。
+- (2), (4) :
     - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
     - これらのオーバーロードは、`map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
 

@@ -50,7 +50,7 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.3.6
-- [Clang](/implementation.md#clang): 3.0
+- [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?

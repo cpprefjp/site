@@ -50,7 +50,7 @@ struct X {
   alignas(std::hardware_destructive_interference_size) int b;
 };
 
-struct IndivisualCacheInt {
+struct IndividualCacheInt {
   alignas(std::hardware_destructive_interference_size) int value;
 };
 
@@ -83,7 +83,7 @@ int main()
 
   // 連続したメモリの各要素を、個別のキャッシュに乗せる
   {
-    std::vector<IndivisualCacheInt> v{10};
+    std::vector<IndividualCacheInt> v{10};
     std::vector<std::thread> threads;
     for (std::size_t i = 0; i < v.size(); ++i) {
       threads.push_back(std::thread{[&v, i]{
@@ -104,7 +104,9 @@ int main()
 
 
 ### 出力例
-(実装がないため、動作確認できていない)
+```
+hardware_destructive_interference_size : 64
+```
 
 
 ## バージョン
@@ -113,8 +115,8 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc):
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [GCC](/implementation.md#gcc): 12.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp):
 
 
 ## 参照
@@ -126,4 +128,4 @@ int main()
 - [Understanding `std::hardware_destructive_interference_size` and `std::hardware_constructive_interference_size` - Stack Overflow](https://stackoverflow.com/questions/39680206/understanding-stdhardware-destructive-interference-size-and-stdhardware-cons)
     - 設計についての作者JF Bastien氏からのコメントがある
     - WebAssemblyなどの仮想環境ではターゲットアーキテクチャが実行時に決まるため、実行時の値もあるとよいだろう、とのコメントもある
-- [[RFC] C++17 hardware constructive / destructive interference size - Clang Developers Mailing list](http://clang-developers.42468.n3.nabble.com/RFC-C-17-hardware-constructive-destructive-interference-size-td4060786.html)
+- [[RFC] C++17 hardware constructive / destructive interference size - Clang Developers Mailing list](https://lists.llvm.org/pipermail/cfe-dev/2018-May/058073.html)

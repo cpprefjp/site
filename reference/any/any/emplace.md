@@ -2,7 +2,7 @@
 * any[meta header]
 * std[meta namespace]
 * any[meta class]
-* function[meta id-type]
+* function template[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp
@@ -91,7 +91,7 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0.1
-- [GCC](/implementation.md#gcc): 7.3
+- [Clang](/implementation.md#clang): 4.0.1 [mark verified]
+- [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

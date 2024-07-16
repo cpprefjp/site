@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-const_reference operator[](size_type pos) const;          // (1) C++03
-const_reference operator[](size_type pos) const noexcept; // (1) C++11
+const_reference operator[](size_type pos) const;           // (1) C++03
+constexpr const_reference operator[](size_type pos) const; // (1) C++20
 
-reference operator[](size_type pos);                      // (2) C++03
-reference operator[](size_type pos) noexcept;             // (2) C++11
+reference operator[](size_type pos);                       // (2) C++03
+constexpr reference operator[](size_type pos);             // (2) C++20
 ```
 
 ## 概要
@@ -62,3 +62,4 @@ e
 ```
 
 ## 参照
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

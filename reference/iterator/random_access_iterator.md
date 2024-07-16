@@ -30,7 +30,6 @@ namespace std {
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* same_as[link /reference/concepts/same_as.md]
 
 ## 概要
 
@@ -141,8 +140,8 @@ std::ostream_iterator<double> is not random_access_iterator
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 
 ## 関連項目
 

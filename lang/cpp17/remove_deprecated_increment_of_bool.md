@@ -1,5 +1,13 @@
-# 非推奨だった bool 型に対するインクリメント演算子を削除
+# 非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1]
 * cpp17[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++17に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -14,10 +22,10 @@ C++17では`bool`型に対する前置および後置の`operator ++`を削除�
 int main()
 {
   bool b = false;
-  const b1 = ++b;
+  const bool b1 = ++b;
   std::cout << std::boolalpha << b1 << std::endl; // => true
-  const b2 = ++b;
-  std::cout << std::boolalpha << b1 << std::endl; // => true
+  const bool b2 = ++b;
+  std::cout << std::boolalpha << b2 << std::endl; // => true
 }
 ```
 
@@ -74,8 +82,8 @@ int main()
 
 ## 仕様
 
-これまで、`opeartor ++`の定義は、`bool`型のときは`true`に変更する、`opeartor --`の定義は`bool`型を除く、というように例外規定されていた(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)。  
-C++17ではこれらが削除され、`opeartor ++`の定義(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)に、`bool`型を除く、という例外規定が追加された。
+これまで、`operator ++`の定義は、`bool`型のときは`true`に変更する、`operator --`の定義は`bool`型を除く、というように例外規定されていた(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)。  
+C++17ではこれらが削除され、`operator ++`の定義(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)に、`bool`型を除く、という例外規定が追加された。
 
 前置の`operator ++`と`operator +=`の呼び出し(例えば`++a`と`a+=1`)が等価にならない例に、`bool`型の場合、という文面があったが、C++17で削除された(§ 8 expr)。
 
@@ -146,7 +154,7 @@ Therac-25はカナダ原子力公社(AECL)とフランスCGR-MeV社によって�
 C++14で`std::exchange()`が導入されたことにより、唯一使いみちのあった後置の`operator++`の必要性もなくなり、C++17で削除されたと推測される。
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [`std::exchange()`](/reference/utility/exchange.md)
 

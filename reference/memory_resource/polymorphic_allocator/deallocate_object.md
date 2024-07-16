@@ -88,8 +88,8 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 9.1
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [GCC](/implementation.md#gcc): 9.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 update 9 [mark verified]
 
 ## 関連項目
 - [`deallocate_bytes`](/reference/memory_resource/polymorphic_allocator/deallocate_bytes.md)

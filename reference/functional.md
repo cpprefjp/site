@@ -25,6 +25,9 @@ struct doubler {
 |----------------------------------------------------------|----------------------------------------|-------|
 | [`function`](functional/function.md) | 関数・関数オブジェクトの多相的なラッパー(class template) | C++11 |
 | [`bad_function_call`](functional/bad_function_call.md) | 不正な関数呼び出しに関する例外(class)  | C++11 |
+| [`move_only_function`](functional/move_only_function.md) | ムーブのみ可能な関数・関数オブジェクトの多相軽量ラッパー(class template) | C++23 |
+| [`copyable_function`](functional/copyable_function.md) | コピー可能な関数・関数オブジェクトの多相軽量ラッパー(class template) | C++26 |
+| [`function_ref`](functional/function_ref.md) | 関数・関数オブジェクトの多相参照ラッパー(class template) | C++26 |
 
 
 ## 統一的な関数呼び出し
@@ -39,6 +42,7 @@ struct doubler {
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------------|----------------------------------------|-------|
 | [`bind_front`](functional/bind_front.md) | 関数の引数を先頭から順に部分適用する(function template) | C++20 |
+| [`bind_back`](functional/bind_back.md) | 関数の引数を末尾から順に部分適用する(function template) | C++23 |
 | [`bind`](functional/bind.md) | 関数の引数を部分適用する(function template) | C++11 |
 | [`is_bind_expression`](functional/is_bind_expression.md) | 型を`bind`の式と見なすか判定する(class template) | C++11 |
 | [`is_placeholder`](functional/is_placeholder.md) | 型がプレースホルダーかどうかを判定する(class template) | C++11 |
@@ -84,6 +88,12 @@ struct doubler {
 | [`less_equal`](functional/less_equal.md)       | 左辺が右辺以下かの比較(class template) | |
 | [`greater`](functional/greater.md)             | 左辺が右辺より大きいかの比較(class template) | |
 | [`greater_equal`](functional/greater_equal.md) | 左辺が右辺以上かの比較(class template) | |
+| [`ranges::equal_to`](functional/ranges_equal_to.md)           | 等値比較(class template)                     | C++20 |
+| [`ranges::not_equal_to`](functional/ranges_not_equal_to.md)   | 非等値比較(class template)                   | C++20 |
+| [`ranges::less`](functional/ranges_less.md)                   | 左辺が右辺より小さいかの比較(class template) | C++20 |
+| [`ranges::less_equal`](functional/ranges_less_equal.md)       | 左辺が右辺以下かの比較(class template)       | C++20 |
+| [`ranges::greater`](functional/ranges_greater.md)             | 左辺が右辺より大きいかの比較(class template) | C++20 |
+| [`ranges::greater_equal`](functional/ranges_greater_equal.md) | 左辺が右辺以上かの比較(class template)       | C++20 |
 
 
 ## 論理演算関数オブジェクト

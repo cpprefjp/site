@@ -8,6 +8,7 @@
 ```cpp
 decltype(auto) operator->() const requires /*see below*/;
 ```
+* see below[italic]
 
 ## 概要
 イテレータを間接参照する。
@@ -34,9 +35,9 @@ indirectly_readable<const I> &&
 
 ## 戻り値
 
-`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`_v`に保持しているとして、次のいずれか
+`I, S`の値のどちらかを[`variant<I, S>`](/reference/variant/variant.md)型のメンバ変数`v_`に保持しているとして、次のいずれか
 
-- `I`がポインタ型であり、`get<I>(_v).operator->()`が呼び出し可能な場合 : `return get<I>(_v);`
+- `I`がポインタ型であり、`get<I>(v_).operator->()`が呼び出し可能な場合 : `return get<I>(v_);`
 
 - [`iter_reference_t`](/reference/iterator/iter_reference_t.md)`<I>`が参照型の場合 : 以下と等価  
     ```cpp
@@ -45,7 +46,7 @@ indirectly_readable<const I> &&
     ```
     * addressof[link /reference/memory/addressof.md]
 
-- それ以外の場合 : `return proxy(*get<I>(_v));`  
+- それ以外の場合 : `return proxy(*get<I>(v_));`  
     `proxy`は次のように定義される説明専用のクラス。  
     ```cpp
     class proxy {
@@ -68,8 +69,8 @@ indirectly_readable<const I> &&
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 10.1
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9
+- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 9 [mark verified]
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)

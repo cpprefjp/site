@@ -73,11 +73,11 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.9
-- [GCC](/implementation.md#gcc): 7.1
+- [Clang](/implementation.md#clang): 3.9 [mark verified]
+- [GCC](/implementation.md#gcc): 7.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-##参照
+## 参照
 - [N4536 An algorithm to "clamp" a value between a pair of boundary values](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4536.html)
 - [P0025R0 An algorithm to "clamp" a value between a pair of boundary values (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0025r0.html)

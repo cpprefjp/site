@@ -66,16 +66,34 @@ int add(int a, int b, int c)
   return a + b + c;
 }
 
+class Foo {
+public:
+  int n;
+  Foo(int n) : n(n) {}
+  Foo add(int n2) const
+  {
+    return this->n + n2;
+  }
+};
+
 int main()
 {
   // 第1引数のみを先に渡す
   using namespace std::placeholders;
-  std::function<int(int, int)> f = std::bind(add, 2, _1, _2);
+  std::function<int(int, int)> f1 = std::bind(add, 2, _1, _2);
 
   // 残りの引数を渡して関数を呼び出す
-  const int result = f(3, 4);
+  const int result1 = f1(3, 4);
 
-  std::cout << result << std::endl;
+  Foo foo{2};
+
+  // thisにするもののみを先に渡す
+  std::function<Foo(int)> f2 = std::bind(&Foo::add, foo, _1);
+
+  // 残りの引数を渡して関数を呼び出す
+  const auto result2 = f2(3);
+
+  std::cout << result1 << ',' << result2.n << std::endl;
 }
 ```
 * std::bind[color ff0000]
@@ -84,7 +102,7 @@ int main()
 
 ### 出力
 ```
-9
+9,5
 ```
 
 ## バージョン
@@ -93,7 +111,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

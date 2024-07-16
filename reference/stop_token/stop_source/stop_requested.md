@@ -38,9 +38,9 @@ int main()
   assert(ss2.stop_requested() == false);
 }
 ```
+* stop_requested()[color ff0000]
 * stop_source[link ../stop_source.md]
-* nostopstate[link ../nostopstate.md]
-* stop_requested()[link stop_requested.md]
+* std::nostopstate[link ../nostopstate.md]
 * request_stop()[link request_stop.md]
 
 ### 出力

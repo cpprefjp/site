@@ -1,6 +1,14 @@
-# 即時関数
+# 常に定数式評価する`consteval` [P1073R3]
 
 * cpp20[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++20に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
 
 ## 概要
 
@@ -46,12 +54,12 @@ Int2Int *pf = sqr; // エラー
 ```
 * P1073R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html]
 
-定数式として評価できない部分があっても、実行されなければエラーとならない。
+定数式として評価できない部分があっても、評価しようとしなければエラーとならない。
 
 ```cpp example
 consteval void f(int n) {
   if(n < 0) {
-    throw "n should not be negative";
+    throw "n should not be negative"; // throwは定数式として評価できないが、ここを通らなければOK
   }
 }
 
@@ -60,6 +68,8 @@ int main() {
   f(-1); // エラー
 }
 ```
+
+この性質は様々なチェックをコンパイル時に行うために活用できる。たとえば、[`std::format`](/reference/format/format.md)におけるコンパイル時の書式文字列チェックで使用されている。
 
 ## 例
 ```cpp example
@@ -95,10 +105,12 @@ C++11で導入された`constexpr`指定子によって、関数を定数式評�
 
 当初は `constexpr!`というキーワードが提案されていたが、最終的に`consteval`になった。
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 * [C++11 `constexpr`](/lang/cpp11/constexpr.md)
 * [C++20 コンパイル時初期化を強制する`constinit`キーワードを追加](constinit.md)
+* [C++23 `if consteval`](/lang/cpp23/if_consteval.md)
+* [C++23 `constexpr`関数内で`consteval`関数を呼び出せない問題を軽減](/lang/cpp23/consteval_needs_to_propagate_up.md)
 
 ## 参照
 

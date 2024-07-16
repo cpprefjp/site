@@ -47,9 +47,9 @@ int main() {
 * sp.reset[link shared_ptr/reset.md]
 * std::exception[link /reference/exception/exception.md]
 
-### 出力(GCC 4.7での出力。規格上は"bad_weak_ptr"と出力されるのが正しい)
+### 出力
 ```
-std::bad_weak_ptr
+bad_weak_ptr
 ```
 
 ## バージョン
@@ -58,9 +58,9 @@ std::bad_weak_ptr
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.4, 4.7.2(`what()`が`"std::bad_weak_ptr"`を返すので規格違反。バグ報告済み。[#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847))
+- [GCC](/implementation.md#gcc): 4.4 [mark verified], 4.7.2(what()が"std::bad_weak_ptr"を返すので規格違反。バグ報告済み: [#55847](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55847)。4.7.3で修正されている。) [mark verified]
 - [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1), 2010, 2012, 2013
+- [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
     - 2010までは`what()`が`"tr1::bad_weak_ptr"`を返す。
 
 ## 参照

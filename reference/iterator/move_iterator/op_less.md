@@ -33,7 +33,6 @@ namespace std {
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <algorithm>
 #include <iterator>
 
 int main()
@@ -67,7 +66,7 @@ less
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 4.7.0
+- [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -36,7 +36,7 @@ int main()
 }
 ```
 * DBL_TRUE_MIN[color ff0000]
-* sts::setprecision[link /reference/iomanip/setprecision.md]
+* std::setprecision[link /reference/iomanip/setprecision.md]
 * DBL_DIG[link dbl_dig.md]
 * DBL_HAS_SUBNORM[link dbl_has_subnorm.md]
 * DBL_MIN[link dbl_min.md]
@@ -53,8 +53,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 8.0
-- [GCC](/implementation.md#gcc): (9.1時点で実装なし)
+- [Clang](/implementation.md#clang): 8.0 [mark verified]
+- [GCC](/implementation.md#gcc): 9.1 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

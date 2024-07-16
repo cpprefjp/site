@@ -63,6 +63,7 @@ namespace std::filesystem {
 |------------------------------------------------------|-------------|-------|
 | [`operator==`](directory_entry/op_equal.md)         | 等値比較 | C++17 |
 | [`operator!=`](directory_entry/op_not_equal.md)     | 非等値比較 | C++17 |
+| [`operator<=>`](directory_entry/op_compare_3way.md) | 三方比較 | C++20 |
 | [`operator<`](directory_entry/op_less.md)           | 左辺が右辺より小さいかの判定を行う | C++17 |
 | [`operator<=`](directory_entry/op_less_equal.md)    | 左辺が右辺以下かの判定を行う | C++17 |
 | [`operator>`](directory_entry/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++17 |
@@ -105,8 +106,8 @@ int main()
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0
-- [GCC](/implementation.md#gcc): 8.1
+- [Clang](/implementation.md#clang): 7.0 [mark verified]
+- [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp):
 

@@ -5,13 +5,16 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator rend() noexcept;
-const_reverse_iterator rend() const noexcept;
+reverse_iterator rend();           // (1) C++03
+reverse_iterator rend() noexcept;  // (1) C++11
+
+const_reverse_iterator rend() const;           // (2) C++03
+const_reverse_iterator rend() const noexcept;  // (2) C++11
 ```
 
 
 ## 概要
-`multiset` コンテナの先頭要素の前（これは反転シーケンスの末尾にあたる）を指す逆イテレータを返す。
+`multiset` コンテナの先頭要素の前（これは反転シーケンスの末尾にあたる）を指す逆イテレータを取得する。
 
 `rend()` は [`begin()`](begin.md) と同じ要素を指すわけではなく、その前の要素を指すことに注意。
 
@@ -59,4 +62,4 @@ int main()
 |-------------------------|------------------------------|
 | [`rbegin`](rbegin.md) | 末尾を指す逆イテレータを返す |
 | [`begin`](begin.md)   | 先頭を指すイテレータを返す   |
-| [`end`](end.md)       | 末尾を指すイテレータを返す   |
+| [`end`](end.md)       | 末尾の次を指すイテレータを返す   |

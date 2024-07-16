@@ -82,10 +82,10 @@ int main()
 ```
 * max_digits10[color ff0000]
 * digits10[link digits10.md]
-* std::stringstring[link /reference/sstream/basic_stringstream.md.nolink]
+* std::stringstream[link /reference/sstream/basic_stringstream.md]
 * precision[link /reference/ios/ios_base/precision.md]
 * std::scientific[link /reference/ios/scientific.md]
-* s.str()[link /reference/sstream/basic_stringstream/str.md.nolink]
+* s.str()[link /reference/sstream/basic_stringstream/str.md]
 * std::nextafter[link /reference/cmath/nextafter.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 
@@ -110,10 +110,10 @@ float max_digits10 : 9
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): 3.0
-- [GCC](/implementation.md#gcc): 4.5.4
+- [Clang](/implementation.md#clang): 3.0 [mark verified]
+- [GCC](/implementation.md#gcc): 4.5.4 [mark verified]
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 2010, 2012, 2013, 2015, 2017
+- [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 
 ### 参照
 * [A Proposal to add a max significant decimal digits value to the C++ Standard Library Numeric limits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1822.pdf)

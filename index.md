@@ -1,5 +1,4 @@
 # cpprefjp - C++日本語リファレンス
-
 本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。
 
 最新C++バージョンのリファレンスを提供していきます。
@@ -11,6 +10,34 @@
 各クラス、関数にはそれぞれ1つ以上のサンプルコードを付けていく方針です。
 
 本サイトでは、他サイトおよび規格書の直接的な翻訳ではなく、編集者の調査と考えに基づいた解説を提供していきます。
+
+
+## HTMLデータのダウンロード
+- [cpprefjp.github.io-master.zip](https://github.com/cpprefjp/cpprefjp.github.io/archive/refs/heads/master.zip)
+
+ローカルで閲覧できるHTMLを用意しています。
+
+
+## スポンサーシップ
+
+- [cpprefjp - Open Collective](https://opencollective.com/cpprefjp)
+
+このプロジェクトは、持続的な活動のため、ユーザーの方々からのご支援をお待ちしております。上記Open Collectiveのプロジェクトでスポンサーシップの募集をしております。
+
+ご支援いただくユーザーの方々には、以下の特典があります。
+
+- 本ページ (cpprefjpサイトのトップページ) に、金額順でロゴを表示させていただきます (金額が同じ場合は登録順)
+- シルバースポンサー以上の方は、[cpprefjp/site](https://github.com/cpprefjp/site)リポジトリのissueとして、採用情報を投稿できます (一週間ほどで閉じます)
+
+ご支援いただいた資金は、貢献度に応じてコントリビューターに分配させていただきます。
+
+また、スポンサーシップの入金方法として、Open Collectiveのほかに銀行振込も対応しております。
+
+銀行振込に関して、またはそれ以外でスポンサーシップの相談に関しては、以下のメールアドレスにお問い合わせください。
+
+- メールアドレス : <cpprefjp_org@googlegroups.com>
+- 宛名 : cpprefjp管理者
+    - 代表として、主に高橋晶 (Akira Takahashi) がご対応させていただきます
 
 
 ## 参加方法
@@ -39,7 +66,7 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 
 本サイトの編集方法については、以下のドキュメントを参照してください。
 
-- [cpprefjpを編集するには](/editors_doc/start_editing.md)
+- [cpprefjpを編集するには](/start_editing.md)
 
 本サイトのコンテンツを作成、編集するにあたり、仕様を熟知し、一人で完璧に正しい内容を書くことは要求しません。
 
@@ -52,6 +79,63 @@ cpprefjp プロジェクトに参加する方法は簡単です。
 翻訳や解説などで活用してください：
 
 - [Standard Template Library プログラミング on the Web](https://web.archive.org/web/20190112041213/http://episteme.wankuma.com/stlprog/index.html)
+
+
+## スポンサー
+cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。
+
+### ゴールドスポンサー
+
+- Hiroshi様
+
+<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="560"/></a></div>
+
+<div style="text-align: center"><a href="https://www.cocotone.jp"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/cocotone/cocotone.png" alt="cocotone" width="560"/></a></div>
+
+
+### シルバースポンサー
+
+<div style="text-align: center"><a href="https://www.fixstars.com/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></a></div>
+
+<div style="text-align: center"><a href="https://acerola-software.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></a></div>
+
+<div style="text-align: center"><a href="https://vaporoid.com/sys/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/vaporoid/cpprefjp-400x150.png" alt="vaporoid" width="400"/></a></div>
+
+<div style="text-align: center"><a href="https://www.cube-soft.jp/"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="CubeSoft" width="400"/></a></div>
+
+<div style="text-align: center"><a href="https://mkohana.github.io/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/m_kohana/m_kohana.jpg" alt="M.Kohana" width="320"/></a></div>
+
+<div style="text-align: center"><a href="https://www.pegasys-inc.com/"><img src="https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png" alt="pegasys" width="320"/></a></div>
+
+<div style="text-align: center"><a href="https://www.techarts.co.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/technical_arts/TechnicalArtsLogo3.png" alt="technical arts" width="400"/></a></div>
+
+
+### ブロンズスポンサー
+
+<div style="text-align: center"><a href="https://opencollective.com/odan"><img src="https://odan.dev/icon.jpeg" alt="odan" width="320"/></a></div>
+
+<div style="text-align: center"><a href="https://www.unagiworks.net/"><img src="https://www.unagiworks.net/blog/wp-content/uploads/2019/01/logo.gif" alt="unagi"/></a></div>
+
+- [nodchip](https://twitter.com/nodchip)
+
+- イシハラユウヤ様
+- [Megumi Nakagami様](https://opencollective.com/meg_nakagami)
+
+
+<div style="text-align: center"><a href="https://github.com/minachun/minachun"><img src="https://raw.githubusercontent.com/minachun/minachun/main/banner.png" alt="minachun / J.Minami"/></a></div>
+
+- [Hashitaku様](https://opencollective.com/hashitaku)
+
+<div style="text-align: center"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/yukika2e/yukika2e.png" alt="yukika2e"/></div>
+
+- [ugai様](https://opencollective.com/ugai)
+
+
+スポンサーシップについては、以下のページを参照ください。
+
+- [cpprefjp - Open Collective](https://opencollective.com/cpprefjp)
+
+連絡先が不明なスポンサー様は、ロゴの表示が現在できておりません。Open Collectiveの問い合わせフォームから、表示するロゴ画像とリンク先URLについてご連絡いただきたいです。
 
 
 ## プライバシーポリシー
