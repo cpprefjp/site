@@ -118,6 +118,20 @@ unique_ptr<T, D&> p(new T(), deleter); // pはdeleterへの参照を保持する
 #include <cassert>
 #include <memory>
 
+using AllocTraits = std::allocator_traits<std::allocator<int>>;
+
+class Deleter {
+ public:
+  explicit Deleter(const std::allocator<int>& alloc) : alloc_(alloc) {}
+
+  void operator()(int* p) {
+    AllocTraits::destroy(alloc_, p);
+    AllocTraits::deallocate(alloc_, p, 1);
+  }
+ private:
+  std::allocator<int> alloc_;
+};
+
 int main()
 {
   // (1) デフォルト構築
@@ -133,6 +147,16 @@ int main()
   std::unique_ptr<int> p3(new int(3), std::default_delete<int>());
   assert(p3);
 
+  // 自作デリータを使った例
+  {
+    std::allocator<int> alloc;
+    int* p = AllocTraits::allocate(alloc, 1);
+    AllocTraits::construct(alloc, p, 4);
+    std::unique_ptr<int, Deleter> p4(p, Deleter(alloc));
+    assert(p4);
+    assert(*p4 == 4);
+  }
+
   // (5) 他のunique_ptrから所有権を譲渡する
   std::unique_ptr<int> p5 = std::move(p3);
   assert(*p5 == 3);
@@ -147,6 +171,12 @@ int main()
   assert(*static_cast<const int*>(p7.get()) == 3);
 }
 ```
+* std::allocator_traits[link /reference/memory/allocator_traits.md]
+* std::allocator[link /reference/memory/allocator.md]
+* destroy[link /reference/memory/allocator_traits/destroy.md]
+* deallocate[link /reference/memory/allocator_traits/deallocate.md]
+* allocate[link /reference/memory/allocator_traits/allocate.md]
+* construct[link /reference/memory/allocator_traits/construct.md]
 * std::default_delete[link /reference/memory/default_delete.md]
 * std::move[link /reference/utility/move.md]
 * get()[link get.md]
