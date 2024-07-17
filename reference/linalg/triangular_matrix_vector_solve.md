@@ -125,11 +125,11 @@ namespace std::linalg {
 
 - (1): 連立一次方程式 $Ay = b$ を解き、`y`を`x`に代入する。もし解が存在しないなら、`x`は有効だが未規定。
 - (2): (1)を指定された実行ポリシーで実行する。
-- (3): 割り算に[`std::divedes`](/reference/functional/divides.md)`<void>`を用いて、(1)を行う。
+- (3): 割り算に[`std::divides`](/reference/functional/divides.md)`<void>`を用いて、(1)を行う。
 - (4): (3)を指定された実行ポリシーで実行する。
 - (5): `x`に`b`を使って、in-placeに(1)を行う。
 - (6): (5)を指定された実行ポリシーで実行する。
-- (7): 割り算に[`std::divedes`](/reference/functional/divides.md)`<void>`を用いて、(5)を行う。
+- (7): 割り算に[`std::divides`](/reference/functional/divides.md)`<void>`を用いて、(5)を行う。
 - (8): (7)を指定された実行ポリシーで実行する。
 
 
