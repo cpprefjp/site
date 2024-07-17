@@ -138,10 +138,10 @@ void print_mat(const Matrix& A) {
 }
 
 template <class Matrix>
-void init_mat(Matrix& A, typename Matrix::value_type geta = 1) {
+void init_mat(Matrix& A) {
   for(int i = 0; i < A.extent(0); ++i) {
     for(int j = 0; j < A.extent(1); ++j) {
-      A[i, j] = i * A.extent(1) + j + geta;
+      A[i, j] = i * A.extent(1) + j;
     }
   }
 }
@@ -173,7 +173,7 @@ int main()
   std::mdspan X(X_vec.data(), N, N);
   std::mdspan B(B_vec.data(), N, N);
 
-  init_mat(A)
+  init_tria_mat(A);
   init_mat(B);
 
   // (1)
@@ -197,7 +197,7 @@ int main()
     B,
     X,
     std::divides<void>{});
-  print(X);
+  print_mat(X);
 
   // (3)
   std::cout << "(3)\n";
@@ -207,7 +207,7 @@ int main()
     std::linalg::implicit_unit_diagonal,
     B,
     X);
-  print(X);
+  print_mat(X);
 
   // (4)
   std::cout << "(4)\n";
@@ -218,13 +218,12 @@ int main()
     std::linalg::implicit_unit_diagonal,
     B,
     X);
-  print(X);
+  print_mat(X);
 
   return 0;
 }
 ```
 * A.extent[link /reference/mdspan/extents/extent.md]
-* v.extent[link /reference/mdspan/extents/extent.md]
 * std::mdspan[link /reference/mdspan/mdspan.md]
 * std::extents[link /reference/mdspan/extents.md]
 * std::linalg::layout_blas_packed[link /reference/linalg/layout_blas_packed.md]
