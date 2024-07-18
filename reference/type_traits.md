@@ -123,7 +123,7 @@
 | [`is_nothrow_convertible`](type_traits/is_nothrow_convertible.md) | ある型から別の型へ、例外を投げずに変換可能か調べる (class template) | C++20 |
 | [`is_layout_compatible`](type_traits/is_layout_compatible.md) | 2つの型にレイアウト互換があるかを判定する (class template) | C++20 |
 | [`is_pointer_interconvertible_base_of`](type_traits/is_pointer_interconvertible_base_of.md) | 基底クラスと派生クラスの間でポインタ相互交換可能かを判定する (class template) | C++20 |
-| [`reference_constructs_from_temporary`](type_traits/reference_constructs_from_temporary.md) | 参照が一時オブジェクトを直接初期化（丸括弧による初期化）で束縛した時、一時オブジェクトの寿命が延長されているかを判定する (class template) | C++23 |
+| [`reference_constructs_from_temporary`](type_traits/reference_constructs_from_temporary.md) | 参照が一時オブジェクトを直接初期化（丸カッコによる初期化）で束縛した時、一時オブジェクトの寿命が延長されているかを判定する (class template) | C++23 |
 | [`reference_converts_from_temporary`](type_traits/reference_converts_from_temporary.md) | 参照が一時オブジェクトをコピー初期化（代入形式による初期化）で束縛した時、一時オブジェクトの寿命が延長されているかを判定する (class template) | C++23 |
 
 

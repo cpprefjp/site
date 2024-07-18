@@ -17,7 +17,7 @@
 int i = 0;
 decltype(i) j = 0;                      // j は int 型
 decltype(i)* p = &i;                    // p は int* 型
-decltype((i)) k = i;                    // k は int& 型（変数名 i の周りの余分な丸括弧に注意）
+decltype((i)) k = i;                    // k は int& 型（変数名 i の周りの余分な丸カッコに注意）
 
 template<typename T, typename U>
 auto add(const T& lhs, const U& rhs)
@@ -38,7 +38,7 @@ decltype(s)::U l{};                     // l は S::U 型（つまり int 型）
 
 `e` を式とすると、`decltype(e)` が意味する型は以下のとおりである。
 
-- `e` が丸括弧で囲まれていない識別子の場合、あるいは、丸括弧で囲まれていないクラスメンバアクセスの場合、`decltype(e)` は `e` で指定された実体の型である。  
+- `e` が丸カッコで囲まれていない識別子の場合、あるいは、丸カッコで囲まれていないクラスメンバアクセスの場合、`decltype(e)` は `e` で指定された実体の型である。  
 	もしそのような実体が無いか、あるいは、`e` がオーバーロードされた複数の関数を指す場合、プログラムは不適格である。
 - そうではなくて、もし `e` が xvalue の場合、`e` の型を `T` とすると、`decltype(e)` は `T&&` である。
 - そうではなくて、もし `e` が lvalue の場合、`e` の型を `T` とすると、`decltype(e)` は `T&` である。
@@ -46,9 +46,9 @@ decltype(s)::U l{};                     // l は S::U 型（つまり int 型）
 
 `decltype` のオペランドは「評価されないオペランド」である。
 
-ラムダ式の関数本体で、外部の自動変数に対して `decltype` を余分な丸括弧付きで使用した場合、クロージャ型のメンバ変数に対する `decltype` とみなされる。
+ラムダ式の関数本体で、外部の自動変数に対して `decltype` を余分な丸カッコ付きで使用した場合、クロージャ型のメンバ変数に対する `decltype` とみなされる。
 
-`sizeof` とは異なり、`decltype` のオペランドには丸括弧が必須である。（`sizeof i` はＯＫだが、`decltype i` はＮＧ）
+`sizeof` とは異なり、`decltype` のオペランドには丸カッコが必須である。（`sizeof i` はＯＫだが、`decltype i` はＮＧ）
 
 
 ## 例
@@ -85,7 +85,7 @@ int main()
 {
   int i = 10;
   decltype(i) j = i;                    // j は int 型
-  decltype((i)) k = i;                  // k は int& 型（i は lvalue で丸括弧が付いているので）
+  decltype((i)) k = i;                  // k は int& 型（i は lvalue で丸カッコが付いているので）
 
   i = 42;
   std::cout << j << ", " << k << '\n';

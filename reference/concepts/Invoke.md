@@ -10,7 +10,7 @@ C++における関数呼び出しという性質を抽象化しまとめた、�
 - C++23からは、仮想操作 *INVOKE*`<R>` を実体化した[`std::invoke_r`](/reference/functional/invoke_r.md)関数テンプレートが提供される。
 
 ## 用語定義
-- *call-signature* とは、戻り値型に続けて丸括弧の中に0個以上の引数型を並べたものである。 *cf.* `int ( std::string, int )`
+- *call-signature* とは、戻り値型に続けて丸カッコの中に0個以上の引数型を並べたものである。 *cf.* `int ( std::string, int )`
 - *callable-type* とは、関数呼び出し演算子を適用できる型 ( 関数、関数への参照、関数へのポインタ、`operator ()` をオーバーロードした型もしくはそれを(直接または間接的に) `public` 継承した型 ) もしくはメンバへのポインタ型を指す。
 - *callable-object* は、 *callable-type* 型のオブジェクトである。
 - *call-wrapper-type* は、 *callable-object* を保持し、自身に対する関数呼び出し操作が行われたとき、保持しているオブジェクトに委譲する。

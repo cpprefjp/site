@@ -17,7 +17,7 @@ C++11とは、2011年8月に改訂され、ISO/IEC 14882:2011で標準規格化�
 | [変数の型推論のための`auto`](cpp11/auto.md) | 型推論 |
 | [`decltype`](cpp11/decltype.md) | 式の型を取得 |
 | [範囲for文](cpp11/range_based_for.md) | 配列やコンテナといった範囲を表すオブジェクトを、簡潔に走査する |
-| [初期化子リスト](cpp11/initializer_lists.md) | 波括弧による初期化をユーザー定義する。`vector<int> v = {1, 2, 3};`など。 |
+| [初期化子リスト](cpp11/initializer_lists.md) | 波カッコによる初期化をユーザー定義する。`vector<int> v = {1, 2, 3};`など。 |
 | [一様初期化](cpp11/uniform_initialization.md) | コンストラクタの呼び出しを、波カッコで行う。`T x {a, b, c};` |
 | [右辺値参照・ムーブセマンティクス](cpp11/rvalue_ref_and_move_semantics.md) | 右辺値によるオーバーロード、およびそれによるリソースの所有権移動 |
 | [ラムダ式](cpp11/lambda_expressions.md) | 関数オブジェクトをその場に書く |

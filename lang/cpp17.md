@@ -30,7 +30,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 | [16進浮動小数点数リテラル](cpp17/hexadecimal_floating_literals.md) | 十六進数表記で浮動小数点数リテラルを記述できるようにする |
 | [インライン変数](cpp17/inline_variables.md) | `inline`指定をすることで翻訳単位を跨いでひとつのオブジェクトになる変数を定義する |
 | [構造化束縛](cpp17/structured_bindings.md) | 組・タプル・配列を展開して変数定義する |
-| [単一要素の波カッコ初期化を非配列とする](cpp17/new_rules_for_auto_deduction_from_braced-init-list.md) | 波括弧初期化子が単一要素の場合は `T` に推論，複数要素の場合は不適格 |
+| [単一要素の波カッコ初期化を非配列とする](cpp17/new_rules_for_auto_deduction_from_braced-init-list.md) | 波カッコ初期化子が単一要素の場合は `T` に推論，複数要素の場合は不適格 |
 | [`[[maybe_unused]]`属性](cpp17/maybe_unused.md)       | 使用しない可能性のある変数に対する警告を抑制する |
 | [`[[nodiscard]]`属性](cpp17/nodiscard.md)             | 戻り値を捨ててはならないことを指定する |
 | [値のコピー省略を保証](cpp17/guaranteed_copy_elision.md) | 右辺値を変数の初期化のために使用する場合、コピーもムーブも省略することを保証 |

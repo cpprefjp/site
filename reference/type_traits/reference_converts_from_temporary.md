@@ -16,7 +16,7 @@ namespace std {
 
 [*INVOKE*](/reference/concepts/Invoke.md)`<R>`など、暗黙的な型変換のみが考慮される文脈におけるダングリング参照の生成を回避するために使用される。
 
-なお、直接初期化（丸括弧による初期化）における文脈では[`reference_constructs_from_temporary`](reference_constructs_from_temporary.md)が使用される。
+なお、直接初期化（丸カッコによる初期化）における文脈では[`reference_constructs_from_temporary`](reference_constructs_from_temporary.md)が使用される。
 
 
 ## 要件
