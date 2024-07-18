@@ -95,17 +95,17 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### シルバースポンサー
 
-[sponsor name:Acerola Software様, img:https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png, link:https://acerola-software.jp/, size:400, fee:15, amount:12]
+[sponsor name:Acerola Software様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Acerola/as_logo.png, link:https://acerola-software.jp/, size:400, fee:15, amount:12]
 
-[sponsor name:Fixstars様, img:https://github.com/cpprefjp/image/raw/master/sponsors/Fixstars/fixstars-logo.png, link:https://www.fixstars.com/, size:400, fee:10, amount:12]
+[sponsor name:Fixstars様, img:ttps://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Fixstars/fixstars-logo.png, link:https://www.fixstars.com/, size:400, fee:10, amount:12]
 
 [sponsor name:pegasys様, img:https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png, link:https://www.pegasys-inc.com/, size:320, fee:10, amount:12]
 
-[sponsor name:vaporoid様, img:https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/cpprefjp-400x150.png, link:https://vaporoid.com/sys/, size:400, fee:8, amount:12]
+[sponsor name:vaporoid様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/vaporoid/cpprefjp-400x150.png, link:https://vaporoid.com/sys/, size:400, fee:8, amount:12]
 
 [sponsor name:CubeSoft様, img:https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png, link:https://www.cube-soft.jp/, size:400, fee:8, amount:12]
 
-[sponsor name:M.Kohana様, img:https://github.com/cpprefjp/image/raw/master/sponsors/m_kohana/m_kohana.jpg, link:https://mkohana.github.io/, size:320, fee:8, amount:12]
+[sponsor name:M.Kohana様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/m_kohana/m_kohana.jpg, link:https://mkohana.github.io/, size:320, fee:8, amount:12]
 
 [sponsor name:有限会社テクニカルアーツ様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/technical_arts/TechnicalArtsLogo3.png, link:https://www.techarts.co.jp/, size:400, fee:8, amount:12]
 
@@ -127,7 +127,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:Hashitaku様, link:https://opencollective.com/hashitaku, fee:20, amount:1, period:2024-05-08]
 
-[sponsor name:yukika2e様, img:https://github.com/cpprefjp/image/raw/master/sponsors/yukika2e/yukika2e.png, fee:10, amount:1, period:2024-05-18]
+[sponsor name:yukika2e様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/yukika2e/yukika2e.png, fee:10, amount:1, period:2024-05-18]
 
 [sponsor name:ugai様, link:https://opencollective.com/ugai, fee:5, amount:1, period:2025-02-06]
 
