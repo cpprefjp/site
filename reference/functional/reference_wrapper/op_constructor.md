@@ -21,10 +21,10 @@ constexpr reference_wrapper(const reference_wrapper& x) noexcept; // (2) C++20
 ## 概要
 与えられた参照で、参照オブジェクトを構築する。
 
-- (1) : `T& r = ` [`forward`](/reference/utility/forward.md)`<U>(u)`のように作成した`r`への参照を保持する`reference_wrapper`オブジェクトを構築する  
-  `u`が右辺値参照、もしくは参照とCV修飾を除去した`U`が`reference_wrapper<T>`である（`is_same_v<remove_cvref_t<U>, reference_wrapper<T>> == true`となる）場合、このコンストラクタはオーバーロード解決に参加しない
+- (1) : `T& r =` [`forward`](/reference/utility/forward.md)`<U>(u)`のように作成した`r`への参照を保持する`reference_wrapper`オブジェクトを構築する  
+  `u`が右辺値参照、もしくは参照とCV修飾を除去した`U`が`reference_wrapper<T>`である（[`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>, reference_wrapper<T>> == true`となる）場合、このコンストラクタはオーバーロード解決に参加しない
 
-- (2) : `x.`[`get()`](/reference/functional/reference_wrapper/get.md)への参照を保持する`reference_wrapper`オブジェクトを構築する
+- (2) : `x.`[`get()`](get.md)への参照を保持する`reference_wrapper`オブジェクトを構築する
 
 ## 例外
 - (1) : 投げない（右辺値参照を受け取らない限り`noexcept`指定される）
@@ -77,3 +77,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2993. `reference_wrapper<T>` conversion from `T&&`](https://wg21.cmeerw.net/lwg/issue2993)
+- [LWG Issue 3041. Unnecessary decay in reference_wrapper](https://wg21.cmeerw.net/lwg/issue3041)
