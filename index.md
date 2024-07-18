@@ -97,7 +97,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:Acerola Software様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Acerola/as_logo.png, link:https://acerola-software.jp/, size:400, fee:15, amount:12]
 
-[sponsor name:Fixstars様, img:ttps://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Fixstars/fixstars-logo.png, link:https://www.fixstars.com/, size:400, fee:10, amount:12]
+[sponsor name:Fixstars様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Fixstars/fixstars-logo.png, link:https://www.fixstars.com/, size:400, fee:10, amount:12]
 
 [sponsor name:pegasys様, img:https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png, link:https://www.pegasys-inc.com/, size:320, fee:10, amount:12]
 
