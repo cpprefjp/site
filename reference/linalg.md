@@ -109,7 +109,7 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`symmetric_matrix_rank_2k_update`](linalg/symmetric_matrix_rank_2k_update.md) | xSYR2K: 対称行列のRank-2k更新 (function template) | C++26 |
 | [`hermitian_matrix_rank_2k_update`](linalg/hermitian_matrix_rank_2k_update.md) | xHER2K: ハミルトニアン行列のRank-2k更新 (function template) | C++26 |
 | [`triangular_matrix_matrix_left_solve`](linalg/triangular_matrix_matrix_left_solve.md) | xTRSM: 三角行列の連立一次方程式を解く (function template) | C++26 |
-| `triangular_matrix_matrix_right_solve` | xTRSM: 三角行列の連立一次方程式を解く (function template) | C++26 |
+| [`triangular_matrix_matrix_right_solve`](linalg/triangular_matrix_matrix_right_solve.md) | xTRSM: 三角行列の連立一次方程式を解く (function template) | C++26 |
 
 
 ## タグ
