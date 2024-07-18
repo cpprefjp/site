@@ -65,6 +65,54 @@ namespace std::linalg {
     DiagonalStorage d,
     InMat2 B,
     OutMat X); // (4)
+
+  template<in-matrix InMat,
+           class Triangle,
+           class DiagonalStorage,
+           inout-matrix InOutMat,
+           class BinaryDivideOp>
+  void triangular_matrix_matrix_left_solve(
+    InMat A,
+    Triangle t,
+    DiagonalStorage d,
+    InOutMat B,
+    BinaryDivideOp divide); // (5)
+
+  template<class ExecutionPolicy,
+          in-matrix InMat,
+          class Triangle,
+          class DiagonalStorage,
+          inout-matrix InOutMat,
+          class BinaryDivideOp>
+  void triangular_matrix_matrix_left_solve(
+    ExecutionPolicy&& exec,
+    InMat A,
+    Triangle t,
+    DiagonalStorage d,
+    InOutMat B,
+    BinaryDivideOp divide); // (6)
+
+  template<in-matrix InMat,
+           class Triangle,
+           class DiagonalStorage,
+           inout-matrix InOutMat>
+  void triangular_matrix_matrix_left_solve(
+    InMat A,
+    Triangle t,
+    DiagonalStorage d,
+    InOutMat B); // (7)
+
+  template<class ExecutionPolicy,
+           in-matrix InMat,
+           class Triangle,
+           class DiagonalStorage,
+           inout-matrix InOutMat>
+  void triangular_matrix_matrix_left_solve(
+    ExecutionPolicy&& exec,
+    InMat A,
+    Triangle t,
+    DiagonalStorage d,
+    InOutMat B); // (8)
 }
 ```
 
@@ -79,21 +127,28 @@ namespace std::linalg {
 - (2): (1)を指定された実行ポリシーで実行する。
 - (3): 割り算に[`std::divides`](/reference/functional/divides.md)`<void>`を用いて、(1)を行う。
 - (4): (3)を指定された実行ポリシーで実行する。
+- (5): `X`に`B`を使って、in-placeに(1)を行う。
+- (6): (5)を指定された実行ポリシーで実行する。
+- (7): 割り算に[`std::divides`](/reference/functional/divides.md)`<void>`を用いて、(5)を行う。
+- (8): (7)を指定された実行ポリシーで実行する。
 
 
 ## 適格要件
 - 共通:
     + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
     + `DiagonalStorage`は[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
-    + `InMat1`(`A`の型)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-    + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(X), decltype(B)>()`が`true`
+    + `decltype(A)`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-- (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
+- (1), (2), (3), (4): [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(X), decltype(B)>()`が`true`
+- (5), (6), (7), (8): [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(B), decltype(B)>()`が`true`
+- (2), (4), (6), (8): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
-- [`multipliable`](multipliable.md)`(A, X, B)`が`true`
-- `A.extent(0) == A.extent(1)` (つまり`A`が正方行列であること)
+- 共通:
+    + `A.extent(0) == A.extent(1)` (つまり`A`が正方行列であること)
+- (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A, X, B)`が`true`
+- (5), (6), (7), (8): [`multipliable`](multipliable.md)`(A, B, B)`が`true`
 
 
 ## 効果
@@ -102,6 +157,9 @@ namespace std::linalg {
 - (1), (2): 連立一次方程式 $AY = B$ を解き、`Y`を`X`に代入する。もし解が存在しないなら、`X`は有効だが未規定。
 - (3): `triangular_matrix_matrix_left_solve(A, t, d, B, X, divides<void>{})`と同じ。
 - (4): `triangular_matrix_matrix_left_solve(std::forward<ExecutionPolicy>(exec), A, t, d, B, X, divides<void>{})`と同じ。
+- (5), (6): `X`に`B`を使って、in-placeに(1)を行う。
+- (7): `triangular_matrix_matrix_left_solve(A, t, d, B, divides<void>{})`と同じ。
+- (8): `triangular_matrix_matrix_left_solve(std::forward<ExecutionPolicy>(exec), A, t, d, B, divides<void>{})`と同じ。
 
 
 ## 戻り値
@@ -109,7 +167,7 @@ namespace std::linalg {
 
 
 ## 計算量
-$O(\verb|A.extent(0)| \times (\verb|X.extent(0)|)^2)$
+$O((\verb|A.extent(0)|)^2 \times \verb|B.extent(1)|)$
 
 
 ## 備考
@@ -220,6 +278,49 @@ int main()
     X);
   print_mat(X);
 
+  // (5)
+  std::cout << "(5)\n";
+  std::linalg::triangular_matrix_matrix_left_solve(
+    A,
+    std::linalg::upper_triangle,
+    std::linalg::implicit_unit_diagonal,
+    B,
+    std::divides<void>{});
+  print_mat(B);
+
+  // (6)
+  init_mat(B);
+  std::cout << "(6)\n";
+  std::linalg::triangular_matrix_matrix_left_solve(
+    std::execution::par,
+    A,
+    std::linalg::upper_triangle,
+    std::linalg::implicit_unit_diagonal,
+    B,
+    std::divides<void>{});
+  print_mat(B);
+
+  // (7)
+  init_mat(B);
+  std::cout << "(7)\n";
+  std::linalg::triangular_matrix_matrix_left_solve(
+    A,
+    std::linalg::upper_triangle,
+    std::linalg::implicit_unit_diagonal,
+    B);
+  print_mat(B);
+
+  // (8)
+  init_mat(B);
+  std::cout << "(8)\n";
+  std::linalg::triangular_matrix_matrix_left_solve(
+    std::execution::par,
+    A,
+    std::linalg::upper_triangle,
+    std::linalg::implicit_unit_diagonal,
+    B);
+  print_mat(B);
+
   return 0;
 }
 ```
@@ -247,6 +348,18 @@ int main()
 -2 -2
 2 3
 (4)
+-2 -2
+2 3
+(5)
+-2 -2
+2 3
+(6)
+-2 -2
+2 3
+(7)
+-2 -2
+2 3
+(8)
 -2 -2
 2 3
 ```
