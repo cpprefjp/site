@@ -130,6 +130,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 - [ugai様](https://opencollective.com/ugai)
 
+<div style="text-align: center"><a href="https://github.com/zonuexe"><img src="https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256" alt="USAMI Kenta" width="256"/></a></div>
+
 
 スポンサーシップについては、以下のページを参照ください。
 
