@@ -26,7 +26,7 @@
 
 ご支援いただくユーザーの方々には、以下の特典があります。
 
-- 本ページ (cpprefjpサイトのトップページ) に、金額順でロゴを表示させていただきます (金額が同じ場合は登録順)
+- 本ページ (cpprefjpサイトのトップページ) に1年間、金額順でロゴを表示させていただきます (金額が同じ場合は登録順)
 - シルバースポンサー以上の方は、[cpprefjp/site](https://github.com/cpprefjp/site)リポジトリのissueとして、採用情報を投稿できます (一週間ほどで閉じます)
 
 ご支援いただいた資金は、貢献度に応じてコントリビューターに分配させていただきます。
@@ -86,51 +86,52 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### ゴールドスポンサー
 
-- Hiroshi様
+[sponsor name:Hiroshi様, note:pk0612, period:2025-02-01, fee:1000, amount:1]
 
-<div style="text-align: center"><a href="https://shiguredo.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png" alt="shiguredo" width="560"/></a></div>
+[sponsor name:cocotone様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/cocotone/cocotone.png, link:https://www.cocotone.jp, size:560, fee:75, amount:12]
 
-<div style="text-align: center"><a href="https://www.cocotone.jp"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/cocotone/cocotone.png" alt="cocotone" width="560"/></a></div>
+[sponsor name:shiguredo様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png, link:https://shiguredo.jp/, size:560, period:2024-10-27, fee:800, amount:1]
 
 
 ### シルバースポンサー
 
-<div style="text-align: center"><a href="https://www.fixstars.com/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Fixstars/fixstars-logo.png" alt="Fixstars" width="400"/></a></div>
+[sponsor name:Acerola Software様, img:https://github.com/cpprefjp/image/raw/master/sponsors/Acerola/as_logo.png, link:https://acerola-software.jp/, size:400, fee:15, amount:12]
 
-<div style="text-align: center"><a href="https://acerola-software.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Acerola/as_logo.png" alt="Acerola Software" width="400"/></a></div>
+[sponsor name:Fixstars様, img:https://github.com/cpprefjp/image/raw/master/sponsors/Fixstars/fixstars-logo.png, link:https://www.fixstars.com/, size:400, fee:10, amount:12]
 
-<div style="text-align: center"><a href="https://vaporoid.com/sys/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/vaporoid/cpprefjp-400x150.png" alt="vaporoid" width="400"/></a></div>
+[sponsor name:pegasys様, img:https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png, link:https://www.pegasys-inc.com/, size:320, fee:10, amount:12]
 
-<div style="text-align: center"><a href="https://www.cube-soft.jp/"><img src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" alt="CubeSoft" width="400"/></a></div>
+[sponsor name:vaporoid様, img:https://github.com/cpprefjp/image/raw/master/sponsors/vaporoid/cpprefjp-400x150.png, link:https://vaporoid.com/sys/, size:400, fee:8, amount:12]
 
-<div style="text-align: center"><a href="https://mkohana.github.io/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/m_kohana/m_kohana.jpg" alt="M.Kohana" width="320"/></a></div>
+[sponsor name:CubeSoft様, img:https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png, link:https://www.cube-soft.jp/, size:400, fee:8, amount:12]
 
-<div style="text-align: center"><a href="https://www.pegasys-inc.com/"><img src="https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png" alt="pegasys" width="320"/></a></div>
+[sponsor name:M.Kohana様, img:https://github.com/cpprefjp/image/raw/master/sponsors/m_kohana/m_kohana.jpg, link:https://mkohana.github.io/, size:320, fee:8, amount:12]
 
-<div style="text-align: center"><a href="https://www.techarts.co.jp/"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/technical_arts/TechnicalArtsLogo3.png" alt="technical arts" width="400"/></a></div>
+[sponsor name:有限会社テクニカルアーツ様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/technical_arts/TechnicalArtsLogo3.png, link:https://www.techarts.co.jp/, size:400, fee:8, amount:12]
+
 
 
 ### ブロンズスポンサー
 
-<div style="text-align: center"><a href="https://opencollective.com/odan"><img src="https://odan.dev/icon.jpeg" alt="odan" width="320"/></a></div>
+[sponsor name:イシハラユウヤ様, fee:5, amount:12]
 
-<div style="text-align: center"><a href="https://www.unagiworks.net/"><img src="https://www.unagiworks.net/blog/wp-content/uploads/2019/01/logo.gif" alt="unagi"/></a></div>
+[sponsor name:Megumi Nakagami様, link:https://opencollective.com/meg_nakagami, fee:5, amount:12]
 
-- [nodchip](https://twitter.com/nodchip)
+[sponsor name:minachun / J.Minami様, img:https://raw.githubusercontent.com/minachun/minachun/main/banner.png, link:https://github.com/minachun/minachun, fee:5, amount:12, note:Junichirou Minami]
 
-- イシハラユウヤ様
-- [Megumi Nakagami様](https://opencollective.com/meg_nakagami)
+[sponsor name:odan様, img:https://odan.dev/icon.jpeg, link:https://opencollective.com/odan, size:320, fee:50, amount:1]
 
+[sponsor name:unagi様, img:https://www.unagiworks.net/blog/wp-content/uploads/2019/01/logo.gif, fee:50, amount:1, period:2025-07-02]
 
-<div style="text-align: center"><a href="https://github.com/minachun/minachun"><img src="https://raw.githubusercontent.com/minachun/minachun/main/banner.png" alt="minachun / J.Minami"/></a></div>
+[sponsor name:nodchip様, link:https://twitter.com/nodchip, note:Hisayori Noda, fee:50, amount:1, period:2024-11-07]
 
-- [Hashitaku様](https://opencollective.com/hashitaku)
+[sponsor name:Hashitaku様, link:https://opencollective.com/hashitaku, fee:20, amount:1, period:2024-05-08]
 
-<div style="text-align: center"><img src="https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/yukika2e/yukika2e.png" alt="yukika2e"/></div>
+[sponsor name:yukika2e様, img:https://github.com/cpprefjp/image/raw/master/sponsors/yukika2e/yukika2e.png, fee:10, amount:1, period:2024-05-18]
 
-- [ugai様](https://opencollective.com/ugai)
+[sponsor name:ugai様, link:https://opencollective.com/ugai, fee:5, amount:1, period:2025-02-06]
 
-<div style="text-align: center"><a href="https://github.com/zonuexe"><img src="https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256" alt="USAMI Kenta" width="256"/></a></div>
+[sponsor name:USAMI Kenta, img:https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256, link:https://github.com/zonuexe, size:256, fee:5, amount:12]
 
 
 スポンサーシップについては、以下のページを参照ください。
