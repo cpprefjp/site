@@ -11,6 +11,7 @@
 |------|------|-------|
 | [`extents`](mdspan/extents.md)  | 多次元配列のサイズを表す値 (class template) | C++23 |
 | [`dextents`](mdspan/extents.md) | 全次元が動的な多次元配列のサイズを表す値 (alias template) | C++23 |
+| [`dims`](mdspan/extents.md) | 全次元が動的な多次元配列のサイズを表す値 (alias template) | C++26 |
 
 
 ## レイアウトマッピング

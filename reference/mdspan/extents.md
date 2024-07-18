@@ -11,6 +11,9 @@ namespace std {
 
   template<class IndexType, size_t Rank>
   using dextents = see below;
+
+  template<size_t Rank, class IndexType = size_t>
+  using dims = see below;  // C++26以降
 }
 ```
 * see below[italic]
@@ -42,6 +45,9 @@ array<IndexType, rank_dynamic()> dynamic-extents;
 ### エイリアステンプレート
 エイリアステンプレート`dextents`は、次元数`Rank`かつ全次元が動的要素数で指定される`extents`を生成する。
 例えば`dextents<size_t, 2>`は`extents<size_t, dynamic_extent, dynamic_extent>`の略記となる。
+
+C++26では、テンプレートパラメータ`IndexType`がデフォルト引数`size_t`をもつエイリアステンプレート`dims`が追加される。
+例えば`dims<2>`は`dextents<size_t, 2>`と等価であり、`extents<size_t, dynamic_extent, dynamic_extent>`の略記となる。
 
 
 ## 適格要件
@@ -95,8 +101,13 @@ int main()
   // 固定要素数 3x3 の2次元配列サイズ
   std::extents<size_t, 3, 3> ext3x3;
 
+#if 1
   // 動的要素数からなる2次元配列サイズを 4x2 で初期化
   std::dextents<size_t, 2> ext2d{4, 2};
+#else
+  // C++26: dims<2>はdextents<size_t, 2>と等価
+  std::dims<2> ext2d{4, 2};
+#endif
 
   // 2個の動的要素数(高さ,幅)と静的要素数(RGBA=4)からなる3次元配列サイズ
   using ColorImageExt = std::extents<size_t, std::dynamic_extent, std::dynamic_extent, 4>;
@@ -105,6 +116,7 @@ int main()
 ```
 * std::extents[color ff0000]
 * std::dextents[color ff0000]
+* std::dims[color ff0000]
 
 ### 出力
 ```
@@ -129,3 +141,5 @@ int main()
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2599R2 `index_type` & `size_type` in `mdspan`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2599r2.pdf)
+- [P2389R2 `dextents` Index Type Parameter](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2389r2.html)
+    - C++26から、エイリアステンプレート`dims`が追加される。
