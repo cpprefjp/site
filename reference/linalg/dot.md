@@ -81,9 +81,45 @@ $$
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp example
+#include <cmath>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+#include <numbers>
+#include <vector>
+
+int main()
+{
+  constexpr size_t N = 3;
+
+  std::vector<double> a_vec({1, 2, 3});
+  std::mdspan a(a_vec.data(), N);
+
+  std::vector<double> b_vec({4, 5, 6});
+  std::mdspan b(b_vec.data(), N);
+
+  std::cout << std::linalg::dot(a, b, -18) << '\n'                      // (1)
+            << std::linalg::dot(std::execution::par, a, b, -18) << '\n' // (2)
+            << std::linalg::dot(a, b) << '\n'                                // (3)
+            << std::linalg::dot(std::execution::par, a, b) << '\n';          // (4)
+
+  return 0;
+}
+```
+* std::linalg::dot[color ff0000]
 
 
 ### 出力
+```
+14
+14
+32
+32
+```
 
 
 ## バージョン
