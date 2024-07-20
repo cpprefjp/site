@@ -57,9 +57,58 @@ namespace std::linalg {
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp example
+#include <cmath>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+#include <vector>
+
+
+template <class Vector>
+bool IsEqual(Vector a, Vector b) {
+  if (a.extent(0) != b.extent(0)) {
+    return false;
+  }
+  for (int i = 0; i < a.extent(0); ++i) {
+    if (a[i] != b[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+int main()
+{
+  constexpr size_t N = 3;
+
+  std::vector<double> a_vec({1, 2, 3});
+  std::mdspan a(a_vec.data(), N);
+
+  std::vector<double> b_vec(N);
+  std::mdspan b(b_vec.data(), N);
+
+  // (1)
+  std::linalg::copy(a, b);
+  assert(IsEqual(a, b));
+
+  // (2)
+  std::linalg::copy(std::execution::par, a, b);
+  assert(IsEqual(a, b));
+
+  return 0;
+}
+```
+* std::linalg::copy[color ff0000]
 
 
 ### 出力
+```
+```
 
 
 ## バージョン
