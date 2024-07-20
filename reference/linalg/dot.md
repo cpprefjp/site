@@ -89,7 +89,6 @@ $$
 #include <iostream>
 #include <linalg>
 #include <mdspan>
-#include <numbers>
 #include <vector>
 
 int main()
