@@ -68,9 +68,56 @@ $x + y$ を`z`に代入する。
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp example
+#include <cmath>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+#include <vector>
+
+template <class Vector>
+void print(Vector v) {
+  for (int i = 0; i < v.extent(0) - 1; ++i) {
+    std::cout << v[i] << ', ';
+  }
+  std::cout << v[v.extent(0) - 1] << std::endl;
+}
+
+int main()
+{
+  constexpr size_t N = 3;
+
+  std::vector<double> a_vec({1, 2, 3});
+  std::mdspan a(a_vec.data(), N);
+
+  std::vector<double> b_vec({4, 5, 6});
+  std::mdspan b(b_vec.data(), N);
+
+  std::vector<double> c_vec(N);
+  std::mdspan c(c_vec.data(), N);
+
+  // (1)
+  std::linalg::add(a, b, c);
+  print(c);
+
+  // (2)
+  std::linalg::add(std::execution::par, a, b, c);
+  print(c);
+
+  return 0;
+}
+```
+* std::linalg::add[color ff0000]
 
 
 ### 出力
+```
+5, 7, 9
+5, 7, 9
+```
 
 
 ## バージョン
