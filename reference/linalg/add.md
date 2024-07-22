@@ -81,7 +81,7 @@ $x + y$ を`z`に代入する。
 template <class Vector>
 void print(Vector v) {
   for (int i = 0; i < v.extent(0) - 1; ++i) {
-    std::cout << v[i] << ', ';
+    std::cout << v[i] << ", ";
   }
   std::cout << v[v.extent(0) - 1] << std::endl;
 }

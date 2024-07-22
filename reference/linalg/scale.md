@@ -48,9 +48,54 @@ $$
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp example
+#include <cmath>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+#include <vector>
+
+
+template <class Vector>
+void print(Vector v) {
+  for (int i = 0; i < v.extent(0) - 1; ++i) {
+    std::cout << v[i] << ", ";
+  }
+  std::cout << v[v.extent(0) - 1] << std::endl;
+}
+
+
+int main()
+{
+  constexpr size_t N = 3;
+
+  std::vector<double> a_vec({1, 2, 3});
+  std::mdspan a(a_vec.data(), N);
+
+  double alpha = 2.0;
+
+  // (1)
+  std::linalg::scale(alpha, a);
+  print(a);
+
+  // (2)
+  std::linalg::scale(std::execution::par, alpha, a);
+  print(a);
+
+  return 0;
+}
+```
+* std::linalg::scale[color ff0000]
 
 
 ### 出力
+```
+2, 4, 6
+4, 8, 12
+```
 
 
 ## バージョン
