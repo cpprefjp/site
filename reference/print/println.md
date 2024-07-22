@@ -31,7 +31,7 @@ namespace std {
 
 この関数は、末尾に改行コードが付くことに注意。改行コードが不要な場合は、[`std::print()`](print.md)関数を使用すること。
 
-[`std::ostream`](/reference/ostream/basic_ostream.md)から派生したクラスオブジェクトに対して出力したい場合は、[`<ostream>`](/reference/ostream.md)ヘッダの[`std::print()`](/reference/ostream/println.md)関数を使用すること。
+[`std::ostream`](/reference/ostream/basic_ostream.md)から派生したクラスオブジェクトに対して出力したい場合は、[`<ostream>`](/reference/ostream.md)ヘッダの[`std::println()`](/reference/ostream/println.md)関数を使用すること。
 
 
 ## 効果
