@@ -68,7 +68,7 @@
 | [`to_underlying`](utility/to_underlying.md) | 列挙値を基底型に変換する (function template) | C++23 |
 
 
-## 列挙型
+## 到達しない表明
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
