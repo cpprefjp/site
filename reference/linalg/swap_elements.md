@@ -57,9 +57,71 @@ namespace std::linalg {
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp example
+#include <cmath>
+#include <execution>
+#include <iostream>
+#include <linalg>
+#include <mdspan>
+#include <vector>
+
+
+template <class Vector>
+void print(Vector v) {
+  for (int i = 0; i < v.extent(0) - 1; ++i) {
+    std::cout << v[i] << ", ";
+  }
+  std::cout << v[v.extent(0) - 1] << std::endl;
+}
+
+
+int main()
+{
+  constexpr size_t N = 3;
+
+  std::vector<double> a_vec({1, 2, 3});
+  std::mdspan a(a_vec.data(), N);
+
+  std::vector<double> b_vec({4, 5, 6});
+  std::mdspan b(b_vec.data(), N);
+
+  // (1)
+  std::linalg::swap_elements(a, b);
+  std::cout << "(1)\n";
+  std::cout << "a\n";
+  print(a);
+  std::cout << "b\n";
+  print(b);
+
+  // (2)
+  std::linalg::swap_elements(std::execution::par, a, b);
+  std::cout << "(2)\n";
+  std::cout << "a\n";
+  print(a);
+  std::cout << "b\n";
+  print(b);
+
+  return 0;
+}
+```
+* std::linalg::copy[color ff0000]
 
 
 ### 出力
+```
+(1)
+a
+4, 5, 6
+b
+1, 2, 3
+(2)
+a
+1, 2, 3
+b
+4, 5, 6
+```
 
 
 ## バージョン
