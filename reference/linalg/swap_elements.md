@@ -106,7 +106,7 @@ int main()
   return 0;
 }
 ```
-* std::linalg::copy[color ff0000]
+* std::linalg::swap_elements[color ff0000]
 
 
 ### 出力
