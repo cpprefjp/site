@@ -93,6 +93,8 @@ LayoutMappingを満たす型`M`は
 - [`layout_left::mapping<E>`](layout_left/mapping.md)
 - [`layout_right::mapping<E>`](layout_right/mapping.md)
 - [`layout_stride::mapping<E>`](layout_stride/mapping.md)
+- [`layout_left_padded<PV>::mapping<E>`](layout_left_padded/mapping.md.nolink)
+- [`layout_right_padded<PV>::mapping<E>`](layout_right_padded/mapping.md.nolink)
 - [`layout_blas_packed<T,SO>::mapping<E>`](/reference/linalg/layout_blas_packed/mapping.md)
 
 
