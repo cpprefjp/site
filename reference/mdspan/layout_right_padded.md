@@ -20,7 +20,7 @@ namespace std {
 ## 概要
 `layout_right_padded`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、パディングあり行優先(row major)[レイアウトマッピング](LayoutMapping.md)を表現するポリシークラスである。
 
-全要素が隣接配置される[`layout_right`](layout_right.md)とは異なり、`layout_right_padded`では最右次元の隣次元（第R-2次元）ストライド幅`stride(`[`extents_type​::​rank()`](extents/rank.md) `- 2)`が最右次元の要素数`extent(extents_type​::​rank() - 1)`よりも大きい、つまり第R-2次元においてパディングが挿入される可能性がある。
+全要素が隣接配置される[`layout_right`](layout_right.md)とは異なり、`layout_right_padded`では最右次元の隣次元（第R-2次元）ストライド幅`stride(`[`extents_type::rank()`](extents/rank.md) `- 2)`が最右次元の要素数`extent(extents_type::rank() - 1)`よりも大きい、つまり第R-2次元においてパディングが挿入される可能性がある。
 
 `layout_right_padded`の特殊化は、[レイアウトマッピングポリシー要件](LayoutMappingPolicy.md)を満たす[トリビアル型](/reference/type_traits/is_trivial.md)である。
 
