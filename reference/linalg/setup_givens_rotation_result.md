@@ -33,9 +33,7 @@ namespace std::linalg {
 
 
 ## 例
-
-
-### 出力
+[`setup_givens_rotation`](setup_givens_rotation.md)に記載。
 
 
 ## バージョン

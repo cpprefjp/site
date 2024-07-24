@@ -64,9 +64,51 @@ $$
 
 
 ## 例
+**[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
+
+```cpp example
+#include <cmath>
+#include <complex>
+#include <iostream>
+#include <linalg>
+
+template <class T>
+void print(const std::linalg::setup_givens_rotation_result<T>& result) {
+  std::cout << "c: " << result.c << '\n'
+            << "s: " << result.s << '\n'
+            << "r: " << result.r << '\n';
+}
+
+int main()
+{
+  // (1)
+  std::cout << "(1)\n";
+  auto result1 = std::linalg::setup_givens_rotation(1.0, std::sqrt(3.0));
+  print(result1);
+
+  // (2)
+  std::cout << "(2)\n";
+  auto result2 = std::linalg::setup_givens_rotation(std::complex<double>(1.0, 0), std::complex<double>(0, std::sqrt(3.0)));
+  print(result2);
+
+  return 0;
+}
+```
+* std::linalg::setup_givens_rotation[link /reference/linalg/setup_givens_rotation.md]
+* std::linalg::setup_givens_rotation_result[link /reference/linalg/setup_givens_rotation_result.md]
 
 
 ### 出力
+```
+(1)
+c: 0.5
+s: -0.866025
+r: 2.0
+(2)
+c: 0.5
+s: (0,-0.866025)
+r: (2,0)
+```
 
 
 ## バージョン
