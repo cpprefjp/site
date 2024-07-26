@@ -161,6 +161,10 @@ T accumulate(InputIterator first, InputIterator last, T init,
 * std::move[link /reference/utility/move.md]
 
 
+## 関連項目
+- [`std::reduce()`](reduce.md)
+
+
 ## 参照
 - [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)
 - [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
