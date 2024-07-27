@@ -118,8 +118,13 @@ constexpr basic_string(const T& t,
                        size_type pos,
                        size_type n,
                        const Allocator& a = Allocator());        // (15) C++20
+
+template <container-compatible-range<CharT> R>
+constexpr basic_string(from_range_t, R&& rg,
+                       const Allocator& a = Allocator());        // (19) C++23
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。アロケータをデフォルト構築して空の`basic_string`オブジェクトを構築する。
@@ -139,6 +144,7 @@ constexpr basic_string(const T& t,
 - (15) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲の文字列の`pos`番目から`n`文字の部分文字列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文字列がコピーされる。
 - (17) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。`n == npos`の場合、`pos`番目から末尾までの部分文字列がコピーされる。`str`は未規定の値になる。
 - (18) : `str`オブジェクトの部分文字列のコピーから`basic_string`オブジェクトを構築する。`str`オブジェクトの`pos`番目から末尾までの部分文字列がコピーされる。`str`は未規定の値になる。
+- (19) : Range`rg`から`basic_string`オブジェクトを構築する。
 
 
 ## テンプレートパラメータ制約

@@ -32,8 +32,13 @@ forward_list(forward_list&& x, const Allocator& a);      // (9) C++11
 
 forward_list(initializer_list<T> il,
              const Allocator& a = Allocator());          // (10) C++11
+
+template <container-compatible-range<T> R>
+forward_list(from_range_t, R&& rg,
+             const Allocator& a = Allocator());          // (11) C++23
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 `forward_list`オブジェクトを、以下に示す通りの要素で初期化する。
@@ -53,6 +58,7 @@ forward_list(initializer_list<T> il,
 - (8) : アロケータを指定したコピーコンストラクタ  
 - (9) : アロケータを指定したムーブコンストラクタ  
 - (10) : 初期化子リストを受け取るコンストラクタ。`forward_list(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と等価。
+- (11) : Range `rg` の要素をコピーした `forward_list` オブジェクトを構築する。
 
 
 ## 計算量
@@ -65,6 +71,7 @@ forward_list(initializer_list<T> il,
 - (8) : `x` の要素数に対して線形時間
 - (9) : `x.`[`get_allocator`](get_allocator.md)`() == a` であれば、定数時間。そうでなければ `x` の要素数に対して線形時間
 - (10) : `il` の要素数に対して線形時間
+- (11) : `rg` の要素数に対して線形時間
 
 
 ## 備考

@@ -31,8 +31,13 @@ deque(deque&& y, const Allocator& a);             // (9) C++11 から
 
 deque(initializer_list<T> il,
       const Allocator& a = Allocator());          // (10) C++11 から
+
+template <container-compatible-range<T> R>
+deque(from_range_t, R&& rg,
+      const Allocator& a = Allocator());          // (11) C++23 から
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 
 ## 概要
@@ -55,6 +60,7 @@ deque(initializer_list<T> il,
 - (8) : コピーコンストラクタ。アロケータに `a` を使用して、`x` と同じ要素を保持した `deque` を構築する。
 - (9) : ムーブコンストラクタ。アロケータに `a` を使用して、ムーブセマンティクスを使って `y` の要素でコンテナを構築する。
 - (10) : 初期化子リストで要素を構築するコンストラクタ。`deque(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と等価。
+- (11) : Rangeコンストラクタ。アロケータに `a` を使用して、`rg` の要素で `deque` を構築する。
 
 
 ## 計算量
@@ -68,7 +74,8 @@ deque(initializer_list<T> il,
 - (7) : 定数時間
 - (8) : `x` の要素数に対して線形時間
 - (9) : `a == y.`[`get_allocator`](get_allocator.md)`()` の場合、定数時間、そうでなければ `y` の要素数に対して線形時間
-- (10) : `il`の要素数に対して線形時間
+- (10) : `il` の要素数に対して線形時間
+- (11) : `rg` の要素数に対して線形時間
 
 
 ## 備考
