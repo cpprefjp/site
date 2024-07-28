@@ -29,8 +29,13 @@ list(list&& x, const Allocator& a);              // (9) C++11 から
 
 list(initializer_list<T> il,
      const Allocator& a = Allocator());          // (10) C++11 から
+
+template <container-compatible-range<T> R>
+list(from_range_t, R&& rg,
+     const Allocator& a = Allocator());          // (11) C++23 から
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 
 ## 概要
@@ -48,6 +53,7 @@ list オブジェクトの構築
 - (8) : アロケータを指定したコピーコンストラクタ。
 - (9) : アロケータを指定したムーブコンストラクタ。
 - (10) : 初期化子リストを受け取るコンストラクタ。`list(il.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), il.`[`end`](../../initializer_list/initializer_list/end.md)`(), a)` と等価。
+- (11) : Rangeコンストラクタ。Range `rg` の要素で `list` を構築する。
 
 
 ## 計算量
@@ -57,6 +63,8 @@ list オブジェクトの構築
 - (6), (8) : `x.`[`size`](size.md)`()` に対して線形時間
 - (7) : 定数時間
 - (9) : `a == x.`[`get_allocator`](get_allocator.md)`()` であれば定数時間。そうでなければ `x.`[`size`](size.md)`()` に対して線形時間
+- (10) : `il.`[`size`](../../initializer_list/initializer_list/size.md)`()` に対して線形時間
+- (11) : [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)` に対して線形時間
 
 
 ## 備考

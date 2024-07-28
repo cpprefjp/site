@@ -68,8 +68,27 @@ unordered_multimap(initializer_list<value_type> il,
                    size_type n,
                    const hasher& hf, 
                    const allocator_type& a);                              // (15) C++14
+
+template <container-compatible-range<value_type> R>
+unordered_multimap(std::from_range_t, R&& rg,
+                   size_type n = 実装依存の既定値,
+                   const hasher& hf = hasher(),
+                   const key_equal& eql = key_equal(),
+                   const allocator_type& a = allocator_type());           // (16) C++23
+
+template <container-compatible-range<value_type> R>
+unordered_multimap(std::from_range_t, R&& rg,
+                   size_type n,
+                   const allocator_type& a);                              // (17) C++23
+
+template <container-compatible-range<value_type> R>
+unordered_multimap(std::from_range_t, R&& rg,
+                   size_type n,
+                   const hasher& hf,
+                   const allocator_type& a);                              // (18) C++23
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 `unordered_multimap` オブジェクトを構築する
@@ -136,6 +155,12 @@ unordered_multimap(initializer_list<value_type> il,
 
 - (15) : (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と等価である。
 
+- (16) : バケット数最低 `n`、ハッシュ関数オブジェクト `hf`、キー比較用関数オブジェクト `eql`、アロケータオブジェクト `a` で `unordered_multimap` が構築された後、Range `rg` の要素が挿入される。
+
+- (17) : (16) の形式を `unordered_multimap(from_range, std::forward<R>(rg), n, hasher(), key_equal(), a)` として呼び出した場合と等価である。
+
+- (18) : (16) の形式を `unordered_multimap(from_range, std::forward<R>(rg), n, hf, key_equal(), a)` として呼び出した場合と等価である。
+
 
 ## 事後条件
 以下では構築されたオブジェクトを `u` とする。
@@ -194,6 +219,7 @@ unordered_multimap(initializer_list<value_type> il,
 - (13) : (3) の形式を `unordered_multimap(f, l, n, hf, key_equal(), a)` として呼び出した場合と等価。
 - (14) : (5) の形式を `unordered_multimap(il, n, hasher(), key_equal(), a)` として呼び出した場合と等価。
 - (15) : (5) の形式を `unordered_multimap(il, n, hf, key_equal(), a)` として呼び出した場合と等価。
+- (16), (17), (18) : 平均的には O(n)、ここで、n は [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)`。最悪のケースでは O(n<sup>2</sup>)
 
 
 ## 備考

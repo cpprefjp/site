@@ -64,4 +64,4 @@
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
-- [P2642R5 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2642r5.html)
+- [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)

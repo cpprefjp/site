@@ -40,8 +40,18 @@ map(initializer_list<value_type> init,
 
 map(initializer_list<value_type> init,
     const Allocator& alloc);                           // (11) C++14 から
+
+template <container-compatible-range <value_type> R>
+map(from_range_t, R&& rg,
+    const Compare& comp = Compare(),
+    const Allocator& alloc = Allocator());             // (12) C++23 から
+
+template <container-compatible-range <value_type> R>
+map(from_range_t, R&& rg,
+    const Allocator& alloc);                           // (13) C++23 から
 ```
 * initializer_list[link ../../initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 `map` オブジェクトの構築
@@ -60,6 +70,8 @@ map(initializer_list<value_type> init,
 - (9) アロケータ `alloc` を指定したムーブコンストラクタ。`y` の要素をムーブすることで `map` オブジェクトを構築する。（C++11 から）
 - (10) 比較オブジェクト `comp`、アロケータ `alloc` 、および初期化リスト `init` の要素で `map` オブジェクトを構築する。`map(init.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), init.`[`end`](../../initializer_list/initializer_list/end.md)`(), comp, alloc)` と等価。（C++11 から）
 - (11) アロケータ `alloc` 、および初期化リスト `init` の要素で `map` オブジェクトを構築する。`map(init, Compare(), alloc)` と等価。（C++14 から）
+- (12) Rangeコンストラクタ。比較オブジェクト `comp`、アロケータ `alloc` 、およびRange `rg` の要素で `map` オブジェクトを構築する。
+- (13) Rangeコンストラクタ。アロケータ `alloc` 、およびRange `rg` の要素で `map` オブジェクトを構築する。
 
 
 ## 計算量
@@ -67,8 +79,9 @@ map(initializer_list<value_type> init,
 - (4)、(5) `N =` [`distance`](../../iterator/distance.md)`(first, last)` とすると、範囲 `[first, last)` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
 - (6)、(7) `x.`[`size`](size.md)`()`  に対して線形時間
 - (8) 定数時間
-- (9) 定数時間。但し、`alloc == y.`[`get_allocator`](/reference/map/map/get_allocator.md)`()` でなければ `y.`[`size`](size.md)`()` に対して線形時間。
-- (10)、(11) `init.`[`size`](size.md)`()` に対して線形時間。
+- (9) 定数時間。但し、`alloc == y.`[`get_allocator`](/reference/map/map/get_allocator.md)`()` でなければ `y.`[`size`](size.md)`()` に対して線形時間
+- (10)、(11) `N = init.`[`size`](../../initializer_list/initializer_list/size.md)`()` とすると、範囲 `[init.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), init.`[`end`](../../initializer_list/initializer_list/end.md)`())` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
+- (12)、(13) `N =` [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)` とすると、`rg` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
 
 
 ## 備考

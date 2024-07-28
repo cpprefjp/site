@@ -78,9 +78,18 @@ constexpr bool is-mapping-of = // exposition only
 
 - (5) : `explicit`指定子の式は以下と等価
 ```cpp
+// C++23
 !(is_convertible_v<typename StridedLayoutMapping::extents_type, extents_type> &&
   (is-mapping-of<layout_left, StridedLayoutMapping> ||
    is-mapping-of<layout_right, StridedLayoutMapping> ||
+   is-mapping-of<layout_stride, StridedLayoutMapping>))
+
+// C++26
+!(is_convertible_v<typename StridedLayoutMapping::extents_type, extents_type> &&
+  (is-mapping-of<layout_left, StridedLayoutMapping> ||
+   is-mapping-of<layout_right, StridedLayoutMapping> ||
+   is-layout-left-padded-mapping-of<StridedLayoutMapping> ||
+   is-layout-right-padded-mapping-of<StridedLayoutMapping> ||
    is-mapping-of<layout_stride, StridedLayoutMapping>))
 ```
 * is_convertible_v[link /reference/type_traits/is_convertible.md]
@@ -88,6 +97,8 @@ constexpr bool is-mapping-of = // exposition only
 * layout_left[link ../../layout_left.md]
 * layout_right[link ../../layout_right.md]
 * layout_stride[link ../../layout_stride.md]
+* is-layout-left-padded-mapping-of[link ../../is-layout-left-padded-mapping-of.md]
+* is-layout-right-padded-mapping-of[link ../../is-layout-right-padded-mapping-of.md]
 
 
 ## 例
@@ -158,9 +169,11 @@ int main()
 
 ## 関連項目
 - [`layout_left::mapping`](../../layout_left/mapping.md)
-- [`layout_stride::mapping`](../../layout_stride/mapping.md)
+- [`layout_right::mapping`](../../layout_right/mapping.md)
 
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2763R1 `layout_stride` static extents default constructor fix](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2763r1.html)
+- [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
+    - C++26でオーバーロード(5)のexplicit条件に[`layout_left_padded`](../../layout_left_padded.md), [`layout_right_padded`](../../layout_right_padded.md)対応が追加された。

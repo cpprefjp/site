@@ -36,8 +36,18 @@ set(initializer_list<value_type> init,
 
 set(initializer_list<value_type> init,
     const Allocator& a);                            // (11) C++14
+
+template <container-compatible-range <value_type> R>
+set(from_range_t, R&& rg,
+    const Compare& comp = Compare(),
+    const Allocator& alloc = Allocator());          // (12) C++23
+
+template <container-compatible-range <value_type> R>
+set(from_range_t, R&& rg,
+    const Allocator& alloc);                        // (13) C++23
 ```
 * initializer_list[link ../../initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 
 ## 概要
@@ -55,6 +65,8 @@ set(initializer_list<value_type> init,
 - (7), (9) : ムーブコンストラクタ。`y` のコンテンツをムーブすることでコンテナを構築する。もし `alloc` が与えられなかった場合、アロケータを `y` に属しているアロケータをムーブして取得する。
 - (10) : 初期化リスト `init` のコンテンツでコンテナを構築する。
 - (11) : (10)のコンストラクタを `set(init, Compare(), a)` のように呼び出して、`set`オブジェクトを構築する。
+- (12) : Range `rg` の要素で `set` オブジェクトを構築する。
+- (13) : (12)のコンストラクタを `set(`[`from_range`](../../ranges/from_range_t.md)`, rg, Compare(), alloc)` のように呼び出して、`set`オブジェクトを構築する。
 
 
 ## 計算量
@@ -62,7 +74,8 @@ set(initializer_list<value_type> init,
 - (4), (5) : `comp` によって既にソート済みである場合は、イテレータ間の距離（コピーコンストラクト）。未ソートのシーケンスの場合は、それらの距離について N * logN （ソート、コピーコンストラクト）。
 - (6), (8) : `x` の [`size`](size.md) に対して線形時間（全要素をコピー構築する）。
 - (7), (9) : 定数時間。ただし、`alloc` が与えられてかつ `alloc != y.`[`get_allocator`](get_allocator.md)`()` の場合は線形時間。
-- (10), (11) : `init` の要素数に対して線形時間。
+- (10), (11) : `comp` によって既にソート済みである場合は、`init` のサイズ（コピーコンストラクト）。未ソートの `init` の場合は、`init` のサイズについて N * logN （ソート、コピーコンストラクト）。
+- (12), (13) : `comp` によって既にソート済みである場合は、`rg` のサイズ（コピーコンストラクト）。未ソートの `rg` の場合は、`rg` のサイズについて N * logN （ソート、コピーコンストラクト）。
 
 
 ## 備考

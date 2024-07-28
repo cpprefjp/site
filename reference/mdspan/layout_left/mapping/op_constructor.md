@@ -20,6 +20,10 @@ template<class OtherExtents>
 constexpr explicit(!is_convertible_v<OtherExtents, extents_type>)
   mapping(const layout_right::mapping<OtherExtents>& other) noexcept;  // (5)
 
+template<class LayoutLeftPaddedMapping>
+constexpr explicit(!is_convertible_v<typename LayoutLeftPaddedMapping::extents_type, extents_type>)
+  mapping(const LayoutLeftPaddedMapping& other) noexcept;  // (7) C++26
+
 template<class OtherExtents>
 constexpr explicit(extents_type::rank() > 0)
   mapping(const layout_stride::mapping<OtherExtents>& other) noexcept;  // (6)
@@ -27,6 +31,7 @@ constexpr explicit(extents_type::rank() > 0)
 * is_convertible_v[link /reference/type_traits/is_convertible.md]
 * rank()[link ../../extents/rank.md]
 * layout_right::mapping[link ../../layout_right/mapping.md]
+* LayoutLeftPaddedMapping[link ../../layout_left_padded/mapping.md]
 * layout_stride::mapping[link ../../layout_stride/mapping.md]
 
 ## 概要
@@ -36,6 +41,7 @@ constexpr explicit(extents_type::rank() > 0)
 - (4) : 他`layout_left::mapping`からの変換コンストラクタ
 - (5) : [`layout_right::mapping`](../../layout_right/mapping.md)からの変換コンストラクタ
 - (6) : [`layout_stride::mapping`](../../layout_stride/mapping.md)からの変換コンストラクタ
+- (7) : [`layout_left_padded<S>::mapping`](../../layout_left_padded/mapping.md)からの変換コンストラクタ
 
 
 ## テンプレートパラメータ制約
@@ -44,6 +50,17 @@ constexpr explicit(extents_type::rank() > 0)
     - `extents_type::`[`rank()`](../../extents/rank.md) `<= 1`、かつ
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, OtherExtents>`が`true`であること。
 - (6) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, OtherExtents>`が`true`であること。
+- (7) :
+    - [`is-layout-left-padded-mapping-of`](../../is-layout-left-padded-mapping-of.md)`<LayoutLeftPaddedMapping>`が`true`、かつ
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<extents_type, typename LayoutLeftPaddedMapping::extents_type>`が`true`であること。
+
+
+## 適格要件
+- (7) : 以下を満たすとき、`extents_type::`[`static_extent`](../../extents/static_extent.md)`(0)`が`LayoutLeftPaddedMapping::padding_stride`の倍数であること。
+    - `extents_type::`[`rank()`](../../extents/rank.md) `> 1`、かつ
+    - `extents_type::`[`static_extent`](../../extents/static_extent.md)`(0)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
+    - `LayoutLeftPaddedMapping::extents_type::`[`static_extent`](../../extents/static_extent.md)`(0)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
+    - `LayoutLeftPaddedMapping::padding_stride`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないこと。
 
 
 ## 事前条件
@@ -53,11 +70,14 @@ constexpr explicit(extents_type::rank() > 0)
 - (6) :
     - `extents_type::`[`rank()`](../../extents/rank.md) `> 0`のとき、`other`における全次元のストライド幅が[`layout_left::mapping`相当の制約](stride.md)をもつこと。
     - `other.`[`required_span_size()`](../../layout_stride/mapping/required_span_size.md)を、`index_type`型で表現できること。
+- (7) :
+    - `extents_type::`[`rank()`](../../extents/rank.md) `> 1`のとき、`other.stride(1) == other.extents(0)`
+    - `other.`[`required_span_size()`](../../layout_left_padded/mapping/required_span_size.md.nolink)を、`index_type`型で表現できること。
 
 
 ## 効果
 - (3) : `e`を用いて`extents_`を直接非リスト初期化する。
-- (4), (5), (6) : `other.extents()`を用いて`extents_`を直接非リスト初期化する。
+- (4), (5), (6), (7) : `other.extents()`を用いて`extents_`を直接非リスト初期化する。
 
 
 ## 例外
@@ -67,6 +87,7 @@ constexpr explicit(extents_type::rank() > 0)
 ## explicitになる条件
 - (4), (5) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<OtherExtents, extents_type>`
 - (6) : [`extents_type::rank()`](../../extents/rank.md) `> 0`
+- (7) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<typename LayoutLeftPaddedMapping::extents_type, extents_type>`
 
 
 ## 例
@@ -143,7 +164,9 @@ int main()
 ## 関連項目
 - [`layout_right::mapping`](../../layout_right/mapping.md)
 - [`layout_stride::mapping`](../../layout_stride/mapping.md)
+- [`layout_left_padded::mapping`](../../layout_left_padded/mapping.md)
 
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
+- [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
