@@ -56,8 +56,13 @@ vector(initializer_list<T> il,
        const Allocator& a = Allocator());            // (10) C++11
 constexpr vector(initializer_list<T> il,
                  const Allocator& a = Allocator());  // (10) C++20
+
+template <container-compatible-range<T> R>
+constexpr vector(std::from_range_t, R&& rg,
+                 const Allocator& a = Allocator());  // (11) C++23
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 `vector`オブジェクトを次に示す通りの要素で初期化する。
@@ -79,6 +84,7 @@ constexpr vector(initializer_list<T> il,
 - (8) : アロケータを別で受け取り、`vector` オブジェクトをコピー構築する。
 - (9) : アロケータを別で受け取り、`vector` オブジェクトをムーブ構築する。
 - (10) : 初期化子リストを受け取るコンストラクタ。`vector(il.`[`begin`](/reference/initializer_list/initializer_list/begin.md)`(), li.`[`end`](/reference/initializer_list/initializer_list/end.md)`(), a)` と等価。
+- (11) : Rangeコンストラクタ。アロケータ `a` を使用して、Range `rg` の要素から `vector` オブジェクトを構築する。
 
 
 ## 計算量
@@ -90,6 +96,7 @@ constexpr vector(initializer_list<T> il,
 - (8) : `x.`[`size`](size.md)`()` に対して線形時間
 - (9) : 定数時間。ただし、`a == x.`[`get_allocator`](get_allocator.md)`()` でなければ `x.`[`size`](size.md)`()` に対して線形時間。
 - (10) : `il.`[`size`](/reference/initializer_list/initializer_list/size.md)`()` に対して線形時間
+- (11) : [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)` に対して線形時間。`R` のモデルが [`ranges::forward_range`](../../ranges/forward_range.md) でも [`ranges::sized_range`](../../ranges/sized_range.md) でもなければ、あらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。
 
 
 ## 備考
