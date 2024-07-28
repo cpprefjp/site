@@ -17,7 +17,7 @@ stack() : stack(Container()) {}    // (1)
 explicit stack(const Container&);  // (2)
 explicit stack(Container&&);       // (3)
 
-template<class InputIterator>
+template <class InputIterator>
 stack(InputIterator first, InputIterator last);       // (4) C++23
 
 template <class Allocator>
@@ -35,9 +35,16 @@ stack(const stack& st, const Allocator& alloc);       // (8) C++11
 template <class Allocator>
 stack(stack&& st, const Allocator& alloc);            // (9) C++11
 
-template<class InputIterator, class Alloc>
+template <class InputIterator, class Alloc>
 stack(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23
+
+template <container-compatible-range<T> R>
+stack(from_range_t, R&& rg);                          // (11) C++23
+
+template <container-compatible-range<T> R, class Alloc>
+stack(from_range_t, R&& rg, const Alloc& alloc);      // (12) C++23
 ```
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。
@@ -50,6 +57,8 @@ stack(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23
 - (8) : アロケータを受け取るコピーコンストラクタ。
 - (9) : アロケータを受け取るムーブコンストラクタ。
 - (10) : 元となるコンテナのイテレータペアとアロケータを受け取るコンストラクタ。
+- (11) : 元となるRangeを受け取るコンストラクタ。
+- (12) : 元となるRangeとアロケータを受け取るコンストラクタ。
 
 
 ## 効果
@@ -62,6 +71,8 @@ stack(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23
 - (8) : メンバ変数`c`を`Container(st.c, alloc)`で初期化する。
 - (9) : メンバ変数`c`を`Container(`[`std::move`](/reference/utility/move.md)`(st.c), alloc)`で初期化する。
 - (10) : メンバ変数`c`を3つの引数`first`, `last`, `alloc`で初期化する。
+- (11) : メンバ変数`c`を`Container(from_range, rg)`で初期化する。
+- (12) : メンバ変数`c`を`Container(from_range, rg, alloc)`で初期化する。
 
 
 ## 例

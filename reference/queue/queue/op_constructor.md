@@ -33,7 +33,13 @@ queue(queue&& que, const Alloc& alloc);            // (9) C++11
 
 template<class InputIterator, class Alloc>
 queue(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23
+
+template <container-compatible-range<T> R>
+queue(from_range_t, R&& rg);                       // (11) C++23
+template <container-compatible-range<T> R, class Alloc>
+queue(from_range_t, R&& rg, const Alloc& alloc);   // (12) C++23
 ```
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 `queue` コンテナアダプタのオブジェクトを構築する。 
@@ -46,6 +52,7 @@ queue(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23
 `alloc`: 内部のコンテナで使用するアロケータオブジェクト
 `que`: コピー・ムーブ元の`queue`オブジェクト
 `first`, `last`: 初期化に用いるイテレータのペア
+`rg`: 初期化に用いるRange
 
 ## 計算量
 線形 O(n)。

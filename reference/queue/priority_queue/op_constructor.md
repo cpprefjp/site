@@ -79,7 +79,21 @@ priority_queue(InputIterator first, InputIterator last,
                const Compare& x,
                Container&& other,
                const Alloc& alloc);                       // (17) C++23
+
+template <container-compatible-range<T> R>
+priority_queue(from_range_t, R&& rg,
+               const Compare& x = Compare());             // (18) C++23
+
+template <container-compatible-range<T> R, class Alloc>
+priority_queue(from_range_t, R&& rg,
+               const Compare& x,
+               const Alloc& alloc);                       // (19) C++23
+
+template <container-compatible-range<T> R, class Alloc>
+priority_queue(from_range_t, R&& rg,
+               const Alloc& alloc);                       // (20) C++23
 ```
+* from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ
@@ -98,6 +112,7 @@ priority_queue(InputIterator first, InputIterator last,
 - (13) : アロケータ指定でコピー構築する
 - (14) : アロケータ指定でムーブ構築する
 - (15), (16), (17) : アロケータ指定でイテレータ範囲から優先順位付きキューを構築する
+- (18), (19), (20) : Rangeから優先順位付きキューを構築する
 
 
 ## 要件
@@ -166,7 +181,6 @@ priority_queue(InputIterator first, InputIterator last,
     2. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
     3. `c.insert(c.end(), first, last)`を呼び出す。
     4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
-    5. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
 - (16) :
     1. メンバ変数`comp`を`x`でコピー構築する。
     2. メンバ変数`c`を`other`でコピー構築する。
@@ -179,6 +193,20 @@ priority_queue(InputIterator first, InputIterator last,
     3. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
     4. `c.insert(c.end(), first, last)`を呼び出す。
     5. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (18) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. `c.insert(c.end(), ranges::begin(rg), ranges::end(rg))`を呼び出す。
+    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (19) :
+    1. メンバ変数`comp`を`x`でコピー構築する。
+    2. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    3. `c.insert(c.end(), ranges::begin(rg), ranges::end(rg))`を呼び出す。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
+- (20) :
+    1. メンバ変数`comp`を値初期化する。
+    2. メンバ変数`c`のメモリアロケートに`alloc`を使用する。
+    3. `c.insert(c.end(), ranges::begin(rg), ranges::end(rg))`を呼び出す。
+    4. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 
 
 ## 例
