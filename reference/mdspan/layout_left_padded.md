@@ -15,7 +15,7 @@ namespace std {
 ```
 * dynamic_extent[link /reference/span/dynamic_extent.md]
 * Extents[link extents.md]
-* mapping[link layout_left_padded/mapping.md.nolink]
+* mapping[link layout_left_padded/mapping.md]
 
 ## 概要
 `layout_left_padded`は、多次元配列ビュー[`mdspan`](mdspan.md)に対して、パディングあり列優先(column major)[レイアウトマッピング](LayoutMapping.md)を表現するポリシークラスである。
@@ -29,7 +29,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`mapping`](layout_left_padded/mapping.md.nolink) | レイアウトマッピング | C++26 |
+| [`mapping`](layout_left_padded/mapping.md) | レイアウトマッピング | C++26 |
 
 
 ## 例
@@ -83,4 +83,4 @@ int main()
 
 
 ## 参照
-- [P2642R5 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2642r5.html)
+- [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
