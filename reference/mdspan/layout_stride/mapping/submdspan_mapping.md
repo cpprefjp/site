@@ -3,7 +3,7 @@
 * function template[meta id-type]
 * std[meta namespace]
 * layout_stride::mapping[meta class]
-* cpp23[meta cpp]
+* cpp26[meta cpp]
 
 ```cpp
 template<class... SliceSpecifiers>
@@ -67,7 +67,7 @@ friend constexpr auto submdspan_mapping(
 
 ## バージョン
 ### 言語
-- C++23
+- C++26
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
