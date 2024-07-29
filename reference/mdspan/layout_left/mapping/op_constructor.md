@@ -56,17 +56,16 @@ constexpr explicit(extents_type::rank() > 0)
 
 
 ## 適格要件
-- (7) : 以下を満たすとき、`extents_type::`[`static_extent`](../../extents/static_extent.md)`(0)`が`LayoutLeftPaddedMapping::padding_stride`の倍数であること。
+- (7) : 以下を満たすとき、`extents_type::`[`static_extent`](../../extents/static_extent.md)`(0)`が[`LayoutLeftPaddedMapping::static-padding-stride`](../../layout_left_padded/mapping.md)に等しいこと。
     - `extents_type::`[`rank()`](../../extents/rank.md) `> 1`、かつ
     - `extents_type::`[`static_extent`](../../extents/static_extent.md)`(0)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
-    - `LayoutLeftPaddedMapping::extents_type::`[`static_extent`](../../extents/static_extent.md)`(0)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
-    - `LayoutLeftPaddedMapping::padding_stride`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないこと。
+    - `LayoutLeftPaddedMapping::static-padding-stride`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないとき。
 
 
 ## 事前条件
 - (3) : `e`の多次元インデクス空間のサイズを、`index_type`型で表現できること。
 - (4) : `other.`[`required_span_size()`](required_span_size.md)を、`index_type`型で表現できること。
-- (5) : `other.`[`required_span_size()`](../../layout_left/mapping/required_span_size.md)を、`index_type`型で表現できること。
+- (5) : `other.`[`required_span_size()`](../../layout_right/mapping/required_span_size.md)を、`index_type`型で表現できること。
 - (6) :
     - `extents_type::`[`rank()`](../../extents/rank.md) `> 0`のとき、`other`における全次元のストライド幅が[`layout_left::mapping`相当の制約](stride.md)をもつこと。
     - `other.`[`required_span_size()`](../../layout_stride/mapping/required_span_size.md)を、`index_type`型で表現できること。
