@@ -234,7 +234,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - `const_iterator`型
     - [`begin()`](/reference/optional/optional/begin.md.nolink)メンバ関数
     - [`end()`](/reference/optional/optional/end.md.nolink)メンバ関数
-- [`std::ignore`](/reference/tuple/ignore.html)をファーストクラス・オブジェクトとして型を詳細に定義
+- [`std::ignore`](/reference/tuple/ignore.md)をファーストクラス・オブジェクトとして型を詳細に定義
 - [`std::bitset`](/reference/bitset/bitset.md)に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るコンストラクタを追加
 - [`<ratio>`](/reference/ratio.md)に、新たなSI接頭辞として、以下を追加
     - [`ronna`](/reference/ratio/si_prefix.md) (10<sup>27</sup>)
@@ -255,7 +255,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### 制約
 - 間接実行に関連する制約から、共通参照の要件を削除
     - [`std::indirectly_unary_invocable`](/reference/iterator/indirectly_unary_invocable.md)
-    - [`std::indirectly_regular_unary_invocable`](/reference/iterator/indirectly_regular_unary_invocable.md)
+    - [`std::indirectly_regular_unary_invocable`](/reference/iterator/indirectly_unary_invocable.md)
     - [`std::indirect_unary_predicate`](/reference/iterator/indirect_unary_predicate.md)
     - [`std::indirect_binary_predicate`](/reference/iterator/indirect_binary_predicate.md)
     - [`std::indirect_equivalence_relation`](/reference/iterator/indirect_equivalence_relation.md)
