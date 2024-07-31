@@ -64,10 +64,12 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加
 - デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md.nolink)を追加
 - 線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加
+- コンパイル時に容量を固定する可変長配列クラスのライブラリとして[`<inplace_vector>`](/reference/inplace_vector.md.nolink)を追加
 
 
 ### コンテナ
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
+- [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
 - [`std::span`](/reference/span/span.md)に、以下を追加
     - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタ
     - インデックスアクセスのための[`at()`](/reference/span/span/at.md)メンバ関数
@@ -100,6 +102,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::stable_partition()`](/reference/algorithm/stable_partition.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_stable_partition.md)
     - [`std::inplace_merge()`](/reference/algorithm/inplace_merge.md) / [`std::ranges::inplace_merge()`](/reference/algorithm/ranges_inplace_merge.md)
 - Rangeアルゴリズムが完全型を要求しないようにするため、[`std::projected`](/reference/iterator/projected.md)の制約を緩和
+- [`std::ranges::find_last()`](/reference/algorithm/ranges_find_last.md)に検索対象の値を波カッコ初期化で渡せるよう制約を追加
 
 
 ### 関数オブジェクト
@@ -117,6 +120,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - ポインタ出力のサポートを追加
     - 幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
     - コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正
+- 文字列フォーマットをより高速にできる最適化が可能か判定する[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md.nolink)を追加
 
 
 ### ファイル
@@ -225,6 +229,13 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### ユーティリティ
 - [`std::variant`](/reference/variant/variant.md)クラスに、メンバ関数版の[`visit()`](/reference/variant/variant/visit.md.nolink)を追加
+- [`std::optional`](/reference/optional/optional.md)クラスに、0もしくは1要素のRangeとして扱えるようにするための拡張として、イテレータインタフェースを追加
+    - `iterator`型
+    - `const_iterator`型
+    - [`begin()`](/reference/optional/optional/begin.md.nolink)メンバ関数
+    - [`end()`](/reference/optional/optional/end.md.nolink)メンバ関数
+- [`std::ignore`](/reference/tuple/ignore.html)をファーストクラス・オブジェクトとして型を詳細に定義
+- [`std::bitset`](/reference/bitset/bitset.md)に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るコンストラクタを追加
 - [`<ratio>`](/reference/ratio.md)に、新たなSI接頭辞として、以下を追加
     - [`ronna`](/reference/ratio/si_prefix.md) (10<sup>27</sup>)
     - [`ronto`](/reference/ratio/si_prefix.md) (10<sup>−27</sup>)
@@ -237,8 +248,19 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### 型特性
-- 共用体のどのメンバがアクティブかを判定するための関数として、[`<type_traits>`](/reference/type_traits.md)に[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md.nolink)を追加
-- [`std::bitset`](/reference/bitset/bitset.md)に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るコンストラクタを追加
+- [`<type_traits>`](/reference/type_traits.md)に、共用体のどのメンバがアクティブかを判定するための関数として[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md.nolink)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、仮想継承の関係を判定する[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md.nolink)を追加
+
+
+### 制約
+- 間接実行に関連する制約から、共通参照の要件を削除
+    - [`std::indirectly_unary_invocable`](/reference/iterator/indirectly_unary_invocable.md)
+    - [`std::indirectly_regular_unary_invocable`](/reference/iterator/indirectly_regular_unary_invocable.md)
+    - [`std::indirect_unary_predicate`](/reference/iterator/indirect_unary_predicate.md)
+    - [`std::indirect_binary_predicate`](/reference/iterator/indirect_binary_predicate.md)
+    - [`std::indirect_equivalence_relation`](/reference/iterator/indirect_equivalence_relation.md)
+    - [`std::indirect_strict_weak_order`](/reference/iterator/indirect_strict_weak_order.md)
+
 
 ### 機能の削除
 - C++20から非推奨となっていた、[`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)のパラメータなしのオーバーロードを削除
