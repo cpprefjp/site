@@ -109,6 +109,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:有限会社テクニカルアーツ様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/technical_arts/TechnicalArtsLogo3.png, link:https://www.techarts.co.jp/, size:400, fee:8, amount:12]
 
+[sponsor name:T.Kishu様, fee:8, amount:12]
+
 
 
 ### ブロンズスポンサー
