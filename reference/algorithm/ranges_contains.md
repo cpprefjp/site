@@ -70,7 +70,7 @@ struct contains_impl {
   template<input_range R, class T, class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
   constexpr bool operator()(R&& r, const T& value, Proj proj = {}) const {
-    return ranges::find(std::forward(r), value, proj) != last;
+    return (*this)(begin(r), end(r), value, ref(proj));
   }
 };
 
