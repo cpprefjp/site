@@ -123,7 +123,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:minachun / J.Minami様, img:https://raw.githubusercontent.com/minachun/minachun/main/banner.png, link:https://github.com/minachun/minachun, fee:5, amount:12, note:Junichirou Minami]
 
-[sponsor name:星くず彼方に, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/overthestardust/overthestardust.png, link:https://gravatar.com/overthestardust size:256, fee:5, amount:12]
+[sponsor name:星くず彼方に, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/overthestardust/overthestardust.png, link:https://gravatar.com/overthestardust, size:256, fee:5, amount:12]
 
 [sponsor name:USAMI Kenta, img:https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256, link:https://github.com/zonuexe, size:256, fee:5, amount:12]
 
