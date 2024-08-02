@@ -110,7 +110,17 @@ namespace std {
 | [`tanh`](complex/tanh.md)   | 複素数の双曲線正接を求める                |                |
 
 
+## タプルインタフェースサポート
+
+| 名前 | 説明 | 対応バージョン |
+|---------------------------------------------|------------------------------------|-------|
+| [`tuple_size`](complex/tuple_size.md)       | 静的な要素数取得(class template)   | C++26 |
+| [`tuple_element`](complex/tuple_element.md) | 静的な要素の型取得(class template) | C++26 |
+| [`get`](complex/get.md)                     | 要素を取得する(function template)  | C++26 |
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <complex>
@@ -161,7 +171,7 @@ int main()
 * std::proj[link complex/proj.md]
 * std::polar[link complex/polar.md]
 
-### 出力
+#### 出力
 ```
 output : (1,2)
 real : 1
@@ -179,6 +189,57 @@ polar : (-1.62921e-07,1)
 ```
 
 
+### タプルインタフェースを使用する (C++26)
+```cpp example
+#include <print>
+#include <complex>
+#include <vector>
+#include <ranges>
+
+int main()
+{
+  // 構造化束縛で各要素を取得する
+  {
+    std::complex<float> c{1.0f, 2.0f};
+    auto [real, imag] = c;
+    std::println("real:{} imag:{}", real, imag);
+  }
+
+  // 定数の添字を指定して各要素を取得する
+  {
+    std::complex<float> c{1.0f, 2.0f};
+    float real = std::get<0>(c);
+    float imag = std::get<1>(c);
+    std::println("real:{} imag:{}", real, imag);
+  }
+
+  // complexの配列から実部のみを抽出する
+  {
+    std::vector<std::complex<float>> v {
+      {1.0f, 2.0f},
+      {3.0f, 4.0f},
+      {5.0f, 6.0f}
+    };
+
+    for (float real : v | std::views::elements<0>) {
+      std::println("real:{}", real);
+    }
+  }
+}
+```
+* std::get[link complex/get.md]
+* std::views::elements[link /reference/ranges/elements_view.md]
+
+#### 出力
+```
+real:1 imag:2
+real:1 imag:2
+real:1
+real:3
+real:5
+```
+
+
 ## 参照
 - [複素数 - Wikipedia](https://ja.wikipedia.org/wiki/複素数)
 - [複素数の手ほどき - 日本電気技術者協会](http://www.jeea.or.jp/course/contents/01109/)
@@ -188,3 +249,5 @@ polar : (-1.62921e-07,1)
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型に対応した
+- [P2819R2 Add tuple protocol to complex](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2819r2.pdf)
+    - C++26から`std::complex`にタプルインタフェースがサポートされた
