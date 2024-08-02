@@ -16,6 +16,16 @@ namespace std::ranges {
                 S last,
                 Comp comp = {},
                 Proj proj = {}); // (1) C++20
+  template <random_access_iterator I,
+            sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
+    requires sortable<I, Comp, Proj>
+  constexpr I
+    stable_sort(I first,
+                S last,
+                Comp comp = {},
+                Proj proj = {}); // (1) C++26
 
   template <random_access_range R,
             class Comp = ranges::less,
@@ -25,6 +35,14 @@ namespace std::ranges {
     stable_sort(R&& r,
                 Comp comp = {},
                 Proj proj = {}); // (2) C++20
+  template <random_access_range R,
+            class Comp = ranges::less,
+            class Proj = identity>
+    requires sortable<iterator_t<R>, Comp, Proj>
+  constexpr borrowed_iterator_t<R>
+    stable_sort(R&& r,
+                Comp comp = {},
+                Proj proj = {}); // (2) C++26
 }
 ```
 * random_access_iterator[link /reference/iterator/random_access_iterator.md]
@@ -96,3 +114,5 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+    - C++26から`constexpr`に対応した

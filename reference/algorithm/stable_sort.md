@@ -7,12 +7,21 @@
 namespace std {
   template <class RandomAccessIterator>
   void stable_sort(RandomAccessIterator first,
-                  RandomAccessIterator last);  // (1) C++03
+                   RandomAccessIterator last);  // (1) C++03
+  template <class RandomAccessIterator>
+  constexpr
+  void stable_sort(RandomAccessIterator first,
+                   RandomAccessIterator last);  // (1) C++26
 
   template <class RandomAccessIterator, class Compare>
   void stable_sort(RandomAccessIterator first,
                    RandomAccessIterator last,
                    Compare comp);              // (2) C++03
+  template <class RandomAccessIterator, class Compare>
+  constexpr
+  void stable_sort(RandomAccessIterator first,
+                   RandomAccessIterator last,
+                   Compare comp);              // (2) C++26
 
   template<class ExecutionPolicy, class RandomAccessIterator>
   void stable_sort(ExecutionPolicy&& exec,
@@ -82,3 +91,7 @@ int main()
 5
 ```
 
+
+## 参照
+- [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+    - C++26から`constexpr`に対応した

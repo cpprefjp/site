@@ -16,6 +16,16 @@ namespace std::ranges {
                      S last,
                      Pred pred,
                      Proj proj = {}); // (1) C++20
+  template <bidirectional_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+    requires permutable<I>
+  constexpr subrange<I>
+    stable_partition(I first,
+                     S last,
+                     Pred pred,
+                     Proj proj = {}); // (1) C++26
 
   template <bidirectional_range R,
             class Proj = identity,
@@ -25,6 +35,14 @@ namespace std::ranges {
     stable_partition(R&& r,
                      Pred pred,
                      Proj proj = {}); // (2) C++20
+  template <bidirectional_range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+    requires permutable<iterator_t<R>>
+  constexpr borrowed_subrange_t<R>
+    stable_partition(R&& r,
+                     Pred pred,
+                     Proj proj = {}); // (2) C++26
 }
 ```
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
@@ -106,3 +124,5 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+    - C++26から`constexpr`に対応した

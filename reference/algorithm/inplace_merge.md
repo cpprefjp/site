@@ -9,12 +9,23 @@ namespace std {
   void inplace_merge(BidirectionalIterator first,
                      BidirectionalIterator middle,
                      BidirectionalIterator last);  // (1) C++03
+  template <class BidirectionalIterator>
+  constexpr
+  void inplace_merge(BidirectionalIterator first,
+                     BidirectionalIterator middle,
+                     BidirectionalIterator last);  // (1) C++26
 
   template <class BidirectionalIterator, class Compare>
   void inplace_merge(BidirectionalIterator first,
                      BidirectionalIterator middle,
                      BidirectionalIterator last,
                      Compare comp);                // (2) C++03
+  template <class BidirectionalIterator, class Compare>
+  constexpr
+  void inplace_merge(BidirectionalIterator first,
+                     BidirectionalIterator middle,
+                     BidirectionalIterator last,
+                     Compare comp);                // (2) C++26
 
   template <class ExecutionPolicy, class BidirectionalIterator>
   void inplace_merge(ExecutionPolicy&& exec,
@@ -94,7 +105,9 @@ int main()
 ```
 
 ## 実装例
-- [inplace_merge を読んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
+- [`inplace_merge` を読んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
 
 
-
+## 参照
+- [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+    - C++26から`constexpr`に対応した

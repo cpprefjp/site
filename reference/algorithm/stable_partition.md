@@ -10,6 +10,11 @@ namespace std {
     stable_partition(BidirectionalIterator first,
                      BidirectionalIterator last,
                      Predicate pred);             // (1) C++03
+  template<class BidirectionalIterator, class Predicate>
+  constexpr BidirectionalIterator
+    stable_partition(BidirectionalIterator first,
+                     BidirectionalIterator last,
+                     Predicate pred);             // (1) C++26
 
   template <class ExecutionPolicy, class BidirectionalIterator, class Predicate>
   BidirectionalIterator
@@ -81,3 +86,5 @@ int main()
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
 - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
+- [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+    - C++26から`constexpr`に対応した

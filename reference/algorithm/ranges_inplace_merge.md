@@ -17,6 +17,17 @@ namespace std::ranges {
                   S last,
                   Comp comp = {},
                   Proj proj = {}); // (1) C++20
+  template <bidirectional_iterator I,
+            sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
+    requires sortable<I, Comp, Proj>
+  constexpr I
+    inplace_merge(I first,
+                  I middle,
+                  S last,
+                  Comp comp = {},
+                  Proj proj = {}); // (1) C++26
 
   template <bidirectional_range R,
             class Comp = ranges::less,
@@ -27,6 +38,15 @@ namespace std::ranges {
                   iterator_t<R> middle,
                   Comp comp = {},
                   Proj proj = {}); // (2) C++20
+  template <bidirectional_range R,
+            class Comp = ranges::less,
+            class Proj = identity>
+    requires sortable<iterator_t<R>, Comp, Proj>
+  constexpr borrowed_iterator_t<R>
+    inplace_merge(R&& r,
+                  iterator_t<R> middle,
+                  Comp comp = {},
+                  Proj proj = {}); // (2) C++26
 }
 ```
 * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
@@ -98,7 +118,7 @@ int main()
 ```
 
 ## 実装例
-- [inplace_merge を読んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
+- [`inplace_merge` を読んでみた](http://www.kmonos.net/wlog/115.html#_2300101215)
 
 ## バージョン
 ### 言語
@@ -112,5 +132,5 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
-
-
+- [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+    - C++26から`constexpr`に対応した
