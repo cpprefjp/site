@@ -115,15 +115,19 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 ### ブロンズスポンサー
 
+[sponsor name:Azaika様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Azaika/Azaika.jpg, fee:10, amount:12, size:256]
+
 [sponsor name:イシハラユウヤ様, fee:5, amount:12]
 
 [sponsor name:Megumi Nakagami様, link:https://opencollective.com/meg_nakagami, fee:5, amount:12]
 
 [sponsor name:minachun / J.Minami様, img:https://raw.githubusercontent.com/minachun/minachun/main/banner.png, link:https://github.com/minachun/minachun, fee:5, amount:12, note:Junichirou Minami]
 
+[sponsor name:星くず彼方に, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/overthestardust/overthestardust.png, link:https://gravatar.com/overthestardust size:256, fee:5, amount:12]
+
 [sponsor name:USAMI Kenta, img:https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256, link:https://github.com/zonuexe, size:256, fee:5, amount:12]
 
-[sponsor name:odan様, img:https://odan.dev/icon.jpeg, link:https://opencollective.com/odan, size:320, fee:50, amount:1]
+[sponsor name:odan様, img:https://odan.dev/icon.jpeg, link:https://opencollective.com/odan, size:320, fee:50, amount:1, period:2024-06-05]
 
 [sponsor name:unagi様, img:https://www.unagiworks.net/blog/wp-content/uploads/2019/01/logo.gif, fee:50, amount:1, period:2025-07-02]
 
@@ -132,8 +136,6 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 [sponsor name:Hashitaku様, link:https://opencollective.com/hashitaku, fee:20, amount:1, period:2024-05-08]
 
 [sponsor name:yukika2e様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/yukika2e/yukika2e.png, fee:10, amount:1, period:2024-05-18]
-
-[sponsor name:Azaika様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/Azaika/Azaika.jpg, fee:10, amount:1, size:256, period:2025-08-02]
 
 [sponsor name:ugai様, link:https://opencollective.com/ugai, fee:5, amount:1, period:2025-02-06]
 
