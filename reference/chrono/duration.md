@@ -144,12 +144,26 @@ namespace chrono {
 | [`h`](duration/op_h.md)     | 時リテラル         | C++14 |
 
 
-## 特殊化
+## 共通型サポート
 
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
-| [`common_type`](common_type.md) | 異なる`duration`間の共通の型を求める | C++11 |
-| [`formatter`](duration/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化。文字列フォーマットの許可 | C++20 |
+| [`common_type`](common_type.md) | 異なる`duration`間の共通の型を求める[`std::common_type`](/reference/type_traits/common_type.md)の特殊化 | C++11 |
+
+
+## 文字列フォーマットサポート
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| [`formatter`](duration/formatter.md) | 文字列フォーマットの許可。[`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
+## ハッシュサポート
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| `template <class T> struct hash;` | `hash`クラスの先行宣言 | C++26 |
+| `template<class Rep, class Period>`<br/> `struct hash<chrono::duration<Rep, Period>>;` | `hash`クラスの`duration`に対する特殊化。`hash<Rep>`が有効な場合のみ有効 | C++26 |
 
 
 ## 例
@@ -208,3 +222,5 @@ Tue Oct 16 16:25:11 2012
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
+- [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
+    - C++26でハッシュサポートが追加された

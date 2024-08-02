@@ -102,11 +102,19 @@ namespace std::chrono {
 | [`d`](day/op_d.md) | 日リテラル | C++20 |
 
 
-## 文字列フォーマット
+## 文字列フォーマットサポート
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`formatter`](day/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
+## ハッシュサポート
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| `template <class T> struct hash;` | `hash`クラスの先行宣言 | C++26 |
+| `template<> struct hash<chrono::day>;` | `hash`クラスの`day`に対する特殊化 | C++26 |
 
 
 ## 例
@@ -150,3 +158,7 @@ Mar/01
 - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
+
+## 参照
+- [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
+    - C++26でハッシュサポートが追加された

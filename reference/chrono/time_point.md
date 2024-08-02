@@ -91,11 +91,18 @@ namespace chrono {
 | [`operator>`](time_point/op_greater.md)        | 左辺が右辺より大きいか比較を行う | C++11 |
 | [`operator>=`](time_point/op_greater_equal.md) | 左辺が右辺以上かの比較を行う | C++11 |
 
-### common_type特殊化
+## 共通型サポート
 
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
 | [`common_type`](common_type.md)   | 異なる`time_point`間の共通の型を求める | C++11 |
+
+## ハッシュサポート
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| `template <class T> struct hash;` | `hash`クラスの先行宣言 | C++26 |
+| `template<class Clock, class Duration>`<br/> `struct hash<chrono::time_point<Clock, Duration>>;` | `hash`クラスの`time_point`に対する特殊化。`hash<Duration>`が有効な場合のみ有効 | C++26 |
 
 
 ## 例
@@ -138,4 +145,5 @@ Thu Jul 18 13:46:26 2013
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
-
+- [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
+    - C++26でハッシュサポートが追加された

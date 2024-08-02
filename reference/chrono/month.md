@@ -94,11 +94,19 @@ namespace std::chrono {
 | [`from_stream`](month/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
-## 文字列フォーマット
+## 文字列フォーマットサポート
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`formatter`](month/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
+## ハッシュサポート
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| `template <class T> struct hash;` | `hash`クラスの先行宣言 | C++26 |
+| `template<> struct hash<chrono::month>;` | `hash`クラスの`month`に対する特殊化 | C++26 |
 
 
 ## 例
@@ -140,3 +148,8 @@ Jun
 
 ## 関連項目
 - [月の定数](month_constants.md)
+
+
+## 参照
+- [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
+    - C++26でハッシュサポートが追加された

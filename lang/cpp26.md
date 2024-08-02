@@ -139,7 +139,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### 日付・時間
-- [`<chrono>`](/reference/chrono.md)の以下のクラスに[`std::hash`](/reference/functional/hash.md)のサポートを追加
+- [`<chrono>`](/reference/chrono.md)の以下のクラスに、ハッシュ値サポートとして[`std::hash`](/reference/functional/hash.md)の特殊化を追加
     - [`std::chrono::duration`](/reference/chrono/duration.md)
     - [`std::chrono::time_point`](/reference/chrono/time_point.md)
     - [`std::chrono::day`](/reference/chrono/day.md)

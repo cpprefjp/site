@@ -47,6 +47,14 @@ namespace std::chrono {
 | [`operator>=`](leap_second/op_greater_equal.md) | 左辺が右辺以上を判定する | C++20 |
 
 
+## ハッシュサポート
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| `template <class T> struct hash;` | `hash`クラスの先行宣言 | C++26 |
+| `template<> struct hash<chrono::leap_second>;` | `hash`クラスの`leap_second`に対する特殊化 | C++26 |
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -117,4 +125,5 @@ int main()
 - [P1981R0 Rename `leap` to `leap_second`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1981r0.html)
     - C++20の策定中、National Body Commentとして`leap`というクラス名は一般的すぎて説明的ではないと指摘があり、`leap_second`に名称変更された
 - [LWG Issue 3359. `<chrono>` leap second support should allow for negative leap seconds](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359)
-
+- [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
+    - C++26でハッシュサポートが追加された

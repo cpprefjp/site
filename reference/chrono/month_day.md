@@ -71,11 +71,19 @@ namespace std::chrono {
 | [`from_stream`](month_day/from_stream.md) | フォーマット指定して入力ストリームから入力する | C++20 |
 
 
-## 文字列フォーマット
+## 文字列フォーマットサポート
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`formatter`](month_day/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+
+
+## ハッシュサポート
+
+| 名前  | 説明               | 対応バージョン |
+|-------|--------------------|----------------|
+| `template <class T> struct hash;` | `hash`クラスの先行宣言 | C++26 |
+| `template<> struct hash<chrono::month_day>;` | `hash`クラスの`month_day`に対する特殊化 | C++26 |
 
 
 ## 例
@@ -127,3 +135,8 @@ Mar/01
 - [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし) [mark verified]
 - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
+
+
+## 参照
+- [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
+    - C++26でハッシュサポートが追加された
