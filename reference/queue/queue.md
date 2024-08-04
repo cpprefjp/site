@@ -44,6 +44,7 @@ namespace std {
 | [`front`](queue/front.md)         | 次の要素にアクセスする | |
 | [`back`](queue/back.md)           | 最後の要素にアクセスする | |
 | [`push`](queue/push.md)           | 要素を追加する | |
+| [`push_range`](queue/push_range.md) | Rangeの要素を追加する | C++23 |
 | [`emplace`](queue/emplace.md)     | 直接構築で要素を追加する | C++11 |
 | [`pop`](queue/pop.md)             | 次の要素を削除する | |
 | [`swap`](queue/swap.md)           | 他の`queue`オブジェクトと値を入れ替える | C++11 |

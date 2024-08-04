@@ -49,6 +49,7 @@ namespace std {
 | [`size`](priority_queue/size.md)       | 要素数を取得する | |
 | [`top`](priority_queue/top.md)         | 次の要素にアクセスする | |
 | [`push`](priority_queue/push.md)       | 要素を追加する | |
+| [`push_range`](priority_queue/push_range.md) | Rangeの要素を追加する | C++23 |
 | [`emplace`](priority_queue/emplace.md) | 直接構築で要素を追加する | C++11 |
 | [`pop`](priority_queue/pop.md)         | 次の要素を削除する | |
 | [`swap`](priority_queue/swap.md)       | 他のpriority_queueオブジェクトと値を入れ替える | C++11 |
