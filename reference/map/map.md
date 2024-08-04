@@ -92,6 +92,7 @@ namespace std {
 |-----------------------------------------------|--------------------------------------------|----------------|
 | [`clear`](map/clear.md)                       | 全ての要素を削除する                       |                |
 | [`insert`](map/insert.md)                     | 要素を挿入する                             |                |
+| [`insert_range`](map/insert_range.md)         | Rangeの要素を挿入する                    | C++23          |
 | [`insert_or_assign`](map/insert_or_assign.md) | 要素を挿入、あるいは代入する               | C++17          |
 | [`emplace`](map/emplace.md)                   | 要素を直接構築する                         | C++11          |
 | [`emplace_hint`](map/emplace_hint.md)         | ヒントを使って要素を直接構築する           | C++11          |
