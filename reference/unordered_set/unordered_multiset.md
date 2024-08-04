@@ -99,6 +99,7 @@ namespace std {
 | [`emplace`](unordered_multiset/emplace.md)           | コンテナ内への要素の直接構築                           | C++11 |
 | [`emplace_hint`](unordered_multiset/emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 | C++11 |
 | [`insert`](unordered_multiset/insert.md)             | 要素の追加                                             | C++11 |
+| [`insert_range`](unordered_multiset/insert_range.md) | Rangeの要素を挿入する                                   | C++23 |
 | [`erase`](unordered_multiset/erase.md)               | 要素の削除                                             | C++11 |
 | [`clear`](unordered_multiset/clear.md)               | 全要素の削除                                           | C++11 |
 | [`swap`](unordered_multiset/swap.md)                 | 内容の交換                                             | C++11 |

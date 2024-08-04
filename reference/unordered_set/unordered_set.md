@@ -97,6 +97,7 @@ namespace std {
 | [`emplace`](unordered_set/emplace.md)           | コンテナ内への要素の直接構築                           | C++11 |
 | [`emplace_hint`](unordered_set/emplace_hint.md) | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 | C++11 |
 | [`insert`](unordered_set/insert.md)             | 要素の追加                                             | C++11 |
+| [`insert_range`](unordered_set/insert_range.md) | Rangeの要素を挿入する                                   | C++23 |
 | [`erase`](unordered_set/erase.md)               | 要素の削除                                             | C++11 |
 | [`clear`](unordered_set/clear.md)               | 全要素の削除                                           | C++11 |
 | [`swap`](unordered_set/swap.md)                 | 内容の交換                                             | C++11 |
