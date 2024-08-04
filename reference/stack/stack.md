@@ -41,6 +41,7 @@ namespace std {
 | [`empty`](stack/empty.md)          | 要素が空であるかを確認する | |
 | [`size`](stack/size.md)            | 要素数を取得する           | |
 | [`push`](stack/push.md)            | 要素を追加する             | |
+| [`push_range`](stack/push_range.md)| Rangeの要素を追加する             | C++23 |
 | [`emplace`](stack/emplace.md)      | 直接構築で要素を追加する   | C++11 |
 | [`pop`](stack/pop.md)              | 次の要素を削除する         | |
 | [`swap`](stack/swap.md)            | 他の `stack` オブジェクトと値を入れ替える | C++11 |
