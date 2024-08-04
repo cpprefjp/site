@@ -81,6 +81,7 @@ namespace std {
 |---------------------------------|------------------------------------------|-------|
 | [`clear`](set/clear.md)               | 全ての要素を削除する             | |
 | [`insert`](set/insert.md)             | 要素を挿入する                   | |
+| [`insert_range`](set/insert_range.md) | Rangeの要素を挿入する            | C++23 |
 | [`emplace`](set/emplace.md)           | 要素を直接構築する               | C++11 |
 | [`emplace_hint`](set/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
 | [`erase`](set/erase.md)               | 要素を削除する                   |

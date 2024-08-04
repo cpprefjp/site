@@ -80,6 +80,7 @@ namespace std {
 |---------------------------------|------------------------------------------|-------|
 | [`clear`](multiset/clear.md)               | 全ての要素を削除する             | |
 | [`insert`](multiset/insert.md)             | 要素を挿入する                   | |
+| [`insert_range`](multiset/insert_range.md) | Rangeの要素を挿入する            | C++23 |
 | [`emplace`](multiset/emplace.md)           | 要素を直接構築する               | C++11 |
 | [`emplace_hint`](multiset/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
 | [`erase`](multiset/erase.md)               | 要素を削除する                   |
