@@ -103,6 +103,7 @@ namespace std {
 | [`try_emplace`](unordered_map/try_emplace.md)           | キーが存在しない場合のみコンテナ内への要素の直接構築   | C++17          |
 | [`insert`](unordered_map/insert.md)                     | 要素の追加                                             | C++11          |
 | [`insert_or_assign`](unordered_map/insert_or_assign.md) | 要素の追加、あるいは代入                               | C++17          |
+| [`insert_range`](unordered_map/insert_range.md)         | Rangeの要素を挿入する                                 | C++23          |
 | [`erase`](unordered_map/erase.md)                       | 要素の削除                                             | C++11          |
 | [`clear`](unordered_map/clear.md)                       | 全要素の削除                                           | C++11          |
 | [`swap`](unordered_map/swap.md)                         | 内容の交換                                             | C++11          |
