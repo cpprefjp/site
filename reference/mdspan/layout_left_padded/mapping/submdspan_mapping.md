@@ -62,9 +62,7 @@ friend constexpr auto submdspan_mapping(
 説明専用の`submdspan-mapping-impl`関数テンプレートは下記の値を返す。
 
 - [`Extents::rank()`](../../extents/rank.md) `== 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{*this, 0}`
-- 以下を満たすとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left::mapping`](../../layout_left.md)`(sub_ext), offset}`
-    - `rank_ == 1`、または
-    - `SubExtents::rank() == 0`
+- `rank_ == 1`または`SubExtents::rank() == 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left::mapping`](../../layout_left.md)`(sub_ext), offset}`
 - 以下を満たすとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left::mapping`](../../layout_left.md)`(sub_ext), offset}`
     - `SubExtents::rank() == 1`、かつ
     - 型`S_0`が[`index-pair-like`](../../index-pair-like.md)`<index_type>`のモデルもしくは[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_0,` [`full_extent_t`](../../full_extent_t.md)`>`が`true`

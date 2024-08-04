@@ -20,6 +20,12 @@ namespace std {
 
 `layout_right_padded<S>::mapping<E>`は[トリビアルコピー可能](/reference/type_traits/is_trivially_copyable.md)であり、[`regular`](/reference/concepts/regular.md)のモデルである。
 
+### 説明専用の仮想操作
+動作説明用の仮想操作`LEAST-MULTIPLE-AT-LEAST(x,y)`を、次のように定義する。
+
+- `x == 0`のとき、`y`
+- そうでなければ、`y`以上で最小となる`x`の倍数
+
 ### 説明専用メンバ変数
 `layout_right_padded<S>::mapping`クラステンプレートは、下記の説明専用メンバ変数を保持する。
 
@@ -38,16 +44,16 @@ namespace std {
 
 ## 適格要件
 - `Extents`は[`extents`](../extents.md)の特殊化であること。
-- `rank_dynamic() == 0`が`true`のとき、多次元インデクス空間`Extents()`のサイズが`index_type`型で表現できること。
+- `rank_dynamic() == 0`のとき、多次元インデクス空間`Extents()`のサイズが`index_type`型で表現できること。
 - 値`padding_value`が`index_type`型で表現できること。
 - 以下を満たすとき、`LEAST-MULTIPLE-AT-LEAST(padding_value, last-static-extent)`が、`size_t`型および`index_type`型で表現できること。
     - `rank_ > 1`、かつ
     - `padding_value`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
-    - `last-static-extent`が`dynamic_extent`と等しくないとき。
-- 以下を満たすとき、半開区間`[1, rank_ - 1)`の全ての値`k`に対して`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.static_extent(rank_ - 1))`と全ての`ext.static_extent(k)`値を乗じた結果が、`size_t`型および`index_type`型で表現できること。
+    - `last-static-extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないとき。
+- 以下を満たすとき、半開区間`[1, rank_ - 1)`の全ての値`k`に対して`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.static_extent(rank_ - 1))`と全ての`ext.static_extent(k)`を乗じた結果が、`size_t`型および`index_type`型で表現できること。
     - `rank_ > 1`、かつ
     - `padding_value`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
-    - 半開区間`[0, rank_)`の全ての値`k`に対して`extents_type::`[`static_extent`](../extents/static_extent.md)`(k)`が`dynamic_extent`と等しくないとき。
+    - 半開区間`[0, rank_)`の全ての値`k`に対して`extents_type::`[`static_extent`](../extents/static_extent.md)`(k)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないとき。
 
 
 ## メンバ関数
