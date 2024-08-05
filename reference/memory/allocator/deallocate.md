@@ -13,8 +13,14 @@ constexpr void deallocate(pointer p, size_type n);      // C++20 から
 メモリを解放する。
 
 
-## 要件
-`p`は、[`allocate()`](allocate.md)によって確保されたポインタ値であること。`n`は、アロケートされた`p`のサイズと同じであること。
+## 事前条件
+- C++20まで
+    - `p`は、[`allocate()`](allocate.md)によって確保されたポインタ値であること。`n`は、アロケートされた`p`のサイズと同じであること
+- C++23以降
+    - `p`が[`allocate_at_least()`](allocate_at_least.md)によって確保されたポインタ値である場合、[`allocate_at_least()`](allocate_at_least.md)の戻り値を`ret`、その呼び出しで要求されたサイズを`req`として、
+        - `p`は`ret.ptr`と等しいこと
+        - `n`は`req <= n <= ret.count`となる値であること
+    - そうでなければ、`p`は、[`allocate()`](allocate.md)によって確保されたポインタ値であること。`n`は、アロケートされた`p`のサイズと同じであること
 
 
 ## 効果
@@ -51,3 +57,5 @@ int main()
 ## 参照
 - [C++14 サイズ付きデアロケーション](/lang/cpp14/sized_deallocation.md)
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
+- [P0401R6 Providing size feedback in the Allocator interface](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0401r6.html)
+    - C++23で`allocate_at_least()`関数が導入されたことにより、この関数の事前条件として、渡される値にその関数の戻り値であることも考慮された

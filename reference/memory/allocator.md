@@ -43,6 +43,7 @@ C++11から：
 | [`(destructor)`](allocator/op_destructor.md) | デストラクタ                              | |
 | [`operator=`](allocator/op_assign.md)     | 代入演算子                                   | |
 | [`allocate`](allocator/allocate.md)       | メモリを確保する                             | |
+| [`allocate_at_least`](allocator/allocate_at_least.md) | 指定した要素数以上のメモリを確保する | C++23 |
 | [`deallocate`](allocator/deallocate.md)   | メモリを解放する                             | |
 | [`address`](allocator/address.md)         | 変数のアドレスを取得する                     | C++17から非推奨<br/> C++20で削除 |
 | [`max_size`](allocator/max_size.md)       | 一度に確保可能なメモリの最大サイズを取得する | C++17から非推奨<br/> C++20で削除 |

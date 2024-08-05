@@ -59,6 +59,10 @@ int main()
 ```
 
 
+## 関連項目
+- [`allocate_at_least()`](allocate_at_least.md)
+
+
 ## 参照
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
 - [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
