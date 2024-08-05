@@ -6,16 +6,16 @@
 
 ```cpp
 namespace std {
-  template <class Pointer>
+  template <class Pointer, class SizeType = std::size_t>
   struct allocation_result {
     Pointer ptr;
-    std::size_t count;
+    SizeType count;
   };
 }
 ```
 
 ## 概要
-`std::allocation_result`は、[`std::allocate_at_least()`](allocate_at_least.md)関数の戻り値型であり、以下の要素をもつ：
+`std::allocation_result`は、[`allocate_at_least()`](/reference/memory/allocator/allocate_at_least.md)関数の戻り値型であり、以下の要素をもつ：
 
 | 変数名  | 説明 |
 |---------|------|
@@ -34,7 +34,7 @@ namespace std {
 
 
 ## 関連項目
-- [`std::allocate_at_least()`](allocate_at_least.md)
+- [`std::allocator_traits`](allocator_traits.md)`::`[`allocate_at_least()`](allocator_traits/allocate_at_least.md)
 - [`std::allocator`](allocator.md)`::`[`allocate_at_least()`](allocator/allocate_at_least.md)
 
 

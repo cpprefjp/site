@@ -79,7 +79,7 @@ allocation count:4 bytes:16
 
 ## 関連項目
 - [`std::allocation_result`](/reference/memory/allocation_result.md)
-- [`std::allocate_at_least()`](/reference/memory/allocate_at_least.md)
+- [`std::allocator_traits`](/reference/memory/allocator_traits.md)`::`[`allocate_at_least()`](/reference/memory/allocator_traits/allocate_at_least.md)
 
 
 ## 参照

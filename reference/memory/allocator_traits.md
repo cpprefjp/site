@@ -26,6 +26,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------------|----------------------------------------------|-------|
 | [`allocate`](allocator_traits/allocate.md)     | メモリを確保する                             | C++11 |
+| [`allocate_at_least`](allocator_traits/allocate_at_least.md) | 指定した要素数以上のメモリを確保する | C++23 |
 | [`deallocate`](allocator_traits/deallocate.md) | メモリを解放する                             | C++11 |
 | [`max_size`](allocator_traits/max_size.md)     | 一度に確保可能なメモリの最大サイズを取得する | C++11 |
 | [`construct`](allocator_traits/construct.md)   | 引数を元にインスタンスを構築する             | C++11 |

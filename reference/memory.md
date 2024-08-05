@@ -14,8 +14,7 @@
 |--------------------------------------------------|--------------------------------------------|-------|
 | [`allocator`](memory/allocator.md)             | メモリアロケータの標準実装(class template) | |
 | [`allocator_traits`](memory/allocator_traits.md) | アロケータクラスへの間接的なアクセス(class template) | C++11 |
-| [`allocation_result`](memory/allocation_result.md) | [`allocate_at_least()`](memory/allocate_at_least.md)関数の戻り値型 | C++23 |
-| [`allocate_at_least`](memory/allocate_at_least.md) | 指定した要素数以上のメモリを確保する | C++23 |
+| [`allocation_result`](memory/allocation_result.md) | [`allocate_at_least()`](memory/allocator/allocate_at_least.md)関数の戻り値型 | C++23 |
 | [`allocator_arg_t`](memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(class) | C++11 |
 | [`allocator_arg`](memory/allocator_arg_t.md) | アロケータを引数として渡す際の、オーバーロード解決のためのタグ(constant value) | C++11 |
 | [`uses_allocator`](memory/uses_allocator.md) | 型`T`がアロケータを使用するか調べる | C++11 |

@@ -1,19 +1,16 @@
 # alloacte_at_least
 * memory[meta header]
 * std[meta namespace]
+* allocator_traits[meta class]
 * function template[meta id-type]
 * cpp23[meta cpp]
 
 ```cpp
-namespace std {
-  template <class Allocator>
-  [[nodiscard] constexpr
-  allocation_result<typename allocator_traits<Allocator>::pointer>
-    allocate_at_least(Allocator& a, size_t n); // (1) C++23
-}
+[[nodiscard] static constexpr
+allocation_result<pointer, size_type>
+  allocate_at_least(Alloc& a, size_type n); // (1) C++23
 ```
 * allocation_result[link /reference/memory/allocation_result.md]
-* allocator_traits[link /reference/memory/allocator_traits.md]
 
 ## 概要
 指定した要素数以上のメモリを確保する。
@@ -32,8 +29,9 @@ namespace std {
 
 int main() {
   std::allocator<int> alloc;
+  using traits = std::allocator_traits<std::allocator<int>>;
 
-  std::allocation_result<int*> r = std::allocate_at_least(alloc, 3);
+  std::allocation_result<int*> r = traits::allocate_at_least(alloc, 3);
   std::cout << "allocation count:" << r.count
             << " bytes:" << sizeof(int) * r.count
             << std::endl;
@@ -41,7 +39,7 @@ int main() {
   alloc.deallocate(r.ptr, r.count);
 }
 ```
-* std::allocate_at_least[color ff0000]
+* allocate_at_least[color ff0000]
 * std::allocator[link /reference/memory/allocator.md]
 * std::allocation_result[link /reference/memory/allocation_result.md]
 * alloc.deallocate[link /reference/memory/allocator/deallocate.md]
@@ -63,7 +61,7 @@ allocation count:4 bytes:16
 
 ## 関連項目
 - [`std::allocation_result`](/reference/memory/allocation_result.md)
-- [`std::allocator`](allocator.md)`::`[`allocate_at_least()`](allocator/allocate_at_least.md)
+- [`std::allocator`](/reference/memory/allocator.md)`::`[`allocate_at_least()`](/reference/memory/allocator/allocate_at_least.md)
 
 
 ## 参照
