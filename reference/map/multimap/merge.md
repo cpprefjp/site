@@ -18,7 +18,6 @@ template<class C2>
 
 ## 概要
 引数 `source` 内の各要素を抽出し、`*this` の比較オブジェクトを使用して `*this` への挿入を試みる。  
-`source` の要素のキーと等価なキーの要素がある場合、その要素は `source` から抽出されない。  
 また、この操作で要素はコピーもムーブもされない。
 
 
@@ -93,7 +92,7 @@ m2 :
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0.0 [mark verified]
 - [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
+- [ICC](/implementation.md#icc): 2021.10.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 5 [mark verified]
 
 
