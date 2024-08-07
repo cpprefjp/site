@@ -1,5 +1,5 @@
 # possibly-multipliable
-
+* [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
@@ -39,9 +39,10 @@ namespace std::linalg {
 
 ## 戻り値
 `InMat`型の変数を`A`, `InVec`型の変数を`x`, `OutVec`型の変数を`y`とする。
-- (1): $y \leftarrow Ax$が可能なら`true`、そうでないなら`false`
-- (2): $y^t \leftarrow x^t A$が可能なら`true`、そうでないなら`false`
-- (3): `InMat1`型の変数を`A`, `InMat2`型の変数を`B`, `OutMat`型の変数`C`とすると、$C \leftarrow AB$が可能なら`true`、そうでないなら`false`
+
+- (1): $y \leftarrow Ax$ が可能なら`true`、そうでないなら`false`
+- (2): $y^t \leftarrow x^t A$ が可能なら`true`、そうでないなら`false`
+- (3): `InMat1`型の変数を`A`, `InMat2`型の変数を`B`, `OutMat`型の変数`C`とすると、$C \leftarrow AB$ が可能なら`true`、そうでないなら`false`
 
 
 ## バージョン

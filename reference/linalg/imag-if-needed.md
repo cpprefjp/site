@@ -15,6 +15,7 @@
     template<class T>
     T imag(const T&) = delete; 
     ```
+
 2. そうでない場合、`((void)E, T{})`
 
 

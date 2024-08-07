@@ -15,6 +15,7 @@
     template<class T>
     T real(const T&) = delete; 
     ```
+
 2. そうでない場合、`E`
 
 
