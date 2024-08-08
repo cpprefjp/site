@@ -301,6 +301,14 @@
 | P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md.nolink) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | | Yes | | |
 | P2662R3: [パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink) | 可変引数テンプレートのパラメータパックに添字アクセスできるようにする | | | | |
 | P2864R2: [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md.nolink) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 | 14 | 18 | | |
+| P2748R5: [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md.nolink) | 寿命切れの変数によって引き起こされるバグを防止する | 14 | 19 | | |
+| P3106R1: [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 | yes | 17 | | |
+| P0609R3: [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md.nolink) | `auto [a, [[maybe_unused]] b, c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする | 15 | 19 | | |
+| P3034R1: [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md.nolink) | `export module MACRO_NAME;`を禁止 | | | | |
+| P2809R3: [自明な無限ループは未定義動作ではないと規定](/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.md.nolink) | 並行プログラムの進行保証などを考慮して無限ループを未定義動作ではないものとする | 14 | 19 | | |
+| P2795R5: [未初期化変数の読み取りを不正動作 (erroneous behaviour: EB) とする](/lang/cpp26/erroneous_behaviour_for_uninitialized_reads.md.nolink) | 初期化されていない自動変数の読み取りの安全性を規定する | | | | |
+| P2573R2: [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md.nolink) | `f() = delete("reason)";` | 15 | 19 | | |
+| P2893R3: [可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md.nolink) | クラステンプレートの可変引数テンプレートでまとめて`friend`宣言できるようにする | 15 | | | |
 | P2747R2: [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md.nolink) | 定数式の文脈での配置`new`を許可 | | | | |
 | P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md.nolink) | 未定義動作となる操作をコンパイルエラーとする | 15 | 19 | | |
 | P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う | | 19 | | |

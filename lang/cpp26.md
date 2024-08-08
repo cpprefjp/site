@@ -15,7 +15,9 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md.nolink) | 変数名`_`は暗黙で`[[maybe_unused]]`が指定される |
 | [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md.nolink) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 |
 | [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md.nolink) | 未定義動作となる操作をコンパイルエラーとする |
-| [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md.nolink) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする |
+| [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md.nolink) | 寿命切れの変数によって引き起こされるバグを防止する |
+| [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 |
+| [未初期化変数の読み取りを不正動作 (erroneous behaviour: EB) とする](/lang/cpp26/erroneous_behaviour_for_uninitialized_reads.md.nolink) | 初期化されていない自動変数の読み取りの安全性を規定する |
 
 
 ### 文字列
@@ -26,11 +28,28 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [コンパイル時にのみ使用される文字列の扱いを明確化](/lang/cpp26/unevaluated_strings.md.nolink) | `static_assert`や`[[deprecated]]`などで使用されるコンパイル時の文字列について、文字コードの指定を禁止し、実行時エンコーディングが行われないことを規定 |
 
 
+### 分岐・ループ
+
+| 言語機能 | 説明 |
+|----------|------|
+| [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md.nolink) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする |
+| [自明な無限ループは未定義動作ではないと規定](/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.md.nolink) | 並行プログラムの進行保証などを考慮して無限ループを未定義動作ではないものとする |
+
+
+### 関数
+
+
+| 言語機能 | 説明 |
+|----------|------|
+| [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md.nolink) | `f() = delete("reason)";` |
+
+
 ### 属性
 
 | 言語機能 | 説明 |
 |----------|------|
 | [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md.nolink) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする |
+| [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md.nolink) | `auto [a, [[maybe_unused]] b, c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする |
 
 
 ### テンプレート
@@ -39,6 +58,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink) | 可変引数テンプレートのパラメータパックに添字アクセスできるようにする |
 | [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う |
+| [可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md.nolink) | クラステンプレートの可変引数テンプレートでまとめて`friend`宣言できるようにする |
 
 
 ### 定数式
@@ -55,6 +75,13 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md.nolink) | C言語との互換性のためにこれらの文字を基本文字集合に追加 |
+
+
+### モジュール
+
+| 言語機能 | 説明 |
+|----------|------|
+| [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md.nolink) | `export module MACRO_NAME;`を禁止 |
 
 
 ## ライブラリ更新の概要
