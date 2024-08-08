@@ -97,6 +97,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### コンテナ
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
+- [`std::mdspan`](/reference/mdspan/mdspan.md)のレイアウトとして、[`std::layout_left_padded`](/reference/mdspan/layout_left_padded.md)と[`std::layout_right_padded`](/reference/mdspan/layout_right_padded.md)を追加
 - [`std::span`](/reference/span/span.md)に、以下を追加
     - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタ
     - インデックスアクセスのための[`at()`](/reference/span/span/at.md)メンバ関数
@@ -121,6 +122,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
         - [`bucket()`](/reference/unordered_set/unordered_set/bucket.md)
     - [`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)
         - [`bucket()`](/reference/unordered_set/unordered_multiset/bucket.md)
+- [`std::span`](/reference/span/span.md)と[`std::mdspan`](/reference/mdspan/mdspan.md)の推論補助を改善
+- [`std::views::concat`](/reference/ranges/concat_view.md.nolink)を追加
 
 
 ### アルゴリズム
@@ -129,7 +132,32 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::stable_partition()`](/reference/algorithm/stable_partition.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_stable_partition.md)
     - [`std::inplace_merge()`](/reference/algorithm/inplace_merge.md) / [`std::ranges::inplace_merge()`](/reference/algorithm/ranges_inplace_merge.md)
 - Rangeアルゴリズムが完全型を要求しないようにするため、[`std::projected`](/reference/iterator/projected.md)の制約を緩和
-- [`std::ranges::find_last()`](/reference/algorithm/ranges_find_last.md)に検索対象の値を波カッコ初期化で渡せるよう制約を追加
+- 以下のアルゴリズムに、値を波カッコ初期化で渡せるよう制約を追加
+    - `std::erase()`
+        - [`std::basic_string`](/reference/string/basic_string.md)版[`std::erase()`](/reference/string/basic_string/erase_free.md)
+        - [`std::deque`](/reference/deque/deque.md)版[`std::erase()`](/reference/deque/deque/erase_free.md)
+        - [`std::forward_list`](/reference/forward_list/forward_list.md)版[`std::erase()`](/reference/forward_list/forward_list/erase_free.md)
+        - [`std::list`](/reference/list/list.md)版[`std::erase()`](/reference/list/list/erase_free.md)
+        - [`std::vector`](/reference/vector/vector.md)版[`std::erase()`](/reference/vector/vector/erase_free.md)
+    - [`std::find()`](/reference/algorithm/find.md)と[`std::ranges::find()`](/reference/algorithm/ranges_find.md)
+    - [`std::ranges::find_last()`](/reference/algorithm/ranges_find_last.md)
+    - [`std::count()`](/reference/algorithm/count.md)と[`std::ranges::count()`](/reference/algorithm/ranges_count.md)
+    - [`std::search_n()`](/reference/algorithm/search_n.md)と[`std::ranges::search_n()`](/reference/algorithm/ranges_search_n.md)
+    - [`std::replace()`](/reference/algorithm/replace.md)と[`std::ranges::replace()`](/reference/algorithm/replace.md)
+    - [`std::replace_if()`](/reference/algorithm/replace_if.md)と[`std::ranges::replace_if()`](/reference/algorithm/replace_if.md)
+    - [`std::ranges::replace_copy()`](/reference/algorithm/replace_copy.md)
+    - [`std::replace_copy_if()`](/reference/algorithm/replace_copy_if.md)と[`std::ranges::replace_copy_if()`](/reference/algorithm/replace_copy_if.md)
+    - [`std::fill()`](/reference/algorithm/fill.md)と[`std::ranges::fill()`](/reference/algorithm/ranges_fill.md)
+    - [`std::fill_n()`](/reference/algorithm/fill_n.md)と[`std::ranges::fill_n()`](/reference/algorithm/ranges_fill_n.md)
+    - [`std::remove()`](/reference/algorithm/remove.md)と[`std::ranges::remove()`](/reference/algorithm/ranges_remove.md)
+    - [`std::remove_copy()`](/reference/algorithm/remove_copy.md)と[`std::ranges::remove_copy()`](/reference/algorithm/ranges_remove_copy.md)
+    - [`std::lower_bound()`](/reference/algorithm/lower_bound.md)と[`std::ranges::lower_bound()`](/reference/algorithm/ranges_lower_bound.md)
+    - [`std::upper_bound()`](/reference/algorithm/upper_bound.md)と[`std::ranges::upper_bound()`](/reference/algorithm/ranges_upper_bound.md)
+    - [`std::equal_range()`](/reference/algorithm/equal_range.md)と[`std::ranges::equal_range()`](/reference/algorithm/ranges_equal_range.md)
+    - [`std::binary_search()`](/reference/algorithm/binary_search.md)と[`std::ranges::binary_search()`](/reference/algorithm/ranges_binary_search.md)
+    - [`std::ranges::fold_left()`](/reference/algorithm/ranges_fold_left.md)
+    - [`std::ranges::fold_right()`](/reference/algorithm/ranges_fold_right.md)
+    - [`std::ranges::contains()`](/reference/algorithm/ranges_contains.md)
 
 
 ### 関数オブジェクト
@@ -137,6 +165,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::move_only_function`](/reference/functional/move_only_function.md)のコピー可能版として、[`<functional>`](/reference/functional.md)に[`std::copyable_function`](/reference/functional/copyable_function.md)クラスを追加
 - [`std::bind_front()`](/reference/functional/bind_front.md)と[`std::bind_back()`](/reference/functional/bind_back.md)に、非型テンプレート引数として関数を指定するオーバーロードを追加
     - 関連して、非型テンプレート引数の関数オブジェクトを反転させられるよう、[`not_fn()`](/reference/functional/not_fn.md)に非型テンプレート引数版のオーバーロードを追加
+- [`std::reference_wrapper`](/reference/functional/reference_wrapper.md)に、比較演算子[`==`](/reference/functional/reference_wrapper/op_equal.md.nolink)と[`<=>`](/reference/functional/reference_wrapper/op_compare_3way.md.nolink)を追加
 
 
 ### 文字列
@@ -148,12 +177,19 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - 幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
     - コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正
 - 文字列フォーマットをより高速にできる最適化が可能か判定する[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md.nolink)を追加
+- [`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を[`std::basic_string`](/reference/string/basic_string.md)として連結させる`operator+`を追加
 
 
 ### ファイル
 - ファイルのネイティブハンドルを取得できるよう、[`std::basic_filebuf`](/reference/fstream/basic_filebuf.md)、[`std::basic_ifstream`](/reference/fstream/basic_ifstream.md)、[`std::basic_ofstream`](/reference/fstream/basic_ofstream.md)、[`std::basic_fstream`](/reference/fstream/basic_fstream.md)クラスに、以下のメンバを追加
     - `native_handle_type`型
     - `native_handle()`
+- [`std::filesystem::path`](/reference/filesystem/path.md)に、文字列フォーマットのサポートを追加
+
+
+### 入出力
+- [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)に、ロックを取得せず高速に書き出す最適化を許可
+- [`std::println()`](/reference/print/println.md)に、改行のみを出力するオーバーロードを追加
 
 
 ### 並行・並列処理
@@ -252,6 +288,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::real()`](/reference/complex/complex/real_free.md) (算術型オーバーロード)
 - [`std::complex`](/reference/complex/complex.md)を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加
 - [`<random>`](/reference/random.md)の範囲`[0, 1)`の乱数を生成する[`std::generate_canonical()`](/reference/random/generate_canonical.md)を、望ましい統計的性質を保証するようアルゴリズムと制約を変更
+- [`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md.nolink)関数を追加
 
 
 ### ユーティリティ
@@ -289,8 +326,25 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::indirect_strict_weak_order`](/reference/iterator/indirect_strict_weak_order.md)
 
 
+### 非推奨の取り消し
+- [`std::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)`::`[`destroy()`](/reference/memory_resource/polymorphic_allocator/destroy.md)の非推奨を取り消し
+
+
 ### 機能の削除
+- C++98から非推奨となっていた`<strstream>`ライブラリを削除
+- C++17から非推奨となっていたUnicode変換ライブラリ[`<codecvt>`](/reference/codecvt.md)と[`std::wstring_convert`](/reference/locale/wstring_convert.md)を削除
 - C++20から非推奨となっていた、[`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)のパラメータなしのオーバーロードを削除
+- C++20から非推奨となっていた[`std::shared_ptr`](/reference/memory/shared_ptr.md)に対する、以下の古いアトミック操作関数のオーバーロードを削除
+    - [`std::atomic_is_lock_free`](/reference/memory/shared_ptr/atomic_is_lock_free.md)
+    - [`std::atomic_load`](/reference/memory/shared_ptr/atomic_load.md)
+    - [`std::atomic_load_explicit`](/reference/memory/shared_ptr/atomic_load_explicit.md)
+    - [`std::atomic_store`](/reference/memory/shared_ptr/atomic_store.md)
+    - [`std::atomic_store_explicit`](/reference/memory/shared_ptr/atomic_store_explicit.md)
+    - [`std::atomic_exchange`](/reference/memory/shared_ptr/atomic_exchange.md)
+    - [`std::atomic_exchange_explicit`](/reference/memory/shared_ptr/atomic_exchange_explicit.md)
+    - [`std::atomic_compare_exchange_weak`](/reference/memory/shared_ptr/atomic_compare_exchange_weak.md)
+    - [`std::atomic_compare_exchange_strong`](/reference/memory/shared_ptr/atomic_compare_exchange_strong.md)
+    - [`std::atomic_compare_exchange_weak_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.md)
+    - [`std::atomic_compare_exchange_strong_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.md)
 - C++23から非推奨となっていた、[`std::allocator`](/reference/memory/allocator.md)のメンバ型`is_always_equal`を削除
-- C++17から非推奨となっていたUnicode変換ライブラリ[`<codecvt>`](/reference/codecvt.md)を削除
 
