@@ -1,11 +1,9 @@
 # dotc
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -13,31 +11,32 @@ namespace std::linalg {
            in-vector InVec2,
            class Scalar>
   Scalar dotc(InVec1 v1,
-             InVec2 v2,
-             Scalar init); // (1)
+              InVec2 v2,
+              Scalar init); // (1)
 
   template<class ExecutionPolicy,
            in-vector InVec1,
            in-vector InVec2,
            class Scalar>
   Scalar dotc(ExecutionPolicy&& exec,
-             InVec1 v1,
-             InVec2 v2,
-             Scalar init); // (2)
+              InVec1 v1,
+              InVec2 v2,
+              Scalar init); // (2)
 
   template<in-vector InVec1,
            in-vector InVec2>
   auto dotc(InVec1 v1,
-           InVec2 v2); // (3)
+            InVec2 v2); // (3)
 
   template<class ExecutionPolicy,
            in-vector InVec1,
            in-vector InVec2>
   auto dotc(ExecutionPolicy&& exec,
-           InVec1 v1,
-           InVec2 v2); // (4)
+            InVec1 v1,
+            InVec2 v2); // (4)
 }
 ```
+* in-vector[link inout-vector.md]
 
 ## 概要
 2つのベクトル`v1`、`v2`のエルミート内積を計算する。

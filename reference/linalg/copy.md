@@ -1,18 +1,16 @@
 # copy
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
 
-
 ```cpp
 namespace std::linalg {
   template<in-object InObj,
-          out-object OutObj>
+           out-object OutObj>
   void copy(InObj x,
-           OutObj y);                 // (1)
+            OutObj y);                 // (1)
 
   template<class ExecutionPolicy,
            in-object InObj,
@@ -22,7 +20,8 @@ namespace std::linalg {
             OutObj y);                // (2)
 }
 ```
-
+* in-object[link inout-object.md]
+* out-object[link inout-object.md]
 
 ## 概要
 同じサイズの行列またはベクトルの`x`と`y`に対して、`x`を`y`にコピーする。

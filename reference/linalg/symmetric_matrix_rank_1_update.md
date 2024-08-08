@@ -1,12 +1,9 @@
 # symmetric_matrix_rank_1_update
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -51,7 +48,8 @@ namespace std::linalg {
     Triangle t); // (4)
 }
 ```
-
+* in-vector[link inout-vector.md]
+* possibly-packed-inout-matrix[link possibly-packed-inout-matrix.md]
 
 ## 概要
 対称かつ共役を取らないrank-1 updateを対称行列に行う。

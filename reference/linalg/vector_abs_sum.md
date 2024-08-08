@@ -1,5 +1,4 @@
 # vector_abs_sum
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
@@ -25,7 +24,7 @@ namespace std::linalg {
   auto vector_abs_sum(ExecutionPolicy&& exec, InVec v); // (4)
 }
 ```
-
+* in-vector[link inout-vector.md]
 
 ## 概要
 ベクトルの各成分の絶対値の和(1ノルム)を計算する。

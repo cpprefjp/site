@@ -1,5 +1,4 @@
 # matrix_inf_norm
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
@@ -26,7 +25,7 @@ namespace std::linalg {
   auto matrix_inf_norm(ExecutionPolicy&& exec, InMat A); // (4)
 }
 ```
-
+* in-matrix[link inout-matrix.md]
 
 ## 概要
 行列の無限大ノルムを計算する。

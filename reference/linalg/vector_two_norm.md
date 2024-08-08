@@ -1,5 +1,4 @@
 # vector_two_norm
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
@@ -25,7 +24,7 @@ namespace std::linalg {
   auto vector_two_norm(ExecutionPolicy&& exec, InVec v); // (4)
 }
 ```
-
+* in-vector[link inout-vector.md]
 
 ## 概要
 ベクトルのユークリッドノルムを計算する。

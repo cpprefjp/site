@@ -1,12 +1,9 @@
 # triangular_matrix_left_product
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -33,7 +30,8 @@ namespace std::linalg {
     InOutMat C); // (2)
 }
 ```
-
+* in-matrix[link inout-matrix.md]
+* inout-matrix[link inout-matrix.md]
 
 ## 概要
 三角行列の上下と対角成分のアクセス方法を考慮した、三角行列と行列の積をin-placeに計算する。

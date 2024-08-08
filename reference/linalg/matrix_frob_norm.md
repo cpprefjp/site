@@ -1,5 +1,4 @@
 # matrix_frob_norm
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
@@ -26,7 +25,7 @@ namespace std::linalg {
   auto matrix_frob_norm(ExecutionPolicy&& exec, InMat A); // (4)
 }
 ```
-
+* in-matrix[link inout-matrix.md]
 
 ## 概要
 行列のフロベニウスノルムを計算する。

@@ -1,13 +1,9 @@
 # addable
-
 * linalg[meta header]
 * function template[meta id-type]
-* std::linalg[meta namespace]
 * cpp26[meta cpp]
 
-
 ```cpp
-namespace std::linalg {
 constexpr bool addable(
   const in-vector auto& in1,
   const in-vector auto& in2,
@@ -27,9 +23,9 @@ constexpr bool addable(
          out.extent(0) == in2.extent(0) &&
          out.extent(1) == in2.extent(1);
 } // (2)
-}
 ```
-
+* in-vector[link inout-vector.md]
+* in-matrix[link inout-matrix.md]
 
 ## 概要
 テンプレートパラメータに指定されたベクトルまたは行列の次元が同じかどうかを判定する、説明専用の関数である。

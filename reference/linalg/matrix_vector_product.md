@@ -1,12 +1,9 @@
 # matrix_vector_product
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -47,7 +44,9 @@ namespace std::linalg {
                              OutVec z); // (4)
 }
 ```
-
+* in-vector[link inout-vector.md]
+* out-vector[link inout-vector.md]
+* in-matrix[link inout-matrix.md]
 
 ## 概要
 行列とベクトルの積を計算する。

@@ -1,12 +1,9 @@
 # hermitian_matrix_rank_2_update
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -33,7 +30,8 @@ namespace std::linalg {
     Triangle t); // (2)
 }
 ```
-
+* in-vector[link inout-vector.md]
+* possibly-packed-inout-matrix[link possibly-packed-inout-matrix.md]
 
 ## 概要
 エルミートな(対称かつ共役を取る)rank-2 updateをエルミート行列に行う。

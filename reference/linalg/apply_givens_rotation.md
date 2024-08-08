@@ -1,17 +1,15 @@
 # apply_givens_rotation
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
 
-
 ```cpp
 namespace std::linalg {
   template<inout-vector InOutVec1,
-          inout-vector InOutVec2,
-          class Real>
+           inout-vector InOutVec2,
+           class Real>
   void apply_givens_rotation(
     InOutVec1 x,
     InOutVec2 y,
@@ -19,9 +17,9 @@ namespace std::linalg {
     Real s);          // (1)
 
   template<class ExecutionPolicy,
-          inout-vector InOutVec1,
-          inout-vector InOutVec2,
-          class Real>
+           inout-vector InOutVec1,
+           inout-vector InOutVec2,
+           class Real>
   void apply_givens_rotation(
     ExecutionPolicy&& exec,
     InOutVec1 x,
@@ -30,8 +28,8 @@ namespace std::linalg {
     Real s);          // (2)
 
   template<inout-vector InOutVec1,
-          inout-vector InOutVec2,
-          class Real>
+           inout-vector InOutVec2,
+           class Real>
   void apply_givens_rotation(
     InOutVec1 x,
     InOutVec2 y,
@@ -39,9 +37,9 @@ namespace std::linalg {
     complex<Real> s); // (3)
 
   template<class ExecutionPolicy,
-          inout-vector InOutVec1,
-          inout-vector InOutVec2,
-          class Real>
+           inout-vector InOutVec1,
+           inout-vector InOutVec2,
+           class Real>
   void apply_givens_rotation(
     ExecutionPolicy&& exec,
     InOutVec1 x,
@@ -51,7 +49,7 @@ namespace std::linalg {
 }
 ```
 * complex[link /reference/complex/complex.md]
-
+* inout-vector[link inout-vector.md]
 
 ## 概要
 `c`と`s`で指定された回転行列を2つの**行**ベクトル`x`と`y`に対して、次のように掛けて代入する。

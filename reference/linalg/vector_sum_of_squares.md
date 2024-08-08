@@ -1,5 +1,4 @@
 # vector_sum_of_squares
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
@@ -22,8 +21,8 @@ namespace std::linalg {
     sum_of_squares_result<Scalar> init); // (2)
 }
 ```
+* in-vector[link inout-vector.md]
 * sum_of_squares_result[link sum_of_squares_result.md]
-
 
 ## 概要
 アンダーフローとオーバーフローが起きないようスケールされた、ベクトルの成分の2乗和を計算する。すなわち、戻り値を`result`とし、説明用の関数

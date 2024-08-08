@@ -1,15 +1,13 @@
 # compatible-static-extents
-
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
 
-
 ```cpp
 namespace std::linalg {
   template<class MDS1, class MDS2>
-  requires(is-mdspan<MDS1> && is-mdspan<MDS2>) 
+    requires(is-mdspan<MDS1> && is-mdspan<MDS2>) 
   constexpr bool compatible-static-extents(size_t r1, size_t r2)
   {
     return MDS1::static_extent(r1) == dynamic_extent ||
@@ -18,8 +16,9 @@ namespace std::linalg {
   }
 }
 ```
-* is-mdspan[link /reference/linalg/is_mdspan.md]
-
+* is-mdspan[link is-mdspan.md]
+* static_extent[link /reference/mdspan/mdspan/static_extent.md]
+* dynamic_extent[link /reference/span/dynamic_extent.md]
 
 ## 概要
 左の`mdspan`の`r1`番目の静的要素数と右の`mdspan`の`r2`番目の静的要素数に互換性があるかどうかを返す、説明専用の関数である。

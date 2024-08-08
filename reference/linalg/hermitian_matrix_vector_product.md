@@ -57,6 +57,9 @@ namespace std::linalg {
     OutVec z); // (4)
 }
 ```
+* in-vector[link inout-vector.md]
+* out-vector[link inout-vector.md]
+* in-matrix[link inout-matrix.md]
 
 
 ## 概要

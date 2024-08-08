@@ -1,45 +1,42 @@
 # matrix_product
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
 
-
 ```cpp
 namespace std::linalg {
   template<in-matrix InMat1,
-          in-matrix InMat2,
-          out-matrix OutMat>
+           in-matrix InMat2,
+           out-matrix OutMat>
   void matrix_product(InMat1 A,
                       InMat2 B,
                       OutMat C); // (1)
 
   template<class ExecutionPolicy,
-          in-matrix InMat1,
-          in-matrix InMat2,
-          out-matrix OutMat>
+           in-matrix InMat1,
+           in-matrix InMat2,
+           out-matrix OutMat>
   void matrix_product(ExecutionPolicy&& exec,
                       InMat1 A,
                       InMat2 B,
                       OutMat C); // (2)
 
   template<in-matrix InMat1,
-          in-matrix InMat2,
-          in-matrix InMat3,
-          out-matrix OutMat>
+           in-matrix InMat2,
+           in-matrix InMat3,
+           out-matrix OutMat>
   void matrix_product(InMat1 A,
                       InMat2 B,
                       InMat3 E,
                       OutMat C); // (3)
 
   template<class ExecutionPolicy,
-          in-matrix InMat1,
-          in-matrix InMat2,
-          in-matrix InMat3,
-          out-matrix OutMat>
+           in-matrix InMat1,
+           in-matrix InMat2,
+           in-matrix InMat3,
+           out-matrix OutMat>
   void matrix_product(ExecutionPolicy&& exec,
                       InMat1 A,
                       InMat2 B,
@@ -47,7 +44,8 @@ namespace std::linalg {
                       OutMat C); // (4)
 }
 ```
-
+* in-matrix[link inout-matrix.md]
+* out-matrix[link inout-matrix.md]
 
 ## 概要
 行列同士の積を計算する。

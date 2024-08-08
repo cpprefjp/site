@@ -1,12 +1,9 @@
 # hermitian_matrix_rank_k_update
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -51,7 +48,8 @@ namespace std::linalg {
     Triangle t); // (4)
 }
 ```
-
+* in-matrix[link inout-matrix.md]
+* possibly-packed-inout-matrix[link possibly-packed-inout-matrix.md]
 
 ## 概要
 エルミートな(対称かつ共役を取る)rank-k updateをエルミート行列に行う。

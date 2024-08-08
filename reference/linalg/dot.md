@@ -1,11 +1,9 @@
 # dot
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -38,6 +36,7 @@ namespace std::linalg {
            InVec2 v2); // (4)
 }
 ```
+* in-vector[link inout-vector.md]
 
 ## 概要
 2つのベクトル`v1`、`v2`の内積を計算する。

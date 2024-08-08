@@ -1,24 +1,19 @@
 # is-mdspan
-
 * linalg[meta header]
-* function template[meta id-type]
-* std::linalg[meta namespace]
+* variable[meta id-type]
 * cpp26[meta cpp]
 
-
 ```cpp
-namespace std::linalg {
-  template<class T>
-  constexpr bool is-mdspan = false;
+template<class T>
+constexpr bool is-mdspan = false;
 
-  template<class ElementType, class Extents, class Layout, class Accessor>
-  constexpr bool is-mdspan<mdspan<ElementType, Extents, Layout, Accessor>> = true;
+template<class ElementType, class Extents, class Layout, class Accessor>
+constexpr bool is-mdspan<mdspan<ElementType, Extents, Layout, Accessor>> = true;
 }
 ```
 
-
 ## 概要
-与えられた型が[`mdspan`](/reference/mdspan.md)かどうかを表す、説明専用の定数である。
+与えられた型が[`mdspan`](/reference/mdspan.md)の特殊化かどうかを表す、説明専用の定数である。
 
 
 ## 戻り値

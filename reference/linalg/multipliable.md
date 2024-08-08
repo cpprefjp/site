@@ -5,7 +5,6 @@
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
 
-
 ```cpp
 namespace std::linalg {
   constexpr bool multipliable(
@@ -37,7 +36,8 @@ namespace std::linalg {
   } // (3)
 }
 ```
-
+* in-vector[link inout-vector.md]
+* in-matrix[link inout-matrix.md]
 
 ## 概要
 テンプレートパラメータに指定されたベクトルや行列が掛けられるかを静的要素数で判定する、説明専用の関数である。

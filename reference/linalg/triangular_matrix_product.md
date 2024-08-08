@@ -1,12 +1,9 @@
 # triangular_matrix_product
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -123,7 +120,8 @@ namespace std::linalg {
     OutMat C); // (8)
 }
 ```
-
+* in-matrix[link inout-matrix.md]
+* out-matrix[link inout-matrix.md]
 
 ## 概要
 三角行列と行列の積を計算する。

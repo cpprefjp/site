@@ -1,11 +1,9 @@
 # swap_elements
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -22,7 +20,7 @@ namespace std::linalg {
                      InOutObj2 y);          // (2)
 }
 ```
-
+* inout-object[link inout-object.md]
 
 ## 概要
 同じサイズの2つの行列またはベクトル`x`と`y`を交換する。

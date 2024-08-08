@@ -5,7 +5,6 @@
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
 
-
 ```cpp
 namespace std::linalg {
   template<in-matrix InMat, in-vector InVec, in-vector OutVec>
@@ -31,6 +30,8 @@ namespace std::linalg {
   } // (3)
 }
 ```
+* in-vector[link inout-vector.md]
+* in-matrix[link inout-matrix.md]
 
 
 ## 概要

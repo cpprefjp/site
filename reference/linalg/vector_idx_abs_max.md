@@ -1,5 +1,4 @@
 # vector_idx_abs_sum
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
@@ -9,14 +8,16 @@
 ```cpp
 namespace std::linalg {
   template<in-vector InVec>
-  typename InVec::size_type vector_idx_abs_max(InVec v); // (1)
+  typename InVec::size_type
+    vector_idx_abs_max(InVec v); // (1)
 
   template<class ExecutionPolicy, in-vector InVec>
-  typename InVec::size_type vector_idx_abs_max(ExecutionPolicy&& exec,
-                                               InVec v); // (2)
+  typename InVec::size_type
+    vector_idx_abs_max(ExecutionPolicy&& exec,
+                       InVec v); // (2)
 }
 ```
-
+* in-vector[link inout-vector.md]
 
 ## 概要
 ベクトルの各成分の絶対値が最大となるインデックスを計算する。

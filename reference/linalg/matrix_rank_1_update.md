@@ -1,12 +1,9 @@
 # matrix_rank_1_update
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -29,7 +26,8 @@ namespace std::linalg {
     InOutMat A); // (2)
 }
 ```
-
+* in-vector[link inout-vector.md]
+* inout-matrix[link inout-matrix.md]
 
 ## 概要
 非対称かつ共役を取らないrank-1 updateを行う。

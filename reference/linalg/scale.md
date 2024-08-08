@@ -1,11 +1,9 @@
 # scale
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -22,7 +20,7 @@ namespace std::linalg {
              InOutObj x);            // (2)
 }
 ```
-
+* inout-object[link inout-object.md]
 
 ## 概要
 以下のように、ベクトル`x`を`alpha`倍したものを`x`に代入する。

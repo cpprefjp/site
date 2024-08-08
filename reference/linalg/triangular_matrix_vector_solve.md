@@ -1,12 +1,9 @@
 # triangular_matrix_vector_solve
-
-
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]
 * cpp26[meta cpp]
-
 
 ```cpp
 namespace std::linalg {
@@ -115,7 +112,9 @@ namespace std::linalg {
     InOutVec b); // (8)
 }
 ```
-
+* in-vector[link inout-vector.md]
+* out-vector[link inout-vector.md]
+* in-matrix[link inout-matrix.md]
 
 ## 概要
 三角行列に対して、連立一次方程式を解く。

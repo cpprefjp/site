@@ -51,7 +51,8 @@ namespace std::linalg {
     Triangle t); // (4)
 }
 ```
-
+* in-vector[link inout-vector.md]
+* possibly-packed-inout-matrix[link possibly-packed-inout-matrix.md]
 
 ## 概要
 エルミートな(対称かつ共役を取る)rank-1 updateをエルミート行列に行う。
