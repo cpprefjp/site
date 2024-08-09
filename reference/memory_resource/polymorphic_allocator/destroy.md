@@ -4,15 +4,11 @@
 * std::pmr[meta namespace]
 * polymorphic_allocator[meta class]
 * cpp17[meta cpp]
-* cpp20deprecated[meta cpp]
 
 ```cpp
 template <class T>
 void destroy(T* p);
 ```
-
-この関数はC++20で非推奨となった。不要な機能ではあるが、代わりが必要であれば[`allocator_traits<Alloc>::destroy()`](/reference/memory/allocator_traits/destroy.md)もしくは[`destroy_at()`](/reference/memory/destroy_at.md)を使用すること。
-
 
 ## 概要
 指定された領域にある`T`のオブジェクトを破棄する。
@@ -25,15 +21,6 @@ void destroy(T* p);
 
 メモリ領域の解放は行われないため、別に[`deallocate`](deallocate.md)で行う必要がある。
 
-## 非推奨の詳細
-
-`polymorphic_allocator`も含めたアロケータはコンテナから利用される際に`allocator_traits`を介して利用され、`allocator_traits`の提供するデフォルト実装によってアロケータとしての多くの部分が補われる。
-
-本関数は、[`allocator_traits<Alloc>::destroy()`](/reference/memory/allocator_traits/destroy.md)で提供されているデフォルト実装と完全に同一の実装となっており、追加の事を何もしていない。従って有用性は何もなく、非推奨とされた。
-
-おそらく、[`construct()`](construct.md)メンバ関数との対称性を意識して追加されていたものと思われる。なお、`construct()`メンバ関数は[uses-allocator 構築](/reference/memory/uses_allocator.md)のために追加の仕事を担っており、こちらの関数には有用であるため非推奨とはされていない。
-
-`allocator_traits`を介して`polymorphic_allocator`を使用する場合は本関数の有無を気にする必要はないが、もし本関数が必要となった場合は代わりに[`destroy_at()`](/reference/memory/destroy_at.md)を利用できる。
 
 ## 例
 ```cpp example
@@ -98,3 +85,5 @@ int main()
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
 - [destroy: Missing member function of std::pmr::polymorphic_allocator - Developer Community](https://developercommunity.visualstudio.com/content/problem/394908/destroy-missing-member-function-of-stdpmrpolymorph.html)
 - [LWG Issue 3036. `polymorphic_allocator::destroy` is extraneous](https://cplusplus.github.io/LWG/issue3036)
+- [P2875R4 Undeprecate `polymorphic_allocator::destroy` for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2875r4.pdf)
+    - この関数はC++20で一度非推奨となったが、C++26で非推奨が取り消された。ただし、[`allocator_traits<Alloc>::destroy()`](/reference/memory/allocator_traits/destroy.md)関数や[`destroy_at()`](/reference/memory/destroy_at.md)関数で同等のことができる

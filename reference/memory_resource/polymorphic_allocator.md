@@ -46,7 +46,7 @@ C++20にてC++プログラミングにおいての基礎部品となる型（*vo
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
 | [`construct`](polymorphic_allocator/construct.md) | 指定された領域にオブジェクトを構築する | C++17 |
-| [`destroy`](polymorphic_allocator/destroy.md) | 指定された領域のオブジェクトを破棄する | C++17<br/>C++20より非推奨 |
+| [`destroy`](polymorphic_allocator/destroy.md) | 指定された領域のオブジェクトを破棄する | C++17 |
 | [`new_object`](polymorphic_allocator/new_object.md) | メモリを確保し指定した型の構築（`new`式相当の処理）を行う | C++20 |
 | [`delete_object`](polymorphic_allocator/delete_object.md) | 指定した型の破棄とそのメモリ領域の解放（`delete`式相当の処理）を行う | C++20 |
 
