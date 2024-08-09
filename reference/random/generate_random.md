@@ -143,7 +143,7 @@ int main()
 * std::ranges::generate_random[color ff0000]
 * std::uniform_int_distribution[link uniform_int_distribution.md]
 
-### 出力
+### 出力例
 ```
 [2034091041, 1919373608, 514210727, -1154669807, -315048337, -1224623446, -1986406128, -1034429876, -844125616, 1858136340]
 [83, 25, 48, 15, 9, 60, 47, 31, 91, 54]
