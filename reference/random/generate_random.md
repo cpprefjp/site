@@ -139,8 +139,7 @@ int main()
   std::println("{}", v);
 }
 ```
-* std::generate_canonical[color ff0000]
-* digits[link /reference/limits/numeric_limits/digits.md]
+* std::generate_random[color ff0000]
 
 ### 出力
 ```
