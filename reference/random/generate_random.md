@@ -74,6 +74,7 @@ for (auto& x : v) {
   x = dist(gen);
 }
 ```
+* std::uniform_int_distribution[link uniform_int_distribution.md]
 
 
 ## 効果
@@ -140,6 +141,7 @@ int main()
 }
 ```
 * std::ranges::generate_random[color ff0000]
+* std::uniform_int_distribution[link uniform_int_distribution.md]
 
 ### 出力
 ```
