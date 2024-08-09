@@ -172,6 +172,7 @@
 | [`<ostream>`](/reference/ostream.md)       | 出力ストリーム               |                |
 | [`<iomanip>`](/reference/iomanip.md)       | フォーマットとマニピュレータ |                |
 | [`<sstream>`](/reference/sstream.md)       | 文字列ストリーム             |                |
+| `<strstream>`                              | 古い文字列ストリーム         | C++98から非推奨<br/> C++26で削除 |
 | [`<fstream>`](/reference/fstream.md)       | ファイルストリーム           |                |
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 | [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー | C++20          |
@@ -247,3 +248,7 @@
 | ヘッダ                                             | 説明                                                      | 対応バージョン |
 |----------------------------------------------------|-----------------------------------------------------------|----------------|
 | [`exposition-only`](/reference/exposition-only.md) | 説明のためのものを集めたページ (実際のライブラリではない) |                |
+
+
+## 参照
+- [P2867R2 Remove Deprecated `strstream`s From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2867r2.html)
