@@ -139,7 +139,7 @@ int main()
   std::println("{}", v);
 }
 ```
-* std::generate_random[color ff0000]
+* std::ranges::generate_random[color ff0000]
 
 ### 出力
 ```
