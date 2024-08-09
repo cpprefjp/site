@@ -10,6 +10,8 @@ namespace std {
   void println(ostream& os,
                format_string<Args...> fmt,
                Args&&... args);             // (1) C++23
+
+  void println(ostream& os);                // (2) C++26
 }
 ```
 * format_string[link /reference/format/basic_format_string.md]
@@ -23,6 +25,7 @@ namespace std {
 この関数は、[`std::printf()`](/reference/cstdio/printf.md.nolink)関数ライクな書式指定で引数を文字列化して出力する。
 
 - (1) : 指定した[`ostream`](basic_ostream.md)に、書式指定で出力する
+- (2) : 指定した[`ostream`](basic_ostream.md)に、改行コードを出力する
 
 この関数は、末尾に改行コードが付くことに注意。改行コードが不要な場合は、[`std::print()`](print.md)関数を使用すること。
 
@@ -37,6 +40,12 @@ namespace std {
     * print[link print.md]
     * format[link /reference/format/format.md]
     * std::forward[link /reference/utility/forward.md]
+
+- (2) : 以下と等価：
+    ```cpp
+    print(os, "\n");
+    ```
+    * print[link print.md]
 
 
 ## 例
@@ -75,6 +84,27 @@ int main()
 Hello
 ```
 
+### 改行コードを出力する (C++26)
+```cpp example
+#include <iostream>
+
+int main()
+{
+  std::print(std::cout, "abc");
+  std::println(std::cout, ); // 改行コードのみを出力する
+  std::print(std::cout, "{}", 123);
+  std::println(std::cout, );
+}
+```
+* std::print[link print.md]
+
+#### 出力
+```
+abc
+123
+```
+
+
 ## バージョン
 ### 言語
 - C++23
@@ -94,3 +124,4 @@ Hello
 
 ## 参照
 - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
+- [P3142R0 Printing Blank Lines with `println`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3142r0.pdf)

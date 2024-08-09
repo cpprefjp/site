@@ -10,10 +10,14 @@ namespace std {
   void println(format_string<Args...> fmt,
                Args&&... args);             // (1) C++23
 
+  void println();                           // (2) C++26
+
   template <class... Args>
   void println(FILE* stream,
                format_string<Args...> fmt,
-               Args&&... args);             // (2) C++23
+               Args&&... args);             // (3) C++23
+
+  void println(FILE* stream);               // (4) C++26
 }
 ```
 * format_string[link /reference/format/basic_format_string.md]
@@ -27,7 +31,9 @@ namespace std {
 この関数は、[`std::printf()`](/reference/cstdio/printf.md.nolink)関数ライクな書式指定で引数を文字列化して出力する。
 
 - (1) : 標準出力に、書式指定で出力する
-- (2) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定で出力する
+- (2) : 標準出力に改行コードを出力する
+- (3) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定で出力する
+- (4) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、改行コードを出力する
 
 この関数は、末尾に改行コードが付くことに注意。改行コードが不要な場合は、[`std::print()`](print.md)関数を使用すること。
 
@@ -44,11 +50,23 @@ namespace std {
 
 - (2) : 以下と等価：
     ```cpp
+    println(stdout);
+    ```
+    * stdout[link /reference/cstdio/stdout.md.nolink]
+
+- (3) : 以下と等価：
+    ```cpp
     print(stream, "{}\n", format(fmt, std::forward<Args>(args)...));
     ```
     * print[link print.md]
     * format[link /reference/format/format.md]
     * std::forward[link /reference/utility/forward.md]
+
+- (4) : 以下と等価：
+    ```cpp
+    print(stream, "\n");
+    ```
+    * print[link print.md]
 
 
 ## 例
@@ -113,6 +131,27 @@ int main()
 Hello
 ```
 
+
+### 改行コードを出力する (C++26)
+```cpp example
+#include <print>
+
+int main()
+{
+  std::print("abc");
+  std::println(); // 改行コードのみを出力する
+  std::print("{}", 123);
+  std::println();
+}
+```
+* std::print[link print.md]
+
+#### 出力
+```
+abc
+123
+```
+
 ## バージョン
 ### 言語
 - C++23
@@ -132,3 +171,4 @@ Hello
 
 ## 参照
 - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
+- [P3142R0 Printing Blank Lines with `println`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3142r0.pdf)
