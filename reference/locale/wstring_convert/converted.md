@@ -5,13 +5,14 @@
 * function[meta id-type]
 * cpp11[meta cpp]
 * cpp17deprecated[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 std::size_t converted() const;          // C++11
 std::size_t converted() const noexcept; // C++14
 ```
 
-このクラスはC++17から非推奨となった。
+このクラスはC++17から非推奨となり、C++26で削除された。
 
 ## 概要
 変換した要素数を取得する。
@@ -75,4 +76,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2174. `wstring_convert::converted()` should be `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2174)
-
+- [P2872R3 Remove `wstring_convert` From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2872r3.pdf)

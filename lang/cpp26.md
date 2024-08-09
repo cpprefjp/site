@@ -332,7 +332,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### 機能の削除
 - C++98から非推奨となっていた`<strstream>`ライブラリを削除
-- C++17から非推奨となっていたUnicode変換ライブラリ[`<codecvt>`](/reference/codecvt.md)と[`std::wstring_convert`](/reference/locale/wstring_convert.md)を削除
+- C++17から非推奨となっていたUnicode変換ライブラリ[`<codecvt>`](/reference/codecvt.md)と、[`std::wstring_convert`](/reference/locale/wstring_convert.md)クラス、[`std::wbuffer_convert`](/reference/locale/wbuffer_convert.md)クラスを削除
 - C++20から非推奨となっていた、[`std::basic_string`](/reference/string/basic_string.md)`::`[`reserve()`](/reference/string/basic_string/reserve.md)のパラメータなしのオーバーロードを削除
 - C++20から非推奨となっていた[`std::shared_ptr`](/reference/memory/shared_ptr.md)に対する、以下の古いアトミック操作関数のオーバーロードを削除
     - [`std::atomic_is_lock_free`](/reference/memory/shared_ptr/atomic_is_lock_free.md)

@@ -5,12 +5,13 @@
 * function[meta id-type]
 * cpp11[meta cpp]
 * cpp17deprecated[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 state_type state() const;
 ```
 
-このクラスはC++17から非推奨となった。
+このクラスはC++17から非推奨となり、C++26で削除された。
 
 ## 概要
 変換の状態を取得する。
@@ -73,4 +74,5 @@ converted all
 - [ICC](/implementation.md#icc):
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
-
+## 参照
+- [P2872R3 Remove `wstring_convert` From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2872r3.pdf)

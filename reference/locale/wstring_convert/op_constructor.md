@@ -5,6 +5,7 @@
 * function[meta id-type]
 * cpp11[meta cpp]
 * cpp17deprecated[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 wstring_convert(Codecvt* pcvt = new Codecvt);          // (1) C++11
@@ -25,7 +26,7 @@ explicit wstring_convert(
 wstring_convert(const wstring_convert&) = delete;      // (5) C++14
 ```
 
-このクラスはC++17から非推奨となった。
+このクラスはC++17から非推奨となり、C++26で削除された。
 
 ## 概要
 - (1) : デフォルトコンストラクタ。
@@ -102,3 +103,4 @@ int main()
 - [LWG Issue 2175. `wstring_convert` and `wbuffer_convert` validity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2175)
 - [LWG Issue 2176. Special members for `wstring_convert` and `wbuffer_convert`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2176)
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [P2872R3 Remove `wstring_convert` From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2872r3.pdf)
