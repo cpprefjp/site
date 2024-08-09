@@ -4,6 +4,7 @@
 * function template[meta id-type]
 * cpp11[meta cpp]
 * cpp20deprecated[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -14,7 +15,7 @@ namespace std {
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 
-この関数は、C++20から非推奨となった。アトミックアクセスの対象としている`shared_ptr`を[`shared_ptr`に対する`atomic`特殊化](/reference/memory/atomic.md)で置き換えることで同等の機能を使用できる。
+この関数は、C++20から非推奨となり、C++26で削除された。アトミックアクセスの対象としている`shared_ptr`を[`shared_ptr`に対する`atomic`特殊化](/reference/memory/atomic.md)で置き換えることで同等の機能を使用できる。
 
 ## 概要
 メモリオーダーを指定して、`shared_ptr`オブジェクトを、アトミックに入れ替える。
@@ -88,3 +89,4 @@ int main()
 - [N2674 Shared_ptr atomic access, revision 1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2674.htm)
 - [C++0x Shared_ptr atomic access - Faith and Brave - C++で遊ぼう](http://faithandbrave.hateblo.jp/entry/20081015/1224066366)
 - [P0718R2 Revising `atomic_shared_ptr` for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html)
+- [P2869R4 Remove Deprecated `shared_ptr` Atomic Access APIs from C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2869r4.pdf)

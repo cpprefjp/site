@@ -81,17 +81,17 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------------------------------|--------------------------------------------------|-------|
-| [`atomic_is_lock_free`][is_lock_free]     | 指定されたオブジェクトがロックフリーに振る舞えるかを調べる | C++11<br/> C++20から非推奨 |
-| [`atomic_store`][store]                   | 値を書き込む | C++11<br/> C++20から非推奨 |
-| [`atomic_store_explicit`][store_ex]       | メモリオーダーを指定して値を書き込む | C++11<br/> C++20から非推奨 |
-| [`atomic_load`][load]                     | 値を読み込む | C++11<br/> C++20から非推奨 |
-| [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を読み込む | C++11<br/> C++20から非推奨 |
-| [`atomic_exchange`][exchange]             | 値を入れ替える | C++11<br/> C++20から非推奨 |
-| [`atomic_exchange_explicit`][exchange_ex] | メモリオーダーを指定して値を入れ替える | C++11<br/> C++20から非推奨 |
-| [`atomic_compare_exchange_weak`][exchange_weak] | 弱い比較で値の入れ替えを行う | C++11<br/> C++20から非推奨 |
-| [`atomic_compare_exchange_strong`][exchange_strong] | 強い比較で値の入れ替えを行う | C++11<br/> C++20から非推奨 |
-| [`atomic_compare_exchange_weak_explicit`][exchange_weak_ex] | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11<br/> C++20から非推奨 |
-| [`atomic_compare_exchange_strong_explicit`][exchange_strong_ex] | 強い比較でメモリオーダーを指定して値の入れ替えを行う | C++11<br/> C++20から非推奨 |
+| [`atomic_is_lock_free`][is_lock_free]     | 指定されたオブジェクトがロックフリーに振る舞えるかを調べる | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_store`][store]                   | 値を書き込む | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_store_explicit`][store_ex]       | メモリオーダーを指定して値を書き込む | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_load`][load]                     | 値を読み込む | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_load_explicit`][load_ex]         | メモリオーダーを指定して値を読み込む | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_exchange`][exchange]             | 値を入れ替える | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_exchange_explicit`][exchange_ex] | メモリオーダーを指定して値を入れ替える | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_compare_exchange_weak`][exchange_weak] | 弱い比較で値の入れ替えを行う | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_compare_exchange_strong`][exchange_strong] | 強い比較で値の入れ替えを行う | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_compare_exchange_weak_explicit`][exchange_weak_ex] | 弱い比較でメモリオーダーを指定して値の入れ替えを行う | C++11<br/> C++20から非推奨<br/> C++26で削除 |
+| [`atomic_compare_exchange_strong_explicit`][exchange_strong_ex] | 強い比較でメモリオーダーを指定して値の入れ替えを行う | C++11<br/> C++20から非推奨<br/> C++26で削除 |
 
 [is_lock_free]: shared_ptr/atomic_is_lock_free.md
 [store]: shared_ptr/atomic_store.md
