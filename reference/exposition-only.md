@@ -48,6 +48,7 @@
 | [`uses-nonqualification-pointer-conversion`](ranges/subrange/uses-nonqualification-pointer-conversion.md) | 直接変換できない型同士のポインタの変換が必要かどうかを表す (concept)                                                    | C++20     |
 | [`convertible-to-non-slicing`](ranges/subrange/convertible-to-non-slicing.md)                             | スライシングを起こさずに変換できるかどうかを表す (concept)                                                                 | C++20     |
 | [`pair-like-convertible-from`](ranges/subrange/pair-like-convertible-from.md)                             | ある2つの型から構築出来る[`pair-like`](tuple/pair-like.md)な型を表す (concept)                                   | C++20     |
+| [`maybe-const`](ranges/maybe-const.md)                                                                    | bool値に応じて`const`修飾を付加する (alias template)                                          | C++23     |
 
 ## `<tuple>`
 
