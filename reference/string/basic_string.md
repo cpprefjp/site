@@ -117,8 +117,11 @@ namespace std {
 | [`operator+=`](basic_string/op_plus_assign.md)  | 文字／文字列を追加する                             |                |
 | [`append`](basic_string/append.md)              | 文字／文字列を追加する                             |                |
 | [`push_back`](basic_string/push_back.md)      | 末尾に要素を追加する                               |                |
+| [`append_range`](basic_string/append_range.md)  | Rangeの要素を末尾へ追加する                       | C++23          |
 | [`assign`](basic_string/assign.md)            | 文字列の再代入                                     |                |
+| [`assign_range`](basic_string/assign_range.md)  | Rangeの要素を再代入                              | C++23          |
 | [`insert`](basic_string/insert.md)            | 文字／文字列を挿入する                             |                |
+| [`insert_range`](basic_string/insert_range.md)  | Rangeの要素を挿入する                            | C++23          |
 | [`erase`](basic_string/erase.md)              | 要素を削除する                                     |                |
 | [`pop_back`](basic_string/pop_back.md)        | 末尾の1要素を削除する                              | C++11          |
 | [`replace`](basic_string/replace.md)          | 文字列の一部を置換する                             |                |
