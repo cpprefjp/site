@@ -48,7 +48,13 @@
 | [`uses-nonqualification-pointer-conversion`](ranges/subrange/uses-nonqualification-pointer-conversion.md) | 直接変換できない型同士のポインタの変換が必要かどうかを表す (concept)                                                    | C++20     |
 | [`convertible-to-non-slicing`](ranges/subrange/convertible-to-non-slicing.md)                             | スライシングを起こさずに変換できるかどうかを表す (concept)                                                                 | C++20     |
 | [`pair-like-convertible-from`](ranges/subrange/pair-like-convertible-from.md)                             | ある2つの型から構築出来る[`pair-like`](tuple/pair-like.md)な型を表す (concept)                                   | C++20     |
-| [`maybe-const`](ranges/maybe-const.md)                                                                    | bool値に応じて`const`修飾を付加する (alias template)                                          | C++23     |
+| [`maybe-const`](ranges/maybe-const.md)              | bool値に応じて`const`修飾を付加する (alias template)                                                         | C++23     |
+| [`tuple-transform`](ranges/tuple-transform.md)      | [`tuple`](tuple/tuple.md)の各要素に関数を適用した[`tuple`](tuple/tuple.md)を生成する (function template)     | C++23     |
+| [`tuple-for-each`](ranges/tuple-for-each.md)        | [`tuple`](tuple/tuple.md)の各要素に関数を適用する (function template)                                        | C++23     |
+| [`as-lvalue`](ranges/as-lvalue.md)                  | rvalueをlvalueへキャストする (function template)                                                             | C++23     |
+| [`all-random-access`](ranges/all-random-access.md)  | すべてのビューが[`random_access_range`](ranges/random_access_range.md)であるかを表す (concept)               | C++26     |
+| [`all-bidirectional`](ranges/all-bidirectional.md)  | すべてのビューが[`bidirectional_range`](ranges/bidirectional_range.md)であるかを表す (concept)               | C++26     |
+| [`all-forward`](ranges/all-forward.md)              | すべてのビューが[`forward_range`](ranges/forward_range.md)であるかを表す (concept)                           | C++26     |
 
 ## `<tuple>`
 
