@@ -100,11 +100,14 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------------------|------------------|-------|
 | [`assign`](vector/assign.md)             | コンテナの再代入 | |
+| [`assign_range`](vector/assign_range.md) | Rangeの要素を再代入 | C++23 |
 | [`push_back`](vector/push_back.md)       | 末尾へ要素追加 | |
 | [`emplace_back`](vector/emplace_back.md) | 末尾へ直接構築 | C++11 |
+| [`append_range`](vector/append_range.md) | Rangeの要素を末尾へ追加 | C++23 |
 | [`pop_back`](vector/pop_back.md)         | 末尾から要素削除 | |
 | [`insert`](vector/insert.md)             | 要素の挿入 | |
 | [`emplace`](vector/emplace.md)           | 要素の直接構築による挿入 | C++11 |
+| [`insert_range`](vector/insert_range.md) | Rangeの要素を挿入 | C++23 |
 | [`erase`](vector/erase.md)               | 要素の削除 | |
 | [`swap`](vector/swap.md)                 | コンテナの交換 | |
 | [`clear`](vector/clear.md)               | 全要素削除 | |
