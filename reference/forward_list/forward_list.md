@@ -48,6 +48,7 @@ namespace std {
 | [`(destructor)`](forward_list/op_destructor.md) | デストラクタ | C++11 |
 | [`operator=`](forward_list/op_assign.md) | 代入演算子 | C++11 |
 | [`assign`](forward_list/assign.md) | コンテナの再代入 | C++11 |
+| [`assign_range`](forward_list/assign_range.md) | Rangeの要素を再代入 | C++23 |
 
 
 ### イテレータ
@@ -83,9 +84,11 @@ namespace std {
 |----------------------------------------------------|--------------------------------|-------|
 | [`emplace_front`](forward_list/emplace_front.md) | 先頭への直接構築による要素追加 | C++11 |
 | [`push_front`](forward_list/push_front.md) | 先頭に要素を追加する | C++11 |
+| [`prepend_range`](forward_list/prepend_range.md) | 先頭にRangeの要素を追加する | C++23 |
 | [`pop_front`](forward_list/pop_front.md) | 先頭から要素を削除 | C++11 |
 | [`emplace_after`](forward_list/emplace_after.md) | 任意の位置への直接構築による要素挿入 | C++11 |
 | [`insert_after`](forward_list/insert_after.md) | 任意の位置への要素挿入 | C++11 |
+| [`insert_range_after`](forward_list/insert_range_after.md) | 任意の位置へRangeの要素挿入 | C++23 |
 | [`erase_after`](forward_list/erase_after.md) | 指定したイテレータの次の要素を削除する | C++11 |
 | [`swap`](forward_list/swap.md) | コンテナの交換 | C++11 |
 | [`resize`](forward_list/resize.md) | 要素数を変更する | C++11 |
