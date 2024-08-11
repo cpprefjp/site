@@ -308,6 +308,13 @@ range | adaptor(args...)
 | [`split_view`](ranges/split_view.md)                  | 文字列分割に特化した`lazy_split_view` (class template)       | C++20          |
 | [`views::split`](ranges/split_view.md)                | `split_view`を生成する (customization point object)          | C++20          |
 
+### concat view
+
+| 名前                                                  | 説明                                                         | 対応バージョン |
+|-------------------------------------------------------|--------------------------------------------------------------|----------------|
+| [`concat_view`](ranges/concat_view.md)                | 複数のRangeを連結するビュー (class template)                 | C++26          |
+| [`views::concat`](ranges/concat_view.md)              | `concat_view`を生成する (customization point object)         | C++26          |
+
 ### counted view
 
 | 名前                                  | 説明                                                                                          | 対応バージョン |

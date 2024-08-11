@@ -123,7 +123,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)
         - [`bucket()`](/reference/unordered_set/unordered_multiset/bucket.md)
 - [`std::span`](/reference/span/span.md)と[`std::mdspan`](/reference/mdspan/mdspan.md)の推論補助を改善
-- [`std::views::concat`](/reference/ranges/concat_view.md.nolink)を追加
+- [`std::views::concat`](/reference/ranges/concat_view.md)を追加
 
 
 ### アルゴリズム
