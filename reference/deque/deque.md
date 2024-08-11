@@ -48,6 +48,7 @@ namespace std {
 | [`(destructor)`](deque/op_destructor.md)         | デストラクタ   | |
 | [`operator=`](deque/op_assign.md)         | 代入演算子     | |
 | [`assign`](deque/assign.md)               | コンテナに値を代入する | |
+| [`assign_range`](deque/assign_range.md)   | コンテナにRangeの要素を代入する | C++23 |
 | [`get_allocator`](deque/get_allocator.md) | アロケータオブジェクトを取得する | |
 
 
@@ -92,11 +93,14 @@ namespace std {
 | [`clear`](deque/clear.md)                 | 全ての要素を削除する | |
 | [`insert`](deque/insert.md)               | 任意の位置に要素を挿入する | |
 | [`emplace`](deque/emplace.md)             | 任意の位置に要素を直接構築で挿入する | C++11 |
+| [`insert_range`](deque/insert_range.md)   | 任意の位置にRangeの要素を挿入する | C++23 |
 | [`push_back`](deque/push_back.md)         | 末尾に要素を追加する | |
 | [`emplace_back`](deque/emplace_back.md)   | 末尾に要素を直接構築で追加する | C++11 |
+| [`append_range`](deque/append_range.md)   | 末尾にRangeの要素を追加する | C++23 |
 | [`pop_back`](deque/pop_back.md)           | 末尾要素を削除する | |
 | [`push_front`](deque/push_front.md)       | 先頭に要素を追加する | |
 | [`emplace_front`](deque/emplace_front.md) | 先頭に要素を直接構築で追加する | C++11 |
+| [`prepend_range`](deque/prepend_range.md) | 先頭にRangeの要素を追加する | C++23 |
 | [`pop_front`](deque/pop_front.md)         | 先頭要素を削除する | |
 | [`resize`](deque/resize.md)               | 要素数を変更する | |
 | [`erase`](deque/erase.md)                 | 指定した要素を削除する | |
