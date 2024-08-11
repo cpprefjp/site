@@ -37,6 +37,7 @@ namespace std {
 | [`(destructor)`](list/op_destructor.md) | デストラクタ | |
 | [`operator=`](list/op_assign.md) | 代入演算子 | |
 | [`assign`](list/assign.md) | コンテナの再代入 | |
+| [`assign_range`](list/assign_range.md) | Rangeの要素を再代入 | C++23 |
 
 
 ### イテレータ
@@ -77,10 +78,13 @@ namespace std {
 |-----------------|--------------------------------|-------|
 | [`push_front`](list/push_front.md)       | 先頭に要素を追加する           | |
 | [`emplace_front`](list/emplace_front.md) | 先頭への直接構築による要素追加 | C++11 |
+| [`prepend_range`](list/prepend_range.md) | 先頭にRangeの要素を追加する   | C++23 |
 | [`push_back`](list/push_back.md)         | 末尾に要素を追加する           | |
 | [`emplace_back`](list/emplace_back.md)   | 末尾への直接構築による要素追加 | C++11 |
+| [`append_range`](list/append_range.md)   | 末尾にRangeの要素を追加する   | C++23 |
 | [`insert`](list/insert.md)               | 要素の挿入                     | |
 | [`emplace`](list/emplace.md)             | 要素の直接構築による挿入       | C++11 |
+| [`insert_range`](list/insert_range.md)   | 任意の位置にRangeの要素を挿入する | C++23 |
 | [`pop_front`](list/pop_front.md)         | 先頭から要素を削除             | |
 | [`pop_back`](list/pop_back.md)           | 末尾から要素を削除             | |
 | [`erase`](list/erase.md)                 | 要素の削除                     | |
