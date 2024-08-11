@@ -307,7 +307,7 @@
 | P3034R1: [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md.nolink) | `export module MACRO_NAME;`を禁止 | | | | |
 | P2809R3: [自明な無限ループは未定義動作ではないと規定](/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.md.nolink) | 並行プログラムの進行保証などを考慮して無限ループを未定義動作ではないものとする | 14 | 19 | | |
 | P2795R5: [未初期化変数の読み取りを不正動作 (erroneous behaviour: EB) とする](/lang/cpp26/erroneous_behaviour_for_uninitialized_reads.md.nolink) | 初期化されていない自動変数の読み取りの安全性を規定する | | | | |
-| P2573R2: [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md.nolink) | `f() = delete("reason)";` | 15 | 19 | | |
+| P2573R2: [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md.nolink) | `f() = delete("reason");` | 15 | 19 | | |
 | P2893R3: [可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md.nolink) | クラステンプレートの可変引数テンプレートでまとめて`friend`宣言できるようにする | 15 | | | |
 | P2747R2: [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md.nolink) | 定数式の文脈での配置`new`を許可 | | | | |
 | P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md.nolink) | 未定義動作となる操作をコンパイルエラーとする | 15 | 19 | | |
