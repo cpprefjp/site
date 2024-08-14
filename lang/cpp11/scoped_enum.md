@@ -101,7 +101,9 @@ ECMA規格になっているC++/CLIが、現在のスコープを持つ列挙型
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`underlying_type`](/reference/type_traits/underlying_type.md)
-
+- [`to_underlying`](/reference/utility/to_underlying.md)
+- [enum class変数の初期値として整数を指定する際の規則を調整](/lang/cpp17/construction_enum_class_values.md)
+- [スコープ付き列挙型のusing宣言](/lang/cpp20/using_enum.md)
 
 ## 参照
 - [N1513 Improving Enumeration Types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1513.pdf)
