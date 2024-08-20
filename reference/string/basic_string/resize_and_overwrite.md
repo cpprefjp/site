@@ -16,8 +16,20 @@ constexpr void resize_and_overwrite(size_type n, Operation op); // C++23
 本関数は、`string` にいくつかの文字列をまとめて追加・代入する際に、パフォーマンスを向上させる目的で追加された。
 
 
-## テンプレートパラメータ制約
-`Operation` は２つの引数と戻り値を持ち、第１引数は `charT*` or `const charT*`、第２引数は `size_type` or `const size_type`、戻り値は `integer-like` であること。
+## 適格要件
+
+`Operation`型の値 `op` は、下記を満たす呼び出し可能な型であること。
+
+- 式`std::move(op)(data(), n)` が有効（第1引数 `data()` は `charT*`型、第2引数 `n` は `size_type`型）。
+- 戻り値型は `integer-like` を満たす。
+
+
+## 事前条件
+
+- 呼び出された `op` が例外を投げないこと。
+- `op` の呼び出しで、第1引数・第2引数ともに変更されないこと。
+- `r = std::move(op)(data(), n)` とすると、`0 <= r && r <= n` であること。
+- `[data(), data() + r)` の範囲に未初期化の要素がないこと。
 
 
 ## 要件
@@ -25,9 +37,9 @@ constexpr void resize_and_overwrite(size_type n, Operation op); // C++23
 
 
 ## 効果
-1. 関数実行前に `[`[`data()`](data.md)`, `[`data()`](data.md)` + n)` が有効範囲でないなら、領域の確保が行われる（[`reserve(n)`](reserve.md) 相当）。
-1. `std::move(op)(data(), n)` が呼ばれる。`op` 内では、`[`[`data()`](data.md)`, `[`data()`](data.md)` + n)` の範囲に対して任意の初期化を行う。`op` の戻り値を `m` とすると、`0 <= m && m < n` であること。
-1. サイズを `m` に変更する（[`resize(m)`](resize.md) 相当）。
+1. 関数実行前に `[`[`data()`](data.md)`, `[`data()`](data.md)` + n)` が有効範囲でないなら、領域の確保が行われる（[`reserve(n)`](reserve.md) 相当）。新たな領域は初期化されないことに注意。
+1. `std::move(op)(data(), n)` が呼ばれる。`op` 内では、`[`[`data()`](data.md)`, `[`data()`](data.md)` + n)` の範囲に対して任意の初期化を行う。
+1. `op` の戻り値を `r` とすると、サイズを `r` に変更する。
 
 
 ## 戻り値
@@ -89,7 +101,7 @@ int main() {
                 memcpy(buf + pos, word.data(), word.size()); // Good: データコピーのみ
                 pos += word.size();
             }
-            return pos;
+            return pos; // サイズを返す
         });
 
         std::cout << s.size() << ": " << s << std::endl;
