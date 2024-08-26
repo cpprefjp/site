@@ -48,11 +48,11 @@ namespace std {
 - 値`padding_value`が`index_type`型で表現できること。
 - 以下を満たすとき、`LEAST-MULTIPLE-AT-LEAST(padding_value, last-static-extent)`が、`size_t`型および`index_type`型で表現できること。
     - `rank_ > 1`、かつ
-    - `padding_value`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
+    - `padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)、かつ
     - `last-static-extent`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないとき。
 - 以下を満たすとき、半開区間`[1, rank_ - 1)`の全ての値`k`に対して`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.static_extent(rank_ - 1))`と全ての`ext.static_extent(k)`を乗じた結果が、`size_t`型および`index_type`型で表現できること。
     - `rank_ > 1`、かつ
-    - `padding_value`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
+    - `padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)、かつ
     - 半開区間`[0, rank_)`の全ての値`k`に対して`extents_type::`[`static_extent`](../extents/static_extent.md)`(k)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないとき。
 
 

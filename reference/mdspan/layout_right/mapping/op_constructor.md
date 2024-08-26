@@ -22,7 +22,7 @@ constexpr explicit(!is_convertible_v<OtherExtents, extents_type>)
 
 template<class LayoutRightPaddedMapping>
 constexpr explicit(!is_convertible_v<typename LayoutRightPaddedMapping::extents_type, extents_type>)
-  mapping(const LayoutRightPaddedMapping&) noexcept;  // (7) C++26
+  mapping(const LayoutRightPaddedMapping& other) noexcept;  // (7) C++26
 
 template<class OtherExtents>
 constexpr explicit(extents_type::rank() > 0)
@@ -37,7 +37,7 @@ constexpr explicit(extents_type::rank() > 0)
 ## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : コピーコンストラクタ
-- (3) : [`extents`](../../extents.md)からの変換コンストラクタ
+- (3) : [`extents`](../../extents.md)から構築
 - (4) : 他`layout_right::mapping`からの変換コンストラクタ
 - (5) : [`layout_left::mapping`](../../layout_left/mapping.md)からの変換コンストラクタ
 - (6) : [`layout_stride::mapping`](../../layout_stride/mapping.md)からの変換コンストラクタ
@@ -58,7 +58,7 @@ constexpr explicit(extents_type::rank() > 0)
 ## 適格要件
 - (7) : 以下を満たすとき、`extents_type::`[`static_extent`](../../extents/static_extent.md)`(`[`Extents::rank()`](../../extents/rank.md) `- 1)`が[`LayoutRightPaddedMapping::static-padding-stride`](../../layout_right_padded/mapping.md)に等しいこと。
     - `extents_type::`[`rank()`](../../extents/rank.md) `> 1`、かつ
-    - `extents_type::`[`static_extent`](../../extents/static_extent.md)`(Extents::rank() - 1)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくなく、かつ
+    - `extents_type::`[`static_extent`](../../extents/static_extent.md)`(Extents::rank() - 1) !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)、かつ
     - `LayoutRightPaddedMapping::static-padding-stride`が[`dynamic_extent`](/reference/span/dynamic_extent.md)と等しくないとき。
 
 
@@ -113,7 +113,7 @@ int main()
     std::layout_right::mapping<Ext3xN> map2_b = map2_a;
     assert(map2_a == map2_b);
   }
-  // (3) : extentsからの変換コンストラクタ
+  // (3) : extentsから構築
   {
     Ext3xN ext{4};
     std::layout_right::mapping<Ext3xN> map3 = ext;
