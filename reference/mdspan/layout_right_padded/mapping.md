@@ -61,7 +61,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](mapping/op_constructor.md.nolink) | コンストラクタ | C++26 |
+| [`(constructor)`](mapping/op_constructor.md) | コンストラクタ | C++26 |
 | `(destructor)` | デストラクタ | C++26 |
 | `operator=`    | コピー代入演算子 | C++26 |
 

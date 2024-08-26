@@ -35,8 +35,7 @@ constexpr explicit(see below)
 * rank()[link ../../extents/rank.md]
 * layout_left::mapping[link ../../layout_left/mapping.md]
 * layout_stride::mapping[link ../../layout_stride/mapping.md]
-* LayoutLeftPaddedMapping[link ../../layout_left_padded/mapping.md]
-* see below[itaic]
+* see below[italic]
 
 ## 概要
 - (1) : デフォルトコンストラクタ
@@ -72,21 +71,21 @@ constexpr explicit(see below)
 ## 事前条件
 - (3) :
     - `ext`の多次元インデクス空間のサイズを、`index_type`型で表現できること。
-    - `rank_ > 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.extent(0))`を`index_type`型で表現できること。
-    - `rank_ > 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、半開区間`[1, rank_)`の全ての値`k`に対して`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.extent(0))`と全ての`ext.extent(k)`を乗算した値を`index_type`型で表現できること。
+    - `rank_ > 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.`[`extent`](../../extents/extent.md)`(0))`を`index_type`型で表現できること。
+    - `rank_ > 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、半開区間`[1, rank_)`の全ての値`k`に対して`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.`[`extent`](../../extents/extent.md)`(0))`と全ての`ext.extent(k)`を乗算した値を`index_type`型で表現できること。
 - (4) :
     - `pad`の値を`index_type`型で表現できること。
     - `extetns_type::`[`index-cast`](../../extents/index-cast.md)`(pad) > 0`
-    - `rank_ > 1`のとき、`LEAST-MULTIPLE-AT-LEAST(pad, ext.extent(0))`を`index_type`型で表現できること。
-    - `rank_ > 1`のとき、半開区間`[1, rank_)`の全ての値`k`に対して`LEAST-MULTIPLE-AT-LEAST(pad, ext.extent(0))`と全ての`ext.extent(k)`を乗算した値を`index_type`型で表現できること。
+    - `rank_ > 1`のとき、`LEAST-MULTIPLE-AT-LEAST(pad, ext.`[`extent`](../../extents/extent.md)`(0))`を`index_type`型で表現できること。
+    - `rank_ > 1`のとき、半開区間`[1, rank_)`の全ての値`k`に対して`LEAST-MULTIPLE-AT-LEAST(pad, ext.`[`extent`](../../extents/extent.md)`(0))`と全ての`ext.extent(k)`を乗算した値を`index_type`型で表現できること。
     - `padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`padding_value == extetns_type::`[`index-cast`](../../extents/index-cast.md)`(pad)`
 - (5) :
-    - `extents_type::`[`rank()`](../../extents/rank.md) `> 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`other.`[`stride`](../../layout_left/mapping/stride.md))`(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::`[`index-cast`](../../extents/index-cast.md)`(other.extents().extent(0)))`
+    - `extents_type::`[`rank()`](../../extents/rank.md) `> 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`other.`[`stride`](../../layout_left/mapping/stride.md)`(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::`[`index-cast`](../../extents/index-cast.md)`(other.extents().`[`extent`](../../extents/extent.md)`(0)))`
     - `other.`[`required_span_size()`](../../layout_left/mapping/required_span_size.md)を、`index_type`型で表現できること。
 - (6) :
-    - `rank_ > 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`other.`[`stride`](../../layout_left/mapping/stride.md)`(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::`[`index-cast`](../../extents/index-cast.md)`(other.extents().extent(0)))`
+    - `rank_ > 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`other.`[`stride`](../../layout_stride/mapping/stride.md)`(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::`[`index-cast`](../../extents/index-cast.md)`(other.extents().`[`extent`](../../extents/extent.md)`(0)))`
     - `rank_ > 0`のとき、`other.`[`stride`](../../layout_stride/mapping/stride.md)`(0) == 1`
-    - `rank_ > 2`のとき、半開区間`[2, rank_)`の全ての値`r`に対して`other.stride(r) == (other.extents().fwd-prod-of-extents(r) / other.extents().extent(0)) * other.stride(1)`
+    - `rank_ > 2`のとき、半開区間`[2, rank_)`の全ての値`r`に対して`other.`[`stride`](../../layout_stride/mapping/stride.md)`(r) == (other.extents().fwd-prod-of-extents(r) / other.extents().`[`extent`](../../extents/extent.md)`(0)) * other.stride(1)`
     - `other.`[`required_span_size()`](../../layout_stride/mapping/required_span_size.md)を、`index_type`型で表現できること。
 - (7) :
     - `rank_ > 1`かつ`padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`other.stride(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::`[`index-cast`](../../extents/index-cast.md)`(other.extent(0)))`
@@ -101,11 +100,11 @@ constexpr explicit(see below)
 - (3) :
     - `ext`を用いて`extents_`を直接非リスト初期化する。
     - `rank_ > 1`のとき、次の値を用いて`stride-1`を直接非リスト初期化する。
-        - `padding_value ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`ext.extent(0)`
-        - そうでなければ、`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.extent(0))`
+        - `padding_value ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`ext.`[`extent`](../../extents/extent.md)`(0)`
+        - そうでなければ、`LEAST-MULTIPLE-AT-LEAST(padding_value, ext.`[`extent`](../../extents/extent.md)`(0))`
 - (4) :
     - `ext`を用いて`extents_`を直接非リスト初期化する。
-    - `rank_ > 1`のとき、`LEAST-MULTIPLE-AT-LEAST(pad, ext.extent(0))`を用いて`stride-1`を直接非リスト初期化する。
+    - `rank_ > 1`のとき、`LEAST-MULTIPLE-AT-LEAST(pad, ext.`[`extent`](../../extents/extent.md)`(0))`を用いて`stride-1`を直接非リスト初期化する。
 - (5) :
     - `mapping(other.extents())`と等価。
 - (6), (7) :
@@ -192,6 +191,7 @@ int main()
 ```
 * std::layout_left_padded<4>::mapping[color ff0000]
 * std::layout_left_padded<>::mapping[color ff0000]
+* std::layout_left::mapping[link ../../layout_left/mapping.md]
 * std::layout_right::mapping[link ../../layout_right/mapping.md]
 * std::layout_stride::mapping[link ../../layout_stride/mapping.md]
 * std::dims[link ../../extents.md]
