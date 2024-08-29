@@ -1,5 +1,5 @@
 # operator==
-* iterator[meta header]
+* ranges[meta header]
 * std[meta namespace]
 * filter_view::iterator[meta class]
 * function[meta id-type]
