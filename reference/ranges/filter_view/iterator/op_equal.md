@@ -1,6 +1,6 @@
 # operator==
 * ranges[meta header]
-* std[meta namespace]
+* std::ranges[meta namespace]
 * filter_view::iterator[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
