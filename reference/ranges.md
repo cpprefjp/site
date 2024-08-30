@@ -217,6 +217,8 @@ range | adaptor(args...)
 
 このとき、式`adaptor(args...)`の値がRangeアダプタクロージャオブジェクトになっている。
 
+なお、
+
 | 名前                                                         | 説明                                                                | 対応バージョン |
 |--------------------------------------------------------------|---------------------------------------------------------------------|----------------|
 | [`range_adaptor_closure`](ranges/range_adaptor_closure.md)   | Rangeアダプタクロージャオブジェクトの基底クラス (class template)    | C++23          |
@@ -376,10 +378,11 @@ range | adaptor(args...)
 
 ### adjacent view
 
-| 名前                                                             | 説明                                                                               | 対応バージョン |
-|------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
-| [`adjacent_view`](ranges/adjacent_view.md)                       | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
-| [`views::adjacent`](ranges/adjacent_view.md)                     | `adjacent_view`を生成する (customization point object)                             | C++23          |
+| 名前                                                   | 説明                                                                               | 対応バージョン |
+|--------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
+| [`adjacent_view`](ranges/adjacent_view.md)             | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
+| [`views::adjacent`](ranges/adjacent_view.md)           | `adjacent_view`を生成する (variable template)                                      | C++23          |
+| [`views::pairwise`](ranges/adjacent_view.md)           | `adjacent<2>`の別名 (customization point object)                                   | C++23          |
 
 ### adjacent transform view
 
