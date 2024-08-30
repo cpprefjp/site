@@ -28,7 +28,7 @@ void swap(unordered_set& x)
 
 また、コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ [`key_eq`](key_eq.md)`()` と [`hash_function`](hash_function.md)`()` が返すオブジェクト）も非メンバ関数 [`swap`](/reference/utility/swap.md) を非修飾で（つまり `std::` を付けずに）呼び出すことで交換される。（したがって、[`swap`](/reference/utility/swap.md) の呼び出しには ADL が働く。）
 
-もし、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_swap::value` が `true` であれば、アロケータオブジェクト（[`get_allocator`](get_allocator.md)`()` が返すオブジェクト）も非メンバ関数 [`swap`](/reference/utility/swap.md) を非修飾で呼び出すことで交換される。そうでなければアロケータオブジェクトは交換されず、その場合、当該コンテナと引数 `v` がそれぞれ [`get_allocator`](get_allocator.md)`()` で返すオブジェクトが等価でない（`operator==` が `true` を返さない）場合、振る舞いは未定義（undefined）である。
+もし、`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::propagate_on_container_swap::value` が `true` であれば、アロケータオブジェクト（[`get_allocator`](get_allocator.md)`()` が返すオブジェクト）も非メンバ関数 [`swap`](/reference/utility/swap.md) を非修飾で呼び出すことで交換される。そうでなければアロケータオブジェクトは交換されず、その場合、当該コンテナと引数 `v` がそれぞれ [`get_allocator`](get_allocator.md)`()` で返すオブジェクトが等価でない（`operator==` が `true` を返さない）場合、未定義動作となる。
 
 
 ## 戻り値
