@@ -29,7 +29,9 @@ public:
 ## 備考
 - コンストラクタが `protected` であることからも分かるとおり、[`ios_base`](../ios_base.md) は直接使用するのではなく継承されることを想定している。  
     通常は、[`ios_base`](../ios_base.md)、あるいは、その直接の派生クラスである [`basic_ios`](../basic_ios.md) を直接継承するのではなく、[`basic_istream`](../../istream/basic_istream.md)、[`basic_ostream`](../../ostream/basic_ostream.md)、[`basic_iostream`](../../istream/basic_iostream.md) のいずれかを継承することになるだろう。
-- コピーコンストラクタは `private` で未定義（C++03 まで）、あるいは、`public` で `delete`（C++11 から）である。  
+- コピーコンストラクタは、
+    - C++03 : アクセス指定子`private`で宣言のみされ、定義はされない
+    - C++11 : アクセス指定子`public`で`delete`定義される
     （いずれにせよコピーすることはできないが、`public` で `delete` の方が誤ってコピーしようとした際のエラーメッセージが分かりやすいため、変更されている）
 - コピーコンストラクタが宣言されているため、ムーブコンストラクタも自動生成されない。
 
