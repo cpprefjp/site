@@ -275,6 +275,7 @@
     * is_object_v[link /reference/type_traits/is_object.md]
     * remove_cv_t[link /reference/type_traits/remove_cv.md]
     * remove_cvref_t[link /reference/type_traits/remove_cvref.md]
+    * remove_reference_t[link /reference/type_traits/remove_reference.md]
     * std::false_type[link /reference/type_traits/false_type.md]
     * std::is_same_v[link /reference/type_traits/is_same.md]
     * std::is_same[link /reference/type_traits/is_same.md]
