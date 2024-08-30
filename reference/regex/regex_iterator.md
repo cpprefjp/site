@@ -29,8 +29,8 @@ namespace std {
 イテレータが終端まで来たとき（つまり、[`regex_search`](regex_search.md) が `false` を返したとき）、当該イテレータはシーケンスの終端を示す特別な値となる。
 この、シーケンスの終端を示す特別な値は、`regex_iterator` オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。
 
-シーケンス終端のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用は未定義である。その他のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用の結果は `const` [`match_results`](match_results.md)`<BidirectionalIterator>&` である。  
-同様に、シーケンス終端のイテレータに対する [`operator->`](regex_iterator/op_arrow.md) 演算子適用は未定義である。その他のイテレータに対する [`operator->`](regex_iterator/op_arrow.md) 演算子適用の結果は `const` [`match_results`](match_results.md)`<BidirectionalIterator>*` である。
+シーケンス終端のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用は未定義動作となる。その他のイテレータに対する [`operator*`](regex_iterator/op_deref.md) 演算子適用の結果は `const` [`match_results`](match_results.md)`<BidirectionalIterator>&` である。  
+同様に、シーケンス終端のイテレータに対する [`operator->`](regex_iterator/op_arrow.md) 演算子適用は未定義動作となる。その他のイテレータに対する [`operator->`](regex_iterator/op_arrow.md) 演算子適用の結果は `const` [`match_results`](match_results.md)`<BidirectionalIterator>*` である。
 
 なお、本サイトの `regex_iterator` の各説明では、規格にならって以下のプライベートなメンバ変数が存在する前提で記載している。
 
