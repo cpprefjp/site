@@ -6,17 +6,17 @@ import sys
 import re
 
 DEFINED_WORD_LIST = [
-    # 先頭はターゲット用語、それ以外はその用語の許可された使用方法
-    ["未定義", "未定義動作", "未定義の動作", "動作は未定義"],
+    # ターゲット用語, その用語の許可された使用方法リスト
+    ("未定義", ["未定義動作", "未定義の動作", "動作は未定義", "未定義アドレス"]),
+    # 「未定義アドレス」は意味が明確に規定されていない。規定されたら「未定義動作」を使用した説明に差し替える
+    # LWG issue 3906. "Undefined address" is undefined
+    # https://cplusplus.github.io/LWG/issue3906
 ]
 
 def check_defined_word(text: str, filename: str) -> bool:
     found_error: bool = False
 
-    for words in DEFINED_WORD_LIST:
-        word = words[0]
-        allow_list = words[1:]
-
+    for word, allow_list in DEFINED_WORD_LIST:
         match_list = [m.start() for m in re.finditer(word, text)]
         if len(match_list) == 0:
             continue
