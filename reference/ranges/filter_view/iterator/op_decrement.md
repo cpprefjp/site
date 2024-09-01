@@ -34,6 +34,7 @@ auto tmp = *this;
 --*this;
 return tmp;
 ```
+
 と等しい。
 
 ## 例
