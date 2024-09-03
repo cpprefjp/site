@@ -217,6 +217,8 @@ range | adaptor(args...)
 
 このとき、式`adaptor(args...)`の値がRangeアダプタクロージャオブジェクトになっている。
 
+なお、元となるRangeを複数とるRangeアダプタは、パイプライン記法を提供しない。
+
 | 名前                                                         | 説明                                                                | 対応バージョン |
 |--------------------------------------------------------------|---------------------------------------------------------------------|----------------|
 | [`range_adaptor_closure`](ranges/range_adaptor_closure.md)   | Rangeアダプタクロージャオブジェクトの基底クラス (class template)    | C++23          |
@@ -346,9 +348,9 @@ range | adaptor(args...)
 
 | 名前                                              | 説明                                                   | 対応バージョン |
 |---------------------------------------------------|--------------------------------------------------------|----------------|
-| [`elements_view`](ranges/elements_view.md)        | 第n要素を集めたビュー (class template)                 | C++20          |
-| [`keys_view`](ranges/elements_view.md)            | 第0要素を集めたビュー (alias template)                 | C++20          |
-| [`values_view`](ranges/elements_view.md)          | 第1要素を集めたビュー (alias template)                 | C++20          |
+| [`elements_view`](ranges/elements_view.md)        | タプルの第N要素にアクセスするビュー (class template)   | C++20          |
+| [`keys_view`](ranges/elements_view.md)            | タプルの第0要素にアクセスするビュー (alias template)   | C++20          |
+| [`values_view`](ranges/elements_view.md)          | タプルの第1要素にアクセスするビュー (alias template)   | C++20          |
 | [`views::elements`](ranges/elements_view.md)      | `elements_view`を生成する (customization point object) | C++20          |
 | [`views::keys`](ranges/elements_view.md)          | `keys_view`を生成する (customization point object)     | C++20          |
 | [`views::values`](ranges/elements_view.md)        | `values_view`を生成する (customization point object)   | C++20          |
@@ -376,10 +378,11 @@ range | adaptor(args...)
 
 ### adjacent view
 
-| 名前                                                             | 説明                                                                               | 対応バージョン |
-|------------------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
-| [`adjacent_view`](ranges/adjacent_view.md)                       | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
-| [`views::adjacent`](ranges/adjacent_view.md)                     | `adjacent_view`を生成する (customization point object)                             | C++23          |
+| 名前                                                   | 説明                                                                               | 対応バージョン |
+|--------------------------------------------------------|------------------------------------------------------------------------------------|----------------|
+| [`adjacent_view`](ranges/adjacent_view.md)             | 各要素とそれに隣接する要素を指定個数ずつ取り出した`tuple`のビュー (class template) | C++23          |
+| [`views::adjacent`](ranges/adjacent_view.md)           | `adjacent_view`を生成する (variable template)                                      | C++23          |
+| [`views::pairwise`](ranges/adjacent_view.md)           | `adjacent<2>`の別名 (customization point object)                                   | C++23          |
 
 ### adjacent transform view
 

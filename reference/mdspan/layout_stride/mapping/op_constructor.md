@@ -11,13 +11,13 @@ constexpr mapping() noexcept;  // (1)
 constexpr mapping(const mapping&) noexcept = default;  // (2)
 
 template<class OtherIndexType>
-  constexpr mapping(const extents_type&, span<OtherIndexType, rank_>) noexcept;  // (3)
+  constexpr mapping(const extents_type& e, span<OtherIndexType, rank_> s) noexcept;  // (3)
 
 template<class OtherIndexType>
-  constexpr mapping(const extents_type&, const array<OtherIndexType, rank_>&) noexcept;  // (4)
+  constexpr mapping(const extents_type& e, const array<OtherIndexType, rank_>& s) noexcept;  // (4)
 
 template<class StridedLayoutMapping>
-  constexpr explicit(see below) mapping(const StridedLayoutMapping&) noexcept;  // (5)
+  constexpr explicit(see below) mapping(const StridedLayoutMapping& other) noexcept;  // (5)
 ```
 * span[link /reference/span/span.md]
 * array[link /reference/array/array.md]
@@ -27,7 +27,7 @@ template<class StridedLayoutMapping>
 ## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : コピーコンストラクタ
-- (3), (4) : [`extents`](../../extents.md)とストライド幅からの構築（定数`rank_`は次元数）
+- (3), (4) : [`extents`](../../extents.md)とストライド幅から構築（定数`rank_`は次元数）
 - (5) : [レイアウトマッピング](../../LayoutMapping.md)からの変換コンストラクタ
 
 
@@ -47,7 +47,7 @@ template<class StridedLayoutMapping>
 - (3), (4) :
     - 半開区間`[0, rank_)`の全ての`i`に対して、`s[i]`を`index_type`へ変換した結果が`0`より大きいこと。
     - [`REQUIRED-SPAN-SIZE`](required_span_size.md)`(e, s)`を`index_type`型で表現できること。
-    - `rank_`が`0`より大きいとき、半開区間`[1, rank_)`の全ての`i`に対して`j = i-1`として`s[Pi] >= s[Pj] * e.extents(Pj)`を満たすの整数値の組合せ`P`が存在すること。
+    - `rank_ > 0`のとき、半開区間`[1, rank_)`の全ての`i`に対して`j = i-1`として`s[Pi] >= s[Pj] * e.extents(Pj)`を満たすの整数値の組合せ`P`が存在すること。
 - (5) :
     - `StridedLayoutMapping`が[レイアウトマッピングポリシー](../../LayoutMappingPolicy.md)を満たす
     - `extents()`の全ての次元`r`に対して`other.stride(r) > 0`
@@ -66,16 +66,6 @@ template<class StridedLayoutMapping>
 
 
 ## explicitになる条件
-説明専用の変数テンプレート`is-mapping-of`を下記の通り定義する：
-
-```cpp
-template<class Layout, class Mapping>
-constexpr bool is-mapping-of = // exposition only
-  is_same_v<typename Layout::template mapping<typename Mapping::extents_type>, Mapping>;
-```
-* is-mapping-of[italic]
-* is_same_v[link /reference/type_traits/is_same.md]
-
 - (5) : `explicit`指定子の式は以下と等価
 ```cpp
 // C++23
@@ -93,10 +83,10 @@ constexpr bool is-mapping-of = // exposition only
    is-mapping-of<layout_stride, StridedLayoutMapping>))
 ```
 * is_convertible_v[link /reference/type_traits/is_convertible.md]
-* is-mapping-of[italic]
 * layout_left[link ../../layout_left.md]
 * layout_right[link ../../layout_right.md]
 * layout_stride[link ../../layout_stride.md]
+* is-mapping-of[link ../../is-mapping-of.md]
 * is-layout-left-padded-mapping-of[link ../../is-layout-left-padded-mapping-of.md]
 * is-layout-right-padded-mapping-of[link ../../is-layout-right-padded-mapping-of.md]
 

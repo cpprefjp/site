@@ -93,6 +93,7 @@ namespace std {
 | [`length`](basic_string/length.md)               | 文字列の長さを取得する                               |                |
 | [`max_size`](basic_string/max_size.md)           | 格納可能な最大の文字列長を取得する                   |                |
 | [`resize`](basic_string/resize.md)               | 文字列の長さを変更する                               |                |
+| [`resize_and_overwrite`](basic_string/resize_and_overwrite.md) | 文字列の長さの変更と併せて任意の初期化を行う | C++23 |
 | [`capacity`](basic_string/capacity.md)           | メモリを再確保せずに格納できる最大の要素数を取得する |                |
 | [`reserve`](basic_string/reserve.md)             | `capacity`を変更する                                 |                |
 | [`shrink_to_fit`](basic_string/shrink_to_fit.md) | `capacity`を`size`まで縮小する                       | C++11          |

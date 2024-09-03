@@ -15,12 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* input_range[link input_range.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* iterator_t[link iterator_t.md]
-* view[link view.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): 指定された条件`Pred`を満たす要素だけが要素となる[`view`](view.md)
@@ -28,8 +22,9 @@ namespace std::ranges {
 
 元のRangeから条件を満たす要素を探す処理は遅延評価される。
 
-- 初めてメンバ関数[`begin`](filter_view/begin.md.nolink)が呼び出されたときに先頭の要素を決定し、残りはイテレータが進むときに求める。
-- [`begin`](filter_view/begin.md.nolink)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md.nolink)の値はキャッシュされる。
+- 初めてメンバ関数[`begin`](filter_view/begin.md)が呼び出されたときに先頭の要素を決定し、残りはイテレータが進むときに求める。
+    - 探索は [`ranges::find_if`](/reference/algorithm/ranges_find_if.md) と同様に行われる。
+- [`begin`](filter_view/begin.md)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md)の値はキャッシュされる。
 
 `filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作を引き起こす。
 
@@ -53,33 +48,48 @@ namespace std::ranges {
 
 ## 効果
 
-- (2): 式`views::filter(E, P)`の効果は`filter_view(E, P)`と等しい
+- (2): 式`views::filter(E, P)`の効果は[`filter_view`](filter_view/op_constructor.md)`(E, P)`と等しい
+
+## メンバ変数
+
+| 名前                                            | 説明                               | 対応バージョン        |
+|-------------------------------------------------|------------------------------------|-----------------------|
+| `V base_ = V()`                                 | 元の[`view`](view.md) (説明専用)   | C++20                 |
+| [`copyable-box`](copyable_box.md)`<Pred> pred_` | 述語 (説明専用)                    | C++20<br/>C++23で削除 |
+| [`movable-box`](movable_box.md)`<Pred> pred_`   | 述語 (説明専用)                    | C++23                 |
 
 ## メンバ関数
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](filter_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](filter_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
-| [`pred`](filter_view/pred.md.nolink)                     | 述語を取得する                   | C++20          |
-| [`begin`](filter_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](filter_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
+| [`(constructor)`](filter_view/op_constructor.md) | コンストラクタ                   | C++20          |
+| [`base`](filter_view/base.md)                    | `V`の参照を取得する              | C++20          |
+| [`pred`](filter_view/pred.md)                    | 述語を取得する                   | C++20          |
+| [`begin`](filter_view/begin.md)                  | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](filter_view/end.md)                      | 番兵を取得する                   | C++20          |
 
 ## 継承しているメンバ関数
 
-| 名前                                         | 説明                             | 対応バージョン |
-|----------------------------------------------|----------------------------------|----------------|
+| 名前                                         | 説明                              | 対応バージョン |
+|----------------------------------------------|-----------------------------------|----------------|
 | [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
-| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する             | C++23          |
-| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する      | C++23          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
+
+## メンバ型
+
+| 名前                                      | 説明                         | 対応バージョン |
+|-------------------------------------------|------------------------------|----------------|
+| [`iterator`](filter_view/iterator.md)     | イテレータ型(説明専用)       | C++20          |
+| [`sentinel`](filter_view/sentinel.md)     | 番兵型(説明専用)             | C++20          |
 
 ## 推論補助
 
-| 名前                                                  | 説明                         | 対応バージョン |
-|-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](filter_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| 名前                                                     | 説明                         | 対応バージョン |
+|----------------------------------------------------------|------------------------------|----------------|
+| [`(deduction_guide)`](filter_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
@@ -119,6 +129,6 @@ int main() {
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
 ## 参照
-- [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
+- [N4861 24.7.4 Filter view](https://timsong-cpp.github.io/cppwp/n4861/range.filter)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)

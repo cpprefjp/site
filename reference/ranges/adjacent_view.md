@@ -11,7 +11,10 @@ namespace std::ranges {
   class adjacent_view : public view_interface<adjacent_view<V, N>> {…… }; // (1)
 
   namespace views {
+    template<std::size_t N>
     inline constexpr /*unspecified*/ adjacent = /*unspecified*/;      // (2)
+
+    inline constexpr auto pairwise = adjacent<2>;                     // (3)
   }
 }
 ```
@@ -25,7 +28,8 @@ namespace std::ranges {
 `N` が元となるRangeの要素数より大きい場合、この[`view`](view.md)は空である。
 
 - (1): `adjacent_view`のクラス定義
-- (2): `adjacent_view`を生成するカスタマイゼーションポイントオブジェクト
+- (2): `adjacent_view`を生成するカスタマイゼーションポイントオブジェクト(変数テンプレート)
+- (3): `adjacent<2>` の別名
 
 ### Rangeコンセプト
 

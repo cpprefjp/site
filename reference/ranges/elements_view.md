@@ -27,31 +27,23 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* range_value_t[link range_value_t.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
-* range_reference_t[link range_reference_t.md]
-* view_interface[link view_interface.md]
-* views::all_t[link all.md]
 
 ## 概要
 
-タプルと見なせる型を要素とするRangeに対して、各要素に[`get`](/reference/tuple/tuple/get.md)を適用する[`view`](view.md)。
+タプルと見なせる型を要素とするRangeに対して、各タプルの第N要素だけにアクセスする[`view`](view.md)。要素へのアクセスは[`get`](/reference/tuple/tuple/get.md)`<N>`による。
 
-- (1): 各要素に[`get`](/reference/tuple/tuple/get.md)`<N>`を適用する[`view`](view.md)
-- (2): 各要素に[`get`](/reference/tuple/tuple/get.md)`<0>`を適用する[`view`](view.md)
-- (3): 各要素に[`get`](/reference/tuple/tuple/get.md)`<1>`を適用する[`view`](view.md)
+- (1): 第N要素だけにアクセスする[`view`](view.md)
+- (2): 第1要素だけにアクセスする[`view`](view.md)
+- (3): 第2要素だけにアクセスする[`view`](view.md)
 - (4): `elements_view`を生成するRangeアダプタオブジェクト
 - (5): `keys_view`を生成するRangeアダプタオブジェクト
 - (6): `values_view`を生成するRangeアダプタオブジェクト
-
-`elements`で得られる[`view`](view.md)の大きさは、指定した個数に関わらず、元のRangeの大きさを超えることは無い。
 
 ### Rangeコンセプト
 
 | borrowed | sized | output | input | forward | bidirectional | random_access | contiguous | common | viewable | view |
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
-| (1)      | (1)   | (1)    | (1)   | (1)     | (1)           | (1)           |            | (1)    | ○        | ○   |
+| (1)      | (1)   | (1)    | (1)   | (1)     | (1)           | (1)           |            | (1)    | ○       | ○   |
 
 - (1): `V`に従う
 
