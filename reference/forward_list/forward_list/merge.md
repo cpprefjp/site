@@ -45,7 +45,7 @@ void merge(forward_list&& x, Compare comp); // (4)
 
 ## 備考
 - この操作は安定である。
-- `this->`[`get_allocator()`](get_allocator.md) `!= x.`[`get_allocator()`](get_allocator.md)である場合、未定義動作となる。(C++14)
+- `this->`[`get_allocator()`](get_allocator.md) `!= x.`[`get_allocator()`](get_allocator.md)である場合、未定義動作を引き起こす。(C++14)
 
 
 ## 例

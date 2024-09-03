@@ -24,7 +24,7 @@ void operator*=(const ValOrProxy<T>& xs) const;
 ## 備考
 - 引数の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
-- [`valarray`](../valarray.md) から抽出した要素数と `xs` の要素数が異なる場合、未定義動作となる。
+- [`valarray`](../valarray.md) から抽出した要素数と `xs` の要素数が異なる場合、未定義動作を引き起こす。
 
 
 ## 例

@@ -37,8 +37,8 @@ namespace std {
 `position` が終端まで来た時に、`subs` に `-1` が含まれていない、または、`position` が直前にマッチした文字列の後ろに文字列が残っていない場合、および、接尾辞イテレータがインクリメントされた場合、当該オブジェクトは、シーケンスの終端を示す特別な値となる。  
 この、シーケンスの終端を示す特別な値は、`regex_token_iterator` オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。
 
-シーケンス終端のイテレータに対する [`operator*`](regex_token_iterator/op_deref.md) 演算子適用は未定義動作となる。その他のイテレータに対する [`operator*`](regex_token_iterator/op_deref.md) 演算子適用の結果は `const` [`sub_match`](sub_match.md)`<BidirectionalIterator>&` である。  
-同様に、シーケンス終端のイテレータに対する [`operator->`](regex_token_iterator/op_arrow.md) 演算子適用は未定義動作となる。その他のイテレータに対する [`operator->`](regex_token_iterator/op_arrow.md) 演算子適用の結果は `const` [`sub_match`](sub_match.md)`<BidirectionalIterator>*` である。
+シーケンス終端のイテレータに対する [`operator*`](regex_token_iterator/op_deref.md) 演算子適用は未定義動作を引き起こす。その他のイテレータに対する [`operator*`](regex_token_iterator/op_deref.md) 演算子適用の結果は `const` [`sub_match`](sub_match.md)`<BidirectionalIterator>&` である。  
+同様に、シーケンス終端のイテレータに対する [`operator->`](regex_token_iterator/op_arrow.md) 演算子適用は未定義動作を引き起こす。その他のイテレータに対する [`operator->`](regex_token_iterator/op_arrow.md) 演算子適用の結果は `const` [`sub_match`](sub_match.md)`<BidirectionalIterator>*` である。
 
 
 なお、本サイトの `regex_token_iterator` の各説明（上記も含む）では、規格にならって以下のプライベートなメンバ変数が存在する前提で記載している。

@@ -31,7 +31,7 @@ namespace std::ranges {
 - 初めてメンバ関数[`begin`](filter_view/begin.md.nolink)が呼び出されたときに先頭の要素を決定し、残りはイテレータが進むときに求める。
 - [`begin`](filter_view/begin.md.nolink)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md.nolink)の値はキャッシュされる。
 
-`filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作となる。
+`filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作を引き起こす。
 
 ### Rangeコンセプト
 
