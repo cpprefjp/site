@@ -27,7 +27,7 @@ namespace std::ranges {
 
 CV修飾を含む`D`を引数とする `|` 演算子を含む式の動作は、プログラム定義の`operator|`関数が選択された場合は未定義動作である。
 
-`range_adaptor_closure`を特殊化するプログラムは未定義動作となる。
+`range_adaptor_closure`を特殊化するプログラムは未定義動作を引き起こす。
 
 ## この機能が必要になった背景・経緯
 
