@@ -54,10 +54,10 @@ friend constexpr auto submdspan_mapping(
 - 値`sub_ext` : 式[`submdspan_extents`](../../submdspan_extents.md)`(extents(), slices...)`の結果
 - 型`SubExtents` : `decltype(sub_ext)`
 - 値`sub_strides` : `extents()`の各次元インデクス`k`において、[`map-rank[k]`](../../submdspan_extents.md)が[`dynamic_extent`](/reference/span/dynamic_extent.md)ではない`k`に対し`sub_strides[map-rank[k]]`が下記を満たす、[`array`](/reference/array/array.md)`<SubExtents::index_type,` [`SubExtents::rank()`](../../extents/rank.md)`>`型の配列値
-    - 型`S_k`が[`strided_slice`](../../strided_slice.md)の特殊化かつ`s_k.stride < s_k.extent`の場合、[`stride(k)`](stride.md.nolink) `*` [`de-ice`](../../de-ice.md)`(s_k.stride)`
-    - そうでなければ、[`stride(k)`](stride.md.nolink)
+    - 型`S_k`が[`strided_slice`](../../strided_slice.md)の特殊化かつ`s_k.stride < s_k.extent`の場合、[`stride(k)`](stride.md) `*` [`de-ice`](../../de-ice.md)`(s_k.stride)`
+    - そうでなければ、[`stride(k)`](stride.md)
 - パラメータパック`P` : [`is_same_v`](/reference/type_traits/is_same.md)`<`[`make_index_sequence`](/reference/utility/make_index_sequence.md)`<rank()>,` [`index_sequence`](/reference/utility/index_sequence.md)`<P...>> == true`
-- 値`offset` : `size_t`型の値[`(*this)`](op_call.md.nolink)`(`[`first_`](../../first_.md)`<index_type, P>(slices...)...)`
+- 値`offset` : `size_t`型の値[`(*this)`](op_call.md)`(`[`first_`](../../first_.md)`<index_type, P>(slices...)...)`
 
 説明専用の`submdspan-mapping-impl`関数テンプレートは下記の値を返す。
 

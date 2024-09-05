@@ -71,7 +71,7 @@ constexpr explicit(extents_type::rank() > 0)
     - `other.`[`required_span_size()`](../../layout_stride/mapping/required_span_size.md)を、`index_type`型で表現できること。
 - (7) :
     - `extents_type::`[`rank()`](../../extents/rank.md) `> 1`のとき、`other.stride(1) == other.extents(0)`
-    - `other.`[`required_span_size()`](../../layout_left_padded/mapping/required_span_size.md.nolink)を、`index_type`型で表現できること。
+    - `other.`[`required_span_size()`](../../layout_left_padded/mapping/required_span_size.md)を、`index_type`型で表現できること。
 
 
 ## 効果

@@ -70,11 +70,11 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `extents` | 多次元配列のサイズ`extents_`を取得する | C++26 |
-| [`strides`](mapping/strides.md.nolink) | ストライド幅配列を取得する | C++26 |
-| [`required_span_size`](mapping/required_span_size.md.nolink) | 要素アクセス範囲を取得する | C++26 |
-| [`operator()`](mapping/op_call.md.nolink) | 多次元配列インデクスから要素位置へ変換する | C++26 |
-| [`is_exhaustive`](mapping/is_exhaustive.md.nolink) | [Exhaustive特性](../LayoutMapping.md)を取得する | C++26 |
-| [`stride`](mapping/stride.md.nolink) | 指定次元のストライド幅を取得する | C++26 |
+| [`strides`](mapping/strides.md) | ストライド幅配列を取得する | C++26 |
+| [`required_span_size`](mapping/required_span_size.md) | 要素アクセス範囲を取得する | C++26 |
+| [`operator()`](mapping/op_call.md) | 多次元配列インデクスから要素位置へ変換する | C++26 |
+| [`is_exhaustive`](mapping/is_exhaustive.md) | [Exhaustive特性](../LayoutMapping.md)を取得する | C++26 |
+| [`stride`](mapping/stride.md) | 指定次元のストライド幅を取得する | C++26 |
 
 
 ## 静的メンバ関数
@@ -82,7 +82,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `is_always_unique`  | `true`を返す | C++26 |
-| [`is_always_exhaustive`](mapping/is_always_exhaustive.md.nolink) | 型の[Exhaustive特性](../LayoutMapping.md)を取得する | C++26 |
+| [`is_always_exhaustive`](mapping/is_always_exhaustive.md) | 型の[Exhaustive特性](../LayoutMapping.md)を取得する | C++26 |
 | `is_always_strided` | `true`を返す | C++26 |
 | `is_unique`  | `true`を返す | C++26 |
 | `is_strided` | `true`を返す | C++26 |
@@ -109,8 +109,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`operator==`](mapping/op_equal.md.nolink) | 等値比較 | C++26 |
-| [`operator!=`](mapping/op_equal.md.nolink) | 非等値比較 (`==`により使用可能) | C++26 |
+| [`operator==`](mapping/op_equal.md) | 等値比較 | C++26 |
+| [`operator!=`](mapping/op_equal.md) | 非等値比較 (`==`により使用可能) | C++26 |
 
 
 ## バージョン
