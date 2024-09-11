@@ -85,6 +85,7 @@ namespace std::chrono {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`formatter`](zoned_time/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+| [`enable_nonlocking_formatter_optimization`](zoned_time/enable_nonlocking_formatter_optimization.md) | [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)の効率的な実装を有効にする | C++26 |
 
 
 ## ハッシュサポート

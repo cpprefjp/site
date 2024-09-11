@@ -42,23 +42,49 @@ namespace std {
     * stdout[link /reference/cstdio/stdout.md.nolink]
     * std::forward[link /reference/utility/forward.md]
 
-- (2) : 通常の文字列リテラルがUTF-8エンコーディングされている場合、以下と等価：
-    ```cpp
-    vprint_unicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
-    ```
-    * vprint_unicode[link vprint_unicode.md]
-    * fmt.get()[link /reference/format/format_string/get.md.nolink]
-    * make_format_args[link /reference/format/make_format_args.md]
-    * std::forward[link /reference/utility/forward.md]
+- (2) :
+    - C++23 :
+        - 通常の文字列リテラルがUTF-8エンコーディングされている場合、以下と等価：
+        ```cpp
+        vprint_unicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
+        ```
+        * vprint_unicode[link vprint_unicode.md]
+        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * make_format_args[link /reference/format/make_format_args.md]
+        * std::forward[link /reference/utility/forward.md]
 
-    - そうでなければ、以下と等価：
-    ```cpp
-    vprint_nonunicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
-    ```
-    * vprint_nonunicode[link vprint_nonunicode.md]
-    * fmt.get()[link /reference/format/format_string/get.md.nolink]
-    * make_format_args[link /reference/format/make_format_args.md]
-    * std::forward[link /reference/utility/forward.md]
+        - そうでなければ、以下と等価：
+        ```cpp
+        vprint_nonunicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
+        ```
+        * vprint_nonunicode[link vprint_nonunicode.md]
+        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * make_format_args[link /reference/format/make_format_args.md]
+        * std::forward[link /reference/utility/forward.md]
+
+    - C++26 :
+        - 値として`(`[`enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Args>> && ...)`をもつ変数`locksafe`があるとして、
+        - 通常の文字列リテラルがUTF-8エンコーディングされている場合、以下と等価：
+        ```cpp
+        locksafe
+          ? vprint_unicode(stream, fmt.get(), make_format_args(args...))
+          : vprint_unicode_buffered(stream, fmt.get(), make_format_args(args...));
+        ```
+        * vprint_unicode[link vprint_unicode.md]
+        * vprint_unicode_buffered[link vprint_unicode_buffered.md]
+        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * make_format_args[link /reference/format/make_format_args.md]
+
+        - そうでなければ、以下と等価：
+        ```cpp
+        locksafe
+          ? vprint_nonunicode(stream, fmt.get(), make_format_args(args...))
+          : vprint_nonunicode_buffered(stream, fmt.get(), make_format_args(args...));
+        ```
+        * vprint_nonunicode[link vprint_nonunicode.md]
+        * vprint_nonunicode_buffered[link vprint_nonunicode_buffered.md]
+        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * make_format_args[link /reference/format/make_format_args.md]
 
 
 ## 備考
@@ -164,3 +190,6 @@ Hello
 
 ## 参照
 - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
+- [P3107R5 Permit an efficient implementation of `std::print`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3107r5.html)
+- [P3235R3 `std::print` more types faster with less memory](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3235r3.html)
+    - C++26の上記2つの提案文書では、余分な動的メモリ確保をしないよう仕様が見直された

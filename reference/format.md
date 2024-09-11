@@ -26,6 +26,7 @@
 |----------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------|
 | [`formattable`](format/formattable.md)                               | 文字列フォーマット可能 (concept) | C++23          |
 | [`formatter`](format/formatter.md)                                   | 引数の型に対応する書式文字列の解析、値のフォーマットを担う (class template) | C++20          |
+| [`enable_nonlocking_formatter_optimization`](format/enable_nonlocking_formatter_optimization.md) | [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)の効率的な実装を有効にする | C++26 |
 | [`basic_format_parse_context`](format/basic_format_parse_context.md) | 書式文字列の解析のコンテキスト (class template)                             | C++20          |
 | [`format_parse_context`](format/basic_format_parse_context.md)       | `basic_format_parse_context`のマルチバイト文字列版 (type-alias)             | C++20          |
 | [`wformat_parse_context`](format/basic_format_parse_context.md)      | `basic_format_parse_context`のワイド文字列版 (type-alias)                   | C++20          |

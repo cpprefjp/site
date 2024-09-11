@@ -37,20 +37,30 @@ namespace std {
     ```
     * stdout[link /reference/cstdio/stdout.md.nolink]
 
-- (2) : 以下の方法で自動変数を初期化する：
-    ```cpp
-    string out = vformat(fmt, args);
-    ```
-    * string[link /reference/string/basic_string.md]
-    * vformat[link /reference/format/vformat.md]
+- (2) :
+    - C++23 :
+        - 以下の方法で自動変数を初期化する：
+        ```cpp
+        string out = vformat(fmt, args);
+        ```
+        * string[link /reference/string/basic_string.md]
+        * vformat[link /reference/format/vformat.md]
 
-    - `stream`がUnicodeを表示できる端末を参照している場合、ネイティブのUnicode APIを使用して端末に書き出す
-    - `out`に無効なコードユニットが含まれる場合、その動作は未定義であり，実装者はそれを診断することが推奨される。それ以外の場合は、変更せずにストリームに書き出す。そうでなければ、変更せず`stream`に`out`を書き出す。
-    - ネイティブのUnicode APIを使用する場合、この関数は`out`を書き出す前にフラッシュする
+        - `stream`がUnicodeを表示できる端末を参照している場合、ネイティブのUnicode APIを使用して端末に書き出す
+        - `out`に無効なコードユニットが含まれる場合、その動作は未定義であり，実装者はそれを診断することが推奨される。それ以外の場合は、変更せずにストリームに書き出す。そうでなければ、変更せず`stream`に`out`を書き出す。
+        - ネイティブのUnicode APIを使用する場合、この関数は`out`を書き出す前にフラッシュする
 
+    - C++26 :
+        - `stream`のロックを取得する
+        - `fmt`で書式指定に従って書式化された`args`の文字表現を`out`とする
+        - `stream`がUnicodeを表示できる端末を参照している場合、ネイティブのUnicode APIを使用して端末に書き出す
+        - `out`に無効なコードユニットが含まれる場合、その動作は未定義であり，実装者はそれを診断することが推奨される。それ以外の場合は、変更せずにストリームに書き出す。そうでなければ、変更せず`stream`に`out`を書き出す。
+        - ネイティブのUnicode APIを使用する場合、この関数は`out`を書き出す前にフラッシュする
+        - 関数終了時に、無条件にロックを手放す
 
 ## 例外
-- [`vformat()`](/reference/format/vformat.md)関数がなんらかの例外を送出する可能性がある
+- (2) :
+    - C++23 : [`vformat()`](/reference/format/vformat.md)関数がなんらかの例外を送出する可能性がある
 - 端末かストリームへの書き込みに失敗した場合、[`system_error`](/reference/system_error/system_error.md)を送出する
 - [`bad_alloc`](/reference/new/bad_alloc.md)を送出する可能性がある
 
@@ -81,3 +91,6 @@ namespace std {
 ## 参照
 - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
 - [P2539R4 Should the output of `std::print` to a terminal be synchronized with the underlying stream?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2539r4.html)
+- [P3107R5 Permit an efficient implementation of `std::print`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3107r5.html)
+- [P3235R3 `std::print` more types faster with less memory](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3235r3.html)
+    - C++26の上記2つの提案文書では、余分な動的メモリ確保をしないよう仕様が見直された

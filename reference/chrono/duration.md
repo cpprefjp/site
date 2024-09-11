@@ -156,6 +156,7 @@ namespace chrono {
 | 名前  | 説明               | 対応バージョン |
 |-------|--------------------|----------------|
 | [`formatter`](duration/formatter.md) | 文字列フォーマットの許可。[`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++20 |
+| [`enable_nonlocking_formatter_optimization`](duration/enable_nonlocking_formatter_optimization.md) | [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)の効率的な実装を有効にする | C++26 |
 
 
 ## ハッシュサポート
