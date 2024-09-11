@@ -176,7 +176,6 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - ポインタ出力のサポートを追加
     - 幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
     - コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正
-- 文字列フォーマットをより高速にできる最適化が可能か判定する[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md.nolink)を追加
 - [`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を[`std::basic_string`](/reference/string/basic_string.md)として連結させる`operator+`を追加
 
 
@@ -190,6 +189,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### 入出力
 - [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)に、ロックを取得せず高速に書き出す最適化を許可
 - [`std::println()`](/reference/print/println.md)に、改行のみを出力するオーバーロードを追加
+- [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)をより高速にできる最適化が可能か判定する[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md)を追加
 
 
 ### 並行・並列処理
