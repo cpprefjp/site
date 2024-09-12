@@ -302,7 +302,7 @@
 | P2864R2: [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md.nolink) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 | 14 | 18 | | |
 | P2748R5: [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md.nolink) | 寿命切れの変数によって引き起こされるバグを防止する | 14 | 19 | | |
 | P3106R1: [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 | yes | 17 | | |
-| P0609R3: [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md.nolink) | `auto [a, [[maybe_unused]] b, c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする | 15 | 19 | | |
+| P0609R3: [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md) | `auto [a, b [[maybe_unused]], c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする | 15 | 19 | | |
 | P3034R1: [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md.nolink) | `export module MACRO_NAME;`を禁止 | | | | |
 | P2809R3: [自明な無限ループは未定義動作ではないと規定](/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.md.nolink) | 並行プログラムの進行保証などを考慮して無限ループを未定義動作ではないものとする | 14 | 19 | | |
 | P2795R5: [未初期化変数の読み取りを不正動作 (erroneous behaviour: EB) とする](/lang/cpp26/erroneous_behaviour_for_uninitialized_reads.md.nolink) | 初期化されていない自動変数の読み取りの安全性を規定する | | | | |

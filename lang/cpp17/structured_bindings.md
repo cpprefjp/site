@@ -339,6 +339,7 @@ auto { w, {x, y}, z } = f(); // このような、tuple内にあるpairを同時
 - [C++20 構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.md)
 - [C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする](/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md)
 - [C++20 構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md)
+- [C++26 構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)
 
 
 ## 参照
