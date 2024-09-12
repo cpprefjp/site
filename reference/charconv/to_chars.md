@@ -213,7 +213,7 @@ int main()
     std::cout << "conversion failed." << std::endl;
   }
 
-  //リウヴィル数 
+  //リウヴィル数
   constexpr double l = 0.11000100000000000000000100000000000;
 
   //(3) 精度・フォーマット指定なしの浮動小数点数変換
@@ -299,77 +299,77 @@ int main()
   auto end = std::end(out);
 
   //(1) 10進数文字列へ変換
-  if (auto result = std::to_chars(begin, end, 10)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, 10)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
   //(1) 2進数文字列へ変換
-  if (auto result = std::to_chars(begin, end, 65535, 2)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, 65535, 2)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
   //(1) 36進数文字列へ変換
-  if (auto result = std::to_chars(begin, end, 35, 36)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, 35, 36)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
 
-  //リウヴィル数 
+  //リウヴィル数
   constexpr double l = 0.11000100000000000000000100000000000;
 
   //(3) 精度・フォーマット指定なしの浮動小数点数変換
-  if (auto result = std::to_chars(begin, end, l)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, l)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
 
   //(7) 精度指定なしの浮動小数点数変換、指数表記
-  if (auto result = std::to_chars(begin, end, l, std::chars_format::scientific)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::scientific)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
   //(7) 精度指定なしの浮動小数点数変換、固定小数表記
-  if (auto result = std::to_chars(begin, end, l, std::chars_format::fixed)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
   //(7) 精度指定なしの浮動小数点数変換、16進指数表記
-  if (auto result = std::to_chars(begin, end, l, std::chars_format::hex)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::hex)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
 
   //(11) 精度指定ありの浮動小数点数変換、指数表記
-  if (auto result = std::to_chars(begin, end, l, std::chars_format::scientific, 16)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::scientific, 16)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
   //(11) 精度指定ありの浮動小数点数変換、固定小数表記
-  if (auto result = std::to_chars(begin, end, l, std::chars_format::fixed, 16)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::fixed, 16)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
   }
   //(11) 精度指定ありの浮動小数点数変換、16進指数表記
-  if (auto result = std::to_chars(begin, end, l, std::chars_format::hex, 16)) {
-    std::cout << std::string_view(begin, result.ptr - begin) << std::endl;
+  if (auto [ptr, ec] = std::to_chars(begin, end, l, std::chars_format::hex, 16)) {
+    std::cout << std::string_view(begin, ptr - begin) << std::endl;
   }
   else {
     std::cout << "conversion failed." << std::endl;
@@ -404,6 +404,8 @@ z
 - [`chars_format`](../charconv/chars_format.md)
 - [`to_chars_result`](../charconv/to_chars_result.md)
 - [`from_chars`](../charconv/from_chars.md)
+- [C++26 条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md)
+
 
 ## 参照
 - [P0067R5: Elementary string conversions, revision 5](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html)

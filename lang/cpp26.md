@@ -32,7 +32,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md.nolink) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする |
+| [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする |
 | [自明な無限ループは未定義動作ではないと規定](/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.md.nolink) | 並行プログラムの進行保証などを考慮して無限ループを未定義動作ではないものとする |
 
 

@@ -311,7 +311,7 @@
 | P2747R2: [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md.nolink) | 定数式の文脈での配置`new`を許可 | | | | |
 | P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md.nolink) | 未定義動作となる操作をコンパイルエラーとする | 15 | 19 | | |
 | P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う | | 19 | | |
-| P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md.nolink) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
+| P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
 
 
 各処理系のC++26実装状況ページ：

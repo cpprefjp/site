@@ -214,6 +214,7 @@ if (it != m.end()) { return it->size(); }
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md)
 - [C++23 初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md)
+- [C++26 条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md)
 
 
 ## 参照
