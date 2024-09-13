@@ -124,6 +124,10 @@ int main()
     - 非静的メンバ変数の特殊メンバ関数が削除定義されている場合、その変数をメンバとして持つクラスのその特殊メンバ関数は、暗黙的に削除定義される
 
 
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md)
+
+
 ## 参照
 - [N1582 Compiler Generated Defaults](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1582.pdf)
 - [N1702 explicit class and default definitions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1702.pdf)

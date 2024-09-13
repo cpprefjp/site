@@ -41,7 +41,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md.nolink) | `f() = delete("reason");` |
+| [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md) | `f() = delete("reason");` |
 
 
 ### 属性
