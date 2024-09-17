@@ -231,15 +231,47 @@ int main()
 赤 blue
 ```
 
+
+### 複数のメンバ変数を含むクラスの場合
+```cpp example
+#include <iostream>
+#include <format>
+
+struct Point {
+  float x, y;
+};
+
+template<>
+struct std::formatter<Point> : std::formatter<std::string> {
+  auto format(Point p, std::format_context& ctx) const {
+    return std::formatter<std::string>::format(
+      std::format("[{}, {}]", p.x, p.y),
+      ctx);
+  }
+};
+
+int main()
+{
+  std::cout << std::format("{}", Point{1.2f, 3.4f}) << std::endl;
+}
+```
+* std::format_context[link basic_format_context.md]
+* std::format[link format.md]
+
+#### 出力
+```
+[1.2, 3.4]
+```
+
+
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 17 [mark verified]
 - [GCC](/implementation.md#gcc): 13 [mark verified]
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 2 [mark verified]
 
 ## 関連項目
 - [`vector<bool>`](/reference/vector/vector.md)
