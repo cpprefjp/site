@@ -14,9 +14,9 @@
 
 この変更の対象は、デフォルト初期化されたスカラ型 (`void`以外の組み込み型) 変数の読み取りであり、以下のようなケースである。
 
-```cpp
+```cpp example
 // C++23
-void f(int);
+void f(int) {}
 
 int main() {
   int x; // デフォルト初期化。xは不定値 (indeterminate value) をもつ
@@ -30,9 +30,9 @@ int main() {
 
 C++26では、不定値で初期化されることを明確に指示する`[[indeterminate]]`属性も導入され、以下のような動作となる：
 
-```cpp
+```cpp example
 // C++26
-void f(int);
+void f(int) {}
 
 int main() {
   int x;                   // xは誤り起因動作を引き起こす未初期化値をもつ
@@ -50,7 +50,9 @@ int main() {
     - ただし、`unsigned char`もしくは[`std::byte`](/reference/cstddef/byte.md)型に関しては、未初期化値をもつ変数を同じ型の変数に代入するだけでは誤り起因動作にならず、値の参照や型変換がされることで誤り起因動作を引き起こす
 - 誤り起因動作が引き起こされた結果値は、後続の処理では誤り起因動作を引き起こす値とはみなされない
 
-```cpp
+```cpp example
+#include <cassert>
+
 int g(bool b) {
   unsigned char c;
   unsigned char d = c; // 誤り起因動作ではない。dは誤り起因動作を引き起こす未初期化値をもつ
@@ -61,7 +63,7 @@ int g(bool b) {
   return b ? d : 0;    // bがtrueの場合に誤り起因動作
 }
 
-void h() {
+int main() {
   int d1, d2;
 
   int e1 = d1;      // 誤り起因動作
@@ -89,7 +91,7 @@ void h() {
 
 `[[indeterminate]]`がつけられた変数から読み取りをした場合、未定義動作を引き起こす可能性がある。
 
-```cpp
+```cpp example
 struct T {
   T() {}
   int x;
@@ -99,7 +101,10 @@ int h(T t [[indeterminate]]) {
   f(t.x);   // この関数呼び出しは未定義動作を引き起こす
   return 0;
 }
-int _ = h(T());
+
+int main() {
+  int _ = h(T());
+}
 ```
 
 ### 今後、誤り起因動作に分類される可能性のある操作
