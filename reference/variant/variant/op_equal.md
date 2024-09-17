@@ -59,3 +59,5 @@ int main()
 
 ## 参照
 - [P0393R3 Making Variant Greater Equal](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0393r3.html)
+- [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
+    - C++26でテンプレートパラメータ制約が整理された

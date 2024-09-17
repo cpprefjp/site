@@ -26,6 +26,10 @@ namespace std {
 2つの`pair`の等値比較を行う
 
 
+## テンプレートパラメータ制約
+- 式`x.first == y.first`と`x.second == y.second`が妥当であり、型`decltype(x.first == y.first)`と`decltype(x.second == y.second)`が[boolean-testable](/reference/concepts/boolean-testable.md)のモデルであること
+
+
 ## 戻り値
 ```cpp
 return x.first == y.first && x.second == y.second;
@@ -65,3 +69,5 @@ false
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
+    - C++26でテンプレートパラメータ制約が整理された

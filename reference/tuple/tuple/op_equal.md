@@ -26,7 +26,7 @@ namespace std {
 2つの[`tuple`](../tuple.md)オブジェクトの等値比較を行う。また、[`tuple-like`](../tuple-like.md)なオブジェクトとの等値比較を行う。（C++23以降）
 
 
-## 要件
+## テンプレートパラメータ制約
 - (1) : 
     - 2つの[`tuple`](../tuple.md)オブジェクトの要素数が同じであること。（具体的には`sizeof...(TTypes) == sizeof...(UTypes)`であること。）
     - [`tuple`](../tuple.md)の要素`std::`[`get`](get.md)`<i>(t)`と`std::`[`get`](get.md)`<i>(u)`において、すべての要素の比較 `std::`[`get`](get.md)`<i>(t) == std::`[`get`](get.md)`<i>(u)` の比較結果が`bool`に変換可能な型（C++23 以降は[`boolean-testable`](/reference/concepts/boolean-testable.md)を満たせばよい）であること。
@@ -94,3 +94,5 @@ false
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
 - [P2165R4 Compatibility between `tuple`, `pair` and *tuple-like* objects](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf)
+- [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
+    - C++26でテンプレートパラメータ制約が整理された

@@ -29,8 +29,8 @@ namespace std {
 `optional`オブジェクトの等値比較を行う。
 
 
-## 要件
-- (1), (3), (4) : 型`T`が`==`で比較可能であること
+## テンプレートパラメータ制約
+- (1), (3), (4) : 型`T`が`==`で比較可能であり、その戻り値型が`bool`に変換可能であること
 
 
 ## 戻り値
@@ -114,3 +114,5 @@ int main()
 - [LWG Issue 2934. `optional<const T>` doesn't compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
+    - C++26でテンプレートパラメータ制約が整理された
