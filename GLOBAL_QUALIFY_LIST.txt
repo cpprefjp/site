@@ -97,6 +97,7 @@
 * <cstdio>[link /reference/cstdio.md]
 * <cstdlib>[link /reference/cstdlib.md]
 * <ctime>[link /reference/ctime.md]
+* <debugging>[link /reference/debugging.md]
 * <deque>[link /reference/deque/deque.md]
     * std::deque[link /reference/deque/deque.md]
 * <exception>[link /reference/exception.md]
