@@ -85,7 +85,7 @@ int main() {
 ### 処理系
 - [Clang](/implementation.md#clang): 19 [mark noimpl]
 - [GCC](/implementation.md#gcc): 14 [mark noimpl]
-- [Visual C++](/implementation.md#visual_cpp): 2022 Update 10
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 10 [mark noimpl]
 
 
 ## 参照
