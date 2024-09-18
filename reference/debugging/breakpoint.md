@@ -47,11 +47,12 @@ double g(double a, double b) {
 
 double f(double a, double b) {
   double ret = g(a, b);
-  if (std::isnan(ret)) {
-    // 演算結果でNaNが発生したらブレークし、
+  if (std::isnan(ret) || std::isinf(ret)) {
+    // 演算結果でNaNかinfが発生したらブレークし、
     // デバッガでパラメータ (ローカル変数) などを確認する
     std::breakpoint();
   }
+  return ret;
 }
 
 int main() {
@@ -61,9 +62,11 @@ int main() {
 ```
 * std::breakpoint[color ff0000]
 * std::isnan[link /reference/cmath/isnan.md]
+* std::isinf[link /reference/cmath/isinf.md]
 
-### 出力
+### 出力例
 ```
+inf
 ```
 
 
