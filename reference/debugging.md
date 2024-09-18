@@ -7,7 +7,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`breakpoint`](debugging/breakpoint.md) | ブレークポイントを設置する (functional) | C++26 |
-| [`breakpoint_if_debugging`](debugging/breakpoint_if_debugging.md) | デバッガ実行のみブレークポイントを設置する (functional) | C++26 |
+| [`breakpoint_if_debugging`](debugging/breakpoint_if_debugging.md) | デバッガ実行時のみブレークポイントを設置する (functional) | C++26 |
 | [`is_debugger_present`](debugging/is_debugger_present.md) | デバッガ実行中か判定する (functional) | C++26 |
 
 
