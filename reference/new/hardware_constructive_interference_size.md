@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
 #include <iostream>
 #include <new>
 
@@ -55,9 +55,9 @@ hardware_constructive_interference_size : 64
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang):
+- [Clang](/implementation.md#clang): 19 [mark verified]
 - [GCC](/implementation.md#gcc): 12.1 [mark verified]
-- [Visual C++](/implementation.md#visual_cpp):
+- [Visual C++](/implementation.md#visual_cpp): 2019 [mark verified]
 
 
 ## 参照
