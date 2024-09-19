@@ -24,7 +24,7 @@
 | arm Keil, ARM Compiler      | `__breakpoint()`関数 (無条件ブレークポイント) |
 | Portable Snippetsライブラリ | `psnip_trap()`関数 (無条件ブレークポイント) |
 | Debug Breakライブラリ       | `debug_break()`関数 (無条件ブレークポイント) |
-| Boost.Testライブラリ        | `debugger_break()`関数 (無条件ブレークポイント)<br/> `under_debugger()`関数 (出張っg実行中か判定) |
+| Boost.Testライブラリ        | `debugger_break()`関数 (無条件ブレークポイント)<br/> `under_debugger()`関数 (デバッガ実行中か判定) |
 | EASTLライブラリ             | `EASTL_DEBUG_BREAK()`マクロ (無条件ブレークポイント) |
 | Catch2ライブラリ            | `CATCH_TRAP`マクロ (無条件ブレークポイント)<br/> `CATCH_BREAK_INTO_DEBUGGER`マクロ (条件付きブレークポイント)<br/> `isDebuggerActive()`関数 (デバッガ実行中か判定) |
 | JUCEライブラリ              | `JUCE_BREAK_IN_DEBUGGER`マクロ (無条件ブレークポイント)<br/> `juce_isRunningUnderDebugger()`関数、`Process::isRunningUnderDebugger()`関数 (デバッガ実行中か判定) |
