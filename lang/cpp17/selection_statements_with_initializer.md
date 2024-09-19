@@ -32,7 +32,7 @@ if (status_code c = bar(); c != SUCCESS) {
   …
   return c;
 } else {
-  //ステータスコード C が成功だったら、何かして、処理を続行する
+  //ステータスコード c が成功だったら、何かして、処理を続行する
   …
 }
 //この時点で c は無効
@@ -160,7 +160,7 @@ status_code foo() {
   int n = get_value();
 
   {
-    status_code C = bar(n);
+    status_code c = bar(n);
     if (c != status_code::SUCCESS) { return c; }
   }
   {
