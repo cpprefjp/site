@@ -93,7 +93,7 @@ iterator           insert(const_iterator hint, node_type&& nh); // (10) C++17
     - 挿入された場合には、新しく挿入された要素を指すイテレータを返す。
     - 挿入されなかった場合には、`x`のキーと等価のキーを持つ要素へのイテレータを返す。
 - (7), (8) : なし
-- (9) : 戻り値としては、[`insert_return_type`](map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
+- (9) : 戻り値としては、[`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
     - 挿入された場合には、空の[ノードハンドル](/reference/node_handle/node_handle.md)。
     - 挿入されなかった場合には、`nh`の値である。 
 - (10) : `nh`が空の場合、`(*this).end()`を返す。そうではない場合、`nh`と等価のキーの要素を指すイテレータを常に返す。
