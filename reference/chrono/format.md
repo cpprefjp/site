@@ -44,8 +44,8 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 | `%A` | ロケール依存の曜日の完全名。<br/> 値に有効な曜日が含まれていない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"Friday"`, `"金曜日"` |
 | `%b` | ロケール依存の月の略称。<br/> 値に有効な月が含まれていない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"Apr"`, `"4月"` |
 | `%B` | ロケール依存の月の完全名。<br/> 値に有効な月が含まれていない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"April"`, `"4月"` |
-| `%c` | ロケール依存の日付・時間の表現。改良コマンド`%Ec`を指定すると、異なる表現を出力する | `"Fri Apr 24 17:14:44 2020"`<br/> `"2020年04月24日 17時14分44秒"`<br/> `%Ec`では`"令和02年04月24日 17時14分44秒"` |
-| `%C` | 100で切り下げ除算した年 (世紀)。結果が10進数で1桁の場合、先頭に`0`がつく。改良コマンド`%EC`を指定すると、ロケール依存の世紀の異なる表現を出力する | `"21"`<br/> `%EC`では`"令和"` (元号) |
+| `%c` | ロケール依存の日付・時間の表現。改良コマンド`%Ec`を指定すると、異なる表現を出力する | `"Fri Apr 24 17:14:44 2020"`<br/> `"2020年04月24日 17時14分44秒"` |
+| `%C` | 100で切り下げ除算した年 (世紀)。結果が10進数で1桁の場合、先頭に`0`がつく。改良コマンド`%EC`を指定すると、ロケール依存の世紀の異なる表現を出力する | 2020年では`"20"`) |
 | `%d` | 10進数での月の日。結果が10進数で1桁の場合、先頭に`0`がつく。改良コマンド`%Od`を指定すると、ロケール依存の異なる表現を出力する | `"24"` |
 | `%D` | `%m/%d/%y`と等価 | `"04/24/20"` |
 | `%e` | 10進数での月の日。結果が10進数で1桁の場合、先頭にスペースがつく。改良コマンド`%Oe`を指定すると、ロケール依存の異なる表現を出力する | `" 1"` |
@@ -72,10 +72,10 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 | `%V` | 10進数でのISO週ベースの週番号。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%OV`を指定すると、ロケール依存の異なる表現を出力する | `"17"` |
 | `%w` | 10進数での日曜を0とする曜日番号 (0-6)。改良コマンド`%Ow`を指定すると、ロケール依存の異なる表現を出力する | `"5"` |
 | `%W` | 10進数での年の週番号。年の最初の月曜日が最初の曜日であるとして`01`、同年のそれより前の日は`00`となる。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%OW`を指定すると、ロケール依存の異なる表現を出力する | `"16"` |
-| `%x` | ロケール依存の日付表現。改良コマンド`%Ex`を指定すると、ロケール依存の異なる表現が出力される | `"04/24/20"`<br/> `"2020年04月24日"`<br/> `%Ex`では`"令和02年04月24日"` |
+| `%x` | ロケール依存の日付表現。改良コマンド`%Ex`を指定すると、ロケール依存の異なる表現が出力される | `"04/24/20"` |
 | `%X` | ロケール依存の時間表現。改良コマンド`%EX`を指定すると、ロケール依存の異なる表現が出力される | `"17:14:44"`<br/> `"17時14分44秒"` |
 | `%y` | 10進数での年のうしろ2桁。結果が1桁の場合、先頭に`0`がつく。改良コマンド`%Oy`を指定すると、ロケール依存の異なる表現を出力する。改良コマンド`%Ey`を指定すると、`%EC`からのオフセットとしてロケール依存の異なる表現を出力する。 | `"20"`<br/> `%Ey`では`"02"` |
-| `%Y` | 10進数での年。結果が4桁未満の場合、4桁になるよう左が`0`で埋められる。改良コマンド`%EY`を指定すると、ロケール依存の異なる表現の完全な年を出力する | `"2020"`<br/> `%EY`では`"令和02年"` |
+| `%Y` | 10進数での年。結果が4桁未満の場合、4桁になるよう左が`0`で埋められる。改良コマンド`%EY`を指定すると、ロケール依存の異なる表現の完全な年を出力する | `"2020"` |
 | `%z` | ISO 8601フォーマットでのUTCからのオフセット。例として`-0430`はUTCから4時間30分遅れていることを表す。オフセットがゼロの場合は`+0000`が使用される。改良コマンド`%Ez`と`%Oz`を指定すると、時と分の間にコロン (`:`) が挿入される。オフセット情報が利用可能でない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"+0900"`<br/>`%Ez`では`"+09:00"` |
 | `%Z` | タイムゾーンの略称。タイムゾーンの略称が利用可能でない場合、[`std::format_error`](/reference/format/format_error.md)例外を送出する | `"JST"` |
 | `%%` | 文字`%` | `"%"` |
@@ -83,30 +83,58 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - 便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 - [`hh_mm_ss`](hh_mm_ss.md)オブジェクトの[`is_negative()`](hh_mm_ss/is_negative.md)が`true`である場合、出力される文字列の先頭に`STATICALLY-WIDEN<charT>("-")`が挿入される
 
-```cpp example
-#include <iostream>
-#include <format>
-#include <chrono>
-int main()
-{
-  const auto now = std::chrono::system_clock::now();
-  std::cout << std::format("{:%Y}", now); // => 2021
-}
-```
-
 ## 例外
 - 指定されたフォーマットフラグに必要な情報が含まれていない場合、[`format_error`](/reference/format/format_error.md)例外が送出される (例として、[`duration`](duration.md)には曜日をフォーマットするために必要な情報が含まれていない)
     - ただし、フラグが時刻に関するもの (`%H`, `%I`, `%p`など) である場合、`duration`の特殊化は深夜0時からの経過した時刻として解釈する
 
+
+## 例
+```cpp example
+#include <iostream>
+#include <format>
+#include <chrono>
+
+int main()
+{
+  auto now = std::chrono::system_clock::now(); // UTC時間の現在日時
+
+  // 日付を出力
+  std::cout << std::format("1. {:%Y年%m月%d日}", now) << std::endl;
+
+  // 時間を出力。
+  // 秒単位のtime_pointに変換しないと、小数点以下の秒も出力される
+  auto now_sec = std::chrono::time_point_cast<std::chrono::seconds>(now);
+  std::cout << std::format("2. {:%H時%M分%S秒}", now) << std::endl;
+  std::cout << std::format("3. {:%H時%M分%S秒}", now_sec) << std::endl;
+  std::cout << std::format("4. {:%p %I時%M分%S秒}", now_sec) << std::endl;
+  std::cout << std::format("4. {:%p %I時%M分%S秒}", now_sec) << std::endl;
+
+  // その他要素
+  std::cout << std::format("6. {:%C}", now) << std::endl; // 世紀 (100で割って切り下げた値)
+  std::cout << std::format("7. {:%a}", now) << std::endl; // 曜日の略称
+  std::cout << std::format("8. {:%A}", now) << std::endl; // 曜日の完全名
+}
+```
+
+### 出力例
+```
+1. 2024年09月24日
+2. 08時27分28.1822610秒
+3. 08時27分28秒
+4. AM 08時27分28秒
+6. 20
+7. Tue
+8. Tuesday
+```
 
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
-- [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
+- [Clang](/implementation.md#clang): 17 [mark mark verified]
+- [GCC](/implementation.md#gcc): 13 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
 
 ## 参照
