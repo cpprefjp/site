@@ -115,6 +115,9 @@ int main()
   std::cout << std::format("8. {:%A}", now) << std::endl; // 曜日の完全名
 }
 ```
+* std::chrono::system_clock[link /reference/chrono/system_clock.md]
+* now()[link /reference/chrono/system_clock/now.md]
+* std::chrono::time_point_cast[link /reference/chrono/time_point_cast.md]
 
 ### 出力例
 ```
