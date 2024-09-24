@@ -79,7 +79,7 @@ map(from_range_t, R&& rg,
 - (4)、(5) `N =` [`distance`](../../iterator/distance.md)`(first, last)` とすると、範囲 `[first, last)` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
 - (6)、(7) `x.`[`size`](size.md)`()`  に対して線形時間
 - (8) 定数時間
-- (9) 定数時間。但し、`alloc == y.`[`get_allocator`](/reference/map/map/get_allocator.md)`()` でなければ `y.`[`size`](size.md)`()` に対して線形時間
+- (9) 定数時間。但し、`alloc == y.`[`get_allocator`](get_allocator.md)`()` でなければ `y.`[`size`](size.md)`()` に対して線形時間
 - (10)、(11) `N = init.`[`size`](../../initializer_list/initializer_list/size.md)`()` とすると、範囲 `[init.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), init.`[`end`](../../initializer_list/initializer_list/end.md)`())` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
 - (12)、(13) `N =` [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)` とすると、`rg` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
 
@@ -156,8 +156,8 @@ Size of c2: 2
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------|-----------------------|
-| [`operator=`](/reference/map/map/op_assign.md) | 代入演算子 |
-| [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
+| [`operator=`](op_assign.md) | 代入演算子 |
+| [`insert`](insert.md) | 要素を挿入する |
 
 
 ## 参照

@@ -125,8 +125,8 @@ int main ()
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------|--------------------------------------|
-| [`multimap::erase`](/reference/map/multimap/erase.md) | 要素を削除する |
-| [`multimap::find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
+| [`multimap::erase`](erase.md) | 要素を削除する |
+| [`multimap::find`](find.md) | 指定したキーで要素を探す |
 
 
 ## 参照

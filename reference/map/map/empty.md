@@ -12,9 +12,9 @@ bool empty() const noexcept;               // C++11
 
 ## 概要
 コンテナが空かどうかをテストする。 
-`map` コンテナが空（[`size()`](/reference/map/map/size.md) が 0）の場合に `true` を返す。 
+`map` コンテナが空（[`size()`](size.md) が 0）の場合に `true` を返す。 
 
-この関数はコンテナ内のコンテンツを変化させない。コンテンツをクリアするには [`clear()`](/reference/map/map/clear.md) メンバを使う。
+この関数はコンテナ内のコンテンツを変化させない。コンテンツをクリアするには [`clear()`](clear.md) メンバを使う。
 
 
 ## 戻り値
@@ -56,8 +56,8 @@ int main ()
 
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|-----------------------|
-| [`map::insert`](/reference/map/map/insert.md) | 要素を挿入する |
-| [`map::(constructor)`](/reference/map/map/op_constructor.md) | コンストラクタ |
+| [`map::insert`](insert.md) | 要素を挿入する |
+| [`map::(constructor)`](op_constructor.md) | コンストラクタ |
 
 
 ## 参照

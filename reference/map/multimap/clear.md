@@ -10,7 +10,7 @@ void clear() noexcept;  // C++11
 ```
 
 ## 概要
-`multimap` コンテナ内の全ての要素を削除する。それぞれのデストラクタが呼ばれ、コンテナから削除される。[`size()`](/reference/map/multimap/size.md) は 0 になる。
+`multimap` コンテナ内の全ての要素を削除する。それぞれのデストラクタが呼ばれ、コンテナから削除される。[`size()`](size.md) は 0 になる。
 
 
 ## 計算量
@@ -66,9 +66,9 @@ int main()
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------|-----------------------------------------------------|
-| [`multimap::erase`](/reference/map/multimap/erase.md) | 要素を削除する |
-| [`multimap::size`](/reference/map/multimap/size.md) | 要素数を取得する |
-| [`multimap::empty`](/reference/map/multimap/empty.md) | コンテナが空であるかどうかを調べる |
+| [`multimap::erase`](erase.md) | 要素を削除する |
+| [`multimap::size`](size.md) | 要素数を取得する |
+| [`multimap::empty`](empty.md) | コンテナが空であるかどうかを調べる |
 
 
 

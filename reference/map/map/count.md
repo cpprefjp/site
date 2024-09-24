@@ -88,10 +88,10 @@ found
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`map::find`](/reference/map/map/find.md) | 指定したキーで要素を探す |
-| [`map::size`](/reference/map/map/size.md) | 要素数を取得する |
-| [`map::lower_bound`](/reference/map/map/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
-| [`map::upper_bound`](/reference/map/map/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
+| [`map::find`](find.md) | 指定したキーで要素を探す |
+| [`map::size`](size.md) | 要素数を取得する |
+| [`map::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+| [`map::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
 
 ## 参照
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)

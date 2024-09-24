@@ -12,9 +12,9 @@ bool empty() const noexcept;               // C++11
 
 ## 概要
 コンテナが空かどうかをテストする。 
-`multimap` コンテナが空（[`size()`](/reference/map/multimap/size.md) が 0）の場合に `true` を返す。 
+`multimap` コンテナが空（[`size()`](size.md) が 0）の場合に `true` を返す。 
 
-この関数はコンテナ内のコンテンツを変化させない。コンテンツをクリアするには [`clear()`](/reference/map/multimap/clear.md) メンバを使う。
+この関数はコンテナ内のコンテンツを変化させない。コンテンツをクリアするには [`clear()`](clear.md) メンバを使う。
 
 
 ## 戻り値
@@ -56,8 +56,8 @@ int main ()
 
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|-----------------------|
-| [`multimap::insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
-| [`multimap::(constructor)`](/reference/map/multimap/op_constructor.md) | コンストラクタ |
+| [`multimap::insert`](insert.md) | 要素を挿入する |
+| [`multimap::(constructor)`](op_constructor.md) | コンストラクタ |
 
 
 ## 参照

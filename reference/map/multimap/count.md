@@ -81,10 +81,10 @@ int main()
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`multimap::find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
-| [`multimap::size`](/reference/map/multimap/size.md) | 要素数を取得する |
-| [`multimap::lower_bound`](/reference/map/multimap/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
-| [`multimap::upper_bound`](/reference/map/multimap/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
+| [`multimap::find`](find.md) | 指定したキーで要素を探す |
+| [`multimap::size`](size.md) | 要素数を取得する |
+| [`multimap::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+| [`multimap::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
 
 
 ## 参照

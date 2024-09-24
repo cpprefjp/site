@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 計算量
-[`size()`](/reference/map/map/size.md) に対して線形時間。ただし、`x`と`y`のサイズが異なる場合は定数時間。
+[`size()`](size.md) に対して線形時間。ただし、`x`と`y`のサイズが異なる場合は定数時間。
 
 
 ## 例

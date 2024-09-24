@@ -175,9 +175,9 @@ int main()
 
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|--------------------------------------|
-| [`map::clear`](/reference/map/map/clear.md) | 全ての要素を削除する |
-| [`map::insert`](/reference/map/map/insert.md) | 要素を挿入する |
-| [`map::find`](/reference/map/map/find.md) | 指定したキーで要素を探す |
+| [`map::clear`](clear.md) | 全ての要素を削除する |
+| [`map::insert`](insert.md) | 要素を挿入する |
+| [`map::find`](find.md) | 指定したキーで要素を探す |
 
 
 ## 参照

@@ -13,6 +13,6 @@
 
 
 ## 計算量
-[`size()`](/reference/map/multimap/size.md) に対して線形時間（デストラクタ呼び出し）
+[`size()`](size.md) に対して線形時間（デストラクタ呼び出し）
 
 

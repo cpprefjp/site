@@ -81,8 +81,8 @@ int main()
 
 | 名前 | 説明 |
 |-----------------------------------------------------------------------------------------|-----------------------------|
-| [`multimap::emplace`](/reference/map/multimap/emplace.md) | 要素を直接構築する |
-| [`multimap::insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
+| [`multimap::emplace`](emplace.md) | 要素を直接構築する |
+| [`multimap::insert`](insert.md) | 要素を挿入する |
 
 
 ## 参照

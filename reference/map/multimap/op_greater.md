@@ -27,7 +27,7 @@ namespace std {
 
 
 ## 計算量
-[`size`](/reference/map/multimap/size.md) に対して線形時間。
+[`size`](size.md) に対して線形時間。
 
 
 ## 例

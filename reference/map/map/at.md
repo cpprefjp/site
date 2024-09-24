@@ -72,8 +72,8 @@ exception std::out_of_range
 
 | 名前 | 説明 |
 |------------------------------------------------|-----------------------|
-| [`operator=`](/reference/map/map/op_assign.md) | 代入演算子 |
-| [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
+| [`operator=`](op_assign.md) | 代入演算子 |
+| [`insert`](insert.md) | 要素を挿入する |
 
 
 ## 参照

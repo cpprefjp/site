@@ -164,9 +164,9 @@ int main()
 
 | 名前 | 説明|
 |---------------------------------------------------------------------------------------|--------------------------------------|
-| [`multimap::clear`](/reference/map/multimap/clear.md) | 全ての要素を削除する |
-| [`multimap::insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
-| [`multimap::find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
+| [`multimap::clear`](clear.md) | 全ての要素を削除する |
+| [`multimap::insert`](insert.md) | 要素を挿入する |
+| [`multimap::find`](find.md) | 指定したキーで要素を探す |
 
 
 ## 参照

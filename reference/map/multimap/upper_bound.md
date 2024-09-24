@@ -19,7 +19,7 @@ const_iterator upper_bound(const K& x) const;        // (4) C++14
 ## 概要
 `x` より大きいキーを持つコンテナ内の最初の要素を指すイテレータを返す（コンテナの比較オブジェクトを使う）。
 
-[`lower_bound()`](/reference/map/multimap/lower_bound.md) と異なり、このメンバ関数は `x` と等しいときは要素へのイテレータを返さず、それは大きい場合にのみ要素へのイテレータを返す。
+[`lower_bound()`](lower_bound.md) と異なり、このメンバ関数は `x` と等しいときは要素へのイテレータを返さず、それは大きい場合にのみ要素へのイテレータを返す。
 
 内部的に、`multimap` コンテナ内の全ての要素は常に比較オブジェクトで定義された基準に従って並ぶため、この関数が返す値に続く全ての要素は `x` より大きいことに注意。
 
@@ -33,7 +33,7 @@ const_iterator upper_bound(const K& x) const;        // (4) C++14
 
 
 ## 計算量
-[`size()`](/reference/map/multimap/size.md) について対数時間。
+[`size()`](size.md) について対数時間。
 
 
 ## 備考
@@ -113,10 +113,10 @@ D,5
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| [`lower_bound`](/reference/map/multimap/lower_bound.md) | 与えられた値よりも小さくない最初の要素へのイテレータを返す |
-| [`equal_range`](/reference/map/multimap/equal_range.md) | 指定したキーにマッチする要素範囲を返す |
-| [`find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
-| [`count`](/reference/map/multimap/count.md) | 指定したキーにマッチする要素の数を返す |
+| [`lower_bound`](lower_bound.md) | 与えられた値よりも小さくない最初の要素へのイテレータを返す |
+| [`equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す |
+| [`find`](find.md) | 指定したキーで要素を探す |
+| [`count`](count.md) | 指定したキーにマッチする要素の数を返す |
 
 
 ## 参照

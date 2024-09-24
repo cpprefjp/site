@@ -87,8 +87,8 @@ Size of m2: 5
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------|-----------------------|
-| [`insert`](/reference/map/map/insert.md) | 要素を挿入する |
-| [`map`](/reference/map/map/op_constructor.md) | コンストラクタ |
+| [`insert`](insert.md) | 要素を挿入する |
+| [`map::(constructor)`](op_constructor.md) | コンストラクタ |
 
 
 ## 参照

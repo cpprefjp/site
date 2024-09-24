@@ -115,8 +115,8 @@ CCC : (1, 2)
 
 | 名前 | 説明 |
 |---------------------------------------------------------------------------------------------------|----------------------------------------------|
-| [`multimap::emplace_hint`](/reference/map/multimap/emplace_hint.md) | ヒントを使って要素を直接構築する |
-| [`multimap::insert`](/reference/map/multimap/insert.md) | 要素を挿入する |
+| [`multimap::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
+| [`multimap::insert`](insert.md) | 要素を挿入する |
 
 
 ## 参照

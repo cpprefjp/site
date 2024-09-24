@@ -61,10 +61,10 @@ int main()
 
 | 名前 | 説明|
 |-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [`key_comp`](/reference/map/multimap/key_comp.md) | キーを比較した結果を返す |
-| [`find`](/reference/map/multimap/find.md) | 指定したキーで要素を探す |
-| [`count`](/reference/map/multimap/count.md) | 指定したキーにマッチする要素の数を返す |
-| [`lower_bound`](/reference/map/multimap/lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
-| [`upper_bound`](/reference/map/multimap/upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
+| [`key_comp`](key_comp.md) | キーを比較した結果を返す |
+| [`find`](find.md) | 指定したキーで要素を探す |
+| [`count`](count.md) | 指定したキーにマッチする要素の数を返す |
+| [`lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+| [`upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
 
 
