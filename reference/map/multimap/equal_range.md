@@ -58,6 +58,10 @@ int main()
 
   using iterator = decltype(m)::iterator;
   std::pair<iterator, iterator> ret = m.equal_range("B");
+  if (ret.first == m.end()) {
+    std::cout << "not found" << std::endl;
+    return 1;
+  }
 
   for (iterator it = ret.first; it != ret.second; ++it) {
     std::cout << it->first << "," << it->second << std::endl;
