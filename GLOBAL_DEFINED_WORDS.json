@@ -25,7 +25,7 @@
   "未規定": { "redirect": "未規定の動作", "yomi": "みきてい" },
   "誤り起因動作": {
     "yomi": "あやまりきいんどうさ",
-    "desc": "誤った操作に対する結果が明確に定義された動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある"
+    "desc": "未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある"
   },
   "処理系定義の動作": {
     "link": "/implementation-compliance.md#dfn-implementation-defined-behavior",
