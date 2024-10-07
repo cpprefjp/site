@@ -38,7 +38,7 @@ int main()
     std::cout << x << std::endl;
   }
 
-  // C++20 : OK
+  // C++20 : NG
   // C++23 : OK
   if (using T = int; T x = f()) {
     std::cout << x << std::endl;
