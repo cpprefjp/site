@@ -17,7 +17,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md.nolink) | 未定義動作となる操作をコンパイルエラーとする |
 | [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md.nolink) | 寿命切れの変数によって引き起こされるバグを防止する |
 | [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 |
-| [未初期化変数の読み取りを誤り起因動作とする](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md) | 初期化されていない自動変数の読み取りの安全性を規定する |
+| [未初期化変数の読み取りを「erroneous behavior」とする](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md) | 初期化されていない自動変数の読み取りの安全性を規定する |
 
 
 ### 文字列
