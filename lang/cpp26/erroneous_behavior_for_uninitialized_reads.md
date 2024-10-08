@@ -36,7 +36,7 @@ int main() {
   int x;                   // xは「erroneous value」をもつ
   int y [[indeterminate]]; // 意図して不定値に初期化されることを指示
 
-  f(x); // erroneous behavior (未初期化値の読み取り)
+  f(x); // 「erroneous behavior」 (「erroneous value」の読み取り)
   f(y); // 未定義動作 (不定値の読み取り)
 }
 ```
