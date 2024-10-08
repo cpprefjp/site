@@ -100,7 +100,7 @@ struct T {
 };
 
 int h(T t [[indeterminate]]) {
-  f(t.x);   // この関数呼び出しは未定義動作を引き起こす
+  f(t.x);   // 後述の関数呼び出しはここで未定義動作を引き起こす
   return 0;
 }
 
