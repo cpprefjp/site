@@ -81,8 +81,8 @@ int main() {
   // d2は「erroneous value」をもつ
   std::memcpy(&d2, &d1, sizeof(int));
 
-  assert(e1 == d2); // 「erroneous behavior」
-  assert(e2 == d2); // 「erroneous behavior」
+  assert(e1 == d2); // 常に真、「erroneous behavior」
+  assert(e2 == d2); // 常に真、「erroneous behavior」
 }
 ```
 
