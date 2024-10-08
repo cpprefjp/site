@@ -43,13 +43,13 @@ int main() {
 
 
 ## 仕様
-- 式が評価された結果として不定値が生成された場合、未定義動作を引き起こす
-- 式が評価された結果として未初期化値が生成された場合、「erroneous behavior」を引き起こす
-    - 未初期価値が生成されることで「erroneous behavior」を引き起こす対象は以下：
-        - 自動記憶域期間をもつオブジェクトのうち、`void`以外のスカラ型
-            - 注意 : 動的記憶域期間をもつオブジェクトは対象外
-        - ただし、`unsigned char`もしくは[`std::byte`](/reference/cstddef/byte.md)型に関しては、未初期化値をもつ変数を同じ型の変数に代入するだけでは「erroneous behavior」にならず、値の参照や型変換がされることで「erroneous behavior」を引き起こす
-- 「erroneous behavior」が引き起こされた結果値は、後続の処理では「erroneous value」とはみなされない
+- 自動記憶域期間をもつオブジェクトの記憶域は確保時点で「erroneous value」をもつとされ、処理系がプログラムの状態に依存せず決定する何らかの値で埋められる
+  - 動的記憶域期間であれば不定値、静的・スレッド記憶域期間であればゼロで埋められる。C++23までは自動記憶域期間も不定値で埋められていた
+- 初期化されなかったスカラ型オブジェクトなど、値表現（パディングは含まない）内のいずれかのビットに「erroneous value」をもつオブジェクトは「erroneous value」をもつとされる
+- 式が評価された結果として「erroneous value」が生成された場合、「erroneous behavior」を引き起こす
+  - ただし、`unsigned char`（およびunsignedとなる場合は`char`）もしくは[`std::byte`](/reference/cstddef/byte.md)型の「erroneous value」がこれらの型のオブジェクトの初期化・代入に使用される場合や値が破棄される場合は「erroneous behavior」にならない
+  - これらのルールは、式が評価された結果として不定値が生成された場合に未定義の動作を引き起こすとする従来のルールと同様である
+- 「erroneous behavior」を引き起こしたうえで生成された値は、後続の処理では「erroneous value」とはみなされない
 
 ```cpp example
 #include <cassert>
