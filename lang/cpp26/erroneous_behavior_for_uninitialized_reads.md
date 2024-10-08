@@ -128,11 +128,13 @@ int main() {
 - 以下のようなケースでは、erroneous behaviorではなく未定義動作を引き起こす可能性がある：
     ```cpp
     T* p;    // 未初期化のポインタ。erroneous value (例としてヌルポインタ) をもつ
-    bool b;  // 未初期化の真理値。erroneous valueとして、
-             // 妥当ではないbool値 (trueでもfalseでもない値) をもつ可能性がある
+    bool b;  // 未初期化の真理値。
+             // bool値として妥当な値表現をもたない可能性がある
+             // (例: 値表現が8bitで{0x00(false), 0x01(true)}の
+             // 2通りのみとする処理系で0xCCをもつなど)
 
     f(*p);   // 間接参照は未定義動作を引き起こす
-    g(b);    // bが妥当な値である場合にerroneous behavior、そうでなければ未定義動作
+    g(b);    // bが妥当な値表現をもつ場合にerroneous behavior、そうでなければ未定義動作
     ```
 
 
