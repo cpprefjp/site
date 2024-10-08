@@ -55,8 +55,8 @@ int main() {}
 
 ### 処理系
 - [Clang](/implementation.md#clang): 6.0 [mark verified]
-- [GCC](/implementation.md#gcc):
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [GCC](/implementation.md#gcc): 9 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 [mark verified]
 
 
 ## 参照
