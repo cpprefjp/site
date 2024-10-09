@@ -38,7 +38,7 @@ constexpr const T&& operator*() const&&;    // (4)
 
 ## 備考
 `optional` クラスはスマートポインタとしても見なせるため、この演算子のようなポインタのインタフェースを持つ。  
-非ポインタインタフェースである [`value()`](value.md) の方がより明示的な（視覚的に目立つ）アクセス方法ではあるが、本演算子は [`value()`](value.md) とは異なり [`has_value()`](has_value.md) `!= true` の場合に使用すると未定義動作となる。（[`value()`](value.md) は [`bad_optional_access`](/reference/optional/bad_optional_access.md) 例外を送出する）  
+非ポインタインタフェースである [`value()`](value.md) の方がより明示的な（視覚的に目立つ）アクセス方法ではあるが、本演算子は [`value()`](value.md) とは異なり [`has_value()`](has_value.md) `!= true` の場合に使用すると未定義動作を引き起こす。（[`value()`](value.md) は [`bad_optional_access`](/reference/optional/bad_optional_access.md) 例外を送出する）  
 逆に言えば、ライブラリ実装は本演算子の実装時に [`has_value()`](has_value.md) ` == true` であることのチェックを行う必要が無いため、あらかじめ [`has_value()`](has_value.md) `== true` であることが分かっている場合には、おそらく [`value()`](value.md) よりも本演算子の方が速度的には有利だろう。（ただし、規格でチェックを禁止されているわけではない）
 
 

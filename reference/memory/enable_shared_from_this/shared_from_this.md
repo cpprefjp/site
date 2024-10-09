@@ -23,7 +23,7 @@ shared_ptr<const T> shared_from_this() const;
 
 ### C++14まで
 `this`ポインタを、`enable_shared_from_this`の派生クラス型`T`の[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクトとして構築して返す。  
-要件を満たしていない場合は未定義動作となる。
+要件を満たしていない場合は未定義動作を引き起こす。
 
 ### C++17から
 保持する`this`を指すポインタを`weak_this`（`weak_ptr<T>`）とすると、以下と等価。

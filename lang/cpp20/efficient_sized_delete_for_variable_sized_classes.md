@@ -21,7 +21,7 @@ struct S {
 
   // #1 Sのための operator delete オーバーロード
   void operator delete(void* p) {
-    // Sのオブジェクトは破棄済みのため、未定義動作となる
+    // Sのオブジェクトは破棄済みのため、未定義動作を引き起こす
     const S* self = reinterpret_cast<const S*>(p);  // UB
     std::cout << self->str;   // UB
 
@@ -382,7 +382,7 @@ static void operator delete(void* ptr) {
 }
 ```
 
-しかし、前述のように、この`operator delete`実行の前に`ptr`にあるオブジェクトは破棄されているため、これは未定義動作となる。
+しかし、前述のように、この`operator delete`実行の前に`ptr`にあるオブジェクトは破棄されているため、これは未定義動作を引き起こす。
 
 *destroying operator delete*は、この一番最後の`operator delete`相当のコードを安全にし、このような可変長クラスの`delete`を効率化するために導入された。
 

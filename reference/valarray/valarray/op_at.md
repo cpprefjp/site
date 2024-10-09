@@ -45,7 +45,7 @@ indirect_array<T> operator[](const ValOrProxy<std::size_t>& mask);      // (10)
 
 `*this`に含まれる`n`番目の要素への参照を返す。
 
-`n >=` [`size()`](size.md)の場合、その挙動は未定義。
+`n >=` [`size()`](size.md)の場合、未定義動作を引き起こす。
 
 - (3) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素をコピー抽出した`valarray`オブジェクトを返す。
 - (4) : `*this`に含まれる要素を、[`slice`](/reference/valarray/slice.md)の条件に基いてスライスする。このオーバーロードでは、条件一致した要素への参照を管理する[`slice_array`](/reference/valarray/slice_array.md)オブジェクトを返す。
@@ -61,7 +61,7 @@ indirect_array<T> operator[](const ValOrProxy<std::size_t>& mask);      // (10)
 - 引数、および、戻り値の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 - (3), (5), (7), (9) : `valarray<T>`型のオブジェクトを返すこの関数を含むあらゆる関数は、`valarray`クラスと同じ`const`メンバ関数をもつほかの型を返すことが実装に許可される。例として複数の`valarray`操作をつなげて記述したときに最適化できるよう、式テンプレートを返す実装もある
-- (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、その挙動は未定義。
+- (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、未定義動作を引き起こす。
 
 
 ## 例
