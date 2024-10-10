@@ -90,6 +90,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:cocotone様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/cocotone/cocotone.png, link:https://www.cocotone.jp, size:560, fee:75, amount:12]
 
+[sponsor name:CubeSoft様, img:https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png, link:https://www.cube-soft.jp/, size:560, fee:8, amount:12]
+
 [sponsor name:shiguredo様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/shiguredo/shiguredo.png, link:https://shiguredo.jp/, size:560, period:2024-10-27, fee:800, amount:1]
 
 
@@ -102,8 +104,6 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 [sponsor name:pegasys様, img:https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png, link:https://www.pegasys-inc.com/, size:320, fee:10, amount:12]
 
 [sponsor name:vaporoid様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/vaporoid/cpprefjp-400x150.png, link:https://vaporoid.com/sys/, size:400, fee:8, amount:12]
-
-[sponsor name:CubeSoft様, img:https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png, link:https://www.cube-soft.jp/, size:400, fee:8, amount:12]
 
 [sponsor name:M.Kohana様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/m_kohana/m_kohana.jpg, link:https://mkohana.github.io/, size:320, fee:8, amount:12]
 
