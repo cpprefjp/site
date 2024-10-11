@@ -33,7 +33,7 @@ namespace std::ranges {
 
 - (1): すべてのRangeが[`sized_range`](sized_range.md)のとき
 - (2): すべてのRangeが[`bidirectional_range`](bidirectional_range.md)かつ、先頭以外のRangeが*cartesian-product-common-arg*のとき
-- (3): すべてのRangeが[`random_access_range`](random_access_range.md)かつ、先頭のRamgeが[`sized_range`](sized_range.md)のとき
+- (3): すべてのRangeが[`random_access_range`](random_access_range.md)かつ、先頭のRangeが[`sized_range`](sized_range.md)のとき
 - (4): 先頭のRangeが*cartesian-product-common-arg*のとき
 
 ## 効果
