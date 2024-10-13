@@ -135,7 +135,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:Hashitaku様, link:https://opencollective.com/hashitaku, fee:20, amount:1, period:2024-05-08]
 
-[sponsor name:Akira Kubo様, link:https://opencollective.com/akira-kubo, fee:20, amount:1, period:2025-10-12]
+[sponsor name:Akira Kubo様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/HappyLuckyAkira/HappyLuckyAkira.png, link:https://x.com/HappyLuckyAkira, size:256, fee:20, amount:1, period:2025-10-12]
 
 [sponsor name:yukika2e様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/yukika2e/yukika2e.png, fee:10, amount:1, period:2024-05-18]
 
