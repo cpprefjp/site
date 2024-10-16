@@ -122,6 +122,10 @@ if __name__ == '__main__':
                            dest='check_outer_link',
                            action='store_true',
                            default=False)
+    argparser.add_argument("--url",
+                           dest='url',
+                           type=str,
+                           default='')
     args = argparser.parse_args()
 
     if not args.check_inner_link and not args.check_outer_link:
@@ -131,36 +135,40 @@ if __name__ == '__main__':
     found_error = False
     current_dir = os.getcwd()
     outer_link_dict = dict()
-    for p in glob.glob("**/*.md", recursive=True):
-        dirname = os.path.dirname(p)
-        with open(p) as f:
-            text = f.read()
+    if len(args.url) <= 0:
+        for p in glob.glob("**/*.md", recursive=True):
+            dirname = os.path.dirname(p)
+            with open(p) as f:
+                text = f.read()
 
-        inner_links, outer_links = find_all_links(text)
-        for link in outer_links:
-            if link in outer_link_dict:
-                outer_link_dict[link].append(p)
-            else:
-                outer_link_dict[link] = [p]
-
-        if args.check_inner_link:
-            for link in inner_links:
-                rel_link = ""
-                if link.startswith("/"):
-                    rel_link = os.path.join(current_dir, link.lstrip("/"))
+            inner_links, outer_links = find_all_links(text)
+            for link in outer_links:
+                if link in outer_link_dict:
+                    outer_link_dict[link].append(p)
                 else:
-                    rel_link = os.path.join(dirname, link)
+                    outer_link_dict[link] = [p]
 
-                if link.endswith(".nolink"):
-                    if os.path.exists(rel_link.rstrip(".nolink")):
-                        print("nolinked {} href {} found.".format(p, link.rstrip(".nolink")), file=sys.stderr)
-                        found_error = True
-                else:
-                    if not os.path.exists(rel_link):
-                        print("{} href {} not found.".format(p, link), file=sys.stderr)
-                        found_error = True
+            if args.check_inner_link:
+                for link in inner_links:
+                    rel_link = ""
+                    if link.startswith("/"):
+                        rel_link = os.path.join(current_dir, link.lstrip("/"))
+                    else:
+                        rel_link = os.path.join(dirname, link)
+
+                    if link.endswith(".nolink"):
+                        if os.path.exists(rel_link.rstrip(".nolink")):
+                            print("nolinked {} href {} found.".format(p, link.rstrip(".nolink")), file=sys.stderr)
+                            found_error = True
+                    else:
+                        if not os.path.exists(rel_link):
+                            print("{} href {} not found.".format(p, link), file=sys.stderr)
+                            found_error = True
 
     if args.check_outer_link:
+        if len(args.url) > 0:
+            outer_link_dict[args.url] = ""
+
         for link, from_list in outer_link_dict.items():
             exists, reason = check_url(link)
             if not exists:
