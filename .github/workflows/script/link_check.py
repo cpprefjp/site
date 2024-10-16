@@ -53,6 +53,7 @@ def fix_link(link: str) -> str:
         return link
 
 IGNORE_LIST = [
+    "http://web.archive.org", # 確実に存在すると思われる
     "https://web.archive.org", # 確実に存在すると思われる
     "http://cse.naro.affrc.go.jp", # 海外 (GitHub Actions) からのアクセスを排除していると思われる
     "https://www.cryptopp.com", # アクセスチェックでよく失敗するがブラウザ上では問題なくアクセスできる
