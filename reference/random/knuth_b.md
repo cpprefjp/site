@@ -17,9 +17,7 @@ namespace std {
 
 `knuth_b`では、[`minstd_rand0`](minstd_rand0.md)によって生成された乱数を`256`個バッファリングしておき、順番を入れ替えて値を選択していく。これにより、線形合同法([`minstd_rand0`](minstd_rand0.md) or [`minstd_rand`](minstd_rand.md))を直接使用するよりも出力間の相関関係が小さくなり、乱雑さが増加する。
 
-Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volume 2, Seminumerical Algorithms』で考案された、リオーダーアルゴリズムBがそれだ。  
-
-このアルゴリズムは、Microsoft .NET Frameworkの[`System.Random`](https://docs.microsoft.com/ja-jp/dotnet/api/system.random)クラスにも、実装として使用されている。
+Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volume 2, Seminumerical Algorithms』で述べられている、リオーダーアルゴリズムBがそれだ。
 
 
 ## 要件
