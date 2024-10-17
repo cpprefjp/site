@@ -67,7 +67,7 @@ int main()
 {
   // 2018年3月17日までにうるう秒が挿入された日を列挙する
   for (const chrono::leap_second& date : chrono::get_tzdb().leap_seconds) {
-    if (date <= 2018y/3/17)
+    if (date.date() <= chrono::sys_days{2018y/3/17})
       std::cout << date.date() << ": " << date.value() << std::endl;
   }
 }
@@ -114,7 +114,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 13.2 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
