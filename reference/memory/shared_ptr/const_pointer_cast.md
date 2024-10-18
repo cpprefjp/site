@@ -35,7 +35,7 @@ namespace std {
 
 
 ## 備考
-- `shared_ptr<T>(const_cast<T*>(r.get()))` という方法は未定義動作となるので使用しないこと。
+- `shared_ptr<T>(const_cast<T*>(r.get()))` という方法は未定義動作を引き起こすので使用しないこと。
 
 
 ## 例外

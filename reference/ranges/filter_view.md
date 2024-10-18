@@ -26,7 +26,7 @@ namespace std::ranges {
     - 探索は [`ranges::find_if`](/reference/algorithm/ranges_find_if.md) と同様に行われる。
 - [`begin`](filter_view/begin.md)は償却定数時間で実行できなければならないため、[`begin`](filter_view/begin.md)の値はキャッシュされる。
 
-`filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作となる。
+`filter_view`の要素を書き換えてもよいが、書き換えた後の要素が`Pred`を満たさない場合は未定義動作を引き起こす。
 
 ### Rangeコンセプト
 

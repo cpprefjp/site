@@ -44,7 +44,7 @@ for (std::size_t i = 0; i < size(); ++i) {
 ## 備考
 - 引数の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
-- (1) : `*this` と `xs` の要素数が異なる場合、その挙動は未定義。
+- (1) : `*this` と `xs` の要素数が異なる場合、未定義動作を引き起こす。
 
 
 ## 例
