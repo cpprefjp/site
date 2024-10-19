@@ -53,8 +53,8 @@
 |`__cpp_lib_flat_map`|`202207L`|[`std::flat_map`](/reference/flat_map.md)と`std::flat_multimap`の追加|[`<flat_map>`](/reference/flat_map.md)|
 |`__cpp_lib_flat_set`|`202207L`|`std::flat_set`と`std::flat_multiset`の追加|`<flat_set>`|
 |`__cpp_lib_format`|`202207L`|`std::format`の時刻型のローカライズ対応|[`<format>`](/reference/format.md)|
-|`__cpp_lib_format_ranges`|`202207L`|`std::formatter`のRange対応|[`<format>`](/reference/format.md)|
-|`__cpp_lib_formatters`|`202302L`|`std::formatter`の`std::stacktrace`対応と`std::thread::id`対応|[`<stacktrace>`](/reference/stacktrace.md)<br/>[`<thread>`](/reference/thread.md)|
+|`__cpp_lib_format_ranges`|`202207L`|[`std::formatter`](/reference/format/formatter.md)のRange対応|[`<format>`](/reference/format.md)|
+|`__cpp_lib_formatters`|`202302L`|[`std::formatter`](/reference/format/formatter.md)の[`std::stacktrace`](/reference/stacktrace/basic_stacktrace.md)対応と[`std::thread::id`](/reference/thread/thread/id.md)対応|[`<stacktrace>`](/reference/stacktrace.md)<br/>[`<thread>`](/reference/thread.md)|
 |`__cpp_lib_forward_like`|`202207L`|[`std::forward_like()`](/reference/utility/forward_like.md)の追加|[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_generator`|`202207L`|[`std::generator`](/reference/generator/generator.md)の追加|[`<generator>`](/reference/generator.md)|
 |`__cpp_lib_invoke_r`|`202106L`|[`std::invoke_r()`](/reference/functional/invoke_r.md)の追加|[`<functional>`](/reference/functional.md)|
@@ -68,7 +68,7 @@
 |`__cpp_lib_optional`|`202110L`|[`std::optional`](/reference/optional/optional.md)にモナド操作を追加|[`<optional>`](/reference/optional.md)|
 |`__cpp_lib_out_ptr`|`202106L`|[`std::out_ptr`](/reference/memory/out_ptr.md)と[`std::inout_ptr`](/reference/memory/inout_ptr.md)の追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_ranges`|`202302L`|[`std::ranges::range_adaptor_closure`](/reference/ranges/range_adaptor_closure.md)の追加<br/>[`<ranges>`](/reference/ranges.md)の様々な機能追加|[`<algorithm>`](/reference/algorithm.md)<br/>[`<functional>`](/reference/functional.md)<br/>[`<iterator>`](/reference/iterator.md)<br/>[`<memory>`](/reference/memory.md)<br/>[`<ranges>`](/reference/ranges.md)|
-|`__cpp_lib_ranges_as_const`|`202207L`|`std::ranges::cbegin`が常に定数イテレータを返すようにする。[`std::ranges::as_const_view`](/reference/ranges/as_const_view.md)の追加|[`<ranges>`](/reference/ranges.md)|
+|`__cpp_lib_ranges_as_const`|`202207L`|[`std::ranges::cbegin`](/reference/ranges/cbegin.md)が常に定数イテレータを返すようにする。[`std::ranges::as_const_view`](/reference/ranges/as_const_view.md)の追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_as_rvalue`|`202207L`|[`std::ranges::as_rvalue_view`](/reference/ranges/as_rvalue_view.md)の追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_cartesian_product`|`202207L`|[`std::ranges::cartesian_product_view`](/reference/ranges/cartesian_product_view.md)の追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_chunk`|`202202L`|[`std::ranges::chunk_view`](/reference/ranges/chunk_view.md)の追加|[`<ranges>`](/reference/ranges.md)|
@@ -90,7 +90,7 @@
 |`__cpp_lib_spanstream`|`202106L`|`<spanstream>`の追加|`<spanstream>`|
 |`__cpp_lib_stacktrace`|`202011L`|[`<stacktrace>`](/reference/stacktrace.md)の追加|[`<stacktrace>`](/reference/stacktrace.md)|
 |`__cpp_lib_start_lifetime_as`|`202207L`|`std::start_lifetime_as()`の追加|[`<memory>`](/reference/memory.md)|
-|`__cpp_lib_stdatomic_h`|`202011L`|[`<stdatomic.h>`](/reference/stdatomic.h.md)の追加|`<stdatomic.h>`|
+|`__cpp_lib_stdatomic_h`|`202011L`|[`<stdatomic.h>`](/reference/stdatomic.h.md)の追加|[`<stdatomic.h>`](/reference/stdatomic.h.md)|
 |`__cpp_lib_string_contains`|`202011L`|[`std::basic_string::contains()`](/reference/string/basic_string/contains.md)と[`std::basic_string_view::contains()`](/reference/string_view/basic_string_view/contains.md)の追加|[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_string_resize_and_overwrite`|`202110L`|[`std::basic_string::resize_and_overwrite()`](/reference/string/basic_string/resize_and_overwrite.md)の追加|[`<string>`](/reference/string.md)|
 |`__cpp_lib_to_underlying`|`202102L`|[`std::to_underlying()`](/reference/utility/to_underlying.md)の追加|[`<utility>`](/reference/utility.md)|
