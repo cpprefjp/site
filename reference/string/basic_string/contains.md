@@ -70,12 +70,12 @@ int main() {
 
 ## バージョン
 ### 言語
-- C++20
+- C++23
 
 ### 処理系
 - [Clang](/implementation.md#clang): 12.0 [mark verified]
-- [GCC](/implementation.md#gcc):
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [GCC](/implementation.md#gcc): 11 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2022 [mark verified]
 
 
 ## 参照
