@@ -245,3 +245,4 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(std::initiali
     - 安定性の保証が規定された経緯のレポート
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
     - (5), (6)経緯となる提案文書
+- [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)

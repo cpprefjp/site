@@ -260,3 +260,4 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
     - (4)の経緯となる提案文書
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
     - (5), (6)経緯となる提案文書
+- [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
