@@ -14,7 +14,7 @@ function(function&& f);           // (4) C++17まで
 function(function&& f) noexcept;  // (4) C++20
 
 template <class F>
-function(F f);                // (5)
+function(F&& f);                // (5)
 
 template <class Alloc>
 function(allocator_arg_t, const Alloc& alloc) noexcept;            // (6) C++17で削除
