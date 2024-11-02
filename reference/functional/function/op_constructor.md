@@ -6,15 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-function() noexcept;          // (1)
-function(nullptr_t) noexcept; // (2)
-function(const function& f);  // (3)
+function() noexcept;              // (1) C++11
+function(nullptr_t) noexcept;     // (2) C++11
+function(const function& f);      // (3) C++11
 
-function(function&& f);           // (4) C++17まで
+function(function&& f);           // (4) C++11
 function(function&& f) noexcept;  // (4) C++20
 
 template <class F>
-function(F&& f);                // (5)
+function(F f);                    // (5) C++11
+template <class F>
+function(F&& f);                  // (5) C++23
 
 template <class Alloc>
 function(allocator_arg_t, const Alloc& alloc) noexcept;            // (6) C++17で削除
@@ -34,11 +36,44 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10) C++17
 * nullptr_t[link /reference/cstddef/nullptr_t.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
-## 要件
-- (5), (10) :
-    - `F`はコピー構築可能であること。
-    - `F`のコピーコンストラクタとデストラクタは、例外を投げるべきではない。
-    - C++11まで : `F`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること。
+## 概要
+`function`オブジェクトを構築する。
+
+- (1) : デフォルト構築。空の`function`オブジェクトを構築する
+- (2) : `nullptr`からの構築。空の`function`オブジェクトを構築する
+- (3) : コピー構築する
+- (4) : ムーブ構築する
+- (5) : 任意の型の関数ポインタ、メンバポインタ、関数オブジェクトを受け取って構築する
+- (6) : アロケータをとって空の`function`オブジェクトを構築する
+- (7) : アロケータと`nullptr`をとって空の`function`オブジェクトを構築する
+- (8) : アロケータをとってコピー構築する
+- (9) : アロケータをとってムーブ構築する
+- (10) : アロケータと、任意の型の関数ポインタ、メンバポインタ、関数オブジェクトを受け取って構築する
+
+
+## テンプレートパラメータ制約
+[`decay_t`](/reference/type_traits/decay.md)`<F>`を`FD`として、
+
+- (5) :
+    - C++11
+        - `F`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること
+    - C++23
+        - `F`が`function`ではないこと
+        - `FD`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること
+- (10) :
+    - `F`はコピー構築可能であること
+    - `F`のコピーコンストラクタとデストラクタは、例外を投げるべきではない
+    - `F`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること
+
+
+## 適格要件
+- (5) :
+    - C++11
+        - `F`はコピー構築可能であること
+        - `F`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること。
+    - C++23
+        - `FD`はコピー構築可能であること
+        - `FD`は`F`から構築可能であること
 
 
 ## 効果
@@ -242,3 +277,5 @@ int main()
     - C++14から、(5)と(10)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
 - [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
 - [P0771R1 std::function move constructor should be noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0771r1.pdf)
+- [LWG Issue 2774. `std::function` construction vs assignment](https://cplusplus.github.io/LWG/issue2774)
+    - C++23から、`function(F)`のオーバーロードが`function(F&&)`に変更された
