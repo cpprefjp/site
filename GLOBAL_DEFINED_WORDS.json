@@ -23,10 +23,11 @@
   },
   "未規定動作": { "redirect": "未規定の動作", "yomi": "みきていどうさ" },
   "未規定": { "redirect": "未規定の動作", "yomi": "みきてい" },
-  "「erroneous behavior」": {
-    "yomi": "えろーにあすびへいびあ",
+  "エラー性の動作": {
+    "yomi": "えらーせいのどうさ",
     "desc": "未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある"
   },
+  "エラー性動作": { "redirect": "エラー性の動作", "yomi": "えらーせいどうさ" },
   "処理系定義の動作": {
     "link": "/implementation-compliance.md#dfn-implementation-defined-behavior",
     "yomi": "しょりけいていぎのどうさ",
