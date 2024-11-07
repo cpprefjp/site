@@ -12,7 +12,7 @@
   "未定義の動作": {
     "link": "/implementation-compliance.md#dfn-undefined-behavior",
     "yomi": "みていぎのどうさ",
-    "desc": "処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外"
+    "desc": "処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。"
   },
   "未定義動作": { "redirect": "未定義の動作", "yomi": "みていぎどうさ" },
   "未定義": { "redirect": "未定義の動作", "yomi": "みていぎ" },
