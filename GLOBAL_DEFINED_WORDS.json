@@ -19,7 +19,8 @@
   "未定義": { "redirect": "未定義の動作", "yomi": "みていぎ" },
   "未定義アドレス": {
     "yomi": "みていぎあどれす",
-    "desc": "配列要素へのポインタがアドレス計算の結果として配列の範囲外に到達した場合に、(間接参照しなくても) 未定義動作となる"
+    "desc": "通常は未定義動作となるポインタの加減算が atomic 操作として行われた場合の結果を指す規格中の表記 "undefined address" を指す。その意味付けは不明確なので LWG issue 3906. "Undefined address" is undefined が提起されている。",
+    "link": "https://cplusplus.github.io/LWG/issue3906"
   },
   "未規定の動作": {
     "link": "/implementation-compliance.md#dfn-unspecified-behavior",
