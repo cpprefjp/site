@@ -51,6 +51,12 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
 - コード修飾の誤り検出 (code qualify checkアクション)
     - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
     - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/code_qualify_check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
+- 所属ヘッダメタ情報の誤り検出 (meta header checkアクション)
+    - `[meta header]`または`[meta module]`指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する
+    - 導入経緯は [PR#1204](https://github.com/cpprefjp/site/issues/1204) を参照
+- NGワードの検出 (ngword checkアクション)
+    - 日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する
+    - 具体的な対象ワードリストは[ngword_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py)を参照
 
 
 ### 自動反映ツール
