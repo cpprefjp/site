@@ -18,7 +18,7 @@ future<R> get_future();
 `*this`と同じ共有状態を持つ[`future`](../future.md)`<R>`オブジェクトを返す
 
 
-## 同期
+## 同期操作
 この関数の呼び出しでは、以下の呼び出しとのデータ競合は発生しない (C++20)：
 
 - [`operator()`](op_call.md)
