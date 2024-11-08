@@ -105,7 +105,7 @@ int main()
 
 #### 出力例
 ```
-2019-10-24 11:15:27 GPS
+2019-10-24 11:15:27
 ```
 
 ### 入力の例
@@ -128,8 +128,7 @@ int main()
 
     if (ss) {
       std::cout << tp << std::endl;
-    }
-    else {
+    } else {
       std::cout << "解析失敗" << std::endl;
     }
   }
@@ -137,23 +136,27 @@ int main()
   // タイムゾーンを含む入力
   {
     std::stringstream ss;
-    ss << "2019-10-24 20:15:10 GPS";
+    ss << "2019-10-24 20:15:27 GPS";
 
     chrono::gps_seconds tp;
     std::string abbrev;
-    chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z%z", tp, &abbrev);
+    chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z", tp, &abbrev);
 
-    std::cout << tp << std::endl;
-    std::cout << abbrev << std::endl;
+    if (ss) {
+      std::cout << tp << std::endl;
+      std::cout << abbrev << std::endl;
+    } else {
+      std::cout << "解析失敗" << std::endl;
+    }
   }
 }
 ```
 * chrono::from_stream[color ff0000]
 
-#### 出力例
+#### 出力
 ```
-2019-10-24 11:15:27 GPS
-2019-10-24 11:15:27 GPS
+2019-10-24 20:15:45
+2019-10-24 20:15:45
 GPS
 ```
 
@@ -168,7 +171,7 @@ namespace chrono = std::chrono;
 int main()
 {
   chrono::gps_clock::time_point now = chrono::gps_clock::now();
-  chrono::gps_seconds now_sec = chrono::floor<chrono::seconds>(tp);
+  chrono::gps_seconds now_sec = chrono::floor<chrono::seconds>(now);
 
   // デフォルトフォーマット
   std::cout << std::format("1 : {}", now_sec) << std::endl;
@@ -177,15 +180,15 @@ int main()
   std::cout << std::format("2 : {:%Y年%m月%d日 %H時%M分%S秒}", now_sec) << std::endl;
 
   // 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り、タイムゾーンの略称付き
-  std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S %Z}", now_sec) << std::endl;
+  std::cout << std::format("3 : {:%Y/%m/%d %H:%M:%S %Z}", now_sec) << std::endl;
 
   // 日付だけ出力
-  std::cout << std::format("4 : %Y年%m月%d日", now_sec) << std::endl;
-  std::cout << std::format("5 : %F", now_sec) << std::endl;
+  std::cout << std::format("4 : {:%Y年%m月%d日}", now_sec) << std::endl;
+  std::cout << std::format("5 : {:%F}", now_sec) << std::endl;
 
   // 時間だけ出力
-  std::cout << std::format("6 : %H時%M分%S秒", now_sec) << std::endl;
-  std::cout << std::format("7 : %T", now_sec) << std::endl;
+  std::cout << std::format("6 : {:%H時%M分%S秒}", now_sec) << std::endl;
+  std::cout << std::format("7 : {:%T}", now_sec) << std::endl;
 }
 ```
 * chrono::gps_clock[link gps_clock.md]
@@ -193,9 +196,9 @@ int main()
 * chrono::floor[link time_point/floor.md]
 * std::format[link format.md]
 
-#### 出力例
+#### 出力
 ```
-1 : 2019-12-20 10:05:05 GPS
+1 : 2019-12-20 10:05:05
 2 : 2019年12月20日 10時05分05秒
 3 : 2019/12/20 10:05:05 GPS
 4 : 2019年12月20日
@@ -204,13 +207,14 @@ int main()
 7 : 10:05:05
 ```
 
+
 ## バージョン
 ### 言語
 - C++20
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 14.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

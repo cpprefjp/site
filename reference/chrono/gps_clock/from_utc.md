@@ -50,18 +50,17 @@ using namespace std::chrono_literals;
 
 int main()
 {
-  // ここでは日単位のシステム時間を、utc_clockを経由して、日単位のGPS時間に変換している。
-  // 秒単位の時間を渡せば、秒単位のGPS時間が返る
-  auto st = chrono::sys_days{2019y/10/24};
-  auto ut = chrono::utc_clock::from_sys(st);
-  auto tt = chrono::gps_clock::from_utc(ut); // 日単位のGPS時間が返る
+  // ここでは日単位のシステム時間を、秒単位のUTC時間とGPS時間に変換している。
+  auto st = chrono::sys_days{2019y/10/24};    // システム時間,日単位
+  auto ut = chrono::utc_clock::from_sys(st);  // UTC時間,秒単位
+  auto tt = chrono::gps_clock::from_utc(ut);  // GPS時間,秒単位
 
-  // うるう秒
+  // UTC時間のうるう秒に関する情報
   chrono::leap_second_info info = chrono::get_leap_second_info(ut);
 
   std::cout << st << std::endl;
-  std::cout << ut << std::endl;
-  std::cout << tt << std::endl;
+  std::cout << ut << " UTC" << std::endl;
+  std::cout << tt << " GPS" << std::endl;
   std::cout << info.elapsed.count() << std::endl;
 }
 ```
@@ -76,9 +75,9 @@ int main()
 
 ### 出力
 ```
-2019-10-24 00:00:00
+2019-10-24
 2019-10-24 00:00:00 UTC
-2019-10-24 00:00:27 GPS
+2019-10-24 00:00:18 GPS
 27
 ```
 
@@ -88,5 +87,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 13.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
