@@ -215,7 +215,7 @@ member_value_ : 5
 result : 8
 ```
 
-ラムダ式がひとつ以上の変数を参照キャプチャしている場合、参照している変数の寿命が切れたあとの、ラムダ式のコピーと呼び出しの動作は未定義。
+ラムダ式がひとつ以上の変数を参照キャプチャしている場合、参照している変数の寿命が切れたあとの、ラムダ式のコピーと呼び出しは未定義動作を引き起こす。
 
 ```cpp example
 #include <functional>
@@ -228,7 +228,7 @@ std::function<int(int)> foo()
 
 int main()
 {
-  foo()(2); // 未定義の振る舞い
+  foo()(2); // 未定義動作
 }
 ```
 * std::function[link /reference/functional/function.md]

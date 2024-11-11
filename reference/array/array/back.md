@@ -21,7 +21,7 @@ constexpr const_reference back() const; // (2) C++14
 `a.back()`は末尾の要素への参照を返す。もし、`a`が`const`だった場合には、末尾の要素への`const`参照を返す。`a.back()` は`{ auto tmp = a.end(); --tmp; return *tmp; }` と同じ結果になる。
 
 ## 備考
-要素数が0の場合(`N == 0`の場合)、この関数呼び出しの効果は未定義である。
+要素数が0の場合(`N == 0`の場合)、動作は未定義である。
 
 
 ## 例

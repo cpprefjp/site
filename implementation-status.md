@@ -136,7 +136,7 @@
 | P0386R2: [インライン変数](/lang/cpp17/inline_variables.md) | インライン指定を関数だけでなく変数にも指定できるようにする | 7 | 3.9 | 19.0 | 2017 Update 5 |
 | P0217R3: [構造化束縛](/lang/cpp17/structured_bindings.md) | タプルやユーザー定義型を分解して受け取れるようにする<br/> `tuple<int, string> f();` <br/> `const auto [a, b] = f(); // aはintの値、bはstringの値` | 7 | 4 | 18.0 | 2017 Update 3 |
 | P0305R1: [if文とswitch文の条件式と初期化を分離](/lang/cpp17/selection_statements_with_initializer.md) | `if (init; condition)`のように初期化と条件式を分けて記述できるようにする | 7 | 3.9 | 18.0 | 2017 Update 3 |
-| P0137R1: [参照メンバをもつクラスの置き換え](/lang/cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`メンバ変数を含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | 7 | 6.0 | No | 2017 Update 7 |
+| P0137R1: [参照メンバをもつクラスの置き換え](/lang/cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`メンバ変数を含むクラスについてこれまで未定義動作とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする | 7 | 6.0 | No | 2017 Update 7 |
 | P0003R5: [非推奨だった例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md) | `noexcept`が入ったことによって非推奨になった`throw`キーワードによる例外仕様を削除 | 7 | 4 | No | 2017 Update 5 |
 | P0195R2: [using宣言でのパック展開](/lang/cpp17/pack_expansions_in_using.md) | パラメータパックの型を基底クラスとして指定した場合に、`using`宣言に基底クラスのパラメータパックを指定できるようにする | 7 | 4 | No | 2017 Update 7 |
 | P0512R0: [クラステンプレート引数の推論仕様を調整][P0512R0] | | 8 | 5.0 | No | 2017 Update 7 |
@@ -309,7 +309,7 @@
 | P2573R2: [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md) | `f() = delete("reason");` | 15 | 19 | | |
 | P2893R3: [可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md.nolink) | クラステンプレートの可変引数テンプレートでまとめて`friend`宣言できるようにする | 15 | | | |
 | P2747R2: [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md.nolink) | 定数式の文脈での配置`new`を許可 | | | | |
-| P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md.nolink) | 未定義動作となる操作をコンパイルエラーとする | 15 | 19 | | |
+| P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md.nolink) | 未定義動作を引き起こす操作をコンパイルエラーとする | 15 | 19 | | |
 | P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う | | 19 | | |
 | P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
 

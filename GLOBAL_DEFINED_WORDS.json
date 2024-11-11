@@ -15,7 +15,13 @@
     "desc": "処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外"
   },
   "未定義動作": { "redirect": "未定義の動作", "yomi": "みていぎどうさ" },
+  "動作は未定義": { "redirect": "未定義の動作", "yomi": "どうさはみていぎ" },
   "未定義": { "redirect": "未定義の動作", "yomi": "みていぎ" },
+  "未定義アドレス": {
+    "yomi": "みていぎあどれす",
+    "desc": "通常は未定義動作となるポインタの加減算が atomic 操作として行われた場合の結果を指す規格中の表記「undefined address」を指す。その意味付けは不明確なので LWG issue 3906. Undefined address is undefined が提起されている。atomic操作は未定義動作を含まないことを意図して設計されているため未定義アドレスは未定義動作ではないと考えられる",
+    "link": "https://cplusplus.github.io/LWG/issue3906"
+  },
   "未規定の動作": {
     "link": "/implementation-compliance.md#dfn-unspecified-behavior",
     "yomi": "みきていのどうさ",
