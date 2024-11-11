@@ -57,6 +57,9 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
 - NGワードの検出 (ngword checkアクション)
     - 日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する
     - 具体的な対象ワードリストは[ngword_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py)を参照
+- 用語の誤った使い方を検出 (defined word checkアクション)
+    - 用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する
+    - 具体的な用語、許可した使い方、許可しない使い方は、[defined_word_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py)を参照
 
 
 ### 自動反映ツール
