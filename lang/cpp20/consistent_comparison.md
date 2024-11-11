@@ -802,7 +802,8 @@ struct has_vector {
         - [`compare_three_way`](/reference/compare/compare_three_way.md)
 - [`<algorithm>`](/reference/algorithm.md)
     - [`lexicographical_compare_three_way`](/reference/algorithm/lexicographical_compare_three_way.md)
-- [C++26 非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md.nolink)
+- [C++20 列挙値から算術型への暗黙変換を非推奨化](deprecate_arithmetic_conversion_on_enumerations.md)
+- [C++26 非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md)
 
 
 ## 参照

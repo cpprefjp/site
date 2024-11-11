@@ -299,7 +299,7 @@
 | P2741R3: [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする | 14 | 17 | | |
 | P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md.nolink) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | | Yes | | |
 | P2662R3: [パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink) | 可変引数テンプレートのパラメータパックに添字アクセスできるようにする | | | | |
-| P2864R2: [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md.nolink) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 | 14 | 18 | | |
+| P2864R2: [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 | 14 | 18 | | |
 | P2748R5: [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md.nolink) | 寿命切れの変数によって引き起こされるバグを防止する | 14 | 19 | | |
 | P3106R1: [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 | yes | 17 | | |
 | P0609R3: [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md) | `auto [a, b [[maybe_unused]], c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする | 15 | 19 | | |

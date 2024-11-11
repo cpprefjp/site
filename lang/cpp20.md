@@ -31,6 +31,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | 言語機能 | 説明 |
 |----------|------|
 | [スコープ付き列挙型のusing宣言](cpp20/using_enum.md) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする |
+| [列挙値から算術型への暗黙変換を非推奨化](cpp20/deprecate_arithmetic_conversion_on_enumerations.md) | 列挙値への算術演算で算術型に暗黙変換される仕様を非推奨とする |
 
 
 ### 変数
