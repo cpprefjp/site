@@ -60,9 +60,16 @@ IGNORE_LIST = [
     "https://www.microsoft.com/", # ちょくちょく失敗するが、一時的なものだと思われる
 ]
 
+IGNORE_REGEX_LIST = [
+    re.compile(r"https://github.com/(.*?)/(.*?)/commit/(.*?)") # 貢献ポイントの集計用 (非ユーザー向け)
+]
+
 def is_ignore_link(link: str) -> bool:
     for x in IGNORE_LIST:
         if link.startswith(x):
+            return True
+    for x in IGNORE_REGEX_LIST:
+        if x.fullmatch(link):
             return True
     return False
 
