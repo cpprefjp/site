@@ -3,7 +3,7 @@
 
 <!-- start lang caution -->
 
-このページはC++20に採用された言語機能の変更を解説しています。
+このページはC++26に採用される見込みの言語機能の変更を解説しています。
 
 のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
 
@@ -22,7 +22,7 @@ int x = +f - e;    // OK
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 列挙値から算術型への暗黙変換を非推奨化](/lang/cpp20/deprecate_arithmetic_conversion_on_enumerations.md)
 
 

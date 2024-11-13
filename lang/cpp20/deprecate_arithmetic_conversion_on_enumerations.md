@@ -22,7 +22,7 @@ int x = +f - e;    // OK
 ```
 
 
-## 関連項目
+## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 `<=>`/`==`による比較演算子の自動定義](consistent_comparison.md)
 - [C++26 非推奨となっていた列挙型の算術変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md)
 
