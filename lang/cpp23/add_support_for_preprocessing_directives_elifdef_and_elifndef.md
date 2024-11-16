@@ -1,4 +1,4 @@
-# elif/elifdef/elifndefのサポートを追加 [P2334R1]
+# elifdef/elifndefのサポートを追加 [P2334R1]
 * cpp23[meta cpp]
 
 <!-- start lang caution -->
@@ -12,11 +12,11 @@
 ## 概要
 C++23では、以下のプリプロセス時条件式が追加される：
 
-- `#if`に対応する`#elif`を追加。`#if`/`#ifdef`/`#ifndef`が偽だった場合の条件式を記述できる
-- `#ifdef`に対応する`#elifdef`を追加。`#if`/`#ifdef`/`#ifndef`が偽だった場合の、特定の識別子が定義されているかの判定を記述できる
-- `#ifndef`に対応する`#elifndef`を追加。`#if`/`#ifdef`/`#ifndef`が偽だった場合の、特定の識別子が定義されていないかの判定を記述できる
+- `#ifdef`に対応する`#elif`である、`#elifdef`を追加。`#if`/`#ifdef`/`#ifndef`が偽だった場合の、特定の識別子（マクロ名）が定義されているかの判定を記述できる
+- `#ifndef`に対応する`#elif`である、`#elifndef`を追加。`#if`/`#ifdef`/`#ifndef`が偽だった場合の、特定の識別子（マクロ名）が定義されていないかの判定を記述できる
 
-これまでは`#if`が偽だった場合のさらなる条件式を記述するためには`#else`にネストして`#if`を記述する必要があったが、そのような条件分岐が書きやすくなる。
+
+これまでは`#elif`において特定のマクロが定義されているかを調べるために`#elif defined(macro_name) / #elif !defined(macro_name)`と書く必要があり、`#if`に対する`#ifdef macro_name / #ifndef macro_name`のような短縮ディレクティブが用意されていなかったが、C++23からは`#if`と`#elif`の両方で`def/ndef`付きのディレクティブが利用できるようになる。
 
 ```cpp
 #define FOO 2
