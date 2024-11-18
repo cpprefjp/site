@@ -152,3 +152,8 @@ C++11以降対応については対応バージョンを明記します。バー
 | weak ordering                      | 弱順序                       |
 | well-formed                        | 適格                         |
 | eligible                           | 資格のある                   |
+| synchronizes with                  | に対して同期する ("と同期する" だと対称関係に見えるため) |
+| happens before                     | よりも前に発生する                                       |
+| strongly happens before            | よりも確実に前に発生する                                 |
+| sequenced before                   | よりも前に順序付けられる                                 |
+| indeterminately sequenced          | 不定順で順序付けられる                                   |
