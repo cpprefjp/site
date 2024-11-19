@@ -18,6 +18,7 @@
 | [commit cpprefjp/site, 668c8d5] | cpprefjp/compiler:5 | fix(msvc_ver): add 17.7,17.8,17.9 info |
 | [commit cpprefjp/site, 9ae7f5e] | cpprefjp/fixm:1 | chore: VC++ versionの確認方法を明記 |
 | [commit cpprefjp/site, b498cde] | cpprefjp/compiler:1 | fix: 17.6の情報をdev.toのコメントの情報に差し替え |
+| [commit cpprefjp/site, 3b1b618] | tool/updatelib:1 | fix(ci): ripgrep 14.1.0 |
 
 
 ## [tetsurom](https://github.com/tetsurom)
@@ -44,7 +45,7 @@
 | [commit cpprefjp/site, 9af2af3, 3c62036] | cpprefjp/addref:1, cpprefjp/link:3 | `chunk_by_view` |
 | [commit cpprefjp/site, 7110998] | cpprefjp/addref:1, cpprefjp/link:2 | `stride_view` |
 | [commit cpprefjp/site, 5a1743d, 57215c9] | cpprefjp/addref:1, cpprefjp/link:2 | `certesian_product_view` |
-| [commit cpprefjp/site, c906787] | cpprefjp/addref:1, cpprefjp/link:2 | `enumerate_view` |
+| [commit cpprefjp/site, c906787, ea628fa] | cpprefjp/addref:1, cpprefjp/link:2 | `enumerate_view` |
 | [commit cpprefjp/site, 032f80a] | cpprefjp/addref:1, cpprefjp/fixl:1, cpprefjp/link:1 | `range-with-movable-references` |
 | [commit cpprefjp/site, af4c8ae, ac7bc04, bef7f7f] | cpprefjp/addref:1, cpprefjp/fixl:4 | Rangeアダプタでムーブのみ可能な型を使用できるよう要件を緩和 |
 | [commit cpprefjp/site, c5f8bd4, 018bcd8] | cpprefjp/addref:2, cpprefjp/fixl:1, cpprefjp/link:2 | `std::ranges::contains` |
@@ -57,24 +58,31 @@
 | [commit cpprefjp/site, cf1a231] | cpprefjp/fixl:1 | Rangeのフォーマットの細かい点を追記 |
 | [commit cpprefjp/site, fef3ffc] | cpprefjp/fixl:1 | std.compat.md "この機能が必要になった背景・経緯"を追加 |
 | [commit cpprefjp/site, afd10bb] | cpprefjp/fixl:1 | std.md "この機能が必要になった背景・経緯"を追加 |
+| [commit cpprefjp/site, 4f5156f] | cpprefjp/fixl:1 | Update begin.md |
+| [commit cpprefjp/site, a659a6b, 33fdff4] | cpprefjp/fixl:1 | formatter: 説明を追加 |
+| [commit cpprefjp/site, f71ba40] | cpprefjp/fixl:1 | 書式文字列の取得のしかたを修正 |
+| [commit cpprefjp/site, d548d89] | cpprefjp/fixl:1 | 補足説明を追加 |
+| [commit cpprefjp/site, 5398590, 963ad2b, 8ca314b] | cpprefjp/fixl:1 | 実装例を追加 |
+| [commit cpprefjp/site, 8e148d1] | cpprefjp/fixl:3 | 実装例を追加 |
 
 
 ## [onihusube](https://github.com/onihusube)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site 5fcf829] | cpprefjp/fixm:3 | `mdspan`の名前付き要件のメタ指定修正 |
-| [commit cpprefjp/site c44afe1] | cpprefjp/fixl:1 | LWG Issue 3305適用（P3040R0） |
-| [commit cpprefjp/site 2ed0e77] | cpprefjp/fixl:1 | LWG Issue 3749対応（P3040R0） |
-| [commit cpprefjp/site ce48adc] | cpprefjp/fixl:1 | LWG Issue 3897対応（P3040R0） |
-| [commit cpprefjp/site cfedf6d] | cpprefjp/fixl:2 | LWG Issue 3946対応（P3040R0） |
-| [commit cpprefjp/site fdb5ec5] | cpprefjp/fixl:3 | LWG Issue 3809対応（P3040R0） |
-| [commit cpprefjp/site 06c0c00] | cpprefjp/fixl:2 | LWG Issue 3948対応（P3040R0） |
-| [commit cpprefjp/site 013028f] | cpprefjp/fixl:2 | LWG Issue 3953対応（P3040R0） |
-| [commit cpprefjp/site 16e6dd7] | cpprefjp/addref:1, cpprefjp/fixl:1 | LWG Issue 4001対応（P3040R0） |
-| [commit cpprefjp/site 39555de] | cpprefjp/fixm:1 | `from_chars` : C++26の例で結果を受ける変数をインライン化 |
-| [commit cpprefjp/site 6b57515, d631e4f, 2673b91, 868aa38, 0c64616, 81b8f37, 9799590, 3003547, ac864c9, 6b609be, 8384e0b, c4b15ea, dd9230e] | cpprefjp/addlang:1, cpprefjp/link:2 | 暗黙的なムーブを簡略化 |
-| [commit cpprefjp/site 8fc3e56] | cpprefjp/fixl:1 | `string::substr()` : 右辺値オーバーロードの動作について追記と例を追加 |
+| [commit cpprefjp/site, 5fcf829] | cpprefjp/fixm:3 | `mdspan`の名前付き要件のメタ指定修正 |
+| [commit cpprefjp/site, c44afe1] | cpprefjp/fixl:1 | LWG Issue 3305適用（P3040R0） |
+| [commit cpprefjp/site, 2ed0e77] | cpprefjp/fixl:1 | LWG Issue 3749対応（P3040R0） |
+| [commit cpprefjp/site, ce48adc] | cpprefjp/fixl:1 | LWG Issue 3897対応（P3040R0） |
+| [commit cpprefjp/site, cfedf6d] | cpprefjp/fixl:2 | LWG Issue 3946対応（P3040R0） |
+| [commit cpprefjp/site, fdb5ec5] | cpprefjp/fixl:3 | LWG Issue 3809対応（P3040R0） |
+| [commit cpprefjp/site, 06c0c00] | cpprefjp/fixl:2 | LWG Issue 3948対応（P3040R0） |
+| [commit cpprefjp/site, 013028f] | cpprefjp/fixl:2 | LWG Issue 3953対応（P3040R0） |
+| [commit cpprefjp/site, 16e6dd7] | cpprefjp/addref:1, cpprefjp/fixl:1 | LWG Issue 4001対応（P3040R0） |
+| [commit cpprefjp/site, 39555de] | cpprefjp/fixm:1 | `from_chars` : C++26の例で結果を受ける変数をインライン化 |
+| [commit cpprefjp/site, 6b57515, d631e4f, 2673b91, 868aa38, 0c64616, 81b8f37, 9799590, 3003547, ac864c9, 6b609be, 8384e0b, c4b15ea, dd9230e] | cpprefjp/addlang:1, cpprefjp/link:2 | 暗黙的なムーブを簡略化 |
+| [commit cpprefjp/site, 8fc3e56] | cpprefjp/fixl:1 | `string::substr()` : 右辺値オーバーロードの動作について追記と例を追加 |
+| [commit cpprefjp/site, ee8e4dc] | cpprefjp/fixm:1 | `parent_path()` : パス名末尾/の挙動について追記 |
 
 
 ## [ToruNiina](https://github.com/ToruNiina)
@@ -82,11 +90,12 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, ea41b5d] | cpprefjp/fixm:1 | 委譲コンストラクタの実行順序を明記 |
-| [commit cpprefjp/site, 18b3289, b460e7d, 836d3a7, ccf8ee7, 477414c, a38076e, d2f5783, bdfe351, 46c5224, f96627b, 0637fa2, 779fab6] | cpprefjp/addlang:1, cpprefjp/link:2 | feat: C++23 relaxing some constexpr restrictions |
+| [commit cpprefjp/site, 18b3289, b460e7d, 836d3a7, ccf8ee7, 477414c, a38076e, d2f5783, bdfe351, 46c5224, f96627b, 0637fa2, 779fab6, d9744ca] | cpprefjp/addlang:1, cpprefjp/link:2 | feat: C++23 relaxing some constexpr restrictions |
 | [commit cpprefjp/site, 8b71c43, 67f5bf3, 3be882a, b104895, a581545, 14014b8, 38df131, 62ade03] | cpprefjp/addlang:1, cpprefjp/link:2 | feat: C++23 non-literal vars in constexpr funcs |
 | [commit cpprefjp/site, 08b2c51] | cpprefjp/fixs:1 | refactor: remove needless whitespaces |
 | [commit cpprefjp/site, 2a0706c, 2284db9] | cpprefjp/fixl:7 | feat: mark `std::optional` member methods constexpr |
 | [commit cpprefjp/site, fc76618] | cpprefjp/typo:4 | typo: 動作未定義 -> 未定義動作 |
+| [commit cpprefjp/site, 8ed33cb] | cpprefjp/fixm:1 | fix: typo in an example code |
 
 
 ## [faithandbrave](https://github.com/faithandbrave)
@@ -141,6 +150,7 @@
 | [commit cpprefjp/site, 6d3e95b] | tool/improvem:1 | GitHub Issue発行スクリプト : 外部リンクチェック成功時にissueを作ってしまっていたのを修正 |
 | [commit cpprefjp/site, 1495bf6] | cpprefjp/link:1 | C++11 右辺値参照 : 関連項目を追加 |
 | [commit cpprefjp/site, 6224e96] | cpprefjp/link:1 | `poisson_distribution` : リンク差し替え |
+| [commit cpprefjp/site, 194f60c] | cpprefjp/fixm:1 | `map::emplace` : 戻り値の例を追加 |
 
 
 ## [suomesta](https://github.com/suomesta)
@@ -155,6 +165,8 @@
 | [commit cpprefjp/site, 57afeb8] | cpprefjp/link:20, cpprefjp/fixm:2 | fix some wrong link |
 | [commit cpprefjp/site, f70ffbb] | cpprefjp/fixm:1 | fix typo in sample |
 | [commit cpprefjp/site, 428490d] | cpprefjp/fixm:8 | fix some typo |
+| [commit cpprefjp/site, 44ce3c2] | cpprefjp/typo:1, cpprefjp/fixs:3, cpprefjp/fixm:3, cpprefjp/fixl:2, cpprefjp/link:2 | fix some typo |
+| [commit cpprefjp/site, eee7895] | cpprefjp/link:1, cpprefjp/addref:15 | add reference of `<cctype>` |
 
 
 ## [KisaragiEffective](https://github.com/KisaragiEffective)
@@ -176,7 +188,7 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, 28dc440, 10bce87] | tool/improves:1, cpprefjp/typo:1 | add "constepx" to NG words |
-| [commit cpprefjp/site c206a4c, 3fc04aa] | cpprefjp/typo:8 | typo修正 |
+| [commit cpprefjp/site, c206a4c, 3fc04aa] | cpprefjp/typo:8 | typo修正 |
 
 
 ## [yohhoy](https://github.com/yohhoy)
@@ -226,6 +238,7 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, a474b05] | cpprefjp/link:1 | `microseconds`と`weeks`のグローバル修飾を追加 |
+| [commit cpprefjp/site, a897609] | cpprefjp/fixl:1 | fix: fix argument order for `scoped_lock` |
 
 
 ## [tshino](https://github.com/tshino)
@@ -233,6 +246,7 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, 082924e, 170b0f3] | cpprefjp/fixm:2 | `expected::error_or()` の戻り値型を `T` から `E` に修正 |
+| [commit cpprefjp/site, 4796c01, eddd595, 8e854b8, b9d4a50] | cpprefjp/fixl:3 | `promise`デストラクタの効果に例外を格納する動作を追記 |
 
 
 ## [h-sao](https://github.com/h-sao)
@@ -256,6 +270,7 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, aff8e92] | cpprefjp/link:1 | Add links to `ranges::swap` and `iter_swap` |
+| [commit cpprefjp/site, 0265481] | cpprefjp/link:1 | Add links to basic_istream/read.md |
 
 
 ## [nakashima-hikaru](https://github.com/nakashima-hikaru)
@@ -263,4 +278,29 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, 2bb90e8] | cpprefjp/fixm:1 | fix typo |
+
+
+## [yknishidate](https://github.com/yknishidate)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit cpprefjp/site, 329b44c] | cpprefjp/fixs:1 | nextafterの説明を修正 |
+
+
+## [akinomyoga](https://github.com/akinomyoga)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit cpprefjp/site, 1e87ee5] | cpprefjp/fixs:13 | fix(cmath): 特殊関数名において「第一種 → 第1種」のように表記修正 |
+| [commit cpprefjp/site, 2f454c1] | cpprefjp/fixm:1 | style(cmath): Markdown 表組みの横幅揃え |
+| [commit cpprefjp/site, b4d914d] | cpprefjp/link:10 | fix(cmath): 第n種特殊関数間を相互リンク |
+
+
+## [Nagarei](https://github.com/Nagarei)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit cpprefjp/site, 4bfd491] | cpprefjp/fixm:1 | fix typo in algorithm's sample code |
+| [commit cpprefjp/site, fabe7cb] | cpprefjp/fixm:1 | fix typo in sample code |
+| [commit cpprefjp/site, 0a7bbed] | cpprefjp/fixl:1 | `std::async` throw `std::system_error` |
 
