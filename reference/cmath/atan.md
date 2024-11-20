@@ -99,17 +99,17 @@ atan(∞)    = 1.570796
 ## 実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \mathrm{Arctan}~x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| &lt; 1 $$
+$$ \mathrm{Arctan}~x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 $ |x| \ge 1 $ の範囲、および $ |x| \rightarrow 1 $ 近傍の精度低下する領域においては、以下の公式による変換で求めることができる。
 
-（特に $ \sqrt{2} + 1 &lt; |x| $ の場合）
+（特に $ \sqrt{2} + 1 < |x| $ の場合）
 
 $$ \mathrm{Arctan}~x = \frac{\pi}{2} - \mathrm{Arctan}~\frac{1}{x} \quad \mathrm{for} \; x > 0 $$
 
 
-（特に $ \sqrt{2} - 1 &lt; |x| \le \sqrt{2} + 1 $ の場合）
+（特に $ \sqrt{2} - 1 < |x| \le \sqrt{2} + 1 $ の場合）
 
 $$ \mathrm{Arctan}~x = \frac{\pi}{4} + \mathrm{Arctan}~\frac{x - 1}{x + 1} \quad \mathrm{for} \; x \ne -1 $$
 

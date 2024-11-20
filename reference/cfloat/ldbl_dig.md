@@ -15,8 +15,8 @@
 $$
 \left\{
 \begin{array}{ll}
-p \log_{10}b&amp;\text{もし $b$ が $10$ の累乗の場合}\\
-\lfloor (p - 1) \log_{10} b\rfloor&amp;\text{上記以外の場合}\\
+p \log_{10}b&\text{もし $b$ が $10$ の累乗の場合}\\
+\lfloor (p - 1) \log_{10} b\rfloor&\text{上記以外の場合}\\
 \end{array}
 \right.
 $$

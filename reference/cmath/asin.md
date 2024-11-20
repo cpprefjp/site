@@ -108,10 +108,10 @@ asin(1.0)   = 1.570796
 ## 実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \mathrm{Arcsin}~x = \sum_{n = 0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n + 1} \quad \mathrm{for} \; |x| &lt; 1 $$
+$$ \mathrm{Arcsin}~x = \sum_{n = 0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
-$|x| = 1$ 近傍の精度低下する領域（特に $1 / \sqrt{2} &lt; |x| \le 1$）においては、以下の公式による変換で精度向上を図れる。
+$|x| = 1$ 近傍の精度低下する領域（特に $1 / \sqrt{2} < |x| \le 1$）においては、以下の公式による変換で精度向上を図れる。
 
 $$ \mathrm{Arcsin}~x = \frac{\pi}{2} - \mathrm{Arccos}~x = \frac{\pi}{2} - \mathrm{Arcsin}~\sqrt{1 - x^2} \quad \mathrm{for} \; 0 \le x \le 1 $$
 

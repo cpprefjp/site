@@ -97,7 +97,7 @@ tanh(1.0)  = 0.761594
 ## 実装例
 `tanh` のマクローリン展開はベルヌーイ数が登場するため計算には向かない。
 
-$$ \tanh x = \sum_{n = 1}^{\infty} \frac{B_{2n}4^n(4^n - 1)}{(2n)!} x^{2n - 1} \quad \mathrm{for} \; |x| &lt; \frac{\pi}{2} $$
+$$ \tanh x = \sum_{n = 1}^{\infty} \frac{B_{2n}4^n(4^n - 1)}{(2n)!} x^{2n - 1} \quad \mathrm{for} \; |x| < \frac{\pi}{2} $$
 
 以下の公式から求めることができる。
 

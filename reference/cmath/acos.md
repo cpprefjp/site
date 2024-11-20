@@ -112,12 +112,12 @@ acos(-1.0) = 3.141593
 ## 実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \mathrm{Arccos}~x = \frac{\pi}{2} - \sum_{n = 0}^{\infty}\frac{\left(2n\right)!}{4^n\left(n!\right)^2\left(2n + 1\right)}x^{2n+1} \quad \mathrm{for} \; |x| &lt; 1 $$
+$$ \mathrm{Arccos}~x = \frac{\pi}{2} - \sum_{n = 0}^{\infty}\frac{\left(2n\right)!}{4^n\left(n!\right)^2\left(2n + 1\right)}x^{2n+1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 また、逆正接関数と逆余接関数の和は π / 2 なので [`asin`](asin.md) から求めることができる。
 
-$$ \mathrm{Arccos}~x = \frac{\pi}{2} - \mathrm{Arcsin}~x \quad \mathrm{for} \; |x| &lt; 1 $$
+$$ \mathrm{Arccos}~x = \frac{\pi}{2} - \mathrm{Arcsin}~x \quad \mathrm{for} \; |x| < 1 $$
 
 
 ## 参照

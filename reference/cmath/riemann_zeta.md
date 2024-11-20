@@ -41,11 +41,11 @@ namespace std {
 $$
 \zeta (x) = \begin{cases}
   \displaystyle
-  \sum_{k=1}^\infty k^{-x} &amp; \text{for } x > 1 \\
+  \sum_{k=1}^\infty k^{-x} & \text{for } x > 1 \\
   \displaystyle
-  \frac{1}{1 - 2^{1-x}} \sum_{k=1}^\infty (-1)^{k-1} k^{-x} &amp; \text{for } 0 \le x \le 1 \\
+  \frac{1}{1 - 2^{1-x}} \sum_{k=1}^\infty (-1)^{k-1} k^{-x} & \text{for } 0 \le x \le 1 \\
   \displaystyle
-  2^x \pi^{x-1} \sin \frac{\pi x}{2} \Gamma (1 - x) \zeta(1 - x) &amp; \text{for } x &lt; 0
+  2^x \pi^{x-1} \sin \frac{\pi x}{2} \Gamma (1 - x) \zeta(1 - x) & \text{for } x < 0
 \end{cases}
 $$
 を返す。

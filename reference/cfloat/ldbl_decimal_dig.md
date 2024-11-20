@@ -16,8 +16,8 @@
 $$
 \left\{
 \begin{array}{ll}
-p \log_{10} b&amp;\text{$b$ が $10$ の累乗の場合}\\
-\lceil 1 + p \log_{10} b\rceil&amp;\text{上記以外の場合}\\
+p \log_{10} b&\text{$b$ が $10$ の累乗の場合}\\
+\lceil 1 + p \log_{10} b\rceil&\text{上記以外の場合}\\
 \end{array}
 \right.
 $$

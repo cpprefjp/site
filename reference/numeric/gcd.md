@@ -164,6 +164,6 @@ int main() {
 
 ## 実装例
 $$ \mathrm{gcd}(m, n) = \begin{cases}
-  |m| &amp; \text{if } n = 0 \\
-  \mathrm{gcd}(n, m \bmod n) &amp; \text{otherwise}
+  |m| & \text{if } n = 0 \\
+  \mathrm{gcd}(n, m \bmod n) & \text{otherwise}
 \end{cases} $$

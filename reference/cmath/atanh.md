@@ -105,12 +105,12 @@ atanh(1.0)  = inf
 ## 実装例
 以下のマクローリン級数を適当な次数で打ち切ることで近似的に求めることができる。
 
-$$ \mathrm{artanh}~x = \sum_{n = 0}^{\infty} \frac{1}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| &lt; 1 $$
+$$ \mathrm{artanh}~x = \sum_{n = 0}^{\infty} \frac{1}{2n + 1} x^{2n + 1} \quad \mathrm{for} \; |x| < 1 $$
 
 
 または対数に変換して求めることができる。
 
-$$ \mathrm{artanh}~x = \frac{1}{2} \log_e \frac{1 + x}{1 - x} \quad \mathrm{for} \; |x| &lt; 1 $$
+$$ \mathrm{artanh}~x = \frac{1}{2} \log_e \frac{1 + x}{1 - x} \quad \mathrm{for} \; |x| < 1 $$
 
 
 ## 参照

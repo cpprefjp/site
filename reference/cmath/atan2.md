@@ -138,9 +138,9 @@ atan2(-1.0, 1.0)  = -0.785398
 $$
 \mathrm{Arctan}~\frac{y}{x} =
 \begin{cases}
-\displaystyle \mathrm{Arctan}~\frac{y}{x}       &amp; \quad \mathrm{for} \; 0 \le x \\[2ex]
-\displaystyle \mathrm{Arctan}~\frac{y}{x} + \pi &amp; \quad \mathrm{for} \; x &lt; 0, \; 0 \le y \\[2ex]
-\displaystyle \mathrm{Arctan}~\frac{y}{x} - \pi &amp; \quad \mathrm{for} \; x &lt; 0, \; y &lt; 0
+\displaystyle \mathrm{Arctan}~\frac{y}{x}       & \quad \mathrm{for} \; 0 \le x \\[2ex]
+\displaystyle \mathrm{Arctan}~\frac{y}{x} + \pi & \quad \mathrm{for} \; x < 0, \; 0 \le y \\[2ex]
+\displaystyle \mathrm{Arctan}~\frac{y}{x} - \pi & \quad \mathrm{for} \; x < 0, \; y < 0
 \end{cases}
 $$
 

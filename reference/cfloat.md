@@ -14,11 +14,11 @@ $$x = sb^e\sum^p_{k=1}f_kb^{-k},\qquad e_{\rm min} \le e \le e_{\rm max}$$
 
 $$
 \begin{array}{ll}
-s&amp;\text{符号($\pm 1$)}\\
-b&amp;\text{指数表現の基数(1 より大きい整数)}\\
-e&amp;\text{指数(最小 $e_{\rm min}$ 最大 $e_{\rm max}$ の整数)}\\
-p&amp;\text{精度(基数 $b$ での仮数部の桁数)}\\
-f_k&amp;\text{$b$ より小さい非負整数(仮数部の有効数字)}\\
+s&\text{符号($\pm 1$)}\\
+b&\text{指数表現の基数(1 より大きい整数)}\\
+e&\text{指数(最小 $e_{\rm min}$ 最大 $e_{\rm max}$ の整数)}\\
+p&\text{精度(基数 $b$ での仮数部の桁数)}\\
+f_k&\text{$b$ より小さい非負整数(仮数部の有効数字)}\\
 \end{array}
 $$
 
