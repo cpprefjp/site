@@ -50,13 +50,13 @@ return lexicographical_compare_three_way(
 
 int main()
 {
-  stdx::flat_map<int, char> fm1 = {
+  std::flat_map<int, char> fm1 = {
     {3, 'a'},
     {1, 'b'},
     {4, 'c'}
   };
 
-  stdx::flat_map<int, char> fm2 = {
+  std::flat_map<int, char> fm2 = {
     {3, 'a'},
     {1, 'b'},
   };

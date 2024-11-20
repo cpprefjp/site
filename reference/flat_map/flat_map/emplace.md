@@ -88,7 +88,7 @@ struct Point {
 
 int main()
 {
-  stdx::flat_map<std::string, Point> fm;
+  std::flat_map<std::string, Point> fm;
 
   fm.emplace(std::piecewise_construct,
              std::forward_as_tuple(3, 'C'), // キーの型std::stringのコンストラクタ引数を渡す
