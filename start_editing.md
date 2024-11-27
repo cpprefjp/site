@@ -300,6 +300,8 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
     - [集計ツール](https://github.com/cpprefjp/stats_contribution)の開発
     - 貢献ポイントの調整・ルール作り
     - `start_editing/contribution_stats_*.md`の編集
+4. スポンサーの追加・削除・修正
+5. 画像の追加・削除・修正
 
 貢献ポイントの集計方法として、以下の注意事項があります
 
@@ -309,6 +311,15 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 - 同ページ内に対する複数の修正は、大きい貢献ポイントにまとめる場合がある
     - リンク追加・修正を含む説明修正は、fixmやfixlなどにまとめる
 - 共同コミット (Co-author) は全員に貢献ポイントがつくものとする
+
+貢献ポイントの集計対象となるリポジトリは以下です
+
+- <https://github.com/cpprefjp/site>
+- <https://github.com/cpprefjp/site_generator>
+- <https://github.com/cpprefjp/markdown_to_html>
+- <https://github.com/cpprefjp/kunai>
+- <https://github.com/cpprefjp/kunai_config>
+- <https://github.com/boostjp/site>
 
 
 ### cpprefjp
@@ -320,7 +331,7 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 | cpprefjp/addref   | 20 | リファレンスを1ページ追加 |
 | cpprefjp/addlang  | 20 | 言語機能を1ページ追加 |
 | cpprefjp/addpage  | 20 | その他ページ追加 (articleや編集者向けページなど) |
-| cpprefjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位) |
+| cpprefjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位)、スクリプトによる一括修正 (スクリプトはtool系で別途評価) |
 | cpprefjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、サンプルコード追加、訳語追加 (訳語単位)、用語追加 (用語単位)。誤字・説明の言い換えの範囲を超える間違い修正。サンプルコードや仕様での変数名の間違い修正 (ページ単位) |
 | cpprefjp/fixl     | 10 | 既存ページへの修正 : large 仕様変更への対応。仕様記述のバグ修正。関連項目ではない関数一覧の表に関数を足すことも対象。実装例の追加 (ページ単位) |
 | cpprefjp/compiler |  2 | 動作確認できたコンパイラバージョンの記載、および処理系のバージョン情報。ライブラリ機能はページ単位、言語機能は件数単位、処理系のバージョン情報は件数単位 |
