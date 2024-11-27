@@ -35,7 +35,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
 | [`[[nodiscard]]`属性](cpp17/nodiscard.md)             | 戻り値を捨ててはならないことを指定する |
 | [値のコピー省略を保証](cpp17/guaranteed_copy_elision.md) | 右辺値を変数の初期化のために使用する場合、コピーもムーブも省略することを保証 |
 | [厳密な式の評価順](cpp17/expression_evaluation_order.md) | 式の評価順を規定する |
-| [参照メンバをもつクラスの置き換え](cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`メンバ変数を含むクラスについてこれまで結果は未定義とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする |
+| [参照メンバをもつクラスの置き換え](cpp17/replacement_of_class_objects_containing_reference_members.md) | 参照型メンバや`const`メンバ変数を含むクラスについてこれまで未定義動作とされていた配置`new`によるオブジェクトの置き換えを条件付きで可能とする |
 | [`enum class`変数の初期値として整数を指定する際の規則を調整](cpp17/construction_enum_class_values.md) | キャストを使用することなく整数を初期値として使用し、`E e{0};`のような初期化を許可 |
 | [アライメント指定されたデータの動的メモリ確保](cpp17/dynamic_memory_allocation_for_over-aligned_data.md) | `operator new`と`operator delete`でアライメント値を取得できるようにする |
 | [基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする](cpp17/extension_to_aggregate_initialization.md) | 基底クラスのメンバを集成体初期化するために、 `derived d {{42}};` の代わりに `derived d {42};` と書けるようにする |

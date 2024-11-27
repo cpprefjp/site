@@ -31,7 +31,7 @@
 
 int main ()
 {
-  stdx::flat_map<int, char> fm;
+  std::flat_map<int, char> fm;
 
   std::cout << fm.empty() << std::endl;
 

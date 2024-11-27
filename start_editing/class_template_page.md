@@ -1,6 +1,6 @@
 # page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください)
 
-([cpprefjpを編集するには](/start_editing.md) および [cpprefjp特有の拡張構文](specialized.md) を先に読んで下さい。)
+([cpprefjpを編集するには](/start_editing.md) および [cpprefjpでのMarkdown記法の制限と拡張](markdown_cpprefjp.md) を先に読んで下さい。)
 
 (
   サンプルコードは文章中のどの部分で書いても大丈夫です。閲覧者の理解を助けるために必要だと感じたところで入れてください。

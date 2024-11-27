@@ -51,6 +51,15 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
 - コード修飾の誤り検出 (code qualify checkアクション)
     - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
     - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/code_qualify_check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
+- 所属ヘッダメタ情報の誤り検出 (meta header checkアクション)
+    - `[meta header]`または`[meta module]`指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する
+    - 導入経緯は [PR#1204](https://github.com/cpprefjp/site/issues/1204) を参照
+- NGワードの検出 (ngword checkアクション)
+    - 日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する
+    - 具体的な対象ワードリストは[ngword_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py)を参照
+- 用語の誤った使い方を検出 (defined word checkアクション)
+    - 用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する
+    - 具体的な用語、許可した使い方、許可しない使い方は、[defined_word_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py)を参照
 
 
 ### 自動反映ツール
@@ -84,22 +93,14 @@ Markdownの記述方法をわかりやすく解説してくれているWebサイ
 ただし、cpprefjp特有の拡張構文もあります。
 以下のページにまとめてあるので、そちらを参照して下さい。
 
-- [cpprefjp特有の拡張構文](/start_editing/specialized.md)
+- [cpprefjpでのMarkdown記法の制限と拡張](/start_editing/markdown_cpprefjp.md)
 
-Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイトでは積極的にはHTMLタグを使用しない方針です。できるだけ、Markdown形式でできる範囲内で解決するようにしてください。
+Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイトでは積極的にはHTMLタグを使用しない方針で、許可されたタグのみ使用できます。できるだけ、Markdown形式でできる範囲内で解決するようにしてください。
 
 ただし、注釈・出典を貼るためにHTMLタグを利用します。
 
 - [cpprefjpにおける注釈・出典の貼り方](/start_editing/cite_note_ref.md)
 
-それ以外に本サイト内で使用しているHTMLタグは以下です：
-
-- アンカーを貼るために、`<a id="アンカー名">対象文字列</a>`のようなHTML5に基づく記法を利用している
-- 表内での改行のために、`<br/>`タグを利用している
-- 値の大きさを表現するために、上付き文字を表す`<sup>`タグを利用している
-- 添字を表現するために、下付き文字を表す`<sub>`タグを利用している
-
-また、Markdownパーサーの制限を回避し、表内で `|` (縦線、vertical line) を使用するために、文字参照 `&amp;#x7C;` を使用してます。
 
 新規リファレンスを書くにあたって、雛形ページを用意していますので、そちらをベースにして編集作業を行ってください。
 

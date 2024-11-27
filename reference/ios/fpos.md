@@ -63,4 +63,4 @@ using u32streampos = fpos<char_traits<char32_t>::state_type>;
 なお、`P(O(-1))`はエラー値である。`basic_istream`/`basic_ostream`/`basic_streambuf`では以下のように扱われる。
 
 - 戻り値としてこの値が返されれば、操作の失敗を表す。
-- 引数としてこの値が渡された場合、挙動は未定義となる。
+- 引数としてこの値が渡された場合、未定義動作を引き起こす。

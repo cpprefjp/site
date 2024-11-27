@@ -46,7 +46,7 @@ int main()
 {
   std::cout << flip(0) << std::endl;
   std::cout << flip(1) << std::endl;
-  // 例えば f(2) 呼び出しは未定義動作となる。
+  // 例えば f(2) 呼び出しは未定義動作を引き起こす。
 }
 ```
 * std::unreachable[color ff0000]

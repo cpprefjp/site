@@ -77,7 +77,7 @@ GCCやClangなど一部C++コンパイラでは独自拡張として同等機能
 
 ## 参照
 - [How do the likely/unlikely macros in the Linux kernel work and what is their benefit? - Stack Overflow](https://stackoverflow.com/questions/109710/)
-- [GCC __builtin_expect組み込み関数](https://gcc.gnu.org/onlinedocs/gcc/extensions-to-the-c-language-family/other-built-in-functions-provided-by-gcc.html)
-- [Clang __builtin_expect組み込み関数](https://llvm.org/docs/BranchWeightMetadata.html)
+- [GCC `__builtin_expect`組み込み関数](https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html)
+- [Clang `__builtin_expect`組み込み関数](https://llvm.org/docs/BranchWeightMetadata.html)
 - [P0479R2 Attributes for Likely and Unlikely Statements (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0479r2.html)
 - [P0479R5 Proposed wording for likely and unlikely attributes (Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0479r5.html)

@@ -57,8 +57,8 @@ int main()
   // うるう秒
   chrono::leap_second_info info = chrono::get_leap_second_info(ut);
 
-  std::cout << tt << std::endl;
-  std::cout << ut << std::endl;
+  std::cout << tt << " GPS" << std::endl;
+  std::cout << ut << " UTC" << std::endl;
   std::cout << info.elapsed.count() << std::endl;
 }
 ```
@@ -73,7 +73,7 @@ int main()
 
 ### 出力
 ```
-2019-10-24 00:00:27 GPS
+2019-10-24 00:00:18 GPS
 2019-10-24 00:00:00 UTC
 27
 ```
@@ -84,5 +84,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 13.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

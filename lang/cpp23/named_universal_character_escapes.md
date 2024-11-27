@@ -16,15 +16,9 @@
 
 構文としては`u8"\N{LATIN CAPITAL LETTER A WITH MACRON}"`のように、`\N{…}`の波カッコで囲まれた中に、ユニバーサルキャラクタ名を入力する。
 
-使用可能な文字はUnicode規格ISO/IEC 10646で定義される。
+使用可能な文字はUnicode規格ISO/IEC 10646で定義され、それと厳密に一致しなければならない（大文字と小文字の違いやスペースの有無・数などが厳密にチェックされる）。
 
-名前のマッチングは[UAX44-LM2](https://www.unicode.org/reports/tr44/tr44-24.html#UAX44-LM2)を参照しており、これによって
-
-- 大文字・小文字を区別しない
-- ハイフンの省略
-- アンダースコアをハイフンに置換
-
-するなど、柔軟な指定ができるようになっている。例として、以下の名前はすべて`U+200B` (ZERO WIDTH SPACE、ゼロ幅スペース) を表すものとして使用できる：
+このユニコード名のマッチングを規定する[UAX44-LM2](https://www.unicode.org/reports/tr44/tr44-24.html#UAX44-LM2)では、以下の名前はすべて`U+200B` (ZERO WIDTH SPACE、ゼロ幅スペース) を表すものとしてマッチングされるが、C++の名前付きユニバーサルキャラクタ名では一番最初の`ZERO WIDTH SPACE`のみが正しい名前として受け入れられる。
 
 ```
 ZERO WIDTH SPACE
@@ -32,7 +26,6 @@ ZERO-WIDTH SPACE
 zero-width space
 ZERO width S P_A_C E
 ```
-
 
 ## 例
 ```cpp example
@@ -61,6 +54,6 @@ int main()
 - [C++11 `char16_t`と`char32_t`](/lang/cpp11/char16_32.md)
 
 ## 参照
-- [P2173R1 Attributes on Lambda-Expressions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2173r1.pdf)
+- [P2071R2 Named universal character escapes](https://www.open-std.org/JTC1/SC22/WG21/docs/papers/2022/p2071r2.html)
 - [Unicode Character “Ā” (U+0100)](https://www.compart.com/en/unicode/U+0100)
 - [Unicode Character “◌̀” (U+0300)](https://www.compart.com/en/unicode/U+0300)
