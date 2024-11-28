@@ -303,6 +303,8 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
     - `start_editing/contribution_stats_*.md`の編集
 4. スポンサーの追加・削除・修正
 5. 画像の追加・削除・修正
+6. 巻き戻した変更 (revert)
+7. package-lock.jsonの更新
 
 貢献ポイントの集計方法として、以下の注意事項があります
 
@@ -320,6 +322,7 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 - <https://github.com/cpprefjp/markdown_to_html>
 - <https://github.com/cpprefjp/kunai>
 - <https://github.com/cpprefjp/kunai_config>
+- <https://github.com/cpprefjp/crsearch>
 - <https://github.com/boostjp/site>
 
 
@@ -347,7 +350,7 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 | boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
 | boostjp/link     |  2 | 関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位) |
 | boostjp/releases |  5 | Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート |
-| boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : 10行以下の中程度の大きさ |
+| boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : タイトル含めず10行以下の中程度の大きさ。新ライブラリ。既知の問題 (ライブラリ単位) |
 | boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ |
 | boostjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位) |
 | boostjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、訳語追加 (ページ単位) |
@@ -362,9 +365,9 @@ CIスクリプト、site_generator、kunaiなど。
 |-----|---------|------|
 | tool/fixbug     | 30 | バグ修正 |
 | tool/improves   | 10 | コード改善 : small。typo検出テーブルへの追加 |
-| tool/improvem   | 30 | コード改善 : medium |
+| tool/improvem   | 30 | コード改善 : medium。git submodule / npm moduleのリリース作業 (package.jsonの更新) |
 | tool/improvel   | 50 | コード改善 : large |
-| tool/updatelib  | 20 | 依存ライブラリのアップデート (直接使用のライブラリ単位) |
+| tool/updatelib  | 20 | 外部依存ライブラリのアップデート (直接使用のライブラリ単位) |
 | tool/updatelang | 10 | 使用言語のアップデート : small (とくにコード変更なく更新できた) |
 | tool/updatelang | 30 | 使用言語のアップデート : medium (多少のコード修正で更新できた) |
 | tool/updatelang | 50 | 使用言語のアップデート : large (大きいまたはむずかしいコード修正をして更新できた) |

@@ -6,8 +6,8 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, 41bca76] | cpprefjp/typo:1 | `generator/begin`: fix typo |
-| [commit cpprefjp/site, bd48ead, 27f5df0, ab69dd, c6bde83, 5e25d82] | cpprefjp/addref:9, cpprefjp/fixs:1, cpprefjp/fixm:1, cpprefjp/link:1 | `generator/promise_type`のリファレンス作成 |
-| [commit cpprefjp/site, 384970] | cpprefjp/fixs:1 | cpp20/coroutines: 微調整 |
+| [commit cpprefjp/site, bd48ead, 27f5df0, ab69dd5, c6bde83, 5e25d82] | cpprefjp/addref:9, cpprefjp/fixs:1, cpprefjp/fixm:1, cpprefjp/link:1 | `generator/promise_type`のリファレンス作成 |
+| [commit cpprefjp/site, 384970b] | cpprefjp/fixs:1 | cpp20/coroutines: 微調整 |
 | [commit cpprefjp/site, 09c61f9] | cpprefjp/fixm:1 | `generator`: 例示コード拡充 |
 | [commit cpprefjp/site, 66d4dc6] | cpprefjp/fixm:1, cpprefjp/fixs:1 | generator: クラスユーザ観点での説明追加 |
 | [commit cpprefjp/site, 1f03563] | cpprefjp/fixl:4 | `coroutine`: LWG3460を反映 |
@@ -29,7 +29,7 @@
 | [commit cpprefjp/site, 382c5a5] | cpprefjp/addref:6, cpprefjp/fixl:1, cpprefjp/fixm:1 | `memory`: P1132R8 `out_ptr_t`,`out_ptr`追加 |
 | [commit cpprefjp/site, bc11699] | cpprefjp/link:1 | international-standard: fix N4928 link |
 | [commit cpprefjp/site, a7b1a5e, 731e1ea] | cpprefjp/addref:6, cpprefjp/link:2 | `memory`: P1132R8 `inout_ptr_t`,`inout_ptr`追加 |
-| [commit cpprefjp/site, 7389f02, [96e93fc, f853910, 01eb348, 684d1f0, 63e429d, 1146719] | cpprefjp/addref:10, cpprefjp/fixl:1, cpprefjp/fixm:1, cpprefjp/link:1 | `functional`: P0288R9 `move_only_function`追加 |
+| [commit cpprefjp/site, 7389f02, 96e93fc, f853910, 01eb348, 684d1f0, 63e429d, 1146719] | cpprefjp/addref:10, cpprefjp/fixl:1, cpprefjp/fixm:1, cpprefjp/link:1 | `functional`: P0288R9 `move_only_function`追加 |
 | [commit cpprefjp/site, 7208b79] | cpprefjp/fixm:1 | `generator`: 微調整 |
 | [commit cpprefjp/site, 04e52ed] | cpprefjp/fixm:1, cpprefjp/fixs:1 | 訳語表: "program-defiend type"を追加 |
 | [commit cpprefjp/site, 0201450] | cpprefjp/fixm:2 | `span`,`basic_string_view`: P2251対応 |
@@ -180,11 +180,11 @@
 | [commit cpprefjp/site, da9fc6a] | | 貢献ポイント : マージされずクローズされたPR、マージされずオープンなままのPRについて記載 |
 | [commit cpprefjp/site, 4dfdb3a, 3104eb3, 7326dd7, 2ef44e2, 8cb09b8, 11b8c7e] | cpprefjp/fixm:1 | index : 時雨堂さまのロゴとリンクを掲載 |
 | [commit cpprefjp/site, cefc9fa], [commit boostjp/site, 2c6589b] | tool/fixbug:2 | buildアクション : Pythonを3.11に固定 (3.12でエラーがでた) |
-| [commit cpprefjp/site, 6345a65] | tool/improvem:1 | Google Analytics GA4を設定 |
-| [commit cpprefjp/site, 9b8dc0d, 91b3abb, b375504] | tool/improvem:1 | 編集者向け資料をリネーム |
+| [commit cpprefjp/site_generator, 6345a65] | tool/improvem:1 | Google Analytics GA4を設定 |
+| [commit cpprefjp/kunai_config, 9b8dc0d, 91b3abb], [commit cpprefjp/kunai, b375504] | tool/improvem:1 | 編集者向け資料をリネーム |
 | [commit cpprefjp/site, 9b1cdc2, 863b2d6, bdccb2d] | tool/adds:1 | 編集方針を追加 |
-| [commit cpprefjp/site, b7b8513] | tool/improves:1 | 画像の最大幅を設定 |
-| [commit cpprefjp/site, b206bad] | tool/improves:1 | codeタグ中の末尾スペースが消えてしまっていた問題を修正 |
+| [commit cpprefjp/kunai, b7b8513] | tool/improves:1 | 画像の最大幅を設定 |
+| [commit cpprefjp/kunai, b206bad] | tool/improves:1 | codeタグ中の末尾スペースが消えてしまっていた問題を修正 |
 | [commit boostjp/site, 368ecfc, 075dd40, aa9e52b, c8d6259, 5d2c514, d813d6a] | boostjp/releasel:8, boostjp/releasem:19, boostjp/releases:1, boostjp/link:1 | 1.82.0リリースノート |
 | [commit boostjp/site, 0bb4c21, 34205bb, 403bc7b, cd1c5f8] | boostjp/releasel:4, boostjp/releasem:25, boostjp/releases:1, boostjp/link:1 | 1.83.0リリースノート |
 | [commit cpprefjp/site, bf70875] | | 貢献ポイント : 集計中に必要となった貢献ポイントの項目を追加 |
@@ -232,8 +232,8 @@
 | [commit cpprefjp/site, 663009e] | cpprefjp/typo:1 | remove # |
 | [commit cpprefjp/site, 5281313] | cpprefjp/typo:1 | fix title(prev -> next) |
 | [commit cpprefjp/site, 1117ef2] | cpprefjp/typo:1 | fix typo |
-| [commit cpprefjp/site, 8a693a4] | tool/improves:1 | Fix font size of `<code>` on headers |
-| [commit cpprefjp/site, e4d608c] | tool/improves:1 | make padding 90% |
+| [commit cpprefjp/kunai, 8a693a4] | tool/improves:1 | Fix font size of `<code>` on headers |
+| [commit cpprefjp/kunai, e4d608c] | tool/improves:1 | make padding 90% |
 
 
 ## [suomesta](https://github.com/suomesta)
@@ -565,7 +565,7 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefp/site, 3021561] | cpprefjp/typo:1 | ICXのリンクラベルを修正しました |
+| [commit cpprefjp/site, 3021561] | cpprefjp/typo:1 | ICXのリンクラベルを修正しました |
 
 
 ## [suzuki-kei](https://github.com/suzuki-kei)

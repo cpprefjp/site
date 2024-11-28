@@ -29,9 +29,9 @@
 | [commit cpprefjp/site, fe170bc, dd46a05] | cpprefjp/link:2, cpprefjp/addlang:1 | 解説を追加: 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定 |
 | [commit cpprefjp/site, a199a49, 6c5bf9b] | cpprefjp/fixm:1 | Update lifetime_extension_in_range_based_for_loop.md |
 | [commit cpprefjp/site, 613f556] | cpprefjp/link:1 | 基礎的なRange関連キーワードを追加 |
-| [commit cpprefjp/site, 3983f02, 2f19f57, 674da11, 24fe7f1, ff47b79, d7a2efb] | cpprefjp/addref:1, cpprefjp/link:4 | `ranges::to`の説明を追加 |
+| [commit cpprefjp/site, 3983f02, 2f19f57, 674da11, 24fe7f1, ff47b79, d7a2efb, 7de1886, f001592] | cpprefjp/addref:1, cpprefjp/link:5 | `ranges::to`の説明を追加 |
 | [commit cpprefjp/site, 089593d] | cpprefjp/link:1 | C++23目次のリンク修正 |
-| [commit cpprefjp/site, 8fa793b, 8dec62d, e6fcf74] | cpprefjp/addref:1, cpprefjp/link:3, cpprefjp/fixm:1 | `views::join_with` の説明を追加 |
+| [commit cpprefjp/site, 8fa793b, 8dec62d, e6fcf74, a5a2bc7] | cpprefjp/addref:1, cpprefjp/link:3, cpprefjp/fixm:1 | `views::join_with` の説明を追加 |
 | [commit cpprefjp/site, badecd6] | cpprefjp/fixm:1 | `transform_view`: 例を追加 |
 | [commit cpprefjp/site, 95a8299] | cpprefjp/link:8 | 一部リンクをN4950へのリンクに修正 |
 | [commit cpprefjp/site, 19cfa92] | cpprefjp/link:1 | リンク追加 |
@@ -101,6 +101,8 @@
 | [commit cpprefjp/site, 0a2aa08] | cpprefjp/fixl:1 | `split_view`の外側rangeは常に`.back()`を持たない |
 | [commit cpprefjp/site, abe6cbe] | cpprefjp/fixl:1 | 名前付きユニバーサルキャラクタ名: マッチングについて修正 |
 | [commit cpprefjp/site, 5151c6a] | cpprefjp/fixl:1 | P2334R1 : elifはあった |
+| [commit cpprefjp/site, f222955, c4adceb, 8aea300, 54a9faf, 3283bd0, 339d311, fd536f9, c7c70e6, 3888639, 964e2a0, ac9e77e, 505a007, 43c113a, 5b1d104, 4879042, b9c8967, 005ac4a, 379e1b0, 622ede1, bb6a439, e49fbcd, eff2b0b] | cpprefjp/addref:2 | fold |
+| [commit cpprefjp/site, e75774c] | cpprefjp/fixm:1 | 未初期化領域への暗黙的なオブジェクト構築 : 箇条書きのインデント修正 |
 
 
 ## [ToruNiina](https://github.com/ToruNiina)
@@ -204,8 +206,8 @@
 | [commit cpprefjp/site, c7e4c78] | cpprefjp/fixm:1 | `exponential_distribution` : 例を追加 |
 | [commit cpprefjp/site, 9dae3cf] | cpprefjp/fixm:1 | `matrix_inf_norm` / `matrix_one_norm` : 番号付きリストが通常のリストになってしまう問題を修正 |
 | [commit cpprefjp/site, 4baab1d] | | スポンサー更新 |
-| [commit cpprefjp/site, 7e2cd22, 53c02d0, ba894d0] | | トップページ : スポンサーの掲載期限をチェックするために新規構文を導入 |
-| [commit cpprefjp/site, 21b92fb] | tool/improves, cpprefjp/fixs:18 | 用語統一 : 括弧 → カッコ |
+| [commit cpprefjp/site, 7e2cd22, 53c02d0, ba894d0], [commit cpprefjp/site_generator, 3e0a55f, a5b0e83], [commit cpprefjp/markdown_to_html, f95588d, 2ce6b71] | | スポンサーの掲載期限をチェックするために新規構文を導入 |
+| [commit cpprefjp/site, 21b92fb] | tool/improves:1, cpprefjp/fixs:18 | 用語統一 : 括弧 → カッコ |
 | [commit cpprefjp/site, 2285ef5] | cpprefjp/link:2 | accumulateとreduceを相互に関連項目として記載 |
 | [commit cpprefjp/site, 1052eda] | cpprefjp/link:3 | partial_sum, inclusive_scan, exclusive_scanを相互に関連項目として記載 |
 | [commit cpprefjp/site, b999909] | cpprefjp/fixl:1 | C++26のWorking Draftを更新 |
@@ -256,10 +258,24 @@
 | [commit cpprefjp/site, daf7534] | cpprefjp/fixl:1 | functionのコンストラクタ : C++23での`function(F)`から`function(F&&)`への変更を記載 |
 | [commit cpprefjp/site, 710972a] | cpprefjp/fixm:1 | 用語の誤った使い方を検出するCIの説明を追加 |
 | [commit cpprefjp/site, be99b9a] | cpprefjp/addlang:2, cpprefjp/fixl:1, cpprefjp/link:3 | C++26: 「非推奨となっていた列挙型の算術変換を削除」と関連するC++20仕様変更を追加 |
-| [commit cpprefjp/site, 52896ca] | cpprefjp/improvem:1 | 外部リンクチェック : コミットへのリンクをチェック対象外にした |
+| [commit cpprefjp/site, 52896ca] | tool/improvem:1 | 外部リンクチェック : コミットへのリンクをチェック対象外にした |
 | [commit cpprefjp/site, 165353e] | cpprefjp/fixs:2 | 言語機能の注意文章を更新 |
 | [commit cpprefjp/site, 1714d22, 1395fe5, 4a8c6fa, a9aca40, c747f4a, aacc4df] | cpprefjp/fixl:2, cpprefjp/link:10 | NOTICE.mdでのMarkdown記法の制限を、拡張ページと統合 |
 | [commit cpprefjp/site, ea0f0c5] | cpprefjp/link:2 | GCC Webサイトのリンク切れを修正 |
+| [commit cpprefjp/site_generator, bfe1e6e, f78cf68, c4b7544, 9113e41], [commit cpprefjp/kunai, 3579e19, ba7dd4e] | | アイコンをv2.0に更新 |
+| [commit cpprefjp/site_generator, 6dd1cca] | | update markdown_to_html |
+| [commit cpprefjp/site_generator, 11109cf, 078285c] | tool/improvem:2 | MathJaxのブロック数式 : 左に詰まっていたのでインデントをつけた |
+| [commit cpprefjp/site_generator, 6f4a520, 227aa44, 2e710d5], [commit cpprefjp/markdown_to_html, 160e85e, f4185da] | tool/improvel:1, tool/addl:1 | コンパイラの動作確認用に絵文字を表示する機能を追加 |
+| [commit cpprefjp/markdown_to_html, 533bf5f] | tool/improvem:1 | ページタイトルをキーワードリンクの対象から外す |
+| [commit cpprefjp/kunai, 4cfc0eb] | tool/improvem:2 | v3.0.9 |
+| [commit cpprefjp/kunai, 0e47639] | tool/improvem:1 | crsearchを更新 |
+| [commit cpprefjp/kunai, 42b7fc2] | tool/improvem:4 | 1ページ目しか印刷されない問題を修正 |
+| [commit cpprefjp/kunai, bdccb2d, 863b2d6], [commit cpprefjp/kunai_config, 9b1cdc2] | tool/improvem:3 | 編集方針ページを追加 |
+| [commit boostjp/site, 402cf12, d2b17ae] | boostjp/releasem:2, boostjp/releasel:1 | 1.84.0: Geometry, JSON, Asio |
+| [commit boostjp/site, cf9bb0d, 558fa8a, dcea9c7, 66b1a90, e5ca43b, 2f70ad3] | boostjp/link:1, boostjp/releases:4, boostjp/releasem:23, boostjp/releasel:7 | 1.85.0 |
+| [commit boostjp/site, 1884532] | boostjp/fixm:1 | トップページ : HTMLのダウンロードリンクを記載 |
+| [commit boostjp/site, e8bdc89, c6799f6, 1cfaf2d] | boostjp/link:1, boostjp/releases:1, boostjp/releasem:25, boostjp/releasel:7 | 1.86.0 |
+| [commit cpprefjp/site, 81b7ad4, 38415a8, 5e6d491, 6585622] | | 2024年度の貢献ポイントまとめ (TODO: Squash Mergeするのであとで消す) |
 
 
 ## [suomesta](https://github.com/suomesta)
@@ -463,6 +479,7 @@
 | [commit cpprefjp/site, 28eb999] | cpprefjp/fixl:1, cpprefjp/link:1 | 標準規格と処理系: エラー性の動作を言及 |
 | [commit cpprefjp/site, ca64b9a] | cpprefjp/fixm:1 | GLOBAL_DEFINED_WORDS: 読み仮名を補完 |
 | [commit cpprefjp/site, 5259ff6] | cpprefjp/fixm:4 | `unordered_{map,set}/*/insert_range`: 「コードブロックのあとに空行が必要な制限」に纏わる修正 |
+| [commit cpprefjp/site_generator, 7bb8a95, 340f778, 69881c0, 3d0aa6b], [commit cpprefjp/markdown_to_html, 09e3f63, 3d0aa6b], [commit cpprefjp/kunai, f2a4162, 93678a3, 8e1dbf1, ef44d54, b66c4d7, 9c16b08], [commit cpprefjp/crsearch, 7ef2d8d, c8a7a35, 6f1b714, 0fab6a0], [commit boostjp/site, 4aae24a, d155fa1] | boostjp/link:6, tool/improves:3, tool/improvem:3, tool/improvel:21 | 内部リンクを相対リンクで生成する機能 |
 
 
 ## [Nagarei](https://github.com/Nagarei)
@@ -490,6 +507,7 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, 5871133] | cpprefjp/typo:1 | `std::piecewise_linear_distribution::min` の `min` が `mix` になっていたのを修正しました |
+| [commit cpprefjp/site, 40638a6] | cpprefjp/typo:1 | fix typo in constexpr_lambda.md |
 
 
 ## [kusunosetoru](https://github.com/kusunosetoru)
@@ -583,11 +601,14 @@ vector_two_norm.md
 
 | コミット | タグ | 説明 |
 |----------|------|------|
+| [commit cpprefjp/site, 005f130] | | Revert "Merge branch 'master' |
 | [commit cpprefjp/site, 0b27920] | cpprefjp/fixm:12 | インラインコードブロックの範囲を修正 |
 | [commit cpprefjp/site, ddd8063] | cpprefjp/fixm:10 | インラインコードブロックの全角文字の typo を修正 |
 | [commit cpprefjp/site, d9d9c67] | cpprefjp/typo:1 | fix typo |
 | [commit cpprefjp/site, f9d46be] | cpprefjp/fixm:1 | コメントの誤りを修正 |
 | [commit cpprefjp/site, 24f1649] | cpprefjp/fixl:1 | `llrint()` のページの `lround()` を `llround()` に変更 |
+| [commit cpprefjp/kunai, d0c3aed] | tool/improvem:1 | メンバ関数のそれぞれの項目の左隣に余計な下線が出る問題を修正 |
+| [commit cpprefjp/kunai, cc5601f] | tool/improvem:1 | インラインコードブロックがはみ出さないように修正 |
 
 
 ## [zbdk](https://github.com/zbdk)
@@ -649,4 +670,22 @@ vector_two_norm.md
 |----------|------|------|
 | [commit cpprefjp/site, eee0ae9] | cpprefjp/fixl:1 | コンストラクタ引数の誤りを修正 |
 | [commit cpprefjp/site, 3f56e5b] | cpprefjp/typo:1 | fix typo |
+
+
+## [ROCKTAKEY](https://github.com/ROCKTAKEY)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit boostjp/site, cde7074] | boostjp/fixm:1 | `std::tuple`へのリンクを追加 |
+| [commit boostjp/site, aad03ea] | boostjp/fixm:1 | `std::array`へのリンクを追加 |
+| [commit boostjp/site, 37e7f74] | boostjp/fixm:1 | `std::function`へのリンクを追加 |
+| [commit boostjp/site, b264472] | boostjp/fixm:1 | `<filesystem>`へのリンクを追加 |
+| [commit boostjp/site, c7cf8fb] | boostjp/fixm:1 | `std::format`へのリンクを追加 |
+| [commit boostjp/site, e14da03] | boostjp/fixm:1 | `std::move`へのリンクを追加 |
+| [commit boostjp/site, 022a200] | boostjp/fixm:1 | C++11のラムダ式へのリンクを追加 |
+| [commit boostjp/site, b6e1437] | boostjp/fixm:1 | `std::bind`へのリンクを追加 |
+| [commit boostjp/site, eab43a6] | boostjp/fixm:1 | C++11で追加された乱数ライブラリへのリンクを追加 |
+| [commit boostjp/site, cb4363b] | boostjp/fixm:1 | C++11で追加されたスマートポインタへのリンクを追加 |
+| [commit boostjp/site, f75e7b5] | boostjp/fixm:1 | `std::thread`へのリンクを追加 |
+| [commit boostjp/site, cd17af6] | boostjp/fixm:1 | `<type_traits>`へのリンクを追加 |
 
