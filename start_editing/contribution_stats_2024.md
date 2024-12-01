@@ -527,63 +527,6 @@
 | [commit cpprefjp/site, 9df544a] | cpprefjp/fixm:2 | multisetとmultimapのmergeの説明の修正とICCのバージョンの追加 |
 | [commit cpprefjp/site, 00567b3, 54bc557] | cpprefjp/fixs:1 | 誤植を訂正 |
 
-memo:
-
-conj-if-needed.md (fixl)
-layout_blas_packed (fixl)
-abs-if-needed.md
-add.md
-addable.md
-apply_givens_rotation.md
-compatible-static-extents.md
-copy
-dot
-dotc
-explicit_diagonal_t.md
-hermitian_martix_product
-hermitian_matrix_rank_1_update
-hermitian_matrix_rank_2_update
-hermitian_matrix_rank_k_update
-hermitian_matrix_rank_2k_update
-hermitian_matrix_vector_product
-imag-if-needed.md
-implicit_unit_diagonal_t.md
-is_mdspan.md
-lower_triangle_t.md
-matrix_frob_norm
-matrix_inf_norm
-matrix_one_norm
-matrix_product
-matrix_rank_1_update
-matrix_rank_1_update_c
-matrix_vector_product.md
-multipliable.md
-possibly-addable.md
-possibly-multipliable.md
-real-if-needed.md
-scale
-setup_givens_rotation.md
-setup_givens_rotation_result.md
-sum_of_squares_result.md
-swap_elements
-symmetric_matrix_product
-symmetric_matrix_rank_1_update
-symmetric_matrix_rank_2_update
-symmetric_matrix_rank_k_update
-symmetric_matrix_rank_2k_update
-symmetric_matrix_vector_product
-triangular_matrix_product
-triangular_matrix_vector_product
-triangular_matrix_vector_solve
-triangular_matrix_left_product
-triangular_matrix_right_product
-triangular_matrix_matrix_left_solve
-triangular_matrix_matrix_right_solve
-upper_triangle_t.md
-vector_abs_sum.md
-vector_idx_abs_max
-vector_sum_of_squares.md
-vector_two_norm.md
 
 ## [yuina-blend](https://github.com/yuina-blend)
 
