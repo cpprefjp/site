@@ -35,7 +35,7 @@ thread(thread&&) noexcept;              // (4)
     もし[`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`呼び出しからcatchされない例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)が呼び出されてプログラムは異常終了する。
 
 
-## 同期
+## 同期操作
 - (2) : 同コンストラクタの呼び出し完了は、fのコピーの呼び出し開始と**同期する**。つまり、「コンストラクタ呼び出し側スレッドT0でのコンストラクタ呼び出し完了」は、「新しいスレッド`T1`上での`f`のコピーの呼び出し開始」よりも**前に発生する**。
 
 
