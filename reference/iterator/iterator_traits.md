@@ -95,46 +95,46 @@ namespace std {
     - この時、`I::pointer`も定義されているならば、`pointer`はそれを用いて定義される。
 
 - いずれかのメンバ型が定義されておらず、`I`が`cpp17-input-iterator`コンセプトを満たす場合、それぞれのメンバ型は次のように定義される
-  ```cpp
-  using difference_type   = typename incrementable_traits<I>::difference_type;
-  using value_type        = typename indirectly_readable_traits<I>::value_type;
-  using pointer           = /*see below*/;
-  using reference         = /*see below*/;
-  using iterator_category = /*see below*/;
-  ```
-  * see below[italic]
-  * indirectly_readable_traits[link /reference/iterator/indirectly_readable_traits.md]
-  * incrementable_traits[link /reference/iterator/incrementable_traits.md]
-  * iter_reference_t[link /reference/iterator/iter_reference_t.md]
+    ```cpp
+    using difference_type   = typename incrementable_traits<I>::difference_type;
+    using value_type        = typename indirectly_readable_traits<I>::value_type;
+    using pointer           = /*see below*/;
+    using reference         = /*see below*/;
+    using iterator_category = /*see below*/;
+    ```
+    * see below[italic]
+    * indirectly_readable_traits[link /reference/iterator/indirectly_readable_traits.md]
+    * incrementable_traits[link /reference/iterator/incrementable_traits.md]
+    * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
     - `pointer`は、上から順に次のいずれか
-      ```cpp
-      using pointer = I::pointer;
-      using pointer = decltype(declval<I&>().operator->());
-      using pointer = void;
-      ```
+    ```cpp
+    using pointer = I::pointer;
+    using pointer = decltype(declval<I&>().operator->());
+    using pointer = void;
+    ```
 
     - `reference`は、上から順に次のいずれか
-      ```cpp
-      using reference = typename I::reference;
-      using reference = iter_reference_t<I>;
-      ```
+    ```cpp
+    using reference = typename I::reference;
+    using reference = iter_reference_t<I>;
+    ```
 
     - `iterator_category`は、上から順に次のいずれか
         - `I`が`cpp17-random-access-iterator`コンセプトを満たす場合、`random_access_iterator_tag`
         - `I`が`cpp17-bidirectional-iterator`コンセプトを満たす場合、`bidirectional_iterator_tag`
         - `I`が`cpp17-forward-iterator`コンセプトを満たす場合、`forward_iterator_tag`
         - それ以外の場合、`input_iterator_tag`
-      
+
 
 - そうではなく、`I`が`cpp17-iterator`コンセプトを満たす場合、それぞれのメンバ型は次のように定義される
-  ```cpp
-  using difference_type   = typename incrementable_traits<I>::difference_type;
-  using value_type        = void;
-  using pointer           = void;
-  using reference         = void;
-  using iterator_category = output_iterator_tag;
-  ```
+    ```cpp
+    using difference_type   = typename incrementable_traits<I>::difference_type;
+    using value_type        = void;
+    using pointer           = void;
+    using reference         = void;
+    using iterator_category = output_iterator_tag;
+    ```
 
     - この時、`incrementable_traits<I>::difference_type`が定義されない場合、`difference_type = void`
 

@@ -99,20 +99,20 @@ constexpr basic_string&
     - `assign(il.begin(), il.end())`を呼び出す。
 - (9) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する範囲をコピーして、`basic_string`オブジェクトを構築する。  
 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return assign(sv.data(), sv.size());
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return assign(sv.data(), sv.size());
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 - (10) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`が参照する文字列を範囲指定でコピーして、`basic_string`オブジェクトを構築する。  
 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return assign(sv.substr(pos, n));
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * substr[link /reference/string_view/basic_string_view/substr.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return assign(sv.substr(pos, n));
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
+    * substr[link /reference/string_view/basic_string_view/substr.md]
 
 
 ## 戻り値

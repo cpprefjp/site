@@ -118,19 +118,19 @@ constexpr basic_string&
 - (8) : `insert(p -` [`begin()`](begin.md)`, basic_string(first, last))`と等価の効果を持つ。
 - (9) : `insert(p, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`end()`](/reference/initializer_list/initializer_list/end.md)`)`
 - (10) : 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return insert(pos1, sv.data(), sv.size());
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return insert(pos1, sv.data(), sv.size());
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 - (11) : 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return insert(pos1, sv.substr(pos2, n));
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * substr[link /reference/string_view/basic_string_view/substr.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return insert(pos1, sv.substr(pos2, n));
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
+    * substr[link /reference/string_view/basic_string_view/substr.md]
 
 
 ## 戻り値

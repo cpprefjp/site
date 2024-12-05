@@ -22,16 +22,16 @@ constexpr pointer operator->() const  // C++20
 - C++14 : [`addressof`](/reference/memory/addressof.md)`(operator*())`
 - C++20 : 次のいずれか
     - `Iterator`がポインタ型である場合
-      ```cpp
-      return prev(current);
-      ```
-      * prev[link /reference/iterator/prev.md]
+    ```cpp
+    return prev(current);
+    ```
+    * prev[link /reference/iterator/prev.md]
 
     - それ以外の場合
-      ```cpp
-      return prev(current).operator->();
-      ```
-      * prev[link /reference/iterator/prev.md]
+    ```cpp
+    return prev(current).operator->();
+    ```
+    * prev[link /reference/iterator/prev.md]
 
 ## 例
 ```cpp example
