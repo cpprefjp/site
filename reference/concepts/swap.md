@@ -29,7 +29,7 @@ namespace std::ranges {
    ```
 
 2. `a, b`が共に同じ長さの配列型の左辺値であり、`ranges::swap(*a, *b)`が呼び出し可能ならば`ranges::swap_ranges(a, b)`
-      - 1か3に委譲して要素毎に`swap`される
+    - 1か3に委譲して要素毎に`swap`される
 
 3. `a, b`が共に同じ型`T`の左辺値であり、`T`と`T&`は[`move_constructible<T>`](move_constructible.md)及び[`assignable_from<T&, T>`](assignable_from.md)のモデルとなる場合、[`std::swap()`](/reference/utility/swap.md)相当の操作によって`a, b`の値を交換する。
 
@@ -56,9 +56,9 @@ namespace std::ranges {
 1. 呼び出される`swap(a, b)`（及び、もし返されるのならば戻り値のデストラクタ）が定数評価可能であるかに従う。
 2. `a, b`の要素型によって、1か3に従う
 3. 以下の条件を全て満たす場合に定数評価可能
-      - `T`はリテラル型である
-      - `a = std::move(b), b = std::move(a)`は共に定数評価可能
-      - 次のような初期化式が定数評価可能
+    - `T`はリテラル型である
+    - `a = std::move(b), b = std::move(a)`は共に定数評価可能
+    - 次のような初期化式が定数評価可能
         ```cpp
         T t1(std::move(a));
         T t2(std::move(b));

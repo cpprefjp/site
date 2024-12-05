@@ -103,11 +103,11 @@ namespace std::linalg {
 
 ## 適格要件
 - 共通:
-  + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
-  + `DiagonalStorage`は[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
-  + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(y)>(0, 0)`が`true` (つまり`A`の次元と`y`の次元が同じであること)
+    + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
+    + `DiagonalStorage`は[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
+    + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(y)>(0, 0)`が`true` (つまり`A`の次元と`y`の次元が同じであること)
 - (1), (2), (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
 - (5), (6): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(z)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
 - (2), (4), (6): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
@@ -115,8 +115,8 @@ namespace std::linalg {
 
 ## 事前条件
 - 共通:
-  + `A.extent(0) == A.extent(1)` (つまり`A`が正方行列であること)
-  + `A.extent(0) == y.extent(0)` (つまり`y`に結果を代入できること)
+    + `A.extent(0) == A.extent(1)` (つまり`A`が正方行列であること)
+    + `A.extent(0) == y.extent(0)` (つまり`y`に結果を代入できること)
 - (1), (2), (5), (6): `A.extent(0) == x.extent(0)` (つまり$Ax$を計算できること)
 - (5), (6): `A.extent(0) == z.extent(0)` (つまり`z`に結果を代入できること)
 

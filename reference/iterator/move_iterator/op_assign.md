@@ -24,12 +24,12 @@ constexpr move_iterator& operator=(move_iterator&&) = default;      // (3) C++17
 ## テンプレートパラメータ制約
 
 - C++17まで
-  - (1) : `U`が`Iterator`に変換可能であること
+    - (1) : `U`が`Iterator`に変換可能であること
 - C++20
-  - (1) : 次の両方を満たす
-    - `is_same_v<U, Iterator> == false`であること。
-    - `const U&`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
-    - `Iterator&, const U&`が[`assignable_from<Iterator&, const U&>`](/reference/concepts/assignable_from.md)のモデルとなること。
+    - (1) : 次の両方を満たす
+        - `is_same_v<U, Iterator> == false`であること。
+        - `const U&`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
+        - `Iterator&, const U&`が[`assignable_from<Iterator&, const U&>`](/reference/concepts/assignable_from.md)のモデルとなること。
 
 
 ## 例

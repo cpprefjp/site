@@ -31,11 +31,11 @@ constexpr move_iterator(move_iterator&&) noexcept = default; // (4) C++17
 ## テンプレートパラメータ制約
 
 - C++17まで
-  - (3) : `U`が`Iterator`に変換可能であること
+    - (3) : `U`が`Iterator`に変換可能であること
 - C++20
-  - (3) : 次の全てを満たす
-    - `is_same_v<U, Iterator> == false`であること。
-    - `const U&, Iterator`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
+    - (3) : 次の全てを満たす
+        - `is_same_v<U, Iterator> == false`であること。
+        - `const U&, Iterator`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
 
 ## 例
 ```cpp example

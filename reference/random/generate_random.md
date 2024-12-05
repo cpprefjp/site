@@ -94,7 +94,7 @@ for (auto& x : v) {
     * std::move[link /reference/utility/move.md]
 
 - (3) :
-     - `d.generate_random(`[`std::forward`](/reference/utility/forward.md)`<R>(r), g)`が妥当な式であれば、それを呼び出す
+    - `d.generate_random(`[`std::forward`](/reference/utility/forward.md)`<R>(r), g)`が妥当な式であれば、それを呼び出す
         - 備考 : 分布生成器が`generate_random()`メンバ関数をもっていればそれを使用する
     - そうでなく、`R`が[`sized_range`](/reference/ranges/sized_range.md)のモデルである場合、値`N`と[`span`](/reference/span/span.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<D&, G&>, N>`型オブジェクト`s`に対して、式[`invoke`](/reference/functional/invoke.md)`(d, g)`または`d.generate_random(s, g)`を未規定の回数だけ呼び出して実行し、`r`の各要素に代入する
         - 備考 : ここでの`N`は乱数生成の回数と異なってもよい

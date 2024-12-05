@@ -19,11 +19,10 @@ node_handle& operator=(node_handle&& nh);
 
 ## 効果
 - `ptr_ != nullptr` の場合、
-  - `std::allocator_traits<allocator_type>::destroy` を呼び出して `ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトを破棄し、
-  - 次に `std::allocator_traits<allocator_type>::template rebind_traits<container_node_type>::deallocate` を呼び出して `ptr_` の割り当てを解除する。
-
-- `ptr_` に `nh.ptr_` を代入する。  
-- `!alloc_` または `std::allocator_traits<allocator_type>::propagate_on_container_move_assignment::value` が `true` の場合、`nh.alloc_` を `alloc_` にムーブ代入する。  
+    - `std::allocator_traits<allocator_type>::destroy` を呼び出して `ptr_` が指す `container_node_type` オブジェクト内の `value_type` サブオブジェクトを破棄し、
+    - 次に `std::allocator_traits<allocator_type>::template rebind_traits<container_node_type>::deallocate` を呼び出して `ptr_` の割り当てを解除する。
+- `ptr_` に `nh.ptr_` を代入する。
+- `!alloc_` または `std::allocator_traits<allocator_type>::propagate_on_container_move_assignment::value` が `true` の場合、`nh.alloc_` を `alloc_` にムーブ代入する。
 - `nh.ptr_` に `nullptr` を代入し、`nh.alloc_` に `nullopt` を代入する。
 
 

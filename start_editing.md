@@ -60,6 +60,8 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
 - 用語の誤った使い方を検出 (defined word checkアクション)
     - 用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する
     - 具体的な用語、許可した使い方、許可しない使い方は、[defined_word_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py)を参照
+- 表示崩れする書き方を検出 (display error checkアクション)
+    - 箇条書きのインデントが4の倍数でない行をエラーとして検出する
 
 
 ### 自動反映ツール

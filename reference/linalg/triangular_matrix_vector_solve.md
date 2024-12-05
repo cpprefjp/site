@@ -134,19 +134,19 @@ namespace std::linalg {
 
 ## 適格要件
 - 共通:
-  + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
-  + `DiagonalStorage`は[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
-  + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-  + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(b)>(0, 0)`が`true` (つまり`A`の次元と`b`の次元が同じであること)
+    + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
+    + `DiagonalStorage`は[`implicit_unit_diagonal_t`](implicit_unit_diagonal_t.md)または[`explicit_diagonal_t`](explicit_diagonal_t.md)
+    + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(b)>(0, 0)`が`true` (つまり`A`の次元と`b`の次元が同じであること)
 - (1), (2), (3), (4): [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり`A`の次元と`b`の次元が同じであること)
 - (2), (4), (6), (8): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
 - 共通:
-  + `A.extent(0) == A.extent(1)` (つまり`A`が正方行列であること)
-  + `A.extent(0) == b.extent(0)` (つまり`A`の次元と`b`の次元が同じであること)
+    + `A.extent(0) == A.extent(1)` (つまり`A`が正方行列であること)
+    + `A.extent(0) == b.extent(0)` (つまり`A`の次元と`b`の次元が同じであること)
 - (1), (2), (3), (4): `A.extent(0) == x.extent(0)` (つまり`A`の次元と`x`の次元が同じであること)
 
 
