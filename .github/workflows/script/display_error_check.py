@@ -11,7 +11,7 @@ def indent_length(s: str) -> int:
     return length
 
 def check_item_indent(line: str, line_no: int, filename: str) -> bool:
-    m = re.match(r'^(\s*?)([0-9] \.\s)', line)
+    m = re.match(r'^(\s*?)([0-9]+\.\s)', line)
     if m:
         indent: int = indent_length(m[1])
         if indent > 0 and indent % 4 != 0:
