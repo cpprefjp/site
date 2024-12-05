@@ -35,20 +35,20 @@ int k = X().n; // ok, X() prvalue は xvalue に変換される
 
 不必要な一時オブジェクトの作成を避けるために、一時オブジェクトの実体化は一般に可能な限り遅らせる。
 注：一時オブジェクトは次のとき実体化されている。
-  
- - 参照を`prvalue`にバインドするとき
- - クラス`prvalue`でメンバアクセスを実行するとき
- - 配列からポインタへの変換を実行するとき、または配列`prvalue`をサブスクライブするとき
- -  `braced-init-list`から`std::initializer_list<T>`型のオブジェクトを初期化するとき
- - 特定の未評価のオペランド、および`prvalue`が廃棄値式(`discarded-value expression`)として現れる場合
+
+- 参照を`prvalue`にバインドするとき
+- クラス`prvalue`でメンバアクセスを実行するとき
+- 配列からポインタへの変換を実行するとき、または配列`prvalue`をサブスクライブするとき
+- `braced-init-list`から`std::initializer_list<T>`型のオブジェクトを初期化するとき
+- 特定の未評価のオペランド、および`prvalue`が廃棄値式(`discarded-value expression`)として現れる場合
 
 これより、上の例は「クラス`prvalue`でメンバアクセスを実行するとき」にあたり、`xvalue`として一時オブジェクトを生成している。
 
 また、`prvalue`から`prvalue`への変換は、上記の「一時オブジェクトの実体化は一般に可能な限り遅らせられる」ことより、一時オブジェクトを実体化しない。よって、次の例における`prvalue`の`T`型の戻り値は、呼び出し元の`t`を直接初期化する。
 
 ```cpp
- T Func() {return T();} 
- T t = Func(); // 直接初期化
+T Func() {return T();} 
+T t = Func(); // 直接初期化
 ```
 
 ## 例

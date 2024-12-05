@@ -37,7 +37,7 @@ static_assert(定数式, 文字列リテラル);
 - 定数式が真であると評価された場合は何も効果がない。定数式が偽であると評価された場合は、指定された文字列リテラルを含む診断メッセージがコンパイラによって問題報告される。ただし、基本ソース文字集合に含まれない文字集合は、診断メッセージに表示することはコンパイラに要求されない
 - `static_assert`宣言では、新たな型やオブジェクトは宣言しない。また、実行時にサイズや時間コストは発生しない
 - (CWG 2518が適用された環境): template文(もしくは適切な特殊化や[C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
-  - [C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)の解説を参照
+    - [C++17 constexpr if 文](/lang/cpp17/if_constexpr.md)の解説を参照
 
 ## 例
 ```cpp example

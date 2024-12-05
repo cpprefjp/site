@@ -30,21 +30,21 @@ namespace std {
 
 ## 事後条件
 - (1) :
-  - `eback()` == `nullptr`
-  - `gptr()` == `nullptr`
-  - `egptr()` == `nullptr`
-  - `pbase()` == `nullptr`
-  - `pptr()` == `nullptr`
-  - `epptr()` == `nullptr`
-  - `getloc()` == `locale()`
+    - `eback()` == `nullptr`
+    - `gptr()` == `nullptr`
+    - `egptr()` == `nullptr`
+    - `pbase()` == `nullptr`
+    - `pptr()` == `nullptr`
+    - `epptr()` == `nullptr`
+    - `getloc()` == `locale()`
 - (2) :
-  - `eback()` == `rhs.eback()`
-  - `gptr()` == `rhs.gptr()`
-  - `egptr()` == `rhs.egptr()`
-  - `pbase()` == `rhs.pbase()`
-  - `pptr()` == `rhs.pptr()`
-  - `epptr()` == `rhs.epptr()`
-  - `getloc()` == `rhs.getloc()`
+    - `eback()` == `rhs.eback()`
+    - `gptr()` == `rhs.gptr()`
+    - `egptr()` == `rhs.egptr()`
+    - `pbase()` == `rhs.pbase()`
+    - `pptr()` == `rhs.pptr()`
+    - `epptr()` == `rhs.epptr()`
+    - `getloc()` == `rhs.getloc()`
 
 
 ## 実装例

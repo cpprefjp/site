@@ -273,11 +273,11 @@ ranges::sort(pv, {}, &Person::name);
 - `comp(a, b) && comp(b, c)` は `comp(a, c)` を意味する
 - `equiv(a, b) && equiv(b, c)` は `equiv(a, c)` を意味する
 
-  これらの前提のもと、以下を示すことができる。
+これらの前提のもと、以下を示すことができる。
 
-  - `equiv` は同値関係 (equivalence relation) である
-  - `comp` は `equiv` によって決まる同値類 (equivalence class) の間での明確な関係を示す
-  - その示される関係は狭義の全順序 (strict total ordering) である
+- `equiv` は同値関係 (equivalence relation) である
+- `comp` は `equiv` によって決まる同値類 (equivalence class) の間での明確な関係を示す
+- その示される関係は狭義の全順序 (strict total ordering) である
 
 数学用語の日本語訳として "equivalence relation" には「同値関係」 "equivalence class" には「同値類」が定着しており、同じく数学的な文脈では上記 `equiv` を満たす２つの値を「同値」 (equivalent) であると言う。しかし特に数学的でない文脈で「同値」と言った場合は `operator==` による "equal" の関係と誤解される可能性が高いと考えられるため、本サイトでは上記 `equiv` による "equivalent" の関係を「等価」 `operator==` による "equal" の関係を「等値」として区別する。
 

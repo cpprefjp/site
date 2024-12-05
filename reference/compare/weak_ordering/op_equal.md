@@ -34,9 +34,9 @@ friend constexpr bool operator==(/*unspecified*/, weak_ordering v) noexcept;   /
 ## 備考
 この演算子により、以下の演算子が使用可能になる：
 
-  - `bool operator!=(weak_ordering v, weak_ordering w) noexcept;`
-  - `bool operator!=(weak_ordering v, /*unspecified*/) noexcept;`
-  - `bool operator!=(/*unspecified*/, weak_ordering w) noexcept;`
+- `bool operator!=(weak_ordering v, weak_ordering w) noexcept;`
+- `bool operator!=(weak_ordering v, /*unspecified*/) noexcept;`
+- `bool operator!=(/*unspecified*/, weak_ordering w) noexcept;`
 
 *unspecified*となっている片側の引数には`0`リテラルのみが使用できる。それ以外の物を渡した場合、動作は未定義。
 

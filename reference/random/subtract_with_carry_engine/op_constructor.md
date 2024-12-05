@@ -23,7 +23,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (5
 ## 概要
 - (1) : デフォルトコンストラクタ
     - C++17まで：シード値が指定されない場合はデフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で構築される
-      - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
+        - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
     - C++20から : デフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で(2)に委譲
     - C++26から : シード値を`0u`として(2)に委譲
 - (2) : シード値を受け取って状態シーケンスを構築する

@@ -20,12 +20,12 @@ constexpr reverse_iterator& operator=(const reverse_iterator<U>& u);        // (
 ## テンプレートパラメータ制約
 
 - C++17まで
-  - (2) : `U`が`Iterator`に変換可能であること
+    - (2) : `U`が`Iterator`に変換可能であること
 - C++20
-  - (2) : 次の両方を満たす
-    - `is_same_v<U, Iterator> == false`であること。
-    - `const U&, Iterator`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
-    - `Iterator&, const U&`が[`assignable_from<Iterator&, const U&>`](/reference/concepts/assignable_from.md)のモデルとなること。
+    - (2) : 次の両方を満たす
+        - `is_same_v<U, Iterator> == false`であること。
+        - `const U&, Iterator`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
+        - `Iterator&, const U&`が[`assignable_from<Iterator&, const U&>`](/reference/concepts/assignable_from.md)のモデルとなること。
 
 
 ## 戻り値
