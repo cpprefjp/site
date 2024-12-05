@@ -57,10 +57,10 @@ namespace std {
         - 全ての要素が等しいならば、長さを比較する
 
 - (2) : 以下と等価、すなわち(1)に委譲
-  ```cpp
-  return lexicographical_compare_three_way(first1, last1, first2, last2, compare_three_way());
-  ```
-  * compare_three_way[link /reference/compare/compare_three_way.md]
+    ```cpp
+    return lexicographical_compare_three_way(first1, last1, first2, last2, compare_three_way());
+    ```
+    * compare_three_way[link /reference/compare/compare_three_way.md]
 
 
 ## 戻り値
@@ -114,7 +114,7 @@ int main() {
   }
 }
 ```
-  * weak_ordering[link /reference/compare/weak_ordering.md]
+* weak_ordering[link /reference/compare/weak_ordering.md]
 
 ### 出力例
 ```

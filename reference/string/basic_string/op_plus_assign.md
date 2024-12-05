@@ -55,12 +55,12 @@ constexpr basic_string& operator+=(const T& t); // (5) C++20
 
 - (5) 対象オブジェクトの末尾に[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`の参照する文字列が追加される。  
 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return append(sv);
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * append[link append.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return append(sv);
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
+    * append[link append.md]
 
 
 ## 戻り値

@@ -225,26 +225,26 @@ constexpr basic_string&
 - (10) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, basic_string(j1, j2))`を呼び出す。
 - (11) : `replace(i1 -` [`begin()`](begin.md)`, i2 - i1, il.`[`begin()`](/reference/initializer_list/initializer_list/begin.md)`, il.`[`size()`](/reference/initializer_list/initializer_list/size.md)`)`を呼び出す。
 - (12) : 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return replace(pos1, n1, sv.data(), sv.size());
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return replace(pos1, n1, sv.data(), sv.size());
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 - (13) : 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return replace(pos1, n1, sv.substr(pos2, n2));
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * substr[link /reference/string_view/basic_string_view/substr.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return replace(pos1, n1, sv.substr(pos2, n2));
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
+    * substr[link /reference/string_view/basic_string_view/substr.md]
 
 - (14) : 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return replace(i1 - begin(), i2 - i1, sv.data(), sv.size());
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return replace(i1 - begin(), i2 - i1, sv.data(), sv.size());
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 
 ## 戻り値

@@ -42,12 +42,12 @@ basic_string& operator=(nullptr_t) = delete;                       // (7) C++23
 - (4) : `*this = basic_string(1, c);` と等価。
 - (5) : `*this = basic_string(il);` と等価。
 - (6) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)オブジェクトからの変換。以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> sv = t;
-  return assign(sv);
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * assign[link assign.md]
+    ```cpp
+    basic_string_view<charT, traits> sv = t;
+    return assign(sv);
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
+    * assign[link assign.md]
 
 
 ## テンプレートパラメータ制約

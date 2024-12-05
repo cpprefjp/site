@@ -152,73 +152,73 @@ namespace std {
 ### C++20から
 
 - (1)(9) : 以下と等価
-  ```cpp
-  basic_string<charT, traits, Allocator> r = lhs;
-  r.append(rhs);
-  return r;
-  ```
-  * append[link append.md]
+    ```cpp
+    basic_string<charT, traits, Allocator> r = lhs;
+    r.append(rhs);
+    return r;
+    ```
+    * append[link append.md]
 
 - (2)(10) : 以下と等価
-  ```cpp
-  lhs.append(rhs);
-  return std::move(lhs);
-  ```
-  * append[link append.md]
+    ```cpp
+    lhs.append(rhs);
+    return std::move(lhs);
+    ```
+    * append[link append.md]
 
 - (3)(6) : 以下と等価
-  ```cpp
-  rhs.insert(0, lhs);
-  return std::move(rhs);
-  ```
-  * insert[link insert.md]
+    ```cpp
+    rhs.insert(0, lhs);
+    return std::move(rhs);
+    ```
+    * insert[link insert.md]
 
 - (4) : 呼び出しの後でも`lhs`と`rhs`は有効だが未規定な状態のままであることを除いて、以下と等価
-  ```cpp
-  lhs.append(rhs);
-  return std::move(lhs);
-  ```
-  * append[link append.md]
+    ```cpp
+    lhs.append(rhs);
+    return std::move(lhs);
+    ```
+    * append[link append.md]
 
 - (5) : 以下と等価
-  ```cpp
-  basic_string<charT, traits, Allocator> r = rhs;
-  r.insert(0, lhs);
-  return r;
-  ```
-  * insert[link insert.md]
+    ```cpp
+    basic_string<charT, traits, Allocator> r = rhs;
+    r.insert(0, lhs);
+    return r;
+    ```
+    * insert[link insert.md]
 
 - (7) : 以下と等価
-  ```cpp
-  basic_string<charT, traits, Allocator> r = rhs;
-  r.insert(r.begin(), lhs);
-  return r;
-  ```
-  * insert[link insert.md]
-  * begin[link begin.md]
+    ```cpp
+    basic_string<charT, traits, Allocator> r = rhs;
+    r.insert(r.begin(), lhs);
+    return r;
+    ```
+    * insert[link insert.md]
+    * begin[link begin.md]
 
 - (8) : 以下と等価
-  ```cpp
-  rhs.insert(rhs.begin(), lhs);
-  return std::move(rhs);
-  ```
-  * insert[link insert.md]
-  * begin[link begin.md]
+    ```cpp
+    rhs.insert(rhs.begin(), lhs);
+    return std::move(rhs);
+    ```
+    * insert[link insert.md]
+    * begin[link begin.md]
 
 - (11) : 以下と等価
-  ```cpp
-  basic_string<charT, traits, Allocator> r = lhs;
-  r.push_back(rhs);
-  return r;
-  ```
-  * push_back[link push_back.md]
+    ```cpp
+    basic_string<charT, traits, Allocator> r = lhs;
+    r.push_back(rhs);
+    return r;
+    ```
+    * push_back[link push_back.md]
 
 - (12) : 以下と等価
-  ```cpp
-  lhs.push_back(rhs);
-  return std::move(lhs);
-  ```
-  * push_back[link push_back.md]
+    ```cpp
+    lhs.push_back(rhs);
+    return std::move(lhs);
+    ```
+    * push_back[link push_back.md]
 
 
 ## 備考

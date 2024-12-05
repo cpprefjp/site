@@ -127,13 +127,13 @@ constexpr int
 - (7) (1)と同様の結果を返す。`return basic_string_view<charT, traits>(*this).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t);`と等価。
 - (8) `basic_string_view<charT, traits>(*this).`[`substr`](/reference/string_view/basic_string_view/substr.md)`(pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t)` と等価
 - (9) 以下と等価。
-  ```cpp
-  basic_string_view<charT, traits> s = *this, sv = t;
-  return s.substr(pos1, n1).compare(sv.substr(pos2, n2));
-  ```
-  * basic_string_view[link /reference/string_view/basic_string_view.md]
-  * substr[link /reference/string_view/basic_string_view/substr.md]
-  * compare[link /reference/string_view/basic_string_view/compare.md]
+    ```cpp
+    basic_string_view<charT, traits> s = *this, sv = t;
+    return s.substr(pos1, n1).compare(sv.substr(pos2, n2));
+    ```
+    * basic_string_view[link /reference/string_view/basic_string_view.md]
+    * substr[link /reference/string_view/basic_string_view/substr.md]
+    * compare[link /reference/string_view/basic_string_view/compare.md]
 
 ## 例外
 
