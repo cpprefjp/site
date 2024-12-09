@@ -3,6 +3,7 @@
 * std[meta namespace]
 * weak_ordering[meta class]
 * function[meta id-type]
+* cpp20[meta cpp]
 
 ```cpp
 constexpr operator partial_ordering() const noexcept;
