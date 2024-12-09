@@ -1,4 +1,4 @@
-# AccsessorPolicy
+# AccessorPolicy
 * cpp23[meta cpp]
 * mdspan[meta header]
 * named requirement[meta id-type]
@@ -6,11 +6,11 @@
 
 
 ## 概要
-AccsessorPolicyは、多次元配列ビュー[`mdspan`](mdspan.md)を介した要素アクセス動作を定義するクラスが満たすべき要件である。
+AccessorPolicyは、多次元配列ビュー[`mdspan`](mdspan.md)を介した要素アクセス動作を定義するクラスが満たすべき要件である。
 
 
 ## 要件
-AccsessorPolicyを満たす型`A`は
+AccessorPolicyを満たす型`A`は
 
 - `A`は[`copyable`](/reference/concepts/copyable.md)のモデルであり、かつ
 - [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<A>`は`true`であり、かつ
