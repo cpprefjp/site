@@ -59,18 +59,24 @@ friend constexpr auto submdspan_mapping(
 - パラメータパック`P` : [`is_same_v`](/reference/type_traits/is_same.md)`<`[`make_index_sequence`](/reference/utility/make_index_sequence.md)`<rank()>,` [`index_sequence`](/reference/utility/index_sequence.md)`<P...>> == true`
 - 値`offset` : `size_t`型の値[`(*this)`](op_call.md)`(`[`first_`](../../first_.md)`<index_type, P>(slices...)...)`
 
+下記を満たす型`S`を、単位ストライド幅スライス(unit-stride slice)と定義する。
+
+- 型`S`が[`strided_slice`](../../strided_slice.md)の特殊化であり型`S::stride_type`が[`integral-constant-like`](/reference/span/integral-constant-like.md)のモデルかつ`S::stride_type::value`が`1`に等しい、もしくは
+- 型`S`が[`index-pair-like`](../../index-pair-like.md)`<index_type>`のモデル、もしくは
+- [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S,` [`full_extent_t`](../../full_extent_t.md)`>`が`true`
+
 説明専用の`submdspan-mapping-impl`関数テンプレートは下記の値を返す。
 
 - [`Extents::rank()`](../../extents/rank.md) `== 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{*this, 0}`
 - `rank_ == 1`または`SubExtents::rank() == 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_right::mapping`](../../layout_right.md)`(sub_ext), offset}`
 - 以下を満たすとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_right::mapping`](../../layout_right.md)`(sub_ext), offset}`
     - `SubExtents::rank() == 1`、かつ
-    - `rank_-1`に等しい値`k`に対して、型`S_k`が[`index-pair-like`](../../index-pair-like.md)`<index_type>`のモデルもしくは[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](../../full_extent_t.md)`>`が`true`
+    - `rank_-1`に等しい値`k`に対して、型`S_k`が単位ストライド幅スライスである
 - 以下を満たすとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{layout_right_padded<S_static>::mapping(sub_ext, stride(rank_-u-2)), offset}`
-    - 型`S_p`が[`index-pair-like`](../../index-pair-like.md)`<index_type>`のモデルもしくは[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](../../full_extent_t.md)`>`が`true`を満たす`rank_-1`より小さい最大値`p`に対して、`rank_-u-2`が`p`となる値`u`を用いて
-        - `rank_-1`に等しい値`k`に対して、型`S_k`が[`index-pair-like`](../../index-pair-like.md)`<index_type>`のモデルもしくは[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](../../full_extent_t.md)`>`が`true`、かつ
+    - 型`S_p`が単位ストライド幅スライスを満たす`rank_-1`より小さい最大値`p`に対して、`rank_-u-2`が`p`となる値`u`を用いて
+        - `rank_-1`に等しい値`k`に対して、型`S_k`が単位ストライド幅スライスであり、かつ
         - 半開区間`[rank_-SubExtents::rank()-u+1, rank_-u-1)`の値`k`に対して、[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](../../full_extent_t.md)`>`、かつ
-        - `rank_-SubExtents::rank()-u`に等しい値`k`に対して、型`S_k`が[`index-pair-like`](../../index-pair-like.md)`<index_type>`のモデルもしくは[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<S_k,` [`full_extent_t`](../../full_extent_t.md)`>`が`true`
+        - `rank_-SubExtents::rank()-u`に等しい値`k`に対して、型`S_k`が単位ストライド幅スライスである
     - ここで定数`S_static`は
         - 半開区間`[rank_-u-1, rank_-1)`のいずれかの値`k`に対して`static_extent(k)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`dynamic_extent`
         - そうでなければ、半開区間`[rank_-u-1, rank_-1)`の全ての値`k`に対して`static_extent(k)`を乗算した値
@@ -95,3 +101,4 @@ friend constexpr auto submdspan_mapping(
 ## 参照
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
 - [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
+- [P3355R1 Fix submdspan for C++26](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3355r1.html)
