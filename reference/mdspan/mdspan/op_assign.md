@@ -34,8 +34,8 @@ int main()
   assert(mat2.mapping() == mat1.mapping());
 }
 ```
-* [data_handle()](data_handle.md)
-* [mapping()](mapping.md)
+* data_handle()[link data_handle.md]
+* mapping()[link mapping.md]
 
 ### 出力
 ```

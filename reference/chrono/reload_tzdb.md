@@ -37,7 +37,7 @@ if (get_tzdb().version != remote_version()) {
 ```cpp
 return get_tzdb_list().front();
 ```
-* get_tzdb_list()[ink get_tzdb_list.md]
+* get_tzdb_list()[link get_tzdb_list.md]
 * front()[link tzdb_list/front.md]
 
 

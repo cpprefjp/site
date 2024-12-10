@@ -71,9 +71,9 @@ concept _Integer_like = _Is_nonbool_integral<remove_cv_t<_Ty>> || _Integer_class
 template <class _Ty>
 concept _Signed_integer_like = _Integer_like<_Ty> && static_cast<_Ty>(-1) < static_cast<_Ty>(0);
 ```
-* is_integral_v[like /reference/type_traits/is_integral.md]
-* is_same_v[like /reference/type_traits/is_same.md]
-* remove_cv_t[like /reference/type_traits/remove_cv.md]
+* is_integral_v[link /reference/type_traits/is_integral.md]
+* is_same_v[link /reference/type_traits/is_same.md]
+* remove_cv_t[link /reference/type_traits/remove_cv.md]
 
 上記の説明のうち構文的な要件を素直に実装している。MSVCでは、128ビット整数が*integer-class*型である。
 

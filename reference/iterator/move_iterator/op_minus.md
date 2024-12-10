@@ -30,7 +30,7 @@ namespace std {
 }
 ```
 * base[link /reference/iterator/move_iterator/base.md]
-* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md)
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * move_sentinel[link /reference/iterator/move_sentinel.md]
 

@@ -55,7 +55,6 @@ int main() {
 }
 ```
 * std::format[link format.md]
-* 
 
 ### 出力
 ```

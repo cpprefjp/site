@@ -173,8 +173,8 @@ namespace std::ranges {
 * input_iterator_tag[link /reference/iterator/iterator_tag.md]
 * addressof[link /reference/memory/addressof.md]
 * default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
-* basic_istream[likn /reference/istream/basic_istream.md]
-* char_traits[likn /reference/string/char_traits.md]
+* basic_istream[link /reference/istream/basic_istream.md]
+* char_traits[link /reference/string/char_traits.md]
 
 ## バージョン
 ### 言語
