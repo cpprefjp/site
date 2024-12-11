@@ -24,7 +24,7 @@ do
 while (!invoke(*parent_->pred_, *current_));
 return *this;
 ```
-- invoke[link /reference/functional/invoke.md]
+* invoke[link /reference/functional/invoke.md]
 
 と等しい。
 

@@ -52,7 +52,7 @@ template<typename T> void f() {
   void g(T::X);     // エラー: void型の変数宣言
 }
 ```
-- P0634R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0634r3.html]
+* P0634R3[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0634r3.html]
 
 ## 例
 ```cpp example

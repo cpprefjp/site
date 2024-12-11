@@ -59,7 +59,7 @@ int main()
   std::cout << std::format("AM/PM : {:%p %I:00}", chrono::hours{15}) << std::endl;
 }
 ```
-- std::format[link /reference/chrono/format.md]
+* std::format[link /reference/chrono/format.md]
 
 ### 出力
 ```

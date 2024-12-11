@@ -50,7 +50,7 @@ int main()
   std::cout << std::format(std::locale("ja_JP.UTF-8"), "{:%EY}", chrono::year{2020}) << std::endl;
 }
 ```
-- std::format[link /reference/chrono/format.md]
+* std::format[link /reference/chrono/format.md]
 
 ### 出力
 ```

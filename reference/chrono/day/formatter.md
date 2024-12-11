@@ -32,7 +32,7 @@ int main()
   std::cout << std::format("{:%e}", chrono::day{3}) << std::endl;
 }
 ```
-- std::format[link /reference/chrono/format.md]
+* std::format[link /reference/chrono/format.md]
 
 ### 出力
 ```
