@@ -59,7 +59,7 @@ namespace std {
   template<has-member-value-type T>
     requires has-member-element-type<T> &&
              same_as<remove_cv_t<typename T::element_type>, 
-                     remove_cv_t<typename T::value_type>>; }
+                     remove_cv_t<typename T::value_type>>
   struct indirectly_readable_traits<T>
     : cond-value-type<typename T::value_type> { };
 }
