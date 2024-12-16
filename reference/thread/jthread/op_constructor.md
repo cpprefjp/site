@@ -60,14 +60,11 @@ jthread(jthread&&) noexcept;             // (4) C++20
         * std::forward[link /reference/utility/forward.md]
 
     - この呼び出しでの戻り値は無視される。この関数呼び出しが例外を送出する場合、呼び出し元スレッドで[`std::terminate`](/reference/exception/terminate.md)が呼び出される
-- (3) :
 
 
 ## 同期
 - (2) : コンストラクタ呼び出しの完了は、`f`のコピーの呼び出し開始と同期する
-
-
-新しいスレッドを生成し、[`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`DECAY_COPY`は同コンストラクタを呼び出したスレッド上にて評価される。また`f`のコピーの戻り値は無視される。
+    新しいスレッドを生成し、[`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`DECAY_COPY`は同コンストラクタを呼び出したスレッド上にて評価される。また`f`のコピーの戻り値は無視される。
     - `DECAY_COPY(x)`は `template <class T> typename std::decay<T>::type decay_copy(T&& v) { return` [`std::forward`](/reference/utility/forward.md)`<T>(v); }` と定義される。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
 
 
