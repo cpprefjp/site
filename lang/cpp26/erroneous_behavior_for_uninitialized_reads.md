@@ -137,5 +137,8 @@ int main() {
 | 契約違反 | 契約に関する現在の策定作業では、契約違反時になにが起こるべきかという問題に直面している。エラー性動作という概念は有用な回答を与えてくれる可能性がある |
 
 
+## 関連項目
+- [C++11 属性構文](/lang/cpp11/attributes.md)
+
 ## 参照
 - [P2795R5 Erroneous behaviour for uninitialized reads](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2795r5.html)
