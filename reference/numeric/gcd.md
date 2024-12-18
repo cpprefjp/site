@@ -176,14 +176,19 @@ constexpr std::common_type_t<M, N> gcd(M m, N n) {
   if (m == 0 && n == 0) {
     return 0;
   }
-  while (m != 0 && n != 0) {
-    if (m > n) {
-      m %= n;
+
+  auto mm = abs(m);
+  auto nn = abs(n);
+  while (mm != 0 && nn != 0) {
+    if (mm > nn) {
+      mm %= nn;
     }
     else {
-      n %= m;
+      nn %= mm;
     }
   }
-  return m < n ? n : m;
+  return mm < nn ? nn : mm;
 }
 ```
+* abs[link /reference/cstdlib/abs.md]
+
