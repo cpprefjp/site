@@ -53,11 +53,24 @@ namespace std {
 | `allocator_type` | テンプレート仮引数`Allocator` | |
 
 ## 例
-```cpp
+```cpp example
+#include <iostream>
+#include <sstream>
+int main() {
+  std::string text = "ABCDEFG";
+  std::istringstream stream(text);
+  char c;
+  while (stream >> c) {
+    std::cout<<c<<' ';
+  }
+  std::cout<<std::endl;
+}
 ```
-
+* std::istringstream[color ff0000]
 ### 出力
 ```
+A B C D E F G 
+
 ```
 
 ## 参照
