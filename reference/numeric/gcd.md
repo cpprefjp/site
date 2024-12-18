@@ -129,6 +129,7 @@ int main() {
 ```
 ```
 
+
 ## バージョン
 ### 言語
 - C++17
@@ -167,3 +168,22 @@ $$ \mathrm{gcd}(m, n) = \begin{cases}
   |m| & \text{if } n = 0 \\
   \mathrm{gcd}(n, m \bmod n) & \text{otherwise}
 \end{cases} $$
+
+
+```cpp
+template <class M, class N>
+constexpr std::common_type_t<M, N> gcd(M m, N n) {
+  if (m == 0 && n == 0) {
+    return 0;
+  }
+  while (m != 0 && n != 0) {
+    if (m > n) {
+      m %= n;
+    }
+    else {
+      n %= m;
+    }
+  }
+  return m < n ? n : m;
+}
+```

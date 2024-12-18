@@ -171,3 +171,26 @@ int main() {
 
 ## 実装例
 $$ \mathrm{lcm}(m, n) = \frac{|mn|}{\mathrm{gcd}(m, n)} $$
+
+```cpp
+template <class M, class N>
+constexpr std::common_type_t<M, N> gcd(M m, N n) {
+  if (m == 0 && n == 0) {
+    return 0;
+  }
+  while (m != 0 && n != 0) {
+    if (m > n) {
+      m %= n;
+    }
+    else {
+      n %= m;
+    }
+  }
+  return m < n ? n : m;
+}
+
+template <class M, class N>
+constexpr std::common_type_t<M, N> lcm(M m, N n) {
+  return m / gcd(m, n) * n;
+}
+```
