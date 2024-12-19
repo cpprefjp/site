@@ -213,13 +213,12 @@ struct Vector {
 int main()
 {
   std::uint32_t seed = 12345;
-  std::philox4x32 engine;
 
   // 2x2x2個のランダムなベクトルを生成する
   for (std::uint32_t x = 0; x < 2; ++x) {
     for (std::uint32_t y = 0; y < 2; ++y) {
       for (std::uint32_t z = 0; z < 2; ++z) {
-        engine.seed(seed);
+        std::philox4x32 engine{seed};
         engine.set_counter({x, y, z, 0});
 
         std::uniform_real_distribution<float> dist{0, 1.0};
@@ -236,7 +235,6 @@ int main()
 }
 ```
 * std::philox4x32[link philox4x32.md]
-* engine.seed[link philox_engine/seed.md]
 * engine.set_counter[link philox_engine/set_counter.md]
 * uniform_real_distribution[link /reference/random/uniform_real_distribution.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
