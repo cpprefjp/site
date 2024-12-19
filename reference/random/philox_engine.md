@@ -234,9 +234,11 @@ int main()
   }
 }
 ```
-* set_counter[link philox_engine/set_counter.md]
+* engine.seed[link philox_engine/seed.md]
+* engine.set_counter[link philox_engine/set_counter.md]
 * uniform_real_distribution[link /reference/random/uniform_real_distribution.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
+* dist(engine)[link /reference/random/uniform_real_distribution/op_call.md]
 
 #### 出力例
 ```
