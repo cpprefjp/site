@@ -215,7 +215,7 @@ int main()
   std::uint32_t seed = 12345;
   std::philox4x32 engine;
 
-  // 4x4x4個のランダムなベクトルを生成する
+  // 2x2x2個のランダムなベクトルを生成する
   for (std::uint32_t x = 0; x < 2; ++x) {
     for (std::uint32_t y = 0; y < 2; ++y) {
       for (std::uint32_t z = 0; z < 2; ++z) {
