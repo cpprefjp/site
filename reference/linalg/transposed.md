@@ -30,6 +30,8 @@ namespace std::linalg {
 
 - `Layout`が[`layout_left`](/reference/mdspan/layout_left.md)のとき、[`layout_right`](/reference/mdspan/layout_right.md)
 - `Layout`が[`layout_right`](/reference/mdspan/layout_right.md)のとき、[`layout_left`](/reference/mdspan/layout_left.md)
+- `Layout`が[`layout_left_padded<PaddingValue>`](/reference/mdspan/layout_left_padded.md)のとき、[`layout_right_padded<PaddingValue>`](/reference/mdspan/layout_right_padded.md)
+- `Layout`が[`layout_right_padded<PaddingValue>`](/reference/mdspan/layout_right_padded.md)のとき、[`layout_left_padded<PaddingValue>`](/reference/mdspan/layout_left_padded.md)
 - `Layout`が[`layout_stride`](/reference/mdspan/layout_stride.md)のとき、`layout_stride`
 - `Layout`が[`layout_blas_packed`](layout_blas_packed.md)`<Triangle, StorageOrder>`のとき、`layout_blas_packed<OppositeTriangle, OppositeStorageOrder>`
     - `OppositeTriangle`は[`conditional_t`](/reference/type_traits/conditional.md)`<`[`is_same_v`](/reference/type_traits/is_same.md)`<Triangle, upper_triangle_t>, lower_triangle_t, upper_triangle_t>`
@@ -48,7 +50,25 @@ namespace std::linalg {
     ```
     * transpose-extents[link layout_transpose/transpose-extents.md]
 
-- `Layout`が[`layout_stride`](/reference/mdspan/layout_stride.md)の特殊化であるとき、
+- `Layout`が[`layout_left_padded<PaddingValue>`](/reference/mdspan/layout_left_padded.md)であるとき、
+
+   ```cpp
+   R(a.data_handle(),
+     ReturnMapping(transpose-extents(a.mapping().extents()), a.mapping().stride(1)),
+     a.accessor())
+   ```
+    * transpose-extents[link layout_transpose/transpose-extents.md]
+
+- `Layout`が[`layout_right_padded<PaddingValue>`](/reference/mdspan/layout_right_padded.md)であるとき、
+
+   ```cpp
+   R(a.data_handle(),
+     ReturnMapping(transpose-extents(a.mapping().extents()), a.mapping().stride(0)),
+     a.accessor())
+   ```
+    * transpose-extents[link layout_transpose/transpose-extents.md]
+
+- `Layout`が[`layout_stride`](/reference/mdspan/layout_stride.md)であるとき、
 
     ```cpp
     R(a.data_handle(),
@@ -122,3 +142,4 @@ int main()
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [P1674R2: Evolving a Standard C++ Linear Algebra Library from the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1674r2.html)
+- [P3222R0 Fix C++26 by adding transposed special cases for P2642 layouts](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3222r0.html)
