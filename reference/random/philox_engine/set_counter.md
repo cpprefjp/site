@@ -74,13 +74,13 @@ struct Vector {
 
 int main()
 {
-  uint32_t seed = 12345;
+  std::uint32_t seed = 12345;
   std::philox4x32 engine;
 
   // 2x2x2個のランダムなベクトルを生成する
-  for (uint32_t x = 0; x < 2; ++x) {
-    for (uint32_t y = 0; y < 2; ++y) {
-      for (uint32_t z = 0; z < 2; ++z) {
+  for (std::uint32_t x = 0; x < 2; ++x) {
+    for (std::uint32_t y = 0; y < 2; ++y) {
+      for (std::uint32_t z = 0; z < 2; ++z) {
         engine.seed(seed);
         engine.set_counter({x, y, z, 0});
 
