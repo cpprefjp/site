@@ -18,7 +18,7 @@ namespace std {
 * philox4x64[link philox4x64.md]
 
 ## 概要
-`philox_engine`クラスは、カウンターベースのPhilox法による擬似乱数生成エンジンである。
+`philox_engine`クラスは、カウンターベースの乱数アルゴリズム (Counter-based random number generator, CBRNG) のPhilox法による擬似乱数生成エンジンである。
 
 Philox法は、以下のような特徴を持つ：
 
@@ -162,6 +162,7 @@ $ r \cdot w $ ビット
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <random>
@@ -184,7 +185,7 @@ int main()
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link philox_engine/op_call.md]
 
-### 出力例
+#### 出力例
 ```
 717409690
 3816001420
@@ -196,6 +197,57 @@ int main()
 2090827657
 748889484
 859307553
+```
+
+
+### 多次元の乱数を生成する例
+```cpp example
+#include <print>
+#include <random>
+
+struct Vector {
+  float x, y, z;
+};
+
+int main()
+{
+  uint32_t seed = 12345;
+  std::philox4x32 engine;
+
+  // 4x4x4個のランダムなベクトルを生成する
+  for (uint32_t x = 0; x < 2; ++x) {
+    for (uint32_t y = 0; y < 2; ++y) {
+      for (uint32_t z = 0; z < 2; ++z) {
+        engine.seed(seed);
+        engine.set_counter({x, y, z, 0});
+
+        std::uniform_real_distribution<float> dist{0, 1.0};
+
+        Vector vec {
+            dist(engine),
+            dist(engine),
+            dist(engine)
+        };
+        std::println("{},{},{}", vec.x, vec.y, vec.z);
+      }
+    }
+  }
+}
+```
+* set_counter[link philox_engine/set_counter.md]
+* uniform_real_distribution[link /reference/random/uniform_real_distribution.md]
+* std::uint32_t[link /reference/cstdint/uint32_t.md]
+
+#### 出力例
+```
+0.8202247,0.18554558,0.8234037
+0.4850654,0.9281539,0.43299365
+0.26559144,0.98589313,0.31661463
+0.88831127,0.4234704,0.9224362
+0.0027833676,0.14429614,0.8929877
+0.6186795,0.6290597,0.46478647
+0.17204352,0.54567194,0.1469554
+0.7067667,0.48607737,0.6880201
 ```
 
 ## バージョン
