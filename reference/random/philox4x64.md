@@ -14,7 +14,7 @@ namespace std {
 
 ## 概要
 パラメータ設定済みの[`philox_engine`](philox_engine.md)。  
-64ビット版のPhilox。32ビット版は[`philox4x64`](philox4x32.md)。
+64ビット版のPhilox。32ビット版は[`philox4x32`](philox4x32.md)。
 
 
 ## 要件
