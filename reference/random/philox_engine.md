@@ -182,6 +182,7 @@ int main()
   }
 }
 ```
+* std::philox4x32[link philox4x32.md]
 * std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link philox_engine/op_call.md]
 
@@ -234,6 +235,7 @@ int main()
   }
 }
 ```
+* std::philox4x32[link philox4x32.md]
 * engine.seed[link philox_engine/seed.md]
 * engine.set_counter[link philox_engine/set_counter.md]
 * uniform_real_distribution[link /reference/random/uniform_real_distribution.md]
