@@ -1,0 +1,68 @@
+# philox4x32
+* random[meta header]
+* std[meta namespace]
+* type-alias[meta id-type]
+* cpp26[meta cpp]
+
+```cpp
+namespace std {
+  using philox4x32 = philox_engine<uint_fast32_t, 32, 4, 10, 0xD2511F53, 0x9E3779B9, 0xCD9E8D57, 0xBB67AE85>;
+}
+```
+* philox_engine[link philox_engine.md]
+* uint_fast32_t[link /reference/cstdint/uint_fast32_t.md]
+
+## 概要
+パラメータ設定済みの[`philox_engine`](philox_engine.md)。  
+32ビット版のPhilox。64ビット版は[`philox4x64`](philox4x64.md)。
+
+
+## 要件
+`philox4x32`型オブジェクトをデフォルト構築した場合、10000番目に生成される擬似乱数の値は`1955073260`であること。
+
+
+## 乱数列の周期
+4 * 2<sup>4 * 32</sup> = 2<sup>130</sup>
+
+
+## サイズ
+32ビット * 10個
+
+
+## シード、および生成される値の型
+[`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
+
+
+## 例
+```cpp example
+#include <iostream>
+#include <random>
+
+int main()
+{
+  std::random_device seed_gen;
+  std::philox4x32 engine{seed_gen()};
+
+  for (int i = 0; i < 10; ++i) {
+    std::uint32_t result = engine();
+    std::cout << result << std::endl;
+  }
+}
+```
+* std::philox4x32[color ff0000]
+* std::random_device[link random_device.md]
+* seed_gen()[link random_device/op_call.md]
+* engine()[link philox_engine/op_call.md]
+
+### 出力例
+```
+```
+
+## バージョン
+### 言語
+- C++26
+
+- [Clang](/implementation.md#clang): 19 [mark noimpl]
+- [GCC](/implementation.md#gcc): 14 [mark noimpl]
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??

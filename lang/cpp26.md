@@ -323,7 +323,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::complex`](/reference/complex/complex.md)を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加
 - [`<random>`](/reference/random.md)の範囲`[0, 1)`の乱数を生成する[`std::generate_canonical()`](/reference/random/generate_canonical.md)を、望ましい統計的性質を保証するようアルゴリズムと制約を変更
 - [`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md)関数を追加
-- [`<random>`](/reference/random.md)に、乱数生成器は並列シミュレーションに効果的なカウンターベースのPhilox乱数生成器として、[`std::philox_engine`](/reference/random/philox_engine.md.nolink)クラス、およびその別名である[`std::philox4x32`](/reference/random/philox4x32.md.nolink)と[`std::philox4x64`](/reference/random/philox4x64.md.nolink)を追加
+- [`<random>`](/reference/random.md)に、乱数生成器は並列シミュレーションに効果的なカウンターベースのPhilox乱数生成器として、[`std::philox_engine`](/reference/random/philox_engine.md)クラス、およびその別名である[`std::philox4x32`](/reference/random/philox4x32.md)と[`std::philox4x64`](/reference/random/philox4x64.md)を追加
 
 
 ### ユーティリティ
