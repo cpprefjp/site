@@ -210,6 +210,7 @@
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
 | [`<rcu>`](/reference/rcu.md.nolink)                               | データの参照・更新    | C++26          |
 | [`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)         | ハザードポインタ      | C++26          |
+| [`<simd>`](/reference/simd.md.nolink) | データ並列 | C++26 |
 
 
 ## <a id="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>
@@ -231,6 +232,8 @@
 | `<csignal>`                          | シグナル                            |                |
 | `<cstdalign>`                        | アライメント操作のマクロ            | C++17で非推奨<br/> C++20で削除    |
 | `<cstdarg>`                          | 可変引数操作                        |                |
+| [`<stdbit.h>`](/reference/stdbit.h.md.nolink) | ビット操作                 | C++26 |
+| [`<stdckdint.h>`](/reference/stdckdint.h.md.nolink) | 検査付き整数演算            | C++26 |
 | `<cstdbool>`                         | 真理値型の定義                      | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<cstddef>`](/reference/cstddef.md) | 基本的な型、値、マクロの定義        |                |
 | [`<cstdint>`](/reference/cstdint.md) | 大きさが規定されている整数型        | C++11 (C99)    |

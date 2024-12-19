@@ -18,6 +18,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md.nolink) | 寿命切れの変数によって引き起こされるバグを防止する |
 | [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 |
 | [未初期化変数の読み取りをエラー性動作とする](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md) | 初期化されていない自動変数の読み取りの安全性を規定する |
+| [構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md.nolink) | タプルを分解する際に複数の変数をパックとして宣言できるようにする。`auto [a, ...xs] = f();` |
 
 
 ### 文字列
@@ -68,6 +69,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md.nolink) | 型消去のために`void*`からポインタ型へのキャストを許可する |
 | [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする |
 | [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md.nolink) | 定数式の文脈での配置`new`を許可 |
+| [`constexpr`構造化束縛の許可と、定数式への参照を定数式とする](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md.nolink) | 定数式に対する構造化束縛を許可し、関連する定数式への参照が定数式になるようにする |
+| [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md.nolink) | 定数式の文脈での例外の送出と捕捉を許可 |
 
 
 ### ソースコード
@@ -84,20 +87,35 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md.nolink) | `export module MACRO_NAME;`を禁止 |
 
 
+### 機能の非推奨化
+
+| 言語機能 | 説明 |
+|----------|------|
+| [非推奨だった配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md.nolink) | C++20で非推奨となっていた配列比較を削除 |
+| [先行するカンマのない省略記号を非推奨化](/lang/cpp26/the_oxford_variadic_comma.md.nolink) | `void f(int, ...);`はOK。`void f(int...);`は非推奨 |
+
+
 ## ライブラリ更新の概要
 ### 新ライブラリ
 - 文字列エンコーディングを識別するライブラリとして、[`<text_encoding>`](/reference/text_encoding.md.nolink)を追加
 - 並行処理におけるデータの参照・更新を行うRCU (Read Copy Update) のライブラリとして、[`<rcu>`](/reference/rcu.md.nolink)を追加
 - 並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加
+- データ並列ライブラリとして、[`<simd>`](/reference/simd.md.nolink)を追加
 - デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md)を追加
 - 線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加
 - コンパイル時に容量を固定する可変長配列クラスのライブラリとして[`<inplace_vector>`](/reference/inplace_vector.md.nolink)を追加
+- C23の互換ライブラリとして、ビット操作ライブラリ[`<stdbit.h>`](/reference/stdbit.h.md.nolink)と、検査付き整数演算ライブラリ[`<stdckdint.h>`](/reference/stdckdint.h.md.nolink)を追加。`<cstd…>`形式のライブラリは追加されない
+
+
+### 全体
+- 標準ライブラリに付加された、戻り値を無視した際に警告を出力する[`[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)を削除
 
 
 ### コンテナ
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)のレイアウトとして、[`std::layout_left_padded`](/reference/mdspan/layout_left_padded.md)と[`std::layout_right_padded`](/reference/mdspan/layout_right_padded.md)を追加
+- [`<mdspan>`](/reference/mdspan.md)に、ポインタのアライメントをしながらアクセスする[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md.nolink)を追加
 - [`std::span`](/reference/span/span.md)に、以下を追加
     - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタ
     - インデックスアクセスのための[`at()`](/reference/span/span/at.md)メンバ関数
@@ -124,13 +142,25 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
         - [`bucket()`](/reference/unordered_set/unordered_multiset/bucket.md)
 - [`std::span`](/reference/span/span.md)と[`std::mdspan`](/reference/mdspan/mdspan.md)の推論補助を改善
 - [`std::views::concat`](/reference/ranges/concat_view.md)を追加
+- [`std::views::cache_latest`](/reference/ranges/cache_latest.md.nolink)を追加
 
 
 ### アルゴリズム
-- 以下のアルゴリズムを`constexpr`に対応
+- [`<algorithm>`](/reference/algorithm.md)の以下のアルゴリズムを`constexpr`に対応
     - [`std::stable_sort()`](/reference/algorithm/stable_sort.md) / [`std::ranges::stable_sort()`](/reference/algorithm/ranges_stable_sort.md)
     - [`std::stable_partition()`](/reference/algorithm/stable_partition.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_stable_partition.md)
     - [`std::inplace_merge()`](/reference/algorithm/inplace_merge.md) / [`std::ranges::inplace_merge()`](/reference/algorithm/ranges_inplace_merge.md)
+- [`<memory>`](/reference/memory.md)の以下のアルゴリズムを`constexpr`に対応
+    - [`std::uninitialized_default_construct()`](/reference/memory/uninitialized_default_construct.md) / [`std::ranges::uninitialized_default_construct()`](/reference/memory/ranges_uninitialized_default_construct.md)
+    - [`std::uninitialized_default_construct_n()`](/reference/memory/uninitialized_default_construct_n.md) / [`std::ranges::uninitialized_default_construct_n()`](/reference/memory/ranges_uninitialized_default_construct_n.md)
+    - [`std::uninitialized_value_construct()`](/reference/memory/uninitialized_value_construct.md) / [`std::ranges::uninitialized_value_construct()`](/reference/memory/ranges_uninitialized_value_construct.md)
+    - [`std::uninitialized_value_construct_n()`](/reference/memory/uninitialized_value_construct_n.md) / [`std::ranges::uninitialized_value_construct_n()`](/reference/memory/ranges_uninitialized_value_construct_n.md)
+    - [`std::uninitialized_copy()`](/reference/memory/uninitialized_copy.md) / [`std::ranges::uninitialized_copy()`](/reference/memory/ranges_uninitialized_copy.md)
+    - [`std::uninitialized_copy_n()`](/reference/memory/uninitialized_copy_n.md) / [`std::ranges::uninitialized_copy_n()`](/reference/memory/ranges_uninitialized_copy_n.md)
+    - [`std::uninitialized_move()`](/reference/memory/uninitialized_move.md) / [`std::ranges::uninitialized_move()`](/reference/memory/ranges_uninitialized_move.md)
+    - [`std::uninitialized_move_n()`](/reference/memory/uninitialized_move_n.md) / [`std::ranges::uninitialized_move_n()`](/reference/memory/ranges_uninitialized_move_n.md)
+    - [`std::uninitialized_fill()`](/reference/memory/uninitialized_fill.md) / [`std::ranges::uninitialized_fill()`](/reference/memory/ranges_uninitialized_fill.md)
+    - [`std::uninitialized_fill_n()`](/reference/memory/uninitialized_fill_n.md) / [`std::ranges::uninitialized_fill_n()`](/reference/memory/ranges_uninitialized_fill_n.md)
 - Rangeアルゴリズムが完全型を要求しないようにするため、[`std::projected`](/reference/iterator/projected.md)の制約を緩和
 - 以下のアルゴリズムに、値を波カッコ初期化で渡せるよう制約を追加
     - `std::erase()`
@@ -192,8 +222,12 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)をより高速にできる最適化が可能か判定する[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md)を追加
 
 
-### 並行・並列処理
+### 並行・並列・非同期処理
+- [`<execution>`](/reference/execution.md)に汎用的な非同期実行を管理するフレームワークを追加
 - [`std::atomic`](/reference/atomic/atomic.md)オブジェクトに対する2つの値の最大値・最小値を取得する関数として、メンバ関数[`fetch_max()`](/reference/atomic/atomic/fetch_max.md.nolink)と[`fetch_min()`](/reference/atomic/atomic/fetch_min.md.nolink)、非メンバ関数として[`std::atomic_fetch_max`](/reference/atomic/atomic_fetch_max.md.nolink)、[`std::atomic_fetch_max_explicit`](/reference/atomic/atomic_fetch_max_explicit.md.nolink)、[`std::atomic_fetch_min`](/reference/atomic/atomic_fetch_min.md.nolink)、[`std::atomic_fetch_min_explicit`](/reference/atomic/atomic_fetch_min_explicit.md.nolink)を追加
+- [`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスに、参照するオブジェクトのアドレスを取得する[`address()`](/reference/atomic/atomic_ref/address.md.nolink)メンバ関数を追加
+- [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスのテンプレートパラメータとして、CV修飾された型を受け取れるようにした (内部でCV修飾が外される)
+- [`<atomic>`](/reference/atomic.md)ライブラリのアトミック操作を`constexpr`対応
 
 
 ### スマートポインタ
@@ -289,6 +323,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::complex`](/reference/complex/complex.md)を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加
 - [`<random>`](/reference/random.md)の範囲`[0, 1)`の乱数を生成する[`std::generate_canonical()`](/reference/random/generate_canonical.md)を、望ましい統計的性質を保証するようアルゴリズムと制約を変更
 - [`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md)関数を追加
+- [`<random>`](/reference/random.md)に、乱数生成器は並列シミュレーションに効果的なカウンターベースのPhilox乱数生成器として、[`std::philox_engine`](/reference/random/philox_engine.md.nolink)クラス、およびその別名である[`std::philox4x32`](/reference/random/philox4x32.md.nolink)と[`std::philox4x64`](/reference/random/philox4x64.md.nolink)を追加
 
 
 ### ユーティリティ
@@ -305,6 +340,23 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`ronto`](/reference/ratio/si_prefix.md) (10<sup>−27</sup>)
     - [`quetta`](/reference/ratio/si_prefix.md) (10<sup>30</sup>)
     - [`quecto`](/reference/ratio/si_prefix.md) (10<sup>−30</sup>)
+- 定数式での例外送出が許可されることにともない、以下を`constexpr`化
+    - [`<exception>`](/reference/exception.md)ヘッダの以下の機能
+        - [`std::exception`](/reference/exception/exception.md)クラスの全メンバ関数
+        - [`std::nested_exception`](/reference/exception/nested_exception.md)クラスの全面場関数
+        - [`std::bad_exception`](/reference/exception/bad_exception.md)クラスの`what()`メンバ関数
+        - [`std::uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)関数
+        - [`std::current_exception()`](/reference/exception/current_exception.md)関数
+        - [`std::rethrow_exception()`](/reference/exception/rethrow_exception.md)関数
+        - [`std::make_exception_ptr()`](/reference/exception/make_exception_ptr.md)関数
+        - [`std::throw_with_nested()`](/reference/exception/throw_with_nested.md)関数
+        - [`std::rethrow_if_nested()`](/reference/exception/rethrow_if_nested.md)関数
+    - [`<new>`](/reference/new.md)ヘッダの以下の機能
+        - [`std::bad_alloc`](/reference/new/bad_alloc.md)クラスの`what()`メンバ関数
+        - [`std::bad_array_new_length`](/reference/new/bad_array_new_length.md)クラスの`what()`メンバ関数
+    - [`<typeinfo>`](/reference/typeinfo.md)ヘッダの以下の機能
+        - [`std::bad_cast`](/reference/typeinfo/bad_cast.md)クラスの`what()`メンバ関数
+        - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)クラスの`what()`メンバ関数
 
 
 ### デバッグ
@@ -325,6 +377,10 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::indirect_equivalence_relation`](/reference/iterator/indirect_equivalence_relation.md)
     - [`std::indirect_strict_weak_order`](/reference/iterator/indirect_strict_weak_order.md)
 
+
+### 機能の非推奨化
+- [`<type_traits>`](/reference/type_traits.md)の[`std::is_trivial`](/reference/type_traits/is_trivial.md)を非推奨化
+    - これは[`std::is_trivially_copyable`](/reference/type_traits/is_trivially_copyable.md)と[`std::is_trivially_default_constructible`](/reference/type_traits/is_trivially_default_constructible.md)の2つが合わさったものであるが、それらは異なる状況で必要になるものであった
 
 ### 非推奨の取り消し
 - [`std::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)`::`[`destroy()`](/reference/memory_resource/polymorphic_allocator/destroy.md)の非推奨を取り消し
