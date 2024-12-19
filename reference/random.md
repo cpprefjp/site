@@ -28,6 +28,7 @@
 | [`linear_congruential_engine`](random/linear_congruential_engine.md) | 線形合同法(class template)             | C++11 |
 | [`mersenne_twister_engine`](random/mersenne_twister_engine.md)       | メルセンヌツイスター法(class template) | C++11 |
 | [`subtract_with_carry_engine`](random/subtract_with_carry_engine.md) | キャリー付き減算法(class template)     | C++11 |
+| [`philox_engine`](random/philox_engine.md)                           | カウンタベース乱数生成器のPhilox法(class template) | C++26 |
 
 
 ## 生成器アダプタ
@@ -62,6 +63,8 @@
 | [`ranlux24`](random/ranlux24.md)           | RANLUX法のレベル3(type-alias)                            | C++11 |
 | [`ranlux48`](random/ranlux48.md)           | RANLUX法のレベル4(type-alias)                            | C++11 |
 | [`knuth_b`](random/knuth_b.md)             | KnuthのリオーダーアルゴリズムB(type-alias)               | C++11 |
+| [`philox4x32`](random/philox4x32.md)       | Philoxの32ビット版(type-alias)                           | C++26 |
+| [`philox4x64`](random/philox4x64.md)       | Philoxの64ビット版(type-alias)                           | C++26 |
 | [`default_random_engine`](random/default_random_engine.md) | 非専門用途でデフォルト使用する擬似乱数生成器(type-alias) | C++11 |
 
 
