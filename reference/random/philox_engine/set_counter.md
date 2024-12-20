@@ -27,14 +27,14 @@ void set_counter(const array<result_type, n>& c); // (1) C++26
 ```cpp
 uint32_t global_seed = 999;
 for (uint32_t time_step = 0; time_step < time_steps_num; ++time_step) {
-    for (uint32_t atom_id = 0; atom_id < atoms_num; ++atom_id) {
-        philox4x32 eng(global_seed);
-        eng.set_counter({atom_id, time_step, 0, 0});
-        normal_distribution<> nd;
-        auto n1 = nd(eng);
-        auto n2 = nd(eng);
-        // …
-    }
+  for (uint32_t atom_id = 0; atom_id < atoms_num; ++atom_id) {
+    philox4x32 eng(global_seed);
+    eng.set_counter({atom_id, time_step, 0, 0});
+    normal_distribution<> nd;
+    auto n1 = nd(eng);
+    auto n2 = nd(eng);
+    // …
+  }
 }
 ```
 * uint32_t[link /reference/cstdint/uint32_t.md]
@@ -87,9 +87,9 @@ int main()
         std::uniform_real_distribution<float> dist{0, 1.0};
 
         Vector vec {
-            dist(engine),
-            dist(engine),
-            dist(engine)
+          dist(engine),
+          dist(engine),
+          dist(engine)
         };
         std::println("{},{},{}", vec.x, vec.y, vec.z);
       }

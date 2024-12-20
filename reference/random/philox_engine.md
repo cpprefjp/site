@@ -224,9 +224,9 @@ int main()
         std::uniform_real_distribution<float> dist{0, 1.0};
 
         Vector vec {
-            dist(engine),
-            dist(engine),
-            dist(engine)
+          dist(engine),
+          dist(engine),
+          dist(engine)
         };
         std::println("{},{},{}", vec.x, vec.y, vec.z);
       }
