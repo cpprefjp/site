@@ -77,7 +77,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md.nolink) | C言語との互換性のためにこれらの文字を基本文字集合に追加 |
+| [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md) | C言語との互換性のためにこれらの文字を基本文字集合に追加 |
 
 
 ### モジュール
