@@ -300,6 +300,7 @@
     * std::forward[link /reference/utility/forward.md]
     * std::make_pair[link /reference/utility/make_pair.md]
     * std::pair[link /reference/utility/pair.md]
+    * pair[link /reference/utility/pair.md]
 * <valarray>[link /reference/valarray.md]
     * std::valarray[link /reference/valarray/valarray.md]
 * <variant>[link /reference/variant.md]
