@@ -345,6 +345,7 @@ C++20 から標準で使用可能となる本機能だが、実装例からも�
 
 - [`alignas`](../../lang/cpp11/alignas.md)
 - [`alignof`](../../lang/cpp11/alignof.md)
+- [`is_sufficiently_aligned`](is_sufficiently_aligned.md)
 
 ## 参照
 
