@@ -19,7 +19,7 @@ long use_count() const noexcept;
 `0`が返る場合、`*this`は空の状態となる。
 
 
-## 同期
+## 同期操作
 しない
 
 
