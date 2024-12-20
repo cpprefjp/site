@@ -357,7 +357,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`<typeinfo>`](/reference/typeinfo.md)ヘッダの以下の機能
         - [`std::bad_cast`](/reference/typeinfo/bad_cast.md)クラスの`what()`メンバ関数
         - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)クラスの`what()`メンバ関数
-- [<memory>](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
+- [`<memory>`](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
 
 
 ### デバッグ
