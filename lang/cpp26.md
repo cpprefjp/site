@@ -115,7 +115,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)のレイアウトとして、[`std::layout_left_padded`](/reference/mdspan/layout_left_padded.md)と[`std::layout_right_padded`](/reference/mdspan/layout_right_padded.md)を追加
-- [`<mdspan>`](/reference/mdspan.md)に、ポインタのアライメントをしながらアクセスする[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md.nolink)を追加
+- [`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加
 - [`std::span`](/reference/span/span.md)に、以下を追加
     - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタ
     - インデックスアクセスのための[`at()`](/reference/span/span/at.md)メンバ関数
@@ -357,6 +357,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`<typeinfo>`](/reference/typeinfo.md)ヘッダの以下の機能
         - [`std::bad_cast`](/reference/typeinfo/bad_cast.md)クラスの`what()`メンバ関数
         - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)クラスの`what()`メンバ関数
+- [<memory>](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
 
 
 ### デバッグ

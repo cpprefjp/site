@@ -30,6 +30,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
 | [`default_accessor`](mdspan/default_accessor.md) | デフォルト要素アクセサ (class template) | C++23 |
+| [`aligned_accessor`](mdspan/aligned_accessor.md) | アライメント保証付き要素アクセサ (class template) | C++26 |
 
 
 ## 多次元配列ビュー
@@ -65,3 +66,4 @@
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
 - [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
+- [P2897R7 `aligned_accessor`: An mdspan accessor expressing pointer over-alignment](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2897r7.html)

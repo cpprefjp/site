@@ -28,7 +28,7 @@ namespace std {
 
 
 ## この機能が必要になった背景・経緯
-この関数テンプレートは[`<mdspan>`](/reference/mdspan.md)ヘッダへの[`aligned_accessor`](/reference/mdspan/aligned_accessor.md.nolink)導入に伴って必要とされた機能である。
+この関数テンプレートは[`<mdspan>`](/reference/mdspan.md)ヘッダへの[`aligned_accessor`](/reference/mdspan/aligned_accessor.md)導入に伴って必要とされた機能である。
 一方で、ポインタ値のアライメント要件を検査するユースケースは一般的と考えられたため、汎用ユーティリティとして`<memory>`ヘッダに対して機能追加された。
 
 

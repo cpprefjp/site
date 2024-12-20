@@ -90,12 +90,14 @@ LayoutMappingを満たす型`M`は
 
 ## `LayoutMapping`に該当する型
 
-- [`layout_left::mapping<E>`](layout_left/mapping.md)
-- [`layout_right::mapping<E>`](layout_right/mapping.md)
-- [`layout_stride::mapping<E>`](layout_stride/mapping.md)
-- [`layout_left_padded<S>::mapping<E>`](layout_left_padded/mapping.md)
-- [`layout_right_padded<S>::mapping<E>`](layout_right_padded/mapping.md)
-- [`layout_blas_packed<T,SO>::mapping<E>`](/reference/linalg/layout_blas_packed/mapping.md)
+- [`<mdspan>`](/reference/mdspan.md)ヘッダ
+    - C++23 [`layout_left::mapping<E>`](layout_left/mapping.md)
+    - C++23 [`layout_right::mapping<E>`](layout_right/mapping.md)
+    - C++23 [`layout_stride::mapping<E>`](layout_stride/mapping.md)
+    - C++26 [`layout_left_padded<S>::mapping<E>`](layout_left_padded/mapping.md)
+    - C++26 [`layout_right_padded<S>::mapping<E>`](layout_right_padded/mapping.md)
+- [`<linalg>`](/reference/linalg.md)ヘッダ
+    - C++26 [`layout_blas_packed<T,SO>::mapping<E>`](/reference/linalg/layout_blas_packed/mapping.md)
 
 
 ## バージョン

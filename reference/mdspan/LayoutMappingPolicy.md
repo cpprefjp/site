@@ -37,12 +37,14 @@ LayoutMappingPolicyを満たす型`MP`は
 
 ## `LayoutMappingPolicy`に該当する型
 
-- [`layout_left`](layout_left.md)
-- [`layout_right`](layout_right.md)
-- [`layout_stride`](layout_stride.md)
-- [`layout_left_padded<S>`](layout_left_padded.md)
-- [`layout_right_padded<S>`](layout_right_padded.md)
-- [`linalg::layout_blas_packed<T,SO>`](/reference/linalg/layout_blas_packed.md)
+- [`<mdspan>`](/reference/mdspan.md)ヘッダ
+    - C++23 [`layout_left`](layout_left.md)
+    - C++23 [`layout_right`](layout_right.md)
+    - C++23 [`layout_stride`](layout_stride.md)
+    - C++26 [`layout_left_padded<S>`](layout_left_padded.md)
+    - C++26 [`layout_right_padded<S>`](layout_right_padded.md)
+- [`<linalg>`](/reference/linalg.md)ヘッダ
+    - C++26 [`layout_blas_packed<T,SO>`](/reference/linalg/layout_blas_packed.md)
 
 
 ## バージョン

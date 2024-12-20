@@ -32,7 +32,12 @@ AccessorPolicyを満たす型`A`は
 
 ## `AccessorPolicy`に該当する型
 
-- [`default_accessor`](default_accessor.md)
+- [`<mdspan>`](/reference/mdspan.md)ヘッダ
+    - C++23 [`default_accessor`](default_accessor.md)
+    - C++26 [`aligned_accessor`](aligned_accessor.md)
+- [`<linalg>`](/reference/linalg.md)ヘッダ
+    - C++26 [`scaled_accessor`](/reference/linalg/scaled_accessor.md)
+    - C++26 [`conjugated_accessor`](/reference/linalg/conjugated_accessor.md)
 
 
 ## バージョン
