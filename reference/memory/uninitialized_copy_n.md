@@ -6,13 +6,25 @@
 
 ```cpp
 namespace std {
-  template <class InputIterator, class Size, class ForwardIterator>
+  template <class InputIterator,
+            class Size,
+            class ForwardIterator>
   ForwardIterator
     uninitialized_copy_n(InputIterator first,
                          Size n,
                          ForwardIterator result); // (1) C++11
+  template <class InputIterator,
+            class Size,
+            class ForwardIterator>
+  constexpr ForwardIterator
+    uninitialized_copy_n(InputIterator first,
+                         Size n,
+                         ForwardIterator result); // (1) C++26
 
-  template <class ExecutionPolicy, class InputIterator, class Size, class ForwardIterator>
+  template <class ExecutionPolicy,
+            class InputIterator,
+            class Size,
+            class ForwardIterator>
   ForwardIterator
     uninitialized_copy_n(ExecutionPolicy&& exec,
                          InputIterator first,
@@ -123,3 +135,5 @@ int main()
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [LWG Issue 2433 `uninitialized_copy()`/etc. should tolerate overloaded `operator&`](https://wg21.cmeerw.net/lwg/issue2433)
+- [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+    - C++26から`constexpr`がついた

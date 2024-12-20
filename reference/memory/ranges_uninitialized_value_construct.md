@@ -8,11 +8,21 @@
 namespace std::ranges {
   template <no-throw-forward-iterator I, no-throw-sentinel<I> S>
     requires default_initializable<iter_value_t<I>>
-  I uninitialized_value_construct(I first, S last);            // (1) C++20
+  I
+    uninitialized_value_construct(I first, S last);  // (1) C++20
+  template <no-throw-forward-iterator I, no-throw-sentinel<I> S>
+    requires default_initializable<iter_value_t<I>>
+  constexpr I
+    uninitialized_value_construct(I first, S last);  // (1) C++26
 
   template <no-throw-forward-range R>
     requires default_initializable<range_value_t<R>>
-  borrowed_iterator_t<R> uninitialized_value_construct(R&& r); // (2) C++20
+  borrowed_iterator_t<R>
+    uninitialized_value_construct(R&& r);            // (2) C++20
+  template <no-throw-forward-range R>
+    requires default_initializable<range_value_t<R>>
+  constexpr borrowed_iterator_t<R>
+    uninitialized_value_construct(R&& r);            // (2) C++26
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
@@ -131,3 +141,5 @@ int main()
 
 ## 参照
 - [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+    - C++26から`constexpr`がついた

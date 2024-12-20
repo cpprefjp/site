@@ -10,6 +10,11 @@ namespace std {
     uninitialized_fill_n(ForwardIterator first,
                          Size n,
                          const T& x);           // (1) C++03
+  template <class ForwardIterator, class Size, class T>
+  constexpr ForwardIterator
+    uninitialized_fill_n(ForwardIterator first,
+                         Size n,
+                         const T& x);           // (1) C++26
 
   template <class ExecutionPolicy, class ForwardIterator, class Size, class T>
   ForwardIterator
@@ -104,3 +109,5 @@ int main()
 
 ## 参照
 - [LWG Issue 2433 `uninitialized_copy()`/etc. should tolerate overloaded `operator&`](https://wg21.cmeerw.net/lwg/issue2433)
+- [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+    - C++26から`constexpr`がついた

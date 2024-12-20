@@ -10,14 +10,19 @@ namespace std {
   ForwardIterator
     uninitialized_move(InputIterator first,
                        InputIterator last,
-                       ForwardIterator result); // (1)
+                       ForwardIterator result); // (1) C++17
+  template <class InputIterator, class ForwardIterator>
+  constexpr ForwardIterator
+    uninitialized_move(InputIterator first,
+                       InputIterator last,
+                       ForwardIterator result); // (1) C++26
 
   template <class ExecutionPolicy, class InputIterator, class ForwardIterator>
   ForwardIterator
     uninitialized_move(ExecutionPolicy&& exec,
                        InputIterator first,
                        InputIterator last,
-                       ForwardIterator result); // (2)
+                       ForwardIterator result); // (2) C++17
 }
 ```
 
@@ -114,3 +119,5 @@ int main()
 
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+- [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+    - C++26から`constexpr`がついた

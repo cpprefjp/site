@@ -9,13 +9,17 @@ namespace std {
   template <class ForwardIterator, class Size>
   ForwardIterator
     uninitialized_value_construct_n(ForwardIterator first,
-                                    Size n); // (1)
+                                    Size n); // (1) C++17
+  template <class ForwardIterator, class Size>
+  constexpr ForwardIterator
+    uninitialized_value_construct_n(ForwardIterator first,
+                                    Size n); // (1) C++26
 
   template <class ExecutionPolicy, class ForwardIterator, class Size>
   ForwardIterator
     uninitialized_value_construct_n(ExecutionPolicy&& exec,
                                     ForwardIterator first,
-                                    Size n); // (2)
+                                    Size n); // (2) C++17
 }
 ```
 
@@ -105,3 +109,5 @@ int main()
 
 ## 参照
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+- [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+    - C++26から`constexpr`がついた

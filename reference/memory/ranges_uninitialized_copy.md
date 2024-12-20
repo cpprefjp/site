@@ -13,12 +13,35 @@ namespace std::ranges {
             no-throw-forward-iterator O, no-throw-sentinel<O> S2>
   requires constructible_from<iter_value_t<O>, iter_reference_t<I>>
   uninitialized_copy_result<I, O>
-    uninitialized_copy(I ifirst, S1 ilast, O ofirst, S2 olast); // (1) C++20
+    uninitialized_copy(I ifirst,
+                       S1 ilast,
+                       O ofirst,
+                       S2 olast);       // (1) C++20
+  template <input_iterator I, sentinel_for<I> S1,
+            no-throw-forward-iterator O, no-throw-sentinel<O> S2>
+  requires constructible_from<iter_value_t<O>, iter_reference_t<I>>
+  constexpr uninitialized_copy_result<I, O>
+    uninitialized_copy(I ifirst,
+                       S1 ilast,
+                       O ofirst,
+                       S2 olast);       // (1) C++26
 
   template <input_range IR, no-throw-forward-range OR>
   requires constructible_from<range_value_t<OR>, range_reference_t<IR>>
-  uninitialized_copy_result<borrowed_iterator_t<IR>, borrowed_iterator_t<OR>>
-    uninitialized_copy(IR&& in_range, OR&& out_range);          // (2) C++20
+  uninitialized_copy_result<
+    borrowed_iterator_t<IR>,
+    borrowed_iterator_t<OR>
+  >
+    uninitialized_copy(IR&& in_range,
+                       OR&& out_range); // (2) C++20
+  template <input_range IR, no-throw-forward-range OR>
+  requires constructible_from<range_value_t<OR>, range_reference_t<IR>>
+  constexpr uninitialized_copy_result<
+    borrowed_iterator_t<IR>,
+    borrowed_iterator_t<OR>
+  >
+    uninitialized_copy(IR&& in_range,
+                       OR&& out_range); // (2) C++26
 }
 ```
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
@@ -152,3 +175,5 @@ int main()
 
 ## 参照
 - [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+    - C++26から`constexpr`がついた

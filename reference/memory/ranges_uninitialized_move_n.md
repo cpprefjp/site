@@ -20,6 +20,17 @@ namespace std::ranges {
       O ofirst,
       S olast
     );                               // (1) C++20
+  template <input_iterator I,
+            no-throw-forward-iterator O,
+            no-throw-sentinel<O> S>
+  requires constructible_from<iter_value_t<O>, iter_rvalue_reference_t<I>>
+  constexpr uninitialized_move_n_result<I, O>
+    uninitialized_move_n(
+      I ifirst,
+      iter_difference_t<I> n,
+      O ofirst,
+      S olast
+    );                               // (1) C++26
 }
 ```
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
@@ -132,3 +143,5 @@ int main()
 
 ## 参照
 - [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+    - C++26から`constexpr`がついた
