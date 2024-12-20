@@ -5,8 +5,10 @@
 * cpp26[meta cpp]
 
 ```cpp
-template<size_t Alignment, class T>
-  bool is_sufficiently_aligned(T* ptr);
+namespace std {
+  template<size_t Alignment, class T>
+    bool is_sufficiently_aligned(T* ptr);
+}
 ```
 
 ## 概要
@@ -34,7 +36,7 @@ template<size_t Alignment, class T>
 ```cpp example
 #include <cassert>
 #include <memory>
-#include <news>
+#include <new>
 
 int main()
 {

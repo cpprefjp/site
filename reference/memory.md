@@ -1,7 +1,7 @@
 # memory
 * memory[meta header]
 
-`<memory>`ヘッダでは、メモリアロケータ、未初期化領域に関する関数群、スマートポインタ、ガベージコレクションを作るためのユーティリティ関数といった、メモリを扱うための機能を定義する。
+`<memory>`ヘッダでは、メモリアロケータ、未初期化領域に関する関数群、スマートポインタ、アライメントに関するユーティリティ関数といった、メモリを扱うための機能を定義する。
 
 このヘッダでは、以下の標準ヘッダをインクルードする：
 
@@ -121,27 +121,28 @@
 | `atomic_compare_exchange_strong_explicit` | 強い比較でメモリオーダーを指定して、`shared_ptr`の値の入れ替えをアトミックに行う (function template) | C++11<br/> C++20で非推奨 |
 
 
+## ポインタのユーティリティ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`pointer_traits`](memory/pointer_traits.md) | ポインタの型特性(class template)                | C++11 |
+| [`to_address`](memory/to_address.md)         | ポインタと見なせるオブジェクトからアドレスを取得する (function template) | C++20 |
+| [`addressof`](memory/addressof.md)           | 変数のアドレスを必ず取得する(function template) | C++11 |
+| [`align`](memory/align.md)                   | アライメント調整された領域を得る(function)      | C++11 |
+| [`assume_aligned`](memory/assume_aligned.md) | コンパイラへアライメントのヒントを与える(function template) | C++20 |
+| [`is_sufficiently_aligned`](memory/is_sufficiently_aligned.md) | ポインタのアライメントを判定する(function template) | C++26 |
+
+
 ## ガベージコレクション支援（C++23で削除）
 
 | 名前 | 説明 | 対応バージョン |
-|--------------------------------------------------|--------------------------------------------|-------|
+|------|------|----------------|
 | [`pointer_safety`](memory/pointer_safety.md) | ポインタ安全性について実装/挙動を示す列挙型(enum class) | C++11<br/>C++23で削除 |
 | [`get_pointer_safety`](memory/get_pointer_safety.md) | 処理系の、ポインタ安全性についての実装/挙動を取得する(function) | C++11<br/>C++23で削除 |
 | [`declare_reachable`](memory/declare_reachable.md) | ポインタが到達可能であることを宣言する(function) | C++11<br/>C++23で削除 |
 | [`undeclare_reachable`](memory/undeclare_reachable.md) | ポインタが到達可能であるという宣言を削除する(function template) | C++11<br/>C++23で削除 |
 | [`declare_no_pointers`](memory/declare_no_pointers.md) | 指定された範囲のポインタが、追跡可能ではないことを宣言する(function) | C++11<br/>C++23で削除 |
 | [`undeclare_no_pointers`](memory/undeclare_no_pointers.md) | `declare_no_pointers`で宣言された範囲を無効化する(function) | C++11<br/>C++23で削除 |
-
-
-## ポインタのユーティリティ
-
-| 名前 | 説明 | 対応バージョン |
-|----------------------------------------------|-------------------------------------------------|-------|
-| [`pointer_traits`](memory/pointer_traits.md) | ポインタの型特性(class template)                | C++11 |
-| [`to_address`](memory/to_address.md)         | ポインタと見なせるオブジェクトからアドレスを取得する (function template) | C++20 |
-| [`addressof`](memory/addressof.md)           | 変数のアドレスを必ず取得する(function template) | C++11 |
-| [`align`](memory/align.md)                   | アライメント調整された領域を得る(function)      | C++11 |
-| [`assume_aligned`](memory/assume_aligned.md) | コンパイラへアライメントのヒントを与える(function template) | C++20 |
 
 
 ## 参照
