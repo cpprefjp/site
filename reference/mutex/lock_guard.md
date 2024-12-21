@@ -104,5 +104,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 関連項目
-
 - [`scoped_lock`](/reference/mutex/scoped_lock.md)
+- [C++26 宣言のみで使用しない変数の名前として_をサポート](/lang/cpp26/nice_placeholder_with_no_name.md)

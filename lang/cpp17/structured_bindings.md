@@ -341,6 +341,7 @@ auto { w, {x, y}, z } = f(); // このような、tuple内にあるpairを同時
 - [C++20 構造化束縛した変数の参照キャプチャを許可](/lang/cpp20/reference_capture_of_structured_bindings.md)
 - [C++26 構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)
 - [C++26 条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md)
+- [C++26 宣言のみで使用しない変数の名前として_をサポート](/lang/cpp26/nice_placeholder_with_no_name.md)
 
 
 ## 参照

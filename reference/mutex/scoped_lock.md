@@ -88,9 +88,11 @@ int main()
 - [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
-## 関連項目
 
+## 関連項目
 - [`lock_guard`](/reference/mutex/lock_guard.md)
+- [C++26 宣言のみで使用しない変数の名前として_をサポート](/lang/cpp26/nice_placeholder_with_no_name.md)
+
 
 ## 参照
 - [P0156R2 Variadic `lock_guard` (Rev. 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0156r2.html)
