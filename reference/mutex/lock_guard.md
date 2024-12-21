@@ -37,60 +37,51 @@ namespace std {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include <vector>
 
 // std::coutへのアクセスを排他的にする
 std::mutex print_mtx_;
 void safe_print(int x)
 {
-  std::lock_guard<std::mutex> lock(print_mtx_);
-  std::cout << x << std::endl;
+  std::lock_guard<std::mutex> lock{print_mtx_};
+  std::cout << "value:" << x << std::endl;
 }
-
-class X {
-  std::mutex mtx_;
-  std::vector<int> data_;
-public:
-  // vectorオブジェクトへのアクセスを排他的にする
-  void add_value(int value)
-  {
-    std::lock_guard<std::mutex> lock(mtx_); // ロックを取得する(lock_guardのコンストラクタ)
-    data_.push_back(value);
-  } // ロックを手放す(lock_guardのデストラクタ)
-
-  void print()
-  {
-    std::lock_guard<std::mutex> lock(mtx_);
-    for (int x : data_) {
-      safe_print(x);
-    }
-  }
-};
 
 int main()
 {
-  X x;
-
-  std::thread t1([&x]{ x.add_value(1); });
-  std::thread t2([&x]{ x.add_value(2); });
+  std::thread t1([]{
+    for (int i = 0; i < 5; i++) {
+      safe_print(i);
+    }
+  });
+  std::thread t2([]{
+    for (int i = 0; i < 5; i++) {
+      safe_print(5 + i);
+    }
+  });
 
   t1.join();
   t2.join();
-
-  x.print();
 }
 ```
 * std::lock_guard[color ff0000]
-* data_.push_back[link /reference/vector/vector/push_back.md]
 
-### 出力
+#### 出力例
 ```
-1
-2
+value:5
+value:6
+value:7
+value:8
+value:9
+value:0
+value:1
+value:2
+value:3
+value:4
 ```
 
 ## バージョン
@@ -98,7 +89,7 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 14 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
