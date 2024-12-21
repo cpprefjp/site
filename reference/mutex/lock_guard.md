@@ -51,16 +51,29 @@ void safe_print(int x)
   std::cout << "value:" << x << std::endl;
 }
 
+#include <random>
+void sleep_random()
+{
+  std::random_device seed_gen;
+  std::mt19937 engine{seed_gen()};
+  std::uniform_int_distribution<int> dist{1, 10};
+
+  int sleep_ms = dist(engine);
+  std::this_thread::sleep_for(std::chrono::milliseconds{sleep_ms});
+}
+
 int main()
 {
   std::thread t1([]{
     for (int i = 0; i < 5; i++) {
       safe_print(i);
+      sleep_random();
     }
   });
   std::thread t2([]{
     for (int i = 0; i < 5; i++) {
       safe_print(5 + i);
+      sleep_random();
     }
   });
 
