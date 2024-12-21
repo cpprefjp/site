@@ -273,6 +273,7 @@
     * t1.join()[link /reference/thread/thread/join.md]
     * t2.join()[link /reference/thread/thread/join.md]
     * t3.join()[link /reference/thread/thread/join.md]
+    * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * <tuple>[link /reference/tuple.md]
     * std::tuple[link /reference/tuple/tuple.md]
     * std::tie[link /reference/tuple/tie.md]
