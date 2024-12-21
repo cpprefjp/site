@@ -17,6 +17,11 @@ value_type operator++(int) const noexcept; // (2) C++20
 - (2) : 後置インクリメント
 
 
+## テンプレートパラメータ制約
+- ポインタに対する特殊化
+    - C++26 : [`is_const_v`](/reference/type_traits/is_const.md)`<T>`が`false`であること
+
+
 ## 戻り値
 以下と等価：
 
@@ -101,3 +106,5 @@ int main()
 ## 参照
 - [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
     - 戻り値の型を`T`から`value_type`に変更
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレート引数を受け取れるようになった

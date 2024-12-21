@@ -6,7 +6,12 @@
 * cpp20[meta cpp]
 
 ```cpp
-void wait(T old, memory_order order = memory_order::seq_cst) const noexcept;
+void
+  wait(T old,
+       memory_order order = memory_order::seq_cst) const noexcept; // (1) C++20
+void
+  wait(value_type old,
+       memory_order order = memory_order::seq_cst) const noexcept; // (1) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 
@@ -16,6 +21,14 @@ void wait(T old, memory_order order = memory_order::seq_cst) const noexcept;
 この関数は、ブロッキング同期を行うための機能であり、ビジーループによるポーリングよりもエネルギー消費が低く効率的な待機を実現できる。アトミック操作版の[`std::condition_variable`](/reference/condition_variable/condition_variable.md)であると言える。
 
 この関数によってブロッキング待機をしたら、対応する起床関数である[`notify_one()`](notify_one.md)、[`notify_all()`](notify_all.md)によってブロッキング待機を解除できる。
+
+
+## 事前条件
+- `order`が以下のいずれかであること：
+    - [`memory_order::relaxed`](/reference/atomic/memory_order.md)
+    - [`memory_order::consume`](/reference/atomic/memory_order.md)
+    - [`memory_order::acquire`](/reference/atomic/memory_order.md)
+    - [`memory_order::seq_cst`](/reference/atomic/memory_order.md)
 
 
 ## 効果
@@ -119,3 +132,5 @@ int main()
 - [P0514R4 Efficient concurrent waiting for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0514r4.pdf)
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
 - [P1643R1 Add wait/notify to `atomic_ref`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1643r1.html)
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレート引数を受け取れるようになった

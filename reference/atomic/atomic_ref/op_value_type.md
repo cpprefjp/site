@@ -1,19 +1,16 @@
-# operator T
+# operator value_type
 * atomic[meta header]
 * std[meta namespace]
 * atomic_ref[meta class]
 * function[meta id-type]
-* cpp20[meta cpp]
-* cpp26removed[meta cpp]
-
-この関数はC++26で、CV修飾された型を受け取れるようにするため、型`T`への変換演算子から[型`value_type`への変換演算子](op_value_type.md)に変更された。
+* cpp26[meta cpp]
 
 ```cpp
-operator T() const noexcept;
+operator value_type() const noexcept;
 ```
 
 ## 概要
-型`T`への暗黙の型変換
+型`value_type`への暗黙の型変換
 
 
 ## 戻り値
@@ -22,6 +19,10 @@ operator T() const noexcept;
 
 ## 例外
 投げない
+
+
+## 備考
+- C++26で、CV修飾された型を受け取れるようにするため、型`T`への変換演算子から、型`value_type`への変換演算子に変更された
 
 
 ## 例
@@ -47,11 +48,11 @@ int main()
 
 ## バージョン
 ### 言語
-- C++20
+- C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 10.1 [mark verified]
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

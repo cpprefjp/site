@@ -6,16 +6,29 @@
 * cpp20[meta cpp]
 
 ```cpp
-bool compare_exchange_weak(T& expected,
-                           T desired,
-                           memory_order success,
-                           memory_order failure
-                           ) const noexcept;     // (1) C++20
+bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order success,
+                        memory_order failure
+                        ) const noexcept;     // (1) C++20
+bool
+  compare_exchange_weak(value_type& expected,
+                        value_type desired,
+                        memory_order success,
+                        memory_order failure
+                        ) const noexcept;     // (1) C++26
 
-bool compare_exchange_weak(T& expected,
-                           T desired,
-                           memory_order order = memory_order_seq_cst
-                           ) const noexcept;     // (2) C++20
+bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order order = memory_order_seq_cst
+                        ) const noexcept;     // (2) C++20
+bool
+  compare_exchange_weak(value_type& expected,
+                        value_type desired,
+                        memory_order order = memory_order_seq_cst
+                        ) const noexcept;     // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -27,7 +40,11 @@ bool compare_exchange_weak(T& expected,
 - (2) : 現在の値と`expected`が等値である場合に、現在の値を`desired`で置き換え、そうでなければ`expected`を現在の値で置き換える。どちらの値置き換えの場合でも`order`メモリオーダーが使用される
 
 
-## 要件
+## テンプレートパラメータ制約
+- C++26 : [`is_const_v`](/reference/type_traits/is_const.md)`<T>`が`false`であること
+
+
+## 事前条件
 - (1) : `failure`が[`memory_order_release`](/reference/atomic/memory_order.md), [`memory_order_acq_rel`](/reference/atomic/memory_order.md)ではないこと
 
 
@@ -183,3 +200,7 @@ int main()
 - [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレート引数を受け取れるようになった

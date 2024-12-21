@@ -226,7 +226,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`<execution>`](/reference/execution.md)に汎用的な非同期実行を管理するフレームワークを追加
 - [`std::atomic`](/reference/atomic/atomic.md)オブジェクトに対する2つの値の最大値・最小値を取得する関数として、メンバ関数[`fetch_max()`](/reference/atomic/atomic/fetch_max.md.nolink)と[`fetch_min()`](/reference/atomic/atomic/fetch_min.md.nolink)、非メンバ関数として[`std::atomic_fetch_max`](/reference/atomic/atomic_fetch_max.md.nolink)、[`std::atomic_fetch_max_explicit`](/reference/atomic/atomic_fetch_max_explicit.md.nolink)、[`std::atomic_fetch_min`](/reference/atomic/atomic_fetch_min.md.nolink)、[`std::atomic_fetch_min_explicit`](/reference/atomic/atomic_fetch_min_explicit.md.nolink)を追加
 - [`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスに、参照するオブジェクトのアドレスを取得する[`address()`](/reference/atomic/atomic_ref/address.md.nolink)メンバ関数を追加
-- [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスのテンプレートパラメータとして、CV修飾された型を受け取れるようにした (内部でCV修飾が外される)
+- [`std::atomic`](/reference/atomic/atomic.md)クラスのテンプレートパラメータとしてCV修飾された型を禁止
+- [`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスのテンプレートパラメータとして、CV修飾された型を受け取れるようにした (内部でCV修飾が外される)
 - [`<atomic>`](/reference/atomic.md)ライブラリのアトミック操作を`constexpr`対応
 
 

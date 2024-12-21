@@ -28,14 +28,17 @@ namespace std {
 `atomic_ref`クラステンプレートは型`T`の値をコピーではなく参照で保持するため、`atomic_ref`オブジェクトより先に参照先の変数の寿命が尽きてはならない。
 
 - (1) : プライマリテンプレート。宣言のみ
-- (2) : 整数型に対する特殊化
-- (3) : (CV修飾されていない) 浮動小数点数型に対する特殊化
+- (2) : 整数型に対する特殊化 (`bool`以外)
+- (3) : 浮動小数点数型に対する特殊化
     - (C++23) : 拡張浮動小数点数型を含む
 - (4) : 任意の型のポインタに対する特殊化
+
+C++26から、これらの特殊化はCV修飾された型に対しても行われるようになった。
 
 
 ## テンプレートパラメータ制約
 - 型`T`は[`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> == true`であること
+- C++26: `is_always_lock_free`が`false`かつ[`is_volatile_v`](/reference/type_traits/is_volatile.md)が`true`である場合、プログラムは不適格となる
 
 
 ## メンバ関数
@@ -48,7 +51,8 @@ namespace std {
 | [`is_lock_free`](atomic_ref/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++20 |
 | [`store`](atomic_ref/store.md)                  | 値を書き込む | C++20 |
 | [`load`](atomic_ref/load.md)                    | 値を読み込む | C++20 |
-| [`operator T`](atomic_ref/op_t.md)              | 型Tへの変換演算子 | C++20 |
+| [`operator T`](atomic_ref/op_t.md)              | 型`T`への変換演算子 | C++20 (C++26で`value_type`に変更) |
+| [`operator value_type`](atomic_ref/op_value_type.md) | 型`value_type`への変換演算子 | C++26 |
 | [`exchange`](atomic_ref/exchange.md)            | 値を入れ替える | C++20 |
 | [`compare_exchange_weak`](atomic_ref/compare_exchange_weak.md) | 弱い比較で値を入れ替える | C++20 |
 | [`compare_exchange_strong`](atomic_ref/compare_exchange_strong.md) | 強い比較で値を入れ替える | C++20 |
@@ -60,7 +64,7 @@ namespace std {
 ### 共通メンバ型
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `value_type` | 要素型となるテンプレートパラメータの型`T` | C++20 |
+| `value_type` | 要素型となるテンプレートパラメータの型。<br/> C++20: `T`<br/> C++26: [`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>` | C++20 |
 
 
 ### 共通メンバ定数
@@ -193,3 +197,5 @@ int main()
 - [P0019R8 Atomic Ref](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0019r8.html)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型もテンプレート引数として指定することが許可された
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレート引数を受け取れるようになった

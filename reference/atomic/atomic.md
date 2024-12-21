@@ -30,8 +30,15 @@ namespace std {
 
 ## テンプレートパラメータ制約
 - 型`T`は[コピー構築可能](/reference/concepts/copy_constructible.md)かつ[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
-- [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> &&` [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T> &&` [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`が`false`である場合、プログラムは不適格となる
-    - 簡潔に言うと、`memcpy()`可能な型であること
+- 以下のいずれかが`false`である場合、プログラムは不適格となる：
+    - [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T>`
+        - 簡潔に言うと、`memcpy()`可能な型であること
+    - [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T>`
+    - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T>`
+    - [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T>`
+    - [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<T>`
+    - C++26: [`same_as`](/reference/concepts/same_as.md)`<T,` [`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`
+        - CV修飾された`T`は許可しない
 
 
 ## 別名型
@@ -314,3 +321,5 @@ int main()
     - C++20での`atomic_signed_lock_free`と`atomic_unsigned_lock_free`の追加
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型もテンプレート引数として指定することが許可された
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレートパラメータが明確に禁止された

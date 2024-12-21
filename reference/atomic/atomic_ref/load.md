@@ -6,7 +6,8 @@
 * cpp20[meta cpp]
 
 ```cpp
-T load(memory_order order = memory_order_seq_cst) const noexcept;
+T load(memory_order order = memory_order_seq_cst) const noexcept;          // (1) C++20
+value_type load(memory_order order = memory_order_seq_cst) const noexcept; // (1) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -15,7 +16,7 @@ T load(memory_order order = memory_order_seq_cst) const noexcept;
 値を読み込む
 
 
-## 要件
+## 事前条件
 `order`が以下のメモリオーダーではないこと：
 
 - [`memory_order_release`](/reference/atomic/memory_order.md)
@@ -70,3 +71,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
 - [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレート引数を受け取れるようになった

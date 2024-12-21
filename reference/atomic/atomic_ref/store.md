@@ -6,7 +6,10 @@
 * cpp20[meta cpp]
 
 ```cpp
-void store(T desired, memory_order order = memory_order_seq_cst) const noexcept;
+void store(T desired,
+            memory_order order = memory_order_seq_cst) const noexcept; // (1) C++20
+void store(value_type desired,
+           memory_order order = memory_order_seq_cst) const noexcept;  // (1) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -15,7 +18,11 @@ void store(T desired, memory_order order = memory_order_seq_cst) const noexcept;
 値を書き込む
 
 
-## 要件
+## テンプレートパラメータ制約
+- C++26 : [`is_const_v`](/reference/type_traits/is_const.md)`<T>`が`false`であること
+
+
+## 事前条件
 `order`が以下のメモリオーダーではないこと：
 
 - [`memory_order_consume`](/reference/atomic/memory_order.md)
@@ -24,6 +31,7 @@ void store(T desired, memory_order order = memory_order_seq_cst) const noexcept;
 
 ## 効果
 `order`で指定されたメモリオーダーにしたがって、現在の値を`desired`でアトミックに置き換える。
+
 この関数は、戻り値のない[`exchange()`](exchange.md)と見なせる。
 
 
@@ -71,3 +79,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
 - [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレート引数を受け取れるようになった

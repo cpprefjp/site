@@ -6,17 +6,22 @@
 * cpp20[meta cpp]
 
 ```cpp
-T operator=(T desired) const noexcept;
+T operator=(T desired) const noexcept;                   // (1) C++20
+value_type operator=(value_type desired) const noexcept; // (1) C++26
 ```
 
 ## 概要
 値を書き込む
 
 
+## テンプレートパラメータ制約
+- C++26 : [`is_const_v`](/reference/type_traits/is_const.md)`<T>`が`false`であること
+
+
 ## 効果
 以下と等価：
 
-```
+```cpp
 store(desired);
 return desired;
 ```
@@ -68,3 +73,5 @@ int main()
 ## 参照
 - [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
     - 宣言に`const`を追加
+- [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
+    - C++26でCV修飾されたテンプレート引数を受け取れるようになった
