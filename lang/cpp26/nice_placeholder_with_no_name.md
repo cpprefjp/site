@@ -20,7 +20,7 @@ std::mutex mux;
 std::tuple<T, U, V> f();
 
 void f() {
-  std::lock_gaurd guard{mux}; // デストラクタでの自動解放だけしたいのでguard変数はとくに使わない
+  std::lock_guard guard{mux}; // デストラクタでの自動解放だけしたいのでguard変数はとくに使わない
   auto [a, b, no_use] = f();  // 構造化束縛した一部の変数は使わない
 }
 ```
@@ -33,7 +33,7 @@ std::mutex mux;
 std::tuple<T, U, V> f();
 
 void f() {
-  std::lock_gaurd _{mux}; // OK
+  std::lock_guard _{mux}; // OK
   auto [a, b, _] = f();   // OK
 }
 ```
