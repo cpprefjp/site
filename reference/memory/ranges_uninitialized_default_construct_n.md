@@ -111,7 +111,7 @@ int main()
 - [`uninitialized_default_construct_n`](uninitialized_default_construct_n.md)
 
 ## 参照
-- [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
 - [P3369R0 `constexpr` for `uninitialized_default_construct`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3369r0.html)
     - 上記2文書で、C++26から`constexpr`がついた

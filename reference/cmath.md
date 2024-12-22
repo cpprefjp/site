@@ -460,7 +460,7 @@ NaN を返さなければならないが定義域エラーを報告してはな�
 
 ## 参照
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
-- [P00175R0 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r0.html)
+- [P0175R0 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r0.html)
     - C++17 から`f`、`l`サフィックス付きのC関数を導入
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
     - C++23での、一部関数の`constexpr`対応

@@ -87,5 +87,5 @@ int main()
 - [`construct_at`](construct_at.md)
 
 ## 参照
-- [P9896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [LWG Issue 3436. `std::construct_at` should support arrays](https://wg21.cmeerw.net/lwg/issue3436)

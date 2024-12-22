@@ -80,4 +80,4 @@ exception std::out_of_range
 
 
 ## 参照
-- [LWG Issue 761. `unordered_map` needs an `at()` member function](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#759)
+- [LWG Issue 761. `unordered_map` needs an `at()` member function](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#761)

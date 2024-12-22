@@ -387,6 +387,6 @@ volatile device dev;
 - [P1152R2 Deprecating `volatile`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r2)
 - [P1152R4 Deprecating `volatile`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r4.html)
 - [P1831R0 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1831r0.html)
-- [P1831R0 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
-- [P2327R0 De-deprecating volatile compound assignment](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2327r1.pdf)
+- [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+- [P2327R1 De-deprecating volatile compound operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2327r1.pdf)
 - [CWG Issue 2654. Un-deprecation of compound volatile assignments](https://cplusplus.github.io/CWG/issues/2654.html)

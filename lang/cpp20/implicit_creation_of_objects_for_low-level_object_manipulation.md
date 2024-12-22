@@ -410,7 +410,7 @@ unique_ptr<char[]> Stream::read() {
 ## 参照
 
 - [P0593R6 Implicit creation of objects for low-level object manipulation](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p0593r6.html)
-- [P0593R０ What to do with buffers that are not arrays, and undefined behavior thereof?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0593r0.html)
+- [P0593R0 What to do with buffers that are not arrays, and undefined behavior thereof?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0593r0.html)
 - [CWG Issue 2325. `std::launder` and reuse of character buffers](https://cplusplus.github.io/CWG/issues/2325.html)
 - [CWG Issue 2605. Implicit-lifetime aggregates](https://cplusplus.github.io/CWG/issues/2605.html)
 - [P1839R5 Accessing Object Representations](https://wg21.link/p1839r5)

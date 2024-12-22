@@ -95,5 +95,5 @@ int main()
 ## 参照
 
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
-- [P2665R0 `common_reference_t`` of reference_wrapper` Should Be a Reference Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2655r0.html)
+- [P2655R0 `common_reference_t` of `reference_wrapper` Should Be a Reference Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2655r0.html)
     - `T&`と`reference_wrapper<T>`の`common_reference`を`T&`にするための`basic_common_reference`特殊化の例

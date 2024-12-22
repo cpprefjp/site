@@ -149,4 +149,4 @@ int main()
 
 
 ## 参照
-- [P2252R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
+- [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)

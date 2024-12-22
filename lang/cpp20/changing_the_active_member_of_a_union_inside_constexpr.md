@@ -49,5 +49,5 @@ int main() {
 ## 参照
 
 - [P1330R0 Changing the active member of a union inside constexpr](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1330r0.pdf)
-- [P0980R0 Making std::string constexpr](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+- [P0980R1 Making std::string constexpr](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
 - [std::stringのSSO(Small-string optimization)がどうなっているか調べた - melpon/qiita](https://github.com/melpon/qiita/tree/master/items/stdstringのSSO(Small-string%20optimization)がどうなっているか調べた)

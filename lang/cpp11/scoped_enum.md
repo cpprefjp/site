@@ -108,7 +108,7 @@ ECMA規格になっているC++/CLIが、現在のスコープを持つ列挙型
 ## 参照
 - [N1513 Improving Enumeration Types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1513.pdf)
 - [N1579 Strongly Typed Enums](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1579.pdf)
-- [N1579 Strongly Typed Enums (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1719.pdf)
+- [N1719 Strongly Typed Enums (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1719.pdf)
 - [N2213 Strongly Typed Enums (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2213.pdf)
 - [N2347 Strongly Typed Enums (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2347.pdf)
 - [N2499 Forward declaration of enumerations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2499.pdf)

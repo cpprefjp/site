@@ -177,6 +177,6 @@ struct common_type<T, U, V...> {
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 - [LWG Issue 2141. `common_type` trait produces reference types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2141)
     - C++11では、`common_type`の結果が参照型になる場合があった。C++14で`decay_t`を通すことにしたことにより、参照型が返されることがなくなった。
-- [P0453R1 Resolving LWG Issues re common_type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0435r1.pdf)
+- [P0435R1 Resolving LWG Issues re common_type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0435r1.pdf)
 - [P0898R3 Standard Library Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf)
     - C++20で`COND-RES`, `CREF`操作を利用するステップが追加された。

@@ -266,7 +266,7 @@ int foo(const std::unordered_map<T, std::unordered_map<T, T>>& m) {
 ### 記憶クラス指定子としての `auto`
 自動変数である事を意味する記憶クラス指定子としての `auto` を残す案も考えられた。
 
-- [N1706 Decltype and auto (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf)（「1.1 Changes from N1607」の 5 番目の項目）
+- [N1705 Decltype and auto (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf)（「1.1 Changes from N1607」の 5 番目の項目）
 
 しかし、その場合に発生する新たな曖昧性や混乱を回避するため、および、記憶クラス指定子としての `auto` の使用が非常に少ないとの調査結果などから、当該用途は直ちに廃止となった。
 

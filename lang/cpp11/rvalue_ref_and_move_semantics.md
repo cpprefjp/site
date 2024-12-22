@@ -409,5 +409,5 @@ C++11で非推奨となった`std::auto_ptr`で実現されていた。
 - [N2118 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html)
 - [N2983 Allowing Move Constructors to Throw](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html)
     - ムーブコンストラクタから例外を送出することを許可した経緯
-- [P0135R0 Wording for guaranteed copy elision through simplified value categories](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html)
+- [P0135R1 Wording for guaranteed copy elision through simplified value categories](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html)
     - C++17 値カテゴリの定義

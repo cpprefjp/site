@@ -351,7 +351,7 @@ std::vector<int> v(ar, ar + N);
 - [N1824 Extending Aggregate Initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1824.htm)
 - [N1890 Initialization and initializers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1890.pdf)
 - [N1919 Initializer lists](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1919.pdf)
-- [N2210 Initializer lists (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2100.pdf)
+- [N2100 Initializer lists (Rev. 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2100.pdf)
 - [N2215 Initializer lists (Rev. 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2215.pdf)
 - [N2531 Initializer lists WP wording (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2531.pdf)
 - [N2575 Initializer Lists - Alternative Mechanism and Rationale](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2575.pdf)
