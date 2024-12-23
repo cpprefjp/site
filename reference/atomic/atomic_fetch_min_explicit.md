@@ -52,7 +52,7 @@ int main()
   std::cout << ret << std::endl;
 }
 ```
-* std::atomic_fetch_add_maxlicit[color ff0000]
+* std::atomic_fetch_min_explicit[color ff0000]
 
 
 ### 出力
