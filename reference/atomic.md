@@ -75,6 +75,10 @@
 | [`atomic_fetch_or_explicit`](atomic/atomic_fetch_or_explicit.md) | メモリオーダーを指定してOR演算(function template) | C++11 |
 | [`atomic_fetch_xor`](atomic/atomic_fetch_xor.md) | XOR演算(function template) | C++11 |
 | [`atomic_fetch_xor_explicit`](atomic/atomic_fetch_xor_explicit.md) | メモリオーダーを指定してXOR演算(function template) | C++11 |
+| [`atomic_fetch_max`](atomic/atomic_fetch_max.md) | 最大値取得(function template) | C++26 |
+| [`atomic_fetch_max_explicit`](atomic/atomic_fetch_max_explicit.md) | メモリオーダーを指定して最大値取得(function template) | C++26 |
+| [`atomic_fetch_min`](atomic/atomic_fetch_min.md) | 最小値取得(function template) | C++26 |
+| [`atomic_fetch_min_explicit`](atomic/atomic_fetch_min_explicit.md) | メモリオーダーを指定して最小値取得(function template) | C++26 |
 
 
 ## アトミック型に対するブロッキング同期操作

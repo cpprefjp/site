@@ -89,6 +89,8 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 | [`fetch_and`](atomic_ref/fetch_and.md)        | AND演算        | C++20 |
 | [`fetch_or`](atomic_ref/fetch_or.md)          | OR演算         | C++20 |
 | [`fetch_xor`](atomic_ref/fetch_xor.md)        | XOR演算        | C++20 |
+| [`fetch_max`](atomic_ref/fetch_max.md)        | 最大値取得     | C++26 |
+| [`fetch_min`](atomic_ref/fetch_min.md)        | 最小値取得     | C++26 |
 | [`operator++`](atomic_ref/op_increment.md)    | インクリメント | C++20 |
 | [`operator--`](atomic_ref/op_decrement.md)    | デクリメント   | C++20 |
 | [`operator+=`](atomic_ref/op_plus_assign.md)  | 加算           | C++20 |
@@ -128,6 +130,8 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 |------|------|----------------|
 | [`fetch_add`](atomic_ref/fetch_add.md)        | 加算 | C++20 |
 | [`fetch_sub`](atomic_ref/fetch_sub.md)        | 減算 | C++20 |
+| [`fetch_max`](atomic_ref/fetch_max.md)        | 最大値取得     | C++26 |
+| [`fetch_min`](atomic_ref/fetch_min.md)        | 最小値取得     | C++26 |
 | [`operator++`](atomic_ref/op_increment.md)    | インクリメント | C++20 |
 | [`operator--`](atomic_ref/op_decrement.md)    | デクリメント | C++20 |
 | [`operator+=`](atomic_ref/op_plus_assign.md)  | 加算 | C++20 |
