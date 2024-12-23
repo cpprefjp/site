@@ -6,7 +6,8 @@
 * cpp26[meta cpp]
 
 ```cpp
-T fetch_max(difference_type operand,
+constexpr T
+  fetch_max(difference_type operand,
             memory_order order = memory_order_seq_cst
             ) const noexcept;                         // (1) C++26
 ```
@@ -70,3 +71,4 @@ int main()
 
 ## 参照
 - [P0493R5 Atomic minimum/maximum](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0493r5.pdf)
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)

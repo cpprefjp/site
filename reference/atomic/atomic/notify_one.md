@@ -6,8 +6,10 @@
 * cpp20[meta cpp]
 
 ```cpp
-void notify_one() volatile noexcept; // (1) C++20
-void notify_one() noexcept;          // (2) C++20
+void notify_one() volatile noexcept;  // (1) C++20
+
+void notify_one() noexcept;           // (2) C++20
+constexpr void notify_one() noexcept; // (2) C++26
 ```
 
 ## 概要
@@ -117,3 +119,5 @@ int main()
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

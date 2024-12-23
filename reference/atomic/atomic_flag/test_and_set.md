@@ -6,8 +6,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-bool test_and_set(memory_order order = memory_order_seq_cst) volatile noexcept;
-bool test_and_set(memory_order order = memory_order_seq_cst) noexcept;
+bool
+  test_and_set(memory_order order = memory_order_seq_cst
+               ) volatile noexcept;                      // (1) C++11
+
+bool
+  test_and_set(memory_order order = memory_order_seq_cst
+               ) noexcept;                               // (2) C++11
+constexpr bool
+  test_and_set(memory_order order = memory_order_seq_cst
+               ) noexcept;                               // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -73,5 +81,5 @@ true
 
 
 ## 参照
-
-
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

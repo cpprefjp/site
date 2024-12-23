@@ -6,12 +6,19 @@
 * cpp11[meta cpp]
 
 ```cpp
-T exchange(T desired,
+T
+  exchange(T desired,
            memory_order order = memory_order_seq_cst
            ) volatile noexcept;                      // (1) C++11
-T exchange(T desired,
+
+T
+  exchange(T desired,
            memory_order order = memory_order_seq_cst
            ) noexcept;                               // (2) C++11
+constexpr T
+  exchange(T desired,
+           memory_order order = memory_order_seq_cst
+           ) noexcept;                               // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -81,3 +88,5 @@ replaced 1 by 2
 ## 参照
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

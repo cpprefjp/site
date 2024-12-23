@@ -6,8 +6,16 @@
 * cpp20[meta cpp]
 
 ```cpp
-bool test(memory_order order = memory_order::seq_cst) const volatile noexcept;
-bool test(memory_order order = memory_order::seq_cst) const noexcept;
+bool
+  test(memory_order order = memory_order::seq_cst
+      ) const volatile noexcept;                  // (1) C++20
+
+bool
+  test(memory_order order = memory_order::seq_cst
+       ) const noexcept;                          // (2) C++20
+constexpr bool
+  test(memory_order order = memory_order::seq_cst
+       ) const noexcept;                          // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 
@@ -77,3 +85,5 @@ true
 - [P0995R1 Improving atomic_flag](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0995r1.html)
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
 - [P1135R6 The C++20 Synchronization Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html)
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

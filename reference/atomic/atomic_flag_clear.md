@@ -6,8 +6,13 @@
 
 ```cpp
 namespace std {
-  void atomic_flag_clear(volatile atomic_flag* object) noexcept;
-  void atomic_flag_clear(atomic_flag* object) noexcept;
+  void
+    atomic_flag_clear(volatile atomic_flag* object) noexcept; // (1) C++11
+
+  void
+    atomic_flag_clear(atomic_flag* object) noexcept;          // (2) C++26
+  constexpr void
+    atomic_flag_clear(atomic_flag* object) noexcept;          // (2) C++26
 }
 ```
 * atomic_flag[link atomic_flag.md]
@@ -79,5 +84,5 @@ false
 
 
 ## 参照
-
-
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

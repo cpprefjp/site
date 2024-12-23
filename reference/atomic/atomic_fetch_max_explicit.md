@@ -7,13 +7,15 @@
 ```cpp
 namespace std {
   template <class T>
-  T atomic_fetch_max_explicit(
+  T
+    atomic_fetch_max_explicit(
       volatile atomic<T>* object,
       typename atomic<T>::value_type operand,
       memory_order order) noexcept;                // (1) C++26
 
   template <class T>
-  T atomic_fetch_max_explicit(
+  constexpr T
+    atomic_fetch_max_explicit(
       atomic<T>* object,
       typename atomic<T>::value_type operand,
       memory_order order) noexcept;                // (2) C++26
@@ -71,3 +73,4 @@ int main()
 
 ## 参照
 - [P0493R5 Atomic minimum/maximum](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0493r5.pdf)
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)

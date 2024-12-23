@@ -6,17 +6,19 @@
 * cpp11[meta cpp]
 
 ```cpp
-T operator--() volatile noexcept;             // (1) C++11
-value_type operator--() volatile noexcept;    // (1) C++20
+T operator--() volatile noexcept;              // (1) C++11
+value_type operator--() volatile noexcept;     // (1) C++20
 
-T operator--() noexcept;                      // (2) C++11
-value_type operator--() noexcept;             // (2) C++20
+T operator--() noexcept;                       // (2) C++11
+value_type operator--() noexcept;              // (2) C++20
+constexpr value_type operator--() noexcept;    // (2) C++26
 
-T operator--(int) volatile noexcept;          // (3) C++11
-value_type operator--(int) volatile noexcept; // (3) C++20
+T operator--(int) volatile noexcept;           // (3) C++11
+value_type operator--(int) volatile noexcept;  // (3) C++20
 
-T operator--(int) noexcept;                   // (4) C++11
-value_type operator--(int) noexcept;          // (4) C++20
+T operator--(int) noexcept;                    // (4) C++11
+value_type operator--(int) noexcept;           // (4) C++20
+constexpr value_type operator--(int) noexcept; // (4) C++26
 ```
 
 ## 概要
@@ -123,3 +125,5 @@ int main()
     - C++20での、`volatile`版への制約追加
 - [P1960R0 NB Comment Changes Reviewed by SG1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1960r0.html)
     - 戻り値の型を`T`から`value_type`に変更
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

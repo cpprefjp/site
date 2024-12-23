@@ -6,25 +6,42 @@
 * cpp11[meta cpp]
 
 ```cpp
-bool compare_exchange_weak(T& expected,
-                           T desired,
-                           memory_order success,
-                           memory_order failure
-                           ) volatile noexcept;  // (1) C++11
-bool compare_exchange_weak(T& expected,
-                           T desired,
-                           memory_order success,
-                           memory_order failure
-                           ) noexcept;           // (2) C++11
+bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order success,
+                        memory_order failure
+                        ) volatile noexcept;  // (1) C++11
 
-bool compare_exchange_weak(T& expected,
-                           T desired,
-                           memory_order order = memory_order_seq_cst
-                           ) volatile noexcept;  // (3) C++11
-bool compare_exchange_weak(T& expected,
-                           T desired,
-                           memory_order order = memory_order_seq_cst
-                           ) noexcept;           // (4) C++11
+bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order success,
+                        memory_order failure
+                        ) noexcept;           // (2) C++11
+constexpr bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order success,
+                        memory_order failure
+                        ) noexcept;           // (2) C++26
+
+bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order order = memory_order_seq_cst
+                        ) volatile noexcept;  // (3) C++11
+
+bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order order = memory_order_seq_cst
+                        ) noexcept;           // (4) C++11
+constexpr bool
+  compare_exchange_weak(T& expected,
+                        T desired,
+                        memory_order order = memory_order_seq_cst
+                        ) noexcept;           // (4) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -205,3 +222,5 @@ int main()
 - [Understand `std::atomic::compare_exchange_weak()` in C++11 - Eric Z's blog](https://tonywearme.wordpress.com/2014/08/15/understand-stdatomiccompare_exchange_weak-in-c11/)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

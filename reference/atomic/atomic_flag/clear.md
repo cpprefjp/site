@@ -6,8 +6,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-void clear(memory_order order = memory_order_seq_cst) volatile noexcept;
-void clear(memory_order order = memory_order_seq_cst) noexcept;
+void
+  clear(memory_order order = memory_order_seq_cst
+        ) volatile noexcept;                      // (1) C++11
+
+void
+  clear(memory_order order = memory_order_seq_cst
+       ) noexcept;                                // (2) C++11
+constexpr void
+  clear(memory_order order = memory_order_seq_cst
+       ) noexcept;                                // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -87,5 +95,5 @@ false
 
 ## 参照
 - [LWG Issue 2138. `atomic_flag::clear` should not accept `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2138)
-
-
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

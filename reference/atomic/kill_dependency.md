@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <class T>
-  T kill_dependency(T y) noexcept;
+  T kill_dependency(T y) noexcept;           // (1) C++11
+  template <class T>
+  constexpr T kill_dependency(T y) noexcept; // (1) C++26
 }
 ```
 
@@ -122,4 +124,5 @@ T kill_dependency(T y) noexcept
 - [What does `std::kill_dependency` do, and why would I want to use it? - StackOverflow](http://stackoverflow.com/q/7150395/463412)
 - [C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳](http://d.hatena.ne.jp/bsdhouse/20090929/1254237835)
 - [（抄訳）N4215 `memory_order_consume`の利用と実装に向けて［§5-6のみ］](http://d.hatena.ne.jp/yohhoy/20141115/p1)
-
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

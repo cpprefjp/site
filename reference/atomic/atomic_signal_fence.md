@@ -6,7 +6,12 @@
 
 ```cpp
 namespace std {
-  extern "C" void atomic_signal_fence(memory_order order) noexcept;
+  extern "C"
+  void
+    atomic_signal_fence(memory_order order) noexcept; // (1) C++11
+  extern "C"
+  constexpr void
+    atomic_signal_fence(memory_order order) noexcept; // (1) C++26
 }
 ```
 * memory_order[link memory_order.md]
@@ -50,5 +55,6 @@ namespace std {
 
 
 ## 参照
-[How to correctly use std::atomic_signal_fence()?](http://stackoverflow.com/questions/14581090/how-to-correctly-use-stdatomic-signal-fence)
-
+- [How to correctly use std::atomic_signal_fence()?](http://stackoverflow.com/questions/14581090/how-to-correctly-use-stdatomic-signal-fence)
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

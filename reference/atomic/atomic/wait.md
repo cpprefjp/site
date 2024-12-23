@@ -6,12 +6,19 @@
 * cpp20[meta cpp]
 
 ```cpp
-void wait(T old,
-          memory_order order = memory_order::seq_cst
-          ) const volatile noexcept;                 // (1) C++20
-void wait(T old,
-          memory_order order = memory_order::seq_cst
-          ) const noexcept;                          // (2) C++20
+void
+  wait(T old,
+       memory_order order = memory_order::seq_cst
+       ) const volatile noexcept;                 // (1) C++20
+
+void
+  wait(T old,
+       memory_order order = memory_order::seq_cst
+       ) const noexcept;                          // (2) C++20
+constexpr void
+  wait(T old,
+       memory_order order = memory_order::seq_cst
+       ) const noexcept;                          // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 
@@ -132,3 +139,5 @@ int main()
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

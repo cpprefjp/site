@@ -12,7 +12,7 @@ bool
                         memory_order success,
                         memory_order failure
                         ) const noexcept;     // (1) C++20
-bool
+constexpr bool
   compare_exchange_weak(value_type& expected,
                         value_type desired,
                         memory_order success,
@@ -24,7 +24,7 @@ bool
                         T desired,
                         memory_order order = memory_order_seq_cst
                         ) const noexcept;     // (2) C++20
-bool
+constexpr bool
   compare_exchange_weak(value_type& expected,
                         value_type desired,
                         memory_order order = memory_order_seq_cst
@@ -204,3 +204,5 @@ int main()
 ## 参照
 - [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

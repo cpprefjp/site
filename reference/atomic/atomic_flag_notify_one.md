@@ -6,8 +6,16 @@
 
 ```cpp
 namespace std {
-  void atomic_flag_notify_one(volatile atomic_flag* object) noexcept; // (1) C++20
-  void atomic_flag_notify_one(atomic_flag* object) noexcept;          // (2) C++20
+  void
+    atomic_flag_notify_one(
+      volatile atomic_flag* object) noexcept; // (1) C++20
+
+  void
+    atomic_flag_notify_one(
+      atomic_flag* object) noexcept;          // (2) C++20
+  constexpr void
+    atomic_flag_notify_one(
+      atomic_flag* object) noexcept;          // (2) C++26
 }
 ```
 
@@ -109,3 +117,5 @@ int main()
 - [P0514R4 Efficient concurrent waiting for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0514r4.pdf)
 - [ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify](https://github.com/ogiroux/atomic_wait)
 - [P1135R6 The C++20 Synchronization Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html)
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

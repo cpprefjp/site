@@ -6,8 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-explicit atomic_ref(T& obj);                  // (1) C++20
-atomic_ref(const atomic_ref& other) noexcept; // (2) C++20
+explicit atomic_ref(T& obj);                            // (1) C++20
+constexpr explicit atomic_ref(T& obj);                  // (1) C++26
+
+atomic_ref(const atomic_ref& other) noexcept;           // (2) C++20
+constexpr atomic_ref(const atomic_ref& other) noexcept; // (2) C++26
 ```
 
 ## 概要
@@ -64,3 +67,5 @@ int main()
 
 ## 参照
 - [LWG issue 3160. `atomic_ref() = delete;` should be deleted](https://wg21.cmeerw.net/lwg/issue3160)
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

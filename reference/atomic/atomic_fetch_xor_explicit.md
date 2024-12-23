@@ -7,28 +7,36 @@
 ```cpp
 namespace std {
   template <class T>
-  T atomic_fetch_xor_explicit(
+  T
+    atomic_fetch_xor_explicit(
       volatile atomic<T>* object,
       T operand,
       memory_order order) noexcept;           // (1) C++11
-
   template <class T>
-  T atomic_fetch_xor_explicit(
+  T
+    atomic_fetch_xor_explicit(
       volatile atomic<T>* object,
       typename atomic<T>::value_type operand,
       memory_order order) noexcept;           // (1) C++17
 
   template <class T>
-  T atomic_fetch_xor_explicit(
+  T
+    atomic_fetch_xor_explicit(
       atomic<T>* object,
       T operand,
       memory_order order) noexcept;           // (2) C++11
-
   template <class T>
-  T atomic_fetch_xor_explicit(
+  T
+    atomic_fetch_xor_explicit(
       atomic<T>* object,
       typename atomic<T>::value_type operand,
       memory_order order) noexcept;           // (2) C++17
+  template <class T>
+  constexpr T
+    atomic_fetch_xor_explicit(
+      atomic<T>* object,
+      typename atomic<T>::value_type operand,
+      memory_order order) noexcept;           // (2) C++26
 }
 ```
 * atomic[link atomic.md]
@@ -114,3 +122,5 @@ int main()
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

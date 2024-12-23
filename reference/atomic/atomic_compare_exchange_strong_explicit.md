@@ -7,15 +7,16 @@
 ```cpp
 namespace std {
   template <class T>
-  bool atomic_compare_exchange_strong_explicit(
+  bool
+    atomic_compare_exchange_strong_explicit(
          volatile atomic<T>* object,
          T* expected,
          T desired,
          memory_order success,
          memory_order failure) noexcept;        // (1) C++11
-
   template <class T>
-  bool atomic_compare_exchange_strong_explicit(
+  bool
+    atomic_compare_exchange_strong_explicit(
          volatile atomic<T>* object,
          typename atomic<T>::value_type* expected,
          typename atomic<T>::value_type desired,
@@ -23,15 +24,24 @@ namespace std {
          memory_order failure) noexcept;        // (1) C++17
 
   template <class T>
-  bool atomic_compare_exchange_strong_explicit(
+  bool
+    atomic_compare_exchange_strong_explicit(
          atomic<T>* object,
          T* expected,
          T desired,
          memory_order success,
          memory_order failure) noexcept;        // (2) C++11
-
   template <class T>
-  bool atomic_compare_exchange_strong_explicit(
+  bool
+    atomic_compare_exchange_strong_explicit(
+         atomic<T>* object,
+         typename atomic<T>::value_type* expected,
+         typename atomic<T>::value_type desired,
+         memory_order success,
+         memory_order failure) noexcept;        // (2) C++17
+  template <class T>
+  constexpr bool
+    atomic_compare_exchange_strong_explicit(
          atomic<T>* object,
          typename atomic<T>::value_type* expected,
          typename atomic<T>::value_type desired,
@@ -149,3 +159,5 @@ false 3 3
 - [P0558R1 Resolving `atomic<T>` named base class inconsistencies](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

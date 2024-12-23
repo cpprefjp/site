@@ -6,8 +6,19 @@
 
 ```cpp
 namespace std {
-  void atomic_flag_clear_explicit(volatile atomic_flag* object, memory_order order) noexcept;
-  void atomic_flag_clear_explicit(atomic_flag* object, memory_order order) noexcept;
+  void
+    atomic_flag_clear_explicit(
+      volatile atomic_flag* object,
+      memory_order order) noexcept; // (1) C++11
+
+  void
+    atomic_flag_clear_explicit(
+      atomic_flag* object,
+      memory_order order) noexcept; // (2) C++11
+  constexpr void
+    atomic_flag_clear_explicit(
+      atomic_flag* object,
+      memory_order order) noexcept; // (2) C++26
 }
 ```
 * atomic_flag[link atomic_flag.md]
@@ -89,4 +100,5 @@ false
 
 ## 参照
 - [LWG Issue 2138. `atomic_flag::clear` should not accept `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2138)
-
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

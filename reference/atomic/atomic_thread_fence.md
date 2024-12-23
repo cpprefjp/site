@@ -6,7 +6,12 @@
 
 ```cpp
 namespace std {
-  extern "C" void atomic_thread_fence(memory_order order) noexcept;
+  extern "C"
+  void
+    atomic_thread_fence(memory_order order) noexcept; // (1) C++11
+  extern "C"
+  constexpr void
+    atomic_thread_fence(memory_order order) noexcept; // (1) C++26
 }
 ```
 * memory_order[link memory_order.md]
@@ -142,4 +147,5 @@ int main()
 
 ## 参照
 - [Implementing Dekker's algorithm with Fences](https://www.justsoftwaresolutions.co.uk/threading/implementing_dekkers_algorithm_with_fences.html)
-
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

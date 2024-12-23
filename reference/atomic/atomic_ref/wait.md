@@ -9,7 +9,7 @@
 void
   wait(T old,
        memory_order order = memory_order::seq_cst) const noexcept; // (1) C++20
-void
+constexpr void
   wait(value_type old,
        memory_order order = memory_order::seq_cst) const noexcept; // (1) C++26
 ```
@@ -134,3 +134,5 @@ int main()
 - [P1643R1 Add wait/notify to `atomic_ref`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1643r1.html)
 - [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

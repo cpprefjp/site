@@ -7,11 +7,13 @@
 ```cpp
 namespace std {
   template <classT>
-  T atomic_fetch_min(volatile atomic<T>* object,
+  T
+    atomic_fetch_min(volatile atomic<T>* object,
                      typename atomic<T>::value_type operand) noexcept; // (1) C++26
 
   template <classT>
-  T atomic_fetch_min(atomic<T>* object,
+  constexpr T
+    atomic_fetch_min(atomic<T>* object,
                      typename atomic<T>::value_type operand) noexcept; // (2) C++26
 }
 ```
@@ -69,3 +71,4 @@ int main()
 
 ## 参照
 - [P0493R5 Atomic maximum/minimum](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0493r5.pdf)
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)

@@ -7,10 +7,15 @@
 ```cpp
 namespace std {
   template <class T>
-  void atomic_notify_all(volatile atomic<T>* object); // (1) C++20
+  void
+    atomic_notify_all(volatile atomic<T>* object); // (1) C++20
 
   template <class T>
-  void atomic_notify_all(atomic<T>* object);          // (2) C++20
+  void
+    atomic_notify_all(atomic<T>* object);          // (2) C++20
+  template <class T>
+  constexpr void
+    atomic_notify_all(atomic<T>* object);          // (2) C++26
 }
 ```
 
@@ -95,3 +100,5 @@ int main()
 - [P1135R6 The C++20 Synchronization Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
     - C++20での、`volatile`版への制約追加
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

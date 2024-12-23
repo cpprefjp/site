@@ -6,7 +6,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-operator value_type() const noexcept;
+constexpr operator value_type() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -59,3 +59,5 @@ int main()
 ## 参照
 - [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した

@@ -9,7 +9,7 @@
 T
   fetch_xor(T operand,
             memory_order order = memory_order_seq_cst) const noexcept; // (1) C++20
-value_type
+constexpr value_type
   fetch_xor(value_type operand,
             memory_order order = memory_order_seq_cst) const noexcept; // (1) C++26
 ```
@@ -116,3 +116,5 @@ int main()
 ## 参照
 - [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
+- [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
+    - C++26で`constexpr`に対応した
