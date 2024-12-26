@@ -16,7 +16,7 @@ namespace std {
 * basic_iostream[link /reference/istream/basic_iostream.md]
 
 ## 概要
-
+ファイルに対する入出力を提供する高水準な機構
 
 ## メンバ関数
 
@@ -49,3 +49,38 @@ namespace std {
 | `off_type`       | `Traits::off_type`            | |
 | `traits_type`    | テンプレート仮引数`Traits`    | |
 
+## 例
+```cpp example
+#include <fstream>
+#include <ios>
+#include <iostream>
+#include <string>
+
+int main() {
+  std::fstream fs;
+  fs.exceptions(std::ios::failbit | std::ios::badbit); // 例外を有効化する
+  try {
+    fs.open("./temp.txt", std::ios_base::out | std::ios_base::in | std::ios_base::trunc);
+    if (!fs.is_open()) {
+      throw std::runtime_error("Failed to open file"); // ファイルが開けなかった場合
+    }
+    int a = 1;
+    long double b = 3.141592;
+    std::string c = "hello";
+    fs << a << " " << b << " " << c << std::endl;
+    fs.seekg(0);
+    int d;
+    long double e;
+    std::string f;
+    fs >> d >> e >> f;
+    if (!fs) {
+      throw std::runtime_error("Failed to read from file"); // ファイルから読み取れなかった場合
+    }
+    std::cout << d << " " << e << " " << f << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << "Error: " << e.what() << std::endl;
+    return 1;
+  }
+  return 0;
+}
+```
