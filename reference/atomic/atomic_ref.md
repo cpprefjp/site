@@ -59,6 +59,7 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 | [`wait`](atomic_ref/wait.md) | 起床されるまで待機する | C++20 |
 | [`notify_one`](atomic_ref/notify_one.md) | 待機しているスレッドをひとつ起床させる | C++20 |
 | [`notify_all`](atomic_ref/notify_all.md) | 待機している全てのスレッドを起床させる | C++20 |
+| [`address`](atomic_ref/address.md) | 参照しているオブジェクトのアドレスを取得する | C++26 |
 
 
 ### 共通メンバ型
