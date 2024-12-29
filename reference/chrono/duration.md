@@ -221,6 +221,7 @@ Tue Oct 16 16:25:11 2012
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+- [Clang](/implementation.md#clang): 14.0.6 [mark verified]
 
 ## 参照
 - [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
