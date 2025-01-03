@@ -344,7 +344,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 定数式での例外送出が許可されることにともない、以下を`constexpr`化
     - [`<exception>`](/reference/exception.md)ヘッダの以下の機能
         - [`std::exception`](/reference/exception/exception.md)クラスの全メンバ関数
-        - [`std::nested_exception`](/reference/exception/nested_exception.md)クラスの全面場関数
+        - [`std::nested_exception`](/reference/exception/nested_exception.md)クラスの全メンバ関数
         - [`std::bad_exception`](/reference/exception/bad_exception.md)クラスの`what()`メンバ関数
         - [`std::uncaught_exceptions()`](/reference/exception/uncaught_exceptions.md)関数
         - [`std::current_exception()`](/reference/exception/current_exception.md)関数
