@@ -101,6 +101,7 @@ int main()
   f.get(); // 一度値を取り出すと共有状態が破棄される
 
   // 共有状態を持たない(valid() == falseな)futureでwaitをするとstd::future_error例外
+  // ただし、libc++では(少なくとも19.1.0までは)SEGVするので注意
   try {
     ready();
   }
