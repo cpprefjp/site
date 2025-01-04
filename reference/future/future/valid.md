@@ -31,10 +31,12 @@ int main()
   std::promise<int> p;
   std::future<int> f = p.get_future();
 
-  p.set_value(1);
-
   // 共有状態を持っている
   std::cout << std::boolalpha << f.valid() << std::endl;
+
+  p.set_value(1);
+
+  // この時点でもまだ共有状態を持っている
 
   f.get(); // 一度値を取り出すと共有状態が破棄される
 
