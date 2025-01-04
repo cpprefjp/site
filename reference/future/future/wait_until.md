@@ -34,6 +34,11 @@ future_status wait_until(const chrono::time_point<Clock, Duration>& abs_time) co
 - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
+## 事前条件
+- [`valid()`](valid.md) `== true`
+    - この条件を満たさなかった場合、処理系によっては[`future_error`](../future_error.md)例外を投げることがある。
+
+
 ## 例
 ```cpp example
 #include <iostream>

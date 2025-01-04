@@ -29,6 +29,11 @@ future_status wait_for(const chrono::duration<Rep, Period>& rel_time) const;
 - C++14 : 時計クラス、[`time_point`](/reference/chrono/time_point.md)クラス、[`duration`](/reference/chrono/duration.md)クラスの構築が例外を送出する場合、この関数はそれらの例外を送出する。
 
 
+## 事前条件
+- [`valid()`](valid.md) `== true`
+    - この条件を満たさなかった場合、処理系によっては[`future_error`](../future_error.md)例外を投げることがある。
+
+
 ## 例
 ### 例1
 ```cpp example
@@ -100,14 +105,8 @@ int main()
 
   f.get(); // 一度値を取り出すと共有状態が破棄される
 
-  // 共有状態を持たない(valid() == falseな)futureでwaitをするとstd::future_error例外
-  // ただし、libc++では(少なくとも19.1.0までは)SEGVするので注意
-  try {
-    ready();
-  }
-  catch(const std::future_error& e) {
-    std::cout << e.what() << std::endl;
-  }
+  // 共有状態を持たない(valid() == falseな)futureでwaitをするとUB
+  // ready();
 }
 ```
 * wait_for[color ff0000]
@@ -116,13 +115,11 @@ int main()
 * std::future_status[link /reference/future/future_status.md]
 * f.get()[link /reference/future/shared_future/get.md]
 * valid()[link /reference/future/future/valid.md]
-* std::future_error[link /reference/future/future_error.md]
 
 #### 出力例
 ```
 false
 true
-std::future_error: No associated state
 ```
 
 ## バージョン

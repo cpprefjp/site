@@ -21,6 +21,11 @@ void wait() const;
 なし
 
 
+## 事前条件
+- [`valid()`](valid.md) `== true`
+    - この条件を満たさなかった場合、処理系によっては[`future_error`](../future_error.md)例外を投げることがある。
+
+
 ## 例
 ```cpp example
 #include <iostream>
