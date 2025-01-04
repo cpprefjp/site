@@ -30,6 +30,7 @@ future_status wait_for(const chrono::duration<Rep, Period>& rel_time) const;
 
 
 ## 例
+### 例1
 ```cpp example
 #include <iostream>
 #include <future>
@@ -70,9 +71,57 @@ int main()
 * std::future_status[link /reference/future/future_status.md]
 * f.get()[link /reference/future/shared_future/get.md]
 
-### 出力例
+#### 出力例
 ```
 3
+```
+
+### 例2
+```cpp example
+#include <iostream>
+#include <future>
+#include <chrono>
+
+int main()
+{
+  std::promise<int> p;
+  std::future<int> f = p.get_future();
+  const auto ready = [&f] {
+    return f.wait_for(std::chrono::seconds{0}) == std::future_status::ready;
+  };
+
+  // まだ値はセットされていない
+  std::cout << std::boolalpha << ready() << std::endl;
+
+  p.set_value(1);
+
+  // 値がセットされた
+  std::cout << std::boolalpha << ready() << std::endl;
+
+  f.get(); // 一度値を取り出すと共有状態が破棄される
+
+  // 共有状態を持たない(valid() == falseな)futureでwaitをするとstd::future_error例外
+  try {
+    ready();
+  }
+  catch(const std::future_error& e) {
+    std::cout << e.what() << std::endl;
+  }
+}
+```
+* wait_for[color ff0000]
+* std::promise[link /reference/future/promise.md]
+* p.set_value[link /reference/future/promise/set_value.md]
+* std::future_status[link /reference/future/future_status.md]
+* f.get()[link /reference/future/shared_future/get.md]
+* valid()[link /reference/future/future/valid.md]
+* std::future_error[link /reference/future/future_error.md]
+
+#### 出力例
+```
+false
+true
+std::future_error: No associated state
 ```
 
 ## バージョン
