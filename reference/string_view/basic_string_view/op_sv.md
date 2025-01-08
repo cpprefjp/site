@@ -45,8 +45,18 @@ inline namespace string_view_literals {
 
 ## 備考
 - 中間にヌル文字を含む文字列リテラルから`basic_string_view`オブジェクトを構築する場合、コンストラクタを使用するよりもこちらの関数を使用したほうがよい。
-    - `const char*`をとるコンストラクタは[`std::char_traits`](/reference/string/char_traits.md)`::`[`length()`](/reference/string/char_traits/length.md)関数を使用して文字列長を計算するため、ヌル終端となってしまう
+    - `const char*`をとるコンストラクタは[`std::char_traits`](/reference/string/char_traits.md)`::`[`length()`](/reference/string/char_traits/length.md)関数を使用して文字列長を計算するため、ヌル終端までの長さとなる。そのコンストラクタでは文字列の途中にヌル文字がある場合、文字列の終端まで扱われないので注意が必要となる
     - こちらの関数は文字列リテラルの長さを直接扱うため、文字列全体を参照する`basic_string_view`オブジェクトを構築できる
+    ```cpp
+    // コンストラクタは、ヌル文字までの長さ
+    const char* s = "123\0abc";
+    auto sv0 = std::string_view{s};
+    assert(sv0.length() == 3); // "123"
+
+    // svリテラルは全体の長さ
+    auto sv1 = "123\0abc"sv;
+    assert(sv1.length() == 7); // "123\0abc"
+    ```
 
 
 ## 例
