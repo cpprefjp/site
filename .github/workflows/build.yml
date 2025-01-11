@@ -119,7 +119,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./site_generator/cpprefjp/gh-pages
         commit_message: |
-          Preview PR ${{ github.event.number }}: ${{ github.event.pull_request.head.sha }} <=
+          Preview PR ${{ github.event.number }}: ${{ github.event.pull_request.head.sha }} ←
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

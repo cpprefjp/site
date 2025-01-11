@@ -78,3 +78,77 @@ jobs:
       arguments: --pull ${{ github.event.number }}
     concurrency:
       group: cpprefjp.gh-pages.lock
+
+  preview_link:
+    needs: preview_build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: vars
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const sha0 = context.payload.pull_request.base.sha;
+            const sha = context.payload.pull_request.head.sha;
+            const base_url = (() => {
+              const owner = context.payload.pull_request.head.repo.owner.login;
+              const repo = context.payload.pull_request.head.repo.name;
+              const pull = context.payload.number;
+              return `https://${owner}.github.io/${repo}/gen/pull/${pull}`;
+            })();
+            const repo_full = context.payload.pull_request.head.repo.full_name;
+            const branch = context.payload.pull_request.head.ref;
+
+            // https://qiita.com/akko_merry/items/dda3c6b7ae01ac143a8b#comment-e0ecb4abe4d3d6d76054
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 9 * 60); // JST is +0900
+            const time = now.toJSON()?.replace('T', ' ').slice(0, 19) + ' JST';
+
+            core.setOutput('sha0', sha0);
+            core.setOutput('sha', sha);
+            core.setOutput('base_url', base_url);
+            core.setOutput('repo_full', repo_full);
+            core.setOutput('ubranch', encodeURIComponent(branch));
+            core.setOutput('time', time);
+
+      - id: file_list
+        shell: bash
+        run: |
+            content=$(
+              git diff --name-status --diff-filter=dr ${{ steps.vars.outputs.sha0 }} ${{ steps.vars.outputs.sha }} |
+                sed -n '
+                  # normalize the line format
+                  s/^[[:space:]]*\([^[:space:]]\{1,\}\)[[:space:]]\{1,\}/\1 /
+
+                  # exclude filenames containing special characters that may break Markdown
+                  /[][`()]/d
+
+                  # exclude README.md
+                  /^[^[:space:]]* README\.md$/d
+
+                  # generate list items
+                  s|^A \(.*\)\.md$|- :memo: [`\1`](${{ steps.vars.outputs.base_url }}/\1.html) :sparkles:|p
+                  s|^[^[:space:]]* \(.*\)\.md$|- :memo: [`\1`](${{ steps.vars.outputs.base_url }}/\1.html)|p
+                '
+            )
+            [[ $content ]] || content='- (内容変更された `.md` ファイルはありません)'
+            echo 'content<<EOF' >> "$GITHUB_OUTPUT"
+            echo "$content" >> "$GITHUB_OUTPUT"
+            echo 'EOF' >> "$GITHUB_OUTPUT"
+      - uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            :zap: [**プレビュー (HTML)**](${{ steps.vars.outputs.base_url }}) (更新時刻: ${{ steps.vars.outputs.time }})
+
+            - **⫯** Commit: ${{ steps.vars.outputs.sha }}
+            - プレビューの生成には時間がかかります (3～5分)。進捗状況は[こちら](https://github.com/${{ steps.vars.outputs.repo_full }}/actions?query=event%3Apull_request_target+branch%3A${{ steps.vars.outputs.ubranch }})をご確認ください。
+
+            #### 変更記事一覧
+
+            ${{ steps.file_list.outputs.content }}
+
+            ※ソース (.md) に直接変更のあった記事を列挙しています。グローバル修飾や変換規則の変更による変化は考慮していません。
+          comment-tag: cpprefjp-preview_link
+          github-token: ${{ secrets.GITHUB_TOKEN }}
