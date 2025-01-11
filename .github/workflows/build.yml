@@ -29,7 +29,8 @@ jobs:
         echo "head_ref=${{ startsWith(inputs.arguments, '--pull ') && github.event.pull_request.head.ref || github.ref }}" >> "$GITHUB_OUTPUT"
 
     # site_generator
-    - uses: actions/checkout@v4
+    - name: Check out cpprefjp/site_generator
+      uses: actions/checkout@v4
       with:
         repository: cpprefjp/site_generator
         path: site_generator
@@ -37,15 +38,17 @@ jobs:
       working-directory: site_generator
 
     # kunai
-    - uses: actions/checkout@v4
+    - name: Check out cpprefjp/kunai
+      uses: actions/checkout@v4
       with:
         repository: cpprefjp/kunai
         path: site_generator/kunai
     - run: git submodule update -i
       working-directory: site_generator/kunai
 
-    # site
-    - uses: actions/checkout@v4
+    # site (typically cpprefjp/site)
+    - name: Check out ${{ steps.vars.outputs.head_repo }}
+      uses: actions/checkout@v4
       with:
         repository: ${{ steps.vars.outputs.head_repo }}
         # atom 生成のために全履歴が必要
@@ -55,8 +58,9 @@ jobs:
     - run: git submodule update -i
       working-directory: site_generator/cpprefjp/site
 
-    # site
-    - uses: actions/checkout@v2
+    # image
+    - name: Check out cpprefjp/image
+      uses: actions/checkout@v2
       with:
         repository: cpprefjp/image
         path: site_generator/cpprefjp/image
