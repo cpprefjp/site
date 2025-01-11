@@ -1,0 +1,62 @@
+name: check
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        item:
+          - {name: code_qualify}
+          - {name: defined_word}
+          - {name: display_error}
+          - {name: meta_header}
+          - {name: ngword}
+          - {name: inner_link, script: link_check.py --check-inner-link}
+    name: check (${{ matrix.item.name }})
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+    - uses: actions/checkout@v4
+    - name: check
+      run: python3 .github/workflows/script/${{ matrix.item.script || format('{0}_check.py', matrix.item.name) }}
+
+  detect_forbidden_characters:
+    # 本リポジトリでは、以下に挙げる文字の使用を禁止している：
+    # U+00AD SOFT HYPHEN (ソフトハイフン)
+    # U+200B ZERO WIDTH SPACE (ゼロ幅スペース)
+    #
+    # 経緯は以下を参照：
+    # #735 SOFT HYPHENを削除する？
+    # https://github.com/cpprefjp/site/issues/735
+    runs-on: ubuntu-latest
+    env:
+      RIPGREP_VERSION: 14.1.0
+      BIN_DIR: ${{ github.workspace }}/bin
+      REPO_DIR: repo
+      cache-version: v1
+    steps:
+    - id: cache-ripgrep
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.BIN_DIR }}
+        key: ${{ env.cache-version }}-ripgrep-${{ env.RIPGREP_VERSION }}
+    - name: install ripgrep
+      if: steps.cache-ripgrep.outputs.cache-hit != 'true'
+      run: |
+        curl -fsSLO https://github.com/BurntSushi/ripgrep/releases/download/$RIPGREP_VERSION/ripgrep-$RIPGREP_VERSION-x86_64-unknown-linux-musl.tar.gz
+        mkdir -p $BIN_DIR
+        tar xvf ripgrep-$RIPGREP_VERSION-x86_64-unknown-linux-musl.tar.gz --strip=1 --no-anchor -C $BIN_DIR rg
+      working-directory: ${{ runner.temp }}
+    - uses: actions/checkout@v4
+      with:
+        path: ${{ env.REPO_DIR }}
+    - name: check
+      run: "! $BIN_DIR/rg -t md --vimgrep '[\u00ad\u200b]' $REPO_DIR"
