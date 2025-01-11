@@ -60,7 +60,7 @@ jobs:
 
     # image
     - name: Check out cpprefjp/image
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: cpprefjp/image
         path: site_generator/cpprefjp/image
