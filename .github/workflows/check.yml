@@ -1,6 +1,6 @@
 name: check
 
-on: [push, pull_request, workflow_dispatch]
+on: [push, pull_request_target, workflow_dispatch]
 
 jobs:
   check:
@@ -25,8 +25,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
     - uses: actions/checkout@v4
+      with:
+        repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name || github.event.repository.full_name }}
+        ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.ref }}
+    - uses: actions/checkout@v4
+      with:
+        repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.repo.full_name || github.event.repository.full_name }}
+        ref: ${{ github.event_name == 'pull_request_target' && 'master' || github.ref }}
+        sparse-checkout: .github
+        path: .trusted
     - name: check
-      run: python3 .github/workflows/script/${{ matrix.item.script || format('{0}_check.py', matrix.item.name) }}
+      run: python3 .trusted/.github/workflows/script/${{ matrix.item.script || format('{0}_check.py', matrix.item.name) }}
 
   detect_forbidden_characters:
     # 本リポジトリでは、以下に挙げる文字の使用を禁止している：
@@ -60,3 +69,12 @@ jobs:
         path: ${{ env.REPO_DIR }}
     - name: check
       run: "! $BIN_DIR/rg -t md --vimgrep '[\u00ad\u200b]' $REPO_DIR"
+
+  preview_build:
+    if: github.event_name == 'pull_request_target'
+    needs: [check, detect_forbidden_characters]
+    uses: ./.github/workflows/build.yml
+    with:
+      arguments: --pull ${{ github.event.number }}
+    concurrency:
+      group: cpprefjp.gh-pages.lock

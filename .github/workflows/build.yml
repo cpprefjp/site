@@ -2,6 +2,13 @@ name: build
 
 on:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      arguments:
+        description: "build.sh に渡すコマンドライン引数"
+        default: ''
+        required: false
+        type: string
   push:
     branches:
       - master
@@ -14,13 +21,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Register SSH key
-      env:
-        CPPREFJP_GITHUB_IO_SECRETS: ${{ secrets.CPPREFJP_GITHUB_IO_SECRETS }}
+    - id: vars
       run: |
-        mkdir -p $HOME/.ssh
-        echo "$CPPREFJP_GITHUB_IO_SECRETS" > $HOME/.ssh/id_ed25519
-        chmod 600 $HOME/.ssh/id_ed25519
+        echo "base_repo=${{ startsWith(inputs.arguments, '--pull ') && github.event.pull_request.base.repo.full_name || github.event.repository.full_name }}" >> "$GITHUB_OUTPUT"
+        echo "head_repo=${{ startsWith(inputs.arguments, '--pull ') && github.event.pull_request.head.repo.full_name || github.event.repository.full_name }}" >> "$GITHUB_OUTPUT"
+        echo "head_ref=${{ startsWith(inputs.arguments, '--pull ') && github.event.pull_request.head.ref || github.ref }}" >> "$GITHUB_OUTPUT"
 
     # site_generator
     - uses: actions/checkout@v4
@@ -38,19 +43,14 @@ jobs:
     - run: git submodule update -i
       working-directory: site_generator/kunai
 
-    # cpprefjp.github.io
-    - uses: actions/checkout@v4
-      with:
-        repository: cpprefjp/cpprefjp.github.io
-        path: site_generator/cpprefjp/cpprefjp.github.io
-
     # site
     - uses: actions/checkout@v4
       with:
-        repository: cpprefjp/site
-        path: site_generator/cpprefjp/site
+        repository: ${{ steps.vars.outputs.head_repo }}
         # atom 生成のために全履歴が必要
         fetch-depth: 0
+        ref: ${{ steps.vars.outputs.head_ref }}
+        path: site_generator/cpprefjp/site
     - run: git submodule update -i
       working-directory: site_generator/cpprefjp/site
 
@@ -66,9 +66,60 @@ jobs:
         python-version: 3.11
         # 3.12でUndefined symbolエラーがでた
 
+    # build.sh - base の build.sh を使う必要がある。もし PR head の
+    # build.sh を使うと、pull_request_target で呼び出された時に PR
+    # head の build.sh に悪意のあるコードが埋め込まれていると秘密鍵な
+    # ど盗まれてしまう。
+    - name: Check out build.sh
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ steps.vars.outputs.base_repo }}
+        ref: master
+        sparse-checkout: .github
+        path: .trusted
+
+    # Deploy 用
+    - name: "(Deploy) Register SSH key"
+      if: inputs.arguments == ''
+      env:
+        CPPREFJP_GITHUB_IO_SECRETS: ${{ secrets.CPPREFJP_GITHUB_IO_SECRETS }}
+      run: |
+        mkdir -p $HOME/.ssh
+        echo "$CPPREFJP_GITHUB_IO_SECRETS" > $HOME/.ssh/id_ed25519
+        chmod 600 $HOME/.ssh/id_ed25519
+
+    # Deploy 用
+    - name: "(Deploy) Check out cpprefjp.github.io"
+      if: inputs.arguments == ''
+      uses: actions/checkout@v4
+      with:
+        repository: cpprefjp/cpprefjp.github.io
+        path: site_generator/cpprefjp/cpprefjp.github.io
+
+    # Preview 用
+    - name: "(Preview build) Check out gh-pages"
+      if: startsWith(inputs.arguments, '--pull ')
+      continue-on-error: true
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.event.pull_request.base.repo.full_name }}
+        ref: gh-pages
+        path: site_generator/cpprefjp/gh-pages
+
     # あとはスクリプトで頑張る
-    - run: ./cpprefjp/site/.github/workflows/script/build.sh
+    - name: Run script build.sh
+      run: ../.trusted/.github/workflows/script/build.sh ${{ inputs.arguments }}
       working-directory: site_generator
+
+    # Preview 用
+    - name: "(Preview build) Publish result in gh-pages"
+      if: startsWith(inputs.arguments, '--pull ')
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site_generator/cpprefjp/gh-pages
+        commit_message: |
+          Preview PR ${{ github.event.number }}: ${{ github.event.pull_request.head.sha }} <=
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

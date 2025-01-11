@@ -33,14 +33,32 @@ popd
 pip3 install -r docker/requirements.txt
 python3 run.py settings.cpprefjp --concurrency=`nproc`
 
-# 生成されたサイトの中身を push
-pushd cpprefjp/cpprefjp.github.io
-  # push するために ssh のリモートを追加する
-  git remote add origin2 git@github.com:cpprefjp/cpprefjp.github.io.git
+if (($# == 0)); then
+  # 生成されたサイトの中身を push
+  pushd cpprefjp/cpprefjp.github.io
+    # push するために ssh のリモートを追加する
+    git remote add origin2 git@github.com:cpprefjp/cpprefjp.github.io.git
+  
+    git add ./ --all
+    git config --global user.email "shigemasa7watanabe+cpprefjp@gmail.com"
+    git config --global user.name "cpprefjp-autoupdate"
+    git commit -a -m "update automatically"
+    git push origin2 master
+  popd
 
-  git add ./ --all
-  git config --global user.email "shigemasa7watanabe+cpprefjp@gmail.com"
-  git config --global user.name "cpprefjp-autoupdate"
-  git commit -a -m "update automatically"
-  git push origin2 master
-popd
+elif [[ $1 == --pull ]]; then
+  if [[ ! $2 ]]; then
+    printf '%s\n' "build.sh: プルリクエスト番号が指定されていません" >&2
+    exit 2
+  fi
+
+  target_directory=cpprefjp/gh-pages/gen/pull/$2
+  rm -rf "$target_directory"
+  mkdir -p "$target_directory"
+  cp -r cpprefjp/cpprefjp.github.io/* "$target_directory"/
+
+else
+  printf '%s\n' "build.sh: コマンドライン引数が認識できません: $1" >&2
+  exit 2
+  
+fi
