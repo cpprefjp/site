@@ -19,6 +19,7 @@ on:
 
 jobs:
   build:
+    if: github.repository_owner == 'cpprefjp' || startsWith(inputs.arguments, '--pull ')
     runs-on: ubuntu-latest
     steps:
     - id: vars
