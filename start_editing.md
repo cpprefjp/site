@@ -27,6 +27,8 @@ cpprefjp/site へ push すると、すぐに反映されます。
 ### 自動デプロイ、自動テスト
 本リポジトリでは、GitHub Actionsを使用して、自動デプロイと自動テストを行っています。
 
+Pull Request 時にも自動テストと自動プレビュー生成を行います。
+
 #### 自動デプロイ
 buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへのデプロイを行っています。
 
@@ -40,7 +42,7 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
     - 説明は[detect_forbidden_characters.yml](https://github.com/cpprefjp/site/blob/master/.github/workflows/detect_forbidden_characters.yml)のコメントを参照
 - 内部リンクの誤り検出 (inner link checkアクション)
     - サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する
-    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/inner_link_check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
+    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
 - 外部リンク切れを検出 (outer link checkアクション)
     - 日本時間で日曜日の23:30に実行される
     - 外部リンクのページにアクセスできない (ページが消滅したか、一時的にアクセスできない、などの理由) 場合にエラーとなる
@@ -50,7 +52,7 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
     - 海外からのアクセス (GitHub Actions) を拒否しているページもあるため、そのようなページは個別にチェックから外す ([link_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/link_check.py)の`IGNORE_LIST`に追加する)
 - コード修飾の誤り検出 (code qualify checkアクション)
     - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
-    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/code_qualify_check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
+    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
 - 所属ヘッダメタ情報の誤り検出 (meta header checkアクション)
     - `[meta header]`または`[meta module]`指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する
     - 導入経緯は [PR#1204](https://github.com/cpprefjp/site/issues/1204) を参照
