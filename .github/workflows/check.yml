@@ -122,7 +122,7 @@ jobs:
             set -ex
 
             git remote add base '${{ github.event.pull_request.base.repo.clone_url }}'
-            git fetch base '${{ github.event.pull_request.head.ref }}'
+            git fetch base '${{ github.event.pull_request.base.ref }}'
             content=$(
               git diff --name-status --diff-filter=dr ${{ steps.vars.outputs.sha0 }} ${{ steps.vars.outputs.sha }} |
                 sed -n '
