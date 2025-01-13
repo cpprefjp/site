@@ -1,0 +1,39 @@
+name: preview_clear
+
+on: workflow_dispatch
+
+jobs:
+  preview_clear:
+    concurrency:
+      group: cpprefjp.gh-pages.lock
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+      - name: filter-branch gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -ex
+
+          # Note: 以下の 999 という数は適当な大きな数。もし open PR の数が 999
+          # を超えるようならば、この数はもっと大きくする必要がある。
+          PREVIEW_CLEAR_PR_LIST=$(gh pr list --limit=999 --json number -q '.[].number' | tr '\n' ' ')
+          PREVIEW_CLEAR_PR_LIST=${PREVIEW_CLEAR_PR_LIST% }
+          export PREVIEW_CLEAR_PR_LIST
+
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git filter-branch --commit-filter '
+            pr=$(git log -n 1 --pretty=format:%s "$GIT_COMMIT" | sed -n '\''s/^Preview PR \([0-9]\{1,\}\).*/\1/p'\'')
+            case " $PREVIEW_CLEAR_PR_LIST |  " in
+            (*" $pr "*)
+              git commit-tree "$@" ;;
+            (*)
+              skip_commit "$@" ;;
+            esac
+          ' HEAD
+
+          git push -f origin gh-pages
