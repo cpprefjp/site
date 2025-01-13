@@ -130,6 +130,8 @@ jobs:
         commit_message: |
           Preview PR ${{ github.event.number }}: ${{ github.event.pull_request.head.sha }} ←
 
+        enable_jekyll: true
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
