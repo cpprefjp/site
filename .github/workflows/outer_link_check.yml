@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: github.repository_owner == 'cpprefjp'
     runs-on: ubuntu-latest
     steps:
     - name: Set up Python
