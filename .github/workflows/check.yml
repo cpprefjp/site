@@ -101,7 +101,7 @@ jobs:
               const pull = context.payload.number;
               return `https://${owner}.github.io/${repo}/gen/pull/${pull}`;
             })();
-            const repo_full = context.payload.pull_request.head.repo.full_name;
+            const repo_full = context.payload.pull_request.base.repo.full_name;
             const branch = context.payload.pull_request.head.ref;
 
             // https://qiita.com/akko_merry/items/dda3c6b7ae01ac143a8b#comment-e0ecb4abe4d3d6d76054
