@@ -123,6 +123,8 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./site_generator/cpprefjp/gh-pages
+        user_name: 'github-actions[bot]'
+        user_email: '41898282+github-actions[bot]@users.noreply.github.com'
 
         # Note: 以下のコミットメッセージは .github/workflows/preview_clear.yml
         # で削除対象のコミットの特定に用いるので、変更する場合は preview_clear
