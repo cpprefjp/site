@@ -36,4 +36,10 @@ jobs:
             esac
           ' HEAD
 
-          git push -f origin gh-pages
+          commit_count=$(git rev-list HEAD --count || true)
+          if [ -z "$commit_count" ] || [ "$commit_count" = 0 ]; then
+            # When no commits are left, we remove the branch
+            git push -f origin :gh-pages
+          else
+            git push -f origin gh-pages
+          fi
