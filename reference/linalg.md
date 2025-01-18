@@ -83,15 +83,15 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 |------|------|----------------|
 | [`matrix_vector_product`](linalg/matrix_vector_product.md) | xGEMV: 一般行列とベクトルの積を求める (function template) | C++26 |
 | [`symmetric_matrix_vector_product`](linalg/symmetric_matrix_vector_product.md) | xSYMV: 対称行列とベクトルの積を求める (function template) | C++26 |
-| [`hermitian_matrix_vector_product`](linalg/hermitian_matrix_vector_product.md) | xHEMV: ハミルトニアン行列とベクトルの積を求める (function template) | C++26 |
+| [`hermitian_matrix_vector_product`](linalg/hermitian_matrix_vector_product.md) | xHEMV: エルミート行列とベクトルの積を求める (function template) | C++26 |
 | [`triangular_matrix_vector_product`](linalg/triangular_matrix_vector_product.md) | xTRMV: 三角行列とベクトルの積を求める (function template) | C++26 |
 | [`triangular_matrix_vector_solve`](linalg/triangular_matrix_vector_solve.md) | xTRSV: 三角行列を係数とする行列方程式を解く (function template) | C++26 |
 | [`matrix_rank_1_update`](linalg/matrix_rank_1_update.md) | xGER, xGERU: 行列のRank-1更新 (function template) | C++26 |
 | [`matrix_rank_1_update_c`](linalg/matrix_rank_1_update_c.md) | xGERC: 複素行列のRank-1更新 (function template) | C++26 |
 | [`symmetric_matrix_rank_1_update`](linalg/symmetric_matrix_rank_1_update.md) | xSYR: 対称行列のRank-1更新 (function template) | C++26 |
-| [`hermitian_matrix_rank_1_update`](linalg/hermitian_matrix_rank_1_update.md) | xHER: ハミルトニアン行列のRank-1更新 (function template) | C++26 |
+| [`hermitian_matrix_rank_1_update`](linalg/hermitian_matrix_rank_1_update.md) | xHER: エルミート行列のRank-1更新 (function template) | C++26 |
 | [`symmetric_matrix_rank_2_update`](linalg/symmetric_matrix_rank_2_update.md) | xSYR2: 対称行列のRank-2更新 (function template) | C++26 |
-| [`hermitian_matrix_rank_2_update`](linalg/hermitian_matrix_rank_2_update.md) | xHER2: ハミルトニアン行列のRank-2更新 (function template) | C++26 |
+| [`hermitian_matrix_rank_2_update`](linalg/hermitian_matrix_rank_2_update.md) | xHER2: エルミート行列のRank-2更新 (function template) | C++26 |
 
 
 ## BLAS 3アルゴリズム
@@ -100,14 +100,14 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 |------|------|----------------|
 | [`matrix_product`](linalg/matrix_product.md) | xGEMM: 2つの一般行列の積を求める (function template) | C++26 |
 | [`symmetric_matrix_product`](linalg/symmetric_matrix_product.md) | xSYMM: 対称行列と行列の積を求める (function template) | C++26 |
-| [`hermitian_matrix_product`](linalg/hermitian_matrix_product.md) | xHEMM: ハミルトニアン行列と行列の積を求める (function template) | C++26 |
+| [`hermitian_matrix_product`](linalg/hermitian_matrix_product.md) | xHEMM: エルミート行列と行列の積を求める (function template) | C++26 |
 | [`triangular_matrix_product`](linalg/triangular_matrix_product.md) | xTRMM: 三角行列と行列の積を求める (function template) | C++26 |
 | [`triangular_matrix_left_product`](linalg/triangular_matrix_left_product.md) | xTRMM: In-placeに三角行列と行列の積を求める (function template) | C++26 |
 | [`triangular_matrix_right_product`](linalg/triangular_matrix_right_product.md) | xTRMM: In-placeに三角行列と行列の積を求める (function template) | C++26 |
 | [`symmetric_matrix_rank_k_update`](linalg/symmetric_matrix_rank_k_update.md) | xSYRK: 対称行列のRank-k更新 (function template) | C++26 |
-| [`hermitian_matrix_rank_k_update`](linalg/hermitian_matrix_rank_k_update.md) | xHERK: ハミルトニアン行列のRank-k更新 (function template) | C++26 |
+| [`hermitian_matrix_rank_k_update`](linalg/hermitian_matrix_rank_k_update.md) | xHERK: エルミート行列のRank-k更新 (function template) | C++26 |
 | [`symmetric_matrix_rank_2k_update`](linalg/symmetric_matrix_rank_2k_update.md) | xSYR2K: 対称行列のRank-2k更新 (function template) | C++26 |
-| [`hermitian_matrix_rank_2k_update`](linalg/hermitian_matrix_rank_2k_update.md) | xHER2K: ハミルトニアン行列のRank-2k更新 (function template) | C++26 |
+| [`hermitian_matrix_rank_2k_update`](linalg/hermitian_matrix_rank_2k_update.md) | xHER2K: エルミート行列のRank-2k更新 (function template) | C++26 |
 | [`triangular_matrix_matrix_left_solve`](linalg/triangular_matrix_matrix_left_solve.md) | xTRSM: 三角行列の連立一次方程式を解く (function template) | C++26 |
 | [`triangular_matrix_matrix_right_solve`](linalg/triangular_matrix_matrix_right_solve.md) | xTRSM: 三角行列の連立一次方程式を解く (function template) | C++26 |
 
