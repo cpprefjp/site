@@ -239,7 +239,7 @@
 | [`<cstdint>`](/reference/cstdint.md) | 大きさが規定されている整数型        | C++11 (C99)    |
 | [`<cstdio>`](/reference/cstdio.md)   | 入出力                              |                |
 | [`<cstdlib>`](/reference/cstdlib.md) | ユーティリティ関数                  |                |
-| `<cstring>`                          | 文字列操作                          |                |
+| [`<cstring>`](/reference/cstring.md) | 文字列操作                          |                |
 | `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<ctime>`](/reference/ctime.md)     | 日付・時間                          |                |
 | `<cuchar>`                           | ユニコード文字型                    | C++11 (C11)    |
