@@ -7,7 +7,7 @@
 ```cpp
 iterator insert(iterator position, const T& x);                 // (1) C++03
 iterator insert(const_iterator position, const T& x);           // (1) C++11
-consrexpr iterator insert(const_iterator position, const T& x); // (1) C++20
+constexpr iterator insert(const_iterator position, const T& x); // (1) C++20
 
 iterator insert(const_iterator position, T&& x);           // (2) C++11
 constexpr iterator insert(const_iterator position, T&& x); // (2) C++20
