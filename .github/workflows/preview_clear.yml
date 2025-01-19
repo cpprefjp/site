@@ -34,7 +34,7 @@ jobs:
             (*)
               skip_commit "$@" ;;
             esac
-          ' HEAD
+          ' HEAD || true
 
           commit_count=$(git rev-list HEAD --count || true)
           if [ -z "$commit_count" ] || [ "$commit_count" = 0 ]; then
