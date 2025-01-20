@@ -39,7 +39,7 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
 
 #### 自動テスト
 - 禁止文字の検出 (detect forbidden charactersアクション)
-    - 説明は[detect_forbidden_characters.yml](https://github.com/cpprefjp/site/blob/master/.github/workflows/detect_forbidden_characters.yml)のコメントを参照
+    - ソフトハイフンやゼロ幅スペースなどの禁止された文字が使用されている場合に、エラーが発生する
 - 内部リンクの誤り検出 (inner link checkアクション)
     - サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する
     - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
