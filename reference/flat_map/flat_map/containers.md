@@ -29,7 +29,7 @@ namespace std {
 ## 概要
 `flat_map`クラス内部のデータ保持方法として、キーのコンテナと値のコンテナをもつ。
 
-この形式の内部表現は[`extract()`](extract.md.nolink)メンバ関数で取得でき、シリアライズなどの用途に使用できる。
+この形式の内部表現は [`extract()`](extract.md) メンバ関数で取得でき、シリアライズなどの用途に使用できる。
 
 
 ## 例
@@ -38,6 +38,7 @@ namespace std {
 #include <iostream>
 #include <flat_map>
 #include <string>
+#include <utility>
 
 int main()
 {
@@ -47,21 +48,21 @@ int main()
     {"Carol", 4}
   };
 
-  decltype(fm)::containers c = fm.extract();
+  decltype(fm)::containers c = std::move(fm).extract();
 
-  std::cout << "keys:"
+  std::cout << "keys:" << std::endl;
   for (const auto& key : c.keys) {
     std::cout << "  " << key << std::endl;
   }
 
-  std::cout << "values:"
+  std::cout << "values:" << std::endl;
   for (const auto& value : c.values) {
     std::cout << "  " << value << std::endl;
   }
 }
 ```
 * containers[color ff0000]
-* fm.extract()[link extract.md.nolink]
+* fm.extract()[link extract.md]
 
 #### 出力
 ```
@@ -84,3 +85,7 @@ values:
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`extract`](extract.md)

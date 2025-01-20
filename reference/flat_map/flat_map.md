@@ -66,8 +66,8 @@ namespace std {
 | [`try_emplace`](flat_map/try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する | C++23 |
 | [`erase`](flat_map/erase.md)                       | 要素を削除する                             | C++23 |
 | [`swap`](flat_map/swap.md)                         | コンテンツを交換する                       | C++23 |
-| [`extract`](flat_map/extract.md.nolink)                   | キーのコンテナ、値のコンテナを取得する     | C++23 |
-| [`replace`](flat_map/replace.md.nolink)                   | キーのコンテナ、値のコンテナを置き換える   | C++23 |
+| [`extract`](flat_map/extract.md)                   | キーのコンテナ、値のコンテナを取得する     | C++23 |
+| [`replace`](flat_map/replace.md)                   | キーのコンテナ、値のコンテナを置き換える   | C++23 |
 
 
 ### 要素アクセス
