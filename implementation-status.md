@@ -265,7 +265,7 @@
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | - | yes | 2022.2 | 2022 |
 | P2448R2: [`constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md) | | 13 | 17 (partial) | 2024.0 (partial) | - |
 | P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md) | `constexpr`関数のローカルで定数を定義できるようにする | 13 | 16 | 2023.2 | - |
-| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする | - | 17 | 2024.0 | 2024.0 |
+| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする | - | 17 | 2024.0 | - |
 | P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md) | 修飾や戻り値型をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | 2022.2 | - |
 | P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | 2022.2 | - |
 | P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | - | - | - |
