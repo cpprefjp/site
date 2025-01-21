@@ -62,7 +62,7 @@ int main()
 }
 ```
 * containers[color ff0000]
-* fm.extract()[link extract.md]
+* extract()[link extract.md]
 
 #### 出力
 ```
