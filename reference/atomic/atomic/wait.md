@@ -35,6 +35,13 @@ constexpr void
     - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
 
 
+## 事前条件
+`order`が以下のメモリオーダーではないこと：
+
+- [`memory_order_release`](/reference/atomic/memory_order.md)
+- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
+
+
 ## 効果
 - 以下のステップを順に繰り返し実行する：
     - [`load`](load.md)`(order)`によって現在の値を読み込み、`old`と値を比較する

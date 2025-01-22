@@ -24,11 +24,10 @@ constexpr void
 
 
 ## 事前条件
-- `order`が以下のいずれかであること：
-    - [`memory_order::relaxed`](/reference/atomic/memory_order.md)
-    - [`memory_order::consume`](/reference/atomic/memory_order.md)
-    - [`memory_order::acquire`](/reference/atomic/memory_order.md)
-    - [`memory_order::seq_cst`](/reference/atomic/memory_order.md)
+`order`が以下のメモリオーダーではないこと：
+
+- [`memory_order_release`](/reference/atomic/memory_order.md)
+- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
 
 
 ## 効果

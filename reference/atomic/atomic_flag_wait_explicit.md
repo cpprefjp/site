@@ -33,6 +33,13 @@ namespace std {
 この関数によってブロッキング待機をしたら、対応する起床関数である[`atomic_flag_notify_one()`](atomic_flag_notify_one.md)、[`atomic_flag_notify_all()`](atomic_flag_notify_all.md)によってブロッキング待機を解除できる。
 
 
+## 事前条件
+`order`が以下のメモリオーダーではないこと：
+
+- [`memory_order_release`](/reference/atomic/memory_order.md)
+- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
+
+
 ## 効果
 - 以下のステップを順に繰り返し実行する：
     - 式[`atomic_flag_test_explicit`](atomic_flag_test_explicit.md)`(object, order) != old`を評価する

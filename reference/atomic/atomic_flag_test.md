@@ -20,13 +20,6 @@ namespace std {
 現在の値を`bool`値として取得する。
 
 
-## 要件
-`order`が以下のメモリオーダーではないこと：
-
-- [`memory_order_release`](/reference/atomic/memory_order.md)
-- [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
-
-
 ## 戻り値
 アトミックに読み込まれた`*this`が指している値を返す
 
