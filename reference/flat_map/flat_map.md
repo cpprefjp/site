@@ -152,6 +152,14 @@ namespace std {
 | [`(deduction_guide)`](flat_map/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23 |
 
 
+## その他
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`uses_allocator`](flat_map/uses_allocator.md) | `flat_map`による特殊化 | C++23 |
+
+
+
 ## 例
 ### 基本的な使い方
 ```cpp example
