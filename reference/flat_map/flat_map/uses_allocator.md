@@ -19,7 +19,7 @@ namespace std {
 ## 概要
 `uses_allocator`の、`flat_map`に対する特殊化。
 
-アロケータを指定する`flat_map`のコンストラクタにおいて、指定されたアロケータと、`KeyContainer`および`MappedContainer`が合致するかをチェックするのに使われる。
+アロケータを指定する`flat_map`の[`コンストラクタ`](op_constructor.md)において、指定されたアロケータと、`KeyContainer`および`MappedContainer`のアロケータが合致するかをチェックするのに使われる。
 
 
 ## 例

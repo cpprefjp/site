@@ -25,7 +25,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------|----------------|-------|
-| [`(constructor)`](flat_map/op_constructor.md.nolink) | コンストラクタ | C++23 |
+| [`(constructor)`](flat_map/op_constructor.md) | コンストラクタ | C++23 |
 | [`(destructor)`](flat_map/op_destructor.md.nolink) | デストラクタ | C++23 |
 | [`operator=`](flat_map/op_assign.md.nolink) | 代入演算子 | C++23 |
 
