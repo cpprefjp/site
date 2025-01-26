@@ -178,6 +178,7 @@ flat_map(sorted_unique_t, initializer_list<value_type> il,
 
 
 ## 備考
+- 通常の（アロケータを指定しない）コピーコンストラクタとムーブコンストラクタは自動生成される。
 - (7)-(12) において、引数の `key_cont` と `mapped_cont` のサイズが異なる場合の動作は定められていない。
 - (7)-(9), (13)-(15), (23)-(25) において、Key が重複している要素は削除されるが、どの要素が削除されるかは定められていない。
 - (3)-(6), (8), (9), (11), (12), (14), (15), (17), (18), (21), (22), (24), (25), (27), (28) は引数としてアロケータを受け取るが、引数のアロケータに対して [`uses_allocator`](uses_allocator.md) が `false` であれば、この引数は無視される。
@@ -249,6 +250,18 @@ int main()
   Carol: 4,
 }
 ```
+
+
+## バージョン
+### 言語
+- C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
 
 ## 関連項目
 
