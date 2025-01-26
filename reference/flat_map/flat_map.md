@@ -87,8 +87,8 @@ namespace std {
 
 | 名前                                | 説明                                   | 対応バージョン |
 |-------------------------------------|----------------------------------------|----------------|
-| [`key_comp`](flat_map/key_comp.md.nolink)     | キー比較用の関数オブジェクトを取得する | C++23 |
-| [`value_comp`](flat_map/value_comp.md.nolink) | 要素比較用の関数オブジェクトを取得する | C++23 |
+| [`key_comp`](flat_map/key_comp.md)     | キー比較用の関数オブジェクトを取得する | C++23 |
+| [`value_comp`](flat_map/value_comp.md) | 要素比較用の関数オブジェクトを取得する | C++23 |
 | [`keys`](flat_map/keys.md.nolink)             | キーのコンテナを取得する | C++23 |
 | [`values`](flat_map/values.md.nolink)         | 値のコンテナを取得する | C++23 |
 
@@ -101,7 +101,7 @@ namespace std {
 | `mapped_type` | 値の型。テンプレートパラメータ `T` | C++23 |
 | `value_type` | 要素の型。[`std::pair`](/reference/utility/pair.md)`<key_type, mapped_type>` | C++23 |
 | `key_compare` | キー値の大小関係を判定する二項述語の型。テンプレートパラメータ `Compare` | C++23 |
-| [`value_compare`](flat_map/value_compare.md.nolink) | 要素値のキー部分で大小関係を判定する二項述語の型。入れ子クラス | C++23 |
+| [`value_compare`](flat_map/value_compare.md) | 要素値のキー部分で大小関係を判定する二項述語の型。入れ子クラス | C++23 |
 | `reference` | 要素への参照型。[`std::pair`](/reference/utility/pair.md)`<const key_type&, mapped_type&>` | C++23 |
 | `const_reference` | 要素への`const`参照型。[`std::pair`](/reference/utility/pair.md)`<const key_type&, const mapped_type&>` | C++23 |
 | `size_type` | 要素数を表す符号なし整数型 [`size_t`](/reference/cstddef/size_t.md) | C++23 |
