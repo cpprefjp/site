@@ -89,8 +89,8 @@ namespace std {
 |-------------------------------------|----------------------------------------|----------------|
 | [`key_comp`](flat_map/key_comp.md)     | キー比較用の関数オブジェクトを取得する | C++23 |
 | [`value_comp`](flat_map/value_comp.md) | 要素比較用の関数オブジェクトを取得する | C++23 |
-| [`keys`](flat_map/keys.md.nolink)             | キーのコンテナを取得する | C++23 |
-| [`values`](flat_map/values.md.nolink)         | 値のコンテナを取得する | C++23 |
+| [`keys`](flat_map/keys.md)             | キーのコンテナを取得する | C++23 |
+| [`values`](flat_map/values.md)         | 値のコンテナを取得する | C++23 |
 
 
 ## メンバ型
