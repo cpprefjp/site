@@ -1,6 +1,7 @@
-# flat_map::containers
+# containers
 * flat_map[meta header]
 * std[meta namespace]
+* flat_map[meta class]
 * class[meta id-type]
 * cpp23[meta cpp]
 

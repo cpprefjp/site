@@ -14,7 +14,7 @@ namespace std {
 ## 概要
 `value_compare` は `flat_map` の入れ子クラスで、`flat_map::value_type` 型のオブジェクトを比較する関数オブジェクト型である。  
 比較の基準は `flat_map::key_compare` と同様であるが、`flat_map::key_compare` の関数呼び出し演算子の引数型が `flat_map::key_type` であるのに対して、本クラスの関数呼び出し演算子の比較型は `flat_map::value_type` である点が異なっている。
-なお、引数のうち [`flat_map`](../../flat_map.md)`::mapped_type` にあたる [`pair`](../../utility/pair.md) の `second` 部については、比較時には無視される。
+なお、引数のうち [`flat_map`](../flat_map.md)`::mapped_type` にあたる [`pair`](../../utility/pair.md) の `second` 部については、比較時には無視される。
 
 
 ## メンバ関数

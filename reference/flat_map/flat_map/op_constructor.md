@@ -40,7 +40,7 @@ template<class Allocator>
 flat_map(const key_container_type& key_cont, const mapped_container_type& mapped_cont,
          const key_compare& comp, const Allocator& a); // (9) C++23
 
-// ____key_container_typeとmapped_container_type（共にソート済み）から構築____
+// ____key_container_typeとmapped_container_type（共にソート済み且つ重複なし）から構築____
 
 flat_map(sorted_unique_t, key_container_type key_cont, mapped_container_type mapped_cont,
          const key_compare& comp = key_compare()); // (10) C++23
@@ -67,7 +67,7 @@ template<class InputIterator, class Allocator>
 flat_map(InputIterator first, InputIterator last,
          const key_compare& comp, const Allocator& a); // (15) C++23
 
-// ____イテレータ（ソート済み）から構築____
+// ____イテレータ（ソート済み且つ重複なし）から構築____
 
 template<class InputIterator>
 flat_map(sorted_unique_t s, InputIterator first, InputIterator last,
@@ -108,10 +108,10 @@ flat_map(initializer_list<value_type> il, const Allocator& a); // (24) C++23
 template<class Allocator>
 flat_map(initializer_list<value_type> il, const key_compare& comp, const Allocator& a); // (25) C++23
 
-// ____initializer_list（ソート済み）から構築____
+// ____initializer_list（ソート済み且つ重複なし）から構築____
 
 flat_map(sorted_unique_t s, initializer_list<value_type> il,
-const key_compare& comp = key_compare()) // (26) C++23
+         const key_compare& comp = key_compare()) // (26) C++23
   : flat_map(s, il.begin(), il.end(), comp) { }
 
 template<class Allocator>
@@ -137,31 +137,31 @@ flat_map(sorted_unique_t, initializer_list<value_type> il,
 - (1) : デフォルトコンストラクタ。デフォルトの `key_compare` を作成し、要素を持たない空の `flat_map` オブジェクトを構築する。
 - (2) : `key_compare` を受け取り、要素を持たない空の `flat_map` オブジェクトを構築する。
 - (3) : アロケータを受け取り、要素を持たない空の `flat_map` オブジェクトを構築する。
-- (4) : `key_compare` とアロケータを受け取り、`flat_map` 要素を持たない空の `flat_map` オブジェクトを構築する。
+- (4) : `key_compare` とアロケータを受け取り、要素を持たない空の `flat_map` オブジェクトを構築する。
 - (5) : アロケータを受け取り、`flat_map` オブジェクトをコピー構築する。
 - (6) : アロケータを受け取り、`flat_map` オブジェクトをムーブ構築する。
 - (7) : `key_container_type` と `mapped_container_type` から `flat_map` オブジェクトを構築する。構築に際し、`value_compare` に基づきソートされ、また、Key が重複している要素は削除される。
 - (8) : アロケータを受け取り、`key_container_type` と `mapped_container_type` から `flat_map` オブジェクトを構築する。構築に際し、`value_compare` に基づきソートされ、また、Key が重複している要素は削除される。
 - (9) : `key_compare` とアロケータを受け取り、`key_container_type` と `mapped_container_type` から `flat_map` オブジェクトを構築する。構築に際し、`value_compare` に基づきソートされ、また、Key が重複している要素は削除される。
-- (10) : `key_container_type` と `mapped_container_type`（共にソート済み）から `flat_map` オブジェクトを構築する。
-- (11) : アロケータを受け取り、`key_container_type` と `mapped_container_type`（共にソート済み）から `flat_map` オブジェクトを構築する。
-- (12) : `key_compare` とアロケータを受け取り、`key_container_type` と `mapped_container_type`（共にソート済み）から `flat_map` オブジェクトを構築する。
+- (10) : `key_container_type` と `mapped_container_type`（共にソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
+- (11) : アロケータを受け取り、`key_container_type` と `mapped_container_type`（共にソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
+- (12) : `key_compare` とアロケータを受け取り、`key_container_type` と `mapped_container_type`（共にソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
 - (13) : イテレータから `flat_map` オブジェクトを構築する。構築には [`insert()`](insert.md) が用いられる。
 - (14) : アロケータを受け取り、イテレータから `flat_map` オブジェクトを構築する。構築には [`insert()`](insert.md) が用いられる。
 - (15) : `key_compare` とアロケータを受け取り、イテレータから `flat_map` オブジェクトを構築する。構築には [`insert()`](insert.md) が用いられる。
-- (16) : イテレータ（ソート済み）から `flat_map` オブジェクトを構築する。
-- (17) : アロケータを受け取り、イテレータ（ソート済み）から `flat_map` オブジェクトを構築する。
-- (18) : `key_compare` とアロケータを受け取り、イテレータ（ソート済み）から `flat_map` オブジェクトを構築する。
+- (16) : イテレータ（ソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
+- (17) : アロケータを受け取り、イテレータ（ソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
+- (18) : `key_compare` とアロケータを受け取り、イテレータ（ソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
 - (19) : Rangeから `flat_map` オブジェクトを構築する。構築には [`insert_range()`](insert_range.md) が用いられる。
-- (20) : `key_compare` を受け取り、Rangeから `flat_map` オブジェクトを構築する。。構築には [`insert_range()`](insert_range.md) が用いられる。
-- (21) : アロケータを受け取り、Rangeから `flat_map` オブジェクトを構築する。。構築には [`insert_range()`](insert_range.md) が用いられる。
-- (22) : `key_compare` とアロケータを受け取り、Rangeから `flat_map` オブジェクトを構築する。。構築には [`insert_range()`](insert_range.md) が用いられる。
+- (20) : `key_compare` を受け取り、Rangeから `flat_map` オブジェクトを構築する。構築には [`insert_range()`](insert_range.md) が用いられる。
+- (21) : アロケータを受け取り、Rangeから `flat_map` オブジェクトを構築する。構築には [`insert_range()`](insert_range.md) が用いられる。
+- (22) : `key_compare` とアロケータを受け取り、Rangeから `flat_map` オブジェクトを構築する。構築には [`insert_range()`](insert_range.md) が用いられる。
 - (23) : initializer_listから `flat_map` オブジェクトを構築する。構築には [`insert()`](insert.md) が用いられる。
 - (24) : アロケータを受け取り、initializer_listから `flat_map` オブジェクトを構築する。構築には [`insert()`](insert.md) が用いられる。
 - (25) : `key_compare` とアロケータを受け取り、initializer_listから `flat_map` オブジェクトを構築する。構築には [`insert()`](insert.md) が用いられる。
-- (26) : initializer_list（ソート済み）から `flat_map` オブジェクトを構築する。
-- (27) : アロケータを受け取り、initializer_list（ソート済み）から `flat_map` オブジェクトを構築する。
-- (28) : `key_compare` とアロケータを受け取り、initializer_list（ソート済み）から `flat_map` オブジェクトを構築する。
+- (26) : initializer_list（ソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
+- (27) : アロケータを受け取り、initializer_list（ソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
+- (28) : `key_compare` とアロケータを受け取り、initializer_list（ソート済み且つ重複なし）から `flat_map` オブジェクトを構築する。
 
 
 ## 計算量
