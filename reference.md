@@ -208,7 +208,7 @@
 | [`<latch>`](/reference/latch.md)                           | ラッチ同期            | C++20          |
 | [`<barrier>`](/reference/barrier.md)                       | バリア同期            | C++20          |
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
-| [`<rcu>`](/reference/rcu.md.nolink)                               | データの参照・更新    | C++26          |
+| [`<rcu>`](/reference/rcu.md)                               | データの参照・更新    | C++26          |
 | [`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)         | ハザードポインタ      | C++26          |
 | [`<simd>`](/reference/simd.md.nolink) | データ並列 | C++26 |
 
