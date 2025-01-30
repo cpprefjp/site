@@ -1,54 +1,49 @@
 # insert
 * flat_map[meta header]
 * std[meta namespace]
-* flat_map[meta class]
+* flat_multimap[meta class]
 * function[meta id-type]
 * cpp23[meta cpp]
 
 ```cpp
-pair<iterator, bool> insert(const value_type& x); // (1) C++23
-pair<iterator, bool> insert(value_type&& x);      // (2) C++23
+iterator insert(const value_type& x);         // (1) C++23
+iterator insert(value_type&& x);              // (2) C++23
 
 iterator insert(const_iterator position,
-                const value_type& x);             // (3) C++23
+                const value_type& x);         // (3) C++23
 iterator insert(const_iterator position,
-                value_type&& x);                  // (4) C++23
-
-template<class P>
-pair<iterator, bool> insert(P&& x);               // (5) C++23
+                value_type&& x);              // (4) C++23
 
 template<class P>
+iterator insert(P&& x);                       // (5) C++23
+
+template<class P>
 iterator insert(const_iterator position,
-                P&&);                             // (6) C++23
+                P&&);                         // (6) C++23
 
 template<class InputIterator>
 void insert(InputIterator first,
-            InputIterator last);                  // (7) C++23
+            InputIterator last);              // (7) C++23
 
 template<class InputIterator>
-void insert(sorted_unique_t,
+void insert(sorted_equivalent_t,
             InputIterator first,
-            InputIterator last);                  // (8) C++23
+            InputIterator last);              // (8) C++23
 
-void insert(initializer_list<value_type> il);     // (9) C++23
+void insert(initializer_list<value_type> il); // (9) C++23
 
-void insert(sorted_unique_t s,
-            initializer_list<value_type> il);     // (10) C++23
+void insert(sorted_equivalent_t,
+            initializer_list<value_type> il); // (10) C++23
 ```
-* pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
-* sorted_unique_t[link /reference/flat_map/sorted_unique_t.md]
+* sorted_equivalent_t[link /reference/flat_map/sorted_equivalent_t.md]
 
 ## 概要
 新しく一つの要素(引数 `x` を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入し、コンテナを拡張する。
 
 これは、挿入された要素の数だけコンテナの [`size()`](size.md) を増やす。
 
-`flat_map` コンテナは重複したキーを持つ要素を許さないため、挿入操作はそれぞれの要素が他のコンテナ内の既存要素と同じキーかどうかをチェックする。もし同じであれば要素は挿入されず、戻り値を持つ関数の場合はそれへのイテレータなどを返す。
-
-重複した値を許す、類似したコンテナについては [`flat_multimap`](/reference/flat_map/flat_multimap.md) を参照。
-
-内部的に `flat_map` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
+内部的に `flat_multimap` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
 
 この操作は、適切な引数 `position` を提供することで効率を飛躍的に改善することができる。
 
@@ -59,9 +54,9 @@ void insert(sorted_unique_t s,
 - (5) : 単一要素として要素型`value_type`のコンストラクタ引数を受け取って挿入する
 - (6) : 指定された位置に、要素型`value_type`のコンストラクタ引数を受け取って挿入する
 - (7) : イテレータ範囲`[first, last)`を挿入する
-- (8) : ソート済みかつ重複要素のないイテレータ範囲`[first, last)`を挿入する
+- (8) : ソート済みのイテレータ範囲`[first, last)`を挿入する
 - (9) : 初期化子リストを挿入する
-- (10) : ソート済みかつ重複要素のない初期化子リストを挿入する
+- (10) : ソート済みの初期化子リストを挿入する
 
 
 ## 要件
@@ -127,21 +122,6 @@ void insert(sorted_unique_t s,
 
     - 次に、新しく挿入された要素の範囲を`value_comp()`を基準にソートする
     - 次に、ソートされた結果の範囲と、既存の要素のソートされた範囲をひとつのソートされた範囲にマージする
-    - 最後に、重複する要素を以下のように削除する：
-
-    ```cpp
-    auto zv = ranges::zip_view(c.keys, c.values);
-    auto it = ranges::unique(zv, key_equiv(compare)).begin();
-    auto dist = distance(zv.begin(), it);
-    c.keys.erase(c.keys.begin() + dist, c.keys.end());
-    c.values.erase(c.values.begin() + dist, c.values.end());
-    ```
-    * c.keys[link containers.md]
-    * c.values[link containers.md]
-    * ranges::zip_view[link /reference/ranges/zip_view.md]
-    * ranges::unique[link /reference/algorithm/ranges_unique.md]
-    * key_equiv[link key_equiv.md]
-    * distance[link /reference/iterator/distance.md]
 
 - (8) : メンバ変数として保持しているコンテナ`c`に、以下のように挿入する：
     ```cpp
@@ -160,21 +140,6 @@ void insert(sorted_unique_t s,
     * second[link /reference/utility/pair.md]
 
     - 次に、ソートされた結果の範囲と、既存の要素のソートされた範囲をひとつのソートされた範囲にマージする
-    - 最後に、重複する要素を以下のように削除する：
-
-    ```cpp
-    auto zv = ranges::zip_view(c.keys, c.values);
-    auto it = ranges::unique(zv, key_equiv(compare)).begin();
-    auto dist = distance(zv.begin(), it);
-    c.keys.erase(c.keys.begin() + dist, c.keys.end());
-    c.values.erase(c.values.begin() + dist, c.values.end());
-    ```
-    * c.keys[link containers.md]
-    * c.values[link containers.md]
-    * ranges::zip_view[link /reference/ranges/zip_view.md]
-    * ranges::unique[link /reference/algorithm/ranges_unique.md]
-    * key_equiv[link key_equiv.md]
-    * distance[link /reference/iterator/distance.md]
 
 - (9) :
     ```cpp
@@ -188,13 +153,8 @@ void insert(sorted_unique_t s,
 
 
 ## 戻り値
-- (1), (2), (5) : 戻り値としては、イテレータと`bool`値の組を返す。
-    - 挿入された場合には、`first` に挿入された要素へのイテレータ、 `second` に `true` が設定される。
-    - 挿入されなかった場合には、 `first` に `x` と等価のキーを持つ要素へのイテレータ、 `second` に `false` が設定される。
-- (3), (4), (6) :
-    - 挿入された場合には、新しく挿入された要素を指すイテレータを返す。
-    - 挿入されなかった場合には、`x`のキーと等価のキーを持つ要素へのイテレータを返す。
-- (7), (8), (9), (10) : なし
+- (1)-(6) : 挿入された要素へのイテレータ
+- (7)-(10) : なし
 
 
 ## 計算量
@@ -208,18 +168,18 @@ void insert(sorted_unique_t s,
 
 ## 例
 ```cpp example
-#include <iostream>
 #include <flat_map>
+#include <iostream>
 
 int main()
 {
-  std::flat_map<int, char> fm;
+  std::flat_multimap<int, char> fm;
 
   // 単一要素を挿入する
   fm.insert(std::pair{3, 'a'});
   fm.insert({3, 'a'});
 
-  std::flat_map<int, char> fm2 = {
+  std::flat_multimap<int, char> fm2 = {
     {5, 'd'},
     {15, 'e'}
   };
@@ -227,9 +187,9 @@ int main()
   // シーケンスを挿入する
   fm.insert(fm2.begin(), fm2.end());
 
-  // 挿入するシーケンスがソート済みかつ重複要素がないことがわかっている場合、
+  // 挿入するシーケンスがソート済みであることがわかっている場合、
   // 以下のように指定した方が高速になる
-  fm.insert(std::sorted_unique, fm2.begin(), fm2.end());
+  fm.insert(std::sorted_equivalent, fm2.begin(), fm2.end());
 
   for (const auto& [key, value] : fm) {
     std::cout << key << " : " << value << std::endl;
@@ -239,12 +199,15 @@ int main()
 * insert[color ff0000]
 * begin()[link begin.md]
 * end()[link end.md]
-* std::sorted_unique[link /reference/flat_map/sorted_unique_t.md]
+* std::sorted_equivalent[link /reference/flat_map/sorted_equivalent_t.md]
 
 ### 出力
 ```
 3 : a
+3 : a
 5 : d
+5 : d
+15 : e
 15 : e
 ```
 
@@ -256,12 +219,8 @@ int main()
 
 
 ## 関連項目
-
-| 名前                                           | 説明                                       |
-|------------------------------------------------|--------------------------------------------|
-| [`flat_map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
-| [`flat_map::insert_range`](insert_range.md)         | Rangeを挿入する                            |
-| [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
-| [`flat_map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
-| [`flat_map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
-
+| 名前                                             | 説明                             |
+|--------------------------------------------------|----------------------------------|
+| [`flat_multimap::insert_range`](insert_range.md) | Rangeを挿入する                  |
+| [`flat_multimap::emplace`](emplace.md)           | 要素を直接構築する               |
+| [`flat_multimap::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |

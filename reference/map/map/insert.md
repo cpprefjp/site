@@ -32,7 +32,7 @@ iterator           insert(const_iterator hint, node_type&& nh); // (10) C++17
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
-新しく一つの要素(引数 `x`, `y`を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `map` コンテナを拡張する。
+新しく一つの要素(引数 `x` を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)または[ノードハンドル](/reference/node_handle/node_handle.md)を挿入することにより、 `map` コンテナを拡張する。
 
 これは、挿入された要素の数だけコンテナの [`size()`](size.md) を増やす。
 

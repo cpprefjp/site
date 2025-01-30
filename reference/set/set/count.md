@@ -25,9 +25,9 @@ size_type count(const K& x) const;        // (2) C++14
 
 ## 計算量
 ```
-log(b.size()) + b.count(k)
+log(size()) + count(x)
 ```
-* b.size()[link size.md]
+* size()[link size.md]
 
 
 ## 備考

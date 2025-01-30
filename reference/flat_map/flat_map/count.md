@@ -30,16 +30,16 @@ size_type count(const K& x) const;        // (2) C++23
 
 ## 計算量
 ```
-log(b.size()) + b.count(k)
+log(size()) + count(x)
 ```
-* b.size()[link size.md]
+* size()[link size.md]
 
 
 ## 備考
 - (2) :
     - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
     - これらのオーバーロードは、`flat_map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
-- [`std::flat_multimap`](/reference/flat_map/flat_multimap.md.nolink)クラスとの共通インタフェースを使用する必要がなければ、この関数の代わりに[`contains()`](contains.md)メンバ関数を使用することを推奨する
+- [`std::flat_multimap`](/reference/flat_map/flat_multimap.md)クラスとの共通インタフェースを使用する必要がなければ、この関数の代わりに[`contains()`](contains.md)メンバ関数を使用することを推奨する
 
 
 ## 例

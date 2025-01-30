@@ -1,0 +1,60 @@
+# clear
+* flat_map[meta header]
+* std[meta namespace]
+* flat_multimap[meta class]
+* function[meta id-type]
+* cpp23[meta cpp]
+
+```cpp
+void clear() noexcept; // (1) C++23
+```
+
+## 概要
+コンテナ内の全ての要素を削除する。それぞれのデストラクタが呼ばれ、コンテナから削除される。[`size()`](size.md) は 0 になる。
+
+
+## 計算量
+線形時間
+
+
+## 例外
+投げない
+
+## 例
+```cpp example
+#include <flat_map>
+#include <iostream>
+
+int main ()
+{
+  std::flat_multimap<int, char> fm = {
+    {3, 'C'},
+    {4, 'D'},
+    {1, 'A'},
+    {2, 'B'},
+  };
+
+  std::cout << fm.size() << std::endl;
+
+  fm.clear();
+
+  std::cout << fm.size() << std::endl;
+}
+```
+* clear()[color ff0000]
+* fm.size()[link size.md]
+
+### 出力
+```
+4
+0
+```
+
+## バージョン
+### 言語
+- C++23
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
