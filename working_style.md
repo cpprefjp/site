@@ -123,6 +123,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | pure virtual function              | 純粋仮想関数                 |
 | random access iterator             | ランダムアクセスイテレータ   |
 | range                              | 一般用途の場合：範囲<br/> Rangeアルゴリズム・Rangeアダプタ・Rangeオブジェクトの場合：Range<br/> range-based for：範囲for文<br/> 2つのイテレータによる範囲：イテレータ範囲 |
+| region of RCU protection           | RCU保護区間                  |
 | remarks                            | 備考                         |
 | requires                           | 要件                         |
 | returns                            | 戻り値                       |
