@@ -19,7 +19,7 @@ RCU機構により保護される共有データの読み取り終了を宣言�
 
 ## 効果
 直近に開かれたRCU保護区間を閉じる。
-`*this`上でスケジュールされた再利用操作を呼び出す可能性がある。
+`*this`上でスケジュールされた回収操作を呼び出す可能性がある。
 
 
 ## 戻り値
@@ -43,8 +43,8 @@ RCU機構により保護される共有データの読み取り終了を宣言�
 
 ## 関連項目
 - [`lock`](lock.md)
-- [`rcu_retire`](../rcu_retire.md.nolink)
-- [`rcu_obj_base::retire`](../rcu_rcu_obj_base/retire.md.nolink)
+- [`rcu_retire`](../rcu_retire.md)
+- [`rcu_obj_base::retire`](../rcu_obj_base/retire.md)
 
 
 ## 参照

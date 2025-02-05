@@ -13,7 +13,7 @@ void retire(D d = D(),
 * rcu_default_domain[link ../rcu_default_domain.md]
 
 ## 概要
-RCU機構により保護されるオブジェクト再利用をスケジュールする。
+RCU機構により保護されるオブジェクト回収をスケジュールする。
 
 
 ## 適格要件
@@ -50,6 +50,7 @@ RCU機構により保護されるオブジェクト再利用をスケジュー�
 
 ## 関連項目
 - [`rcu_domain::unlock`](../rcu_domain/unlock.md)
+- [`rcu_retire`](../rcu_retire.md)
 
 
 ## 参照
