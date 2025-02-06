@@ -17,7 +17,11 @@ RCU機構により保護されるオブジェクト回収をスケジュール�
 
 
 ## 適格要件
-クラステンプレートパラメータ`T`がRCU保護可能(rcu-protectable)な型であること。
+クラステンプレートパラメータ`T`が、下記条件を満たすRCU保護可能(rcu-protectable)な型であること。
+
+- `rcu_obj_base<T,D>`型を唯一の基底クラスとして持つクラス型であり、かつ
+- その基底は公開(public)かつ非仮想基底クラスであり、かつ
+- 型`X`, `Y`の他の組合せに対して`rcu_obj_base<X, Y>`型を基底クラスとして持たない。
 
 
 ## 事前条件
@@ -27,8 +31,8 @@ RCU機構により保護されるオブジェクト回収をスケジュール�
 
 
 ## 効果
-- `deleter = std::move(d)`を評価し、
-- RCUドメイン`dom`に対して式`deleter(addressof(x))`の評価をスケジュールする。
+- `deleter =` [`std::move`](/reference/utility/move.md)`(d)`を評価し、
+- RCUドメイン`dom`に対して式`deleter(`[`addressof`](/reference/memory/addressof.md)`(x))`の評価をスケジュールする。
     - 評価が例外で終了した場合は未定義の動作を引き起こす。
 - `dom`に対してスケジュールされた評価を呼び出す可能性がある。
 

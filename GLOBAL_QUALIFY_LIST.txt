@@ -228,6 +228,7 @@
     * view[link /reference/ranges/view.md]
     * viewable_range[link /reference/ranges/viewable_range.md]
 * <ratio>[link /reference/ratio.md]
+* <rcu>[link /reference/rcu.md]
 * <regex>[link /reference/regex.md]
 * <scoped_allocator>[link /reference/scoped_allocator.md]
 * <semaphore>[link /reference/semaphore.md]

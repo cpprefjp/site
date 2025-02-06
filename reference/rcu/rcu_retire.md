@@ -31,7 +31,7 @@ RCU機構により保護されるオブジェクト回収をスケジュール�
 ## 効果
 - メモリを確保する可能性がある。
     - メモリ確保が`operator new`を呼び出すか否かは未規定である。
-- `D`型のオブジェクト`d1`を`std::move(d)`で初期化する。
+- `D`型のオブジェクト`d1`を[`std::move`](/reference/utility/move.md)`(d)`で初期化する。
 - RCUドメイン`dom`に対して式`d1(p)`の評価をスケジュールする。
     - 評価が例外で終了した場合は未定義の動作を引き起こす。
 - `dom`に対してスケジュールされた評価を呼び出す可能性がある。
@@ -97,6 +97,9 @@ int main()
 * std::rcu_retire[color ff0000]
 * std::rcu_default_domain[link rcu_default_domain.md]
 * std::scoped_lock[link /reference/mutex/scoped_lock.md]
+* std::jthread[link /reference/thread/jthread.md]
+* exchange[link /reference/atomic/atomic/exchange.md]
+* store[link /reference/atomic/atomic/store.md]
 
 ### 出力例
 ```
