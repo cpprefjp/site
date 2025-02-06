@@ -37,7 +37,7 @@ void insert(sorted_unique_t s,
 ```
 * pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
-* sorted_unique_t[link /reference/flat_set_/sorted_unique_t.md]
+* sorted_unique_t[link /reference/flat_set/sorted_unique_t.md]
 
 ## 概要
 新しく一つの要素(引数 `x` を使う)または要素のシーケンス(入力イテレータまたは `initializer_list` を使う)を挿入し、コンテナを拡張する。
@@ -48,7 +48,7 @@ void insert(sorted_unique_t s,
 
 重複した値を許す、類似したコンテナについては [`flat_multiset`](/reference/flat_set/flat_multiset.md) を参照。
 
-内部的に `flat_set_` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
+内部的に `flat_set` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
 
 この操作は、適切な引数 `position` を提供することで効率を飛躍的に改善することができる。
 
