@@ -1,5 +1,5 @@
 # flat_multiset
-* flat_multiset[meta header]
+* flat_set[meta header]
 * std[meta namespace]
 * class template[meta id-type]
 * cpp23[meta cpp]
