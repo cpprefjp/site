@@ -50,8 +50,8 @@
 |`__cpp_lib_constexpr_typeinfo`|`202106L`|[`std::type_info::operator==()`](/reference/typeinfo/type_info/op_equal.md)の`constexpr`対応|[`<typeinfo>`](/reference/typeinfo.md)|
 |`__cpp_lib_containers_ranges`|`202202L`|コンテナのコンストラクタのRange対応|[`<vector>`](/reference/vector.md)<br/>[`<list>`](/reference/list.md)<br/>[`<forward_list>`](/reference/forward_list.md)<br/>[`<map>`](/reference/map.md)<br/>[`<set>`](/reference/set.md)<br/>[`<unordered_map>`](/reference/unordered_map.md)<br/>[`<unordered_set>`](/reference/unordered_set.md)<br/>[`<deque>`](/reference/deque.md)<br/>[`<queue>`](/reference/queue.md)<br/>[`<stack>`](/reference/stack.md)<br/>[`<string>`](/reference/string.md)|
 |`__cpp_lib_expected`|`202211L`|[`<expected>`](/reference/expected.md)の追加|[`<expected>`](/reference/expected.md)|
-|`__cpp_lib_flat_map`|`202207L`|[`std::flat_map`](/reference/flat_map.md)と`std::flat_multimap`の追加|[`<flat_map>`](/reference/flat_map.md)|
-|`__cpp_lib_flat_set`|`202207L`|`std::flat_set`と`std::flat_multiset`の追加|`<flat_set>`|
+|`__cpp_lib_flat_map`|`202207L`|[`std::flat_map`](/reference/flat_map/flat_map.md)と[`std::flat_multimap`](/reference/flat_map/flat_multimap.md)の追加|[`<flat_map>`](/reference/flat_map.md)|
+|`__cpp_lib_flat_set`|`202207L`|[`std::flat_set`](/reference/flat_set/flat_set.md)と[`std::flat_multiset`](/reference/flat_set/flat_multiset.md)の追加|[`<flat_set>`](/reference/flat_set.md)|
 |`__cpp_lib_format`|`202207L`|`std::format`の時刻型のローカライズ対応|[`<format>`](/reference/format.md)|
 |`__cpp_lib_format_ranges`|`202207L`|[`std::formatter`](/reference/format/formatter.md)のRange対応|[`<format>`](/reference/format.md)|
 |`__cpp_lib_formatters`|`202302L`|[`std::formatter`](/reference/format/formatter.md)の[`std::stacktrace`](/reference/stacktrace/basic_stacktrace.md)対応と[`std::thread::id`](/reference/thread/thread/id.md)対応|[`<stacktrace>`](/reference/stacktrace.md)<br/>[`<thread>`](/reference/thread.md)|

@@ -118,6 +118,7 @@
     * fs::filesystem_error[link /reference/filesystem/filesystem_error.md]
     * fs::path[link /reference/filesystem/path.md]
 * <flat_map>[link /reference/flat_map.md]
+* <flat_set>[link /reference/flat_set.md]
 * <format>[link /reference/format.md]
 * <forward_list>[link /reference/forward_list.md]
     * std::forward_list[link /reference/forward_list/forward_list.md]

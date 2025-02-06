@@ -41,7 +41,7 @@ namespace std {
 - (1) : プライマリテンプレート。宣言のみ
 - (2) : Range・シーケンスコンテナに対する特殊化。デバッグ出力の有効化と、`[a, b, c]`形式の出力を行う
 - (3) : [`std::map`](/reference/map/map.md)や[`std::flat_map`](/reference/flat_map/flat_map.md)などの連想コンテナに対する特殊化。デバッグ出力の有効化と、`{1: a, 2: b}`形式での出力を行う
-- (4) : [`std::set`](/reference/set/set.md)や[`std::flat_set`](/reference/flat_set/flat_set.md.nolink)などの集合コンテナに対する特殊化。デバッグ出力の有効化と、`{a, b, c}`形式の出力を行う
+- (4) : [`std::set`](/reference/set/set.md)や[`std::flat_set`](/reference/flat_set/flat_set.md)などの集合コンテナに対する特殊化。デバッグ出力の有効化と、`{a, b, c}`形式の出力を行う
 - (5) : 文字列形式の出力を行うRangeに対する特殊化。Rangeを文字列として出力し、[`range_format::debug_string`](range_format.md)指定であればデバッグ文字列として出力する
 
 

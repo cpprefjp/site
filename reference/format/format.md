@@ -559,7 +559,7 @@ int main()
 * std::stack[link /reference/stack/stack.md]
 * st.push[link /reference/stack/stack/push.md]
 * std::flat_map[link /reference/flat_map/flat_map.md]
-* std::flat_set[link /reference/flat_map/flat_set.md.nolink]
+* std::flat_set[link /reference/flat_map/flat_set.md]
 
 #### 出力
 ```
