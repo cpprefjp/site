@@ -1,7 +1,6 @@
 # get
 * tuple[meta header]
 * std[meta namespace]
-* tuple[meta class]
 * function template[meta id-type]
 * cpp11[meta cpp]
 
