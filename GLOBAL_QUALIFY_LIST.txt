@@ -102,6 +102,7 @@
     * std::int64_t[link /reference/cstdint/int64_t.md]
 * <cstdio>[link /reference/cstdio.md]
 * <cstdlib>[link /reference/cstdlib.md]
+* <cstring>[link /reference/cstring.md]
 * <ctime>[link /reference/ctime.md]
 * <debugging>[link /reference/debugging.md]
 * <deque>[link /reference/deque/deque.md]
