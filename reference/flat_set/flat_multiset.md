@@ -224,7 +224,7 @@ int main()
 
 
 ## 参照
-- [P1222R0 A Standard `flat_set`](hhttps://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1222r0.pdf)
+- [P1222R0 A Standard `flat_set`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1222r0.pdf)
     - C++23で`flat_set`が導入された経緯・動機・設計について記載されている
 - [P1222R4 A Standard `flat_set`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1222r4.pdf)
     - C++23で導入された`flat_set`の仕様
