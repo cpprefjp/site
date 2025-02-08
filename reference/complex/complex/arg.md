@@ -56,7 +56,7 @@ int main()
 {
   std::complex<double> c(1.0, 2.0);
 
-  std::complex<double> result = std::arg(c);
+  double result = std::arg(c);
   std::cout << "arg( " << c << " ) = " << result << std::endl;
 }
 ```
