@@ -47,7 +47,6 @@ int main()
   // 事前条件の確認
   assert(keys.size() == values.size());
   assert(std::is_sorted(keys.begin(), keys.end()));
-  assert(std::adjacent_find(keys.begin(), keys.end()) == keys.end());
 
   std::flat_multimap<std::string, int> fm;
 
@@ -68,7 +67,6 @@ int main()
 * replace[color ff0000]
 * fm.size()[link size.md]
 * std::is_sorted[link /reference/algorithm/is_sorted.md]
-* std::adjacent_find[link /reference/algorithm/adjacent_find.md]
 
 ### 出力
 ```

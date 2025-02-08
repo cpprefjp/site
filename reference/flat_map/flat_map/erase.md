@@ -118,6 +118,9 @@ int main()
   }
 }
 ```
+* erase[color ff0000]
+* fm.begin()[link begin.md]
+* fm.end()[link end.md]
 
 #### 出力
 ```
