@@ -15,7 +15,7 @@ const_iterator cend() const noexcept;
 
 ## 戻り値
 コンテナの末尾の次を参照するイテレータ。 
-`const_iterator` はいずれもメンバ型である。`map` クラステンプレートにおいて、これらは双方向イテレータである。
+`const_iterator` はメンバ型である。`map` クラステンプレートにおいて、この型は双方向イテレータである。
 
 
 ## 計算量
