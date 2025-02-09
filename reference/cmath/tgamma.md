@@ -47,11 +47,11 @@ namespace std {
 
 
 ## 戻り値
-引数 `x` のガンマ関数を返す。
+引数 `x` のガンマ関数 $\Gamma(x)$ を返す。
 
+$$ \Gamma (x) = \int_0^\infty t^{x-1} e^{-t} dt $$
 
 ## 備考
-- $$ f(x) = \Gamma (x) $$
 - ガンマ関数は階乗の一般化である。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - `x = ±0` の場合、戻り値は `±∞` となり、
