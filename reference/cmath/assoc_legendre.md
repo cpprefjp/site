@@ -59,6 +59,30 @@ $$
 - `l >= 128` の場合、この関数の呼び出しの効果は実装定義である
 - (1) : C++23では、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
+### 負の m の対応
+この標準関数は $m$ が正の場合にしか対応していない。
+一方でルジャンドル陪関数はロドリゲスの公式を用いて負の $m$ に対して自然に拡張され、
+このことは球面調和関数を定義する上でも使われる。
+負の $m$ に対してもルジャンドル陪関数を計算する必要がある場合は、関係式
+$$ P_l^{-m}(x) = (-1)^m \frac{(l-m)!}{(l+m)!} P_l^m(x) $$
+を用いる必要がある。
+
+```cpp
+#include <cmath>
+
+// 負の m にも対応した実装例
+double assoc_legendre(unsigned l, int m, double x) {
+  if (m >= 0)
+    return std::assoc_legendre(l, (unsigned) m, x);
+  else
+    return std::pow(-1.0, m) * (std::tgamma(1.0 + l + m) / std::tgamma(1.0 + l - m)) * std::assoc_legendre(l, (unsigned) -m, x);
+}
+```
+* std::assoc_legendre[color ff0000]
+* std::tgamma[link tgamma.md]
+
+上記の例では簡単のために階乗をガンマ関数 $n! = \Gamma(n + 1)$ ([`tgamma`](tgamma.md)) で計算しているが、
+計算効率やオーバーフローなどを考えると、直接 $(l + |m|)\cdots(l - |m| + 1)$ で割り算したり、係数を事前計算しておくなど工夫すると良い。
 
 ## 例
 ```cpp example
