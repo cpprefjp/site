@@ -47,7 +47,7 @@ namespace std {
 
 
 ## 戻り値
-引数 `l`, `m`, `theta` について $Y_l^m(\theta, 0)$ を返す。
+引数 `l`, `m`, `theta` について $Y_l^m(\theta, 0)$ (ただし $0 \le m \le l$) を返す。
 $Y_l^m(\theta, \phi)$ は球面調和関数
 $$
 Y_l^m(\theta, \phi) = (-1)^m \sqrt{\frac{2l + 1}{4\pi} \frac{(l - m)!}{(l + m)!}} P_l^m(\cos \theta) \exp(i m \phi)
@@ -56,11 +56,71 @@ $$
 である。
 $P_l^m$ はルジャンドル陪関数 ([`assoc_legendre`](assoc_legendre.md)) である。
 
-
 ## 備考
 - `l >= 128` の場合、この関数の呼び出しの効果は実装定義である
 - (1) : C++23では、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
+### 球面調和関数
+球面調和関数として使う場合には $\phi$ 依存性は自分で与える必要がある。
+また、この標準関数は $m\ge0$ にしか対応していないので、$m < 0$ の時の球面調和関数を計算したければ自分で $Y_l^{|m|}(\theta,0)$ の値を調節して使う必要がある。
+ルジャンドル陪関数の性質 $P_l^{-m}(x) = (-1)^m [(l - m)!/(l + m)!] P_l^m(x)$ より、一般の $m$ の球面調和関数は
+$$
+\begin{align*}
+Y_l^m(\theta, \phi)
+  &= (-1)^{(m+|m|)/2} \sqrt{\frac{2l + 1}{4\pi} \frac{(l - |m|)!}{(l + |m|)!}} P_l^{|m|}(\cos \theta) e^{i m \phi} \\
+  &= \begin{cases}
+    Y_l^{m}(\theta, 0) e^{im\phi}, & (0 \le m \le l), \\
+    (-1)^{|m|} Y_l^{|m|}(\theta, 0) e^{im\phi}, & (-l \le m < 0).
+  \end{cases}
+\end{align*}
+$$
+で与えられる。
+
+```cpp
+#include <cmath>
+#include <complex>
+#include <numbers>
+
+// 球面調和関数の実装例
+std::complex<double> sph_harmonics(unsigned l, int m, double theta, double phi) {
+  if (m >= 0)
+    return std::sph_legendre(l, (unsigned) m, theta) * std::polar(1.0, m * phi);
+  else
+    return std::sph_legendre(l, (unsigned) -m, theta) * std::polar(1.0, m * (phi - std::numbers::pi));
+}
+```
+* std::sph_legendre[color ff0000]
+* std::polar[link /reference/complex/complex/polar.md]
+* std::numbers::pi[link /reference/numbers/pi.md]
+
+また線形結合を取り直して実数にした、実数球面調和関数 $Y_{lm}(\theta,\phi)$ を計算することもできる。
+
+$$
+Y_{lm}(\theta,\phi)
+= \begin{cases}
+  \frac{(-1)^m Y_l^{|m|}(\theta,\phi) - Y_l^{-|m|}(\theta,\phi)}{\sqrt{2} i} = \sqrt{2} (-1)^{|m|} Y_l^{|m|}(\theta, 0) \sin(|m|\phi), & (-l \le m < 0), \\
+  Y_l^0 = Y_l^0(\theta, 0), & (m = 0), \\
+  \frac{(-1)^m Y_l^{|m|}(\theta,\phi) + Y_l^{-|m|}(\theta,\phi)}{\sqrt{2}} = \sqrt{2} (-1)^{|m|} Y_l^{|m|}(\theta, 0) \cos(|m|\phi), & (0 < m \le l).
+\end{cases}
+$$
+
+```cpp
+#include <cmath>
+#include <numbers>
+
+// 実数球面調和関数の実装例
+double real_sph_harmonics(unsigned l, int m, double theta, double phi) {
+  if (m == 0)
+    return std::sph_legendre(l, 0u, theta);
+  else if (m > 0)
+    return std::numbers::sqrt2 * std::sph_legendre(l, (unsigned) m, theta) * std::cos(m * (phi - std::numbers::pi));
+  else
+    return std::numbers::sqrt2 * std::sph_legendre(l, (unsigned) -m, theta) * std::sin(-m * (phi - std::numbers::pi));
+}
+```
+* std::sph_legendre[color ff0000]
+* std::numbers::pi[link /reference/numbers/pi.md]
+* std::numbers::sqrt2[link /reference/numbers/sqrt2.md]
 
 ## 例
 ```cpp example
@@ -71,8 +131,11 @@ $P_l^m$ はルジャンドル陪関数 ([`assoc_legendre`](assoc_legendre.md)) �
 constexpr double pi = 3.141592653589793;
 
 // 球面調和関数
-std::complex<double> sph_harmonics(unsigned l, unsigned m, double theta, double phi) {
-  return std::sph_legendre(l, m, theta) * std::polar(1.0, m * phi);
+std::complex<double> sph_harmonics(unsigned l, int m, double theta, double phi) {
+  if (m >= 0)
+    return std::sph_legendre(l, (unsigned) m, theta) * std::polar(1.0, m * phi);
+  else
+    return std::sph_legendre(l, (unsigned) -m, theta) * std::polar(1.0, m * (phi - std::numbers::pi));
 }
 
 int main() {
