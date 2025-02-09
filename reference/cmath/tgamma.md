@@ -52,7 +52,7 @@ namespace std {
 $$ \Gamma (x) = \int_0^\infty t^{x-1} e^{-t} dt $$
 
 ## 備考
-- ガンマ関数は階乗の一般化である。
+- ガンマ関数は階乗の一般化である。階乗はガンマ関数を用いて $n! = \Gamma(n + 1)$ で計算できる。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - `x = ±0` の場合、戻り値は `±∞` となり、
     [`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
