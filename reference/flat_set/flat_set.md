@@ -129,7 +129,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`swap`](flat_set/swap_free.md.nolink) | 2つの`flat_set`オブジェクトを入れ替える | C++23 |
+| [`swap`](flat_set/swap_free.md) | 2つの`flat_set`オブジェクトを入れ替える | C++23 |
 
 
 ## 推論補助
