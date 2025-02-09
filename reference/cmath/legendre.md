@@ -103,6 +103,9 @@ legendre(3, 1) = 1
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+### 備考
+- GCC 7, 8 には $x$ として [-1.0, 1.0] の範囲外の値を渡した時に、[`std::domain_error`](/reference/stdexcept.md) を投げるバグがあった (GCC 7.5, 8.2, 8.4 [mark verified])。
+  GCC 9 以降では直っている (GCC 9.3, 10.5, 11.4, 12.3, 13.2, 15.0 [mark verified])。
 
 ## 実装例
 ### 閉形式
