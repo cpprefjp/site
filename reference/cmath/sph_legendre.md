@@ -126,9 +126,8 @@ double real_sph_harmonics(unsigned l, int m, double theta, double phi) {
 ```cpp example
 #include <cmath>
 #include <complex>
+#include <numbers>
 #include <iostream>
-
-constexpr double pi = 3.141592653589793;
 
 // 球面調和関数
 std::complex<double> sph_harmonics(unsigned l, int m, double theta, double phi) {
@@ -145,9 +144,9 @@ int main() {
 
   std::cout << "#θ / π\tφ / π\tY_" << l << "^" << m << "(θ, φ)\n";
   for (double t : {0., 0.25, 0.5, 0.75, 1.}) {
-    double theta = t * pi;
+    double theta = t * std::numbers::pi;
     for (double p : {0., 0.25, 0.5, 0.75, 1., 1.25, 1.5, 1.75, 2.}) {
-      double phi = p * pi / 4;
+      double phi = p * std::numbers::pi / 4;
       std::cout << t << "\t" << p << "\t" << sph_harmonics(l, m, theta, phi) << "\n";
       if (t == 0 || t == 1) break;
     }
@@ -156,6 +155,7 @@ int main() {
 ```
 * std::sph_legendre[color ff0000]
 * std::polar[link /reference/complex/complex/polar.md]
+* std::numbers::pi[link /reference/numbers/pi.md]
 
 ### 出力例
 ```
