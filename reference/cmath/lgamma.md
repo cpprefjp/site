@@ -35,7 +35,7 @@ namespace std {
 * Integral[italic]
 
 ## 概要
-ガンマ関数の絶対値の自然対数を求める。
+ガンマ関数 $\Gamma(x)$ ([`tgamma`](tgamma.md)) の絶対値の自然対数を求める。
 
 - (1) : `float`に対するオーバーロード
 - (2) : `double`に対するオーバーロード
@@ -107,6 +107,8 @@ lgamma(+∞)  = inf
 
 - GCC 4.6.1 以上
 
+## 関連項目
+- ガンマ関数 [`tgamma`](tgamma.md)
 
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)

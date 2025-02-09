@@ -110,6 +110,8 @@ tgamma(+∞)  = inf
 
 - GCC 4.6.1 以上
 
+## 関連項目
+- ガンマ関数の絶対値の自然対数 [`lgamma`](lgamma.md)
 
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
