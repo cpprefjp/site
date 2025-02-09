@@ -47,12 +47,12 @@ namespace std {
 
 
 ## 戻り値
-引数 `x` のガンマ関数を返す。
+引数 `x` のガンマ関数 $\Gamma(x)$ を返す。
 
+$$ \Gamma (x) = \int_0^\infty t^{x-1} e^{-t} dt $$
 
 ## 備考
-- $$ f(x) = \Gamma (x) $$
-- ガンマ関数は階乗の一般化である。
+- ガンマ関数は階乗の一般化である。階乗はガンマ関数を用いて $n! = \Gamma(n + 1)$ で計算できる。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - `x = ±0` の場合、戻り値は `±∞` となり、
     [`FE_DIVBYZERO`](../cfenv/fe_divbyzero.md)（ゼロ除算浮動小数点例外）が発生する。
@@ -64,6 +64,32 @@ namespace std {
 - `gamma` という関数は既にあったが処理系によって定義が違ったため、本当の (true) ガンマ関数 `tgamma` と名付けられた。
 - C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
+### <a id="remarks-lgamma" href="#remarks-lgamma">lgamma との使い分け</a>
+ガンマ関数は急激に増加し容易にオーバーフローするので、代わりにガンマ関数の結果を自然対数で返す関数 [`lgamma`](lgamma.md) を用いた方が良いことが多くある。
+例えばガンマ関数の比を計算する場合には、 ガンマ関数の対数の差を取ってから指数関数 [`std::exp`](exp.md) を適用するのが賢明である。
+
+$$ \frac{\Gamma(2026)}{\Gamma(2025)} = \exp[\ln\Gamma(2026) - \ln\Gamma(2025)] $$
+
+```cpp example
+#include <cmath>
+#include <iostream>
+int main() {
+  std::cout << std::tgamma(2026.0) / std::tgamma(2025.0) << std::endl;
+  std::cout << std::exp(std::lgamma(2026.0) - std::lgamma(2025.0)) << std::endl;
+}
+```
+* std::tgamma[color ff0000]
+* std::lgamma[color 0000ff][link lgamma.md]
+
+出力例
+```
+-nan
+2025
+```
+
+上の結果では、直接ガンマ関数を計算した場合はオーバーフローによって inf / inf となり最終結果が -nan になっているが、`lgamma` を使った場合には正しい値が計算できている。
+ただし、`lgamma` は飽くまでガンマ関数の「絶対値」の対数であることに注意する。
+ガンマ関数の引数が負になる場合はガンマ関数が負の値を取りうるので符号は別に求める必要がある。
 
 ## 例
 ```cpp example
@@ -110,6 +136,8 @@ tgamma(+∞)  = inf
 
 - GCC 4.6.1 以上
 
+## 関連項目
+- ガンマ関数の絶対値の自然対数 [`lgamma`](lgamma.md)
 
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
