@@ -136,7 +136,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |---------------------------------------------|------------------------------------|-------|
-| [`(deduction_guide)`](flat_set/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23 |
+| [`(deduction_guide)`](flat_set/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23 |
 
 
 ## その他
