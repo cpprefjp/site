@@ -141,6 +141,7 @@
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
+| 2022 Update 13 | Visual Studio 2022 Version 17.13.0    | 14.43           | 1943       | 194334808       |
 | 2022 Update 12 | Visual Studio 2022 Version 17.12.4    | 14.42           | 1942       | 194234436       |
 | 2022 Update 12 | Visual Studio 2022 Version 17.12.3    | 14.42           | 1942       | 194234435       |
 | 2022 Update 11 | Visual Studio 2022 Version 17.11.0    | 14.41           | 1941       | 194134120       |
