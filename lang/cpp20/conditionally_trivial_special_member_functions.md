@@ -64,25 +64,217 @@ struct wrap {
 
 ## 例
 
-(執筆中)
+`std::optional<T>`の簡易実装を考える。デストラクタについて、要素型`T`が[`trivially_destructible`](/reference/type_traits/is_trivially_destructible.md)であるかどうかに応じて`optional<T>`のデストラクタのトリビアル性も切り替えたい場合、次のような実装になる
+
+```cpp
+// デストラクタがトリビアルでない場合のストレージ型
+template<typename T, bool = std::is_trivially_destructible_v<T>>
+struct optional_storage {
+  union {
+    char dummy;
+    T data;
+  };
+  bool has_value = false;
+
+  // デストラクタは常に非トリビアルでdeleteされているので定義する
+  ~optional_storage() {
+    if (has_value) {
+      this->data.~T();
+    }
+  }
+};
+
+// デストラクタがトリビアルである場合のストレージ型
+template<typename T>
+struct optional_storage<T, true> {
+  union {
+    char dummy;
+    T data;
+  };
+  bool has_value = false;
+
+  // デストラクタはトリビアルであり常にdeleteされないので、宣言も不要
+};
+
+template<typename T>
+class my_optional : private optional_storage<T> {
+public:
+
+  // 略
+  ...
+
+  // デストラクタ、この宣言も実はいらない
+  ~my_optional() = default;
+};
+```
+
+無効値と有効値でストレージを共有し、なおかつ遅延初期化等を行いながら動的確保や追加のストレージ消費を抑えるためには共用体を使用する。共用体の特殊メンバ関数はそのメンバ型のもつ特殊メンバ関数が1つでも非トリビアルであるならば対応する特殊メンバ関数が`delete`されるため、その場合はユーザーが定義しなければならない。しかしそれを一つの型の中で行うことができなかったため、このようにデストラクタの実装を行うレイヤにおいて型を分割する必要があった。
+
+これをこの機能を用いて書き直すと、次のような実装になる
+
+```cpp
+template<typename T>
+class my_optional {
+  bool has_value = false;
+  union {
+    char dummy;
+    T data;
+  };
+
+public:
+
+  // 略
+  ...
+
+  // Tのデストラクタがトリビアルならばこちらが有効化
+  ~my_optional() requires std::is_trivially_destructible_v<T> = default;
+
+  // そうでないならばこちらが有効化
+  ~my_optional() {
+    this->reset();
+  }
+  
+  // reset()の定義も同様の記法で分岐できる
+
+  void reset() requires std::is_trivially_destructible_v<T> {
+    this->has_value = false;
+  }
+
+  void reset() {
+    if (this->has_value) {
+      this->data.~T();
+    }
+    this->has_value = false;
+  }
+};
+```
+
+コンセプトによって`T`の（デストラクタの）トリビアル性に応じてデストラクタを選択できるようになるため、先ほどのような定義を分けるためのレイヤが不要になり、コード量を大きく削減することができる。
+
+元の（この機能を使わない）実装に戻って、さらにコピーコンストラクタとムーブコンストラクタ、そしてコピー/ムーブ代入演算子についても同様に`T`のトリビアル性に応じて`default`とするかを切り替えることを考える。実装としてはデストラクタの時と同様に基底クラスにその判定と分岐を行うレイヤを追加して、そこで`T`の性質に応じた宣言（ユーザー定義/`default`定義）を記述していくことになるが、その総数はデストラクタのためのレイヤも含めて全5層に達し、実装はかなり複雑になる（このためここでは省略するが、この実装に興味がある場合、MSVC STLの[`xsmf_control.h`](https://github.com/microsoft/STL/blob/main/stl/inc/xsmf_control.h)およびこれを利用した`std::optional`/`std::variant`の実装が参考になると思われる）。
+
+しかし、この機能を使用すると先ほどのデストラクタの場合と同様にそのような不要なレイヤを必要とすることなくシンプルに記述できる
 
 ```cpp example
-// (ここには、言語機能の使い方を解説するための、サンプルコードを記述します。)
-// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。そのようなコードブロックにはexampleタグを付けます。)
+#include <type_traits>
+#include <string>
 
-#include <iostream>
+template<typename T>
+class my_optional {
+  bool has_value = false;
+  union {
+    char dummy;
+    T data;
+  };
 
-int main()
-{
-  int variable = 0;
-  std::cout << variable << std::endl;
+public:
+
+  // デフォルトコンストラクタ
+  constexpr my_optional() 
+    : has_value(false)
+    , dummy{}
+  {}
+
+  // 値を受け取るコンストラクタ
+  template<typename U=T>
+  constexpr my_optional(U&& v)
+    : has_value(true)
+    , data(std::forward<U>(v))
+  {}
+
+  // トリビアルに定義できるならそうする
+  my_optional(const my_optional& that) requires std::is_trivially_copy_constructible_v<T> = default;
+  my_optional(my_optional&& that) requires std::is_trivially_move_constructible_v<T> = default;
+  my_optional& operator=(const my_optional& that) requires std::is_trivially_copy_assignable_v<T> = default;
+  my_optional& operator=(my_optional&& that) requires std::is_trivially_move_assignable_v<T> = default;
+  ~my_optional() requires std::is_trivially_destructible_v<T> = default;
+
+
+  // そうでない場合はユーザー定義する
+
+  my_optional(const my_optional& that)
+    : has_value(that.has_value)
+    , dummy{}
+  {
+    if (that.has_value) {
+      new (&this->data) T(that.data);
+    }
+  }
+
+  my_optional(my_optional&& that)
+    : has_value(that.has_value)
+    , dummy{}
+  {
+    if (that.has_value) {
+      new (&this->data) T(std::move(that.data));
+    }
+  }
+
+  my_optional& operator=(const my_optional& that) {
+    auto copy = that;
+    *this = std::move(copy);
+    
+    return *this;
+  }
+
+  my_optional& operator=(my_optional&& that) {
+    if (that.has_value) {
+      if (this->has_value) {
+        this->data = std::move(that.data);
+      } else {
+        new (&this->data) T(std::move(that.data));
+      }
+    } else {
+      this->reset();
+    }
+
+    return *this;
+  }
+
+  ~my_optional() {
+    this->reset();
+  }
+  
+  // reset()の定義も同様の記法で分岐できる
+
+  void reset() requires std::is_trivially_destructible_v<T> {
+    this->has_value = false;
+  }
+
+  void reset() {
+    if (this->has_value) {
+      this->data.~T();
+    }
+    this->has_value = false;
+  }
+};
+
+int main() {
+  // int（全てのメンバ関数はトリビアル）の場合、my_optional<int>も同様になる
+  static_assert(std::is_trivially_destructible_v<my_optional<int>>);
+  static_assert(std::is_trivially_copy_constructible_v<my_optional<int>>);
+  static_assert(std::is_trivially_move_constructible_v<my_optional<int>>);
+  static_assert(std::is_trivially_copy_assignable_v<my_optional<int>>);
+  static_assert(std::is_trivially_move_assignable_v<my_optional<int>>);
+    
+  // std::string（全てのメンバ関数は非トリビアル）の場合、my_optional<std::string>も同様になる
+  static_assert(std::is_trivially_destructible_v<my_optional<std::string>> == false);
+  static_assert(std::is_trivially_copy_constructible_v<my_optional<std::string>> == false);
+  static_assert(std::is_trivially_move_constructible_v<my_optional<std::string>> == false);
+  static_assert(std::is_trivially_copy_assignable_v<my_optional<std::string>> == false);
+  static_assert(std::is_trivially_move_assignable_v<my_optional<std::string>> == false);
+  
+  // しかし、全ての特殊メンバ関数は利用可能（トリビアルでないだけ）
+  static_assert(std::is_destructible_v<my_optional<std::string>>);
+  static_assert(std::is_copy_constructible_v<my_optional<std::string>>);
+  static_assert(std::is_move_constructible_v<my_optional<std::string>>);
+  static_assert(std::is_copy_assignable_v<my_optional<std::string>>);
+  static_assert(std::is_move_assignable_v<my_optional<std::string>>);
 }
 ```
-* variable[color ff0000]
 
 ### 出力
 ```
-0
 ```
 
 ## この機能が必要になった背景・経緯
