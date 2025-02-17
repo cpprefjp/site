@@ -239,7 +239,12 @@
 |               | Microsoft C/C++ 7.0                    |                 | 700        |                 |
 |               | Microsoft C 6.0                        |                 | 600        |                 |
 
-1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。製品バージョンは、2017以降、メインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
+1. **<a id="note-t1-1" href="#note_ref-t1-1">^</a>** 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。
+    Visual Studioの製品バージョンは、製品名に現れていないときは `[ ～ ]` 内に記す。
+    製品バージョンの番号は、2017以降、C++ツールセットのバージョンなど類似のものが色々あるが、ここではメインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
+    バージョン表記として "バージョン \<番号\>" と "Version 番号" が混在しているが、これは編集者の裁量によるもので特に理由はない。
+    バージョン \<番号\> の表記はリリースノートに見られる「Visual Studio 2017 バージョン 15.0」などに基づく。
+    "Version \<番号\>" の表記はバージョン情報の画面に見られる「Version 17.13.0」という表記に基づく。
 2. **<a id="note-t1-2" href="#note_ref-t1-2">^</a>** VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。Visual Studio 2022においては`C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC`配下のフォルダ名(`14.39.33519`など)で確認できる。
 3. <a id="note-t1-3">^</a> <sup>[**a**](#note_ref-t1-3-a)</sup> <sup>[**b**](#note_ref-t1-3-b)</sup> <sup>[**c**](#note_ref-t1-3-c)</sup> IDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は変更されなかった。
 	- [C++17 Features And STL Fixes In VS 2017 15.3 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/08/11/c17-features-and-stl-fixes-in-vs-2017-15-3/) - "*After VS 2017 RTM, the 15.1 and 15.2 updates improved the IDE. The 15.3 update improves both the IDE and the toolset.*"
