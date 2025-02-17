@@ -9,13 +9,24 @@ namespace std {
   template <class InputIterator,
             class Allocator = allocator<typename iterator_traits<InputIterator>::value_type>>
   vector(InputIterator, InputIterator, Allocator = Allocator())
-    -> vector<typename iterator_traits<InputIterator>::value_type, Allocator>;
+    -> vector<typename iterator_traits<InputIterator>::value_type, Allocator>; // (1)
 }
+
+  template <ranges::input_range R, class Allocator = allocator<ranges::range_value_t<R>>>
+  vector(from_range_t, R&&, Allocator = Allocator())
+    -> vector<ranges::range_value_t<R>, Allocator>;                            // (2) C++23から
 ```
 * iterator_traits[link /reference/iterator/iterator_traits.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* allocator[link /reference/memory/allocator.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
-`std::vector`クラステンプレートの型推論補助。イテレータ範囲から推論する。
+`std::vector`クラステンプレートの型推論補助。
+
+- (1) : イテレータ範囲から推論する。
+- (2) : Rangeから推論する。
 
 
 ## 例

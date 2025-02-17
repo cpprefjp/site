@@ -8,26 +8,47 @@
 namespace std {
   template <class Container>
   queue(Container)
-    -> queue<typename Container::value_type, Container>; // (1)
+    -> queue<typename Container::value_type, Container>;       // (1)
 
-  template<class InputIterator>
+  template <class InputIterator>
   queue(InputIterator, InputIterator)
-    -> queue<<InputIterator>>;  // (2) C++23
+    -> queue<<InputIterator>>;                                 // (2) C++23
+
+  template <ranges::input_range R>
+  queue(from_range_t, R&&) -> queue<ranges::range_value_t<R>>; // (3) C++23
+
 
   template <class Container, class Allocator>
   queue(Container, Allocator)
-    -> queue<typename Container::value_type, Container>; // (3)
+    -> queue<typename Container::value_type, Container>;       // (4)
 
-  template<class InputIterator, class Allocator>
+  template <class InputIterator, class Allocator>
   queue(InputIterator, InputIterator, Allocator)
     -> queue<iter-value-type<InputIterator>, deque<iter-value-type<InputIterator>,
-             Allocator>>;  // (4) C++23
+             Allocator>>;                                      // (5) C++23
+
+  template <ranges::input_range R, class Allocator>
+  queue(from_range_t, R&&, Allocator)
+    -> queue<ranges::range_value_t<R>, deque<ranges::range_value_t<R>,
+             Allocator>>;                                      // (6) C++23
+
 }
 ```
 * iter-value-type[italic]
+* deque[link /reference/deque/deque.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
-`std::queue`クラステンプレートの型推論補助。元となるコンテナから推論する。
+`std::queue`クラステンプレートの型推論補助。
+
+- (1) : 元となるコンテナから推論する。
+- (2) : イテレータ範囲から推論する。
+- (3) : Rangeからの推論する。
+- (4) : 元となるコンテナとアロケータから推論する。
+- (5) : イテレータ範囲とアロケータから推論する。
+- (6) : Rangeとアロケータからの推論する。
 
 
 ## 例

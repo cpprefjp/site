@@ -6,28 +6,51 @@
 
 ```cpp
 namespace std {
-  template<class Container>
+  // 説明用の型
+  template <class InputIterator>
+  using iter_val_t = typename iterator_traits<InputIterator>::value_type;
+
+  template <class Container>
   stack(Container)
-    -> stack<typename Container::value_type, Container>; // (1)
+    -> stack<typename Container::value_type, Container>;      // (1)
 
-  template<class InputIterator>
+  template <class InputIterator>
   stack(InputIterator, InputIterator)
-    -> stack<iter-value-type<InputIterator>>;  // (2) C++23
+    -> stack<iter_val_t<InputIterator>>;                      // (2) C++23から
 
-  template<class Container, class Allocator>
+  template <ranges::input_range R>
+  stack(from_range_t, R&&)-> stack<ranges::range_value_t<R>>; // (3) C++23から
+
+  template <class Container, class Allocator>
   stack(Container, Allocator)
-    -> stack<typename Container::value_type, Container>; // (3)
+    -> stack<typename Container::value_type, Container>;      // (4)
 
-  template<class InputIterator, class Allocator>
+  template <class InputIterator, class Allocator>
   stack(InputIterator, InputIterator, Allocator)
-    -> stack<iter-value-type<InputIterator>, deque<iter-value-type<InputIterator>,
-             Allocator>>;  // (4) C++23
+    -> stack<iter_val_t<InputIterator>, deque<iter_val_t<InputIterator>,
+             Allocator>>;                                     // (5) C++23から
+
+  template <ranges::input_range R, class Allocator>
+  stack(from_range_t, R&&, Allocator)
+    -> stack<ranges::range_value_t<R>, deque<ranges::range_value_t<R>,
+             Allocator>>;                                     // (6) C++23から
 }
 ```
-* iter-value-type[italic]
+* iterator_traits[link /reference/iterator/iterator_traits.md]
+* deque[link /reference/deque/deque.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
-`std::stack`クラステンプレートの型推論補助。元となるコンテナから推論する。
+`std::stack`クラステンプレートの型推論補助。
+
+- (1) : 元となるコンテナから推論する。
+- (2) : イテレータ範囲から推論する。
+- (3) : Rangeからの推論する。
+- (4) : 元となるコンテナとアロケータから推論する。
+- (5) : イテレータ範囲とアロケータから推論する。
+- (6) : Rangeとアロケータからの推論する。
 
 
 ## 例

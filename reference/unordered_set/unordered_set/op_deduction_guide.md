@@ -39,9 +39,32 @@ namespace std {
   unordered_set(initializer_list<T>, typename see below::size_type, Allocator)
     -> unordered_set<T, hash<T>, equal_to<T>, Allocator>; // (5)
 
-  template<class T, class Hash, class Allocator>
+  template <class T, class Hash, class Allocator>
   unordered_set(initializer_list<T>, typename see below::size_type, Hash, Allocator)
     -> unordered_set<T, Hash, equal_to<T>, Allocator>;    // (6)
+
+  template <ranges::input_range R,
+           class Hash = hash<ranges::range_value_t<R>>,
+           class Pred = equal_to<ranges::range_value_t<R>>,
+           class Allocator = allocator<ranges::range_value_t<R>>>
+  unordered_set(from_range_t, R&&, typename see below::size_type = see below,
+                Hash = Hash(), Pred = Pred(), Allocator = Allocator())
+    -> unordered_set<ranges::range_value_t<R>, Hash, Pred, Allocator>; // (7) C++23から
+
+  template <ranges::input_range R, class Allocator>
+  unordered_set(from_range_t, R&&, typename see below::size_type, Allocator)
+    -> unordered_set<ranges::range_value_t<R>, hash<ranges::range_value_t<R>>,
+                     equal_to<ranges::range_value_t<R>>, Allocator>;   // (8) C++23から
+
+  template <ranges::input_range R, class Allocator>
+  unordered_set(from_range_t, R&&, Allocator)
+    -> unordered_set<ranges::range_value_t<R>, hash<ranges::range_value_t<R>>,
+                     equal_to<ranges::range_value_t<R>>, Allocator>;   // (9) C++23から
+
+  template <ranges::input_range R, class Hash, class Allocator>
+  unordered_set(from_range_t, R&&, typename see below::size_type, Hash, Allocator)
+    -> unordered_set<ranges::range_value_t<R>, Hash,
+                     equal_to<ranges::range_value_t<R>>, Allocator>;   // (10) C++23から
 }
 ```
 * see below[italic]
@@ -50,15 +73,23 @@ namespace std {
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
 `std::unordered_set`クラステンプレートの型推論補助。
 
 - (1) : イテレータ範囲からの推論
-- (2) : 初期化子リスト、ハッシュ関数、比較関数オブジェクトからの推論
+- (2) : 初期化子リストからの推論
 - (3) : イテレータ範囲とアロケータからの推論
 - (4) : イテレータ範囲、ハッシュ関数、アロケータからの推論
 - (5) : 初期化子リストとアロケータからの推論
+- (6) : 初期化子リスト、ハッシュ関数、アロケータからの推論
+- (7) : Rangeからの推論
+- (8) : Rangeとアロケータからの推論
+- (9) : Rangeとハッシュ関数からの推論
+- (10) : Range、ハッシュ関数、アロケータからの推論
 
 
 ## 備考

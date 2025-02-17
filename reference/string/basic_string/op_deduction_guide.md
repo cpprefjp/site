@@ -27,6 +27,13 @@ namespace std {
                typename see below::size_type,
                const Allocator& = Allocator())
     -> basic_string<CharT, Traits, Allocator>;  // (3) C++20
+
+  template <ranges::input_range R,
+            class Allocator = allocator<ranges::range_value_t<R>>>
+  basic_string(from_range_t, R&&, Allocator = Allocator())
+    -> basic_string<ranges::range_value_t<R>,
+                    char_traits<ranges::range_value_t<R>>,
+                    Allocator>;                 // (4) C++23
 }
 ```
 * see below[italic]
@@ -34,9 +41,17 @@ namespace std {
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * char_traits[link /reference/string/char_traits.md]
 * basic_string_view[link /reference/string_view/basic_string_view.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
-`std::basic_string`クラステンプレートの型推論補助。イテレータ範囲から推論する。
+`std::basic_string`クラステンプレートの型推論補助。
+
+- (1) : イテレータ範囲からの推論
+- (2) : string_viewからの推論
+- (3) : string_viewとpos, countからの推論
+- (4) : Rangeからの推論
 
 
 ## 備考

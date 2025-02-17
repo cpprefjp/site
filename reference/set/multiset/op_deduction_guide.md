@@ -20,16 +20,23 @@ namespace std {
   template <class InputIterator, class Allocator>
   multiset(InputIterator, InputIterator, Allocator)
     -> multiset<typename iterator_traits<InputIterator>::value_type,
-           less<typename iterator_traits<InputIterator>::value_type>, Allocator>;    // (3)
+           less<typename iterator_traits<InputIterator>::value_type>, Allocator>;         // (3)
 
   template <class Key, class Allocator>
-  multiset(initializer_list<Key>, Allocator) -> multiset<Key, less<Key>, Allocator>;           // (4)
+  multiset(initializer_list<Key>, Allocator) -> multiset<Key, less<Key>, Allocator>;      // (4)
+
+  template <ranges::input_range R, class Allocator>
+  multiset(from_range_t, R&&, Allocator)
+    -> multiset<ranges::range_value_t<R>, less<ranges::range_value_t<R>>, Allocator>;     // (5) C++23から
 }
 ```
 * less[link /reference/functional/less.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
 `std::multiset`クラステンプレートの型推論補助。
@@ -38,6 +45,7 @@ namespace std {
 - (2) : 初期化子リストと比較関数オブジェクトからの推論
 - (3) : イテレータ範囲とアロケータからの推論
 - (4) : 初期化子リストとアロケータからの推論
+- (5) : Rangeからの推論
 
 
 ## 例

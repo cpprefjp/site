@@ -35,7 +35,7 @@ list(from_range_t, R&& rg,
      const Allocator& a = Allocator());          // (11) C++23 から
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
-* from_range_t[link ../../ranges/from_range_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 
 ## 概要

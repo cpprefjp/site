@@ -24,12 +24,19 @@ namespace std {
 
   template <class Key, class Allocator>
   set(initializer_list<Key>, Allocator) -> set<Key, less<Key>, Allocator>;           // (4)
+
+  template <ranges::input_range R, class Allocator>
+  set(from_range_t, R&&, Allocator)
+    -> set<ranges::range_value_t<R>, less<ranges::range_value_t<R>>, Allocator>;     // (5) C++23から
 }
 ```
 * less[link /reference/functional/less.md]
 * iterator_traits[link /reference/iterator/iterator_traits.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
 `std::set`クラステンプレートの型推論補助。
@@ -38,6 +45,7 @@ namespace std {
 - (2) : 初期化子リストと比較関数オブジェクトからの推論
 - (3) : イテレータ範囲とアロケータからの推論
 - (4) : 初期化子リストとアロケータからの推論
+- (5) : Rangeからの推論
 
 
 ## 例

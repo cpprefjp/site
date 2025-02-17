@@ -14,6 +14,10 @@ namespace std {
   template <class InputIterator>
   using iter_to_alloc_t = pair<add_const_t<typename iterator_traits<InputIterator>::value_type::first_type>,
                                typename iterator_traits<InputIterator>::value_type::second_type>;
+  template <ranges::input_range Range>
+  using range_key_t = remove_const_t<typename ranges::range_value_t<Range>::first_type>;
+  template <ranges::input_range Range>
+  using range_val_t = typename ranges::range_value_t<Range>::second_type;
 
   template <class InputIterator,
             class Compare = less<iter_key_t<InputIterator>>,
@@ -36,6 +40,10 @@ namespace std {
   template <class Key, class T, class Allocator>
   map(initializer_list<pair<Key, T>>, Allocator)
     -> map<Key, T, less<Key>, Allocator>;                                             // (4)
+
+  template <ranges::input_range R, class Allocator>
+  map(from_range_t, R&&, Allocator)
+    -> map<range_key_t<R>, range_val_t<R>, less<range_key_t<R>>, Allocator>;          // (5) C++23から
 }
 ```
 * remove_const_t[link /reference/type_traits/remove_const.md]
@@ -45,6 +53,9 @@ namespace std {
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
 `std::map`クラステンプレートの型推論補助。
@@ -53,6 +64,7 @@ namespace std {
 - (2) : 初期化子リストからの推論
 - (3) : イテレータ範囲とアロケータからの推論
 - (4) : 初期化子リストとアロケータからの推論
+- (5) : Rangeからの推論
 
 
 ## 備考

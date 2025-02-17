@@ -14,6 +14,10 @@ namespace std {
   template <class InputIterator>
   using iter_to_alloc_t = pair<add_const_t<typename iterator_traits<InputIterator>::value_type::first_type>,
                                typename iterator_traits<InputIterator>::value_type::second_type>;
+  template <ranges::input_range Range>
+  using range_key_t = remove_const_t<typename ranges::range_value_t<Range>::first_type>;
+  template <ranges::input_range Range>
+  using range_val_t = typename ranges::range_value_t<Range>::second_type;
 
   template <class InputIterator,
             class Hash = hash<iter_key_t<InputIterator>>,
@@ -75,6 +79,28 @@ namespace std {
   unordered_map(initializer_list<pair<Key, T>>, typename see below::size_type, Hash, Allocator)
     -> unordered_map<Key, T, Hash,
                      equal_to<Key>, Allocator>;      // (8)
+
+  template <ranges::input_range R, class Hash = hash<range_key_t<R>>,
+           class Pred = equal_to<range_key_t<R>>,
+           class Allocator = allocator<range-to-alloc-type<R>>>
+  unordered_map(from_range_t, R&&, typename see below::size_type = see below,
+                Hash = Hash(), Pred = Pred(), Allocator = Allocator())
+    -> unordered_map<range_key_t<R>, range_val_t<R>, Hash, Pred, Allocator>; // (9) C++23から
+
+  template <ranges::input_range R, class Allocator>
+  unordered_map(from_range_t, R&&, typename see below::size_type, Allocator)
+    -> unordered_map<range_key_t<R>, range_val_t<R>, hash<range_key_t<R>>,
+                     equal_to<range_key_t<R>>, Allocator>;                   // (10) C++23から
+
+  template <ranges::input_range R, class Allocator>
+  unordered_map(from_range_t, R&&, Allocator)
+    -> unordered_map<range_key_t<R>, range_val_t<R>, hash<range_key_t<R>>,
+                     equal_to<range_key_t<R>>, Allocator>;                   // (11) C++23から
+
+  template <ranges::input_range R, class Hash, class Allocator>
+  unordered_map(from_range_t, R&&, typename see below::size_type, Hash, Allocator)
+    -> unordered_map<range_key_t<R>, range_val_t<R>, Hash,
+                     equal_to<range_key_t<R>>, Allocator>;                   // (12) C++23から
 }
 ```
 * see below[italic]
@@ -86,6 +112,9 @@ namespace std {
 * equal_to[link /reference/functional/equal_to.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+* ranges::input_range[link /reference/ranges/input_range.md]
+* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+* from_range_t[link /reference/ranges/from_range_t.md]
 
 ## 概要
 `std::unordered_map`クラステンプレートの型推論補助。
@@ -98,6 +127,10 @@ namespace std {
 - (6) : 初期化子リストとバケット数、アロケータからの推論
 - (7) : 初期化子リストとアロケータからの推論
 - (8) : 初期化子リストとバケット数、ハッシュ関数、アロケータからの推論
+- (9) : Rangeからの推論
+- (10) : Rangeとバケット数、アロケータからの推論
+- (11) : Rangeとアロケータからの推論
+- (12) : Rangeとバケット数、ハッシュ関数、アロケータからの推論
 
 
 ## 備考
