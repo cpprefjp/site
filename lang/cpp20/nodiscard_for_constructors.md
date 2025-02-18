@@ -1,4 +1,4 @@
-# [[nodiscard]]をコンストラクタのオーバーロードごとに付加できるようにする
+# [[nodiscard]]をコンストラクタのオーバーロードごとに付加できるようにする [P1771R1]
 * cpp20[meta cpp]
 
 <!-- start lang caution -->

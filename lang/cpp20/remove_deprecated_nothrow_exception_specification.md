@@ -1,4 +1,4 @@
-# throw()による例外送出しない指定を削除
+# throw()による例外送出しない指定を削除 [P0619R4]
 * cpp20[meta cpp]
 
 <!-- start lang caution -->

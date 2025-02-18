@@ -1,4 +1,4 @@
-# 属性の名前空間を予約
+# 属性の名前空間を予約 [P1908R1]
 * cpp20[meta cpp]
 
 <!-- start lang caution -->

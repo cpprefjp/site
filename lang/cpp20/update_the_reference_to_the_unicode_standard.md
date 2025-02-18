@@ -1,4 +1,4 @@
-# Unicode標準への参照を更新
+# Unicode標準への参照を更新 [P1025R1]
 * cpp20[meta cpp]
 
 <!-- start lang caution -->

@@ -1,4 +1,4 @@
-# 参照するPOSIX規格を更新
+# 参照するPOSIX規格を更新 [P2227R0]
 * cpp23[meta cpp]
 
 <!-- start lang caution -->
