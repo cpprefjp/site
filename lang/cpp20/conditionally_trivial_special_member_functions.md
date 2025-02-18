@@ -287,7 +287,7 @@ C++20のコンセプトの導入によって、コンセプトによって特殊
 
 この機能は、C++23の`std::expceted`の実装で活用されるだろう。
 
-## ## <a id="relative-page" href="#relative-page">関連項目</a>
+## <a id="relative-page" href="#relative-page">関連項目</a>
 
 - [コンセプト](./concepts.md)
 
