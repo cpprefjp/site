@@ -51,7 +51,7 @@ return find(x) != end();
 
 int main()
 {
-  std::flat_set<int> fs = {3, 1, 4, 1};
+  std::flat_multiset<int> fs = {3, 1, 4, 1};
 
   // キー3の要素が含まれているか
   if (fs.contains(3)) {
