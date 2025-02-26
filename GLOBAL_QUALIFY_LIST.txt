@@ -9,6 +9,7 @@
 * <algorithm>[link /reference/algorithm.md]
     * ExecutionPolicy[link /reference/execution/execution/execution_policy.md]
     * std::copy[link /reference/algorithm/copy.md]
+    * std::copy_n[link /reference/algorithm/copy_n.md]
     * std::for_each[link /reference/algorithm/for_each.md]
     * std::sort[link /reference/algorithm/sort.md]
 * <any>[link /reference/any.md]

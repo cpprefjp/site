@@ -44,6 +44,7 @@ C++11以降での[汎用的な定数式`constexpr`](/lang/cpp11/constexpr.md)の
 
 
 ## 例
+### floatやクラス型を非型テンプレートパラメータにする例
 ```cpp example
 #include <utility>
 
@@ -105,8 +106,77 @@ int main() {
 }
 ```
 
-### 出力
+#### 出力
 ```
+```
+
+### プレースホルダーを含む型を非型テンプレートパラメータにする例
+```cpp example
+#include <iostream>
+
+template <class T>
+struct X {
+  constexpr X(T x) : value(x) {}
+  T value;
+};
+
+template <X x>
+struct Y {
+  void print() {
+    std::cout << x.value << std::endl;
+  }
+};
+
+int main() {
+  // Xクラステンプレートのテンプレートパラメータが
+  // コンストラクタ引数`3`から推論される
+  Y<3>{}.print();
+}
+```
+
+#### 出力
+```
+3
+```
+
+
+### 文字列クラスオブジェクトを非型テンプレートパラメータにしてリテラル演算子を定義する例
+```cpp example
+#include <iostream>
+#include <algorithm>
+
+template <typename CharT, std::size_t N>
+struct basic_fixed_string {
+  constexpr basic_fixed_string(const CharT (&str)[N+1])
+  { std::copy_n(str, N+1, data); }
+
+  friend auto operator<=>(const basic_fixed_string&, const basic_fixed_string&) = default;
+  CharT data[N+1];
+};
+
+template <typename CharT, std::size_t N>
+basic_fixed_string(const CharT (&str)[N]) -> basic_fixed_string<CharT, N-1>;
+
+template <std::size_t N>
+using fixed_string = basic_fixed_string<char, N>;
+
+namespace my_literals {
+template <basic_fixed_string str>
+auto operator""_udl() {
+    return str;
+}
+}
+
+int main() {
+  using namespace my_literals;
+  auto s = "hello"_udl;
+  std::cout << s.data << std::endl;
+}
+```
+
+#### 出力
+```
+hello
 ```
 
 
