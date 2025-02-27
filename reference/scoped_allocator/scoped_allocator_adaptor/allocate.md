@@ -6,11 +6,19 @@
 * cpp11[meta cpp]
 
 ```cpp
-pointer allocate(size_type n);                                        // (1) C++11
-[[nodiscard]] pointer allocate(size_type n);                          // (1) C++20
+pointer allocate(size_type n);               // (1) C++11
+[[nodiscard]] pointer allocate(size_type n); // (1) C++20
+pointer allocate(size_type n);               // (1) C++26
 
-pointer allocate(size_type n, const_void_pointer hint);               // (2) C++11
-[[nodiscard]] pointer allocate(size_type n, const_void_pointer hint); // (2) C++20
+pointer
+  allocate(size_type n,
+           const_void_pointer hint); // (2) C++11
+[[nodiscard]] pointer
+  allocate(size_type n,
+           const_void_pointer hint); // (2) C++20
+pointer
+  allocate(size_type n,
+           const_void_pointer hint); // (2) C++26
 ```
 
 ## 概要
@@ -81,3 +89,6 @@ int main()
 
 ## 参照
 - [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+    - C++20で`[[nodiscard]]`が付加された
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

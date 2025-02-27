@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class T>
-  [[nodiscard]] constexpr T rotl(T x, int s) noexcept;
+  [[nodiscard]]
+  constexpr T rotl(T x, int s) noexcept; // (1) C++20
+  template <class T>
+  constexpr T rotl(T x, int s) noexcept; // (1) C++26
 }
 ```
 
@@ -73,3 +76,5 @@ int main()
 
 ## 参照
 - [P0553R4 Bit operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0553r4.html)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

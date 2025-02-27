@@ -8,21 +8,24 @@
 namespace std {
   template <class C>
   constexpr auto empty(const C& c) -> decltype(c.empty());               // (1) C++17
-
   template <class C>
   [[nodiscard]] constexpr auto empty(const C& c) -> decltype(c.empty()); // (1) C++20
+  template <class C>
+  constexpr auto empty(const C& c) -> decltype(c.empty());               // (1) C++26
 
   template <class T, std::size_t N>
   constexpr bool empty(const T (&array)[N]) noexcept;                    // (2) C++17
-
   template <class T, std::size_t N>
   [[nodiscard]] constexpr bool empty(const T (&array)[N]) noexcept;      // (2) C++20
+  template <class T, std::size_t N>
+  constexpr bool empty(const T (&array)[N]) noexcept;                    // (2) C++26
 
   template <class E>
   constexpr bool empty(initializer_list<E> il) noexcept;                 // (3) C++17
-
   template <class E>
   [[nodiscard]] constexpr bool empty(initializer_list<E> il) noexcept;   // (3) C++20
+  template <class E>
+  constexpr bool empty(initializer_list<E> il) noexcept;                 // (3) C++26
 }
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -102,4 +105,7 @@ false
 - [`boost::empty()` - Boost Range Library](http://www.boost.org/doc/libs/release/libs/range/doc/html/range/reference/concept_implementation/semantics/functions.html)
 - [N4280: Non-member `empty()` and more (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4280.pdf)
 - [P0600R1: `[[nodiscard]]` in the library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+    - C++20で`[[nodiscard]]`が付加された
 - [LWG Issue 3009. Including `<string_view>` doesn't provide `std::size/empty/data`](https://wg21.cmeerw.net/lwg/issue3009)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

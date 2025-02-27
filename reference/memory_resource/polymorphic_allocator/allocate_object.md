@@ -7,7 +7,9 @@
 
 ```cpp
 template <class T>
-[[nodiscard]] T* allocate_object(size_t n = 1);
+[[nodiscard]] T* allocate_object(size_t n = 1); // (1) C++20
+template <class T>
+T* allocate_object(size_t n = 1);               // (1) C++26
 ```
 
 ## 概要
@@ -104,5 +106,7 @@ int main() {
 - [`allocate_bytes`](/reference/memory_resource/polymorphic_allocator/allocate_bytes.md)
 
 ## 参照
-- [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf) 
+- [P0339R6 `polymorphic_allocator<>` as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf) 
 - [LWG Issue 3304. Allocate functions of `std::polymorphic_allocator` should require `[[nodiscard]]`](https://wg21.cmeerw.net/lwg/issue3304)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

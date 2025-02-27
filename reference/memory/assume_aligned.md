@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <std::size_t N, class T>
-  [[nodiscard]] constexpr T* assume_aligned(T* ptr);
+  [[nodiscard]] constexpr T* assume_aligned(T* ptr); // (1) C++20
+  template <std::size_t N, class T>
+  constexpr T* assume_aligned(T* ptr);               // (1) C++26
 }
 ```
 
@@ -349,5 +351,7 @@ C++20 から標準で使用可能となる本機能だが、実装例からも�
 
 ## 参照
 
-- [P1007R3 std::assume_aligned](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1007r3.pdf)
-- [cppmap - C++20 の新機能 - ポインタのアライメントを最適化ヒントとしてコンパイラに伝える assume_aligned() 関数 (P1007R3)](https://cppmap.github.io/standardization/cpp20/#assume_aligned-p1007r3)
+- [P1007R3 `std::assume_aligned`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1007r3.pdf)
+- [cppmap - C++20 の新機能 - ポインタのアライメントを最適化ヒントとしてコンパイラに伝える `assume_aligned()` 関数 (P1007R3)](https://cppmap.github.io/standardization/cpp20/#assume_aligned-p1007r3)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

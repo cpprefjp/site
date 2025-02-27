@@ -7,7 +7,10 @@
 
 ```cpp
 template <class T, class... CtorArgs>
-[[nodiscard]] T* new_object(CtorArgs&&... ctor_args);
+[[nodiscard]]
+T* new_object(CtorArgs&&... ctor_args); // (1) C++20
+template <class T, class... CtorArgs>
+T* new_object(CtorArgs&&... ctor_args); // (1) C++26
 ```
 
 ## 概要
@@ -98,3 +101,5 @@ address : 0x1a2b960
 ## 参照
 - [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf) 
 - [LWG Issue 3304. Allocate functions of `std::polymorphic_allocator` should require `[[nodiscard]]`](https://wg21.cmeerw.net/lwg/issue3304)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

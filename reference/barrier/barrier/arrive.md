@@ -6,7 +6,9 @@
 * cpp20[meta cpp]
 
 ```cpp
-[[nodiscard]] arrival_token arrive(ptrdiff_t update = 1);
+[[nodiscard]]
+arrival_token arrive(ptrdiff_t update = 1); // (1) C++20
+arrival_token arrive(ptrdiff_t update = 1); // (1) C++26
 ```
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
@@ -121,3 +123,8 @@ main: phase-2
 - [`wait()`](wait.md)
 - [`arrive_and_wait()`](arrive_and_wait.md)
 - [`arrive_and_drop()`](arrive_and_drop.md)
+
+
+## 参照
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

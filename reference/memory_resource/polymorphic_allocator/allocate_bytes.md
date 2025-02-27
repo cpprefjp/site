@@ -6,7 +6,11 @@
 * cpp20[meta cpp]
 
 ```cpp
-[[nodiscard]] void* allocate_bytes(size_t nbytes, size_t alignment = alignof(max_align_t));
+[[nodiscard]]
+void* allocate_bytes(size_t nbytes,
+                     size_t alignment = alignof(max_align_t)); // (1) C++20
+void* allocate_bytes(size_t nbytes,
+                     size_t alignment = alignof(max_align_t)); // (1) C++26
 ```
 * max_align_t[link /reference/cstddef/max_align_t.md]
 
@@ -114,3 +118,5 @@ address : 0x1c38150
 ## 参照
 - [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf) 
 - [LWG Issue 3304. Allocate functions of `std::polymorphic_allocator` should require `[[nodiscard]]`](https://wg21.cmeerw.net/lwg/issue3304)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

@@ -6,9 +6,10 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr I begin() const requires copyable<I>;             // (1)
+constexpr I begin() const requires copyable<I>;             // (1) C++20
 
-[[nodiscard]] constexpr I begin() requires (!copyable<I>);  // (2)
+[[nodiscard]] constexpr I begin() requires (!copyable<I>);  // (2) C++20
+constexpr I begin() requires (!copyable<I>);                // (2) C++26
 ```
 * copyable[link /reference/concepts/copyable.md]
 * nodiscard[link /lang/cpp17/nodiscard.md]
@@ -58,3 +59,5 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

@@ -9,41 +9,41 @@ namespace std {
   template <class F, class... Args>
   future<typename result_of<F(Args...)>::type>
     async(F&& f, Args&&... args);                // (1) C++11
-
   template <class F, class... Args>
   future<
     typename result_of<
       typename decay<F>::type(typename decay<Args>::type...)
     >::type
   > async(F&& f, Args&&... args);                // (1) C++14
-
   template <class F, class... Args>
   future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
     async(F&& f, Args&&... args);                // (1) C++17
-
   template <class F, class... Args>
-  [[nodiscard]] future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+  [[nodiscard]]
+  future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
     async(F&& f, Args&&... args);                // (1) C++20
+  future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+    async(F&& f, Args&&... args);                // (1) C++26
 
 
   template <class F, class... Args>
   future<typename result_of<F(Args...)>::type>
     async(launch policy, F&& f, Args&&... args); // (2) C++11
-
   template <class F, class... Args>
   future<
     typename result_of<
       typename decay<F>::type(typename decay<Args>::type...)
     >::type
   > async(launch policy, F&& f, Args&&... args); // (2) C++14
-
   template <class F, class... Args>
   future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
     async(launch policy, F&& f, Args&&... args); // (2) C++17
-
   template <class F, class... Args>
-  [[nodiscard]] future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+  [[nodiscard]]
+  future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
     async(launch policy, F&& f, Args&&... args); // (2) C++20
+  future<invoke_result_t<decay_t<F>, decay_t<Args>...>>
+    async(launch policy, F&& f, Args&&... args); // (2) C++26
 }
 ```
 * future[link future.md]
@@ -203,5 +203,8 @@ foo() = 3
 - [async関数launch::asyncポリシーとfutureのちょっと特殊な動作 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20120317/p1)
 - [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+    - C++20で`[[nodiscard]]`が付加された
 - [In Visual Studio, `thread_local` variables' destructor not called when used with `std::async`, is this a bug? - stackoverflow](https://stackoverflow.com/questions/50897768/in-visual-studio-thread-local-variables-destructor-not-called-when-used-with)
 - [&lt;future&gt; functions - Microsoft Docs](https://docs.microsoft.com/en-us/cpp/standard-library/future-functions?view=vs-2019#remarks)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

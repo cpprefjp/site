@@ -7,10 +7,11 @@
 ```cpp
 namespace std {
   template <class T>
-    constexpr T* launder(T* p) noexcept; // C++17
-
-  template<class T>
-    [[nodiscard]] constexpr T* launder(T* p) noexcept; // C++20
+  constexpr T* launder(T* p) noexcept;               // (1) C++17
+  template <class T>
+  [[nodiscard]] constexpr T* launder(T* p) noexcept; // (2) C++20
+  template <class T>
+  constexpr T* launder(T* p) noexcept;               // (2) C++26
 }
 ```
 
@@ -151,3 +152,7 @@ void tong() {
 - [std::launder関数 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20170817/p1)
 - [std::launder - cppreference.com](https://ja.cppreference.com/w/cpp/utility/launder)
 - [Lifetime - cppreference.com](https://en.cppreference.com/w/cpp/language/lifetime)
+- [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+    - C++20で`[[nodiscard]]`が付加された
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

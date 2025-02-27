@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-pointer allocate(size_type n);                          // (1) C++17 まで
-[[nodiscard]] constexpr pointer allocate(size_type n);  // (1) C++20 から
+pointer allocate(size_type n);                          // (1) C++03
+[[nodiscard]] constexpr pointer allocate(size_type n);  // (1) C++20
+constexpr pointer allocate(size_type n);                // (1) C++26
 
 pointer allocate(size_type n,
                  allocator<void>::const_pointer hint);  // (2) C++17 から非推奨、C++20 から削除
@@ -66,5 +67,9 @@ int main()
 ## 参照
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
 - [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+    - C++20で`[[nodiscard]]`が付加された
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
+    - C++20で`constexpr`が付加された
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

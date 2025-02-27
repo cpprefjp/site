@@ -6,8 +6,11 @@
 
 ```cpp
 namespace std {
-  template <class T, class U>
-  [[nodiscard]] constexpr auto forward_like(U&& x) noexcept -> see-below;
+template <class T, class U>
+[[nodiscard]]
+constexpr auto forward_like(U&& x) noexcept -> see-below; // (1) C++23
+template <class T, class U>
+constexpr auto forward_like(U&& x) noexcept -> see-below; // (1) C++26
 }
 ```
 * see-below[italic]
@@ -134,4 +137,6 @@ template <class T, class U>
 
 
 ## 参照
-- [P2445R1 std::forward_like](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2445r1.pdf)
+- [P2445R1 `std::forward_like`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2445r1.pdf)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

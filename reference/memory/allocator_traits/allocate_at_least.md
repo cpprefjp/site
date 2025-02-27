@@ -6,9 +6,13 @@
 * cpp23[meta cpp]
 
 ```cpp
-[[nodiscard] static constexpr
+[[nodiscard]
+static constexpr
 allocation_result<pointer, size_type>
   allocate_at_least(Alloc& a, size_type n); // (1) C++23
+static constexpr
+allocation_result<pointer, size_type>
+  allocate_at_least(Alloc& a, size_type n); // (1) C++26
 ```
 * allocation_result[link /reference/memory/allocation_result.md]
 
@@ -66,3 +70,5 @@ allocation count:4 bytes:16
 
 ## 参照
 - [P0401R6 Providing size feedback in the Allocator interface](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0401r6.html)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

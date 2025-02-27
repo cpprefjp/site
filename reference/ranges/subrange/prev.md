@@ -6,8 +6,13 @@
 * cpp20[meta cpp]
 
 ```cpp
-[[nodiscard]] constexpr subrange prev(iter_difference_t<I> n = 1) const
-  requires bidirectional_iterator<I>;
+[[nodiscard]]
+constexpr subrange
+  prev(iter_difference_t<I> n = 1) const
+    requires bidirectional_iterator<I>;   // (1) C++20
+constexpr subrange
+  prev(iter_difference_t<I> n = 1) const
+    requires bidirectional_iterator<I>;   // (1) C++26
 ```
 * nodiscard[link /lang/cpp17/nodiscard.md]
 * iter_difference_t[link /reference/iterator/iter_difference_t.md]
@@ -70,3 +75,5 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

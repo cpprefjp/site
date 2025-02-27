@@ -6,7 +6,13 @@
 
 ```cpp
 namespace std {
-  [[nodiscard]] friend bool operator==(const stop_token& lhs, const stop_token& rhs) noexcept;
+  [[nodiscard]]
+  friend bool
+    operator==(const stop_token& lhs,
+               const stop_token& rhs) noexcept; // (1) C++20
+  friend bool
+    operator==(const stop_token& lhs,
+               const stop_token& rhs) noexcept; // (1) C++26
 }
 ```
 
@@ -59,3 +65,7 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

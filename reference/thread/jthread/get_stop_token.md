@@ -6,7 +6,9 @@
 * cpp20[meta cpp]
 
 ```cpp
-[[nodiscard]] stop_token get_stop_token() const noexcept;
+[[nodiscard]]
+stop_token get_stop_token() const noexcept; // (1) C++20
+stop_token get_stop_token() const noexcept; // (1) C++26
 ```
 * stop_token[link /reference/stop_token/stop_token.md]
 
@@ -67,3 +69,8 @@ exit t thread
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 10.2.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

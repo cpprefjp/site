@@ -8,6 +8,7 @@
 ```cpp
 Tp* allocate(std::size_t n);               // (1) C++17
 [[nodiscard]] Tp* allocate(std::size_t n); // (1) C++20
+Tp* allocate(std::size_t n);               // (1) C++26
 ```
 
 ## 概要
@@ -91,4 +92,7 @@ int main()
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+    - C++20で`constexpr`が付加された
 - [LWG Issue 3038. `polymorphic_allocator::allocate` should not allow integer overflow to create vulnerabilities](https://wg21.cmeerw.net/lwg/issue3038)
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された

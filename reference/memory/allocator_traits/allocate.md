@@ -6,13 +6,24 @@
 * cpp11[meta cpp]
 
 ```cpp
-static pointer allocate(Alloc& a, size_type n);                             // (1) C++17 まで
-[[nodiscard]] static constexpr pointer allocate(Alloc& a, size_type n);     // (1) C++20 から
+static pointer
+  allocate(Alloc& a, size_type n);     // (1) C++11
+[[nodiscard]]
+static constexpr pointer
+  allocate(Alloc& a, size_type n);     // (1) C++20
+static constexpr pointer
+  allocate(Alloc& a, size_type n);     // (1) C++26
 
-static pointer allocate(Alloc& a, size_type n,
-                        const_void_pointer hint);                           // (2) C++17 まで
-[[nodiscard]] static constexpr pointer allocate(Alloc& a, size_type n,
-                                                const_void_pointer hint);   // (2) C++20 から
+static pointer
+  allocate(Alloc& a, size_type n,
+           const_void_pointer hint);   // (2) C++11
+[[nodiscard]]
+static constexpr pointer
+  allocate(Alloc& a, size_type n,
+           const_void_pointer hint);   // (2) C++20
+static constexpr pointer
+  allocate(Alloc& a, size_type n,
+           const_void_pointer hint);   // (2) C++26
 ```
 
 ## 概要
@@ -62,4 +73,8 @@ int main()
 
 ## 参照
 - [P0600R1 `[[nodiscard]]` in the Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
+    - C++20で`[[nodiscard]]`が付加された
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
+    - C++20で`constexpr`が付加された
+- [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+    - C++26で`[[nodiscard]]`指定が削除された
