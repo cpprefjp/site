@@ -44,7 +44,7 @@ year_month_day(year_month_day&&) = default;                         // (7) C++20
 - (2) :
     - `y`、`m`、`d`をメンバ変数として保持する
 - (3) :
-    - 年のメンバ変数として`ymdl.`[`year()`](/reference/chrono/year_month_day_last/year.md)の値、月のメンバ変数として`ymdl.`[`month()`](/reference/chrono/year_month_day_last/month.md)の値、日のメンバ変数として`ymdl.`[`day()`](/reference/chrono/year_month_day_last/day.md)の値を保持する
+    - 年のメンバ変数として`ymdl.`[`year()`](year.md)の値、月のメンバ変数として`ymdl.`[`month()`](month.md)の値、日のメンバ変数として`ymdl.`[`day()`](day.md)の値を保持する
 - (4) : `dp`が指すシステム時間に対応する年、月、日の値を求めて構築する
 - (5) : `dp`が指すローカル時間に対応する年、月、日の値を求めて構築する
 
