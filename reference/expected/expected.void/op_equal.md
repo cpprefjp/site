@@ -24,7 +24,7 @@ friend constexpr bool operator==(const unexpected<E2>& e, const expected& x);   
 - (2), (3) : `expected`オブジェクトとエラー値の等値比較を行う。
 
 
-## 適格要件
+## テンプレートパラメータ制約
 - (1) : 式`x.`[`error()`](error.md) `== y.`[`error()`](error.md)が適格であり、その結果を`bool`へ変換可能であること。
 - (2), (3) : 式`x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md)が適格であり、その結果を`bool`へ変換可能であること。
 
@@ -80,3 +80,5 @@ int main()
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [P3379R0 Constrain `std::expected` equality operators](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3379r0.html)
+    - C++26で「適格要件」を「テンプレートパラメータ制約」に変更
