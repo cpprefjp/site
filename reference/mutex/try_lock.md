@@ -34,6 +34,7 @@ namespace std {
 ## 例
 ```cpp example
 #include <cassert>
+#include <thread>
 #include <mutex>
 
 int main()
