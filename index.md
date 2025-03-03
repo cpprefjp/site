@@ -127,7 +127,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:USAMI Kenta, img:https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256, link:https://github.com/zonuexe, size:256, fee:5, amount:12]
 
-[sponsor name:soramimi, img:https://www.soramimi.jp/avater.jpg, link:https://t.co/bGT72HXBgR, size:256, fee:5, amount:12]
+[sponsor name:soramimi, img:https://www.soramimi.jp/avater.jpg, link:https://github.com/soramimi, size:256, fee:5, amount:12]
 
 [sponsor name:odan様, img:https://odan.dev/icon.jpeg, link:https://opencollective.com/odan, size:320, fee:50, amount:1, period:2024-06-05]
 
