@@ -187,6 +187,12 @@ namespace std::filesystem {
 |------|------|----------------|
 | [`u8path`](u8path.md) | UTF-8エンコードされた文字列からパスオブジェクトを構築する | C++17<br/> C++20で非推奨 |
 
+## 文字列フォーマットサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`formatter`](path/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++26 |
+
 
 ## 例
 ### POSIXベースシステムの例
