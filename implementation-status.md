@@ -284,7 +284,6 @@
     - [C++ Conformance improvements, behavior changes, and bug fixes in Visual Studio 2022](https://learn.microsoft.com/en-us/cpp/overview/cpp-conformance-improvements?view=msvc-170)
     - [C++ Language Updates in MSVC in Visual Studio 2022 17.13](https://devblogs.microsoft.com/cppblog/msvc-compiler-updates-in-visual-studio-2022-version-17-13/)
     - [MSVC Compiler Language Updates in Visual Studio 2022 version 17.12](https://devblogs.microsoft.com/cppblog/msvc-compiler-language-updates-in-visual-studio-2022-version-17-12/)
-    - [Visual C++ 言語への準拠](https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance)
 - ICX: [C++23 Features Supported by Intel® C++ Compiler](https://www.intel.com/content/www/us/en/developer/articles/technical/c23-features-supported-by-intel-c-compiler.html)
 
 
