@@ -5,15 +5,23 @@
 * function[meta id-type]
 
 ```cpp
-istream_iterator();                                    // (1)
-istream_iterator(istream_type& s);                     // (2)
-istream_iterator(const istream_iterator& x) = default; // (3)
+istream_iterator();                                    // (1) C++03
+constexpr istream_iterator();                          // (1) C++11
+
+constexpr istream_iterator(default_sentinel_t);        // (2) C++20
+
+istream_iterator(istream_type& s);                     // (3)
+
+istream_iterator(const istream_iterator& x);           // (4) C++03
+istream_iterator(const istream_iterator& x) = default; // (4) C++11
 ```
+* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。メンバ変数として保持する入力ストリームへのポインタをヌル初期化する。デフォルトコンストラクタで構築された`istream_iterator`オブジェクトは、イテレータの終端値として使用できる。
-- (2) : 入力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。`operator*()`で現在参照している値を返すために、この段階で入力ストリームから値を読み取り、メンバ変数に値を保持する。
-- (3) : コピーコンストラクタ
+- (2) : [`default_sentinel`](/reference/iterator/default_sentinel_t.md)を受け取り、(1)と同等の構築をより明示的に行う。
+- (3) : 入力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。`operator*()`で現在参照している値を返すために、この段階で入力ストリームから値を読み取り、メンバ変数に値を保持する。
+- (4) : コピーコンストラクタ
 
 
 ## 例
