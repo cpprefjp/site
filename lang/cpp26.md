@@ -116,6 +116,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ## ライブラリ更新の概要
 ### 新ライブラリ
 - 文字列エンコーディングを識別するライブラリとして、[`<text_encoding>`](/reference/text_encoding.md.nolink)を追加
+- 要素のメモリ位置が安定するシーケンスコンテナのライブラリとして[`<hive>`](/reference/hive.md.nolink)を追加
 - 並行処理におけるデータの参照・更新を行うRCU (Read Copy Update) のライブラリとして、[`<rcu>`](/reference/rcu.md)を追加
 - 並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加
 - データ並列ライブラリとして、[`<simd>`](/reference/simd.md.nolink)を追加
@@ -161,6 +162,31 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::span`](/reference/span/span.md)と[`std::mdspan`](/reference/mdspan/mdspan.md)の推論補助を改善
 - [`std::views::concat`](/reference/ranges/concat_view.md)を追加
 - [`std::views::cache_latest`](/reference/ranges/cache_latest.md.nolink)を追加
+- [`std::views::to_input`](/reference/ranges/to_input_view.md.nolink)を追加。書き換えできない入力専用の値に変換する
+- Range関係の、償却定数時間での要素追加を行う機能を追加
+    - 各viewクラスに`reserve_hint()`メンバ関数を追加
+    - [`std::ranges::reserve_hint()`](/reference/ranges/reserve_hint.md.nolink)関数を追加
+    - [`std::ranges::approximately_sized_range`](/reference/ranges/approximately_sized_range.md.nolink)コンセプトを追加
+- 連続イテレータのコンセプト[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)に、ポインタに変換できることを要件として追加
+- 以下のコンテナを`constexpr`に対応
+    - [`std::deque`](/reference/deque/deque.md)
+    - [`std::forward_list`](/reference/forward_list/forward_list.md)
+    - [`std::list`](/reference/list/list.md)
+    - [`std::map`](/reference/map/map.md) (ただし[`node_handle`](/reference/node_handle/node_handle.md)`::`[`key()`](/reference/node_handle/node_handle/key.md)を使用すると未定義動作)
+    - [`std::multimap`](/reference/map/multimap.md) (ただし[`node_handle`](/reference/node_handle/node_handle.md)`::`[`key()`](/reference/node_handle/node_handle/key.md)を使用すると未定義動作)
+    - [`std::set`](/reference/set/set.md)
+    - [`std::multiset`](/reference/set/multiset.md)
+    - [`std::unordered_map`](/reference/unordered_map/unordered_map.md) (ハッシュ関数のカスタム化が必要) (ただし[`node_handle`](/reference/node_handle/node_handle.md)`::`[`key()`](/reference/node_handle/node_handle/key.md)を使用すると未定義動作)
+    - [`std::unordered_multimap`](/reference/unordered_map/unordered_multimap.md) (ハッシュ関数のカスタム化が必要) (ただし[`node_handle`](/reference/node_handle/node_handle.md)`::`[`key()`](/reference/node_handle/node_handle/key.md)を使用すると未定義動作)
+    - [`std::unordered_set`](/reference/unordered_set/unordered_set.md) (ハッシュ関数のカスタム化が必要)
+    - [`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md) (ハッシュ関数のカスタム化が必要)
+    - [`std::flat_map`](/reference/flat_map/flat_map.md)
+    - [`std::flat_multimap`](/reference/flat_map/flat_multimap.md)
+    - [`std::flat_set`](/reference/flat_set/flat_set.md)
+    - [`std::flat_multiset`](/reference/flat_set/flat_multiset.md)
+    - [`std::queue`](/reference/queue/queue.md)
+    - [`std::priority_queue`](/reference/queue/priority_queue.md)
+    - [`std::stack`](/reference/stack/stack.md)
 
 
 ### アルゴリズム
@@ -249,7 +275,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`<atomic>`](/reference/atomic.md)ライブラリのアトミック操作を`constexpr`対応
 
 
-### スマートポインタ
+### スマートポインタ・メモリ関連
+- 動的確保したオブジェクトに値の意味論をもたせてディープコピーさせるユーティリティクラスとして、[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)クラスと[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)クラスを追加
 - [`std::weak_ptr`](/reference/memory/weak_ptr.md)を非順序連想コンテナのキーとして使用できるよう、[`<memory>`](/reference/memory.md)に所有権ベースのハッシュ値を取得する関数オブジェクト[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)、および所有権ベースの等値比較を行う関数オブジェクト[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)を追加
     - 関連して、[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスと[`std::weak_ptr`](/reference/memory/weak_ptr.md)クラスのメンバ関数として、`owner_hash()`と`owner_equal()`を追加
 
@@ -347,6 +374,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### ユーティリティ
 - [`std::variant`](/reference/variant/variant.md)クラスに、メンバ関数版の[`visit()`](/reference/variant/variant/visit.md.nolink)を追加
+- `std::monostate`を[`<variant>`](/reference/variant.md)から[`<utility>`](/reference/utility.md)に移動
 - [`std::optional`](/reference/optional/optional.md)クラスに、0もしくは1要素のRangeとして扱えるようにするための拡張として、イテレータインタフェースを追加
     - `iterator`型
     - `const_iterator`型
@@ -378,6 +406,20 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
         - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)クラスの`what()`メンバ関数
 - [`<memory>`](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
 - [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable()`](/reference/utility/observable.md.nolink)を追加
+- 以下の例外型を`constexpr`対応
+    - [`std::domain_error`](/reference/stdexcept.md)
+    - [`std::invalid_argument`](/reference/stdexcept.md)
+    - [`std::length_error`](/reference/stdexcept.md)
+    - [`std::logic_error`](/reference/stdexcept.md)
+    - [`std::out_of_range`](/reference/stdexcept.md)
+    - [`std::runtime_error`](/reference/stdexcept.md)
+    - [`std::range_error`](/reference/stdexcept.md)
+    - [`std::overflow_error`](/reference/stdexcept.md)
+    - [`std::underflow_error`](/reference/stdexcept.md)
+    - [`std::bad_expected_access`](/reference/expected/bad_expected_access.md)
+    - [`std::bad_optional_access`](/reference/optional/bad_optional_access.md)
+    - [`std::bad_variant_access`](/reference/variant/bad_variant_access.md)
+    - [`std::format_error`](/reference/format/format_error.md)
 
 
 ### デバッグ
