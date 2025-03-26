@@ -43,6 +43,16 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md) | `f() = delete("reason");` |
+| [契約プログラミングをサポートする](/lang/cpp26/contracts.md.nolink) | 関数の事前条件、事後条件、不変条件を記述できるようにする |
+
+
+### クラス
+
+| 言語機能 | 説明 |
+|----------|------|
+| [変換コンストラクタという用語を廃止する](/lang/cpp26/abolish_the_term_converting_constructor.md.nolink) | 規格上で「`explicit`ではないコンストラクタ」という意味で定義されていたあまり使われない用語「変換コンストラクタ」を削除する |
+| [共用体をトリビアルに未初期化できるようにする](/lang/cpp26/trivial_unions.md.nolink) | `constexpr`での`union U { T storage[N]; };`を許可し、未初期化にできるようにする |
+| [トリビアルな再配置](/lang/cpp26/trivial_relocatability.md.nolink) | ムーブ構築と破棄のためにビット単位のコピーとデストラクタ評価が必要になる型のオブジェクトを再配置するメカニズムを導入する |
 
 
 ### 属性
@@ -60,6 +70,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink) | 可変引数テンプレートのパラメータパックに添字アクセスできるようにする |
 | [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う |
 | [可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md.nolink) | クラステンプレートの可変引数テンプレートでまとめて`friend`宣言できるようにする |
+| [コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加](/lang/cpp26/concept_and_variable-template_template-parameters.md.nolink) | テンプレート引数をあとで指定するテンプレートテンプレートパラメータを、コンセプトと変数テンプレートでも使用できるようにする |
 
 
 ### 定数式
@@ -71,6 +82,13 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md.nolink) | 定数式の文脈での配置`new`を許可 |
 | [`constexpr`構造化束縛の許可と、定数式への参照を定数式とする](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md.nolink) | 定数式に対する構造化束縛を許可し、関連する定数式への参照が定数式になるようにする |
 | [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md.nolink) | 定数式の文脈での例外の送出と捕捉を許可 |
+
+
+### プリプロセッサ
+
+| 言語機能 | 説明 |
+|----------|------|
+| [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる |
 
 
 ### ソースコード
@@ -359,6 +377,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
         - [`std::bad_cast`](/reference/typeinfo/bad_cast.md)クラスの`what()`メンバ関数
         - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)クラスの`what()`メンバ関数
 - [`<memory>`](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
+- [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable()`](/reference/utility/observable.md.nolink)を追加
 
 
 ### デバッグ
@@ -383,6 +402,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### 機能の非推奨化
 - [`<type_traits>`](/reference/type_traits.md)の[`std::is_trivial`](/reference/type_traits/is_trivial.md)を非推奨化
     - これは[`std::is_trivially_copyable`](/reference/type_traits/is_trivially_copyable.md)と[`std::is_trivially_default_constructible`](/reference/type_traits/is_trivially_default_constructible.md)の2つが合わさったものであるが、それらは異なる状況で必要になるものであった
+- [`std::memory_order::consume`](/reference/atomic/memory_order.md)と[`std::kill_dependency()`](/reference/atomic/kill_dependency.md)を非推奨化
+
 
 ### 非推奨の取り消し
 - [`std::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)`::`[`destroy()`](/reference/memory_resource/polymorphic_allocator/destroy.md)の非推奨を取り消し
