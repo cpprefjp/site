@@ -34,7 +34,7 @@ jobs:
       with:
         repository: cpprefjp/site_generator
         path: site_generator
-    - run: git submodule update -i
+    - run: git submodule update --init
       working-directory: site_generator
 
     # kunai
@@ -43,7 +43,7 @@ jobs:
       with:
         repository: cpprefjp/kunai
         path: site_generator/kunai
-    - run: git submodule update -i
+    - run: git submodule update --init
       working-directory: site_generator/kunai
 
     # site (typically cpprefjp/site)
@@ -55,7 +55,7 @@ jobs:
         fetch-depth: 0
         ref: ${{ steps.vars.outputs.head_ref }}
         path: site_generator/cpprefjp/site
-    - run: git submodule update -i
+    - run: git submodule update --init
       working-directory: site_generator/cpprefjp/site
 
     # image
