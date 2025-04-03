@@ -431,8 +431,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### 型特性
-- [`<type_traits>`](/reference/type_traits.md)に、共用体のどのメンバがアクティブかを判定するための関数として[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md.nolink)を追加
-- [`<type_traits>`](/reference/type_traits.md)に、仮想継承の関係を判定する[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md.nolink)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、仮想継承の関係を判定する[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加
 
 
 ### 制約
