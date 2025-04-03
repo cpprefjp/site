@@ -34,7 +34,7 @@ try {
 
 // C++23: concat関数の深い場所にあるthrow式側でコンパイルエラー
 // C++26: 呼び出し側で「文字列が長すぎる」のようなコンパイルエラーになる
-const auto d = hello("Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Kenneth Lloyd Martin Nero Oliver Paul Quincy Randolph Sherman Thomas Uncas Victor William Xerxes Yancy Zeus Wolfeschlegelsteinhausen­bergerdorff­welche­vor­altern­waren­gewissenhaft­schafers­wessen­schafe­waren­wohl­gepflege­und­sorgfaltigkeit­beschutzen­von­angreifen­durch­ihr­raubgierig­feinde­welche­vor­altern­zwolf­tausend­jahres­voran­die­erscheinen­van­der­erste­erdemensch­der­raumschiff­gebrauch­licht­als­sein­ursprung­von­kraft­gestart­sein­lange­fahrt­hinzwischen­sternartig­raum­auf­der­suchen­ach­die­stern­welche­gehabt­bewohnbar­planeten­kreise­drehen­sich­und­wohin­der­neu­rasse­von­verstandig­menschlichkeit­konnte­fortpflanzen­und­sich­erfreuen­an­lebenslanglich­freude­und­ruhe­mit­nicht­ein­furcht­vor­angreifen­von­anderer­intelligent­geschopfs­von­hinzwischen­sternartig­raum.");
+const auto d = hello("Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Kenneth Lloyd Martin Nero Oliver Paul Quincy Randolph Sherman Thomas Uncas Victor William Xerxes Yancy Zeus");
 ```
 
 
