@@ -404,22 +404,26 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`<typeinfo>`](/reference/typeinfo.md)ヘッダの以下の機能
         - [`std::bad_cast`](/reference/typeinfo/bad_cast.md)クラスの`what()`メンバ関数
         - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)クラスの`what()`メンバ関数
+    - [`<stdexcept>`](/reference/stdexcept.md)ヘッダの以下の機能
+        - [`std::domain_error`](/reference/stdexcept.md)
+        - [`std::invalid_argument`](/reference/stdexcept.md)
+        - [`std::length_error`](/reference/stdexcept.md)
+        - [`std::logic_error`](/reference/stdexcept.md)
+        - [`std::out_of_range`](/reference/stdexcept.md)
+        - [`std::runtime_error`](/reference/stdexcept.md)
+        - [`std::range_error`](/reference/stdexcept.md)
+        - [`std::overflow_error`](/reference/stdexcept.md)
+        - [`std::underflow_error`](/reference/stdexcept.md)
+    - [`<expected>`](/reference/expected.md)ヘッダの以下の機能
+        - [`std::bad_expected_access`](/reference/expected/bad_expected_access.md)
+    - [`<optional>`](/reference/optional.md)ヘッダの以下の機能
+        - [`std::bad_optional_access`](/reference/optional/bad_optional_access.md)
+    - [`<variant>`](/reference/variant.md)ヘッダの以下の機能
+        - [`std::bad_variant_access`](/reference/variant/bad_variant_access.md)
+    - [`<format>`](/reference/format.md)ヘッダの以下の機能
+        - [`std::format_error`](/reference/format/format_error.md)
 - [`<memory>`](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
 - [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable()`](/reference/utility/observable.md.nolink)を追加
-- 以下の例外型を`constexpr`対応
-    - [`std::domain_error`](/reference/stdexcept.md)
-    - [`std::invalid_argument`](/reference/stdexcept.md)
-    - [`std::length_error`](/reference/stdexcept.md)
-    - [`std::logic_error`](/reference/stdexcept.md)
-    - [`std::out_of_range`](/reference/stdexcept.md)
-    - [`std::runtime_error`](/reference/stdexcept.md)
-    - [`std::range_error`](/reference/stdexcept.md)
-    - [`std::overflow_error`](/reference/stdexcept.md)
-    - [`std::underflow_error`](/reference/stdexcept.md)
-    - [`std::bad_expected_access`](/reference/expected/bad_expected_access.md)
-    - [`std::bad_optional_access`](/reference/optional/bad_optional_access.md)
-    - [`std::bad_variant_access`](/reference/variant/bad_variant_access.md)
-    - [`std::format_error`](/reference/format/format_error.md)
 
 
 ### デバッグ
