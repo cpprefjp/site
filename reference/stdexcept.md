@@ -44,9 +44,9 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|--------------------------------------------|-------|
-| `explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg);` | 指定したメッセージを持つ例外オブジェクトを生成する | |
-| `explicit T(const char* what_arg);` | 指定したメッセージを持つ例外オブジェクトを生成する | C++11 |
-| `virtual const char* what() const noexcept;` | メッセージを取得する | |
+| `explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg); // C++03`<br/> `constexpr explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg); // C++26 | 指定したメッセージを持つ例外オブジェクトを生成する | |
+| `explicit T(const char* what_arg); // C++11`<br/> `constexpr explicit T(const char* what_arg); // C++26` | 指定したメッセージを持つ例外オブジェクトを生成する | C++11 |
+| `virtual const char* what() const noexcept; // C++03`<br/> `constexpr virtual const char* what() const noexcept; // C++26` | メッセージを取得する | |
 
 
 ## 例
@@ -78,7 +78,13 @@ int main()
 * std::logic_error[color ff0000]
 * std::exit[link /reference/cstdlib/exit.md]
 
+
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
+
+
 ## 参照
 - [LWG Issue 254. Exception types in clause 19 are constructed from `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#254)
     - C++11から例外送出の理由として、文字配列を受け取ることを許可した経緯のレポート
-
+- [P3378R2 `constexpr` exception types](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3378r2.html)
+    - C++26で`constexpr`対応した

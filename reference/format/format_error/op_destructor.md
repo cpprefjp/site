@@ -1,17 +1,17 @@
 # デストラクタ
-* new[meta header]
+* format[meta header]
 * std[meta namespace]
-* bad_array_new_length[meta class]
+* format_error[meta class]
 * function[meta id-type]
-* cpp11[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
-virtual ~bad_array_new_length();           // (1) C++11
-constexpr virtual ~bad_array_new_length(); // (1) C++26
+virtual ~format_error();           // (1) C++20
+constexpr virtual ~format_error(); // (1) C++26
 ```
 
 ## 概要
-`bad_array_new_length`オブジェクトを破棄する。
+`format_error`オブジェクトを破棄する。
 
 
 ## 例外

@@ -1,17 +1,17 @@
 # デストラクタ
-* new[meta header]
+* variant[meta header]
 * std[meta namespace]
-* bad_array_new_length[meta class]
+* bad_variant_access[meta class]
 * function[meta id-type]
-* cpp11[meta cpp]
+* cpp17[meta cpp]
 
 ```cpp
-virtual ~bad_array_new_length();           // (1) C++11
-constexpr virtual ~bad_array_new_length(); // (1) C++26
+virtual ~bad_variant_access();           // (1) C++17
+constexpr virtual ~bad_variant_access(); // (1) C++26
 ```
 
 ## 概要
-`bad_array_new_length`オブジェクトを破棄する。
+`bad_variant_access`オブジェクトを破棄する。
 
 
 ## 例外

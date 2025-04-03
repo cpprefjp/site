@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-const char* what() const noexcept override;
+const char* what() const noexcept override;           // (1) C++23
+constexpr const char* what() const noexcept override; // (1) C++26
 ```
 
 ## 概要
@@ -60,5 +61,11 @@ bad access to std::expected without expected value
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
+
+
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [P3378R2 `constexpr` exception types](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3378r2.html)
+    - C++26で`constexpr`対応した
