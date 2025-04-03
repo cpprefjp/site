@@ -17,11 +17,11 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------------------------------|--------------------|---|
-| `bad_typeid() noexcept;`<br/> `bad_typeid(const bad_typeid&) noexcept;` | コンストラクタ | |
-| `virtual ~bad_typeid() = default;`                                      | デストラクタ | |
-| `bad_typeid& operator=(const bad_typeid&) noexcept;`                    | 代入演算子 | |
-| `virtual const char* what() const noexcept;`                            | 実装定義のエラー内容を取得する | |
+|------|------|----------------|
+| [(constructor)](bad_typeid/op_constructor.md) | コンストラクタ | |
+| [(destructor)](bad_typeid/op_destructor.md) | デストラクタ | |
+| [`operator=`](bad_typeid/op_assign.md) | 代入演算子 | |
+| [`what`](bad_typeid/what.md) | エラー理由を取得する | |
 
 
 ## 例

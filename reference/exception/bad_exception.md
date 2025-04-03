@@ -31,11 +31,11 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------------------|-----------------------------------------------|-------|
-| `bad_exception() noexcept;` `bad_exception(const bad_exception&) noexcept;` | コンストラクタ | |
-| `virtual ~bad_exception() = default;` | デストラクタ | |
-| `bad_exception& operator=(const bad_exception&) noexcept;` | 代入演算子 | |
-| `virtual const char* what() const noexcept;` | 実装定義のエラー内容を取得する | |
+|------|------|----------------|
+| [(constructor)](bad_exception/op_constructor.md) | コンストラクタ | |
+| [(destructor)](bad_exception/op_destructor.md) | デストラクタ | |
+| [`operator=`](bad_exception/op_assign.md) | 代入演算子 | |
+| [`what`](bad_exception/what.md) | エラー理由を取得する | |
 
 
 ## 例

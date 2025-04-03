@@ -17,11 +17,11 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------------------------------------|--------------------------------|---|
-| `bad_cast() noexcept;`<br/>`bad_cast(const bad_cast&) noexcept;` | コンストラクタ | |
-| `virtual ~bad_cast() = default;`                                 | デストラクタ | |
-| `bad_cast& operator=(const bad_cast&) noexcept;`                 | 代入演算子 | |
-| `virtual const char* what() const noexcept;`                     | 実装定義のエラー内容を取得する | |
+|------|------|----------------|
+| [(constructor)](bad_cast/op_constructor.md) | コンストラクタ | |
+| [(destructor)](bad_cast/op_destructor.md) | デストラクタ | |
+| [`operator=`](bad_cast/op_assign.md) | 代入演算子 | |
+| [`what`](bad_cast/what.md) | エラー理由を取得する | |
 
 
 ### 例

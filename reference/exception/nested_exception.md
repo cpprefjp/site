@@ -21,8 +21,8 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](nested_exception/op_constructor.md) | コンストラクタ | C++11 |
-| `~virtual nested_exception() = default;` | デストラクタ | C++11 |
-| `nested_exception& operator=(const nested_exception&) = default;` | 代入演算子 | C++11 |
+| [`(destructor)`](nested_exception/op_destructor.md) | デストラクタ | C++11 |
+| [`operator=`](nested_exception/op_assign.md) | 代入演算子 | C++11 |
 | [`rethrow_nested`](nested_exception/rethrow_nested.md) | 入れ子になった例外を送出する | C++11 |
 | [`nested_ptr`](nested_exception/nested_ptr.md) | 入れ子になった例外へのポインタを取得する | C++11 |
 

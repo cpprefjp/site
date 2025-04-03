@@ -6,7 +6,8 @@
 
 ```cpp
 namespace std {
-  exception_ptr current_exception() noexcept;
+  exception_ptr current_exception() noexcept;           // (1) C++11
+  constexpr exception_ptr current_exception() noexcept; // (1) C++26
 }
 ```
 * exception_ptr[link exception_ptr.md]
@@ -83,6 +84,10 @@ terminate called after throwing an instance of 'std::runtime_error'
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+
+
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
 
 
 ## 参照

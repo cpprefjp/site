@@ -6,7 +6,8 @@
 
 ```cpp
 namespace std {
-  int uncaught_exceptions() noexcept; // C++17
+  int uncaught_exceptions() noexcept;           // (1) C++17
+  constexpr int uncaught_exceptions() noexcept; // (1) C++26
 }
 ```
 
@@ -85,8 +86,13 @@ catch exception 2
 - [GCC](/implementation.md#gcc): 3.7 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified], 2017 [mark verified]
 
+
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
+
+
 ## 参照
-- [C++1z 現在発生している例外の数を取得するuncaught_exceptions()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/06/22/171639)
-- [N4152 uncaught_exceptions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4152.pdf)
-- [N4259 Wording for std::uncaught_exceptions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4259.pdf)
-- [CWG 2098 Is uncaught_exceptions() per-thread?](https://wg21.cmeerw.net/cwg/issue2098)
+- [C++1z 現在発生している例外の数を取得する`uncaught_exceptions()`関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/06/22/171639)
+- [N4152 `uncaught_exceptions`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4152.pdf)
+- [N4259 Wording for `std::uncaught_exceptions`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4259.pdf)
+- [CWG 2098 Is `uncaught_exceptions()` per-thread?](https://wg21.cmeerw.net/cwg/issue2098)
