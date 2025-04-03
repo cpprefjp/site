@@ -7,7 +7,10 @@
 ```cpp
 namespace std {
   template <class F, class... Args>
-  constexpr unspecified bind_back(F&&, Args&&...);
+  constexpr unspecified bind_back(F&& f, Args&&... args);  // (1) C++23
+
+  template <auto f, class... Args>
+  constexpr unspecified bind_back(Args&&... args);         // (2) C++26
 }
 ```
 * unspecified[italic]
@@ -17,16 +20,24 @@ namespace std {
 
 先頭から適用する場合は[`bind_front`](bind_front.md)を用いる。
 
-## テンプレートパラメータ制約
-[`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`、
-[`std::decay_t`](/reference/type_traits/decay.md)`<Args>...`を適用した型パラメータパックを`BoundArgs`であるとして、
 
-- `FD`が[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
-- `BoundArgs`のそれぞれの型`Ti`が[オブジェクト型](/reference/type_traits/is_object.md)である場合、[`std::move_constructible`](/reference/concepts/move_constructible.md)要件を満たすこと
+## 事前条件
+[`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`、[`decay_t`](/reference/type_traits/decay.md)`<Args>...`を適用した型パラメータパックを`BoundArgs`として
+
+- (1) : 
+    - `FD`がCpp17MoveConstructible要件を満たすこと
+    - `BoundArgs`のそれぞれの型`Ti`が[オブジェクト型](/reference/type_traits/is_object.md)である場合、Cpp17MoveConstructible要件を満たすこと
+- (2) :
+    - `BoundArgs`のそれぞれの型`Ti`がCpp17MoveConstructible要件を満たすこと
 
 
 ## 適格要件
-- [`conjunction_v`](/reference/type_traits/conjunction.md)`<`[`is_constructible`](/reference/type_traits/is_constructible.md)`<FD, F>,` [`is_move_constructible`](/reference/type_traits/is_move_constructible.md)`<FD>,` [`is_constructible`](/reference/type_traits/is_constructible.md)`<BoundArgs, Args>...,` [`is_move_constructible`](/reference/type_traits/is_move_constructible.md)`<BoundArgs>...>`が`true`であること
+- (1) :
+    - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<FD, F> &&` [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<FD> &&` `(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<BoundArgs, Args> && ...) &&` `(`[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<BoundArgs> && ...)`が`true`であること
+- (2) : `F`を`f`の型として
+    - `(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<BoundArgs, Args> && ...)`が`true`、かつ
+    - `(`[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<BoundArgs> && ...)`が`true`、かつ
+    - もし[`is_poinetr_v`](/reference/type_traits/is_pointer.md)`<F> ||` [`is_member_poinetr_v`](/reference/type_traits/is_member_pointer.md)`<F>`が`true`ならば、`f != nullptr`であること
 
 
 ## 戻り値
@@ -35,8 +46,11 @@ namespace std {
 
 返される関数オブジェクトは渡された引数（`f, args...`）を参照として保持せず、適切にコピー/ムーブして保持する。
 
+
 ## 例外
-- 関数オブジェクト`f`のムーブによって任意の例外が送出される可能性がある
+- (1) : 関数オブジェクト`f`のムーブによって任意の例外が送出される可能性がある
+- (2) : `bound_args`の初期化による任意の例外が送出される可能性がある
+
 
 ## この機能が必要になった背景・経緯
 
@@ -132,6 +146,9 @@ int main() {
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
 ## 参照
 - [P2387R3 Pipe support for user-defined range adaptors](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2387r3.html#nanorange)
 - [rangesのパイプにアダプトするには](https://onihusube.hatenablog.com/entry/2022/04/24/010041)
+- [P2714R1 Bind front and back to NTTP callables](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2714r1.html)
+    - C++26でオーバーロード(2)を追加
