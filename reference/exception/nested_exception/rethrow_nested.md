@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-[[noreturn]] void rethrow_nested() const;
+[[noreturn]] void rethrow_nested() const;           // (1) C++11
+[[noreturn]] constexpr void rethrow_nested() const; // (1) C++26
 ```
 
 ## 概要
@@ -75,6 +76,6 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
-## 参照
-
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
 

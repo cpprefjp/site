@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <class E>
-  void rethrow_if_nested(const E& e);
+  void rethrow_if_nested(const E& e);           // (1) C++11
+  template <class E>
+  constexpr void rethrow_if_nested(const E& e); // (1) C++26
 }
 ```
 
@@ -117,6 +119,5 @@ inner
 - [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
-## 参照
-
-
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)

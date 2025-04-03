@@ -314,7 +314,7 @@
 | P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う | | 19 | | |
 | P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
 | P2686R5: [`constexpr`構造化束縛の許可と、定数式への参照を定数式とする](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md.nolink) | 定数式に対する構造化束縛を許可し、関連する定数式への参照が定数式になるようにする | 15 | | | |
-| P3068R6: [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md.nolink) | 定数式の文脈での例外の送出と捕捉を許可 | | | | |
+| P3068R6: [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 | | | | |
 | P2865R6: [非推奨だった配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md.nolink) | C++20で非推奨となっていた配列比較を削除 | 15 | 20 | | |
 | P1061R10: [構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md.nolink) | タプルを分解する際に複数の変数をパックとして宣言できるようにする。`auto [a, ...xs] = f();` | | | | |
 | P3176R0: [先行するカンマのない省略記号を非推奨化](/lang/cpp26/the_oxford_variadic_comma.md.nolink) | `void f(int, ...);`はOK。`void f(int...);`は非推奨 | 15 | 20 | | |

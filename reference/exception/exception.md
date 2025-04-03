@@ -18,11 +18,11 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|----------------------------------------|---------------------------------------------|-------|
-| `exception() noexcept;`<br/>`exception(const exception&) noexcept;` | コンストラクタ | |
-| `virtual ~exception();` | デストラクタ | |
-| `exception& operator=(const exception&) noexcept;` | 代入演算子 | |
-| `virtual const char* what() const noexcept;` | 実装定義のエラー内容を取得する | |
+|------|------|----------------|
+| [(constructor)](exception/op_constructor.md) | コンストラクタ | |
+| [(destructor)](exception/op_destructor.md) | デストラクタ | |
+| [`operator=`](exception/op_assign.md) | 代入演算子 | |
+| [`what`](exception/what.md) | エラー理由を取得する | |
 
 
 ## 例

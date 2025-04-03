@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <class E>
-  exception_ptr make_exception_ptr(E e) noexcept;
+  exception_ptr make_exception_ptr(E e) noexcept;           // (1) C++11
+  template <class E>
+  constexpr exception_ptr make_exception_ptr(E e) noexcept; // (1) C++26
 }
 ```
 * exception_ptr[link exception_ptr.md]
@@ -87,6 +89,5 @@ exception_ptr make_exception_ptr(E e) noexcept
 }
 ```
 
-## 参照
-
-
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)

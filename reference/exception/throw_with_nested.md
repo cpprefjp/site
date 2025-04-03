@@ -6,8 +6,10 @@
 
 ```cpp
 namespace std {
-  [[noreturn]] template <class T>
-  void throw_with_nested(T&& t);
+  template <class T>
+  [[noreturn]] void throw_with_nested(T&& t);           // (1) C++11
+  template <class T>
+  [[noreturn]] constexpr void throw_with_nested(T&& t); // (1) C++26
 }
 ```
 
@@ -109,6 +111,5 @@ inner
 - [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 
-## 参照
-
-
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
