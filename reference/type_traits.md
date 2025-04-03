@@ -226,6 +226,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
+| [`is_within_lifetime`](type_traits/is_within_lifetime.md) | 共用体の指定されたメンバがアクティブかを定数式で判定する | C++26 |
 | [`is_constant_evaluated`](type_traits/is_constant_evaluated.md) | 呼び出された時、その呼び出しがコンパイル時に行われているかを判定する | C++20 |
 
 
