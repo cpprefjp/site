@@ -9,7 +9,6 @@ namespace std {
   class format_error : public runtime_error;
 }
 ```
-* string[link /reference/string/basic_string.md]
 
 ## 概要
 `<format>`の各機能の失敗を表す例外クラス。ユーザー定義フォーマッターもこの例外を投げることができる。
