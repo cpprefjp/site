@@ -54,6 +54,8 @@ const auto d = hello("Adolph Blaine Charles David Earl Frederick Gerald Hubert I
 - [`std::bad_array_new_length`](/reference/new/bad_array_new_length.md)
 - [`std::bad_cast`](/reference/typeinfo/bad_cast.md)
 - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)
+- [`<stdexcept>`](/reference/stdexcept.md)
+- [`std::bad_expected_access`](/reference/expected/bad_expected_access.md)
 
 
 ## 参照

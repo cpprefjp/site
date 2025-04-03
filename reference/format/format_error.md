@@ -6,11 +6,7 @@
 
 ```cpp
 namespace std {
-  class format_error : public runtime_error {
-  public:
-    explicit format_error(const string& what_arg);
-    explicit format_error(const char* what_arg);
-  };
+  class format_error : public runtime_error;
 }
 ```
 * string[link /reference/string/basic_string.md]
@@ -21,9 +17,13 @@ namespace std {
 ## メンバ関数
 ### 構築・破棄
 
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-| `(constructor)` | コンストラクタ | C++20          |
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [(constructor)](format_error/op_constructor.md) | コンストラクタ | C++20 |
+| [(destructor)](format_error/op_destructor.md) | デストラクタ | C++20 |
+| [`operator=`](format_error/op_assign.md) | 代入演算子 | C++20 |
+| [`what`](format_error/what.md) | エラー理由を取得する | C++20 |
+
 
 ## バージョン
 ### 言語

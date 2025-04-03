@@ -6,10 +6,17 @@
 * cpp23[meta cpp]
 
 ```cpp
-constexpr const E& error() const & noexcept;   // (1)
-constexpr E& error() & noexcept;               // (2)
-constexpr const E&& error() const && noexcept; // (3)
-constexpr E&& error() && noexcept;             // (4)
+const E& error() const & noexcept;             // (1) C++23
+constexpr const E& error() const & noexcept;   // (1) C++26
+
+E& error() & noexcept;                         // (2) C++23
+constexpr E& error() & noexcept;               // (2) C++26
+
+const E&& error() const && noexcept;           // (3) C++23
+constexpr const E&& error() const && noexcept; // (3) C++26
+
+E&& error() && noexcept;                       // (4) C++23
+constexpr E&& error() && noexcept;             // (4) C++26
 ```
 
 ## 概要
@@ -66,6 +73,12 @@ throw:ERR
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
+
+
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
 - [P2549R1 `std::unexpected<E>` should have `error()` as member accessor](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2549r1.html)
+- [P3378R2 `constexpr` exception types](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3378r2.html)
+    - C++26で`constexpr`対応した

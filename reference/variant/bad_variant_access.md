@@ -19,8 +19,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `bad_variant_access() noexcept;` | デフォルトコンストラクタ | C++17 |
-| `const char* what() const noexcept override;` | エラー理由となる実装依存文字列 | C++17 |
+| [(constructor)](bad_variant_access/op_constructor.md) | コンストラクタ | C++17 |
+| [(destructor)](bad_variant_access/op_destructor.md) | デストラクタ | C++17 |
+| [`operator=`](bad_variant_access/op_assign.md) | 代入演算子 | C++17 |
+| [`what`](bad_variant_access/what.md) | エラー理由を取得する | C++17 |
 
 
 ## 例
