@@ -22,8 +22,21 @@ namespace std {
   inline constexpr memory_order memory_order_release = memory_order::release;
   inline constexpr memory_order memory_order_acq_rel = memory_order::acq_rel;
   inline constexpr memory_order memory_order_seq_cst = memory_order::seq_cst;
+
+  // C++26
+  enum class memory_order : unspecified {
+    relaxed = 0,              acquire = 2,
+    release = 3, acq_rel = 4, seq_cst = 5
+  };
+  inline constexpr memory_order memory_order_relaxed = memory_order::relaxed;
+  inline constexpr memory_order memory_order_acquire = memory_order::acquire;
+  inline constexpr memory_order memory_order_release = memory_order::release;
+  inline constexpr memory_order memory_order_acq_rel = memory_order::acq_rel;
+  inline constexpr memory_order memory_order_seq_cst = memory_order::seq_cst;
 }
 ```
+* unspecified[italic]
+
 
 ## 概要
 コンパイラに許可されている最適化の一つに、「プログラムの意味を変えない限りにおいて、メモリアクセスの順番を変えたり、省略したりしてもよい」というものがある。また、マルチコアCPUにおいては、あるCPUコアによるメモリアクセスの順序が他のコアからも同じように見えるとは限らない。このような挙動はマルチスレッドプログラミングにおいて問題になることがある。
@@ -76,11 +89,16 @@ int main()
 | 列挙値 | 説明 |
 |--------|------|
 | `relaxed` | スレッド間の順序付けの効果は一切持たない。 |
-| `consume` | acquire操作と似ているが、それより弱い順序付けでの読み込みを行うことを指示する。acquire操作は後続の全ての操作に対して順序付けを行うのに対し、consume操作は読み込まれた値に依存(ただし条件分岐による依存は除く)する操作のみに順序付けを保証する点が異なる。[store()](atomic/store.md)など、書き込みのみを行う操作に対しては指定できない。(仕様検討中のため、一時的に非推奨) |
+| `consume` | C++26で非推奨 |
 | `acquire` | acquire操作としての読み込みを行うことを指示する。[store()](atomic/store.md)など、書き込みのみを行う操作に対しては指定できない。 |
 | `release` | release操作としての書き込みを行うことを指示する。[load()](atomic/load.md)など、読み込みのみを行う操作に対しては指定できない。 |
 | `acq_rel` | 読み込みと書き込みを同時に行う操作(Read-Modify-Write操作)に対してのみ指定することができ、acquireとreleaseを合わせた効果を持つ。 |
 | `seq_cst` | acquire(読み込み操作の場合)、release(書き込み操作の場合)、acq_rel(Read-Modify-Write操作の場合)としての効果を持つ。さらに、同じseq_cstが指定されている他のatomic操作との間での順序一貫性も保証する。これは最も強い保証であり、標準のatomic操作におけるデフォルトのメモリオーダーとして使用される。「seq_cst」は「sequential consistency(順序一貫性)」を意味する。 |
+
+
+## 備考
+非推奨化された`consume`列挙値の挙動はacquire操作と似ているが、それより弱い順序付けでの読み込みを行うことを指示する。acquire操作は後続の全ての操作に対して順序付けを行うのに対し、consume操作は読み込まれた値に依存(ただし条件分岐による依存は除く)する操作のみに順序付けを保証する点が異なる。
+複雑なconsume操作を正しく実装するC++コンパイラは登場せず、より単純なacquire操作として扱われていた。C++20では仕様再検討に伴う一時的な利用回避が宣言され、最終的には役に立たないとの判断からC++26で非推奨となった。
 
 
 ## バージョン
@@ -102,5 +120,8 @@ int main()
 - [N1525: Memory-Order Rationale](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1525.htm)
 - [The Purpose of memory_order_consume in C++11](http://preshing.com/20140709/the-purpose-of-memory_order_consume-in-cpp11/)
 - [（抄訳）N4215 `memory_order_consume`の利用と実装に向けて［§5-6のみ］](http://d.hatena.ne.jp/yohhoy/20141115/p1)
-- [P0371R1 Temporarily discourage `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0371r1.html)
 - [P0439R0 Make `std::memory_order` a scoped enumeration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0439r0.html)
+    - C++20で`memory_order`をスコープ付き列挙型に変更。
+- [P0371R1 Temporarily discourage `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0371r1.html)
+- [P3475R2 Defang and deprecate memory_order::consume](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf)
+    - C++26で`memory_order::consume`列挙子を非推奨化。

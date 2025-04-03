@@ -15,7 +15,7 @@
 属性は`[[attr]]`のように、属性のリストを二重角カッコで囲んで指定する。C++11時点の標準では、以下の2つの属性を定義する：
 
 1. `[[noreturn]]` : 関数が決して返らないことをコンパイラに伝える
-2. `[[carries_dependency]]` : データの依存性を持たせる or 維持する
+2. `[[carries_dependency]]` : データの依存性を持たせる or 維持する (C++26で削除)
 
 
 ## 仕様
@@ -60,6 +60,10 @@ int main()
 
 
 ### <a id="carries_dependency" href="#carries_dependency">`[[carries_dependency]]`属性</a>
+この属性はC++26で削除された。
+
+[`memory_order_consume`](/reference/atomic/memory_order.md)順序付けを実装したC++処理系は存在せず、本属性の代替機能も提供されない。
+
 `[[carries_dependency]]`は、並行プログラミングのアトミック操作において、値に依存した順序付け [`memory_order`](/reference/atomic/memory_order.md)を、関数をまたいで伝播することを明示するための属性である。
 
 以下は、[`memory_order_consume`](/reference/atomic/memory_order.md)を使用した順序付けの例である：
@@ -179,4 +183,6 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - [N2418 Towards support for attributes in C++ (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2418.pdf)
 - [N2643 C++ Data-Dependency Ordering: Function Annotation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html)
 - [N2761 Towards support for attributes in C++ (Revision 6) ](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2761.pdf)
+- [P3475R2 Defang and deprecate memory_order::consume](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf)
+    - C++26で`memory_order::consume`非推奨化に伴い`carries_dependency`属性を削除。
 - [（抄訳）N4215 `memory_order_consume`の利用と実装に向けて［§5-6のみ］](http://d.hatena.ne.jp/yohhoy/20141115/p1)

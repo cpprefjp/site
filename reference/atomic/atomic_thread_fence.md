@@ -81,7 +81,8 @@ assert(i == 1 || j == 1); // すなわち、i と j が共に0となることは
 | メモリオーダー | フェンス |
 |---------------------------------------------|------------------------------------------------------------------|
 | [`memory_order_relaxed`](memory_order.md) | 何も行わない |
-| [`memory_order_acquire`](memory_order.md)<br/>[`memory_order_consume`](/reference/atomic/memory_order.md) | acquireフェンス |
+| [`memory_order_acquire`](memory_order.md) | acquireフェンス |
+| [`memory_order_consume`](memory_order.md) | acquireフェンス(C++26で非推奨) |
 | [`memory_order_release`](memory_order.md) | releaseフェンス |
 | [`memory_order_acq_rel`](memory_order.md) | acquireフェンスとreleaseフェンスの両方 |
 | [`memory_order_seq_cst`](memory_order.md) | acquireフェンスとreleaseフェンスの両方に加え、順序一貫性も与える |
@@ -149,3 +150,4 @@ int main()
 - [Implementing Dekker's algorithm with Fences](https://www.justsoftwaresolutions.co.uk/threading/implementing_dekkers_algorithm_with_fences.html)
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [P3475R2 Defang and deprecate memory_order::consume](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf)

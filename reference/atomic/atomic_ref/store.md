@@ -27,7 +27,7 @@ constexpr void
 ## 事前条件
 `order`が以下のメモリオーダーではないこと：
 
-- [`memory_order_consume`](/reference/atomic/memory_order.md)
+- [`memory_order_consume`](/reference/atomic/memory_order.md) (C++26で非推奨)
 - [`memory_order_acquire`](/reference/atomic/memory_order.md)
 - [`memory_order_acq_rel`](/reference/atomic/memory_order.md)
 
@@ -88,3 +88,4 @@ int main()
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [P3475R2 Defang and deprecate memory_order::consume](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf)

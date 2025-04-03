@@ -3,15 +3,21 @@
 * std[meta namespace]
 * function template[meta id-type]
 * cpp11[meta cpp]
+* cpp26deprecated[meta cpp]
 
 ```cpp
 namespace std {
   template <class T>
   T kill_dependency(T y) noexcept;           // (1) C++11
   template <class T>
-  constexpr T kill_dependency(T y) noexcept; // (1) C++26
+  constexpr T kill_dependency(T y) noexcept; // (1) C++26(非推奨)
 }
 ```
+
+この関数は、C++26で非推奨となった。
+
+[`memory_order_consume`](memory_order.md)順序付けを実装したC++処理系は存在せず、本関数の代替機能も提供されない。
+
 
 ## 概要
 データ依存性を切る。
@@ -126,3 +132,5 @@ T kill_dependency(T y) noexcept
 - [（抄訳）N4215 `memory_order_consume`の利用と実装に向けて［§5-6のみ］](http://d.hatena.ne.jp/yohhoy/20141115/p1)
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [P3475R2 Defang and deprecate memory_order::consume](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf)
+    - C++26で`memory_order::consume`とあわせて`kill_dependency`関数を非推奨化。

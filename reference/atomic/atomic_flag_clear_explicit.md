@@ -31,7 +31,7 @@ namespace std {
 ## 要件
 `order`が以下のメモリオーダーではないこと：
 
-- [`memory_order_consume`](memory_order.md) (C++14)
+- [`memory_order_consume`](memory_order.md) (C++26で非推奨)
 - [`memory_order_acquire`](memory_order.md)
 - [`memory_order_acq_rel`](memory_order.md)
 
@@ -102,3 +102,4 @@ false
 - [LWG Issue 2138. `atomic_flag::clear` should not accept `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2138)
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [P3475R2 Defang and deprecate memory_order::consume](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf)
