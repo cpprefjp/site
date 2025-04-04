@@ -100,6 +100,15 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 ```
 * std::lower_bound[link lower_bound.md]
 
+## バージョン
+### 言語
+- C++98
+
+### 処理系
+- [Clang](/implementation.md#clang): 14.0.6 [mark verified]
+- [GCC](/implementation.md#gcc): 9.5.0 [mark verified]
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
 - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
