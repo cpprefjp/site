@@ -30,5 +30,9 @@ wchar_t c = L'é';  // C++20:OK, C++23:NG \u0065\u0301
 変数`c`のケースは1文字のように見えても複数のコードポイントで構成されており、マルチキャラクタリテラルの一種であるため禁止とする。
 
 
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++26 文字列リテラルの文字エンコーディング失敗を不適格とする](/lang/cpp26/making_non-encodable_string_literals_ill-formed.md)
+
+
 ## 参照
 - [P2362R3 Remove non-encodable wide character literals and multicharacter wide character literals](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2362r3.pdf)
