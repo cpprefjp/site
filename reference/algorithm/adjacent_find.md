@@ -147,6 +147,15 @@ ForwardIterator adjacent_find(ForwardIterator first, ForwardIterator last, Binar
 }
 ```
 
+## バージョン
+### 言語
+- C++98
+
+### 処理系
+- [Clang](/implementation.md#clang): 14.0.6 [mark verified]
+- [GCC](/implementation.md#gcc): 9.5.0 [mark verified]
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
