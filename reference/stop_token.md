@@ -24,7 +24,7 @@
 | [`inplace_stop_token`](stop_token/inplace_stop_token.md.nolink)       | インプレース停止トークン (class) | C++26 |
 | [`inplace_stop_source`](stop_token/inplace_stop_source.md.nolink)     | インプレース停止要求を発生させるクラス (class) | C++26 |
 | [`inplace_stop_callback`](stop_token/inplace_stop_callback.md.nolink) | インプレース停止要求に応じて呼び出されるコールバック (class template) | C++26 |
-| [`stop_callback_for_t`](stop_token/stop_callback_for_t.md.nolink) | 停止トークンに対応するコールバック型を取得 (alias template) | C++26 |
+| [`stop_callback_for_t`](stop_token/stop_callback_for_t.md) | 対応するコールバック型を取得 (alias template) | C++26 |
 
 
 ## バージョン

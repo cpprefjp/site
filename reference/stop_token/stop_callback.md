@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template<class Callback>
+  template<class CallbackFn>
   class stop_callback;
 }
 ```
@@ -17,7 +17,7 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|---------------------------------------------------|--------------------------------------------------------------------|-------|
+|------|------|-------|
 | [`(constructor)`](stop_callback/op_constructor.md)| コンストラクタ | C++20 |
 | [`(destructor)`](stop_callback/op_destructor.md)  | デストラクタ | C++20 |
 | `operator=(const stop_callback&) = delete;`       | 代入演算子 | C++20 |
@@ -25,21 +25,21 @@ namespace std {
 
 ## メンバ型
 
-| 名前            | 説明           | 対応バージョン |
-|-----------------|----------------|----------------|
-| `callback_type` | テンプレート引数`Callback`に指定した型| C++20 |
+| 名前 | 説明 | 対応バージョン |
+|------|------|-------|
+| `callback_type` | `CallbackFn` | C++20 |
 
 ## 推論補助
 
 | 名前 | 説明 | 対応バージョン |
-|---------------------------------------------|------------------------------------|-------|
+|------|------|-------|
 | [`(deduction_guide)`](stop_callback/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
 
 ## 適格要件
-テンプレート引数の`Callback`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
+テンプレート引数の`CallbackFn`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
 
 ## 事前条件
-テンプレート引数の`Callback`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
+テンプレート引数の`CallbackFn`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
 
 ## 例
 ```cpp example

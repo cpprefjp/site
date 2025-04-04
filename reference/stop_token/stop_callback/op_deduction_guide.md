@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std {
-  template <class Callback>
-  stop_callback(stop_token, Callback) -> stop_callback<Callback>;
+  template <class CallbackFn>
+  stop_callback(stop_token, CallbackFn) -> stop_callback<CallbackFn>;
 }
 ```
 

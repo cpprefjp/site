@@ -68,9 +68,9 @@ concept stoppable-callback-for =
 ```
 * invocable[link /reference/concepts/invocable.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* stop_callback_for_t[link stop_callback_for_t.md.nolink]
+* stop_callback_for_t[link stop_callback_for_t.md]
 
-説明用の`init`を[`same_as`](/reference/concepts/same_as.md)`<decltype(init), Initializer>`を満たす式、型`SCB`を[`stop_callback_for_t`](stop_callback_for_t.md.nolink)`<Token, CallbackFn>`とする。
+説明用の`init`を[`same_as`](/reference/concepts/same_as.md)`<decltype(init), Initializer>`を満たす式、型`SCB`を[`stop_callback_for_t`](stop_callback_for_t.md)`<Token, CallbackFn>`とする。
 
 `stoppable-callback-for<CallbackFn, Token, Initializer>`のモデルとなるには、下記を満たすこと。
 
