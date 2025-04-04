@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 `stop_token`クラスは、停止要求が作成されたかどうか、あるいは停止要求が作成されうるかどうかなど、停止状態を問い合わせるためのインターフェースを提供する。
 
-[`stop_source`](stop_source.md)クラスの[`get_token()`](./stop_source/get_token.md)メンバ関数を呼び出すと、その`stop_source`クラスのオブジェクトと停止状態を共有する`stop_token`クラスのオブジェクトを構築できる。これによって、`stop_source`側から停止要求を作成したときに、この`stop_token`を通じて停止状態を問い合わせられるようになる。
+[`stop_source`](stop_source.md)クラスの[`get_token()`](stop_source/get_token.md)メンバ関数を呼び出すと、その`stop_source`クラスのオブジェクトと停止状態を共有する`stop_token`クラスのオブジェクトを構築できる。これによって、`stop_source`側から停止要求を作成したときに、この`stop_token`を通じて停止状態を問い合わせられるようになる。
 
 また、`stop_token`クラスは以下のクラスでも利用される：
 
@@ -26,7 +26,7 @@ namespace std {
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
-|-------------------------------------------------|--------------------------------------------------------------------|-------|
+|------|------|-------|
 | [`(constructor)`](stop_token/op_constructor.md) | コンストラクタ | C++20 |
 | [`(destructor)`](stop_token/op_destructor.md)   | デストラクタ | C++20 |
 | [`operator=`](stop_token/op_assign.md)          | 代入演算子 | C++20 |
@@ -34,12 +34,19 @@ namespace std {
 | [`stop_requested`](stop_token/stop_requested.md)| 停止要求が作成されたかどうかを取得する | C++20 |
 | [`stop_possible`](stop_token/stop_possible.md)  | 停止要求が作成されうるかどうかを取得する | C++20 |
 
-## 非メンバ関数
+## メンバ型
+
 | 名前 | 説明 | 対応バージョン |
-|------------------------------------------------|---------------------------------------|-------|
-| [`operator==`](stop_token/op_equal.md)         | 等値演算子 | C++20 |
-| [`operator!=`](stop_token/op_not_equal.md)     | 非等値演算子 | C++20 |
-| [`swap`](stop_token/swap_free.md)              | 2つの`stop_token`オブジェクトを入れ替える | C++20 |
+|------|------|-------|
+| [`callback_type`](stop_token/callback_type.md) | 対応するコールバック型 (alias template) | C++26 |
+
+## 非メンバ関数
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|-------|
+| [`operator==`](stop_token/op_equal.md)     | 等値演算子 | C++20 |
+| [`operator!=`](stop_token/op_not_equal.md) | 非等値演算子 | C++20 |
+| [`swap`](stop_token/swap_free.md)          | 2つの`stop_token`オブジェクトを入れ替える | C++20 |
 
 
 ## 例

@@ -35,7 +35,7 @@ namespace std {
 
 ## 関連項目
 - [`stoppable_token`](stoppable_token.md)
-- [`never_stop_token`](never_stop_token.md.nolink)
+- [`never_stop_token`](never_stop_token.md)
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
