@@ -20,7 +20,7 @@
 | [`stop_source`](stop_token/stop_source.md)    | 停止要求を発生させるクラス (class) | C++20 |
 | [`stop_callback`](stop_token/stop_callback.md)| 停止要求に応じて呼び出されるコールバック (class template) | C++20 |
 | [`nostopstate`](stop_token/nostopstate.md)    | 停止状態を扱わない[`stop_source`](stop_token/stop_source.md)を構築するためのタグ (class) | C++20 |
-| [`never_stop_token`](stop_token/never_stop_token.md.nolink) | 停止不可能な停止トークン (class) | C++26 |
+| [`never_stop_token`](stop_token/never_stop_token.md) | 停止不可能な停止トークン (class) | C++26 |
 | [`inplace_stop_token`](stop_token/inplace_stop_token.md.nolink)       | インプレース停止トークン (class) | C++26 |
 | [`inplace_stop_source`](stop_token/inplace_stop_source.md.nolink)     | インプレース停止要求を発生させるクラス (class) | C++26 |
 | [`inplace_stop_callback`](stop_token/inplace_stop_callback.md.nolink) | インプレース停止要求に応じて呼び出されるコールバック (class template) | C++26 |
