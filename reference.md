@@ -73,7 +73,7 @@
 | [`<memory_resource>`](/reference/memory_resource.md) | 多相アロケータ       | C++17          |
 | [`<chrono>`](/reference/chrono.md)           | 時間ユーティリティ           | C++11          |
 | [`<typeindex>`](/reference/typeindex.md)     | 型のインデックス             | C++11          |
-| [`<execution>`](/reference/execution.md)     | 実行ポリシー                 | C++17          |
+| [`<execution>`](/reference/execution.md)     | 実行ポリシー、実行制御ライブラリ(C++26) | C++17          |
 | [`<charconv>`](/reference/charconv.md)       | 高速な文字列 ⇔ 数値変換     | C++17          |
 | [`<format>`](/reference/format.md)           | 文字列フォーマット           | C++20          |
 | [`<stacktrace>`](/reference/stacktrace.md)   | スタックトレース             | C++23          |

@@ -70,6 +70,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | base class                         | 基底クラス                   |
 | bidirectional iterator             | 双方向イテレータ             |
 | bucket                             | バケット                     |
+| completion signature               | 完了シグネチャ               |
 | complexity                         | 計算量                       |
 | compound type                      | 複合型                       |
 | const iterator                     | 読み取り専用イテレータ       |
@@ -121,6 +122,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | predicate                          | 述語                         |
 | propagation, propagate             | 伝播<br/> (伝搬は誤用が広まったものなので使わない) |
 | pure virtual function              | 純粋仮想関数                 |
+| query object                       | 問い合わせオブジェクト       | 
 | random access iterator             | ランダムアクセスイテレータ   |
 | range                              | 一般用途の場合：範囲<br/> Rangeアルゴリズム・Rangeアダプタ・Rangeオブジェクトの場合：Range<br/> range-based for：範囲for文<br/> 2つのイテレータによる範囲：イテレータ範囲 |
 | region of RCU protection           | RCU保護区間                  |
@@ -134,6 +136,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | static extent                      | (std::mdspanの) 静的要素数   |
 | stop request                       | 停止要求                     |
 | stop state                         | 停止状態                     |
+| stop token                         | 停止トークン                 |
 | Spurious Failure                   | 見かけ上の失敗<br/> [https://togetter.com/li/430770](https://togetter.com/li/430770) |
 | strict weak ordering               | 狭義の弱順序                 |
 | stride                             | (std::mdspanの) ストライド幅 |
