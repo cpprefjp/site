@@ -65,6 +65,18 @@ int main() {
 - `suffix(0xFE, 0xFF)`では、`data.bin`の内容のあとに`0xFE 0xFF`のバイト列を追加している。
 - `if_empty(0x00)`では、`data.bin`がからであった場合、`0x00`のバイト列を格納している。
 
+また、`#embed`ディレクティブは、複数のパラメータを**順不同**で組み合わせて指定することもできる。
+
+```cpp example
+int main() {
+  constexpr unsigned char combined_data[] = {
+    #embed "data.bin" limit(1024) prefix(0x01, 0x02) suffix(0xFF) if_empty(0x00)
+  };
+}
+```
+これは、`limit(1024)`でファイルサイズを1024バイトに制限し、`prefix(0x01, 0x02)`で先頭バイト列`0x01 0x02`を追加し、
+`suffix(0xFF)`で末尾`0xFF`を追加し、`if_empty(0x00)`で空の場合は`0x00`を格納することになる。
+
 
 ## 参照
 - [P1967R14 #embed - a scannable, tooling-friendly binary resource inclusion mechanism](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1967r14.html)
