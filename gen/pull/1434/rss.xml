@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-04-05T13:31:49.918320</updated>
-  <id>1989a6ac-e11e-4fd1-9017-d2039f240187</id>
+  <updated>2025-04-05T14:40:13.385867</updated>
+  <id>14204e77-eee2-4e1f-8fd6-487c2ad7dcb6</id>
 
   
     <entry>
       <title>splice -- fix: remove unnecessary `std::move` in splice of `std::list`</title>
       <link href="https://cpprefjp.github.io/reference/list/list/splice.html"/>
-      <id>3043c60b4a02949c1fbc7baba443170e5665b028:reference/list/list/splice.md</id>
-      <updated>2025-04-05T06:27:12-07:00</updated>
+      <id>3fb56b866798869aa88bf8b556f86df3d628ae5d:reference/list/list/splice.md</id>
+      <updated>2025-04-05T07:35:03-07:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/splice.md b/reference/list/list/splice.md
-index a04fcd507..dbee51cdb 100644
+index a04fcd507..1ef73e11b 100644
 --- a/reference/list/list/splice.md
 +++ b/reference/list/list/splice.md
 @@ -74,7 +74,6 @@ void splice(const_iterator position, list&amp;amp;&amp;amp; x,
@@ -60,7 +60,7 @@ index a04fcd507..dbee51cdb 100644
  
      print(xs);
    }
-@@ -125,14 +124,13 @@ int main()
+@@ -125,7 +124,6 @@ int main()
  ```
  * splice[color ff0000]
  * begin()[link begin.md]
@@ -68,17 +68,6 @@ index a04fcd507..dbee51cdb 100644
  
  ### 出力
  ```
--1 2 3 4 5 6 
--1 4 5 6 
--1 2 4 5 6 
--1 2 3 4 5 6 
-+1 2 3 4 5 6
-+1 4 5 6
-+1 2 4 5 6
-+1 2 3 4 5 6
- ```
- 
- ## 参照
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
