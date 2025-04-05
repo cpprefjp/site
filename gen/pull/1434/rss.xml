@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-04-05T13:31:49.918320</updated>
+  <id>1989a6ac-e11e-4fd1-9017-d2039f240187</id>
+
+  
+    <entry>
+      <title>splice -- fix: remove unnecessary `std::move` in splice of `std::list`</title>
+      <link href="https://cpprefjp.github.io/reference/list/list/splice.html"/>
+      <id>3043c60b4a02949c1fbc7baba443170e5665b028:reference/list/list/splice.md</id>
+      <updated>2025-04-05T06:27:12-07:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/splice.md b/reference/list/list/splice.md
+index a04fcd507..dbee51cdb 100644
+--- a/reference/list/list/splice.md
++++ b/reference/list/list/splice.md
+@@ -74,7 +74,6 @@ void splice(const_iterator position, list&amp;amp;&amp;amp; x,
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;list&amp;gt;
+-#include &amp;lt;utility&amp;gt; // move
+ 
+ template &amp;lt;class T&amp;gt;
+ void print(const std::list&amp;lt;T&amp;gt;&amp;amp; ls)
+@@ -90,7 +89,7 @@ int main()
+     std::list&amp;lt;int&amp;gt; xs = {4, 5, 6};
+     std::list&amp;lt;int&amp;gt; ys = {1, 2, 3};
+ 
+-    xs.splice(xs.begin(), std::move(ys));
++    xs.splice(xs.begin(), ys);
+ 
+     print(xs);
+   }
+@@ -99,7 +98,7 @@ int main()
+     std::list&amp;lt;int&amp;gt; xs = {4, 5, 6};
+     std::list&amp;lt;int&amp;gt; ys = {1, 2, 3};
+ 
+-    xs.splice(xs.begin(), std::move(ys), ys.begin());
++    xs.splice(xs.begin(), ys, ys.begin());
+ 
+     print(xs);
+   }
+@@ -108,7 +107,7 @@ int main()
+     std::list&amp;lt;int&amp;gt; xs = {4, 5, 6};
+     std::list&amp;lt;int&amp;gt; ys = {1, 2, 3};
+ 
+-    xs.splice(xs.begin(), std::move(ys), ys.begin(), std::next(ys.begin(), 2));
++    xs.splice(xs.begin(), ys, ys.begin(), std::next(ys.begin(), 2));
+ 
+     print(xs);
+   }
+@@ -117,7 +116,7 @@ int main()
+     std::list&amp;lt;int&amp;gt; xs = {1, 2, 3};
+     std::list&amp;lt;int&amp;gt; ys = {4, 5, 6};
+ 
+-    xs.splice(xs.end(), std::move(ys));
++    xs.splice(xs.end(), ys);
+ 
+     print(xs);
+   }
+@@ -125,14 +124,13 @@ int main()
+ ```
+ * splice[color ff0000]
+ * begin()[link begin.md]
+-* std::move[link /reference/utility/move.md]
+ 
+ ### 出力
+ ```
+-1 2 3 4 5 6 
+-1 4 5 6 
+-1 2 4 5 6 
+-1 2 3 4 5 6 
++1 2 3 4 5 6
++1 4 5 6
++1 2 4 5 6
++1 2 3 4 5 6
+ ```
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Keita Nonaka</name>
+        <email>iKonnyaku40@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase -- fix statement position</title>
+      <link href="https://cpprefjp.github.io/reference/vector/vector/erase.html"/>
+      <id>ba2b7c94d13ed76e045f28c4a6c8d87373ba7923:reference/vector/vector/erase.md</id>
+      <updated>2025-04-05T17:55:42+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/vector/vector/erase.md b/reference/vector/vector/erase.md
+index 30b9ce33d..6d4fe195c 100644
+--- a/reference/vector/vector/erase.md
++++ b/reference/vector/vector/erase.md
+@@ -32,11 +32,11 @@ constexpr iterator erase(const_iterator first,
+ 
+ 
+ ## 戻り値
+-削除された要素の次の要素を指すイテレータを返す。そのような要素が存在しない場合は、[`end()`](end.md)を返す。さらに、削除された要素以降の要素の数と同じ回数の`T`のムーブ代入演算子が呼ばれる。
++削除された要素の次の要素を指すイテレータを返す。そのような要素が存在しない場合は、[`end()`](end.md)を返す。
+ 
+ 
+ ## 計算量
+-削除される要素の数と同じ回数の`T`のデストラクタが実行される。
++削除される要素の数と同じ回数の`T`のデストラクタが実行される。さらに、削除された要素以降の要素の数と同じ回数の`T`のムーブ代入演算子が呼ばれる。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>I</name>
+        <email>1091761+wx257osn2@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>文字列リテラルの文字エンコーディング失敗を不適格とする [P1854R4] -- C++26 「文字列リテラルの文字エンコーディング失敗を不適格とする」 : 例を見直し</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/making_non-encodable_string_literals_ill-formed.html"/>
+      <id>e897a1649efc952baf4e9f66508e25ea37cca81a:lang/cpp26/making_non-encodable_string_literals_ill-formed.md</id>
+      <updated>2025-04-05T13:07:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/making_non-encodable_string_literals_ill-formed.md b/lang/cpp26/making_non-encodable_string_literals_ill-formed.md
+index 10bf6463f..629db80db 100644
+--- a/lang/cpp26/making_non-encodable_string_literals_ill-formed.md
++++ b/lang/cpp26/making_non-encodable_string_literals_ill-formed.md
+@@ -20,13 +20,12 @@ wchar_t c = L&amp;#39;é&amp;#39;;  // C++20:OK, C++23:NG \u0065\u0301
+ 
+ C++26ではさらに、文字列リテラルとしてエンコーディングできない文字の扱いが実装定義でコンパイラーに任されていたものを、不適格になるよう仕様変更する。
+ 
++また、マルチ文字リテラル (ひとつの文字リテラルに4文字まで入れられて値が実装定義なもの。例として`&amp;#39;intl&amp;#39;`) については、単一のコードユニットにエンコードされるもののみ許可される。
++
+ ```cpp
+-wchar_t ao = L&amp;#39;\x123456789abcdef0&amp;#39;; // C++23:実装定義, C++26:NG (範囲外)
+-char16_t ap = u&amp;#39;\x12345678&amp;#39;;        // C++23:実装定義, C++26:NG (範囲外)
++char c = &amp;#39;é&amp;#39;; // C++23:実装定義, C++26:NG グレイブアクセントをつけると複数のコードユニットになる
+ ```
+ 
+-また、マルチ文字リテラル (ひとつの文字リテラルに4文字まで入れられて値が実装定義なもの。例として`&amp;#39;intl&amp;#39;`) については、単一のコードユニットにエンコードされるもののみ許可される。
+-
+ 
+ ## 関連項目
+ - [C++23 1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count -- Created version column for reference/algorithm/count.md</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/count.html"/>
+      <id>2402f98c65f4075b8216eca984ad0f1a9d5a22d9:reference/algorithm/count.md</id>
+      <updated>2025-04-04T23:01:39+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/count.md b/reference/algorithm/count.md
+index afedd7ede..d8ae4e993 100644
+--- a/reference/algorithm/count.md
++++ b/reference/algorithm/count.md
+@@ -72,6 +72,15 @@ typename iterator_traits&amp;lt;InputIterator&amp;gt;::difference_type
+ }
+ ```
+ 
++## バージョン
++### 言語
++- C++98
++
++### 処理系
++- [Clang](/implementation.md#clang): 14.0.6 [mark verified]
++- [GCC](/implementation.md#gcc): 9.5.0 [mark verified]
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
+ 
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count_if -- Created version column for reference/algorithm/count_if.md</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/count_if.html"/>
+      <id>0b980b4649a61958f5cc9156ed85f76e99efd0ba:reference/algorithm/count_if.md</id>
+      <updated>2025-04-04T22:58:40+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/count_if.md b/reference/algorithm/count_if.md
+index a8bc4938a..c17a48ee2 100644
+--- a/reference/algorithm/count_if.md
++++ b/reference/algorithm/count_if.md
+@@ -73,6 +73,16 @@ typename iterator_traits&amp;lt;InputIterator&amp;gt;::difference_type
+ }
+ ```
+ 
++## バージョン
++### 言語
++- C++98
++
++### 処理系
++- [Clang](/implementation.md#clang): 14.0.6 [mark verified]
++- [GCC](/implementation.md#gcc): 9.5.0 [mark verified]
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
+ 
+ ## 参照
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
