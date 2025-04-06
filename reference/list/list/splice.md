@@ -74,7 +74,6 @@ void splice(const_iterator position, list&& x,
 ```cpp example
 #include <iostream>
 #include <list>
-#include <utility> // move
 
 template <class T>
 void print(const std::list<T>& ls)
@@ -90,7 +89,7 @@ int main()
     std::list<int> xs = {4, 5, 6};
     std::list<int> ys = {1, 2, 3};
 
-    xs.splice(xs.begin(), std::move(ys));
+    xs.splice(xs.begin(), ys);
 
     print(xs);
   }
@@ -99,7 +98,7 @@ int main()
     std::list<int> xs = {4, 5, 6};
     std::list<int> ys = {1, 2, 3};
 
-    xs.splice(xs.begin(), std::move(ys), ys.begin());
+    xs.splice(xs.begin(), ys, ys.begin());
 
     print(xs);
   }
@@ -108,7 +107,7 @@ int main()
     std::list<int> xs = {4, 5, 6};
     std::list<int> ys = {1, 2, 3};
 
-    xs.splice(xs.begin(), std::move(ys), ys.begin(), std::next(ys.begin(), 2));
+    xs.splice(xs.begin(), ys, ys.begin(), std::next(ys.begin(), 2));
 
     print(xs);
   }
@@ -117,7 +116,7 @@ int main()
     std::list<int> xs = {1, 2, 3};
     std::list<int> ys = {4, 5, 6};
 
-    xs.splice(xs.end(), std::move(ys));
+    xs.splice(xs.end(), ys);
 
     print(xs);
   }
@@ -125,7 +124,6 @@ int main()
 ```
 * splice[color ff0000]
 * begin()[link begin.md]
-* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```
