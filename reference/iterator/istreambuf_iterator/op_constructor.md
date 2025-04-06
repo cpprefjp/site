@@ -5,18 +5,31 @@
 * function[meta id-type]
 
 ```cpp
-constexpr istreambuf_iterator() noexcept;
-istreambuf_iterator(const istreambuf_iterator&) noexcept = default;
-istreambuf_iterator(istream_type& s) noexcept;
-istreambuf_iterator(streambuf_type* s) noexcept;
-istreambuf_iterator(const proxy& p) noexcept;
+istreambuf_iterator() throw();            // (1) C++03
+constexpr istreambuf_iterator() noexcept; // (1) C++11
+
+constexpr istreambuf_iterator(default_sentinel_t) noexcept; // (2) C++11
+
+istreambuf_iterator(const istreambuf_iterator&) noexcept = default; // (3) C++11
+
+istreambuf_iterator(istream_type& s) throw();  // (4) C++03
+istreambuf_iterator(istream_type& s) noexcept; // (4) C++11
+
+istreambuf_iterator(streambuf_type* s) throw();  // (5) C++03
+istreambuf_iterator(streambuf_type* s) noexcept; // (5) C++11
+
+istreambuf_iterator(const proxy& p) throw();  // (6) C++03
+istreambuf_iterator(const proxy& p) noexcept; // (6) C++11
 ```
+* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## istreambuf_iteratorオブジェクトの構築
-- `istreambuf_iterator()`<br/>デフォルトコンストラクタメンバ変数として保持する`streambuf`オブジェクトへのポインタをヌル初期化する。
-- `istreambuf_iterator(istreamtype& s) noexcept`<br/>`s.rdbuf()`をメンバ変数として保持する。
-- `istreambuf_iterator(streambuf_type* s) noexcept`<br/>`s`をメンバ変数として保持する
-- `istreambuf_iterator(const proxy& p) noexcept`<br/>後置`operator++()`が返すであろうproxyオブジェクトを受け取り、そのオブジェクトが指す`streambuf`オブジェクトへのポインタをメンバ変数として保持する。
+- (1) : デフォルトコンストラクタ。メンバ変数として保持する`streambuf`オブジェクトへのポインタをヌル初期化する。
+- (2) : [`default_sentinel`](/reference/iterator/default_sentinel_t.md)を受け取り、(1)と同等の構築をより明示的に行う。
+- (3) : コピーコンストラクタ。
+- (4) : `s.rdbuf()`をメンバ変数として保持する。
+- (5) : `s`をメンバ変数として保持する。
+- (6) : 後置`operator++()`が返すであろうproxyオブジェクトを受け取り、そのオブジェクトが指す`streambuf`オブジェクトへのポインタをメンバ変数として保持する。
 
 
 ## 例
