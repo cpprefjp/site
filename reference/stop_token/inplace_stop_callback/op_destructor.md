@@ -1,18 +1,16 @@
-# callback_type
+# デストラクタ
 * stop_token[meta header]
 * std[meta namespace]
-* inplace_stop_token[meta class]
-* type-alias[meta id-type]
+* inplace_stop_callback[meta class]
+* function[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
-template<class CallbackFn>
-using callback_type = inplace_stop_callback<CallbackFn>;
+~inplace_stop_callback();
 ```
-* inplace_stop_callback[link ../inplace_stop_callback.md]
 
-## 概要
-`inplace_stop_token`に対応するコールバック型。
+## 効果
+[停止可能コールバック登録解除](../stoppable_token.md)を実行する。
 
 
 ## バージョン
@@ -20,8 +18,8 @@ using callback_type = inplace_stop_callback<CallbackFn>;
 - C++26
 
 ### 処理系
-- [GCC](/implementation.md#gcc): ??
 - [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

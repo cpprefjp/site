@@ -74,7 +74,7 @@ int main()
 
 ## 関連項目
 - [`inplace_stop_source`](inplace_stop_source.md)
-- [`inplace_stop_callback`](inplace_stop_callback.md.nolink)
+- [`inplace_stop_callback`](inplace_stop_callback.md)
 
 
 ## 参照

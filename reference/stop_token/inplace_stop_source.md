@@ -58,7 +58,7 @@ int main()
 ```
 * std::inplace_stop_source[color ff0000]
 * std::inplace_stop_token[link inplace_stop_token.md]
-* std::inplace_stop_callback[link inplace_stop_callback.md.nolink]
+* std::inplace_stop_callback[link inplace_stop_callback.md]
 * stop_requested()[link inplace_stop_token/stop_requested.md]
 * request_stop()[link inplace_stop_source/request_stop.md]
 * get_token()[link inplace_stop_source/get_token.md]
@@ -81,7 +81,7 @@ int main()
 
 ## 関連項目
 - [`inplace_stop_token`](inplace_stop_token.md)
-- [`inplace_stop_callback`](inplace_stop_callback.md.nolink)
+- [`inplace_stop_callback`](inplace_stop_callback.md)
 
 
 ## 参照

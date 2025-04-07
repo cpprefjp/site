@@ -10,14 +10,19 @@
 ```
 
 ## 効果
-もし所有している停止状態があれば、それに対して登録しているコールバックを解除する。
+[停止可能コールバック登録解除](../stoppable_token.md)を実行する（備考欄を参照）。
+
+ほかに停止状態を共有しているオブジェクトがいない場合は、停止状態を扱うために確保したリソースを解放する。
+
+
+## 備考
+停止可能コールバック登録解除は次のように行われる。
 
 もし自身と同じ停止状態を共有しているほかの[`stop_callback`](../stop_callback.md)が存在してそのコールバックが実行中だったとしても、自身のデストラクタの実行はブロックされない。
 
 もしデストラクタの呼び出し中に自身のコールバックが別のスレッドで実行中だった場合は、そのコールバックの呼び出しから処理が戻るまでは、`stop_callback`のコンストラクタで受け取った関数オブジェクトが破棄されないようにデストラクタの実行がブロックされる。  
 もしデストラクタの呼び出し中に自身のコールバックが同じスレッドで実行中だった場合は、デストラクタの実行はブロックされない。
 
-ほかに停止状態を共有しているオブジェクトがいない場合は、停止状態を扱うために確保したリソースを解放する。
 
 ## 例
 ```cpp example
@@ -129,10 +134,13 @@ int main()
 ### 言語
 - C++20
 
-
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [P0660R10 Stop token and joining thread](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)

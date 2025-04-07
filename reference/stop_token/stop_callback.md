@@ -14,6 +14,11 @@ namespace std {
 ## 概要
 `stop_callback`クラステンプレートは、停止要求が作成された際に呼び出されるコールバックを表す。
 
+
+## 適格要件
+テンプレート引数`CallbackFn`が[`invocable`](/reference/concepts/invokable.md.nolink)および[`destructible`](/reference/concepts/destructible.md)を満たすこと。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -35,11 +40,6 @@ namespace std {
 |------|------|-------|
 | [`(deduction_guide)`](stop_callback/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
 
-## 適格要件
-テンプレート引数の`CallbackFn`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
-
-## 事前条件
-テンプレート引数の`CallbackFn`は[`invocable`](/reference/concepts/invokable.md.nolink)と[`destructible`](/reference/concepts/destructible.md)制約を満たさなければならい。
 
 ## 例
 ```cpp example
@@ -91,3 +91,11 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 関連項目
+- [`stop_token`](stop_token.md)
+- [`stop_source`](stop_source.md)
+
+
+## 参照
+- [P0660R10 Stop token and joining thread](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
