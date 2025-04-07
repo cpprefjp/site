@@ -8,7 +8,7 @@
 istreambuf_iterator() throw();            // (1) C++03
 constexpr istreambuf_iterator() noexcept; // (1) C++11
 
-constexpr istreambuf_iterator(default_sentinel_t) noexcept; // (2) C++11
+constexpr istreambuf_iterator(default_sentinel_t) noexcept; // (2) C++20
 
 istreambuf_iterator(const istreambuf_iterator&) noexcept = default; // (3) C++11
 
