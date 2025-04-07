@@ -9,11 +9,11 @@ namespace std {
   [[nodiscard]]
   friend bool
     operator==(const stop_token& lhs,
-               const stop_token& rhs) noexcept; // (1) C++20
-  friend bool
-    operator==(const stop_token& lhs,
-               const stop_token& rhs) noexcept; // (1) C++26
+               const stop_token& rhs) noexcept; // (1) C++20 非メンバ関数
 }
+```
+```cpp
+bool operator==(const stop_token& rhs) const noexcept = default; // (1) C++26 メンバ関数
 ```
 
 ## 概要
@@ -24,6 +24,10 @@ namespace std {
 
 ## 例外
 投げない。
+
+## 備考
+C++26で`[[nodiscard]]`指定が削除され、非メンバ関数からメンバ関数に定義変更される。動作仕様に変更はない。
+
 
 ## 例
 ```cpp example
@@ -67,5 +71,8 @@ int main()
 
 
 ## 参照
+- [P0660R10 Stop token and joining thread](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+    - C++26で非メンバ関数からメンバ関数に定義変更

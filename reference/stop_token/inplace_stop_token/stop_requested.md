@@ -1,21 +1,21 @@
-# get_token
+# stop_requested
 * stop_token[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* inplace_stop_source[meta class]
+* inplace_stop_token[meta class]
 * cpp26[meta cpp]
 
 ```cpp
-constexpr inplace_stop_token get_token() const noexcept;
+bool stop_requested() const noexcept;
 ```
-* inplace_stop_token[link ../inplace_stop_token.md]
 
 ## 概要
-自身の停止状態を参照する[`inplace_stop_token`](../inplace_stop_token.md)を返す。
+停止要求が作成されたかどうかを返す。
 
 
-## 戻り値
-自身が所有する停止状態に関連付けられた[`inplace_stop_token`](../inplace_stop_token.md)を返す。
+## 効果
+自身が[`inplace_stop_source`](../inplace_stop_source.md)を参照し、かつ[`stop_requested`](../inplace_stop_source/stop_requested.md)が`true`の場合に限って、`true`を返す。
+そうでなければ、`false`を返す。
 
 
 ## 例外

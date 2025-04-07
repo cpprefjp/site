@@ -30,6 +30,10 @@ x.swap(y);
 なし
 
 
+## 備考
+C++26で`swap`非メンバ関数は`stop_token`クラス定義から削除されるが、[`std::swap`](/reference/utility/swap.md)の値版により従来動作は維持される。
+
+
 ## 例
 ```cpp example
 #include <cassert>
@@ -69,3 +73,8 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [P0660R10 Stop token and joining thread](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+    - C++26で非メンバ関数`swap`定義を削除

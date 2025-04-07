@@ -110,7 +110,7 @@ concept stoppable-callback-for =
 ## 関連項目
 - [`unstoppable_token`](unstoppable_token.md)
 - [`stop_token`](stop_token.md)
-- [`inplace_stop_token`](inplace_stop_token.md.nolink)
+- [`inplace_stop_token`](inplace_stop_token.md)
 - [`never_stop_token`](never_stop_token.md)
 
 
