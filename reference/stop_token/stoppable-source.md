@@ -36,9 +36,9 @@ concept stoppable-source =
 - `request_stop`, `stop_requested`, `stop_possible`メンバ関数の呼び出しはデータ競合を引き起こさない。
 - `true`を返す`request_stop`呼び出しは、`stopppable_token`または`stoppable-source`オブジェクトにおける`true`を返す`stop_requested`呼び出しに対して同期する。
 - コールバックの登録は、そのコールバック呼び出しに対して同期する。
-- `stoppable-source`が停止状態を持たないとき、`request_stop`は効果をもたず`false`を返す。そうでなければ、関連づけられた停止状態に対して停止要求操作を実行する。
-- 停止要求操作は停止状態が停止要求を受信済みか否かを判定し、未受信であれば停止要求を行う。この判定はアトミックに行われる。
-- 停止要求が行われたとき、停止状態に登録されているコールバックが同期的に実行される。コールバック呼び出しが例外で終了した場合、[`terminate`](/reference/exception/terminate.md)が呼び出される。
+- `stoppable-source`が停止状態を持たないとき、`request_stop`は効果をもたず`false`を返す。そうでなければ、関連づけられた停止状態に対して次の停止要求操作を実行する。
+    - 停止要求操作は停止状態が停止要求を受信済みか否かを判定し、未受信であれば停止要求を行う。この判定はアトミックに行われる。
+    - 停止要求が行われたとき、停止状態に登録されているコールバックが同期的に実行される。コールバック呼び出しが例外で終了した場合、[`terminate`](/reference/exception/terminate.md)が呼び出される。
 - 停止要求が行われたとき`request_stop`は`true`を返す。そうでなければ`false`を返す。
 - `request_stop`呼び出し後は、`stop_possible`が`false`を返すか、`stop_requested`が`true`を返す。
 

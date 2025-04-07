@@ -13,15 +13,8 @@ bool request_stop() noexcept;
 自身が所有している停止状態に対して停止要求を作成する。
 
 ## 効果
-自身が停止状態を所有していない場合は何もせず`false`を返す。
-
-それ以外の場合は、自身の所有している停止状態が停止要求を受け取っているかどうかをアトミックに判定し、まだ停止要求を受け取っていない場合は停止要求を作成する。  
-この判定処理と停止要求の作成処理は、`read-modify-write`操作によってアトミックに行われる。  
-停止要求を受け取っていると判定した場合は何もせず`false`を返す。
-
-停止要求が作成されたときは、この停止状態に対して登録されている[`stop_callback`](../stop_callback.md)のコールバックが同期的に呼び出される。このコールバックの呼び出しが例外によって終了した場合は、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
-
-もし停止要求が作成されたときに、割り込み可能な待機関数（[`wait()`](/reference/condition_variable/condition_variable_any/wait.md)／[`wait_for()`](/reference/condition_variable/condition_variable_any/wait_for.md)／[`wait_until()`](/reference/condition_variable/condition_variable_any/wait_until.md)）で待機中の[`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)が存在している場合は、そのような`condition_variable_any`全てに対して起床通知が送られ、待機関数から処理が戻る。
+停止状態を所有している場合は、[停止要求操作](../stoppable-source.md)を実行する（備考欄を参照）。
+そうでなければ、何もせず`false`を返す。
 
 ## 戻り値
 この関数の呼び出しによって停止要求が作成された場合は`true`を返す。
@@ -30,6 +23,16 @@ bool request_stop() noexcept;
 
 ## 例外
 投げない。
+
+## 備考
+停止要求操作では、停止状態が停止要求を受け取っているかどうかをアトミックに判定し、まだ停止要求を受け取っていない場合は停止要求を作成する。  
+この判定処理と停止要求の作成処理は、`read-modify-write`操作と同様にアトミックに行われる。  
+停止要求を受け取っていると判定した場合は何もせず`false`を返す。
+
+停止要求が作成されたときは、この停止状態に対して登録されている[`stop_callback`](../stop_callback.md)のコールバックが同期的に呼び出される。このコールバックの呼び出しが例外によって終了した場合は、[`std::terminate()`](/reference/exception/terminate.md)関数が呼び出され、プログラムが異常終了する。
+
+もし停止要求が作成されたときに、割り込み可能な待機関数（[`wait()`](/reference/condition_variable/condition_variable_any/wait.md)／[`wait_for()`](/reference/condition_variable/condition_variable_any/wait_for.md)／[`wait_until()`](/reference/condition_variable/condition_variable_any/wait_until.md)）で待機中の[`condition_variable_any`](/reference/condition_variable/condition_variable_any.md)が存在している場合は、そのような`condition_variable_any`全てに対して起床通知が送られ、待機関数から処理が戻る。
+
 
 ## 例
 ```cpp example
@@ -130,3 +133,7 @@ int main()
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+
+## 参照
+- [P0660R10 Stop token and joining thread](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)

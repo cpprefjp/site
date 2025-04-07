@@ -20,18 +20,18 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`(constructor)`](inplace_stop_source/op_constructor.md.nolink) | コンストラクタ | C++26 |
+| [`(constructor)`](inplace_stop_source/op_constructor.md) | コンストラクタ | C++26 |
 | `(destructor)` | デストラクタ | C++26 |
 | `operator=` | 代入演算子 | C++26 |
-| [`get_token`](inplace_stop_source/get_token.md.nolink) | 自身の停止状態を参照する[`inplace_stop_token`](inplace_stop_token.md.nolink)を返す | C++26 |
-| [`stop_requested`](inplace_stop_source/stop_requested.md.nolink) | 停止要求を作成したかどうかを取得する | C++26 |
-| [`request_stop`](inplace_stop_source/request_stop.md.nolink) | 停止要求を作成する | C++26 |
+| [`get_token`](inplace_stop_source/get_token.md) | 自身の停止状態を参照する[`inplace_stop_token`](inplace_stop_token.md.nolink)を返す | C++26 |
+| [`stop_requested`](inplace_stop_source/stop_requested.md) | 停止要求を作成したかどうかを取得する | C++26 |
+| [`request_stop`](inplace_stop_source/request_stop.md) | 停止要求を作成する | C++26 |
 
 ## 静的メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`stop_possible`](inplace_stop_source/stop_possible.md.nolink) | 停止要求を作成可能どうかを取得する | C++26 |
+| [`stop_possible`](inplace_stop_source/stop_possible.md) | 停止要求を作成可能どうかを取得する | C++26 |
 
 
 ## 例
@@ -60,8 +60,8 @@ int main()
 * std::inplace_stop_token[link inplace_stop_token.md.nolink]
 * std::inplace_stop_callback[link inplace_stop_callback.md.nolink]
 * stop_requested()[link inplace_stop_token/stop_requested.md.nolink]
-* request_stop()[link inplace_stop_source/request_stop.md.nolink]
-* get_token()[link inplace_stop_source/get_token.md.nolink]
+* request_stop()[link inplace_stop_source/request_stop.md]
+* get_token()[link inplace_stop_source/get_token.md]
 
 ### 出力
 ```
