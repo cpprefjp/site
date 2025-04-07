@@ -25,7 +25,7 @@ C++26では、以下のようにモジュール名をマクロ (プリプロセ�
 // lib.cppm:
 module;
 #include "version.h"
-export module VERSION; // C++23: OK, C++26: NG
+export module VERSION; // コンパイルエラー！
 ```
 
 この仕様は、C++20の欠陥として扱われる。そのため、C++20やC++23に対応したコンパイラですでに実装されている可能性がある。
