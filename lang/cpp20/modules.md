@@ -490,6 +490,7 @@ int main() {
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++23 無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md)
+- [C++26 モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md)
 
 
 ## 参照

@@ -102,7 +102,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md.nolink) | `export module MACRO_NAME;`を禁止 |
+| [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md) | `export module MACRO_NAME;`を禁止 |
 
 
 ### 機能の非推奨化
