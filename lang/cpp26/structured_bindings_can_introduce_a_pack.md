@@ -81,7 +81,7 @@ auto dot_product(P p, Q q) {
 
 C++26の場合：
 
-```
+```cpp
 template <class P, class Q>
 auto dot_product(P p, Q q) {
   // applyが必要なくなる
