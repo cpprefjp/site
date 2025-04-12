@@ -58,12 +58,12 @@ namespace std::execution {
 |------|------|----------------|
 | [`execution::scheduler`](execution/scheduler.md.nolink) | Scheduler (concept) | C++26 |
 
-### Reciever
+### Receiver
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`execution::receiver`](execution/receiver.md.nolink) | Reciever (concept) | C++26 |
-| [`execution::receiver_of`](execution/receiver_of.md.nolink) | 完了ハンドラ指定Reciever (concept) | C++26 |
+| [`execution::receiver`](execution/receiver.md.nolink) | Receiver (concept) | C++26 |
+| [`execution::receiver_of`](execution/receiver_of.md.nolink) | 完了ハンドラ指定Receiver (concept) | C++26 |
 | [`execution::set_value`](execution/set_value.md.nolink) | 値による完了関数 (customization point object) | C++26 |
 | [`execution::set_error`](execution/set_error.md.nolink) | エラーによる完了関数 (customization point object) | C++26 |
 | [`execution::set_stopped`](execution/set_stopped.md.nolink) | 停止による完了関数 (customization point object) | C++26 |
@@ -80,9 +80,9 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::default_domain`](execution/default_domain.md.nolink) | デフォルト実行ドメイン (class) | C++26 |
-| [`execution::sender`](execution/sender.md.nolink) | Sender (concept) | C++26 |
-| [`execution::sender_in`](execution/sender_in.md.nolink) | 環境に対応するSender (concept) | C++26 |
-| [`execution::sender_to`](execution/sender_to.md.nolink) | Recieverに対応するSender (concept) | C++26 |
+| [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
+| [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
+| [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
 | [`execution::get_completion_signatures`](execution/get_completion_signatures.md.nolink) | 完了シグネチャ取得の問い合わせオブジェクト (customization point object) | C++26 |
 | [`execution::completion_signatures_of_t`](execution/get_completion_signatures.md.nolink) | Senderから完了シグネチャを取得 (alias template) | C++26 |
 | [`execution::value_types_of_t`](execution/value_types_of_t.md.nolink) | Senderの値完了型を取得 (alias template) | C++26 |
@@ -92,7 +92,7 @@ namespace std::execution {
 | [`execution::transform_sender`](execution/transform_sender.md.nolink) | Senderを変換 (function template) | C++26 |
 | [`execution::transform_env`](execution/transform_env.md.nolink) | 問い合わせオブジェクトを変換 (function template) | C++26 |
 | [`execution::apply_sender`](execution/apply_sender.md.nolink) | Senderにタグ型と引数を適用 (function template) | C++26 |
-| [`execution::connect`](execution/connect.md.nolink) | SenderとRecieverを接続 (customization point object) | C++26 |
+| [`execution::connect`](execution/connect.md.nolink) | SenderとReceiverを接続 (customization point object) | C++26 |
 | [`execution::connect_result_t`](execution/connect_result_t.md.nolink) | `connect`結果型を取得 (alias template) | C++26 |
 
 ### Senderファクトリ
@@ -102,7 +102,7 @@ namespace std::execution {
 | [`execution::just`](execution/just.md.nolink) | 値を送信するSender (customization point object) | C++26 |
 | [`execution::just_error`](execution/just_error.md.nolink) | エラーを送信するSender (customization point object) | C++26 |
 | [`execution::just_stopped`](execution/just_stopped.md.nolink) | 停止を送信するSender (customization point object) | C++26 |
-| [`execution::read_env`](execution/read_env.md.nolink) | Reciever環境から構築されるSender (customization point object) | C++26 |
+| [`execution::read_env`](execution/read_env.md.nolink) | Receiver環境から構築されるSender (customization point object) | C++26 |
 | [`execution::schedule`](execution/schedule.md.nolink) | Scheduler上で実行されるSender (customization point object) | C++26 |
 | [`execution::schedule_result_t`](execution/schedule_result_t.md.nolink) | `schedule`結果型を取得 (alias template) | C++26 |
 
@@ -138,7 +138,7 @@ namespace std::execution {
 
 Senderコンシューマは名前空間 `std::this_thread` で定義される。
 
-### Sender/Recieverユーティリティ
+### Sender/Receiverユーティリティ
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
