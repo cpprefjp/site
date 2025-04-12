@@ -49,7 +49,7 @@ int main()
   // int値を受信して表示するReceiver
   ValueReceiver rcvr;
  
-  // SenderとReceiver接続後にOperationStateを開始
+  // SenderとReceiver接続後にOperation Stateを開始
   ex::operation_state auto op = ex::connect(sndr, rcvr);
   ex::start(op);
 }
@@ -78,8 +78,8 @@ int main()
 
 
 ## 関連項目
-- [`sender`](sender.md)
-- [`receiver`](receiver.md.nolink)
+- [`execution::sender`](sender.md)
+- [`execution::receiver`](receiver.md.nolink)
 
 
 ## 参照

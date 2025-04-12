@@ -48,9 +48,9 @@ struct env-promise : with-await-transform<env-promise<Env>> {
 };
 ```
 * is-awaitable[link is-awaitable.md.nolink]
-* env[link env.md.nolink]
+* env<>[link env.md.nolink]
 * derived_from[link /reference/concepts/derived_from.md]
-* coroutine_handle[link /reference/coroutine/coroutine_handle.md]
+* coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 * unspecified[italic]
 
 `sender`コンセプトは、以下のように定義される。
@@ -73,7 +73,7 @@ concept sender =
 
 ## 備考
 `sender`コンセプトの制約式に現れる第1項`bool(enable-sender<...>)`は[原子制約(atomic contraint)](/lang/cpp20/concepts.md)を構成する。
-これによりオーバーロード解決時の優先順比較のためのにおいて`enable-sender`コンセプトの`||`を単純なOR条件とみなせ、コンパイル時の複雑な包摂関係計算コストを抑制できる。
+これによりオーバーロード解決時の優先順比較において`enable-sender`コンセプトの`||`を単純なOR条件とみなせ、コンパイル時の複雑な包摂関係計算コストを抑制できる。
 
 
 ## 例
@@ -107,8 +107,8 @@ int main()
 
 
 ## 関連項目
-- [`sender_in`](sender_in.md)
-- [`sender_to`](sender_to.md)
+- [`execution::sender_in`](sender_in.md)
+- [`execution::sender_to`](sender_to.md)
 - [コルーチン](/lang/cpp20/coroutines.md)
 
 
