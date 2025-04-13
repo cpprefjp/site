@@ -17,19 +17,19 @@ namespace std::execution {
 ```
 * sender_in[link sender_in.md]
 * env_of_t[link env_of_t.md.nolink]
-* receiver_of[link receiver_of.md.nolink]
+* receiver_of[link receiver_of.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md.nolink]
 * connect[link connect.md.nolink]
 
 ## 概要
-`sender_to`は、[Sender型](sender.md)`Sndr`が[Receiver型](receiver.md.nolink)`Rcvr`と接続可能であること表すコンセプトである。
+`sender_to`は、[Sender型](sender.md)`Sndr`が[Receiver型](receiver.md)`Rcvr`と接続可能であることを表すコンセプトである。
 
 
 ## 例
 ```cpp example
 #include <print>
 #include <execution>
-namespace ex = stdexec;
+namespace ex = std::execution;
 
 struct ValueReceiver {
   using receiver_concept = ex::receiver_t;
@@ -55,6 +55,7 @@ int main()
 }
 ```
 * ex::sender_to[color ff0000]
+* ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
 * ex::operation_state[link operation_state.md.nolink]
 * ex::connect[link connect.md.nolink]
@@ -79,7 +80,7 @@ int main()
 
 ## 関連項目
 - [`execution::sender`](sender.md)
-- [`execution::receiver`](receiver.md.nolink)
+- [`execution::receiver`](receiver.md)
 
 
 ## 参照

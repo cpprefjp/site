@@ -70,6 +70,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | base class                         | 基底クラス                   |
 | bidirectional iterator             | 双方向イテレータ             |
 | bucket                             | バケット                     |
+| completion operation               | 完了操作                     |
 | completion signature               | 完了シグネチャ               |
 | complexity                         | 計算量                       |
 | compound type                      | 複合型                       |

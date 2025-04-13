@@ -62,8 +62,8 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`execution::receiver`](execution/receiver.md.nolink) | Receiver (concept) | C++26 |
-| [`execution::receiver_of`](execution/receiver_of.md.nolink) | 完了ハンドラ指定Receiver (concept) | C++26 |
+| [`execution::receiver`](execution/receiver.md) | Receiver型 (concept) | C++26 |
+| [`execution::receiver_of`](execution/receiver_of.md) | 完了シグネチャ集合を持つReceiver (concept) | C++26 |
 | [`execution::set_value`](execution/set_value.md.nolink) | 値による完了関数 (customization point object) | C++26 |
 | [`execution::set_error`](execution/set_error.md.nolink) | エラーによる完了関数 (customization point object) | C++26 |
 | [`execution::set_stopped`](execution/set_stopped.md.nolink) | 停止による完了関数 (customization point object) | C++26 |
