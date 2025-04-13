@@ -27,7 +27,7 @@ namespace std::execution {
 下記をみたすクラス型はOperation Stateとみなせる。
 
 - `operation_state_t`をメンバ型`O::operation_state_concept`として定義するクラス型
-- `O`型の左辺値`o`に対して`execution::start(o)`が有効な式かつ例外送出されないこと
+- `O`型の左辺値`o`に対して[`execution::start`](start.md.nolink)`(o)`が有効な式かつ例外送出されないこと
 
 非同期操作の生存期間中に`operation_state`オブジェクトが破棄されると、未定義の動作を引き起こす。
 

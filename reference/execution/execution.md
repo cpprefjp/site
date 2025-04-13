@@ -56,7 +56,7 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`execution::scheduler`](execution/scheduler.md.nolink) | Scheduler (concept) | C++26 |
+| [`execution::scheduler`](execution/scheduler.md) | Scheduler型 (concept) | C++26 |
 
 ### Receiver
 
