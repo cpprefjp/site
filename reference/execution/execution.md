@@ -63,7 +63,7 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::receiver`](execution/receiver.md) | Receiver型 (concept) | C++26 |
-| [`execution::receiver_of`](execution/receiver_of.md) | 完了シグネチャ集合を持つReceiver (concept) | C++26 |
+| [`execution::receiver_of`](execution/receiver_of.md) | 指定完了シグネチャ集合に適合するReceiver (concept) | C++26 |
 | [`execution::set_value`](execution/set_value.md.nolink) | 値による完了関数 (customization point object) | C++26 |
 | [`execution::set_error`](execution/set_error.md.nolink) | エラーによる完了関数 (customization point object) | C++26 |
 | [`execution::set_stopped`](execution/set_stopped.md.nolink) | 停止による完了関数 (customization point object) | C++26 |
@@ -83,8 +83,8 @@ namespace std::execution {
 | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
 | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
 | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
-| [`execution::get_completion_signatures`](execution/get_completion_signatures.md.nolink) | 完了シグネチャ取得の問い合わせオブジェクト (customization point object) | C++26 |
-| [`execution::completion_signatures_of_t`](execution/get_completion_signatures.md.nolink) | Senderから完了シグネチャを取得 (alias template) | C++26 |
+| [`execution::get_completion_signatures`](execution/get_completion_signatures.md.nolink) | 完了シグネチャ集合取得の問い合わせオブジェクト (customization point object) | C++26 |
+| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderから完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::value_types_of_t`](execution/value_types_of_t.md.nolink) | Senderの値完了型を取得 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md.nolink) | Senderのエラー完了型を取得 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/value_types_of_t.md.nolink) | Senderが停止完了に対応するか否か (variable template) | C++26 |
@@ -142,7 +142,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`execution::completion_signatures`](execution/completion_signatures.md.nolink) | 完了シグネチャ (class template) | C++26 |
+| [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
 | [`execution::transform_completion_signatures`](execution/transform_completion_signatures.md.nolink) | 完了シグネチャを変換 (alias template) | C++26 |
 | [`execution::transform_completion_signatures_of`](execution/transform_completion_signatures_of.md.nolink) | 完了シグネチャを変換 (alias template) | C++26 |
 | [`execution::run_loop`](execution/run_loop.md.nolink) | 実行ループ (class) | C++26 |

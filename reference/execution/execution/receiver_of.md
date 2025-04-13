@@ -12,7 +12,7 @@ namespace std::execution {
 ```
 
 ## 概要
-`receiver_of`は、[Receiver型](receiver.md)`Rcvr`が完了シグネチャの集合`Completions`に適合することを表すコンセプトである。
+`receiver_of`は、[Receiver型](receiver.md)`Rcvr`が[完了シグネチャ集合](completion_signatures.md)`Completions`に適合することを表すコンセプトである。
 
 
 ## 要件
@@ -35,7 +35,7 @@ concept has-completions =
   };
 ```
 * callable[link /reference/functional/callable.md.nolink]
-* completion_signatures[link completion_signatures.md.nolink]
+* completion_signatures[link completion_signatures.md]
 
 `receiver_of`コンセプトは、以下のように定義される。
 
@@ -70,7 +70,7 @@ int main()
 }
 ```
 * ex::receiver_of[color ff0000]
-* ex::completion_signatures[link completion_signatures.md.nolink]
+* ex::completion_signatures[link completion_signatures.md]
 
 ### 出力
 ```
