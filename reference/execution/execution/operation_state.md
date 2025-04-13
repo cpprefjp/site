@@ -1,4 +1,4 @@
-# sender_to
+# operation_state
 * execution[meta header]
 * concept[meta id-type]
 * std::execution[meta namespace]
@@ -6,27 +6,34 @@
 
 ```cpp
 namespace std::execution {
-  template<class Sndr, class Rcvr>
-  concept sender_to =
-    sender_in<Sndr, env_of_t<Rcvr>> &&
-    receiver_of<Rcvr, completion_signatures_of_t<Sndr, env_of_t<Rcvr>>> &&
-    requires (Sndr&& sndr, Rcvr&& rcvr) {
-      connect(std::forward<Sndr>(sndr), std::forward<Rcvr>(rcvr));
+  template<class O>
+  concept operation_state =
+    derived_from<typename O::operation_state_concept, operation_state_t> &&
+    is_object_v<O> &&
+    requires (O& o) {
+      { start(o) } noexcept;
     };
+
+  struct operation_state_t {};  // タグ型
 }
 ```
-* sender_in[link sender_in.md]
-* env_of_t[link env_of_t.md.nolink]
-* receiver_of[link receiver_of.md]
-* completion_signatures_of_t[link completion_signatures_of_t.md]
-* connect[link connect.md.nolink]
+* derived_from[link /reference/concepts/derived_from.md]
+* is_object_v[link /reference/type_traits/is_object.md]
+* start[link start.md.nolink]
 
 ## 概要
-`sender_to`は、[Sender型](sender.md)`Sndr`が[Receiver型](receiver.md)`Rcvr`と接続可能であることを表すコンセプトである。
+`operation_state`は、型`O`がOperation State型の要件を満たすことを表すコンセプトである。
+
+下記をみたすクラス型はOperation Stateとみなせる。
+
+- `operation_state_t`をメンバ型`O::operation_state_concept`として定義するクラス型
+- `O`型の左辺値`o`に対して`execution::start(o)`が有効な式かつ例外送出されないこと
+
+非同期操作の生存期間中に`operation_state`オブジェクトが破棄されると、未定義の動作を引き起こす。
 
 
 ## 例
-```cpp example
+```cpp
 #include <print>
 #include <execution>
 namespace ex = std::execution;
@@ -44,8 +51,6 @@ int main()
 {
   // 値42を送信するSender
   ex::sender auto sndr = ex::just(42);
-  static_assert(ex::sender_to<decltype(sndr), ValueReceiver>);
-
   // int値を受信して表示するReceiver
   ValueReceiver rcvr;
  
@@ -55,10 +60,9 @@ int main()
   ex::start(op);
 }
 ```
-* ex::sender_to[color ff0000]
+* ex::operation_state[color ff0000]
 * ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
-* ex::operation_state[link operation_state.md]
 * ex::connect[link connect.md.nolink]
 * ex::start[link start.md.nolink]
 
@@ -80,8 +84,7 @@ int main()
 
 
 ## 関連項目
-- [`execution::sender`](sender.md)
-- [`execution::receiver`](receiver.md)
+- [`execution::connect`](connect.md.nolink)
 
 
 ## 参照

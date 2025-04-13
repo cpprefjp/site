@@ -67,6 +67,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | apply, application                 | 適用                         |
 | arithmetic type                    | 算術型                       |
 | associative container(s)           | 連想コンテナ                 |
+| asynchronous operation             | 非同期操作                   |
 | base class                         | 基底クラス                   |
 | bidirectional iterator             | 双方向イテレータ             |
 | bucket                             | バケット                     |
