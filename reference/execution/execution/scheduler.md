@@ -23,8 +23,10 @@ namespace std::execution {
 }
 ```
 * derived_from[link /reference/concepts/derived_from.md]
+* sender[link sender.md]
 * queryable[link queryable.md.nolink]
 * get_completion_scheduler[link get_completion_scheduler.md.nolink]
+* set_value_t[link set_value.md]
 * get_env[link get_env.md.nolink]
 * equality_comparable[link /reference/concepts/equality_comparable.md]
 * copyable[link /reference/concepts/copyable.md]
@@ -38,7 +40,7 @@ namespace std::execution {
 - [問い合わせ可能](queryable.md.nolink)であること
 - `Sch`型の値`sch`に対して下記が有効な式であること
     - [`execution::schedule`](schedule.md.nolink)`(sch)`が[Sender](sender.md)を返すこと
-    - [`execution::get_completion_scheduler`](get_completion_scheduler.md.nolink)`<set_value_t>(`[`execution::get_env`](get_env.md.nolink)`(`[`execution::schedule`](schedule.md.nolink)`(sch)))`の結果が`Sch`型に等しいこと
+    - [`execution::get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`execution::get_env`](get_env.md.nolink)`(`[`execution::schedule`](schedule.md.nolink)`(sch)))`の結果が`Sch`型に等しいこと
 
 
 ## 例

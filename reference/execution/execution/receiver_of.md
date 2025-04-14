@@ -52,25 +52,38 @@ concept receiver_of =
 #include <execution>
 namespace ex = std::execution;
 
-struct ValueReceiver {
+struct MyReceiver {
   using receiver_concept = ex::receiver_t;
 
-  void set_value(int) noexcept;
+  void set_value(int, int) && noexcept;
+  void set_error(int) && noexcept;
 };
 
 int main()
 {
-  // 完了操作ex::set_value(int)に対応
-  static_assert(ex::receiver_of<ValueReceiver,
+  // 完了操作ex::set_value(int, int)に対応
+  static_assert(ex::receiver_of<MyReceiver,
+    ex::completion_signatures<ex::set_value_t(int, int)>>);
+
+  // 完了操作ex::set_value(int)には非対応
+  static_assert(not ex::receiver_of<MyReceiver,
     ex::completion_signatures<ex::set_value_t(int)>>);
 
-  // 完了操作ex::set_value(int, int)には非対応
-  static_assert(not ex::receiver_of<ValueReceiver,
-    ex::completion_signatures<ex::set_value_t(int, int)>>);
+  // 完了操作ex::set_error(int)に対応
+  static_assert(ex::receiver_of<MyReceiver,
+    ex::completion_signatures<ex::set_error_t(int)>>);
+
+  // 完了操作ex::set_stopped()には非対応
+  static_assert(not ex::receiver_of<MyReceiver,
+    ex::completion_signatures<ex::set_stopped_t()>>);
 }
 ```
 * ex::receiver_of[color ff0000]
+* ex::receiver_t[link receiver.md]
 * ex::completion_signatures[link completion_signatures.md]
+* ex::set_value_t[link set_value.md]
+* ex::set_error_t[link set_error.md]
+* ex::set_stopped_t[link set_stopped.md]
 
 ### 出力
 ```
@@ -90,6 +103,9 @@ int main()
 
 ## 関連項目
 - [`execution::receiver`](receiver.md)
+- [`execution::set_value_t`](set_value.md)
+- [`execution::set_error_t`](set_error.md)
+- [`execution::set_stopped_t`](set_stopped.md)
 
 
 ## 参照

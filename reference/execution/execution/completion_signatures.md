@@ -25,9 +25,9 @@ concept completion-signature = see below;
 * see below[italic]
 
 型`Fn`が下記いずれかを満たす関数型であるとき、`Fn`はコンセプト`completion-signature`を満たす。
-- `set_value_t(Vs...)`（`Vs`はオブジェクト型または参照型のパック）
-- `set_error_t(Err)`（`Err`はオブジェクト型または参照型）
-- `set_stopped_t()`
+- [`set_value_t`](set_value.md)`(Vs...)`（`Vs`はオブジェクト型または参照型のパック）
+- [`set_error_t`](set_error.md)`(Err)`（`Err`はオブジェクト型または参照型）
+- [`set_stopped_t`](set_stopped.md)`()`
 
 
 ## 例
@@ -50,6 +50,9 @@ int main()
 }
 ```
 * ex::completion_signatures[color ff0000]
+* ex::set_value_t[link set_value.md]
+* ex::set_error_t[link set_error.md]
+* ex::set_stopped_t[link set_stopped.md]
 * std::exception_ptr[link /reference/exception/exception_ptr.md]
 
 ### 出力
@@ -70,6 +73,9 @@ int main()
 
 ## 関連項目
 - [`execution::receiver`](receiver.md)
+- [`execution::set_value_t`](set_value.md)
+- [`execution::set_error_t`](set_error.md)
+- [`execution::set_stopped_t`](set_stopped.md)
 
 
 ## 参照

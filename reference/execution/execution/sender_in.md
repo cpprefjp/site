@@ -20,7 +20,6 @@ namespace std::execution {
 * sender[link sender.md]
 * queryable[link queryable.md.nolink]
 * get_completion_signatures[link get_completion_signatures.md.nolink]
-* valid-completion-signatures[link valid-completion-signatures.md.nolink]
 
 ## 概要
 `sender_in`は、[Sender型](sender.md)`Sndr`が[環境](env.md.nolink)`Env`において非同期操作を作成できることを表すコンセプトである。
@@ -28,6 +27,14 @@ namespace std::execution {
 
 ## モデル
 説明用に`sndr`を`decltype((sndr))`が`Sndr`型となる式、`rcvr`を環境`Env`に関連付けられた[Receiver](receiver.md)とする。
+
+```cpp
+template<class Sigs>
+concept valid-completion-signatures = see below;
+```
+* see below[italic]
+
+[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
 
 また、ある完了操作の完了シグネチャが[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr, Env>`で取得される[`completion_signatures`](completion_signatures.md)リストに含まれるとき、`Sndr`と`Env`における許容可能完了(permissible completion)となる。
 

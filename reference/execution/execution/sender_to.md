@@ -34,7 +34,7 @@ namespace ex = std::execution;
 struct ValueReceiver {
   using receiver_concept = ex::receiver_t;
 
-  void set_value(int v) noexcept
+  void set_value(int v) && noexcept
   {
     std::println("{}", v);
   }
@@ -56,6 +56,7 @@ int main()
 }
 ```
 * ex::sender_to[color ff0000]
+* ex::receiver_t[link receiver.md]
 * ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
 * ex::operation_state[link operation_state.md]
