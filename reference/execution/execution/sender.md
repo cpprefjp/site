@@ -47,7 +47,7 @@ struct env-promise : with-await-transform<env-promise<Env>> {
   const Env& get_env() const noexcept;
 };
 ```
-* is-awaitable[link is-awaitable.md.nolink]
+* is-awaitable[link ../is-awaitable.md]
 * env<>[link env.md.nolink]
 * derived_from[link /reference/concepts/derived_from.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
