@@ -35,22 +35,22 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`forwarding_query`](forwarding_query.md.nolink) | 進行保証の問い合わせオブジェクト (customization point object) | C++26 |
-| [`get_allocator`](get_allocator.md.nolink) | アロケータ取得の問い合わせオブジェクト (customization point object) | C++26 |
-| [`get_stop_token`](get_stop_token.md.nolink) | 停止トークン取得の問い合わせオブジェクト (customization point object) | C++26 |
+| [`forwarding_query`](forwarding_query.md.nolink) | クエリオブジェクトに転送問い合わせ可能か否かを返す (customization point object) | C++26 |
+| [`get_allocator`](get_allocator.md.nolink) | アロケータ取得のクエリオブジェクト (customization point object) | C++26 |
+| [`get_stop_token`](get_stop_token.md.nolink) | 停止トークン取得のクエリオブジェクト (customization point object) | C++26 |
 | [`stop_token_of_t`](get_stop_token.md.nolink) | 指定型から停止トークン型を取得 (alias template) | C++26 |
-| [`execution::get_domain`](execution/get_domain.md.nolink) | 実行ドメイン取得の問い合わせオブジェクト (customization point object) | C++26 |
-| [`execution::get_scheduler`](execution/get_scheduler.md.nolink) | Scheduler取得の問い合わせオブジェクト (customization point object) | C++26 |
-| [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md.nolink) | 委譲Scheduler取得の問い合わせオブジェクト (customization point object) | C++26 |
+| [`execution::get_domain`](execution/get_domain.md.nolink) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_scheduler`](execution/get_scheduler.md.nolink) | Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md.nolink) | 委譲Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md.nolink) | 前進保証 (enum) | C++26 |
-| [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md.nolink) | 前進保証取得の問い合わせオブジェクト (customization point object) | C++26 |
-| [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md.nolink) | 完了Scheduler取得の問い合わせオブジェクト (customization point object) | C++26 |
-| [`execution::get_env`](execution/get_env.md.nolink) | 環境取得の問い合わせオブジェクト (customization point object) | C++26 |
+| [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md.nolink) | 前進保証取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md.nolink) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_env`](execution/get_env.md.nolink) | 環境取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::env_of_t`](execution/env_of_t.md.nolink) | 指定型から環境型を取得 (alias template) | C++26 |
-| [`execution::prop`](execution/prop.md.nolink) | プロパティ(class template) | C++26 |
-| [`execution::env`](execution/env.md.nolink) | 環境 (class template) | C++26 |
+| [`execution::prop`](execution/prop.md) | 環境構築用のヘルパクラス (class template) | C++26 |
+| [`execution::env`](execution/env.md) | 環境 (class template) | C++26 |
 
-問い合わせオブジェクトは名前空間 `std` および名前空間 `std::execution` で定義される。
+クエリオブジェクトは名前空間 `std` および名前空間 `std::execution` で定義される。
 
 ### Scheduler
 
@@ -83,14 +83,14 @@ namespace std::execution {
 | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
 | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
 | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
-| [`execution::get_completion_signatures`](execution/get_completion_signatures.md.nolink) | 完了シグネチャ集合取得の問い合わせオブジェクト (customization point object) | C++26 |
+| [`execution::get_completion_signatures`](execution/get_completion_signatures.md.nolink) | 完了シグネチャ集合取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderから完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::value_types_of_t`](execution/value_types_of_t.md.nolink) | Senderの値完了型を取得 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md.nolink) | Senderのエラー完了型を取得 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/value_types_of_t.md.nolink) | Senderが停止完了に対応するか否か (variable template) | C++26 |
 | [`execution::tag_of_t`](execution/tag_of_t.md.nolink) | Senderのタグ型を取得 (alias template) | C++26 |
 | [`execution::transform_sender`](execution/transform_sender.md.nolink) | Senderを変換 (function template) | C++26 |
-| [`execution::transform_env`](execution/transform_env.md.nolink) | 問い合わせオブジェクトを変換 (function template) | C++26 |
+| [`execution::transform_env`](execution/transform_env.md.nolink) | クエリオブジェクトを変換 (function template) | C++26 |
 | [`execution::apply_sender`](execution/apply_sender.md.nolink) | Senderにタグ型と引数を適用 (function template) | C++26 |
 | [`execution::connect`](execution/connect.md.nolink) | SenderとReceiverを接続 (customization point object) | C++26 |
 | [`execution::connect_result_t`](execution/connect_result_t.md.nolink) | `connect`結果型を取得 (alias template) | C++26 |

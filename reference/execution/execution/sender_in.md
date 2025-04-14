@@ -16,13 +16,13 @@ namespace std::execution {
     };
 }
 ```
-* env<>[link env.md.nolink]
+* env<>[link env.md]
 * sender[link sender.md]
-* queryable[link queryable.md.nolink]
+* queryable[link ../queryable.md]
 * get_completion_signatures[link get_completion_signatures.md.nolink]
 
 ## 概要
-`sender_in`は、[Sender型](sender.md)`Sndr`が[環境](env.md.nolink)`Env`において非同期操作を作成できることを表すコンセプトである。
+`sender_in`は、[Sender型](sender.md)`Sndr`が[環境](env.md)`Env`において非同期操作を作成できることを表すコンセプトである。
 
 
 ## モデル
@@ -55,7 +55,7 @@ int main()
 * ex::sender_in[color ff0000]
 * ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
-* ex::env<>[link env.md.nolink]
+* ex::env<>[link env.md]
 
 ### 出力
 ```
@@ -75,7 +75,7 @@ int main()
 
 ## 関連項目
 - [`execution::sender`](sender.md)
-- [`execution::env`](env.md.nolink)
+- [`execution::env`](env.md)
 
 
 ## 参照

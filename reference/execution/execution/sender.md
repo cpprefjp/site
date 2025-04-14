@@ -48,7 +48,7 @@ struct env-promise : with-await-transform<env-promise<Env>> {
 };
 ```
 * is-awaitable[link ../is-awaitable.md]
-* env<>[link env.md.nolink]
+* env<>[link env.md]
 * derived_from[link /reference/concepts/derived_from.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 * unspecified[italic]
@@ -66,7 +66,7 @@ concept sender =
   constructible_from<remove_cvref_t<Sndr>, Sndr>;
 ```
 * get_env[link get_env.md.nolink]
-* queryable[link queryable.md.nolink]
+* queryable[link ../queryable.md]
 * move_constructible[link /reference/concepts/move_constructible.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 

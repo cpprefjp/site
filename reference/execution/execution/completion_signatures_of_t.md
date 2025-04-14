@@ -11,14 +11,14 @@ namespace std::execution {
   using completion_signatures_of_t = call-result-t<get_completion_signatures_t, Sndr, Env>;
 }
 ```
-* env<>[link env.md.nolink]
+* env<>[link env.md]
 * sender_in[link sender_in.md]
 * call-result-t[link call-result-t.md.nolink]
 * sender_in[link sender_in.md]
 
 ## 概要
 
-[Sender型](sender.md)`Sndr`から[環境](env.md.nolink)`Env`における[完了シグネチャ集合](completion_signatures.md)を取得する。
+[Sender型](sender.md)`Sndr`から[環境](env.md)`Env`における[完了シグネチャ集合](completion_signatures.md)を取得する。
 
 
 ## バージョン
