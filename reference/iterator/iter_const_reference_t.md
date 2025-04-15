@@ -39,9 +39,9 @@ namespace std {
 |[`std::vector<bool>`](/reference/vector/vector.md)|`bool`|`std::vector<bool>::reference`|`bool`|
 |`const std::vector<bool>`|`bool`|`bool`|`bool`|
 |[`views::zip`](/reference/ranges/zip_view.md)|`std::tuple<T, U>`|`std::tuple<T&, U&>`|`std::tuple<const T&, const D&>`|
-|[`views::enumrate`](/reference/ranges/enumrate_view.md.nolink)|`std::tuple<D, T>`|`std::tuple<D, T&>`|`std::tuple<D, const T&>`|
+|[`views::enumerate`](/reference/ranges/enumerate_view.md)|`std::tuple<D, T>`|`std::tuple<D, T&>`|`std::tuple<D, const T&>`|
 
-表中の`T, U`はそれそれの`view`に入力された範囲の値型、`D`は`views::enumrate`の入力範囲の`iter_difference_t`とする。
+表中の`T, U`はそれそれの`view`に入力された範囲の値型、`D`は`views::enumerate`の入力範囲の`iter_difference_t`とする。
 
 ## 例
 ```cpp example

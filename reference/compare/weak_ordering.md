@@ -47,7 +47,7 @@ namespace std {
 
 | 名前                                                                         | 説明                                                      | 対応バージョン |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------- | -------------- |
-| [`oeprator partial_ordering`](weak_ordering/op_partial_ordering.md) | [`partial_ordering`](partial_ordering.md)への型変換演算子 | C++20          |
+| [`operator partial_ordering`](weak_ordering/op_partial_ordering.md) | [`partial_ordering`](partial_ordering.md)への型変換演算子 | C++20          |
 
 
 ### 比較演算子

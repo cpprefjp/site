@@ -1,4 +1,4 @@
-# acccess
+# access
 * linalg[meta header]
 * function[meta id-type]
 * std::linalg[meta namespace]

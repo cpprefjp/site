@@ -168,7 +168,7 @@ int main()
   {
     auto& pack = packs[ n ];
     auto xmm =
-#ifdef ASSUME_ALING_CPP20
+#ifdef ASSUME_ALIGN_CPP20
       _mm_load_ps( std::assume_aligned< SSE_ALIGNMENT >( pack.data ) );
 #elif defined( ASSUME_ALIGN_GCC_OR_CLANG )
       _mm_load_ps( (float*)__builtin_assume_aligned( pack.data, SSE_ALIGNMENT ) );

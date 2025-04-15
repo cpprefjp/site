@@ -37,13 +37,13 @@ constexpr function_ref(const function_ref&) noexcept = default;  // (6)
 `function_ref`クラステンプレートパラメータのCV修飾子 *cv* に応じて
 
 - (1) : [`is_function`](/reference/type_traits/is_function.md)`<F>`が`true`、かつ`is-invocable-using<F>`が`true`であること
-- (2) : `T`を[`remove_refernce_t`](/reference/type_traits/remove_reference.md)`<F>`としたとき
+- (2) : `T`を[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<F>`としたとき
     - [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<F>`が`function_ref`と同一型ではなく、かつ
     - [`is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<T>`が`false`であり、かつ
     - `is-invocable-using</*cv*/ T&>`が`true`であること
 - (3) : `F`を`decltype(f)`としたとき
     - `is-invocable-using<F>`が`true`であること
-- (4) : `T`を[`remove_refernce_t`](/reference/type_traits/remove_reference.md)`<F>`、`F`を`decltype(f)`としたとき
+- (4) : `T`を[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<F>`、`F`を`decltype(f)`としたとき
     - [`is_rvalue_reference_v`](/reference/type_traits/is_rvalue_reference.md)`<U&&>`が`false`であり、かつ
     - `is-invocable-using<F, /*cv*/ T&>`が`true`であること
 - (5) : `F`を`decltype(f)`としたとき

@@ -114,7 +114,7 @@ int main()
 
   // transposed戻り値は書き換え可能なmdspan
   mat0[1, 2] = 42;  // 6 -> 42
-  asssert((mat1[2, 1] == 42));
+  assert((mat1[2, 1] == 42));
 }
 ```
 * std::linalg::transposed[color ff0000]

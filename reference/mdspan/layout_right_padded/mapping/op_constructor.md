@@ -63,7 +63,7 @@ constexpr explicit(see below)
 
 
 ## 適格要件
-- (5) : `OhterExtents::`[`rank()`](../../extents/rank.md) `> 1`のとき、`(static-padding-stride ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)`) || (OtherExtents::`[`static_extent`](../../extents/static_extent.md)`(rank_ - 1) == dynamic_extent) || (static-padding-stride == OtherExtents::static_extent(rank_ - 1))`が`true`であること。
+- (5) : `OtherExtents::`[`rank()`](../../extents/rank.md) `> 1`のとき、`(static-padding-stride ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)`) || (OtherExtents::`[`static_extent`](../../extents/static_extent.md)`(rank_ - 1) == dynamic_extent) || (static-padding-stride == OtherExtents::static_extent(rank_ - 1))`が`true`であること。
 - (7) : `rank_ > 1`のとき、`(padding_value ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)`) || (LayoutRightPaddedMapping::padding_value == dynamic_extent) || (padding_value == LayoutRightPaddedMapping::padding_value)`が`true`であること。
 
 

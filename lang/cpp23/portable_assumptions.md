@@ -43,7 +43,7 @@ int divide_by_32(int x)
   // 非正値を考慮しない最適コードを生成できる可能性がある。
   return x / 32;
 }
-// asssume属性による仮定がfalseとなる関数呼び出し、
+// assume属性による仮定がfalseとなる関数呼び出し、
 // 例えば divide_by_32(-100) は未定義動作を引き起こす。
 ```
 * assume[color ff0000]

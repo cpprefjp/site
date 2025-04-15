@@ -24,7 +24,7 @@ namespace std {
 `mdspan`は、任意のメモリブロックに対して多次元配列のようにアクセスする機能を提供するクラスである。 
 `mdspan`それ自体は参照先メモリブロックを所有せず、[`[]`演算子](mdspan/op_at.md)を介して多次元配列のように見せかけるビュー(view)にすぎない。
 
-クラスの名称`mdspan`は、1次元の範囲[`std::span`](../span/span.md)に対する多次元(MultiDimentional)拡張に由来する。
+クラスの名称`mdspan`は、1次元の範囲[`std::span`](../span/span.md)に対する多次元(MultiDimensional)拡張に由来する。
 
 `mdspan`の特殊化`MDS`は[`copyable`](/reference/concepts/copyable.md)のモデルであり、かつ
 

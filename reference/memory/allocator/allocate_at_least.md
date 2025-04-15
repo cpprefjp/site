@@ -1,4 +1,4 @@
-# alloacte_at_least
+# allocate_at_least
 * memory[meta header]
 * std[meta namespace]
 * allocator[meta class]
