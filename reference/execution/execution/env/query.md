@@ -26,6 +26,7 @@ concept has-query =
   };
 ```
 
+
 ## 効果
 説明用の`fe`を、`env`クラステンプレートの説明専用メンバ変数`envs0_`, ..., `envsN_`のうち最初に式`fe.query(q)`が適格となる要素としたとき、下記と等価。
 
@@ -33,8 +34,10 @@ concept has-query =
 return fe.query(q);
 ```
 
+
 ## 例外
-式`fe.query(q)`が`true`のとき、例外送出しない。
+式`noexcept(fe.query(q))`が`true`のとき、例外送出しない。
+それ以外の場合、式`fe.query(q)`から送出される例外。
 
 
 ## 例
@@ -46,19 +49,28 @@ using ex = std::execution;
 
 int main()
 {
-  auto env = ex::env{
-    ex::prop(std::get_stop_token, std::stop_token{}),
+  // get_stop_token,get_stop_tokenをサポートするクエリ可能オブジェクト
+  auto env0 = ex::env{
     ex::prop(std::get_allocator, std::allocator<std::byte>{}),
-    ex::prop(std::get_stop_token, std::never_stop_token{}),
+    ex::prop(std::get_stop_token, std::never_stop_token{})
   };
+  auto token0 = env0.query(std::get_stop_token);
+  static_assert(std::same_as<decltype(token0), std::never_stop_token>);
 
-  auto token = env.query(std::get_stop_token);
-  static_assert(std::same_as<decltype(token), std::stop_token>);
+  // env0のget_stop_tokenクエリオブジェクト動作を上書き
+  auto env1 = ex::env{
+    ex::prop(std::get_stop_token, std::stop_token{}),
+    env0
+  };
+  auto token1 = env1.query(std::get_stop_token);
+  static_assert(std::same_as<decltype(token1), std::stop_token>);
 }
 ```
 * query[color ff0000]
 * ex::env[link ../env.md]
 * ex::prop[link ../prop.md]
+* ex::never_stop_token[link /reference/stop_token/never_stop_token.md]
+* ex::stop_token[link /reference/stop_token/stop_token.md]
 
 ### 出力
 ```
