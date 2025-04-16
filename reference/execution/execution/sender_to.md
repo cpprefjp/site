@@ -16,7 +16,7 @@ namespace std::execution {
 }
 ```
 * sender_in[link sender_in.md]
-* env_of_t[link env_of_t.md.nolink]
+* env_of_t[link env_of_t.md]
 * receiver_of[link receiver_of.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
 * connect[link connect.md.nolink]

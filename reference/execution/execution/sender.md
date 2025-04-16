@@ -65,7 +65,7 @@ concept sender =
   move_constructible<remove_cvref_t<Sndr>> &&
   constructible_from<remove_cvref_t<Sndr>, Sndr>;
 ```
-* get_env[link get_env.md.nolink]
+* get_env[link get_env.md]
 * queryable[link ../queryable.md]
 * move_constructible[link /reference/concepts/move_constructible.md]
 * constructible_from[link /reference/concepts/constructible_from.md]

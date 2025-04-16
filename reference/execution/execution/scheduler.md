@@ -27,7 +27,7 @@ namespace std::execution {
 * queryable[link ../queryable.md]
 * get_completion_scheduler[link get_completion_scheduler.md.nolink]
 * set_value_t[link set_value.md]
-* get_env[link get_env.md.nolink]
+* get_env[link get_env.md]
 * equality_comparable[link /reference/concepts/equality_comparable.md]
 * copyable[link /reference/concepts/copyable.md]
 
@@ -40,7 +40,7 @@ namespace std::execution {
 - [クエリ可能オブジェクト](../queryable.md)であること
 - `Sch`型の値`sch`に対して下記が有効な式であること
     - [`execution::schedule`](schedule.md.nolink)`(sch)`が[Sender](sender.md)を返すこと
-    - [`execution::get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`execution::get_env`](get_env.md.nolink)`(`[`execution::schedule`](schedule.md.nolink)`(sch)))`の結果が`Sch`型に等しいこと
+    - [`execution::get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`execution::get_env`](get_env.md)`(`[`execution::schedule`](schedule.md.nolink)`(sch)))`の結果が`Sch`型に等しいこと
 
 
 ## 例

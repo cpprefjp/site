@@ -18,7 +18,7 @@ namespace std::execution {
   struct receiver_t {};  // タグ型
 }
 ```
-* get_env[link get_env.md.nolink]
+* get_env[link get_env.md]
 * queryable[link ../queryable.md]
 * derived_from[link /reference/concepts/derived_from.md]
 * move_constructible[link /reference/concepts/move_constructible.md]

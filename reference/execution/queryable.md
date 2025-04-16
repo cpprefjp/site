@@ -19,7 +19,7 @@ concept queryable = destructible<T>;
 
 - [`execution::env<>{}`](execution/env.md) : 空(empty)のクエリ可能オブジェクト
 - [`execution::prop(q, v)`](execution/prop.md) : キー`q`と対応値`v`を保持する最小のクエリ可能オブジェクト
-- [`execution::env<>{...}`](execution/env.md) : 複数のKey/Valueを保持するクエリ可能オブジェクト
+- [`execution::env{...}`](execution/env.md) : 複数のKey/Valueを保持するクエリ可能オブジェクト
 - `queryable`コンセプトを満たすユーザ定義クラスのオブジェクト
 
 実行制御ライブラリでは、下記のオブジェクトがクエリ可能オブジェクトとされる。
