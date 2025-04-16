@@ -12,7 +12,7 @@ constexpr decltype(auto) query(QueryTag q) const noexcept(see below);
 * see below[italic]
 
 ## 概要
-クエリオブジェクト`q`に対して問い合わせを行う。
+クエリオブジェクト`q`をキーとして、対応する値を問い合わせる。
 
 
 ## テンプレートパラメータ制約
@@ -49,7 +49,7 @@ using ex = std::execution;
 
 int main()
 {
-  // get_stop_token,get_stop_tokenをサポートするクエリ可能オブジェクト
+  // get_allocatorとget_stop_tokenをサポートするクエリ可能オブジェクト
   auto env0 = ex::env{
     ex::prop(std::get_allocator, std::allocator<std::byte>{}),
     ex::prop(std::get_stop_token, std::never_stop_token{})
@@ -69,8 +69,10 @@ int main()
 * query[color ff0000]
 * ex::env[link ../env.md]
 * ex::prop[link ../prop.md]
-* ex::never_stop_token[link /reference/stop_token/never_stop_token.md]
-* ex::stop_token[link /reference/stop_token/stop_token.md]
+* std::get_allocator[link get_allocator.md.nolink]
+* std::get_stop_token[link get_stop_token.md.nolink]
+* std::never_stop_token[link /reference/stop_token/never_stop_token.md]
+* std::stop_token[link /reference/stop_token/stop_token.md]
 
 ### 出力
 ```

@@ -23,7 +23,7 @@ namespace std::execution {
 * unwrap_reference_t[link /reference/type_traits/unwrap_reference.md]
 
 ## 概要
-`QueryTag`型クエリオブジェクトのキーと`ValueType`型の値から、読み取り専用の[クエリ可能オブジェクト](../queryable.md)を構築する。
+`QueryTag`型クエリオブジェクトのキーと`ValueType`型の値から、[クエリ可能オブジェクト](../queryable.md)を構築する。
 
 
 ## 適格要件
@@ -49,6 +49,7 @@ int main()
 }
 ```
 * ex::prop[color ff0000]
+* std::get_stop_token[link get_stop_token.md.nolink]
 * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
 
 ### 出力

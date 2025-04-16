@@ -18,7 +18,7 @@ namespace std::execution {
 
 ## 概要
 
-[Sender型](sender.md)`Sndr`から[環境](env.md)`Env`における[完了シグネチャ集合](completion_signatures.md)を取得する。
+[Sender型](sender.md)`Sndr`から[環境](../queryable.md)`Env`における[完了シグネチャ集合](completion_signatures.md)を取得する。
 
 
 ## バージョン

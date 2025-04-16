@@ -47,8 +47,8 @@ namespace std::execution {
 | [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md.nolink) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_env`](execution/get_env.md.nolink) | 環境取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::env_of_t`](execution/env_of_t.md.nolink) | 指定型から環境型を取得 (alias template) | C++26 |
-| [`execution::prop`](execution/prop.md) | 環境構築用のヘルパクラス (class template) | C++26 |
-| [`execution::env`](execution/env.md) | 環境 (class template) | C++26 |
+| [`execution::prop`](execution/prop.md) | Key/Valueペアによる[クエリ可能オブジェクト](queryable.md) (class template) | C++26 |
+| [`execution::env`](execution/env.md) | 複数Key/Valueからなる[クエリ可能オブジェクト](queryable.md) (class template) | C++26 |
 
 クエリオブジェクトは名前空間 `std` および名前空間 `std::execution` で定義される。
 

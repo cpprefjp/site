@@ -12,9 +12,6 @@ namespace std::execution {
     Envs1 envs1_;  // exposition only
     // ...
     EnvsN envsN_;  // exposition only
-
-    template<class QueryTag>
-    constexpr decltype(auto) query(QueryTag q) const noexcept;
   };
 
   template<class... Envs>
@@ -50,13 +47,22 @@ namespace ex = std::execution;
 
 int main()
 {
+  // get_allocatorとget_stop_tokenをサポートするクエリ可能オブジェクト
   auto env = ex::env{
+    ex::prop(std::get_allocator, std::allocator<std::byte>{}),
     ex::prop(std::get_stop_token, std::never_stop_token{})
   };
+
+  // メモリアロケータを問い合わせ
+  auto alloc = std::get_allocator(env);
+  // 停止トークンを問い合わせ
+  auto token = std::get_stop_token(env);
 }
 ```
 * ex::env[color ff0000]
 * ex::prop[link prop.md]
+* std::get_allocator[link get_allocator.md.nolink]
+* std::get_stop_token[link get_stop_token.md.nolink]
 * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
 
 ### 出力
