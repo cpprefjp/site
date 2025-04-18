@@ -24,8 +24,8 @@ concept queryable = destructible<T>;
 
 実行制御ライブラリでは、下記のオブジェクトがクエリ可能オブジェクトとされる。
 
-- [Sender](execution/sender.md)に関連付けられた属性(attributes)オブジェクト
-- [Receiver](execution/receiver.md)に関連付けられた環境(environment)オブジェクト
+- [Sender](execution/sender.md)に関連付けられた属性(attributes)オブジェクト（[`execution::get_env`](execution/get_env.md)で取得）
+- [Receiver](execution/receiver.md)に関連付けられた環境(environment)オブジェクト（[`execution::get_env`](execution/get_env.md)で取得）
 - [Scheduler](execution/scheduler.md)オブジェクト自身
 
 
@@ -35,7 +35,7 @@ concept queryable = destructible<T>;
 
 
 ## 備考
-[Sender](execution/sender.md)に関連付けられたクエリ可能オブジェクトは、C++ライブラリ仕様では「属性(attributes)」と呼ばれる。
+[Sender](execution/sender.md)に関連付けられたクエリ可能オブジェクトは「属性(attributes)」と呼ばれるが、実行制御ライブラリの仕様記述では[Receiver](execution/receiver.md)の「環境(environment)」と合わせて`Env`型や識別子名`env`として包括的に言及される。
 
 
 ## バージョン
@@ -46,6 +46,7 @@ concept queryable = destructible<T>;
 ## 関連項目
 - [`execution::prop`](execution/prop.md)
 - [`execution::env`](execution/env.md)
+- [`execution::get_env`](execution/get_env.md)
 
 
 ## 参照
