@@ -92,8 +92,8 @@ namespace std::execution {
 | [`execution::transform_sender`](execution/transform_sender.md) | Senderを変換 (function template) | C++26 |
 | [`execution::transform_env`](execution/transform_env.md) | 環境を変換 (function template) | C++26 |
 | [`execution::apply_sender`](execution/apply_sender.md) | Senderアルゴリズムを適用 (function template) | C++26 |
-| [`execution::connect`](execution/connect.md.nolink) | SenderとReceiverを接続 (customization point object) | C++26 |
-| [`execution::connect_result_t`](execution/connect_result_t.md.nolink) | `connect`結果型を取得 (alias template) | C++26 |
+| [`execution::connect`](execution/connect.md) | SenderとReceiverを接続 (customization point object) | C++26 |
+| [`execution::connect_result_t`](execution/connect_result_t.md) | [`connect`](execution/connect.md)結果型を取得 (alias template) | C++26 |
 
 ### Senderファクトリ
 

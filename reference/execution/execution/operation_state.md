@@ -41,7 +41,7 @@ namespace ex = std::execution;
 struct ValueReceiver {
   using receiver_concept = ex::receiver_t;
 
-  void set_value(int v) noexcept
+  void set_value(int v) && noexcept
   {
     std::println("{}", v);
   }
@@ -64,7 +64,7 @@ int main()
 * ex::receiver_t[link receiver.md]
 * ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
-* ex::connect[link connect.md.nolink]
+* ex::connect[link connect.md]
 * ex::start[link start.md.nolink]
 
 ### 出力
@@ -85,7 +85,7 @@ int main()
 
 
 ## 関連項目
-- [`execution::connect`](connect.md.nolink)
+- [`execution::connect`](connect.md)
 
 
 ## 参照

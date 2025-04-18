@@ -19,7 +19,7 @@ namespace std::execution {
 * env_of_t[link env_of_t.md]
 * receiver_of[link receiver_of.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
-* connect[link connect.md.nolink]
+* connect[link connect.md]
 
 ## 概要
 `sender_to`は、[Sender型](sender.md)`Sndr`が[Receiver型](receiver.md)`Rcvr`と接続可能であることを表すコンセプトである。
@@ -60,7 +60,7 @@ int main()
 * ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
 * ex::operation_state[link operation_state.md]
-* ex::connect[link connect.md.nolink]
+* ex::connect[link connect.md]
 * ex::start[link start.md.nolink]
 
 ### 出力

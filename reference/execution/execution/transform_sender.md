@@ -29,7 +29,7 @@ Senderオブジェクトの構築時、Senderと[Receiver](receiver.md)間[接�
 ## 戻り値
 説明用の式`transformed-sndr`を次の通りとする。
 
-- 適格ならば、式`dom.transform_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env...)`
+- 適格であるならば、式`dom.transform_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env...)`
 - そうでなければ、[`default_domain()`](default_domain.md)`.`[`transform_sender`](default_domain/transform_sender.md)`(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env...)`
 
 説明用の式`final-sndr`を次の通りとする。

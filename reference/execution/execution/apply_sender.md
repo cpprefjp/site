@@ -25,7 +25,7 @@ Senderアルゴリズム動作のカスタマイゼーションポイントと�
 ## テンプレートパラメータ制約
 説明用の式`e`を次の通りとしたとき、式`e`が適格であること。
 
-- 適格ならば、式`dom.apply_sender(Tag(),` [`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
+- 適格であるならば、式`dom.apply_sender(Tag(),` [`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 - そうでなければ、[`default_domain()`](default_domain.md)`.`[`apply_sender`](default_domain/apply_sender.md)`(Tag(),` [`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 
 

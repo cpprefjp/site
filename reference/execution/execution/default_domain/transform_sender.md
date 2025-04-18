@@ -26,7 +26,7 @@ Sender変換のデフォルト動作。
 ## 効果
 説明用の式`e`を次の通りとしたとき、`e`を返す。
 
-- 適格ならば、式[`tag_of_t`](tag_of_t.md.nolink)`<Sndr>().transform_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr)`, env...)`
+- 適格であるならば、式[`tag_of_t`](tag_of_t.md.nolink)`<Sndr>().transform_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env...)`
 - そうでなければ、[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr)`
 
 

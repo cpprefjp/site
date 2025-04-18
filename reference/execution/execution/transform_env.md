@@ -28,7 +28,7 @@ namespace std::execution {
 ## 戻り値
 説明用の式`e`を次の通りとし、`e`を返す。
 
-- 適格ならば、式`dom.transform_env(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Env>(env))`
+- 適格であるならば、式`dom.transform_env(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Env>(env))`
 - そうでなければ、[`default_domain()`](default_domain.md)`.`[`transform_env`](default_domain/transform_env.md)`(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Env>(env))`
 
 
