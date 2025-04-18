@@ -89,9 +89,9 @@ namespace std::execution {
 | [`execution::error_types_of_t`](execution/error_types_of_t.md.nolink) | Senderのエラー完了型を取得 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/value_types_of_t.md.nolink) | Senderが停止完了に対応するか否か (variable template) | C++26 |
 | [`execution::tag_of_t`](execution/tag_of_t.md.nolink) | Senderのタグ型を取得 (alias template) | C++26 |
-| [`execution::transform_sender`](execution/transform_sender.md.nolink) | Senderを変換 (function template) | C++26 |
-| [`execution::transform_env`](execution/transform_env.md.nolink) | 環境を変換 (function template) | C++26 |
-| [`execution::apply_sender`](execution/apply_sender.md.nolink) | Senderアルゴリズムを適用 (function template) | C++26 |
+| [`execution::transform_sender`](execution/transform_sender.md) | Senderを変換 (function template) | C++26 |
+| [`execution::transform_env`](execution/transform_env.md) | 環境を変換 (function template) | C++26 |
+| [`execution::apply_sender`](execution/apply_sender.md) | Senderアルゴリズムを適用 (function template) | C++26 |
 | [`execution::connect`](execution/connect.md.nolink) | SenderとReceiverを接続 (customization point object) | C++26 |
 | [`execution::connect_result_t`](execution/connect_result_t.md.nolink) | `connect`結果型を取得 (alias template) | C++26 |
 

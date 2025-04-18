@@ -15,13 +15,13 @@ constexpr decltype(auto) apply_sender(Tag, Sndr&& sndr, Args&&... args)
 
 ## 概要
 Senderアルゴリズム適用のデフォルト動作。
-[`execution::apply_sender`](../apply_sender.md.nolink)に対するスタマイゼーションポイントとして機能する。
+[`execution::apply_sender`](../apply_sender.md)に対するスタマイゼーションポイントとして機能する。
 
-[Senderのタグ型](../tag_of_t.md.nolink)`Tag`に対して、`apply_sender`メンバ関数を呼び出す。
+[Senderタグ型](../tag_of_t.md.nolink)`Tag`に対して、`apply_sender`メンバ関数を呼び出す。
 
 
 ## テンプレートパラメータ制約
-説明用の式`e`を`Tag().apply_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`としたとき、が適格であること。
+説明用の式`e`を`Tag().apply_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`としたとき、式`e`が適格であること。
 
 
 ## 戻り値
@@ -29,7 +29,7 @@ Senderアルゴリズム適用のデフォルト動作。
 
 
 ## 例外
-`noexcept(e)`が`true`であれば、例外を投げない。
+`noexcept(e) == true`ならば、例外を投げない。
 そうでなければ、式`e`から送出される例外。
 
 
@@ -45,7 +45,7 @@ Senderアルゴリズム適用のデフォルト動作。
 
 
 ## 関連項目
-- [`execution::apply_sender`](../apply_sender.md.nolink)
+- [`execution::apply_sender`](../apply_sender.md)
 
 
 ## 参照

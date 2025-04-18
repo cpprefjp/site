@@ -14,9 +14,9 @@ template<sender Sndr, queryable Env>
 
 ## 概要
 環境変換のデフォルト動作。
-[`execution::transform_env`](../transform_env.md.nolink)に対するスタマイゼーションポイントとして機能する。
+[`execution::transform_env`](../transform_env.md)に対するスタマイゼーションポイントとして機能する。
 
-- 定義されていれば、[Senderのタグ型](../tag_of_t.md.nolink)の`transform_env`メンバ関数に変換動作を委譲する。
+- 定義されていれば、[Senderタグ型](../tag_of_t.md.nolink)の`transform_env`メンバ関数に変換動作を委譲する。
 - そうでなければ、無変換。
 
 
@@ -47,7 +47,7 @@ template<sender Sndr, queryable Env>
 
 
 ## 関連項目
-- [`execution::transform_env`](../transform_env.md.nolink)
+- [`execution::transform_env`](../transform_env.md)
 
 
 ## 参照

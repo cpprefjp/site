@@ -18,9 +18,9 @@ namespace std::execution {
 
 実行ドメインは下記関数に対するカスタマイゼーションポイントとして機能する。
 
-- [`execution::transform_sender`](transform_sender.md.nolink) : Senderの変換
-- [`execution::transform_env`](transform_env.md.nolink) : 環境の変換
-- [`execution::apply_sender`](apply_sender.md.nolink) : Senderアルゴリズム適用
+- [`execution::transform_sender`](transform_sender.md) : Senderの変換
+- [`execution::transform_env`](transform_env.md) : 環境の変換
+- [`execution::apply_sender`](apply_sender.md) : Senderアルゴリズム適用
 
 
 ## メンバ関数
@@ -46,9 +46,9 @@ namespace std::execution {
 
 
 ## 関連項目
-- [`execution::transform_sender`](transform_sender.md.nolink)
-- [`execution::transform_env`](transform_env.md.nolink)
-- [`execution::apply_sender`](apply_sender.md.nolink)
+- [`execution::transform_sender`](transform_sender.md)
+- [`execution::transform_env`](transform_env.md)
+- [`execution::apply_sender`](apply_sender.md)
 
 
 ## 参照
