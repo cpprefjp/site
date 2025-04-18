@@ -5,7 +5,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-namespace std {
+namespace std::execution {
   struct connect_t;
   inline constexpr connect_t connect{};
 }
@@ -120,12 +120,13 @@ completion_signatures<
   set_error_t(exception_ptr),
   set_stopped_t()>
 ```
+* completion_signatures[link completion_signatures.md]
 * set_error_t[link set_error.md]
 * set_stopped_t[link set_stopped.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * SET-VALUE-SIG[italic]
 
-説明用のコールーチン`suspend-complete`を下記の通り定義する。
+説明用の関数テンプレート`suspend-complete`とコルーチン`suspend-awaitable`を下記の通り定義する。
 
 ```cpp
 namespace std::execution {
