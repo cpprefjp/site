@@ -23,7 +23,7 @@ namespace std::execution {
 
 
 ## 要件
-説明専用コンセプト`is-sender`, `enable-sender`、説明用クラステンプレート`env-promise`を以下のように定義する。
+説明専用コンセプト`is-sender`, `enable-sender`を以下のように定義する。
 
 ```cpp
 template<class Sndr>
@@ -34,25 +34,11 @@ template<class Sndr>
 concept enable-sender =
   is-sender<Sndr> ||
   is-awaitable<Sndr, env-promise<env<>>>;
-
-template<class Env>
-struct env-promise : with-await-transform<env-promise<Env>> {
-  unspecified get_return_object() noexcept;
-  unspecified initial_suspend() noexcept;
-  unspecified final_suspend() noexcept;
-  void unhandled_exception() noexcept;
-  void return_void() noexcept;
-  coroutine_handle<> unhandled_stopped() noexcept;
-
-  const Env& get_env() const noexcept;
-};
 ```
-* is-awaitable[link ../is-awaitable.md]
-* env<>[link env.md]
 * derived_from[link /reference/concepts/derived_from.md]
-* with-await-transform[link with-await-transform.md]
-* coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
-* unspecified[italic]
+* is-awaitable[link ../is-awaitable.md]
+* env-promise[link env-promise.md]
+* env<>[link env.md]
 
 `sender`コンセプトは、以下のように定義される。
 

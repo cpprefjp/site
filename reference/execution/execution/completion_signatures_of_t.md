@@ -14,10 +14,9 @@ namespace std::execution {
 * env<>[link env.md]
 * sender_in[link sender_in.md]
 * call-result-t[link call-result-t.md.nolink]
-* sender_in[link sender_in.md]
+* get_completion_signatures_t[link get_completion_signatures.md]
 
 ## 概要
-
 [Sender型](sender.md)`Sndr`から[環境](../queryable.md)`Env`における[完了シグネチャ集合](completion_signatures.md)を取得する。
 
 
@@ -30,6 +29,10 @@ namespace std::execution {
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`execution::get_completion_signatures`](get_completion_signatures.md)
 
 
 ## 参照

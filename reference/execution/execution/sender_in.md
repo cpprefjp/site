@@ -19,7 +19,7 @@ namespace std::execution {
 * env<>[link env.md]
 * sender[link sender.md]
 * queryable[link ../queryable.md]
-* get_completion_signatures[link get_completion_signatures.md.nolink]
+* get_completion_signatures[link get_completion_signatures.md]
 
 ## 概要
 `sender_in`は、[Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できることを表すコンセプトである。

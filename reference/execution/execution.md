@@ -83,8 +83,8 @@ namespace std::execution {
 | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
 | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
 | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
-| [`execution::get_completion_signatures`](execution/get_completion_signatures.md.nolink) | 完了シグネチャ集合取得のクエリオブジェクト (customization point object) | C++26 |
-| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderから完了シグネチャ集合を取得 (alias template) | C++26 |
+| [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (customization point object) | C++26 |
+| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::value_types_of_t`](execution/value_types_of_t.md.nolink) | Senderの値完了型を取得 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md.nolink) | Senderのエラー完了型を取得 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/value_types_of_t.md.nolink) | Senderが停止完了に対応するか否か (variable template) | C++26 |
