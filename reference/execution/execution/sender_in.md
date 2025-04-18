@@ -38,7 +38,7 @@ concept valid-completion-signatures = see below;
 
 また、ある完了操作の完了シグネチャが[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr, Env>`で取得される[`completion_signatures`](completion_signatures.md)リストに含まれるとき、`Sndr`と`Env`における許容可能完了(permissible completion)となる。
 
-`sndr`と`rcvr`の接続後に[Operation State](operation_state.md)を開始することで評価されうる完了操作が、全て許容可能完了(permissible completion)である場合、`Sndr`と`Env`は`sender_in<Sndr, Env>`のモデルとなる。
+`sndr`と`rcvr`の[接続](connect.md)後に[Operation State](operation_state.md)を開始することで評価されうる完了操作が、全て許容可能完了(permissible completion)である場合、`Sndr`と`Env`は`sender_in<Sndr, Env>`のモデルとなる。
 
 
 ## 例

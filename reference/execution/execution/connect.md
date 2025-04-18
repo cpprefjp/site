@@ -16,8 +16,8 @@ namespace std {
 
 カスタマイゼーションポイントオブジェクトの呼び出し式`connect(sndr, rcvr)`は、下記の動作となる。
 
-- [`transform_sender`](transform_sender.md)を呼び出して、`sndr`を新しいSender`new_sndr`に変換する。大半のケースでは無変換。
-- 呼び出し式が適格であるならば、`return new_sndr.connect(rcvr)`相当。
+- [`transform_sender`](transform_sender.md)により`sndr`から新しいSender`new_sndr`へ変換する。（多くのケースで無変換）
+- 呼び出し式が適格であるならば、`new_sndr.connect(rcvr)`を返す。
 - そうでなければ、`new_sndr`を[コルーチンのAwaitable型](/lang/cpp20/coroutines.md)とみなして`rcvr`と接続した結果を返す。
 
 
@@ -72,9 +72,12 @@ namespace std::execution {
   };
 }
 ```
+* with-await-transform[link with-await-transform.md]
 * suspend_always[link /reference/coroutine/suspend_always.md]
+* terminate()[link /reference/exception/terminate.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * set_stopped[link set_stopped.md]
+* std::move[link /reference/utility/move.md]
 * noop_coroutine()[link /reference/coroutine/noop_coroutine.md]
 * from_promise[link /reference/coroutine/coroutine_handle/from_promise.md]
 * env_of_t[link env_of_t.md]
@@ -100,6 +103,7 @@ namespace std::execution {
 }
 ```
 * operation_state_t[link operation_state.md]
+* promise_type[link /lang/cpp20/coroutines.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 * destroy()[link /reference/coroutine/coroutine_handle/destroy.md]
 * resume()[link /reference/coroutine/coroutine_handle/resume.md]
@@ -117,7 +121,7 @@ completion_signatures<
   set_stopped_t()>
 ```
 * set_error_t[link set_error.md]
-* set_stopped[link set_stopped.md]
+* set_stopped_t[link set_stopped.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * SET-VALUE-SIG[italic]
 
@@ -159,7 +163,9 @@ namespace std::execution {
 * unreachable()[link /reference/utility/unreachable.md]
 * receiver_of[link receiver_of.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
+* std::move[link /reference/utility/move.md]
 * current_exception()[link /reference/exception/current_exception.md]
+
 
 ## カスタマイゼーションポイント
 Sender`sndr`[変換後](transform_sender.md)の`new_sndr`に対して、式`new_sndr.connect(rcvr)`が呼び出される。

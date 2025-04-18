@@ -14,7 +14,7 @@ namespace std::execution {
 * connect[link connect.md]
 
 ## 概要
-[Sender型](sender.md)`Sndr`と[Receiver型]`Rcvr`を[接続](connect.md)した結果の[Operation State型](operation_state.md)を取得する。
+[Sender型](sender.md)`Sndr`と[Receiver型](receiver.md)`Rcvr`を[接続(connect)](connect.md)した結果の[Operation State型](operation_state.md)を取得する。
 
 
 ## バージョン

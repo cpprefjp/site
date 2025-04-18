@@ -18,7 +18,7 @@ namespace std::execution {
 
 ## 概要
 [実行ドメイン](default_domain.md)に応じて[Sender](sender.md)を変換する。
-Senderオブジェクトの構築時、Senderと[Receiver](receiver.md)間[接続(connect)](../connect.md.nolink)のカスタマイゼーションポイントとして機能する。
+Senderオブジェクトの構築時、Senderと[Receiver](receiver.md)間[接続(connect)](connect.md)時のカスタマイゼーションポイントとして機能する。
 
 型変換ではSender型の変換が行われなくなる（恒等変換となる）まで、下記のカスタマイゼーションポイントを再帰的に呼び出す。
 

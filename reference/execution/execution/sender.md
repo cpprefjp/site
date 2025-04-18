@@ -50,6 +50,7 @@ struct env-promise : with-await-transform<env-promise<Env>> {
 * is-awaitable[link ../is-awaitable.md]
 * env<>[link env.md]
 * derived_from[link /reference/concepts/derived_from.md]
+* with-await-transform[link with-await-transform.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 * unspecified[italic]
 
