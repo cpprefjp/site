@@ -17,7 +17,7 @@ constexpr sender decltype(auto) transform_sender(Sndr&& sndr, const Env&... env)
 
 ## 概要
 Sender変換のデフォルト動作。
-[`execution​::​transform_sender`](../​transform_sender.md.nolink)に対するスタマイゼーションポイントとして機能する。
+[`execution::transform_sender`](../transform_sender.md.nolink)に対するスタマイゼーションポイントとして機能する。
 
 - 定義されていれば、[Senderのタグ型](../tag_of_t.md.nolink)の`transform_sender`メンバ関数に変換動作を委譲する。
 - そうでなければ、無変換。
@@ -27,12 +27,13 @@ Sender変換のデフォルト動作。
 説明用の式`e`を次の通りとしたとき、`e`を返す。
 
 - 適格ならば、式[`tag_of_t`](tag_of_t.md.nolink)`<Sndr>().transform_sender(`[`std::forward<Sndr>(sndr)`](/reference/utility/forward.md)`, env...)`
-- そうでなければ、[`std​::​forward`](/reference/utility/forward.md)`<Sndr>(sndr)`
+- そうでなければ、[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr)`
 
 
 ## 例外
 `noexcept(e)`が`true`であれば、例外を投げない。
 そうでなければ、式`e`から送出される例外。
+
 
 
 ## バージョン
@@ -47,7 +48,7 @@ Sender変換のデフォルト動作。
 
 
 ## 関連項目
-- [`execution​::​transform_sender`](../​transform_sender.md.nolink)
+- [`execution::transform_sender`](../transform_sender.md.nolink)
 
 
 ## 参照
