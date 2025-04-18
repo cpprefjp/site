@@ -211,7 +211,7 @@ int main()
 * ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
 * ex::operation_state[link operation_state.md]
-* ex::start[link start.md.nolink]
+* ex::start[link start.md]
 
 ### 出力
 ```

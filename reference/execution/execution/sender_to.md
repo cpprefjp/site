@@ -61,7 +61,7 @@ int main()
 * ex::just[link just.md.nolink]
 * ex::operation_state[link operation_state.md]
 * ex::connect[link connect.md]
-* ex::start[link start.md.nolink]
+* ex::start[link start.md]
 
 ### 出力
 ```

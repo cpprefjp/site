@@ -1,35 +1,30 @@
-# operation_state
+# start
 * execution[meta header]
-* concept[meta id-type]
+* cpo[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
 
 ```cpp
 namespace std::execution {
-  template<class O>
-  concept operation_state =
-    derived_from<typename O::operation_state_concept, operation_state_t> &&
-    is_object_v<O> &&
-    requires (O& o) {
-      { start(o) } noexcept;
-    };
-
-  struct operation_state_t {};  // タグ型
+  struct start_t;
+  inline constexpr start_t start{};
 }
 ```
-* derived_from[link /reference/concepts/derived_from.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* start[link start.md]
 
 ## 概要
-`operation_state`は、型`O`がOperation State型の要件を満たすことを表すコンセプトである。
+`start`は、[Operation State](operation_state.md)を開始するカスタマイゼーションポイントオブジェクトである。
 
-下記をみたすクラス型はOperation Stateとみなせる。
 
-- `operation_state_t`をメンバ型`O::operation_state_concept`として定義するクラス型
-- `O`型の左辺値`o`に対して[`execution::start`](start.md)`(o)`が有効な式かつ例外送出されないこと
+## 効果
+式`start(op)`は、`op`が右辺値の場合は不適格となる。
+そうでなければ、`op.start()`と等価。
 
-非同期操作の生存期間中に`operation_state`オブジェクトが破棄されると、未定義の動作を引き起こす。
+`op.start()`が[Operation State](operation_state.md)に関連付けさられた非同期操作を開始しない場合、式`start(op)`は未定義動作となる。
+
+
+## カスタマイゼーションポイント
+[Operation State](operation_state.md)`op`に対して式`op.start()`が呼び出される。
+このとき`noexcept(op.start()) == true`であること。
 
 
 ## 例
@@ -60,12 +55,12 @@ int main()
   ex::start(op);
 }
 ```
-* ex::operation_state[color ff0000]
+* ex::start[color ff0000]
 * ex::receiver_t[link receiver.md]
 * ex::sender[link sender.md]
 * ex::just[link just.md.nolink]
+* ex::operation_state[link operation_state.md]
 * ex::connect[link connect.md]
-* ex::start[link start.md]
 
 ### 出力
 ```
@@ -85,7 +80,7 @@ int main()
 
 
 ## 関連項目
-- [`execution::connect`](connect.md)
+- [`execution::operation_state`](operation_state.md)
 
 
 ## 参照

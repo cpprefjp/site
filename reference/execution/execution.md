@@ -73,7 +73,7 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::operation_state`](execution/operation_state.md) | Operation State型 (concept) | C++26 |
-| [`execution::start`](execution/start.md.nolink) | 非同期操作の開始 (customization point object) | C++26 |
+| [`execution::start`](execution/start.md) | 非同期操作の開始 (customization point object) | C++26 |
 
 ### Sender
 
