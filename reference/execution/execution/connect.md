@@ -29,7 +29,7 @@ namespace std {
 transform_sender(decltype(get-domain-late(sndr, get_env(rcvr))){}, sndr, get_env(rcvr))
 ```
 * transform_sender[link transform_sender.md]
-* get-domain-late[link get-domain-late.md.nolink]
+* get-domain-late[link get-domain-late.md]
 * get_env[link get_env.md]
 
 式`connect(sndr, rcvr)`は下記と等価であり、[`operation_state`](operation_state.md)を満たす型の値となる。
@@ -163,6 +163,8 @@ namespace std::execution {
 * unreachable()[link /reference/utility/unreachable.md]
 * receiver_of[link receiver_of.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
+* set_value[link set_value.md]
+* set_error[link set_error.md]
 * std::move[link /reference/utility/move.md]
 * current_exception()[link /reference/exception/current_exception.md]
 
