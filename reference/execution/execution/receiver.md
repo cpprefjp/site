@@ -27,7 +27,11 @@ namespace std::execution {
 ## 概要
 `receiver`は、型`Rcvr`がReceiver型の要件を満たすことを表すコンセプトである。
 
-`receiver_t`をメンバ型`Rcvr::receiver_concept`として定義するクラス型はReceiverとみなせる。
+下記をみたすクラス型はReceiverとみなせる。
+
+- `receiver_t`をメンバ型`Rcvr::receiver_concept`として定義する
+- [`get_env`](get_env.md)で[環境](../queryable.md)を取得できる
+- ムーブ可能
 
 
 ## モデル

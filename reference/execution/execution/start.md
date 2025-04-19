@@ -12,19 +12,23 @@ namespace std::execution {
 ```
 
 ## 概要
-`start`は、[Operation State](operation_state.md)を開始するカスタマイゼーションポイントオブジェクトである。
+`start`は、[Operation State](operation_state.md)関連付けられた非同期操作(asynchronous operation)を開始するカスタマイゼーションポイントオブジェクトである。
 
 
 ## 効果
 式`start(op)`は、`op`が右辺値の場合は不適格となる。
 そうでなければ、`op.start()`と等価。
 
-`op.start()`が[Operation State](operation_state.md)に関連付けさられた非同期操作を開始しない場合、式`start(op)`の動作は未定義となる。
+`op.start()`が[Operation State](operation_state.md)に関連付けられた非同期操作を開始しない場合、式`start(op)`の動作は未定義となる。
 
 
 ## カスタマイゼーションポイント
 [Operation State](operation_state.md)`op`に対して式`op.start()`が呼び出される。
 このとき`noexcept(op.start()) == true`であること。
+
+
+## 備考
+`start`は[Sender](sender.md)内部実装から呼び出される想定であり、実行制御ライブラリ利用者が直接利用する必要はない。
 
 
 ## 例

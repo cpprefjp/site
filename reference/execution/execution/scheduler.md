@@ -25,6 +25,7 @@ namespace std::execution {
 * derived_from[link /reference/concepts/derived_from.md]
 * sender[link sender.md]
 * queryable[link ../queryable.md]
+* schedule[link schedule.md.nolink]
 * get_completion_scheduler[link get_completion_scheduler.md.nolink]
 * set_value_t[link set_value.md]
 * get_env[link get_env.md]
@@ -36,11 +37,47 @@ namespace std::execution {
 
 下記をみたすクラス型はSchedulerとみなせる。
 
-- `scheduler_t`をメンバ型`Sch::scheduler_concept`として定義するクラス
-- [クエリ可能オブジェクト](../queryable.md)であること
-- `Sch`型の値`sch`に対して下記が有効な式であること
-    - [`execution::schedule`](schedule.md.nolink)`(sch)`が[Sender](sender.md)を返すこと
-    - [`execution::get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`execution::get_env`](get_env.md)`(`[`execution::schedule`](schedule.md.nolink)`(sch)))`の結果が`Sch`型に等しいこと
+- `scheduler_t`をメンバ型`Sch::scheduler_concept`として定義する
+- [クエリ可能オブジェクト](../queryable.md)である
+- `Sch`型の値`sch`に対して下記を満たすこと
+    - [`execution::schedule`](schedule.md.nolink)`(sch)`が[Sender](sender.md)を返す
+    - 上記Senderの[値完了関数](set_value.md)の[完了Scheduler](get_completion_scheduler.md.nolink)が`Sch`に等しいこと
+- コピー可能かつ同値比較可能
+
+
+## モデル
+説明専用のエイリアステンプレート`value-signature`, コンセプト`sender-in-of`を下記の通り定義する。
+
+```cpp
+namespace std::execution {
+  template<class... As>
+  using value-signature = set_value_t(As...);
+
+  template<class Sndr, class Env, class... Values>
+  concept sender-in-of =
+    sender_in<Sndr, Env> &&
+    MATCHING-SIG(
+      set_value_t(Values...),
+      value_types_of_t<Sndr, Env, value-signature, type_identity_t>);
+}
+```
+* set_value_t[link set_value.md]
+* sender_in[link sender_in.md]
+* value_types_of_t[link value_types_of_t.md.nolink]
+* type_identity_t[link /reference/type_traits/true_type.md]
+
+型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`<schedule_result_t<Sch>, Env>`を満たす実行環境の型としたとき、`sender-in-of<schedule_result_t<Sch>, Env>`のモデルとなること。
+
+[`copyable`](/reference/concepts/copyable.md)`<remove_cvref_t<Sch>>`および[`equality_comparable`](/reference/concepts/equality_comparable.md)`<remove_cvref_t<Sch>>`により要求される操作は、例外で終了してはならない。
+これらの操作やScheduler型の[`schedule`](schedule.md.nolink)関数は、異なるスレッドから同時に操作を呼び出す可能性がある場合でも、データ競合を引き起こしてはならない。
+
+あるScheduler型`Sch`の2つの値`sch1`と`sch2`に対して、`sch1`と`sch2`が同じ実行リソースを共有する場合に限って、`sch1 == sch2`は`true`となる。
+
+あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md.nolink)`(sch)))`が`sch`と等しいこと。
+
+あるScheduler`sch`に対して式[`get_domain`](get_domain.md)`(sch)`が適格であるとき、式`get_domain(`[`get_env`](get_env.md)`(schedule(sch)))`も適格であり、かつ同じ型を持つ。
+
+Scheduler型のデストラクタは、`schedule`が返すSenderオブジェクトに接続されたReceiverの完了を待機してブロックしてはならない。
 
 
 ## 例

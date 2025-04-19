@@ -16,10 +16,13 @@ namespace std::execution {
 ## 概要
 `sender`は、型`Sndr`がSender型の要件を満たすことを表すコンセプトである。
 
-次のいずれかのクラス型はSenderとみなせる。
+下記をみたすクラス型はSenderとみなせる。
 
-- `sender_t`をメンバ型`Sndr::sender_concept`として定義するクラス型
-- [コルーチンのAwaitable型](/lang/cpp20/coroutines.md)クラス型
+- 下記いずれかを満たす
+    - `sender_t`をメンバ型`Sndr::sender_concept`として定義する
+    - [コルーチンのAwaitable型](/lang/cpp20/coroutines.md)
+- [`get_env`](get_env.md)で[属性](../queryable.md)を取得できる
+- ムーブ可能
 
 
 ## 要件
