@@ -75,7 +75,7 @@ namespace std::execution {
 
 あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md.nolink)`(sch)))`が`sch`と等しいこと。
 
-あるScheduler`sch`に対して式[`get_domain`](get_domain.md)`(sch)`が適格であるとき、式`get_domain(`[`get_env`](get_env.md)`(schedule(sch)))`も適格であり、かつ同じ型を持つ。
+あるScheduler`sch`に対して式[`get_domain`](get_domain.md.nolink)`(sch)`が適格であるとき、式`get_domain(`[`get_env`](get_env.md)`(schedule(sch)))`も適格であり、かつ同じ型を持つ。
 
 Scheduler型のデストラクタは、`schedule`が返すSenderオブジェクトに接続されたReceiverの完了を待機してブロックしてはならない。
 
