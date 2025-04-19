@@ -67,6 +67,8 @@ int main()
 * get_scheduler()[link run_loop/get_scheduler.md.nolink]
 * run()[link run_loop/run.md.nolink]
 * finish()[link run_loop/finish.md.nolink]
+* std::move[link /reference/utility/move.md]
+* std::jthread[link /reference/thread/jthread.md]
 * std::this_thread::get_id()[link /reference/thread/this_thread/get_id.md]
 
 ### 出力例

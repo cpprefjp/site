@@ -104,7 +104,7 @@ namespace std::execution {
 | [`execution::just_stopped`](execution/just_stopped.md.nolink) | 停止を送信するSender (customization point object) | C++26 |
 | [`execution::read_env`](execution/read_env.md.nolink) | Receiver環境から構築されるSender (customization point object) | C++26 |
 | [`execution::schedule`](execution/schedule.md) | Scheduler上で実行されるSender (customization point object) | C++26 |
-| [`execution::schedule_result_t`](execution/schedule_result_t.md.nolink) | `schedule`結果型を取得 (alias template) | C++26 |
+| [`execution::schedule_result_t`](execution/schedule_result_t.md) | [`schedule`](execution/schedule.md)結果型を取得 (alias template) | C++26 |
 
 ### Senderアダプタ
 
