@@ -67,7 +67,6 @@ void splice_after(const_iterator position, forward_list&& x,
 ```cpp example
 #include <iostream>
 #include <forward_list>
-#include <utility>
 #include <iterator>
 
 template <class T>
@@ -84,7 +83,7 @@ int main()
     std::forward_list<int> xs = {1, 5, 6};
     std::forward_list<int> ys = {2, 3, 4};
 
-    xs.splice_after(xs.begin(), std::move(ys));
+    xs.splice_after(xs.begin(), ys);
 
     print(xs);
   }
@@ -93,7 +92,7 @@ int main()
     std::forward_list<int> xs = {1, 5, 6};
     std::forward_list<int> ys = {2, 3, 4};
 
-    xs.splice_after(xs.begin(), std::move(ys), ys.begin());
+    xs.splice_after(xs.begin(), ys, ys.begin());
 
     print(xs);
   }
@@ -102,7 +101,7 @@ int main()
     std::forward_list<int> xs = {1, 5, 6};
     std::forward_list<int> ys = {2, 3, 4};
 
-    xs.splice_after(xs.begin(), std::move(ys), ys.before_begin(), std::next(ys.begin(), 2));
+    xs.splice_after(xs.begin(), ys, ys.before_begin(), std::next(ys.begin(), 2));
 
     print(xs);
   }
@@ -110,7 +109,6 @@ int main()
 ```
 * splice_after[color ff0000]
 * begin()[link begin.md]
-* std::move[link /reference/utility/move.md]
 * std::next[link /reference/iterator/next.md]
 
 ### 出力
