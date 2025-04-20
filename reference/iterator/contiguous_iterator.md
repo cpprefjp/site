@@ -33,6 +33,11 @@ namespace std {
 
 `contiguous_iterator`となるイテレータは、[ランダムアクセスイテレータ](random_access_iterator.md)であり、参照する要素列がメモリ上で連続していることが保証される。
 
+C++20で導入された`contiguous_iterator`は、要素がメモリー上で連続していることを保証しているが、C++23の標準ライブラリ実装では
+得られたポインタに対してさらなるポインタ演算を行う演算は許可されていなかった。
+
+しかし、C++26からは、この制限が緩和され、`std::to_address`関数を使用して得られたポインタに対してさらなるポインタ演算を行うことができるようになった。
+
 ## モデル
 
 `a, b`を間接参照可能なイテレータ、`c`を間接参照不可能なイテレータとし、`b`は`a`から、`c`は`b`からそれぞれ到達可能であるとする。そのような型`I`のイテレータ`a, b, c`と[`iter_difference_t<I>`](/reference/iterator/iter_difference_t.md)の示す型`D`について次の条件を満たす場合に限って、型`I`は`contiguous_iterator`のモデルである。
@@ -109,3 +114,4 @@ std::ostream_iterator<double> is not contiguous_iterator
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1474R1 Helpful pointers for `ContiguousIterator`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1474r1.pdf)
+- [P3349R1 Converting contiguous iterators to pointers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3349r1.html)
