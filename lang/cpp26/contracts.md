@@ -95,7 +95,7 @@ g++ -std=c++26 -fcontracts -fcontract-semantic=observe main.cpp
 のように指定できる。
 
 ### 契約違反ハンドラ
-契約違反が発生した場合、`std::contracts::contract_violation`型の情報（&lt;contracts&gt;ヘッダー）がハンドラに渡されます。​この情報には、違反の種類、発生場所、違反した条件式などが含まれます。
+契約違反が発生した場合、`std::contracts::contract_violation`型の情報（&lt;contracts&gt;ヘッダー）がハンドラに渡されます。この情報には、違反の種類、発生場所、違反した条件式などが含まれます。
 
 ### 使用上の注意
 以下の操作は、気をつけなければならない。
