@@ -104,7 +104,7 @@ g++ -std=c++26 -fcontracts -fcontract-semantic=observe main.cpp
 - 通常の関数やメンバ関数には契約を適用できるが、特殊な関数(例えば`default`によって定義されたコピーコンストラクタやデストラクタ)には適用できない。適用すると、プログラムは不正(ill-formed)となる。
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
-- [C++ 将来 契約に基づくプログラミング](lang/future/contract-based_programming.md)
+- [C++ 将来 契約に基づくプログラミング](/lang/future/contract-based_programming.md)
 
 
 ## 参照
