@@ -49,7 +49,7 @@ int main()
 }
 ```
 * ex::prop[color ff0000]
-* std::get_stop_token[link get_stop_token.md.nolink]
+* std::get_stop_token[link ../get_stop_token.md]
 * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
 
 ### 出力

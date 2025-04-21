@@ -11,7 +11,7 @@ namespace std::execution {
 
   template<class CPO>
   constexpr get_completion_scheduler_t<CPO> get_completion_scheduler{};
-  }
+}
 ```
 * unspecified[italic]
 

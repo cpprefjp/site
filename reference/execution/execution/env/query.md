@@ -70,7 +70,7 @@ int main()
 * ex::env[link ../env.md]
 * ex::prop[link ../prop.md]
 * std::get_allocator[link get_allocator.md.nolink]
-* std::get_stop_token[link get_stop_token.md.nolink]
+* std::get_stop_token[link ../../get_stop_token.md]
 * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 
