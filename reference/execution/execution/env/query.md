@@ -12,7 +12,7 @@ constexpr decltype(auto) query(QueryTag q) const noexcept(see below);
 * see below[italic]
 
 ## 概要
-クエリオブジェクト`q`をキーとして、対応する値を問い合わせる。
+[クエリオブジェクト](../../queryable.md)`q`をキーとして、対応する値を問い合わせる。
 
 
 ## テンプレートパラメータ制約
@@ -69,7 +69,7 @@ int main()
 * query[color ff0000]
 * ex::env[link ../env.md]
 * ex::prop[link ../prop.md]
-* std::get_allocator[link get_allocator.md.nolink]
+* std::get_allocator[link ../../get_allocator.md]
 * std::get_stop_token[link ../../get_stop_token.md]
 * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]

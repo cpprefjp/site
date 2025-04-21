@@ -23,7 +23,7 @@ namespace std::execution {
 * unwrap_reference_t[link /reference/type_traits/unwrap_reference.md]
 
 ## 概要
-`QueryTag`型クエリオブジェクトのキーと`ValueType`型の値から、[クエリ可能オブジェクト](../queryable.md)を構築する。
+`QueryTag`型[クエリオブジェクト](../queryable.md)のキーと`ValueType`型の値から、[クエリ可能オブジェクト](../queryable.md)を構築する。
 
 
 ## 適格要件

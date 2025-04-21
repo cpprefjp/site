@@ -36,7 +36,7 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`forwarding_query`](forwarding_query.md.nolink) | クエリオブジェクトに転送問い合わせ可能か否かを返す (customization point object) | C++26 |
-| [`get_allocator`](get_allocator.md.nolink) | アロケータ取得のクエリオブジェクト (customization point object) | C++26 |
+| [`get_allocator`](get_allocator.md) | アロケータ取得のクエリオブジェクト (customization point object) | C++26 |
 | [`get_stop_token`](get_stop_token.md) | 停止トークン取得のクエリオブジェクト (customization point object) | C++26 |
 | [`stop_token_of_t`](stop_token_of_t.md) | 指定型から停止トークン型を取得 (alias template) | C++26 |
 | [`execution::get_domain`](execution/get_domain.md.nolink) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |

@@ -61,7 +61,7 @@ int main()
 ```
 * ex::env[color ff0000]
 * ex::prop[link prop.md]
-* std::get_allocator[link get_allocator.md.nolink]
+* std::get_allocator[link ../get_allocator.md]
 * std::get_stop_token[link ../get_stop_token.md]
 * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
 
