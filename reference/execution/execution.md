@@ -44,7 +44,7 @@ namespace std::execution {
 | [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md.nolink) | 委譲Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md.nolink) | 前進保証 (enum) | C++26 |
 | [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md.nolink) | 前進保証取得のクエリオブジェクト (customization point object) | C++26 |
-| [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md.nolink) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_env`](execution/get_env.md) | 環境取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::env_of_t`](execution/env_of_t.md) | 指定型から環境型を取得 (alias template) | C++26 |
 | [`execution::prop`](execution/prop.md) | Key/Valueペアによる[クエリ可能オブジェクト](queryable.md) (class template) | C++26 |

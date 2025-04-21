@@ -26,7 +26,7 @@ namespace std::execution {
 * sender[link sender.md]
 * queryable[link ../queryable.md]
 * schedule[link schedule.md]
-* get_completion_scheduler[link get_completion_scheduler.md.nolink]
+* get_completion_scheduler[link get_completion_scheduler.md]
 * set_value_t[link set_value.md]
 * get_env[link get_env.md]
 * equality_comparable[link /reference/concepts/equality_comparable.md]
@@ -41,7 +41,7 @@ namespace std::execution {
 - [クエリ可能オブジェクト](../queryable.md)である
 - `Sch`型の値`sch`に対して下記を満たすこと
     - [`execution::schedule`](schedule.md)`(sch)`が[Sender](sender.md)を返す
-    - 上記Senderの[値完了関数](set_value.md)の[完了Scheduler](get_completion_scheduler.md.nolink)が`Sch`に等しいこと
+    - 上記Senderの[値完了関数](set_value.md)の[完了Scheduler](get_completion_scheduler.md)が`Sch`に等しいこと
 - コピー可能かつ同値比較可能
 
 
@@ -66,14 +66,14 @@ namespace std::execution {
 * value_types_of_t[link value_types_of_t.md.nolink]
 * type_identity_t[link /reference/type_traits/true_type.md]
 
-型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`<schedule_result_t<Sch>, Env>`を満たす実行環境の型としたとき、`sender-in-of<schedule_result_t<Sch>, Env>`のモデルとなること。
+型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`を満たす実行環境の型としたとき、`sender-in-of<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`のモデルとなること。
 
 [`copyable`](/reference/concepts/copyable.md)`<remove_cvref_t<Sch>>`および[`equality_comparable`](/reference/concepts/equality_comparable.md)`<remove_cvref_t<Sch>>`により要求される操作は、例外で終了してはならない。
 これらの操作やScheduler型の[`schedule`](schedule.md)関数は、異なるスレッドから同時に操作を呼び出す可能性がある場合でも、データ競合を引き起こしてはならない。
 
 あるScheduler型`Sch`の2つの値`sch1`と`sch2`に対して、`sch1`と`sch2`が同じ実行リソースを共有する場合に限って、`sch1 == sch2`は`true`となる。
 
-あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`が`sch`と等しいこと。
+あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`が`sch`と等しいこと。
 
 あるScheduler`sch`に対して式[`get_domain`](get_domain.md.nolink)`(sch)`が適格であるとき、式`get_domain(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`も適格であり、かつ同じ型を持つ。
 
@@ -113,6 +113,7 @@ int main()
 
 ## 関連項目
 - [`execution::schedule`](schedule.md)
+- [`execution::get_completion_scheduler`](get_completion_scheduler.md)
 
 
 ## 参照

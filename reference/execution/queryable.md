@@ -11,13 +11,13 @@ concept queryable = destructible<T>;
 * destructible[link /reference/concepts/destructible.md]
 
 ## 概要
-`queryable`は、型`T`がクエリ可能オブジェクト(queryable object)の制約を満たすことを表す説明専用のコンセプトである。
+`queryable`は、型`T`がクエリ可能オブジェクトの制約を満たすことを表す説明専用のコンセプトである。
 
 
-### クエリ可能オブジェクト
-クエリ可能オブジェクトは、クエリオブジェクト(query object)をキーとして対応する値を保持する、読み取り専用のKey/Valueデータ構造とみなせる。
+### クエリ可能オブジェクト(queryable object)
+クエリ可能オブジェクトは、クエリオブジェクトをキーとして対応する値を保持する、読み取り専用のKey/Valueデータ構造とみなせる。
 
-- [`execution::env<>{}`](execution/env.md) : 空(empty)のクエリ可能オブジェクト
+- [`execution::env<>{}`](execution/env.md) : 空のクエリ可能オブジェクト
 - [`execution::prop(q, v)`](execution/prop.md) : キー`q`と対応値`v`を保持する最小のクエリ可能オブジェクト
 - [`execution::env{...}`](execution/env.md) : 複数のKey/Valueを保持するクエリ可能オブジェクト
 - `queryable`コンセプトを満たすユーザ定義クラスのオブジェクト
@@ -27,6 +27,16 @@ concept queryable = destructible<T>;
 - [Sender](execution/sender.md)に関連付けられた属性(attributes)オブジェクト（[`execution::get_env`](execution/get_env.md)で取得）
 - [Receiver](execution/receiver.md)に関連付けられた環境(environment)オブジェクト（[`execution::get_env`](execution/get_env.md)で取得）
 - [Scheduler](execution/scheduler.md)オブジェクト自身
+
+
+### クエリオブジェクト(query object)
+クエリオブジェクトは、クエリ可能オブジェクトに対する問い合わせ(query)を行うカスタマイゼーションポイントオブジェクトである。
+
+説明用のクエリオブジェクト`q`、クエリ可能オブジェクト`env`、引数パック`args`としたとき
+
+- 問い合わせ式`q(env, args...)`は、`void`型であってはならない。
+- 問い合わせ式`q(env, args...)`は、クエリオブジェクトや引数を変更せず、等しさを保持(equality-preserving)する。
+- 式`env.query(q, args...)`が適格であれば、問い合わせ式`q(env, args...)`と等価である。
 
 
 ## モデル

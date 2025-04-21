@@ -23,7 +23,7 @@ namespace std::execution {
 式`get_env(o)`は下記と等価であり、[`queryable`](../queryable.md)を満たす型の値となる。
 
 - 引数`o`がconst修飾された`co`を用いて、式`co.get_env()`が有効であればその値。
-- そうでなければ、空(empty)のクエリ可能オブジェクト[`env<>{}`](env.md)
+- そうでなければ、空のクエリ可能オブジェクト[`env<>{}`](env.md)
 
 
 ## 例外
