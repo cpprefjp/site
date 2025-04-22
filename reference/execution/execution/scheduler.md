@@ -63,7 +63,7 @@ namespace std::execution {
 ```
 * set_value_t[link set_value.md]
 * sender_in[link sender_in.md]
-* value_types_of_t[link value_types_of_t.md.nolink]
+* value_types_of_t[link value_types_of_t.md]
 * type_identity_t[link /reference/type_traits/true_type.md]
 
 型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`を満たす実行環境の型としたとき、`sender-in-of<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`のモデルとなること。
