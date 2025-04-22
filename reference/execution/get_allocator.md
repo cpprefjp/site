@@ -19,9 +19,9 @@ namespace std {
 
 
 ## 効果
-式`get_allocator(env)`は下記と等価であり、説明専用コンセプト`simple-allocator`を満たす型の値となる。
+呼び出し式`get_allocator(env)`は下記と等価であり、適格であれば説明専用コンセプト`simple-allocator`を満たす型の値となる。
 
-- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_allocator)`が適格であること。
+- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_allocator)`
 
 ```cpp
 template<class Alloc>
@@ -40,7 +40,7 @@ concept simple-allocator =
 
 
 ## カスタマイゼーションポイント
-const修飾[クエリ可能オブジェクト](queryable.md)`env`に対して式`env.query(get_allocator)`が呼び出される。
+const修飾[クエリ可能オブジェクト](queryable.md)`cenv`に対して式`cenv.query(get_allocator)`が呼び出される。
 このとき、`noexcept(cenv.query(get_allocator)) == true`であること。
 
 

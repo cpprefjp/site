@@ -14,7 +14,7 @@ namespace std::execution {
 ## 概要
 `connect`は、[Sender](sender.md)と[Receiver](receiver.md)を接続した結果[Operation State](operation_state.md)を返すカスタマイゼーションポイントオブジェクトである。
 
-カスタマイゼーションポイントオブジェクトの呼び出し式`connect(sndr, rcvr)`は、下記の動作となる。
+呼び出し式`connect(sndr, rcvr)`は、下記の動作となる。
 
 - [`transform_sender`](transform_sender.md)により`sndr`から新しいSender`new_sndr`へ変換する。（多くのケースで無変換）
 - 呼び出し式が適格であるならば、`new_sndr.connect(rcvr)`を返す。

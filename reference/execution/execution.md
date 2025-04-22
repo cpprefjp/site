@@ -39,9 +39,9 @@ namespace std::execution {
 | [`get_allocator`](get_allocator.md) | アロケータ取得のクエリオブジェクト (customization point object) | C++26 |
 | [`get_stop_token`](get_stop_token.md) | 停止トークン取得のクエリオブジェクト (customization point object) | C++26 |
 | [`stop_token_of_t`](stop_token_of_t.md) | 指定型から停止トークン型を取得 (alias template) | C++26 |
-| [`execution::get_domain`](execution/get_domain.md.nolink) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
-| [`execution::get_scheduler`](execution/get_scheduler.md.nolink) | Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
-| [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md.nolink) | 委譲Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_domain`](execution/get_domain.md) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_scheduler`](execution/get_scheduler.md) | Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md) | 委任Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md.nolink) | 前進保証 (enum) | C++26 |
 | [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md.nolink) | 前進保証取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |

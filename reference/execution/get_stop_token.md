@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 効果
-式`get_stop_token(env)`は下記と等価であり、[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たす型の値となる。
+呼び出し式`get_stop_token(env)`は下記と等価であり、[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たす型の値となる。
 
 - 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_stop_token)`が適格であればその値。
 - そうでなければ、[`never_stop_token{}`](/reference/stop_token/never_stop_token.md)
@@ -30,7 +30,7 @@ namespace std {
 
 
 ## カスタマイゼーションポイント
-const修飾[クエリ可能オブジェクト](queryable.md)`env`に対して式`env.query(get_stop_token)`が呼び出される。
+const修飾[クエリ可能オブジェクト](queryable.md)`cenv`に対して式`cenv.query(get_stop_token)`が呼び出される。
 このとき、`noexcept(cenv.query(get_stop_token)) == true`であること。
 
 
