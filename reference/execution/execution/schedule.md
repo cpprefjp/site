@@ -16,12 +16,13 @@ namespace std::execution {
 `schedule`は、[Scheduler](scheduler.md)から[スケジュールSender](sender.md)を取得するSenderファクトリである。
 
 スケジュールSenderより生成される[非同期操作](operation_state.md)を開始すると、Schedulerに関連付けられた実行リソース上で空の[値完了関数](set_value.md)を呼び出す。
+スケジュールSenderの[値完了Scheduler](get_completion_scheduler.md)は、引数に指定したScheduler`sch`に等しい。
 
 
 ## 効果
 呼び出し式`schedule(sch)`は式`sch.schedule()`と等価であり、式の型は[`sender`](sender.md)を満たすこと。
 
-式[`get_completion_scheduler`](get_completion_scheduler.md.nolink)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(sch.schedule())) == sch`が不適格もしくは`false`となる場合、呼び出し式`schedule(sch)`の動作は未定義となる。
+式[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(sch.schedule())) == sch`が不適格もしくは`false`となる場合、呼び出し式`schedule(sch)`の動作は未定義となる。
 
 
 ## カスタマイゼーションポイント
@@ -93,6 +94,7 @@ val=42
 
 ## 関連項目
 - [`execution::scheduler`](scheduler.md)
+- [`execution::get_completion_scheduler`](get_completion_scheduler.md)
 
 
 ## 参照

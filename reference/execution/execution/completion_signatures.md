@@ -14,6 +14,16 @@ namespace std::execution {
 ## 概要
 `completion_signatures`クラステンプレートは、完了シグネチャの集合をテンプレートパラメータとして表現する。
 
+実行制御ライブラリ仕様定義では、説明専用のコンセプト`valid-completion-signatures`を利用する。
+
+```cpp
+template<class Sigs>
+concept valid-completion-signatures = see below;
+```
+* see below[italic]
+
+`Sigs`が[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
+
 
 ## テンプレートパラメータ制約
 `Fns`の各要素`Fn`が、下記の説明専用コンセプト`completion-signature`を満たすこと。

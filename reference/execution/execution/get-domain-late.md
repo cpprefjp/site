@@ -25,14 +25,14 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
     }();
     ```
     * query-or-default[link query-or-default.md.nolink]
-    * get_domain[link get_domain.md.nolink]
+    * get_domain[link get_domain.md]
     * default_domain()[link default_domain.md]
 
 - それ以外のとき、下記リストのうち最初に妥当となる式の型、かつ`void`ではない型とする。
-    - [`get_domain`](get_domain.md.nolink)`(`[`get_env`](get_env.md)`(sndr))`
+    - [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr))`
     - [`completion-domain`](completion-domain.md.nolink)`<void>(sndr)`
-    - `get_domain(env)`
-    - `get_domain(`[`get_scheduler`](get_scheduler.md.nolink)`(env))`
+    - [`get_domain`](get_domain.md)`(env)`
+    - [`get_domain`](get_domain.md)`(`[`get_scheduler`](get_scheduler.md)`(env))`
     - [`default_domain()`](default_domain.md)
 
 
