@@ -42,9 +42,10 @@ C++20で導入された`contiguous_iterator`は、要素がメモリー上で連
 
 `a, b`を間接参照可能なイテレータ、`c`を間接参照不可能なイテレータとし、`b`は`a`から、`c`は`b`からそれぞれ到達可能であるとする。そのような型`I`のイテレータ`a, b, c`と[`iter_difference_t<I>`](/reference/iterator/iter_difference_t.md)の示す型`D`について次の条件を満たす場合に限って、型`I`は`contiguous_iterator`のモデルである。
 
-- `to_address(a) == addressof(*a)`
-- `to_address(b) == to_address(a) + D(b - a)`
-- `to_address(c) == to_address(a) + D(c - a)`
+## 要件
+- C++26: このイテレータの範囲`[i, s)`はポインタ範囲`[to_address(i), to_address(i + ranges::distance(i, s)))`に置き換えて使用することが実装に許可される
+    - 注：このイテレータをアルゴリズム適用した場合、イテレータのインクリメントが一回しか起こらない可能性があり、個々のインクリメントに対して副作用を起こすことを期待してはならない
+    - 備考：連続イテレータの範囲に対する操作として、`std::copy()`の実装が`std::memmove()`の呼び出しで完了するなど、イテレータを一つずつ進めるのではなくメモリ操作で高速実装されることを許可するものである
 
 ## 例
 ```cpp example
