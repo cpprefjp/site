@@ -1,0 +1,1965 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-04-23T02:11:13.123040</updated>
+  <id>a431d3e3-5cf5-476d-9ab5-901eeedc3cf6</id>
+
+  
+    <entry>
+      <title>ファイルを読み込む#embed命令を追加 [P1967R14] -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/embed.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:lang/cpp26/embed.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/embed.md b/lang/cpp26/embed.md
+index ef5fc9ee6..7b2b64d8a 100644
+--- a/lang/cpp26/embed.md
++++ b/lang/cpp26/embed.md
+@@ -63,7 +63,7 @@ int main() {
+ - `limit(1024)`では、読み込むバイトサイズを1024byteに制限する。もしファイルサイズが1024byteよりも大きければ、最初の1024バイトのみが読み込まれる。
+ - `prefix(0x01, 0x02, 0x03)`では、`data.bin`の内容の前に`0x01 0x02 0x03`のバイト列を追加している。
+ - `suffix(0xFE, 0xFF)`では、`data.bin`の内容のあとに`0xFE 0xFF`のバイト列を追加している。
+-- `if_empty(0x00)`では、`data.bin`がからであった場合、`0x00`のバイト列を格納している。
++- `if_empty(0x00)`では、`data.bin`が空であった場合、`0x00`のバイト列を格納している。
+ 
+ また、`#embed`ディレクティブは、複数のパラメータを**順不同**で組み合わせて指定することもできる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>execution -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
+index 9487a1788..b86510b3b 100644
+--- a/reference/execution/execution.md
++++ b/reference/execution/execution.md
+@@ -36,15 +36,15 @@ namespace std::execution {
+ | 名前 | 説明 | 対応バージョン |
+ |------|------|----------------|
+ | [`forwarding_query`](forwarding_query.md.nolink) | クエリオブジェクトに転送問い合わせ可能か否かを返す (customization point object) | C++26 |
+-| [`get_allocator`](get_allocator.md.nolink) | アロケータ取得のクエリオブジェクト (customization point object) | C++26 |
+-| [`get_stop_token`](get_stop_token.md.nolink) | 停止トークン取得のクエリオブジェクト (customization point object) | C++26 |
+-| [`stop_token_of_t`](get_stop_token.md.nolink) | 指定型から停止トークン型を取得 (alias template) | C++26 |
+-| [`execution::get_domain`](execution/get_domain.md.nolink) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
+-| [`execution::get_scheduler`](execution/get_scheduler.md.nolink) | Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+-| [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md.nolink) | 委譲Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
++| [`get_allocator`](get_allocator.md) | アロケータ取得のクエリオブジェクト (customization point object) | C++26 |
++| [`get_stop_token`](get_stop_token.md) | 停止トークン取得のクエリオブジェクト (customization point object) | C++26 |
++| [`stop_token_of_t`](stop_token_of_t.md) | 指定型から停止トークン型を取得 (alias template) | C++26 |
++| [`execution::get_domain`](execution/get_domain.md) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
++| [`execution::get_scheduler`](execution/get_scheduler.md) | Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
++| [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md) | 委任Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+ | [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md.nolink) | 前進保証 (enum) | C++26 |
+ | [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md.nolink) | 前進保証取得のクエリオブジェクト (customization point object) | C++26 |
+-| [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md.nolink) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
++| [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+ | [`execution::get_env`](execution/get_env.md) | 環境取得のクエリオブジェクト (customization point object) | C++26 |
+ | [`execution::env_of_t`](execution/env_of_t.md) | 指定型から環境型を取得 (alias template) | C++26 |
+ | [`execution::prop`](execution/prop.md) | Key/Valueペアによる[クエリ可能オブジェクト](queryable.md) (class template) | C++26 |
+@@ -85,9 +85,9 @@ namespace std::execution {
+ | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
+ | [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (customization point object) | C++26 |
+ | [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
+-| [`execution::value_types_of_t`](execution/value_types_of_t.md.nolink) | Senderの値完了型を取得 (alias template) | C++26 |
+-| [`execution::error_types_of_t`](execution/error_types_of_t.md.nolink) | Senderのエラー完了型を取得 (alias template) | C++26 |
+-| [`execution::sends_stopped`](execution/value_types_of_t.md.nolink) | Senderが停止完了に対応するか否か (variable template) | C++26 |
++| [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
++| [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
++| [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
+ | [`execution::tag_of_t`](execution/tag_of_t.md.nolink) | Senderのタグ型を取得 (alias template) | C++26 |
+ | [`execution::transform_sender`](execution/transform_sender.md) | Senderを変換 (function template) | C++26 |
+ | [`execution::transform_env`](execution/transform_env.md) | 環境を変換 (function template) | C++26 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>completion_signatures -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/completion_signatures.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/completion_signatures.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/completion_signatures.md b/reference/execution/execution/completion_signatures.md
+index b45088cbb..26bb51878 100644
+--- a/reference/execution/execution/completion_signatures.md
++++ b/reference/execution/execution/completion_signatures.md
+@@ -14,6 +14,16 @@ namespace std::execution {
+ ## 概要
+ `completion_signatures`クラステンプレートは、完了シグネチャの集合をテンプレートパラメータとして表現する。
+ 
++実行制御ライブラリ仕様定義では、説明専用のコンセプト`valid-completion-signatures`を利用する。
++
++```cpp
++template&amp;lt;class Sigs&amp;gt;
++concept valid-completion-signatures = see below;
++```
++* see below[italic]
++
++`Sigs`が[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
++
+ 
+ ## テンプレートパラメータ制約
+ `Fns`の各要素`Fn`が、下記の説明専用コンセプト`completion-signature`を満たすこと。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>connect -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/connect.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/connect.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/connect.md b/reference/execution/execution/connect.md
+index 867baf9ab..467004ba3 100644
+--- a/reference/execution/execution/connect.md
++++ b/reference/execution/execution/connect.md
+@@ -14,7 +14,7 @@ namespace std::execution {
+ ## 概要
+ `connect`は、[Sender](sender.md)と[Receiver](receiver.md)を接続した結果[Operation State](operation_state.md)を返すカスタマイゼーションポイントオブジェクトである。
+ 
+-カスタマイゼーションポイントオブジェクトの呼び出し式`connect(sndr, rcvr)`は、下記の動作となる。
++呼び出し式`connect(sndr, rcvr)`は、下記の動作となる。
+ 
+ - [`transform_sender`](transform_sender.md)により`sndr`から新しいSender`new_sndr`へ変換する。（多くのケースで無変換）
+ - 呼び出し式が適格であるならば、`new_sndr.connect(rcvr)`を返す。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>env -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/env.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/env.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/env.md b/reference/execution/execution/env.md
+index 947d376b4..c44e65d76 100644
+--- a/reference/execution/execution/env.md
++++ b/reference/execution/execution/env.md
+@@ -61,8 +61,8 @@ int main()
+ ```
+ * ex::env[color ff0000]
+ * ex::prop[link prop.md]
+-* std::get_allocator[link get_allocator.md.nolink]
+-* std::get_stop_token[link get_stop_token.md.nolink]
++* std::get_allocator[link ../get_allocator.md]
++* std::get_stop_token[link ../get_stop_token.md]
+ * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>query -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/env/query.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/env/query.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/env/query.md b/reference/execution/execution/env/query.md
+index dbd030f8f..3a4620af3 100644
+--- a/reference/execution/execution/env/query.md
++++ b/reference/execution/execution/env/query.md
+@@ -12,7 +12,7 @@ constexpr decltype(auto) query(QueryTag q) const noexcept(see below);
+ * see below[italic]
+ 
+ ## 概要
+-クエリオブジェクト`q`をキーとして、対応する値を問い合わせる。
++[クエリオブジェクト](../../queryable.md)`q`をキーとして、対応する値を問い合わせる。
+ 
+ 
+ ## テンプレートパラメータ制約
+@@ -69,8 +69,8 @@ int main()
+ * query[color ff0000]
+ * ex::env[link ../env.md]
+ * ex::prop[link ../prop.md]
+-* std::get_allocator[link get_allocator.md.nolink]
+-* std::get_stop_token[link get_stop_token.md.nolink]
++* std::get_allocator[link ../../get_allocator.md]
++* std::get_stop_token[link ../../get_stop_token.md]
+ * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
+ * std::stop_token[link /reference/stop_token/stop_token.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>error_types_of_t -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/error_types_of_t.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/error_types_of_t.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/error_types_of_t.md b/reference/execution/execution/error_types_of_t.md
+new file mode 100644
+index 000000000..416c8551e
+--- /dev/null
++++ b/reference/execution/execution/error_types_of_t.md
+@@ -0,0 +1,80 @@
++# error_types_of_t
++* execution[meta header]
++* std::execution[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;,
++           template&amp;lt;class...&amp;gt; class Variant = variant-or-empty&amp;gt;
++    requires sender_in&amp;lt;Sndr, Env&amp;gt;
++  using error_types_of_t =
++    gather-signatures&amp;lt;set_error_t, completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;, type_identity_t, Variant&amp;gt;;
++}
++```
++* env&amp;lt;&amp;gt;[link env.md]
++* sender_in[link sender_in.md]
++* variant-or-empty[link variant-or-empty.md.nolink]
++* gather-signatures[link gather-signatures.md]
++* set_error_t[link set_error.md]
++* completion_signatures_of_t[link completion_signatures_of_t.md]
++* type_identity_t[link /reference/type_traits/type_identity.md]
++
++## 概要
++[Sender型](sender.md)`Sndr`が[環境](receiver.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)のうち[エラー完了シグネチャ](set_error.md)の引数型集合に対して型情報の変換操作を適用し、新たな型を取得する。
++
++エラー完了シグネチャの引数型集合を`{E0, E1, ... EN}`としたとき、変換操作をテンプレートパラメータ`Variant`で指定する。
++
++- `Variant` : 引数型集合に適用する型変換操作。
++
++`error_types_of_t`のデフォルト動作では、引数型集合の[`variant`](/reference/variant/variant.md)に変換される。
++
++
++## 例
++```cpp example
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // エラー完了シグネチャを持たないSender
++  ex::sender auto snd1 = ex::just(123, &amp;#39;X&amp;#39;);
++  using Types1 = ex::error_types_of_t&amp;lt;decltype(snd1)&amp;gt;;
++  // Type1 == 有効だがオブジェクト構築不可な型
++
++  // エラー完了シグネチャ set_error_t(int)
++  ex::sender auto snd2 = ex::just_error(42);
++  using Types2 = ex::error_types_of_t&amp;lt;decltype(snd2)&amp;gt;;
++  static_assert(std::same_as&amp;lt;Types2, std::variant&amp;lt;int&amp;gt;&amp;gt;);
++}
++```
++* ex::error_types_of_t[color ff0000]
++* ex::sender[link sender.md]
++* ex::just[link just.md.nolink]
++* ex::just_error[link just_error.md.nolink]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::completion_signatures`](completion_signatures.md)
++- [`execution::set_error`](set_error.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>gather-signatures -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/gather-signatures.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/gather-signatures.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/gather-signatures.md b/reference/execution/execution/gather-signatures.md
+new file mode 100644
+index 000000000..aae12731b
+--- /dev/null
++++ b/reference/execution/execution/gather-signatures.md
+@@ -0,0 +1,44 @@
++# gather-signatures
++* execution[meta header]
++* std::execution[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++template&amp;lt;class Tag,
++         valid-completion-signatures Completions,
++         template&amp;lt;class...&amp;gt; class Tuple,
++         template&amp;lt;class...&amp;gt; class Variant&amp;gt;
++using gather-signatures = /*see below*/
++```
++* valid-completion-signatures[link completion_signatures.md]
++* see below[italic]
++
++## 概要
++`gather-signatures`は、[完了シグネチャ集合](completion_signatures.md)`Completions`のうち完了タグ`Tag`に適合する引数型リスト集合に対して型情報の変換操作を適用し、新たな型を取得する説明専用のエイリアステンプレートである。
++
++完了タグ`Tag`には下記いずれかの型を指定する。
++
++- [`execution::set_value_t`](set_value.md)
++- [`execution::set_error_t`](set_error.md)
++- [`execution::set_stopped_t`](set_stopped.md)
++
++完了シグネチャに適合する引数型リスト集合を`{Ts0..., Ts1..., ... TsN...}`としたとき、2段階の型変換操作をテンプレートパラメータ`Tuple`, `Variant`で指定する。
++
++- `Tuple` : それぞれの引数型リスト`Ts...`に適用する型変換操作。
++- `Variant` : 上記変換後に、引数型リスト集合に適用する型変換操作。
++
++
++## バージョン
++### 言語
++- C++26
++
++
++## 関連項目
++- [`execution::value_types_of_t`](value_types_of_t.md)
++- [`execution::error_types_of_t`](error_types_of_t.md)
++- [`execution::sends_stopped`](sends_stopped.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get-domain-late -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get-domain-late.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/get-domain-late.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get-domain-late.md b/reference/execution/execution/get-domain-late.md
+index 7650a7dac..bb9a34f9d 100644
+--- a/reference/execution/execution/get-domain-late.md
++++ b/reference/execution/execution/get-domain-late.md
+@@ -25,14 +25,14 @@ constexpr auto get-domain-late(const Sndr&amp;amp; sndr, const Env&amp;amp; env) noexcept;
+     }();
+     ```
+     * query-or-default[link query-or-default.md.nolink]
+-    * get_domain[link get_domain.md.nolink]
++    * get_domain[link get_domain.md]
+     * default_domain()[link default_domain.md]
+ 
+ - それ以外のとき、下記リストのうち最初に妥当となる式の型、かつ`void`ではない型とする。
+-    - [`get_domain`](get_domain.md.nolink)`(`[`get_env`](get_env.md)`(sndr))`
++    - [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr))`
+     - [`completion-domain`](completion-domain.md.nolink)`&amp;lt;void&amp;gt;(sndr)`
+-    - `get_domain(env)`
+-    - `get_domain(`[`get_scheduler`](get_scheduler.md.nolink)`(env))`
++    - [`get_domain`](get_domain.md)`(env)`
++    - [`get_domain`](get_domain.md)`(`[`get_scheduler`](get_scheduler.md)`(env))`
+     - [`default_domain()`](default_domain.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_completion_scheduler -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_completion_scheduler.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/get_completion_scheduler.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_completion_scheduler.md b/reference/execution/execution/get_completion_scheduler.md
+new file mode 100644
+index 000000000..6dc738598
+--- /dev/null
++++ b/reference/execution/execution/get_completion_scheduler.md
+@@ -0,0 +1,112 @@
++# get_completion_scheduler
++* execution[meta header]
++* cpo[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class CPO&amp;gt;
++  struct get_completion_scheduler_t { unspecified };
++
++  template&amp;lt;class CPO&amp;gt;
++  constexpr get_completion_scheduler_t&amp;lt;CPO&amp;gt; get_completion_scheduler{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`get_completion_scheduler&amp;lt;completion-tag&amp;gt;`は、[Sender](sender.md)の[属性](get_env.md)から指定完了タグに関連付けられた完了Schedulerを取得する[クエリオブジェクト](../queryable.md)である。
++完了タグ`completion-tag`には、[`set_value_t`](set_value.md), [`set_error_t`](set_error.md), [`set_stopped_t`](set_stopped.md)のいずれかを指定する。
++
++コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_completion_scheduler&amp;lt;completion-tag&amp;gt;)`は`true`値を返す。
++
++
++### 完了Scheduler
++完了Scheduler(completion scheduler)は、非同期操作の完了操作を実行するための実行リソース（例：CPUスレッド）と関連付けられた[Scheduler](scheduler.md)である。
++
++非同期操作の完了操作は、下記いずれかの完了関数呼び出しが該当する。
++
++- 値完了関数 [`execution::set_value`](set_value.md)
++- エラー完了関数 [`execution::set_error`](set_error.md) 
++- 停止完了関数 [`execution::set_stopped`](set_stopped.md)
++
++
++## 効果
++呼び出し式`get_completion_scheduler&amp;lt;completion-tag&amp;gt;(q)`は下記と等価であり、式が適格ならば[`scheduler`](scheduler.md)を満たす型の値となる。
++
++- 引数`q`がconst修飾された`cq`を用いて、式`cq.query(get_completion_scheduler&amp;lt;completion-tag&amp;gt;)`が適格であればその値。
++- そうでなければ、呼び出し式は不適格となる。
++
++
++## 例外
++投げない
++
++
++## カスタマイゼーションポイント
++const修飾[クエリ可能オブジェクト](../queryable.md)`cq`に対して式`cq.query(get_completion_scheduler&amp;lt;completion-tag&amp;gt;)`が呼び出される。
++このとき、`noexcept(cq.query(get_completion_scheduler&amp;lt;completion-tag&amp;gt;)) == true`であること。
++
++
++## 例
++```cpp
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  ex::run_loop loop;
++  ex::scheduler auto loop_sch = loop.get_scheduler();
++
++  // schedule(loop_sch)の完了Schedulerはloop_schに等しい
++  ex::sender auto snd0 = ex::schedule(loop_sch);
++  auto sch0 = ex::get_completion_scheduler&amp;lt;ex::set_value_t&amp;gt;(ex::get_env(snd0));
++  assert(sch0 == loop_sch);
++
++  // 完了Schedulerは接続されたSenderへと引き継がれる
++  ex::sender auto snd1 = snd0 | ex::then([]{ return 42; });
++  auto sch1 = ex::get_completion_scheduler&amp;lt;ex::set_value_t&amp;gt;(ex::get_env(snd1));
++  assert(sch1 == loop_sch);
++
++#if 0
++  // just Senderは完了Schedulerを持たない
++  ex::sender auto snd2 = ex::just(42);
++  auto sch2 = ex::get_completion_scheduler&amp;lt;ex::set_value_t&amp;gt;(ex::get_env(snd2));
++#endif
++}
++```
++* ex::get_completion_scheduler[color ff0000]
++* ex::run_loop[link run_loop.md.nolink]
++* ex::scheduler[link scheduler.md]
++* ex::sender[link sender.md]
++* ex::schedule[link schedule.md]
++* ex::set_value_t[link set_value.md]
++* ex::get_env[link get_env.md]
++* ex::then[link then.md.nolink]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::scheduler`](scheduler.md)
++- [`execution::schedule`](schedule.md)
++- [`execution::set_value`](set_value.md)
++- [`execution::set_error`](set_error.md)
++- [`execution::set_stopped`](set_stopped.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_delegation_scheduler -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_delegation_scheduler.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/get_delegation_scheduler.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_delegation_scheduler.md b/reference/execution/execution/get_delegation_scheduler.md
+new file mode 100644
+index 000000000..4e5390083
+--- /dev/null
++++ b/reference/execution/execution/get_delegation_scheduler.md
+@@ -0,0 +1,53 @@
++# get_delegation_scheduler
++* execution[meta header]
++* cpo[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  struct get_delegation_scheduler_t { unspecified };
++  constexpr get_delegation_scheduler_t get_delegation_scheduler{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`get_delegation_scheduler`は、[クエリ可能オブジェクト](../queryable.md)から委任[Scheduler](scheduler.md)を取得する[クエリオブジェクト](../queryable.md)である。
++
++コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_delegation_scheduler)`は`true`値を返す。
++
++
++## 効果
++呼び出し式`get_delegation_scheduler(env)`は下記と等価であり、適格であれば[`scheduler`](scheduler.md)を満たす型の値となる。
++
++- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_delegation_scheduler)`
++
++
++## 例外
++投げない
++
++
++## カスタマイゼーションポイント
++const修飾[クエリ可能オブジェクト](../queryable.md)`cenv`に対して式`cenv.query(get_delegation_scheduler)`が呼び出される。
++このとき、`noexcept(cenv.query(get_delegation_scheduler)) == true`であること。
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`scheduler`](scheduler.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [NVIDIA/stdexec, Pull Request#354, with_delegee_scheduler](https://github.com/NVIDIA/stdexec/pull/354)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_domain -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_domain.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/get_domain.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_domain.md b/reference/execution/execution/get_domain.md
+new file mode 100644
+index 000000000..c2162f2a9
+--- /dev/null
++++ b/reference/execution/execution/get_domain.md
+@@ -0,0 +1,52 @@
++# get_domain
++* execution[meta header]
++* cpo[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  struct get_domain_t { unspecified };
++  constexpr get_domain_t get_domain{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`get_domain`は、[クエリ可能オブジェクト](../queryable.md)から[実行ドメイン](default_domain.md)のタグ型を取得する[クエリオブジェクト](../queryable.md)である。
++
++コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_domain)`は`true`値を返す。
++
++
++## 効果
++呼び出し式`get_domain(env)`は下記と等価。
++
++- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_domain)`
++
++
++## 例外
++投げない
++
++
++## カスタマイゼーションポイント
++const修飾[クエリ可能オブジェクト](../queryable.md)`cenv`に対して式`cenv.query(get_domain)`が呼び出される。
++このとき、`noexcept(cenv.query(get_domain)) == true`であること。
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`default_domain`](default_domain.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_env -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_env.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/get_env.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_env.md b/reference/execution/execution/get_env.md
+index a6afad75c..7998c204e 100644
+--- a/reference/execution/execution/get_env.md
++++ b/reference/execution/execution/get_env.md
+@@ -20,10 +20,10 @@ namespace std::execution {
+ 
+ 
+ ## 効果
+-式`get_env(o)`は下記と等価であり、[`queryable`](../queryable.md)を満たす型の値となる。
++呼び出し式`get_env(o)`は下記と等価であり、[`queryable`](../queryable.md)を満たす型の値となる。
+ 
+-- 引数`o`がconst修飾された`co`を用いて、式`co.get_env()`が有効であればその値。
+-- そうでなければ、空(empty)のクエリ可能オブジェクト[`env&amp;lt;&amp;gt;{}`](env.md)
++- 引数`o`がconst修飾された`co`を用いて、式`co.get_env()`が適格であればその値。
++- そうでなければ、空のクエリ可能オブジェクト[`env&amp;lt;&amp;gt;{}`](env.md)
+ 
+ 
+ ## 例外
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_scheduler -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_scheduler.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/get_scheduler.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_scheduler.md b/reference/execution/execution/get_scheduler.md
+new file mode 100644
+index 000000000..bbca27bb1
+--- /dev/null
++++ b/reference/execution/execution/get_scheduler.md
+@@ -0,0 +1,52 @@
++# get_scheduler
++* execution[meta header]
++* cpo[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  struct get_scheduler { unspecified };
++  constexpr get_scheduler_t get_scheduler{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`get_scheduler`は、[クエリ可能オブジェクト](../queryable.md)から[Scheduler](scheduler.md)を取得する[クエリオブジェクト](../queryable.md)である。
++
++コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_scheduler)`は`true`値を返す。
++
++
++## 効果
++呼び出し式`get_scheduler(env)`は下記と等価であり、適格であれば[`scheduler`](scheduler.md)を満たす型の値となる。
++
++- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_scheduler)`
++
++
++## 例外
++投げない
++
++
++## カスタマイゼーションポイント
++const修飾[クエリ可能オブジェクト](../queryable.md)`cenv`に対して式`cenv.query(get_scheduler)`が呼び出される。
++このとき、`noexcept(cenv.query(get_scheduler)) == true`であること。
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`scheduler`](scheduler.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>prop -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/prop.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/prop.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/prop.md b/reference/execution/execution/prop.md
+index 893422d1f..05055d8db 100644
+--- a/reference/execution/execution/prop.md
++++ b/reference/execution/execution/prop.md
+@@ -23,7 +23,7 @@ namespace std::execution {
+ * unwrap_reference_t[link /reference/type_traits/unwrap_reference.md]
+ 
+ ## 概要
+-`QueryTag`型クエリオブジェクトのキーと`ValueType`型の値から、[クエリ可能オブジェクト](../queryable.md)を構築する。
++`QueryTag`型[クエリオブジェクト](../queryable.md)のキーと`ValueType`型の値から、[クエリ可能オブジェクト](../queryable.md)を構築する。
+ 
+ 
+ ## 適格要件
+@@ -49,7 +49,7 @@ int main()
+ }
+ ```
+ * ex::prop[color ff0000]
+-* std::get_stop_token[link get_stop_token.md.nolink]
++* std::get_stop_token[link ../get_stop_token.md]
+ * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>schedule -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/schedule.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/schedule.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule.md b/reference/execution/execution/schedule.md
+index 8bd90c80c..519e98b5f 100644
+--- a/reference/execution/execution/schedule.md
++++ b/reference/execution/execution/schedule.md
+@@ -16,12 +16,13 @@ namespace std::execution {
+ `schedule`は、[Scheduler](scheduler.md)から[スケジュールSender](sender.md)を取得するSenderファクトリである。
+ 
+ スケジュールSenderより生成される[非同期操作](operation_state.md)を開始すると、Schedulerに関連付けられた実行リソース上で空の[値完了関数](set_value.md)を呼び出す。
++スケジュールSenderの[値完了Scheduler](get_completion_scheduler.md)は、引数に指定したScheduler`sch`に等しい。
+ 
+ 
+ ## 効果
+ 呼び出し式`schedule(sch)`は式`sch.schedule()`と等価であり、式の型は[`sender`](sender.md)を満たすこと。
+ 
+-式[`get_completion_scheduler`](get_completion_scheduler.md.nolink)`&amp;lt;`[`set_value_t`](set_value.md)`&amp;gt;(`[`get_env`](get_env.md)`(sch.schedule())) == sch`が不適格もしくは`false`となる場合、呼び出し式`schedule(sch)`の動作は未定義となる。
++式[`get_completion_scheduler`](get_completion_scheduler.md)`&amp;lt;`[`set_value_t`](set_value.md)`&amp;gt;(`[`get_env`](get_env.md)`(sch.schedule())) == sch`が不適格もしくは`false`となる場合、呼び出し式`schedule(sch)`の動作は未定義となる。
+ 
+ 
+ ## カスタマイゼーションポイント
+@@ -93,6 +94,7 @@ val=42
+ 
+ ## 関連項目
+ - [`execution::scheduler`](scheduler.md)
++- [`execution::get_completion_scheduler`](get_completion_scheduler.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>scheduler -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/scheduler.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/scheduler.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/scheduler.md b/reference/execution/execution/scheduler.md
+index 427727a05..da64b22d9 100644
+--- a/reference/execution/execution/scheduler.md
++++ b/reference/execution/execution/scheduler.md
+@@ -26,7 +26,7 @@ namespace std::execution {
+ * sender[link sender.md]
+ * queryable[link ../queryable.md]
+ * schedule[link schedule.md]
+-* get_completion_scheduler[link get_completion_scheduler.md.nolink]
++* get_completion_scheduler[link get_completion_scheduler.md]
+ * set_value_t[link set_value.md]
+ * get_env[link get_env.md]
+ * equality_comparable[link /reference/concepts/equality_comparable.md]
+@@ -41,7 +41,7 @@ namespace std::execution {
+ - [クエリ可能オブジェクト](../queryable.md)である
+ - `Sch`型の値`sch`に対して下記を満たすこと
+     - [`execution::schedule`](schedule.md)`(sch)`が[Sender](sender.md)を返す
+-    - 上記Senderの[値完了関数](set_value.md)の[完了Scheduler](get_completion_scheduler.md.nolink)が`Sch`に等しいこと
++    - 上記Senderの[値完了関数](set_value.md)の[完了Scheduler](get_completion_scheduler.md)が`Sch`に等しいこと
+ - コピー可能かつ同値比較可能
+ 
+ 
+@@ -63,19 +63,19 @@ namespace std::execution {
+ ```
+ * set_value_t[link set_value.md]
+ * sender_in[link sender_in.md]
+-* value_types_of_t[link value_types_of_t.md.nolink]
++* value_types_of_t[link value_types_of_t.md]
+ * type_identity_t[link /reference/type_traits/true_type.md]
+ 
+-型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`&amp;lt;schedule_result_t&amp;lt;Sch&amp;gt;, Env&amp;gt;`を満たす実行環境の型としたとき、`sender-in-of&amp;lt;schedule_result_t&amp;lt;Sch&amp;gt;, Env&amp;gt;`のモデルとなること。
++型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`を満たす実行環境の型としたとき、`sender-in-of&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`のモデルとなること。
+ 
+ [`copyable`](/reference/concepts/copyable.md)`&amp;lt;remove_cvref_t&amp;lt;Sch&amp;gt;&amp;gt;`および[`equality_comparable`](/reference/concepts/equality_comparable.md)`&amp;lt;remove_cvref_t&amp;lt;Sch&amp;gt;&amp;gt;`により要求される操作は、例外で終了してはならない。
+ これらの操作やScheduler型の[`schedule`](schedule.md)関数は、異なるスレッドから同時に操作を呼び出す可能性がある場合でも、データ競合を引き起こしてはならない。
+ 
+ あるScheduler型`Sch`の2つの値`sch1`と`sch2`に対して、`sch1`と`sch2`が同じ実行リソースを共有する場合に限って、`sch1 == sch2`は`true`となる。
+ 
+-あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md.nolink)`&amp;lt;`[`set_value_t`](set_value.md)`&amp;gt;(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`が`sch`と等しいこと。
++あるScheduler`sch`に対して、式[`get_completion_scheduler`](get_completion_scheduler.md)`&amp;lt;`[`set_value_t`](set_value.md)`&amp;gt;(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`が`sch`と等しいこと。
+ 
+-あるScheduler`sch`に対して式[`get_domain`](get_domain.md.nolink)`(sch)`が適格であるとき、式`get_domain(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`も適格であり、かつ同じ型を持つ。
++あるScheduler`sch`に対して式[`get_domain`](get_domain.md)`(sch)`が適格であるとき、式[`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(`[`schedule`](schedule.md)`(sch)))`も適格であり、かつ同じ型を持つ。
+ 
+ Scheduler型のデストラクタは、[`schedule`](schedule.md)が返すSenderオブジェクトに接続されたReceiverの完了を待機してブロックしてはならない。
+ 
+@@ -113,6 +113,7 @@ int main()
+ 
+ ## 関連項目
+ - [`execution::schedule`](schedule.md)
++- [`execution::get_completion_scheduler`](get_completion_scheduler.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sender_in -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/sender_in.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/sender_in.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sender_in.md b/reference/execution/execution/sender_in.md
+index 76dfa7530..52a2293d5 100644
+--- a/reference/execution/execution/sender_in.md
++++ b/reference/execution/execution/sender_in.md
+@@ -20,6 +20,7 @@ namespace std::execution {
+ * sender[link sender.md]
+ * queryable[link ../queryable.md]
+ * get_completion_signatures[link get_completion_signatures.md]
++* valid-completion-signatures[link completion_signatures.md]
+ 
+ ## 概要
+ `sender_in`は、[Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できることを表すコンセプトである。
+@@ -28,15 +29,7 @@ namespace std::execution {
+ ## モデル
+ 説明用に`sndr`を`decltype((sndr))`が`Sndr`型となる式、`rcvr`を環境`Env`に関連付けられた[Receiver](receiver.md)とする。
+ 
+-```cpp
+-template&amp;lt;class Sigs&amp;gt;
+-concept valid-completion-signatures = see below;
+-```
+-* see below[italic]
+-
+-[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
+-
+-また、ある完了操作の完了シグネチャが[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;Sndr, Env&amp;gt;`で取得される[`completion_signatures`](completion_signatures.md)リストに含まれるとき、`Sndr`と`Env`における許容可能完了(permissible completion)となる。
++ある完了操作の完了シグネチャが[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;Sndr, Env&amp;gt;`で取得される[`completion_signatures`](completion_signatures.md)リストに含まれるとき、`Sndr`と`Env`における許容可能完了(permissible completion)となる。
+ 
+ `sndr`と`rcvr`の[接続](connect.md)後に[Operation State](operation_state.md)を開始することで評価されうる完了操作が、全て許容可能完了(permissible completion)である場合、`Sndr`と`Env`は`sender_in&amp;lt;Sndr, Env&amp;gt;`のモデルとなる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sends_stopped -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/sends_stopped.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/sends_stopped.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sends_stopped.md b/reference/execution/execution/sends_stopped.md
+new file mode 100644
+index 000000000..8efd74d33
+--- /dev/null
++++ b/reference/execution/execution/sends_stopped.md
+@@ -0,0 +1,71 @@
++# sends_stopped
++* execution[meta header]
++* std::execution[meta namespace]
++* variable[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;&amp;gt;
++    requires sender_in&amp;lt;Sndr, Env&amp;gt;
++  constexpr bool sends_stopped =
++    !same_as&amp;lt;type-list&amp;lt;&amp;gt;,
++             gather-signatures&amp;lt;set_stopped_t, completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;,
++                               type-list, type-list&amp;gt;&amp;gt;;
++}
++```
++* env&amp;lt;&amp;gt;[link env.md]
++* sender_in[link sender_in.md]
++* gather-signatures[link gather-signatures.md]
++* set_stopped_t[link set_stopped.md]
++* completion_signatures_of_t[link completion_signatures_of_t.md]
++
++## 概要
++[Sender型](sender.md)`Sndr`が[環境](receiver.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)が[停止完了シグネチャ](set_stopped.md)を含むか否かを返す。
++
++
++## 例
++```cpp example
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // 停止完了シグネチャを持たないSender
++  ex::sender auto snd1 = ex::just(123, &amp;#39;X&amp;#39;);
++  static_assert(not ex::sends_stopped&amp;lt;decltype(snd1)&amp;gt;);
++
++  // 停止完了シグネチャ set_stopped_t()
++  ex::sender auto snd2 = ex::just_stopped();
++  static_assert(ex::sends_stopped&amp;lt;decltype(snd2)&amp;gt;);
++}
++```
++* ex::sends_stopped[color ff0000]
++* ex::sender[link sender.md]
++* ex::just[link just.md.nolink]
++* ex::just_stopped[link just_stopped.md.nolink]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::completion_signatures`](completion_signatures.md)
++- [`execution::set_stopped`](set_stopped.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value_types_of_t -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/value_types_of_t.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/execution/value_types_of_t.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/value_types_of_t.md b/reference/execution/execution/value_types_of_t.md
+new file mode 100644
+index 000000000..1a5d74344
+--- /dev/null
++++ b/reference/execution/execution/value_types_of_t.md
+@@ -0,0 +1,82 @@
++# value_types_of_t
++* execution[meta header]
++* std::execution[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;,
++           template&amp;lt;class...&amp;gt; class Tuple = decayed-tuple,
++           template&amp;lt;class...&amp;gt; class Variant = variant-or-empty&amp;gt;
++    requires sender_in&amp;lt;Sndr, Env&amp;gt;
++  using value_types_of_t =
++    gather-signatures&amp;lt;set_value_t, completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;, Tuple, Variant&amp;gt;;
++}
++```
++* env&amp;lt;&amp;gt;[link env.md]
++* sender_in[link sender_in.md]
++* decayed-tuple[link decayed-tuple.md.nolink]
++* variant-or-empty[link variant-or-empty.md.nolink]
++* gather-signatures[link gather-signatures.md]
++* set_value_t[link set_value.md]
++* completion_signatures_of_t[link completion_signatures_of_t.md]
++
++## 概要
++[Sender型](sender.md)`Sndr`が[環境](receiver.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)のうち[値完了シグネチャ](set_value.md)の引数型リスト集合に対して型情報の変換操作を適用し、新たな型を取得する。
++
++値完了シグネチャの引数型リスト集合を`{Ts0..., Ts1..., ... TsN...}`としたとき、2段階の型変換操作をテンプレートパラメータ`Tuple`, `Variant`で指定する。
++
++- `Tuple` : それぞれの引数型リスト`Ts...`に適用する型変換操作。
++- `Variant` : 上記変換後に、引数型リスト集合に適用する型変換操作。
++
++`value_types_of_t`のデフォルト動作では、引数型リスト[`tuple`](/reference/tuple/tuple.md)の[`variant`](/reference/variant/variant.md)に変換される。
++
++
++## 例
++```cpp example
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // 値完了シグネチャ set_value_t(int, char)
++  ex::sender auto snd1 = ex::just(123, &amp;#39;X&amp;#39;);
++  using Types1 = ex::value_types_of_t&amp;lt;decltype(snd1)&amp;gt;;
++  static_assert(std::same_as&amp;lt;Types1, std::variant&amp;lt;std::tuple&amp;lt;int, char&amp;gt;&amp;gt;&amp;gt;);
++
++  // 値完了シグネチャを持たないSender
++  ex::sender auto snd2 = ex::just_error(42);
++  using Types2 = ex::value_types_of_t&amp;lt;decltype(snd2)&amp;gt;;
++  // Type2 == 有効だがオブジェクト構築不可な型
++}
++```
++* ex::value_types_of_t[color ff0000]
++* ex::sender[link sender.md]
++* ex::just[link just.md.nolink]
++* ex::just_error[link just_error.md.nolink]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::completion_signatures`](completion_signatures.md)
++- [`execution::set_value`](set_value.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_allocator -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/get_allocator.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/get_allocator.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/get_allocator.md b/reference/execution/get_allocator.md
+new file mode 100644
+index 000000000..79932980c
+--- /dev/null
++++ b/reference/execution/get_allocator.md
+@@ -0,0 +1,82 @@
++# get_allocator
++* execution[meta header]
++* cpo[meta id-type]
++* std[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std {
++  struct get_allocator_t { unspecified };
++  constexpr get_allocator_t get_allocator{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`get_allocator`は、[クエリ可能オブジェクト](queryable.md)からアロケータを取得する[クエリオブジェクト](queryable.md)である。
++
++コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_allocator)`は`true`値を返す。
++
++
++## 効果
++呼び出し式`get_allocator(env)`は下記と等価であり、適格であれば説明専用コンセプト`simple-allocator`を満たす型の値となる。
++
++- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_allocator)`
++
++```cpp
++template&amp;lt;class Alloc&amp;gt;
++concept simple-allocator =
++  requires(Alloc alloc, size_t n) {
++    { *alloc.allocate(n) } -&amp;gt; same_as&amp;lt;typename Alloc::value_type&amp;amp;&amp;gt;;
++    { alloc.deallocate(alloc.allocate(n), n) };
++  } &amp;amp;&amp;amp;
++  copy_constructible&amp;lt;Alloc&amp;gt; &amp;amp;&amp;amp;
++  equality_comparable&amp;lt;Alloc&amp;gt;;
++```
++
++
++## 例外
++投げない
++
++
++## カスタマイゼーションポイント
++const修飾[クエリ可能オブジェクト](queryable.md)`cenv`に対して式`cenv.query(get_allocator)`が呼び出される。
++このとき、`noexcept(cenv.query(get_allocator)) == true`であること。
++
++
++## 例
++```cpp
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;memory&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  auto env = ex::prop(std::get_allocator, std::allocator&amp;lt;int&amp;gt;{});
++
++  auto alloc = std::get_allocator(env);
++  static_assert(std::same_as&amp;lt;decltype(alloc), std::allocator&amp;lt;int&amp;gt;&amp;gt;);
++}
++```
++* std::get_allocator[color ff0000]
++* ex::prop[link execution/prop.md]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_stop_token -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/get_stop_token.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/get_stop_token.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/get_stop_token.md b/reference/execution/get_stop_token.md
+new file mode 100644
+index 000000000..d83666b85
+--- /dev/null
++++ b/reference/execution/get_stop_token.md
+@@ -0,0 +1,79 @@
++# get_stop_token
++* execution[meta header]
++* cpo[meta id-type]
++* std[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std {
++  struct get_stop_token_t { unspecified };
++  constexpr get_stop_token_t get_stop_token{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`get_stop_token`は、[クエリ可能オブジェクト](queryable.md)から[停止トークン](/reference/stop_token/stoppable_token.md)を取得する[クエリオブジェクト](queryable.md)である。
++
++コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_stop_token)`は`true`値を返す。
++
++
++## 効果
++呼び出し式`get_stop_token(env)`は下記と等価であり、[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たす型の値となる。
++
++- 引数`env`がconst修飾された`cenv`を用いて、式`cenv.query(get_stop_token)`が適格であればその値。
++- そうでなければ、[`never_stop_token{}`](/reference/stop_token/never_stop_token.md)
++
++
++## 例外
++投げない
++
++
++## カスタマイゼーションポイント
++const修飾[クエリ可能オブジェクト](queryable.md)`cenv`に対して式`cenv.query(get_stop_token)`が呼び出される。
++このとき、`noexcept(cenv.query(get_stop_token)) == true`であること。
++
++
++## 例
++```cpp
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;stop_token&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // just Senderは停止トークンを持たない
++  ex::sender auto sndr = ex::just(42);
++  auto token = std::get_stop_token(ex::get_env(sndr));
++  static_assert(std::same_as&amp;lt;decltype(token), std::never_stop_token&amp;gt;);
++}
++```
++* std::get_stop_token[color ff0000]
++* ex::sender[link execution/sender.md]
++* ex::just[link execution/just.md.nolink]
++* ex::get_env[link execution/get_env.md]
++* std::never_stop_token[link /reference/stop_token/never_stop_token.md]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`stoppable_token`](/reference/stop_token/stoppable_token.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>queryable -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/queryable.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/queryable.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/queryable.md b/reference/execution/queryable.md
+index f5f95c9b9..b6caabdc0 100644
+--- a/reference/execution/queryable.md
++++ b/reference/execution/queryable.md
+@@ -11,13 +11,13 @@ concept queryable = destructible&amp;lt;T&amp;gt;;
+ * destructible[link /reference/concepts/destructible.md]
+ 
+ ## 概要
+-`queryable`は、型`T`がクエリ可能オブジェクト(queryable object)の制約を満たすことを表す説明専用のコンセプトである。
++`queryable`は、型`T`がクエリ可能オブジェクトの制約を満たすことを表す説明専用のコンセプトである。
+ 
+ 
+-### クエリ可能オブジェクト
+-クエリ可能オブジェクトは、クエリオブジェクト(query object)をキーとして対応する値を保持する、読み取り専用のKey/Valueデータ構造とみなせる。
++### クエリ可能オブジェクト(queryable object)
++クエリ可能オブジェクトは、クエリオブジェクトをキーとして対応する値を保持する、読み取り専用のKey/Valueデータ構造とみなせる。
+ 
+-- [`execution::env&amp;lt;&amp;gt;{}`](execution/env.md) : 空(empty)のクエリ可能オブジェクト
++- [`execution::env&amp;lt;&amp;gt;{}`](execution/env.md) : 空のクエリ可能オブジェクト
+ - [`execution::prop(q, v)`](execution/prop.md) : キー`q`と対応値`v`を保持する最小のクエリ可能オブジェクト
+ - [`execution::env{...}`](execution/env.md) : 複数のKey/Valueを保持するクエリ可能オブジェクト
+ - `queryable`コンセプトを満たすユーザ定義クラスのオブジェクト
+@@ -29,6 +29,16 @@ concept queryable = destructible&amp;lt;T&amp;gt;;
+ - [Scheduler](execution/scheduler.md)オブジェクト自身
+ 
+ 
++### クエリオブジェクト(query object)
++クエリオブジェクトは、クエリ可能オブジェクトに対する問い合わせ(query)を行うカスタマイゼーションポイントオブジェクトである。
++
++説明用のクエリオブジェクト`q`、クエリ可能オブジェクト`env`、引数パック`args`としたとき
++
++- 問い合わせ式`q(env, args...)`は、`void`型であってはならない。
++- 問い合わせ式`q(env, args...)`は、クエリオブジェクトや引数を変更せず、等しさを保持(equality-preserving)する。
++- 式`env.query(q, args...)`が適格であれば、問い合わせ式`q(env, args...)`と等価である。
++
++
+ ## モデル
+ 説明用の`env`を`Env`型のオブジェクトとする。
+ 呼び出し可能オブジェクト`q`と部分式パック`args`に対して、`requires { q(env, args...) }`が`true`であれば、`q(env, args...)`が`q`に課されるセマンティック要件を満たす場合に、`Env`は`queryable`のモデルである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stop_token_of_t -- lang/cpp26/embed.md,reference/execution/execution.md reference/execution/execution/completion_signatures.md,reference/execution/execution/connect.md reference/execution/execution/env.md,reference/execution/execution/env/query.md reference/execution/execution/error_types_of_t.md,reference/execution/execution/gather-signatures.md reference/execution/execution/get-domain-late.md,reference/execution/execution/get_completion_scheduler.md reference/execution/execution/get_delegation_scheduler.md,reference/execution/execution/get_domain.md reference/execution/execution/get_env.md,reference/execution/execution/get_scheduler.md reference/execution/execution/prop.md,reference/execution/execution/schedule.md reference/execution/execution/scheduler.md,reference/execution/execution/sender_in.md reference/execution/execution/sends_stopped.md,reference/execution/execution/value_types_of_t.md reference/execution/get_allocator.md,reference/execution/get_stop_token.md reference/execution/queryable.md,reference/execution/stop_token_of_t.md:</title>
+      <link href="https://cpprefjp.github.io/reference/execution/stop_token_of_t.html"/>
+      <id>42347c5e77f57a9a49401d826a0c81e86603b888:reference/execution/stop_token_of_t.md</id>
+      <updated>2025-04-23T09:51:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/stop_token_of_t.md b/reference/execution/stop_token_of_t.md
+new file mode 100644
+index 000000000..459870901
+--- /dev/null
++++ b/reference/execution/stop_token_of_t.md
+@@ -0,0 +1,35 @@
++# stop_token_of_t
++* execution[meta header]
++* std[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std {
++  template&amp;lt;class T&amp;gt;
++  using stop_token_of_t = remove_cvref_t&amp;lt;decltype(get_stop_token(declval&amp;lt;T&amp;gt;()))&amp;gt;;
++}
++```
++* get_stop_token[link get_stop_token.md]
++
++## 概要
++[クエリ可能オブジェクト型](queryable.md)`T`から[停止トークン型](/reference/stop_token/stoppable_token.md)を取得する。
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`get_stop_token`](get_stop_token.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contiguous_iterator -- reference/iterator/contiguous_iterator.md: Created new specification</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/contiguous_iterator.html"/>
+      <id>586dfedab516829df0c0ad76894c125e87a865fc:reference/iterator/contiguous_iterator.md</id>
+      <updated>2025-04-23T09:49:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/contiguous_iterator.md b/reference/iterator/contiguous_iterator.md
+index 5a16cc318..64168c659 100644
+--- a/reference/iterator/contiguous_iterator.md
++++ b/reference/iterator/contiguous_iterator.md
+@@ -42,9 +42,10 @@ C++20で導入された`contiguous_iterator`は、要素がメモリー上で連
+ 
+ `a, b`を間接参照可能なイテレータ、`c`を間接参照不可能なイテレータとし、`b`は`a`から、`c`は`b`からそれぞれ到達可能であるとする。そのような型`I`のイテレータ`a, b, c`と[`iter_difference_t&amp;lt;I&amp;gt;`](/reference/iterator/iter_difference_t.md)の示す型`D`について次の条件を満たす場合に限って、型`I`は`contiguous_iterator`のモデルである。
+ 
+-- `to_address(a) == addressof(*a)`
+-- `to_address(b) == to_address(a) + D(b - a)`
+-- `to_address(c) == to_address(a) + D(c - a)`
++## 要件
++- C++26: このイテレータの範囲`[i, s)`はポインタ範囲`[to_address(i), to_address(i + ranges::distance(i, s)))`に置き換えて使用することが実装に許可される
++    - 注：このイテレータをアルゴリズム適用した場合、イテレータのインクリメントが一回しか起こらない可能性があり、個々のインクリメントに対して副作用を起こすことを期待してはならない
++    - 備考：連続イテレータの範囲に対する操作として、`std::copy()`の実装が`std::memmove()`の呼び出しで完了するなど、イテレータを一つずつ進めるのではなくメモリ操作で高速実装されることを許可するものである
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ファイルを読み込む#embed命令を追加 [P1967R14] -- C++26 embed: から → 空</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/embed.html"/>
+      <id>0c1871fe4d90d7fb1e91931273710842ef76198d:lang/cpp26/embed.md</id>
+      <updated>2025-04-22T23:17:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/embed.md b/lang/cpp26/embed.md
+index ef5fc9ee6..7b2b64d8a 100644
+--- a/lang/cpp26/embed.md
++++ b/lang/cpp26/embed.md
+@@ -63,7 +63,7 @@ int main() {
+ - `limit(1024)`では、読み込むバイトサイズを1024byteに制限する。もしファイルサイズが1024byteよりも大きければ、最初の1024バイトのみが読み込まれる。
+ - `prefix(0x01, 0x02, 0x03)`では、`data.bin`の内容の前に`0x01 0x02 0x03`のバイト列を追加している。
+ - `suffix(0xFE, 0xFF)`では、`data.bin`の内容のあとに`0xFE 0xFF`のバイト列を追加している。
+-- `if_empty(0x00)`では、`data.bin`がからであった場合、`0x00`のバイト列を格納している。
++- `if_empty(0x00)`では、`data.bin`が空であった場合、`0x00`のバイト列を格納している。
+ 
+ また、`#embed`ディレクティブは、複数のパラメータを**順不同**で組み合わせて指定することもできる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>execution -- execution: value_type_of_t,error_type_of_t,sends_stopped (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
+      <id>a285ffa64b58b847e320c338356c512cb61f9728:reference/execution/execution.md</id>
+      <updated>2025-04-22T18:07:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
+index 8f9619c98..b86510b3b 100644
+--- a/reference/execution/execution.md
++++ b/reference/execution/execution.md
+@@ -85,9 +85,9 @@ namespace std::execution {
+ | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
+ | [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (customization point object) | C++26 |
+ | [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
+-| [`execution::value_types_of_t`](execution/value_types_of_t.md.nolink) | Senderの値完了型を取得 (alias template) | C++26 |
+-| [`execution::error_types_of_t`](execution/error_types_of_t.md.nolink) | Senderのエラー完了型を取得 (alias template) | C++26 |
+-| [`execution::sends_stopped`](execution/value_types_of_t.md.nolink) | Senderが停止完了に対応するか否か (variable template) | C++26 |
++| [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
++| [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
++| [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
+ | [`execution::tag_of_t`](execution/tag_of_t.md.nolink) | Senderのタグ型を取得 (alias template) | C++26 |
+ | [`execution::transform_sender`](execution/transform_sender.md) | Senderを変換 (function template) | C++26 |
+ | [`execution::transform_env`](execution/transform_env.md) | 環境を変換 (function template) | C++26 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>error_types_of_t -- execution: value_type_of_t,error_type_of_t,sends_stopped (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/error_types_of_t.html"/>
+      <id>a285ffa64b58b847e320c338356c512cb61f9728:reference/execution/execution/error_types_of_t.md</id>
+      <updated>2025-04-22T18:07:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/error_types_of_t.md b/reference/execution/execution/error_types_of_t.md
+new file mode 100644
+index 000000000..416c8551e
+--- /dev/null
++++ b/reference/execution/execution/error_types_of_t.md
+@@ -0,0 +1,80 @@
++# error_types_of_t
++* execution[meta header]
++* std::execution[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;,
++           template&amp;lt;class...&amp;gt; class Variant = variant-or-empty&amp;gt;
++    requires sender_in&amp;lt;Sndr, Env&amp;gt;
++  using error_types_of_t =
++    gather-signatures&amp;lt;set_error_t, completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;, type_identity_t, Variant&amp;gt;;
++}
++```
++* env&amp;lt;&amp;gt;[link env.md]
++* sender_in[link sender_in.md]
++* variant-or-empty[link variant-or-empty.md.nolink]
++* gather-signatures[link gather-signatures.md]
++* set_error_t[link set_error.md]
++* completion_signatures_of_t[link completion_signatures_of_t.md]
++* type_identity_t[link /reference/type_traits/type_identity.md]
++
++## 概要
++[Sender型](sender.md)`Sndr`が[環境](receiver.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)のうち[エラー完了シグネチャ](set_error.md)の引数型集合に対して型情報の変換操作を適用し、新たな型を取得する。
++
++エラー完了シグネチャの引数型集合を`{E0, E1, ... EN}`としたとき、変換操作をテンプレートパラメータ`Variant`で指定する。
++
++- `Variant` : 引数型集合に適用する型変換操作。
++
++`error_types_of_t`のデフォルト動作では、引数型集合の[`variant`](/reference/variant/variant.md)に変換される。
++
++
++## 例
++```cpp example
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // エラー完了シグネチャを持たないSender
++  ex::sender auto snd1 = ex::just(123, &amp;#39;X&amp;#39;);
++  using Types1 = ex::error_types_of_t&amp;lt;decltype(snd1)&amp;gt;;
++  // Type1 == 有効だがオブジェクト構築不可な型
++
++  // エラー完了シグネチャ set_error_t(int)
++  ex::sender auto snd2 = ex::just_error(42);
++  using Types2 = ex::error_types_of_t&amp;lt;decltype(snd2)&amp;gt;;
++  static_assert(std::same_as&amp;lt;Types2, std::variant&amp;lt;int&amp;gt;&amp;gt;);
++}
++```
++* ex::error_types_of_t[color ff0000]
++* ex::sender[link sender.md]
++* ex::just[link just.md.nolink]
++* ex::just_error[link just_error.md.nolink]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::completion_signatures`](completion_signatures.md)
++- [`execution::set_error`](set_error.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>gather-signatures -- execution: value_type_of_t,error_type_of_t,sends_stopped (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/gather-signatures.html"/>
+      <id>a285ffa64b58b847e320c338356c512cb61f9728:reference/execution/execution/gather-signatures.md</id>
+      <updated>2025-04-22T18:07:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/gather-signatures.md b/reference/execution/execution/gather-signatures.md
+new file mode 100644
+index 000000000..aae12731b
+--- /dev/null
++++ b/reference/execution/execution/gather-signatures.md
+@@ -0,0 +1,44 @@
++# gather-signatures
++* execution[meta header]
++* std::execution[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++template&amp;lt;class Tag,
++         valid-completion-signatures Completions,
++         template&amp;lt;class...&amp;gt; class Tuple,
++         template&amp;lt;class...&amp;gt; class Variant&amp;gt;
++using gather-signatures = /*see below*/
++```
++* valid-completion-signatures[link completion_signatures.md]
++* see below[italic]
++
++## 概要
++`gather-signatures`は、[完了シグネチャ集合](completion_signatures.md)`Completions`のうち完了タグ`Tag`に適合する引数型リスト集合に対して型情報の変換操作を適用し、新たな型を取得する説明専用のエイリアステンプレートである。
++
++完了タグ`Tag`には下記いずれかの型を指定する。
++
++- [`execution::set_value_t`](set_value.md)
++- [`execution::set_error_t`](set_error.md)
++- [`execution::set_stopped_t`](set_stopped.md)
++
++完了シグネチャに適合する引数型リスト集合を`{Ts0..., Ts1..., ... TsN...}`としたとき、2段階の型変換操作をテンプレートパラメータ`Tuple`, `Variant`で指定する。
++
++- `Tuple` : それぞれの引数型リスト`Ts...`に適用する型変換操作。
++- `Variant` : 上記変換後に、引数型リスト集合に適用する型変換操作。
++
++
++## バージョン
++### 言語
++- C++26
++
++
++## 関連項目
++- [`execution::value_types_of_t`](value_types_of_t.md)
++- [`execution::error_types_of_t`](error_types_of_t.md)
++- [`execution::sends_stopped`](sends_stopped.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>scheduler -- execution: value_type_of_t,error_type_of_t,sends_stopped (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/scheduler.html"/>
+      <id>a285ffa64b58b847e320c338356c512cb61f9728:reference/execution/execution/scheduler.md</id>
+      <updated>2025-04-22T18:07:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/scheduler.md b/reference/execution/execution/scheduler.md
+index 13ccf70ec..da64b22d9 100644
+--- a/reference/execution/execution/scheduler.md
++++ b/reference/execution/execution/scheduler.md
+@@ -63,7 +63,7 @@ namespace std::execution {
+ ```
+ * set_value_t[link set_value.md]
+ * sender_in[link sender_in.md]
+-* value_types_of_t[link value_types_of_t.md.nolink]
++* value_types_of_t[link value_types_of_t.md]
+ * type_identity_t[link /reference/type_traits/true_type.md]
+ 
+ 型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`を満たす実行環境の型としたとき、`sender-in-of&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`のモデルとなること。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sends_stopped -- execution: value_type_of_t,error_type_of_t,sends_stopped (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/sends_stopped.html"/>
+      <id>a285ffa64b58b847e320c338356c512cb61f9728:reference/execution/execution/sends_stopped.md</id>
+      <updated>2025-04-22T18:07:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sends_stopped.md b/reference/execution/execution/sends_stopped.md
+new file mode 100644
+index 000000000..8efd74d33
+--- /dev/null
++++ b/reference/execution/execution/sends_stopped.md
+@@ -0,0 +1,71 @@
++# sends_stopped
++* execution[meta header]
++* std::execution[meta namespace]
++* variable[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;&amp;gt;
++    requires sender_in&amp;lt;Sndr, Env&amp;gt;
++  constexpr bool sends_stopped =
++    !same_as&amp;lt;type-list&amp;lt;&amp;gt;,
++             gather-signatures&amp;lt;set_stopped_t, completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;,
++                               type-list, type-list&amp;gt;&amp;gt;;
++}
++```
++* env&amp;lt;&amp;gt;[link env.md]
++* sender_in[link sender_in.md]
++* gather-signatures[link gather-signatures.md]
++* set_stopped_t[link set_stopped.md]
++* completion_signatures_of_t[link completion_signatures_of_t.md]
++
++## 概要
++[Sender型](sender.md)`Sndr`が[環境](receiver.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)が[停止完了シグネチャ](set_stopped.md)を含むか否かを返す。
++
++
++## 例
++```cpp example
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // 停止完了シグネチャを持たないSender
++  ex::sender auto snd1 = ex::just(123, &amp;#39;X&amp;#39;);
++  static_assert(not ex::sends_stopped&amp;lt;decltype(snd1)&amp;gt;);
++
++  // 停止完了シグネチャ set_stopped_t()
++  ex::sender auto snd2 = ex::just_stopped();
++  static_assert(ex::sends_stopped&amp;lt;decltype(snd2)&amp;gt;);
++}
++```
++* ex::sends_stopped[color ff0000]
++* ex::sender[link sender.md]
++* ex::just[link just.md.nolink]
++* ex::just_stopped[link just_stopped.md.nolink]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::completion_signatures`](completion_signatures.md)
++- [`execution::set_stopped`](set_stopped.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value_types_of_t -- execution: value_type_of_t,error_type_of_t,sends_stopped (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/value_types_of_t.html"/>
+      <id>a285ffa64b58b847e320c338356c512cb61f9728:reference/execution/execution/value_types_of_t.md</id>
+      <updated>2025-04-22T18:07:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/value_types_of_t.md b/reference/execution/execution/value_types_of_t.md
+new file mode 100644
+index 000000000..1a5d74344
+--- /dev/null
++++ b/reference/execution/execution/value_types_of_t.md
+@@ -0,0 +1,82 @@
++# value_types_of_t
++* execution[meta header]
++* std::execution[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;,
++           template&amp;lt;class...&amp;gt; class Tuple = decayed-tuple,
++           template&amp;lt;class...&amp;gt; class Variant = variant-or-empty&amp;gt;
++    requires sender_in&amp;lt;Sndr, Env&amp;gt;
++  using value_types_of_t =
++    gather-signatures&amp;lt;set_value_t, completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;, Tuple, Variant&amp;gt;;
++}
++```
++* env&amp;lt;&amp;gt;[link env.md]
++* sender_in[link sender_in.md]
++* decayed-tuple[link decayed-tuple.md.nolink]
++* variant-or-empty[link variant-or-empty.md.nolink]
++* gather-signatures[link gather-signatures.md]
++* set_value_t[link set_value.md]
++* completion_signatures_of_t[link completion_signatures_of_t.md]
++
++## 概要
++[Sender型](sender.md)`Sndr`が[環境](receiver.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)のうち[値完了シグネチャ](set_value.md)の引数型リスト集合に対して型情報の変換操作を適用し、新たな型を取得する。
++
++値完了シグネチャの引数型リスト集合を`{Ts0..., Ts1..., ... TsN...}`としたとき、2段階の型変換操作をテンプレートパラメータ`Tuple`, `Variant`で指定する。
++
++- `Tuple` : それぞれの引数型リスト`Ts...`に適用する型変換操作。
++- `Variant` : 上記変換後に、引数型リスト集合に適用する型変換操作。
++
++`value_types_of_t`のデフォルト動作では、引数型リスト[`tuple`](/reference/tuple/tuple.md)の[`variant`](/reference/variant/variant.md)に変換される。
++
++
++## 例
++```cpp example
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // 値完了シグネチャ set_value_t(int, char)
++  ex::sender auto snd1 = ex::just(123, &amp;#39;X&amp;#39;);
++  using Types1 = ex::value_types_of_t&amp;lt;decltype(snd1)&amp;gt;;
++  static_assert(std::same_as&amp;lt;Types1, std::variant&amp;lt;std::tuple&amp;lt;int, char&amp;gt;&amp;gt;&amp;gt;);
++
++  // 値完了シグネチャを持たないSender
++  ex::sender auto snd2 = ex::just_error(42);
++  using Types2 = ex::value_types_of_t&amp;lt;decltype(snd2)&amp;gt;;
++  // Type2 == 有効だがオブジェクト構築不可な型
++}
++```
++* ex::value_types_of_t[color ff0000]
++* ex::sender[link sender.md]
++* ex::just[link just.md.nolink]
++* ex::just_error[link just_error.md.nolink]
++
++### 出力
++```
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::completion_signatures`](completion_signatures.md)
++- [`execution::set_value`](set_value.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
