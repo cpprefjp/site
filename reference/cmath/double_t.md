@@ -15,6 +15,20 @@ namespace std {
 
 [`FLT_EVAL_METHOD`](/reference/cfloat/flt_eval_method.md) が 0 または 1 のとき `double`, 2 のとき `long double`, それ以外の場合は実装依存。
 
+## 使用例
+```cpp example
+#include <cmath>
+#include <iostream>
+int main() {
+	std::double_t num = 1.00001;
+	std::cout << num << std::endl;
+}
+```
+
+## 出力例
+```
+1.00001
+```
 
 ## バージョン
 ### 言語
