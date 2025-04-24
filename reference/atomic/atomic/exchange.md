@@ -54,7 +54,7 @@ int main()
   std::atomic<int> x(1);
 
   if (x.exchange(2) == 1) {
-    std::cout << "replaced 1 by 2" << std::endl;
+    std::cout << "replaced 1 with 2" << std::endl;
   }
   else {
     std::cout << "replace failed" << std::endl;
@@ -66,7 +66,7 @@ int main()
 
 ### 出力
 ```
-replaced 1 by 2
+replaced 1 with 2
 ```
 
 
