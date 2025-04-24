@@ -50,7 +50,6 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [変換コンストラクタという用語を廃止する](/lang/cpp26/abolish_the_term_converting_constructor.md.nolink) | 規格上で「`explicit`ではないコンストラクタ」という意味で定義されていたあまり使われない用語「変換コンストラクタ」を削除する |
 | [共用体をトリビアルに未初期化できるようにする](/lang/cpp26/trivial_unions.md.nolink) | `constexpr`での`union U { T storage[N]; };`を許可し、未初期化にできるようにする |
 | [トリビアルな再配置](/lang/cpp26/trivial_relocatability.md.nolink) | ムーブ構築と破棄のためにビット単位のコピーとデストラクタ評価が必要になる型のオブジェクトを再配置するメカニズムを導入する |
 
