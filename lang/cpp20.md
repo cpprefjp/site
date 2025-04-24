@@ -31,7 +31,6 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | 言語機能 | 説明 |
 |----------|------|
 | [スコープ付き列挙型のusing宣言](cpp20/using_enum.md) | `using enum EnumType;`もしくは`using EnumType::enumerator`とすることで、列挙値のスコープ指定を省略できるようにする |
-| [列挙値から算術型への暗黙変換を非推奨化](cpp20/deprecate_arithmetic_conversion_on_enumerations.md) | 列挙値への算術演算で算術型に暗黙変換される仕様を非推奨とする |
 
 
 ### 変数
@@ -43,7 +42,6 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | [丸カッコの値リストからの集成体初期化を許可](cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.md) | `T x{1, 2, 3};`と同様に`T x(1, 2, 3);`でも集成体初期化できるようにする |
 | [`new`式での配列要素数の推論](cpp20/array_size_deduction_in_new-expressions.md) | `double* p = new double[]{1,2,3};`を許可 |
 | [要素数不明の配列への変換を許可](cpp20/permit_conversions_to_arrays_of_unknown_bound.md) | 要素数が判明している配列から、要素数が不明の配列への変換を許可 |
-| [ほとんどの`volatile`を非推奨化](cpp20/deprecating_volatile.md) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する |
 | [ポインタから`bool`への変換を縮小変換とする](cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md) | ポインタから`bool`値への変換を縮小変換と規定することで、意図しない変換を防止する |
 
 
@@ -114,7 +112,6 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 |----------|------|
 | [ジェネリックラムダのテンプレート構文](cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする |
 | [ラムダ式のキャプチャとして`[=, this]`を許可する](cpp20/allow_lambda_capture_equal_this.md) | デフォルトコピーキャプチャと`this`ポインタのコピーキャプチャを両方指定できるようにする |
-| [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタをキャプチャされなくする |
 | [暗黙のラムダキャプチャを簡略化](cpp20/simplifying_implicit_lambda_capture.md) | ラムダ式のキャプチャに関する仕様整理 |
 | [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする |
 | [評価されない文脈でのラムダ式](cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする |
@@ -155,9 +152,12 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 
 | 言語機能 | 説明 |
 |----------|------|
+| [ほとんどの`volatile`を非推奨化](cpp20/deprecating_volatile.md) | `volatile`の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する |
 | [PODを非推奨化](cpp20/deprecate_pod.md) | PODという用語を非推奨化する |
 | [`[=]`による`this`の暗黙のキャプチャを非推奨化](cpp20/deprecate_implicit_capture_of_this_via_defcopy.md) | コピーのデフォルトキャプチャでは、`this`ポインタのキャプチャを非推奨化する |
 | [添字演算子内でのカンマ演算子の使用を非推奨化](cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.md) | `ar[i, j]`を非推奨化。`ar[(i, j)]`はOK |
+| [列挙値から算術型への暗黙変換を非推奨化](cpp20/deprecate_arithmetic_conversion_on_enumerations.md) | 列挙値への算術演算で算術型に暗黙変換される仕様を非推奨とする |
+| [組み込み配列の比較を非推奨化](cpp20/deprecate_array_comparisons.md) | 組み込み配列同士の比較演算を非推奨とする |
 
 
 ### 機能の削除

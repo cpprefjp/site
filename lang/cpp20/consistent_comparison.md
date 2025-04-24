@@ -803,7 +803,9 @@ struct has_vector {
 - [`<algorithm>`](/reference/algorithm.md)
     - [`lexicographical_compare_three_way`](/reference/algorithm/lexicographical_compare_three_way.md)
 - [C++20 列挙値から算術型への暗黙変換を非推奨化](deprecate_arithmetic_conversion_on_enumerations.md)
-- [C++26 非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md)
+    - [C++26 非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md)
+- [C++20 組み込み配列の比較を非推奨化](/lang/cpp20/deprecate_array_comparisons.md)
+    - [C++26 非推奨だった組み込み配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md)
 
 
 ## 参照

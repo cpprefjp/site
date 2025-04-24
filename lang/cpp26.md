@@ -108,7 +108,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [非推奨だった配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md.nolink) | C++20で非推奨となっていた配列比較を削除 |
+| [非推奨だった組み込み配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md) | C++20で非推奨となっていた配列比較を削除 |
 | [先行するカンマのない省略記号を非推奨化](/lang/cpp26/the_oxford_variadic_comma.md) | `void f(int, ...);`はOK。`void f(int...);`は非推奨 |
 
 
