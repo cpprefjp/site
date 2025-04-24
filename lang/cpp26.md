@@ -448,7 +448,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### 機能の非推奨化
 - [`<type_traits>`](/reference/type_traits.md)の[`std::is_trivial`](/reference/type_traits/is_trivial.md)を非推奨化
     - これは[`std::is_trivially_copyable`](/reference/type_traits/is_trivially_copyable.md)と[`std::is_trivially_default_constructible`](/reference/type_traits/is_trivially_default_constructible.md)の2つが合わさったものであるが、それらは異なる状況で必要になるものであった
-- [`std::memory_order::consume`](/reference/atomic/memory_order.md)と[`std::kill_dependency()`](/reference/atomic/kill_dependency.md)を非推奨化
+- [`std::memory_order::consume`](/reference/atomic/memory_order.md)と、それに関連して[`std::kill_dependency()`](/reference/atomic/kill_dependency.md)を非推奨化し、[`[[carries_dependency]]`](/lang/cpp11/attributes.md)属性を削除
 
 
 ### 非推奨の取り消し
