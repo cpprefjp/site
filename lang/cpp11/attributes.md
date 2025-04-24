@@ -168,6 +168,8 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - [C++14 `[[deprecated]]`属性](/lang/cpp14/deprecated_attr.md)
 - [C++17 `[[maybe_unused]]`属性](/lang/cpp17/maybe_unused.md)
 - [C++17 `[[nodiscard]]`属性](/lang/cpp17/nodiscard.md)
+    - [C++20 `[[nodiscard]]`属性に理由となる文字列を付加できるようにする](/lang/cpp20/nodiscard_should_have_a_reason.md)
+    - [C++20 `[[nodiscard]]`をコンストラクタのオーバーロードごとに付加できるようにする](/lang/cpp20/nodiscard_for_constructors.md)
 - [C++17 `[[fallthrough]]`属性](/lang/cpp17/fallthrough.md)
 - [C++20 `[[no_unique_address]]`属性](/lang/cpp20/language_support_for_empty_objects.md)
 - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
