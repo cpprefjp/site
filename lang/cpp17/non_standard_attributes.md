@@ -56,6 +56,7 @@ non_standard_attributes.cpp:7:3: warning: unknown attribute 'unknown_attribute' 
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 属性構文](/lang/cpp11/attributes.md)
+- [C++26 属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md)
 
 ## 参照
 - [P0283R2 Standard and non-standard attributes.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0283r2.html)

@@ -59,7 +59,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md.nolink) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする |
+| [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする |
 | [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md) | `auto [a, b [[maybe_unused]], c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする |
 
 
