@@ -341,6 +341,7 @@ std::vector<int> v(ar, ar + N);
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 一様初期化](uniform_initialization.md)
+- [C++26 `std::initializer_list`の配列を静的記憶域に配置する](/lang/cpp26/static_storage_for_braced_initializers.md)
 
 
 ## 参照
