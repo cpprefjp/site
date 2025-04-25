@@ -12,7 +12,7 @@
 ## 概要
 C++23までは、定数式の文脈での`void*`から元のポインタ型への変換が禁止されていたが、C++26からは許可される。
 
-`void*`から元のポインタ型への変換は、「型消去 (type erasure)」で有用に使われるもので、標準ライブラリの実装としては[`std::any`](/reference/any/any.md)、[`std::function_ref`](/reference/function_ref/functional/funcion_ref.md)、[`std::format()`](/reference/format/format.md)などで使われており、これらがコンパイル時に使用できるようにするための必要となる。
+`void*`から元のポインタ型への変換は、「型消去 (type erasure)」で有用に使われるもので、標準ライブラリの実装としては[`std::any`](/reference/any/any.md)、[`std::function_ref`](/reference/functional/funcion_ref.md)、[`std::format()`](/reference/format/format.md)などで使われており、これらがコンパイル時に使用できるようにするための必要となる。
 
 型消去は、テンプレートインスタンスの数を減らし、バイナリサイズを小さくするために一般的に使用される技法である。とくに、メモリ制約のある組み込みプラットフォームでは、共通のコードパスを確保するために型消去が有効である。
 
