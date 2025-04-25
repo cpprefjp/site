@@ -64,8 +64,3 @@ INT_FAST16_MAX + 1: -32768
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
-
-## 参照
-- [`<cstdint>`](/reference/cstdint.md)
-- [`int_fast16_t`](int_fast16_t.md)
-- [`INT_FAST16_MIN`](int_fast16_min.md)
