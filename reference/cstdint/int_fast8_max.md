@@ -64,7 +64,3 @@ INT_FAST8_MAX + 1: -128
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
-
-## 参照
-- [`<cstdint>`](/reference/cstdint.md)
-- [`int_fast8_t`](int_fast8_t.md)
