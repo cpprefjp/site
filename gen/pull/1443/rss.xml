@@ -2,28 +2,106 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-04-25T10:34:30.903887</updated>
-  <id>af42c082-0a38-404a-b4fe-e0ceffd9ff7a</id>
+  <updated>2025-04-25T10:42:35.584796</updated>
+  <id>20eb9e39-037f-4cc3-81fd-2efb2131cd81</id>
 
   
     <entry>
-      <title>arrive -- fix: missing `#include &lt;mutex&gt;` in `std::barrier::arrive`</title>
+      <title>arrive -- fix: missing `#include &lt;mutex&gt;` in `std::barrier`</title>
       <link href="https://cpprefjp.github.io/reference/barrier/barrier/arrive.html"/>
-      <id>b594e3b93d39677be9e7d45370bf88598bd720b8:reference/barrier/barrier/arrive.md</id>
+      <id>5c5c70946c055fd5626e2637ab053568ae7ebb46:reference/barrier/barrier/arrive.md</id>
       <updated>2025-04-25T03:29:37-07:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier/arrive.md b/reference/barrier/barrier/arrive.md
-index 6af0b912c..ce48f0e09 100644
+index 6af0b912c..e98ab098a 100644
 --- a/reference/barrier/barrier/arrive.md
 +++ b/reference/barrier/barrier/arrive.md
-@@ -49,6 +49,7 @@ arrival_token arrive(ptrdiff_t update = 1); // (1) C++26
+@@ -47,6 +47,7 @@ arrival_token arrive(ptrdiff_t update = 1); // (1) C++26
+ #include &amp;lt;barrier&amp;gt;
+ #include &amp;lt;chrono&amp;gt;
  #include &amp;lt;iostream&amp;gt;
++#include &amp;lt;mutex&amp;gt;
  #include &amp;lt;thread&amp;gt;
  #include &amp;lt;utility&amp;gt;
-+#include &amp;lt;mutex&amp;gt;
  
- // (ダミーの)タスク処理関数
- void do_task(const char* msg)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Keita Nonaka</name>
+        <email>iKonnyaku40@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>arrive_and_drop -- fix: missing `#include &lt;mutex&gt;` in `std::barrier`</title>
+      <link href="https://cpprefjp.github.io/reference/barrier/barrier/arrive_and_drop.html"/>
+      <id>5c5c70946c055fd5626e2637ab053568ae7ebb46:reference/barrier/barrier/arrive_and_drop.md</id>
+      <updated>2025-04-25T03:29:37-07:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier/arrive_and_drop.md b/reference/barrier/barrier/arrive_and_drop.md
+index 8c54f1e47..fefb63d5c 100644
+--- a/reference/barrier/barrier/arrive_and_drop.md
++++ b/reference/barrier/barrier/arrive_and_drop.md
+@@ -43,6 +43,7 @@ void arrive_and_drop();
+ #include &amp;lt;barrier&amp;gt;
+ #include &amp;lt;chrono&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
++#include &amp;lt;mutex&amp;gt;
+ #include &amp;lt;thread&amp;gt;
+ #include &amp;lt;utility&amp;gt;
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Keita Nonaka</name>
+        <email>iKonnyaku40@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>arrive_and_wait -- fix: missing `#include &lt;mutex&gt;` in `std::barrier`</title>
+      <link href="https://cpprefjp.github.io/reference/barrier/barrier/arrive_and_wait.html"/>
+      <id>5c5c70946c055fd5626e2637ab053568ae7ebb46:reference/barrier/barrier/arrive_and_wait.md</id>
+      <updated>2025-04-25T03:29:37-07:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier/arrive_and_wait.md b/reference/barrier/barrier/arrive_and_wait.md
+index 80259d552..93abaf94f 100644
+--- a/reference/barrier/barrier/arrive_and_wait.md
++++ b/reference/barrier/barrier/arrive_and_wait.md
+@@ -34,6 +34,7 @@ void arrive_and_wait();
+ #include &amp;lt;barrier&amp;gt;
+ #include &amp;lt;chrono&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
++#include &amp;lt;mutex&amp;gt;
+ #include &amp;lt;thread&amp;gt;
+ #include &amp;lt;utility&amp;gt;
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Keita Nonaka</name>
+        <email>iKonnyaku40@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wait -- fix: missing `#include &lt;mutex&gt;` in `std::barrier`</title>
+      <link href="https://cpprefjp.github.io/reference/barrier/barrier/wait.html"/>
+      <id>5c5c70946c055fd5626e2637ab053568ae7ebb46:reference/barrier/barrier/wait.md</id>
+      <updated>2025-04-25T03:29:37-07:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier/wait.md b/reference/barrier/barrier/wait.md
+index 1f78e962a..66905bb73 100644
+--- a/reference/barrier/barrier/wait.md
++++ b/reference/barrier/barrier/wait.md
+@@ -38,6 +38,7 @@ void wait(arrival_token&amp;amp;&amp;amp; arrival) const;
+ #include &amp;lt;barrier&amp;gt;
+ #include &amp;lt;chrono&amp;gt;
+ #include &amp;lt;iostream&amp;gt;
++#include &amp;lt;mutex&amp;gt;
+ #include &amp;lt;thread&amp;gt;
+ #include &amp;lt;utility&amp;gt;
+ 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

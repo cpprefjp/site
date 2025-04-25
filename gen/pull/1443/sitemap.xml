@@ -2740,14 +2740,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/barrier/barrier/wait.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-04-25T03:29:37-07:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/barrier/barrier/arrive_and_wait.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-04-25T03:29:37-07:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -2768,7 +2768,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/barrier/barrier/arrive_and_drop.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-04-25T03:29:37-07:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>

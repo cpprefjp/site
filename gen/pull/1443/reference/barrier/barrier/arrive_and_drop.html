@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;barrier&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;barrier&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;22b98883e84b23081fb4a7a20f09717429310981&#34;, &#34;source&#34;: &#34;#include &lt;barrier&gt;\n#include &lt;chrono&gt;\n#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;utility&gt;\n\n// (\u30c0\u30df\u30fc\u306e)\u30bf\u30b9\u30af\u51e6\u7406\u95a2\u6570\nvoid do_task(const char* msg)\n{\n  static std::mutex cout_mtx;\n\n  std::this_thread::sleep_for(std::chrono::seconds(1));\n  {\n    std::lock_guard lk{cout_mtx};\n    std::cout &lt;&lt; msg &lt;&lt; std::endl;\n  }\n}\n\nint main()\n{\n  std::barrier&lt;&gt; sync{3};\n\n  // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9#1\u8d77\u52d5\n  std::thread t1([&amp;]{\n    do_task(\&#34;sub1: phase-1\&#34;);\n    sync.arrive_and_drop();\n    // \u30d5\u30a7\u30fc\u30ba#2\u4ee5\u964d\u306f\u96e2\u8131\n  });\n\n  // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9#2\u8d77\u52d5\n  std::thread t2([&amp;]{\n    do_task(\&#34;sub2: phase-1\&#34;);\n    sync.arrive_and_wait();\n    do_task(\&#34;sub2: phase-2\&#34;);\n    sync.arrive_and_drop();\n    // \u30d5\u30a7\u30fc\u30ba#3\u4ee5\u964d\u306f\u96e2\u8131\n  });\n\n  // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u51e6\u7406\n  {\n    do_task(\&#34;main: phase-1\&#34;);\n    sync.arrive_and_wait();\n    do_task(\&#34;main: phase-2\&#34;);\n    sync.arrive_and_wait();\n    do_task(\&#34;main: phase-3\&#34;);\n    sync.arrive_and_wait();\n  }\n\n  t1.join();\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;barrier&#34;, &#34;barrier&#34;, &#34;arrive_and_drop&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;barrier&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;barrier&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2b0794c1011b1f89235fd30029005b1086c82464&#34;, &#34;source&#34;: &#34;#include &lt;barrier&gt;\n#include &lt;chrono&gt;\n#include &lt;iostream&gt;\n#include &lt;mutex&gt;\n#include &lt;thread&gt;\n#include &lt;utility&gt;\n\n// (\u30c0\u30df\u30fc\u306e)\u30bf\u30b9\u30af\u51e6\u7406\u95a2\u6570\nvoid do_task(const char* msg)\n{\n  static std::mutex cout_mtx;\n\n  std::this_thread::sleep_for(std::chrono::seconds(1));\n  {\n    std::lock_guard lk{cout_mtx};\n    std::cout &lt;&lt; msg &lt;&lt; std::endl;\n  }\n}\n\nint main()\n{\n  std::barrier&lt;&gt; sync{3};\n\n  // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9#1\u8d77\u52d5\n  std::thread t1([&amp;]{\n    do_task(\&#34;sub1: phase-1\&#34;);\n    sync.arrive_and_drop();\n    // \u30d5\u30a7\u30fc\u30ba#2\u4ee5\u964d\u306f\u96e2\u8131\n  });\n\n  // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9#2\u8d77\u52d5\n  std::thread t2([&amp;]{\n    do_task(\&#34;sub2: phase-1\&#34;);\n    sync.arrive_and_wait();\n    do_task(\&#34;sub2: phase-2\&#34;);\n    sync.arrive_and_drop();\n    // \u30d5\u30a7\u30fc\u30ba#3\u4ee5\u964d\u306f\u96e2\u8131\n  });\n\n  // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u51e6\u7406\n  {\n    do_task(\&#34;main: phase-1\&#34;);\n    sync.arrive_and_wait();\n    do_task(\&#34;main: phase-2\&#34;);\n    sync.arrive_and_wait();\n    do_task(\&#34;main: phase-3\&#34;);\n    sync.arrive_and_wait();\n  }\n\n  t1.join();\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;barrier&#34;, &#34;barrier&#34;, &#34;arrive_and_drop&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-04-25T10:29:37">
+        2025年04月25日 10時29分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Keita Nonaka</span>
       </span>
       が更新
     </small></p>
@@ -247,9 +247,10 @@
 <h2>備考</h2>
 <p>このメンバ関数呼び出しは、現行フェーズの完了ステップを開始する可能性がある。</p>
 <h2>例</h2>
-<p><div class="yata" id="22b98883e84b23081fb4a7a20f09717429310981"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../barrier.html">&lt;barrier&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="2b0794c1011b1f89235fd30029005b1086c82464"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../barrier.html">&lt;barrier&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
 
