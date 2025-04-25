@@ -38,6 +38,7 @@ void wait(arrival_token&& arrival) const;
 #include <barrier>
 #include <chrono>
 #include <iostream>
+#include <mutex>
 #include <thread>
 #include <utility>
 
