@@ -6,7 +6,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`contract_violation`](contract/contract_violation.md) | 契約違反に関する情報 (class) | C++26 |
+| [`contract_violation`](contracts/contract_violation.md) | 契約違反に関する情報 (class) | C++26 |
 
 ## バージョン
 ### 言語
