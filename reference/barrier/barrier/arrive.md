@@ -47,6 +47,7 @@ arrival_token arrive(ptrdiff_t update = 1); // (1) C++26
 #include <barrier>
 #include <chrono>
 #include <iostream>
+#include <mutex>
 #include <thread>
 #include <utility>
 

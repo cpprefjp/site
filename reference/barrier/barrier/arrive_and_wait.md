@@ -34,6 +34,7 @@ void arrive_and_wait();
 #include <barrier>
 #include <chrono>
 #include <iostream>
+#include <mutex>
 #include <thread>
 #include <utility>
 

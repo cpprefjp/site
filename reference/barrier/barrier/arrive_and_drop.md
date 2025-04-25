@@ -43,6 +43,7 @@ void arrive_and_drop();
 #include <barrier>
 #include <chrono>
 #include <iostream>
+#include <mutex>
 #include <thread>
 #include <utility>
 
