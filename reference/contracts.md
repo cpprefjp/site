@@ -2,11 +2,18 @@
 * contracts[meta header]
 * cpp26[meta cpp]
 
-`<contracts>`ヘッダでは、[契約違反](/lang/cpp26/contracts.md)のハンドリングのための機能を定義する。
+## 概要
+`<contracts>`ヘッダでは、C++における契約プログラミングのサポートを提供する。
+
+契約プログラミングは、関数やクラスの前提条件、事後条件、およびアサーションを明示的に指定するプログラミング手法である。これらの条件が満たされない場合、プログラムは契約違反を報告する。
+
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`contract_violation`](contracts/contract_violation.md) | 契約違反に関する情報 (class) | C++26 |
+| [`assertion_kind`](contracts/assertion_kind.md.nolink) | アサーションの種類 (enum) | C++26 |
+| [`evaluation_semantic`](contracts/evaluation_semantic.md.nolink) | アサーションの評価の種類(enum) | C++26 |
+| [`detection_mode`](contracts/detection_mode.md.nolink) | 契約違反の検出モード(enum) | C++26 |
+| [`contract_violation`](contracts/contract_violation.md.nolink) | 契約違反に関する情報 (class) | C++26 |
 
 ## バージョン
 ### 言語
