@@ -1,5 +1,5 @@
 # contract_violation
-* contract[meta header]
+* contracts[meta header]
 * class[meta id-type]
 * std[meta namespace]
 * future[meta cpp]
