@@ -17,3 +17,7 @@ namespace std::contracts {
   }
 }
 ```
+
+`contract_violation`型は、実行時に発生した契約違反が`handle_contract_violation`関数に渡されるために使用される型である。
+
+この型は、ユーザーによって構築、コピー、ムーブ、変更してはならない。
