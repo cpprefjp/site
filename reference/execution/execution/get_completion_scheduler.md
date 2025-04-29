@@ -76,7 +76,7 @@ int main()
 }
 ```
 * ex::get_completion_scheduler[color ff0000]
-* ex::run_loop[link run_loop.md.nolink]
+* ex::run_loop[link run_loop.md]
 * ex::scheduler[link scheduler.md]
 * ex::sender[link sender.md]
 * ex::schedule[link schedule.md]
