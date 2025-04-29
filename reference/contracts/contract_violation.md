@@ -32,3 +32,6 @@ namespace std::contracts {
 | [`kind`](contracts/kind.md.nolink) | 違反した契約の種類 | C++26|
 | [`location`](contracts/location.md.nolink) | 違反した場所を返す | C++26 |
 | [`semantic`](contracts/semantic.md.nolink) | 違反した契約のセマンティクス | C++26 |
+
+## 参照
+- [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
