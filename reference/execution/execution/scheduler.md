@@ -92,8 +92,8 @@ int main()
 }
 ```
 * ex::scheduler[color ff0000]
-* ex::run_loop[link run_loop.md.nolink]
-* get_scheduler()[link run_loop/get_scheduler.md.nolink]
+* ex::run_loop[link run_loop.md]
+* get_scheduler()[link run_loop/get_scheduler.md]
 
 ### 出力
 ```

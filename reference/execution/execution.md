@@ -145,7 +145,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
 | [`execution::transform_completion_signatures`](execution/transform_completion_signatures.md.nolink) | 完了シグネチャを変換 (alias template) | C++26 |
 | [`execution::transform_completion_signatures_of`](execution/transform_completion_signatures_of.md.nolink) | 完了シグネチャを変換 (alias template) | C++26 |
-| [`execution::run_loop`](execution/run_loop.md.nolink) | 実行ループ (class) | C++26 |
+| [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
 
 ### コルーチンユーティリティ
 
