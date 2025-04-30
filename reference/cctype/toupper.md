@@ -42,3 +42,13 @@ toupper('1') = 1
 toupper('.') = .
 toupper('$') = $
 ```
+
+## 実装例
+```cpp
+int toupper(int ch) {
+  if (islower(ch)) {
+    ch ^= 32;
+  }
+  return ch;
+}
+```
