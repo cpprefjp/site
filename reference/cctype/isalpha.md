@@ -50,3 +50,10 @@ isalpha(' ') = 0
 isalpha('\n') = 0
 isalpha('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int isalpha(int ch) {
+  return isupper(ch) || islower(ch);
+}
+```
