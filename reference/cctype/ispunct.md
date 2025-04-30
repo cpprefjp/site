@@ -50,3 +50,10 @@ ispunct(' ') = 0
 ispunct('\n') = 0
 ispunct('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int ispunct(int ch) {
+  return isprint(ch) && !isalnum(ch);
+}
+```
