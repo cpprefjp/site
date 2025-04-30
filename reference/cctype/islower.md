@@ -50,3 +50,11 @@ islower(' ') = 0
 islower('\n') = 0
 islower('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int islower(int ch) {
+  return ch >= 'a' && ch <= 'z';
+}
+```
+
