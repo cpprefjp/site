@@ -51,3 +51,10 @@ isblank(' ') = 1
 isblank('\n') = 0
 isblank('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int isblank(int ch) {
+  return ch == ' ' || ch == '\t';
+}
+```
