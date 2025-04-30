@@ -147,6 +147,84 @@ Worker#2 3
 Main     3
 ```
 
+## 完了関数を持つBarrierの例
+```cpp example
+#include <barrier>
+#include <iostream>
+#include <mutex>
+#include <string>
+#include <thread>
+#include <vector>
+#include <functional> // for std::ref
+
+// 各フェーズ完了時に呼び出される完了関数
+struct PhaseNotifier {
+  void operator()() const noexcept {
+    std::lock_guard lk{cout_mtx};
+    std::cout << "Phase " << current_phase << " completed!" << std::endl;
+    current_phase++;
+  }
+  
+  static inline std::mutex cout_mtx;
+  static inline int current_phase = 1;
+};
+
+void worker_task(int id, std::barrier<PhaseNotifier>& sync, int phases) {
+  for (int phase = 1; phase <= phases; phase++) {
+    // 各ワーカーがフェーズの作業を実行
+    {
+      std::lock_guard lk{PhaseNotifier::cout_mtx};
+      std::cout << "Worker " << id << " executing phase " << phase << std::endl;
+    }
+    
+    // フェーズ完了を通知して次のフェーズまで待機
+    // 最後のスレッドが到達すると完了関数が呼び出される
+    sync.arrive_and_wait();
+  }
+}
+
+int main() {
+  constexpr int num_threads = 3;
+  constexpr int num_phases = 3;
+  
+  // 完了通知関数を持つバリア
+  std::barrier sync{num_threads, PhaseNotifier{}};
+  
+  std::vector<std::thread> threads;
+  
+  // スレッド起動
+  for (int i = 1; i <= num_threads; i++) {
+    threads.emplace_back(worker_task, i, std::ref(sync), num_phases);
+  }
+  
+  // 全スレッドの終了を待機
+  for (auto& t : threads) {
+    t.join();
+  }
+  
+  return 0;
+}
+```
+* std::barrier[color ff0000]
+* std::ref[link /reference/functional/ref.md]
+* arrive_and_wait()[link barrier/arrive_and_wait.md]
+* emplace_back[link /reference/vector/vector/emplace_back.md]
+
+### 出力例
+```
+Worker 1 executing phase 1
+Worker 2 executing phase 1
+Worker 3 executing phase 1
+Phase 1 completed!
+Worker 3 executing phase 2
+Worker 2 executing phase 2
+Worker 1 executing phase 2
+Phase 2 completed!
+Worker 1 executing phase 3
+Worker 2 executing phase 3
+Worker 3 executing phase 3
+Phase 3 completed!
+```
 
 ## バージョン
 ### 言語
