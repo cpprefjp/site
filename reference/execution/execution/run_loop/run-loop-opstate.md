@@ -67,6 +67,7 @@ struct run-loop-opstate-base {  // exposition only
 
 ## 関連項目
 - [`run`](run.md)
+- [`execution::connect`](../connect.md)
 - [`execution::start`](../start.md)
 
 

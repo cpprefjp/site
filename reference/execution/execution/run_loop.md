@@ -14,7 +14,7 @@ namespace std::execition {
 `run_loop`は、実行制御ライブラリの作業を[スケジュール](schedule.md)可能な実行リソース(execution resource)である。
 
 内部的にスレッドセーフなFIFO (first-in first-out) 作業キューを保持する。
-[`run`メンバ関数](run_loop/run.md)はキューから作業を取り出し、同関数を呼び出したスレッド上のループで実行する。
+[`run`メンバ関数](run_loop/run.md)はキューから作業を順次取り出し、同関数を呼び出すスレッド上で逐次実行する。
 
 `run_loop`インスタンスの動作説明のため、下記の説明用メンバ変数を持つ。
 
@@ -32,7 +32,7 @@ namespace std::execition {
 | [`run`](run_loop/run.md) | キュー上の作業を逐次実行 | C++26 |
 | [`finish`](run_loop/finish.md) | 状態を終了中に変更 | C++26 |
 
-## 説明専用のメンバ型
+## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
@@ -119,3 +119,4 @@ success
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)

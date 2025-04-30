@@ -27,6 +27,7 @@ class run-loop-sender;  // exposition only
 
 
 ## 関連項目
+- [`get_scheduler`](get_scheduler.md)
 - [`run-loop-scheduler`](run-loop-scheduler.md)
 - [`execution::sender`](../sender.md)
 
