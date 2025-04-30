@@ -14,12 +14,12 @@ namespace std::execition {
 `run_loop`は、実行制御ライブラリの作業を[スケジュール](schedule.md)可能な実行リソース(execution resource)である。
 
 内部的にスレッドセーフなFIFO (first-in first-out) 作業キューを保持する。
-[`run`メンバ関数](run_loop/run.md.nolink)はキューから作業を取り出し、同関数を呼び出したスレッド上のループで実行する。
+[`run`メンバ関数](run_loop/run.md)はキューから作業を取り出し、同関数を呼び出したスレッド上のループで実行する。
 
 `run_loop`インスタンスの動作説明のため、下記の説明用メンバ変数を持つ。
 
-- `count` : FIFOキューが保持する作業の個数
-- `state` : 開始(starting)／実行中(running)／完了中(finishing)／完了済み(finished) いずれかのインスタンス状態
+- `count` : キュー上に保持している作業の個数
+- `state` : [開始(starting)](run_loop/op_constructor.md)／[実行中(running)](run_loop/run.md)／[終了中(finishing)](run_loop/finish.md)／[終了済み(finished)](run_loop/run.md) いずれかの状態
 
 
 ## メンバ関数
@@ -29,20 +29,22 @@ namespace std::execition {
 | [`(constructor)`](run_loop/op_constructor.md) | コンストラクタ | C++26 |
 | [`(destructor)`](run_loop/op_destructor.md) | デストラクタ | C++26 |
 | [`get_scheduler`](run_loop/get_scheduler.md) | Scheduler取得 | C++26 |
-| [`run`](run_loop/run.md.nolink) | ループ実行を開始 | C++26 |
-| [`finish`](run_loop/finish.md.nolink) | ループ実行を終了 | C++26 |
+| [`run`](run_loop/run.md) | キュー上の作業を逐次実行 | C++26 |
+| [`finish`](run_loop/finish.md) | 状態を終了中に変更 | C++26 |
 
 ## 説明専用のメンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`run-loop-scheduler`](run_loop/run-loop-scheduler.md) | 説明専用クラス | C++26 |
-| [`run-loop-sender`](run_loop/run-loop-sender.md) | 説明専用クラス | C++26 |
-| [`run-loop-opstate`](run_loop/run-loop-opstate.md.nolink) | 説明専用クラス | C++26 |
+| [`run-loop-scheduler`](run_loop/run-loop-scheduler.md) | 動作説明用の[Scheduler型](scheduler.md) | C++26 |
+| [`run-loop-sender`](run_loop/run-loop-sender.md) | 動作説明用の[Sender型](sender.md) | C++26 |
+| [`run-loop-opstate-base`](run_loop/run-loop-opstate.md) | 動作説明用の基底クラス | C++26 |
+| [`run-loop-opstate`](run_loop/run-loop-opstate.md) | 動作説明用のクラステンプレート | C++26 |
 
 
 ## 例
 ```cpp example
+#include <print>
 #include <execution>
 namespace ex = std::execution;
 
@@ -50,33 +52,36 @@ struct MyReceiver {
   using receiver_concept = ex::receiver_t;
 
   void set_value() noexcept
-    { std::println("value"); }
+    { std::println("success"); }
   void set_error(std::exception_ptr) noexcept
-    { std::println("error"); }
+    { std::println("failure"); }
   void set_stopped() noexcept
-    { std::println("stopped"); }
+    { std::println("cancellation"); }
 };
 
 
 int main()
 {
-  // run_loopのスケジュールSenderを取得
   ex::run_loop loop;
-  ex::scheduler auto sch = loop.get_scheduler();
-  // state:開始(starting)
+  // count=0, state=開始(starting)
 
+  // run_loopのスケジュールSenderとReceiverを接続
+  ex::scheduler auto sch = loop.get_scheduler();
   ex::sender auto sndr = ex::schedule(sch);
   ex::receiver auto rcvr = MyReceiver{};
-  ex::operation_state auto op = ex::connect(sndr, rcvr);
-  // キューに作業を1つ追加
+  auto op = ex::connect(sndr, rcvr);
+
+  // run_loopキューに作業を1つ追加
   ex::start(op);
+  // count=1, state=開始(starting)
 
-  // stateを完了中(finished)へ遷移
+  // run_loop状態を終了中(finished)へ変更
   loop.finish();
+  // count=1, state=終了中(finished)
 
-  // キュー上の作業を全て処理
+  // run_loopキュー上の作業を逐次実行
   loop.run();
-  // state:完了済み(finished)
+  // count=0, state=終了済み(finished)
 }
 ```
 * ex::run_loop[color ff0000]
@@ -85,16 +90,15 @@ int main()
 * ex::schedule[link schedule.md]
 * ex::receiver[link receiver.md]
 * ex::receiver_t[link receiver.md]
-* ex::operation_state[link operation_state.md]
 * ex::connect[link connect.md]
 * ex::start[link start.md]
 * get_scheduler()[link run_loop/get_scheduler.md]
-* finish()[link run_loop/finish.md.nolink]
-* run()[link run_loop/run.md.nolink]
+* finish()[link run_loop/finish.md]
+* run()[link run_loop/run.md]
 
 ### 出力
 ```
-value
+success
 ```
 
 
@@ -110,7 +114,7 @@ value
 
 
 ## 関連項目
-- [`execution::schedule`](schedule.md)
+- [`execution::scheduler`](scheduler.md)
 
 
 ## 参照

@@ -10,12 +10,16 @@
 ```
 
 ## 概要
-`run_loopオブジェクトを破棄する。
+`run_loop`オブジェクトを破棄する。
 
 
 ## 効果
-`count`が非`0`かつ`state`が実行中(running)のとき、[`terminate`](/reference/exception/terminate.md)を呼び出す。
-それ以外のときは、効果を持たない。
+`count`が非`0`かつ`state`が[実行中(running)](run.md)のとき、[`terminate`](/reference/exception/terminate.md)を呼び出してプログラムを異常終了させる。
+それ以外のとき、効果を持たない。
+
+
+## 同期操作
+[`run`](run.md)とデストラクタ以外のメンバ関数同時呼び出しは、データ競合を引き起こさない。
 
 
 ## バージョン
