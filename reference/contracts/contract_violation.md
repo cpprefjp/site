@@ -13,7 +13,7 @@ namespace std::contracts {
     bool is_terminating() const noexcept;
     assertion_kind kind() const noexcept;
     source_location location() const noexcept;
-    evaluation_semantic sematic() const noexcept;
+    evaluation_semantic semantic() const noexcept;
   }
 }
 ```
@@ -30,8 +30,8 @@ namespace std::contracts {
 | [`evaluation_exception`](contracts/evaluation_exception.md.nolink) | 契約が例外を飛ばしたことによって終了した場合の例外へのポインタ | C++26 |
 | [`is_terminating`](contracts/is_terminating.md.nolink) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
 | [`kind`](contracts/kind.md.nolink) | 違反した契約の種類 | C++26|
-| [`location`](contracts/location.md.nolink) | 違反した場所を返す | C++26 |
-| [`semantic`](contracts/semantic.md.nolink) | 違反した契約のセマンティクス | C++26 |
+| [`location`](contracts/location.md.nolink) | 契約違反が発生したソースコードの位置 | C++26|
+| [`semantic`](contracts/semantic.md.nolink) | 契約の評価方法 | C++26|
 
 ## 参照
 - [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
