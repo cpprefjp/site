@@ -50,3 +50,12 @@ isspace(' ') = 8192
 isspace('\n') = 8192
 isspace('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int isspace(int ch) {
+  return ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n' || ch == '\v' || ch == '\f';
+}
+```
+
+
