@@ -42,3 +42,14 @@ tolower('1') = 1
 tolower('.') = .
 tolower('$') = $
 ```
+
+## 実装例
+```cpp
+int tolower(int ch) {
+  if (isupper(ch)) {
+    ch ^= 32
+  }
+  return ch;
+}
+```
+
