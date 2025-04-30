@@ -52,3 +52,10 @@ isalnum(' ') = 0
 isalnum('\n') = 0
 isalnum('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int isalnum(int ch) {
+  return isalpha(ch) || isdigit(ch);
+}
+```
