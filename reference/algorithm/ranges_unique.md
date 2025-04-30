@@ -90,7 +90,7 @@ int main() {
   // 入力の配列がソート済みではない場合、
   // 隣り合った重複要素が取り除かれる
   {
-    std::vector<int> v = { 2,5,3,3,1,2,4,2,1,1,4,4,3,3,3 };
+    std::vector<int> v = {2, 5, 3, 3, 1, 2, 4, 2, 1, 1, 4, 4, 3, 3, 3};
 
     auto result = std::ranges::unique(v);
 
@@ -104,7 +104,7 @@ int main() {
   // 入力の配列がソート済みである場合、
   // 重複している全ての要素が取り除かれて一意になる
   {
-    std::vector<int> v = { 2,5,3,3,1,2,4,2,1,1,4,4,3,3,3 };
+    std::vector<int> v = {2, 5, 3, 3, 1, 2, 4, 2, 1, 1, 4, 4, 3, 3, 3};
 
     std::sort(v.begin(), v.end());
     auto result = std::ranges::unique(v);
