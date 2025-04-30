@@ -50,3 +50,10 @@ isdigit(' ') = 0
 isdigit('\n') = 0
 isdigit('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int isdigit(int ch) {
+  return ch >= '0' && ch <= '9';
+}
+```
