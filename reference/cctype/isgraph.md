@@ -50,3 +50,10 @@ isgraph(' ') = 0
 isgraph('\n') = 0
 isgraph('0x0f') = 0
 ```
+
+## 実装例
+```cpp
+int isgraph(int ch) {
+  return isprint(ch) && !isspace(ch);
+}
+```
