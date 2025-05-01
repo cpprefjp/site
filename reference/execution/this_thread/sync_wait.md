@@ -15,7 +15,10 @@ namespace std::this_thread {
 ## 概要
 `sync_wait`は、[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。
 
-`sync_wait`は入力Senderが[値完了シグネチャ](../execution/set_value.md)をただ1種類だけ持つことを要求する。
+`sync_wait`は入力Senderが[値完了シグネチャ](../execution/set_value.md)を1個だけ持つことを要求する。
+値完了シグネチャが複数存在する場合は[`sync_wait_with_variant`](sync_wait_with_variant.md)アルゴリズムを利用する。
+
+入力Senderの値完了シグネチャが[`set_value_t`](../execution/set_value.md)`(Ts...)`のとき、`sync_wait`の結果型は[`optional`](/reference/optional/optional.md)`<`[`tuple`](/reference/tuple/tuple.md)`<Ts...>>`となる。
 
 
 ## 効果
@@ -35,8 +38,8 @@ apply_sender(get-domain-early(sndr), sync_wait, sndr)
 - 上記の`apply_sender`式を`e`としたとき、[`same_as`](/reference/concepts/same_as.md)`<decltype(e), sync-wait-result-type<Sndr>> == true`であること。
 
 
-### 戻り値型
-`sync_wait`の戻り値型となる、説明専用のエイリアステンプレート`sync-wait-result-type`を下記の通り定義する。
+### 結果型
+`sync_wait`の結果型となる、説明専用のエイリアステンプレート`sync-wait-result-type`を下記の通り定義する。
 
 ```cpp
 namespace std::this_thread {
@@ -91,9 +94,9 @@ return std::move(state.result);
 
 - 指定したSenderが完了するまで、前方進行保証委任(forward progress guarantee delegation)による現在のスレッドをブロックすること。
 - 指定したSenderの非同期操作の結果が返る場合
-    - 値完了の場合、結果データは[`optional`](/reference/optional/optional.md)オブジェクト内の[`tuple`](/reference/tuple/tuple.md)で返されること。
-    - エラー完了の場合、例外を送出すること。
-    - 停止完了の場合、空の[`optional`](/reference/optional/optional.md)オブジェクトが返されること。
+    - [値完了](../execution/set_value.md)の場合、結果データは[`optional`](/reference/optional/optional.md)オブジェクト内の[`tuple`](/reference/tuple/tuple.md)で返されること。
+    - [エラー完了](../execution/set_error.md)の場合、例外を送出すること。
+    - [停止完了](../execution/set_stopped.md)の場合、無効値[`optional`](/reference/optional/optional.md)オブジェクトが返されること。
 
 
 ## 例
@@ -108,7 +111,7 @@ int main()
   ex::sender auto sndr = ex::just(100, 'X');
   // メインスレッド上で完了待機
   auto result = std::this_thread::sync_wait(sndr);
-  // 戻り値型optional<tuple<int,char>>から値を取り出す
+  // 結果型optional<tuple<int,char>>から値を取り出す
   auto [n, c] = result.value();
   std::println("result=({}, {})", n, c);
 }

@@ -31,6 +31,7 @@ namespace std::this_thread {
 }
 ```
 * execution::receiver_t[link ../execution/receiver.md]
+* sync-wait-env[link sync-wait-env.md]
 * execution::run_loop[link ../execution/run_loop.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * sync-wait-result-type[link sync_wait.md]

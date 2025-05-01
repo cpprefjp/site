@@ -16,6 +16,10 @@ namespace std::this_thread {
 `sync_wait_with_variant`は、[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。
 
 `sync_wait_with_variant`は入力Senderが複数の[値完了シグネチャ](../execution/set_value.md)を持つケースに対応する。
+値完了シグネチャが1個だけの場合は[`sync_wait`](sync_wait.md)アルゴリズムを利用する。
+
+
+入力Senderの値完了シグネチャが[`set_value_t`](../execution/set_value.md)`(Ts0...)`, ..., [`set_value_t`](../execution/set_value.md)`(TsN...)`のとき、`sync_wait_with_variant`の結果型は[`optional`](/reference/optional/optional.md)`<`[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/tuple/tuple.md)`<Ts0...>, ...,` [`tuple`](/reference/tuple/tuple.md)`<TsN...>>`となる。
 
 
 ## 効果
@@ -35,8 +39,8 @@ apply_sender(get-domain-early(sndr), sync_wait_with_variant, sndr)
 - 上記の`apply_sender`式を`e`としたとき、[`same_as`](/reference/concepts/same_as.md)`<decltype(e), sync-wait-with-variant-result-type<Sndr>> == true`であること。
 
 
-### 戻り値型
-`sync_wait_with_variant`の戻り値型となる、説明専用のエイリアステンプレート`sync-wait-with-variant-result-type`を下記の通り定義する。
+### 結果型
+`sync_wait_with_variant`の結果型となる、説明専用のエイリアステンプレート`sync-wait-with-variant-result-type`を下記の通り定義する。
 
 ```cpp
 namespace std::this_thread {
@@ -81,9 +85,9 @@ return result_type(nullopt);
 
 - 指定したSenderが完了するまで、前方進行保証委任(forward progress guarantee delegation)による現在のスレッドをブロックすること。
 - 指定したSenderの非同期操作の結果が返る場合
-    - 値完了の場合、結果データは[`optional`](/reference/optional/optional.md)オブジェクト内の[`tuple`](/reference/tuple/tuple.md)の[`variant`](/reference/variant/variant.md)で返されること。
-    - エラー完了の場合、例外を送出すること。
-    - 停止完了の場合、空の[`optional`](/reference/optional/optional.md)オブジェクトが返されること。
+    - [値完了](../execution/set_value.md)の場合、結果データは[`optional`](/reference/optional/optional.md)オブジェクト内の[`tuple`](/reference/tuple/tuple.md)の[`variant`](/reference/variant/variant.md)で返されること。
+    - [エラー完了](../execution/set_error.md)の場合、例外を送出すること。
+    - [停止完了](../execution/set_stopped.md)の場合、無効値[`optional`](/reference/optional/optional.md)オブジェクトが返されること。
 
 
 ## 例
@@ -98,7 +102,7 @@ int main()
   ex::sender auto sndr = ex::just(100, 'X');
   // メインスレッド上で完了待機
   auto result = std::this_thread::sync_wait_with_variant(sndr);
-  // 戻り値型optional<variant<tuple<int,char>>>からtupleを取り出す
+  // 結果型optional<variant<tuple<int,char>>>からtupleを取り出す
   auto tup = get<0>(result.value());
   std::println("result={}", tup);
 }
