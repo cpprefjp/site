@@ -273,6 +273,7 @@
     * std::error_code[link /reference/system_error/error_code.md]
 * <thread>[link /reference/thread.md]
     * std::thread[link /reference/thread/thread.md]
+    * std::jthread[link /reference/thread/jthread.md]
     * t.join()[link /reference/thread/thread/join.md]
     * t1.join()[link /reference/thread/thread/join.md]
     * t2.join()[link /reference/thread/thread/join.md]

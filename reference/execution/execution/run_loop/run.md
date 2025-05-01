@@ -90,7 +90,6 @@ int main()
 * run()[color ff0000]
 * ex::run_loop[link ../run_loop.md]
 * finish()[link finish.md]
-* std::jthread[link /reference/thread/jthread.md]
 
 ### 出力
 ```

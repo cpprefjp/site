@@ -88,7 +88,6 @@ int main()
 * std::rcu_synchronize[color ff0000]
 * std::rcu_default_domain[link rcu_default_domain.md]
 * std::scoped_lock[link /reference/mutex/scoped_lock.md]
-* std::jthread[link /reference/thread/jthread.md]
 * exchange[link /reference/atomic/atomic/exchange.md]
 * store[link /reference/atomic/atomic/store.md]
 
