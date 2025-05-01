@@ -88,6 +88,7 @@ int main()
 * std::kill_dependency[color ff0000]
 * a.store[link atomic/store.md]
 * a.load[link atomic/load.md]
+* std::memory_order_consume[link /reference/atomic/memory_order.md]
 
 
 ### 出力例
