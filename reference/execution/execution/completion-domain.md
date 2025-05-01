@@ -32,7 +32,7 @@ constexpr auto completion-domain(const Sndr& sndr) noexcept;
 
 
 ## 関連項目
-- [`get-domain-early`](get-domain-early.md.nolink)
+- [`get-domain-early`](get-domain-early.md)
 - [`get-domain-late`](get-domain-late.md)
 
 

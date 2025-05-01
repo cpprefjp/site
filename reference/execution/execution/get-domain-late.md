@@ -15,11 +15,11 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
 下記の優先順で実行ドメインを検索し、最初に妥当となる型を採用する。
 （Senderアルゴリズム[`continue_on`](continue_on.md.nolink)のみ引数に指定した[Scheduler](scheduler.md)から取得。）
 
-- Senderの[属性](../queryable.md)
-- Senderの[完了Scheduler](get_completion_scheduler.md)
-- Receiverの[環境](../queryable.md)
-- Receiver環境の[Scheduler](scheduler.md)
-- [`default_domain`](default_domain.md)
+- Senderの[属性](../queryable.md)の実行ドメイン
+- Senderの[完了Scheduler](get_completion_scheduler.md)の実行ドメイン
+- Receiverの[環境](../queryable.md)の実行ドメイン
+- Receiver環境の[Scheduler](scheduler.md)の実行ドメイン
+- [デフォルト実行ドメイン](default_domain.md)
 
 
 ## 効果
