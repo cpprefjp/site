@@ -313,6 +313,7 @@
 * <valarray>[link /reference/valarray.md]
     * std::valarray[link /reference/valarray/valarray.md]
 * <variant>[link /reference/variant.md]
+    * std::variant[link /reference/variant/variant.md]
 * <vector>[link /reference/vector.md]
     * std::vector[link /reference/vector/vector.md]
     * v.begin()[link /reference/vector/vector/begin.md]

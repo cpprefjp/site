@@ -34,8 +34,6 @@ C++17で導入された`std::variant`には当初、`const char*`から`bool`へ
 ```cpp
 std::variant<std::string, bool> x = "abc";  // boolを保持して構築されてしまう
 ```
-* variant[link /reference/variant/variant.md]
-* string[link /reference/string/basic_string.md]
 
 この他にも構築・代入時に縮小変換が行われてしまう事から同様の問題があり、それはC++20において[P0608R3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html)によって解決された。そこでは、構築・代入時の縮小変換を禁止するとともに、`bool`に変換可能な型を`bool`に変換することを禁止することで問題に対処していた。
 
@@ -46,7 +44,6 @@ std::bitset<4> b("0101");
 std::variant<bool, int> v = b[1]; // intを保持して構築されてしまう
 ```
 * bitset[link /reference/bitset/bitset.md]
-* variant[link /reference/variant/variant.md]
 
 `std::bitset`の非`const`な[`operator[]`](/reference/bitset/bitset/op_at.md)は`bool`型へ暗黙変換可能なプロキシオブジェクトを返す。
 

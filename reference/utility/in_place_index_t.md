@@ -42,7 +42,6 @@ int main()
 }
 ```
 * std::in_place_index[color ff0000]
-* std::variant[link /reference/variant/variant.md]
 * std::visit[link /reference/variant/visit.md]
 
 ### 出力
