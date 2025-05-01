@@ -75,9 +75,9 @@ int main()
   ex::start(op);
   // count=1, state=開始(starting)
 
-  // run_loop状態を終了中(finished)へ変更
+  // run_loop状態を終了中(finishing)へ変更
   loop.finish();
-  // count=1, state=終了中(finished)
+  // count=1, state=終了中(finishing)
 
   // run_loopキュー上の作業を逐次実行
   loop.run();
