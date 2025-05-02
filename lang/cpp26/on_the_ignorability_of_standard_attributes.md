@@ -42,7 +42,7 @@ int h();
 ### 2. 意味論的な無視性
 適格なプログラムが与えられた際、特定の標準属性のインスタンスをすべて削除し、プログラムの観測可能な振る舞いを変化させることが実装に許可される。ただし、削除後の動作が削除前のプログラムにとって適合動作 (conforming behaviour) である場合に限られる。
 
-例として、空のオブジェクトのサイズを削減する[`[[no_unique_address]]`](/lang/cpp20/language_support_for_empty_objects.md)において、`sizeof(Y)`は[`[[no_unique_address]]`](/lang/cpp20/language_support_for_empty_objects.md)属性が無視されなければ`sizeof(int)`と同値となり、無視されれば`sizeof(X) + sizeof(int)`となる。
+例として、空のオブジェクトのサイズを削減する[`[[no_unique_address]]`](/lang/cpp20/language_support_for_empty_objects.md)において、`sizeof(Y)`は[`[[no_unique_address]]`](/lang/cpp20/language_support_for_empty_objects.md)属性が無視されなければ`sizeof(int)`と同値となり、無視されれば`sizeof(X) + sizeof(int)`以上の値となる。
 
 ```cpp
 struct X {};
