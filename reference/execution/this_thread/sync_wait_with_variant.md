@@ -109,7 +109,7 @@ int main()
 ```
 * std::this_thread::sync_wait_with_variant[color ff0000]
 * ex::sender[link ../execution/sender.md]
-* ex::just[link ../execution/just.md.nolink]
+* ex::just[link ../execution/just.md]
 * get<0>[link /reference/variant/variant/get.md]
 * value()[link /reference/optional/optional/value.md]
 

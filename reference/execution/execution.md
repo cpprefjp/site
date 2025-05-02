@@ -99,7 +99,7 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`execution::just`](execution/just.md.nolink) | 値を送信するSender (customization point object) | C++26 |
+| [`execution::just`](execution/just.md) | 値を送信するSender (customization point object) | C++26 |
 | [`execution::just_error`](execution/just_error.md.nolink) | エラーを送信するSender (customization point object) | C++26 |
 | [`execution::just_stopped`](execution/just_stopped.md.nolink) | 停止を送信するSender (customization point object) | C++26 |
 | [`execution::read_env`](execution/read_env.md.nolink) | Receiver環境から構築されるSender (customization point object) | C++26 |

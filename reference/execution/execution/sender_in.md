@@ -47,7 +47,7 @@ int main()
 ```
 * ex::sender_in[color ff0000]
 * ex::sender[link sender.md]
-* ex::just[link just.md.nolink]
+* ex::just[link just.md]
 * ex::env<>[link env.md]
 
 ### 出力

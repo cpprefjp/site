@@ -51,7 +51,7 @@ int main()
 ```
 * std::get_stop_token[color ff0000]
 * ex::sender[link execution/sender.md]
-* ex::just[link execution/just.md.nolink]
+* ex::just[link execution/just.md]
 * ex::get_env[link execution/get_env.md]
 * std::never_stop_token[link /reference/stop_token/never_stop_token.md]
 

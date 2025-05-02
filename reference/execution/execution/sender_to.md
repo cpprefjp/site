@@ -58,7 +58,7 @@ int main()
 * ex::sender_to[color ff0000]
 * ex::receiver_t[link receiver.md]
 * ex::sender[link sender.md]
-* ex::just[link just.md.nolink]
+* ex::just[link just.md]
 * ex::operation_state[link operation_state.md]
 * ex::connect[link connect.md]
 * ex::start[link start.md]

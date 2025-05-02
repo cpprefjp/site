@@ -68,7 +68,7 @@ int main()
 ```
 * ex::get_completion_signatures[color ff0000]
 * ex::sender[link sender.md]
-* ex::just[link just.md.nolink]
+* ex::just[link just.md]
 * ex::completion_signatures[link completion_signatures.md]
 * ex::env<>[link env.md]
 * ex::set_value_t[link set_value.md]

@@ -118,7 +118,7 @@ int main()
 ```
 * std::this_thread::sync_wait[color ff0000]
 * ex::sender[link ../execution/sender.md]
-* ex::just[link ../execution/just.md.nolink]
+* ex::just[link ../execution/just.md]
 * value()[link /reference/optional/optional/value.md]
 
 ### 出力

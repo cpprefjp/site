@@ -78,7 +78,7 @@ int main()
 }
 ```
 * ex::sender[color ff0000]
-* ex::just[link just.md.nolink]
+* ex::just[link just.md]
 
 ### 出力
 ```
