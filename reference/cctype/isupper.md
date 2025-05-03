@@ -51,7 +51,7 @@ isupper('\n') = 0
 isupper('0x0f') = 0
 ```
 
-## 実装例
+## 実装例(ASCII互換文字コードの場合)
 ```cpp
 int isupper(int ch) {
   return ch >= 'A' && ch <= 'Z';
