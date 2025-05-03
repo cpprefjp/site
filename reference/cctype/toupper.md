@@ -43,7 +43,7 @@ toupper('.') = .
 toupper('$') = $
 ```
 
-## 実装例
+## 実装例(ASCII互換文字コードの場合)
 ```cpp
 int toupper(int ch) {
   if (islower(ch)) {
