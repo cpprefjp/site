@@ -88,7 +88,7 @@ namespace std::execution {
 | [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
-| [`execution::tag_of_t`](execution/tag_of_t.md.nolink) | Senderのタグ型を取得 (alias template) | C++26 |
+| [`execution::tag_of_t`](execution/tag_of_t.md) | Senderアルゴリズムタグを取得 (alias template) | C++26 |
 | [`execution::transform_sender`](execution/transform_sender.md) | Senderを変換 (function template) | C++26 |
 | [`execution::transform_env`](execution/transform_env.md) | 環境を変換 (function template) | C++26 |
 | [`execution::apply_sender`](execution/apply_sender.md) | Senderアルゴリズムを適用 (function template) | C++26 |

@@ -16,7 +16,7 @@ template<sender Sndr, queryable Env>
 環境変換のデフォルト動作。
 [`execution::transform_env`](../transform_env.md)に対するスタマイゼーションポイントとして機能する。
 
-- 定義されていれば、[Senderタグ型](../tag_of_t.md.nolink)の`transform_env`メンバ関数に変換動作を委譲する。
+- 定義されていれば、[Senderアルゴリズムタグ型](../tag_of_t.md)の`transform_env`メンバ関数に変換動作を委譲する。
 - そうでなければ、無変換。
 
 
@@ -27,7 +27,7 @@ template<sender Sndr, queryable Env>
 ## 効果
 説明用の式`e`を次の通りとしたとき、`e`を返す。
 
-- 適格であるならば、式[`tag_of_t`](tag_of_t.md.nolink)`<Sndr>().transform_env(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Env>(env))`
+- 適格であるならば、式[`tag_of_t`](../tag_of_t.md)`<Sndr>().transform_env(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Env>(env))`
 - そうでなければ、`static_cast<Env>(`[`std::forward`](/reference/utility/forward.md)`<Env>(env))`
 
 

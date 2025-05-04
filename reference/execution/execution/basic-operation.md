@@ -38,7 +38,7 @@ namespace std::execution {
 }
 ```
 * operation_state_t[link operation_state.md]
-* tag_of_t[link tag_of_t.md.nolink]
+* tag_of_t[link tag_of_t.md]
 * impls-for[link impls-for.md]
 * see below[italic]
 
@@ -70,7 +70,7 @@ nothrow-callable<decltype(impls-for<tag_of_t<Sndr>>::get-state), Sndr, Rcvr&> &&
  is_nothrow_constructible_v<state-type<Sndr, Rcvr>, get-state-result>)
 ```
 * impls-for[link impls-for.md]
-* tag_of_t[link tag_of_t.md.nolink]
+* tag_of_t[link tag_of_t.md]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 
@@ -80,7 +80,7 @@ nothrow-callable<decltype(impls-for<tag_of_t<Sndr>>::get-state), Sndr, Rcvr&> &&
 call-result-t<decltype(impls-for<tag_of_t<Sndr>>::get-state), Sndr, Rcvr&>.
 ```
 * impls-for[link impls-for.md]
-* tag_of_t[link tag_of_t.md.nolink]
+* tag_of_t[link tag_of_t.md]
 
 
 ## 説明専用エンティティ
@@ -104,7 +104,7 @@ template<class Sndr>
 using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only 
 ```
 * impls-for[link impls-for.md]
-* tag_of_t[link tag_of_t.md.nolink]
+* tag_of_t[link tag_of_t.md]
 * decay_t[link /reference/type_traits/decay.md]
 * remove_reference_t[link /reference/type_traits/remove_reference.md]
 * see below[italic]

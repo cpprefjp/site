@@ -21,7 +21,7 @@ namespace std::execution {
 - そうでなければ、式[`make-sender`](make-sender.md)`(just,` [`product-type`](product-type.md.nolink)`{ts...})`と等価。
 
 
-### Senderタグ `just`
+### Senderアルゴリズムタグ `just`
 Senderアルゴリズム動作説明用のクラステンプレート`impls-for`に対して、下記の特殊化が定義される。
 
 ```cpp

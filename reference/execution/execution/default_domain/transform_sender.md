@@ -19,14 +19,14 @@ constexpr sender decltype(auto) transform_sender(Sndr&& sndr, const Env&... env)
 Sender変換のデフォルト動作。
 [`execution::transform_sender`](../transform_sender.md)に対するスタマイゼーションポイントとして機能する。
 
-- 定義されていれば、[Senderタグ型](../tag_of_t.md.nolink)の`transform_sender`メンバ関数に変換動作を委譲する。
+- 定義されていれば、[Senderアルゴリズムタグ型](../tag_of_t.md)の`transform_sender`メンバ関数に変換動作を委譲する。
 - そうでなければ、無変換。
 
 
 ## 効果
 説明用の式`e`を次の通りとしたとき、`e`を返す。
 
-- 適格であるならば、式[`tag_of_t`](tag_of_t.md.nolink)`<Sndr>().transform_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env...)`
+- 適格であるならば、式[`tag_of_t`](../tag_of_t.md)`<Sndr>().transform_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), env...)`
 - そうでなければ、[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr)`
 
 

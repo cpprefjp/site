@@ -15,7 +15,7 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 
 [`sender`](sender.md)のモデルである説明専用クラステンプレート[`basic-sender`](basic-sender.md)のインスタンスを生成する。
 
-- `Tag` : [Senderタグ](tag_of_t.md.nolink)（例：[`just`](just.md), [`then`](then.md.nolink)）
+- `Tag` : [Senderアルゴリズムタグ](tag_of_t.md)（例：[`just`](just.md), [`then`](then.md.nolink)）
 - `Data` : Senderアルゴリズムに指定された追加の引数。複数個の引数は[`product-type`](product-type.md.nolink)型を用いて単一値として保持する。
 - `Child` : 子Senderのリスト。Senderファクトリでは0個、Senderアダプタでは通常1個の子Senderを保持する。
 
@@ -44,4 +44,5 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 
 
 ## 参照
+- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)

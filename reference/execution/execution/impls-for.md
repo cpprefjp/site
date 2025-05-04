@@ -23,7 +23,7 @@ namespace std::execution {
 ## 概要
 `impls-for`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
 
-説明専用のクラス`default-impls`にてSenderアルゴリズム共通動作を記述し、[Senderタグ](tag_of_t.md.nolink)`Tag`を用いて`impls-for<Tag>`特殊化を定義することでSenderアルゴリズム固有動作を静的にオーバーライドする。
+説明専用のクラス`default-impls`にてSenderアルゴリズム共通動作を記述し、[Senderアルゴリズムタグ型](tag_of_t.md)`Tag`を用いて`impls-for<Tag>`特殊化を定義することでSenderアルゴリズムの固有動作を静的にオーバーライドする。
 
 
 ## 説明専用クラス `default-impls`

@@ -57,7 +57,7 @@ namespace std::this_thread {
 * type_identity_t[link /reference/type_traits/type_identity.md]
 
 
-### Senderタグ `sync_wait`
+### Senderアルゴリズムタグ `sync_wait`
 説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式とする。
 
 [`sender_to`](../execution/sender_to.md)`<Sndr,` [`sync-wait-receiver`](sync-wait-receiver.md)`<Sndr>> == false`のとき、式`sync_wait.apply_sender(sndr)`は不適格となる。
