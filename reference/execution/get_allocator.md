@@ -15,7 +15,7 @@ namespace std {
 ## 概要
 `get_allocator`は、[クエリ可能オブジェクト](queryable.md)からアロケータを取得する[クエリオブジェクト](queryable.md)である。
 
-コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_allocator)`は`true`値を返す。
+コア定数式[`forwarding_query`](forwarding_query.md)`(get_allocator)`は`true`値を返す。
 
 
 ## 効果

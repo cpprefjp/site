@@ -44,6 +44,7 @@ namespace std::execution {
     return env<>();
 }
 ```
+* FWD-ENV[link ../forwarding_query.md]
 * get_env[link get_env.md]
 * env<>[link env.md]
 
@@ -59,6 +60,7 @@ namespace std::execution {
   return FWD-ENV(get_env(rcvr));
 }
 ```
+* FWD-ENV[link ../forwarding_query.md]
 * get_env[link get_env.md]
 
 ### `get-state`メンバ

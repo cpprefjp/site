@@ -15,7 +15,7 @@ namespace std {
 ## 概要
 `get_stop_token`は、[クエリ可能オブジェクト](queryable.md)から[停止トークン](/reference/stop_token/stoppable_token.md)を取得する[クエリオブジェクト](queryable.md)である。
 
-コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_stop_token)`は`true`値を返す。
+コア定数式[`forwarding_query`](forwarding_query.md)`(get_stop_token)`は`true`値を返す。
 
 
 ## 効果

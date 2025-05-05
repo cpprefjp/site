@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `get_domain`は、[クエリ可能オブジェクト](../queryable.md)から[実行ドメイン](default_domain.md)のタグ型を取得する[クエリオブジェクト](../queryable.md)である。
 
-コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_domain)`は`true`値を返す。
+コア定数式[`forwarding_query`](../forwarding_query.md)`(get_domain)`は`true`値を返す。
 
 
 ## 効果

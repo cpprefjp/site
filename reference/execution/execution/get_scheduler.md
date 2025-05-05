@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `get_scheduler`は、[クエリ可能オブジェクト](../queryable.md)から[Scheduler](scheduler.md)を取得する[クエリオブジェクト](../queryable.md)である。
 
-コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_scheduler)`は`true`値を返す。
+コア定数式[`forwarding_query`](../forwarding_query.md)`(get_scheduler)`は`true`値を返す。
 
 
 ## 効果

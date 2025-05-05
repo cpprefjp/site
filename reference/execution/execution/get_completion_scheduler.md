@@ -19,7 +19,7 @@ namespace std::execution {
 `get_completion_scheduler<completion-tag>`は、[Sender](sender.md)の[属性](get_env.md)から指定完了タグに関連付けられた完了Schedulerを取得する[クエリオブジェクト](../queryable.md)である。
 完了タグ`completion-tag`には、[`set_value_t`](set_value.md), [`set_error_t`](set_error.md), [`set_stopped_t`](set_stopped.md)のいずれかを指定する。
 
-コア定数式[`forwarding_query`](forwarding_query.md.nolink)`(get_completion_scheduler<completion-tag>)`は`true`値を返す。
+コア定数式[`forwarding_query`](../forwarding_query.md)`(get_completion_scheduler<completion-tag>)`は`true`値を返す。
 
 
 ### 完了Scheduler
