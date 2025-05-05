@@ -16,8 +16,8 @@ namespace std::execution {
 ```
 * env<>[link env.md]
 * sender_in[link sender_in.md]
-* decayed-tuple[link decayed-tuple.md.nolink]
-* variant-or-empty[link variant-or-empty.md.nolink]
+* decayed-tuple[link decayed-tuple.md]
+* variant-or-empty[link variant-or-empty.md]
 * gather-signatures[link gather-signatures.md]
 * set_value_t[link set_value.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]

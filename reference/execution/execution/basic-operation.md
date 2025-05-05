@@ -40,6 +40,7 @@ namespace std::execution {
 * operation_state_t[link operation_state.md]
 * tag_of_t[link tag_of_t.md]
 * impls-for[link impls-for.md]
+* std::move[link /reference/utility/move.md]
 * see below[italic]
 
 ## 概要
@@ -71,6 +72,7 @@ nothrow-callable<decltype(impls-for<tag_of_t<Sndr>>::get-state), Sndr, Rcvr&> &&
 ```
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
+* nothrow-callable[link /reference/functional/nothrow-callable.md.nolink]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 

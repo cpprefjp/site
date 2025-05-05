@@ -53,7 +53,7 @@ namespace std::this_thread {
 * sync-wait-env[link sync-wait-env.md]
 * execution::value_types_of_t[link ../execution/value_types_of_t.md]
 * optional[link /reference/optional/optional.md]
-* decayed-tuple[link decayed-tuple.md.nolink]
+* decayed-tuple[link ../execution/decayed-tuple.md]
 * type_identity_t[link /reference/type_traits/type_identity.md]
 
 

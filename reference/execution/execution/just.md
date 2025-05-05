@@ -36,9 +36,11 @@ namespace std::execution {
   };
 }
 ```
+* decayed-typeof[link decayed-typeof.md.nolink]
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
 * set_value[link set_value.md]
+* std::move[link /reference/utility/move.md]
 
 
 ## 例

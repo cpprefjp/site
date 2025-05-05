@@ -20,6 +20,7 @@ struct product-type {  // exposition only
     noexcept(see below);
 };
 ```
+* this Self[link /lang/cpp23/deducing_this.md.nolink]
 * see below[italic]
 
 ## 概要
@@ -33,18 +34,20 @@ struct product-type {  // exposition only
 template<size_t I, class Self>
 constexpr decltype(auto) get(this Self&& self) noexcept;
 ```
+* this Self[link /lang/cpp23/deducing_this.md.nolink]
 
 - 効果 : 下記と等価
 
-   ```cpp
-   auto& [...ts] = self;
-   return std::forward_like<Self>(ts...[I]);
-   ```
+    ```cpp
+    auto& [...ts] = self;
+    return std::forward_like<Self>(ts...[I]);
+    ```
 
 ```cpp
 template<class Self, class Fn>
 constexpr decltype(auto) apply(this Self&& self, Fn&& fn) noexcept(see below);
 ```
+* this Self[link /lang/cpp23/deducing_this.md.nolink]
 * see below[italic]
 
 - テンプレートパラメータ制約 : 下記`return`文の式が適格であること。

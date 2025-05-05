@@ -15,7 +15,7 @@ namespace std::execution {
 ```
 * env<>[link env.md]
 * sender_in[link sender_in.md]
-* variant-or-empty[link variant-or-empty.md.nolink]
+* variant-or-empty[link variant-or-empty.md]
 * gather-signatures[link gather-signatures.md]
 * set_error_t[link set_error.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]

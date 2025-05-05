@@ -34,8 +34,10 @@ namespace std::execution {
 * sender_t[link sender.md]
 * index_sequence_for[link /reference/utility/index_sequence_for.md]
 * impls-for[link impls-for.md]
+* decays-to[link ../decays-to.md]
 * receiver[link receiver.md]
 * basic-operation[link basic-operation.md]
+* std::move[link /reference/utility/move.md]
 * this Self[link /lang/cpp23/deducing_this.md.nolink]
 * see below[italic]
 
@@ -84,6 +86,7 @@ using completion-signatures-for = see below;  // exposition only
 
 ## 関連項目
 - [`make-sender`](make-sender.md)
+- [`basic-operation`](basic-operation.md)
 - [`execution::sender`](sender.md)
 
 
