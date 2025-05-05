@@ -63,7 +63,7 @@ is_nothrow_constructible_v<basic-operation<Self, Rcvr>, Self, Rcvr>
 
 説明専用のエイリアステンプレート`completion-signatures-for`は、下記の通り定義される。
 
-```
+```cpp
 template<class Sndr, class Env>
 using completion-signatures-for = see below;  // exposition only
 ```

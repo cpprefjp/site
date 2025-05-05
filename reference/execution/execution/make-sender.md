@@ -22,7 +22,7 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 
 ## 適格要件
 - [`semiregular`](/reference/concepts/semiregular.md)`<Tag> == true`
-- [`movable-value`](movable-value.md.nolink)`<Data> == true`
+- [`movable-value`](../movable-value.md)`<Data> == true`
 - `(`[`sender`](sender.md)`<Child> && ...) == true`
 
 
