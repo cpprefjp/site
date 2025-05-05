@@ -18,7 +18,7 @@ namespace std::execution {
 
 ## 効果
 - 呼び出し式`just(ts...)`は、`(`[`movable-value`](../movable-value.md)`<Ts> &&...) == false`のとき不適格となる。
-- そうでなければ、式[`make-sender`](make-sender.md)`(just,` [`product-type`](product-type.md.nolink)`{ts...})`と等価。
+- そうでなければ、式[`make-sender`](make-sender.md)`(just,` [`product-type`](product-type.md)`{ts...})`と等価。
 
 
 ### Senderアルゴリズムタグ `just`

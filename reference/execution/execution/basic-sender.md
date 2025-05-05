@@ -30,7 +30,7 @@ namespace std::execution {
   };
 }
 ```
-* product-type[link product-type.md.nolink]
+* product-type[link product-type.md]
 * sender_t[link sender.md]
 * index_sequence_for[link /reference/utility/index_sequence_for.md]
 * impls-for[link impls-for.md]
@@ -45,7 +45,7 @@ namespace std::execution {
 `basic-sender<Tag, Data, Child...>`は[`sender`](sender.md)のモデルであり、[Senderアルゴリズム構築](make-sender.md)の結果型として利用される。
 
 - `Tag` : [Senderアルゴリズムタグ](tag_of_t.md)（例：[`just`](just.md), [`then`](then.md.nolink)）
-- `Data` : Senderアルゴリズムに指定された追加の引数。複数個の引数は[`product-type`](product-type.md.nolink)型を用いて単一値として保持する。
+- `Data` : Senderアルゴリズムに指定された追加の引数。複数個の引数は[`product-type`](product-type.md)型を用いて単一値として保持する。
 - `Child` : 子Senderのリスト。Senderファクトリでは0個、Senderアダプタでは通常1個の子Senderを保持する。
 
 
