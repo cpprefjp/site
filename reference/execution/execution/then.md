@@ -80,8 +80,8 @@ int main()
 {
   { // 関数呼び出し
     ex::sender auto snd0 = ex::just('C', 2);
-    ex::sender auto snd1 = ex::then(snd0, [](char ch, int s){
-      return ch + std::string(2, '+');
+    ex::sender auto snd1 = ex::then(snd0, [](char ch, int n) {
+      return ch + std::string(n, '+');
     });
     auto [s] = std::this_thread::sync_wait(snd1).value();
     std::println("{}", s);
@@ -89,8 +89,8 @@ int main()
 
   { // パイプライン記法
     ex::sender auto sndr = ex::just('C', 2);
-      | ex::then([](char ch, int s){
-          return ch + std::string(2, '+');
+      | ex::then([](char ch, int n) {
+          return ch + std::string(n, '+');
         });
     auto [s] = std::this_thread::sync_wait(sndr).value();
     std::println("{}", s);
