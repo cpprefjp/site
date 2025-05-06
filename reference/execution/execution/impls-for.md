@@ -49,7 +49,7 @@ namespace std::execution {
 * env<>[link env.md]
 
 ### `get-env`メンバ
-`get-env`は、[`basic-receiver`](basic-receiver.md.nolink)実装におけるReceiver[環境](../queryable.md)取得のカスタマイゼーションポイントとして機能する。
+`get-env`は、[`basic-receiver`](basic-receiver.md)実装におけるReceiver[環境](../queryable.md)取得のカスタマイゼーションポイントとして機能する。
 
 `default-impls::get-env`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -92,7 +92,7 @@ namespace std::execution {
 * execution::start[link start.md]
 
 ### `complete`メンバ
-`complete`は、[`basic-receiver`](basic-receiver.md.nolink)実装における各種完了操作のカスタマイゼーションポイントとして機能する。
+`complete`は、[`basic-receiver`](basic-receiver.md)実装における各種完了操作のカスタマイゼーションポイントとして機能する。
 
 `default-impls::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -120,7 +120,7 @@ namespace std::execution {
 
 ## 関連項目
 - [`basic-sender`](basic-sender.md)
-- [`basic-receiver`](basic-receiver.md.nolink)
+- [`basic-receiver`](basic-receiver.md)
 - [`basic-operation`](basic-operation.md)
 
 

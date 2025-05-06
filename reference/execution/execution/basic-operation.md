@@ -105,6 +105,7 @@ using connect-all-result = call-result-t<  // exposition only
 template<class Sndr>
 using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only 
 ```
+* call-result-t[link call-result-t.md.nolink]
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
 * decay_t[link /reference/type_traits/decay.md]
@@ -113,7 +114,7 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 
 説明専用の定数`connect-all`は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。
 
-- 全ての子Sender`child`とSenderアルゴリズム`sndr`の[Receiver](basic-receiver.md.nolink)を[接続(connect)](connect.md)し、結果の[Operation State](operation_state.md)リストを[`product-type`](product-type.md)型にまとめて返す。
+- 全ての子Sender`child`とSenderアルゴリズム`sndr`の[Receiver](basic-receiver.md)を[接続(connect)](connect.md)し、結果の[Operation State](operation_state.md)リストを[`product-type`](product-type.md)型にまとめて返す。
 
 ```cpp
 []<class Sndr, class Rcvr, size_t... Is>(
@@ -128,7 +129,7 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 * index_sequence[link /reference/utility/index_sequence.md]
 * product-type[link product-type.md]
 * connect[link connect.md]
-* basic-receiver[link basic-receiver.md.nolink]
+* basic-receiver[link basic-receiver.md]
 * integral_constant[link /reference/type_traits/integral_constant.md]
 * see below[italic]
 
@@ -143,7 +144,7 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 
 ## 関連項目
 - [`basic-sender`](basic-sender.md)
-- [`basic-receiver`](basic-receiver.md.nolink)
+- [`basic-receiver`](basic-receiver.md)
 - [`execution::operation_state`](operation_state.md)
 
 

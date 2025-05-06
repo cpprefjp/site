@@ -82,7 +82,7 @@ int main()
 * ex::schedule[link schedule.md]
 * ex::set_value_t[link set_value.md]
 * ex::get_env[link get_env.md]
-* ex::then[link then.md.nolink]
+* ex::then[link then.md]
 
 ### 出力
 ```

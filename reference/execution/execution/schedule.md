@@ -63,7 +63,7 @@ int main()
 * ex::schedule[color ff0000]
 * ex::scheduler[link scheduler.md]
 * ex::sender[link sender.md]
-* ex::then[link then.md.nolink]
+* ex::then[link then.md]
 * ex::run_loop[link run_loop.md]
 * get_scheduler()[link run_loop/get_scheduler.md]
 * run()[link run_loop/run.md]

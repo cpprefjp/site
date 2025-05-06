@@ -115,7 +115,7 @@ namespace std::execution {
 | [`execution::continues_on`](execution/continues_on.md.nolink) | 指定Scheduler上で継続する (customization point object) | C++26 |
 | [`execution::on`](execution/on.md.nolink) | 指定Scheduler上で実行する (customization point object) | C++26 |
 | [`execution::schedule_from`](execution/schedule_from.md.nolink) | Sender完了に依存する作業をスケジュール (customization point object) | C++26 |
-| [`execution::then`](execution/then.md.nolink) | 値完了時の継続処理をアタッチ (customization point object) | C++26 |
+| [`execution::then`](execution/then.md) | 値完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::upon_error`](execution/upon_error.md.nolink) | エラー完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::upon_stopped`](execution/upon_stopped.md.nolink) | 停止完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::let_value`](execution/let_value.md.nolink) | 値完了の継続にユーザ定義処理を連結 (customization point object) | C++26 |
