@@ -2,6 +2,7 @@
 * contracts[meta header]
 * std::contracts[meta namespace]
 * class[meta id-type]
+* cpp26[meta cpp]
 
 ```cpp
 namespace std::contracts {
