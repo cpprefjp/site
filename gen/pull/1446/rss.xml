@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-05-07T09:27:46.678680</updated>
+  <id>dfa23ee1-ab4f-43db-b001-d6f6dca26887</id>
+
+  
+    <entry>
+      <title>非推奨となっていた列挙型の算術変換を削除 [P2864R2] -- ページタイトルを修正</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.html"/>
+      <id>8acf79c216090dcb5818046ae852eb8677cd6a36:lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md</id>
+      <updated>2025-05-07T17:43:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md b/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md
+index c44035a45..62b6c1f61 100644
+--- a/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md
++++ b/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md
+@@ -1,4 +1,4 @@
+-# 列挙値から算術型への暗黙変換を非推奨化 [P2864R2]
++# 非推奨となっていた列挙型の算術変換を削除 [P2864R2]
+ * cpp26[meta cpp]
+ 
+ &amp;lt;!-- start lang caution --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>50c0019uy</name>
+        <email>137173525+50c0019uy@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_clock -- is_clock : Clock要件を記載 #1445</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/is_clock.html"/>
+      <id>0de1d6d997254af003ec11bd19f597de81eb3fa3:reference/chrono/is_clock.md</id>
+      <updated>2025-05-07T15:26:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/is_clock.md b/reference/chrono/is_clock.md
+index c7fe8e4de..01d3f7292 100644
+--- a/reference/chrono/is_clock.md
++++ b/reference/chrono/is_clock.md
+@@ -21,6 +21,22 @@ namespace std::chrono {
+ 
+ Clock要件を満たすには、以下が必要である：
+ 
++| 有効であるべき式 | 戻り値型 | 操作の意味論 |
++|------------------|----------|--------------|
++| `C1::rep`        | 算術型もしくはそのように振る舞うクラス | `C1::duration`の値型 |
++| `C1::period`     | [`std::ratio`](/reference/ratio/ratio.md)の特殊化 | クロックの時間周期 (秒ベース) |
++| `C1::duration`   | [`chrono::duration`](duration.md)`&amp;lt;C1::rep, C1::period&amp;gt;` | クロックの`duation`型 |
++| `C1::time_point` | [`chrono::time_point`](time_point.md)`&amp;lt;C1&amp;gt;`もしくは[`chrono::time_point`](time_point.md)`&amp;lt;C2, C1::duration&amp;gt;` | クロックの`time_point`型。`C1`と`C2`は同じエポックを参照する |
++| `C1::is_steady`  | `const bool` | `t1 &amp;lt;= t2`が常に真であり (注：時間が戻らない)、時間間隔が常に一定である場合に`true`、そうでなければ`false` |
++| `C1::now()`      | `C1::time_point` | 現在の時間点を表す`time_point`オブジェクトを返す |
++
++ここで、以下のように定義する：
++
++- `C1`と`C2` : クロックの種類
++- `t1`と`t2` : `C1::now()`によって返される値。ここで、`t1`を返す`now()`呼び出しは`t2`を返す`now()`呼び出しよりも前に発生し、これらの呼び出しは両方とも`C1::time_point::max()`よりも前に発生するものとする (注: これは、`C1`が`t1`と`t2`の間でラップアラウンドしていないことを意味する)
++
++`is_clock`は、以下を満たさない限り、`Clock`要件として適格ではない：
++
+ - 修飾された型`T`が、`T::period`、`T::duration`、`T::time_point`メンバ型を持っていること
+ - 式`T::is_steady`が評価されないオペランドで使用された場合に妥当であること
+ - 式`T::now()`が評価されないオペランドで使用された場合に妥当であること
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>then -- execution/then: fix example</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/then.html"/>
+      <id>63b19a362e53407399882264694b97482dd2a700:reference/execution/execution/then.md</id>
+      <updated>2025-05-07T01:00:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/then.md b/reference/execution/execution/then.md
+index e950bc0be..3758369d3 100644
+--- a/reference/execution/execution/then.md
++++ b/reference/execution/execution/then.md
+@@ -80,8 +80,8 @@ int main()
+ {
+   { // 関数呼び出し
+     ex::sender auto snd0 = ex::just(&amp;#39;C&amp;#39;, 2);
+-    ex::sender auto snd1 = ex::then(snd0, [](char ch, int s){
+-      return ch + std::string(2, &amp;#39;+&amp;#39;);
++    ex::sender auto snd1 = ex::then(snd0, [](char ch, int n) {
++      return ch + std::string(n, &amp;#39;+&amp;#39;);
+     });
+     auto [s] = std::this_thread::sync_wait(snd1).value();
+     std::println(&amp;#34;{}&amp;#34;, s);
+@@ -89,8 +89,8 @@ int main()
+ 
+   { // パイプライン記法
+     ex::sender auto sndr = ex::just(&amp;#39;C&amp;#39;, 2);
+-      | ex::then([](char ch, int s){
+-          return ch + std::string(2, &amp;#39;+&amp;#39;);
++      | ex::then([](char ch, int n) {
++          return ch + std::string(n, &amp;#39;+&amp;#39;);
+         });
+     auto [s] = std::this_thread::sync_wait(sndr).value();
+     std::println(&amp;#34;{}&amp;#34;, s);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>execution -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
+index 10a8dbed1..631483cb2 100644
+--- a/reference/execution/execution.md
++++ b/reference/execution/execution.md
+@@ -115,7 +115,7 @@ namespace std::execution {
+ | [`execution::continues_on`](execution/continues_on.md.nolink) | 指定Scheduler上で継続する (customization point object) | C++26 |
+ | [`execution::on`](execution/on.md.nolink) | 指定Scheduler上で実行する (customization point object) | C++26 |
+ | [`execution::schedule_from`](execution/schedule_from.md.nolink) | Sender完了に依存する作業をスケジュール (customization point object) | C++26 |
+-| [`execution::then`](execution/then.md.nolink) | 値完了時の継続処理をアタッチ (customization point object) | C++26 |
++| [`execution::then`](execution/then.md) | 値完了時の継続処理をアタッチ (customization point object) | C++26 |
+ | [`execution::upon_error`](execution/upon_error.md.nolink) | エラー完了時の継続処理をアタッチ (customization point object) | C++26 |
+ | [`execution::upon_stopped`](execution/upon_stopped.md.nolink) | 停止完了時の継続処理をアタッチ (customization point object) | C++26 |
+ | [`execution::let_value`](execution/let_value.md.nolink) | 値完了の継続にユーザ定義処理を連結 (customization point object) | C++26 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-operation -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-operation.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/basic-operation.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-operation.md b/reference/execution/execution/basic-operation.md
+index 4133f39ad..73d010747 100644
+--- a/reference/execution/execution/basic-operation.md
++++ b/reference/execution/execution/basic-operation.md
+@@ -105,6 +105,7 @@ using connect-all-result = call-result-t&amp;lt;  // exposition only
+ template&amp;lt;class Sndr&amp;gt;
+ using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only 
+ ```
++* call-result-t[link call-result-t.md.nolink]
+ * impls-for[link impls-for.md]
+ * tag_of_t[link tag_of_t.md]
+ * decay_t[link /reference/type_traits/decay.md]
+@@ -113,7 +114,7 @@ using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only
+ 
+ 説明専用の定数`connect-all`は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。
+ 
+-- 全ての子Sender`child`とSenderアルゴリズム`sndr`の[Receiver](basic-receiver.md.nolink)を[接続(connect)](connect.md)し、結果の[Operation State](operation_state.md)リストを[`product-type`](product-type.md)型にまとめて返す。
++- 全ての子Sender`child`とSenderアルゴリズム`sndr`の[Receiver](basic-receiver.md)を[接続(connect)](connect.md)し、結果の[Operation State](operation_state.md)リストを[`product-type`](product-type.md)型にまとめて返す。
+ 
+ ```cpp
+ []&amp;lt;class Sndr, class Rcvr, size_t... Is&amp;gt;(
+@@ -128,7 +129,7 @@ using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only
+ * index_sequence[link /reference/utility/index_sequence.md]
+ * product-type[link product-type.md]
+ * connect[link connect.md]
+-* basic-receiver[link basic-receiver.md.nolink]
++* basic-receiver[link basic-receiver.md]
+ * integral_constant[link /reference/type_traits/integral_constant.md]
+ * see below[italic]
+ 
+@@ -143,7 +144,7 @@ using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only
+ 
+ ## 関連項目
+ - [`basic-sender`](basic-sender.md)
+-- [`basic-receiver`](basic-receiver.md.nolink)
++- [`basic-receiver`](basic-receiver.md)
+ - [`execution::operation_state`](operation_state.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-receiver -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-receiver.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/basic-receiver.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-receiver.md b/reference/execution/execution/basic-receiver.md
+new file mode 100644
+index 000000000..7045171e8
+--- /dev/null
++++ b/reference/execution/execution/basic-receiver.md
+@@ -0,0 +1,94 @@
++# basic-receiver
++* execution[meta header]
++* class template[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Rcvr, class Index&amp;gt;
++    requires valid-specialization&amp;lt;env-type, Index, Sndr, Rcvr&amp;gt;
++  struct basic-receiver {                    // exposition only
++    using receiver_concept = receiver_t;
++
++    using tag-t = tag_of_t&amp;lt;Sndr&amp;gt;;            // exposition only
++    using state-t = state-type&amp;lt;Sndr, Rcvr&amp;gt;;  // exposition only
++    static constexpr const auto&amp;amp; complete = impls-for&amp;lt;tag-t&amp;gt;::complete;   // exposition only
++
++    template&amp;lt;class... Args&amp;gt;
++      requires callable&amp;lt;decltype(complete), Index, state-t&amp;amp;, Rcvr&amp;amp;, set_value_t, Args...&amp;gt;
++    void set_value(Args&amp;amp;&amp;amp;... args) &amp;amp;&amp;amp; noexcept {
++      complete(Index(), op-&amp;gt;state, op-&amp;gt;rcvr, set_value_t(), std::forward&amp;lt;Args&amp;gt;(args)...);
++    }
++
++    template&amp;lt;class Error&amp;gt;
++      requires callable&amp;lt;decltype(complete), Index, state-t&amp;amp;, Rcvr&amp;amp;, set_error_t, Error&amp;gt;
++    void set_error(Error&amp;amp;&amp;amp; err) &amp;amp;&amp;amp; noexcept {
++      complete(Index(), op-&amp;gt;state, op-&amp;gt;rcvr, set_error_t(), std::forward&amp;lt;Error&amp;gt;(err));
++    }
++
++    void set_stopped() &amp;amp;&amp;amp; noexcept
++      requires callable&amp;lt;decltype(complete), Index, state-t&amp;amp;, Rcvr&amp;amp;, set_stopped_t&amp;gt; {
++      complete(Index(), op-&amp;gt;state, op-&amp;gt;rcvr, set_stopped_t());
++    }
++
++    auto get_env() const noexcept -&amp;gt; env-type&amp;lt;Index, Sndr, Rcvr&amp;gt; {
++      return impls-for&amp;lt;tag-t&amp;gt;::get-env(Index(), op-&amp;gt;state, op-&amp;gt;rcvr);
++    }
++
++    basic-state&amp;lt;Sndr, Rcvr&amp;gt;* op;             // exposition only
++  };
++}
++```
++* receiver_t[link receiver.md]
++* tag_of_t[link tag_of_t.md]
++* state-type[link basic-operation.md]
++* impls-for[link impls-for.md]
++* callable[link /reference/functional/callable.md.nolink]
++* set_value_t[link set_value.md]
++* set_error_t[link set_error.md]
++* set_stopped_t[link set_stopped.md]
++* basic-state[link basic-operation.md]
++
++
++## 概要
++`basic-receiver`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
++
++`basic-receiver&amp;lt;Sndr, Rcvr, Index&amp;gt;`は[`receiver`](receiver.md)のモデルであり、SenderアルゴリズムのReceiverとしてして[子Senderとの接続時](basic-operation.md)に利用される。
++
++- `Sndr` : Senderアルゴリズムの[Sender](sender.md)。
++- `Rcvr` : Senderアルゴリズムの接続先[Receiver](receiver.md)。Senderアルゴリズム同士を連結する場合は、親Senderアルゴリズム側のReceiver型。
++- `Index` : Senderアルゴリズムの子Sender識別用インデクス値。Senderアダプタは通常1個の子Senderと接続され、この場合は`Index()`は定数値`0`となる。
++
++
++## 説明専用エンティティ
++
++```cpp
++template&amp;lt;template&amp;lt;class...&amp;gt; class T, class... Args&amp;gt;
++concept valid-specialization =  // exposition only
++  requires { typename T&amp;lt;Args...&amp;gt;; };
++
++template&amp;lt;class Index, class Sndr, class Rcvr&amp;gt;  // exposition only
++using env-type = call-result-t&amp;lt;
++  decltype(impls-for&amp;lt;tag_of_t&amp;lt;Sndr&amp;gt;&amp;gt;::get-env), Index,
++  state-type&amp;lt;Sndr, Rcvr&amp;gt;&amp;amp;, const Rcvr&amp;amp;&amp;gt;;
++```
++* call-result-t[link call-result-t.md.nolink]
++* impls-for[link impls-for.md]
++* tag_of_t[link tag_of_t.md]
++* state-type[link basic-operation.md]
++
++
++## バージョン
++### 言語
++- C++26
++
++
++## 関連項目
++- [`basic-sender`](basic-sender.md)
++- [`basic-operation`](basic-operation.md)
++- [`execution::receiver`](receiver.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-sender -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-sender.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/basic-sender.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-sender.md b/reference/execution/execution/basic-sender.md
+index e6f94ef1e..cf4d6e1c9 100644
+--- a/reference/execution/execution/basic-sender.md
++++ b/reference/execution/execution/basic-sender.md
+@@ -46,7 +46,7 @@ namespace std::execution {
+ 
+ `basic-sender&amp;lt;Tag, Data, Child...&amp;gt;`は[`sender`](sender.md)のモデルであり、[Senderアルゴリズム構築](make-sender.md)の結果型として利用される。
+ 
+-- `Tag` : [Senderアルゴリズムタグ](tag_of_t.md)（例：[`just`](just.md), [`then`](then.md.nolink)）
++- `Tag` : [Senderアルゴリズムタグ](tag_of_t.md)（例：[`just`](just.md), [`then`](then.md)）
+ - `Data` : Senderアルゴリズムに指定された追加の引数。複数個の引数は[`product-type`](product-type.md)型を用いて単一値として保持する。
+ - `Child` : 子Senderのリスト。Senderファクトリでは0個、Senderアダプタでは通常1個の子Senderを保持する。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_completion_scheduler -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_completion_scheduler.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/get_completion_scheduler.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_completion_scheduler.md b/reference/execution/execution/get_completion_scheduler.md
+index 4a627a346..b23fff224 100644
+--- a/reference/execution/execution/get_completion_scheduler.md
++++ b/reference/execution/execution/get_completion_scheduler.md
+@@ -82,7 +82,7 @@ int main()
+ * ex::schedule[link schedule.md]
+ * ex::set_value_t[link set_value.md]
+ * ex::get_env[link get_env.md]
+-* ex::then[link then.md.nolink]
++* ex::then[link then.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>impls-for -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/impls-for.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/impls-for.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/impls-for.md b/reference/execution/execution/impls-for.md
+index 784f56261..1ef00f637 100644
+--- a/reference/execution/execution/impls-for.md
++++ b/reference/execution/execution/impls-for.md
+@@ -49,7 +49,7 @@ namespace std::execution {
+ * env&amp;lt;&amp;gt;[link env.md]
+ 
+ ### `get-env`メンバ
+-`get-env`は、[`basic-receiver`](basic-receiver.md.nolink)実装におけるReceiver[環境](../queryable.md)取得のカスタマイゼーションポイントとして機能する。
++`get-env`は、[`basic-receiver`](basic-receiver.md)実装におけるReceiver[環境](../queryable.md)取得のカスタマイゼーションポイントとして機能する。
+ 
+ `default-impls::get-env`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -92,7 +92,7 @@ namespace std::execution {
+ * execution::start[link start.md]
+ 
+ ### `complete`メンバ
+-`complete`は、[`basic-receiver`](basic-receiver.md.nolink)実装における各種完了操作のカスタマイゼーションポイントとして機能する。
++`complete`は、[`basic-receiver`](basic-receiver.md)実装における各種完了操作のカスタマイゼーションポイントとして機能する。
+ 
+ `default-impls::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -120,7 +120,7 @@ namespace std::execution {
+ 
+ ## 関連項目
+ - [`basic-sender`](basic-sender.md)
+-- [`basic-receiver`](basic-receiver.md.nolink)
++- [`basic-receiver`](basic-receiver.md)
+ - [`basic-operation`](basic-operation.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make-sender -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/make-sender.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/make-sender.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/make-sender.md b/reference/execution/execution/make-sender.md
+index 5c2b8be44..1e1b5c643 100644
+--- a/reference/execution/execution/make-sender.md
++++ b/reference/execution/execution/make-sender.md
+@@ -15,7 +15,7 @@ constexpr auto make-sender(Tag tag, Data&amp;amp;&amp;amp; data, Child&amp;amp;&amp;amp;... child);
+ 
+ [`sender`](sender.md)のモデルである説明専用クラステンプレート[`basic-sender`](basic-sender.md)のインスタンスを生成する。
+ 
+-- `Tag` : [Senderアルゴリズムタグ](tag_of_t.md)（例：[`just`](just.md), [`then`](then.md.nolink)）
++- `Tag` : [Senderアルゴリズムタグ](tag_of_t.md)（例：[`just`](just.md), [`then`](then.md)）
+ - `Data` : Senderアルゴリズムに指定された追加の引数。複数個の引数は[`product-type`](product-type.md)型を用いて単一値として保持する。
+ - `Child` : 子Senderのリスト。Senderファクトリでは0個、Senderアダプタでは通常1個の子Senderを保持する。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>schedule -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/schedule.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/schedule.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule.md b/reference/execution/execution/schedule.md
+index 778b9aa8a..36712f705 100644
+--- a/reference/execution/execution/schedule.md
++++ b/reference/execution/execution/schedule.md
+@@ -63,7 +63,7 @@ int main()
+ * ex::schedule[color ff0000]
+ * ex::scheduler[link scheduler.md]
+ * ex::sender[link sender.md]
+-* ex::then[link then.md.nolink]
++* ex::then[link then.md]
+ * ex::run_loop[link run_loop.md]
+ * get_scheduler()[link run_loop/get_scheduler.md]
+ * run()[link run_loop/run.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>then -- execution: then (#1384)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/then.html"/>
+      <id>628698f67dc500aa1501e5abddec8f0954976e13:reference/execution/execution/then.md</id>
+      <updated>2025-05-07T00:48:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/then.md b/reference/execution/execution/then.md
+new file mode 100644
+index 000000000..e950bc0be
+--- /dev/null
++++ b/reference/execution/execution/then.md
+@@ -0,0 +1,130 @@
++# then
++* execution[meta header]
++* cpo[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  struct then_t { unspecified };
++  inline constexpr then_t then{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`then`は、入力[Sender](sender.md)の[値完了操作](set_value.md)の継続として関数呼び出しをアタッチするSenderアダプタである。
++
++`then`はパイプライン記法をサポートする。
++
++
++## 効果
++説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`then(sndr, f)`は不適格となる。
++
++そうでなければ、呼び出し式`then(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
++
++```cpp
++transform_sender(get-domain-early(sndr), make-sender(then, f, sndr))
++```
++* transform_sender[link transform_sender.md]
++* get-domain-early[link get-domain-early.md]
++* make-sender[link make-sender.md]
++
++
++### Senderアルゴリズムタグ `then`
++Senderアルゴリズム動作説明用のクラステンプレート`impls-for`に対して、下記の特殊化が定義される。
++
++```cpp
++namespace std::execution {
++  template&amp;lt;&amp;gt;
++  struct impls-for&amp;lt;decayed-typeof&amp;lt;then&amp;gt;&amp;gt; : default-impls {
++    static constexpr auto complete =
++      []&amp;lt;class Tag, class... Args&amp;gt;
++        (auto, auto&amp;amp; fn, auto&amp;amp; rcvr, Tag, Args&amp;amp;&amp;amp;... args) noexcept -&amp;gt; void {
++          if constexpr (same_as&amp;lt;Tag, decayed-typeof&amp;lt;set_value&amp;gt;&amp;gt;) {
++            TRY-SET-VALUE(rcvr,
++                          invoke(std::move(fn), std::forward&amp;lt;Args&amp;gt;(args)...));
++          } else {
++            Tag()(std::move(rcvr), std::forward&amp;lt;Args&amp;gt;(args)...);
++          }
++        };
++  };
++}
++```
++* decayed-typeof[link decayed-typeof.md.nolink]
++* impls-for[link impls-for.md]
++* default-impls[link impls-for.md]
++* set_value[link set_value.md]
++* invoke[link /reference/functional/invoke.md]
++* std::move[link /reference/utility/move.md]
++
++
++## カスタマイゼーションポイント
++[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)`dom`に対して、[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
++[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
++
++戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`then(sndr, f)`の動作は未定義となる。
++
++- `then`に対する`sndr`の値結果データで`f`またはそのコピーを呼び出し、`out_sndr`の値完了として`f`の結果値を用いること。
++- 他の完了操作では変更なしに転送すること。
++
++
++## 例
++```cpp example
++#include &amp;lt;print&amp;gt;
++#include &amp;lt;string&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  { // 関数呼び出し
++    ex::sender auto snd0 = ex::just(&amp;#39;C&amp;#39;, 2);
++    ex::sender auto snd1 = ex::then(snd0, [](char ch, int s){
++      return ch + std::string(2, &amp;#39;+&amp;#39;);
++    });
++    auto [s] = std::this_thread::sync_wait(snd1).value();
++    std::println(&amp;#34;{}&amp;#34;, s);
++  }
++
++  { // パイプライン記法
++    ex::sender auto sndr = ex::just(&amp;#39;C&amp;#39;, 2);
++      | ex::then([](char ch, int s){
++          return ch + std::string(2, &amp;#39;+&amp;#39;);
++        });
++    auto [s] = std::this_thread::sync_wait(sndr).value();
++    std::println(&amp;#34;{}&amp;#34;, s);
++  }
++}
++```
++* ex::then[color ff0000]
++* ex::sender[link sender.md]
++* ex::just[link just.md]
++* std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
++* value()[link /reference/optional/optional/value.md]
++
++### 出力
++```
++C++
++C++
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::upon_error`](upon_error.md.nolink)
++- [`execution::upon_stopped`](upon_stopped.md.nolink)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>forwarding_query -- execution/forwarding_query: remove forbid chars</title>
+      <link href="https://cpprefjp.github.io/reference/execution/forwarding_query.html"/>
+      <id>7baad0148951dbf2404252dbfa98054f0aa114f1:reference/execution/forwarding_query.md</id>
+      <updated>2025-05-05T23:59:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/forwarding_query.md b/reference/execution/forwarding_query.md
+index 9421228d8..2d72071f7 100644
+--- a/reference/execution/forwarding_query.md
++++ b/reference/execution/forwarding_query.md
+@@ -50,7 +50,7 @@ namespace std {
+ 
+ 下記[クエリオブジェクト](queryable.md)に対する問い合わせは、`FWD-ENV`経由で転送されない。
+ 
+-- [`execution​::​get_env`](execution/get_env.md)
++- [`execution::get_env`](execution/get_env.md)
+ - [`executoin::get_forward_progress_guarantee`](executionget_forward_progress_guarantee.md.nolink)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
