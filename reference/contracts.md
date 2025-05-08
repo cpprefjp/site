@@ -10,7 +10,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`assertion_kind`](contracts/assertion_kind.md.nolink) | アサーションの種類 (enum) | C++26 |
+| [`assertion_kind`](contracts/assertion_kind.md) | アサーションの種類 (enum) | C++26 |
 | [`evaluation_semantic`](contracts/evaluation_semantic.md.nolink) | アサーションの評価の種類(enum) | C++26 |
 | [`detection_mode`](contracts/detection_mode.md.nolink) | 契約違反の検出モード(enum) | C++26 |
 | [`contract_violation`](contracts/contract_violation.md) | 契約違反に関する情報 (class) | C++26 |
