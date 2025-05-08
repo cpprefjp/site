@@ -88,7 +88,7 @@ namespace std::execution {
 | [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
-| [`execution::tag_of_t`](execution/tag_of_t.md) | Senderアルゴリズムタグを取得 (alias template) | C++26 |
+| [`execution::tag_of_t`](execution/tag_of_t.md) | Senderアルゴリズムタグ型を取得 (alias template) | C++26 |
 | [`execution::transform_sender`](execution/transform_sender.md) | Senderを変換 (function template) | C++26 |
 | [`execution::transform_env`](execution/transform_env.md) | 環境を変換 (function template) | C++26 |
 | [`execution::apply_sender`](execution/apply_sender.md) | Senderアルゴリズムを適用 (function template) | C++26 |
@@ -102,7 +102,7 @@ namespace std::execution {
 | [`execution::just`](execution/just.md) | 値を送信するSender (customization point object) | C++26 |
 | [`execution::just_error`](execution/just_error.md.nolink) | エラーを送信するSender (customization point object) | C++26 |
 | [`execution::just_stopped`](execution/just_stopped.md.nolink) | 停止を送信するSender (customization point object) | C++26 |
-| [`execution::read_env`](execution/read_env.md.nolink) | Receiver環境から構築されるSender (customization point object) | C++26 |
+| [`execution::read_env`](execution/read_env.md) | Receiver環境からクエリオブジェクトで値を読み取るSender (customization point object) | C++26 |
 | [`execution::schedule`](execution/schedule.md) | Scheduler上で実行されるSender (customization point object) | C++26 |
 | [`execution::schedule_result_t`](execution/schedule_result_t.md) | [`schedule`](execution/schedule.md)結果型を取得 (alias template) | C++26 |
 
