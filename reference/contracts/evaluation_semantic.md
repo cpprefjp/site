@@ -24,10 +24,10 @@ namespace std::contracts {
 - C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 未実装
-- [GCC](/implementation.md#gcc): 未実装
+- [Clang](/implementation.md#clang): ?
+- [GCC](/implementation.md#gcc): ?
 - [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): 未実装
+- [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 関連項目
 - [契約に基づくプログラミング](/lang/future/contract-based_programming.md)
