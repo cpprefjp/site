@@ -295,7 +295,7 @@
 | P2169R4: [宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md) | 変数名`_`は暗黙で`[[maybe_unused]]`が指定される | 14 | 18 | | |
 | P1854R4: [文字列リテラルの文字エンコーディング失敗を不適格とする](/lang/cpp26/making_non-encodable_string_literals_ill-formed.md) | 文字列リテラルのエンコーディング時に文字表現が失われる場合にコンパイルエラーにする | 14 | 14 | | |
 | P2361R6: [コンパイル時にのみ使用される文字列の扱いを明確化](/lang/cpp26/unevaluated_strings.md.nolink) | `static_assert`や`[[deprecated]]`などで使用されるコンパイル時の文字列について、文字コードの指定を禁止し、実行時エンコーディングが行われないことを規定 | 14 | 18 | | |
-| P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | | | | |
+| P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | 15 | | | |
 | P2738R1: [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md) | 型消去のために`void*`からポインタ型へのキャストを許可する | 14 | 17 | | |
 | P2741R3: [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする | 14 | 17 | | |
 | P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | | Yes | | |
@@ -304,7 +304,7 @@
 | P2748R5: [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md) | 寿命切れの変数によって引き起こされるバグを防止する | 14 | 19 | | |
 | P3106R1: [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 | yes | 17 | | |
 | P0609R3: [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md) | `auto [a, b [[maybe_unused]], c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする | 15 | 19 | | |
-| P3034R1: [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md) | `export module MACRO_NAME;`を禁止 | | | | |
+| P3034R1: [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md) | `export module MACRO_NAME;`を禁止 | 15 | | | |
 | P2809R3: [空の無限ループは未定義動作ではないと規定](/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.md) | 並行プログラムの進行保証などを考慮して空の無限ループを未定義動作ではないものとする | 14 | 19 | | |
 | P2795R5: [未初期化変数の読み取りをエラー性動作とする](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md) | 初期化されていない自動変数の読み取りの安全性を規定する | | | | |
 | P2573R2: [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md) | `f() = delete("reason");` | 15 | 19 | | |
