@@ -223,6 +223,7 @@ C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化�
 - [`<type_traits>`](/reference/type_traits.md)に、一時オブジェクトの参照への束縛を検出するための型特性として、以下を追加：
     - [`std::reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)
     - [`std::reference_converts_from_temporary`](/reference/type_traits/reference_converts_from_temporary.md)
+- [`<type_traits>`](/reference/type_traits.md)に、暗黙的に構築される型かを判定する型特性[`std::is_implicit_lifetime`](/reference/type_traits/is_implicit_lifetime.md)を追加
 
 
 ### C互換ライブラリ

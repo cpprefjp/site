@@ -59,7 +59,7 @@
 |`__cpp_lib_generator`|`202207L`|[`std::generator`](/reference/generator/generator.md)の追加|[`<generator>`](/reference/generator.md)|
 |`__cpp_lib_invoke_r`|`202106L`|[`std::invoke_r()`](/reference/functional/invoke_r.md)の追加|[`<functional>`](/reference/functional.md)|
 |`__cpp_lib_ios_noreplace`|`202207L`|[`std::ios::noreplace`](/reference/ios/ios_base/type-openmode.md)の追加|[`<ios>`](/reference/ios.md)|
-|`__cpp_lib_is_implicit_lifetime`|`202302L`|`std::is_implicit_lifetime`の追加|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_is_implicit_lifetime`|`202302L`|[`std::is_implicit_lifetime`](/reference/type_traits/is_implicit_lifetime.md)の追加|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_is_scoped_enum`|`202011L`|[`std::is_scoped_enum`](/reference/type_traits/is_scoped_enum.md)の追加|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_mdspan`|`202207L`|[`<mdspan>`](/reference/mdspan.md)の追加|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_modules`|`202207L`|モジュール[`<std>`](/module/std.md)と[`<std.compat>`](/module/std.compat.md)の追加||

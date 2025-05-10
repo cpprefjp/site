@@ -405,7 +405,7 @@ unique_ptr<char[]> Stream::read() {
 
 - [`start_lifetime_as()`](/reference/memory/start_lifetime_as.md.nolink)
 - [`start_lifetime_as_array()`](/reference/memory/start_lifetime_as_array.md.nolink)
-- [`is_implicit_lifetime`](/reference/type_traits/is_implicit_lifetime.md.nolink)
+- [`is_implicit_lifetime`](/reference/type_traits/is_implicit_lifetime.md)
 
 ## 参照
 
