@@ -59,7 +59,7 @@ transform_sender(
         return std::move(sndr);
       });
     ```
-    * let_value[link let_value.md.nolink]
+    * let_value[link let_value.md]
     * schedule[link schedule.md]
     * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
     * decay_t[link /reference/type_traits/decay.md]

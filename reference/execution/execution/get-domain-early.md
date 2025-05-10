@@ -12,7 +12,7 @@ constexpr auto get-domain-early(const Sndr& sndr) noexcept;
 ## 概要
 [Sender](sender.md)アルゴリズム構築時のカスタマイゼーションポイントとして、[実行ドメイン](default_domain.md)を取得する説明専用の関数テンプレート。
 
-下記の優先順で実行ドメインを検索し、最初に妥当となる型を採用する。
+下記の優先順で実行ドメインを検索し、最初に適格となる型を採用する。
 
 - Senderの[属性](../queryable.md)の実行ドメイン
 - Senderの[完了Scheduler](get_completion_scheduler.md)の実行ドメイン
@@ -20,7 +20,7 @@ constexpr auto get-domain-early(const Sndr& sndr) noexcept;
 
 
 ## 効果
-説明用の型`Domain`を下記リストのうち最初に妥当となる式の型と定義したとき、`return Doamin();`と等価。
+説明用の型`Domain`を下記リストのうち最初に適格となる式の型と定義したとき、`return Doamin();`と等価。
 
 - [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr))`
 - [`completion-domain`](completion-domain.md)`(sndr)`

@@ -12,7 +12,7 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
 ## 概要
 [Sender](sender.md)と[Receiver](receiver.md)間[接続(connect)](connect.md)時のカスタマイゼーションポイントとして、[実行ドメイン](default_domain.md)を取得する説明専用の関数テンプレート。
 
-下記の優先順で実行ドメインを検索し、最初に妥当となる型を採用する。
+下記の優先順で実行ドメインを検索し、最初に適格となる型を採用する。
 （Senderアルゴリズム[`continue_on`](continue_on.md.nolink)のみ引数に指定した[Scheduler](scheduler.md)から取得。）
 
 - Senderの[属性](../queryable.md)の実行ドメイン
@@ -37,7 +37,7 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
     * get_domain[link get_domain.md]
     * default_domain()[link default_domain.md]
 
-- それ以外のとき、下記リストのうち最初に妥当となる式の型、かつ`void`ではない型とする。
+- それ以外のとき、下記リストのうち最初に適格となる式の型、かつ`void`ではない型とする。
     - [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr))`
     - [`completion-domain<void>`](completion-domain.md)`(sndr)`
     - [`get_domain`](get_domain.md)`(env)`

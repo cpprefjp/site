@@ -21,7 +21,7 @@ Senderアルゴリズム適用のデフォルト動作。
 
 
 ## テンプレートパラメータ制約
-説明用の式`e`を`Tag().apply_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`としたとき、式`e`が適格であること。
+説明用の式`e`を`Tag().apply_sender(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`としたとき、式`e`が適格であること。
 
 
 ## 戻り値

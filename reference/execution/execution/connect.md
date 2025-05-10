@@ -112,7 +112,7 @@ namespace std::execution {
 型`V`を`await-result-type<DS, connect-awaitable-promise>`とする。
 
 `SET-VALUE-SIG(T)`を、`T`がCV修飾された`void`ならば[`set_value_t`](set_value.md)`()`型、そうでなければ[`set_value_t`](set_value.md)`(T)`型とする。
-型`Sigs`を次の通り定義する。
+型`Sigs`を下記の通り定義する。
 
 ```cpp
 completion_signatures<

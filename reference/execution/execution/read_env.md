@@ -15,7 +15,7 @@ namespace std::execution {
 `read_env`は、非同期動作の[開始(start)](start.md)時に接続先[Receiver](receiver.md)の[環境](../queryable.md)に対して[クエリオブジェクト](../queryable.md)で問い合わせ、読み取った値を[値完了関数](set_value.md)で送信するSenderファクトリである。
 
 クエリオブジェクトによるReceiver環境への問い合わせは`read_env`[Sender](sender.md)の構築時ではなく、Receiverと接続されたのち非同期動作が開始されるタイミングまで遅延される。
-[`let_value`](let_value.md.nolink)Senderアダプタと組み合わせたり、[Sender Awaitableなコルーチン](with_awaitable_senders.md.nolink)での`co_await`式によって、[Scheduler](get_scheduler.md)や[停止トークン](../get_stop_token.md)を読み取ることができる。
+[`let_value`](let_value.md)Senderアダプタと組み合わせたり、[Sender Awaitableなコルーチン](with_awaitable_senders.md.nolink)での`co_await`式によって、[Scheduler](get_scheduler.md)や[停止トークン](../get_stop_token.md)を読み取ることができる。
 
 
 ## 効果

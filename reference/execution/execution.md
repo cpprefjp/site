@@ -118,9 +118,9 @@ namespace std::execution {
 | [`execution::then`](execution/then.md) | 値完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::upon_error`](execution/upon_error.md.nolink) | エラー完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::upon_stopped`](execution/upon_stopped.md.nolink) | 停止完了時の継続処理をアタッチ (customization point object) | C++26 |
-| [`execution::let_value`](execution/let_value.md.nolink) | 値完了の継続にユーザ定義処理を連結 (customization point object) | C++26 |
-| [`execution::let_error`](execution/let_error.md.nolink) | エラー完了の継続にユーザ定義処理を連結 (customization point object) | C++26 |
-| [`execution::let_stopped`](execution/let_stopped.md.nolink) | 停止完了の継続にユーザ定義処理を連結 (customization point object) | C++26 |
+| [`execution::let_value`](execution/let_value.md) | 値完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
+| [`execution::let_error`](execution/let_error.md.nolink) | エラー完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
+| [`execution::let_stopped`](execution/let_stopped.md.nolink) | 停止完了を入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::bulk`](execution/bulk.md.nolink) | インデクス空間上で指定関数を連続実行 (customization point object) | C++26 |
 | [`execution::split`](execution/split.md.nolink) | 入力Senderの値を複製送信 (customization point object) | C++26 |
 | [`execution::when_all`](execution/when_all.md.nolink) | 全ての入力Sender完了を待機 (customization point object) | C++26 |
