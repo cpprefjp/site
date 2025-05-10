@@ -13,7 +13,7 @@ namespace std::this_thread {
 * unspecified[italic]
 
 ## 概要
-`sync_wait_with_variant`は、[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。
+`sync_wait_with_variant`は、入力[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。
 
 `sync_wait_with_variant`は入力Senderが複数の[値完了シグネチャ](../execution/set_value.md)を持つケースに対応する。
 値完了シグネチャが1個だけの場合は[`sync_wait`](sync_wait.md)アルゴリズムを利用する。
@@ -76,7 +76,7 @@ return result_type(nullopt);
 
 
 ## カスタマイゼーションポイント
-[Sender](../execution/sender.md)`sndr`に[関連付けられた実行ドメイン](../execution/get-domain-early.md)`dom`に対して、
+入力[Sender](../execution/sender.md)`sndr`に[関連付けられた実行ドメイン](../execution/get-domain-early.md)`dom`に対して、
 [`execution::apply_sender`](../execution/apply_sender.md)経由で`dom.apply_sender(sync_wait_with_variant, sndr)`が呼ばれる。
 
 [デフォルト実行ドメイン](../execution/default_domain.md)では、`sync_wait_with_variant.apply_sender(sndr)`が呼ばれる。

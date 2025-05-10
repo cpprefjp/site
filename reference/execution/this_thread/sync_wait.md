@@ -13,7 +13,7 @@ namespace std::this_thread {
 * unspecified[italic]
 
 ## 概要
-`sync_wait`は、[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。
+`sync_wait`は、入力[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。
 
 `sync_wait`は入力Senderが[値完了シグネチャ](../execution/set_value.md)を1個だけ持つことを要求する。
 値完了シグネチャが複数存在する場合は[`sync_wait_with_variant`](sync_wait_with_variant.md)アルゴリズムを利用する。
@@ -85,7 +85,7 @@ return std::move(state.result);
 
 
 ## カスタマイゼーションポイント
-[Sender](../execution/sender.md)`sndr`に[関連付けられた実行ドメイン](../execution/get-domain-early.md)`dom`に対して、
+入力[Sender](../execution/sender.md)`sndr`に[関連付けられた実行ドメイン](../execution/get-domain-early.md)`dom`に対して、
 [`execution::apply_sender`](../execution/apply_sender.md)経由で`dom.apply_sender(sync_wait, sndr)`が呼ばれる。
 
 [デフォルト実行ドメイン](../execution/default_domain.md)では、`sync_wait.apply_sender(sndr)`が呼ばれる。

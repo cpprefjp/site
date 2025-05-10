@@ -111,7 +111,7 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::sender_adaptor_closure`](execution/sender_adaptor_closure.md.nolink) | Senderアダプタ実装用クロージャ型(class template) | C++26 |
-| [`execution::starts_on`](execution/starts_on.md.nolink) | 指定Scheduler上で開始する (customization point object) | C++26 |
+| [`execution::starts_on`](execution/starts_on.md) | 指定Scheduler上で開始する (customization point object) | C++26 |
 | [`execution::continues_on`](execution/continues_on.md.nolink) | 指定Scheduler上で継続する (customization point object) | C++26 |
 | [`execution::on`](execution/on.md.nolink) | 指定Scheduler上で実行する (customization point object) | C++26 |
 | [`execution::schedule_from`](execution/schedule_from.md.nolink) | Sender完了に依存する作業をスケジュール (customization point object) | C++26 |

@@ -85,7 +85,7 @@ namespace std::execution {
 
 
 ## カスタマイゼーションポイント
-[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)`dom`に対して、[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+Senderアルゴリズム構築時に、入力[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
 
 

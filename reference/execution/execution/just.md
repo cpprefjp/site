@@ -22,7 +22,7 @@ namespace std::execution {
 
 
 ### Senderアルゴリズムタグ `just`
-Senderアルゴリズム動作説明用のクラステンプレート`impls-for`に対して、下記の特殊化が定義される。
+Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
 namespace std::execution {

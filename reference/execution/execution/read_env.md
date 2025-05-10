@@ -23,7 +23,7 @@ namespace std::execution {
 
 
 ### Senderアルゴリズムタグ
-Senderアルゴリズム動作説明用のクラステンプレート`impls-for`に対して、下記の特殊化が定義される。
+Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
 namespace std::execution {
@@ -66,8 +66,9 @@ int main()
 * ex::read_env[color ff0000]
 * ex::sender[link sender.md]
 * ex::get_scheduler[link get_scheduler.md]
-* ex::starts_on[link starts_on.md.nolink]
+* ex::starts_on[link starts_on.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
+* value()[link /reference/optional/optional/value.md]
 
 ### 出力
 ```
