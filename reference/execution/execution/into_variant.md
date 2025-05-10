@@ -49,7 +49,7 @@ namespace std::execution {
 
 `impls-for<into_variant_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
-- 子[Sender](sender.md)の[値完了シグニチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/variant/variant.md)`<...>, ...>`型をデフォルト構築して返す。
+- 子[Sender](sender.md)の[値完了シグニチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/variant/variant.md)`<...>, ...>`型を[`type_identity`](/reference/type_traits/type_identity.md)クラステンプレートのパラメータに格納して返す。
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept
@@ -64,7 +64,8 @@ namespace std::execution {
 
 `impls-for<into_variant_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
-- [値完了](set_value.md)の場合、引数パック`args...`から[`variant`](/reference/variant/variant.md)型の送信値を構築して接続先[Receiver](receiver.md)の[値完了関数](set_value.md)を呼び出す。
+- `State`として渡される前述`get-state`メンバ戻り値型([`type_identity`](/reference/type_traits/type_identity.md))から、`into_varinat`の送信値となる[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/variant/variant.md)`<...>, ...>`型情報を取り出す。
+- [値完了](set_value.md)の場合、引数パック`args...`から送信値を構築して接続先[Receiver](receiver.md)の[値完了関数](set_value.md)を呼び出す。
 - [エラー完了](set_error.md)または[停止完了](set_stopped.md)の場合、接続先[Receiver](receiver.md)の同種完了関数に全引数を転送する。
 
 ```cpp
@@ -78,7 +79,7 @@ namespace std::execution {
   }
 }
 ```
-* set_value[link set_value.md]
+* set_value_t[link set_value.md]
 * decayed-tuple[link decayed-tuple.md]
 * std::move[link /reference/utility/move.md]
 
