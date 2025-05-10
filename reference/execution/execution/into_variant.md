@@ -94,8 +94,8 @@ namespace std::execution {
 #include <tuple>
 #include <print>
 #include <variant>
-#include <stdexec/execution.hpp>
-namespace ex = stdexec;
+#include <execution>
+namespace ex = std::execution;
 
 struct FizzBuzzSender {
   using sender_concept = ex::sender_t;
@@ -158,6 +158,7 @@ int main()
 * ex::sender_t[link sender.md]
 * ex::sender[link sender.md]
 * ex::completion_signatures[link completion_signatures.md]
+* ex::operation_state[link operation_state.md]
 * ex::set_value_t[link set_value.md]
 * ex::set_value[link set_value.md]
 * ex::operation_state[link operation_state.md]
