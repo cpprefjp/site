@@ -23,7 +23,7 @@ namespace std::this_thread {
 
 
 ## 効果
-説明用の`sndr`を`decltype(`[`into_variant`](into_variant.md.nolink)`(sndr))`が`Sndr`型となる式とする。
+説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
 
 [`sender_in`](../execution/sender_in.md)`<Sndr,` [`sync-wait-env`](sync-wait-env.md)`> == false`のとき、呼び出し式`this_thread::sync_wait_with_variant(sndr)`は不適格となる。
 
@@ -55,7 +55,7 @@ namespace std::this_thread {
 
 
 ### Senderアルゴリズムタグ `sync_wait_with_variant`
-説明用の`sndr`を`decltype(`[`into_variant`](into_variant.md.nolink)`(sndr))`が`Sndr`型となる式とする。
+説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
 
 [`callable`](/reference/functional/callable.md.nolink)`<`[`sync_wait_t`](sync_wait.md)`, Sndr> == false`のとき、式`sync_wait_with_variant.apply_sender(sndr)`は不適格となる。
 
@@ -69,7 +69,7 @@ if (auto opt_value = sync_wait(into_variant(sndr))) {
 return result_type(nullopt);
 ```
 * sync_wait[link sync_wait.md]
-* into_variant[link into_variant.md.nolink]
+* into_variant[link ../execution/into_variant.md]
 * std::move[link /reference/utility/move.md]
 * get<0>[link /reference/tuple/tuple/get.md]
 * nullopt[link /reference/optional/nullopt_t.md]
