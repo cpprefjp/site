@@ -15,7 +15,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md) | 変数名`_`は暗黙で`[[maybe_unused]]`が指定される |
 | [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md) | 未定義動作を引き起こす操作をコンパイルエラーとする |
 | [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md) | 寿命切れの変数によって引き起こされるバグを防止する |
-| [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md.nolink) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 |
+| [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 |
 | [未初期化変数の読み取りをエラー性動作とする](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md) | 初期化されていない自動変数の読み取りの安全性を規定する |
 | [構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md) | タプルを分解する際に複数の変数をパックとして宣言できるようにする。`auto [a, ...xs] = f();` |
 
