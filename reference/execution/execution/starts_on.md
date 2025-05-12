@@ -75,7 +75,7 @@ Senderアルゴリズム構築時に、[Scheduler](scheduler.md)`sch`に[関連�
 
 説明用の式`out_sndr`を`starts_on(sch, sndr)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[`sender_in`](sender_in.md)`<OutSndr, Env> == true`となる[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、
 
-- 呼び出し[`start`](start.md)`(op)`は、[Scheduler](scheduler.md)`sch`に関連づけられた実行リソースに属する実行エージェント上で入力[Sender](sender.md)`sndr`を開始すべき。
+- 呼び出し[`start`](start.md)`(op)`は、[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェント上で入力[Sender](sender.md)`sndr`を開始すべき。
 - `sch`上でのスケジューリングが失敗した場合、未規定の実行エージェント上で`out_rcvr`の[エラー完了](set_error.md)が行われるべき。
 
 
@@ -147,7 +147,7 @@ val=42
 ## 関連項目
 - [`execution::schedule`](schedule.md)
 - [`execution::continues_on`](continues_on.md.nolink)
-- [`execution::on`](on.md.nolink)
+- [`execution::on`](on.md)
 
 
 ## 参照
