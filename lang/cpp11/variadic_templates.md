@@ -389,7 +389,7 @@ void f(const T1& t1, const T2& t2, const T3& t3);
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 可変引数マクロ](variadic_macros.md)
 - [C++17 畳み込み式](/lang/cpp17/folding_expressions.md)
-- [C++26 パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md.nolink)
+- [C++26 パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md)
 - [C++26 可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md)
 
 
