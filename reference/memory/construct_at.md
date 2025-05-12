@@ -84,6 +84,7 @@ int main()
 
 ## 関連項目
 - [C++20 可変サイズをもつコンテナの`constexpr`化](/lang/cpp20/more_constexpr_containers.md)
+- [C++26 `constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md)
 - [`std::ranges::construct_at`](ranges_construct_at.md)
 
 ## 参照
