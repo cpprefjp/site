@@ -47,10 +47,10 @@ namespace ex = std::execution;
 
 int main()
 {
-  // 下記の完了操作をサポートする
-  //   値完了     ex::set_value(int), ex::set_value(int, int)
-  //   エラー完了 ex::set_error(std::exception_ptr)
-  //   停止完了   ex::set_stopped()
+  // 下記の完了操作をサポートする完了シグニチャ集合型
+  //   値完了     set_value(int), set_value(int, int)
+  //   エラー完了 set_error(std::exception_ptr)
+  //   停止完了   set_stopped()
   using Sigs = ex::completion_signatures<
     ex::set_value_t(int),
     ex::set_value_t(int, int),

@@ -49,7 +49,7 @@ namespace std::execution {
 
 `impls-for<into_variant_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
-- 子[Sender](sender.md)の[値完了シグニチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/variant/variant.md)`<...>, ...>`型を[`type_identity`](/reference/type_traits/type_identity.md)クラステンプレートのパラメータに格納して返す。
+- 子[Sender](sender.md)の[値完了シグネチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/variant/variant.md)`<...>, ...>`型を[`type_identity`](/reference/type_traits/type_identity.md)クラステンプレートのパラメータに格納して返す。
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept
@@ -100,25 +100,29 @@ namespace ex = std::execution;
 
 struct FizzBuzzSender {
   using sender_concept = ex::sender_t;
+
+  // FizzBuzzSenderは2種類の値完了シグネチャを持つ
   using completion_signatures = ex::completion_signatures<
     ex::set_value_t(int),
     ex::set_value_t(std::string)
   >;
 
+  // Operation State型
   template <typename Rcvr>
-  struct state {
+  struct State {
     using operation_state_concept = ex::operation_state_t;
 
-    state(Rcvr rcvr, int val)
+    State(Rcvr rcvr, int val)
       : rcvr_{std::move(rcvr)}, val_{val} {}
 
     void start() noexcept {
+      using namespace std::string_literals;
       if (val_ % 15 == 0) {
-        ex::set_value(std::move(rcvr_), "FizzBuzz");
+        ex::set_value(std::move(rcvr_), "FizzBuzz"s);
       } else if (val_ % 3 == 0) {
-        ex::set_value(std::move(rcvr_), "Fizz");
+        ex::set_value(std::move(rcvr_), "Fizz"s);
       } else if (val_ % 5 == 0) {
-        ex::set_value(std::move(rcvr_), "Buzz");
+        ex::set_value(std::move(rcvr_), "Buzz"s);
       } else {
         ex::set_value(std::move(rcvr_), val_);
       }
@@ -130,7 +134,7 @@ struct FizzBuzzSender {
 
   template <typename Rcvr>
   auto connect(Rcvr rcvr) noexcept {
-    return state{std::move(rcvr), val_};
+    return State{std::move(rcvr), val_};
   }
 
   int val_;
@@ -142,9 +146,17 @@ struct overload : Ts... { using Ts::operator()...; };
 int main()
 {
   int val = 15;
-  ex::sender auto sndr = ex::into_variant(FizzBuzzSender{val});
+#if 0
+  // 関数呼び出し
+  ex::sender auto snd0 = FizzBuzzSender{val};
+  ex::sender auto sndr = ex::into_variant(snd0);
+#else
+  // パイプライン記法
+  ex::sender auto sndr = FizzBuzzSender{val} | ex::into_variant();
+#endif
   auto [result] = std::this_thread::sync_wait(sndr).value();
 
+  // result := variant<tuple<int>, tuple<string>>型
   std::visit(overload{
     [](std::tuple<int> n) {
       std::println("(int) {}", get<0>(n));
@@ -159,10 +171,9 @@ int main()
 * ex::sender_t[link sender.md]
 * ex::sender[link sender.md]
 * ex::completion_signatures[link completion_signatures.md]
-* ex::operation_state[link operation_state.md]
 * ex::set_value_t[link set_value.md]
 * ex::set_value[link set_value.md]
-* ex::operation_state[link operation_state.md]
+* ex::operation_state_t[link operation_state.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * value()[link /reference/optional/optional/value.md]
 * std::move[link /reference/utility/move.md]

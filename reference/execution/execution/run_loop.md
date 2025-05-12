@@ -95,6 +95,7 @@ int main()
 * get_scheduler()[link run_loop/get_scheduler.md]
 * finish()[link run_loop/finish.md]
 * run()[link run_loop/run.md]
+* std::exception_ptr[link /reference/exception/exception_ptr.md]
 
 ### 出力
 ```

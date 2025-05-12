@@ -61,19 +61,19 @@ struct MyReceiver {
 
 int main()
 {
-  // 完了操作ex::set_value(int, int)に対応
+  // 値完了操作set_value(int, int)に対応
   static_assert(ex::receiver_of<MyReceiver,
     ex::completion_signatures<ex::set_value_t(int, int)>>);
 
-  // 完了操作ex::set_value(int)には非対応
+  // 値完了操作set_value(int)には非対応
   static_assert(not ex::receiver_of<MyReceiver,
     ex::completion_signatures<ex::set_value_t(int)>>);
 
-  // 完了操作ex::set_error(int)に対応
+  // エラー完了操作set_error(int)に対応
   static_assert(ex::receiver_of<MyReceiver,
     ex::completion_signatures<ex::set_error_t(int)>>);
 
-  // 完了操作ex::set_stopped()には非対応
+  // 停止完了操作set_stopped()には非対応
   static_assert(not ex::receiver_of<MyReceiver,
     ex::completion_signatures<ex::set_stopped_t()>>);
 }

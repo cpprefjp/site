@@ -201,6 +201,7 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 
 
 ## 例
+### 例1: 基本の使い方
 ```cpp example
 #include <print>
 #include <execution>
@@ -236,10 +237,123 @@ int main()
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * value()[link /reference/optional/optional/value.md]
 
-### 出力
+#### 出力
 ```
 42
 42
+```
+
+### 例2: 複数の値完了シグネチャ
+```cpp
+#include <string>
+#include <print>
+#include <execution>
+namespace ex = std::execution;
+
+
+// MySenderは下記いずれかの完了操作を行う
+//   値完了     set_value(int), set_value(string)
+//   エラー完了 set_error(int)
+struct MySender {
+  using sender_concept = ex::sender_t;
+  using completion_signatures = ex::completion_signatures<
+    ex::set_value_t(int),
+    ex::set_value_t(std::string),
+    ex::set_error_t(int)
+  >;
+
+  template <typename Rcvr>
+  struct state {
+    using operation_state_concept = ex::operation_state_t;
+
+    state(Rcvr rcvr, int val)
+      : rcvr_{std::move(rcvr)}, val_{val} {}
+
+    void start() noexcept {
+      using namespace std::string_literals;
+      switch (val_) {
+      case 1:
+        ex::set_value(std::move(rcvr_), 100);
+        break;
+      case 2:
+        ex::set_value(std::move(rcvr_), "C++"s);
+        break;
+      default:
+        ex::set_error(std::move(rcvr_), val_);
+        break;
+      }
+    }
+
+    Rcvr rcvr_;
+    int val_;
+  };
+
+  template <typename Rcvr>
+  auto connect(Rcvr rcvr) noexcept {
+    return state{std::move(rcvr), val_};
+  }
+
+  int val_;
+};
+
+template<typename... Ts>
+struct overload : Ts... { using Ts::operator()...; };
+
+int main()
+{
+  for (int val = 0; ; val++) {
+    ex::sender auto snd0 = MySender{val};
+    ex::sender auto sndr = ex::let_value(snd0,
+      overload {
+        [](int n) {
+          std::println("(int) {}", n);
+          // intを受信 -> 空値を送信
+          return ex::just();
+        },
+        [](std::string s) {
+          std::println("(str) {}", s);
+          // stringを受信 -> 停止完了(キャンセル)送信
+          return ex::just_stopped(); 
+        }
+      });
+    // Senderチェインsndrは下記いずれかの完了操作を行う
+    //   値完了     set_value()
+    //   エラー完了 set_error(int)
+    //   停止完了   set_stopped()
+
+    try {
+      auto result = std::this_thread::sync_wait_with_variant(sndr);
+      // result := optional<variant<tuple<>>>型
+      // エラー完了時は受信int値が例外として送出される
+      if (!result) {
+        // 停止完了時はstd::nulloptが返却される
+        break;
+      }
+      // 値完了==空値のためアクセスすべきデータ無し
+    } catch (int n) {
+      std::println("catch {}", n);
+    }
+  }
+}
+```
+* ex::let_value[color ff0000]
+* ex::sender_t[link sender.md]
+* ex::sender[link sender.md]
+* ex::completion_signatures[link completion_signatures.md]
+* ex::set_value_t[link set_value.md]
+* ex::set_value[link set_value.md]
+* ex::set_error_t[link set_error.md]
+* ex::set_error[link set_error.md]
+* ex::just_stopped[link just_stopped.md.nolink]
+* ex::operation_state_t[link operation_state.md]
+* std::this_thread::sync_wait_with_variant[link ../this_thread/sync_wait_with_variant.md]
+* std::move[link /reference/utility/move.md]
+
+#### 出力
+```
+catch 0
+(int) 100
+(str) C++
 ```
 
 

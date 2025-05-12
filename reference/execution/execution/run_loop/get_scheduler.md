@@ -57,6 +57,7 @@ int main()
 * ex::set_stopped_t[link ../set_stopped.md]
 * ex::get_completion_scheduler[link ../get_completion_scheduler.md]
 * ex::get_env[link ../get_env.md]
+* std::exception_ptr[link /reference/exception/exception_ptr.md]
 
 ### 出力
 ```
