@@ -53,6 +53,7 @@ int main() {
   print_nth<2>("A", "B", "C", "D"); // 出力: C
 }
 ```
+* std::get[link /reference/tuple/tuple/get.md]
 
 #### 出力
 ```

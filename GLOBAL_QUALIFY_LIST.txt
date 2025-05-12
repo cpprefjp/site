@@ -279,6 +279,7 @@
     * t3.join()[link /reference/thread/thread/join.md]
     * std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * <tuple>[link /reference/tuple.md]
+    * std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
     * std::tuple[link /reference/tuple/tuple.md]
     * std::tie[link /reference/tuple/tie.md]
 * <type_traits>[link /reference/type_traits.md]
