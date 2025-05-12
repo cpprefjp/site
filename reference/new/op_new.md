@@ -39,8 +39,8 @@ void* operator new(std::size_t size, void* ptr) throw();            // (5) C++03
 void* operator new(std::size_t size, void* ptr) noexcept;           // (5) C++11
 [[nodiscard]] void* operator new(std::size_t size,
                                  void* ptr) noexcept;               // (5) C++20
-void* operator new(std::size_t size,
-                   void* ptr) noexcept;                             // (5) C++26
+constexpr void* operator new(std::size_t size,
+                             void* ptr) noexcept;                   // (5) C++26
 ```
 * std::bad_alloc[link bad_alloc.md]
 * std::nothrow_t[link nothrow_t.md]
@@ -168,6 +168,7 @@ int main()
 
 ## 関連項目
 - [C++17 アライメント指定されたデータの動的メモリ確保](/lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.md)
+- [C++26 `constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md)
 
 
 ## 参照
@@ -175,3 +176,5 @@ int main()
     - C++20で`[[nodiscard]]`が付加された
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [P2747R2 constexpr placement new](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2747r2.html)
+    - C++26で配置newのオーバーロードが`constexpr`対応した
