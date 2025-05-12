@@ -47,7 +47,7 @@ namespace ex = std::execution;
 
 int main()
 {
-  // 下記の完了操作をサポートする完了シグニチャ集合型
+  // 下記の完了操作をサポートする完了シグネチャ集合型
   //   値完了     set_value(int), set_value(int, int)
   //   エラー完了 set_error(std::exception_ptr)
   //   停止完了   set_stopped()

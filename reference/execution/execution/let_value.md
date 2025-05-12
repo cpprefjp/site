@@ -13,13 +13,13 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`let_value`は、新しいSenderを返す関数呼び出し可能なオブジェクトに引き渡すことで、入力[Sender](sender.md)の[値完了](set_value.md)結果から子入れ子の非同期操作へと変換するSenderアダプタである。
+`let_value`は、新しいSenderを返す関数呼び出し可能なオブジェクトに引き渡すことで、入力[Sender](sender.md)の[値完了](set_value.md)結果から入れ子の非同期操作へと変換するSenderアダプタである。
 
 `let_value`はパイプライン記法をサポートする。
 
 
 ## 効果
-説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`let_value(sndr, f)`は不適格となる。
+説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`let_value(sndr, f)`は不適格となる。
 
 そうでなければ、呼び出し式`let_value(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 
@@ -50,6 +50,14 @@ namespace std::execution {
 
 `impls-for<decayed-typeof<let_value>>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
+- `args_variant_t` : 入力Sender`sndr`の完了シグネチャ集合から求まる送信値リスト型情報(`variant<monostate, tuple<...>, ...>`)
+- `ops2_variant_t` : `f`が返すSenderに対応する非同期操作型情報(`variant<monostate, {OperationState型}, ...>`)
+- 戻り値`state-type`型オブジェクトを下記の通り初期化する。同オブジェクトは`complete`メンバから呼ばれる`let-bind`で利用される。
+    - `fn` : Senderアルゴリズム構築時に指定した関数呼び出し可能オブジェクト`f`
+    - `env` : 入力Sender`sndr`に関連付けられた[属性](../queryable.md)
+    - `args` : `f`呼び出し時の引数リスト格納用変数（空値`monostate`で初期化）
+    - `ops` : `f`が返すSenderに対応する非同期操作の格納用変数（空値`monostate`で初期化）
+
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) requires see below {
   auto& [_, fn, child] = sndr;
@@ -78,7 +86,7 @@ namespace std::execution {
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
 
-- 説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-sndr2<Tag(Args...)>`を`call-result-t<Fn,` [`decay_t`](/reference/type_traits/decay.md)`<Arg>&...>`と定義する。型`ops2_variant_t`は下記定義において重複削除した型となる。
+- 説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-sndr2<Tag(Args...)>`を`call-result-t<Fn,` [`decay_t`](/reference/type_traits/decay.md)`<Args>&...>`と定義する。型`ops2_variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
     variant<monostate, connect_result_t<as-sndr2<LetSigs>, receiver2<Rcvr, Env>>...>
@@ -90,6 +98,9 @@ namespace std::execution {
 - 型`args_variant_t`および`ops2_variant_t`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
 
 `impls-for<decayed-typeof<let_value>>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+
+- [値完了](set_value.md)の場合、`let_value`Sender構築時の引数`f`に対して`f(args...)`を呼び出し、戻り値[Sender](sender.md)から入れ子非同期操作を開始する。同Senderの完了結果を接続先[Receiver](receiver.md)へ転送する。
+- それ以外の完了操作の場合、接続先[Receiver](receiver.md)の同種完了関数へ転送する。
 
 ```cpp
 []<class Tag, class... Args>
@@ -117,6 +128,12 @@ namespace std::execution {
 - [`MAKE-ENV`](MAKE-ENV.md.nolink)`(`[`get_domain`](get_domain.md)`,` [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr)))`
 - `(void(sndr),` [`env<>{}`](env.md)`)`
 
+説明専用の`let-bind`テンプレート関数を下記の通り定義する。
+
+- 入力Senderの完了結果から引数リスト`state.args`を構築し、Senderアルゴリズム構築時に指定した関数呼び出し可能オブジェクト`state.fn`を呼び出す。
+- 上記呼び出しで`state.fn`から返された[Sender](sender.md)と、完了結果をSenderアルゴリズムの接続先[Receiver](receiver.md)`Rcvr`へ転送するヘルパ`receiver2`を[接続(connect)](connect.md)する。
+- 接続結果[Operation State](operation_state.md)を`state.op2`上に構築し、入れ子の非同期操作を[開始(start)](start.md)する。
+
 ```cpp
 namespace std::execution {
   template<class State, class Rcvr, class... Args>
@@ -124,7 +141,7 @@ namespace std::execution {
 }
 ```
 
-説明専用の`let-bind`テンプレート関数の効果は下記と等価。
+`let-bind`テンプレート関数の効果は下記と等価。
 
 ```cpp
 using args_t = decayed-tuple<Args...>;
@@ -191,7 +208,6 @@ namespace std::execution {
 ## カスタマイゼーションポイント
 Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
-
 
 説明用の式`out_sndr`を`let_value(sndr, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
 
@@ -324,13 +340,13 @@ int main()
     try {
       auto result = std::this_thread::sync_wait_with_variant(sndr);
       // result := optional<variant<tuple<>>>型
-      // エラー完了時は受信int値が例外として送出される
       if (!result) {
         // 停止完了時はstd::nulloptが返却される
         break;
       }
       // 値完了==空値のためアクセスすべきデータ無し
     } catch (int n) {
+      // エラー完了時は受信int値が例外として送出される
       std::println("catch {}", n);
     }
   }

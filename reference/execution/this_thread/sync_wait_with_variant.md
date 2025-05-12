@@ -47,6 +47,7 @@ namespace std::this_thread {
   template<execution::sender_in<sync-wait-env> Sndr>
   using sync-wait-with-variant-result-type =
     optional<execution::value_types_of_t<Sndr, sync-wait-env>>;
+}
 ```
 * execution::sender_in[link ../execution/sender_in.md]
 * sync-wait-env[link sync-wait-env.md]
