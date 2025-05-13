@@ -40,7 +40,7 @@ struct impls-for<write-env-t> : default-impls {
 * default-impls[link impls-for.md]
 * see below[italic]
 
-`impls-for<write-env-t>​::​get-env`メンバの呼び出しは下記を満たすオブジェクト`e`を返す。
+`impls-for<write-env-t>::get-env`メンバの呼び出しは下記を満たすオブジェクト`e`を返す。
 
 - 型`decltype(e)`が[`queryable`](../queryable.md)のモデルであり、かつ
 - 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`state.query(q)`が有効ならばその式と等価。そうでなければ、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
