@@ -46,7 +46,7 @@ namespace std::execution {
 ## 概要
 `basic-operation`および`basic-state`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
 
-`basic-operation<Sndr, Rcvr>`は[`operation_state`](operation_state.md)のモデルであり、[Senderアルゴリズム](basic-sender.md)と[Recevier](receiver.md)の[接続(connect)](connect.md)結果型として利用される。
+`basic-operation<Sndr, Rcvr>`は[`operation_state`](operation_state.md)のモデルであり、[Senderアルゴリズム](basic-sender.md)と[Receiver](receiver.md)の[接続(connect)](connect.md)結果型として利用される。
 
 - `rcvr` : 接続先Receiverオブジェクトを保持。Senderアルゴリズム同士を連結する場合は、親Senderアルゴリズム側の[Receiver](receiver.md)が該当する。
 - `state` : Senderアルゴリズム構築時の引数リストを保持。（[`impls-for`](impls-for.md)でカスタマイズ可能）

@@ -14,7 +14,7 @@ constexpr decltype(auto) query-with-default(
 ## 概要
 `query-with-default`は、実行制御ライブラリの仕様定義で用いられる説明専用の関数テンプレートである。
 
-説明用の式`e`を、適格であるならば`Tag()(env)`とする。そうでなければ、`staitc_cast<Default>(`[`std::forward`](/reference/utility/forward.md)`<Default>(value))`とする。
+説明用の式`e`を、適格であるならば`Tag()(env)`とする。そうでなければ、`static_cast<Default>(`[`std::forward`](/reference/utility/forward.md)`<Default>(value))`とする。
 
 
 ## 戻り値

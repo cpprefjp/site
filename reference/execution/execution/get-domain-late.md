@@ -23,7 +23,7 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
 
 
 ## 効果
-説明用の型`Domain`を下記の通り定義したとき、`return Doamin();`と等価。
+説明用の型`Domain`を下記の通り定義したとき、`return Domain();`と等価。
 
 - [`sender-for`](sender-for.md)`<Sndr,` [`continue_on_t`](continue_on.md.nolink)`> == true`のとき、次のラムダ式呼び出し結果の型とする。
 

@@ -62,7 +62,7 @@ concept sender =
 
 
 ## 備考
-`sender`コンセプトの制約式に現れる第1項`bool(enable-sender<...>)`は[原子制約(atomic contraint)](/lang/cpp20/concepts.md)を構成する。
+`sender`コンセプトの制約式に現れる第1項`bool(enable-sender<...>)`は[原子制約(atomic constraint)](/lang/cpp20/concepts.md)を構成する。
 これによりオーバーロード解決時の優先順比較において`enable-sender`コンセプトの`||`を単純なOR条件とみなせ、コンパイル時の複雑な包摂関係計算コストを抑制できる。
 
 

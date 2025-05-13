@@ -20,7 +20,7 @@ constexpr auto get-domain-early(const Sndr& sndr) noexcept;
 
 
 ## 効果
-説明用の型`Domain`を下記リストのうち最初に適格となる式の型と定義したとき、`return Doamin();`と等価。
+説明用の型`Domain`を下記リストのうち最初に適格となる式の型と定義したとき、`return Domain();`と等価。
 
 - [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr))`
 - [`completion-domain`](completion-domain.md)`(sndr)`
