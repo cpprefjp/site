@@ -23,7 +23,7 @@ namespace std::execution {
     decltype(auto) await_transform(T&& value)
       noexcept(noexcept(std::forward<T>(value).as_awaitable(declval<Derived&>())))
     {
-        return std::forward<T>(value).as_awaitable(static_cast<Derived&>(*this));
+      return std::forward<T>(value).as_awaitable(static_cast<Derived&>(*this));
     }
   };
 }

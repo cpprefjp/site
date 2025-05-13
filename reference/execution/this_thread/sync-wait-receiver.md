@@ -37,7 +37,7 @@ namespace std::this_thread {
 * sync-wait-result-type[link sync_wait.md]
 
 ## 概要
-`sync-wait-receiver`および`sync-wait-state`は、実行制御ライブラリの仕様定義で用いられる説明専用のクラステンプレートである。
+`sync-wait-receiver`および`sync-wait-state`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
 
 Senderコンシューマ[`sync_wait`](sync_wait.md)動作において[Sender](../execution/sender.md)と[接続(connect)](../execution/connect.md)する[Receiver](../execution/receiver.md)、同Receiverの内部状態として利用される。
 

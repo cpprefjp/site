@@ -25,7 +25,7 @@ namespace std::this_thread {
 * get_scheduler()[link ../execution/run_loop/get_scheduler.md]
 
 ## 概要
-`sync-wait-env`は、実行制御ライブラリの仕様定義で用いられる説明専用のクラステンプレートである。
+`sync-wait-env`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
 
 Senderコンシューマ[`sync_wait`](sync_wait.md)、[`sync_wait_with_variant`](sync_wait_with_variant.md)動作において[Receiver](../execution/receiver.md)の[環境](../queryable.md)として利用される。
 

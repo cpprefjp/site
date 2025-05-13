@@ -24,7 +24,7 @@ struct product-type {  // exposition only
 * see below[italic]
 
 ## 概要
-`product-type`は、実行制御ライブラリの仕様定義で用いられる説明専用のクラステンプレートである。
+`product-type`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
 
 `product-type`型の式は[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
 

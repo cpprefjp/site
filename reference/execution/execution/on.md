@@ -127,8 +127,26 @@ transform_sender(
     * set_value_t[link set_value.md]
     * get_env[link get_env.md]
     * query-with-default[link query-with-default.md]
-    * write-env[link write-env.md.nolink]
+    * write-env[link write-env.md]
     * SCHED-ENV[link SCHED-ENV.md.nolink]
+    * std::move[link /reference/utility/move.md]
+
+説明専用のクラス`not-a-scheduler`を未規定な空のクラス型、`not-a-sender`を下記の通り定義する。
+
+```cpp
+struct not-a-sender {
+  using sender_concept = sender_t;
+
+  auto get_completion_signatures(auto&&) const {
+    return see below;
+  }
+};
+```
+* sender_t[link sender.md]
+* see below[italic]
+
+メンバ関数`get_completion_signatures`は[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化とは異なる型のオブジェクトを返す。
+処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。
 
 
 ## カスタマイゼーションポイント
