@@ -78,7 +78,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md) | 型消去のために`void*`からポインタ型へのキャストを許可する |
 | [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする |
 | [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md) | 定数式の文脈での配置`new`を許可 |
-| [`constexpr`構造化束縛の許可と、定数式への参照を定数式とする](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md.nolink) | 定数式に対する構造化束縛を許可し、関連する定数式への参照が定数式になるようにする |
+| [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照がの制限を緩和して自動変数も参照できるようにする |
 | [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 |
 
 
