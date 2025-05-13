@@ -298,7 +298,7 @@
 | P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | 15 | | | |
 | P2738R1: [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md) | 型消去のために`void*`からポインタ型へのキャストを許可する | 14 | 17 | | |
 | P2741R3: [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする | 14 | 17 | | |
-| P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | | Yes | | |
+| P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | 15 | Yes | | |
 | P2662R3: [パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md) | 可変引数テンプレートのパラメータパックに添字アクセスできるようにする | 15 | | | |
 | P2864R2: [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 | 14 | 18 | | |
 | P2748R5: [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md) | 寿命切れの変数によって引き起こされるバグを防止する | 14 | 19 | | |
