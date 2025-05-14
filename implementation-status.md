@@ -252,22 +252,22 @@
 | P0847R7: [自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink) | メンバ関数が`*this`の型・オブジェクトをパラメータとしてとり、`*this`オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする | - | 18 | - | 2022 Update 2 (partial) |
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md) | アクセス制御の異なるメンバ変数のレイアウトは並び替えを許可されていたが宣言順に規定する | Yes | Yes | - | 2022 |
 | P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.md) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | 2022 Update 12 |
-| P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md) | 状態をもたないいくつかの演算子を`static`として宣言できるようにする | 13 | 16 | 2023.2 | - |
+| P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md) | 状態をもたないいくつかの演算子を`static`として宣言できるようにする | 13 | 16 | 2023.2 | 2022 Update 14 |
 | P2201R1: [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
 | P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
 | P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | 2023.2 | - |
 | P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | 2023.2 | - |
 | P2096R2: [変数テンプレートの部分特殊化を許可](/lang/cpp23/generalized_wording_for_partial_specializations.md) | 変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化 | - | - | - | - |
 | P2582R1: [継承コンストラクタからのクラステンプレート引数の推論](/lang/cpp23/class_template_argument_deduction_from_inherited.md) | 継承コンストラクタからもクラステンプレート引数を推論できるようにする | - | - | - | - |
-| P1938R3: [`if consteval`](/lang/cpp23/if_consteval.md) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | - |
-| P1401R5: [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | 2022.2 | - |
+| P1938R3: [`if consteval`](/lang/cpp23/if_consteval.md) | コンパイル時の文脈かどうかで分岐させる | 12 | 14 | - | 2022 Update 14 |
+| P1401R5: [定数式の文脈での`bool`への縮小変換を許可](/lang/cpp23/narrowing_contextual_conversions_to_bool.md) | `if constexpr(flags & Flags::Exec)`や`static_assert(N);`を許可 | 9 | 13 | 2022.2 | 2022 Update 14 |
 | P2242R3: [定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する](/lang/cpp23/non_literal_variables_in_constexpr_functions.md) | コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する | 12 | 15 | 2022.2 | 2022 Update 13 |
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | - | yes | 2022.2 | 2022 |
 | P2448R2: [`constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md) | | 13 | 17 (partial) | 2024.0 (partial) | - |
 | P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md) | `constexpr`関数のローカルで定数を定義できるようにする | 13 | 16 | 2023.2 | - |
 | P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする | - | 17 | 2024.0 | - |
-| P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md) | 修飾や戻り値型をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | 2022.2 | - |
-| P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | 2022.2 | - |
+| P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md) | 修飾や戻り値型をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | 2022.2 | 2022 Update 14 |
+| P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | 2022.2 | 2022 Update 14 |
 | P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | 19 | - | - |
 | P2316R2: [文字リテラルエンコーディングを一貫させる](/lang/cpp23/consistent_character_literal_encoding.md) | プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする | yes | yes | 2022.2 | 2022 |
 | P2334R1: [`elif`/`elifdef`/`elifndef`のサポートを追加](/lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.md) | `#if`/`#ifdef`/`#ifndef`に対応する複数条件命令のサポートを追加する | 12 | 13 | 2022.2 | 2022 Update 10 |
@@ -284,6 +284,7 @@
     - [C++ Conformance improvements, behavior changes, and bug fixes in Visual Studio 2022](https://learn.microsoft.com/en-us/cpp/overview/cpp-conformance-improvements?view=msvc-170)
     - [C++ Language Updates in MSVC in Visual Studio 2022 17.13](https://devblogs.microsoft.com/cppblog/msvc-compiler-updates-in-visual-studio-2022-version-17-13/)
     - [MSVC Compiler Language Updates in Visual Studio 2022 version 17.12](https://devblogs.microsoft.com/cppblog/msvc-compiler-language-updates-in-visual-studio-2022-version-17-12/)
+    - [C++ Language Updates in MSVC in Visual Studio 2022 17.14](https://devblogs.microsoft.com/cppblog/c-language-updates-in-msvc-in-visual-studio-2022-17-14/)
 - ICX: [C++23 Features Supported by Intel® C++ Compiler](https://www.intel.com/content/www/us/en/developer/articles/technical/c23-features-supported-by-intel-c-compiler.html)
 
 
