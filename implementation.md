@@ -141,7 +141,7 @@
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
-| 2022 Update 14 | Visual Studio 2022 Version 17.14.0    | | | |
+| 2022 Update 14 | Visual Studio 2022 Version 17.14.0    | 14.44           | 1944       | |
 | 2022 Update 13 | Visual Studio 2022 Version 17.13.2    | 14.43           | 1943       | 194334808       |
 | 2022 Update 13 | Visual Studio 2022 Version 17.13.0    | 14.43           | 1943       | 194334808       |
 | 2022 Update 12 | Visual Studio 2022 Version 17.12.4    | 14.42           | 1942       | 194234436       |
@@ -251,7 +251,8 @@
   [Visual Studio 2015 の Visual C++](https://docs.microsoft.com/ja-JP/previous-versions/60k1461a(v=vs.140)?redirectedfrom=MSDN) の [警告] を参照。
 - 2017 Update 5からside-by-sideがサポートされ、一つの製品内で同時に複数のVisual C++ツールセットを選択できるようになった。
   [Side-by-side minor version MSVC toolsets in Visual Studio 2017 | Visual C++ Team Blog](https://blogs.msdn.microsoft.com/vcblog/2017/11/15/side-by-side-minor-version-msvc-toolsets-in-visual-studio-2017/)
-
+- コンパイラのバージョン情報は、以下のページで確認できる。
+  [Microsoft Visual C++ compiler versioning](https://learn.microsoft.com/en-us/cpp/overview/compiler-versions)
 
 ### C++11の機能を有効にする
 
