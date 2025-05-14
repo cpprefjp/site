@@ -19,8 +19,8 @@ namespace std {
 * allocator[link /reference/memory/allocator.md]
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
-
-`multiset` は連想コンテナの一種であり、要素自身がキーとなる。
+## 概要
+`multiset` は重複を許可する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。
 
 連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。
 
@@ -33,8 +33,8 @@ namespace std {
 
 このコンテナクラスは、双方向イテレータをサポートする。
 
-各テンプレートパラメータは以下のような意味である。
 
+## テンプレートパラメータ
 - `Key`: キーの型。このコンテナに格納されれる要素の型。`multiset` に格納される要素はそれぞれはキーでもある。
 - `Compare`: 比較クラス。このクラスは 2 つの引数（同じ型であり、コンテナの要素型でもある）をとり `bool` 値を返す。[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)において `a` が `b` よりも前の場所に位置づけられる場合に `true` である。これはクラスが関数呼び出しオブジェクトを実装したクラスであっても良いし関数ポインタであっても良い（例は コンストラクタ を参照）。これは、`operator<()` を適用( `a < b` )したときと同じ値を返す [`less`](/reference/functional/less.md)`<Key>` がデフォルトである。
 - `Allocator`: ストレージアロケーションモデルを決定づける、アロケータオブジェクトの型である。デフォルトでは、`Key` への [`allocator`](/reference/memory/allocator.md) クラステンプレート（これは値に依存しないシンプルなメモリ確保モデルを定義する）が使われる。
