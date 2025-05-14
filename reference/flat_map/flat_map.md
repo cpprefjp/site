@@ -18,6 +18,43 @@ namespace std {
 * vector[link /reference/vector/vector.md]
 
 ## 概要
+`std::flat_map`は、重複しない要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。
+
+`std::flat_map`は、ノードベースで実装される[`std::map`](/reference/map/map.md)、ハッシュテーブルで実装される[`std::unordered_map`](/reference/unordered_map/unordered_map.md)とは異なり、ソート済み配列と二分探索の組み合わせで実装される。これはほかの実装と比較して、メモリ使用量と列挙速度において優位であり、一方で挿入速度と検索速度はほかの実装に劣る。
+
+また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::skack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列と値の配列の2つを内部で持ち、それを[`std::ranges::zip_view`](/reference/ranges/zip_view.md)で綴じあわせて扱う実装となっている。
+
+このコンテナクラスは、ランダムアクセスイテレータをサポートする。
+
+
+### ほかの連想コンテナとの要件の違い
+このクラスは要件として、コンテナクラスと、逆順コンテナクラスであることは満たすが、連想コンテナの要件としては以下を満たさない：
+
+- node handleに関する要件
+- イテレータ無効化に関する要件
+- 単一要素の挿入と削除に線形時間かかる (挿入位置のイテレータを指定したとしても)
+
+また、このコンテナはメモリアロケータを指定できない設計にもなっている。
+
+`value_type`は、[`std::map`](/reference/map/map.md)では[`std::pair`](/reference/utility/pair.md)`<const Key, T>`だが、このクラスは[`std::pair`](/reference/utility/pair.md)`<Key, T>`である (`const`がつかない)。
+
+以下の不変条件をもち、メンバ関数のいずれかが例外によって終了した場合には不変条件の状態に復元される (ただし、その復元操作によってコンテナが空になる可能性がある)：
+
+- キーの配列と値の配列が、同じ要素数をもつ
+- キーの配列が、指定された比較関数オブジェクトを尊重してソートを行う
+- 値の配列内のオフセット`off`の値は、キー配列内のオフセット`off`のキーに関連付けられた値である
+
+
+## テンプレートパラメータ制約
+- `KeyContainer`と`MappedContainer`に指定するコンテナ型は、
+    - シーケンスコンテナの要件を満たし、
+    - ランダムアクセスイテレータをもち、
+    - 例外を送出しないメンバ関数`size()`と`max_size()`をもつこと
+
+
+## 適格要件
+- `Key`が`KeyContainer::value_type`と同じ型であること
+- `T`が`MappedContainer::value_type`と同じ型であること
 
 
 ## メンバ関数
