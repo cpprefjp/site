@@ -25,16 +25,6 @@ namespace std {
 * pair[link /reference/utility/pair.md]
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
-`map` コンテナは 4 つのテンプレートパラメータを取る。
-
-各テンプレートパラメータは以下のような意味である。
-
-- `Key`: キーの型。キーの値の大小に従って自動的に並び替えられる。
-- `T`: 値の型。
-- `pair<const Key, T>`: 要素の型。
-- `Compare`: 比較クラス。このクラスは 2 つの引数（同じ型）をとり `bool` 値を返す。[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)において `a` が `b` よりも前の場所に位置づけられる場合に `true` である。これはクラスが関数呼び出しオブジェクトを実装したクラスであっても良いし関数ポインタであっても良い（例は コンストラクタ を参照）。これは、`operator<()` を適用( `a < b` )したときと同じ値を返す `less<Key>` がデフォルトである。
-- `Allocator`: ストレージアロケーションモデルを決定づける、アロケータオブジェクトの型である。デフォルトでは、`pair<const Key, T>` への [`allocator`](/reference/memory/allocator.md) クラステンプレート（これは値に依存しないシンプルなメモリ確保モデルを定義する）が使われる。
-
 ## 概要
 `map` はユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。
 
@@ -50,6 +40,14 @@ namespace std {
 - 挿入操作はイテレータや要素の参照に影響を与えない。
 
 このコンテナクラスは、双方向イテレータをサポートする。
+
+
+## テンプレートパラメータ
+- `Key`: キーの型。キーの値の大小に従って自動的に並び替えられる。
+- `T`: 値の型。
+- `pair<const Key, T>`: 要素の型。
+- `Compare`: 比較クラス。このクラスは 2 つの引数（同じ型）をとり `bool` 値を返す。[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)において `a` が `b` よりも前の場所に位置づけられる場合に `true` である。これはクラスが関数呼び出しオブジェクトを実装したクラスであっても良いし関数ポインタであっても良い（例は コンストラクタ を参照）。これは、`operator<()` を適用( `a < b` )したときと同じ値を返す `less<Key>` がデフォルトである。
+- `Allocator`: ストレージアロケーションモデルを決定づける、アロケータオブジェクトの型である。デフォルトでは、`pair<const Key, T>` への [`allocator`](/reference/memory/allocator.md) クラステンプレート（これは値に依存しないシンプルなメモリ確保モデルを定義する）が使われる。
 
 
 ## メンバ関数
