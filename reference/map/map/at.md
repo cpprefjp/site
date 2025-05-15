@@ -104,6 +104,5 @@ exception std::out_of_range
 
 ## 参照
 - [LWG Issue 464. Suggestion for new member functions in standard containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#464)
-## 参照
 - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
