@@ -160,4 +160,5 @@ text, b.txt
 
 ## 参照
 - [LWG2301 Why is std::tie not constexpr?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2301)
+- [P2968R2 Make `std::ignore` a first-class object](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2968r2.html)
 

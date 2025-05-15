@@ -86,6 +86,7 @@ int main() {
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 `[[maybe_unused]]`属性](/lang/cpp17/maybe_unused.md)
+- [`std::ignore`](/reference/tuple/ignore.md)
 
 ## 参照
 - [P2169R4 A nice placeholder with no name](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2169r4.pdf)
