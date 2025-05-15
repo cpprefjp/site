@@ -42,28 +42,15 @@ namespace std {
 
 ## メンバ型
 
-### C++17まで
-
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
-| `iterator_type` | `Iterator` | C++11 |
-| `difference_type` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::difference_type` | C++11 |
-| `pointer` | `Iterator` | C++11 |
-| `value_type` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::value_type` | C++11 |
-| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` | C++11 |
-| `reference` | `value_type&&` | C++11 |
-
-### C++20
-
-| 名前 | 説明 | 対応バージョン |
-|------------------------------------------------------|-------------|-------|
-| `iterator_type` | `Iterator` | C++11 |
-| `difference_type` | [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<Iterator>` | C++20 |
-| `pointer` | `Iterator` | C++11 |
-| `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<Iterator>` | C++20 |
-| `iterator_category` | [`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category` <br/> ただし、[`contiguous_iterator_tag`](/reference/iterator/iterator_tag.md)となるときは`random_access_iterator_tag` | C++20 |
-| `iterator_concept` | [`input_iterator_tag`](/reference/iterator/iterator_tag.md) | C++20 |
-| `reference` | [`iter_rvalue_reference_t`](/reference/iterator/iter_rvalue_reference_t.md)`<Iterator>`  | C++20 |
+| `iterator_type` | 元となるイテレータ型 `Iterator` | C++11 |
+| [`difference_type`](move_iterator/type-deferrence_type.md) | イテレータ間の差を表す数値型 | C++11 |
+| `pointer` | ポインタ型 `Iterator` | C++11 |
+| [`value_type`](move_iterator/type-value_type.md) | イテレータが指す値型 | C++11 |
+| [`iterator_category`](move_iterator/type-iterator_category.md) | イテレータの分類を表す型 | C++11 |
+| [`iterator_concept`](move_iterator/type-iterator_concept.md) | イテレータコンセプトを表す型 | C++20 |
+| [`reference`](move_iterator/type-reference.md) | イテレータを間接参照する型 | C++11 |
 
 
 ## 非メンバ関数
@@ -137,6 +124,9 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [C++11 右辺値参照・ムーブセマンティクス](/lang/cpp11/rvalue_ref_and_move_semantics.md)
+
+
+## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
