@@ -88,6 +88,8 @@ namespace ex = std::execution;
 
 int main()
 {
+  std::println("main#{}", std::this_thread::get_id());
+
   ex::run_loop loop;
   std::jthread worker{[&]{
     std::println("start worker#{}", std::this_thread::get_id());
@@ -101,8 +103,6 @@ int main()
       std::println("on worker#{}", std::this_thread::get_id());
       return n * 2;
     });
-
-  std::println("main#{}", std::this_thread::get_id());
 
   auto [val] = std::this_thread::sync_wait(std::move(sndr)).value();
   std::println("val={}", val);
@@ -146,7 +146,7 @@ val=42
 
 ## 関連項目
 - [`execution::schedule`](schedule.md)
-- [`execution::continues_on`](continues_on.md.nolink)
+- [`execution::continues_on`](continues_on.md)
 - [`execution::on`](on.md)
 
 

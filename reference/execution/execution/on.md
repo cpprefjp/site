@@ -121,7 +121,7 @@ transform_sender(
     ```
     * scheduler[link scheduler.md]
     * get_scheduler[link get_scheduler.md]
-    * continues_on[link continues_on.md.nolink]
+    * continues_on[link continues_on.md]
     * starts_on[link starts_on.md]
     * get_completion_scheduler[link get_completion_scheduler.md]
     * set_value_t[link set_value.md]
@@ -323,7 +323,7 @@ val=42
 ## 関連項目
 - [`execution::schedule`](schedule.md)
 - [`execution::starts_on`](starts_on.md)
-- [`execution::continues_on`](continues_on.md.nolink)
+- [`execution::continues_on`](continues_on.md)
 
 
 ## 参照

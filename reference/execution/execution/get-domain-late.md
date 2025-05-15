@@ -13,7 +13,7 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
 [Sender](sender.md)と[Receiver](receiver.md)間[接続(connect)](connect.md)時のカスタマイゼーションポイントとして、[実行ドメイン](default_domain.md)を取得する説明専用の関数テンプレート。
 
 下記の優先順で実行ドメインを検索し、最初に適格となる型を採用する。
-（Senderアルゴリズム[`continue_on`](continue_on.md.nolink)のみ引数に指定した[Scheduler](scheduler.md)から取得。）
+（Senderアルゴリズム[`continues_on`](continues_on.md)のみ引数に指定した[Scheduler](scheduler.md)から取得。）
 
 - Senderの[属性](../queryable.md)の実行ドメイン
 - Senderの[完了Scheduler](get_completion_scheduler.md)の実行ドメイン
@@ -25,7 +25,7 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
 ## 効果
 説明用の型`Domain`を下記の通り定義したとき、`return Domain();`と等価。
 
-- [`sender-for`](sender-for.md)`<Sndr,` [`continue_on_t`](continue_on.md.nolink)`> == true`のとき、次のラムダ式呼び出し結果の型とする。
+- [`sender-for`](sender-for.md)`<Sndr,` [`continues_on_t`](continues_on.md)`> == true`のとき、次のラムダ式呼び出し結果の型とする。
 
     ```cpp
     [] {
@@ -50,7 +50,7 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
 
 
 ## 備考
-Senderアダプタ[`continue_on`](continue_on.md.nolink)は[`schedule_from`](schedule_from.md.nolink)と連動して、実行コンテキスト遷移制御のカスタマイゼーションポイントをSchedulerに提供する。
+Senderアダプタ[`continues_on`](continues_on.md)は[`schedule_from`](schedule_from.md)と連携して、実行コンテキスト遷移制御のカスタマイゼーションポイントをSchedulerに提供する。
 
 
 ## バージョン
@@ -60,6 +60,7 @@ Senderアダプタ[`continue_on`](continue_on.md.nolink)は[`schedule_from`](sch
 
 ## 関連項目
 - [`execution::connect`](connect.md)
+- [`execution::continues_on`](continues_on.md)
 
 
 ## 参照

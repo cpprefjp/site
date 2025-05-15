@@ -21,7 +21,7 @@ namespace std::execution {
 - C++26
 
 ## 関連項目
-- [`execution::schedule_from`](schedule_from.md.nolink)
+- [`execution::schedule_from`](schedule_from.md)
 - [`execution::into_variant`](into_variant.md)
 
 
