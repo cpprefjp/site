@@ -6,21 +6,47 @@
 * cpp11[meta cpp]
 
 ```cpp
-T& at(const key_type& x);
-const T& at(const key_type & x) const;
+T& at(const key_type& x);              // (1) C++11
+const T& at(const key_type & x) const; // (2) C++11
+
+template<class K>
+mapped_type& at(const K& x);             // (3) C++26
+template<class K>
+const mapped_type& at(const K& x) const; // (4) C++26
 ```
 
 ## 概要
 指定したキーを持つ要素を取得する。  
-要素を取り出す際にキーの存在チェックをする。
+[`operator[]`](op_at.md)と違って、要素を取り出す際にキーに対応する値がなければ例外が送出される。
+
+- (1), (2) : クラスのテンプレートパラメータ`key_type`型のキーに対応する要素を取得する
+- (3), (4) : `key_type`と比較可能な`K`型のキーに対応する要素を取得する
+
+
+## テンプレートパラメータ制約
+- (3), (4) : `key_compare::is_transparent` が妥当な式であること
+
+
+## 事前条件
+- (3), (4) : [`find`](find.md)`(x)`が妥当な式であり、定義された動作をすること
 
 
 ## 戻り値
-キー`x`に対応する値を返す。対応する要素が存在しないときは、[`out_of_range`](/reference/stdexcept.md)例外を投げる。
+キー`x`に対応する値を返す。
 
 
 ## 計算量
 要素数に対して対数時間
+
+
+## 例外
+- 対応する要素が存在しない場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する
+
+
+## 備考
+- (3), (4) :
+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
+    - これらのオーバーロードは、`map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
 
 
 ## 例
@@ -78,4 +104,6 @@ exception std::out_of_range
 
 ## 参照
 - [LWG Issue 464. Suggestion for new member functions in standard containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#464)
-
+## 参照
+- [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
+    - C++26で`template <class K>`のバージョンが追加された
