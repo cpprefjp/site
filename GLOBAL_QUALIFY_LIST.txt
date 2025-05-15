@@ -152,7 +152,7 @@
     * iterator_traits[link /reference/iterator/iterator_traits.md]
     * iter_difference_t[link /reference/iterator/iter_difference_t.md]
     * iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
-    * iter_value_t[link reference/iterator/iter_value_t.md]
+    * iter_value_t[link /reference/iterator/iter_value_t.md]
     * output_iterator[link /reference/iterator/output_iterator.md]
     * projected[link /reference/iterator/projected.md]
     * random_access_iterator[link /reference/iterator/random_access_iterator.md]
