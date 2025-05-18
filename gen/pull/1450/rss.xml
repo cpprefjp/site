@@ -2,9 +2,117 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-18T07:22:15.560052</updated>
-  <id>7dfc28e8-627b-4253-9e76-e453a34960bd</id>
+  <updated>2025-05-18T07:26:07.364637</updated>
+  <id>41b4a9b0-8319-49c6-95f1-1aeb19335f75</id>
 
+  
+    <entry>
+      <title>clear -- fix: explanation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>056967cba35edd35031492137dd1c1d43e008bc8:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-18T16:20:42+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index fd12bdc0e..92bc6159b 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -34,7 +34,7 @@ void clear() noexcept;
+ 
+ 
+ ## 計算量
+-本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: explanation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>056967cba35edd35031492137dd1c1d43e008bc8:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-18T16:20:42+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index a1f76170c..cd593049e 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -34,7 +34,7 @@ void clear() noexcept;
+ 
+ 
+ ## 計算量
+-本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: explanation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>056967cba35edd35031492137dd1c1d43e008bc8:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-18T16:20:42+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index f2fd9a782..ed4129e92 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -34,7 +34,7 @@ void clear() noexcept;
+ 
+ 
+ ## 計算量
+-本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: explanation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>056967cba35edd35031492137dd1c1d43e008bc8:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-18T16:20:42+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index b6394e9f7..0062e4a92 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -34,7 +34,7 @@ void clear() noexcept;
+ 
+ 
+ ## 計算量
+-本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clear -- fix complexity of clear method</title>
@@ -902,129 +1010,6 @@ index 6825c7d2a..9fddf5c7e 100644
  - [N4240 Improved insertion interface for unique-key maps (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4240.html)
  - [N4279 Improved insertion interface for unique-key maps (Revision 2.3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4279.html)
 +- [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
-+    - C++26で`template &amp;lt;class K&amp;gt;`のバージョンが追加された
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>try_emplace -- map::try_emplace : C++26の異種混合ルックアップに対応 #1189</title>
-      <link href="https://cpprefjp.github.io/reference/map/map/try_emplace.html"/>
-      <id>c0573256bbe5a21bdf1c2d073a17b679eb27b092:reference/map/map/try_emplace.md</id>
-      <updated>2025-05-15T15:51:25+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/try_emplace.md b/reference/map/map/try_emplace.md
-index f43067b02..7bb94f5dd 100644
---- a/reference/map/map/try_emplace.md
-+++ b/reference/map/map/try_emplace.md
-@@ -7,16 +7,34 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--pair&amp;lt;iterator, bool&amp;gt; try_emplace(const key_type&amp;amp; k, Args&amp;amp;&amp;amp;... args);            // (1)
-+pair&amp;lt;iterator, bool&amp;gt;
-+  try_emplace(const key_type&amp;amp; k, Args&amp;amp;&amp;amp;... args); // (1) C++17
- 
- template &amp;lt;class... Args&amp;gt;
--pair&amp;lt;iterator, bool&amp;gt; try_emplace(key_type&amp;amp;&amp;amp; k, Args&amp;amp;&amp;amp;... args);                 // (2)
-+pair&amp;lt;iterator, bool&amp;gt;
-+  try_emplace(key_type&amp;amp;&amp;amp; k, Args&amp;amp;&amp;amp;... args);      // (2) C++17
- 
- template &amp;lt;class... Args&amp;gt;
--iterator try_emplace(const_iterator hint, const key_type&amp;amp; k, Args&amp;amp;&amp;amp;... args);   // (3)
-+iterator
-+  try_emplace(const_iterator hint,
-+              const key_type&amp;amp; k,
-+              Args&amp;amp;&amp;amp;... args);        // (3) C++17
- 
- template &amp;lt;class... Args&amp;gt;
--iterator try_emplace(const_iterator hint, key_type&amp;amp;&amp;amp; k, Args&amp;amp;&amp;amp;... args);        // (4)
-+iterator
-+  try_emplace(const_iterator hint,
-+              key_type&amp;amp;&amp;amp; k,
-+              Args&amp;amp;&amp;amp;... args);        // (4) C++17
-+
-+template &amp;lt;class K, class... Args&amp;gt;
-+pair&amp;lt;iterator, bool&amp;gt;
-+  try_emplace(K&amp;amp;&amp;amp; k, Args&amp;amp;&amp;amp;... args); // (5) C++26
-+
-+template &amp;lt;class K, class... Args&amp;gt;
-+iterator
-+  try_emplace(const_iterator hint,
-+              K&amp;amp;&amp;amp; k,
-+              Args&amp;amp;&amp;amp;... args);        // (6) C++26
- ```
- * pair[link /reference/utility/pair.md]
- 
-@@ -32,44 +50,43 @@ iterator try_emplace(const_iterator hint, key_type&amp;amp;&amp;amp; k, Args&amp;amp;&amp;amp;... args);
- - (2) : 指定された一時オブジェクトのキーが存在しない場合に、要素を直接構築で挿入する
- - (3) : キーを検索するヒントを指定し、指定されたキーが存在しない場合に、要素を直接構築で挿入する
- - (4) : キーを検索するヒントを指定し、指定された一時オブジェクトのキーが存在しない場合に、要素を直接構築で挿入する
-+- (5) : `key_type`型と比較可能なキーが存在しない場合に、要素を直接構築で挿入する
-+- (6) : キーを検索するヒントを指定し、指定された`key_type`型と比較可能なキーが存在しない場合に、要素を直接構築で挿入する
- 
- 
- ## テンプレートパラメータ制約
--- (1)、(3) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
--- (2)、(4) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
-+- (1)、(3)、(5) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
-+- (2)、(4)、(6) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
-+- (5), (6) : `key_compare::is_transparent` が妥当な式であること
- 
- なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
- 
- 
- ## 効果
--- (1)、(3) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
--- (2)、(4) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
-+- (1)、(3)、(5) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
-+- (2)、(4)、(6) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
- 
- 
- ## 戻り値
--- (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
-+- (1)、(2)、(5) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
-     - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
-     - 挿入されなかった場合には、`first` に `k` と等価のキーを持つ既存の要素へのイテレータ、`second` に `false` が設定される。
--- (3)、(4) :
-+- (3)、(4)、(6) :
-     - 挿入された場合には、挿入された要素へのイテレータを返す。
-     - 挿入されなかった場合には、`k` と等価のキーを持つ既存の要素へのイテレータを返す。
- 
- 
- ## 計算量
--- (1)、(2) : [`emplace`](emplace.md) と同じ。
--- (3)、(4) : [`emplace_hint`](emplace_hint.md) と同じ。
-+- (1)、(2)、(5) : [`emplace`](emplace.md) と同じ。
-+- (3)、(4)、(6) : [`emplace_hint`](emplace_hint.md) と同じ。
- 
- 
- ## 備考
- - 概要に記載されているように、本メンバ関数は指定されたキーと等価の要素が既に存在する場合には、引数に副作用が発生しない。  
--    一方、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md)、[`insert`](insert.md) にはそのような規定は無く、挿入がされなかった場合でも引数に副作用（引数からのムーブ）が発生してしまう可能性があるため、注意が必要である。
--
--- このメンバ関数の機能テストマクロは以下の通り。  
--
--    | マクロ名                    | 値       |
--    |-----------------------------|----------|
--    | `__cpp_lib_map_try_emplace` | `201411` |
--
-+    - 一方、[`emplace`](emplace.md)、[`emplace_hint`](emplace_hint.md)、[`insert`](insert.md) にはそのような規定は無く、挿入がされなかった場合でも引数に副作用（引数からのムーブ）が発生してしまう可能性があるため、注意が必要である。
-+- (5), (6) :
-+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
-+    - これらのオーバーロードは、`map&amp;lt;string, int&amp;gt;`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
- 
- 
- ## 例
-@@ -129,3 +146,5 @@ false, 114, false
- - [N4006 An improved emplace() for unique-key maps](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4006.html)
- - [N4240 Improved insertion interface for unique-key maps (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4240.html)
- - [N4279 Improved insertion interface for unique-key maps (Revision 2.3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4279.html)
-+- [P2363R5: Extending associative containers with the remaining heterogeneous overloads](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
 +    - C++26で`template &amp;lt;class K&amp;gt;`のバージョンが追加された
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
