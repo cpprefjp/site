@@ -34,7 +34,7 @@ void clear() noexcept;
 
 
 ## 計算量
-本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
+本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
 
 
 ## 例
