@@ -57,10 +57,10 @@ iterator
 ## テンプレートパラメータ制約
 - (1)、(3)、(5)、(6) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から `map` に直接構築可能であること
 - (2)、(4) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` から `map` に直接構築可能であること
-- (5), (6) : `key_compare::is_transparent` が妥当な式であること
-- (5) : 以下のすべてを満たすこと：
-    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<K&&, const_iterator> == false`
-    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<K&&, iterator> == false`
+- (5)、(6) :
+    - `key_compare::is_transparent` が妥当な式であること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<K&&, const_iterator> == false`であること
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<K&&, iterator> == false`であること
 
 なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
 
