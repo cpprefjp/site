@@ -2,9 +2,309 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-18T07:26:07.364637</updated>
-  <id>41b4a9b0-8319-49c6-95f1-1aeb19335f75</id>
+  <updated>2025-05-20T16:00:29.071937</updated>
+  <id>90aed27e-49f3-41ee-bb8f-4300796930c8</id>
 
+  
+    <entry>
+      <title>clear -- fix: format</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>588262dd873ddedd784e9b27f11042090a8f21a4:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-21T00:56:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index c84f0cf83..f08c94153 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -48,8 +48,8 @@ s.swap(tmp);
+ 
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+-  1. すべてのバケットを順に走査し
+-  2. 各バケットを破棄する
++    1. すべてのバケットを順に走査し
++    2. 各バケットを破棄する
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: format</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>588262dd873ddedd784e9b27f11042090a8f21a4:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-21T00:56:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index 399652ef3..1709e5a12 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -48,8 +48,8 @@ s.swap(tmp);
+ 
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+-  1. すべてのバケットを順に走査し
+-  2. 各バケットを破棄する
++    1. すべてのバケットを順に走査し
++    2. 各バケットを破棄する
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: format</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>588262dd873ddedd784e9b27f11042090a8f21a4:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-21T00:56:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 295b27121..6297aa4b3 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -48,8 +48,8 @@ s.swap(tmp);
+ 
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+-  1. すべてのバケットを順に走査し
+-  2. 各バケットを破棄する
++    1. すべてのバケットを順に走査し
++    2. 各バケットを破棄する
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: format</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>588262dd873ddedd784e9b27f11042090a8f21a4:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-21T00:56:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index 9e45067d9..99d4dfc32 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -48,8 +48,8 @@ s.swap(tmp);
+ 
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+-  1. すべてのバケットを順に走査し
+-  2. 各バケットを破棄する
++    1. すべてのバケットを順に走査し
++    2. 各バケットを破棄する
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: reflect issue conversation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>26ded1a892908b4b1afc182aa7bd669ed1d2a03f:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-21T00:54:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index 92bc6159b..c84f0cf83 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -33,8 +33,26 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
++## 備考
++- clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_map&amp;lt;std::string, int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 計算量
+-本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
++
++### 計算量に関する備考
++- 多くの実装（GCC libstdc++, LLVM libc++ など）は
++  1. すべてのバケットを順に走査し
++  2. 各バケットを破棄する
++
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: reflect issue conversation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>26ded1a892908b4b1afc182aa7bd669ed1d2a03f:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-21T00:54:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index cd593049e..399652ef3 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -33,8 +33,26 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
++## 備考
++- clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_multimap&amp;lt;std::string, int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 計算量
+-本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
++
++### 計算量に関する備考
++- 多くの実装（GCC libstdc++, LLVM libc++ など）は
++  1. すべてのバケットを順に走査し
++  2. 各バケットを破棄する
++
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: reflect issue conversation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>26ded1a892908b4b1afc182aa7bd669ed1d2a03f:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-21T00:54:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index ed4129e92..295b27121 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -33,8 +33,26 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
++## 備考
++- clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_multiset&amp;lt;int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 計算量
+-本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
++
++### 計算量に関する備考
++- 多くの実装（GCC libstdc++, LLVM libc++ など）は
++  1. すべてのバケットを順に走査し
++  2. 各バケットを破棄する
++
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: reflect issue conversation</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>26ded1a892908b4b1afc182aa7bd669ed1d2a03f:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-21T00:54:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index 0062e4a92..9e45067d9 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -33,8 +33,26 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
++## 備考
++- clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_set&amp;lt;int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 計算量
+-本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
++本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
++
++### 計算量に関する備考
++- 多くの実装（GCC libstdc++, LLVM libc++ など）は
++  1. すべてのバケットを順に走査し
++  2. 各バケットを破棄する
++
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clear -- fix: explanation</title>
@@ -256,761 +556,6 @@ index 7bb94f5dd..498af971b 100644
  
  
  ## 戻り値
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>execution -- execution: continues_on,schedule_from (#1384)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
-      <id>3f41dc923eef6e73d53b1515dd7b931e767e8b9c:reference/execution/execution.md</id>
-      <updated>2025-05-16T00:36:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
-index 9354319c8..08afa903d 100644
---- a/reference/execution/execution.md
-+++ b/reference/execution/execution.md
-@@ -112,9 +112,9 @@ namespace std::execution {
- |------|------|----------------|
- | [`execution::sender_adaptor_closure`](execution/sender_adaptor_closure.md.nolink) | Senderアダプタ実装用クロージャ型(class template) | C++26 |
- | [`execution::starts_on`](execution/starts_on.md) | 指定Scheduler上で開始する (customization point object) | C++26 |
--| [`execution::continues_on`](execution/continues_on.md.nolink) | 指定Scheduler上で継続する (customization point object) | C++26 |
-+| [`execution::continues_on`](execution/continues_on.md) | 指定Scheduler上で継続する (customization point object) | C++26 |
- | [`execution::on`](execution/on.md) | 指定Senderのみ別Scheduler上で実行する (customization point object) | C++26 |
--| [`execution::schedule_from`](execution/schedule_from.md.nolink) | Sender完了に依存する作業をスケジュール (customization point object) | C++26 |
-+| [`execution::schedule_from`](execution/schedule_from.md) | Sender完了に依存する作業をスケジュール (customization point object) | C++26 |
- | [`execution::then`](execution/then.md) | 値完了時の継続処理をアタッチ (customization point object) | C++26 |
- | [`execution::upon_error`](execution/upon_error.md.nolink) | エラー完了時の継続処理をアタッチ (customization point object) | C++26 |
- | [`execution::upon_stopped`](execution/upon_stopped.md.nolink) | 停止完了時の継続処理をアタッチ (customization point object) | C++26 |
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>child-type -- execution: continues_on,schedule_from (#1384)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/child-type.html"/>
-      <id>3f41dc923eef6e73d53b1515dd7b931e767e8b9c:reference/execution/execution/child-type.md</id>
-      <updated>2025-05-16T00:36:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/child-type.md b/reference/execution/execution/child-type.md
-index d9208860c..07ed69cdb 100644
---- a/reference/execution/execution/child-type.md
-+++ b/reference/execution/execution/child-type.md
-@@ -21,7 +21,7 @@ namespace std::execution {
- - C++26
- 
- ## 関連項目
--- [`execution::schedule_from`](schedule_from.md.nolink)
-+- [`execution::schedule_from`](schedule_from.md)
- - [`execution::into_variant`](into_variant.md)
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>continues_on -- execution: continues_on,schedule_from (#1384)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/continues_on.html"/>
-      <id>3f41dc923eef6e73d53b1515dd7b931e767e8b9c:reference/execution/execution/continues_on.md</id>
-      <updated>2025-05-16T00:36:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/continues_on.md b/reference/execution/execution/continues_on.md
-new file mode 100644
-index 000000000..a43586be4
---- /dev/null
-+++ b/reference/execution/execution/continues_on.md
-@@ -0,0 +1,164 @@
-+# continues_on
-+* execution[meta header]
-+* cpo[meta id-type]
-+* std::execution[meta namespace]
-+* cpp26[meta cpp]
-+
-+```cpp
-+namespace std::execution {
-+  struct continues_on_t { unspecified };
-+  inline constexpr continues_on_t continues_on{};
-+}
-+```
-+* unspecified[italic]
-+
-+## 概要
-+`continues_on`は、指定[Scheduler](scheduler.md)上で完了させるSenderアダプタである。
-+
-+`continues_on`はパイプライン記法をサポートする。
-+
-+
-+## 効果
-+説明用の式`sch`と`sndr`に対して、`decltype((sch))`が[`scheduler`](scheduler.md)を満たさない、もしくは`decltype((sndr))`が[`sender`](sender.md)を満たさないとき、呼び出し式`continues_on(sndr, sch)`は不適格となる。
-+
-+そうでなければ、呼び出し式`continues_on(sndr, sch)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
-+
-+```cpp
-+transform_sender(get-domain-early(sndr), make-sender(continues_on, sch, sndr))
-+```
-+* transform_sender[link transform_sender.md]
-+* get-domain-early[link get-domain-early.md]
-+* make-sender[link make-sender.md]
-+
-+
-+### Senderアルゴリズムタグ `continues_on`
-+Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
-+
-+```cpp
-+namespace std::execution {
-+  template&amp;lt;&amp;gt;
-+  struct impls-for&amp;lt;continues_on_t&amp;gt; : default-impls {
-+    static constexpr auto get-attrs =
-+      [](const auto&amp;amp; data, const auto&amp;amp; child) noexcept -&amp;gt; decltype(auto) {
-+        return JOIN-ENV(SCHED-ATTRS(data), FWD-ENV(get_env(child)));
-+      };
-+  };
-+}
-+```
-+* impls-for[link impls-for.md]
-+* default-impls[link impls-for.md]
-+* JOIN-ENV[link JOIN-ENV.md.nolink]
-+* SCHED-ATTRS[link SCHED-ATTRS.md.nolink]
-+* FWD-ENV[link ../forwarding_query.md]
-+* get_env[link get_env.md]
-+
-+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`&amp;lt;Sndr, continues_on_t&amp;gt; == false`のとき、式`continues_on.transform_sender(sndr, env)`は不適格となる。
-+
-+そうでなければ、式`continues_on.transform_sender(sndr, env)`は下記と等価。
-+
-+```cpp
-+auto [_, data, child] = sndr;
-+return schedule_from(std::move(data), std::move(child));
-+```
-+* schedule_from[link schedule_from.md]
-+* std::move[link /reference/utility/move.md]
-+
-+
-+## カスタマイゼーションポイント
-+Senderアルゴリズム構築時に、[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-+[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
-+
-+[Receiver](receiver.md)との[接続(connect)](connect.md)時に、[Scheduler](scheduler.md)`sch`に[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-+[デフォルト実行ドメイン](../execution/default_domain.md)では`continues_on.transform_sender(out_sndr, env)`が呼ばれ、[`schedule_from`](schedule_from.md)Senderへと変換される。
-+
-+説明用の式`out_sndr`を`continues_on(sndr, sch)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[`sender_in`](sender_in.md)`&amp;lt;OutSndr, Env&amp;gt; == true`となる[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、
-+
-+- 呼び出し[`start`](start.md)`(op)`は、現在の実行エージェント上で入力[Sender](sender.md)`sndr`を開始し、[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェント上で`out_rcvr`の完了操作を実行すべき。
-+- `sch`上でのスケジューリングが失敗した場合、未規定の実行エージェント上で`out_rcvr`の[エラー完了](set_error.md)が行われるべき。
-+
-+
-+## 備考
-+`continues_on`Senderアルゴリズムの動作は、[Receiver](receiver.md)[接続(connect)](connect.md)時の[`schedule_from`](schedule_from.md)Senderアルゴリズムへの変換、および説明専用の[`get-domain-late`](get-domain-late.md)関数テンプレートでの特別扱いによって実現される。
-+
-+
-+## 例
-+```cpp example
-+#include &amp;lt;thread&amp;gt;
-+#include &amp;lt;print&amp;gt;
-+#include &amp;lt;execution&amp;gt;
-+namespace ex = std::execution;
-+
-+
-+int main()
-+{
-+  std::println(&amp;#34;main#{}&amp;#34;, std::this_thread::get_id());
-+
-+  ex::run_loop loop;
-+  std::jthread worker{[&amp;amp;]{
-+    std::println(&amp;#34;start worker#{}&amp;#34;, std::this_thread::get_id());
-+    loop.run();
-+  }};
-+
-+  ex::scheduler auto sch = loop.get_scheduler();
-+  ex::sender auto sndr =
-+    ex::just(2)
-+    | ex::then([](int n) {
-+        std::println(&amp;#34;on main#{}&amp;#34;, std::this_thread::get_id());
-+        return n * 3;
-+      })
-+    | ex::continues_on(sch)
-+    | ex::then([](int n) {
-+        std::println(&amp;#34;on worker#{}&amp;#34;, std::this_thread::get_id());
-+        return n * 7;
-+      });
-+
-+  auto [val] = std::this_thread::sync_wait(std::move(sndr)).value();
-+  std::println(&amp;#34;val={}&amp;#34;, val);
-+
-+  loop.finish();
-+}
-+```
-+* ex::continues_on[color ff0000]
-+* ex::run_loop[link run_loop.md]
-+* ex::sender[link sender.md]
-+* ex::scheduler[link scheduler.md]
-+* ex::just[link just.md]
-+* ex::then[link then.md]
-+* get_scheduler()[link run_loop/get_scheduler.md]
-+* run()[link run_loop/run.md]
-+* finish()[link run_loop/finish.md]
-+* std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
-+* value()[link /reference/optional/optional/value.md]
-+* std::move[link /reference/utility/move.md]
-+* std::this_thread::get_id()[link /reference/thread/this_thread/get_id.md]
-+
-+### 出力例
-+```
-+main#137071308048192
-+on main#137071308048192
-+start worker#137071301756480
-+on worker#137071301756480
-+val=42
-+```
-+
-+
-+## バージョン
-+### 言語
-+- C++26
-+
-+### 処理系
-+- [Clang](/implementation.md#clang): ??
-+- [GCC](/implementation.md#gcc): ??
-+- [ICC](/implementation.md#icc): ??
-+- [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 関連項目
-+- [`execution::schedule`](schedule.md)
-+- [`execution::starts_on`](starts_on.md)
-+- [`execution::on`](on.md)
-+
-+
-+## 参照
-+- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
-+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>get-domain-late -- execution: continues_on,schedule_from (#1384)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/get-domain-late.html"/>
-      <id>3f41dc923eef6e73d53b1515dd7b931e767e8b9c:reference/execution/execution/get-domain-late.md</id>
-      <updated>2025-05-16T00:36:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get-domain-late.md b/reference/execution/execution/get-domain-late.md
-index bdfaec098..5d6c3880d 100644
---- a/reference/execution/execution/get-domain-late.md
-+++ b/reference/execution/execution/get-domain-late.md
-@@ -13,7 +13,7 @@ constexpr auto get-domain-late(const Sndr&amp;amp; sndr, const Env&amp;amp; env) noexcept;
- [Sender](sender.md)と[Receiver](receiver.md)間[接続(connect)](connect.md)時のカスタマイゼーションポイントとして、[実行ドメイン](default_domain.md)を取得する説明専用の関数テンプレート。
- 
- 下記の優先順で実行ドメインを検索し、最初に適格となる型を採用する。
--（Senderアルゴリズム[`continue_on`](continue_on.md.nolink)のみ引数に指定した[Scheduler](scheduler.md)から取得。）
-+（Senderアルゴリズム[`continues_on`](continues_on.md)のみ引数に指定した[Scheduler](scheduler.md)から取得。）
- 
- - Senderの[属性](../queryable.md)の実行ドメイン
- - Senderの[完了Scheduler](get_completion_scheduler.md)の実行ドメイン
-@@ -25,7 +25,7 @@ constexpr auto get-domain-late(const Sndr&amp;amp; sndr, const Env&amp;amp; env) noexcept;
- ## 効果
- 説明用の型`Domain`を下記の通り定義したとき、`return Domain();`と等価。
- 
--- [`sender-for`](sender-for.md)`&amp;lt;Sndr,` [`continue_on_t`](continue_on.md.nolink)`&amp;gt; == true`のとき、次のラムダ式呼び出し結果の型とする。
-+- [`sender-for`](sender-for.md)`&amp;lt;Sndr,` [`continues_on_t`](continues_on.md)`&amp;gt; == true`のとき、次のラムダ式呼び出し結果の型とする。
- 
-     ```cpp
-     [] {
-@@ -50,7 +50,7 @@ constexpr auto get-domain-late(const Sndr&amp;amp; sndr, const Env&amp;amp; env) noexcept;
- 
- 
- ## 備考
--Senderアダプタ[`continue_on`](continue_on.md.nolink)は[`schedule_from`](schedule_from.md.nolink)と連動して、実行コンテキスト遷移制御のカスタマイゼーションポイントをSchedulerに提供する。
-+Senderアダプタ[`continues_on`](continues_on.md)は[`schedule_from`](schedule_from.md)と連携して、実行コンテキスト遷移制御のカスタマイゼーションポイントをSchedulerに提供する。
- 
- 
- ## バージョン
-@@ -60,6 +60,7 @@ Senderアダプタ[`continue_on`](continue_on.md.nolink)は[`schedule_from`](sch
- 
- ## 関連項目
- - [`execution::connect`](connect.md)
-+- [`execution::continues_on`](continues_on.md)
- 
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>on -- execution: continues_on,schedule_from (#1384)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/on.html"/>
-      <id>3f41dc923eef6e73d53b1515dd7b931e767e8b9c:reference/execution/execution/on.md</id>
-      <updated>2025-05-16T00:36:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/on.md b/reference/execution/execution/on.md
-index 361cb2c14..f8afd7065 100644
---- a/reference/execution/execution/on.md
-+++ b/reference/execution/execution/on.md
-@@ -121,7 +121,7 @@ transform_sender(
-     ```
-     * scheduler[link scheduler.md]
-     * get_scheduler[link get_scheduler.md]
--    * continues_on[link continues_on.md.nolink]
-+    * continues_on[link continues_on.md]
-     * starts_on[link starts_on.md]
-     * get_completion_scheduler[link get_completion_scheduler.md]
-     * set_value_t[link set_value.md]
-@@ -323,7 +323,7 @@ val=42
- ## 関連項目
- - [`execution::schedule`](schedule.md)
- - [`execution::starts_on`](starts_on.md)
--- [`execution::continues_on`](continues_on.md.nolink)
-+- [`execution::continues_on`](continues_on.md)
- 
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>schedule_from -- execution: continues_on,schedule_from (#1384)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/schedule_from.html"/>
-      <id>3f41dc923eef6e73d53b1515dd7b931e767e8b9c:reference/execution/execution/schedule_from.md</id>
-      <updated>2025-05-16T00:36:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule_from.md b/reference/execution/execution/schedule_from.md
-new file mode 100644
-index 000000000..b72a43225
---- /dev/null
-+++ b/reference/execution/execution/schedule_from.md
-@@ -0,0 +1,214 @@
-+# schedule_from
-+* execution[meta header]
-+* cpo[meta id-type]
-+* std::execution[meta namespace]
-+* cpp26[meta cpp]
-+
-+```cpp
-+namespace std::execution {
-+  struct schedule_from_t { unspecified };
-+  inline constexpr schedule_from_t schedule_from{};
-+}
-+```
-+* unspecified[italic]
-+
-+## 概要
-+`schedule_from`は、[Sender](sender.md)の完了に依存する作業を[Scheduler](scheduler.md)に関連付けられた実行リソースにスケジュールするSenderアダプタである。
-+
-+`schedule_from`はユーザコードで利用されるものではなく、[`continues_on`](continues_on.md)Senderアルゴリズムの実装において利用される。
-+
-+
-+## 効果
-+説明用の式`sch`と`sndr`に対して、`decltype((sch))`が[`scheduler`](scheduler.md)を満たさない、もしくは`decltype((sndr))`が[`sender`](sender.md)を満たさないとき、呼び出し式`schedule_from(sch, sndr)`は不適格となる。
-+
-+そうでなければ、呼び出し式`schedule_from(sch, sndr)`は`sch`が1回だけ評価されることを除いて、下記と等価。
-+
-+```cpp
-+transform_sender(
-+  query-or-default(get_domain, sch, default_domain()),
-+  make-sender(schedule_from, sch, sndr))
-+```
-+* transform_sender[link transform_sender.md]
-+* query-or-default[link query-or-default.md.nolink]
-+* get_domain[link get_domain.md]
-+* default_domain()[link default_domain.md]
-+* make-sender[link make-sender.md]
-+
-+
-+### Senderアルゴリズムタグ `schedule_from`
-+Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
-+
-+```cpp
-+namespace std::execution {
-+  template&amp;lt;&amp;gt;
-+  struct impls-for&amp;lt;schedule_from_t&amp;gt; : default-impls {
-+    static constexpr auto get-attrs = see below;
-+    static constexpr auto get-state = see below;
-+    static constexpr auto complete = see below;
-+  };
-+}
-+```
-+* impls-for[link impls-for.md]
-+* default-impls[link impls-for.md]
-+* see below[italic]
-+
-+`impls-for&amp;lt;decayed-typeof&amp;lt;schedule_from_t&amp;gt;&amp;gt;::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
-+
-+```cpp
-+[](const auto&amp;amp; data, const auto&amp;amp; child) noexcept -&amp;gt; decltype(auto) {
-+  return JOIN-ENV(SCHED-ATTRS(data), FWD-ENV(get_env(child)));
-+}
-+```
-+* JOIN-ENV[link JOIN-ENV.md.nolink]
-+* SCHED-ATTRS[link SCHED-ATTRS.md.nolink]
-+* FWD-ENV[link ../forwarding_query.md]
-+* get_env[link get_env.md]
-+
-+`impls-for&amp;lt;decayed-typeof&amp;lt;schedule_from_t&amp;gt;&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
-+
-+```cpp
-+[]&amp;lt;class Sndr, class Rcvr&amp;gt;(Sndr&amp;amp;&amp;amp; sndr, Rcvr&amp;amp; rcvr) noexcept(see below)
-+    requires sender_in&amp;lt;child-type&amp;lt;Sndr&amp;gt;, env_of_t&amp;lt;Rcvr&amp;gt;&amp;gt; {
-+
-+  auto&amp;amp; [_, sch, child] = sndr;
-+
-+  using sched_t = decltype(auto(sch));
-+  using variant_t = see below;
-+  using receiver_t = see below;
-+  using operation_t = connect_result_t&amp;lt;schedule_result_t&amp;lt;sched_t&amp;gt;, receiver_t&amp;gt;;
-+  constexpr bool nothrow = noexcept(connect(schedule(sch), receiver_t{nullptr}));
-+
-+  struct state-type {
-+    Rcvr&amp;amp; rcvr;                 // exposition only
-+    variant_t async-result;     // exposition only
-+    operation_t op-state;       // exposition only
-+
-+    explicit state-type(sched_t sch, Rcvr&amp;amp; rcvr) noexcept(nothrow)
-+      : rcvr(rcvr), op-state(connect(schedule(sch), receiver_t{this})) {}
-+  };
-+
-+  return state-type{sch, rcvr};
-+}
-+```
-+* sender_in[link sender_in.md]
-+* child-type[link child-type.md]
-+* env_of_t[link env_of_t.md]
-+* connect_result_t[link connect_result_t.md]
-+* schedule_result_t[link schedule_result_t.md]
-+* connect[link connect.md]
-+* schedule[link schedule.md]
-+* see below[italic]
-+
-+- ローカルクラス`state-type`のオブジェクトは[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
-+- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`variant_t`は下記定義において重複削除した型となる。
-+
-+    ```cpp
-+    variant&amp;lt;monostate, as-tuple&amp;lt;Sigs&amp;gt;...&amp;gt;
-+    ```
-+    * variant[link /reference/variant/variant.md]
-+    * monostate[link /reference/variant/monostate.md]
-+
-+- `receiver_t`は説明専用クラス`receiver-type`のエイリアスとする。
-+
-+`impls-for&amp;lt;decayed-typeof&amp;lt;schedule_from_t&amp;gt;&amp;gt;::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
-+
-+```cpp
-+[]&amp;lt;class Tag, class... Args&amp;gt;(auto, auto&amp;amp; state, auto&amp;amp; rcvr, Tag, Args&amp;amp;&amp;amp;... args) noexcept
-+    -&amp;gt; void {
-+  using result_t = decayed-tuple&amp;lt;Tag, Args...&amp;gt;;
-+  constexpr bool nothrow = is_nothrow_constructible_v&amp;lt;result_t, Tag, Args...&amp;gt;;
-+
-+  try {
-+    state.async-result.template emplace&amp;lt;result_t&amp;gt;(Tag(), std::forward&amp;lt;Args&amp;gt;(args)...);
-+  } catch (...) {
-+    if constexpr (!nothrow) {
-+      set_error(std::move(rcvr), current_exception());
-+      return;
-+    }
-+  }
-+  start(state.op-state);
-+};
-+```
-+* decayed-tuple[link decayed-tuple.md]
-+* set_error[link set_error.md]
-+* start[link start.md]
-+* is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
-+* template emplace[link /reference/variant/variant/emplace.md]
-+* current_exception()[link /reference/exception/current_exception.md]
-+* std::move[link /reference/utility/move.md]
-+
-+
-+## 説明専用エンティティ
-+説明専用のクラス`receiver-type`を下記の通り定義する。
-+
-+```cpp
-+namespace std::execution {
-+  struct receiver-type {
-+    using receiver_concept = receiver_t;
-+    state-type* state;  // exposition only
-+
-+    void set_value() &amp;amp;&amp;amp; noexcept {
-+      visit(
-+        [this]&amp;lt;class Tuple&amp;gt;(Tuple&amp;amp; result) noexcept -&amp;gt; void {
-+          if constexpr (!same_as&amp;lt;monostate, Tuple&amp;gt;) {
-+            auto&amp;amp; [tag, ...args] = result;
-+            tag(std::move(state-&amp;gt;rcvr), std::move(args)...);
-+          }
-+        },
-+        state-&amp;gt;async-result);
-+    }
-+
-+    template&amp;lt;class Error&amp;gt;
-+    void set_error(Error&amp;amp;&amp;amp; err) &amp;amp;&amp;amp; noexcept {
-+      execution::set_error(std::move(state-&amp;gt;rcvr), std::forward&amp;lt;Error&amp;gt;(err));
-+    }
-+
-+    void set_stopped() &amp;amp;&amp;amp; noexcept {
-+      execution::set_stopped(std::move(state-&amp;gt;rcvr));
-+    }
-+
-+    decltype(auto) get_env() const noexcept {
-+      return FWD-ENV(execution::get_env(state-&amp;gt;rcvr));
-+    }
-+  };
-+}
-+```
-+* receiver_t[link receiver.md]
-+* execution::set_error[link set_error.md]
-+* execution::set_stopped[link set_stopped.md]
-+* execution::get_env[link get_env.md]
-+* FWD-ENV[link ../forwarding_query.md]
-+* visit[link /reference/variant/visit.md]
-+* monostate[link /reference/variant/monostate.md]
-+* std::move[link /reference/utility/move.md]
-+
-+
-+## カスタマイゼーションポイント
-+Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-+[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
-+
-+説明用の式`out_sndr`を`schedule_from(sndr, sch)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[`sender_in`](sender_in.md)`&amp;lt;OutSndr, Env&amp;gt; == true`となる[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、
-+
-+- 呼び出し[`start`](start.md)`(op)`は、現在の実行エージェント上で入力[Sender](sender.md)`sndr`を開始し、[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェント上で`out_rcvr`の完了操作を実行すべき。
-+- `sch`上でのスケジューリングが失敗した場合、未規定の実行エージェント上で`out_rcvr`の[エラー完了](set_error.md)が行われるべき。
-+
-+
-+## バージョン
-+### 言語
-+- C++26
-+
-+### 処理系
-+- [Clang](/implementation.md#clang): ??
-+- [GCC](/implementation.md#gcc): ??
-+- [ICC](/implementation.md#icc): ??
-+- [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 関連項目
-+- [`execution::schedule`](schedule.md)
-+- [`execution::continues_on`](continues_on.md)
-+
-+
-+## 参照
-+- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
-+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>starts_on -- execution: continues_on,schedule_from (#1384)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/starts_on.html"/>
-      <id>3f41dc923eef6e73d53b1515dd7b931e767e8b9c:reference/execution/execution/starts_on.md</id>
-      <updated>2025-05-16T00:36:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/starts_on.md b/reference/execution/execution/starts_on.md
-index dcad0c786..169c24ac5 100644
---- a/reference/execution/execution/starts_on.md
-+++ b/reference/execution/execution/starts_on.md
-@@ -88,6 +88,8 @@ namespace ex = std::execution;
- 
- int main()
- {
-+  std::println(&amp;#34;main#{}&amp;#34;, std::this_thread::get_id());
-+
-   ex::run_loop loop;
-   std::jthread worker{[&amp;amp;]{
-     std::println(&amp;#34;start worker#{}&amp;#34;, std::this_thread::get_id());
-@@ -102,8 +104,6 @@ int main()
-       return n * 2;
-     });
- 
--  std::println(&amp;#34;main#{}&amp;#34;, std::this_thread::get_id());
--
-   auto [val] = std::this_thread::sync_wait(std::move(sndr)).value();
-   std::println(&amp;#34;val={}&amp;#34;, val);
- 
-@@ -146,7 +146,7 @@ val=42
- 
- ## 関連項目
- - [`execution::schedule`](schedule.md)
--- [`execution::continues_on`](continues_on.md.nolink)
-+- [`execution::continues_on`](continues_on.md)
- - [`execution::on`](on.md)
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>at -- map::insert_or_assign : C++26の異種混合ルックアップに対応 #1189</title>
-      <link href="https://cpprefjp.github.io/reference/map/map/at.html"/>
-      <id>302be0fb1814097dedf1a2b1a93dc7367f6c54aa:reference/map/map/at.md</id>
-      <updated>2025-05-15T19:05:30+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/at.md b/reference/map/map/at.md
-index fc8ffd247..a73dc3c21 100644
---- a/reference/map/map/at.md
-+++ b/reference/map/map/at.md
-@@ -104,6 +104,5 @@ exception std::out_of_range
- 
- ## 参照
- - [LWG Issue 464. Suggestion for new member functions in standard containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#464)
--## 参照
- - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
-     - C++26で`template &amp;lt;class K&amp;gt;`のバージョンが追加された
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert_or_assign -- map::insert_or_assign : C++26の異種混合ルックアップに対応 #1189</title>
-      <link href="https://cpprefjp.github.io/reference/map/map/insert_or_assign.html"/>
-      <id>302be0fb1814097dedf1a2b1a93dc7367f6c54aa:reference/map/map/insert_or_assign.md</id>
-      <updated>2025-05-15T19:05:30+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/insert_or_assign.md b/reference/map/map/insert_or_assign.md
-index 6825c7d2a..9fddf5c7e 100644
---- a/reference/map/map/insert_or_assign.md
-+++ b/reference/map/map/insert_or_assign.md
-@@ -7,16 +7,33 @@
- 
- ```cpp
- template &amp;lt;class M&amp;gt;
--pair&amp;lt;iterator, bool&amp;gt; insert_or_assign(const key_type&amp;amp; k, M&amp;amp;&amp;amp; obj);              // (1)
--
-+pair&amp;lt;iterator, bool&amp;gt;
-+  insert_or_assign(const key_type&amp;amp; k,
-+                   M&amp;amp;&amp;amp; obj);          // (1) C++17
- template &amp;lt;class M&amp;gt;
--pair&amp;lt;iterator, bool&amp;gt; insert_or_assign(key_type&amp;amp;&amp;amp; k, M&amp;amp;&amp;amp; obj);                   // (2)
--
-+pair&amp;lt;iterator, bool&amp;gt;
-+  insert_or_assign(key_type&amp;amp;&amp;amp; k,
-+                   M&amp;amp;&amp;amp; obj);          // (2) C++17
- template &amp;lt;class M&amp;gt;
--iterator insert_or_assign(const_iterator hint, const key_type&amp;amp; k, M&amp;amp;&amp;amp; obj);     // (3)
--
-+iterator
-+  insert_or_assign(const_iterator hint,
-+                   const key_type&amp;amp; k,
-+                   M&amp;amp;&amp;amp; obj);          // (3) C++17
- template &amp;lt;class M&amp;gt;
--iterator insert_or_assign(const_iterator hint, key_type&amp;amp;&amp;amp; k, M&amp;amp;&amp;amp; obj);          // (4)
-+iterator
-+  insert_or_assign(const_iterator hint,
-+                   key_type&amp;amp;&amp;amp; k,
-+                   M&amp;amp;&amp;amp; obj);          // (4) C++17
-+
-+template &amp;lt;class K, class M&amp;gt;
-+pair&amp;lt;iterator, bool&amp;gt;
-+  insert_or_assign(K&amp;amp;&amp;amp; k,
-+                   M&amp;amp;&amp;amp; obj);          // (5) C++26
-+template &amp;lt;class K, class M&amp;gt;
-+iterator
-+  insert_or_assign(const_iterator hint,
-+                   K&amp;amp;&amp;amp; k,
-+                   M&amp;amp;&amp;amp; obj);          // (6) C++26
- ```
- * pair[link /reference/utility/pair.md]
- 
-@@ -29,40 +46,44 @@ iterator insert_or_assign(const_iterator hint, key_type&amp;amp;&amp;amp; k, M&amp;amp;&amp;amp; obj);
- - (2) : `key_type`型の一時オブジェクトのキーをとって挿入もしくは代入する
- - (3) : 挿入位置のヒントをともない、`key_type`型のキーをとって挿入もしくは代入する
- - (4) : 挿入位置のヒントをともない、`key_type`型の一時オブジェクトのキーをとって挿入もしくは代入する
-+- (5) : `key_type`と比較可能な`K`型のキーをとって挿入もしくは代入する
-+- (6) : 挿入位置のヒントをともない、`key_type`と比較可能な`K`型のキーをとって挿入もしくは代入する
- 
- 
- ## テンプレートパラメータ制約
--- (1)、(3) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`&amp;lt;mapped_type&amp;amp;, M&amp;amp;&amp;amp;&amp;gt;` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` から `map` に直接構築可能であること
-+- (5), (6) : `key_compare::is_transparent` が妥当な式であること
-+
-+
-+## 適格要件
-+- (1)、(3)、(5)、(6) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`&amp;lt;mapped_type&amp;amp;, M&amp;amp;&amp;amp;&amp;gt;` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` から `map` に直接構築可能であること
- - (2)、(4) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`&amp;lt;mapped_type&amp;amp;, M&amp;amp;&amp;amp;&amp;gt;` が `true` であること。`value_type` は、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` から `map` に直接構築可能であること
- 
- なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
- 
- 
- ## 効果
--- (1)、(3) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
-+- (1)、(3)、(5)、(6) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
- - (2)、(4) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`&amp;lt;M&amp;gt;(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
- 
- 
- ## 戻り値
--- (1)、(2) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
-+- (1)、(2)、(5) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
-     - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
-     - 代入された場合には、`first` に代入された要素へのイテレータ、`second` に `false` が設定される。
--- (3)、(4) :
-+- (3)、(4)、(6) :
-     - 挿入された場合には、挿入された要素へのイテレータを返す。
-     - 代入された場合には、代入された要素へのイテレータを返す。
- 
- 
- ## 計算量
--- (1)、(2) : [`emplace`](emplace.md) と同じ。
--- (3)、(4) : [`emplace_hint`](emplace_hint.md) と同じ。
-+- (1)、(2)、(5) : [`emplace`](emplace.md) と同じ。
-+- (3)、(4)、(6) : [`emplace_hint`](emplace_hint.md) と同じ。
- 
- 
- ## 備考
--このメンバ関数の機能テストマクロは以下の通り。
--
--| マクロ名                    | 値       |
--|-----------------------------|----------|
--| `__cpp_lib_map_try_emplace` | `201411` |
-+- (5), (6) :
-+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
-+    - これらのオーバーロードは、`map&amp;lt;string, int&amp;gt;`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
- 
- 
- ## 例
-@@ -116,3 +137,5 @@ int main()
- - [N4006 An improved emplace() for unique-key maps](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4006.html)
- - [N4240 Improved insertion interface for unique-key maps (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4240.html)
- - [N4279 Improved insertion interface for unique-key maps (Revision 2.3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4279.html)
-+- [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
-+    - C++26で`template &amp;lt;class K&amp;gt;`のバージョンが追加された
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
