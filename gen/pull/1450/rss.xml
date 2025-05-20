@@ -2,9 +2,117 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-20T16:00:29.071937</updated>
-  <id>90aed27e-49f3-41ee-bb8f-4300796930c8</id>
+  <updated>2025-05-20T16:05:48.106331</updated>
+  <id>0dcafac9-5ec5-4ec0-965f-6f6450b55857</id>
 
+  
+    <entry>
+      <title>clear -- fix: minor fix</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>6f51ec9fc5d2391a979c581a5b50ca35faf44f14:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-21T01:01:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index f08c94153..15cf893c7 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. すべてのバケットを順に走査し
+     2. 各バケットを破棄する
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: minor fix</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>6f51ec9fc5d2391a979c581a5b50ca35faf44f14:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-21T01:01:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index 1709e5a12..b57e326f0 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. すべてのバケットを順に走査し
+     2. 各バケットを破棄する
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: minor fix</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>6f51ec9fc5d2391a979c581a5b50ca35faf44f14:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-21T01:01:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 6297aa4b3..0c02d3ef4 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. すべてのバケットを順に走査し
+     2. 各バケットを破棄する
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: minor fix</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>6f51ec9fc5d2391a979c581a5b50ca35faf44f14:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-21T01:01:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index 99d4dfc32..72acb0a6b 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. すべてのバケットを順に走査し
+     2. 各バケットを破棄する
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
++という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clear -- fix: format</title>
@@ -519,48 +627,6 @@ index e54f8a9f4..b6394e9f7 100644
       <author>
         <name>koki watanabe</name>
         <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>try_emplace -- map::try_emplace : 要件を修正 #1189</title>
-      <link href="https://cpprefjp.github.io/reference/map/map/try_emplace.html"/>
-      <id>3175722cafabd80cce386bdfb2de0656b1ac46b8:reference/map/map/try_emplace.md</id>
-      <updated>2025-05-18T14:59:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/try_emplace.md b/reference/map/map/try_emplace.md
-index 7bb94f5dd..498af971b 100644
---- a/reference/map/map/try_emplace.md
-+++ b/reference/map/map/try_emplace.md
-@@ -55,16 +55,19 @@ iterator
- 
- 
- ## テンプレートパラメータ制約
--- (1)、(3)、(5) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
--- (2)、(4)、(6) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
-+- (1)、(3)、(5)、(6) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
-+- (2)、(4) : `value_type` は、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から `map` に直接構築可能であること
- - (5), (6) : `key_compare::is_transparent` が妥当な式であること
-+- (5) : 以下のすべてを満たすこと：
-+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;K&amp;amp;&amp;amp;, const_iterator&amp;gt; == false`
-+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;K&amp;amp;&amp;amp;, iterator&amp;gt; == false`
- 
- なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
- 
- 
- ## 効果
--- (1)、(3)、(5) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
--- (2)、(4)、(6) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
-+- (1)、(3)、(5)、(6) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(k)`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
-+- (2)、(4) : `map` が `k` と同値のキーを持つ要素を持っている場合、何もしない（引数への副作用もない）。そうでなければ、[`piecewise_construct`](/reference/utility/piecewise_construct_t.md), [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`move`](/reference/utility/move.md)`(k))`, [`forward_as_tuple`](/reference/tuple/forward_as_tuple.md)`(`[`forward`](/reference/utility/forward.md)`&amp;lt;Args&amp;gt;(args)...)` から構築した `value_type` 型のオブジェクトを挿入する。
- 
- 
- ## 戻り値
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
       </author>
     </entry>
   
