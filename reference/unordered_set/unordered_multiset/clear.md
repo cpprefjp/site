@@ -33,8 +33,26 @@ void clear() noexcept;
 投げない。
 
 
+## 備考
+- clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
+実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
+- メモリを確実に解放したいときには以下のように操作を行う
+```CPP
+std::unordered_multiset<int> tmp;
+s.swap(tmp);
+```
+
+
 ## 計算量
-本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
+本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
+
+### 計算量に関する備考
+- 多くの実装（GCC libstdc++, LLVM libc++ など）は
+  1. すべてのバケットを順に走査し
+  2. 各バケットを破棄する
+
+という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()`  に比例 する傾向がある。
+これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
 
 
 ## 例
