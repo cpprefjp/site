@@ -37,19 +37,19 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 
 
 ## 適格要件
-- (1)、(3) : `value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
+- (1)、(3) : `value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。
     - コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
-	        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
-- (2)、(4) : `value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。  
+        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
+- (2)、(4) : `value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。
     - コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
-	        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
-- (3)、(4) : 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。  
-	   - なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
-- (5) : 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、イテレータ範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
-	   - また、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
-	   - ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
-	       - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
-	   - なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<decltype(first)>::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
+        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
+- (3)、(4) : 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。
+    - なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
+- (5) : 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、イテレータ範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。
+    - また、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。
+    - ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
+        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
+    - なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<decltype(first)>::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
 - (6) : `value_type` はコンテナに対してコピー挿入可能でなければならない。
 
 
@@ -59,8 +59,8 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 
 ## 効果
 - (1)、(2) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-- (3)、(4) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
-	   - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
+- (3)、(4) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
+    - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 - (5) : イテレータ範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
 - (6) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
 - (7) : `nh`が空の場合、効果はない。それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
@@ -69,10 +69,10 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 
 
 ## 戻り値
-- (1)、(2) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
-	   - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
-- (3)、(4) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。  
-	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
+- (1)、(2) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。
+    - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
+- (3)、(4) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。
+    - 新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
 - (5) : なし
 - (6) : なし
 - (7) : 戻り値としては、[`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
@@ -95,13 +95,13 @@ iterator insert(const_iterator hint, node_type&& nh);          // (8) C++17
 
 ## 備考
 - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
-	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
-	   - それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
-	   - コンテナのバケット数が変わらない場合とは、以下のいずれかである：
-	       - 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
-	       - 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
-	   - なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
+    - なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
+- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
+    - それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。
+    - コンテナのバケット数が変わらない場合とは、以下のいずれかである：
+        - 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
+        - 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
+    - なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
 - (7), (8) の場合、要素はコピーもムーブもされない。
 
 
