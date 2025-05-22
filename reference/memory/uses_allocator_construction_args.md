@@ -35,7 +35,7 @@ template<class T, class Alloc, class U, class V>
 
 ## テンプレートパラメータ制約
 - (1) : `T` が [`pair`](../utility/pair.md) の特殊化**ではない**場合のみオーバーロード解決に参加する
-- (2)～(6) : `T` が [`pair`](../utility/pair.md) の特殊化**である**場合のみオーバーロード解決に参加する
+- (2)-(6) : `T` が [`pair`](../utility/pair.md) の特殊化**である**場合のみオーバーロード解決に参加する
 
 
 ## 戻り値
@@ -141,7 +141,7 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
 	ただし、実際には構築まで実施する [`make_obj_using_allocator`](make_obj_using_allocator.md) や [`uninitialized_construct_using_allocator`](uninitialized_construct_using_allocator.md) が存在するため、これらの関数を直接呼び出す機会はあまり多くはないだろう。
 - 上記 (1) を見ればわかる通り、uses-allocator 構築は、その名前に反して必ずしもアロケータオブジェクトを使うとは限らないので注意。  
 	（[`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `false` の場合、アロケータオブジェクト `alloc` は無視される）
-- 上記 (2)～(6) を見ればわかる通り、`T` が [`pair`](../utility/pair.md) の場合には再帰的に `uses_allocator_construction_args` を呼び出しているため、ネストした [`pair`](../utility/pair.md) に対しても正しく uses-allocator 構築をサポートできる。
+- 上記 (2)-(6) を見ればわかる通り、`T` が [`pair`](../utility/pair.md) の場合には再帰的に `uses_allocator_construction_args` を呼び出しているため、ネストした [`pair`](../utility/pair.md) に対しても正しく uses-allocator 構築をサポートできる。
 
 
 ## 例

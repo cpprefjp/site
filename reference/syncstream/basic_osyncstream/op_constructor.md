@@ -21,7 +21,7 @@ basic_osyncstream(basic_osyncstream&& other) noexcept;                          
 ```
 
 ## 概要
-- (1)〜(4) : ラップするストリーム、アロケータ（もしあれば）を受け取るコンストラクタ。
+- (1)-(4) : ラップするストリーム、アロケータ（もしあれば）を受け取るコンストラクタ。
 - (5) : ムーブコンストラクタ。
 
 
@@ -33,7 +33,7 @@ basic_osyncstream(basic_osyncstream&& other) noexcept;                          
 
 
 ## 事後条件
-- (1)〜(4) : `get_wrapped() == buf`が`true`である。
+- (1)-(4) : `get_wrapped() == buf`が`true`である。
 - (5) : `get_wrapped()`によって返される値は、このコンストラクタを呼び出す前に`os.get_wrapped()`によって返される値である。また、`nullptr == other.get_wrapped()`が`true`である。
 
 
