@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-05-22T12:25:02">
+        2025年05月22日 12時25分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -271,12 +271,12 @@
 <h2>効果</h2>
 <ul>
 <li>(1) デフォルトコンストラクタ。シーケンス終端イテレータ（シーケンスの終端を示す特別なイテレータ）を構築する。</li>
-<li>(2)～(5) メンバ変数 <code>subs</code> を、引数 <code>submatch</code> の 1 要素のみで（(2) の形式の場合）、あるいは、引数 <code>submatches</code> で（(3)～(5) の形式の場合）初期化する。
+<li>(2)-(5) メンバ変数 <code>subs</code> を、引数 <code>submatch</code> の 1 要素のみで（(2) の形式の場合）、あるいは、引数 <code>submatches</code> で（(3)-(5) の形式の場合）初期化する。
     また、メンバ変数 <code>N</code>、<code>position</code> をそれぞれ、<code>0</code>、<code><a href="../regex_iterator.html">regex_iterator</a>&lt;BidirectionalIterator&gt;(a, b, re, m)</code> で初期化する。
     もし、<code>position</code> がシーケンス終端イテレータでなければ、メンバ変数 <code>result</code> を現在のマッチ（備考参照）のアドレスに設定する。<br />
     そうでなくて、もし、メンバ変数 <code>subs</code> が <code>-1</code> を含んでいたら、<code>*this</code> を範囲 <code>[a, b)</code> を指す接尾辞イテレータとして設定する。<br />
     そうでなければ、<code>*this</code> をシーケンス終端イテレータとして設定する。</li>
-<li>(6)～(9) deleted コンストラクタであるため、使用するとコンパイルエラーとなる。（(2)～(5) の形式の <code>re</code> の型を <code>const regex_type&amp;</code> から <code>regex_type&amp;&amp;</code> に変更したもの）</li>
+<li>(6)-(9) deleted コンストラクタであるため、使用するとコンパイルエラーとなる。（(2)-(5) の形式の <code>re</code> の型を <code>const regex_type&amp;</code> から <code>regex_type&amp;&amp;</code> に変更したもの）</li>
 <li>(10) コピーコンストラクタ。</li>
 </ul>
 <h2>備考</h2>
@@ -284,8 +284,8 @@
 <li>「現在のマッチ」とは、もし <code>subs[N]</code> が -1 の場合には <code>(*position).<a href="../match_results/prefix.html">prefix</a>()</code>、そうでなければ <code>(*position).[subs[N]]</code> の事を指す。</li>
 <li>メンバ変数 <code>subs</code>、<code>N</code>、<code>position</code>、<code>result</code> はあくまでも説明用のプライベートメンバ変数であるため、注意すること。</li>
 <li><code>regex_token_iterator</code> は、メンバ変数 <code>position</code> を通して指定された正規表現 <code>re</code> のコピーではなく、<code>re</code> へのポインタをオブジェクト内に保持するため、引数に渡した正規表現オブジェクトは当該イテレータを使用し終わるまで破棄されないようにする必要がある。<br />
-    従って、(2)～(5) の形式のコンストラクタに渡す引数 <code>re</code> に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。<br />
-    (6)～(9) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。<br />
+    従って、(2)-(5) の形式のコンストラクタに渡す引数 <code>re</code> に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。<br />
+    (6)-(9) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。<br />
     しかし、この追加のため、C++11 では<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となりうる以下のようなコードは C++14 ではコンパイルエラーになる。
   <br />
 <div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sregex_token_iterator</span><span class="o">&amp;&amp;</span><span class="p">);</span>
@@ -370,8 +370,8 @@ match <a href="../../ranges/range.html">range</a> = (67, 73), str = 'value3'
 </ul>
 <h3>備考</h3>
 <ul>
-<li>libstdc++ には 5.0.0 rev.218373 現在、(6)～(9) の形式のコンストラクタは存在しない。</li>
-<li>libc++ には、3.4 までは (6)～(9) の形式のコンストラクタは存在しない。また、3.0 には (4) の形式のコンストラクタも存在しない。</li>
+<li>libstdc++ には 5.0.0 rev.218373 現在、(6)-(9) の形式のコンストラクタは存在しない。</li>
+<li>libc++ には、3.4 までは (6)-(9) の形式のコンストラクタは存在しない。また、3.0 には (4) の形式のコンストラクタも存在しない。</li>
 </ul></div>
 
       </div>

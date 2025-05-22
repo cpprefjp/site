@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-05-22T12:25:02">
+        2025年05月22日 12時25分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -240,7 +240,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <ul>
 <li>(1) : <code>T</code> が <code><a href="../utility/pair.html">pair</a></code> の特殊化<strong>ではない</strong>場合のみ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加する</li>
-<li>(2)～(6) : <code>T</code> が <code><a href="../utility/pair.html">pair</a></code> の特殊化<strong>である</strong>場合のみ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加する</li>
+<li>(2)-(6) : <code>T</code> が <code><a href="../utility/pair.html">pair</a></code> の特殊化<strong>である</strong>場合のみ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加する</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <ul>
@@ -325,7 +325,7 @@
     ただし、実際には構築まで実施する <code><a href="make_obj_using_allocator.html">make_obj_using_allocator</a></code> や <code><a href="uninitialized_construct_using_allocator.html">uninitialized_construct_using_allocator</a></code> が存在するため、これらの関数を直接呼び出す機会はあまり多くはないだろう。</li>
 <li>上記 (1) を見ればわかる通り、uses-allocator 構築は、その名前に反して必ずしもアロケータオブジェクトを使うとは限らないので注意。<br />
     （<code><a href="uses_allocator.html">uses_allocator_v</a>&lt;T, Alloc&gt;</code> が <code>false</code> の場合、アロケータオブジェクト <code>alloc</code> は無視される）</li>
-<li>上記 (2)～(6) を見ればわかる通り、<code>T</code> が <code><a href="../utility/pair.html">pair</a></code> の場合には再帰的に <code>uses_allocator_construction_args</code> を呼び出しているため、ネストした <code><a href="../utility/pair.html">pair</a></code> に対しても正しく uses-allocator 構築をサポートできる。</li>
+<li>上記 (2)-(6) を見ればわかる通り、<code>T</code> が <code><a href="../utility/pair.html">pair</a></code> の場合には再帰的に <code>uses_allocator_construction_args</code> を呼び出しているため、ネストした <code><a href="../utility/pair.html">pair</a></code> に対しても正しく uses-allocator 構築をサポートできる。</li>
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="f546b8e10237bd33ed8391144ac4cedc74b73f80"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6af771a9d7f6dfd76ba75ad692ccba971e0f544a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\nint main()\n{\n  std::pair&lt;int, char&gt; p(1, &#39;a&#39;);\n\n  //\u4f4d\u7f6e\u3092\u6307\u5b9a\u3057\u3066\u53d6\u5f97\u3059\u308b\u65b9\u6cd5\u3002(1)\u301c(4)\n  {\n    int&amp; i = std::get&lt;0&gt;(p);\n    char&amp; c = std::get&lt;1&gt;(p);\n\n    std::cout &lt;&lt; i &lt;&lt; std::endl;\n    std::cout &lt;&lt; c &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  //\u578b\u3092\u6307\u5b9a\u3057\u3066\u53d6\u5f97\u3059\u308b\u65b9\u6cd5\u3002(5)\u301c(12)\n  {\n    int&amp; i = std::get&lt;int&gt;(p);\n    char&amp; c = std::get&lt;char&gt;(p);\n\n    std::cout &lt;&lt; i &lt;&lt; std::endl;\n    std::cout &lt;&lt; c &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;pair&#34;, &#34;get&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7cdbde356bc50253cc8f879fe541712317f000ad&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\nint main()\n{\n  std::pair&lt;int, char&gt; p(1, &#39;a&#39;);\n\n  //\u4f4d\u7f6e\u3092\u6307\u5b9a\u3057\u3066\u53d6\u5f97\u3059\u308b\u65b9\u6cd5\u3002(1)-(4)\n  {\n    int&amp; i = std::get&lt;0&gt;(p);\n    char&amp; c = std::get&lt;1&gt;(p);\n\n    std::cout &lt;&lt; i &lt;&lt; std::endl;\n    std::cout &lt;&lt; c &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  //\u578b\u3092\u6307\u5b9a\u3057\u3066\u53d6\u5f97\u3059\u308b\u65b9\u6cd5\u3002(5)-(12)\n  {\n    int&amp; i = std::get&lt;int&gt;(p);\n    char&amp; c = std::get&lt;char&gt;(p);\n\n    std::cout &lt;&lt; i &lt;&lt; std::endl;\n    std::cout &lt;&lt; c &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;pair&#34;, &#34;get&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-12-22T06:27:29">
-        2024年12月22日 06時27分29秒
+      <span itemprop="datePublished" content="2025-05-22T12:25:02">
+        2025年05月22日 12時25分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -305,14 +305,14 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="6af771a9d7f6dfd76ba75ad692ccba971e0f544a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7cdbde356bc50253cc8f879fe541712317f000ad"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n"><a href="../pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">);</span>
 
-  <span class="c1">//位置を指定して取得する方法。(1)〜(4)</span>
+  <span class="c1">//位置を指定して取得する方法。(1)-(4)</span>
   <span class="p">{</span>
     <span class="kt">int</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::get</span></span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
     <span class="kt">char</span><span class="o">&amp;</span> <span class="n">c</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::get</span></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
@@ -322,7 +322,7 @@
   <span class="p">}</span>
   <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="c1">//型を指定して取得する方法。(5)〜(12)</span>
+  <span class="c1">//型を指定して取得する方法。(5)-(12)</span>
   <span class="p">{</span>
     <span class="kt">int</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::get</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
     <span class="kt">char</span><span class="o">&amp;</span> <span class="n">c</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::get</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2022-10-06T09:26:35">
-        2022年10月06日 09時26分35秒
+      <span itemprop="datePublished" content="2025-05-22T12:29:14">
+        2025年05月22日 12時29分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -278,21 +278,23 @@
 </li>
 </ul>
 <h2>要件</h2>
-<p>(3) の形式の場合、<code>s</code> は少なくとも <code>traits_type::length(s) + 1</code> の要素を持つ <code>charT</code> の配列を指していること。</p>
+<ul>
+<li>(3) の形式の場合、<code>s</code> は少なくとも <code>traits_type::length(s) + 1</code> の要素を持つ <code>charT</code> の配列を指していること。</li>
+</ul>
 <h2>効果</h2>
 <ul>
-<li>(1) <code>pos</code> 以前で最後に <code>str</code> と一致する位置を返す。</li>
-<li>(2) <code>pos</code> 以前で最後に <code>s</code> と一致する位置を返す。<code>s</code> は長さ <code>n</code> の文字列へのポインタである。</li>
-<li>(3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。</li>
-<li>(4) <code>pos</code> 以前で最後に <code>c</code> と一致する位置を返す。</li>
-<li>(5) <code>basic_string_view&lt;charT, traits&gt; sv = t;</code>として変数<code>sv</code>を作成し、<code>pos</code> より前で最後に <code>sv</code> と一致する位置を返す。</li>
+<li>(1) : <code>pos</code> 以前で最後に <code>str</code> と一致する位置を返す。</li>
+<li>(2) : <code>pos</code> 以前で最後に <code>s</code> と一致する位置を返す。<code>s</code> は長さ <code>n</code> の文字列へのポインタである。</li>
+<li>(3) : (2) と同様だが、こちらは NULL 終端の文字列を扱う。</li>
+<li>(4) : <code>pos</code> 以前で最後に <code>c</code> と一致する位置を返す。</li>
+<li>(5) : <code>basic_string_view&lt;charT, traits&gt; sv = t;</code>として変数<code>sv</code>を作成し、<code>pos</code> より前で最後に <code>sv</code> と一致する位置を返す。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>見つかればその位置を返し、見つからない場合は <code>basic_string::npos</code> を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <ul>
-<li>(1) 投げない</li>
-<li>(5) <code>noexcept</code>内の式は、以下と等価である
+<li>(1) : 投げない</li>
+<li>(5) : <code>noexcept</code>内の式は、以下と等価である
       <br />
 <div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_nothrow_convertible.html">is_nothrow_convertible_v</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&gt;</span>
 </code></pre></div>
