@@ -7,7 +7,11 @@
 ```cpp
 namespace std {
   template <class T, class Allocator, class U>
-  typename forward_list<T, Allocator>::size_type erase(forward_list<T, Allocator>& c, const U& value);
+  typename forward_list<T, Allocator>::size_type
+    erase(forward_list<T, Allocator>& c, const U& value); // (1) C++20
+  template <class T, class Allocator, class U = T>
+  typename forward_list<T, Allocator>::size_type
+    erase(forward_list<T, Allocator>& c, const U& value); // (1) C++26
 }
 ```
 
@@ -28,7 +32,18 @@ erase_if(c, [&](auto& elem) { return elem == value; });
 削除した要素数を返す。
 
 
+## 備考
+- (1) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::forward_list<std::vector<int>> ls;
+        erase(ls, {}); // 空の要素を削除
+        erase(ls, {1, 2, 3}); // 値{1, 2, 3}をもつ要素を削除
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <forward_list>
@@ -47,11 +62,37 @@ int main()
 ```
 * std::erase[color ff0000]
 
-### 出力
+#### 出力
 ```
 3
 4
 5
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <print>
+#include <forward_list>
+#include <vector>
+
+int main() {
+  std::forward_list<std::vector<int>> ls = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {},
+    {7, 8}
+  };
+
+  std::erase(ls, {}); // 空の要素を削除
+  std::erase(ls, {1, 2, 3}); // 値{1, 2, 3}をもつ要素を削除
+
+  std::println("{}", ls);
+}
+```
+
+#### 出力
+```
+[[4, 5, 6], [7, 8]]
 ```
 
 ## バージョン
@@ -67,3 +108,5 @@ int main()
 ## 参照
 - [P1209R0 Adopt consistent container erasure from Library Fundamentals 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1209r0.html)
 - [R1115R3 Improving the Return Value of Erase-Like Algorithms II: Free `erase`/`erase_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1115r3.pdf)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
