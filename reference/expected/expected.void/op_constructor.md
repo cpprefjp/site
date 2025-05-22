@@ -198,7 +198,7 @@ int main()
     // ムーブ後のstd::unique_ptr型はnullptrが保証される
   }
 
-  // (6),(7) エラー値の変換コピー／ムーブ構築
+  // (6), (7) エラー値の変換コピー／ムーブ構築
   {
     std::unexpected<IntPair> src1{std::in_place, 1, 2};
     std::expected<void, IntTuple> dst1 = src1;
@@ -217,7 +217,7 @@ int main()
     assert(x1.has_value());
   }
 
-  // (9),(10) 引数リストからエラー値を直接構築
+  // (9), (10) 引数リストからエラー値を直接構築
   {
     std::expected<void, ComplexType> x1{std::unexpect, "C++", 1};
     assert(not x1.has_value());

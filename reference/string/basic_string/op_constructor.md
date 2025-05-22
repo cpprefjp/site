@@ -268,4 +268,4 @@ s14 : Hello
 - [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
     - C++23での(16)`nullptr_t`をとるコンストラクタのdelete宣言追加
 - [P2438R2 `std::string::substr() &&`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2438r2.html)
-    - C++23での(17),(18)`basic_string&&`と範囲指定をとるコンストラクタ追加
+    - C++23での(17), (18)`basic_string&&`と範囲指定をとるコンストラクタ追加

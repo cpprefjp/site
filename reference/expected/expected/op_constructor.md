@@ -255,7 +255,7 @@ int main()
     assert(*dst2.value() == 42);
   }
 
-  // (7),(8) エラー値の変換コピー／ムーブ構築
+  // (7), (8) エラー値の変換コピー／ムーブ構築
   {
     std::unexpected<IntPair> src1{std::in_place, 1, 2};
     std::expected<int, IntTuple> dst1 = src1;
@@ -268,7 +268,7 @@ int main()
     assert(*dst2.error() == 42);
   }
 
-  // (9),(10) 引数リストから正常値を直接構築
+  // (9), (10) 引数リストから正常値を直接構築
   {
     std::expected<ComplexType, int> x1{std::in_place, "C++", 1};
     assert(x1.has_value());
@@ -281,7 +281,7 @@ int main()
     assert((x2.value().seq == std::vector<int>{5, 6, 7, 8}));
   }
 
-  // (11),(12) 引数リストからエラー値を直接構築
+  // (11), (12) 引数リストからエラー値を直接構築
   {
     std::expected<int, ComplexType> x1{std::unexpect, "Hello!", 4};
     assert(not x1.has_value());
