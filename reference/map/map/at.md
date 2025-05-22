@@ -10,9 +10,9 @@ T& at(const key_type& x);              // (1) C++11
 const T& at(const key_type & x) const; // (2) C++11
 
 template<class K>
-mapped_type& at(const K& x);             // (3) C++26
+T& at(const K& x);                     // (3) C++26
 template<class K>
-const mapped_type& at(const K& x) const; // (4) C++26
+const T& at(const K& x) const;         // (4) C++26
 ```
 
 ## 概要
@@ -40,7 +40,7 @@ const mapped_type& at(const K& x) const; // (4) C++26
 
 
 ## 例外
-- 対応する要素が存在しない場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する
+- 指定されたキーに対応する要素が存在しない場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する
 
 
 ## 備考

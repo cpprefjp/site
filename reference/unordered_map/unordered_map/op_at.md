@@ -6,22 +6,42 @@
 * cpp11[meta cpp]
 
 ```cpp
-T& operator[](const key_type& x);
-T& operator[](key_type&& x);
+T& operator[](const key_type& x); // (1) C++11
+
+T& operator[](key_type&& x);      // (2) C++11
+
+template <class K>
+T& operator[](K&& k);             // (3) C++26
 ```
 
 ## 概要
-要素へのアクセス
+要素へのアクセス。
+
+- (1), (2) : クラスのテンプレートパラメータ`key_type`型のキーに対応する要素を取得する
+- (3) : `key_type`と比較可能な`K`型のキーに対応する要素を取得する
+
+
+## テンプレートパラメータ制約
+- (3) : `key_compare::is_transparent` が妥当な式であること
+
 
 ## 戻り値
 キー`x`に対応する値を返す。対応する要素が存在しない場合は、要素を値初期化して参照を返す。
 
+
 ## 例外
 ハッシュ関数以外から例外が投げられた場合には、対応する要素がない場合の新規要素の挿入処理は実施されない。
+
 
 ## 計算量
 - 平均： 定数時間
 - 最悪： [`size`](size.md) について線形時間
+
+
+## 備考
+- (3) :
+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
+    - これらのオーバーロードは、`map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
 
 
 ## 例
@@ -78,3 +98,8 @@ size=2
 |-----------------------------|----------------|
 | [`operator=`](op_assign.md) | 代入演算子     |
 | [`insert`](insert.md)       | 要素を挿入する |
+
+
+## 参照
+- [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
+    - C++26で`template <class K>`のバージョンが追加された
