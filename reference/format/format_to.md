@@ -51,15 +51,15 @@ format_to(back_inserter(buffer), "The answer is {}.", 42);
 
 `Out`は以下の制約を満たす。
 
-* (1),(3): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const char&>`
-* (2),(4): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const wchar_t&>`
+* (1), (3): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const char&>`
+* (2), (4): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const wchar_t&>`
 
 ## 事前条件
 
 `Out`は以下のコンセプトのモデルである。
 
-* (1),(3): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const char&>`
-* (2),(4): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const wchar_t&>`
+* (1), (3): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const char&>`
+* (2), (4): [`output_iterator`](/reference/iterator/output_iterator.md)`<Out, const wchar_t&>`
 
 ## 効果
 

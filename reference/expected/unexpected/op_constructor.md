@@ -109,7 +109,7 @@ int main()
     // ムーブ後のstd::unique_ptr型はnullptrが保証される
   }
 
-  // (4),(5) 引数リストから直接構築
+  // (4), (5) 引数リストから直接構築
   {
     std::unexpected<ComplexType> x1{std::in_place, "C++", 1};
     assert(x1.error().data == "C");

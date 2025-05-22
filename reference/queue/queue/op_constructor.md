@@ -6,11 +6,11 @@
 
 ```cpp
 // C++03まで
-explicit queue(const Container& other = Container());  // (1),(2)
+explicit queue(const Container& other = Container());  // (1), (2)
 
 // C++11以降 C++17まで
 explicit queue(const Container& other);           // (2)
-explicit queue(Container&& other = Container());  // (1),(3)
+explicit queue(Container&& other = Container());  // (1), (3)
 
 // C++20以降
 queue() : queue(Container()) {}          // (1)

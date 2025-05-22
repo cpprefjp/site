@@ -35,9 +35,9 @@ void splice_after(const_iterator position, forward_list&& x,
 
 
 ## 効果
-- (1),(2) : `position`の指す要素の後ろに、`x`の全ての要素を移動する
-- (3),(4) : `position`の指す要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
-- (5),(6) : `position`の指す要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
+- (1), (2) : `position`の指す要素の後ろに、`x`の全ての要素を移動する
+- (3), (4) : `position`の指す要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
+- (5), (6) : `position`の指す要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
 
 
 ## 戻り値

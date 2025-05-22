@@ -42,15 +42,15 @@ namespace std {
 
 `Out`は以下の制約を満たす。
 
-* (1),(3): `OutputIterator<const char&>`
-* (2),(4): `OutputIterator<const wchar_t&>`
+* (1), (3): `OutputIterator<const char&>`
+* (2), (4): `OutputIterator<const wchar_t&>`
 
 ## 事前条件
 
 `out`は以下の制約を満たす型の有効なオブジェクトである。
 
-* (1),(3): `OutputIterator<const char&>`
-* (2),(4): `OutputIterator<const wchar_t&>`
+* (1), (3): `OutputIterator<const char&>`
+* (2), (4): `OutputIterator<const wchar_t&>`
 
 ## 効果
 

@@ -6,11 +6,11 @@
 
 ```cpp
 // C++03まで
-explicit stack(const Container& cont = Container());  // (1),(2)
+explicit stack(const Container& cont = Container());  // (1), (2)
 
 // C++11以降 C++17まで
 explicit stack(const Container& cont);           // (2)
-explicit stack(Container&& cont = Container());  // (1),(3)
+explicit stack(Container&& cont = Container());  // (1), (3)
 
 // C++20以降
 stack() : stack(Container()) {}    // (1)
