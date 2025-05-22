@@ -6,20 +6,32 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_type bucket(const key_type& k) const;
+size_type bucket(const key_type& k) const; // (1) C++26
+
+template <class K>
+size_type bucket(const K& k) const;        // (2) C++26
 ```
 
 ## 概要
 指定したキーと等価な要素が格納されている場合、そのバケットのインデックス（添え字）を取得する。
 
+- (1) : `key_type`型のキーを受け取って、バケットのインデックスを取得する
+- (2) : `key_type`と比較可能なキーを受け取って、バケットのインデックスを取得する
 
-## 要件
+
+## テンプレートパラメータ制約
+- (2) : `key_compare::is_transparent` が妥当な式であること
+
+
+## 事前条件
 当該コンテナは [`bucket_count`](bucket_count.md)`() > 0` であること
 
 
 ## 戻り値
 パラメータ `k` と等価なキーの要素が格納されているバケットのインデックス（添え字）
 
+
+## 事後条件
 戻り値は `[0,` [`bucket_count`](bucket_count.md)`())` の範囲である。
 
 
@@ -28,7 +40,10 @@ size_type bucket(const key_type& k) const;
 
 
 ## 備考
-指定したキーと等価な要素が格納されていない場合、そのキーを挿入した際に [`rehash`](rehash.md) が発生しなければ格納されるバケットのインデックス（添え字）が返る。
+- 指定したキーと等価な要素が格納されていない場合、そのキーを挿入した際に [`rehash`](rehash.md) が発生しなければ格納されるバケットのインデックス（添え字）が返る。
+- (2) :
+    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
+    - これらのオーバーロードは、`map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
 
 
 ## 例
@@ -95,3 +110,6 @@ key = H, bucket = 6, bucket_size = 0
 |---------------------------------------------|----------------------|
 | [`max_bucket_count`](max_bucket_count.md) | 最大バケット数の取得 |
 
+## 参照
+- [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
+    - C++26で`template <class K>`のバージョンが追加された
