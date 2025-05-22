@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-04-01T22:47:03">
-        2024年04月01日 22時47分03秒
+      <span itemprop="datePublished" content="2025-05-22T08:27:34">
+        2025年05月22日 08時27分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Tetsuro Matsumura</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -241,14 +241,14 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <p><code>Out</code>は以下の制約を満たす。</p>
 <ul>
-<li>(1),(3): <code>OutputIterator&lt;const char&amp;&gt;</code></li>
-<li>(2),(4): <code>OutputIterator&lt;const wchar_t&amp;&gt;</code></li>
+<li>(1), (3): <code>OutputIterator&lt;const char&amp;&gt;</code></li>
+<li>(2), (4): <code>OutputIterator&lt;const wchar_t&amp;&gt;</code></li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
 <p><code>out</code>は以下の制約を満たす型の有効なオブジェクトである。</p>
 <ul>
-<li>(1),(3): <code>OutputIterator&lt;const char&amp;&gt;</code></li>
-<li>(2),(4): <code>OutputIterator&lt;const wchar_t&amp;&gt;</code></li>
+<li>(1), (3): <code>OutputIterator&lt;const char&amp;&gt;</code></li>
+<li>(2), (4): <code>OutputIterator&lt;const wchar_t&amp;&gt;</code></li>
 </ul>
 <h2>効果</h2>
 <p>書式文字列<code>fmt</code>に従ったフォーマットで<code>args</code>の文字列表現を出力イテレータ<code>out</code>の<code>[out, out + N)</code>の<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>に出力する。ロケール<code>loc</code>が指定された場合は、ロケール依存のフォーマットにおいて使用される。

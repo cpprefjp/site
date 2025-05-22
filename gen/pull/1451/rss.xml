@@ -2,9 +2,843 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-22T07:40:14.569093</updated>
-  <id>4ebf296c-b72e-49d7-b834-7b176bb333ea</id>
+  <updated>2025-05-22T08:39:39.371220</updated>
+  <id>4bec4ae7-41c5-405f-8678-f16b61e40140</id>
 
+  
+    <entry>
+      <title>abs -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/abs.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/cmath/abs.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/abs.md b/reference/cmath/abs.md
+index faf0f2b9a..12397ef4e 100644
+--- a/reference/cmath/abs.md
++++ b/reference/cmath/abs.md
+@@ -45,12 +45,12 @@ namespace std {
+ ## 戻り値
+ 引数 `x` の絶対値を返す。
+ 
+-- (1),(2),(3),(4) : `x` が `±∞` だった場合 `+∞` を返す。
++- (1), (2), (3), (4) : `x` が `±∞` だった場合 `+∞` を返す。
+ 
+ 
+ ## 備考
+ - $$ f(x) = | x | $$
+-- 任意の整数型に対するオーバーロード(5)は C++11 で追加されたが、[一部の符号なし整数型に対して問題を引き起こす](http://wg21.cmeerw.net/lwg/issue2192)ことから C++17 で削除され、符号付き整数型に対するオーバーロード(6),(7),(8)が追加された
++- 任意の整数型に対するオーバーロード(5)は C++11 で追加されたが、[一部の符号なし整数型に対して問題を引き起こす](http://wg21.cmeerw.net/lwg/issue2192)ことから C++17 で削除され、符号付き整数型に対するオーバーロード(6), (7), (8)が追加された
+ - C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wait -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/condition_variable/condition_variable_any/wait.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/condition_variable/condition_variable_any/wait.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/condition_variable/condition_variable_any/wait.md b/reference/condition_variable/condition_variable_any/wait.md
+index 3694af8c1..32a396579 100644
+--- a/reference/condition_variable/condition_variable_any/wait.md
++++ b/reference/condition_variable/condition_variable_any/wait.md
+@@ -65,7 +65,7 @@ return pred();
+ 
+ 
+ ## 戻り値
+-- (1),(2) : なし
++- (1), (2) : なし
+ - (3) : 停止要求の有無によらず、`pred()`の結果が返る。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/cstdlib/abs.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index d8dd259e0..3ed633d17 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -59,7 +59,7 @@ namespace std {
+ ## 戻り値
+ 引数 `j` の絶対値を返す。
+ 
+-- (4),(5),(6),(7) : `j` が `±∞` だった場合 `+∞` を返す。
++- (4), (5), (6), (7) : `j` が `±∞` だった場合 `+∞` を返す。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void/op_constructor.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/expected/expected.void/op_constructor.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void/op_constructor.md b/reference/expected/expected.void/op_constructor.md
+index 84266a193..494caea13 100644
+--- a/reference/expected/expected.void/op_constructor.md
++++ b/reference/expected/expected.void/op_constructor.md
+@@ -198,7 +198,7 @@ int main()
+     // ムーブ後のstd::unique_ptr型はnullptrが保証される
+   }
+ 
+-  // (6),(7) エラー値の変換コピー／ムーブ構築
++  // (6), (7) エラー値の変換コピー／ムーブ構築
+   {
+     std::unexpected&amp;lt;IntPair&amp;gt; src1{std::in_place, 1, 2};
+     std::expected&amp;lt;void, IntTuple&amp;gt; dst1 = src1;
+@@ -217,7 +217,7 @@ int main()
+     assert(x1.has_value());
+   }
+ 
+-  // (9),(10) 引数リストからエラー値を直接構築
++  // (9), (10) 引数リストからエラー値を直接構築
+   {
+     std::expected&amp;lt;void, ComplexType&amp;gt; x1{std::unexpect, &amp;#34;C++&amp;#34;, 1};
+     assert(not x1.has_value());
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected/op_constructor.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/expected/expected/op_constructor.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected/op_constructor.md b/reference/expected/expected/op_constructor.md
+index 43c739071..96418b457 100644
+--- a/reference/expected/expected/op_constructor.md
++++ b/reference/expected/expected/op_constructor.md
+@@ -255,7 +255,7 @@ int main()
+     assert(*dst2.value() == 42);
+   }
+ 
+-  // (7),(8) エラー値の変換コピー／ムーブ構築
++  // (7), (8) エラー値の変換コピー／ムーブ構築
+   {
+     std::unexpected&amp;lt;IntPair&amp;gt; src1{std::in_place, 1, 2};
+     std::expected&amp;lt;int, IntTuple&amp;gt; dst1 = src1;
+@@ -268,7 +268,7 @@ int main()
+     assert(*dst2.error() == 42);
+   }
+ 
+-  // (9),(10) 引数リストから正常値を直接構築
++  // (9), (10) 引数リストから正常値を直接構築
+   {
+     std::expected&amp;lt;ComplexType, int&amp;gt; x1{std::in_place, &amp;#34;C++&amp;#34;, 1};
+     assert(x1.has_value());
+@@ -281,7 +281,7 @@ int main()
+     assert((x2.value().seq == std::vector&amp;lt;int&amp;gt;{5, 6, 7, 8}));
+   }
+ 
+-  // (11),(12) 引数リストからエラー値を直接構築
++  // (11), (12) 引数リストからエラー値を直接構築
+   {
+     std::expected&amp;lt;int, ComplexType&amp;gt; x1{std::unexpect, &amp;#34;Hello!&amp;#34;, 4};
+     assert(not x1.has_value());
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/expected/unexpected/op_constructor.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/expected/unexpected/op_constructor.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/unexpected/op_constructor.md b/reference/expected/unexpected/op_constructor.md
+index 02406bb5d..1b8373301 100644
+--- a/reference/expected/unexpected/op_constructor.md
++++ b/reference/expected/unexpected/op_constructor.md
+@@ -109,7 +109,7 @@ int main()
+     // ムーブ後のstd::unique_ptr型はnullptrが保証される
+   }
+ 
+-  // (4),(5) 引数リストから直接構築
++  // (4), (5) 引数リストから直接構築
+   {
+     std::unexpected&amp;lt;ComplexType&amp;gt; x1{std::in_place, &amp;#34;C++&amp;#34;, 1};
+     assert(x1.error().data == &amp;#34;C&amp;#34;);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>format_to -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/format/format_to.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/format/format_to.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/format_to.md b/reference/format/format_to.md
+index 03cc3bc5c..2cd9f2489 100644
+--- a/reference/format/format_to.md
++++ b/reference/format/format_to.md
+@@ -51,15 +51,15 @@ format_to(back_inserter(buffer), &amp;#34;The answer is {}.&amp;#34;, 42);
+ 
+ `Out`は以下の制約を満たす。
+ 
+-* (1),(3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
+-* (2),(4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
++* (2), (4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 事前条件
+ 
+ `Out`は以下のコンセプトのモデルである。
+ 
+-* (1),(3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
+-* (2),(4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
++* (2), (4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 効果
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>vformat_to -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/format/vformat_to.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/format/vformat_to.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/vformat_to.md b/reference/format/vformat_to.md
+index dd565dd0d..e14207425 100644
+--- a/reference/format/vformat_to.md
++++ b/reference/format/vformat_to.md
+@@ -42,15 +42,15 @@ namespace std {
+ 
+ `Out`は以下の制約を満たす。
+ 
+-* (1),(3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
+-* (2),(4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
++* (2), (4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 事前条件
+ 
+ `out`は以下の制約を満たす型の有効なオブジェクトである。
+ 
+-* (1),(3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
+-* (2),(4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
++* (2), (4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 効果
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>splice_after -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/forward_list/forward_list/splice_after.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/forward_list/forward_list/splice_after.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/forward_list/forward_list/splice_after.md b/reference/forward_list/forward_list/splice_after.md
+index ecb33dfab..20677d81e 100644
+--- a/reference/forward_list/forward_list/splice_after.md
++++ b/reference/forward_list/forward_list/splice_after.md
+@@ -35,9 +35,9 @@ void splice_after(const_iterator position, forward_list&amp;amp;&amp;amp; x,
+ 
+ 
+ ## 効果
+-- (1),(2) : `position`の指す要素の後ろに、`x`の全ての要素を移動する
+-- (3),(4) : `position`の指す要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
+-- (5),(6) : `position`の指す要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
++- (1), (2) : `position`の指す要素の後ろに、`x`の全ての要素を移動する
++- (3), (4) : `position`の指す要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
++- (5), (6) : `position`の指す要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>yield_value -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/generator/generator/promise_type/yield_value.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/generator/generator/promise_type/yield_value.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/generator/generator/promise_type/yield_value.md b/reference/generator/generator/promise_type/yield_value.md
+index 51bcb800f..ca95b2820 100644
+--- a/reference/generator/generator/promise_type/yield_value.md
++++ b/reference/generator/generator/promise_type/yield_value.md
+@@ -90,7 +90,7 @@ return yield_value(ranges::elements_of(nested(
+ 
+ 
+ ## 例外
+-- (1),(3),(4) : 投げない。
++- (1), (3), (4) : 投げない。
+ - (2) : 格納されるオブジェクトの初期化によって送出された例外。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_constructor.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/queue/queue/op_constructor.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_constructor.md b/reference/queue/queue/op_constructor.md
+index 0dfe840c6..4596320db 100644
+--- a/reference/queue/queue/op_constructor.md
++++ b/reference/queue/queue/op_constructor.md
+@@ -6,11 +6,11 @@
+ 
+ ```cpp
+ // C++03まで
+-explicit queue(const Container&amp;amp; other = Container());  // (1),(2)
++explicit queue(const Container&amp;amp; other = Container());  // (1), (2)
+ 
+ // C++11以降 C++17まで
+ explicit queue(const Container&amp;amp; other);           // (2)
+-explicit queue(Container&amp;amp;&amp;amp; other = Container());  // (1),(3)
++explicit queue(Container&amp;amp;&amp;amp; other = Container());  // (1), (3)
+ 
+ // C++20以降
+ queue() : queue(Container()) {}          // (1)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/stack/stack/op_constructor.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/stack/stack/op_constructor.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stack/stack/op_constructor.md b/reference/stack/stack/op_constructor.md
+index 14b0c8d2f..f173b91ca 100644
+--- a/reference/stack/stack/op_constructor.md
++++ b/reference/stack/stack/op_constructor.md
+@@ -6,11 +6,11 @@
+ 
+ ```cpp
+ // C++03まで
+-explicit stack(const Container&amp;amp; cont = Container());  // (1),(2)
++explicit stack(const Container&amp;amp; cont = Container());  // (1), (2)
+ 
+ // C++11以降 C++17まで
+ explicit stack(const Container&amp;amp; cont);           // (2)
+-explicit stack(Container&amp;amp;&amp;amp; cont = Container());  // (1),(3)
++explicit stack(Container&amp;amp;&amp;amp; cont = Container());  // (1), (3)
+ 
+ // C++20以降
+ stack() : stack(Container()) {}    // (1)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge branch &#39;master&#39; into fix_overload_number_separator</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/op_constructor.html"/>
+      <id>f71554c0df82b6fd39dd79f701fc62263661c303:reference/string/basic_string/op_constructor.md</id>
+      <updated>2025-05-22T17:35:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/op_constructor.md b/reference/string/basic_string/op_constructor.md
+index 5bf500824..b0a95566d 100644
+--- a/reference/string/basic_string/op_constructor.md
++++ b/reference/string/basic_string/op_constructor.md
+@@ -268,4 +268,4 @@ s14 : Hello
+ - [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
+     - C++23での(16)`nullptr_t`をとるコンストラクタのdelete宣言追加
+ - [P2438R2 `std::string::substr() &amp;amp;&amp;amp;`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2438r2.html)
+-    - C++23での(17),(18)`basic_string&amp;amp;&amp;amp;`と範囲指定をとるコンストラクタ追加
++    - C++23での(17), (18)`basic_string&amp;amp;&amp;amp;`と範囲指定をとるコンストラクタ追加
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/abs.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/cmath/abs.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/abs.md b/reference/cmath/abs.md
+index 8ae5febb3..52d2b8bda 100644
+--- a/reference/cmath/abs.md
++++ b/reference/cmath/abs.md
+@@ -45,12 +45,12 @@ namespace std {
+ ## 戻り値
+ 引数 `x` の絶対値を返す。
+ 
+-- (1),(2),(3),(4) : `x` が `±∞` だった場合 `+∞` を返す。
++- (1), (2), (3), (4) : `x` が `±∞` だった場合 `+∞` を返す。
+ 
+ 
+ ## 備考
+ - $$ f(x) = | x | $$
+-- 任意の整数型に対するオーバーロード(5)は C++11 で追加されたが、[一部の符号なし整数型に対して問題を引き起こす](http://wg21.cmeerw.net/lwg/issue2192)ことから C++17 で削除され、符号付き整数型に対するオーバーロード(6),(7),(8)が追加された
++- 任意の整数型に対するオーバーロード(5)は C++11 で追加されたが、[一部の符号なし整数型に対して問題を引き起こす](http://wg21.cmeerw.net/lwg/issue2192)ことから C++17 で削除され、符号付き整数型に対するオーバーロード(6), (7), (8)が追加された
+ - C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wait -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/condition_variable/condition_variable_any/wait.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/condition_variable/condition_variable_any/wait.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/condition_variable/condition_variable_any/wait.md b/reference/condition_variable/condition_variable_any/wait.md
+index 3694af8c1..32a396579 100644
+--- a/reference/condition_variable/condition_variable_any/wait.md
++++ b/reference/condition_variable/condition_variable_any/wait.md
+@@ -65,7 +65,7 @@ return pred();
+ 
+ 
+ ## 戻り値
+-- (1),(2) : なし
++- (1), (2) : なし
+ - (3) : 停止要求の有無によらず、`pred()`の結果が返る。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abs -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abs.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/cstdlib/abs.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abs.md b/reference/cstdlib/abs.md
+index ad61f0b6a..a9bbede8c 100644
+--- a/reference/cstdlib/abs.md
++++ b/reference/cstdlib/abs.md
+@@ -59,7 +59,7 @@ namespace std {
+ ## 戻り値
+ 引数 `j` の絶対値を返す。
+ 
+-- (4),(5),(6),(7) : `j` が `±∞` だった場合 `+∞` を返す。
++- (4), (5), (6), (7) : `j` が `±∞` だった場合 `+∞` を返す。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void/op_constructor.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/expected/expected.void/op_constructor.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void/op_constructor.md b/reference/expected/expected.void/op_constructor.md
+index 84266a193..494caea13 100644
+--- a/reference/expected/expected.void/op_constructor.md
++++ b/reference/expected/expected.void/op_constructor.md
+@@ -198,7 +198,7 @@ int main()
+     // ムーブ後のstd::unique_ptr型はnullptrが保証される
+   }
+ 
+-  // (6),(7) エラー値の変換コピー／ムーブ構築
++  // (6), (7) エラー値の変換コピー／ムーブ構築
+   {
+     std::unexpected&amp;lt;IntPair&amp;gt; src1{std::in_place, 1, 2};
+     std::expected&amp;lt;void, IntTuple&amp;gt; dst1 = src1;
+@@ -217,7 +217,7 @@ int main()
+     assert(x1.has_value());
+   }
+ 
+-  // (9),(10) 引数リストからエラー値を直接構築
++  // (9), (10) 引数リストからエラー値を直接構築
+   {
+     std::expected&amp;lt;void, ComplexType&amp;gt; x1{std::unexpect, &amp;#34;C++&amp;#34;, 1};
+     assert(not x1.has_value());
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected/op_constructor.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/expected/expected/op_constructor.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected/op_constructor.md b/reference/expected/expected/op_constructor.md
+index 43c739071..96418b457 100644
+--- a/reference/expected/expected/op_constructor.md
++++ b/reference/expected/expected/op_constructor.md
+@@ -255,7 +255,7 @@ int main()
+     assert(*dst2.value() == 42);
+   }
+ 
+-  // (7),(8) エラー値の変換コピー／ムーブ構築
++  // (7), (8) エラー値の変換コピー／ムーブ構築
+   {
+     std::unexpected&amp;lt;IntPair&amp;gt; src1{std::in_place, 1, 2};
+     std::expected&amp;lt;int, IntTuple&amp;gt; dst1 = src1;
+@@ -268,7 +268,7 @@ int main()
+     assert(*dst2.error() == 42);
+   }
+ 
+-  // (9),(10) 引数リストから正常値を直接構築
++  // (9), (10) 引数リストから正常値を直接構築
+   {
+     std::expected&amp;lt;ComplexType, int&amp;gt; x1{std::in_place, &amp;#34;C++&amp;#34;, 1};
+     assert(x1.has_value());
+@@ -281,7 +281,7 @@ int main()
+     assert((x2.value().seq == std::vector&amp;lt;int&amp;gt;{5, 6, 7, 8}));
+   }
+ 
+-  // (11),(12) 引数リストからエラー値を直接構築
++  // (11), (12) 引数リストからエラー値を直接構築
+   {
+     std::expected&amp;lt;int, ComplexType&amp;gt; x1{std::unexpect, &amp;#34;Hello!&amp;#34;, 4};
+     assert(not x1.has_value());
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/expected/unexpected/op_constructor.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/expected/unexpected/op_constructor.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/unexpected/op_constructor.md b/reference/expected/unexpected/op_constructor.md
+index 02406bb5d..1b8373301 100644
+--- a/reference/expected/unexpected/op_constructor.md
++++ b/reference/expected/unexpected/op_constructor.md
+@@ -109,7 +109,7 @@ int main()
+     // ムーブ後のstd::unique_ptr型はnullptrが保証される
+   }
+ 
+-  // (4),(5) 引数リストから直接構築
++  // (4), (5) 引数リストから直接構築
+   {
+     std::unexpected&amp;lt;ComplexType&amp;gt; x1{std::in_place, &amp;#34;C++&amp;#34;, 1};
+     assert(x1.error().data == &amp;#34;C&amp;#34;);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>format_to -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/format/format_to.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/format/format_to.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/format_to.md b/reference/format/format_to.md
+index 03cc3bc5c..2cd9f2489 100644
+--- a/reference/format/format_to.md
++++ b/reference/format/format_to.md
+@@ -51,15 +51,15 @@ format_to(back_inserter(buffer), &amp;#34;The answer is {}.&amp;#34;, 42);
+ 
+ `Out`は以下の制約を満たす。
+ 
+-* (1),(3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
+-* (2),(4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
++* (2), (4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 事前条件
+ 
+ `Out`は以下のコンセプトのモデルである。
+ 
+-* (1),(3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
+-* (2),(4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const char&amp;amp;&amp;gt;`
++* (2), (4): [`output_iterator`](/reference/iterator/output_iterator.md)`&amp;lt;Out, const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 効果
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>vformat_to -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/format/vformat_to.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/format/vformat_to.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/vformat_to.md b/reference/format/vformat_to.md
+index dd565dd0d..e14207425 100644
+--- a/reference/format/vformat_to.md
++++ b/reference/format/vformat_to.md
+@@ -42,15 +42,15 @@ namespace std {
+ 
+ `Out`は以下の制約を満たす。
+ 
+-* (1),(3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
+-* (2),(4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
++* (2), (4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 事前条件
+ 
+ `out`は以下の制約を満たす型の有効なオブジェクトである。
+ 
+-* (1),(3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
+-* (2),(4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
++* (1), (3): `OutputIterator&amp;lt;const char&amp;amp;&amp;gt;`
++* (2), (4): `OutputIterator&amp;lt;const wchar_t&amp;amp;&amp;gt;`
+ 
+ ## 効果
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>splice_after -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/forward_list/forward_list/splice_after.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/forward_list/forward_list/splice_after.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/forward_list/forward_list/splice_after.md b/reference/forward_list/forward_list/splice_after.md
+index ecb33dfab..20677d81e 100644
+--- a/reference/forward_list/forward_list/splice_after.md
++++ b/reference/forward_list/forward_list/splice_after.md
+@@ -35,9 +35,9 @@ void splice_after(const_iterator position, forward_list&amp;amp;&amp;amp; x,
+ 
+ 
+ ## 効果
+-- (1),(2) : `position`の指す要素の後ろに、`x`の全ての要素を移動する
+-- (3),(4) : `position`の指す要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
+-- (5),(6) : `position`の指す要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
++- (1), (2) : `position`の指す要素の後ろに、`x`の全ての要素を移動する
++- (3), (4) : `position`の指す要素の後ろに、`x`の要素のうち`i`の次の要素を移動する
++- (5), (6) : `position`の指す要素の後ろに、`x`の要素のうち`(first, last)`の範囲を移動する
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>yield_value -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/generator/generator/promise_type/yield_value.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/generator/generator/promise_type/yield_value.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/generator/generator/promise_type/yield_value.md b/reference/generator/generator/promise_type/yield_value.md
+index 51bcb800f..ca95b2820 100644
+--- a/reference/generator/generator/promise_type/yield_value.md
++++ b/reference/generator/generator/promise_type/yield_value.md
+@@ -90,7 +90,7 @@ return yield_value(ranges::elements_of(nested(
+ 
+ 
+ ## 例外
+-- (1),(3),(4) : 投げない。
++- (1), (3), (4) : 投げない。
+ - (2) : 格納されるオブジェクトの初期化によって送出された例外。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_constructor.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/queue/queue/op_constructor.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_constructor.md b/reference/queue/queue/op_constructor.md
+index 0dfe840c6..4596320db 100644
+--- a/reference/queue/queue/op_constructor.md
++++ b/reference/queue/queue/op_constructor.md
+@@ -6,11 +6,11 @@
+ 
+ ```cpp
+ // C++03まで
+-explicit queue(const Container&amp;amp; other = Container());  // (1),(2)
++explicit queue(const Container&amp;amp; other = Container());  // (1), (2)
+ 
+ // C++11以降 C++17まで
+ explicit queue(const Container&amp;amp; other);           // (2)
+-explicit queue(Container&amp;amp;&amp;amp; other = Container());  // (1),(3)
++explicit queue(Container&amp;amp;&amp;amp; other = Container());  // (1), (3)
+ 
+ // C++20以降
+ queue() : queue(Container()) {}          // (1)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/stack/stack/op_constructor.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/stack/stack/op_constructor.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stack/stack/op_constructor.md b/reference/stack/stack/op_constructor.md
+index 14b0c8d2f..f173b91ca 100644
+--- a/reference/stack/stack/op_constructor.md
++++ b/reference/stack/stack/op_constructor.md
+@@ -6,11 +6,11 @@
+ 
+ ```cpp
+ // C++03まで
+-explicit stack(const Container&amp;amp; cont = Container());  // (1),(2)
++explicit stack(const Container&amp;amp; cont = Container());  // (1), (2)
+ 
+ // C++11以降 C++17まで
+ explicit stack(const Container&amp;amp; cont);           // (2)
+-explicit stack(Container&amp;amp;&amp;amp; cont = Container());  // (1),(3)
++explicit stack(Container&amp;amp;&amp;amp; cont = Container());  // (1), (3)
+ 
+ // C++20以降
+ stack() : stack(Container()) {}    // (1)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/op_constructor.html"/>
+      <id>003bb897a82f0e7946d76abc1da6eb2f3f3e0e03:reference/string/basic_string/op_constructor.md</id>
+      <updated>2025-05-22T17:27:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/op_constructor.md b/reference/string/basic_string/op_constructor.md
+index 5bf500824..b0a95566d 100644
+--- a/reference/string/basic_string/op_constructor.md
++++ b/reference/string/basic_string/op_constructor.md
+@@ -268,4 +268,4 @@ s14 : Hello
+ - [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
+     - C++23での(16)`nullptr_t`をとるコンストラクタのdelete宣言追加
+ - [P2438R2 `std::string::substr() &amp;amp;&amp;amp;`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2438r2.html)
+-    - C++23での(17),(18)`basic_string&amp;amp;&amp;amp;`と範囲指定をとるコンストラクタ追加
++    - C++23での(17), (18)`basic_string&amp;amp;&amp;amp;`と範囲指定をとるコンストラクタ追加
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>abs -- 全体: オーバーロード番号の区切りが「、」「, 」で表記揺れしていたため「, 」に統一</title>
@@ -3724,180 +4558,6 @@ index 0db8c87cf..6aaa0be13 100644
  - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
 +- [P2363R5: Extending associative containers with the remaining heterogeneous overloads](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
 +    - C++26で`template &amp;lt;class K&amp;gt;`のバージョンが追加された
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert -- インデントを再修正</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/insert.html"/>
-      <id>0ff1c70cff068a5069c9a2f51a7727e763055e1e:reference/unordered_set/unordered_set/insert.md</id>
-      <updated>2025-05-22T16:04:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/insert.md b/reference/unordered_set/unordered_set/insert.md
-index 29a16a84d..0db8c87cf 100644
---- a/reference/unordered_set/unordered_set/insert.md
-+++ b/reference/unordered_set/unordered_set/insert.md
-@@ -37,19 +37,19 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- 
- 
- ## 適格要件
--- (1)、(3) : `value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
-+- (1)、(3) : `value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。
-     - コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
--	        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
--- (2)、(4) : `value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。  
-+        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
-+- (2)、(4) : `value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。
-     - コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
--	        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
--- (3)、(4) : 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。  
--	   - なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
--- (5) : 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、イテレータ範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
--	   - また、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
--	   - ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
--	       - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
--	   - なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`&amp;lt;decltype(first)&amp;gt;::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
-+        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
-+- (3)、(4) : 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。
-+    - なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
-+- (5) : 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、イテレータ範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。
-+    - また、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。
-+    - ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
-+        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
-+    - なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`&amp;lt;decltype(first)&amp;gt;::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
- - (6) : `value_type` はコンテナに対してコピー挿入可能でなければならない。
- 
- 
-@@ -59,8 +59,8 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- 
- ## 効果
- - (1)、(2) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
--- (3)、(4) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
--	   - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-+- (3)、(4) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-+    - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
- - (5) : イテレータ範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
- - (6) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
- - (7) : `nh`が空の場合、効果はない。それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
-@@ -69,10 +69,10 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- 
- 
- ## 戻り値
--- (1)、(2) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
--	   - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
--- (3)、(4) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。  
--	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
-+- (1)、(2) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。
-+    - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
-+- (3)、(4) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。
-+    - 新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
- - (5) : なし
- - (6) : なし
- - (7) : 戻り値としては、[`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
-@@ -95,13 +95,13 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- 
- ## 備考
- - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
--	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
--- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
--	   - それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
--	   - コンテナのバケット数が変わらない場合とは、以下のいずれかである：
--	       - 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
--	       - 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
--	   - なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
-+    - なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-+- これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
-+    - それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。
-+    - コンテナのバケット数が変わらない場合とは、以下のいずれかである：
-+        - 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
-+        - 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
-+    - なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
- - (7), (8) の場合、要素はコピーもムーブもされない。
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert -- インデントを修正</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/insert.html"/>
-      <id>b809dbcf989f2c69f46ddec3c55a40e5686f2ad0:reference/unordered_set/unordered_set/insert.md</id>
-      <updated>2025-05-22T15:56:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/insert.md b/reference/unordered_set/unordered_set/insert.md
-index 7a2b87647..29a16a84d 100644
---- a/reference/unordered_set/unordered_set/insert.md
-+++ b/reference/unordered_set/unordered_set/insert.md
-@@ -39,17 +39,17 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- ## 適格要件
- - (1)、(3) : `value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
-     - コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
--	      - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
-+	        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
- - (2)、(4) : `value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。  
-     - コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
--	      - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
-+	        - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
- - (3)、(4) : 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。  
--	  - なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
-+	   - なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
- - (5) : 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、イテレータ範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。  
--	  - また、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
--	  - ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
--	      - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
--	  - なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`&amp;lt;decltype(first)&amp;gt;::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
-+	   - また、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。  
-+	   - ここで、コンテナに対して `*first` から直接構築可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
-+	       - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;allocator_type&amp;gt;::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, *first);`
-+	   - なお、`first`、および、`last`は、標準では `value_type` を参照しなければならない（つまり、コンテナの `value_type` と `std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`&amp;lt;decltype(first)&amp;gt;::value_type` が同一の型でなければならない）ことになっているが、実際にはその必要はなく、上記の直接構築可能の要件を満たすだけで良いものと思われる。
- - (6) : `value_type` はコンテナに対してコピー挿入可能でなければならない。
- 
- 
-@@ -60,7 +60,7 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- ## 効果
- - (1)、(2) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
- - (3)、(4) : 引数 `v`、あるいは `rv` で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。  
--	  - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
-+	   - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
- - (5) : イテレータ範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
- - (6) : (3)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
- - (7) : `nh`が空の場合、効果はない。それ以外の場合、`nh.key()`と等価のキーを持つ要素がコンテナにない場合に限り、`nh`が所有する要素を挿入する。
-@@ -70,7 +70,7 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- 
- ## 戻り値
- - (1)、(2) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。  
--	  - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
-+	   - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
- - (3)、(4) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。  
- 	新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
- - (5) : なし
-@@ -97,11 +97,11 @@ iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
- - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。
- 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
- - これらの関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。  
--	  - それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
--	  - コンテナのバケット数が変わらない場合とは、以下のいずれかである：
--	      - 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
--	      - 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
--	  - なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
-+	   - それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。  
-+	   - コンテナのバケット数が変わらない場合とは、以下のいずれかである：
-+	       - 追加しようとした要素と等価なキーの要素が全て既にコンテナに存在したため、要素が追加されなかった。
-+	       - 要素追加後の要素数が、要素追加前のバケット数（[`bucket_count`](bucket_count.md)`()` の戻り値）×最大負荷率（[`max_load_factor`](max_load_factor.md)`()` の戻り値）よりも小さかった。
-+	   - なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。[`reserve`](reserve.md) も参照。
- - (7), (8) の場合、要素はコピーもムーブもされない。
- 
- 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
