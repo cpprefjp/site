@@ -75,13 +75,13 @@ iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
 
 
 ## 戻り値
-- (1)、(2), (3) :
+- (1), (2), (3) :
     - [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`を返す
     - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータを返す
-- (4)、(5) :
+- (4), (5) :
     - 新たな要素が追加された場合、その追加された要素を指すイテレータを返す
     - 新たな要素が追加されなかった場合、すでにあった要素を指すイテレータを返す
-- (6)、(7) : なし
+- (6), (7) : なし
 - (9) :
     - [`insert_return_type`](/reference/map/map.md)を返す。`insert_return_type`のイテレータ型メンバ変数`position`、`bool`型メンバ変数`inserted`に格納される値は(1), (2), (3)のものと同じ情報である。`nh`が空の場合は、`position`は終端イテレータである。`node_type`型メンバ変数`node`には、
         - 挿入された場合には、空の[ノードハンドル](/reference/node_handle/node_handle.md)

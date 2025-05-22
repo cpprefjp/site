@@ -26,7 +26,7 @@ Rangeの要素へのポインタを取得する。
 - (2): `const D`が[`range`](../range.md)かつ`const D`のイテレータが[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)であること。
 
 ## 戻り値
-(1)、(2)共に、以下と等価：
+(1), (2)共に、以下と等価：
 
 ```cpp
 to_address(ranges::begin(derived()));

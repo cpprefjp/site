@@ -86,7 +86,7 @@ namespace std {
 ## 概要
 `transform_reduce()`は、イテレータ範囲の要素を変換しながら集計する関数である。
 
-(1)、(2)、(4)、(5)は、イテレータ範囲`[first1, last1)`の各要素を`x`、イテレータ範囲`[first2, first2+(last1 - first1))`の各要素を`y`として、初期値(`init`)と`binary_op2(x, y)`した各要素を合算したリストの任意の組み合わせに、順不同で`binary_op1(binary_op1(a, b), binary_op1(c, d))`のように適用していき、集計値を計算する。
+(1), (2), (4), (5)は、イテレータ範囲`[first1, last1)`の各要素を`x`、イテレータ範囲`[first2, first2+(last1 - first1))`の各要素を`y`として、初期値(`init`)と`binary_op2(x, y)`した各要素を合算したリストの任意の組み合わせに、順不同で`binary_op1(binary_op1(a, b), binary_op1(c, d))`のように適用していき、集計値を計算する。
 
 (3)と(6)は、初期値(`init`)と、イテレータ範囲`[first, last)`の各要素に関数オブジェクト`unary_op`を適用して合算したリストの任意の組み合わせに、順不同で`binary_op(binary_op(a, b), binary_op(c, d))`のように適用していき、集計値を計算する。
 

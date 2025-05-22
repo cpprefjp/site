@@ -119,7 +119,7 @@ namespace std {
 
 ## 例
 
-### (1)、(2)、(13)、(14) の例
+### (1), (2), (13), (14) の例
 ```cpp example
 #include <iostream>
 #include <iomanip>
@@ -148,7 +148,7 @@ cpprefjp++
 cpprefjp++
 ```
 
-### (3)～(5)、(15)～(17) の例
+### (3)～(5), (15)～(17) の例
 ```cpp example
 #include <iostream>
 #include <iomanip>
@@ -227,7 +227,7 @@ int main()
 
 これは`char8_t`/`char16_t`/`char32_t`に対するostreamの`operator<<`が提供されないため、他のオーバーロードが選ばれるためにこのような直感に反する挙動が発生する。
 
-そこで(6)～(12)、(18)～(24)のように`delete`指定された`operator<<`を追加することで不適格にし、このような直感的ではない挙動を避ける。
+そこで(6)～(12), (18)～(24)のように`delete`指定された`operator<<`を追加することで不適格にし、このような直感的ではない挙動を避ける。
 
 [機能テストマクロ](/lang/cpp20/feature_test_macros.md)は`__cpp_lib_char8_t`で、値は`201907`。
 

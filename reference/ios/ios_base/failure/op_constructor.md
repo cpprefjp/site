@@ -20,7 +20,7 @@ explicit failure(const char* msg, const error_code& ec = io_errc::stream);      
 
 ## 効果
 - (1) [`strcmp`](../../../cstring/strcmp.md.nolink)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` となる [`ios_base`](../../ios_base.md)`::`[`failure`](../failure.md) オブジェクトを構築する。
-- (2)、(3) 引数 `msg` と `ec` を用いて基底クラスを構築して、[`ios_base`](../../ios_base.md)`::`[`failure`](../failure.md) オブジェクトを構築する。
+- (2), (3) 引数 `msg` と `ec` を用いて基底クラスを構築して、[`ios_base`](../../ios_base.md)`::`[`failure`](../failure.md) オブジェクトを構築する。
 
 
 ## 例

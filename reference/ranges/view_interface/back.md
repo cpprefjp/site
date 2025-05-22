@@ -28,7 +28,7 @@ Rangeの末尾の要素を取得する。
 `!`[`empty`](empty.md)`()`
 
 ## 戻り値
-(1)、(2)共に、以下と等価：
+(1), (2)共に、以下と等価：
 
 ```cpp
 *ranges::prev(ranges::end(derived()))
