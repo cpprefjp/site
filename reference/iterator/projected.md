@@ -87,6 +87,7 @@ int main() {
 
 ## 関連項目
 
+- [`projected_value_t`](projected_value_t.md)
 - [`indirectly_comparable`](indirectly_comparable.md)
 - [`mergeable`](mergeable.md)
 - [`sortable`](sortable.md)

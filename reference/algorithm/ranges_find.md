@@ -16,6 +16,16 @@ namespace std::ranges {
          S last,
          const T& value,
          Proj proj = {}); // (1) C++20
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>>
+    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
+  constexpr I
+    find(I first,
+         S last,
+         const T& value,
+         Proj proj = {}); // (1) C++26
 
   template <input_range R,
             class T,
@@ -25,6 +35,14 @@ namespace std::ranges {
     find(R&& r,
          const T& value,
          Proj proj = {}); // (2) C++20
+  template <input_range R,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>>
+    requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
+  constexpr borrowed_iterator_t<R>
+    find(R&& r,
+         const T& value,
+         Proj proj = {}); // (2) C++26
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -51,7 +69,17 @@ namespace std::ranges {
 最大で `last - first` 回比較を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+		    std::vector<T> v;
+        auto it = std::ranges::find(r, {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -69,9 +97,44 @@ int main() {
 ```
 * std::ranges::find[color ff0000]
 
-### 出力
+#### 出力
 ```
 found: 1
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+	{1, 2},
+	{3, 4},
+	{5, 6}
+  };
+
+  auto it = std::ranges::find(v, {3, 4});
+  if (it == v.end()) {
+    std::cout << "not found" << std::endl;
+  } else {
+    std::cout << "found: " << it->x << "," << it->y << std::endl;
+  }
+}
+```
+* std::ranges::find[color ff0000]
+
+#### 出力
+```
+found: 3,4
 ```
 
 
@@ -120,3 +183,5 @@ inline constexpr find_impl find;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
