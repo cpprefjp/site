@@ -212,12 +212,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2023-01-23T04:56:44">
-        2023年01月23日 04時56分44秒
+      <span itemprop="datePublished" content="2025-05-23T01:33:50">
+        2025年05月23日 01時33分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -261,7 +261,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
 <p><code><a href="../../../memory/allocator_traits.html">allocator_traits</a>&lt;B&gt;::pointer</code>はポインタ型。</p>
 <h2>効果</h2>
-<p><code>B</code>型のアロケータ<code>b</code>を、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(1)では<code>A()</code>により、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(2)(3)では<code>A(alloc)</code>により初期化する。</p>
+<p><code>B</code>型のアロケータ<code>b</code>を、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(1)では<code>A()</code>により、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(2), (3)では<code>A(alloc)</code>により初期化する。</p>
 <p>アロケータ<code>b</code>を用いて、サイズ<code>size</code>の<a href="../../../../lang/cpp20/coroutines.html">コルーチン・ステート</a>と、後ほど<code><a href="op_delete.html">operator delete</a></code>による<code>b</code>を用いたメモリブロック解放で必要とされる追加状態を合わせたストレージに必要となる、<code>U</code>型の最小配列ストレージを確保する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>確保されたストレージへのポインタ。</p>

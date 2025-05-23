@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-22T12:26:16">
-        2025年05月22日 12時26分16秒
+      <span itemprop="datePublished" content="2025-05-23T01:33:50">
+        2025年05月23日 01時33分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -347,16 +347,16 @@
     桁数を合わせるために左側を0をパディングすること（0埋め）は行われない。</p>
 </li>
 <li>
-<p>(2)(3)(4)(5) : Cロケールで<code>printf</code>によって行われたかのように浮動小数点数を文字列へ変換する。<br />
+<p>(2), (3), (4), (5) : Cロケールで<code>printf</code>によって行われたかのように浮動小数点数を文字列へ変換する。<br />
     フォーマット指定子は<code>%f,%e</code>どちらかを出力文字列が最も短くなるように（両者が同じなら<code>%f</code>が優先）選択する。</p>
 </li>
 <li>
-<p>(6)(7)(8)(9) : <code>fmt</code>によって指定されたフォーマット指定子を用いて、Cロケールで<code>printf</code>によって行われたかのように浮動小数点数を文字列へ変換する。<br />
+<p>(6), (7), (8), (9) : <code>fmt</code>によって指定されたフォーマット指定子を用いて、Cロケールで<code>printf</code>によって行われたかのように浮動小数点数を文字列へ変換する。<br />
     出力文字列が最も短くなるように変換される。<br />
-<code>chars_format::general</code>が指定された場合は(2)(3)(4)(5)と同等。</p>
+<code>chars_format::general</code>が指定された場合は(2), (3), (4), (5)と同等。</p>
 </li>
 <li>
-<p>(10)(11)(12)(13) : <code>fmt</code>と<code>precision</code>によって指定されたフォーマット指定子と精度を用いて、Cロケールで<code>printf</code>によって行われたかのように浮動小数点数を文字列へ変換する。<br />
+<p>(10), (11), (12), (13) : <code>fmt</code>と<code>precision</code>によって指定されたフォーマット指定子と精度を用いて、Cロケールで<code>printf</code>によって行われたかのように浮動小数点数を文字列へ変換する。<br />
     精度は、<code>chars_format::fixed</code>では小数点以下の正確な桁数、<code>chars_format::scientific</code>と<code>chars_format::hex</code>では最小の桁数を表す。<br />
 <code>chars_format::general</code>が指定された場合は次のようになる。</p>
 <ul>
@@ -391,7 +391,7 @@
 <ul>
 <li>MSVCでは浮動小数点数→10進文字列変換の実装に<a href="https://github.com/ulfjack/ryu" target="_blank">Ryu</a>というアルゴリズムを利用している。</li>
 <li>(1) : 実装によって全ての整数型（符号付、無し）および<code>char</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が提供される</li>
-<li>(5)(9)(13) : 浮動小数点数型は<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む</li>
+<li>(5), (9), (13) : 浮動小数点数型は<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む</li>
 </ul>
 <h2>例</h2>
 <h3>基本の使用例 (C++17)</h3>

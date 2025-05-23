@@ -2,9 +2,1137 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-22T12:33:20.130200</updated>
-  <id>197dc032-182c-4a32-b23a-ec1735f2631a</id>
+  <updated>2025-05-23T01:37:40.979641</updated>
+  <id>58c1f3e7-7559-4d77-b071-3545af0ace3f</id>
 
+  
+    <entry>
+      <title>畳み込み式 [N4295] -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/lang/cpp17/folding_expressions.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:lang/cpp17/folding_expressions.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp17/folding_expressions.md b/lang/cpp17/folding_expressions.md
+index 080253f9b..a6feba34f 100644
+--- a/lang/cpp17/folding_expressions.md
++++ b/lang/cpp17/folding_expressions.md
+@@ -28,7 +28,7 @@
+ 
+ * 畳み込み式はカッコ `()` で囲まれなければならない
+ * `op` は後述する二項演算子  
+-    二項畳み込み (3)(4) の場合 `op` は同一でなければならない
++    二項畳み込み (3), (4) の場合 `op` は同一でなければならない
+ * `pack` は未展開のパラメータパック (規格ではキャスト式 cast-expression と呼ばれる)
+ * `init` は未展開のパラメータパック以外 (規格ではキャスト式 cast-expression と呼ばれる)
+ * 畳み込み式は以下のように展開される:
+@@ -81,7 +81,7 @@
+ 
+ ### パラメータパックが空のときの式の値
+ 
+-単項畳み込み (1)(2) でパラメータパックが空の場合、以下の演算子については式の値が設定される:
++単項畳み込み (1), (2) でパラメータパックが空の場合、以下の演算子については式の値が設定される:
+ 
+ | 演算子 | 値 |
+ |------|------|
+@@ -91,7 +91,7 @@
+ 
+ 上記以外の演算子に対し空のパラメータパックが適用された場合、プログラムは不適格となる。
+ 
+-空のパラメータパックが適用された場合の挙動を変えるには二項畳み込み (3)(4) で値を与える。
++空のパラメータパックが適用された場合の挙動を変えるには二項畳み込み (3), (4) で値を与える。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_right -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_right.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/algorithm/ranges_fold_right.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_right.md b/reference/algorithm/ranges_fold_right.md
+index ea0c5ef57..96a13edc2 100644
+--- a/reference/algorithm/ranges_fold_right.md
++++ b/reference/algorithm/ranges_fold_right.md
+@@ -88,7 +88,7 @@ public:
+ 
+ ## 戻り値
+ 
+-(1)(2)ともに、以下と等価
++(1), (2)ともに、以下と等価
+ 
+ ```cpp
+ using U = decay_t&amp;lt;invoke_result_t&amp;lt;F&amp;amp;, iter_reference_t&amp;lt;I&amp;gt;, T&amp;gt;&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_right_last -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_right_last.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/algorithm/ranges_fold_right_last.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_right_last.md b/reference/algorithm/ranges_fold_right_last.md
+index 0aaef5472..1e15b1e59 100644
+--- a/reference/algorithm/ranges_fold_right_last.md
++++ b/reference/algorithm/ranges_fold_right_last.md
+@@ -52,7 +52,7 @@ namespace std::ranges {
+ 
+ ## 戻り値
+ 
+-(1)(2)ともに、以下と等価
++(1), (2)ともに、以下と等価
+ 
+ ```cpp
+ using U = decay_t&amp;lt;invoke_result_t&amp;lt;F&amp;amp;, iter_reference_t&amp;lt;I&amp;gt;, T&amp;gt;&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>any_cast -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/any/any_cast.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/any/any_cast.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/any/any_cast.md b/reference/any/any_cast.md
+index bed411190..f4c65910d 100644
+--- a/reference/any/any_cast.md
++++ b/reference/any/any_cast.md
+@@ -37,7 +37,7 @@ namespace std {
+ - (1) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;T, const U&amp;amp;&amp;gt; == true`であること。そうでない場合、プログラムは不適格となる
+ - (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;T, U&amp;amp;&amp;gt; == true`であること。そうでない場合、プログラムは不適格となる
+ - (3) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;T, U&amp;gt; == true`であること。そうでない場合、プログラムは不適格となる
+-- (4)(5) : [`is_void_v`](/reference/type_traits/is_void.md)`&amp;lt;T&amp;gt; == false`であること
++- (4), (5) : [`is_void_v`](/reference/type_traits/is_void.md)`&amp;lt;T&amp;gt; == false`であること
+     - C++26から
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_chars -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/charconv/to_chars.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/charconv/to_chars.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/charconv/to_chars.md b/reference/charconv/to_chars.md
+index ed77a9bb0..26417c913 100644
+--- a/reference/charconv/to_chars.md
++++ b/reference/charconv/to_chars.md
+@@ -137,14 +137,14 @@ C++標準はこれら関数の実装の詳細について何も規定しない
+     10 &amp;lt; nの場合、10～35の値はアルファベットの小文字a～zがあてられる。  
+     桁数を合わせるために左側を0をパディングすること（0埋め）は行われない。
+     
+-- (2)(3)(4)(5) : Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
++- (2), (3), (4), (5) : Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
+     フォーマット指定子は`%f,%e`どちらかを出力文字列が最も短くなるように（両者が同じなら`%f`が優先）選択する。
+     
+-- (6)(7)(8)(9) : `fmt`によって指定されたフォーマット指定子を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
++- (6), (7), (8), (9) : `fmt`によって指定されたフォーマット指定子を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
+     出力文字列が最も短くなるように変換される。  
+-    `chars_format::general`が指定された場合は(2)(3)(4)(5)と同等。
++    `chars_format::general`が指定された場合は(2), (3), (4), (5)と同等。
+     
+-- (10)(11)(12)(13) : `fmt`と`precision`によって指定されたフォーマット指定子と精度を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
++- (10), (11), (12), (13) : `fmt`と`precision`によって指定されたフォーマット指定子と精度を用いて、Cロケールで`printf`によって行われたかのように浮動小数点数を文字列へ変換する。  
+     精度は、`chars_format::fixed`では小数点以下の正確な桁数、`chars_format::scientific`と`chars_format::hex`では最小の桁数を表す。  
+     `chars_format::general`が指定された場合は次のようになる。
+     - 指数表記したときの指数を`X`、`precision`と1の大きいほうを`P`とする。
+@@ -176,7 +176,7 @@ C++標準はこれら関数の実装の詳細について何も規定しない
+ ## 備考
+ - MSVCでは浮動小数点数→10進文字列変換の実装に[Ryu](https://github.com/ulfjack/ryu)というアルゴリズムを利用している。
+ - (1) : 実装によって全ての整数型（符号付、無し）および`char`のオーバーロードが提供される
+-- (5)(9)(13) : 浮動小数点数型は拡張浮動小数点数型を含む
++- (5), (9), (13) : 浮動小数点数型は拡張浮動小数点数型を含む
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_equal.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/compare/partial_ordering/op_equal.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_equal.md b/reference/compare/partial_ordering/op_equal.md
+index e961cf991..f1438f887 100644
+--- a/reference/compare/partial_ordering/op_equal.md
++++ b/reference/compare/partial_ordering/op_equal.md
+@@ -18,7 +18,7 @@ friend constexpr bool operator==(/*unspecified*/, partial_ordering v) noexcept;
+ ## 概要
+ 
+ - (1) : `partial_ordering`同士の等値比較を行う
+-- (2)(3) : `partial_ordering`の値が`partial_ordering::equivalent`であるかを調べる。
++- (2), (3) : `partial_ordering`の値が`partial_ordering::equivalent`であるかを調べる。
+ 
+ ## 戻り値
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/compare/partial_ordering/op_not_equal.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/compare/partial_ordering/op_not_equal.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/partial_ordering/op_not_equal.md b/reference/compare/partial_ordering/op_not_equal.md
+index 986a40bfe..29754ebf1 100644
+--- a/reference/compare/partial_ordering/op_not_equal.md
++++ b/reference/compare/partial_ordering/op_not_equal.md
+@@ -18,12 +18,12 @@ friend constexpr bool operator!=(/*unspecified*/, partial_ordering v) noexcept;
+ ## 概要
+ 
+ - (1) : `partial_ordering`同士の非等値比較を行う
+-- (2)(3) : `partial_ordering`の値が`partial_ordering::equivalent`で無いことを調べる。
++- (2), (3) : `partial_ordering`の値が`partial_ordering::equivalent`で無いことを調べる。
+ 
+ ## 戻り値
+ 
+ - (1) : `return !(v == w)`
+-- (2)(3) : `return !(v == 0)`
++- (2), (3) : `return !(v == 0)`
+ 
+ 
+ ## 例外
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/compare/strong_ordering/op_equal.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/compare/strong_ordering/op_equal.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/strong_ordering/op_equal.md b/reference/compare/strong_ordering/op_equal.md
+index 421860f86..b70bb7c53 100644
+--- a/reference/compare/strong_ordering/op_equal.md
++++ b/reference/compare/strong_ordering/op_equal.md
+@@ -18,7 +18,7 @@ friend constexpr bool operator==(/*unspecified*/, strong_ordering v) noexcept;
+ ## 概要
+ 
+ - (1) : `strong_ordering`同士の等値比較を行う
+-- (2)(3) : `strong_ordering`の値が`strong_ordering::equal`であるかを調べる。
++- (2), (3) : `strong_ordering`の値が`strong_ordering::equal`であるかを調べる。
+ 
+ ## 戻り値
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/compare/strong_ordering/op_not_equal.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/compare/strong_ordering/op_not_equal.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/strong_ordering/op_not_equal.md b/reference/compare/strong_ordering/op_not_equal.md
+index e2fb0d7f3..ecd9eabb5 100644
+--- a/reference/compare/strong_ordering/op_not_equal.md
++++ b/reference/compare/strong_ordering/op_not_equal.md
+@@ -18,12 +18,12 @@ friend constexpr bool operator!=(/*unspecified*/, strong_ordering v) noexcept;
+ ## 概要
+ 
+ - (1) : `strong_ordering`同士の非等値比較を行う
+-- (2)(3) : `strong_ordering`の値が`strong_ordering::equal`で無いことを調べる。
++- (2), (3) : `strong_ordering`の値が`strong_ordering::equal`で無いことを調べる。
+ 
+ ## 戻り値
+ 
+ - (1) : `return !(v == w)` 
+-- (2)(3) : `return !(v == 0)`
++- (2), (3) : `return !(v == 0)`
+ 
+ 
+ ## 例外
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/compare/weak_ordering/op_equal.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/compare/weak_ordering/op_equal.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/weak_ordering/op_equal.md b/reference/compare/weak_ordering/op_equal.md
+index c6eba5fdb..78c2e3903 100644
+--- a/reference/compare/weak_ordering/op_equal.md
++++ b/reference/compare/weak_ordering/op_equal.md
+@@ -18,7 +18,7 @@ friend constexpr bool operator==(/*unspecified*/, weak_ordering v) noexcept;   /
+ ## 概要
+ 
+ - (1) : `weak_ordering`同士の等値比較を行う
+-- (2)(3) : `weak_ordering`の値が`weak_ordering::equivalent`であるかを調べる。
++- (2), (3) : `weak_ordering`の値が`weak_ordering::equivalent`であるかを調べる。
+ 
+ ## 戻り値
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/compare/weak_ordering/op_not_equal.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/compare/weak_ordering/op_not_equal.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/weak_ordering/op_not_equal.md b/reference/compare/weak_ordering/op_not_equal.md
+index 05fd85355..9d72db850 100644
+--- a/reference/compare/weak_ordering/op_not_equal.md
++++ b/reference/compare/weak_ordering/op_not_equal.md
+@@ -18,12 +18,12 @@ friend constexpr bool operator!=(/*unspecified*/, weak_ordering v) noexcept;   /
+ ## 概要
+ 
+ - (1) : `weak_ordering`同士の非等値比較を行う
+-- (2)(3) : `weak_ordering`の値が`weak_ordering::equivalent`で無いことを調べる。
++- (2), (3) : `weak_ordering`の値が`weak_ordering::equivalent`で無いことを調べる。
+ 
+ ## 戻り値
+ 
+ - (1) : `return !(v == w)` 
+-- (2)(3) : `return !(v == 0)`
++- (2), (3) : `return !(v == 0)`
+ 
+ 
+ ## 例外
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator new -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/generator/generator/promise_type/op_new.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/generator/generator/promise_type/op_new.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/generator/generator/promise_type/op_new.md b/reference/generator/generator/promise_type/op_new.md
+index 3764efb60..19c0ffee4 100644
+--- a/reference/generator/generator/promise_type/op_new.md
++++ b/reference/generator/generator/promise_type/op_new.md
+@@ -39,7 +39,7 @@ void* operator new(size_t size, const This&amp;amp;, allocator_arg_t, const Alloc&amp;amp; alloc
+ 
+ 
+ ## 効果
+-`B`型のアロケータ`b`を、オーバーロード(1)では`A()`により、オーバーロード(2)(3)では`A(alloc)`により初期化する。
++`B`型のアロケータ`b`を、オーバーロード(1)では`A()`により、オーバーロード(2), (3)では`A(alloc)`により初期化する。
+ 
+ アロケータ`b`を用いて、サイズ`size`の[コルーチン・ステート](/lang/cpp20/coroutines.md)と、後ほど[`operator delete`](op_delete.md)による`b`を用いたメモリブロック解放で必要とされる追加状態を合わせたストレージに必要となる、`U`型の最小配列ストレージを確保する。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>common_type -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/common_type.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/iterator/basic_const_iterator/common_type.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/common_type.md b/reference/iterator/basic_const_iterator/common_type.md
+index 88be1e536..3702dd032 100644
+--- a/reference/iterator/basic_const_iterator/common_type.md
++++ b/reference/iterator/basic_const_iterator/common_type.md
+@@ -37,7 +37,7 @@ namespace std {
+ 
+ `basic_const_iterator`のための[`common_type`](/reference/type_traits/common_type.md)特殊化。
+ 
+-- (1)(2) : `basic_const_iterator`とその他のイテレータ型の間の共通の型を取得する
++- (1), (2) : `basic_const_iterator`とその他のイテレータ型の間の共通の型を取得する
+ - (3) : 異なるイテレータ型による`basic_const_iterator`特殊化の間の共通の型を取得する
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator++ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/op_increment.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/iterator/basic_const_iterator/op_increment.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/op_increment.md b/reference/iterator/basic_const_iterator/op_increment.md
+index bc2c4c577..36ca5873f 100644
+--- a/reference/iterator/basic_const_iterator/op_increment.md
++++ b/reference/iterator/basic_const_iterator/op_increment.md
+@@ -18,7 +18,7 @@ constexpr basic_const_iterator operator++(int) requires forward_iterator&amp;lt;Iterato
+ イテレータをインクリメントする。
+ 
+ - (1) : 前置インクリメント
+-- (2)(3) : 後置インクリメント
++- (2), (3) : 後置インクリメント
+ 
+ ## 効果
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator++ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/counted_iterator/op_increment.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/iterator/counted_iterator/op_increment.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/counted_iterator/op_increment.md b/reference/iterator/counted_iterator/op_increment.md
+index f3cc8ae6a..b09b70ca2 100644
+--- a/reference/iterator/counted_iterator/op_increment.md
++++ b/reference/iterator/counted_iterator/op_increment.md
+@@ -19,11 +19,11 @@ constexpr counted_iterator operator++(int)
+ イテレータをインクリメントする。
+ 
+ - (1) : 前置インクリメント
+-- (2)(3) : 後置インクリメント
++- (2), (3) : 後置インクリメント
+ 
+ ## 事前条件
+ 
+-- (1)(2) : [`count()`](count.md)` &amp;gt; 0`
++- (1), (2) : [`count()`](count.md)` &amp;gt; 0`
+ 
+ ## 効果
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>advance -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/ranges_advance.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/iterator/ranges_advance.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/ranges_advance.md b/reference/iterator/ranges_advance.md
+index eb165ddd7..d4a3403e4 100644
+--- a/reference/iterator/ranges_advance.md
++++ b/reference/iterator/ranges_advance.md
+@@ -61,7 +61,7 @@ namespace std::ranges {
+ 
+ ## 戻り値
+ 
+-- (1)(2) : なし
++- (1), (2) : なし
+ - (3) : 指定した距離`n`と実際に進めた距離との差（進めなかった距離）を返す
+     - `i`の処理終了時と開始時の位置の差を`M`として、`n - M`を返す
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/locale/wstring_convert/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/locale/wstring_convert/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/locale/wstring_convert/op_constructor.md b/reference/locale/wstring_convert/op_constructor.md
+index 43b69f596..5c2382ec7 100644
+--- a/reference/locale/wstring_convert/op_constructor.md
++++ b/reference/locale/wstring_convert/op_constructor.md
+@@ -38,7 +38,7 @@ wstring_convert(const wstring_convert&amp;amp;) = delete;      // (5) C++14
+ 
+ ## 要件
+ 
+-- (2)(3) : `pcvt != nullptr`であること。
++- (2), (3) : `pcvt != nullptr`であること。
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/memory_resource/monotonic_buffer_resource/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/memory_resource/monotonic_buffer_resource/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory_resource/monotonic_buffer_resource/op_constructor.md b/reference/memory_resource/monotonic_buffer_resource/op_constructor.md
+index 67e7ebe4d..f9aa78739 100644
+--- a/reference/memory_resource/monotonic_buffer_resource/op_constructor.md
++++ b/reference/memory_resource/monotonic_buffer_resource/op_constructor.md
+@@ -38,9 +38,9 @@ monotonic_buffer_resource(const monotonic_buffer_resource&amp;amp;) = delete;
+ 
+ ## 要件
+ 
+-- (1)(2)(3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
+-- (2)(5) : `initial_size`は0より大きいこと
+-- (3)(6) : `buffer_size`は`buffer`に割り当てられているメモリ領域のサイズ以下であること。
++- (1), (2), (3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
++- (2), (5) : `initial_size`は0より大きいこと
++- (3), (6) : `buffer_size`は`buffer`に割り当てられているメモリ領域のサイズ以下であること。
+ 
+ ## 引数
+ 
+@@ -63,7 +63,7 @@ monotonic_buffer_resource(const monotonic_buffer_resource&amp;amp;) = delete;
+ 
+ - (6) : `buffer`と`buffer_size`及び[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(3)に渡し委譲
+ 
+-(4)(5)(6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
++(4), (5), (6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
+ 
+ ## 備考
+ どのコンストラクタの初期化においても、上流メモリリソースの所有権を保持しない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/memory_resource/polymorphic_allocator/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/memory_resource/polymorphic_allocator/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory_resource/polymorphic_allocator/op_constructor.md b/reference/memory_resource/polymorphic_allocator/op_constructor.md
+index 1fdbcee0b..3d974e9ed 100644
+--- a/reference/memory_resource/polymorphic_allocator/op_constructor.md
++++ b/reference/memory_resource/polymorphic_allocator/op_constructor.md
+@@ -32,10 +32,10 @@ polymorphic_allocator(const polymorphic_allocator&amp;lt;U&amp;gt;&amp;amp; other) noexcept;  //(4)
+ ## 効果
+ - (1) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)からデフォルトの`memory_resource`を取得して構築
+ - (2) : `r`を`memory_resource`として構築
+-- (3)(4) : [`other.resource()`](resource.md)から`memory_resource`を取得して構築
++- (3), (4) : [`other.resource()`](resource.md)から`memory_resource`を取得して構築
+ 
+ ## 例外
+-- (1)(4) : 投げない
++- (1), (4) : 投げない
+ 
+ ## 備考
+ どのコンストラクタからの初期化においても、取得する`memory_resource`の所有権を保持しない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/memory_resource/pool_resource/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/memory_resource/pool_resource/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory_resource/pool_resource/op_constructor.md b/reference/memory_resource/pool_resource/op_constructor.md
+index bd0883de8..980f72734 100644
+--- a/reference/memory_resource/pool_resource/op_constructor.md
++++ b/reference/memory_resource/pool_resource/op_constructor.md
+@@ -34,7 +34,7 @@ pool_resource(const pool_resource&amp;amp;) = delete;                        //(5)
+ 
+ ## 要件
+ 
+-- (1)(3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
++- (1), (3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
+ 
+ ## 引数
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/random/linear_congruential_engine/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/random/linear_congruential_engine/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/linear_congruential_engine/op_constructor.md b/reference/random/linear_congruential_engine/op_constructor.md
+index 86189541c..9aa822f6a 100644
+--- a/reference/random/linear_congruential_engine/op_constructor.md
++++ b/reference/random/linear_congruential_engine/op_constructor.md
+@@ -29,7 +29,7 @@ linear_congruential_engine(linear_congruential_engine&amp;amp;&amp;amp; e) = default;      // (5
+ 
+ 
+ ## 計算量
+-- (1)(2) : O(1)
++- (1), (2) : O(1)
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/random/mersenne_twister_engine/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/random/mersenne_twister_engine/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/mersenne_twister_engine/op_constructor.md b/reference/random/mersenne_twister_engine/op_constructor.md
+index 1df5e50f4..316b35872 100644
+--- a/reference/random/mersenne_twister_engine/op_constructor.md
++++ b/reference/random/mersenne_twister_engine/op_constructor.md
+@@ -29,7 +29,7 @@ mersenne_twister_engine(mersenne_twister_engine&amp;amp;&amp;amp; e) = default;      // (5)
+ 
+ 
+ ## 計算量
+-- (1)(2) : 状態のサイズ `n` (`mersenne_twister_engine::state_size`) に対し O(n)
++- (1), (2) : 状態のサイズ `n` (`mersenne_twister_engine::state_size`) に対し O(n)
+ - (5) : 状態シーケンスの要素数はコンパイル時に決定されるため、多くの場合状態シーケンスはスタック上(配列)に作られる。そのため、ムーブが効果的に動作することは期待できない
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/random/random_device/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/random/random_device/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/random_device/op_constructor.md b/reference/random/random_device/op_constructor.md
+index cfc1661bc..f4efdfc36 100644
+--- a/reference/random/random_device/op_constructor.md
++++ b/reference/random/random_device/op_constructor.md
+@@ -37,7 +37,7 @@ random_device(const random_device&amp;amp;) = delete;                         // (3)
+       デフォルトでは、CPU の `RDRAND` 命令が使用できれば (`_GLIBCXX_X86_RDRAND` が定義されていれば) それを、そうでなければ `/dev/urandom` から値を取得する
+ 
+ ## 例外
+-- (1)(2) : 乱数生成器を初期化できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する
++- (1), (2) : 乱数生成器を初期化できなかった場合、[`exception`](/reference/exception/exception.md)から派生した実装定義の例外オブジェクトを送出する
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/random/subtract_with_carry_engine/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/random/subtract_with_carry_engine/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/subtract_with_carry_engine/op_constructor.md b/reference/random/subtract_with_carry_engine/op_constructor.md
+index a954e310d..cadd3aaf4 100644
+--- a/reference/random/subtract_with_carry_engine/op_constructor.md
++++ b/reference/random/subtract_with_carry_engine/op_constructor.md
+@@ -35,7 +35,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&amp;amp;&amp;amp; e) = default;      // (5
+ 
+ 
+ ## 計算量
+-- (1)(2) : 正確に $n \times \mathtt{r}$ 回 (`r` は `subtract_with_carry_engine::long_lag`) [`linear_congruential_engine` を呼ぶ](../linear_congruential_engine/op_call.md)
++- (1), (2) : 正確に $n \times \mathtt{r}$ 回 (`r` は `subtract_with_carry_engine::long_lag`) [`linear_congruential_engine` を呼ぶ](../linear_congruential_engine/op_call.md)
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/random/uniform_int_distribution/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/random/uniform_int_distribution/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/uniform_int_distribution/op_constructor.md b/reference/random/uniform_int_distribution/op_constructor.md
+index 0335d5c4a..c15737711 100644
+--- a/reference/random/uniform_int_distribution/op_constructor.md
++++ b/reference/random/uniform_int_distribution/op_constructor.md
+@@ -28,7 +28,7 @@ explicit uniform_int_distribution(const param_type&amp;amp; parm);                     /
+ 
+ 
+ ## 要件
+-- (1)(2) : `a &amp;lt;= b`であること
++- (1), (2) : `a &amp;lt;= b`であること
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/random/uniform_real_distribution/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/random/uniform_real_distribution/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/uniform_real_distribution/op_constructor.md b/reference/random/uniform_real_distribution/op_constructor.md
+index 990146a3d..52da9ba0f 100644
+--- a/reference/random/uniform_real_distribution/op_constructor.md
++++ b/reference/random/uniform_real_distribution/op_constructor.md
+@@ -24,7 +24,7 @@ explicit uniform_real_distribution(const param_type&amp;amp; parm);             // (3)
+ 
+ 
+ ## 要件
+-- (1)(2) : `a &amp;lt;= b`かつ`b - a &amp;lt;=` [`numeric_limits`](/reference/limits/numeric_limits.md)`&amp;lt;RealType&amp;gt;::`[`max()`](/reference/limits/numeric_limits/max.md)であること
++- (1), (2) : `a &amp;lt;= b`かつ`b - a &amp;lt;=` [`numeric_limits`](/reference/limits/numeric_limits.md)`&amp;lt;RealType&amp;gt;::`[`max()`](/reference/limits/numeric_limits/max.md)であること
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>begin -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/as_const_view/begin.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/ranges/as_const_view/begin.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/as_const_view/begin.md b/reference/ranges/as_const_view/begin.md
+index ccd9c8247..0cd45667b 100644
+--- a/reference/ranges/as_const_view/begin.md
++++ b/reference/ranges/as_const_view/begin.md
+@@ -18,7 +18,7 @@ constexpr auto begin() const requires range&amp;lt;const V&amp;gt;;   // (2)
+ 
+ ## 戻り値
+ 
+-入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1)(2)どちらも
++入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1), (2)どちらも
+ 
+ ```cpp
+ return ranges::cbegin(base_);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/as_const_view/end.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/ranges/as_const_view/end.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/as_const_view/end.md b/reference/ranges/as_const_view/end.md
+index 5b08c30cc..b1c953ed1 100644
+--- a/reference/ranges/as_const_view/end.md
++++ b/reference/ranges/as_const_view/end.md
+@@ -18,7 +18,7 @@ constexpr auto end() const requires range&amp;lt;const V&amp;gt;; // (2)
+ 
+ ## 戻り値
+ 
+-入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1)(2)どちらも
++入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1), (2)どちらも
+ 
+ ```cpp
+ return ranges::cend(base_);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/as_const_view/size.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/ranges/as_const_view/size.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/as_const_view/size.md b/reference/ranges/as_const_view/size.md
+index 392911257..0ddeace6e 100644
+--- a/reference/ranges/as_const_view/size.md
++++ b/reference/ranges/as_const_view/size.md
+@@ -19,7 +19,7 @@ constexpr auto size() const requires sized_range&amp;lt;const V&amp;gt;;  // (2)
+ 
+ ## 戻り値
+ 
+-入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1)(2)どちらも
++入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1), (2)どちらも
+ 
+ ```cpp
+ return ranges::size(base_);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/regex/match_results/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/regex/match_results/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/regex/match_results/op_constructor.md b/reference/regex/match_results/op_constructor.md
+index a7f503564..659426002 100644
+--- a/reference/regex/match_results/op_constructor.md
++++ b/reference/regex/match_results/op_constructor.md
+@@ -34,7 +34,7 @@ match_results(match_results&amp;amp;&amp;amp; m) noexcept;          // (4)
+ 
+ 
+ ## 事後条件
+-- (1)(2) [`ready`](ready.md)`() == false`、かつ、[`size`](size.md)`() == 0`、かつ、[`get_allocator`](get_allocator.md)`() == a`
++- (1), (2) [`ready`](ready.md)`() == false`、かつ、[`size`](size.md)`() == 0`、かつ、[`get_allocator`](get_allocator.md)`() == a`
+ - (3) 構築したオブジェクトを `u` とすると、`u == m`
+ - (4) 以下の表を満たす。
+ 
+@@ -52,7 +52,7 @@ match_results(match_results&amp;amp;&amp;amp; m) noexcept;          // (4)
+ 
+ 
+ ## 計算量
+-- (1)(2) 定数時間
++- (1), (2) 定数時間
+ - (3) 線形時間
+ - (4) 定数時間
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>append -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/append.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/string/basic_string/append.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/append.md b/reference/string/basic_string/append.md
+index 8115e4703..b1be83c9b 100644
+--- a/reference/string/basic_string/append.md
++++ b/reference/string/basic_string/append.md
+@@ -68,7 +68,7 @@ constexpr basic_string&amp;amp;
+ 
+ ## テンプレートパラメータ制約
+ 
+-- (8)(9) : 以下の両方を満たしていること
++- (8), (9) : 以下の両方を満たしていること
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`&amp;lt;charT, traits&amp;gt;&amp;gt; == true`
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, const charT*&amp;gt; == false`
+ 
+@@ -218,5 +218,5 @@ Hello, world
+ - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+ - [LWG Issue 2758. `std::string{}.assign(&amp;#34;ABCDE&amp;#34;, 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+ - [LWG Issue 2946. LWG 2758&amp;#39;s resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+-    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(8)(9)の引数型を`const T&amp;amp;`に変更
++    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(8), (9)の引数型を`const T&amp;amp;`に変更
+ - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>assign -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/assign.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/string/basic_string/assign.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/assign.md b/reference/string/basic_string/assign.md
+index 8cdbf74ac..342e2d797 100644
+--- a/reference/string/basic_string/assign.md
++++ b/reference/string/basic_string/assign.md
+@@ -71,7 +71,7 @@ constexpr basic_string&amp;amp;
+ 
+ ## テンプレートパラメータ制約
+ 
+-- (9)(10) : 以下の両方を満たしていること
++- (9), (10) : 以下の両方を満たしていること
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`&amp;lt;charT, traits&amp;gt;&amp;gt; == true`
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, const charT*&amp;gt; == false`
+ 
+@@ -210,5 +210,5 @@ s10 : Hello
+ - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+ - [LWG Issue 2758. `std::string{}.assign(&amp;#34;ABCDE&amp;#34;, 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+ - [LWG Issue 2946. LWG 2758&amp;#39;s resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+-    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(9)(10)の引数型を`const T&amp;amp;`に変更
++    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(9), (10)の引数型を`const T&amp;amp;`に変更
+ - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>compare -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/compare.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/string/basic_string/compare.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/compare.md b/reference/string/basic_string/compare.md
+index 9bb3b821f..590f21960 100644
+--- a/reference/string/basic_string/compare.md
++++ b/reference/string/basic_string/compare.md
+@@ -168,5 +168,5 @@ int main()
+ - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+ - [LWG Issue 2758. `std::string{}.assign(&amp;#34;ABCDE&amp;#34;, 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+ - [LWG Issue 2946. LWG 2758&amp;#39;s resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+-    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(7)(8)(9)の引数型を`const T&amp;amp;`に変更
++    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(7), (8), (9)の引数型を`const T&amp;amp;`に変更
+ - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/insert.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/string/basic_string/insert.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/insert.md b/reference/string/basic_string/insert.md
+index 452956796..def1e70bb 100644
+--- a/reference/string/basic_string/insert.md
++++ b/reference/string/basic_string/insert.md
+@@ -91,7 +91,7 @@ constexpr basic_string&amp;amp;
+ 
+ ## テンプレートパラメータ制約
+ 
+-- (10)(11) : 以下の両方を満たしていること
++- (10), (11) : 以下の両方を満たしていること
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`&amp;lt;charT, traits&amp;gt;&amp;gt; == true`
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, const charT*&amp;gt; == false`
+ 
+@@ -292,5 +292,5 @@ int main()
+ - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+ - [LWG Issue 2758. `std::string{}.assign(&amp;#34;ABCDE&amp;#34;, 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+ - [LWG Issue 2946. LWG 2758&amp;#39;s resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+-    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(10)(11)の引数型を`const T&amp;amp;`に変更
++    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(10), (11)の引数型を`const T&amp;amp;`に変更
+ - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator+ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/op_plus.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/string/basic_string/op_plus.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/op_plus.md b/reference/string/basic_string/op_plus.md
+index 0452ec6fd..6b181c21b 100644
+--- a/reference/string/basic_string/op_plus.md
++++ b/reference/string/basic_string/op_plus.md
+@@ -151,7 +151,7 @@ namespace std {
+ 
+ ### C++20から
+ 
+-- (1)(9) : 以下と等価
++- (1), (9) : 以下と等価
+     ```cpp
+     basic_string&amp;lt;charT, traits, Allocator&amp;gt; r = lhs;
+     r.append(rhs);
+@@ -159,14 +159,14 @@ namespace std {
+     ```
+     * append[link append.md]
+ 
+-- (2)(10) : 以下と等価
++- (2), (10) : 以下と等価
+     ```cpp
+     lhs.append(rhs);
+     return std::move(lhs);
+     ```
+     * append[link append.md]
+ 
+-- (3)(6) : 以下と等価
++- (3), (6) : 以下と等価
+     ```cpp
+     rhs.insert(0, lhs);
+     return std::move(rhs);
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>replace -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/replace.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/string/basic_string/replace.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/replace.md b/reference/string/basic_string/replace.md
+index 623eebd07..207ae106d 100644
+--- a/reference/string/basic_string/replace.md
++++ b/reference/string/basic_string/replace.md
+@@ -192,7 +192,7 @@ constexpr basic_string&amp;amp;
+ 
+ ## テンプレートパラメータ制約
+ 
+-- (12)(13)(14) : 以下の両方を満たしていること
++- (12), (13), (14) : 以下の両方を満たしていること
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`&amp;lt;charT, traits&amp;gt;&amp;gt; == true`
+     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, const charT*&amp;gt; == false`
+ 
+@@ -440,5 +440,5 @@ int main()
+ - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+ - [LWG Issue 2758. `std::string{}.assign(&amp;#34;ABCDE&amp;#34;, 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+ - [LWG Issue 2946. LWG 2758&amp;#39;s resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
+-    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(12)(13)(14)の引数型を`const T&amp;amp;`に変更
++    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(12), (13), (14)の引数型を`const T&amp;amp;`に変更
+ - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換</title>
+      <link href="https://cpprefjp.github.io/reference/syncstream/basic_osyncstream/op_constructor.html"/>
+      <id>16a3e8098a15303a79fbbc3e038b3a295714835d:reference/syncstream/basic_osyncstream/op_constructor.md</id>
+      <updated>2025-05-23T10:33:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/syncstream/basic_osyncstream/op_constructor.md b/reference/syncstream/basic_osyncstream/op_constructor.md
+index 95eb9da66..cc4bdc5e2 100644
+--- a/reference/syncstream/basic_osyncstream/op_constructor.md
++++ b/reference/syncstream/basic_osyncstream/op_constructor.md
+@@ -27,7 +27,7 @@ basic_osyncstream(basic_osyncstream&amp;amp;&amp;amp; other) noexcept;
+ 
+ ## 効果
+ - (1) : 提供されるストリームバッファ（`buf`）、アロケータ（`allocator`）を使用してプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)を初期化し、そのポインタを用いて基底クラスである[`std::basic_ostream`](../../ostream/basic_ostream.md)を初期化する。
+-- (2)(3) : (1)に委譲。
++- (2), (3) : (1)に委譲。
+ - (4) : (3)に委譲。
+ - (5) : 対応する`other`のサブオブジェクトから基底クラスとプライベートメンバの`std::basic_syncbuf`をムーブ構築し、基底クラスの初期化を完了するために`std::basic_ostream&amp;lt;charT, traits&amp;gt;::set_rdbuf(addressof(sb))`を呼び出す。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>find -- basic_string : オーバーロードと説明の区切りを見直し</title>
@@ -678,69 +1806,6 @@ index bbf59b17a..4565cc5e6 100644
    {
      int&amp;amp; i = std::get&amp;lt;int&amp;gt;(p);
      char&amp;amp; c = std::get&amp;lt;char&amp;gt;(p);
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>compare -- basic_string::compare : オーバーロードの区切りを見直し</title>
-      <link href="https://cpprefjp.github.io/reference/string/basic_string/compare.html"/>
-      <id>0436b335fec184162762daa2bb35df8becfe269c:reference/string/basic_string/compare.md</id>
-      <updated>2025-05-22T21:22:45+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/compare.md b/reference/string/basic_string/compare.md
-index dc9ef61c3..9bb3b821f 100644
---- a/reference/string/basic_string/compare.md
-+++ b/reference/string/basic_string/compare.md
-@@ -101,17 +101,17 @@ constexpr int
- 
- ## テンプレートパラメータ制約
- 
--- (7)(8)(9) : 以下の両方を満たしていること
-+- (7), (8), (9) : 以下の両方を満たしていること
-     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`&amp;lt;charT, traits&amp;gt;&amp;gt; == true`
-     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;const T&amp;amp;, const charT*&amp;gt; == false`
- 
- ## 効果
--- (1) 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
--- (7) 自身の文字列長とパラメータ`sv`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](/reference/string_view/basic_string_view/data.md)`, rlen)`を呼び出す。
-+- (1) : 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
-+- (7) : 自身の文字列長とパラメータ`sv`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](/reference/string_view/basic_string_view/data.md)`, rlen)`を呼び出す。
- 
- 
- ## 戻り値
--- (1) 比較結果が非`0`を返した場合は、比較結果をそのまま返す。そうでなければ、以下の条件に従って戻り値を返す：
-+- (1) : 比較結果が非`0`を返した場合は、比較結果をそのまま返す。そうでなければ、以下の条件に従って戻り値を返す：
- 
- 	| 条件                                                   | 戻り値                |
- 	|--------------------------------------------------------|-----------------------|
-@@ -119,14 +119,14 @@ constexpr int
- 	| [`size()`](size.md) `==` `str.`[`size()`](size.md) | `0`を返す             |
- 	| [`size()`](size.md) `&amp;gt;` `str.`[`size()`](size.md)  | `0`より大きい値を返す |
- 
--- (2) `basic_string(*this, pos1, n1).compare(str)` と等価
--- (3) `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))` と等価
--- (4) `compare(basic_string(s))` と等価
--- (5) `basic_string(*this, pos, n1).compare(basic_string(s))` と等価
--- (6) `basic_string(*this, pos, n1).compare(basic_string(s, n2))` と等価
--- (7) (1)と同様の結果を返す。`return basic_string_view&amp;lt;charT, traits&amp;gt;(*this).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t);`と等価。
--- (8) `basic_string_view&amp;lt;charT, traits&amp;gt;(*this).`[`substr`](/reference/string_view/basic_string_view/substr.md)`(pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t)` と等価
--- (9) 以下と等価。
-+- (2) : `basic_string(*this, pos1, n1).compare(str)` と等価
-+- (3) : `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))` と等価
-+- (4) : `compare(basic_string(s))` と等価
-+- (5) : `basic_string(*this, pos, n1).compare(basic_string(s))` と等価
-+- (6) : `basic_string(*this, pos, n1).compare(basic_string(s, n2))` と等価
-+- (7) : (1)と同様の結果を返す。`return basic_string_view&amp;lt;charT, traits&amp;gt;(*this).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t);`と等価。
-+- (8) : `basic_string_view&amp;lt;charT, traits&amp;gt;(*this).`[`substr`](/reference/string_view/basic_string_view/substr.md)`(pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t)` と等価
-+- (9) : 以下と等価。
-     ```cpp
-     basic_string_view&amp;lt;charT, traits&amp;gt; s = *this, sv = t;
-     return s.substr(pos1, n1).compare(sv.substr(pos2, n2));
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

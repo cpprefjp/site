@@ -1067,7 +1067,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/string/basic_string/append.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -1137,7 +1137,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/string/basic_string/compare.html</loc>
-      <lastmod>2025-05-22T21:22:45+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -1151,7 +1151,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/string/basic_string/assign.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -1172,14 +1172,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/string/basic_string/replace.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/string/basic_string/op_plus.html</loc>
-      <lastmod>2025-05-22T17:35:26+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -1284,7 +1284,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/string/basic_string/insert.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -4301,7 +4301,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/iterator/ranges_advance.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -5267,14 +5267,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/iterator/basic_const_iterator/common_type.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/iterator/basic_const_iterator/op_increment.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -5806,7 +5806,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/iterator/counted_iterator/op_increment.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -10314,7 +10314,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/syncstream/basic_osyncstream/op_constructor.html</loc>
-      <lastmod>2025-05-22T21:25:02+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -10951,7 +10951,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/compare/weak_ordering/op_equal.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -10972,7 +10972,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/compare/weak_ordering/op_not_equal.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -11007,7 +11007,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/compare/strong_ordering/op_equal.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -11035,7 +11035,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/compare/strong_ordering/op_not_equal.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -11063,7 +11063,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/compare/partial_ordering/op_equal.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -11084,7 +11084,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/compare/partial_ordering/op_not_equal.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -22529,7 +22529,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/memory_resource/monotonic_buffer_resource/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -22641,7 +22641,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/memory_resource/pool_resource/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -22739,7 +22739,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/memory_resource/polymorphic_allocator/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -25210,7 +25210,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/regex/match_results/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -27002,7 +27002,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/random/random_device/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -27723,7 +27723,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/random/uniform_real_distribution/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -28038,7 +28038,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/random/uniform_int_distribution/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -28115,7 +28115,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/random/mersenne_twister_engine/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -28185,7 +28185,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/random/linear_congruential_engine/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -28255,7 +28255,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/random/subtract_with_carry_engine/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -30698,7 +30698,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/locale/wstring_convert/op_constructor.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -30824,7 +30824,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/any/any_cast.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -30908,7 +30908,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/charconv/to_chars.html</loc>
-      <lastmod>2025-05-22T21:26:16+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -31139,7 +31139,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/generator/generator/promise_type/op_new.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.5</priority>
     </url>
@@ -34842,7 +34842,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/algorithm/ranges_fold_right.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -35318,7 +35318,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/algorithm/ranges_fold_right_last.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -37005,21 +37005,21 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ranges/as_const_view/end.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ranges/as_const_view/size.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ranges/as_const_view/begin.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -37579,7 +37579,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/lang/cpp17/folding_expressions.html</loc>
-      <lastmod>2025-04-03T12:32:11+09:00</lastmod>
+      <lastmod>2025-05-23T10:33:50+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-05-23T01:33:50">
+        2025年05月23日 01時33分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -256,9 +256,9 @@
 </ul>
 <h2>要件</h2>
 <ul>
-<li>(1)(2)(3) : <code>upstream</code>は有効な<code>memory_resource</code>オブジェクトを指していること。（当然、nullでないこと）</li>
-<li>(2)(5) : <code>initial_size</code>は0より大きいこと</li>
-<li>(3)(6) : <code>buffer_size</code>は<code>buffer</code>に割り当てられているメモリ領域のサイズ以下であること。</li>
+<li>(1), (2), (3) : <code>upstream</code>は有効な<code>memory_resource</code>オブジェクトを指していること。（当然、nullでないこと）</li>
+<li>(2), (5) : <code>initial_size</code>は0より大きいこと</li>
+<li>(3), (6) : <code>buffer_size</code>は<code>buffer</code>に割り当てられているメモリ領域のサイズ以下であること。</li>
 </ul>
 <h2>引数</h2>
 <ul>
@@ -288,7 +288,7 @@
 <p>(6) : <code>buffer</code>と<code>buffer_size</code>及び<code><a href="../get_default_resource.html">get_default_resource()</a></code>から取得した<code>memory_resource</code>を(3)に渡し委譲</p>
 </li>
 </ul>
-<p>(4)(5)(6)のコンストラクタは上流メモリリソースとして<code><a href="../get_default_resource.html">get_default_resource()</a></code>から取得した<code>memory_resource</code>を利用する。</p>
+<p>(4), (5), (6)のコンストラクタは上流メモリリソースとして<code><a href="../get_default_resource.html">get_default_resource()</a></code>から取得した<code>memory_resource</code>を利用する。</p>
 <h2>備考</h2>
 <p>どのコンストラクタの初期化においても、上流メモリリソースの所有権を保持しない。</p>
 <h2>例</h2>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-22T07:35:09">
-        2025年05月22日 07時35分09秒
+      <span itemprop="datePublished" content="2025-05-23T01:33:50">
+        2025年05月23日 01時33分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,7 +383,7 @@
 <h3>C++20から</h3>
 <ul>
 <li>
-<p>(1)(9) : 以下と等価
+<p>(1), (9) : 以下と等価
   <br />
 <div class="codehilite"><pre><span></span><code><span class="n">basic_string</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">;</span>
 <span class="n">r</span><span class="p">.</span><span class="n"><a href="append.html">append</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">);</span>
@@ -392,7 +392,7 @@
 </p>
 </li>
 <li>
-<p>(2)(10) : 以下と等価
+<p>(2), (10) : 以下と等価
   <br />
 <div class="codehilite"><pre><span></span><code><span class="n">lhs</span><span class="p">.</span><span class="n"><a href="append.html">append</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">);</span>
 <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lhs</span><span class="p">);</span>
@@ -400,7 +400,7 @@
 </p>
 </li>
 <li>
-<p>(3)(6) : 以下と等価
+<p>(3), (6) : 以下と等価
   <br />
 <div class="codehilite"><pre><span></span><code><span class="n">rhs</span><span class="p">.</span><span class="n"><a href="insert.html">insert</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lhs</span><span class="p">);</span>
 <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">rhs</span><span class="p">);</span>

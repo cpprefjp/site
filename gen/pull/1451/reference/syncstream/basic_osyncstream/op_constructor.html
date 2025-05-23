@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-22T12:25:02">
-        2025年05月22日 12時25分02秒
+      <span itemprop="datePublished" content="2025-05-23T01:33:50">
+        2025年05月23日 01時33分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,7 +247,7 @@
 <h2>効果</h2>
 <ul>
 <li>(1) : 提供されるストリームバッファ（<code>buf</code>）、アロケータ（<code>allocator</code>）を使用してプライベートメンバの<code><a href="../basic_syncbuf.html">std::basic_syncbuf</a></code>を初期化し、そのポインタを用いて基底クラスである<code><a href="../../ostream/basic_ostream.html">std::basic_ostream</a></code>を初期化する。</li>
-<li>(2)(3) : (1)に委譲。</li>
+<li>(2), (3) : (1)に委譲。</li>
 <li>(4) : (3)に委譲。</li>
 <li>(5) : 対応する<code>other</code>のサブオブジェクトから基底クラスとプライベートメンバの<code>std::basic_syncbuf</code>をムーブ構築し、基底クラスの初期化を完了するために<code>std::basic_ostream&lt;charT, traits&gt;::set_rdbuf(addressof(sb))</code>を呼び出す。</li>
 </ul>
