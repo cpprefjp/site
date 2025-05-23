@@ -52,7 +52,7 @@ namespace std::ranges {
 
 ## 戻り値
 
-(1)(2)ともに、以下と等価
+(1), (2)ともに、以下と等価
 
 ```cpp
 using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, T>>;

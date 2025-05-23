@@ -27,7 +27,7 @@ basic_osyncstream(basic_osyncstream&& other) noexcept;                          
 
 ## 効果
 - (1) : 提供されるストリームバッファ（`buf`）、アロケータ（`allocator`）を使用してプライベートメンバの[`std::basic_syncbuf`](../basic_syncbuf.md)を初期化し、そのポインタを用いて基底クラスである[`std::basic_ostream`](../../ostream/basic_ostream.md)を初期化する。
-- (2)(3) : (1)に委譲。
+- (2), (3) : (1)に委譲。
 - (4) : (3)に委譲。
 - (5) : 対応する`other`のサブオブジェクトから基底クラスとプライベートメンバの`std::basic_syncbuf`をムーブ構築し、基底クラスの初期化を完了するために`std::basic_ostream<charT, traits>::set_rdbuf(addressof(sb))`を呼び出す。
 

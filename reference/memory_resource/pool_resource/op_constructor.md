@@ -34,7 +34,7 @@ pool_resource(const pool_resource&) = delete;                        //(5)
 
 ## 要件
 
-- (1)(3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
+- (1), (3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
 
 ## 引数
 

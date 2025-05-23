@@ -151,7 +151,7 @@ namespace std {
 
 ### C++20から
 
-- (1)(9) : 以下と等価
+- (1), (9) : 以下と等価
     ```cpp
     basic_string<charT, traits, Allocator> r = lhs;
     r.append(rhs);
@@ -159,14 +159,14 @@ namespace std {
     ```
     * append[link append.md]
 
-- (2)(10) : 以下と等価
+- (2), (10) : 以下と等価
     ```cpp
     lhs.append(rhs);
     return std::move(lhs);
     ```
     * append[link append.md]
 
-- (3)(6) : 以下と等価
+- (3), (6) : 以下と等価
     ```cpp
     rhs.insert(0, lhs);
     return std::move(rhs);

@@ -28,7 +28,7 @@ explicit uniform_int_distribution(const param_type& parm);                     /
 
 
 ## 要件
-- (1)(2) : `a <= b`であること
+- (1), (2) : `a <= b`であること
 
 
 ## 例
