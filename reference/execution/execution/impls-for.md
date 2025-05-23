@@ -99,7 +99,7 @@ namespace std::execution {
 - 完了タグ`Tag`と引数リスト`args`を用いて、接続先[Receiver](receiver.md)`rcvr`の完了操作を呼び出す。
     - `Tag`型は[`set_value_t`](set_value.md), [`set_error_t`](set_error.md), [`set_stopped_t`](set_stopped.md)のいずれか。
 - 第1引数`Index`は、`default-impls`実装では利用しない。
-    - 複数の子Senderを保持するSenderアルゴリズムの`impls-for`オーバーライド実装で利用する（例 : [`when_all`](when_all.md.nolink)）。
+    - 複数の子Senderを保持するSenderアルゴリズムの`impls-for`オーバーライド実装で利用する（例 : [`when_all`](when_all.md)）。
 
 ```cpp
 []<class Index, class Rcvr, class Tag, class... Args>(

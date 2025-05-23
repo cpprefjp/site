@@ -123,7 +123,7 @@ namespace std::execution {
 | [`execution::let_stopped`](execution/let_stopped.md.nolink) | 停止完了を入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::bulk`](execution/bulk.md.nolink) | インデクス空間上で指定関数を連続実行 (customization point object) | C++26 |
 | [`execution::split`](execution/split.md.nolink) | 入力Senderの値を複製送信 (customization point object) | C++26 |
-| [`execution::when_all`](execution/when_all.md.nolink) | 全ての入力Sender完了を待機 (customization point object) | C++26 |
+| [`execution::when_all`](execution/when_all.md) | 全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::when_all_with_variant`](execution/when_all_with_variant.md.nolink) | 複数の値完了シグネチャをもつ全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::into_variant`](execution/into_variant.md) | 複数の値完了シグネチャを単一[`variant`](/reference/variant/variant.md)型の値完了シグネチャに変換 (customization point object) | C++26 |
 | [`execution::stopped_as_optional`](execution/stopped_as_optional.md.nolink) | 入力Senderの停止完了を[`optional`](/reference/optional/optional.md)型の値完了に変換 (customization point object) | C++26 |
