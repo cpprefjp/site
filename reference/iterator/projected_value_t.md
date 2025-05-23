@@ -6,13 +6,13 @@
 
 ```cpp
 namespace std {
-  template <indirectly_­readable I,
-            indirectly_­regular_­unary_­invocable<I> Proj>
+  template <indirectly_readable I,
+            indirectly_regular_unary_invocable<I> Proj>
   using projected_value_t = remove_cvref_t<invoke_result_t<Proj&, iter_value_t<I>&>>;
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* indirectly_­regular_­unary_­invocable[link /reference/iterator/indirectly_­regular_­unary_­invocable.md.nolink]
+* indirectly_regular_unary_invocable[link /reference/iterator/indirectly_regular_unary_invocable.md.nolink]
 
 ## 概要
 イテレータ型`I`が指す値型を取得する。
