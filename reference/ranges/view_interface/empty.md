@@ -25,7 +25,7 @@ Rangeが空かどうかを判定する。
 - (2): `const D`が[`sized_range`](../sized_range.md)もしくは[`forward_range`](../forward_range.md)であること。
 
 ## 戻り値
-(1)、(2)共に、以下と等価：
+(1), (2)共に、以下と等価：
 
 ```cpp
 ranges::begin(derived()) == ranges::end(derived())

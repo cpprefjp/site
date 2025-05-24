@@ -54,29 +54,29 @@ iterator
 
 
 ## 適格要件
-- (1)、(3)、(4)、(6) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
-- (2)、(5) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
+- (1), (3), (4), (6) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
+- (2), (5) : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<mapped_type&, M&&>` が `true` であること。`value_type` は、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から `map` に直接構築可能であること
 
 なお、規格に記載はないが、`hint` は [`emplace_hint`](emplace_hint.md) と同様、コンテナの有効な読み取り専用イテレータである必要があるものと思われる。
 
 
 ## 効果
-- (1)、(3)、(4)、(6) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
-- (2)、(5) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (1), (3), (4), (6) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、`k`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
+- (2), (5) : `map` が `k` と同値のキーを持つ要素 `e` を持っている場合、`e.second` に [`forward`](/reference/utility/forward.md)`<M>(obj)` を代入する。そうでなければ、[`move`](/reference/utility/move.md)`(k)`, [`forward`](/reference/utility/forward.md)`<M>(obj)` から構築した `value_type` 型のオブジェクトを挿入する。
 
 
 ## 戻り値
-- (1)、(2)、(3) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
+- (1), (2), (3) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
     - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
     - 代入された場合には、`first` に代入された要素へのイテレータ、`second` に `false` が設定される。
-- (4)、(5)、(6) :
+- (4), (5), (6) :
     - 挿入された場合には、挿入された要素へのイテレータを返す。
     - 代入された場合には、代入された要素へのイテレータを返す。
 
 
 ## 計算量
-- (1)、(2)、(3) : [`emplace`](emplace.md) と同じ。
-- (4)、(5)、(6) : [`emplace_hint`](emplace_hint.md) と同じ。
+- (1), (2), (3) : [`emplace`](emplace.md) と同じ。
+- (4), (5), (6) : [`emplace_hint`](emplace_hint.md) と同じ。
 
 
 ## 備考

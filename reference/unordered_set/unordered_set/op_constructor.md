@@ -104,7 +104,7 @@ unordered_set(std::from_range_t, R&& rg,
 
 - (3) の形式の場合、`value_type` は `*first` からこの `unordered_set` に EmplaceConstructible であること。
 
-- (4)、(7)、および (9) の形式の場合、`value_type` はこの `unordered_set` に CopyInsertable であること。
+- (4), (7)、および (9) の形式の場合、`value_type` はこの `unordered_set` に CopyInsertable であること。
 
 - (5) の形式の場合、`allocator_type` のムーブ構築は例外終了しないこと。
 
@@ -247,7 +247,7 @@ unordered_set(std::from_range_t, R&& rg,
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 #### 備考
-libstdc++ には 4.8.2 現在、(6)、(7)、(8)の形式はない。
+libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
 
 
 ## 関連項目
@@ -264,6 +264,6 @@ libstdc++ には 4.8.2 現在、(6)、(7)、(8)の形式はない。
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
     (1) + (2) を 2 つのオーバーロードに分割するきっかけとなったレポート
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-    (10)、(11)、(12)、(13)、(14)、(15) を追加するきっかけとなったレポート  
+    (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意
 

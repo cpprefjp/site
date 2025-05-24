@@ -32,10 +32,10 @@ polymorphic_allocator(const polymorphic_allocator<U>& other) noexcept;  //(4)
 ## 効果
 - (1) : [`get_default_resource()`](/reference/memory_resource/get_default_resource.md)からデフォルトの`memory_resource`を取得して構築
 - (2) : `r`を`memory_resource`として構築
-- (3)(4) : [`other.resource()`](resource.md)から`memory_resource`を取得して構築
+- (3), (4) : [`other.resource()`](resource.md)から`memory_resource`を取得して構築
 
 ## 例外
-- (1)(4) : 投げない
+- (1), (4) : 投げない
 
 ## 備考
 どのコンストラクタからの初期化においても、取得する`memory_resource`の所有権を保持しない。

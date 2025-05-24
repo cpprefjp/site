@@ -93,17 +93,17 @@ iterator
 
 
 ## 戻り値
-- (1)、(2)、(3) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
+- (1), (2), (3) : イテレータと `bool` 値の [`pair`](/reference/utility/pair.md) を返す。
     - 挿入された場合には、`first` に挿入された要素へのイテレータ、`second` に `true` が設定される。
     - 代入された場合には、`first` に代入された要素へのイテレータ、`second` に `false` が設定される。
-- (4)、(5)、(6) :
+- (4), (5), (6) :
     - 挿入された場合には、挿入された要素へのイテレータを返す。
     - 代入された場合には、代入された要素へのイテレータを返す。
 
 
 ## 計算量
-- (1)、(2)、(3) : [`emplace`](emplace.md) と同じ
-- (4)、(5)、(6) : [`emplace_hint`](emplace_hint.md) と同じ
+- (1), (2), (3) : [`emplace`](emplace.md) と同じ
+- (4), (5), (6) : [`emplace_hint`](emplace_hint.md) と同じ
 
 
 ## 例

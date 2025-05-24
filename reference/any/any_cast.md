@@ -37,7 +37,7 @@ namespace std {
 - (1) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const U&> == true`であること。そうでない場合、プログラムは不適格となる
 - (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U&> == true`であること。そうでない場合、プログラムは不適格となる
 - (3) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`であること。そうでない場合、プログラムは不適格となる
-- (4)(5) : [`is_void_v`](/reference/type_traits/is_void.md)`<T> == false`であること
+- (4), (5) : [`is_void_v`](/reference/type_traits/is_void.md)`<T> == false`であること
     - C++26から
 
 ## 効果

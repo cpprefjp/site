@@ -20,7 +20,7 @@ Rangeの定数イテレータを取得する。
 
 ## 戻り値
 
-(1)、(2)共に、以下と等価
+(1), (2)共に、以下と等価
 
 ```cpp
 return ranges::cbegin(derived());

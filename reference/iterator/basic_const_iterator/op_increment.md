@@ -18,7 +18,7 @@ constexpr basic_const_iterator operator++(int) requires forward_iterator<Iterato
 イテレータをインクリメントする。
 
 - (1) : 前置インクリメント
-- (2)(3) : 後置インクリメント
+- (2), (3) : 後置インクリメント
 
 ## 効果
 

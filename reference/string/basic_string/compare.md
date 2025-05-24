@@ -101,17 +101,17 @@ constexpr int
 
 ## テンプレートパラメータ制約
 
-- (7)(8)(9) : 以下の両方を満たしていること
+- (7), (8), (9) : 以下の両方を満たしていること
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 効果
-- (1) 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
-- (7) 自身の文字列長とパラメータ`sv`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](/reference/string_view/basic_string_view/data.md)`, rlen)`を呼び出す。
+- (1) : 自身の文字列長とパラメータ`str`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, str.`[`data()`](data.md)`, rlen)`を呼び出す。
+- (7) : 自身の文字列長とパラメータ`sv`の文字列長のうち、小さい長さを`rlen`とし、[`traits::compare`](/reference/string/char_traits/compare.md)`(`[`data()`](data.md)`, sv.`[`data()`](/reference/string_view/basic_string_view/data.md)`, rlen)`を呼び出す。
 
 
 ## 戻り値
-- (1) 比較結果が非`0`を返した場合は、比較結果をそのまま返す。そうでなければ、以下の条件に従って戻り値を返す：
+- (1) : 比較結果が非`0`を返した場合は、比較結果をそのまま返す。そうでなければ、以下の条件に従って戻り値を返す：
 
 	| 条件                                                   | 戻り値                |
 	|--------------------------------------------------------|-----------------------|
@@ -119,14 +119,14 @@ constexpr int
 	| [`size()`](size.md) `==` `str.`[`size()`](size.md) | `0`を返す             |
 	| [`size()`](size.md) `>` `str.`[`size()`](size.md)  | `0`より大きい値を返す |
 
-- (2) `basic_string(*this, pos1, n1).compare(str)` と等価
-- (3) `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))` と等価
-- (4) `compare(basic_string(s))` と等価
-- (5) `basic_string(*this, pos, n1).compare(basic_string(s))` と等価
-- (6) `basic_string(*this, pos, n1).compare(basic_string(s, n2))` と等価
-- (7) (1)と同様の結果を返す。`return basic_string_view<charT, traits>(*this).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t);`と等価。
-- (8) `basic_string_view<charT, traits>(*this).`[`substr`](/reference/string_view/basic_string_view/substr.md)`(pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t)` と等価
-- (9) 以下と等価。
+- (2) : `basic_string(*this, pos1, n1).compare(str)` と等価
+- (3) : `basic_string(*this, pos1, n1).compare(basic_string(str, pos2, n2))` と等価
+- (4) : `compare(basic_string(s))` と等価
+- (5) : `basic_string(*this, pos, n1).compare(basic_string(s))` と等価
+- (6) : `basic_string(*this, pos, n1).compare(basic_string(s, n2))` と等価
+- (7) : (1)と同様の結果を返す。`return basic_string_view<charT, traits>(*this).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t);`と等価。
+- (8) : `basic_string_view<charT, traits>(*this).`[`substr`](/reference/string_view/basic_string_view/substr.md)`(pos1, n1).`[`compare`](/reference/string_view/basic_string_view/compare.md)`(t)` と等価
+- (9) : 以下と等価。
     ```cpp
     basic_string_view<charT, traits> s = *this, sv = t;
     return s.substr(pos1, n1).compare(sv.substr(pos2, n2));
@@ -168,5 +168,5 @@ int main()
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
-    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(7)(8)(9)の引数型を`const T&`に変更
+    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(7), (8), (9)の引数型を`const T&`に変更
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

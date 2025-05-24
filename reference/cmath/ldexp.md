@@ -55,7 +55,7 @@ namespace std {
 ## 備考
 - オーバーフローエラー、アンダーフローエラーが発生した場合の挙動については、[`<cmath>`](../cmath.md) を参照。
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、かつ、基数が 2 の場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`radix`](../limits/numeric_limits/radix.md)`() == 2`）、[`scalbn`](scalbn.md)`(x, exp)` と等価である。
-- C++23では、(1)、(2)、(3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
+- C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
 ## 例

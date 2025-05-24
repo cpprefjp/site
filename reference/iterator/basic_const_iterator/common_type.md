@@ -37,7 +37,7 @@ namespace std {
 
 `basic_const_iterator`のための[`common_type`](/reference/type_traits/common_type.md)特殊化。
 
-- (1)(2) : `basic_const_iterator`とその他のイテレータ型の間の共通の型を取得する
+- (1), (2) : `basic_const_iterator`とその他のイテレータ型の間の共通の型を取得する
 - (3) : 異なるイテレータ型による`basic_const_iterator`特殊化の間の共通の型を取得する
 
 ## 例

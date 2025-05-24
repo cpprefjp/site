@@ -24,7 +24,7 @@ explicit uniform_real_distribution(const param_type& parm);             // (3)
 
 
 ## 要件
-- (1)(2) : `a <= b`かつ`b - a <=` [`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`max()`](/reference/limits/numeric_limits/max.md)であること
+- (1), (2) : `a <= b`かつ`b - a <=` [`numeric_limits`](/reference/limits/numeric_limits.md)`<RealType>::`[`max()`](/reference/limits/numeric_limits/max.md)であること
 
 
 ## 例

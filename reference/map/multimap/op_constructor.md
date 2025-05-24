@@ -78,13 +78,13 @@ multimap(from_range_t, R&& rg,
 
 
 ## 計算量
-- (1)、(2)、(3) 定数時間
-- (4)、(5) `N =` [`distance`](../../iterator/distance.md)`(first, last)` とすると、範囲 `[first, last)` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
-- (6)、(7) `x.`[`size`](size.md)`()` に対して線形時間
+- (1), (2), (3) 定数時間
+- (4), (5) `N =` [`distance`](../../iterator/distance.md)`(first, last)` とすると、範囲 `[first, last)` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
+- (6), (7) `x.`[`size`](size.md)`()` に対して線形時間
 - (8) 定数時間
 - (9) 定数時間。ただし、`alloc == y.`[`get_allocator`](get_allocator.md)`()` でなければ `y.`[`size`](size.md)`()` に対して線形時間
-- (10)、(11) `N = init.`[`size`](../../initializer_list/initializer_list/size.md)`()` とすると、範囲 `[init.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), init.`[`end`](../../initializer_list/initializer_list/end.md)`())` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
-- (12)、(13) `N =` [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)` とすると、`rg` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
+- (10), (11) `N = init.`[`size`](../../initializer_list/initializer_list/size.md)`()` とすると、範囲 `[init.`[`begin`](../../initializer_list/initializer_list/begin.md)`(), init.`[`end`](../../initializer_list/initializer_list/end.md)`())` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
+- (12), (13) `N =` [`ranges::distance`](../../iterator/ranges_distance.md)`(rg)` とすると、`rg` が比較オブジェクト `comp` によって既にソート済みである場合は `N` に比例、そうでなければ `N log N` に比例
 
 
 ## 備考
@@ -169,5 +169,5 @@ Size of m2: 3
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
     (1) + (2) の形式を 2 つのオーバーロードに分割するきっかけとなったレポート
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-    (5)、(11) の形式を追加するきっかけとなったレポート  
+    (5), (11) の形式を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意

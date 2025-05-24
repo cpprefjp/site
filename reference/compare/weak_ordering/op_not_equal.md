@@ -18,12 +18,12 @@ friend constexpr bool operator!=(/*unspecified*/, weak_ordering v) noexcept;   /
 ## 概要
 
 - (1) : `weak_ordering`同士の非等値比較を行う
-- (2)(3) : `weak_ordering`の値が`weak_ordering::equivalent`で無いことを調べる。
+- (2), (3) : `weak_ordering`の値が`weak_ordering::equivalent`で無いことを調べる。
 
 ## 戻り値
 
 - (1) : `return !(v == w)` 
-- (2)(3) : `return !(v == 0)`
+- (2), (3) : `return !(v == 0)`
 
 
 ## 例外

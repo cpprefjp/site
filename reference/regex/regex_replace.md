@@ -64,18 +64,18 @@ namespace std {
 
 
 ## 効果
-- (1)、(2) `[first, last)` で指定された文字列内に出現する、正規表現 `e` にマッチする部分を、置換文字列 `fmt` で置換した結果を出力イテレータ `out` に出力する。  
+- (1), (2) `[first, last)` で指定された文字列内に出現する、正規表現 `e` にマッチする部分を、置換文字列 `fmt` で置換した結果を出力イテレータ `out` に出力する。  
     置換文字列 `fmt` には通常の文字の他、マッチした文字列全体やキャプチャグループを表すシーケンスを使用することができる。  
     指定可能なシーケンスは、デフォルトでは ECMAScript の置換文字列と等価であるが、`flags` に [`regex_constants::format_sed`](regex_constants/match_flag_type.md) が指定されていた場合には POSIX にて規定されている sed の置換文字列と等価となる。  
     なお、デフォルトでは全てのマッチする部分が `fmt` で置換されるが、`flags` に [`regex_constants::format_first_only`](regex_constants/match_flag_type.md) が指定されていた場合には最初にマッチする部分のみが置換される。  
     また、デフォルトではマッチしない部分はそのまま `out` に出力されるが、`flags` に [`regex_constants::format_no_copy`](regex_constants/match_flag_type.md) が指定されていた場合には、マッチしない部分は `out` には出力されない。
-- (3)、(4) 置換対象文字列が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
-- (5)、(6) 置換対象文字列が `const charT*` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT>` 型の文字列として返される点を除いて、(1)、(2) と同様である。
+- (3), (4) 置換対象文字列が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の文字列として返される点を除いて、(1), (2) と同様である。
+- (5), (6) 置換対象文字列が `const charT*` 型の文字列 `s` であること、および、置換結果が [`basic_string`](../string/basic_string.md)`<charT>` 型の文字列として返される点を除いて、(1), (2) と同様である。
 
 ## 戻り値
-- (1)、(2) 置換結果出力後の `out`（引数のコピーではない）
-- (3)、(4) 置換結果の文字列
-- (5)、(6) 置換結果の文字列
+- (1), (2) 置換結果出力後の `out`（引数のコピーではない）
+- (3), (4) 置換結果の文字列
+- (5), (6) 置換結果の文字列
 
 
 ## 例外
@@ -86,7 +86,7 @@ namespace std {
 ## 備考
 本関数の正確な挙動は以下の通りである。
 
-- (1)、(2) [`regex_iterator`](regex_iterator.md) 型のオブジェクト `i` を
+- (1), (2) [`regex_iterator`](regex_iterator.md) 型のオブジェクト `i` を
 
     ```cpp
     regex_iterator<BidirectionalIterator, charT, traits> i(first, last, e, flags)
@@ -147,9 +147,9 @@ namespace std {
 
         を呼び出す。
 
-- (3)、(4) [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, fmt, flags)` を呼び出す。  
+- (3), (4) [`basic_string`](../string/basic_string.md)`<charT, ST, SA>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s.`[`begin`](../string/basic_string/begin.md)`(), s.`[`end`](../string/basic_string/end.md)`(), e, fmt, flags)` を呼び出す。  
     戻り値は `result` となる。
-- (5)、(6) [`basic_string`](../string/basic_string.md)`<charT>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s, s +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(s), e, fmt, flags)` を呼び出す。  
+- (5), (6) [`basic_string`](../string/basic_string.md)`<charT>` 型の空の文字列オブジェクト `result` を構築し、`regex_replace(`[`back_inserter`](../iterator/back_inserter.md)`(result), s, s +` [`char_traits`](../string/char_traits.md)`::`[`length`](../string/char_traits/length.md)`(s), e, fmt, flags)` を呼び出す。  
     戻り値は `result` となる。
 
 

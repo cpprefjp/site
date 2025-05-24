@@ -21,7 +21,7 @@ template <class K> const_iterator find(const K& k) const;  // (4) C++20
 - (3) : 非`const`な`*this`オブジェクトに対する透過的な検索
 - (4) : `const`な`*this`オブジェクトに対する透過的な検索
 
-(3)、(4)の透過的な検索は、`Pred::is_transparent`および`Hash::is_transparent`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.find("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+(3), (4)の透過的な検索は、`Pred::is_transparent`および`Hash::is_transparent`が定義される場合に有効になる機能であり、例として`unordered_set<string> s;`に対して`s.find("key");`のように`string`型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、`string`の一時オブジェクトが作られないようにできる。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
 
 
 ## テンプレートパラメータ制約

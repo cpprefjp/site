@@ -152,6 +152,6 @@ Size of c2: 7
 - [LWG 2193. Default constructors for standard library containers are explicit](http://cplusplus.github.io/LWG/lwg-defects.html#2193)  
 	`explicit set(const Compare& comp = Compare(), const Allocator& alloc = Allocator());` を 2 つのオーバーロードに分割するきっかけとなったレポート
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
-    (5)、(11) を追加するきっかけとなったレポート  
+    (5), (11) を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意
 

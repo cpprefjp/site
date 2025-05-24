@@ -39,7 +39,7 @@ void* operator new(size_t size, const This&, allocator_arg_t, const Alloc& alloc
 
 
 ## 効果
-`B`型のアロケータ`b`を、オーバーロード(1)では`A()`により、オーバーロード(2)(3)では`A(alloc)`により初期化する。
+`B`型のアロケータ`b`を、オーバーロード(1)では`A()`により、オーバーロード(2), (3)では`A(alloc)`により初期化する。
 
 アロケータ`b`を用いて、サイズ`size`の[コルーチン・ステート](/lang/cpp20/coroutines.md)と、後ほど[`operator delete`](op_delete.md)による`b`を用いたメモリブロック解放で必要とされる追加状態を合わせたストレージに必要となる、`U`型の最小配列ストレージを確保する。
 

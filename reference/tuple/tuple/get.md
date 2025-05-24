@@ -82,7 +82,7 @@ int main()
 {
   std::tuple<int, char, std::string> t(1, 'a', "hello");
 
-  // 位置を指定して取得する方法。(1)〜(4)
+  // 位置を指定して取得する方法。(1)-(4)
   {
     int& i = std::get<0>(t);
     char& c = std::get<1>(t);
@@ -94,7 +94,7 @@ int main()
   }
   std::cout << std::endl;
 
-  // 型を指定して取得する方法。(5)〜(7)
+  // 型を指定して取得する方法。(5)-(7)
   {
     int& i = std::get<int>(t);
     char& c = std::get<char>(t);

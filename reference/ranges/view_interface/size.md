@@ -27,7 +27,7 @@ Rangeの大きさを取得する。
 - (2): `const D`が[`forward_range`](../forward_range.md)であり、`const D`のイテレータ`I`と番兵`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)を満たすこと。
 
 ## 戻り値
-(1)、(2)共に、以下と等価：
+(1), (2)共に、以下と等価：
 
 ```cpp
 ranges::end(derived()) - ranges::begin(derived());

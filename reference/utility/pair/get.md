@@ -102,7 +102,7 @@ int main()
 {
   std::pair<int, char> p(1, 'a');
 
-  //位置を指定して取得する方法。(1)〜(4)
+  //位置を指定して取得する方法。(1)-(4)
   {
     int& i = std::get<0>(p);
     char& c = std::get<1>(p);
@@ -112,7 +112,7 @@ int main()
   }
   std::cout << std::endl;
 
-  //型を指定して取得する方法。(5)〜(12)
+  //型を指定して取得する方法。(5)-(12)
   {
     int& i = std::get<int>(p);
     char& c = std::get<char>(p);

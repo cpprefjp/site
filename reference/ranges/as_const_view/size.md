@@ -19,7 +19,7 @@ constexpr auto size() const requires sized_range<const V>;  // (2)
 
 ## 戻り値
 
-入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1)(2)どちらも
+入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1), (2)どちらも
 
 ```cpp
 return ranges::size(base_);

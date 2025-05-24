@@ -22,7 +22,7 @@ Rangeが空かどうかを判定する。
 式[`ranges::empty`](../empty.md)`(`[`derived`](derived.md)`())`が有効であること。
 
 ## 戻り値
-(1)、(2)共に、以下と等価：
+(1), (2)共に、以下と等価：
 
 ```cpp
 !ranges::empty(derived())

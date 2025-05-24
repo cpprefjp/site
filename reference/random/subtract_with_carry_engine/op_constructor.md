@@ -35,7 +35,7 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (5
 
 
 ## 計算量
-- (1)(2) : 正確に $n \times \mathtt{r}$ 回 (`r` は `subtract_with_carry_engine::long_lag`) [`linear_congruential_engine` を呼ぶ](../linear_congruential_engine/op_call.md)
+- (1), (2) : 正確に $n \times \mathtt{r}$ 回 (`r` は `subtract_with_carry_engine::long_lag`) [`linear_congruential_engine` を呼ぶ](../linear_congruential_engine/op_call.md)
 
 
 ## 例

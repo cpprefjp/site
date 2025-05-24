@@ -22,7 +22,7 @@ Rangeの要素にアクセスする。
 `R`が[`random_access_range`](../random_access_range.md)であること。
 
 ## 戻り値
-(1)、(2)共に、以下と等価：
+(1), (2)共に、以下と等価：
 
 ```cpp
 ranges::begin(derived())[n];

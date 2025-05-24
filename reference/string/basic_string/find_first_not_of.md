@@ -58,15 +58,15 @@ constexpr size_type
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*>`が`false`であること
 
 ## 要件
-(3) の形式の場合、`s` は少なくとも `traits_type::length(s) + 1` の要素を持つ `charT` の配列を指していること。
+- (3) の形式の場合、`s` は少なくとも `traits_type::length(s) + 1` の要素を持つ `charT` の配列を指していること。
 
 
 ## 効果
-- (1) `pos` 以降で最初に `str` 内に存在しない文字の位置を返す。
-- (2) `pos` 以降で最初に `s` 内に存在しない文字の位置を返す。`s` は長さ `n` の文字列へのポインタである。
-- (3) (2) と同様だが、こちらは NULL 終端の文字列を扱う。
-- (4) `pos` 以降で最初に `c` と一致しない文字の位置を返す。
-- (5) `basic_string_view<charT, traits> sv = t;`として変数`sv`を作成し、`pos` 以降で最初に `sv` 内に存在しない文字の位置を返す。
+- (1) : `pos` 以降で最初に `str` 内に存在しない文字の位置を返す。
+- (2) : `pos` 以降で最初に `s` 内に存在しない文字の位置を返す。`s` は長さ `n` の文字列へのポインタである。
+- (3) : (2) と同様だが、こちらは NULL 終端の文字列を扱う。
+- (4) : `pos` 以降で最初に `c` と一致しない文字の位置を返す。
+- (5) : `basic_string_view<charT, traits> sv = t;`として変数`sv`を作成し、`pos` 以降で最初に `sv` 内に存在しない文字の位置を返す。
 
 
 ## 戻り値
@@ -74,8 +74,8 @@ constexpr size_type
 
 
 ## 例外
-- (1) 投げない
-- (5) `noexcept`内の式は、以下と等価である
+- (1) : 投げない
+- (5) : `noexcept`内の式は、以下と等価である
         ```cpp
         is_nothrow_convertible_v<const T&, basic_string_view<charT, traits>>
         ```
