@@ -34,8 +34,8 @@ void clear() noexcept;
 
 
 ## 備考
-- clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
-実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
+- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
+実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
 - メモリを確実に解放したいときには以下のように操作を行う
 ```CPP
 std::unordered_map<std::string, int> tmp;
