@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-20T16:05:48.106331</updated>
-  <id>0dcafac9-5ec5-4ec0-965f-6f6450b55857</id>
+  <updated>2025-05-25T14:46:15.265098</updated>
+  <id>2b92942d-4ee3-4d76-97da-032864c1a33e</id>
 
+  
+    <entry>
+      <title>clear -- Update reference/unordered_map/unordered_map/clear.md</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>f572dabcf8c9b588b8b4ba14c20f4bd8a9bc0087:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-25T23:42:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index 15cf893c7..610429a35 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -35,7 +35,7 @@ void clear() noexcept;
+ 
+ ## 備考
+ - clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
+-実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
++実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
+ - メモリを確実に解放したいときには以下のように操作を行う
+ ```CPP
+ std::unordered_map&amp;lt;std::string, int&amp;gt; tmp;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>56009584+math-hiyoko@users.noreply.github.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clear -- fix: minor fix</title>
@@ -511,114 +538,6 @@ index b6394e9f7..0062e4a92 100644
  ## 計算量
 -本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
 +本関数呼び出し前のバケット数（[`bucket_count`](bucket_count.md)`()`）に比例
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix complexity of clear method</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
-      <id>8e136851714ae262cd98b11b1a35b41622527a9e:reference/unordered_map/unordered_map/clear.md</id>
-      <updated>2025-05-18T16:13:53+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
-index 1d0ce4f0c..fd12bdc0e 100644
---- a/reference/unordered_map/unordered_map/clear.md
-+++ b/reference/unordered_map/unordered_map/clear.md
-@@ -34,7 +34,7 @@ void clear() noexcept;
- 
- 
- ## 計算量
--本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
-+本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix complexity of clear method</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
-      <id>8e136851714ae262cd98b11b1a35b41622527a9e:reference/unordered_map/unordered_multimap/clear.md</id>
-      <updated>2025-05-18T16:13:53+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
-index e4d252581..a1f76170c 100644
---- a/reference/unordered_map/unordered_multimap/clear.md
-+++ b/reference/unordered_map/unordered_multimap/clear.md
-@@ -34,7 +34,7 @@ void clear() noexcept;
- 
- 
- ## 計算量
--本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
-+本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix complexity of clear method</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
-      <id>8e136851714ae262cd98b11b1a35b41622527a9e:reference/unordered_set/unordered_multiset/clear.md</id>
-      <updated>2025-05-18T16:13:53+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
-index 8ba2f6e24..f2fd9a782 100644
---- a/reference/unordered_set/unordered_multiset/clear.md
-+++ b/reference/unordered_set/unordered_multiset/clear.md
-@@ -34,7 +34,7 @@ void clear() noexcept;
- 
- 
- ## 計算量
--本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
-+本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix complexity of clear method</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
-      <id>8e136851714ae262cd98b11b1a35b41622527a9e:reference/unordered_set/unordered_set/clear.md</id>
-      <updated>2025-05-18T16:13:53+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
-index e54f8a9f4..b6394e9f7 100644
---- a/reference/unordered_set/unordered_set/clear.md
-+++ b/reference/unordered_set/unordered_set/clear.md
-@@ -34,7 +34,7 @@ void clear() noexcept;
- 
- 
- ## 計算量
--本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
-+本関数呼び出し前のコンテナの要素数（[`bucket_count`](bucket_count.md)`()`）に比例
  
  
  ## 例
