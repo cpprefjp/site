@@ -2,9 +2,433 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-26T14:21:30.772851</updated>
-  <id>aa243885-899b-442a-babf-4fb541891dea</id>
+  <updated>2025-05-26T14:28:53.154849</updated>
+  <id>39307710-06c0-4cb6-b79c-2935dee04072</id>
 
+  
+    <entry>
+      <title>clear -- fix: order of topic</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>bb394c16fccaee75e975cd363072afa8cbb38ada:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-26T23:24:43+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index 9fbd16572..be2530f47 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -33,16 +33,6 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
+-## 備考
+-- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
+-実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
+-- メモリを確実に解放したいときには以下のように操作を行う
+-```CPP
+-std::unordered_map&amp;lt;std::string, int&amp;gt; tmp;
+-s.swap(tmp);
+-```
+-
+-
+ ## 計算量
+ 本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
+ 
+@@ -55,6 +45,16 @@ s.swap(tmp);
+ 規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
++## 備考
++- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_map&amp;lt;std::string, int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: order of topic</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>bb394c16fccaee75e975cd363072afa8cbb38ada:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-26T23:24:43+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index 65b02b831..ffa0832a4 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -33,16 +33,6 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
+-## 備考
+-- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
+-実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
+-- メモリを確実に解放したいときには以下のように操作を行う
+-```CPP
+-std::unordered_multimap&amp;lt;std::string, int&amp;gt; tmp;
+-s.swap(tmp);
+-```
+-
+-
+ ## 計算量
+ 本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
+ 
+@@ -55,6 +45,16 @@ s.swap(tmp);
+ 規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
++## 備考
++- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_multimap&amp;lt;std::string, int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: order of topic</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>bb394c16fccaee75e975cd363072afa8cbb38ada:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-26T23:24:43+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 29e8fbfd4..94488f299 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -33,16 +33,6 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
+-## 備考
+-- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
+-実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
+-- メモリを確実に解放したいときには以下のように操作を行う
+-```CPP
+-std::unordered_multiset&amp;lt;int&amp;gt; tmp;
+-s.swap(tmp);
+-```
+-
+-
+ ## 計算量
+ 本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
+ 
+@@ -55,6 +45,16 @@ s.swap(tmp);
+ 規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
++## 備考
++- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_multiset&amp;lt;int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: order of topic</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>bb394c16fccaee75e975cd363072afa8cbb38ada:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-26T23:24:43+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index e96d56383..188ae2c6d 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -33,16 +33,6 @@ void clear() noexcept;
+ 投げない。
+ 
+ 
+-## 備考
+-- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
+-実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
+-- メモリを確実に解放したいときには以下のように操作を行う
+-```CPP
+-std::unordered_set&amp;lt;int&amp;gt; tmp;
+-s.swap(tmp);
+-```
+-
+-
+ ## 計算量
+ 本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
+ 
+@@ -55,6 +45,16 @@ s.swap(tmp);
+ 規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
++## 備考
++- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
++実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
++- メモリを確実に解放したいときには以下のように操作を行う
++```CPP
++std::unordered_set&amp;lt;int&amp;gt; tmp;
++s.swap(tmp);
++```
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: apply suggestion</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-26T23:23:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index 4fccb4077..9fbd16572 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -52,7 +52,7 @@ s.swap(tmp);
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+-これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
++規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: apply suggestion</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-26T23:23:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index f9bcd8b89..65b02b831 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -52,7 +52,7 @@ s.swap(tmp);
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+-これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
++規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: apply suggestion</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-26T23:23:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 5d19486ec..29e8fbfd4 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -52,7 +52,7 @@ s.swap(tmp);
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+-これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
++規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: apply suggestion</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-26T23:23:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index ad5ec237e..e96d56383 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -52,7 +52,7 @@ s.swap(tmp);
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+-これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
++規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: order of factor</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>af3a11d31a25784b8c84c75f21f4e7c68f1d7b50:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-26T23:20:53+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index 0409a9a65..4fccb4077 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. 全ての要素を破棄する
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
++という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: order of factor</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>af3a11d31a25784b8c84c75f21f4e7c68f1d7b50:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-26T23:20:53+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index 8b1f9a7be..f9bcd8b89 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. 全ての要素を破棄する
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
++という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: order of factor</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>af3a11d31a25784b8c84c75f21f4e7c68f1d7b50:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-26T23:20:53+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 846f3bafd..5d19486ec 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. 全ての要素を破棄する
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
++という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: order of factor</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>af3a11d31a25784b8c84c75f21f4e7c68f1d7b50:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-26T23:20:53+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index f1a4c6d4d..ad5ec237e 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -51,7 +51,7 @@ s.swap(tmp);
+     1. 全ての要素を破棄する
+     2. 全てのバケットを順に走査して各バケットを初期化
+ 
+-という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
++という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clear -- fix: 破棄-&gt;初期化</title>
@@ -190,232 +614,6 @@ index f734aef3e..3f8b24f45 100644
 -実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
 +- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
 +実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
- - メモリを確実に解放したいときには以下のように操作を行う
- ```CPP
- std::unordered_set&amp;lt;int&amp;gt; tmp;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- Apply suggestions from code review</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
-      <id>bb0ffafab558ff1b5551f22c3329e60e16798d42:reference/unordered_map/unordered_map/clear.md</id>
-      <updated>2025-05-26T00:34:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
-index bd0b88a23..07aa45df0 100644
---- a/reference/unordered_map/unordered_map/clear.md
-+++ b/reference/unordered_map/unordered_map/clear.md
-@@ -34,8 +34,8 @@ void clear() noexcept;
- 
- 
- ## 備考
--- clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
--実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
-+- `clear()` は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
-+実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
- - メモリを確実に解放したいときには以下のように操作を行う
- ```CPP
- std::unordered_map&amp;lt;std::string, int&amp;gt; tmp;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>56009584+math-hiyoko@users.noreply.github.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: amend procedure</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
-      <id>3bb29a21a224749d75c2ced270b2bf59fd8a61d4:reference/unordered_map/unordered_map/clear.md</id>
-      <updated>2025-05-26T00:16:50+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
-index 610429a35..bd0b88a23 100644
---- a/reference/unordered_map/unordered_map/clear.md
-+++ b/reference/unordered_map/unordered_map/clear.md
-@@ -48,8 +48,8 @@ s.swap(tmp);
- 
- ### 計算量に関する備考
- - 多くの実装（GCC libstdc++, LLVM libc++ など）は
--    1. すべてのバケットを順に走査し
--    2. 各バケットを破棄する
-+    1. 全ての要素を破棄する
-+    2. 全てのバケットを順に走査して各バケットを破棄
- 
- という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
- これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: amend procedure</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
-      <id>3bb29a21a224749d75c2ced270b2bf59fd8a61d4:reference/unordered_map/unordered_multimap/clear.md</id>
-      <updated>2025-05-26T00:16:50+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
-index ab16a56df..0cea90a25 100644
---- a/reference/unordered_map/unordered_multimap/clear.md
-+++ b/reference/unordered_map/unordered_multimap/clear.md
-@@ -48,8 +48,8 @@ s.swap(tmp);
- 
- ### 計算量に関する備考
- - 多くの実装（GCC libstdc++, LLVM libc++ など）は
--    1. すべてのバケットを順に走査し
--    2. 各バケットを破棄する
-+    1. 全ての要素を破棄する
-+    2. 全てのバケットを順に走査して各バケットを破棄
- 
- という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
- これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: amend procedure</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
-      <id>3bb29a21a224749d75c2ced270b2bf59fd8a61d4:reference/unordered_set/unordered_multiset/clear.md</id>
-      <updated>2025-05-26T00:16:50+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
-index bef4ac38b..ef733cb02 100644
---- a/reference/unordered_set/unordered_multiset/clear.md
-+++ b/reference/unordered_set/unordered_multiset/clear.md
-@@ -48,8 +48,8 @@ s.swap(tmp);
- 
- ### 計算量に関する備考
- - 多くの実装（GCC libstdc++, LLVM libc++ など）は
--    1. すべてのバケットを順に走査し
--    2. 各バケットを破棄する
-+    1. 全ての要素を破棄する
-+    2. 全てのバケットを順に走査して各バケットを破棄
- 
- という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
- これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: amend procedure</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
-      <id>3bb29a21a224749d75c2ced270b2bf59fd8a61d4:reference/unordered_set/unordered_set/clear.md</id>
-      <updated>2025-05-26T00:16:50+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
-index a28105970..f734aef3e 100644
---- a/reference/unordered_set/unordered_set/clear.md
-+++ b/reference/unordered_set/unordered_set/clear.md
-@@ -48,8 +48,8 @@ s.swap(tmp);
- 
- ### 計算量に関する備考
- - 多くの実装（GCC libstdc++, LLVM libc++ など）は
--    1. すべてのバケットを順に走査し
--    2. 各バケットを破棄する
-+    1. 全ての要素を破棄する
-+    2. 全てのバケットを順に走査して各バケットを破棄
- 
- という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
- これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- reflect suggestions</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
-      <id>b25ee37d0372f32dec1ad9ef183cfc5dc55d2271:reference/unordered_map/unordered_multimap/clear.md</id>
-      <updated>2025-05-26T00:14:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
-index b57e326f0..ab16a56df 100644
---- a/reference/unordered_map/unordered_multimap/clear.md
-+++ b/reference/unordered_map/unordered_multimap/clear.md
-@@ -35,7 +35,7 @@ void clear() noexcept;
- 
- ## 備考
- - clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
--実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
-+実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
- - メモリを確実に解放したいときには以下のように操作を行う
- ```CPP
- std::unordered_multimap&amp;lt;std::string, int&amp;gt; tmp;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- reflect suggestions</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
-      <id>b25ee37d0372f32dec1ad9ef183cfc5dc55d2271:reference/unordered_set/unordered_multiset/clear.md</id>
-      <updated>2025-05-26T00:14:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
-index 0c02d3ef4..bef4ac38b 100644
---- a/reference/unordered_set/unordered_multiset/clear.md
-+++ b/reference/unordered_set/unordered_multiset/clear.md
-@@ -35,7 +35,7 @@ void clear() noexcept;
- 
- ## 備考
- - clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
--実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
-+実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
- - メモリを確実に解放したいときには以下のように操作を行う
- ```CPP
- std::unordered_multiset&amp;lt;int&amp;gt; tmp;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- reflect suggestions</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
-      <id>b25ee37d0372f32dec1ad9ef183cfc5dc55d2271:reference/unordered_set/unordered_set/clear.md</id>
-      <updated>2025-05-26T00:14:18+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
-index 72acb0a6b..a28105970 100644
---- a/reference/unordered_set/unordered_set/clear.md
-+++ b/reference/unordered_set/unordered_set/clear.md
-@@ -35,7 +35,7 @@ void clear() noexcept;
- 
- ## 備考
- - clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
--実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
-+実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
  - メモリを確実に解放したいときには以下のように操作を行う
  ```CPP
  std::unordered_set&amp;lt;int&amp;gt; tmp;

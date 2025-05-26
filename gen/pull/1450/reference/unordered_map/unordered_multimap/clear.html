@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-26T14:17:33">
-        2025年05月26日 14時17分33秒
+      <span itemprop="datePublished" content="2025-05-26T14:24:43">
+        2025年05月26日 14時24分43秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -240,16 +240,6 @@
 <p>なし。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない。</p>
-<h2>備考</h2>
-<ul>
-<li><code>clear()</code> は バケット数(<code><a href="bucket_count.html">bucket_count</a>()</code>)を縮小することを規格上は要求していない。
-実装によっては <code>clear()</code> 後もバケット配列が維持され、動的メモリが残る場合がある。</li>
-<li>メモリを確実に解放したいときには以下のように操作を行う</li>
-</ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">tmp</span><span class="p">;</span>
-<span class="n">s</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
-</code></pre></div>
-</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
 <p>本関数呼び出し前のコンテナの要素数（<code><a href="size.html">size</a>()</code>）に比例</p>
 <h3><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>に関する備考</h3>
@@ -260,8 +250,18 @@
 </ol>
 </li>
 </ul>
-<p>という手順を取るため、実行時間は概ね <code><a href="bucket_count.html">bucket_count</a>()</code> + <code><a href="size.html">size</a>()</code> に比例する傾向がある。<br />
-これは規格が定義する「<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>」（オブジェクトに対する操作の数）とは別物である。</p>
+<p>という手順を取るため、実行時間は概ね <code><a href="size.html">size</a>()</code> + <code><a href="bucket_count.html">bucket_count</a>()</code> に比例する傾向がある。<br />
+規格がコンテナに対して定義する<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>は「コンテナに格納している要素に対する操作の数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>としてはバケット数Cに対して線形となる。</p>
+<h2>備考</h2>
+<ul>
+<li><code>clear()</code> は バケット数(<code><a href="bucket_count.html">bucket_count</a>()</code>)を縮小することを規格上は要求していない。
+実装によっては <code>clear()</code> 後もバケット配列が維持され、動的メモリが残る場合がある。</li>
+<li>メモリを確実に解放したいときには以下のように操作を行う</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="n">s</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+</code></pre></div>
+</p>
 <h2>例</h2>
 <p><div class="yata" id="0289ef06ebeefb35f9237fdf2c64c5caaf28abc2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../unordered_map.html">&lt;unordered_map&gt;</a></span><span class="cp"></span>
