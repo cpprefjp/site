@@ -82,7 +82,7 @@ namespace std::ranges {
 - (1), (2) :
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
-		    std::vector<T> v;
+        std::vector<T> v;
         int n = std::ranges::count(v, {a, b});
         ```
 

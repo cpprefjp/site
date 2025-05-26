@@ -59,8 +59,8 @@ namespace std {
 - (1), (2) :
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
-		std::vector<T> v;
-        auto it = std::find(v.begin(), v.begin(), {a, b});
+        std::vector<T> v;
+        auto it = std::find(v.begin(), v.end(), {a, b});
         ```
 
 ## 例

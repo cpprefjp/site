@@ -136,8 +136,8 @@ namespace std {
 - (1), (2), (3), (4) :
     - C++26 : パラメータ`value`として波カッコ初期化`{}`を受け付ける
         ```cpp
-		    std::vector<T> v;
-        auto it = std::search_n(v.begin(), v.begin(), 3, {a, b});
+        std::vector<T> v;
+        auto it = std::search_n(v.begin(), v.end(), 3, {a, b});
         ```
 
 

@@ -89,7 +89,7 @@ namespace std::ranges {
 - (1), (2) :
     - C++26 : パラメータ`value`として波カッコ初期化`{}`を受け付ける
         ```cpp
-		    std::vector<T> v;
+        std::vector<T> v;
         auto sr = std::ranges::search_n(v, 3, {a, b});
         ```
 
