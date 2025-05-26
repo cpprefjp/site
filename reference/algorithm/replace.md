@@ -68,8 +68,8 @@ namespace std {
 - (1), (2) :
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
-		    std::vector<T> v;
-        int n = std::replace(v.begin(), v.end(), {a, b}, {c, d});
+        std::vector<T> v;
+        std::replace(v.begin(), v.end(), {a, b}, {c, d});
         ```
 
 

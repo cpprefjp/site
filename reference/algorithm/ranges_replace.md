@@ -107,8 +107,8 @@ namespace std::ranges {
 - (1), (2) :
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
-		    std::vector<T> v;
-        int n = std::ranges::replace(v, {a, b}, {c, d});
+        std::vector<T> v;
+        std::ranges::replace(v, {a, b}, {c, d});
         ```
 
 

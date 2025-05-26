@@ -65,7 +65,7 @@ namespace std::ranges {
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
         std::vector<T> v;
-        int n = std::ranges::replace_if(v, pred, {a, b});
+        std::ranges::replace_if(v, pred, {a, b});
         ```
 
 

@@ -74,7 +74,7 @@ namespace std {
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
         std::vector<T> v;
-        int n = std::replace_if(v.begin(), v.end(), pred, {a, b});
+        std::replace_if(v.begin(), v.end(), pred, {a, b});
         ```
 
 
