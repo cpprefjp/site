@@ -12,14 +12,37 @@ namespace std::ranges {
             class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
   constexpr iter_difference_t<I>
-    count(I first, S last, const T& value, Proj proj = {}); // (1) C++20
+    count(I first,
+          S last,
+          const T& value,
+          Proj proj = {}); // (1) C++20
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>>
+    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
+  constexpr iter_difference_t<I>
+    count(I first,
+          S last,
+          const T& value,
+          Proj proj = {}); // (1) C++26
 
   template <input_range R,
             class T,
             class Proj = identity>
     requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
   constexpr range_difference_t<R>
-    count(R&& r, const T& value, Proj proj = {});           // (2) C++20
+    count(R&& r,
+          const T& value,
+          Proj proj = {}); // (2) C++20
+  template <input_range R,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>>
+    requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
+  constexpr range_difference_t<R>
+    count(R&& r,
+          const T& value,
+          Proj proj = {}); // (2) C++26
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -55,7 +78,17 @@ namespace std::ranges {
 正確に `last - first` 回の比較を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+		    std::vector<T> v;
+        int n = std::ranges::count(v, {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -65,14 +98,48 @@ int main() {
   constexpr std::array v = { 1,4,3,3,1,2,2,1 };
 
   // 値が 1 の要素がいくつあるかを数える
-  std::cout << "count of 1: " << std::ranges::count(v, 1) << std::endl;
+  int n = std::ranges::count(v, 1);
+  std::cout << "count of 1: " << n << std::endl;
 }
 ```
 * std::ranges::count[color ff0000]
 
-### 出力
+#### 出力
 ```
 count of 1: 3
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+	{1, 2},
+	{3, 4},
+	{5, 6},
+    {1, 2},
+  };
+
+  // 値が {1, 2} の要素がいくつあるかを数える
+  int n = std::ranges::count(v, {1, 2});
+  std::cout << "count of {1,2}: " << n << std::endl;
+}
+```
+* std::ranges::count[color ff0000]
+
+#### 出力
+```
+count of {1,2}: 2
 ```
 
 
@@ -124,3 +191,5 @@ inline constexpr count_impl count;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
