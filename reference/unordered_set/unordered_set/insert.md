@@ -68,13 +68,13 @@ iterator
 
 
 ## 適格要件
-- (1)、(4) : `value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。
+- (1), (4) : `value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。
     - コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
         - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
-- (2)、(5) : `value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。
+- (2), (5) : `value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。
     - コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
         - `std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`
-- (4)、(5) : 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。
+- (4), (5) : 引数 `position` は、コンテナの有効な読み取り専用イテレータでなければならない。
     - なお、標準では間接参照可能（dereferenceable）である必要があることになっているが、その必要はない（つまり、最終要素の次を指すイテレータでも良い）ものと思われる。
 - (7) : 引数 `first`、および、`last`は、入力イテレータの要件を満たし、かつ、イテレータ範囲 `[first, last)` が当該コンテナ**以外を指す**有効な範囲でなければならない。
     - また、このコンテナの要素型 `value_type` は、コンテナに対して `*first` から直接構築可能（EmplaceConstructible）でなければならない。
@@ -89,8 +89,8 @@ iterator
 
 
 ## 効果
-- (1)、(2)、(3) : 引数で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
-- (4)、(5)、(6) : 第1引数で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
+- (1), (2), (3) : 引数で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
+- (4), (5), (6) : 第1引数で指定した値と等価なキーがコンテナに存在していなければ、当該要素を追加する。
     - 引数 `position` は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。
 - (7) : イテレータ範囲 `[first, last)` のすべての要素 `t` に対して、(1)の形式の `insert(t)` を呼び出した場合と等価である。
 - (8) : (7)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価である。
@@ -100,9 +100,9 @@ iterator
 
 
 ## 戻り値
-- (1)、(2)、(3) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。
+- (1), (2), (3) : [`pair`](/reference/utility/pair.md) の `bool` 部分（`second` 部）は、要素が追加されたら `true`、追加されなかったら（既にあったら）`false`。
     - [`pair`](/reference/utility/pair.md) の `iterator` 部分（`first` 部）は、追加された要素（`bool` 部分が `true` の場合）、あるいは、既にあった要素（`bool` 部分が `false` の場合）を指すイテレータ。
-- (4)、(5)、(6) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。
+- (4), (5), (6) : 新たな要素が追加された場合、その追加された要素を指すイテレータ。
     - 新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。
 - (7) : なし
 - (8) : なし
@@ -117,8 +117,8 @@ iterator
 
 
 ## 計算量
-- (1)、(2)、(3) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
-- (4)、(5)、(6) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (1), (2), (3) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
+- (4), (5), (6) : 平均的なケースでは定数（O(1)）だが、最悪のケースではコンテナの要素数 [`size`](size.md)`()` に比例（O(N)）。
 - (7) : 平均的なケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` に比例（O(N)）するが、最悪のケースでは引数の範囲の要素数 `std::`[`distance`](/reference/iterator/distance.md)`(first, last)` とコンテナの要素数 [`size()`](size.md) に 1 加えたものの積に比例（O(`std::`[`distance`](/reference/iterator/distance.md)`(first, last) * (`[`size`](size.md)`() + 1)`)）。
 - (8) : (7)の形式を `insert(il.begin(), il.end())` として呼び出した場合と等価。
 - (9), (10) : 平均的なケースでは `O(1)`、最悪のケースでは `O(size())`。
@@ -160,7 +160,7 @@ int main()
 {
   std::cout << std::boolalpha;
 
-  // 一つの要素を挿入（(1)、(2)、(3)の形式）
+  // 一つの要素を挿入（(1), (2), (3)の形式）
   {
     std::unordered_set<int> us{ 0, 1, 2, 3, 4, 5, };
 
@@ -171,7 +171,7 @@ int main()
     print("insert one element", us);
   }
 
-  // 一つの要素を挿入（(4)、(5)、(6)の形式）
+  // 一つの要素を挿入（(4), (5), (6)の形式）
   {
     std::unordered_set<int> us{ 0, 1, 2, 3, 4, 5, };
 
@@ -233,7 +233,7 @@ insert initializer_list : 7 8 6 5 4 3 2 1 0
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 実装例
-(4)、(5)、(7)、(8)の形式は、(1)、(2)の形式を使って実装することができる。
+(4), (5), (7), (8)の形式は、(1), (2)の形式を使って実装することができる。
 
 ```cpp
 template <class Key, class Hash, class Pred, class Allocator>

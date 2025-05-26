@@ -18,7 +18,7 @@ constexpr auto end() const requires range<const V>; // (2)
 
 ## 戻り値
 
-入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1)(2)どちらも
+入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして、(1), (2)どちらも
 
 ```cpp
 return ranges::cend(base_);

@@ -27,12 +27,12 @@ iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
 
 
 ## 要件
-- `v` を引数にとる形式（(1)、(2)の上側）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
+- `v` を引数にとる形式（(1), (2)の上側）では、`value_type` はコンテナに対してコピー挿入可能（CopyInsertable）でなければならない。  
 	コンテナに対してコピー挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, v);`
 
-- `rv` を引数にとる形式（(1)、(2)の下側）では、`value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。  
+- `rv` を引数にとる形式（(1), (2)の下側）では、`value_type` はコンテナに対してムーブ挿入可能（MoveInsertable）でなければならない。  
 	コンテナに対してムーブ挿入可能とは、`m` をアロケータ型 `allocator_type` の左辺値、`p` を要素型 `value_type` へのポインタとすると、以下の式が適格（well-formed）であるということである。
 
 	`std::`[`allocator_traits`](/reference/memory/allocator_traits.md)`<allocator_type>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(m, p, std::`[`move`](/reference/utility/move.md)`(rv));`

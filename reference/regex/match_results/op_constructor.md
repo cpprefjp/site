@@ -34,7 +34,7 @@ match_results(match_results&& m) noexcept;          // (4)
 
 
 ## 事後条件
-- (1)(2) [`ready`](ready.md)`() == false`、かつ、[`size`](size.md)`() == 0`、かつ、[`get_allocator`](get_allocator.md)`() == a`
+- (1), (2) [`ready`](ready.md)`() == false`、かつ、[`size`](size.md)`() == 0`、かつ、[`get_allocator`](get_allocator.md)`() == a`
 - (3) 構築したオブジェクトを `u` とすると、`u == m`
 - (4) 以下の表を満たす。
 
@@ -52,7 +52,7 @@ match_results(match_results&& m) noexcept;          // (4)
 
 
 ## 計算量
-- (1)(2) 定数時間
+- (1), (2) 定数時間
 - (3) 線形時間
 - (4) 定数時間
 

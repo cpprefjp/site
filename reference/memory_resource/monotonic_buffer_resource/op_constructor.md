@@ -38,9 +38,9 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 
 ## 要件
 
-- (1)(2)(3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
-- (2)(5) : `initial_size`は0より大きいこと
-- (3)(6) : `buffer_size`は`buffer`に割り当てられているメモリ領域のサイズ以下であること。
+- (1), (2), (3) : `upstream`は有効な`memory_resource`オブジェクトを指していること。（当然、nullでないこと）
+- (2), (5) : `initial_size`は0より大きいこと
+- (3), (6) : `buffer_size`は`buffer`に割り当てられているメモリ領域のサイズ以下であること。
 
 ## 引数
 
@@ -63,7 +63,7 @@ monotonic_buffer_resource(const monotonic_buffer_resource&) = delete;           
 
 - (6) : `buffer`と`buffer_size`及び[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を(3)に渡し委譲
 
-(4)(5)(6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
+(4), (5), (6)のコンストラクタは上流メモリリソースとして[`get_default_resource()`](/reference/memory_resource/get_default_resource.md)から取得した`memory_resource`を利用する。
 
 ## 備考
 どのコンストラクタの初期化においても、上流メモリリソースの所有権を保持しない。

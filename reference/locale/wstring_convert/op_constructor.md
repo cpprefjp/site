@@ -38,7 +38,7 @@ wstring_convert(const wstring_convert&) = delete;      // (5) C++14
 
 ## 要件
 
-- (2)(3) : `pcvt != nullptr`であること。
+- (2), (3) : `pcvt != nullptr`であること。
 
 
 ## 効果

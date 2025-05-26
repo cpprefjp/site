@@ -29,7 +29,7 @@ mersenne_twister_engine(mersenne_twister_engine&& e) = default;      // (5)
 
 
 ## 計算量
-- (1)(2) : 状態のサイズ `n` (`mersenne_twister_engine::state_size`) に対し O(n)
+- (1), (2) : 状態のサイズ `n` (`mersenne_twister_engine::state_size`) に対し O(n)
 - (5) : 状態シーケンスの要素数はコンパイル時に決定されるため、多くの場合状態シーケンスはスタック上(配列)に作られる。そのため、ムーブが効果的に動作することは期待できない
 
 
