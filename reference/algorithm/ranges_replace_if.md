@@ -60,6 +60,16 @@ namespace std::ranges {
 正確に `last - first` 回の述語の適用を行う。
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        int n = std::ranges::replace_if(v, pred, {a, b});
+        ```
+
+
+
 ## 例
 ```cpp example
 #include <algorithm>
