@@ -12,13 +12,34 @@ namespace std::ranges {
             class T2,
             class Proj = identity>
     requires indirectly_writable<I, const T2&> &&
-             indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T1*>
+             indirect_binary_predicate<
+               ranges::equal_to
+               projected<I, Proj>,
+               const T1*
+             >
   constexpr I
     replace(I first,
             S last,
             const T1& old_value,
             const T2& new_value,
             Proj proj = {}); // (1) C++20
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T1 = projected_value_t<I, Proj>,
+            class T2 = T1>
+    requires indirectly_writable<I, const T2&> &&
+             indirect_binary_predicate<
+               ranges::equal_to
+               projected<I, Proj>,
+               const T1*
+             >
+  constexpr I
+    replace(I first,
+            S last,
+            const T1& old_value,
+            const T2& new_value,
+            Proj proj = {}); // (1) C++26
 
   template <input_range R,
             class T1,
@@ -35,6 +56,21 @@ namespace std::ranges {
             const T1& old_value,
             const T2& new_value,
             Proj proj = {}); // (2) C++20
+  template <input_range R,
+            class Proj = identity,
+            class T1 = projected_value_t<iterator_t<R>, Proj>,
+            class T2 = T1>
+    requires indirectly_writable<iterator_t<R>, const T2&> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T1*
+             >
+  constexpr borrowed_iterator_t<R>
+    replace(R&& r,
+            const T1& old_value,
+            const T2& new_value,
+            Proj proj = {}); // (2) C++26
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -67,7 +103,17 @@ namespace std::ranges {
 正確に `last - first` 回の比較を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+		    std::vector<T> v;
+        int n = std::ranges::replace(v, {a, b}, {c, d});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -86,9 +132,48 @@ int main() {
 ```
 * std::ranges::replace[color ff0000]
 
-### 出力
+#### 出力
 ```
 3,10,2,10,2,
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {3, 4},
+    {5, 6},
+    {1, 2},
+  };
+
+  // 値が{1, 2}の要素をすべて{9, 9}に置き換える
+  std::ranges::replace(v, {1, 2}, {9, 9});
+
+  for (const Point& p : v) {
+    std::cout << p.x << ',' << p.y << std::endl;
+  }
+}
+```
+* std::ranges::replace[color ff0000]
+
+#### 出力
+```
+9,9
+3,4
+5,6
+9,9
 ```
 
 ## バージョン
@@ -103,3 +188,5 @@ int main() {
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
