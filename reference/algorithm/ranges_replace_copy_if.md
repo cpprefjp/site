@@ -20,6 +20,22 @@ namespace std::ranges {
                     Pred pred,
                     const T& new_value,
                     Proj proj = {}); // (1) C++20
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class O,
+            class T = iter_value_t<O>,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+    requires
+      indirectly_copyable<I, O> &&
+      output_iterator<O, const T&>
+  constexpr replace_copy_if_result<I, O>
+    replace_copy_if(I first,
+                    S last,
+                    O result,
+                    Pred pred,
+                    const T& new_value,
+                    Proj proj = {}); // (1) C++26
 
   template <input_range R,
             class T,
@@ -33,6 +49,20 @@ namespace std::ranges {
                     Pred pred,
                     const T& new_value,
                     Proj proj = {}); // (2) C++20
+  template <input_range R,
+            class O,
+            class T = iter_value_t<O>,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+    requires
+      indirectly_copyable<iterator_t<R>, O> &&
+      output_iterator<O, const T&>
+  constexpr replace_copy_if_result<borrowed_iterator_t<R>, O>
+    replace_copy_if(R&& r,
+                    O result,
+                    Pred pred,
+                    const T& new_value,
+                    Proj proj = {}); // (2) C++26
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -69,7 +99,17 @@ namespace std::ranges {
 正確に `last - first` 回の述語の適用を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        std::ranges::replace_copy_if(v, result, pred, {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -80,16 +120,65 @@ int main() {
   std::vector<int> v = { 3,1,2,1,2 };
 
   // 奇数の要素を全部 10 に置き換えたものを出力する
-  std::ranges::replace_copy_if(v, std::ostream_iterator<int>(std::cout, ","), [](int x) { return x%2 != 0; }, 10);
+  std::ranges::replace_copy_if(
+    v,
+    std::ostream_iterator<int>(std::cout, ","),
+    [](int x) { return x%2 != 0; },
+    10
+  );
 }
 ```
 * std::ranges::replace_copy_if[color ff0000]
 
-### 出力
+#### 出力
 ```
 10,10,2,10,2,
 ```
 
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <iterator>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+std::ostream& operator<<(std::ostream& os, const Point& p) {
+  return os << p.x << ',' << p.y << std::endl;
+}
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {3, 4},
+    {5, 6},
+    {1, 2},
+  };
+
+  // 値が{1, 2}の要素をすべて{9, 9}に置き換えたものを出力する
+  std::ranges::replace_copy_if(
+    v,
+    std::ostream_iterator<int>(std::cout, "\n"),
+    [](const Point& p) { return p.x == 1 && p.y == 2; },
+    {9, 9}
+  );
+}
+```
+* std::ranges::replace_copy_if[color ff0000]
+
+#### 出力
+```
+9,9
+3,4
+5,6
+9,9
+```
 
 ## バージョン
 ### 言語
@@ -103,3 +192,5 @@ int main() {
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
