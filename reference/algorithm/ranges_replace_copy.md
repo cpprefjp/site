@@ -123,7 +123,7 @@ namespace std::ranges {
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp
         std::vector<T> v;
-        std::ranges::replace_copy_if(v, result, {a, b}, {c, d});
+        std::ranges::replace_copy(v, result, {a, b}, {c, d});
         ```
 
 
@@ -176,9 +176,8 @@ int main() {
   };
 
   // 値が{1, 2}の要素をすべて{9, 9}に置き換えたものを出力する
-  std::replace_copy(
-    v.begin(),
-    v.end(),
+  std::ranges::replace_copy(
+    v,
     std::ostream_iterator<int>(std::cout, "\n"),
     {1, 2},
     {9, 9}
