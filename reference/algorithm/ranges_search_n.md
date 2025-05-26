@@ -5,7 +5,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-namespace std::ranges {]
+namespace std::ranges {
   template <forward_iterator I,
             sentinel_for<I> S,
             class T,
@@ -19,6 +19,19 @@ namespace std::ranges {]
              const T& value,
              Pred pred = {},
              Proj proj = {}); // (1) C++20
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Pred = ranges::equal_to,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>>
+    requires indirectly_comparable<I, const T*, Pred, Proj>
+  constexpr subrange<I>
+    search_n(I first,
+             S last,
+             iter_difference_t<I> count,
+             const T& value,
+             Pred pred = {},
+             Proj proj = {}); // (1) C++26
 
   template <forward_range R,
             class T,
@@ -31,6 +44,17 @@ namespace std::ranges {]
              const T& value,
              Pred pred = {},
              Proj proj = {}); // (2) C++20
+  template <forward_range R,
+            class Pred = ranges::equal_to,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>>
+    requires indirectly_comparable<iterator_t<R>, const T*, Pred, Proj>
+  constexpr borrowed_subrange_t<R>
+    search_n(R&& r,
+             range_difference_t<R> count,
+             const T& value,
+             Pred pred = {},
+             Proj proj = {}); // (2) C++26
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -61,7 +85,17 @@ namespace std::ranges {]
 最大で `last - first` 回の対応する比較もしくは述語が適用される。
 
 
+## 備考
+- (1), (2) :
+    - C++26 : パラメータ`value`として波カッコ初期化`{}`を受け付ける
+        ```cpp
+		    std::vector<T> v;
+        auto sr = std::ranges::search_n(v, 3, {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -90,12 +124,47 @@ int main() {
 }
 ```
 * std::ranges::search_n[color ff0000]
-* v.begin()[link /reference/vector/vector/begin.md]
 
-### 出力
+#### 出力
 ```
 found: index==5
 found: index==0
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+	{1, 2},
+	{3, 4},
+    {3, 4},
+	{5, 6},
+  };
+
+  // 値が {3, 4} が2回連続している場所を探す
+  std::ranges::subrange sr = std::ranges::search_n(v, 2, {3, 4});
+  if (!sr.empty()) {
+    int index = std::distance(v.begin(), sr.begin());
+    std::cout << "found: index==" << index << std::endl;
+  }
+}
+```
+* std::ranges::search_n[color ff0000]
+
+#### 出力
+```
+found: index==1
 ```
 
 
@@ -163,3 +232,5 @@ inline constexpr search_n_impl search_n;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
