@@ -2,9 +2,117 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-25T15:41:39.925224</updated>
-  <id>5d56d7da-a396-4732-a6f5-8538b669230b</id>
+  <updated>2025-05-26T14:21:30.772851</updated>
+  <id>aa243885-899b-442a-babf-4fb541891dea</id>
 
+  
+    <entry>
+      <title>clear -- fix: 破棄-&gt;初期化</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>2a7fe576da66585d24834cd22a9b89e97a3849c6:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-26T23:17:33+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index 07aa45df0..0409a9a65 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -49,7 +49,7 @@ s.swap(tmp);
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を破棄する
+-    2. 全てのバケットを順に走査して各バケットを破棄
++    2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: 破棄-&gt;初期化</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>2a7fe576da66585d24834cd22a9b89e97a3849c6:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-26T23:17:33+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index b4fcf646e..8b1f9a7be 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -49,7 +49,7 @@ s.swap(tmp);
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を破棄する
+-    2. 全てのバケットを順に走査して各バケットを破棄
++    2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: 破棄-&gt;初期化</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>2a7fe576da66585d24834cd22a9b89e97a3849c6:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-26T23:17:33+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 73a6c20d5..846f3bafd 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -49,7 +49,7 @@ s.swap(tmp);
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を破棄する
+-    2. 全てのバケットを順に走査して各バケットを破棄
++    2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: 破棄-&gt;初期化</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>2a7fe576da66585d24834cd22a9b89e97a3849c6:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-26T23:17:33+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index 3f8b24f45..f1a4c6d4d 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -49,7 +49,7 @@ s.swap(tmp);
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を破棄する
+-    2. 全てのバケットを順に走査して各バケットを破棄
++    2. 全てのバケットを順に走査して各バケットを初期化
+ 
+ という手順を取るため、実行時間は概ね [`bucket_count`](bucket_count.md)`()` + [`size`](size.md)`()` に比例する傾向がある。  
+ これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clear -- reflect suggestions</title>
@@ -316,33 +424,6 @@ index 72acb0a6b..a28105970 100644
       <author>
         <name>koki watanabe</name>
         <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- Update reference/unordered_map/unordered_map/clear.md</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
-      <id>f572dabcf8c9b588b8b4ba14c20f4bd8a9bc0087:reference/unordered_map/unordered_map/clear.md</id>
-      <updated>2025-05-25T23:42:28+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
-index 15cf893c7..610429a35 100644
---- a/reference/unordered_map/unordered_map/clear.md
-+++ b/reference/unordered_map/unordered_map/clear.md
-@@ -35,7 +35,7 @@ void clear() noexcept;
- 
- ## 備考
- - clear() は バケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格上は要求していない。
--実装によっては clear 後もバケット配列が温存され、動的メモリが残る場合がある。
-+実装によっては clear 後もバケット配列が維持され、動的メモリが残る場合がある。
- - メモリを確実に解放したいときには以下のように操作を行う
- ```CPP
- std::unordered_map&amp;lt;std::string, int&amp;gt; tmp;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>56009584+math-hiyoko@users.noreply.github.com</email>
       </author>
     </entry>
   
