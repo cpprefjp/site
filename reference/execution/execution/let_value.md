@@ -207,7 +207,7 @@ namespace std::execution {
 
 ## カスタマイゼーションポイント
 Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
+[デフォルト実行ドメイン](default_domain.md)では無変換。
 
 説明用の式`out_sndr`を`let_value(sndr, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
 

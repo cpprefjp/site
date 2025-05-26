@@ -151,13 +151,13 @@ struct not-a-sender {
 
 ## カスタマイゼーションポイント
 Senderアルゴリズム構築時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
+[デフォルト実行ドメイン](default_domain.md)では無変換。
 
 - 呼び出し式`on(sch, sndr)` : [Scheduler](scheduler.md)`sch`に[関連付けられた実行ドメイン](query-or-default.md.nolink)
 - 呼び出し式`on(sndr, sch, closure)` : [Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)
 
 [Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](../execution/default_domain.md)では`on.transform_sender(out_sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
+[デフォルト実行ドメイン](default_domain.md)では`on.transform_sender(out_sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
 
 
 ### 呼び出し式 `on(sch, sndr)`

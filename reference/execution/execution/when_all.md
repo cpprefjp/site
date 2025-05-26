@@ -15,6 +15,9 @@ namespace std::execution {
 ## 概要
 `when_all`は、複数の入力[Sender](sender.md)が全て完了するまで待機するSenderアダプタである。
 
+`when_all`は全ての入力Senderが[値完了シグネチャ](set_value.md)を1個だけ持つことを要求する。
+値完了シグネチャが複数存在する場合は[`when_all_with_variant`](when_all_with_variant.md)アルゴリズムを利用する
+
 - 入力Sender全てが値完了のとき、全ての値完了結果を[`tuple`](/reference/tuple/tuple.md)に結合して値完了操作を行う。
 - いずれかがエラー完了のとき、同エラー値をもってエラー完了操作を行う。このとき停止要求が作成される。
 - いずれかが停止完了のとき、停止完了操作を行う。このとき停止要求が作成される。
@@ -85,7 +88,7 @@ namespace std::execution {
 ラムダ式は下記を満たすオブジェクト`e`を返す。
 
 - `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
-- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.get_token()`と等価、かつ
+- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
 - [`get_stop_token`](../get_stop_token.md)以外の[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
 
 `impls-for<when_all_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
@@ -126,7 +129,7 @@ std::forward<Sndr>(sndr).apply(make-state<Rcvr>())
 * start[link start.md]
 * emplace[link /reference/optional/optional/emplace.md]
 * reset()[link /reference/optional/optional/reset.md]
-* stop_requested()[link /reference/stop_token/inplace_stop_token/stop_requested.md]
+* stop_requested()[link /reference/stop_token/inplace_stop_source/stop_requested.md]
 * std::move[link /reference/utility/move.md]
 
 `impls-for<when_all_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
@@ -320,7 +323,7 @@ variant<none-such, copy-fail, Es...>
 
 ## カスタマイゼーションポイント
 Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
+[デフォルト実行ドメイン](default_domain.md)では無変換。
 
 
 ## 例
@@ -471,7 +474,7 @@ error=-2
 
 
 ## 関連項目
-- [`execution::when_all_with_variant`](when_all_with_variant.md.nolink)
+- [`execution::when_all_with_variant`](when_all_with_variant.md)
 
 
 ## 参照

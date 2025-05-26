@@ -86,7 +86,7 @@ namespace std::execution {
 
 ## カスタマイゼーションポイント
 Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
+[デフォルト実行ドメイン](default_domain.md)では無変換。
 
 
 ## 例
@@ -198,7 +198,7 @@ int main()
 
 
 ## 関連項目
-- [`execution::when_all_with_variant`](when_all_with_variant.md.nolink)
+- [`execution::when_all_with_variant`](when_all_with_variant.md)
 - [`this_thread::sync_wait_with_variant`](../this_thread/sync_wait_with_variant.md)
 
 

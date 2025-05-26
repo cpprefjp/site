@@ -66,10 +66,10 @@ return schedule_from(std::move(data), std::move(child));
 
 ## カスタマイゼーションポイント
 Senderアルゴリズム構築時に、[Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](../execution/default_domain.md)では無変換。
+[デフォルト実行ドメイン](default_domain.md)では無変換。
 
 [Receiver](receiver.md)との[接続(connect)](connect.md)時に、[Scheduler](scheduler.md)`sch`に[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](../execution/default_domain.md)では`continues_on.transform_sender(out_sndr, env)`が呼ばれ、[`schedule_from`](schedule_from.md)Senderへと変換される。
+[デフォルト実行ドメイン](default_domain.md)では`continues_on.transform_sender(out_sndr, env)`が呼ばれ、[`schedule_from`](schedule_from.md)Senderへと変換される。
 
 説明用の式`out_sndr`を`continues_on(sndr, sch)`の戻り値[Sender](sender.md)とし、型`OutSndr`を`decltype((out_sndr))`とする。式`out_rcvr`を[`sender_in`](sender_in.md)`<OutSndr, Env> == true`となる[環境](../queryable.md)`Env`に関連付けられた[Receiver](receiver.md)とする。`out_sndr`と`out_rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)への左辺値参照を`op`としたとき、
 
