@@ -5,22 +5,41 @@
 
 ```cpp
 namespace std {
-  template <class ForwardIterator, class T>
-  void fill(ForwardIterator first,
-            ForwardIterator last,
-            const T& value);                  // (1) C++03
-
-  template <class ForwardIterator, class T>
-  constexpr void fill(ForwardIterator first,
-                      ForwardIterator last,
-                      const T& value);        // (1) C++20
-
-  template <class ExecutionPolicy, class ForwardIterator,
+  template <class ForwardIterator,
             class T>
-  void fill(ExecutionPolicy&& exec,
-            ForwardIterator first,
-            ForwardIterator last,
-            const T& value);                  // (2) C++17
+  void
+    fill(ForwardIterator first,
+         ForwardIterator last,
+         const T& value);        // (1) C++03
+  template <class ForwardIterator,
+            class T>
+  constexpr void
+    fill(ForwardIterator first,
+         ForwardIterator last,
+         const T& value);        // (1) C++20
+  template <class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type>
+  constexpr void
+    fill(ForwardIterator first,
+         ForwardIterator last,
+         const T& value);        // (1) C++20
+
+  template <class ExecutionPolicy,
+            class ForwardIterator,
+            class T>
+  void
+    fill(ExecutionPolicy&& exec,
+         ForwardIterator first,
+         ForwardIterator last,
+         const T& value);        // (2) C++17
+  template <class ExecutionPolicy,
+            class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type>
+  void
+    fill(ExecutionPolicy&& exec,
+         ForwardIterator first,
+         ForwardIterator last,
+         const T& value);        // (2) C++26
 }
 ```
 
@@ -28,7 +47,7 @@ namespace std {
 イテレータ範囲`[first, last)`のすべての要素に指定された値を書き込む。
 
 
-## 要件
+## 適格要件
 `value` は `output iterator` へ書き込み可能でなければならない
 
 
@@ -40,7 +59,17 @@ namespace std {
 正確に `last - first` 回の代入を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        std::fill(v.begin(), v.end(), {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -57,9 +86,43 @@ int main() {
 ```
 * std::fill[color ff0000]
 
-### 出力
+#### 出力
 ```
 3,3,3,3,3,
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v(5);
+
+  std::fill(v.begin(), v.end(), {1, 2});
+
+  for (const Point& p : v) {
+    std::cout << p.x << "," << p.y << std::endl;
+  }
+}
+```
+* std::fill[color ff0000]
+
+#### 出力
+```
+1,2
+1,2
+1,2
+1,2
+1,2
 ```
 
 
@@ -75,3 +138,5 @@ void fill(ForwardIterator first, ForwardIterator last, const T& value) {
 
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
