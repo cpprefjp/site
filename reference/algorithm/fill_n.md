@@ -5,31 +5,53 @@
 
 ```cpp
 namespace std {
-  template <class OutputIterator, class Size, class T>
+  template <class OutputIterator,
+            class Size,
+            class T>
   void
     fill_n(OutputIterator first,
            Size n,
            const T& value);        // (1) C++03
-
-  template <class OutputIterator, class Size, class T>
+  template <class OutputIterator,
+            class Size,
+            class T>
   OutputIterator
     fill_n(OutputIterator first,
            Size n,
            const T& value);        // (1) C++11
-
-  template <class OutputIterator, class Size, class T>
+  template <class OutputIterator,
+            class Size,
+            class T>
   constexpr OutputIterator
     fill_n(OutputIterator first,
            Size n,
            const T& value);        // (1) C++20
+  template <class OutputIterator,
+            class Size,
+            class T = typename iterator_traits<OutputIterator>::value_type>
+  constexpr OutputIterator
+    fill_n(OutputIterator first,
+           Size n,
+           const T& value);        // (1) C++26
 
-  template <class ExecutionPolicy, class ForwardIterator,
-            class Size, class T>
+  template <class ExecutionPolicy,
+            class ForwardIterator,
+            class Size,
+            class T>
   ForwardIterator
     fill_n(ExecutionPolicy&& exec,
            ForwardIterator first,
            Size n,
            const T& value);        // (2) C++17
+  template <class ExecutionPolicy,
+            class ForwardIterator,
+            class Size,
+            class T = typename iterator_traits<ForwardIterator>::value_type>
+  ForwardIterator
+    fill_n(ExecutionPolicy&& exec,
+           ForwardIterator first,
+           Size n,
+           const T& value);        // (2) C++26
 }
 ```
 
@@ -37,7 +59,7 @@ namespace std {
 イテレータ範囲`[first, first + n)`のすべての要素に指定された値を書き込む。
 
 
-## 要件
+## 適格要件
 - `value` は `output iterator` へ書き込み可能でなければならない。
 - `Size` は `integral type` に変換可能でなければならない。
 
@@ -57,22 +79,67 @@ namespace std {
 `n` が 1 以上の場合は `n` 回、そうでない場合は 0 回の代入を行う。
 
 
+## 備考
+- (1), (2) :
+    - C++26 : `value`パラメータとして波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        std::fill_n(v.begin(), n, {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
 #include <iterator>
 
 int main() {
-  // 3 を出力しまくる
+  // 値3を10個出力する
   std::fill_n(std::ostream_iterator<int>(std::cout, ","), 10, 3);
 }
 ```
 * std::fill_n[color ff0000]
 
-### 出力
+#### 出力
 ```
 3,3,3,3,3,3,3,3,3,3,
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v(5);
+
+  // 先頭3個の要素を値{1, 2}で埋める
+  std::fill_n(v.begin(), 3, {1, 2});
+
+  for (const Point& p : v) {
+    std::cout << p.x << "," << p.y << std::endl;
+  }
+}
+```
+* std::fill_n[color ff0000]
+
+#### 出力
+```
+1,2
+1,2
+1,2
+0,0
+0,0
 ```
 
 
@@ -107,3 +174,5 @@ fill_n(OutputIterator first, Size n, const T& value) {
 	戻り値が追加されるきっかけとなったレポート
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した

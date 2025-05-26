@@ -6,9 +6,19 @@
 
 ```cpp
 namespace std::ranges {
-  template<class T, output_iterator<const T&> O>
+  template <class T,
+            output_iterator<const T&> O>
   constexpr O
-    fill_n(O first, iter_difference_t<O> n, const T& value); // (1) C++20
+    fill_n(O first,
+           iter_difference_t<O> n,
+           const T& value);   // (1) C++20
+  template <class O,
+            class T = iter_value_t<O>>
+    requires output_iterator<O, const T&>
+  constexpr O
+    fill_n(O first,
+           iter_difference_t<O> n,
+           const T& value);   // (1) C++26
 }
 ```
 * output_iterator[link /reference/iterator/output_iterator.md]
@@ -30,22 +40,67 @@ namespace std::ranges {
 `n` が 1 以上の場合は `n` 回、そうでない場合は 0 回の代入を行う。
 
 
+## 備考
+- (1) :
+    - C++26 : `value`パラメータとして波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        std::ranges::fill_n(v.begin(), n, {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
 #include <iterator>
 
 int main() {
-  // 3 を10回出力する
+  // 値3を10個出力する
   std::ranges::fill_n(std::ostream_iterator<int>(std::cout, ","), 10, 3);
 }
 ```
 * std::ranges::fill_n[color ff0000]
 
-### 出力
+#### 出力
 ```
 3,3,3,3,3,3,3,3,3,3,
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v(5);
+
+  // 先頭3個の要素を値{1, 2}で埋める
+  std::ranges::fill_n(v.begin(), 3, {1, 2});
+
+  for (const Point& p : v) {
+    std::cout << p.x << "," << p.y << std::endl;
+  }
+}
+```
+* std::ranges::fill_n[color ff0000]
+
+#### 出力
+```
+1,2
+1,2
+1,2
+0,0
+0,0
 ```
 
 
@@ -61,3 +116,5 @@ int main() {
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
