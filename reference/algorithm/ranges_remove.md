@@ -16,6 +16,16 @@ namespace std::ranges {
            S last,
            const T& value,
            Proj proj = {}); // (1) C++20
+  template <permutable I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>>
+    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
+  constexpr subrange<I>
+    remove(I first,
+           S last,
+           const T& value,
+           Proj proj = {}); // (1) C++26
 
   template <forward_range R,
             class T,
@@ -30,6 +40,19 @@ namespace std::ranges {
     remove(R&& r,
            const T& value,
            Proj proj = {}); // (2) C++20
+  template <forward_range R,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>>
+    requires permutable<iterator_t<R>> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T*
+             >
+  constexpr borrowed_subrange_t<R>
+    remove(R&& r,
+           const T& value,
+           Proj proj = {}); // (2) C++26
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
@@ -67,12 +90,18 @@ namespace std::ranges {
 
 
 ## 備考
-有効な要素を範囲の前方に集める処理には、ムーブを使用する。
-
-取り除いた要素の先頭を指すイテレータを`ret`とし、範囲`[ret, last)`の各要素には、有効な要素からムーブされた値が設定される。それらの値は、「有効だが未規定な値」となる。
+- 有効な要素を範囲の前方に集める処理には、ムーブが使用される
+    - 取り除いた要素の先頭を指すイテレータを`ret`とし、範囲`[ret, last)`の各要素には、有効な要素からムーブされた値が設定される。それらの値は、「有効だが未規定な値」となる
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        auto sr = std::ranges::remove(v, {a, b});
+        ```
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -101,15 +130,55 @@ int main() {
 ```
 * result[color ff0000]
 * std::ranges::remove[color ff0000]
-* v.erase[color ff0000][link /reference/vector/vector/erase.md]
+* v.erase[link /reference/vector/vector/erase.md]
 * std::ranges::subrange[link /reference/ranges/subrange.md]
 * Erase-remove イディオム[link https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove)]
 
-### 出力
+#### 出力
 ```
 2,3,2,
 size before: 5
 size after: 3
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {3, 4},
+    {5, 6},
+    {1, 2},
+  };
+
+  // 値{1, 2}を除去する
+  std::ranges::subrange sr = std::ranges::remove(v, {1, 2});
+  v.erase(sr.begin(), v.end());
+
+  for (const Point& p : v) {
+    std::cout << p.x << "," << p.y << std::endl;
+  }
+}
+```
+* std::ranges::remove[color ff0000]
+* v.erase[link /reference/vector/vector/erase.md]
+* std::ranges::subrange[link /reference/ranges/subrange.md]
+
+#### 出力
+```
+3,4
+5,6
 ```
 
 ## バージョン
@@ -124,3 +193,5 @@ size after: 3
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した

@@ -5,24 +5,41 @@
 
 ```cpp
 namespace std {
-  template <class ForwardIterator, class T>
+  template <class ForwardIterator,
+            class T>
   ForwardIterator
     remove(ForwardIterator first,
            ForwardIterator last,
            const T& value);        // (1) C++03
-
-  template <class ForwardIterator, class T>
+  template <class ForwardIterator,
+            class T>
   constexpr ForwardIterator
     remove(ForwardIterator first,
            ForwardIterator last,
            const T& value);        // (1) C++20
+  template <class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type>
+  constexpr ForwardIterator
+    remove(ForwardIterator first,
+           ForwardIterator last,
+           const T& value);        // (1) C++26
 
-  template <class ExecutionPolicy, class ForwardIterator, class T>
+  template <class ExecutionPolicy,
+            class ForwardIterator,
+            class T>
   ForwardIterator
     remove(ExecutionPolicy&& exec,
            ForwardIterator first,
            ForwardIterator last,
            const T& value);        // (2) C++17
+  template <class ExecutionPolicy,
+            class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type>
+  ForwardIterator
+    remove(ExecutionPolicy&& exec,
+           ForwardIterator first,
+           ForwardIterator last,
+           const T& value);        // (2) C++26
 }
 ```
 
@@ -51,12 +68,18 @@ namespace std {
 
 
 ## 備考
-有効な要素を範囲の前方に集める処理には、ムーブを使用する。
-
-取り除いた要素の先頭を指すイテレータを`ret`とし、範囲`[ret, last)`の各要素には、有効な要素からムーブされた値が設定される。それらの値は、「有効だが未規定な値」となる。
+- 有効な要素を範囲の前方に集める処理には、ムーブが使用される
+    - 取り除いた要素の先頭を指すイテレータを`ret`とし、範囲`[ret, last)`の各要素には、有効な要素からムーブされた値が設定される。それらの値は、「有効だが未規定な値」となる
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        auto it = std::remove(v.begin(), v.end(), {a, b});
+        ```
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -83,14 +106,53 @@ int main() {
 ```
 * result[color ff0000]
 * std::remove[color ff0000]
-* v.erase[color ff0000][link /reference/vector/vector/erase.md]
+* v.erase[link /reference/vector/vector/erase.md]
 * Erase-remove イディオム[link https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/%E6%B6%88%E5%8E%BB%E3%83%BB%E5%89%8A%E9%99%A4(Erase-Remove)]
 
-### 出力
+#### 出力
 ```
 2,3,2,
 size before: 5
 size after: 3
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {3, 4},
+    {5, 6},
+    {1, 2},
+  };
+
+  // 値{1, 2}を除去する
+  auto it = std::remove(v.begin(), v.end(), {1, 2});
+  v.erase(it, v.end());
+
+  for (const Point& p : v) {
+    std::cout << p.x << "," << p.y << std::endl;
+  }
+}
+```
+* std::remove[color ff0000]
+* v.erase[link /reference/vector/vector/erase.md]
+
+#### 出力
+```
+3,4
+5,6
 ```
 
 
@@ -113,3 +175,5 @@ ForwardIterator remove(ForwardIterator first, ForwardIterator last, const T& val
 - [LWG Issue 2110. `remove` can't swap but note says it might](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2110)
     - C++11までのこのアルゴリズムは、要素の移動にswap操作が行われるかもしれない、と書いていた。だが、このアルゴリズムの要件は`MoveAssignable`のみであるため、swapはできない。そのため、C++14からは、ムーブのみで要素の移動が行われるようになった。
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
