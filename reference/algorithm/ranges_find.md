@@ -102,6 +102,62 @@ int main() {
 found: 1
 ```
 
+### 射影変換を使用した例
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct Item {
+  int id;
+  std::string name;
+};
+
+int main() {
+  std::vector<Item> v = {
+    {1, "aaa"},
+	{3, "bbb"},
+	{5, "ccc"}
+  };
+
+  // メンバ変数ポインタを使って特定のメンバ変数で検索
+  {
+    auto it = std::ranges::find(
+      v,
+      std::string("bbb"),
+      &Item::name
+    );
+    if (it == v.end()) {
+      std::cout << "not found" << std::endl;
+    } else {
+      std::cout << "found: " << it->id << ',' << it->name << std::endl;
+    }
+  }
+
+  // ラムダ式で特定のメンバ変数を検索
+  {
+    auto it = std::ranges::find(
+      v,
+      std::string("bbb"),
+      [](const Item& x) { return x.name; }
+    );
+    if (it == v.end()) {
+      std::cout << "not found" << std::endl;
+    } else {
+      std::cout << "found: " << it->id << ',' << it->name << std::endl;
+    }
+  } 
+}
+```
+* std::ranges::find[color ff0000]
+
+#### 出力
+```
+found: 3,bbb
+found: 3,bbb
+```
+
 ### 波カッコ初期化を入力として使用する (C++26)
 ```cpp example
 #include <algorithm>
