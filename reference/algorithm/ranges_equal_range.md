@@ -10,23 +10,55 @@ namespace std::ranges {
             sentinel_for<I> S,
             class T,
             class Proj = identity,
-            indirect_strict_weak_order<const T*, projected<I, Proj>> Comp = ranges::less>
+            indirect_strict_weak_order<
+              const T*,
+              projected<I, Proj>
+            > Comp = ranges::less>
   constexpr subrange<I>
     equal_range(I first,
                 S last,
                 const T& value,
                 Comp comp = {},
                 Proj proj = {}); // (1) C++20
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>,
+            indirect_strict_weak_order<
+              const T*,
+              projected<I, Proj>
+            > Comp = ranges::less>
+  constexpr subrange<I>
+    equal_range(I first,
+                S last,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (1) C++26
 
   template <forward_range R,
             class T,
             class Proj = identity,
-            indirect_strict_weak_order<const T*, projected<iterator_t<R>, Proj>> Comp = ranges::less>
+            indirect_strict_weak_order<
+              const T*,
+              projected<iterator_t<R>, Proj>
+            > Comp = ranges::less>
   constexpr borrowed_subrange_t<R>
     equal_range(R&& r,
                 const T& value,
                 Comp comp = {},
                 Proj proj = {}); // (2) C++20
+  template <forward_range R,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>,
+            indirect_strict_weak_order<
+              const T*,
+              projected<iterator_t<R>, Proj>
+            > Comp = ranges::less>
+  constexpr borrowed_subrange_t<R>
+    equal_range(R&& r,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (2) C++26
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -57,11 +89,21 @@ namespace std::ranges {
 ## 戻り値
 `{`[`ranges::lower_bound`](ranges_lower_bound.md)`(first, last, value, comp, proj), `[`ranges::upper_bound`](ranges_upper_bound.md)`(first, last, value, comp, proj)}`
 
+
 ## 計算量
 最大で 2 * log2(`last - first`) + O(1) 回の比較を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        auto result = std::ranges::equal_range(v, {a, b});
+        ```
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -93,13 +135,51 @@ int main()
 * std::ranges::sort[link ranges_sort.md]
 * std::ranges::equal_range[color ff0000]
 
-### 出力
+#### 出力
 ```
 size: 2
 3
 3
 
 size: 0
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+  auto operator<=>(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {3, 4},
+    {3, 4},
+    {5, 6},
+  };
+
+  // 値{3, 4}が見つかる範囲を取得
+  auto result = std::ranges::equal_range(v, {3, 4});
+
+  for (const Point& p : result) {
+    std::cout << p.x << "," << p.y << std::endl;
+  }
+}
+```
+* std::ranges::equal_range[color ff0000]
+
+#### 出力
+```
+3,4
+3,4
 ```
 
 ## バージョン
@@ -114,3 +194,5 @@ size: 0
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した

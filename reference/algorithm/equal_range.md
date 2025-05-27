@@ -5,31 +5,49 @@
 
 ```cpp
 namespace std {
-  template <class ForwardIterator, class T>
+  template <class ForwardIterator,
+            class T>
   pair<ForwardIterator, ForwardIterator>
     equal_range(ForwardIterator first,
                 ForwardIterator last,
                 const T& value);      // (1) C++03
-
-  template <class ForwardIterator, class T>
+  template <class ForwardIterator,
+            class T>
   constexpr pair<ForwardIterator, ForwardIterator>
     equal_range(ForwardIterator first,
                 ForwardIterator last,
                 const T& value);      // (1) C++20
+  template <class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type>
+  constexpr pair<ForwardIterator, ForwardIterator>
+    equal_range(ForwardIterator first,
+                ForwardIterator last,
+                const T& value);      // (1) C++26
 
-  template <class ForwardIterator, class T, class Compare>
+  template <class ForwardIterator,
+            class T,
+            class Compare>
   pair<ForwardIterator, ForwardIterator>
     equal_range(ForwardIterator first,
                 ForwardIterator last,
                 const T& value,
                 Compare comp);        // (2) C++03
-
-  template <class ForwardIterator, class T, class Compare>
+  template <class ForwardIterator,
+            class T,
+            class Compare>
   constexpr pair<ForwardIterator, ForwardIterator>
     equal_range(ForwardIterator first,
                 ForwardIterator last,
                 const T& value,
                 Compare comp);        // (2) C++20
+  template <class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type,
+            class Compare>
+  constexpr pair<ForwardIterator, ForwardIterator>
+    equal_range(ForwardIterator first,
+                ForwardIterator last,
+                const T& value,
+                Compare comp);        // (2) C++26
 }
 ```
 * pair[link /reference/utility/pair.md]
@@ -54,7 +72,17 @@ namespace std {
 最大で 2 * log2(`last - first`) + O(1) 回の比較を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        auto result = std::equal_range(v.begin(), v.end(), {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -75,13 +103,53 @@ int main()
 ```
 * equal_range[color ff0000]
 
-### 出力
+#### 出力
 ```
 3
 4
 ```
 
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+  auto operator<=>(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {3, 4},
+    {3, 4},
+    {5, 6},
+  };
+
+  // 値{3, 4}が見つかる範囲を取得
+  auto result = std::equal_range(v.begin(), v.end(), {3, 4});
+
+  while (result.first != result.second) {
+    std::cout << result.first->x << "," << result.first->y << std::endl;
+    ++result.first;
+  }
+}
+```
+* std::equal_range[color ff0000]
+
+#### 出力
+```
+3,4
+3,4
+```
 
 ## 参照
 - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
