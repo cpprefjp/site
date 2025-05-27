@@ -5,27 +5,35 @@
 
 ```cpp
 namespace std {
-  template <class ForwardIterator, class T>
-  bool binary_search(ForwardIterator first,
-                     ForwardIterator last,
-                     const T& value);                 // (1) C++03
+  template <class ForwardIterator,
+            class T>
+  bool
+    binary_search(ForwardIterator first,
+                  ForwardIterator last,
+                  const T& value);       // (1) C++03
+  template <class ForwardIterator,
+            class T>
+  constexpr bool
+    binary_search(ForwardIterator first,
+                  ForwardIterator last,
+                  const T& value);       // (1) C++20
 
-  template <class ForwardIterator, class T>
-  constexpr bool binary_search(ForwardIterator first,
-                               ForwardIterator last,
-                               const T& value);       // (1) C++20
-
-  template <class ForwardIterator, class T, class Compare>
-  bool binary_search(ForwardIterator first,
-                     ForwardIterator last,
-                     const T& value,
-                     Compare comp);                   // (2) C++03
-
-  template <class ForwardIterator, class T, class Compare>
-  constexpr bool binary_search(ForwardIterator first,
-                               ForwardIterator last,
-                               const T& value,
-                               Compare comp);         // (2) C++20
+  template <class ForwardIterator,
+            class T,
+            class Compare>
+  bool
+    binary_search(ForwardIterator first,
+                  ForwardIterator last,
+                  const T& value,
+                  Compare comp);         // (2) C++03
+  template <class ForwardIterator,
+            class T,
+            class Compare>
+  constexpr bool
+    binary_search(ForwardIterator first,
+                  ForwardIterator last,
+                  const T& value,
+                  Compare comp);         // (2) C++20
 }
 ```
 
@@ -49,9 +57,16 @@ namespace std {
 
 ## 備考
 - `comp` は 2 引数の関数オブジェクトで、1 番目の引数が 2 番目の引数「より小さい」場合に `true` を、そうでない場合に `false` を返すものとして扱われる。
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        bool found = std::binary_search(v.begin(), v.end(), {a, b});
+        ```
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -65,6 +80,44 @@ int main()
   std::vector<int> v = {3, 1, 4, 6, 5};
 
   if (std::binary_search(v.begin(), v.end(), 4)) {
+    std::cout << "found" << std::endl;
+  }
+  else {
+    std::cout << "not found" << std::endl;
+  }
+}
+```
+* std::binary_search[color ff0000]
+
+#### 出力
+```
+found
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+  auto operator<=>(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {3, 4},
+    {5, 6},
+  };
+
+  // 値{3, 4}を二分検索
+  bool found = std::binary_search(v.begin(), v.end(), {3, 4});
+  if (found) {
     std::cout << "found" << std::endl;
   }
   else {
@@ -114,3 +167,5 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
     - C++03までの計算量が間違っていたので、C++11で修正。
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
