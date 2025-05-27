@@ -2,9 +2,117 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-05-27T12:15:52.910084</updated>
-  <id>a5f4ac16-4dfc-4940-9ea6-e92752c55836</id>
+  <updated>2025-05-27T12:19:46.973108</updated>
+  <id>d4611a95-bf04-49ed-a00b-cc323c32d1c5</id>
 
+  
+    <entry>
+      <title>clear -- fix: change statement</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
+      <id>349f1175f01f0ed94ea4bb10bee40dc23309b7bc:reference/unordered_map/unordered_map/clear.md</id>
+      <updated>2025-05-27T21:14:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
+index 5f72a8196..224b2d8f2 100644
+--- a/reference/unordered_map/unordered_map/clear.md
++++ b/reference/unordered_map/unordered_map/clear.md
+@@ -39,7 +39,7 @@ void clear() noexcept;
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を走査して各要素を破棄
+-    2. 全てのバケットを走査して各バケットを初期化
++    2. 全てのバケットを走査して各バケットの状態をリセット
+ 
+ という手順を取るため、実際の実行時間はバケット数 [`bucket_count`](bucket_count.md)`()` について線形となる (`size() &amp;lt;= bucket_count() * `[`max_load_factor()`](max_load_factor.md) = O(`bucket_count()`) であることに注意)。
+ 規格の計算量の要件は要素数 `size()` に線形となっているが、規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査などを考慮していない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: change statement</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>349f1175f01f0ed94ea4bb10bee40dc23309b7bc:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2025-05-27T21:14:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index 21b00f470..11fb1a103 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -39,7 +39,7 @@ void clear() noexcept;
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を走査して各要素を破棄
+-    2. 全てのバケットを走査して各バケットを初期化
++    2. 全てのバケットを走査して各バケットの状態をリセット
+ 
+ という手順を取るため、実際の実行時間はバケット数 [`bucket_count`](bucket_count.md)`()` について線形となる (`size() &amp;lt;= bucket_count() * `[`max_load_factor()`](max_load_factor.md) = O(`bucket_count()`) であることに注意)。
+ 規格の計算量の要件は要素数 `size()` に線形となっているが、規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査などを考慮していない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: change statement</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>349f1175f01f0ed94ea4bb10bee40dc23309b7bc:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2025-05-27T21:14:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 8b075a03f..aadc66f8f 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -39,7 +39,7 @@ void clear() noexcept;
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を走査して各要素を破棄
+-    2. 全てのバケットを走査して各バケットを初期化
++    2. 全てのバケットを走査して各バケットの状態をリセット
+ 
+ という手順を取るため、実際の実行時間はバケット数 [`bucket_count`](bucket_count.md)`()` について線形となる (`size() &amp;lt;= bucket_count() * `[`max_load_factor()`](max_load_factor.md) = O(`bucket_count()`) であることに注意)。
+ 規格の計算量の要件は要素数 `size()` に線形となっているが、規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査などを考慮していない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- fix: change statement</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
+      <id>349f1175f01f0ed94ea4bb10bee40dc23309b7bc:reference/unordered_set/unordered_set/clear.md</id>
+      <updated>2025-05-27T21:14:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
+index 4569f3e5d..acd8bc23c 100644
+--- a/reference/unordered_set/unordered_set/clear.md
++++ b/reference/unordered_set/unordered_set/clear.md
+@@ -39,7 +39,7 @@ void clear() noexcept;
+ ### 計算量に関する備考
+ - 多くの実装（GCC libstdc++, LLVM libc++ など）は
+     1. 全ての要素を走査して各要素を破棄
+-    2. 全てのバケットを走査して各バケットを初期化
++    2. 全てのバケットを走査して各バケットの状態をリセット
+ 
+ という手順を取るため、実際の実行時間はバケット数 [`bucket_count`](bucket_count.md)`()` について線形となる (`size() &amp;lt;= bucket_count() * `[`max_load_factor()`](max_load_factor.md) = O(`bucket_count()`) であることに注意)。
+ 規格の計算量の要件は要素数 `size()` に線形となっているが、規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査などを考慮していない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>koki watanabe</name>
+        <email>address8128@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clear -- fix: reflect suggestions</title>
@@ -474,114 +582,6 @@ index e96d56383..188ae2c6d 100644
  ## 例
  ```cpp example
  #include &amp;lt;iostream&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: apply suggestion</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/clear.html"/>
-      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_map/unordered_map/clear.md</id>
-      <updated>2025-05-26T23:23:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/clear.md b/reference/unordered_map/unordered_map/clear.md
-index 4fccb4077..9fbd16572 100644
---- a/reference/unordered_map/unordered_map/clear.md
-+++ b/reference/unordered_map/unordered_map/clear.md
-@@ -52,7 +52,7 @@ s.swap(tmp);
-     2. 全てのバケットを順に走査して各バケットを初期化
- 
- という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
--これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-+規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: apply suggestion</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
-      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_map/unordered_multimap/clear.md</id>
-      <updated>2025-05-26T23:23:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
-index f9bcd8b89..65b02b831 100644
---- a/reference/unordered_map/unordered_multimap/clear.md
-+++ b/reference/unordered_map/unordered_multimap/clear.md
-@@ -52,7 +52,7 @@ s.swap(tmp);
-     2. 全てのバケットを順に走査して各バケットを初期化
- 
- という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
--これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-+規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: apply suggestion</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
-      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_set/unordered_multiset/clear.md</id>
-      <updated>2025-05-26T23:23:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
-index 5d19486ec..29e8fbfd4 100644
---- a/reference/unordered_set/unordered_multiset/clear.md
-+++ b/reference/unordered_set/unordered_multiset/clear.md
-@@ -52,7 +52,7 @@ s.swap(tmp);
-     2. 全てのバケットを順に走査して各バケットを初期化
- 
- という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
--これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-+規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
- 
- 
- ## 例
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>koki watanabe</name>
-        <email>address8128@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- fix: apply suggestion</title>
-      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/clear.html"/>
-      <id>4c79551c79079ba7b99f87061226e4f8fd36c12a:reference/unordered_set/unordered_set/clear.md</id>
-      <updated>2025-05-26T23:23:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/clear.md b/reference/unordered_set/unordered_set/clear.md
-index ad5ec237e..e96d56383 100644
---- a/reference/unordered_set/unordered_set/clear.md
-+++ b/reference/unordered_set/unordered_set/clear.md
-@@ -52,7 +52,7 @@ s.swap(tmp);
-     2. 全てのバケットを順に走査して各バケットを初期化
- 
- という手順を取るため、実行時間は概ね [`size`](size.md)`()` + [`bucket_count`](bucket_count.md)`()` に比例する傾向がある。  
--これは規格が定義する「計算量」（オブジェクトに対する操作の数）とは別物である。
-+規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間計算量としてはバケット数Cに対して線形となる。
- 
- 
- ## 例
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
