@@ -150,7 +150,7 @@ int main() {
   std::replace_copy_if(
     v.begin(),
     v.end(),
-    std::ostream_iterator<int>(std::cout, "\n"),
+    std::ostream_iterator<Point>(std::cout, "\n"),
     [](const Point& p) { return p.x == 1 && p.y == 2; },
     {9, 9}
   );
