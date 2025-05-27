@@ -16,7 +16,7 @@ namespace std::execution {
 `when_all`は、複数の入力[Sender](sender.md)が全て完了するまで待機するSenderアダプタである。
 
 `when_all`は全ての入力Senderが[値完了シグネチャ](set_value.md)を1個だけ持つことを要求する。
-値完了シグネチャが複数存在する場合は[`when_all_with_variant`](when_all_with_variant.md)アルゴリズムを利用する
+値完了シグネチャが複数存在する場合は[`when_all_with_variant`](when_all_with_variant.md)アルゴリズムを利用する。
 
 - 入力Sender全てが値完了のとき、全ての値完了結果を[`tuple`](/reference/tuple/tuple.md)に結合して値完了操作を行う。
 - いずれかがエラー完了のとき、同エラー値をもってエラー完了操作を行う。このとき停止要求が作成される。
@@ -319,6 +319,7 @@ variant<none-such, copy-fail, Es...>
     ```
     * set_stopped[link set_stopped.md]
     * reset()[link /reference/optional/optional/reset.md]
+    * std::move[link /reference/utility/move.md]
 
 
 ## カスタマイゼーションポイント
@@ -390,8 +391,8 @@ struct MySender {
     void start() noexcept {
       auto stok = ex::get_stop_token(ex::get_env(rcvr_));
       if (stok.stop_requested()) {
-   　　  // 接続先Receiverにおいて停止要求が行われていれば
-        // MySenderも停止完了により早期リターンする
+        // 接続先Receiverにおいて停止要求が行われていれば
+        // 非同期操作も停止完了により早期リターンさせる
         std::println("{}: set_stopped", val_);
         ex::set_stopped(std::move(rcvr_));
         return;
@@ -478,4 +479,5 @@ error=-2
 
 
 ## 参照
+- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)

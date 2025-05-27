@@ -16,7 +16,7 @@ namespace std::execution {
 `when_all_with_variant`は、複数の入力[Sender](sender.md)が全て完了するまで待機するSenderアダプタである。
 
 `when_all_with_variant`は入力Senderが複数の[値完了シグネチャ](set_value.md)を持つケースに対応する。
-全入力Senderの値完了シグネチャが1個だけの場合は[`when_all`](when_all.md)アルゴリズムを利用する
+全入力Senderの値完了シグネチャが1個だけの場合は[`when_all`](when_all.md)アルゴリズムを利用する。
 
 - 入力Sender全てが値完了のとき、全ての値完了結果を[`variant`](/reference/variant/variant.md)の[`tuple`](/reference/tuple/tuple.md)に結合して値完了操作を行う。
 - いずれかがエラー完了のとき、同エラー値をもってエラー完了操作を行う。このとき停止要求が作成される。
@@ -182,4 +182,5 @@ int main()
 
 
 ## 参照
+- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
