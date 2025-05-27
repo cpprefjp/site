@@ -114,6 +114,7 @@ namespace std::execution {
 ```
 * set_value[link set_value.md]
 * decayed-typeof[link decayed-typeof.md.nolink]
+* TRY-EVAL[link TRY-EVAL.md.nolink]
 * std::move[link /reference/utility/move.md]
 
 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr, decayed-typeof<let_value>> == false`のとき、式`let_value.transform_env(sndr, env)`は不適格となる。
