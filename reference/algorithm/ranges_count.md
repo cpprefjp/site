@@ -142,6 +142,43 @@ int main() {
 count of {1,2}: 2
 ```
 
+### 射影変換を使用した例
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct Item {
+  int id;
+  std::string label;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, "foo"},
+    {3, "bar"},
+    {5, "foo"},
+    {2, "baz"},
+  };
+
+  // メンバ変数ポインタを使って label=="foo" の要素数を数える
+  int n1 = std::ranges::count(v, std::string("foo"), &Item::label);
+  std::cout << "count of label==\"foo\": " << n1 << std::endl;
+
+  // ラムダ式を使って id==1 の要素数を数える
+  int n2 = std::ranges::count(v, 1, [](const Item& p) { return p.id; });
+  std::cout << "count of id==1: " << n2 << std::endl;
+}
+```
+* std::ranges::count[color ff0000]
+
+#### 出力
+```
+count of label=="foo": 2
+count of id==1: 2
+```
+
 
 ## 実装例
 ```cpp

@@ -182,6 +182,62 @@ int main() {
 3,4
 ```
 
+### 射影変換を使用した例
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+struct X {
+  int id;
+  std::string name;
+};
+
+int main() {
+  std::vector<X> v = {
+    {1, "Carol"},
+    {3, "Alice"},
+    {4, "Bob"},
+    {4, "Bob"},
+    {5, "Eve"},
+    {6, "Dave"}
+  };
+  const std::string key = "Bob";
+
+  // メンバ変数nameをキーとして検索
+  // 1. メンバ変数ポインタを使う方法
+  auto result1 = std::ranges::equal_range(v, key, {}, &X::name);
+  std::cout << "[メンバ変数ポインタ]" << std::endl;
+  for (const X& x : result1) {
+    std::cout << "id=" << x.id << " name=" << x.name << std::endl;
+  }
+
+  // 2. ラムダ式を使う方法
+  auto result2 = std::ranges::equal_range(
+    v,
+    key,
+    {},
+    [](const X& x) { return x.name; }
+);
+  std::cout << "[ラムダ式]" << std::endl;
+  for (const X& x : result2) {
+    std::cout << "id=" << x.id << " name=" << x.name << std::endl;
+  }
+}
+```
+* std::ranges::equal_range[color ff0000]
+
+#### 出力
+```
+[メンバ変数ポインタ]
+id=4 name=Bob
+id=4 name=Bob
+[ラムダ式]
+id=4 name=Bob
+id=4 name=Bob
+```
+
 ## バージョン
 ### 言語
 - C++20

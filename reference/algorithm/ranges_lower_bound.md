@@ -230,6 +230,62 @@ int main() {
 pos=2
 ```
 
+### 射影変換を使用した例
+```cpp example
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+
+struct X {
+  int id;
+  std::string name;
+};
+
+int main() {
+  std::vector<X> v = {
+    {1, "Carol"},
+    {3, "Alice"},
+    {4, "Bob"},
+    {5, "Eve"},
+    {6, "Dave"}
+  };
+  const std::string key = "Bob";
+
+  // nameメンバ変数をキーとして検索
+  // 1. メンバ変数ポインタを使う方法
+  auto it1 = std::ranges::lower_bound(v, key, {}, &X::name);
+  if (it1 != v.end() && it1->name == key) {
+    std::size_t pos = std::ranges::distance(v.begin(), it1);
+    std::cout << "id=" << it1->id
+              << " name=" << it1->name
+              << " pos=" << pos << std::endl;
+  }
+
+  // 2. ラムダ式を使う方法
+  auto it2 = std::ranges::lower_bound(
+    v,
+    key,
+    {},
+    [](const X& x) { return x.name; }
+  );
+  if (it2 != v.end() && it2->name == key) {
+    std::size_t pos = std::ranges::distance(v.begin(), it2);
+    std::cout << "id=" << it2->id
+              << " name=" << it2->name
+              << " pos=" << pos << std::endl;
+  }
+}
+```
+* std::ranges::lower_bound[color ff0000]
+* std::ranges::distance[link /reference/iterator/ranges_distance.md]
+
+#### 出力
+```
+id=4 name=Bob pos=2
+id=4 name=Bob pos=2
+```
+
 ## バージョン
 ### 言語
 - C++20
