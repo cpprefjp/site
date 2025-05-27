@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-26T14:30:15">
-        2025年05月26日 14時30分15秒
+      <span itemprop="datePublished" content="2025-05-27T12:10:44">
+        2025年05月27日 12時10分44秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -250,11 +250,11 @@
 </ol>
 </li>
 </ul>
-<p>という手順を取るため、実行時間は概ね <code><a href="size.html">size</a>()</code> + <code><a href="bucket_count.html">bucket_count</a>()</code> に比例する傾向がある。<br />
-規格がコンテナに対して定義する<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>は「コンテナに格納している要素に対する操作の数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>」であるためバケットの走査を考慮せず「コンテナの全要素を削除する」として、全要素数Nに対してO(N)に規定されるが、実行時間に影響する時間<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>としてはバケット数Cに対して線形となる。</p>
+<p>という手順を取るため、実際の実行時間はバケット数 <code><a href="bucket_count.html">bucket_count</a>()</code> について線形となる (<code>size() &lt;= bucket_count() *<a href="max_load_factor.html">max_load_factor()</a></code> = O(<code>bucket_count()</code>) であることに注意)。
+規格の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>の要件は要素数 <code>size()</code> に線形となっているが、規格がコンテナに対して定義する<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>は「コンテナに格納している要素に対する操作の数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>」であるためバケットの走査などを考慮していない。</p>
 <h2>備考</h2>
 <ul>
-<li><code>clear()</code> は バケット数(<code><a href="bucket_count.html">bucket_count</a>()</code>)を縮小することを規格上は要求していない。
+<li><code>clear()</code> がバケット数(<code><a href="bucket_count.html">bucket_count</a>()</code>)を縮小することを規格は要求していない。
 実装によっては <code>clear()</code> 後もバケット配列が維持され、動的メモリが残る場合がある。</li>
 <li>メモリを確実に解放したいときには以下のように操作を行う</li>
 </ul>
