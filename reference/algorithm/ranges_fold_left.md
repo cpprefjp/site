@@ -6,13 +6,39 @@
 
 ```cpp
 namespace std::ranges {
-  template<input_iterator I, sentinel_for<I> S, class T,
-           indirectly-binary-left-foldable<T, I> F>
-  constexpr auto fold_left(I first, S last, T init, F f);       // (1)
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class T,
+            indirectly-binary-left-foldable<T, I> F>
+  constexpr auto
+    fold_left(I first,
+              S last,
+              T init,
+              F f);   // (1) C++23
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class T = iter_value_t<I>,
+            indirectly-binary-left-foldable<T, I> F>
+  constexpr auto
+    fold_left(I first,
+              S last,
+              T init,
+              F f);   // (1) C++26
 
-  template<input_range R, class T, 
-           indirectly-binary-left-foldable<T, iterator_t<R>> F>
-  constexpr auto fold_left(R&& r, T init, F f);                 // (2)
+  template <input_range R,
+            class T, 
+            indirectly-binary-left-foldable<T, iterator_t<R>> F>
+  constexpr auto
+    fold_left(R&& r,
+              T init,
+              F f);   // (2) C++23
+  template <input_range R,
+            class T = range_value_t<R>, 
+            indirectly-binary-left-foldable<T, iterator_t<R>> F>
+  constexpr auto
+    fold_left(R&& r,
+              T init,
+              F f);   // (2) C++26
 }
 ```
 * input_iterator[link /reference/iterator/input_iterator.md]
@@ -116,19 +142,22 @@ concept indirectly-binary-left-foldable =
 入力範囲`r`（`[first, last)`）の要素数を`N`とすると、正確に`N`回の`f`の適用が行われる。
 
 ## 備考
+- この関数の戻り値型は、入力の型`F, T, I`から次のような`U`として取得される
+    ```cpp
+    using U = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
+    ```
+    * decay_t[link /reference/type_traits/decay.md]
+    * invoke_result_t[link /reference/type_traits/invoke_result.md]
+    * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
-この関数の戻り値型は、入力の型`F, T, I`から次のような`U`として取得される
-
-```cpp
-using U = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
-```
-* decay_t[link /reference/type_traits/decay.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
-* iter_reference_t[link /reference/iterator/iter_reference_t.md]
-
-すなわち、指定した二項演算を初期値とイテレータによって`f(std::move(init), *first)`のように呼び出した時の戻り値型がこの関数の戻り値型となる。
-
-また、この型`U`は`fold_left`の処理内部で積算値の型として使用されるものでもあり、`f`は`init`の代わりに`U`の右辺値も受け取れる必要がある。二項演算の呼び出しにおいては、第一引数に初期値もしくは積算値が渡され、第二引数にイテレータの間接参照結果が直接渡される。そして、二項演算の適用結果は積算値を保存する変数に直接代入される（つまり、結果を次のステップに引き継ぎたい場合は積算処理も二項演算内で行う必要がある）。詳細は下の実装例を参照。
+    - すなわち、指定した二項演算を初期値とイテレータによって`f(std::move(init), *first)`のように呼び出した時の戻り値型がこの関数の戻り値型となる。
+    - また、この型`U`は`fold_left`の処理内部で積算値の型として使用されるものでもあり、`f`は`init`の代わりに`U`の右辺値も受け取れる必要がある。二項演算の呼び出しにおいては、第一引数に初期値もしくは積算値が渡され、第二引数にイテレータの間接参照結果が直接渡される。そして、二項演算の適用結果は積算値を保存する変数に直接代入される（つまり、結果を次のステップに引き継ぎたい場合は積算処理も二項演算内で行う必要がある）。詳細は下の実装例を参照。
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        T sum = std::ranges::fold_left(v, {a, b}, op);
+        ```
 
 ## 例
 
@@ -172,7 +201,7 @@ int main() {
 * plus[link /reference/functional/plus.md]
 * println[link /reference/print/println.md]
 
-### 出力
+#### 出力
 ```
 55
 1.125
@@ -217,10 +246,34 @@ int main() {
 * println[link /reference/print/println.md]
 * fold_right[link ranges_fold_right.md]
 
-### 出力
+#### 出力
 ```
 init -> a -> b -> c -> d -> e -> f
 init -> f -> e -> d -> c -> b -> a
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <print>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 2, 3};
+
+  int sum = std::ranges::fold_left(
+    v,
+    {},
+    [](auto&& a, auto&& b) { return a + b; }
+  );
+  std::println("{}", sum);
+}
+```
+* std::ranges::fold_left[color ff0000]
+
+#### 出力
+```
+6
 ```
 
 ## 実装例
@@ -273,3 +326,5 @@ constexpr auto fold_left(I first, S last, T init, F f) {
 
 - [P2322R6 `ranges::fold`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2322r6.html)
 - [プログラミングHaskellのfoldr, foldlの説明が秀逸だった件 - あと味](https://taiju.hatenablog.com/entry/20130202/1359773888)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
