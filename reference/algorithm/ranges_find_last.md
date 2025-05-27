@@ -10,21 +10,55 @@ namespace std::ranges {
             sentinel_for<I> S,
             class T,
             class Proj = identity>
-    requires indirect_binary_predicate<ranges::equal_to, projected<I, Proj>, const T*>
+    requires indirect_binary_predicate<
+               ranges::equal_to,
+               projected<I, Proj>,
+               const T*
+             >
   constexpr ranges::subrange<I>
     find_last(I first,
               S last,
               const T& value,
               Proj proj = {}); // (1) C++23
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>>
+    requires indirect_binary_predicate<
+               ranges::equal_to,
+               projected<I, Proj>,
+               const T*
+             >
+  constexpr ranges::subrange<I>
+    find_last(I first,
+              S last,
+              const T& value,
+              Proj proj = {}); // (1) C++26
 
   template <forward_range R,
             class T,
             class Proj = identity>
-    requires indirect_binary_predicate<ranges::equal_to, projected<iterator_t<R>, Proj>, const T*>
+    requires indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T*
+             >
   constexpr ranges::borrowed_subrange_t<R>
     find_last(R&& r,
               const T& value,
               Proj proj = {}); // (2) C++23
+  template <forward_range R,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>>
+    requires indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T*
+             >
+  constexpr ranges::borrowed_subrange_t<R>
+    find_last(R&& r,
+              const T& value,
+              Proj proj = {}); // (2) C++26
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -50,29 +84,80 @@ namespace std::ranges {
 最大で `last - first` 回比較を行う
 
 
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        bool found = std::ranges::find_last(r, {a, b});
+        ```
+
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <array>
 #include <iostream>
 
 int main() {
-  constexpr std::array v = { 3, 1, 4, 1, 5 };
-  const auto result = std::ranges::find_last(v, 1);
-  if (result.begin() == v.end()) {
+  constexpr std::array ar = { 3, 1, 4, 1, 5 };
+  const std::ranges::subrange result = std::ranges::find_last(ar, 1);
+  if (result.begin() == ar.end()) {
     std::cout << "not found" << std::endl;
   } else {
     std::cout << "found: " << *result.begin() << std::endl;
-    std::cout << "  pos: " << std::distance(v.begin(), result.begin()) << std::endl;
+    std::cout << "  pos: " << std::distance(ar.begin(), result.begin()) << std::endl;
   }
 }
 ```
 * std::ranges::find_last[color ff0000]
 
-### 出力
+#### 出力
 ```
 found: 1
   pos: 3
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <array>
+#include <iostream>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+};
+
+std::ostream& operator<<(std::ostream& os, const Point& p) {
+  return os << p.x << ',' << p.y;
+}
+
+int main() {
+  constexpr std::array<Point, 3> ar = {{
+    {1, 2},
+	{3, 4},
+	{5, 6}
+  }};
+
+  const std::ranges::subrange result = std::ranges::find_last(ar, {3, 4});
+  if (result.begin() == ar.end()) {
+    std::cout << "not found" << std::endl;
+  } else {
+    std::cout << "found: " << *result.begin() << std::endl;
+    std::cout << "  pos: " << std::distance(ar.begin(), result.begin()) << std::endl;
+  }
+}
+```
+* std::ranges::find_last[color ff0000]
+
+#### 出力
+```
+found: 3,4
+  pos: 1
 ```
 
 
@@ -87,4 +172,8 @@ found: 1
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
-- [P1223R5 find_last](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1223r5.pdf)
+- [P1223R5 `find_last`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1223r5.pdf)
+- [P3217R0 Adjoints to "Enabling list-initialization for algorithms": `find_last`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3217r0.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
+    - 関連文書：
+        - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
