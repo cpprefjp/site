@@ -10,23 +10,57 @@ namespace std::ranges {
             sentinel_for<I> S,
             class T,
             class Proj = identity,
-            indirect_strict_weak_order<const T*, projected<I, Proj>> Comp = ranges::less>
+            indirect_strict_weak_order<
+              const T*,
+              projected<I, Proj>
+            > Comp = ranges::less>
   constexpr I
     lower_bound(I first,
                 S last,
                 const T& value,
                 Comp comp = {},
                 Proj proj = {}); // (1) C++20
+  template <forward_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>,
+            indirect_strict_weak_order<
+              const T*,
+              projected<I, Proj>
+            > Comp = ranges::less>
+  constexpr I
+    lower_bound(I first,
+                S last,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (1) C++26
 
   template <forward_range R,
             class T,
             class Proj = identity,
-            indirect_strict_weak_order<const T*, projected<iterator_t<R>, Proj>> Comp = ranges::less>
+            indirect_strict_weak_order<
+              const T*,
+              projected<iterator_t<R>,
+              Proj>
+            > Comp = ranges::less>
   constexpr borrowed_iterator_t<R>
     lower_bound(R&& r,
                 const T& value,
                 Comp comp = {},
                 Proj proj = {}); // (2) C++20
+  template <forward_range R,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>,
+            indirect_strict_weak_order<
+              const T*,
+              projected<iterator_t<R>,
+              Proj>
+            > Comp = ranges::less>
+  constexpr borrowed_iterator_t<R>
+    lower_bound(R&& r,
+                const T& value,
+                Comp comp = {},
+                Proj proj = {}); // (2) C++26
 }
 ```
 * forward_iterator[link /reference/iterator/forward_iterator.md]
@@ -64,7 +98,17 @@ namespace std::ranges {
 ## 計算量
 最大で log2(`last - first`) + O(1) 回の比較を行う
 
+
+## 備考
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        auto it = std::ranges::lower_bound(v, {a, b});
+        ```
+
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <algorithm>
@@ -139,11 +183,51 @@ int main()
 * std::ranges::distance[link /reference/iterator/ranges_distance.md]
 * std::ranges::lower_bound[color ff0000]
 
-### 出力
+#### 出力
 ```
 4 pos=2
 4 pos=2
 id=4 name=Bob pos=2
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <iterator>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+  auto operator<=>(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {1, 2},
+    {3, 4},
+    {5, 6},
+  };
+
+  auto it = std::ranges::lower_bound(v, {3, 4});
+
+  // lower_boundでは指定した値"以上"の値が見つかるので、
+  // 指定した値を見つけたいなら検索結果の値を比較する必要がある
+  if (it != v.end() && *it == Point{3, 4}) {
+    std::size_t pos = std::distance(v.begin(), it);
+    std::cout << "pos=" << pos << std::endl;
+  }
+}
+```
+* std::ranges::lower_bound[color ff0000]
+
+#### 出力
+```
+pos=2
 ```
 
 ## バージョン
@@ -158,3 +242,5 @@ id=4 name=Bob pos=2
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した

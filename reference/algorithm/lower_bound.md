@@ -5,31 +5,49 @@
 
 ```cpp
 namespace std {
-  template<class ForwardIterator, class T>
+  template <class ForwardIterator,
+            class T>
   ForwardIterator
     lower_bound(ForwardIterator first,
                 ForwardIterator last,
                 const T& value);       // (1) C++03
-
-  template<class ForwardIterator, class T>
+  template <class ForwardIterator,
+            class T>
+  constexpr ForwardIterator
+    lower_bound(ForwardIterator first,
+                ForwardIterator last,
+                const T& value);       // (1) C++20
+  template <class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type>
   constexpr ForwardIterator
     lower_bound(ForwardIterator first,
                 ForwardIterator last,
                 const T& value);       // (1) C++20
 
-  template<class ForwardIterator, class T, class Compare>
+  template <class ForwardIterator,
+            class T,
+            class Compare>
   ForwardIterator
     lower_bound(ForwardIterator first,
                 ForwardIterator last,
                 const T& value,
                 Compare comp);         // (2) C++03
-
-  template<class ForwardIterator, class T, class Compare>
+  template <class ForwardIterator,
+            class T,
+            class Compare>
   constexpr ForwardIterator
     lower_bound(ForwardIterator first,
                 ForwardIterator last,
                 const T& value,
                 Compare comp);         // (2) C++20
+  template <class ForwardIterator,
+            class T = typename iterator_traits<ForwardIterator>::value_type,
+            class Compare>
+  constexpr ForwardIterator
+    lower_bound(ForwardIterator first,
+                ForwardIterator last,
+                const T& value,
+                Compare comp);         // (2) C++26
 }
 ```
 
@@ -71,9 +89,16 @@ namespace std {
 	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return e < value; })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return comp(e, value); })` とすることで等価の結果が得られる。
 - 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。
 	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。
+- (1), (2) :
+    - C++26 : 引数として波カッコ初期化`{}`を受け付ける
+        ```cpp
+        std::vector<T> v;
+        auto it = std::lower_bound(v.begin(), v.end(), {a, b});
+        ```
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <algorithm>
@@ -152,11 +177,51 @@ int main()
 ```
 * std::lower_bound[color ff0000]
 
-### 出力
+#### 出力
 ```
 4 pos=2
 4 pos=2
 id=4 name=Carol pos=2
+```
+
+### 波カッコ初期化を入力として使用する (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <iterator>
+
+struct Point {
+  int x;
+  int y;
+
+  bool operator==(const Point& other) const = default;
+  auto operator<=>(const Point& other) const = default;
+};
+
+int main() {
+  std::vector<Point> v = {
+    {1, 2},
+    {1, 2},
+    {3, 4},
+    {5, 6},
+  };
+
+  auto it = std::lower_bound(v.begin(), v.end(), {3, 4});
+
+  // lower_boundでは指定した値"以上"の値が見つかるので、
+  // 指定した値を見つけたいなら検索結果の値を比較する必要がある
+  if (it != v.end() && *it == Point{3, 4}) {
+    std::size_t pos = std::distance(v.begin(), it);
+    std::cout << "pos=" << pos << std::endl;
+  }
+}
+```
+* std::lower_bound[color ff0000]
+
+#### 出力
+```
+pos=2
 ```
 
 
@@ -201,3 +266,5 @@ lower_bound(ForwardIterator first, ForwardIterator last, const T& value)
 - [LWG Issue 384. `equal_range` has unimplementable runtime complexity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384)
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+    - C++26で波カッコ初期化 (リスト初期化) に対応した
