@@ -72,6 +72,6 @@ int main() {
 }
 ```
 * std::ofstream[color ff0000]
-* ofs.is_open[link ofstream/is_open.md]
-* ofs.close[link ofstream/close.md]
+* ofs.is_open[link basic_ofstream/is_open.md]
+* ofs.close[link basic_ofstream/close.md]
 

@@ -75,7 +75,7 @@ int main() {
 }
 ```
 * std::ifstream[color ff0000]
-* ifs.is_open[link ifstream/is_open.md]
-* ifs.close[link ifstream/close.md]
+* ifs.is_open[link basic_ifstream/is_open.md]
+* ifs.close[link basic_ifstream/close.md]
 * std::getline[link /reference/string/basic_string/getline.md]
 
