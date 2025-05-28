@@ -50,3 +50,28 @@ namespace std {
 | `off_type`       | `Traits::off_type`            | |
 | `traits_type`    | テンプレート仮引数`Traits`    | |
 
+## 例
+```cpp example
+#include <fstream>
+#include <iostream>
+#include <string>
+
+int main() {
+  // example.txtファイルを出力専用で開く
+  std::ofstream ofs("example.txt");
+  if (!ofs.is_open()) {
+    std::cerr << "ファイルを開けませんでした" << std::endl;
+    return 1;
+  }
+
+  // ファイルに文字列を書き込む
+  ofs << "Hello, world!" << std::endl;
+
+  // ファイルを閉じる (デストラクタでも自動的に閉じられる)
+  ofs.close();
+}
+```
+* std::ofstream[color ff0000]
+* ofs.is_open[link ofstream/is_open.md]
+* ofs.close[link ofstream/close.md]
+

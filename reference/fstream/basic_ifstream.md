@@ -50,3 +50,32 @@ namespace std {
 | `off_type`       | `Traits::off_type`            | |
 | `traits_type`    | テンプレート仮引数`Traits`    | |
 
+## 例
+```cpp example
+#include <fstream>
+#include <iostream>
+#include <string>
+
+int main() {
+  // example.txtファイルを読み取り専用で開く
+  std::ifstream ifs("example.txt");
+  if (!ifs.is_open()) {
+    std::cerr << "ファイルを開けませんでした" << std::endl;
+    return 1;
+  }
+
+  // ファイルの内容を1行ずつ読み取り、出力する
+  std::string line;
+  while (std::getline(ifs, line)) {
+    std::cout << line << std::endl;
+  }
+
+  // ファイルを閉じる (デストラクタでも自動的に閉じられる)
+  ifs.close();
+}
+```
+* std::ifstream[color ff0000]
+* ifs.is_open[link ifstream/is_open.md]
+* ifs.close[link ifstream/close.md]
+* std::getline[link /reference/string/basic_string/getline.md]
+
