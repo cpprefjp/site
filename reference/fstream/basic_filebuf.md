@@ -30,16 +30,6 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 | `wfilebuf` | `wchar_t`型。ワイド文字列として使用する。                                      | |
 
 
-### 型
-
-| 名前          | 説明                       | 対応バージョン |
-|---------------|----------------------------|----------------|
-| `char_type`   | テンプレート仮引数`CharT`  |                |
-| `int_type`    | `Traits::int_type`         |                |
-| `pos_type`    | `Traits::pos_type`         |                |
-| `off_type`    | `Traits::off_type`         |                |
-| `traits_type` | テンプレート仮引数`Traits` |                |
-
 ### 構築・破棄
 
 | 名前                                              | 説明           | 対応バージョン |
@@ -59,6 +49,13 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 | [`open`](basic_filebuf/open.md)       | ファイルを開く                 |                |
 | [`close`](basic_filebuf/close.md)     | ファイルを閉じる               |                |
 
+### 環境固有の情報
+
+| 名前 ｜ 説明｜対応バージョン |
+|-----|-----|-------------|
+| [`native_handle()`](basic_filebuf/native_handle.md) | ネイティブハンドルを取得する［処理系定義］ | C++26 |
+
+
 ### オーバーライドされている関数
 
 すべて`protected`で定義されている。
@@ -75,6 +72,18 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 | `showmanyc`                                 | ブロックせずに読み取れると期待される文字数を得る (protected virtual) | |
 | `pbackfail`                                 | 1文字を入力列に戻す (protected virtual) | |
 | `overflow`                                  | (protected virtual) |
+
+## メンバ型
+
+| 名前          | 説明                       | 対応バージョン |
+|---------------|----------------------------|----------------|
+| `char_type`   | テンプレート仮引数`CharT`  |                |
+| `int_type`    | `Traits::int_type`         |                |
+| `pos_type`    | `Traits::pos_type`         |                |
+| `off_type`    | `Traits::off_type`         |                |
+| `traits_type` | テンプレート仮引数`Traits` |                |
+| `native_handle_type` | ネイティブハンドルの型 [処理系定義] | C++26 |
+
 
 ## 参照
 - [`basic_streambuf`](../streambuf/basic_streambuf.md)

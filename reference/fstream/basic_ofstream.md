@@ -33,6 +33,13 @@ namespace std {
 | [`close`](basic_ofstream/close.md)                | ファイルを閉じる                     | |
 
 
+### ネイティブハンドルの取得
+
+| 名前 | 説明｜対応バージョン |
+|-----|-----|-------------|
+| [`native_handle()`](basic_ofstream/native_handle.md) | ネイティブハンドルを取得する［処理系定義］ | C++26 |
+
+
 ## 非メンバ関数
 
 | 名前   | 説明                          | 対応バージョン |
@@ -49,6 +56,8 @@ namespace std {
 | `pos_type`       | `Traits::pos_type`            | |
 | `off_type`       | `Traits::off_type`            | |
 | `traits_type`    | テンプレート仮引数`Traits`    | |
+| `native_handle_type` | 処理系定義のネイティブハンドルの型`typename basic_filebuf<CharT, Traits>::native_handle_type` | C++26 |
+
 
 ## 例
 ```cpp example
