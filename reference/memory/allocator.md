@@ -64,7 +64,7 @@ C++11から：
 | `reference`       | 要素の参照型 `T&`                            | C++17から非推奨<br/> C++20で削除 |
 | `const_reference` | 読み取り専用の要素の参照型 `const T&`        | C++17から非推奨<br/> C++20で削除 |
 | `rebind<U>`       | 型`U`を確保するように再束縛する              | C++17から非推奨<br/> C++20で削除 |
-| `is_always_equal` | 同じ型のアロケータオブジェクトが2つある場合、それらが常に同値であるか。[`true_type`](/reference/type_traits/true_type.md) | C++17 |
+| `is_always_equal` | 同じ型のアロケータオブジェクトが2つある場合、それらが常に同値であるか。[`true_type`](/reference/type_traits/true_type.md) | C++17<br/> C++20で非推奨<br/> C++26で削除 |
 
 
 ## 非メンバ関数
@@ -87,6 +87,9 @@ C++11から：
         - なお、プライマリテンプレートからインスタンス化されるようになっても`allocate`/`deallocate`メンバは内部で`sizeof(void)`を要求するため引き続き使用不可能であり、`std::allocator<void>`の使用用途としては従来と同じく再束縛を目的とすることになる(上述のように[`std::allocator_traits`](allocator_traits.md)の代替機能を用いて`typename` [`std::allocator_traits`](allocator_traits.md)`<std::allocator<void>>::template rebind_alloc<R>`のようにする)。
 
 - メンバ型の`size_type`と`difference_type`は、C++17で非推奨となったがC++20で非推奨が取り消された。
+- メンバ型の`is_always_equal`は、このクラスを継承したメモリアロケータが`is_always_equal`の値を引き継いでしまうという点で問題があったため、C++20で非推奨となり、C++26で削除された。
+    - 代わりに[`std::allocator_traits`](allocator_traits.md)クラスの`is_always_equal`メンバ型を使用すること。
+
 
 ## 例
 ```cpp example
@@ -140,3 +143,7 @@ int main(int argc, char** argv) {
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+- [LWG Issue 3170. `is_always_equal` added to `std::allocator` makes the standard library treat derived types as always equal](https://cplusplus.github.io/LWG/issue3170)
+    - C++20で`is_always_equal`メンバ型が非推奨化された
+- [P2868R3 Remove Deprecated `std::allocator` Typedef From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2868r3.pdf)
+    - C++26で`is_always_equal`メンバ型が削除された
