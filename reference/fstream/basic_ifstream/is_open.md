@@ -26,7 +26,7 @@ int main()
 {
   std::ifstream fs("foo", std::ios_base::in);
   if (fs.is_open()) {
-      std::cout << "opened" << std::endl;
+    std::cout << "opened" << std::endl;
   }
 }
 ```

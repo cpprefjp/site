@@ -44,7 +44,7 @@ int main()
   std::filebuf* buf = fs.rdbuf();
 
   if (buf->open("foo", std::ios_base::out)) {
-      buf->close();
+    buf->close();
   }
 }
 ```

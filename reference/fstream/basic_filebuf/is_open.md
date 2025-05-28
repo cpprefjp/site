@@ -27,7 +27,7 @@ int main()
   std::filebuf* buf = fs.rdbuf();
 
   if (buf->is_open()) {
-      std::cout << "opened" << std::endl;
+    std::cout << "opened" << std::endl;
   }
 }
 ```
