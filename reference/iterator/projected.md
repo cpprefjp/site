@@ -6,20 +6,30 @@
 
 ```cpp
 namespace std {
-
-  template<indirectly_readable I, indirectly_regular_unary_invocable<I> Proj>
+  // (1) C++20の定義
+  template <indirectly_readable I, indirectly_regular_unary_invocable<I> Proj>
   struct projected {
     using value_type = remove_cvref_t<indirect_result_t<Proj&, I>>;
 
     indirect_result_t<Proj&, I> operator*() const;	// 宣言のみ
   };
-
-
   // incrementable_traitsにアダプトする
-  template<weakly_incrementable I, class Proj>
+  template <weakly_incrementable I, class Proj>
   struct incrementable_traits<projected<I, Proj>> {
     using difference_type = iter_difference_t<I>;
   };
+
+  // (1) C++26の定義
+  template <class I, class Proj>
+  struct projected-impl { // 説明用の型
+    struct type { // 説明用の型
+      using value_type = remove_cvref_t<indirect_result_t<Proj&, I>>;
+      using difference_type = iter_difference_t<I>; // weakly_incrementableをモデル化する場合にのみ存在する
+      indirect_result_t<Proj&, I> operator*() const; // 宣言のみで定義なし
+    };
+  };
+  template <indirectly_readable I, indirectly_regular_unary_invocable<I> Proj>
+  using projected = projected-impl<I, Proj>::type;
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
@@ -33,6 +43,15 @@ namespace std {
 間接参照可能な型`I`に任意の射影操作`Proj`を適用した結果を表す[`indirectly_readable`](/reference/iterator/indirectly_readable.md)のモデルとなる型を生成する。
 
 これは射影操作を受け取るコンセプトやアルゴリズムを制約するために使用するものであり、評価される文脈で使用可能ではない。主に、射影操作の結果に対してイテレータ関連のコンセプトを適用する場合に使用する（射影の結果を再び`indirectly_readable`な型に写す事で、一部のイテレータに対するコンセプトを使いまわす事が出来る）。
+
+
+## 備考
+- C++26:
+    - C++20の`projected`の定義では、ADLによって不完全型に完全な定義を要求してしまっており、以下のようなコードがコンパイルエラーになっていたが、C++26での定義変更によって不完全型が許容されるようになった。
+        ```cpp
+        Holder<Incomplete> *a[10] = {};
+        std::ranges::count(a, a + 10, nullptr); // コンパイルエラー
+        ```
 
 ## 例
 ```cpp example
@@ -95,3 +114,4 @@ int main() {
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2538R1 ADL-proof `std::projected`](http://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2538r1.html)
