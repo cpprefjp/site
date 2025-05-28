@@ -57,7 +57,7 @@ int main() {
 * native_handle[color ff0000]
 * std::fstream[link /reference/fstream/basic_fstream.md]
 * fs.rdbuf()[link /reference/fstream/basic_fstream/rdbuf.md]
-* buf->isopen()[link is_open.md]
+* buf->is_open()[link is_open.md]
 * std::chrono::sys_seconds[link /reference/chrono/sys_time.md]
 * std::chrono::zoned_time[link /reference/chrono/zoned_time.md]
 
