@@ -89,7 +89,7 @@
 |`__cpp_lib_shift`|`202202L`|[`std::ranges::shift_left()`](/reference/algorithm/ranges_shift_left.md)と[`std::ranges::shift_right()`](/reference/algorithm/ranges_shift_right.md)の追加|[`<algorithm>`](/reference/algorithm.md)|
 |`__cpp_lib_spanstream`|`202106L`|`<spanstream>`の追加|`<spanstream>`|
 |`__cpp_lib_stacktrace`|`202011L`|[`<stacktrace>`](/reference/stacktrace.md)の追加|[`<stacktrace>`](/reference/stacktrace.md)|
-|`__cpp_lib_start_lifetime_as`|`202207L`|`std::start_lifetime_as()`の追加|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_start_lifetime_as`|`202207L`|[`std::start_lifetime_as()`](/reference/memory/start_lifetime_as.md)の追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_stdatomic_h`|`202011L`|[`<stdatomic.h>`](/reference/stdatomic.h.md)の追加|[`<stdatomic.h>`](/reference/stdatomic.h.md)|
 |`__cpp_lib_string_contains`|`202011L`|[`std::basic_string::contains()`](/reference/string/basic_string/contains.md)と[`std::basic_string_view::contains()`](/reference/string_view/basic_string_view/contains.md)の追加|[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_string_resize_and_overwrite`|`202110L`|[`std::basic_string::resize_and_overwrite()`](/reference/string/basic_string/resize_and_overwrite.md)の追加|[`<string>`](/reference/string.md)|

@@ -201,7 +201,7 @@ C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化�
 ### メモリ
 - [`<memory>`](/reference/memory.md)に、レガシーC関数からスマートポインタへの直接出力をサポートする、スマートポインタアダプタ[`std::out_ptr`](/reference/memory/out_ptr.md)と[`std::inout_ptr`](/reference/memory/inout_ptr.md)を追加
 - [`std::unique_ptr`](/reference/memory/unique_ptr.md)クラスを`constexpr`に対応
-- [`<memory>`](/reference/memory.md)に、オブジェクトの生存期間を開始することを明示する関数として、[`std::start_lifetime_as()`](/reference/memory/start_lifetime_as.md.nolink)と[`std::start_lifetime_as_array()`](/reference/memory/start_lifetime_as_array.md.nolink)を追加
+- [`<memory>`](/reference/memory.md)に、オブジェクトの生存期間を開始することを明示する関数として、[`std::start_lifetime_as()`](/reference/memory/start_lifetime_as.md)と[`std::start_lifetime_as_array()`](/reference/memory/start_lifetime_as_array.md)を追加
 - [`<bit>`](/reference/bit.md)に、値のバイト入れ替え (エンディアン変換) を行う[`std::byteswap()`](/reference/bit/byteswap.md)関数を追加
 
 

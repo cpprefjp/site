@@ -403,8 +403,8 @@ unique_ptr<char[]> Stream::read() {
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 
-- [`start_lifetime_as()`](/reference/memory/start_lifetime_as.md.nolink)
-- [`start_lifetime_as_array()`](/reference/memory/start_lifetime_as_array.md.nolink)
+- [`start_lifetime_as()`](/reference/memory/start_lifetime_as.md)
+- [`start_lifetime_as_array()`](/reference/memory/start_lifetime_as_array.md)
 - [`is_implicit_lifetime`](/reference/type_traits/is_implicit_lifetime.md)
 
 ## 参照
