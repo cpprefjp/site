@@ -42,7 +42,7 @@ void clear() noexcept;
 1. 全ての要素を走査して各要素を破棄
 2. 全てのバケットを走査して各バケットの状態をリセット
 
-という手順を取るため、実際の実行時間はバケット数 [`bucket_count`](bucket_count.md)`()` について線形となる (`size() <= bucket_count() * `[`max_load_factor()`](max_load_factor.md) = O(`bucket_count()`) であることに注意)。
+という手順を取るため、実際の実行時間はバケット数 [`bucket_count`](bucket_count.md)`()` について線形となる (`size() <= bucket_count() *` [`max_load_factor()`](max_load_factor.md) = O(`bucket_count()`) であることに注意)。
 規格の計算量の要件は要素数 `size()` に線形となっているが、規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査などを考慮していない。
 
 
