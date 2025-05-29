@@ -13,7 +13,7 @@ namespace std::execution {
 ```
 * env<>[link env.md]
 * sender_in[link sender_in.md]
-* call-result-t[link call-result-t.md.nolink]
+* call-result-t[link /reference/functional/call-result-t.md]
 * get_completion_signatures_t[link get_completion_signatures.md]
 
 ## 概要

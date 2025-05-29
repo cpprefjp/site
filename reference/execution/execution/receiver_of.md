@@ -34,7 +34,7 @@ concept has-completions =
     {}(completions);
   };
 ```
-* callable[link /reference/functional/callable.md.nolink]
+* callable[link /reference/functional/callable.md]
 * completion_signatures[link completion_signatures.md]
 
 `receiver_of`コンセプトは、以下のように定義される。

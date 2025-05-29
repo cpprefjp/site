@@ -58,7 +58,7 @@ namespace std::this_thread {
 ### Senderアルゴリズムタグ `sync_wait_with_variant`
 説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
 
-[`callable`](/reference/functional/callable.md.nolink)`<`[`sync_wait_t`](sync_wait.md)`, Sndr> == false`のとき、式`sync_wait_with_variant.apply_sender(sndr)`は不適格となる。
+[`callable`](/reference/functional/callable.md)`<`[`sync_wait_t`](sync_wait.md)`, Sndr> == false`のとき、式`sync_wait_with_variant.apply_sender(sndr)`は不適格となる。
 
 そうでなければ、式`sync_wait_with_variant.apply_sender(sndr)`は下記と等価。
 

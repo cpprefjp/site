@@ -45,7 +45,7 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* decayed-typeof[link decayed-typeof.md.nolink]
+* decayed-typeof[link /reference/functional/decayed-typeof.md]
 * see below[italic]
 
 `impls-for<decayed-typeof<let_value>>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
@@ -78,7 +78,7 @@ namespace std::execution {
 * decay_t[link /reference/type_traits/decay.md]
 * see below[italic]
 
-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が`decayed-typeof<`[`set_value`](set_value.md)`>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
+- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<`[`set_value`](set_value.md)`>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
     variant<monostate, as-tuple<LetSigs>...>
@@ -86,7 +86,7 @@ namespace std::execution {
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
 
-- 説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-sndr2<Tag(Args...)>`を`call-result-t<Fn,` [`decay_t`](/reference/type_traits/decay.md)`<Args>&...>`と定義する。型`ops2_variant_t`は下記定義において重複削除した型となる。
+- 説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-sndr2<Tag(Args...)>`を[`call-result-t`](/reference/functional/call-result-t.md)`<Fn,` [`decay_t`](/reference/type_traits/decay.md)`<Args>&...>`と定義する。型`ops2_variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
     variant<monostate, connect_result_t<as-sndr2<LetSigs>, receiver2<Rcvr, Env>>...>
@@ -113,11 +113,11 @@ namespace std::execution {
   }
 ```
 * set_value[link set_value.md]
-* decayed-typeof[link decayed-typeof.md.nolink]
+* decayed-typeof[link /reference/functional/decayed-typeof.md]
 * TRY-EVAL[link TRY-EVAL.md.nolink]
 * std::move[link /reference/utility/move.md]
 
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr, decayed-typeof<let_value>> == false`のとき、式`let_value.transform_env(sndr, env)`は不適格となる。
+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let_value>> == false`のとき、式`let_value.transform_env(sndr, env)`は不適格となる。
 
 そうでなければ、式`let_value.transform_env(sndr, env)`は[`JOIN-ENV`](JOIN-ENV.md.nolink)`(let-env(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env))`と等価。
 
@@ -125,7 +125,7 @@ namespace std::execution {
 ## 説明専用エンティティ
 説明用の式`sndr`を用いて、`let-env(sndr)`を下記リストのうち最初に適格となる式と定義する。
 
-- [`SCHED-ENV`](SCHED-ENV.md.nolink)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<decayed-typeof<`[`set_value`](set_value.md)`>>(`[`get_env`](get_env.md)`(sndr)))`
+- [`SCHED-ENV`](SCHED-ENV.md.nolink)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<`[`set_value`](set_value.md)`>>(`[`get_env`](get_env.md)`(sndr)))`
 - [`MAKE-ENV`](MAKE-ENV.md.nolink)`(`[`get_domain`](get_domain.md)`,` [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr)))`
 - `(void(sndr),` [`env<>{}`](env.md)`)`
 

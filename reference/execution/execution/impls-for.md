@@ -109,7 +109,7 @@ namespace std::execution {
   Tag()(std::move(rcvr), std::forward<Args>(args)...);
 }
 ```
-* callable[link /reference/functional/callable.md.nolink]
+* callable[link /reference/functional/callable.md]
 * std::move[link /reference/utility/move.md]
 
 

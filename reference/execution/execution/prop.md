@@ -27,7 +27,7 @@ namespace std::execution {
 
 
 ## 適格要件
-説明用の`prop-like`テンプレートクラスを用いて、`QueryTag`と`ValueType`が[`callable`](/reference/functional/callable.md.nolink)`<QueryTag, prop-like<ValueType>>`のモデルであること。
+説明用の`prop-like`テンプレートクラスを用いて、`QueryTag`と`ValueType`が[`callable`](/reference/functional/callable.md)`<QueryTag, prop-like<ValueType>>`のモデルであること。
 
 ```cpp
 template<class ValueType>

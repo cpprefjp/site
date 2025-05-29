@@ -72,7 +72,7 @@ nothrow-callable<decltype(impls-for<tag_of_t<Sndr>>::get-state), Sndr, Rcvr&> &&
 ```
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
-* nothrow-callable[link /reference/functional/nothrow-callable.md.nolink]
+* nothrow-callable[link /reference/functional/nothrow-callable.md]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 
@@ -81,6 +81,7 @@ nothrow-callable<decltype(impls-for<tag_of_t<Sndr>>::get-state), Sndr, Rcvr&> &&
 ```cpp
 call-result-t<decltype(impls-for<tag_of_t<Sndr>>::get-state), Sndr, Rcvr&>.
 ```
+* call-result-t[link /reference/functional/call-result-t.md]
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
 
@@ -105,7 +106,7 @@ using connect-all-result = call-result-t<  // exposition only
 template<class Sndr>
 using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only 
 ```
-* call-result-t[link call-result-t.md.nolink]
+* call-result-t[link /reference/functional/call-result-t.md]
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
 * decay_t[link /reference/type_traits/decay.md]

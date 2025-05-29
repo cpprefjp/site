@@ -44,7 +44,7 @@ namespace std::execution {
 * tag_of_t[link tag_of_t.md]
 * state-type[link basic-operation.md]
 * impls-for[link impls-for.md]
-* callable[link /reference/functional/callable.md.nolink]
+* callable[link /reference/functional/callable.md]
 * set_value_t[link set_value.md]
 * set_error_t[link set_error.md]
 * set_stopped_t[link set_stopped.md]
@@ -73,7 +73,7 @@ using env-type = call-result-t<
   decltype(impls-for<tag_of_t<Sndr>>::get-env), Index,
   state-type<Sndr, Rcvr>&, const Rcvr&>;
 ```
-* call-result-t[link call-result-t.md.nolink]
+* call-result-t[link /reference/functional/call-result-t.md]
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
 * state-type[link basic-operation.md]

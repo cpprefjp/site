@@ -21,8 +21,8 @@ struct emplace-from {
 };
 ```
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
-* call-result-t[link call-result-t.md.nolink]
-* nothrow-callable[link /reference/functional/nothrow-callable.md.nolink]
+* call-result-t[link /reference/functional/call-result-t.md]
+* nothrow-callable[link /reference/functional/nothrow-callable.md]
 * std::move[link /reference/utility/move.md]
 
 ## 概要
