@@ -45,12 +45,14 @@ namespace std::ranges {
 
 ## 継承しているメンバ関数
 
-| 名前                                         | 説明                             | 対応バージョン |
-|----------------------------------------------|----------------------------------|----------------|
+| 名前                                         | 説明                              | 対応バージョン |
+|----------------------------------------------|-----------------------------------|----------------|
 | [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する       | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する       | C++20          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする               | C++20          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
 
 ## カスタマイゼーション
 
