@@ -55,7 +55,7 @@ int main()
 * ex::value_types_of_t[color ff0000]
 * ex::sender[link sender.md]
 * ex::just[link just.md]
-* ex::just_error[link just_error.md.nolink]
+* ex::just_error[link just_error.md]
 
 ### 出力
 ```

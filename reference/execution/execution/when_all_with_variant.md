@@ -55,10 +55,10 @@ return when_all(into_variant(std::forward_like<decltype((sndr))>(child))...);
 
 
 ## カスタマイゼーションポイント
-Senderアルゴリズム構築時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+Senderアルゴリズム構築時に、全入力Senderに関連付けられた共通の実行ドメイン`CD`に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
-[Receiver](receiver.md)との[接続(connect)](connect.md)時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+[Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では`when_all_with_variant.transform_sender(sndr, env)`が呼ばれ、前述仕様通りのSenderへと変換される。
 
 

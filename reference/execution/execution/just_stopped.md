@@ -1,4 +1,4 @@
-# just
+# just_stopped
 * execution[meta header]
 * cpo[meta id-type]
 * std::execution[meta namespace]
@@ -6,41 +6,37 @@
 
 ```cpp
 namespace std::execution {
-  struct just_t { unspecified };
-  inline constexpr just_t just{};
+  struct just_stopped_t { unspecified };
+  inline constexpr just_stopped_t just_stopped{};
 }
 ```
 * unspecified[italic]
 
 ## 概要
-`just`は、非同期操作の[開始(start)](start.md)で[値完了関数](set_value.md)を呼び出すSenderファクトリである。
+`just_stopped`は、非同期操作の[開始(start)](start.md)で[停止完了関数](set_stopped.md)を呼び出すSenderファクトリである。
 
 
 ## 効果
-説明用のパック`ts`に対して、パック`Ts`を`decltype((ts))`とする。下記いずれかの条件をみたすとき、呼び出し式`just(ts...)`は不適格となる。
-
-- `(`[`movable-value`](../movable-value.md)`<Ts> &&...) == false`
-
-そうでなければ、呼び出し式`just(ts...)`は下記と等価。
+呼び出し式`just_stopped()`は下記と等価。
 
 ```cpp
-make-sender(just, product-type{ts...})
+make-sender(just_stopped, product-type{})
 ```
 * make-sender[link make-sender.md]
 * product-type[link product-type.md]
 
 
-### Senderアルゴリズムタグ `just`
+### Senderアルゴリズムタグ `just_stopped`
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
 namespace std::execution {
   template<>
-  struct impls-for<decayed-typeof<just>> : default-impls {
+  struct impls-for<decayed-typeof<just_stopped>> : default-impls {
     static constexpr auto start =
       [](auto& state, auto& rcvr) noexcept -> void {
-        auto& [...ts] = state;
-        set_value(std::move(rcvr), std::move(ts)...);
+        /*auto& [...ts] = state;*/
+        set_stopped(std::move(rcvr));
       };
   };
 }
@@ -48,7 +44,7 @@ namespace std::execution {
 * decayed-typeof[link decayed-typeof.md.nolink]
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* set_value[link set_value.md]
+* set_stopped[link set_stopped.md]
 * std::move[link /reference/utility/move.md]
 
 
@@ -59,40 +55,20 @@ namespace std::execution {
 
 ## 例
 ```cpp example
-#include <string>
-#include <print>
 #include <execution>
 namespace ex = std::execution;
-using namespace std::string_literals;
 
 int main()
 {
-  // 空の値を送信するSender
-  ex::sender auto snd0 = ex::just();
-  std::tuple<> result0 = std::this_thread::sync_wait(snd0).value();
-  std::println("result0={}", result0);
-
-  // 値"C++"を送信するSender
-  ex::sender auto snd1 = ex::just("C++"s);
-  std::tuple<std::string> result1 = std::this_thread::sync_wait(snd1).value();
-  std::println("result1={}", result1);
-
-  // 値(123,'X')を送信するSender
-  ex::sender auto snd2 = ex::just(123, 'X');
-  std::tuple<int, char> result2 = std::this_thread::sync_wait(snd2).value();
-  std::println("result2={}", result2);
+  // 停止を送信するSender
+  ex::sender auto sndr = ex::just_stopped();
 }
 ```
-* ex::just[color ff0000]
+* ex::just_stopped[color ff0000]
 * ex::sender[link sender.md]
-* std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
-* value()[link /reference/optional/optional/value.md]
 
 ### 出力
 ```
-result0=()
-result1=("C++")
-result2=(123, 'X')
 ```
 
 
@@ -108,8 +84,8 @@ result2=(123, 'X')
 
 
 ## 関連項目
+- [`execution::just`](just.md)
 - [`execution::just_error`](just_error.md)
-- [`execution::just_stopped`](just_stopped.md)
 
 
 ## 参照

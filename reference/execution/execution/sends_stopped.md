@@ -44,7 +44,7 @@ int main()
 * ex::sends_stopped[color ff0000]
 * ex::sender[link sender.md]
 * ex::just[link just.md]
-* ex::just_stopped[link just_stopped.md.nolink]
+* ex::just_stopped[link just_stopped.md]
 
 ### 出力
 ```

@@ -361,7 +361,7 @@ int main()
 * ex::set_value[link set_value.md]
 * ex::set_error_t[link set_error.md]
 * ex::set_error[link set_error.md]
-* ex::just_stopped[link just_stopped.md.nolink]
+* ex::just_stopped[link just_stopped.md]
 * ex::operation_state_t[link operation_state.md]
 * std::this_thread::sync_wait_with_variant[link ../this_thread/sync_wait_with_variant.md]
 * std::move[link /reference/utility/move.md]
