@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-29T16:54:47">
-        2025年05月29日 16時54分47秒
+      <span itemprop="datePublished" content="2025-05-29T16:59:02">
+        2025年05月29日 16時59分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,17 +248,18 @@
 <li>全ての要素を走査して各要素を破棄</li>
 <li>全てのバケットを走査して各バケットの状態をリセット</li>
 </ol>
-<p>という手順を取るため、実際の実行時間はバケット数 <code><a href="bucket_count.html">bucket_count</a>()</code> について線形となる (<code>size() &lt;= bucket_count() *<a href="max_load_factor.html">max_load_factor()</a></code> = O(<code>bucket_count()</code>) であることに注意)。
+<p>という手順を取るため、実際の実行時間はバケット数 <code><a href="bucket_count.html">bucket_count</a>()</code> について線形となる (<code>size() &lt;= bucket_count() * <a href="max_load_factor.html">max_load_factor()</a></code> = O(<code>bucket_count()</code>) であることに注意)。
 規格の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>の要件は要素数 <code>size()</code> に線形となっているが、規格がコンテナに対して定義する<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>は「コンテナに格納している要素に対する操作の数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>」であるためバケットの走査などを考慮していない。</p>
 <h2>備考</h2>
 <ul>
 <li><code>clear()</code> がバケット数(<code><a href="bucket_count.html">bucket_count</a>()</code>)を縮小することを規格は要求していない。
 実装によっては <code>clear()</code> 後もバケット配列が維持され、動的メモリが残る場合がある。</li>
-<li>バケット数を初期状態まで縮小させたいときには <code>clear()</code> の代わりに以下のように操作する</li>
-</ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n">um</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<li>バケット数を初期状態まで縮小させたいときには <code>clear()</code> の代わりに以下のように操作する
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">um</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
 </code></pre></div>
-</p>
+</li>
+</ul>
 <h2>例</h2>
 <p><div class="yata" id="0289ef06ebeefb35f9237fdf2c64c5caaf28abc2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../unordered_map.html">&lt;unordered_map&gt;</a></span><span class="cp"></span>
