@@ -8,14 +8,7 @@
 namespace std::ranges {
   template<class T>
     requires is_object_v<T>
-  class empty_view : public view_interface<empty_view<T>> { // (1)
-  public:
-    static constexpr T* begin() noexcept { return nullptr; }
-    static constexpr T* end() noexcept { return nullptr; }
-    static constexpr T* data() noexcept { return nullptr; }
-    static constexpr size_t size() noexcept { return 0; }
-    static constexpr bool empty() noexcept { return true; }
-  };
+  class empty_view : public view_interface<empty_view<T>> { …… }; // (1)
 
   namespace views {
     template<class T>
@@ -42,13 +35,13 @@ namespace std::ranges {
 
 ## 静的メンバ関数
 
-| 名前                                             | 説明                             | 対応バージョン |
-|--------------------------------------------------|----------------------------------|----------------|
-| [`begin`](empty_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](empty_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
-| [`data`](empty_view/data.md.nolink)                     | 配列の先頭へのポインタを取得する | C++20          |
-| [`size`](empty_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
-| [`empty`](empty_view/empty.md.nolink)                   | Rangeが空かどうかを判定する       | C++20          |
+| 名前                           | 説明                             | 対応バージョン |
+|--------------------------------|----------------------------------|----------------|
+| [`begin`](empty_view/begin.md) | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](empty_view/end.md)     | 番兵を取得する                   | C++20          |
+| [`data`](empty_view/data.md)   | 配列の先頭へのポインタを取得する | C++20          |
+| [`size`](empty_view/size.md)   | 要素数を取得する                 | C++20          |
+| [`empty`](empty_view/empty.md) | Rangeが空かどうかを判定する      | C++20          |
 
 ## 継承しているメンバ関数
 
