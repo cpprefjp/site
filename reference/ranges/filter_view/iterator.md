@@ -48,8 +48,8 @@ namespace std::ranges {
 |-----------------------------------------------------------|-----------------------------------------------------|----------------|
 | [`iterator_concept`](iterator/type-iterator_concept.md)   | イテレータコンセプト                                | C++20          |
 | [`iterator_category`](iterator/type-iterator_category.md) | イテレータカテゴリ                                  | C++20          |
-| `value_type`                                              | [`range_value_t<V>`](../range_value_t.md)           | C++20          |
-| `difference_type`                                         | [`range_difference_t<V>`](../range_difference_t.md) | C++20          |
+| `value_type`                                              | [イテレータの要素を表す型`range_value_t<V>`](../range_value_t.md)           | C++20          |
+| `difference_type`                                         | イテレータ間の差を表す型[`range_difference_t<V>`](../range_difference_t.md) | C++20          |
 
 ## 非メンバ（*Hidden friends*）関数
 
