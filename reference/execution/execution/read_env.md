@@ -57,7 +57,7 @@ int main()
   ex::sender auto sndr = ex::read_env(ex::get_scheduler)
     | ex::let_value([](auto sch) -> ex::sender auto {
         // sch := sync_wait内部のScheduler
-        return ex::starts_on(sch, std::just(42));
+        return ex::starts_on(sch, ex::just(42));
       });
   auto [val] = std::this_thread::sync_wait(sndr).value();
   std::println("{}", val);
@@ -66,7 +66,9 @@ int main()
 * ex::read_env[color ff0000]
 * ex::sender[link sender.md]
 * ex::get_scheduler[link get_scheduler.md]
+* ex::let_value[lin let_value.md]
 * ex::starts_on[link starts_on.md]
+* ex::just[lin just.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * value()[link /reference/optional/optional/value.md]
 

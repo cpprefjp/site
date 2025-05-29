@@ -52,7 +52,7 @@ namespace std::execution {
 * default-impls[link impls-for.md]
 * see below[italic]
 
-`impls-for<decayed-typeof<schedule_from_t>>::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+`impls-for<schedule_from_t>::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 ```cpp
 [](const auto& data, const auto& child) noexcept -> decltype(auto) {
@@ -64,7 +64,7 @@ namespace std::execution {
 * FWD-ENV[link ../forwarding_query.md]
 * get_env[link get_env.md]
 
-`impls-for<decayed-typeof<schedule_from_t>>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+`impls-for<schedule_from_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept(see below)
@@ -110,7 +110,7 @@ namespace std::execution {
 
 - `receiver_t`は説明専用クラス`receiver-type`のエイリアスとする。
 
-`impls-for<decayed-typeof<schedule_from_t>>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+`impls-for<schedule_from_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 ```cpp
 []<class Tag, class... Args>(auto, auto& state, auto& rcvr, Tag, Args&&... args) noexcept

@@ -114,6 +114,7 @@ int main()
 * ex::run_loop[link run_loop.md]
 * ex::sender[link sender.md]
 * ex::scheduler[link scheduler.md]
+* ex::just[link just.md]
 * ex::then[link then.md]
 * get_scheduler()[link run_loop/get_scheduler.md]
 * run()[link run_loop/run.md]

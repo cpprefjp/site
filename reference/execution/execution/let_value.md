@@ -227,8 +227,8 @@ namespace ex = std::execution;
 int main()
 {
   { // 関数呼び出し
-    ex::sender snd0 = ex::just(21);
-    ex::sender snd1 = ex::let_value(
+    ex::sender auto snd0 = ex::just(21);
+    ex::sender auto snd1 = ex::let_value(
       snd0,
       [](int n) -> ex::sender auto {
         return ex::just(n * 2);
@@ -238,7 +238,7 @@ int main()
   }
 
   { // パイプライン記法
-    ex::sender sndr = ex::just(21)
+    ex::sender auto sndr = ex::just(21)
       | ex::let_value(
           [](int n) -> ex::sender auto {
             return ex::just(n * 2);
@@ -361,6 +361,7 @@ int main()
 * ex::set_value[link set_value.md]
 * ex::set_error_t[link set_error.md]
 * ex::set_error[link set_error.md]
+* ex::just[link just.md]
 * ex::just_stopped[link just_stopped.md]
 * ex::operation_state_t[link operation_state.md]
 * std::this_thread::sync_wait_with_variant[link ../this_thread/sync_wait_with_variant.md]

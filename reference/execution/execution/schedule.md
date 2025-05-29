@@ -73,6 +73,8 @@ int main()
 * finish()[link run_loop/finish.md]
 * std::move[link /reference/utility/move.md]
 * std::this_thread::get_id()[link /reference/thread/this_thread/get_id.md]
+* std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
+* value()[link /reference/optional/optional/value.md]
 
 ### 出力例
 ```
