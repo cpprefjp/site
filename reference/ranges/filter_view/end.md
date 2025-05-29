@@ -3,7 +3,7 @@
 * std::ranges[meta namespace]
 * filter_view[meta class]
 * function[meta id-type]
-* cpp23[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
 constexpr auto end() {
