@@ -9,7 +9,6 @@ namespace std::ranges {
   template<copy_constructible T>
     requires is_object_v<T>
   class single_view : public view_interface<single_view<T>> { …… }; // (1) C++20
-
   template<move_constructible T>
     requires is_object_v<T>
   class single_view : public view_interface<single_view<T>> { …… }; // (1) C++23
@@ -30,23 +29,37 @@ namespace std::ranges {
 |----------|-------|--------|-------|---------|---------------|---------------|------------|--------|----------|------|
 |          | ○    | ○     | ○    | ○      | ○            | ○            | ○         | ○     | ○       | ○   |
 
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : 型`T`がコピー構築可能であること
+    - C++23 : 型`T`がムーブ構築可能であること
+
+
 ## 効果
 - 式`views::single(E)`の効果は`single_view<decay_t<decltype((E))>>(E)`と等しい。
+
+## メンバ変数
+
+| 名前                                        | 説明         | 対応バージョン        |
+|---------------------------------------------|--------------|-----------------------|
+| [`movable-box`](movable_box.md)`<T> value_` | 単一要素の値 | C++20                 |
+
 
 ## メンバ関数
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](single_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`begin`](single_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](single_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
-| [`data`](single_view/data.md.nolink)                     | 配列の先頭へのポインタを取得する | C++20          |
+| [`(constructor)`](single_view/op_constructor.md) | コンストラクタ                   | C++20          |
+| [`begin`](single_view/begin.md)                  | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](single_view/end.md)                      | 番兵を取得する                   | C++20          |
+| [`data`](single_view/data.md)                    | 配列の先頭へのポインタを取得する | C++20          |
 
 ## 静的メンバ関数
 
-| 名前                                             | 説明                             | 対応バージョン |
-|--------------------------------------------------|----------------------------------|----------------|
-| [`size`](single_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
+| 名前                            | 説明                        | 対応バージョン |
+|---------------------------------|-----------------------------|----------------|
+| [`size`](single_view/size.md)   | 要素数を取得する            | C++20          |
+| [`empty`](single_view/empty.md) | Rangeが空かどうかを判定する | C++20          |
 
 ## 継承しているメンバ関数
 
@@ -56,12 +69,14 @@ namespace std::ranges {
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
 
 ## 推論補助
 
-| 名前                                                  | 説明                         | 対応バージョン |
-|-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](single_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| 名前                                                     | 説明                         | 対応バージョン |
+|----------------------------------------------------------|------------------------------|----------------|
+| [`(deduction_guide)`](single_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
