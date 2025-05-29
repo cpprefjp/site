@@ -55,8 +55,8 @@ namespace std::ranges {
 
 | 名前                                     | 説明                   | 対応バージョン |
 |------------------------------------------|------------------------|----------------|
-| [`iter_move`](iterator/iter_move.md.nolink)     | イテレータの要素の移動 | C++20          |
-| [`iter_swap`](iterator/iter_swap.md.nolink)     | イテレータの要素の交換 | C++20          |
+| [`iter_move`](iterator/iter_move.md)     | イテレータの要素の移動 | C++20          |
+| [`iter_swap`](iterator/iter_swap.md)     | イテレータの要素の交換 | C++20          |
 
 ### 比較演算子
 
