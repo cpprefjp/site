@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `continues_on`は、指定[Scheduler](scheduler.md)上で完了させるSenderアダプタである。
 
-`continues_on`はパイプライン記法をサポートする。
+`continues_on`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果

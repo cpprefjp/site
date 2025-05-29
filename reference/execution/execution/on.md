@@ -18,7 +18,7 @@ namespace std::execution {
 - `on(sch, sndr)` : [Sender](sender.md)`sndr`を[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェント上で開始し、完了後に`on`Senderが開始された実行リソースへと実行制御を戻す。
 - `on(sndr, sch, closure)` : [Sender](sender.md)`sndr`の完了後に、[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェントへ実行を移し、`sndr`の完了結果をもってSenderアダプタクロージャ`closure`を実行し、Sender`sndr`が完了された実行リソースへと実行制御を戻す。
 
-`on`はパイプライン記法をサポートする。
+`on`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果
@@ -26,8 +26,8 @@ namespace std::execution {
 説明用の式`sch`と`sndr`に対して、下記いずれかが`true`となるとき呼び出し式`on(sch, sndr)`は不適格となる。
 
 - `decltype((sch))`が[`scheduler`](scheduler.md)を満たさない、もしくは
-- `decltype((sndr))`が[`sender`](sender.md)を満たさず、かつパイプライン可能Senderアダプタクロージャオブジェクトではない、もしくは
-- `decltype((sndr))`が[`sender`](sender.md)を満たし、かつパイプライン可能Senderアダプタクロージャオブジェクトである。
+- `decltype((sndr))`が[`sender`](sender.md)を満たさず、かつ[パイプ可能Senderアダプタクロージャオブジェクト](sender_adaptor_closure.md)ではない、もしくは
+- `decltype((sndr))`が[`sender`](sender.md)を満たし、かつ[パイプ可能Senderアダプタクロージャオブジェクト](sender_adaptor_closure.md)である。
 
 そうでなければ、呼び出し式`on(sch, sndr)`は`sch`が1回だけ評価されることを除いて、下記と等価。
 
@@ -48,7 +48,7 @@ transform_sender(
 
 - `decltype((sch))`が[`scheduler`](scheduler.md)を満たさない、もしくは
 - `decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは
-- `closure`がパイプライン可能Senderアダプタクロージャオブジェクトではない。
+- `closure`が[パイプ可能Senderアダプタクロージャオブジェクト](sender_adaptor_closure.md)ではない。
 
 そうでなければ、呼び出し式`on(sndr, sch, closure)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 

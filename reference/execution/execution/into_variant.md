@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `into_variant`は、複数の[値完了シグネチャ](set_value.md)を持つ入力[Sender](sender.md)から複数[`tuple`](/reference/tuple/tuple.md)型からなる[`variant`](/reference/variant/variant.md)型の[値完了シグネチャへと変換](value_types_of_t.md)するSenderアダプタである。
 
-`into_variant`はパイプライン記法をサポートする。
+`into_variant`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果

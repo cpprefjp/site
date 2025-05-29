@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `let_value`は、新しいSenderを返す関数呼び出し可能なオブジェクトに引き渡すことで、入力[Sender](sender.md)の[値完了](set_value.md)結果から入れ子の非同期操作へと変換するSenderアダプタである。
 
-`let_value`はパイプライン記法をサポートする。
+`let_value`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果

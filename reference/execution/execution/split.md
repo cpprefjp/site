@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `split`は、任意の入力[Sender](sender.md)を複数回[接続(connect)](connect.md)可能とするSenderアダプタである。
 
-`split`はパイプライン記法をサポートする。
+`split`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果

@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `bulk`は、インデクス空間の各インデクスに対してタスクを反復実行するSenderアダプタである。
 
-`bulk`はパイプライン記法をサポートする。
+`bulk`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果

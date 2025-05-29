@@ -15,7 +15,7 @@ namespace std::execution {
 ## 概要
 `then`は、入力[Sender](sender.md)の[値完了操作](set_value.md)の継続として関数呼び出しをアタッチするSenderアダプタである。
 
-`then`はパイプライン記法をサポートする。
+`then`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果
