@@ -50,9 +50,9 @@ void clear() noexcept;
 - `clear()` がバケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格は要求していない。
 実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
 - バケット数を初期状態まで縮小させたいときには `clear()` の代わりに以下のように操作する
-```cpp
-ums = std::unordered_multiset<int>();
-```
+    ```cpp
+    ums = std::unordered_multiset<int>();
+    ```
 
 
 ## 例
