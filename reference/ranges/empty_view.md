@@ -81,6 +81,7 @@ int main() {
 }
 ```
 * views::empty[color ff0000]
+* ranges::empty[link /reference/ranges/empty.md]
 
 ### 出力
 ```
