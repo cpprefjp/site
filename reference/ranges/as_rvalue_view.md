@@ -27,10 +27,11 @@ namespace std::ranges {
 この[`view`](view.md)は、あるRangeの要素をムーブして別のコンテナに挿入する場合などに利用できる。
 
 ```cpp
-vector<string> words = {"the", "quick", "brown", "fox", "ate", "a", "pterodactyl"};
-vector<string> new_words;
-ranges::copy(words | views::as_rvalue, back_inserter(new_words));
+std::vector<std::string> words = {"the", "quick", "brown", "fox", "ate", "a", "pterodactyl"};
+std::vector<std::string> new_words;
+std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 ```
+* std::ranges::copy[link /reference/algorithm/ranges_copy.md]
 
 ### Rangeコンセプト
 
@@ -88,19 +89,17 @@ ranges::copy(words | views::as_rvalue, back_inserter(new_words));
 #include <ranges>
 #include <vector>
 #include <iterator>
+#include <algorithm>
 #include <print>
 
 int main() {
-  using namespace std;
-
-  vector<string> words = {"the", "quick", "brown", "fox", "ate", "a", "pterodactyl"};
-  vector<string> new_words;
-  ranges::copy(words | views::as_rvalue, back_inserter(new_words));
-  print("{}", new_words);
+  std::vector<std::string> words = {"the", "quick", "brown", "fox", "ate", "a", "pterodactyl"};
+  std::vector<std::string> new_words;
+  std::ranges::copy(words | std::views::as_rvalue, std::back_inserter(new_words));
+  std::println("{}", new_words);
 }
 ```
-* views::as_rvalue[color ff0000]
-* print[link /reference/print/print.md]
+* std::views::as_rvalue[color ff0000]
 
 ### 出力
 ```
