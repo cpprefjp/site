@@ -13,7 +13,19 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`as_awaitable`は、オブジェクトを特定コルーチン内でAwaitableに変換するカスタマイゼーションポイントオブジェクトである。
+`as_awaitable`は、オブジェクトを特定の[コルーチン](/lang/cpp20/coroutines.md)内でAwaitableに変換するカスタマイゼーションポイントオブジェクトである。
+
+Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitable(expr, p)`は下記のように動作する。
+
+- 式`expr.as_awaitable(p)`が有効ならば、同式が返すAwaitableオブジェクトに対してAwait式を実行する。
+- `expr`が[単一の値を送信するSender](single-sender.md)であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。
+    - Senderを[接続(connect)](connect.md)し、結果[Operation State](operation_state.md)をAwaitableオブジェクトに格納する。
+    - コルーチンを中断し、Operation Stateを[開始(start)](start.md)する。
+    - [クエリオブジェクト](../queryable.md)による[Receiver](receiver.md)環境への問い合わせは、Promise型に関連付けられた環境(`get_env`)へと転送される。
+    - Senderが[値完了](set_value.md)した場合、送信値をAwait式の結果としてコルーチンを再開する。
+    - Senderが[エラー完了](set_error.md)した場合、エラー値を例外としてコルーチンから再スローする。
+    - Senderが[停止完了](set_stopped.md)した場合、停止完了ハンドラ(`unhandled_stopped`)が返す別のコルーチンを再開させる。
+- そうでなければ、式`expr`に対してAwait式を実行する。
 
 
 ## 効果
@@ -43,6 +55,7 @@ namespace std::execution {
 }
 ```
 * single-sender[link single-sender.md]
+* env_of_t[link env_of_t.md]
 * sender_to[link sender_to.md]
 * convertible_to[link /reference/concepts/convertible_to.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
@@ -102,7 +115,7 @@ struct awaitable-receiver {
 
 説明用の式`rcvr`を`awaitable-reciever`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
 
-- [`constructible_from`](/reference/concepts/constructible_from.md)`<result-type, decltype((vs))...>`を満たすとき、式`set_value(rcvr, vs...)`は下記と等価。そうでなければ、式`set_value(rcvr, vs...)`は不適格となる。
+- [`constructible_from`](/reference/concepts/constructible_from.md)`<result-type, decltype((vs))...>`を満たすとき、式[`set_value`](set_value.md)`(rcvr, vs...)`は下記と等価。そうでなければ、式`set_value(rcvr, vs...)`は不適格となる。
 
     ```cpp
     try {
@@ -116,7 +129,7 @@ struct awaitable-receiver {
     * current_exception()[link /reference/exception/current_exception.md]
     * resume()[link /reference/coroutine/coroutine_handle/resume.md]
 
-- 式`set_error(rcvr, err)`は下記と等価。
+- 式[`set_error`](set_error.md)`(rcvr, err)`は下記と等価。
 
     ```cpp
     rcvr.result-ptr->template emplace<2>(AS-EXCEPT-PTR(err));
@@ -125,7 +138,7 @@ struct awaitable-receiver {
     * template emplace[link /reference/variant/variant/emplace.md]
     * resume()[link /reference/coroutine/coroutine_handle/resume.md]
 
-- 式`set_stopped(rcvr)`は下記と等価。
+- 式[`set_stopped`](set_stopped.md)`(rcvr)`は下記と等価。
 
     ```cpp
     static_cast<coroutine_handle<>>(rcvr.continuation.promise().unhandled_stopped()).resume();
@@ -134,7 +147,7 @@ struct awaitable-receiver {
     * promise()[link /reference/coroutine/coroutine_handle/promise.md]
     * resume()[link /reference/coroutine/coroutine_handle/resume.md]
 
-- [`forwarding-query`](../forwarding-query.md)を満たす型の式`tag`とパック式`as`に対して、[`get_env`](get_env.md)`(crcvr).query(tag, as...)`は下記と等価。
+- [`forwarding-query`](../forwarding-query.md)を満たす型の式`tag`とパック式`as`に対して、式[`get_env`](get_env.md)`(crcvr).query(tag, as...)`は下記と等価。
 
     ```cpp
     tag(get_env(as_const(crcvr.continuation.promise())), as...)
