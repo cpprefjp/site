@@ -18,8 +18,8 @@ constexpr V base() &&;                                      // (2)
 
 入力`view`（`V`）のオブジェクトを`base_`というメンバに保持するとして
 
-- (1) : `return base_;` と等しい
-- (2) : `return std::move(base_);` と等しい
+- (1) : `return base_;` と等価
+- (2) : `return std::move(base_);` と等価
 
 ## 例
 
