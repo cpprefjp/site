@@ -36,6 +36,24 @@ void clear() noexcept;
 ## 計算量
 本関数呼び出し前のコンテナの要素数（[`size`](size.md)`()`）に比例
 
+### 計算量に関する備考
+多くの実装（GCC libstdc++, LLVM libc++ など）は
+
+1. 全ての要素を走査して各要素を破棄
+2. 全てのバケットを走査して各バケットの状態をリセット
+
+という手順を取るため、実際の実行時間はバケット数 [`bucket_count`](bucket_count.md)`()` について線形となる (`size() <= bucket_count() *` [`max_load_factor()`](max_load_factor.md) = O(`bucket_count()`) であることに注意)。
+規格の計算量の要件は要素数 `size()` に線形となっているが、規格がコンテナに対して定義する計算量は「コンテナに格納している要素に対する操作の数の計算量」であるためバケットの走査などを考慮していない。
+
+
+## 備考
+- `clear()` がバケット数([`bucket_count`](bucket_count.md)`()`)を縮小することを規格は要求していない。
+実装によっては `clear()` 後もバケット配列が維持され、動的メモリが残る場合がある。
+- バケット数を初期状態まで縮小させたいときには `clear()` の代わりに以下のように操作する
+    ```cpp
+    um = std::unordered_map<std::string, int>();
+    ```
+
 
 ## 例
 ```cpp example
