@@ -330,6 +330,7 @@
     * declval[link /reference/utility/declval.md]
     * in_place_t[link /reference/utility/in_place_t.md]
     * in_place[link /reference/utility/in_place_t.md]
+    * std::exchange[link /reference/utility/exchange.md]
     * std::forward_like[link /reference/utility/forward_like.md]
     * std::forward[link /reference/utility/forward.md]
     * std::make_pair[link /reference/utility/make_pair.md]

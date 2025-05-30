@@ -77,7 +77,6 @@ int main()
   std::cout << std::boolalpha << b << std::endl; // => true
 }
 ```
-* std::exchange[link /reference/utility/exchange.md]
 
 
 ## 仕様

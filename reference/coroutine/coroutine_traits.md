@@ -103,7 +103,6 @@ int main()
 * resume()[link coroutine_handle/resume.md]
 * done()[link coroutine_handle/done.md]
 * from_promise[link coroutine_handle/from_promise.md]
-* std::exchange[link /reference/utility/exchange.md]
 
 ### 出力
 ```

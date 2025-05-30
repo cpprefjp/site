@@ -577,7 +577,6 @@ int main()
 }
 ```
 * co_yield[color ff0000]
-* std::exchange[link /reference/utility/exchange.md]
 * std::terminate()[link /reference/exception/terminate.md]
 * std::coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * std::suspend_always[link /reference/coroutine/suspend_always.md]

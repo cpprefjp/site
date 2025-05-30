@@ -192,7 +192,6 @@ int main()
   print(std::span<int>{ar, 3});
 }
 ```
-* std::exchange[link /reference/utility/exchange.md]
 * subspan[link span/subspan.md]
 
 #### 出力
@@ -251,7 +250,6 @@ int main()
 * s.first[link span/first.md]
 * s.last[link span/last.md]
 * s.size()[link span/size.md]
-* std::exchange[link /reference/utility/exchange.md]
 
 #### 出力
 ```
