@@ -32,7 +32,7 @@ transform_sender(get-domain-early(sndr), make-sender(stopped_as_error, err, sndr
 
 
 ### Senderアルゴリズムタグ `stopped_as_error`
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_error_t> == false`、もしくは[`single-sender-value-type`](single-sender-value-type.md.nolink)`<Sndr, Env>`が不適格または`void`のとき、式`stopped_as_error.transform_sender(sndr, env)`は不適格となる。
+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_error_t> == false`のとき、式`stopped_as_error.transform_sender(sndr, env)`は不適格となる。
 
 そうでなければ、式`stopped_as_error.transform_sender(sndr, env)`は下記と等価。
 
@@ -108,7 +108,7 @@ int main()
     ex::sender auto snd0 = MySender{-1};
     ex::sender auto snd1 = ex::stopped_as_error(snd0, MyStoppedError{});
     try {
-      auto result = std::this_thread::sync_wait(snd1).value();
+      auto [result] = std::this_thread::sync_wait(snd1).value();
       std::println("(int) {}", result);
     } catch (MyStoppedError) {
       std::println("stopped");
@@ -120,7 +120,7 @@ int main()
       MySender{-1}
       | ex::stopped_as_error(MyStoppedError{});
     try {
-      auto result = std::this_thread::sync_wait(sndr).value();
+      auto [result] = std::this_thread::sync_wait(sndr).value();
       std::println("(int) {}", result);
     } catch (MyStoppedError) {
       std::println("stopped");
