@@ -69,9 +69,17 @@ concept stream-extractable = requires(basic_istream<CharT, Traits>& is, Val& t) 
 
 | 名前                                                     | 説明                             | 対応バージョン |
 |----------------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](basic_istream_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`begin`](basic_istream_view/begin.md.nolink)                   | ストリームから値を1つ読み、それを指すイテレータを取得する   | C++20          |
-| [`end`](basic_istream_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
+| [`(constructor)`](basic_istream_view/op_constructor.md)  | コンストラクタ                   | C++20          |
+| [`begin`](basic_istream_view/begin.md)                   | ストリームから値を1つ読み、それを指すイテレータを取得する   | C++20          |
+| [`end`](basic_istream_view/end.md)                       | 番兵を取得する                   | C++20          |
+
+## 継承しているメンバ関数
+
+| 名前                                         | 説明                              | 対応バージョン |
+|----------------------------------------------|------------------------------ ----|----------------|
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
+
 
 ## 例
 ```cpp example
