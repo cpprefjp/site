@@ -10,6 +10,7 @@ namespace std::execution {
   struct sender_adaptor_closure { };
 }
 ```
+* class-type[link class-type.md.nolink]
 
 ## 概要
 `sender_adaptor_closure`は、ユーザ定義のパイプ可能Senderアダプタクロージャオブジェクトの実装を補助するクラステンプレートである。
