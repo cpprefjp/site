@@ -126,8 +126,8 @@ namespace std::execution {
 | [`execution::when_all`](execution/when_all.md) | 全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::when_all_with_variant`](execution/when_all_with_variant.md) | 複数の値完了シグネチャをもつ全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::into_variant`](execution/into_variant.md) | 複数の値完了シグネチャを単一[`variant`](/reference/variant/variant.md)型の値完了シグネチャに変換 (customization point object) | C++26 |
-| [`execution::stopped_as_optional`](execution/stopped_as_optional.md.nolink) | 入力Senderの停止完了を[`optional`](/reference/optional/optional.md)型の値完了に変換 (customization point object) | C++26 |
-| [`execution::stopped_as_error`](execution/stopped_as_error.md.nolink) | 入力Senderの停止完了をエラー完了に変換 (customization point object) | C++26 |
+| [`execution::stopped_as_optional`](execution/stopped_as_optional.md) | 入力Senderの停止完了を空の[`optional`](/reference/optional/optional.md)値完了に変換 (customization point object) | C++26 |
+| [`execution::stopped_as_error`](execution/stopped_as_error.md) | 入力Senderの停止完了をエラー完了に変換 (customization point object) | C++26 |
 
 ### Senderコンシューマ
 
