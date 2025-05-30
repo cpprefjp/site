@@ -6,9 +6,12 @@
 * cpp20[meta cpp]
 
 ```cpp
-filter_view() requires default_initializable<V> && default_initializable<Pred> = default;    // (1)
+filter_view()
+  requires default_initializable<V> &&
+           default_initializable<Pred> = default; // (1) C++20
 
-constexpr explicit filter_view(V base, Pred pred);                                           // (2)
+constexpr explicit
+  filter_view(V base, Pred pred);                 // (2) C++20
 ```
 
 ## 概要
