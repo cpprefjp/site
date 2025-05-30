@@ -173,7 +173,7 @@ value=42
 
 
 ## 関連項目
-- [`execution::​as_awaitable`](​as_awaitable.md.nolink)
+- [`execution::as_awaitable`](as_awaitable.md.nolink)
 - [コルーチン](/lang/cpp20/coroutines.md)
 
 
