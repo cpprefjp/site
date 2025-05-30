@@ -33,7 +33,7 @@ namespace std::execution {
   };
 }
 ```
-* class-type[link class-type.md.nolink]
+* class-type[link ../class-type.md]
 * terminate()[link /reference/exception/terminate.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * address()[link /reference/coroutine/coroutine_handle/address.md]
@@ -173,7 +173,7 @@ value=42
 
 
 ## 関連項目
-- [`execution::as_awaitable`](as_awaitable.md.nolink)
+- [`execution::as_awaitable`](as_awaitable.md)
 - [コルーチン](/lang/cpp20/coroutines.md)
 
 

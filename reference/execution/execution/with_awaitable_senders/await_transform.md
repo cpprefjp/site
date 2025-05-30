@@ -11,10 +11,10 @@ call-result-t<as_awaitable_t, Value, Promise&>
   await_transform(Value&& value);
 ```
 * call-result-t[link /reference/functional/call-result-t.md]
-* as_awaitable_t[link ../as_awaitable.md.nolink]
+* as_awaitable_t[link ../as_awaitable.md]
 
 ## 概要
-コルーチンの[`co_await`演算子](/lang/cpp20/coroutines.md)にアダプトし、[`as_awaitable`](../as_awaitable.md.nolink)で変換したAwaitableオブジェクトを返す。
+コルーチンの[`co_await`演算子](/lang/cpp20/coroutines.md)にアダプトし、[`as_awaitable`](../as_awaitable.md)で変換したAwaitableオブジェクトを返す。
 
 
 ## 効果
@@ -23,7 +23,7 @@ call-result-t<as_awaitable_t, Value, Promise&>
 ```cpp
 return as_awaitable(std::forward<Value>(value), static_cast<Promise&>(*this));
 ```
-* as_awaitable[link ../as_awaitable.md.nolink]
+* as_awaitable[link ../as_awaitable.md]
 
 
 ## バージョン
@@ -38,7 +38,7 @@ return as_awaitable(std::forward<Value>(value), static_cast<Promise&>(*this));
 
 
 ## 関連項目
-- [`execution::as_awaitable`](../as_awaitable.md.nolink)
+- [`execution::as_awaitable`](../as_awaitable.md)
 
 
 ## 参照

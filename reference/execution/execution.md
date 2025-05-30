@@ -151,7 +151,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`execution::as_awaitable`](execution/as_awaitable.md.nolink) | Senderを[Awaitable型](/lang/cpp20/coroutines.md)へ変換 (customization point object) | C++26 |
+| [`execution::as_awaitable`](execution/as_awaitable.md) | Senderを[Awaitable型](/lang/cpp20/coroutines.md)へ変換 (customization point object) | C++26 |
 | [`execution::with_awaitable_senders`](execution/with_awaitable_senders.md) | [Promise型](/lang/cpp20/coroutines.md)の基底クラス (class template) | C++26 |
 
 

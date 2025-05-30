@@ -28,7 +28,7 @@ using single-sender-value-type = see below;  // exposition only
 
 ## 関連項目
 - [`execution::stopped_as_optional`](stopped_as_optional.md)
-- [`sender-awaitable`](sender-awaitable.md.nolink)
+- [`execution::as_awaitable`](as_awaitable.md)
 
 
 ## 参照
