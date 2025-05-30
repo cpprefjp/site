@@ -66,6 +66,13 @@ namespace std::ranges {
 | [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
 | [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
 
+## メンバ型
+
+| 名前                               | 説明                         | 対応バージョン |
+|------------------------------------|------------------------------|----------------|
+| `template <bool Const> iterator;`  | イテレータ型(説明専用)       | C++20          |
+| `template <bool Const> sentinel;`  | 番兵型(説明専用)             | C++20          |
+
 ## 推論補助
 
 | 名前                                                  | 説明                         | 対応バージョン |
