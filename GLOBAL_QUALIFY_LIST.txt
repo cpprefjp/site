@@ -168,6 +168,8 @@
     * std::begin[link /reference/iterator/begin.md]
     * std::distance[link /reference/iterator/distance.md]
     * std::end[link /reference/iterator/end.md]
+    * std::move_iterator[link /reference/iterator/move_iterator.md]
+    * std::move_sentinel[link /reference/iterator/move_sentinel.md]
     * std::next[link /reference/iterator/next.md]
     * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
     * unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]

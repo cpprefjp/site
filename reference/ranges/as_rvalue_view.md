@@ -55,13 +55,13 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 
 ## メンバ関数
 
-| 名前                                             | 説明                              | 対応バージョン |
-|--------------------------------------------------|-----------------------------------|----------------|
-| [`(constructor)`](as_rvalue_view/op_constructor.md.nolink)  | コンストラクタ                    | C++20          |
-| [`base`](as_rvalue_view/base.md.nolink)                     | `R`の参照を取得する               | C++20          |
-| [`begin`](as_rvalue_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する    | C++20          |
-| [`end`](as_rvalue_view/end.md.nolink)                       | 番兵を取得する                    | C++20          |
-| [`size`](as_rvalue_view/size.md.nolink)                     | 要素数を取得する                  | C++20          |
+| 名前                                                | 説明                           | 対応バージョン |
+|-----------------------------------------------------|--------------------------------|----------------|
+| [`(constructor)`](as_rvalue_view/op_constructor.md) | コンストラクタ                 | C++23          |
+| [`base`](as_rvalue_view/base.md)                    | 元となるRangeを取得する        | C++23          |
+| [`begin`](as_rvalue_view/begin.md)                  | 先頭を指すイテレータを取得する | C++23          |
+| [`end`](as_rvalue_view/end.md)                      | 番兵を取得する                 | C++23          |
+| [`size`](as_rvalue_view/size.md)                    | 要素数を取得する               | C++23          |
 
 `r`を参照先のRangeとする。`size`は、[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 
@@ -69,12 +69,12 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 
 | 名前                                         | 説明                              | 対応バージョン |
 |----------------------------------------------|-----------------------------------|----------------|
-| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++20          |
-| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
-| [`data`](view_interface/data.md)             | Rangeの先頭へのポインタを取得する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++23          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++23          |
+| [`data`](view_interface/data.md)             | Rangeの先頭へのポインタを取得する | C++23          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++23          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++23          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++23          |
 | [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
 | [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
 
@@ -82,7 +82,7 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](as_rvalue_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](as_rvalue_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
 
 ## 例
 ```cpp example
@@ -173,10 +173,9 @@ constexpr explicit as_rvalue_view(V base);
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ?
-- [GCC](/implementation.md#gcc): ?
-- [ICC](/implementation.md#icc): ?
-- [Visual C++](/implementation.md#visual_cpp): ?
+- [Clang](/implementation.md#clang): 17 [mark verified]
+- [GCC](/implementation.md#gcc): 13 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 4 [mark verified]
 
 ## 参照
-- [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [P2446R2 `views::as_rvalue`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2446r2.html)
