@@ -7,7 +7,7 @@
 ```cpp
 namespace std::execution {
   struct get_domain_t { unspecified };
-  constexpr get_domain_t get_domain{};
+  inline constexpr get_domain_t get_domain{};
 }
 ```
 * unspecified[italic]
@@ -45,7 +45,7 @@ const修飾[クエリ可能オブジェクト](../queryable.md)`cenv`に対し�
 
 
 ## 関連項目
-- [`default_domain`](default_domain.md)
+- [`execution::default_domain`](default_domain.md)
 
 
 ## 参照

@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   struct get_allocator_t { unspecified };
-  constexpr get_allocator_t get_allocator{};
+  inline constexpr get_allocator_t get_allocator{};
 }
 ```
 * unspecified[italic]

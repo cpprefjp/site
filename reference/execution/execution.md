@@ -42,8 +42,8 @@ namespace std::execution {
 | [`execution::get_domain`](execution/get_domain.md) | 実行ドメイン取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_scheduler`](execution/get_scheduler.md) | Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md) | 委任Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
-| [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md.nolink) | 前方進行保証 (enum) | C++26 |
-| [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md.nolink) | 前方進行保証取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md) | 前方進行保証 (enum) | C++26 |
+| [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md) | 前方進行保証取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_env`](execution/get_env.md) | 環境取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::env_of_t`](execution/env_of_t.md) | 指定型から環境型を取得 (alias template) | C++26 |

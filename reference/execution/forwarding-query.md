@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 関連項目
-- [`forwarding_query`](forwarding_query.md)
+- [`execution::forwarding_query`](forwarding_query.md)
 
 
 ## 参照

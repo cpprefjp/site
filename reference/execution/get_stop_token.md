@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   struct get_stop_token_t { unspecified };
-  constexpr get_stop_token_t get_stop_token{};
+  inline constexpr get_stop_token_t get_stop_token{};
 }
 ```
 * unspecified[italic]

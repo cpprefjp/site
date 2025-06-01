@@ -7,7 +7,7 @@
 ```cpp
 namespace std::execution {
   struct get_scheduler { unspecified };
-  constexpr get_scheduler_t get_scheduler{};
+  inline constexpr get_scheduler_t get_scheduler{};
 }
 ```
 * unspecified[italic]
@@ -45,7 +45,7 @@ const修飾[クエリ可能オブジェクト](../queryable.md)`cenv`に対し�
 
 
 ## 関連項目
-- [`scheduler`](scheduler.md)
+- [`execution::scheduler`](scheduler.md)
 
 
 ## 参照
