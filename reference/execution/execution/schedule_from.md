@@ -59,8 +59,8 @@ namespace std::execution {
   return JOIN-ENV(SCHED-ATTRS(data), FWD-ENV(get_env(child)));
 }
 ```
-* JOIN-ENV[link JOIN-ENV.md.nolink]
-* SCHED-ATTRS[link SCHED-ATTRS.md.nolink]
+* JOIN-ENV[link ../queryable.md]
+* SCHED-ATTRS[link scheduler.md]
 * FWD-ENV[link ../forwarding_query.md]
 * get_env[link get_env.md]
 

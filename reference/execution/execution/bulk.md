@@ -71,7 +71,7 @@ namespace std::execution {
   }
 ```
 * set_value_t[link set_value.md]
-* TRY-EVAL[link TRY-EVAL.md.nolink]
+* TRY-EVAL[link set_value.md]
 * std::move[link /reference/utility/move.md]
 * see below[italic]
 

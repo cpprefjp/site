@@ -80,6 +80,7 @@ namespace std::execution {
 }
 ```
 * set_value_t[link set_value.md]
+* TRY-SET-VALUE[link set_value.md]
 * decayed-tuple[link decayed-tuple.md]
 * std::move[link /reference/utility/move.md]
 

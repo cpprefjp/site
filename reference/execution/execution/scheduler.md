@@ -80,6 +80,20 @@ namespace std::execution {
 Scheduler型のデストラクタは、[`schedule`](schedule.md)が返すSenderオブジェクトに接続されたReceiverの完了を待機してブロックしてはならない。
 
 
+## 説明専用エンティティ
+### `SCHED-ATTRS`
+説明用のScheduler`sch`に対して、式`SCHED-ATTRS(sch)`は[`queryable`](../queryable.md)を満たす型の式`o1`となり、下記を満たす。
+
+- 型`Tag`が[`set_value_t`](set_value.md)もしくは[`set_stopped_t`](set_stopped.md)のとき、式`o1.query(`[`get_completion_scheduler`](get_completion_scheduler.md)`<Tag>)`の型および値が`sch`と等しい。
+- 式`o1.query(`[`get_domain`](get_domain.md)`)`は`sch.query(`[`get_domain`](get_domain.md)`)`と等価。
+
+### `SCHED-ENV`
+説明用のScheduler`sch`に対して、式`SCHED-ENV(sch)`は[`queryable`](../queryable.md)を満たす型の式`o2`となり、下記を満たす。
+
+- 式`o2.query(`[`get_scheduler`](get_scheduler.md)`)`は、型および値が`sch`と等しい右辺値。
+- 式`o2.query(`[`get_domain`](get_domain.md)`)`は`sch.query(`[`get_domain`](get_domain.md)`)`と等価。
+
+
 ## 例
 ```cpp example
 #include <execution>

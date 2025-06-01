@@ -111,7 +111,6 @@ namespace std::execution {
 `C`型の`c`と[コルーチンPromise型](/lang/cpp20/coroutines.md)の左辺値`p`に対して、`await-result-type<C, Promise>`を`decltype(`[`GET-AWAITER`](../is-awaitable.md)`(c, p).`[`await_resume()`](/lang/cpp20/coroutines.md)`)`型とする。
 型`V`を`await-result-type<DS, connect-awaitable-promise>`とする。
 
-`SET-VALUE-SIG(T)`を、`T`がCV修飾された`void`ならば[`set_value_t`](set_value.md)`()`型、そうでなければ[`set_value_t`](set_value.md)`(T)`型とする。
 型`Sigs`を下記の通り定義する。
 
 ```cpp
@@ -121,10 +120,10 @@ completion_signatures<
   set_stopped_t()>
 ```
 * completion_signatures[link completion_signatures.md]
+* SET-VALUE-SIG[link set_value.md]
 * set_error_t[link set_error.md]
 * set_stopped_t[link set_stopped.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
-* SET-VALUE-SIG[italic]
 
 説明用の関数テンプレート`suspend-complete`とコルーチン`suspend-awaitable`を下記の通り定義する。
 

@@ -73,7 +73,7 @@ namespace std::execution {
 ```
 * default_domain[link default_domain.md]
 * env<>[link env.md]
-* MAKE-ENV[link MAKE-ENV.md.nolink]
+* MAKE-ENV[link ../queryable.md]
 * get_domain[link get_domain.md]
 
 `impls-for<when_all_t>::get-env`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。

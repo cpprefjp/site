@@ -39,6 +39,7 @@ namespace std::execution {
 * decayed-typeof[link /reference/functional/decayed-typeof.md]
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
+* TRY-SET-VALUE[link set_value.md]
 * get_env[link get_env.md]
 
 

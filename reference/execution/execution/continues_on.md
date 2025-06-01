@@ -47,8 +47,8 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* JOIN-ENV[link JOIN-ENV.md.nolink]
-* SCHED-ATTRS[link SCHED-ATTRS.md.nolink]
+* JOIN-ENV[link ../queryable.md]
+* SCHED-ATTRS[link scheduler.md]
 * FWD-ENV[link ../forwarding_query.md]
 * get_env[link get_env.md]
 

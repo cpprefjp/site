@@ -114,19 +114,19 @@ namespace std::execution {
 ```
 * set_value[link set_value.md]
 * decayed-typeof[link /reference/functional/decayed-typeof.md]
-* TRY-EVAL[link TRY-EVAL.md.nolink]
+* TRY-EVAL[link set_value.md]
 * std::move[link /reference/utility/move.md]
 
 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let_value>> == false`のとき、式`let_value.transform_env(sndr, env)`は不適格となる。
 
-そうでなければ、式`let_value.transform_env(sndr, env)`は[`JOIN-ENV`](JOIN-ENV.md.nolink)`(let-env(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env))`と等価。
+そうでなければ、式`let_value.transform_env(sndr, env)`は[`JOIN-ENV`](../queryable.md)`(let-env(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env))`と等価。
 
 
 ## 説明専用エンティティ
 説明用の式`sndr`を用いて、`let-env(sndr)`を下記リストのうち最初に適格となる式と定義する。
 
-- [`SCHED-ENV`](SCHED-ENV.md.nolink)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<`[`set_value`](set_value.md)`>>(`[`get_env`](get_env.md)`(sndr)))`
-- [`MAKE-ENV`](MAKE-ENV.md.nolink)`(`[`get_domain`](get_domain.md)`,` [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr)))`
+- [`SCHED-ENV`](schedule.md)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<`[`set_value`](set_value.md)`>>(`[`get_env`](get_env.md)`(sndr)))`
+- [`MAKE-ENV`](../queryable.md)`(`[`get_domain`](get_domain.md)`,` [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr)))`
 - `(void(sndr),` [`env<>{}`](env.md)`)`
 
 説明専用の`let-bind`テンプレート関数を下記の通り定義する。

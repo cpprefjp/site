@@ -34,7 +34,7 @@ namespace std::execution {
       set_stopped_t()>
     ```
     * completion_signatures[link completion_signatures.md]
-    * SET-VALUE-SIG[link connect.md]
+    * SET-VALUE-SIG[link set_value.md]
     * await-result-type[link connect.md]
     * env-promise[link env-promise.md]
     * set_error_t[link set_error.md]

@@ -55,6 +55,7 @@ namespace std::execution {
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
 * set_value[link set_value.md]
+* TRY-SET-VALUE[link set_value.md]
 * invoke[link /reference/functional/invoke.md]
 * std::move[link /reference/utility/move.md]
 

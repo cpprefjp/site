@@ -33,6 +33,45 @@ namespace std::execution {
 このとき、`noexcept(rcvr.set_value(vs...)) == true`であること。
 
 
+## 説明専用エンティティ
+### `SET-VALUE`
+説明用の式`rcvr`, `expr`に対して、説明専用の式`SET-VALUE(rcvr, expr)`は下記と等価である。
+
+- `expr`の型が`void`のとき、式`(expr, set_value(`[`std::move`](/reference/utility/move.md)`(rcvr)))`
+- そうでなければ、式`set_value(`[`std::move`](/reference/utility/move.md)`(rcvr), expr)`
+
+### `TRY-EVAL`
+説明用の式`rcvr`, `expr`に対して、説明専用の式`TRY-EVAL(rcvr, expr)`は下記と等価である。
+
+- `expr`が潜在的に例外送出するならば、下記と等価。
+
+    ```cpp
+    try {
+      expr;
+    } catch(...) {
+      set_error(std::move(rcvr), current_exception());
+    }
+    ```
+    * set_error[link set_error.md]
+    * std::move[link /reference/utility/move.md]
+    * current_exception()[link /reference/exception/current_exception.md]
+
+- そうでなければ、式`expr`
+
+### `TRY-SET-VALUE`
+説明用の式`rcvr`, `expr`に対して、説明専用の式`TRY-SET-VALUE(rcvr, expr)`は`rcvr`が1回だけ評価されることを除いて、下記と等価。
+
+```cpp
+TRY-EVAL(rcvr, SET-VALUE(rcvr, expr))
+```
+
+### `SET-VALUE-SIG`
+説明用の型`T`に対して、説明専用の型`SET-VALUE-SIG(T)`を下記の通り定義する。
+
+- `T`がCV修飾された`void`ならば、型`set_value_t()`
+- そうでなければ、型`set_value_t(T)`
+
+
 ## 備考
 完了関数`set_value`は[Sender](sender.md)内部実装から呼び出される想定であり、実行制御ライブラリ利用者が直接利用する必要はない。
 

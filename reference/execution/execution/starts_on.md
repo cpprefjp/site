@@ -44,8 +44,8 @@ transform_sender(
     auto&& [_, sch, _] = out_sndr;
     return JOIN-ENV(SCHED-ENV(sch), FWD-ENV(env));
     ```
-    * JOIN-ENV[link JOIN-ENV.md.nolink]
-    * SCHED-ENV[link SCHED-ENV.md.nolink]
+    * JOIN-ENV[link ../queryable.md]
+    * SCHED-ENV[link scheduler.md]
     * FWD-ENV[link ../forwarding_query.md]
 
 - 式`starts_on.transform_sender(out_sndr, env)`は下記と等価。

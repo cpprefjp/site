@@ -44,6 +44,21 @@ concept queryable = destructible<T>;
 呼び出し可能オブジェクト`q`と部分式パック`args`に対して、`requires { q(env, args...) }`が`true`であれば、`q(env, args...)`が`q`に課されるセマンティック要件を満たす場合に、`Env`は`queryable`のモデルである。
 
 
+## 説明専用エンティティ
+### `MAKE-ENV`
+説明用のクエリオブジェクト`q`と式`v`に対して、式`MAKE-ENV(q, v)`は`queryable`を満たす型の式`env`となり、下記を満たす。
+
+- `env.query(q)`の結果が`v`と等しい。
+- 明に規定されない限り、`env`が有効の間は`env.query(q)`のオブジェクトも有効である。
+
+### `JOIN-ENV`
+説明用のクエリ可能オブジェクト`env1`, `env2`、クエリオブジェクト`q`、パック式`as`に対して、式`JOIN-ENV(env1, env2)`は`queryable`を満たす型の式`env3`となり、式`env3.query(q, as...)`は下記と等価である。
+
+- 適格であるならば、式`env1.query(q, as...)`
+- そうではなく、適格であるならば、式`env2.query(q, as...)`
+- そうでなければ、式`env3.query(q, as...)`は不適格
+
+
 ## 備考
 [Sender](execution/sender.md)に関連付けられたクエリ可能オブジェクトは「属性(attributes)」と呼ばれるが、実行制御ライブラリの仕様記述では[Receiver](execution/receiver.md)の「環境(environment)」と合わせて`Env`型や識別子名`env`として包括的に言及される。
 
