@@ -38,7 +38,7 @@ const volatile T* start_lifetime_as(const volatile void* p) noexcept; // (4)
 
 
 ## 戻り値
-暗黙的に構築された型 `T` のオブジェクトのポインタを返す。ポインタの値は `p`。
+暗黙的に構築された型 `T` のオブジェクトへのポインタを返す。
 
 
 ## 例外
