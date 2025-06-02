@@ -247,6 +247,7 @@
     * sized_range[link /reference/ranges/sized_range.md]
     * std::ranges::owning_view[link /reference/ranges/owning_view.md]
     * std::ranges::ref_view[link /reference/ranges/ref_view.md]
+    * std::ranges::single_view[link /reference/ranges/single_view.md]
     * subrange[link /reference/ranges/subrange.md]
     * view_interface[link /reference/ranges/view_interface.md]
     * view[link /reference/ranges/view.md]

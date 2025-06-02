@@ -78,10 +78,10 @@ concept tiny-range = sized_range<R> &&
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](lazy_split_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](lazy_split_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
-| [`begin`](lazy_split_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](lazy_split_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
+| [`(constructor)`](lazy_split_view/op_constructor.md)  | コンストラクタ                   | C++20          |
+| [`base`](lazy_split_view/base.md)                     | `V`の参照を取得する              | C++20          |
+| [`begin`](lazy_split_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](lazy_split_view/end.md)                       | 番兵を取得する                   | C++20          |
 
 ## 継承しているメンバ関数
 
@@ -98,7 +98,7 @@ concept tiny-range = sized_range<R> &&
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](lazy_split_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](lazy_split_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 
