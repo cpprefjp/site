@@ -53,11 +53,11 @@ namespace std::ranges {
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](take_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](take_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
-| [`begin`](take_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](take_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
-| [`size`](take_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
+| [`(constructor)`](take_view/op_constructor.md)  | コンストラクタ                   | C++20          |
+| [`base`](take_view/base.md)                     | `V`の参照を取得する              | C++20          |
+| [`begin`](take_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](take_view/end.md)                       | 番兵を取得する                   | C++20          |
+| [`size`](take_view/size.md)                     | 要素数を取得する                 | C++20          |
 
 `r`を元のRangeとする。`size`は[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 
@@ -78,7 +78,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](take_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](take_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 使用上の注意
 

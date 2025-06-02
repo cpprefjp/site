@@ -54,7 +54,7 @@ zipするRangeのサイズが異なっている場合、`zip_transform_view`の�
 | [`(constructor)`](zip_transform_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
 | [`begin`](zip_transform_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](zip_transform_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](take_view/size.md.nolink)                    | 要素数を取得する                 | C++23          |
+| [`size`](zip_transform_view/size.md.nolink)                    | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 

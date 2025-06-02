@@ -44,7 +44,7 @@ namespace std::ranges {
 | [`stride`](stride_view/stride.md.nolink)                 | 1回で移動する要素数を取得する    | C++23          |
 | [`begin`](stride_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](stride_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](take_view/size.md.nolink)                       | 要素数を取得する                 | C++23          |
+| [`size`](stride_view/size.md.nolink)                       | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
