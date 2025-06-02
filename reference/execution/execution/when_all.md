@@ -195,8 +195,7 @@ try {
 
 
 ## 説明専用エンティティ
-説明専用のコンセプト`max-1-sender-in`, 列挙型`disposition`, クラス`make-state`は、それぞれ下記の通り定義される。
-
+### コンセプト`max-1-sender-in`
 ```cpp
 template<class Sndr, class Env>
 concept max-1-sender-in = sender_in<Sndr, Env> &&  // exposition only
@@ -207,10 +206,12 @@ concept max-1-sender-in = sender_in<Sndr, Env> &&  // exposition only
 * tuple_size_v[link /reference/tuple/tuple_size.md]
 * tuple[link /reference/tuple/tuple.md]
 
+### 列挙型`disposition`
 ```cpp
 enum class disposition { started, error, stopped };  // exposition only
 ```
 
+### クラステンプレート`make-state`
 ```cpp
 template<class Rcvr>
 struct make-state {

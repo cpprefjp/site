@@ -103,9 +103,9 @@ int main()
 
 ## 関連項目
 - [`execution::receiver`](receiver.md)
-- [`execution::set_value_t`](set_value.md)
-- [`execution::set_error_t`](set_error.md)
-- [`execution::set_stopped_t`](set_stopped.md)
+- [`execution::set_value`](set_value.md)
+- [`execution::set_error`](set_error.md)
+- [`execution::set_stopped`](set_stopped.md)
 
 
 ## 参照

@@ -38,6 +38,7 @@ using gather-signatures = /*see below*/
 - [`execution::value_types_of_t`](value_types_of_t.md)
 - [`execution::error_types_of_t`](error_types_of_t.md)
 - [`execution::sends_stopped`](sends_stopped.md)
+- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
 
 
 ## 参照

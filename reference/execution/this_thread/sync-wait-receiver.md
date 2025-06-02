@@ -69,18 +69,13 @@ template<class Error>
 void set_error(Error&& err) && noexcept
 ```
 
-説明用の式`err`に対して`decltype((err))`を型`Err`としたとき、式`AS-EXCEPT-PTR(err)`を下記の通り定義する。
-
-- [`decay_t`](/reference/type_traits/decay.md)`<Err>`が[`exception_ptr`](/reference/exception/exception_ptr.md)型と等しければ、`err`となる。このとき、事前条件として`!err == false`であること。
-- そうではなく、[`decay_t`](/reference/type_traits/decay.md)`<Err>`が[`error_code`](/reference/system_error/error_code.md)型と等しければ、[`make_exception_ptr`](/reference/exception/make_exception_ptr.md)`(`[`system_error`](/reference/system_error/system_error.md)`(err))`となる。
-- そうでなければ、[`make_exception_ptr`](/reference/exception/make_exception_ptr.md)`(err)`となる。
-
 効果 : 下記と等価
 
 ```cpp
 state->error = AS-EXCEPT-PTR(std::forward<Error>(err));
 state->loop.finish();
 ```
+* AS-EXCEPT-PTR[link ../execution/as_awaitable.md]
 * finish()[link ../execution/run_loop/finish.md]
 
 

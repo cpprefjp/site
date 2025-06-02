@@ -34,13 +34,13 @@ namespace std::execution {
 
 
 ## 説明専用エンティティ
-### `SET-VALUE`
+### 式`SET-VALUE`
 説明用の式`rcvr`, `expr`に対して、説明専用の式`SET-VALUE(rcvr, expr)`は下記と等価である。
 
 - `expr`の型が`void`のとき、式`(expr, set_value(`[`std::move`](/reference/utility/move.md)`(rcvr)))`
 - そうでなければ、式`set_value(`[`std::move`](/reference/utility/move.md)`(rcvr), expr)`
 
-### `TRY-EVAL`
+### 式`TRY-EVAL`
 説明用の式`rcvr`, `expr`に対して、説明専用の式`TRY-EVAL(rcvr, expr)`は下記と等価である。
 
 - `expr`が潜在的に例外送出するならば、下記と等価。
@@ -58,14 +58,14 @@ namespace std::execution {
 
 - そうでなければ、式`expr`
 
-### `TRY-SET-VALUE`
+### 式`TRY-SET-VALUE`
 説明用の式`rcvr`, `expr`に対して、説明専用の式`TRY-SET-VALUE(rcvr, expr)`は`rcvr`が1回だけ評価されることを除いて、下記と等価。
 
 ```cpp
 TRY-EVAL(rcvr, SET-VALUE(rcvr, expr))
 ```
 
-### `SET-VALUE-SIG`
+### 型`SET-VALUE-SIG`
 説明用の型`T`に対して、説明専用の型`SET-VALUE-SIG(T)`を下記の通り定義する。
 
 - `T`がCV修飾された`void`ならば、型`set_value_t()`
@@ -116,8 +116,8 @@ int main()
 
 ## 関連項目
 - [`execution::receiver`](receiver.md)
-- [`execution::set_error_t`](set_error.md)
-- [`execution::set_stopped_t`](set_stopped.md)
+- [`execution::set_error`](set_error.md)
+- [`execution::set_stopped`](set_stopped.md)
 
 
 ## 参照

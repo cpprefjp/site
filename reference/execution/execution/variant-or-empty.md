@@ -17,7 +17,7 @@ namespace std::execution {
 
 型`variant-or-empty<Ts...>`は下記の通り定義される。
 
-- `sizeof...(Ts) > 0`ならば、説明用のパック`Us`を[`decay_t`](/reference/type_traits/decay.md)`<Ts>...`から重複削除したものとしたとき、`variant-or-empty<Ts...>`は[`variant`](/reference/variant/variant.md)[`<Us...>`]型となる。
+- `sizeof...(Ts) > 0`ならば、説明用のパック`Us`を[`decay_t`](/reference/type_traits/decay.md)`<Ts>...`から重複削除したものとしたとき、`variant-or-empty<Ts...>`は[`variant`](/reference/variant/variant.md)`<Us...>`型となる。
 - そうでなければ、`variant-or-empty<Ts...>`は下記の説明専用クラス型となる。
 
     ```cpp

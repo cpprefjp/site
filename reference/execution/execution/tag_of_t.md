@@ -10,6 +10,7 @@ namespace std::execution {
   using tag_of_t = see below;
 }
 ```
+* sender[link sender.md]
 * see below[italic]
 
 ## 概要

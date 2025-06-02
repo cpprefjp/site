@@ -95,6 +95,13 @@ namespace std::execution {
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 
+### 式`AS-EXCEPT-PTR`
+説明用の式`err`に対して`decltype((err))`を型`Err`としたとき、式`AS-EXCEPT-PTR(err)`を下記の通り定義する。
+
+- [`decay_t`](/reference/type_traits/decay.md)`<Err>`が[`exception_ptr`](/reference/exception/exception_ptr.md)型と等しければ、`err`となる。このとき、事前条件として`!err == false`であること。
+- そうではなく、[`decay_t`](/reference/type_traits/decay.md)`<Err>`が[`error_code`](/reference/system_error/error_code.md)型と等しければ、[`make_exception_ptr`](/reference/exception/make_exception_ptr.md)`(`[`system_error`](/reference/system_error/system_error.md)`(err))`となる。
+- そうでなければ、[`make_exception_ptr`](/reference/exception/make_exception_ptr.md)`(err)`となる。
+
 ### クラステンプレート`awaitable-receiver`
 説明専用のクラステンプレート`sender-awaitable<Sndr, Promise>::awaitable-receiver`は下記の通り定義される。
 
@@ -135,6 +142,7 @@ struct awaitable-receiver {
     rcvr.result-ptr->template emplace<2>(AS-EXCEPT-PTR(err));
     rcvr.continuation.resume();
     ```
+    * AS-EXCEPT-PTR[italic]
     * template emplace[link /reference/variant/variant/emplace.md]
     * resume()[link /reference/coroutine/coroutine_handle/resume.md]
 

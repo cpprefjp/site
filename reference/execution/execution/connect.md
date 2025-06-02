@@ -111,7 +111,7 @@ namespace std::execution {
 `C`型の`c`と[コルーチンPromise型](/lang/cpp20/coroutines.md)の左辺値`p`に対して、`await-result-type<C, Promise>`を`decltype(`[`GET-AWAITER`](../is-awaitable.md)`(c, p).`[`await_resume()`](/lang/cpp20/coroutines.md)`)`型とする。
 型`V`を`await-result-type<DS, connect-awaitable-promise>`とする。
 
-型`Sigs`を下記の通り定義する。
+[完了シグネチャ集合型](completion_signatures.md)`Sigs`を下記の通り定義する。
 
 ```cpp
 completion_signatures<

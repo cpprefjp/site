@@ -16,6 +16,7 @@ namespace std::execution {
 ```
 * env<>[link env.md]
 * sender_in[link sender_in.md]
+* type-list[link type-list.md]
 * gather-signatures[link gather-signatures.md]
 * set_stopped_t[link set_stopped.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]

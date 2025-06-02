@@ -105,7 +105,7 @@ void operator()(local-state<Sndr, Rcvr>& state, Rcvr& rcvr) const noexcept;
 
 
 ## 説明専用エンティティ
-### `local-state`クラステンプレート
+### クラステンプレート`local-state`
 
 ```cpp
 namespace std::execution {
@@ -184,8 +184,7 @@ void notify() noexcept override;
     * apply[link /reference/tuple/apply.md]
     * std::move[link /reference/utility/move.md]
 
-
-### `split-receiver`クラステンプレート
+### クラステンプレート`split-receiver`
 
 ```cpp
 namespace std::execution {
@@ -248,8 +247,7 @@ namespace std::execution {
 * get_stop_token_t[link ../get_stop_token.md]
 * get_token()[link /reference/stop_token/inplace_stop_source/get_token.md]
 
-
-### `shared-state`クラステンプレート
+### クラステンプレート`shared-state`
 
 ```cpp
 namespace std::execution {

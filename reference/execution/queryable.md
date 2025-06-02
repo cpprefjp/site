@@ -45,13 +45,13 @@ concept queryable = destructible<T>;
 
 
 ## 説明専用エンティティ
-### `MAKE-ENV`
+### 式`MAKE-ENV`
 説明用のクエリオブジェクト`q`と式`v`に対して、式`MAKE-ENV(q, v)`は`queryable`を満たす型の式`env`となり、下記を満たす。
 
 - `env.query(q)`の結果が`v`と等しい。
 - 明に規定されない限り、`env`が有効の間は`env.query(q)`のオブジェクトも有効である。
 
-### `JOIN-ENV`
+### 式`JOIN-ENV`
 説明用のクエリ可能オブジェクト`env1`, `env2`、クエリオブジェクト`q`、パック式`as`に対して、式`JOIN-ENV(env1, env2)`は`queryable`を満たす型の式`env3`となり、式`env3.query(q, as...)`は下記と等価である。
 
 - 適格であるならば、式`env1.query(q, as...)`

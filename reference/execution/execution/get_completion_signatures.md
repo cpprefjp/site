@@ -46,7 +46,21 @@ namespace std::execution {
 
 ## カスタマイゼーションポイント
 - Sender`sndr`[変換後](transform_sender.md)の`new_sndr`に対して、`new_sndr.get_completion_signatures(env)`が返す型。
-- 変換後Senderの型`NewSndr`に対して、メンバ型`completion_signatures`。
+- 変換後Senderの型`NewSndr`に対して、メンバ型`NewSndr::completion_signatures`
+
+説明用の式`rcvr`を[`receiver`](receiver.md)のモデルである型`Rcvr`の右辺値、型`Sndr`を[`sender_in`](sender_in.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>> == true`となる型とする。
+`Sigs...`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。
+`CSO`を完了関数とする。
+
+Sender型`Sndr`、もしくは式`CSO(rcvr, args...)`を呼び出す[Operation State](operation_state.md)が潜在的に例外送出するならば、`Sigs...`の完了シグネチャ`Sig`は次の式が`true`となるべき。
+
+```cpp
+MATCHING-SIG(decayed-typeof<CSO>(decltype(args)...), Sig)
+```
+* MATCHING-SIG[italic]
+* decayed-typeof[link /reference/functional/decayed-typeof.md]
+
+説明用の関数型`F1`, `F2`をそれぞれ`R1(Args1...)`, `R2(Args2...)`としたとき、説明専用の式`MATCHING-SIG(F1, F2)`は、[`same_as`](/reference/concepts/same_as.md)`<R1(Args1&&...), R2(Args&&...)> == true`となる場合にかぎって`true`となる。
 
 
 ## 例

@@ -128,7 +128,7 @@ transform_sender(
     * get_env[link get_env.md]
     * query-with-default[link query-with-default.md]
     * write-env[link write-env.md]
-    * SCHED-ENV[link scheduler.nolink]
+    * SCHED-ENV[link scheduler.md]
     * std::move[link /reference/utility/move.md]
 
 説明専用のクラス`not-a-scheduler`を未規定な空のクラス型、`not-a-sender`を下記の通り定義する。

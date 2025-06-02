@@ -77,8 +77,8 @@ int main()
 
 ## 関連項目
 - [`execution::receiver`](receiver.md)
-- [`execution::set_value_t`](set_value.md)
-- [`execution::set_error_t`](set_error.md)
+- [`execution::set_value`](set_value.md)
+- [`execution::set_error`](set_error.md)
 
 
 ## 参照
