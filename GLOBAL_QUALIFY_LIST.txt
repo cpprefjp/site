@@ -243,6 +243,7 @@
     * ranges::end[link /reference/ranges/end.md]
     * ranges::size[link /reference/ranges/size.md]
     * ref_view[link /reference/ranges/ref_view.md]
+    * single_view[link /reference/ranges/single_view.md]
     * sentinel_t[link /reference/ranges/sentinel_t.md]
     * sized_range[link /reference/ranges/sized_range.md]
     * std::ranges::owning_view[link /reference/ranges/owning_view.md]
