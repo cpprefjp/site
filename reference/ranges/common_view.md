@@ -25,7 +25,8 @@ namespace std::ranges {
 - (1): 任意のRangeを[`common_range`](common_range.md)にする[`view`](view.md)
 - (2): `common_view`または同じ効果を実現する[`view`](view.md)を生成するRangeアダプタオブジェクト
 
-同じ型のイテレータペアを受け取るレガシーなアルゴリズム関数に対して、[`common_range`](common_range.md)ではない範囲を渡したい場合、`common`を使用することで同じ型のイテレータペアを取得できるようになる。
+イテレータと番兵の型が同じである必要があるレガシーなアルゴリズム関数に対して、イテレータと番兵が異なるRangeを渡したい場合 (たとえば[`iota_view`](iota_view.md))、このビューで[`common_range`](common_range.md)に変換することで、同じ型のイテレータペアを取得できるようになる。
+
 
 ### Rangeコンセプト
 
