@@ -49,11 +49,11 @@ namespace std::ranges {
 
 | 名前                                                         | 説明                             | 対応バージョン |
 |--------------------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](take_while_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](take_while_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
-| [`pred`](take_while_view/pred.md.nolink)                     | 述語を取得する                   | C++20          |
-| [`begin`](take_while_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](take_while_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
+| [`(constructor)`](take_while_view/op_constructor.md)  | コンストラクタ                   | C++20          |
+| [`base`](take_while_view/base.md)                     | `V`の参照を取得する              | C++20          |
+| [`pred`](take_while_view/pred.md)                     | 述語を取得する                   | C++20          |
+| [`begin`](take_while_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](take_while_view/end.md)                       | 番兵を取得する                   | C++20          |
 
 ## 継承しているメンバ関数
 
@@ -72,7 +72,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](take_while_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](take_while_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
