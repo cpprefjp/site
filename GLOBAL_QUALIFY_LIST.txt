@@ -145,6 +145,7 @@
     * std::basic_istream[link /reference/istream/basic_istream.md]
 * <iterator>[link /reference/iterator.md]
     * bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
+    * common_iterator[link /reference/iterator/common_iterator.md]
     * contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
     * default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
     * default_sentinel[link /reference/iterator/default_sentinel_t.md]
