@@ -18,32 +18,21 @@ constexpr auto begin() const requires range<const V>; // (2)
 ## 効果
 
 - (1) :
-  ```cpp
-  if constexpr (random_access_range<V> && sized_range<V>)
-    return ranges::begin(base_);
-  else
-    return common_iterator<iterator_t<V>, sentinel_t<V>>(ranges::begin(base_));
-  ```
-  * random_access_range[link ../random_access_range.md]
-  * sized_range[link ../sized_range.md]
-  * common_iterator[link /reference/iterator/common_iterator.md]
-  * iterator_t[link ../iterator_t.md]
-  * sentinel_t[link ../sentinel_t.md]
-  * ranges::begin[link ../begin.md]
+    ```cpp
+    if constexpr (random_access_range<V> && sized_range<V>)
+      return ranges::begin(base_);
+    else
+      return common_iterator<iterator_t<V>, sentinel_t<V>>(ranges::begin(base_));
+    ```
 
 - (2) :
-  ```cpp
-  if constexpr (random_access_range<const V> && sized_range<const V>)
-    return ranges::begin(base_);
-  else
-    return common_iterator<iterator_t<const V>, sentinel_t<const V>>(ranges::begin(base_));
-  ```
-  * random_access_range[link ../random_access_range.md]
-  * sized_range[link ../sized_range.md]
-  * common_iterator[link /reference/iterator/common_iterator.md]
-  * iterator_t[link ../iterator_t.md]
-  * sentinel_t[link ../sentinel_t.md]
-  * ranges::begin[link ../begin.md]
+    ```cpp
+    if constexpr (random_access_range<const V> && sized_range<const V>)
+      return ranges::begin(base_);
+    else
+      return common_iterator<iterator_t<const V>, sentinel_t<const V>>(ranges::begin(base_));
+    ```
+
 
 ## 例
 ```cpp example
