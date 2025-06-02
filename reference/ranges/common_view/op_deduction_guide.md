@@ -2,7 +2,7 @@
 * ranges[meta header]
 * std::ranges[meta namespace]
 * common_view[meta class]
-* deduction guide[meta id-type]
+* function[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
