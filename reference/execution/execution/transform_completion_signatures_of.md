@@ -20,11 +20,12 @@ namespace std::exectution {
       AdditionalSignatures, SetValue, SetError, SetStopped>;
 }
 ```
+* sender[link sender.md]
 * env<>[link env.md]
 * valid-completion-signatures[link completion_signatures.md]
 * completion_signatures[link completion_signatures.md]
 * set_stopped_t()[link set_stopped.md]
-* sender_in[lin sender_in.md]
+* sender_in[link sender_in.md]
 * transform_completion_signatures[link transform_completion_signatures.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
 * see below[italic]
