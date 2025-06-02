@@ -23,10 +23,25 @@ namespace std::ranges {
 型`T`が`common_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、`T`から取得した番兵とイテレータの型が等しい場合である。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+
+int main() {
+  namespace ranges = std::ranges;
+  namespace views = std::views;
+
+  // 無限長のiotaはcommon_rangeではない
+  // (イテレータと番兵の型が異なる)
+  static_assert(!ranges::common_range<decltype(views::iota(0))>);
+
+  // commonを適用するとcommon_rangeになる
+  static_assert(ranges::common_range<decltype(views::iota(0) | views::common)>);
+}
+```
 
 ### 出力
-(執筆中)
+```
+```
 
 ## バージョン
 ### 言語
