@@ -125,7 +125,7 @@ completion_signatures<
 * set_stopped_t[link set_stopped.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
 
-説明用の関数テンプレート`suspend-complete`とコルーチン`suspend-awaitable`を下記の通り定義する。
+説明用の関数テンプレート`suspend-complete`とコルーチン`connect-awaitable`を下記の通り定義する。
 
 ```cpp
 namespace std::execution {
@@ -237,3 +237,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
