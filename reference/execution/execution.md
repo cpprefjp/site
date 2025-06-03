@@ -116,8 +116,8 @@ namespace std::execution {
 | [`execution::on`](execution/on.md) | 指定Senderのみ別Scheduler上で実行する (customization point object) | C++26 |
 | [`execution::schedule_from`](execution/schedule_from.md) | Sender完了に依存する作業をスケジュール (customization point object) | C++26 |
 | [`execution::then`](execution/then.md) | 値完了時の継続処理をアタッチ (customization point object) | C++26 |
-| [`execution::upon_error`](execution/upon_error.md.nolink) | エラー完了時の継続処理をアタッチ (customization point object) | C++26 |
-| [`execution::upon_stopped`](execution/upon_stopped.md.nolink) | 停止完了時の継続処理をアタッチ (customization point object) | C++26 |
+| [`execution::upon_error`](execution/upon_error.md) | エラー完了時の継続処理をアタッチ (customization point object) | C++26 |
+| [`execution::upon_stopped`](execution/upon_stopped.md) | 停止完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::let_value`](execution/let_value.md) | 値完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::let_error`](execution/let_error.md.nolink) | エラー完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::let_stopped`](execution/let_stopped.md.nolink) | 停止完了を入れ子の非同期操作へ変換 (customization point object) | C++26 |
