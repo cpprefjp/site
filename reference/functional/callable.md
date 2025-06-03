@@ -17,7 +17,7 @@ concept callable =  // exposition only
 
 
 ## 備考
-説明専用のコンセプト`callable`は、実行制御ライブラリの仕様定義のため導入された。
+説明専用のコンセプト`callable`は、[実行制御ライブラリ](/reference/execution/execution.md)の仕様定義のため導入された。
 
 
 ## バージョン
