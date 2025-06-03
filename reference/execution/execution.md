@@ -119,8 +119,8 @@ namespace std::execution {
 | [`execution::upon_error`](execution/upon_error.md) | エラー完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::upon_stopped`](execution/upon_stopped.md) | 停止完了時の継続処理をアタッチ (customization point object) | C++26 |
 | [`execution::let_value`](execution/let_value.md) | 値完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
-| [`execution::let_error`](execution/let_error.md.nolink) | エラー完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
-| [`execution::let_stopped`](execution/let_stopped.md.nolink) | 停止完了を入れ子の非同期操作へ変換 (customization point object) | C++26 |
+| [`execution::let_error`](execution/let_error.md) | エラー完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
+| [`execution::let_stopped`](execution/let_stopped.md) | 停止完了を入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::bulk`](execution/bulk.md) | インデクス空間上で指定関数を反復実行 (customization point object) | C++26 |
 | [`execution::split`](execution/split.md) | 入力Senderの値を複製回送信可能とする (customization point object) | C++26 |
 | [`execution::when_all`](execution/when_all.md) | 全ての入力Sender完了を待機 (customization point object) | C++26 |

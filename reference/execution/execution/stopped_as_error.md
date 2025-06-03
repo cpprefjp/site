@@ -45,7 +45,7 @@ return let_stopped(
       return just_error(std::move(err));
     });
 ```
-* let_stopped[link let_stopped.md.nolink]
+* let_stopped[link let_stopped.md]
 * just_error[link just_error.md]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 * std::move[link /reference/utility/move.md]

@@ -17,27 +17,35 @@ namespace std::execution {
 
 `let_value`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
+本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては、`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
+
+| `let-cpo` | `set-cpo` |
+|----|----|
+| `let_value` | [`set_value`](set_value.md) |
+| [`let_error`](let_error.md) | [`set_error`](set_error.md) |
+| [`let_stopped`](let_stopped.md) | [`set_stopped`](set_stopped.md) |
+
 
 ## 効果
-説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`let_value(sndr, f)`は不適格となる。
+説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`let-cpo(sndr, f)`は不適格となる。
 
-そうでなければ、呼び出し式`let_value(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`let-cpo(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 
 ```cpp
-transform_sender(get-domain-early(sndr), make-sender(let_value, f, sndr))
+transform_sender(get-domain-early(sndr), make-sender(let-cpo, f, sndr))
 ```
 * transform_sender[link transform_sender.md]
 * get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
 
-### Senderアルゴリズムタグ `let_value`
+### Senderアルゴリズムタグ `let-cpo`
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
 namespace std::execution {
   template<>
-  struct impls-for<decayed-typeof<let_value>> : default-impls {
+  struct impls-for<decayed-typeof<let-cpo>> : default-impls {
     static constexpr auto get-state = see below;
     static constexpr auto complete = see below;
   };
@@ -46,9 +54,10 @@ namespace std::execution {
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
 * decayed-typeof[link /reference/functional/decayed-typeof.md]
+* let-cpo[italic]
 * see below[italic]
 
-`impls-for<decayed-typeof<let_value>>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+`impls-for<decayed-typeof<let-cpo>>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 - `args_variant_t` : 入力Sender`sndr`の完了シグネチャ集合から求まる送信値リスト型情報(`variant<monostate, tuple<...>, ...>`)
 - `ops2_variant_t` : `f`が返すSenderに対応する非同期操作型情報(`variant<monostate, {OperationState型}, ...>`)
@@ -78,7 +87,7 @@ namespace std::execution {
 * decay_t[link /reference/type_traits/decay.md]
 * see below[italic]
 
-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<`[`set_value`](set_value.md)`>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
+- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
     variant<monostate, as-tuple<LetSigs>...>
@@ -97,35 +106,35 @@ namespace std::execution {
 
 - 型`args_variant_t`および`ops2_variant_t`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
 
-`impls-for<decayed-typeof<let_value>>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+`impls-for<decayed-typeof<let-cpo>>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
-- [値完了](set_value.md)の場合、`let_value`Sender構築時の引数`f`に対して`f(args...)`を呼び出し、戻り値[Sender](sender.md)から入れ子非同期操作を開始する。同Senderの完了結果を接続先[Receiver](receiver.md)へ転送する。
+- 完了関数`set-cpo`の場合、Sender構築時の引数`f`に対して`f(args...)`を呼び出し、戻り値[Sender](sender.md)から入れ子非同期操作を開始する。同Senderの完了結果を接続先[Receiver](receiver.md)へ転送する。
 - それ以外の完了操作の場合、接続先[Receiver](receiver.md)の同種完了関数へ転送する。
 
 ```cpp
 []<class Tag, class... Args>
   (auto, auto& state, auto& rcvr, Tag, Args&&... args) noexcept -> void {
-    if constexpr (same_as<Tag, decayed-typeof<set_value>>) {
+    if constexpr (same_as<Tag, decayed-typeof<set-cpo>>) {
       TRY-EVAL(rcvr, let-bind(state, rcvr, std::forward<Args>(args)...));
     } else {
       Tag()(std::move(rcvr), std::forward<Args>(args)...);
     }
   }
 ```
-* set_value[link set_value.md]
 * decayed-typeof[link /reference/functional/decayed-typeof.md]
 * TRY-EVAL[link set_value.md]
 * std::move[link /reference/utility/move.md]
+* set-cpo[italic]
 
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let_value>> == false`のとき、式`let_value.transform_env(sndr, env)`は不適格となる。
+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let-cpo>> == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
 
-そうでなければ、式`let_value.transform_env(sndr, env)`は[`JOIN-ENV`](../queryable.md)`(let-env(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env))`と等価。
+そうでなければ、式`let-cpo.transform_env(sndr, env)`は[`JOIN-ENV`](../queryable.md)`(let-env(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env))`と等価。
 
 
 ## 説明専用エンティティ
 説明用の式`sndr`を用いて、`let-env(sndr)`を下記リストのうち最初に適格となる式と定義する。
 
-- [`SCHED-ENV`](schedule.md)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<`[`set_value`](set_value.md)`>>(`[`get_env`](get_env.md)`(sndr)))`
+- [`SCHED-ENV`](schedule.md)`(`[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>>(`[`get_env`](get_env.md)`(sndr)))`
 - [`MAKE-ENV`](../queryable.md)`(`[`get_domain`](get_domain.md)`,` [`get_domain`](get_domain.md)`(`[`get_env`](get_env.md)`(sndr)))`
 - `(void(sndr),` [`env<>{}`](env.md)`)`
 
@@ -210,11 +219,11 @@ namespace std::execution {
 Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
-説明用の式`out_sndr`を`let_value(sndr, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
+説明用の式`out_sndr`を`let-cpo(sndr, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
 
-- 入力[Sender](sender.md)`sndr`の完了結果で[`set_value`](set_value.md)が呼ばれるとき、`f`を呼び出すこと。
+- 入力[Sender](sender.md)`sndr`の完了結果で`set-cpo`が呼ばれるとき、`f`を呼び出すこと。
 - 非同期操作の完了は、`f`が返すSenderの完了に依存すること。
-- `sndr`により送信された他完了操作を伝搬すること。
+- `sndr`により送信された他の完了操作を伝搬すること。
 
 
 ## 例
@@ -387,8 +396,8 @@ catch 0
 
 
 ## 関連項目
-- [`execution::let_error`](let_error.md.nolink)
-- [`execution::let_stopped`](let_stopped.md.nolink)
+- [`execution::let_error`](let_error.md)
+- [`execution::let_stopped`](let_stopped.md)
 
 
 ## 参照

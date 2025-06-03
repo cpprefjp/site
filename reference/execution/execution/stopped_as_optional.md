@@ -45,7 +45,7 @@ return let_stopped(
     []() noexcept { return just(optional<V>()); });
 ```
 * single-sender-value-type[link single-sender-value-type.md]
-* let_stopped[link let_stopped.md.nolink]
+* let_stopped[link let_stopped.md]
 * then[link then.md]
 * just[link just.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
