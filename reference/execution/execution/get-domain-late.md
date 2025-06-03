@@ -30,10 +30,10 @@ constexpr auto get-domain-late(const Sndr& sndr, const Env& env) noexcept;
     ```cpp
     [] {
       auto [_, sch, _] = sndr;
-      return query-or-default(get_domain, sch, default_domain());
+      return query-with-default(get_domain, sch, default_domain());
     }();
     ```
-    * query-or-default[link query-or-default.md.nolink]
+    * query-with-default[link query-with-default.md]
     * get_domain[link get_domain.md]
     * default_domain()[link default_domain.md]
 

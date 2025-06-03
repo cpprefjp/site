@@ -33,11 +33,11 @@ namespace std::execution {
 
 ```cpp
 transform_sender(
-  query-or-default(get_domain, sch, default_domain()),
+  query-with-default(get_domain, sch, default_domain()),
   make-sender(on, sch, sndr))
 ```
 * transform_sender[link transform_sender.md]
-* query-or-default[link query-or-default.md.nolink]
+* query-with-default[link query-with-default.md]
 * get_domain[link get_domain.md]
 * default_domain()[link default_domain.md]
 * make-sender[link make-sender.md]
@@ -153,7 +153,7 @@ struct not-a-sender {
 Senderアルゴリズム構築時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
-- 呼び出し式`on(sch, sndr)` : [Scheduler](scheduler.md)`sch`に[関連付けられた実行ドメイン](query-or-default.md.nolink)
+- 呼び出し式`on(sch, sndr)` : [Scheduler](scheduler.md)`sch`に[関連付けられた実行ドメイン](query-with-default.md)
 - 呼び出し式`on(sndr, sch, closure)` : [Sender](sender.md)`sndr`に[関連付けられた実行ドメイン](get-domain-early.md)
 
 [Receiver](receiver.md)との[接続(connect)](connect.md)時に、[関連付けられた実行ドメイン](get-domain-late.md)に対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。

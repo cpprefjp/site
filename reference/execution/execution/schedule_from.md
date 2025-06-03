@@ -25,11 +25,11 @@ namespace std::execution {
 
 ```cpp
 transform_sender(
-  query-or-default(get_domain, sch, default_domain()),
+  query-with-default(get_domain, sch, default_domain()),
   make-sender(schedule_from, sch, sndr))
 ```
 * transform_sender[link transform_sender.md]
-* query-or-default[link query-or-default.md.nolink]
+* query-with-default[link query-with-default.md]
 * get_domain[link get_domain.md]
 * default_domain()[link default_domain.md]
 * make-sender[link make-sender.md]
