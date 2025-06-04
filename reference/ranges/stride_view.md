@@ -39,30 +39,30 @@ namespace std::ranges {
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](stride_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`base`](stride_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
-| [`stride`](stride_view/stride.md.nolink)                 | 1回で移動する要素数を取得する    | C++23          |
-| [`begin`](stride_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
-| [`end`](stride_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](stride_view/size.md.nolink)                       | 要素数を取得する                 | C++23          |
+| [`(constructor)`](stride_view/op_constructor.md) | コンストラクタ                   | C++23          |
+| [`base`](stride_view/base.md)                    | `V`の参照を取得する              | C++23          |
+| [`stride`](stride_view/stride.md)                | 1回で移動する要素数を取得する    | C++23          |
+| [`begin`](stride_view/begin.md)                  | 先頭を指すイテレータを取得する   | C++23          |
+| [`end`](stride_view/end.md)                      | 番兵を取得する                   | C++23          |
+| [`size`](stride_view/size.md)                    | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
 | 名前                                         | 説明                              | 対応バージョン |
 |----------------------------------------------|-----------------------------------|----------------|
-| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++20          |
-| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++23          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++23          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++23          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++23          |
 | [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
 | [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++23          |
 
 ## 推論補助
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](stride_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23          |
+| [`(deduction_guide)`](stride_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
 
 ## 例
 ```cpp example
@@ -75,7 +75,7 @@ int main() {
 
   std::println("{}", v | std::views::stride(3));
 
-  for (auto&& i : v | std::views::stride(3)) {
+  for (auto& i : v | std::views::stride(3)) {
     i *= 10; // 要素を書き換えても良い
   }
   std::println("{}", v);
@@ -96,8 +96,7 @@ int main() {
 ### 処理系
 - [Clang](/implementation.md#clang): 16.0 [mark verified]
 - [GCC](/implementation.md#gcc): 13.2 [mark verified]
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 4 [mark verified]
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
