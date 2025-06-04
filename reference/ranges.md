@@ -427,6 +427,14 @@ range | adaptor(args...)
 | [`views::cartesian_product`](ranges/cartesian_product_view.md)     | `cartesian_product_view`を生成する (customization point object)  | C++23          |
 
 
+### to input view
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`to_input_view`](ranges/to_input_view.md) | 入力用Rangeに変換する (class template) | C++26          |
+| [`views::to_input`](ranges/to_input_view.md) | `to_input_view`を生成する (customization point object) | C++26          |
+
+
 ## Range変換
 
 | 名前                 | 説明                                                           | 対応バージョン |

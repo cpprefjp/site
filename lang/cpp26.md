@@ -167,7 +167,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::span`](/reference/span/span.md)と[`std::mdspan`](/reference/mdspan/mdspan.md)の推論補助を改善
 - [`std::views::concat`](/reference/ranges/concat_view.md)を追加
 - [`std::views::cache_latest`](/reference/ranges/cache_latest.md.nolink)を追加
-- [`std::views::to_input`](/reference/ranges/to_input_view.md.nolink)を追加。書き換えできない入力専用の値に変換する
+- [`std::views::to_input`](/reference/ranges/to_input_view.md)を追加。これはパフォーマンス向上のために、Rangeを入力Rangeかつ非[`common_range`](/reference/ranges/common_range.md) (イテレータと番兵の型を別する) に変換する
 - Range関係の、償却定数時間での要素追加を行う機能を追加
     - 各viewクラスに`reserve_hint()`メンバ関数を追加
     - [`std::ranges::reserve_hint()`](/reference/ranges/reserve_hint.md.nolink)関数を追加
