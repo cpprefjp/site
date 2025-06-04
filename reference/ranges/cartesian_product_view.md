@@ -96,10 +96,10 @@ namespace std::ranges {
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](cartesian_product_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`begin`](cartesian_product_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
-| [`end`](cartesian_product_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](cartesian_product_view/size.md.nolink)                     | 要素数を取得する                 | C++23          |
+| [`(constructor)`](cartesian_product_view/op_constructor.md)  | コンストラクタ                   | C++23          |
+| [`begin`](cartesian_product_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++23          |
+| [`end`](cartesian_product_view/end.md)                       | 番兵を取得する                   | C++23          |
+| [`size`](cartesian_product_view/size.md)                     | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
@@ -117,7 +117,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](cartesian_product_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23          |
+| [`(deduction_guide)`](cartesian_product_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
 
 ## 例
 ```cpp example
@@ -151,8 +151,7 @@ int main() {
 ### 処理系
 - [Clang](/implementation.md#clang): 16.0 [mark verified]
 - [GCC](/implementation.md#gcc): 13.2 [mark verified]
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 7 [mark verified]
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
