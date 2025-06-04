@@ -1,5 +1,5 @@
 # size
-* to_input_view[meta header]
+* ranges[meta header]
 * std::ranges[meta namespace]
 * to_input_view[meta class]
 * function[meta id-type]
