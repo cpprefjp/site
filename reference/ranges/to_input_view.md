@@ -48,11 +48,11 @@ namespace std::ranges {
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](to_input_view/op_constructor.md.nolink) | コンストラクタ                   | C++26          |
-| [`base`](to_input_view/base.md.nolink)                    | `V`の参照を取得する              | C++26          |
-| [`begin`](to_input_view/begin.md.nolink)                  | 先頭を指すイテレータを取得する   | C++26          |
-| [`end`](to_input_view/end.md.nolink)                      | 番兵を取得する                   | C++26          |
-| [`size`](to_input_view/size.md.nolink)                    | 要素数を取得する                 | C++26          |
+| [`(constructor)`](to_input_view/op_constructor.md) | コンストラクタ                   | C++26          |
+| [`base`](to_input_view/base.md)                    | `V`の参照を取得する              | C++26          |
+| [`begin`](to_input_view/begin.md)                  | 先頭を指すイテレータを取得する   | C++26          |
+| [`end`](to_input_view/end.md)                      | 番兵を取得する                   | C++26          |
+| [`size`](to_input_view/size.md)                    | 要素数を取得する                 | C++26          |
 
 ## 継承しているメンバ関数
 
@@ -70,7 +70,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](to_input_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++26          |
+| [`(deduction_guide)`](to_input_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++26          |
 
 ## 例
 ### 基本的な使い方
