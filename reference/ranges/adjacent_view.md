@@ -50,11 +50,11 @@ namespace std::ranges {
 
 | 名前                                                | 説明                             | 対応バージョン |
 |-----------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](adjacent_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`base`](adjacent_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
-| [`begin`](adjacent_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
-| [`end`](adjacent_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](adjacent_view/size.md.nolink)                     | 要素数を取得する                 | C++23          |
+| [`(constructor)`](adjacent_view/op_constructor.md)  | コンストラクタ                   | C++23          |
+| [`base`](adjacent_view/base.md)                     | `V`の参照を取得する              | C++23          |
+| [`begin`](adjacent_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++23          |
+| [`end`](adjacent_view/end.md)                       | 番兵を取得する                   | C++23          |
+| [`size`](adjacent_view/size.md)                     | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
@@ -72,7 +72,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](adjacent_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23          |
+| [`(deduction_guide)`](adjacent_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
 
 ## 例
 ```cpp example
@@ -105,10 +105,9 @@ int main() {
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 19 [mark verified]
+- [GCC](/implementation.md#gcc): 13 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 7 [mark verified]
 
 ## 関連項目
 - [`adjacent_transform_view`](adjacent_transform_view.md): `adjacent_view` と同じように要素を取得して関数を適用する
@@ -116,3 +115,4 @@ int main() {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
