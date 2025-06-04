@@ -53,31 +53,31 @@ namespace std::ranges {
 
 ## メンバ関数
 
-| 名前                                                | 説明                             | 対応バージョン |
-|-----------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](slide_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`base`](slide_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
-| [`begin`](slide_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
-| [`end`](slide_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
-| [`size`](slide_view/size.md.nolink)                     | 要素数を取得する                 | C++23          |
+| 名前                                             | 説明                             | 対応バージョン |
+|--------------------------------------------------|----------------------------------|----------------|
+| [`(constructor)`](slide_view/op_constructor.md)  | コンストラクタ                   | C++23          |
+| [`base`](slide_view/base.md)                     | `V`の参照を取得する              | C++23          |
+| [`begin`](slide_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++23          |
+| [`end`](slide_view/end.md)                       | 番兵を取得する                   | C++23          |
+| [`size`](slide_view/size.md)                     | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
 | 名前                                         | 説明                              | 対応バージョン |
 |----------------------------------------------|-----------------------------------|----------------|
-| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++20          |
-| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++20          |
-| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
-| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
+| [`empty`](view_interface/empty.md)           | Rangeが空かどうかを判定する       | C++23          |
+| [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++23          |
+| [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++23          |
+| [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++23          |
 | [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
 | [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
-| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
+| [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++23          |
 
 ## 推論補助
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](slide_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23          |
+| [`(deduction_guide)`](slide_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
 
 ## 例
 ```cpp example
@@ -87,10 +87,10 @@ namespace std::ranges {
 
 int main() {
   std::vector v = {1, 2, 3, 4, 5, 6};
-  std::println("{}", v | std::views::slide<1>);
-  std::println("{}", v | std::views::slide<3>);
-  std::println("{}", v | std::views::slide<6>);
-  std::println("{}", v | std::views::slide<7>);
+  std::println("{}", v | std::views::slide(1));
+  std::println("{}", v | std::views::slide(3));
+  std::println("{}", v | std::views::slide(6));
+  std::println("{}", v | std::views::slide(7));
 }
 ```
 * std::views::slide[color ff0000]
@@ -108,10 +108,9 @@ int main() {
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): 14.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 17 [mark verified]
+- [GCC](/implementation.md#gcc): 13.0 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 3 [mark verified]
 
 ## 関連項目
 - [`adjacent_view`](adjacent_view.md): `slide_view` と同じように要素を取得するが、個数をコンパイル時に指定する。内側はRangeではなく[`tuple`](/reference/tuple/tuple.md)となる
