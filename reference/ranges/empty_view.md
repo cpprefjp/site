@@ -58,7 +58,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`enable_borrowed_range`](empty_view/enable_borrowed_range.md.nolink) | `enable_borrowed_range`の特殊化 (variable template) | C++20          |
+| [`enable_borrowed_range`](empty_view/enable_borrowed_range.md) | `enable_borrowed_range`の特殊化 (variable template) | C++20          |
 
 ## 例
 ```cpp example
