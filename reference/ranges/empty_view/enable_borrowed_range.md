@@ -2,7 +2,7 @@
 * ranges[meta header]
 * std::ranges[meta namespace]
 * empty_view[meta class]
-* variable template[meta id-type]
+* variable[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp
