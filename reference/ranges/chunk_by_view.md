@@ -49,11 +49,11 @@ namespace std::ranges {
 
 | 名前                                                | 説明                             | 対応バージョン |
 |-----------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](chunk_by_view/op_constructor.md.nolink)  | コンストラクタ                   | C++23          |
-| [`base`](chunk_by_view/base.md.nolink)                     | `V`の参照を取得する              | C++23          |
-| [`pred`](chunk_by_view/pred.md.nolink)                     | 述語を取得する                   | C++23          |
-| [`begin`](chunk_by_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++23          |
-| [`end`](chunk_by_view/end.md.nolink)                       | 番兵を取得する                   | C++23          |
+| [`(constructor)`](chunk_by_view/op_constructor.md)  | コンストラクタ                   | C++23          |
+| [`base`](chunk_by_view/base.md)                     | `V`の参照を取得する              | C++23          |
+| [`pred`](chunk_by_view/pred.md)                     | 述語を取得する                   | C++23          |
+| [`begin`](chunk_by_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++23          |
+| [`end`](chunk_by_view/end.md)                       | 番兵を取得する                   | C++23          |
 
 ## 継承しているメンバ関数
 
@@ -71,7 +71,7 @@ namespace std::ranges {
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](chunk_by_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++23          |
+| [`(deduction_guide)`](chunk_by_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
 
 ## 例
 ```cpp example
@@ -87,7 +87,6 @@ int main() {
 }
 ```
 * std::views::chunk_by[color ff0000]
-* std::ranges::less_equal[link /reference/functional/ranges_less_equal.md]
 * 転倒[link https://ja.wikipedia.org/wiki/%E8%BB%A2%E5%80%92_(%E6%95%B0%E5%AD%A6)]
 
 ### 出力
@@ -100,10 +99,9 @@ int main() {
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 17 [mark verified]
 - [GCC](/implementation.md#gcc): 14.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 3 [mark verified]
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
