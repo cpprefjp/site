@@ -51,11 +51,11 @@ namespace std::ranges {
 
 | 名前                                             | 説明                              | 対応バージョン |
 |--------------------------------------------------|-----------------------------------|----------------|
-| [`(constructor)`](reverse_view/op_constructor.md.nolink)  | コンストラクタ                    | C++20          |
-| [`base`](reverse_view/base.md.nolink)                     | `V`の参照を取得する               | C++20          |
-| [`begin`](reverse_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する    | C++20          |
-| [`end`](reverse_view/end.md.nolink)                       | 番兵を取得する                    | C++20          |
-| [`size`](reverse_view/size.md.nolink)                     | 要素数を取得する                  | C++20          |
+| [`(constructor)`](reverse_view/op_constructor.md)  | コンストラクタ                    | C++20          |
+| [`base`](reverse_view/base.md)                     | `V`の参照を取得する               | C++20          |
+| [`begin`](reverse_view/begin.md)                   | 先頭を指すイテレータを取得する    | C++20          |
+| [`end`](reverse_view/end.md)                       | 番兵を取得する                    | C++20          |
+| [`size`](reverse_view/size.md)                     | 要素数を取得する                  | C++20          |
 
 `r`を参照先のRangeとする。`size`は、[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 
@@ -69,14 +69,14 @@ namespace std::ranges {
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++20          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++20          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
-| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する             | C++23          |
-| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する      | C++23          |
+| [`cbegin`](view_interface/cbegin.md)         | 定数イテレータを取得する          | C++23          |
+| [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
 
 ## 推論補助
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](reverse_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](reverse_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
