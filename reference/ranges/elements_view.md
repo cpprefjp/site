@@ -89,11 +89,11 @@ concept has-tuple-element =
 
 | 名前                                             | 説明                             | 対応バージョン |
 |--------------------------------------------------|----------------------------------|----------------|
-| [`(constructor)`](elements_view/op_constructor.md.nolink)  | コンストラクタ                   | C++20          |
-| [`base`](elements_view/base.md.nolink)                     | `V`の参照を取得する              | C++20          |
-| [`begin`](elements_view/begin.md.nolink)                   | 先頭を指すイテレータを取得する   | C++20          |
-| [`end`](elements_view/end.md.nolink)                       | 番兵を取得する                   | C++20          |
-| [`size`](elements_view/size.md.nolink)                     | 要素数を取得する                 | C++20          |
+| [`(constructor)`](elements_view/op_constructor.md)  | コンストラクタ                   | C++20          |
+| [`base`](elements_view/base.md)                     | `V`の参照を取得する              | C++20          |
+| [`begin`](elements_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++20          |
+| [`end`](elements_view/end.md)                       | 番兵を取得する                   | C++20          |
+| [`size`](elements_view/size.md)                     | 要素数を取得する                 | C++20          |
 
 `r`を元のRangeとする。`size`は[`ranges::size`](size.md)`(r)`が有効な式であるときに定義される。
 
@@ -113,7 +113,7 @@ concept has-tuple-element =
 
 | 名前                                                  | 説明                         | 対応バージョン |
 |-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](elements_view/op_deduction_guide.md.nolink) | クラステンプレートの推論補助 | C++20          |
+| [`(deduction_guide)`](elements_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20          |
 
 ## 例
 ```cpp example
@@ -123,20 +123,19 @@ concept has-tuple-element =
 #include <iostream>
 
 int main() {
-  using namespace std;
-  map<int, string> m = {{1, "one"}, {2, "two"}, {3, "three"}};
+  std::map<int, std::string> m = {{1, "one"}, {2, "two"}, {3, "three"}};
 
-  for (int i : m | views::keys) {
-    cout << i << '\n';
+  for (int i : m | std::views::keys) {
+    std::cout << i << '\n';
   }
-    
-  for (const string& i : m | views::values) {
-    cout << i << '\n';
+
+  for (const std::string& i : m | std::views::values) {
+    std::cout << i << '\n';
   }
 }
 ```
-* views::keys[color ff0000]
-* views::values[color ff0000]
+* std::views::keys[color ff0000]
+* std::views::values[color ff0000]
 
 ### 出力
 ```
