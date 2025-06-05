@@ -129,6 +129,8 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:soramimi, img:https://www.soramimi.jp/avater.jpg, link:https://github.com/soramimi, size:256, fee:5, amount:12]
 
+[sponsor name:Agate Pris様, fee:5, amount:12]
+
 [sponsor name:odan様, img:https://odan.dev/icon.jpeg, link:https://opencollective.com/odan, size:320, fee:50, amount:1, period:2024-06-05]
 
 [sponsor name:unagi様, img:https://www.unagiworks.net/blog/wp-content/uploads/2019/01/logo.gif, fee:50, amount:1, period:2025-07-02]
