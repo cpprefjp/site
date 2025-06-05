@@ -7,11 +7,14 @@
 ```cpp
 basic_string<CharT, Traits, Allocator> str() const;                // (1) C++03
 basic_string<CharT, Traits, Allocator> str() const &;              // (1) C++20
+
 template <class SAlloc>
 basic_string<CharT, Traits, SAlloc> str(const SAlloc& sa) const &; // (2) C++20
+
 basic_string<CharT, Traits, Allocator> str() const &&;             // (3) C++20
 
-void str(const basic_string<CharT, Traits, Allocator>& s);  // (4)
+void str(const basic_string<CharT, Traits, Allocator>& s);  // (4) C++03
+
 template <class SAlloc>
 void str(const basic_string<CharT, Traits, SAlloc>& s);     // (5) C++20
 void str(const basic_string<CharT, Traits, Allocator>&& s); // (6) C++20
@@ -30,4 +33,8 @@ void str(const basic_string<CharT, Traits, Allocator>&& s); // (6) C++20
 - (6) : `rdbuf()->str(std::move(s))` と等価
 
 ## 関連項目
-[basic_stringbuf::str](../basic_stringbuf/str.md)
+- [`basic_stringbuf::str`](../basic_stringbuf/str.md)
+
+
+## 参照
+- [P0408R7 Efficient Access to `basic_stringbuf`'s Buffer](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0408r7.pdf)

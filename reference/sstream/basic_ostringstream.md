@@ -25,20 +25,20 @@ namespace std {
 
 | 名前                                | 説明                                       | 対応バージョン |
 |-------------------------------------|--------------------------------------------|----------------|
-| `(constructor)`                     | コンストラクタ                             | |
-| `(destructor)`                      | デストラクタ                               | |
-| `operator=`                         | ムーブ代入                                 | C++11 |
-| `swap`                              | 値の交換                                   | C++11 |
-| `rdbuf`                             | ストリームバッファオブジェクトの設定・取得 | |
-| [`str`](basic_ostringstream/str.md) | 文字列オブジェクトの設定・取得             | |
-| `view`                              | 文字列ビューオブジェクトの取得             | C++20 |
+| [`(constructor)`](basic_ostringstream/op_constructor.md) | コンストラクタ                             | |
+| [`(destructor)`](basic_ostringstream/op_destructor.md)  | デストラクタ                               | |
+| [`operator=`](basic_ostringstream/op_assign.md)         | ムーブ代入                                 | C++11 |
+| [`swap`](basic_ostringstream/swap.md)                   | 値の交換                                   | C++11 |
+| [`rdbuf`](basic_ostringstream/rdbuf.md)                 | ストリームバッファオブジェクトの設定・取得 | |
+| [`str`](basic_ostringstream/str.md)                     | 文字列オブジェクトの設定・取得             | |
+| [`view`](basic_ostringstream/view.md)                   | 文字列ビューオブジェクトの取得             | C++20 |
 
 
 ## 非メンバ関数
 
 | 名前   | 説明                          | 対応バージョン |
 |--------|-------------------------------|----------------|
-| `swap` | 2つのオブジェクトを入れ替える | C++11 |
+| [`swap`](basic_ostringstream/swap_free.md) | 2つのオブジェクトを入れ替える | C++11 |
 
 
 ## メンバ型
