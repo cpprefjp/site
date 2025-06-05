@@ -88,7 +88,7 @@ namespace std {
 
 ## 戻り値
 
-`*this`
+`is`
 
 
 ## 例（文字列）
