@@ -53,11 +53,58 @@ namespace std {
 | `allocator_type` | テンプレート仮引数`Allocator` | |
 
 ## 例
-```cpp
+```cpp example
+#include <iostream>
+#include <sstream>
+#include <string>
+
+int main()
+{
+  // 読み取りと書き込みが可能なストリーム
+  std::stringstream ss;
+  
+  // データを書き込む
+  ss << "Hello " << 123 << " World " << 45.67;
+  
+  // 文字列として取得
+  std::cout << "Content: " << ss.str() << std::endl;
+  
+  // 読み取り位置をリセット
+  ss.seekg(0);
+  
+  // データを読み取る
+  std::string word1, word3;
+  int num1;
+  double num2;
+  
+  ss >> word1 >> num1 >> word3 >> num2;
+  
+  std::cout << "Read: word1=" << word1 
+            << ", num1=" << num1 
+            << ", word3=" << word3 
+            << ", num2=" << num2 << std::endl;
+  
+  // 新しい内容でリセット
+  ss.str("42 3.14159 test");
+  ss.clear();  // エラーフラグをクリア
+  
+  int value;
+  double pi;
+  std::string text;
+  ss >> value >> pi >> text;
+  
+  std::cout << "New data: " << value << ", " << pi << ", " << text << std::endl;
+}
 ```
+* ss.str[link basic_stringstream/str.md]
+* ss.seekg[link /reference/istream/basic_istream/seekg.md]
+* ss.clear[link /reference/ios/basic_ios/clear.md]
 
 ### 出力
 ```
+Content: Hello 123 World 45.67
+Read: word1=Hello, num1=123, word3=World, num2=45.67
+New data: 42, 3.14159, test
 ```
 
 ## 参照

@@ -32,6 +32,49 @@ void str(const basic_string<CharT, Traits, Allocator>&& s); // (6) C++20
 - (5) : `rdbuf()->str(s)` と等価
 - (6) : `rdbuf()->str(std::move(s))` と等価
 
+## 例
+```cpp example
+#include <iostream>
+#include <sstream>
+#include <string>
+
+int main()
+{
+  // 文字列の取得
+  std::istringstream iss("Hello World 123 45.67");
+  std::cout << "Content: " << iss.str() << std::endl;
+  
+  // 一部を読み取っても、str()は全体を返す
+  std::string word;
+  iss >> word;
+  std::cout << "Read word: " << word << std::endl;
+  std::cout << "Full content: " << iss.str() << std::endl;
+  
+  // 新しい文字列を設定
+  iss.str("New content 999");
+  iss.clear();  // エラーフラグをクリア
+  
+  // 新しい内容から読み取り
+  std::string s1, s2;
+  int num;
+  iss >> s1 >> s2 >> num;
+  std::cout << "New read: " << s1 << " " << s2 << " " << num << std::endl;
+  
+  // 空文字列を設定してリセット
+  iss.str("");
+  std::cout << "Empty? " << (iss.str().empty() ? "yes" : "no") << std::endl;
+}
+```
+
+### 出力
+```
+Content: Hello World 123 45.67
+Read word: Hello
+Full content: Hello World 123 45.67
+New read: New content 999
+Empty? yes
+```
+
 ## 関連項目
 - [`basic_stringbuf::str`](../basic_stringbuf/str.md)
 

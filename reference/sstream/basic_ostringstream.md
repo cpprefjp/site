@@ -53,11 +53,34 @@ namespace std {
 | `allocator_type` | テンプレート仮引数`Allocator` | |
 
 ## 例
-```cpp
+```cpp example
+#include <iostream>
+#include <sstream>
+#include <string>
+
+int main()
+{
+  std::ostringstream oss;
+  
+  // 数値や文字列を書き込む
+  oss << "The answer is " << 42 << " and pi is approximately " << 3.14;
+  
+  // 文字列として取得
+  std::string result = oss.str();
+  std::cout << result << std::endl;
+  
+  // バッファをクリアして新しい内容を書き込む
+  oss.str("");
+  oss << "New content: " << 123.456;
+  std::cout << oss.str() << std::endl;
+}
 ```
+* oss.str[link basic_ostringstream/str.md]
 
 ### 出力
 ```
+The answer is 42 and pi is approximately 3.14
+New content: 123.456
 ```
 
 ## 参照

@@ -53,5 +53,63 @@ namespace std {
 | `allocator_type` | テンプレート仮引数`Allocator` | |
 
 
+## 例
+```cpp example
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <cstring>
+
+int main()
+{
+  // basic_stringbufはストリームの内部バッファとして動作する
+  std::stringbuf buf;
+  
+  // 書き込み: sputc()で1文字ずつ書き込む
+  buf.sputc('H');
+  buf.sputc('e');
+  buf.sputc('l');
+  buf.sputc('l');
+  buf.sputc('o');
+  
+  // 文字列として取得
+  std::cout << "Written: " << buf.str() << std::endl;
+  
+  // 新しい文字列を設定
+  buf.str("World");
+  
+  // 読み取り: sbumpc()で1文字ずつ読み取る
+  std::cout << "Read: ";
+  while (buf.in_avail() > 0) {
+    char c = buf.sbumpc();
+    std::cout << c;
+  }
+  std::cout << std::endl;
+  
+  // sputn()で文字列を一度に書き込む
+  buf.str("");  // バッファをクリア
+  const char* message = "Hello, World!";
+  buf.sputn(message, std::strlen(message));
+  
+  // C++20以降: view()で文字列ビューとして取得
+  // std::string_view sv = buf.view();
+  // std::cout << "View: " << sv << std::endl;
+  
+  std::cout << "Final: " << buf.str() << std::endl;
+}
+```
+* sputc[link /reference/streambuf/basic_streambuf/sputc.md]
+* sbumpc[link /reference/streambuf/basic_streambuf/sbumpc.md]
+* in_avail[link /reference/streambuf/basic_streambuf/in_avail.md]
+* sputn[link /reference/streambuf/basic_streambuf/sputn.md]
+* str[link basic_stringbuf/str.md]
+
+### 出力
+```
+Written: Hello
+Read: World
+Final: Hello, World!
+```
+
 ## 参照
 - [P0408R7 Efficient Access to `basic_stringbuf`’s Buffer](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0408r7.pdf)
