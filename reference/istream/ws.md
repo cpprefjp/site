@@ -30,21 +30,21 @@ namespace std {
 #include <string>
 
 int main() {
-    // マニピュレータとして使用
-    {
-        std::istringstream ss("   42");
-        std::string line;
-        std::getline(ss >> std::ws, line);
-        std::cout << line << std::endl; // "42"
-    }
+  // マニピュレータとして使用
+  {
+    std::istringstream ss("   42");
+    std::string line;
+    std::getline(ss >> std::ws, line);
+    std::cout << line << std::endl; // "42"
+  }
 
-    // 関数として使用（通常はしない）
-    {
-        std::istringstream ss("   42");
-        std::cout << ss.tellg() << std::endl; // "0"
-        std::ws(ss);
-        std::cout << ss.tellg() << std::endl; // "3"
-    }
+  // 関数として使用（通常はしない）
+  {
+    std::istringstream ss("   42");
+    std::cout << ss.tellg() << std::endl; // "0"
+    std::ws(ss);
+    std::cout << ss.tellg() << std::endl; // "3"
+  }
 }
 ```
 
