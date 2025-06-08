@@ -12,7 +12,7 @@ namespace std {
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* indirectly_regular_unary_invocable[link /reference/iterator/indirectly_regular_unary_invocable.md.nolink]
+* indirectly_regular_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
 
 ## 概要
 イテレータ型`I`が指す値型を取得する。
