@@ -5,7 +5,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::exectution {
+namespace std::execution {
   template<
     sender Sndr,
     class Env = env<>,

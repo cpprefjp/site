@@ -301,7 +301,7 @@ explicit shared-state(Sndr&& sndr);
 void start-op() noexcept;
 ```
 
-- 効果 : `inc-ref()`を評価する。`stop_src.`[`stop_requested()`](/reference/stop_token/inplace_stop_source/stop_requested.md) `== ture`のとき`notify()`を評価する。そうでなければ、[`start`](start.md)`(op_state)`を評価する。
+- 効果 : `inc-ref()`を評価する。`stop_src.`[`stop_requested()`](/reference/stop_token/inplace_stop_source/stop_requested.md) `== true`のとき`notify()`を評価する。そうでなければ、[`start`](start.md)`(op_state)`を評価する。
 
 ```cpp
 void notify() noexcept;

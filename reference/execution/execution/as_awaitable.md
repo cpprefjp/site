@@ -120,7 +120,7 @@ struct awaitable-receiver {
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * see below[italic]
 
-説明用の式`rcvr`を`awaitable-reciever`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
+説明用の式`rcvr`を`awaitable-receiver`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
 
 - [`constructible_from`](/reference/concepts/constructible_from.md)`<result-type, decltype((vs))...>`を満たすとき、式[`set_value`](set_value.md)`(rcvr, vs...)`は下記と等価。そうでなければ、式`set_value(rcvr, vs...)`は不適格となる。
 

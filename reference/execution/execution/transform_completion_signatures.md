@@ -5,7 +5,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::exectution {
+namespace std::execution {
   template<
     valid-completion-signatures InputSignatures,
     valid-completion-signatures AdditionalSignatures = completion_signatures<>,
