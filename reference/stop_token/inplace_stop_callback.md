@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 適格要件
-テンプレート引数`CallbackFn`が[`invocable`](/reference/concepts/invokable.md.nolink)および[`destructible`](/reference/concepts/destructible.md)を満たすこと。
+テンプレート引数`CallbackFn`が[`invocable`](/reference/concepts/invocable.md)および[`destructible`](/reference/concepts/destructible.md)を満たすこと。
 
 
 ## メンバ関数
