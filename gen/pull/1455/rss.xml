@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-06-09T21:50:26.540860</updated>
+  <id>bf3dc320-2370-4ecb-92c6-de21438afde3</id>
+
+  
+    <entry>
+      <title>定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1] -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md b/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md
+index 723cff331..309c3d4fd 100644
+--- a/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md
++++ b/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md
+@@ -111,4 +111,3 @@ false
+ 
+ - [P1327R1 Allowing dynamic_cast, polymorphic typeid in Constant Expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1327r1.html)
+ - [P1328R0 Making std::type_info::operator== constexpr](https://wg21.link/P1328)
+-- [P1328 Making std::type_info::operator== constexpr - cplusplus/papers](https://github.com/cplusplus/papers/issues/70)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>base -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/owning_view/base.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:reference/ranges/owning_view/base.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/owning_view/base.md b/reference/ranges/owning_view/base.md
+index f421da1f9..9b8e6527a 100644
+--- a/reference/ranges/owning_view/base.md
++++ b/reference/ranges/owning_view/base.md
+@@ -65,6 +65,3 @@ moved base size: 5
+ - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
+ - [ICC](/implementation.md#icc): ?
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+-
+-## 参照
+-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>begin -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/owning_view/begin.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:reference/ranges/owning_view/begin.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/owning_view/begin.md b/reference/ranges/owning_view/begin.md
+index e98a03906..14171db80 100644
+--- a/reference/ranges/owning_view/begin.md
++++ b/reference/ranges/owning_view/begin.md
+@@ -57,6 +57,3 @@ const first element: 1
+ - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
+ - [ICC](/implementation.md#icc): ?
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+-
+-## 参照
+-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>data -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/owning_view/data.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:reference/ranges/owning_view/data.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/owning_view/data.md b/reference/ranges/owning_view/data.md
+index e29ef9c02..22d0f3447 100644
+--- a/reference/ranges/owning_view/data.md
++++ b/reference/ranges/owning_view/data.md
+@@ -65,6 +65,3 @@ const first element via data(): 1
+ - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
+ - [ICC](/implementation.md#icc): ?
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+-
+-## 参照
+-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>empty -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/owning_view/empty.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:reference/ranges/owning_view/empty.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/owning_view/empty.md b/reference/ranges/owning_view/empty.md
+index f6064a552..51bb3933b 100644
+--- a/reference/ranges/owning_view/empty.md
++++ b/reference/ranges/owning_view/empty.md
+@@ -59,6 +59,3 @@ non-empty vector: 0
+ - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
+ - [ICC](/implementation.md#icc): ?
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+-
+-## 参照
+-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/owning_view/end.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:reference/ranges/owning_view/end.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/owning_view/end.md b/reference/ranges/owning_view/end.md
+index 285c4b73e..b4562738c 100644
+--- a/reference/ranges/owning_view/end.md
++++ b/reference/ranges/owning_view/end.md
+@@ -55,6 +55,3 @@ int main() {
+ - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
+ - [ICC](/implementation.md#icc): ?
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+-
+-## 参照
+-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/owning_view/op_constructor.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:reference/ranges/owning_view/op_constructor.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/owning_view/op_constructor.md b/reference/ranges/owning_view/op_constructor.md
+index 096fd83e2..e9f72598a 100644
+--- a/reference/ranges/owning_view/op_constructor.md
++++ b/reference/ranges/owning_view/op_constructor.md
+@@ -80,6 +80,3 @@ int main() {
+ - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
+ - [ICC](/implementation.md#icc): ?
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+-
+-## 参照
+-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size -- リンク切れを修正 #1454</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/owning_view/size.html"/>
+      <id>0587fce8e2443f498a66200e36ffb45a54d3b591:reference/ranges/owning_view/size.md</id>
+      <updated>2025-06-09T17:31:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/owning_view/size.md b/reference/ranges/owning_view/size.md
+index 6620b6186..ada1abbcd 100644
+--- a/reference/ranges/owning_view/size.md
++++ b/reference/ranges/owning_view/size.md
+@@ -60,6 +60,3 @@ const size: 5
+ - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
+ - [ICC](/implementation.md#icc): ?
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+-
+-## 参照
+-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>as_awaitable -- typo修正とNGワード追加</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/as_awaitable.html"/>
+      <id>d7d9887e3ef106a0c7afeec8f8362e34a8d04379:reference/execution/execution/as_awaitable.md</id>
+      <updated>2025-06-08T22:22:14+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/as_awaitable.md b/reference/execution/execution/as_awaitable.md
+index 9b758ed05..9ed3e1381 100644
+--- a/reference/execution/execution/as_awaitable.md
++++ b/reference/execution/execution/as_awaitable.md
+@@ -120,7 +120,7 @@ struct awaitable-receiver {
+ * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
+ * see below[italic]
+ 
+-説明用の式`rcvr`を`awaitable-reciever`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
++説明用の式`rcvr`を`awaitable-receiver`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
+ 
+ - [`constructible_from`](/reference/concepts/constructible_from.md)`&amp;lt;result-type, decltype((vs))...&amp;gt;`を満たすとき、式[`set_value`](set_value.md)`(rcvr, vs...)`は下記と等価。そうでなければ、式`set_value(rcvr, vs...)`は不適格となる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>split -- typo修正とNGワード追加</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/split.html"/>
+      <id>d7d9887e3ef106a0c7afeec8f8362e34a8d04379:reference/execution/execution/split.md</id>
+      <updated>2025-06-08T22:22:14+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/split.md b/reference/execution/execution/split.md
+index 3117c5e3b..06a180de1 100644
+--- a/reference/execution/execution/split.md
++++ b/reference/execution/execution/split.md
+@@ -301,7 +301,7 @@ explicit shared-state(Sndr&amp;amp;&amp;amp; sndr);
+ void start-op() noexcept;
+ ```
+ 
+-- 効果 : `inc-ref()`を評価する。`stop_src.`[`stop_requested()`](/reference/stop_token/inplace_stop_source/stop_requested.md) `== ture`のとき`notify()`を評価する。そうでなければ、[`start`](start.md)`(op_state)`を評価する。
++- 効果 : `inc-ref()`を評価する。`stop_src.`[`stop_requested()`](/reference/stop_token/inplace_stop_source/stop_requested.md) `== true`のとき`notify()`を評価する。そうでなければ、[`start`](start.md)`(op_state)`を評価する。
+ 
+ ```cpp
+ void notify() noexcept;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_completion_signatures -- typo修正とNGワード追加</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures.html"/>
+      <id>d7d9887e3ef106a0c7afeec8f8362e34a8d04379:reference/execution/execution/transform_completion_signatures.md</id>
+      <updated>2025-06-08T22:22:14+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures.md b/reference/execution/execution/transform_completion_signatures.md
+index 072b2da5d..23fd1d7ab 100644
+--- a/reference/execution/execution/transform_completion_signatures.md
++++ b/reference/execution/execution/transform_completion_signatures.md
+@@ -5,7 +5,7 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std::exectution {
++namespace std::execution {
+   template&amp;lt;
+     valid-completion-signatures InputSignatures,
+     valid-completion-signatures AdditionalSignatures = completion_signatures&amp;lt;&amp;gt;,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_completion_signatures_of -- typo修正とNGワード追加</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures_of.html"/>
+      <id>d7d9887e3ef106a0c7afeec8f8362e34a8d04379:reference/execution/execution/transform_completion_signatures_of.md</id>
+      <updated>2025-06-08T22:22:14+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures_of.md b/reference/execution/execution/transform_completion_signatures_of.md
+index 84e1c6dbf..9894aa959 100644
+--- a/reference/execution/execution/transform_completion_signatures_of.md
++++ b/reference/execution/execution/transform_completion_signatures_of.md
+@@ -5,7 +5,7 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std::exectution {
++namespace std::execution {
+   template&amp;lt;
+     sender Sndr,
+     class Env = env&amp;lt;&amp;gt;,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>projected_value_t -- iterator/projected_value_t: add inner link</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/projected_value_t.html"/>
+      <id>1142f7967bc51e2ddf1de8042624e7265a03af53:reference/iterator/projected_value_t.md</id>
+      <updated>2025-06-08T22:10:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/projected_value_t.md b/reference/iterator/projected_value_t.md
+index 241752afb..700435a98 100644
+--- a/reference/iterator/projected_value_t.md
++++ b/reference/iterator/projected_value_t.md
+@@ -12,7 +12,7 @@ namespace std {
+ }
+ ```
+ * indirectly_readable[link /reference/iterator/indirectly_readable.md]
+-* indirectly_regular_unary_invocable[link /reference/iterator/indirectly_regular_unary_invocable.md.nolink]
++* indirectly_regular_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
+ 
+ ## 概要
+ イテレータ型`I`が指す値型を取得する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>inplace_stop_callback -- stop_token: fix inner links</title>
+      <link href="https://cpprefjp.github.io/reference/stop_token/inplace_stop_callback.html"/>
+      <id>97ddfcb3c48bbce35daaac6244cb31af4982c2ca:reference/stop_token/inplace_stop_callback.md</id>
+      <updated>2025-06-08T21:43:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stop_token/inplace_stop_callback.md b/reference/stop_token/inplace_stop_callback.md
+index b66c5b516..32794afac 100644
+--- a/reference/stop_token/inplace_stop_callback.md
++++ b/reference/stop_token/inplace_stop_callback.md
+@@ -16,7 +16,7 @@ namespace std {
+ 
+ 
+ ## 適格要件
+-テンプレート引数`CallbackFn`が[`invocable`](/reference/concepts/invokable.md.nolink)および[`destructible`](/reference/concepts/destructible.md)を満たすこと。
++テンプレート引数`CallbackFn`が[`invocable`](/reference/concepts/invocable.md)および[`destructible`](/reference/concepts/destructible.md)を満たすこと。
+ 
+ 
+ ## メンバ関数
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stop_callback -- stop_token: fix inner links</title>
+      <link href="https://cpprefjp.github.io/reference/stop_token/stop_callback.html"/>
+      <id>97ddfcb3c48bbce35daaac6244cb31af4982c2ca:reference/stop_token/stop_callback.md</id>
+      <updated>2025-06-08T21:43:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stop_token/stop_callback.md b/reference/stop_token/stop_callback.md
+index bea16a99e..c6a4090da 100644
+--- a/reference/stop_token/stop_callback.md
++++ b/reference/stop_token/stop_callback.md
+@@ -16,7 +16,7 @@ namespace std {
+ 
+ 
+ ## 適格要件
+-テンプレート引数`CallbackFn`が[`invocable`](/reference/concepts/invokable.md.nolink)および[`destructible`](/reference/concepts/destructible.md)を満たすこと。
++テンプレート引数`CallbackFn`が[`invocable`](/reference/concepts/invocable.md)および[`destructible`](/reference/concepts/destructible.md)を満たすこと。
+ 
+ 
+ ## メンバ関数
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
