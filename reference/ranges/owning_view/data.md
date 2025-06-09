@@ -65,6 +65,3 @@ const first element via data(): 1
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
-
-## 参照
-- [N4892 24.7.3 All view](https://timsong-cpp.github.io/cppwp/n4892/range.all)

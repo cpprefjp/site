@@ -111,4 +111,3 @@ false
 
 - [P1327R1 Allowing dynamic_cast, polymorphic typeid in Constant Expressions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1327r1.html)
 - [P1328R0 Making std::type_info::operator== constexpr](https://wg21.link/P1328)
-- [P1328 Making std::type_info::operator== constexpr - cplusplus/papers](https://github.com/cplusplus/papers/issues/70)
