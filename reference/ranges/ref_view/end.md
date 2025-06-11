@@ -39,6 +39,7 @@ int main() {
   while (it != end) {
     std::cout << *it << ' ';
     ++it;
+  }
 }
 ```
 * end[color ff0000]

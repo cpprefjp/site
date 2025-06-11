@@ -9,7 +9,6 @@ constexpr bool is-mdspan = false;
 
 template<class ElementType, class Extents, class Layout, class Accessor>
 constexpr bool is-mdspan<mdspan<ElementType, Extents, Layout, Accessor>> = true;
-}
 ```
 
 ## 概要

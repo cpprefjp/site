@@ -21,6 +21,7 @@ namespace std {
       CONSTEXPR reference& flip() noexcept;
     };
   };
+}
 ```
 * CONSTEXPR[italic]
 

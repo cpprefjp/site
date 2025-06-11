@@ -66,6 +66,7 @@ namespace std {
   template<class Key, class Compare = less<Key>>
   flat_set(sorted_unique_t, initializer_list<Key>, Compare = Compare())
     -> flat_set<Key, Compare>;                                                          // (12)
+}
 ```
 * vector[link /reference/vector/vector.md]
 * from_range_t[link ../../ranges/from_range_t.md]

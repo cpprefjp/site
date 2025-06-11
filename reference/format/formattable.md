@@ -19,8 +19,7 @@ namespace std {
              basic_format_parse_context<charT> pc) {
       { f.parse(pc) } -> same_as<basic_format_parse_context<charT>::iterator>;
       { cf.format(t, fc) } -> same_as<fmt-iter-for<charT>>;
-    }
-  };
+    };
 }
 ```
 * fmt-iter-for[italic]

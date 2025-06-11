@@ -37,7 +37,7 @@ namespace std {
       atomic<T>* object,
       typename atomic<T>::value_type desired,
       memory_order order) noexcept;           // (2) C++26
-]
+}
 ```
 * atomic[link atomic.md]
 * memory_order[link memory_order.md]

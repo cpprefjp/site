@@ -11,6 +11,7 @@ namespace std {
   basic_ostream<charT, traits>&
     operator<<(basic_ostream<charT, traits>& os,
                const basic_stacktrace<Allocator>& st);
+}
 ```
 
 ## 概要

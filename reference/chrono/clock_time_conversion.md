@@ -16,6 +16,7 @@ namespace std::chrono {
     template <class Duration>
     time_point<Clock, Duration>
       operator()(const time_point<Clock, Duration>& t) const;
+  };
 
   // (3) C++20
   template <>
