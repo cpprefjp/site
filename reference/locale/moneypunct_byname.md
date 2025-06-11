@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class charT, bool International = false>
-  class moneypunct_byname : public moneypunct<charT, International>
+  class moneypunct_byname : public moneypunct<charT, International>;
 }
 ```
 * moneypunct[link /reference/locale/moneypunct.md]

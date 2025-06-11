@@ -15,7 +15,7 @@ namespace std::contracts {
     assertion_kind kind() const noexcept;
     source_location location() const noexcept;
     evaluation_semantic semantic() const noexcept;
-  }
+  };
 }
 ```
 

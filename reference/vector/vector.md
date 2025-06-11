@@ -193,7 +193,7 @@ public:
   constexpr reference& operator=(const reference& x) noexcept; // vector<bool>のビットからの代入
   constexpr const reference& operator=(bool x) const noexcept; // *thisがconst時のboolからの代入（C++23）
   constexpr void flip() noexcept;                              // ビットの反転
-}
+};
 ```
 
 ### ハッシュサポート

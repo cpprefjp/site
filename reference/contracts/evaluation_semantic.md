@@ -12,7 +12,7 @@ namespace std::contracts {
     enforce = 3,
     quick_enforce = 4 // ,
     // assume = 5 <-- 将来追加予定
-  }
+  };
 }
 ```
 

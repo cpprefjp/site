@@ -313,7 +313,7 @@ struct sample {
     }
     m_alloc.deallocate(m_p, m_size);
   }
-}
+};
 
 constexpr sample<char> str{"Hello."};
 // 実行時、strは"Hello"を保持する静的配列を参照するようになる

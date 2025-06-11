@@ -12,7 +12,7 @@ namespace std {
   struct tuple_element<I, array<T, N>> {
     static_assert(I < N, implementation-defined);
     using type = T;
-  }
+  };
 }
 ```
 

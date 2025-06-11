@@ -10,7 +10,7 @@ namespace std::contracts {
     pre = 1,
     post = 2,
     assertion = 3
-  }
+  };
 }
 ```
 

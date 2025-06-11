@@ -9,7 +9,7 @@ namespace std::contracts {
   enum class detection_mode : unspecified {
     predicate_false = 1,
     evaluation_exception = 2
-  }
+  };
 }
 ```
 

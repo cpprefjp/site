@@ -42,7 +42,7 @@ class-head:
 ```cpp
 class derived_class final : public base_class {
   ...
-}
+};
 ```
 
 また、メンバ変数やメンバ関数の名前以降（member-declarator）は下記の文法となる：

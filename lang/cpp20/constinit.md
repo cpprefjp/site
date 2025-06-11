@@ -77,7 +77,7 @@ int main () {
 ```cpp
 struct S {
   constinit int n;  // NG
-}
+};
 
 int main() {
   constinit int m = 10; // NG
@@ -91,7 +91,7 @@ constinit extern int N; // NG、未定義動作、何も言われない
 
 struct S {
   constinit static int M;
-}
+};
 int S::M = 12;  // NG、constinitはこちらに必要、おそらく警告が発せられる
 ```
 

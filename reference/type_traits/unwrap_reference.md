@@ -85,10 +85,10 @@ int main()
 ```cpp
 namespace std {
   template <class T>
-  struct unwrap_reference { using type = T; }
+  struct unwrap_reference { using type = T; };
 
   template <class T>
-  struct unwrap_reference<reference_wrapper<T>> { using type = T&; }
+  struct unwrap_reference<reference_wrapper<T>> { using type = T&; };
 }
 ```
 * reference_wrapper[link /reference/functional/reference_wrapper.md]

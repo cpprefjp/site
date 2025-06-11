@@ -247,7 +247,7 @@ struct derived : base {
   int g(int n) override {
     return -1;
   }
-}
+};
 ```
 
 ## この機能が必要になった背景・経緯

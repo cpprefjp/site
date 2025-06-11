@@ -25,7 +25,7 @@ Temporary materialization conversion
 例:
 
 ```cpp
-struct X { int n; }
+struct X { int n; };
 int k = X().n; // ok, X() prvalue は xvalue に変換される
 ```
 
