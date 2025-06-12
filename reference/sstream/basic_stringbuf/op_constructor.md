@@ -82,19 +82,19 @@ basic_stringbuf(
 
 - (1) : デフォルトコンストラクタ
 - (2) : 指定されたモードで構築する
-- (3) : [`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピーと、指定されたモードで構築する
+- (3) : 入力文字列として[`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピーと、指定されたモードで構築する
 - (4) : モードとアロケータを指定して構築する
 - (5) : アロケータを指定して構築する
-- (6) : [`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピーと、アロケータを指定して構築する
-- (7) : [`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピー、モード、アロケータを指定して構築する
-- (8) : `Allocator`に変換可能なアロケータ型をもつ`std::basic_string`オブジェクトのコピーと、指定されたモードで構築する
-- (9) : `Allocator`に変換可能なアロケータ型をもつ`std::basic_string`オブジェクトのコピーと、アロケータを指定して構築する
-- (10) : `Allocator`に変換可能なアロケータ型をもつ`std::basic_string`オブジェクトのコピー、モード、アロケータを指定して構築する
+- (6) : 入力文字列として[`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピーと、アロケータを指定して構築する
+- (7) : 入力文字列として[`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピー、モード、アロケータを指定して構築する
+- (8) : 入力文字列として`Allocator`に変換可能なアロケータ型をもつ[`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピーと、指定されたモードで構築する
+- (9) : 入力文字列として`Allocator`に変換可能なアロケータ型をもつ[`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピーと、アロケータを指定して構築する
+- (10) : 入力文字列として`Allocator`に変換可能なアロケータ型をもつ[`std::basic_string`](/reference/string/basic_string.md)オブジェクトのコピー、モード、アロケータを指定して構築する
 - (11) : ムーブコンストラクタ
 - (12) : ムーブコンストラクタでアロケータを指定して構築する
-- (13) : [`basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列を初期化し、モードを設定する
-- (14) : [`basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列を初期化、アロケータを設定する
-- (15) : [`basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列を初期化し、モードとアロケータを設定する
+- (13) : 入力文字列として[`basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列と、モードを設定する
+- (14) : 入力文字列として[`basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列と、アロケータを設定する
+- (15) : 入力文字列として[`basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列と、モードとアロケータを設定する
 
 
 ## テンプレートパラメータ制約

@@ -48,7 +48,7 @@ void str(const T& t);                                       // (7) C++26
 - (4) : 文字列オブジェクト`s`を設定する
 - (5) : `Allocator`に変換可能な`SAlloc`型のアロケータによって確保されているデータをコピーして、文字列オブジェクト`s`を設定する
 - (6) : 与えられた文字列オブジェクト`s`をムーブして設定する
-- (7) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<CharT, Traits>(t)`から文字列を設定する
+- (7) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列を設定する
 
 
 ## 例
@@ -83,14 +83,9 @@ int main()
   buf.sputc('Y');
   std::cout << "4: After writing: " << buf.str() << std::endl;
   
-  // C++26: string_viewから設定
-  // std::string_view sv = "string_view test";
-  // buf.str(sv);
-  // std::cout << "6: " << buf.str() << std::endl;
-  
   // 空文字列でクリア
   buf.str("");
-  std::cout << "7: Empty? " << (buf.str().empty() ? "yes" : "no") << std::endl;
+  std::cout << "5: Empty? " << (buf.str().empty() ? "yes" : "no") << std::endl;
 }
 ```
 * sputn[link /reference/streambuf/basic_streambuf/sputn.md]
@@ -103,8 +98,7 @@ int main()
 2: New content
 3: After reading 2 chars: Read/Write test
 4: After writing: ReXY/Write test
-5: Move test
-7: Empty? yes
+5: Empty? yes
 ```
 
 #### ムーブを使用する例 (C++20)
