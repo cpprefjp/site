@@ -19,21 +19,40 @@ template <class SAlloc>
 void str(const basic_string<CharT, Traits, SAlloc>& s);     // (5) C++20
 
 void str(const basic_string<CharT, Traits, Allocator>&& s); // (6) C++20
+
+template<class T>
+void str(const T& t);                                       // (7) C++26
 ```
 * basic_string[link /reference/string/basic_string.md]
 
 ## 概要
 文字列オブジェクトを取得または設定する。
 
+- (1) : 文字列オブジェクトを取得する
+- (2) : 文字列オブジェクトを取得し、`SAlloc`型のアロケータ`sa`によってメモリ確保する
+- (3) : 保持する文字列オブジェクトをムーブして取得する
+- (4) : 文字列オブジェクト`s`を設定する
+- (5) : `Allocator`に変換可能な`SAlloc`型のアロケータによって確保されているデータをコピーして、文字列オブジェクト`s`を設定する
+- (6) : 与えられた文字列オブジェクト`s`をムーブして設定する
+- (7) : [`basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列を設定する
+
+
+## テンプレートパラメータ制約
+- (7) : `is_convertible_v<const T&, basic_string_view<CharT, Traits>>`が`true`であること
+
+
 ## 効果
 - (1) : 文字列オブジェクトを取得する
 - (2) : 文字列オブジェクトを取得して、`SAlloc`型のアロケータ`sa`によって確保する
 - (3) : 保持する文字列オブジェクトをムーブして取得する
 - (4) : 文字列オブジェクト`s`を設定する
-- (5) : `SAlloc`型のアロケータによって確保されているデータをコピーして、文字列オブジェクト`s`を設定する
+- (5) : `Allocator`に変換可能な`SAlloc`型のアロケータによって確保されているデータをコピーして、文字列オブジェクト`s`を設定する
 - (6) : 与えられた文字列オブジェクト`s`をムーブして設定する
+- (7) : [`basic_string_view`](/reference/string_view/basic_string_view.md)`<CharT, Traits>(t)`から文字列を設定する
+
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <sstream>
@@ -64,26 +83,82 @@ int main()
   buf.sputc('Y');
   std::cout << "4: After writing: " << buf.str() << std::endl;
   
-  // C++20: ムーブによる設定
-  std::string s = "Move test";
-  buf.str(std::move(s));
-  std::cout << "5: " << buf.str() << std::endl;
+  // C++26: string_viewから設定
+  // std::string_view sv = "string_view test";
+  // buf.str(sv);
+  // std::cout << "6: " << buf.str() << std::endl;
   
   // 空文字列でクリア
   buf.str("");
-  std::cout << "6: Empty? " << (buf.str().empty() ? "yes" : "no") << std::endl;
+  std::cout << "7: Empty? " << (buf.str().empty() ? "yes" : "no") << std::endl;
 }
 ```
 * sputn[link /reference/streambuf/basic_streambuf/sputn.md]
 * sbumpc[link /reference/streambuf/basic_streambuf/sbumpc.md]
 * sputc[link /reference/streambuf/basic_streambuf/sputc.md]
 
-### 出力
+#### 出力
 ```
 1: Hello, World!
 2: New content
 3: After reading 2 chars: Read/Write test
 4: After writing: ReXY/Write test
 5: Move test
-6: Empty? yes
+7: Empty? yes
 ```
+
+#### ムーブを使用する例 (C++20)
+```cpp example
+#include <iostream>
+#include <sstream>
+
+int main() {
+  std::stringbuf buf;
+
+  // ムーブして文字列を設定
+  std::string s = "Move string";
+  buf.str(std::move(s));
+  std::cout << buf.str() << std::endl;
+
+  // ムーブで文字列を取得
+  std::string r = std::move(buf).str();
+  std::cout << r << std::endl;
+}
+```
+
+#### 出力
+```
+Move string
+Move string
+```
+
+### string_viewからの設定 (C++26)
+```cpp example
+#include <iostream>
+#include <sstream>
+#include <string_view>
+
+int main() {
+  std::stringbuf buf;
+
+  // 文字列リテラルを設定
+  buf.str("set from string literal");
+  std::cout << buf.str() << std::endl;
+
+  // string_viewを設定
+  std::string_view sv = "set from string_view";
+  buf.str(sv);
+  std::cout << buf.str() << std::endl;
+}
+```
+
+#### 出力
+```
+set from string literal
+set from string_view
+```
+
+## 参照
+- [P0408R7 Efficient Access to `basic_stringbuf`'s Buffer](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0408r7.pdf)
+- [P2495R3 Interfacing stringstreams with `string_view`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2495r3.pdf)
+    - C++26で[`std::string_view`](/reference/string_view/basic_string_view.md)に対応した
