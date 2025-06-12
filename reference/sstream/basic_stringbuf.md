@@ -18,7 +18,7 @@ namespace std {
 * basic_streambuf[link /reference/streambuf/basic_streambuf.md]
 
 ## 概要
-文字列を保持するストリームバッファ
+`std::basic_stringbuf`クラスは、文字列を保持するストリームバッファであり、文字列を読み書きするストレージとして機能する。
 
 
 ## メンバ関数

@@ -18,7 +18,9 @@ namespace std {
 * basic_ostream[link /reference/ostream/basic_ostream.md]
 
 ## 概要
-バッファに保持された文字列への書き込み操作ができるストリーム
+`std::basic_ostringstream`クラスは、文字列への書き込み操作ができる出力ストリームである。
+
+このクラスは、内部バッファに文字列を保持し、ストリーム操作で文字列の内容を組み立てることができる。
 
 
 ## メンバ関数

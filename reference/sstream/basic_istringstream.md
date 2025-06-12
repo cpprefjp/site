@@ -18,7 +18,9 @@ namespace std {
 * basic_istream[link /reference/istream/basic_istream.md]
 
 ## 概要
-バッファに保持された文字列への読み取り操作ができるストリーム
+`std::basic_istringstream`クラスは、文字列を入力元とするストリームであり、文字列からの読み取り操作ができる。
+
+このクラスは、内部バッファに文字列を保持し、ストリーム操作で文字列の内容を解析することができる。
 
 
 ## メンバ関数
