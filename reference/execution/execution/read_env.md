@@ -67,9 +67,9 @@ int main()
 * ex::read_env[color ff0000]
 * ex::sender[link sender.md]
 * ex::get_scheduler[link get_scheduler.md]
-* ex::let_value[lin let_value.md]
+* ex::let_value[link let_value.md]
 * ex::starts_on[link starts_on.md]
-* ex::just[lin just.md]
+* ex::just[link just.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * value()[link /reference/optional/optional/value.md]
 
@@ -91,7 +91,7 @@ int main()
 
 
 ## 関連項目
-- [`execution::get_env`](read_env.md)
+- [`execution::get_env`](get_env.md)
 
 
 ## 参照
