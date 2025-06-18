@@ -49,6 +49,7 @@ NGWORD_LIST = [
     ("", "括弧", "カッコ"),
     ("", "constepx", "constexpr"),
     ("", "wsting", "wstring"),
+    ("", "\[lin ", "[link "), # コード修飾ミス
     ("reference/chrono", "dulation", "duration"),
     ("reference/random", "施行", "試行"),
     ("reference/random", "疑似", "擬似"),
