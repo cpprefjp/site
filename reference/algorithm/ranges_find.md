@@ -140,7 +140,8 @@ int main() {
     auto it = std::ranges::find(
       v,
       std::string("bbb"),
-      [](const Item& x) { return x.name; }
+      // コピーされないよう戻り値型を明示的に指定
+      [](const Item& x) -> const std::string& { return x.name; }
     );
     if (it == v.end()) {
       std::cout << "not found" << std::endl;

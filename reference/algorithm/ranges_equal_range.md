@@ -218,7 +218,8 @@ int main() {
     v,
     key,
     {},
-    [](const X& x) { return x.name; }
+    // x.nameがコピーされないよう戻り値型を明示的に指定
+    [](const X& x) -> const std::string& { return x.name; }
 );
   std::cout << "[ラムダ式]" << std::endl;
   for (const X& x : result2) {
