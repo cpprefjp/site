@@ -17,7 +17,7 @@ namespace std {
 
 
 ## 効果
-```
+```cpp
 basic_ostringstream<CharT, Traits> s;
 s.flags(os.flags());
 s.imbue(os.getloc());

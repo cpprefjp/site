@@ -22,7 +22,7 @@ namespace std {
 ## 効果
 以下と等価：
 
-```
+```cpp
 erase_if(c, [&](auto& elem) { return elem == value; });
 ```
 * erase_if[link erase_if_free.md]

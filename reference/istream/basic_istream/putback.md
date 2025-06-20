@@ -28,7 +28,7 @@ basic_istream<CharT, Traits>& putback(char_type c);
 この関数は1文字も入力を行わないため、この後の`gcount()`は常に`0`を返す。
 
 ## 例
-```
+```cpp
 #include <iostream>
 #include <locale>
 #include <string>

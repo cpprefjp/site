@@ -15,7 +15,7 @@ static std::size_t length(const char_type* p);
 
 
 ## 戻り値
-```
+```cpp
 char_traits<char_type>::length(p)
 ```
 * char_traits[link /reference/string/char_traits.md]

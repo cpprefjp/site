@@ -18,7 +18,7 @@ namespace std {
 ## 効果
 以下と等価：
 
-```
+```cpp
 auto it = remove_if(c.begin(), c.end(), pred);
 auto r = distance(it, c.end());
 c.erase(it, c.end());

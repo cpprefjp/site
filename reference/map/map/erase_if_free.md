@@ -21,7 +21,7 @@ namespace std {
 ## 効果
 以下と等価：
 
-```
+```cpp
 auto original_size = c.size();
 for (auto i = c.begin(), last = c.end(); i != last;) {
   if (pred(*i)) {

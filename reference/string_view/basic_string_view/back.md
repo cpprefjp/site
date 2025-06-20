@@ -18,7 +18,7 @@ constexpr const_reference back() const;
 
 
 ## 戻り値
-```
+```cpp
 return data()[size() - 1];
 ```
 * data()[link data.md]

@@ -18,7 +18,7 @@ constexpr const_reference front() const;
 
 
 ## 戻り値
-```
+```cpp
 return data()[0];
 ```
 * data()[link data.md]

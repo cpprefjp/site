@@ -22,7 +22,7 @@ namespace std {
 ## 効果
 以下と等価：
 
-```
+```cpp
 auto it = remove(c.begin(), c.end(), value);
 auto r = distance(it, c.end());
 c.erase(it, c.end());

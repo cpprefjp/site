@@ -14,7 +14,7 @@ constexpr const_iterator cend() const noexcept;
 
 
 ## 戻り値
-```
+```cpp
 return cbegin() + size();
 ```
 * cbegin()[link cbegin.md]

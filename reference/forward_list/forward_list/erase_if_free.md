@@ -18,7 +18,7 @@ namespace std {
 ## 効果
 以下と等価：
 
-```
+```cpp
 c.remove_if(pred);
 ```
 * c.remove_if[link remove_if.md]

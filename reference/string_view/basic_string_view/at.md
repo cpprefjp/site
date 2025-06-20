@@ -14,7 +14,7 @@ constexpr const_reference at(size_type pos) const;
 
 
 ## 戻り値
-```
+```cpp
 return data()[pos];
 ```
 * data()[link data.md]
