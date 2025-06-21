@@ -222,6 +222,48 @@ int main()
 ```
 ```
 
+### 例5: ムーブオンリーオブジェクト
+```cpp example
+#include <functional>
+#include <iostream>
+#include <memory>
+#include <utility>
+
+// ムーブオンリーの関数オブジェクトクラス
+struct UniqueInt {
+  std::unique_ptr<int> ptr;
+
+  void operator()(void) {
+    std::cout << *ptr << std::endl;
+  }
+};
+
+int main()
+{
+  UniqueInt ui = {std::make_unique<int>(42)};
+
+  // コンパイルエラー！
+  // std::functionはムーブオンリーオブジェクトを格納できない
+//  std::function<void(void)> f = std::move(ui);
+  
+  // OK
+  // std::move_only_functionなら格納可能
+  std::move_only_function<void(void)> f = std::move(ui);
+
+  f();
+}
+```
+* std::move_only_function<void(void)>[color ff0000]
+* std::function<void(void)>[link /reference/functional/function.md]
+* std::unique_ptr[link /reference/memory/unique_ptr.md]
+* std::make_unique[link /reference/memory/make_unique.md]
+* std::move[link /reference/utility/move.md]
+
+#### 出力
+```
+42
+```
+
 
 ## バージョン
 ### 言語
@@ -237,7 +279,7 @@ int main()
 ## 関連項目
 - C++11 [`function`](function.md)
 - C++26 [`copyable_function`](copyable_function.md)
-- C++26 [`copyable_function`](copyable_function.md)
+- C++26 [`function_ref`](function_ref.md)
 
 
 ## 参照
