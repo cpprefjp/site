@@ -8,40 +8,43 @@
 namespace std {
   template <size_t I, class... Types>
   typename tuple_element<I, tuple<Types...> >::type&
-    get(tuple<Types...>& t) noexcept;                        // (1) C++11
+    get(tuple<Types...>& t) noexcept;                          // (1) C++11
 
   template <size_t I, class... Types>
   constexpr tuple_element_t<I, tuple<Types...>>&
-    get(tuple<Types...>&) noexcept;                          // (1) C++14
+    get(tuple<Types...>&) noexcept;                            // (1) C++14
 
   template <size_t I, class... types>
   typename tuple_element<I, tuple<Types...> >::type&&
-    get(tuple<Types...>&& t) noexcept;                       // (2) C++11
+    get(tuple<Types...>&& t) noexcept;                         // (2) C++11
 
   template <size_t I, class... Types>
   constexpr tuple_element_t<I, tuple<Types...>>&&
-    get(tuple<Types...>&&) noexcept;                         // (2) C++14
+    get(tuple<Types...>&&) noexcept;                           // (2) C++14
 
   template <size_t I, class... Types>
   typename tuple_element<I, tuple<Types...> >::type const&
-    get(const tuple<Types...>& t) noexcept;                  // (3) C++11
+    get(const tuple<Types...>& t) noexcept;                    // (3) C++11
 
   template <size_t I, class... Types>
   constexpr const tuple_element_t<I, tuple<Types...>>&
-    get(const tuple<Types...>& t) noexcept;                  // (3) C++14
+    get(const tuple<Types...>& t) noexcept;                    // (3) C++14
 
   template <size_t I, class... Types>
   constexpr const tuple_element_t<I, tuple<Types...> >&&
-    get(const tuple<Types...>&& t) noexcept;                 // (4) C++17
+    get(const tuple<Types...>&& t) noexcept;                   // (4) C++17
 
   template <class T, class... Types>
-  constexpr T& get(tuple<Types...>& t) noexcept;             // (5) C++14
+  constexpr T& get(tuple<Types...>& t) noexcept;               // (5) C++14
 
   template <class T, class... Types>
-  constexpr T&& get(tuple<Types...>&& t) noexcept;           // (6) C++14
+  constexpr T&& get(tuple<Types...>&& t) noexcept;             // (6) C++14
 
   template <class T, class... Types>
-  constexpr const T& get(const tuple<Types...>& t) noexcept; // (7) C++14
+  constexpr const T& get(const tuple<Types...>& t) noexcept;   // (7) C++14
+
+  template <class T, class... Types>
+  constexpr const T&& get(const tuple<Types...>&& t) noexcept; // (8) C++14
 }
 ```
 * tuple_element[link ../tuple_element.md]
@@ -55,12 +58,12 @@ namespace std {
 
 ## 要件
 - (1), (2), (3), (4) : テンプレートパラメータ`I`が`tuple`の要素数よりも小さいこと。この要件を満たさない場合は、コンパイルエラーとなる。
-- (5), (6), (7) : 型`T`が`Types...`の中にひとつだけ含まれること。この要件を満たさない場合は、コンパイルエラーとなる。
+- (5), (6), (7), (8) : 型`T`が`Types...`の中にひとつだけ含まれること。この要件を満たさない場合は、コンパイルエラーとなる。
 
 
 ## 戻り値
 - (1), (2), (3), (4) : `tuple`オブジェクト`t`の`I`番目の要素への参照
-- (5), (6), (7) : `tuple`オブジェクト`t`に含まれる`T`型の要素への参照
+- (5), (6), (7), (8) : `tuple`オブジェクト`t`に含まれる`T`型の要素への参照
 
 
 ## 例外
@@ -94,7 +97,7 @@ int main()
   }
   std::cout << std::endl;
 
-  // 型を指定して取得する方法。(5)-(7)
+  // 型を指定して取得する方法。(5)-(8)
   {
     int& i = std::get<int>(t);
     char& c = std::get<char>(t);
@@ -119,7 +122,7 @@ a
 hello
 ```
 
-### const右辺値参照版が必要な状況 (4)
+### const右辺値参照版が必要な状況 (4), (8)
 ```cpp example
 #include <iostream>
 #include <tuple>
