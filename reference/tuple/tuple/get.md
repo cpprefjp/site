@@ -44,7 +44,7 @@ namespace std {
   constexpr const T& get(const tuple<Types...>& t) noexcept;   // (7) C++14
 
   template <class T, class... Types>
-  constexpr const T&& get(const tuple<Types...>&& t) noexcept; // (8) C++14
+  constexpr const T&& get(const tuple<Types...>&& t) noexcept; // (8) C++17
 }
 ```
 * tuple_element[link ../tuple_element.md]
