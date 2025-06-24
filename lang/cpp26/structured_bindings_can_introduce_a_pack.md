@@ -53,14 +53,21 @@ constexpr decltype(auto) apply(F &&f, Tuple &&t)
 C++26での実装：
 
 ```cpp
+namespace detail {
+  template <class A, class B>
+  using override_ref = std::conditional_t<std::is_rvalue_reference_v<A&&>, B&&, B&>;
+}
+
 template <class F, class Tuple>
 constexpr decltype(auto) apply(F &&f, Tuple &&t)
 {
   auto&& [...elems] = t;
   return std::invoke(std::forward<F>(f),
-        std::forward_like<Tuple, decltype(elems)>(elems)...);
+        static_cast<detail::override_ref<Tuple, decltype(elems)>>(elems)...);
 }
 ```
+* std::conditional_t[link /reference/type_traits/conditional.md]
+* std::is_rvalue_reference_v[link /reference/type_traits/is_rvalue_reference.md]
 * std::invoke[link /reference/functional/invoke.md]
 
 
