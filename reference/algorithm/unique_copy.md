@@ -62,7 +62,7 @@ namespace std {
 
 ## テンプレートパラメータ制約
 - `*result = *first` は有効な式でなければならない
-- `InputIterator` と `OutputIterator` のどちらも forward iterator の要求を満たしていない場合、`InputIterator` の値型は [コピー構築可能](/reference/concepts/copy_constructible.md) かつ [コピー代入可能](/reference/type_traits/copy_assignable.md.nolink) でなければならない。そうでない場合は [コピー構築可能](/reference/concepts/copy_constructible.md) であることは要求されない
+- `InputIterator` と `OutputIterator` のどちらも forward iterator の要求を満たしていない場合、`InputIterator` の値型は [コピー構築可能](/reference/concepts/copy_constructible.md) かつ [コピー代入可能](/reference/type_traits/is_copy_assignable.md) でなければならない。そうでない場合は [コピー構築可能](/reference/concepts/copy_constructible.md) であることは要求されない
 
 
 ## 効果

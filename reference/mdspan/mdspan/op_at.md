@@ -89,7 +89,7 @@ int main()
 
 
 ## 関連項目
-- C++23 [添字演算子の多次元サポート](cpp23/multidimensional_subscript_operator.nd.nolink)
+- C++23 [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.md)
 
 
 ## 参照
