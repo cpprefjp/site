@@ -7,7 +7,7 @@
 ```cpp
 void clear();                    // (1) C++03
 void clear() noexcept;           // (1) C++11
-constexpe void clear() noexcept; // (1) C++20
+constexpr void clear() noexcept; // (1) C++20
 ```
 
 ## 概要

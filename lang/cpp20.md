@@ -82,7 +82,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 | 言語機能 | 説明 |
 |----------|------|
 | [コンセプト](cpp20/concepts.md) | テンプレートパラメータに対する制約を行う |
-| [autoパラメータによる関数テンプレートの簡易定義](cpp20/function_templates_with_auto_parameters.md) | ジェネリックラムダと同様、関数パラメータをの型を`auto`にすることで簡易的に関数テンプレートを定義できるようにする |
+| [autoパラメータによる関数テンプレートの簡易定義](cpp20/function_templates_with_auto_parameters.md) | ジェネリックラムダと同様、関数パラメータの型を`auto`にすることで簡易的に関数テンプレートを定義できるようにする |
 | [型の文脈で`typename`の省略を許可](cpp20/down_with_typename.md) | 型しか現れない文脈では、依存名を解決するための`typename`キーワードを省略できるようにする |
 | [非型テンプレートパラメータとしてクラス型を許可する](cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする |
 | [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 |

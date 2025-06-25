@@ -32,7 +32,7 @@ namespace std {
 各バリアフェーズ(barrier phase)は下記のステップで構成される：
 
 - [`arrive()`](barrier/arrive.md)または[`arrive_and_drop()`](barrier/arrive_and_drop.md)呼び出しによって、予定カウントを減算する。
-- 予定カウントが`0`に到達した後、[`arrive()`](barrier/arrive.md)／[`arrive_and_drop()`](barrier/arrive_and_drop.md)／[`wait()`](barrier/wait.md)いずれかの呼び出しの間に、いずれかのスレッドにより正確に1回だけ完了ステップが実行される。だだし[`wait()`](barrier/wait.md)呼び出しを行うスレッドがない場合に、完了ステップが実行されるか否かは処理系定義とされる。
+- 予定カウントが`0`に到達した後、[`arrive()`](barrier/arrive.md)／[`arrive_and_drop()`](barrier/arrive_and_drop.md)／[`wait()`](barrier/wait.md)いずれかの呼び出しの間に、いずれかのスレッドにより正確に1回だけ完了ステップが実行される。ただし[`wait()`](barrier/wait.md)呼び出しを行うスレッドがない場合に、完了ステップが実行されるか否かは処理系定義とされる。
 - 完了ステップが終了したのち、予定カウントをコンストラクタ実引数`expected`でリセットし、[`arrive_and_drop()`](barrier/arrive_and_drop.md)呼び出しの場合は調整を行って、次のフェーズを開始する。
 
 各フェーズは、フェーズ同期ポイント(phase synchronization point)を定義する。

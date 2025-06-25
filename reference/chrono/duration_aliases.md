@@ -32,7 +32,7 @@ namespace chrono {
 * ratio_divide[link /reference/ratio/ratio_divide.md]
 
 ## 概要
-さまざまな日付・時間単位をの時間間隔を表現する[`duration`](duration.md)型の別名。
+さまざまな日付・時間単位の時間間隔を表現する[`duration`](duration.md)型の別名。
 
 - (1) : ナノ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名
 - (2) : マイクロ秒単位で時間間隔を表現する[`duration`](duration.md)型の別名

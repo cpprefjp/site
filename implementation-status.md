@@ -253,7 +253,7 @@
 | P1847R4: [アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定](/lang/cpp23/make_declaration_order_layout_mandated.md) | アクセス制御の異なるメンバ変数のレイアウトは並び替えを許可されていたが宣言順に規定する | Yes | Yes | - | 2022 |
 | P2128R6: [添字演算子の多次元サポート](/lang/cpp23/multidimensional_subscript_operator.md) | `operator[](int x, int y, int z)`のように添字演算子のオーバーロードで複数のパラメータをとることを許可 | 12 | 15 | 2022.2 | 2022 Update 12 |
 | P1169R4: [`this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md) | 状態をもたないいくつかの演算子を`static`として宣言できるようにする | 13 | 16 | 2023.2 | 2022 Update 14 |
-| P2201R1: [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルを連結を禁止する | Yes | Yes | 2022.2 | Yes |
+| P2201R1: [異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする](/lang/cpp23/mixed_string_literal_concatenation.md) | `auto a = u8"" L"";`のような異なる文字エンコーディング同士での文字列リテラルの連結を禁止する | Yes | Yes | 2022.2 | Yes |
 | P2029R4: [文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決](/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink) | | - | - | - | - |
 | P2362R3: [1ワイド文字に収まらないワイド文字リテラルを禁止する](/lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.md) | エンコード結果として`wchar_t`の大きさに収まらないワイド文字リテラルを禁止する | 13 | 14 | 2023.2 | - |
 | P2071R2: [名前付きユニバーサルキャラクタ名](/lang/cpp23/named_universal_character_escapes.md) | 16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする | 13 | 15 | 2023.2 | - |
@@ -314,7 +314,7 @@
 | P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md) | 未定義動作を引き起こす操作をコンパイルエラーとする | 15 | 19 | | |
 | P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink) | 畳み込み式では全体ではなく個別の制約を原子制約式として扱う | | 19 | | |
 | P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
-| P2686R5: [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照がの制限を緩和して自動変数も参照できるようにする | | | | |
+| P2686R5: [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照の制限を緩和して自動変数も参照できるようにする | | | | |
 | P3068R6: [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 | | | | |
 | P2865R6: [非推奨だった組み込み配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md) | C++20で非推奨となっていた配列比較を削除 | 15 | 20 | | |
 | P1061R10: [構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md) | タプルを分解する際に複数の変数をパックとして宣言できるようにする。`auto [a, ...xs] = f();` | | | | |

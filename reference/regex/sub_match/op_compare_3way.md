@@ -77,7 +77,7 @@ SM_CAT(I) = compare_three_way_result_t<basic_string<typename iterator_traits<I>:
 ## 備考
 - (1) の形式でもマッチした文字列のみが比較され、マッチした位置は考慮されない。（例を参照）
 - (2) の形式でも比較に使用する文字特性クラスは標準の [`char_traits`](../../string/char_traits.md)`<value_type>` が使用され、テンプレート引数に指定された文字特性クラス `ST` は考慮されない。
-- この演算子により、以下の演算子が使用可能にになる：
+- この演算子により、以下の演算子が使用可能になる：
     - `operator<`
     - `operator<=`
     - `operator>`

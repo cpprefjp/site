@@ -40,7 +40,7 @@ constexpr explicit(N != rank_dynamic())
 - (2) :
     - `sizeof...(OtherExtents) ==` [`rank()`](rank.md)が`true`、かつ
     - `((OtherExtents == dynamic_extent || Extents == dynamic_extent || OtherExtents == Extents) && ...)`が`true`であること
-- (3) : `N`を`sizeof...(OtherIndexTypes)`、`exts_arr`を[`array`](/reference/array/array.md)`<index_type, N>{static_cast<index_type>(std:move(exts))...}`としたとき
+- (3) : `N`を`sizeof...(OtherIndexTypes)`、`exts_arr`を[`array`](/reference/array/array.md)`<index_type, N>{static_cast<index_type>(std::move(exts))...}`としたとき
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<OtherIndexTypes, index_type> && ...)`が`true`、かつ
     - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_convertible.md)`<index_type, OtherIndexTypes> && ...)`が`true`、かつ
     - `N ==` [`rank_dynamic()`](rank_dynamic.md) `|| N ==` [`rank()`](rank.md)が`true`であること
@@ -54,7 +54,7 @@ constexpr explicit(N != rank_dynamic())
 - (2) : それぞれ`r`番目の次元が静的要素数に対して要素数が`other.`[`extent`](extent.md)`(r)`と等しく、かつ
     - `sizeof...(OtherExtents) == 0`、もしくは
     - `other`の全ての次元`r`において`other.extent(r)`が`index_type`型で表現可能な値であること
-- (3) : `N`を`sizeof...(OtherIndexTypes)`、`exts_arr`を[`array`](/reference/array/array.md)`<index_type, N>{static_cast<index_type>(std:move(exts))...}`としたとき
+- (3) : `N`を`sizeof...(OtherIndexTypes)`、`exts_arr`を[`array`](/reference/array/array.md)`<index_type, N>{static_cast<index_type>(std::move(exts))...}`としたとき
     - `N !=` [`rank_dynamic()`](rank_dynamic.md)ならば、それぞれ`r`番目の次元が静的要素数に対して要素数が`exts_arr[r]`と等しく、かつ
     - `sizeof...(exts) == 0`もしくは`exts`の各要素が`index_type`型で表現可能な値であること
 - (4), (5) : `N !=` [`rank_dynamic()`](rank_dynamic.md)ならば、それぞれ`r`番目の次元が静的要素数に対して要素数が`exts[r]`と等しく、かつ
@@ -68,7 +68,7 @@ constexpr explicit(N != rank_dynamic())
 
 ## 事後条件
 - (2) : `*this == other`
-- (3) : `exts_arr`を[`array`](/reference/array/array.md)`<index_type, N>{static_cast<index_type>(std:move(exts))...}`としたとき、`*this == extents(exts_arr)`（オーバーロード(5)の効果を参照）
+- (3) : `exts_arr`を[`array`](/reference/array/array.md)`<index_type, N>{static_cast<index_type>(std::move(exts))...}`としたとき、`*this == extents(exts_arr)`（オーバーロード(5)の効果を参照）
 
 
 ## 例外

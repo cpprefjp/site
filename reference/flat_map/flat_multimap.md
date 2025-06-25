@@ -22,7 +22,7 @@ namespace std {
 
 `std::flat_multimap`は、ノードベースで実装される[`std::multimap`](/reference/map/multimap.md)、ハッシュテーブルで実装される[`std::unordered_multimap`](/reference/unordered_map/unordered_multimap.md)とは異なり、ソート済み配列と二分探索の組み合わせで実装される。これはほかの実装と比較して、メモリ使用量と列挙速度において優位であり、一方で挿入速度と検索速度はほかの実装に劣る。
 
-また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::skack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列と値の配列の2つを内部で持ち、それを[`std::ranges::zip_view`](/reference/ranges/zip_view.md)で綴じあわせて扱う実装となっている。
+また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列と値の配列の2つを内部で持ち、それを[`std::ranges::zip_view`](/reference/ranges/zip_view.md)で綴じあわせて扱う実装となっている。
 
 このコンテナクラスは、ランダムアクセスイテレータをサポートする。
 
