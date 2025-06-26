@@ -134,7 +134,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): 17 [mark mark verified]
+- [Clang](/implementation.md#clang): 17 [mark verified]
 - [GCC](/implementation.md#gcc): 13 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
 
@@ -145,7 +145,7 @@ int main()
 - [LWG Issue 3230. Format specifier `%y`/`%Y` is missing locale alternative versions](https://wg21.cmeerw.net/lwg/issue3230)
 - [LWG Issue 3262. Formatting of negative durations is not specified](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262)
 - [LWG Issue 3270. Parsing and formatting `%j` with `duration`s](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270)
-- [LWG Issue 3272. `%I``%p` should `parse`/`format` `duration` since midnight](https://wg21.cmeerw.net/lwg/issue3272)
+- [LWG Issue 3272. `%I%p` should `parse`/`format` `duration` since midnight](https://wg21.cmeerw.net/lwg/issue3272)
 - [P2372R1 Fixing locale handling in chrono formatters](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2372r1.html)
     - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる
 
