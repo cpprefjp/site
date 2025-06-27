@@ -15,8 +15,18 @@ namespace std {
     invocable<F&, iter_common_reference_t<I>> &&
     common_reference_with<
       invoke_result_t<F&, iter_value_t<I>&>,
-      invoke_result_t<F&, iter_reference_t<I>>>;
-  
+      invoke_result_t<F&, iter_reference_t<I>>>;  // C++20
+
+  template<class F, class I>
+  concept indirectly_unary_invocable =
+    indirectly_readable<I> &&
+    copy_constructible<F> &&
+    invocable<F&, iter_value_t<I>&> &&
+    invocable<F&, iter_reference_t<I>> &&
+    common_reference_with<
+      invoke_result_t<F&, iter_value_t<I>&>,
+      invoke_result_t<F&, iter_reference_t<I>>>;  // C++26
+
   template<class F, class I>
   concept indirectly_regular_unary_invocable =
     indirectly_readable<I> &&
@@ -26,7 +36,17 @@ namespace std {
     regular_invocable<F&, iter_common_reference_t<I>> &&
     common_reference_with<
       invoke_result_t<F&, iter_value_t<I>&>,
-      invoke_result_t<F&, iter_reference_t<I>>>;
+      invoke_result_t<F&, iter_reference_t<I>>>;  // C++20
+
+  template<class F, class I>
+  concept indirectly_regular_unary_invocable =
+    indirectly_readable<I> &&
+    copy_constructible<F> &&
+    regular_invocable<F&, iter_value_t<I>&> &&
+    regular_invocable<F&, iter_reference_t<I>> &&
+    common_reference_with<
+      invoke_result_t<F&, iter_value_t<I>&>,
+      invoke_result_t<F&, iter_reference_t<I>>>;  // C++26
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
@@ -117,3 +137,5 @@ std::istream_iterator<int> is not indirectly_unary_invocable int(int&&)
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P2997R1 Removing the common reference requirement from the indirectly invocable concepts](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2997r1.html)
+    - C++26でイテレータの共通参照要件を削除
