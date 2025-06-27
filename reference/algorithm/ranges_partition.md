@@ -58,8 +58,7 @@ namespace std::ranges {
 
 `N = last - first`として
 
-- (1) : `I` が [`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルとなる場合、最大で `N / 2` 回 swap され、そうでない場合、最大で `N` 回 swap される。それに加えて、正確に `N` 回だけ述語が適用される
-- (2) : O(NlogN) 回の swap に加え、述語が O(N) 回適用される
+- (1), (2) : `I` が [`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)のモデルとなる場合、最大で `N / 2` 回 swap され、そうでない場合、最大で `N` 回 swap される。それに加えて、正確に `N` 回だけ述語が適用される
 
 
 ## 例
