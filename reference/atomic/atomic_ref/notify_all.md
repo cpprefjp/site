@@ -7,7 +7,7 @@
 
 ```cpp
 void notify_all() const noexcept; // (1) C++20
-constexpr void notify_all() const noexcept; // (1) C++20
+constexpr void notify_all() const noexcept; // (1) C++26
 ```
 
 ## 概要

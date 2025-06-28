@@ -10,7 +10,7 @@ namespace std {
     atomic_flag_clear(volatile atomic_flag* object) noexcept; // (1) C++11
 
   void
-    atomic_flag_clear(atomic_flag* object) noexcept;          // (2) C++26
+    atomic_flag_clear(atomic_flag* object) noexcept;          // (2) C++11
   constexpr void
     atomic_flag_clear(atomic_flag* object) noexcept;          // (2) C++26
 }

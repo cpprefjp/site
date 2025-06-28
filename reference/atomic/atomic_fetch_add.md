@@ -31,7 +31,7 @@ namespace std {
   constexpr T
     atomic_fetch_add(
       atomic<T>* object,
-      typename atomic<T>::difference_type operand) noexcept; // (2) C++17
+      typename atomic<T>::difference_type operand) noexcept; // (2) C++26
 }
 ```
 * atomic[link /reference/atomic/atomic.md]

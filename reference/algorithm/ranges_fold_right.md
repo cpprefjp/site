@@ -23,7 +23,7 @@ namespace std::ranges {
     fold_right(I first,
                S last,
                T init,
-               F f);    // (1) C++23
+               F f);    // (1) C++26
 
   template <bidirectional_range R,
             class T,

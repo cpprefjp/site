@@ -19,7 +19,7 @@ namespace std {
   double
     tgamma(Integral x);               // (5) C++11
   constexpr double
-    tgamma(Integral x);               // (5) C++11
+    tgamma(Integral x);               // (5) C++26
 
   float
     tgammaf(float x);                 // (6) C++17

@@ -158,7 +158,7 @@ template<class T>
 constexpr basic_string&
   replace(size_type pos1,
           size_type n1,
-          const T& t);    // (12) C++17
+          const T& t);    // (12) C++20
 
 template<class T>
 basic_string&

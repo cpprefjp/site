@@ -22,7 +22,7 @@ namespace std {
   constexpr ForwardIterator
     lower_bound(ForwardIterator first,
                 ForwardIterator last,
-                const T& value);       // (1) C++20
+                const T& value);       // (1) C++26
 
   template <class ForwardIterator,
             class T,

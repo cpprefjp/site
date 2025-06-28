@@ -22,7 +22,7 @@ namespace std {
   constexpr void
     fill(ForwardIterator first,
          ForwardIterator last,
-         const T& value);        // (1) C++20
+         const T& value);        // (1) C++26
 
   template <class ExecutionPolicy,
             class ForwardIterator,

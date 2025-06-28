@@ -46,7 +46,7 @@ namespace std {
          typename atomic<T>::value_type* expected,
          typename atomic<T>::value_type desired,
          memory_order success,
-         memory_order failure) noexcept;        // (2) C++17
+         memory_order failure) noexcept;        // (2) C++26
 }
 ```
 * atomic[link atomic.md]
