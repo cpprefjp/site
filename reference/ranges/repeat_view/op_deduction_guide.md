@@ -2,7 +2,7 @@
 * ranges[meta header]
 * std::ranges[meta namespace]
 * function[meta id-type]
-* cpp20[meta cpp]
+* cpp23[meta cpp]
 
 ```cpp
 namespace std::ranges {

@@ -3,7 +3,7 @@
 * std::ranges[meta namespace]
 * empty_view[meta class]
 * function[meta id-type]
-* cpp23[meta cpp]
+* cpp20[meta cpp]
 
 ```cpp
 static constexpr T* end() noexcept; // (1) C++20

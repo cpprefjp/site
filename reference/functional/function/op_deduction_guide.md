@@ -78,7 +78,7 @@ int main()
 
 ## バージョン
 ### 言語
-- C++20
+- C++17
 
 ### 処理系
 - [Clang](/implementation.md#clang):
