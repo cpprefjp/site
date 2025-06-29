@@ -198,6 +198,7 @@ int main()
   std::cout << result << std::endl;
 }
 ```
+* set_value[color ff0000]
 
 ### 出力
 ```

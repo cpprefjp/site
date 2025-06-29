@@ -70,7 +70,7 @@ int main()
 ```
 * std::disjunction[color ff0000]
 * std::is_pointer[link is_pointer.md]
-* std::is_member_object_pointer[link is_move_assignable.md]
+* std::is_member_object_pointer[link is_member_object_pointer.md]
 * std::is_member_function_pointer[link is_member_function_pointer.md]
 * std::enable_if_t[link enable_if.md]
 

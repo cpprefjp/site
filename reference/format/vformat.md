@@ -78,7 +78,7 @@ string vformat(const locale& loc, wstring_view fmt, wformat_args args) {
 * format_args[link /reference/format/basic_format_args.md]
 * wformat_args[link /reference/format/basic_format_args.md]
 * locale[link /reference/locale/locale.md]
-* vformat_to[link vformat.md]
+* vformat_to[link vformat_to.md]
 * back_inserter[link /reference/iterator/back_inserter.md]
 
 ## バージョン

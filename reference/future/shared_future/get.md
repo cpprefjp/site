@@ -150,7 +150,8 @@ int main()
   x.join();
 }
 ```
-* set_value[color ff0000]
+* get()[color ff0000]
+* p.set_value()[link /reference/future/promise/set_value.md]
 
 ### 出力例
 ```

@@ -50,7 +50,7 @@ int main()
 ```
 * std::numbers::sqrt2[color ff0000]
 * std::numbers::sqrt2_v[color ff0000]
-* std::sqrt[link /reference/cmath/log.md]
+* std::sqrt[link /reference/cmath/sqrt.md]
 
 ### 出力
 ```

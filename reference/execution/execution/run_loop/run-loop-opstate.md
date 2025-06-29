@@ -54,7 +54,7 @@ struct run-loop-opstate-base {  // exposition only
     }
     ```
     * push-back[link run.md]
-    * set_error[link ../set_value.md]
+    * set_error[link ../set_error.md]
     * addressof[link /reference/memory/addressof.md]
     * std::move[link /reference/utility/move.md]
     * current_exception()[link /reference/exception/current_exception.md]

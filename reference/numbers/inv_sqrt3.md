@@ -74,7 +74,7 @@ int main()
 ```
 * std::numbers::inv_sqrt3[color ff0000]
 * std::numbers::inv_sqrt3_v[color ff0000]
-* std::sqrt[link /reference/cmath/log.md]
+* std::sqrt[link /reference/cmath/sqrt.md]
 
 ### 出力
 ```

@@ -61,7 +61,7 @@ int main()
 * std::error_condition[link /reference/system_error/error_condition.md]
 * ec.value()[link value.md]
 * ec.category()[link category.md]
-* ec.message()[link category.md]
+* ec.message()[link message.md]
 * name()[link /reference/system_error/error_category/name.md]
 * ed.value()[link /reference/system_error/error_condition/value.md]
 * ed.category()[link /reference/system_error/error_condition/category.md]
