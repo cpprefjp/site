@@ -1,6 +1,7 @@
 # 推論補助
 * ranges[meta header]
 * std::ranges[meta namespace]
+* drop_while_view[meta class]
 * function[meta id-type]
 * cpp20[meta cpp]
 

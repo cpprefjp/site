@@ -1,6 +1,7 @@
 # 推論補助
 * ranges[meta header]
 * std::ranges[meta namespace]
+* as_rvalue_view[meta class]
 * function[meta id-type]
 * cpp23[meta cpp]
 
