@@ -53,13 +53,13 @@ int main()
   // 領域を切り詰める
   v.shrink_to_fit();
   std::cout << v.capacity() << std::endl;
-  assert(v.capacity() == v.size());
 }
 ```
 * shrink_to_fit()[color ff0000]
 * v.capacity()[link capacity.md]
+* v.erase[link erase.md]
 
-### 出力
+### 出力例
 ```
 3
 3
