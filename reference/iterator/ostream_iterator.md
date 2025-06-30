@@ -7,7 +7,7 @@
 namespace std {
   template <class T, class CharT = char, class Traits = char_traits<CharT> >
   class ostream_iterator
-    : public iterator<output_iterator_tag, void, void, void, void>
+    : public iterator<output_iterator_tag, void, void, void, void>;
 }
 ```
 * char_traits[link /reference/string/char_traits.md]

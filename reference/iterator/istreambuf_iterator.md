@@ -7,7 +7,7 @@
 namespace std {
   template <class CharT, class Traits = char_traits<CharT> >
   class istreambuf_iterator
-    : public iterator<input_iterator_tag, CharT, typename Traits::off_type, unspecified, CharT>
+    : public iterator<input_iterator_tag, CharT, typename Traits::off_type, unspecified, CharT>;
 }
 ```
 * char_traits[link /reference/string/char_traits.md]

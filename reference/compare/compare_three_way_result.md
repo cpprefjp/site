@@ -52,7 +52,7 @@ struct wrap {
   auto operator<=>(const wrap&) const
     -> fallback_comp3way_t<T, std::weak_ordering>
       = default;
-}
+};
 
 // <=>を定義しない型
 struct no_spaceship {

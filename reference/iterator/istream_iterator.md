@@ -8,7 +8,7 @@ namespace std {
   template <class T, class CharT = char,
             class Traits = char_traits<CharT>, class Distance = ptrdiff_t>
   class istream_iterator
-    : public iterator<input_iterator_tag, T, Distance, const T*, const T&>
+    : public iterator<input_iterator_tag, T, Distance, const T*, const T&>;
 }
 ```
 * char_traits[link /reference/string/char_traits.md]
