@@ -1,7 +1,7 @@
 # get
 * ranges[meta header]
 * std[meta namespace]
-* class template[meta id-type]
+* function template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp

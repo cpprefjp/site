@@ -1,7 +1,7 @@
 # void_t
 * type_traits[meta header]
 * std[meta namespace]
-* class template[meta id-type]
+* type-alias[meta id-type]
 * cpp17[meta cpp]
 
 ```cpp

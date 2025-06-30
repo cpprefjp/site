@@ -1,7 +1,7 @@
 # in_found_result
 * algorithm[meta header]
 * std::ranges[meta namespace]
-* function template[meta id-type]
+* class template[meta id-type]
 * cpp20[meta cpp]
 
 ```cpp

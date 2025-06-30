@@ -1,7 +1,7 @@
 # in_value_result
 * algorithm[meta header]
 * std::ranges[meta namespace]
-* class[meta id-type]
+* class template[meta id-type]
 * cpp23[meta cpp]
 
 ```cpp

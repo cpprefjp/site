@@ -1,6 +1,6 @@
 # event
 * ios[meta header]
-* type-alias[meta id-type]
+* enum[meta id-type]
 * std[meta namespace]
 * ios_base[meta class]
 

@@ -1,7 +1,7 @@
 # ratio_multiply
 * ratio[meta header]
 * std[meta namespace]
-* class template[meta id-type]
+* type-alias[meta id-type]
 * cpp11[meta cpp]
 
 ```cpp
