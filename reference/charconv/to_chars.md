@@ -396,9 +396,11 @@ z
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): 7.0(整数のみ) [mark verified], 14.0(full support) [mark verified]
+- [Clang](/implementation.md#clang): 7.0(整数のみ) [mark verified], 14.0(full support ※) [mark verified]
 - [GCC](/implementation.md#gcc): 8.0(整数のみ) [mark verified], 11.1(full support) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7(整数のみ) [mark verified], update 9(full support) [mark verified]
+
+※ Clangの実装では、(8), (12)は第３引数のlong double変数が関数内でdouble型に変換される。
 
 ## 関連項目
 - [`chars_format`](../charconv/chars_format.md)
