@@ -1,4 +1,4 @@
-# max_size
+# get_allocator
 * stacktrace[meta header]
 * std[meta namespace]
 * basic_stacktrace[meta class]

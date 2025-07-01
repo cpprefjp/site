@@ -1,4 +1,4 @@
-# weekday
+# index
 * chrono[meta header]
 * std::chrono[meta namespace]
 * weekday_indexed[meta class]
