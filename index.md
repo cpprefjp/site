@@ -163,9 +163,9 @@ Googleによるデータ使用の詳細は、以下のURLで確認すること�
 
 
 ## ライセンスについて
-本サイトの情報は、[クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)](https://creativecommons.org/licenses/by/3.0/)の下に提供しています。
+本サイトの情報は、[クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)](https://creativecommons.org/licenses/by/4.0/)の下に提供しています。
 
-![](https://i.creativecommons.org/l/by/3.0/88x31.png)
+![](https://i.creativecommons.org/l/by/4.0/88x31.png)
 
 cpprefjpサイトのアイコン・ロゴ画像は、[クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja)の下に提供しています。
 
