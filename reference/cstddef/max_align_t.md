@@ -11,7 +11,7 @@ namespace std {
 ```
 
 ## 概要
-`std::max_align_t`は、どのスカラー型よりも大きいアライメントを必要とする型である。
+`std::max_align_t`のアライメントサイズは、スカラー型の中の最も大きなアライメントサイズと同じかそれ以上である。
 
 この型は、C++11では[POD型](/reference/type_traits/is_pod.md)、C++20では[トリビアル型](/reference/type_traits/is_trivial.md)に分類される。
 
@@ -28,6 +28,8 @@ int main()
 {
   std::cout << "sizeof(max_align_t): " << sizeof(std::max_align_t) << std::endl;
   std::cout << "alignof(max_align_t): " << alignof(std::max_align_t) << std::endl;
+  static_assert(alignof(std::max_align_t) >= alignof(long long), "");
+  static_assert(alignof(std::max_align_t) >= alignof(long double), "");
 
   std::cout << "is_object<max_align_t>: " << std::is_object<std::max_align_t>::value << std::endl;
   std::cout << "is_scalar<max_align_t>: " << std::is_scalar<std::max_align_t>::value << std::endl;
@@ -45,7 +47,7 @@ int main()
 * std::is_class[link /reference/type_traits/is_class.md]
 * std::is_pod[link /reference/type_traits/is_pod.md]
 
-### 出力
+### 出力例
 ```
 sizeof(max_align_t): 24
 alignof(max_align_t): 8
