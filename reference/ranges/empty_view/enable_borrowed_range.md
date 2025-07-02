@@ -1,7 +1,6 @@
 # enable_borrowed_range
 * ranges[meta header]
 * std::ranges[meta namespace]
-* empty_view[meta class]
 * variable[meta id-type]
 * cpp20[meta cpp]
 

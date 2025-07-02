@@ -1,7 +1,6 @@
 # formatter
 * thread[meta header]
 * std[meta namespace]
-* thread::id[meta class]
 * class[meta id-type]
 * cpp23[meta cpp]
 
