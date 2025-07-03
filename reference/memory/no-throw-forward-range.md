@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class R>
-  concept no-throw-input-range =
+  concept no-throw-forward-range =
     no-throw-input-range<R> &&
     no-throw-forward-iterator<iterator_t<R>>;
 }

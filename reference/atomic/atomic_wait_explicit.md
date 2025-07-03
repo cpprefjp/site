@@ -8,18 +8,18 @@
 namespace std {
   template<class T>
   void
-    atomic_wait(const volatile atomic<T>* object,
+    atomic_wait_explicit(const volatile atomic<T>* object,
                 typename atomic<T>::value_type old,
                 memory_order order);                 // (1) C++20
 
   template<class T>
   void
-    atomic_wait(const atomic<T>* object,
+    atomic_wait_explicit(const atomic<T>* object,
                 typename atomic<T>::value_type old,
                 memory_order order);                 // (2) C++20
   template<class T>
   constexpr void
-    atomic_wait(const atomic<T>* object,
+    atomic_wait_explicit(const atomic<T>* object,
                 typename atomic<T>::value_type old,
                 memory_order order);                 // (2) C++26
 }

@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class I>
-  concept no-throw-input-iterator =
+  concept no-throw-forward-iterator =
     no-throw-input-iterator<I> &&
     forward_iterator<T> &&
     no-throw-sentinel<T, I>

@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-const directory_entry& operator*() const;
+const directory_entry& operator->() const;
 ```
 * directory_entry[link /reference/filesystem/directory_entry.md]
 
