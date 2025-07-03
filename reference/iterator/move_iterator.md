@@ -45,7 +45,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
 | `iterator_type` | 元となるイテレータ型 `Iterator` | C++11 |
-| [`difference_type`](move_iterator/type-deferrence_type.md) | イテレータ間の差を表す数値型 | C++11 |
+| [`difference_type`](move_iterator/type-difference_type.md) | イテレータ間の差を表す数値型 | C++11 |
 | `pointer` | ポインタ型 `Iterator` | C++11 |
 | [`value_type`](move_iterator/type-value_type.md) | イテレータが指す値型 | C++11 |
 | [`iterator_category`](move_iterator/type-iterator_category.md) | イテレータの分類を表す型 | C++11 |
