@@ -1,4 +1,4 @@
-# 代入演算子
+# operator=
 * locale[meta header]
 * std[meta namespace]
 * wstring_convert[meta class]

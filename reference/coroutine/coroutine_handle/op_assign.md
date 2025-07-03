@@ -1,4 +1,4 @@
-# 代入演算子
+# operator=
 * coroutine[meta header]
 * std[meta namespace]
 * coroutine_handle[meta class]
