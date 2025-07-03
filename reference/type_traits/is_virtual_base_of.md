@@ -1,4 +1,4 @@
-# is_virtualbase_of
+# is_virtual_base_of
 * type_traits[meta header]
 * std[meta namespace]
 * class template[meta id-type]

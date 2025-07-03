@@ -1,4 +1,4 @@
-# vector_idx_abs_sum
+# vector_idx_abs_max
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]

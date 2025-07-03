@@ -1,4 +1,4 @@
-# deferrence_type
+# difference_type
 * iterator[meta header]
 * std[meta namespace]
 * move_iterator[meta class]
