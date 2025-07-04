@@ -32,7 +32,7 @@ namespace std::contracts {
 | [`is_terminating`](contracts/contract_violation/is_terminating.md) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
 | [`kind`](contracts/contract_violation/kind.md) | 違反した契約の種類 | C++26|
 | [`location`](contracts/contract_violation/location.md) | 契約違反が発生したソースコードの位置 | C++26|
-| [`semantic`](contracts/contract_violation/semantic.md.nolink) | 契約の評価方法 | C++26|
+| [`semantic`](contracts/contract_violation/semantic.md) | 契約の評価方法 | C++26|
 
 ## 参照
 - [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
