@@ -31,7 +31,7 @@ namespace std::contracts {
 | [`evaluation_exception`](contracts/contract_violation/evaluation_exception.md) | 契約が例外を飛ばしたことによって終了した場合の例外へのポインタ | C++26 |
 | [`is_terminating`](contracts/contract_violation/is_terminating.md) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
 | [`kind`](contracts/contract_violation/kind.md) | 違反した契約の種類 | C++26|
-| [`location`](contracts/contract_violation/location.md.nolink) | 契約違反が発生したソースコードの位置 | C++26|
+| [`location`](contracts/contract_violation/location.md) | 契約違反が発生したソースコードの位置 | C++26|
 | [`semantic`](contracts/contract_violation/semantic.md.nolink) | 契約の評価方法 | C++26|
 
 ## 参照
