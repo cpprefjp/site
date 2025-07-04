@@ -47,7 +47,7 @@
 | `fopen`    | ファイルを開く | |
 | `fflush`   | ファイルをフラッシュする | |
 | [`fprintf`](/reference/cstdio/fprintf.md)  | 書式を指定してファイルに出力する | |
-| `fscanf`   | 書式を指定してファイルから入力する | |
+| [`fscanf`](/reference/cstdio/fscanf.md)   | 書式を指定してファイルから入力する | |
 | `vfprintf` | 可変引数リスト`va_list`を使用し、書式を指定してファイルに出力する | |
 | `vfscanf`  | 可変引数リスト`va_list`を使用し、書式を指定してファイルから入力する | C++17 |
 | `fgetc`    | ファイルから1文字入力する | |
