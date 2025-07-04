@@ -22,7 +22,7 @@ int main() {
 }
 ```
 * stderr[color ff0000]
-* std::fprintf[link /reference/cstdio/fprintf.md.nolink]
+* std::fprintf[link /reference/cstdio/fprintf.md]
 
 ### 出力（標準エラー出力）
 ```

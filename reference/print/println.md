@@ -45,14 +45,14 @@ namespace std {
     ```cpp
     println(stdout, fmt, std::forward<Args>(args)...);
     ```
-    * stdout[link /reference/cstdio/stdout.md.nolink]
+    * stdout[link /reference/cstdio/stdout.md]
     * std::forward[link /reference/utility/forward.md]
 
 - (2) : 以下と等価：
     ```cpp
     println(stdout);
     ```
-    * stdout[link /reference/cstdio/stdout.md.nolink]
+    * stdout[link /reference/cstdio/stdout.md]
 
 - (3) : 以下と等価：
     ```cpp

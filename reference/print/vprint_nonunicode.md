@@ -35,7 +35,7 @@ namespace std {
     ```cpp
     vprint_unicode(stdout, fmt, args);
     ```
-    * stdout[link /reference/cstdio/stdout.md.nolink]
+    * stdout[link /reference/cstdio/stdout.md]
 
 - (2) :
     - C++23 : [`vformat`](/reference/format/vformat.md)`(fmt, args)`の結果を`stream`に書き出す

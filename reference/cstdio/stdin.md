@@ -25,7 +25,7 @@ int main() {
 }
 ```
 * stdin[color ff0000]
-* std::fprintf[link /reference/cstdio/fprintf.md.nolink]
+* std::fprintf[link /reference/cstdio/fprintf.md]
 * std::fscanf[link /reference/cstdio/fscanf.md.nolink]
 * std::fprintf[link /reference/cstdio/fprintf.md.nolink]
 

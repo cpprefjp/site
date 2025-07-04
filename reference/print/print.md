@@ -39,7 +39,7 @@ namespace std {
     ```cpp
     print(stdout, fmt, std::forward<Args>(args)...);
     ```
-    * stdout[link /reference/cstdio/stdout.md.nolink]
+    * stdout[link /reference/cstdio/stdout.md]
     * std::forward[link /reference/utility/forward.md]
 
 - (2) :
