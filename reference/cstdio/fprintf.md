@@ -1,0 +1,43 @@
+# fprintf
+* cstdio[meta header]
+* std[meta namespace]
+* function[meta id-type]
+
+```cpp
+int fprintf( FILE* restrict stream, const char* restrict format, ... );
+```
+
+## 概要
+指定されたファイルストリームに、指定された書式文字列を使用してデータを出力する。
+
+## 例
+```cpp example
+#include <cstdio>
+
+int main() {
+  int n = 123;
+  std::fprintf(stdout, "Hello, World!\n%d\n", n);
+  const char* path = "test.txt";
+  std::FILE* fp = std::fopen(path, "w");
+  std::fprintf(fp, "Hello, World!\n%d\n", n);
+  std::fclose(fp);
+}
+```
+* std::fprintf[color ff0000]
+* std::fopen[link /reference/cstdio/fopen.md.nolink]
+* std::fclose[link /reference/cstdio/fclose.md.nolink]
+* std::FILE[link /reference/cstdio/file.md.nolink]
+### 出力
+```
+Hello, World!
+123
+```
+
+### ファイル出力(test.txt)
+```
+Hello, World!
+123
+```
+
+* std::fopen[link /reference/cstdio/fopen.md.nolink]
+* std::fclose[link /reference/cstdio/fclose.md.nolink]
