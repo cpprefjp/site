@@ -39,5 +39,7 @@ Hello, World!
 123
 ```
 
-* std::fopen[link /reference/cstdio/fopen.md.nolink]
-* std::fclose[link /reference/cstdio/fclose.md.nolink]
+## 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
