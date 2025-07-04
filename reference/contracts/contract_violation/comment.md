@@ -17,3 +17,19 @@ const char* comment() const noexcept;
 ## 戻り値
 契約違反の詳細を記録したchar列
 
+
+## 例外
+投げない
+
+## バージョン
+### 言語
+- C++26
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
+## 参照
+- [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
+- 
