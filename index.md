@@ -145,7 +145,7 @@ cpprefjpプロジェクトは、以下の方々にスポンサーになってい
 
 [sponsor name:ugai様, link:https://opencollective.com/ugai, fee:5, amount:1, period:2025-02-06]
 
-[sponsor name:ぼっちマスター様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/bocchi-master/my-icon.png, link:https://profile.bocchi-master.net/ size:320, fee:5, amount:12]
+[sponsor name:ぼっちマスター様, img:https://raw.githubusercontent.com/cpprefjp/image/master/sponsors/bocchi-master/my-icon.png, link:https://profile.bocchi-master.net/, size:320, fee:5, amount:12]
 
 
 スポンサーシップについては、以下のページを参照ください。
