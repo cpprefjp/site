@@ -30,7 +30,7 @@ C99互換として、`long long`整数型が追加された。
 ## 備考
 `long long`型の追加にともなって、ライブラリにも以下のような変更が入った：
 
-- [`fprintf()`](/reference/cstdio/fprintf.md.nolink)と[`fscanf()`](/reference/cstdio/fscanf.md.nolink)およびそのフォーマットを使用する関数に、`long long`を表す`ll`が表現幅を指示するために追加された。
+- [`fprintf()`](/reference/cstdio/fprintf.md)と[`fscanf()`](/reference/cstdio/fscanf.md)およびそのフォーマットを使用する関数に、`long long`を表す`ll`が表現幅を指示するために追加された。
 - `#if`および`#elif`に指定する定数条件式の評価について、「`(unsigned) int`は`(unsigned) long`と同じ表現（範囲）を持つように振舞う」とされていたのが、「全ての符号付きまたは符号無し整数型はそれぞれ[`intmax_t`](/reference/cstdint/intmax_t.md)または[`uintmax_t`](/reference/cstdint/uintmax_t.md)の表現（範囲）を持つように振舞う」と変更された。
 - その他、入出力や数学の関数にも、`long long`型のサポートが追加された。
 
