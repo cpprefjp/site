@@ -29,7 +29,7 @@ namespace std::contracts {
 | [`comment`](contracts/contract_violation/comment.md) | 契約違反の詳細を記録したchar列を返す | C++26 |
 | [`detection_mode`](contracts/contract_violation/detection_mode.md) | 契約違反が特定された方法を返す | C++26 |
 | [`evaluation_exception`](contracts/contract_violation/evaluation_exception.md) | 契約が例外を飛ばしたことによって終了した場合の例外へのポインタ | C++26 |
-| [`is_terminating`](contracts/contract_violation/is_terminating.md.nolink) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
+| [`is_terminating`](contracts/contract_violation/is_terminating.md) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
 | [`kind`](contracts/contract_violation/kind.md.nolink) | 違反した契約の種類 | C++26|
 | [`location`](contracts/contract_violation/location.md.nolink) | 契約違反が発生したソースコードの位置 | C++26|
 | [`semantic`](contracts/contract_violation/semantic.md.nolink) | 契約の評価方法 | C++26|
