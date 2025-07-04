@@ -1,7 +1,7 @@
 # stdout
 * cstdio[meta header]
 * std[meta namespace]
-* object[meta id-type]
+* macro[meta id-type]
 
 ```cpp
 #define stdout /* implementation-defined */
