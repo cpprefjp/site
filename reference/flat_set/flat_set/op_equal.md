@@ -3,6 +3,7 @@
 * std[meta namespace]
 * function template[meta id-type]
 * flat_set[meta class]
+* cpp23[meta cpp]
 
 ```cpp
 friend bool operator==(const flat_set& x, const flat_set& y);
