@@ -31,7 +31,7 @@
 | `SEEK_END` | ファイルの終端を指定するための整数定数 | |
 | `TMP_MAX`  | `tempnam()`関数によって生成できる一時ファイル名の、実装が保証する最低限の数を表す整数定数 | |
 | `stderr`   | 標準エラーを表す`FILE*`型の式 |
-| `stdin`    | 標準入力を表す`FILE*`型の式 |
+| [`stdin`](/reference/cstdio/stdin.md)    | 標準入力を表す`FILE*`型の式 |
 | [`stdout`](/reference/cstdio/stdout.md)   | 標準出力を表す`FILE*`型の式 |
 
 
