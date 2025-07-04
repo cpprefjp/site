@@ -139,7 +139,7 @@ int main()
 * rdbuf[link /reference/ios/basic_ios/rdbuf.md]
 * std::stringstream[link /reference/sstream/basic_stringstream.md]
 * str()[link /reference/sstream/basic_stringstream/str.md]
-* std::fprintf[link /reference/cstdio/fprintf.md.nolink]
+* std::fprintf[link /reference/cstdio/fprintf.md]
 * Boost.Format[link http://www.boost.org/libs/format]
 * fmtlib[link https://github.com/fmtlib/fmt]
 * std::format[link /reference/format/format.md]
