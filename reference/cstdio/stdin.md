@@ -24,7 +24,7 @@ int main() {
   std::fprintf(fp2, "%d\n", n);
 }
 ```
-* std::stdin[color ff0000]
+* stdin[color ff0000]
 * std::fprintf[link /reference/cstdio/fprintf.md.nolink]
 * std::fscanf[link /reference/cstdio/fscanf.md.nolink]
 * std::fprintf[link /reference/cstdio/fprintf.md.nolink]

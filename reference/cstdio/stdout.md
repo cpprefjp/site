@@ -21,7 +21,7 @@ int main() {
   std::fprintf(fp, "Hello, World!\n");
 }
 ```
-* std::stdout[color ff0000]
+* stdout[color ff0000]
 * std::fprintf[link /reference/cstdio/fprintf.md.nolink]
 
 ### 出力
