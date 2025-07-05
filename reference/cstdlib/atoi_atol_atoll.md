@@ -60,7 +60,7 @@ int main(void)
 -2147483648
 ```
 
-## 処理系
+## バージョン
 ### 処理系
 - Clang: ?
 - GCC: 13[mark verified]
