@@ -51,7 +51,7 @@
 | `vfprintf` | 可変引数リスト`va_list`を使用し、書式を指定してファイルに出力する | |
 | `vfscanf`  | 可変引数リスト`va_list`を使用し、書式を指定してファイルから入力する | C++17 |
 | [`fgetc`](/reference/cstdio/fgetc.md)    | ファイルから1文字入力する | |
-| `fgets`    | ファイルからN文字入力する | |
+| [`fgets`](/reference/cstdio/fgets.md)    | ファイルからN文字入力する | |
 | `fputc`    | ファイルに1文字出力する | |
 | `fputs`    | ファイルにN文字出力する | |
 | `fread`    | ファイルからN文字読み込む | |
