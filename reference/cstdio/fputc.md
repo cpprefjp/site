@@ -15,7 +15,7 @@ int fputc( int ch, FILE* stream );
 ## 戻り値
 出力された文字を返す。
 
-失敗した場合、[`EOF`](/reference/cstdio/eof.md.nolink)を返す。
+失敗した場合、[`EOF`](/reference/cstdio/eof.md)を返す。
 
 ## 例
 ```cpp example
