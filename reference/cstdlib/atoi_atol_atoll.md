@@ -65,8 +65,14 @@ int main(void)
 - Clang: ?
 - GCC: 13[mark verified]
 - ICC:  ?
-- Visual C++
+- Visual C++ ?
 
+## 関連項目
+- [`stoi`](/reference/string/stoi.md)
+- [`stol`](/reference/string/stol.md)
+- [`stoll`](/reference/string/stoll.md)
+
+それぞれ`std::string` および `std::wstring` に対応させたものと見なせる。
 
 ## 参照
 - [7.22.1.2 The atoi, atol, and atoll functions](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf)
