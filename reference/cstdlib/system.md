@@ -1,6 +1,7 @@
 # system
 * cstdlib[meta header]
-
+* std[meta namespace]
+* function[meta id-type]
 
 ```cpp
 int system( const char* command );
