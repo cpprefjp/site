@@ -14,14 +14,14 @@ namespace std {
                          format_args args); // (2) C++23
 }
 ```
-* FILE[link /reference/cstdio/file.md.nolink]
+* FILE[link /reference/cstdio/file.md]
 * format_args[link /reference/format/basic_format_args.md]
 
 ## 概要
 書式指定で非Unicode出力する。
 
 - (1) : 標準出力に、書式指定で非Unicode出力する
-- (2) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定で非Unicode出力する
+- (2) : 指定された[`FILE`](/reference/cstdio/file.md)に、書式指定で非Unicode出力する
 
 [`std::ostream`](/reference/ostream/basic_ostream.md)から派生したクラスオブジェクトに対して出力したい場合は、[`<ostream>`](/reference/ostream.md)ヘッダの[`std::vprint_nonunicode()`](/reference/ostream/vprint_nonunicode.md)関数を使用すること。
 

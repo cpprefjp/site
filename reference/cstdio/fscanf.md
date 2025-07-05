@@ -26,7 +26,7 @@ int main() {
 * std::fscanf[color ff0000]
 * std::fopen[link /reference/cstdio/fopen.md.nolink]
 * std::fclose[link /reference/cstdio/fclose.md.nolink]
-* std::FILE[link /reference/cstdio/file.md.nolink]
+* std::FILE[link /reference/cstdio/file.md]
 ### 出力(test.txtは以下参照)
 ```
 123

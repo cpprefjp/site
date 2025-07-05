@@ -21,7 +21,7 @@ namespace std {
 }
 ```
 * format_string[link /reference/format/basic_format_string.md]
-* FILE[link /reference/cstdio/file.md.nolink]
+* FILE[link /reference/cstdio/file.md]
 
 ## 概要
 書式指定で出力する。この関数は、出力の末尾に改行コードが自動で付加される。
@@ -32,8 +32,8 @@ namespace std {
 
 - (1) : 標準出力に、書式指定で出力する
 - (2) : 標準出力に改行コードを出力する
-- (3) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定で出力する
-- (4) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、改行コードを出力する
+- (3) : 指定された[`FILE`](/reference/cstdio/file.md)に、書式指定で出力する
+- (4) : 指定された[`FILE`](/reference/cstdio/file.md)に、改行コードを出力する
 
 この関数は、末尾に改行コードが付くことに注意。改行コードが不要な場合は、[`std::print()`](print.md)関数を使用すること。
 

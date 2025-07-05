@@ -17,7 +17,7 @@ namespace std {
 }
 ```
 * format_string[link /reference/format/basic_format_string.md]
-* FILE[link /reference/cstdio/file.md.nolink]
+* FILE[link /reference/cstdio/file.md]
 
 ## 概要
 書式指定で出力する。
@@ -27,7 +27,7 @@ namespace std {
 この関数は、[`std::printf()`](/reference/cstdio/printf.md.nolink)関数ライクな書式指定で引数を文字列化して出力する。
 
 - (1) : 標準出力に、書式指定で出力する
-- (2) : 指定された[`FILE`](/reference/cstdio/file.md.nolink)に、書式指定で出力する
+- (2) : 指定された[`FILE`](/reference/cstdio/file.md)に、書式指定で出力する
 
 この関数は、末尾に改行コードが付かないことに注意。改行コードを自動で付けたい場合は、[`std::println()`](println.md)関数を使用すること。
 

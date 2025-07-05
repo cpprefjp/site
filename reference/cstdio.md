@@ -9,7 +9,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`size_t`](/reference/cstddef/size_t.md) | 符号なし整数型 | |
-| [`FILE`](/reference/cstdio/file.md.nolink) | ストリームの制御に必要な情報を持つオブジェクト型 | |
+| [`FILE`](/reference/cstdio/file.md) | ストリームの制御に必要な情報を持つオブジェクト型 | |
 | [`fpos_t`](/reference/cstdio/fpos_t.md.nolink) | ファイルの全ての位置にアクセスするための配列以外の完全オブジェクト型 | |
 
 

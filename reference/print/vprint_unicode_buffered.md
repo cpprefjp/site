@@ -12,7 +12,7 @@ namespace std {
          format_args args); // (1) C++26
 }
 ```
-* FILE[link /reference/cstdio/file.md.nolink]
+* FILE[link /reference/cstdio/file.md]
 * format_args[link /reference/format/basic_format_args.md]
 
 ## 概要
