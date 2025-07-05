@@ -39,7 +39,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`remove`](/reference/cstdio/remove.md.nolink)   | ファイルを削除する | |
+| [`remove`](/reference/cstdio/remove.md)   | ファイルを削除する | |
 | [`rename`](/reference/cstdio/rename.md.nolink)   | ファイル名を変更、ファイルを移動する | |
 | [`tmpfile`](/reference/cstdio/tmpfile.md.nolink)  | 一時ファイルを生成する | |
 | [`tempname`](/reference/cstdio/tempname.md.nolink) | 一時ファイル名を生成する | |
