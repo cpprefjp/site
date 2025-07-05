@@ -232,7 +232,7 @@ long stol(const std::wstring& str, std::size_t* idx = nullptr, long base = 10) {
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atol`: `stol`は`atol`を`std::string`および`std::wstring`に対応させたものと見なせる。
+- [`atol`](/reference/cstdlib/atoi_atol_atoll.md): `stol`は[`atol`](/reference/cstdlib/atoi_atol_atoll.md)を`std::string`および`std::wstring`に対応させたものと見なせる。
 - `strtol`, `wcstol`: `stol`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
