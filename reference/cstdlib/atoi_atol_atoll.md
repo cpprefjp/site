@@ -60,6 +60,14 @@ int main(void)
 -2147483648
 ```
 
+## 処理系
+### 処理系
+- Clang: ?
+- GCC: 13[mark verified]
+- ICC:  ?
+- Visual C++
+
+
 ## 参照
 - [7.22.1.2 The atoi, atol, and atoll functions](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf)
 - [7.22.1.2 The atoi, atol, and atoll functions (p: 249)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf)
