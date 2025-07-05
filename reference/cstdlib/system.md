@@ -15,7 +15,7 @@ int system( const char* command );
 
 コマンドがヌルポインタの場合、ホスト環境にコマンドプロセッサが存在するか確認し、存在している場合のみに非ゼロ値を返す。
 
-## 注釈
+## 備考
 
 POSIXでは`WEXITSTATUS`と`WSTOPSIG`を使用、分解できる
 
