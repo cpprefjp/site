@@ -24,7 +24,7 @@
 | [`BUFSIZ`](/reference/cstdio/bufsiz.md.nolink) | バッファサイズを表す整数定数 | |
 | [`EOF`](/reference/cstdio/eof.md)    | ファイルの終端であることを表す`int`型の整数定数 | |
 | [`FOPEN_MAX`](/reference/cstdio/fopen_max.md.nolink)    | 実装によって保証されるファイルを開ける最低限の数を表す整数定数 | |
-| [`FILENAME_MAX`](/reference/cstdio/filename_max.md.nolink) | 実装によって保証されるファイル名の最大の長さを表す整数定数 | |
+| [`FILENAME_MAX`](/reference/cstdio/filename_max.md) | 実装によって保証されるファイル名の最大の長さを表す整数定数 | |
 | [`L_tmpnam`](/reference/cstdio/l_tmpnam.md.nolink) | `tmpnam()`関数によって作られた一時ファイル名を保持する似に必要な長さを表す整数定数 | |
 | [`SEEK_SET`](/reference/cstdio/seek_set.md.nolink) | ファイルの先頭位置を指定するための整数定数 | |
 | [`SEEK_CUR`](/reference/cstdio/seek_cur.md.nolink) | ファイルの現在位置を指定するための整数定数 | |
