@@ -237,7 +237,7 @@ unsigned long stoul(const std::wstring& str, std::size_t* idx = nullptr, unsigne
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atol`: `stoul`は`atol`を`std::string`および`std::wstring`に対応させ、戻り値の型を`unsigned long`に変更したものと見なせる。
+- [`atol`](/reference/cstdlib/atoi_atol_atoll.md): `stoul`は[`atol`](/reference/cstdlib/atoi_atol_atoll.md)を`std::string`および`std::wstring`に対応させ、戻り値の型を`unsigned long`に変更したものと見なせる。
 - `strtoul`, `wcstoul`: `stoul`は`strtoul`および`wcstoul`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
