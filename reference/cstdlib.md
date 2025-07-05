@@ -16,7 +16,7 @@
 | [`atoi`](cstdlib/atoi_atol_atoll.md) | 文字列を`int`型に変換する (function) | |
 | [`atol`](cstdlib/atoi_atol_atoll.md) | 文字列を`long`型に変換する (function) | |
 | [`atoll`](cstdlib/atoi_atol_atoll.md) | 文字列を`long long`型に変換する (function) | C++11 |
-| `atof`     | 文字列を`double`型に変換する (function) | |
+| [`atof`](cstdlib/atof.md) | 文字列を`double`型に変換する (function) | |
 | `strtol`   | 文字列を、基数を指定して`long`型に変換する (function) | |
 | `strtoll`  | 文字列を、基数を指定して`long long`型に変換する (function) | C++11 |
 | `strtoul`  | 文字列を、基数を指定して`unsigned long`型に変換する (function) | |
