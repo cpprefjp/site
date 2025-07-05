@@ -64,7 +64,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |----------|------|----------------|
-| `getenv` | 環境変数を取得する (function) | |
+| [`getenv`](cstdlib/getenv.md) | 環境変数を取得する (function) | |
 | [`system`](cstdlib/system.md) | システムコマンドを実行する (function) | |
 
 
