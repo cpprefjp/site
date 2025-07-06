@@ -44,7 +44,7 @@ int main()
 ```
 
 ## 関連項目
-- `rand`:疑似乱数を生成する
+- [`rand`](rand.md):疑似乱数を生成する
 - `RAND_MAX`:`std::rand()`が返す最高値。
 - `time`:時刻を取得する
 - [`time_t`](/reference/ctime/time_t.md):UNIX時間を表すための型。
