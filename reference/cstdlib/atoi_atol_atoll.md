@@ -11,7 +11,7 @@ long long atoll( const char* str );
 
 ## 概要
 
-`str`を`int` `long` `long long`に変換する。
+`str`を`int` 、`long` 、`long long`に変換する。
 
 基数は常に10である。
 
