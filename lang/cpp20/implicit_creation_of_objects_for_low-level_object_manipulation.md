@@ -181,7 +181,7 @@ C++においては、ポインタに対する演算（`+ -`など）はそのポ
     - [`std::allocator<T>::allocate`](/reference/memory/allocator/allocate.md)
 - Cライブラリ関数
     - `std::aligned_alloc`
-    - `std::calloc`
+    - [`std::calloc`](/reference/cstdlib/calloc.md)
     - `std::malloc`
     - `std::realloc`
     - `std::memcpy`
