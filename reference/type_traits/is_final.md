@@ -39,9 +39,9 @@ namespace std {
 struct A {};
 struct B final {};
 
-static_assert(std::is_final<A>::value == false, "A is a not final class");
+static_assert(std::is_final<A>::value == false, "A is not a final class");
 static_assert(std::is_final<B>::value == true,  "B is a final class");
-static_assert(std::is_final<int>::value == false, "int is a not final class");
+static_assert(std::is_final<int>::value == false, "int is not a final class");
 
 int main(){}
 ```
