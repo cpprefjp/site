@@ -64,7 +64,7 @@ int main()
   // (1)
   try {
     throw fs::filesystem_error(
-      "can't copy file. source file doesn't found",
+      "can't copy file. source file isn't found",
       std::make_error_code(std::errc::no_such_file_or_directory)
     );
   }
@@ -75,7 +75,7 @@ int main()
   // (2)
   try {
     throw fs::filesystem_error(
-      "can't copy file. source file doesn't found",
+      "can't copy file. source file isn't found",
       "a/b.txt",
       std::make_error_code(std::errc::no_such_file_or_directory)
     );
@@ -87,7 +87,7 @@ int main()
   // (3)
   try {
     throw fs::filesystem_error(
-      "can't copy file. source file doesn't found",
+      "can't copy file. source file isn't found",
       "a/from.txt",
       "b/to.txt",
       std::make_error_code(std::errc::no_such_file_or_directory)
@@ -104,9 +104,9 @@ int main()
 
 ### 出力例
 ```
-filesystem error: can't copy file. source file doesn't found: No such file or directory
-filesystem error: can't copy file. source file doesn't found: No such file or directory [a/b.txt]
-filesystem error: can't copy file. source file doesn't found: No such file or directory [a/from.txt] [b/to.txt]
+filesystem error: can't copy file. source file isn't found: No such file or directory
+filesystem error: can't copy file. source file isn't found: No such file or directory [a/b.txt]
+filesystem error: can't copy file. source file isn't found: No such file or directory [a/from.txt] [b/to.txt]
 ```
 
 ## バージョン

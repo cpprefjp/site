@@ -30,7 +30,7 @@ int main()
 {
   try {
     throw fs::filesystem_error(
-      "can't copy file. source file doesn't found",
+      "can't copy file. source file isn't found",
       std::make_error_code(std::errc::no_such_file_or_directory)
     );
   }
@@ -45,7 +45,7 @@ int main()
 
 ### 出力例
 ```
-filesystem error: can't copy file. source file doesn't found: No such file or directory
+filesystem error: can't copy file. source file isn't found: No such file or directory
 ```
 
 ## バージョン
