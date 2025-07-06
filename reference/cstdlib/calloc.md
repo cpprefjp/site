@@ -21,7 +21,7 @@ void *calloc(size_t nmemb, size_t size);
 
 ## 備考
 
-- `calloc`、`malloc`および `realloc`関数による連続的なメモリ確保によるメモリの割当の順序、連続性は未定義。
+- `calloc`、`malloc`および `realloc`関数による連続的なメモリ確保によるメモリの割当の順序、連続性は未定義である。
 
 ## 例
 
@@ -56,7 +56,7 @@ p2[3] == 0
 ```
 
 ## 関連項目
-- ["free"]("free.md.nolink"):確保されたメモリを解放する。
+- `free`:確保されたメモリを解放する。
 
 
 
