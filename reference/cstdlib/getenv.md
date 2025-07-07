@@ -35,7 +35,7 @@ int main()
 }
 ```
 
-## 出力結果
+## 出力例
 ```
 Your PATH is: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 ```
