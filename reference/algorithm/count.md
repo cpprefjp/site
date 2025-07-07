@@ -80,6 +80,11 @@ int main() {
 }
 ```
 * std::count[color ff0000]
+* std::vector[link /reference/vector/vector.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 #### 出力
 ```
@@ -113,6 +118,11 @@ int main() {
 }
 ```
 * std::count[color ff0000]
+* std::vector[link /reference/vector/vector.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 #### 出力
 ```
