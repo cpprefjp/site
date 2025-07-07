@@ -107,7 +107,7 @@ int main()
 }
 ```
 * std::partition_copy[color ff0000]
-* std::string[link /reference/string/string.md]
+* std::string[link /reference/string/string.md.nolink]
 * std::vector[link /reference/vector/vector.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
