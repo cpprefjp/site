@@ -3,6 +3,12 @@
 * std[meta namespace]
 * function[meta id-type]
 
+```cpp
+namespace std {
+  int rand();
+}
+```
+
 ## 概要
 `0`から`RAND_MAX`までの値の疑似乱数を返す。
 
