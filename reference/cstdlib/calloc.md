@@ -21,7 +21,7 @@ void *calloc(size_t nmemb, size_t size);
 
 ## 備考
 
-- `calloc`、`malloc`および `realloc`関数による連続的なメモリ確保によるメモリの割当の順序、連続性は未定義である。
+- `calloc`、`malloc`および `realloc`関数による連続的なメモリ確保によるメモリの割当の順序、連続性は不定である。
 
 ## 例
 
