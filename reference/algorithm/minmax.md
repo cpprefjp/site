@@ -96,7 +96,16 @@ int main()
 ```
 * std::minmax[color ff0000]
 * std::greater[link /reference/functional/greater.md]
-
+* std::pair[link /reference/utility/pair.md]
+* assert[link /reference/cassert/assert.md]
+* result1.first[link /reference/utility/pair/first.md]
+* result1.second[link /reference/utility/pair/second.md]
+* result2.first[link /reference/utility/pair/first.md]
+* result2.second[link /reference/utility/pair/second.md]
+* result3.first[link /reference/utility/pair/first.md]
+* result3.second[link /reference/utility/pair/second.md]
+* result4.first[link /reference/utility/pair/first.md]
+* result4.second[link /reference/utility/pair/second.md]
 ### 出力
 ```
 ```
