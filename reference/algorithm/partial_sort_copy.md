@@ -97,6 +97,12 @@ int main()
 * std::partial_sort_copy[color ff0000]
 * result.begin()[link /reference/vector/vector/begin.md]
 * result.end()[link /reference/vector/vector/end.md]
+* std::vector[link /reference/vector/vector.md]
+* std::v.begin[link /reference/vector/vector/begin.md]
+* std::v.end[link /reference/vector/vector/end.md]
+* std::for_each[link /reference/algorithm/for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```
