@@ -1,8 +1,8 @@
 # malloc
 
-- cstdlib[meta header]
-- std[meta namespace]
-- function[meta id-type]
+* cstdlib[meta header]
+* std[meta namespace]
+* function[meta id-type]
 
 ## 概要
 
