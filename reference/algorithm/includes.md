@@ -82,8 +82,12 @@ int main()
 }
 ```
 * std::includes[color ff0000]
+* std::set[link /reference/set/set.md]
 * begin()[link /reference/set/set/begin.md]
 * end()[link /reference/set/set/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```

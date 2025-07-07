@@ -24,8 +24,8 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 
 
 ## 計算量
-一般にコンテナのサイズについて対数時間だが、新しい要素が `hint` の前に挿入された場合は償却定数時間。
 
+コンテナサイズ（[`size()`](size.md)）に対して線形
 
 ## 例
 ```cpp example

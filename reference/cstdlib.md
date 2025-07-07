@@ -43,7 +43,7 @@
 | [`malloc`](cstdlib/malloc.md)  | メモリを確保する (function) | |
 | [`calloc`](cstdlib/calloc.md) | メモリを確保し、領域をゼロ初期化する (function) | |
 | [`realloc`](cstdlib/realloc.md.nolink) | メモリを再確保する (function) | |
-| [`free`](cstdlib/free.md.nolink)    | 確保したメモリを解放する (function) | |
+| [`free`](cstdlib/free.md)    | 確保したメモリを解放する (function) | |
 
 
 ## プログラムの開始と終了

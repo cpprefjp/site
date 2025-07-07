@@ -4,9 +4,11 @@
 * function[meta id-type]
 
 ```cpp
-int       atoi ( const char* str );
-long      atol ( const char* str );
-long long atoll( const char* str );
+namespace std {
+  int       atoi ( const char* str );
+  long      atol ( const char* str );
+  long long atoll( const char* str );
+}
 ```
 
 ## 概要
@@ -33,18 +35,18 @@ long long atoll( const char* str );
 ## 例
 
 ```cpp example
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
  
 int main(void)
 {
-    printf("%i\n", atoi(" -123junk"));
-    printf("%i\n", atoi(" +321dust"));
-    printf("%i\n", atoi("0"));
-    printf("%i\n", atoi("0042")); // 先頭の0を含む10進数として変換
-    printf("%i\n", atoi("0x2A")); // 0のみを変換、"x2A"は破棄される
-    printf("%i\n", atoi("junk")); // 変換不可
-    printf("%i\n", atoi("2147483648")); //intの範囲外
+  printf("%i\n", atoi(" -123junk"));
+  printf("%i\n", atoi(" +321dust"));
+  printf("%i\n", atoi("0"));
+  printf("%i\n", atoi("0042")); // 先頭の0を含む10進数として変換
+  printf("%i\n", atoi("0x2A")); // 0のみを変換、"x2A"は破棄される
+  printf("%i\n", atoi("junk")); // 変換不可
+  printf("%i\n", atoi("2147483648")); //intの範囲外
 }
 ```
 
@@ -59,13 +61,6 @@ int main(void)
 0
 -2147483648
 ```
-
-## バージョン
-### 処理系
-- Clang: ?
-- GCC: 13[mark verified]
-- ICC:  ?
-- Visual C++ ?
 
 ## 関連項目
 - [`stoi`](/reference/string/stoi.md)

@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-void srand( unsigned seed );
+namespace std {
+  void srand( unsigned seed );
+}
 ```
 
 ## 概要
@@ -33,8 +35,8 @@ void srand( unsigned seed );
  
 int main() 
 {
-    std::srand(std::time(0)); // 現在時刻を疑似乱数のシード値とする。
-    std::cout << std::rand() << '\n';
+  std::srand(std::time(0)); // 現在時刻を疑似乱数のシード値とする。
+  std::cout << std::rand() << '\n';
 }
 ```
 

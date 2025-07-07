@@ -176,6 +176,15 @@ int main()
 }
 ```
 * std::lower_bound[color ff0000]
+* std::string[link /reference/string/string.md.nolink]
+* std::vector[link /reference/vector/vector.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* std::size_t[link /reference/cstddef/size_t.md]
+* std::distance[link /reference/iterator/distance.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::sort[link sort.md]
 
 #### 出力
 ```

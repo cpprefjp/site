@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int system( const char* command );
+namespace std {
+  int system( const char* command );
+}
 ```
 
 ## 概要
@@ -30,8 +32,8 @@ POSIXでは`WEXITSTATUS`と`WSTOPSIG`を使用、分解できる
 
 int main()
 {
-    std::system("ls -l >test.txt");//"ls -l >test.txt"を実行
-    std::cout << std::ifstream("test.txt").rdbuf();
+  std::system("ls -l >test.txt");//"ls -l >test.txt"を実行
+  std::cout << std::ifstream("test.txt").rdbuf();
 }
 ```
 

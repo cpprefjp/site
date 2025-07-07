@@ -65,6 +65,10 @@ int main() {
 }
 ```
 * std::ranges::any_of[color ff0000]
+* std::array[link /reference/array/array.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
 
 ### 出力
 ```

@@ -11,7 +11,7 @@ namespace std::pmr {
 ```
 
 ## 概要
-メモリの確保も開放も行わない`memory_resource`を取得する。
+メモリの確保も解放も行わない`memory_resource`を取得する。
 
 この関数によって取得された`memory_resource`は以下の特徴を持つ。
 

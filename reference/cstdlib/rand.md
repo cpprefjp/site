@@ -3,6 +3,12 @@
 * std[meta namespace]
 * function[meta id-type]
 
+```cpp
+namespace std {
+  int rand();
+}
+```
+
 ## 概要
 `0`から`RAND_MAX`までの値の疑似乱数を返す。
 
@@ -31,8 +37,8 @@
 
 int main() 
 {
-    std::srand(std::time(0)); // 現在時刻を疑似乱数のシード値とする。
-    std::cout << std::rand() << '\n';
+  std::srand(std::time(0)); // 現在時刻を疑似乱数のシード値とする。
+  std::cout << std::rand() << '\n';
 }
 ```
 

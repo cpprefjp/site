@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-char* getenv( const char* env_var );
+namespace std {
+  char* getenv( const char* env_var );
+}
 ```
 
 ## 概要
@@ -28,12 +30,12 @@ C++11以降では、`getenv`が返す文字列を変更したときの動作は�
  
 int main()
 {
-    if (const char* env_p = std::getenv("PATH"))
-        std::cout << "Your PATH is: " << env_p << '\n';
+  if (const char* env_p = std::getenv("PATH"))
+    std::cout << "Your PATH is: " << env_p << '\n';
 }
 ```
 
-## 出力結果
+## 出力例
 ```
 Your PATH is: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 ```
