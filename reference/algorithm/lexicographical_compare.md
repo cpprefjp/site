@@ -137,6 +137,9 @@ int main()
 * begin()[link /reference/string/basic_string/begin.md]
 * end()[link /reference/string/basic_string/end.md]
 * std::greater[link /reference/functional/greater.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::string[link /reference/string/string.md]
 
 ### 出力
 ```
