@@ -138,6 +138,13 @@ int main() {
 }
 ```
 * std::equal[color ff0000]
+* std::vector[link /reference/vector/vector.md]
+* std::array[link /reference/array/array.md]
+* std::begin[link /reference/iterator/begin.md]
+* std::end[link /reference/iterator/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```
