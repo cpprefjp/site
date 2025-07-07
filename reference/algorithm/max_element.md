@@ -71,6 +71,15 @@ int main()
 }
 ```
 * std::max_element[color ff0000]
+* std::vector[link /reference/vector/vector.md]
+* std::pair[link /reference/utility/pair.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* v1.begin[link /reference/vector/vector/begin.md]
+* v1.end[link /reference/vector/vector/end.md]
+* v2.begin[link /reference/vector/vector/begin.md]
+* v2.end[link /reference/vector/vector/end.md]
+* assert[link /reference/cassert/assert.md]
 
 ### 出力
 ```
