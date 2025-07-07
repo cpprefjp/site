@@ -95,8 +95,15 @@ int main() {
 }
 ```
 * std::find_end[color ff0000]
-* ls.begin()[link /reference/list/list/begin.md]
-* ls.end()[link /reference/list/list/end.md]
+* std::vector[link /reference/vector/vector.md]
+* std::list[link /reference/list/list.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* ls.begin[link /reference/list/list/begin.md]
+* ls.end[link /reference/list/list/end.md]
+* std::distance[link /reference/iterator/distance.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```
