@@ -85,6 +85,14 @@ int main() {
 }
 ```
 * std::random_shuffle[color ff0000]
+* std::vector[link /reference/vector/vector.md]
+* std::iota[link /reference/numeric/iota.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::copy[link /reference/algorithm/copy.md]
 
 ### 出力
 ```
