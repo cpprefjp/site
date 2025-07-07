@@ -271,6 +271,7 @@
     * std::memory_order_release[link /reference/atomic/memory_order.md]
     * std::memory_order_seq_cst[link /reference/atomic/memory_order.md]
 * <barrier>[link /reference/barrier.md]
+    * std::barrier[link /reference/barrier/barrier.md]
 * <bit>[link /reference/bit.md]
 * <bitset>[link /reference/bitset.md]
     * std::bitset[link /reference/bitset/bitset.md]
