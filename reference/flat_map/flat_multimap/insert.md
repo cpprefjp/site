@@ -45,8 +45,6 @@ void insert(sorted_equivalent_t,
 
 内部的に `flat_multimap` コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。
 
-この操作は、適切な引数 `position` を提供することで効率を飛躍的に改善することができる。
-
 - (1) : 単一要素を挿入する
 - (2) : 単一要素の一時オブジェクトを挿入する
 - (3) : 指定された位置に、単一要素を挿入する
@@ -158,8 +156,11 @@ void insert(sorted_equivalent_t,
 
 
 ## 計算量
+- (1)~(6) : コンテナサイズ（[`size()`](size.md)）に対して線形
 - (7) : Nをこの操作の前の[`size()`](size.md)、Mを[`distance`](/reference/iterator/distance.md)`(first, last)`として、N + MlogM
 - (8) : Nをこの操作のあとの[`size()`](size.md)として、Nに対して線形
+- (9) : Nをこの操作の前の[`size()`](size.md)、Mを`il.size()`として、N + MlogM
+- (10) : Nをこの操作のあとの[`size()`](size.md)として、Nに対して線形
 
 
 ## 備考
