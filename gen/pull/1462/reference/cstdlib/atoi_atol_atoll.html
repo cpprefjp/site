@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9ab591e74c8ad634e355e9a471b3d11d31181f2a&#34;, &#34;source&#34;: &#34;#include &lt;stdio.h&gt;\n#include &lt;stdlib.h&gt;\n\nint main(void)\n{\n    printf(\&#34;%i\\n\&#34;, atoi(\&#34; -123junk\&#34;));\n    printf(\&#34;%i\\n\&#34;, atoi(\&#34; +321dust\&#34;));\n    printf(\&#34;%i\\n\&#34;, atoi(\&#34;0\&#34;));\n    printf(\&#34;%i\\n\&#34;, atoi(\&#34;0042\&#34;)); // \u5148\u982d\u306e0\u3092\u542b\u308010\u9032\u6570\u3068\u3057\u3066\u5909\u63db\n    printf(\&#34;%i\\n\&#34;, atoi(\&#34;0x2A\&#34;)); // 0\u306e\u307f\u3092\u5909\u63db\u3001\&#34;x2A\&#34;\u306f\u7834\u68c4\u3055\u308c\u308b\n    printf(\&#34;%i\\n\&#34;, atoi(\&#34;junk\&#34;)); // \u5909\u63db\u4e0d\u53ef\n    printf(\&#34;%i\\n\&#34;, atoi(\&#34;2147483648\&#34;)); //int\u306e\u7bc4\u56f2\u5916\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;atoi_atol_atoll&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;44257c5cb38dff9bf11aa250a7e370c2b3c445b2&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n#include &lt;cstdlib&gt;\n\nint main(void)\n{\n  printf(\&#34;%i\\n\&#34;, atoi(\&#34; -123junk\&#34;));\n  printf(\&#34;%i\\n\&#34;, atoi(\&#34; +321dust\&#34;));\n  printf(\&#34;%i\\n\&#34;, atoi(\&#34;0\&#34;));\n  printf(\&#34;%i\\n\&#34;, atoi(\&#34;0042\&#34;)); // \u5148\u982d\u306e0\u3092\u542b\u308010\u9032\u6570\u3068\u3057\u3066\u5909\u63db\n  printf(\&#34;%i\\n\&#34;, atoi(\&#34;0x2A\&#34;)); // 0\u306e\u307f\u3092\u5909\u63db\u3001\&#34;x2A\&#34;\u306f\u7834\u68c4\u3055\u308c\u308b\n  printf(\&#34;%i\\n\&#34;, atoi(\&#34;junk\&#34;)); // \u5909\u63db\u4e0d\u53ef\n  printf(\&#34;%i\\n\&#34;, atoi(\&#34;2147483648\&#34;)); //int\u306e\u7bc4\u56f2\u5916\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;atoi_atol_atoll&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-06T22:20:13">
-        2025年07月06日 22時20分13秒
+      <span itemprop="datePublished" content="2025-07-07T09:09:51">
+        2025年07月07日 09時09分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">K10-K10</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -213,9 +213,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">atoi,atol,atoll</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">int</span>       <span class="nf">atoi</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
-<span class="kt">long</span>      <span class="nf">atol</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
-<span class="kt">long</span> <span class="kt">long</span> <span class="nf">atoll</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">int</span>       <span class="n">atoi</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
+  <span class="kt">long</span>      <span class="nf">atol</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
+  <span class="kt">long</span> <span class="kt">long</span> <span class="nf">atoll</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -229,18 +231,18 @@
 <p>変換後の数値が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の範囲外の場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</p>
 <p>名前は、ASCII to integerから命名。</p>
 <h2>例</h2>
-<p><div class="yata" id="9ab591e74c8ad634e355e9a471b3d11d31181f2a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<p><div class="yata" id="44257c5cb38dff9bf11aa250a7e370c2b3c445b2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">" -123junk"</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">" +321dust"</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"0"</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"0042"</span><span class="p">));</span> <span class="c1">// 先頭の0を含む10進数として変換</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"0x2A"</span><span class="p">));</span> <span class="c1">// 0のみを変換、"x2A"は破棄される</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"junk"</span><span class="p">));</span> <span class="c1">// 変換不可</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"2147483648"</span><span class="p">));</span> <span class="c1">//intの範囲外</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">" -123junk"</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">" +321dust"</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"0"</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"0042"</span><span class="p">));</span> <span class="c1">// 先頭の0を含む10進数として変換</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"0x2A"</span><span class="p">));</span> <span class="c1">// 0のみを変換、"x2A"は破棄される</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"junk"</span><span class="p">));</span> <span class="c1">// 変換不可</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">atoi</span><span class="p">(</span><span class="s">"2147483648"</span><span class="p">));</span> <span class="c1">//intの範囲外</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -253,14 +255,6 @@
 0
 -2147483648
 </code></pre></p>
-<h2>バージョン</h2>
-<h3>処理系</h3>
-<ul>
-<li>Clang: ?</li>
-<li>GCC: 13<span aria-label="検証済" role="img" title="検証済">✅</span></li>
-<li>ICC:  ?</li>
-<li>Visual C++ ?</li>
-</ul>
 <h2>関連項目</h2>
 <ul>
 <li><code><a href="../string/stoi.html">stoi</a></code></li>

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8eef66f53a10f9058349d0a12fb04c12b2ee9f21&#34;, &#34;source&#34;: &#34;#include &lt;cstdlib&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n    std::cout &lt;&lt; std::atof(\&#34;0.0000000123\&#34;) &lt;&lt; &#39;\\n&#39;\n              &lt;&lt; std::atof(\&#34;0.012\&#34;) &lt;&lt; &#39;\\n&#39;\n              &lt;&lt; std::atof(\&#34;15e16\&#34;) &lt;&lt; &#39;\\n&#39;\n              &lt;&lt; std::atof(\&#34;-0x1afp-2\&#34;) &lt;&lt; &#39;\\n&#39;\n              &lt;&lt; std::atof(\&#34;inF\&#34;) &lt;&lt; &#39;\\n&#39;\n              &lt;&lt; std::atof(\&#34;12Nan23\&#34;) &lt;&lt; &#39;\\n&#39;\n              &lt;&lt; std::atof(\&#34;NAN\&#34;) &lt;&lt; &#39;\\n&#39;\n              &lt;&lt; std::atof(\&#34;invalid\&#34;) &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;atof&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;691d44022cb038ae7de8a21443562d9a8dfa674f&#34;, &#34;source&#34;: &#34;#include &lt;cstdlib&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout &lt;&lt; std::atof(\&#34;0.0000000123\&#34;) &lt;&lt; &#39;\\n&#39;\n            &lt;&lt; std::atof(\&#34;0.012\&#34;) &lt;&lt; &#39;\\n&#39;\n            &lt;&lt; std::atof(\&#34;15e16\&#34;) &lt;&lt; &#39;\\n&#39;\n            &lt;&lt; std::atof(\&#34;-0x1afp-2\&#34;) &lt;&lt; &#39;\\n&#39;\n            &lt;&lt; std::atof(\&#34;inF\&#34;) &lt;&lt; &#39;\\n&#39;\n            &lt;&lt; std::atof(\&#34;12Nan23\&#34;) &lt;&lt; &#39;\\n&#39;\n            &lt;&lt; std::atof(\&#34;NAN\&#34;) &lt;&lt; &#39;\\n&#39;\n            &lt;&lt; std::atof(\&#34;invalid\&#34;) &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;atof&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-05T13:41:47">
-        2025年07月05日 13時41分47秒
+      <span itemprop="datePublished" content="2025-07-07T09:09:51">
+        2025年07月07日 09時09分51秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">K10-K10</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -213,7 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">atof</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">double</span> <span class="nf">atof</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">atof</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -232,31 +234,23 @@
 <p>変換後の数値が<code>float</code>の範囲外なら、その<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</p>
 <p>変換不能なら<code>0.0</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="8eef66f53a10f9058349d0a12fb04c12b2ee9f21"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="691d44022cb038ae7de8a21443562d9a8dfa674f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"0.0000000123"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"0.012"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"15e16"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"-0x1afp-2"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"inF"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"12Nan23"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"NAN"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
-              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"invalid"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"0.0000000123"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"0.012"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"15e16"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"-0x1afp-2"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"inF"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"12Nan23"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"NAN"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="s">"invalid"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<h2>バージョン</h2>
-<h3>処理系</h3>
-<ul>
-<li>Clang: ?</li>
-<li>GCC: 13<span aria-label="検証済" role="img" title="検証済">✅</span></li>
-<li>ICC:  ?</li>
-<li>Visual C++</li>
-</ul>
-<h2>出力結果</h2>
+<h2>出力例</h2>
 <p><pre><code>1.23e-08
 0.012
 1.5e+17

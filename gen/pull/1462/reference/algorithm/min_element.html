@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2022-12-27T15:47:26">
-        2022年12月27日 15時47分26秒
+      <span itemprop="datePublished" content="2025-07-07T12:13:12">
+        2025年07月07日 12時13分12秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -257,18 +257,18 @@
   <span class="c1">// (1)</span>
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 
-  <span class="k">decltype</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">v1_min_element</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::min_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v1.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v1.end()</a></span><span class="p">);</span>
+  <span class="k">decltype</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">v1_min_element</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::min_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v1.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v1.end</a></span><span class="p">());</span>
   <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">v1_min_element</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
 
 
   <span class="c1">// (2)</span>
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">}};</span>
 
-  <span class="k">decltype</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">v2_min_element</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::min_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v2.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">decltype</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">v2_min_element</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::min_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v2.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v2.end</a></span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
   <span class="p">});</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">v2_min_element</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">v2_min_element</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">v2_min_element-&gt;first</span></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">v2_min_element-&gt;second</span></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

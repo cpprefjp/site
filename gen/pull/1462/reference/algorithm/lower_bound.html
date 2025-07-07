@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-28T02:55:48">
-        2025年06月28日 02時55分48秒
+      <span itemprop="datePublished" content="2025-07-07T12:13:12">
+        2025年07月07日 12時13分12秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -315,7 +315,7 @@
 
 <span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">name</span><span class="p">;</span>
+  <span class="n"><span href="https://cpprefjp.github.io/reference/string/string.md.nolink">std::string</span></span> <span class="n">name</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -328,9 +328,9 @@
     <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
 
     <span class="c1">// 4以上の要素を二分探索で検索</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lower_bound</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n">it</span><span class="p">);</span>
+    <span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lower_bound</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">())</span> <span class="p">{</span>
+      <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n">it</span><span class="p">);</span>
       <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">" pos="</span> <span class="o">&lt;&lt;</span> <span class="n">pos</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -339,13 +339,13 @@
   <span class="c1">// ソート済みイテレータ範囲から、特定の値を二分探索で見つける</span>
   <span class="p">{</span>
     <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-    <span class="n"><a href="sort.html">std::sort</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+    <span class="n"><a href="sort.html">std::sort</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">());</span>
 
     <span class="c1">// 二分探索で値4を検索</span>
-    <span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lower_bound</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span> <span class="o">&amp;&amp;</span> <span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// lower_boundでは4"以上"の値が見つかるので、</span>
+    <span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lower_bound</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// lower_boundでは4"以上"の値が見つかるので、</span>
                                      <span class="c1">// 値4を見つけたいなら検索結果の値を比較する必要がある</span>
-      <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n">it</span><span class="p">);</span>
+      <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n">it</span><span class="p">);</span>
       <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">" pos="</span> <span class="o">&lt;&lt;</span> <span class="n">pos</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -362,19 +362,19 @@
       <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="s">"Dave"</span><span class="p">}</span>
     <span class="p">};</span>
 
-    <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">key</span> <span class="o">=</span> <span class="s">"Carol"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string.md.nolink">std::string</span></span> <span class="n">key</span> <span class="o">=</span> <span class="s">"Carol"</span><span class="p">;</span>
 
     <span class="c1">// X::nameメンバ変数をキーにして、</span>
     <span class="c1">// X::name == "Carol"となる要素を二分探索で見つける</span>
     <span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lower_bound</span></span><span class="p">(</span>
-      <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span>
-      <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span>
+      <span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span>
+      <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span>
       <span class="n">X</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">key</span><span class="p">},</span> <span class="c1">// nameのみを比較するので、idの値はなんでもよい</span>
       <span class="p">[](</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">);</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span> <span class="o">&amp;&amp;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n">it</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n">it</span><span class="p">);</span>
       <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"id="</span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span>
                 <span class="o">&lt;&lt;</span> <span class="s">" name="</span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">name</span>
                 <span class="o">&lt;&lt;</span> <span class="s">" pos="</span> <span class="o">&lt;&lt;</span> <span class="n">pos</span>

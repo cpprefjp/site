@@ -16,23 +16,23 @@
 
         <meta charset="UTF-8">
 
-        <title>malloc - cpprefjp C++日本語リファレンス</title>
+        <title>free - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdlib,std,function
 ">
-        <meta name="title" content="malloc - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="malloc - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="malloc - cpprefjp C++日本語リファレンス" />
-        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/malloc.html" />
+        <meta name="title" content="free - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="free - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="free - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/free.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="" />
+        <meta property="og:description" content="`malloc`、`calloc`、`aligned_alloc`、`realloc`で確保されたメモリ領域を解放する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="malloc - cpprefjp C++日本語リファレンス" />
-        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/malloc.html" />
-        <meta name="twitter:description" content="" />
+        <meta name="twitter:title" content="free - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/free.html" />
+        <meta name="twitter:description" content="`malloc`、`calloc`、`aligned_alloc`、`realloc`で確保されたメモリ領域を解放する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;89e788a06cf1d4afa393645d6155398dfbb36ae3&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdlib&gt;\n\nint main(void)\n{\n  int *p1 = malloc(4*sizeof(int));  // 4\u500b\u306eint\u578b\u914d\u5217\u306e\u76ee\u76db\u308a\u3092\u78ba\u4fdd\n  int *p2 = malloc(sizeof(int[4])); // \u4e0a\u3068\u540c\u3058\u3002\n  int *p3 = malloc(4*sizeof *p3);   // \u4e0a\u3068\u540c\u3058\u3002\n\n  if(p1) {\n    for(int n=0; n&lt;4; ++n)\n      p1[n] = n*n;\n    for(int n=0; n&lt;4; ++n)\n      printf(\&#34;p1[%d] == %d\\n\&#34;, n, p1[n]);\n  }\n\n  free(p1);//\u30e1\u30e2\u30ea\u3092\u89e3\u653e\n  free(p2);\n  free(p3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;malloc&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;de861629ea07af793bea02332b251fbfec19b586&#34;, &#34;source&#34;: &#34;int main(void)\n{\n  int *p1 = malloc(10*sizeof *p1);\n  free(p1); // p1\u306e\u30e1\u30e2\u30ea\u3092\u89e3\u653e\n\n  int *p2 = calloc(10, sizeof *p2);\n  int *p3 = realloc(p2, 1000*sizeof *p3);\n  if(p3) \n    free(p3); // realloc \u306b\u3088\u308a\u65b0\u3057\u3044\u9818\u57df\u304c\u78ba\u4fdd\u3055\u308c\u305f\u5834\u5408\u3001\u305d\u308c\u3092\u89e3\u653e\n  else\n    free(p2); // realloc \u304c\u5931\u6557\u3057\u305f\u5834\u5408\u306f\u5143\u306e\u9818\u57df\u3092\u89e3\u653e\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;free&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name">malloc</span>
+              <span itemprop="name">free</span>
             
           
         </span>
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T13:15:06">
-        2025年07月07日 13時15分06秒
+      <span itemprop="datePublished" content="2025-07-07T13:40:35">
+        2025年07月07日 13時40分35秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -200,10 +200,10 @@
   
 
         <p class="text-right">
-          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdlib/malloc.md">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdlib/free.md">
             <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
           </a>
-          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdlib/malloc.md">
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdlib/free.md">
             <span class="fa fa-fw fa-pencil"></span>編集
           </a>
         </p>
@@ -212,60 +212,43 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">malloc</span></h1>
+  <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">free</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="kt">void</span> <span class="o">*</span><span class="n">malloc</span><span class="p">(</span> <span class="kt">size_t</span> <span class="n">size</span> <span class="p">);</span>
+  <span class="kt">void</span> <span class="n">free</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>初期化されていない<code>size_t</code>個の<code>size</code>型配列のメモリを確保する。</p>
-<p>確保可能なら、配列の初めのポインタを返す。</p>
-<p>確保不可能なら、<code>null</code>を返す。</p>
-<p>確保するサイズが 0 の時に<code>malloc</code>が返す値は、定義されていない。</p>
-<p>具体的には、<code>null</code>ポインタが返される場合もある。</p>
-<p>また、<code>null</code>以外のポインタが返された場合もあり、この場合はメモリリークを避けるため参照を解除せずに<code>free</code>関数に渡すべきである。</p>
-<p>この関数でできた、オブジェクトの寿命は、メモリ割り当て時から、 <code>free</code>などで解放されるまでである。</p>
+<p><code>malloc</code>、<code>calloc</code>、<code>aligned_alloc</code>、<code>realloc</code>で確保されたメモリ領域を解放する。</p>
+<p>解放済みのポインタを再度 <code>free</code> に渡したり、アクセスしたりするときの<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
+<p>ポインタが<code>nullptr</code>の場合、この関数は何も実行しない。</p>
+<p>解放されたポインタに再びアクセスする場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす恐れがある。</p>
 <h2>備考</h2>
 <p>この関数はスレッドセーフである。</p>
-<p>メモリリークを避けるため、この関数で確保したメモリは、<code>free</code>などを使い、メモリ解放するべきである。</p>
-<h2>例</h2>
-<p>cppref より引用。</p>
-<p><div class="yata" id="89e788a06cf1d4afa393645d6155398dfbb36ae3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<h2>実装例</h2>
+<p><div class="yata" id="de861629ea07af793bea02332b251fbfec19b586"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>  <span class="c1">// 4個のint型配列の目盛りを確保</span>
-  <span class="kt">int</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">[</span><span class="mi">4</span><span class="p">]));</span> <span class="c1">// 上と同じ。</span>
-  <span class="kt">int</span> <span class="o">*</span><span class="n">p3</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="k">sizeof</span> <span class="o">*</span><span class="n">p3</span><span class="p">);</span>   <span class="c1">// 上と同じ。</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="k">sizeof</span> <span class="o">*</span><span class="n">p1</span><span class="p">);</span>
+  <span class="n">free</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="c1">// p1のメモリを解放</span>
 
-  <span class="k">if</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span>
-      <span class="n">p1</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">"p1[%d] == %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p1</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span>
-  <span class="p">}</span>
-
-  <span class="n">free</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span><span class="c1">//メモリを解放</span>
-  <span class="n">free</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
-  <span class="n">free</span><span class="p">(</span><span class="n">p3</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="k">sizeof</span> <span class="o">*</span><span class="n">p2</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">p3</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="mi">1000</span><span class="o">*</span><span class="k">sizeof</span> <span class="o">*</span><span class="n">p3</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">p3</span><span class="p">)</span> 
+    <span class="n">free</span><span class="p">(</span><span class="n">p3</span><span class="p">);</span> <span class="c1">// realloc により新しい領域が確保された場合、それを解放</span>
+  <span class="k">else</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span> <span class="c1">// realloc が失敗した場合は元の領域を解放</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<h2>出力例</h2>
-<p><pre><code>p1[0] == 0
-p1[1] == 1
-p1[2] == 4
-p1[3] == 9
+<h3>出力</h3>
+<p><pre><code>
 </code></pre></p>
 <h2>関連項目</h2>
 <ul>
-<li><code><a href="free.html">free</a></code>: 確保したメモリを解放する。</li>
-</ul>
-<h2>参照</h2>
-<ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf" target="_blank">7.22.3 Memory management functions</a></li>
+<li><code><a href="aligned_alloc.html">aligned_alloc</a></code>:指定したアライメントでメモリを確保する</li>
+<li><code><a href="malloc.html">malloc</a></code>:メモリを確保する</li>
+<li><code><a href="calloc.html">calloc</a></code>:メモリを確保する(0で初期化する)</li>
+<li><code><span href="https://cpprefjp.github.io/reference/cstdlib/realloc.md.nolink">realloc</span></code>:メモリを再確保する</li>
 </ul></div>
 
       </div>

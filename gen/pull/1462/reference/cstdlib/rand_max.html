@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a2a91bfa8919f3b07e3c63896dbf6a7f38ae8b3a&#34;, &#34;source&#34;: &#34;#include &lt;climits&gt;\n#include &lt;cstdlib&gt;\n#include &lt;ctime&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n    // use current time as seed for random generator\n    std::srand(std::time(NULL));\n\n    std::cout &lt;&lt; \&#34;RAND_MAX: \&#34; &lt;&lt; RAND_MAX &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;rand_max&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;36b0d42f6f1a9547444a2887991dcc756a195535&#34;, &#34;source&#34;: &#34;#include &lt;climits&gt;\n#include &lt;cstdlib&gt;\n#include &lt;ctime&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n  // use current time as seed for random generator\n  std::srand(std::time(NULL));\n\n  std::cout &lt;&lt; \&#34;RAND_MAX: \&#34; &lt;&lt; RAND_MAX &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;rand_max&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-06T07:58:42">
-        2025年07月06日 07時58分42秒
+      <span itemprop="datePublished" content="2025-07-07T08:57:21">
+        2025年07月07日 08時57分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">K10-K10</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -221,17 +221,17 @@
 <p>このマクロの値は実装依存である。</p>
 <p>また、少なくとも<code>32767</code>以上であることは保証されている。</p>
 <h2>例</h2>
-<p><div class="yata" id="a2a91bfa8919f3b07e3c63896dbf6a7f38ae8b3a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../climits.html">&lt;climits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="36b0d42f6f1a9547444a2887991dcc756a195535"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../climits.html">&lt;climits&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="c1">// use current time as seed for random generator</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">srand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+  <span class="c1">// use current time as seed for random generator</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">srand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
 
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"RAND_MAX: "</span> <span class="o">&lt;&lt;</span> <span class="n">RAND_MAX</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"RAND_MAX: "</span> <span class="o">&lt;&lt;</span> <span class="n">RAND_MAX</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

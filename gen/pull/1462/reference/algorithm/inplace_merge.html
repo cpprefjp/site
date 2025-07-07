@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-08-02T04:41:43">
-        2024年08月02日 04時41分43秒
+      <span itemprop="datePublished" content="2025-07-07T11:03:21">
+        2025年07月07日 11時03分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -284,9 +284,9 @@
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">};</span>
 
   <span class="c1">// ソートされた2つのイテレータ範囲をマージ</span>
-  <span class="n"><span style="color:#ff0000">std::inplace_merge</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">std::inplace_merge</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">()</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">());</span>
 
-  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="p">});</span>
 <span class="p">}</span>

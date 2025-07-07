@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;class&#34;: [&#34;subrange&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d3cfea0c3f13fd740f76c9cf4e3499990aa98e98&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;ranges&gt;\n#include &lt;forward_list&gt;\n#include &lt;array&gt;\n\nint main()\n{\n  constexpr std::ranges::subrange&lt;int*, int*, std::ranges::subrange_kind::sized&gt; sub1;\n  static_assert(sub1.empty());\n\n  constexpr std::array arr= {1, 2, 3};\n  const std::ranges::subrange sub2(arr.begin(), arr.begin() + 1);\n  assert(sub2.size() == 1);\n\n  const std::forward_list fwl = {1, 2, 3};\n  const std::ranges::subrange sub3(fwl.begin(), ++fwl.begin(), 1);\n  // forward_list\u306fsized_range\u3067\u306f\u306a\u3044\u304c\u3001\u9577\u3055\u3092\u6307\u5b9a\u3057\u3066\u3044\u308b\u306e\u3067subrange\u306fsized_range\u3068\u306a\u308a\u3001size\u30e1\u30f3\u30d0\u95a2\u6570\u304c\u5b9a\u7fa9\u3055\u308c\u308b\n  static_assert(std::ranges::sized_range&lt;decltype(sub3)&gt;);\n  assert(sub3.size() == 1);\n\n  const std::ranges::subrange sub4 = arr;\n  assert(sub4.size() == 3);\n\n  const std::ranges::subrange sub5(fwl, 3);\n  // forward_list\u306fsized_range\u3067\u306f\u306a\u3044\u304c\u3001\u9577\u3055\u3092\u6307\u5b9a\u3057\u3066\u3044\u308b\u306e\u3067subrange\u306fsized_range\u3068\u306a\u308a\u3001size\u30e1\u30f3\u30d0\u95a2\u6570\u304c\u5b9a\u7fa9\u3055\u308c\u308b\n  static_assert(std::ranges::sized_range&lt;decltype(sub5)&gt;);\n  assert(sub4.size() == 3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;subrange&#34;, &#34;op_constructor&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;class&#34;: [&#34;subrange&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e38866c6127f95fe234bd4b0237f2773516b7039&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;ranges&gt;\n#include &lt;forward_list&gt;\n#include &lt;array&gt;\n\nint main()\n{\n  constexpr std::ranges::subrange&lt;int*, int*, std::ranges::subrange_kind::sized&gt; sub1;\n  static_assert(sub1.empty());\n\n  constexpr std::array arr= {1, 2, 3};\n  const std::ranges::subrange sub2(arr.begin(), arr.begin() + 1);\n  assert(sub2.size() == 1);\n\n  const std::forward_list fwl = {1, 2, 3};\n  const std::ranges::subrange sub3(fwl.begin(), ++fwl.begin(), 1);\n  // forward_list\u306fsized_range\u3067\u306f\u306a\u3044\u304c\u3001\u9577\u3055\u3092\u6307\u5b9a\u3057\u3066\u3044\u308b\u306e\u3067subrange\u306fsized_range\u3068\u306a\u308a\u3001size\u30e1\u30f3\u30d0\u95a2\u6570\u304c\u5b9a\u7fa9\u3055\u308c\u308b\n  static_assert(std::ranges::sized_range&lt;decltype(sub3)&gt;);\n  assert(sub3.size() == 1);\n\n  const std::ranges::subrange sub4 = arr;\n  assert(sub4.size() == 3);\n\n  const std::ranges::subrange sub5(fwl, 3);\n  // forward_list\u306fsized_range\u3067\u306f\u306a\u3044\u304c\u3001\u9577\u3055\u3092\u6307\u5b9a\u3057\u3066\u3044\u308b\u306e\u3067subrange\u306fsized_range\u3068\u306a\u308a\u3001size\u30e1\u30f3\u30d0\u95a2\u6570\u304c\u5b9a\u7fa9\u3055\u308c\u308b\n  static_assert(std::ranges::sized_range&lt;decltype(sub5)&gt;);\n  assert(sub5.size() == 3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;subrange&#34;, &#34;op_constructor&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T08:30:30">
-        2025年07月07日 08時30分30秒
+      <span itemprop="datePublished" content="2025-07-07T15:03:53">
+        2025年07月07日 15時03分53秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -280,7 +280,7 @@
 <h2>備考</h2>
 <p><code>subrange</code>はコピー、ムーブ可能である。また、テンプレート引数が異なる<code>subrange</code>からは、(4)によって構築できる。</p>
 <h2>例</h2>
-<p><div class="yata" id="d3cfea0c3f13fd740f76c9cf4e3499990aa98e98"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e38866c6127f95fe234bd4b0237f2773516b7039"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../forward_list.html">&lt;forward_list&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
@@ -306,7 +306,7 @@
   <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../subrange.html">subrange</a></span> <span class="n">sub5</span><span class="p">(</span><span class="n">fwl</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
   <span class="c1">// forward_listは<a href="../sized_range.html">sized_range</a>ではないが、長さを指定しているので<a href="../subrange.html">subrange</a>は<a href="../sized_range.html">sized_range</a>となり、sizeメンバ関数が定義される</span>
   <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sub5</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sub4</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sub5</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2023-08-17T08:14:08">
-        2023年08月17日 08時14分08秒
+      <span itemprop="datePublished" content="2025-07-07T14:29:20">
+        2025年07月07日 14時29分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">onihusube</span>
       </span>
       が更新
     </small></p>
@@ -239,7 +239,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>新たな要素が追加された場合、その追加された要素を指すイテレータ。新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
-<p>一般にコンテナのサイズについて対数時間だが、新しい要素が <code>hint</code> の前に挿入された場合は償却定数時間。</p>
+<p>操作の前のコンテナサイズ（<code><a href="size.html">size()</a></code>）を<code>N</code>とすると、<code>O(N)</code>（挿入が行われなかった場合は<code>O(log N)</code>より小さくなる可能性がある）。</p>
 <h2>備考</h2>
 <ul>
 <li><code><a href="try_emplace.html">try_emplace</a></code> と異なり、たとえ要素が挿入されなかった場合でも <code>value_type</code> 型のオブジェクトが構築される可能性があり、結果として引数 <code>args</code> が <code><a href="../../utility/move.html">move</a></code> の対象となって変更されてしまっている可能性があるため、注意が必要である。</li>

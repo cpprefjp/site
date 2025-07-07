@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2022-12-27T15:47:26">
-        2022年12月27日 15時47分26秒
+      <span itemprop="datePublished" content="2025-07-07T11:55:20">
+        2025年07月07日 11時55分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -275,9 +275,9 @@
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
 
   <span class="c1">// 先頭2要素を並んだ状態にする</span>
-  <span class="n"><span style="color:#ff0000">std::partial_sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">std::partial_sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">());</span>
 
-  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="p">});</span>
 <span class="p">}</span>

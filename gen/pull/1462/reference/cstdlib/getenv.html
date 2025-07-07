@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9c8563f23c5139a9e7e243722957c9f7ce8c37f8&#34;, &#34;source&#34;: &#34;#include &lt;cstdlib&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n    if (const char* env_p = std::getenv(\&#34;PATH\&#34;))\n        std::cout &lt;&lt; \&#34;Your PATH is: \&#34; &lt;&lt; env_p &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;getenv&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9e17b1478ad44c6f6d5405d1adeb701886e0a049&#34;, &#34;source&#34;: &#34;#include &lt;cstdlib&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n  if (const char* env_p = std::getenv(\&#34;PATH\&#34;))\n    std::cout &lt;&lt; \&#34;Your PATH is: \&#34; &lt;&lt; env_p &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;getenv&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-05T16:39:11">
-        2025年07月05日 16時39分11秒
+      <span itemprop="datePublished" content="2025-07-07T09:06:34">
+        2025年07月07日 09時06分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">K10-K10</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -213,7 +213,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">getenv</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">char</span><span class="o">*</span> <span class="nf">getenv</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">env_var</span> <span class="p">);</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">char</span><span class="o">*</span> <span class="n">getenv</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">env_var</span> <span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -224,17 +226,17 @@
 <p>C++11以前は、他の関数でホスト環境が変更されなければ、この関数はスレッドセーフである。(他のスレッドで呼び出された場合でも)</p>
 <p>C++11以降では、<code>getenv</code>が返す文字列を変更したときの<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</p>
 <h2>例</h2>
-<p><div class="yata" id="9c8563f23c5139a9e7e243722957c9f7ce8c37f8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9e17b1478ad44c6f6d5405d1adeb701886e0a049"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">env_p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">getenv</span><span class="p">(</span><span class="s">"PATH"</span><span class="p">))</span>
-        <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Your PATH is: "</span> <span class="o">&lt;&lt;</span> <span class="n">env_p</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">env_p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">getenv</span><span class="p">(</span><span class="s">"PATH"</span><span class="p">))</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Your PATH is: "</span> <span class="o">&lt;&lt;</span> <span class="n">env_p</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<h2>出力結果</h2>
+<h2>出力例</h2>
 <p><pre><code>Your PATH is: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 </code></pre></p></div>
 

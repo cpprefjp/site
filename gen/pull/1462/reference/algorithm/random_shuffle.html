@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2022-12-27T15:47:26">
-        2022年12月27日 15時47分26秒
+      <span itemprop="datePublished" content="2025-07-07T12:00:11">
+        2025年07月07日 12時00分11秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -263,17 +263,17 @@
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-  <span class="n"><a href="../numeric/iota.html">std::iota</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 0～9 までの値を生成</span>
+  <span class="n"><a href="../numeric/iota.html">std::iota</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 0～9 までの値を生成</span>
 
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"before: "</span><span class="p">;</span>
-  <span class="n"><a href="copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">));</span>
+  <span class="n"><a href="copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">));</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
   <span class="c1">// シャッフル</span>
-  <span class="n"><span style="color:#ff0000">std::random_shuffle</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">std::random_shuffle</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">());</span>
 
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" after: "</span><span class="p">;</span>
-  <span class="n"><a href="copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">));</span>
+  <span class="n"><a href="copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">));</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>

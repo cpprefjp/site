@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2075ef9ba8d5873e8633cc9292adab3d53814dfe&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nusing namespace std::ranges;\n\nint main() {\n  // \u5165\u529b\n  range auto rng = views::iota(1, 11);\n  // \u4e8c\u9805\u6f14\u7b97\n  auto op = std::plus&lt;&gt;{};\n\n  auto resl = fold_right_last(rng, op);\n\n  std::println(\&#34;{:d}\&#34;, resl.value());\n\n\n  // \u5165\u529b\u7bc4\u56f2\u306ffloat\u306evector\n  std::vector&lt;float&gt; rngf = { 0.125f, 0.25f, 0.75f };\n\n  // \u8a08\u7b97\u7d50\u679c\u306foptional&lt;float&gt;\n  auto reslf = fold_right_last(rngf, op);\n\n  std::println(\&#34;{:g}\&#34;, reslf.value());\n}\n&#34;}, {&#34;id&#34;: &#34;a754ce6fe849b3faa0f643b5b3db0f08b3d2cad1&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nusing namespace std::ranges;\n\nint main() {\n  range auto rng = views::empty&lt;int&gt;;\n  auto op = std::plus&lt;&gt;{};\n\n  auto res1 = fold_left(rng, -1, op);\n  auto res2 = fold_right_last(rng, op);\n\n  std::println(\&#34;{:d}\&#34;, res1);\n  std::println(\&#34;{:d}\&#34;, res2.value_or(-1));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;ranges_fold_right_last&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2075ef9ba8d5873e8633cc9292adab3d53814dfe&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nusing namespace std::ranges;\n\nint main() {\n  // \u5165\u529b\n  range auto rng = views::iota(1, 11);\n  // \u4e8c\u9805\u6f14\u7b97\n  auto op = std::plus&lt;&gt;{};\n\n  auto resl = fold_right_last(rng, op);\n\n  std::println(\&#34;{:d}\&#34;, resl.value());\n\n\n  // \u5165\u529b\u7bc4\u56f2\u306ffloat\u306evector\n  std::vector&lt;float&gt; rngf = { 0.125f, 0.25f, 0.75f };\n\n  // \u8a08\u7b97\u7d50\u679c\u306foptional&lt;float&gt;\n  auto reslf = fold_right_last(rngf, op);\n\n  std::println(\&#34;{:g}\&#34;, reslf.value());\n}\n&#34;}, {&#34;id&#34;: &#34;8a3b5dcefe5f9b9dc3dc2b98abd94c001d7b8724&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nusing namespace std::ranges;\n\nint main() {\n  range auto rng = views::empty&lt;int&gt;;\n  auto op = std::plus&lt;&gt;{};\n\n  auto res1 = fold_right(rng, -1, op);\n  auto res2 = fold_right_last(rng, op);\n\n  std::println(\&#34;{:d}\&#34;, res1);\n  std::println(\&#34;{:d}\&#34;, res2.value_or(-1));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;ranges_fold_right_last&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T08:30:30">
-        2025年07月07日 08時30分30秒
+      <span itemprop="datePublished" content="2025-07-07T15:03:53">
+        2025年07月07日 15時03分53秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -302,7 +302,7 @@
 1.125
 </code></pre></p>
 <h3>空の入力範囲に対する動作の例</h3>
-<p><div class="yata" id="a754ce6fe849b3faa0f643b5b3db0f08b3d2cad1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="8a3b5dcefe5f9b9dc3dc2b98abd94c001d7b8724"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
@@ -314,7 +314,7 @@
   <span class="n"><a href="../ranges/range.html">range</a></span> <span class="k">auto</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">views</span><span class="o">::</span><span class="n">empty</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
   <span class="k">auto</span> <span class="n">op</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{};</span>
 
-  <span class="k">auto</span> <span class="n">res1</span> <span class="o">=</span> <span class="n"><a href="ranges_fold_right.html">fold_left</a></span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
+  <span class="k">auto</span> <span class="n">res1</span> <span class="o">=</span> <span class="n"><a href="ranges_fold_right.html">fold_right</a></span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
   <span class="k">auto</span> <span class="n">res2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">fold_right_last</span></span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
 
   <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span> <span class="n">res1</span><span class="p">);</span>

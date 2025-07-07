@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-02-06T17:10:03">
-        2025年02月06日 17時10分03秒
+      <span itemprop="datePublished" content="2025-07-07T13:38:46">
+        2025年07月07日 13時38分46秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">onihusube</span>
       </span>
       が更新
     </small></p>
@@ -259,7 +259,6 @@
 <p>新しく一つの要素(引数 <code>x</code> を使う)または要素のシーケンス(入力イテレータまたは <code>initializer_list</code> を使う)を挿入し、コンテナを拡張する。</p>
 <p>これは、挿入された要素の数だけコンテナの <code><a href="size.html">size()</a></code> を増やす。</p>
 <p>内部的に <code>flat_multiset</code> コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。</p>
-<p>この操作は、適切な引数 <code>position</code> を提供することで効率を飛躍的に改善することができる。</p>
 <ul>
 <li>(1) : 単一要素を挿入する</li>
 <li>(2) : 単一要素の一時オブジェクトを挿入する</li>
@@ -369,8 +368,11 @@
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
 <ul>
+<li>(1)~(6) : コンテナサイズ（<code><a href="size.html">size()</a></code>）に対して線形</li>
 <li>(7) : Nをこの操作の前の<code><a href="size.html">size()</a></code>、Mを<code><a href="../../iterator/distance.html">distance</a>(first, last)</code>として、N + MlogM</li>
 <li>(8) : Nをこの操作のあとの<code><a href="size.html">size()</a></code>として、Nに対して線形</li>
+<li>(9) : Nをこの操作の前の<code><a href="size.html">size()</a></code>、Mを<code>il.size()</code>として、N + MlogM</li>
+<li>(10) : Nをこの操作のあとの<code><a href="size.html">size()</a></code>として、Nに対して線形</li>
 </ul>
 <h2>備考</h2>
 <ul>

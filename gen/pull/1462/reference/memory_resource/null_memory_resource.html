@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/memory_resource/null_memory_resource.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="メモリの確保も開放も行わない`memory_resource`を取得する。" />
+        <meta property="og:description" content="メモリの確保も解放も行わない`memory_resource`を取得する。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="null_memory_resource - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory_resource/null_memory_resource.html" />
-        <meta name="twitter:description" content="メモリの確保も開放も行わない`memory_resource`を取得する。" />
+        <meta name="twitter:description" content="メモリの確保も解放も行わない`memory_resource`を取得する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-07-07T09:03:31">
+        2025年07月07日 09時03分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,7 +219,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>メモリの確保も開放も行わない<code>memory_resource</code>を取得する。</p>
+<p>メモリの確保も解放も行わない<code>memory_resource</code>を取得する。</p>
 <p>この関数によって取得された<code>memory_resource</code>は以下の特徴を持つ。</p>
 <ul>
 <li><code><a href="memory_resource/allocate.html">allocate()</a></code>の呼び出しは常に、<code><a href="../new/bad_alloc.html">bad_alloc</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる。</li>

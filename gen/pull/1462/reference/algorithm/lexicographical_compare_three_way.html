@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-12-05T04:43:09">
-        2024年12月05日 04時43分09秒
+      <span itemprop="datePublished" content="2025-07-07T12:13:12">
+        2025年07月07日 12時13分12秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -299,21 +299,21 @@
 <span class="p">};</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span><span class="p">;</span>
-  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">str3</span> <span class="o">=</span> <span class="s">"abcdefghijklm"</span><span class="p">;</span>
+  <span class="n"><span href="https://cpprefjp.github.io/reference/string/string.md.nolink">std::string</span></span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
+  <span class="n"><span href="https://cpprefjp.github.io/reference/string/string.md.nolink">std::string</span></span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span><span class="p">;</span>
+  <span class="n"><span href="https://cpprefjp.github.io/reference/string/string.md.nolink">std::string</span></span> <span class="n">str3</span> <span class="o">=</span> <span class="s">"abcdefghijklm"</span><span class="p">;</span>
 
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
 
   <span class="c1">//カスタマイズした比較による同じ長さのイテレータ範囲の比較</span>
   <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n"><a href="">std::lexicographical_compare_three_way</a></span><span class="p">(</span><span class="n">str1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">str1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">str2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">str2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">weak_comp</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lexicographical_compare_three_way</span></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/string/string/begin.md.nolink">str1.begin</span></span><span class="p">(),</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string/end.md.nolink">str1.end</span></span><span class="p">(),</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string/begin.md.nolink">str2.begin</span></span><span class="p">(),</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string/end.md.nolink">str2.end</span></span><span class="p">(),</span> <span class="n">weak_comp</span><span class="p">);</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">comp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">//デフォルトの比較による異なる長さのイテレータ範囲の比較</span>
   <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n"><a href="">std::lexicographical_compare_three_way</a></span><span class="p">(</span><span class="n">str1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">str1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">str3</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">str3</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+    <span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lexicographical_compare_three_way</span></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/string/string/begin.md.nolink">str1.begin</span></span><span class="p">(),</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string/end.md.nolink">str1.end</span></span><span class="p">(),</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string/begin.md.nolink">str3.begin</span></span><span class="p">(),</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string/end.md.nolink">str3.end</span></span><span class="p">());</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">comp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>

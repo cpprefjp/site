@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T08:30:30">
-        2025年07月07日 08時30分30秒
+      <span itemprop="datePublished" content="2025-07-07T15:03:53">
+        2025年07月07日 15時03分53秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,6 +247,12 @@
 </p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>挿入されたかどうかを示す <code>bool</code> と、挿入された要素へのイテレータからなる <code><a href="../../utility/pair.html">pair</a></code> を返す。挿入されなかったときは、既存要素へのイテレータを返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>操作の前のコンテナサイズ（<code><a href="size.html">size()</a></code>）を<code>N</code>とすると</p>
+<ul>
+<li>新しい要素が挿入された場合: <code>N</code>に対して線形</li>
+<li>要素の挿入が行われなかった場合: <code>N</code>に対して対数</li>
+</ul>
 <h2>例</h2>
 <h3>単純な挿入の例</h3>
 <p><div class="yata" id="8c2efd5fbc0057f6d2d32241f387fe18f3889c4f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../flat_set.html">&lt;flat_set&gt;</a></span><span class="cp"></span>

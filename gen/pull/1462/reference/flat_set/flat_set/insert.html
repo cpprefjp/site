@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T08:30:30">
-        2025年07月07日 08時30分30秒
+      <span itemprop="datePublished" content="2025-07-07T15:03:53">
+        2025年07月07日 15時03分53秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -261,7 +261,6 @@
 <p><code>flat_set</code> コンテナは重複したキーを持つ要素を許さないため、挿入操作はそれぞれの要素が他のコンテナ内の既存要素と同じキーかどうかをチェックする。もし同じであれば要素は挿入されず、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を持つ関数の場合はそれへのイテレータなどを返す。</p>
 <p>重複した値を許す、類似したコンテナについては <code><a href="../flat_multiset.html">flat_multiset</a></code> を参照。</p>
 <p>内部的に <code>flat_set</code> コンテナは、コンストラクト時に指定された比較オブジェクトによって要素を下位から上位へとソートして保持する。</p>
-<p>この操作は、適切な引数 <code>position</code> を提供することで効率を飛躍的に改善することができる。</p>
 <ul>
 <li>(1) : 単一要素を挿入する</li>
 <li>(2) : 単一要素の一時オブジェクトを挿入する</li>
@@ -382,8 +381,11 @@
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
 <ul>
+<li>(1)~(6) : コンテナサイズ（<code><a href="size.html">size()</a></code>）に対して線形</li>
 <li>(7) : Nをこの操作の前の<code><a href="size.html">size()</a></code>、Mを<code><a href="../../iterator/distance.html">distance</a>(first, last)</code>として、N + MlogM</li>
 <li>(8) : Nをこの操作のあとの<code><a href="size.html">size()</a></code>として、Nに対して線形</li>
+<li>(9) : Nをこの操作の前の<code><a href="size.html">size()</a></code>、Mを<code>il.size()</code>として、N + MlogM</li>
+<li>(10) : Nをこの操作のあとの<code><a href="size.html">size()</a></code>として、Nに対して線形</li>
 </ul>
 <h2>備考</h2>
 <ul>

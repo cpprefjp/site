@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ce96b5e1535c9a4347617a9bf3f78bdfc46bda9a&#34;, &#34;source&#34;: &#34;#include &lt;cstdlib&gt;\n#include &lt;ctime&gt;\n#include &lt;iostream&gt;\n\nint main() \n{\n    std::srand(std::time(0)); // \u73fe\u5728\u6642\u523b\u3092\u7591\u4f3c\u4e71\u6570\u306e\u30b7\u30fc\u30c9\u5024\u3068\u3059\u308b\u3002\n    std::cout &lt;&lt; std::rand() &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;rand&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;58df865026ddb074238b6dae65bc36c73041e744&#34;, &#34;source&#34;: &#34;#include &lt;cstdlib&gt;\n#include &lt;ctime&gt;\n#include &lt;iostream&gt;\n\nint main() \n{\n  std::srand(std::time(0)); // \u73fe\u5728\u6642\u523b\u3092\u7591\u4f3c\u4e71\u6570\u306e\u30b7\u30fc\u30c9\u5024\u3068\u3059\u308b\u3002\n  std::cout &lt;&lt; std::rand() &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;rand&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-06T07:58:56">
-        2025年07月06日 07時58分56秒
+      <span itemprop="datePublished" content="2025-07-07T09:01:58">
+        2025年07月07日 09時01分58秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">K10-K10</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -213,7 +213,12 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">rand</span></h1>
-<div itemprop="articleBody"><h2>概要</h2>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">rand</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
 <p><code>0</code>から<code>RAND_MAX</code>までの値の疑似乱数を返す。</p>
 <p><code><a href="srand.html">std::srand()</a></code>関数はこの関数の疑似乱数生成器で使用するシード値を決定する。</p>
 <p>もし<code><a href="srand.html">std::srand()</a></code>の前に、<code>std::rand()</code>が使用された場合、<code>srand(1)</code>として生成される。</p>
@@ -225,14 +230,14 @@
 <p>この関数の疑似乱数の品質は保証されていない。</p>
 <p>より安全な乱数を使いたい場合は<code>random</code>ライブラリなどを使用したほうが良い。</p>
 <h2>例</h2>
-<p><div class="yata" id="ce96b5e1535c9a4347617a9bf3f78bdfc46bda9a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="58df865026ddb074238b6dae65bc36c73041e744"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">srand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 現在時刻を疑似乱数のシード値とする。</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">srand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 現在時刻を疑似乱数のシード値とする。</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
