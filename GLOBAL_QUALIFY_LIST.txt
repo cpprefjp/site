@@ -209,6 +209,10 @@
     * ranges::upper_bound[link /reference/algorithm/ranges_upper_bound.md]
 
 * <any>[link /reference/any.md]
+    * std::any[link /reference/algorithm/any.md]
+    * std::any_cast[link /reference/algorithm/any_cast.md]
+    * std::bad_any_cast[link /reference/algorithm/bad_any_cast.md]
+    * std::make_any[link /reference/algorithm/make_any.md]
 * <array>[link /reference/array.md]
     * std::array[link /reference/array/array.md]
 * <atomic>[link /reference/atomic.md]
