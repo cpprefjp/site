@@ -2,9 +2,1171 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-07T15:26:16.591560</updated>
-  <id>65f6c8dc-b427-4cba-bf3b-3ec9fb22da65</id>
+  <updated>2025-07-07T15:48:29.227860</updated>
+  <id>92c0a8a1-d310-422f-8931-2b0a36f33e06</id>
 
+  
+    <entry>
+      <title>for_each -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/for_each.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/for_each.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/for_each.md b/reference/algorithm/for_each.md
+index 6e9f71ed1..1dace0823 100644
+--- a/reference/algorithm/for_each.md
++++ b/reference/algorithm/for_each.md
+@@ -89,11 +89,6 @@ int main() {
+ }
+ ```
+ * std::for_each[color ff0000]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+ * v.push_back[link /reference/vector/vector/push_back.md]
+ 
+ #### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generate -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/generate.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/generate.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/generate.md b/reference/algorithm/generate.md
+index 685d60e44..17aacb71a 100644
+--- a/reference/algorithm/generate.md
++++ b/reference/algorithm/generate.md
+@@ -56,11 +56,6 @@ int main() {
+ }
+ ```
+ * std::generate[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generate_n -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/generate_n.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/generate_n.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/generate_n.md b/reference/algorithm/generate_n.md
+index 0c8d32cbe..a858e03a9 100644
+--- a/reference/algorithm/generate_n.md
++++ b/reference/algorithm/generate_n.md
+@@ -75,8 +75,6 @@ int main() {
+ }
+ ```
+ * std::generate_n[color ff0000]
+-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+-* std::cout[link /reference/iostream/cout.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>includes -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/includes.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/includes.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/includes.md b/reference/algorithm/includes.md
+index 361793a02..82b393e2c 100644
+--- a/reference/algorithm/includes.md
++++ b/reference/algorithm/includes.md
+@@ -82,12 +82,8 @@ int main()
+ }
+ ```
+ * std::includes[color ff0000]
+-* std::set[link /reference/set/set.md]
+ * begin()[link /reference/set/set/begin.md]
+ * end()[link /reference/set/set/end.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>inplace_merge -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/inplace_merge.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/inplace_merge.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/inplace_merge.md b/reference/algorithm/inplace_merge.md
+index 2edfe703e..2af32581f 100644
+--- a/reference/algorithm/inplace_merge.md
++++ b/reference/algorithm/inplace_merge.md
+@@ -93,12 +93,6 @@ int main()
+ }
+ ```
+ * std::inplace_merge[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_permutation -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_permutation.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/is_permutation.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_permutation.md b/reference/algorithm/is_permutation.md
+index a7f9947a0..cf90f1f46 100644
+--- a/reference/algorithm/is_permutation.md
++++ b/reference/algorithm/is_permutation.md
+@@ -96,14 +96,8 @@ int main ()
+ }
+ ```
+ * std::is_permutation[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin()[link /reference/vector/vector/begin.md]
+-* v.end()[link /reference/vector/vector/end.md]
+ * good.begin()[link /reference/vector/vector/begin.md]
+ * bad.begin()[link /reference/vector/vector/begin.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_sorted -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_sorted.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/is_sorted.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_sorted.md b/reference/algorithm/is_sorted.md
+index b0a3a318d..f0c2de657 100644
+--- a/reference/algorithm/is_sorted.md
++++ b/reference/algorithm/is_sorted.md
+@@ -64,13 +64,6 @@ int main()
+ }
+ ```
+ * std::is_sorted[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::sort[link sort.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_sorted_until -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/is_sorted_until.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/is_sorted_until.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/is_sorted_until.md b/reference/algorithm/is_sorted_until.md
+index b60924a49..621f615d0 100644
+--- a/reference/algorithm/is_sorted_until.md
++++ b/reference/algorithm/is_sorted_until.md
+@@ -76,13 +76,6 @@ int main()
+ }
+ ```
+ * std::is_sorted_until[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+-* std::sort[link sort.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_swap -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/iter_swap.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/iter_swap.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/iter_swap.md b/reference/algorithm/iter_swap.md
+index d0f70af2a..85f8cc585 100644
+--- a/reference/algorithm/iter_swap.md
++++ b/reference/algorithm/iter_swap.md
+@@ -57,14 +57,6 @@ int main() {
+ }
+ ```
+ * std::iter_swap[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v1.begin[link /reference/vector/vector/begin.md]
+-* v1.end[link /reference/vector/vector/end.md]
+-* v2.begin[link /reference/vector/vector/begin.md]
+-* v2.end[link /reference/vector/vector/end.md]
+-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ ### 出力
+ ```
+ v1: 3,5,4,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lexicographical_compare -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/lexicographical_compare.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/lexicographical_compare.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/lexicographical_compare.md b/reference/algorithm/lexicographical_compare.md
+index b578892c0..b486aed5d 100644
+--- a/reference/algorithm/lexicographical_compare.md
++++ b/reference/algorithm/lexicographical_compare.md
+@@ -137,9 +137,6 @@ int main()
+ * begin()[link /reference/string/basic_string/begin.md]
+ * end()[link /reference/string/basic_string/end.md]
+ * std::greater[link /reference/functional/greater.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::string[link /reference/string/string.md.nolink]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lexicographical_compare_three_way -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/lexicographical_compare_three_way.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/lexicographical_compare_three_way.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/lexicographical_compare_three_way.md b/reference/algorithm/lexicographical_compare_three_way.md
+index 690959da1..ef013d162 100644
+--- a/reference/algorithm/lexicographical_compare_three_way.md
++++ b/reference/algorithm/lexicographical_compare_three_way.md
+@@ -115,11 +115,6 @@ int main() {
+ }
+ ```
+ * std::lexicographical_compare_three_way[color ff0000]
+-* std::string[link /reference/string/string.md.nolink]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::isalpha[link /reference/cctype/isalpha.md]
+-* std::tolower[link /reference/cctype/tolower.md]
+ * weak_ordering[link /reference/compare/weak_ordering.md]
+ * str1.begin[link /reference/string/string/begin.md.nolink]
+ * str1.end[link /reference/string/string/end.md.nolink]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lower_bound -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/lower_bound.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/lower_bound.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/lower_bound.md b/reference/algorithm/lower_bound.md
+index 129c38ab9..7b3b2e2f0 100644
+--- a/reference/algorithm/lower_bound.md
++++ b/reference/algorithm/lower_bound.md
+@@ -176,15 +176,6 @@ int main()
+ }
+ ```
+ * std::lower_bound[color ff0000]
+-* std::string[link /reference/string/string.md.nolink]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::size_t[link /reference/cstddef/size_t.md]
+-* std::distance[link /reference/iterator/distance.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::sort[link sort.md]
+ 
+ #### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_heap -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/make_heap.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/make_heap.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/make_heap.md b/reference/algorithm/make_heap.md
+index ad9e9a8be..e634913a1 100644
+--- a/reference/algorithm/make_heap.md
++++ b/reference/algorithm/make_heap.md
+@@ -64,10 +64,6 @@ int main()
+ }
+ ```
+ * std::make_heap[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/max.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/max.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/max.md b/reference/algorithm/max.md
+index cc0846b8c..af1a6eb46 100644
+--- a/reference/algorithm/max.md
++++ b/reference/algorithm/max.md
+@@ -75,7 +75,6 @@ int main()
+ ```
+ * std::max[color ff0000]
+ * std::greater[link /reference/functional/greater.md]
+-* assert[link /reference/cassert/assert.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_element -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/max_element.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/max_element.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/max_element.md b/reference/algorithm/max_element.md
+index 1655be9b8..5b042cb16 100644
+--- a/reference/algorithm/max_element.md
++++ b/reference/algorithm/max_element.md
+@@ -71,13 +71,6 @@ int main()
+ }
+ ```
+ * std::max_element[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::pair[link /reference/utility/pair.md]
+-* v1.begin[link /reference/vector/vector/begin.md]
+-* v1.end[link /reference/vector/vector/end.md]
+-* v2.begin[link /reference/vector/vector/begin.md]
+-* v2.end[link /reference/vector/vector/end.md]
+-* assert[link /reference/cassert/assert.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/merge.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/merge.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/merge.md b/reference/algorithm/merge.md
+index f7a5db5f9..933045f7b 100644
+--- a/reference/algorithm/merge.md
++++ b/reference/algorithm/merge.md
+@@ -126,10 +126,6 @@ int main()
+ * b.end()[link /reference/vector/vector/end.md]
+ * result.begin()[link /reference/vector/vector/begin.md]
+ * result.end()[link /reference/vector/vector/end.md]
+-* std::back_inserter[link /reference/iterator/back_inserter.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>min -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/min.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/min.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/min.md b/reference/algorithm/min.md
+index e129af295..ed6e1e667 100644
+--- a/reference/algorithm/min.md
++++ b/reference/algorithm/min.md
+@@ -75,7 +75,6 @@ int main()
+ ```
+ * std::min[color ff0000]
+ * std::greater[link /reference/functional/greater.md]
+-* assert[link /reference/cassert/assert.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>min_element -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/min_element.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/min_element.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/min_element.md b/reference/algorithm/min_element.md
+index 84c132997..9f6e9e215 100644
+--- a/reference/algorithm/min_element.md
++++ b/reference/algorithm/min_element.md
+@@ -70,13 +70,6 @@ int main()
+ }
+ ```
+ * std::min_element[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v1.begin[link /reference/vector/vector/begin.md]
+-* v1.end[link /reference/vector/vector/end.md]
+-* v2.begin[link /reference/vector/vector/begin.md]
+-* v2.end[link /reference/vector/vector/end.md]
+-* std::pair[link /reference/utility/pair.md]
+-* assert[link /reference/cassert/assert.md]
+ * v2_min_element-&amp;gt;first[link /reference/utility/pair/first.md.nolink]
+ * v2_min_element-&amp;gt;second[link /reference/utility/pair/second.md.nolink]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>minmax -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/minmax.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/minmax.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/minmax.md b/reference/algorithm/minmax.md
+index 9423d3628..d108dea3b 100644
+--- a/reference/algorithm/minmax.md
++++ b/reference/algorithm/minmax.md
+@@ -95,8 +95,6 @@ int main()
+ ```
+ * std::minmax[color ff0000]
+ * std::greater[link /reference/functional/greater.md]
+-* std::pair[link /reference/utility/pair.md]
+-* assert[link /reference/cassert/assert.md]
+ * result1.first[link /reference/utility/pair/first.md.nolink]
+ * result1.second[link /reference/utility/pair/second.md.nolink]
+ * result2.first[link /reference/utility/pair/first.md.nolink]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>minmax_element -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/minmax_element.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/minmax_element.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/minmax_element.md b/reference/algorithm/minmax_element.md
+index 270cc1e73..8a63e1100 100644
+--- a/reference/algorithm/minmax_element.md
++++ b/reference/algorithm/minmax_element.md
+@@ -78,14 +78,10 @@ int main()
+ }
+ ```
+ * std::minmax_element[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+ * *i.first[link /reference/utility/pair/first.md.nolink]
+ * *i.second[link /reference/utility/pair/second.md.nolink]
+ * *j.first[link /reference/utility/pair/first.md.nolink]
+ * *j.second[link /reference/utility/pair/second.md.nolink]
+-* assert[link /reference/cassert/assert.md]
+ ### 出力
+ ```
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>mismatch -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/mismatch.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/mismatch.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/mismatch.md b/reference/algorithm/mismatch.md
+index fbe48ea0c..e31d99633 100644
+--- a/reference/algorithm/mismatch.md
++++ b/reference/algorithm/mismatch.md
+@@ -146,18 +146,8 @@ int main() {
+ ```
+ * std::mismatch[color ff0000]
+ * std::to_string[link /reference/string/to_string.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ * *p.first[link /reference/utility/pair/first.md.nolink]
+ * *p.second[link /reference/utility/pair/second.md.nolink]
+-* std::vector[link /reference/vector/vector.md]
+-* std::array[link /reference/array/array.md]
+-* std::list[link /reference/list/list.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* v2.begin[link /reference/array/array/begin.md]
+-* v3.begin[link /reference/list/list/begin.md]
+-* v3.end[link /reference/list/list/end.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>move -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/move.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/move.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/move.md b/reference/algorithm/move.md
+index 6100e3081..5449dfe49 100644
+--- a/reference/algorithm/move.md
++++ b/reference/algorithm/move.md
+@@ -73,17 +73,7 @@ int main() {
+ ```
+ * std::move[color ff0000]
+ * v.emplace_back[link /reference/vector/vector/emplace_back.md]
+-* std::vector[link /reference/vector/vector.md]
+-* std::unique_ptr[link /reference/memory/unique_ptr.md]
+-* std::back_inserter[link /reference/iterator/back_inserter.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+ * v.emplace_back[link /reference/vector/vector/emplace_back.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* v2.begin[link /reference/vector/vector/begin.md]
+-* v2.end[link /reference/vector/vector/end.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>move_backward -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/move_backward.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/move_backward.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/move_backward.md b/reference/algorithm/move_backward.md
+index 450ba5552..460289ed1 100644
+--- a/reference/algorithm/move_backward.md
++++ b/reference/algorithm/move_backward.md
+@@ -77,10 +77,6 @@ int main() {
+ * std::move_backward[color ff0000]
+ * v.emplace_back[link /reference/vector/vector/emplace_back.md]
+ * std::move[link move.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::unique_ptr[link /reference/memory/unique_ptr.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>next_permutation -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/next_permutation.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/next_permutation.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/next_permutation.md b/reference/algorithm/next_permutation.md
+index d686d3156..016788587 100644
+--- a/reference/algorithm/next_permutation.md
++++ b/reference/algorithm/next_permutation.md
+@@ -81,12 +81,6 @@ int main ()
+ }
+ ```
+ * std::next_permutation[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>none_of -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/none_of.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/none_of.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/none_of.md b/reference/algorithm/none_of.md
+index 5de0d5853..77520c8ad 100644
+--- a/reference/algorithm/none_of.md
++++ b/reference/algorithm/none_of.md
+@@ -68,12 +68,6 @@ int main() {
+ }
+ ```
+ * std::none_of[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>nth_element -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/nth_element.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/nth_element.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/nth_element.md b/reference/algorithm/nth_element.md
+index 8e01a8e68..6c8890ac7 100644
+--- a/reference/algorithm/nth_element.md
++++ b/reference/algorithm/nth_element.md
+@@ -86,12 +86,6 @@ int main()
+ }
+ ```
+ * std::nth_element[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partial_sort -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partial_sort.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/partial_sort.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partial_sort.md b/reference/algorithm/partial_sort.md
+index 6dfb6c1ba..4c0d67336 100644
+--- a/reference/algorithm/partial_sort.md
++++ b/reference/algorithm/partial_sort.md
+@@ -85,12 +85,6 @@ int main()
+ }
+ ```
+ * std::partial_sort[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partial_sort_copy -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partial_sort_copy.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/partial_sort_copy.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partial_sort_copy.md b/reference/algorithm/partial_sort_copy.md
+index 84978e812..f70f56d01 100644
+--- a/reference/algorithm/partial_sort_copy.md
++++ b/reference/algorithm/partial_sort_copy.md
+@@ -97,12 +97,6 @@ int main()
+ * std::partial_sort_copy[color ff0000]
+ * result.begin()[link /reference/vector/vector/begin.md]
+ * result.end()[link /reference/vector/vector/end.md]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partition -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partition.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/partition.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partition.md b/reference/algorithm/partition.md
+index fd4bc8dd0..452a9625b 100644
+--- a/reference/algorithm/partition.md
++++ b/reference/algorithm/partition.md
+@@ -82,12 +82,6 @@ int main()
+ }
+ ```
+ * std::partition[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partition_copy -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partition_copy.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/partition_copy.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partition_copy.md b/reference/algorithm/partition_copy.md
+index 184cdc8d7..399627dcd 100644
+--- a/reference/algorithm/partition_copy.md
++++ b/reference/algorithm/partition_copy.md
+@@ -106,14 +106,6 @@ int main()
+ }
+ ```
+ * std::partition_copy[color ff0000]
+-* std::string[link /reference/string/string.md.nolink]
+-* std::vector[link /reference/vector/vector.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::back_inserter[link /reference/iterator/back_inserter.md]
+ * is_even[link /reference/algorithm/is_partitioned.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>prev_permutation -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/prev_permutation.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/prev_permutation.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/prev_permutation.md b/reference/algorithm/prev_permutation.md
+index aeb7a783b..3af16602f 100644
+--- a/reference/algorithm/prev_permutation.md
++++ b/reference/algorithm/prev_permutation.md
+@@ -76,12 +76,6 @@ int main ()
+ }
+ ```
+ * std::prev_permutation[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::for_each[link /reference/algorithm/for_each.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>random_shuffle -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/random_shuffle.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/random_shuffle.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/random_shuffle.md b/reference/algorithm/random_shuffle.md
+index 41ab8bbe2..fc8e3c332 100644
+--- a/reference/algorithm/random_shuffle.md
++++ b/reference/algorithm/random_shuffle.md
+@@ -85,14 +85,6 @@ int main() {
+ }
+ ```
+ * std::random_shuffle[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::iota[link /reference/numeric/iota.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+-* std::copy[link /reference/algorithm/copy.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>adjacent_find -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_adjacent_find.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/ranges_adjacent_find.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_adjacent_find.md b/reference/algorithm/ranges_adjacent_find.md
+index 171fbcaa3..4685f276c 100644
+--- a/reference/algorithm/ranges_adjacent_find.md
++++ b/reference/algorithm/ranges_adjacent_find.md
+@@ -82,12 +82,6 @@ int main() {
+ ```
+ * std::ranges::distance[link /reference/iterator/ranges_distance.md]
+ * std::ranges::adjacent_find[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+-* v.begin[link /reference/vector/vector/begin.md]
+-* v.end[link /reference/vector/vector/end.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>all_of -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_all_of.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/ranges_all_of.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_all_of.md b/reference/algorithm/ranges_all_of.md
+index 79b2ed26e..09cb6a9a9 100644
+--- a/reference/algorithm/ranges_all_of.md
++++ b/reference/algorithm/ranges_all_of.md
+@@ -63,10 +63,6 @@ int main() {
+ }
+ ```
+ * std::ranges::all_of[color ff0000]
+-* std::array[link /reference/array/array.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>any_of -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_any_of.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/ranges_any_of.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_any_of.md b/reference/algorithm/ranges_any_of.md
+index 0d12fc585..77e2ffd1e 100644
+--- a/reference/algorithm/ranges_any_of.md
++++ b/reference/algorithm/ranges_any_of.md
+@@ -65,10 +65,6 @@ int main() {
+ }
+ ```
+ * std::ranges::any_of[color ff0000]
+-* std::array[link /reference/array/array.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+-* std::boolalpha[link /reference/ios/boolalpha.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>binary_search -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_binary_search.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/ranges_binary_search.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_binary_search.md b/reference/algorithm/ranges_binary_search.md
+index 30448aa3d..a0c9bd581 100644
+--- a/reference/algorithm/ranges_binary_search.md
++++ b/reference/algorithm/ranges_binary_search.md
+@@ -118,9 +118,6 @@ int main()
+ }
+ ```
+ * std::ranges::binary_search[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ #### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clamp -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_clamp.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/ranges_clamp.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_clamp.md b/reference/algorithm/ranges_clamp.md
+index af760c787..489120d53 100644
+--- a/reference/algorithm/ranges_clamp.md
++++ b/reference/algorithm/ranges_clamp.md
+@@ -44,8 +44,6 @@ int main()
+ }
+ ```
+ * std::ranges::clamp[color ff0000]
+-* std::cout[link /reference/iostream/cout.md]
+-* std::endl[link /reference/ostream/endl.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contains_subrange -- more コード修飾の重複登録を削除</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_contains_subrange.html"/>
+      <id>70f98cd6aed5f17d524dae0104f86a0394c68056:reference/algorithm/ranges_contains_subrange.md</id>
+      <updated>2025-07-08T00:05:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_contains_subrange.md b/reference/algorithm/ranges_contains_subrange.md
+index 17167aaf1..cdd3ae99c 100644
+--- a/reference/algorithm/ranges_contains_subrange.md
++++ b/reference/algorithm/ranges_contains_subrange.md
+@@ -58,9 +58,6 @@ int main() {
+ }
+ ```
+ * std::ranges::contains_subrange[color ff0000]
+-* std::vector[link /reference/vector/vector.md]
+-* std::list[link /reference/list/list.md]
+-* std::println[link /reference/print/println.md]
+ 
+ #### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>for_each -- Merge branch &#39;master&#39; into remove_duplicated_qualify</title>
@@ -3039,33 +4201,6 @@ index 02134d89c..2096a7078 100644
       <author>
         <name>onihusube</name>
         <email>44743040+onihusube@users.noreply.github.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>malloc -- `free.md`のパスを修正</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/malloc.html"/>
-      <id>6ba8c53818059f2d2de201eb3f02d9b58e0d65be:reference/cstdlib/malloc.md</id>
-      <updated>2025-07-07T22:15:06+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/malloc.md b/reference/cstdlib/malloc.md
-index 98990cf85..6820bc78f 100644
---- a/reference/cstdlib/malloc.md
-+++ b/reference/cstdlib/malloc.md
-@@ -70,7 +70,7 @@ p1[3] == 9
- 
- ## 関連項目
- 
--- [`free`](/cstdlib/free.md): 確保したメモリを解放する。
-+- [`free`](free.md): 確保したメモリを解放する。
- 
- ## 参照
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
       </author>
     </entry>
   

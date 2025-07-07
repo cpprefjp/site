@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T15:03:53">
-        2025年07月07日 15時03分53秒
+      <span itemprop="datePublished" content="2025-07-07T15:05:32">
+        2025年07月07日 15時05分32秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -275,10 +275,10 @@
 <span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
 
-<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="k">const</span> <span class="n"><span href="https://cpprefjp.github.io/reference/string/string.md.nolink">std::string</span></span><span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">)</span>
+<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span><span class="p">;</span>
-  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">","</span><span class="p">;</span>
   <span class="p">});</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
@@ -293,7 +293,7 @@
   <span class="c1">// 偶数グループと奇数グループに分ける</span>
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">evens</span><span class="p">;</span>
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">odds</span><span class="p">;</span>
-  <span class="n"><span style="color:#ff0000">std::partition_copy</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v.end</a></span><span class="p">(),</span>
+  <span class="n"><span style="color:#ff0000">std::partition_copy</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span>
                       <span class="n"><a href="../iterator/back_inserter.html">std::back_inserter</a></span><span class="p">(</span><span class="n">evens</span><span class="p">),</span>
                       <span class="n"><a href="../iterator/back_inserter.html">std::back_inserter</a></span><span class="p">(</span><span class="n">odds</span><span class="p">),</span>
                       <span class="n"><a href="is_partitioned.html">is_even</a></span><span class="p">);</span>
