@@ -25,6 +25,9 @@ iterator emplace(Args&&... args);
 ## 戻り値
 挿入された要素へのイテレータを返す。
 
+## 計算量
+
+コンテナサイズ（[`size()`](size.md)）に対して線形
 
 ## 例
 ```cpp example

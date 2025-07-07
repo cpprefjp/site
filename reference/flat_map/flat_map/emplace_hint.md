@@ -24,8 +24,8 @@ iterator emplace_hint(const_iterator hint, Args&&... args);
 
 
 ## 計算量
-一般にコンテナのサイズについて対数時間だが、新しい要素が `hint` の前に挿入された場合は償却定数時間。
 
+操作の前のコンテナサイズ（[`size()`](size.md)）を`N`とすると、`O(N)`（挿入が行われなかった場合は`O(log N)`より小さくなる可能性がある）。
 
 ## 備考
 - [`try_emplace`](try_emplace.md) と異なり、たとえ要素が挿入されなかった場合でも `value_type` 型のオブジェクトが構築される可能性があり、結果として引数 `args` が [`move`](/reference/utility/move.md) の対象となって変更されてしまっている可能性があるため、注意が必要である。
