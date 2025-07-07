@@ -70,7 +70,6 @@ int main() {
 * ls.end()[link /reference/list/list/end.md]
 * std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
 * std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 * std::copy[link /reference/algorithm/copy.md]
 
 ### 出力
