@@ -109,7 +109,7 @@ int main()
   const std::ranges::subrange sub5(fwl, 3);
   // forward_listはsized_rangeではないが、長さを指定しているのでsubrangeはsized_rangeとなり、sizeメンバ関数が定義される
   static_assert(std::ranges::sized_range<decltype(sub5)>);
-  assert(sub4.size() == 3);
+  assert(sub5.size() == 3);
 }
 ```
 
