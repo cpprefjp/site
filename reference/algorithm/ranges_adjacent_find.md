@@ -90,6 +90,12 @@ int main() {
 ```
 * std::ranges::distance[link /reference/iterator/ranges_distance.md]
 * std::ranges::adjacent_find[color ff0000]
+* std::vector[link /reference/vector/vector.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::boolalpha[link /reference/ios/boolalpha.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
 
 ### 出力
 ```
