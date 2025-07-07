@@ -176,7 +176,7 @@ int main()
 }
 ```
 * std::lower_bound[color ff0000]
-* std::string[link /reference/string/string.md]
+* std::string[link /reference/string/string.md.nolink]
 * std::vector[link /reference/vector/vector.md]
 * v.begin[link /reference/vector/vector/begin.md]
 * v.end[link /reference/vector/vector/end.md]

@@ -77,8 +77,8 @@ int main()
 * v2.end[link /reference/vector/vector/end.md]
 * std::pair[link /reference/utility/pair.md]
 * assert[link /reference/cassert/assert.md]
-* v2_min_element->first[link /reference/utility/pair/first.md]
-* v2_min_element->second[link /reference/utility/pair/second.md]
+* v2_min_element->first[link /reference/utility/pair/first.md.nolink]
+* v2_min_element->second[link /reference/utility/pair/second.md.nolink]
 
 ### 出力
 ```

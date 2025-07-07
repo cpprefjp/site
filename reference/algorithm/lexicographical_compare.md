@@ -139,7 +139,7 @@ int main()
 * std::greater[link /reference/functional/greater.md]
 * std::cout[link /reference/iostream/cout.md]
 * std::endl[link /reference/ostream/endl.md]
-* std::string[link /reference/string/string.md]
+* std::string[link /reference/string/string.md.nolink]
 
 ### 出力
 ```
