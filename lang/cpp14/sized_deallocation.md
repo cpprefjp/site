@@ -85,7 +85,7 @@ int main()
 }
 ```
 * std::printf[link /reference/cstdio/printf.md.nolink]
-* std::malloc[link /reference/cstdlib/malloc.md.nolink]
+* std::malloc[link /reference/cstdlib/malloc.md]
 
 
 ### 出力
