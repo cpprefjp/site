@@ -58,6 +58,9 @@ int main() {
 }
 ```
 * std::ranges::contains_subrange[color ff0000]
+* std::vector[link /reference/vector/vector.md]
+* std::list[link /reference/list/list.md]
+* std::println[link /reference/print/println.md]
 
 #### 出力
 ```
