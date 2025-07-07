@@ -79,7 +79,14 @@ int main()
 }
 ```
 * std::minmax_element[color ff0000]
-
+* std::vector[link /reference/vector/vector.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* *i.first[link /reference/utility/pair/first.md]
+* *i.second[link /reference/utility/pair/second.md]
+* *j.first[link /reference/utility/pair/first.md]
+* *j.second[link /reference/utility/pair/second.md]
+* assert[link /reference/cassert/assert.md]
 ### 出力
 ```
 ```
