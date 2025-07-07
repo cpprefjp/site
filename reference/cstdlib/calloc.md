@@ -4,11 +4,11 @@
 * std[meta namespace]
 * function[meta id-type]
 
-## 概要
-
-```
+```cpp
 void *calloc(size_t nmemb, size_t size);
 ```
+
+## 概要
 
 任意の個数のオブジェクトへの配列用ポインタを動的に確保し、その領域を 0 で初期化する。
 

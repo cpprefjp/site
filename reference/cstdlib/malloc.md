@@ -4,11 +4,11 @@
 * std[meta namespace]
 * function[meta id-type]
 
-## 概要
-
 ```cpp
 void *malloc( size_t size );
 ```
+
+## 概要
 
 初期化されていない`size_t`個の`size`型配列のメモリを確保する。
 
