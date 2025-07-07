@@ -164,6 +164,11 @@ lrint(9.22337e+18) = -9223372036854775808, FE_INEXACT = false, FE_INVALID = true
 ### 備考
 - 本関数は C++11 で追加されたが、Clang(libc++) では C++11 モードでなくても使用可能である
 
+## 関連項目
+- 戻り値浮動小数点数版 [`rint`](rint.md)
+- 戻り値 `long long` 版 [`llrint`](llrint.md)
+- [`FE_INEXACT`](../cfenv/fe_inexact.md)
+- 丸めモード: [`fesetround`](../cfenv/fesetround.md) (設定)、[`fegetround`](../cfenv/fegetround.md) (取得)、[`FLT_ROUNDS`](../cfloat/flt_rounds.md) (マクロ)
 
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)

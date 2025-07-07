@@ -149,6 +149,11 @@ FE_INEXACT = false
 
 引数と結果が異なる場合に例外 `FE_INEXACT` が発生するか否かは実装によって異なる。
 
+## 関連項目
+- 戻り値 `long` 版 [`lround`](lround.md)
+- 戻り値 `long long` 版 [`llround`](llround.md)
+- 現在の丸めモードによる丸め: [`nearbyint`](nearbyint.md)
+- 現在の丸めモードによる丸め (`FE_INEXACT` をチェック) [`rint`](rint.md)、[`lrint`](lrint.md) (戻り値 `long`)、[`llrint`](llrint.md) (戻り値 `long long`)
 
 ## 参照
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)

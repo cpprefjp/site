@@ -162,6 +162,11 @@ llrint(9.22337e+18) = -9223372036854775808, FE_INEXACT = false, FE_INVALID = tru
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 
+## 関連項目
+- 戻り値浮動小数点数版 [`rint`](rint.md)
+- 戻り値 `long` 版 [`lrint`](lrint.md)
+- [`FE_INEXACT`](../cfenv/fe_inexact.md)
+- 丸めモード: [`fesetround`](../cfenv/fesetround.md) (設定)、[`fegetround`](../cfenv/fegetround.md) (取得)、[`FLT_ROUNDS`](../cfloat/flt_rounds.md) (マクロ)
 
 ## 参照
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)

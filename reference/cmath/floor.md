@@ -120,6 +120,9 @@ FE_INEXACT = true
 
 引数と結果が異なる場合に例外 `FE_INEXACT` が発生するか否かは実装によって異なる。
 
+## 関連項目
+- 天井関数 (正の無限への丸め) [`ceil`](ceil.md)
+- 切り捨て (ゼロ方向への丸め) [`trunc`](trunc.md)
 
 ## 参照
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)

@@ -104,6 +104,9 @@ llround(-2.9) = -3
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
+## 関連項目
+- 戻り値浮動小数点数版 [`round`](round.md)
+- 戻り値 `long` 版 [`lround`](lround.md)
 
 ## 参照
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
