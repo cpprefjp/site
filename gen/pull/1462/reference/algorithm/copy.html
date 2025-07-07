@@ -257,13 +257,13 @@
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="p">};</span>
 
   <span class="c1">// v から v2 へ普通にコピーする</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">(</span><span class="n"><a href="../vector/vector/size.html">v.size</a></span><span class="p">());</span> <span class="c1">// ちゃんと確保しておくこと</span>
-  <span class="n"><span style="color:#ff0000">std::copy</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v2.begin</a></span><span class="p">());</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">(</span><span class="n"><a href="../vector/vector/size.html">v.size()</a></span><span class="p">);</span> <span class="c1">// ちゃんと確保しておくこと</span>
+  <span class="n"><span style="color:#ff0000">std::copy</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span><span class="p">);</span>
 
   <span class="c1">// back_inserter を使って v3 へ設定。</span>
   <span class="c1">// back_inserter は要素をコピーするときに v3.push_back() するイテレータを作る関数。</span>
   <span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls3</span><span class="p">;</span>
-  <span class="n"><span style="color:#ff0000">std::copy</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v2.begin</a></span><span class="p">(),</span> <span class="n"><a href="../vector/vector/end.html">v2.end</a></span><span class="p">(),</span> <span class="n"><a href="../iterator/back_inserter.html">std::back_inserter</a></span><span class="p">(</span><span class="n">ls3</span><span class="p">));</span>
+  <span class="n"><span style="color:#ff0000">std::copy</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v2.end()</a></span><span class="p">,</span> <span class="n"><a href="../iterator/back_inserter.html">std::back_inserter</a></span><span class="p">(</span><span class="n">ls3</span><span class="p">));</span>
 
   <span class="c1">// ostream_iterator を使って出力。</span>
   <span class="c1">// ostream_iterator&lt;int&gt;(cout, ",") は要素をコピーするときに cout &lt;&lt; x &lt;&lt; "," としてくれるイテレータ。</span>
