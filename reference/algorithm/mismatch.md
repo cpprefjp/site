@@ -157,7 +157,6 @@ int main() {
 * v.begin[link /reference/vector/vector/begin.md]
 * v.end[link /reference/vector/vector/end.md]
 * v2.begin[link /reference/array/array/begin.md]
-* v2.end[link /reference/array/array/end.md]
 * v3.begin[link /reference/list/list/begin.md]
 * v3.end[link /reference/list/list/end.md]
 
