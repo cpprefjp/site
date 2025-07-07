@@ -73,7 +73,7 @@ comp_ellint_1(1)   = nan
 
 ## 単振り子の周期と等時性の破れ
 
-単振り子の周期$ T $は、第1種完全楕円積分$ K $を用いて、$ T = 4 \sqrt{\frac{l}{g}} K(\sin(\frac{\theta}{2})) $と書ける（$ l $は長さ、$ g $は重力加速度）。$ l = 1 [m]$の時の周期 $ T [s]$と、近似値$ T_0 = 2\pi\sqrt{\frac{l}{g}}$との比$T/T_0$を計算する例。
+単振り子の周期$ T $は、第1種完全楕円積分$ K $を用いて、$ T = 4 \sqrt{\frac{l}{g}} K(\sin(\frac{\theta}{2})) $と書ける（$ l $は長さ、$ g $は重力加速度、$\theta$ は最大振れ幅の角度）。$ l = 1 [m]$の時の周期 $ T [s]$と、近似値$ T_0 = 2\pi\sqrt{\frac{l}{g}}$との比$T/T_0$を計算する例。
 
 ```cpp example
 #include <iostream>
