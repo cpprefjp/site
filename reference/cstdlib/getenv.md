@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-char* getenv( const char* env_var );
+namespace std {
+  char* getenv( const char* env_var );
+}
 ```
 
 ## 概要

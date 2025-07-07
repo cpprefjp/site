@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-double atof( const char* str );
+namespace std {
+  double atof( const char* str );
+}
 ```
 
 ## 概要
@@ -38,14 +40,14 @@ double atof( const char* str );
  
 int main()
 {
-    std::cout << std::atof("0.0000000123") << '\n'
-              << std::atof("0.012") << '\n'
-              << std::atof("15e16") << '\n'
-              << std::atof("-0x1afp-2") << '\n'
-              << std::atof("inF") << '\n'
-              << std::atof("12Nan23") << '\n'
-              << std::atof("NAN") << '\n'
-              << std::atof("invalid") << '\n';
+  std::cout << std::atof("0.0000000123") << '\n'
+            << std::atof("0.012") << '\n'
+            << std::atof("15e16") << '\n'
+            << std::atof("-0x1afp-2") << '\n'
+            << std::atof("inF") << '\n'
+            << std::atof("12Nan23") << '\n'
+            << std::atof("NAN") << '\n'
+            << std::atof("invalid") << '\n';
 }
 ```
 

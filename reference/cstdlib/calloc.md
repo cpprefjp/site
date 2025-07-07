@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-void *calloc(size_t nmemb, size_t size);
+namespace std {
+  void *calloc(size_t nmemb, size_t size);
+}
 ```
 
 ## 概要
@@ -29,8 +31,8 @@ void *calloc(size_t nmemb, size_t size);
 ## 例
 
 ```cpp example
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
 int main(void)
 {

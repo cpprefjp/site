@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-void srand( unsigned seed );
+namespace std {
+  void srand( unsigned seed );
+}
 ```
 
 ## 概要

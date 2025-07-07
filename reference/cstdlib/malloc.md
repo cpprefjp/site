@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-void *malloc( size_t size );
+namespace std {
+  void *malloc( size_t size );
+}
 ```
 
 ## 概要

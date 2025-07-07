@@ -4,9 +4,11 @@
 * function[meta id-type]
 
 ```cpp
-int       atoi ( const char* str );
-long      atol ( const char* str );
-long long atoll( const char* str );
+namespace std {
+  int       atoi ( const char* str );
+  long      atol ( const char* str );
+  long long atoll( const char* str );
+}
 ```
 
 ## 概要
@@ -33,8 +35,8 @@ long long atoll( const char* str );
 ## 例
 
 ```cpp example
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
  
 int main(void)
 {

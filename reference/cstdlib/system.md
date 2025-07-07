@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int system( const char* command );
+namespace std {
+  int system( const char* command );
+}
 ```
 
 ## 概要
