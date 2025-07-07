@@ -115,11 +115,6 @@ int main() {
 }
 ```
 * std::lexicographical_compare_three_way[color ff0000]
-* std::string[link /reference/string/string.md.nolink]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::isalpha[link /reference/cctype/isalpha.md]
-* std::tolower[link /reference/cctype/tolower.md]
 * weak_ordering[link /reference/compare/weak_ordering.md]
 * str1.begin[link /reference/string/string/begin.md.nolink]
 * str1.end[link /reference/string/string/end.md.nolink]
