@@ -70,7 +70,7 @@ p1[3] == 9
 
 ## 関連項目
 
-- [`free`](/cstdlib/free.md.nolink): 確保したメモリを解放する。
+- [`free`](/cstdlib/free.md): 確保したメモリを解放する。
 
 ## 参照
 
