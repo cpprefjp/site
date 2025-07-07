@@ -73,6 +73,17 @@ int main() {
 ```
 * std::move[color ff0000]
 * v.emplace_back[link /reference/vector/vector/emplace_back.md]
+* std::vector[link /reference/vector/vector.md]
+* std::unique_ptr[link /reference/memory/unique_ptr.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::for_each[link /reference/algorithm/for_each.md]
+* v.emplace_back[link /reference/vector/vector/emplace_back.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* v2.begin[link /reference/vector/vector/begin.md]
+* v2.end[link /reference/vector/vector/end.md]
 
 ### 出力
 ```
