@@ -101,6 +101,8 @@ int main() {
 }
 ```
 * std::fill_n[color ff0000]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::cout[link /reference/iostream/cout.md]
 
 #### 出力
 ```
