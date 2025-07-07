@@ -16,7 +16,6 @@ namespace std {
 * dereferenceable[link /reference/iterator/dereferenceable.md]
 * can-reference[link /reference/iterator/dereferenceable.md]
 * iter_move[link /reference/iterator/iter_move.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 

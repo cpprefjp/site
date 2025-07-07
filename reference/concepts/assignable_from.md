@@ -16,8 +16,6 @@ namespace std {
 }
 ```
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
-* common_reference_with[link common_reference_with.md]
 
 ## 概要
 

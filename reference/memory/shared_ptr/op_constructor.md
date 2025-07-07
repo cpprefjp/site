@@ -57,7 +57,6 @@ constexpr shared_ptr(nullptr_t) noexcept;                // (15)  C++17
 template <class Y>
 shared_ptr(shared_ptr<Y>&& r, element_type* p) noexcept; // (16) C++20
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 * weak_ptr[link /reference/memory/weak_ptr.md]
 * unique_ptr[link /reference/memory/unique_ptr.md]
 

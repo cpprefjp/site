@@ -19,7 +19,6 @@ namespace std {
   using ranges::get;
 }
 ```
-* subrange[link ../subrange.md]
 * subrange_kind[link ../subrange_kind.md]
 
 ## 概要

@@ -57,10 +57,8 @@ int main() {
 }
 ```
 * unget()[color ff0000]
-* std::isalpha[link /reference/locale/isalpha.md.nolink]
 * getloc()[link /reference/ios/ios_base/getloc.md]
 * push_back[link /reference/string/basic_string/push_back.md]
-* std::istringstream[link /reference/sstream/basic_istringstream.md]
 * rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 
 ### 出力

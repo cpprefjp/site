@@ -34,7 +34,6 @@ int main()
 ```
 * max()[color ff0000]
 * std::minstd_rand[link /reference/random/minstd_rand.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力
 ```

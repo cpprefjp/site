@@ -71,9 +71,6 @@ int main()
 }
 ```
 * std::atomic_notify_all[color ff0000]
-* std::atomic_load[link atomic_load.md]
-* std::atomic_store[link atomic_store.md]
-* std::atomic_wait[link atomic_wait.md]
 
 ### 出力
 ```

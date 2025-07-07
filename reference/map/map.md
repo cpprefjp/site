@@ -22,7 +22,6 @@ namespace std {
 ```
 * less[link ../functional/less.md]
 * allocator[link ../memory/allocator.md]
-* pair[link /reference/utility/pair.md]
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 ## 概要
@@ -264,7 +263,6 @@ int main() {
   std::cout << m2[Person{2, 30, "Bob"}] << std::endl;
 }
 ```
-* std::tie[link /reference/tuple/tie.md]
 
 #### 出力
 ```
@@ -321,7 +319,6 @@ int main() {
   std::cout << m2[Person{2, 30, "Bob"}] << std::endl;
 }
 ```
-* std::tie[link /reference/tuple/tie.md]
 
 #### 出力
 ```

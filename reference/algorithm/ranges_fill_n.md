@@ -21,8 +21,6 @@ namespace std::ranges {
            const T& value);   // (1) C++26
 }
 ```
-* output_iterator[link /reference/iterator/output_iterator.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 指定された値で出力の範囲に `n` 個を書き込む。

@@ -84,7 +84,6 @@ int main()
 * std::strided_slice[color ff0000]
 * std::submdspan[link submdspan.md]
 * std::print[link /reference/print/print.md]
-* std::println[link /reference/print/println.md]
 * std::ranges::iota[link /reference/numeric/ranges_iota.md]
 
 ### 出力

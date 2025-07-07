@@ -12,9 +12,7 @@ namespace std::ranges {
       !uses-nonqualification-pointer-conversion<decay_t<From>, decay_t<To>>;
 }
 ```
-* convertible_to[link /reference/concepts/convertible_to.md]
 * uses-nonqualification-pointer-conversion[link uses-nonqualification-pointer-conversion.md]
-* decay_t[link /reference/type_traits/decay.md]
 * convertible-to-non-slicing[italic]
 * uses-nonqualification-pointer-conversion[italic]
 

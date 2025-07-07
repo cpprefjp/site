@@ -53,7 +53,6 @@ int main()
 }
 ```
 * std::forward_like[color ff0000]
-* std::is_same_v[link /reference/type_traits/is_same.md]
 
 #### 出力
 ```
@@ -93,8 +92,6 @@ int main()
 ```
 * std::forward_like[color ff0000]
 * std::invoke[link /reference/functional/invoke.md]
-* std::forward[link /reference/utility/forward.md]
-* std::decay_t[link /reference/type_traits/decay.md]
 
 #### 出力
 ```
@@ -123,7 +120,6 @@ template <class T, class U>
 * conditional_t[link /reference/type_traits/conditional.md]
 * is_const_v[link /reference/type_traits/is_const.md]
 * is_rvalue_reference_v[link /reference/type_traits/is_rvalue_reference.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 ## バージョン
 ### 言語

@@ -92,7 +92,6 @@ int main()
 }
 ```
 * engine()[link op_call.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * std::seed_seq[link /reference/random/seed_seq.md]
 * seeds.begin()[link /reference/array/array/begin.md]
 * seeds.end()[link /reference/array/array/end.md]

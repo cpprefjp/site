@@ -43,7 +43,6 @@ int main()
 }
 ```
 * std::feclearexcept[color ff0000]
-* std::fetestexcept[link fetestexcept.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
 * FE_INVALID[link fe_invalid.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]

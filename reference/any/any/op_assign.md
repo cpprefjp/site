@@ -80,7 +80,6 @@ int main()
   }
 }
 ```
-* std::any_cast[link /reference/any/any_cast.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

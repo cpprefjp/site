@@ -169,7 +169,6 @@ OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
   return std::copy(first2, last2, result);
 }
 ```
-* std::copy[link copy.md]
 
 
 ## 関連項目

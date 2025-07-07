@@ -371,7 +371,6 @@ int main()
   }
 }
 ```
-* std::find_if[link /reference/algorithm/find_if.md]
 
 #### 出力
 ```
@@ -456,7 +455,6 @@ void f(int x)
   std::remove_if(v.begin(), v.end(), void (int& n) { n < x; });
 }
 ```
-* std::remove_if[link /reference/algorithm/remove_if.md]
 
 この構文の問題点は、先に述べたコピーキャプチャと参照キャプチャの使い分けができない、といったもののほか、構文解析が難しいというのもある。
 

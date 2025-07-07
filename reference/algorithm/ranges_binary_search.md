@@ -61,14 +61,8 @@ namespace std::ranges {
                   Proj proj = {}); // (2) C++26
 }
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::less[link /reference/functional/ranges_less.md]
-* identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
-* projected[link /reference/iterator/projected.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 
 ## 概要

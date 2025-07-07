@@ -14,8 +14,6 @@ namespace std {
 }
 ```
 * assignable_from[link /reference/concepts/assignable_from.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* move_constructible[link /reference/concepts/move_constructible.md]
 * swappable[link /reference/concepts/swappable.md]
 
 ## 概要

@@ -52,7 +52,6 @@ namespace std::ranges {
 }
 ```
 * no_unique_address[link /lang/cpp20/language_support_for_empty_objects.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * std::move[link /reference/utility/move.md]
 
 ## 概要

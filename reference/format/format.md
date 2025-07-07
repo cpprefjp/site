@@ -622,9 +622,7 @@ int main()
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now[link /reference/chrono/system_clock/now.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
-* chrono::seconds[link /reference/chrono/duration_aliases.md]
 * chrono::zoned_time[link /reference/chrono/zoned_time.md]
-* std::forward[link /reference/utility/forward.md]
 
 #### 出力
 ```

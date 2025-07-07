@@ -199,7 +199,6 @@ int main() {
 }
 ```
 * std::upper_bound[color ff0000]
-* std::lower_bound[link /reference/algorithm/lower_bound.md]
 
 #### 出力
 ```

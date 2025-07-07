@@ -9,8 +9,6 @@
 constexpr counted_iterator operator-(iter_difference_t<I> n) const
   requires random_access_iterator<I>;
 ```
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 
 ## 概要
@@ -47,7 +45,6 @@ int main() {
   std::cout << *ci2 << '\n';
 }
 ```
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

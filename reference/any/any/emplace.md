@@ -13,7 +13,6 @@ template <class T, class U, class... Args>
 decay_t<T>& emplace(std::initializer_list<U> il,
                     Args&&... args); // (2)
 ```
-* decay_t[link /reference/type_traits/decay.md]
 
 ## 概要
 要素型のコンストラクタ引数から直接構築する。
@@ -80,7 +79,6 @@ int main()
 }
 ```
 * emplace[color ff0000]
-* std::any_cast[link /reference/any/any_cast.md]
 
 ### 出力
 ```

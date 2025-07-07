@@ -35,7 +35,6 @@ void insert(initializer_list<value_type> il);     // (9) C++23
 void insert(sorted_unique_t s,
             initializer_list<value_type> il);     // (10) C++23
 ```
-* pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * sorted_unique_t[link /reference/flat_set/sorted_unique_t.md]
 

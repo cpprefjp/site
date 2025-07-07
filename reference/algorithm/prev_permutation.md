@@ -131,7 +131,6 @@ bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last)
   return prev_permutation(first, last, std::less<value_type>());
 }
 ```
-* std::reverse[link reverse.md]
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 * std::less[link /reference/functional/less.md]
 

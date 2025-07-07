@@ -44,8 +44,6 @@ int main()
 }
 ```
 * std::in_place_type[color ff0000]
-* std::any[link /reference/any/any.md]
-* std::any_cast[link /reference/any/any_cast.md]
 
 ### 出力
 ```

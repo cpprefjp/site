@@ -44,7 +44,6 @@ mapped_type& operator[](K&& x);             // (3) C++23
     return try_emplace(std::forward(x)).first->second;
     ```
     * try_emplace[link try_emplace.md]
-    * std::forward[link /reference/utility/forward.md]
 
 
 ## 計算量

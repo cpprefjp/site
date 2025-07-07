@@ -13,9 +13,7 @@ namespace std {
     indirectly_swappable<I, I>;
 }
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
 * indirectly_movable_storable[link /reference/iterator/indirectly_movable_storable.md]
-* indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
 
 ## 概要
 

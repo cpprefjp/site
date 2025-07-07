@@ -71,7 +71,6 @@ int main()
 }
 ```
 * std::partition_point[color ff0000]
-* std::partition[link partition.md]
 
 ### 出力
 ```
@@ -98,7 +97,6 @@ partition_point(ForwardIterator first, ForwardIterator last, Predicate pred)
   return first;
 }
 ```
-* std::next[link /reference/iterator/next.md]
 
 
 ## バージョン

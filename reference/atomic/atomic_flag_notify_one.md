@@ -83,9 +83,6 @@ int main()
 }
 ```
 * std::atomic_flag_notify_one[color ff0000]
-* std::atomic_flag_test_and_set[link atomic_flag_test_and_set.md]
-* std::atomic_flag_clear[link atomic_flag_clear.md]
-* std::atomic_flag_wait[link atomic_flag_wait.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 
 ### 出力例

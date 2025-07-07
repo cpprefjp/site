@@ -14,9 +14,6 @@ template<class I2>
   requires convertible_to<const I2&, I>
 constexpr counted_iterator(const counted_iterator<I2>& x);                // (3)
 ```
-* default_initializable[link /reference/concepts/default_initializable.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
 
@@ -55,7 +52,6 @@ int main() {
 }
 ```
 * std::counted_iterator[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

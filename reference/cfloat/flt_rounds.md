@@ -41,7 +41,6 @@ int main()
 }
 ```
 * FLT_ROUNDS[color ff0000]
-* std::fesetround[link ../cfenv/fesetround.md]
 * FE_TOWARDZERO[link ../cfenv/fe_towardzero.md]
 
 ### 出力例

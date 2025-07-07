@@ -130,7 +130,6 @@ int main()
   }
 }
 ```
-* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
 #### 出力
 ```
@@ -313,7 +312,6 @@ int id;
 std::string message;
 std::tie(id, message) = f();
 ```
-* std::tie[link /reference/tuple/tie.md]
 
 これらの問題は、変数宣言と構造の分解が同時にできないことで、その間にバグが入り込む余地があったということである。また、分解対象の型に対して「デフォルトコンストラクタを持っていること」という余分な要求をしてしまう問題もあった。
 

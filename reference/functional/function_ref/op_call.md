@@ -23,7 +23,6 @@ return thunk-ptr(bound-entity, std::forward<ArgTypes>(args)...);
 ```
 * thunk-ptr[italic]
 * bound-entity[italic]
-* std::forward[link /reference/utility/forward.md]
 
 
 ## 戻り値

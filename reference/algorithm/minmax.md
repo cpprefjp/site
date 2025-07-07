@@ -31,7 +31,6 @@ namespace std {
   constexpr pair<T, T> minmax(initializer_list<T> t, Compare comp);                // (4) C++14
 }
 ```
-* pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
@@ -134,7 +133,6 @@ std::pair<T, T> minmax(std::initializer_list<T> init, Compare comp)
   return std::make_pair(*p.first, *p.second);
 }
 ```
-* std::minmax_element[link minmax_element.md]
 * init.begin()[link /reference/initializer_list/initializer_list/begin.md]
 * init.end()[link /reference/initializer_list/initializer_list/end.md]
 

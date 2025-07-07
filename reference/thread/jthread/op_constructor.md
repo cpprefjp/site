@@ -48,7 +48,6 @@ jthread(jthread&&) noexcept;             // (4) C++20
         ```
         * invoke[link /reference/functional/invoke.md]
         * decay-copy[link /reference/exposition-only/decay-copy.md]
-        * std::forward[link /reference/utility/forward.md]
         * get_stop_token()[link get_stop_token.md]
 
     - そうでなければ以下の式でスレッドを生成して実行する
@@ -57,7 +56,6 @@ jthread(jthread&&) noexcept;             // (4) C++20
         ```
         * invoke[link /reference/functional/invoke.md]
         * decay-copy[link /reference/exposition-only/decay-copy.md]
-        * std::forward[link /reference/utility/forward.md]
 
     - この呼び出しでの戻り値は無視される。この関数呼び出しが例外を送出する場合、呼び出し元スレッドで[`std::terminate`](/reference/exception/terminate.md)が呼び出される
 
@@ -143,10 +141,8 @@ int main()
   std::cout << sum2 << std::endl;
 }
 ```
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * stoken.stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * t1.request_stop()[link request_stop.md]
 
 

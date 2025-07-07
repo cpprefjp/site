@@ -21,7 +21,6 @@ x = std::string("Hello"); // std::string型の値"Hello"を再代入
 std::string s = std::any_cast<std::string>(x);
 assert(s == "Hello");
 ```
-* std::any_cast[link any_cast.md]
 
 `any`クラスは、古くからあった`void*`をより便利にし、オブジェクトの寿命管理と実行時型情報の機能が付加された型であると言える。
 
@@ -121,8 +120,6 @@ int main()
 }
 ```
 * std::any[color ff0000]
-* std::any_cast[link any_cast.md]
-* std::bad_any_cast[link bad_any_cast.md]
 
 ### 出力例
 ```

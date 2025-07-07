@@ -79,7 +79,6 @@ int main()
 * erase_after[color ff0000]
 * ls.before_begin()[link before_begin.md]
 * ls.end()[link end.md]
-* std::next[link /reference/iterator/next.md]
 
 #### 出力
 ```

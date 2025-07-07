@@ -15,8 +15,6 @@ namespace std {
 }
 ```
 * basic_common_reference[link /reference/type_traits/basic_common_reference.md]
-* pair[link ../pair.md]
-* common_reference_t[link /reference/type_traits/common_reference.md]
 
 ## 概要
 [`pair`](../pair.md)について、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/common_reference.md)の特殊化である。

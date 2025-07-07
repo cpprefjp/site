@@ -28,10 +28,7 @@ namespace std {
   };
 }
 ```
-* common_with[link /reference/concepts/common_with.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
 * common_type[link /reference/type_traits/common_type.md]
-* common_type_t[link /reference/type_traits/common_type.md]
 
 ## 概要
 

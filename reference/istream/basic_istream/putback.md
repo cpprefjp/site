@@ -51,7 +51,6 @@ int main() {
 }
 ```
 * is.putback[color ff0000]
-* std::toupper[link /reference/locale/toupper.md]
 * getloc()[link /reference/ios/ios_base/getloc.md]
 * std::cin[link /reference/iostream/cin.md]
 

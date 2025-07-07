@@ -53,7 +53,6 @@ int main()
 }
 ```
 * std::bad_variant_access[color ff0000]
-* std::variant[link variant.md]
 * std::get[link variant/get.md]
 
 ### 出力例

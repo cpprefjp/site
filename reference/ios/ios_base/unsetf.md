@@ -61,7 +61,6 @@ int main()
   std::cout << std::defaultfloat << 123.456 << '\n';    // C++11 から
 }
 ```
-* std::boolalpha[link ../boolalpha.md]
 * std::noboolalpha[link ../noboolalpha.md]
 * std::scientific[link ../scientific.md]
 * std::fixed[link ../fixed.md]

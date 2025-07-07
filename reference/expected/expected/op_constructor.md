@@ -36,7 +36,6 @@ constexpr explicit expected(unexpect_t, initializer_list<U> il, Args&&... args);
 * see below[italic]
 * unexpected[link ../unexpected.md]
 * unexpect_t[link ../unexpect_t.md]
-* in_place_t[link /reference/utility/in_place_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要

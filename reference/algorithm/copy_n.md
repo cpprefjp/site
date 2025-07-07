@@ -58,10 +58,6 @@ int main() {
 }
 ```
 * std::copy_n[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* std::copy_n[link /reference/algorithm/copy_n.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* std::cout[link /reference/iostream/cout.md]
 
 ### 出力
 ```

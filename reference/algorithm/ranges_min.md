@@ -33,15 +33,10 @@ namespace std::ranges {
         Proj proj = {}); // (3) C++20
 }
 ```
-* identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
-* projected[link /reference/iterator/projected.md]
 * ranges::less[link /reference/functional/ranges_less.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
-* input_range[link /reference/ranges/input_range.md]
 * indirectly_copyable_storable[link /reference/iterator/indirectly_copyable_storable.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
 
 ## 概要
 同じ型の2つの値、もしくは範囲によるN個の値のうち、最小値を取得する。

@@ -49,7 +49,6 @@ namespace std::ranges {
 * iota_view[link ../iota_view.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * semiregular[link /reference/concepts/semiregular.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 

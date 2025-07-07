@@ -97,7 +97,6 @@ int main()
 }
 ```
 * std::assume_aligned[color ff0000]
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 
 #### 出力
 
@@ -186,7 +185,6 @@ int main()
 }
 ```
 * std::assume_aligned[color ff0000]
-* std::fill[link /reference/algorithm/fill.md]
 
 ### 逆アセンブル
 

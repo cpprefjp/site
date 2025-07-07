@@ -11,7 +11,6 @@ namespace std {
   constexpr common_type_t<M, N> gcd(M m, N n);
 }
 ```
-* common_type_t[link /reference/type_traits/common_type.md]
 
 ## 概要
 最大公約数 (greatest common divisor, gcd) を求める。
@@ -81,8 +80,6 @@ int main() {
 ```
 * std::gcd[color ff0000]
 * min[link /reference/limits/numeric_limits/min.md]
-* std::int32_t[link /reference/cstdint/int32_t.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 #### 出力例
 ```
@@ -123,7 +120,6 @@ int main() {
 }
 ```
 * std::gcd[color ff0000]
-* std::accumulate[link accumulate.md]
 
 #### 出力
 ```

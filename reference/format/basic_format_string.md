@@ -50,7 +50,6 @@ void log(std::format_string<Args...> s, Args&&... args) {
 }
 ```
 * std::format[link /reference/format/format.md]
-* std::forward[link /reference/utility/forward.md]
 
 
 ## メンバ関数
@@ -92,9 +91,7 @@ int main()
 * chrono::system_clock[link /reference/chrono/system_clock.md]
 * now[link /reference/chrono/system_clock/now.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
-* chrono::seconds[link /reference/chrono/duration_aliases.md]
 * chrono::zoned_time[link /reference/chrono/zoned_time.md]
-* std::forward[link /reference/utility/forward.md]
 * std::format[link /reference/format/format.md]
 
 ### 出力

@@ -80,21 +80,8 @@ int main() {
 }
 ```
 * std::copy_if[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* v1.size[link /reference/vector/vector/size.md]
-* v2.size[link /reference/vector/vector/size.md]
-* v3.size[link /reference/vector/vector/size.md]
-* v1.begin[link /reference/vector/vector/begin.md]
-* v1.end[link /reference/vector/vector/end.md]
-* v2.begin[link /reference/vector/vector/begin.md]
-* v2.end[link /reference/vector/vector/end.md]
-* v3.begin[link /reference/vector/vector/begin.md]
-* v3.end[link /reference/vector/vector/end.md]
 * copy_if[link /reference/algorithm/copy_if.md]
 * result.begin[link /reference/vector/vector/begin.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::copy[link /reference/algorithm/copy.md]
 
 ### 出力
 ```

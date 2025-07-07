@@ -17,7 +17,6 @@ template<not-a-const-iterator I>
 friend constexpr bool operator>(const I& x, const basic_const_iterator& y)
   requires random_access_iterator<Iterator> && totally_ordered_with<Iterator, I>;   // (3) 非メンバ関数
 ```
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 * totally_ordered_with[link /reference/concepts/totally_ordered.md]
 * different-from[link /reference/ranges/different-from.md]
 

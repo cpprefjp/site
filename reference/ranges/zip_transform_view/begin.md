@@ -15,9 +15,6 @@ constexpr auto begin() const
              range_reference_t<const Views>...
            >;                                  // (2) C++23
 ```
-* range[link ../range.md]
-* regular_invocable[link /reference/concepts/invocable.md]
-* range_reference_t[link ../range_reference_t.md]
 
 ## 概要
 

@@ -37,7 +37,6 @@ int main()
 }
 ```
 * ATOMIC_FLAG_INIT[color ff0000]
-* std::atomic_flag[link atomic_flag.md]
 * x.test_and_set()[link atomic_flag/test_and_set.md]
 
 

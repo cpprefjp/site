@@ -25,12 +25,6 @@ namespace std::ranges {
             Proj proj = {}); // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 
 ## 概要
 範囲の全ての要素が条件を満たさないかを判定する。
@@ -113,13 +107,6 @@ struct none_of_impl {
 
 inline constexpr none_of_impl none_of;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]

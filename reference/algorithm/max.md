@@ -109,7 +109,6 @@ T max(std::initializer_list<T> t, Compare comp)
 ```
 * t.begin()[link /reference/initializer_list/initializer_list/begin.md]
 * t.end()[link /reference/initializer_list/initializer_list/end.md]
-* std::max_element[link max_element.md]
 
 
 ## initializer_listバージョンの使用可能状況

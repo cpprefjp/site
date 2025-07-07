@@ -492,13 +492,10 @@ int main() {
 }
 ```
 * std::from_chars[color ff0000]
-* contiguous_range[link /reference/ranges/contiguous_range.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]
 * to_address[link /reference/memory/to_address.md]
 * format[link /reference/format/format.md]
-* std::chars_format[link chars_format.md]
 
 #### 出力
 

@@ -76,7 +76,6 @@ int main()
 }
 ```
 * std::is_heap_until[color ff0000]
-* std::make_heap[link make_heap.md]
 
 ### 出力
 ```

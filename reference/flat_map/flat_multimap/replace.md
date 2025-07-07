@@ -66,7 +66,6 @@ int main()
 ```
 * replace[color ff0000]
 * fm.size()[link size.md]
-* std::is_sorted[link /reference/algorithm/is_sorted.md]
 
 ### 出力
 ```

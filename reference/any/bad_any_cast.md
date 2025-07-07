@@ -41,8 +41,6 @@ int main()
 }
 ```
 * std::bad_any_cast[color ff0000]
-* std::any[link any.md]
-* std::any_cast[link any_cast.md]
 
 ### 出力例
 ```

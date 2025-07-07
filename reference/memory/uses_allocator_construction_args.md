@@ -102,7 +102,6 @@ forward_as_tuple(std::forward<Args>(args)...)
 tuple<allocator_arg_t, const Alloc&, Args&&...>(
   allocator_arg, alloc, std::forward<Args>(args)...)
 ```
-* tuple[link ../tuple/tuple/op_constructor.md]
 * allocator_arg_t[link allocator_arg_t.md]
 * allocator_arg[link allocator_arg_t.md]
 * forward[link ../utility/forward.md]
@@ -131,7 +130,6 @@ make_tuple(
 			alloc, std::forward<decltype(args2)>(args2)...);
 		  }, std::forward<Tuple2>(y)))
 ```
-* piecewise_construct[link ../utility/piecewise_construct_t.md]
 * forward[link ../utility/forward.md]
 * uses_allocator_construction_args[color ff0000]
 * apply[link ../tuple/apply.md]
@@ -143,8 +141,6 @@ make_tuple(
 uses_allocator_construction_args<T>(alloc, piecewise_construct,
                                     tuple<>{}, tuple<>{})
 ```
-* piecewise_construct[link ../utility/piecewise_construct_t.md]
-* tuple[link ../tuple/tuple/op_constructor.md]
 * uses_allocator_construction_args[color ff0000]
 
 - (4) : 以下と等価
@@ -154,7 +150,6 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
                                     forward_as_tuple(std::forward<U>(u)),
                                     forward_as_tuple(std::forward<V>(v)))
 ```
-* piecewise_construct[link ../utility/piecewise_construct_t.md]
 * forward_as_tuple[link ../tuple/forward_as_tuple.md]
 * forward[link ../utility/forward.md]
 * uses_allocator_construction_args[color ff0000]
@@ -166,7 +161,6 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
                                     forward_as_tuple(pr.first),
                                     forward_as_tuple(pr.second))
 ```
-* piecewise_construct[link ../utility/piecewise_construct_t.md]
 * forward_as_tuple[link ../tuple/forward_as_tuple.md]
 * uses_allocator_construction_args[color ff0000]
 
@@ -177,7 +171,6 @@ uses_allocator_construction_args<T>(alloc, piecewise_construct,
                                     forward_as_tuple(std::move(pr).first),
                                     forward_as_tuple(std::move(pr).second))
 ```
-* piecewise_construct[link ../utility/piecewise_construct_t.md]
 * forward_as_tuple[link ../tuple/forward_as_tuple.md]
 * move[link ../utility/move.md]
 * uses_allocator_construction_args[color ff0000]
@@ -189,7 +182,6 @@ return uses_allocator_construction_args<T>(alloc, piecewise_construct,
                                            forward_as_tuple(get<0>(std::forward<P>(p))),
                                            forward_as_tuple(get<1>(std::forward<P>(p))));
 ```
-* piecewise_construct[link ../utility/piecewise_construct_t.md]
 * forward_as_tuple[link ../tuple/forward_as_tuple.md]
 
 - (10) : 以下の説明用クラスを定義し、

@@ -10,9 +10,7 @@ namespace std::ranges {
   concept constant_range = input_range<T> && constant-iterator<iterator_t<T>>;
 }
 ```
-* input_range[link input_range.md]
 * constant-iterator[link /reference/iterator/constant-iterator.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 

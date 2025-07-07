@@ -138,7 +138,6 @@ int main()
 * ums.cbegin()[link cbegin.md]
 * ums.cend()[link cend.md]
 * ums.equal_range[link equal_range.md]
-* std::next[link /reference/iterator/next.md]
 
 ### 出力
 - libstdc++ の出力例（4.7.3 現在）  

@@ -44,7 +44,6 @@ int main()
   std::atomic_flag x = ATOMIC_FLAG_INIT;
 }
 ```
-* std::atomic_flag[link /reference/atomic/atomic_flag.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 
 ### 出力

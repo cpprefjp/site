@@ -10,9 +10,6 @@ namespace std::ranges {
   using range_size_t = decltype(ranges::size(declval<R&>()));
 }
 ```
-* range[link range.md]
-* declval[link /reference/utility/declval.md]
-* ranges::size[link size.md]
 
 ## 概要
 

@@ -35,7 +35,6 @@ basic_ostream& operator<<(nullptr_t);                // (19) C++17
 // ストリームバッファの非書式化出力
 basic_ostream& operator<<(basic_streambuf<CharT, Traits>* sb); // (20) C++03
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 * extended-floating-point-type[link /reference/stdfloat.md]
 
 ## 概要

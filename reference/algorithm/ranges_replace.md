@@ -73,15 +73,7 @@ namespace std::ranges {
             Proj proj = {}); // (2) C++26
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* projected[link /reference/iterator/projected.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

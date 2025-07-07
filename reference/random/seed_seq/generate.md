@@ -83,7 +83,6 @@ int main()
 * generate[color ff0000]
 * seeds.begin()[link /reference/vector/vector/begin.md]
 * seeds.end()[link /reference/vector/vector/end.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力
 ```

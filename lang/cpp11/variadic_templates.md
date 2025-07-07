@@ -74,7 +74,6 @@ int main()
   print(1, 'a', "hello");
 }
 ```
-* std::forward[link /reference/utility/forward.md]
 
 出力：
 

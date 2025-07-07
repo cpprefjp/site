@@ -85,7 +85,6 @@ int main()
 }
 ```
 * std::minstd_rand0[color ff0000]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link linear_congruential_engine/op_call.md]
 
 ### 出力例

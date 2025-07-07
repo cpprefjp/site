@@ -10,7 +10,6 @@ namespace std {
   concept decays-to = same_as<decay_t<From>, To>;  // exposition only
 }
 ```
-* decay_t[link /reference/type_traits/decay.md]
 
 ## 概要
 `decays-to`は、型`From`の[decay](/reference/type_traits/decay.md)結果が型`To`に一致することを表す説明専用のコンセプトである。

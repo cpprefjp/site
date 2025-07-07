@@ -29,7 +29,6 @@ namespace std::execution {
 * get_completion_scheduler[link get_completion_scheduler.md]
 * set_value_t[link set_value.md]
 * get_env[link get_env.md]
-* equality_comparable[link /reference/concepts/equality_comparable.md]
 * copyable[link /reference/concepts/copyable.md]
 
 ## 概要

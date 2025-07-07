@@ -116,7 +116,6 @@ int main()
 * ls.begin()[link begin.md]
 * ls.end()[link end.md]
 * ls.before_begin()[link before_begin.md]
-* std::next[link /reference/iterator/next.md]
 
 ### 出力
 ```

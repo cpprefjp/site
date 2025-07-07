@@ -33,7 +33,6 @@ function(allocator_arg_t, const Alloc& alloc, function&& f);       // (9) C++17�
 template <class F, class Alloc>
 function(allocator_arg_t, const Alloc& alloc, F f);                // (10) C++17で削除
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ## 概要

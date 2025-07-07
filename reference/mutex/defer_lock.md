@@ -36,7 +36,6 @@ int main()
 }
 ```
 * std::defer_lock[color ff0000]
-* std::unique_lock[link unique_lock.md]
 * lk.lock()[link unique_lock/lock.md]
 
 ### 出力

@@ -55,8 +55,6 @@ class expected {
     * value()[link value.md]
     * error()[link error.md]
     * invoke[link /reference/functional/invoke.md]
-    * in_place[link /reference/utility/in_place_t.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (3), (4) : 次の処理と等価
     ```cpp
@@ -69,8 +67,6 @@ class expected {
     * value()[link value.md]
     * error()[link error.md]
     * invoke[link /reference/functional/invoke.md]
-    * in_place[link /reference/utility/in_place_t.md]
-    * std::forward[link /reference/utility/forward.md]
     * std::move[link /reference/utility/move.md]
 
 
@@ -114,7 +110,6 @@ int main()
 * value()[link value.md]
 * error()[link error.md]
 * std::unexpected[link ../unexpected.md]
-* std::from_chars[link /reference/charconv/from_chars.md]
 * std::errc[link /reference/system_error/errc.md]
 
 ### 出力

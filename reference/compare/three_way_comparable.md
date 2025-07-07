@@ -43,7 +43,6 @@ concept partially-ordered-with =
   };
 ```
 * common_comparison_category_t[link /reference/compare/common_comparison_category.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * boolean-testable[link /reference/concepts/boolean-testable.md]
 
 - (1) : 以下のように定義される。
@@ -59,7 +58,6 @@ concept three_way_comparable =
 ```
 * partial_ordering[link /reference/compare/partial_ordering.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 - (2) : 以下のように定義される。
 
@@ -80,9 +78,6 @@ concept three_way_comparable_with =
 ```
 * partial_ordering[link /reference/compare/partial_ordering.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
-* common_reference_with[link /reference/concepts/common_reference_with.md]
-* common_reference_t[link /reference/type_traits/common_reference.md]
 
 ## モデル
 

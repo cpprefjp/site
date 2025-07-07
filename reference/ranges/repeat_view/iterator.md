@@ -105,12 +105,7 @@ namespace std::ranges {
   };
 }
 ```
-* move_constructible[link /reference/concepts/move_constructible.md]
 * semiregular[link /reference/concepts/semiregular.md]
-* unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* same_as[link /reference/concepts/same_as.md]
-* remove_cv_t[link /reference/type_traits/remove_cv.md]
 * is-integer-like[link /reference/iterator/is_integer_like.md]
 * repeat_view[link ../repeat_view.md]
 * conditional_t[link /reference/type_traits/conditional.md]

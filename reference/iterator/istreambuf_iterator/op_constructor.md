@@ -21,7 +21,6 @@ istreambuf_iterator(streambuf_type* s) noexcept; // (5) C++11
 istreambuf_iterator(const proxy& p) throw();  // (6) C++03
 istreambuf_iterator(const proxy& p) noexcept; // (6) C++11
 ```
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## istreambuf_iteratorオブジェクトの構築
 - (1) : デフォルトコンストラクタ。メンバ変数として保持する`streambuf`オブジェクトへのポインタをヌル初期化する。

@@ -27,9 +27,7 @@ using synth-three-way-result =
 * synth-three-way-result[italic]
 * synth-three-way[italic]
 * boolean-testable[link /reference/concepts/boolean-testable.md]
-* three_way_comparable_with[link /reference/compare/three_way_comparable.md]
 * weak_ordering[link /reference/compare/weak_ordering.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 - (1) : 型`T`と型`U`が三方比較可能であればそれを行い、そうでなければ[`weak_ordering`](/reference/compare/weak_ordering.md)として三方比較を実装して関数オブジェクト

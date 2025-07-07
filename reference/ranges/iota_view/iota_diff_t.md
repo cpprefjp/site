@@ -30,7 +30,6 @@ using _Iota_diff_t = conditional_t<is_integral_v<_Ty>,
 ```
 * conditional_t[link /reference/type_traits/conditional.md]
 * is_integral_v[link /reference/type_traits/is_integral.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## バージョン
 ### 言語

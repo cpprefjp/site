@@ -15,12 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* input_range[link input_range.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* iterator_t[link iterator_t.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): 元のRangeの先頭から指定した条件を連続して満たす範囲を取り出す[`view`](view.md)

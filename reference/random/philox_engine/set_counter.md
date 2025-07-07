@@ -100,7 +100,6 @@ int main()
 * set_counter[color ff0000]
 * engine.seed[link seed.md]
 * uniform_real_distribution[link /reference/random/uniform_real_distribution.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力例
 ```

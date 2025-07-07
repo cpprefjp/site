@@ -45,7 +45,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `multiplies`クラスは、乗算を行う関数オブジェクトである。

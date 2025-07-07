@@ -11,7 +11,6 @@ namespace std {
 }
 ```
 * dereferenceable[link /reference/iterator/dereferenceable.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 

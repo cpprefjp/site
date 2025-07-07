@@ -14,7 +14,6 @@ namespace std {
   };
 }
 ```
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 [`format_to_n`](format_to_n.md)の結果を表す構造体。

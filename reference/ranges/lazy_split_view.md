@@ -18,12 +18,6 @@ namespace std::ranges {
   }
 }
 ```
-* input_range[link input_range.md]
-* forward_range[link forward_range.md]
-* view[link view.md]
-* iterator_t[link iterator_t.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* ranges::equal_to[link /reference/functional/equal_to.md]
 * tiny-range[italic]
 
 ## 概要
@@ -61,7 +55,6 @@ concept tiny-range = sized_range<R> &&
 ```
 * require-constant[italic]
 * tiny-range[italic]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 これを用いて、
 

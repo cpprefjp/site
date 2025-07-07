@@ -9,7 +9,6 @@
 template <class... Args>
 pair<iterator, bool> emplace(Args&&... args);
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 コンテナに新しい要素を挿入する。要素は直接構築される（コピーもムーブもされない）。要素のコンストラクタはこの関数に渡された引数を与えることによって呼ばれる。
@@ -34,7 +33,6 @@ c.values.insert(value_it, std::move(t.second));
 ```
 * c.keys[link containers.md]
 * c.values[link containers.md]
-* ranges::upper_bound[link /reference/algorithm/ranges_upper_bound.md]
 * begin()[link /reference/vector/vector/begin.md]
 * distance[link /reference/iterator/distance.md]
 * insert[link /reference/vector/vector/insert.md]
@@ -109,7 +107,6 @@ int main()
 ```
 * emplace[color ff0000]
 * std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
-* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
 #### 出力
 ```

@@ -45,16 +45,6 @@ namespace std::ranges {
           Proj proj = {}); // (2) C++26
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* input_range[link /reference/ranges/input_range.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* projected[link /reference/iterator/projected.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* range_difference_t[link /reference/ranges/range_difference_t.md]
 
 ## 概要
 指定された値と等値な要素の数を数える。
@@ -201,16 +191,6 @@ struct count_impl {
 
 inline constexpr count_impl count;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* input_range[link /reference/ranges/input_range.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* projected[link /reference/iterator/projected.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* range_difference_t[link /reference/ranges/range_difference_t.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]

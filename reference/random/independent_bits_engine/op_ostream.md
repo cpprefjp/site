@@ -43,7 +43,6 @@ int main()
   std::cout << engine << std::endl;
 }
 ```
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 
 ### 出力例
 ```

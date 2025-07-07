@@ -30,7 +30,6 @@ int main()
 }
 ```
 * FE_INEXACT[color ff0000]
-* std::fetestexcept[link fetestexcept.md]
 
 ### 出力例
 ```

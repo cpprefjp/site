@@ -270,7 +270,6 @@ int main()
 }
 ```
 * std::to_chars[color ff0000]
-* std::chars_format[link chars_format.md]
 * std::errc[link /reference/system_error/errc.md]
 
 #### 出力例（VS2019 16.5 preview 1）

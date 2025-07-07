@@ -76,7 +76,6 @@ int main()
 }
 ```
 * std::default_searcher[color ff0000]
-* std::search[link /reference/algorithm/search.md]
 * pattern.cbegin()[link /reference/string/basic_string/cbegin.md]
 * pattern.cend()[link /reference/string/basic_string/cend.md]
 * text.cbegin()[link /reference/string/basic_string/cbegin.md]

@@ -64,13 +64,8 @@ int main() {
 }
 ```
 * std::copy_backward[color ff0000]
-* std::list[link /reference/list/list.md]
 * ls.begin()[link /reference/list/list/begin.md]
-* std::next[link /reference/iterator/next.md]
 * ls.end()[link /reference/list/list/end.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::copy[link /reference/algorithm/copy.md]
 
 ### 出力
 ```

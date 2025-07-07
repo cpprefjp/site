@@ -16,7 +16,6 @@ namespace std {
                   const tuple<UTypes...>& u); // (1) C++14
 }
 ```
-* tuple[link ../tuple.md]
 
 ## 概要
 2つの`tuple`オブジェクトの非等値比較を行う。

@@ -38,7 +38,6 @@ namespace std {
       ::new (static_cast<void*>(&*first))
          typename iterator_traits<ForwardIterator>::value_type(x);
     ```
-    * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 - C++17 : 以下と等価
     ```cpp
@@ -46,8 +45,6 @@ namespace std {
       ::new (static_cast<void*>(addressof(*first)))
          typename iterator_traits<ForwardIterator>::value_type(x);
     ```
-    * iterator_traits[link /reference/iterator/iterator_traits.md]
-    * addressof[link addressof.md]
 
 
 ## 戻り値
@@ -90,7 +87,6 @@ int main()
 }
 ```
 * std::uninitialized_fill[color ff0000]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * alloc.destroy[link allocator/destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]

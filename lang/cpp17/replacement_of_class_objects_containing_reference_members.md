@@ -84,7 +84,6 @@ public:
   }
 };
 ```
-* std::forward[link /reference/utility/forward.md]
 
 このオーバーヘッドを避けるために`std::launder()`関数が導入された。
 

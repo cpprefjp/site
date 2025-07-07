@@ -25,14 +25,8 @@ namespace std::ranges {
 }
 ```
 * copy_if_result[link ranges_in_out_result.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* projected[link /reference/iterator/projected.md]
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

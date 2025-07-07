@@ -73,7 +73,6 @@ namespace ranges {
 ```cpp
 ranges::find(std::move(first), last, value, proj) != last
 ```
-* ranges::find[link ranges_find.md]
 
 
 ## 計算量
@@ -166,7 +165,6 @@ struct contains_impl {
 
 inline constexpr contains_impl contains;
 ```
-* ranges::find[link ranges_find.md]
 
 ## バージョン
 ### 言語

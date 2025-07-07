@@ -110,9 +110,6 @@ int main()
 }
 ```
 * std::atomic_wait_explicit[color ff0000]
-* std::atomic_exchange_explicit[link atomic_exchange_explicit.md]
-* std::atomic_store_explicit[link atomic_store_explicit.md]
-* std::atomic_notify_one[link atomic_notify_one.md]
 * std::memory_order[link /reference/atomic/memory_order.md]
 
 ### 出力例

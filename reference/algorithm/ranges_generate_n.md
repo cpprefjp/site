@@ -16,10 +16,7 @@ namespace std::ranges {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
-* invocable[link /reference/concepts/invocable.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 
 
 ## 概要

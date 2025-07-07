@@ -22,7 +22,6 @@ namespace std {
     const move_iterator<Iterator>& x);                   // C++20
 }
 ```
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 イテレータを`n`回進める。

@@ -69,7 +69,6 @@ namespace std {
 ```
 * tuple_element[link tuple_element.md]
 * tuple_element_t[link tuple_element.md]
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 タプルと見なせる型から指定した位置の要素を取得する。

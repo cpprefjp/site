@@ -51,8 +51,6 @@ namespace std {
 ```
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 * random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
-* remove_cv_t[link /reference/type_traits/remove_cv.md]
-* is_object_v[link /reference/type_traits/is_object.md]
 * contiguous_iterator_tag[link /reference/iterator/iterator_tag.md]
 
 ## 概要
@@ -205,7 +203,6 @@ concept cpp17-random-access-iterator =
 * signed_integral[link /reference/concepts/signed_integral.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * totally_ordered[link /reference/concepts/totally_ordered.md]
 
 ## 例

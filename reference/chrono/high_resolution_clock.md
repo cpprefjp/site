@@ -68,7 +68,6 @@ int main()
 }
 ```
 * now()[link high_resolution_clock/now.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * count()[link duration/count.md]
 
 ### 出力例

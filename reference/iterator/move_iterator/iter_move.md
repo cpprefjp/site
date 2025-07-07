@@ -15,8 +15,6 @@ namespace std {
 }
 ```
 * move_iterator[link /reference/iterator/move_iterator.md]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 概要
 
@@ -29,7 +27,6 @@ namespace std {
 ```cpp
 return ranges::iter_move(i.current);
 ```
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 備考
 
@@ -59,7 +56,6 @@ int main() {
 }
 ```
 * iter_move[color ff0000]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ### 出力
 ```

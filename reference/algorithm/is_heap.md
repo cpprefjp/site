@@ -69,7 +69,6 @@ int main()
 }
 ```
 * std::is_heap[color ff0000]
-* std::make_heap[link make_heap.md]
 
 ### 出力
 ```

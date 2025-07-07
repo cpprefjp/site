@@ -11,7 +11,6 @@ friend constexpr basic_const_iterator operator+(const basic_const_iterator& i, d
 
 friend constexpr basic_const_iterator operator+(difference_type n, const basic_const_iterator& i)   // (2)
 ```
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 

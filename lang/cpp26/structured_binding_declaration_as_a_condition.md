@@ -29,8 +29,6 @@ if (auto [to, ec] = std::to_chars(p, last, 42)) {
   …
 }
 ```
-* std::to_chars[link /reference/charconv/to_chars.md]
-* std::to_chars_result[link /reference/charconv/to_chars_result.md]
 * std::errc[link /reference/system_error/errc.md]
 
 なお、条件分岐文での初期化式と、全体を`bool`変換する条件式は別で指定できる。
@@ -56,7 +54,6 @@ int main()
   }
 }
 ```
-* std::to_chars[link /reference/charconv/to_chars.md]
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)

@@ -9,7 +9,6 @@
 operator basic_string_view<charT, traits>() const noexcept;           // (1) C++17
 constexpr operator basic_string_view<charT, traits>() const noexcept; // (1) C++20
 ```
-* basic_string_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
 [`std::basic_string_view`](/reference/string_view/basic_string_view.md)型に変換する。

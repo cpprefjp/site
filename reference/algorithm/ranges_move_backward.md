@@ -24,11 +24,7 @@ namespace std::ranges {
 }
 ```
 * move_backward_result[link ranges_in_out_result.md]
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * indirectly_movable[link /reference/iterator/indirectly_movable.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

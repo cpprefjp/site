@@ -87,9 +87,6 @@ int main()
 }
 ```
 * std::atomic_notify_one[color ff0000]
-* std::atomic_exchange[link atomic_exchange.md]
-* std::atomic_store[link atomic_store.md]
-* std::atomic_wait[link atomic_wait.md]
 
 ### 出力例
 ```

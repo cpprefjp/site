@@ -48,7 +48,6 @@ int main()
 }
 ```
 * FE_TONEAREST[color ff0000]
-* std::fesetround[link fesetround.md]
 * std::nearbyint[link /reference/cmath/nearbyint.md]
 
 ### 出力

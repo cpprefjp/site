@@ -107,7 +107,6 @@ T min(std::initializer_list<T> t, Compare comp)
   return *std::min_element(t.begin(), t.end(), comp);
 }
 ```
-* std::min_element[link min_element.md]
 * t.begin()[link /reference/initializer_list/initializer_list/begin.md]
 * t.end()[link /reference/initializer_list/initializer_list/end.md]
 

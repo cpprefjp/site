@@ -23,11 +23,9 @@ namespace std::ranges {
       convertible_to<V, tuple_element_t<1, T>>;
 }
 ```
-* range[link ../range.md]
 * pair-like[link /reference/tuple/pair-like.md]
 * convertible-to-non-slicing[link convertible-to-non-slicing.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * tuple_element_t[link /reference/tuple/tuple_element.md]
 * is_reference_v[link /reference/type_traits/is_reference.md]
 * convertible-to-non-slicing[italic]

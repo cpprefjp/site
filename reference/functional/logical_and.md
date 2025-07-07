@@ -45,7 +45,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `logical_and`クラスは、論理積(AND)を計算する関数オブジェクトである。

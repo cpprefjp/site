@@ -582,7 +582,6 @@ int main()
   std::cout << (s1 != s2) << std::endl;
 }
 ```
-* std::tie[link /reference/tuple/tie.md]
 
 ### 出力
 ```
@@ -668,7 +667,6 @@ strong_ordering operator<=>(const std::vector<T>& lhs, const std::vector<T>& rhs
   return lhs.size() <=> rhs.size();
 }
 ```
-* std::min[link /reference/algorithm/min.md]
 * lhs.size()[link /reference/vector/vector/size.md]
 * rhs.size()[link /reference/vector/vector/size.md]
 * size_t[link /reference/cstddef/size_t.md]

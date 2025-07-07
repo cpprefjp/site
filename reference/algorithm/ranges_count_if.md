@@ -20,15 +20,6 @@ namespace std::ranges {
     count_if(R&& r, Pred pred, Proj proj = {});           // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* input_range[link /reference/ranges/input_range.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* projected[link /reference/iterator/projected.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* range_difference_t[link /reference/ranges/range_difference_t.md]
 
 
 ## 概要
@@ -96,15 +87,6 @@ struct count_if_impl {
 
 inline constexpr count_if_impl count_if;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* input_range[link /reference/ranges/input_range.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* projected[link /reference/iterator/projected.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* range_difference_t[link /reference/ranges/range_difference_t.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]

@@ -21,11 +21,6 @@ namespace std::ranges {
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* subrange[link /reference/ranges/subrange.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
 
 ## 概要
 `middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させる。

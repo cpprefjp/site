@@ -70,7 +70,6 @@ int main()
 }
 ```
 * erase[color ff0000]
-* std::next[link /reference/iterator/next.md]
 * ls.begin()[link begin.md]
 * ls.end()[link end.md]
 

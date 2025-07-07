@@ -11,10 +11,8 @@ namespace std::ranges {
   class owning_view : public view_interface<owning_view<R>> { …… };
 }
 ```
-* range[link range.md]
 * movable[link /reference/concepts/movable.md]
 * is-initializer-list[italic]
-* view_interface[link view_interface.md]
 
 ## 概要
 Rangeの右辺値をムーブして所有する[`view`](view.md)。このクラスのオブジェクトは、Rangeアダプタ[`all`](all.md)によって生成される。
@@ -141,18 +139,8 @@ namespace std::ranges {
 }
 ```
 * is-initializer-list[italic]
-* range[link range.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* iterator_t[link iterator_t.md]
-* sentinel_t[link sentinel_t.md]
-* ranges::begin[link begin.md]
-* ranges::end[link end.md]
 * ranges::empty[link empty.md]
-* ranges::size[link size.md]
 * ranges::data[link data.md]
-* sized_range[link sized_range.md]
-* contiguous_range[link contiguous_range.md]
-* view_interface[link view_interface.md]
 
 ## バージョン
 ### 言語

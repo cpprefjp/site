@@ -110,7 +110,6 @@ namespace std {
   };
 }
 ```
-* basic_string_view[link /reference/string_view/basic_string_view.md]
 * format_error[link /reference/string_view/basic_string_view.md]
 
 ## バージョン

@@ -37,8 +37,6 @@ for (; first != last; ++first)
   ::new (static_cast<void*>(addressof(*first)))
     typename iterator_traits<ForwardIterator>::value_type();
 ```
-* addressof[link addressof.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 
 
 ## 戻り値
@@ -83,7 +81,6 @@ int main()
 }
 ```
 * std::uninitialized_value_construct[color ff0000]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * alloc.deallocate[link allocator/deallocate.md]
 * std::destroy[link destroy.md]

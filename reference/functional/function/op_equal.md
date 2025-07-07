@@ -14,7 +14,6 @@ namespace std {
   bool operator==(nullptr_t, const function<R(ArgTypes...)>& f) noexcept; // (2) C++20
 }
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 等値比較する。

@@ -29,7 +29,6 @@ else {
   return std::move_sentinel(ranges::end(base_));
 }
 ```
-* ranges::end[link /reference/ranges/end.md]
 
 
 ## 例

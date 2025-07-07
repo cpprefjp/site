@@ -12,8 +12,6 @@ namespace std {
       noexcept(noexcept(ranges::iter_swap(x.current, y.current)));
 }
 ```
-* indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 概要
 
@@ -32,7 +30,6 @@ namespace std {
 ```cpp
 return ranges::iter_swap(x.current, y.current);
 ```
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 備考
 
@@ -68,7 +65,6 @@ int main() {
 
 ```
 * iter_swap[color ff0000]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ### 出力
 ```

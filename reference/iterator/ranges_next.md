@@ -20,8 +20,6 @@ namespace std::ranges {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 
 ## 概要
 
@@ -115,7 +113,6 @@ int main() {
 }
 ```
 * std::ranges::next[color ff0000]
-* std::begin[link /reference/iterator/begin.md]
 
 ### 出力
 ```

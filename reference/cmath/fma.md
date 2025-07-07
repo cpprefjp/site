@@ -165,7 +165,6 @@ int main()
 * std::fma[color ff0000]
 * math_errhandling[link math_errhandling.md]
 * MATH_ERREXCEPT[link math_errexcept.md]
-* std::feclearexcept[link /reference/cfenv/feclearexcept.md]
 * FE_ALL_EXCEPT[link /reference/cfenv/fe_all_except.md]
 * FE_INVALID[link /reference/cfenv/fe_invalid.md]
 * FE_DIVBYZERO[link /reference/cfenv/fe_divbyzero.md]

@@ -20,7 +20,6 @@ namespace std {
                typename iterator_traits<ForwardIterator>::difference_type n); // (2)
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 概要
 イテレータ範囲`[first, last)`の要素をn個だけ左にシフトさせる。

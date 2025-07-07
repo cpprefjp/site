@@ -20,7 +20,6 @@ namespace std {
 ```
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * copyable[link /reference/concepts/copyable.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]

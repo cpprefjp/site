@@ -93,7 +93,6 @@ int main()
 * std::ranlux24[link /reference/random/ranlux24.md]
 * std::ranlux24_base[link /reference/random/ranlux24_base.md]
 * std::seed_seq[link /reference/random/seed_seq.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * seeds.begin()[link /reference/array/array/begin.md]
 * seeds.end()[link /reference/array/array/end.md]
 * std::move[link /reference/utility/move.md]

@@ -44,7 +44,6 @@ int main()
 }
 ```
 * std::fegetround[color ff0000]
-* std::fesetround[link fesetround.md]
 * FE_DOWNWARD[link fe_downward.md]
 * FE_TONEAREST[link fe_tonearest.md]
 * FE_TOWARDZERO[link fe_towardzero.md]

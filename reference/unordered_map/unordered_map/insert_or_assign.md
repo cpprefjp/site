@@ -39,7 +39,6 @@ iterator
                    K&& k,
                    M&& obj);            // (6) C++26
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` のキーとして要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。

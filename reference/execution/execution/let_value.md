@@ -84,7 +84,6 @@ namespace std::execution {
   return state-type{std::forward_like<Sndr>(fn), let-env(child), {}, {}};
 }
 ```
-* decay_t[link /reference/type_traits/decay.md]
 * see below[italic]
 
 - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。

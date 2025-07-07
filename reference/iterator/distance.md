@@ -28,7 +28,6 @@ namespace std {
     std::size_t index = std::distance(v.begin(), it);
     ```
     * std::distance[color ff0000]
-    * std::find_if[link /reference/algorithm/find_if.md]
 
 - [`std::forward_list`](/reference/forward_list/forward_list.md)のような、要素数を直接取得できないコンテナに対して、イテレータ範囲で要素数を求める。
 

@@ -109,8 +109,6 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 * call-result-t[link /reference/functional/call-result-t.md]
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
-* decay_t[link /reference/type_traits/decay.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * see below[italic]
 
 説明専用の定数`connect-all`は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。

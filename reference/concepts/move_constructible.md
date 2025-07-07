@@ -11,7 +11,6 @@ namespace std {
 }
 ```
 * constructible_from[link /reference/concepts/constructible_from.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
 

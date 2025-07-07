@@ -68,8 +68,6 @@ int main()
 ```
 * replace[color ff0000]
 * fm.size()[link size.md]
-* std::is_sorted[link /reference/algorithm/is_sorted.md]
-* std::adjacent_find[link /reference/algorithm/adjacent_find.md]
 
 ### 出力
 ```

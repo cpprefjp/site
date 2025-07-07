@@ -22,7 +22,6 @@ using namespace literals::chrono_literals;
 
 }  // namespace std
 ```
-* chrono::microseconds[link /reference/chrono/duration_aliases.md]
 * micro[link /reference/ratio/si_prefix.md]
 * unspecified[italic]
 

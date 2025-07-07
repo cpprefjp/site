@@ -12,7 +12,6 @@ static gps_time<common_type_t<Duration, seconds>>
 ```
 * gps_time[link /reference/chrono/gps_time.md]
 * utc_time[link /reference/chrono/utc_time.md]
-* common_type_t[link /reference/chrono/common_type.md]
 
 ## 概要
 UTC時間からGPS時間に変換する。
@@ -23,7 +22,6 @@ UTC時間からGPS時間に変換する。
 return gps_time<common_type_t<Duration, seconds>>{t.time_since_epoch()} - 315964809s;
 ```
 * gps_time[link /reference/chrono/gps_time.md]
-* common_type_t[link /reference/chrono/common_type.md]
 * t.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * 315964809s[link /reference/chrono/duration/op_s.md]
 

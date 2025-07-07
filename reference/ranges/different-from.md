@@ -8,8 +8,6 @@ template<class T, class U>
   concept different-from = // 説明専用コンセプト
     !same_as<remove_cvref_t<T>, remove_cvref_t<U>>;
 ```
-* same_as[link /reference/concepts/same_as.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 `different-from`は、型`T`、`U`について`const`/`volatile`修飾を無視して、同じ型でないことを表す説明専用コンセプトである。

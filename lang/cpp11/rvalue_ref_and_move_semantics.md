@@ -324,7 +324,6 @@ void f(T&& a)
   // 左辺値ではコピーが、右辺値ではムーブが行われる。
 }
 ```
-* std::forward[link /reference/utility/forward.md]
 
 
 ## 仕様

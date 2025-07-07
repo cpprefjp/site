@@ -45,7 +45,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `divides`クラスは、除算を行う関数オブジェクトである。

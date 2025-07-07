@@ -15,9 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* input_range[link input_range.md]
-* view[link view.md]
-* range_reference_t[link range_reference_t.md]
 
 ## 概要
 

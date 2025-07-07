@@ -109,7 +109,6 @@ int main() {
 }
 ```
 * std::allocate_shared[color ff0000]
-* std::allocator[link allocator.md]
 
 ### 出力
 ```

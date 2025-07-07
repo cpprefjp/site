@@ -86,7 +86,6 @@ struct contains_subrange_impl {
 
 inline constexpr contains_subrange_impl contains_subrange;
 ```
-* ranges::search[link ranges_search.md]
 * ranges::empty[link /reference/ranges/empty.md]
 
 ## バージョン

@@ -27,14 +27,7 @@ namespace std::ranges {
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
 * indirect_equivalence_relation[link /reference/iterator/indirect_equivalence_relation.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* subrange[link /reference/ranges/subrange.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
 
 
 ## 概要

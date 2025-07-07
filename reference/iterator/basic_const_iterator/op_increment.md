@@ -11,7 +11,6 @@ constexpr basic_const_iterator& operator++();   // (1)
 constexpr void operator++(int);                 // (2)
 constexpr basic_const_iterator operator++(int) requires forward_iterator<Iterator>; // (3)
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
 
 ## 概要
 

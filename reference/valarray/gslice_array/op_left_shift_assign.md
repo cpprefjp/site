@@ -66,8 +66,6 @@ int main()
 }
 ```
 * std::gslice[link /reference/valarray/gslice.md]
-* std::begin[link /reference/valarray/valarray/begin_free.md]
-* std::end[link /reference/valarray/valarray/end_free.md]
 * std::multiplies[link /reference/functional/multiplies.md]
 * to_string()[link /reference/bitset/bitset/to_string.md]
 

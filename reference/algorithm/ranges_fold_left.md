@@ -41,10 +41,6 @@ namespace std::ranges {
               F f);   // (2) C++26
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 
@@ -107,14 +103,9 @@ concept indirectly-binary-left-foldable =
                   decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>>;
 ```
 * movable[link /reference/concepts/movable.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* invocable[link /reference/concepts/invocable.md]
 * assignable_from[link /reference/concepts/assignable_from.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
-* decay_t[link /reference/type_traits/decay.md]
 
 ここでのテンプレートパラメータはそれぞれ、二項演算を指定する呼出可能な型`F`、初期値の型`T`、イテレータ型`I`、戻り値型（積算値の型）`U`である。
 
@@ -146,8 +137,6 @@ concept indirectly-binary-left-foldable =
     ```cpp
     using U = decay_t<invoke_result_t<F&, T, iter_reference_t<I>>>;
     ```
-    * decay_t[link /reference/type_traits/decay.md]
-    * invoke_result_t[link /reference/type_traits/invoke_result.md]
     * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
     - すなわち、指定した二項演算を初期値とイテレータによって`f(std::move(init), *first)`のように呼び出した時の戻り値型がこの関数の戻り値型となる。
@@ -197,7 +186,6 @@ int main() {
 }
 ```
 * fold_left[color ff0000]
-* same_as[link /reference/concepts/same_as.md]
 * iota[link /reference/ranges/iota_view.md]
 * plus[link /reference/functional/plus.md]
 * println[link /reference/print/println.md]

@@ -102,7 +102,6 @@ int main()
 * std::move[link /reference/utility/move.md]
 * init.size()[link /reference/initializer_list/initializer_list/size.md]
 * init.begin()[link /reference/initializer_list/initializer_list/begin.md]
-* std::equal[link /reference/algorithm/equal.md]
 
 ### 出力
 ```

@@ -28,7 +28,6 @@ namespace std {
 ```
 * variant[link /reference/variant/variant.md]
 * monostate[link /reference/variant/monostate.md]
-* basic_string_view[link /reference/string_view/basic_string_view.md]
 * handle[link handle.md]
 * basic_format_arg[italic]
 

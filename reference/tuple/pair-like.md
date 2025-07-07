@@ -32,8 +32,6 @@ namespace std {
 * is_reference_v[link /reference/type_traits/is_reference.md]
 * integral_constant[link /reference/type_traits/integral_constant.md]
 * remove_const_t[link /reference/type_traits/remove_const.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * tuple-like[link tuple-like.md]
 
 ## 概要

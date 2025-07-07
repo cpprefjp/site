@@ -12,7 +12,6 @@ namespace std {
     -> basic_regex<typename iterator_traits<ForwardIterator>::value_type>;
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * regex_constants[link /reference/regex/regex_constants.md]
 * syntax_option_type[link /reference/regex/regex_constants/syntax_option_type.md]
 * ECMAScript[link /reference/regex/regex_constants/syntax_option_type.md]

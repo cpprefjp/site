@@ -87,7 +87,6 @@ namespace std::chrono {
 * sys_time[link sys_time.md]
 * utc_clock[link utc_clock.md]
 * utc_time[link utc_time.md]
-* common_type_t[link common_type.md]
 * time_point[link time_point.md]
 
 ## 概要

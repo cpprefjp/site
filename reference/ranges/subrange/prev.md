@@ -15,9 +15,6 @@ constexpr subrange
     requires bidirectional_iterator<I>;   // (1) C++26
 ```
 * nodiscard[link /lang/cpp17/nodiscard.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* subrange[link ../subrange.md]
 
 ## 概要
 先頭を後退させた`subrange`を得る。

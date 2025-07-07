@@ -11,7 +11,6 @@ namespace std {
 }
 ```
 * decays-to[link decays-to.md]
-* is_class_v[link /reference/type_traits/is_class.md]
 
 ## 概要
 `class-type`は、型`T`がクラス型であることを表す説明専用のコンセプトである。

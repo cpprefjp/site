@@ -79,8 +79,6 @@ int main()
 }
 ```
 * emplace[color ff0000]
-* std::begin[link /reference/iterator/begin.md]
-* std::end[link /reference/iterator/end.md]
 
 #### 出力
 ```

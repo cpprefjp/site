@@ -83,7 +83,6 @@ int main()
 * value()[link value.md]
 * error()[link error.md]
 * std::unexpected[link ../unexpected.md]
-* std::reverse[link /reference/algorithm/reverse.md]
 
 ### 出力
 ```

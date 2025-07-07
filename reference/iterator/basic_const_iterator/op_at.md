@@ -9,7 +9,6 @@
 constexpr reference operator[](difference_type n) const
   requires random_access_iterator<Iterator>;
 ```
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 

@@ -57,7 +57,6 @@ template<tuple-like UTuple>
 constexpr const tuple& operator=(UTuple&&) const;        // (14) C++23
 ```
 * see below[italic]
-* pair[link /reference/utility/pair.md]
 * tuple-like[link ../tuple-like.md]
 
 ## 概要

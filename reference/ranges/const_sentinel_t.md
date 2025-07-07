@@ -10,9 +10,7 @@ namespace std::ranges {
   using const_sentinel_t = decltype(ranges::cend(declval<R&>()));
 }
 ```
-* range[link range.md]
 * cend[link cend.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 

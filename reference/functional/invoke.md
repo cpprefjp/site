@@ -15,7 +15,6 @@ namespace std {
     noexcept(is_nothrow_invocable_v<F, Args...>);           //C++20
 }
 ```
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 * is_nothrow_invocable_v[link /reference/type_traits/is_nothrow_invocable.md]
 
 ## 概要

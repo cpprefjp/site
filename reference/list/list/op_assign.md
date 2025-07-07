@@ -77,7 +77,6 @@ int main ()
   }
 }
 ```
-* std::equal[link /reference/algorithm/equal.md]
 * ls2.begin()[link begin.md]
 * ls2.end()[link end.md]
 * init.begin()[link /reference/initializer_list/initializer_list/begin.md]

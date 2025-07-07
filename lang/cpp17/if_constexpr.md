@@ -273,7 +273,6 @@ int main()
 * std::conditional[link /reference/type_traits/conditional.md]
 * std::conditional_t[link /reference/type_traits/conditional.md]
 * std::mt19937_64[link /reference/random/mt19937_64.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 
 ## この機能が必要になった背景・経緯

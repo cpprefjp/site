@@ -55,9 +55,6 @@ int main()
 ```
 * std::fesetexceptflag[color ff0000]
 * fexcept_t[link fexcept_t.md]
-* std::fegetexceptflag[link fegetexceptflag.md]
-* std::feclearexcept[link feclearexcept.md]
-* std::fetestexcept[link fetestexcept.md]
 * FE_ALL_EXCEPT[link fe_all_except.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
 

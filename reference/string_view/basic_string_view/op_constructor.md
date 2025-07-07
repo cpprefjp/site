@@ -147,8 +147,6 @@ int main()
   }
 }
 ```
-* sv.data()[link data.md]
-* sv.size()[link size.md]
 * s.begin()[link /reference/string/basic_string/begin.md]
 
 ### 出力

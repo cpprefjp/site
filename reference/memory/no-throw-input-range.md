@@ -13,11 +13,8 @@ namespace std {
     no-throw-sentinel<sentinel_t<R>, iterator_t<R>>;
 }
 ```
-* range[link /reference/ranges/range.md]
 * no-throw-input-iterator[link no-throw-input-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* sentinel_t[link /reference/ranges/sentinel_t.md]
 
 ## 概要
 

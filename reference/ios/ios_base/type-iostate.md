@@ -61,7 +61,6 @@ int main()
   printstate(iss.rdstate());
 }
 ```
-* std::istringstream[link ../../sstream/basic_istringstream.md]
 * std::ios_base[link ../ios_base.md]
 * iostate[color ff0000]
 * badbit[color ff0000]

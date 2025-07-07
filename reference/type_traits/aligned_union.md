@@ -70,7 +70,6 @@ private:
 };
 ```
 * std::byte[link /reference/cstddef/byte.md]
-* std::max[link /reference/algorithm/max.md]
 
 
 ## 例

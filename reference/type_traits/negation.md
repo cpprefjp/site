@@ -51,7 +51,6 @@ int main()
 }
 ```
 * std::negation[color ff0000]
-* std::true_type[link true_type.md]
 * std::is_move_constructible[link is_move_constructible.md]
 * std::is_copy_constructible[link is_copy_constructible.md]
 * std::conjunction[link conjunction.md]

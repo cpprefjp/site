@@ -127,7 +127,6 @@ int main()
 }
 ```
 * x.has_value()[link has_value.md]
-* std::any_cast[link /reference/any/any_cast.md]
 * std::move[link /reference/utility/move.md]
 * std::in_place_type[link /reference/utility/in_place_type_t.md]
 

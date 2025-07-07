@@ -31,7 +31,6 @@ namespace std {
                    Compare comp);         // (4) C++17
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 イテレータ範囲`[first, last)`のうち、最小要素を指すイテレータと最大要素を指すイテレータの組を取得する。

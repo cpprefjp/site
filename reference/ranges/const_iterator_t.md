@@ -10,9 +10,7 @@ namespace std::ranges {
   using const_iterator_t = decltype(ranges::cbegin(declval<R&>()));
 }
 ```
-* range[link range.md]
 * cbegin[link cbegin.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 

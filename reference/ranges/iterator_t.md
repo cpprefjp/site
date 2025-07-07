@@ -10,8 +10,6 @@ namespace std::ranges {
   using iterator_t = decltype(ranges::begin(declval<R&>()));
 }
 ```
-* declval[link /reference/utility/declval.md]
-* ranges::begin[link begin.md]
 
 ## 概要
 

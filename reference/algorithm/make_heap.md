@@ -141,7 +141,6 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
   }
 }
 ```
-* std::push_heap[link push_heap.md]
 
 
 ## 参照

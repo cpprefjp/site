@@ -59,8 +59,6 @@ int main()
 }
 ```
 * std::make_any[color ff0000]
-* std::any[link any.md]
-* std::any_cast[link /reference/any/any_cast.md]
 
 ### 出力
 ```

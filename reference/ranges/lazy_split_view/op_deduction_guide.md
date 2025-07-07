@@ -22,7 +22,6 @@ namespace std::ranges {
        >;                  // (2) C++20
 }
 ```
-* single_view[link /reference/ranges/single_view.md]
 
 ## 概要
 

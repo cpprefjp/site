@@ -35,7 +35,6 @@ concept weakly-equality-comparable-with =
     { u != t } -> boolean-testable;
   };
 ```
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * boolean-testable[link /reference/concepts/boolean-testable.md]
 
 - (1) : 以下のように定義される
@@ -58,9 +57,6 @@ concept equality_comparable_with =
       const remove_reference_t<U>&>> &&
   weakly-equality-comparable-with<T, U>;
 ```
-* common_reference_with[link /reference/concepts/common_reference_with.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
-* common_reference_t[link /reference/type_traits/common_reference.md]
 
 ## モデル
 
@@ -128,7 +124,6 @@ int main() {
 }
 ```
 * std::equality_comparable[color ff0000]
-* std::any[link /reference/any/any.md]
 
 #### 出力
 

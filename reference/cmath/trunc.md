@@ -89,8 +89,6 @@ int main()
 * std::trunc[color ff0000]
 * FE_INEXACT[link ../cfenv/fe_inexact.md]
 * FE_ALL_EXCEPT[link ../cfenv/fe_all_except.md]
-* std::feclearexcept[link ../cfenv/feclearexcept.md]
-* std::fetestexcept[link ../cfenv/fetestexcept.md]
 
 ### 出力例
 ```

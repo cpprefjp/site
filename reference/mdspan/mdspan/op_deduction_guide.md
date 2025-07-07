@@ -64,7 +64,6 @@ namespace std {
 * extent_v[link /reference/type_traits/extent.md]
 * is_convertible_v[link /reference/type_traits/is_convertible.md]
 * remove_pointer_t[link /reference/type_traits/remove_pointer.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * remove_all_extents_t[link /reference/type_traits/remove_all_extents.md]
 
 ## 概要

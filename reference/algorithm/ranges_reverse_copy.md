@@ -23,13 +23,9 @@ namespace std::ranges {
                  O result); // (2) C++20
 }
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
 * reverse_copy_result[link ranges_in_out_result.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

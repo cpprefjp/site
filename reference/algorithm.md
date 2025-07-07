@@ -85,7 +85,6 @@ ranges::sort(v);
 ranges::sort(v.begin(), v.end());
 ```
 * sort[link algorithm/sort.md]
-* ranges::sort[link algorithm/ranges_sort.md]
 
 射影は、述語とは別に渡すことができる関数オブジェクトで、特定のメンバだけを対象にアルゴリズムを実行するために用いる。
 
@@ -111,7 +110,6 @@ ranges::sort(pv, {}, [](auto&& a){ return a.name; });
 // std::invokeで呼び出されるため、メンバ変数ポインタでもよい
 ranges::sort(pv, {}, &Person::name);
 ```
-* ranges::sort[link algorithm/ranges_sort.md]
 * ranges::less[link /reference/functional/ranges_less.md]
 * std::invoke[link /reference/functional/invoke.md]
 

@@ -31,7 +31,6 @@ int main()
 }
 ```
 * FE_INVALID[color ff0000]
-* std::fetestexcept[link fetestexcept.md]
 * quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 ### 出力例

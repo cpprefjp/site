@@ -79,7 +79,6 @@ int main()
 ```
 * std::atomic_compare_exchange_strong_explicit[color ff0000]
 * std::move[link /reference/utility/move.md]
-* std::atomic_load[link atomic_load.md]
 
 
 ### 出力

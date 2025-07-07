@@ -31,7 +31,6 @@ namespace std {
     typename tuple_element<I, T>::type;       // (6) C++14
 }
 ```
-* tuple[link tuple.md]
 
 ## 概要
 `tuple_element`は、タプルとして見なせる型から、I番目の要素型を取得するためのクラスである。

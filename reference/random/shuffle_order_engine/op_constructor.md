@@ -96,7 +96,6 @@ int main()
 * seeds.begin()[link /reference/array/array/begin.md]
 * seeds.end()[link /reference/array/array/end.md]
 * std::move[link /reference/utility/move.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力例
 ```

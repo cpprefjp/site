@@ -17,9 +17,7 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 
@@ -63,8 +61,6 @@ int main() {
 }
 ```
 * counted_iterator[link /reference/iterator/counted_iterator.md]
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
-* default_sentinel[link /reference/iterator/default_sentinel_t.md]
 
 ### 出力
 ```

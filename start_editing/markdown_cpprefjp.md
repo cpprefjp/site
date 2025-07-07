@@ -179,7 +179,6 @@ int main() {
   std::cout << x << std::endl;
 }
 ```
-* <iostream>[link /reference/iostream.md]
 * std[color ff0000]
 ````
 
@@ -193,7 +192,6 @@ int main() {
   std::cout << x << std::endl;
 }
 ```
-* <iostream>[link /reference/iostream.md]
 * std[color ff0000]
 
 修飾の範囲は、コードブロックの直後から空行が続くまで、です。

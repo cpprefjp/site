@@ -12,7 +12,6 @@ constexpr decltype(auto) front()
 constexpr decltype(auto) front()
   const requires forward_range<const D>; // (2)
 ```
-* forward_range[link ../forward_range.md]
 
 ## 概要
 Rangeの先頭の要素を取得する。
@@ -32,7 +31,6 @@ Rangeの先頭の要素を取得する。
 ```cpp
 *ranges::begin(derived())
 ```
-* ranges::begin[link ../begin.md]
 * derived[link derived.md]
 
 ## 計算量

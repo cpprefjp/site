@@ -38,7 +38,6 @@ int main()
 }
 ```
 * swap[color ff0000]
-* std::any_cast[link /reference/any/any_cast.md]
 
 ### 出力
 ```

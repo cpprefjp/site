@@ -15,7 +15,6 @@ namespace std {
   using wssub_match = sub_match<wstring::const_iterator>;
 }
 ```
-* pair[link ../utility/pair.md]
 
 ## 概要
 クラステンプレート `sub_match` は、文字列が正規表現にマッチした際に、その正規表現がマッチした範囲、あるいは、その正規表現内のあるグループがマッチした範囲を表す。

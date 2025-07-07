@@ -12,7 +12,6 @@ constexpr auto cbegin()
 constexpr auto cbegin() const
   requires input_range<const D>; // (2)
 ```
-* input_range[link ../input_range.md]
 
 ## 概要
 

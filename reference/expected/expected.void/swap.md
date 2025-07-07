@@ -40,7 +40,6 @@ constexpr void swap(expected& rhs) noexcept(see below);
     has_val = false;
     rhs.has_val = true;
     ```
-    * addressof[link /reference/memory/addressof.md]
     * construct_at[link /reference/memory/construct_at.md]
     * destroy_at[link /reference/memory/destroy_at.md]
     * std::move[link /reference/utility/move.md]

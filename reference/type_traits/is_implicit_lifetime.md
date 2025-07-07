@@ -64,7 +64,6 @@ int main() {
 }
 ```
 * std::is_implicit_lifetime[color ff0000]
-* std::pair[link /reference/utility/pair.md]
 
 ### 出力
 ```

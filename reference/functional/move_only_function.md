@@ -255,7 +255,6 @@ int main()
 ```
 * std::move_only_function<void(void)>[color ff0000]
 * std::function<void(void)>[link /reference/functional/function.md]
-* std::unique_ptr[link /reference/memory/unique_ptr.md]
 * std::make_unique[link /reference/memory/make_unique.md]
 * std::move[link /reference/utility/move.md]
 

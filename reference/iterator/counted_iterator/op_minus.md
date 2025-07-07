@@ -15,8 +15,6 @@ friend constexpr iter_difference_t<I> operator-(
 friend constexpr iter_difference_t<I> operator-(
   default_sentinel_t, const counted_iterator& y);             // (3)
 ```
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## 概要
 
@@ -66,7 +64,6 @@ int main() {
   std::cout << (std::default_sentinel - ci) << '\n';
 }
 ```
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

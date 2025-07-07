@@ -31,7 +31,6 @@ int main()
 }
 ```
 * FE_OVERFLOW[color ff0000]
-* std::fetestexcept[link fetestexcept.md]
 * max()[link /reference/limits/numeric_limits/max.md]
 
 ### 出力例

@@ -9,8 +9,6 @@
 constexpr decltype(auto) operator[](iter_difference_t<I> n) const
   requires random_access_iterator<I>;
 ```
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 任意の位置にランダムアクセスする。
@@ -45,7 +43,6 @@ int main() {
 }
 ```
 * ci[1][color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

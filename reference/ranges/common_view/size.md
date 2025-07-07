@@ -11,7 +11,6 @@ constexpr auto size()
 constexpr auto size() const
   requires sized_range<const V>; // (2) C++20
 ```
-* sized_range[link ../sized_range.md]
 
 ## 概要
 

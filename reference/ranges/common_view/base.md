@@ -11,7 +11,6 @@ constexpr V base() const &
 
 constexpr V base() &&;             // (2) C++20
 ```
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 
 ## 概要
 
@@ -54,7 +53,6 @@ int main() {
 * std::ranges::common_view[link ../common_view.md]
 * std::views::take[link ../take_view.md]
 * std::ranges::take_view[link ../take_view.md]
-* std::ranges::ref_view[link ../ref_view.md]
 
 ### 出力
 ```

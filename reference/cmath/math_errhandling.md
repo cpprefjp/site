@@ -89,8 +89,6 @@ int main()
 * FE_OVERFLOW[link ../cfenv/fe_overflow.md]
 * FE_UNDERFLOW[link ../cfenv/fe_underflow.md]
 * FE_DIVBYZERO[link ../cfenv/fe_divbyzero.md]
-* std::feclearexcept[link ../cfenv/feclearexcept.md]
-* std::fetestexcept[link ../cfenv/fetestexcept.md]
 * errno[link ../cerrno/errno.md]
 
 ### 出力例

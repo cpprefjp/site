@@ -54,7 +54,6 @@ int main()
 ```
 * std::hex[link ../hex.md]
 * std::dec[link ../dec.md]
-* std::boolalpha[link ../boolalpha.md]
 * std::noboolalpha[link ../noboolalpha.md]
 * std::ios_base[link ../ios_base.md]
 * setf[color ff0000]

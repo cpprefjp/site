@@ -16,8 +16,6 @@ namespace std::ranges {
   }
 }
 ```
-* is_object_v[link /reference/type_traits/is_object.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 `empty_view`は、空のRangeを表す[`view`](view.md)。

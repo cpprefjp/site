@@ -136,8 +136,6 @@ int main()
 ```
 * A.extent[link /reference/mdspan/extents/extent.md]
 * v.extent[link /reference/mdspan/extents/extent.md]
-* std::mdspan[link /reference/mdspan/mdspan.md]
-* std::execution::par[link /reference/execution/execution/execution_policy.md]
 * std::linalg::matrix_rank_1_update[color ff0000]
 
 

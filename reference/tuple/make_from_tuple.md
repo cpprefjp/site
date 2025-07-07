@@ -57,7 +57,6 @@ constexpr T make_from_tuple(Tuple&& t) {
   return make_from_tuple_impl<T>(std::forward<Tuple>(t), std::make_index_sequence<std::tuple_size_v<std::remove_reference_t<Tuple>>>{});
 }
 ```
-* std::forward[link /reference/utility/forward.md]
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
 * std::index_sequence[link /reference/utility/index_sequence.md]
 

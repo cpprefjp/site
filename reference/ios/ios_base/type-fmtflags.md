@@ -63,7 +63,6 @@ int main()
   std::cout << true << ", " << false << "\n";
 }
 ```
-* std::boolalpha[link ../boolalpha.md]
 * std::noboolalpha[link ../noboolalpha.md]
 * boolalpha[color ff0000]
 

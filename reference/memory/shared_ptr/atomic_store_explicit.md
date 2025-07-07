@@ -70,7 +70,6 @@ int main()
 }
 ```
 * std::atomic_store_explicit[color ff0000]
-* std::atomic_load_explicit[link atomic_load_explicit.md]
 
 ### 出力
 ```

@@ -12,7 +12,6 @@ namespace std {
     constexpr array<remove_cv_t<T>, N> to_array(T (&&a)[N]); // (2)
 }
 ```
-* remove_cv_t[link /reference/type_traits/remove_cv.md]
 
 ## 概要
 組み込み 1 次元配列から、[`std::array`](array.md) を作成する。

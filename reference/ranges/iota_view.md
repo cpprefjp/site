@@ -17,9 +17,7 @@ namespace std::ranges {
 ```
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * copyable[link /reference/concepts/copyable.md]
-* unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): インクリメント演算子によって生成される、有限長または無限長の単調増加列を表す[`view`](view.md)

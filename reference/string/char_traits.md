@@ -134,7 +134,6 @@ int main()
 }
 ```
 * std::char_traits[color ff0000]
-* std::basic_string[link basic_string.md]
 
 #### 出力
 ```
@@ -221,8 +220,6 @@ int main() {
 }
 ```
 * std::weak_ordering[link /reference/compare/weak_ordering.md]
-* std::lexicographical_compare_three_way[link /reference/algorithm/lexicographical_compare_three_way.md]
-* std::find_if[link /reference/algorithm/find_if.md]
 
 
 #### 出力

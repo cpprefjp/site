@@ -86,7 +86,6 @@ namespace std {
              BinaryPredicate pred);                       // (8) C++17
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 
 ## 概要

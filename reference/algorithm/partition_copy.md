@@ -42,7 +42,6 @@ namespace std {
                    Predicate pred);            // (2) C++17
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 イテレータ範囲`[first, last)`を条件を満たすか満たさないかで、2つの出力範囲へ分けてコピーする。

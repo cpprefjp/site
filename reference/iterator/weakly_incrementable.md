@@ -18,7 +18,6 @@ namespace std {
 }
 ```
 * movable[link /reference/concepts/movable.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * is-signed-integer-like[link /reference/iterator/is_integer_like.md]
 
 ## 概要

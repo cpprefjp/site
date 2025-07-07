@@ -134,7 +134,6 @@ int main()
 }
 ```
 * std::any_cast[color ff0000]
-* std::any[link any.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力

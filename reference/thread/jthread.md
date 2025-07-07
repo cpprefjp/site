@@ -112,10 +112,8 @@ int main()
   std::cout << sum2 << std::endl;
 }
 ```
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * stoken.stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * t1.request_stop()[link jthread/request_stop.md]
 
 

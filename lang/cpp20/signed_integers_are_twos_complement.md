@@ -75,7 +75,6 @@ int main()
   }
 }
 ```
-* std::int8_t[link /reference/cstdint/int8_t.md]
 
 #### 出力
 ```
@@ -101,10 +100,6 @@ int main()
 }
 ```
 * std::has_unique_object_representations[link /reference/type_traits/has_unique_object_representations.md]
-* std::int8_t[link /reference/cstdint/int8_t.md]
-* std::int16_t[link /reference/cstdint/int16_t.md]
-* std::int32_t[link /reference/cstdint/int32_t.md]
-* std::int64_t[link /reference/cstdint/int64_t.md]
 
 #### 出力
 ```

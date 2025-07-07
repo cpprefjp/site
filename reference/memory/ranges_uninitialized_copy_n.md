@@ -34,12 +34,10 @@ namespace std::ranges {
 }
 ```
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 未初期化領域のイテレータ範囲`[ofirst, ofirst + n)`を配置`new`でイテレータ範囲`[ifirst, ifirst + n)`の対応する要素から初期化してコピー出力する。
@@ -71,7 +69,6 @@ return {std::move(t.in).base(), t.out};
 * uninitialized_copy[link ranges_uninitialized_copy.md]
 * counted_iterator[link /reference/iterator/counted_iterator.md]
 * base()[link /reference/iterator/counted_iterator/base.md]
-* default_sentinel[link /reference/iterator/default_sentinel_t.md]
 * std::move[link /reference/utility/move.md]
 
 ## 例外
@@ -114,7 +111,6 @@ int main()
 }
 ```
 * std::ranges::uninitialized_copy_n[color ff0000]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * std::ranges::destroy_n[link ranges_destroy_n.md]
 * alloc.deallocate[link allocator/deallocate.md]

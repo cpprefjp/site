@@ -12,8 +12,6 @@ constexpr decay_t<T> decay-copy(T&& v) noexcept(is_nothrow_convertible_v<T, deca
 ```
 * decay-copy[italic]
 * forward[link /reference/utility/forward.md]
-* decay_t[link /reference/type_traits/decay.md]
-* decay_t[link /reference/type_traits/decay.md]
 * is_nothrow_convertible_v[link /reference/type_traits/is_nothrow_convertible.md]
 
 ## 概要

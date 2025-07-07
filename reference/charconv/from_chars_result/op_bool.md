@@ -37,7 +37,6 @@ int main()
   }
 }
 ```
-* std::from_chars[link /reference/charconv/from_chars.md]
 
 ### 出力
 ```

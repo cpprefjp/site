@@ -56,15 +56,6 @@ namespace std::ranges {
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
-* projected[link /reference/iterator/projected.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* subrange[link /reference/ranges/subrange.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 指定された要素を取り除く。

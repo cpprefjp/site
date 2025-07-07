@@ -75,9 +75,7 @@ int main()
 }
 ```
 * std::push_heap[color ff0000]
-* std::make_heap[link make_heap.md]
 * v.push_back[link /reference/vector/vector/push_back.md]
-* std::sort_heap[link sort_heap.md]
 
 ### 出力
 ```

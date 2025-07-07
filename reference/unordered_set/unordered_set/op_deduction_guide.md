@@ -70,7 +70,6 @@ namespace std {
 * see below[italic]
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/equal_to.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * ranges::input_range[link /reference/ranges/input_range.md]

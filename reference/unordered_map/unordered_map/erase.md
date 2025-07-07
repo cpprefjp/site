@@ -126,7 +126,6 @@ int main()
 ```
 * erase[color ff0000]
 * std::ostream[link /reference/ostream/basic_ostream.md]
-* std::next[link /reference/iterator/next.md]
 * cbegin()[link cbegin.md]
 * cend()[link cend.md]
 

@@ -29,7 +29,6 @@ namespace std {
                             const move_iterator<Iterator2>& y);   // (3) C++17
 }
 ```
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * move_sentinel[link /reference/iterator/move_sentinel.md]
 
 ## 概要

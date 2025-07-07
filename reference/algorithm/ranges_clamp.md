@@ -13,9 +13,7 @@ namespace std::ranges {
     clamp(const T& v, const T& lo, const T& hi, Comp comp = {}, Proj proj = {}); // (1) C++20
 }
 ```
-* identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
-* projected[link /reference/iterator/projected.md]
 * ranges::less[link /reference/functional/ranges_less.md]
 
 ## 概要

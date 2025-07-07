@@ -98,7 +98,6 @@ list オブジェクトの構築
     }
     ```
     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
-    * std::allocator[link ../../memory/allocator.md]
     * v.emplace_back[link /reference/vector/vector/emplace_back.md]
 
 

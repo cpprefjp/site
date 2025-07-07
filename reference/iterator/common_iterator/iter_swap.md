@@ -17,8 +17,6 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
 
 ## 概要
 
@@ -35,7 +33,6 @@ namespace std {
 ```cpp
 return ranges::iter_swap(get<I>(x.v_), get<I2>(y.v_));
 ```
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 備考
 
@@ -80,7 +77,6 @@ int main() {
 }
 ```
 * iter_swap[color ff0000]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ### 出力
 ```

@@ -45,7 +45,6 @@ int main() {
   >);
 }
 ```
-* ref_view[link /reference/ranges/ref_view.md]
 * owning_view[link /reference/ranges/owning_view.md]
 * filter_view[link ../filter_view.md]
 

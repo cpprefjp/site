@@ -20,7 +20,6 @@ namespace std {
   Out vformat_to(Out out, const locale& loc, wstring_view fmt, wformat_args args); // (4)
 }
 ```
-* string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
 * format_args[link /reference/format/basic_format_args.md]
 * wformat_args[link /reference/format/basic_format_args.md]
@@ -157,7 +156,6 @@ Out vformat_to(Out out, std::string_view fmt, std::basic_format_args<Context> ar
 * std::basic_format_arg[link /reference/format/basic_format_arg.md]
 * handle[link /reference/format/basic_format_arg/handle.md]
 * std::visit_format_arg[link /reference/format/visit_format_arg.md]
-* std::from_chars[link /reference/charconv/from_chars.md]
 
 ## バージョン
 ### 言語

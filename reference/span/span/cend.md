@@ -55,7 +55,6 @@ int main() {
 }
 ```
 * cend()[color ff0000]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 
 ### 出力
 ```

@@ -10,7 +10,6 @@ namespace std {
   concept no-throw-sentinel = sentinel_for<S, I>;
 }
 ```
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 
 ## 概要
 `no-throw-sentinel`は、以下の操作で例外を投げない、型`S`がイテレータ型`I`の番兵（*sentinel*）型であることを表す説明用コンセプトである。

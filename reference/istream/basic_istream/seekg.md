@@ -50,7 +50,6 @@ int main() {
 }
 ```
 * seekg[color ff0000]
-* std::istringstream[link /reference/sstream/basic_istringstream.md]
 * std::ios_base[link /reference/ios/ios_base.md]
 * beg[link /reference/ios/ios_base/type-seekdir.md]
 

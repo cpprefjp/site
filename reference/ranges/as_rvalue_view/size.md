@@ -24,7 +24,6 @@ constexpr auto size() const
 ```cpp
 return ranges::size(base_);
 ```
-* ranges::size[link /reference/ranges/size.md]
 
 
 ## 例

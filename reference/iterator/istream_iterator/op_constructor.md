@@ -15,7 +15,6 @@ istream_iterator(istream_type& s);                     // (3)
 istream_iterator(const istream_iterator& x);           // (4) C++03
 istream_iterator(const istream_iterator& x) = default; // (4) C++11
 ```
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。メンバ変数として保持する入力ストリームへのポインタをヌル初期化する。デフォルトコンストラクタで構築された`istream_iterator`オブジェクトは、イテレータの終端値として使用できる。

@@ -152,7 +152,6 @@ int main()
 * std::full_extent[link full_extent_t.md]
 * std::strided_slice[link strided_slice.md]
 * std::print[link /reference/print/print.md]
-* std::println[link /reference/print/println.md]
 * std::ranges::iota[link /reference/numeric/ranges_iota.md]
 
 #### 出力
@@ -215,7 +214,6 @@ int main()
 * std::strided_slice[link strided_slice.md]
 * std::integral_constant[link /reference/type_traits/integral_constant.md]
 * std::ranges::iota[link /reference/numeric/ranges_iota.md]
-* std::println[link /reference/print/println.md]
 
 #### 出力
 ```

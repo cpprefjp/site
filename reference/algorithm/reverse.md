@@ -67,7 +67,6 @@ void reverse(BidirectionalIterator first, BidirectionalIterator last) {
     std::iter_swap(first, last);
 }
 ```
-* std::iter_swap[link iter_swap.md]
 
 
 ## 参照

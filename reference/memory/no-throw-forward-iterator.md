@@ -14,7 +14,6 @@ namespace std {
 }
 ```
 * no-throw-input-iterator[link no-throw-input-iterator.md]
-* forward_iterator[link /reference/iterator/forward_iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
 
 ## 概要
@@ -89,8 +88,6 @@ int main() {
 * std::remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * std::sentinel_for[link /reference/iterator/sentinel_for.md]
 * std::forward_iterator[link /reference/iterator/forward_iterator.md]
-* std::forward_list[link /reference/forward_list/forward_list.md]
-* std::list[link /reference/list/list.md]
 
 ### 出力
 ```

@@ -41,10 +41,6 @@ namespace std::ranges {
                F f);    // (2) C++26
 }
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 
@@ -126,8 +122,6 @@ while (first != tail)
   accum = invoke(f, *--tail, std::move(accum));
 return accum;
 ```
-* decay_t[link /reference/type_traits/decay.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * next[link /reference/iterator/ranges_next.md]
 * invoke[link /reference/functional/invoke.md]
@@ -143,8 +137,6 @@ return accum;
     ```cpp
     using U = decay_t<invoke_result_t<F&, iter_reference_t<I>, T>>;
     ```
-    * decay_t[link /reference/type_traits/decay.md]
-    * invoke_result_t[link /reference/type_traits/invoke_result.md]
     * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
     - すなわち、指定した二項演算をイテレータと初期値によって`f(*first, std::move(init))`のように呼び出した時の戻り値型がこの関数の戻り値型となる。
@@ -196,7 +188,6 @@ int main() {
 }
 ```
 * fold_right[color ff0000]
-* same_as[link /reference/concepts/same_as.md]
 * iota[link /reference/ranges/iota_view.md]
 * plus[link /reference/functional/plus.md]
 * println[link /reference/print/println.md]

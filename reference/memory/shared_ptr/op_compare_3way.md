@@ -17,7 +17,6 @@ namespace std {
                 nullptr_t) noexcept;              // (2) C++20
 }
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 `shared_ptr`オブジェクトの三方比較を行う。

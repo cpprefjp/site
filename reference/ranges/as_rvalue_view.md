@@ -15,9 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* view_interface[link view_interface.md]
-* input_range[link input_range.md]
 
 ## 概要
 
@@ -155,17 +152,8 @@ namespace std::ranges {
 
 constexpr explicit as_rvalue_view(V base);
 ```
-* view[link view.md]
-* view_interface[link view_interface.md]
-* common_range[link common_range.md]
-* sized_range[link sized_range.md]
 * simple-view[link simple-view.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 * move_iterator[link /reference/iterator/move_iterator.md]
-* ranges::begin[link begin.md]
-* ranges::end[link end.md]
-* ranges::size[link size.md]
 * views::all_t[link all.md]
 
 ## バージョン

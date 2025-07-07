@@ -10,8 +10,6 @@ namespace std::ranges {
   concept sized_range = range<T> && requires(T& t) { ranges::size(t); };
 }
 ```
-* range[link range.md]
-* ranges::size[link size.md]
 
 ## 概要
 `sized_range`は、大きさを償却定数時間で求めることができるRangeを表すコンセプトである。

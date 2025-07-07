@@ -16,7 +16,6 @@ sys_time<common_type_t<Duration, seconds>>
 ```
 * sys_time[link /reference/chrono/sys_time.md]
 * local_time[link /reference/chrono/local_time.md]
-* common_type_t[link /reference/chrono/common_type.md]
 * choose[link /reference/chrono/choose.md]
 
 ## 概要

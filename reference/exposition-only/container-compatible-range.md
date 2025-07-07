@@ -12,7 +12,6 @@ namespace std {
 ```
 * ranges::input_range[link /reference/ranges/input_range.md]
 * ranges::range_reference[link /reference/ranges/range_reference_t.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
 container-compatible-rangeは、指定されたコンテナと互換性のあるRangeであることを表すコンセプトである。

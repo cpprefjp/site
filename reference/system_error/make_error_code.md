@@ -40,12 +40,10 @@ int main()
 }
 ```
 * std::make_error_code[color ff0000]
-* std::error_code[link error_code.md]
 * std::errc::invalid_argument[link errc.md]
 * ec.category()[link error_code/category.md]
 * name()[link error_category/name.md]
 * ec.value()[link error_code/value.md]
-* ec.message()[link error_code/message.md]
 
 ### 出力
 ```

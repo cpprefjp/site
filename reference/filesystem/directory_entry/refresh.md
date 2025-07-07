@@ -74,7 +74,6 @@ int main()
 * x.last_write_time()[link last_write_time.md]
 * fs::create_directory[link /reference/filesystem/create_directory.md]
 * fs::directory_iterator[link /reference/filesystem/directory_iterator.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * tp.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * sec.count()[link /reference/chrono/duration/count.md]
 * std::time_t[link /reference/ctime/time_t.md]

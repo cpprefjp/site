@@ -12,8 +12,6 @@ constexpr bool empty()
 constexpr bool empty() const
   requires sized_range<const D> || forward_range<const D>; // (2)
 ```
-* forward_range[link ../forward_range.md]
-* forward_range[link ../sized_range.md]
 
 ## 概要
 Rangeが空かどうかを判定する。
@@ -30,8 +28,6 @@ Rangeが空かどうかを判定する。
 ```cpp
 ranges::begin(derived()) == ranges::end(derived())
 ```
-* ranges::begin[link ../begin.md]
-* ranges::end[link ../end.md]
 * derived[link derived.md]
 
 ## 計算量

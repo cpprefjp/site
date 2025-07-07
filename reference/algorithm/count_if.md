@@ -25,7 +25,6 @@ namespace std {
              Predicate pred);        // (2) C++17
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 概要
 イテレータ範囲`[first, last)`から、条件を満たしている要素の数を数える。
@@ -54,12 +53,6 @@ int main() {
 }
 ```
 * std::count_if[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* std::count_if[link /reference/algorithm/count_if.md]
-* v.begin[link /reference/vector/vector/begin.md]
-* v.end[link /reference/vector/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```cpp

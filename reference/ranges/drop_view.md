@@ -14,8 +14,6 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): 元のRangeの先頭から指定した個数の値を除去したRangeとして振る舞う[`view`](view.md)

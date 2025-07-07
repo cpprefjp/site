@@ -91,7 +91,6 @@ int main()
 * linalg::row_major_t[link row_major_t.md]
 * mat.extent[link /reference/mdspan/mdspan/extent.md]
 * std::print[link /reference/print/print.md]
-* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

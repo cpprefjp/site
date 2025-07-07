@@ -12,7 +12,6 @@ static utc_time<common_type_t<Duration, seconds>>
 ```
 * tai_time[link /reference/chrono/tai_time.md]
 * utc_time[link /reference/chrono/utc_time.md]
-* common_type_t[link /reference/chrono/common_type.md]
 
 ## 概要
 TAI時間からUTC時間に変換する。
@@ -23,7 +22,6 @@ TAI時間からUTC時間に変換する。
 return utc_time<common_type_t<Duration, seconds>>{t.time_since_epoch()} - 378691210s;
 ```
 * utc_time[link /reference/chrono/utc_time.md]
-* common_type_t[link /reference/chrono/common_type.md]
 * t.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * 378691210s[link /reference/chrono/duration/op_s.md]
 

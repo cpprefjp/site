@@ -11,9 +11,7 @@ namespace std {
     regular_invocable<F, Args...> && boolean-testable<invoke_result_t<F, Args...>>;
 }
 ```
-* regular_invocable[link /reference/concepts/invocable.md]
 * boolean-testable[link /reference/concepts/boolean-testable.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 
 ## 概要
 

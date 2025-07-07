@@ -15,7 +15,6 @@ namespace std {
   constexpr pair<V1, V2> make_pair(T1&& x, T2&& y); // C++14
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 pairクラスのオブジェクトを構築する。
@@ -36,7 +35,6 @@ pairクラスのオブジェクトを構築する。
 ```cpp
 std::pair<V1, V2>(std::forward<T1>(x), std::forward<T2>(y));
 ```
-* std::forward[link forward.md]
 
 
 ## 例

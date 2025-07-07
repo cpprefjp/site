@@ -75,9 +75,7 @@ int main()
 }
 ```
 * std::atomic_flag_clear_explicit[color ff0000]
-* std::atomic_flag[link atomic_flag.md]
 * ATOMIC_FLAG_INIT[link atomic_flag_init.md]
-* std::atomic_flag_test_and_set_explicit[link atomic_flag_test_and_set_explicit.md]
 
 
 ### 出力

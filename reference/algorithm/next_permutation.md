@@ -137,7 +137,6 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last)
 }
 ```
 * std::swap[link /reference/utility/swap.md]
-* std::reverse[link reverse.md]
 * std::iterator_traits[link /reference/iterator/iterator_traits.md]
 * std::less[link /reference/functional/less.md]
 

@@ -115,9 +115,6 @@ int main()
   assert((equal_valarray(result3, expected)));
 }
 ```
-* std::all_of[link /reference/algorithm/all_of.md]
-* std::begin[link begin_free.md]
-* std::end[link end_free.md]
 
 ### 出力
 ```

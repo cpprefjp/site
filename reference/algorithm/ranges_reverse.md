@@ -19,11 +19,7 @@ namespace std::ranges {
     reverse(R&& r);  // (2) C++20
 }
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * permutable[link /reference/iterator/permutable.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

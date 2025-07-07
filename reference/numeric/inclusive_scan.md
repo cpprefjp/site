@@ -127,7 +127,6 @@ namespace std {
     return inclusive_scan(std::forward<ExecutionPolicy>(exec),
                           first, last, result, plus<>());
     ```
-    * std::forward[link /reference/utility/forward.md]
     * plus[link /reference/functional/plus.md]
 
 

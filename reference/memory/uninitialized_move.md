@@ -43,8 +43,6 @@ for (; first != last; ++result, ++first)
   ::new (static_cast<void*>(addressof(*result)))
     typename iterator_traits<ForwardIterator>::value_type(std::move(*first));
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
-* addressof[link addressof.md]
 * std::move[link /reference/utility/move.md]
 
 
@@ -92,7 +90,6 @@ int main()
 }
 ```
 * std::uninitialized_move[color ff0000]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * alloc.destroy[link allocator/destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]

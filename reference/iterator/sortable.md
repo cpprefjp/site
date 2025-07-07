@@ -13,10 +13,8 @@ namespace std {
 }
 ```
 * less[link /reference/functional/less.md]
-* identity[link /reference/functional/identity.md]
 * permutable[link /reference/iterator/permutable.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
-* projected[link /reference/iterator/projected.md]
 
 ## 概要
 

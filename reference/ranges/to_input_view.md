@@ -15,8 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): [`input_range`](/reference/ranges/input_range.md)として振る舞う[`view`](view.md)

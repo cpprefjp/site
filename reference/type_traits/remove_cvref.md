@@ -15,8 +15,6 @@ namespace std {
   using remove_cvref_t = typename remove_cvref<T>::type;
 }
 ```
-* remove_cv_t[link remove_cv.md]
-* remove_reference_t[link remove_reference.md]
 
 ## 概要
 型の`const-volatile`修飾と参照を除去する。

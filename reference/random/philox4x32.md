@@ -55,8 +55,6 @@ int main()
 }
 ```
 * std::philox4x32[color ff0000]
-* std::random_device[link random_device.md]
-* seed_gen()[link random_device/op_call.md]
 * engine()[link philox_engine/op_call.md]
 
 ### 出力例

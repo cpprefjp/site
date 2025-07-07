@@ -33,9 +33,7 @@ int main()
 }
 ```
 * FE_ALL_EXCEPT[color ff0000]
-* std::fetestexcept[link fetestexcept.md]
 * FE_DIVBYZERO[link fe_divbyzero.md]
-* std::feclearexcept[link feclearexcept.md]
 
 ### 出力例
 ```

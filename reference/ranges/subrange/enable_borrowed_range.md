@@ -10,7 +10,6 @@ namespace std::ranges {
   inline constexpr bool enable_borrowed_range<subrange<I, S, K>> = true;
 }
 ```
-* subrange[link ../subrange.md]
 
 ## 概要
 

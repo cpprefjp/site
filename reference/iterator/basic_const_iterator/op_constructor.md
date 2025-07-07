@@ -17,8 +17,6 @@ template<different-from<basic_const_iterator> T>
   requires convertible_to<T, Iterator>
 constexpr basic_const_iterator(T&& current);                                          // (4)
 ```
-* default_initializable[link /reference/concepts/default_initializable.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * different-from[link /reference/ranges/different-from.md]
 
 ## 概要
