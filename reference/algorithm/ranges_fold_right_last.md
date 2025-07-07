@@ -150,7 +150,7 @@ int main() {
   range auto rng = views::empty<int>;
   auto op = std::plus<>{};
 
-  auto res1 = fold_left(rng, -1, op);
+  auto res1 = fold_right(rng, -1, op);
   auto res2 = fold_right_last(rng, op);
 
   std::println("{:d}", res1);
@@ -158,7 +158,7 @@ int main() {
 }
 ```
 * fold_right_last[color ff0000]
-* fold_left[link ranges_fold_right.md]
+* fold_right[link ranges_fold_right.md]
 * println[link /reference/print/println.md]
 * value_or[link /reference/optional/optional/value_or.md]
 
