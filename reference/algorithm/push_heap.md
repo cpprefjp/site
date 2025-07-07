@@ -78,6 +78,12 @@ int main()
 * std::make_heap[link make_heap.md]
 * v.push_back[link /reference/vector/vector/push_back.md]
 * std::sort_heap[link sort_heap.md]
+* std::vector[link /reference/vector/vector.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* std::for_each[link /reference/algorithm/for_each.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```
