@@ -74,7 +74,19 @@ int main() {
 }
 ```
 * std::copy[color ff0000]
-
+* std::vector[link /reference/vector/vector.md]
+* v.size[link /reference/vector/vector/size.md]
+* std::copy[link /reference/algorithm/copy.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* v2.begin[link /reference/vector/vector/begin.md]
+* std::list[link /reference/list/list.md]
+* v2.end[link /reference/vector/vector/end.md]
+* std::back_inserter[link /reference/iterator/back_inserter.md]
+* ls3.begin[link /reference/list/list/begin.md]
+* ls3.end[link /reference/list/list/end.md]
+* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
+* std::cout[link /reference/iostream/cout.md]
 ### 出力
 ```
 3,1,2,
