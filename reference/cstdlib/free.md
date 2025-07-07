@@ -5,16 +5,14 @@
 
 ```cpp
 namespace std {
-  void free( void *ptr );
+  void free(void* ptr) noexcept;
 }
 ```
 
 ## 概要
-`malloc()`、`calloc()`、`aligned_alloc`、`realloc`で確保されたメモリ領域を解放する。
+`malloc`、`calloc`、`aligned_alloc`、`realloc`で確保されたメモリ領域を解放する。
 
-もし上記の4つの関数で渡されたポインタ以外をこの関数の引数にした場合は、未定義動作となる。
-
-また、渡されたメモリがすでに解放されている場合も、未定義動作となる。
+解放済みのポインタを再度 `free` に渡したり、アクセスしたりすると未定義動作となる。
 
 ポインタが`nullptr`の場合、この関数は何も実行しない。
 
@@ -33,13 +31,14 @@ int main(void)
   int *p2 = calloc(10, sizeof *p2);
   int *p3 = realloc(p2, 1000*sizeof *p3);
   if(p3) 
-    free(p3);//p2は`null`ではないので、p3が解放される。
+    free(p3); // realloc により新しい領域が確保された場合、それを解放
   else
-    free(p2);
+    free(p2); // realloc が失敗した場合は元の領域を解放
 }
 ```
 ### 出力結果
 ```
+
 ```
 
 ## 関連項目
