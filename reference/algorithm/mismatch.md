@@ -147,6 +147,19 @@ int main() {
 ```
 * std::mismatch[color ff0000]
 * std::to_string[link /reference/string/to_string.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* *p.first[link /reference/utility/pair/first.md]
+* *p.second[link /reference/utility/pair/second.md]
+* std::vector[link /reference/vector/vector.md]
+* std::array[link /reference/array/array.md]
+* std::list[link /reference/list/list.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
+* v2.begin[link /reference/array/array/begin.md]
+* v2.end[link /reference/array/array/end.md]
+* v3.begin[link /reference/list/list/begin.md]
+* v3.end[link /reference/list/list/end.md]
 
 ### 出力
 ```
