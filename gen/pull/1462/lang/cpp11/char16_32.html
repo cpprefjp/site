@@ -1,0 +1,372 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>char16_tとchar32_t [N2249] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="char16_tとchar32_t [N2249] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="char16_tとchar32_t [N2249] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="char16_tとchar32_t [N2249] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/char16_32.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`char16_t`はUTF-16符号化形式の文字型、`char32_t`はUTF-32符号化形式の文字型である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="char16_tとchar32_t [N2249] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/char16_32.html" />
+        <meta name="twitter:description" content="`char16_t`はUTF-16符号化形式の文字型、`char32_t`はUTF-32符号化形式の文字型である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;50bc65b0236de1f39e77fb2be1282ec657522f86&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n\nint main()\n{\n  char16_t a = u&#39;\\u215A&#39;;\n  char16_t b = u&#39;\u215a&#39;;\n\n  assert(a == b);\n}\n&#34;}, {&#34;id&#34;: &#34;f305032cfd779ab92a157aed2c69850143c97d61&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::u16string s16 = u\&#34;\ud842\udfb7\u91ce\u5bb6\&#34;;\n  std::u32string s32 = U\&#34;\ud842\udfb7\u91ce\u5bb6\&#34;;\n\n  assert(s16.size() == 4); // \u30b5\u30ed\u30b2\u30fc\u30c8\u30da\u30a2\u3092\u542b\u3080\u306e\u30671\u6587\u5b57\u5206\u591a\u3044\n  assert(s32.size() == 3); // UTF-32\u306b\u30b5\u30ed\u30b2\u30fc\u30c8\u30da\u30a2\u306f\u306a\u3044\n}\n&#34;}, {&#34;id&#34;: &#34;c4cf63fe879a899be9daebeb012b870ef0c98020&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;locale&gt;\n#include &lt;codecvt&gt;\n\nint main()\n{\n  // UTF-8\u3068UTF-32\u306e\u76f8\u4e92\u5909\u63db\u3092\u884c\u3046\u30b3\u30f3\u30d0\u30fc\u30bf\u30fc\n  std::wstring_convert&lt;std::codecvt_utf8&lt;char32_t&gt;, char32_t&gt; converter;\n\n  // UTF-8\u304b\u3089UTF-32\u306b\u5909\u63db\n  std::string u8str = u8\&#34;\u3042\u3044\u3046\u3048\u304a\&#34;;\n  std::u32string u32str = converter.from_bytes(u8str);\n\n  // \u30b3\u30fc\u30c9\u30dd\u30a4\u30f3\u30c8\u6570\u3092\u53d6\u5f97\n  std::size_t codepoint_count = u32str.size();\n  std::cout &lt;&lt; codepoint_count &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;char16_32&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">char16_tとchar32_t [N2249]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-27T07:23:15">
+        2024年07月27日 07時23分15秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">koile</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/char16_32.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/char16_32.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">char16_tとchar32_t [N2249]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><code>char16_t</code>はUTF-16符号化形式の文字型、<code>char32_t</code>はUTF-32符号化形式の文字型である。</p>
+<p>UTF-16とUTF-32は、ISO/IEC 10646で標準化されている文字コード「UCS (Universal Coded Character Set)」とその互換文字コードである「Unicode (ユニコード)」で定義されている符号化形式である。UTF-16は、ひとつのコードポイント(≒文字)を表すために16ビットを基本的に使用する。UTF-32は32ビットである。</p>
+<p>標準C++では、これらの文字符号化形式を表す文字型、そのリテラル、および文字コード・符号化形式を変換する機能を提供する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// UTF-16／UTF-32符号化形式の文字列。</span>
+<span class="c1">// uプレフィックスを付けた文字列リテラルはchar16_tのシーケンスとなる。</span>
+<span class="c1">// Uプレフィックスを付けた文字列リテラルはchar32_tのシーケンスとなる。</span>
+<span class="kt">char16_t</span> <span class="n">s16</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"あいうえお"</span><span class="p">;</span>
+<span class="kt">char32_t</span> <span class="n">s32</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"あいうえお"</span><span class="p">;</span>
+
+<span class="c1">// 文字列中にユニバーサルキャラクタ名を直接入力できる。</span>
+<span class="c1">// \uからはじめて4桁、もしくは\Uからはじめて8桁がユニバーサルキャラクタ名として扱われる。</span>
+<span class="kt">char16_t</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"</span><span class="se">\U00020BB7</span><span class="s">野家"</span><span class="p">;</span> <span class="c1">// 𠮷野家</span>
+</code></pre></div>
+</p>
+<p>ただし、C++11時点で、標準ライブラリでは<code>char16_t</code>と<code>char32_t</code>の入出力はサポートしない。そのため、それらの文字・文字列はシステムの文字コードに変換して入出力する必要がある。</p>
+<h2>仕様</h2>
+<h3>char16_t型、char32_t型の文字・文字列リテラルと文字コード</h3>
+<ul>
+<li><code>char16_t</code>と<code>char32_t</code>は予約語(キーワード)である。</li>
+<li><code>u</code>プレフィックスが付く文字リテラルの型は<code>char16_t</code>であり、<code>u</code>プレフィックスが付く文字列リテラルの要素型は<code>char16_t</code>である。<ul>
+<li>ひとつの文字を含む<code>char16_t</code>リテラルの値は、ひとつの16ビットコードポイントで表現できるISO 10646のコードポイント値と同じである。</li>
+<li>ひとつの値を16ビットで表現できない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+<li>複数の文字を含む<code>char16_t</code>文字リテラルは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</li>
+<li><code>char16_t</code>文字リテラルが、基本文字集合とユニバーサルキャラクタ名より多くを含む場合は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>となる。</li>
+<li><code>char16_t</code>の場合、ひとつの文字がひとつ以上の<code>char16_t</code>を生成することがある。その文字はサロゲートペアと呼ばれる。</li>
+<li><code>char16_t</code>型の文字列リテラルは、静的ストレージに配置される。</li>
+</ul>
+</li>
+<li><code>U</code>プレフィックスが付く文字リテラルの型は<code>char32_t</code>であり、<code>U</code>プレフィックスが付く文字列リテラルの要素型は<code>char32_t</code>である。<ul>
+<li>ひとつの文字を含む<code>char32_t</code>リテラルの値は、ひとつの32ビットコードポイントで表現できるISO 10646のコードポイント値と同じである。</li>
+<li>ひとつの値を32ビットで表現できない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+<li>複数の文字を含む<code>char32_t</code>文字リテラルは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</li>
+<li><code>char32_t</code>文字リテラルが、基本文字集合とユニバーサルキャラクタ名より多くを含む場合は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>となる。</li>
+<li><code>char32_t</code>型の文字列リテラルは、静的ストレージに配置される。</li>
+</ul>
+</li>
+<li><code>char16_t</code>と<code>char32_t</code>はそれぞれ、<code><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></code>ヘッダで定義される<code><a href="../../reference/cstdint/uint_least16_t.html">uint_least16_t</a></code>と<code><a href="../../reference/cstdint/uint_least32_t.html">uint_least32_t</a></code>と、サイズ、符号の有無、アライメントが同じである。</li>
+<li><code>&lt;cuchar&gt;</code>ヘッダでマクロ<code>__STDC_UTF_16__</code>が定義される場合、<code>char16_t</code>型の値はUTF-16の妥当なコードポイントを持つ。そうでない場合、<code>char16_t</code>型の値は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の文字コードとなる。</li>
+<li><code>&lt;cuchar&gt;</code>ヘッダでマクロ<code>__STDC_UTF_32__</code>が定義される場合、<code>char32_t</code>型の値はUTF-32の妥当なコードポイントを持つ。そうでない場合、<code>char32_t</code>型の値は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の文字コードとなる。</li>
+</ul>
+<h3>ユニバーサルキャラクタ名</h3>
+<ul>
+<li>
+<p><code>char16_t</code>文字・文字列リテラルと<code>char32_t</code>文字・文字列リテラルのなかには、UCS／Unicodeのユニバーサルキャラクタ名を直接記述できる。たとえば、<code>char16_t</code>文字リテラル<code>u'\u215A'</code>は<a href="http://www.charbase.com/215a-unicode-vulgar-fraction-five-sixths" target="_blank">U+215A</a>コードポイントの文字である<code>'⅚'</code> (VULGAR FRACTION FIVE SIXTHS) を表す。<code>\u</code>の場合は16進数で4桁固定のユニバーサルキャラクタ名を、<code>\U</code>の場合は16進数で8桁固定のユニバーサルキャラクタ名を記述する。</p>
+<p><div class="yata" id="50bc65b0236de1f39e77fb2be1282ec657522f86"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">char16_t</span> <span class="n">a</span> <span class="o">=</span> <span class="n">u</span><span class="err">'\</span><span class="n">u215A</span><span class="err">'</span><span class="p">;</span>
+  <span class="kt">char16_t</span> <span class="n">b</span> <span class="o">=</span> <span class="n">u</span><span class="sc">'⅚'</span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+</li>
+<li>
+<p><code>char16_t</code>と<code>char32_t</code>のユニバーサルキャラクタ名は、<code>[0x0, 0x10FFFF]</code>の範囲内であること。</p>
+</li>
+</ul>
+<h3>参照するUCSの規格</h3>
+<p>C++11時点の規格では、UCSの規格としてISO/IEC 10646-1:1993を参照する。</p>
+<h2>例</h2>
+<h3>サロゲートペアを含む状況</h3>
+<p><div class="yata" id="f305032cfd779ab92a157aed2c69850143c97d61"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::u16string</a></span> <span class="n">s16</span> <span class="o">=</span> <span class="sa">u</span><span class="s">"𠮷野家"</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span> <span class="n">s32</span> <span class="o">=</span> <span class="sa">U</span><span class="s">"𠮷野家"</span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s16</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// サロゲートペアを含むので1文字分多い</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s32</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// UTF-32にサロゲートペアはない</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>UTF-32に文字コード変換して簡易的にコードポイント数を算出する</h3>
+<p><div class="yata" id="c4cf63fe879a899be9daebeb012b870ef0c98020"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/codecvt.html">&lt;codecvt&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
+  <span class="n"><a href="../../reference/locale/wstring_convert.html">std::wstring_convert</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="o">&gt;</span> <span class="n">converter</span><span class="p">;</span>
+
+  <span class="c1">// UTF-8からUTF-32に変換</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">u8str</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::u32string</a></span> <span class="n">u32str</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n"><a href="../../reference/locale/wstring_convert/from_bytes.html">from_bytes</a></span><span class="p">(</span><span class="n">u8str</span><span class="p">);</span>
+
+  <span class="c1">// コードポイント数を取得</span>
+  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">codepoint_count</span> <span class="o">=</span> <span class="n">u32str</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">codepoint_count</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>5
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>この機能が提案された2004年当時にはすでにUCS／Unicodeが広く普及していた。多くのユーザーがその文字コードを扱うことを望んでいたために、標準C++で正式にサポートすることとなった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/string/basic_string.html">u16string</a></code></li>
+<li><code><a href="../../reference/string/basic_string.html">u32string</a></code></li>
+<li><code><a href="../../reference/locale/wstring_convert.html">wstring_convert</a></code></li>
+<li><a href="utf8_string_literals.html">C++11 UTF-8文字列リテラル</a></li>
+<li><a href="../cpp20/char8_t.html">C++20 UTF-8エンコーディングされた文字の型として<code>char8_t</code>を追加</a></li>
+<li><a href="../cpp20/make_char16t_char32t_string_literals_be_utf16_32.html">C++20 <code>char16_t</code>と<code>char32_t</code>の文字・文字列リテラルを、文字コードUTF-16/32に規定</a></li>
+<li><a href="../../reference/ostream/basic_ostream/op_ostream_free.html">ostream <code>operator&lt;&lt;</code></a></li>
+<li><a href="../cpp23/named_universal_character_escapes.html">C++23 名前付きユニバーサルキャラクタ名</a></li>
+<li><a href="../cpp23/delimited_escape_sequences.html">C++23 エスケープシーケンスの区切り</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1040.pdf" target="_blank">WG14 N1040 Extensions for the programming language C to support new character data types</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1628.htm" target="_blank">N1628 Extensions for the Programming Language C++ to Support New Character Data Types</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1823.html" target="_blank">N1823 New Character Types in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1955.html" target="_blank">N1955 New Character Types in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2018.html" target="_blank">N2018 New Character Types in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2149.html" target="_blank">N2149 New Character Types in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2249.html" target="_blank">N2249 New Character Types in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2170.html" target="_blank">N2170 Universal Character Names in Literals</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

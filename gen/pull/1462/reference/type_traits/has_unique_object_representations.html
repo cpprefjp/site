@@ -1,0 +1,343 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>has_unique_object_representations - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp17
+">
+        <meta name="title" content="has_unique_object_representations - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="has_unique_object_representations - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="has_unique_object_representations - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/has_unique_object_representations.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="型`T`の任意の2つの値が、同じ値を持つ場合はそのオブジェクト表現（バイト表現）も同じとなるかどうかを調べる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="has_unique_object_representations - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/has_unique_object_representations.html" />
+        <meta name="twitter:description" content="型`T`の任意の2つの値が、同じ値を持つ場合はそのオブジェクト表現（バイト表現）も同じとなるかどうかを調べる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7ab1be4036d34e151e6ab7a646d8f8f62c537117&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n#include &lt;iostream&gt;\n\nstruct unique_object_representations {\n  int a;\n  int b;\n};\n\nstruct not_unique_object_representations {\n  char a;\n  // \u5f8c\u7d9a\u30e1\u30f3\u30d0b\u304c\u914d\u7f6e\u3055\u308c\u308b\u30e1\u30e2\u30ea\u30a2\u30c9\u30ec\u30b9\u3092int\u578b\u306b\u3068\u3063\u3066\u81ea\u7136\u306a\u30a2\u30e9\u30a4\u30e1\u30f3\u30c8\u3068\u3059\u308b\u305f\u3081\u3001\n  // \u591a\u304f\u306e\u51e6\u7406\u7cfb\u3067\u306f\u3053\u3053\u306b\u30d1\u30c7\u30a3\u30f3\u30b0\u3092\u633f\u5165\u3059\u308b\u3002\u4f8b\uff1asizeof(int)==4\u74b0\u5883\u3067\u306f3\u30d0\u30a4\u30c8\u3002\n  // pragma\u3084\u30b3\u30f3\u30d1\u30a4\u30eb\u30aa\u30d7\u30b7\u30e7\u30f3\u306a\u3069\u51e6\u7406\u7cfb\u72ec\u81ea\u306e\u624b\u6bb5\u3067\u30d1\u30c7\u30a3\u30f3\u30b0\u91cf\u306f\u8abf\u6574\u3067\u304d\u308b\u3053\u3068\u304c\u591a\u3044\u3002\n  int b;\n};\n\nint main()\n{\n  std::cout &lt;&lt; std::boolalpha;\n\n  std::cout &lt;&lt; std::has_unique_object_representations&lt;int&gt;::value &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::has_unique_object_representations&lt;unsigned int&gt;::value &lt;&lt; std::endl;\n\n  // IEC 559(IEEE 754)\u6e96\u62e0\u306e\u6d6e\u52d5\u5c0f\u6570\u70b9\u578b\u3067\u306f\u3001\u7570\u306a\u308b\u30d0\u30a4\u30c8\u5217\u3067\u3042\u3063\u3066\u3082\u7b49\u4fa1\u3068\u306a\u308b\u30b1\u30fc\u30b9\u304c\u5b58\u5728\u3059\u308b\u3002\n  // \u6b63\u306e\u30bc\u30ed(+0.0)\u3068\u8ca0\u306e\u30bc\u30ed(-0.0)\u306f\u7b49\u4fa1\u3068\u8a55\u4fa1\u3055\u308c\u308b\u304c\u3001\u305d\u308c\u305e\u308c\u306e\u5024\u3092\u8868\u3059\u30d0\u30a4\u30c8\u5217\u306f\u7570\u306a\u3063\u3066\u3044\u308b\u3002\n  std::cout &lt;&lt; std::has_unique_object_representations&lt;float&gt;::value &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::has_unique_object_representations&lt;double&gt;::value &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; std::has_unique_object_representations&lt;unique_object_representations&gt;::value &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::has_unique_object_representations&lt;not_unique_object_representations&gt;::value &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;has_unique_object_representations&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">has_unique_object_representations</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/has_unique_object_representations.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/has_unique_object_representations.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">has_unique_object_representations</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">has_unique_object_representations</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">has_unique_object_representations_v</span> 
+    <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">has_unique_object_representations</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>型<code>T</code>の任意の2つの値が、同じ値を持つ場合はそのオブジェクト表現（バイト表現）も同じとなるかどうかを調べる。</p>
+<h2>要件</h2>
+<p>型<code>T</code>が、<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>であること。もしくは<code>const</code>/<code>volatile</code>修飾された(あるいはされていない)<code>void</code>か、要素数不明の配列型であること。</p>
+<h2>効果</h2>
+<p>型<code>T</code>が<a href="is_trivially_copyable.html"><em>TriviallyCopyable</em></a>であり、<code>T</code>の任意の2つの値が等価（equivalent）であるならバイト表現が等値（equal）となる場合に
+<code><a href="true_type.html">true_type</a></code>から派生し、そうでなければ<code><a href="false_type.html">false_type</a></code>から派生する。</p>
+<p>以下、もう少し詳細な解説。</p>
+<p>まず、型<code>T</code>のオブジェクト表現とは、<code>T</code>のオブジェクトを型<code>unsigned char[N]</code>で参照したときのバイト列のことである（<code>N == sizeof(T)</code>）。
+次に、型<code>T</code>の値表現とは、<code>T</code>の値を保持するビット列のことである。<br />
+そして、<code>T</code>が<a href="is_trivially_copyable.html"><em>TriviallyCopyable</em></a>であれば、値表現はオブジェクト表現内に含まれる。</p>
+<p>この時、<code>T</code>の値表現とオブジェクト表現がビット単位で正確に一致していれば<code>has_unique_object_representations&lt;T&gt;::value == true</code>となる。<br />
+構造体のパディングはオブジェクト表現に含まれるが、値表現には含まれない。したがって、パディングを持つ構造体は値が同じでもバイト表現が同じとは限らない（結果は<code>false</code>となる）。</p>
+<p><a href="is_scalar.html">スカラー型</a>がこの性質を満たすかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>となるが、符号なし整数型は一意なオブジェクト表現を持つ。<br />
+またC++20以降、符号付整数型は2の補数表現であると規定されるため、C++20以降は（現在でも多くの処理系がそうであるが）符号付も含めた整数型がこの性質を満たすようになる。<br />
+また、多くの処理系において IEC 559 (IEEE 754) に準拠する浮動小数点型がこの性質を満たさない。</p>
+<p>ビットフィールドも処理系によってバイト表現が異なるため<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>となる（主に、Itanium ABIとMSVC ABI間で異なる）。</p>
+<p><code>T</code>型の二つのオブジェクトが同じ値を持つとは、以下の場合である：</p>
+<ul>
+<li><code>T</code>型の二つのオブジェクトが同じオブジェクト表現を持っており、かつ <ul>
+<li><code>T</code>が配列なら、2つの配列のそれぞれの要素が同じ値を持つ</li>
+<li><code>T</code>が共用体でないクラス型なら、対応する非静的メンバ変数が同じ値を持つ</li>
+<li><code>T</code>が共用体なら、2つの共用体が同じアクティブメンバを持ち、対応するメンバが同じ値を持つ</li>
+<li>それ以外の場合、その2つのオブジェクトの<code>operator==</code>による比較が<code>true</code>となる</li>
+</ul>
+</li>
+</ul>
+<h2>備考</h2>
+<p>このメタ関数は、簡易にハッシュを求めることを将来サポートする前準備として、ある型のバイト列をそのままその型のハッシュとして利用できるかを判定するために追加された。</p>
+<p>おそらく、実装はコンパイラーマジックによって行われ、ユーザーコードで実装することは出来ないと思われる。</p>
+<h2>例</h2>
+<p><div class="yata" id="7ab1be4036d34e151e6ab7a646d8f8f62c537117"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">unique_object_representations</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">not_unique_object_representations</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
+  <span class="c1">// 後続メンバbが配置されるメモリアドレスをint型にとって自然なアライメントとするため、</span>
+  <span class="c1">// 多くの処理系ではここにパディングを挿入する。例：sizeof(int)==4環境では3バイト。</span>
+  <span class="c1">// pragmaやコンパイルオプションなど処理系独自の手段でパディング量は調整できることが多い。</span>
+  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::has_unique_object_representations</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::has_unique_object_representations</span></span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// IEC 559(IEEE 754)準拠の浮動小数点型では、異なるバイト列であっても等価となるケースが存在する。</span>
+  <span class="c1">// 正のゼロ(+0.0)と負のゼロ(-0.0)は等価と評価されるが、それぞれの値を表すバイト列は異なっている。</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::has_unique_object_representations</span></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::has_unique_object_representations</span></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::has_unique_object_representations</span></span><span class="o">&lt;</span><span class="n">unique_object_representations</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::has_unique_object_representations</span></span><span class="o">&lt;</span><span class="n">not_unique_object_representations</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>true
+true
+false
+false
+true
+false
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 6.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 7.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2017 Update 3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/signed_integers_are_twos_complement.html">C++20 符号付き整数型が2の補数表現であることを規定</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://faithandbrave.hateblo.jp/entry/2016/09/23/143031" target="_blank">C++1z has_unique_object_representations型特性 - Faith and Brave - C++で遊ぼう</a></li>
+<li><a href="https://stackoverflow.com/questions/42855326/what-type-will-make-stdhas-unique-object-representations-return-false" target="_blank">What type will make “std::has_unique_object_representations” return false? - Stack Overflow</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0258r1.html" target="_blank">P0258R1 is_contiguous_layout</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0258r2.html" target="_blank">P0258R2 has_unique_object_representations - wording</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

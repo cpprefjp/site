@@ -1,0 +1,380 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/remove_deprecated_increment_of_bool.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/remove_deprecated_increment_of_bool.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;23b9c03a631d3500c875ff1bd952614530f75b4a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\nint main()\n{\n  bool b = false;\n  const bool b1 = ++b;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b1 &lt;&lt; std::endl; // =&gt; true\n  const bool b2 = ++b;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b2 &lt;&lt; std::endl; // =&gt; true\n}\n&#34;}, {&#34;id&#34;: &#34;3ab772f8fc59fbf75f56f926c59b57bdae2d0ea7&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\nint main()\n{\n  bool b = false;\n  b = true;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b &lt;&lt; std::endl; // =&gt; true\n  b = true;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b &lt;&lt; std::endl; // =&gt; true\n}\n&#34;}, {&#34;id&#34;: &#34;eb231ce5c7fab7454ecaaf36f928f79759262a0b&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nvoid f(bool b)\n{\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b &lt;&lt; std::endl;\n}\n\nint main()\n{\n  bool b = false;\n  // \u95a2\u6570f\u306b\u306f\u5909\u6570b\u306e\u73fe\u5728\u306e\u5024\u3067\u3042\u308bfalse\u306e\u5024\u304c\u6e21\u3055\u308c\u308b\n  f(b++); // =&gt; false\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b &lt;&lt; std::endl; // =&gt; true\n}\n&#34;}, {&#34;id&#34;: &#34;14f64417b6b9ab3ab23de7d968e9a5f191967df2&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\nvoid f(bool b)\n{\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b &lt;&lt; std::endl;\n}\nint main()\n{\n  bool b = false;\n  f(std::exchange(b, true)); // =&gt; false\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; b &lt;&lt; std::endl; // =&gt; true\n}\n&#34;}, {&#34;id&#34;: &#34;76a4fcfaef616a150122b5a7a1a9c5d47b81c66c&#34;, &#34;source&#34;: &#34;int main(void)\n{\n  int flag = 0;\n  /* do something */\n  if(flag){\n    /* do something when flag is true*/\n  }\n  return 0;\n}\n&#34;}, {&#34;id&#34;: &#34;4d971f0b06985ba96181ca19079938b63556d0f7&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nvoid test_firepower() {\n  // \u6700\u5927\u51fa\u529b\u3067\u706b\u529b\u3092\u8a66\u3059\n  std::cout &lt;&lt; \&#34;\u6700\u5927\u706b\u529b\&#34; &lt;&lt; std::endl;\n}\nvoid fire() {\n  // \u901a\u5e38\u306e\u706b\u529b\u3067 \u201d\u51e6\u7406\u201d \u3092\u3059\u308b\n}\n\nint main()\n{\n  int tested = 0;\n  while (true) {\n    if (!tested) {\n      test_firepower();\n    } else {\n      fire();\n    }\n    tested++;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;remove_deprecated_increment_of_bool&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-30T13:19:32">
+        2025年05月30日 13時19分32秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/remove_deprecated_increment_of_bool.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/remove_deprecated_increment_of_bool.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">非推奨だった bool 型に対するインクリメント演算子を削除 [P0002R1]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++17では<code>bool</code>型に対する前置および後置の<code>operator ++</code>を削除する。</p>
+<p><code>bool</code>型に対する前置および後置の<code>operator ++</code>とはC++98の時点で非推奨になっていた機能である。</p>
+<p>具体的にどのような働きをするのかというと、以下のように値を<code>true</code>に書き換える機能をもつ。</p>
+<p><div class="yata" id="23b9c03a631d3500c875ff1bd952614530f75b4a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">bool</span> <span class="n">b1</span> <span class="o">=</span> <span class="o">++</span><span class="n">b</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+  <span class="k">const</span> <span class="kt">bool</span> <span class="n">b2</span> <span class="o">=</span> <span class="o">++</span><span class="n">b</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>ここで、前置の<code>operator ++</code>は、以下のように置き換えられる：</p>
+<p><div class="yata" id="3ab772f8fc59fbf75f56f926c59b57bdae2d0ea7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>一方後置の<code>operator ++</code>を使う次のようなコードは、以下のようにC++14で標準ライブラリに導入された<code><a href="../../reference/utility/exchange.html">std::exchange()</a></code>を利用して書き換えることができる。</p>
+<p><div class="yata" id="eb231ce5c7fab7454ecaaf36f928f79759262a0b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">bool</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="c1">// 関数fには変数bの現在の値であるfalseの値が渡される</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="o">++</span><span class="p">);</span> <span class="c1">// =&gt; false</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p><div class="yata" id="14f64417b6b9ab3ab23de7d968e9a5f191967df2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">bool</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">true</span><span class="p">));</span> <span class="c1">// =&gt; false</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>仕様</h2>
+<p>これまで、<code>operator ++</code>の定義は、<code>bool</code>型のときは<code>true</code>に変更する、<code>operator --</code>の定義は<code>bool</code>型を除く、というように<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>規定されていた(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)。<br />
+C++17ではこれらが削除され、<code>operator ++</code>の定義(§ 8.2.6 expr.post.incr / § 8.3.2 expr.pre.incr)に、<code>bool</code>型を除く、という<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>規定が追加された。</p>
+<p>前置の<code>operator ++</code>と<code>operator +=</code>の呼び出し(例えば<code>++a</code>と<code>a+=1</code>)が等価にならない例に、<code>bool</code>型の場合、という文面があったが、C++17で削除された(§ 8 expr)。</p>
+<p>また、組み込みのoperatorのリストの<code>operator ++</code>に関する文面に、<code>bool</code>型を除く、という<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>規定が追加された(§ 16.6 over.built)。</p>
+<h2>この機能を削除するに至った背景・経緯</h2>
+<p>この項は<strong>十分な出典が存在せず推測でしかない</strong>ことに注意して読み進めてほしい。</p>
+<p>もともとC++の前身であるC言語(ANSI C89)には<code>bool</code>型は存在しなかった。<br />
+そのために、真理値を表すために<code>bool</code>型の代わりとして<code>int</code>型や<code>char</code>型、<code>unsigned char</code>型で代用する例が見られた。</p>
+<p><div class="yata" id="76a4fcfaef616a150122b5a7a1a9c5d47b81c66c"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="cm">/* do something */</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">flag</span><span class="p">){</span>
+    <span class="cm">/* do something when flag is true*/</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>つまり、非0を<code>true</code>、0を<code>false</code>として扱う。</p>
+<p>ここで、「初回のみ最大火力で装置をテストし、2回目以降は通常の火力を発射する」シナリオを考えてみよう。</p>
+<p><div class="yata" id="4d971f0b06985ba96181ca19079938b63556d0f7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">test_firepower</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 最大出力で火力を試す</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"最大火力"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">fire</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 通常の火力で ”処理” をする</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">tested</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">tested</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">test_firepower</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">fire</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">tested</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>これはループのはじめのみ<code>test_firepower</code>関数(最大火力で装置をテスト)が呼び出されることを期待している。しかし期待通りには動かない。<br />
+<code>tested</code>が<code>int</code>型の最大値になったときif文の条件評価が行われることを考えよう。<br />
+<code>tested</code>のインクリメントはオーバーフローするので<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>になるが、殆どの環境で2の補数表現を使っているため、<code>int</code>型の最小値になる。<br />
+すると、<code>tested</code>の値が再び0まで加算された際に<strong>再び<code>test_firepower</code>関数が呼び出されてしまう</strong>。</p>
+<p>これによく似たバグで少なくとも<strong>6つの過度の放射線被曝事故を引き起こし、3人が死亡した例</strong>がある。<br />
+Therac-25はカナダ原子力公社(AECL)とフランスCGR-MeV社によって開発・製造された放射線療法機器である。<br />
+この装置のソフトウェアのバグの一つに、条件変数を非0にする(=<code>true</code>にする)ために、インクリメントを使っていたというものがあった。<br />
+条件変数はC++でいえば<code><a href="../../reference/cstdint/uint8_t.html">std::uint8_t</a></code>型で、つまり256回に1度オーバーフローを起こして値が0になるために、<code>false</code>として扱われた。<br />
+この結果ほかの条件変数の状態によっては25MeVという通常の100倍のβ線が射出されることがあった。</p>
+<p>こうした事故を防ぐためなのかは不明だが、C++の<code>bool</code>型はインクリメントした際、常に<code>true</code>になるように定められていた。<br />
+しかし、そもそも上記のバグを防ぐには、インクリメントではなく単に固定値を代入するようにするべきであり、C++98の時点でdeprecatedになっていたと思われる。</p>
+<p>C++14で<code>std::exchange()</code>が導入されたことにより、唯一使いみちのあった後置の<code>operator++</code>の必要性もなくなり、C++17で削除されたと推測される。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/utility/exchange.html">std::exchange()</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0002r1.html" target="_blank">P0002R1: Remove Deprecated operator++(bool)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0002r0.html" target="_blank">P0002R0: Remove Deprecated operator++(bool)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4192.html#1653" target="_blank">Core issue 1653: Removing deprecated increment of bool</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3668" target="_blank">N3668: exchange() utility function, revision 3</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/230928/why-does-the-boolean-type-in-c-support-but-not" target="_blank">history - Why does the boolean type in C++ support ++ but not --? - Software Engineering Stack Exchange</a></li>
+<li>Leveson, Nancy G.; Turner, Clark S. (July 1993). <a href="https://web.archive.org/web/20041128024227/http://www.cs.umd.edu/class/spring2003/cmsc838p/Misc/therac.pdf" target="_blank">"An Investigation of the Therac-25 Accidents"</a> (PDF). IEEE Computer. 26 (7): 18–41. doi:10.1109/MC.1993.274940.<br />
+    テキスト起こし<ol>
+<li><a href="http://web.archive.org/web/20171206153409/http://courses.cs.vt.edu/professionalism/Therac_25/Therac_1.html" target="_blank">An Investigation of Therac-25 Accidents - I</a></li>
+<li><a href="http://web.archive.org/web/20171212115910/http://courses.cs.vt.edu/professionalism/Therac_25/Therac_2.html" target="_blank">Therac-25 - II</a></li>
+<li><a href="http://web.archive.org/web/20170215125239/http://courses.cs.vt.edu/professionalism/Therac_25/Therac_3.html" target="_blank">Therac-25 - III</a></li>
+</ol>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Therac-25" target="_blank">Therac-25 - Wikipedia</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

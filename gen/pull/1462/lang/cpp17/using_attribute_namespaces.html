@@ -1,0 +1,293 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>属性の名前空間指定に繰り返しをなくす [P0028R4] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="属性の名前空間指定に繰り返しをなくす [P0028R4] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="属性の名前空間指定に繰り返しをなくす [P0028R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="属性の名前空間指定に繰り返しをなくす [P0028R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/using_attribute_namespaces.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="属性の名前空間指定に繰り返しをなくす [P0028R4] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/using_attribute_namespaces.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;fd6402a31d56c14df87eb635fafa16e047cce5a6&#34;, &#34;source&#34;: &#34;[[CC::opt(1)]] [[CC::debug]] void f() {}\n  //\u6b63\u3057\u3044\n\n[[CC::opt(1), CC::debug]] void g() {}\n  //\u6b63\u3057\u3044\n\n[[using CC: opt(1), debug]] void h() {}\n  //\u6b63\u3057\u3044\u3001\u4e0a\u8a18\u306e [[CC::opt(1), CC::debug]] \u3068\u540c\u3058\u610f\u5473\u306b\u306a\u308b\n\n[[using CC: opt(1)]] [[CC::debug]] void i() {}\n  //\u6b63\u3057\u3044\u3001\u4e0a\u8a18\u3068\u540c\u3058\u610f\u5473\u306b\u306a\u308b\n\n[[using CC: CC::opt(1)]] void j() {}\n  //\u9593\u9055\u3044\u3001using\u3068\u540d\u524d\u7a7a\u9593\u306e\u6307\u5b9a\u306f\u6df7\u5728\u3067\u304d\u306a\u3044\n\nint main() {}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;using_attribute_namespaces&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">属性の名前空間指定に繰り返しをなくす [P0028R4]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/using_attribute_namespaces.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/using_attribute_namespaces.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">属性の名前空間指定に繰り返しをなくす [P0028R4]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>複数の属性を指定する際<code>using</code>により名前空間を指定できる。</p>
+<p>同じ名前空間に属する複数の属性を指定したい場合がある。従来は同じ名前空間を何度も記述しなければならなかったが、<code>using</code>で名前空間を指定することで一度で記述できるように変更された。</p>
+<h2>仕様</h2>
+<p>文法仕様は下記の通り。</p>
+<p><pre><code>attribute-specifier:
+    [ [ attribute-using-prefix opt attribute-list ] ]
+    alignment-specifier
+
+attribute-using-prefix:
+    using attribute-namespace :
+</code></pre></p>
+<p>属性の先頭部分に<code>using</code>、名前空間、コロン<code>:</code>の順に記述し、その後に続けて属性の名前を記述する。</p>
+<p><code>using</code>で名前空間を指定した場合は、続く属性の名前に名前空間は指定できない。<code>using</code>で複数の名前空間を指定することもできない。</p>
+<h2>例</h2>
+<p><div class="yata" id="fd6402a31d56c14df87eb635fafa16e047cce5a6"><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span> <span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="c1">//正しい</span>
+
+<span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="c1">//正しい</span>
+
+<span class="p">[[</span><span class="k">using</span> <span class="nl">CC</span><span class="p">:</span> <span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">h</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="c1">//正しい、上記の [[CC::opt(1), CC::debug]] と同じ意味になる</span>
+
+<span class="p">[[</span><span class="k">using</span> <span class="nl">CC</span><span class="p">:</span> <span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span> <span class="p">[[</span><span class="n">CC</span><span class="o">::</span><span class="n">debug</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">i</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="c1">//正しい、上記と同じ意味になる</span>
+
+<span class="p">[[</span><span class="k">using</span> <span class="nl">CC</span><span class="p">:</span> <span class="n">CC</span><span class="o">::</span><span class="n">opt</span><span class="p">(</span><span class="mi">1</span><span class="p">)]]</span> <span class="kt">void</span> <span class="n">j</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="c1">//間違い、usingと名前空間の指定は混在できない</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>。</p>
+<h3>警告例</h3>
+<p>clang++ 5.0.0 にてコンパイルした場合。</p>
+<p><pre><code>using_attribute_namespaces.cpp:13:13: error: attribute with scope specifier cannot follow default scope specifier
+[[using CC: CC::opt(1)]] void j() {}
+        ~~  ^
+1 error generated.
+</code></pre></p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/attributes.html">C++11 属性構文</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0028r4.html" target="_blank">P0028R4 Using attribute namespaces without repetition.</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

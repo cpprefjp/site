@@ -1,0 +1,711 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>はじめてのコントリビュート - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="はじめてのコントリビュート - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="はじめてのコントリビュート - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="はじめてのコントリビュート - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/start_editing.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="はじめてのコントリビュート 本cpprefjpサイトは、GitHub Pagesのサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkdown形式のプレーンテキストで行います。 cpprefjpサイトのGitHubリポジトリは、以下になります：  https://github.com/cpprefjp/site  また、cpprefjpサイト上に掲載する画像ファイルのよう" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="はじめてのコントリビュート - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/start_editing.html" />
+        <meta name="twitter:description" content="はじめてのコントリビュート 本cpprefjpサイトは、GitHub Pagesのサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkdown形式のプレーンテキストで行います。 cpprefjpサイトのGitHubリポジトリは、以下になります：  https://github.com/cpprefjp/site  また、cpprefjpサイト上に掲載する画像ファイルのよう" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;start_editing&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="./index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">はじめてのコントリビュート</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-15T04:06:50">
+        2025年04月15日 04時06分50秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/start_editing.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/start_editing.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">はじめてのコントリビュート</span></h1>
+<div itemprop="articleBody"><p>本cpprefjpサイトは、GitHub Pagesのサービス上に構築されていますが、編集自体はGitHubリポジトリにあるMarkdown形式のプレーンテキストで行います。</p>
+<p>cpprefjpサイトのGitHubリポジトリは、以下になります：</p>
+<ul>
+<li><a href="https://github.com/cpprefjp/site" target="_blank">https://github.com/cpprefjp/site</a></li>
+</ul>
+<p>また、cpprefjpサイト上に掲載する画像ファイルのようなリソースも、GitHubリポジトリで管理しています。</p>
+<ul>
+<li><a href="https://github.com/cpprefjp/image" target="_blank">画像ファイルリポジトリ</a></li>
+</ul>
+<h2>GitHubからcpprefjpサイトへの自動反映</h2>
+<p>GitHub上で記述したMarkdown(.md)形式のリファレンスは、GitHub Actionsによって自動的にHTMLに変換されて、cpprefjpサイトに反映されます。</p>
+<h3>反映間隔</h3>
+<p>cpprefjp/site へ push すると、すぐに反映されます。</p>
+<p>毎日深夜0時ころに全ページの変換を行います。ページを追加したときのサイドバーの更新や、<code>GLOBAL_QUALIFY_LIST.txt</code>を編集した場合の適用は、そのときの変換で全ページに変更が適用されます。</p>
+<p>日次の変換中にコミットした変更は、日次の変換がおわったあと (だいたい1時間30分〜2時間くらい) に自動で変換・反映されます。</p>
+<h3>自動デプロイ、自動テスト</h3>
+<p>本リポジトリでは、GitHub Actionsを使用して、自動デプロイと自動テストを行っています。</p>
+<p>Pull Request 時にも自動テストと自動プレビュー生成を行います。</p>
+<h4>自動デプロイ</h4>
+<p>buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへのデプロイを行っています。</p>
+<p>変換時になんらかのエラーが発生した場合には、GitHub Actionsが失敗します。その場合、手元で修正して再度git pushを行うことになります</p>
+<p>変換エラーではなく、GitHub Pagesリポジトリへのgit pushに失敗した場合 (buildアクションの実行中に新たなコミットがgit pushされた場合など) には、そのbuildアクションに対してRe-run jobを実行し、再度変換を行ってください。</p>
+<h4>自動テスト</h4>
+<ul>
+<li>禁止文字の検出 (detect forbidden charactersアクション)<ul>
+<li>ソフトハイフンやゼロ幅スペースなどの禁止された文字が使用されている場合に、エラーが発生する</li>
+</ul>
+</li>
+<li>内部リンクの誤り検出 (inner link checkアクション)<ul>
+<li>サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する</li>
+<li><a href="https://github.com/cpprefjp/site/actions/workflows/check.yml" target="_blank">GitHub Actionsの実行ログ</a>で、どのページのどのリンクが不正かがわかるので、それを修正すること</li>
+</ul>
+</li>
+<li>外部リンク切れを検出 (outer link checkアクション)<ul>
+<li>日本時間で日曜日の23:30に実行される</li>
+<li>外部リンクのページにアクセスできない (ページが消滅したか、一時的にアクセスできない、などの理由) 場合にエラーとなる</li>
+<li>エラーが発生した場合は、本リポジトリにissueが発行される</li>
+<li>ページが消滅した場合は、代替となるものがあれば差し替え、なければInternet Archiveに変更する</li>
+<li>一時的にアクセスできない場合は、時間を置いてアクセスできるようになったらissueを閉じる</li>
+<li>海外からのアクセス (GitHub Actions) を拒否しているページもあるため、そのようなページは個別にチェックから外す (<a href="https://github.com/cpprefjp/site/blob/master/.github/workflows/script/link_check.py" target="_blank">link_check.py</a>の<code>IGNORE_LIST</code>に追加する)</li>
+</ul>
+</li>
+<li>コード修飾の誤り検出 (code qualify checkアクション)<ul>
+<li>コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する</li>
+<li><a href="https://github.com/cpprefjp/site/actions/workflows/check.yml" target="_blank">GitHub Actionsの実行ログ</a>で、どのページのどのコード修飾が不正かがわかるので、それを修正すること</li>
+</ul>
+</li>
+<li>所属ヘッダメタ情報の誤り検出 (meta header checkアクション)<ul>
+<li><code>[meta header]</code>または<code>[meta module]</code>指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する</li>
+<li>導入経緯は <a href="https://github.com/cpprefjp/site/issues/1204" target="_blank">PR#1204</a> を参照</li>
+</ul>
+</li>
+<li>NGワードの検出 (ngword checkアクション)<ul>
+<li>日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する</li>
+<li>具体的な対象ワードリストは<a href="https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py" target="_blank">ngword_check.py</a>を参照</li>
+</ul>
+</li>
+<li>用語の誤った使い方を検出 (defined word checkアクション)<ul>
+<li>用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する</li>
+<li>具体的な用語、許可した使い方、許可しない使い方は、<a href="https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py" target="_blank">defined_word_check.py</a>を参照</li>
+</ul>
+</li>
+<li>表示崩れする書き方を検出 (display error checkアクション)<ul>
+<li>箇条書きのインデントが4の倍数でない行をエラーとして検出する</li>
+</ul>
+</li>
+</ul>
+<h3>自動反映ツール</h3>
+<p>自動反映ツールも、GitHub上で開発が進められています。</p>
+<ul>
+<li><a href="https://github.com/cpprefjp/site_generator" target="_blank">site_generator</a></li>
+</ul>
+<p>機能要望やpull request等がありましたら、こちらにお願いします。</p>
+<h2>編集権限を得るには</h2>
+<p>push権限を持っていない方は、pull requestで何らかの編集を行うところからはじめてください。タスクを引き取っていただける場合には、タスクのissueに「やります」とコメントを書いていただければ、担当をお渡しします。</p>
+<p>本サイトに対してpull requestを提出していただければ、取り込んだあとに管理者から編集権限をお渡しします。</p>
+<p>pull requestに慣れていない場合には、issueでの相談からはじめていただければと思います。</p>
+<p>管理者からpush権限をお渡しする申請が届いた場合には、引き受けていただけると幸いです。</p>
+<h2>Markdown形式による編集方法</h2>
+<p>cpprefjpサイトは、Markdown(.md)形式でリファレンスを記述します。</p>
+<p>Markdownは、GitHubサービス上でドキュメントを記述するフォーマットとして広く使用されている形式です。</p>
+<p>Markdownの記述方法をわかりやすく解説してくれているWebサイトは、すでに数多く存在しますので、詳細はそちらを参照してください。</p>
+<p>ただし、cpprefjp特有の拡張構文もあります。
+以下のページにまとめてあるので、そちらを参照して下さい。</p>
+<ul>
+<li><a href="start_editing/markdown_cpprefjp.html">cpprefjpでのMarkdown記法の制限と拡張</a></li>
+</ul>
+<p>Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイトでは積極的にはHTMLタグを使用しない方針で、許可されたタグのみ使用できます。できるだけ、Markdown形式でできる範囲内で解決するようにしてください。</p>
+<p>ただし、注釈・出典を貼るためにHTMLタグを利用します。</p>
+<ul>
+<li><a href="start_editing/cite_note_ref.html">cpprefjpにおける注釈・出典の貼り方</a></li>
+</ul>
+<p>新規リファレンスを書くにあたって、雛形ページを用意していますので、そちらをベースにして編集作業を行ってください。</p>
+<ul>
+<li><a href="start_editing/lang_template_page.html">言語機能の雛形</a></li>
+<li><a href="start_editing/header_template_page.html">ヘッダファイルページの雛形</a></li>
+<li><a href="start_editing/module_template_page.html">モジュールページの雛形</a></li>
+<li><a href="start_editing/function_template_page.html">関数の雛形</a></li>
+<li><a href="start_editing/class_template_page.html">クラスの雛形</a></li>
+<li><a href="start_editing/type-type_template_page.html">型の別名の雛形</a></li>
+<li><a href="start_editing/concept_template_page.html">コンセプトの雛形</a></li>
+<li><a href="start_editing/named_requirement_template_page.html">名前付き要件の雛形</a></li>
+<li><a href="start_editing/comparison_operator_template_page.html">比較演算子の雛形</a></li>
+<li><a href="start_editing/cpo_template_page.html">CPOの雛形</a></li>
+</ul>
+<p>また、リポジトリのトップディレクトリに<code>GLOBAL_QUALIFY_LIST.txt</code>というファイルがあります。サイト全体のコードブロックに対して適用したい識別子の修飾があれば、ここに列挙していきます。書き方は各雛形ページに書いてあるコードブロックの修飾と同じです。</p>
+<h2>初めての人は見ておいたほうがよいページ</h2>
+<ul>
+<li><a href="implementation.html">処理系</a> 処理系の正式な定義があります</li>
+<li><a href="https://github.com/cpprefjp/site/wiki/progress" target="_blank">進行状況</a> リファレンス作成の進行状況が確認できます</li>
+<li><a href="working_style.html">スタイル</a> 作業を行う上でのスタイルの定義と、訳語があります</li>
+</ul>
+<h2>その他、cpprefjpを編集するにあたってのドキュメント</h2>
+<ul>
+<li><a href="start_editing/page_names.html">ページファイル名の付け方</a></li>
+<li><a href="start_editing/random_figure.html">乱数分布の図を作る方法</a></li>
+<li><a href="start_editing/directory_structure.html">ディレクトリ構造</a></li>
+</ul>
+<h2>Pull Requestのレビューとマージ</h2>
+<p>push権限を持っている方は、Pull Requestのレビューとマージもぜひお願いします。</p>
+<p>Pull Requestを送っていただいた方には、管理者から後ほどpush権限をお渡しします。権限の譲渡は管理者がする必要がありますが、レビューとマージは、ほかのpush権限保持者がしていただいてかまいません。</p>
+<p>Pull Requestのレビューが滞っていた場合、Pull Requestの提出者の方は、cpprefjpのpush権限保持者に対して、個人的にレビューを依頼してもかまいません。push権限保持者がだれかは、以下のページから確認できます：</p>
+<ul>
+<li><a href="https://github.com/orgs/cpprefjp/people" target="_blank">cpprefjp people</a><ul>
+<li>権限保持者の確認に使用できます</li>
+</ul>
+</li>
+<li><a href="https://github.com/cpprefjp/site/graphs/contributors" target="_blank">cpprefjp contributors</a><ul>
+<li>各人が本サイトにどれくらいコントリビュートしているかを確認できます</li>
+</ul>
+</li>
+</ul>
+<p>ただし可能な限り、レビュアーとの技術的な議論はPull Request上で行っていただけると助かります。これは、議論を記録として残すことが目的です。</p>
+<h2>Git関係のルール</h2>
+<ul>
+<li>コミットメッセージに厳密な書式は設けない<ul>
+<li>人によっては「〜を修正」のように書き、またある人は「fix ...」のように書きます。コミットメッセージは修正内容がわかることが大事で、書式はそれほど重要ではないという考えです</li>
+<li>また、本リポジトリが、英語の情報を元に日本語情報を提供する、という特性上、コミットメッセージが日本語と英語どちらであっても編集者が困ることはないはずですので、日本語か英語であれば、どちらで書いてもよいものとします</li>
+<li>コミットメッセージの内容としては、とくに自分以外の人が書いた文章を編集する際には、コミットメッセージに「なぜそのように編集したのか」をできるだけ書いたほうがよいです。これは、経緯を振り返りやすくすることが目的です</li>
+</ul>
+</li>
+<li>強制プッシュ<ul>
+<li><code>git push -f</code>や<code>git push --force</code>といったコマンドは、リポジトリの設定で、masterブランチに対してはできないようにしてあります。これは、masterブランチは壊してはならないという理由によるものです</li>
+<li>masterブランチ以外には強制プッシュできますので、Pull Request用のトピックブランチのコミットを整理する、といった目的などで使用していただいて大丈夫です</li>
+</ul>
+</li>
+</ul>
+<h2>求められる編集作業</h2>
+<h3>誤字・脱字を修正する (難易度★)</h3>
+<p>本サイトは編集者が手入力で解説を書いているため、誤字・脱字はどうしても発生してしまいます。</p>
+<p>誤字・脱字があったら、積極的に修正してください。</p>
+<h3>動作確認できたコンパイラバージョンを記載する (難易度★★)</h3>
+<p>本サイトのライブラリリファレンスでは、機能ごとに動作確認ができたコンパイラバージョンを記載しています。</p>
+<p>各ページを書いた時点での動作確認できたコンパイラバージョンは記載していますが、その後の更新は十分に行えていません。</p>
+<p>サンプルコードの下に以下のように動作確認できたコンパイラバージョンを記載する項目がありますので、「??」になっている項目がありましたら、動作確認して埋めていっていただきたいです。</p>
+<p><pre><code>## 処理系
+### バージョン
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): 9, [mark noimpl], 10 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2019 Update 1 [mark impl]
+</code></pre></p>
+<ul>
+<li>mark noimpl : 未実装を表す絵文字</li>
+<li>mark impl : 動作確認はできていないけど、リリースノートやそれに類するドキュメントには実装済みと書かれていることを表す絵文字</li>
+<li>mark verified : 動作検証済み</li>
+</ul>
+<p>バージョンの表記としては、とくにVisual C++は本サイト独自の表記法がありますので、以下のページを確認してください。</p>
+<ul>
+<li><a href="implementation.html">処理系</a></li>
+</ul>
+<p>対応バージョンは、動作確認できたコンパイラのうち、最小のバージョンを知りたいので、記載されているものより古いコンパイラバージョンで動作確認ができた場合は、記載されているバージョンを修正してください。</p>
+<p>動作確認の方法としては、対象ページのサンプルコードを、お手元のコンパイラでコンパイル・実行し、出力が記載されているものと一致しているかを確認してください。</p>
+<p>ただし、「出力例」のように記載されている場合、プラットフォームごとに出力が異なる可能性があります。その場合は仕様と実装を確認していただく必要があるかもしれません。</p>
+<p>動作確認は、Webブラウザ上で行える場合があります。オンラインコンパイラとして、以下のサービスの使用も検討してください。</p>
+<ul>
+<li><a href="https://wandbox.org/" target="_blank">Wandbox</a></li>
+<li><a href="https://godbolt.org/" target="_blank">Compiler Explorer</a></li>
+</ul>
+<h3>関連項目を追加する  (難易度★★★)</h3>
+<p>各ページには、「<code>## 関連項目</code>」という見出し以下に本サイト内の関連ページを記載できます。</p>
+<p>読者が関連する情報を追いやすいように、関連ページへのリンク追加をお願いしたいです。</p>
+<p>関連項目としては、以下のようなものを記載します：</p>
+<ul>
+<li>言語機能であれば、その機能への仕様変更・拡張など</li>
+<li>ライブラリであれば、<ul>
+<li>組み合わせて使うことが多いもの</li>
+<li>特定のデータ構造に特化した関数と、汎用の関数</li>
+<li>その機能の代わりに使用を検討したほうがよいもの</li>
+</ul>
+</li>
+</ul>
+<p>関連項目を書く場所については、各雛形ページを参照してください。</p>
+<ul>
+<li><a href="start_editing/lang_template_page.html">言語機能の雛形</a></li>
+<li><a href="start_editing/header_template_page.html">ヘッダファイルページの雛形</a></li>
+<li><a href="start_editing/module_template_page.html">モジュールページの雛形</a></li>
+<li><a href="start_editing/function_template_page.html">関数の雛形</a></li>
+<li><a href="start_editing/class_template_page.html">クラスの雛形</a></li>
+<li><a href="start_editing/type-type_template_page.html">型の別名の雛形</a></li>
+<li><a href="start_editing/concept_template_page.html">コンセプトの雛形</a></li>
+<li><a href="start_editing/named_requirement_template_page.html">名前付き要件の雛形</a></li>
+<li><a href="start_editing/comparison_operator_template_page.html">比較演算子の雛形</a></li>
+<li><a href="start_editing/cpo_template_page.html">CPOの雛形</a></li>
+</ul>
+<h3>サンプルコードを追加する (難易度★★★★)</h3>
+<p>本サイトは、すべての機能にひとつ以上のサンプルコードを付けることを大きな価値としています。</p>
+<p>サンプルコードをひとつは (ほぼ) 必ず付けるようにしていますが、ユースケースをカバーできていない場合があります。</p>
+<p>良質なサンプルコードを作ることはむずかしいですが、機能の有用性を説明する最小サンプルコードを書くことに慣れている方や挑戦したい方にお願いしたいです。</p>
+<p>サンプルコードを追加する場合、以下の要件を満たすようお願いします：</p>
+<ol>
+<li>既存サンプルコードとは異なるユースケースや、異なる観点を与えるものであること</li>
+<li>標準の範囲内でその機能の有用性を説明しにくい場合を除き、プラットフォーム非依存であること</li>
+<li>十分に小さいこと</li>
+</ol>
+<h3>新仕様に対応する (難易度★★★★★★)</h3>
+<p>C++の規格書を読み慣れている方向けになります。</p>
+<p>C++の新仕様やCWG/LWGのissueへの対応作業が多く求められます。対応がまだ行われていない作業は、以下で確認できます。</p>
+<ul>
+<li><a href="https://github.com/cpprefjp/site/issues" target="_blank">cpprefjp/siteリポジトリのタスクissue</a><ul>
+<li>担当をとりやすいようタスクissueにしているものがある</li>
+</ul>
+</li>
+<li><a href="https://github.com/cpprefjp/site/wiki" target="_blank">cpprefjp/siteリポジトリのWiki</a><ul>
+<li>CWG (Core Working Group) や LWG (Library Working Group) へのissue (Defect Report) など、タスクissueにしていない未対応タスクがすべて記載されている</li>
+</ul>
+</li>
+</ul>
+<p>C++の次のバージョンで入ることが決まった機能については、以下の方針で対応を行います。</p>
+<ul>
+<li>次のバージョンの言語機能・ライブラリ機能の解説は、随時許可する</li>
+<li>ただし、Working Draftに採択された機能のみを対象とする。まだ提案中の機能は、本サイトでの解説の対象外とする<ul>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>は、機能テストマクロのようなコンパイラへの推奨機能</li>
+</ul>
+</li>
+<li>採択された機能は、Wikiの各言語バージョンのページに記載されているが、されていなかったら<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/" target="_blank">C++ Standards Committee Papers</a>のEditor's Reportで確認できる</li>
+</ul>
+<h3>優先度が低くなっている古くからある機能を記載する (難易度★★★★★★)</h3>
+<p>本サイトはなるべくすべての機能の解説を書くことを目標にしてはいますが、記載が追いついていないものがいくつかあります。</p>
+<ul>
+<li>iostream系</li>
+<li>C互換ライブラリ</li>
+<li>ロケール</li>
+</ul>
+<p>これらはタスクissueにもできていませんが、手が足りず作業できていません。</p>
+<h2><a href="#point" name="point">貢献ポイント</a></h2>
+<p>cpprefjpおよびboostjpでの作業は、以下のように貢献ポイントを割り振った上で、年間の貢献 (12月から翌年11月) を集計して収益をコントリビューターの方々に分配します。</p>
+<p>分配の手順は以下のようになります：</p>
+<ol>
+<li>コアメンバーが集計用のPull Requestを立てる</li>
+<li>コントリビューターの方々からの追加・修正の指摘を募集する</li>
+<li>各コントリビューターの年間貢献ポイントと分配率を仮決定</li>
+<li>貢献ポイントの追加・修正指摘、および分配の受け入れ、または辞退の申し出を受け付ける (1週間程度)<ul>
+<li>期間内に分配の受け入れ申し出がない場合は、貢献ポイントを次年繰り越す (前年まで保持)</li>
+</ul>
+</li>
+<li>辞退者を除いて分配率および分配額を決定する</li>
+<li>入金先の情報をコアメンバー宛に伝える<ul>
+<li>cpprefjpの銀行口座から支払う場合は、Googleフォームを用意する予定</li>
+<li>Open Collectiveから支払う場合は、後述する手順で経費申請する</li>
+</ul>
+</li>
+</ol>
+<p>お金での分配を辞退された方にも、ステッカーの配布などでお返しができればと考えています。</p>
+<p>なお、マージされずにクローズされたPull Requestについては貢献ポイントの対象外とさせていただきます。</p>
+<p>また、masterブランチにマージされずオープンなままのPull Requestについては、マージされた年に貢献ポイントをつけさせていただきます。</p>
+<p>貢献ポイントとして含めないものには、以下があります</p>
+<ol>
+<li>議論への参加、問題提起、問題報告<ul>
+<li>Issueの発行</li>
+<li>Issue / Pull Request / コミットへのコメント</li>
+<li>SNS上での当Webサイトへの問題報告</li>
+</ul>
+</li>
+<li>GitHub Wikiの編集</li>
+<li>貢献ポイントの集計作業<ul>
+<li><a href="https://github.com/cpprefjp/stats_contribution" target="_blank">集計ツール</a>の開発</li>
+<li>貢献ポイントの調整・ルール作り</li>
+<li><code>start_editing/contribution_stats_*.md</code>の編集</li>
+</ul>
+</li>
+<li>スポンサーの追加・削除・修正</li>
+<li>画像の追加・削除・修正</li>
+<li>巻き戻した変更 (revert)</li>
+<li>package-lock.jsonの更新</li>
+</ol>
+<p>貢献ポイントの集計方法として、以下の注意事項があります</p>
+<ul>
+<li>同年内の当人による同ページへの複数の修正は、貢献ポイントをまとめる場合がある<ul>
+<li>連続した作業が複数コミットになった場合などにまとめる</li>
+<li>複数の仕様変更による複数の修正の場合などはまとめない</li>
+</ul>
+</li>
+<li>同ページ内に対する複数の修正は、大きい貢献ポイントにまとめる場合がある<ul>
+<li>リンク追加・修正を含む説明修正は、fixmやfixlなどにまとめる</li>
+</ul>
+</li>
+<li>共同コミット (Co-author) は全員に貢献ポイントがつくものとする</li>
+</ul>
+<p>貢献ポイントの集計対象となるリポジトリは以下です</p>
+<ul>
+<li><a href="https://github.com/cpprefjp/site" target="_blank">https://github.com/cpprefjp/site</a></li>
+<li><a href="https://github.com/cpprefjp/site_generator" target="_blank">https://github.com/cpprefjp/site_generator</a></li>
+<li><a href="https://github.com/cpprefjp/markdown_to_html" target="_blank">https://github.com/cpprefjp/markdown_to_html</a></li>
+<li><a href="https://github.com/cpprefjp/kunai" target="_blank">https://github.com/cpprefjp/kunai</a></li>
+<li><a href="https://github.com/cpprefjp/kunai_config" target="_blank">https://github.com/cpprefjp/kunai_config</a></li>
+<li><a href="https://github.com/cpprefjp/crsearch" target="_blank">https://github.com/cpprefjp/crsearch</a></li>
+<li><a href="https://github.com/boostjp/site" target="_blank">https://github.com/boostjp/site</a></li>
+</ul>
+<h3>cpprefjp</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>タグ</th>
+<th>ポイント</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpprefjp/typo</td>
+<td>1</td>
+<td>誤字・脱字の修正 (ページ単位)。サンプルコードの非コメントの修正はfixs</td>
+</tr>
+<tr>
+<td>cpprefjp/link</td>
+<td>2</td>
+<td>関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位)</td>
+</tr>
+<tr>
+<td>cpprefjp/addref</td>
+<td>20</td>
+<td>リファレンスを1ページ追加</td>
+</tr>
+<tr>
+<td>cpprefjp/addlang</td>
+<td>20</td>
+<td>言語機能を1ページ追加</td>
+</tr>
+<tr>
+<td>cpprefjp/addpage</td>
+<td>20</td>
+<td>その他ページ追加 (articleや編集者向けページなど)</td>
+</tr>
+<tr>
+<td>cpprefjp/fixs</td>
+<td>2</td>
+<td>既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位)、スクリプトによる一括修正 (スクリプトはtool系で別途評価)</td>
+</tr>
+<tr>
+<td>cpprefjp/fixm</td>
+<td>5</td>
+<td>既存ページへの修正 : medium 追加説明、サンプルコード追加、訳語追加 (訳語単位)、用語追加 (用語単位)。誤字・説明の言い換えの範囲を超える間違い修正。サンプルコードや仕様での変数名の間違い修正 (ページ単位)</td>
+</tr>
+<tr>
+<td>cpprefjp/fixl</td>
+<td>10</td>
+<td>既存ページへの修正 : large 仕様変更への対応。仕様記述のバグ修正。関連項目ではない関数一覧の表に関数を足すことも対象。実装例の追加 (ページ単位)</td>
+</tr>
+<tr>
+<td>cpprefjp/compiler</td>
+<td>2</td>
+<td>動作確認できたコンパイラバージョンの記載、および処理系のバージョン情報。ライブラリ機能はページ単位、言語機能は件数単位、処理系のバージョン情報は件数単位</td>
+</tr>
+</tbody>
+</table>
+<p>機能追加での機能表への列の追加は、linkではなくfixlにあたる。</p>
+<h3>boostjp</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>タグ</th>
+<th>ポイント</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boostjp/typo</td>
+<td>1</td>
+<td>誤字・脱字の修正 (ページ単位)</td>
+</tr>
+<tr>
+<td>boostjp/link</td>
+<td>2</td>
+<td>関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位)</td>
+</tr>
+<tr>
+<td>boostjp/releases</td>
+<td>5</td>
+<td>Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート</td>
+</tr>
+<tr>
+<td>boostjp/releasem</td>
+<td>10</td>
+<td>Boostリリースノート 1件追加 medium : タイトル含めず10行以下の中程度の大きさ。新ライブラリ。既知の問題 (ライブラリ単位)</td>
+</tr>
+<tr>
+<td>boostjp/releasel</td>
+<td>20</td>
+<td>Boostリリースノート 1件追加 large : mediumを超える大きさ</td>
+</tr>
+<tr>
+<td>boostjp/fixs</td>
+<td>2</td>
+<td>既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位)</td>
+</tr>
+<tr>
+<td>boostjp/fixm</td>
+<td>5</td>
+<td>既存ページへの修正 : medium 追加説明、訳語追加 (ページ単位)</td>
+</tr>
+<tr>
+<td>boostjp/addrefs</td>
+<td>10</td>
+<td>Boost逆引きリファレンス : small (1例追加)</td>
+</tr>
+<tr>
+<td>boostjp/addrefm</td>
+<td>20</td>
+<td>Boost逆引きリファレンス : medium (標準C++のバージョンアップ対応1例単位、Boostのバージョンアップ対応1例単位)</td>
+</tr>
+</tbody>
+</table>
+<h3>ツール類</h3>
+<p>CIスクリプト、site_generator、kunaiなど。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>タグ</th>
+<th>ポイント</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tool/fixbug</td>
+<td>30</td>
+<td>バグ修正</td>
+</tr>
+<tr>
+<td>tool/improves</td>
+<td>10</td>
+<td>コード改善 : small。typo検出テーブルへの追加</td>
+</tr>
+<tr>
+<td>tool/improvem</td>
+<td>30</td>
+<td>コード改善 : medium。git submodule / npm moduleのリリース作業 (package.jsonの更新)</td>
+</tr>
+<tr>
+<td>tool/improvel</td>
+<td>50</td>
+<td>コード改善 : large</td>
+</tr>
+<tr>
+<td>tool/updatelib</td>
+<td>20</td>
+<td>外部依存ライブラリのアップデート (直接使用のライブラリ単位)</td>
+</tr>
+<tr>
+<td>tool/updatelang</td>
+<td>10</td>
+<td>使用言語のアップデート : small (とくにコード変更なく更新できた)</td>
+</tr>
+<tr>
+<td>tool/updatelang</td>
+<td>30</td>
+<td>使用言語のアップデート : medium (多少のコード修正で更新できた)</td>
+</tr>
+<tr>
+<td>tool/updatelang</td>
+<td>50</td>
+<td>使用言語のアップデート : large (大きいまたはむずかしいコード修正をして更新できた)</td>
+</tr>
+<tr>
+<td>tool/adds</td>
+<td>30</td>
+<td>新たな仕組みの導入 small : (C++バージョン追加、カテゴリ追加など)</td>
+</tr>
+<tr>
+<td>tool/addm</td>
+<td>50</td>
+<td>新たな仕組みの導入 medium</td>
+</tr>
+<tr>
+<td>tool/addl</td>
+<td>100</td>
+<td>新たな仕組みの導入 large : キーワード自動リンク、相対リンク対応など</td>
+</tr>
+</tbody>
+</table>
+<h3>貢献ポイントの集計ページ</h3>
+<ul>
+<li><a href="start_editing/contribution_stats_2023.html">2023年</a></li>
+<li><a href="start_editing/contribution_stats_2024.html">2024年</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

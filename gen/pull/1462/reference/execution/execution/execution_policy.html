@@ -1,0 +1,424 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>実行ポリシー - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,class,cpp17
+">
+        <meta name="title" content="実行ポリシー - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="実行ポリシー - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="実行ポリシー - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/execution_policy.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="アルゴリズムの並列実行を許可するための実行ポリシーとして、ここでは以下を定義する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="実行ポリシー - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/execution_policy.html" />
+        <meta name="twitter:description" content="アルゴリズムの並列実行を許可するための実行ポリシーとして、ここでは以下を定義する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;472d7f1872b818bcb98d05694e11c93bc046a0ba&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  std::vector&lt;int&gt; v = {3, 1, 4, 5, 2, 6};\n\n  // \u3053\u308c\u307e\u3067\u901a\u308a\u306e\u9010\u6b21\u5b9f\u884c\n  std::sort(v.begin(), v.end());\n  std::sort(std::execution::seq, v.begin(), v.end());\n\n  // \u4e26\u5217\u5b9f\u884c\n  std::sort(std::execution::par, v.begin(), v.end());\n\n  // \u4e26\u5217\u5316\u30fb\u30d9\u30af\u30c8\u30eb\u5316\n  std::sort(std::execution::par_unseq, v.begin(), v.end());\n\n  // \u30d9\u30af\u30c8\u30eb\u5316\n  std::sort(std::execution::unseq, v.begin(), v.end());\n\n  for (int x : v) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;958d23dfa2ea4c4bff0bb8e80c99aa18086a0619&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;vector&gt;\n#include &lt;mutex&gt;\n\nint main()\n{\n  {\n    std::vector&lt;int&gt; a = {3, 1, 4, 5, 2, 6};\n    std::vector&lt;int&gt; b;\n\n    // \u30de\u30eb\u30c1\u30b9\u30ec\u30c3\u30c9\u5316\u306e\u5834\u5408\u306f\u3001\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\u304b\u30a2\u30c8\u30df\u30c3\u30af\u64cd\u4f5c\u3067\u30c7\u30fc\u30bf\u7af6\u5408\u3092\u56de\u907f\u3059\u308b\n    std::mutex m;\n    std::for_each(std::execution::par, a.begin(), a.end(), [&amp;](int x) {\n      std::lock_guard lk{m};\n      b.push_back(x);\n    });\n\n    for (int x : b) {\n      std::cout &lt;&lt; x &lt;&lt; &#39; &#39;;\n    }\n    std::cout &lt;&lt; std::endl;\n  }\n\n  // (\u30de\u30eb\u30c1\u30b9\u30ec\u30c3\u30c9\u5316 +) \u30d9\u30af\u30c8\u30eb\u5316\u306e\u5834\u5408\u306f\u3001Lock-free\u30a2\u30c8\u30df\u30c3\u30af\u64cd\u4f5c\u3067\u30c7\u30fc\u30bf\u7af6\u5408\u3092\u56de\u907f\u3059\u308b\n  {\n    static_assert(std::atomic&lt;int&gt;::is_always_lock_free);  // Lock-free\u4fdd\u8a3c\u3092\u78ba\u8a8d\n    std::vector&lt;int&gt; v = {3, 1, 4, 5, 2};\n    std::atomic&lt;int&gt; count {0}; // \u30bf\u30b9\u30af\u304c\u7d42\u4e86\u3057\u305f\u6570\n\n    std::for_each(std::execution::par_unseq, v.begin(), v.end(), [&amp;count](int) {\n      // ...\u6642\u9593\u306e\u304b\u304b\u308b\u51e6\u7406...\n      ++count;\n    });\n\n    std::cout &lt;&lt; count.load() &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;execution_policy&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">実行ポリシー</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-08T11:02:22">
+        2025年06月08日 11時02分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/execution_policy.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/execution_policy.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">実行ポリシー</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">sequenced_policy</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="k">class</span> <span class="nc">parallel_policy</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="k">class</span> <span class="nc">parallel_unsequenced_policy</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="k">class</span> <span class="nc">unsequenced_policy</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>                 <span class="c1">// C++20</span>
+
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">sequenced_policy</span> <span class="n">seq</span><span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">parallel_policy</span> <span class="n">par</span><span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">parallel_unsequenced_policy</span> <span class="n">par_unseq</span><span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">unsequenced_policy</span> <span class="n">unseq</span><span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span> <span class="c1">// C++20</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>アルゴリズムの並列実行を許可するための実行ポリシーとして、ここでは以下を定義する。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>実行ポリシー名</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>seq</code></td>
+<td>逐次処理を実行し、並列化を行わない</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>par</code></td>
+<td>マルチスレッド化を許可する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>par_unseq</code></td>
+<td>マルチスレッド化および・もしくはベクトル化を許可する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>unseq</code></td>
+<td>ベクトル化を許可する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<p>いずれの実行ポリシーでも、実行中に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出され、それが捕捉されなかった場合は、<code><a href="../../exception/terminate.html">std::terminate()</a></code>関数が呼び出され、プログラムが異常終了する。</p>
+<h3>sequenced_policy / seq</h3>
+<p>この逐次実行の実行ポリシーは、実行ポリシーを指定せずにアルゴリズムを実行することと等価である。</p>
+<h3>parallel_policy / par</h3>
+<p>この実行ポリシーは、マルチスレッド化による並列実行を許可する。ただし、リソースが足りていない状況では、シングルスレッドで実行される可能性がある。</p>
+<p>この実行ポリシーでは、アルゴリズムに指定した関数オブジェクト内で副作用をともなう処理を実行した場合にデータ競合が発生する可能性があるため、ミューテックスによる排他処理やアトミック操作などをユーザーが管理して、データ競合を回避する必要がある。</p>
+<p>シーケンスの要素はコピーが作られる可能性がある。</p>
+<h3>parallel_unsequenced_policy / par_unseq</h3>
+<p>この実行ポリシーは、マルチスレッド化および・もしくはベクトル化を許可する。</p>
+<p>この実行ポリシーでも<code>parallel_policy</code>と同様に、副作用をともなう処理でデータ競合が発生する可能性がある。ただし、マルチスレッド化だけでなくベクトル化も組み合わさるために、ミューテックスによる排他処理をした場合には、複数回ロックが取得されてデッドロックが発生する可能性がある。そのため、この実行ポリシーではLock-freeアトミック操作によってデータ競合を回避する必要がある。</p>
+<p>シーケンスの要素はコピーが作られる可能性がある。</p>
+<h3>unsequenced_policy / unseq (C++20)</h3>
+<p>この実行ポリシーは、ベクトル化を許可する。</p>
+<p>ベクトル化は、ソフトウェアパイプライン化やSIMD命令などによる、シングルスレッドでのデータ並列のことを指す。</p>
+<p>この実行ポリシーで呼び出した並列アルゴリズムでは、呼び出し側の実行スレッド内で、順序付けされずに処理を実行する。</p>
+<p>この実行ポリシーで、ミューテックスによる排他処理を行った場合、デッドロックが発生する可能性がある。この実行ポリシーはシングルスレッドで並行に複数データを処理するため、同じスレッド内でロック取得操作を複数回呼び出すとデッドロックする。</p>
+<p>そのため、この実行ポリシーで並列アルゴリズムを実行する際の同期の方針としては、ベクトル化安全でない標準ライブラリ関数を並列アルゴリズムから呼び出すべきではない、というものになる。もしくは、進行保証のあるLock-freeアトミック操作によってデータ競合を回避する必要がある。</p>
+<h2>備考</h2>
+<ul>
+<li>これらの実行ポリシーで並列アルゴリズムを実行する際、要素アクセスの関数が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出した場合は、<code><a href="../../exception/terminate.html">std::terminate()</a></code>関数が呼び出され、プログラムが異常終了する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>実行ポリシーをとらないアルゴリズムは「最大N回だけ関数<code>f()</code>を呼び出す」や「正確にN回だけ関数<code>f()</code>を呼び出す」のように<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>を規定する。実行ポリシーはそれを緩和し、ビッグオー記法を使用して「O(N)回だけ関数<code>f()</code>を呼び出す」のように表記する。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="472d7f1872b818bcb98d05694e11c93bc046a0ba"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+
+  <span class="c1">// これまで通りの逐次実行</span>
+  <span class="n"><a href="../../algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+  <span class="n"><a href="../../algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::execution::seq</span></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+
+  <span class="c1">// 並列実行</span>
+  <span class="n"><a href="../../algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::execution::par</span></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+
+  <span class="c1">// 並列化・ベクトル化</span>
+  <span class="n"><a href="../../algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::execution::par_unseq</span></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+
+  <span class="c1">// ベクトル化</span>
+  <span class="n"><a href="../../algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::execution::unseq</span></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+3
+4
+5
+6
+</code></pre></p>
+<h3>データ競合を回避する例</h3>
+<p><div class="yata" id="958d23dfa2ea4c4bff0bb8e80c99aa18086a0619"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+    <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
+
+    <span class="c1">// マルチスレッド化の場合は、ミューテックスかアトミック操作でデータ競合を回避する</span>
+    <span class="n"><a href="../../mutex/mutex.html">std::mutex</a></span> <span class="n">m</span><span class="p">;</span>
+    <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::execution::par</span></span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span><span class="p">{</span><span class="n">m</span><span class="p">};</span>
+      <span class="n">b</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (マルチスレッド化 +) ベクトル化の場合は、Lock-freeアトミック操作でデータ競合を回避する</span>
+  <span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><a href="../../atomic/atomic.html">is_always_lock_free</a></span><span class="p">);</span>  <span class="c1">// Lock-free保証を確認</span>
+    <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+    <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">count</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">// タスクが終了した数</span>
+
+    <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::execution::par_unseq</span></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">count</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// ...時間のかかる処理...</span>
+      <span class="o">++</span><span class="n">count</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../atomic/atomic/load.html">count.load</a></span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>3 4 1 2 5 6 
+5
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>:</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>:</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0394r4.html" target="_blank">P0394R4: Hotel Parallelifornia: <code>terminate()</code> for Parallel Algorithms Exception Handling</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0336r1.pdf" target="_blank">P0336R1 Better Names for Parallel Execution Policies in C++17</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0502r0.html" target="_blank">P0502R0 Throwing out of a parallel algorithm terminates—but how?</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0518r1.html" target="_blank">P0518R1 Allowing copies as arguments to function objects given to parallel algorithms in response to CH11</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0523r1.html" target="_blank">P0523R1: Wording for CH 10: Complexity of parallel algorithms</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1001r2.html" target="_blank">P1001R2 Target Vectorization Policies from Parallelism V2 TS to C++20</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

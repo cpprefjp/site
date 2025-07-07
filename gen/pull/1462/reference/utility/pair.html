@@ -1,0 +1,625 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>pair - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,utility,std,class template
+">
+        <meta name="title" content="pair - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="pair - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="pair - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/utility/pair.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`pair`は、2つの異なる型の値を保持する「組」を表現するためのクラスである。また、N個の異なる型の値を保持する「タプル」を表現するためのクラスとして、[`tuple`](/reference/tuple/tuple.md)クラスも提供されている。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="pair - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/utility/pair.html" />
+        <meta name="twitter:description" content="`pair`は、2つの異なる型の値を保持する「組」を表現するためのクラスである。また、N個の異なる型の値を保持する「タプル」を表現するためのクラスとして、[`tuple`](/reference/tuple/tuple.md)クラスも提供されている。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;utility&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f64eef831b9354105aae3f37d23bb5a81ee6d02e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // pair\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306e\u69cb\u7bc9\n  std::pair&lt;int, std::string&gt; p = std::make_pair(1, \&#34;hello\&#34;);\n\n  // \u8981\u7d20\u306e\u53c2\u7167\n  std::cout &lt;&lt; p.first &lt;&lt; std::endl;\n  std::cout &lt;&lt; p.second &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;0211bf77edef2e0d12a22554d328d24070bd7a93&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n#include &lt;string&gt;\n\n// \u95a2\u6570\u304b\u30892\u3064\u306e\u5024\u3092\u8fd4\u3059\nstd::pair&lt;int, std::string&gt; f()\n{\n  // std::make_pair()\u306f\u307b\u3068\u3093\u3069\u306e\u72b6\u6cc1\u3067\u5fc5\u8981\u306a\u3044\n  return {1, \&#34;hello\&#34;};\n}\n\nint main()\n{\n  // \u69cb\u9020\u5316\u675f\u7e1b\u3067\u30da\u30a2\u3092\u5206\u89e3\u3057\u3066\u3001\u305d\u308c\u305e\u308c\u306e\u8981\u7d20\u3092\u4ee3\u5165\n  auto [a, b] = f();\n\n  std::cout &lt;&lt; a &lt;&lt; std::endl;\n  std::cout &lt;&lt; b &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;ebd9f9f27a0e57112bca5b34b0e0d593950f628b&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n#include &lt;string_view&gt;\n#include &lt;format&gt;\n\nstruct A\n{\n    A(int i, double d)\n        : i(i)\n        , d(d)\n    {}\n\n    std::pair&lt;int&amp;, double&amp;&gt; f()\n    {\n        // this \u304c A* \u306a\u306e\u3067\n        // i: int\n        // d: double\n        // \u3068\u3044\u3046\u3053\u3068\u3068\u540c\u3058\n        return {i, d};\n    }\n\n    std::pair&lt;const int&amp;, const double&amp;&gt; f() const\n    {\n        // this \u304c const A* \u306a\u306e\u3067\n        // i: const int\n        // d: const double\n        // \u3068\u3044\u3046\u3053\u3068\u3068\u540c\u3058\n        return {i, d};\n    }\n\nprivate:\n    int    i;\n    double d;\n};\n\nint main()\n{\n    // \u30d7\u30ed\u30ad\u30b7\u53c2\u7167\u3067\u3042\u308b pair \u306e\u6027\u8cea\n    {\n        A a{0, 0.0};\n\n        // std::pair&lt;int&amp;, double&amp;&gt;\n        /***/ auto /***/ proxy = a.f();\n\n        // const std::pair&lt;int&amp;, double&amp;&gt;\n        const auto const_proxy = a.f();\n\n        // std::pair&lt;const int&amp;, const double&amp;&gt;\n        /***/ auto /***/ proxy_to_const = std::as_const(a).f();\n\n        // const std::pair&lt;const int&amp;, const double&amp;&gt;\n        const auto const_proxy_to_const = std::as_const(a).f();\n\n        // OK\uff08\u5404\u8981\u7d20\u304c\u6307\u3059\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306e\u5024\u306b\u3064\u3044\u3066\u3001\u4ee3\u5165\u64cd\u4f5c\u304c\u306a\u3055\u308c\u308b\uff09\n        proxy       = a.f();\n        const_proxy = a.f();\n\n        // NG\uff08\u5404\u8981\u7d20\u304c\u6307\u3059\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u5909\u66f4\u3067\u304d\u306a\u3044\uff01\uff09\n        // proxy_to_const       = a.f();\n        // const_proxy_to_const = a.f();\n    }\n\n    // \u4f7f\u3044\u65b9\n    {\n        auto print = [](std::string_view prefix, A&amp; a) {\n\n            // \u69cb\u9020\u5316\u675f\u7e1b\u3067\u5206\u89e3\n            // i: int&amp;\n            // d: double&amp;\n            auto [i, d] = a.f();\n\n            std::cout &lt;&lt; std::format(\&#34;{}: i={}, d={}\\n\&#34;, prefix, i, d);\n        };\n\n        A a{0, 0.0}, b{1, 1.0};\n\n        print(\&#34;before a\&#34;, a);\n        print(\&#34;before b\&#34;, b);\n\n        // \u30d7\u30ed\u30ad\u30b7\u53c2\u7167\u3068\u3057\u3066\u4f7f\u3048\u308b pair \u540c\u58eb\u306e swap \u64cd\u4f5c\u3067\n        // \u554f\u984c\u306a\u304f\u5404\u8981\u7d20\u304c\u6307\u3059\u5148\u306e\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306b\u3064\u3044\u3066 swap \u64cd\u4f5c\u304c\u884c\u3048\u308b\n        std::ranges::swap(a.f(), b.f());\n\n        print(\&#34;after  a\&#34;, a);\n        print(\&#34;after  b\&#34;, b);\n    }\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;utility&#34;, &#34;pair&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/utility.html" itemprop="url">
+              
+                <span itemprop="name">utility</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">pair</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-03-03T19:23:31">
+        2024年03月03日 19時23分31秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tetsuro Matsumura</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/utility/pair.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/utility/pair.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;utility&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">pair</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n"><a href="">pair</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>pair</code>は、2つの異なる型の値を保持する「組」を表現するためのクラスである。また、N個の異なる型の値を保持する「タプル」を表現するためのクラスとして、<code><a href="../tuple/tuple.html">tuple</a></code>クラスも提供されている。</p>
+<p>標準ライブラリにおいて<code>pair</code>は、連想配列コンテナの実装である<code><a href="../map/map.html">map</a></code>クラスや<code><a href="../unordered_map/unordered_map.html">unordered_map</a></code>クラスで、キーと値をまとめるためのデータ型として使用されている。</p>
+<ul>
+<li>C++20 : <code>T1</code>と<code>T2</code>がどちらも構造的型である場合、この型は構造的型となる</li>
+</ul>
+<h2>メンバ変数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T1 first</code></td>
+<td>1つめの要素</td>
+<td></td>
+</tr>
+<tr>
+<td><code>T2 second</code></td>
+<td>2つめの要素</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pair/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="pair/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="pair/swap.html">swap</a></code></td>
+<td>他の<code>pair</code>オブジェクトと値を入れ替える</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>first_type</code></td>
+<td><code>T1</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>second_type</code></td>
+<td><code>T2</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pair/op_equal.html">operator==</a></code></td>
+<td>等値比較を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="pair/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="pair/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較を行う</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="pair/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺よりも小さいか判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="pair/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下か判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="pair/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいか判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="pair/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上か判定を行う</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pair/swap_free.html">swap</a></code></td>
+<td>2つの<code>pair</code>オブジェクトを入れ替える</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>ヘルパ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="make_pair.html">make_pair</a></code></td>
+<td><code>pair</code>を構築するヘルパ関数</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>タプルインタフェース</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pair/tuple_size.html">tuple_size</a></code></td>
+<td><code>pair</code>の要素数を取得する(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="pair/tuple_element.html">tuple_element</a></code></td>
+<td><code>pair</code>の<code>i</code>番目の要素型を取得する(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="pair/get.html">get</a></code></td>
+<td><code>pair</code>の<code>i</code>番目の要素を参照する(function template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pair/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>特殊化</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pair/common_type.html">common_type</a></code></td>
+<td>異なる<code>pair</code>間の共通型を取得できるようにする特殊化</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="pair/basic_common_reference.html">basic_common_reference</a></code></td>
+<td>異なる<code>pair</code>間の共通の参照型を取得出来るようにする特殊化</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方 (C++03)</h3>
+<p><div class="yata" id="f64eef831b9354105aae3f37d23bb5a81ee6d02e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// <a href="">pair</a>オブジェクトの構築</span>
+  <span class="n"><span style="color:#ff0000">std::pair</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+
+  <span class="c1">// 要素の参照</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+hello
+</code></pre></p>
+<h3>基本的な使い方 (C++17)</h3>
+<p><div class="yata" id="0211bf77edef2e0d12a22554d328d24070bd7a93"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 関数から2つの値を返す</span>
+<span class="n"><a href="">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// <a href="make_pair.html">std::make_pair</a>()はほとんどの状況で必要ない</span>
+  <span class="k">return</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 構造化束縛でペアを分解して、それぞれの要素を代入</span>
+  <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+hello
+</code></pre></p>
+<h3>プロキシ参照としての使い方（C++23）</h3>
+<p>C++23 で<code><a href="../ranges/zip_view.html">zip_view</a></code>などが追加されたことに伴い、どちらの要素も<a href="../iterator/indirectly_writable.html">プロキシ参照</a>であるような<code>pair</code>は<a href="../iterator/indirectly_writable.html">プロキシ参照</a>として使用することが出来るようになった。</p>
+<p><div class="yata" id="ebd9f9f27a0e57112bca5b34b0e0d593950f628b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">A</span>
+<span class="p">{</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">double</span> <span class="n">d</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">i</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">,</span> <span class="n">d</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="p">{}</span>
+
+    <span class="n"><a href="">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">double</span><span class="o">&amp;&gt;</span> <span class="n">f</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// this が A* なので</span>
+        <span class="c1">// i: int</span>
+        <span class="c1">// d: double</span>
+        <span class="c1">// ということと同じ</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="n"><a href="">std::pair</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">double</span><span class="o">&amp;&gt;</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="c1">// this が const A* なので</span>
+        <span class="c1">// i: const int</span>
+        <span class="c1">// d: const double</span>
+        <span class="c1">// ということと同じ</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">};</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span>    <span class="n">i</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// プロキシ参照である <a href="">pair</a> の性質</span>
+    <span class="p">{</span>
+        <span class="n">A</span> <span class="n">a</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span>
+
+        <span class="c1">// <a href="">std::pair</a>&lt;int&amp;, double&amp;&gt;</span>
+        <span class="cm">/***/</span> <span class="k">auto</span> <span class="cm">/***/</span> <span class="n">proxy</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">f</span><span class="p">();</span>
+
+        <span class="c1">// const <a href="">std::pair</a>&lt;int&amp;, double&amp;&gt;</span>
+        <span class="k">const</span> <span class="k">auto</span> <span class="n">const_proxy</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">f</span><span class="p">();</span>
+
+        <span class="c1">// <a href="">std::pair</a>&lt;const int&amp;, const double&amp;&gt;</span>
+        <span class="cm">/***/</span> <span class="k">auto</span> <span class="cm">/***/</span> <span class="n">proxy_to_const</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">as_const</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="n">f</span><span class="p">();</span>
+
+        <span class="c1">// const <a href="">std::pair</a>&lt;const int&amp;, const double&amp;&gt;</span>
+        <span class="k">const</span> <span class="k">auto</span> <span class="n">const_proxy_to_const</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">as_const</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="n">f</span><span class="p">();</span>
+
+        <span class="c1">// OK（各要素が指すオブジェクトの値について、代入操作がなされる）</span>
+        <span class="n">proxy</span>       <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">f</span><span class="p">();</span>
+        <span class="n">const_proxy</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">f</span><span class="p">();</span>
+
+        <span class="c1">// NG（各要素が指すオブジェクトを変更できない！）</span>
+        <span class="c1">// proxy_to_const       = a.f();</span>
+        <span class="c1">// const_proxy_to_const = a.f();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 使い方</span>
+    <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">print</span> <span class="o">=</span> <span class="p">[](</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">prefix</span><span class="p">,</span> <span class="n">A</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">// 構造化束縛で分解</span>
+            <span class="c1">// i: int&amp;</span>
+            <span class="c1">// d: double&amp;</span>
+            <span class="k">auto</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">f</span><span class="p">();</span>
+
+            <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{}: i={}, d={}</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+        <span class="p">};</span>
+
+        <span class="n">A</span> <span class="n">a</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">},</span> <span class="n">b</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span>
+
+        <span class="n">print</span><span class="p">(</span><span class="s">"before a"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">"before b"</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+
+        <span class="c1">// プロキシ参照として使える <a href="">pair</a> 同士の swap 操作で</span>
+        <span class="c1">// 問題なく各要素が指す先のオブジェクトについて swap 操作が行える</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">f</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">f</span><span class="p">());</span>
+
+        <span class="n">print</span><span class="p">(</span><span class="s">"after  a"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">"after  b"</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>before a: i=0, d=0
+before b: i=1, d=1
+after  a: i=1, d=1
+after  b: i=0, d=0
+
+</code></pre></p>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../tuple/tuple.html">std::tuple</a></code></li>
+<li><a href="../../lang/cpp17/structured_bindings.html">C++17 構造化束縛</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB" target="_blank">タプル - Wikipedia</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html" target="_blank">P2321R2 zip</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

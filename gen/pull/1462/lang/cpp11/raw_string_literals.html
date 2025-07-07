@@ -1,0 +1,440 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>生文字列リテラル [N2442] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="生文字列リテラル [N2442] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="生文字列リテラル [N2442] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="生文字列リテラル [N2442] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/raw_string_literals.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`R`プレフィックスを付けた文字列リテラル内の丸カッコ`( )`で囲まれた部分は、エスケープシーケンスが無視される。この機能を「生文字列リテラル (Raw string literals)」という。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="生文字列リテラル [N2442] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/raw_string_literals.html" />
+        <meta name="twitter:description" content="`R`プレフィックスを付けた文字列リテラル内の丸カッコ`( )`で囲まれた部分は、エスケープシーケンスが無視される。この機能を「生文字列リテラル (Raw string literals)」という。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3a435721f9ded72f437a1d089c0dddd48fddcd86&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::string text = R\&#34;(begin\na,\nb,\nc\nend)\&#34;;\n\n  std::cout &lt;&lt; text &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;edffcc028ea58a4e77af4346b1e70df660a86743&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::string s = R\&#34;***(\u6587\u5b57\u5217\u4e2d\u306b\u751f\u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u306e\u9589\u3058\u30ab\u30c3\u30b3\u3068\u9589\u3058\u30c0\u30d6\u30eb\u30af\u30a9\u30fc\u30c6\u30fc\u30b7\u30e7\u30f3\u3092\u66f8\u304f)\&#34;)***\&#34;;\n  std::cout &lt;&lt; s &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;f36021e2beadc802556874cb6a8d380d425a9ac9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdio&gt;\n#include &lt;string&gt;\n#include &lt;sstream&gt;\n\n// \u6587\u5b57\u5217\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u95a2\u6570\n// not thread-safe, \u30b9\u30ec\u30c3\u30c9\u30bb\u30fc\u30d5\u306a\u5b9f\u88c5\u3067\u306f\u306a\u3044\u306e\u3067\u6ce8\u610f\n// Boost.Format, fmtlib\u3084std::format(C++20)\u306e\u4f7f\u7528\u3092\u63a8\u5968\ntemplate &lt;class... Args&gt;\nstd::string format(const char* fmt, Args&amp;&amp;... args)\n{\n  std::streambuf* backup = std::cout.rdbuf();\n  std::stringstream sout;\n  std::streambuf* soutbuf = sout.rdbuf();\n  std::cout.rdbuf(soutbuf);\n\n  std::fprintf(stdout, fmt, args...);\n\n  std::string result = sout.str();\n\n  std::cout.rdbuf(backup);\n  return result;\n}\n\nint main()\n{\n  int user_id = 123;\n  std::string name = \&#34;Alice\&#34;;\n  std::string json = format(R\&#34;({\&#34;user_id\&#34;: %d, \&#34;name\&#34;: \&#34;%s\&#34;})\&#34;, user_id, name.c_str());\n\n  std::cout &lt;&lt; json &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;f9560d2e774362be076ec804a675befd53b465fa&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // \u30d0\u30c3\u30af\u30b9\u30e9\u30c3\u30b7\u30e5\u533a\u5207\u308a\u306b\u306a\u3063\u3066\u3044\u308bWindows\u306e\u30d5\u30a1\u30a4\u30eb\u30d1\u30b9\u3092\u5165\u529b\n  std::string path = R\&#34;(C:\\language\\cpp\\main.cpp)\&#34;;\n  std::cout &lt;&lt; path &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;a025ab6a5db2e461fbd0bffbeea271c122d67616&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;regex&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // \u300c\u82f1\u6570\u5b57\u3001\u30d0\u30c3\u30af\u30b9\u30e9\u30c3\u30b7\u30e5\u3001\u82f1\u6570\u5b57\u300d\u306e\u9806\u306b\n  // \u306a\u3063\u3066\u3044\u308b\u3053\u3068\u3092\u8981\u6c42\u3059\u308b\u6b63\u898f\u8868\u73fe\u3002\n  // \u751f\u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u3092\u4f7f\u308f\u306a\u3044\u5834\u5408\u306f\&#34;\\\\w\\\\\\\\\\\\w\&#34;\u3068\u306a\u308b\u3002\n  std::regex rex(R\&#34;(\\w\\\\\\w)\&#34;);\n\n  std::string input = R\&#34;(a\\b)\&#34;;\n  if (std::regex_match(input, rex)) {\n    std::cout &lt;&lt; \&#34;matched\&#34; &lt;&lt; std::endl;\n  }\n  else {\n    std::cout &lt;&lt; \&#34;not matched\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;4fad9c5752682babe47185a1764cbf7c981697e7&#34;, &#34;source&#34;: &#34;#include &lt;fstream&gt;\n#include &lt;string&gt;\n#include &lt;regex&gt;\n\n// \u96db\u5f62\u306eHTML\u3092\u7528\u610f\u3057\u3066\u3001\u305d\u306e\u4e00\u90e8\u306e\u8981\u7d20\u3092\u6587\u5b57\u5217\u7f6e\u63db\u306b\u3088\u3063\u3066\u30d7\u30ed\u30b0\u30e9\u30e0\u304b\u3089\u5165\u529b\u3059\u308b\u3002\n//\n// \u96db\u5f62\u306eHTML\u3092\u4e8b\u524d\u306b\u30d5\u30a1\u30a4\u30eb\u3068\u3057\u3066\u4f5c\u6210\u3057\u3001\u305d\u308c\u3092\u3042\u3068\u304b\u3089\u30d7\u30ed\u30b0\u30e9\u30e0\u306b\u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u3068\u3057\u3066\n// \u8cbc\u308a\u4ed8\u3051\u308b\u3002\u305d\u306e\u969b\u3001\u751f\u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u3092\u4f7f\u7528\u3059\u308b\u3053\u3068\u3067\u3001\u6539\u884c\u6587\u5b57\u3084\u30d0\u30c3\u30af\u30b9\u30e9\u30c3\u30b7\u30e5\u3092\n// \u52a0\u5de5\u3059\u308b\u3053\u3068\u306a\u304f\u305d\u306e\u307e\u307e\u6271\u3048\u308b\u3002\nconst std::string html_template = u8R\&#34;(&lt;html&gt;\n&lt;head&gt;\n  &lt;meta http-equiv=\&#34;Content-Type\&#34; content=\&#34;text/html; charset=utf-8\&#34;/&gt;\n  &lt;title&gt;$title$&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;p&gt;$body$&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;)\&#34;;\n\nint main()\n{\n  std::string html = html_template;\n\n  html = std::regex_replace(html, std::regex(u8R\&#34;(\\$title\\$)\&#34;), u8\&#34;\u30bf\u30a4\u30c8\u30eb\&#34;);\n  html = std::regex_replace(html, std::regex(u8R\&#34;(\\$body\\$)\&#34;), u8\&#34;\u30dc\u30c7\u30a3\&#34;);\n\n  std::ofstream file(\&#34;index.html\&#34;);\n  file.write(html.data(), html.size());\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;raw_string_literals&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">生文字列リテラル [N2442]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-04T14:59:02">
+        2025年07月04日 14時59分02秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/raw_string_literals.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/raw_string_literals.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">生文字列リテラル [N2442]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><code>R</code>プレフィックスを付けた文字列リテラル内の丸カッコ<code>( )</code>で囲まれた部分は、エスケープシーケンスが無視される。この機能を「生文字列リテラル (Raw string literals)」という。</p>
+<p>たとえばJSON形式でデータを記述する場合、通常の文字列リテラルでは以下のように書くことになる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">json</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">user_id</span><span class="se">\"</span><span class="s">: 123, </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Alice</span><span class="se">\"</span><span class="s">}"</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>文字列リテラル内にダブルクォーテーションを入力するために、多くのエスケープ文字<code>\</code>が必要となっている。このような状況で生文字列リテラルを使用することで、エスケープ文字をなくし、以下のように書ける：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">json</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">{"user_id": 123, "name": "Alice"}</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>この機能は、正規表現を書く場合、ファイルパスをコード中に記述するような場合にも役立つ。</p>
+<p>そのほか、改行を含む文章を文字列リテラルで記述する場合にも、生文字列リテラルは使用できる：</p>
+<p><div class="yata" id="3a435721f9ded72f437a1d089c0dddd48fddcd86"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">text</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">begin</span>
+<span class="s">a,</span>
+<span class="s">b,</span>
+<span class="s">c</span>
+<span class="s">end</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">text</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>出力：</p>
+<p><pre><code>begin
+a,
+b,
+c
+end
+</code></pre></p>
+<p>生文字列リテラルの範囲内では、改行をすることでエスケープ文字<code>'\n'</code>に変換される。</p>
+<h2>仕様</h2>
+<p>生文字列リテラルは、以下の構文を持つ：</p>
+<p><pre><code>encoding-prefix R"d-char-sequence <i>opt</i> (r-char-sequence <i>opt</i>) d-char-sequence <i>opt</i>"
+</code></pre></p>
+<p>encoding-prefixとは、<code>u8</code>、<code>u</code>、<code>U</code>、<code>L</code>といった、文字列リテラルの文字エンコードを指定するプレフィックス。たとえば、UTF-8の生文字列リテラルは、<code>u8R"(hello)"</code>のように書く。</p>
+<p>文字列中の丸カッコのなか<code>r-char-sequence</code>には、エスケープシーケンスを無視する文字列リテラルを書く。丸カッコのなかは省略可能。</p>
+<p>丸カッコの前後<code>d-char-sequence</code>には、生文字列の範囲を明確にするための文字列を指定する。これは前後で同じ文字列を指定する必要がある。これは、文字列リテラルのなかにダブルクォーテーションや閉じ丸カッコが指定されるような状況で必要となる：</p>
+<p><div class="yata" id="edffcc028ea58a4e77af4346b1e70df660a86743"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">***(</span><span class="s">文字列中に生文字列リテラルの閉じカッコと閉じダブルクォーテーションを書く)"</span><span class="dl">)***</span><span class="s">"</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>出力：</p>
+<p><pre><code>文字列中に生文字列リテラルの閉じカッコと閉じダブルクォーテーションを書く)"
+</code></pre></p>
+<p>ここで、生文字列リテラルの範囲を単なる丸カッコではなく、ユーザーがカッコの形を指定できれば、すなわち<code>***(</code>を開きカッコ、<code>)***</code>を閉じカッコ、のように指定できれば、文字列リテラルのなかに単純な閉じ丸カッコが指定されたとしても、それが生文字列リテラルの範囲終了とは見なされなくなる。</p>
+<p>生文字列リテラルの内容である<code>r-char-sequence</code>には、「<code>')'</code> + <code>d-char-sequence</code>で指定された文字列 + <code>"</code>」の組み合わせは使用できない。</p>
+<p>生文字列リテラルの範囲をユーザーが規定するための<code>d-char-sequence</code>は16文字以下で、各文字は基本ソース文字集合のうち次の文字を除いたものが使用できる：スペース <code>' '</code>、左丸カッコ <code>'('</code>、右丸カッコ <code>')'</code>、バックスラッシュ <code>'\\'</code>に加えて、水平タブ <code>'\t'</code>、垂直タブ <code>'\v'</code>、改ページ <code>'\f'</code>、改行<code>'\n'</code>の制御文字。</p>
+<p>生文字列リテラルの内容である<code>r-char-sequence</code>の要素として改行が入力された場合、それは改行の制御文字<code>'\n'</code>に変換される。</p>
+<h2>例</h2>
+<h3>JSON文字列を構築する</h3>
+<p><div class="yata" id="f36021e2beadc802556874cb6a8d380d425a9ac9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 文字列のフォーマット関数</span>
+<span class="c1">// not thread-safe, スレッドセーフな実装ではないので注意</span>
+<span class="c1">// <a href="http://www.boost.org/libs/format" target="_blank">Boost.Format</a>, <a href="https://github.com/fmtlib/fmt" target="_blank">fmtlib</a>や<a href="../../reference/format/format.html">std::format</a>(C++20)の使用を推奨</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/streambuf/basic_streambuf.html">std::streambuf</a></span><span class="o">*</span> <span class="n">backup</span> <span class="o">=</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">();</span>
+  <span class="n"><a href="../../reference/sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">sout</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/streambuf/basic_streambuf.html">std::streambuf</a></span><span class="o">*</span> <span class="n">soutbuf</span> <span class="o">=</span> <span class="n">sout</span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">();</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">(</span><span class="n">soutbuf</span><span class="p">);</span>
+
+  <span class="n"><a href="../../reference/cstdio/fprintf.html">std::fprintf</a></span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">args</span><span class="p">...);</span>
+
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">result</span> <span class="o">=</span> <span class="n">sout</span><span class="p">.</span><span class="n"><a href="../../reference/sstream/basic_stringstream/str.html">str()</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/basic_ios/rdbuf.html">rdbuf</a></span><span class="p">(</span><span class="n">backup</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">user_id</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Alice"</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">json</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">{"user_id": %d, "name": "%s"}</span><span class="dl">)</span><span class="s">"</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">name</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/c_str.html">c_str()</a></span><span class="p">);</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">json</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>{"user_id": 123, "name": "Alice"}
+</code></pre></p>
+<h3>ファイルパスを入力する</h3>
+<p><div class="yata" id="f9560d2e774362be076ec804a675befd53b465fa"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// バックスラッシュ区切りになっているWindowsのファイルパスを入力</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">path</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">C:\language\cpp\main.cpp</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">path</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>C:\language\cpp\main.cpp
+</code></pre></p>
+<h3>バックスラッシュを含む正規表現を入力する</h3>
+<p><div class="yata" id="a025ab6a5db2e461fbd0bffbeea271c122d67616"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 「英数字、バックスラッシュ、英数字」の順に</span>
+  <span class="c1">// なっていることを要求する正規表現。</span>
+  <span class="c1">// 生文字列リテラルを使わない場合は"\\w\\\\\\w"となる。</span>
+  <span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span> <span class="n">rex</span><span class="p">(</span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">\w\\\w</span><span class="dl">)</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">input</span> <span class="o">=</span> <span class="sa">R</span><span class="s">"</span><span class="dl">(</span><span class="s">a\b</span><span class="dl">)</span><span class="s">"</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/regex/regex_match.html">std::regex_match</a></span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">rex</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"matched"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not matched"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>matched
+</code></pre></p>
+<h3>雛形のHTMLを処理する</h3>
+<p><div class="yata" id="4fad9c5752682babe47185a1764cbf7c981697e7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 雛形のHTMLを用意して、その一部の要素を文字列置換によってプログラムから入力する。</span>
+<span class="c1">//</span>
+<span class="c1">// 雛形のHTMLを事前にファイルとして作成し、それをあとからプログラムに文字列リテラルとして</span>
+<span class="c1">// 貼り付ける。その際、生文字列リテラルを使用することで、改行文字やバックスラッシュを</span>
+<span class="c1">// 加工することなくそのまま扱える。</span>
+<span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">html_template</span> <span class="o">=</span> <span class="n">u8R</span><span class="s">"(&lt;html&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">meta</span> <span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s">"Content-Type"</span> <span class="n">content</span><span class="o">=</span><span class="s">"text/html; charset=utf-8"</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="err">$</span><span class="n">title</span><span class="err">$</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">$</span><span class="n">body</span><span class="err">$</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span><span class="p">)</span><span class="s">";</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">html</span> <span class="o">=</span> <span class="n">html_template</span><span class="p">;</span>
+
+  <span class="n">html</span> <span class="o">=</span> <span class="n"><a href="../../reference/regex/regex_replace.html">std::regex_replace</a></span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span><span class="p">(</span><span class="n">u8R</span><span class="s">"(\$title\$)"</span><span class="p">),</span> <span class="sa">u8</span><span class="s">"タイトル"</span><span class="p">);</span>
+  <span class="n">html</span> <span class="o">=</span> <span class="n"><a href="../../reference/regex/regex_replace.html">std::regex_replace</a></span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n"><a href="../../reference/regex/basic_regex.html">std::regex</a></span><span class="p">(</span><span class="n">u8R</span><span class="s">"(\$body\$)"</span><span class="p">),</span> <span class="sa">u8</span><span class="s">"ボディ"</span><span class="p">);</span>
+
+  <span class="n"><a href="../../reference/fstream/basic_ofstream.html">std::ofstream</a></span> <span class="n">file</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/ostream/basic_ostream/write.html">file.write</a></span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string/data.html">html.data()</a></span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string/size.html">html.size()</a></span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力(index.html)</h4>
+<p><pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
+  &lt;title&gt;タイトル&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;ボディ&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>生文字列リテラルが提案された2006年当時にはすでに、HTMLやXMLといったマークアップ言語や正規表現を、C++で処理することが多かった。それらの言語では、バックスラッシュや引用符が多用されるため、文字列リテラルとしてそれらを正しく入力するのが困難だった。</p>
+<p>Perl、Python、Luaやその他の言語ではこの問題に対応するために、通常の文字列リテラルに加えて、生文字列リテラル(raw string literals)を持っている。それは単純にエスケープシーケンスを無視するという機能で、多くの言語で受け入れられてきた。</p>
+<p>こういった経緯から、C++にも生文字列リテラルが提案された。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>プレフィックスの<code>R</code>は、最初に提案された頃から変わっていない。これは「Raw」を意味する。</p>
+<p>生文字列リテラル内にユニバーサルキャラクタ名を入力できるようにして、それだけはエスケープを無視せずに変換する案があったが、バグの元となるために却下された。</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2053.html" target="_blank">N2053 Raw String Literals</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2146.html" target="_blank">N2146 Raw String Literals (Revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2295.html" target="_blank">N2295 Raw and Unicode String Literals; Unified Proposal</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2384.html" target="_blank">N2384 Raw and Unicode String Literals; Unified Proposal (Rev. 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2442.htm" target="_blank">N2442 Raw and Unicode String Literals; Unified Proposal (Rev. 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3077.html" target="_blank">N3077 Alternative approach to Raw String issues</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

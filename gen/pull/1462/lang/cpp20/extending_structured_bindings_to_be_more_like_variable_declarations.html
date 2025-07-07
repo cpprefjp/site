@@ -1,0 +1,361 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++17で導入された構造化束縛宣言に指定しておけるのはCV修飾のみで、記憶域クラスや`constexpr`等を指定することは出来なかった。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.html" />
+        <meta name="twitter:description" content="C++17で導入された構造化束縛宣言に指定しておけるのはCV修飾のみで、記憶域クラスや`constexpr`等を指定することは出来なかった。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a985a9503124fab9340cc533f79c5503438ff0c4&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;random&gt;\n#include &lt;utility&gt;\n\n//\u4e71\u6570\u30a8\u30f3\u30b8\u30f3\u3092\u521d\u671f\u5316\u3057\u3001\u6700\u521d\u306e\u4e71\u6570\u5024\u3068\u3068\u3082\u306b\u8fd4\u3059\nstd::pair&lt;std::mt19937, std::uint32_t&gt; get_random() {\n  std::mt19937 engine(std::random_device{}());\n  auto first = engine();\n\n  return {std::move(engine), first};\n}\n\n//static\u6307\u5b9a\u69cb\u9020\u5316\u675f\u7e1b\u5ba3\u8a00\nstatic auto [engin_static, value_static] = get_random();\n\n//thread_local\u6307\u5b9a\u69cb\u9020\u5316\u675f\u7e1b\u5ba3\u8a00\nthread_local auto [engin_tls, value_tls] = get_random();\n\n\nint main()\n{\n  std::cout &lt;&lt; \&#34;---in main thread---\&#34; &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;static value = \&#34; &lt;&lt; value_static &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;thread local value = \&#34; &lt;&lt; value_tls &lt;&lt; std::endl;\n\n  //\u30a8\u30f3\u30b8\u30f3\u306e\u30a2\u30c9\u30ec\u30b9\u3092\u51fa\u529b\n  std::cout &lt;&lt; \&#34;static engine = \&#34; &lt;&lt; &amp;engin_static &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;thread local engine = \&#34; &lt;&lt; &amp;engin_tls &lt;&lt; std::endl;\n\n  std::thread th([]() {\n    std::cout &lt;&lt; \&#34;\\n---in another thread---\&#34; &lt;&lt; std::endl;\n\n    std::cout &lt;&lt; \&#34;static value = \&#34; &lt;&lt; value_static &lt;&lt; std::endl;\n    std::cout &lt;&lt; \&#34;thread local value = \&#34; &lt;&lt; value_tls &lt;&lt; std::endl;\n\n    //\u30a8\u30f3\u30b8\u30f3\u306e\u30a2\u30c9\u30ec\u30b9\u3092\u51fa\u529b\n    std::cout &lt;&lt; \&#34;static engine = \&#34; &lt;&lt; &amp;engin_static &lt;&lt; std::endl;\n    std::cout &lt;&lt; \&#34;thread local engine = \&#34; &lt;&lt; &amp;engin_tls &lt;&lt; std::endl;\n  });\n\n  th.join();\n}\n&#34;}, {&#34;id&#34;: &#34;368adae20c2fd4e9bfcad4678b65afa52b679981&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;tuple&gt;\n\nint main()\n{\n  auto tuple = std::make_tuple(1.0, 2.0, 3.0);\n  auto&amp; [a, b, c] = tuple;\n\n  //\u30b3\u30d4\u30fc\u30ad\u30e3\u30d7\u30c1\u30e3\n  auto f_copy = [a, b, c]() {return a + b + c;};\n\n  //\u53c2\u7167\u30ad\u30e3\u30d7\u30c1\u30e3\n  auto f_ref  = [&amp;a, &amp;b, &amp;c]() {return a + b + c;};\n\n  std::cout &lt;&lt; f_copy() &lt;&lt; std::endl;\n  std::cout &lt;&lt; f_ref() &lt;&lt; std::endl;\n\n  a = 4.0;\n\n  std::cout &lt;&lt; f_copy() &lt;&lt; std::endl;\n  std::cout &lt;&lt; f_ref() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;extending_structured_bindings_to_be_more_like_variable_declarations&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">構造化束縛を拡張して通常の変数宣言のように使用できるようにする [P1091R3]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++17で導入された構造化束縛宣言に指定しておけるのは<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>のみで、記憶域クラスや<code>constexpr</code>等を指定することは出来なかった。<br />
+このため、<code>thread_local</code>指定の変数や<code>constexpr</code>変数などの初期化のために構造化束縛を用いることが出来なかった。</p>
+<p>C++20ではこの制限が少し緩和され、構造化束縛宣言に<code>static</code>および<code>thread_local</code>を指定することができるようになり、それらの効果は通常の変数と同様となるようになった。<br />
+すなわち、<code>static</code>指定では内部リンケージが与えられ、<code>thread_local</code>指定ではスレッドローカルストレージに配置されるようになり、どちらの場合もその構造化束縛宣言のなされているスコープに関わらず静的ストレージに配置される。</p>
+<p>ただし、<code>inline</code>や<code>constexpr</code>、<code>constinit</code>等その他の指定は出来ず、指定された場合コンパイルエラーとなる。</p>
+<p>また、C++17では構造化束縛宣言に指定した変数名をそのままラムダ式でキャプチャすることもできなかった。しかし、禁止しておく技術的な（コンパイラ実装上の）理由は無かったことから、この制限は撤廃された。<br />
+これによって、構造化束縛の変数を通常の変数とほぼ同じようにラムダ式でキャプチャできるようになる。ただし、ビットフィールドを構造化束縛した変数は引き続き参照キャプチャできないため少し注意が必要である（詳しくは<a href="reference_capture_of_structured_bindings.html">構造化束縛した変数の参照キャプチャを許可</a>を参照のこと）。</p>
+<h2>例</h2>
+<h3><code>static</code>と<code>thread_local</code></h3>
+<p><div class="yata" id="a985a9503124fab9340cc533f79c5503438ff0c4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="c1">//乱数エンジンを初期化し、最初の乱数値とともに返す</span>
+<span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span><span class="p">,</span> <span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span> <span class="n">get_random</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n"><a href="../../reference/random/random_device.html">std::random_device</a></span><span class="p">{}());</span>
+  <span class="k">auto</span> <span class="n">first</span> <span class="o">=</span> <span class="n">engine</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">engine</span><span class="p">),</span> <span class="n">first</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">//static指定構造化束縛宣言</span>
+<span class="k">static</span> <span class="k">auto</span> <span class="p">[</span><span class="n">engin_static</span><span class="p">,</span> <span class="n">value_static</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_random</span><span class="p">();</span>
+
+<span class="c1">//<a href="../cpp11/thread_local_storage.html">thread_local</a>指定構造化束縛宣言</span>
+<span class="n"><a href="../cpp11/thread_local_storage.html">thread_local</a></span> <span class="k">auto</span> <span class="p">[</span><span class="n">engin_tls</span><span class="p">,</span> <span class="n">value_tls</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_random</span><span class="p">();</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---in main thread---"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"static value = "</span> <span class="o">&lt;&lt;</span> <span class="n">value_static</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread local value = "</span> <span class="o">&lt;&lt;</span> <span class="n">value_tls</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//エンジンのアドレスを出力</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"static engine = "</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">engin_static</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread local engine = "</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">engin_tls</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">th</span><span class="p">([]()</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">---in another thread---"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"static value = "</span> <span class="o">&lt;&lt;</span> <span class="n">value_static</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread local value = "</span> <span class="o">&lt;&lt;</span> <span class="n">value_tls</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="c1">//エンジンのアドレスを出力</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"static engine = "</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">engin_static</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread local engine = "</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">engin_tls</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="n">th</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>---in main thread---
+static value = 3324737157
+thread local value = 300715623
+static engine = 0x6057a0
+thread local engine = 0x7f01e57a2798
+
+---in another thread---
+static value = 3324737157
+thread local value = 944600859
+static engine = 0x6057a0
+thread local engine = 0x7f01df50c358
+</code></pre></p>
+<p>シード値及びエンジンの配置アドレスは実行の度に変化するので、実行毎に異なる結果となる。</p>
+<h3>ラムダ式によるキャプチャ</h3>
+<p><div class="yata" id="368adae20c2fd4e9bfcad4678b65afa52b679981"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n"><a href="../../reference/tuple/tuple.html">tuple</a></span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_tuple</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">);</span>
+  <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../../reference/tuple/tuple.html">tuple</a></span><span class="p">;</span>
+
+  <span class="c1">//コピーキャプチャ</span>
+  <span class="k">auto</span> <span class="n">f_copy</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]()</span> <span class="p">{</span><span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">;};</span>
+
+  <span class="c1">//参照キャプチャ</span>
+  <span class="k">auto</span> <span class="n">f_ref</span>  <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">]()</span> <span class="p">{</span><span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">;};</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f_copy</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f_ref</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n">a</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f_copy</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f_ref</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>6
+6
+6
+9
+</code></pre></p>
+<h2>検討されたほかの選択肢</h2>
+<p>当初の提案では上記の3つだけではなく、リンケージ指定（<code>extern</code>）、<code>inline</code>指定、<code>constexpr</code>指定、<code>[[maybe_unused]]</code>属性指定、テンプレート、などもまとめて許可し、通常の変数との差異をほぼ完全に無くす予定であった。</p>
+<p>しかし、<code>extern</code>による外部リンケージの指定は構造化束縛の仕様上意味が無く、それによって外部リンケージの有無で<code>inline</code>指定の可否の一貫性が無くなることから<code>inline</code>も許可されず、<code>constexpr</code>及びテンプレートについては変更範囲が広くなり詳細な検討が必要であることから見送られた。<br />
+その結果、ラムダキャプチャの許可と<code>static</code>と<code>thread_local</code>指定のみが残ることとなった。</p>
+<p>ただ、今回見送られた残りのものも将来的には許可される可能性がある。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp17/structured_bindings.html">C++17 構造化束縛</a></li>
+<li><a href="reference_capture_of_structured_bindings.html">C++20 構造化束縛した変数の参照キャプチャを許可</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1091r0.html" target="_blank">P1091R0 Extending structured bindings to be more like variable declarations</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1091r1.html" target="_blank">P1091R1 Extending structured bindings to be more like variable declarations</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1091r2.html" target="_blank">P1091R2 Extending structured bindings to be more like variable declarations</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1091r3.html" target="_blank">P1091R3 Extending structured bindings to be more like variable declarations</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

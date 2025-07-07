@@ -1,0 +1,1078 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>type_traits - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,cpp11
+">
+        <meta name="title" content="type_traits - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="type_traits - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="type_traits - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;type_traits&amp;gt;type_traits(C++11) &amp;lt;type_traits&amp;gt;ヘッダでは、型の特性を判定、操作するためのクラスを定義する。 このライブラリに含まれるクラステンプレートは、メタ関数(meta function)と呼ばれている。 本ヘッダはフリースタンディング環境でも提供される。 ヘルパークラス    名前 説明 対応バージョン     integr" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="type_traits - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits.html" />
+        <meta name="twitter:description" content="&amp;lt;type_traits&amp;gt;type_traits(C++11) &amp;lt;type_traits&amp;gt;ヘッダでは、型の特性を判定、操作するためのクラスを定義する。 このライブラリに含まれるクラステンプレートは、メタ関数(meta function)と呼ばれている。 本ヘッダはフリースタンディング環境でも提供される。 ヘルパークラス    名前 説明 対応バージョン     integr" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">type_traits</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-10T11:25:46">
+        2025年05月10日 11時25分46秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="token">type_traits</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;type_traits&gt;</code>ヘッダでは、型の特性を判定、操作するためのクラスを定義する。</p>
+<p>このライブラリに含まれるクラステンプレートは、メタ関数(meta function)と呼ばれている。</p>
+<p>本ヘッダはフリースタンディング環境でも提供される。</p>
+<h2>ヘルパークラス</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/integral_constant.html">integral_constant</a></code></td>
+<td>定数を表す型 (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/bool_constant.html">bool_constant</a></code></td>
+<td>真理値型の定数を表す型 (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/true_type.html">true_type</a></code></td>
+<td><code>true</code>を表す型 (type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/false_type.html">false_type</a></code></td>
+<td><code>false</code>を表す型 (type-alias)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>基本的な型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/is_void.html">is_void</a></code></td>
+<td>型が<code>void</code>型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_null_pointer.html">is_null_pointer</a></code></td>
+<td>型が<code>nullptr_t</code>型か調べる (class template)</td>
+<td>C++14</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_integral.html">is_integral</a></code></td>
+<td>型が整数型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_floating_point.html">is_floating_point</a></code></td>
+<td>型が浮動小数点型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_array.html">is_array</a></code></td>
+<td>型が配列型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_pointer.html">is_pointer</a></code></td>
+<td>型がポインタ型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_lvalue_reference.html">is_lvalue_reference</a></code></td>
+<td>型が左辺値参照型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_rvalue_reference.html">is_rvalue_reference</a></code></td>
+<td>型が右辺値参照型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_member_object_pointer.html">is_member_object_pointer</a></code></td>
+<td>型がメンバ変数へのポインタ型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_member_function_pointer.html">is_member_function_pointer</a></code></td>
+<td>型がメンバ関数へのポインタ型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_enum.html">is_enum</a></code></td>
+<td>型が列挙型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_union.html">is_union</a></code></td>
+<td>型が共用型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_class.html">is_class</a></code></td>
+<td>型がクラス型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_function.html">is_function</a></code></td>
+<td>型が関数型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>組み合わせた型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/is_reference.html">is_reference</a></code></td>
+<td>型が参照型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_arithmetic.html">is_arithmetic</a></code></td>
+<td>型が算術型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_fundamental.html">is_fundamental</a></code></td>
+<td>型が単純型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_object.html">is_object</a></code></td>
+<td>型がオブジェクト型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_scalar.html">is_scalar</a></code></td>
+<td>型がスカラ型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_compound.html">is_compound</a></code></td>
+<td>型が複合型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_member_pointer.html">is_member_pointer</a></code></td>
+<td>型がメンバポインタ型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_scoped_enum.html">is_scoped_enum</a></code></td>
+<td>型がスコープ付きの列挙型か調べる (class template)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>型の特性</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/is_const.html">is_const</a></code></td>
+<td>型が<code>const</code>修飾型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_volatile.html">is_volatile</a></code></td>
+<td>型が<code>volatile</code>修飾型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivial.html">is_trivial</a></code></td>
+<td>型がトリビアル型か調べる (class template)</td>
+<td>C++11<br />C++26から非推奨</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_copyable.html">is_trivially_copyable</a></code></td>
+<td>型がトリビアルコピー可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_standard_layout.html">is_standard_layout</a></code></td>
+<td>型がスタンダードレイアウト型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_pod.html">is_pod</a></code></td>
+<td>型がPOD型か調べる (class template)</td>
+<td>C++11<br />C++20から非推奨</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_literal_type.html">is_literal_type</a></code></td>
+<td>型がリテラル型か調べる (class template)</td>
+<td>C++11<br /> C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_empty.html">is_empty</a></code></td>
+<td>型が空のクラスか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_polymorphic.html">is_polymorphic</a></code></td>
+<td>型が多相的クラスか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_abstract.html">is_abstract</a></code></td>
+<td>型が抽象クラスか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_final.html">is_final</a></code></td>
+<td>型に<code>final</code>が付いているかを調べる (class template)</td>
+<td>C++14</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_aggregate.html">is_aggregate</a></code></td>
+<td>型が集成体かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_implicit_lifetime.html">is_implicit_lifetime</a></code></td>
+<td>型が暗黙的に構築されるかを調べる (class template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_signed.html">is_signed</a></code></td>
+<td>型が符号付き算術型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_unsigned.html">is_unsigned</a></code></td>
+<td>型が符号無し算術型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_bounded_array.html">is_bounded_array</a></code></td>
+<td>型が要素数の判明している配列型かを調べる (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_unbounded_array.html">is_unbounded_array</a></code></td>
+<td>型が要素数の不明な配列型かを調べる (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_constructible.html">is_constructible</a></code></td>
+<td>型のコンストラクタ呼出しが<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../implementation-compliance.html#dfn-well-formed">適格</a>か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_default_constructible.html">is_default_constructible</a></code></td>
+<td>型が<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_copy_constructible.html">is_copy_constructible</a></code></td>
+<td>型がコピー構築可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_move_constructible.html">is_move_constructible</a></code></td>
+<td>型がムーブ構築可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_assignable.html">is_assignable</a></code></td>
+<td>型が代入可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_copy_assignable.html">is_copy_assignable</a></code></td>
+<td>型がコピー代入可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_move_assignable.html">is_move_assignable</a></code></td>
+<td>型がムーブ代入可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_destructible.html">is_destructible</a></code></td>
+<td>型が破棄可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_constructible.html">is_trivially_constructible</a></code></td>
+<td>型がトリビアルに構築可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_default_constructible.html">is_trivially_default_constructible</a></code></td>
+<td>型がトリビアルに<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能かを調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_copy_constructible.html">is_trivially_copy_constructible</a></code></td>
+<td>型がトリビアルにコピー構築可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_move_constructible.html">is_trivially_move_constructible</a></code></td>
+<td>型がトリビアルにムーブ構築可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_assignable.html">is_trivially_assignable</a></code></td>
+<td>型がトリビアルに代入可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_copy_assignable.html">is_trivially_copy_assignable</a></code></td>
+<td>型がトリビアルにコピー代入可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_move_assignable.html">is_trivially_move_assignable</a></code></td>
+<td>型がトリビアルにムーブ代入可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_trivially_destructible.html">is_trivially_destructible</a></code></td>
+<td>型がトリビアルに破棄可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_constructible.html">is_nothrow_constructible</a></code></td>
+<td>型のコンストラクタ呼出しが<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../implementation-compliance.html#dfn-well-formed">適格</a>であり、かつそのコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_default_constructible.html">is_nothrow_default_constructible</a></code></td>
+<td>型が<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>でき、かつそのデフォルトコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible</a></code></td>
+<td>型がコピー構築でき、かつそのコピーコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible</a></code></td>
+<td>型がムーブ構築でき、かつそのムーブコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_assignable.html">is_nothrow_assignable</a></code></td>
+<td>型の代入演算子呼び出しが<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../implementation-compliance.html#dfn-well-formed">適格</a>であり、かつその代入演算子が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_copy_assignable.html">is_nothrow_copy_assignable</a></code></td>
+<td>型がコピー代入でき、かつそのコピー代入演算子が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_move_assignable.html">is_nothrow_move_assignable</a></code></td>
+<td>型がムーブ代入でき、かつそのムーブ代入演算子が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_destructible.html">is_nothrow_destructible</a></code></td>
+<td>型が破棄でき、かつそのデストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/has_virtual_destructor.html">has_virtual_destructor</a></code></td>
+<td>型が仮想デストラクタを持っているか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_swappable_with.html">is_swappable_with</a></code></td>
+<td>ある型とほかの型の値とがswap関数で入れ替え可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_swappable.html">is_swappable</a></code></td>
+<td>ある型の値がswap関数で入れ替え可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_swappable_with.html">is_nothrow_swappable_with</a></code></td>
+<td>ある型とほかの型の値とが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げずにswap関数で入れ替え可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_swappable.html">is_nothrow_swappable</a></code></td>
+<td>ある型の値が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げずにswap関数で入れ替え可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/has_unique_object_representations.html">has_unique_object_representations</a></code></td>
+<td>ある型のバイト表現をそのままハッシュとして利用できるかを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>型の特性についての問い合わせ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/alignment_of.html">alignment_of</a></code></td>
+<td>型のアライメントを取得する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/rank.html">rank</a></code></td>
+<td>配列型の次元数を取得する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/extent.html">extent</a></code></td>
+<td>配列型の<code>i</code>番目の次元の要素数を取得する (class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>型の関係</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/is_same.html">is_same</a></code></td>
+<td>二つの型が同じ型か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_base_of.html">is_base_of</a></code></td>
+<td>ある型が別の型の基底クラスか調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_virtual_base_of.html">is_virtual_base_of</a></code></td>
+<td>ある型が別の型の仮想基底クラスか調べる (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_convertible.html">is_convertible</a></code></td>
+<td>ある型から別の型へ変換可能か調べる (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_convertible.html">is_nothrow_convertible</a></code></td>
+<td>ある型から別の型へ、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げずに変換可能か調べる (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_layout_compatible.html">is_layout_compatible</a></code></td>
+<td>2つの型にレイアウト互換があるかを判定する (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_pointer_interconvertible_base_of.html">is_pointer_interconvertible_base_of</a></code></td>
+<td>基底クラスと派生クラスの間でポインタ相互交換可能かを判定する (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/reference_constructs_from_temporary.html">reference_constructs_from_temporary</a></code></td>
+<td>参照が一時オブジェクトを直接初期化（丸カッコによる初期化）で束縛した時、一時オブジェクトの寿命が延長されているかを判定する (class template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/reference_converts_from_temporary.html">reference_converts_from_temporary</a></code></td>
+<td>参照が一時オブジェクトをコピー初期化（代入形式による初期化）で束縛した時、一時オブジェクトの寿命が延長されているかを判定する (class template)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>const-volatile の変更</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/remove_const.html">remove_const</a></code></td>
+<td>型の<code>const</code>修飾を除去する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/remove_volatile.html">remove_volatile</a></code></td>
+<td>型の<code>volatile</code>修飾を除去する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/remove_cv.html">remove_cv</a></code></td>
+<td>型の<code>const-volatile</code>修飾を除去する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/add_const.html">add_const</a></code></td>
+<td>型を<code>const</code>修飾する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/add_volatile.html">add_volatile</a></code></td>
+<td>型を<code>volatile</code>修飾する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/add_cv.html">add_cv</a></code></td>
+<td>型を<code>const-volatile</code>修飾する (class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>参照の変更</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/remove_reference.html">remove_reference</a></code></td>
+<td>型から参照を除去する(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/add_lvalue_reference.html">add_lvalue_reference</a></code></td>
+<td>型に左辺値参照を追加する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/add_rvalue_reference.html">add_rvalue_reference</a></code></td>
+<td>型に右辺値参照を追加する (class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>符号の変更</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/make_signed.html">make_signed</a></code></td>
+<td>整数型を符号付きにする (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/make_unsigned.html">make_unsigned</a></code></td>
+<td>整数型を符号なしにする (class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>配列の変更</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/remove_extent.html">remove_extent</a></code></td>
+<td>配列型から次元を除去する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/remove_all_extents.html">remove_all_extents</a></code></td>
+<td>配列型から全ての次元を除去する (class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>ポインタの変更</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/add_pointer.html">add_pointer</a></code></td>
+<td>型にポインタを追加する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/remove_pointer.html">remove_pointer</a></code></td>
+<td>型からポインタを除去する (class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>関数呼び出しに関連した特性</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/is_invocable.html">is_invocable</a></code></td>
+<td>関数呼び出し可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_invocable_r.html">is_invocable_r</a></code></td>
+<td>関数呼び出し可能でその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型がある型へ変換可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_invocable.html">is_nothrow_invocable</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げずに関数呼び出し可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_nothrow_invocable_r.html">is_nothrow_invocable_r</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げずに関数呼び出し可能でその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型がある型へ変換可能かを調べる (class template)</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>その他の変換</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/type_identity.html">type_identity</a></code></td>
+<td>受け取った型を返す (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/aligned_storage.html">aligned_storage</a></code></td>
+<td>アライメント調整された領域を作る (class template)</td>
+<td>C++11<br />C++23で非推奨</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/aligned_union.html">aligned_union</a></code></td>
+<td>アライメント調整された共用体領域を作る (class template)</td>
+<td>C++11<br />C++23で非推奨</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/remove_cvref.html">remove_cvref</a></code></td>
+<td>型の<code>const-volatile</code>修飾と参照を除去する (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/decay.html">decay</a></code></td>
+<td>配列と関数ポインタに関して、関数テンプレートと同様に推論された型を取得する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/enable_if.html">enable_if</a></code></td>
+<td>コンパイル時条件式が真の場合のみ有効な型 (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/conditional.html">conditional</a></code></td>
+<td>コンパイル時条件式 (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/common_type.html">common_type</a></code></td>
+<td>変換可能な共通の型を取得する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/void_t.html">void_t</a></code></td>
+<td>任意の型をvoidへ変換する (type-alias)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/basic_common_reference.html">basic_common_reference</a></code></td>
+<td><code>common_reference</code>へアダプトする (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/common_reference.html">common_reference</a></code></td>
+<td>共通の参照型を取得する (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/underlying_type.html">underlying_type</a></code></td>
+<td>列挙型の基底型を取得する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/result_of.html">result_of</a></code></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を取得する (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/invoke_result.html">invoke_result</a></code></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を取得する (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/unwrap_reference.html">unwrap_reference</a></code></td>
+<td><code><a href="functional/reference_wrapper.html">reference_wrapper&lt;T&gt;</a></code>型を<code>T&amp;</code>型に展開する (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/unwrap_ref_decay.html">unwrap_ref_decay</a></code></td>
+<td><code><a href="functional/reference_wrapper.html">reference_wrapper&lt;T&gt;</a></code>型を<code>T&amp;</code>型に展開し、型推論規則による型変換を行う (class template)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>論理演算</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/conjunction.html">conjunction</a></code></td>
+<td>特性の論理積を求める (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/disjunction.html">disjunction</a></code></td>
+<td>特性の論理和を求める (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/negation.html">negation</a></code></td>
+<td>特性の論理否定を求める (class template)</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバの関係性</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/is_pointer_interconvertible_with_class.html">is_pointer_interconvertible_with_class</a></code></td>
+<td>メンバポインタとクラスの間でポインタ相互交換可能かを判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_corresponding_member.html">is_corresponding_member</a></code></td>
+<td>2つのメンバポインタが互換な共通位置にあるかを判定する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>コンパイル時評価</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_traits/is_within_lifetime.html">is_within_lifetime</a></code></td>
+<td>共用体の指定されたメンバがアクティブかを定数式で判定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="type_traits/is_constant_evaluated.html">is_constant_evaluated</a></code></td>
+<td>呼び出された時、その呼び出しがコンパイル時に行われているかを判定する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>備考</h2>
+<ul>
+<li>このヘッダで定義されるテンプレートは、<code><a href="type_traits/common_type.html">std::common_type</a></code>、<code><a href="type_traits/basic_common_reference.html">std::basic_common_reference</a></code>を除いて、ユーザーが特殊化を追加することを禁止している</li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1345.html" target="_blank">N1345 A Proposal to add Type Traits to the Standard Library</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1424.htm" target="_blank">N1424 A Proposal to add Type Traits to the Standard Library</a></li>
+<li><a href="http://www.boost.org/doc/libs/release/libs/type_traits/doc/html/index.html" target="_blank">Boost Type Traits Library</a></li>
+<li><a href="https://boostjp.github.io/tips/type_traits.html" target="_blank">型特性 - Boost逆引きリファレンス</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2581" target="_blank">LWG Issue 2581. Specialization of <code>&lt;type_traits&gt;</code> variable templates should be prohibited</a><ul>
+<li>C++14までは<code>&lt;type_traits&gt;</code>で定義されるクラステンプレートの特殊化を禁止していたが、C++17で定義される変数テンプレートも特殊化の禁止対象とされた</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf" target="_blank">P1413R3 Deprecate <code>std::aligned_storage</code> and <code>std::aligned_union</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

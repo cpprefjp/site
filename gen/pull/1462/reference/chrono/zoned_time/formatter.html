@@ -1,0 +1,339 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>formatter - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std,class,cpp20
+">
+        <meta name="title" content="formatter - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="formatter - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="formatter - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/zoned_time/formatter.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`zoned_time`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="formatter - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/zoned_time/formatter.html" />
+        <meta name="twitter:description" content="`zoned_time`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;579d8428729ec472ac1d691ddb091ec03006376a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n#include &lt;format&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  // \u30b7\u30b9\u30c6\u30e0\u6642\u9593\u306fUTC\u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u3092\u3082\u3064\n  auto now = chrono::system_clock::now();\n  chrono::sys_seconds now_sec = chrono::floor&lt;chrono::seconds&gt;(now); // \u79d2\u5358\u4f4d\n\n  chrono::zoned_time zt{\&#34;Asia/Tokyo\&#34;, now};\n  chrono::zoned_seconds zt_sec{\&#34;Asia/Tokyo\&#34;, now_sec};\n\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\n  std::cout &lt;&lt; std::format(\&#34;1 : {}\&#34;, zt) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;2 : {}\&#34;, zt_sec) &lt;&lt; std::endl;\n\n  // \u300c\u5e74\u6708\u65e5 \u6642\u5206\u79d2\u300d\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\n  std::cout &lt;&lt; std::format(\&#34;3 : {:%Y\u5e74%m\u6708%d\u65e5 %H\u6642%M\u5206%S\u79d2}\&#34;, zt_sec) &lt;&lt; std::endl;\n\n  // \u65e5\u4ed8\u3092 / (\u30b9\u30e9\u30c3\u30b7\u30e5) \u533a\u5207\u308a\u3001\u6642\u9593\u3092 : (\u30b3\u30ed\u30f3) \u533a\u5207\u308a\n  std::cout &lt;&lt; std::format(\&#34;4 : {0:%Y/%m/%d %H:%M:%S}\&#34;, zt_sec) &lt;&lt; std::endl;\n\n  // \u65e5\u4ed8\u3060\u3051\u51fa\u529b\n  std::cout &lt;&lt; std::format(\&#34;5 : %Y\u5e74%m\u6708%d\u65e5\&#34;, zt_sec) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;6 : %F\&#34;, zt_sec) &lt;&lt; std::endl;\n\n  // \u6642\u9593\u3060\u3051\u51fa\u529b\n  std::cout &lt;&lt; std::format(\&#34;7 : %H\u6642%M\u5206%S\u79d2\&#34;, zt_sec) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;8 : %T\&#34;, zt_sec) &lt;&lt; std::endl;\n\n  // 12\u6642\u9593\u6642\u8a08\u3067\u51fa\u529b\n  // (%p\u3067\u30ed\u30b1\u30fc\u30eb\u56fa\u6709\u306e\u300c\u5348\u524d\u300d\u300c\u5348\u5f8c\u300d\u3092\u51fa\u529b\u3059\u308b\u306b\u306f\u3001\u65e5\u672c\u306e\u30ed\u30b1\u30fc\u30eb\u3092\u6307\u5b9a\u3059\u308b\u5fc5\u8981\u304c\u3042\u308b)\n  std::cout &lt;&lt; std::format(std::locale(\&#34;ja_JP.UTF-8\&#34;), \&#34;9 : %Y\u5e74%m\u6708%d\u65e5 %p %I\u6642%M\u5206%S\u79d2\&#34;, zt_sec) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;zoned_time&#34;, &#34;formatter&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/chrono/zoned_time.html" itemprop="url">
+              
+                <span itemprop="name">zoned_time</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">formatter</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/zoned_time/formatter.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/zoned_time/formatter.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">formatter</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="p">,</span> <span class="k">class</span> <span class="nc">TimeZonePtr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">formatter</span><span class="o">&lt;</span><span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n">TimeZonePtr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span>
+    <span class="o">:</span> <span class="n">formatter</span><span class="o">&lt;</span><span class="n"><a href="../local-time-format-t.html">chrono::local-time-format-t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>zoned_time</code>クラスに対する<code><a href="../../format/formatter.html">std::formatter</a></code>クラステンプレートの特殊化。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="formatter/format.html">format</a></code></td>
+<td>文字列フォーマット</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="579d8428729ec472ac1d691ddb091ec03006376a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// システム時間はUTCタイムゾーンをもつ</span>
+  <span class="k">auto</span> <span class="n">now</span> <span class="o">=</span> <span class="n"><a href="../system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../system_clock/now.html">now()</a></span><span class="p">;</span>
+  <span class="n"><a href="../sys_time.html">chrono::sys_seconds</a></span> <span class="n">now_sec</span> <span class="o">=</span> <span class="n"><a href="../time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">now</span><span class="p">);</span> <span class="c1">// 秒単位</span>
+
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">now</span><span class="p">};</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_seconds</span> <span class="n">zt_sec</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">now_sec</span><span class="p">};</span>
+
+  <span class="c1">// デフォルトフォーマット</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"1 : {}"</span><span class="p">,</span> <span class="n">zt</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"2 : {}"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 「年月日 時分秒」のフォーマット</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"3 : {:%Y年%m月%d日 %H時%M分%S秒}"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 日付を / (スラッシュ) 区切り、時間を : (コロン) 区切り</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"4 : {0:%Y/%m/%d %H:%M:%S}"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 日付だけ出力</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"5 : %Y年%m月%d日"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"6 : %F"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 時間だけ出力</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"7 : %H時%M分%S秒"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="s">"8 : %T"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 12時間時計で出力</span>
+  <span class="c1">// (%pでロケール固有の「午前」「午後」を出力するには、日本のロケールを指定する必要がある)</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../format.html">std::format</a></span><span class="p">(</span><span class="n"><a href="../../locale/locale.html">std::locale</a></span><span class="p">(</span><span class="s">"ja_JP.UTF-8"</span><span class="p">),</span> <span class="s">"9 : %Y年%m月%d日 %p %I時%M分%S秒"</span><span class="p">,</span> <span class="n">zt_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>1 : 2019-12-20 19:05:05.330140 JST
+2 : 2019-12-20 19:05:05 JST
+3 : 2019年12月20日 19時05分05秒
+4 : 2019/12/20 19:05:05
+5 : 2019年12月20日
+6 : 2019-12-20
+7 : 19時05分05秒
+8 : 19:05:05
+9 : 2019年12月20日 午後 07時05分05秒
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 9.0 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 9.2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

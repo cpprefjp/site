@@ -1,0 +1,310 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ラムダ式での*thisのコピーキャプチャ [P0018R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="ラムダ式での*thisのコピーキャプチャ [P0018R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ラムダ式での*thisのコピーキャプチャ [P0018R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ラムダ式での*thisのコピーキャプチャ [P0018R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/lambda_capture_of_this_by_value.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++14までラムダ式で`[this]`のようにキャプチャをすると、`this`ポインタがコピーされていた。その場合、非同期処理のような状況で、ラムダ式の関数オブジェクトが呼び出されたときに、`this`ポインタが指すオブジェクトの寿命が尽きている場合がある。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ラムダ式での*thisのコピーキャプチャ [P0018R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/lambda_capture_of_this_by_value.html" />
+        <meta name="twitter:description" content="C++14までラムダ式で`[this]`のようにキャプチャをすると、`this`ポインタがコピーされていた。その場合、非同期処理のような状況で、ラムダ式の関数オブジェクトが呼び出されたときに、`this`ポインタが指すオブジェクトの寿命が尽きている場合がある。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7f827e7ff513a751a4b2e8113bb7831d4388fa67&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;atomic&gt;\n\nstd::atomic&lt;bool&gt; is_finish;\n\nstruct F {\n  void start()\n  {\n    auto proc = [*this]() mutable {\n      // \u3066\u304d\u3068\u3046\u306a\u6642\u9593\u306e\u304b\u304b\u308b\u51e6\u7406\u3068\u3057\u3066\u3001[1, 10]\u306e\u5408\u8a08\u5024\u3092\u8a08\u7b97\n      int sum = 0;\n      for (int i = 1; i &lt;= 10; ++i) {\n        sum += i;\n      }\n\n      // \u51e6\u7406\u304c\u7d42\u4e86\u3057\u305f\u3089\u30af\u30e9\u30b9\u5185\u306e\u30e1\u30f3\u30d0\u95a2\u6570\u3092\u547c\u3073\u51fa\u3059\u3002\n      // \u3053\u306e\u6bb5\u968e\u3067*this\u304c\u6709\u52b9\u3067\u306a\u3051\u308c\u3070\u306a\u3089\u306a\u3044\n      onFinish(sum);\n    };\n\n    // \u30d0\u30c3\u30af\u30b0\u30e9\u30a6\u30f3\u30c9\u30b9\u30ec\u30c3\u30c9\u3067proc\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u5b9f\u884c\u3059\u308b\n    std::thread t(proc);\n    t.detach();\n  }\n\n  void onFinish(int sum)\n  {\n    std::cout &lt;&lt; \&#34;finished: \&#34; &lt;&lt; sum &lt;&lt; std::endl;\n    is_finish.store(true);\n  }\n};\n\nint main()\n{\n  F().start();\n\n  while (!is_finish.load()) {}\n  std::cout &lt;&lt; \&#34;exit\&#34; &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;lambda_capture_of_this_by_value&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">ラムダ式での*thisのコピーキャプチャ [P0018R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/lambda_capture_of_this_by_value.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/lambda_capture_of_this_by_value.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">ラムダ式での*thisのコピーキャプチャ [P0018R3]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++14までラムダ式で<code>[this]</code>のようにキャプチャをすると、<code>this</code>ポインタがコピーされていた。その場合、非同期処理のような状況で、ラムダ式の関数オブジェクトが呼び出されたときに、<code>this</code>ポインタが指すオブジェクトの寿命が尽きている場合がある。</p>
+<p>C++17では<code>[*this]</code>のようにキャプチャすることで、キャプチャ時点での<code>*this</code>オブジェクトをコピーできるようになった。</p>
+<p><code>[*this]</code>のキャプチャは、<code>[=, *this]</code>のようにデフォルトコピーキャプチャと併用できる。<code>[this, *this]</code>のようなキャプチャは指定できない。</p>
+<h2>備考</h2>
+<ul>
+<li><code>[*this]</code>でコピーキャプチャしたオブジェクトは、デフォルトで<code>const</code>になるので注意。<code>[this]</code>はポインタであるため書き換えができ、非<code>const</code>メンバ関数を呼び出せる。しかし、<code>[*this]</code>はオブジェクトをコピーして<code>const</code>となるため、ラムダ式に<code>mutable</code>を付けない限り、非<code>const</code>メンバ関数を呼び出せない。</li>
+<li>ラムダ式の関数オブジェクトが呼び出されたときに、<code>this</code>ポインタの寿命が尽きる場合があることが正しい状況では、依然として<code><a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a></code>のような機能を使用して、生死監視をする必要がある。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="7f827e7ff513a751a4b2e8113bb7831d4388fa67"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+
+<span class="n"><a href="../../reference/atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">is_finish</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">F</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">start</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">proc</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="k">this</span><span class="p">]()</span> <span class="k">mutable</span> <span class="p">{</span>
+      <span class="c1">// てきとうな時間のかかる処理として、[1, 10]の合計値を計算</span>
+      <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 処理が終了したらクラス内のメンバ関数を呼び出す。</span>
+      <span class="c1">// この段階で*thisが有効でなければならない</span>
+      <span class="n">onFinish</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="c1">// バックグラウンドスレッドでproc関数オブジェクトを実行する</span>
+    <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">t</span><span class="p">(</span><span class="n">proc</span><span class="p">);</span>
+    <span class="n"><a href="../../reference/thread/thread/detach.html">t.detach()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">onFinish</span><span class="p">(</span><span class="kt">int</span> <span class="n">sum</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"finished: "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/atomic/atomic/store.html">is_finish.store</a></span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">F</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../reference/atomic/atomic/load.html">is_finish.load()</a></span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"exit"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>出力</h2>
+<p><pre><code>finished: 55
+exit
+</code></pre></p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/lambda_expressions.html">C++11 ラムダ式</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0018r0.html" target="_blank">P0018R0 Lambda Capture of <code>*this</code> by Value</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0018r1.html" target="_blank">P0018R1 Lambda Capture of <code>*this</code> by Value</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0018r2.html" target="_blank">P0018R2 Lambda Capture of <code>*this</code> by Value</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0018r3.html" target="_blank">P0018R3 Lambda Capture of <code>*this</code> by Value as <code>[=,*this]</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

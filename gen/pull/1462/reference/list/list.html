@@ -1,0 +1,849 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>list - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,list,std,class template
+">
+        <meta name="title" content="list - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="list - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="list - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/list/list.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`list`は、双方向リンクリストのデータ構造をもつクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="list - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/list/list.html" />
+        <meta name="twitter:description" content="`list`は、双方向リンクリストのデータ構造をもつクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;list&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;520400c79d41722da3fe670d9a5a834cb26cea2c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;list&gt;\n#include &lt;algorithm&gt;\n\nint main ()\n{\n  std::list&lt;int&gt; ls;\n\n  // \u5148\u982d\u304b\u3089\u8981\u7d20\u3092\u8ffd\u52a0\n  ls.push_front(1);\n  ls.push_front(2);\n\n  // \u672b\u5c3e\u304b\u3089\u8981\u7d20\u3092\u8ffd\u52a0\n  ls.push_back(3);\n  ls.push_back(4);\n\n  // \u8981\u7d20\u3092\u5148\u982d\u304b\u3089\u9806\u756a\u306b\u8868\u793a\n  std::for_each(ls.cbegin(), ls.cend(), [](int x){\n    std::cout &lt;&lt; x &lt;&lt; \&#34; \&#34;;\n  });\n}\n&#34;}, {&#34;id&#34;: &#34;146d840445919b99d3e77bc716cf0b53fb904c77&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;list&gt;\n#include &lt;string&gt;\n\n//\u7c21\u6613\u306a\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u69cb\u9020\u8868\u73fe\u30af\u30e9\u30b9\nclass directory {\n\n  //\u4e0d\u5b8c\u5168\u578b\uff08\u30af\u30e9\u30b9\u5b9a\u7fa9\u5185\u3067\u306f\u305d\u306e\u30af\u30e9\u30b9\u81ea\u8eab\u306f\u4e0d\u5b8c\u5168\uff09\u3092\u8981\u7d20\u578b\u306b\u6307\u5b9a\n  std::list&lt;directory&gt; m_subdir{};\n  std::string m_name{};\n\npublic:\n\n  directory(const char* name) : m_name{name}\n  {}\n\n  //\u30b5\u30d6\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u8ffd\u52a0\n  template&lt;typename Dir&gt;\n  void add(Dir&amp;&amp; dir) {\n    m_subdir.emplace_back(std::forward&lt;Dir&gt;(dir));\n  }\n\n  //\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u540d\u53d6\u5f97\n  auto get() const -&gt; const std::string&amp; {\n    return m_name;\n  }\n\n  auto begin() const {\n    return m_subdir.begin();\n  }\n\n  auto end() const {\n    return m_subdir.end();\n  }\n};\n\n//\u30eb\u30fc\u30c8\u3088\u308a\u4e0b\u306e\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306b\u3064\u3044\u3066\u6574\u5f62\u3057\u3066\u51fa\u529b\nvoid recursive_out(const directory&amp; dir, unsigned int depth) {\n\n  if (1 &lt; depth) std::cout &lt;&lt; \&#34;| \&#34;;\n  for (auto i = depth; 2 &lt; i; --i) {\n    std::cout &lt;&lt; \&#34; \&#34;;\n  }\n  if (2 &lt; depth) std::cout &lt;&lt; \&#34; \&#34;;\n\n  std::cout &lt;&lt; \&#34;|-\&#34; &lt;&lt; dir.get() &lt;&lt; std::endl;\n\n  for (auto&amp; subdir : dir) {\n    recursive_out(subdir, depth + 1);\n  }\n}\n\n//\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u69cb\u9020\u3092\u51fa\u529b\u3059\u308b\nvoid out_directorytree(const directory&amp; dir) {\n  std::cout &lt;&lt; dir.get() &lt;&lt; std::endl;\n\n  for (auto&amp; subdir : dir) {\n    recursive_out(subdir, 1);\n  }\n}\n\nint main() {\n  directory dir{\&#34;root\&#34;};\n  dir.add(\&#34;sub1\&#34;);\n\n  directory sub2{\&#34;sub2\&#34;};\n  sub2.add(\&#34;sub2.1\&#34;);\n\n  directory sub22{\&#34;sub2.2\&#34;};\n  sub22.add(\&#34;sub2.2.1\&#34;);\n\n  sub2.add(std::move(sub22));\n\n  dir.add(std::move(sub2));\n  dir.add(\&#34;sub3\&#34;);\n\n  out_directorytree(dir);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;list&#34;, &#34;list&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/list.html" itemprop="url">
+              
+                <span itemprop="name">list</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">list</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-11T08:08:58">
+        2024年08月11日 08時08分58秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/list/list.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/list/list.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;list&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">list</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">list</span><span class="p">;</span>
+
+  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+      <span class="k">using</span> <span class="n">list</span> <span class="o">=</span> <span class="n"><a href="">std::list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>  <span class="c1">// C++17から</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>list</code>は、双方向リンクリストのデータ構造をもつクラスである。</p>
+<p>任意の位置への挿入や削除を定数時間で行う事が出来るが、高速なランダムアクセスは出来ず、常にシーケンシャルアクセスを行う必要がある。</p>
+<p>テンプレートパラメータは、以下を意味する：</p>
+<ul>
+<li><code>T</code>: 格納される要素の型、C++17以降は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>をサポートしている</li>
+<li><code>Allocator</code>: メモリ確保に使用されるアロケータの型。デフォルトでは標準の<code><a href="../memory/allocator.html">allocator</a></code>クラスが使用される。</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築／コピー／破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/assign.html">assign</a></code></td>
+<td>コンテナの再代入</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/assign_range.html">assign_range</a></code></td>
+<td>Rangeの要素を再代入</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/begin.html">begin</a></code></td>
+<td>先頭要素を指すイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/cbegin.html">cbegin</a></code></td>
+<td>先頭要素を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="list/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="list/rbegin.html">rbegin</a></code></td>
+<td>末尾を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/crbegin.html">crbegin</a></code></td>
+<td>末尾を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="list/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/empty.html">empty</a></code></td>
+<td>コンテナが空かどうかを判定する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/resize.html">resize</a></code></td>
+<td>要素数を変更する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/front.html">front</a></code></td>
+<td>先頭要素への参照を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/back.html">back</a></code></td>
+<td>末尾要素への参照を取得する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/push_front.html">push_front</a></code></td>
+<td>先頭に要素を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/emplace_front.html">emplace_front</a></code></td>
+<td>先頭への直接構築による要素追加</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="list/prepend_range.html">prepend_range</a></code></td>
+<td>先頭にRangeの要素を追加する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="list/push_back.html">push_back</a></code></td>
+<td>末尾に要素を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/emplace_back.html">emplace_back</a></code></td>
+<td>末尾への直接構築による要素追加</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="list/append_range.html">append_range</a></code></td>
+<td>末尾にRangeの要素を追加する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="list/insert.html">insert</a></code></td>
+<td>要素の挿入</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/emplace.html">emplace</a></code></td>
+<td>要素の直接構築による挿入</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="list/insert_range.html">insert_range</a></code></td>
+<td>任意の位置にRangeの要素を挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="list/pop_front.html">pop_front</a></code></td>
+<td>先頭から要素を削除</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/pop_back.html">pop_back</a></code></td>
+<td>末尾から要素を削除</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/erase.html">erase</a></code></td>
+<td>要素の削除</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/clear.html">clear</a></code></td>
+<td>全要素削除</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/swap.html">swap</a></code></td>
+<td>コンテナの交換</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>リスト操作</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/splice.html">splice</a></code></td>
+<td>他のコンテナから要素を移動する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/remove.html">remove</a></code></td>
+<td>コンテナから指定された値の要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/remove_if.html">remove_if</a></code></td>
+<td>コンテナの条件に合った要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/unique.html">unique</a></code></td>
+<td>重複した要素をコンテナから削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/merge.html">merge</a></code></td>
+<td>2つのコンテナを併合する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/sort.html">sort</a></code></td>
+<td>コンテナを並べ替える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/reverse.html">reverse</a></code></td>
+<td>コンテナを反転する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>アロケータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータオブジェクトの取得</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reference</code></td>
+<td><code>value_type&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td><code>const value_type&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>双方向イテレータ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用双方向イテレータ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>符号なし整数型(通常は<code><a href="../cstddef/size_t.html">size_t</a></code>)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>符号付き整数型(通常は<code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code>)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td><code>T</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td><code>Allocator</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td><code><a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::pointer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td><code><a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::const_pointer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td><code>std::<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;iterator&gt;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td><code>std::<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="list/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下かの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="list/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上かの判定を行う</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/swap_free.html">swap</a></code></td>
+<td>2つの<code>list</code>オブジェクトを入れ替える</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/erase_free.html">erase</a></code></td>
+<td>指定した値をもつ要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="list/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="list/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="520400c79d41722da3fe670d9a5a834cb26cea2c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::list</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls</span><span class="p">;</span>
+
+  <span class="c1">// 先頭から要素を追加</span>
+  <span class="n"><a href="list/push_front.html">ls.push_front</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="list/push_front.html">ls.push_front</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+  <span class="c1">// 末尾から要素を追加</span>
+  <span class="n"><a href="list/push_back.html">ls.push_back</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="list/push_back.html">ls.push_back</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+  <span class="c1">// 要素を先頭から順番に表示</span>
+  <span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="list/cbegin.html">ls.cbegin()</a></span><span class="p">,</span> <span class="n"><a href="list/cend.html">ls.cend()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>2 1 3 4 
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を要素にする例 (C++17)</h3>
+<p><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を要素型に出来るようになった事で、階層構造や多分木などの再帰的データ構造を実装することが容易になる。<br />
+他にも、<code><a href="../vector/vector.html">vector</a></code>と<code><a href="../forward_list/forward_list.html">forward_list</a></code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>をサポートしている。</p>
+<p><div class="yata" id="146d840445919b99d3e77bc716cf0b53fb904c77"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="c1">//簡易なディレクトリ構造表現クラス</span>
+<span class="k">class</span> <span class="nc">directory</span> <span class="p">{</span>
+
+  <span class="c1">//不完全型（クラス定義内ではそのクラス自身は不完全）を要素型に指定</span>
+  <span class="n"><span style="color:#ff0000">std::list</span></span><span class="o">&lt;</span><span class="n">directory</span><span class="o">&gt;</span> <span class="n">m_subdir</span><span class="p">{};</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">m_name</span><span class="p">{};</span>
+
+<span class="k">public</span><span class="o">:</span>
+
+  <span class="n">directory</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">m_name</span><span class="p">{</span><span class="n">name</span><span class="p">}</span>
+  <span class="p">{}</span>
+
+  <span class="c1">//サブディレクトリ追加</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Dir</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="n">Dir</span><span class="o">&amp;&amp;</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/emplace_back.html">emplace_back</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Dir</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dir</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="c1">//ディレクトリ名取得</span>
+  <span class="k">auto</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">m_name</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n"><a href="list/begin.html">begin</a></span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/begin.html">begin</a></span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n"><a href="list/end.html">end</a></span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">m_subdir</span><span class="p">.</span><span class="n"><a href="list/end.html">end</a></span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">//ルートより下のディレクトリについて整形して出力</span>
+<span class="kt">void</span> <span class="nf">recursive_out</span><span class="p">(</span><span class="k">const</span> <span class="n">directory</span><span class="o">&amp;</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">)</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"| "</span><span class="p">;</span>
+  <span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">depth</span><span class="p">;</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">)</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"|-"</span> <span class="o">&lt;&lt;</span> <span class="n">dir</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">subdir</span> <span class="p">:</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">recursive_out</span><span class="p">(</span><span class="n">subdir</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//ディレクトリ構造を出力する</span>
+<span class="kt">void</span> <span class="nf">out_directorytree</span><span class="p">(</span><span class="k">const</span> <span class="n">directory</span><span class="o">&amp;</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">dir</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../lang/cpp11/range_based_for.html">for</a></span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">subdir</span> <span class="p">:</span> <span class="n">dir</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">recursive_out</span><span class="p">(</span><span class="n">subdir</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">directory</span> <span class="n">dir</span><span class="p">{</span><span class="s">"root"</span><span class="p">};</span>
+  <span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub1"</span><span class="p">);</span>
+
+  <span class="n">directory</span> <span class="n">sub2</span><span class="p">{</span><span class="s">"sub2"</span><span class="p">};</span>
+  <span class="n">sub2</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub2.1"</span><span class="p">);</span>
+
+  <span class="n">directory</span> <span class="n">sub22</span><span class="p">{</span><span class="s">"sub2.2"</span><span class="p">};</span>
+  <span class="n">sub22</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub2.2.1"</span><span class="p">);</span>
+
+  <span class="n">sub2</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sub22</span><span class="p">));</span>
+
+  <span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sub2</span><span class="p">));</span>
+  <span class="n">dir</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"sub3"</span><span class="p">);</span>
+
+  <span class="n">out_directorytree</span><span class="p">(</span><span class="n">dir</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>root
+|-sub1
+|-sub2
+| |-sub2.1
+| |-sub2.2
+|   |-sub2.2.1
+|-sub3
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm" target="_blank">N2669 Thread-Safety in the Standard Library (Rev 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4510.html" target="_blank">N4510 Minimal incomplete type support for standard containers, revision 4</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

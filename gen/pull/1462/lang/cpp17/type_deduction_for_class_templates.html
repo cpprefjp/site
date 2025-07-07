@@ -1,0 +1,519 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>クラステンプレートのテンプレート引数推論 [P0091R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="クラステンプレートのテンプレート引数推論 [P0091R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="クラステンプレートのテンプレート引数推論 [P0091R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="クラステンプレートのテンプレート引数推論 [P0091R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/type_deduction_for_class_templates.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="コンストラクタに渡される値によって、クラステンプレートのテンプレート引数を推論する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="クラステンプレートのテンプレート引数推論 [P0091R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/type_deduction_for_class_templates.html" />
+        <meta name="twitter:description" content="コンストラクタに渡される値によって、クラステンプレートのテンプレート引数を推論する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c9e4045519200881f54e8fb5228d76c4cccbc262&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;list&gt;\n#include &lt;iterator&gt;\n\nnamespace mine {\n\n// std::vector\u3092\u30e9\u30c3\u30d7\u3057\u305f\u53ef\u5909\u9577\u914d\u5217\u30af\u30e9\u30b9\ntemplate &lt;class T&gt;\nclass MyVector {\n  std::vector&lt;T&gt; data_;\n\npublic:\n  // \u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u3067\u306f\u30af\u30e9\u30b9\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30d1\u30e9\u30e1\u30fc\u30bfT\u3092\u76f4\u63a5\u4f7f\u7528\u305b\u305a\u3001\n  // \u30a4\u30c6\u30ec\u30fc\u30bf\u7bc4\u56f2\u3067\u521d\u671f\u5316\u3059\u308b\n  template &lt;class InputIterator&gt;\n  MyVector(InputIterator first, InputIterator last)\n    : data_(first, last) {}\n\n  void print()\n  {\n    for (const T&amp; x : data_) {\n      std::cout &lt;&lt; x &lt;&lt; std::endl;\n    }\n  }\n};\n\n// \u63a8\u8ad6\u88dc\u52a9\u5ba3\u8a00\u3002\u30af\u30e9\u30b9\u304c\u6240\u5c5e\u3059\u308b\u540d\u524d\u7a7a\u9593\u306e\u3001\u30af\u30e9\u30b9\u5916\u306b\u8a18\u8ff0\u3059\u308b\u3002\n// \u30a4\u30c6\u30ec\u30fc\u30bf\u306e\u8981\u7d20\u578b\u3092MyVector\u306e\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u5f15\u6570\u3068\u3057\u3066\u4f7f\u7528\u3059\u308b\u3002\ntemplate &lt;class InputIterator&gt;\nMyVector(InputIterator, InputIterator)\n  -&gt; MyVector&lt;typename std::iterator_traits&lt;InputIterator&gt;::value_type&gt;;\n\n} // namespace mine\n\nint main()\n{\n  std::list ls = {1, 2, 3};\n\n  // \u5909\u6570v\u306e\u578b\u306fmine::MyVector&lt;int&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n  mine::MyVector v {ls.begin(), ls.end()};\n\n  v.print(); // 1, 2, 3\u304c\u9806\u306b\u51fa\u529b\u3055\u308c\u308b\n}\n&#34;}, {&#34;id&#34;: &#34;5573e9a460e758d1523027e55e4fc902f922dd53&#34;, &#34;source&#34;: &#34;#include &lt;vector&gt;\n#include &lt;array&gt;\n#include &lt;set&gt;\n#include &lt;complex&gt;\n#include &lt;functional&gt;\n#include &lt;memory&gt;\n#include &lt;utility&gt;\n#include &lt;future&gt;\n#include &lt;mutex&gt;\n\nint main()\n{\n  // \u521d\u671f\u5316\u5b50\u30ea\u30b9\u30c8\u304b\u3089\u30b3\u30f3\u30c6\u30ca\u306e\u8981\u7d20\u578b\u3092\u63a8\u8ad6\n  {\n    std::vector v = {1, 2, 3}; // std::vector&lt;int&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n    std::array ar = {4, 5, 6}; // std::array&lt;int, 3&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n    std::set s = {7, 8, 9};    // std::set&lt;int&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n  }\n\n  // \u8907\u7d20\u6570\u306e\u8981\u7d20\u578b\u3092\u63a8\u8ad6\n  {\n    std::complex c {1.0, 2.0};    // std::complex&lt;double&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n    std::complex cf {1.0f, 2.0f}; // std::complex&lt;float&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n  }\n\n  // \u95a2\u6570\u30dd\u30a4\u30f3\u30bf\u30fb\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304b\u3089std::function\u306e\u30b7\u30b0\u30cb\u30c1\u30e3\u3092\u63a8\u8ad6\n  {\n    // std::function&lt;int(int, double)&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n    std::function f = [](int, double) { return 0; };\n  }\n\n  // \u30b9\u30de\u30fc\u30c8\u30dd\u30a4\u30f3\u30bf\u306e\u578b\u63a8\u8ad6\n  {\n    // std::shared_ptr\u3068std::unique_ptr\u306f\u751f\u30dd\u30a4\u30f3\u30bf\u304b\u3089\u306e\u63a8\u8ad6\u3092\u8a31\u53ef\u3057\u306a\u3044\u3002\n    // std::shared_ptr\u304b\u3089std::weak_ptr\u3068\u305d\u306e\u9006\u306f\u63a8\u8ad6\u3067\u304d\u308b\n    std::shared_ptr&lt;int&gt; sp {new int(3)};\n    std::weak_ptr wp = sp;\n    std::shared_ptr locked_sp = wp.lock();\n  }\n\n  // std::pair\u3068std::tuple\u306e\u578b\u63a8\u8ad6\n  {\n    // std::make_pair()\u3084std::make_tuple()\u306e\u3088\u3046\u306a\u5358\u7d14\u306a\u751f\u6210\u95a2\u6570\u304c\u4e0d\u8981\u3068\u306a\u308b\u4f8b\n    std::pair p {1, \&#34;Hello\&#34;};        // std::pair&lt;int, const char*&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n    std::tuple t {1, 3.14, \&#34;Hello\&#34;}; // std::tuple&lt;int, double, const char*&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n  }\n\n  // std::lock_guard\u304c\u7ba1\u7406\u3059\u308b\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\u306e\u578b\u3092\u63a8\u8ad6\n  {\n    std::mutex mut;\n    std::lock_guard lk {mut}; // std::lock_guard&lt;std::mutex&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n  }\n\n  // promise\u304b\u3089\u53d6\u5f97\u3059\u308bfuture\u3067\u3001\u7d50\u679c\u578b\u3092\u63a8\u8ad6\n  {\n    // std::future&lt;int&gt;\u306b\u63a8\u8ad6\u3055\u308c\u308b\n    std::promise&lt;int&gt; pro;\n    std::future fut = pro.get_future();\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;7676dbac7f06ea5aeb28cccb5cc7f00d42874572&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n\nint main()\n{\n  std::vector v = {3, 1, 4};\n\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u5f15\u6570\u304c\u4f7f\u7528\u3055\u308c\u3001std::greater&lt;void&gt;{}\u3068\u306a\u308b\u3002\n  // std::greater&lt;&gt;{}\u306e\u3088\u3046\u306b\u5c71\u30ab\u30c3\u30b3\u3092\u66f8\u304f\u5fc5\u8981\u304c\u306a\u3044\n  std::sort(v.begin(), v.end(), std::greater{});\n\n  for (auto x : v) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;type_deduction_for_class_templates&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">クラステンプレートのテンプレート引数推論 [P0091R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/type_deduction_for_class_templates.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/type_deduction_for_class_templates.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">クラステンプレートのテンプレート引数推論 [P0091R3]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>コンストラクタに渡される値によって、クラステンプレートのテンプレート引数を推論する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>クラステンプレートのテンプレート引数を省略。</span>
+<span class="c1">// 初期化時に代入される初期化子リストの要素型が、<a href="../../reference/vector/vector.html">std::vector</a>の要素型となる</span>
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span> <span class="c1">// 変数vの型は<a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;</span>
+</code></pre></div>
+</p>
+<p>単純なケースでは、コンストラクタで受け取る値の型がクラスのテンプレートパラメータである場合に、クラスのテンプレート引数が推論される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+  <span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+  <span class="c1">// コンストラクタは、クラスのテンプレートパラメータT型のパラメータをとる</span>
+  <span class="n">Point</span><span class="p">(</span><span class="n">T</span> <span class="n">x_</span><span class="p">,</span> <span class="n">T</span> <span class="n">y_</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">y_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Point</span> <span class="n">p</span> <span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">3.0f</span><span class="p">};</span> <span class="c1">// 変数pの型はPoint&lt;float&gt;に推論される</span>
+  <span class="n">Point</span> <span class="n">q</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">};</span>   <span class="c1">// 変数qの型はPoint&lt;double&gt;に推論される</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>より複雑な例として、コンストラクタがクラスのテンプレートパラメータ型の値を直接受け取らない場合は、「推論補助 (deduction guide)」をクラス外に記述する。</p>
+<p><div class="yata" id="c9e4045519200881f54e8fb5228d76c4cccbc262"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">mine</span> <span class="p">{</span>
+
+<span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>をラップした可変長配列クラス</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">data_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// コンストラクタではクラステンプレートパラメータTを直接使用せず、</span>
+  <span class="c1">// イテレータ範囲で初期化する</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+  <span class="n">MyVector</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">data_</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="kt">void</span> <span class="n">print</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">data_</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 推論補助宣言。クラスが所属する名前空間の、クラス外に記述する。</span>
+<span class="c1">// イテレータの要素型をMyVectorのテンプレート引数として使用する。</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">MyVector</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span> <span class="n">InputIterator</span><span class="p">)</span>
+  <span class="o">-&gt;</span> <span class="n">MyVector</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../reference/iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="p">}</span> <span class="c1">// namespace mine</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/list/list.html">std::list</a></span> <span class="n">ls</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+
+  <span class="c1">// 変数vの型はmine::MyVector&lt;int&gt;に推論される</span>
+  <span class="n">mine</span><span class="o">::</span><span class="n">MyVector</span> <span class="n">v</span> <span class="p">{</span><span class="n">ls</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">ls</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
+
+  <span class="n">v</span><span class="p">.</span><span class="n">print</span><span class="p">();</span> <span class="c1">// 1, 2, 3が順に出力される</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>コンストラクタのパラメータ型から、直接あるいは間接的にクラステンプレートの引数を求められない場合は、推論できない。</p>
+<h2>仕様</h2>
+<ul>
+<li>クラステンプレートのコンストラクタが、パラメータにクラスのテンプレートパラメータをとる場合、コンストラクタの引数からクラステンプレートのテンプレート引数を推論できる</li>
+<li>
+<p>クラスのテンプレート引数を推論できる場合、そのクラステンプレートを使用するユーザーコードは、テンプレート引数を省略できる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">AnyValue</span> <span class="p">{</span>
+  <span class="n">T</span> <span class="n">x</span><span class="p">;</span>
+
+  <span class="c1">// コンストラクタがパラメータとして</span>
+  <span class="c1">// クラステンプレートのテンプレートパラメータ型の</span>
+  <span class="c1">// オブジェクトを受け取る。</span>
+  <span class="c1">// この状況では、コンストラクタの引数からクラスの</span>
+  <span class="c1">// テンプレート引数を推論できる</span>
+  <span class="n">AnyValue</span><span class="p">(</span><span class="n">T</span> <span class="n">x_</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="n">AnyValue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="p">{</span><span class="mi">3</span><span class="p">};</span> <span class="c1">// 型推論しない従来の書き方</span>
+<span class="n">AnyValue</span> <span class="n">w</span> <span class="p">{</span><span class="mi">3</span><span class="p">};</span>      <span class="c1">// 型推論してテンプレート引数を省略。wの型はAnyValue&lt;int&gt;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>テンプレート引数を省略したクラステンプレート名は、プレースホルダーとして扱われる。型推論の結果として、テンプレート引数を補完した完全な型名に置き換えられる</p>
+</li>
+<li>
+<p>コンストラクタのパラメータ型からクラステンプレート引数を直接推論できない場合、「推論補助 (deduction guide)」を宣言する。推論補助は、クラス外のクラスと同じスコープ、同じアクセス修飾内に宣言する。構文は、以下のようになる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="err">クラステンプレート名</span><span class="p">(</span><span class="err">パラメータリスト</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="err">クラステンプレート名</span><span class="o">&lt;</span><span class="err">テンプレート引数</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// -&gt; のうしろは、推論結果としての完全な型名</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>推論補助宣言は、パラメータにデフォルト引数を持ってはならない</p>
+</li>
+<li>同じ翻訳単位に2つの推論補助がある場合、それらの推論補助は、同じパラメータリストを持ってはならない</li>
+<li>推論補助には、先頭に<code>explicit</code>を任意に付けられる。しかし、<code>noexcept</code>や属性といった修飾は付けられない</li>
+<li>コンストラクタの引数を、コンストラクタに渡される前の状態 (配列からポインタへの変換などが行われる前の状態) で推論補助に転送したとして推論が行われる。そのため、推論補助はクラスのコンストラクタと同一のシグニチャである必要はない</li>
+<li>この機能にともなって、デフォルトテンプレート引数のみを持つクラステンプレートは、インスタンス化時に山カッコを省略できる
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="o">=</span><span class="kt">int</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+
+<span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">{};</span> <span class="c1">// X&lt;&gt;{}; と書く必要がない</span>
+</code></pre></div>
+</li>
+</ul>
+<h2>例</h2>
+<h3>標準ライブラリでの使用例</h3>
+<p><div class="yata" id="5573e9a460e758d1523027e55e4fc902f922dd53"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/set.html">&lt;set&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/complex.html">&lt;complex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/future.html">&lt;future&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 初期化子リストからコンテナの要素型を推論</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span> <span class="c1">// <a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;に推論される</span>
+    <span class="n"><a href="../../reference/array/array.html">std::array</a></span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span> <span class="c1">// <a href="../../reference/array/array.html">std::array</a>&lt;int, 3&gt;に推論される</span>
+    <span class="n"><a href="../../reference/set/set.html">std::set</a></span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>    <span class="c1">// <a href="../../reference/set/set.html">std::set</a>&lt;int&gt;に推論される</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 複素数の要素型を推論</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span> <span class="n">c</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">};</span>    <span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;double&gt;に推論される</span>
+    <span class="n"><a href="../../reference/complex/complex.html">std::complex</a></span> <span class="n">cf</span> <span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">};</span> <span class="c1">// <a href="../../reference/complex/complex.html">std::complex</a>&lt;float&gt;に推論される</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 関数ポインタ・関数オブジェクトから<a href="../../reference/functional/function.html">std::function</a>のシグニチャを推論</span>
+  <span class="p">{</span>
+    <span class="c1">// <a href="../../reference/functional/function.html">std::function</a>&lt;int(int, double)&gt;に推論される</span>
+    <span class="n"><a href="../../reference/functional/function.html">std::function</a></span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="c1">// スマートポインタの型推論</span>
+  <span class="p">{</span>
+    <span class="c1">// <a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a>と<a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a>は生ポインタからの推論を許可しない。</span>
+    <span class="c1">// <a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a>から<a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a>とその逆は推論できる</span>
+    <span class="n"><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sp</span> <span class="p">{</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)};</span>
+    <span class="n"><a href="../../reference/memory/weak_ptr.html">std::weak_ptr</a></span> <span class="n">wp</span> <span class="o">=</span> <span class="n">sp</span><span class="p">;</span>
+    <span class="n"><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></span> <span class="n">locked_sp</span> <span class="o">=</span> <span class="n"><a href="../../reference/memory/weak_ptr/lock.html">wp.lock()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// <a href="../../reference/utility/pair.html">std::pair</a>と<a href="../../reference/tuple/tuple.html">std::tuple</a>の型推論</span>
+  <span class="p">{</span>
+    <span class="c1">// <a href="../../reference/utility/make_pair.html">std::make_pair</a>()や<a href="../../reference/tuple/make_tuple.html">std::make_tuple</a>()のような単純な生成関数が不要となる例</span>
+    <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span> <span class="n">p</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">};</span>        <span class="c1">// <a href="../../reference/utility/pair.html">std::pair</a>&lt;int, const char*&gt;に推論される</span>
+    <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span> <span class="n">t</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">};</span> <span class="c1">// <a href="../../reference/tuple/tuple.html">std::tuple</a>&lt;int, double, const char*&gt;に推論される</span>
+  <span class="p">}</span>
+
+  <span class="c1">// <a href="../../reference/mutex/lock_guard.html">std::lock_guard</a>が管理するミューテックスの型を推論</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mut</span><span class="p">;</span>
+    <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span> <span class="p">{</span><span class="n">mut</span><span class="p">};</span> <span class="c1">// <a href="../../reference/mutex/lock_guard.html">std::lock_guard</a>&lt;<a href="../../reference/mutex/mutex.html">std::mutex</a>&gt;に推論される</span>
+  <span class="p">}</span>
+
+  <span class="c1">// promiseから取得するfutureで、結果型を推論</span>
+  <span class="p">{</span>
+    <span class="c1">// <a href="../../reference/future/future.html">std::future</a>&lt;int&gt;に推論される</span>
+    <span class="n"><a href="../../reference/future/promise.html">std::promise</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pro</span><span class="p">;</span>
+    <span class="n"><a href="../../reference/future/future.html">std::future</a></span> <span class="n">fut</span> <span class="o">=</span> <span class="n"><a href="../../reference/future/promise/get_future.html">pro.get_future()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>クラステンプレートの型推論を回避する例</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// C++20 で追加された std::type_identity と同じことをするクラス</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n"><a href="../../reference/functional/identity.html">identity</a></span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">T_</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../../reference/functional/identity.html">identity</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+
+  <span class="c1">// テンプレートパラメータを直接使用せず、<a href="../../reference/functional/identity.html">identity</a>を介して使用する。</span>
+  <span class="c1">// これによって、テンプレート引数を明示的に指定させられる</span>
+  <span class="n">X</span><span class="p">(</span><span class="n">T_</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="c1">//X x{1};      // コンパイルエラー！テンプレート引数を推論できない</span>
+  <span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span> <span class="c1">// OK</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>デフォルトテンプレート引数のみを持つクラステンプレートの使用例</h3>
+<p><div class="yata" id="7676dbac7f06ea5aeb28cccb5cc7f00d42874572"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+
+  <span class="c1">// デフォルトテンプレート引数が使用され、<a href="../../reference/functional/greater.html">std::greater</a>&lt;void&gt;{}となる。</span>
+  <span class="c1">// <a href="../../reference/functional/greater.html">std::greater</a>&lt;&gt;{}のように山カッコを書く必要がない</span>
+  <span class="n"><a href="../../reference/algorithm/sort.html">std::sort</a></span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../reference/vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../../reference/functional/greater.html">std::greater</a></span><span class="p">{});</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>4
+3
+1
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>この機能は、以下のような問題を解決するために導入された：</p>
+<ul>
+<li><code>make_*()</code>のような生成関数は、冗長で、かつ標準ライブラリの非クラステンプレートの構築方法と一貫性がなかった</li>
+<li>生成関数の設計が標準ライブラリ内で一貫しておらず、<code><a href="../../reference/utility/make_pair.html">std::make_pair()</a></code>や<code><a href="../../reference/tuple/make_tuple.html">make_tuple()</a></code>といった<code>make_</code>接頭辞が付く場合もあれば、<code><a href="../../reference/iterator/back_insert_iterator.html">std::back_insert_iterator</a></code>に対する<code><a href="../../reference/iterator/back_inserter.html">std::back_inserter()</a></code>関数のように、<code>make_</code>接頭辞が付かない場合があった。そのために、ユーザーは生成関数の細かな違いをドキュメントで調べながら使用する必要があった</li>
+<li>関数テンプレートでは引数の型からテンプレートパラメータの型を推論できるにも関わらず、クラステンプレートのコンストラクタでは<code>pair&lt;int, double&gt;(2, 4.5)</code>の<code>&lt;int, double&gt;</code>のように冗長な指定をする必要があった</li>
+<li>生成関数は、単に引数の型を推論するだけではない場合があった。例として、<code><a href="../../reference/utility/make_pair.html">std::make_pair()</a></code>や<code><a href="../../reference/tuple/make_tuple.html">make_tuple()</a></code>といった関数は、型が<code><a href="../../reference/functional/reference_wrapper.html">std::reference_wrapper&lt;T&gt;</a></code>であった場合に、それを<code>T&amp;</code>に展開する機能がある。単に引数の型を推論するだけの生成関数なのか、より複雑なことをする生成関数なのかをドキュメントで調査する必要があり、そうしない場合に予期せぬバグが発生することがあった</li>
+<li>生成関数を持たない場合、たとえばラムダ式を使用する際に、その型を記述できない問題があった</li>
+<li><code><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></code>のようにコピーもムーブもできない型は、生成関数を作るために「<a href="guaranteed_copy_elision.html">コピー省略</a>」のような難解な機能を使用する必要があった</li>
+<li>循環的な複雑さ (Cyclomatic complexity) を軽減するために大きな関数をクラスで置き換える便利な手法が、関数テンプレートでは使用できなかった</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../../reference/utility/pair/op_deduction_guide.html"><code>std::pair</code>の推論補助</a></li>
+<li><a href="../../reference/tuple/tuple/op_deduction_guide.html"><code>std::tuple</code>の推論補助</a><ul>
+<li><code>std::pair</code>と<code>std::tuple</code>の推論補助の例からは、<code><a href="../../reference/utility/make_pair.html">std::make_pair()</a></code>のような生成関数の必要性が薄くなることと、標準ライブラリ内の生成関数と推論補助で、小さな機能的差異があることがわかる</li>
+</ul>
+</li>
+<li><a href="../../reference/memory/shared_ptr/op_deduction_guide.html"><code>std::shared_ptr</code>の推論補助</a><ul>
+<li><code>std::shared_ptr</code>は、生ポインタからの推論を許可しない。<code>std::shared_ptr</code>には単一要素版と配列版があるが、生ポインタの値と型からは、どちらに振り分けるべきかが定まらないためである</li>
+</ul>
+</li>
+<li><a href="../../reference/array/array/op_deduction_guide.html"><code>std::array</code>の推論補助</a><ul>
+<li><code>std::array</code>の推論補助からは、非トリビアルなコンストラクタを持たないクラステンプレートであっても、推論補助を定義できることがわかる。ただし、配列の要素型を推論するためには、推論しない場合とは違った制限が必要となる</li>
+</ul>
+</li>
+<li><a href="../cpp20/class_template_argument_deduction_for_aggregates.html">C++20 集成体クラステンプレートのテンプレート引数推論</a></li>
+<li><a href="../cpp20/class_template_argument_deduction_for_alias_templates.html">C++20 エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論</a></li>
+<li><a href="../cpp23/class_template_argument_deduction_from_inherited.html">C++23 継承コンストラクタからのクラステンプレート引数の推論</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0091r3.html" target="_blank">P0091R3 Template argument deduction for class templates (Rev. 6)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0620r0.html" target="_blank">P0620R0 Drafting for class template argument deduction issues</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2981" target="_blank">LWG Issue 2981. Remove redundant deduction guides from standard library</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0702r1.html" target="_blank">P0702R1 Language support for Constructor Template Argument Deduction</a></li>
+<li><a href="https://raw.githubusercontent.com/CppCon/CppCon2017/master/Presentations/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction/Class%20Template%20Argument%20Deduction%20-%20A%20New%20Abstraction%20-%20Zhihao%20Yuan%20-%20CppCon%202017.pdf" target="_blank">Class Template Argument Deduction - A New Abstraction - Zhihao Yuan - CppCon 2017</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,353 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>数値リテラルの桁区切り文字 [N3781] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp14
+">
+        <meta name="title" content="数値リテラルの桁区切り文字 [N3781] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="数値リテラルの桁区切り文字 [N3781] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="数値リテラルの桁区切り文字 [N3781] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp14/digit_separators.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="整数リテラルと浮動小数点数リテラルには、途中にシングルクォーテーション(`&#39;`)を入力することで、値を読みやすくできる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="数値リテラルの桁区切り文字 [N3781] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp14/digit_separators.html" />
+        <meta name="twitter:description" content="整数リテラルと浮動小数点数リテラルには、途中にシングルクォーテーション(`&#39;`)を入力することで、値を読みやすくできる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp14&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0baa7461a40b83db5bb6bf7ebef58aece4315e89&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;limits&gt;\n\nint main()\n{\n  int decimal_value = 123&#39;456;\n  std::cout &lt;&lt; decimal_value &lt;&lt; std::endl;\n\n  int octal_value = 0123&#39;456;\n  std::cout &lt;&lt; octal_value &lt;&lt; std::endl;\n\n  int hex_value = 0x12&#39;34&#39;56;\n  std::cout &lt;&lt; hex_value &lt;&lt; std::endl;\n\n  int binary_value = 0b1010&#39;1010;\n  std::cout &lt;&lt; binary_value &lt;&lt; std::endl;\n\n  double floating_point_value = 12&#39;345.678&#39;901;\n  std::cout.precision(std::numeric_limits&lt;double&gt;::max_digits10);\n  std::cout &lt;&lt; floating_point_value &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp14&#34;, &#34;digit_separators&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp14.html" itemprop="url">
+              
+                <span itemprop="name">C++14</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">数値リテラルの桁区切り文字 [N3781]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-01-28T06:46:42">
+        2025年01月28日 06時46分42秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp14/digit_separators.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp14/digit_separators.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">数値リテラルの桁区切り文字 [N3781]</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++14に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>整数リテラルと浮動小数点数リテラルには、途中にシングルクォーテーション(<code>'</code>)を入力することで、値を読みやすくできる。</p>
+<p>日本を含む多くの国では、数値を3桁区切りする傾向がある。たとえば、「100万円」を表す場合、<code>0</code>を6個入力する必要があるが、<code>1000000</code>という数値を見て、即座に<code>0</code>の数が6個あることを認識するのは難しい。そういった状況では、「1,000,000円」のように3桁ごとにカンマで区切ることで、数値を読みやすくする工夫が行われる。</p>
+<p>C++においては、桁区切り文字としてシングルクォーテーションを使用する。これを使用して「100万円」を入力すると、以下のようになる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">price</span> <span class="o">=</span> <span class="mi">1</span><span class="err">'</span><span class="mo">000</span><span class="err">'</span><span class="mo">000</span><span class="p">;</span> <span class="c1">// 100万円</span>
+</code></pre></div>
+</p>
+<p>また、2進数を入力する場合には、4桁で区切ることで読みやすくできる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">binary_value</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1000</span><span class="err">'</span><span class="mi">1111</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>桁区切り文字は、数値を読みやすくするためだけにあり、それによる値への影響はない。</p>
+<h2>仕様</h2>
+<ul>
+<li>桁区切り文字(digit separators)は、数値リテラルの読みやすさを向上させるため導入された、数値リテラルの間に挿入することを許可された特殊な文字である</li>
+<li>桁区切り文字には、シングルクォーテーション(<code>'</code>)を使用する</li>
+<li>桁区切り文字は、整数リテラルと浮動小数点数リテラルに対して使用できる</li>
+<li>桁区切り文字は、数字並びの先頭や末尾に配置したり、2個以上を連続して配置することはできない</li>
+<li>浮動小数点数リテラルでは、小数部や指数部にも桁区切り文字を配置できる</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="0baa7461a40b83db5bb6bf7ebef58aece4315e89"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">decimal_value</span> <span class="o">=</span> <span class="mi">123</span><span class="err">'</span><span class="mi">456</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">decimal_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="n">octal_value</span> <span class="o">=</span> <span class="mo">0123</span><span class="err">'</span><span class="mi">456</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">octal_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="n">hex_value</span> <span class="o">=</span> <span class="mh">0x12</span><span class="err">'</span><span class="mi">34</span><span class="err">'</span><span class="mi">56</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">hex_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="n">binary_value</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1010</span><span class="err">'</span><span class="mi">1010</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">binary_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="kt">double</span> <span class="n">floating_point_value</span> <span class="o">=</span> <span class="mi">12</span><span class="err">'</span><span class="mf">345.678</span><span class="err">'</span><span class="mi">901</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../../reference/ios/ios_base/precision.html">precision</a></span><span class="p">(</span><span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/max_digits10.html">max_digits10</a></span><span class="p">);</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">floating_point_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>123456
+42798
+1193046
+170
+12345.678900999999
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>数値の読みにくさについて、以下のような問題があった：</p>
+<ul>
+<li><code>7237498123</code>のような長い値を発音することが難しい</li>
+<li>2つの値<code>237498123</code>と<code>237499123</code>が等しいか比較することが難しい</li>
+<li>2つの値<code>237499123</code>と<code>20249472</code>のどちらが大きいか判断することが難しい</li>
+</ul>
+<p>このような問題に対しては、執筆、活版印刷といった分野において、古くから桁区切り文字(digit separators)による解決が行われてきた。桁区切り文字を使用すれば、先ほどの3つの問題は解決できる：</p>
+<ul>
+<li>値<code>7,237,498,123</code>を発音してみよう</li>
+<li>2つの値<code>237,498,123</code>と<code>237,499,123</code>が等しいか比較してみよう</li>
+<li>2つの値<code>237,499,123</code>と<code>20,249,472</code>のどちらが大きいか確認してみよう</li>
+</ul>
+<p>C++においては、構文の互換性を極力維持するために、複数ある桁区切り文字の選択肢の中から、シングルクォーテーション(<code>'</code>)が採用された。これは、上付きカンマと見なせる。</p>
+<h2>検討されたほかの選択肢</h2>
+<h3>カンマ</h3>
+<p>桁区切り文字のために、真っ先に検討されたのはカンマ(<code>,</code>)である。しかしカンマには、配列リテラルの互換性を破壊する問題がある。たとえば、C++11まで有効だった、<code>123</code>、<code>456</code>を要素とする配列定義の以下の式が、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">};</span> <span class="c1">// スペースを空けずに複数個の要素を記述</span>
+</code></pre></div>
+</p>
+<p>カンマを桁区切り文字として採用すると、値<code>123456</code>を唯一の要素とする配列の定義になってしまう。</p>
+<h3>アンダースコア</h3>
+<p>アンダースコアは、Perl、Ruby、Java 7、Adaといった多くの言語で、桁区切り文字として採用されている。これは文化的な互換性として非常に有力な候補となった。しかし、C++11で導入された<a href="../cpp11/user_defined_literals.html">ユーザー定義リテラル</a>は、アンダースコアを先頭としたリテラル演算子の定義を許可していたために、アンダースコアを桁区切り文字として採用すると、その互換性が破壊されてしまう。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="k">operator</span><span class="s">""</span> <span class="n">_456</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">123</span><span class="n">_456</span><span class="p">;</span> <span class="c1">// 値123を表すリテラル</span>
+</code></pre></div>
+</p>
+<p>C++14という言語バージョンは、C++11の仕様に対するバグ修正を主な目的としている。上記のような数値を含むリテラル演算子を仕様のバグとして、これを許可しない規定を追加することも検討されたが、採用はされなかった。</p>
+<h3>それ以外の選択肢</h3>
+<p>カンマとアンダースコアは互換性を破壊してしまうため、そのほかの以下のような選択肢が検討された：</p>
+<ul>
+<li>スペース <code>1 048 576</code></li>
+<li>グレイヴ・アクセント(バッククォート) <code>1`048`576</code></li>
+<li>シングルクォーテーション <code>1'048'576</code></li>
+<li>ダブルアンダースコア <code>1__048__576</code></li>
+<li>スコープ解決演算子 <code>1::048::576</code></li>
+<li>ダブル小数点 <code>1..048..576</code></li>
+<li>バックスラッシュ <code>1\048\576</code></li>
+</ul>
+<p>これらが検討された上で、上付きカンマと見なせるシングルクォーテーション(<code>'</code>)が採用された。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="binary_literals.html">C++14 2進数リテラル</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3499.html" target="_blank">N3499 Digit Separators</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3661.html" target="_blank">N3661 Digit Separators</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3781.pdf" target="_blank">N3781 Single-Quotation-Mark as a Digit Separator</a></li>
+</ul>
+<p>他言語の桁区切り文字：</p>
+<ul>
+<li>Perl : <a href="http://www.perlmonks.org/?node=72112" target="_blank">Underscores in numbers</a></li>
+<li>Ruby : <a href="http://www.rubylife.jp/ini/num/index2.html" target="_blank">アンダーバーによる数値の区切り</a></li>
+<li>Java 7 : <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html" target="_blank">Underscores in Numeric Literals</a></li>
+<li>Ada : <a href="http://archive.adaic.com/standards/83lrm/html/lrm-02-04.html#2.4" target="_blank">Ada '83 Language Reference Manual</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

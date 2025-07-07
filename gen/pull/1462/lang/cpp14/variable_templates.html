@@ -1,0 +1,354 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>変数テンプレート [N3651] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp14
+">
+        <meta name="title" content="変数テンプレート [N3651] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="変数テンプレート [N3651] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="変数テンプレート [N3651] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp14/variable_templates.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="変数定義時のテンプレート指定を可能にする。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="変数テンプレート [N3651] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp14/variable_templates.html" />
+        <meta name="twitter:description" content="変数定義時のテンプレート指定を可能にする。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp14&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c8d434d58b36e585232946f322a26bb35059c1ce&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n\nint main()\n{\n  if (std::is_integral&lt;int&gt;::value) {}\n  if (std::is_integral&lt;int&gt;()) {}\n}\n&#34;}, {&#34;id&#34;: &#34;db0b236f2fe40c53ceb70cb9ef3931de9ff35497&#34;, &#34;source&#34;: &#34;template &lt;class T&gt;\nconstexpr bool is_integral_v = false;\n\ntemplate &lt;&gt;\nconstexpr bool is_integral_v&lt;int&gt; = true;\n\n// \u4ee5\u4e0b\u306e\u3088\u3046\u306b\u30e9\u30c3\u30d1\u30fc\u3068\u3057\u3066\u5b9a\u7fa9\u3057\u3066\u3082\u3088\u3044\n// #include &lt;type_traits&gt;\n// template &lt;class T&gt;\n// constexpr bool is_integral_v = std::is_integral&lt;int&gt;::value;\n\nint main()\n{\n  if (is_integral_v&lt;int&gt;) {}\n}\n&#34;}, {&#34;id&#34;: &#34;f2ad02f685d2928090b8b191512cacd4beb8cb60&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iomanip&gt;\n#include &lt;limits&gt;\n\n// \u30cd\u30a4\u30d4\u30a2\u6570: http://www.wolframalpha.com/input/?i=Napier%27s%20constant\ntemplate &lt; typename T = float &gt;\nconstexpr auto napier = static_cast&lt;T&gt;( 2.718&#39;281&#39;828&#39;459&#39;045&#39;235&#39;360&#39;287&#39;471&#39;352&#39;662&#39;497&#39;757&#39;247&#39;093&#39;699&#39;959&#39;5L );\n\ntemplate &lt;class FloatingPoint&gt;\nconstexpr int precision = std::numeric_limits&lt;FloatingPoint&gt;::max_digits10;\n\nauto main() -&gt; int\n{\n  std::cout\n    &lt;&lt; std::setprecision(precision&lt;float&gt;)       &lt;&lt; napier&lt;&gt;            &lt;&lt; \&#34;\\n\&#34;\n    &lt;&lt; std::setprecision(precision&lt;double&gt;)      &lt;&lt; napier&lt;double&gt;      &lt;&lt; \&#34;\\n\&#34;\n    &lt;&lt; std::setprecision(precision&lt;long double&gt;) &lt;&lt; napier&lt;long double&gt; &lt;&lt; \&#34;\\n\&#34;\n    &lt;&lt; \&#34;2.7182818284590452353602874713526624977572470936999595\&#34; &lt;&lt; std::endl\n    ;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp14&#34;, &#34;variable_templates&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp14.html" itemprop="url">
+              
+                <span itemprop="name">C++14</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">変数テンプレート [N3651]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp14/variable_templates.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp14/variable_templates.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">変数テンプレート [N3651]</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++14に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>変数定義時のテンプレート指定を可能にする。</p>
+<p>C++11までは、関数、クラス、型の別名をテンプレートで定義できた。C++14からは、変数もテンプレートで定義できるようになった。これにより、型もしくは整数値をパラメータにとり、そのパラメータの組み合わせごとに変数の値を保持できるようになった。</p>
+<p>これはたとえば、円周率πの値を、数値型ごとの有効桁数で取得するために使用できる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">T</span> <span class="n">pi</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159265358979323846</span><span class="p">);</span>
+
+<span class="c1">// 円の面積を求める</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">area_of_circle_with_radius</span><span class="p">(</span><span class="n">T</span> <span class="n">r</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>従来であれば、このような目的には、関数テンプレートが使用されていた。型<code>T</code>の円周率を返す関数<code>pi()</code>を定義すればよかった。しかし、多倍長整数のように、コピーのコストが高いものについては、関数テンプレートよりも、変数テンプレートを使用した方が効率がよくなる。</p>
+<p>そのほかの用途としては、関数呼び出しの丸カッコを省略できるため、2文字ではあるがより短いコードを書けるようにできる、というものもある。たとえば、型<code>T</code>が整数型か判定する<code><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></code>型特性は、以下のように、<code>::value</code>を付けるか、クラスのインスタンスを作成して<code>bool</code>への変換演算子を呼び出す必要がある：</p>
+<p><div class="yata" id="c8d434d58b36e585232946f322a26bb35059c1ce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>変数テンプレートを使用することで、以下のように記述できる：</p>
+<p><div class="yata" id="db0b236f2fe40c53ceb70cb9ef3931de9ff35497"><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_integral_v</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;&gt;</span>
+<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_integral_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="c1">// 以下のようにラッパーとして定義してもよい</span>
+<span class="c1">// #include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="c1">// template &lt;class T&gt;</span>
+<span class="c1">// constexpr bool is_integral_v = <a href="../../reference/type_traits/is_integral.html">std::is_integral</a>&lt;int&gt;::value;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>仕様</h2>
+<p>C++14より前の規格でも使用できた関数テンプレートを変数にも適用可能に拡張した仕様である。</p>
+<p>言語規格から変数テンプレートについて明記されている仕様を、以下に整理する。</p>
+<p>これらは全て、関数、クラス、型の別名のテンプレートについての定義と同様である。</p>
+<ul>
+<li><code>constexpr</code>を適用できる。（§7.1.5 The constexpr specifier）</li>
+<li>変数の宣言でテンプレートを宣言できる。（§14 Templates）</li>
+<li>クラススコープにおける変数テンプレートは静的メンバ変数テンプレートとなる。（§14 Templates）</li>
+<li>翻訳単位ごとにインスタンス化される。（§14 Templates）</li>
+<li>必要に応じて暗黙的にインスタンス化される。（§14.7.1 Implicit instantiation）</li>
+<li>明示的なインスタンス化が可能。（§14.7.2 Explicit instantiation）</li>
+<li>デフォルトテンプレート引数は使用される文脈により暗黙的に使用される。（§14.7.1 Implicit instantiation）</li>
+<li>テンプレート変数のインスタンス化は名前空間へ行われる。（§14.7.1 Implicit instantiation, §14.7.2 Explicit instantiation）</li>
+<li>テンプレート変数の宣言は明示的なインスタンス化よりも前に行わなければならない。（§14.7.2 Explicit instantiation）</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="f2ad02f685d2928090b8b191512cacd4beb8cb60"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// ネイピア数: http://www.wolframalpha.com/input/?i=Napier%27s%20constant</span>
+<span class="n"><span style="color:#ff0000">template &lt; typename T = float &gt;</span></span>
+<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">napier</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span> <span class="mf">2.718</span><span class="err">'</span><span class="mi">281</span><span class="err">'</span><span class="mi">828</span><span class="err">'</span><span class="mi">459</span><span class="err">'</span><span class="mo">045</span><span class="err">'</span><span class="mi">235</span><span class="err">'</span><span class="mi">360</span><span class="err">'</span><span class="mi">287</span><span class="err">'</span><span class="mi">471</span><span class="err">'</span><span class="mi">352</span><span class="err">'</span><span class="mi">662</span><span class="err">'</span><span class="mi">497</span><span class="err">'</span><span class="mi">757</span><span class="err">'</span><span class="mi">247</span><span class="err">'</span><span class="mi">093</span><span class="err">'</span><span class="mi">699</span><span class="err">'</span><span class="mi">959</span><span class="err">'</span><span class="mi">5L</span> <span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">FloatingPoint</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">precision</span> <span class="o">=</span> <span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">FloatingPoint</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/max_digits10.html">max_digits10</a></span><span class="p">;</span>
+
+<span class="k">auto</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
+    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">)</span>       <span class="o">&lt;&lt;</span> <span class="n">napier</span><span class="o">&lt;&gt;</span>            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span>      <span class="o">&lt;&lt;</span> <span class="n">napier</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span>      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+    <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/iomanip/setprecision.html">std::setprecision</a></span><span class="p">(</span><span class="n">precision</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">napier</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+    <span class="o">&lt;&lt;</span> <span class="s">"2.7182818284590452353602874713526624977572470936999595"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span>
+    <span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>2.71828175
+2.7182818284590451
+2.71828182845904523543
+2.7182818284590452353602874713526624977572470936999595
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<ul>
+<li>型をパラメーター化された定数値を簡単に扱いたい。（N3651）</li>
+<li><code>constexpr</code>でそのような定数値を扱いたい。（N3651）</li>
+<li>C++11規格の範囲内でも対応は出来たが煩雑で扱い難い方法を取る必要があるため簡潔に扱えるようにしたい。（N3651）</li>
+</ul>
+<h2>検討されたほかの選択肢</h2>
+<ul>
+<li><code>const</code>または<code>constexpr</code>と組み合わせて用いる提案があったが、ワーキンググループの多数意見によりC++14の対象では制限しない事にした。（N3651）</li>
+<li>テンプレートテンプレートについても提案があったが、ワーキンググループで複数の不要論がありC++14では含めない事にした。（N3651）</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/constexpr.html">C++11 <code>constexpr</code></a></li>
+<li><a href="../cpp17/allow_default_template_arguments_of_variable_templates.html">C++17 変数テンプレートのデフォルトテンプレート引数を許可</a></li>
+<li><a href="../cpp23/generalized_wording_for_partial_specializations.html">C++23 変数テンプレートの部分特殊化を許可</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://open-std.org/JTC1/SC22/WG21/docs/papers/2013/n3651.pdf" target="_blank">N3651 Variable Templates (Revision 1)</a></li>
+<li><a href="https://isocpp.org/blog/2013/04/trip-report-iso-c-spring-2013-meeting" target="_blank">Trip Report: ISO C++ Spring 2013 Meeting</a></li>
+<li><a href="http://faithandbrave.hateblo.jp/entry/2014/01/21/162701" target="_blank">変数テンプレートをラムダ式でキャプチャするときの注意 - Faith and Brave - C++で遊ぼう</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

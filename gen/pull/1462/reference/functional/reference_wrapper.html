@@ -1,0 +1,495 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>reference_wrapper - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional,std,class template,cpp11
+">
+        <meta name="title" content="reference_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="reference_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="reference_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/functional/reference_wrapper.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`reference_wrapper`は、コピー・代入可能なオブジェクトとして持ちまわれる参照オブジェクトを提供する。コピー不可なクラス (例：`std::istream`) をポインタで保持する代わりに`reference_wrapper`で保持することができる。また、`reference_wrapper`クラスは、関数テンプレートに変数を参照として渡すためにも使用できる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="reference_wrapper - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional/reference_wrapper.html" />
+        <meta name="twitter:description" content="`reference_wrapper`は、コピー・代入可能なオブジェクトとして持ちまわれる参照オブジェクトを提供する。コピー不可なクラス (例：`std::istream`) をポインタで保持する代わりに`reference_wrapper`で保持することができる。また、`reference_wrapper`クラスは、関数テンプレートに変数を参照として渡すためにも使用できる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;functional&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6384e867acb067597db7663e4916950a053bbb13&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;functional&gt;\n\nvoid f(int&amp; x)\n{\n  ++x;\n}\n\ntemplate &lt;class T&gt;\nvoid g(T x)\n{\n  f(x);\n}\n\nint main()\n{\n  int x = 3;\n\n  // \u95a2\u6570\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u306e\u578b\u63a8\u8ad6\u306b\u3088\u3063\u3066\u3001x\u306e\u578b\u304c\u975e\u53c2\u7167\u306eint\u3068\u898b\u306a\u3055\u308c\u308b\n//g(x);\n\n  // \u95a2\u6570\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u306b\u5909\u6570\u3092\u53c2\u7167\u3068\u3057\u3066\u6e21\u3059\n  g(std::ref(x));\n\n  std::cout &lt;&lt; x &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;428b0728aec00d3a0840f819f16279211bc77d17&#34;, &#34;source&#34;: &#34;#include &lt;functional&gt;\n#include &lt;iostream&gt;\n\nstruct my_struct;\nmy_struct&amp; get_my_struct();\n\nint main()\n{\n  [[maybe_unused]]\n  std::reference_wrapper&lt;my_struct&gt; s = get_my_struct(); // \u4e0d\u5b8c\u5168\u578b my_struct \u306e\u4f7f\u7528\n}\n\nstruct my_struct\n{\n  void hello() { std::cout &lt;&lt; \&#34;Hello, world!\&#34;; }\n};\n\nmy_struct&amp; get_my_struct()\n{\n  static my_struct obj = my_struct{};\n  return obj;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;functional&#34;, &#34;reference_wrapper&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/functional.html" itemprop="url">
+              
+                <span itemprop="name">functional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">reference_wrapper</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-09-17T09:19:37">
+        2024年09月17日 09時19分37秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/functional/reference_wrapper.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/functional/reference_wrapper.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">reference_wrapper</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">reference_wrapper</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>reference_wrapper</code>は、コピー・代入可能なオブジェクトとして持ちまわれる参照オブジェクトを提供する。コピー不可なクラス (例：<code>std::istream</code>) をポインタで保持する代わりに<code>reference_wrapper</code>で保持することができる。また、<code>reference_wrapper</code>クラスは、関数テンプレートに変数を参照として渡すためにも使用できる。</p>
+<p>C++17からは、このクラスは<a href="../type_traits/is_trivially_copyable.html">トリビアルコピー可能</a>であると規定された。
+また、C++20からは、テンプレートパラメーター<code>T</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>をサポートしている。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference_wrapper/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>~reference_wrapper() = default;</code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference_wrapper/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference_wrapper/get.html">get</a></code></td>
+<td>生参照の取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference_wrapper/op_cast_ref_t.html">operator T&amp;()</a></code></td>
+<td>生参照への変換</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference_wrapper/op_call.html">operator()</a></code></td>
+<td>関数オブジェクト呼び出し</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>参照される型 (テンプレートパラメータ <code>T</code>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>result_type</code></td>
+<td>型<code>T</code>を関数・関数オブジェクトとして扱った時の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型</td>
+<td>C++11<br /> C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>argument_type</code></td>
+<td>型<code>T</code>を一引数の関数・関数オブジェクトとして扱った時の引数型</td>
+<td>C++11<br /> C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>first_argument_type</code></td>
+<td>型<code>T</code>を二引数の関数・関数オブジェクトとして扱った時の第一引数型</td>
+<td>C++11<br /> C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>second_argument_type</code></td>
+<td>型<code>T</code>を二引数の関数・関数オブジェクトとして扱った時の第二引数型</td>
+<td>C++11<br /> C++17から非推奨<br /> C++20で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>ヘルパ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="ref.html">ref</a></code></td>
+<td><code>T&amp;</code>に対応する<code>reference_wrapper</code>オブジェクトの生成</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cref.html">cref</a></code></td>
+<td><code>const T&amp;</code>に対応する<code>reference_wrapper</code>オブジェクトの生成</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference_wrapper/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>operator!=</code></td>
+<td>非等値比較 (<code>==</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="reference_wrapper/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>operator&lt;</code></td>
+<td>左辺が右辺より小さいかを判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>operator&lt;=</code></td>
+<td>左辺が右辺以下を判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>operator&gt;</code></td>
+<td>左辺が右辺より大きいかを判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>operator&gt;=</code></td>
+<td>左辺が右辺以上かを判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference_wrapper/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="6384e867acb067597db7663e4916950a053bbb13"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+  <span class="c1">// 関数テンプレートの型推論によって、xの型が非参照のintと見なされる</span>
+<span class="c1">//g(x);</span>
+
+  <span class="c1">// 関数テンプレートに変数を参照として渡す</span>
+  <span class="n">g</span><span class="p">(</span><span class="n"><a href="ref.html">std::ref</a></span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>4
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を保持する例</h3>
+<p><div class="yata" id="428b0728aec00d3a0840f819f16279211bc77d17"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">my_struct</span><span class="p">;</span>
+<span class="n">my_struct</span><span class="o">&amp;</span> <span class="n">get_my_struct</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="n">my_struct</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">get_my_struct</span><span class="p">();</span> <span class="c1">// 不完全型 my_struct の使用</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">my_struct</span>
+<span class="p">{</span>
+  <span class="kt">void</span> <span class="n">hello</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Hello, world!"</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">my_struct</span><span class="o">&amp;</span> <span class="n">get_my_struct</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="n">my_struct</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">my_struct</span><span class="p">{};</span>
+  <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://d.hatena.ne.jp/faith_and_brave/20110519/1305789940" target="_blank">参照を保持するコンテナ - Faith and Brave - C++で遊ぼう</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html" target="_blank">P0005R4 Adopt <code>not_fn</code> from Library Fundamentals 2 for C++17</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4277.html" target="_blank">N4277 TriviallyCopyable <code>reference_wrapper</code> (Revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html" target="_blank">P0619R4 Reviewing deprecated facilities of C++17 for C++20</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html" target="_blank">P0357R3 reference_wrapper for incomplete types</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

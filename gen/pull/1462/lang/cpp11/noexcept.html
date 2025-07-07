@@ -1,0 +1,419 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>noexcept [N3050] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="noexcept [N3050] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="noexcept [N3050] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="noexcept [N3050] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/noexcept.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++11で導入された`noexcept`キーワードには、以下の2つの意味がある：" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="noexcept [N3050] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/noexcept.html" />
+        <meta name="twitter:description" content="C++11で導入された`noexcept`キーワードには、以下の2つの意味がある：" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7fed940e950389aaa35deac1b7d5ad8bbca98487&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;stack&gt;\n#include &lt;deque&gt;\n#include &lt;type_traits&gt;\n\ntemplate &lt;class T, class Container = std::deque&lt;T&gt;&gt;\nclass movable_stack : public std::stack&lt;T, Container&gt; {\n  using base = std::stack&lt;T, Container&gt;;\n\n  static_assert(std::is_nothrow_default_constructible&lt;T&gt;{},\n                \&#34;T must be nothrow default constructible\&#34;);\n  static_assert(std::is_nothrow_move_constructible&lt;T&gt;{},\n                \&#34;T must be nothrow move constructible\&#34;);\n\npublic:\n  // \u30af\u30e9\u30b9\u306e\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30d1\u30e9\u30e1\u30fc\u30bfT\u306b\u5bfe\u3057\u3066\u3001\n  // \u30e0\u30fc\u30d6\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u304c\u4f8b\u5916\u3092\u9001\u51fa\u3057\u306a\u3044\u3053\u3068\u3092\u8981\u6c42\u3057\u3066\u3044\u308b\u306e\u3067\u3001\n  // pop\u64cd\u4f5c\u306f\u4f8b\u5916\u3092\u9001\u51fa\u3059\u308b\u3053\u3068\u306a\u304freturn\u3067\u8981\u7d20\u3092\u8fd4\u305b\u308b\u3002\n  std::pair&lt;T, bool&gt; move_pop() noexcept\n  {\n    if (base::empty()) {\n      return std::make_pair(T(), false);\n    }\n\n    T x = std::move(base::top());\n    base::pop();\n    return std::make_pair(std::move(x), true);\n  }\n};\n\nint main()\n{\n  movable_stack&lt;int&gt; s;\n  s.push(1);\n  s.push(2);\n  s.push(3);\n\n  while (!s.empty()) {\n    int next_value = s.move_pop().first;\n    std::cout &lt;&lt; next_value &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;noexcept&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">noexcept [N3050]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/noexcept.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/noexcept.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">noexcept [N3050]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++11で導入された<code>noexcept</code>キーワードには、以下の2つの意味がある：</p>
+<p>ひとつは、<code>throw</code>キーワードによる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様の代替。関数がどの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかを列挙するのではなく、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかないかのみを指定する。<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある関数には<code>noexcept(false)</code>を指定し、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がない関数には<code>noexcept(true)</code>もしくは<code>noexcept</code>を指定する：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// getValue()メンバ関数は、例外を送出しない</span>
+  <span class="kt">int</span> <span class="n">getValue</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p><code>noexcept</code>キーワードのもうひとつの意味は、式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかどうかを判定する演算子である。<code>noexcept(f(arg))</code>のように<code>noexcept</code>演算子に式を指定することで、その式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかどうかを、コンパイル時定数の<code>bool</code>値として取得できる。つまり、関数に対して指定された<code>noexcept</code>の情報を取得する：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">Integer</span> <span class="n">x</span><span class="p">;</span>
+<span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">getValue</span><span class="p">()),</span> <span class="s">"getValue() function never throw exception"</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p><code>noexcept</code>は、代表的には以下の2つの用途で使用できる：</p>
+<ol>
+<li>パフォーマンス向上<ul>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しないという保証があることで、コンパイラは<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出によるスタック巻き戻しのためのスタックを確保する必要がなくなる</li>
+</ul>
+</li>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を決して送出しない強い<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>安全性の保証(No-throw guarantee)<ul>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>安全性で有名な問題として<code>stack</code>の<code>pop</code>操作がある。要素型<code>T</code>のコピーコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるために<code>pop</code>の関数は<code>T</code>を返すのではなく<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型<code>void</code>とする必要があった。しかし<code>return</code>文に指定する式が決して<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しないという保証があることで、<code>pop</code>の関数は<code>T</code>型のオブジェクトを返せるようになる。</li>
+<li>参照： <a href="https://boostjp.github.io/archive/boost_docs/document/generic_exception_safety.html" target="_blank">ジェネリックコンポーネントにおける例外安全性 - boostjp</a></li>
+</ul>
+</li>
+</ol>
+<h2>仕様</h2>
+<h3><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様としてのnoexcept</h3>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様としての<code>noexcept</code>には、整数定数式を引数として指定できる。整数定数式は、<code>bool</code>に変換可能であること。</li>
+<li><code>noexcept</code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様に対して<code>false</code>に評価される整数定数式を指定した関数は、あらゆる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある。</li>
+<li><code>noexcept</code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様に対して<code>true</code>に評価される整数定数式を指定した関数、もしくは引数なしで<code>noexcept</code>を指定した関数は、いかなる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>も送出してはならない。</li>
+<li><code>noexcept</code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様を指定しない関数は、一部の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を除いて、<code>noexcept(false)</code>を意味する。<ul>
+<li>デストラクタと<code>delete</code>演算子は、明示的に<code>noexcept(falseに評価される整数定数式)</code>を指定しない限り、デフォルトで<code>noexcept</code>である。</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="o">~</span><span class="n">X</span><span class="p">();</span> <span class="c1">// デストラクタはデフォルトで<span style="color:#ff0000">noexcept</span>(true)</span>
+
+  <span class="c1">// 例外を送出する可能性がある</span>
+  <span class="c1">// ※ <a href="../../reference/vector/vector.html">std::vector</a>のコピーコンストラクタは例外を送出する</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">getVector</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="c1">//<a href="../../reference/vector/vector.html">std::vector</a>&lt;T&gt; getVector() const <span style="color:#ff0000">noexcept</span>(false);</span>
+
+  <span class="c1">// 例外を送出しない</span>
+  <span class="kt">int</span> <span class="nf">getValue</span><span class="p">()</span> <span class="k">const</span> <span class="n"><span style="color:#ff0000">noexcept</span></span><span class="p">;</span>
+<span class="c1">//int getValue() const <span style="color:#ff0000">noexcept</span>(true);</span>
+
+  <span class="c1">// <span style="color:#ff0000">noexcept</span>は参照修飾と後置戻り値型の間</span>
+  <span class="k">auto</span> <span class="nf">getString</span><span class="p">()</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n"><span style="color:#ff0000">noexcept</span></span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li><code>noexcept</code>もしくは<code>noexcept(trueに評価される整数定数式)</code>が指定された関数が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出した場合、<code><a href="../../reference/exception/terminate.html">std::terminate()</a></code>関数を呼び出してプログラムを異常終了させる。その際、<code><a href="../../reference/exception/terminate.html">std::terminate()</a></code>関数が呼び出される前に、スタックの巻き戻しは起こらない可能性がある。</li>
+<li>従来の<code>throw</code>キーワードによる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様(C++03ではexception specification、C++11ではdynamic exception specificationと呼ばれる仕様)は、C++11以降で非推奨である。</li>
+<li><code>noexcept</code>の指定可能な位置は、<a href="ref_qualifier_for_this.html">参照修飾</a>の後、<a href="trailing_return_types.html">戻り値の型を後置する関数宣言構文</a>の前である。</li>
+</ul>
+<h3>式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるか判定するnoexcept演算子</h3>
+<ul>
+<li>演算子としての<code>noexcept</code>は、引数として指定した定数式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるかどうかをコンパイル時に判定し、<code>bool</code>型の定数値を返す</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// noexcept例外仕様</span>
+
+  <span class="c1">// 外側はnoexcept例外仕様、内側はnoexcept演算子。</span>
+  <span class="c1">// メンバ関数関数f()が例外を送出しない場合、関数g()もまた例外を送出しない</span>
+  <span class="kt">int</span> <span class="nf">g</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">f</span><span class="p">()))</span>
+  <span class="p">{</span> <span class="k">return</span> <span class="n">f</span><span class="p">();</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="c1">// X::f()メンバ関数が例外を送出しない場合、</span>
+<span class="c1">// isNoexprFはtrue、そうでなければfalseとなる</span>
+<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">isNoexprF</span> <span class="o">=</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">f</span><span class="p">());</span>
+</code></pre></div>
+</p>
+<ul>
+<li>この演算子は<code>sizeof</code>や<code><a href="decltype.html">decltype</a></code>と同じく、引数として指定された式は、実行時には評価されない<ul>
+<li>上記コードの場合、<code>x.f()</code>は実行時には呼び出されない</li>
+</ul>
+</li>
+<li><code>noexcept</code>演算子は、以下の状況で<code>false</code>を返す：<ul>
+<li><code>noexcept(false)</code>が指定されているもしくは<code>noexcept</code>が指定されていない関数、メンバ関数、関数ポインタ、メンバ関数ポインタの呼び出し。(例として、<code>new</code>式からの確保関数の呼び出しといった、暗黙の呼び出し)</li>
+<li><code>throw</code>式</li>
+<li>実行時型チェックが行われる式として、参照型を引数とする<code>dynamic_cast</code>式の呼び出し、および多態的に振る舞う型の左辺値に対する<code>typeid</code>式の呼び出し</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="7fed940e950389aaa35deac1b7d5ad8bbca98487"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/stack.html">&lt;stack&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/deque/deque.html">&lt;deque&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Container</span> <span class="o">=</span> <span class="n"><a href="../../reference/deque/deque.html">std::deque</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="k">class</span> <span class="nc">movable_stack</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../../reference/stack.html">std::stack</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Container</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">base</span> <span class="o">=</span> <span class="n"><a href="../../reference/stack.html">std::stack</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Container</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_nothrow_default_constructible.html">std::is_nothrow_default_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span>
+                <span class="s">"T must be nothrow default constructible"</span><span class="p">);</span>
+  <span class="n"><a href="static_assert.html">static_assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_nothrow_move_constructible.html">std::is_nothrow_move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span>
+                <span class="s">"T must be nothrow move constructible"</span><span class="p">);</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// クラスのテンプレートパラメータTに対して、</span>
+  <span class="c1">// ムーブコンストラクタが例外を送出しないことを要求しているので、</span>
+  <span class="c1">// pop操作は例外を送出することなくreturnで要素を返せる。</span>
+  <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">move_pop</span><span class="p">()</span> <span class="k">noexcept</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../reference/stack/stack/empty.html">base::empty()</a></span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n"><a href="../../reference/utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n">T</span><span class="p">(),</span> <span class="nb">false</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">T</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="../../reference/stack/stack/top.html">base::top()</a></span><span class="p">);</span>
+    <span class="n"><a href="../../reference/stack/stack/pop.html">base::pop()</a></span><span class="p">;</span>
+    <span class="k">return</span> <span class="nf"><a href="../../reference/utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">movable_stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/stack/stack/push.html">s.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../reference/stack/stack/empty.html">s.empty()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">next_value</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">move_pop</span><span class="p">().</span><span class="n">first</span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">next_value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>3
+2
+1
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p><code>noexcept</code>機能は、ムーブコンストラクタから<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出することを許可する際に提案された。</p>
+<p>ムーブ操作は基本的には<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない。そのため、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しないという、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>安全性の強い保証がしやすい仕組みと言える。ムーブに<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない保証があれば、より最適化された実装を選択できるだろう。しかし、ムーブ操作が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるのであれば、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しないムーブ操作のための最適化された実装とそれ以外を呼び分ける仕組みが必要となる。</p>
+<p>そういった<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない判定や指定は、従来の<code>throw</code>キーワードによる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様の範囲を超えていた。そのために、<code>noexcept</code>という機能が新設され、その機能で必要十分となったために従来の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様は非推奨となった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../../article/lib/dont_use_noexcept.html">標準ライブラリにおける、関数に<code>noexcept</code>を付けない条件</a></li>
+<li><code><a href="../../reference/utility/move_if_noexcept.html">move_if_noexcept</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_constructible.html">is_nothrow_constructible</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_default_constructible.html">is_nothrow_default_constructible</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_assignable.html">is_nothrow_assignable</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_copy_assignable.html">is_nothrow_copy_assignable</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_move_assignable.html">is_nothrow_move_assignable</a></code></li>
+<li><code><a href="../../reference/type_traits/is_nothrow_destructible.html">is_nothrow_destructible</a></code></li>
+<li><a href="../cpp17/remove_deprecated_exception_specifications.html">C++17 非推奨だった古い例外仕様を削除</a></li>
+<li><a href="../cpp17/exception_spec_be_part_of_the_type_system.html">C++17 例外仕様を型システムの一部にする</a></li>
+<li><a href="../cpp20/remove_deprecated_nothrow_exception_specification.html">C++20 <code>throw()</code>による例外送出しない指定を削除</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3050.html" target="_blank">N3050 Allowing Move Constructors to Throw (Rev. 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3166.html" target="_blank">N3166 Destructors default to <code>noexcept</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3167.html" target="_blank">N3167 Delete operators default to <code>noexcept</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3204.htm" target="_blank">N3204 Deducing "<code>noexcept</code>" for destructors</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3205.htm" target="_blank">N3205 Delete operators default to <code>noexcept</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3103.pdf" target="_blank">N3103 Security impact of <code>noexcept</code></a></li>
+<li><a href="http://faithandbrave.hateblo.jp/entry/20130604/1370327651" target="_blank">ムーブによるpop - Faith and Brave - C++で遊ぼう</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

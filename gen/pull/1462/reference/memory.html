@@ -1,0 +1,791 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>memory - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory
+">
+        <meta name="title" content="memory - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="memory - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="memory - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;memory&amp;gt;memory &amp;lt;memory&amp;gt;ヘッダでは、メモリアロケータ、未初期化領域に関する関数群、スマートポインタ、アライメントに関するユーティリティ関数といった、メモリを扱うための機能を定義する。 このヘッダでは、以下の標準ヘッダをインクルードする：  &amp;lt;compare&amp;gt; (C++20)  メモリアロケータ    名前 説明 対応バージョン     al" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="memory - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory.html" />
+        <meta name="twitter:description" content="&amp;lt;memory&amp;gt;memory &amp;lt;memory&amp;gt;ヘッダでは、メモリアロケータ、未初期化領域に関する関数群、スマートポインタ、アライメントに関するユーティリティ関数といった、メモリを扱うための機能を定義する。 このヘッダでは、以下の標準ヘッダをインクルードする：  &amp;lt;compare&amp;gt; (C++20)  メモリアロケータ    名前 説明 対応バージョン     al" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">memory</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-28T14:40:48">
+        2025年05月28日 14時40分48秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="token">memory</span></h1>
+<div itemprop="articleBody"><p><code>&lt;memory&gt;</code>ヘッダでは、メモリアロケータ、未初期化領域に関する関数群、スマートポインタ、アライメントに関するユーティリティ関数といった、メモリを扱うための機能を定義する。</p>
+<p>このヘッダでは、以下の標準ヘッダをインクルードする：</p>
+<ul>
+<li><code><a href="compare.html">&lt;compare&gt;</a></code> (C++20)</li>
+</ul>
+<h2>メモリアロケータ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory/allocator.html">allocator</a></code></td>
+<td>メモリアロケータの標準実装(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="memory/allocator_traits.html">allocator_traits</a></code></td>
+<td>アロケータクラスへの間接的なアクセス(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/allocation_result.html">allocation_result</a></code></td>
+<td><code><a href="memory/allocator/allocate_at_least.html">allocate_at_least()</a></code>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="memory/allocator_arg_t.html">allocator_arg_t</a></code></td>
+<td>アロケータを引数として渡す際の、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>のためのタグ(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/allocator_arg_t.html">allocator_arg</a></code></td>
+<td>アロケータを引数として渡す際の、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>のためのタグ(constant value)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/uses_allocator.html">uses_allocator</a></code></td>
+<td>型<code>T</code>がアロケータを使用するか調べる</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/uses_allocator_construction_args.html">uses_allocator_construction_args</a></code></td>
+<td>uses-allocator 構築のためのコンストラクタ引数を <code><a href="tuple/tuple.html">tuple</a></code> 型にして返す</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/make_obj_using_allocator.html">make_obj_using_allocator</a></code></td>
+<td>uses-allocator 構築する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_construct_using_allocator.html">uninitialized_construct_using_allocator</a></code></td>
+<td>指定された領域に uses-allocator 構築する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>メモリ特化のコンセプト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory/no-throw-input-iterator.html">no-throw-input-iterator</a></code></td>
+<td>各操作で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出をしない説明用の入力イテレータ (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/no-throw-forward-iterator.html">no-throw-forward-iterator</a></code></td>
+<td>各操作で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出をしない説明用の前方向イテレータ (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/no-throw-sentinel.html">no-throw-sentinel</a></code></td>
+<td>各操作で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出をしない説明用の番兵 (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/no-throw-input-range.html">no-throw-input-range</a></code></td>
+<td>各操作で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出をしない入力Range (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/no-throw-forward-range.html">no-throw-forward-range</a></code></td>
+<td>各操作で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出をしない前方向Range (concept)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>未初期化領域に対する操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory/uninitialized_default_construct.html">uninitialized_default_construct</a></code></td>
+<td>未初期化領域の範囲の各要素を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>する(function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_default_construct_n.html">uninitialized_default_construct_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>する(function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_value_construct.html">uninitialized_value_construct</a></code></td>
+<td>未初期化領域の範囲の各要素配置を<a class="cpprefjp-defined-word" data-desc="値初期化。`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値構築</a>する(function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_value_construct_n.html">uninitialized_value_construct_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を<a class="cpprefjp-defined-word" data-desc="値初期化。`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値構築</a>する(function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_copy.html">uninitialized_copy</a></code></td>
+<td>未初期化領域の範囲を配置<code>new</code>で初期化してコピー出力する(function template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_copy_n.html">uninitialized_copy_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を配置<code>new</code>で初期化してコピー出力する(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_move.html">uninitialized_move</a></code></td>
+<td>未初期化領域の範囲を配置<code>new</code>で初期化してムーブ出力する(function template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_move_n.html">uninitialized_move_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を配置<code>new</code>で初期化してムーブ出力する(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_fill.html">uninitialized_fill</a></code></td>
+<td>未初期化領域の範囲を、指定された値で配置<code>new</code>する(function template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="memory/uninitialized_fill_n.html">uninitialized_fill_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を指定された値で配置<code>new</code>する(function template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="memory/construct_at.html">construct_at</a></code></td>
+<td>コンストラクタを呼び出す(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/destroy_at.html">destroy_at</a></code></td>
+<td>デストラクタを呼び出す(function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory/destroy.html">destroy</a></code></td>
+<td>範囲の各要素に対してデストラクタを呼び出す(function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory/destroy_n.html">destroy_n</a></code></td>
+<td>範囲のうち、先頭<code>N</code>個の要素に対してデストラクタを呼び出す(function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_default_construct.html">ranges::uninitialized_default_construct</a></code></td>
+<td>未初期化領域の範囲の各要素を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_default_construct_n.html">ranges::uninitialized_default_construct_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_value_construct.html">ranges::uninitialized_value_construct</a></code></td>
+<td>未初期化領域の範囲の各要素配置を<a class="cpprefjp-defined-word" data-desc="値初期化。`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値構築</a>する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_value_construct_n.html">ranges::uninitialized_value_construct_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を<a class="cpprefjp-defined-word" data-desc="値初期化。`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値構築</a>する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_copy.html">ranges::uninitialized_copy</a></code></td>
+<td>未初期化領域の範囲を配置<code>new</code>で初期化してコピー出力する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_copy_n.html">ranges::uninitialized_copy_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を配置<code>new</code>で初期化してコピー出力する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_move.html">ranges::uninitialized_move</a></code></td>
+<td>未初期化領域の範囲を配置<code>new</code>で初期化してムーブ出力する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_move_n.html">ranges::uninitialized_move_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を配置<code>new</code>で初期化してムーブ出力する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_fill.html">ranges::uninitialized_fill</a></code></td>
+<td>未初期化領域の範囲を、指定された値で配置<code>new</code>する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_uninitialized_fill_n.html">ranges::uninitialized_fill_n</a></code></td>
+<td>未初期化領域の範囲のうち、先頭<code>N</code>個の要素を指定された値で配置<code>new</code>する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_construct_at.html">ranges::construct_at</a></code></td>
+<td>コンストラクタを呼び出す(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_destroy_at.html">ranges::destroy_at</a></code></td>
+<td>デストラクタを呼び出す(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_destroy.html">ranges::destroy</a></code></td>
+<td>範囲の各要素に対してデストラクタを呼び出す(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/ranges_destroy_n.html">ranges::destroy_n</a></code></td>
+<td>範囲のうち、先頭<code>N</code>個の要素に対してデストラクタを呼び出す(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/raw_storage_iterator.html">raw_storage_iterator</a></code></td>
+<td>未初期化領域に書き込むための出力イテレータ(class template)</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="memory/get_temporary_buffer.html">get_temporary_buffer</a></code></td>
+<td>短期的なメモリ領域を確保する(function template)</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="memory/return_temporary_buffer.html">return_temporary_buffer</a></code></td>
+<td><code>get_temporary_buffer()</code>で確保された領域を解放する(function)</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>スマートポインタ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory/shared_ptr.html">shared_ptr</a></code></td>
+<td>共有方式スマートポインタ(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/make_shared.html">make_shared</a></code></td>
+<td><code>shared_ptr</code>を構築するヘルパ関数(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/make_shared_for_overwrite.html">make_shared_for_overwrite</a></code></td>
+<td><code>shared_ptr</code>を構築するヘルパ関数(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/allocate_shared.html">allocate_shared</a></code></td>
+<td>アロケータを指定して<code>shared_ptr</code>を構築するヘルパ関数(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/allocate_shared_for_overwrite.html">allocate_shared_for_overwrite</a></code></td>
+<td>アロケータを指定して<code>shared_ptr</code>を構築するヘルパ関数(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/enable_shared_from_this.html">enable_shared_from_this</a></code></td>
+<td><code>this</code>を指す<code>shared_ptr</code>を可能にする(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/weak_ptr.html">weak_ptr</a></code></td>
+<td><code>shared_ptr</code>のインスタンス監視(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/bad_weak_ptr.html">bad_weak_ptr</a></code></td>
+<td><code>weak_ptr</code>から投げられる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>クラス(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/owner_less.html">owner_less</a></code></td>
+<td>所有権ベースの小なり比較(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/unique_ptr.html">unique_ptr</a></code></td>
+<td>専有方式スマートポインタ(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/make_unique.html">make_unique</a></code></td>
+<td><code>unique_ptr</code>を構築するヘルパ関数(function template)</td>
+<td>C++14</td>
+</tr>
+<tr>
+<td><code><a href="memory/make_unique_for_overwrite.html">make_unique_for_overwrite</a></code></td>
+<td><code>unique_ptr</code>を構築するヘルパ関数(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/default_delete.html">default_delete</a></code></td>
+<td><code>unique_ptr</code>のデフォルトの削除子(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>auto_ptr</code></td>
+<td>古い専有方式スマートポインタ(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>スマートポインタアダプタ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory/out_ptr_t.html">out_ptr_t</a></code></td>
+<td>スマートポインタへの出力サポート(class template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="memory/out_ptr.html">out_ptr</a></code></td>
+<td>スマートポインタへの出力サポートヘルパ関数(function template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="memory/inout_ptr_t.html">inout_ptr_t</a></code></td>
+<td>スマートポインタへの入出力サポート(class template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="memory/inout_ptr.html">inout_ptr</a></code></td>
+<td>スマートポインタへの入出力サポートヘルパ関数(function template)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>スマートポインタのアトミック操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>template&lt;class T&gt; struct atomic</code></td>
+<td><code>atomic</code>クラスの先行宣言 (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/atomic.html">template&lt;class T&gt; struct atomic&lt;shared_ptr&lt;T&gt;&gt;;</a></code></td>
+<td><code>atomic</code>クラスの<code>shared_ptr</code>に対する特殊化 (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/atomic.html">template&lt;class T&gt; struct atomic&lt;weak_ptr&lt;T&gt;&gt;;</a></code></td>
+<td><code>atomic</code>クラスの<code>weak_ptr</code>に対する特殊化 (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>atomic_is_lock_free</code></td>
+<td><code>shared_ptr</code>に対するアトミック操作がロックフリーに振る舞うことができるかを調べる (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_load</code></td>
+<td><code>shared_ptr</code>の値をアトミックに読み込む (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_load_explicit</code></td>
+<td>メモリオーダーを指定して、<code>shared_ptr</code>の値をアトミックに読み込む (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_store</code></td>
+<td><code>shared_ptr</code>値をアトミックに書き込む (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_store_explicit</code></td>
+<td>メモリオーダーを指定して、<code>shared_ptr</code>の値をアトミックに書き込む (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_exchange</code></td>
+<td><code>shared_ptr</code>の値をアトミックに入れ替える (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_exchange_explicit</code></td>
+<td>メモリオーダーを指定して、<code>shared_ptr</code>の値をアトミックに入れ替える (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_compare_exchange_weak</code></td>
+<td>弱い比較で<code>shared_ptr</code>の値の入れ替えをアトミックに行う (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_compare_exchange_strong</code></td>
+<td>強い比較で<code>shared_ptr</code>の値の入れ替えをアトミックに行う (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_compare_exchange_weak_explicit</code></td>
+<td>弱い比較でメモリオーダーを指定して、<code>shared_ptr</code>の値の入れ替えをアトミックに行う (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+<tr>
+<td><code>atomic_compare_exchange_strong_explicit</code></td>
+<td>強い比較でメモリオーダーを指定して、<code>shared_ptr</code>の値の入れ替えをアトミックに行う (function template)</td>
+<td>C++11<br /> C++20で非推奨</td>
+</tr>
+</tbody>
+</table>
+<h2>ポインタのユーティリティ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory/pointer_traits.html">pointer_traits</a></code></td>
+<td>ポインタの型特性(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/to_address.html">to_address</a></code></td>
+<td>ポインタと見なせるオブジェクトからアドレスを取得する (function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/addressof.html">addressof</a></code></td>
+<td>変数のアドレスを必ず取得する(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/align.html">align</a></code></td>
+<td>アライメント調整された領域を得る(function)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="memory/assume_aligned.html">assume_aligned</a></code></td>
+<td>コンパイラへアライメントのヒントを与える(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="memory/is_sufficiently_aligned.html">is_sufficiently_aligned</a></code></td>
+<td>ポインタのアライメントを判定する(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="memory/start_lifetime_as.html">start_lifetime_as</a></code></td>
+<td>オブジェクトの生存期間を開始することを明示する(function template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="memory/start_lifetime_as_array.html">start_lifetime_as_array</a></code></td>
+<td>配列オブジェクトの生存期間を開始することを明示する(function template)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>ガベージコレクション支援（C++23で削除）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory/pointer_safety.html">pointer_safety</a></code></td>
+<td>ポインタ安全性について実装/挙動を示す列挙型(enum class)</td>
+<td>C++11<br />C++23で削除</td>
+</tr>
+<tr>
+<td><code><a href="memory/get_pointer_safety.html">get_pointer_safety</a></code></td>
+<td>処理系の、ポインタ安全性についての実装/挙動を取得する(function)</td>
+<td>C++11<br />C++23で削除</td>
+</tr>
+<tr>
+<td><code><a href="memory/declare_reachable.html">declare_reachable</a></code></td>
+<td>ポインタが到達可能であることを宣言する(function)</td>
+<td>C++11<br />C++23で削除</td>
+</tr>
+<tr>
+<td><code><a href="memory/undeclare_reachable.html">undeclare_reachable</a></code></td>
+<td>ポインタが到達可能であるという宣言を削除する(function template)</td>
+<td>C++11<br />C++23で削除</td>
+</tr>
+<tr>
+<td><code><a href="memory/declare_no_pointers.html">declare_no_pointers</a></code></td>
+<td>指定された範囲のポインタが、追跡可能ではないことを宣言する(function)</td>
+<td>C++11<br />C++23で削除</td>
+</tr>
+<tr>
+<td><code><a href="memory/undeclare_no_pointers.html">undeclare_no_pointers</a></code></td>
+<td><code>declare_no_pointers</code>で宣言された範囲を無効化する(function)</td>
+<td>C++11<br />C++23で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm" target="_blank">N4190 Removing <code>auto_ptr</code>, <code>random_shuffle()</code>, And Old <code>&lt;functional&gt;</code> Stuff</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html" target="_blank">P0718R2 Revising <code>atomic_shared_ptr</code> for C++20</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html" target="_blank">P2051R0 C++ Standard Library Issues to be moved in Prague</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html" target="_blank">P2186R2 Removing Garbage Collection Support</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html" target="_blank">P1132R8 out_ptr - a scalable output pointer abstraction</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

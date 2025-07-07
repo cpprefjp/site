@@ -1,0 +1,284 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>可変引数が空でない場合のトークン置換 [P0306R4] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="可変引数が空でない場合のトークン置換 [P0306R4] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="可変引数が空でない場合のトークン置換 [P0306R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="可変引数が空でない場合のトークン置換 [P0306R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/va_opt.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="新たなプリプロセスマクロ`__VA_OPT__`を追加する。このマクロは、マクロのパラメータとして受け取った可変引数が空でない場合に置換するトークンを指定する機能を持つ。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="可変引数が空でない場合のトークン置換 [P0306R4] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/va_opt.html" />
+        <meta name="twitter:description" content="新たなプリプロセスマクロ`__VA_OPT__`を追加する。このマクロは、マクロのパラメータとして受け取った可変引数が空でない場合に置換するトークンを指定する機能を持つ。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0a0c8a88cf01ee8ce6bdd34fed140054cf7838fe&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n\n#define DEBUG_LOG(msg, ...) std::printf(\&#34;[debug] \&#34; msg \&#34;\\n\&#34; __VA_OPT__(,) __VA_ARGS__)\n\nint main()\n{\n  DEBUG_LOG(\&#34;hello\&#34;);       // printf(\&#34;[debug] hello\\n\&#34;); \u306b\u5c55\u958b\u3055\u308c\u308b\n  DEBUG_LOG(\&#34;value:%d\&#34;, 3); // printf(\&#34;[debug] value:%d\\n\&#34;, 3); \u306b\u5c55\u958b\u3055\u308c\u308b\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;va_opt&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">可変引数が空でない場合のトークン置換 [P0306R4]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/va_opt.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/va_opt.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">可変引数が空でない場合のトークン置換 [P0306R4]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>新たなプリプロセスマクロ<code>__VA_OPT__</code>を追加する。このマクロは、マクロのパラメータとして受け取った可変引数が空でない場合に置換するトークンを指定する機能を持つ。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#define F(X, ...) f(10, X __VA_OPT__(,) __VA_ARGS__)</span>
+
+<span class="n">F</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>               <span class="c1">// f(10, 3); に置換される</span>
+<span class="n">F</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">,</span> <span class="sc">'A'</span><span class="p">);</span> <span class="c1">// f(10, 3, "Hello", 'A'); に置換される</span>
+</code></pre></div>
+</p>
+<p>可変引数のために単に<code>__VA_ARGS__</code>を使用すると、可変引数が空だった場合に、カンマが余ってしまい、「<code>f(10, 3, );</code>」のように展開されて構文エラーとなる。<code>__VA_OPT__</code>マクロはその問題を回避するために使用できる。</p>
+<p><code>__VA_OPT__</code>マクロは引数として、可変引数が空でなかった場合に置換するトークンをとる。関数呼び出しのためのカンマを例として挙げたが、この引数には任意のトークンを指定できる。たとえば、リスト初期化の構文や、<code>__VA_ARGS__</code>をトークンに含めることもできる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#define SDEF(sname, ...) S sname __VA_OPT__(= { __VA_ARGS__ })</span>
+
+<span class="n">SDEF</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span>          <span class="c1">// S foo; に展開される</span>
+<span class="n">SDEF</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// S bar = {1, 2, 3}; に展開される</span>
+</code></pre></div>
+</p>
+<p>このマクロは、同じ仕様でC言語にも提案されている。「<a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2034.htm" target="_blank">WG14 N2034 Comma omission and comma deletion</a>」を参照。</p>
+<h2>例</h2>
+<p><div class="yata" id="0a0c8a88cf01ee8ce6bdd34fed140054cf7838fe"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+
+<span class="cp">#define DEBUG_LOG(msg, ...) std::printf("[debug] " msg "\n" __VA_OPT__(,) __VA_ARGS__)</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">DEBUG_LOG</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>       <span class="c1">// printf("[debug] hello\n"); に展開される</span>
+  <span class="n">DEBUG_LOG</span><span class="p">(</span><span class="s">"value:%d"</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// printf("[debug] value:%d\n", 3); に展開される</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>[debug] hello
+[debug] value:3
+</code></pre></p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/variadic_macros.html">C++11 可変引数マクロ</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0306r4.html" target="_blank">P0306R4 Comma omission and comma deletion</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

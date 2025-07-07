@@ -1,0 +1,338 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ios_base::xalloc - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ios,function,std,ios_base
+">
+        <meta name="title" content="ios_base::xalloc - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ios_base::xalloc - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ios_base::xalloc - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ios/ios_base/xalloc.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="私用記憶域を予約する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ios_base::xalloc - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ios/ios_base/xalloc.html" />
+        <meta name="twitter:description" content="私用記憶域を予約する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ios&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;ios_base&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5627b87f34a82a0a7560857a69311ebc51622369&#34;, &#34;source&#34;: &#34;// \u5024\u309216\u9032\u6570\u3067\u51fa\u529b\u3059\u308bIO\u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3092\u4f5c\u6210\u3059\u308b\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;sstream&gt;\n\n// 16\u9032\u6570\u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u7528\u306e\u4e00\u610f\u306aID\u3092\u4f5c\u6210\u3059\u308b\nint hex_index()\n{\n  static int index = std::ios_base::xalloc();\n  return index;\n}\n\n// 16\u9032\u6570\u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\nstd::ostream&amp; hex_manip(std::ostream&amp; os)\n{\n  // 16\u9032\u6570\u7528\u306eID\u3092\u30ad\u30fc\u3068\u3057\u3066\u3001\u72b6\u614b\u3092\u8a2d\u5b9a\u3059\u308b\n  static bool state = false;\n  state = true;\n  os.pword(hex_index()) = &amp;state;\n  return os;\n}\n\nstruct MyInt {\n  int value = 0;\n};\n\nstd::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const MyInt&amp; x)\n{\n  // 16\u9032\u6570\u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u306e\u72b6\u614b\u3092\u78ba\u8a8d\u3057\u3066\u300110\u9032\u6570\u306816\u9032\u6570\u3069\u3061\u3089\u3067\u51fa\u529b\u3059\u308b\u304b\u3092\u5224\u5b9a\u3059\u308b\n  void* state = os.pword(hex_index());\n  if (!state || *static_cast&lt;bool*&gt;(state) == false) {\n    os &lt;&lt; x.value;\n  }\n  else {\n    std::ostringstream ss;\n    ss &lt;&lt; std::hex &lt;&lt; x.value;\n    os &lt;&lt; ss.str();\n  }\n  return os;\n}\n\nint main()\n{\n  MyInt x;\n  x.value = 10;\n\n  std::cout &lt;&lt; x &lt;&lt; std::endl;\n  std::cout &lt;&lt; hex_manip &lt;&lt; x &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ios&#34;, &#34;ios_base&#34;, &#34;xalloc&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ios.html" itemprop="url">
+              
+                <span itemprop="name">ios</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ios/ios_base.html" itemprop="url">
+              
+                <span itemprop="name">ios_base</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">xalloc</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2023-07-04T16:35:47">
+        2023年07月04日 16時35分47秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Shunsuke Shimizu</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ios/ios_base/xalloc.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ios/ios_base/xalloc.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class ios_base">ios_base::</span><span class="token">xalloc</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="nf">xalloc</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>私用記憶域を予約する。</p>
+<p>この関数は、呼び出すたびに一意な整数値を返す。この関数は、IOマニピュレータ単位の設定状態を管理するために使用する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>C++11まで</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">return</span> <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>C++14以降<ul>
+<li>スレッドセーフになった</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">index</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">return</span> <span class="n"><a href="../../atomic/atomic/op_increment.html">index++</a></span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><div class="yata" id="5627b87f34a82a0a7560857a69311ebc51622369"><div class="codehilite"><pre><span></span><code><span class="c1">// 値を16進数で出力するIOマニピュレータを作成する</span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 16進数マニピュレータ用の一意なIDを作成する</span>
+<span class="kt">int</span> <span class="nf">hex_index</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::ios_base::xalloc()</span></span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 16進数マニピュレータ</span>
+<span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">hex_manip</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// 16進数用のIDをキーとして、状態を設定する</span>
+  <span class="k">static</span> <span class="kt">bool</span> <span class="n">state</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="n">state</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">os</span><span class="p">.</span><span class="n"><a href="pword.html">pword</a></span><span class="p">(</span><span class="n">hex_index</span><span class="p">())</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">state</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">MyInt</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// 16進数マニピュレータの状態を確認して、10進数と16進数どちらで出力するかを判定する</span>
+  <span class="kt">void</span><span class="o">*</span> <span class="n">state</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n"><a href="pword.html">pword</a></span><span class="p">(</span><span class="n">hex_index</span><span class="p">());</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">state</span> <span class="o">||</span> <span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../../sstream/basic_ostringstream.html">std::ostringstream</a></span> <span class="n">ss</span><span class="p">;</span>
+    <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../hex.html">std::hex</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">MyInt</span> <span class="n">x</span><span class="p">;</span>
+  <span class="n">x</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">hex_manip</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>10
+a
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2143" target="_blank">LWG Issue 2143. <code>ios_base::xalloc</code> should be thread-safe</a><ul>
+<li>C++14から、この関数は複数スレッドから呼び出しても安全になった。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

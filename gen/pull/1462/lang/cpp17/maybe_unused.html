@@ -1,0 +1,338 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>[[maybe_unused]]属性 [P0212R1] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="[[maybe_unused]]属性 [P0212R1] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="[[maybe_unused]]属性 [P0212R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="[[maybe_unused]]属性 [P0212R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/maybe_unused.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="[[maybe_unused]]属性 [P0212R1] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/maybe_unused.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;13d597e47e3d1de493154a416c0c80690161ce71&#34;, &#34;source&#34;: &#34;#define NDEBUG\n#include &lt;cassert&gt;\n\n//\u8b66\u544a\u306f\u767a\u751f\u3057\u306a\u3044\n[[maybe_unused]] void f([[maybe_unused]] bool flag1,\n                        [[maybe_unused]] bool flag2) {\n  [[maybe_unused]] bool b = flag1 &amp;&amp; flag2;\n  assert(b);\n}\n\n//\u8b66\u544a\u304c\u767a\u751f\u3059\u308b\u5834\u5408\u304c\u3042\u308b\nvoid g(bool flag3, bool flag4) {\n  bool b2 = flag3 &amp;&amp; flag4;\n  assert(b2);\n}\n\nint main() {\n  f(true, true);\n  g(true, true);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;maybe_unused&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">[[maybe_unused]]属性 [P0212R1]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/maybe_unused.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/maybe_unused.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">[[maybe_unused]]属性 [P0212R1]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><code>[[maybe_unused]]</code>属性は意図的に未使用の要素を定義していることをコンパイラに伝え、警告を抑制するための属性である。</p>
+<p>コンパイラはコンパイル時に未使用の要素（変数や関数など）を検出して警告を出力する場合がある。</p>
+<p>プログラマが意図して未使用の要素を定義する場合、コンパイラの警告は無用である。しかし従来は警告を抑制する方法が無いか、あってもコンパイラごとに方法が異なっていた。C++17では<code>[[maybe_unused]]</code>属性により意図して未使用の要素を定義していることをコンパイラに伝え、警告を抑制することができる。</p>
+<h2>仕様</h2>
+<p><code>[[maybe_unused]]</code>属性は、以下の要素に対して指定できる。</p>
+<ul>
+<li>クラスの宣言</li>
+<li>型の別名宣言</li>
+<li>変数の宣言</li>
+<li>非静的メンバ変数の宣言</li>
+<li>関数の宣言</li>
+<li>列挙型の宣言</li>
+<li>列挙子</li>
+</ul>
+<h3>クラス宣言での指定</h3>
+<p>クラス宣言では、<code>class</code>／<code>struct</code>キーワードとクラス名の間に<code>[[maybe_unused]]</code>属性を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="err">[[</span><span class="nc">maybe_unused</span><span class="p">]]</span> <span class="n">X</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h3>型の別名宣言での指定</h3>
+<p><code>using</code>キーワードによる型の別名宣言の場合は、<code>=</code>の前に<code>[[maybe_unused]]</code>属性を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">integer</span> <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><code>typedef</code>キーワードによる型の別名宣言の場合は、<code>typedef</code>キーワードの前に<code>[[maybe_unused]]</code>属性を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="k">typedef</span> <span class="kt">int</span> <span class="n">integer</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h3>変数宣言での指定</h3>
+<p>変数宣言では、先頭に<code>[[maybe_unused]]</code>属性を指定する。これは、型、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>、記憶域指定よりも前である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h3>関数宣言での指定</h3>
+<p>関数宣言では、先頭に<code>[[maybe_unused]]</code>属性を指定する。これは、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型、リンケージ指定よりも前である。ただし、関数テンプレートの場合には、テンプレートパラメータ宣言の後ろに<code>[[maybe_unused]]</code>属性を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span>
+<span class="kr">inline</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<h3>列挙型と列挙子での指定</h3>
+<p>列挙型では、クラスと同様に<code>enum</code>／<code>enum class</code>と型名の間に<code>[[maybe_unused]]</code>属性を指定する。</p>
+<p>列挙子では、列挙子の識別子とカンマの間に<code>[[maybe_unused]]</code>属性を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="err">[[</span><span class="nc">maybe_unused</span><span class="p">]]</span> <span class="n">E</span> <span class="p">{</span>
+  <span class="n">A</span> <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]],</span>
+  <span class="n">B</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><div class="yata" id="13d597e47e3d1de493154a416c0c80690161ce71"><div class="codehilite"><pre><span></span><code><span class="cp">#define NDEBUG</span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+
+<span class="c1">//警告は発生しない</span>
+<span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">f</span><span class="p">([[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">flag1</span><span class="p">,</span>
+                        <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">flag2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="n">flag1</span> <span class="o">&amp;&amp;</span> <span class="n">flag2</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//警告が発生する場合がある</span>
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="kt">bool</span> <span class="n">flag3</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">flag4</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">flag3</span> <span class="o">&amp;&amp;</span> <span class="n">flag4</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="n">g</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h3>警告例</h3>
+<p>clang++ 5.0.0、<code>-Wall -DNDEBUG</code> オプションでコンパイルした場合:</p>
+<p><pre><code>maybe_unused.cpp:12:8: warning: unused variable 'b2' [-Wunused-variable]
+  bool b2 = thing3 &amp;&amp; thing4;
+       ^
+1 warning generated.
+</code></pre></p>
+<h2>検討されたほかの選択肢</h2>
+<p>P0068R0では<code>[[unused]]</code>という名前で提案されたが、いわゆる自転車置き場の議論の末の投票によって、採用された名前は<code>[[maybe_unused]]</code>になった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/attributes.html">C++11 属性構文</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0068r0.pdf" target="_blank">P0068R0 Proposal of [[unused]], [[nodiscard]] and [[fallthrough]] attributes.</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0212r1.pdf" target="_blank">P0212R1 Wording for [[maybe_unused]] attribute.</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

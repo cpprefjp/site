@@ -1,0 +1,380 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>動的メモリ確保の省略の許可 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp14
+">
+        <meta name="title" content="動的メモリ確保の省略の許可 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="動的メモリ確保の省略の許可 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="動的メモリ確保の省略の許可 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp14/clarifying_memory_allocation.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="動的メモリ確保の省略の許可 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp14/clarifying_memory_allocation.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp14&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp14&#34;, &#34;clarifying_memory_allocation&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp14.html" itemprop="url">
+              
+                <span itemprop="name">C++14</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">動的メモリ確保の省略の許可</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp14/clarifying_memory_allocation.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp14/clarifying_memory_allocation.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">動的メモリ確保の省略の許可</span><span class="cpp cpp14" title="C++14で追加">(C++14)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++14に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>以前の仕様では、<code>new</code>式による動的メモリ確保はコードに書かれた通りに実行されなければならず、ひとまとめにしたり省略したりすることはできなかった。</p>
+<p>メモリ確保の最適化のためにこの制限は緩和され、実装は<code>new/delete</code>の呼び出しをまとめたり省略したりすることができるようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">lump</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 個別のnew/deleteの呼び出しを</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span>
+
+  <span class="k">delete</span> <span class="n">p1</span><span class="p">;</span>
+  <span class="k">delete</span> <span class="n">p2</span><span class="p">;</span>
+  <span class="k">delete</span> <span class="n">p3</span><span class="p">;</span>
+
+  <span class="c1">// このようにまとめることが許可される</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">3</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+
+  <span class="k">delete</span><span class="p">[]</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">emit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 確保サイズが分かっているようなnewの呼び出しを</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
+  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+
+  <span class="c1">// 通常の変数宣言のように置き換えても良い</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>ただし、このようなまとめと省略は最適化の一環として許可されているものに過ぎず、必ず行われるわけではない。</p>
+<p>また、これらの機能と直接関係するものではないが、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>されたものも含めた<code>operator new, operator delete</code>およびCライブラリの<code>malloc, calloc, free, realloc</code>の呼び出しはデータ競合を起こさない事が規定された。</p>
+<h2>仕様</h2>
+<p>実装は、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>可能なグローバルの割り当て関数（<code><a href="../../reference/new/op_new.html">::operator new</a></code>/<code><a href="../../reference/new/op_new[].html">::operator new[]</a></code>）の呼び出しを省略できる。その場合、（確保されるはずだった）ストレージは実装によって提供されるか、別の<code>new</code>式によるアロケーションを拡張してあてがわれる。</p>
+<p>ただし、<code>new</code>式の呼び出し<code>e1</code>のアロケーションを拡張して別の<code>new</code>式<code>e2</code>のストレージを提供する事ができるのは、アロケーションの拡張が行われなかった時にそれらが次の条件を全て満たしている場合に限る</p>
+<ol>
+<li><code>e1</code>の評価は<code>e2</code>の評価よりも前に順序づけられる</li>
+<li><code>e1</code>がストレージを確保するならば、<code>e2</code>が呼び出される</li>
+<li><code>e1</code>と<code>e2</code>は同じ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>可能なグローバルの割り当て関数を呼び出す</li>
+<li><code>e1</code>と<code>e2</code>で呼び出される割り当て関数が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる場合、<code>e1</code>と<code>e2</code>のどちらの評価で発生した<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>でも、まず同じハンドラでキャッチされる</li>
+<li><code>e1</code>と<code>e2</code>によって返されるポインタ値は、評価される<code>delete</code>式のオペランドである</li>
+<li><code>e2</code>の評価は、<code>e1</code>によって生成されたポインタ値をオペランドにとる<code>delete</code>式の評価の前に順序づけられる</li>
+</ol>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">ok</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+
+    <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span><span class="p">(...){}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">ng1</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// NG、e2 -&gt; e1の順で確保されている</span>
+  <span class="c1">// この場合、e2を拡張してe1を省略することはできる</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+
+  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+  <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">ng2</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+
+  <span class="c1">// NG、e2は必ずしも評価されない</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+
+    <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">ng3</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// NG、同じ::operator newを呼び出さない</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="mi">2</span><span class="p">};</span>
+
+  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+  <span class="k">delete</span><span class="p">[]</span> <span class="n">e2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">ng4</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+
+    <span class="c1">// NG、最初にキャッチされるハンドラが異なる</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+      <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{}</span>
+
+    <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span><span class="p">(...){}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">ng5</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// NG、片方または両方がdeleteされていない</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+
+  <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+  <span class="c1">//delete e1;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">ng6</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  <span class="k">delete</span> <span class="n">e1</span><span class="p">;</span>
+
+  <span class="c1">// NG、e2の前にe1が解放されている</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+  <span class="k">delete</span> <span class="n">e2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>ここでのNGはコンパイルエラーとなるわけではなく、メモリ確保省略がなされないことを表している。</p>
+<p>すなわち、<code>e2</code>の確保するメモリ領域の生存期間は<code>e1</code>のそれに完全に包含されており、どちらもきちんと<code>delete</code>され、同じ関数経由でメモリを確保している場合にのみ、<code>e1</code>と<code>e2</code>によるメモリ確保は統合される。</p>
+<p>このような<code>new</code>式の呼び出し<code>e1</code>の割り当てが拡張された場合、拡張後に呼び出される割り当て関数の<code>size</code>パラメータ（要求サイズ）は元の<code>e1</code>と<code>e2</code>で指定されていた<code>size</code>の合計値に、確保された領域にオブジェクトをアラインさせるために必要なパディングサイズを加えた値を超えない。</p>
+<p><code>delete</code>式では、そのオペランドのポインタが割り当てが拡張された<code>new</code>式（<code>e1</code>）から返されたものであり、<code>e1</code>を拡張することによってストレージを提供されていた他の全ての<code>new</code>式（<code>e2</code>）から返されたポインタに対する<code>delete</code>式が評価済である場合、その<code>delete</code>式は<code>e1</code>を拡張して得られた領域を解放する。</p>
+<p>そうではない場合の<code>delete</code>式、すなわち<code>e2</code>から返されたポインタに対する<code>delete</code>式は、解放関数（<code>::operator delete</code>）を呼び出さない（領域上のオブジェクトの破棄のみを行う）。</p>
+<p>したがって、省略された<code>::operator new</code>呼び出しに対応する<code>::operator delete</code>の呼び出しもまた省略される。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>動的メモリ確保と解放はとても重い処理であり、パフォーマンスの最適化のためには可能な限り回避する事が望ましい。ただし、呼び出しのミクロな最適化とメモリ割り当て戦略のマクロな最適化は区別される必要があり、それを考慮してメモリ確保を最適化するにはプログラムの実行時の振る舞いや、そこから提供されるヒントを考慮した最適化が必要となる。</p>
+<p>しかしC++11の仕様に厳密に従えば、<code>new/delete</code>式の呼び出しはその呼び出しから直接得られる情報しか用いてはならず、<code>new</code>によるメモリ確保はコードに書いた通りに実行されなければならなかった。そのため、ミクロな最適化もマクロな最適化も妨げられており、動的メモリ確保・解放処理の最適化を阻害していた。</p>
+<p>C++11時点で既に、そのような最適化を行うメモリアロケータ（<a href="http://goog-perftools.sourceforge.net/doc/tcmalloc.html" target="_blank">TCMalloc</a>）やコンパイラが存在しており、それらの存在を追認しかつ動的メモリ確保・解放処理の更なる最適化を可能とするために規格書の文面を調整することとなった。</p>
+<p>それによって、ミクロな範囲での<code>new/delete</code>式の省略が許可され、マクロな範囲の様々な情報を考慮してそれを行う事が可能となった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp20/more_constexpr_containers.html">C++20 可変サイズをもつコンテナの<code>constexpr</code>化</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3664.html" target="_blank">N3664 Clarifying Memory Allocation</a></li>
+<li><a href="https://www.slideshare.net/kariya_mitsuru/c14-84084931" target="_blank">C++14言語編 - slideshare</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

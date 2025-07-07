@@ -1,0 +1,364 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>continues_on - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
+">
+        <meta name="title" content="continues_on - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="continues_on - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="continues_on - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/continues_on.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`continues_on`は、指定[Scheduler](scheduler.md)上で完了させるSenderアダプタである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="continues_on - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/continues_on.html" />
+        <meta name="twitter:description" content="`continues_on`は、指定[Scheduler](scheduler.md)上で完了させるSenderアダプタである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0f71a61e49567084af5e743b483839d9ccaa7be3&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n#include &lt;print&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\n\nint main()\n{\n  std::println(\&#34;main#{}\&#34;, std::this_thread::get_id());\n\n  ex::run_loop loop;\n  std::jthread worker{[&amp;]{\n    std::println(\&#34;start worker#{}\&#34;, std::this_thread::get_id());\n    loop.run();\n  }};\n\n  ex::scheduler auto sch = loop.get_scheduler();\n  ex::sender auto sndr =\n    ex::just(2)\n    | ex::then([](int n) {\n        std::println(\&#34;on main#{}\&#34;, std::this_thread::get_id());\n        return n * 3;\n      })\n    | ex::continues_on(sch)\n    | ex::then([](int n) {\n        std::println(\&#34;on worker#{}\&#34;, std::this_thread::get_id());\n        return n * 7;\n      });\n\n  auto [val] = std::this_thread::sync_wait(std::move(sndr)).value();\n  std::println(\&#34;val={}\&#34;, val);\n\n  loop.finish();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;continues_on&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">continues_on</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-01T10:59:29">
+        2025年06月01日 10時59分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/continues_on.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/continues_on.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">continues_on</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">continues_on_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">continues_on_t</span> <span class="n">continues_on</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>continues_on</code>は、指定<a href="scheduler.html">Scheduler</a>上で完了させるSenderアダプタである。</p>
+<p><code>continues_on</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
+<h2>効果</h2>
+<p>説明用の式<code>sch</code>と<code>sndr</code>に対して、<code>decltype((sch))</code>が<code><a href="scheduler.html">scheduler</a></code>を満たさない、もしくは<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさないとき、呼び出し式<code>continues_on(sndr, sch)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、呼び出し式<code>continues_on(sndr, sch)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">continues_on</span><span class="p">,</span> <span class="n">sch</span><span class="p">,</span> <span class="n">sndr</span><span class="p">))</span>
+</code></pre></div>
+</p>
+<h3>Senderアルゴリズムタグ <code>continues_on</code></h3>
+<p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span>
+  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">continues_on_t</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">get</span><span class="o">-</span><span class="n">attrs</span> <span class="o">=</span>
+      <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">child</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n"><a href="../queryable.html">JOIN-ENV</a></span><span class="p">(</span><span class="n"><a href="scheduler.html">SCHED-ATTRS</a></span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV</a></span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">child</span><span class="p">)));</span>
+      <span class="p">};</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, continues_on_t&gt; == false</code>のとき、式<code>continues_on.transform_sender(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、式<code>continues_on.transform_sender(sndr, env)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">child</span><span class="p">]</span> <span class="o">=</span> <span class="n">sndr</span><span class="p">;</span>
+<span class="k">return</span> <span class="nf"><a href="schedule_from.html">schedule_from</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">child</span><span class="p">));</span>
+</code></pre></div>
+</p>
+<h2>カスタマイゼーションポイント</h2>
+<p>Senderアルゴリズム構築時に、<a href="sender.html">Sender</a><code>sndr</code>に<a href="get-domain-early.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
+<p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、<a href="scheduler.html">Scheduler</a><code>sch</code>に<a href="get-domain-late.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>continues_on.transform_sender(out_sndr, env)</code>が呼ばれ、<code><a href="schedule_from.html">schedule_from</a></code>Senderへと変換される。</p>
+<p>説明用の式<code>out_sndr</code>を<code>continues_on(sndr, sch)</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><a href="sender.html">Sender</a>とし、型<code>OutSndr</code>を<code>decltype((out_sndr))</code>とする。式<code>out_rcvr</code>を<code><a href="sender_in.html">sender_in</a>&lt;OutSndr, Env&gt; == true</code>となる<a href="../queryable.html">環境</a><code>Env</code>に関連付けられた<a href="receiver.html">Receiver</a>とする。<code>out_sndr</code>と<code>out_rcvr</code>との<a href="connect.html">接続(connect)</a>結果<a href="operation_state.html">Operation State</a>への左辺値参照を<code>op</code>としたとき、</p>
+<ul>
+<li>呼び出し<code><a href="start.html">start</a>(op)</code>は、現在の実行エージェント上で入力<a href="sender.html">Sender</a><code>sndr</code>を開始し、<a href="scheduler.html">Scheduler</a><code>sch</code>に関連付けられた実行リソースに属する実行エージェント上で<code>out_rcvr</code>の完了操作を実行すべき。</li>
+<li><code>sch</code>上でのスケジューリングが失敗した場合、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の実行エージェント上で<code>out_rcvr</code>の<a href="set_error.html">エラー完了</a>が行われるべき。</li>
+</ul>
+<h2>備考</h2>
+<p><code>continues_on</code>Senderアルゴリズムの動作は、<a href="receiver.html">Receiver</a><a href="connect.html">接続(connect)</a>時の<code><a href="schedule_from.html">schedule_from</a></code>Senderアルゴリズムへの変換、および説明専用の<code><a href="get-domain-late.html">get-domain-late</a></code>関数テンプレートでの特別扱いによって実現される。</p>
+<h2>例</h2>
+<p><div class="yata" id="0f71a61e49567084af5e743b483839d9ccaa7be3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"main#{}"</span><span class="p">,</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
+
+  <span class="n"><a href="run_loop.html">ex::run_loop</a></span> <span class="n">loop</span><span class="p">;</span>
+  <span class="n"><a href="../../thread/jthread.html">std::jthread</a></span> <span class="n">worker</span><span class="p">{[</span><span class="o">&amp;</span><span class="p">]{</span>
+    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"start worker#{}"</span><span class="p">,</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
+    <span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/run.html">run()</a></span><span class="p">;</span>
+  <span class="p">}};</span>
+
+  <span class="n"><a href="scheduler.html">ex::scheduler</a></span> <span class="k">auto</span> <span class="n">sch</span> <span class="o">=</span> <span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/get_scheduler.html">get_scheduler()</a></span><span class="p">;</span>
+  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span>
+    <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([](</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"on main#{}"</span><span class="p">,</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
+      <span class="p">})</span>
+    <span class="o">|</span> <span class="n"><span style="color:#ff0000">ex::continues_on</span></span><span class="p">(</span><span class="n">sch</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([](</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"on worker#{}"</span><span class="p">,</span> <span class="n"><a href="../../thread/this_thread/get_id.html">std::this_thread::get_id()</a></span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">7</span><span class="p">;</span>
+      <span class="p">});</span>
+
+  <span class="k">auto</span> <span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)).</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
+  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"val={}"</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+
+  <span class="n">loop</span><span class="p">.</span><span class="n"><a href="run_loop/finish.html">finish()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>main#137071308048192
+on main#137071308048192
+start worker#137071301756480
+on worker#137071301756480
+val=42
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="schedule.html">execution::schedule</a></code></li>
+<li><code><a href="starts_on.html">execution::starts_on</a></code></li>
+<li><code><a href="on.html">execution::on</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

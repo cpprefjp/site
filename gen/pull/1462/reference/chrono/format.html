@@ -1,0 +1,542 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>format - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std,function,cpp20
+">
+        <meta name="title" content="format - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="format - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="format - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/format.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="chronoライブラリのクラスオブジェクトに対する文字列フォーマット。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="format - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/format.html" />
+        <meta name="twitter:description" content="chronoライブラリのクラスオブジェクトに対する文字列フォーマット。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;55b21cfb890c1eea9bbda95fe3c3a906869d8ba8&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;chrono&gt;\n\nint main()\n{\n  auto now = std::chrono::system_clock::now(); // UTC\u6642\u9593\u306e\u73fe\u5728\u65e5\u6642\n\n  // \u65e5\u4ed8\u3092\u51fa\u529b\n  std::cout &lt;&lt; std::format(\&#34;1. {:%Y\u5e74%m\u6708%d\u65e5}\&#34;, now) &lt;&lt; std::endl;\n\n  // \u6642\u9593\u3092\u51fa\u529b\u3002\n  // \u79d2\u5358\u4f4d\u306etime_point\u306b\u5909\u63db\u3057\u306a\u3044\u3068\u3001\u5c0f\u6570\u70b9\u4ee5\u4e0b\u306e\u79d2\u3082\u51fa\u529b\u3055\u308c\u308b\n  auto now_sec = std::chrono::time_point_cast&lt;std::chrono::seconds&gt;(now);\n  std::cout &lt;&lt; std::format(\&#34;2. {:%H\u6642%M\u5206%S\u79d2}\&#34;, now) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;3. {:%H\u6642%M\u5206%S\u79d2}\&#34;, now_sec) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;4. {:%p %I\u6642%M\u5206%S\u79d2}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u305d\u306e\u4ed6\u8981\u7d20\n  std::cout &lt;&lt; std::format(\&#34;5. {:%C}\&#34;, now) &lt;&lt; std::endl; // \u4e16\u7d00 (100\u3067\u5272\u3063\u3066\u5207\u308a\u4e0b\u3052\u305f\u5024)\n  std::cout &lt;&lt; std::format(\&#34;6. {:%a}\&#34;, now) &lt;&lt; std::endl; // \u66dc\u65e5\u306e\u7565\u79f0\n  std::cout &lt;&lt; std::format(\&#34;7. {:%A}\&#34;, now) &lt;&lt; std::endl; // \u66dc\u65e5\u306e\u5b8c\u5168\u540d\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;format&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">format</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-26T14:50:22">
+        2025年06月26日 14時50分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/format.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/format.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">format</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="c1">// 追加宣言なし</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>chronoライブラリのクラスオブジェクトに対する文字列フォーマット。</p>
+<p>ここでは宣言はとくにないが、<code><a href="../format/format.html">std::format()</a></code>に対してchronoライブラリの各クラスオブジェクトを出力できるよう<code><a href="../format/formatter.html">std::formatter</a></code>クラスが各クラスで特殊化されている。</p>
+<h2>フォーマット構文</h2>
+<p><pre><code>chrono-format-spec:
+  fill-and-align(opt) width(opt) precision(opt) L(opt) chrono-specs(opt)
+</code></pre></p>
+<ul>
+<li><code>fill</code> (省略可) : アライメントに使う文字 (デフォルト：スペース)</li>
+<li><code>align</code> (省略可) : アライメント<ul>
+<li><code>&gt;</code> : 右寄せ</li>
+<li><code>&lt;</code> : 左寄せ</li>
+<li><code>^</code> : 中央寄せ</li>
+</ul>
+</li>
+<li><code>width</code> (省略可) : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)</li>
+<li><code>precision</code> (省略可) : 精度(浮動小数点数の場合)、使う文字数(文字列の場合)</li>
+<li><code>L</code> (省略可) : この関数に指定されたロケールを使用し、指定されなければグローバルロケールを使用する。省略された場合はCロケールを使用する</li>
+</ul>
+<h3>chronoライブラリでのフォーマットフラグ</h3>
+<p><code><a href="../format/format.html">std::format()</a></code>関数の通常の指定では、置換フィールド<code>{}</code>内に基数、精度、0埋め指定、アライメントなどを指定する。</p>
+<p>chronoライブラリではこれに加え、たとえばデフォルトでは年・月・日を出力する<code><a href="year_month_day.html">year_month_day</a></code>クラスに対して「<code>"年/月"</code>」というフォーマットで出力するよう<code>"{%Y/%m}"</code>のように指定することでデフォルトとは異なる出力をさせることができる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>フォーマットフラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%a</code></td>
+<td>ロケール依存の曜日の略称。<br /> 値に有効な曜日が含まれていない場合、<code><a href="../format/format_error.html">std::format_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</td>
+<td><code>"Fri"</code>, <code>"金"</code></td>
+</tr>
+<tr>
+<td><code>%A</code></td>
+<td>ロケール依存の曜日の完全名。<br /> 値に有効な曜日が含まれていない場合、<code><a href="../format/format_error.html">std::format_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</td>
+<td><code>"Friday"</code>, <code>"金曜日"</code></td>
+</tr>
+<tr>
+<td><code>%b</code></td>
+<td>ロケール依存の月の略称。<br /> 値に有効な月が含まれていない場合、<code><a href="../format/format_error.html">std::format_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</td>
+<td><code>"Apr"</code>, <code>"4月"</code></td>
+</tr>
+<tr>
+<td><code>%B</code></td>
+<td>ロケール依存の月の完全名。<br /> 値に有効な月が含まれていない場合、<code><a href="../format/format_error.html">std::format_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</td>
+<td><code>"April"</code>, <code>"4月"</code></td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>ロケール依存の日付・時間の表現。改良コマンド<code>%Ec</code>を指定すると、異なる表現を出力する</td>
+<td><code>"Fri Apr 24 17:14:44 2020"</code><br /> <code>"2020年04月24日 17時14分44秒"</code></td>
+</tr>
+<tr>
+<td><code>%C</code></td>
+<td>100で切り下げ除算した年 (世紀)。結果が10進数で1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%EC</code>を指定すると、ロケール依存の世紀の異なる表現を出力する</td>
+<td>2020年では<code>"20"</code>)</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>10進数での月の日。結果が10進数で1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%Od</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"24"</code></td>
+</tr>
+<tr>
+<td><code>%D</code></td>
+<td><code>%m/%d/%y</code>と等価</td>
+<td><code>"04/24/20"</code></td>
+</tr>
+<tr>
+<td><code>%e</code></td>
+<td>10進数での月の日。結果が10進数で1桁の場合、先頭にスペースがつく。改良コマンド<code>%Oe</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>" 1"</code></td>
+</tr>
+<tr>
+<td><code>%F</code></td>
+<td><code>%Y-%m-%d</code>と等価</td>
+<td><code>"2020-04-24"</code></td>
+</tr>
+<tr>
+<td><code>%g</code></td>
+<td>ISOの週ベースのうしろ2桁10進数の年。結果が1桁の場合、先頭に<code>0</code>がつく</td>
+<td><code>"20"</code></td>
+</tr>
+<tr>
+<td><code>%G</code></td>
+<td>ISOの週ベースの10進数の年。結果が4桁未満の場合、4桁になるよう左が<code>0</code>で埋められる</td>
+<td><code>"2020"</code></td>
+</tr>
+<tr>
+<td><code>%h</code></td>
+<td><code>%b</code>と等価</td>
+<td><code>"Jan"</code>, <code>"4月"</code></td>
+</tr>
+<tr>
+<td><code>%H</code></td>
+<td>24時間時計での10進数の時。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%OH</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"17"</code></td>
+</tr>
+<tr>
+<td><code>%I</code></td>
+<td>12時間時計での10進数の時。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%OI</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"05"</code></td>
+</tr>
+<tr>
+<td><code>%j</code></td>
+<td>10進数での年の日。1月1日は<code>001</code>が出力される。結果が3桁未満の場合、3桁になるよう左が<code>0</code>で埋められる。<code><a href="duration.html">duration</a></code>の特殊化が与えられた場合、<code><a href="duration_aliases.html">days</a></code>の10進数値として0埋めなしで書式化される</td>
+<td><code>"115"</code></td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>10進数での月。1月は<code>01</code>が出力される。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%Om</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"04"</code></td>
+</tr>
+<tr>
+<td><code>%M</code></td>
+<td>10進数での分。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%OM</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"14"</code></td>
+</tr>
+<tr>
+<td><code>%n</code></td>
+<td>改行文字</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>12時間時計でのロケール依存の午前・午後の表現</td>
+<td><code>"PM"</code>, <code>"午後"</code></td>
+</tr>
+<tr>
+<td><code>%q</code></td>
+<td><code><a href="duration.html">duration</a></code>単位ごとのサフィックス。<code><a href="duration.html">duration</a></code>の<code><a href="duration/op_ostream.html">operator&lt;&lt;</a></code>で出力されるサフィックスと等価</td>
+<td><code>"s"</code></td>
+</tr>
+<tr>
+<td><code>%Q</code></td>
+<td><code><a href="duration.html">duration</a></code>の数値。<code><a href="duration/count.html">.count()</a></code>で取得した値</td>
+<td><code>"44"</code></td>
+</tr>
+<tr>
+<td><code>%r</code></td>
+<td>12時間時計でのロケール依存の時間</td>
+<td><code>"05:14:44 PM"</code><br /> <code>"午後05時14分44秒"</code></td>
+</tr>
+<tr>
+<td><code>%R</code></td>
+<td><code>%H:%M</code>と等価</td>
+<td><code>"17:14"</code></td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>10進数での秒。10秒未満の場合、先頭に<code>0</code>がつく。入力が秒の精度と正確に一致しない場合、浮動小数点フォーマットで出力される。10進数の浮動小数点数で小数点以下18桁以内で表現できない場合、マイクロ秒で出力される。改良コマンド<code>%OS</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"44"</code><br /> <code>"44.123"</code></td>
+</tr>
+<tr>
+<td><code>%t</code></td>
+<td>水平タブ文字</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%T</code></td>
+<td><code>%H:%M:%S</code>と等価</td>
+<td><code>"17:14:44.123"</code></td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>10進数での月曜を1とするISO曜日番号 (1-7)。改良コマンド<code>%Ou</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"5"</code></td>
+</tr>
+<tr>
+<td><code>%U</code></td>
+<td>10進数での年の週番号。年の最初の日曜日が最初の曜日であるとして<code>01</code>、同年のそれより前の日は<code>00</code>となる。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%OU</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"16"</code></td>
+</tr>
+<tr>
+<td><code>%V</code></td>
+<td>10進数でのISO週ベースの週番号。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%OV</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"17"</code></td>
+</tr>
+<tr>
+<td><code>%w</code></td>
+<td>10進数での日曜を0とする曜日番号 (0-6)。改良コマンド<code>%Ow</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"5"</code></td>
+</tr>
+<tr>
+<td><code>%W</code></td>
+<td>10進数での年の週番号。年の最初の月曜日が最初の曜日であるとして<code>01</code>、同年のそれより前の日は<code>00</code>となる。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%OW</code>を指定すると、ロケール依存の異なる表現を出力する</td>
+<td><code>"16"</code></td>
+</tr>
+<tr>
+<td><code>%x</code></td>
+<td>ロケール依存の日付表現。改良コマンド<code>%Ex</code>を指定すると、ロケール依存の異なる表現が出力される</td>
+<td><code>"04/24/20"</code></td>
+</tr>
+<tr>
+<td><code>%X</code></td>
+<td>ロケール依存の時間表現。改良コマンド<code>%EX</code>を指定すると、ロケール依存の異なる表現が出力される</td>
+<td><code>"17:14:44"</code><br /> <code>"17時14分44秒"</code></td>
+</tr>
+<tr>
+<td><code>%y</code></td>
+<td>10進数での年のうしろ2桁。結果が1桁の場合、先頭に<code>0</code>がつく。改良コマンド<code>%Oy</code>を指定すると、ロケール依存の異なる表現を出力する。改良コマンド<code>%Ey</code>を指定すると、<code>%EC</code>からのオフセットとしてロケール依存の異なる表現を出力する。</td>
+<td><code>"20"</code><br /> <code>%Ey</code>では<code>"02"</code></td>
+</tr>
+<tr>
+<td><code>%Y</code></td>
+<td>10進数での年。結果が4桁未満の場合、4桁になるよう左が<code>0</code>で埋められる。改良コマンド<code>%EY</code>を指定すると、ロケール依存の異なる表現の完全な年を出力する</td>
+<td><code>"2020"</code></td>
+</tr>
+<tr>
+<td><code>%z</code></td>
+<td>ISO 8601フォーマットでのUTCからのオフセット。例として<code>-0430</code>はUTCから4時間30分遅れていることを表す。オフセットがゼロの場合は<code>+0000</code>が使用される。改良コマンド<code>%Ez</code>と<code>%Oz</code>を指定すると、時と分の間にコロン (<code>:</code>) が挿入される。オフセット情報が利用可能でない場合、<code><a href="../format/format_error.html">std::format_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</td>
+<td><code>"+0900"</code><br /><code>%Ez</code>では<code>"+09:00"</code></td>
+</tr>
+<tr>
+<td><code>%Z</code></td>
+<td>タイムゾーンの略称。タイムゾーンの略称が利用可能でない場合、<code><a href="../format/format_error.html">std::format_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</td>
+<td><code>"JST"</code></td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>文字<code>%</code></td>
+<td><code>"%"</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>便宜上のリテラルキャスト<code>STATICALLY-WIDEN</code>を導入する。<code>STATICALLY-WIDEN&lt;charT&gt;("...")</code>は、<code>charT</code>が<code>char</code>である場合は<code>"..."</code>、<code>charT</code>が<code>wchar_t</code>である場合は<code>L"..."</code>を意味する。</li>
+<li><code><a href="hh_mm_ss.html">hh_mm_ss</a></code>オブジェクトの<code><a href="hh_mm_ss/is_negative.html">is_negative()</a></code>が<code>true</code>である場合、出力される文字列の先頭に<code>STATICALLY-WIDEN&lt;charT&gt;("-")</code>が挿入される</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>指定されたフォーマットフラグに必要な情報が含まれていない場合、<code><a href="../format/format_error.html">format_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される (例として、<code><a href="duration.html">duration</a></code>には曜日をフォーマットするために必要な情報が含まれていない)<ul>
+<li>ただし、フラグが時刻に関するもの (<code>%H</code>, <code>%I</code>, <code>%p</code>など) である場合、<code>duration</code>の特殊化は深夜0時からの経過した時刻として解釈する</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="55b21cfb890c1eea9bbda95fe3c3a906869d8ba8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">now</span> <span class="o">=</span> <span class="n"><a href="system_clock.html">std::chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/now.html">now()</a></span><span class="p">;</span> <span class="c1">// UTC時間の現在日時</span>
+
+  <span class="c1">// 日付を出力</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"1. {:%Y年%m月%d日}"</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 時間を出力。</span>
+  <span class="c1">// 秒単位のtime_pointに変換しないと、小数点以下の秒も出力される</span>
+  <span class="k">auto</span> <span class="n">now_sec</span> <span class="o">=</span> <span class="n"><a href="time_point_cast.html">std::chrono::time_point_cast</a></span><span class="o">&lt;</span><span class="n"><a href="duration_aliases.html">std::chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"2. {:%H時%M分%S秒}"</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"3. {:%H時%M分%S秒}"</span><span class="p">,</span> <span class="n">now_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"4. {:%p %I時%M分%S秒}"</span><span class="p">,</span> <span class="n">now_sec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// その他要素</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"5. {:%C}"</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 世紀 (100で割って切り下げた値)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"6. {:%a}"</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 曜日の略称</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"7. {:%A}"</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 曜日の完全名</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>1. 2024年09月24日
+2. 08時27分28.1822610秒
+3. 08時27分28秒
+4. AM 08時27分28秒
+5. 20
+6. Tue
+7. Tuesday
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 17 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 13 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 10 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1361r2.pdf" target="_blank">P1361R2 Integration of chrono with text formatting</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262" target="_blank">LWG Issue 3262. Formatting of negative durations is not specified</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3230" target="_blank">LWG Issue 3230. Format specifier <code>%y</code>/<code>%Y</code> is missing locale alternative versions</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3262" target="_blank">LWG Issue 3262. Formatting of negative durations is not specified</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270" target="_blank">LWG Issue 3270. Parsing and formatting <code>%j</code> with <code>duration</code>s</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3272" target="_blank">LWG Issue 3272. <code>%I%p</code> should <code>parse</code>/<code>format duration</code> since midnight</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2372r1.html" target="_blank">P2372R1 Fixing locale handling in chrono formatters</a><ul>
+<li>この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

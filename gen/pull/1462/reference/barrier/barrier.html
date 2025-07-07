@@ -1,0 +1,520 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>barrier - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,barrier,std,class template,cpp20
+">
+        <meta name="title" content="barrier - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="barrier - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="barrier - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/barrier/barrier.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`barrier`クラスは、複数スレッドにより並行実行される反復的なタスク制御に便利な、スレッド調整機構（同期プリミティブ）である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="barrier - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/barrier/barrier.html" />
+        <meta name="twitter:description" content="`barrier`クラスは、複数スレッドにより並行実行される反復的なタスク制御に便利な、スレッド調整機構（同期プリミティブ）である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;barrier&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9fd951e4eda7df2811f2d2cbf7c82672ed4572ad&#34;, &#34;source&#34;: &#34;#include &lt;barrier&gt;\n#include &lt;iostream&gt;\n#include &lt;thread&gt;\n\nconstexpr int NWORKERS = 2;  // \u30ef\u30fc\u30ab\u6570\nconstexpr int NPHASES  = 3;  // \u30d5\u30a7\u30fc\u30ba\u6570\n\nstd::mutex cout_mtx;  // \u884c\u5358\u4f4dcout\u51fa\u529b\u7528\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\n\n// \u3053\u306e\u30d7\u30ed\u30b0\u30e9\u30e0\u3067\u306f (NWORKERS+1)*NPHASES = 9\u500b\u306e\u30bf\u30b9\u30af\u3092\u5b9f\u884c\u3059\u308b\u3002\n// \u540c\u3058\u30d5\u30a7\u30fc\u30ba\u306b\u5c5e\u3059\u308b\u30bf\u30b9\u30af\u306f\u8907\u6570\u306e\u30b9\u30ec\u30c3\u30c9\u4e0a\u3067\u540c\u6642\u4e26\u884c\u306b\u5b9f\u884c\u3055\u308c\u308b\u4e00\u65b9\u3001\n// \u30d0\u30ea\u30a2\u306b\u3088\u308a\u7570\u306a\u308b\u30d5\u30a7\u30fc\u30ba\u306b\u5c5e\u3059\u308b\u30bf\u30b9\u30af\u304c\u540c\u6642\u5b9f\u884c\u3055\u308c\u306a\u3044\u3053\u3068\u3092\u4fdd\u8a3c\u3059\u308b\u3002\n// \u3053\u3053\u3067\u306f\u5468\u671f\u7684\u306aFork-Join\u30e2\u30c7\u30eb\u306e\u30bf\u30b9\u30af\u4e26\u884c\u5b9f\u884c\u304c\u884c\u308f\u308c\u308b\u3002\nint main()\n{\n  // \u30d0\u30ea\u30a2\u540c\u671f: \u521d\u671f\u30ab\u30a6\u30f3\u30c8\u5024=\u30ef\u30fc\u30ab\u6570+1(\u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9)\n  std::barrier&lt;&gt; sync{NWORKERS+1};\n\n  // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u7fa4\u3092Fire-and-Forget\u8d77\u52d5\n  for (int id = 1; id &lt;= NWORKERS; id++) {\n    std::thread([&amp;,id]{\n      for (int phase = 1; phase &lt;= NPHASES; phase++) {\n        { // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u306e\u30d5\u30a7\u30fc\u30ba\u30bf\u30b9\u30af\u3092\u5b9f\u884c\n          std::lock_guard lk{cout_mtx};\n          std::cout &lt;&lt; \&#34;Worker#\&#34; &lt;&lt; id &lt;&lt; \&#34; \&#34; &lt;&lt; phase &lt;&lt; std::endl;\n        }\n\n        // \u5408\u6d41\u30dd\u30a4\u30f3\u30c8: \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\uff0b\u4ed6\u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u3068\u540c\u671f\n        sync.arrive_and_wait();\n      }\n    }).detach();\n  }\n\n  // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u51e6\u7406\n  for (int phase = 1; phase &lt;= NPHASES; phase++) {\n    { // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u306e\u30d5\u30a7\u30fc\u30ba\u30bf\u30b9\u30af\u3092\u5b9f\u884c\n      std::lock_guard lk{cout_mtx};\n      std::cout &lt;&lt; \&#34;Main     \&#34; &lt;&lt; phase &lt;&lt; std::endl;\n    }\n\n    // \u5408\u6d41\u30dd\u30a4\u30f3\u30c8: \u5168\u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u3068\u540c\u671f\n    sync.arrive_and_wait();\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;e348b9e6879265860c24155cd5f26c80c26f0779&#34;, &#34;source&#34;: &#34;#include &lt;barrier&gt;\n#include &lt;iostream&gt;\n#include &lt;mutex&gt;\n#include &lt;string&gt;\n#include &lt;thread&gt;\n#include &lt;vector&gt;\n#include &lt;functional&gt; // for std::ref\n\n// \u5404\u30d5\u30a7\u30fc\u30ba\u5b8c\u4e86\u6642\u306b\u547c\u3073\u51fa\u3055\u308c\u308b\u5b8c\u4e86\u95a2\u6570\nstruct PhaseNotifier {\n  void operator()() const noexcept {\n    std::lock_guard lk{cout_mtx};\n    std::cout &lt;&lt; \&#34;Phase \&#34; &lt;&lt; current_phase &lt;&lt; \&#34; completed!\&#34; &lt;&lt; std::endl;\n    current_phase++;\n  }\n\n  static inline std::mutex cout_mtx;\n  static inline int current_phase = 1;\n};\n\nvoid worker_task(int id, std::barrier&lt;PhaseNotifier&gt;&amp; sync, int phases) {\n  for (int phase = 1; phase &lt;= phases; phase++) {\n    // \u5404\u30ef\u30fc\u30ab\u30fc\u304c\u30d5\u30a7\u30fc\u30ba\u306e\u4f5c\u696d\u3092\u5b9f\u884c\n    {\n      std::lock_guard lk{PhaseNotifier::cout_mtx};\n      std::cout &lt;&lt; \&#34;Worker \&#34; &lt;&lt; id &lt;&lt; \&#34; executing phase \&#34; &lt;&lt; phase &lt;&lt; std::endl;\n    }\n\n    // \u30d5\u30a7\u30fc\u30ba\u5b8c\u4e86\u3092\u901a\u77e5\u3057\u3066\u6b21\u306e\u30d5\u30a7\u30fc\u30ba\u307e\u3067\u5f85\u6a5f\n    // \u6700\u5f8c\u306e\u30b9\u30ec\u30c3\u30c9\u304c\u5230\u9054\u3059\u308b\u3068\u5b8c\u4e86\u95a2\u6570\u304c\u547c\u3073\u51fa\u3055\u308c\u308b\n    sync.arrive_and_wait();\n  }\n}\n\nint main() {\n  constexpr int num_threads = 3;\n  constexpr int num_phases = 3;\n\n  // \u5b8c\u4e86\u901a\u77e5\u95a2\u6570\u3092\u6301\u3064\u30d0\u30ea\u30a2\n  std::barrier sync{num_threads, PhaseNotifier{}};\n\n  std::vector&lt;std::thread&gt; threads;\n\n  // \u30b9\u30ec\u30c3\u30c9\u8d77\u52d5\n  for (int i = 1; i &lt;= num_threads; i++) {\n    threads.emplace_back(worker_task, i, std::ref(sync), num_phases);\n  }\n\n  // \u5168\u30b9\u30ec\u30c3\u30c9\u306e\u7d42\u4e86\u3092\u5f85\u6a5f\n  for (auto&amp; t : threads) {\n    t.join();\n  }\n\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;barrier&#34;, &#34;barrier&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/barrier.html" itemprop="url">
+              
+                <span itemprop="name">barrier</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">barrier</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/barrier/barrier.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/barrier/barrier.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;barrier&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">barrier</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CompletionFunction</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">barrier</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>barrier</code>クラスは、複数スレッドにより並行実行される反復的なタスク制御に便利な、スレッド調整機構（同期プリミティブ）である。
+<a href="https://en.wikipedia.org/wiki/Barrier_(computer_science)" target="_blank">バリア</a>の存続期間はバリアフェーズの列からなり、各フェーズでは予定スレッド数がバリアに到達するまで先行到達スレッドの実行をブロックできる。
+複数スレッドがバリアオブジェクト上で待ち合わせ（合流）を行うさまから、ランデブーポイント(Rendezvous Point)とも呼ばれる。</p>
+<p>バリア同期を用いると<a href="https://en.wikipedia.org/wiki/Fork%E2%80%93join_model" target="_blank">Fork-Joinモデル</a>に基づくタスク並行構造を容易に実装できる。</p>
+<ul>
+<li><a href="barrier/op_constructor.html">コンストラクタ</a>にてバリア同期に参加するスレッド数を設定する。</li>
+<li><code><a href="barrier/arrive_and_wait.html">arrive_and_wait()</a></code>により自スレッドの現行フェーズ完了を通知し、他スレッド群の現行フェーズ完了を待機する。バリア同期参加中のスレッドが合流し終えると、各スレッドのブロックが解除されて次フェーズを開始する。</li>
+<li><code><a href="barrier/arrive_and_drop.html">arrive_and_drop()</a></code>により自スレッドの現行フェーズ完了を通知し、次フェーズからはバリア同期に参加しない（参加スレッド数を1つ減らす）。バリア同期参加中のスレッドが合流し終えると、自スレッド以外のブロックが解除されて次フェーズを開始する。</li>
+</ul>
+<p>バリアオブジェクトは複数スレッド間の合流制御を繰り返して行えるが、1回のみの制御で十分ならばラッチ<code><a href="../latch/latch.html">latch</a></code>も利用候補となりえる。</p>
+<h3>詳細説明</h3>
+<p>説明のため、ここではバリアオブジェクトが保持する<code>CompletionFunction</code>型のメンバ変数を<code>completion</code>と表記する。
+同メンバ変数<code>completion</code>は、<a href="barrier/op_constructor.html">コンストラクタ</a>にて設定される。</p>
+<p>各バリアフェーズ(barrier phase)は下記のステップで構成される：</p>
+<ul>
+<li><code><a href="barrier/arrive.html">arrive()</a></code>または<code><a href="barrier/arrive_and_drop.html">arrive_and_drop()</a></code>呼び出しによって、予定カウントを減算する。</li>
+<li>予定カウントが<code>0</code>に到達した後、<code><a href="barrier/arrive.html">arrive()</a></code>／<code><a href="barrier/arrive_and_drop.html">arrive_and_drop()</a></code>／<code><a href="barrier/wait.html">wait()</a></code>いずれかの呼び出しの間に、いずれかのスレッドにより正確に1回だけ完了ステップが実行される。ただし<code><a href="barrier/wait.html">wait()</a></code>呼び出しを行うスレッドがない場合に、完了ステップが実行されるか否かは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>とされる。</li>
+<li>完了ステップが終了したのち、予定カウントをコンストラクタ実引数<code>expected</code>でリセットし、<code><a href="barrier/arrive_and_drop.html">arrive_and_drop()</a></code>呼び出しの場合は調整を行って、次のフェーズを開始する。</li>
+</ul>
+<p>各フェーズは、フェーズ同期ポイント(phase synchronization point)を定義する。
+フェーズ内でバリアに到達したスレッドは、<code><a href="barrier/wait.html">wait()</a></code>呼び出しによりフェーズ同期ポイント上でブロックされ、フェーズ完了ステップが実行されるまでブロック状態は継続する。</p>
+<p>フェーズ完了ステップ(phase completion step)は各フェーズ終了時に実行され、下記の効果を持つ：</p>
+<ul>
+<li>完了関数を呼び出す。<code>completion()</code>と等価。</li>
+<li>フェーズ同期ポイント上でブロックされている全スレッドのブロックを解除する。</li>
+</ul>
+<p>完了ステップの終了は、完了ステップによりブロック解除される全ての関数呼び出しからの復帰<strong><a class="cpprefjp-defined-word" data-desc="strongly happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する強い関係">よりも確実に前に発生する</a></strong>。
+テンプレートパラメータ<code>CompletionFunction</code>のデフォルト値以外の特殊化においては、完了ステップの進行中にバリアオブジェクトの<code><a href="barrier/wait.html">wait()</a></code>を除くメンバ関数が呼び出されると、その<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
+<p>テンプレートパラメータ<code>CompletionFunction</code>のデフォルト値は、追加で Cpp17DefaultConstructible 要件を満たす<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型であり、式<code>completion()</code>は何の副作用も生じない。
+つまりテンプレートパラメータを省略した<code>barrier&lt;&gt;</code>オブジェクトでは、各フェーズ完了時に追加的な処理を行わない。</p>
+<p><code>barrier::arrival_token</code>は、Cpp17MoveConstructible 要件および Cpp17MoveAssignable 要件および Cpp17Destructible 要件を満たす<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型。
+つまり、コピー不可／ムーブのみ可能な型。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<p>テンプレートパラメータ<code>CompletionFunction</code>は Cpp17MoveConstructible 要件および Cpp17Destructible 要件を満たしていること。
+<code><a href="../type_traits/is_nothrow_invocable.html">is_nothrow_invocable_v</a>&lt;CompletionFunction&amp;&gt; == true</code></p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="barrier/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>operator=(const barrier&amp;) = delete;</code></td>
+<td>代入演算子</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="barrier/arrive.html">arrive</a></code></td>
+<td>到達通知</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="barrier/wait.html">wait</a></code></td>
+<td>待機処理</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="barrier/arrive_and_wait.html">arrive_and_wait</a></code></td>
+<td>到達通知と待機処理</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="barrier/arrive_and_drop.html">arrive_and_drop</a></code></td>
+<td>到達通知後に離脱</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="barrier/max.html">max</a></code></td>
+<td>処理系がサポートする予定カウントの最大値</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arrival_token</code></td>
+<td>到達トークン型</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="9fd951e4eda7df2811f2d2cbf7c82672ed4572ad"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../barrier.html">&lt;barrier&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">NWORKERS</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// ワーカ数</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">NPHASES</span>  <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  <span class="c1">// フェーズ数</span>
+
+<span class="n"><a href="../mutex/mutex.html">std::mutex</a></span> <span class="n">cout_mtx</span><span class="p">;</span>  <span class="c1">// 行単位cout出力用ミューテックス</span>
+
+<span class="c1">// このプログラムでは (NWORKERS+1)*NPHASES = 9個のタスクを実行する。</span>
+<span class="c1">// 同じフェーズに属するタスクは複数のスレッド上で同時並行に実行される一方、</span>
+<span class="c1">// バリアにより異なるフェーズに属するタスクが同時実行されないことを保証する。</span>
+<span class="c1">// ここでは周期的なFork-Joinモデルのタスク並行実行が行われる。</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// バリア同期: 初期カウント値=ワーカ数+1(メインスレッド)</span>
+  <span class="n"><span style="color:#ff0000">std::barrier</span></span><span class="o">&lt;&gt;</span> <span class="n">sync</span><span class="p">{</span><span class="n">NWORKERS</span><span class="o">+</span><span class="mi">1</span><span class="p">};</span>
+
+  <span class="c1">// ワーカスレッド群をFire-and-Forget起動</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">id</span> <span class="o">&lt;=</span> <span class="n">NWORKERS</span><span class="p">;</span> <span class="n">id</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../thread/thread.html">std::thread</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">,</span><span class="n">id</span><span class="p">]{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">phase</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">phase</span> <span class="o">&lt;=</span> <span class="n">NPHASES</span><span class="p">;</span> <span class="n">phase</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">{</span> <span class="c1">// ワーカスレッドのフェーズタスクを実行</span>
+          <span class="n"><a href="../mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span><span class="p">{</span><span class="n">cout_mtx</span><span class="p">};</span>
+          <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Worker#"</span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">phase</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 合流ポイント: メインスレッド＋他ワーカスレッドと同期</span>
+        <span class="n">sync</span><span class="p">.</span><span class="n"><a href="barrier/arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}).</span><span class="n"><a href="../thread/thread/detach.html">detach()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// メインスレッド処理</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">phase</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">phase</span> <span class="o">&lt;=</span> <span class="n">NPHASES</span><span class="p">;</span> <span class="n">phase</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="c1">// メインスレッドのフェーズタスクを実行</span>
+      <span class="n"><a href="../mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span><span class="p">{</span><span class="n">cout_mtx</span><span class="p">};</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Main     "</span> <span class="o">&lt;&lt;</span> <span class="n">phase</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 合流ポイント: 全ワーカスレッドと同期</span>
+    <span class="n">sync</span><span class="p">.</span><span class="n"><a href="barrier/arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>Worker#1 1
+Main     1
+Worker#2 1
+Main     2
+Worker#2 2
+Worker#1 2
+Worker#1 3
+Worker#2 3
+Main     3
+</code></pre></p>
+<h2>完了関数を持つBarrierの例</h2>
+<p><div class="yata" id="e348b9e6879265860c24155cd5f26c80c26f0779"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../barrier.html">&lt;barrier&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a> // for <a href="../functional/ref.html">std::ref</a></span><span class="cp"></span>
+
+<span class="c1">// 各フェーズ完了時に呼び出される完了関数</span>
+<span class="k">struct</span> <span class="n">PhaseNotifier</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="n"><a href="../mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span><span class="p">{</span><span class="n">cout_mtx</span><span class="p">};</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Phase "</span> <span class="o">&lt;&lt;</span> <span class="n">current_phase</span> <span class="o">&lt;&lt;</span> <span class="s">" completed!"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n">current_phase</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kr">inline</span> <span class="n"><a href="../mutex/mutex.html">std::mutex</a></span> <span class="n">cout_mtx</span><span class="p">;</span>
+  <span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="n">current_phase</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">worker_task</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::barrier</span></span><span class="o">&lt;</span><span class="n">PhaseNotifier</span><span class="o">&gt;&amp;</span> <span class="n">sync</span><span class="p">,</span> <span class="kt">int</span> <span class="n">phases</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">phase</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">phase</span> <span class="o">&lt;=</span> <span class="n">phases</span><span class="p">;</span> <span class="n">phase</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 各ワーカーがフェーズの作業を実行</span>
+    <span class="p">{</span>
+      <span class="n"><a href="../mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span><span class="p">{</span><span class="n">PhaseNotifier</span><span class="o">::</span><span class="n">cout_mtx</span><span class="p">};</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Worker "</span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="s">" executing phase "</span> <span class="o">&lt;&lt;</span> <span class="n">phase</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// フェーズ完了を通知して次のフェーズまで待機</span>
+    <span class="c1">// 最後のスレッドが到達すると完了関数が呼び出される</span>
+    <span class="n">sync</span><span class="p">.</span><span class="n"><a href="barrier/arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">num_threads</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">num_phases</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+  <span class="c1">// 完了通知関数を持つバリア</span>
+  <span class="n"><span style="color:#ff0000">std::barrier</span></span> <span class="n">sync</span><span class="p">{</span><span class="n">num_threads</span><span class="p">,</span> <span class="n">PhaseNotifier</span><span class="p">{}};</span>
+
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../thread/thread.html">std::thread</a></span><span class="o">&gt;</span> <span class="n">threads</span><span class="p">;</span>
+
+  <span class="c1">// スレッド起動</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">num_threads</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">threads</span><span class="p">.</span><span class="n"><a href="../vector/vector/emplace_back.html">emplace_back</a></span><span class="p">(</span><span class="n">worker_task</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">sync</span><span class="p">),</span> <span class="n">num_phases</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 全スレッドの終了を待機</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">t</span> <span class="p">:</span> <span class="n">threads</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>Worker 1 executing phase 1
+Worker 2 executing phase 1
+Worker 3 executing phase 1
+Phase 1 completed!
+Worker 3 executing phase 2
+Worker 2 executing phase 2
+Worker 1 executing phase 2
+Phase 2 completed!
+Worker 1 executing phase 3
+Worker 2 executing phase 3
+Worker 3 executing phase 3
+Phase 3 completed!
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 11.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../latch/latch.html">latch</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0666r2.pdf" target="_blank">P0666R2 Revised Latches and Barriers for C++20</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html" target="_blank">P1135R6 The C++20 Synchronization Library</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2588r3.html" target="_blank">P2588R3 <code>barrier</code>'s phase completion guarantees</a><ul>
+<li>バリアフェーズ動作仕様の完了ステップを呼び出すスレッド要件が緩和された。</li>
+</ul>
+</li>
+<li><a href="https://www.boost.org/doc/libs/1_73_0/doc/html/thread/synchronization.html#thread.synchronization.barriers" target="_blank">Boost.Threadライブラリ, Barriers</a></li>
+<li><a href="https://docs.oracle.com/javase/jp/6/api/java/util/concurrent/CyclicBarrier.html" target="_blank">Java標準ライブラリ, java.util.concurrent.CyclicBarrier</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.barrier" target="_blank">C#標準ライブラリ, System.Threading.Barrier</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

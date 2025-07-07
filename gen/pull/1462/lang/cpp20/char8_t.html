@@ -1,0 +1,390 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/char8_t.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/char8_t.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b1eb6d05bb635553b157673a909714eb8eb2f2dd&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\ntemplate&lt;typename&gt; struct ct;\ntemplate&lt;&gt; struct ct&lt;char&gt; {\n  using type = char;\n};\n\nint main()\n{\n\n  const auto *u8s = u8\&#34;text\&#34;;   // u8s\u306e\u578b\u306fC++17\u307e\u3067\u306fconst char *\u3060\u3063\u305f\u304c\u3001C++20\u304b\u3089\u306fconst char8_t *\u306b\u306a\u308b\n  const char *ps = u8s;         // C++17\u307e\u3067\u306f\u9069\u683c\u3060\u3063\u305f\u304cC++20\u304b\u3089\u306f\u4e0d\u9069\u683c\n\n  const auto *u8rs = u8R\&#34;(text)\&#34;;   // u8rs\u306e\u578b\u306fC++17\u307e\u3067\u306fconst char *\u3060\u3063\u305f\u304c\u3001C++20\u304b\u3089\u306fconst char8_t *\u306b\u306a\u308b\n  const char *prs = u8rs;           // C++17\u307e\u3067\u306f\u9069\u683c\u3060\u3063\u305f\u304cC++20\u304b\u3089\u306f\u4e0d\u9069\u683c\n\n  auto u8c = u8&#39;c&#39;;             // u8c\u306e\u578b\u306fC++17\u307e\u3067\u306fchar\u3060\u3063\u305f\u304c\u3001C++20\u304b\u3089\u306fchar8_t\u306b\u306a\u308b\n  char *pc = &amp;u8c;              // C++17\u307e\u3067\u306f\u9069\u683c\u3060\u3063\u305f\u304cC++20\u304b\u3089\u306f\u4e0d\u9069\u683c\n\n  std::string s = u8\&#34;text\&#34;;     // C++17\u307e\u3067\u306f\u9069\u683c\u3060\u3063\u305f\u304cC++20\u304b\u3089\u306f\u4e0d\u9069\u683c\n\n  void f(const char *s);\n  f(u8\&#34;text\&#34;);                  // C++17\u307e\u3067\u306f\u9069\u683c\u3060\u3063\u305f\u304cC++20\u304b\u3089\u306f\u4e0d\u9069\u683c\n\n  ct&lt;decltype(u8&#39;c&#39;)&gt;::type x;  // C++17\u307e\u3067\u306f\u9069\u683c\u3060\u3063\u305f\u304cC++20\u304b\u3089\u306f\u4e0d\u9069\u683c\n}\n&#34;}, {&#34;id&#34;: &#34;e2885f0f1cfa42565de9ad1599998d97dd479c7a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nbool is_utf8_multibyte_code_unit(char c) {\n  return c &gt;= 0x80;\n}\n\nint main()\n{\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; is_utf8_multibyte_code_unit(u8\&#34;\u3042\&#34;[0]) &lt;&lt; std::endl;// =&gt; true\u306b\u306a\u3089\u306a\u3044\u53ef\u80fd\u6027\u304c\u3042\u308b\n}\n&#34;}, {&#34;id&#34;: &#34;e890d65fe7c49b4809ab106c1208483fd24b82c4&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nbool is_utf8_multibyte_code_unit(char c) {\n  return static_cast&lt;unsigned char&gt;(c) &gt;= 0x80;\n}\n\nint main()\n{\n    std::cout &lt;&lt; std::boolalpha &lt;&lt; is_utf8_multibyte_code_unit(u8\&#34;\u3042\&#34;[0]) &lt;&lt; std::endl;// =&gt; true\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;char8_t&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">UTF-8エンコーディングされた文字の型として`char8_t`を追加 [P0482R6]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/char8_t.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/char8_t.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">UTF-8エンコーディングされた文字の型として<code>char8_t</code>を追加 [P0482R6]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>UTF-8でエンコードされた文字を格納することを想定した型として、符号なし文字型<code>char8_t</code>型を追加する。</p>
+<p><code>char8_t</code>型は<code>unsigned char</code>型と同じ大きさ、アライメント、整数変換順位であるが、独立した型となっており、<code>char</code>や<code>unsigned char</code>とは<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で区別される。</p>
+<p><code>u8</code>プレフィックスの付いた文字/（生）文字列リテラルの型も<code>char</code>/<code>const char [n]</code>から<code>char8_t</code>/<code>const char8_t [n]</code>に変更になる。</p>
+<p><code><a href="../../reference/string.html">&lt;string&gt;</a></code>ヘッダには<code><a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char8_t&gt;</code>の別名である<code><a href="../../reference/string/basic_string.html">std::u8string</a></code>型が追加される。同様にして<code><a href="../../reference/string_view.html">&lt;string_view&gt;</a></code>ヘッダには<code><a href="../../reference/string_view/basic_string_view.html">std::basic_string_view</a>&lt;char8_t&gt;</code>の別名である<code><a href="../../reference/string_view/basic_string_view.html">std::u8string_view</a></code>型が追加される。</p>
+<p><code><a href="../../reference/filesystem/path.html">std::filesystem::path</a></code>クラスのコンストラクタに<code>char8_t</code>版の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が追加され、代わりに必要なくなった<code><a href="../../reference/filesystem/u8path.html">std::filesystem::u8path()</a></code>関数は非推奨となる。</p>
+<p>または破壊的変更として、以下の関数は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として<code>char</code>から<code>char8_t</code>の文字列を扱うよう変更される：</p>
+<ul>
+<li><code><a href="../../reference/filesystem/path/u8string.html">std::filesystem::path::u8string()</a></code></li>
+<li><code><a href="../../reference/filesystem/path/generic_u8string.html">std::filesystem::path::generic_u8string()</a></code></li>
+<li><code><a href="../../reference/string/basic_string.html">std::basic_string</a></code>のリテラル演算子<code><a href="../../reference/string/basic_string/op_s.html">operator ""s</a></code></li>
+<li><code><a href="../../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>のリテラル演算子<code><a href="../../reference/string_view/basic_string_view/op_sv.html">operator ""sv</a></code></li>
+</ul>
+<p><code>char</code>系の(ナローマルチバイト)文字列と<code>char8_t</code>系の(UTF-8)文字列の変換のために、<code>&lt;cuchar&gt;</code>ヘッダに<code>std::mbrtoc8()</code>/<code>std::c8rtomb()</code>関数が追加される。</p>
+<p>ただし、<code>basic_ostream&lt;char&gt;::operator&lt;&lt;()</code>と<code>basic_istream&lt;char&gt;::operator&gt;&gt;()</code>に対して<code>char8_t</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は追加されない。これは現状<code>char16_t</code>/<code>char32_t</code>型に対しても存在していないためである。正規表現も同様。</p>
+<h2>備考</h2>
+<p><a href="feature_test_macros.html">機能テストマクロ</a>は以下の通り。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ名</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__cpp_char8_t</code></td>
+<td><code>201811</code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_char8_t</code></td>
+<td><code>201811</code> <br /> <code>201907</code> （P1423R3によって更新）</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="b1eb6d05bb635553b157673a909714eb8eb2f2dd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">ct</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">ct</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="kt">char</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+  <span class="k">const</span> <span class="k">auto</span> <span class="o">*</span><span class="n">u8s</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"text"</span><span class="p">;</span>   <span class="c1">// u8sの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる</span>
+  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">ps</span> <span class="o">=</span> <span class="n">u8s</span><span class="p">;</span>         <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+
+  <span class="k">const</span> <span class="k">auto</span> <span class="o">*</span><span class="n">u8rs</span> <span class="o">=</span> <span class="n">u8R</span><span class="s">"(text)"</span><span class="p">;</span>   <span class="c1">// u8rsの型はC++17まではconst char *だったが、C++20からはconst char8_t *になる</span>
+  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prs</span> <span class="o">=</span> <span class="n">u8rs</span><span class="p">;</span>           <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+
+  <span class="k">auto</span> <span class="n">u8c</span> <span class="o">=</span> <span class="n">u8</span><span class="sc">'c'</span><span class="p">;</span>             <span class="c1">// u8cの型はC++17まではcharだったが、C++20からはchar8_tになる</span>
+  <span class="kt">char</span> <span class="o">*</span><span class="n">pc</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">u8c</span><span class="p">;</span>              <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"text"</span><span class="p">;</span>     <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+
+  <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
+  <span class="n">f</span><span class="p">(</span><span class="sa">u8</span><span class="s">"text"</span><span class="p">);</span>                  <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+
+  <span class="n">ct</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">u8</span><span class="sc">'c'</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// C++17までは適格だったがC++20からは不適格</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++の元になったC言語がISOで標準規格になる前から文字を格納する型として<code>char</code>型ないし<code>int</code>型が存在した。C++もこれを整理しつつ受け継いだ。</p>
+<p>一方で8bitでは文字が収まらない文字エンコードも複数登場していた。日本語UNIX環境の開発から生まれたDEC漢字、その後Unixで普及したEUC、そしてUnicodeである。</p>
+<p>C言語が初めて標準化された1989年、まだUnicodeはこんにちほど普及しておらず、どの文字エンコードが広く普及するのか、あるいは統一されることはないのか、見通すことはできない状況にあった。</p>
+<p>結果としてANSI C89/ISO C90では<code>wchar_t</code>型を導入するものの、どのようなエンコードを扱うかは<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>とされた。C++98もこれを継承した。</p>
+<p>2001年、Unicode側から<code>utf16_t</code>型を追加する提案があった。UTF-16に絞っているのはメモリー効率が良いこと、すでに当時、WindowsやJava、データベースがUTF-16に対応しており、UTF-16を保証する型が必要とされたからであった。これは採用されなかった。</p>
+<p>その後絵文字の普及なども後押ししてUnicodeが世界中に普及した。</p>
+<p>C++11では<code>char16_t</code>/<code>char32_t</code>型が追加された。しかしこの時UTF-8を保証する<code>char8_t</code>型は提案されなかった。下に示す江添亮氏の解説によればUTF-8は<code>char</code>型に格納すればよろしい、という考えによるものだ。</p>
+<blockquote>
+<p><a href="https://cpplover.blogspot.com/2016/09/c-p0370r1-p0379r0.html" target="_blank">本の虫: C++標準化委員会の文書: P0370R1-P0379R0</a></p>
+<p>C++11のときにchar8_tが必要だと訴えたら、charは古典的にバイト列を表現する型なので十分だ。char型以外の型があるのは混乱する。などと理解のないUnicodeの世界に生きていない名だたる委員達から散々に批判された。</p>
+</blockquote>
+<p>2017年11月にW3Techsによって行われた調査によれば90%を超えるWebサイトの文字エンコードにUTF-8が用いられるようになった。</p>
+<p>一方でC++でUTF-8を扱うには問題があった。UTF-8のcode unitの値域は128 (0x80)から255 (0xFF)の範囲 (8ビット目) にも及んでいる一方で、C++の<code>char</code>型は符号の有無が<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>である。そのため、次のコードは意図した挙動を示さない可能性がある。</p>
+<p><div class="yata" id="e2885f0f1cfa42565de9ad1599998d97dd479c7a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">bool</span> <span class="nf">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mh">0x80</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="sa">u8</span><span class="s">"あ"</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="c1">// =&gt; trueにならない可能性がある</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>この問題を回避するため、UTF-8の8ビット目の範囲を扱う必要がある場合は、<code>static_cast</code>で符号なし文字型に変換して扱わなければならなかった。</p>
+<p><div class="yata" id="e890d65fe7c49b4809ab106c1208483fd24b82c4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">bool</span> <span class="nf">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mh">0x80</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">is_utf8_multibyte_code_unit</span><span class="p">(</span><span class="sa">u8</span><span class="s">"あ"</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="c1">// =&gt; true</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>またC++11で文字列リテラルに対して、C++17で文字リテラルに対して<code>u8</code>プレフィックスが使えるようになり、これはUTF-8でエンコードされることを保証したが、その文字型としては依然として<code>char</code>型が使われた。<code>char</code>型ではどのようなエンコードの文字が格納されているか型レベルで判断できず、例としてC++17で追加されたファイルシステムライブラリの<code><a href="../../reference/filesystem/path.html">path</a></code>クラスでは、UTF-8でエンコードされたパス文字列を受け取るためにコンストラクタと代入演算子で<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>ができず、<code><a href="../../reference/filesystem/u8path.html">u8path()</a></code>という関数を追加せざるをえなかった。</p>
+<p>UTF-8の利用が広く利用されていく中で、C++でもUTF-8を扱う上で障害となる仕様を改める必要があった。そのために<code>char8_t</code>型が必要となった。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>提案文書N3398では以下のように<code>char8_t</code>型を<code>unsigned char</code>型の別名にすることが提案されていた。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">char8_t</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>以下のように<code>enum class</code>を利用する選択肢もあったが、提案文書P0372R0は<code>char8_t</code>型を使うためにヘッダのインクルードが必要になることは望ましくないと述べている。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">char8_t</span> <span class="o">:</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="p">{};</span>
+</code></pre></div>
+</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/char16_32.html">char16_tとchar32_t</a></li>
+<li><a href="../cpp11/utf8_string_literals.html">UTF-8文字列リテラル</a></li>
+<li><a href="../cpp17/utf8_character_literals.html">UTF-8文字リテラル</a></li>
+<li><code><a href="../../reference/filesystem/u8path.html">u8path</a></code></li>
+<li><code><a href="../../reference/filesystem/path/u8string.html">path::u8string</a></code></li>
+<li><code><a href="../../reference/filesystem/path/generic_u8string.html">path::generic_u8string</a></code></li>
+<li><code><a href="../../reference/string/basic_string/op_s.html">operator ""s</a></code></li>
+<li><code><a href="../../reference/string_view/basic_string_view/op_sv.html">operator ""sv</a></code></li>
+<li><code><a href="../../reference/ostream/basic_ostream/op_ostream_free.html">operator&lt;&lt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<h3><code>char8_t</code>型を追加する提案文書</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3398.html" target="_blank">N3398: String Interoperation Library</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0372r0.html" target="_blank">P0372R0: A type for utf-8 data</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0482r0.html" target="_blank">P0482R0: char8_t: A type for UTF-8 characters and strings</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r1.html" target="_blank">P0482R1: char8_t: A type for UTF-8 characters and strings (Revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r2.html" target="_blank">P0482R2: char8_t: A type for UTF-8 characters and strings (Revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r3.html" target="_blank">P0482R3: char8_t: A type for UTF-8 characters and strings (Revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r4.html" target="_blank">P0482R4: char8_t: A type for UTF-8 characters and strings (Revision 4)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r5.html" target="_blank">P0482R5: char8_t: A type for UTF-8 characters and strings (Revision 5)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0482r6.html" target="_blank">P0482R6: char8_t: A type for UTF-8 characters and strings (Revision 6)</a></li>
+</ul>
+<h3>その他</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r3.html" target="_blank">P1423R3: char8_t backward compatibility remediation</a></li>
+<li><a href="http://web.archive.org/web/20140701223639/http://www.unicode.org/~asmus/stdc-utf-16.txt" target="_blank">Proposal for a C/C++ language extension to support portable UTF-16</a></li>
+<li><a href="https://naruse.hateblo.jp/entry/2018/12/24/013446" target="_blank">char8_tによせて - なるせにっき</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

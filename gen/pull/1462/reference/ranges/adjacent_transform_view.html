@@ -1,0 +1,452 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>adjacent_transform_view - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp23
+">
+        <meta name="title" content="adjacent_transform_view - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="adjacent_transform_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="adjacent_transform_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/adjacent_transform_view.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="adjacent_transform_view - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/adjacent_transform_view.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;07cbd11ac1819f15788a7601d0698cecb3216c3d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;ranges&gt;\n\nint main() {\n  // \u96a3\u63a5\u3059\u308b\u8981\u7d20\u9593\u306e\u5dee\u3092\u8a08\u7b97\u3059\u308b\n  std::vector v = {9, 2, 5, 3, 6, 7};\n  for (int x : v | std::views::adjacent_transform_view&lt;2&gt;(\n                     [](auto x, auto y) { return y - x; })) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;adjacent_transform_view&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/ranges.html" itemprop="url">
+              
+                <span itemprop="name">ranges</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">adjacent_transform_view</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-04T02:59:05">
+        2025年06月04日 02時59分05秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ranges/adjacent_transform_view.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ranges/adjacent_transform_view.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">adjacent_transform_view</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="forward_range.html">forward_range</a></span> <span class="n">V</span><span class="p">,</span> <span class="n"><a href="../concepts/move_constructible.html">move_constructible</a></span> <span class="n">F</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+             <span class="n"><a href="../concepts/invocable.html">regular_invocable</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><i>REPEAT</i></span><span class="p">(</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">N</span><span class="p">)...</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+             <span class="n"><a href="../iterator/dereferenceable.html">can-reference</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><i>REPEAT</i></span><span class="p">(</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">N</span><span class="p">)...</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">adjacent_transform_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">adjacent_transform_view</span><span class="o">&lt;</span><span class="n">V</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
+
+  <span class="k">namespace</span> <span class="n">views</span> <span class="p">{</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="cm">/*unspecified*/</span> <span class="n">adjacent_transform_view</span> <span class="o">=</span> <span class="cm">/*unspecified*/</span><span class="p">;</span>      <span class="c1">// (2)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>adjacent_transform_view</code>は各要素とそれに隣接する要素をコンパイル時指定の個数ずつ取り出し、それらを引数として関数を呼び出した結果を要素とする<code><a href="view.html">view</a></code>。</p>
+<p><code>adjacent_transform_view</code>の要素を1つ取得するごとに、<code>V</code> の要素を <code>N</code> 個取得する。</p>
+<p><code>N</code> が元となるRangeの要素数より大きい場合、この<code><a href="view.html">view</a></code>は空である。</p>
+<ul>
+<li>(1): <code>adjacent_transform_view</code>のクラス定義</li>
+<li>(2): <code>adjacent_transform_view</code>を生成する<a class="cpprefjp-defined-word" data-desc="プログラム定義型に対するオーバーロードが許されている標準関数名について、中でいい感じにオーバーロード解決して呼び出してくれる関数オブジェクト">カスタマイゼーションポイントオブジェクト</a></li>
+</ul>
+<h3>Rangeコンセプト</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>borrowed</th>
+<th>sized</th>
+<th>output</th>
+<th>input</th>
+<th>forward</th>
+<th>bidirectional</th>
+<th>random_access</th>
+<th>contiguous</th>
+<th>common</th>
+<th>viewable</th>
+<th>view</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>(1)</td>
+<td>〇</td>
+<td>〇</td>
+<td>(1)</td>
+<td>(1)</td>
+<td>(1)</td>
+<td></td>
+<td>(1)</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>(1): <code><a href="adjacent_view.html">adjacent_view</a>&lt;V, N&gt;</code>に従う</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(2): 式 <code>views::adjacent_transform&lt;N&gt;(E, F)</code> の効果は以下の通り。<ul>
+<li><code>N</code> &gt; 0 のとき、<code>adjacent_transform_view&lt;<a href="all.html">views::all_t</a>&lt;decltype((E))&gt;,<a href="../type_traits/decay.html">decay_t</a>&lt;decltype((F))&gt;, N&gt;(E, F)</code> と等しい</li>
+<li><code>N</code> = 0 のとき、<code>((void)E,<a href="zip_transform_view.html">views::zip_transform</a>(F))</code> と等しい(ただし<code>E</code>と<code>F</code>の評価順は不定)</li>
+</ul>
+</li>
+</ul>
+<h2>備考</h2>
+<p><code>REPEAT(T, N)</code> をT型のN個のパックとする。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="adjacent_transform_view/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="adjacent_transform_view/base.html">base</a></code></td>
+<td><code>V</code>の参照を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="adjacent_transform_view/begin.html">begin</a></code></td>
+<td>先頭を指すイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="adjacent_transform_view/end.html">end</a></code></td>
+<td>番兵を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="adjacent_transform_view/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>継承しているメンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="view_interface/empty.html">empty</a></code></td>
+<td>Rangeが空かどうかを判定する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/op_bool.html">operator bool</a></code></td>
+<td>Rangeが空でないかどうかを判定する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/front.html">front</a></code></td>
+<td>先頭要素への参照を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/back.html">back</a></code></td>
+<td>末尾要素への参照を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/cbegin.html">cbegin</a></code></td>
+<td>定数イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/cend.html">cend</a></code></td>
+<td>定数イテレータ（番兵）を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/op_at.html">operator[]</a></code></td>
+<td>要素へアクセスする</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="adjacent_transform_view/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="07cbd11ac1819f15788a7601d0698cecb3216c3d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 隣接する要素間の差を計算する</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span> <span class="o">|</span> <span class="n"><span style="color:#ff0000">std::views::adjacent_transform_view</span></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span>
+                     <span class="p">[](</span><span class="k">auto</span> <span class="n">x</span><span class="p">,</span> <span class="k">auto</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">;</span> <span class="p">}))</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>-7
+3
+-2
+3
+1
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 20 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 15 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2022 Update 14 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../numeric/adjacent_difference.html">std::adjacent_difference</a></code><ul>
+<li>隣接する2つの要素間の差を計算するアルゴリズム関数</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4950/ranges" target="_blank">N4950 26 Ranges library</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html" target="_blank">P2321R2 zip</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

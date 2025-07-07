@@ -1,0 +1,308 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>事前定義識別子__func__ [N1653] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="事前定義識別子__func__ [N1653] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="事前定義識別子__func__ [N1653] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="事前定義識別子__func__ [N1653] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/func.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C99互換として、事前定義識別子(predefined identifier)の`__func__`が導入された。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="事前定義識別子__func__ [N1653] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/func.html" />
+        <meta name="twitter:description" content="C99互換として、事前定義識別子(predefined identifier)の`__func__`が導入された。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f11ecf7b669f5da2ab65f162933ee189e63ce9bd&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nclass S {\n  const char* funcname_ = nullptr;\npublic:\n  // \u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u3067\u306f\u3001\u521d\u671f\u5316\u5b50\u30ea\u30b9\u30c8\u306e\u6642\u70b9\u304b\u3089__func__\u3092\u4f7f\u7528\u3067\u304d\u308b\n  S()\n    : funcname_(__func__) {}\n\n  void print()\n  {\n    std::cout &lt;&lt; \&#34;S::S() : \&#34; &lt;&lt; funcname_ &lt;&lt; std::endl;\n\n    // \u30e1\u30f3\u30d0\u95a2\u6570\u540d\n    std::cout &lt;&lt; \&#34;S::print() : \&#34; &lt;&lt; __func__ &lt;&lt; std::endl;\n  }\n};\n\nvoid f()\n{\n  // \u95a2\u6570\u540d\n  std::cout &lt;&lt; \&#34;f() : \&#34; &lt;&lt; __func__ &lt;&lt; std::endl;\n}\n\n// void g(const char* s = __func__) {}\n// \u30b3\u30f3\u30d1\u30a4\u30eb\u30a8\u30e9\u30fc : __func__\u306f\u95a2\u6570\u5185\u3067\u306e\u307f\u4f7f\u7528\u3067\u304d\u308b\n\nint main()\n{\n  // main\u95a2\u6570\u306e\u540d\u524d\n  std::cout &lt;&lt; \&#34;main() : \&#34; &lt;&lt; __func__ &lt;&lt; std::endl;\n\n  f();\n  S().print();\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;func&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">事前定義識別子__func__ [N1653]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/func.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/func.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">事前定義識別子__func__ [N1653]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C99互換として、事前定義識別子(predefined identifier)の<code>__func__</code>が導入された。</p>
+<p><code>__func__</code>には、現在いる関数名が文字列として格納されている。この識別子は、関数内でのみ使用できる。</p>
+<h2>仕様</h2>
+<p>識別子<code>__func__</code>は、事前定義された関数のローカル変数として定義され、以下のように暗黙に定義される：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">__func__</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"<i>function-name</i>"</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><code>"function-name"</code>には、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の文字列が格納される。そのため、マングリングされた関数名、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>、名前空間、所属するクラスなどの扱いは、実装ごとに異なる可能性がある。多くの場合、<code>__func__</code>には関数の名前のみが格納され、名前空間名、クラス名、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型やパラメータといった情報は含まれない。</p>
+<p>変数<code>__func__</code>が、プログラム内の他の変数と異なるアドレスを持っているかどうかは<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
+<h2>備考</h2>
+<p>GCCは言語拡張として、<code>__FUNCTION__</code>識別子と<code>__PRETTY_FUNCTION__</code>識別子を持つ。<code>__FUNCTION__</code>は<code>__func__</code>の別名として定義される。<code>__PRETTY_FUNCTION__</code>は、名前空間名、クラス名、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>やパラメータといった情報も含む関数の文字列となる。</p>
+<p>Visual C++は言語拡張として、<code>__FUNCTION__</code>識別子、<code>__FUNCDNAME__</code>識別子、<code>__FUNCSIG__</code>識別子を持つ。<code>__FUNCTION__</code>はスコープやシグニチャの情報を持たない関数名、<code>__FUNCDNAME__</code>はマングリングされた関数名、<code>__FUNCSIG__</code>は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>やパラメータといったシグニチャの情報を持つ関数名となる。</p>
+<h2>例</h2>
+<p><div class="yata" id="f11ecf7b669f5da2ab65f162933ee189e63ce9bd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">S</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">funcname_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// コンストラクタでは、初期化子リストの時点から__func__を使用できる</span>
+  <span class="n">S</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">funcname_</span><span class="p">(</span><span class="n">__func__</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="kt">void</span> <span class="n">print</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S::S() : "</span> <span class="o">&lt;&lt;</span> <span class="n">funcname_</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="c1">// メンバ関数名</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S::print() : "</span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 関数名</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"f() : "</span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// void g(const char* s = __func__) {}</span>
+<span class="c1">// コンパイルエラー : __func__は関数内でのみ使用できる</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// main関数の名前</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"main() : "</span> <span class="o">&lt;&lt;</span> <span class="n">__func__</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n">f</span><span class="p">();</span>
+  <span class="n">S</span><span class="p">().</span><span class="n">print</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>main() : main
+f() : f
+S::S() : S
+S::print() : print
+</code></pre></p>
+<h2>検討されたほかの選択肢</h2>
+<p><code>__func__</code>はクラスや名前空間といったスコープ全体の情報を持たないために、現在のクラス名を取得する<code>__class__</code>、現在の名前空間名を取得する<code>__namespace__</code>も検討された。しかし、これらはアイディアとして挙がったのみで、提案はされなかった。</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1534.txt" target="_blank">N1534 Proposed addition of <code>__func__</code> predefined identifier from C99</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc-3.3.5/gcc/Function-Names.html" target="_blank">5.41 Function Names as Strings - GCC</a></li>
+<li><a href="https://docs.microsoft.com/ja-JP/cpp/preprocessor/predefined-macros?view=vs-2019" target="_blank">Predefined macros | Microsoft Docs</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,356 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>type_info - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,typeinfo,std,class
+">
+        <meta name="title" content="type_info - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="type_info - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="type_info - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/typeinfo/type_info.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`type_info`クラスは、`typeid`演算子によって返される、型の情報が格納された型である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="type_info - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/typeinfo/type_info.html" />
+        <meta name="twitter:description" content="`type_info`クラスは、`typeid`演算子によって返される、型の情報が格納された型である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;typeinfo&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e722dcc25728d8e9e97ff21d8ee992fa5d2f22f0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;typeinfo&gt;\n\nstruct Base {};\nstruct Derived : public Base {};\n\nstruct PolyBase { virtual void member(){} };\nstruct PolyDerived : public PolyBase {};\n\nint main() {\n  // \u7d44\u307f\u8fbc\u307f\u578b\n  int i;\n  int* pi;\n  std::cout &lt;&lt; \&#34;int is: \&#34; &lt;&lt; typeid(int).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;  i is: \&#34; &lt;&lt; typeid(i).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34; pi is: \&#34; &lt;&lt; typeid(pi).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;*pi is: \&#34; &lt;&lt; typeid(*pi).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::endl;\n\n  // \u975e\u591a\u76f8\u7684\u306a\u578b\n  Derived derived;\n  Base* pbase = &amp;derived;\n  std::cout &lt;&lt; \&#34;derived is: \&#34; &lt;&lt; typeid(derived).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34; *pbase is: \&#34; &lt;&lt; typeid(*pbase).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; \&#34;same type? \&#34;\n            &lt;&lt; (typeid(derived) == typeid(*pbase)) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::endl;\n\n  // \u591a\u76f8\u7684\u306a\u578b\n  PolyDerived polyderived;\n  PolyBase* ppolybase = &amp;polyderived;\n  std::cout &lt;&lt; \&#34;polyderived is: \&#34; &lt;&lt; typeid(polyderived).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34; *ppolybase is: \&#34; &lt;&lt; typeid(*ppolybase).name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; \&#34;same type? \&#34;\n            &lt;&lt; (typeid(polyderived) == typeid(*ppolybase)) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;typeinfo&#34;, &#34;type_info&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/typeinfo.html" itemprop="url">
+              
+                <span itemprop="name">typeinfo</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">type_info</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2019-05-23T02:45:07">
+        2019年05月23日 02時45分07秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">onihusube</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/typeinfo/type_info.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/typeinfo/type_info.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;typeinfo&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">type_info</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">type_info</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>type_info</code>クラスは、<code>typeid</code>演算子によって返される、型の情報が格納された型である。</p>
+<p>ユーザーは、この型を使用して、型名の検索や比較を行うことができる。<code>typeid</code>演算子に型を渡すと、その型の<code>type_info</code>オブジェクトが返され、<code>typeid</code>演算子にオブジェクトを渡すと、そのオブジェクトの型の<code>type_info</code>オブジェクトが返される。</p>
+<p><code>typeid</code>に、多相的な型のオブジェクトへの間接参照されたポインタに適用される場合、その型は実行時に決定する。これは、RTTI(実行時型情報)が利用可能であることを要求する。<br />
+それ以外の場合、<code>typeid</code>の評価はコンパイル時に完了する。  </p>
+<p><code>typeid</code>演算子に、間接参照されたヌルポインタが渡された場合、<code><a href="bad_typeid.html">bad_typeid</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が投げられる。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="type_info/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="type_info/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operator=(const type_info&amp;) = delete</code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="type_info/before.html">before</a></code></td>
+<td>2つの型の照合順序を比較する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="type_info/hash_code.html">hash_code</a></code></td>
+<td>型のハッシュ値を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="type_info/name.html">name</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の型名を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="type_info/op_equal.html">operator==</a></code></td>
+<td>2つの型が同じかを判定する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="type_info/op_not_equal.html">operator!=</a></code></td>
+<td>2つの型が異なるかを判定する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="e722dcc25728d8e9e97ff21d8ee992fa5d2f22f0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../typeinfo.html">&lt;typeinfo&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Base</span> <span class="p">{};</span>
+<span class="k">struct</span> <span class="nl">Derived</span> <span class="p">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{};</span>
+
+<span class="k">struct</span> <span class="n">PolyBase</span> <span class="p">{</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">member</span><span class="p">(){}</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="nl">PolyDerived</span> <span class="p">:</span> <span class="k">public</span> <span class="n">PolyBase</span> <span class="p">{};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 組み込み型</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">pi</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"int is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="kt">int</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"  i is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" pi is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="n">pi</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"*pi is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="o">*</span><span class="n">pi</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 非多相的な型</span>
+  <span class="n">Derived</span> <span class="n">derived</span><span class="p">;</span>
+  <span class="n">Base</span><span class="o">*</span> <span class="n">pbase</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">derived</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"derived is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="n">derived</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" *pbase is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="o">*</span><span class="n">pbase</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="s">"same type? "</span>
+            <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="n">derived</span><span class="p">)</span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="o">*</span><span class="n">pbase</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 多相的な型</span>
+  <span class="n">PolyDerived</span> <span class="n">polyderived</span><span class="p">;</span>
+  <span class="n">PolyBase</span><span class="o">*</span> <span class="n">ppolybase</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">polyderived</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"polyderived is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="n">polyderived</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" *ppolybase is: "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="o">*</span><span class="n">ppolybase</span><span class="p">).</span><span class="n"><a href="type_info/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="s">"same type? "</span>
+            <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="n">polyderived</span><span class="p">)</span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="o">*</span><span class="n">ppolybase</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>int is: int
+  i is: int
+ pi is: int *
+*pi is: int
+
+derived is: struct Derived
+ *pbase is: struct Base
+same type? false
+
+polyderived is: struct PolyDerived
+ *ppolybase is: struct PolyDerived
+same type? true
+</code></pre></p>
+<h2>参照</h2></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

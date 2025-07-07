@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>into_variant - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
+">
+        <meta name="title" content="into_variant - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="into_variant - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="into_variant - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/into_variant.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`into_variant`は、複数の[値完了シグネチャ](set_value.md)を持つ入力[Sender](sender.md)から複数[`tuple`](/reference/tuple/tuple.md)型からなる[`variant`](/reference/variant/variant.md)型の[値完了シグネチャへと変換](value_types_of_t.md)するSenderア" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="into_variant - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/into_variant.html" />
+        <meta name="twitter:description" content="`into_variant`は、複数の[値完了シグネチャ](set_value.md)を持つ入力[Sender](sender.md)から複数[`tuple`](/reference/tuple/tuple.md)型からなる[`variant`](/reference/variant/variant.md)型の[値完了シグネチャへと変換](value_types_of_t.md)するSenderア" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;40968a9977f041b8463413cc79744ccdb024fe31&#34;, &#34;source&#34;: &#34;#include &lt;string&gt;\n#include &lt;tuple&gt;\n#include &lt;print&gt;\n#include &lt;variant&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\nstruct FizzBuzzSender {\n  using sender_concept = ex::sender_t;\n\n  // FizzBuzzSender\u306f2\u7a2e\u985e\u306e\u5024\u5b8c\u4e86\u30b7\u30b0\u30cd\u30c1\u30e3\u3092\u6301\u3064\n  using completion_signatures = ex::completion_signatures&lt;\n    ex::set_value_t(int),\n    ex::set_value_t(std::string)\n  &gt;;\n\n  // Operation State\u578b\n  template &lt;typename Rcvr&gt;\n  struct State {\n    using operation_state_concept = ex::operation_state_t;\n\n    State(Rcvr rcvr, int val)\n      : rcvr_{std::move(rcvr)}, val_{val} {}\n\n    void start() noexcept {\n      using namespace std::string_literals;\n      if (val_ % 15 == 0) {\n        ex::set_value(std::move(rcvr_), \&#34;FizzBuzz\&#34;s);\n      } else if (val_ % 3 == 0) {\n        ex::set_value(std::move(rcvr_), \&#34;Fizz\&#34;s);\n      } else if (val_ % 5 == 0) {\n        ex::set_value(std::move(rcvr_), \&#34;Buzz\&#34;s);\n      } else {\n        ex::set_value(std::move(rcvr_), val_);\n      }\n    }\n\n    Rcvr rcvr_;\n    int val_;\n  };\n\n  template &lt;typename Rcvr&gt;\n  auto connect(Rcvr rcvr) noexcept {\n    return State{std::move(rcvr), val_};\n  }\n\n  int val_;\n};\n\ntemplate&lt;typename... Ts&gt;\nstruct overload : Ts... { using Ts::operator()...; };\n\nint main()\n{\n  int val = 15;\n#if 0\n  // \u95a2\u6570\u547c\u3073\u51fa\u3057\n  ex::sender auto snd0 = FizzBuzzSender{val};\n  ex::sender auto sndr = ex::into_variant(snd0);\n#else\n  // \u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u8a18\u6cd5\n  ex::sender auto sndr = FizzBuzzSender{val} | ex::into_variant();\n#endif\n  auto [result] = std::this_thread::sync_wait(sndr).value();\n\n  // result := variant&lt;tuple&lt;int&gt;, tuple&lt;string&gt;&gt;\u578b\n  std::visit(overload{\n    [](std::tuple&lt;int&gt; n) {\n      std::println(\&#34;(int) {}\&#34;, get&lt;0&gt;(n));\n    },\n    [](std::tuple&lt;std::string&gt; s) {\n      std::println(\&#34;(str) {}\&#34;, get&lt;0&gt;(s));\n    }\n  }, result);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;into_variant&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">into_variant</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-01T10:59:29">
+        2025年06月01日 10時59分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/into_variant.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/into_variant.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">into_variant</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">into_variant_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">into_variant_t</span> <span class="n">into_variant</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>into_variant</code>は、複数の<a href="set_value.html">値完了シグネチャ</a>を持つ入力<a href="sender.html">Sender</a>から複数<code><a href="../../tuple/tuple.html">tuple</a></code>型からなる<code><a href="../../variant/variant.html">variant</a></code>型の<a href="value_types_of_t.html">値完了シグネチャへと変換</a>するSenderアダプタである。</p>
+<p><code>into_variant</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
+<h2>効果</h2>
+<p>説明用の式<code>sndr</code>に対して<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさないとき、呼び出し式<code>into_variant(sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、呼び出し式<code>into_variant(sndr)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">into_variant</span><span class="p">,</span> <span class="p">{},</span> <span class="n">sndr</span><span class="p">))</span>
+</code></pre></div>
+</p>
+<h3>Senderアルゴリズムタグ <code>into_variant</code></h3>
+<p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span>
+  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">into_variant_t</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">complete</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>impls-for&lt;into_variant_t&gt;::get-state</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
+<ul>
+<li>子<a href="sender.html">Sender</a>の<a href="value_types_of_t.html">値完了シグネチャを集約</a>した<code><a href="../../variant/variant.html">variant</a>&lt;<a href="../../variant/variant.html">tuple</a>&lt;...&gt;, ...&gt;</code>型を<code><a href="../../type_traits/type_identity.html">type_identity</a></code>クラステンプレートのパラメータに格納して返す。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="o">-&gt;</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity</a></span><span class="o">&lt;</span><span class="n"><a href="value_types_of_t.html">value_types_of_t</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;&gt;&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>impls-for&lt;into_variant_t&gt;::complete</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
+<ul>
+<li><code>State</code>として渡される前述<code>get-state</code>メンバ<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型(<code><a href="../../type_traits/type_identity.html">type_identity</a></code>)から、<code>into_varinat</code>の送信値となる<code><a href="../../variant/variant.html">variant</a>&lt;<a href="../../variant/variant.html">tuple</a>&lt;...&gt;, ...&gt;</code>型情報を取り出す。</li>
+<li><a href="set_value.html">値完了</a>の場合、引数パック<code>args...</code>から送信値を構築して接続先<a href="receiver.html">Receiver</a>の<a href="set_value.html">値完了関数</a>を呼び出す。</li>
+<li><a href="set_error.html">エラー完了</a>または<a href="set_stopped.html">停止完了</a>の場合、接続先<a href="receiver.html">Receiver</a>の同種完了関数に全引数を転送する。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">State</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Tag</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="k">auto</span><span class="p">,</span> <span class="n">State</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">,</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span> <span class="n"><a href="set_value.html">set_value_t</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">variant_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">State</span><span class="o">::</span><span class="n">type</span><span class="p">;</span>
+    <span class="n"><a href="set_value.html">TRY-SET-VALUE</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span> <span class="n">variant_type</span><span class="p">(</span><span class="n"><a href="decayed-tuple.html">decayed-tuple</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">{</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...}));</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">Tag</span><span class="p">()(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>カスタマイゼーションポイント</h2>
+<p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
+<h2>例</h2>
+<p><div class="yata" id="40968a9977f041b8463413cc79744ccdb024fe31"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">FizzBuzzSender</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">sender_concept</span> <span class="o">=</span> <span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+
+  <span class="c1">// FizzBuzzSenderは2種類の値完了シグネチャを持つ</span>
+  <span class="k">using</span> <span class="n">completion_signatures</span> <span class="o">=</span> <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
+    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
+    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">)</span>
+  <span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="c1">// Operation State型</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">State</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">operation_state_concept</span> <span class="o">=</span> <span class="n"><a href="operation_state.html">ex::operation_state_t</a></span><span class="p">;</span>
+
+    <span class="n">State</span><span class="p">(</span><span class="n">Rcvr</span> <span class="n">rcvr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">rcvr_</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)},</span> <span class="n">val_</span><span class="p">{</span><span class="n">val</span><span class="p">}</span> <span class="p">{}</span>
+
+    <span class="kt">void</span> <span class="n">start</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+      <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">string_literals</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">val_</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="s">"FizzBuzz"</span><span class="n">s</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val_</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="s">"Fizz"</span><span class="n">s</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">val_</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="s">"Buzz"</span><span class="n">s</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="n">val_</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">Rcvr</span> <span class="n">rcvr_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">val_</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
+  <span class="k">auto</span> <span class="n">connect</span><span class="p">(</span><span class="n">Rcvr</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">State</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n">val_</span><span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">val_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="nl">overload</span> <span class="p">:</span> <span class="n">Ts</span><span class="p">...</span> <span class="p">{</span> <span class="k">using</span> <span class="n">Ts</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span> <span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="cp">#if 0</span><span class="c"></span>
+<span class="c">  // 関数呼び出し</span>
+<span class="c">  <a href="sender.html">ex::sender</a> auto snd0 = FizzBuzzSender{val};</span>
+<span class="c">  <a href="sender.html">ex::sender</a> auto sndr = <span style="color:#ff0000">ex::into_variant</span>(snd0);</span>
+<span class="cp">#else</span>
+  <span class="c1">// パイプライン記法</span>
+  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n">FizzBuzzSender</span><span class="p">{</span><span class="n">val</span><span class="p">}</span> <span class="o">|</span> <span class="n"><span style="color:#ff0000">ex::into_variant</span></span><span class="p">();</span>
+<span class="cp">#endif</span>
+  <span class="k">auto</span> <span class="p">[</span><span class="n">result</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">).</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
+
+  <span class="c1">// result := variant&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int&gt;, <a href="../../tuple/tuple.html">tuple</a>&lt;string&gt;&gt;型</span>
+  <span class="n"><a href="../../variant/visit.html">std::visit</a></span><span class="p">(</span><span class="n">overload</span><span class="p">{</span>
+    <span class="p">[](</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(int) {}"</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="p">[](</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(str) {}"</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>(str) FizzBuzz
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="when_all_with_variant.html">execution::when_all_with_variant</a></code></li>
+<li><code><a href="../this_thread/sync_wait_with_variant.html">this_thread::sync_wait_with_variant</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,655 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>atomic - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,atomic,cpp11
+">
+        <meta name="title" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/atomic.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;atomic&amp;gt;atomic(C++11) &amp;lt;atomic&amp;gt;ヘッダでは、アトミック操作(atomic operation ： 不可分操作とも呼ばれる)のライブラリを提供する。 アトミック操作は、スレッド間でデータをやり取りするための最も基本的な同期プリミティブであり、 変数への不可分(atomic)な読み込みや書き込み、および読み書きを同時に行う操作(Read-Modify" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/atomic.html" />
+        <meta name="twitter:description" content="&amp;lt;atomic&amp;gt;atomic(C++11) &amp;lt;atomic&amp;gt;ヘッダでは、アトミック操作(atomic operation ： 不可分操作とも呼ばれる)のライブラリを提供する。 アトミック操作は、スレッド間でデータをやり取りするための最も基本的な同期プリミティブであり、 変数への不可分(atomic)な読み込みや書き込み、および読み書きを同時に行う操作(Read-Modify" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;atomic&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;atomic&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">atomic</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-23T06:19:33">
+        2024年12月23日 06時19分33秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/atomic.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/atomic.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="token">atomic</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;atomic&gt;</code>ヘッダでは、アトミック操作(atomic operation ： 不可分操作とも呼ばれる)のライブラリを提供する。</p>
+<p>アトミック操作は、スレッド間でデータをやり取りするための最も基本的な同期プリミティブであり、
+変数への不可分(atomic)な読み込みや書き込み、および読み書きを同時に行う操作(Read-Modify-Write operation)を提供する。</p>
+<p>本ヘッダはフリースタンディング環境でも提供される。
+フリースタンディング環境の場合、常にロックフリーな整数アトミック型のサポート、<code>atomic_signed_lock_free</code>や<code>atomic_unsigned_lock_free</code>の提供可否は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>となる。</p>
+<h2>順序と一貫性</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/memory_order.html">memory_order</a></code></td>
+<td>メモリオーダーの種類(enum)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/kill_dependency.html">kill_dependency</a></code></td>
+<td>データ依存性を切る(function template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>ロックフリープロパティ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_BOOL_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;bool&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_CHAR_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;char&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_CHAR8_T_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;char8_t&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_CHAR16_T_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;char16_t&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_CHAR32_T_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;char32_t&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_WCHAR_T_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;wchar_t&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_SHORT_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;short&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_INT_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;int&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_LONG_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;long&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_LLONG_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;long long&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/lock_free_property.html">ATOMIC_POINTER_LOCK_FREE</a></code></td>
+<td><code>atomic&lt;T*&gt;</code>に対する操作がロックフリーかを調べる(define)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>汎用型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_ref.html">atomic_ref</a></code></td>
+<td>参照したオブジェクトに対してアトミック操作を適用する型(class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic.html">atomic</a></code></td>
+<td>アトミック型(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>アトミック型に対する一般的な操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_is_lock_free.html">atomic_is_lock_free</a></code></td>
+<td>指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_init.html">atomic_init</a></code></td>
+<td>初期化(function template)</td>
+<td>C++11<br />C++20から非推奨</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store.html">atomic_store</a></code></td>
+<td>値を書き込む(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_explicit.html">atomic_store_explicit</a></code></td>
+<td>メモリオーダーを指定して値を書き込む(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_load.html">atomic_load</a></code></td>
+<td>値を読み込む(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_load_explicit.html">atomic_load_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込む(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_exchange.html">atomic_exchange</a></code></td>
+<td>値を入れ替える(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_exchange_explicit.html">atomic_exchange_explicit</a></code></td>
+<td>メモリオーダーを指定して値を入れ替える(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_compare_exchange_weak.html">atomic_compare_exchange_weak</a></code></td>
+<td>弱い比較で値の入れ替えを行う(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_compare_exchange_strong.html">atomic_compare_exchange_strong</a></code></td>
+<td>強い比較で値の入れ替えを行う(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_compare_exchange_weak_explicit.html">atomic_compare_exchange_weak_explicit</a></code></td>
+<td>弱い比較でメモリオーダーを指定して値の入れ替えを行う(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_compare_exchange_strong_explicit.html">atomic_compare_exchange_strong_explicit</a></code></td>
+<td>強い比較でメモリオーダーを指定して値の入れ替えを行う(function template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>アトミック型に対する算術操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_fetch_add.html">atomic_fetch_add</a></code></td>
+<td>加算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_add_explicit.html">atomic_fetch_add_explicit</a></code></td>
+<td>メモリオーダーを指定して加算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_sub.html">atomic_fetch_sub</a></code></td>
+<td>減算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_sub_explicit.html">atomic_fetch_sub_explicit</a></code></td>
+<td>メモリオーダーを指定して減算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_and.html">atomic_fetch_and</a></code></td>
+<td>AND演算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_and_explicit.html">atomic_fetch_and_explicit</a></code></td>
+<td>メモリオーダーを指定してAND演算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_or.html">atomic_fetch_or</a></code></td>
+<td>OR演算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_or_explicit.html">atomic_fetch_or_explicit</a></code></td>
+<td>メモリオーダーを指定してOR演算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_xor.html">atomic_fetch_xor</a></code></td>
+<td>XOR演算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_xor_explicit.html">atomic_fetch_xor_explicit</a></code></td>
+<td>メモリオーダーを指定してXOR演算(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_max.html">atomic_fetch_max</a></code></td>
+<td>最大値取得(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_max_explicit.html">atomic_fetch_max_explicit</a></code></td>
+<td>メモリオーダーを指定して最大値取得(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_min.html">atomic_fetch_min</a></code></td>
+<td>最小値取得(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_fetch_min_explicit.html">atomic_fetch_min_explicit</a></code></td>
+<td>メモリオーダーを指定して最小値取得(function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>アトミック型に対するブロッキング<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_wait.html">atomic_wait</a></code></td>
+<td>起床されるまで待機する (function template )</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_wait_explicit.html">atomic_wait_explicit</a></code></td>
+<td>メモリオーダーを指定して起床されるまで待機する (function template )</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_notify_one.html">atomic_notify_one</a></code></td>
+<td>待機しているスレッドをひとつ起床させる (function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_notify_all.html">atomic_notify_all</a></code></td>
+<td>待機している全てのスレッドを起床させる (function template)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>初期化</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_var_init.html">ATOMIC_VAR_INIT</a></code></td>
+<td>アトミック変数の初期化(define)</td>
+<td>C++11<br />C++20から非推奨</td>
+</tr>
+</tbody>
+</table>
+<h2>フラグ型とその操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_flag.html">atomic_flag</a></code></td>
+<td>フラグ用アトミック型(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_test.html">atomic_flag_test</a></code></td>
+<td>現在の値を<code>bool</code>値として取得する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_test_explicit.html">atomic_flag_test_explicit</a></code></td>
+<td>メモリオーダーを指定して現在の値を<code>bool</code>値として取得する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_test_and_set.html">atomic_flag_test_and_set</a></code></td>
+<td>フラグを立てる(function)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_test_and_set_explicit.html">atomic_flag_test_and_set_explicit</a></code></td>
+<td>メモリオーダーを指定してフラグを立てる(function)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_clear.html">atomic_flag_clear</a></code></td>
+<td>フラグをクリアする(function)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_clear_explicit.html">atomic_flag_clear_explicit</a></code></td>
+<td>メモリオーダーを指定してフラグをクリアする(function)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_wait.html">atomic_flag_wait</a></code></td>
+<td>起床されるまで待機する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_wait_explicit.html">atomic_flag_wait_explicit</a></code></td>
+<td>メモリオーダーを指定して起床されるまで待機する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_notify_one.html">atomic_flag_notify_one</a></code></td>
+<td>待機しているスレッドをひとつ起床させる (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_notify_all.html">atomic_flag_notify_all</a></code></td>
+<td>待機している全てのスレッドを起床させる (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_flag_init.html">ATOMIC_FLAG_INIT</a></code></td>
+<td>フラグ変数の初期化(define)</td>
+<td>C++11<br />C++20から非推奨</td>
+</tr>
+</tbody>
+</table>
+<h2>フェンス</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_thread_fence.html">atomic_thread_fence</a></code></td>
+<td>スレッド間で有効なフェンスを設定する(function)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_signal_fence.html">atomic_signal_fence</a></code></td>
+<td>スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ有効なフェンスを設定する(function)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="stdatomic.h.html">&lt;stdatomic.h&gt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2006/n2047.html" target="_blank">N2047 An Atomic Operations Library for C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2427.html" target="_blank">N2427 C++ Atomic Types and Operations</a></li>
+<li><a href="http://www.boost.org/doc/libs/release/libs/atomic/" target="_blank">Boost Atomic Library</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

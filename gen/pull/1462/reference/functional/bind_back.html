@@ -1,0 +1,373 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>bind_back - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional,std,function template,cpp23
+">
+        <meta name="title" content="bind_back - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="bind_back - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="bind_back - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/functional/bind_back.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="関数の引数を末尾から順に部分適用する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="bind_back - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional/bind_back.html" />
+        <meta name="twitter:description" content="関数の引数を末尾から順に部分適用する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;functional&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;83de4c3eb52dbc335b6a714638bb810005d87b89&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;vector&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n\ntemplate &lt;typename F&gt;\nclass closure_t : public std::ranges::range_adaptor_closure&lt;closure_t&lt;F&gt;&gt; {\n  F f;\npublic:\n  constexpr closure_t(F f) : f(f) { }\n\n  template &lt;std::ranges::range R&gt;\n  requires std::invocable&lt;F const&amp;, R&gt;\n  constexpr auto operator()(R&amp;&amp; r) const {\n    return f(std::views::all(std::forward&lt;R&gt;(r)));\n  }\n};\n\ntemplate &lt;typename F&gt;\nclass adaptor_t {\n  F f;\npublic:\n  constexpr adaptor_t(F f) : f(f) { }\n\n  template &lt;typename... Args&gt;\n  constexpr auto operator()(Args&amp;&amp;... args) const {\n    if constexpr (std::invocable&lt;F const&amp;, Args...&gt;) {\n      return f(std::forward&lt;Args&gt;(args)...);\n    } else {\n      return closure_t(std::bind_back(f, std::forward&lt;Args&gt;(args)...));\n    }\n  }\n};\n\ninline constexpr closure_t user_defined_join\n  = []&lt;std::ranges::viewable_range R&gt;\n    (R&amp;&amp; r) {\n      return std::ranges::join_view(std::forward&lt;R&gt;(r));\n    };\n\ninline constexpr adaptor_t user_defined_transform\n  = []&lt;std::ranges::viewable_range R, typename F&gt;\n    (R&amp;&amp; r, F&amp;&amp; f) {\n      return std::ranges::transform_view(std::forward&lt;R&gt;(r), std::forward&lt;F&gt;(f));\n    };\n\nint main() {\n  std::vector&lt;std::vector&lt;int&gt;&gt; vv = {{0, 1, 2}, {3, 4, 5}, {6}};\n\n  std::println(\&#34;{}\&#34;, vv | user_defined_join | user_defined_transform([](int x){ return x * x; }));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;functional&#34;, &#34;bind_back&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/functional.html" itemprop="url">
+              
+                <span itemprop="name">functional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">bind_back</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-03T06:49:54">
+        2025年04月03日 06時49分54秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/functional/bind_back.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/functional/bind_back.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">bind_back</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><i>unspecified</i></span> <span class="n">bind_back</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>  <span class="c1">// (1) C++23</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span> <span class="n">f</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><i>unspecified</i></span> <span class="n">bind_back</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>         <span class="c1">// (2) C++26</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>関数の引数を末尾から順に部分適用する。</p>
+<p>先頭から適用する場合は<code><a href="bind_front.html">bind_front</a></code>を用いる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<p><code><a href="../type_traits/decay.html">decay_t</a>&lt;F&gt;</code>を適用した型を<code>FD</code>、<code><a href="../type_traits/decay.html">decay_t</a>&lt;Args&gt;...</code>を適用した型パラメータパックを<code>BoundArgs</code>として</p>
+<ul>
+<li>(1) : <ul>
+<li><code>FD</code>がCpp17MoveConstructible要件を満たすこと</li>
+<li><code>BoundArgs</code>のそれぞれの型<code>Ti</code>が<a href="../type_traits/is_object.html">オブジェクト型</a>である場合、Cpp17MoveConstructible要件を満たすこと</li>
+</ul>
+</li>
+<li>(2) :<ul>
+<li><code>BoundArgs</code>のそれぞれの型<code>Ti</code>がCpp17MoveConstructible要件を満たすこと</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>(1) :<ul>
+<li><code><a href="../type_traits/is_constructible.html">is_constructible_v</a>&lt;FD, F&gt; &amp;&amp; <a href="../type_traits/is_move_constructible.html">is_move_constructible_v</a>&lt;FD&gt; &amp;&amp; (<a href="../type_traits/is_constructible.html">is_constructible_v</a>&lt;BoundArgs, Args&gt; &amp;&amp; ...) &amp;&amp; (<a href="../type_traits/is_move_constructible.html">is_move_constructible_v</a>&lt;BoundArgs&gt; &amp;&amp; ...)</code>が<code>true</code>であること</li>
+</ul>
+</li>
+<li>(2) : <code>F</code>を<code>f</code>の型として<ul>
+<li><code>(<a href="../type_traits/is_constructible.html">is_constructible_v</a>&lt;BoundArgs, Args&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
+<li><code>(<a href="../type_traits/is_move_constructible.html">is_move_constructible_v</a>&lt;BoundArgs&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
+<li>もし<code><a href="../type_traits/is_pointer.html">is_poinetr_v</a>&lt;F&gt; || <a href="../type_traits/is_member_pointer.html">is_member_poinetr_v</a>&lt;F&gt;</code>が<code>true</code>ならば、<code>f != nullptr</code>であること</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>呼び出し可能な<code>f</code>を<code><a href="invoke.html">std::invoke()</a></code>で呼び出した時に必要な引数列に後方一致する<code>f</code>と<code>args...</code>を完全転送して保持し、後から残りの引数リストを渡すことで<code>f</code>を呼び出せる<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の関数オブジェクトを返す。</p>
+<p>返される関数オブジェクトは渡された引数（<code>f, args...</code>）を参照として保持せず、適切にコピー/ムーブして保持する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(1) : 関数オブジェクト<code>f</code>のムーブによって任意の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される可能性がある</li>
+<li>(2) : <code>bound_args</code>の初期化による任意の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される可能性がある</li>
+</ul>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++23で<a href="../ranges/range.html">Rangeアダプタ</a>の<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>がサポートされた。</p>
+<p><a href="../ranges/range.html">Rangeアダプタオブジェクト</a>である<code>adaptor</code>が2つ以上の引数をとる場合、以下の3つの式は等しい。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">adaptor</span><span class="p">(</span><span class="n"><a href="../ranges/range.html">range</a></span><span class="p">,</span> <span class="n">args</span><span class="p">...)</span>
+<span class="n">adaptor</span><span class="p">(</span><span class="n">args</span><span class="p">...)(</span><span class="n"><a href="../ranges/range.html">range</a></span><span class="p">)</span>
+<span class="n"><a href="../ranges/range.html">range</a></span> <span class="o">|</span> <span class="n">adaptor</span><span class="p">(</span><span class="n">args</span><span class="p">...)</span>
+</code></pre></div>
+</p>
+<p>ここで、Rangeアダプタオブジェクトの第2引数以降を部分適用した結果が<a href="../ranges/range.html">Rangeアダプタクロージャオブジェクト</a>となる。
+<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>するRangeアダプタオブジェクトの<code>operator()</code>において、この部分適用を行うためのユーティリティとして<code>bind_back</code>が提案された。</p>
+<h2>例</h2>
+<p><div class="yata" id="83de4c3eb52dbc335b6a714638bb810005d87b89"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">closure_t</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../ranges/range_adaptor_closure.html">std::ranges::range_adaptor_closure</a></span><span class="o">&lt;</span><span class="n">closure_t</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+  <span class="n">F</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">constexpr</span> <span class="n">closure_t</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../ranges/range.html">std::ranges::range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../ranges/all.html">std::views::all</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">)));</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">adaptor_t</span> <span class="p">{</span>
+  <span class="n">F</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">constexpr</span> <span class="n">adaptor_t</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">closure_t</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::bind_back</span></span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">closure_t</span> <span class="n">user_defined_join</span>
+  <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="../ranges/viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+    <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n"><a href="../ranges/join_view.html">std::ranges::join_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+    <span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">adaptor_t</span> <span class="n">user_defined_transform</span>
+  <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="../ranges/viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+    <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n"><a href="../ranges/transform_view.html">std::ranges::transform_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+    <span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">vv</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">6</span><span class="p">}};</span>
+
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">vv</span> <span class="o">|</span> <span class="n">user_defined_join</span> <span class="o">|</span> <span class="n">user_defined_transform</span><span class="p">([](</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">}));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>[0, 1, 4, 9, 16, 25, 36]
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2387r3.html#nanorange" target="_blank">P2387R3 Pipe support for user-defined range adaptors</a></li>
+<li><a href="https://onihusube.hatenablog.com/entry/2022/04/24/010041" target="_blank">rangesのパイプにアダプトするには</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2714r1.html" target="_blank">P2714R1 Bind front and back to NTTP callables</a><ul>
+<li>C++26で<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(2)を追加</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

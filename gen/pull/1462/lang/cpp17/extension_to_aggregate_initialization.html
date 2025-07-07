@@ -1,0 +1,354 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする [P0017R1] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする [P0017R1] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする [P0017R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする [P0017R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/extension_to_aggregate_initialization.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする [P0017R1] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/extension_to_aggregate_initialization.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8930007fc0a39832385a05c18749dc7e90528b40&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\n\nstruct base_a { std::string s; };\nstruct base_b { double d; std::vector&lt; int &gt; vi; };\nstruct derived: base_a, base_b { char c; };\n\nint main()\n{\n  // \u3053\u306e\u3088\u3046\u306a\u521d\u671f\u5316\u3092 C++17 \u4ee5\u964d\u306f\u672c\u6a5f\u80fd\u306b\u3088\u308a\u4f7f\u7528\u3067\u304d\u308b\u3088\u3046\u306b\u306a\u3063\u305f\n  // \u3053\u306e\u521d\u671f\u5316\u306f C++14 \u4ee5\u524d\u3067\u306f\u57fa\u5e95\u30af\u30e9\u30b9\u306e\u521d\u671f\u5316\u3068\u3057\u3066\u6271\u3048\u305a\u7ffb\u8a33\u306b\u5931\u6557\u3057\u3066\u3057\u307e\u3046\n  derived o\n  { { // base_a; \u672c\u6a5f\u80fd\u306b\u3088\u308a\u57fa\u5e95\u30af\u30e9\u30b9\u306e\u521d\u671f\u5316\u3092 { } \u3067\u8a18\u8ff0\u3067\u304d\u308b\n      \&#34;abc\&#34; // base_a::s\n    }\n  , { // base_b; \u672c\u6a5f\u80fd\u306b\u3088\u308a\u57fa\u5e95\u30af\u30e9\u30b9\u306e\u521d\u671f\u5316\u3092 { } \u3067\u8a18\u8ff0\u3067\u304d\u308b\n      12.345 // base_b::d\n    , { 1, 2, 3} // base_b::v\n    }\n  , &#39;d&#39; // derived::c\n  };\n\n  std::cout \n    &lt;&lt; \&#34;o.s = \&#34; &lt;&lt; o.s &lt;&lt; &#39;\\n&#39;\n    &lt;&lt; \&#34;o.d = \&#34; &lt;&lt; o.d &lt;&lt; &#39;\\n&#39;\n    &lt;&lt; \&#34;o.vi = \&#34;\n    ;\n\n  {\n    using namespace std::literals::string_literals;\n    auto separator = \&#34;\&#34;s;\n    std:: cout &lt;&lt; \&#34;[ \&#34;;\n    for ( const auto&amp; i : o.vi )\n    {\n      std::cout &lt;&lt; separator &lt;&lt; i;\n      separator = \&#34;, \&#34;s;\n    }\n    std:: cout &lt;&lt; \&#34; ]\\n\&#34;;\n  }\n\n  std::cout &lt;&lt; \&#34;o.c = \&#34; &lt;&lt; o.c &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;b68fa1344c4f4265d1f9c323f2f00b47d401fd93&#34;, &#34;source&#34;: &#34;// C++14 \u307e\u3067\u306e\u65e7\u3044\u4ed5\u69d8\u3067\u540c\u69d8\u306e\u4e8b\u3092\u3067\u304d\u308b\u3088\u3046\u306b\u3059\u308b\u305f\u3081\u306b\u5fc5\u8981\u3060\u3063\u305f\u8a18\u8ff0\n#include &lt;iostream&gt;\n\nstruct legacy_base\n{\n  // \u3044\u3061\u3044\u3061\u66f8\u304b\u306a\u3051\u308c\u3070\u306a\u3089\u306a\u3044\u306e\u306f\u9762\u5012\u304f\u3055\u3044\n  legacy_base( int a_ ): a( a_ ) { }\n  int a;\n};\nstruct legacy_derived: legacy_base\n{\n  // \u3044\u3061\u3044\u3061\u66f8\u304b\u306a\u3051\u308c\u3070\u306a\u3089\u306a\u3044\u306e\u306f\u9762\u5012\u304f\u3055\u3044\n  legacy_derived( int a_, int b_ ): legacy_base( a_ ), b( b_ ) { }\n  int b;\n};\n\nint main()\n{\n  // \u521d\u671f\u5316\u3092\u7c21\u6f54\u306b\u8a18\u8ff0\u3059\u308b\u305f\u3081\u306b\u306f legacy_derived, legacy_base \u306e\u69cb\u7bc9\u5b50\u306b\u4ed5\u8fbc\u307f\u304c\u5fc5\u8981\u3060\u3063\u305f\n  legacy_derived o{ 123, 456 };\n  std::cout\n    &lt;&lt; \&#34;o.a = \&#34; &lt;&lt; o.a &lt;&lt; &#39;\\n&#39;\n    &lt;&lt; \&#34;o.b = \&#34; &lt;&lt; o.b &lt;&lt; &#39;\\n&#39;\n    ;\n}\n&#34;}, {&#34;id&#34;: &#34;edb3be5cca92457ca1cbed0ebc73dd545b28303a&#34;, &#34;source&#34;: &#34;// C++17 \u4ee5\u964d\u306f\u672c\u6a5f\u80fd\u306b\u3088\u308a C++14 \u307e\u3067\u306e\u3088\u3046\u306b\u4ed5\u8fbc\u307f\u3092\u884c\u308f\u305a\u3068\u3082\u7c21\u6f54\u306b\u57fa\u5e95\u30af\u30e9\u30b9\u306e\u521d\u671f\u5316\u3092\u8a18\u8ff0\u3067\u304d\u308b\u3088\u3046\u306b\u306a\u3063\u305f\n#include &lt;iostream&gt;\n\nstruct legacy_base { int a; };\nstruct legacy_derived: legacy_base { int b; };\n\nint main()\n{\n  legacy_derived o{ { 123 }, 456 };\n  std::cout\n    &lt;&lt; \&#34;o.a = \&#34; &lt;&lt; o.a &lt;&lt; &#39;\\n&#39;\n    &lt;&lt; \&#34;o.b = \&#34; &lt;&lt; o.b &lt;&lt; &#39;\\n&#39;\n    ;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;extension_to_aggregate_initialization&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする [P0017R1]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/extension_to_aggregate_initialization.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/extension_to_aggregate_initialization.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする [P0017R1]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++17 から集成体初期化が拡張され、基底クラスを持つ型の初期化が簡潔に記述できるようになった。</p>
+<h2>仕様</h2>
+<p>集成体初期化において基底クラスの初期化についても集成体初期化 <code>{ parameter1, parameter2, ... }</code> の様式で同様に入れ子にして記述する。</p>
+<h2>例</h2>
+<p><div class="yata" id="8930007fc0a39832385a05c18749dc7e90528b40"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">base_a</span> <span class="p">{</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">base_b</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">d</span><span class="p">;</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span> <span class="kt">int</span> <span class="o">&gt;</span> <span class="n">vi</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="nl">derived</span><span class="p">:</span> <span class="n">base_a</span><span class="p">,</span> <span class="n">base_b</span> <span class="p">{</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// このような初期化を C++17 以降は本機能により使用できるようになった</span>
+  <span class="c1">// この初期化は C++14 以前では基底クラスの初期化として扱えず翻訳に失敗してしまう</span>
+  <span class="n">derived</span> <span class="n">o</span>
+  <span class="p">{</span> <span class="p">{</span> <span class="c1">// base_a; 本機能により基底クラスの初期化を { } で記述できる</span>
+      <span class="s">"abc"</span> <span class="c1">// base_a::s</span>
+    <span class="p">}</span>
+  <span class="p">,</span> <span class="p">{</span> <span class="c1">// base_b; 本機能により基底クラスの初期化を { } で記述できる</span>
+      <span class="mf">12.345</span> <span class="c1">// base_b::d</span>
+    <span class="p">,</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1">// base_b::v</span>
+    <span class="p">}</span>
+  <span class="p">,</span> <span class="sc">'d'</span> <span class="c1">// derived::c</span>
+  <span class="p">};</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> 
+    <span class="o">&lt;&lt;</span> <span class="s">"o.s = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+    <span class="o">&lt;&lt;</span> <span class="s">"o.d = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+    <span class="o">&lt;&lt;</span> <span class="s">"o.vi = "</span>
+    <span class="p">;</span>
+
+  <span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="o">::</span><span class="n">string_literals</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">separator</span> <span class="o">=</span> <span class="s">""</span><span class="n">s</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"[ "</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">o</span><span class="p">.</span><span class="n">vi</span> <span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">separator</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">;</span>
+      <span class="n">separator</span> <span class="o">=</span> <span class="s">", "</span><span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" ]</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"o.c = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>o.s = abc
+o.d = 12.345
+o.vi = [ 1, 2, 3 ]
+o.c = d
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>この機能が無い C++14 までは、同様の事をしたい場合には基底クラスの初期化も含めたい派生型へ、基底クラスの初期化も行う構築子を記述する必要があった。</p>
+<p><div class="yata" id="b68fa1344c4f4265d1f9c323f2f00b47d401fd93"><div class="codehilite"><pre><span></span><code><span class="c1">// C++14 までの旧い仕様で同様の事をできるようにするために必要だった記述</span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">legacy_base</span>
+<span class="p">{</span>
+  <span class="c1">// いちいち書かなければならないのは面倒くさい</span>
+  <span class="n">legacy_base</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a_</span> <span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span> <span class="n">a_</span> <span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">struct</span> <span class="nl">legacy_derived</span><span class="p">:</span> <span class="n">legacy_base</span>
+<span class="p">{</span>
+  <span class="c1">// いちいち書かなければならないのは面倒くさい</span>
+  <span class="n">legacy_derived</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a_</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b_</span> <span class="p">)</span><span class="o">:</span> <span class="n">legacy_base</span><span class="p">(</span> <span class="n">a_</span> <span class="p">),</span> <span class="n">b</span><span class="p">(</span> <span class="n">b_</span> <span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+  <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 初期化を簡潔に記述するためには legacy_derived, legacy_base の構築子に仕込みが必要だった</span>
+  <span class="n">legacy_derived</span> <span class="n">o</span><span class="p">{</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">456</span> <span class="p">};</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
+    <span class="o">&lt;&lt;</span> <span class="s">"o.a = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+    <span class="o">&lt;&lt;</span> <span class="s">"o.b = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+    <span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>このような面倒を本機能により簡潔に記述できるようにしたかった。</p>
+<p><div class="yata" id="edb3be5cca92457ca1cbed0ebc73dd545b28303a"><div class="codehilite"><pre><span></span><code><span class="c1">// C++17 以降は本機能により C++14 までのように仕込みを行わずとも簡潔に基底クラスの初期化を記述できるようになった</span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">legacy_base</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="nl">legacy_derived</span><span class="p">:</span> <span class="n">legacy_base</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">legacy_derived</span> <span class="n">o</span><span class="p">{</span> <span class="p">{</span> <span class="mi">123</span> <span class="p">},</span> <span class="mi">456</span> <span class="p">};</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span>
+    <span class="o">&lt;&lt;</span> <span class="s">"o.a = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+    <span class="o">&lt;&lt;</span> <span class="s">"o.b = "</span> <span class="o">&lt;&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>
+    <span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>この機能により C++17 以降では記述が簡潔になり、実装労力の低減、ソースコードの可読性の向上が図られた。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ol>
+<li><a href="../cpp14/brace_elision_in_array_temporary_initialization.html">C++14 / 宣言時のメンバ初期化を持つ型の集成体初期化を許可</a></li>
+</ol>
+<h2>参照</h2>
+<ol>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0017r1.html" target="_blank">P0017R1 Extension to aggregate initialization</a></li>
+</ol></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,380 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>条件変数の利用方法 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="条件変数の利用方法 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="条件変数の利用方法 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="条件変数の利用方法 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/article/lib/how_to_use_cv.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="条件変数の利用方法 標準ヘッダ&amp;lt;condition_variable&amp;gt;で提供される、条件変数(condition variable)の利用方法について説明する。 簡単のため、条件変数condition_variableとロックunique_lock&amp;lt;mutex&amp;gt;の組に対してのみ説明を行う。 condition_variable_anyクラスは、任意のロック型と組み合わせ可能" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="条件変数の利用方法 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/article/lib/how_to_use_cv.html" />
+        <meta name="twitter:description" content="条件変数の利用方法 標準ヘッダ&amp;lt;condition_variable&amp;gt;で提供される、条件変数(condition variable)の利用方法について説明する。 簡単のため、条件変数condition_variableとロックunique_lock&amp;lt;mutex&amp;gt;の組に対してのみ説明を行う。 condition_variable_anyクラスは、任意のロック型と組み合わせ可能" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;article&#34;, &#34;lib&#34;, &#34;how_to_use_cv&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../article.html" itemprop="url">
+              
+                <span itemprop="name">article</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">lib</span>
+            
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">条件変数の利用方法</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2021-12-04T16:59:50">
+        2021年12月04日 16時59分50秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Ken Matsui</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/article/lib/how_to_use_cv.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/article/lib/how_to_use_cv.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">条件変数の利用方法</span></h1>
+<div itemprop="articleBody"><p>標準ヘッダ<code><a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></code>で提供される、条件変数(condition variable)の利用方法について説明する。</p>
+<p>簡単のため、条件変数<code><a href="../../reference/condition_variable/condition_variable.html">condition_variable</a></code>とロック<code><a href="../../reference/mutex/unique_lock.html">unique_lock</a>&lt;<a href="../../reference/mutex/mutex.html">mutex</a>&gt;</code>の組に対してのみ説明を行う。
+<code><a href="../../reference/condition_variable/condition_variable_any.html">condition_variable_any</a></code>クラスは、任意のロック型と組み合わせ可能なことを除き、その利用方法は<code>condition_variable</code>と同じである。</p>
+<h2>利用の目的</h2>
+<p>条件変数オブジェクトのみを単体で利用するのではなく、必ずミューテックス（排他制御）オブジェクトと、同ミューテックスで保護されるデータ状態を表す変数群（以下、"ステート"と呼ぶ）という3つの組で利用すること。
+条件変数オブジェクトとは、複数スレッドがこの共有"ステート"を更新／参照する場合に、"ステート"の更新を他スレッドに通知／"ステート"が指定条件を満たすまで待機する処理を、効率的に記述するための同期機構である。</p>
+<p>理論的には条件変数を利用しなくても、ミューテックス保護＋"ステート"参照をループする処理でも条件待機は実現できる。
+ただし、このような実装（ポーリング方式）では参照側スレッドが常に動作し続けるため、一般的には計算機リソース浪費による実行効率の著しい低下をもたらす。
+（対象処理系や特殊ユースケースでは、ポーリング方式の方が望ましい状況も否定しない。）</p>
+<h2>利用パターン</h2>
+<p>下記コードでは典型的な利用パターンを示す。なお、通知処理と待機処理は異なるスレッド上で並行実行されるものとする。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// "ステート"変数＋ミューテックスmtx＋条件変数cv</span>
+<span class="kt">int</span> <span class="n">state</span><span class="p">;</span>  <span class="c1">// 注: 変数型やその個数は目的による</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
+<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">cv</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 共有"ステート"変数の更新と通知</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+  <span class="c1">// "ステート"変数の更新処理</span>
+  <span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 指定条件を満たすまで待機</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+  <span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span>
+    <span class="k">return</span> <span class="cm">/* "ステート"変数を参照し、指定条件を満たす場合はtrueを返す */</span><span class="p">;</span>
+  <span class="p">});</span>
+  <span class="c1">// "ステート"変数を参照した処理</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>通知処理の実装では、通知関数として<code><a href="../../reference/condition_variable/condition_variable/notify_all.html">notify_all()</a></code>を利用している。
+通知関数としてはもう1種類<code><a href="../../reference/condition_variable/condition_variable/notify_one.html">notify_one()</a></code>が提供されるが、<code>notify_one()</code>で論理的に十分であると判断できないならば、まずは<code>notify_all()</code>利用を推奨する。
+（<code>notify_all()</code>が待機中の全スレッドに通知を行うのに対し、<code>notify_one()</code>は待機中の任意の1スレッドにのみ通知を行うため、後者は実行時オーバーヘッドの観点で有利である。
+一方、待機処理における指定条件によっては、<code>notify_one()</code>利用ではライブロック(live lock)に陥るケースも存在する。
+なお、<code>notify_all()</code>の動作セマンティクスは<code>notify_one()</code>を完全に包含するため、<code>notify_one()</code>で正しく動作する並行処理は<code>notify_all()</code>利用でも正しく動作する。）</p>
+<p>待機処理の実装では、第2引数に<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>をとる<code><a href="../../reference/condition_variable/condition_variable/wait.html">wait()</a></code>を利用することで、条件変数のSpurious Wakeupと呼ばれる現象を考慮しなくとも正しい処理を記述できる。
+<code>wait()</code>メンバ関数はロック型のみを引数にとる1引数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>も提供するが、特殊なケースを除いて上記の2引数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>利用を推奨する。
+待機関数によるブロッキング期間以外では、そのスレッド自身がロック<code>lk</code>保持中であると保証されるため、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>処理（前掲実装ではラムダ式）や<code>wait()</code>呼出より後に"ステート"変数へと安全にアクセスできる。</p>
+<h2>条件変数と状態</h2>
+<p>条件変数オブジェクトはスレッド間通知／待機機能を提供するだけであり、オブジェクトそれ自身は永続的な状態管理を行わない。
+このため条件変数オブジェクトに対する通知関数<code>notify_one()</code>/<code>notify_all()</code>は、その通知時点で同オブジェクトの待機関数<code>wait()</code>/<code>wait_for()</code>/<code>wait_until()</code>にてブロックされているスレッド群にしか影響しない。</p>
+<p>この条件変数オブジェクトの動作は、概念的には「待機／実行可能スレッドのキュー」と解釈する事ができる。
+待機関数<code>wait()</code>系は呼出スレッドをブロック状態へ遷移してから待機キューに追加する動作、通知関数<code>notify_one()</code>は待機キューからいずれか1つ／<code>notify_all()</code>は待機キュー内の全スレッドを実行可能キューへ移動させる動作に相当する。
+待機関数<code>wait()</code>でブロック中のスレッドは、自スレッドを実行可能キュー内でみつけたら、実行状態へ遷移したのち待機関数の呼出元に制御を戻す。</p>
+<p>下記コードでは条件変数を誤用した例を示す。なお、通知処理と待機処理は異なるスレッド上で並行実行されるものとする。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 条件変数を誤用した同期処理</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
+<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">cv</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 誤った通知処理</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+  <span class="c1">// 共有データの更新</span>
+  <span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 誤った待機処理</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+  <span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">);</span>
+  <span class="c1">// 共有データの参照利用</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>上記の誤用例では、プログラマの意図と反するであろう次の実行結果が生じる。
+このプログラムでは非決定的な動作となるため、偶然に期待通り動作したかのように見えるケースもある。</p>
+<ul>
+<li>通知関数の呼び出し後に待機関数が呼び出された場合、待機処理スレッドはブロッキングされる。（ライブロック状態）</li>
+<li>待機関数が先に呼び出された場合、待機処理スレッドはブロッキングされる。その後、通知処理スレッドによる通知関数の呼び出しよりも前に、待機処理スレッドのブロックが解除されて待機関数から制御が戻ってくる可能性がある。（Spurious Wakeupの未考慮）</li>
+</ul>
+<p>この不具合を修正するには、過去に通知が行われた事実を永続化する変数（"ステート"変数）を導入すれば良い。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 条件変数による正しい同期処理</span>
+<span class="kt">bool</span> <span class="n">notify</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">mtx</span><span class="p">;</span>
+<span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">cv</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 修正した通知処理</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+  <span class="c1">// 共有データの更新</span>
+  <span class="n">notify</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">cv</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 修正した待機処理</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+  <span class="n">cv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span> <span class="k">return</span> <span class="n">notify</span><span class="p">;</span> <span class="p">});</span>
+  <span class="c1">// 共有データの参照利用</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>ミューテックスと複数の条件変数</h2>
+<p>1つのミューテックスで保護される共有"ステート"変数に対して、複数個の条件変数オブジェクトを関連付ける事ができる。
+逆に1つの条件変数オブジェクトに対して、複数個のミューテックス（と共有"ステート"のグループ）を関連付ける事は出来ない。</p>
+<p>下記に、一般的なProducer-Consumerパターンで利用される境界付きキュー(bounded queue)の簡易実装例を示す。1つのミューテックス<code>guard_</code>にて<code>*this</code>オブジェクト自身を保護し、2つの条件変数オブジェクト<code>not_empty_</code>, <code>not_full_</code>を関連付ける。この<code>bounded_queue</code>クラスは、スレッド間同期を実現するモニタ(monitor)として機能する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/queue.html">&lt;queue&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">bounded_queue</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">queue_</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span> <span class="n">guard_</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">not_empty_</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/condition_variable/condition_variable.html">std::condition_variable</a></span> <span class="n">not_full_</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// 値の挿入</span>
+  <span class="kt">void</span> <span class="n">push</span><span class="p">(</span><span class="n">T</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">guard_</span><span class="p">);</span>
+    <span class="n">not_full_</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="k">this</span><span class="p">]{</span>
+      <span class="k">return</span> <span class="n">queue_</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="n">queue_</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
+    <span class="n">not_empty_</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="c1">// 値の取り出し</span>
+  <span class="n">T</span> <span class="n">pop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/mutex/unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">guard_</span><span class="p">);</span>
+    <span class="n">not_empty_</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lk</span><span class="p">,</span> <span class="p">[</span><span class="k">this</span><span class="p">]{</span>
+      <span class="k">return</span> <span class="o">!</span><span class="n">queue_</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="n">T</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">queue_</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
+    <span class="n">queue_</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+    <span class="n">not_full_</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
