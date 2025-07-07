@@ -53,7 +53,7 @@ int main(void)
       printf("p1[%d] == %d\n", n, p1[n]);
   }
 
-  free(p1);//メモリを開放
+  free(p1);//メモリを解放
   free(p2);
   free(p3);
 }
