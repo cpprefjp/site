@@ -72,6 +72,12 @@ int main()
 ```
 * std::partition_point[color ff0000]
 * std::partition[link partition.md]
+* std::vector[link /reference/vector/vector.md]
+* std::cout[link /reference/iostream/cout.md]
+* std::endl[link /reference/ostream/endl.md]
+* std::for_each[link /reference/algorithm/for_each.md]
+* v.begin[link /reference/vector/vector/begin.md]
+* v.end[link /reference/vector/vector/end.md]
 
 ### 出力
 ```
