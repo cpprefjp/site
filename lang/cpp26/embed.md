@@ -46,7 +46,7 @@ int main() {
 ```cpp example
 int main() {
   constexpr unsigned char limited_data[] = {
-    #embed "data.bin" limit(1024);
+    #embed "data.bin" limit(1024)
   };
   constexpr unsigned char prefixed_data[] = {
     #embed "data.bin" prefix(0x01, 0x02, 0x03)
