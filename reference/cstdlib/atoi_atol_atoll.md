@@ -62,13 +62,6 @@ int main(void)
 -2147483648
 ```
 
-## バージョン
-### 処理系
-- Clang: ?
-- GCC: 13[mark verified]
-- ICC:  ?
-- Visual C++ ?
-
 ## 関連項目
 - [`stoi`](/reference/string/stoi.md)
 - [`stol`](/reference/string/stol.md)
