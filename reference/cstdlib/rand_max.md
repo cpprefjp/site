@@ -22,10 +22,10 @@
  
 int main()
 {
-    // use current time as seed for random generator
-    std::srand(std::time(NULL));
+  // use current time as seed for random generator
+  std::srand(std::time(NULL));
  
-    std::cout << "RAND_MAX: " << RAND_MAX << '\n';
+  std::cout << "RAND_MAX: " << RAND_MAX << '\n';
 }
 ```
 

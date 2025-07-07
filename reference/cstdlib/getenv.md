@@ -28,8 +28,8 @@ C++11以降では、`getenv`が返す文字列を変更したときの動作は�
  
 int main()
 {
-    if (const char* env_p = std::getenv("PATH"))
-        std::cout << "Your PATH is: " << env_p << '\n';
+  if (const char* env_p = std::getenv("PATH"))
+    std::cout << "Your PATH is: " << env_p << '\n';
 }
 ```
 

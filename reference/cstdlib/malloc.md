@@ -40,20 +40,20 @@ cppref より引用。
 
 int main(void)
 {
-    int *p1 = malloc(4*sizeof(int));  // 4個のint型配列の目盛りを確保
-    int *p2 = malloc(sizeof(int[4])); // 上と同じ。
-    int *p3 = malloc(4*sizeof *p3);   // 上と同じ。
+  int *p1 = malloc(4*sizeof(int));  // 4個のint型配列の目盛りを確保
+  int *p2 = malloc(sizeof(int[4])); // 上と同じ。
+  int *p3 = malloc(4*sizeof *p3);   // 上と同じ。
 
-    if(p1) {
-        for(int n=0; n<4; ++n)
-            p1[n] = n*n;
-        for(int n=0; n<4; ++n)
-            printf("p1[%d] == %d\n", n, p1[n]);
-    }
+  if(p1) {
+    for(int n=0; n<4; ++n)
+      p1[n] = n*n;
+    for(int n=0; n<4; ++n)
+      printf("p1[%d] == %d\n", n, p1[n]);
+  }
 
-    free(p1);//メモリを開放
-    free(p2);
-    free(p3);
+  free(p1);//メモリを開放
+  free(p2);
+  free(p3);
 }
 ```
 

@@ -31,8 +31,8 @@
 
 int main() 
 {
-    std::srand(std::time(0)); // 現在時刻を疑似乱数のシード値とする。
-    std::cout << std::rand() << '\n';
+  std::srand(std::time(0)); // 現在時刻を疑似乱数のシード値とする。
+  std::cout << std::rand() << '\n';
 }
 ```
 

@@ -34,19 +34,19 @@ void *calloc(size_t nmemb, size_t size);
 
 int main(void)
 {
-    int* p1 = calloc(4, sizeof(int));    // 4個のint配列のポインタを確保、0二初期化
-    int* p2 = calloc(1, sizeof(int[4])); // 上と同じ
-    int* p3 = calloc(4, sizeof *p3);     // 上と同じ
+  int* p1 = calloc(4, sizeof(int));    // 4個のint配列のポインタを確保、0二初期化
+  int* p2 = calloc(1, sizeof(int[4])); // 上と同じ
+  int* p3 = calloc(4, sizeof *p3);     // 上と同じ
 
-    if (p2)
-    {
-        for (int n = 0; n < 4; ++n)
-            printf("p2[%d] == %d\n", n, p2[n]);
-    }
+  if (p2)
+  {
+    for (int n = 0; n < 4; ++n)
+      printf("p2[%d] == %d\n", n, p2[n]);
+  }
 
-    free(p1);
-    free(p2);
-    free(p3);
+  free(p1);
+  free(p2);
+  free(p3);
 }
 ```
 
