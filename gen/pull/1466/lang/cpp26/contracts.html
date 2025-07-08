@@ -1,0 +1,388 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>契約プログラミング [P2900R14] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="契約プログラミング [P2900R14] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="契約プログラミング [P2900R14] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="契約プログラミング [P2900R14] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/contracts.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++26では、関数の正確な動作を明示的に指定でき、プログラムの正当性を高めるために「契約プログラミング」機能が導入される。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="契約プログラミング [P2900R14] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/contracts.html" />
+        <meta name="twitter:description" content="C++26では、関数の正確な動作を明示的に指定でき、プログラムの正当性を高めるために「契約プログラミング」機能が導入される。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;contracts&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">契約プログラミング [P2900R14]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-23T03:06:32">
+        2025年04月23日 03時06分32秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/contracts.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/contracts.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">契約プログラミング [P2900R14]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++26では、関数の正確な動作を明示的に指定でき、プログラムの正当性を高めるために「契約プログラミング」機能が導入される。</p>
+<p>これにより、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>(preconditions)、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>(postconditions)、及びアサーション(assertions)をコード内で明示的に記述できるようになる。</p>
+<p>この機能は、関数のインターフェースに対する期待値を明確にする役割があり、バグの早期発見、コードの可読性向上に寄与することが期待されている。</p>
+<h2>仕様</h2>
+<h3>キーワード</h3>
+<p><code>pre</code>、<code>post</code>、<code>assert</code>は文脈依存キーワードである。これらは<code>override</code>や<code>final</code>と同様に、特定の文脈でのみ特別な意味を持つ。</p>
+<ul>
+<li>変数名や関数名として使用可能
+<br />
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>  <span class="c1">// OK: 変数名として使用</span>
+<span class="kt">void</span> <span class="nf">post</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// OK: 関数名として使用</span>
+</code></pre></div>
+</li>
+<li>契約指定の文脈でのみ特別な意味を持つ
+<br />
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span>
+  <span class="n">pre</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>   <span class="c1">// ここでは契約指定として機能</span>
+</code></pre></div>
+</li>
+</ul>
+<h3>契約の種類</h3>
+<p>契約には以下の3種類が定められている。</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>(preconditions)</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>(postconditions)</li>
+<li>アサーション(assertions)</li>
+</ul>
+<h4><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>(pre)</h4>
+<p>関数が呼び出される前に満たされているべき条件を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">safe_division</span><span class="p">(</span><span class="kt">int</span> <span class="n">numerator</span><span class="p">,</span> <span class="kt">int</span> <span class="n">denominator</span><span class="p">)</span>
+    <span class="n">pre</span><span class="p">(</span><span class="n">denominator</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+ここでは、<code>denominator</code>が0でないことを<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>として指定している。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>では、必ずしも関数のパラメータを使用する必要はない。グローバル状態やクラスのメンバ変数など、呼び出し時点で有効な任意の式を使用できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Resource</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">is_available</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">use</span><span class="p">()</span>
+        <span class="n">pre</span><span class="p">(</span><span class="n">is_available</span><span class="p">)</span>  <span class="c1">// 引数を使用していない事前条件</span>
+    <span class="p">{</span>
+        <span class="c1">// リソースを使用</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">activate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">is_available</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h4><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>(post)</h4>
+<p>関数の実行後に満たされているべき条件を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">increment</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">post</span><span class="p">(</span><span class="nl">r</span><span class="p">:</span> <span class="n">r</span> <span class="o">==</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+ここでは、<code>increment</code>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が<code>x + 1</code>であることを<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>として指定している。</p>
+<p><code>post</code>では、返り値を<code>r</code>としてバインドし、条件式内で利用している。ここには、任意の変数名が使用できる。変数は定数(<code>const</code>)な左辺値参照である。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>の結果名導入子（result-name-introducer）は省略可能である。特に、<code>void</code>を返す関数では、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を参照する必要がない場合に省略できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Container</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">clear</span><span class="p">()</span>
+        <span class="n">post</span><span class="p">(</span><span class="n">empty</span><span class="p">())</span>  <span class="c1">// 結果名導入子を省略した事後条件</span>
+    <span class="p">{</span>
+        <span class="c1">// コンテナの内容をクリア</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">empty</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="c1">// コンテナが空かどうかを返す</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h4>アサーション(assert)</h4>
+<p>関数の実行中に満たされているべき条件を指定する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">return_negative</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">contract_assert</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+ここでは、<code>return_negative</code>関数のが引数として受け取っている<code>value</code>が0以上であることをアサーションとして指定している。</p>
+<p><code>contract_assert</code>は、関数の本体内で使用される。</p>
+<p>また、これらの全ては、<code>[[ likely ]]</code>や<code>[[ unlikely ]]</code>、 <code>[[ maybe_unused ]]</code>属性を使用することができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">return_negative</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+  <span class="n">pre</span> <span class="p">[[</span><span class="n">likely</span><span class="p">]]</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">post</span> <span class="p">(</span><span class="n">r</span> <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="o">:</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>評価の順番</h3>
+<p>契約式の評価順序に注意が必要である。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>は関数の引数が初期化された後に評価され、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>は関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が初期化された後、ローカル変数の破棄前に評価される。この順序により、契約式は必要な変数や状態にアクセスできるようになっている。</p>
+<h3>契約の評価モード</h3>
+<p>契約の評価には、次の4つのモードが存在する。</p>
+<ul>
+<li>
+<p>ignore: 契約のチェックを無視(ignore)する。</p>
+</li>
+<li>
+<p>observe: 契約違反時にハンドラを呼び出し、プログラムの実行を続行します。</p>
+</li>
+<li>
+<p>enforce: 契約違反時にハンドラを呼び出し、プログラムを終了します。</p>
+</li>
+<li>
+<p>quick_enforce: 契約違反時にハンドラを呼び出さず、即座にプログラムを終了します。</p>
+</li>
+</ul>
+<p>評価モードは、コンパイル時、もしくは実行時に指定できる。</p>
+<p>GCCでは、</p>
+<p><div class="codehilite"><pre><span></span><code>g++ -std<span class="o">=</span>c++26 -fcontracts -fcontract-semantic<span class="o">=</span>observe main.cpp
+</code></pre></div>
+
+のように指定できる。</p>
+<h3>契約違反ハンドラ</h3>
+<p>契約違反が発生した場合、<code>std::contracts::contract_violation</code>型の情報（&lt;contracts&gt;ヘッダー）がハンドラに渡されます。この情報には、違反の種類、発生場所、違反した条件式などが含まれます。</p>
+<h3>使用上の注意</h3>
+<p>以下の操作は、気をつけなければならない。</p>
+<ul>
+<li>契約式内において副作用を要する式を記述した場合(グローバル変数の変更、<code>volatile</code>変数への参照、<code>constexpr</code>でない関数の呼び出しなど)</li>
+<li>契約式内で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出すると、std::terminate()が呼び出され、プログラムが終了する。</li>
+<li>通常の関数やメンバ関数には契約を適用できるが、特殊な関数(例えば<code>default</code>によって定義されたコピーコンストラクタやデストラクタ)には適用できない。適用すると、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>(ill-formed)となる。</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../future/contract-based_programming.html">C++ 将来 契約に基づくプログラミング</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf" target="_blank">P2900R14 <code>Contracts for C++</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

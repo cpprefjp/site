@@ -1,0 +1,530 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ほとんどの`volatile`を非推奨化 [P1152R4] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="ほとんどの`volatile`を非推奨化 [P1152R4] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ほとんどの`volatile`を非推奨化 [P1152R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ほとんどの`volatile`を非推奨化 [P1152R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/deprecating_volatile.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ほとんどの`volatile`を非推奨化 [P1152R4] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/deprecating_volatile.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;deprecating_volatile&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">ほとんどの`volatile`を非推奨化 [P1152R4]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-22T06:27:29">
+        2024年12月22日 06時27分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/deprecating_volatile.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/deprecating_volatile.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">ほとんどの<code>volatile</code>を非推奨化 [P1152R4]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++20より、<code>volatile</code>の本来の役割に照らして不正確、あるいは誤解を招く用法や無意味な用法について非推奨とされるようになる。</p>
+<p>非推奨となるのは次のもの</p>
+<ol>
+<li><code>volatile</code>値に対する複合代入演算子（算術型・ポインタ型のみ）<ul>
+<li>C++23で非推奨化解除</li>
+</ul>
+</li>
+<li><code>volatile</code>値に対するインクリメント／デクリメント演算子（算術型・ポインタ型のみ）</li>
+<li>間に<code>volatile</code>値がある場合の連鎖した代入演算子（非クラス型のみ）</li>
+<li>関数引数のトップレベル<code>volatile</code>修飾</li>
+<li>関数<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型のトップレベル<code>volatile</code>修飾</li>
+<li>構造化束縛宣言の<code>volatile</code>修飾</li>
+<li><code>std::tuple, std::variant</code>関連のクラステンプレートの<code>volatile</code>特殊化</li>
+<li>ロックフリーではない<code>std::atomic</code>特殊化の<code>volatile</code>メンバ関数</li>
+</ol>
+<p>非推奨とされるだけで削除されてはいないが、おそらくコンパイラはそれらの用法について警告を発するようになる。そのような用法はバグの原因となり危険であるため可能な限り使用を避けるべきである。</p>
+<h2><code>volatile</code></h2>
+<p><code>volatile</code>な変数（メモリ領域）への1度のアクセスは正確に1度だけ行われる必要があり、0回にも2回以上にもなってはならない。そして、<code>volatile</code>領域へのアクセスはその順序がコード上の順序と一致する必要がある。</p>
+<p><code>volatile</code>の効果（保証）は単純にはこれだけである。</p>
+<p>ただし、<code>volatile</code>はそのようなメモリアクセスが分割されない事は保証していない。<code>volatile</code>メモリ領域の個々のバイトに対しては正確に1度のアクセスが保証されるが、<code>volatile</code>領域全体を見たときにアクセスが1度だけになるとは限らない。</p>
+<p>そして、非<code>volatile</code>領域と<code>volatile</code>領域へのアクセスの間の相対的な順序が前後しない事まで保証していない。すなわち、<code>volatile</code>変数へのアクセスと通常の変数へのアクセスは順番が入れ替わりうる。</p>
+<p>また、<code>volatile</code>はマルチスレッドプログラムの実行順を規定するC++メモリモデルとは直接的な関係性を持たず、<code>volatile</code>領域へのアクセス順序とはC++メモリモデルにおける観測可能な順序を意味しない。プロセッサはC++コード上での順序で読み取った<code>volatile</code>領域へのアクセス命令を、アウトオブオーダーで発行・実行することができる。C++メモリモデルにおいて動作が保証されている同期機構を用いない場合、あるコアにおける命令の実行順は、他のコア（あるいはプロセッサの外部）からは異なった順序で実行されたかのように観測されうる。</p>
+<p><code>volatile</code>は主として、プログラムの実行環境のハードウェアなどのプログラム外部の環境との通信手段の一つとして利用され、スレッド間のやりとりなどプログラム内部での通信の手段としては適さない。そのような<code>volatile</code>の正しい用法によるメモリの読み書きは、他のどの手段よりも移植性があり機能的にも優れており、言語機能として有用なものである。</p>
+<h2>コア言語における非推奨化</h2>
+<h3>複合代入演算子、インクリメント演算子</h3>
+<p>複合代入演算子とは<code>*= /= %=  += -= &gt;&gt;= &lt;&lt;= &amp;= ^= |=</code>の10個の演算子のことで、ある操作とその結果の代入をまとめて行うような演算子のことである。</p>
+<p>複合代入演算子およびインクリメント演算子<code>++</code>とデクリメント演算子<code>--</code>は、「読み出し - 更新（処理） - 書き込み」という3つの操作を1文で行う。（簡素化のため、以降は<code>++</code>/<code>--</code>をまとめてインクリメント演算子と表記する。）</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="p">;</span>
+<span class="c1">// これは以下と等価</span>
+<span class="c1">// int tmp = a; </span>
+<span class="c1">// a = tmp + b;</span>
+
+<span class="o">++</span><span class="n">a</span><span class="p">;</span>
+<span class="c1">// int tmp = a;</span>
+<span class="c1">// a = tmp + 1;</span>
+
+<span class="n">a</span><span class="o">--</span><span class="p">;</span>
+<span class="c1">// int tmp = a;</span>
+<span class="c1">// a = tmp - 1;</span>
+</code></pre></div>
+</p>
+<p>複合代入演算子の左辺にある<code>volatile</code>変数、およびインクリメント演算子の<code>volatile</code>オペランドには2回のアクセス（読み込みと書き込み1回づつ）が発生するが、このアクセスは複合代入演算子やインクリメント演算子の見た目や一般的な理解とは必ずしも一致しない。</p>
+<p><code>volatile</code>変数においてはそのアクセス（読み書き）が重要であり、コード上での1回のアクセスは実行時にも1回だけアクセスされる必要がある。しかし、複合代入演算子およびインクリメント演算子のアクセス回数は多くのプログラマにとって曖昧であるか、誤解されている。</p>
+<p>従って、算術型・ポインタ型の<code>volatile</code>変数に対する組み込みの複合代入演算子およびインクリメント演算子の使用はバグの元であるので、非推奨とされる。</p>
+<p>この場合、これらの複合的な演算子を用いず、明示的に「読み出し - 更新 - 書き込み」を分けて書くことで<code>volatile</code>変数へのアクセスをコード上でも明確にする事が推奨される。</p>
+<p>ただし、複合代入演算子についてはC++23で非推奨化が解除された。</p>
+<h3>連鎖した代入演算子</h3>
+<p>代入演算子の一部の用法には、複合代入演算子・インクリメント演算子と同様の問題がある。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="c1">// このような順序でアクセスが発生する</span>
+<span class="c1">// c = 10;</span>
+<span class="c1">// b = c;</span>
+<span class="c1">// a = b;</span>
+</code></pre></div>
+</p>
+<p>このような連なった代入演算子の用法においては、どの変数にどんな順番で何回アクセスされるのかが非常に分かりづらくなる。</p>
+<p><code>volatile</code>変数においてはそのアクセス（読み書き）が重要であり、コード上での1回のアクセスは実行時にも1回だけアクセスされ、かつその順番が前後してはならない。しかし、代入演算子を連鎖させた場合、そのアクセス回数および順序は非常に認識しづらくなる。</p>
+<p>従って、非クラス型の<code>volatile</code>変数に対するこのような代入演算子の使用はバグの元であるので、非推奨とされる。</p>
+<p>ただし、非推奨となるのは代入演算子の両端のオペランド以外に<code>volatile</code>変数が表れるケースである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">;</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">v3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// NG（非推奨）</span>
+
+<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>      <span class="c1">// OK</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">n</span> <span class="o">=</span> <span class="n">v3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// NG（非推奨）</span>
+
+<span class="n">v3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>          <span class="c1">// OK</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">v3</span><span class="p">;</span>          <span class="c1">// OK</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">n</span> <span class="o">=</span> <span class="n">v3</span><span class="p">;</span>      <span class="c1">// OK</span>
+</code></pre></div>
+</p>
+<h3>関数引数と<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型</h3>
+<p>関数引数を<code>volatile</code>修飾することは、シグナルや<code>setjmp/longjmp</code>によって外部から変更されている可能性を示唆するために有効であり、引数の<code>const</code>修飾同様に関数定義内では明確な意味を持つ。</p>
+<p>一方呼び出し側から見ると、参照・ポインタではない<code>volatile</code>引数の意味は不明瞭である。参照・ポインタではない関数引数が<code>volatile</code>修飾されている場合、その関数はシグナルハンドラや<code>setjmp/longjmp</code>と共に使用されるはずであり、呼び出し側にもそのような実装詳細の一部が漏洩してしまう。</p>
+<p>また、呼出規約によっては一部の引数を配置するレジスタが<code>volatile</code>となる事があるが、呼出規約はC++コード上で意味を持たず、そのような呼び出し規約がマークされている関数は非<code>volatile</code>関数宣言と同様に扱われる。しかし、一部のレジスタが<code>volatile</code>である事はABIによって処理されている。</p>
+<p>このように、関数引数の<code>volatile</code>修飾は有用ではないため非推奨とされる。関数の引数を<code>volatile</code>としたい場合、関数内で<code>volatile</code>ローカル変数に引数をコピーする事が推奨される。一部の実装では、そのようなコピーは省略され、オーバーヘッドとはならない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>   <span class="c1">// NG（非推奨）</span>
+<span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>  <span class="c1">// OK</span>
+<span class="kt">void</span> <span class="nf">f3</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span>  <span class="c1">// OK</span>
+<span class="kt">void</span> <span class="nf">f4</span><span class="p">(</span><span class="kt">int</span> <span class="k">volatile</span> <span class="o">*</span> <span class="n">p</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="kt">void</span> <span class="nf">f5</span><span class="p">(</span><span class="kt">int</span> <span class="k">volatile</span> <span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="kt">void</span> <span class="nf">f6</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span> <span class="k">volatile</span> <span class="n">p</span><span class="p">);</span> <span class="c1">// NG（非推奨）</span>
+</code></pre></div>
+</p>
+<p>また、参照・ポインタではない関数<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の<code>volatile</code>修飾は完全に意味を持たない。</p>
+<p>例えば、ローカル<code>volatile</code>変数を返す場合、そのアクセスは関数リターン時に値をコピーするために一度実行されるが、コピーした後の値はもはや元の<code>volatile</code>領域とは別のスタック領域にある。<code>volatile</code>において重要なのは特定領域へのアクセスであり、暗黙にそのようなコピーが行われる事はほとんどの場合にプログラマの意図とは異なる。</p>
+<p>ローカルの非<code>volatile</code>変数を<code>volatile</code>として返すことには意味がない。<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code>volatile</code>領域に配置したい場合、関数の呼び出し側で<code>volatile</code>変数に受ければよい。</p>
+<p>そして、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の<code>volatile</code>修飾は容易に無視する事ができる。</p>
+<p>このように、<code>volatile</code><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は無意味であるため、非推奨とされる。<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code>volatile</code>として扱いたい場合は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code>volatile</code>変数に受ければよい。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span>  <span class="nf">f1</span><span class="p">();</span>   <span class="c1">// NG（非推奨）</span>
+<span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span> <span class="nf">f2</span><span class="p">();</span>   <span class="c1">// OK</span>
+<span class="k">volatile</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">f3</span><span class="p">();</span>   <span class="c1">// OK</span>
+<span class="kt">int</span> <span class="k">volatile</span><span class="o">*</span> <span class="nf">f4</span><span class="p">();</span>   <span class="c1">// OK</span>
+<span class="kt">int</span> <span class="k">volatile</span><span class="o">&amp;</span> <span class="n">f5</span><span class="p">();</span>   <span class="c1">// OK</span>
+<span class="kt">int</span><span class="o">*</span> <span class="k">volatile</span> <span class="nf">f6</span><span class="p">();</span>   <span class="c1">// NG（非推奨）</span>
+</code></pre></div>
+</p>
+<p>ただし、関数引数・<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型いずれにしても、ポインタ・参照への<code>volatile</code>修飾は明確な意味を持ち有用である（値ではなく、領域に<code>volatile</code>とマークしているため）。従って、非推奨とされるのは関数引数・<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型へのトップレベル<code>volatile</code>修飾のみであって、<code>volatile</code>ポインタ・参照型は依然として許可される。</p>
+<h3>構造化束縛宣言</h3>
+<p>構造化束縛宣言にも<code>volatile</code>修飾を行う事ができるが、ここでの<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>は右辺にある式の結果である暗黙のオブジェクトに対して作用している。</p>
+<p>右辺の式の結果が<code>std::tuple/std::pair</code>等の<code>tuple-like</code>な型のオブジェクトである場合、構造化束縛はまずその結果オブジェクトを<code>volatile</code>修飾して受けておき、その結果オブジェクトに対して<code>std::get</code>で要素の取得を行う。しかし、<code>std::get</code>には<code>volatile</code><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が欠けており、コンパイルエラーを起こす。</p>
+<p>一方、構造化束縛の残りのケース（配列・構造体）の場合は<code>std::get</code>を用いないためこのような問題は起こらない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// NG</span>
+<span class="c1">// ここでは以下の様な事が行われている</span>
+<span class="c1">// volatile auto tmp = f();</span>
+<span class="c1">// std::tuple_element_t&lt;0, decltype(tmp)&gt; a = std::get&lt;0&gt;(tmp);</span>
+
+<span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]{};</span>
+
+<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span> <span class="c1">// OK</span>
+<span class="c1">// ここでは以下の様な事が行われている</span>
+<span class="c1">// volatile int tmp[] = {array[0], array[1], array[2]};</span>
+<span class="c1">// volatile int a = tmp[0];</span>
+
+<span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_volatile_v</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span> <span class="c1">// OK</span>
+</code></pre></div>
+</p>
+<p>このような挙動の非一貫性を受け入れたとしても、構造化束縛の裏で行われている事が<code>volatile</code>には適していない。</p>
+<p>構造化束縛の<code>volatile</code>修飾はその右辺にある暗黙のオブジェクトに対して行われるが、その事は構文からは完全に隠蔽されている。右辺の式の結果オブジェクトも場合によってコピーされたり参照のまま利用されたりと、扱いが変化しうる。また、構造化束縛宣言に指定した変数名はコンパイラの扱いとしては変数名ではなく、右辺の暗黙のオブジェクト内の対応する要素にバインドされた名前でしかない。そのような名前に対する<code>volatile</code>の効果は不明瞭であり、束縛先の要素の型が<code>volatile</code>ではない場合には意味をなさない。</p>
+<p><code>volatile</code>においてはその領域へのアクセスが重要であり、1度のアクセスは正確に1度だけ行われる必要があり、その順序は前後してはならない。構造化束縛宣言はその裏側で多くの事が行われており、それはCV・参照修飾と右辺の式の結果型によって様々に変化するが、そこでどのオブジェクトが<code>volatile</code>となりどのような順番でアクセスが発生するのかは非常に不明瞭である。</p>
+<p>従って、構造化束縛宣言の<code>volatile</code>修飾を正しく扱う事は非常に困難であるため、非推奨とされる。</p>
+<p>構造化束縛した名前が<code>volatile</code>である必要がある場合は、分解対象の右辺の結果オブジェクトの各要素型をあらかじめ<code>volatile</code>修飾しておく事が推奨される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]{};</span>
+
+<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>   <span class="c1">// NG（非推奨）</span>
+<span class="k">volatile</span> <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span> <span class="c1">// NG（非推奨）</span>
+
+<span class="k">auto</span> <span class="nf">g</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">double</span><span class="o">&amp;&gt;</span><span class="p">;</span>
+<span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="p">();</span>  <span class="c1">// OK</span>
+</code></pre></div>
+</p>
+<p>この場合でも、各要素型のトップレベル<code>volatile</code>修飾は意味をなさない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="k">volatile</span> <span class="kt">int</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">int</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// OK、要素ごとコピーされている、volatile修飾は無意味</span>
+<span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>  <span class="c1">// OK、一時オブジェクト内各要素へのバインド、volatile修飾は無意味</span>
+</code></pre></div>
+</p>
+<h2>ライブラリにおける非推奨化</h2>
+<h3>クラステンプレートの<code>volatile</code>な特殊化</h3>
+<p>標準ライブラリのクラステンプレートには、<code>volatile</code>な対象に対する特殊化が提供されているものがある。</p>
+<ul>
+<li><code><a href="../../reference/limits/numeric_limits.html">numeric_limits</a></code></li>
+<li><code>atomic</code>関連</li>
+<li><code><a href="../../reference/tuple/tuple_size.html">tuple_size</a></code></li>
+<li><code><a href="../../reference/tuple/tuple_element.html">tuple_element</a></code></li>
+<li><code><a href="../../reference/variant/variant_size.html">variant_size</a></code></li>
+<li><code><a href="../../reference/variant/variant_alternative.html">variant_alternative</a></code></li>
+</ul>
+<p>このうち、<code>numeric_limits</code>に関しては有用性が明らかであるのでそのままにされ、<code>atomic</code>関連のものはあとで説明する。</p>
+<p>残ったのは<code>tuple</code>と<code>variant</code>に関連したものであるが、C++標準は<code>tuple</code>と<code>variant</code>がどのように実装されるかを指定しておらず、これらの型の<code>volatile</code>オブジェクトへのアクセスがどのように振る舞うのかは不透明である。さらに、メンバ関数は特に<code>volatile</code>修飾されたものが用意されているわけではなく、標準ライブラリのそのほかのクラスも特に<code>volatile</code>を意識してはいない。</p>
+<p>従って、<code>tuple</code>と<code>variant</code>そのものは<code>volatile</code>で使用されるために設計されておらず、これら4つのクラステンプレートの<code>volatile</code>特殊化は<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を網羅するために用意されているだけであるため、非推奨とされる。</p>
+<h3><code>std::atomic</code>の<code>volatile</code>メンバ関数</h3>
+<p><code>volatile</code>なアクセスは不可分ではなく、順序保証がなく、各バイトに正確に一度だけアクセスされ、コンパイラの最適化の対象とならない。</p>
+<p><em>atomic</em>なアクセスは不可分であり（原子性が保証され）、C++メモリモデルによってその順序が保証され、ループによって処理される可能性があり（各バイト一度だけのアクセスは保証されない）、コンパイラの最適化の対象となりえる。</p>
+<p><code>volatile std::atomic&lt;T&gt;</code>はこれらの性質を組み合わせたものとなる事が期待されるが、そうなっていない。</p>
+<p>ロックフリーではない<code>std::atomic</code>が<code>volatile</code>修飾されている場合、そのアクセスの不可分性（原子性）が必ずしも保証されない。例えば、C++プログラム上では<code>mutex</code>などでロックして正しく<em>atomic</em>にアクセスされていたとしても、その領域にアクセスするプログラム外部の観測者からはそのアクセスは分割されて見えうる。</p>
+<p>また、<code>volatile</code>かつ<em>atomic</em>な複合代入操作を正しく行う（不可分に、各バイトに正確に一度だけアクセスする）実装は限られているが、そのような実装詳細を指定することはC++標準の範囲内ではない。</p>
+<p>従って、<code>volatile std::atomic&lt;T&gt;</code>は必ずしも両方の性質を備えた実装になっておらず、それを保証する事が困難であるため、<code>std::atomic&lt;T&gt;::is_always_lock_free</code>が<code>true</code>となる特殊化を除いて<code>std::atomic</code>の<code>volatile</code>メンバ関数は非推奨とされる。</p>
+<h2>検討されたほかの選択肢</h2>
+<h3>関数引数・<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型への<code>const</code>修飾</h3>
+<p>関数引数・<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型への<code>volatile</code>修飾が非推奨とされたのとほぼ同様の理由によって、<code>const</code>修飾も非推奨とする事が提案されていたが、合意が取れなかったため非推奨とはならなかった。</p>
+<p>おそらく、間違っていたり意味がなかったとしても、<code>volatile</code>と比べて幅広く使用されているために非推奨とする事が忌避されたものと思われる。</p>
+<h3>メンバ関数の<code>volatile</code>修飾</h3>
+<p>メンバ関数の<code>volatile</code>修飾は通常使用されることはない。標準ライブラリにおいても、<code>const</code>メンバ関数は意図を持って用意される事がある一方で、<code>volatile</code>メンバ関数が用意されることはほとんどない。</p>
+<p>また、メンバ関数の<code>volatile</code>修飾はジェネリックプログラミングにおいては<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>のパターン網羅のために追加の負担をかけるか、全く無視されるかのどちらかである。</p>
+<p>クラスは<code>const</code>な文脈でもそうでない文脈でも使用可能であり、<code>const</code>メンバ関数はそれぞれの場合に合わせてその振る舞いを変化させる事ができる。<code>volatile</code>の場合を考えてみると、これは当てはまらない。</p>
+<p>あるクラスが<code>volatile</code>な領域に配置されることもあればそうでない場合もある、という状況は考えづらく、そのような状況にあったとして、メンバ関数がどう有意義に異なるのかはさらに不明瞭である。</p>
+<p>さらに、コンストラクタやデストラクタは<code>const</code>も<code>volatile</code>修飾もできないため、クラスのオブジェクトへの<code>volatile</code>性が有効になるのは派生先も含めてコンストラクタの呼び出しが完了した後からとなる（同様に、<code>volatile</code>性はデストラクタの呼び出し前までしか有効ではない）。</p>
+<p><code>volatile</code>においてはその領域へのアクセスが重要であり、1度のアクセスは正確に1度だけ行われる必要があり、その順序は前後してはならない。クラスのオブジェクトが<code>volatile</code>な領域に配置されるとき、<code>volatile</code>の保証なしで構築や破棄をすることは間違っている。クラスオブジェクトが<code>volatile</code>な領域に配置される場合は、そのメンバ変数を<code>volatile</code>修飾しておく事が望ましい。</p>
+<p>このように、メンバ関数の<code>volatile</code>修飾は無意味なものであり、使用されていないため、非推奨とする事が提案されていた。</p>
+<p>しかし、集成体のような単純なクラス型においては、クラスオブジェクトの<code>volatile</code>領域への配置とメンバ関数の<code>volatile</code>修飾は使用されている。これに対処するために当初の提案では、メンバ関数の<code>volatile</code>修飾はあるかないかどちらかとする、<code>struct volatile</code>を導入する、などの回避案を提案していた。</p>
+<p>また、<code>std::atomic</code>は意図を持って<code>volatile</code>修飾されたメンバ関数を提供しており、それは有用であるため、これを非推奨としてしまうかどうかも問題となった。</p>
+<p>結局、合意に至ることはできず、メンバ関数の<code>volatile</code>修飾は現状維持となった。</p>
+<h2>備考</h2>
+<p>非推奨化で触れられてはいないが、<code>volatile</code>変数を並行処理の共有変数として使用することは常に間違っている。</p>
+<h2>不適切な使用の例</h2>
+<p>提案文書より不適切と思われる<code>volatile</code>の用例をいくつか引用する。中には今回の非推奨化の対象となっていないものもある。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="nl">a</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="nl">b</span> <span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">volatile</span> <span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+
+<span class="c1">// どんな命令が生成され、fの領域の各バイトに何回アクセスするか不透明</span>
+<span class="n">f</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span>
+  <span class="k">volatile</span> <span class="kt">int</span> <span class="nl">a</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="nl">b</span> <span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+
+<span class="c1">// f.aの領域へのアクセスが発生するか不透明</span>
+<span class="n">f</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">union</span> <span class="n">foo</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">volatile</span> <span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+
+<span class="c1">// sizeof(int) [byte]の領域へアクセスするか、sizeof(char) [byte]の領域へアクセスするのか、不透明</span>
+<span class="n">f</span><span class="p">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+<span class="c1">// iの領域へ何回のアクセスが発生するか不透明</span>
+<span class="c1">// これはどちらも非推奨化</span>
+<span class="n">i</span> <span class="o">+=</span> <span class="mi">42</span><span class="p">;</span>  <span class="c1">// C++23で非推奨化解除</span>
+<span class="o">++</span><span class="n">i</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">volatile</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+
+<span class="c1">// iへの代入時にjの値を読み取るか不透明（非推奨化）</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">big</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span> <span class="p">};</span>
+<span class="k">volatile</span> <span class="n">_Atomic</span> <span class="k">struct</span> <span class="n">big</span> <span class="n">ba</span><span class="p">;</span>
+<span class="k">struct</span> <span class="n">big</span> <span class="n">b2</span><span class="p">;</span>
+
+<span class="c1">// 誰から見てもatomicになるとは限らない</span>
+<span class="c1">// ほとんどの環境で非推奨化</span>
+<span class="n">ba</span> <span class="o">=</span> <span class="n">b2</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">what</span><span class="p">(</span><span class="k">volatile</span> <span class="n"><a href="../../reference/atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">atom</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+  <span class="c1">// この操作でatomの指す領域に何回アクセスが発生するのか不透明（場合によって変化する）</span>
+  <span class="n">atom</span><span class="o">-&gt;</span><span class="n">compare_exchange_strong</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="mh">0xdead</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">expected</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// この関数を呼び出すとき、呼び出し側は何を気にすべきか不透明</span>
+<span class="kt">void</span> <span class="nf">what_does_the_caller_care</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">int</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 無意味（非推奨化）</span>
+<span class="k">volatile</span> <span class="kt">int</span> <span class="nf">nonsense</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">retme</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="c1">// 無意味（非推奨化）</span>
+<span class="k">volatile</span> <span class="k">struct</span> <span class="n">retme</span> <span class="nf">silly</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">device</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="n">reg</span><span class="p">;</span>
+  <span class="n">device</span><span class="p">()</span> <span class="o">:</span> <span class="n">reg</span><span class="p">(</span><span class="mh">0xc0ffee</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="o">~</span><span class="n">device</span><span class="p">()</span> <span class="p">{</span> <span class="n">reg</span> <span class="o">=</span> <span class="mh">0xdeadbeef</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 初期化（コンストラクタ内）、破棄（デストラクタ内）はともにvolatileではない</span>
+<span class="k">volatile</span> <span class="n">device</span> <span class="n">dev</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1152r0.html" target="_blank">P1152R0 Deprecating <code>volatile</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r1.html" target="_blank">P1152R1 Deprecating <code>volatile</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r2" target="_blank">P1152R2 Deprecating <code>volatile</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r4.html" target="_blank">P1152R4 Deprecating <code>volatile</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1831r0.html" target="_blank">P1831R0 Deprecating <code>volatile</code>: library</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html" target="_blank">P1831R1 Deprecating <code>volatile</code>: library</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2327r1.pdf" target="_blank">P2327R1 De-deprecating volatile compound operations</a></li>
+<li><a href="https://cplusplus.github.io/CWG/issues/2654.html" target="_blank">CWG Issue 2654. Un-deprecation of compound volatile assignments</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

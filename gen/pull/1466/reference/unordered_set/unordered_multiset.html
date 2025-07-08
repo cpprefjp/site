@@ -1,0 +1,790 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_multiset - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_set,std,class template,cpp11
+">
+        <meta name="title" content="unordered_multiset - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_multiset - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_multiset - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`unordered_multiset` は、同一キーの要素を複数格納できる、格納順が規定されていないコンテナである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_multiset - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset.html" />
+        <meta name="twitter:description" content="`unordered_multiset` は、同一キーの要素を複数格納できる、格納順が規定されていないコンテナである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_set&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2923f9792ef431b88ca3f512f93be77d2bcc542a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n#include &lt;iterator&gt;\n#include &lt;algorithm&gt;\n#include &lt;string&gt;\n\ntemplate &lt;class C&gt;\nvoid print(const C&amp; c, std::ostream&amp; os = std::cout)\n{\n  std::copy(std::begin(c), std::end(c), std::ostream_iterator&lt;typename C::value_type&gt;(os, \&#34;, \&#34;));\n  os &lt;&lt; std::endl;\n}\n\nint main()\n{\n  std::unordered_multiset&lt;std::string&gt; ums{ \&#34;1st element\&#34;, \&#34;2nd element\&#34;, \&#34;3rd element\&#34;, };\n\n  print(ums);\n\n  ums.insert({\&#34;2nd element\&#34;, \&#34;4th element\&#34;});\n\n  print(ums);\n\n  ums.erase(\&#34;2nd element\&#34;);\n\n  print(ums);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_set&#34;, &#34;unordered_multiset&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/unordered_set.html" itemprop="url">
+              
+                <span itemprop="name">unordered_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">unordered_multiset</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-04T15:52:15">
+        2024年08月04日 15時52分15秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_set/unordered_multiset.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_set/unordered_multiset.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">unordered_multiset</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Hash</span> <span class="o">=</span> <span class="n"><a href="../functional/hash.html">std::hash</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../functional/equal_to.html">std::equal_to</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">unordered_multiset</span><span class="p">;</span>
+
+  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span>
+              <span class="k">class</span> <span class="nc">Hash</span> <span class="o">=</span> <span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+              <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n">equal_to</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span>
+      <span class="k">using</span> <span class="n">unordered_multiset</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">unordered_multiset</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span>
+                                                         <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span><span class="p">;</span>  <span class="c1">// C++17から</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>unordered_multiset</code> は、同一キーの要素を複数格納できる、格納順が規定されていないコンテナである。</p>
+<p>一般的には <code>hash multiset</code> と呼ばれるコンテナであるが、標準への採用が遅かったことから、既に存在する各種コンテナとの名前の衝突を避けるため、<code>unordered_multiset</code> と名付けられた。</p>
+<p><code>unordered_multiset</code> の特徴は以下の通りである。</p>
+<ul>
+<li>連想<br />
+標準の配列や <code>std::<a href="../vector.html">vector</a></code> と異なり、コンテナ内の要素へのアクセスは絶対的な位置（添え字）によるのではなく、キーによる。</li>
+<li>非順序<br />
+コンテナ内の各要素は、キーのハッシュ値に基づきハッシュテーブルに格納されるため、決められた順序で並んでいるわけではない。</li>
+<li>マルチセット（multiset）<br />
+キーそのものが要素でもあり、かつ、同一のキー値を複数格納することができる。</li>
+</ul>
+<p>テンプレートパラメータ <code>Hash</code> は、以下に示す Hash requirements を満たし、テンプレートパラメータ <code>Key</code> のハッシュ関数として振る舞わなければならない。</p>
+<ul>
+<li>関数オブジェクト型である。</li>
+<li>CopyConstructible requirements と Destructible requirements の要件を満たす。</li>
+<li><code>h</code> を <code>Hash</code> 型のオブジェクト、<code>Key</code> を <code>Hash</code> 型のオブジェクトの引数の型、<code>u</code> を <code>Key</code> 型の lvalue、<code>k</code> を <code>Key</code> 型（あるいは <code>const Key</code> 型）に変換可能な値とすると、以下の要件を満たす。<ul>
+<li><code>h(k)</code> は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が <code>std::<a href="../cstddef/size_t.html">size_t</a></code> で、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は引数 <code>k</code> のみにしかよらない</li>
+<li><code>h(u)</code> は <code>u</code> を変更しない</li>
+</ul>
+</li>
+</ul>
+<p>テンプレートパラメータ <code>Pred</code> は二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>で、テンプレートパラメータ <code>Key</code> に対する同値関係でなければならない。</p>
+<p>テンプレートパラメータ <code>Allocator</code> は、Allocator requirements を満たさなければならない。</p>
+<h2>メンバ関数</h2>
+<h3>構築／コピー／破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/empty.html">empty</a></code></td>
+<td>コンテナが空かどうかを判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/size.html">size</a></code></td>
+<td>要素数の取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数の取得</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/begin.html">begin</a></code></td>
+<td>先頭要素を指すイテレータの取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/end.html">end</a></code></td>
+<td>最終要素の次を指すイテレータの取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/cbegin.html">cbegin</a></code></td>
+<td>先頭要素を指す読み取り専用イテレータの取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/cend.html">cend</a></code></td>
+<td>最終要素の次を指す読み取り専用イテレータの取得</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>アロケータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータオブジェクトの取得</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/emplace.html">emplace</a></code></td>
+<td>コンテナ内への要素の直接構築</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/emplace_hint.html">emplace_hint</a></code></td>
+<td>挿入位置のヒントを使用したコンテナ内への要素の直接構築</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/insert.html">insert</a></code></td>
+<td>要素の追加</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/insert_range.html">insert_range</a></code></td>
+<td>Rangeの要素を挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/erase.html">erase</a></code></td>
+<td>要素の削除</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/clear.html">clear</a></code></td>
+<td>全要素の削除</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/swap.html">swap</a></code></td>
+<td>内容の交換</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/extract.html">extract</a></code></td>
+<td>ノードハンドルを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/merge.html">merge</a></code></td>
+<td>他のオブジェクトの要素をマージする</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>オブザーバー</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/hash_function.html">hash_function</a></code></td>
+<td>ハッシュ関数オブジェクトの取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/key_eq.html">key_eq</a></code></td>
+<td>キー比較用関数オブジェクトの取得</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>検索</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/find.html">find</a></code></td>
+<td>指定したキーの位置を検索</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/count.html">count</a></code></td>
+<td>指定したキーの要素数を取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/contains.html">contains</a></code></td>
+<td>指定したキーの要素が含まれているかを判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/equal_range.html">equal_range</a></code></td>
+<td>指定したキーの範囲を取得</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>バケットインタフェース</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/bucket_count.html">bucket_count</a></code></td>
+<td>バケット数の取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/max_bucket_count.html">max_bucket_count</a></code></td>
+<td>最大バケット数の取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/bucket_size.html">bucket_size</a></code></td>
+<td>インデックス（添え字）で指定したバケット内の要素数を取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/bucket.html">bucket</a></code></td>
+<td>キーで指定したバケットのインデックス（添え字）を取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/begin-size_type.html">begin(size_type)</a></code></td>
+<td>インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/end-size_type.html">end(size_type)</a></code></td>
+<td>インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/cbegin-size_type.html">cbegin(size_type)</a></code></td>
+<td>インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/cend-size_type.html">cend(size_type)</a></code></td>
+<td>インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>ハッシュポリシー</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/load_factor.html">load_factor</a></code></td>
+<td>現在の負荷率（バケットあたりの要素数の平均）を取得</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/max_load_factor.html">max_load_factor</a></code></td>
+<td>負荷率の最大値を取得、設定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/rehash.html">rehash</a></code></td>
+<td>最小バケット数指定によるバケット数の調整</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/reserve.html">reserve</a></code></td>
+<td>最小要素数指定によるバケット数の調整</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key_type</code></td>
+<td>キーの型。テンプレートパラメータ <code>Key</code>。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型。テンプレートパラメータ <code>Key</code>。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>hasher</code></td>
+<td>キーのハッシュ関数の型。テンプレートパラメータ <code>Hash</code>。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>key_equal</code></td>
+<td>キーが等値か否かを判断するための二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の型。テンプレートパラメータ <code>Pred</code>。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td>アロケータの型。テンプレートパラメータ <code>Allocator</code>。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td>要素 <code>value_type</code>（<code>= Key</code>） へのポインタ。スマートポインタも可であるが、通常は <code>value_type*</code>。<br />規格書では、<code>allocator_type::pointer</code> となっているが、これは規格書の誤りで、ドラフト <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf" target="_blank">N3376</a> で既に <code>std::<a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::pointer</code> に修正されている。<br />（さもないと、必須である <code>allocator_type::value_type</code> のみを定義したユーザ定義のアロケータを使用することができないため）</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td>要素 <code>value_type</code>（<code>= Key</code>） へのコンストポインタ。スマートポインタも可であるが、通常は <code>const value_type*</code>。<br />規格書では、<code>allocator_type::const_pointer</code> となっているが、これは規格書の誤りで、ドラフト <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf" target="_blank">N3376</a> で既に <code>std::<a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::const_pointer</code> に修正されている。<br />（さもないと、必須である <code>allocator_type::value_type</code> のみを定義したユーザ定義のアロケータを使用することができないため）</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>要素 <code>value_type</code>（<code>= Key</code>） への参照。<br />規格書では、<code>allocator_type::reference</code> となっているが、これは規格書の誤りで、ドラフト <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf" target="_blank">N3376</a> で既に <code>value_type&amp;</code> に修正されている。<br />（さもないと、必須である <code>allocator_type::value_type</code> のみを定義したユーザ定義のアロケータを使用することができないため）</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td>要素 <code>value_type</code>（<code>= Key</code>） へのコンスト参照。<br />規格書では、<code>allocator_type::const_reference</code> となっているが、これは規格書の誤りで、ドラフト <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3376.pdf" target="_blank">N3376</a> で既に <code>const value_type&amp;</code> に修正されている。<br />（さもないと、必須である <code>allocator_type::value_type</code> のみを定義したユーザ定義のアロケータを使用することができないため）</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型。<code>difference_type</code>で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は<code><a href="../cstddef/size_t.html">size_t</a></code>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>同一のコンテナを指す <code>iterator</code> の差を表す符号付き整数型(通常は<code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code>) <br /><code>std::<a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;iterator&gt;::difference_type</code>、および、<code>std::<a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;const_iterator&gt;::difference_type</code> と同じ。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>"読み取り専用"前方向イテレータ（誤植ではない）<br />規格書に記載はないが、（連想コンテナがそうであるように）<code>const_iterator</code> と同じ型か否かは実装依存であるものと思われる。<br />従って、ODR（One Definition Rule）に違反しないようにするため、関数のパラメータ型には常に <code>const_iterator</code> を使用したほうが良いだろう。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用前方向イテレータ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>local_iterator</code></td>
+<td>同一バケット内のみで有効なイテレータ。<br />規格書に記載はないが、（<code>iterator</code> と同様）<code>const_local_iterator</code> と同じ型か否かは実装依存であるものと思われる。<br /><code>iterator</code> と、<code>iterator_category</code>、<code>value_type</code>、<code>difference_type</code>、<code>pointer</code>、<code>reference</code> は同一である。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_local_iterator</code></td>
+<td>同一バケット内のみで有効な読み取り専用イテレータ。<br /><code>const_iterator</code> と、<code>iterator_category</code>、<code>value_type</code>、<code>difference_type</code>、<code>pointer</code>、<code>reference</code> は同一である。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>node_type</code></td>
+<td><code><a href="../node_handle/node_handle.html">node_handle</a></code>クラステンプレートの特殊化。</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="unordered_multiset/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/swap_free.html">swap</a></code></td>
+<td>内容の交換</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="unordered_multiset/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="2923f9792ef431b88ca3f512f93be77d2bcc542a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../unordered_set.html">&lt;unordered_set&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">C</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n"><a href="../ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span> <span class="o">=</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../algorithm/copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">C</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">os</span><span class="p">,</span> <span class="s">", "</span><span class="p">));</span>
+  <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::unordered_multiset</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">ums</span><span class="p">{</span> <span class="s">"1st element"</span><span class="p">,</span> <span class="s">"2nd element"</span><span class="p">,</span> <span class="s">"3rd element"</span><span class="p">,</span> <span class="p">};</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+
+  <span class="n"><a href="unordered_multiset/insert.html">ums.insert</a></span><span class="p">({</span><span class="s">"2nd element"</span><span class="p">,</span> <span class="s">"4th element"</span><span class="p">});</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+
+  <span class="n"><a href="unordered_multiset/erase.html">ums.erase</a></span><span class="p">(</span><span class="s">"2nd element"</span><span class="p">);</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>3rd element, 1st element, 2nd element, 
+4th element, 3rd element, 1st element, 2nd element, 2nd element, 
+4th element, 3rd element, 1st element, 
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11:</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2050" target="_blank">Unordered associative containers do not use allocator_traits to define member types</a> （上記の <code>pointer</code>、<code>const_pointer</code>、<code>reference</code>、<code>const_reference</code> の問題に対する修正案）</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html" target="_blank">P0919R3 Heterogeneous lookup for unordered containers</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ポインタから`bool`への変換を縮小変換とする [P1957R2] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="ポインタから`bool`への変換を縮小変換とする [P1957R2] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ポインタから`bool`への変換を縮小変換とする [P1957R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ポインタから`bool`への変換を縮小変換とする [P1957R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ポインタから`bool`への変換を縮小変換とする [P1957R2] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;converting_from_pointer_to_bool_should_be_considered_narrowing&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">ポインタから`bool`への変換を縮小変換とする [P1957R2]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-01T15:54:53">
+        2025年05月01日 15時54分53秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">ポインタから<code>bool</code>への変換を縮小変換とする [P1957R2]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>ポインタ型（メンバポインタも含む）から<code>bool</code>型への変換が、縮小変換として規定されるようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+
+  <span class="n">A</span> <span class="n">a</span><span class="p">{</span><span class="n">p</span><span class="p">};</span> <span class="c1">// NG、{}初期化では縮小変換は許可されない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>これはC++17に対する欠陥報告であるため、実装済みのコンパイラにおいてはC++17モード（-std=c++17を指定した場合など）でコンパイルした場合にも適用される。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++17で導入された<code>std::variant</code>には当初、<code>const char*</code>から<code>bool</code>への暗黙変換によって意図しない構築がなされるバグがあった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/variant/variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span>  <span class="c1">// boolを保持して構築されてしまう</span>
+</code></pre></div>
+</p>
+<p>この他にも構築・代入時に縮小変換が行われてしまう事から同様の問題があり、それはC++20において<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html" target="_blank">P0608R3</a>によって解決された。そこでは、構築・代入時の縮小変換を禁止するとともに、<code>bool</code>に変換可能な型を<code>bool</code>に変換することを禁止することで問題に対処していた。</p>
+<p>しかしそれによって、<code>bool</code>に変換可能な<a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>を<code>bool</code>値として構築・代入することができなくなった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/bitset/bitset.html">std::bitset</a></span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">(</span><span class="s">"0101"</span><span class="p">);</span>
+<span class="n"><a href="../../reference/variant/variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// intを保持して構築されてしまう</span>
+</code></pre></div>
+</p>
+<p><code>std::bitset</code>の非<code>const</code>な<code><a href="../../reference/bitset/bitset/op_at.html">operator[]</a></code>は<code>bool</code>型へ暗黙変換可能なプロキシオブジェクトを返す。</p>
+<p><code>std::variant</code>の構築・代入時に縮小変換が起こることを検出して防止することはライブラリレベルで可能だったが、ポインタ型から<code>bool</code>への変換を縮小変換として扱うということはライブラリレベルでは実装できなかったため<code>bool</code>への変換全体を禁止せざるを得ず、このような問題が発生していた。</p>
+<p>これらの問題の解決のために、ポインタ型から<code>bool</code>型への変換は縮小変換であると規定することになった。これによって、<code>std::variant</code>の構築・代入時のポインタ型から<code>bool</code>型への変換は縮小変換の一種として検出され禁止されるようになり、上記のコードは意図どおりに動作するようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/variant/variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span>  <span class="c1">// <a href="../../reference/string/basic_string.html">std::string</a>を保持して構築</span>
+
+<span class="n"><a href="../../reference/bitset/bitset.html">std::bitset</a></span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">(</span><span class="s">"0101"</span><span class="p">);</span>
+<span class="n"><a href="../../reference/variant/variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// boolを保持して構築</span>
+</code></pre></div>
+</p>
+<p><code>{}</code>初期化では縮小変換が禁止されているためこれは破壊的変更となるが、そのような変換は多くの場合バグの可能性が高いこと、MSVCは非リテラルのポインタから<code>bool</code>への変換を縮小変換として扱っていたことなどから、影響は少なくメリットの方が大きいと判断されたようだ。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../../reference/variant/variant/op_constructor.html"><code>std::variant::</code>コンストラクタ</a></li>
+<li><code><a href="../../reference/variant/variant/op_assign.html">std::variant::operator=</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1957r2.html" target="_blank">P1957R2 Converting from <code>T*</code> to <code>bool</code> should be considered narrowing (re: US 212)</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue3228" target="_blank">LWG Issue 3228. Surprising <code>variant</code> construction</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html" target="_blank">P0608R3 A sane <code>variant</code> converting constructor</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

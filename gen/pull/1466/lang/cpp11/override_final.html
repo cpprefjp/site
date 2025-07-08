@@ -1,0 +1,727 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>overrideとfinal [N2928] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="overrideとfinal [N2928] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="overrideとfinal [N2928] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="overrideとfinal [N2928] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/override_final.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`override`は仮想メンバ関数のオーバーライドを明示的に宣言するキーワードである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="overrideとfinal [N2928] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/override_final.html" />
+        <meta name="twitter:description" content="`override`は仮想メンバ関数のオーバーライドを明示的に宣言するキーワードである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b3a777abe4dabe2e841a768c5c15bceb3c35a800&#34;, &#34;source&#34;: &#34;// \u57fa\u5e95\u30af\u30e9\u30b9\nclass base {\n  virtual void func_final() final;\n  virtual void func_virt();\n  virtual void func_virt_int(int a);\n  void func_non_virt();\n};\n\n// \u6d3e\u751f\u30af\u30e9\u30b9\nclass derived : public base {\n  // NG, final \u30e1\u30f3\u30d0\u95a2\u6570\u306f\u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3067\u304d\u306a\u3044\n  void func_final();\n\n  // OK, \u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3067\u304d\u3066\u3044\u308b\n  void func_virt() override;\n\n  // NG, \u5f15\u6570\u306e\u500b\u6570\u3001\u578b\u304c\u9055\u3063\u3066\u304a\u308a\u3001\u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3067\u304d\u3066\u306a\u3044\n  void func_virt_int(short a) override;\n\n  // NG, \u57fa\u5e95\u30af\u30e9\u30b9\u306e func_non_virt() \u306f\u4eee\u60f3\u95a2\u6570\u3067\u306f\u7121\u3044\u306e\u3067\u3001\u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3067\u304d\u3066\u3044\u306a\u3044\n  void func_non_virt() override;\n};\n\n// \u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u4e0d\u53ef\u306e\u57fa\u5e95\u30af\u30e9\u30b9\nclass base_f final {\n  virtual void func_virt();\n};\n\n// NG, final\u57fa\u5e95\u30af\u30e9\u30b9\u304b\u3089\u306e\u7d99\u627f\u306f\u3067\u304d\u306a\u3044\nclass derived_f : public base_f {\n  // NG, \uff08\u7d50\u679c\u7684\u306b\uff09final\u57fa\u5e95\u30af\u30e9\u30b9\u306e\u30e1\u30f3\u30d0\u95a2\u6570\u306f\u30aa\u30fc\u30d0\u30fc\u30e9\u30a4\u30c9\u3067\u304d\u306a\u3044\n  void func_virt();\n};\n\nint main()\n{\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;override_final&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">overrideとfinal [N2928]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-11T14:15:20">
+        2025年06月11日 14時15分20秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/override_final.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/override_final.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">overrideとfinal [N2928]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><code>override</code>は仮想メンバ関数のオーバーライドを明示的に宣言するキーワードである。</p>
+<p><code>final</code>は、これ以上の継承をさせないことを明示的に宣言、または派生クラスでの仮想メンバ関数のオーバーライドをさせないことを明示的に宣言するキーワードである。</p>
+<h2>仕様</h2>
+<ul>
+<li><code>override</code>を指定した仮想メンバ関数は、基底クラスにオーバーライド可能な仮想メンバ関数がないとき、コンパイルエラーつまり文法違反として扱われる。</li>
+<li><code>final</code>を指定した仮想メンバ関数は、派生クラスにてオーバーライドされたとき、文法違反として扱われる。</li>
+<li><code>override</code>と<code>final</code>はコンテキスト依存キーワードである。<ul>
+<li>キーワード（例えば<code>return</code>や<code>new</code>など）は常にキーワードとして扱われるが、<code>override</code>と<code>final</code>は特定の場所に書かれたときだけキーワードとして扱われる。</li>
+<li>簡単に言えば、<code>final</code>はクラス名の後かメンバ関数名の後に限り、<code>override</code>はメンバ関数名の後に限って、キーワードとして扱われる。</li>
+</ul>
+</li>
+</ul>
+<h2>詳細な仕様</h2>
+<p>正確ではないが、クラス名の宣言（class-head）は下記の文法となる：</p>
+<p><pre><code>class-head:
+    class-key attribute-specifier opt class-head-name class-virt-specifier opt base-clause opt
+</code></pre></p>
+<ul>
+<li>class-key：クラスのキーワード指定、<code>class</code>, <code>struct</code>, <code>union</code>のどれかが書ける</li>
+<li>attribute-specifier（省略可、複数可）：属性の指定、属性は<code>[[attribute]]</code>のように書く</li>
+<li>class-head-name: クラス名またはテンプレート名の指定</li>
+<li>class-virt-specifier（省略可）：オーバーライドの指定、<code>final</code>のみ書ける</li>
+<li>base-clause：省略可、継承元の指定、例えば<code>: public base_class</code>のように書く</li>
+</ul>
+<p>すなわち<code>final</code>を書くことができる位置は、クラス名の後、継承元の指定の前となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">derived_class</span> <span class="k">final</span> <span class="o">:</span> <span class="k">public</span> <span class="n">base_class</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>また、メンバ変数やメンバ関数の名前以降（member-declarator）は下記の文法となる：</p>
+<p><pre><code>member-declarator:
+    declarator virt-specifier opt pure-specifier opt
+
+declarator:
+  ptr-declarator
+  noptr-declarator parameters-and-qualifiers trailing-return-type
+</code></pre></p>
+<ul>
+<li>declarator：メンバの宣言、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を前置するか、後置するかの 2つに大別できる<ul>
+<li>ptr-declarator, noptr-declarator：簡単に言うと、変数、関数の指定</li>
+<li>parameters-and-qualifiers：引数リストの指定</li>
+<li>trailing-return-type：<a href="trailing_return_types.html">戻り値の型を後置する関数宣言構文</a>、<code>-&gt; 型</code>のように書く</li>
+</ul>
+</li>
+<li>virt-specifier（省略可）：オーバーライドの指定、<code>override</code>および<code>final</code></li>
+<li>pure-specifier（省略可）：純粋仮想関数の指定、<code>= 0</code>のように書く</li>
+</ul>
+<p>すなわち<code>override</code>および<code>final</code>を書くことができる位置は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型の後置の後、純粋仮想関数の指定の前となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">AAA</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="k">auto</span> <span class="n">func_virt</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">final</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><div class="yata" id="b3a777abe4dabe2e841a768c5c15bceb3c35a800"><div class="codehilite"><pre><span></span><code><span class="c1">// 基底クラス</span>
+<span class="k">class</span> <span class="nc">base</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">func_final</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">func_virt</span><span class="p">();</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">func_virt_int</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">func_non_virt</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="c1">// 派生クラス</span>
+<span class="k">class</span> <span class="nc">derived</span> <span class="o">:</span> <span class="k">public</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="c1">// NG, final メンバ関数はオーバーライドできない</span>
+  <span class="kt">void</span> <span class="n">func_final</span><span class="p">();</span>
+
+  <span class="c1">// OK, オーバーライドできている</span>
+  <span class="kt">void</span> <span class="nf">func_virt</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+
+  <span class="c1">// NG, 引数の個数、型が違っており、オーバーライドできてない</span>
+  <span class="kt">void</span> <span class="nf">func_virt_int</span><span class="p">(</span><span class="kt">short</span> <span class="n">a</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+
+  <span class="c1">// NG, 基底クラスの func_non_virt() は仮想関数では無いので、オーバーライドできていない</span>
+  <span class="kt">void</span> <span class="nf">func_non_virt</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// オーバーライド不可の基底クラス</span>
+<span class="k">class</span> <span class="nc">base_f</span> <span class="k">final</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">func_virt</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="c1">// NG, final基底クラスからの継承はできない</span>
+<span class="k">class</span> <span class="nc">derived_f</span> <span class="o">:</span> <span class="k">public</span> <span class="n">base_f</span> <span class="p">{</span>
+  <span class="c1">// NG, （結果的に）final基底クラスのメンバ関数はオーバーライドできない</span>
+  <span class="kt">void</span> <span class="n">func_virt</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p>例に挙げたコードをclang++ 3.5.0にてコンパイルした際のエラー出力を示す。</p>
+<p><pre><code>$ clang++ -std=c++0x -Wall override_final.cpp
+override_final.cpp:12:8: error: declaration of 'func_final' overrides a 'final' function
+  void func_final();
+       ^
+override_final.cpp:3:16: note: overridden virtual function is here
+  virtual void func_final() final;
+               ^
+override_final.cpp:18:31: error: non-virtual member function marked 'override' hides virtual member function
+  void func_virt_int(short a) override;
+                              ^
+override_final.cpp:5:16: note: hidden overloaded virtual function 'base::func_virt_int' declared here: type mismatch at 1st parameter ('int' vs 'short')
+  virtual void func_virt_int(int a);
+               ^
+override_final.cpp:21:24: error: only virtual member functions can be marked 'override'
+  void func_non_virt() override;
+                       ^~~~~~~~
+override_final.cpp:30:26: error: base 'base_f' is marked 'final'
+class derived_f : public base_f {
+                         ^
+override_final.cpp:25:7: note: 'base_f' declared here
+class base_f final {
+      ^      ~~~~~
+4 errors generated.
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>オーバーライドの間違いをコンパイル時に検知するためである。</p>
+<ul>
+<li>
+<p>オーバーライドしてはならない関数を、誤ってオーバーライドする間違いを検知する。</p>
+<ul>
+<li>例えば、基底クラス<code>B</code>に<code>B::f()</code>というメンバ関数があることを知らず、<code>B</code>を継承したクラス<code>D</code>にメンバ関数<code>D::f()</code>を作成した場合である。</li>
+<li><code>B::f()</code>はオーバーライドされるため、派生クラス<code>D</code>のインスタンスからは<code>B::f()</code>が呼び出されなくなる。この動作は基底クラス<code>B</code>の作者の意図とは異なる動作かもしれない。</li>
+<li>C++11では<code>B::f()</code>を<code>final</code>と宣言することで、オーバーライドの禁止を明示でき、意図しないオーバーライドをした場合は文法違反として検知できる。</li>
+</ul>
+</li>
+<li>
+<p>オーバーライドしたつもりで、オーバーライドできていない間違いを検知する。</p>
+<ul>
+<li>例えば、メンバ関数名の間違い、引数の個数、型の間違い、属性（<code>const</code>など）の間違いなどが挙げられる。</li>
+<li>C++11では<code>D::f()</code>を<code>override</code>と宣言することで、オーバーライドの意思を明示でき、オーバーライドできていない場合は文法違反として検知できる。</li>
+</ul>
+</li>
+</ul>
+<h2>補足</h2>
+<ul>
+<li>なぜキーワードではなく、コンテキスト依存キーワードが選ばれたか？（提案文書N3163より）<ul>
+<li><code>final</code>や<code>override</code>のような簡潔で良い名前が使えて、なおかつ、過去との互換性を維持できるためである。</li>
+<li><code>final</code>や<code>override</code>をキーワードとした場合<code>final</code>や<code>override</code>を関数名や変数名として使っていたコードがC++11では文法違反となってしまう。しかしコンテキスト依存キーワードであれば文法違反にならない。</li>
+</ul>
+</li>
+</ul>
+<p>例えば下記のようなコードは<code>final</code>や<code>override</code>をキーワードとすると文法違反となる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">//クラス名に使っている可能性がある</span>
+<span class="k">class</span> <span class="nc">override</span> <span class="p">{</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">hoge</span> <span class="p">{</span>
+  <span class="c1">//メンバ関数名に使っている可能性がある</span>
+  <span class="kt">void</span> <span class="k">final</span><span class="p">();</span>
+  <span class="c1">//メンバ変数名に使っている可能性がある</span>
+  <span class="kt">int</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//関数名に使っている可能性がある</span>
+<span class="kt">int</span> <span class="nf">final</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//変数名に使っている可能性がある</span>
+  <span class="kt">int</span> <span class="k">override</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>文法上、無名クラスを<code>final</code>でオーバーライド不可と宣言することはできない。<code>class final { ... }</code>と書いたとき、finalという名前のクラスと解釈しなければ、過去との互換性が保てないためである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">//オーバーライド不可の無名クラスでは無く、final という名前のクラスと解釈される</span>
+<span class="k">class</span> <span class="nc">final</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>検討されたほかの選択肢</h2>
+<p><code>override</code>と<code>final</code>は紆余曲折を得て、現在の形になっている。</p>
+<ul>
+<li>N1827にて<code>new</code>キーワードと明示的にオーバーライドを宣言する記法が提案された。<ul>
+<li><code>new</code>を宣言したメンバ関数は必ずオーバーライドしなければならない。</li>
+<li>この記法は基底クラスにおいて<code>new</code>の宣言を変更すると、全ての派生クラスに影響を及ぼしてしまう欠点がある。</li>
+<li>例えば、基底クラス<code>A</code>の<code>virtual void f();</code>を<code>virtual void f() : new;</code>に変更すると、派生クラス<code>B</code>の<code>virtual void f();</code>を<code>virtual void f() : A;</code>に変更しなければならない。これは<code>A</code>の派生クラス全てにおいて生じる。</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>       <span class="c1">// derived may explicitly override</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g</span><span class="p">();</span>       <span class="c1">// derived may explicitly override</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">()</span> <span class="o">:</span> <span class="k">new</span><span class="p">;</span> <span class="c1">// derived _must_ explicitly override</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">A</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>       <span class="c1">// OK, backward compatibility </span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="o">:</span> <span class="n">A</span><span class="p">;</span>   <span class="c1">// OK, optionally explicit</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">();</span> <span class="c1">// Error: requires overrider list</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>N2108にて<code>new virtual</code>、<code>explicit</code>キーワードの追加と、<code>virtual</code>キーワードの意味の変更が提案された。<ul>
+<li><code>new virtual</code>は新たな仮想メンバ関数を宣言する。</li>
+<li><code>virtual</code>は意味を変更し、メンバ関数の明示的なオーバーライドを宣言する。オーバーライドできていなければ文法違反となる。</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">B</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">D</span> <span class="k">explicit</span> <span class="o">:</span> <span class="k">public</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>          <span class="c1">// ok: overrides B::f</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span>      <span class="c1">// ill-formed: new virtual function introduced</span>
+  <span class="k">new</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">g2</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span> <span class="c1">// ok: new virtual function introduced</span>
+  <span class="kt">void</span> <span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>               <span class="c1">// ill-formed: overriding without "virtual"</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span>      <span class="c1">// ill-formed: new virtual function introduced</span>
+  <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">h</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>        <span class="c1">// ill-formed: return type does not match B::h</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>N2365では<code>[[check_names]]</code>、<code>[[new]]</code>、<code>[[hiding]]</code>属性（attribute）の追加と、<code>virtual</code>キーワードの意味の変更が提案された。<ul>
+<li>N2236にて属性が文法として提案されたため、それを使ったようだ。</li>
+<li><code>[[check_names]]</code>は明示的にオーバーライドのチェックを行う宣言である。</li>
+<li><code>[[check_names]]</code>を指定しなければ、C++03までと同じ動作をする。<ul>
+<li>N2108では<code>[[check_names]]</code>の考え方がなかったため、過去との互換性が失われていた。</li>
+<li>オーバーライドのチェックの有無を選べるようにすることで、C++03で正しかったコードを破壊しないように配慮された。</li>
+</ul>
+</li>
+<li><code>[[new]]</code>は新たな仮想メンバ関数を宣言し、オーバーライドしていれば文法違反となる。<ul>
+<li>N2108の<code>new virtual</code>キーワードとほぼ同じアイデアである。</li>
+</ul>
+</li>
+<li><code>[[hiding]]</code>は基底クラスの仮想メンバ関数をオーバーライドせず、同名の別関数で隠す（hiding）ことを宣言する。隠せていなければ文法違反となる。</li>
+<li><code>virtual</code>は意味を変更し、メンバ関数の明示的なオーバーライドを宣言する。オーバーライドできていなければ文法違反となる。<ul>
+<li>N2108同様である。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>間違えてオーバーライドしてしまう例：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">derived</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>  <span class="c1">// error, accidental override with check_names attribute</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func</span><span class="p">();</span> <span class="c1">// OK, override with virtual keyword</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>間違えてオーバーライドできていない例：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">some_func1</span><span class="p">();</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func2</span><span class="p">(</span><span class="kt">float</span><span class="p">);</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func3</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="kt">long</span> <span class="nf">some_func4</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">derived</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">sone_func1</span><span class="p">();</span>  <span class="c1">// error, mis-spelled name</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func2</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span> <span class="c1">// error, no bad argument type</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">some_func3</span><span class="p">();</span> <span class="c1">// error, missing cv-qualification</span>
+  <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">some_func4</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span> <span class="c1">// ill-formed: return type does not match B::h</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>N2852では<code>[[override]]</code>、<code>[[hiding]]</code>、<code>[[check_names]]</code>属性の追加が提案された。<ul>
+<li><code>[[override]]</code>は仮想メンバ関数のオーバーライドを宣言し、オーバーライドできていなければ文法違反となる。<ul>
+<li>N2365では<code>virtual</code>キーワードの意味を変更して同様の機能を実現していたが、N2852では<code>virtual</code>の意味は従来通りに留め、<code>[[override]]</code>に役割を譲った。</li>
+</ul>
+</li>
+<li><code>[[hiding]]</code>、<code>[[check_names]]</code>はN2365と同様の意味である。</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">derived1</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="o">:</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">some_func</span><span class="p">();</span>  <span class="c1">// error, accidental override with check_names attribute</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">derived2</span> <span class="p">[[</span><span class="n">check_names</span><span class="p">]]</span> <span class="o">:</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">some_func</span> <span class="p">[[</span><span class="k">override</span><span class="p">]]</span> <span class="p">();</span> <span class="c1">// OK, override with virtual keyword</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>N2928にて<code>[[check_names]]</code>属性は<code>[[base_check]]</code>属性に名前が変えられた。</p>
+<ul>
+<li>N2920にて<code>[[base_check]]</code>、<code>[[strict_names]]</code>が候補に挙がっていた。</li>
+<li>なぜ名前を変えたのかわからなかった。加筆いただけると嬉しい。</li>
+</ul>
+</li>
+<li>
+<p>N3151では投票の結果、属性（attributes）は望ましくないとされ、残った2つの選択肢であるキーワードとコンテキスト依存キーワードのどちらが良いか、検討が行われた。</p>
+</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>解決策</th>
+<th>賛成</th>
+<th>やや賛成</th>
+<th>やや反対</th>
+<th>反対</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>real keywords</td>
+<td>6 SF</td>
+<td>10 WF</td>
+<td>5 WA</td>
+<td>0 SA</td>
+</tr>
+<tr>
+<td>contextual keywords</td>
+<td>6 SF</td>
+<td>7 WF</td>
+<td>2 WA</td>
+<td>5 SA</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>1 SF</td>
+<td>6 WF</td>
+<td>3 WA</td>
+<td>10 SA</td>
+</tr>
+</tbody>
+</table>
+<p>注：表中のSFやWFという単語は、SF: Strongly Favor, WF: Weakly Favor, WA: Weakly Against, SA: Strongly Againstの略である。</p>
+<p>コンテキスト依存キーワード（この例では<code>hides_name</code>という名前になっている）にはDaveed Vandevoordeが指摘した問題がある。この問題は<code>[[hiding]]</code>属性や<code>strictdecl</code>キーワードならば発生しない：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Z</span> <span class="p">{};</span>
+<span class="k">struct</span> <span class="n">X</span>
+<span class="p">{</span>
+  <span class="c1">// これはどういう意味？</span>
+  <span class="c1">// 構造体の宣言？</span>
+  <span class="c1">// それとも変数の宣言？</span>
+  <span class="k">struct</span> <span class="n">Z</span> <span class="n">hides_name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">C</span> <span class="p">{};</span>
+<span class="k">struct</span> <span class="n">A</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="n">C</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">A</span>
+<span class="p">{</span>
+  <span class="c1">// これより前に宣言した C という名前の構造体の名前を隠す？</span>
+  <span class="c1">// それとも変数の宣言？</span>
+  <span class="k">struct</span> <span class="n">C</span> <span class="n">hides_name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// これで解決する？</span>
+<span class="k">struct</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">A</span>
+<span class="p">{</span>
+  <span class="n">hides_name</span> <span class="k">struct</span> <span class="n">hides_name</span> <span class="n">C</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>N3151では結論としてキーワードを提案した。<ul>
+<li>キーワードの場合はユーザが混乱するような変な名前を避け、なおかつ過去との互換性をできるだけ保つ名前を選ぶ必要があった。</li>
+<li>そのため、既存のコードで使われていない、つまり既存のコードが文法違反となるケースが少ない名前が調査された。</li>
+</ul>
+</li>
+<li>最終的に下記の名前が提案された。</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>属性</th>
+<th>対応するキーワード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[base_check]]</td>
+<td>strictdecl</td>
+</tr>
+<tr>
+<td>[[hiding]]</td>
+<td>hidedecl</td>
+</tr>
+<tr>
+<td>[[override]]</td>
+<td>ovrdecl</td>
+</tr>
+<tr>
+<td>[[final]]</td>
+<td>finaldecl</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>N3163ではコンテキスト依存キーワードを使うことの利点と、<code>base_check</code>、<code>hiding</code>、<code>override</code>、<code>final</code>コンテキスト依存キーワードの追加が提案された。</p>
+</li>
+<li>
+<p>N3206では<code>[[base_check]]</code>、<code>[[hiding]]</code>、<code>[[override]]</code>、<code>[[final]]</code>属性を削除し、<code>explicit</code>、<code>new</code>、<code>override</code>、<code>final</code>コンテキスト依存キーワードの追加が提案された。</p>
+<ul>
+<li><code>new</code>は基底クラスの仮想メンバ関数をオーバーライドせず、同名の別関数で隠す（hiding）ことを宣言する。隠せていなければ文法違反となる。</li>
+<li>N3163の提案にあった<code>hiding</code>という名前は採用されなかった。<ul>
+<li>N3206には<code>hiding</code>を採用しなかった理由は明示的に書いていない。</li>
+<li>正確な理由をご存じの方は加筆いただけると嬉しい。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>仮想メンバ関数名を隠す（hiding）ことを宣言する方法は、今までにいくつか提案されてきたが、いずれも問題が残っている。</p>
+<ul>
+<li>N3221の未解決課題リストが示す通り、<code>[[hiding]]</code>属性は、<code>[[hiding]]</code>を宣言したいが文法上不可能な問題がある。</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">B1</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">M</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">struct</span> <span class="n">B2</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">M</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">struct</span> <span class="p">[[</span><span class="n">base_check</span><span class="p">]]</span> <span class="nl">D</span><span class="p">:</span> <span class="n">B1</span><span class="p">,</span> <span class="n">B2</span> <span class="p">{</span>
+  <span class="k">enum</span> <span class="p">{</span> <span class="n">N</span> <span class="p">};</span>    <span class="c1">// hides B1::N but cannot take an attribute</span>
+  <span class="k">using</span> <span class="n">B1</span><span class="o">::</span><span class="n">M</span><span class="p">;</span>   <span class="c1">// hides B2::M but cannot take an attribute</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>N3234にある通り、<code>new</code>コンテキスト依存キーワードはメンバ関数名の後にしか書けないため、メンバ関数をメンバ変数で隠した場合に<code>new</code>を宣言したいが文法上不可能な問題がある。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">B</span>
+<span class="p">{</span>
+  <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"B::f()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;}</span>
+<span class="p">};</span>
+<span class="k">struct</span> <span class="n">D</span> <span class="k">explicit</span> <span class="o">:</span> <span class="n">B</span>
+<span class="p">{</span>
+  <span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span> <span class="kt">void</span> <span class="k">operator</span><span class="p">()()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"D::foo::operator()()"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}};</span>
+
+  <span class="c1">// B::f()を隠してしまうので文法違反</span>
+  <span class="n">foo</span> <span class="n">f</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>N3234では<code>new</code>、<code>explicit</code>コンテキスト依存キーワードの削除が提案された。</p>
+<ul>
+<li><code>explicit</code>だけ残すと、メンバ関数以外でメンバ名のhidingを起こす既存のコードが破壊されるため、<code>new</code>とともに削除された。</li>
+<li>N3272で提案が取り込まれた。</li>
+</ul>
+</li>
+<li>
+<p>以上の経緯を経てC++11では、<code>override</code>と<code>final</code>コンテキスト依存キーワードの追加のみが行われた。</p>
+</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/type_traits/is_final.html">is_final</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1827.htm" target="_blank">N1827 An Explicit Override Syntax for C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2108.html" target="_blank">N2108 Explicit Virtual Overrides</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2365.html" target="_blank">N2365 Explicit Virtual Overrides</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2852.html" target="_blank">N2852 Explicit Virtual Overrides</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2928.htm" target="_blank">N2928 Explicit Virtual Overrides</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3151.html" target="_blank">N3151 Keywords for override control</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3163.pdf" target="_blank">N3163 Override Control Using Contextual Keywords</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3206.htm" target="_blank">N3206 Override control: Eliminating Attributes</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3234.pdf" target="_blank">N3234 Remove explicit from class-head</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3272.htm" target="_blank">N3272 Follow-up on override control</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

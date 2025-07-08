@@ -1,0 +1,735 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>set - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,set,std,class template
+">
+        <meta name="title" content="set - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="set - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="set - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/set/set.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`set` はユニークな要素を格納する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="set - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/set/set.html" />
+        <meta name="twitter:description" content="`set` はユニークな要素を格納する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;set&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c69327ac4e01c73c05db049b8e3724d161d05a34&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;set&gt;\n\nint main()\n{\n  // int\u3092\u30ad\u30fc\u3068\u3057\u3066\u6271\u3046\u96c6\u5408\n  std::set&lt;int&gt; s;\n\n  // \u633f\u5165\n  s.insert(3);\n  s.insert(1);\n  s.insert(4);\n\n  // \u691c\u7d22 : \u30ad\u30fc(int)\u3092\u6307\u5b9a\u3057\u3001\u5bfe\u5fdc\u3059\u308b\u5024\u3092\u5f97\u308b\n  decltype(s)::iterator it = s.find(1);\n  if (it != s.end()) {\n    // \u767a\u898b\u3057\u305f\n    int value = *it;\n    std::cout &lt;&lt; value &lt;&lt; std::endl;\n  }\n  else {\n    std::cout &lt;&lt; \&#34;not found\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;set&#34;, &#34;set&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/set.html" itemprop="url">
+              
+                <span itemprop="name">set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">set</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-14T07:21:55">
+        2025年05月14日 07時21分55秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/set/set.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/set/set.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">set</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n"><a href="../functional/less.html">less</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">set</span><span class="p">;</span>
+
+  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n"><a href="../functional/less.html">less</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span>
+      <span class="k">using</span> <span class="n">set</span> <span class="o">=</span> <span class="n"><a href="">std::set</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Compare</span><span class="p">,</span>
+                           <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span><span class="p">;</span>  <span class="c1">// C++17から</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>set</code> はユニークな要素を格納する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。</p>
+<p>連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。</p>
+<p>内部的には、<code>set</code> 内の要素は、コンテナの構築時に設定された<a href="../algorithm.html#strict-weak-ordering">狭義の弱順序</a>基準に従って小さいものから大きいものへとソートされる。</p>
+<p><code>set</code> は一般的に、二分木として実装される。従って、連想コンテナである <code>set</code> の主な特性は以下の通りである。</p>
+<ul>
+<li>ユニークな要素の値：互いに等しい二つの要素が <code>set</code> に格納されることは無い。複数の等しい値を許す同様の連想コンテナは <code><a href="multiset.html">multiset</a></code> を参照のこと。</li>
+<li>要素の値はキーそのものである。キーを使って要素にアクセスするがキーとは異なる値へマップする同様の連想コンテナは <code><a href="../map/map.html">map</a></code> を参照のこと。</li>
+<li>要素は常に<a href="../algorithm.html#strict-weak-ordering">狭義の弱順序</a>に従う。</li>
+</ul>
+<p>このコンテナクラスは、双方向イテレータをサポートする。</p>
+<h2>テンプレートパラメータ</h2>
+<ul>
+<li><code>Key</code>: キーの型。このコンテナに格納されれる要素の型。<code>set</code> に格納される要素はそれぞれはキーでもある。</li>
+<li><code>Compare</code>: 比較クラス。このクラスは 2 つの引数（同じ型であり、コンテナの要素型でもある）をとり <code>bool</code> 値を返す。<a href="../algorithm.html#strict-weak-ordering">狭義の弱順序</a>において <code>a</code> が <code>b</code> よりも前の場所に位置づけられる場合に <code>true</code> である。これはクラスが関数呼び出しオブジェクトを実装したクラスであっても良いし関数ポインタであっても良い（例は コンストラクタ を参照）。これは、<code>operator&lt;()</code> を適用( <code>a &lt; b</code> )したときと同じ値を返す <code><a href="../functional/less.html">less</a>&lt;Key&gt;</code> がデフォルトである。</li>
+<li><code>Allocator</code>: ストレージアロケーションモデルを決定づける、アロケータオブジェクトの型である。デフォルトでは、<code>Key</code> への <code><a href="../memory/allocator.html">allocator</a></code> クラステンプレート（これは値に依存しないシンプルなメモリ確保モデルを定義する）が使われる。</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータオブジェクトを取得する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/begin.html">begin</a></code></td>
+<td>先頭を指すイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/cbegin.html">cbegin</a></code></td>
+<td>先頭を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="set/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="set/rbegin.html">rbegin</a></code></td>
+<td>末尾を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/crbegin.html">crbegin</a></code></td>
+<td>末尾を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="set/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/empty.html">empty</a></code></td>
+<td>コンテナが空であるかどうかを調べる</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/clear.html">clear</a></code></td>
+<td>全ての要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/insert.html">insert</a></code></td>
+<td>要素を挿入する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/insert_range.html">insert_range</a></code></td>
+<td>Rangeの要素を挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="set/emplace.html">emplace</a></code></td>
+<td>要素を直接構築する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="set/emplace_hint.html">emplace_hint</a></code></td>
+<td>ヒントを使って要素を直接構築する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="set/erase.html">erase</a></code></td>
+<td>要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/swap.html">swap</a></code></td>
+<td>コンテンツを交換する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/extract.html">extract</a></code></td>
+<td>ノードハンドルを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="set/merge.html">merge</a></code></td>
+<td>他のオブジェクトの要素をマージする</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/count.html">count</a></code></td>
+<td>指定したキーにマッチする要素の数を返す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/find.html">find</a></code></td>
+<td>指定したキーで要素を探す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/contains.html">contains</a></code></td>
+<td>指定したキーの要素が含まれているかを判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="set/equal_range.html">equal_range</a></code></td>
+<td>指定したキーにマッチする要素範囲を返す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/lower_bound.html">lower_bound</a></code></td>
+<td>与えられた値より小さくない最初の要素へのイテレータを返す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/upper_bound.html">upper_bound</a></code></td>
+<td>特定の値よりも大きい最初の要素へのイテレータを返す</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>オブザーバー</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/key_comp.html">key_comp</a></code></td>
+<td>キーを比較した結果を返す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/value_comp.html">value_comp</a></code></td>
+<td>値を比較した結果を返す</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key_type</code></td>
+<td>キーの型。テンプレートパラメータ <code>Key</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型。テンプレートパラメータ <code>Key</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>key_compare</code></td>
+<td>キーの大小関係を判定する二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の型。テンプレートパラメータ <code>Compare</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value_compare</code></td>
+<td>要素の大小関係を判定する二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の型。テンプレートパラメータ <code>Compare</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td>アロケータの型。テンプレートパラメータ <code>Allocator</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>要素<code>value_type</code>への参照型。<code>value_type&amp;</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td>要素<code>value_type</code>への<code>const</code>参照型。<code>const value_type&amp;</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>"読み取り専用"双方向イテレータ。<br /><code>const_iterator</code> と同じ型か否かは実装依存である。<br />従って、ODR（One Definition Rule）に違反しないようにするため、関数のパラメータ型には常に <code>const_iterator</code> を使用したほうが良いだろう。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用双方向イテレータ。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型。<code>difference_type</code> で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は <code><a href="../cstddef/size_t.html">size_t</a></code>)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>同一のコンテナを指す <code>iterator</code> の差を表す符号付き整数型(通常は <code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code>) <br /><code>std::<a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;iterator&gt;::difference_type</code>、および、<code>std::<a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;const_iterator&gt;::difference_type</code> と同じ。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td>要素 <code>value_type</code>へのポインタ。<br /> C++03 : <code>typename Allocator::pointer</code>。<br /> C++11以降 : <code>typename <a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::pointer</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td>要素 <code>value_type</code>への<code>const</code>ポインタ。<br /> C++03 : <code>typename Allocator::const_pointer</code>。<br /> C++11以降 : <code>typename <a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::const_pointer</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆順双方向イテレータ。<code>std::<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;iterator&gt;</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用逆順双方向イテレータ。<code>std::<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;const_iterator&gt;</code>。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>node_type</code></td>
+<td><code><a href="../node_handle/node_handle.html">node_handle</a></code>クラステンプレートの特殊化。</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>insert_return_type</code></td>
+<td>ノードを挿入した結果を記述するために使用されるクラス型。以下に示す<code>insert-return-type</code>テンプレートの特殊化である。ただし、これは説明用のクラスであり、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>である。</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Iterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">NodeType</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">insert</span><span class="o">-</span><span class="k">return</span><span class="o">-</span><span class="n">type</span> <span class="p">{</span>
+  <span class="n">Iterator</span> <span class="n">position</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">inserted</span><span class="p">;</span>
+  <span class="n">NodeType</span> <span class="n">node</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>非メンバ関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/op_equal.html">operator==</a></code></td>
+<td>左辺と右辺が等しいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/op_not_equal.html">operator!=</a></code></td>
+<td>左辺と右辺が等しくないかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較を行う</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="set/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺より小さいか等しいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="set/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺より大きいか等しいかの判定を行う</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/swap_free.html">swap</a></code></td>
+<td>2つの<code>set</code>オブジェクトを入れ替える</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="set/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="c69327ac4e01c73c05db049b8e3724d161d05a34"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../set.html">&lt;set&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// intをキーとして扱う集合</span>
+  <span class="n"><span style="color:#ff0000">std::set</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+
+  <span class="c1">// 挿入</span>
+  <span class="n"><a href="set/insert.html">s.insert</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="set/insert.html">s.insert</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="set/insert.html">s.insert</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+  <span class="c1">// 検索 : キー(int)を指定し、対応する値を得る</span>
+  <span class="k">decltype</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="set/find.html">s.find</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><a href="set/end.html">s.end()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 発見した</span>
+    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not found"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>1
+</code></pre></p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

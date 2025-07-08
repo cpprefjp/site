@@ -1,0 +1,708 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>機能テストマクロ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp23
+">
+        <meta name="title" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp23/feature_test_macros.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp23/feature_test_macros.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp23&#34;, &#34;feature_test_macros&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp23.html" itemprop="url">
+              
+                <span itemprop="name">C++23</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">機能テストマクロ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-28T14:40:48">
+        2025年05月28日 14時40分48秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp23/feature_test_macros.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp23/feature_test_macros.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">機能テストマクロ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++23に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<h3>言語機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ名</th>
+<th>値</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__cpp_auto_cast</code></td>
+<td><code>202110L</code></td>
+<td><code>auto(x)</code>および<code>auto{x}</code>によるキャスト</td>
+</tr>
+<tr>
+<td><code>__cpp_constexpr</code></td>
+<td><code>202211L</code></td>
+<td><a href="permitting_static_constexpr_variables_in_constexpr_functions.html">constexpr関数内でのstatic constexpr変数を許可</a></td>
+</tr>
+<tr>
+<td><code>__cpp_explicit_this_parameter</code></td>
+<td><code>202110L</code></td>
+<td>自身のオブジェクトを明示的にパラメータとして指定する</td>
+</tr>
+<tr>
+<td><code>__cpp_if_consteval</code></td>
+<td><code>202106L</code></td>
+<td><a href="if_consteval.html">if consteval</a></td>
+</tr>
+<tr>
+<td><code>__cpp_implicit_move</code></td>
+<td><code>202207L</code></td>
+<td><a href="simpler_implicit_move.html">暗黙的なムーブを簡略化</a></td>
+</tr>
+<tr>
+<td><code>__cpp_multidimensional_subscript</code></td>
+<td><code>202211L</code></td>
+<td><a href="multidimensional_subscript_operator.html">添字演算子の多次元サポート</a></td>
+</tr>
+<tr>
+<td><code>__cpp_named_character_escapes</code></td>
+<td><code>202207L</code></td>
+<td><a href="named_universal_character_escapes.html">名前付きユニバーサルキャラクタ名</a></td>
+</tr>
+<tr>
+<td><code>__cpp_range_based_for</code></td>
+<td><code>202211L</code></td>
+<td><a href="lifetime_extension_in_range_based_for_loop.html">範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定</a></td>
+</tr>
+<tr>
+<td><code>__cpp_size_t_suffix</code></td>
+<td><code>202011L</code></td>
+<td><a href="literal_suffix_for_signed_size_t.html">(符号付き)size_tリテラルのためのサフィックス</a></td>
+</tr>
+<tr>
+<td><code>__cpp_static_call_operator</code></td>
+<td><code>202207L</code></td>
+<td><a href="static_operator.html">thisポインタをもつ必要のない演算子をstaticとして宣言できるようにする</a></td>
+</tr>
+</tbody>
+</table>
+<h3>ライブラリ</h3>
+<p>ライブラリの機能テストマクロは全て<code><a href="../../reference/version.html">&lt;version&gt;</a></code>でも提供される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ名</th>
+<th>値</th>
+<th>機能</th>
+<th>ヘッダ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__cpp_lib_adaptor_iterator_pair_constructor</code></td>
+<td><code>202106L</code></td>
+<td><code><a href="../../reference/queue.html">std::queue</a></code>と<code><a href="../../reference/stack.html">std::stack</a></code>にイテレータ２つのコンストラクタを追加</td>
+<td><code><a href="../../reference/queue.html">&lt;queue&gt;</a></code><br /><code><a href="../../reference/stack.html">&lt;stack&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_algorithm_iterator_requirements</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code>のRangeイテレータ対応</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code><br /><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code><br /><code><a href="../../reference/numeric.html">&lt;numeric&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_allocate_at_least</code></td>
+<td><code>202302L</code></td>
+<td><code><a href="../../reference/memory/allocator/allocate_at_least.html">std::allocator::allocate_at_least()</a></code>の追加</td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_associative_heterogeneous_erasure</code></td>
+<td><code>202110L</code></td>
+<td>テンプレート型を受ける<code>erase()</code>の追加</td>
+<td><code><a href="../../reference/map.html">&lt;map&gt;</a></code><br /><code><a href="../../reference/set.html">&lt;set&gt;</a></code><br /><code><a href="../../reference/unordered_map.html">&lt;unordered_map&gt;</a></code><br /><code><a href="../../reference/unordered_set.html">&lt;unordered_set&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_barrier</code></td>
+<td><code>202302L</code></td>
+<td>バリアフェーズの完了ステップの仕様変更</td>
+<td><code><a href="../../reference/barrier.html">&lt;barrier&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_bind_back</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/functional/bind_back.html">std::bind_back()</a></code>の追加</td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_byteswap</code></td>
+<td><code>202110L</code></td>
+<td><code><a href="../../reference/bit/byteswap.html">std::byteswap()</a></code>の追加</td>
+<td><code><a href="../../reference/bit.html">&lt;bit&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_common_reference</code></td>
+<td><code>202302L</code></td>
+<td><code>T&amp;</code>と<code>reference_wrapper&lt;T&gt;</code>の<code>common_reference</code>を<code>T&amp;</code>に変換</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_common_reference_wrapper</code></td>
+<td><code>202302L</code></td>
+<td><code>T&amp;</code>と<code>reference_wrapper&lt;T&gt;</code>の<code>common_reference</code>を<code>T&amp;</code>に変換</td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_concepts</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/concepts/equality_comparable.html">std::equality_comparable_with</a></code>などをムーブのみ可能な型に対応</td>
+<td><code><a href="../../reference/compare.html">&lt;compare&gt;</a></code><br /><code><a href="../../reference/concepts.html">&lt;concepts&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_constexpr_bitset</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/bitset/bitset.html">std::bitset</a></code>の<code>constexpr</code>対応</td>
+<td><code><a href="../../reference/bitset.html">&lt;bitset&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_constexpr_charconv</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/charconv/to_chars.html">std::to_chars()</a></code>と<code><a href="../../reference/charconv/from_chars.html">std::from_chars()</a></code>の<code>constexpr</code>対応</td>
+<td><code><a href="../../reference/charconv.html">&lt;charconv&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_constexpr_cmath</code></td>
+<td><code>202202L</code></td>
+<td>いくつかの関数を<code>constexpr</code>対応</td>
+<td><code><a href="../../reference/cmath.html">&lt;cmath&gt;</a></code><br /><code><a href="../../reference/cstdlib.html">&lt;cstdlib&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_constexpr_memory</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></code>の<code>constexpr</code>対応</td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_constexpr_typeinfo</code></td>
+<td><code>202106L</code></td>
+<td><code><a href="../../reference/typeinfo/type_info/op_equal.html">std::type_info::operator==()</a></code>の<code>constexpr</code>対応</td>
+<td><code><a href="../../reference/typeinfo.html">&lt;typeinfo&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_containers_ranges</code></td>
+<td><code>202202L</code></td>
+<td>コンテナのコンストラクタのRange対応</td>
+<td><code><a href="../../reference/vector.html">&lt;vector&gt;</a></code><br /><code><a href="../../reference/list.html">&lt;list&gt;</a></code><br /><code><a href="../../reference/forward_list.html">&lt;forward_list&gt;</a></code><br /><code><a href="../../reference/map.html">&lt;map&gt;</a></code><br /><code><a href="../../reference/set.html">&lt;set&gt;</a></code><br /><code><a href="../../reference/unordered_map.html">&lt;unordered_map&gt;</a></code><br /><code><a href="../../reference/unordered_set.html">&lt;unordered_set&gt;</a></code><br /><code><a href="../../reference/deque.html">&lt;deque&gt;</a></code><br /><code><a href="../../reference/queue.html">&lt;queue&gt;</a></code><br /><code><a href="../../reference/stack.html">&lt;stack&gt;</a></code><br /><code><a href="../../reference/string.html">&lt;string&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_expected</code></td>
+<td><code>202211L</code></td>
+<td><code><a href="../../reference/expected.html">&lt;expected&gt;</a></code>の追加</td>
+<td><code><a href="../../reference/expected.html">&lt;expected&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_flat_map</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/flat_map/flat_map.html">std::flat_map</a></code>と<code><a href="../../reference/flat_map/flat_multimap.html">std::flat_multimap</a></code>の追加</td>
+<td><code><a href="../../reference/flat_map.html">&lt;flat_map&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_flat_set</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/flat_set/flat_set.html">std::flat_set</a></code>と<code><a href="../../reference/flat_set/flat_multiset.html">std::flat_multiset</a></code>の追加</td>
+<td><code><a href="../../reference/flat_set.html">&lt;flat_set&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_format</code></td>
+<td><code>202207L</code></td>
+<td><code>std::format</code>の時刻型のローカライズ対応</td>
+<td><code><a href="../../reference/format.html">&lt;format&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_format_ranges</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/format/formatter.html">std::formatter</a></code>のRange対応</td>
+<td><code><a href="../../reference/format.html">&lt;format&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_formatters</code></td>
+<td><code>202302L</code></td>
+<td><code><a href="../../reference/format/formatter.html">std::formatter</a></code>の<code><a href="../../reference/stacktrace/basic_stacktrace.html">std::stacktrace</a></code>対応と<code><a href="../../reference/thread/thread/id.html">std::thread::id</a></code>対応</td>
+<td><code><a href="../../reference/stacktrace.html">&lt;stacktrace&gt;</a></code><br /><code><a href="../../reference/thread.html">&lt;thread&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_forward_like</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/utility/forward_like.html">std::forward_like()</a></code>の追加</td>
+<td><code><a href="../../reference/utility.html">&lt;utility&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_generator</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/generator/generator.html">std::generator</a></code>の追加</td>
+<td><code><a href="../../reference/generator.html">&lt;generator&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_invoke_r</code></td>
+<td><code>202106L</code></td>
+<td><code><a href="../../reference/functional/invoke_r.html">std::invoke_r()</a></code>の追加</td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ios_noreplace</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/ios/ios_base/type-openmode.html">std::ios::noreplace</a></code>の追加</td>
+<td><code><a href="../../reference/ios.html">&lt;ios&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_is_implicit_lifetime</code></td>
+<td><code>202302L</code></td>
+<td><code><a href="../../reference/type_traits/is_implicit_lifetime.html">std::is_implicit_lifetime</a></code>の追加</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_is_scoped_enum</code></td>
+<td><code>202011L</code></td>
+<td><code><a href="../../reference/type_traits/is_scoped_enum.html">std::is_scoped_enum</a></code>の追加</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_mdspan</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/mdspan.html">&lt;mdspan&gt;</a></code>の追加</td>
+<td><code><a href="../../reference/mdspan.html">&lt;mdspan&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_modules</code></td>
+<td><code>202207L</code></td>
+<td>モジュール<code><a href="../../module/std.html">&lt;std&gt;</a></code>と<code><a href="../../module/std.compat.html">&lt;std.compat&gt;</a></code>の追加</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_move_iterator_concept</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/iterator/move_iterator.html">std::move_iterator&lt;T*&gt;</a></code>をランダムアクセスイテレータにする</td>
+<td><code><a href="../../reference/iterator.html">&lt;iterator&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_move_only_function</code></td>
+<td><code>202110L</code></td>
+<td><code><a href="../../reference/functional/move_only_function.html">std::move_only_function</a></code>の追加</td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_optional</code></td>
+<td><code>202110L</code></td>
+<td><code><a href="../../reference/optional/optional.html">std::optional</a></code>にモナド操作を追加</td>
+<td><code><a href="../../reference/optional.html">&lt;optional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_out_ptr</code></td>
+<td><code>202106L</code></td>
+<td><code><a href="../../reference/memory/out_ptr.html">std::out_ptr</a></code>と<code><a href="../../reference/memory/inout_ptr.html">std::inout_ptr</a></code>の追加</td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges</code></td>
+<td><code>202302L</code></td>
+<td><code><a href="../../reference/ranges/range_adaptor_closure.html">std::ranges::range_adaptor_closure</a></code>の追加<br /><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code>の様々な機能追加</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code><br /><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code><br /><code><a href="../../reference/iterator.html">&lt;iterator&gt;</a></code><br /><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code><br /><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_as_const</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/ranges/cbegin.html">std::ranges::cbegin</a></code>が常に定数イテレータを返すようにする。<code><a href="../../reference/ranges/as_const_view.html">std::ranges::as_const_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_as_rvalue</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/ranges/as_rvalue_view.html">std::ranges::as_rvalue_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_cartesian_product</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/ranges/cartesian_product_view.html">std::ranges::cartesian_product_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_chunk</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/ranges/chunk_view.html">std::ranges::chunk_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_chunk_by</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/ranges/chunk_by_view.html">std::ranges::chunk_by_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_contains</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/algorithm/ranges_contains.html">std::ranges::contains()</a></code>の追加</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_enumerate</code></td>
+<td><code>202302L</code></td>
+<td><code><a href="../../reference/ranges/enumerate_view.html">std::ranges::enumerate_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_find_last</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/algorithm/ranges_find_last.html">std::ranges::find_last()</a></code>と<code><a href="../../reference/algorithm/ranges_find_last_if.html">std::ranges::find_last_if()</a></code>と<code><a href="../../reference/algorithm/ranges_find_last_if_not.html">std::ranges::find_last_if_not()</a></code>の追加</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_fold</code></td>
+<td><code>202207L</code></td>
+<td><code>std::ranges::</code>に<code>fold</code>アルゴリズムの追加</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_iota</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/numeric/ranges_iota.html">std::ranges::iota()</a></code>の追加</td>
+<td><code><a href="../../reference/numeric.html">&lt;numeric&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_join_with</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/ranges/join_with_view.html">std::ranges::join_with_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_repeat</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/ranges/repeat_view.html">std::ranges::repeat_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_slide</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/ranges/slide_view.html">std::ranges::slide_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_starts_ends_with</code></td>
+<td><code>202106L</code></td>
+<td><code><a href="../../reference/algorithm/ranges_starts_with.html">std::ranges::starts_with()</a></code>と<code><a href="../../reference/algorithm/ranges_ends_with.html">std::ranges::ends_with()</a></code>の追加</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_stride</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/ranges/stride_view.html">std::ranges::stride_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_to_container</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/ranges/to.html">std::ranges::to</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_ranges_zip</code></td>
+<td><code>202110L</code></td>
+<td><code><a href="../../reference/ranges/zip_view.html">std::ranges::zip_view</a></code>と<code><a href="../../reference/ranges/zip_transform_view.html">std::ranges::zip_transform_view</a></code>と<code><a href="../../reference/ranges/adjacent_view.html">std::ranges::adjacent_view</a></code>と<code><a href="../../reference/ranges/adjacent_transform_view.html">std::ranges::adjacent_transform_view</a></code>の追加</td>
+<td><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code><br /><code><a href="../../reference/tuple.html">&lt;tuple&gt;</a></code><br /><code><a href="../../reference/utility.html">&lt;utility&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_reference_from_temporary</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/type_traits/reference_constructs_from_temporary.html">std::reference_constructs_from_temporary</a></code>と<code><a href="../../reference/type_traits/reference_converts_from_temporary.html">std::reference_converts_from_temporary</a></code>の追加</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_shift</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/algorithm/ranges_shift_left.html">std::ranges::shift_left()</a></code>と<code><a href="../../reference/algorithm/ranges_shift_right.html">std::ranges::shift_right()</a></code>の追加</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_spanstream</code></td>
+<td><code>202106L</code></td>
+<td><code>&lt;spanstream&gt;</code>の追加</td>
+<td><code>&lt;spanstream&gt;</code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_stacktrace</code></td>
+<td><code>202011L</code></td>
+<td><code><a href="../../reference/stacktrace.html">&lt;stacktrace&gt;</a></code>の追加</td>
+<td><code><a href="../../reference/stacktrace.html">&lt;stacktrace&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_start_lifetime_as</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/memory/start_lifetime_as.html">std::start_lifetime_as()</a></code>の追加</td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_stdatomic_h</code></td>
+<td><code>202011L</code></td>
+<td><code><a href="../../reference/stdatomic.h.html">&lt;stdatomic.h&gt;</a></code>の追加</td>
+<td><code><a href="../../reference/stdatomic.h.html">&lt;stdatomic.h&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_string_contains</code></td>
+<td><code>202011L</code></td>
+<td><code><a href="../../reference/string/basic_string/contains.html">std::basic_string::contains()</a></code>と<code><a href="../../reference/string_view/basic_string_view/contains.html">std::basic_string_view::contains()</a></code>の追加</td>
+<td><code><a href="../../reference/string.html">&lt;string&gt;</a></code><br /><code><a href="../../reference/string_view.html">&lt;string_view&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_string_resize_and_overwrite</code></td>
+<td><code>202110L</code></td>
+<td><code><a href="../../reference/string/basic_string/resize_and_overwrite.html">std::basic_string::resize_and_overwrite()</a></code>の追加</td>
+<td><code><a href="../../reference/string.html">&lt;string&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_to_underlying</code></td>
+<td><code>202102L</code></td>
+<td><code><a href="../../reference/utility/to_underlying.html">std::to_underlying()</a></code>の追加</td>
+<td><code><a href="../../reference/utility.html">&lt;utility&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_tuple_like</code></td>
+<td><code>202207L</code></td>
+<td><code><a href="../../reference/tuple/tuple-like.html">tuple-like</a></code>コンセプトの追加</td>
+<td><code><a href="../../reference/map.html">&lt;map&gt;</a></code><br /><code><a href="../../reference/tuple.html">&lt;tuple&gt;</a></code><br /><code><a href="../../reference/unordered_map.html">&lt;unordered_map&gt;</a></code><br /><code><a href="../../reference/utility.html">&lt;utility&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_unreachable</code></td>
+<td><code>202202L</code></td>
+<td><code><a href="../../reference/utility/unreachable.html">std::unreachable()</a></code>の追加</td>
+<td><code><a href="../../reference/utility.html">&lt;utility&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_print</code></td>
+<td><code>202403L</code></td>
+<td><code><a href="../../reference/print.html">&lt;print&gt;</a></code>の追加</td>
+<td><code><a href="../../reference/ostream.html">&lt;ostream&gt;</a></code><br /><code><a href="../../reference/print.html">&lt;print&gt;</a></code></td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations" target="_blank">SD-FeatureTest: Feature-Test Macros and Policies - isocpp</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

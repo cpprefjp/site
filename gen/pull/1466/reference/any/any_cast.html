@@ -1,0 +1,383 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>any_cast - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,any,std,function template,cpp17
+">
+        <meta name="title" content="any_cast - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="any_cast - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="any_cast - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/any/any_cast.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="[`std::any`](any.md)オブジェクトが保持している値を取り出す。この関数に指定する型は、`any`オブジェクトが保持している値が変換可能な型ではなく、保持している値の型と (`const`/参照の修飾を除いて) 同じでなければならない。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="any_cast - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/any/any_cast.html" />
+        <meta name="twitter:description" content="[`std::any`](any.md)オブジェクトが保持している値を取り出す。この関数に指定する型は、`any`オブジェクトが保持している値が変換可能な型ではなく、保持している値の型と (`const`/参照の修飾を除いて) 同じでなければならない。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;any&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;319aee344b94674eb5288bcc3ba2abe8c9f34c93&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;any&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // (1)\n  {\n    const std::any x = 3;\n\n    // \u30b3\u30d4\u30fc\u3092\u53d6\u308a\u51fa\u3059\n    int r1 = std::any_cast&lt;int&gt;(x);\n    assert(r1 == 3);\n\n    // \u53c2\u7167\u3092\u53d6\u308a\u51fa\u3059\n    const int&amp; r2 = std::any_cast&lt;const int&amp;&gt;(x);\n    assert(r2 == 3);\n\n    // x\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304c\u4fdd\u6301\u3057\u3066\u3044\u308b\u5024\u306fint\u578b\u3067\u3001long long\u578b\u306b\u5909\u63db\u53ef\u80fd\u3060\u304c\u3001\n    // any_cast\u95a2\u6570\u306b\u306f\u76f4\u63a5\u306e\u578bint\u3092\u6307\u5b9a\u3057\u306a\u3051\u308c\u3070\u306a\u3089\u306a\u3044\n    try {\n      std::any_cast&lt;long long&gt;(x);\n      assert(false);\n    }\n    catch (std::bad_any_cast&amp; e) {\n      // \u578b\u306e\u6307\u5b9a\u3092\u9593\u9055\u3046\u3068\u3001bad_any_cast\u4f8b\u5916\u304c\u9001\u51fa\u3055\u308c\u308b\n      assert(true);\n    }\n  }\n\n  // (2)\n  {\n    std::any x = std::string{\&#34;Hello\&#34;};\n\n    // \u30b3\u30d4\u30fc\u3092\u53d6\u308a\u51fa\u3059\n    std::string r1 = std::any_cast&lt;std::string&gt;(x);\n    assert(r1 == \&#34;Hello\&#34;);\n\n    // \u53c2\u7167\u3092\u53d6\u308a\u51fa\u3059\n    std::string&amp; r2 = std::any_cast&lt;std::string&amp;&gt;(x);\n    assert(r2 == \&#34;Hello\&#34;);\n  }\n\n  // (3)\n  {\n    std::any x = std::string{\&#34;Hello\&#34;};\n\n    // any\u30af\u30e9\u30b9\u306e\u4e00\u6642\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304b\u3089\u5024\u3092\u30e0\u30fc\u30d6\u3057\u3066\u53d6\u308a\u51fa\u3059\n    std::string r = std::any_cast&lt;std::string&gt;(std::move(x));\n    assert(r == \&#34;Hello\&#34;);\n  }\n\n  // (4)\n  {\n    const std::any x = 3;\n\n    // \u4fdd\u6301\u3057\u3066\u3044\u308b\u5024\u3078\u306e\u30dd\u30a4\u30f3\u30bf\u3092\u53d6\u308a\u51fa\u3059\n    const int* p1 = std::any_cast&lt;int&gt;(&amp;x);\n    assert(*p1 == 3);\n\n    // \u578b\u306e\u6307\u5b9a\u3092\u9593\u9055\u3046\u3068\u30cc\u30eb\u30dd\u30a4\u30f3\u30bf\u304c\u8fd4\u308b\n    const long long* p2 = std::any_cast&lt;long long&gt;(&amp;x);\n    assert(p2 == nullptr);\n  }\n\n  // (5)\n  {\n    std::any x = 3;\n\n    // \u4fdd\u6301\u3057\u3066\u3044\u308b\u5024\u3078\u306e\u30dd\u30a4\u30f3\u30bf\u3092\u53d6\u308a\u51fa\u3059\n    int* p1 = std::any_cast&lt;int&gt;(&amp;x);\n    assert(*p1 == 3);\n\n    // \u578b\u306e\u6307\u5b9a\u3092\u9593\u9055\u3046\u3068\u30cc\u30eb\u30dd\u30a4\u30f3\u30bf\u304c\u8fd4\u308b\n    long long* p2 = std::any_cast&lt;long long&gt;(&amp;x);\n    assert(p2 == nullptr);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;any&#34;, &#34;any_cast&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/any.html" itemprop="url">
+              
+                <span itemprop="name">any</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">any_cast</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-23T01:33:50">
+        2025年05月23日 01時33分50秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/any/any_cast.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/any/any_cast.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;any&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">any_cast</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">T</span> <span class="n">any_cast</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="any.html">any</a></span><span class="o">&amp;</span> <span class="n">operand</span><span class="p">);</span>                 <span class="c1">// (1)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">T</span> <span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">&amp;</span> <span class="n">operand</span><span class="p">);</span>                       <span class="c1">// (2)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">T</span> <span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">&amp;&amp;</span> <span class="n">operand</span><span class="p">);</span>                      <span class="c1">// (3)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">const</span> <span class="n">T</span><span class="o">*</span> <span class="n">any_cast</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="any.html">any</a></span><span class="o">*</span> <span class="n">operand</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (4)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">T</span><span class="o">*</span> <span class="n">any_cast</span><span class="p">(</span><span class="n"><a href="any.html">any</a></span><span class="o">*</span> <span class="n">operand</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>             <span class="c1">// (5)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code><a href="any.html">std::any</a></code>オブジェクトが保持している値を取り出す。この関数に指定する型は、<code>any</code>オブジェクトが保持している値が変換可能な型ではなく、保持している値の型と (<code>const</code>/参照の修飾を除いて) 同じでなければならない。</p>
+<ul>
+<li>(1), (2), (3) : <code>std::any</code>オブジェクトが保持している型を指定して、その値のコピーまたは参照を取得する。コピーで取り出す場合は<code>any_cast&lt;int&gt;(x)</code>、参照で取り出す場合は<code>any_cast&lt;int&amp;&gt;(x)</code>のように指定する。型の指定を間違った場合は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される</li>
+<li>(4), (5) : <code>std::any</code>オブジェクトが保持している型を指定して、その値を指すポインタを取得する。型の指定を間違った場合はヌルポインタが返る</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<p><code>using U = <a href="../type_traits/remove_cv.html">remove_cv_t</a>&lt;<a href="../type_traits/remove_reference.html">remove_reference_t</a>&lt;T&gt;&gt;;</code>であるとして、</p>
+<ul>
+<li>(1) : <code><a href="../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, const U&amp;&gt; == true</code>であること。そうでない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</li>
+<li>(2) : <code><a href="../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, U&amp;&gt; == true</code>であること。そうでない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</li>
+<li>(3) : <code><a href="../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, U&gt; == true</code>であること。そうでない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</li>
+<li>(4), (5) : <code><a href="../type_traits/is_void.html">is_void_v</a>&lt;T&gt; == false</code>であること<ul>
+<li>C++26から</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<p><code>using U = <a href="../type_traits/remove_cv.html">remove_cv_t</a>&lt;<a href="../type_traits/remove_reference.html">remove_reference_t</a>&lt;T&gt;&gt;;</code>であるとして、</p>
+<ul>
+<li>(1), (2) : <code>operand</code>オブジェクトが保持している<code>U</code>型オブジェクトを返す</li>
+<li>(3) : <code>operand</code>オブジェクトが保持している<code>U</code>型オブジェクトをムーブして返す</li>
+<li>(4), (5) : <code>operand != nullptr</code>かつ<code><a href="any/type.html">operand-&gt;type()</a> == typeid(T)</code>である場合、<code>operand</code>が保持している<code>T</code>型オブジェクトへのポインタを返す</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(1), (2), (3) : <code><a href="any/type.html">operand.type()</a> != typeid(U)</code>である場合、<code><a href="bad_any_cast.html">bad_any_cast</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="319aee344b94674eb5288bcc3ba2abe8c9f34c93"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../any.html">&lt;any&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1)</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+    <span class="c1">// コピーを取り出す</span>
+    <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r1</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+    <span class="c1">// 参照を取り出す</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r2</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+    <span class="c1">// xオブジェクトが保持している値はint型で、long long型に変換可能だが、</span>
+    <span class="c1">// any_cast関数には直接の型intを指定しなければならない</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+      <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bad_any_cast</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 型の指定を間違うと、bad_any_cast例外が送出される</span>
+      <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
+
+    <span class="c1">// コピーを取り出す</span>
+    <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r1</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+
+    <span class="c1">// 参照を取り出す</span>
+    <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r2</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span>
+
+    <span class="c1">// anyクラスの一時オブジェクトから値をムーブして取り出す</span>
+    <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">r</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4)</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+    <span class="c1">// 保持している値へのポインタを取り出す</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p1</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+    <span class="c1">// 型の指定を間違うとヌルポインタが返る</span>
+    <span class="k">const</span> <span class="kt">long</span> <span class="kt">long</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="any.html">std::any</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+    <span class="c1">// 保持している値へのポインタを取り出す</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p1</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+    <span class="c1">// 型の指定を間違うとヌルポインタが返る</span>
+    <span class="kt">long</span> <span class="kt">long</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::any_cast</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 4.0.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 7.3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://cplusplus.github.io/LWG/issue3305" target="_blank">LWG Issue 3305. <code>any_cast&lt;void&gt;</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

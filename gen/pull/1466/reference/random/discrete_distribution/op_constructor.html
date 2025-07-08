@@ -1,0 +1,389 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>discrete_distribution::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,discrete_distribution,function,cpp11
+">
+        <meta name="title" content="discrete_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="discrete_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="discrete_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/discrete_distribution/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : デフォルトコンストラクタ。確率列の要素数を1、0番目の確率を1で初期化する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="discrete_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/discrete_distribution/op_constructor.html" />
+        <meta name="twitter:description" content="- (1) : デフォルトコンストラクタ。確率列の要素数を1、0番目の確率を1で初期化する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;discrete_distribution&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;de49aa606ba2a3a71cb2886225293e856a809562&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;random&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  std::random_device seed_gen;\n  std::mt19937 engine(seed_gen());\n\n  // (1)\n  {\n    std::discrete_distribution&lt;&gt; dist;\n\n    int result = dist(engine);\n    std::cout &lt;&lt; \&#34;default constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (2)\n  {\n    std::vector&lt;double&gt; probabilities = {0.1, 0.2, 0.3};\n    std::discrete_distribution&lt;&gt; dist(\n      probabilities.begin(),\n      probabilities.end()\n    );\n\n    int result = dist(engine);\n    std::cout &lt;&lt; \&#34;iterator range constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (3)\n  {\n    std::discrete_distribution&lt;&gt; dist = {0.1, 0.2, 0.3};\n\n    int result = dist(engine);\n    std::cout &lt;&lt; \&#34;initializer list constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (4)\n  {\n    std::discrete_distribution&lt;&gt; dist(10, 0.1, 1.0, [](double prob) {\n      std::cout &lt;&lt; \&#34;  probability : \&#34; &lt;&lt; prob &lt;&lt; std::endl;\n      return prob;\n    });\n\n    int result = dist(engine);\n    std::cout &lt;&lt; \&#34;min-max constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (5)\n  {\n    using dist_type = std::discrete_distribution&lt;&gt;;\n\n    // \u521d\u671f\u5316\u5b50\u30ea\u30b9\u30c8\u3067\u78ba\u7387\u5217\u3092\u4f5c\u6210\n    dist_type::param_type param = {0.1, 0.2, 0.3};\n    dist_type dist(param);\n\n    int result = dist(engine);\n    std::cout &lt;&lt; \&#34;parameter constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;discrete_distribution&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/random/discrete_distribution.html" itemprop="url">
+              
+                <span itemprop="name">discrete_distribution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/discrete_distribution/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/discrete_distribution/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class discrete_distribution">discrete_distribution::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">discrete_distribution</span><span class="p">();</span>                                          <span class="c1">// (1)</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">discrete_distribution</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">firstW</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">lastW</span><span class="p">);</span> <span class="c1">// (2)</span>
+
+<span class="n">discrete_distribution</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">wl</span><span class="p">);</span>               <span class="c1">// (3)</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">UnaryOperation</span><span class="o">&gt;</span>
+<span class="n">discrete_distribution</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">nw</span><span class="p">,</span>
+                      <span class="kt">double</span> <span class="n">xmin</span><span class="p">,</span>
+                      <span class="kt">double</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">UnaryOperation</span> <span class="n">fw</span><span class="p">);</span>            <span class="c1">// (4)</span>
+
+<span class="k">explicit</span> <span class="nf">discrete_distribution</span><span class="p">(</span><span class="k">const</span> <span class="n">param_type</span><span class="o">&amp;</span> <span class="n">parm</span><span class="p">);</span>           <span class="c1">// (5)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : デフォルトコンストラクタ。確率列の要素数を1、0番目の確率を1で初期化する。<ul>
+<li>このコンストラクタで構築された場合、乱数生成は常に0を返す。</li>
+</ul>
+</li>
+<li>(2) : 確率列の範囲を受け取るコンストラクタ。受け取った範囲を、乱数生成のパラメータとして保持する。<ul>
+<li><code>firstW == lastW</code>の場合(要素数0の場合)、確率列の要素数1、0番目の確率を1で初期化し、乱数生成が常に0を返すようになる。</li>
+</ul>
+</li>
+<li>(3) : 確率列の初期化子リストを受け取るコンストラクタ。受け取ったリストの範囲を、乱数生成のパラメータとして保持する。<ul>
+<li><code>discrete_distribution(wl.begin(), wl.end())</code> と同じ効果を持つ。</li>
+</ul>
+</li>
+<li>(4) : 確率値の範囲を受け取るコンストラクタ。<ul>
+<li><code>nw</code>は確率列の要素数、<code>xmin</code>は最小確率、<code>xmax</code>は最大確率、<code>fw</code>は確率列それぞれのインデックスに対する確率値を求めるための単項関数オブジェクトである。<code>UnaryOperation</code>関数オブジェクトは、<code>double</code>型に変換可能な確率値を受け取り、新たな確率値を返す。</li>
+<li>以下の公式で確率列を構築する。δの値を<code>0 &lt; δ = (xmax−xmin)/n</code>として、<code>k番目の確率 = fw(xmin + k・δ + δ/2)</code>。</li>
+<li><code>nw</code>が0だった場合、確率列の要素数を1、0番目の確率を1で初期化する。</li>
+</ul>
+</li>
+<li>(5) : パラメータオブジェクトを受け取るコンストラクタ。<code>param_type</code>は、このクラスの(5)以外のコンストラクタと同じ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、<code>param</code>オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。</li>
+</ul>
+<h2>要件</h2>
+<ul>
+<li>(2) : <code>InputIterator</code>の要素型が、double型に変換可能であること。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>(4) : <code>fw</code>関数オブジェクトの呼び出しが、要素数nを超えないものとする。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="de49aa606ba2a3a71cb2886225293e856a809562"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="../mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n"><a href="../random_device/op_call.html">seed_gen()</a></span><span class="p">);</span>
+
+  <span class="c1">// (1)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">discrete_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"default constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">probabilities</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">discrete_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span>
+      <span class="n"><a href="../../vector/vector/begin.html">probabilities.begin()</a></span><span class="p">,</span>
+      <span class="n"><a href="../../vector/vector/end.html">probabilities.end()</a></span>
+    <span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"iterator <a href="../../ranges/range.html">range</a> constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">discrete_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">};</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"initializer list constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">discrete_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">[](</span><span class="kt">double</span> <span class="n">prob</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"  probability : "</span> <span class="o">&lt;&lt;</span> <span class="n">prob</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">prob</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"min-max constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="p">{</span>
+    <span class="k">using</span> <span class="n">dist_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">discrete_distribution</span><span class="o">&lt;&gt;</span><span class="p">;</span>
+
+    <span class="c1">// 初期化子リストで確率列を作成</span>
+    <span class="n">dist_type</span><span class="o">::</span><span class="n">param_type</span> <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">};</span>
+    <span class="n">dist_type</span> <span class="n">dist</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"parameter constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>default constructor : 0
+iterator <a href="../../ranges/range.html">range</a> constructor : 1
+initializer list constructor : 2
+  probability : 0.145
+  probability : 0.235
+  probability : 0.325
+  probability : 0.415
+  probability : 0.505
+  probability : 0.595
+  probability : 0.685
+  probability : 0.775
+  probability : 0.865
+  probability : 0.955
+min-max constructor : 3
+parameter constructor : 2
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

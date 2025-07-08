@@ -1,0 +1,391 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>using宣言のパック展開 [P0195R2] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="using宣言のパック展開 [P0195R2] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="using宣言のパック展開 [P0195R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="using宣言のパック展開 [P0195R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/pack_expansions_in_using.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="using宣言のパック展開 [P0195R2] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/pack_expansions_in_using.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;090ee0fe2280dde14b37e874f380af61a0c2333b&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nstruct ForLong {\n  void operator()(long v) {\n    std::cout &lt;&lt; \&#34;ForLong:\&#34; &lt;&lt; v &lt;&lt; std::endl;\n  }\n};\n\nstruct ForString {\n  void operator()(const std::string&amp; v) {\n    std::cout &lt;&lt; \&#34;ForString:\&#34; &lt;&lt; v &lt;&lt; std::endl;\n  }\n};\n\ntemplate &lt;typename... T&gt;\nstruct ForAll : T... {\n  using T::operator()...;\n  void operator()(int v) {\n    std::cout &lt;&lt; \&#34;ForAll:\&#34; &lt;&lt; v &lt;&lt; std::endl;\n  }\n};\n\nint main()\n{\n  ForAll&lt;ForLong, ForString&gt; p;\n  p(10);\n  p(100L);\n  p(\&#34;hello\&#34;);\n}\n&#34;}, {&#34;id&#34;: &#34;d1e9b99ec705ad34bec4bf5fefa60e2e74e07d13&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nstruct ForLong {\n  void operator()(long v) {\n    std::cout &lt;&lt; \&#34;ForLong:\&#34; &lt;&lt; v &lt;&lt; std::endl;\n  }\n};\n\nstruct ForString {\n  void operator()(const std::string&amp; v) {\n    std::cout &lt;&lt; \&#34;ForString:\&#34; &lt;&lt; v &lt;&lt; std::endl;\n  }\n};\n\n// C++14\u307e\u3067\u306e\u65b9\u6cd5\u3001C++17\u3067\u3082\u4f7f\u3048\u308b\u304c\u5197\u9577\n\n// \u30af\u30e9\u30b9\u30922\u3064\u4ee5\u4e0a\u53d7\u3051\u53d6\u308b\u5834\u5408\u3001\u5148\u982d\u306e\u30af\u30e9\u30b9 T \u3068\u305d\u308c\u4ee5\u5916 Ts \u306b\u5206\u5272\u3059\u308b\ntemplate &lt;typename T, typename... Ts&gt;\nstruct ForAll2 : T, ForAll2&lt;Ts...&gt; {\n  using T::operator(); // \u5148\u982d\u306e\u30af\u30e9\u30b9 T \u306e operator() \u3092\u4f7f\u3048\u308b\u3088\u3046\u306b\u3059\u308b\n  using ForAll2&lt;Ts...&gt;::operator(); // \u6b8b\u308a\u306e\u30af\u30e9\u30b9\u3092\u518d\u5e30\u7684\u306b\u4f7f\u3048\u308b\u3088\u3046\u306b\u3059\u308b\n};\n\n// \u30af\u30e9\u30b9\u30921\u3064\u3060\u3051\u53d7\u3051\u53d6\u308b\u5834\u5408\u3001\u7279\u6b8a\u306a\u51e6\u7406\u3092\u884c\u3046\uff08\u90e8\u5206\u7279\u6b8a\u5316\uff09\n//\n// \u30af\u30e9\u30b9\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u306e\u307f\u3060\u3068\u3001\u30af\u30e9\u30b9\u30921\u3064\u3057\u304b\u53d7\u3051\u53d6\u3089\u306a\u3044\u5834\u5408\u306b\n// Ts... \u304c\u7a7a\u306b\u306a\u3063\u3066 ForAll2&lt;Ts...&gt; \u304c\u6587\u6cd5\u30a8\u30e9\u30fc\u306b\u306a\u308b\n// \u3053\u306e\u305f\u3081\u30af\u30e9\u30b9\u304c1\u3064\u306e\u5834\u5408\u306f\u7279\u5225\u6271\u3044\u3059\u308b\u5fc5\u8981\u304c\u3042\u308b\ntemplate &lt;typename T&gt;\nstruct ForAll2&lt;T&gt; : T {\n  using T::operator();\n  void operator()(int v) {\n    std::cout &lt;&lt; \&#34;ForAll2:\&#34; &lt;&lt; v &lt;&lt; std::endl;\n  }\n};\n\nint main()\n{\n  ForAll2&lt;ForLong, ForString&gt; p;\n  p(20);\n  p(200L);\n  p(\&#34;hello2\&#34;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;pack_expansions_in_using&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">using宣言のパック展開 [P0195R2]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/pack_expansions_in_using.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/pack_expansions_in_using.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">using宣言のパック展開 [P0195R2]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++17にて<code>using</code>宣言の仕様が拡張され、パラメータパックが指定できるようになった。
+具体的には<code>using</code>宣言の識別子をカンマで区切ること、
+パラメータパックに省略記号<code>...</code>を指定してパック展開が可能になる。</p>
+<p>C++14では下記のように1つずつ宣言していたが、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">;</span>
+<span class="k">using</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>下記のように一度に宣言できるようになった。
+1つ目の識別子と名前空間が同じであっても省略はできないため、
+2番目のような書き方はできない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">,</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="c1">//using <a href="../../reference/iostream/cout.html">std::cout</a>, endl; // NG</span>
+</code></pre></div>
+</p>
+<p>省略記号<code>...</code>を指定しパック展開を行う例は下記の通り。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="nl">A</span> <span class="p">:</span> <span class="n">T</span><span class="p">...</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span> <span class="c1">// 受け取ったクラスのoperator()を全て使えるようにする</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<p>文法の仕様は下記の通り。</p>
+<p><pre><code>  using-declaration:
+    using using-declarator-list ;
+
+  using-declarator-list:
+    using-declarator ...opt
+    using-declarator-list , using-declarator ...opt
+</code></pre></p>
+<h2>例</h2>
+<p><code>ForAll</code>は<code>operator()(int)</code>メンバ関数を持つクラステンプレートである。
+複数のクラスをテンプレートパラメータに受け取り、受け取った全てのクラスを継承する。
+テンプレートパラメータのパック展開を行う<code>using</code>宣言により、
+継承した全てのクラスの<code>operator()</code>を使えるようにしている。</p>
+<p>この例では<code>long</code>や<code>std::string</code>を引数として渡すと<code>ForAll::operator()(int)</code>ではなく、
+<code>using</code>宣言した<code>ForLong::operator()(long)</code>や<code>ForString::operator()(cons std::string&amp;)</code>が呼び出される。</p>
+<p><div class="yata" id="090ee0fe2280dde14b37e874f380af61a0c2333b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">ForLong</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">long</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForLong:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">ForString</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForString:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="nl">ForAll</span> <span class="p">:</span> <span class="n">T</span><span class="p">...</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">()...;</span>
+  <span class="kt">void</span> <span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForAll:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">ForAll</span><span class="o">&lt;</span><span class="n">ForLong</span><span class="p">,</span> <span class="n">ForString</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">p</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="n">p</span><span class="p">(</span><span class="mi">100L</span><span class="p">);</span>
+  <span class="n">p</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>ForAll:10
+ForLong:100
+ForString:hello
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++11にて可変引数テンプレートが導入され、
+テンプレートパラメータに渡されたクラスをパック展開し、一度に全て継承することができるようになった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="nl">ForAll2</span> <span class="p">:</span> <span class="n">T</span><span class="p">...</span> <span class="p">{</span>
+  <span class="c1">// Tに指定されたクラスを全て継承</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>しかしC++11やC++14ではパラメータパックに指定されたクラスが持つメンバ関数を、
+全て<code>using</code>宣言する簡単な方法がなかった。
+このためクラステンプレートが基底クラスと派生クラスでメンバ関数を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>する場合、
+実装が煩雑になってしまう問題があった。</p>
+<p><div class="yata" id="d1e9b99ec705ad34bec4bf5fefa60e2e74e07d13"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">ForLong</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">long</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForLong:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">ForString</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForString:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// C++14までの方法、C++17でも使えるが冗長</span>
+
+<span class="c1">// クラスを2つ以上受け取る場合、先頭のクラス T とそれ以外 Ts に分割する</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="nl">ForAll2</span> <span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">();</span> <span class="c1">// 先頭のクラス T の operator() を使えるようにする</span>
+  <span class="k">using</span> <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">Ts</span><span class="p">...</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">();</span> <span class="c1">// 残りのクラスを再帰的に使えるようにする</span>
+<span class="p">};</span>
+
+<span class="c1">// クラスを1つだけ受け取る場合、特殊な処理を行う（部分特殊化）</span>
+<span class="c1">//</span>
+<span class="c1">// クラステンプレートのみだと、クラスを1つしか受け取らない場合に</span>
+<span class="c1">// Ts... が空になって ForAll2&lt;Ts...&gt; が文法エラーになる</span>
+<span class="c1">// このためクラスが1つの場合は特別扱いする必要がある</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">T</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ForAll2:"</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">ForAll2</span><span class="o">&lt;</span><span class="n">ForLong</span><span class="p">,</span> <span class="n">ForString</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">p</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+  <span class="n">p</span><span class="p">(</span><span class="mi">200L</span><span class="p">);</span>
+  <span class="n">p</span><span class="p">(</span><span class="s">"hello2"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>ForAll2:20
+ForLong:200
+ForString:hello2
+</code></pre></p>
+<p>この問題を解決するためC++17では<code>using</code>でパック展開ができるようになった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/variadic_templates.html">可変引数テンプレート</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0195r2.html" target="_blank">P0195R2 Pack expansions in using-declarations</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,558 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_multimap::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_map,std,unordered_multimap,function,cpp11
+">
+        <meta name="title" content="unordered_multimap::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_multimap::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_multimap::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`unordered_multimap` オブジェクトを構築する" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_multimap::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_constructor.html" />
+        <meta name="twitter:description" content="`unordered_multimap` オブジェクトを構築する" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_map&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unordered_multimap&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_map&#34;, &#34;unordered_multimap&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_map.html" itemprop="url">
+              
+                <span itemprop="name">unordered_map</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_map/unordered_multimap.html" itemprop="url">
+              
+                <span itemprop="name">unordered_multimap</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-22T07:35:09">
+        2025年05月22日 07時35分09秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_map/unordered_multimap/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_map/unordered_multimap/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multimap">unordered_multimap::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">unordered_multimap</span><span class="p">();</span>                                                    <span class="c1">// (1) C++14</span>
+
+<span class="k">explicit</span> <span class="nf">unordered_multimap</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                            <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                            <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                            <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (2) C++14</span>
+
+<span class="k">explicit</span> <span class="nf">unordered_multimap</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                            <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                            <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                            <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>  <span class="c1">// (1) + (2) C++11</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                   <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>           <span class="c1">// (3)</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_multimap</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span>                          <span class="c1">// (4)</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">);</span>                              <span class="c1">// (5)</span>
+
+<span class="k">explicit</span> <span class="nf">unordered_multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                     <span class="c1">// (6)</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_multimap</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (7)</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>     <span class="c1">// (8)</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                   <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>           <span class="c1">// (9)</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                 <span class="c1">// (10) C++14</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                              <span class="c1">// (11) C++14</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">f</span><span class="p">,</span>
+                   <span class="n">InputIterator</span> <span class="n">l</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                              <span class="c1">// (12) C++14</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">f</span><span class="p">,</span>
+                   <span class="n">InputIterator</span> <span class="n">l</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span> 
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                              <span class="c1">// (13) C++14</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                              <span class="c1">// (14) C++14</span>
+
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span> 
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                              <span class="c1">// (15) C++14</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                   <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>           <span class="c1">// (16) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                              <span class="c1">// (17) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="n">unordered_multimap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+                   <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                              <span class="c1">// (18) C++23</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>unordered_multimap</code> オブジェクトを構築する</p>
+<h2>要件</h2>
+<ul>
+<li>
+<p>ハッシュ関数オブジェクト <code>hasher</code> が引数として与えられなかった場合、<code>hasher</code> は DefaultConstructible であること。</p>
+</li>
+<li>
+<p>キー比較用関数オブジェクト <code>key_equal</code> が引数として与えられなかった場合、<code>key_equal</code> は DefaultConstructible であること。</p>
+</li>
+<li>
+<p>アロケータオブジェクト <code>allocator_type</code> が引数として与えられなかった場合、<code>allocator_type</code> は DefaultConstructible であること。</p>
+</li>
+<li>
+<p>(3) の形式の場合、<code>value_type</code> は <code>*first</code> からこの <code>unordered_multimap</code> に EmplaceConstructible であること。</p>
+</li>
+<li>
+<p>(4), (7)、および (9) の形式の場合、<code>value_type</code> はこの <code>unordered_multimap</code> に CopyInsertable であること。</p>
+</li>
+<li>
+<p>(5) の形式の場合、<code>allocator_type</code> のムーブ構築は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>終了しないこと。</p>
+</li>
+<li>
+<p>(8) の形式の場合、<code>value_type</code> はこの <code>unordered_multimap</code> に MoveInsertable であること。（但し、備考参照）</p>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>
+<p>(1) : バケット数の最低が実装依存の、要素を持たない空の <code>unordered_multimap</code> を構築する。</p>
+</li>
+<li>
+<p>(2) : バケット数最低 <code>n</code>、ハッシュ関数オブジェクト <code>hf</code>、キー比較用関数オブジェクト <code>eql</code>、アロケータオブジェクト <code>a</code> で、要素を持たない空の <code>unordered_multimap</code> を構築する。</p>
+</li>
+<li>
+<p>(1) + (2) バケット数最低 <code>n</code>、ハッシュ関数オブジェクト <code>hf</code>、キー比較用関数オブジェクト <code>eql</code>、アロケータオブジェクト <code>a</code> で、要素を持たない空の <code>unordered_multimap</code> を構築する。
+    引数 <code>n</code> のデフォルト値は実装依存である。</p>
+</li>
+<li>
+<p>(3) : (1)と同様に <code>unordered_multimap</code> が構築された後、<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>の要素が挿入される。</p>
+</li>
+<li>
+<p>(4) : コピーコンストラクタ。<code>v</code> の全ての要素をコピーした、<code>unordered_multimap</code> を構築する。
+    ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、<code><a href="max_load_factor.html">max_load_factor</a>()</code> の値も <code>v</code> からコピーされる。
+    アロケータオブジェクトは、<code>std::<a href="../../memory/allocator_traits.html">allocator_traits</a>&lt;allocator_type&gt;::<a href="../../memory/allocator_traits/select_on_container_copy_construction.html">select_on_container_copy_construction</a>(<a href="get_allocator.html">get_allocator</a>())</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が使用される。</p>
+</li>
+<li>
+<p>(5) : ムーブコンストラクタ。<code>rv</code> の全ての要素をムーブした、<code>unordered_multimap</code> を構築する。
+    ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、アロケータオブジェクトも <code>v</code> からムーブされる。
+    <code><a href="max_load_factor.html">max_load_factor</a>()</code> の値は <code>rv</code> からコピーされる。
+    なお、要素のムーブは個々に行われるのではなく、<code>unordered_multimap</code> 内部の構造ごと一括でムーブされる。</p>
+</li>
+<li>
+<p>(6) : ハッシュ関数オブジェクト <code>hasher()</code>、キー比較用関数オブジェクト <code>key_equal()</code>、アロケータオブジェクト <code>a</code> で、要素を持たない空の <code>unordered_multimap</code> を構築する。
+    構築された <code>unordered_multimap</code> のバケット数、および、<code><a href="max_load_factor.html">max_load_factor</a>()</code> は実装依存である。</p>
+</li>
+<li>
+<p>(7) : <code>v</code> の全ての要素をコピーした、<code>unordered_multimap</code> を構築する。
+    ハッシュ関数オブジェクトとキー比較関数オブジェクト、および、<code><a href="max_load_factor.html">max_load_factor</a>()</code> の値も <code>v</code> からコピーされるが、アロケータオブジェクトは引数 <code>a</code> が使用される。</p>
+</li>
+<li>
+<p>(8) : <code>rv</code> のすべての要素をムーブした、<code>unordered_multimap</code> を構築する。
+    ハッシュ関数オブジェクトとキー比較関数オブジェクトの値も <code>rv</code> からムーブされるが、アロケータオブジェクトは引数 <code>a</code> が使用される。
+    <code><a href="max_load_factor.html">max_load_factor</a>()</code> の値は <code>rv</code> からコピーされる。
+    なお、<code>a == rv.<a href="get_allocator.html">get_allocator</a>()</code> の場合、要素のムーブは個々に行われるのではなく、<code>unordered_multimap</code> 内部の構造ごと一括でムーブされるが、そうでない場合は要素ごとにムーブされる。</p>
+</li>
+<li>
+<p>(9) : (3) の形式を <code>unordered_multimap(il.begin(), il.end(), n, hf, eql, a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(10) : (2) の形式を <code>unordered_multimap(n, hasher(), key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(11) : (2) の形式を <code>unordered_multimap(n, hf, key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(12) : (3) の形式を <code>unordered_multimap(f, l, n, hasher(), key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(13) : (3) の形式を <code>unordered_multimap(f, l, n, hf, key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(14) : (5) の形式を <code>unordered_multimap(il, n, hasher(), key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(15) : (5) の形式を <code>unordered_multimap(il, n, hf, key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(16) : バケット数最低 <code>n</code>、ハッシュ関数オブジェクト <code>hf</code>、キー比較用関数オブジェクト <code>eql</code>、アロケータオブジェクト <code>a</code> で <code>unordered_multimap</code> が構築された後、Range <code>rg</code> の要素が挿入される。</p>
+</li>
+<li>
+<p>(17) : (16) の形式を <code>unordered_multimap(from_range, std::forward&lt;R&gt;(rg), n, hasher(), key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+<li>
+<p>(18) : (16) の形式を <code>unordered_multimap(from_range, std::forward&lt;R&gt;(rg), n, hf, key_equal(), a)</code> として呼び出した場合と等価である。</p>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
+<p>以下では構築されたオブジェクトを <code>u</code> とする。</p>
+<ul>
+<li>
+<p>(1) : <code>u.<a href="empty.html">empty</a>() == true</code>。
+    <code>u.<a href="max_load_factor.html">max_load_factor</a>() == 1.0</code>。</p>
+</li>
+<li>
+<p>(2) : <code>u.<a href="empty.html">empty</a>() == true</code>。
+    <code>u.<a href="get_allocator.html">get_allocator</a>() == a</code>。
+    <code>u.<a href="max_load_factor.html">max_load_factor</a>() == 1.0</code>。
+    <code>u.<a href="bucket_count.html">bucket_count</a>() &gt;= n</code>。</p>
+</li>
+<li>
+<p>(3) : <code>u.<a href="get_allocator.html">get_allocator</a>() == a</code>。
+    <code>u.<a href="max_load_factor.html">max_load_factor</a>() == 1.0</code>。
+    <code>u.<a href="bucket_count.html">bucket_count</a>() &gt;= n</code>。</p>
+</li>
+<li>
+<p>(4) : <code>u.<a href="max_load_factor.html">max_load_factor</a>() == v.<a href="max_load_factor.html">max_load_factor</a>()</code>。
+    <code>u == v</code>。</p>
+</li>
+<li>
+<p>(5) : <code>u.<a href="get_allocator.html">get_allocator</a>() ==</code>構築前の <code>rv.<a href="get_allocator.html">get_allocator</a>()</code>。
+    <code>u.<a href="max_load_factor.html">max_load_factor</a>() ==</code>構築前の <code>rv.<a href="max_load_factor.html">max_load_factor</a>()</code>。
+    <code>u ==</code>構築前の <code>rv</code>。</p>
+</li>
+<li>
+<p>(6) : <code>u.<a href="empty.html">empty</a>() == true</code>。
+    <code>u.<a href="get_allocator.html">get_allocator</a>() == a</code>。</p>
+</li>
+<li>
+<p>(7) : <code>u.<a href="max_load_factor.html">max_load_factor</a>() == v.<a href="max_load_factor.html">max_load_factor</a>()</code>。
+    <code>u == v</code>。
+    <code>u.<a href="get_allocator.html">get_allocator</a>() == a</code>。</p>
+</li>
+<li>
+<p>(8) : <code>u.<a href="max_load_factor.html">max_load_factor</a>() ==</code>構築前の <code>rv.<a href="max_load_factor.html">max_load_factor</a>()</code>。
+    <code>u ==</code>構築前の <code>rv</code>。
+    <code>u.<a href="get_allocator.html">get_allocator</a>() == a</code>。</p>
+</li>
+<li>
+<p>(9) : <code>u.<a href="get_allocator.html">get_allocator</a>() == a</code>。
+    <code>u.<a href="max_load_factor.html">max_load_factor</a>() == 1.0</code>。
+    <code>u.<a href="bucket_count.html">bucket_count</a>() &gt;= n</code>。</p>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>(1) : 定数</li>
+<li>(2) : 定数</li>
+<li>(3) : 平均的には O(n)、ここで、n は <code>std::<a href="../../iterator/distance.html">distance</a>(first, last)</code>。
+    最悪のケースでは O(n<sup>2</sup>)</li>
+<li>(4) : 平均的には O(n)、ここで、n は <code>v.<a href="size.html">size</a>()</code>。
+    最悪のケースでは O(n<sup>2</sup>)</li>
+<li>(5) : 定数</li>
+<li>(6) : 定数</li>
+<li>(7) : O(<code>v.<a href="size.html">size</a>()</code>)</li>
+<li>(8) : <code>a == rv.<a href="get_allocator.html">get_allocator</a>()</code> の場合、定数。
+    そうでない場合、O(<code>rv.<a href="size.html">size</a>()</code>)。</li>
+<li>(9) : (3)の形式を <code>unordered_multimap(il.begin(), il.end(), n, hf, eql, a)</code> として呼び出した場合と等価。</li>
+<li>(10) : (2) の形式を <code>unordered_multimap(n, hasher(), key_equal(), a)</code> として呼び出した場合と等価。</li>
+<li>(11) : (2) の形式を <code>unordered_multimap(n, hf, key_equal(), a)</code> として呼び出した場合と等価。</li>
+<li>(12) : (3) の形式を <code>unordered_multimap(f, l, n, hasher(), key_equal(), a)</code> として呼び出した場合と等価。</li>
+<li>(13) : (3) の形式を <code>unordered_multimap(f, l, n, hf, key_equal(), a)</code> として呼び出した場合と等価。</li>
+<li>(14) : (5) の形式を <code>unordered_multimap(il, n, hasher(), key_equal(), a)</code> として呼び出した場合と等価。</li>
+<li>(15) : (5) の形式を <code>unordered_multimap(il, n, hf, key_equal(), a)</code> として呼び出した場合と等価。</li>
+<li>(16), (17), (18) : 平均的には O(n)、ここで、n は <code><a href="../../iterator/ranges_distance.html">ranges::distance</a>(rg)</code>。最悪のケースでは O(n<sup>2</sup>)</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>
+<p>(8) の形式の場合、MoveInsertable が要件となっているが、<code>rv.<a href="get_allocator.html">get_allocator</a>() == a</code> の場合にはムーブコンストラクタと同様の挙動となるため、MoveInsertable ではなくても良いと思われる。</p>
+</li>
+<li>
+<p>C++14 では、デフォルトコンストラクタを (1) + (2) の形式から (1) の形式に分離して残りを (2) の形式（<code>n</code> のデフォルト引数を削除）にした。
+    これは、デフォルトコンストラクタに <code>explicit</code> が付いていると、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{};</span>
+</code></pre></div>
+</p>
+<p>のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。</p>
+</li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.4.7 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.5.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.6.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+</ul>
+<h4>備考</h4>
+<p>libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。</p>
+<h2>関連項目</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+</tr>
+<tr>
+<td><code><a href="op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf" target="_blank">N2679 Initializer Lists for Standard Containers(Revision 1)</a><ul>
+<li>(9)の経緯となる提案文書</li>
+</ul>
+</li>
+<li><a href="http://cplusplus.github.io/LWG/lwg-defects.html#2193" target="_blank">LWG 2193. Default constructors for standard library containers are explicit</a><br />
+    (1) + (2) を 2 つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に分割するきっかけとなったレポート</li>
+<li><a href="http://cplusplus.github.io/LWG/lwg-defects.html#2210" target="_blank">LWG 2210. Missing allocator-extended constructor for allocator-aware containers</a><br />
+    (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート<br />
+    なお、Discussion の例はアロケータの型が誤っているので注意</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

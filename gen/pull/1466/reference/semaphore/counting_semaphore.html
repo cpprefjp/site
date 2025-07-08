@@ -1,0 +1,414 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>counting_semaphore - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,semaphore,class template,std,cpp20
+">
+        <meta name="title" content="counting_semaphore - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="counting_semaphore - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="counting_semaphore - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/semaphore/counting_semaphore.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`counting_semaphore`クラスは、スレッド間で使用する共有リソースへの並行アクセスを制約する、軽量な同期プリミティブである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="counting_semaphore - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/semaphore/counting_semaphore.html" />
+        <meta name="twitter:description" content="`counting_semaphore`クラスは、スレッド間で使用する共有リソースへの並行アクセスを制約する、軽量な同期プリミティブである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;semaphore&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;13f697ed4b092b08b782e26204bece6ecba91558&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;semaphore&gt;\n#include &lt;thread&gt;\n#include &lt;queue&gt;\n\nint main()\n{\n  // \u30a2\u30a4\u30c6\u30e0\u5728\u5eab\n  std::queue&lt;int&gt; stock;\n\n  // \u5728\u5eab\u7ba1\u7406\u30ab\u30a6\u30f3\u30c6\u30a3\u30f3\u30b0\u30bb\u30de\u30d5\u30a9\uff08\u521d\u671f\u5024=0\uff0f\u6700\u5927\u5024=3\uff09\n  std::counting_semaphore&lt;3&gt; token{0};\n  // \u5728\u5eab\u30a2\u30af\u30bb\u30b9\u4fdd\u8b77\u30d0\u30a4\u30ca\u30ea\u30bb\u30de\u30d5\u30a9\uff08\u521d\u671f\u5024=1\uff0f\u6700\u5927\u5024=1\uff09\n  std::counting_semaphore&lt;1&gt; guard{1};\n  // \u8aac\u660e\u306e\u305f\u3081\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30d1\u30e9\u30e1\u30fc\u30bfleast_max_value\u3092\u660e\u793a\u6307\u5b9a\u3057\u3066\u3044\u308b\u304c\u3001\n  // \u4e21\u8005\u3068\u3082std::counting_semaphore&lt;&gt;\u3068\u7701\u7565\u3057\u3066\u3082\u6b63\u3057\u304f\u52d5\u4f5c\u3059\u308b\u3002\n\n  // \u751f\u7523\u8005\u30b9\u30ec\u30c3\u30c9\n  std::thread producer([&amp;]{\n    for (int i = 1; i &lt;= 3; i++) {\n      // \u65b0\u3057\u3044\u30a2\u30a4\u30c6\u30e0\u3092\u751f\u7523\n      int item = i * 100;\n      // \u30a2\u30a4\u30c6\u30e0\u5728\u5eab\u3078\u8ffd\u52a0\n      guard.acquire();\n      stock.push(item);\n      guard.release();\n      // \u5728\u5eab\u7ba1\u7406\u30ab\u30a6\u30f3\u30c8\u3092+1\u3059\u308b\n      token.release();\n    }\n  });\n\n  // \u6d88\u8cbb\u8005\u30b9\u30ec\u30c3\u30c9\n  std::thread consumer([&amp;]{\n    for (int i = 1; i &lt;= 3; i++) {\n      // \u5728\u5eab\u751f\u7523\u3055\u308c\u308b\u307e\u3067\u5f85\u6a5f\u3057\u3001\u5728\u5eab\u7ba1\u7406\u30ab\u30a6\u30f3\u30c8\u3092-1\u3059\u308b\n      token.acquire();\n      // \u30a2\u30a4\u30c6\u30e0\u5728\u5eab\u304b\u3089\u53d6\u51fa\n      guard.acquire();\n      int item = stock.front();\n      stock.pop();\n      guard.release();\n      // \u30a2\u30a4\u30c6\u30e0\u3092\u6d88\u8cbb\n      std::cout &lt;&lt; item &lt;&lt; std::endl;\n    }\n  });\n\n  producer.join();\n  consumer.join();\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;semaphore&#34;, &#34;counting_semaphore&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/semaphore.html" itemprop="url">
+              
+                <span itemprop="name">semaphore</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">counting_semaphore</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/semaphore/counting_semaphore.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/semaphore/counting_semaphore.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;semaphore&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">counting_semaphore</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></span> <span class="n">least_max_value</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">counting_semaphore</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n">binary_semaphore</span> <span class="o">=</span> <span class="n">counting_semaphore</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>counting_semaphore</code>クラスは、スレッド間で使用する共有リソースへの並行アクセスを制約する、軽量な同期プリミティブである。</p>
+<p>カウンティングセマフォ（または単にセマフォ）は他の同期プリミティブを実装するための部品として広く用いられ、セマフォと条件変数のいずれも適用可能なケースでは<code><a href="../condition_variable/condition_variable.html">condition_variable</a></code>よりも効率的である。</p>
+<p>セマフォは1つのカウンタで状態管理される同期プリミティブとみなせる。カウンタは<code>0</code>以上かつ<code><a href="counting_semaphore/max.html">max()</a></code>以下の値をとり、このカウンタ値がセマフォで管理する共有リソースの個数と解釈される。</p>
+<ul>
+<li>カウンタの最大値はテンプレートパラメータ<code>least_max_value</code>にて設定する。省略時は処理系がサポートする最大値が設定される。</li>
+<li>カウンタの初期値は<a href="counting_semaphore/op_constructor.html">コンストラクタ</a>でセマフォ構築時に指定する。</li>
+<li><code><a href="counting_semaphore/release.html">release()</a></code>メンバ関数呼び出しによりカウンタ値の加算と通知処理、つまり利用可能な共有リソースの増加を表現する。（歴史的にはオランダ語由来の"V操作"と呼ばれる。英語では"up"／"signal"／"post"とも呼ばれる。）</li>
+<li><code><a href="counting_semaphore/acquire.html">acquire()</a></code>メンバ関数呼び出しにより待機処理とカウンタ値の減算、つまり利用可能な共有リソースの減少を表現する。（同様に"P操作"や"down"／"wait"／"pend"とも呼ばれる。）</li>
+</ul>
+<p>カウンティングセマフォの最大値を<code>1</code>としたものはバイナリセマフォと呼ばれ、ヘッダ<code><a href="../semaphore.html">&lt;semaphore&gt;</a></code>ではエイリアス型<code>binary_semaphore</code>として定義される。
+バイナリセマフォはミューテックス（<code><a href="../mutex/mutex.html">mutex</a></code>など）と同様に共有リソースの排他制御を実現する同期プリミティブだが、ミューテックスとは異なりスレッドがロックを所有(own)するという概念が存在しない。
+このためバイナリセマフォでは、あるスレッド上でカウンタ値を減少（1→0; <code>lock</code>相当）させ、別のスレッド上でカウンタ値を増加（0→1; <code>unlock</code>相当）させてもよい。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<p>テンプレートパラメータ<code>least_max_value</code>には非負の数値を指定する。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="counting_semaphore/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>operator=(const counting_semaphore&amp;) = delete;</code></td>
+<td>代入演算子</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="counting_semaphore/release.html">release</a></code></td>
+<td>カウンタ値を加算し、待機中スレッドをブロック解除する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="counting_semaphore/acquire.html">acquire</a></code></td>
+<td>カウンタ値が<code>0</code>より大きくなるまで待機し、カウンタ値を1つ減算する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="counting_semaphore/try_acquire.html">try_acquire</a></code></td>
+<td>カウンタ値の1減算を試みる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="counting_semaphore/try_acquire_for.html">try_acquire_for</a></code></td>
+<td>相対時間のタイムアウトを指定して、カウンタ値の1減算を試みる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="counting_semaphore/try_acquire_until.html">try_acquire_until</a></code></td>
+<td>絶対時間のタイムアウトを指定して、カウンタ値の1減算を試みる</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="counting_semaphore/max.html">max</a></code></td>
+<td>カウンタの最大値</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="13f697ed4b092b08b782e26204bece6ecba91558"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../semaphore.html">&lt;semaphore&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../queue.html">&lt;queue&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// アイテム在庫</span>
+  <span class="n"><a href="../queue/queue.html">std::queue</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">stock</span><span class="p">;</span>
+
+  <span class="c1">// 在庫管理カウンティングセマフォ（初期値=0／最大値=3）</span>
+  <span class="n"><span style="color:#ff0000">std::counting_semaphore</span></span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">token</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+  <span class="c1">// 在庫アクセス保護バイナリセマフォ（初期値=1／最大値=1）</span>
+  <span class="n"><span style="color:#ff0000">std::counting_semaphore</span></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">guard</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  <span class="c1">// 説明のためテンプレートパラメータleast_max_valueを明示指定しているが、</span>
+  <span class="c1">// 両者とも<span style="color:#ff0000">std::counting_semaphore</span>&lt;&gt;と省略しても正しく動作する。</span>
+
+  <span class="c1">// 生産者スレッド</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">producer</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 新しいアイテムを生産</span>
+      <span class="kt">int</span> <span class="n">item</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
+      <span class="c1">// アイテム在庫へ追加</span>
+      <span class="n">guard</span><span class="p">.</span><span class="n"><a href="counting_semaphore/acquire.html">acquire()</a></span><span class="p">;</span>
+      <span class="n"><a href="../queue/queue/push.html">stock.push</a></span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+      <span class="n">guard</span><span class="p">.</span><span class="n"><a href="counting_semaphore/release.html">release()</a></span><span class="p">;</span>
+      <span class="c1">// 在庫管理カウントを+1する</span>
+      <span class="n">token</span><span class="p">.</span><span class="n"><a href="counting_semaphore/release.html">release()</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="c1">// 消費者スレッド</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">consumer</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 在庫生産されるまで待機し、在庫管理カウントを-1する</span>
+      <span class="n">token</span><span class="p">.</span><span class="n"><a href="counting_semaphore/acquire.html">acquire()</a></span><span class="p">;</span>
+      <span class="c1">// アイテム在庫から取出</span>
+      <span class="n">guard</span><span class="p">.</span><span class="n"><a href="counting_semaphore/acquire.html">acquire()</a></span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">item</span> <span class="o">=</span> <span class="n">stock</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+      <span class="n"><a href="../queue/queue/pop.html">stock.pop()</a></span><span class="p">;</span>
+      <span class="n">guard</span><span class="p">.</span><span class="n"><a href="counting_semaphore/release.html">release()</a></span><span class="p">;</span>
+      <span class="c1">// アイテムを消費</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">item</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="n">producer</span><span class="p">.</span><span class="n"><a href="../thread/thread/join.html">join()</a></span><span class="p">;</span>
+  <span class="n">consumer</span><span class="p">.</span><span class="n"><a href="../thread/thread/join.html">join()</a></span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>100
+200
+300
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 11.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../condition_variable.html">&lt;condition_variable&gt;</a></code></li>
+<li><code><a href="../mutex.html">&lt;mutex&gt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://web.archive.org/web/20230605023712/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/semop.2.html" target="_blank">semop, semtimedop - System V セマフォの操作</a></li>
+<li><a href="https://web.archive.org/web/20230611015117/https://linuxjm.osdn.jp/html/LDP_man-pages/man7/sem_overview.7.html" target="_blank">sem_overview - POSIX セマフォの概要</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/sync/semaphore-objects" target="_blank">Windows, Semaphore Objects</a></li>
+<li><a href="https://developer.apple.com/documentation/dispatch/dispatch_semaphore" target="_blank">macOS/iOS, Dispatch Semaphore</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

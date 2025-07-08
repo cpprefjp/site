@@ -1,0 +1,445 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>with_awaitable_senders - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class template,std::execution,cpp26
+">
+        <meta name="title" content="with_awaitable_senders - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="with_awaitable_senders - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="with_awaitable_senders - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/with_awaitable_senders.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`with_awaitable_senders`は、[コルーチンPromise型](/lang/cpp20/coroutines.md)の基底クラスとして利用することで、[Sender](sender.md)を`co_await`演算子でAwait可能とするクラステンプレートである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="with_awaitable_senders - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/with_awaitable_senders.html" />
+        <meta name="twitter:description" content="`with_awaitable_senders`は、[コルーチンPromise型](/lang/cpp20/coroutines.md)の基底クラスとして利用することで、[Sender](sender.md)を`co_await`演算子でAwait可能とするクラステンプレートである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;331f227953ed3bb4d3419a8ee39cacdd150883e1&#34;, &#34;source&#34;: &#34;#include &lt;coroutine&gt;\n#include &lt;print&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\ntemplate&lt;typename T&gt;\nclass Lazy {\npublic:\n  struct promise_type;\n  using value_type = T;\n  using handle_type = std::coroutine_handle&lt;promise_type&gt;;\n\n  struct promise_type : ex::with_awaitable_senders&lt;promise_type&gt; {\n    value_type value_;\n    auto get_return_object() { return Lazy{handle_type::from_promise(*this)}; }\n    auto initial_suspend() noexcept { return std::suspend_always{}; }\n    auto final_suspend() noexcept { return std::suspend_always{}; }\n    void unhandled_exception() { throw; }\n    void return_value(value_type v) noexcept { value_ = v; }\n  };\n\nprivate:\n  Lazy(handle_type h) : coro_{h} {}\n\npublic:\n  Lazy(Lazy&amp;&amp; rhs)\n    : coro_{std::exchange(rhs.coro_, nullptr)} {}\n  Lazy&amp; operator=(Lazy&amp;&amp; rhs) {\n    if (coro_) { std::exchange(coro_, nullptr).destroy(); }\n    std::swap(rhs.coro_, coro_);\n    return *this;\n  }\n  ~Lazy()\n    { if (coro_) { coro_.destroy(); } }\n\n  value_type get() {\n    assert(coro_);\n    if (!coro_.done()) {\n      coro_.resume();\n    }\n    return coro_.promise().value_;\n  }\n\nprivate:\n  handle_type coro_;\n};\n\n// Sender\u3092Await\u53ef\u80fd\u306a\u30b3\u30eb\u30fc\u30c1\u30f3\nLazy&lt;int&gt; coro(int n)\n{\n  std::println(\&#34;coro start\&#34;);\n  ex::sender auto sndr =\n    ex::just(n)\n    | ex::then([](int m){ return m * 3; });\n\n  // Sender\u3092\u958b\u59cb\u3057\u3066\u5024\u53d6\u5f97\u3092\u5f85\u6a5f\n  int val = co_await sndr;\n\n  std::println(\&#34;coro end\&#34;);\n  co_return val * 7;\n}\n\nint main()\n{\n  try {\n    auto task = coro(2);\n    std::println(\&#34;get\&#34;);\n    auto value = task.get();\n    std::println(\&#34;value={}\&#34;, value);\n  } catch (...) {\n    std::println(\&#34;&lt;exception&gt;\&#34;);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;with_awaitable_senders&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">with_awaitable_senders</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-30T14:37:05">
+        2025年05月30日 14時37分05秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/with_awaitable_senders.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/with_awaitable_senders.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">with_awaitable_senders</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../class-type.html">class-type</a></span> <span class="n">Promise</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">with_awaitable_senders</span> <span class="p">{</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherPromise</span><span class="o">&gt;</span>
+      <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="p">,</span> <span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="kt">void</span> <span class="n">set_continuation</span><span class="p">(</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">OtherPromise</span><span class="o">&gt;</span> <span class="n">h</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+
+    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="n">continuation</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">continuation</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="n">unhandled_stopped</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="p">(</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/address.html">address()</a></span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Value</span><span class="o">&gt;</span>
+    <span class="n"><i>see below</i></span> <span class="n">await_transform</span><span class="p">(</span><span class="n">Value</span><span class="o">&amp;&amp;</span> <span class="n">value</span><span class="p">);</span>
+
+  <span class="k">private</span><span class="o">:</span>
+    <span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span> <span class="k">static</span> <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span>
+      <span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
+      <span class="n"><a href="../../exception/terminate.html">terminate()</a></span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="n">continuation</span><span class="p">{};</span>                       <span class="c1">// exposition only</span>
+    <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;&gt;</span> <span class="p">(</span><span class="o">*</span><span class="n">stopped</span><span class="o">-</span><span class="n">handler</span><span class="p">)(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span>  <span class="c1">// exposition only</span>
+      <span class="o">&amp;</span><span class="k">default</span><span class="o">-</span><span class="n">unhandled</span><span class="o">-</span><span class="n">stopped</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>with_awaitable_senders</code>は、<a href="../../../lang/cpp20/coroutines.html">コルーチンPromise型</a>の基底クラスとして利用することで、<a href="sender.html">Sender</a>を<code>co_await</code>演算子でAwait可能とするクラステンプレートである。</p>
+<p>また<code>unhandled_stopped</code>のデフォルト実装を提供し、Senderが<code><a href="set_stopped.html">set_stopped</a></code>を呼び出して停止完了したとき、Await式からキャッチできない "停止" <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出されたかのように取り扱う。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(constructor)</code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="with_awaitable_senders/set_continuation.html">set_continuation</a></code></td>
+<td>継続ハンドラを設定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>continuation</code></td>
+<td>継続ハンドラを返す</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>unhandled_stopped</code></td>
+<td>停止ハンドラを返す</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="with_awaitable_senders/await_transform.html">await_transform</a></code></td>
+<td><a href="../../../lang/cpp20/coroutines.html"><code>co_await</code>演算子</a>へアダプトしAwaitableオブジェクトを返す</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default-unhandled-stopped</code></td>
+<td>説明専用のデフォルト停止ハンドラ</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="331f227953ed3bb4d3419a8ee39cacdd150883e1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../coroutine.html">&lt;coroutine&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">Lazy</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">struct</span> <span class="n">promise_type</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">handle_type</span> <span class="o">=</span> <span class="n"><a href="../../coroutine/coroutine_handle.html">std::coroutine_handle</a></span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">struct</span> <span class="nl">promise_type</span> <span class="p">:</span> <span class="n"><span style="color:#ff0000">ex::with_awaitable_senders</span></span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">value_type</span> <span class="n">value_</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="nf">get_return_object</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Lazy</span><span class="p">{</span><span class="n">handle_type</span><span class="o">::</span><span class="n"><a href="../../coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)};</span> <span class="p">}</span>
+    <span class="k">auto</span> <span class="nf">initial_suspend</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../../coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span> <span class="p">}</span>
+    <span class="k">auto</span> <span class="nf">final_suspend</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../../coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">unhandled_exception</span><span class="p">()</span> <span class="p">{</span> <span class="k">throw</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">return_value</span><span class="p">(</span><span class="n">value_type</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n">value_</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">};</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">Lazy</span><span class="p">(</span><span class="n">handle_type</span> <span class="n">h</span><span class="p">)</span> <span class="o">:</span> <span class="n">coro_</span><span class="p">{</span><span class="n">h</span><span class="p">}</span> <span class="p">{}</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Lazy</span><span class="p">(</span><span class="n">Lazy</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">coro_</span><span class="p">{</span><span class="n"><a href="../../utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro_</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">)}</span> <span class="p">{}</span>
+  <span class="n">Lazy</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Lazy</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">coro_</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">coro_</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">).</span><span class="n"><a href="../../coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro_</span><span class="p">,</span> <span class="n">coro_</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="o">~</span><span class="n">Lazy</span><span class="p">()</span>
+    <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="n">coro_</span><span class="p">)</span> <span class="p">{</span> <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+
+  <span class="n">value_type</span> <span class="n">get</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">coro_</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/done.html">done()</a></span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">value_</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">handle_type</span> <span class="n">coro_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// SenderをAwait可能なコルーチン</span>
+<span class="n">Lazy</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">coro</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"coro start"</span><span class="p">);</span>
+  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span>
+    <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n"><a href="then.html">ex::then</a></span><span class="p">([](</span><span class="kt">int</span> <span class="n">m</span><span class="p">){</span> <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span> <span class="p">});</span>
+
+  <span class="c1">// Senderを開始して値取得を待機</span>
+  <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">co_await</span> <span class="n">sndr</span><span class="p">;</span>
+
+  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"coro end"</span><span class="p">);</span>
+  <span class="n">co_return</span> <span class="n">val</span> <span class="o">*</span> <span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">task</span> <span class="o">=</span> <span class="n">coro</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"get"</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="n">task</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"value={}"</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
+    <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"<a href="../../exception.html">&lt;exception&gt;</a>"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>get
+coro start
+coro end
+value=42
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="as_awaitable.html">execution::as_awaitable</a></code></li>
+<li><a href="../../../lang/cpp20/coroutines.html">コルーチン</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3325r5.html" target="_blank">P3325R5 A Utility for Creating Execution Environments</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

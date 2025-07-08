@@ -1,0 +1,328 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ブロックスコープを持つstatic変数初期化のスレッドセーフ化 [N2660] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="ブロックスコープを持つstatic変数初期化のスレッドセーフ化 [N2660] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ブロックスコープを持つstatic変数初期化のスレッドセーフ化 [N2660] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ブロックスコープを持つstatic変数初期化のスレッドセーフ化 [N2660] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/static_initialization_thread_safely.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="ブロックスコープを持つ`static`変数の初期化は、スレッドセーフであることが規定された。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ブロックスコープを持つstatic変数初期化のスレッドセーフ化 [N2660] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/static_initialization_thread_safely.html" />
+        <meta name="twitter:description" content="ブロックスコープを持つ`static`変数の初期化は、スレッドセーフであることが規定された。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7e76dfce3853223fb170c9d79858dc934340c9e6&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n#include &lt;vector&gt;\n#include &lt;cassert&gt;\n\nclass singleton {\n  int value_ = 3;\npublic:\n  static singleton&amp; get_instance()\n  {\n    static singleton instance; // \u3053\u306e\u521d\u671f\u5316\u306f\u30b9\u30ec\u30c3\u30c9\u30bb\u30fc\u30d5\n    return instance;\n  }\n\n  int get() const\n  { return value_; }\n};\n\nint main()\n{\n  // 4\u30b9\u30ec\u30c3\u30c9\u3067\u4e26\u884c\u306b\u3001\n  // singleton\u306estatic\u5909\u6570\u3078\u3068\u30a2\u30af\u30bb\u30b9\u3059\u308b\n  std::vector&lt;std::thread&gt; threads;\n  for (int i = 0; i &lt; 4; ++i) {\n    std::thread t([] {\n      // singleton\u306e\u30e1\u30f3\u30d0\u5909\u6570value_\u304c\n      // \u5e38\u306b\u521d\u671f\u5316\u3055\u308c\u305f\u72b6\u614b\u3067\u3042\u308b\u3053\u3068\u3092\u78ba\u8a8d\n      assert(singleton::get_instance().get() == 3);\n    });\n    threads.push_back(std::move(t));\n  }\n\n  for (std::thread&amp; t : threads) {\n    t.join();\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;static_initialization_thread_safely&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">ブロックスコープを持つstatic変数初期化のスレッドセーフ化 [N2660]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/static_initialization_thread_safely.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/static_initialization_thread_safely.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">ブロックスコープを持つstatic変数初期化のスレッドセーフ化 [N2660]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>ブロックスコープを持つ<code>static</code>変数の初期化は、スレッドセーフであることが規定された。</p>
+<p><code>static</code>変数の初期化が完了するまで、他のスレッドは初期化処理の前で待機する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">singleton</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">static</span> <span class="n">singleton</span><span class="o">&amp;</span> <span class="n">get_instance</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="n">singleton</span> <span class="n">instance</span><span class="p">;</span> <span class="c1">// この初期化はスレッドセーフ</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<h3>staticローカル変数の初期化</h3>
+<ul>
+<li>ローカルの<code>static</code>変数を宣言と同時に初期化した場合、並行実行は初期化が完了するまで待機しなければならない</li>
+</ul>
+<h3>非ローカルなstatic変数の初期化</h3>
+<ul>
+<li>非ローカルな<code>static</code>変数の初期化は、<code>main()</code>関数が開始する前に順不同で行われること</li>
+</ul>
+<h3>static変数のデストラクタ</h3>
+<ul>
+<li><code>static</code>変数のデストラクタは、全てのスレッドが終了したあとに、宣言と逆の順番にデストラクタが呼び出され、破棄される</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="7e76dfce3853223fb170c9d79858dc934340c9e6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">singleton</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value_</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">static</span> <span class="n">singleton</span><span class="o">&amp;</span> <span class="n">get_instance</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="n">singleton</span> <span class="n">instance</span><span class="p">;</span> <span class="c1">// この初期化はスレッドセーフ</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span> <span class="k">return</span> <span class="n">value_</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 4スレッドで並行に、</span>
+  <span class="c1">// singletonのstatic変数へとアクセスする</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="o">&gt;</span> <span class="n">threads</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">([]</span> <span class="p">{</span>
+      <span class="c1">// singletonのメンバ変数value_が</span>
+      <span class="c1">// 常に初期化された状態であることを確認</span>
+      <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">singleton</span><span class="o">::</span><span class="n">get_instance</span><span class="p">().</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="n">threads</span><span class="p">.</span><span class="n"><a href="../../reference/vector/vector/push_back.html">push_back</a></span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span><span class="o">&amp;</span> <span class="nl">t</span> <span class="p">:</span> <span class="n">threads</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>ローカルの<code>static</code>変数を初期化することがスレッドセーフではなかった前バージョンまでは、同じことをするために、Double Checked Lockingという技法によって、ユーザーが初期化をスレッドセーフにしていた。それは、以下のようなものである：</p>
+<ol>
+<li><code>static</code>ローカル変数の代わりに、ポインタを<code>static</code>メンバ変数として持つ</li>
+<li>ポインタがヌルかどうかをチェックし、ヌルであればロックを取得する</li>
+<li>ヌルチェックとロック取得の間に有効なポインタになる可能性があるためにロック取得後にさらにヌルチェックをし、ヌルであれば初期化をする</li>
+</ol>
+<p>こういった技法は非常に難しく、潜在的な並行性バグの可能性があるためにユーザーの行動を制限していた。</p>
+<p>そのために、言語によって<code>static</code>変数の初期化がスレッドセーフであることを保証することとなった。</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2148.html" target="_blank">N2148 Dynamic Initialization and Destruction with Concurrency</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2325.html" target="_blank">N2325 Dynamic Initialization and Destruction with Concurrency</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2382.html" target="_blank">N2382 Dynamic Initialization and Destruction with Concurrency</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2444.html" target="_blank">N2444 Dynamic Initialization and Destruction with Concurrency</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2513.html" target="_blank">N2513 Dynamic Initialization and Destruction with Concurrency</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2660.htm" target="_blank">N2660 Dynamic Initialization and Destruction with Concurrency</a></li>
+<li><a href="http://yamasa.hatenablog.jp/entry/20100128/1264693781" target="_blank">C++0x時代の Double-Checked Locking - yamasaのネタ帳</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

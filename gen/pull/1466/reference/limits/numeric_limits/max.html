@@ -1,0 +1,487 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>numeric_limits::max - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,limits,std,numeric_limits,function
+">
+        <meta name="title" content="numeric_limits::max - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="numeric_limits::max - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="numeric_limits::max - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/limits/numeric_limits/max.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="型`T`の値の最大値を取得する" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="numeric_limits::max - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/limits/numeric_limits/max.html" />
+        <meta name="twitter:description" content="型`T`の値の最大値を取得する" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;limits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;numeric_limits&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d17445ab95bff0ad7a55f083438e4b624ca9c2f2&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;limits&gt;\n\nint main()\n{\n  constexpr int i = std::numeric_limits&lt;int&gt;::max();\n  constexpr double d = std::numeric_limits&lt;double&gt;::max();\n\n  std::cout &lt;&lt; i &lt;&lt; std::endl;\n  std::cout &lt;&lt; d &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;limits&#34;, &#34;numeric_limits&#34;, &#34;max&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/limits.html" itemprop="url">
+              
+                <span itemprop="name">limits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/limits/numeric_limits.html" itemprop="url">
+              
+                <span itemprop="name">numeric_limits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">max</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2017-11-27T05:01:15">
+        2017年11月27日 05時01分15秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/limits/numeric_limits/max.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/limits/numeric_limits/max.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;limits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class numeric_limits">numeric_limits::</span><span class="token">max</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="n">T</span> <span class="nf">max</span><span class="p">()</span> <span class="k">throw</span><span class="p">();</span>            <span class="c1">// C++03</span>
+<span class="k">static</span> <span class="k">constexpr</span> <span class="n">T</span> <span class="nf">max</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// C++11</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>型<code>T</code>の値の最大値を取得する</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>指定された型の有限値のうち最大のもの。<br />
+浮動小数点数の場合、無限大やNaNではない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
+<h2>備考</h2>
+<p><code>is_specialized == false</code>の場合は<code>T()</code>が返される。<br />
+C++03バージョンは<code>constexpr</code>ではないため、非定数式となる。  </p>
+<p>対応するマクロを次の表に挙げる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>対応するマクロ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unsigned char</code></td>
+<td><code><a href="../../climits/uchar_max.html">UCHAR_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>signed char</code></td>
+<td><code><a href="../../climits/schar_max.html">SCHAR_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td><code><a href="../../climits/char_max.html">CHAR_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>unsigned short</code></td>
+<td><code><a href="../../climits/ushrt_max.html">USHRT_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td><code><a href="../../climits/shrt_max.html">SHRT_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>unsigned</code></td>
+<td><code><a href="../../climits/uint_max.html">UINT_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code><a href="../../climits/int_max.html">INT_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>unsigned long</code></td>
+<td><code><a href="../../climits/ulong_max.html">ULONG_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td><code><a href="../../climits/long_max.html">LONG_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>unsigned long long</code></td>
+<td><code><a href="../../climits/ullong_max.html">ULLONG_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>long long</code></td>
+<td><code><a href="../../climits/llong_max.html">LLONG_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint8_t.html">uint8_t</a></code></td>
+<td><code><a href="../../cstdint/uint8_max.html">UINT8_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int8_t.html">int8_t</a></code></td>
+<td><code><a href="../../cstdint/int8_max.html">INT8_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint16_t.html">uint16_t</a></code></td>
+<td><code><a href="../../cstdint/uint16_max.html">UINT16_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int16_t.html">int16_t</a></code></td>
+<td><code><a href="../../cstdint/int16_max.html">INT16_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint32_t.html">uint32_t</a></code></td>
+<td><code><a href="../../cstdint/uint32_max.html">UINT32_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int32_t.html">int32_t</a></code></td>
+<td><code><a href="../../cstdint/int32_max.html">INT32_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint64_t.html">uint64_t</a></code></td>
+<td><code><a href="../../cstdint/uint64_max.html">UINT64_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int64_t.html">int64_t</a></code></td>
+<td><code><a href="../../cstdint/int64_max.html">INT64_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_fast8_t.html">uint_fast8_t</a></code></td>
+<td><code><a href="../../cstdint/uint_fast8_max.html">UINT_FAST8_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_fast8_t.html">int_fast8_t</a></code></td>
+<td><code><a href="../../cstdint/int_fast8_max.html">INT_FAST8_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_fast16_t.html">uint_fast16_t</a></code></td>
+<td><code><a href="../../cstdint/uint_fast16_max.html">UINT_FAST16_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_fast16_t.html">int_fast16_t</a></code></td>
+<td><code><a href="../../cstdint/int_fast16_max.html">INT_FAST16_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_fast32_t.html">uint_fast32_t</a></code></td>
+<td><code><a href="../../cstdint/uint_fast32_max.html">UINT_FAST32_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_fast32_t.html">int_fast32_t</a></code></td>
+<td><code><a href="../../cstdint/int_fast32_max.html">INT_FAST32_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_fast64_t.html">uint_fast64_t</a></code></td>
+<td><code><a href="../../cstdint/uint_fast64_max.html">UINT_FAST64_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_fast64_t.html">int_fast64_t</a></code></td>
+<td><code><a href="../../cstdint/int_fast64_max.html">INT_FAST64_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_least8_t.html">uint_least8_t</a></code></td>
+<td><code><a href="../../cstdint/uint_least8_max.html">UINT_LEAST8_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_least8_t.html">int_least8_t</a></code></td>
+<td><code><a href="../../cstdint/int_least8_max.html">INT_LEAST8_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_least16_t.html">uint_least16_t</a></code></td>
+<td><code><a href="../../cstdint/uint_least16_max.html">UINT_LEAST16_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_least16_t.html">int_least16_t</a></code></td>
+<td><code><a href="../../cstdint/int_least16_max.html">INT_LEAST16_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_least32_t.html">uint_least32_t</a></code></td>
+<td><code><a href="../../cstdint/uint_least32_max.html">UINT_LEAST32_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_least32_t.html">int_least32_t</a></code></td>
+<td><code><a href="../../cstdint/int_least32_max.html">INT_LEAST32_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uint_least64_t.html">uint_least64_t</a></code></td>
+<td><code><a href="../../cstdint/uint_least64_max.html">UINT_LEAST64_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/int_least64_t.html">int_least64_t</a></code></td>
+<td><code><a href="../../cstdint/int_least64_max.html">INT_LEAST64_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uintmax_t.html">uintmax_t</a></code></td>
+<td><code><a href="../../cstdint/uintmax_max.html">UINTMAX_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/intmax_t.html">intmax_t</a></code></td>
+<td><code><a href="../../cstdint/intmax_max.html">INTMAX_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/uintptr_t.html">uintptr_t</a></code></td>
+<td><code><a href="../../cstdint/uintptr_max.html">UINTPTR_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstdint/intptr_t.html">intptr_t</a></code></td>
+<td><code><a href="../../cstdint/intptr_max.html">INTPTR_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstddef/ptrdiff_t.html">ptrdiff_t</a></code></td>
+<td><code><a href="../../cstdint/ptrdiff_max.html">PTRDIFF_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>sig_atomic_t</code></td>
+<td><code><a href="../../cstdint/sig_atomic_max.html">SIG_ATOMIC_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>wchar_t</code></td>
+<td><code><a href="../../cstdint/wchar_max.html">WCHAR_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>wint_t</code></td>
+<td><code><a href="../../cstdint/wchar_max.html">WINT_MAX</a></code></td>
+</tr>
+<tr>
+<td><code><a href="../../cstddef/size_t.html">size_t</a></code></td>
+<td><code><a href="../../cstdint/size_max.html">SIZE_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td><code><a href="../../cfloat/flt_max.html">FLT_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td><code><a href="../../cfloat/dbl_max.html">DBL_MAX</a></code></td>
+</tr>
+<tr>
+<td><code>long double</code></td>
+<td><code><a href="../../cfloat/ldbl_max.html">LDBL_MAX</a></code></td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="d17445ab95bff0ad7a55f083438e4b624ca9c2f2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">max()</span></span><span class="p">;</span>
+  <span class="k">constexpr</span> <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">max()</span></span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>2147483647
+1.79769e+308
+</code></pre></p>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="lowest.html">std::numeric_limits::lowest()</a></code></li>
+<li><code><a href="min.html">std::numeric_limits::min()</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

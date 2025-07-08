@@ -1,0 +1,360 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ラムダ式の初期化キャプチャでのパック展開を許可 [P0780R2] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="ラムダ式の初期化キャプチャでのパック展開を許可 [P0780R2] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ラムダ式の初期化キャプチャでのパック展開を許可 [P0780R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ラムダ式の初期化キャプチャでのパック展開を許可 [P0780R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="[ラムダ式](/lang/cpp11/lambda_expressions.md)の[初期化キャプチャ](../cpp14/initialize_capture.md)で、パック展開ができるようになった。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ラムダ式の初期化キャプチャでのパック展開を許可 [P0780R2] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.html" />
+        <meta name="twitter:description" content="[ラムダ式](/lang/cpp11/lambda_expressions.md)の[初期化キャプチャ](../cpp14/initialize_capture.md)で、パック展開ができるようになった。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3ad81e1d7518b81351f2a70f5df1667308f1ebbf&#34;, &#34;source&#34;: &#34;#include &lt;utility&gt;\n\ntemplate &lt;class... Args&gt;\nauto g([[maybe_unused]] Args... args) {};\n\ntemplate &lt;class... Args&gt;\nauto f(Args... args) {\n  return [...args=std::move(args)] { // \u521d\u671f\u5316\u30ad\u30e3\u30d7\u30c1\u30e3\u3067\u306e\u30d1\u30c3\u30af\u5c55\u958b\n\n    g(args...); // \u30e9\u30e0\u30c0\u5f0f\u5185\u3067\u3001init-capture \u30d1\u30c3\u30af(args)\u3092\u4f7f\u3046\u4f8b\n\n  };\n}\n\ntemplate &lt;class... Args&gt;\nvoid h(Args... args) {\n  auto lm = [&amp;...refs=args] { // \u53c2\u7167\u30ad\u30e3\u30d7\u30c1\u30e3\u5f62\u5f0f\u3078\u306e\u30d1\u30c3\u30af\u5c55\u958b\n    // refs\u306e\u5404\u8981\u7d20\u306fargs\u306e\u5404\u8981\u7d20\u3078\u306e\u53c2\u7167\u3068\u306a\u308b\n  };\n\n  lm();\n} // args\u306e\u5404\u8981\u7d20\u306f\u95a2\u6570h\u7d42\u4e86\u306b\u3068\u3082\u306a\u3063\u3066\u751f\u5b58\u671f\u9593\u7d42\u4e86\u3059\u308b\u305f\u3081\u3001\n  // refs\u306e\u5404\u8981\u7d20(\u53c2\u7167\u578b)\u3078\u30a2\u30af\u30bb\u30b9\u3067\u304d\u308b\u306e\u306f\u3053\u3053\u307e\u3067\u3002\n\nint main()\n{\n  f(1, 3.14, \&#34;Hello, World!\&#34;);\n  h(1, 3.14, \&#34;Hello, World!\&#34;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;allow_pack_expansion_in_lambda_init_capture&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">ラムダ式の初期化キャプチャでのパック展開を許可 [P0780R2]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">ラムダ式の初期化キャプチャでのパック展開を許可 [P0780R2]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><a href="../cpp11/lambda_expressions.html">ラムダ式</a>の<a href="../cpp14/initialize_capture.html">初期化キャプチャ</a>で、パック展開ができるようになった。</p>
+<p>例えば、関数パラメーターパックをムーブしてキャプチャしようとする際には、次のように書くことができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[...</span><span class="n">args</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">args</span><span class="p">)]</span> <span class="p">{</span> <span class="c1">// 初期化キャプチャでのパック展開</span>
+
+    <span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span> <span class="c1">// ラムダ式内で、パックを使う例</span>
+
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<ul>
+<li>省略記号（<code>...</code>）が前に付いた初期化キャプチャは、宣言領域がラムダ式内である初期化キャプチャ(init-capture)パックを導入するパック展開である。</li>
+<li>init-capture パックは、初期化子のパック展開の各要素に init-capture を導入する。</li>
+</ul>
+<p>例：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[...</span><span class="n">xs</span><span class="o">=</span><span class="n">args</span><span class="p">]{</span>
+        <span class="n">bar</span><span class="p">(</span><span class="n">xs</span><span class="p">...);</span> <span class="c1">// xs は init-capture パック</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="n">foo</span><span class="p">();</span>  <span class="c1">// OK: xs にはゼロ個の初期化キャプチャが含まれています</span>
+<span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// OK: xs にはひとつの初期化キャプチャが含まれています</span>
+</code></pre></div>
+</p>
+<ul>
+<li>パックは、テンプレートパラメータパック、関数パラメータパック、または初期化キャプチャ(init-capture)パックである。 テンプレートパラメータパックまたは関数パラメータパックの要素の数は、パラメータパック識別子に指定された引数の数である。init-capture パックの要素の数は、その初期化子のパック展開の要素の数である。(「パック」の中に init-capture パックが追加された)</li>
+<li>インスタンス化のコンテキストで、init-capture パックの要素は 初期化キャプチャ(init-capture) によって宣言された変数を指定する id-expression であり、パックが宣言されているパターンのインスタンス化の結果である。</li>
+</ul>
+<p>注：パターンとは、パック展開の省略記号ではないもので、例えば</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">f</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rest</span> <span class="p">...);</span>
+</code></pre></div>
+</p>
+<p>があるとき、<code>&amp;rest ...</code> がパック展開で、<code>&amp;rest</code> がパターンである。</p>
+<h2>例</h2>
+<p><div class="yata" id="3ad81e1d7518b81351f2a70f5df1667308f1ebbf"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">g</span><span class="p">([[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">[...</span><span class="n">args</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">args</span><span class="p">)]</span> <span class="p">{</span> <span class="c1">// 初期化キャプチャでのパック展開</span>
+
+    <span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span> <span class="c1">// ラムダ式内で、init-capture パック(args)を使う例</span>
+
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">h</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">lm</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">...</span><span class="n">refs</span><span class="o">=</span><span class="n">args</span><span class="p">]</span> <span class="p">{</span> <span class="c1">// 参照キャプチャ形式へのパック展開</span>
+    <span class="c1">// refsの各要素はargsの各要素への参照となる</span>
+  <span class="p">};</span>
+
+  <span class="n">lm</span><span class="p">();</span>
+<span class="p">}</span> <span class="c1">// argsの各要素は関数h終了にともなって生存期間終了するため、</span>
+  <span class="c1">// refsの各要素(参照型)へアクセスできるのはここまで。</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s">"Hello, World!"</span><span class="p">);</span>
+  <span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s">"Hello, World!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>パラメーターパックをラムダ式でキャプチャする際、コピーもしくは参照キャプチャ（あるいは <code>std::tuple</code>）を用いることでしかキャプチャをすることができず、初期化キャプチャにおいてパラメータパックの展開は禁止されていた。</p>
+<p>例えば、上記の例にある関数 <code>f</code> は、C++17 以前では次のように書く必要がある。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">tup</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">make_tuple</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">args</span><span class="p">)...)]</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">apply</span><span class="p">([](</span><span class="k">auto</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="../cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
+    <span class="p">},</span> <span class="n">tup</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>このようなコードは理解し難いため、この機能が提案された。</p>
+<p>また、C++17 までの初期化キャプチャにおけるパック展開の制限は、ラムダ式の初期化キャプチャがクロージャー型に「名前付き」メンバを導入することによるものだった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">call_f</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">...);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>C++17時点（そして現在でも）、パラメータパックは可変長テンプレートの文脈でしか現れないため、このようなコードは<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="../../implementation-compliance.html#dfn-no-diagnostic-required">診断不要</a>のエラーとなる。しかし、初期化キャプチャでのパック展開を許可してしまうとクラスメンバとしてパラメータパックが導入されるため、このコードが有効となる可能性がある。その結果、式に展開されていないパラメータパックが含まれているかどうかを構文によって（可変長テンプレートの文脈であるか否かによって）判断するメカニズムが失われてしまい、非テンプレートの文脈ですらパラメータパックが出現することを考慮しなければならなくなるなど、実装に多大な影響を与える。そしてそれは当時の実装では不可能であった。</p>
+<p>しかし、この問題は<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1760" target="_blank">CWG 1760</a> の採用によって、初期化キャプチャはクロージャ型に名前付きメンバではなく無名メンバを導入するように文言が変更されたため、問題ではなくなっていた。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>P0780R2 のひとつ前のリビジョンである <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0780r1.html" target="_blank">P0780R1</a> では、 <code>...</code> 記号の位置が、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">args</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">args</span><span class="p">)...]</span> <span class="p">{</span>
+    <span class="n">g</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>のような位置で提案されていた。これが現在のようになったのは、<code>...</code> の位置が導入する名前に先行する、既存の慣行と一致するようにするためである。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/lambda_expressions.html">C++11 ラムダ式</a></li>
+<li><a href="../cpp14/initialize_capture.html">C++14 ラムダ式の初期化キャプチャ</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0780r2.html" target="_blank">P0780R2 Allow pack expansion in lambda init-capture</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1760" target="_blank">CWG 1760: Access of member corresponding to init-capture</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2095r0.html" target="_blank">P2095R0 Resolve lambda init-capture pack grammar (CWG2378)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

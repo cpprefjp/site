@@ -1,0 +1,621 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>暗黙的なムーブを簡略化 [P2266R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp23
+">
+        <meta name="title" content="暗黙的なムーブを簡略化 [P2266R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="暗黙的なムーブを簡略化 [P2266R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="暗黙的なムーブを簡略化 [P2266R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp23/simpler_implicit_move.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="暗黙的なムーブを簡略化 [P2266R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp23/simpler_implicit_move.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp23&#34;, &#34;simpler_implicit_move&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp23.html" itemprop="url">
+              
+                <span itemprop="name">C++23</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">暗黙的なムーブを簡略化 [P2266R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp23/simpler_implicit_move.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp23/simpler_implicit_move.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">暗黙的なムーブを簡略化 [P2266R3]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++23に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++20の暗黙ムーブ仕様においては、暗黙ムーブ可能なもの（関数ローカルのオブジェクト/右辺値参照）が<code>return</code>文においてコピーされる場合に、可能ならば暗黙的にムーブして<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を構築するものだった。しかし、暗黙ムーブ可能なものを返しており<code>return</code>文でコピーが起こらない場合で、暗黙ムーブを行うことが適切な場合がまだ存在していた。</p>
+<p>C++23ではその様なものを暗黙ムーブの対象に含めるために暗黙ムーブ仕様の調整が行われた。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 例示用のムーブ可能な型</span>
+<span class="k">struct</span> <span class="n">Widget</span> <span class="p">{</span>
+  <span class="n">Widget</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Widgetの右辺値から構築可能な型</span>
+<span class="k">struct</span> <span class="n">RRefTaker</span> <span class="p">{</span>
+  <span class="n">RRefTaker</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+
+<span class="k">auto</span> <span class="nf">example1</span><span class="p">(</span><span class="n">Widget</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RRefTaker</span> <span class="p">{</span>
+  <span class="c1">// ローカル変数の暗黙ムーブ</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// ok、C++11から</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="nf">example2</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RRefTaker</span> <span class="p">{</span>
+  <span class="c1">// ローカル右辺値参照の暗黙ムーブ</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// ok、C++20から</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="nf">example3</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="p">{</span>
+  <span class="c1">// ローカル右辺値参照の暗黙ムーブ（戻り値型が参照型の場合）</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// C++20ではng、C++23からok</span>
+<span class="p">}</span>
+
+<span class="c1">// 右辺値修飾変換演算子を持つ型</span>
+<span class="k">struct</span> <span class="n">Jeff</span> <span class="p">{</span>
+  <span class="k">operator</span> <span class="kt">int</span><span class="o">&amp;</span><span class="p">()</span> <span class="o">&amp;&amp;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">example4</span><span class="p">(</span><span class="n">Jeff</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="c1">// ローカル変数の暗黙ムーブ（戻り値型が参照型の場合）</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// C++20ではng、C++23からok</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>上記例の<code>example3(), example4()</code>は、C++20までは<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が参照型であるために<code>return</code>文でコピーは発生しないため、暗黙ムーブの対象になっていなかった。C++23では、これらの場合にも暗黙ムーブが試みられるようになる。</p>
+<p>また同時に、C++11で導入されて以降少しづつその対象（暗黙ムーブが起こる場合および起こる場所）を拡大してきたことで複雑化していた暗黙ムーブ仕様が整理され、その仕様と実装がかなり単純化された。</p>
+<h2>仕様</h2>
+<p><strong>暗黙ムーブ可能なエンティティ</strong>（<em>implicitly movable entity</em>）を次のどちらかとして指定する</p>
+<ul>
+<li>自動記憶域期間の非<code>volatile</code>オブジェクト型変数</li>
+<li>自動記憶域期間の非<code>volatile</code>オブジェクト型への右辺値参照</li>
+</ul>
+<p>暗黙ムーブ可能なエンティティが次の場所で指名されている場合、その式は<strong>ムーブする資格がある式</strong>（<em>move-eligible</em>）となる</p>
+<ul>
+<li><code>return/co_return</code>文のオペランド（以下の条件を全て満たすもの）<ul>
+<li>オペランドは変数名を指定する式（<em>id-expression</em>）であり（<code>()</code>で囲まれていても良い）</li>
+<li>その変数名は、その文を囲む最も内側の関数（もしくはラムダ式）の本体内もしくは関数引数宣言内の、暗黙ムーブ可能なエンティティを指定している</li>
+</ul>
+</li>
+<li><code>throw</code>式のオペランド（以下の条件を全て満たすもの）<ul>
+<li>オペランドは変数名を指定する式であり（<code>()</code>で囲まれていても良い）</li>
+<li>その変数名のスコープは、囲む最も内側のtryブロックのスコープよりも長くなく</li>
+<li>その変数名は暗黙ムーブ可能なエンティティを指定している</li>
+</ul>
+</li>
+</ul>
+<p>そして、ムーブする資格がある式の値カテゴリは<em>xvalue</em>となる。</p>
+<p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は<code>return</code>文のオペランドからコピー初期化される。C++23において暗黙ムーブが可能な場合とはすなわち、<code>return</code>文のオペランドがムーブする資格がある式である場合のことで、その式（オペランド）は実際の値カテゴリがなんであれ<em>xvalue</em>として扱われる（つまり、<code>std::move()</code>されたのと等しくなる）ことで暗黙ムーブが適用される。</p>
+<p>ムーブする資格がある式は必ず変数名を指定する式（<em>id-expression</em>）であるため、<em>prvalue</em>な<code>return</code>文オペランドに対して適用される<a href="../cpp17/guaranteed_copy_elision.html">コピー省略</a>と複合することは無い。NRVOとは複合しうるが、その場合は暗黙ムーブによって呼び出されるムーブコンストラクタの呼び出しがNRVOによって省略される。</p>
+<h3>副作用</h3>
+<p>この仕様の単純化はいくつか以前の動作を変更している。</p>
+<p>まず、<code>return</code>文のオペランドがムーブする資格がある式となる場合その式の値カテゴリは<em>xvalue</em>として扱われることで、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論の結果が変わる場合がある。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="../cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">n</span><span class="p">);</span>   <span class="c1">// かっこに囲まれたid-expression、ムーブする資格がある式</span>
+<span class="p">}</span>
+<span class="c1">// C++20 : 戻り値型はint&amp;</span>
+<span class="c1">// C++23 : 戻り値型はint&amp;&amp;</span>
+
+<span class="k">auto</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>     <span class="c1">// id-expression、ムーブする資格がある式</span>
+<span class="p">}</span>
+<span class="c1">// C++20 : 戻り値型はint&amp;</span>
+<span class="c1">// C++23 : 戻り値型はint&amp;&amp;</span>
+</code></pre></div>
+</p>
+<p><code>decltype(auto)</code>による<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論では、<code>return</code>文のオペランドを<code>decltype</code>することで<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を推論する。<code>decltype</code>は変数名に対して使用された時はその変数の宣言された型を取得するが、変数名がかっこに囲まれている場合はかっこに囲まれた<em>id-expression</em>として値カテゴリを含めたその式の型を取得する。このため、上記<code>f()</code>のように、<code>decltype(auto)</code><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の関数で<code>return</code>文のオペランドがかっこに囲まれた変数名であり、C++23でそのオペランドがムーブする資格がある式となる場合、その値カテゴリが変更される（<em>lvalue</em> -&gt; <em>xvalue</em>）ことによって<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論結果が変化する。</p>
+<p><code>auto&amp;&amp;</code>による<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論は<code>decltype</code>と推論方法が異なるものの、やはり<code>return</code>文のオペランドの値カテゴリに応じて参照修飾が決定されるため、従来左辺値（<em>lvalue</em>）だったオペランドがC++23でムーブする資格がある式となる場合に、値カテゴリが<em>xvalue</em>となることによって推論結果が変化する。</p>
+<p>ただし、変更に関わらず、この例のような関数はどちらもローカル変数への参照を返すものであるため、書くべきではない。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論においては、この他の場合には結果は変化しない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="../cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// C++20/23共に戻り値型はint</span>
+
+<span class="k">auto</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">auto</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// C++20/23共に戻り値型はint</span>
+
+<span class="k">auto</span> <span class="nf">f3</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// C++20/23共に戻り値型はint&amp;</span>
+<span class="c1">// ただし、後述のようにC++23ではエラー</span>
+
+<span class="k">auto</span> <span class="nf">f4</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// C++20/23共に戻り値型はconst int&amp;</span>
+</code></pre></div>
+</p>
+<p>そして、同様に<code>return</code>文オペランドの値カテゴリが変化することによって、ローカル変数の参照を返す一部の関数が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>になる様になる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// ng、nはムーブする資格のある式であり、その型と値カテゴリはint&amp;&amp;（戻り値型と一致しない）</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="nf">g</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/functional/reference_wrapper.html">reference_wrapper</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// ng、nはムーブする資格のある式であり、その型と値カテゴリはint&amp;&amp;（<a href="../../reference/functional/reference_wrapper.html">reference_wrapper</a>のコンストラクタで拒否される）</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>ただし、ローカル参照変数は暗黙ムーブ可能なエンティティではないため、ローカル参照を返そうとする場合従来通りエラーにはならない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// ok、rはムーブする資格のある式ではなく、その型と値カテゴリはint&amp;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>また、この変更とは逆に、ローカル変数の右辺値参照を返そうとする場合が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>になってしまう。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">&amp;&amp;</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// C++20ではng</span>
+            <span class="c1">// C++23ではok、nはムーブする資格のある式であり、その型と値カテゴリはint&amp;&amp;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>副作用早見表</h3>
+<p>任意の型名を<code>T</code>（<code>T&amp;&amp;</code>は右辺値参照型）として、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論とコンパイル可否の変化は次のようにまとめられる</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>関数宣言と<code>return</code>文</th>
+<th align="center">C++20まで</th>
+<th align="center">C++23から</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto f(T x) -&gt; decltype(x) { return x; }</code></td>
+<td align="center"><code>T</code> : 〇</td>
+<td align="center">―</td>
+<td></td>
+</tr>
+<tr>
+<td><code>auto f(T x) -&gt; decltype((x)) { return (x); }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><code>T&amp;</code> : <strong>×</strong></td>
+<td>ローカル参照を返していた</td>
+</tr>
+<tr>
+<td><code>auto f(T x) -&gt; decltype(auto) { return x; }</code></td>
+<td align="center"><code>T</code> : 〇</td>
+<td align="center">―</td>
+<td></td>
+</tr>
+<tr>
+<td><code>auto f(T x) -&gt; decltype(auto) { return (x); }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td>ローカル参照を返す</td>
+</tr>
+<tr>
+<td><code>auto f(T&amp;&amp; x) -&gt; decltype(x) { return x; }</code></td>
+<td align="center"><code>T&amp;&amp;</code> : ×</td>
+<td align="center"><code>T&amp;&amp;</code> : <strong>〇</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>auto f(T&amp;&amp; x) -&gt; decltype((x)) { return (x); }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><code>T&amp;</code> : <strong>×</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>auto f(T&amp;&amp; x) -&gt; decltype(auto) { return x; }</code></td>
+<td align="center"><code>T&amp;&amp;</code> : ×</td>
+<td align="center"><code>T&amp;&amp;</code> : <strong>〇</strong></td>
+<td><code>x</code>がローカル変数の場合ローカル参照を返すようになる</td>
+</tr>
+<tr>
+<td><code>auto f(T&amp;&amp; x) -&gt; decltype(auto) { return (x); }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td><code>x</code>がローカル変数の場合ローカル参照を返す</td>
+</tr>
+<tr>
+<td><code>auto f(T x) -&gt; auto&amp;&amp; { return x; }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td>ローカル参照を返す</td>
+</tr>
+<tr>
+<td><code>auto f(T x) -&gt; auto&amp;&amp; { return (x); }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td>ローカル参照を返す</td>
+</tr>
+<tr>
+<td><code>auto f(T&amp;&amp; x) -&gt; auto&amp;&amp; { return x; }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td><code>x</code>がローカル変数の場合ローカル参照を返す</td>
+</tr>
+<tr>
+<td><code>auto f(T&amp;&amp; x) -&gt; auto&amp;&amp; { return (x); }</code></td>
+<td align="center"><code>T&amp;</code> : 〇</td>
+<td align="center"><strong><code>T&amp;&amp;</code> :</strong> 〇</td>
+<td><code>x</code>がローカル変数の場合ローカル参照を返す</td>
+</tr>
+</tbody>
+</table>
+<p>表の中2列の各項目内は、推論される<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型:コンパイル可否、のように記述している。また、表中の記号の意味は次のとおり</p>
+<ul>
+<li>〇 : <a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>（コンパイルが通る）</li>
+<li>× : <a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>（コンパイルエラー）</li>
+<li>― : 変化なし</li>
+</ul>
+<h2>例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Weird</span> <span class="p">{</span>
+  <span class="n">Weird</span><span class="p">();</span>
+  <span class="n">Weird</span><span class="p">(</span><span class="n">Weird</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">g</span><span class="p">(</span><span class="kt">bool</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weird</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="n">Weird</span> <span class="n">w1</span><span class="p">;</span>
+  <span class="n">Weird</span> <span class="n">w2</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">w1</span><span class="p">;</span>  <span class="c1">// ok、w1はムーブする資格のある式ではなく、Weird(Weird&amp;)が呼ばれる</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">w2</span><span class="p">;</span>  <span class="c1">// ng、w2はムーブする資格のある式であり、xvalue（Weird&amp;&amp;）となる</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// ムーブしないことを明示する関数、C++20までは使用可能</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">unmove</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">v</span><span class="p">;</span> <span class="c1">// C++23からng、vはxvalue</span>
+<span class="p">}</span>
+
+<span class="c1">// C++23では次のように修正する必要がある</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">unmove</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="c1">// ok、キャスト式はムーブする資格のある式ではない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 例示用のムーブ可能な型</span>
+<span class="k">struct</span> <span class="n">Widget</span> <span class="p">{</span>
+  <span class="n">Widget</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">f1</span><span class="p">(</span><span class="n">Widget</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Widget</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// ローカル変数の暗黙ムーブ、C++11から</span>
+<span class="p">}</span>
+
+<span class="c1">// Widgetの右辺値から構築可能な型</span>
+<span class="k">struct</span> <span class="n">RRefTaker</span> <span class="p">{</span>
+  <span class="c1">// Widgetの右辺値からの変換コンストラクタ</span>
+  <span class="n">RRefTaker</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">f2</span><span class="p">(</span><span class="n">Widget</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RRefTaker</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// 暗黙ムーブされて構築（変換）、C++11から</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="nf">f3</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RRefTaker</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// ローカル右辺値参照の暗黙ムーブ、C++20から</span>
+<span class="p">}</span>
+
+<span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span>
+<span class="kt">void</span> <span class="n">f4</span><span class="p">(</span><span class="n">Widget</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// throw式における暗黙ムーブ、C++20から</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">From</span> <span class="p">{</span>
+  <span class="n">From</span><span class="p">(</span><span class="n">Widget</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">);</span>
+  <span class="n">From</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">f5</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">From</span> <span class="p">{</span>
+  <span class="n">Widget</span> <span class="n">w</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// 暗黙ムーブ（コンストラクタによる変換）、C++11から</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">To</span> <span class="p">{</span>
+  <span class="k">operator</span> <span class="n">Widget</span><span class="p">()</span> <span class="o">&amp;&amp;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">f6</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Widget</span> <span class="p">{</span>
+  <span class="n">To</span> <span class="n">t</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">t</span><span class="p">;</span>  <span class="c1">// 暗黙ムーブ（変換演算子による変換）、C++20から</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">V</span> <span class="p">{</span>
+  <span class="n">V</span><span class="p">(</span><span class="n">Widget</span><span class="p">);</span> <span class="c1">// 値で受け取るコンストラクタ</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">f7</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">V</span> <span class="p">{</span>
+  <span class="n">Widget</span> <span class="n">w</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// 暗黙ムーブ（コンストラクタ引数へのムーブ）、C++20から</span>
+<span class="p">}</span>
+
+<span class="c1">// DerivedはBaseを公開継承しているとき</span>
+<span class="k">auto</span> <span class="nf">f8</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Base</span> <span class="p">{</span>
+  <span class="n">Derived</span> <span class="n">result</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>  <span class="c1">// 暗黙ムーブ（基底クラスへの変換）、C++20から</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="nf">f9</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// 戻り値型が参照型の場合の暗黙ムーブ、C++23から</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">J</span> <span class="p">{</span>
+  <span class="k">operator</span> <span class="n">Widget</span><span class="o">&amp;</span><span class="p">()</span> <span class="o">&amp;&amp;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">f10</span><span class="p">(</span><span class="n">J</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// 戻り値型が参照型の場合の暗黙ムーブ（変換演算子による変換）、C++23から</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++20までは<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が参照型である場合に暗黙ムーブが行われていなかった。より正確には、関数<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の初期化時に初期化のためのコンストラクタを選択する<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が行われる場合にのみ、暗黙ムーブが考慮されていたが、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が参照型の場合は参照の初期化だけが起こりコンストラクタ呼び出しは関与しないため暗黙ムーブは考慮されていなかった。</p>
+<p>これによって、同じ<code>return</code>文でも<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が異なることでそのオペランドの扱いが変化してしまっていた。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// Widget, RRefTakerは上の例を参照</span>
+<span class="c1">// どちらも、C++20の場合</span>
+
+<span class="k">auto</span> <span class="nf">f</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RRefTaker</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// ok、wは右辺値として扱われる</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="nf">g</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">// ng、wは左辺値として扱われる</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この非一貫性を解消することがまず求められていた。</p>
+<p>また、C++20時点の暗黙ムーブの仕様は二段階の<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>を行う複雑なものであり、暗黙ムーブが行われるかどうかについて実装間で挙動に差異が生じていた。C++20時点の暗黙ムーブの仕様は次のようになっていた</p>
+<p>暗黙ムーブ可能なエンティティが次のコピー初期化が行われる場所で指名されている場合、コピーの代わりにムーブが使用される場合がある</p>
+<ul>
+<li><code>return/co_return</code>文のオペランド<ul>
+<li>（諸条件はC++23仕様と同一なので省略）</li>
+</ul>
+</li>
+<li><code>throw</code>式のオペランド<ul>
+<li>（諸条件はC++23仕様と同一なので省略）</li>
+</ul>
+</li>
+</ul>
+<p>これらのコピー初期化が行われる場所において、呼び出されるコンストラクタまたは<a href="../cpp20/coroutines.html"><code>return_value()</code>オーバーロード</a>を選択する<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>は次の順序で実行される</p>
+<ol>
+<li>オペランドのid式を右辺値（<em>rvalue</em>）として<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>を実行する</li>
+<li>1が失敗した（もしくは行われなかった）場合、オペランドのid式を左辺値（<em>lvalue</em>）として<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>を実行する</li>
+</ol>
+<p>この最後の手順の1回目の<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>時にコピーコンストラクタの代わりにムーブコンストラクタが選択されることによって、C++20の暗黙ムーブは実行される。しかし、この手順における「失敗」という言葉の意味が明確ではなく、それによって実装間で暗黙ムーブが行われるかどうか、あるいは選択されるコンストラクタに差異が生じていた。</p>
+<p><code>return</code>文オペランドの扱いの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の違いによる非一貫性と、仕様の複雑さと曖昧さによる実装間の差異の2つの問題を解決するために、C++23ではムーブする資格がある式という概念を用いて暗黙ムーブの仕様が単純化された。</p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://wg21.link/p2266r3" target="_blank">P2266R3 Simpler implicit move</a></li>
+<li><a href="https://www.youtube.com/watch?v=OGKAJD7bmr8" target="_blank">The Complete Guide to <code>return x;</code> - Arthur O'Dwyer - [CppNow 2021] - YouTube</a></li>
+<li><a href="https://stackoverflow.com/questions/76647046/does-c23-break-unmove" target="_blank">c++ - Does c++23 break unmove - Stack Overflow</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

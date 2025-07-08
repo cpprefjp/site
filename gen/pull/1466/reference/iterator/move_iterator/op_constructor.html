@@ -1,0 +1,337 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>move_iterator::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,iterator,std,move_iterator,function,cpp11
+">
+        <meta name="title" content="move_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="move_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="move_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/iterator/move_iterator/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`move_iterator`オブジェクトを構築する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="move_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/iterator/move_iterator/op_constructor.html" />
+        <meta name="twitter:description" content="`move_iterator`オブジェクトを構築する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;iterator&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;move_iterator&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;50f4015b924dd6bed2a5c34a06566e65426c797d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;memory&gt;\n#include &lt;iterator&gt;\n\nint main()\n{\n  std::vector&lt;std::unique_ptr&lt;int&gt;&gt; v;\n  for (int i = 0; i &lt; 5; ++i)\n    v.emplace_back(new int(i));\n\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u69cb\u7bc9\n  std::move_iterator&lt;decltype(v)::iterator&gt; it1;\n\n  // \u5143\u3068\u306a\u308b\u30a4\u30c6\u30ec\u30fc\u30bf\u304b\u3089\u69cb\u7bc9\n  std::move_iterator&lt;decltype(v)::iterator&gt; it2(v.begin());\n\n  // \u4ed6\u306emove_iterator\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304b\u3089\u30b3\u30d4\u30fc\u69cb\u7bc9\n  std::move_iterator&lt;decltype(v)::iterator&gt; it3(it2);\n\n  // \u4ed6\u306emove_iterator\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304b\u3089\u30e0\u30fc\u30d6\u69cb\u7bc9\n  std::move_iterator&lt;decltype(v)::iterator&gt; it4 = std::move(it3);\n\n  std::unique_ptr&lt;int&gt; p = *it4;\n  std::cout &lt;&lt; *p &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;iterator&#34;, &#34;move_iterator&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/iterator.html" itemprop="url">
+              
+                <span itemprop="name">iterator</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/iterator/move_iterator.html" itemprop="url">
+              
+                <span itemprop="name">move_iterator</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-05T02:54:34">
+        2024年12月05日 02時54分34秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/iterator/move_iterator/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/iterator/move_iterator/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class move_iterator">move_iterator::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">move_iterator</span><span class="p">();</span>                                             <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="nf">move_iterator</span><span class="p">();</span>                                   <span class="c1">// (1) C++17</span>
+
+<span class="k">explicit</span> <span class="nf">move_iterator</span><span class="p">(</span><span class="n">Iterator</span> <span class="n">i</span><span class="p">);</span>                          <span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="nf">move_iterator</span><span class="p">(</span><span class="n">Iterator</span> <span class="n">i</span><span class="p">);</span>                <span class="c1">// (2) C++17</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">move_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n">move_iterator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">u</span><span class="p">);</span>                    <span class="c1">// (3) C++11</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">move_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n">move_iterator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">u</span><span class="p">);</span>          <span class="c1">// (3) C++17</span>
+
+<span class="n">move_iterator</span><span class="p">(</span><span class="n">move_iterator</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>           <span class="c1">// (4) C++11</span>
+<span class="k">constexpr</span> <span class="nf">move_iterator</span><span class="p">(</span><span class="n">move_iterator</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span> <span class="c1">// (4) C++17</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>move_iterator</code>オブジェクトを構築する。</p>
+<ul>
+<li>(1) : デフォルトコンストラクタ。内包する元となるイテレータを<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>する。</li>
+<li>(2) : 元となるイテレータ<code>i</code>をメンバ変数にムーブして保持する。</li>
+<li>(3) : <code>u.base()</code>をメンバ変数に保持する。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>C++17まで<ul>
+<li>(3) : <code>U</code>が<code>Iterator</code>に変換可能であること</li>
+</ul>
+</li>
+<li>C++20<ul>
+<li>(3) : 次の全てを満たす<ul>
+<li><code>is_same_v&lt;U, Iterator&gt; == false</code>であること。</li>
+<li><code>const U&amp;, Iterator</code>が<code><a href="../../concepts/convertible_to.html">convertible_to&lt;Iterator&gt;</a></code>のモデルとなること。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="50f4015b924dd6bed2a5c34a06566e65426c797d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="n"><a href="../../vector/vector/emplace_back.html">v.emplace_back</a></span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+
+  <span class="c1">// デフォルト構築</span>
+  <span class="n"><a href="../move_iterator.html">std::move_iterator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span> <span class="n">it1</span><span class="p">;</span>
+
+  <span class="c1">// 元となるイテレータから構築</span>
+  <span class="n"><a href="../move_iterator.html">std::move_iterator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span> <span class="n">it2</span><span class="p">(</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">);</span>
+
+  <span class="c1">// 他のmove_iteratorオブジェクトからコピー構築</span>
+  <span class="n"><a href="../move_iterator.html">std::move_iterator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span> <span class="n">it3</span><span class="p">(</span><span class="n">it2</span><span class="p">);</span>
+
+  <span class="c1">// 他のmove_iteratorオブジェクトからムーブ構築</span>
+  <span class="n"><a href="../move_iterator.html">std::move_iterator</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span><span class="o">&gt;</span> <span class="n">it4</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">it3</span><span class="p">);</span>
+
+  <span class="n"><a href="../../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="o">*</span><span class="n">it4</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html" target="_blank">P0031R0 A Proposal to Add Constexpr Modifiers to <code>reverse_iterator</code>, <code>move_iterator</code>, <code>array</code> and Range Access</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue3435" target="_blank">LWG Issue 3435. <code>three_way_comparable_with&lt;reverse_iterator&lt;int*&gt;, reverse_iterator&lt;const int*&gt;&gt;</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

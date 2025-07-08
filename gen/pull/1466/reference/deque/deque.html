@@ -1,0 +1,715 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>deque - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,deque,std,class template
+">
+        <meta name="title" content="deque - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="deque - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="deque - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/deque/deque.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`deque`（通常、&#34;デック&#34;のように発音する）は&lt;b&gt;d&lt;/b&gt;ouble-&lt;b&gt;e&lt;/b&gt;nded &lt;b&gt;q&lt;/b&gt;ueue （二重終端キュー）の頭文字をとったものである。double-ended queue はシーケンスコンテナの一種である。要素は厳密な線形シーケンスに従って並べられる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="deque - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/deque/deque.html" />
+        <meta name="twitter:description" content="`deque`（通常、&#34;デック&#34;のように発音する）は&lt;b&gt;d&lt;/b&gt;ouble-&lt;b&gt;e&lt;/b&gt;nded &lt;b&gt;q&lt;/b&gt;ueue （二重終端キュー）の頭文字をとったものである。double-ended queue はシーケンスコンテナの一種である。要素は厳密な線形シーケンスに従って並べられる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;deque&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5c7c71d8b0decbe1be02cfc781d45d7479685985&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;deque&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  std::deque&lt;int&gt; deq;\n\n  deq.push_front(3);  // \u5148\u982d\u306b\u8981\u7d20\u3092\u8ffd\u52a0\n  deq.push_back(1);   // \u672b\u5c3e\u306b\u8981\u7d20\u3092\u8ffd\u52a0\n\n  // \u30a4\u30c6\u30ec\u30fc\u30bf\u3092\u4ecb\u3057\u3066\u5168\u8981\u7d20\u306b\u5bfe\u3057\u3066\u64cd\u4f5c\u3092\u884c\u3046\n  std::for_each(deq.begin(), deq.end(), [](int x) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  });\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;deque&#34;, &#34;deque&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/deque.html" itemprop="url">
+              
+                <span itemprop="name">deque</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">deque</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-11T08:07:13">
+        2024年08月11日 08時07分13秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/deque/deque.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/deque/deque.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;deque&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">deque</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">deque</span><span class="p">;</span>
+
+  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+      <span class="k">using</span> <span class="n">deque</span> <span class="o">=</span> <span class="n"><a href="">std::deque</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>  <span class="c1">// C++17から</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>deque</code>（通常、"デック"のように発音する）は<b>d</b>ouble-<b>e</b>nded <b>q</b>ueue （二重終端キュー）の頭文字をとったものである。double-ended queue はシーケンスコンテナの一種である。要素は厳密な線形シーケンスに従って並べられる。</p>
+<p><code>deque</code> はライブラリによってさまざまな方法で実装されるかもしれないが、全ての場合においてランダムアクセスイテレータを介して個々の要素へアクセス可能であり、ストレージは（必要に応じて拡大または縮小して）自動的に処理される。</p>
+<p><code>deque</code> シーケンスは以下の特性を持つ。</p>
+<ul>
+<li>個々の要素はその位置インデックスによってアクセスすることができる。</li>
+<li>要素のイテレーションは任意の順序で実行することができる。</li>
+<li>要素はいずれの端（シーケンスの先頭または最後）からも効率よく追加・削除される。</li>
+</ul>
+<p>従ってこれは <code><a href="../vector.html">vector</a></code> と同様の機能を提供するが、シーケンスの終端だけでなく先頭への効率的な挿入・削除を共に提供する。<code><a href="../vector.html">vector</a></code> とは異なる欠点として <code>deque</code> は連続した位置のストレージに全ての要素を持つことを保証していないため、ポインタ演算を介しての安全なアクセスの可能性を排除する。</p>
+<p><code><a href="../vector.html">vector</a></code> と <code>deque</code> は共に類似したインターフェイスを提供するため、類似した目的に利用することができるが、内部的にはかなり異なった方法で動作する。<code><a href="../vector.html">vector</a></code> は通常の配列と非常によく似ており、容量が使い果たされるときにはブロック内の全ての要素を再配置することによって拡張する。<code>deque</code> は全ての情報を保持しつつ要素への均一なアクセスを提供することで、要素をストレージのいくつかのチャンクに分割することができる。従って <code>deque</code> の内部は少し複雑であるが、これは特に大規模なシーケンスにおいて大規模な再配置が回避されることを許すため、一般に容量増加の自動管理を <code><a href="../vector.html">vector</a></code> より効率的に行うことを可能にする。</p>
+<p>テンプレートパラメータは、以下を意味する：</p>
+<ul>
+<li><code>T</code> : 要素の型。</li>
+<li><code>Allocator</code> : ストレージの割り当てモデルを定義するために使用されるアロケータオブジェクトの型。デフォルトでは、値に依存しない単純なメモリ割り当てモデルを定義する、型 <code>T</code> の <code><a href="../memory/allocator.html">allocator</a></code> クラステンプレートが使われる。 </li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築／コピー／破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/assign.html">assign</a></code></td>
+<td>コンテナに値を代入する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/assign_range.html">assign_range</a></code></td>
+<td>コンテナにRangeの要素を代入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="deque/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータオブジェクトを取得する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/at.html">at</a></code></td>
+<td>任意位置の要素への参照を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_at.html">operator[]</a></code></td>
+<td>任意位置の要素への参照を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/front.html">front</a></code></td>
+<td>先頭要素への参照を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/back.html">back</a></code></td>
+<td>末尾要素への参照を取得する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/begin.html">begin</a></code></td>
+<td>先頭要素を指すイテレータの取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/end.html">end</a></code></td>
+<td>末尾要素の次を指すイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/cbegin.html">cbegin</a></code></td>
+<td>先頭要素を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="deque/cend.html">cend</a></code></td>
+<td>末尾要素の次を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="deque/rbegin.html">rbegin</a></code></td>
+<td>末尾要素を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/rend.html">rend</a></code></td>
+<td>先頭要素の前を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/crbegin.html">crbegin</a></code></td>
+<td>末尾要素を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="deque/crend.html">crend</a></code></td>
+<td>先頭要素の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/empty.html">empty</a></code></td>
+<td>コンテナが空であるかどうかを調べる</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/shrink_to_fit.html">shrink_to_fit</a></code></td>
+<td>利用していないメモリを解放してメモリ使用量を減らす</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/clear.html">clear</a></code></td>
+<td>全ての要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/insert.html">insert</a></code></td>
+<td>任意の位置に要素を挿入する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/emplace.html">emplace</a></code></td>
+<td>任意の位置に要素を直接構築で挿入する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="deque/insert_range.html">insert_range</a></code></td>
+<td>任意の位置にRangeの要素を挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="deque/push_back.html">push_back</a></code></td>
+<td>末尾に要素を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/emplace_back.html">emplace_back</a></code></td>
+<td>末尾に要素を直接構築で追加する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="deque/append_range.html">append_range</a></code></td>
+<td>末尾にRangeの要素を追加する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="deque/pop_back.html">pop_back</a></code></td>
+<td>末尾要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/push_front.html">push_front</a></code></td>
+<td>先頭に要素を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/emplace_front.html">emplace_front</a></code></td>
+<td>先頭に要素を直接構築で追加する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="deque/prepend_range.html">prepend_range</a></code></td>
+<td>先頭にRangeの要素を追加する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="deque/pop_front.html">pop_front</a></code></td>
+<td>先頭要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/resize.html">resize</a></code></td>
+<td>要素数を変更する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/erase.html">erase</a></code></td>
+<td>指定した要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/swap.html">swap</a></code></td>
+<td>他の<code>deque</code>オブジェクトとデータを入れ替える</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reference</code></td>
+<td><code>T&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td><code>const T&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>イテレータ型。ランダムアクセスイテレータ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用イテレータ型ランダムアクセスイテレータ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>符号なし整数型(通常は <code><a href="../cstddef/size_t.html">size_t</a></code>)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>符号付き整数型(通常は <code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code>)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td><code>T</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td><code>Allocator</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td><code><a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::pointer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td><code><a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::const_pointer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆イテレータ型 <code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;iterator&gt;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用逆イテレータ型 <code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="deque/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下かの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="deque/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上かの判定を行う</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/swap_free.html">swap</a></code></td>
+<td>2つの<code>deque</code>オブジェクトを入れ替える</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/erase_free.html">erase</a></code></td>
+<td>指定した値をもつ要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="deque/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="deque/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="5c7c71d8b0decbe1be02cfc781d45d7479685985"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="">&lt;deque&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::deque</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">deq</span><span class="p">;</span>
+
+  <span class="n"><a href="deque/push_front.html">deq.push_front</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>  <span class="c1">// 先頭に要素を追加</span>
+  <span class="n"><a href="deque/push_back.html">deq.push_back</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>   <span class="c1">// 末尾に要素を追加</span>
+
+  <span class="c1">// イテレータを介して全要素に対して操作を行う</span>
+  <span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="deque/begin.html">deq.begin()</a></span><span class="p">,</span> <span class="n"><a href="deque/end.html">deq.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>3
+1
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm" target="_blank">N2669 Thread-Safety in the Standard Library (Rev 2)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

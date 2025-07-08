@@ -1,0 +1,329 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>list::push_back - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,list,std,list,function
+">
+        <meta name="title" content="list::push_back - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="list::push_back - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="list::push_back - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/list/list/push_back.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="新たな要素を末尾に追加する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="list::push_back - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/list/list/push_back.html" />
+        <meta name="twitter:description" content="新たな要素を末尾に追加する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;list&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;list&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4cab4817517c8bc67107ee7f999f34e69102533d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;list&gt;\n#include &lt;string&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  std::list&lt;std::string&gt; ls;\n\n  // const&amp;\u30d0\u30fc\u30b8\u30e7\u30f3\n  std::string s = \&#34;hello\&#34;;\n  ls.push_back(s);\n\n  // &amp;&amp;\u30d0\u30fc\u30b8\u30e7\u30f3\n  ls.push_back(std::string(\&#34;world\&#34;));\n\n  for (const std::string&amp; x : ls) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  };\n}\n&#34;}, {&#34;id&#34;: &#34;9749a7243f6d12b014cf4bd45ce936287f76a161&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;list&gt;\n\nint main()\n{\n  std::list&lt;int&gt; ls;\n  ls.push_back(3);\n\n  // \u30ea\u30b9\u30c8\u304c\u7a7a\u306b\u306a\u308b\u307e\u3067\u51e6\u7406\u3092\u3057\u7d9a\u3051\u308b\n  while (!ls.empty()) {\n    int x = ls.front();\n    ls.pop_front();\n\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n\n    // \u30a4\u30c6\u30ec\u30fc\u30c8\u4e2d\u306b\u3055\u3089\u306b\u8981\u7d20\u304c\u8ffd\u52a0\u3055\u308c\u308b\u53ef\u80fd\u6027\u304c\u3042\u308b\u3002\n    //   \u3053\u308c\u306f\u305f\u3068\u3048\u3070\u3001\u30a4\u30d9\u30f3\u30c8\u30ad\u30e5\u30fc\u306e\u5b9f\u88c5\u3068\u3057\u3066\u4f7f\u308f\u308c\u308b\u3002\n    //   \u30a4\u30d9\u30f3\u30c8\u30cf\u30f3\u30c9\u30e9 (\u30b3\u30fc\u30eb\u30d0\u30c3\u30af\u95a2\u6570) \u306e\u306a\u304b\u3067\u3055\u3089\u306b\u30a4\u30d9\u30f3\u30c8\u304c\u767b\u9332\u3055\u308c\u308b\u3001\n    //   \u3068\u3044\u3046\u3088\u3046\u306a\u72b6\u6cc1\u3067\u3001\u30a4\u30c6\u30ec\u30fc\u30c8\u4e2d\u306b\u8981\u7d20\u8ffd\u52a0\u3059\u308b\u3053\u3068\u304c\u5fc5\u8981\u306b\u306a\u308b\u3002\n    //\n    // \u305f\u3060\u3057\u3001\u7bc4\u56f2for\u6587\u306e\u306a\u304b\u3067\u3053\u306e\u3088\u3046\u306a\u3053\u3068\u3092\u3057\u3066\u306f\u306a\u3089\u306a\u3044 (\u3053\u3053\u3067\u306fwhile\u6587\u3092\u4f7f\u7528\u3057\u3066\u3044\u308b)\u3002\n    // \u7bc4\u56f2for\u6587\u3067\u306f\u7d42\u7aef\u30a4\u30c6\u30ec\u30fc\u30bf\u306f\u6700\u521d\u306b\u4e00\u5ea6\u306e\u307f\u53d6\u5f97\u3055\u308c\u308b\u305f\u3081\u3001\u30a4\u30c6\u30ec\u30fc\u30c8\u4e2d\u306b\n    // \u8981\u7d20\u304c\u5897\u3048\u3066\u3082\u7d42\u7aef\u30a4\u30c6\u30ec\u30fc\u30bf\u306f\u5909\u308f\u3089\u305a\u3001\u672a\u5b9a\u7fa9\u52d5\u4f5c\u306b\u306a\u308b\u53ef\u80fd\u6027\u304c\u3042\u308b\n    if (x &gt; 0) {\n      ls.push_back(x - 1);\n    }\n    else {\n      // \u8981\u7d20\u304c\u8ffd\u52a0\u3055\u308c\u306a\u304f\u306a\u3063\u305f\u3089\u7d42\u4e86\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;list&#34;, &#34;list&#34;, &#34;push_back&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/list.html" itemprop="url">
+              
+                <span itemprop="name">list</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/list/list.html" itemprop="url">
+              
+                <span itemprop="name">list</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">push_back</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2019-12-18T09:34:03">
+        2019年12月18日 09時34分03秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/list/list/push_back.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/list/list/push_back.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;list&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class list">list::</span><span class="token">push_back</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">push_back</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1)</span>
+<span class="kt">void</span> <span class="nf">push_back</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span>      <span class="c1">// (2) C++11</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>新たな要素を末尾に追加する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>定数時間</p>
+<h2>例</h2>
+<h3>基本的な使い方 (C++11)</h3>
+<p><div class="yata" id="4cab4817517c8bc67107ee7f999f34e69102533d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">ls</span><span class="p">;</span>
+
+  <span class="c1">// const&amp;バージョン</span>
+  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"hello"</span><span class="p">;</span>
+  <span class="n">ls</span><span class="p">.</span><span class="n"><span style="color:#ff0000">push_back</span></span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+  <span class="c1">// &amp;&amp;バージョン</span>
+  <span class="n">ls</span><span class="p">.</span><span class="n"><span style="color:#ff0000">push_back</span></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"world"</span><span class="p">));</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">ls</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>hello
+world
+</code></pre></p>
+<h3>イテレート中に要素を追加する (C++03)</h3>
+<p><div class="yata" id="9749a7243f6d12b014cf4bd45ce936287f76a161"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ls</span><span class="p">;</span>
+  <span class="n">ls</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="c1">// リストが空になるまで処理をし続ける</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="empty.html">ls.empty()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="front.html">ls.front()</a></span><span class="p">;</span>
+    <span class="n"><a href="pop_front.html">ls.pop_front()</a></span><span class="p">;</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="c1">// イテレート中にさらに要素が追加される可能性がある。</span>
+    <span class="c1">//   これはたとえば、イベントキューの実装として使われる。</span>
+    <span class="c1">//   イベントハンドラ (コールバック関数) のなかでさらにイベントが登録される、</span>
+    <span class="c1">//   というような状況で、イテレート中に要素追加することが必要になる。</span>
+    <span class="c1">//</span>
+    <span class="c1">// ただし、範囲for文のなかでこのようなことをしてはならない (ここではwhile文を使用している)。</span>
+    <span class="c1">// 範囲for文では終端イテレータは最初に一度のみ取得されるため、イテレート中に</span>
+    <span class="c1">// 要素が増えても終端イテレータは変わらず、未定義動作になる可能性がある</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">ls</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// 要素が追加されなくなったら終了</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3
+2
+1
+0
+</code></pre></p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

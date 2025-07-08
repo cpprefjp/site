@@ -1,0 +1,562 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>範囲for文 [N2930] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="範囲for文 [N2930] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="範囲for文 [N2930] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="範囲for文 [N2930] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/range_based_for.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="範囲for文（The range-based for statement）は配列やコンテナを簡潔に扱うためのfor文の別表現である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="範囲for文 [N2930] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/range_based_for.html" />
+        <meta name="twitter:description" content="範囲for文（The range-based for statement）は配列やコンテナを簡潔に扱うためのfor文の別表現である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;be94c3a749766da103bb8b93b0167d54eb632178&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nclass my_container {\npublic:\n  int *begin() {\n    return &amp;buf[0];\n  }\n  int *end() {\n    return &amp;buf[5];\n  }\n\nprivate:\n  int buf[5] = {21, 22, 23, 24, 25};\n};\n\nint main()\n{\n  //\u914d\u5217\u306b\u5bfe\u3057\u3066\u7bc4\u56f2for\u6587\u3092\u4f7f\u3046\n  int array[5] = {1, 2, 3, 4, 5};\n\n  std::cout &lt;&lt; \&#34;For int[5]: \&#34; &lt;&lt; std::endl;\n  for (auto&amp; e : array) {\n    std::cout &lt;&lt; \&#34;  \&#34; &lt;&lt; e &lt;&lt; std::endl;\n  }\n\n  //\u6a19\u6e96\u30b3\u30f3\u30c6\u30ca\u306b\u5bfe\u3057\u3066\u7bc4\u56f2for\u6587\u3092\u4f7f\u3046\n  std::vector&lt;int&gt; vec = {10, 11, 12, 13};\n\n  std::cout &lt;&lt; \&#34;For std::vector&lt;int&gt;: \&#34; &lt;&lt; std::endl;\n  for (auto&amp; e : vec) {\n    std::cout &lt;&lt; \&#34;  \&#34; &lt;&lt; e &lt;&lt; std::endl;\n  }\n\n  //\u30e6\u30fc\u30b6\u5b9a\u7fa9\u306e\u30af\u30e9\u30b9\u306b\u5bfe\u3057\u3066\u7bc4\u56f2for\u6587\u3092\u4f7f\u3046\n  my_container mc;\n\n  std::cout &lt;&lt; \&#34;For my_container: \&#34; &lt;&lt; std::endl;\n  for (auto&amp; e : mc) {\n    std::cout &lt;&lt; \&#34;  \&#34; &lt;&lt; e &lt;&lt; std::endl;\n  }\n\n  return 0;\n}\n&#34;}, {&#34;id&#34;: &#34;046ac7a02df5885b3aab5569db26d2b251e4d91a&#34;, &#34;source&#34;: &#34;#include &lt;vector&gt;\n#include &lt;iostream&gt;\nint main()\n{\n  std::vector&lt;int&gt; v{ 5, 5, 0, 5, 1 };\n  //v.size() == v.capacity() \u306b\u3059\u308b\n  v.shrink_to_fit();\n  for(auto&amp;&amp; i : v) {\n    std::cout &lt;&lt; &#39; &#39; &lt;&lt; i;\n    if (5 == i) {\n      //\u8981\u7d20\u3092\u8ffd\u52a0\u3059\u308b\u3068\u304d\u3001capacity\u3092\u8d85\u3048\u308b\u306e\u3067\u518d\u30a2\u30ed\u30b1\u30fc\u30b7\u30e7\u30f3\u304c\u767a\u751f\u3057\u3001\u30a4\u30c6\u30ec\u30fc\u30bf\u304c\u7121\u52b9\u306b\u306a\u308b\n      v.emplace_back(123);\n    }\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;796f941deccde9eed271781434b9da9abe839e27&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;unordered_map&gt;\nint main()\n{\n  std::unordered_map&lt;std::string, int&gt; m{\n    { \&#34;ajjnr\&#34;, 3 },\n    { \&#34;kjngs@mgg\&#34;, 9 },\n    { \&#34;sdjvnmwb\&#34;, 12 },\n    { \&#34;kgf\&#34;, 64 }\n  };\n\n  for(auto&amp;&amp; kv : m) {\n    std::cout &lt;&lt; kv.first &lt;&lt; &#39;,&#39; &lt;&lt; kv.second &lt;&lt; std::endl;\n    if (kv.first.size() &lt; 4) {\n      // \u73fe\u5728\u306e\u8981\u7d20\u306ekey\u3092\u4f7f\u3063\u3066\u524a\u9664\n      // \u2192 \u7bc4\u56f2for\u306e\u30a4\u30c6\u30ec\u30fc\u30c8\u4e2d\u306e\u30a4\u30c6\u30ec\u30fc\u30bf\u304c\u7121\u52b9\u306b\u306a\u308b\n      m.erase(kv.first);\n    }\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;919e51c89f1f40662e69d45927547bcbe290a976&#34;, &#34;source&#34;: &#34;#include &lt;initializer_list&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nstruct something\n{\n  std::vector&lt;int&gt; v;\n\n  something(const std::initializer_list&lt;int&gt;&amp; l ) : v(l) {}\n  std::vector&lt;int&gt;&amp; get_vector() { return v; }\n  ~something() noexcept { std::cout &lt;&lt; \&#34;destructor\&#34; &lt;&lt; std::endl; }\n};\n\nint main()\n{\n  // get_vector\u306f\u5185\u90e8\u306b\u6301\u3064vector\u3078\u306e\u53c2\u7167\u3092\u8fd4\u3059\n  for( auto e : something { 1,2,3,4,5,6,7,8,9,0 }.get_vector() )\n  { // \u7834\u68c4\u3055\u308c\u305f\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3078\u306e\u53c2\u7167\n    std::cout &lt;&lt; e;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;1c4af7462358260a8f1d6b1cd2f2b046883fe927&#34;, &#34;source&#34;: &#34;#include &lt;initializer_list&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nstruct something\n{\n  std::vector&lt;int&gt; v;\n\n  something(const std::initializer_list&lt;int&gt;&amp; l ) : v(l) {}\n  std::vector&lt;int&gt;&amp; get_vector() &amp; { return v; }\n  // \u3053\u308c\u3092\u5b9f\u88c5\u3059\u308c\u3070\u5b9f\u884c\u52b9\u7387\u3092\u640d\u306a\u308f\u305a\u3001\u5b89\u5168\u306b\u3044\u3064\u3067\u3082get_vector\u3092\u547c\u3073\u51fa\u305b\u308b\n  //std::vector&lt;int&gt; get_vector() &amp;&amp; { return std::move(v); }\n  ~something() noexcept { std::cout &lt;&lt; \&#34;destructor\&#34; &lt;&lt; std::endl; }\n};\n\nint main()\n{\n  // get_vector\u3092\u547c\u3073\u51fa\u305b\u306a\u3044\u306e\u3067\u4e0d\u9069\u683c\u2192\u30d0\u30b0\u306b\u6c17\u304c\u3064\u304f\n  for( auto e : something { 1,2,3,4,5,6,7,8,9,0 }.get_vector() )\n  {\n    std::cout &lt;&lt; e;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;range_based_for&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">範囲for文 [N2930]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/range_based_for.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/range_based_for.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">範囲for文 [N2930]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>範囲for文（The range-based for statement）は配列やコンテナを簡潔に扱うためのfor文の別表現である。</p>
+<p>範囲for文が便利な例として、コンテナの各要素を処理するループを挙げる。</p>
+<p>C++03のfor文では以下のように書ける：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector/end.html">v.end()</a></span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">e</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>ループ内の処理と直接関係のない変数（イテレータやポインタ）が出現し、ループ条件も加わりfor文が長くなりがちである。</p>
+<p>C++11の範囲for文を使うと以下のように書ける：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>変数宣言には直接コンテナ内の要素の型（上記の例であれば<code>const int&amp; e</code>など）を書いても良いし、型推論<code><a href="auto.html">auto</a></code>を使うと、さらに簡潔に書ける。</p>
+<p>変数宣言にconst参照<code>const auto&amp; e</code>を書くとコンテナ内の要素の変更を禁止し、要素のコピーも行わない。参照<code>auto&amp; e</code>を書くと、コンテナ内の要素を変更できる。実体<code>auto e</code>を書くと各要素がコピーコンストラクタによってコピーされてからfor文に渡される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>変数宣言</th>
+<th>e を変更可能か？</th>
+<th>コンテナ内の要素を変更可能か？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>const auto&amp; e</code></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>auto&amp; e</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>auto e</code></td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h2>仕様</h2>
+<p>範囲for文は配列または、<code>begin()</code>および<code>end()</code>で表される<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>に含まれる全ての要素に対して、処理を実行する。</p>
+<p>範囲for文は以下の構文を持つ：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span> <span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="nl">declaration</span> <span class="p">:</span> <span class="k">for</span><span class="o">-</span><span class="n"><a href="../../reference/ranges/range.html">range</a></span><span class="o">-</span><span class="n">initializer</span> <span class="p">)</span> <span class="n">statement</span>
+</code></pre></div>
+</p>
+<p>for-range-declarationには変数宣言を書く。ここで宣言した変数に範囲内の要素が先頭から終端まで順番に代入される。</p>
+<p>for-range-initializerにはfor文が処理すべき範囲を表す値を書く。</p>
+<p>値の型が配列の場合、配列のサイズが分かるものでなければエラーとなる。値の型が配列以外（クラスなど）の場合、<code>begin()</code>と<code>end()</code>で<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>の先頭と終端が表せるものでなければエラーとなる。</p>
+<p>語弊を恐れず言えば、メンバ関数に<code>begin()</code>および<code>end()</code>を持つクラスであれば、何でも範囲for文の範囲として指定できる。</p>
+<p>従って標準コンテナのみならず、ユーザ定義のクラスに対しても範囲for文を適用可能である。</p>
+<p>C++03のfor文と異なりセミコロンではなくコロンで区切ることに注意する。</p>
+<h3>for文への展開</h3>
+<p>C++11、C++14において、範囲for文は以下のように通常のfor文へと展開される(<a href="../cpp17/generalizing_the_range-based_for_loop.html">C++17以降は展開のされ方が異なる</a>)。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// for ( <i>for-range-declaration</i> : <i>for-range-initializer</i> ) <i>statement</i></span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="o">&amp;&amp;</span> <span class="n">__range</span> <span class="o">=</span> <span class="n"><i>for-range-initializer</i></span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n"><i>begin-expr</i></span><span class="p">,</span> <span class="n">__end</span> <span class="o">=</span> <span class="n"><i>end-expr</i></span><span class="p">;</span>
+        <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span>
+        <span class="o">++</span><span class="n">__begin</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n"><i>for-range-declaration</i></span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+    <span class="n"><i>statement</i></span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>展開後に現れる変数名は仮のものであり、実際に変数として見えるわけではない。しかし、デバッガーにこれらの変数が現れることがある。</p>
+<p>begin-exprとend-exprの具体的な内容は、<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>として何を渡すかによって3通りに分かれる。いずれの場合も、begin-exprとend-exprは同じ型でなければならない。</p>
+<p>配列を範囲として渡したとき、以下のように展開される：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="k">auto</span> <span class="o">&amp;&amp;</span> <span class="n">__range</span> <span class="o">=</span> <span class="n"><i>for-range-initializer</i></span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n">__range</span><span class="p">,</span> <span class="n">__end</span> <span class="o">=</span> <span class="n">__range</span> <span class="o">+</span> <span class="n">__bound</span><span class="p">;</span> <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><i>for-range-declaration</i></span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+
+    <span class="n"><i>statement</i></span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<ul>
+<li>ただし、<code>__bound</code>は配列の要素数(要素数が不明な場合はill-formed)。</li>
+</ul>
+<p>範囲の型がクラスであって、メンバ<code>begin</code>と<code>end</code>が両方存在するとき、以下のように展開される：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="k">auto</span> <span class="o">&amp;&amp;</span> <span class="n">__range</span> <span class="o">=</span> <span class="n"><i>for-range-initializer</i></span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n">__range</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">__end</span> <span class="o">=</span> <span class="n">__range</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><i>for-range-declaration</i></span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+
+    <span class="n"><i>statement</i></span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<ul>
+<li>メンバ<code>begin</code>、<code>end</code>が関数ではない場合でもこのように展開されるが、呼び出しができなければエラーとなる。</li>
+<li>当初のC++11では、メンバ<code>begin</code>、<code>end</code>が片方しかなくてもこのように展開されていた。これは規格の不具合であり、<a href="../cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.html">修正P0962R1がC++11に遡って適用された</a>。</li>
+</ul>
+<p>範囲の型が配列でもメンバ<code>begin</code>、<code>end</code>のいずれかを持つクラスでもないとき、以下のように展開される：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="k">auto</span> <span class="o">&amp;&amp;</span> <span class="n">__range</span> <span class="o">=</span> <span class="n"><i>for-range-initializer</i></span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n">begin</span><span class="p">(</span><span class="n">__range</span><span class="p">),</span> <span class="n">__end</span> <span class="o">=</span> <span class="n">end</span><span class="p">(</span><span class="n">__range</span><span class="p">);</span> <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><i>for-range-declaration</i></span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+
+    <span class="n"><i>statement</i></span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<ul>
+<li>展開されたコード内の<code>begin()</code>と<code>end()</code>が正確に何を呼びだすかについては、引数依存の名前探索（argument-dependent name lookup; <a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>）を参照のこと。</li>
+</ul>
+<p>従って概要で挙げた例は以下のように展開される：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="k">auto</span> <span class="o">&amp;&amp;</span> <span class="n">__range</span> <span class="o">=</span> <span class="n">vec</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n">__range</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">__end</span> <span class="o">=</span> <span class="n">__range</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">e</span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><div class="yata" id="be94c3a749766da103bb8b93b0167d54eb632178"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">my_container</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">begin</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">end</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">buf</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">buf</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//配列に対して範囲for文を使う</span>
+  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"For int[5]: "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//標準コンテナに対して範囲for文を使う</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">};</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"For <a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;: "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//ユーザ定義のクラスに対して範囲for文を使う</span>
+  <span class="n">my_container</span> <span class="n">mc</span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"For my_container: "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">mc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>For int[5]:
+  1
+  2
+  3
+  4
+  5
+For <a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt;:
+  10
+  11
+  12
+  13
+For my_container:
+  21
+  22
+  23
+  24
+  25
+</code></pre></p>
+<h2>使用上の注意</h2>
+<p>範囲for文を使う際はイテレータが無効にならないように気をつけなければならない。<br />
+なぜなら、範囲for文が展開されたときの<code>for-range-declaration = *__begin;</code>の部分で無効になったイテレータの間接参照が行われた場合、それは<a href="../../implementation-compliance.html#behavior">未定義動作</a>だからである。</p>
+<h3>コンテナの要素追加/削除をしてしまう場合</h3>
+<p>例えば、範囲for文でまさにイテレートしているコンテナに要素を追加/削除するなどして、イテレータが無効となる場合がある。この場合は範囲for文を使ってはいけない。</p>
+<p><div class="yata" id="046ac7a02df5885b3aab5569db26d2b251e4d91a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="p">};</span>
+  <span class="c1">//<a href="../../reference/vector/vector/size.html">v.size()</a> == v.<a href="../../reference/vector/vector/capacity.html">capacity()</a> にする</span>
+  <span class="n">v</span><span class="p">.</span><span class="n"><a href="../../reference/vector/vector/shrink_to_fit.html">shrink_to_fit()</a></span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//要素を追加するとき、capacityを超えるので再アロケーションが発生し、イテレータが無効になる</span>
+      <span class="n">v</span><span class="p">.</span><span class="n"><a href="../../reference/vector/vector/emplace_back.html">emplace_back</a></span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p><div class="yata" id="796f941deccde9eed271781434b9da9abe839e27"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/unordered_map.html">&lt;unordered_map&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">{</span>
+    <span class="p">{</span> <span class="s">"ajjnr"</span><span class="p">,</span> <span class="mi">3</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"kjngs@mgg"</span><span class="p">,</span> <span class="mi">9</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"sdjvnmwb"</span><span class="p">,</span> <span class="mi">12</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"kgf"</span><span class="p">,</span> <span class="mi">64</span> <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">kv</span> <span class="p">:</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">kv</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="sc">','</span> <span class="o">&lt;&lt;</span> <span class="n">kv</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">kv</span><span class="p">.</span><span class="n">first</span><span class="p">.</span><span class="n"><a href="../../reference/string/basic_string/size.html">size()</a></span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 現在の要素のkeyを使って削除</span>
+      <span class="c1">// → 範囲forのイテレート中のイテレータが無効になる</span>
+      <span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/unordered_map/unordered_map/erase.html">erase</a></span><span class="p">(</span><span class="n">kv</span><span class="p">.</span><span class="n">first</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>for-range-initializerに渡したものの寿命が切れてしまう場合</h3>
+<p>for-range-initializerに渡したものの寿命が切れてイテレータが無効になるケースもある。</p>
+<p>下の例では<code>something { 1,2,3,4,5,6,7,8,9,0 }</code>のようにして生成された一時オブジェクトが<code>__range</code>によって束縛されていないため、直ちに寿命が尽きてしまう。このような場合、寿命が切れないようにしなければならない。</p>
+<p><div class="yata" id="919e51c89f1f40662e69d45927547bcbe290a976"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">something</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+  <span class="n">something</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">l</span> <span class="p">)</span> <span class="o">:</span> <span class="n">v</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">get_vector</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v</span><span class="p">;</span> <span class="p">}</span>
+  <span class="o">~</span><span class="n">something</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// get_vectorは内部に持つvectorへの参照を返す</span>
+  <span class="k">for</span><span class="p">(</span> <span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">something</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span> <span class="p">}.</span><span class="n">get_vector</span><span class="p">()</span> <span class="p">)</span>
+  <span class="p">{</span> <span class="c1">// 破棄されたオブジェクトへの参照</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>ただしこのバグはコンテナの参照を返すメンバ関数(上記では<code>get_vector</code>)に<a href="ref_qualifier_for_this.html">左辺値修飾</a>することで防げる場合もある</p>
+<p><div class="yata" id="1c4af7462358260a8f1d6b1cd2f2b046883fe927"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">something</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+  <span class="n">something</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">l</span> <span class="p">)</span> <span class="o">:</span> <span class="n">v</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">get_vector</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v</span><span class="p">;</span> <span class="p">}</span>
+  <span class="c1">// これを実装すれば実行効率を損なわず、安全にいつでもget_vectorを呼び出せる</span>
+  <span class="c1">//<a href="../../reference/vector/vector.html">std::vector</a>&lt;int&gt; get_vector() &amp;&amp; { return std::move(v); }</span>
+  <span class="o">~</span><span class="n">something</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// get_vectorを呼び出せないので不適格→バグに気がつく</span>
+  <span class="k">for</span><span class="p">(</span> <span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">something</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span> <span class="p">}.</span><span class="n">get_vector</span><span class="p">()</span> <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>また、C++23からは<code>for-range-initializer</code>の寿命が条件を満たせば延長されるようになったので(<a href="../cpp23/lifetime_extension_in_range_based_for_loop.html">C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定</a>)、この問題を踏みにくくなっている。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp17/generalizing_the_range-based_for_loop.html">C++17 範囲forの制限緩和 — <code>begin</code> と <code>end</code> の型が異なることを許可</a></li>
+<li><a href="../cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.html">C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和</a></li>
+<li><a href="../cpp23/lifetime_extension_in_range_based_for_loop.html">C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定</a></li>
+<li><a href="ref_qualifier_for_this.html">メンバ関数の左辺値／右辺値修飾</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html" target="_blank">N2930 Range-Based For Loop Wording (Without Concepts)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf" target="_blank">N3337 Working Draft, Standard for Programming Language C++</a></li>
+<li><a href="https://qiita.com/rinse_/items/ad0cc7e351e836595c94" target="_blank">一時オブジェクトの寿命と右辺値参照、ムーブセマンティクスのお話 - Qiita</a></li>
+<li><a href="https://stackoverflow.com/questions/25246937/safe-to-erase-from-map-inside-range-based-for" target="_blank">c++ - Safe to erase from map inside range based for? - Stack Overflow</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

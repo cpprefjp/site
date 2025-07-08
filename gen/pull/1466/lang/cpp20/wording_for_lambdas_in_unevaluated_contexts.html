@@ -1,0 +1,375 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>評価されない文脈でのラムダ式 [P0315R4] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="評価されない文脈でのラムダ式 [P0315R4] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="評価されない文脈でのラムダ式 [P0315R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="評価されない文脈でのラムダ式 [P0315R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="評価されない文脈でのラムダ式 [P0315R4] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;wording_for_lambdas_in_unevaluated_contexts&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">評価されない文脈でのラムダ式 [P0315R4]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">評価されない文脈でのラムダ式 [P0315R4]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++17まではラムダ式が評価されない文脈に現れることはできなかったが、C++20からは評価されない文脈にラムダ式を書くことができるようになる。</p>
+<p>C++20における評価されない文脈とは、<code>decltype, sizeof, noexcept, typeid</code>の引数及び、<code>concept</code>の定義内、<code>requires</code>節内の6箇所である。これらの文脈に現れている式は通常実行されることはない。そして、これらの場所でラムダ式を直接書くことができるようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// conceptの定義内</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">{</span>
+  <span class="p">[]{};</span>
+<span class="p">};</span>
+
+<span class="c1">// requires節の中</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="n">requires</span><span class="p">(</span><span class="n">requires</span><span class="p">{</span> <span class="p">[]{};</span> <span class="p">});</span>
+
+<span class="c1">// decltypeのオペランド</span>
+<span class="k">using</span> <span class="n">lambda_t</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">([]{});</span>
+
+<span class="c1">// noexcept式のオペランド</span>
+<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">([]{}));</span>
+
+<span class="c1">// sizeofのオペランド</span>
+<span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">([]{});</span>
+
+<span class="c1">// typeidのオペランド</span>
+<span class="k">auto</span><span class="o">&amp;</span> <span class="n">t</span> <span class="o">=</span> <span class="k">typeid</span><span class="p">([]{});</span>
+</code></pre></div>
+</p>
+<p>ただし、評価されない文脈でもラムダ式を書くことができるようになっただけで、実行できるようになったわけではない。ラムダの後に<code>()</code>をおいて呼び出しまで書くこともできるが、その場合にも実行はされずその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が囲む構文の処理対象となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">([]{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;});</span>   <span class="c1">// 1</span>
+<span class="k">auto</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">([]{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;}());</span> <span class="c1">// 4</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<ol>
+<li>ラムダ式によって生成されるクロージャの型はリンケージを持たない<ul>
+<li><code>typedef/using</code>によってリンケージを持つ名前を付ける事もできない</li>
+</ul>
+</li>
+<li>関数テンプレートのシグネチャに含まれるラムダ式は、宣言が異なれば同一とはみなされない<ul>
+<li>つまり、ラムダ式は関数テンプレートのシグネチャに含まれない</li>
+<li>異なる翻訳単位の定義を参照するため、あるいは同一翻訳単位での再宣言において、そのシグネチャにラムダ式が含まれる場合、それら2つ（以上）の宣言は同一のものとはみなされない</li>
+</ul>
+</li>
+<li>エイリアステンプレートに現れているラムダ式は、その特殊化毎に固有のクロージャ型を持つ</li>
+<li>関数テンプレートの宣言に含まれるラムダ式の本体内でコンパイルエラーが起きた場合、SFINAEしない</li>
+<li>非型テンプレートパラメータにラムダ式が現れている場合でも、そのクロージャ型は宣言毎に固有の型を持つ</li>
+<li>評価されない文脈であっても、ラムダ式の本体内で使用されている変数は暗黙的にキャプチャされる<ul>
+<li>評価されない文脈で現れているラムダ式の本体内は評価されない文脈ではない</li>
+</ul>
+</li>
+<li>関数の本体の外側で、その関数の引数をキャプチャする事はできない</li>
+<li><code>concept</code>の定義内及び<code>requires</code>節の内部に現れているラムダ式本体のエラーはコンパイルエラーとなる</li>
+</ol>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 1 クロージャ型にリンケージを付加できない（これらのCはリンケージを持たない）</span>
+<span class="k">typedef</span> <span class="nf">decltype</span><span class="p">([]{})</span> <span class="n">C</span><span class="p">;</span> 
+<span class="k">using</span> <span class="n">C</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">([]{});</span>
+
+<span class="c1">// 2. この2つのf()は異なる宣言、呼び出そうとするとオーバーロード解決できずコンパイルエラー</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="p">)[([]{</span> <span class="k">return</span> <span class="n">N</span><span class="p">;</span> <span class="p">})()])</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="p">)[([]{</span> <span class="k">return</span> <span class="n">N</span><span class="p">;</span> <span class="p">})()])</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="c1">// 3. 例えば、A&lt;int&gt;とA&lt;char&gt; は異なるクロージャ型を示す</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">A</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">([]</span> <span class="p">{</span> <span class="p">});</span>
+
+<span class="c1">// 4. 次の2つのようなケースはコンパイルエラーとなる</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">([]()</span> <span class="p">{</span> <span class="n">T</span><span class="o">::</span><span class="n">invalid</span><span class="p">;</span> <span class="p">}</span> <span class="p">());</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(...);</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// error!</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">([]()</span> <span class="p">{</span> <span class="n">T</span><span class="o">::</span><span class="n">invalid</span><span class="p">;</span> <span class="p">})</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">g</span><span class="p">(...);</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// error!</span>
+
+<span class="c1">// 5. ODR違反により未定義動作</span>
+<span class="c1">/// foo.h</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span> <span class="p">};</span>
+<span class="k">extern</span> <span class="n">foo</span><span class="o">&lt;+</span><span class="p">[]()</span> <span class="p">{}</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
+<span class="kr">inline</span> <span class="n">foo</span><span class="o">&lt;+</span><span class="p">[]()</span> <span class="p">{}</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">;</span>
+
+<span class="c1">/// tu1.cpp</span>
+<span class="cp">#include</span> <span class="cpf">"foo.h"</span><span class="cp"></span>
+
+<span class="c1">/// tu2.cpp</span>
+<span class="cp">#include</span> <span class="cpf">"foo.h"</span><span class="cp"></span>
+
+<span class="c1">// 6. ラムダ式の内部は評価されない文脈ではないので、暗黙キャプチャは評価される</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">lambda</span> <span class="o">=</span> <span class="p">[</span><span class="o">=</span><span class="p">]{</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span> <span class="p">};</span> <span class="c1">// ok</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">([</span><span class="o">=</span><span class="p">]{</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span> <span class="p">}));</span> <span class="c1">// ok</span>
+<span class="p">}</span>
+
+<span class="c1">// 7. 関数の本体内でのみ、その引数をキャプチャできる</span>
+<span class="k">auto</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">([</span><span class="o">=</span><span class="p">](</span><span class="k">auto</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">g</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="p">})</span>
+<span class="p">{</span> <span class="p">}</span>
+
+<span class="c1">// 8. ラムダ式の本体内のエラーはハードエラー</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">{</span>
+  <span class="p">[]()</span> <span class="p">{</span> <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">invalid</span> <span class="n">foo</span><span class="p">;</span> <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="n">requires</span> <span class="n">requires</span> <span class="p">{</span>
+  <span class="p">[]()</span> <span class="p">{</span> <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">invalid</span> <span class="n">foo</span><span class="p">;</span> <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="n">C</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// error!</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>   <span class="c1">// error!</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p>「<a href="default_constructible_and_assignable_stateless_lambdas.html">状態を持たないラムダ式を、デフォルト構築可能、代入可能とする</a>」のサンプルコードを参照。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++17までは、ラムダ式をSFINAEの文脈で用いて擬似的なコンセプトのような振る舞いをさせないために評価されない文脈においてラムダ式を書く事が禁止されていた（この制限は、ラムダ式がそれぞれ一意の型を持つため、それらを識別するためのマングリング方法を実装する負担をコンパイラ実装者に負わせないようにするために課されている）。</p>
+<p>しかし、それだけでは不十分で非型テンプレートパラメータを巧妙に用いた迂回方法があったため、C++14に対する欠陥報告（<a href="https://wg21.cmeerw.net/cwg/issue1607" target="_blank">CWG Issue 1607</a>）としてラムダ式がエンティティ（主にテンプレート）のシグネチャに現れるのが禁止された。</p>
+<p>この変更に伴う文言によってラムダ式を用いてSFINAEする事は完全に禁止され、評価されない文脈においてラムダ式の使用を制限する必要がなくなったため、C++20においてその制限を緩和することになった。</p>
+<p>ただし、ラムダ式が外部リンケージを持つエンティティのシグネチャに現れる事は相変わらず禁止されている。ラムダ式を用いてSFINAEするなど、そのような事がしたい場合には<a href="concepts.html">コンセプト</a>を用いる事でより容易に目的を達成できる。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="default_constructible_and_assignable_stateless_lambdas.html">状態を持たないラムダ式を、デフォルト構築可能、代入可能とする</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0315r0.pdf" target="_blank">P0315R0 Wording for lambdas in unevaluated contexts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0315r4.pdf" target="_blank">P0315R4 Wording for lambdas in unevaluated contexts</a></li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue1607" target="_blank">CWG Issue.1607 Lambdas in template parameters</a></li>
+<li><a href="https://ezoeryou.github.io/blog/article/2016-07-27-cpp-P0310R0-P0319R0.html" target="_blank">C++標準化委員会の文書: P0310R--P0319R0 - 本の虫</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

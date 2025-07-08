@@ -1,0 +1,326 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,header_name,concept,std,cpp20
+">
+        <meta name="title" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/start_editing/concept_template_page.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="(ここには、コンセプトの概要を記述します。必須事項です。)" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/start_editing/concept_template_page.html" />
+        <meta name="twitter:description" content="(ここには、コンセプトの概要を記述します。必須事項です。)" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;header_name&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;723b57380a7c749c94d41c26c49eeb40e445a94c&#34;, &#34;source&#34;: &#34;// (\u3053\u3053\u306b\u306f\u3001\u30b3\u30f3\u30bb\u30d7\u30c8\u3092\u89e3\u8aac\u3059\u308b\u305f\u3081\u306e\u3001\u30b5\u30f3\u30d7\u30eb\u30b3\u30fc\u30c9\u3092\u8a18\u8ff0\u3057\u307e\u3059\u3002)\n// (\u30a4\u30f3\u30af\u30eb\u30fc\u30c9\u3068main()\u95a2\u6570\u3092\u542b\u3080\u3001\u5b9f\u884c\u53ef\u80fd\u306a\u30b5\u30f3\u30d7\u30eb\u30b3\u30fc\u30c9\u3092\u8a18\u8ff0\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u305d\u306e\u3088\u3046\u306a\u30b3\u30fc\u30c9\u30d6\u30ed\u30c3\u30af\u306b\u306fexample\u30bf\u30b0\u3092\u4ed8\u3051\u307e\u3059\u3002)\n\n#include &lt;cassert&gt;\n#include &lt;cmath&gt;\n#include &lt;limits&gt;\n#include &lt;concepts&gt;\n\n// \u6570\u5024\u306e\u7b49\u5024\u6bd4\u8f03\u3092\u884c\u3046\u95a2\u6570\u3092\u3001\u6574\u6570\u578b\u304b\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u304b\u3067\u30aa\u30fc\u30d0\u30fc\u30ed\u30fc\u30c9\u3059\u308b\u3002\n// \u6574\u6570\u578b\u306e\u5834\u5408\u306f\u3001\u5358\u7d14\u306a==\u6f14\u7b97\u5b50\u306b\u3088\u308b\u6bd4\u8f03\ntemplate &lt;std::integral T&gt;\nbool equal(T a, T b) {\n  return a == b;\n}\n\n// \u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u306e\u5834\u5408\u306f\u3001\u8a08\u7b97\u8aa4\u5dee\u3092\u8a31\u5bb9\u3059\u308b\u7b49\u5024\u6bd4\u8f03\ntemplate &lt;std::floating_point T&gt;\nbool equal(T a, T b) {\n  return std::abs(a - b) &lt;= std::numeric_limits&lt;T&gt;::epsilon();\n}\n\nint main()\n{\n  assert(equal(1 + 2, 3));\n  assert(equal(0.1 + 0.2, 0.3));\n}\n&#34;}], &#34;page_id&#34;: [&#34;start_editing&#34;, &#34;concept_template_page&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../start_editing.html" itemprop="url">
+              
+                <span itemprop="name">はじめてのコントリビュート</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください)</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-11-18T05:55:10">
+        2024年11月18日 05時55分10秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/start_editing/concept_template_page.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/start_editing/concept_template_page.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;header_name&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください)</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p>(<a href="../start_editing.html">cpprefjpを編集するには</a> および <a href="markdown_cpprefjp.html">cpprefjpでのMarkdown記法の制限と拡張</a> を先に読んで下さい。)</p>
+<p>(
+  サンプルコードは文章中のどの部分で書いても大丈夫です。閲覧者の理解を助けるために必要だと感じたところで入れてください。
+  その際拡張構文である<code>example</code>タグをルールに従って付け、コンパイル・実行可能にすることを検討してください。
+)</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">C</span><span class="p">;</span> <span class="c1">// コンセプトの宣言を記述します。</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>(ここには、コンセプトの概要を記述します。必須事項です。)</p>
+<p>(必要な項目を省略する場合には、「(執筆中)」と書いておいてください。)</p>
+<p><code>C</code>は、型<code>T</code>がxx可能であることを表すコンセプトである。</p>
+<h2>要件</h2>
+<p>(ここには、コンセプトの定義を記述します。説明用コンセプトを記述する場合は、規格書と同様に小文字ハイフン区切りで記述してください)</p>
+<p>まず、説明専用コンセプト<code>xxx-yyy</code>を以下のように定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">xxx</span><span class="o">-</span><span class="n">yyy</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><code>C</code>コンセプトは、以下のように定義される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>モデル</h2>
+<p>(モデルとは、コンセプトの制約と意味論を満たした型が「型<code>T</code>はコンセプト<code>C</code>のモデルである」のように使われる用語です。ここには、説明、制約条件、意味論的な条件などを列挙して、型がどうすればそのコンセプトのモデルとなれるかを記述します)</p>
+<h2>備考</h2>
+<p>(ここには、コンセプトを説明するにあたっての、補足事項を記述します。とくになければ、項目を削除してください。)</p>
+<h2>例</h2>
+<p><div class="yata" id="723b57380a7c749c94d41c26c49eeb40e445a94c"><div class="codehilite"><pre><span></span><code><span class="c1">// (ここには、コンセプトを解説するための、サンプルコードを記述します。)</span>
+<span class="c1">// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。そのようなコードブロックにはexampleタグを付けます。)</span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../reference/cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 数値の等値比較を行う関数を、整数型か浮動小数点数型かでオーバーロードする。</span>
+<span class="c1">// 整数型の場合は、単純な==演算子による比較</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">integral</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 浮動小数点数型の場合は、計算誤差を許容する等値比較</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::floating_point</span></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n"><a href="../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">epsilon</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+  <span class="n"><a href="../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<p>(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)<br />
+(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../implementation.html#clang">Clang</a>: 1.9 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2.9 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../implementation.html#gcc">GCC</a>: 4.3.6 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.4.7 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.5.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.6.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.8.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../implementation.html#icc">ICC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 11.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 11.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 12.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../implementation.html#visual_cpp">Visual C++</a>: 2003 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2005 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2008 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2019 Update 3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<p>(ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)<br />
+(確認のテストできないときは、??を記述してください。)</p>
+<h3>備考</h3>
+<p>(処理系ごとに存在するバグや注意事項を記述します。とくにない場合は、項目を削除してください。)</p>
+<h2>関連項目</h2>
+<p>(ここには、その機能と関連のあるcpprefjpサイト内の項目へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)</p>
+<h2>参照</h2>
+<p>(ここには、そのコンセプトを理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)</p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

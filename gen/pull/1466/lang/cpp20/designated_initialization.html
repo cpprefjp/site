@@ -1,0 +1,345 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>指示付き初期化 [P0329R4] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="指示付き初期化 [P0329R4] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="指示付き初期化 [P0329R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="指示付き初期化 [P0329R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/designated_initialization.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++20では、波カッコによる集成体初期化においてメンバ名を指定して初期化が行える。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="指示付き初期化 [P0329R4] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/designated_initialization.html" />
+        <meta name="twitter:description" content="C++20では、波カッコによる集成体初期化においてメンバ名を指定して初期化が行える。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c983c9739379183827cc296df593e31527a04020&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nstruct Point3D { int x; int y; int z = 0; };\n\nstd::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Point3D&amp; p){\n  return os &lt;&lt; &#39;(&#39; &lt;&lt; p.x &lt;&lt; &#39;,&#39; &lt;&lt; p.y &lt;&lt; &#39;,&#39; &lt;&lt; p.z &lt;&lt; &#39;)&#39;;\n}\n\nint main()\n{\n  Point3D p1 {1, 2, 3};\n  Point3D p2 {.x = 1, .y = 2, .z = 3};\n  Point3D p3 {.x{1}, .y{2}, .z{3}};\n  Point3D p4 {.x{1}};\n  Point3D p5 {.z{3}};\n  std::cout &lt;&lt; p1 &lt;&lt; &#39;\\n&#39;;\n  std::cout &lt;&lt; p2 &lt;&lt; &#39;\\n&#39;;\n  std::cout &lt;&lt; p3 &lt;&lt; &#39;\\n&#39;;\n  std::cout &lt;&lt; p4 &lt;&lt; &#39;\\n&#39;;\n  std::cout &lt;&lt; p5 &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;designated_initialization&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">指示付き初期化 [P0329R4]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/designated_initialization.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/designated_initialization.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">指示付き初期化 [P0329R4]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++20では、波カッコによる集成体初期化においてメンバ名を指定して初期化が行える。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Point3D</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="kt">int</span> <span class="n">y</span><span class="p">;</span> <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">Rect</span> <span class="p">{</span> <span class="n">Point3D</span> <span class="n">p1</span><span class="p">;</span> <span class="n">Point3D</span> <span class="n">p2</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="c1">// 以下の例では、変数名と初期化子リストの間に=を書いても良い</span>
+
+<span class="n">Point3D</span> <span class="n">p1</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>                <span class="c1">// (1) OK これは通常の集成体初期化</span>
+<span class="n">Point3D</span> <span class="n">p2</span> <span class="p">{.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">};</span> <span class="c1">// (2) OK (1)と同じ</span>
+<span class="n">Point3D</span> <span class="n">p3</span> <span class="p">{.</span><span class="n">x</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="p">.</span><span class="n">y</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="p">.</span><span class="n">z</span><span class="p">{</span><span class="mi">3</span><span class="p">}};</span>    <span class="c1">// (3) OK (1)と同じ</span>
+<span class="n">Point3D</span> <span class="n">p4</span> <span class="p">{.</span><span class="n">x</span><span class="p">{</span><span class="mi">1</span><span class="p">}};</span>                  <span class="c1">// (4) OK {.x{1}, .y{}, .z = 0}と同じ</span>
+<span class="n">Point3D</span> <span class="n">p5</span> <span class="p">{.</span><span class="n">z</span><span class="p">{</span><span class="mi">3</span><span class="p">}};</span>                  <span class="c1">// (5) OK {.x{}, .y{}, .z{3}}と同じ</span>
+<span class="n">Point3D</span> <span class="n">p6</span> <span class="p">{.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">};</span> <span class="c1">// (6) エラー: メンバの宣言順通りに並べなければならない</span>
+
+<span class="n">Rect</span> <span class="n">r1</span> <span class="p">{</span> <span class="p">.</span><span class="n">p1</span><span class="p">{.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">}</span> <span class="p">};</span>     <span class="c1">// OK</span>
+<span class="n">Rect</span> <span class="n">r1</span> <span class="p">{</span> <span class="p">.</span><span class="n">p1</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">p1</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">p1</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">};</span> <span class="c1">// エラー</span>
+</code></pre></div>
+</p>
+<ul>
+<li>この<code>.x</code>、<code>.y</code> などを<strong>指示子</strong>(designator)という</li>
+<li><code>.x = 1</code>や<code>.y{2}</code>などを<strong>指示付き初期化子</strong>(designated initializer)という</li>
+<li><code>{.x = 1, .y = 2, .z = 3}</code>などを<strong>指示付き初期化子リスト</strong>(designated initializer list)という</li>
+</ul>
+<h2>仕様</h2>
+<ul>
+<li>指示子は非静的メンバ変数の宣言順通りに並べなければならない</li>
+<li>指示子は省略できる<ul>
+<li>省略すると、デフォルトメンバ初期化子または<code>{}</code>で初期化する</li>
+</ul>
+</li>
+<li>暗黙の縮小変換はできない</li>
+<li>通常の初期化子とは混在できない</li>
+<li>指示付き初期化は<code>.a.x</code>のようにはネストできない<ul>
+<li>別の波カッコによる集成体初期化がネストしている場合は問題ない</li>
+</ul>
+</li>
+<li>共用体に対する指示子は(最大で)1つであること<ul>
+<li>共用体を指示付き初期化するときは、指示子は1つでなければならない</li>
+<li>無名共用体をメンバに持つ型を指示付き初期化するときは、その無名共用体のメンバに対応する指示子は最大で1つでなければならない</li>
+</ul>
+</li>
+<li><a href="allow_initializing_aggregates_from_a_parenthesized_list_of_values.html">丸カッコによる集成体初期化</a>では、指示付き初期化はできない</li>
+</ul>
+<p>構文的には、指示付き初期化子リスト、初期化子リスト、空リストを含めて波カッコによる初期化である。指示付き初期化子リストも他と同様に<code>return</code>文や実引数などに書くことができる。</p>
+<p>このことを活用すると、いわゆる名前付き引数のような書き方もできる。ただし、指示子が並び替えできないので少々不便である。</p>
+<p>一方、メンバ名とその宣言順をコンパイル時にチェックできるという利点もある。通常の初期化子リストでは、型が同じメンバ同士を入れ替えてもエラーとはならない。</p>
+<h2>例</h2>
+<p><div class="yata" id="c983c9739379183827cc296df593e31527a04020"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Point3D</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="kt">int</span> <span class="n">y</span><span class="p">;</span> <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">Point3D</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">){</span>
+  <span class="k">return</span> <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="sc">'('</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">','</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">','</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="sc">')'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Point3D</span> <span class="n">p1</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n">Point3D</span> <span class="n">p2</span> <span class="p">{.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n">Point3D</span> <span class="n">p3</span> <span class="p">{.</span><span class="n">x</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="p">.</span><span class="n">y</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="p">.</span><span class="n">z</span><span class="p">{</span><span class="mi">3</span><span class="p">}};</span>
+  <span class="n">Point3D</span> <span class="n">p4</span> <span class="p">{.</span><span class="n">x</span><span class="p">{</span><span class="mi">1</span><span class="p">}};</span>
+  <span class="n">Point3D</span> <span class="n">p5</span> <span class="p">{.</span><span class="n">z</span><span class="p">{</span><span class="mi">3</span><span class="p">}};</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p1</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p2</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p3</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p4</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p5</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>(1,2,3)
+(1,2,3)
+(1,2,3)
+(1,0,0)
+(0,0,3)
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>最初にC99で指示付き初期化が導入され、C++にも取り込まれることになった。</p>
+<p>ただし、次の機能はCでは有効だがC++には取り込まれていないなど、完全に互換性があるわけではない。</p>
+<ul>
+<li>指示子の自由な並び替え(メンバの宣言順と一致しない順序)<br />
+  初期化子リストの要素は記述順に評価されるが、一方でC++ではメンバ変数は宣言順に初期化しなければならないため。</li>
+<li>配列の指示付き初期化<br />
+  ラムダ式のキャプチャと競合するため。</li>
+<li>指示付き初期化のネスト<br />
+  使用頻度が低いため。</li>
+<li>指示子と通常の初期化子の混在</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf" target="_blank">P0329R4</a>から引用</span>
+<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span> <span class="k">struct</span> <span class="n">A</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">};</span> <span class="c1">// Cでは有効、C++20では無効</span>
+<span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">};</span>        <span class="c1">// Cでは有効、C++20では無効</span>
+<span class="k">struct</span> <span class="n">B</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">};</span>       <span class="c1">// Cでは有効、C++20では無効</span>
+<span class="k">struct</span> <span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>      <span class="c1">// Cでは有効、C++20では無効</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf" target="_blank">P0329R4 Designated initialization</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

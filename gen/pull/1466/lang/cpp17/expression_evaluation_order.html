@@ -1,0 +1,381 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>厳密な式の評価順 [P0145R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="厳密な式の評価順 [P0145R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="厳密な式の評価順 [P0145R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="厳密な式の評価順 [P0145R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/expression_evaluation_order.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="厳密な式の評価順 [P0145R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/expression_evaluation_order.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;35e69b586ff7e53bc967b43a09dbcca0feb1982b&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;map&gt;\n\nint main() {\n  std::map&lt;int, int&gt; m;\n  m[0] = m.size(); // C++17 \u3067\u306f\u53f3\u304b\u3089\u5de6\u306b\u8a55\u4fa1\u3055\u308c\u308b\u305f\u3081 m \u306f {{0, 0}} \u306b\u306a\u308b\n  std::cout &lt;&lt; m[0] &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;426cb06a72e44d7f99f38fef632702e871a7137f&#34;, &#34;source&#34;: &#34;#include &lt;map&gt;\n\nint main() {\n  std::map&lt;int, int&gt; m;\n  m[0] = m.size(); // C++14 \u3067\u306f m \u304c {{0, 0}} \u304b {{0, 1}} \u306e\u3069\u3061\u3089\u306b\u306a\u308b\u304b\u4e0d\u5b9a\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;expression_evaluation_order&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">厳密な式の評価順 [P0145R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-08T07:33:21">
+        2024年07月08日 07時33分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/expression_evaluation_order.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/expression_evaluation_order.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">厳密な式の評価順 [P0145R3]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++14までは演算子オペランドにあたる部分式の評価順序は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>（unspecified）であったが、
+C++17では下記リストの演算子に関しては<code>a</code>, <code>b</code>の順で評価されることが規定された。
+<code>@=</code>は代入演算子<code>=</code>や任意の複合代入演算子（<code>+=</code>, <code>-=</code>など）を表す。</p>
+<ol>
+<li><code>a.b</code></li>
+<li><code>a-&gt;b</code></li>
+<li><code>a-&gt;*b</code></li>
+<li><code>a(b1, b2, b3)</code></li>
+<li><code>b @= a</code></li>
+<li><code>a[b]</code></li>
+<li><code>a &lt;&lt; b</code></li>
+<li><code>a &gt;&gt; b</code></li>
+</ol>
+<p>関数呼び出し実引数リストの部分式（上記例では<code>b1</code>, <code>b2</code>, <code>b3</code>）間の評価順序は、不定順で序列化(indeterminately sequenced)される。
+つまり<code>b1</code>, <code>b2</code>, <code>b3</code>の順序とは限らず<code>b3</code>, <code>b2</code>, <code>b1</code>や<code>b2</code>, <code>b3</code>, <code>b1</code>などの順序で評価される可能性がある。
+その一方で、例えば<code>b1</code>, <code>b2</code>, <code>b3</code>の順に評価が開始する場合には、<code>b1</code>評価完了より前に<code>b2</code>や<code>b3</code>の評価が開始する（インターリーブ実行される）ことは決して無い。</p>
+<p>上記以外の演算子オペランド（例えば<code>x + y</code>の両項<code>x</code>, <code>y</code>）間の評価順序は、C++17でも従来どおり<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>(unspecified)のままである。</p>
+<h2>仕様</h2>
+<p>C++17では演算子オペランドにあたる部分式の評価順序が下記の通りに定められた。</p>
+<ol>
+<li>左から右に評価される。<ul>
+<li>メンバへのポインタ演算子 (<code>.*</code>, <code>-&gt;*</code>)</li>
+<li>関数呼び出し演算子、および<code>T(...)</code>による初期化</li>
+<li>添え字演算子</li>
+<li>シフト演算子</li>
+</ul>
+</li>
+<li>右から左に評価される。<ul>
+<li>代入演算子</li>
+<li>複合代入演算子（代入と演算を同時に行う<code>+=</code>, <code>-=</code>, <code>|=</code>などのこと）</li>
+</ul>
+</li>
+<li><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された演算子の場合、言語組み込み演算子の評価順序に従う。<ul>
+<li><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された演算子の実際の動作はメンバ関数呼び出しとなるが、関数呼び出しの順序規則を適用しない。</li>
+<li>ただし演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>をメンバ関数呼び出し形式で行った場合（例えば<code>x.operator=(y)</code>）は、関数呼び出しの評価順序（<code>x</code>, <code>y</code>）が適用される。</li>
+</ul>
+</li>
+<li><code>new</code>式：メモリ確保関数の呼び出しは初期化子の評価より前と規定する。</li>
+</ol>
+<p>3番目の規則については、
+代入演算子<code>operator=</code>を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>した場合を考えると理解しやすい。
+言語組み込み代入演算子<code>=</code>のオペランドは右から左の順、つまり<code>a()</code>, <code>b()</code>の順で評価される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span>  <span class="nf">a</span><span class="p">();</span>
+<span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">b</span><span class="p">()</span> <span class="o">=</span> <span class="n">a</span><span class="p">();</span> <span class="c1">// 部分式a(), b()の順で評価される</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>Hoge</code>クラスの代入演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>によって、
+式<code>b() = a()</code>は<code>b().operator=(a())</code>という関数呼び出しが行われる。
+このとき3番目の規則が存在しなかったとすると、1番目の関数呼び出しに関する規則が適用される。
+関数呼び出しの評価順序は左から右の順、つまり<code>b()</code>, <code>a()</code>の順で評価されるため、
+言語組み込み代入演算子オペランドの評価順序と逆になってしまう。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
+  <span class="c1">// 代入演算子オーバーロード</span>
+  <span class="n">Hoge</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Hoge</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="n">Hoge</span>  <span class="nf">a</span><span class="p">();</span>
+<span class="n">Hoge</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 実際には b().operator=(a()); が呼び出されるため</span>
+  <span class="c1">// 仮に3番目の規則が存在しなかったら...</span>
+  <span class="n">b</span><span class="p">()</span> <span class="o">=</span> <span class="n">a</span><span class="p">();</span> <span class="c1">// b(), a()の順で評価される（逆になってしまう！）</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>プログラムの見た目は全く同じ代入式にも関わらず、
+代入演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の有無によって評価順序が逆になってしまう。
+このような振る舞いはプログラマを混乱させるだけだろう。
+3番目の規則は「演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>にわざと関数呼び出しの規則を当てはめない」ことで、
+演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の有無に関わらず自然な動作を実現するための規則である。</p>
+<h2>例</h2>
+<p><div class="yata" id="35e69b586ff7e53bc967b43a09dbcca0feb1982b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/map.html">&lt;map&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">;</span>
+  <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// C++17 では右から左に評価されるため m は {{0, 0}} になる</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++規格の策定以来、演算子オペランドの評価順序は厳密に定められていなかった。</p>
+<p>例に出てきたプログラムは非常に単純だが、
+C++14やそれ以前のC++の規格では動作が不定であった。
+代入式の評価順序が規定されていなかったためである。</p>
+<p><div class="yata" id="426cb06a72e44d7f99f38fef632702e871a7137f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/map.html">&lt;map&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">;</span>
+  <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// C++14 では m が {{0, 0}} か {{0, 1}} のどちらになるか不定</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>下記のプログラムの動作を考える。
+<code>std::cout</code>, <code>f()</code>, <code>g()</code>, <code>h()</code>が互いに作用する
+（例えば<code>f()</code>, <code>g()</code>, <code>h()</code>内で<code>std::cout</code>に何か出力するなど）場合、
+このプログラムの動作は不定であった。</p>
+<p>シフト演算子は左結合なので<code>std::cout</code>, <code>f()</code>, <code>g()</code>, <code>h()</code>の順に評価されそうだが、
+演算子の結合と評価順には直接的な関係はなく、C++プログラマが期待する評価順は保証されなかった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">g</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">h</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<p><code>std::cout</code>はシフト演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を行っているため、
+実際にはメンバ関数の呼び出しとして解決される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">f</span><span class="p">()).</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">g</span><span class="p">()).</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">h</span><span class="p">());</span>
+</code></pre></div>
+</p>
+<p>このとき<code>operator&lt;&lt;(f()).operator&lt;&lt;(g())</code>のように、
+メンバ関数呼び出しの連鎖が発生するが、<code>f()</code>を含む部分式と<code>g()</code>の評価順は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>とされていた。
+つまり右から左<code>g()</code>, <code>f()</code>の順で評価されるかも知れないし、
+左から右<code>f()</code>, <code>g()</code>の順に評価されるかも知れない。</p>
+<p>以上のように、シンプルな代入演算やメンバ関数呼び出し連鎖などC++で広く使われている手法でさえ、
+動作結果が不定となってしまう問題がある。
+この問題はプログラミング作法が悪いのではなく、
+C++規格が現代のプログラミング作法に合わなくなっていることが原因である。
+C/C++規格の制定から約30年の時を経て、C++17で是正されることとなった。</p>
+<p>C++17では全ての式の評価順を厳密に定めることはあえて避けている。
+C++の既存のプログラムを壊すこと無く、なおかつ、
+広く用いられているプログラミング手法が不定な動作にならないよう、
+対象を限定して注意深く変更した結果である。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0145r3.pdf" target="_blank">P0145R3 Refining Expression Evaluation Order for Idiomatic C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0400r0.html" target="_blank">P0400R0 Wording for Order of Evaluation of Function Arguments</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

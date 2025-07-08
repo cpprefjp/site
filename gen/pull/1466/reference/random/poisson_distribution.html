@@ -1,0 +1,485 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>poisson_distribution - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,class template,cpp11
+">
+        <meta name="title" content="poisson_distribution - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="poisson_distribution - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="poisson_distribution - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/poisson_distribution.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`poisson_distribution`は、離散確率分布の一種であるポワソン分布を表すクラスである。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="poisson_distribution - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/poisson_distribution.html" />
+        <meta name="twitter:description" content="`poisson_distribution`は、離散確率分布の一種であるポワソン分布を表すクラスである。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4d90534fcd2649734ae9e8cb4601d6ea9d73848e&#34;, &#34;source&#34;: &#34;#include &lt;random&gt;\n#include &lt;fstream&gt;\n\nint main()\n{\n  std::random_device seed_gen;\n  std::default_random_engine engine(seed_gen());\n\n  // \u5e73\u5747\u50244.0\u3067\u5206\u5e03\u3055\u305b\u308b\n  std::poisson_distribution&lt;&gt; dist(4.0);\n\n  std::ofstream file(\&#34;poisson_distribution.tsv\&#34;);\n  for (std::size_t n = 0; n &lt; 1000; ++n) {\n    // \u30dd\u30ef\u30bd\u30f3\u5206\u5e03\u3067\u4e71\u6570\u3092\u751f\u6210\u3059\u308b\n    int result = dist(engine);\n    file &lt;&lt; result &lt;&lt; \&#34;\\t\\n\&#34;;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;d473e1496a5ffe5ddc4b6817d76960954758c1fd&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;random&gt;\n\nint main() {\n  // \u5e73\u5747\u7684\u306b1\u30f6\u6708\u306b1\u56de\u306e\u5730\u9707\u304c\u8d77\u3053\u308b\u3068\u3059\u308b\n  double average_quakes = 1.0;\n\n  std::random_device seed_gen;\n  std::default_random_engine engine{seed_gen()};\n  std::poisson_distribution&lt;int&gt; dist{average_quakes};\n\n  // 1\u5e74\u9593 (12\u30f6\u6708) \u306e\u5730\u9707\u306e\u56de\u6570\u3092\u30b7\u30df\u30e5\u30ec\u30fc\u30c8\n  for (int month = 1; month &lt;= 12; ++month) {\n    int quakes = dist(engine);\n    std::cout &lt;&lt; \&#34;Month \&#34; &lt;&lt; month &lt;&lt; \&#34;: \&#34; &lt;&lt; quakes &lt;&lt; \&#34; earthquake(s)\\n\&#34;;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;poisson_distribution&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">poisson_distribution</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-12T02:29:46">
+        2024年07月12日 02時29分46秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/poisson_distribution.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/poisson_distribution.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">poisson_distribution</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">IntType</span> <span class="o">=</span> <span class="kt">int</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">poisson_distribution</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>poisson_distribution</code>は、離散確率分布の一種であるポワソン分布を表すクラスである。<br />
+以下の確率密度関数に基いて、ランダムな整数を生成する：</p>
+<p>$$ p(x \mid \mu) = \frac{e^{-\mu} \mu^x}{x!} $$</p>
+<p>この数式においてμ(mu)は、平均値(mean)である。</p>
+<p>ポワソン分布は、まれにしか起こらない事象が何回起こるかを求めるために使用できる確率分布である。以下のような用途に使用できる：</p>
+<ul>
+<li>ある交差点で1時間に起きる事故の件数</li>
+<li>国道1キロメートル当たりのレストランの数</li>
+<li>この原稿を書いている間に変換間違えをする数</li>
+</ul>
+<p>テンプレートパラメータは、以下を意味する：</p>
+<ul>
+<li><code>IntType</code> : 生成する整数型。</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築・リセット</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="poisson_distribution/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>~poisson_distribution() = default;</code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="poisson_distribution/reset.html">reset</a></code></td>
+<td>状態をリセットする</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>生成</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="poisson_distribution/op_call.html">operator()</a></code></td>
+<td>乱数を生成する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>プロパティ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="poisson_distribution/mean.html">mean</a></code></td>
+<td>分布の平均値を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="poisson_distribution/param.html">param</a></code></td>
+<td>分布のパラメータを取得／設定する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="poisson_distribution/min.html">min</a></code></td>
+<td>生成し得る値の下限を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="poisson_distribution/max.html">max</a></code></td>
+<td>生成し得る値の上限を取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result_type</code></td>
+<td>乱数生成結果の整数型 <code>IntType</code>。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>param_type</code></td>
+<td>分布パラメータの型。<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="poisson_distribution/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="poisson_distribution/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="poisson_distribution/op_ostream.html">operator&lt;&lt;</a></code></td>
+<td>ストリームへの出力</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="poisson_distribution/op_istream.html">operator&gt;&gt;</a></code></td>
+<td>ストリームからの入力</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="4d90534fcd2649734ae9e8cb4601d6ea9d73848e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="default_random_engine.html">std::default_random_engine</a></span> <span class="n">engine</span><span class="p">(</span><span class="n"><a href="random_device/op_call.html">seed_gen()</a></span><span class="p">);</span>
+
+  <span class="c1">// 平均値4.0で分布させる</span>
+  <span class="n"><span style="color:#ff0000">std::poisson_distribution</span></span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mf">4.0</span><span class="p">);</span>
+
+  <span class="n"><a href="../fstream/basic_ofstream.html">std::ofstream</a></span> <span class="n">file</span><span class="p">(</span><span class="s">"poisson_distribution.tsv"</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ポワソン分布で乱数を生成する</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="poisson_distribution/op_call.html">dist(engine)</a></span><span class="p">;</span>
+    <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<p>このプログラムによってある時に得られた結果（<a href="https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/poisson_distribution/poisson_distribution.tsv" target="_blank">poisson_distribution.tsv</a>）を図示する。 </p>
+<p><img alt="" src="../../static/image/reference/random/poisson_distribution/poisson_distribution.png" /></p>
+<h3>地震が1ヶ月に平均1回起こるとして1年間をシミュレート</h3>
+<p><div class="yata" id="d473e1496a5ffe5ddc4b6817d76960954758c1fd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 平均的に1ヶ月に1回の地震が起こるとする</span>
+  <span class="kt">double</span> <span class="n">average_quakes</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+  <span class="n"><a href="random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="default_random_engine.html">std::default_random_engine</a></span> <span class="n">engine</span><span class="p">{</span><span class="n"><a href="random_device/op_call.html">seed_gen()</a></span><span class="p">};</span>
+  <span class="n"><span style="color:#ff0000">std::poisson_distribution</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">{</span><span class="n">average_quakes</span><span class="p">};</span>
+
+  <span class="c1">// 1年間 (12ヶ月) の地震の回数をシミュレート</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">12</span><span class="p">;</span> <span class="o">++</span><span class="n">month</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">quakes</span> <span class="o">=</span> <span class="n"><a href="poisson_distribution/op_call.html">dist(engine)</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Month "</span> <span class="o">&lt;&lt;</span> <span class="n">month</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> <span class="o">&lt;&lt;</span> <span class="n">quakes</span> <span class="o">&lt;&lt;</span> <span class="s">" earthquake(s)</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>Month 1: 1 earthquake(s)
+Month 2: 2 earthquake(s)
+Month 3: 2 earthquake(s)
+Month 4: 0 earthquake(s)
+Month 5: 0 earthquake(s)
+Month 6: 1 earthquake(s)
+Month 7: 1 earthquake(s)
+Month 8: 1 earthquake(s)
+Month 9: 2 earthquake(s)
+Month 10: 2 earthquake(s)
+Month 11: 2 earthquake(s)
+Month 12: 1 earthquake(s)
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 7 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: </li>
+</ul>
+<h3>参考</h3>
+<ul>
+<li><a href="https://ja.wikipedia.org/wiki/ポアソン分布" target="_blank">ポワソン分布 - Wikipedia</a></li>
+<li><a href="https://okumuralab.org/~okumura/stat/poisson.html" target="_blank">ポアソン分布 - 統計・データ解析</a></li>
+<li><a href="http://www.ntrand.com/jp/poisson-distribution/" target="_blank">ポアソン分布 - NtRand</a></li>
+<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2407/11/news002.html" target="_blank">［データ分析］ポアソン分布 ～ 100年に1人の天才は何人現れる？：やさしい確率分布 - ＠IT</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

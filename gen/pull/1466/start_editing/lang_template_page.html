@@ -1,0 +1,295 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/start_editing/lang_template_page.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="(ここには、言語機能の概要を記載します。)" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください) - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/start_editing/lang_template_page.html" />
+        <meta name="twitter:description" content="(ここには、言語機能の概要を記載します。)" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f13c43f217dd0de2a102f881250a84a7c361e710&#34;, &#34;source&#34;: &#34;// (\u3053\u3053\u306b\u306f\u3001\u8a00\u8a9e\u6a5f\u80fd\u306e\u4f7f\u3044\u65b9\u3092\u89e3\u8aac\u3059\u308b\u305f\u3081\u306e\u3001\u30b5\u30f3\u30d7\u30eb\u30b3\u30fc\u30c9\u3092\u8a18\u8ff0\u3057\u307e\u3059\u3002)\n// (\u30a4\u30f3\u30af\u30eb\u30fc\u30c9\u3068main()\u95a2\u6570\u3092\u542b\u3080\u3001\u5b9f\u884c\u53ef\u80fd\u306a\u30b5\u30f3\u30d7\u30eb\u30b3\u30fc\u30c9\u3092\u8a18\u8ff0\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u305d\u306e\u3088\u3046\u306a\u30b3\u30fc\u30c9\u30d6\u30ed\u30c3\u30af\u306b\u306fexample\u30bf\u30b0\u3092\u4ed8\u3051\u307e\u3059\u3002)\n\n#include &lt;iostream&gt;\n\nint main()\n{\n  int variable = 0;\n  std::cout &lt;&lt; variable &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;start_editing&#34;, &#34;lang_template_page&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../start_editing.html" itemprop="url">
+              
+                <span itemprop="name">はじめてのコントリビュート</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください)</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-11-18T05:55:10">
+        2024年11月18日 05時55分10秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/start_editing/lang_template_page.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/start_editing/lang_template_page.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">page_title ((1行目の見出し1はページのタイトルです。修飾なしで記載してください)</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p>(<a href="../start_editing.html">cpprefjpを編集するには</a> および <a href="markdown_cpprefjp.html">cpprefjpでのMarkdown記法の制限と拡張</a> を先に読んで下さい。)</p>
+<p>(
+  サンプルコードは文章中のどの部分で書いても大丈夫です。閲覧者の理解を助けるために必要だと感じたところで入れてください。
+  その際拡張構文である<code>example</code>タグをルールに従って付け、コンパイル・実行可能にすることを検討してください。
+)</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>(確定した言語バージョンに対する注意事項は以下)</p>
+<p></p>
+<p>このページはC++XXに採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<p>(確定前の言語バージョンに対する注意事項は以下)</p>
+<p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>(ここには、言語機能の概要を記載します。)</p>
+<p>(必要な項目を省略する場合には、「(執筆中)」と書いておいてください。)</p>
+<h2>仕様</h2>
+<p>(ここには、言語機能の仕様を記載します。最初のコミットから完璧にする必要はありません。徐々に詳細にしていけばOKです。)</p>
+<p>(同じ言語バージョン内で他の仕様更新と変更箇所が衝突する場合があります。その場合は、可能であればそれらの変更を考慮・マージした仕様で記載してください。)</p>
+<h2>例</h2>
+<p><div class="yata" id="f13c43f217dd0de2a102f881250a84a7c361e710"><div class="codehilite"><pre><span></span><code><span class="c1">// (ここには、言語機能の使い方を解説するための、サンプルコードを記述します。)</span>
+<span class="c1">// (インクルードとmain()関数を含む、実行可能なサンプルコードを記述してください。そのようなコードブロックにはexampleタグを付けます。)</span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n"><span style="color:#ff0000">variable</span></span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n"><a href="../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">variable</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>(コードブロック中の識別子に、文字色を付ける例です。)</p>
+<h3>出力</h3>
+<p><pre><code>0
+</code></pre></p>
+<p>(ここには、サンプルコードの実行結果を記述します。何も出力がない場合は、項目を削除せず、空の出力にしてください。)<br />
+(実行結果が処理系・実行環境によって異なる場合は、項目名を「出力例」に変更し、可能であればその理由も併記してください。)</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>(ここには、その言語機能が必要になった背景や経緯を記述します。その言語機能で解決したい問題は何だったのかは、ユーザーがその言語機能を実際に使う上で重要な情報となります。)</p>
+<h2>検討されたほかの選択肢</h2>
+<p>(ここには、その言語機能が実際に採用されるまでに検討された、ほかの設計選択を記述します。どのような選択肢があって今の言語機能となったのかがわかるようにします。)</p>
+<h2>## <a href="#relative-page" id="relative-page">関連項目</a></h2>
+<p>(ここには、その言語機能と関連のあるcpprefjpサイト内の項目へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)</p>
+<h2>参照</h2>
+<p>(ここには、その言語機能を理解するにあたっての参考資料へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)</p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
