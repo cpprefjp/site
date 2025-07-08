@@ -27,7 +27,7 @@ namespace std {
 - `Base`は`Derived`の曖昧ではない`public`継承されたクラスである
 - `Base`と`Derived`はCV修飾の違いを除いて同じクラス型である
 
-`Derived`が`Base`を公開継承しない場合、[`std::is_base_of<Derived, Base>`](/reference/type_traits/is_base_of.md)の判定とは異なる結果となる。
+`Derived`が`Base`を公開継承しない場合、[`std::is_base_of<Base, Derived>`](/reference/type_traits/is_base_of.md)の判定とは異なる結果となる。
 
 ## 例
 ```cpp example
@@ -42,16 +42,16 @@ void check_derived() {
 
 template<typename T, typename U>
 void check_derived() {
-  std::cout << "U and T are others" << std::endl;
+  std::cout << "U is not base class of T" << std::endl;
 }
 
 struct Base {};
 
 //public継承
 struct Derived1 : Base {};
-//private
+//private継承
 struct Derived2 : private Base {};
-//protected
+//protected継承
 struct Derived3 : protected Base {};
 //曖昧な継承
 struct Derived4 : Base, Derived1 {};
@@ -79,12 +79,12 @@ int main()
 
 ### 出力
 ```
-U and T are others
+U is not base class of T
 U is base class of T
 U is base class of T
-U and T are others
-U and T are others
-U and T are others
+U is not base class of T
+U is not base class of T
+U is not base class of T
 U is base class of T
 U is base class of T
 U is base class of T
