@@ -59,7 +59,7 @@ int main() {
     std::free(p);
     std::cerr << "realloc failed" << std::endl;
     return 1;
-  }// 拡張後の内容を出力（追加領域の値は未定義）
+  }// 拡張後の内容を出力（追加領域の値は未規定）
   for (int i = 0; i < 10; ++i) {
     std::cout << q[i] << ' ';
   }
