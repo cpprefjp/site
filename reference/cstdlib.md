@@ -42,7 +42,7 @@
 | [`aligned_alloc`](cstdlib/aligned_alloc.md) | 指定したアライメントでメモリを確保する (function) | C++17 |
 | [`malloc`](cstdlib/malloc.md)  | メモリを確保する (function) | |
 | [`calloc`](cstdlib/calloc.md) | メモリを確保し、領域をゼロ初期化する (function) | |
-| [`realloc`](cstdlib/realloc.md.nolink) | メモリを再確保する (function) | |
+| [`realloc`](cstdlib/realloc.md) | メモリを再確保する (function) | |
 | [`free`](cstdlib/free.md)    | 確保したメモリを解放する (function) | |
 
 
