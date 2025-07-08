@@ -45,4 +45,4 @@ int main(void)
 - [`aligned_alloc`](aligned_alloc.md):指定したアライメントでメモリを確保する
 - [`malloc`](malloc.md):メモリを確保する
 - [`calloc`](calloc.md):メモリを確保する(0で初期化する)
-- [`realloc`](realloc.md.nolink):メモリを再確保する
+- [`realloc`](realloc.md):メモリを再確保する
