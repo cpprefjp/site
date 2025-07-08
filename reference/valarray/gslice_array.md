@@ -103,6 +103,8 @@ int main()
 ```
 * std::gslice[color ff0000]
 * std::setw[link /reference/iomanip/setw.md]
+* std::begin[link valarray/begin_free.md]
+* std::end[link valarray/end_free.md]
 
 ### 出力
 ```

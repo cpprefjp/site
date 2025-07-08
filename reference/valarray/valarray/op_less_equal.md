@@ -108,6 +108,8 @@ int main()
 }
 ```
 * std::all_of[link /reference/algorithm/all_of.md]
+* std::begin[link /reference/valarray/valarray/begin_free.md]
+* std::end[link /reference/valarray/valarray/end_free.md]
 
 ### 出力
 ```

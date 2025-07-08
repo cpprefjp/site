@@ -23,6 +23,21 @@ def load_global_qualify_patterns():
         return re.compile(combined_pattern)
     return None
 
+# 削除の対象外リスト
+NOT_TARGET = [
+    "* std::begin[link valarray/begin_free.md]",
+    "* std::end[link valarray/end_free.md]",
+    "* std::begin[link /reference/valarray/valarray/begin_free.md]",
+    "* std::end[link /reference/valarray/valarray/end_free.md]"
+]
+
+def is_not_target_line(line):
+    stripped_line = line.strip()
+    for x in NOT_TARGET:
+        if stripped_line.startswith(x):
+            return True
+    return False
+
 # ファイルを処理して、該当する行を削除
 def process_file(file_path, pattern_regex):
     if pattern_regex is None:
@@ -35,7 +50,7 @@ def process_file(file_path, pattern_regex):
     removed_count = 0
 
     for line in lines:
-        if pattern_regex.search(line):
+        if pattern_regex.search(line) and not is_not_target_line(line):
             removed_count += 1
         else:
             new_lines.append(line)

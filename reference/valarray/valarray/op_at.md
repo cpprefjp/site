@@ -257,6 +257,8 @@ int main()
 }
 ```
 * std::slice[link /reference/valarray/slice.md]
+* std::begin[link /reference/valarray/valarray/begin_free.md]
+* std::end[link /reference/valarray/valarray/end_free.md]
 * std::slice_array[link /reference/valarray/slice_array.md]
 * std::gslice[link /reference/valarray/gslice.md]
 * std::gslice_array[link /reference/valarray/gslice_array.md]
