@@ -2,9 +2,941 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-08T15:40:02.166370</updated>
-  <id>33d74772-27cf-453f-8e09-dc15c89cff9a</id>
+  <updated>2025-07-08T16:25:31.801673</updated>
+  <id>a9e03990-9264-42d3-86fa-e83955c00e63</id>
 
+  
+    <entry>
+      <title>gslice -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice.md b/reference/valarray/gslice.md
+index 1b82ec9d0..21f35cce6 100644
+--- a/reference/valarray/gslice.md
++++ b/reference/valarray/gslice.md
+@@ -68,6 +68,8 @@ auto main()
+ }
+ ```
+ * std::gslice[color ff0000]
++* std::begin[link valarray/begin_free.md]
++* std::end[link valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>gslice_array -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array.md b/reference/valarray/gslice_array.md
+index 65955519c..9d825ee33 100644
+--- a/reference/valarray/gslice_array.md
++++ b/reference/valarray/gslice_array.md
+@@ -103,6 +103,8 @@ int main()
+ ```
+ * std::gslice[color ff0000]
+ * std::setw[link /reference/iomanip/setw.md]
++* std::begin[link valarray/begin_free.md]
++* std::end[link valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&amp;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_and_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_and_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_and_assign.md b/reference/valarray/gslice_array/op_and_assign.md
+index 69c33ecdc..623d91063 100644
+--- a/reference/valarray/gslice_array/op_and_assign.md
++++ b/reference/valarray/gslice_array/op_and_assign.md
+@@ -66,6 +66,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ * to_string()[link /reference/bitset/bitset/to_string.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_assign.md b/reference/valarray/gslice_array/op_assign.md
+index a489b9d75..1d7fc90bc 100644
+--- a/reference/valarray/gslice_array/op_assign.md
++++ b/reference/valarray/gslice_array/op_assign.md
+@@ -100,6 +100,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator/= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_divide_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_divide_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_divide_assign.md b/reference/valarray/gslice_array/op_divide_assign.md
+index 944342d23..dcc20574e 100644
+--- a/reference/valarray/gslice_array/op_divide_assign.md
++++ b/reference/valarray/gslice_array/op_divide_assign.md
+@@ -61,6 +61,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;&lt;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_left_shift_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_left_shift_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_left_shift_assign.md b/reference/valarray/gslice_array/op_left_shift_assign.md
+index fd7c262f8..f4b043bb7 100644
+--- a/reference/valarray/gslice_array/op_left_shift_assign.md
++++ b/reference/valarray/gslice_array/op_left_shift_assign.md
+@@ -66,6 +66,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ * to_string()[link /reference/bitset/bitset/to_string.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator-= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_minus_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_minus_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_minus_assign.md b/reference/valarray/gslice_array/op_minus_assign.md
+index 5bfdec29c..509037519 100644
+--- a/reference/valarray/gslice_array/op_minus_assign.md
++++ b/reference/valarray/gslice_array/op_minus_assign.md
+@@ -62,6 +62,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator%= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_modulo_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_modulo_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_modulo_assign.md b/reference/valarray/gslice_array/op_modulo_assign.md
+index 2c0743bca..f7f6e7725 100644
+--- a/reference/valarray/gslice_array/op_modulo_assign.md
++++ b/reference/valarray/gslice_array/op_modulo_assign.md
+@@ -61,6 +61,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator*= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_multiply_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_multiply_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_multiply_assign.md b/reference/valarray/gslice_array/op_multiply_assign.md
+index bb4062eac..8ec9bb85a 100644
+--- a/reference/valarray/gslice_array/op_multiply_assign.md
++++ b/reference/valarray/gslice_array/op_multiply_assign.md
+@@ -61,6 +61,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator|= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_or_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_or_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_or_assign.md b/reference/valarray/gslice_array/op_or_assign.md
+index 0dee1d5c7..ef16ae4ae 100644
+--- a/reference/valarray/gslice_array/op_or_assign.md
++++ b/reference/valarray/gslice_array/op_or_assign.md
+@@ -66,6 +66,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ * to_string()[link /reference/bitset/bitset/to_string.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator+= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_plus_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_plus_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_plus_assign.md b/reference/valarray/gslice_array/op_plus_assign.md
+index ab62bbba1..97a6d3b04 100644
+--- a/reference/valarray/gslice_array/op_plus_assign.md
++++ b/reference/valarray/gslice_array/op_plus_assign.md
+@@ -61,6 +61,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_right_shift_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_right_shift_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_right_shift_assign.md b/reference/valarray/gslice_array/op_right_shift_assign.md
+index f9c9af87a..1e9ad2f6b 100644
+--- a/reference/valarray/gslice_array/op_right_shift_assign.md
++++ b/reference/valarray/gslice_array/op_right_shift_assign.md
+@@ -66,6 +66,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ * to_string()[link /reference/bitset/bitset/to_string.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator^= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_xor_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/gslice_array/op_xor_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_xor_assign.md b/reference/valarray/gslice_array/op_xor_assign.md
+index 5f15ae0d5..c0435b574 100644
+--- a/reference/valarray/gslice_array/op_xor_assign.md
++++ b/reference/valarray/gslice_array/op_xor_assign.md
+@@ -66,6 +66,8 @@ int main()
+ }
+ ```
+ * std::gslice[link /reference/valarray/gslice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::multiplies[link /reference/functional/multiplies.md]
+ * to_string()[link /reference/bitset/bitset/to_string.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>slice -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/slice.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/slice.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/slice.md b/reference/valarray/slice.md
+index 3e603703d..ff02f4d40 100644
+--- a/reference/valarray/slice.md
++++ b/reference/valarray/slice.md
+@@ -66,6 +66,8 @@ auto main()
+ }
+ ```
+ * std::slice[color ff0000]
++* std::begin[link valarray/begin_free.md]
++* std::end[link valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>begin (非メンバ関数) -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/begin_free.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/begin_free.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/begin_free.md b/reference/valarray/valarray/begin_free.md
+index 277b03478..226d030cd 100644
+--- a/reference/valarray/valarray/begin_free.md
++++ b/reference/valarray/valarray/begin_free.md
+@@ -40,6 +40,7 @@ namespace std {
+     auto last = std::end(c);    // std::valarray&amp;lt;double&amp;gt;にする必要がある
+     ```
+     * std::begin[color ff0000]
++    * std::end[link /reference/valarray/valarray/end_free.md]
+ 
+     これは、[`std::valarray`](../valarray.md)`&amp;lt;T&amp;gt;` 型を返す関数（本リファレンスでは戻り値型を *`ValOrProxy`* と表記）は、式テンプレートによる最適化を考慮して、代理の型を返すことが許可されているが、`begin` と [`end`](end_free.md) はその代理の型を受け取りが可能であることを求められていないためである。  
+     [`&amp;lt;valarray&amp;gt;`](../../valarray.md) の概要も参照のこと。
+@@ -61,6 +62,7 @@ int main()
+ }
+ ```
+ * std::begin[color ff0000]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end (非メンバ関数) -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/end_free.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/end_free.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/end_free.md b/reference/valarray/valarray/end_free.md
+index 66034dab0..61a91a36f 100644
+--- a/reference/valarray/valarray/end_free.md
++++ b/reference/valarray/valarray/end_free.md
+@@ -40,6 +40,7 @@ namespace std {
+     auto last = std::end(c);    // std::valarray&amp;lt;double&amp;gt;にする必要がある
+     ```
+     * std::end[color ff0000]
++    * std::begin[link /reference/valarray/valarray/begin_free.md]
+ 
+     これは、[`std::valarray`](../valarray.md)`&amp;lt;T&amp;gt;` 型を返す関数（本リファレンスでは戻り値型を *`ValOrProxy`* と表記）は、式テンプレートによる最適化を考慮して、代理の型を返すことが許可されているが、[`begin`](begin_free.md) と `end` はその代理の型を受け取りが可能であることを求められていないためである。  
+     [`&amp;lt;valarray&amp;gt;`](../../valarray.md) の概要も参照のこと。
+@@ -61,6 +62,7 @@ int main()
+ }
+ ```
+ * std::end[color ff0000]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&amp; -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_and.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_and.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_and.md b/reference/valarray/valarray/op_and.md
+index dc111081e..c357bbdd4 100644
+--- a/reference/valarray/valarray/op_and.md
++++ b/reference/valarray/valarray/op_and.md
+@@ -116,6 +116,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&amp;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_and_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_and_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_and_assign.md b/reference/valarray/valarray/op_and_assign.md
+index 82c851e0f..49c2a4209 100644
+--- a/reference/valarray/valarray/op_and_assign.md
++++ b/reference/valarray/valarray/op_and_assign.md
+@@ -87,6 +87,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator[] -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_at.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_at.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_at.md b/reference/valarray/valarray/op_at.md
+index 6519f3706..a98878bd4 100644
+--- a/reference/valarray/valarray/op_at.md
++++ b/reference/valarray/valarray/op_at.md
+@@ -257,6 +257,8 @@ int main()
+ }
+ ```
+ * std::slice[link /reference/valarray/slice.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ * std::slice_array[link /reference/valarray/slice_array.md]
+ * std::gslice[link /reference/valarray/gslice.md]
+ * std::gslice_array[link /reference/valarray/gslice_array.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_equal.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_equal.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_equal.md b/reference/valarray/valarray/op_equal.md
+index 75b36e66d..03b19ee42 100644
+--- a/reference/valarray/valarray/op_equal.md
++++ b/reference/valarray/valarray/op_equal.md
+@@ -107,6 +107,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator~ (単項) -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_flip.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_flip.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_flip.md b/reference/valarray/valarray/op_flip.md
+index 0ebe477e7..1073ef763 100644
+--- a/reference/valarray/valarray/op_flip.md
++++ b/reference/valarray/valarray/op_flip.md
+@@ -62,6 +62,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt; -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_greater.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_greater.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_greater.md b/reference/valarray/valarray/op_greater.md
+index fc31f8ca7..9c3162847 100644
+--- a/reference/valarray/valarray/op_greater.md
++++ b/reference/valarray/valarray/op_greater.md
+@@ -108,6 +108,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_greater_equal.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_greater_equal.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_greater_equal.md b/reference/valarray/valarray/op_greater_equal.md
+index 6b6978332..d88ff7f8f 100644
+--- a/reference/valarray/valarray/op_greater_equal.md
++++ b/reference/valarray/valarray/op_greater_equal.md
+@@ -108,6 +108,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;&lt; -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_left_shift.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_left_shift.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_left_shift.md b/reference/valarray/valarray/op_left_shift.md
+index e2c3135a2..a33997609 100644
+--- a/reference/valarray/valarray/op_left_shift.md
++++ b/reference/valarray/valarray/op_left_shift.md
+@@ -114,6 +114,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;&lt;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_left_shift_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_left_shift_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_left_shift_assign.md b/reference/valarray/valarray/op_left_shift_assign.md
+index 63e6ef71b..23f3f98f2 100644
+--- a/reference/valarray/valarray/op_left_shift_assign.md
++++ b/reference/valarray/valarray/op_left_shift_assign.md
+@@ -89,6 +89,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt; -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_less.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_less.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_less.md b/reference/valarray/valarray/op_less.md
+index 88174690e..92c500dd0 100644
+--- a/reference/valarray/valarray/op_less.md
++++ b/reference/valarray/valarray/op_less.md
+@@ -108,6 +108,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_less_equal.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_less_equal.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_less_equal.md b/reference/valarray/valarray/op_less_equal.md
+index 31bd24837..8cf301c39 100644
+--- a/reference/valarray/valarray/op_less_equal.md
++++ b/reference/valarray/valarray/op_less_equal.md
+@@ -108,6 +108,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_not_equal.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_not_equal.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_not_equal.md b/reference/valarray/valarray/op_not_equal.md
+index fe4b67f3e..981744c7c 100644
+--- a/reference/valarray/valarray/op_not_equal.md
++++ b/reference/valarray/valarray/op_not_equal.md
+@@ -107,6 +107,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator| -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_or.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_or.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_or.md b/reference/valarray/valarray/op_or.md
+index 5668aae37..11be44a3b 100644
+--- a/reference/valarray/valarray/op_or.md
++++ b/reference/valarray/valarray/op_or.md
+@@ -116,6 +116,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator|= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_or_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_or_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_or_assign.md b/reference/valarray/valarray/op_or_assign.md
+index 06697baa3..c543c4b67 100644
+--- a/reference/valarray/valarray/op_or_assign.md
++++ b/reference/valarray/valarray/op_or_assign.md
+@@ -90,6 +90,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt; -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_right_shift.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_right_shift.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_right_shift.md b/reference/valarray/valarray/op_right_shift.md
+index bd97a567c..d671de213 100644
+--- a/reference/valarray/valarray/op_right_shift.md
++++ b/reference/valarray/valarray/op_right_shift.md
+@@ -114,6 +114,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt;= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_right_shift_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_right_shift_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_right_shift_assign.md b/reference/valarray/valarray/op_right_shift_assign.md
+index ede0ee6cc..bce3f8a1b 100644
+--- a/reference/valarray/valarray/op_right_shift_assign.md
++++ b/reference/valarray/valarray/op_right_shift_assign.md
+@@ -89,6 +89,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator^ -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_xor.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_xor.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_xor.md b/reference/valarray/valarray/op_xor.md
+index 7afaeec59..d07af9e47 100644
+--- a/reference/valarray/valarray/op_xor.md
++++ b/reference/valarray/valarray/op_xor.md
+@@ -116,6 +116,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator^= -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_xor_assign.html"/>
+      <id>3d6b7ce67d61e9148b1c7d37f07d153960ce827b:reference/valarray/valarray/op_xor_assign.md</id>
+      <updated>2025-07-09T01:20:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_xor_assign.md b/reference/valarray/valarray/op_xor_assign.md
+index 406918c3c..eba44c9ff 100644
+--- a/reference/valarray/valarray/op_xor_assign.md
++++ b/reference/valarray/valarray/op_xor_assign.md
+@@ -89,6 +89,8 @@ int main()
+ }
+ ```
+ * std::all_of[link /reference/algorithm/all_of.md]
++* std::begin[link /reference/valarray/valarray/begin_free.md]
++* std::end[link /reference/valarray/valarray/end_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>decltype [N2343] -- 重複登録されたコード修飾リンクを削除</title>
@@ -28837,45 +29769,6 @@ index a42e20d5c..ac4df8fd2 100644
  ## 例
  ```cpp example
  #include &amp;lt;cstdlib&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>realloc -- realloc : インデントのエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/realloc.html"/>
-      <id>7f399059bd0da68a435467af802301edc159f12e:reference/cstdlib/realloc.md</id>
-      <updated>2025-07-09T00:10:29+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/realloc.md b/reference/cstdlib/realloc.md
-index be2e9cf1a..a42e20d5c 100644
---- a/reference/cstdlib/realloc.md
-+++ b/reference/cstdlib/realloc.md
-@@ -21,15 +21,11 @@ namespace std {
- ## 効果
- メモリの確保は次のいずれかの方法で行われる。
- 
--  - 既存のメモリを拡張、縮小する。
--
--    縮小した場合、再確保されたメモリのサイズまでの領域の内容が保持される。
--
--    拡張した場合、新しい領域の内容は未規定。
--
--  - 新しいサイズの領域を確保、割り当てする。その後、新しいサイズと古いサイズのいずれか小さい方のサイズに等しいメモリ領域をコピーし、古いブロックを解放する。
--
--  - メモリが不足している場合、`nullptr`が返される。
-+- 既存のメモリを拡張、縮小する。
-+    - 縮小した場合、再確保されたメモリのサイズまでの領域の内容が保持される。
-+    - 拡張した場合、新しい領域の内容は未規定。
-+- 新しいサイズの領域を確保、割り当てする。その後、新しいサイズと古いサイズのいずれか小さい方のサイズに等しいメモリ領域をコピーし、古いブロックを解放する。
-+- メモリが不足している場合、`nullptr`が返される。
- 
- ## 備考
- `new_size`が0の場合の動作は定義されていない。
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

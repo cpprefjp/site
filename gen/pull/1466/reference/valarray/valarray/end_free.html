@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-08T16:20:28">
+        2025年07月08日 16時20分28秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -249,7 +249,7 @@
 <span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 
 <span class="c1">// 以下の2行がコンパイルエラーになる可能性がある</span>
-<span class="k">auto</span> <span class="n">first</span> <span class="o">=</span> <span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">c</span><span class="p">);</span> <span class="c1">// 変数cの型をautoではなく、</span>
+<span class="k">auto</span> <span class="n">first</span> <span class="o">=</span> <span class="n"><a href="begin_free.html">std::begin</a></span><span class="p">(</span><span class="n">c</span><span class="p">);</span> <span class="c1">// 変数cの型をautoではなく、</span>
 <span class="k">auto</span> <span class="n">last</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::end</span></span><span class="p">(</span><span class="n">c</span><span class="p">);</span>    <span class="c1">// <a href="../valarray.html">std::valarray</a>&lt;double&gt;にする必要がある</span>
 </code></pre></div>
 </p>
@@ -266,7 +266,7 @@
 <span class="p">{</span>
   <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
 
-  <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">va</span><span class="p">),</span> <span class="n"><span style="color:#ff0000">std::end</span></span><span class="p">(</span><span class="n">va</span><span class="p">),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="begin_free.html">std::begin</a></span><span class="p">(</span><span class="n">va</span><span class="p">),</span> <span class="n"><span style="color:#ff0000">std::end</span></span><span class="p">(</span><span class="n">va</span><span class="p">),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="p">});</span>
 <span class="p">}</span>
