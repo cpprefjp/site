@@ -60,6 +60,9 @@ def main():
     total_files = 0
 
     for md_file in Path('.').rglob('*.md'):
+        if str(md_file).startswith("start_editing"):
+            continue
+
         removed = process_file(md_file, pattern_regex)
         if removed > 0:
             processed_files += 1
