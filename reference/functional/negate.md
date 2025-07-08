@@ -44,7 +44,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `negate`クラスは、符号反転を行う関数オブジェクトである。

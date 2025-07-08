@@ -51,7 +51,6 @@ int main()
 }
 ```
 * std::countl_one[color ff0000]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力
 ```

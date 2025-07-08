@@ -30,7 +30,6 @@ constexpr void* voidify(T& ptr) noexcept {
   return const_cast<void*>(static_cast<const volatile void*>(addressof(ptr)));
 }
 ```
-* addressof[link addressof.md]
 
 以下と等価：
 
@@ -41,7 +40,6 @@ if constexpr (is_array_v<T>)
 else
   return ptr;
 ```
-* std::forward[link /reference/utility/forward.md]
 * is_array_v[link /reference/type_traits/is_array.md]
 * launder[link /reference/new/launder.md]
 

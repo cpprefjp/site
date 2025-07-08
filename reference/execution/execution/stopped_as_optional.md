@@ -50,7 +50,6 @@ return let_stopped(
 * just[link just.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 * optional[link /reference/optional/optional.md]
-* in_place[link /reference/utility/in_place_t.md]
 
 
 ## カスタマイゼーションポイント

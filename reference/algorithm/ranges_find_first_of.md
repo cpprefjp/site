@@ -37,16 +37,7 @@ namespace std::ranges {
                   Proj2 proj2 = {}); // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* input_range[link /reference/ranges/input_range.md]
-* forward_range[link /reference/ranges/forward_range.md]
 
 ## 概要
 ある集合の1つとマッチする最初の要素を検索する。
@@ -116,16 +107,7 @@ struct find_first_of_impl {
 
 inline constexpr find_first_of_impl find_first_of;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* input_range[link /reference/ranges/input_range.md]
-* forward_range[link /reference/ranges/forward_range.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]

@@ -19,7 +19,6 @@ namespace std::ranges {
 * no-throw-sentinel[link no-throw-sentinel.md]
 * destructible[link /reference/concepts/destructible.md]
 * no-throw-input-range[link no-throw-input-range.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
@@ -50,7 +49,6 @@ for (; first != last; ++first)
 return first;
 ```
 * destroy_at[link ranges_destroy_at.md]
-* addressof[link addressof.md]
 
 
 ## 例
@@ -86,7 +84,6 @@ int main()
 ```
 * std::ranges::destroy[color ff0000]
 * std::ranges::uninitialized_default_construct[link ranges_uninitialized_default_construct.md]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * alloc.deallocate[link allocator/deallocate.md]
 

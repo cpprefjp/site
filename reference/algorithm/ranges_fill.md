@@ -29,9 +29,6 @@ namespace std::ranges {
     fill(R&& r, const T& value);           // (2) C++26
 }
 ```
-* output_iterator[link /reference/iterator/output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* output_range[link /reference/ranges/output_range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

@@ -10,7 +10,6 @@ template<class T, class U>
   requires three_way_comparable_with<T, U> || BUILTIN-PTR-THREE-WAY(T, U)
 constexpr auto operator()(T&& t, U&& u) const;
 ```
-* three_way_comparable_with[link /reference/compare/three_way_comparable.md]
 
 ## 概要
 

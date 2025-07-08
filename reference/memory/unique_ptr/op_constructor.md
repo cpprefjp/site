@@ -46,7 +46,6 @@ unique_ptr(auto_ptr<U>&& u) noexcept;        // (8) 単一オブジェクト
 
 unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、配列
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## unique_ptrオブジェクトの構築
 
@@ -172,7 +171,6 @@ int main()
 }
 ```
 * std::allocator_traits[link /reference/memory/allocator_traits.md]
-* std::allocator[link /reference/memory/allocator.md]
 * destroy[link /reference/memory/allocator_traits/destroy.md]
 * deallocate[link /reference/memory/allocator_traits/deallocate.md]
 * allocate[link /reference/memory/allocator_traits/allocate.md]

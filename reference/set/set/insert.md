@@ -27,7 +27,6 @@ void insert(initializer_list<value_type> init);            // (8) C++03
 insert_return_type insert(node_type&& nh);                      // (9) C++17
 iterator           insert(const_iterator hint, node_type&& nh); // (10) C++17
 ```
-* pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要

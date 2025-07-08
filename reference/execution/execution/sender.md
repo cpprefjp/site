@@ -57,7 +57,6 @@ concept sender =
 ```
 * get_env[link get_env.md]
 * queryable[link ../queryable.md]
-* move_constructible[link /reference/concepts/move_constructible.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 
 

@@ -13,9 +13,7 @@ namespace std {
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* invocable[link /reference/concepts/invocable.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 
 ## 概要
 

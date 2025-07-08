@@ -12,7 +12,6 @@ void swap(array& other)
 constexpr void swap(array& other)
          noexcept(noexcept(swap(declval<T&>(), declval<T&>()))); // C++20
 ```
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 自身と他の`array`オブジェクトの値を入れ替える

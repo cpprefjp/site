@@ -42,7 +42,6 @@ int main()
 }
 ```
 * std::saturate_cast[color ff0000]
-* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

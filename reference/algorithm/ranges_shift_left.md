@@ -21,13 +21,6 @@ namespace std::ranges {
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* subrange[link /reference/ranges/subrange.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
-* range_difference_t[link /reference/ranges/range_difference_t.md]
 
 ## 概要
 範囲の要素をn個だけ左にシフトさせる。

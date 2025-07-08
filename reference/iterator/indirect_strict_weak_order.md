@@ -27,9 +27,7 @@ namespace std {
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 * strict_weak_order[link /reference/concepts/strict_weak_order.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * iter_common_reference_t[link /reference/iterator/iter_common_reference_t.md]
 

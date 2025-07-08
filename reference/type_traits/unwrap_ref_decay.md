@@ -14,7 +14,6 @@ namespace std {
 }
 ```
 * unwrap_reference[link unwrap_reference.md]
-* decay_t[link /reference/type_traits/decay.md]
 
 ## 概要
 [`reference_wrapper`](/reference/functional/reference_wrapper.md)`<T>`型を`T&`型に展開し、型推論規則による型変換を行う。

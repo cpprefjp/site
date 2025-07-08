@@ -36,7 +36,6 @@ namespace std {
              Allocator>>;                                     // (6) C++23から
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * deque[link /reference/deque/deque.md]
 * ranges::input_range[link /reference/ranges/input_range.md]
 * ranges::range_value_t[link /reference/ranges/range_value_t.md]

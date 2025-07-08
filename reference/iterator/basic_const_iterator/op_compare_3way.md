@@ -15,8 +15,6 @@ constexpr auto operator<=>(const I& y) const
            three_way_comparable_with<Iterator, I>;                                      // (2)
 ```
 * different-from[link /reference/ranges/different-from.md]
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
-* three_way_comparable[link /reference/compare/three_way_comparable.md]
 * totally_ordered_with[link /reference/concepts/totally_ordered.md]
 
 ## 概要

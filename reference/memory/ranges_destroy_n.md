@@ -13,8 +13,6 @@ namespace std::ranges {
 ```
 * no-throw-input-iterator[link no-throw-input-iterator.md]
 * destructible[link /reference/concepts/destructible.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 イテレータ範囲`[first, first + n)`の各要素に対してデストラクタを呼び出す。
@@ -36,7 +34,6 @@ return destroy(counted_iterator(first, n), default_sentinel).base();
 ```
 * destroy[link ranges_destroy.md]
 * counted_iterator[link /reference/iterator/counted_iterator.md]
-* default_sentinel[link /reference/iterator/default_sentinel_t.md]
 * base()[link /reference/iterator/counted_iterator/base.md]
 
 
@@ -73,7 +70,6 @@ int main()
 ```
 * std::ranges::destroy_n[color ff0000]
 * std::ranges::uninitialized_default_construct[link ranges_uninitialized_default_construct.md]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * alloc.deallocate[link allocator/deallocate.md]
 

@@ -17,7 +17,6 @@ namespace std::ranges {
 }
 ```
 * copy_n_result[link ranges_in_out_result.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
 

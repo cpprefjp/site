@@ -14,7 +14,6 @@ namespace std {
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 
 ## 概要
 

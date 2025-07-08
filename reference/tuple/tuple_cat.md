@@ -16,7 +16,6 @@ namespace std {
   constexpr tuple<Ctypes ...> tuple_cat(Tuples&&... tpls); // C++23
 }
 ```
-* tuple[link tuple.md]
 * tuple-like[link tuple-like.md]
 
 ## 概要

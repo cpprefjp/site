@@ -15,7 +15,6 @@ namespace std {
                              typename std::iterator_traits<BidirectionalIterator>::difference_type n = 1); // C++17
 }
 ```
-* iterator_traits[link iterator_traits.md]
 
 ## 概要
 `n`回後方に進めたイテレータを返す。

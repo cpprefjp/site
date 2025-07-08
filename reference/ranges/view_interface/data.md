@@ -12,9 +12,6 @@ constexpr auto data()
 constexpr auto data() const
   requires range<const D> && contiguous_iterator<iterator_t<const D>>; // (2)
 ```
-* contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
-* iterator_t[link ../iterator_t.md]
-* range[link ../range.md]
 
 ## 概要
 Rangeの要素へのポインタを取得する。
@@ -32,7 +29,6 @@ Rangeの要素へのポインタを取得する。
 to_address(ranges::begin(derived()));
 ```
 * to_address[link /reference/memory/to_address.md]
-* ranges::begin[link ../begin.md]
 * derived[link derived.md]
 
 ## 計算量

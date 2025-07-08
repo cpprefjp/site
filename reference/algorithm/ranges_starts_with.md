@@ -37,13 +37,6 @@ namespace std::ranges {
                 Proj2 proj2 = {}); // (2) C++23
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 
 ## 概要
@@ -102,13 +95,6 @@ struct starts_with_impl {
 
 inline constexpr starts_with_impl starts_with;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * move[link /reference/utility/move.md]
 * mismatch[link ranges_mismatch.md]
 * begin[link /reference/ranges/begin.md]

@@ -314,7 +314,6 @@ int main()
 * std::generate[link /reference/algorithm/generate.md]
 * std::ref[link /reference/functional/ref.md]
 * std::seed_seq[link /reference/random/seed_seq.md]
-* std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * dist(engine)[link /reference/random/uniform_int_distribution/op_call.md]
 * sed_v.begin()[link /reference/array/array/begin.md]
 * sed_v.end()[link /reference/array/array/end.md]

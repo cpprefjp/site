@@ -26,7 +26,6 @@ namespace std {
   operator<=>(const unique_ptr<T, D>& x, nullptr_t);                     // (2) C++23
 }
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 `unique_ptr`オブジェクトの三方比較を行う。

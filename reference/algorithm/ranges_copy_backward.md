@@ -21,11 +21,7 @@ namespace std::ranges {
 }
 ```
 * copy_backward_result[link ranges_in_out_result.md]
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
@@ -81,7 +77,6 @@ int main() {
 ```
 * std::ranges::copy_backward[color ff0000]
 * ls.begin()[link /reference/list/list/begin.md]
-* std::next[link /reference/iterator/next.md]
 * ls.end()[link /reference/list/list/end.md]
 
 ### 出力

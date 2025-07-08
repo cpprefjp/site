@@ -79,7 +79,6 @@ int main()
 }
 ```
 * std::uses_allocator[color ff0000]
-* std::allocator[link allocator.md]
 * std::allocator_arg_t[link allocator_arg_t.md]
 
 ### 出力

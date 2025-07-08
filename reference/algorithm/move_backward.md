@@ -77,10 +77,6 @@ int main() {
 * std::move_backward[color ff0000]
 * v.emplace_back[link /reference/vector/vector/emplace_back.md]
 * std::move[link move.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::for_each[link /reference/algorithm/for_each.md]
-* std::unique_ptr[link /reference/memory/unique_ptr.md]
 
 ### 出力
 ```

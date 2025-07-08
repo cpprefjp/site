@@ -58,7 +58,6 @@ int main()
   }
 }
 ```
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 #### 出力
 ```

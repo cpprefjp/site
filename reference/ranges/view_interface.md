@@ -11,8 +11,6 @@ namespace std::ranges {
   class view_interface { …… };
 }
 ```
-* is_class_v[link /reference/type_traits/is_class.md]
-* remove_cv_t[link /reference/type_traits/remove_cv.md]
 
 ## 概要
 

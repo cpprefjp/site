@@ -41,7 +41,6 @@ for (; n > 0; (void)++first, --n)
 return first;
 ```
 * destroy_at[link destroy_at.md]
-* addressof[link addressof.md]
 
 
 ## 備考

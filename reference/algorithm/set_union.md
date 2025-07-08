@@ -167,7 +167,6 @@ OutputIterator set_union(InputIterator1 first1, InputIterator1 last1,
   return std::set_union(first1, last1, first2, last2, result, less_inner());
 }
 ```
-* std::copy[link copy.md]
 
 
 ## 参照

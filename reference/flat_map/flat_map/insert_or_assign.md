@@ -39,7 +39,6 @@ iterator
                    K&& k,
                    M&& obj);            // (6) C++23
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 引数 `k` で指定されたキーが存在しなければ対応する値を引数 `obj` の値として要素を挿入し（`insert`）、さもなければ（`or`）、そのキーに対応する値に引数 `obj` を代入する（`assign`）。
@@ -80,7 +79,6 @@ iterator
     try_emplace(std::forward<decltype(k)>(k), std::forward<M>(obj));
     ```
     * try_emplace[link try_emplace.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (4), (5), (6) :
     - `k`と等価なキーをもつ要素`e`が存在している場合、[`std::forward`](/reference/utility/forward.md)`<M>(obj)`を`e.second`に代入する
@@ -89,7 +87,6 @@ iterator
     try_emplace_hint(hint, std::forward<decltype(k)>(k), std::forward<M>(obj));
     ```
     * try_emplace_hint[link try_emplace.md]
-    * std::forward[link /reference/utility/forward.md]
 
 
 ## 戻り値

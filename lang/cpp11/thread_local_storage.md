@@ -82,7 +82,6 @@ int main()
 }
 ```
 * thread_local[color ff0000]
-* std::uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * std::to_string[link /reference/string/to_string.md]
 
 ### 出力例

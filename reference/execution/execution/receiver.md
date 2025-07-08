@@ -21,7 +21,6 @@ namespace std::execution {
 * get_env[link get_env.md]
 * queryable[link ../queryable.md]
 * derived_from[link /reference/concepts/derived_from.md]
-* move_constructible[link /reference/concepts/move_constructible.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 
 ## 概要

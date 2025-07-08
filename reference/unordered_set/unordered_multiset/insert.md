@@ -218,8 +218,6 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(std::initiali
 ```
 * insert[color ff0000]
 * std::move[link /reference/utility/move.md]
-* il.begin()[link /reference/initializer_list/initializer_list/begin.md]
-* il.end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## 関連項目

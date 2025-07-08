@@ -20,7 +20,6 @@ namespace std {
   constexpr bool operator<=(nullptr_t, const unique_ptr<T, D>& x);           // (3) C++23
 }
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 `unique_ptr`において、左辺が右辺以下かを判定する。

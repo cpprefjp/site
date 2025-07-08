@@ -22,14 +22,6 @@ namespace std::ranges {
     adjacent_find(R&& r, Pred pred = {}, Proj proj = {});           // (2) C++20
 }
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* projected[link /reference/iterator/projected.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 
@@ -90,12 +82,6 @@ int main() {
 ```
 * std::ranges::distance[link /reference/iterator/ranges_distance.md]
 * std::ranges::adjacent_find[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
-* v.begin[link /reference/vector/vector/begin.md]
-* v.end[link /reference/vector/vector/end.md]
 
 ### 出力
 ```
@@ -140,14 +126,6 @@ struct adjacent_find_impl {
 
 inline constexpr adjacent_find_impl adjacent_find;
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* projected[link /reference/iterator/projected.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]

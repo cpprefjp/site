@@ -12,7 +12,6 @@ local_time<common_type_t<Duration, seconds>>
 ```
 * sys_time[link /reference/chrono/sys_time.md]
 * local_time[link /reference/chrono/local_time.md]
-* common_type_t[link /reference/chrono/common_type.md]
 
 ## 概要
 システム時間からローカル時間に変換する。

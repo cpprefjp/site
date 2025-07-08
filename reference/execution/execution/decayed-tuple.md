@@ -10,8 +10,6 @@ namespace std::execution {
   using decayed-tuple = tuple<decay_t<Ts>...>;  // exposition only
 }
 ```
-* tuple[link /reference/tuple/tuple.md]
-* decay_t[link /reference/type_traits/decay.md]
 
 ## 概要
 `decayed-tuple`は、型パラメータパック`Ts`から[decay](/reference/type_traits/decay.md)結果を要素型とする[`tuple`](/reference/tuple/tuple.md)型を作成する説明専用のエイリアステンプレートである。

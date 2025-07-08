@@ -17,13 +17,11 @@ namespace std {
     };
 }
 ```
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 * derived_from[link /reference/concepts/derived_from.md]
 * ITER_CONCEPT[link /reference/iterator/input_iterator.md#iter_concept]
 * contiguous_iterator_tag[link /reference/iterator/iterator_tag.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * to_address[link /reference/memory/to_address.md]
 * add_pointer_t[link /reference/type_traits/add_pointer.md]
 

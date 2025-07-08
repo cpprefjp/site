@@ -57,7 +57,6 @@ namespace std::execution {
 * single-sender[link single-sender.md]
 * env_of_t[link env_of_t.md]
 * sender_to[link sender_to.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
 * see below[italic]
 

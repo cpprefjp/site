@@ -8,7 +8,6 @@
 insert_iterator(Container& x, typename Container::iterator i);            // C++03
 constexpr insert_iterator(Container& x, ranges::iterator_t<Container> i); // C++20
 ```
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 `insert_iterator`オブジェクトを構築する。

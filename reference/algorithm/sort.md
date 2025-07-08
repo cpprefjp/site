@@ -168,7 +168,6 @@ int main() {
 }
 ```
 * std::sort[color ff0000]
-* std::tie[link /reference/tuple/tie.md]
 
 #### 出力
 ```

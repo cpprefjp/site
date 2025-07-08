@@ -45,7 +45,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `greater`クラスは、左辺が右辺より大きいかの比較を行う関数オブジェクトである。

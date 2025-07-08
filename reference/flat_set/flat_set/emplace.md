@@ -9,7 +9,6 @@
 template <class... Args>
 pair<iterator, bool> emplace(Args&&... args);
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 コンテナに新しい要素を挿入する。要素は直接構築される（コピーもムーブもされない）。要素のコンストラクタはこの関数に渡された引数を与えることによって呼ばれる。
@@ -96,8 +95,6 @@ int main()
 }
 ```
 * emplace[color ff0000]
-* std::begin[link /reference/iterator/begin.md]
-* std::end[link /reference/iterator/end.md]
 
 #### 出力
 ```

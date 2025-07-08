@@ -122,7 +122,6 @@ int main()
 * LayoutPacked::mapping[color ff0000]
 * mat.extent[link /reference/mdspan/mdspan/extent.md]
 * std::print[link /reference/print/print.md]
-* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

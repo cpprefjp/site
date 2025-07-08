@@ -42,7 +42,6 @@ int main()
 }
 ```
 * std::bad_optional_access[color ff0000]
-* std::optional[link optional.md]
 * p.value()[link optional/value.md]
 
 ### 出力例

@@ -10,7 +10,6 @@ namespace std {
   using const_iterator = /*see below*/;
 }
 ```
-* input_iterator[link input_iterator.md]
 
 ## 概要
 

@@ -414,7 +414,6 @@ int main() {
 * co_yield[color ff0000]
 * std::suspend_always[link /reference/coroutine/suspend_always.md]
 * std::move[link /reference/utility/move.md]
-* pair[link /reference/utility/pair.md]
 * make_pair[link /reference/utility/make_pair.md]
 * std::equal[link /reference/algorithm/equal.md]
 

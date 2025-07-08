@@ -83,7 +83,6 @@ int main()
 * std::generic_category()[link generic_category.md]
 * std::system_error[link system_error.md]
 * ec.value()[link error_code/value.md]
-* ec.message()[link error_code/message.md]
 
 ### 出力
 ```

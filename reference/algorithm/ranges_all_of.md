@@ -20,12 +20,6 @@ namespace std::ranges {
     all_of(R&& r, Pred pred, Proj proj = {});           // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 
 ## 概要
 範囲の全ての要素が条件を満たすかを判定する。
@@ -69,10 +63,6 @@ int main() {
 }
 ```
 * std::ranges::all_of[color ff0000]
-* std::array[link /reference/array/array.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```
@@ -98,13 +88,6 @@ struct all_of_impl {
 
 inline constexpr all_of_impl all_of;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]

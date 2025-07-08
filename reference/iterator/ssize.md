@@ -14,7 +14,6 @@ namespace std {
   constexpr ptrdiff_t ssize(const T (&array)[N]) noexcept;          // (2)
 }
 ```
-* common_type_t[link /reference/type_traits/common_type.md]
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 * make_signed_t[link /reference/type_traits/make_signed.md]
 

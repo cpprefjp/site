@@ -8,8 +8,6 @@
 template<common_with<I> I2>
 friend constexpr strong_ordering operator<=>(const counted_iterator& x, const counted_iterator<I2>& y);
 ```
-* common_with[link /reference/concepts/common_with.md]
-* strong_ordering[link /reference/compare/strong_ordering.md]
 
 ## 概要
 2つの`counted_iterator`オブジェクトの三方比較を行う。
@@ -79,7 +77,6 @@ int main() {
 }
 ```
 * <=>[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

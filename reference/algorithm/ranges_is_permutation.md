@@ -41,14 +41,7 @@ namespace std::ranges {
                    Proj2 proj2 = {}); // (2) C++20
 }
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
 * indirect_equivalence_relation[link /reference/iterator/indirect_equivalence_relation.md]
-* projected[link /reference/iterator/projected.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 範囲 `[first2, last2)` を並べ替えたものが、`[first1, last1)` の範囲と一致するか判定する。

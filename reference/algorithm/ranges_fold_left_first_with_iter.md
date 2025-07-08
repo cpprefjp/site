@@ -17,16 +17,9 @@ namespace std::ranges {
   constexpr auto fold_left_first_with_iter(R&& r, F f);                         // (2)
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * indirectly-binary-left-foldable[link ./ranges_fold_left.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* input_range[link /reference/ranges/input_range.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* range_reference_t[link /reference/ranges/range_reference_t.md]
 
 ## 概要
 
@@ -56,7 +49,6 @@ namespace std::ranges {
 using U = decltype(ranges::fold_left(std::move(first), last, iter_value_t<I>(*first), f));
 ```
 * fold_left[link ./ranges_fold_left.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 
 - (1) : 以下と等価
     ```cpp
@@ -225,7 +217,6 @@ int main() {
 ```
 * fold_left_first_with_iter[color ff0000]
 * take_while[link /reference/ranges/take_while_view.md]
-* subrange[link /reference/ranges/subrange.md]
 * println[link /reference/print/println.md]
 * value_or[link /reference/optional/optional/value_or.md]
 

@@ -149,7 +149,6 @@ local-state(Sndr&& sndr, Rcvr& rcvr) noexcept;
     this->sh_state->inc-ref();
     this->rcvr = addressof(rcvr);
     ```
-    * addressof[link /reference/memory/addressof.md]
 
 ```cpp
 ~local-state();
@@ -283,7 +282,6 @@ namespace std::execution {
     variant<tuple<set_stopped_t>, tuple<set_error_t, exception_ptr>, as-tuple<Sigs>...>
     ```
     * variant[link /reference/variant/variant.md]
-    * tuple[link /reference/tuple/tuple.md]
     * set_stopped_t[link set_stopped.md]
     * set_error_t[link set_error.md]
     * exception_ptr[link /reference/exception/exception_ptr.md]

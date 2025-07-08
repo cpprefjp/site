@@ -9,7 +9,6 @@
 constexpr auto size() requires sized_range<V>;              // (1)
 constexpr auto size() const requires sized_range<const V>;  // (2)
 ```
-* sized_range[link /reference/ranges/sized_range.md]
 
 ## 概要
 

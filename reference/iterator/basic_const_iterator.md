@@ -10,7 +10,6 @@ namespace std {
   class basic_const_iterator;
 }
 ```
-* input_iterator[link ./input_iterator.md]
 
 ## 概要
 

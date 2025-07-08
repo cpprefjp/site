@@ -14,7 +14,6 @@ template<class S2>
   requires convertible_to<const S2&, S>
 constexpr move_sentinel(const move_sentinel<S2>& s);    // (3)
 ```
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
 

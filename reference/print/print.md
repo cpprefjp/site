@@ -40,7 +40,6 @@ namespace std {
     print(stdout, fmt, std::forward<Args>(args)...);
     ```
     * stdout[link /reference/cstdio/stdout.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (2) :
     - C++23 :
@@ -51,7 +50,6 @@ namespace std {
         * vprint_unicode[link vprint_unicode.md]
         * fmt.get()[link /reference/format/format_string/get.md.nolink]
         * make_format_args[link /reference/format/make_format_args.md]
-        * std::forward[link /reference/utility/forward.md]
 
         - そうでなければ、以下と等価：
         ```cpp
@@ -60,7 +58,6 @@ namespace std {
         * vprint_nonunicode[link vprint_nonunicode.md]
         * fmt.get()[link /reference/format/format_string/get.md.nolink]
         * make_format_args[link /reference/format/make_format_args.md]
-        * std::forward[link /reference/utility/forward.md]
 
     - C++26 :
         - 値として`(`[`enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<Args>> && ...)`をもつ変数`locksafe`があるとして、

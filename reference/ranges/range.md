@@ -13,8 +13,6 @@ namespace std::ranges {
   };
 }
 ```
-* ranges::begin[link begin.md]
-* ranges::end[link end.md]
 
 ## 概要
 要素の範囲を表すイテレータと番兵を取得でき、それらによって要素をイテレートできる型を表す、Rangeの最も基本的なコンセプト。

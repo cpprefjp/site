@@ -10,8 +10,6 @@ friend constexpr bool operator==(const counted_iterator& x, const counted_iterat
 
 friend constexpr bool operator==(const counted_iterator& x, default_sentinel_t);             // (2)
 ```
-* common_with[link /reference/concepts/common_with.md]
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## 概要
 2つの`counted_iterator`オブジェクトが同じ要素を指しているかを判定する。
@@ -79,8 +77,6 @@ int main() {
 }
 ```
 * ==[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
-* default_sentinel[link /reference/iterator/default_sentinel_t.md]
 
 ### 出力
 ```

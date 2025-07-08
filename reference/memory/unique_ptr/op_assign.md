@@ -20,7 +20,6 @@ constexpr unique_ptr& operator=(nullptr_t) noexcept;  // (3) C++23
 
 unique_ptr& operator=(const unique_ptr&) = delete;    // (4) C++11
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 - (1) : 自身が保持しているリソースを解放し、`u`から`*this`に所有権を譲渡する。
@@ -52,7 +51,6 @@ d_ = std::forward<E>(u.get_deleter());
 ```
 * reset[link reset.md]
 * release[link release.md]
-* std::forward[link /reference/utility/forward.md]
 * get_deleter()[link get_deleter.md]
 
 

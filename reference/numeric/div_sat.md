@@ -53,7 +53,6 @@ int main()
 }
 ```
 * std::div_sat[color ff0000]
-* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

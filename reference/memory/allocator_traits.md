@@ -100,7 +100,6 @@ int main()
 }
 ```
 * std::allocator_traits[color ff0000]
-* std::allocator[link allocator.md]
 * traits::allocate[link allocator_traits/allocate.md]
 * traits::construct[link allocator_traits/construct.md]
 * traits::destroy[link allocator_traits/destroy.md]

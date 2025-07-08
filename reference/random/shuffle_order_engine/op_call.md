@@ -45,7 +45,6 @@ int main()
 ```
 * engine()[color ff0000]
 * std::knuth_b[link /reference/random/knuth_b.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力例
 ```

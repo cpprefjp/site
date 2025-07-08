@@ -34,7 +34,6 @@ int main()
 }
 ```
 * std::uses_allocator[color ff0000]
-* std::allocator[link /reference/memory/allocator.md]
 
 ### 出力
 ```cpp

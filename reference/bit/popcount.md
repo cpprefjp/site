@@ -53,7 +53,6 @@ int main()
 }
 ```
 * std::popcount[color ff0000]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力
 ```

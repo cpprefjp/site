@@ -134,7 +134,6 @@ namespace std {
     return transform_reduce(std::forward<ExecutionPolicy>(exec),
                             first1, last1, first2, init, plus<>(), multiplies<>());
     ```
-    * std::forward[link /reference/utility/forward.md]
     * plus[link /reference/functional/plus.md]
     * multiplies[link /reference/functional/multiplies.md]
 

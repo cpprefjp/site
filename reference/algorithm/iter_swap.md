@@ -57,14 +57,6 @@ int main() {
 }
 ```
 * std::iter_swap[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* v1.begin[link /reference/vector/vector/begin.md]
-* v1.end[link /reference/vector/vector/end.md]
-* v2.begin[link /reference/vector/vector/begin.md]
-* v2.end[link /reference/vector/vector/end.md]
-* std::ostream_iterator[link /reference/iterator/ostream_iterator.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 ### 出力
 ```
 v1: 3,5,4,

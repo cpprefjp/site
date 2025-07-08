@@ -145,11 +145,7 @@ namespace std::ranges {
     single_view(T) -> single_view<T>;
 }
 ```
-* copy_constructible[link /reference/concepts/copy_constructible.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* view_interface[link view_interface.md]
 * copyable-box[link copyable_box.md]
 
 ## バージョン

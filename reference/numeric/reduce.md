@@ -47,7 +47,6 @@ namespace std {
            BinaryOperation binary_op);                       // (6) C++17
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 概要
 `reduce()`は、イテレータ範囲`[first, last)`を集計する関数である。[`accumulate()`](accumulate.md)関数は範囲の先頭から順に要素を集計するが、この関数は並列計算のために集計順を規定しない。
@@ -81,7 +80,6 @@ namespace std {
     return reduce(first, last,
                   typename iterator_traits<InputIterator>::value_type{});
     ```
-    * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 - (2) : 以下と等価
     ```cpp
@@ -96,14 +94,11 @@ namespace std {
     return reduce(std::forward<ExecutionPolicy>(exec), first, last,
                   typename iterator_traits<ForwardIterator>::value_type{});
     ```
-    * std::forward[link /reference/utility/forward.md]
-    * iterator_traits[link /reference/iterator/iterator_traits.md]
 
 - (5) : 以下と等価
     ```cpp
     return reduce(std::forward<ExecutionPolicy>(exec), first, last, init, plus<>());
     ```
-    * std::forward[link /reference/utility/forward.md]
     * plus[link /reference/functional/plus.md]
 
 

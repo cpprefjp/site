@@ -23,9 +23,7 @@ namespace std {
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 * predicate[link /reference/concepts/predicate.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * iter_common_reference_t[link /reference/iterator/iter_common_reference_t.md]
 

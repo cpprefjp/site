@@ -59,7 +59,6 @@ constexpr basic_string& operator+=(const T& t); // (5) C++20
     basic_string_view<charT, traits> sv = t;
     return append(sv);
     ```
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
     * append[link append.md]
 
 

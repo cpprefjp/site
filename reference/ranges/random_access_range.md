@@ -10,9 +10,6 @@ namespace std::ranges {
   concept random_access_range = bidirectional_range<T> && random_access_iterator<iterator_t<T>>;
 }
 ```
-* bidirectional_range[link bidirectional_range.md]
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 `random_access_range`は、イテレータが[`random_access_iterator`](/reference/iterator/random_access_iterator.md)であるRangeを表すコンセプトである。

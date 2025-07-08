@@ -9,7 +9,6 @@
 template <class... Args>
 pair<iterator, bool> emplace(Args&&... args);
 ```
-* pair[link ../../utility/pair.md]
 
 ## 概要
 コンテナに新しい要素を挿入する。要素は直接構築される（コピーもムーブもされない）。要素のコンストラクタはこの関数に渡された引数を与えることによって呼ばれる。

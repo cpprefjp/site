@@ -122,14 +122,12 @@ constexpr basic_string&
     basic_string_view<charT, traits> sv = t;
     return insert(pos1, sv.data(), sv.size());
     ```
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 - (11) : 以下と等価。
     ```cpp
     basic_string_view<charT, traits> sv = t;
     return insert(pos1, sv.substr(pos2, n));
     ```
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
     * substr[link /reference/string_view/basic_string_view/substr.md]
 
 

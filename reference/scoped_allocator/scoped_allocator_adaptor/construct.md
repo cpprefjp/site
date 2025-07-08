@@ -25,9 +25,6 @@ void construct(pair<T1, T2>* p, const pair<U, V>& x);         // (5) C++17 ま�
 template <class T1, class T2, class U, class V>
 void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6) C++17 まで
 ```
-* pair[link /reference/utility/pair.md]
-* tuple[link /reference/tuple/tuple.md]
-* piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 
 ## 概要
 `p` で指定された領域に、[`inner_allocator`](inner_allocator.md)`()` と指定された引数で [uses-allocator 構築](/reference/memory/uses_allocator.md)を行う。  
@@ -211,8 +208,6 @@ int main()
 * alloc.destroy[link destroy.md]
 * alloc.deallocate[link deallocate.md]
 * std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
-* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
-* std::next[link /reference/iterator/next.md]
 
 ### 出力
 ```

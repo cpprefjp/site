@@ -176,7 +176,6 @@ int main() {
   std::cout << ec.message() << std::endl;
 }
 ```
-* ec.message()[link message.md]
 * std::error_category[link /reference/system_error/error_category.md]
 
 #### 出力

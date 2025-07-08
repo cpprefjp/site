@@ -11,7 +11,6 @@ friend bool operator==(const iterator& i, default_sentinel_t);
 // operator==により、以下の演算子が使用可能になる
 friend bool operator!=(const iterator& i, default_sentinel_t);
 ```
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## 概要
 ジェネレータコルーチンのイテレータが終端まで到達したか否かを判定する。

@@ -25,14 +25,7 @@ namespace std::ranges {
             Proj proj = {}); // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 
 ## 概要
 範囲の中から、指定された条件を満たす最初の要素を検索する。
@@ -92,14 +85,7 @@ struct find_if_impl {
 
 inline constexpr find_if_impl find_if;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]

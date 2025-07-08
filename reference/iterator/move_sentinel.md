@@ -57,8 +57,6 @@ void move_if(I first, S last, O out, Pred pred) {
 }
 ```
 * std::move_sentinel[color ff0000]
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * indirectly_movable[link /reference/iterator/indirectly_movable.md]
 * copy_if[link /reference/algorithm/copy_if.md]

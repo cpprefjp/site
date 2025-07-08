@@ -16,7 +16,6 @@ namespace std {
   vector(from_range_t, R&&, Allocator = Allocator())
     -> vector<ranges::range_value_t<R>, Allocator>;                            // (2) C++23から
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * ranges::input_range[link /reference/ranges/input_range.md]
 * allocator[link /reference/memory/allocator.md]
 * ranges::range_value_t[link /reference/ranges/range_value_t.md]
@@ -58,9 +57,6 @@ int main()
   assert(v4.size() == 3);
 }
 ```
-* v1.begin()[link begin.md]
-* v1.end()[link end.md]
-* v3.size()[link size.md]
 * v4.size()[link size.md]
 
 ### 出力

@@ -49,7 +49,6 @@ int main()
 }
 ```
 * std::mul_sat[color ff0000]
-* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

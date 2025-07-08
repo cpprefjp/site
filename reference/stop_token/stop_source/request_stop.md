@@ -117,7 +117,6 @@ int main()
 * get_token()[link get_token.md]
 * condition_variable_any[link /reference/condition_variable/condition_variable_any.md]
 * cv.wait[link /reference/condition_variable/condition_variable_any/wait.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 
 ### 出力
 ```

@@ -124,7 +124,6 @@ int main()
 * get_token()[link ../stop_source/get_token.md]
 * std::make_unique[link /reference/memory/make_unique.md]
 * std::function[link /reference/functional/function.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 
 ### 出力
 ```

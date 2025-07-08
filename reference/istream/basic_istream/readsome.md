@@ -42,7 +42,6 @@ int main() {
 }
 ```
 * readsome[color ff0000]
-* std::istringstream[link /reference/sstream/basic_istringstream.md]
 
 ### 出力
 ```

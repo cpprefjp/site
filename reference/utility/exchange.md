@@ -34,7 +34,6 @@ obj = std::forward<U>(new_val);
 return old_val;
 ```
 * std::move[link move.md]
-* std::forward[link forward.md]
 
 
 ## 戻り値

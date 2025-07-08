@@ -45,15 +45,7 @@ namespace std::ranges {
          Proj proj = {}); // (2) C++26
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 
 ## 概要
 指定された値を検索する。
@@ -215,15 +207,7 @@ struct find_impl {
 
 inline constexpr find_impl find;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* identity[link /reference/functional/identity.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* input_range[link /reference/ranges/input_range.md]
-* projected[link /reference/iterator/projected.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]
 * ref[link /reference/functional/ref.md]

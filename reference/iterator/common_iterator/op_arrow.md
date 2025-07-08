@@ -27,7 +27,6 @@ indirectly_readable<const I> &&
 * is_reference_v[link /reference/type_traits/is_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 
 ## 事前条件
 
@@ -44,7 +43,6 @@ indirectly_readable<const I> &&
     auto&& tmp = *get<I>(v_);
     return addressof(tmp);
     ```
-    * addressof[link /reference/memory/addressof.md]
 
 - それ以外の場合 : `return proxy(*get<I>(v_));`  
     `proxy`は次のように定義される説明専用のクラス。  
@@ -60,8 +58,6 @@ indirectly_readable<const I> &&
     };
     ```
     * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-    * iter_value_t[link /reference/iterator/iter_value_t.md]
-    * addressof[link /reference/memory/addressof.md]
 
 ## バージョン
 ### 言語

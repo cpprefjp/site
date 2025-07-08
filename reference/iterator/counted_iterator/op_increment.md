@@ -13,7 +13,6 @@ decltype(auto) operator++(int);             // (2)
 constexpr counted_iterator operator++(int)
   requires forward_iterator<I>;             // (3)
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
 
 ## 概要
 イテレータをインクリメントする。
@@ -79,7 +78,6 @@ int main() {
 ```
 * ++ci[color ff0000]
 * ci++[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

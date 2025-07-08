@@ -57,7 +57,6 @@ int main()
 * x.is_regular_file()[link is_regular_file.md]
 * fs::create_directory[link /reference/filesystem/create_directory.md]
 * fs::directory_iterator[link /reference/filesystem/directory_iterator.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力
 ```

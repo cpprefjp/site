@@ -18,7 +18,6 @@ namespace std {
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
-* string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
 * format_args[link /reference/format/basic_format_args.md]
 * wformat_args[link /reference/format/basic_format_args.md]
@@ -73,7 +72,6 @@ string vformat(const locale& loc, wstring_view fmt, wformat_args args) {
 ```
 * string[link /reference/string/basic_string.md]
 * wstring[link /reference/string/basic_string.md]
-* string_view[link /reference/string_view/basic_string_view.md]
 * wstring_view[link /reference/string_view/basic_string_view.md]
 * format_args[link /reference/format/basic_format_args.md]
 * wformat_args[link /reference/format/basic_format_args.md]

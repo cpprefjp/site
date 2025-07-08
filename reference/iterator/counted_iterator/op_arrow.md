@@ -9,7 +9,6 @@
 constexpr auto operator->() const noexcept
   requires contiguous_iterator<I>;
 ```
-* contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
 
 ## 概要
 イテレータを通して参照先の要素のメンバにアクセスする
@@ -53,7 +52,6 @@ int main() {
 }
 ```
 * ci->[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

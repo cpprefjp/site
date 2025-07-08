@@ -11,9 +11,6 @@ namespace std::ranges {
   class ref_view : public view_interface<ref_view<R>> { …… };
 }
 ```
-* range[link range.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 
@@ -125,22 +122,8 @@ namespace std::ranges {
   ref_view(R&) -> ref_view<R>;
 }
 ```
-* range[link range.md]
-* is_object_v[link /reference/type_traits/is_object.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
-* declval[link /reference/utility/declval.md]
-* std::forward[link /reference/utility/forward.md]
-* addressof[link /reference/memory/addressof.md]
-* iterator_t[link iterator_t.md]
-* sentinel_t[link sentinel_t.md]
-* ranges::begin[link begin.md]
-* ranges::end[link end.md]
 * ranges::empty[link empty.md]
-* ranges::size[link size.md]
 * ranges::data[link data.md]
-* sized_range[link sized_range.md]
-* contiguous_range[link contiguous_range.md]
-* view_interface[link view_interface.md]
 
 ## バージョン
 ### 言語

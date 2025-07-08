@@ -17,8 +17,6 @@ template<class This, class Alloc, class... Args>
   requires same_as<Allocator, void> || convertible_to<const Alloc&, Allocator>
 void* operator new(size_t size, const This&, allocator_arg_t, const Alloc& alloc, const Args&...); 
 ```
-* default_initializable[link /reference/concepts/default_initializable.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 

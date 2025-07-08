@@ -10,9 +10,6 @@ namespace std::ranges {
   using range_difference_t = iter_difference_t<iterator_t<R>>;
 }
 ```
-* range[link range.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 

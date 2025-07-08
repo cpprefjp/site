@@ -26,7 +26,6 @@ using rvalue-reference = common_reference_t<const iter_value_t<Iterator>&&, iter
 ```cpp
 return static_cast<rvalue-reference>(ranges::iter_move(i.current_));
 ```
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 例外
 
@@ -63,7 +62,6 @@ int main() {
 }
 ```
 * iter_move[color ff0000]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ### 出力
 ```

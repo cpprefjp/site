@@ -13,7 +13,6 @@ namespace std {
   constexpr tuple<Types&...> tie(Types&...) noexcept; // C++14
 }
 ```
-* tuple[link /reference/tuple/tuple.md]
 
 ## 概要
 パラメータの参照からなる[`tuple`](../tuple.md)を生成する。

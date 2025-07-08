@@ -49,7 +49,6 @@ namespace std {
 ```
 * tuple_element[link ../tuple_element.md]
 * tuple_element_t[link ../tuple_element.md]
-* tuple[link ../tuple.md]
 * size_t[link /reference/cstddef/size_t.md]
 
 ## 概要

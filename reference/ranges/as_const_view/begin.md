@@ -10,7 +10,6 @@ constexpr auto begin() requires (!simple-view<V>);      // (1)
 constexpr auto begin() const requires range<const V>;   // (2)
 ```
 * simple-view[link /reference/ranges/simple-view.md]
-* range[link /reference/ranges/range.md]
 
 ## 概要
 

@@ -13,8 +13,6 @@ namespace std {
     convertible_to<U, common_reference_t<T, U>>;
 }
 ```
-* convertible_to[link /reference/concepts/convertible_to.md]
-* common_reference_t[link /reference/type_traits/common_reference.md]
 
 ## 概要
 

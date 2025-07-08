@@ -57,7 +57,6 @@ int main()
 }
 ```
 * discard[color ff0000]
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 * engine()[link op_call.md]
 * seed()[link seed.md]
 

@@ -12,8 +12,6 @@ constexpr decltype(auto) back()
 constexpr decltype(auto) back() const
   requires bidirectional_range<const D> && common_range<const D>; // (2)
 ```
-* bidirectional_range[link ../bidirectional_range.md]
-* common_range[link ../common_range.md]
 
 ## 概要
 Rangeの末尾の要素を取得する。
@@ -33,7 +31,6 @@ Rangeの末尾の要素を取得する。
 ```cpp
 *ranges::prev(ranges::end(derived()))
 ```
-* ranges::end[link ../end.md]
 * ranges::prev[link /reference/iterator/ranges_prev.md]
 * derived[link derived.md]
 

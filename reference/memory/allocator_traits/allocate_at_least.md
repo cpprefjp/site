@@ -44,7 +44,6 @@ int main() {
 }
 ```
 * allocate_at_least[color ff0000]
-* std::allocator[link /reference/memory/allocator.md]
 * std::allocation_result[link /reference/memory/allocation_result.md]
 * alloc.deallocate[link /reference/memory/allocator/deallocate.md]
 

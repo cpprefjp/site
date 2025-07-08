@@ -40,7 +40,6 @@ int main() {
 }
 ```
 * base[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 

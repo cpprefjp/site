@@ -34,16 +34,9 @@ namespace std::ranges {
            Gen&& g); // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
 * uniform_random_bit_generator[link /reference/random/uniform_random_bit_generator.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 範囲から指定された個数の要素をランダムに抽出する。

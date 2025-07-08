@@ -10,11 +10,7 @@ namespace std::ranges {
   using borrowed_subrange_t = conditional_t<borrowed_range<R>, subrange<iterator_t<R>>, dangling>;
 }
 ```
-* range[link range.md]
 * conditional_t[link /reference/type_traits/conditional.md]
-* borrowed_range[link borrowed_range.md]
-* subrange[link subrange.md]
-* iterator_t[link iterator_t.md]
 * dangling[link dangling.md]
 
 ## 概要
@@ -55,11 +51,8 @@ int main() {
 ```
 * ranges::borrowed_subrange_t[color ff0000]
 * ranges::range[link range.md]
-* ranges::begin[link begin.md]
-* ranges::end[link end.md]
 * ranges::dangling[link dangling.md]
 * ranges::subrange[link subrange.md]
-* borrowed_range[link borrowed_range.md]
 
 ### 出力
 ```

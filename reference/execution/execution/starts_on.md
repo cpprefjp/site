@@ -62,7 +62,6 @@ transform_sender(
     * let_value[link let_value.md]
     * schedule[link schedule.md]
     * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
-    * decay_t[link /reference/type_traits/decay.md]
     * std::move[link /reference/utility/move.md]
 
 

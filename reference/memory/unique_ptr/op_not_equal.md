@@ -23,7 +23,6 @@ namespace std {
   constexpr bool operator!=(nullptr_t, const unique_ptr<T, D>& x) noexcept;  // (3) C++23
 }
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 非等値比較。

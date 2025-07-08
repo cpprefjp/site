@@ -11,7 +11,6 @@ concept index-pair-like =                        // exposition only
   convertible_to<tuple_element_t<1,T>, IndexType>;
 ```
 * pair-like[link /reference/tuple/pair-like.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
 `index-pair-like`は、インデクス値ペアと互換があることを表す説明専用コンセプトである。

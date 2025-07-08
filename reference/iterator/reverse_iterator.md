@@ -21,7 +21,6 @@ namespace std {
 }
 ```
 * iterator[link /reference/iterator/iterator.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * disable_sized_sentinel_for[link /reference/iterator/disable_sized_sentinel_for.md]
 

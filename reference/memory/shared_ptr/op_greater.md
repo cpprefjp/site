@@ -20,7 +20,6 @@ namespace std {
                  const shared_ptr<T>& x) noexcept; // (3) C++11
 }
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 `shared_ptr`において、左辺が右辺より大きいかを判定する。

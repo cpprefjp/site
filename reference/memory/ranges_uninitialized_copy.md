@@ -45,16 +45,11 @@ namespace std::ranges {
 }
 ```
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* input_range[link /reference/ranges/input_range.md]
 * no-throw-forward-range[link no-throw-forward-range.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
-* range_reference_t[link /reference/ranges/range_reference_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
@@ -91,7 +86,6 @@ constexpr void* voidify(T& obj) noexcept {
   return const_cast<void*>(static_cast<const volatile void*>(addressof(obj)));
 }
 ```
-* addressof[link addressof.md]
 
 
 以下と等価である：
@@ -102,7 +96,6 @@ for (; ifirst != ilast && ofirst != olast; ++ofirst, (void)++ifirst) {
 }
 return {std::move(ifirst), ofirst};
 ```
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * std::move[link /reference/utility/move.md]
 
@@ -147,7 +140,6 @@ int main()
 ```
 * std::ranges::uninitialized_copy[color ff0000]
 * std::ranges::subrange[link /reference/ranges/subrange.md]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * std::ranges::destroy[link ranges_destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]

@@ -38,9 +38,7 @@ concept stoppable_token =
   equality_comparable<Token> &&
   swappable<Token>;
 ```
-* same_as[link /reference/concepts/same_as.md]
 * copyable[link /reference/concepts/copyable.md]
-* equality_comparable[link /reference/concepts/equality_comparable.md]
 * swappable[link /reference/concepts/swappable.md]
 
 
@@ -67,7 +65,6 @@ concept stoppable-callback-for =
   requires { typename stop_callback_for_t<Token, CallbackFn>; } &&
   constructible_from<stop_callback_for_t<Token, CallbackFn>, const Token&, Initializer>;
 ```
-* invocable[link /reference/concepts/invocable.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * stop_callback_for_t[link stop_callback_for_t.md]
 

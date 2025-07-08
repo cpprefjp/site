@@ -53,7 +53,6 @@ int main()
 * request_stop()[color ff0000]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
-* t.join()[link join.md]
 
 ### 出力
 ```

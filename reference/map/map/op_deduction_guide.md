@@ -48,8 +48,6 @@ namespace std {
 ```
 * remove_const_t[link /reference/type_traits/remove_const.md]
 * add_const_t[link /reference/type_traits/add_const.md]
-* pair[link /reference/utility/pair.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]

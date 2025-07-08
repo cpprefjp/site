@@ -8,7 +8,6 @@
 ```cpp
 constexpr iter_difference_t<I> count() const noexcept;
 ```
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 
@@ -39,7 +38,6 @@ int main() {
 }
 ```
 * count[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 

@@ -13,7 +13,6 @@ constexpr auto end() {
     return sentinel{*this};
 }
 ```
-* ranges::end[link ../end.md]
 * iterator[link iterator.md]
 * sentinel[link sentinel.md]
 

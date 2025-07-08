@@ -26,13 +26,8 @@ namespace std::ranges {
 }
 ```
 * minmax_element_result[link ranges_min_max_result.md]
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
-* projected[link /reference/iterator/projected.md]
 * ranges::less[link /reference/functional/ranges_less.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 

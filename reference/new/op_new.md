@@ -155,7 +155,6 @@ int main()
   }
 }
 ```
-* <new>[link /reference/new.md]
 * new[color ff0000]
 * std::complex[link /reference/complex/complex.md]
 * std::nothrow[link nothrow_t.md]

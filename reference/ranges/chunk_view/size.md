@@ -10,7 +10,6 @@ constexpr auto size() requires sized_range<V>;             // (1) C++23
 
 constexpr auto size() const requires sized_range<const V>; // (2) C++23
 ```
-* sized_range[link ../sized_range.md]
 
 ## 概要
 

@@ -18,7 +18,6 @@ template <class K>
 pair<const_iterator, const_iterator>
   equal_range(const K& k) const;        // (4) C++20
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 コンテナ内の、指定されたキーと等しい全てのキー要素を含む範囲の境界を返す。

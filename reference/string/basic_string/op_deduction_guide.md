@@ -38,9 +38,7 @@ namespace std {
 ```
 * see below[italic]
 * allocator[link /reference/memory/allocator.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * char_traits[link /reference/string/char_traits.md]
-* basic_string_view[link /reference/string_view/basic_string_view.md]
 * ranges::input_range[link /reference/ranges/input_range.md]
 * ranges::range_value_t[link /reference/ranges/range_value_t.md]
 * from_range_t[link /reference/ranges/from_range_t.md]

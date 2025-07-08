@@ -8,8 +8,6 @@
 ```cpp
 constexpr subrange& advance(iter_difference_t<I> n);
 ```
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* subrange[link ../subrange.md]
 
 ## 概要
 部分Rangeの先頭を前進または後退させる。引数が負の時は後退する。

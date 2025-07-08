@@ -22,10 +22,7 @@ namespace std {
     partially-ordered-with<T, U>;
 }
 ```
-* common_reference_t[link /reference/type_traits/common_reference.md]
-* equality_comparable[link /reference/concepts/equality_comparable.md]
 * equality_comparable_with[link /reference/concepts/equality_comparable.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * partially-ordered-with[link /reference/compare/three_way_comparable.md]
 
 ## 概要

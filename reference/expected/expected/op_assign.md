@@ -60,12 +60,10 @@ constexpr void reinit-expected(T& newval, U& oldval, Args&&... args) {
   }
 }
 ```
-* addressof[link /reference/memory/addressof.md]
 * construct_at[link /reference/memory/construct_at.md]
 * destroy_at[link /reference/memory/destroy_at.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
-* std::forward[link /reference/utility/forward.md]
 * std::move[link /reference/utility/move.md]
 
 ## テンプレートパラメータ制約

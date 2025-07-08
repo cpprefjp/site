@@ -53,7 +53,6 @@ int main()
 * std::submdspan[link submdspan.md]
 * extent[link mdspan/extent.md]
 * std::print[link /reference/print/print.md]
-* std::println[link /reference/print/println.md]
 
 ### 出力
 ```

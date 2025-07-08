@@ -16,7 +16,6 @@ namespace std {
 ```
 * see below[italic]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 
 ## 概要
 
@@ -31,7 +30,6 @@ auto tmp = i.base();
 return ranges::iter_move(--tmp);
 ```
 * base[link /reference/iterator/reverse_iterator/base.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 例外
 
@@ -42,7 +40,6 @@ is_nothrow_copy_constructible_v<Iterator> &&
 noexcept(ranges::iter_move(--declval<Iterator&>()))
 ```
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 備考
 
@@ -72,7 +69,6 @@ int main() {
 }
 ```
 * iter_move[color ff0000]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ### 出力
 ```

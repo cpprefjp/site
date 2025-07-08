@@ -43,10 +43,8 @@ constexpr T& emplace(initializer_list<U> il, Args&&... args) noexcept; // (2)
     return *construct_at(addressof(val), std::forward<Args>(args)...);
     ```
     * has_value[link has_value.md]
-    * addressof[link /reference/memory/addressof.md]
     * construct_at[link /reference/memory/construct_at.md]
     * destroy_at[link /reference/memory/destroy_at.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (2) : 次の処理と等価
     ```cpp
@@ -59,10 +57,8 @@ constexpr T& emplace(initializer_list<U> il, Args&&... args) noexcept; // (2)
     return *construct_at(addressof(val), il, std::forward<Args>(args)...);
     ```
     * has_value[link has_value.md]
-    * addressof[link /reference/memory/addressof.md]
     * construct_at[link /reference/memory/construct_at.md]
     * destroy_at[link /reference/memory/destroy_at.md]
-    * std::forward[link /reference/utility/forward.md]
 
 
 ## 例

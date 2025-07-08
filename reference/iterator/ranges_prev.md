@@ -16,8 +16,6 @@ namespace std::ranges {
   constexpr I prev(I x, iter_difference_t<I> n, I bound);   // (3)
 }
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 

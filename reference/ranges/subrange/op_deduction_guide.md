@@ -23,16 +23,9 @@ namespace std::ranges {
     subrange<iterator_t<R>, sentinel_t<R>, subrange_kind::sized>;
 }
 ```
-* subrange[link ../subrange.md]
 * subrange_kind[link /reference/ranges/subrange_kind.md]
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* borrowed_range[link /reference/ranges/borrowed_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* sentinel_t[link /reference/ranges/sentinel_t.md]
-* sized_range[link /reference/ranges/sized_range.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * make-unsigned-like-t[link /reference/type_traits/make_unsigned.md]
 
 ## 概要

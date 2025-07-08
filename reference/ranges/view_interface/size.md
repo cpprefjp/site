@@ -12,9 +12,6 @@ constexpr auto size()
 constexpr auto size() const
   requires forward_range<const D> && sized_sentinel_for<sentinel_t<const D>, iterator_t<const D>>; // (2)
 ```
-* forward_range[link ../forward_range.md]
-* sentinel_t[link ../sentinel_t.md]
-* iterator_t[link ../iterator_t.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 
 ## 概要
@@ -32,8 +29,6 @@ Rangeの大きさを取得する。
 ```cpp
 ranges::end(derived()) - ranges::begin(derived());
 ```
-* ranges::begin[link ../begin.md]
-* ranges::end[link ../end.md]
 * derived[link derived.md]
 
 ## 計算量

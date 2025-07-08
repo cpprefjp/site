@@ -372,7 +372,6 @@ int main() {
 ```
 * std::integral[link /reference/concepts/integral.md]
 * std::floating_point[link /reference/concepts/floating_point.md]
-* std::common_type_t[link /reference/type_traits/common_type.md]
 * std::abs[link /reference/cmath/abs.md]
 * epsilon()[link /reference/limits/numeric_limits/epsilon.md]
 

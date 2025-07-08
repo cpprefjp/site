@@ -98,7 +98,6 @@ basic_ifstream<CharT, Traits>::basic_ifstream(basic_ifstream&& rhs)
   set_rdbuf(addressof(sb)); // C++11
 }
 ```
-* addressof[link /reference/memory/addressof.md]
 
 ## バージョン
 ### 言語

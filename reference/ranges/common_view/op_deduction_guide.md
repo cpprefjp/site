@@ -41,7 +41,6 @@ int main() {
 * std::ranges::common_view[color ff0000]
 * std::views::take[link ../take_view.md]
 * std::ranges::take_view[link ../take_view.md]
-* std::ranges::ref_view[link ../ref_view.md]
 
 ### 出力
 ```

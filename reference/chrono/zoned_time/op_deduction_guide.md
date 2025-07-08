@@ -46,10 +46,8 @@ namespace std::chrono {
 }
 ```
 * sys_time[link /reference/chrono/sys_time.md]
-* common_type_t[link /reference/chrono/common_type.md]
 * local_time[link /reference/chrono/local_time.md]
 * choose[link /reference/chrono/choose.md]
-* string_view[link /reference/string_view/basic_string_view.md]
 * conditional_t[link /reference/type_traits/conditional.md]
 * is_convertible[link /reference/type_traits/is_convertible.md]
 * time_zone[link /reference/chrono/time_zone.md]

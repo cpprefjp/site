@@ -60,8 +60,6 @@ int main() {
 }
 ```
 * std::in_range[color ff0000]
-* std::uint8_t[link /reference/cstdint/uint8_t.md]
-* std::int8_t[link /reference/cstdint/int8_t.md]
 
 ### 出力
 ```

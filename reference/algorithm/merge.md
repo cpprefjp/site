@@ -126,10 +126,6 @@ int main()
 * b.end()[link /reference/vector/vector/end.md]
 * result.begin()[link /reference/vector/vector/begin.md]
 * result.end()[link /reference/vector/vector/end.md]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::for_each[link /reference/algorithm/for_each.md]
 
 ### 出力
 ```
@@ -173,7 +169,6 @@ OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
   return std::copy(first2, last2, result);
 }
 ```
-* std::copy[link copy.md]
 
 
 ## 関連項目

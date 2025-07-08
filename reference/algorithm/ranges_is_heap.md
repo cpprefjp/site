@@ -25,13 +25,8 @@ namespace std::ranges {
             Proj proj = {}); // (2) C++20
 }
 ```
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::less[link /reference/functional/ranges_less.md]
-* identity[link /reference/functional/identity.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
-* random_access_range[link /reference/ranges/random_access_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 範囲がヒープ化されているか判定する。

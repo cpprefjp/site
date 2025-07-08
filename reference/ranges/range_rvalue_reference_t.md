@@ -10,9 +10,6 @@ namespace std::ranges {
   using range_rvalue_reference_t = iter_rvalue_reference_t<iterator_t<R>>;
 }
 ```
-* range[link range.md]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 

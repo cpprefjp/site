@@ -22,7 +22,6 @@ namespace std {
 ```
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
-* pair[link /reference/utility/pair.md]
 * polymorphic_allocator[link /reference/memory_resource/polymorphic_allocator.md]
 
 `multimap` コンテナは 4 つのテンプレートパラメータを取る。

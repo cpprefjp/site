@@ -46,7 +46,6 @@ basic_string& operator=(nullptr_t) = delete;                       // (7) C++23
     basic_string_view<charT, traits> sv = t;
     return assign(sv);
     ```
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
     * assign[link assign.md]
 
 

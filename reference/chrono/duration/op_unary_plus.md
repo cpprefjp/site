@@ -8,7 +8,6 @@
 ```cpp
 constexpr common_type_t<duration> operator+() const;
 ```
-* common_type_t[link /reference/chrono/common_type.md]
 
 ## 概要
 正の符号。

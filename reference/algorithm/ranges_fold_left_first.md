@@ -17,15 +17,8 @@ namespace std::ranges {
   constexpr auto fold_left_first(R&& r, F f);                                   // (2)
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* input_range[link /reference/ranges/input_range.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
-* range_reference_t[link /reference/ranges/range_reference_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * indirectly-binary-left-foldable[link ./ranges_fold_left.md]
 
 ## 概要
@@ -77,7 +70,6 @@ namespace std::ranges {
 using U = decltype(ranges::fold_left(std::move(first), last, iter_value_t<I>(*first), f));
 ```
 * fold_left[link ./ranges_fold_left.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 
 すなわち、他の引数はそのままに初期値として入力範囲`r`の要素を手動で指定して`fold_left`を呼び出した際の戻り値型を包む`optional`となる。
 

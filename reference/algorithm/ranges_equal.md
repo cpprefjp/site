@@ -37,13 +37,6 @@ namespace std::ranges {
           Proj2 proj2 = {}); // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 2つの範囲を等値比較する。
@@ -118,13 +111,6 @@ struct equal_impl {
 
 inline constexpr equal_impl equal;
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * distance[link /reference/iterator/ranges_distance.md]
 * invoke[link /reference/functional/invoke.md]

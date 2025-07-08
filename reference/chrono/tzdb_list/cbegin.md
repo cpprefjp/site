@@ -46,7 +46,6 @@ int main()
 * cbegin()[color ff0000]
 * ls.cend()[link cend.md]
 * chrono::get_tzdb_list()[link /reference/chrono/get_tzdb_list.md]
-* std::distance[link /reference/iterator/distance.md]
 * chrono::tzdb[link /reference/chrono/tzdb.md]
 
 ### 出力例

@@ -124,7 +124,6 @@ int main()
 * um.cbegin[link cbegin.md]
 * um.cend[link cend.md]
 * um.equal_range[link equal_range.md]
-* std::next[link /reference/iterator/next.md]
 
 ### 出力
 - libstdc++ の出力例（4.7.3 現在）  

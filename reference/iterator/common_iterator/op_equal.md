@@ -21,7 +21,6 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * equality_comparable_with[link /reference/concepts/equality_comparable.md]
 
 ## 概要
@@ -86,9 +85,6 @@ int main() {
 ```
 * views::iota[link /reference/ranges/iota_view.md]
 * views::take[link /reference/ranges/take_view.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* sentinel_t[link /reference/ranges/sentinel_t.md]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

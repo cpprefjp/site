@@ -582,7 +582,6 @@ int main()
   std::cout << (s1 != s2) << std::endl;
 }
 ```
-* std::tie[link /reference/tuple/tie.md]
 
 ### 出力
 ```

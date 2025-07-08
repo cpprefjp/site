@@ -204,7 +204,6 @@ concept max-1-sender-in = sender_in<Sndr, Env> &&  // exposition only
 * sender_in[link sender_in.md]
 * value_types_of_t[link value_types_of_t.md]
 * tuple_size_v[link /reference/tuple/tuple_size.md]
-* tuple[link /reference/tuple/tuple.md]
 
 ### 列挙型`disposition`
 ```cpp
@@ -263,7 +262,6 @@ tuple<value_types_of_t<Sndrs, env_of_t<Rcvr>, decayed-tuple, optional>...>
 * value_types_of_t[link value_types_of_t.md]
 * env_of_t[link env_of_t.md]
 * decayed-tuple[link decayed-tuple.md]
-* tuple[link /reference/tuple/tuple.md]
 * optional[link /reference/optional/optional.md]
 
 説明用のパック`Es`を全ての子[Sender](sender.md)のエラー結果データの[decayed](/reference/type_traits/decay.md)型としたとき、型`errors_variant`は下記定義において重複削除した型となる。
@@ -289,7 +287,6 @@ variant<none-such, copy-fail, Es...>
       values);
     ```
     * set_value[link set_value.md]
-    * tuple[link /reference/tuple/tuple.md]
     * apply[link /reference/tuple/apply.md]
     * tuple_cat[link /reference/tuple/tuple_cat.md]
     * reset()[link /reference/optional/optional/reset.md]

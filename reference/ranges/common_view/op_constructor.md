@@ -12,7 +12,6 @@ common_view()
 constexpr explicit
 common_view(V r);                               // (2) C++20
 ```
-* default_initializable[link /reference/concepts/default_initializable.md]
 
 ## 概要
 

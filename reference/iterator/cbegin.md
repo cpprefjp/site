@@ -12,7 +12,6 @@ namespace std {
     -> decltype(std::begin(c));
 }
 ```
-* std::begin[link begin.md]
 
 ## 概要
 範囲から先頭要素への読み取り専用イテレータを取得する。

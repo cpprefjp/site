@@ -10,7 +10,6 @@ constexpr make-unsigned-like-t<iter_difference_t<I>> size() const
   requires (K == subrange_kind::sized);
 ```
 * make-unsigned-like-t[italic][link /reference/type_traits/make_unsigned.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * subrange_kind[link /reference/ranges/subrange_kind.md]
 
 ## 概要

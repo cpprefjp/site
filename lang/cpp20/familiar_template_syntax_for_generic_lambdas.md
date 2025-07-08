@@ -118,7 +118,6 @@ auto f = [](auto&&... args) {
   g(std::forward<decltype(args)>(args)...);
 };
 ```
-* std::forward[link /reference/utility/forward.md]
 
 これは正しく動作し、この書き方はScott Meyersのブログでも記事で紹介されているが、Meyersが記事を書かなければならなかったということが、これがユーザーにとって難しい問題であることを表していた。
 
@@ -129,7 +128,6 @@ auto f = []<typename... Args>(Args&&... args) {
   g(std::forward<Args>(args)...);
 };
 ```
-* std::forward[link /reference/utility/forward.md]
 
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>

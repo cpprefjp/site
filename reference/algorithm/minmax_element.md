@@ -31,7 +31,6 @@ namespace std {
                    Compare comp);         // (4) C++17
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 イテレータ範囲`[first, last)`のうち、最小要素を指すイテレータと最大要素を指すイテレータの組を取得する。
@@ -79,14 +78,10 @@ int main()
 }
 ```
 * std::minmax_element[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* v.begin[link /reference/vector/vector/begin.md]
-* v.end[link /reference/vector/vector/end.md]
 * *i.first[link /reference/utility/pair/first.md.nolink]
 * *i.second[link /reference/utility/pair/second.md.nolink]
 * *j.first[link /reference/utility/pair/first.md.nolink]
 * *j.second[link /reference/utility/pair/second.md.nolink]
-* assert[link /reference/cassert/assert.md]
 ### 出力
 ```
 ```

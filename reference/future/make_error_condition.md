@@ -45,7 +45,6 @@ int main()
 * ec.category()[link /reference/system_error/error_condition/category.md]
 * name()[link /reference/system_error/error_category/name.md]
 * ec.value()[link /reference/system_error/error_condition/value.md]
-* ec.message()[link /reference/system_error/error_condition/message.md]
 
 ### 出力例
 ```

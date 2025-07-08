@@ -87,7 +87,6 @@ int main()
 * std::scientific[link /reference/ios/scientific.md]
 * s.str()[link /reference/sstream/basic_stringstream/str.md]
 * std::nextafter[link /reference/cmath/nextafter.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力例
 ```

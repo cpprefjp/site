@@ -61,13 +61,11 @@ constexpr variant_alternative_t<I, variant<Types...>>&
     ```cpp
     return emplace<I>(std::forward<Args>(args)...);
     ```
-    * std::forward[link /reference/utility/forward.md]
 
 - (2) : `Types...`に含まれる型`T`のインデックスを`I`として、以下と等価：
     ```cpp
     return emplace<I>(il, std::forward<Args>(args)...);
     ```
-    * std::forward[link /reference/utility/forward.md]
 
 - (3) :
     - 値を保持している場合、破棄する

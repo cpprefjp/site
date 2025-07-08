@@ -41,7 +41,6 @@ iterator
   insert(const_iterator hint,
          node_type&& nh);                  // (10) C++17
 ```
-* pair[link /reference/utility/pair.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要
@@ -264,8 +263,6 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 ```
 * insert[color ff0000]
 * std::move[link /reference/utility/move.md]
-* il.begin()[link /reference/initializer_list/initializer_list/begin.md]
-* il.end()[link /reference/initializer_list/initializer_list/end.md]
 
 
 ## 関連項目

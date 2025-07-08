@@ -45,7 +45,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `logical_or`クラスは、論理和(OR)を計算する関数オブジェクトである。

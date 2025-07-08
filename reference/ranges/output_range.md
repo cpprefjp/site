@@ -10,9 +10,6 @@ namespace std::ranges {
   concept output_range = range<R> && output_iterator<iterator_t<R>, T>;
 }
 ```
-* range[link range.md]
-* output_iterator[link /reference/iterator/output_iterator.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 `output_range`は、イテレータが[`output_iterator`](/reference/iterator/output_iterator.md)であるRangeを表すコンセプトである。

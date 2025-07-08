@@ -53,7 +53,6 @@ int main()
 }
 ```
 * std::nan[color ff0000]
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 * std::memcpy[link /reference/cstring/memcpy.md.nolink]
 * std::hex[link /reference/ios/hex.md]
 

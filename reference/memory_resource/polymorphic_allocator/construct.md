@@ -25,9 +25,6 @@ void construct(pair<T1, T2>* p, const pair<U, V>& pr);  //(5) C++17 まで
 template <class T1, class T2, class U, class V>
 void construct(pair<T1, T2>* p, pair<U, V>&& pr);       //(6) C++17 まで
 ```
-* pair[link /reference/utility/pair.md]
-* tuple[link /reference/tuple/tuple.md]
-* piecewise_construct_t[link /reference/utility/piecewise_construct_t.md]
 
 ## 概要
 `p` で指定された領域に、`*this` と指定された引数で [uses-allocator 構築](/reference/memory/uses_allocator.md)を行う。  
@@ -83,8 +80,6 @@ uninitialized_construct_using_allocator(p, *this, forward<Args>(args)...)
 	```cpp
 ::new(static_cast<void*>(p)) pair<T1, T2>(piecewise_construct, xprime, yprime)
 ```
-* pair[link /reference/utility/pair.md]
-* piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 
 	ここで、`xprime` は以下のルールに従って `x` から構築される [`tuple`](/reference/tuple/tuple.md) とする。（`yprime` も `y` から同様に構築されるものとする）
 
@@ -100,8 +95,6 @@ uninitialized_construct_using_allocator(p, *this, forward<Args>(args)...)
 	```cpp
 construct(p, piecewise_construct, tuple<>(), tuple<>());
 ```
-* piecewise_construct[link /reference/utility/piecewise_construct_t.md]
-* tuple[link /reference/tuple/tuple.md]
 
 - (4) : 以下と等価、すなわち(2)に委譲
 	```cpp
@@ -109,7 +102,6 @@ construct(p, piecewise_construct,
           forward_as_tuple(forward<U>(x)),
           forward_as_tuple(forward<V>(y)));
 ```
-* piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * forward[link /reference/utility/forward.md]
 
@@ -119,7 +111,6 @@ construct(p, piecewise_construct,
           forward_as_tuple(pr.first),
           forward_as_tuple(pr.second));
 ```
-* piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 
 - (6) : 以下と等価、すなわち(2)に委譲
@@ -128,7 +119,6 @@ construct(p, piecewise_construct,
           forward_as_tuple(forward<U>(pr.first)),
           forward_as_tuple(forward<V>(pr.second)));
 ```
-* piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 * forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * forward[link /reference/utility/forward.md]
 
