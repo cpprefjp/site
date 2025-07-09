@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-FILE* fopen(const char* filename, const char* mode);
+namespace std {
+  FILE* fopen(const char* filename, const char* mode);
+}
 ```
 
 ## 概要

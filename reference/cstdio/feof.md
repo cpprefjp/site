@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int feof(FILE* stream);
+namespace std {
+  int feof(FILE* stream);
+}
 ```
 
 ## 概要

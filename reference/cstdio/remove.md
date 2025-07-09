@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int remove( const char* pathname );
+namespace std {
+  int remove( const char* pathname );
+}
 ```
 
 ## 概要

@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int fclose(FILE* stream);
+namespace std {
+  int fclose(FILE* stream);
+}
 ```
 
 ## 概要

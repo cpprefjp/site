@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int rename( const char* old_filename, const char* new_filename );
+namespace std {
+  int rename( const char* old_filename, const char* new_filename );
+}
 ```
 
 ## 概要

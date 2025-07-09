@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-char* tmpnam( char* filename );
+namespace std {
+  char* tmpnam( char* filename );
+}
 ```
 
 ## 概要

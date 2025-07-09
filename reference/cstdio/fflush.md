@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int fflush(FILE* stream);
+namespace std {
+  int fflush(FILE* stream);
+}
 ```
 
 ## 概要

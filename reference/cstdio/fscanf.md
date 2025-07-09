@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int fscanf( FILE* restrict stream, const char* restrict format, ... );
+namespace std {
+  int fscanf( FILE* restrict stream, const char* restrict format, ... );
+}
 ```
 
 ## 概要

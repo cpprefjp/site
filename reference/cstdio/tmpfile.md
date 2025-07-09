@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-std::FILE* tmpfile();
+namespace std {
+  std::FILE* tmpfile();
+}
 ```
 
 ## 概要

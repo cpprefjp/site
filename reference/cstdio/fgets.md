@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-char* fgets( char* restrict str, int count, FILE* restrict stream );
+namespace std {
+  char* fgets( char* restrict str, int count, FILE* restrict stream );
+}
 ```
 
 ## 概要

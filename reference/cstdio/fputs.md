@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int fputs(const char* str, FILE* stream);
+namespace std {
+  int fputs(const char* str, FILE* stream);
+}
 ```
 
 ## 概要

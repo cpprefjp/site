@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int fgetc( FILE* stream );
+namespace std {
+  int fgetc( FILE* stream );
+}
 ```
 
 ## 概要
