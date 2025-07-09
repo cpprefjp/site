@@ -44,7 +44,7 @@
 | [`tmpfile`](/reference/cstdio/tmpfile.md)  | 一時ファイルを生成する | |
 | [`tmpnam`](/reference/cstdio/tmpnam.md) | 一時ファイル名を生成する | |
 | [`fclose`](/reference/cstdio/fclose.md)   | ファイルを閉じる | |
-| [`fopen`](/reference/cstdio/fopen.md.nolink)    | ファイルを開く | |
+| [`fopen`](/reference/cstdio/fopen.md)    | ファイルを開く | |
 | [`fflush`](/reference/cstdio/fflush.md.nolink)   | ファイルをフラッシュする | |
 | [`fprintf`](/reference/cstdio/fprintf.md)  | 書式を指定してファイルに出力する | |
 | [`fscanf`](/reference/cstdio/fscanf.md)   | 書式を指定してファイルから入力する | |
