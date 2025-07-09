@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bad_typeid& operator=(const bad_typeid&);                    // (1) C++03
+bad_typeid& operator=(const bad_typeid&) throw();            // (1) C++03
 bad_typeid& operator=(const bad_typeid&) noexcept;           // (1) C++11
 constexpr bad_typeid& operator=(const bad_typeid&) noexcept; // (1) C++26
 ```

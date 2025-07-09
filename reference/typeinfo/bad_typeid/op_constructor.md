@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-bad_typeid();                    // (1) C++03
+bad_typeid() throw();            // (1) C++03
 bad_typeid() noexcept;           // (1) C++11
 constexpr bad_typeid() noexcept; // (1) C++26
 
-bad_typeid(const bad_typeid&);                    // (2) C++03
+bad_typeid(const bad_typeid&) throw();            // (2) C++03
 bad_typeid(const bad_typeid&) noexcept;           // (2) C++11
 constexpr bad_typeid(const bad_typeid&) noexcept; // (2) C++26
 ```
