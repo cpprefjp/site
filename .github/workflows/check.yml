@@ -148,7 +148,7 @@ jobs:
             nitem=$(sed -n 's/^nitem=//p' <<< "$content")
             content=$(grep -v '^nitem=' <<< "$content" || echo '- (内容変更された `.md` ファイルはありません)')
             if ((nitem > threshold_nitem)); then
-              content_prologue=$nitem'件の記事が変更されました。一部を表示しています。完全なリストについては[こちら](${{ steps.vars.outputs.base_url }}/PREVIEW.html)をご参照ください。
+              content_prologue=$nitem'件の記事が変更されました。多いため一部を表示しています。完全なリストについては[こちら](${{ steps.vars.outputs.base_url }}/PREVIEW.html)をご参照ください。
             <details><summary>(ファイル一覧)</summary>
 
             '
@@ -167,10 +167,9 @@ jobs:
             </details>'
 
             else
-              content=$nitem'件の記事が変更されました。
+              content_prologue=$nitem'件の記事が変更されました。
 
             '
-              content_prologue=
               content_epilogue=
 
             fi
