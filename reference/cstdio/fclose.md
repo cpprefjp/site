@@ -30,6 +30,9 @@ int main() {
   fclose(fp);
 }
 ```
+* fclose[color ff0000]
+* fopen[link /reference/cstdio/fopen.md]
+* FILE[link /reference/cstdio/file.md]
 
 ## 処理系
 - [Clang](/implementation.md#clang): ??
