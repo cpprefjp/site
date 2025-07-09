@@ -2,9 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-09T08:56:44.050215</updated>
-  <id>258ad255-eec8-4c3a-9e6d-b542d641ce8f</id>
+  <updated>2025-07-09T09:01:17.808810</updated>
+  <id>0dcce7b8-f01a-443a-b114-9e5730d63699</id>
 
+  
+    <entry>
+      <title>end (非メンバ関数) -- コード修飾の重複削除スクリプト : initializer_listのstd::begin/endを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/initializer_list/initializer_list/end_free.html"/>
+      <id>99df1d9d9f81375fb132501f20a1b17ec9937110:reference/initializer_list/initializer_list/end_free.md</id>
+      <updated>2025-07-09T17:55:53+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/initializer_list/initializer_list/end_free.md b/reference/initializer_list/initializer_list/end_free.md
+index b304f328d..10033751b 100644
+--- a/reference/initializer_list/initializer_list/end_free.md
++++ b/reference/initializer_list/initializer_list/end_free.md
+@@ -43,6 +43,7 @@ int main()
+ }
+ ```
+ * std::end[color ff0000]
++* std::begin[link /reference/initializer_list/initializer_list/begin_free.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>run -- jthreadの変数名をt → jtに変更</title>
