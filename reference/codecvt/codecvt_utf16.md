@@ -65,8 +65,6 @@ int main()
 ```
 * std::codecvt_utf16[color ff0000]
 * std::wstring_convert[link ../locale/wstring_convert.md]
-* std::u32string[link ../string/basic_string.md]
-* std::string[link ../string/basic_string.md]
 * u16str.size()[link ../string/basic_string/size.md]
 * u16str[0][link ../string/basic_string/op_at.md]
 * u16str[1][link ../string/basic_string/op_at.md]

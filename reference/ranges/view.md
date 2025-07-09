@@ -10,7 +10,6 @@ namespace std::ranges {
   concept view = range<T> && movable<T> && enable_view<T>;
 }
 ```
-* range[link range.md]
 * movable[link /reference/concepts/movable.md]
 * enable_view[link enable_view.md]
 
@@ -57,7 +56,6 @@ int main()
 }
 ```
 * std::ranges::view[color ff0000]
-* std::span[link /reference/span/span.md]
 
 ### 出力
 ```

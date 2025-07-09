@@ -16,10 +16,7 @@ namespace std {
     };
 }
 ```
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * disable_sized_sentinel_for[link disable_sized_sentinel_for.md]
-* remove_cv_t[link /reference/type_traits/remove_cv.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 

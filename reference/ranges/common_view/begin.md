@@ -9,7 +9,6 @@
 constexpr auto begin();                              // (1)
 constexpr auto begin() const requires range<const V>; // (2)
 ```
-* range[link ../range.md]
 
 ## 概要
 

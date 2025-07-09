@@ -90,7 +90,6 @@ int main()
 * std::recursive_mutex[link recursive_mutex.md]
 * mtx1.unlock()[link mutex/unlock.md]
 * mtx2.unlock()[link recursive_mutex/unlock.md]
-* std::unique_lock[link unique_lock.md]
 * std::defer_lock[link defer_lock.md]
 * owns_lock()[link unique_lock/owns_lock.md]
 * th.join()[link /reference/thread/thread/join.md]

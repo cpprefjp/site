@@ -16,9 +16,7 @@ namespace std {
     };
 }
 ```
-* invocable[link /reference/concepts/invocable.md]
 * unsigned_integral[link /reference/concepts/unsigned_integral.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 * bool_constant[link /reference/type_traits/bool_constant.md]
 
 ## 概要

@@ -61,7 +61,6 @@ int main()
   }
 }
 ```
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 * max()[link /reference/limits/numeric_limits/max.md]
 * seed_data.begin()[link /reference/vector/vector/begin.md]
 * seed_data.end()[link /reference/vector/vector/end.md]

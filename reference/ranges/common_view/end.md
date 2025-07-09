@@ -10,7 +10,6 @@ constexpr auto end();      // (1) C++20
 constexpr auto end() const
   requires range<const V>; // (2) C++20
 ```
-* range[link ../range.md]
 
 ## 概要
 

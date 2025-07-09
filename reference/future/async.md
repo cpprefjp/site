@@ -49,9 +49,7 @@ namespace std {
 * future[link future.md]
 * launch[link launch.md]
 * result_of[link /reference/type_traits/result_of.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 * decay[link /reference/type_traits/decay.md]
-* decay_t[link /reference/type_traits/decay.md]
 
 ## 概要
 関数を非同期実行する。
@@ -168,7 +166,6 @@ int main()
 * std::launch::async[link launch.md]
 * std::launch::deferred[link launch.md]
 * std::future[link future.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * f.get()[link future/get.md]
 
 ### 出力

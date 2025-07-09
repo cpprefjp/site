@@ -56,7 +56,6 @@ class expected {
     * error()[link error.md]
     * unexpect[link ../unexpect_t.md]
     * invoke[link /reference/functional/invoke.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (3), (4) : 次の処理と等価
     ```cpp
@@ -69,7 +68,6 @@ class expected {
     * error()[link error.md]
     * unexpect[link ../unexpect_t.md]
     * invoke[link /reference/functional/invoke.md]
-    * std::forward[link /reference/utility/forward.md]
     * std::move[link /reference/utility/move.md]
 
 

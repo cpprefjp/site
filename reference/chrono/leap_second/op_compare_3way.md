@@ -15,7 +15,6 @@ namespace std::chrono {
     operator<=>(const leap_second& x, const sys_time<Duration>& y) noexcept; // (2) C++20
 }
 ```
-* three_way_comparable_with[link /reference/compare/three_way_comparable.md]
 * sys_seconds[link /reference/chrono/sys_time.md]
 * sys_time[link /reference/chrono/sys_time.md]
 

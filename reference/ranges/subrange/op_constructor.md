@@ -27,12 +27,7 @@ template<borrowed_range R>
 constexpr subrange(R&& r, make-unsigned-like-t<iter_difference_t<I>> n)
   requires (K == subrange_kind::sized) : subrange{ranges::begin(r), ranges::end(r), n} {}
 ```
-* subrange[link ../subrange.md]
 * subrange_kind[link /reference/ranges/subrange_kind.md]
-* borrowed_range[link /reference/ranges/borrowed_range.md]
-* sized_range[link /reference/ranges/sized_range.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * different-from[link ../different-from.md]
 * convertible-to-non-slicing[link convertible-to-non-slicing.md]
 * make-unsigned-like-t[link /reference/type_traits/make_unsigned.md]

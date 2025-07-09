@@ -10,7 +10,6 @@ namespace std {
   constexpr const_iterator<I> make_const_iterator(I it);
 }
 ```
-* input_iterator[link input_iterator.md]
 * const_iterator[link const_iterator.md]
 
 ## 概要

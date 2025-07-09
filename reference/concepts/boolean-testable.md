@@ -26,7 +26,6 @@ namespace std {
 template<class T>
 concept boolean-testable-impl = convertible_to<T, bool>;
 ```
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 これを用いて、`boolean-testable`は以下の様に定義される。
 
@@ -85,8 +84,6 @@ namespace std {
 }
 ```
 * movable[link /reference/concepts/movable.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 
 この`boolean`コンセプトは14個の制約式によって定義されている。これらは真理値式をなるべく正しく表現するために議論の経過と共に追加されていったものだが、これによって以下の様な問題が発生していた。

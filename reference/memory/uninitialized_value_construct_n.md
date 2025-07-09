@@ -38,8 +38,6 @@ for (; n > 0; (void)++first, --n)
     typename iterator_traits<ForwardIterator>::value_type();
 return first;
 ```
-* addressof[link addressof.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 
 ## 例外
 
@@ -81,7 +79,6 @@ int main()
 }
 ```
 * std::uninitialized_value_construct_n[color ff0000]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * alloc.deallocate[link allocator/deallocate.md]
 * std::destroy[link destroy.md]

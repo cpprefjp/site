@@ -45,16 +45,7 @@ namespace std::ranges {
                      Proj proj = {}); // (2) C++26
 }
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* projected[link /reference/iterator/projected.md]
 * permutable[link /reference/iterator/permutable.md]
-* subrange[link /reference/ranges/subrange.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
 
 
 ## 概要

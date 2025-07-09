@@ -50,7 +50,6 @@ namespace std {
                 Compare comp);        // (2) C++26
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 
 ## 概要
@@ -102,12 +101,6 @@ int main()
 }
 ```
 * equal_range[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* std::sort[link /reference/algorithm/sort.md]
-* v.begin[link /reference/vector/vector/begin.md]
-* v.end[link /reference/vector/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 #### 出力
 ```
@@ -147,11 +140,6 @@ int main() {
 }
 ```
 * std::equal_range[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* v.begin[link /reference/vector/vector/begin.md]
-* v.end[link /reference/vector/vector/end.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 #### 出力
 ```

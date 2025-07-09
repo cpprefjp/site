@@ -10,7 +10,6 @@ as_const_view() requires default_initializable<V> = default;    // (1)
 
 constexpr explicit as_const_view(V base);                       // (2)
 ```
-* default_initializable[link /reference/concepts/default_initializable.md]
 
 ## 概要
 

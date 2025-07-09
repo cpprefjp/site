@@ -79,7 +79,6 @@ int main()
 }
 ```
 * std::minstd_rand[link /reference/random/minstd_rand.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * seeds.begin()[link /reference/array/array/begin.md]
 * seeds.end()[link /reference/array/array/end.md]
 

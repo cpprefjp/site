@@ -14,8 +14,6 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): 元のRangeの先頭から指定した個数の値を取り出す[`view`](view.md)

@@ -43,7 +43,7 @@ int main()
 }
 ```
 * std::end[color ff0000]
-* std::begin[link begin_free.md]
+* std::begin[link /reference/initializer_list/initializer_list/begin_free.md]
 
 ### 出力
 ```

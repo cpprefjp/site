@@ -26,7 +26,6 @@ else
 // (2)
 return iterator{bound_};
 ```
-* unreachable_sentinel_t[link /reference/iterator/unreachable_sentinel_t.md]
 * unreachable_sentinel[link /reference/iterator/unreachable_sentinel_t.md]
 * sentinel[link sentinel.md]
 * iterator[link iterator.md]

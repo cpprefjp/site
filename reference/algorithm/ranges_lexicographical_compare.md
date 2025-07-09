@@ -42,14 +42,8 @@ namespace std::ranges {
                             Proj2 proj2 = {}); // (2) C++20
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
-* projected[link /reference/iterator/projected.md]
 * ranges::less[link /reference/functional/ranges_less.md]
-* identity[link /reference/functional/identity.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 `[first1, last1)`および`[first2, last2)`の2つの範囲を辞書式順序で比較する。

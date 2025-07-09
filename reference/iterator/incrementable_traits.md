@@ -39,10 +39,8 @@ namespace std {
   };
 }
 ```
-* is_object_v[link /reference/type_traits/is_object.md]
 * integral[link /reference/concepts/integral.md]
 * make_signed_t[link /reference/type_traits/make_signed.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 

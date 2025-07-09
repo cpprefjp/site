@@ -82,7 +82,6 @@ constexpr size_type
         is_nothrow_convertible_v<const T&, basic_string_view<charT, traits>>
         ```
         * is_nothrow_convertible_v[link /reference/type_traits/is_nothrow_convertible.md]
-        * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 
 ## 備考

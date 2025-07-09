@@ -25,13 +25,8 @@ namespace std::ranges {
             Gen&& g); // (2) C++20
 }
 ```
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * permutable[link /reference/iterator/permutable.md]
 * uniform_random_bit_generator[link /reference/random/uniform_random_bit_generator.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
-* random_access_range[link /reference/ranges/random_access_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 

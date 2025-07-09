@@ -21,9 +21,6 @@ constexpr subrange
   next(iter_difference_t<I> n = 1) &&;       // (2) C++26
 ```
 * nodiscard[link /lang/cpp17/nodiscard.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* subrange[link ../subrange.md]
 
 ## 概要
 先頭を前進させた`subrange`を得る。

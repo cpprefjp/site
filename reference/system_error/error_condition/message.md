@@ -31,8 +31,8 @@ category().message(value())
 
 int main()
 {
-  std::error_condition ec(static_cast<int>(std::errc::invalid_argument),
-                          std::generic_category());
+  std::error_condition econd(static_cast<int>(std::errc::invalid_argument),
+                             std::generic_category());
 
   std::cout << ec.message() << std::endl;
 }

@@ -18,7 +18,6 @@ namespace std::execution {
 }
 ```
 * derived_from[link /reference/concepts/derived_from.md]
-* is_object_v[link /reference/type_traits/is_object.md]
 * start[link start.md]
 
 ## 概要

@@ -32,9 +32,7 @@ namespace std::ranges {
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * no-throw-forward-range[link no-throw-forward-range.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要
@@ -63,7 +61,6 @@ constexpr void* voidify(T& obj) noexcept {
   return const_cast<void*>(static_cast<const volatile void*>(addressof(obj)));
 }
 ```
-* addressof[link addressof.md]
 
 
 以下と等価である：
@@ -74,7 +71,6 @@ for (; first != last; ++first) {
 }
 return first;
 ```
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
 ## 例外
@@ -113,7 +109,6 @@ int main()
 ```
 * std::ranges::uninitialized_fill[color ff0000]
 * std::ranges::subrange[link /reference/ranges/subrange.md]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * std::ranges::destroy[link ranges_destroy.md]
 * alloc.deallocate[link allocator/deallocate.md]

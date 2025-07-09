@@ -50,7 +50,6 @@ int main() {
 ```
 * std::ranges::elements_view[color ff0000]
 * std::views::all_t[link ../all.md]
-* std::ranges::ref_view[link ../ref_view.md]
 
 ### 出力
 ```

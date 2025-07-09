@@ -45,7 +45,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `less_equal`クラスは、左辺が右辺以下かの比較を行う関数オブジェクトである。

@@ -29,7 +29,6 @@ namespace std {
     tuple_size<T>::value;                                    // (6) C++17
 }
 ```
-* tuple[link tuple.md]
 * integral_constant[link /reference/type_traits/integral_constant.md]
 
 ## 概要

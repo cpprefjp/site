@@ -14,7 +14,6 @@ namespace std {
 ```
 * no-throw-input-range[link no-throw-input-range.md]
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ## 概要
 

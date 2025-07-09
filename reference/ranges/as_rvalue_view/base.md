@@ -54,7 +54,6 @@ int main() {
 }
 ```
 * r.base()[color ff0000]
-* std::ranges::ref_view[link /reference/ranges/ref_view.md]
 * base.base()[link /reference/ranges/ref_view/base.md]
 
 ### 出力

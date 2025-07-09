@@ -11,7 +11,6 @@ bool operator!=(const move_only_function& f, nullptr_t) noexcept; // (1)
 
 bool operator!=(nullptr_t, const move_only_function& f) noexcept; // (2)
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 非等値比較する。

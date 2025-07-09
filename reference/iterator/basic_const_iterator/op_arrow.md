@@ -12,8 +12,6 @@ constexpr const auto* operator->() const
 ```
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* same_as[link /reference/concepts/same_as.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 
 ## 概要
 

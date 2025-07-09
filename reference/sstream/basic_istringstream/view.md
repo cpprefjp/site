@@ -8,7 +8,6 @@
 ```cpp
 basic_string_view<CharT, Traits> view() const noexcept;
 ```
-* basic_string_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
 文字列ビューオブジェクトの取得を行う。

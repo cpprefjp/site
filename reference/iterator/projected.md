@@ -36,7 +36,6 @@ namespace std {
 * indirectly_regular_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
 * indirect_result_t[link /reference/iterator/indirect_result_t.md]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 
@@ -83,12 +82,8 @@ int main() {
 }
 ```
 * std::projected[color ff0000]
-* identity[link /reference/functional/identity.md]
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 * iter_common_reference_t[link /reference/iterator/iter_common_reference_t.md]
 
 ### 出力

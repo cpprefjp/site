@@ -46,7 +46,6 @@ constexpr decltype(auto) apply-impl(F&& f, Tuple&& t, std::index_sequence<I...>)
 * std::get[link tuple/get.md]
 * std::index_sequence[link /reference/utility/index_sequence.md]
 * std::invoke[link /reference/functional/invoke.md]
-* std::forward[link /reference/utility/forward.md]
 
 C++17 : 次と等価である。
 ```cpp
@@ -55,8 +54,6 @@ return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),
 ```
 * std::tuple_size_v[link tuple_size.md]
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
-* std::forward[link /reference/utility/forward.md]
-* std::decay_t[link /reference/type_traits/decay.md]
 
 C++20 : 次と等価である。
 ```cpp
@@ -65,7 +62,6 @@ return apply-impl(std::forward<F>(f), std::forward<Tuple>(t),
 ```
 * std::tuple_size_v[link tuple_size.md]
 * std::make_index_sequence[link /reference/utility/make_index_sequence.md]
-* std::forward[link /reference/utility/forward.md]
 * std::remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 

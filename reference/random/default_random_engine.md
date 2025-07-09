@@ -45,7 +45,6 @@ int main()
 }
 ```
 * std::default_random_engine[color ff0000]
-* std::uniform_int_distribution[link uniform_int_distribution.md]
 * dist(engine)[link uniform_int_distribution/op_call.md]
 
 ### 出力例

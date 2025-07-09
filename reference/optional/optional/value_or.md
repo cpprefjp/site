@@ -29,7 +29,6 @@ return has_value() ? value() : static_cast<T>(std::forward<U>(v));
 ```
 * has_value()[link has_value.md]
 * value()[link value.md]
-* std::forward[link /reference/utility/forward.md]
 
 
 ## 例

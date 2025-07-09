@@ -70,7 +70,6 @@ concept has-tuple-element =
 * tuple_size[link /reference/tuple/tuple_size.md]
 * tuple_element_t[link /reference/tuple/tuple_element.md]
 * get[link /reference/tuple/tuple/get.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * tuple-like[link /reference/tuple/tuple-like.md]
 * tuple_size_v[link /reference/tuple/tuple_size.md]
 

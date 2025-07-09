@@ -84,7 +84,6 @@ int main()
 * mtx1.unlock()[link mutex/unlock.md]
 * mtx2.unlock()[link mutex/unlock.md]
 * std::defer_lock[link defer_lock.md]
-* std::unique_lock[link unique_lock.md]
 * lk2.lock()[link unique_lock/lock.md]
 * std::system_error[link /reference/system_error/system_error.md]
 * owns_lock()[link unique_lock/owns_lock.md]

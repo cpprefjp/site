@@ -11,7 +11,6 @@ namespace std::ranges {
   single_view(T) -> single_view<T>;
 }
 ```
-* single_view[link ../single_view.md]
 
 ## 概要
 

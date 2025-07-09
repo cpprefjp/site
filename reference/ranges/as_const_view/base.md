@@ -9,7 +9,6 @@
 constexpr V base() const & requires copy_constructible<V>;  // (1)
 constexpr V base() &&;                                      // (2)
 ```
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 
 ## 概要
 
@@ -49,8 +48,6 @@ int main() {
 }
 ```
 * base[color ff0000]
-* same_as[link /reference/concepts/same_as.md]
-* ref_view[link /reference/ranges/ref_view.md]
 
 ### 出力
 

@@ -176,7 +176,6 @@ format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const loc
 * locale[link /reference/locale/locale.md]
 * forward[link /reference/utility/forward.md]
 * back_inserter[link /reference/iterator/back_inserter.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 
 ## バージョン

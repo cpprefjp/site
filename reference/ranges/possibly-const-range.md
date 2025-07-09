@@ -16,8 +16,6 @@ namespace std::ranges {
   }
 }
 ```
-* input_range[link /reference/ranges/input_range.md]
-* constant_range[link /reference/ranges/constant_range.md]
 
 ## 概要
 

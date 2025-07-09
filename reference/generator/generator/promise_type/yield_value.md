@@ -26,10 +26,8 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
 * ranges::input_range[link /reference/ranges/input_range.md]
 * ranges::elements_of[link /reference/ranges/elements_of.md]
 * ranges::range_reference_t[link /reference/ranges/range_reference_t.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * is_rvalue_reference_v[link /reference/type_traits/is_rvalue_reference.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 
 ## 概要
@@ -48,7 +46,6 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
 value_ = addressof(val)
 ```
 * value_[link ../promise_type.md]
-* addressof[link /reference/memory/addressof.md]
 
 (4) : 以下と等価
 ```cpp
@@ -73,8 +70,6 @@ return yield_value(ranges::elements_of(nested(
 * ranges::elements_of[link /reference/ranges/elements_of.md]
 * r.range[link /reference/ranges/elements_of.md]
 * r.allocator[link /reference/ranges/elements_of.md]
-* ranges::begin[link /reference/ranges/begin.md]
-* ranges::end[link /reference/ranges/end.md]
 
 
 ## 戻り値

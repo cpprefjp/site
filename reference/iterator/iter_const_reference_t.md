@@ -11,8 +11,6 @@ namespace std {
 }
 ```
 * indirectly_readable[link ./indirectly_readable.md]
-* common_reference_t[link /reference/type_traits/common_reference.md]
-* iter_value_t[link ./iter_value_t.md]
 * iter_reference_t[link ./iter_reference_t.md]
 
 ## 概要

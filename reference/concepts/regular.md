@@ -10,7 +10,6 @@ namespace std {
   concept regular = semiregular<T> && equality_comparable<T>;
 }
 ```
-* equality_comparable[link /reference/concepts/equality_comparable.md]
 * semiregular[link /reference/concepts/semiregular.md]
 
 ## 概要

@@ -17,15 +17,8 @@ namespace std::ranges {
   constexpr auto fold_right_last(R&& r, F f);                                   // (2)
 }
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* range_value_t[link /reference/ranges/range_value_t.md]
-* range_reference_t[link /reference/ranges/range_reference_t.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * indirectly-binary-right-foldable[link ./ranges_fold_right.md]
 
 ## 概要
@@ -61,14 +54,11 @@ if (first == last)
 I tail = ranges::prev(ranges::next(first, std::move(last)));
 return optional<U>(in_place, ranges::fold_right(std::move(first), tail, iter_value_t<I>(*tail), std::move(f)));
 ```
-* decay_t[link /reference/type_traits/decay.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * prev[link /reference/iterator/ranges_prev.md]
 * invoke[link /reference/functional/invoke.md]
 * optional[link /reference/optional/optional.md]
 * fold_right[link ./ranges_fold_right.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 
 空の入力範囲に対しては無効値を保持する[`optional`](/reference/optional/optional.md)を返す。
 
@@ -85,7 +75,6 @@ auto tail = --last;
 decltype(ranges::fold_right(std::move(first), tail, iter_value_t<I>(*tail), f));
 ```
 * fold_right[link ./ranges_fold_right.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 
 すなわち、他の引数はそのままに初期値として入力範囲`r`の要素を手動で指定して`fold_right`を呼び出した際の戻り値型を包む`optional`となる。
 

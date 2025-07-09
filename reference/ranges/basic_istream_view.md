@@ -27,8 +27,6 @@ namespace std::ranges {
 }
 ```
 * movable[link /reference/concepts/movable.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* view_interface[link view_interface.md]
 * stream-extractable[italic]
 
 ## 概要
@@ -176,11 +174,7 @@ namespace std::ranges {
 }
 ```
 * movable[link /reference/concepts/movable.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* view_interface[link view_interface.md]
 * input_iterator_tag[link /reference/iterator/iterator_tag.md]
-* addressof[link /reference/memory/addressof.md]
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 * basic_istream[link /reference/istream/basic_istream.md]
 * char_traits[link /reference/string/char_traits.md]
 

@@ -8,7 +8,6 @@
 ```cpp
 default_sentinel_t end() const noexcept;
 ```
-* default_sentinel_t[link /reference/iterator/default_sentinel_t.md]
 
 ## 概要
 ジェネレータコルーチンが生成するViewの番兵を取得する。

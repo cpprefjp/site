@@ -12,7 +12,6 @@ namespace std {
                 const map<Key,T,Compare,Allocator>& y); // (1) C++20
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 `map`オブジェクトの三方比較を行う。

@@ -10,7 +10,6 @@ constexpr bool contains(basic_string_view<charT, traits> x) const noexcept; // (
 constexpr bool contains(charT x) const noexcept;                            // (2) C++23
 constexpr bool contains(const charT* x) const;                              // (3) C++23
 ```
-* basic_string_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
 指定の文字・文字列が含まれているかを判定する。
@@ -27,7 +26,6 @@ constexpr bool contains(const charT* x) const;                              // (
     ```cpp
     return basic_string_view<charT, traits>(data(), size()).contains(x);
     ```
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
     * contains[link /reference/string_view/basic_string_view/contains.md]
     * data()[link data.md]
     * size()[link size.md]

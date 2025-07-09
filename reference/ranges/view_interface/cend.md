@@ -12,7 +12,6 @@ constexpr auto cend()
 constexpr auto cend() const
   requires input_range<const D>; // (2)
 ```
-* input_range[link ../input_range.md]
 
 ## 概要
 

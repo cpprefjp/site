@@ -48,14 +48,9 @@ namespace std::ranges {
 }
 ```
 * set_union_result[link ranges_in_in_out_result.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * ranges::less[link /reference/functional/ranges_less.md]
-* identity[link /reference/functional/identity.md]
 * mergeable[link /reference/iterator/mergeable.md]
-* input_range[link /reference/ranges/input_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

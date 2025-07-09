@@ -12,8 +12,6 @@ namespace std::ranges::views {
   using all_t = decltype(all(declval<R>()));                  // (2)
 }
 ```
-* viewable_range[link viewable_range.md]
-* declval[link /reference/utility/declval.md]
 
 ## 概要
 - (1): Rangeへの参照として振る舞う[`view`](view.md)を生成するRangeアダプタクロージャオブジェクト

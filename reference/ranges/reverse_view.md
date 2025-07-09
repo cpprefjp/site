@@ -15,9 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* bidirectional_range[link bidirectional_range.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 - (1): 任意の[`bidirectional_range`](bidirectional_range.md)を逆順にする[`view`](view.md)
@@ -155,20 +152,9 @@ namespace std::ranges {
   reverse_view(R&&) -> reverse_view<views::all_t<R>>;
 }
 ```
-* view[link view.md]
-* bidirectional_range[link bidirectional_range.md]
-* view_interface[link view_interface.md]
-* common_range[link common_range.md]
-* sized_range[link sized_range.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
 * make_reverse_iterator[link /reference/iterator/make_reverse_iterator.md]
-* iterator_t[link iterator_t.md]
 * ranges::next[link /reference/iterator/ranges_next.md]
-* ranges::begin[link begin.md]
-* ranges::end[link end.md]
-* ranges::size[link size.md]
 
 
 ## バージョン

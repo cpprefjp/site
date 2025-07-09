@@ -12,7 +12,6 @@ template<class I2, class S2>
 common_iterator& operator=(const common_iterator<I2, S2>& x);
 ```
 * assignable_from[link /reference/concepts/assignable_from.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
 

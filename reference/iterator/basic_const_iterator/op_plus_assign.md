@@ -9,7 +9,6 @@
 constexpr basic_const_iterator& operator+=(difference_type n)
   requires random_access_iterator<Iterator>;
 ```
-* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 
 ## 概要

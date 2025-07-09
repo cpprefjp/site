@@ -11,8 +11,6 @@ namespace std {
       requires input_iterator<I>;
 }
 ```
-* ranges::iter_move[link /reference/iterator/iter_move.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
 
 ## 概要
 
@@ -31,7 +29,6 @@ namespace std {
 ```cpp
 return ranges::iter_move(i.current);
 ```
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 備考
 
@@ -62,7 +59,6 @@ int main() {
 }
 ```
 * iter_move[color ff0000]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ### 出力
 ```

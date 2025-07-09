@@ -15,7 +15,6 @@ struct compare_three_way {
   using is_transparent = /*unspecified*/;
 };
 ```
-* three_way_comparable_with[link /reference/compare/three_way_comparable.md]
 
 ## 概要
 

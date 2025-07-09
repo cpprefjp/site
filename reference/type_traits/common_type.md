@@ -130,7 +130,6 @@ struct common_type<T, U, V...> {
   using type = typename common_type<typename common_type<T, U>::type, V...>::type;
 };
 ```
-* declval[link /reference/utility/declval.md]
 
 
 ## 定義(C++14)
@@ -156,8 +155,6 @@ struct common_type<T, U, V...> {
   using type = common_type_t<common_type_t<T, U>, V...>;
 };
 ```
-* decay_t[link decay.md]
-* declval[link /reference/utility/declval.md]
 
 ## バージョン
 ### 言語

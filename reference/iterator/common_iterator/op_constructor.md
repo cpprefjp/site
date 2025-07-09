@@ -17,8 +17,6 @@ template<class I2, class S2>
            convertible_to<const S2&, S>
 constexpr common_iterator(const common_iterator<I2, S2>& x);  // (4)
 ```
-* default_initializable[link /reference/concepts/default_initializable.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 
 ## 概要
 
@@ -68,10 +66,6 @@ int main() {
 * std::common_iterator[color ff0000]
 * views::iota[link /reference/ranges/iota_view.md]
 * views::take[link /reference/ranges/take_view.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* sentinel_t[link /reference/ranges/sentinel_t.md]
-* ranges::begin[link /reference/ranges/begin.md]
-* ranges::end[link /reference/ranges/end.md]
 
 ### 出力
 ```

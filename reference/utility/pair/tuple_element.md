@@ -19,7 +19,6 @@ namespace std {
   };
 }
 ```
-* pair[link ../pair.md]
 
 
 ## 概要

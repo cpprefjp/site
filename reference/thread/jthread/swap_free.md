@@ -34,12 +34,12 @@ x.swap(y);
 
 int main()
 {
-  std::jthread t1([]{ /*...*/ });
-  std::jthread t2;
+  std::jthread jt1([]{ /*...*/ });
+  std::jthread jt2;
 
-  swap(t1, t2);
+  swap(jt1, jt2);
 
-  t2.join();
+  jt2.join();
 
   return 0;
 }

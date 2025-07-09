@@ -17,11 +17,6 @@ namespace std::ranges {
   }
 }
 ```
-* forward_range[link forward_range.md]
-* view[link view.md]
-* iterator_t[link iterator_t.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* ranges::equal_to[link /reference/functional/equal_to.md]
 
 
 ## 概要

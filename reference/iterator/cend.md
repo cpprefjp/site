@@ -12,7 +12,6 @@ namespace std {
     -> decltype(std::end(c));
 }
 ```
-* std::end[link end.md]
 
 ## 概要
 範囲から、最後尾要素の次を指す読み取り専用イテレータを取得する。

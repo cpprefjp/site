@@ -35,7 +35,6 @@ int main() {
 }
 ```
 * std::ranges::stride_view[color ff0000]
-* std::ranges::ref_view[link ../ref_view.md]
 
 ### 出力
 ```

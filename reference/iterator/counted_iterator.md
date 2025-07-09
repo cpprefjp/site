@@ -24,12 +24,8 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
-* same_as[link /reference/concepts/same_as.md]
 * ITER_TRAITS[link /reference/iterator/input_iterator.md#iter_concept]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * conditional_t[link /reference/type_traits/conditional.md]
-* contiguous_iterator[link /reference/iterator/contiguous_iterator.md]
 * add_pointer_t[link /reference/type_traits/add_pointer.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
@@ -114,8 +110,6 @@ int main() {
 }
 ```
 * std::counted_iterator[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
-* default_sentinel[link /reference/iterator/default_sentinel_t.md]
 * ranges::subrange[link /reference/ranges/subrange.md]
 
 ### 出力

@@ -13,10 +13,8 @@ namespace std {
     same_as<remove_cvref_t<iter_reference_t<I>>, iter_value_t<I>>;
 }
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 
 ## 概要
 
@@ -79,8 +77,6 @@ int main() {
 * std::iter_value_t[link /reference/iterator/iter_value_t.md]
 * std::same_as[link /reference/concepts/same_as.md]
 * std::remove_cvref_t[link /reference/type_traits/remove_cvref.md]
-* std::forward_list[link /reference/forward_list/forward_list.md]
-* std::list[link /reference/list/list.md]
 
 ### 出力
 ```

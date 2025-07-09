@@ -20,9 +20,7 @@ namespace std {
   // を表す。
 }
 ```
-* tuple[link ../tuple.md]
 * common_comparison_category_t[link /reference/compare/common_comparison_category.md]
-* synth-three-way-result[link /reference/exposition-only/synth-three-way-result.md]
 * tuple-like[link ../tuple-like.md]
 * tuple_element_t[link ../tuple_element.md]
 * tuple_size_v[link ../tuple_size.md]
@@ -43,7 +41,6 @@ return t tail <=> u tail;
 ```
 * tail[italic]
 * get[link get.md]
-* synth-three-way[link /reference/exposition-only/synth-three-way-result.md]
 
 ここで`r`<sub>tail</sub>は、`r`の最初の要素以外のすべてを含む`tuple`である。
 

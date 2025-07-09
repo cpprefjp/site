@@ -15,7 +15,6 @@ namespace std {
     -> basic_string_view<ranges::range_value_t<R>>;  // (2) C++23
 }
 ```
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * ranges::range_value_t[link /reference/ranges/range_value_t.md]
 
 ## 概要

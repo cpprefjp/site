@@ -28,13 +28,8 @@ namespace std::ranges {
 }
 ```
 * prev_permutation_result[link ranges_in_found_result.md]
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * ranges::less[link /reference/functional/ranges_less.md]
-* identity[link /reference/functional/identity.md]
 * sortable[link /reference/iterator/sortable.md]
-* bidirectional_range[link /reference/ranges/bidirectional_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 
 ## 概要

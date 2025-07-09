@@ -9,7 +9,6 @@
 template <class... Args>
 pair<iterator, bool> emplace(Args&&... args);
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 コンテナ内へ要素を直接構築する
@@ -109,7 +108,6 @@ int main()
 * emplace[color ff0000]
 * std::complex[link /reference/complex/complex.md]
 * std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
-* std::forward_as_tuple[link /reference/tuple/forward_as_tuple.md]
 * um.cbegin()[link cbegin.md]
 * um.cend()[link cend.md]
 

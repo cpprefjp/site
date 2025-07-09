@@ -86,7 +86,6 @@ int main()
 }
 ```
 * std::mask_array[color ff0000]
-* std::valarray[link valarray.md]
 
 ### 出力
 ```

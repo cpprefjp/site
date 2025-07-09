@@ -22,13 +22,11 @@ decltype(auto) emplace(Args&&... args);     // C++17 から
 	```cpp
 c.emplace_back(std::forward<Args>(args)...);
 ```
-* std::forward[link /reference/utility/forward.md]
 
 - C++17 から
 	```cpp
 return c.emplace_back(std::forward<Args>(args)...);
 ```
-* std::forward[link /reference/utility/forward.md]
 
 
 ## 戻り値

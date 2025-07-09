@@ -60,7 +60,6 @@ int main()
 ```
 * fs::resize_file[color ff0000]
 * fs::file_size[link file_size.md]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 
 ### 出力
 ```

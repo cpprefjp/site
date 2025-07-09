@@ -48,7 +48,6 @@ jthread(jthread&&) noexcept;             // (4) C++20
         ```
         * invoke[link /reference/functional/invoke.md]
         * decay-copy[link /reference/exposition-only/decay-copy.md]
-        * std::forward[link /reference/utility/forward.md]
         * get_stop_token()[link get_stop_token.md]
 
     - そうでなければ以下の式でスレッドを生成して実行する
@@ -57,7 +56,6 @@ jthread(jthread&&) noexcept;             // (4) C++20
         ```
         * invoke[link /reference/functional/invoke.md]
         * decay-copy[link /reference/exposition-only/decay-copy.md]
-        * std::forward[link /reference/utility/forward.md]
 
     - この呼び出しでの戻り値は無視される。この関数呼び出しが例外を送出する場合、呼び出し元スレッドで[`std::terminate`](/reference/exception/terminate.md)が呼び出される
 
@@ -127,14 +125,14 @@ int main()
   {
     // 関数の第1引数がstd::stop_token型である場合、
     // スレッドに中断リクエストを送れるようになる
-    std::jthread t1 {f1, 1'000'000};
+    std::jthread jt1 {f1, 1'000'000};
     std::this_thread::sleep_for(std::chrono::milliseconds{3});
-    t1.request_stop(); // スレッドの中断要求を発行
+    jt1.request_stop(); // スレッドの中断要求を発行
 
     // スレッド実行する関数がstd::stop_tokenを受け取らない場合、
     // 中断リクエストを使用せず、
     // デストラクタで自動的にjoinするスレッドオブジェクトとして使用する
-    std::jthread t2 {
+    std::jthread jt2 {
       [] { f2(1'000'000); }
     };
   } // jthreadのデストラクタでは、中断要求を発行し、スレッドの終了を待機する
@@ -143,11 +141,9 @@ int main()
   std::cout << sum2 << std::endl;
 }
 ```
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * stoken.stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* t1.request_stop()[link request_stop.md]
+* jt1.request_stop()[link request_stop.md]
 
 
 ### 出力例

@@ -11,7 +11,6 @@ namespace std {
   constexpr common_type_t<M, N> lcm(M m, N n);
 }
 ```
-* common_type_t[link /reference/type_traits/common_type.md]
 
 ## 概要
 最小公倍数 (least common multiple) を求める。
@@ -84,7 +83,6 @@ int main() {
 }
 ```
 * std::lcm[color ff0000]
-* std::uint16_t[link /reference/cstdint/uint16_t.md]
 * std::gcd[link gcd.md]
 
 #### 出力例
@@ -127,7 +125,6 @@ int main() {
 }
 ```
 * std::lcm[color ff0000]
-* std::accumulate[link accumulate.md]
 
 #### 出力
 ```

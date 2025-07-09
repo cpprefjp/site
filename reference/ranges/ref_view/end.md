@@ -20,7 +20,6 @@ constexpr sentinel_t<R> end() const; // (1) C++20
 ```cpp
 ranges::end(*r_);
 ```
-* ranges::end[link /reference/ranges/end.md]
 
 
 

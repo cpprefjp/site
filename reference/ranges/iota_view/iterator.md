@@ -189,7 +189,6 @@ namespace std::ranges {
 * incrementable[link /reference/iterator/incrementable.md]
 * semiregular[link /reference/concepts/semiregular.md]
 * totally_ordered[link /reference/concepts/totally_ordered.md]
-* three_way_comparable[link /reference/compare/three_way_comparable.md]
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 

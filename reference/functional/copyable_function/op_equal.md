@@ -11,7 +11,6 @@ friend bool operator==(const copyable_function& f, nullptr_t) noexcept; // (1)
 // (1)により、以下のオーバーロードが使用可能になる
 friend bool operator==(nullptr_t, const copyable_function& f) noexcept; // (2)
 ```
-* nullptr_t[link /reference/cstddef/nullptr_t.md]
 
 ## 概要
 等値比較する。

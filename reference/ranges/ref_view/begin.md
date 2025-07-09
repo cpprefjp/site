@@ -18,7 +18,6 @@ constexpr iterator_t<R> begin() const; // (1) C++20
 ```cpp
 return ranges::begin(*r_);
 ```
-* ranges::begin[link /reference/ranges/begin.md]
 
 
 ## 例

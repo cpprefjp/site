@@ -41,7 +41,6 @@ namespace std {
 ```cpp
 decltype(INVOKE(declval<Fn>(), declval<ArgTypes>()...))
 ```
-* declval[link /reference/utility/declval.md]
 * INVOKE[link /reference/concepts/Invoke.md]
 
 C++14以降では、上記メンバ型`type`の型定義が有効な式でない場合、メンバ型`type`は定義されない。

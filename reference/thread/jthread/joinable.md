@@ -33,11 +33,11 @@ return get_id() != id();
 
 int main()
 {
-  std::jthread t([]{ /*...*/ });
-  assert(t.joinable());
+  std::jthread jt([]{ /*...*/ });
+  assert(jt.joinable());
 
-  t.join();
-  assert(!t.joinable());
+  jt.join();
+  assert(!jt.joinable());
 }
 ```
 * joinable()[color ff0000]

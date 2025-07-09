@@ -50,14 +50,8 @@ namespace std {
 }
 ```
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
-* invocable[link /reference/concepts/invocable.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * iter_common_reference_t[link /reference/iterator/iter_common_reference_t.md]
-* common_reference_with[link /reference/concepts/common_reference_with.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
-* regular_invocable[link /reference/concepts/invocable.md]
 
 ## 概要
 

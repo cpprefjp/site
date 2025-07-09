@@ -153,7 +153,6 @@ int main() {
 ```
 * std::fixed[link ../ios/fixed.md]
 * std::hypot[color ff0000]
-* std::numeric_limits[link ../limits/numeric_limits.md]
 * infinity[link ../limits/numeric_limits/infinity.md]
 * quiet_NaN[link ../limits/numeric_limits/quiet_nan.md]
 

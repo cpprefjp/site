@@ -12,7 +12,6 @@ namespace std::ranges {
 }
 ```
 * as_const_view[link ../as_const_view.md]
-* all_t[link /reference/ranges/all.md]
 
 ## 概要
 
@@ -42,7 +41,6 @@ int main() {
   >);
 }
 ```
-* ref_view[link /reference/ranges/ref_view.md]
 * owning_view[link /reference/ranges/owning_view.md]
 
 ### 出力

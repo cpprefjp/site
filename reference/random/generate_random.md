@@ -36,14 +36,8 @@ namespace std::ranges {
     generate_random(O first, S last, G&& g, D&& d); // (4) C++26
 }
 ```
-* output_range[link /reference/ranges/output_range.md]
 * uniform_random_bit_generator[link uniform_random_bit_generator.md]
-* invoke_result_t[link /reference/type_traits/invoke_result.md]
-* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
-* output_iterator[link /reference/iterator/output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* invocable[link /reference/concepts/invocable.md]
 
 ## 概要
 乱数列を生成する。
@@ -74,7 +68,6 @@ for (auto& x : v) {
   x = dist(gen);
 }
 ```
-* std::uniform_int_distribution[link uniform_int_distribution.md]
 
 
 ## 効果
@@ -90,7 +83,6 @@ for (auto& x : v) {
     ```cpp
     return generate_random(subrange<O, S>(std::move(first), last), g);
     ```
-    * subrange[link /reference/ranges/subrange.md]
     * std::move[link /reference/utility/move.md]
 
 - (3) :
@@ -105,7 +97,6 @@ for (auto& x : v) {
     ```cpp
     return generate_random(subrange<O, S>(std::move(first), last), g, d);
     ```
-    * subrange[link /reference/ranges/subrange.md]
     * std::move[link /reference/utility/move.md]
 
 
@@ -114,7 +105,6 @@ for (auto& x : v) {
     ```cpp
     return ranges::end(r);
     ```
-    * ranges::end[link /reference/ranges/end.md]
 
 
 ## 例
@@ -141,7 +131,6 @@ int main()
 }
 ```
 * std::ranges::generate_random[color ff0000]
-* std::uniform_int_distribution[link uniform_int_distribution.md]
 
 ### 出力例
 ```

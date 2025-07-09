@@ -13,11 +13,8 @@ namespace std {
     (!is_array_v<remove_reference_t<T>>);
 }
 ```
-* move_constructible[link /reference/concepts/move_constructible.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* decay_t[link /reference/type_traits/decay.md]
 * is_array_v[link /reference/type_traits/is_array.md]
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 
 ## 概要
 `movable-value`は、型`T`がムーブ構築可能な値であることを表す説明専用のコンセプトである。

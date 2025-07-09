@@ -219,7 +219,6 @@ explicit(see below) constexpr
 ```
 * see below[italic]
 * EXPLICIT[italic]
-* pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 * tuple-like[link ../tuple-like.md]
 * see below[italic]

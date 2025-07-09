@@ -25,7 +25,6 @@ namespace std {
     -> tuple<UTypes...>;                          // (5)
 }
 ```
-* pair[link /reference/utility/pair.md]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
 ## 概要

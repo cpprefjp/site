@@ -17,10 +17,8 @@ namespace std::ranges {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
-* output_range[link /reference/ranges/output_range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * iota_result[link /reference/algorithm/ranges_out_value_result.md]
 

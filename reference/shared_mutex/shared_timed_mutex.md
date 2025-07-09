@@ -137,7 +137,6 @@ int main()
 ```
 * std::shared_timed_mutex[color ff0000]
 * std::shared_lock[link shared_lock.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
 * join()[link /reference/thread/thread/join.md]
 
 ### 出力例

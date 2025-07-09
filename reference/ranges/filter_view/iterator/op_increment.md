@@ -27,7 +27,6 @@ current_ = ranges::find_if(
 return *this;
 ```
 * ranges::find_if[link /reference/algorithm/ranges_find_if.md]
-* ranges::end[link /reference/ranges/end.md]
 * ref[link /reference/functional/ref.md]
 
 と等しい。

@@ -17,7 +17,6 @@ namespace std {
     -> list<ranges::range_value_t<R>, Allocator>;                            // (2) C++23から
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * ranges::input_range[link /reference/ranges/input_range.md]
 * allocator[link /reference/memory/allocator.md]
 * ranges::range_value_t[link /reference/ranges/range_value_t.md]

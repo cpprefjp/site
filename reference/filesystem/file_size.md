@@ -56,7 +56,6 @@ int main()
 }
 ```
 * fs::file_size[color ff0000]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * std::uintmax_t[link /reference/cstdint/uintmax_t.md]
 
 ### 出力

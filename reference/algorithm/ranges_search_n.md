@@ -57,16 +57,6 @@ namespace std::ranges {
              Proj proj = {}); // (2) C++26
 }
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* subrange[link /reference/ranges/subrange.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
 
 
 ## 概要
@@ -204,16 +194,6 @@ struct search_n_impl {
 
 inline constexpr search_n_impl search_n;
 ```
-* forward_iterator[link /reference/iterator/forward_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::equal_to[link /reference/functional/ranges_equal_to.md]
-* identity[link /reference/functional/identity.md]
-* indirectly_comparable[link /reference/iterator/indirectly_comparable.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* subrange[link /reference/ranges/subrange.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
 * invoke[link /reference/functional/invoke.md]
 * begin[link /reference/ranges/begin.md]
 * end[link /reference/ranges/end.md]

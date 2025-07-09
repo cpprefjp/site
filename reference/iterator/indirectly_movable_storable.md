@@ -17,10 +17,8 @@ namespace std {
 ```
 * indirectly_movable[link /reference/iterator/indirectly_movable.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * movable[link /reference/concepts/movable.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
-* iter_rvalue_reference_t[link /reference/iterator/iter_rvalue_reference_t.md]
 * assignable_from[link /reference/concepts/assignable_from.md]
 
 ## 概要

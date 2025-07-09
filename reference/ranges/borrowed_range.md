@@ -10,7 +10,6 @@ namespace std::ranges {
   concept borrowed_range = range<T> && (is_lvalue_reference_v<T> || enable_borrowed_range<remove_cvref_t<T>>);
 }
 ```
-* range[link range.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * enable_borrowed_range[link enable_borrowed_range.md]
 

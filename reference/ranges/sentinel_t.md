@@ -10,9 +10,6 @@ namespace std::ranges {
   using sentinel_t = decltype(ranges::end(declval<R&>()));
 }
 ```
-* range[link range.md]
-* declval[link /reference/utility/declval.md]
-* ranges::end[link end.md]
 
 ## 概要
 

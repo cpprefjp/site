@@ -10,11 +10,6 @@ template<class R>
     same_as<iterator_t<R>, iterator_t<const R>> &&
     same_as<sentinel_t<R>, sentinel_t<const R>>;
 ```
-* same_as[link /reference/concepts/same_as.md]
-* view[link view.md]
-* range[link range.md]
-* iterator_t[link iterator_t.md]
-* sentinel_t[link sentinel_t.md]
 
 ## 概要
 `simple-view`は型`R`が単純（`R`は`const`であっても Range である（`const-iterable`である）上で、`R`が使用するイテレータ/センチネルと読み取り専用のイテレータ/センチネルが同じ型である）となるビューな Range を表す説明専用コンセプトである。

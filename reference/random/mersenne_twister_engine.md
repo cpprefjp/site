@@ -143,7 +143,6 @@ int main()
   }
 }
 ```
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link mersenne_twister_engine/op_call.md]
 
 ### 出力例

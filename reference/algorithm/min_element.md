@@ -70,13 +70,6 @@ int main()
 }
 ```
 * std::min_element[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* v1.begin[link /reference/vector/vector/begin.md]
-* v1.end[link /reference/vector/vector/end.md]
-* v2.begin[link /reference/vector/vector/begin.md]
-* v2.end[link /reference/vector/vector/end.md]
-* std::pair[link /reference/utility/pair.md]
-* assert[link /reference/cassert/assert.md]
 * v2_min_element->first[link /reference/utility/pair/first.md.nolink]
 * v2_min_element->second[link /reference/utility/pair/second.md.nolink]
 

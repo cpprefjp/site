@@ -17,7 +17,6 @@ namespace std {
 }
 ```
 * move_iterator[link /reference/iterator/move_iterator.md]
-* indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
 
 ## 概要
 
@@ -30,7 +29,6 @@ namespace std {
 ```cpp
 ranges::iter_swap(x.current, y.current);
 ```
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 戻り値
 
@@ -78,7 +76,6 @@ int main() {
 }
 ```
 * iter_swap[color ff0000]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ### 出力
 ```

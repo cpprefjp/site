@@ -40,7 +40,6 @@ for (; first!=last; ++first)
   destroy_at(addressof(*first));
 ```
 * destroy_at[link destroy_at.md]
-* addressof[link addressof.md]
 
 
 ## 備考

@@ -111,7 +111,6 @@ constexpr basic_string&
     basic_string_view<charT, traits> sv = t;
     return append(sv.data(), sv.size());
     ```
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
 
 - (9) 対象オブジェクトの末尾に、[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`の指定された範囲の文字列が追加される。
     * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。  
@@ -120,7 +119,6 @@ constexpr basic_string&
     basic_string_view<charT, traits> sv = t;
     return append(sv.substr(pos, n));
     ```
-    * basic_string_view[link /reference/string_view/basic_string_view.md]
     * substr[link /reference/string_view/basic_string_view/substr.md]
 
 

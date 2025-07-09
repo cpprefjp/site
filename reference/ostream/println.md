@@ -39,7 +39,6 @@ namespace std {
     ```
     * print[link print.md]
     * format[link /reference/format/format.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (2) : 以下と等価：
     ```cpp

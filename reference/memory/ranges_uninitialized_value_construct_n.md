@@ -19,9 +19,6 @@ namespace std::ranges {
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 
 ## 概要
 未初期化領域の範囲 (`[first, first + n)`) の各要素を値構築する。
@@ -42,7 +39,6 @@ return uninitialized_value_construct(counted_iterator(first, n),
 ```
 * uninitialized_value_construct[link ranges_uninitialized_value_construct.md]
 * counted_iterator[link /reference/iterator/counted_iterator.md]
-* default_sentinel[link /reference/iterator/default_sentinel_t.md]
 * base()[link /reference/iterator/counted_iterator/base.md]
 
 ## 例外
@@ -85,7 +81,6 @@ int main()
 }
 ```
 * std::ranges::uninitialized_value_construct_n[color ff0000]
-* std::allocator[link allocator.md]
 * alloc.allocate[link allocator/allocate.md]
 * std::ranges::destroy_n[link ranges_destroy_n.md]
 * alloc.deallocate[link allocator/deallocate.md]

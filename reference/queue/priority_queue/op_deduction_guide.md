@@ -57,7 +57,6 @@ template <class Compare, class Container>
                       vector<ranges::range_value_t<R>, Allocator>>;        // (9) C++23から
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * less[link /reference/functional/less.md]
 * vector[link /reference/vector/vector.md]
 * ranges::input_range[link /reference/ranges/input_range.md]

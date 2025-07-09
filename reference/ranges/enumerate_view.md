@@ -15,7 +15,6 @@ namespace std::ranges {
   }
 }
 ```
-* range-with-movable-references[link range-with-movable-references.md]
 
 ## 概要
 

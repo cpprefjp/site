@@ -9,7 +9,6 @@
 template<sentinel_for<Iterator> S>
 constexpr bool operator==(const S& s) const;
 ```
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 
 ## 概要
 

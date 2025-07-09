@@ -95,10 +95,6 @@ int main() {
 }
 ```
 * adjacent_find[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::distance[link /reference/iterator/distance.md]
-* std::boolalpha[link /reference/ios/boolalpha.md]
 
 ### 出力
 ```

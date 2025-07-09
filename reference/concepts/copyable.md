@@ -16,7 +16,6 @@ namespace std {
 }
 ```
 * assignable_from[link /reference/concepts/assignable_from.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
 * movable[link /reference/concepts/movable.md]
 
 ## 概要

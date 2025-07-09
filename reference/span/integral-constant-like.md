@@ -17,7 +17,6 @@ concept integral-constant-like =  // exposition only
 * is_same_v[link /reference/type_traits/is_same.md]
 * remove_const_t[link /reference/type_traits/remove_const.md]
 * bool_constant[link /reference/type_traits/bool_constant.md]
-* convertible_to[link /reference/concepts/convertible_to.md]
 * equality_comparable_with[link /reference/concepts/equality_comparable.md]
 
 ## 概要

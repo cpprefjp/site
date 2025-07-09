@@ -18,7 +18,6 @@ namespace std {
 ```
 * see below[italic]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
-* indirectly_swappable[link /reference/iterator/indirectly_swappable.md]
 
 ## 概要
 
@@ -34,7 +33,6 @@ auto ytmp = y.base();
 ranges::iter_swap(--xtmp, --ytmp);
 ```
 * base[link /reference/iterator/reverse_iterator/base.md]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 例外
 
@@ -46,7 +44,6 @@ is_nothrow_copy_constructible_v<Iterator2> &&
 noexcept(ranges::iter_swap(--declval<Iterator&>(), --declval<Iterator2&>()))
 ```
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ## 備考
 
@@ -87,7 +84,6 @@ int main() {
 }
 ```
 * iter_swap[color ff0000]
-* ranges::iter_swap[link /reference/iterator/iter_swap.md]
 
 ### 出力
 ```

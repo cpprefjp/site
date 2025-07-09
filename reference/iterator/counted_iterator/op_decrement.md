@@ -12,7 +12,6 @@ constexpr counted_iterator& operator--()
 constexpr counted_iterator operator--(int)
   requires bidirectional_iterator<I>;       // (2)
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
 
 
 ## 概要
@@ -67,7 +66,6 @@ int main() {
 ```
 * --ci[color ff0000]
 * ci--[color ff0000]
-* ranges::begin[link /reference/ranges/begin.md]
 
 ### 出力
 ```

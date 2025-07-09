@@ -68,7 +68,6 @@ int main()
 }
 ```
 * std::declval[color ff0000]
-* std::forward[link forward.md]
 
 ### 出力
 ```

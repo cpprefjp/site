@@ -19,7 +19,6 @@ namespace std {
                             const UTuple& u);           // (2) C++23
 }
 ```
-* tuple[link ../tuple.md]
 * tuple-like[link ../tuple-like.md]
 
 ## 概要

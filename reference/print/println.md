@@ -46,7 +46,6 @@ namespace std {
     println(stdout, fmt, std::forward<Args>(args)...);
     ```
     * stdout[link /reference/cstdio/stdout.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (2) : 以下と等価：
     ```cpp
@@ -60,7 +59,6 @@ namespace std {
     ```
     * print[link print.md]
     * format[link /reference/format/format.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (4) : 以下と等価：
     ```cpp

@@ -64,8 +64,6 @@ int main()
 indirectly_readable<Out> && same_as<iter_value_t<Out>, decay_t<T>>
 ```
 * indirectly_readable[link indirectly_readable.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
-* decay_t[link /reference/type_traits/decay.md]
 
 `E`の値カテゴリが*xvalue*の場合、上記式による出力後`E`のオブジェクトは有効だが未規定な状態となる
 

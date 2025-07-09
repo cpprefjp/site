@@ -22,7 +22,6 @@ constexpr auto begin() const
 ```cpp
 return std::move_iterator(ranges::begin(*base_));
 ```
-* ranges::begin[link /reference/ranges/begin.md]
 
 
 ## 例

@@ -14,7 +14,6 @@ pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n);
 template <class T>
 pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n) noexcept;
 ```
-* pair[link /reference/utility/pair.md]
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
 この機能は、C++17から非推奨となり、C++20で削除された。短期的な用途のメモリ領域確保には、[`alloca()`](https://web.archive.org/web/20230207110403/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/alloca.3.html)のようなスタックからメモリを確保するなど、他の機能を使用すること。
@@ -86,7 +85,6 @@ int main()
 ```
 * std::get_temporary_buffer[color ff0000]
 * std::ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
-* std::allocator[link allocator.md]
 * std::allocator_traits[link allocator_traits.md]
 * traits::construct[link allocator_traits/construct.md]
 * traits::destroy[link allocator_traits/destroy.md]

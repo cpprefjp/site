@@ -45,11 +45,11 @@ join操作に失敗した場合、[`system_error`](/reference/system_error/syste
 int main()
 {
   int x = 0;
-  std::jthread t([&]{ ++x; });
+  std::jthread jt([&]{ ++x; });
 
   // ここでxにアクセスするとdata raceにより未定義動作
 
-  t.join();
+  jt.join();
 
   // 別スレッド上で行われた全処理が完了している
   assert(x == 1);

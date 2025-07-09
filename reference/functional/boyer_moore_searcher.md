@@ -13,7 +13,6 @@ namespace std {
 }
 ```
 * hash[link hash.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * equal_to[link equal_to.md]
 
 ## 概要

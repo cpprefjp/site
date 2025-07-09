@@ -12,7 +12,6 @@ constexpr void swap(tuple& rhs) noexcept(see below); // (1) C++20
 constexpr void
   swap(const tuple& rhs) const noexcept(see below);  // (2) C++23
 ```
-* tuple[link ../tuple.md]
 * see below[italic]
 
 ## 概要

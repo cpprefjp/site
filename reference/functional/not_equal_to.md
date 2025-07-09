@@ -45,7 +45,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* std::forward[link ../utility/forward.md]
 
 ## 概要
 `not_equal_to`クラスは、非等値比較を行う関数オブジェクトである。

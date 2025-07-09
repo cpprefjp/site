@@ -31,20 +31,19 @@ namespace std {
 
 int main()
 {
-  std::error_condition ec = std::make_error_condition(std::io_errc::stream);
+  std::error_condition econd = std::make_error_condition(std::io_errc::stream);
 
-  std::cout << "category : " << ec.category().name() << std::endl;
-  std::cout << "value : " << ec.value() << std::endl;
-  std::cout << "message : " << ec.message() << std::endl;
+  std::cout << "category : " << econd.category().name() << std::endl;
+  std::cout << "value : " << econd.value() << std::endl;
+  std::cout << "message : " << econd.message() << std::endl;
 }
 ```
 * std::make_error_condition[color ff0000]
 * std::io_errc::stream[link io_errc.md]
 * std::error_condition[link /reference/system_error/error_condition.md]
-* ec.category()[link /reference/system_error/error_code/category.md]
+* econd.category()[link /reference/system_error/error_code/category.md]
 * name()[link /reference/system_error/error_category/name.md]
-* ec.value()[link /reference/system_error/error_condition/value.md]
-* ec.message()[link /reference/system_error/error_condition/message.md]
+* econd.value()[link /reference/system_error/error_condition/value.md]
 
 ### 出力例
 ```

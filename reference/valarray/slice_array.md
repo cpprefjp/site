@@ -87,7 +87,6 @@ int main()
 ```
 * std::slice_array[color ff0000]
 * std::slice[link slice.md]
-* std::valarray[link valarray.md]
 
 ### 出力
 ```

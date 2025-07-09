@@ -71,7 +71,6 @@ namespace std {
 * vector[link /reference/vector/vector.md]
 * from_range_t[link ../../ranges/from_range_t.md]
 * sorted_unique_t[link ../sorted_unique_t.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]

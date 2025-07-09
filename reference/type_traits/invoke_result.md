@@ -98,7 +98,6 @@ int main()
 }
 ```
 * std::invoke_result[color ff0000]
-* std::is_same[link is_same.md]
 
 ### 出力
 ```

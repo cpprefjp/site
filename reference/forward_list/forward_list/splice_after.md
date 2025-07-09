@@ -109,7 +109,6 @@ int main()
 ```
 * splice_after[color ff0000]
 * begin()[link begin.md]
-* std::next[link /reference/iterator/next.md]
 
 ### 出力
 ```

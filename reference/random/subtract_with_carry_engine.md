@@ -119,7 +119,6 @@ int main()
 }
 ```
 * std::ranlux24_base[color ff0000]
-* std::uint32_t[link /reference/cstdint/uint32_t.md]
 * engine()[link subtract_with_carry_engine/op_call.md]
 
 ### 出力

@@ -10,9 +10,6 @@ namespace std::ranges {
   concept common_range = range<T> && same_as<iterator_t<T>, sentinel_t<T>>;
 }
 ```
-* range[link range.md]
-* iterator_t[link iterator_t.md]
-* sentinel_t[link sentinel_t.md]
 
 ## 概要
 `common_range`は、イテレータと番兵の型が等しいRangeを表すコンセプトである。

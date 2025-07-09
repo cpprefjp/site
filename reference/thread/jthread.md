@@ -96,14 +96,14 @@ int main()
   {
     // 関数の第1引数がstd::stop_token型である場合、
     // スレッドに中断リクエストを送れるようになる
-    std::jthread t1 {f1, 1'000'000};
+    std::jthread jt1 {f1, 1'000'000};
     std::this_thread::sleep_for(std::chrono::milliseconds{3});
-    t1.request_stop(); // スレッドの中断要求を発行
+    jt1.request_stop(); // スレッドの中断要求を発行
 
     // スレッド実行する関数がstd::stop_tokenを受け取らない場合、
     // 中断リクエストを使用せず、
     // デストラクタで自動的にjoinするスレッドオブジェクトとして使用する
-    std::jthread t2 {
+    std::jthread jt2 {
       [] { f2(1'000'000); }
     };
   } // jthreadのデストラクタでは、中断要求を発行し、スレッドの終了を待機する
@@ -112,11 +112,9 @@ int main()
   std::cout << sum2 << std::endl;
 }
 ```
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * stoken.stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
-* std::this_thread::sleep_for[link /reference/thread/this_thread/sleep_for.md]
-* t1.request_stop()[link jthread/request_stop.md]
+* jt1.request_stop()[link jthread/request_stop.md]
 
 
 #### 出力例
@@ -135,18 +133,18 @@ int main()
 {
   int x = 0, y = 0;
 
-  std::jthread t([&](std::stop_token st) { x++; });
+  std::jthread jt([&](std::stop_token st) { x++; });
 
   // スレッドに対する停止要求の作成に合わせて呼び出される
   // コールバックを定義する。
-  std::stop_callback sc { t.get_stop_token(), [&] { y++; }};
+  std::stop_callback sc { jt.get_stop_token(), [&] { y++; }};
 
   assert(y == 0);
 
   // 明示的にjoin()を呼び出さずにtを上書きする。
   // このとき、ムーブ代入演算子の呼び出しの中で、
   // 自動で停止要求の作成とjoin()の呼び出しが行われる。
-  t = std::jthread{};
+  jt = std::jthread{};
 
   assert(x == 1 && y == 1);
 

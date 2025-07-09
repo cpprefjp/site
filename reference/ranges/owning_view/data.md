@@ -12,7 +12,6 @@ constexpr auto data()
 constexpr auto data() const
   requires contiguous_range<const R>; // (2) C++20
 ```
-* contiguous_range[link ../contiguous_range.md]
 
 ## 概要
 

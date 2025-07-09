@@ -77,7 +77,7 @@ int main()
   data.store(newdata);
 
   // 共有データへ並行アクセス
-  std::jthread th{[] {
+  std::jthread jt{[] {
     for (int i = 0; i < 3; i++) {
       reader();
     }

@@ -79,10 +79,6 @@ int main()
 }
 ```
 * std::for_each_n[color ff0000]
-* std::vector[link /reference/vector/vector.md]
-* v.begin[link /reference/vector/vector/begin.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
 
 ### 出力
 ```

@@ -30,7 +30,6 @@ namespace std {
 
 }
 ```
-* remove_reference_t[link /reference/type_traits/remove_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * maybe-static-ext[link /reference/span/maybe-static-ext.md]
 * array[link /reference/array/array.md]

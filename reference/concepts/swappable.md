@@ -21,8 +21,6 @@ namespace std {
 }
 ```
 * swap[link /reference/concepts/swap.md]
-* common_reference_with[link /reference/concepts/common_reference_with.md]
-* std::forward[link /reference/utility/forward.md]
 
 ## 概要
 

@@ -64,8 +64,6 @@ namespace std {
     : cond-value-type<typename T::value_type> { };
 }
 ```
-* is_object_v[link /reference/type_traits/is_object.md]
-* remove_cv_t[link /reference/type_traits/remove_cv.md]
 * is_array_v[link /reference/type_traits/is_array.md]
 * remove_extent_t[link /reference/type_traits/remove_extent.md]
 

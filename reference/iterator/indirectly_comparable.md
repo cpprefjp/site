@@ -11,9 +11,6 @@ namespace std {
     indirect_binary_predicate<R, projected<I1, P1>, projected<I2, P2>>;
 }
 ```
-* identity[link /reference/functional/identity.md]
-* indirect_binary_predicate[link /reference/iterator/indirect_binary_predicate.md]
-* projected[link /reference/iterator/projected.md]
 
 ## 概要
 
@@ -57,10 +54,8 @@ int main() {
 }
 ```
 * std::indirectly_comparable[color ff0000]
-* identity[link /reference/functional/identity.md]
 * less[link /reference/functional/less.md]
 * greater[link /reference/functional/greater.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
 
 ### 出力
 ```

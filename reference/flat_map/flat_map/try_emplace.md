@@ -39,7 +39,6 @@ iterator
               K&& k,
               Args&&... args);       // (6) C++23
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 指定されたキーが存在しない場合のみ要素を直接構築で挿入する。
@@ -89,7 +88,6 @@ iterator
     * distance[link /reference/iterator/distance.md]
     * insert[link /reference/vector/vector/insert.md]
     * emplace[link /reference/vector/vector/emplace.md]
-    * std::forward[link /reference/utility/forward.md]
 
 - (5), (6) :
     ```cpp
@@ -104,7 +102,6 @@ iterator
     * begin()[link /reference/vector/vector/begin.md]
     * distance[link /reference/iterator/distance.md]
     * emplace[link /reference/vector/vector/emplace.md]
-    * std::forward[link /reference/utility/forward.md]
 
 
 ## 戻り値

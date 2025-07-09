@@ -40,7 +40,7 @@ namespace std {
     auto last = std::end(c);    // std::valarray<double>にする必要がある
     ```
     * std::begin[color ff0000]
-    * std::end[link end_free.md]
+    * std::end[link /reference/valarray/valarray/end_free.md]
 
     これは、[`std::valarray`](../valarray.md)`<T>` 型を返す関数（本リファレンスでは戻り値型を *`ValOrProxy`* と表記）は、式テンプレートによる最適化を考慮して、代理の型を返すことが許可されているが、`begin` と [`end`](end_free.md) はその代理の型を受け取りが可能であることを求められていないためである。  
     [`<valarray>`](../../valarray.md) の概要も参照のこと。
@@ -62,7 +62,7 @@ int main()
 }
 ```
 * std::begin[color ff0000]
-* std::end[link end_free.md]
+* std::end[link /reference/valarray/valarray/end_free.md]
 
 ### 出力
 ```

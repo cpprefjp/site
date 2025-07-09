@@ -61,8 +61,6 @@ int main()
 }
 ```
 * std::reinterpret_pointer_cast[color ff0000]
-* std::int8_t[link /reference/cstdint/int8_t.md]
-* std::int32_t[link /reference/cstdint/int32_t.md]
 
 ### 出力
 ```

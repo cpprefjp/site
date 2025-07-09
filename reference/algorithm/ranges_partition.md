@@ -27,14 +27,6 @@ namespace std::ranges {
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* identity[link /reference/functional/identity.md]
-* indirect_unary_predicate[link /reference/iterator/indirect_unary_predicate.md]
-* projected[link /reference/iterator/projected.md]
-* subrange[link /reference/ranges/subrange.md]
-* forward_range[link /reference/ranges/forward_range.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* borrowed_subrange_t[link /reference/ranges/borrowed_subrange_t.md]
 
 ## 概要
 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。

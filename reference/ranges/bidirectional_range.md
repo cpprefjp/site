@@ -10,9 +10,6 @@ namespace std::ranges {
   concept bidirectional_range = forward_range<T> && bidirectional_iterator<iterator_t<T>>;
 }
 ```
-* forward_range[link forward_range.md]
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 `bidirectional_range`は、イテレータが[`bidirectional_iterator`](/reference/iterator/bidirectional_iterator.md)であるRangeを表すコンセプトである。

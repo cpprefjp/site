@@ -42,7 +42,6 @@ namespace std {
                    Predicate pred);            // (2) C++17
 }
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 イテレータ範囲`[first, last)`を条件を満たすか満たさないかで、2つの出力範囲へ分けてコピーする。
@@ -107,14 +106,6 @@ int main()
 }
 ```
 * std::partition_copy[color ff0000]
-* std::string[link /reference/string/string.md.nolink]
-* std::vector[link /reference/vector/vector.md]
-* std::cout[link /reference/iostream/cout.md]
-* std::endl[link /reference/ostream/endl.md]
-* std::for_each[link /reference/algorithm/for_each.md]
-* v.begin[link /reference/vector/vector/begin.md]
-* v.end[link /reference/vector/vector/end.md]
-* std::back_inserter[link /reference/iterator/back_inserter.md]
 * is_even[link /reference/algorithm/is_partitioned.md]
 
 ### 出力

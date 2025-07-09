@@ -13,9 +13,7 @@ namespace std::ranges {
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * subrange_kind[link subrange_kind.md]
-* view_interface[link view_interface.md]
 
 ## 概要
 `subrange`は、イテレータ`i`と番兵`s`が表すイテレータ範囲`[i, s)`をRangeとして扱うクラステンプレート。

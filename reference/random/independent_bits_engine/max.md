@@ -35,7 +35,6 @@ int main()
 }
 ```
 * max()[color ff0000]
-* std::uint64_t[link /reference/cstdint/uint64_t.md]
 
 ### 出力
 ```

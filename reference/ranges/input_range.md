@@ -10,9 +10,6 @@ namespace std::ranges {
   concept input_range = range<T> && input_iterator<iterator_t<T>>;
 }
 ```
-* range[link range.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 `input_range`は、イテレータが[`input_iterator`](/reference/iterator/input_iterator.md)であるRangeを表すコンセプトである。

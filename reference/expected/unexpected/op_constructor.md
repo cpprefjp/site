@@ -17,7 +17,6 @@ constexpr explicit unexpected(in_place_t, Args&&... args);  // (4)
 template<class U, class... Args>
 constexpr explicit unexpected(in_place_t, initializer_list<U> il, Args&&... args); // (5)
 ```
-* in_place_t[link /reference/utility/in_place_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
 ## 概要

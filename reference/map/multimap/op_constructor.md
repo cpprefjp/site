@@ -118,7 +118,6 @@ multimap(from_range_t, R&& rg,
     }
     ```
     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
-    * std::allocator[link ../../memory/allocator.md]
     * ls.emplace_back[link ../../list/list/emplace_back.md]
 
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  

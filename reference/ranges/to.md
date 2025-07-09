@@ -60,7 +60,6 @@ if constexpr (sized_range<R> && reservable-container<C>) {
 }
 ranges::copy(r, container-inserter<range_reference_t<R>>(c));
 ```
-* ranges::size[link /reference/ranges/size.md]
 * ranges::copy[link /reference/algorithm/ranges_copy.md]
 
 [`input_range`](input_range.md)`<`[`range_reference_t`](range_reference_t.md)`<R>>`である場合:

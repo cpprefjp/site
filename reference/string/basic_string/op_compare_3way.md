@@ -32,7 +32,6 @@ namespace std {
 ```cpp
 return basic_string_view<charT, traits>(lhs) <=> basic_string_view<charT, traits>(rhs);
 ```
-* basic_string_view[link /reference/string_view/basic_string_view.md]
 
 戻り値の型は、`traits::comparison_category`が存在していればその型、そうでなければ[`weak_ordering`](/reference/compare/weak_ordering.md)となる。
 

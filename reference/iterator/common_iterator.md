@@ -35,13 +35,9 @@ namespace std {
 ```
 * see below[italic]
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
 * copyable[link /reference/concepts/copyable.md]
 * variant[link /reference/variant/variant.md]
 * incrementable_traits[link /reference/iterator/incrementable_traits.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
-* iterator_traits[link /reference/iterator/iterator_traits.md]
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
 ## 概要
@@ -116,10 +112,6 @@ int main() {
 * std::common_iterator[color ff0000]
 * views::iota[link /reference/ranges/iota_view.md]
 * views::take[link /reference/ranges/take_view.md]
-* iterator_t[link /reference/ranges/iterator_t.md]
-* sentinel_t[link /reference/ranges/sentinel_t.md]
-* ranges::begin[link /reference/ranges/begin.md]
-* ranges::end[link /reference/ranges/end.md]
 
 ### 出力
 

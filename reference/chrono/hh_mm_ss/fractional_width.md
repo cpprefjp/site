@@ -60,7 +60,6 @@ int main() {
 ```
 * 1ms[link /reference/chrono/duration/op_ms.md]
 * 1ns[link /reference/chrono/duration/op_ns.md]
-* chrono::duration[link /reference/chrono/duration.md]
 * std::ratio[link /reference/ratio/ratio.md]
 
 ### 出力

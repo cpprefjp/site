@@ -34,7 +34,6 @@ constexpr iter_value_t<X> iter-exchange-move(X&& x, Y&& y)
   return old_value;
 }
 ```
-* iter_value_t[link /reference/iterator/iter_value_t.md]
 * iter_move[link /reference/iterator/iter_move.md]
 
 

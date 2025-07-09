@@ -36,7 +36,6 @@ iterator
               K&& k,
               Args&&... args);        // (6) C++26
 ```
-* pair[link /reference/utility/pair.md]
 
 ## 概要
 指定されたキーが存在しない場合のみ要素を直接構築で挿入する。

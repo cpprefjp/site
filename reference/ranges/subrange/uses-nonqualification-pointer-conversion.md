@@ -12,7 +12,6 @@ namespace std::ranges {
       !convertible_to<remove_pointer_t<From>(*)[], remove_pointer_t<To>(*)[]>;
 }
 ```
-* convertible_to[link /reference/concepts/convertible_to.md]
 * is_pointer_v[link /reference/type_traits/is_pointer.md]
 * remove_pointer_t[link /reference/type_traits/remove_pointer.md]
 * uses-nonqualification-pointer-conversion[italic]

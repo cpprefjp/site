@@ -116,7 +116,6 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
     iter_swap(it, first + d(g, param_type(0, it - first)));
 }
 ```
-* iterator_traits[link /reference/iterator/iterator_traits.md]
 * make_unsigned[link /reference/type_traits/make_unsigned.md]
 * uniform_int_distribution[link /reference/random/uniform_int_distribution.md]
 * iter_swap[link iter_swap.md]

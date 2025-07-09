@@ -364,14 +364,11 @@ int main()
 }
 ```
 * A.extent[link /reference/mdspan/extents/extent.md]
-* std::mdspan[link /reference/mdspan/mdspan.md]
-* std::extents[link /reference/mdspan/extents.md]
 * std::linalg::layout_blas_packed[link /reference/linalg/layout_blas_packed.md]
 * std::linalg::upper_triangle_t[link /reference/linalg/upper_triangle_t.md]
 * std::linalg::row_major_t[link /reference/linalg/row_major_t.md]
 * std::linalg::upper_triangle[link /reference/linalg/upper_triangle_t.md]
 * std::linalg::implicit_unit_diagonal[link /reference/linalg/implicit_unit_diagonal_t.md]
-* std::execution::par[link /reference/execution/execution/execution_policy.md]
 * std::linalg::triangular_matrix_product[color ff0000]
 
 

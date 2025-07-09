@@ -15,11 +15,7 @@ namespace std::ranges {
   }
 }
 ```
-* view[link view.md]
-* view_interface[link view_interface.md]
-* common_range[link common_range.md]
 * copyable[link /reference/concepts/copyable.md]
-* iterator_t[link iterator_t.md]
 
 ## 概要
 - (1): 任意のRangeを[`common_range`](common_range.md)にする[`view`](view.md)
@@ -160,20 +156,7 @@ namespace std::ranges {
   common_view(R&&) -> common_view<views::all_t<R>>;
 }
 ```
-* view[link view.md]
-* view_interface[link view_interface.md]
-* common_range[link common_range.md]
-* random_access_range[link random_access_range.md]
-* sized_range[link sized_range.md]
 * copyable[link /reference/concepts/copyable.md]
-* default_initializable[link /reference/concepts/default_initializable.md]
-* copy_constructible[link /reference/concepts/copy_constructible.md]
-* common_iterator[link /reference/iterator/common_iterator.md]
-* iterator_t[link iterator_t.md]
-* sentinel_t[link sentinel_t.md]
-* ranges::begin[link begin.md]
-* ranges::end[link end.md]
-* ranges::size[link size.md]
 * views::all_t[link all.md]
 
 ## バージョン

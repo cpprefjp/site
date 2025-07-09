@@ -17,9 +17,6 @@ namespace std {
 }
 ```
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
-* sentinel_for[link /reference/iterator/sentinel_for.md]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
-* input_iterator[link /reference/iterator/input_iterator.md]
 
 ## 概要
 
@@ -36,7 +33,6 @@ namespace std {
 ```cpp
 return ranges::iter_move(get<I>(i.v_));
 ```
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ## 備考
 
@@ -70,7 +66,6 @@ int main() {
 }
 ```
 * iter_move[color ff0000]
-* ranges::iter_move[link /reference/iterator/iter_move.md]
 
 ### 出力
 ```

@@ -27,12 +27,12 @@ void swap(jthread& x) noexcept;
 
 int main()
 {
-  std::jthread t1([]{ /*...*/ });
-  std::jthread t2;
+  std::jthread jt1([]{ /*...*/ });
+  std::jthread jt2;
 
-  t1.swap(t2);
+  jt1.swap(jt2);
 
-  t2.join();
+  jt2.join();
 
   return 0;
 }

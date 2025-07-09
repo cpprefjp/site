@@ -9,7 +9,6 @@
 static const time_zone* locate_zone(string_view name); // (1) C++20
 ```
 * time_zone[link /reference/chrono/time_zone.md]
-* string_view[link /reference/string_view/basic_string_view.md]
 
 ## 概要
 タイムゾーン名を指定してタイムゾーンを取得する。

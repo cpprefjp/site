@@ -8,7 +8,6 @@ template<class I>
   concept has-arrow = // 説明専用コンセプト
     input_iterator<I> && (is_pointer_v<I> || requires(I i) { i.operator->(); });
 ```
-* input_iterator[link /reference/iterator/input_iterator.md]
 * is_pointer_v[link /reference/type_traits/is_pointer.md]
 
 ## 概要

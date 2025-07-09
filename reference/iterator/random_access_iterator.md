@@ -22,13 +22,11 @@ namespace std {
     };
 }
 ```
-* bidirectional_iterator[link /reference/iterator/bidirectional_iterator.md]
 * derived_from[link /reference/concepts/derived_from.md]
 * ITER_CONCEPT[link /reference/iterator/input_iterator.md#iter_concept]
 * random_access_iterator_tag[link /reference/iterator/iterator_tag.md]
 * totally_ordered[link /reference/concepts/totally_ordered.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
-* iter_difference_t[link /reference/iterator/iter_difference_t.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
 ## 概要

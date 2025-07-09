@@ -39,9 +39,9 @@ void func() {
 }
 
 int main() {
-  std::jthread t{func};
-  SetThreadPriority(t.native_handle(), THREAD_PRIORITY_IDLE);
-  t.join();
+  std::jthread jt{func};
+  SetThreadPriority(jt.native_handle(), THREAD_PRIORITY_IDLE);
+  jt.join();
 }
 ```
 * native_handle()[color ff0000]

@@ -100,7 +100,6 @@ namespace std {
     return exclusive_scan(std::forward<ExecutionPolicy>(exec),
                           first, last, result, init, plus<>());
     ```
-    * std::forward[link /reference/utility/forward.md]
     * plus[link /reference/functional/plus.md]
 
 
