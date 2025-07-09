@@ -45,7 +45,7 @@
 | [`tmpnam`](/reference/cstdio/tmpnam.md) | 一時ファイル名を生成する | |
 | [`fclose`](/reference/cstdio/fclose.md)   | ファイルを閉じる | |
 | [`fopen`](/reference/cstdio/fopen.md)    | ファイルを開く | |
-| [`fflush`](/reference/cstdio/fflush.md.nolink)   | ファイルをフラッシュする | |
+| [`fflush`](/reference/cstdio/fflush.md)   | ファイルをフラッシュする | |
 | [`fprintf`](/reference/cstdio/fprintf.md)  | 書式を指定してファイルに出力する | |
 | [`fscanf`](/reference/cstdio/fscanf.md)   | 書式を指定してファイルから入力する | |
 | [`vfprintf`](/reference/cstdio/vfprintf.md.nolink) | 可変引数リスト`va_list`を使用し、書式を指定してファイルに出力する | |
