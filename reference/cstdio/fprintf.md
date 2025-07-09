@@ -24,8 +24,8 @@ int main() {
 }
 ```
 * std::fprintf[color ff0000]
-* std::fopen[link /reference/cstdio/fopen.md.nolink]
-* std::fclose[link /reference/cstdio/fclose.md.nolink]
+* std::fopen[link /reference/cstdio/fopen.md]
+* std::fclose[link /reference/cstdio/fclose.md]
 * std::FILE[link /reference/cstdio/file.md]
 ### 出力
 ```

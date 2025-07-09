@@ -10,7 +10,7 @@ std::FILE* tmpfile();
 ## 概要
 一時ファイルを生成する。
 
-[`std::fclose`](/reference/cstdio/fclose.md.nolink)関数を呼び出すと、一時ファイルは自動的に削除される。
+[`std::fclose`](/reference/cstdio/fclose.md)関数を呼び出すと、一時ファイルは自動的に削除される。
 
 通常終了（[`exit`](/reference/cstdlib/exit.md)関数や`main`関数のreturn文）時には、一時ファイルは自動的に削除される。
 
