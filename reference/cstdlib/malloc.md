@@ -74,4 +74,4 @@ p1[3] == 9
 
 ## 参照
 
-- [7.22.3 Memory management functions](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf)
+- [C N2310: 7.22.3 Memory management functions](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf)

@@ -66,4 +66,4 @@ p2[3] == 0
 
 ## 参照
 
-- [7.20.3 Memory management functions](https://www.dii.uchile.cl/~daespino/files/Iso_C_1999_definition.pdf) [PDF]
+- [C99: 7.20.3 Memory management functions](https://www.dii.uchile.cl/~daespino/files/Iso_C_1999_definition.pdf) [PDF]
