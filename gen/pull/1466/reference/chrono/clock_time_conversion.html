@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-09T08:29:52">
+        2025年07月09日 08時29分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,7 +246,7 @@
   <span class="k">template</span> <span class="o">&lt;&gt;</span>
   <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="p">,</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
+    <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><a href="common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
       <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="p">};</span>
 
@@ -254,7 +254,7 @@
   <span class="k">template</span> <span class="o">&lt;&gt;</span>
   <span class="k">struct</span> <span class="n">clock_time_conversion</span><span class="o">&lt;</span><span class="n"><a href="system_clock.html">system_clock</a></span><span class="p">,</span> <span class="n"><a href="utc_clock.html">utc_clock</a></span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-    <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
+    <span class="n"><a href="sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n"><a href="common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
       <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="p">};</span>
 

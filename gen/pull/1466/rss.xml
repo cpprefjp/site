@@ -2,9 +2,353 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-08T16:25:31.801673</updated>
-  <id>a9e03990-9264-42d3-86fa-e83955c00e63</id>
+  <updated>2025-07-09T08:34:23.840929</updated>
+  <id>04461cda-850e-4c70-9e8d-7e1b46e2503c</id>
 
+  
+    <entry>
+      <title>clock_time_conversion -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/clock_time_conversion.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/clock_time_conversion.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/clock_time_conversion.md b/reference/chrono/clock_time_conversion.md
+index f2c9aada1..afd38090f 100644
+--- a/reference/chrono/clock_time_conversion.md
++++ b/reference/chrono/clock_time_conversion.md
+@@ -87,6 +87,7 @@ namespace std::chrono {
+ * sys_time[link sys_time.md]
+ * utc_clock[link utc_clock.md]
+ * utc_time[link utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ * time_point[link time_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator- -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/duration/op_unary_minus.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/duration/op_unary_minus.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/duration/op_unary_minus.md b/reference/chrono/duration/op_unary_minus.md
+index 4bdf26a96..dcc5ff466 100644
+--- a/reference/chrono/duration/op_unary_minus.md
++++ b/reference/chrono/duration/op_unary_minus.md
+@@ -8,6 +8,7 @@
+ ```cpp
+ constexpr common_type_t&amp;lt;duration&amp;gt; operator-() const;
+ ```
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ 負の符号。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator+ -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/duration/op_unary_plus.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/duration/op_unary_plus.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/duration/op_unary_plus.md b/reference/chrono/duration/op_unary_plus.md
+index 710e4205a..989edfe59 100644
+--- a/reference/chrono/duration/op_unary_plus.md
++++ b/reference/chrono/duration/op_unary_plus.md
+@@ -8,6 +8,7 @@
+ ```cpp
+ constexpr common_type_t&amp;lt;duration&amp;gt; operator+() const;
+ ```
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ 正の符号。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>from_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/gps_clock/from_utc.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/gps_clock/from_utc.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/gps_clock/from_utc.md b/reference/chrono/gps_clock/from_utc.md
+index 9580e8f39..472cec279 100644
+--- a/reference/chrono/gps_clock/from_utc.md
++++ b/reference/chrono/gps_clock/from_utc.md
+@@ -12,6 +12,7 @@ static gps_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * gps_time[link /reference/chrono/gps_time.md]
+ * utc_time[link /reference/chrono/utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ UTC時間からGPS時間に変換する。
+@@ -22,6 +23,7 @@ UTC時間からGPS時間に変換する。
+ return gps_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;{t.time_since_epoch()} - 315964809s;
+ ```
+ * gps_time[link /reference/chrono/gps_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ * t.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
+ * 315964809s[link /reference/chrono/duration/op_s.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/gps_clock/to_utc.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/gps_clock/to_utc.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/gps_clock/to_utc.md b/reference/chrono/gps_clock/to_utc.md
+index 34f9ec8a7..1bc92cf47 100644
+--- a/reference/chrono/gps_clock/to_utc.md
++++ b/reference/chrono/gps_clock/to_utc.md
+@@ -12,6 +12,7 @@ static utc_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * gps_time[link /reference/chrono/gps_time.md]
+ * utc_time[link /reference/chrono/utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ GPS時間からUTC時間に変換する。
+@@ -22,6 +23,7 @@ GPS時間からUTC時間に変換する。
+ return utc_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;{t.time_since_epoch()} + 315964809s;
+ ```
+ * utc_time[link /reference/chrono/utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ * t.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
+ * 315964809s[link /reference/chrono/duration/op_s.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>from_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/tai_clock/from_utc.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/tai_clock/from_utc.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/tai_clock/from_utc.md b/reference/chrono/tai_clock/from_utc.md
+index a0409a499..242249395 100644
+--- a/reference/chrono/tai_clock/from_utc.md
++++ b/reference/chrono/tai_clock/from_utc.md
+@@ -12,6 +12,7 @@ static tai_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * tai_time[link /reference/chrono/tai_time.md]
+ * utc_time[link /reference/chrono/utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ UTC時間からTAI時間に変換する。
+@@ -22,6 +23,7 @@ UTC時間からTAI時間に変換する。
+ return tai_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;{t.time_since_epoch()} + 378691210s;
+ ```
+ * tai_time[link /reference/chrono/tai_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ * t.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
+ * 378691210s[link /reference/chrono/duration/op_s.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/tai_clock/to_utc.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/tai_clock/to_utc.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/tai_clock/to_utc.md b/reference/chrono/tai_clock/to_utc.md
+index 55ef1c423..7a9254566 100644
+--- a/reference/chrono/tai_clock/to_utc.md
++++ b/reference/chrono/tai_clock/to_utc.md
+@@ -12,6 +12,7 @@ static utc_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * tai_time[link /reference/chrono/tai_time.md]
+ * utc_time[link /reference/chrono/utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ TAI時間からUTC時間に変換する。
+@@ -22,6 +23,7 @@ TAI時間からUTC時間に変換する。
+ return utc_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;{t.time_since_epoch()} - 378691210s;
+ ```
+ * utc_time[link /reference/chrono/utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ * t.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
+ * 378691210s[link /reference/chrono/duration/op_s.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_local -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/time_zone/to_local.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/time_zone/to_local.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/time_zone/to_local.md b/reference/chrono/time_zone/to_local.md
+index c641d2000..24301c0a2 100644
+--- a/reference/chrono/time_zone/to_local.md
++++ b/reference/chrono/time_zone/to_local.md
+@@ -12,6 +12,7 @@ local_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * sys_time[link /reference/chrono/sys_time.md]
+ * local_time[link /reference/chrono/local_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ システム時間からローカル時間に変換する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_sys -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/time_zone/to_sys.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/time_zone/to_sys.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/time_zone/to_sys.md b/reference/chrono/time_zone/to_sys.md
+index b0cde3de5..f5fa21433 100644
+--- a/reference/chrono/time_zone/to_sys.md
++++ b/reference/chrono/time_zone/to_sys.md
+@@ -16,6 +16,7 @@ sys_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * sys_time[link /reference/chrono/sys_time.md]
+ * local_time[link /reference/chrono/local_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ * choose[link /reference/chrono/choose.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>from_sys -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/utc_clock/from_sys.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/utc_clock/from_sys.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/utc_clock/from_sys.md b/reference/chrono/utc_clock/from_sys.md
+index eb7d6de10..061656620 100644
+--- a/reference/chrono/utc_clock/from_sys.md
++++ b/reference/chrono/utc_clock/from_sys.md
+@@ -12,6 +12,7 @@ static utc_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * utc_time[link /reference/chrono/utc_time.md]
+ * sys_time[link /reference/chrono/sys_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ システム時間からUTC時間に変換する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_sys -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/utc_clock/to_sys.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/utc_clock/to_sys.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/utc_clock/to_sys.md b/reference/chrono/utc_clock/to_sys.md
+index 804eebafe..812678a09 100644
+--- a/reference/chrono/utc_clock/to_sys.md
++++ b/reference/chrono/utc_clock/to_sys.md
+@@ -12,6 +12,7 @@ static sys_time&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;
+ ```
+ * sys_time[link /reference/chrono/sys_time.md]
+ * utc_time[link /reference/chrono/utc_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ UTC時間からシステム時間に変換する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/zoned_time/op_deduction_guide.html"/>
+      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/zoned_time/op_deduction_guide.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/zoned_time/op_deduction_guide.md b/reference/chrono/zoned_time/op_deduction_guide.md
+index 8bebe8240..94bdfbda3 100644
+--- a/reference/chrono/zoned_time/op_deduction_guide.md
++++ b/reference/chrono/zoned_time/op_deduction_guide.md
+@@ -46,6 +46,7 @@ namespace std::chrono {
+ }
+ ```
+ * sys_time[link /reference/chrono/sys_time.md]
++* common_type_t[link /reference/chrono/common_type.md]
+ * local_time[link /reference/chrono/local_time.md]
+ * choose[link /reference/chrono/choose.md]
+ * conditional_t[link /reference/type_traits/conditional.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>gslice -- コード修飾の重複削除スクリプト : valarrayのbegin/endを削除対象外にした</title>
@@ -29728,47 +30072,6 @@ index 1276d700c..700e1a28b 100644
  * v4.size()[link size.md]
  
  ### 出力
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>realloc -- realloc : 備考を整理</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/realloc.html"/>
-      <id>ec127b7079201b4ad45d6d985f3ae793870c301c:reference/cstdlib/realloc.md</id>
-      <updated>2025-07-09T00:11:33+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/realloc.md b/reference/cstdlib/realloc.md
-index a42e20d5c..ac4df8fd2 100644
---- a/reference/cstdlib/realloc.md
-+++ b/reference/cstdlib/realloc.md
-@@ -27,16 +27,18 @@ namespace std {
- - 新しいサイズの領域を確保、割り当てする。その後、新しいサイズと古いサイズのいずれか小さい方のサイズに等しいメモリ領域をコピーし、古いブロックを解放する。
- - メモリが不足している場合、`nullptr`が返される。
- 
--## 備考
--`new_size`が0の場合の動作は定義されていない。
- 
- ## 戻り値
- 再確保できた場合、その領域の先頭のポインタを返す。
- 
--なお、その領域はメモリリークを避けるため、`free`、`realloc`で解放する必要がある。
--
- 失敗した場合、`nullptr`を返す。もとのポインタは有効なままで、解放する必要がある。
- 
-+
-+## 備考
-+- `new_size`が0の場合の動作は未規定。
-+- 確保された領域はメモリリークを避けるため、`free`、`realloc`で解放する必要がある。
-+
-+
- ## 例
- ```cpp example
- #include &amp;lt;cstdlib&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

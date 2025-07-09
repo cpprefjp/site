@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-09T08:29:52">
+        2025年07月09日 08時29分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,14 +226,14 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class tai_clock">tai_clock::</span><span class="token">from_utc</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
-<span class="k">static</span> <span class="n"><a href="../tai_time.html">tai_time</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
+<span class="k">static</span> <span class="n"><a href="../tai_time.html">tai_time</a></span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
   <span class="n">from_utc</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>UTC時間からTAI時間に変換する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="../tai_time.html">tai_time</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span><span class="p">{</span><span class="n"><a href="../time_point/time_since_epoch.html">t.time_since_epoch()</a></span><span class="p">}</span> <span class="o">+</span> <span class="n"><a href="../duration/op_s.html">378691210s</a></span><span class="p">;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n"><a href="../tai_time.html">tai_time</a></span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span><span class="p">{</span><span class="n"><a href="../time_point/time_since_epoch.html">t.time_since_epoch()</a></span><span class="p">}</span> <span class="o">+</span> <span class="n"><a href="../duration/op_s.html">378691210s</a></span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>ここで<code>378691210</code>は、システム時間のエポック1970年1月1日とTAI時間のエポック1958年1月1日との差である秒数に、TAI時間がUTC時間より10秒進んでいるという差を加算した秒数である。</p>

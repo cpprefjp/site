@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-09T08:29:52">
+        2025年07月09日 08時29分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,7 +230,7 @@
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
   <span class="n">zoned_time</span><span class="p">(</span><span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>            <span class="c1">// (2) C++20</span>
+    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>            <span class="c1">// (2) C++20</span>
 
   <span class="c1">// 説明用の型</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">TimeZonePtrOrName</span><span class="o">&gt;</span>
@@ -247,21 +247,21 @@
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">TimeZonePtrOrName</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
   <span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtrOrName</span><span class="o">&amp;&amp;</span><span class="p">,</span>
             <span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="p">)</span>
-    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">,</span>
                   <span class="n">time</span><span class="o">-</span><span class="n">zone</span><span class="o">-</span><span class="n">representation</span><span class="o">&lt;</span><span class="n">TimeZonePtrOrName</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// (4) C++20</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">TimeZonePtrOrName</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
   <span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtrOrName</span><span class="o">&amp;&amp;</span><span class="p">,</span>
              <span class="n"><a href="../local_time.html">local_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="p">,</span>
              <span class="n"><a href="../choose.html">choose</a></span> <span class="o">=</span> <span class="n"><a href="../choose.html">choose</a></span><span class="o">::</span><span class="n">earliest</span><span class="p">)</span>
-    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">,</span>
                   <span class="n">time</span><span class="o">-</span><span class="n">zone</span><span class="o">-</span><span class="n">representation</span><span class="o">&lt;</span><span class="n">TimeZonePtrOrName</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// (5) C++20</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">TimeZonePtrOrName</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
   <span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtrOrName</span><span class="o">&amp;&amp;</span><span class="p">,</span>
              <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="p">,</span>
              <span class="n"><a href="../choose.html">choose</a></span> <span class="o">=</span> <span class="n"><a href="../choose.html">choose</a></span><span class="o">::</span><span class="n">earliest</span><span class="p">)</span>
-    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="o">-&gt;</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">,</span>
                   <span class="n">time</span><span class="o">-</span><span class="n">zone</span><span class="o">-</span><span class="n">representation</span><span class="o">&lt;</span><span class="n">TimeZonePtrOrName</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// (6) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
