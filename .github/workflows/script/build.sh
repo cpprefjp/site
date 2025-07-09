@@ -86,14 +86,6 @@ elif [[ $1 == --pull ]]; then
       git fetch base "$base_git_ref"
     fi
 
-    echo "# PR [\#$pr]($preview_repo_url/pull/$pr) プレビュー"
-    echo "- &#x231a; 更新時刻: $time"
-    echo "- &#x1f50d; [プレビュー (HTML)]($preview_base_url)"
-    echo "- &#x1f4c8; [プレビュー生成記録]($preview_repo_url/actions?query=event%3Apull_request_target+branch%3A$preview_ubranch)"
-    echo "- **&#x2AEF;** ソースの変更: [\`${commit_base::7}..${commit_head::7}\`]($preview_repo_url/compare/$commit_base..$commit_head)"
-    echo
-    echo "## 変更記事一覧"
-    echo
     content=$(
       git diff --name-status --diff-filter=dr "$commit_base" "$commit_head" |
         sed -n '
@@ -111,7 +103,17 @@ elif [[ $1 == --pull ]]; then
           s|^[^[:space:]]* \(.*\)\.md$|- \&#x1f4dd; [`\1`]('"$preview_base_url"'/\1.html)|p
         '
     )
+    nitem=$(wc -l <<< "$content")
     [[ $content ]] || content='- (内容変更された `.md` ファイルはありません)'
+
+    echo "# PR [\#$pr]($preview_repo_url/pull/$pr) プレビュー"
+    echo "- &#x231a; 更新時刻: $time"
+    echo "- &#x1f50d; [プレビュー (HTML)]($preview_base_url)"
+    echo "- &#x1f4c8; [プレビュー生成記録]($preview_repo_url/actions?query=event%3Apull_request_target+branch%3A$preview_ubranch)"
+    echo "- **&#x2AEF;** ソースの変更: [\`${commit_base::7}..${commit_head::7}\`]($preview_repo_url/compare/$commit_base..$commit_head)"
+    echo
+    echo "## 変更記事一覧 (${nitem}件)"
+    echo
     echo "$content"
 
   ) > "$target_directory"/PREVIEW.md

@@ -123,7 +123,7 @@ jobs:
             set -ex
 
             # config
-            threshold_nitem=100  # コメントの変更ファイル一覧内の最大ファイル数
+            threshold_nitem=50  # コメントの変更記事一覧内の最大ファイル数
             threshold_details=20  # <details> を使って折りたたむ閾値
 
             git remote add base '${{ github.event.pull_request.base.repo.clone_url }}'
@@ -148,8 +148,8 @@ jobs:
             [[ $content ]] || content='- (内容変更された `.md` ファイルはありません)'
             nitem=$(wc -l <<< "$content")
             if ((nitem > threshold_nitem)); then
-              content=$nitem'件のファイルが変更されました。一部を表示しています。完全なリストについては[こちら](${{ steps.vars.outputs.base_url }}/PREVIEW.html)をご参照ください。
-            <details><summary>(変更ファイル一覧)</summary>
+              content=$nitem'件の記事が変更されました。一部を表示しています。完全なリストについては[こちら](${{ steps.vars.outputs.base_url }}/PREVIEW.html)をご参照ください。
+            <details><summary>(ファイル一覧)</summary>
 
             '$(head -n "$((threshold_nitem-1))" <<< "$content")'
             - … (以下省略)
@@ -157,15 +157,15 @@ jobs:
             </details>'
 
             elif ((nitem > threshold_details)); then
-              content=$nitem'件のファイルが変更されました。
-            <details><summary>(変更ファイル一覧)</summary>
+              content=$nitem'件の記事が変更されました。
+            <details><summary>(ファイル一覧)</summary>
 
             '$content'
 
             </details>'
 
             else
-              content=$nitem'件のファイルが変更されました。
+              content=$nitem'件の記事が変更されました。
 
             '$content
 
