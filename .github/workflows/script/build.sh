@@ -38,7 +38,7 @@ if (($# == 0)); then
   pushd cpprefjp/cpprefjp.github.io
     # push するために ssh のリモートを追加する
     git remote add origin2 git@github.com:cpprefjp/cpprefjp.github.io.git
-  
+
     git add ./ --all
     git config --global user.email "shigemasa7watanabe+cpprefjp@gmail.com"
     git config --global user.name "cpprefjp-autoupdate"
@@ -47,8 +47,23 @@ if (($# == 0)); then
   popd
 
 elif [[ $1 == --pull ]]; then
-  if [[ ! $2 ]]; then
-    printf '%s\n' "build.sh: プルリクエスト番号が指定されていません" >&2
+  if (($# < 2)); then
+    printf '%s\n' \
+      'build.sh: 引数の数が足りません。' \
+      'usage: build.sh --pull PR' \
+      '引数' \
+      '  PR        プルリクエスト番号' \
+      '' \
+      '環境変数' \
+      '  base_git_url:    プルリクエスト先(基底)の fetch URL' \
+      '  base_git_ref:    プルリクエスト先(基底)のブランチ名参照' \
+      '  commit_base      プルリクエストの基底コミット' \
+      '  commit_head      プルリクエストの先端コミット' \
+      '  preview_base_url プレビューの基底URL' \
+      '  preview_repo_url 基底リポジトリの URL (https://github.com/cpprefjp/site 等)' \
+      '  preview_ubranch  URLエンコードされたブランチ名' \
+      '' \
+      >&2
     exit 2
   fi
 
@@ -57,8 +72,48 @@ elif [[ $1 == --pull ]]; then
   mkdir -p "$target_directory"
   cp -r cpprefjp/cpprefjp.github.io/* "$target_directory"/
 
+  # 変更ファイル一覧のページを作成する
+  (
+    cd cpprefjp/site
+    pr=$2
+    time=$(TZ=Asia/Tokyo date +'%F %T %Z')
+
+    # 基底ブランチに新しいコミットがある場合のため、基底リポジトリから取り寄せる
+    git remote add base "$base_git_url"
+    git fetch base "$base_git_ref"
+
+    echo "# PR [\#$pr]($preview_repo_url/pull/$pr) プレビュー"
+    echo "- &#x231a; 更新時刻: $time"
+    echo "- &#x1f50d; [プレビュー (HTML)]($preview_base_url)"
+    echo "- &#x1f4c8; [プレビュー生成記録]($preview_repo_url/actions?query=event%3Apull_request_target+branch%3A$preview_ubranch)"
+    echo "- **&#x2AEF;** ソースの変更: [\`${commit_base::7}..${commit_head::7}\`]($preview_repo_url/compare/$commit_base..$commit_head)"
+    echo
+    echo "## 変更記事一覧"
+    echo
+    content=$(
+      git diff --name-status --diff-filter=dr "$commit_base" "$commit_head" |
+        sed -n '
+          # normalize the line format
+          s/^[[:space:]]*\([^[:space:]]\{1,\}\)[[:space:]]\{1,\}/\1 /
+
+          # exclude filenames containing special characters that may break Markdown
+          /[][`()]/d
+
+          # exclude README.md
+          /^[^[:space:]]* README\.md$/d
+
+          # generate list items
+          s|^A \(.*\)\.md$|- \&#x1f4dd; [`\1`]('"$preview_base_url"'/\1.html) \&#x2728;|p
+          s|^[^[:space:]]* \(.*\)\.md$|- \&#x1f4dd; [`\1`]('"$preview_base_url"'/\1.html)|p
+        '
+    )
+    [[ $content ]] || content='- (内容変更された `.md` ファイルはありません)'
+    echo "$content"
+
+  ) > "$target_directory"/PREVIEW.md
+
 else
   printf '%s\n' "build.sh: コマンドライン引数が認識できません: $1" >&2
   exit 2
-  
+
 fi

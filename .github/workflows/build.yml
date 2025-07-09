@@ -110,10 +110,40 @@ jobs:
         repository: ${{ github.event.pull_request.base.repo.full_name }}
         ref: gh-pages
         path: site_generator/cpprefjp/gh-pages
+    - name: "(Preview build) Collect GitHub context"
+      id: preview_vars
+      if: startsWith(inputs.arguments, '--pull ')
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const sha0 = context.payload.pull_request.base.sha;
+          const sha = context.payload.pull_request.head.sha;
+          const base_url = (() => {
+            const owner = context.payload.pull_request.base.repo.owner.login;
+            const repo = context.payload.pull_request.base.repo.name;
+            const pull = context.payload.number;
+            return `https://${owner}.github.io/${repo}/gen/pull/${pull}`;
+          })();
+          const repo_full = context.payload.pull_request.base.repo.full_name;
+          const branch = context.payload.pull_request.head.ref;
+
+          core.setOutput('sha0', sha0);
+          core.setOutput('sha', sha);
+          core.setOutput('base_url', base_url);
+          core.setOutput('repo_full', repo_full);
+          core.setOutput('ubranch', encodeURIComponent(branch));
 
     # あとはスクリプトで頑張る
     - name: Run script build.sh
       run: ../.trusted/.github/workflows/script/build.sh ${{ inputs.arguments }}
+      env:
+        base_git_url: ${{ github.event.pull_request.base.repo.clone_url }}
+        base_git_ref: ${{ github.event.pull_request.base.ref }}
+        commit_base: ${{ steps.preview_vars.outputs.sha0 }}
+        commit_head: ${{ steps.preview_vars.outputs.sha }}
+        preview_base_url: ${{ steps.preview_vars.outputs.base_url }}
+        preview_repo_url: https://github.com/${{ steps.preview_vars.outputs.repo_full }}
+        preview_ubranch: ${{ steps.preview_vars.outputs.ubranch }}
       working-directory: site_generator
 
     # Preview 用

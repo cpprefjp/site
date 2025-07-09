@@ -116,10 +116,15 @@ jobs:
             core.setOutput('ubranch', encodeURIComponent(branch));
             core.setOutput('time', time);
 
-      - id: file_list
+      - name: Run script to generate a Markdown list of changed files
+        id: file_list
         shell: bash
         run: |
             set -ex
+
+            # config
+            threshold_nitem=100  # コメントの変更ファイル一覧内の最大ファイル数
+            threshold_details=20  # <details> を使って折りたたむ閾値
 
             git remote add base '${{ github.event.pull_request.base.repo.clone_url }}'
             git fetch base '${{ github.event.pull_request.base.ref }}'
@@ -141,6 +146,30 @@ jobs:
                 '
             )
             [[ $content ]] || content='- (内容変更された `.md` ファイルはありません)'
+            nitem=$(wc -l <<< "$content")
+            if ((nitem > threshold_nitem)); then
+              content=$nitem'件のファイルが変更されました。一部を表示しています。完全なリストについては[こちら](${{ steps.vars.outputs.base_url }}/PREVIEW.html)をご参照ください。
+            <details><summary>(変更ファイル一覧)</summary>
+
+            '$(head -n "$((threshold_nitem-1))" <<< "$content")'
+            - … (以下省略)
+
+            </details>'
+
+            elif ((nitem > threshold_details)); then
+              content=$nitem'件のファイルが変更されました。
+            <details><summary>(変更ファイル一覧)</summary>
+
+            '$content'
+
+            </details>'
+
+            else
+              content=$nitem'件のファイルが変更されました。
+
+            '$content
+
+            fi
             echo 'content<<EOF' >> "$GITHUB_OUTPUT"
             echo "$content" >> "$GITHUB_OUTPUT"
             echo 'EOF' >> "$GITHUB_OUTPUT"
