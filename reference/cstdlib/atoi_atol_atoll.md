@@ -74,4 +74,4 @@ int main(void)
 - [C N2310: 7.22.1.2 The atoi, atol, and atoll functions (p: 249)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf)
 - [C N1548: 7.22.1.2 The atoi, atol, and atoll functions (p: 341)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf)
 - C99: 7.20.1.2 The atoi, atol, and atoll functions (p: 307)
-- C99: 4.10.1.2 The atoi function
+- C90: 4.10.1.2 The atoi function
