@@ -143,35 +143,39 @@ jobs:
                   # generate list items
                   s|^A \(.*\)\.md$|- :memo: [`\1`](${{ steps.vars.outputs.base_url }}/\1.html) :sparkles:|p
                   s|^[^[:space:]]* \(.*\)\.md$|- :memo: [`\1`](${{ steps.vars.outputs.base_url }}/\1.html)|p
-                ' | head -n "$((threshold_nitem + 1))"
+                ' | awk 'NR <= '"$threshold_nitem"' {print} END {print "nitem=" NR}'
             )
-            [[ $content ]] || content='- (内容変更された `.md` ファイルはありません)'
-            nitem=$(wc -l <<< "$content")
+            nitem=$(sed -n 's/^nitem=//p' <<< "$content")
+            content=$(grep -v '^nitem=' <<< "$content" || echo '- (内容変更された `.md` ファイルはありません)')
             if ((nitem > threshold_nitem)); then
-              content=$nitem'件の記事が変更されました。一部を表示しています。完全なリストについては[こちら](${{ steps.vars.outputs.base_url }}/PREVIEW.html)をご参照ください。
+              content_prologue=$nitem'件の記事が変更されました。一部を表示しています。完全なリストについては[こちら](${{ steps.vars.outputs.base_url }}/PREVIEW.html)をご参照ください。
             <details><summary>(ファイル一覧)</summary>
 
-            '$(head -n "$((threshold_nitem-1))" <<< "$content")'
+            '
+              content_epilogue='
             - … (以下省略)
 
             </details>'
 
             elif ((nitem > threshold_details)); then
-              content=$nitem'件の記事が変更されました。
+              content_prologue=$nitem'件の記事が変更されました。
             <details><summary>(ファイル一覧)</summary>
 
-            '$content'
+            '
+              content_epilogue='
 
             </details>'
 
             else
               content=$nitem'件の記事が変更されました。
 
-            '$content
+            '
+              content_prologue=
+              content_epilogue=
 
             fi
             echo 'content<<EOF' >> "$GITHUB_OUTPUT"
-            echo "$content" >> "$GITHUB_OUTPUT"
+            echo "$content_prologue$content$content_epilogue" >> "$GITHUB_OUTPUT"
             echo 'EOF' >> "$GITHUB_OUTPUT"
       - uses: thollander/actions-comment-pull-request@v3
         with:
