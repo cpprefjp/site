@@ -29,6 +29,8 @@ NOT_TARGET = [
     "* std::end[link valarray/end_free.md]",
     "* std::begin[link /reference/valarray/valarray/begin_free.md]",
     "* std::end[link /reference/valarray/valarray/end_free.md]",
+    "* std::begin[link /reference/initializer_list/initializer_list/begin_free.md]",
+    "* std::end[link /reference/initializer_list/initializer_list/end_free.md]",
     "* common_type_t[link /reference/chrono/common_type.md]",
 ]
 
