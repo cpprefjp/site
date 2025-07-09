@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;system_error&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5995229c6d937711fc33b31c3136a31d852e0ace&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;system_error&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::error_condition ec = std::make_error_condition(std::errc::invalid_argument);\n\n  std::cout &lt;&lt; \&#34;category : \&#34; &lt;&lt; ec.category().name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;value : \&#34; &lt;&lt; ec.value() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;message : \&#34; &lt;&lt; ec.message() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;system_error&#34;, &#34;make_error_condition&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;system_error&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ea577079ac3e7d96a2ba364448f5e9ca8f072c8c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;system_error&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::error_condition econd = std::make_error_condition(std::errc::invalid_argument);\n\n  std::cout &lt;&lt; \&#34;category : \&#34; &lt;&lt; econd.category().name() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;value : \&#34; &lt;&lt; econd.value() &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;message : \&#34; &lt;&lt; econd.message() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;system_error&#34;, &#34;make_error_condition&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-09T08:42:08">
+        2025年07月09日 08時42分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,17 +225,17 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>
-<p><div class="yata" id="5995229c6d937711fc33b31c3136a31d852e0ace"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="ea577079ac3e7d96a2ba364448f5e9ca8f072c8c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="error_code.html">std::error_condition</a></span> <span class="n">ec</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::make_error_condition</span></span><span class="p">(</span><span class="n"><a href="errc.html">std::errc::invalid_argument</a></span><span class="p">);</span>
+  <span class="n"><a href="error_code.html">std::error_condition</a></span> <span class="n">econd</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::make_error_condition</span></span><span class="p">(</span><span class="n"><a href="errc.html">std::errc::invalid_argument</a></span><span class="p">);</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"category : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="error_condition/category.html">ec.category()</a></span><span class="p">.</span><span class="n"><a href="error_category/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"value : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="error_condition/value.html">ec.value()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"message : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="error_code/message.html">ec.message()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"category : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="error_condition/category.html">econd.category()</a></span><span class="p">.</span><span class="n"><a href="error_category/name.html">name()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"value : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="error_condition/value.html">econd.value()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"message : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="error_condition/message.html">econd.message()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

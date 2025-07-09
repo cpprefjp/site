@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;system_error&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a36a1be15e93c429b4151846edabbaa1508f85a2&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;system_error&gt;\n\nint main()\n{\n  std::error_condition ec1 = std::make_error_condition(std::errc::invalid_argument);\n  std::error_condition ec2 = std::make_error_condition(std::errc::invalid_argument);\n  std::error_condition ec3 = std::make_error_condition(std::errc::permission_denied);\n\n  assert((ec1 &lt;=&gt; ec2) == 0);\n  assert((ec1 &lt;=&gt; ec3) != 0);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;system_error&#34;, &#34;error_condition&#34;, &#34;op_compare_3way&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;system_error&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d96d485e3daf712ed25fadee7b821e988ab4b0ac&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;system_error&gt;\n\nint main()\n{\n  std::error_condition econd1 = std::make_error_condition(std::errc::invalid_argument);\n  std::error_condition econd2 = std::make_error_condition(std::errc::invalid_argument);\n  std::error_condition econd3 = std::make_error_condition(std::errc::permission_denied);\n\n  assert((econd1 &lt;=&gt; econd2) == 0);\n  assert((econd1 &lt;=&gt; econd3) != 0);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;system_error&#34;, &#34;error_condition&#34;, &#34;op_compare_3way&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-07-09T08:42:08">
+        2025年07月09日 08時42分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -254,17 +254,17 @@
 </li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="a36a1be15e93c429b4151846edabbaa1508f85a2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d96d485e3daf712ed25fadee7b821e988ab4b0ac"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">error_condition</span> <span class="n">ec1</span> <span class="o">=</span> <span class="n"><a href="../make_error_condition.html">std::make_error_condition</a></span><span class="p">(</span><span class="n"><a href="../errc.html">std::errc::invalid_argument</a></span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">error_condition</span> <span class="n">ec2</span> <span class="o">=</span> <span class="n"><a href="../make_error_condition.html">std::make_error_condition</a></span><span class="p">(</span><span class="n"><a href="../errc.html">std::errc::invalid_argument</a></span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">error_condition</span> <span class="n">ec3</span> <span class="o">=</span> <span class="n"><a href="../make_error_condition.html">std::make_error_condition</a></span><span class="p">(</span><span class="n"><a href="../errc.html">std::errc::permission_denied</a></span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">error_condition</span> <span class="n">econd1</span> <span class="o">=</span> <span class="n"><a href="../make_error_condition.html">std::make_error_condition</a></span><span class="p">(</span><span class="n"><a href="../errc.html">std::errc::invalid_argument</a></span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">error_condition</span> <span class="n">econd2</span> <span class="o">=</span> <span class="n"><a href="../make_error_condition.html">std::make_error_condition</a></span><span class="p">(</span><span class="n"><a href="../errc.html">std::errc::invalid_argument</a></span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">error_condition</span> <span class="n">econd3</span> <span class="o">=</span> <span class="n"><a href="../make_error_condition.html">std::make_error_condition</a></span><span class="p">(</span><span class="n"><a href="../errc.html">std::errc::permission_denied</a></span><span class="p">);</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">((</span><span class="n">ec1</span> <span class="o">&lt;=&gt;</span> <span class="n">ec2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">((</span><span class="n">ec1</span> <span class="o">&lt;=&gt;</span> <span class="n">ec3</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">((</span><span class="n">econd1</span> <span class="o">&lt;=&gt;</span> <span class="n">econd2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">((</span><span class="n">econd1</span> <span class="o">&lt;=&gt;</span> <span class="n">econd3</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

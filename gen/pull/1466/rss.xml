@@ -2,9 +2,517 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-09T08:39:07.171153</updated>
-  <id>000d6acf-2309-4b69-8a1f-30a119688658</id>
+  <updated>2025-07-09T08:46:44.906987</updated>
+  <id>7e29688d-23f9-4cbd-a2c9-834218cc7bba</id>
 
+  
+    <entry>
+      <title>make_error_condition -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/future/make_error_condition.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/future/make_error_condition.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/future/make_error_condition.md b/reference/future/make_error_condition.md
+index 1236d616b..dc902870c 100644
+--- a/reference/future/make_error_condition.md
++++ b/reference/future/make_error_condition.md
+@@ -32,19 +32,20 @@ namespace std {
+ 
+ int main()
+ {
+-  std::error_condition ec = std::make_error_condition(std::future_errc::broken_promise);
++  std::error_condition econd = std::make_error_condition(std::future_errc::broken_promise);
+ 
+-  std::cout &amp;lt;&amp;lt; &amp;#34;category : &amp;#34; &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34;value : &amp;#34; &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34;message : &amp;#34; &amp;lt;&amp;lt; ec.message() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;category : &amp;#34; &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;value : &amp;#34; &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;message : &amp;#34; &amp;lt;&amp;lt; econd.message() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * std::make_error_condition[color ff0000]
+ * std::error_condition[link /reference/system_error/error_condition.md]
+ * std::future_errc::broken_promise[link future_errc.md]
+-* ec.category()[link /reference/system_error/error_condition/category.md]
++* econd.category()[link /reference/system_error/error_condition/category.md]
+ * name()[link /reference/system_error/error_category/name.md]
+-* ec.value()[link /reference/system_error/error_condition/value.md]
++* econd.value()[link /reference/system_error/error_condition/value.md]
++* econd.message()[link /reference/system_error/error_condition/message.md]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_error_condition -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/ios/make_error_condition.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/ios/make_error_condition.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/make_error_condition.md b/reference/ios/make_error_condition.md
+index 555e917ad..52cd91dd2 100644
+--- a/reference/ios/make_error_condition.md
++++ b/reference/ios/make_error_condition.md
+@@ -31,19 +31,19 @@ namespace std {
+ 
+ int main()
+ {
+-  std::error_condition ec = std::make_error_condition(std::io_errc::stream);
++  std::error_condition econd = std::make_error_condition(std::io_errc::stream);
+ 
+-  std::cout &amp;lt;&amp;lt; &amp;#34;category : &amp;#34; &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34;value : &amp;#34; &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34;message : &amp;#34; &amp;lt;&amp;lt; ec.message() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;category : &amp;#34; &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;value : &amp;#34; &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;message : &amp;#34; &amp;lt;&amp;lt; econd.message() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * std::make_error_condition[color ff0000]
+ * std::io_errc::stream[link io_errc.md]
+ * std::error_condition[link /reference/system_error/error_condition.md]
+-* ec.category()[link /reference/system_error/error_code/category.md]
++* econd.category()[link /reference/system_error/error_code/category.md]
+ * name()[link /reference/system_error/error_category/name.md]
+-* ec.value()[link /reference/system_error/error_condition/value.md]
++* econd.value()[link /reference/system_error/error_condition/value.md]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>assign -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/assign.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/assign.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/assign.md b/reference/system_error/error_condition/assign.md
+index e1a42c7ec..1a01881dd 100644
+--- a/reference/system_error/error_condition/assign.md
++++ b/reference/system_error/error_condition/assign.md
+@@ -33,26 +33,26 @@ void assign(int val, const error_category&amp;amp; cat) noexcept;
+ 
+ int main()
+ {
+-  std::error_condition ec;
++  std::error_condition econd;
+ 
+-  ec.assign(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument), std::generic_category());
++  econd.assign(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument), std::generic_category());
+ 
+-  if (ec) {
++  if (econd) {
+     std::cout &amp;lt;&amp;lt; &amp;#34;error&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+   else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;success&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+ 
+-  std::cout &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * assign[color ff0000]
+ * std::errc::invalid_argument[link /reference/system_error/errc.md]
+ * std::generic_category()[link /reference/system_error/generic_category.md]
+-* ec.value()[link value.md]
+-* ec.category()[link category.md]
++* econd.value()[link value.md]
++* econd.category()[link category.md]
+ * name()[link /reference/system_error/error_category/name.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>category -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/category.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/category.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/category.md b/reference/system_error/error_condition/category.md
+index 4c590dd39..b0dfbd23f 100644
+--- a/reference/system_error/error_condition/category.md
++++ b/reference/system_error/error_condition/category.md
+@@ -29,10 +29,10 @@ const error_category&amp;amp; category() const noexcept;
+ 
+ int main()
+ {
+-  std::error_condition ec(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
+-                          std::generic_category());
++  std::error_condition econd(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
++                             std::generic_category());
+ 
+-  const std::error_category&amp;amp; cat = ec.category();
++  const std::error_category&amp;amp; cat = econd.category();
+   std::cout &amp;lt;&amp;lt; cat.name() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/clear.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/clear.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/clear.md b/reference/system_error/error_condition/clear.md
+index 28ba0a87a..2cef69418 100644
+--- a/reference/system_error/error_condition/clear.md
++++ b/reference/system_error/error_condition/clear.md
+@@ -32,27 +32,27 @@ void clear() noexcept;
+ 
+ int main()
+ {
+-  std::error_condition ec(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
+-                          std::generic_category());
++  std::error_condition econd(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
++                             std::generic_category());
+ 
+-  ec.clear();
++  econd.clear();
+ 
+-  if (ec) {
++  if (econd) {
+     std::cout &amp;lt;&amp;lt; &amp;#34;error&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+   else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;success&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+ 
+-  std::cout &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * clear()[color ff0000]
+ * std::errc::invalid_argument[link /reference/system_error/errc.md]
+ * std::generic_category()[link /reference/system_error/generic_category.md]
+-* ec.value()[link value.md]
+-* ec.category()[link category.md]
++* econd.value()[link value.md]
++* econd.category()[link category.md]
+ * name()[link /reference/system_error/error_category/name.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>message -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/message.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/message.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/message.md b/reference/system_error/error_condition/message.md
+index 7400fabb7..c9879b34d 100644
+--- a/reference/system_error/error_condition/message.md
++++ b/reference/system_error/error_condition/message.md
+@@ -31,8 +31,8 @@ category().message(value())
+ 
+ int main()
+ {
+-  std::error_condition ec(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
+-                          std::generic_category());
++  std::error_condition econd(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
++                             std::generic_category());
+ 
+   std::cout &amp;lt;&amp;lt; ec.message() &amp;lt;&amp;lt; std::endl;
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/op_assign.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/op_assign.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/op_assign.md b/reference/system_error/error_condition/op_assign.md
+index a435cc522..f87ea0805 100644
+--- a/reference/system_error/error_condition/op_assign.md
++++ b/reference/system_error/error_condition/op_assign.md
+@@ -42,24 +42,24 @@ error_condition&amp;amp; operator=(ErrorConditionEnum e) noexcept;
+ 
+ int main()
+ {
+-  std::error_condition ec;
++  std::error_condition econd;
+ 
+-  ec = std::errc::invalid_argument;
++  econd = std::errc::invalid_argument;
+ 
+-  if (ec) {
++  if (econd) {
+     std::cout &amp;lt;&amp;lt; &amp;#34;error&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+   else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;success&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+ 
+-  std::cout &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * std::errc::invalid_argument[link /reference/system_error/errc.md]
+-* ec.value()[link value.md]
+-* ec.category()[link category.md]
++* econd.value()[link value.md]
++* econd.category()[link category.md]
+ * name()[link /reference/system_error/error_category/name.md]
+ 
+ ### 出力
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/op_compare_3way.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/op_compare_3way.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/op_compare_3way.md b/reference/system_error/error_condition/op_compare_3way.md
+index da9ced458..4d4c62b30 100644
+--- a/reference/system_error/error_condition/op_compare_3way.md
++++ b/reference/system_error/error_condition/op_compare_3way.md
+@@ -47,12 +47,12 @@ return lhs.value() &amp;lt;=&amp;gt; rhs.value();
+ 
+ int main()
+ {
+-  std::error_condition ec1 = std::make_error_condition(std::errc::invalid_argument);
+-  std::error_condition ec2 = std::make_error_condition(std::errc::invalid_argument);
+-  std::error_condition ec3 = std::make_error_condition(std::errc::permission_denied);
++  std::error_condition econd1 = std::make_error_condition(std::errc::invalid_argument);
++  std::error_condition econd2 = std::make_error_condition(std::errc::invalid_argument);
++  std::error_condition econd3 = std::make_error_condition(std::errc::permission_denied);
+ 
+-  assert((ec1 &amp;lt;=&amp;gt; ec2) == 0);
+-  assert((ec1 &amp;lt;=&amp;gt; ec3) != 0);
++  assert((econd1 &amp;lt;=&amp;gt; econd2) == 0);
++  assert((econd1 &amp;lt;=&amp;gt; econd3) != 0);
+ }
+ ```
+ * std::make_error_condition[link /reference/system_error/make_error_condition.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/op_constructor.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/op_constructor.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/op_constructor.md b/reference/system_error/error_condition/op_constructor.md
+index 063a823dc..5c22ee653 100644
+--- a/reference/system_error/error_condition/op_constructor.md
++++ b/reference/system_error/error_condition/op_constructor.md
+@@ -44,55 +44,55 @@ int main()
+   // デフォルトコンストラクタ
+   std::cout &amp;lt;&amp;lt; &amp;#34;default ctor&amp;#34; &amp;lt;&amp;lt; std::endl;
+   {
+-    std::error_condition ec;
++    std::error_condition econd;
+ 
+-    if (ec) {
++    if (econd) {
+       std::cout &amp;lt;&amp;lt; &amp;#34;error&amp;#34; &amp;lt;&amp;lt; std::endl;
+     }
+     else {
+       std::cout &amp;lt;&amp;lt; &amp;#34;success&amp;#34; &amp;lt;&amp;lt; std::endl;
+     }
+ 
+-    std::cout &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-    std::cout &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
+   }
+ 
+   // エラー値とエラーカテゴリを受け取って構築
+   std::cout &amp;lt;&amp;lt; std::endl &amp;lt;&amp;lt; &amp;#34;value &amp;amp; category ctor&amp;#34; &amp;lt;&amp;lt; std::endl;
+   {
+-    std::error_condition ec(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
+-                            std::generic_category());
++    std::error_condition econd(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
++                               std::generic_category());
+ 
+-    if (ec) {
++    if (econd) {
+       std::cout &amp;lt;&amp;lt; &amp;#34;error&amp;#34; &amp;lt;&amp;lt; std::endl;
+     }
+     else {
+       std::cout &amp;lt;&amp;lt; &amp;#34;success&amp;#34; &amp;lt;&amp;lt; std::endl;
+     }
+ 
+-    std::cout &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-    std::cout &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
+   }
+ 
+   // is_error_condition_enumが特殊化された型のエラー値を受け取って構築
+   std::cout &amp;lt;&amp;lt; std::endl &amp;lt;&amp;lt; &amp;#34;ErrorConditionEnum ctor&amp;#34; &amp;lt;&amp;lt; std::endl;
+   {
+-    std::error_condition ec(std::errc::invalid_argument);
++    std::error_condition econd(std::errc::invalid_argument);
+ 
+-    if (ec) {
++    if (econd) {
+       std::cout &amp;lt;&amp;lt; &amp;#34;error&amp;#34; &amp;lt;&amp;lt; std::endl;
+     }
+     else {
+       std::cout &amp;lt;&amp;lt; &amp;#34;success&amp;#34; &amp;lt;&amp;lt; std::endl;
+     }
+ 
+-    std::cout &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-    std::cout &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
+   }
+ }
+ ```
+-* ec.value()[link value.md]
+-* ec.category()[link category.md]
++* econd.value()[link value.md]
++* econd.category()[link category.md]
+ * name()[link /reference/system_error/error_category/name.md]
+ * std::errc::invalid_argument[link /reference/system_error/errc.md]
+ * std::generic_category()[link /reference/system_error/generic_category.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/error_condition/value.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/error_condition/value.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/error_condition/value.md b/reference/system_error/error_condition/value.md
+index dd87ec46e..6dc6af243 100644
+--- a/reference/system_error/error_condition/value.md
++++ b/reference/system_error/error_condition/value.md
+@@ -28,10 +28,10 @@ int value() const noexcept;
+ 
+ int main()
+ {
+-  std::error_condition ec(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
+-                          std::generic_category());
++  std::error_condition econd(static_cast&amp;lt;int&amp;gt;(std::errc::invalid_argument),
++                             std::generic_category());
+ 
+-  std::cout &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * value()[color ff0000]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_error_condition -- コード修飾の衝突回避のためerror_condition型の変数名をec → econdに変更</title>
+      <link href="https://cpprefjp.github.io/reference/system_error/make_error_condition.html"/>
+      <id>e8c9b487ea03fc7a8804f062c0364dfaa5167992:reference/system_error/make_error_condition.md</id>
+      <updated>2025-07-09T17:42:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/system_error/make_error_condition.md b/reference/system_error/make_error_condition.md
+index be522f67e..722186b8f 100644
+--- a/reference/system_error/make_error_condition.md
++++ b/reference/system_error/make_error_condition.md
+@@ -32,19 +32,20 @@ namespace std {
+ 
+ int main()
+ {
+-  std::error_condition ec = std::make_error_condition(std::errc::invalid_argument);
++  std::error_condition econd = std::make_error_condition(std::errc::invalid_argument);
+ 
+-  std::cout &amp;lt;&amp;lt; &amp;#34;category : &amp;#34; &amp;lt;&amp;lt; ec.category().name() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34;value : &amp;#34; &amp;lt;&amp;lt; ec.value() &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34;message : &amp;#34; &amp;lt;&amp;lt; ec.message() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;category : &amp;#34; &amp;lt;&amp;lt; econd.category().name() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;value : &amp;#34; &amp;lt;&amp;lt; econd.value() &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;message : &amp;#34; &amp;lt;&amp;lt; econd.message() &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * std::make_error_condition[color ff0000]
+ * std::error_condition[link error_code.md]
+ * std::errc::invalid_argument[link errc.md]
+-* ec.category()[link error_condition/category.md]
++* econd.category()[link error_condition/category.md]
+ * name()[link error_category/name.md]
+-* ec.value()[link error_condition/value.md]
++* econd.value()[link error_condition/value.md]
++* econd.message()[link error_condition/message.md]
+ 
+ ### 出力
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>clock_time_conversion -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>

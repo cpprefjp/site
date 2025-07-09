@@ -16572,7 +16572,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/make_error_condition.html</loc>
-      <lastmod>2025-07-09T00:33:39+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -16656,35 +16656,35 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/op_constructor.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/clear.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/category.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/message.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/op_assign.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -16705,21 +16705,21 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/value.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/assign.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/system_error/error_condition/op_compare_3way.html</loc>
-      <lastmod>2025-07-07T17:11:12+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -33799,7 +33799,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/future/make_error_condition.html</loc>
-      <lastmod>2025-07-09T00:33:39+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -37684,7 +37684,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ios/make_error_condition.html</loc>
-      <lastmod>2025-07-09T00:33:39+09:00</lastmod>
+      <lastmod>2025-07-09T17:42:08+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
