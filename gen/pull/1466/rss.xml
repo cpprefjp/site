@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-09T08:34:23.840929</updated>
-  <id>04461cda-850e-4c70-9e8d-7e1b46e2503c</id>
+  <updated>2025-07-09T08:39:07.171153</updated>
+  <id>000d6acf-2309-4b69-8a1f-30a119688658</id>
 
   
     <entry>
       <title>clock_time_conversion -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/clock_time_conversion.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/clock_time_conversion.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/clock_time_conversion.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/clock_time_conversion.md b/reference/chrono/clock_time_conversion.md
@@ -33,9 +33,35 @@ index f2c9aada1..afd38090f 100644
     </entry>
   
     <entry>
+      <title>operator&lt;=&gt; -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/duration/op_compare_3way.html"/>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/duration/op_compare_3way.md</id>
+      <updated>2025-07-09T17:29:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/duration/op_compare_3way.md b/reference/chrono/duration/op_compare_3way.md
+index 831791ac5..8695ca874 100644
+--- a/reference/chrono/duration/op_compare_3way.md
++++ b/reference/chrono/duration/op_compare_3way.md
+@@ -18,6 +18,7 @@ namespace std::chrono {
+                 const duration&amp;lt;Rep2, Period2&amp;gt;&amp;amp; rhs);  // (1) C++20
+ }
+ ```
++* common_type_t[link /reference/chrono/common_type.md]
+ 
+ ## 概要
+ 三方比較を行う
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
       <title>operator- -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/duration/op_unary_minus.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/duration/op_unary_minus.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/duration/op_unary_minus.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/duration/op_unary_minus.md b/reference/chrono/duration/op_unary_minus.md
@@ -61,7 +87,7 @@ index 4bdf26a96..dcc5ff466 100644
     <entry>
       <title>operator+ -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/duration/op_unary_plus.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/duration/op_unary_plus.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/duration/op_unary_plus.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/duration/op_unary_plus.md b/reference/chrono/duration/op_unary_plus.md
@@ -87,7 +113,7 @@ index 710e4205a..989edfe59 100644
     <entry>
       <title>from_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/gps_clock/from_utc.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/gps_clock/from_utc.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/gps_clock/from_utc.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/gps_clock/from_utc.md b/reference/chrono/gps_clock/from_utc.md
@@ -121,7 +147,7 @@ index 9580e8f39..472cec279 100644
     <entry>
       <title>to_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/gps_clock/to_utc.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/gps_clock/to_utc.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/gps_clock/to_utc.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/gps_clock/to_utc.md b/reference/chrono/gps_clock/to_utc.md
@@ -155,7 +181,7 @@ index 34f9ec8a7..1bc92cf47 100644
     <entry>
       <title>from_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/tai_clock/from_utc.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/tai_clock/from_utc.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/tai_clock/from_utc.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/tai_clock/from_utc.md b/reference/chrono/tai_clock/from_utc.md
@@ -189,7 +215,7 @@ index a0409a499..242249395 100644
     <entry>
       <title>to_utc -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/tai_clock/to_utc.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/tai_clock/to_utc.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/tai_clock/to_utc.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/tai_clock/to_utc.md b/reference/chrono/tai_clock/to_utc.md
@@ -223,7 +249,7 @@ index 55ef1c423..7a9254566 100644
     <entry>
       <title>to_local -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/time_zone/to_local.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/time_zone/to_local.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/time_zone/to_local.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/time_zone/to_local.md b/reference/chrono/time_zone/to_local.md
@@ -249,7 +275,7 @@ index c641d2000..24301c0a2 100644
     <entry>
       <title>to_sys -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/time_zone/to_sys.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/time_zone/to_sys.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/time_zone/to_sys.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/time_zone/to_sys.md b/reference/chrono/time_zone/to_sys.md
@@ -275,7 +301,7 @@ index b0cde3de5..f5fa21433 100644
     <entry>
       <title>from_sys -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/utc_clock/from_sys.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/utc_clock/from_sys.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/utc_clock/from_sys.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/utc_clock/from_sys.md b/reference/chrono/utc_clock/from_sys.md
@@ -301,7 +327,7 @@ index eb7d6de10..061656620 100644
     <entry>
       <title>to_sys -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/utc_clock/to_sys.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/utc_clock/to_sys.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/utc_clock/to_sys.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/utc_clock/to_sys.md b/reference/chrono/utc_clock/to_sys.md
@@ -327,7 +353,7 @@ index 804eebafe..812678a09 100644
     <entry>
       <title>推論補助 -- コード修飾の重複削除スクリプト : chrono/common_type.mdを削除対象外にした</title>
       <link href="https://cpprefjp.github.io/reference/chrono/zoned_time/op_deduction_guide.html"/>
-      <id>0e172095237818b8c18e00ab9b824bf8f90cbb1c:reference/chrono/zoned_time/op_deduction_guide.md</id>
+      <id>f7a9b45a3cf2b23effbeffc93439f2056524eb1f:reference/chrono/zoned_time/op_deduction_guide.md</id>
       <updated>2025-07-09T17:29:52+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/zoned_time/op_deduction_guide.md b/reference/chrono/zoned_time/op_deduction_guide.md
