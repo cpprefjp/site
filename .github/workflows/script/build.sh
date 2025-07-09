@@ -79,8 +79,12 @@ elif [[ $1 == --pull ]]; then
     time=$(TZ=Asia/Tokyo date +'%F %T %Z')
 
     # 基底ブランチに新しいコミットがある場合のため、基底リポジトリから取り寄せる
-    git remote add base "$base_git_url"
-    git fetch base "$base_git_ref"
+    if [[ $base_git_url && $base_git_ref ]]; then
+      # 手動でトリガーした時は github.event.pull_request.base が空のことがある?
+      # なので非空の時にのみ実行
+      git remote add base "$base_git_url"
+      git fetch base "$base_git_ref"
+    fi
 
     echo "# PR [\#$pr]($preview_repo_url/pull/$pr) プレビュー"
     echo "- &#x231a; 更新時刻: $time"
