@@ -62,7 +62,7 @@
 | [`ftell`](/reference/cstdio/ftell.md.nolink)    | ファイルの現在位置を取得する | |
 | [`rewind`](/reference/cstdio/rewind.md.nolink)   | ファイルの現在位置を先頭に戻し、エラーや終端判定をクリアする | |
 | [`clearerr`](/reference/cstdio/clearerr.md.nolink) | エラーをクリアする | |
-| [`feof`](/reference/cstdio/feof.md.nolink)     | ファイルが終端に到達したか判定する | |
+| [`feof`](/reference/cstdio/feof.md)     | ファイルが終端に到達したか判定する | |
 | [`ferror`](/reference/cstdio/ferror.md.nolink)   | ファイルストリームがエラー状態かを判定する | |
 | [`perror`](/reference/cstdio/perror.md.nolink)   | システムエラーメッセージを出力する | |
 
