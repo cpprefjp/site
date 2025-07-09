@@ -12,6 +12,7 @@ static sys_time<common_type_t<Duration, seconds>>
 ```
 * sys_time[link /reference/chrono/sys_time.md]
 * utc_time[link /reference/chrono/utc_time.md]
+* common_type_t[link /reference/chrono/common_type.md]
 
 ## 概要
 UTC時間からシステム時間に変換する。

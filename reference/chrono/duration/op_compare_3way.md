@@ -18,6 +18,7 @@ namespace std::chrono {
                 const duration<Rep2, Period2>& rhs);  // (1) C++20
 }
 ```
+* common_type_t[link /reference/chrono/common_type.md]
 
 ## 概要
 三方比較を行う

@@ -28,7 +28,8 @@ NOT_TARGET = [
     "* std::begin[link valarray/begin_free.md]",
     "* std::end[link valarray/end_free.md]",
     "* std::begin[link /reference/valarray/valarray/begin_free.md]",
-    "* std::end[link /reference/valarray/valarray/end_free.md]"
+    "* std::end[link /reference/valarray/valarray/end_free.md]",
+    "* common_type_t[link /reference/chrono/common_type.md]",
 ]
 
 def is_not_target_line(line):
